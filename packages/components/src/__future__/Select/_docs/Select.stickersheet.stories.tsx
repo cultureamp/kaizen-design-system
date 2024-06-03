@@ -35,7 +35,6 @@ const StickerSheetTemplate: StickerSheetStory = {
               <Select
                 label="Label"
                 items={singleMockItems}
-                placeholder="Placeholder"
                 isReversed={isReversed}
               />
             </StickerSheet.Cell>
@@ -69,28 +68,24 @@ const StickerSheetTemplate: StickerSheetStory = {
             <Select
               label="Label"
               items={singleMockItems}
-              placeholder="Placeholder"
               isReversed={isReversed}
               data-sb-pseudo-styles="hover"
             />
             <Select
               label="Label"
               items={singleMockItems}
-              placeholder="Placeholder"
               isReversed={isReversed}
               data-sb-pseudo-styles="active"
             />
             <Select
               label="Label"
               items={singleMockItems}
-              placeholder="Placeholder"
               isReversed={isReversed}
               data-sb-pseudo-styles="focus"
             />
             <Select
               label="Label"
               items={singleMockItems}
-              placeholder="Placeholder"
               isDisabled
               isReversed={isReversed}
             />
@@ -104,7 +99,6 @@ const StickerSheetTemplate: StickerSheetStory = {
             <Select
               label="Full width"
               items={singleMockItems}
-              placeholder="Placeholder"
               isFullWidth
               isReversed={isReversed}
             />
@@ -115,7 +109,6 @@ const StickerSheetTemplate: StickerSheetStory = {
                 label="Custom Width (50%)"
                 items={singleMockItems}
                 isFullWidth
-                placeholder="Placeholder"
                 isReversed={isReversed}
               />
             </div>
@@ -129,7 +122,6 @@ const StickerSheetTemplate: StickerSheetStory = {
             <Select
               label="Error"
               items={singleMockItems}
-              placeholder="Placeholder"
               description="This is a description"
               status="error"
               validationMessage="This is an error"
@@ -138,7 +130,6 @@ const StickerSheetTemplate: StickerSheetStory = {
             <Select
               label="Caution"
               items={singleMockItems}
-              placeholder="Placeholder"
               description="This is a description"
               status="caution"
               validationMessage="This is an error"

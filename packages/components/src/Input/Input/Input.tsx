@@ -14,6 +14,11 @@ export type InputProps = {
   endIconAdornment?: React.ReactNode
   reversed?: boolean
   type?: InputType
+  /**
+   * @deprecated Use of placeholder text goes against our a11y standards.
+   * Use the `labelText` prop to provide a concise name, and the `description` prop for any help text.
+   */
+  placeholder?: string
 } & OverrideClassName<InputHTMLAttributes<HTMLInputElement>>
 
 export const Input = ({
