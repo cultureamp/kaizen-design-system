@@ -47,6 +47,8 @@ export const styles: RuleSetRule = {
         sourceMap: true,
         modules: {
           localIdentName: "[folder]-[name]__[local]--[hash:base64:5]",
+          namedExport: false,
+          exportLocalsConvention: "as-is",
         },
       },
     },
