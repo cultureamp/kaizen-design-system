@@ -33,7 +33,7 @@ describe("<DatePicker />", () => {
 
   it("should have an empty input value when a date is not provided", () => {
     render(<DatePickerWrapper />)
-    const input = screen.getByLabelText("Input label")
+    const input = screen.getByLabelText("Input label", { selector: "input" })
     expect(input).toHaveValue("")
   })
 
@@ -72,7 +72,7 @@ describe("<DatePicker />", () => {
 
   it("allows you to tab through input, button and calendar", async () => {
     render(<DatePickerWrapper />)
-    const input = screen.getByLabelText("Input label")
+    const input = screen.getByLabelText("Input label", { selector: "input" })
 
     await user.tab()
     await waitFor(() => {
@@ -112,7 +112,7 @@ describe("<DatePicker />", () => {
       screen.queryByText("05/01/2022 is not available, try another date")
     ).not.toBeInTheDocument()
 
-    const input = screen.getByLabelText("Input label")
+    const input = screen.getByLabelText("Input label", { selector: "input" })
     await user.click(input)
 
     await waitFor(() => {
@@ -137,7 +137,7 @@ describe("<DatePicker /> - Focus element", () => {
     beforeEach(async () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
-      const input = screen.getByLabelText("Input label")
+      const input = screen.getByLabelText("Input label", { selector: "input" })
       await user.click(input)
     })
 
@@ -146,7 +146,7 @@ describe("<DatePicker /> - Focus element", () => {
         expect(screen.queryByRole("dialog")).toBeVisible()
       })
 
-      const input = screen.getByLabelText("Input label")
+      const input = screen.getByLabelText("Input label", { selector: "input" })
       expect(input).toHaveFocus()
     })
 
@@ -157,7 +157,7 @@ describe("<DatePicker /> - Focus element", () => {
 
       await user.keyboard("{Escape}")
 
-      const input = screen.getByLabelText("Input label")
+      const input = screen.getByLabelText("Input label", { selector: "input" })
       expect(input).toHaveFocus()
     })
 
@@ -170,7 +170,7 @@ describe("<DatePicker /> - Focus element", () => {
       const dateToSelect = within(month).getByRole("gridcell", { name: "6" })
       await user.click(dateToSelect)
 
-      const input = screen.getByLabelText("Input label")
+      const input = screen.getByLabelText("Input label", { selector: "input" })
       expect(input).toHaveFocus()
     })
   })
@@ -181,7 +181,7 @@ describe("<DatePicker /> - Focus element", () => {
     })
 
     it("shows focus within the calendar", async () => {
-      const input = screen.getByLabelText("Input label")
+      const input = screen.getByLabelText("Input label", { selector: "input" })
       await user.tab()
       await waitFor(() => {
         expect(input).toHaveFocus()
@@ -198,7 +198,7 @@ describe("<DatePicker /> - Focus element", () => {
     })
 
     it("returns focus to the input when the user escapes from the calendar", async () => {
-      const input = screen.getByLabelText("Input label")
+      const input = screen.getByLabelText("Input label", { selector: "input" })
       await user.tab()
       await waitFor(() => {
         expect(input).toHaveFocus()
@@ -303,7 +303,7 @@ describe("<DatePicker /> - Input format", () => {
   it("formats values when focus is on the input", async () => {
     render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
-    const input = screen.getByLabelText("Input label")
+    const input = screen.getByLabelText("Input label", { selector: "input" })
     expect(input).toHaveValue("Mar 1, 2022")
 
     await user.click(input)
@@ -316,7 +316,7 @@ describe("<DatePicker /> - Input format", () => {
   it("formats values when the input loses focus - onBlur", async () => {
     render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
-    const input = screen.getByLabelText("Input label")
+    const input = screen.getByLabelText("Input label", { selector: "input" })
     expect(input).toHaveValue("Mar 1, 2022")
 
     await user.click(input)
@@ -409,7 +409,7 @@ describe("<DatePicker /> - Validation", () => {
           defaultMonth={new Date("2022-03-01")}
         />
       )
-      const input = screen.getByLabelText("Input label")
+      const input = screen.getByLabelText("Input label", { selector: "input" })
       await user.click(input)
       await waitFor(() => {
         expect(screen.queryByRole("dialog")).toBeVisible()
@@ -449,7 +449,7 @@ describe("<DatePicker /> - Validation", () => {
     it("displays error message when input date is invalid", async () => {
       render(<DatePickerWrapper />)
 
-      const input = screen.getByLabelText("Input label")
+      const input = screen.getByLabelText("Input label", { selector: "input" })
       await user.type(input, "05/05/2022Blah")
 
       await user.tab()
@@ -464,7 +464,7 @@ describe("<DatePicker /> - Validation", () => {
     it("displays error message when input date is disabled", async () => {
       render(<DatePickerWrapper disabledBefore={new Date("2022-05-15")} />)
 
-      const input = screen.getByLabelText("Input label")
+      const input = screen.getByLabelText("Input label", { selector: "input" })
       await user.type(input, "05/05/2022")
 
       await user.tab()
