@@ -2,25 +2,43 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.editorLabel {
+  margin-bottom: $spacing-6;
+  display: inline-block;
+}
 
 .editableContainer :global(.ProseMirror) {
-  padding: $spacing-sm;
+  padding: calc($spacing-12 - $border-solid-border-width);
   position: relative;
   border-radius: $border-solid-border-radius;
-  border: $border-focus-ring-border-width $border-focus-ring-border-style
-    transparent;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
   transition:
     background-color $animation-duration-immediate,
     border-color $animation-duration-immediate;
-  background-color: $color-gray-200;
+  background-color: $color-white;
+  min-height: $typography-paragraph-body-line-height;
 }
 
 .editableContainer:hover :global(.ProseMirror) {
   background-color: $color-gray-200;
-  border-color: $color-blue-500;
 }
 
 .editableContainer .hiddenButton:focus-within + * > :global(.ProseMirror) {
-  border: $border-focus-ring-border-width $border-focus-ring-border-style
-    $color-blue-500;
+  background-color: $color-gray-200;
+
+  &::before {
+    $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: transparent;
+    border: $border-focus-ring-border-width $border-focus-ring-border-style
+      $color-blue-500;
+    border-radius: 10px;
+    inset: calc(-1 * #{$focus-ring-offset});
+    z-index: 1;
+  }
 }
