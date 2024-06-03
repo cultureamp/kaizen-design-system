@@ -1,5 +1,27 @@
 # Change Log
 
+## 1.49.0
+
+### Minor Changes
+
+- [#4732](https://github.com/cultureamp/kaizen-design-system/pull/4732) [`871f3f2868afd8cf4dad169363615fc06aa84ded`](https://github.com/cultureamp/kaizen-design-system/commit/871f3f2868afd8cf4dad169363615fc06aa84ded) - Deprecation of placeholders across Future `Select`, `Select`, `Input`
+
+### Patch Changes
+
+- [#4695](https://github.com/cultureamp/kaizen-design-system/pull/4695) [`c715b3e4187ec4782c9096b810a144ea45627742`](https://github.com/cultureamp/kaizen-design-system/commit/c715b3e4187ec4782c9096b810a144ea45627742) - Update EditableRichTextContent, RichTextContent and RichTextEditor border, label spacing, default text color and interaction styles to align with design.
+
+- [#4734](https://github.com/cultureamp/kaizen-design-system/pull/4734) [`65f0792b25c4996dd68760cf24dc56ebe87a7fd4`](https://github.com/cultureamp/kaizen-design-system/commit/65f0792b25c4996dd68760cf24dc56ebe87a7fd4) - update @cultureamp/i18n-react-intl dep
+
+- [#4734](https://github.com/cultureamp/kaizen-design-system/pull/4734) [`65f0792b25c4996dd68760cf24dc56ebe87a7fd4`](https://github.com/cultureamp/kaizen-design-system/commit/65f0792b25c4996dd68760cf24dc56ebe87a7fd4) - update prosemirror-view dep
+
+- [#4730](https://github.com/cultureamp/kaizen-design-system/pull/4730) [`3be853246158083f4c1226a6bc275b5b08f4b0d2`](https://github.com/cultureamp/kaizen-design-system/commit/3be853246158083f4c1226a6bc275b5b08f4b0d2) - Add more contenxt to the RTE link description and validation error
+
+- [#4734](https://github.com/cultureamp/kaizen-design-system/pull/4734) [`65f0792b25c4996dd68760cf24dc56ebe87a7fd4`](https://github.com/cultureamp/kaizen-design-system/commit/65f0792b25c4996dd68760cf24dc56ebe87a7fd4) - Update sass dep
+
+- [#4729](https://github.com/cultureamp/kaizen-design-system/pull/4729) [`2e70becbd233aad599535a47f2286c2a043020b4`](https://github.com/cultureamp/kaizen-design-system/commit/2e70becbd233aad599535a47f2286c2a043020b4) - Increase ToastNotificationList z-index so it shows on top of other components
+
+- [#4731](https://github.com/cultureamp/kaizen-design-system/pull/4731) [`016401cc8a01952aae70e4b527c619efa417e418`](https://github.com/cultureamp/kaizen-design-system/commit/016401cc8a01952aae70e4b527c619efa417e418) - Update DatePicker and DateRangePicker to use the labelText as the dialogues accessible title
+
 ## 1.48.0
 
 ### Minor Changes
