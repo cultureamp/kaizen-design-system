@@ -25,21 +25,11 @@ const FieldGroupTemplate = ({
   <div>
     <FieldGroup inline={inline} classNameOverride="mr-6">
       <Label htmlFor={`id--field-${id}`}>Email</Label>
-      <input
-        className="border border-gray-500"
-        placeholder="Native text input..."
-        type="text"
-        id="id--field-2"
-      />
+      <input className="border border-gray-500" type="text" id="id--field-2" />
     </FieldGroup>
     <FieldGroup inline={inline}>
       <Label htmlFor={`id--field-${id}`}>Username</Label>
-      <input
-        className="border border-gray-500"
-        placeholder="Native text input..."
-        type="text"
-        id="id--field-2"
-      />
+      <input className="border border-gray-500" type="text" id="id--field-2" />
     </FieldGroup>
   </div>
 )

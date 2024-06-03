@@ -12,10 +12,12 @@ const defaultInputProps = {
   onChange: jest.fn(),
 }
 
-const renderInput = (props?: InputSearchProps): ReturnType<typeof render> => {
+const renderInput = (
+  props?: Omit<InputSearchProps, "id">
+): ReturnType<typeof render> => {
   const mergedInputProps = { ...defaultInputProps, ...props }
 
-  return render(<InputSearch {...mergedInputProps} />)
+  return render(<InputSearch {...mergedInputProps} data-testid="someInputId" />)
 }
 
 describe("<InputSearch />", () => {
@@ -28,9 +30,10 @@ describe("<InputSearch />", () => {
   })
 
   it("should call the `onChange` event when text value is updated", async () => {
-    const placeholder = "someInputPlaceholder"
-    const utils = renderInput({ value: "", placeholder, id: "someInputId" })
-    const input = utils.getByPlaceholderText(placeholder)
+    const utils = renderInput({
+      value: "",
+    })
+    const input = utils.getByTestId("someInputId")
 
     await user.type(input, "Hello")
     await waitFor(() => {
@@ -39,12 +42,12 @@ describe("<InputSearch />", () => {
   })
 
   it("should render a disabled inside of input", () => {
-    const { container } = renderInput({ disabled: true, id: "someInputId" })
+    const { container } = renderInput({ disabled: true })
     expect(container.querySelector("[disabled]")).toBeTruthy()
   })
 
   it("should render a reversed input", () => {
-    const { container } = renderInput({ reversed: true, id: "someInputId" })
+    const { container } = renderInput({ reversed: true })
     expect(container.querySelector(".reversed")).toBeTruthy()
   })
 })

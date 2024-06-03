@@ -13,6 +13,11 @@ export type TextAreaProps = {
   status?: "default" | "error" | "caution"
   autogrow?: boolean
   reversed?: boolean
+  /**
+   * @deprecated Use of placeholder text goes against our a11y standards.
+   * Use the `labelText` prop to provide a concise name, and the `description` prop for any help text.
+   */
+  placeholder?: string
 } & OverrideClassName<TextareaHTMLAttributes<HTMLTextAreaElement>>
 
 export const TextArea = ({
