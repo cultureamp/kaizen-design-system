@@ -175,5 +175,23 @@ export const CreateALink: Story = {
     await step("click the link button", async () => {
       await userEvent.click(getByRole("button", { name: "Link" }))
     })
+
+    // wait for the transition to end and focus to shift
+    await new Promise(resolve => setTimeout(resolve, 500))
+
+    await step("Enter text", async () => {
+      await userEvent.keyboard("https://www.google.com")
+    })
+
+    await new Promise(resolve => setTimeout(resolve, 500))
+
+    await step("Tab and save", async () => {
+      await userEvent.keyboard("{Tab}{Enter}")
+    })
+
+    await step("Link exists in the RTE", async () => {
+      const link = getByRole("link", { name: "Link" })
+      expect(link).toBeInTheDocument()
+    })
   },
 }

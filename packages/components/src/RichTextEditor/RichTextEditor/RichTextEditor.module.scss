@@ -16,7 +16,7 @@
     border-color $animation-duration-immediate;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     border-color: $color-gray-600;
     background: $color-gray-200;
   }
@@ -44,6 +44,11 @@
 .editor.hasToolbar > :global(.ProseMirror) {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.editorLabel {
+  margin-bottom: $spacing-6;
+  display: inline-block;
 }
 
 /* stylelint-disable no-descending-specificity */
