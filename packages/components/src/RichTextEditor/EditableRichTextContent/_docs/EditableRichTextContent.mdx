@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as EditableRichTextContentStories from "./EditableRichTextContent.stories"
 
 <Meta of={EditableRichTextContentStories} />
@@ -15,15 +15,17 @@ import * as EditableRichTextContentStories from "./EditableRichTextContent.stori
 
 ## Overview
 
-To render the contents of your <LinkTo pageId="components-richtexteditor">RichTextEditor</LinkTo> using the same structure for both components.
+To render the contents of your [RichTextEditor](/docs/components-richtexteditor-richtexteditor--docs) using the same structure for both components.
 
 <Canvas of={EditableRichTextContentStories.Playground} />
 <Controls of={EditableRichTextContentStories.Playground} />
 
 ## Usage
 
-The general idea is to use this component in combination with the <LinkTo pageId="components-richtexteditor">RichTextEditor</LinkTo> to toggle between a read only state
-and an editable state.
+The `EditableRichTextContent` indicates interactivity similar to a `text` or `textarea` input and should be used in combination with the [RichTextEditor](/docs/components-richtexteditor-richtexteditor--docs) to toggle between inactive and editable states.
+
+This differs from the [RichTextContent](/docs/components-richtexteditor-richtextcontent--docs) component, which is used to render `RichTextEditor` content as read-only text.
+
 
 ```tsx
 const [editMode, setEditMode] = useState<boolean>(false);
