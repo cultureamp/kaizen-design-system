@@ -6,8 +6,15 @@ import React, {
   useRef,
   MouseEvent,
   FocusEvent,
+  MutableRefObject,
 } from "react"
 import classnames from "classnames"
+import { useButton, useLink } from "react-aria"
+import {
+  ButtonContext,
+  LinkContext,
+  useContextProps,
+} from "react-aria-components"
 import { Badge, BadgeAnimated } from "~components/Badge"
 import { LoadingSpinner } from "~components/Loading"
 import styles from "./GenericButton.module.scss"
@@ -154,7 +161,11 @@ export const GenericButton = forwardRef(
 
     const determineButtonRenderer = (): JSX.Element => {
       if (props.component) {
-        return renderCustomComponent(props.component, props)
+        return renderCustomComponent(
+          props.component,
+          props,
+          buttonRef as Ref<HTMLAnchorElement>
+        )
       }
 
       if (props.href && !props.disabled && !props.working) {
@@ -181,25 +192,38 @@ export const GenericButton = forwardRef(
 GenericButton.displayName = "GenericButton"
 
 const renderCustomComponent = (
-  CustomComponent: ComponentType<CustomButtonProps>,
-  props: RenderProps
+  CustomComponent: ComponentType<
+    CustomButtonProps & { ref?: Ref<HTMLAnchorElement> }
+  >,
+  props: RenderProps,
+  ref: Ref<HTMLAnchorElement>
 ): JSX.Element => {
-  const { id, disabled, href, onClick, onFocus, onBlur, ...rest } = props
-  const customProps = getCustomProps(rest)
+  const passedInProps = {
+    id: props.id,
+    className: buttonClass(props),
+    disabled: props.disabled,
+    href: props.href,
+    onClick: props.onClick,
+    onFocus: props.onFocus,
+    onBlur: props.onBlur,
+    "aria-label": generateAriaLabel(props),
+    ...getCustomProps(props),
+  }
+
+  const [contextProps, contextRef] = useContextProps(
+    passedInProps,
+    ref,
+    LinkContext
+  )
+  // @ts-ignore
+  const { linkProps } = useLink(contextProps, contextRef)
+
   return (
-    <CustomComponent
-      id={id}
-      className={buttonClass(props)}
-      disabled={disabled}
-      href={href}
-      onClick={onClick}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      aria-label={generateAriaLabel(props)}
-      {...customProps}
-    >
-      {renderContent(props)}
-    </CustomComponent>
+    <span ref={contextRef} className="this is me">
+      <CustomComponent {...contextProps} {...linkProps}>
+        {renderContent(props)}
+      </CustomComponent>
+    </span>
   )
 }
 
@@ -207,52 +231,43 @@ const renderButton = (
   props: RenderProps,
   ref: Ref<HTMLButtonElement>
 ): JSX.Element => {
-  const {
-    id,
-    disabled,
-    onClick,
-    onMouseDown,
-    type,
-    disableTabFocusAndIUnderstandTheAccessibilityImplications,
-    onFocus,
-    onBlur,
-    form,
-    formAction,
-    formMethod,
-    formEncType,
-    formTarget,
-    formNoValidate,
-    ...rest
-  } = props
-  const customProps = getCustomProps(rest)
+  const passedInProps: React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > = {
+    id: props.id,
+    disabled: props.disabled,
+    onClick: props.onClick,
+    onMouseDown: props.onMouseDown,
+    type: props.type,
+    onFocus: props.onFocus,
+    onBlur: props.onBlur,
+    form: props.form,
+    formAction: props.formAction,
+    formMethod: props.formMethod,
+    formEncType: props.formEncType,
+    formTarget: props.formTarget,
+    formNoValidate: props.formNoValidate,
+    className: buttonClass(props),
+    "aria-label": generateAriaLabel(props),
+    "aria-disabled": props.disabled || props.working ? true : undefined,
+    tabIndex: props.disableTabFocusAndIUnderstandTheAccessibilityImplications
+      ? -1
+      : undefined,
+    ...getCustomProps(props),
+  }
+
+  const [contextProps, contextRef] = useContextProps(
+    passedInProps,
+    ref,
+    ButtonContext
+  )
+  // @ts-ignore
+  const { buttonProps } = useButton(contextProps, contextRef)
 
   return (
-    <button
-      // eslint-disable-next-line react/button-has-type
-      type={type}
-      id={id}
-      disabled={disabled}
-      className={buttonClass(props)}
-      onClick={onClick}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      onMouseDown={(e): void => onMouseDown && onMouseDown(e)}
-      aria-label={generateAriaLabel(props)}
-      aria-disabled={disabled || props.working ? true : undefined}
-      form={form}
-      formAction={formAction}
-      formMethod={formMethod}
-      formEncType={formEncType}
-      formTarget={formTarget}
-      formNoValidate={formNoValidate}
-      tabIndex={
-        disableTabFocusAndIUnderstandTheAccessibilityImplications
-          ? -1
-          : undefined
-      }
-      ref={ref}
-      {...customProps}
-    >
+    // eslint-disable-next-line react/button-has-type
+    <button {...contextProps} {...buttonProps} ref={contextRef}>
       {renderContent(props)}
     </button>
   )
@@ -262,35 +277,36 @@ const renderLink = (
   props: RenderProps,
   ref: Ref<HTMLAnchorElement>
 ): JSX.Element => {
-  const {
-    id,
-    href,
-    onClick,
-    newTabAndIUnderstandTheAccessibilityImplications,
-    onFocus,
-    onBlur,
-    ...rest
-  } = props
-  const customProps = getCustomProps(rest)
-
-  const target = newTabAndIUnderstandTheAccessibilityImplications
+  const target = props.newTabAndIUnderstandTheAccessibilityImplications
     ? "_blank"
     : "_self"
 
+  const passedInProps: React.DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  > = {
+    id: props.id,
+    href: props.href,
+    target,
+    rel: target === "_blank" ? "noopener noreferrer" : undefined,
+    className: buttonClass(props),
+    onClick: props.onClick,
+    onFocus: props.onFocus,
+    onBlur: props.onBlur,
+    "aria-label": generateAriaLabel(props),
+    ...getCustomProps(props),
+  }
+
+  const [contextProps, contextRef] = useContextProps(
+    passedInProps,
+    ref,
+    LinkContext
+  )
+  // @ts-ignore
+  const { linkProps } = useLink(contextProps, contextRef)
+
   return (
-    <a
-      id={id}
-      href={href}
-      target={target}
-      rel={target === "_blank" ? "noopener noreferrer" : undefined}
-      className={buttonClass(props)}
-      onClick={onClick}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      ref={ref}
-      aria-label={generateAriaLabel(props)}
-      {...customProps}
-    >
+    <a {...contextProps} {...linkProps} ref={contextRef}>
       {renderContent(props)}
     </a>
   )

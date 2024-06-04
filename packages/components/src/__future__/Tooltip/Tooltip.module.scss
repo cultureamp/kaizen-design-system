@@ -1,0 +1,24 @@
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.tooltip {
+  max-width: 400px;
+  padding: 0.4375rem 0.5313rem;
+  color: $color-purple-800;
+  text-align: center;
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-heading-6-font-size;
+  font-weight: $typography-paragraph-body-font-weight;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  line-height: $typography-paragraph-small-line-height;
+  border-radius: $border-solid-border-radius;
+  transition:
+    opacity $animation-duration-fast,
+    transform $animation-duration-fast;
+  box-shadow: $shadow-small-box-shadow;
+  background-color: $color-white;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-300;
+}
