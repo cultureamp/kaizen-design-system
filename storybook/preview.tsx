@@ -1,3 +1,5 @@
+import "highlight.js/styles/a11y-light.css";
+// import "@kaizen/components/styles.css"
 import "./styles/tailwind.scss"
 
 import React, { useEffect } from "react"

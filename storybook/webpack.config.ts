@@ -12,7 +12,8 @@ export default ({ config }: { config: Configuration }): Configuration => {
     throw new Error(`Storybook started with unexpected config:\n${config}`)
   }
 
-  config.module.rules.push(...[styles, tailwind].map(excludeExternalModules))
+  // config.module.rules.push(...[styles, tailwind].map(excludeExternalModules))
+  config.module.rules.push(...[styles, tailwind])
 
   config.resolve.extensions.push(".ts", ".tsx")
 

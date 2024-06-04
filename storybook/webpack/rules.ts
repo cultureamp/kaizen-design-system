@@ -35,7 +35,7 @@ export const stylePreprocessors: RuleSetUseItem[] = [
 ]
 
 export const styles: RuleSetRule = {
-  test: /(?!(.*tailwind\.s?css))^.*\.s?css/,
+  test: /(?!(.*tailwind\.scss))^.*\.scss$/,
   use: [
     {
       loader: "style-loader",
@@ -56,7 +56,7 @@ export const styles: RuleSetRule = {
   ],
 }
 export const tailwind: RuleSetRule = {
-  test: /tailwind\.s?css$/,
+  test: /tailwind\.scss$/,
   use: [
     {
       loader: "style-loader",

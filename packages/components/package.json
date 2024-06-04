@@ -22,6 +22,39 @@
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.cjs",
+      "import": "./dist/esm/index.mjs",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./": {
+      "require": "./dist/cjs/",
+      "import": "./dist/esm/",
+      "types": "./dist/types/"
+    },
+    "./*": {
+      "require": ["./dist/cjs/*/*.cjs", "./dist/cjs/*.cjs"],
+      "import": ["./dist/esm/*/*.mjs", "./dist/esm/*.mjs"],
+      "types": ["./dist/types/*/*.d.ts", "./dist/types/*.d.ts"]
+    },
+    "./future": {
+      "require": "./dist/cjs/future.cjs",
+      "import": "./dist/esm/future.mjs",
+      "types": "./dist/types/__future__/index.d.ts"
+    },
+    "./future/": {
+      "require": "./dist/cjs/__future__/",
+      "import": "./dist/esm/__future__/",
+      "types": "./dist/types/__future__/"
+    },
+    "./future/*": {
+      "require": ["./dist/cjs/__future__/*/*.cjs", "./dist/cjs/__future__/*.cjs"],
+      "import": ["./dist/esm/__future__/*/*.mjs", "./dist/esm/__future__/*.mjs"],
+      "types": ["./dist/types/__future__/*/*.d.ts", "./dist/types/__future__/*.d.ts"]
+    },
+    "./styles.css": "./dist/styles.css"
+  },
   "sideEffects": [
     "styles.css"
   ],

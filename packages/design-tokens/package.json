@@ -33,6 +33,7 @@
     "clean": "rimraf dist"
   },
   "devDependencies": {
+    "@kaizen/components": "workspace:*",
     "@types/lodash.flatmap": "^4.5.9",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
