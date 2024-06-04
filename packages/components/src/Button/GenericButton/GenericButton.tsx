@@ -142,6 +142,7 @@ export const GenericButton = forwardRef(
     ref: Ref<ButtonRef | undefined>
   ) => {
     const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
+    const wrapperRef = useRef<HTMLSpanElement>(null)
     useImperativeHandle(ref, () => ({
       focus: (): void => {
         buttonRef.current?.focus()
@@ -159,31 +160,22 @@ export const GenericButton = forwardRef(
       ...otherProps,
     }
 
-    const determineButtonRenderer = (): JSX.Element => {
-      if (props.component) {
-        return renderCustomComponent(
-          props.component,
-          props,
-          buttonRef as Ref<HTMLAnchorElement>
-        )
-      }
-
-      if (props.href && !props.disabled && !props.working) {
-        return renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
-      }
-
-      return renderButton(props, buttonRef as Ref<HTMLButtonElement>)
+    if (props.component) {
+      return renderCustomComponent(props.component, props, wrapperRef)
     }
 
     return (
       <span
+        ref={wrapperRef}
         className={classnames(
           styles.container,
           props.fullWidth && styles.fullWidth
         )}
         aria-live={"workingLabel" in props ? "polite" : undefined}
       >
-        {determineButtonRenderer()}
+        {props.href && !props.disabled && !props.working
+          ? renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
+          : renderButton(props, buttonRef as Ref<HTMLButtonElement>)}
       </span>
     )
   }
@@ -192,11 +184,9 @@ export const GenericButton = forwardRef(
 GenericButton.displayName = "GenericButton"
 
 const renderCustomComponent = (
-  CustomComponent: ComponentType<
-    CustomButtonProps & { ref?: Ref<HTMLAnchorElement> }
-  >,
+  CustomComponent: ComponentType<CustomButtonProps>,
   props: RenderProps,
-  ref: Ref<HTMLAnchorElement>
+  ref: Ref<HTMLSpanElement>
 ): JSX.Element => {
   const passedInProps = {
     id: props.id,
@@ -213,13 +203,21 @@ const renderCustomComponent = (
   const [contextProps, contextRef] = useContextProps(
     passedInProps,
     ref,
+    // @ts-ignore we're using span ref on link context, but that's ok because we need only sizing
     LinkContext
   )
   // @ts-ignore
   const { linkProps } = useLink(contextProps, contextRef)
 
   return (
-    <span ref={contextRef} className="this is me">
+    <span
+      ref={contextRef}
+      className={classnames(
+        styles.container,
+        props.fullWidth && styles.fullWidth
+      )}
+      aria-live={"workingLabel" in props ? "polite" : undefined}
+    >
       <CustomComponent {...contextProps} {...linkProps}>
         {renderContent(props)}
       </CustomComponent>
