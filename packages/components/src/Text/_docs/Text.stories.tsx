@@ -1,4 +1,7 @@
+import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+// import { Tag } from "~components/Tag/v2"
+import { Tag } from "~components/collections/v2"
 import { Text } from "../index"
 
 const meta = {
@@ -25,4 +28,18 @@ export const Playground: Story = {
       },
     },
   },
+}
+
+export const test: Story = {
+  args: {
+    color: "dark",
+  },
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+  },
+  render: () => <Tag>Thing</Tag>,
 }

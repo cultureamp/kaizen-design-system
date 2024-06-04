@@ -1,0 +1,26 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, Installation } from "~storybook/components"
+import * as TooltipStories from "./Tooltip.stories"
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tooltip"
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=1929%3A32006&mode=design&t=LwTCBZ5E1uRvOA1l-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604978/Tooltip"
+  className="!mb-8"
+/>
+
+<Installation
+  installCommand="pnpm add @kaizen/components"
+  importStatement='import { Tooltip } from "@kaizen/components/overlays/v2"'
+ />
+
+## Overview
+
+Adds a popover that will show on hover or focus of the child element, with simple text content.
+
+<Canvas of={TooltipStories.Playground} />
+<Controls of={TooltipStories.Playground} />
