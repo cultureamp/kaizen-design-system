@@ -491,6 +491,8 @@ importers:
         specifier: ^4.11.0
         version: 4.11.0
 
+  packages/components/src/Tag/v2: {}
+
   packages/design-tokens:
     dependencies:
       '@types/color-string':

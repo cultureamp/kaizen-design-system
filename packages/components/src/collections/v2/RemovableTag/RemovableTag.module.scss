@@ -1,0 +1,7 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.removableTag {
+  padding: $spacing-4 $spacing-4 $spacing-4 $spacing-8;
+  padding-block: $spacing-4;
+  padding-inline: $spacing-8 $spacing-4;
+}
