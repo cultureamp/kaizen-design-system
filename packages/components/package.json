@@ -13,8 +13,8 @@
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
   },
   "files": [
-    "future",
     "dist",
+    "future",
     "icons",
     "locales",
     "src"
@@ -25,6 +25,23 @@
   "sideEffects": [
     "styles.css"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./collections/v1": {
+      "import": "./dist/esm/collectionsV1.mjs",
+      "require":  "./dist/cjs/collectionsV1.cjs",
+      "types":  "./dist/types/collections/v1/index.d.ts"
+    },
+    "./collections/v2": {
+      "import": "./dist/esm/collectionsV2.mjs",
+      "require":  "./dist/cjs/collectionsV2.cjs",
+      "types":  "./dist/types/collections/v2/index.d.ts"
+    }
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "lint:ts": "tsc --noEmit",

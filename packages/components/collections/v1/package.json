@@ -1,5 +1,0 @@
-{
-  "main": "../dist/cjs/collections/collectionsV1.cjs",
-  "module": "../dist/esm/collections/collectionsV1.mjs",
-  "types": "../dist/types/collections/collectionsV1/index.d.ts"
-}

@@ -9,7 +9,7 @@ import { Tag } from "../index"
 import { TagVariants } from "../types"
 
 export default {
-  title: "Components/Tag",
+  title: "Components/collections/Tag/v1",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -94,12 +94,12 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: "aSticker Sheet (Default)",
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: "aSticker Sheet (Reversed)",
   parameters: {
     backgrounds: { default: "Purple 700" },
   },
@@ -108,7 +108,7 @@ export const StickerSheetReversed: StickerSheetStory = {
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: "aSticker Sheet (RTL)",
   parameters: {
     textDirection: "rtl",
   },

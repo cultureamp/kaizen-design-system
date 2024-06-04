@@ -9,7 +9,7 @@ import { Tag } from "../Tag"
 import { TagColorKeys } from "../types"
 
 export default {
-  title: "Components/Tag/v2",
+  title: "Components/collections/Tag/v2",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

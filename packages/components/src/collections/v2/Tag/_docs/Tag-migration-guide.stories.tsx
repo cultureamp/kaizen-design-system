@@ -13,7 +13,7 @@ import styles from "~components/Tag/Tag.module.scss"
 import { Tag, RemovableTag } from "../.."
 
 const meta = {
-  title: "Components/Tag/v2 Migration Guide",
+  title: "Components/collections/Tag/v2 Migration Guide",
   component: Tag,
   args: {
     children: "My tag",

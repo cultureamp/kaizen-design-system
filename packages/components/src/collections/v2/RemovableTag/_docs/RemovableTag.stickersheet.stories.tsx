@@ -7,7 +7,7 @@ import {
 import { RemovableTag } from "../index"
 
 export default {
-  title: "Components/Tag/v2/RemovableTag",
+  title: "Components/collections/RemovableTag/v2",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

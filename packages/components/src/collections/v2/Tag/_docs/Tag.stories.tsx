@@ -5,7 +5,7 @@ import { TagColorKeys } from "../types"
 import { Tag } from ".."
 
 const meta = {
-  title: "Components/Tag/v2",
+  title: "Components/collections/Tag/v2",
   component: Tag,
   args: {
     children: "My tag",
