@@ -33,7 +33,7 @@
     text-decoration: none;
   }
 
-  &:not(:disabled) {
+  // &:not(:disabled) {
     &:active {
       transform: translateY(1px);
     }
@@ -58,19 +58,19 @@
         inset: calc(-1 * #{$focus-ring-offset});
       }
     }
-  }
+  // }
 
   &.reversed {
-    &:not(:disabled) {
+    // &:not(:disabled) {
       &:focus-visible {
         &::after {
           border-color: $color-blue-300;
         }
       }
-    }
+    // }
   }
 
-  &:disabled,
+  &.disabled,
   &.working {
     pointer-events: none;
     opacity: 30%;

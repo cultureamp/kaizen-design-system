@@ -1,6 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
+import { InformationIcon } from "~components/Icon"
 import { Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
@@ -31,4 +32,33 @@ export const Playground: Story = {
   parameters: {
     docs: { canvas: { sourceState: "shown" } },
   },
+}
+
+export const PlaygroundButton: Story = {
+  render: args => (
+    <TooltipTrigger>
+      <Button
+        label="button labelfdsofjbnsdpoufndslkjfgnspdfkojgnsúdfkojgn"
+        // disabled
+        aria-disabled
+      />
+      <Tooltip {...args}>
+        <InformationIcon role="presentation" />
+        <div><strong>Title here maybe</strong></div>
+        <div>Tooltip content</div>
+        </Tooltip>
+    </TooltipTrigger>
+  ),
+}
+
+export const PlaygroundLink: Story = {
+  render: args => (
+    <TooltipTrigger>
+      <Button
+        label="button labelfdsofjbnsdpoufndslkjfgnspdfkojgnsúdfkojgn"
+        href="#"
+      />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
 }
