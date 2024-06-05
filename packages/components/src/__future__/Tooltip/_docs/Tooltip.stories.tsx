@@ -1,10 +1,13 @@
-import React, { ReactNode, useRef, useState } from "react"
+import React, { ReactNode, useEffect, useRef, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { AriaButtonOptions, useButton } from "react-aria"
+import { AriaButtonOptions, VisuallyHidden, useButton } from "react-aria"
 import {
   ButtonContext,
   Button as RACButton,
+  TooltipContext,
+  TooltipTriggerStateContext,
   useContextProps,
+  useSlottedContext,
 } from "react-aria-components"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
@@ -139,51 +142,69 @@ export const OnIconButton: Story = {
   ),
 }
 
-const WrapperNotInteractive = ({ children }: { children: ReactNode }) => {
+const WrapperNotInteractiveV1 = ({ children }: { children: ReactNode }): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null)
-  // @ts-ignore
-  const [contextProps, contextRef] = useContextProps({}, ref, ButtonContext)
-  const { buttonProps } = useButton({ elementType: "div" }, contextRef)
-  // const { buttonProps } = useButton({ elementType: "div" }, ref)
-  // const { buttonProps } = useButton({}, ref)
+  const [contextProps] = useContextProps({}, ref, TooltipContext)
+  const { buttonProps } = useButton({ elementType: "div" }, ref)
+  const [tooltipContent, setTooltipContent] = useState<string | null>()
 
-  console.log(
-    "buttonProps",
-    buttonProps,
-    contextProps,
-    contextRef.current,
-    ref.current
-  )
+  // This doesn't work as we cannot get the tooltip content until the tooltip has appeared
+  useEffect(() => {
+    if (!tooltipContent && contextProps.id) {
+      setTooltipContent(document.getElementById(contextProps.id)?.textContent)
+    }
+  }, [contextProps])
 
   return (
-    <div ref={contextRef} {...contextProps} {...buttonProps}>
-    {/* <div ref={ref} {...buttonProps}> */}
+    <div ref={ref} {...buttonProps} style={{ display: "inline-block" }}>
       {children}
+        {tooltipContent}
+      <VisuallyHidden>
+        {tooltipContent}
+      </VisuallyHidden>
+    </div>
+  )
+}
+
+const WrapperNotInteractiveV2 = ({ children, tooltipContent }: { children: ReactNode, tooltipContent: ReactNode }): JSX.Element => {
+  const ref = useRef<HTMLDivElement>(null)
+  const { buttonProps } = useButton({ elementType: "div" }, ref)
+
+  return (
+    <div ref={ref} {...buttonProps} style={{ display: "inline-block" }}>
+      {children}
+        {/* {tooltipContent} */}
+      <VisuallyHidden>
+        {tooltipContent}
+      </VisuallyHidden>
     </div>
   )
 }
 
 export const PlaygroundTag: Story = {
-  render: args => (
-    // const ref = useRef<HTMLDivElement>(null)
-    // const [contextProps, contextRef] = useContextProps(
-    //   {},
-    //   ref,
-    //   ButtonContext
-    // )
-    // const { buttonProps } = useButton({...contextProps, elementType: "div" }, contextRef)
-    // const { buttonProps } = useButton({ elementType: "div" }, ref)
-    // const { buttonProps } = useButton({}, ref)
+  render: args => {
+    const TooltipContent = () => <>
+    <InformationIcon role="presentation" />
+    <div>
+      <strong>Title here maybe</strong>
+    </div>
+    <div>Tooltip content</div>
+    </>
+
+    return (
+    <>
+    {/* <TooltipTrigger>
+      <WrapperNotInteractiveV1>this is text</WrapperNotInteractiveV1>
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger> */}
 
     <TooltipTrigger>
-      {/* <div ref={ref} {...buttonProps}> */}
-      {/* <div ref={contextRef} {...contextProps} {...buttonProps}>
-        <Tag>Non-interactive element</Tag>
-      </div> */}
-      <WrapperNotInteractive>this is text</WrapperNotInteractive>
-      <Tooltip {...args}>Tooltip content</Tooltip>
+      <WrapperNotInteractiveV2 tooltipContent={<TooltipContent />}>this is text</WrapperNotInteractiveV2>
+      <Tooltip {...args}><TooltipContent /></Tooltip>
     </TooltipTrigger>
-  ),
+    </>
+  )
+},
   parameters: {
     docs: { canvas: { sourceState: "shown" } },
   },
