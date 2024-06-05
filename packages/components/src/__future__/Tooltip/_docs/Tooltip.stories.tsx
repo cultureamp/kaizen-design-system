@@ -188,7 +188,7 @@ export const PlaygroundNonInteractiveTrigger: Story = {
 
     return (
     <TooltipTrigger>
-      <NonInteractiveTrigger tooltipContent={<TooltipContent />}>
+      <NonInteractiveTrigger>
         <Tag>Non-interactive element</Tag>
       </NonInteractiveTrigger>
       <Tooltip {...args}><TooltipContent /></Tooltip>
