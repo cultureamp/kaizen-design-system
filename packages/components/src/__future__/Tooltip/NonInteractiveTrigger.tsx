@@ -1,14 +1,13 @@
 import React, { HTMLAttributes, ReactNode, useRef } from "react"
 import classnames from "classnames"
-import { VisuallyHidden, useFocusable } from "react-aria"
+import { useFocusable } from "react-aria"
 import styles from "./NonInteractiveTrigger.module.scss"
 
 export type NonInteractiveTriggerProps = {
   children: ReactNode,
-  tooltipContent: ReactNode
 } & HTMLAttributes<HTMLDivElement>
 
-export const NonInteractiveTrigger = ({ children, tooltipContent, className, ...restProps }: NonInteractiveTriggerProps): JSX.Element => {
+export const NonInteractiveTrigger = ({ children, className, ...restProps }: NonInteractiveTriggerProps): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null)
   const { focusableProps } = useFocusable({}, ref)
 
@@ -24,14 +23,12 @@ export const NonInteractiveTrigger = ({ children, tooltipContent, className, ...
         className
       )}
       {...focusableProps}
+      data-non-interactive
       // Negate the aria description (added by RAC) as we have the VisuallyHidden content
       aria-describedby={undefined}
       {...restProps}
     >
       {children}
-      <VisuallyHidden>
-        {tooltipContent}
-      </VisuallyHidden>
     </div>
   )
 }
