@@ -145,7 +145,7 @@ export const OnIconButton: Story = {
 
 export const PlaygroundTag: Story = {
   render: args => (
-    <TooltipTrigger nonInteractive>
+    <TooltipTrigger>
       <NonInteractiveTooltip>this is text</NonInteractiveTooltip>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
