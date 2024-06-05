@@ -24,7 +24,7 @@ export { TooltipContext, TooltipProps }
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   // eslint-disable-next-line arrow-body-style
   ({ children, className, ...props }, ref): JSX.Element => {
-    const [contextProps] = useContextProps(
+    const [{ triggerRef }] = useContextProps(
       { children, className, ...props },
       ref,
       TooltipContext
@@ -34,9 +34,9 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
 
     useLayoutEffect(() => {
       setIsNonInteractive(
-        !!contextProps.triggerRef?.current?.getAttribute("data-non-interactive")
+        !!triggerRef?.current?.getAttribute("data-non-interactive")
       )
-    }, [contextProps.triggerRef])
+    }, [triggerRef])
 
     return (
       <>
