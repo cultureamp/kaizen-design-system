@@ -15,9 +15,11 @@ export type TooltipTriggerProps = Omit<
   delay?: number
 }
 
+/**
+ * TooltipTrigger wraps around a trigger element and a Tooltip. It handles opening and closing
+ * the Tooltip when the user hovers over or focuses the trigger, and positioning the Tooltip
+ * relative to the trigger.
+ */
 export const TooltipTrigger = (props: TooltipTriggerProps): JSX.Element => (
   <RACTooltipTrigger delay={300} {...props} />
 )
-
-// todo: we shouldn't need to set displayName manually, tooling should do that for us automatically now
-TooltipTrigger.displayName = "TooltipTrigger"

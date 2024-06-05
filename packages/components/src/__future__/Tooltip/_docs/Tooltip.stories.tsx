@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React, { ReactNode, useRef, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { AriaButtonOptions, useButton } from "react-aria"
 import {
@@ -21,32 +21,36 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const Trigger = () => {
-  const ref = useRef(null)
-  // const [contextProps, contextRef] = useContextProps(
-  //   {
-  //     // type: "button",
-  //     // onPress: () => undefined,
-  //     // onFocus: () => undefined,
-  //   } satisfies AriaButtonOptions<"button">,
-  //   ref,
-  //   ButtonContext
-  // )
-  // const { buttonProps } = useButton(contextProps, contextRef)
-  const { buttonProps } = useButton({}, ref)
+// const NonInteractiveTrigger = ({ children }: { children: ReactNode }) => {
+//   const ref = useRef(null)
+//   // const [contextProps, contextRef] = useContextProps(
+//   //   {
+//   //     // type: "button",
+//   //     // onPress: () => undefined,
+//   //     // onFocus: () => undefined,
+//   //   } satisfies AriaButtonOptions<"button">,
+//   //   ref,
+//   //   ButtonContext
+//   // )
+//   // const { buttonProps } = useButton(contextProps, contextRef)
+//   const { buttonProps } = useButton({}, ref)
 
-  // return <button ref={contextRef} {...contextProps} {...buttonProps}>RAC useButton</button>
-  return <button ref={ref} {...buttonProps}>RAC useButton</button>
-}
+//   // return <button ref={contextRef} {...contextProps} {...buttonProps}>RAC useButton</button>
+//   return (
+//     <button ref={ref} {...buttonProps}>
+//       RAC useButton
+//     </button>
+//   )
+// }
 
-export const PlaygroundRACHooks: Story = {
-  render: args => (
-    <TooltipTrigger>
-      <Trigger />
-      <Tooltip {...args}>Tooltip content</Tooltip>
-    </TooltipTrigger>
-  ),
-}
+// export const PlaygroundRACHooks: Story = {
+//   render: args => (
+//     <TooltipTrigger>
+//       <Trigger />
+//       <Tooltip {...args}>Tooltip content</Tooltip>
+//     </TooltipTrigger>
+//   ),
+// }
 
 export const PlaygroundRACButton: Story = {
   render: args => (
@@ -135,27 +139,32 @@ export const OnIconButton: Story = {
   ),
 }
 
-const WrapperNotInteractive = () => {
+const WrapperNotInteractive = ({ children }: { children: ReactNode }) => {
   const ref = useRef<HTMLDivElement>(null)
-  const [contextProps, contextRef] = useContextProps(
-    {},
-    ref,
-    ButtonContext
-  )
-  const { buttonProps } = useButton({...contextProps, elementType: "div" }, contextRef)
+  // @ts-ignore
+  const [contextProps, contextRef] = useContextProps({}, ref, ButtonContext)
+  const { buttonProps } = useButton({ elementType: "div" }, contextRef)
   // const { buttonProps } = useButton({ elementType: "div" }, ref)
   // const { buttonProps } = useButton({}, ref)
 
+  console.log(
+    "buttonProps",
+    buttonProps,
+    contextProps,
+    contextRef.current,
+    ref.current
+  )
+
   return (
-    // <div ref={contextRef} {...contextProps} {...buttonProps}>
-    <div ref={ref} {...buttonProps}>
-      <Tag>Non-interactive element</Tag>
+    <div ref={contextRef} {...contextProps} {...buttonProps}>
+    {/* <div ref={ref} {...buttonProps}> */}
+      {children}
     </div>
-)
+  )
 }
 
 export const PlaygroundTag: Story = {
-  render: args =>
+  render: args => (
     // const ref = useRef<HTMLDivElement>(null)
     // const [contextProps, contextRef] = useContextProps(
     //   {},
@@ -166,17 +175,15 @@ export const PlaygroundTag: Story = {
     // const { buttonProps } = useButton({ elementType: "div" }, ref)
     // const { buttonProps } = useButton({}, ref)
 
-     (
     <TooltipTrigger>
       {/* <div ref={ref} {...buttonProps}> */}
       {/* <div ref={contextRef} {...contextProps} {...buttonProps}>
         <Tag>Non-interactive element</Tag>
       </div> */}
-      <WrapperNotInteractive/>
+      <WrapperNotInteractive>this is text</WrapperNotInteractive>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
-  )
-,
+  ),
   parameters: {
     docs: { canvas: { sourceState: "shown" } },
   },

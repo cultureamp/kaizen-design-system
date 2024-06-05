@@ -1,13 +1,17 @@
 import React, { forwardRef } from "react"
 import {
   Tooltip as RACTooltip,
-  TooltipProps as RACTooltipProps,
+  TooltipProps,
+  TooltipContext,
 } from "react-aria-components"
 import { mergeClassNames } from "~utils/mergeClassNames"
 import styles from "./Tooltip.module.scss"
 
-export type TooltipProps = RACTooltipProps
+export { TooltipProps, TooltipContext }
 
+/**
+ * A tooltip displays a description of an element on hover or focus.
+ */
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   // eslint-disable-next-line arrow-body-style
   ({ children, className, ...props }, ref): JSX.Element => {
