@@ -1,5 +1,7 @@
-import React from "react"
+import React, { useRef } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { AriaButtonOptions, useButton } from "react-aria"
+import { ButtonContext, Button as RACButton, useContextProps } from "react-aria-components"
 import { Button } from "~components/Button"
 import { InformationIcon } from "~components/Icon"
 import { Tooltip, TooltipTrigger } from "../index"
@@ -15,6 +17,73 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
+  render: args => {
+    const ref = useRef(null)
+    const [contextProps, contextRef] = useContextProps(
+      {
+        type: "button",
+        onPress: () => undefined,
+        onFocus: () => undefined,
+      } satisfies AriaButtonOptions<"button">,
+      ref,
+      ButtonContext
+    )
+    const { buttonProps } = useButton(contextProps, contextRef)
+
+    return (
+    <TooltipTrigger>
+      {/* eslint-disable-next-line react/button-has-type */}
+      <button ref={contextRef} {...contextProps} {...buttonProps}>RAC useButton</button>
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  )
+},
+  parameters: {
+    docs: { canvas: { sourceState: "shown" } },
+  },
+}
+
+// @note - Not working
+export const PlaygroundRACHooks: Story = {
+  render: args => {
+    const ref = useRef(null)
+    const [contextProps, contextRef] = useContextProps(
+      {
+        type: "button",
+        onPress: () => undefined,
+        onFocus: () => undefined,
+      } satisfies AriaButtonOptions<"button">,
+      ref,
+      ButtonContext
+    )
+    const { buttonProps } = useButton(contextProps, contextRef)
+
+    return (
+    <TooltipTrigger>
+      {/* eslint-disable-next-line react/button-has-type */}
+      <button ref={contextRef} {...contextProps} {...buttonProps}>RAC useButton</button>
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  )
+},
+  parameters: {
+    docs: { canvas: { sourceState: "shown" } },
+  },
+}
+
+export const PlaygroundRACButton: Story = {
+  render: args => (
+    <TooltipTrigger>
+      <RACButton>RAC button</RACButton>
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
+  parameters: {
+    docs: { canvas: { sourceState: "shown" } },
+  },
+}
+
+export const PlaygroundCustomButton: Story = {
   render: args => (
     <TooltipTrigger>
       <Button
@@ -29,9 +98,6 @@ export const Playground: Story = {
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
-  parameters: {
-    docs: { canvas: { sourceState: "shown" } },
-  },
 }
 
 export const PlaygroundButton: Story = {
