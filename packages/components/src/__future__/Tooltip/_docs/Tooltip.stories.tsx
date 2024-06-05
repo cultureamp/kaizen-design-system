@@ -13,7 +13,7 @@ import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
 import { NonInteractiveTooltip } from "../NonInteractiveTooltip"
-import { Tooltip, TooltipTrigger } from "../index"
+import { NonInteractiveTrigger, Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
   title: "Components/__Tooltip/v2",
@@ -150,4 +150,49 @@ export const PlaygroundTag: Story = {
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
+}
+
+const WrapperNotInteractiveV1 = ({ children }: { children: ReactNode }): JSX.Element => {
+  const ref = useRef<HTMLDivElement>(null)
+  const [contextProps] = useContextProps({}, ref, TooltipContext)
+  const { buttonProps } = useButton({ elementType: "div" }, ref)
+  const [tooltipContent, setTooltipContent] = useState<string | null>()
+
+  // This doesn't work as we cannot get the tooltip content until the tooltip has appeared
+  useEffect(() => {
+    if (!tooltipContent && contextProps.id) {
+      setTooltipContent(document.getElementById(contextProps.id)?.textContent)
+    }
+  }, [contextProps])
+
+  return (
+    <div ref={ref} {...buttonProps} style={{ display: "inline-block" }}>
+      {children}
+        {tooltipContent}
+      <VisuallyHidden>
+        {tooltipContent}
+      </VisuallyHidden>
+    </div>
+  )
+}
+
+export const PlaygroundNonInteractiveTrigger: Story = {
+  render: args => {
+    const TooltipContent = (): JSX.Element => <>
+    <InformationIcon role="presentation" />
+    <div>
+      <strong>Title here maybe</strong>
+    </div>
+    <div>Tooltip content</div>
+    </>
+
+    return (
+    <TooltipTrigger>
+      <NonInteractiveTrigger tooltipContent={<TooltipContent />}>
+        <Tag>Non-interactive element</Tag>
+      </NonInteractiveTrigger>
+      <Tooltip {...args}><TooltipContent /></Tooltip>
+    </TooltipTrigger>
+  )
+},
 }

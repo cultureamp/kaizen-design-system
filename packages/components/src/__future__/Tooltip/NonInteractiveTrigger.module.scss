@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.nonInteractiveTrigger {
+  display: inline-flex;
+}

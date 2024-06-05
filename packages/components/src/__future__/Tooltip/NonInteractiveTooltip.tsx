@@ -11,7 +11,8 @@ export const NonInteractiveTooltip = ({
   const { focusableProps } = useFocusable({}, ref)
 
   return (
-    <div ref={ref} {...focusableProps} data-non-interactive>
+    // <div ref={ref} {...focusableProps} data-non-interactive>
+    <div ref={ref} {...focusableProps} tabIndex={0}>
       {children}
     </div>
   )
