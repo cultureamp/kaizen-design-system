@@ -1,4 +1,5 @@
 packages:
   - "packages/**"
   - "!packages/components/future"
+  - "!packages/components/overlays"
   - "!packages/design-tokens/js"

@@ -1,5 +1,4 @@
 {
-
   "main": "../../dist/cjs/overlaysV1.cjs",
   "module": "../../dist/esm/overlaysV1.mjs",
   "types": "../../dist/types/overlays/v1/index.d.ts"
