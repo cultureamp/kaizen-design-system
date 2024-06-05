@@ -59,16 +59,16 @@ export const PlaygroundRACButton: Story = {
   },
 }
 
-export const PlaygroundCustomButton: Story = {
+export const OnCustomButton: Story = {
   render: args => (
     <TooltipTrigger>
       <Button
-        label="button labelfdsofjbnsdpoufndslkjfgnspdfkojgnsúdfkojgn"
+        label="Some very long button label to show tooltip in center"
         component={(props): React.ReactElement => (
-          <div {...props}>
-            <div>I&apos;m custom</div>
-            <div>{props.children}</div>
-          </div>
+          <span {...props} style={{ paddingLeft: "1.5rem" }}>
+            <strong>I&apos;m custom</strong>
+            {props.children}
+          </span>
         )}
       />
       <Tooltip {...args}>Tooltip content</Tooltip>
