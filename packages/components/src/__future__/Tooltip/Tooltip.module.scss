@@ -44,11 +44,12 @@ $arrow-width: 14px;
 .overlayArrowBody {
   // before styles
   &::before {
+    margin-top: 2px;
     border-top: $arrow-height solid $color-gray-300;
   }
   // after styles
   &::after {
-    margin-top: -3px;
+    margin-top: -1px;
     border-top: $arrow-height solid white;
   }
 }
