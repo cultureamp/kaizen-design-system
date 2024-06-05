@@ -66,9 +66,6 @@ export const PlaygroundRACHooks: Story = {
     </TooltipTrigger>
   )
 },
-  parameters: {
-    docs: { canvas: { sourceState: "shown" } },
-  },
 }
 
 export const PlaygroundRACButton: Story = {
