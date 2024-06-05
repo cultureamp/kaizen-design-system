@@ -34,29 +34,62 @@ export const Playground: Story = {
   },
 }
 
-export const PlaygroundButton: Story = {
+export const OnDisabledButton: Story = {
   render: args => (
     <TooltipTrigger>
       <Button
-        label="button labelfdsofjbnsdpoufndslkjfgnspdfkojgnsúdfkojgn"
-        // disabled
-        aria-disabled
+        label="Some very long button label to show tooltip in center"
+        disabled
       />
       <Tooltip {...args}>
         <InformationIcon role="presentation" />
-        <div><strong>Title here maybe</strong></div>
+        <div>
+          <strong>Title here maybe</strong>
+        </div>
         <div>Tooltip content</div>
-        </Tooltip>
+      </Tooltip>
     </TooltipTrigger>
   ),
 }
 
-export const PlaygroundLink: Story = {
+export const OnButton: Story = {
+  render: args => (
+    <TooltipTrigger>
+      <Button label="Some very long button label to show tooltip in center" />
+      <Tooltip {...args}>
+        <InformationIcon role="presentation" />
+        <div>
+          <strong>Title here maybe</strong>
+        </div>
+        <div>Tooltip content</div>
+      </Tooltip>
+    </TooltipTrigger>
+  ),
+}
+
+export const OnLink: Story = {
   render: args => (
     <TooltipTrigger>
       <Button
-        label="button labelfdsofjbnsdpoufndslkjfgnspdfkojgnsúdfkojgn"
+        label="Some very long button label to show tooltip in center"
         href="#"
+      />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
+}
+
+export const OnCustomComponent: Story = {
+  render: args => (
+    <TooltipTrigger>
+      <Button
+        label="Some very long button label to show tooltip in center"
+        component={(props): React.ReactElement => (
+          <span {...props}>
+            <strong>I&apos;m custom</strong> <br />
+            {props.children}
+          </span>
+        )}
       />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
