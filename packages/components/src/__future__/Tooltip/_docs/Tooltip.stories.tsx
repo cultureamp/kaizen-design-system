@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { AriaButtonOptions, useButton } from "react-aria"
 import {
@@ -8,6 +8,7 @@ import {
 } from "react-aria-components"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
+import { Tag } from "~components/__future__/Tag"
 import { Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
@@ -20,31 +21,31 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-// @note - Not working
-export const PlaygroundRACHooks: Story = {
-  render: args => {
-    const ref = useRef(null)
-    const [contextProps, contextRef] = useContextProps(
-      {
-        type: "button",
-        onPress: () => undefined,
-        onFocus: () => undefined,
-      } satisfies AriaButtonOptions<"button">,
-      ref,
-      ButtonContext
-    )
-    const { buttonProps } = useButton(contextProps, contextRef)
+const Trigger = () => {
+  const ref = useRef(null)
+  // const [contextProps, contextRef] = useContextProps(
+  //   {
+  //     // type: "button",
+  //     // onPress: () => undefined,
+  //     // onFocus: () => undefined,
+  //   } satisfies AriaButtonOptions<"button">,
+  //   ref,
+  //   ButtonContext
+  // )
+  // const { buttonProps } = useButton(contextProps, contextRef)
+  const { buttonProps } = useButton({}, ref)
 
-    return (
-      <TooltipTrigger>
-        {/* eslint-disable-next-line react/button-has-type */}
-        <button ref={contextRef} {...contextProps} {...buttonProps}>
-          RAC useButton
-        </button>
-        <Tooltip {...args}>Tooltip content</Tooltip>
-      </TooltipTrigger>
-    )
-  },
+  // return <button ref={contextRef} {...contextProps} {...buttonProps}>RAC useButton</button>
+  return <button ref={ref} {...buttonProps}>RAC useButton</button>
+}
+
+export const PlaygroundRACHooks: Story = {
+  render: args => (
+    <TooltipTrigger>
+      <Trigger />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
 }
 
 export const PlaygroundRACButton: Story = {
@@ -132,4 +133,51 @@ export const OnIconButton: Story = {
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
+}
+
+const WrapperNotInteractive = () => {
+  const ref = useRef<HTMLDivElement>(null)
+  const [contextProps, contextRef] = useContextProps(
+    {},
+    ref,
+    ButtonContext
+  )
+  const { buttonProps } = useButton({...contextProps, elementType: "div" }, contextRef)
+  // const { buttonProps } = useButton({ elementType: "div" }, ref)
+  // const { buttonProps } = useButton({}, ref)
+
+  return (
+    // <div ref={contextRef} {...contextProps} {...buttonProps}>
+    <div ref={ref} {...buttonProps}>
+      <Tag>Non-interactive element</Tag>
+    </div>
+)
+}
+
+export const PlaygroundTag: Story = {
+  render: args =>
+    // const ref = useRef<HTMLDivElement>(null)
+    // const [contextProps, contextRef] = useContextProps(
+    //   {},
+    //   ref,
+    //   ButtonContext
+    // )
+    // const { buttonProps } = useButton({...contextProps, elementType: "div" }, contextRef)
+    // const { buttonProps } = useButton({ elementType: "div" }, ref)
+    // const { buttonProps } = useButton({}, ref)
+
+     (
+    <TooltipTrigger>
+      {/* <div ref={ref} {...buttonProps}> */}
+      {/* <div ref={contextRef} {...contextProps} {...buttonProps}>
+        <Tag>Non-interactive element</Tag>
+      </div> */}
+      <WrapperNotInteractive/>
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  )
+,
+  parameters: {
+    docs: { canvas: { sourceState: "shown" } },
+  },
 }
