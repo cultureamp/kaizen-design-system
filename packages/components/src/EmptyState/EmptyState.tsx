@@ -84,10 +84,7 @@ export const EmptyState = ({
             classNameOverride={styles.illustration}
           />
         ) : (
-          <IllustrationComponent
-            alt={illustrationType}
-            classNameOverride={styles.illustration}
-          />
+          <IllustrationComponent classNameOverride={styles.illustration} />
         )}
       </div>
       <div className={styles.textSide}>
