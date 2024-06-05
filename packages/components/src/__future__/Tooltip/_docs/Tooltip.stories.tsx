@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef, useState } from "react"
+import React, { ReactNode, useEffect, useRef, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { AriaButtonOptions, useButton } from "react-aria"
 import {
@@ -9,6 +9,7 @@ import {
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
+import { NonInteractiveTooltip } from "../NonInteractiveTooltip"
 import { Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
@@ -139,52 +140,11 @@ export const OnIconButton: Story = {
   ),
 }
 
-const WrapperNotInteractive = ({ children }: { children: ReactNode }) => {
-  const ref = useRef<HTMLDivElement>(null)
-  // @ts-ignore
-  const [contextProps, contextRef] = useContextProps({}, ref, ButtonContext)
-  const { buttonProps } = useButton({ elementType: "div" }, contextRef)
-  // const { buttonProps } = useButton({ elementType: "div" }, ref)
-  // const { buttonProps } = useButton({}, ref)
-
-  console.log(
-    "buttonProps",
-    buttonProps,
-    contextProps,
-    contextRef.current,
-    ref.current
-  )
-
-  return (
-    <div ref={contextRef} {...contextProps} {...buttonProps}>
-    {/* <div ref={ref} {...buttonProps}> */}
-      {children}
-    </div>
-  )
-}
-
 export const PlaygroundTag: Story = {
   render: args => (
-    // const ref = useRef<HTMLDivElement>(null)
-    // const [contextProps, contextRef] = useContextProps(
-    //   {},
-    //   ref,
-    //   ButtonContext
-    // )
-    // const { buttonProps } = useButton({...contextProps, elementType: "div" }, contextRef)
-    // const { buttonProps } = useButton({ elementType: "div" }, ref)
-    // const { buttonProps } = useButton({}, ref)
-
-    <TooltipTrigger>
-      {/* <div ref={ref} {...buttonProps}> */}
-      {/* <div ref={contextRef} {...contextProps} {...buttonProps}>
-        <Tag>Non-interactive element</Tag>
-      </div> */}
-      <WrapperNotInteractive>this is text</WrapperNotInteractive>
+    <TooltipTrigger nonInteractive>
+      <NonInteractiveTooltip>this is text</NonInteractiveTooltip>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
-  parameters: {
-    docs: { canvas: { sourceState: "shown" } },
-  },
 }

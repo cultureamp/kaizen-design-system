@@ -1,22 +1,18 @@
-import React, { ReactNode } from "react"
-import { VisuallyHidden } from "react-aria"
-import {
-  TooltipTrigger as RACTooltipTrigger,
-  Tooltip,
-  TooltipTriggerComponentProps,
-} from "react-aria-components"
-
+import React, { ReactNode, useRef } from "react"
+import { useFocusable } from "react-aria"
 
 // Instant component
-export const NonInteractiveTooltip = ({children}: { children: ReactNode }): JSX.Element => {
-
-
+export const NonInteractiveTooltip = ({
+  children,
+}: {
+  children: ReactNode
+}): JSX.Element => {
+  const ref = useRef<HTMLDivElement>(null)
+  const { focusableProps } = useFocusable({}, ref)
 
   return (
-    <TooltipTrigger>
-      <></>
-      <VisuallyHidden>{children}</VisuallyHidden>
-      <Tooltip>{children}</Tooltip>
-    </TooltipTrigger>
+    <div ref={ref} {...focusableProps} data-non-interactive>
+      {children}
+    </div>
   )
 }
