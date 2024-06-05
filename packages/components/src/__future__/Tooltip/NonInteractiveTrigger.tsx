@@ -1,23 +1,25 @@
 import React, { HTMLAttributes, ReactNode, useRef } from "react"
 import classnames from "classnames"
-import { useFocusable } from "react-aria"
+import { FocusableOptions, useFocusable } from "react-aria"
 import styles from "./NonInteractiveTrigger.module.scss"
 
 export type NonInteractiveTriggerProps = {
-  children: ReactNode,
-} & HTMLAttributes<HTMLDivElement>
+  children: ReactNode
+} & FocusableOptions &
+  HTMLAttributes<HTMLDivElement>
 
-export const NonInteractiveTrigger = ({ children, className, ...restProps }: NonInteractiveTriggerProps): JSX.Element => {
+export const NonInteractiveTrigger = ({
+  children,
+  className,
+  ...props
+}: NonInteractiveTriggerProps): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null)
-  const { focusableProps } = useFocusable({}, ref)
+  const { focusableProps } = useFocusable(props, ref)
 
   return (
     <div
       ref={ref}
-      className={classnames(
-        styles.nonInteractiveTrigger,
-        className
-      )}
+      className={classnames(styles.nonInteractiveTrigger, className)}
       {...focusableProps}
       data-non-interactive
       // We want the div to be focusable for keyboard users,
@@ -26,7 +28,7 @@ export const NonInteractiveTrigger = ({ children, className, ...restProps }: Non
       tabIndex={0}
       // Negate the aria description (added by RAC) as we have the VisuallyHidden content
       aria-describedby={undefined}
-      {...restProps}
+      {...props}
     >
       {children}
     </div>

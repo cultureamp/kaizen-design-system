@@ -1,12 +1,7 @@
-import React, {
-  ReactNode,
-  forwardRef,
-  useContext,
-  useLayoutEffect,
-  useState,
-} from "react"
+import React, { forwardRef, useContext, useLayoutEffect, useState } from "react"
 import { VisuallyHidden } from "react-aria"
 import {
+  OverlayArrow,
   Tooltip as RACTooltip,
   TooltipContext,
   TooltipProps,
@@ -17,6 +12,9 @@ import { mergeClassNames } from "~utils/mergeClassNames"
 import styles from "./Tooltip.module.scss"
 
 export { TooltipContext, TooltipProps }
+
+const arrowHeight = 7
+const defaultOffset = arrowHeight + 6
 
 /**
  * A tooltip displays a description of an element on hover or focus.
@@ -31,6 +29,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     )
     const contextState = useContext(TooltipTriggerStateContext)
     const [isNonInteractive, setIsNonInteractive] = useState(false)
+    const offset = props.offset ?? defaultOffset
 
     useLayoutEffect(() => {
       setIsNonInteractive(
@@ -43,9 +42,29 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         <RACTooltip
           ref={ref}
           {...props}
+          offset={offset}
           className={mergeClassNames(styles.tooltip, className)}
         >
-          {children}
+          {renderProps => (
+            <>
+              <OverlayArrow
+                className={styles.overlayArrow}
+                style={{
+                  transform:
+                    (renderProps.placement === "right" && "rotate(90deg)") ||
+                    (renderProps.placement === "bottom" && "rotate(180deg)") ||
+                    (renderProps.placement === "left" && "rotate(270deg)") ||
+                    "rotate(0deg)",
+                }}
+              >
+                <div className={styles.overlayArrowBody} />
+                <div className={styles.overlayArrowShadow} />
+              </OverlayArrow>
+              {typeof children === "function"
+                ? children(renderProps)
+                : children}
+            </>
+          )}
         </RACTooltip>
         {isNonInteractive ? (
           <VisuallyHidden>

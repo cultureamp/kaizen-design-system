@@ -1,60 +1,28 @@
-import React, { ReactNode, useEffect, useRef, useState } from "react"
+import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { AriaButtonOptions, VisuallyHidden, useButton } from "react-aria"
-import {
-  ButtonContext,
-  Button as RACButton,
-  TooltipContext,
-  TooltipTriggerStateContext,
-  useContextProps,
-  useSlottedContext,
-} from "react-aria-components"
+import { Button as RACButton } from "react-aria-components"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
-import { NonInteractiveTooltip } from "../NonInteractiveTooltip"
 import { NonInteractiveTrigger, Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
   title: "Components/__Tooltip/v2",
   component: Tooltip,
-  args: {},
+  parameters: {
+    layout: "centered",
+  },
+  argTypes: {
+    placement: {
+      options: ["top", "left", "right", "bottom"],
+      control: { type: "select" },
+    },
+  },
 } satisfies Meta<typeof Tooltip>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
-
-// const NonInteractiveTrigger = ({ children }: { children: ReactNode }) => {
-//   const ref = useRef(null)
-//   // const [contextProps, contextRef] = useContextProps(
-//   //   {
-//   //     // type: "button",
-//   //     // onPress: () => undefined,
-//   //     // onFocus: () => undefined,
-//   //   } satisfies AriaButtonOptions<"button">,
-//   //   ref,
-//   //   ButtonContext
-//   // )
-//   // const { buttonProps } = useButton(contextProps, contextRef)
-//   const { buttonProps } = useButton({}, ref)
-
-//   // return <button ref={contextRef} {...contextProps} {...buttonProps}>RAC useButton</button>
-//   return (
-//     <button ref={ref} {...buttonProps}>
-//       RAC useButton
-//     </button>
-//   )
-// }
-
-// export const PlaygroundRACHooks: Story = {
-//   render: args => (
-//     <TooltipTrigger>
-//       <Trigger />
-//       <Tooltip {...args}>Tooltip content</Tooltip>
-//     </TooltipTrigger>
-//   ),
-// }
 
 export const PlaygroundRACButton: Story = {
   render: args => (
@@ -143,56 +111,39 @@ export const OnIconButton: Story = {
   ),
 }
 
-export const PlaygroundTag: Story = {
-  render: args => (
-    <TooltipTrigger>
-      <NonInteractiveTooltip>this is text</NonInteractiveTooltip>
-      <Tooltip {...args}>Tooltip content</Tooltip>
-    </TooltipTrigger>
-  ),
+export const PlacementLeft: Story = {
+  ...OnButton,
+  args: { isOpen: true, placement: "left" },
 }
 
-const WrapperNotInteractiveV1 = ({ children }: { children: ReactNode }): JSX.Element => {
-  const ref = useRef<HTMLDivElement>(null)
-  const [contextProps] = useContextProps({}, ref, TooltipContext)
-  const { buttonProps } = useButton({ elementType: "div" }, ref)
-  const [tooltipContent, setTooltipContent] = useState<string | null>()
+export const PlacementRight: Story = {
+  ...OnButton,
+  args: { isOpen: true, placement: "right" },
+}
 
-  // This doesn't work as we cannot get the tooltip content until the tooltip has appeared
-  useEffect(() => {
-    if (!tooltipContent && contextProps.id) {
-      setTooltipContent(document.getElementById(contextProps.id)?.textContent)
-    }
-  }, [contextProps])
+export const PlacementTop: Story = {
+  ...OnButton,
+  args: { isOpen: true, placement: "top" },
+}
 
-  return (
-    <div ref={ref} {...buttonProps} style={{ display: "inline-block" }}>
-      {children}
-        {tooltipContent}
-      <VisuallyHidden>
-        {tooltipContent}
-      </VisuallyHidden>
-    </div>
-  )
+export const PlacementBottom: Story = {
+  ...OnButton,
+  args: { isOpen: true, placement: "bottom" },
 }
 
 export const PlaygroundNonInteractiveTrigger: Story = {
-  render: args => {
-    const TooltipContent = (): JSX.Element => <>
-    <InformationIcon role="presentation" />
-    <div>
-      <strong>Title here maybe</strong>
-    </div>
-    <div>Tooltip content</div>
-    </>
-
-    return (
+  render: args => (
     <TooltipTrigger>
       <NonInteractiveTrigger>
         <Tag>Non-interactive element</Tag>
       </NonInteractiveTrigger>
-      <Tooltip {...args}><TooltipContent /></Tooltip>
+      <Tooltip {...args}>
+        <InformationIcon role="presentation" />
+        <div>
+          <strong>Title here maybe</strong>
+        </div>
+        <div>Tooltip content</div>
+      </Tooltip>
     </TooltipTrigger>
-  )
-},
+  ),
 }
