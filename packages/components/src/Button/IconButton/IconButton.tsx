@@ -15,7 +15,14 @@ export type IconButtonProps = Omit<BaseButtonProps, "iconPosition"> &
  */
 export const IconButton = forwardRef(
   (props: IconButtonProps, ref: Ref<ButtonRef | undefined>): JSX.Element => (
-    <GenericButton iconButton {...props} ref={ref} />
+    <GenericButton
+      iconButton
+      // Negate the aria description (added by RAC) as it should be the
+      // same as the accessible name, therefore no need to duplicate it
+      aria-describedby={null}
+      {...props}
+      ref={ref}
+    />
   )
 )
 
