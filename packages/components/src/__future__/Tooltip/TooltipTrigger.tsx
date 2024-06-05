@@ -13,8 +13,6 @@ export type TooltipTriggerProps = Omit<
    * @default 300
    */
   delay?: number
-
-  nonInteractive?: boolean
 }
 
 /**
