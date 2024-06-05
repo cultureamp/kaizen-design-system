@@ -24,6 +24,8 @@ export const NonInteractiveTrigger = ({ children, tooltipContent, className, ...
         className
       )}
       {...focusableProps}
+      // Negate the aria description (added by RAC) as we have the VisuallyHidden content
+      aria-describedby={null}
       {...restProps}
     >
       {children}
