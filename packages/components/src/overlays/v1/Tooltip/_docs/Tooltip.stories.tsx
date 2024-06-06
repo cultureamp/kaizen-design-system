@@ -16,7 +16,7 @@ import { Tag } from "~components/__future__"
 import { Tooltip } from "../index"
 
 const meta = {
-  title: "Components/Overlays/V1/Tooltip",
+  title: "Overlays/Tooltip/V1",
   component: Tooltip,
   args: {
     text: "Example tooltip text.",

@@ -10,6 +10,7 @@ import ReactDOM from "react-dom"
 import { Placement } from "@popperjs/core"
 import classnames from "classnames"
 import { usePopper } from "react-popper"
+import { Text } from "~components/Text"
 import { AnimationProvider, useAnimation } from "./subcomponents/AppearanceAnim"
 import { isSemanticElement } from "./utils/isSemanticElement"
 import styles from "./Tooltip.module.scss"
@@ -133,8 +134,11 @@ const TooltipContent = ({
       role="tooltip"
       id={tooltipId}
     >
-      <div className={classnames(styles.tooltipContent, styles[mood])}>
-        {text}
+      <div className={classnames(styles.v1TooltipContent, styles[mood])}>
+        <Text classNameOverride={styles.tooltipTextTest} variant="body">
+          {text}
+        </Text>
+        <p>There should be margin above</p>
       </div>
       <div
         ref={setArrowElement}
@@ -168,6 +172,7 @@ const renderChildren = (
   return content
 }
 
+/** @deprecated */
 export const Tooltip = ({
   children,
   text,

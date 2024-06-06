@@ -1,9 +1,10 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { Tooltip as StankyTooltip } from "../../v1"
 import { Tooltip } from "../index"
 
 const meta = {
-  title: "Components/Overlays/V2/Tooltip",
+  title: "Overlays/Tooltip/V2",
   component: Tooltip,
   decorators: [
     Story => (
@@ -32,5 +33,14 @@ export const Playground: Story = {
       },
     },
   },
-  render: args => <Tooltip {...args}>{args.children}</Tooltip>,
+  render: args => (
+    <div>
+      <StankyTooltip isInitiallyVisible text={`${args.children}`}>
+        <button type="button" onClick={(): void => undefined}>
+          click
+        </button>
+      </StankyTooltip>
+      <Tooltip {...args}>{args.children}</Tooltip>
+    </div>
+  ),
 }
