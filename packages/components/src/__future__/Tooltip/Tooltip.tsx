@@ -13,8 +13,7 @@ import styles from "./Tooltip.module.scss"
 
 export { TooltipContext, TooltipProps }
 
-
-const arrowSize = 8 // sync with styles
+const arrowSize = 8
 const defaultOffset = arrowSize + 6
 
 /**
@@ -51,6 +50,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
               <OverlayArrow
                 className={styles.overlayArrow}
                 style={{
+                  "--size": `${arrowSize}px`,
                   transform:
                     (renderProps.placement === "right" && "rotate(90deg)") ||
                     (renderProps.placement === "bottom" && "rotate(180deg)") ||
