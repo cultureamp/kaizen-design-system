@@ -21,7 +21,7 @@ export const NonInteractiveTrigger = ({
       ref={ref}
       className={classnames(styles.nonInteractiveTrigger, className)}
       {...focusableProps}
-      data-non-interactive
+      data-tooltip-sr-content
       // We want the div to be focusable for keyboard users,
       // but screen readers will have the VisuallyHidden content
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex

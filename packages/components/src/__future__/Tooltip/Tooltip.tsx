@@ -33,7 +33,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
 
     useLayoutEffect(() => {
       setIsNonInteractive(
-        !!triggerRef?.current?.getAttribute("data-non-interactive")
+        !!triggerRef?.current?.getAttribute("data-tooltip-sr-content")
       )
     }, [triggerRef])
 

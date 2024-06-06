@@ -23,7 +23,7 @@ export const ToggleTipTrigger = ({
       className={classnames(
         styles.toggleTipTrigger,
         className)}
-      data-non-interactive
+      data-tooltip-sr-content
       {...buttonProps}
       // Cannot use react-aria's Button component as it prevents adding aria-hidden
       aria-hidden="true"
