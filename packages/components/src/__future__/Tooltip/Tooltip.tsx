@@ -13,8 +13,9 @@ import styles from "./Tooltip.module.scss"
 
 export { TooltipContext, TooltipProps }
 
-const arrowHeight = 7
-const defaultOffset = arrowHeight + 6
+
+const arrowSize = 8 // sync with styles
+const defaultOffset = arrowSize + 6
 
 /**
  * A tooltip displays a description of an element on hover or focus.

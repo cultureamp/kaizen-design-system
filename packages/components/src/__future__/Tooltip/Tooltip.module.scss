@@ -23,8 +23,7 @@
   border: $border-solid-border-width $border-solid-border-style $color-gray-300;
 }
 
-$arrow-height: 8px;
-$arrow-width: 16px;
+$arrow-size: 8px;
 
 .overlayArrow {
   // Ensure the arrow always sits on top of the tooltipContent
@@ -36,29 +35,29 @@ $arrow-width: 16px;
 .overlayArrowBody::after {
   content: "";
   position: absolute;
-  border-left: calc(#{$arrow-width} / 2) solid transparent;
-  border-right: calc(#{$arrow-width} / 2) solid transparent;
-  margin-left: calc((#{$arrow-width} / -2) + 1px);
+  border-left: $arrow-size solid transparent;
+  border-right: $arrow-size solid transparent;
+  margin-left: calc(-#{$arrow-size} + 1px);
 }
 
 .overlayArrowBody {
   // before styles
   &::before {
     margin-top: 1px;
-    border-top: $arrow-height solid $color-gray-300;
+    border-top: $arrow-size solid $color-gray-300;
   }
   // after styles
   &::after {
     margin-top: -2px;
-    border-top: $arrow-height solid white;
+    border-top: $arrow-size solid white;
   }
 }
 
 .overlayArrowShadow {
   border-top: 0 solid $color-gray-300;
   position: absolute;
-  height: calc((#{$arrow-width} / 2) - 2px);
-  width: calc((#{$arrow-width} / 2) - 2px);
+  height: calc($arrow-size - 2px);
+  width: calc($arrow-size - 2px);
   left: -2px;
   top: 1px;
   transform: rotate(-45deg);
