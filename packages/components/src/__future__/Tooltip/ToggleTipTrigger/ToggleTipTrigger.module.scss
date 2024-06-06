@@ -1,0 +1,7 @@
+@import "../../../../styles/utils/button-reset";
+
+.toggleTipTrigger {
+  @include button-reset;
+
+  display: inline-flex;
+}

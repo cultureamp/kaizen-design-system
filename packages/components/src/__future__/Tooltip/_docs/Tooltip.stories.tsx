@@ -4,7 +4,7 @@ import { Button as RACButton } from "react-aria-components"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
-import { NonInteractiveTrigger, Tooltip, TooltipTrigger } from "../index"
+import { NonInteractiveTrigger, ToggleTipTrigger, Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
   title: "Components/__Tooltip/v2",
@@ -137,6 +137,23 @@ export const PlaygroundNonInteractiveTrigger: Story = {
       <NonInteractiveTrigger>
         <Tag>Non-interactive element</Tag>
       </NonInteractiveTrigger>
+      <Tooltip {...args}>
+        <InformationIcon role="presentation" />
+        <div>
+          <strong>Title here maybe</strong>
+        </div>
+        <div>Tooltip content</div>
+      </Tooltip>
+    </TooltipTrigger>
+  ),
+}
+
+export const PlaygroundToggleTipTrigger: Story = {
+  render: args => (
+    <TooltipTrigger>
+      <ToggleTipTrigger>
+        <InformationIcon role="img" aria-label="Information" />
+      </ToggleTipTrigger>
       <Tooltip {...args}>
         <InformationIcon role="presentation" />
         <div>
