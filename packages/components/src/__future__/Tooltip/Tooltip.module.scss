@@ -23,8 +23,8 @@
   border: $border-solid-border-width $border-solid-border-style $color-gray-300;
 }
 
-$arrow-height: 7px;
-$arrow-width: 14px;
+$arrow-height: 8px;
+$arrow-width: 16px;
 
 .overlayArrow {
   // Ensure the arrow always sits on top of the tooltipContent
@@ -44,23 +44,24 @@ $arrow-width: 14px;
 .overlayArrowBody {
   // before styles
   &::before {
-    margin-top: 2px;
+    margin-top: 1px;
     border-top: $arrow-height solid $color-gray-300;
   }
   // after styles
   &::after {
-    margin-top: -1px;
+    margin-top: -2px;
     border-top: $arrow-height solid white;
   }
 }
 
 .overlayArrowShadow {
   border-top: 0 solid $color-gray-300;
-}
-
-// Triangle portion is a little darker to bring out shadow
-.overlayArrowShadow::after {
-  border-top: $arrow-height solid rgba($color-purple-800-rgb, 0.09);
-  margin-top: 1px;
-  filter: blur(4px);
+  position: absolute;
+  height: calc((#{$arrow-width} / 2) - 2px);
+  width: calc((#{$arrow-width} / 2) - 2px);
+  left: -2px;
+  top: 1px;
+  transform: rotate(-45deg);
+  z-index: -1;
+  box-shadow: $shadow-small-box-shadow;
 }
