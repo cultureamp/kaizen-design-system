@@ -41,12 +41,7 @@ export const OnCustomButton: Story = {
     <TooltipTrigger>
       <Button
         label="Some very long button label to show tooltip in center"
-        component={(props): React.ReactElement => (
-          <span {...props} style={{ paddingLeft: "1.5rem" }}>
-            <strong>I&apos;m custom</strong>
-            {props.children}
-          </span>
-        )}
+        component={props => <span {...props} />}
       />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
