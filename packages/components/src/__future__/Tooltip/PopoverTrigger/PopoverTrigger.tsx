@@ -1,18 +1,18 @@
 import React, { HTMLAttributes, ReactNode, useRef } from "react"
 import classnames from "classnames"
 import { AriaButtonOptions, useButton } from "react-aria"
-import styles from "./ToggleTipTrigger.module.scss"
+import styles from "./PopoverTrigger.module.scss"
 
-export type ToggleTipTriggerProps = {
+export type PopoverTriggerProps = {
   children: ReactNode
   className?: HTMLAttributes<HTMLButtonElement>["className"]
 } & AriaButtonOptions<"button">
 
-export const ToggleTipTrigger = ({
+export const PopoverTrigger = ({
   children,
   className,
   ...props
-}: ToggleTipTriggerProps): JSX.Element => {
+}: PopoverTriggerProps): JSX.Element => {
   const ref = useRef<HTMLButtonElement>(null)
   const { buttonProps } = useButton(props, ref)
 
@@ -20,7 +20,7 @@ export const ToggleTipTrigger = ({
     <button
       ref={ref}
       type="button"
-      className={classnames(styles.toggleTipTrigger, className)}
+      className={classnames(styles.popoverTrigger, className)}
       data-tooltip-sr-content
       {...buttonProps}
       // Cannot use react-aria's Button component as it prevents adding aria-hidden

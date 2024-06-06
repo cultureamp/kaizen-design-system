@@ -1,10 +1,17 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Button as RACButton } from "react-aria-components"
+import { DialogTrigger, Button as RACButton } from "react-aria-components"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
-import { NonInteractiveTrigger, ToggleTipTrigger, Tooltip, TooltipTrigger } from "../index"
+import {
+  NonInteractiveTrigger,
+  Popover,
+  PopoverTrigger,
+  ToggleTipTrigger,
+  Tooltip,
+  TooltipTrigger,
+} from "../index"
 
 const meta = {
   title: "Components/__Tooltip/v2",
@@ -143,7 +150,10 @@ export const PlaygroundNonInteractiveTrigger: Story = {
   ),
 }
 
-export const PlaygroundToggleTipTrigger: Story = {
+// NOT FULLY WORKING
+// - Should not show on hover; only on press
+export const PlaygroundToggleTipTooltip: Story = {
+  name: "Toggle Tip (Tooltip)",
   render: args => (
     <TooltipTrigger>
       <ToggleTipTrigger>
@@ -157,5 +167,29 @@ export const PlaygroundToggleTipTrigger: Story = {
         <div>Tooltip content</div>
       </Tooltip>
     </TooltipTrigger>
+  ),
+}
+
+// NOT FULLY WORKING
+// - Does not close when clicking outside
+// - Does not close on Esc
+export const PlaygroundToggleTipPopover: Story = {
+  name: "Toggle Tip (Popover)",
+  render: () => (
+    <DialogTrigger>
+      <PopoverTrigger>
+        <InformationIcon role="img" aria-label="Information" />
+      </PopoverTrigger>
+      <Popover
+        // This isn't working
+        shouldCloseOnInteractOutside={() => true}
+      >
+        <InformationIcon role="presentation" />
+        <div>
+          <strong>Title here maybe</strong>
+        </div>
+        <div>Popover content</div>
+      </Popover>
+    </DialogTrigger>
   ),
 }

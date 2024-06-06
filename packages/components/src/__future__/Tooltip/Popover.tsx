@@ -1,18 +1,17 @@
-import React, { forwardRef, useContext, useLayoutEffect, useState } from "react"
+import React, { forwardRef, useLayoutEffect, useState } from "react"
 import { VisuallyHidden } from "react-aria"
 import {
   OverlayArrow,
-  Tooltip as RACTooltip,
-  TooltipContext,
-  TooltipProps,
-  TooltipTriggerStateContext,
+  Popover as RACPopover,
+  PopoverContext,
+  PopoverProps,
   useContextProps,
 } from "react-aria-components"
 import { mergeClassNames } from "~utils/mergeClassNames"
 import styles from "./Tooltip.module.scss"
 
-export type { TooltipProps }
-export { TooltipContext }
+export type { PopoverProps }
+export { PopoverContext }
 
 const arrowSize = 8
 const defaultOffset = arrowSize + 6
@@ -20,15 +19,14 @@ const defaultOffset = arrowSize + 6
 /**
  * A tooltip displays a description of an element on hover or focus.
  */
-export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
+export const Popover = forwardRef<HTMLElement, PopoverProps>(
   // eslint-disable-next-line arrow-body-style
   ({ children, className, ...props }, ref): JSX.Element => {
     const [{ triggerRef }] = useContextProps(
       { children, className, ...props },
       ref,
-      TooltipContext
+      PopoverContext
     )
-    const contextState = useContext(TooltipTriggerStateContext)
     const [isNonInteractive, setIsNonInteractive] = useState(false)
     const offset = props.offset ?? defaultOffset
 
@@ -40,8 +38,10 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
 
     return (
       <>
-        <RACTooltip
+        <RACPopover
           ref={ref}
+          isNonModal
+          placement="top"
           {...props}
           offset={offset}
           className={mergeClassNames(styles.tooltip, className)}
@@ -67,7 +67,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
                 : children}
             </>
           )}
-        </RACTooltip>
+        </RACPopover>
         {isNonInteractive ? (
           <VisuallyHidden>
             {typeof children === "function"
@@ -75,7 +75,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
                   placement: "center",
                   isEntering: false,
                   isExiting: false,
-                  state: contextState,
+                  trigger: "DialogTrigger",
                   defaultChildren: undefined,
                 })
               : children}
@@ -86,4 +86,4 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   }
 )
 
-Tooltip.displayName = "Tooltip"
+Popover.displayName = "Popover"
