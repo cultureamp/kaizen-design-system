@@ -3,11 +3,12 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 .tooltip {
   max-width: 400px;
-  padding: 0.4375rem 0.5313rem;
-  color: $color-purple-800;
+  padding: $spacing-8;
+  color: $color-white;
   text-align: center;
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-heading-6-font-size;
@@ -19,46 +20,36 @@
     opacity $animation-duration-fast,
     transform $animation-duration-fast;
   box-shadow: $shadow-small-box-shadow;
+  background-color: $color-purple-800;
+  text-wrap: balance;
+}
+
+.reversedTooltip {
   background-color: $color-white;
-  border: $border-solid-border-width $border-solid-border-style $color-gray-300;
+  color: $color-purple-800;
 }
 
 .overlayArrow {
-  // Ensure the arrow always sits on top of the tooltipContent
-  z-index: 1;
-  position: relative;
-}
+  display: flex;
 
-.overlayArrowBody::before,
-.overlayArrowBody::after {
-  content: "";
-  position: absolute;
-  border-left: var(--size) solid transparent;
-  border-right: var(--size) solid transparent;
-  margin-left: calc(-1 * var(--size) + 1px);
-}
-
-.overlayArrowBody {
-  // before styles
-  &::before {
-    margin-top: 1px;
-    border-top: var(--size) solid $color-gray-300;
+  path {
+    fill: $color-purple-800;
+    box-shadow: $shadow-small-box-shadow;
   }
-  // after styles
-  &::after {
-    margin-top: -2px;
-    border-top: var(--size) solid white;
+
+  &[data-placement="right"] svg {
+    transform: rotate(90deg);
+  }
+
+  &[data-placement="bottom"] svg {
+    transform: rotate(180deg);
+  }
+
+  &[data-placement="left"] svg {
+    transform: rotate(270deg);
   }
 }
 
-.overlayArrowShadow {
-  border-top: 0 solid $color-gray-300;
-  position: absolute;
-  height: calc(var(--size) - 2px);
-  width: calc(var(--size) - 2px);
-  left: -2px;
-  top: 1px;
-  transform: rotate(-45deg);
-  z-index: -1;
-  box-shadow: $shadow-small-box-shadow;
+.overlayArrowReversed path {
+  fill: $color-white;
 }

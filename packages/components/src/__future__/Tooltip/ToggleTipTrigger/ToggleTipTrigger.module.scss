@@ -4,4 +4,8 @@
   @include button-reset;
 
   display: inline-flex;
+  min-width: 1.5rem; // 24px minimal touch area
+  min-height: 1.5rem; // 24px minimal touch area
+  align-items: center;
+  justify-content: center;
 }

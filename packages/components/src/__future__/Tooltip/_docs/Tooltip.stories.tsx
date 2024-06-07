@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { userEvent } from "@storybook/test"
+import { userEvent, within, expect } from "@storybook/test"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
@@ -11,6 +11,9 @@ const meta = {
   component: Tooltip,
   parameters: {
     layout: "centered",
+  },
+  args: {
+    defaultOpen: true,
   },
   argTypes: {
     // eslint-disable-next-line camelcase
@@ -26,65 +29,11 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const OnCustomButtonAnchor: Story = {
-  name: "Button custom <a>",
-  render: args => (
-    <TooltipTrigger {...args}>
-      <Button
-        label="Some very long button label to show tooltip in center"
-        component={props => (
-          <a {...props} href="/">
-            Click me
-          </a>
-        )}
-      />
-      <Tooltip {...args}>Tooltip content</Tooltip>
-    </TooltipTrigger>
-  ),
-}
-
-export const OnCustomButton: Story = {
-  name: "Button custom <button>",
-  render: args => (
-    <TooltipTrigger {...args}>
-      <Button
-        label="Some very long button label to show tooltip in center"
-        component={props => <button type="button" {...props} />}
-      />
-      <Tooltip {...args}>Tooltip content</Tooltip>
-    </TooltipTrigger>
-  ),
-}
-
-export const OnDisabledButton: Story = {
-  render: args => (
-    <TooltipTrigger {...args}>
-      <Button
-        label="Some very long button label to show tooltip in center"
-        disabled
-      />
-      <Tooltip {...args}>
-        <InformationIcon role="presentation" />
-        <div>
-          <strong>Title here maybe</strong>
-        </div>
-        <div>Tooltip content</div>
-      </Tooltip>
-    </TooltipTrigger>
-  ),
-}
-
 export const OnButton: Story = {
   render: args => (
     <TooltipTrigger {...args}>
-      <Button label="Some very long button label to show tooltip in center" />
-      <Tooltip {...args}>
-        <InformationIcon role="presentation" />
-        <div>
-          <strong>Title here maybe</strong>
-        </div>
-        <div>Tooltip content</div>
-      </Tooltip>
+      <Button label="Button with tooltip" />
+      <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
 }
@@ -92,10 +41,7 @@ export const OnButton: Story = {
 export const OnLink: Story = {
   render: args => (
     <TooltipTrigger {...args}>
-      <Button
-        label="Some very long button label to show tooltip in center"
-        href="#"
-      />
+      <Button label="Button with tooltip" href="#" />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -105,7 +51,7 @@ export const OnIconButton: Story = {
   render: args => (
     <TooltipTrigger {...args}>
       <IconButton
-        label="(TESTING) Add label"
+        label="IconButton with tooltip"
         icon={<AddIcon role="presentation" />}
         primary
       />
@@ -114,61 +60,136 @@ export const OnIconButton: Story = {
   ),
 }
 
-export const PlacementLeft: Story = {
-  ...OnButton,
-  args: { isOpen: true, placement: "left" },
+export const OnDisabledButton: Story = {
+  render: args => (
+    <TooltipTrigger {...args}>
+      <Button label="Button with tooltip" disabled />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
 }
 
-export const PlacementRight: Story = {
-  ...OnButton,
-  args: { isOpen: true, placement: "right" },
+export const OnCustomButtonAnchor: Story = {
+  name: "On Button with custom <a>",
+  render: args => (
+    <TooltipTrigger {...args}>
+      <Button
+        label="Button with tooltip"
+        component={props => (
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <a {...props} href="#" style={{ padding: "0 1rem" }}>
+            Custom Link with tooltip
+          </a>
+        )}
+      />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
 }
 
-export const PlacementTop: Story = {
-  ...OnButton,
-  args: { isOpen: true, placement: "top" },
+export const OnCustomButton: Story = {
+  name: "On Button with custom <button>",
+  render: args => (
+    <TooltipTrigger {...args}>
+      <Button
+        label="Button with tooltip"
+        component={props => <button type="button" {...props} />}
+      />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
 }
 
-export const PlacementBottom: Story = {
-  ...OnButton,
-  args: { isOpen: true, placement: "bottom" },
-}
-
-export const WithCustomFocusableElement: Story = {
+export const OnCustomFocusableElement: Story = {
   render: args => (
     <TooltipTrigger {...args}>
       <Focusable>
         <Tag>Non-interactive element</Tag>
       </Focusable>
-      <Tooltip {...args}>
-        <InformationIcon role="presentation" />
-        <div>
-          <strong>Title here maybe</strong>
-        </div>
-        <div>Tooltip content</div>
-      </Tooltip>
+      <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
 }
 
+export const PlacementLeft: Story = {
+  ...OnButton,
+  args: { placement: "left" },
+}
+
+export const PlacementRight: Story = {
+  ...OnButton,
+  args: { placement: "right" },
+}
+
+export const PlacementTop: Story = {
+  ...OnButton,
+  args: { placement: "top" },
+}
+
+export const PlacementBottom: Story = {
+  ...OnButton,
+  args: { placement: "bottom" },
+}
+
+export const ReversedColors: Story = {
+  ...OnButton,
+  args: { isReversed: true },
+  parameters: {
+    backgrounds: { default: "Purple 700" },
+  },
+}
+
 export const ToggleTip: Story = {
-  name: "Toggle Tip (Tooltip)",
+  args: { defaultOpen: false },
   render: args => (
     <TooltipTrigger {...args}>
       <ToggleTipTrigger>
         <InformationIcon role="img" aria-label="Information" />
       </ToggleTipTrigger>
-      <Tooltip {...args}>
-        <InformationIcon role="presentation" />
-        <div>
-          <strong>Title here maybe</strong>
-        </div>
-        <div>Tooltip content</div>
+      <Tooltip
+        {...args}
+        style={{ display: "flex", textAlign: "left", alignItems: "center" }}
+      >
+        <InformationIcon
+          role="presentation"
+          style={{ marginRight: "0.25rem" }}
+        />
+        With rich content
       </Tooltip>
     </TooltipTrigger>
   ),
-  play: async ({}) => {
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+    // focus
     await userEvent.tab()
+    await expect(canvas.queryByRole("tooltip")).toBeNull()
+
+    await step("Enter toggles", async () => {
+      await userEvent.keyboard("{enter}")
+      await expect(canvas.getByRole("tooltip")).toBeVisible()
+      await userEvent.keyboard("{enter}")
+      await expect(canvas.queryByRole("tooltip")).toBeNull()
+    })
+    await step("Space toggles", async () => {
+      await userEvent.keyboard(" ")
+      await expect(canvas.getByRole("tooltip")).toBeVisible()
+      await userEvent.keyboard(" ")
+      await expect(canvas.queryByRole("tooltip")).toBeNull()
+    })
+    await step("Pointer toggles", async () => {
+      const button = canvasElement.getElementsByTagName("button")[0]
+      await userEvent.click(button)
+      await expect(canvas.getByRole("tooltip")).toBeVisible()
+      await userEvent.click(button)
+      await expect(canvas.queryByRole("tooltip")).toBeNull()
+    })
+    await step("Escape closes", async () => {
+      await userEvent.keyboard("{enter}")
+      await userEvent.keyboard("{Escape}")
+      await expect(canvas.queryByRole("tooltip")).toBeNull()
+    })
+
+    // leave open for screenshot
     await userEvent.keyboard("{enter}")
   },
 }

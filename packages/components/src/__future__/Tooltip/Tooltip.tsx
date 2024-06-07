@@ -4,24 +4,30 @@ import {
   OverlayArrow,
   Tooltip as RACTooltip,
   TooltipContext,
-  TooltipProps,
+  TooltipProps as RACTooltipProps,
   TooltipTriggerStateContext,
   useContextProps,
 } from "react-aria-components"
 import { mergeClassNames } from "~utils/mergeClassNames"
 import styles from "./Tooltip.module.scss"
 
-export type { TooltipProps }
+export type TooltipProps = RACTooltipProps & {
+  /*
+   * If tooltip should be displayed in reversed color scheme. Useful on dark backgrounds.
+   */
+  isReversed?: boolean
+}
+
 export { TooltipContext }
 
-const arrowSize = 8
+const arrowSize = 5
 const defaultOffset = arrowSize + 6
 
 /**
  * A tooltip displays a description of an element on hover or focus.
  */
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
-  ({ children, className, ...props }, ref): JSX.Element => {
+  ({ children, className, isReversed, ...props }, ref): JSX.Element => {
     const [{ triggerRef }] = useContextProps(
       { children, className, ...props },
       ref,
@@ -44,23 +50,27 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           ref={ref}
           {...props}
           offset={offset}
-          className={mergeClassNames(styles.tooltip, className)}
+          className={mergeClassNames(
+            styles.tooltip,
+            className,
+            isReversed && styles.reversedTooltip
+          )}
         >
           {renderProps => (
             <>
               <OverlayArrow
-                className={styles.overlayArrow}
-                style={{
-                  "--size": `${arrowSize}px`,
-                  transform:
-                    (renderProps.placement === "right" && "rotate(90deg)") ||
-                    (renderProps.placement === "bottom" && "rotate(180deg)") ||
-                    (renderProps.placement === "left" && "rotate(270deg)") ||
-                    "rotate(0deg)",
-                }}
+                className={mergeClassNames(
+                  styles.overlayArrow,
+                  isReversed && styles.overlayArrowReversed
+                )}
               >
-                <div className={styles.overlayArrowBody} />
-                <div className={styles.overlayArrowShadow} />
+                <svg
+                  width={arrowSize * 2}
+                  height={arrowSize * 2}
+                  viewBox="0 0 8 8"
+                >
+                  <path d="M0 0 L4 4 L8 0" />
+                </svg>
               </OverlayArrow>
               {typeof children === "function"
                 ? children(renderProps)
