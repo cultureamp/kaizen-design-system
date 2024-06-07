@@ -35,6 +35,7 @@ export const ToggleTipTrigger = ({
         if (e.key === "Enter" || e.key === " ") toggle()
       }}
       onPointerDown={toggle}
+      onBlur={() => state.close(true)}
       {...props}
       // Cannot use react-aria's Button component as it prevents adding aria-hidden
       aria-hidden="true"
