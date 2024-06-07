@@ -43,12 +43,42 @@ export const PlaygroundRACButton: Story = {
   },
 }
 
-export const OnCustomButton: Story = {
+// Note:
+// - Keyboard focus appears not to work
+export const OnCustomButtonSpan: Story = {
+  name: "Button custom <span>",
   render: args => (
     <TooltipTrigger>
       <Button
         label="Some very long button label to show tooltip in center"
-        component={props => <span {...props} />}
+        component={props => <span tabIndex={0} {...props} />}
+      />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
+}
+
+export const OnCustomButtonAnchor: Story = {
+  name: "Button custom <a>",
+  render: args => (
+    <TooltipTrigger>
+      <Button
+        label="Some very long button label to show tooltip in center"
+        // eslint-disable-next-line jsx-a11y/anchor-has-content
+        component={props => <a {...props} />}
+      />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
+}
+
+export const OnCustomButton: Story = {
+  name: "Button custom <button>",
+  render: args => (
+    <TooltipTrigger>
+      <Button
+        label="Some very long button label to show tooltip in center"
+        component={props => <button type="button" {...props} />}
       />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
