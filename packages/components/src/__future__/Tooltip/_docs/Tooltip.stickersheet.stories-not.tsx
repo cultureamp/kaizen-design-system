@@ -21,10 +21,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <Tooltip
-            isReversed={isReversed}
-            exampleRequiredString="Tooltip"
-          />
+          <Tooltip isReversed={isReversed} exampleRequiredString="Tooltip" />
           <Tooltip
             isReversed={isReversed}
             exampleRequiredString="Tooltip"

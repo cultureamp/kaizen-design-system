@@ -1,12 +1,11 @@
 import React, {
   ComponentType,
-  forwardRef,
+  FocusEvent,
+  MouseEvent,
   Ref,
+  forwardRef,
   useImperativeHandle,
   useRef,
-  MouseEvent,
-  FocusEvent,
-  MutableRefObject,
 } from "react"
 import classnames from "classnames"
 import { useButton, useLink } from "react-aria"
@@ -317,7 +316,8 @@ const renderLink = (
       // Unset this because the one defined in linkProps shows
       // focus-visible styles on click
       onPointerDown={undefined}
-      ref={contextRef}>
+      ref={contextRef}
+    >
       {renderContent(props)}
     </a>
   )
@@ -328,6 +328,7 @@ const buttonClass = (props: RenderProps): string => {
   return classnames(
     styles.button,
     isDefault && styles.default,
+    // @ts-ignore
     (props.disabled || props["aria-disabled"]) && styles.disabled,
     props.primary && styles.primary,
     props.destructive && styles.destructive,
