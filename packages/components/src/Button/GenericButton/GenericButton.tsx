@@ -202,10 +202,10 @@ const renderCustomComponent = (
   const [contextProps, contextRef] = useContextProps(
     passedInProps,
     ref,
-    // @ts-ignore we're using span ref on link context, but that's ok because we need only sizing
+    // @ts-expect-error we're using span ref on link context, but that's ok because we need only sizing
     LinkContext
   )
-  // @ts-ignore
+  // @ts-expect-error
   const { linkProps } = useLink(contextProps, contextRef)
 
   return (
@@ -217,7 +217,17 @@ const renderCustomComponent = (
       )}
       aria-live={"workingLabel" in props ? "polite" : undefined}
     >
-      <CustomComponent {...contextProps} {...linkProps}>
+      <CustomComponent
+        {...contextProps}
+        {...linkProps}
+        aria-describedby={classnames(
+          contextProps["aria-describedby"],
+          linkProps["aria-describedby"]
+        )}
+        // Unset this because the one defined in buttonProps shows
+        // focus-visible styles on click
+        onPointerDown={undefined}
+      >
         {renderContent(props)}
       </CustomComponent>
     </span>
@@ -259,14 +269,21 @@ const renderButton = (
     ref,
     ButtonContext
   )
-  // @ts-ignore
-  const { buttonProps } = useButton(contextProps, contextRef)
+  const { buttonProps } = useButton(
+    // @ts-expect-error
+    { ...contextProps, "aria-describedby": undefined },
+    contextRef
+  )
 
   return (
     // eslint-disable-next-line react/button-has-type
     <button
       {...contextProps}
       {...buttonProps}
+      aria-describedby={classnames(
+        contextProps["aria-describedby"],
+        buttonProps["aria-describedby"]
+      )}
       // Unset this because the one defined in buttonProps shows
       // focus-visible styles on click
       onPointerDown={undefined}
@@ -306,13 +323,17 @@ const renderLink = (
     ref,
     LinkContext
   )
-  // @ts-ignore
+  // @ts-expect-error
   const { linkProps } = useLink(contextProps, contextRef)
 
   return (
     <a
       {...contextProps}
       {...linkProps}
+      aria-describedby={classnames(
+        contextProps["aria-describedby"],
+        linkProps["aria-describedby"]
+      )}
       // Unset this because the one defined in linkProps shows
       // focus-visible styles on click
       onPointerDown={undefined}

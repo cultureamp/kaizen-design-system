@@ -47,16 +47,38 @@ export const OnLink: Story = {
   ),
 }
 
+export const OnButtonWithDesc: Story = {
+  render: args => (
+    <>
+      <TooltipTrigger>
+        <IconButton
+          label="(TESTING) Add label"
+          icon={<AddIcon role="presentation" />}
+          primary
+          aria-describedby="blah"
+        />
+        <Tooltip {...args}>Tooltip content</Tooltip>
+      </TooltipTrigger>
+      <div id="blah">Custom description</div>
+    </>
+  ),
+}
+
 export const OnIconButton: Story = {
   render: args => (
-    <TooltipTrigger {...args}>
-      <IconButton
-        label="IconButton with tooltip"
-        icon={<AddIcon role="presentation" />}
-        primary
-      />
-      <Tooltip {...args}>Tooltip content</Tooltip>
-    </TooltipTrigger>
+    <>
+      <TooltipTrigger>
+        <IconButton
+          label="Add something"
+          icon={<AddIcon role="presentation" />}
+          primary
+          // Negate the aria description (added by RAC) as it should be the
+          // same as the accessible name, therefore no need to duplicate it
+          aria-describedby={null}
+        />
+        <Tooltip {...args}>Add something</Tooltip>
+      </TooltipTrigger>
+    </>
   ),
 }
 
