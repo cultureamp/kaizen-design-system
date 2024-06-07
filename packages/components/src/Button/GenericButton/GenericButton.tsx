@@ -265,7 +265,14 @@ const renderButton = (
 
   return (
     // eslint-disable-next-line react/button-has-type
-    <button {...contextProps} {...buttonProps} ref={contextRef}>
+    <button
+      {...contextProps}
+      {...buttonProps}
+      // Unset this because the one defined in buttonProps shows
+      // focus-visible styles on click
+      onPointerDown={undefined}
+      ref={contextRef}
+    >
       {renderContent(props)}
     </button>
   )
@@ -304,7 +311,13 @@ const renderLink = (
   const { linkProps } = useLink(contextProps, contextRef)
 
   return (
-    <a {...contextProps} {...linkProps} ref={contextRef}>
+    <a
+      {...contextProps}
+      {...linkProps}
+      // Unset this because the one defined in linkProps shows
+      // focus-visible styles on click
+      onPointerDown={undefined}
+      ref={contextRef}>
       {renderContent(props)}
     </a>
   )
