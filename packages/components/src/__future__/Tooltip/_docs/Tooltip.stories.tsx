@@ -132,7 +132,12 @@ export const PlacementBottom: Story = {
 }
 
 export const ReversedColors: Story = {
-  ...OnButton,
+  render: args => (
+    <TooltipTrigger {...args}>
+      <Button label="Button with tooltip" reversed={args.isReversed} />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
   args: { isReversed: true },
   parameters: {
     backgrounds: { default: "Purple 700" },

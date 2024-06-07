@@ -22,11 +22,11 @@
   box-shadow: $shadow-small-box-shadow;
   background-color: $color-purple-800;
   text-wrap: balance;
-}
 
-.reversedTooltip {
-  background-color: $color-white;
-  color: $color-purple-800;
+  &.reversed {
+    background-color: $color-white;
+    color: $color-purple-800;
+  }
 }
 
 .overlayArrow {
@@ -48,8 +48,8 @@
   &[data-placement="left"] svg {
     transform: rotate(270deg);
   }
-}
 
-.overlayArrowReversed path {
-  fill: $color-white;
+  &.reversed path {
+    fill: $color-white;
+  }
 }

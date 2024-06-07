@@ -53,7 +53,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           className={mergeClassNames(
             styles.tooltip,
             className,
-            isReversed && styles.reversedTooltip
+            isReversed && styles.reversed
           )}
         >
           {renderProps => (
@@ -61,7 +61,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
               <OverlayArrow
                 className={mergeClassNames(
                   styles.overlayArrow,
-                  isReversed && styles.overlayArrowReversed
+                  isReversed && styles.reversed
                 )}
               >
                 <svg
