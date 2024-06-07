@@ -274,6 +274,7 @@ module.exports = {
       { props: "never", children: "never", propElementValues: "always" },
     ],
     "react/prop-types": "off",
+    "react/display-name": "off", // displayName isn't needed in most cases as it's inferred from variable name and it's breaking types and storybook doc gen
     "space-before-function-paren": [
       "error",
       {

@@ -21,7 +21,6 @@ const defaultOffset = arrowSize + 6
  * A tooltip displays a description of an element on hover or focus.
  */
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
-  // eslint-disable-next-line arrow-body-style
   ({ children, className, ...props }, ref): JSX.Element => {
     const [{ triggerRef }] = useContextProps(
       { children, className, ...props },
@@ -86,5 +85,3 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     )
   }
 )
-
-Tooltip.displayName = "Tooltip"

@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { userEvent, within } from "@storybook/test"
 import { DialogTrigger, Button as RACButton } from "react-aria-components"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
@@ -20,10 +21,12 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    placement: {
-      options: ["top", "left", "right", "bottom"],
-      control: { type: "select" },
+    // eslint-disable-next-line camelcase
+    UNSTABLE_portalContainer: {
+      control: false,
+      table: { disable: true },
     },
+    triggerRef: { control: false },
   },
 } satisfies Meta<typeof Tooltip>
 
@@ -33,7 +36,7 @@ type Story = StoryObj<typeof meta>
 
 export const PlaygroundRACButton: Story = {
   render: args => (
-    <TooltipTrigger>
+    <TooltipTrigger {...args}>
       <RACButton>RAC button</RACButton>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
@@ -48,7 +51,7 @@ export const PlaygroundRACButton: Story = {
 export const OnCustomButtonSpan: Story = {
   name: "Button custom <span>",
   render: args => (
-    <TooltipTrigger>
+    <TooltipTrigger {...args}>
       <Button
         label="Some very long button label to show tooltip in center"
         component={props => <span {...props} tabIndex={0} />}
@@ -61,7 +64,7 @@ export const OnCustomButtonSpan: Story = {
 export const OnCustomButtonAnchor: Story = {
   name: "Button custom <a>",
   render: args => (
-    <TooltipTrigger>
+    <TooltipTrigger {...args}>
       <Button
         label="Some very long button label to show tooltip in center"
         // eslint-disable-next-line jsx-a11y/anchor-has-content
@@ -75,7 +78,7 @@ export const OnCustomButtonAnchor: Story = {
 export const OnCustomButton: Story = {
   name: "Button custom <button>",
   render: args => (
-    <TooltipTrigger>
+    <TooltipTrigger {...args}>
       <Button
         label="Some very long button label to show tooltip in center"
         component={props => <button type="button" {...props} />}
@@ -87,7 +90,7 @@ export const OnCustomButton: Story = {
 
 export const OnDisabledButton: Story = {
   render: args => (
-    <TooltipTrigger>
+    <TooltipTrigger {...args}>
       <Button
         label="Some very long button label to show tooltip in center"
         disabled
@@ -105,7 +108,7 @@ export const OnDisabledButton: Story = {
 
 export const OnButton: Story = {
   render: args => (
-    <TooltipTrigger>
+    <TooltipTrigger {...args}>
       <Button label="Some very long button label to show tooltip in center" />
       <Tooltip {...args}>
         <InformationIcon role="presentation" />
@@ -120,7 +123,7 @@ export const OnButton: Story = {
 
 export const OnLink: Story = {
   render: args => (
-    <TooltipTrigger>
+    <TooltipTrigger {...args}>
       <Button
         label="Some very long button label to show tooltip in center"
         href="#"
@@ -132,7 +135,7 @@ export const OnLink: Story = {
 
 export const OnIconButton: Story = {
   render: args => (
-    <TooltipTrigger>
+    <TooltipTrigger {...args}>
       <IconButton
         label="(TESTING) Add label"
         icon={<AddIcon role="presentation" />}
@@ -165,7 +168,7 @@ export const PlacementBottom: Story = {
 
 export const WithCustomFocusableElement: Story = {
   render: args => (
-    <TooltipTrigger>
+    <TooltipTrigger {...args}>
       <Focusable>
         <Tag>Non-interactive element</Tag>
       </Focusable>
@@ -180,12 +183,10 @@ export const WithCustomFocusableElement: Story = {
   ),
 }
 
-// NOT FULLY WORKING
-// - Should not show on hover; only on press
-export const PlaygroundToggleTipTooltip: Story = {
+export const ToggleTip: Story = {
   name: "Toggle Tip (Tooltip)",
   render: args => (
-    <TooltipTrigger>
+    <TooltipTrigger {...args}>
       <ToggleTipTrigger>
         <InformationIcon role="img" aria-label="Information" />
       </ToggleTipTrigger>
@@ -198,28 +199,38 @@ export const PlaygroundToggleTipTooltip: Story = {
       </Tooltip>
     </TooltipTrigger>
   ),
+  play: async ({ canvasElement }) => {
+    // const canvas = within(canvasElement)
+    await userEvent.tab()
+    await userEvent.keyboard("{enter}")
+
+    // await userEvent.type(canvas.getByTestId("email"), "email@provider.com")
+    // await userEvent.type(canvas.getByTestId("password"), "a-random-password")
+    // await userEvent.click(canvas.getByRole("button"))
+    // notice that you don't need to write asserts here as all commonly applied asserts (snapshots, a11y, ...) are applied here as well
+  },
 }
 
-// NOT FULLY WORKING
-// - Does not close when clicking outside
-// - Does not close on Esc
-export const PlaygroundToggleTipPopover: Story = {
-  name: "Toggle Tip (Popover)",
-  render: () => (
-    <DialogTrigger>
-      <PopoverTrigger>
-        <InformationIcon role="img" aria-label="Information" />
-      </PopoverTrigger>
-      <Popover
-        // This isn't working
-        shouldCloseOnInteractOutside={() => true}
-      >
-        <InformationIcon role="presentation" />
-        <div>
-          <strong>Title here maybe</strong>
-        </div>
-        <div>Popover content</div>
-      </Popover>
-    </DialogTrigger>
-  ),
-}
+// // NOT FULLY WORKING
+// // - Does not close when clicking outside
+// // - Does not close on Esc
+// export const PlaygroundToggleTipPopover: Story = {
+//   name: "Toggle Tip (Popover)",
+//   render: () => (
+//     <DialogTrigger>
+//       <PopoverTrigger>
+//         <InformationIcon role="img" aria-label="Information" />
+//       </PopoverTrigger>
+//       <Popover
+//         // This isn't working
+//         shouldCloseOnInteractOutside={() => true}
+//       >
+//         <InformationIcon role="presentation" />
+//         <div>
+//           <strong>Title here maybe</strong>
+//         </div>
+//         <div>Popover content</div>
+//       </Popover>
+//     </DialogTrigger>
+//   ),
+// }
