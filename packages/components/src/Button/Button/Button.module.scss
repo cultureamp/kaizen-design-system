@@ -33,46 +33,44 @@
     text-decoration: none;
   }
 
-  // &:not(:disabled) {
+  &:not(.disabled, .working) {
     &:active {
       transform: translateY(1px);
     }
+  }
 
-    &:focus {
-      outline: none;
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    &::after {
+      $focus-ring-offset: calc(
+        (#{$border-focus-ring-border-width} * 2) + 1px
+      );
+
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-color: $color-blue-500;
+      border-radius: $border-focus-ring-border-radius;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      inset: calc(-1 * #{$focus-ring-offset});
     }
-
-    &:focus-visible {
-      &::after {
-        $focus-ring-offset: calc(
-          (#{$border-focus-ring-border-width} * 2) + 1px
-        );
-
-        content: "";
-        position: absolute;
-        background: transparent;
-        border-color: $color-blue-500;
-        border-radius: $border-focus-ring-border-radius;
-        border-width: $border-focus-ring-border-width;
-        border-style: $border-focus-ring-border-style;
-        inset: calc(-1 * #{$focus-ring-offset});
-      }
-    }
-  // }
+  }
 
   &.reversed {
-    // &:not(:disabled) {
-      &:focus-visible {
-        &::after {
-          border-color: $color-blue-300;
-        }
+    &:focus-visible {
+      &::after {
+        border-color: $color-blue-300;
       }
-    // }
+    }
   }
 
   &.disabled,
   &.working {
-    pointer-events: none;
+    cursor: default;
     opacity: 30%;
   }
 
