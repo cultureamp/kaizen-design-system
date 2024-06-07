@@ -5,7 +5,7 @@ import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
 import {
-  NonInteractiveTrigger,
+  Focusable,
   Popover,
   PopoverTrigger,
   ToggleTipTrigger,
@@ -51,7 +51,7 @@ export const OnCustomButtonSpan: Story = {
     <TooltipTrigger>
       <Button
         label="Some very long button label to show tooltip in center"
-        component={props => <span tabIndex={0} {...props} />}
+        component={props => <span {...props} tabIndex={0} />}
       />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
@@ -163,12 +163,12 @@ export const PlacementBottom: Story = {
   args: { isOpen: true, placement: "bottom" },
 }
 
-export const PlaygroundNonInteractiveTrigger: Story = {
+export const WithCustomFocusableElement: Story = {
   render: args => (
     <TooltipTrigger>
-      <NonInteractiveTrigger>
+      <Focusable>
         <Tag>Non-interactive element</Tag>
-      </NonInteractiveTrigger>
+      </Focusable>
       <Tooltip {...args}>
         <InformationIcon role="presentation" />
         <div>

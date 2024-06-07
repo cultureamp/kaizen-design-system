@@ -1,27 +1,28 @@
 import React, { HTMLAttributes, ReactNode, useRef } from "react"
 import classnames from "classnames"
 import { FocusableOptions, useFocusable } from "react-aria"
-import styles from "./NonInteractiveTrigger.module.scss"
+import styles from "./Focusable.module.scss"
 
-export type NonInteractiveTriggerProps = {
+export type FocusableProps = {
   children: ReactNode
 } & FocusableOptions &
   HTMLAttributes<HTMLDivElement>
 
-export const NonInteractiveTrigger = ({
+// todo this component will be reusable util for all components to give them focusable wrapper
+export const Focusable = ({
   children,
   className,
   ...props
-}: NonInteractiveTriggerProps): JSX.Element => {
+}: FocusableProps): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null)
   const { focusableProps } = useFocusable(props, ref)
 
   return (
     <div
       ref={ref}
-      className={classnames(styles.nonInteractiveTrigger, className)}
+      className={classnames(styles.focusableWrapper, className)}
       {...focusableProps}
-      data-tooltip-sr-content
+      data-inline-hidden-content
       // We want the div to be focusable for keyboard users,
       // but screen readers will have the VisuallyHidden content
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex

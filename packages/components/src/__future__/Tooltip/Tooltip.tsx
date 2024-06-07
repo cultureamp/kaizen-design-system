@@ -29,12 +29,13 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       TooltipContext
     )
     const contextState = useContext(TooltipTriggerStateContext)
-    const [isNonInteractive, setIsNonInteractive] = useState(false)
+    const [shouldInlineHiddenContent, setShouldInlineHiddenContent] =
+      useState(false)
     const offset = props.offset ?? defaultOffset
 
     useLayoutEffect(() => {
-      setIsNonInteractive(
-        !!triggerRef?.current?.getAttribute("data-tooltip-sr-content")
+      setShouldInlineHiddenContent(
+        !!triggerRef?.current?.getAttribute("data-inline-hidden-content")
       )
     }, [triggerRef])
 
@@ -68,7 +69,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
             </>
           )}
         </RACTooltip>
-        {isNonInteractive ? (
+        {shouldInlineHiddenContent ? (
           <VisuallyHidden>
             {typeof children === "function"
               ? children({
