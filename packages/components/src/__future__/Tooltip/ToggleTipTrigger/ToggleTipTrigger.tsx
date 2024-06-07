@@ -1,6 +1,7 @@
-import React, { HTMLAttributes, ReactNode, useRef } from "react"
+import React, { HTMLAttributes, ReactNode, useContext, useRef } from "react"
 import classnames from "classnames"
-import { AriaButtonOptions, useButton } from "react-aria"
+import { AriaButtonOptions, useTooltipTrigger } from "react-aria"
+import { TooltipTriggerStateContext } from "react-aria-components"
 import styles from "./ToggleTipTrigger.module.scss"
 
 export type ToggleTipTriggerProps = {
@@ -14,7 +15,15 @@ export const ToggleTipTrigger = ({
   ...props
 }: ToggleTipTriggerProps): JSX.Element => {
   const ref = useRef<HTMLButtonElement>(null)
-  const { buttonProps } = useButton(props, ref)
+  const state = useContext(TooltipTriggerStateContext)!
+
+  // registers ref to triggerRef for positioning the tooltip
+  // it also registers event handler for escape key to close the tooltip
+  // other handlers like onKeyDown or onPointerDown we provide own
+  useTooltipTrigger(props, state, ref)
+
+  const toggle = (): void =>
+    state.isOpen ? state.close(true) : state.open(true)
 
   return (
     <button
@@ -22,7 +31,11 @@ export const ToggleTipTrigger = ({
       type="button"
       className={classnames(styles.toggleTipTrigger, className)}
       data-tooltip-sr-content
-      {...buttonProps}
+      onKeyDown={e => {
+        if (e.key === "Enter" || e.key === " ") toggle()
+      }}
+      onPointerDown={toggle}
+      {...props}
       // Cannot use react-aria's Button component as it prevents adding aria-hidden
       aria-hidden="true"
     >
