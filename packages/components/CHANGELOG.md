@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.49.1
+
+### Patch Changes
+
+- [#4742](https://github.com/cultureamp/kaizen-design-system/pull/4742) [`fc8920ccd4f0fa1788677fd9030fbbf17845df03`](https://github.com/cultureamp/kaizen-design-system/commit/fc8920ccd4f0fa1788677fd9030fbbf17845df03) - Blank out alt text for illustrations in EmptyState
+
 ## 1.49.0
 
 ### Minor Changes
