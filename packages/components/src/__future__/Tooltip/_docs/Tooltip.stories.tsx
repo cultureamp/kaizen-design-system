@@ -1,18 +1,10 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { userEvent, within } from "@storybook/test"
-import { DialogTrigger, Button as RACButton } from "react-aria-components"
+import { userEvent } from "@storybook/test"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
-import {
-  Focusable,
-  Popover,
-  PopoverTrigger,
-  ToggleTipTrigger,
-  Tooltip,
-  TooltipTrigger,
-} from "../index"
+import { Focusable, ToggleTipTrigger, Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
   title: "Components/__Tooltip/v2",
@@ -34,41 +26,17 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const PlaygroundRACButton: Story = {
-  render: args => (
-    <TooltipTrigger {...args}>
-      <RACButton>RAC button</RACButton>
-      <Tooltip {...args}>Tooltip content</Tooltip>
-    </TooltipTrigger>
-  ),
-  parameters: {
-    docs: { canvas: { sourceState: "shown" } },
-  },
-}
-
-// Note:
-// - Keyboard focus appears not to work
-export const OnCustomButtonSpan: Story = {
-  name: "Button custom <span>",
-  render: args => (
-    <TooltipTrigger {...args}>
-      <Button
-        label="Some very long button label to show tooltip in center"
-        component={props => <span {...props} tabIndex={0} />}
-      />
-      <Tooltip {...args}>Tooltip content</Tooltip>
-    </TooltipTrigger>
-  ),
-}
-
 export const OnCustomButtonAnchor: Story = {
   name: "Button custom <a>",
   render: args => (
     <TooltipTrigger {...args}>
       <Button
         label="Some very long button label to show tooltip in center"
-        // eslint-disable-next-line jsx-a11y/anchor-has-content
-        component={props => <a {...props} href="#" />}
+        component={props => (
+          <a {...props} href="/">
+            Click me
+          </a>
+        )}
       />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
@@ -199,38 +167,8 @@ export const ToggleTip: Story = {
       </Tooltip>
     </TooltipTrigger>
   ),
-  play: async ({ canvasElement }) => {
-    // const canvas = within(canvasElement)
+  play: async ({}) => {
     await userEvent.tab()
     await userEvent.keyboard("{enter}")
-
-    // await userEvent.type(canvas.getByTestId("email"), "email@provider.com")
-    // await userEvent.type(canvas.getByTestId("password"), "a-random-password")
-    // await userEvent.click(canvas.getByRole("button"))
-    // notice that you don't need to write asserts here as all commonly applied asserts (snapshots, a11y, ...) are applied here as well
   },
 }
-
-// // NOT FULLY WORKING
-// // - Does not close when clicking outside
-// // - Does not close on Esc
-// export const PlaygroundToggleTipPopover: Story = {
-//   name: "Toggle Tip (Popover)",
-//   render: () => (
-//     <DialogTrigger>
-//       <PopoverTrigger>
-//         <InformationIcon role="img" aria-label="Information" />
-//       </PopoverTrigger>
-//       <Popover
-//         // This isn't working
-//         shouldCloseOnInteractOutside={() => true}
-//       >
-//         <InformationIcon role="presentation" />
-//         <div>
-//           <strong>Title here maybe</strong>
-//         </div>
-//         <div>Popover content</div>
-//       </Popover>
-//     </DialogTrigger>
-//   ),
-// }

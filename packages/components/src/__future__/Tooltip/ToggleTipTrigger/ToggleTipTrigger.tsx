@@ -30,7 +30,7 @@ export const ToggleTipTrigger = ({
       ref={ref}
       type="button"
       className={classnames(styles.toggleTipTrigger, className)}
-      data-tooltip-sr-content
+      data-inline-hidden-content
       onKeyDown={e => {
         if (e.key === "Enter" || e.key === " ") toggle()
       }}
