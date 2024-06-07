@@ -68,7 +68,7 @@ export const OnCustomButtonAnchor: Story = {
       <Button
         label="Some very long button label to show tooltip in center"
         // eslint-disable-next-line jsx-a11y/anchor-has-content
-        component={props => <a {...props} />}
+        component={props => <a {...props} href="#" />}
       />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
