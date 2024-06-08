@@ -4,21 +4,15 @@ import {
   OverlayArrow,
   Tooltip as RACTooltip,
   TooltipContext,
-  TooltipProps as RACTooltipProps,
+  TooltipProps,
   TooltipTriggerStateContext,
   useContextProps,
 } from "react-aria-components"
 import { mergeClassNames } from "~utils/mergeClassNames"
+import { useReversedColors } from "./ReversedColors"
 import styles from "./Tooltip.module.scss"
 
-export type TooltipProps = RACTooltipProps & {
-  /*
-   * If tooltip should be displayed in reversed color scheme. Useful on dark backgrounds.
-   */
-  isReversed?: boolean
-}
-
-export { TooltipContext }
+export { TooltipContext, type TooltipProps }
 
 const arrowSize = 5
 const defaultOffset = arrowSize + 6
@@ -27,13 +21,14 @@ const defaultOffset = arrowSize + 6
  * A tooltip displays a description of an element on hover or focus.
  */
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
-  ({ children, className, isReversed, ...props }, ref): JSX.Element => {
+  ({ children, className, ...props }, ref): JSX.Element => {
     const [{ triggerRef }] = useContextProps(
       { children, className, ...props },
       ref,
       TooltipContext
     )
     const contextState = useContext(TooltipTriggerStateContext)
+    const reverseColors = useReversedColors()
     const [shouldInlineHiddenContent, setShouldInlineHiddenContent] =
       useState(false)
     const offset = props.offset ?? defaultOffset
@@ -53,7 +48,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           className={mergeClassNames(
             styles.tooltip,
             className,
-            isReversed && styles.reversed
+            reverseColors && styles.reversed
           )}
         >
           {renderProps => (
@@ -61,7 +56,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
               <OverlayArrow
                 className={mergeClassNames(
                   styles.overlayArrow,
-                  isReversed && styles.reversed
+                  reverseColors && styles.reversed
                 )}
               >
                 <svg

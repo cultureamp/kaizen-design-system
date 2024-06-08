@@ -1,13 +1,16 @@
 import "./styles/tailwind.scss"
 
 import React, { useEffect } from "react"
+import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
 import { Preview } from "@storybook/react"
 import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
+import { ReversedColors } from "~components/__future__/Tooltip/ReversedColors"
 import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"
 import { globalA11yRules } from "./global-a11y-rules"
 
+const [, withBackground] = bgDecorators
 const IS_CHROMATIC = isChromatic()
 
 const globalTypes = {
@@ -46,6 +49,29 @@ const decorators = [
     ) : (
       <Story />
     ),
+  // reverseColor parameter wraps story in ReversedColors context and sets default background to Purple 700
+  // @ts-ignore
+  (Story, context) => {
+    if (!context.parameters.reverseColors) return <Story />
+
+    if (
+      // set in top toolbar
+      !context.globals.backgrounds &&
+      // set on story
+      !context.moduleExport?.parameters.backgrounds
+    ) {
+      context.parameters.backgrounds.default = "Purple 700"
+    }
+
+    return withBackground(
+      () => (
+        <ReversedColors>
+          <Story />
+        </ReversedColors>
+      ),
+      context
+    )
+  },
 ] satisfies Preview["decorators"]
 
 const preview = {

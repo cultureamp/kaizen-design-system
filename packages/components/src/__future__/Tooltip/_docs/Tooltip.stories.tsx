@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { userEvent, within, expect } from "@storybook/test"
+import { expect, userEvent, within } from "@storybook/test"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
@@ -134,13 +134,12 @@ export const PlacementBottom: Story = {
 export const ReversedColors: Story = {
   render: args => (
     <TooltipTrigger {...args}>
-      <Button label="Button with tooltip" reversed={args.isReversed} />
+      <Button label="Button with tooltip" reversed={true} />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
-  args: { isReversed: true },
   parameters: {
-    backgrounds: { default: "Purple 700" },
+    reverseColors: true,
   },
 }
 
