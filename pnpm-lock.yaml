@@ -376,7 +376,7 @@ importers:
         specifier: ^1.2.2
         version: 1.2.2
       prosemirror-model:
-        specifier: ^1.21.0
+        specifier: ^1.21.1
         version: 1.21.1
       prosemirror-schema-basic:
         specifier: ^1.2.2
