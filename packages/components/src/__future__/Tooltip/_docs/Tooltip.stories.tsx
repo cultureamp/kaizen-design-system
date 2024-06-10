@@ -13,7 +13,7 @@ const meta = {
     layout: "centered",
   },
   args: {
-    defaultOpen: true,
+    // defaultOpen: true,
   },
   argTypes: {
     // eslint-disable-next-line camelcase

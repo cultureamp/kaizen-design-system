@@ -14,7 +14,7 @@ import styles from "./Tooltip.module.scss"
 
 export { TooltipContext, type TooltipProps }
 
-const arrowSize = 5
+const arrowSize = 4
 const defaultOffset = arrowSize + 6
 
 /**

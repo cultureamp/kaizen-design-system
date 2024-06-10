@@ -6,13 +6,18 @@ import {
 
 export type TooltipTriggerProps = Omit<
   TooltipTriggerComponentProps,
-  "delay"
+  "delay" | "closeDelay"
 > & {
   /**
    * The delay time for the tooltip to show up. [See guidelines](https://spectrum.adobe.com/page/tooltip/#Immediate-or-delayed-appearance).
    * @default 300
    */
   delay?: number
+  /**
+   * The delay time for the tooltip to close. [See guidelines](https://spectrum.adobe.com/page/tooltip/#Warmup-and-cooldown).
+   * @default 300
+   */
+  closeDelay?: number
 }
 
 /**
@@ -21,5 +26,5 @@ export type TooltipTriggerProps = Omit<
  * relative to the trigger.
  */
 export const TooltipTrigger = (props: TooltipTriggerProps): JSX.Element => (
-  <RACTooltipTrigger delay={300} {...props} />
+  <RACTooltipTrigger delay={300} closeDelay={300} {...props} />
 )
