@@ -65,28 +65,3 @@
     opacity: 1;
   }
 }
-
-.overlayArrow {
-  display: flex;
-
-  path {
-    fill: $color-purple-800;
-    box-shadow: $shadow-small-box-shadow;
-  }
-
-  &[data-placement="right"] svg {
-    transform: rotate(90deg);
-  }
-
-  &[data-placement="bottom"] svg {
-    transform: rotate(180deg);
-  }
-
-  &[data-placement="left"] svg {
-    transform: rotate(270deg);
-  }
-
-  &.reversed path {
-    fill: $color-white;
-  }
-}

@@ -1,21 +1,27 @@
 import React, { forwardRef, useContext, useLayoutEffect, useState } from "react"
 import { VisuallyHidden } from "react-aria"
 import {
-  OverlayArrow,
   Tooltip as RACTooltip,
   TooltipContext,
-  TooltipProps,
+  TooltipProps as RACTooltipProps,
   TooltipTriggerStateContext,
   useContextProps,
 } from "react-aria-components"
 import { mergeClassNames } from "~utils/mergeClassNames"
+import { OverlayArrow } from "./OverlayArrow"
 import { useReversedColors } from "./ReversedColors"
 import styles from "./Tooltip.module.scss"
 
-export { TooltipContext, type TooltipProps }
+export { TooltipContext }
 
-const arrowSize = 4
-const defaultOffset = arrowSize + 6
+export type TooltipProps = Omit<RACTooltipProps, "offset"> & {
+  /**
+   * The additional offset applied along the main axis between the element and its
+   * anchor element.
+   * @default 10
+   */
+  offset?: number
+}
 
 /**
  * A tooltip displays a description of an element on hover or focus.
@@ -31,7 +37,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     const reverseColors = useReversedColors()
     const [shouldInlineHiddenContent, setShouldInlineHiddenContent] =
       useState(false)
-    const offset = props.offset ?? defaultOffset
+
+    const offset = props.offset ?? 10
 
     useLayoutEffect(() => {
       setShouldInlineHiddenContent(
@@ -53,20 +60,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         >
           {renderProps => (
             <>
-              <OverlayArrow
-                className={mergeClassNames(
-                  styles.overlayArrow,
-                  reverseColors && styles.reversed
-                )}
-              >
-                <svg
-                  width={arrowSize * 2}
-                  height={arrowSize * 2}
-                  viewBox="0 0 8 8"
-                >
-                  <path d="M0 0 L4 4 L8 0" />
-                </svg>
-              </OverlayArrow>
+              <OverlayArrow />
               {typeof children === "function"
                 ? children(renderProps)
                 : children}
