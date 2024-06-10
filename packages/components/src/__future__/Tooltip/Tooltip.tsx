@@ -38,8 +38,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     const [shouldInlineHiddenContent, setShouldInlineHiddenContent] =
       useState(false)
 
-    const offset = props.offset ?? 10
-
     useLayoutEffect(() => {
       setShouldInlineHiddenContent(
         !!triggerRef?.current?.getAttribute("data-inline-hidden-content")
@@ -50,8 +48,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       <>
         <RACTooltip
           ref={ref}
+          offset={10}
           {...props}
-          offset={offset}
           className={mergeClassNames(
             styles.tooltip,
             className,
