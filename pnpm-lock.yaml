@@ -539,7 +539,7 @@ importers:
   packages/package-bundler:
     dependencies:
       '@babel/plugin-transform-react-pure-annotations':
-        specifier: ^7.24.6
+        specifier: ^7.24.7
         version: 7.24.7(@babel/core@7.24.7)
       '@rollup/plugin-alias':
         specifier: ^5.1.0

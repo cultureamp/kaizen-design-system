@@ -23,7 +23,7 @@
   "homepage": "https://cultureamp.design",
   "license": "MIT",
   "dependencies": {
-    "@babel/plugin-transform-react-pure-annotations": "^7.24.6",
+    "@babel/plugin-transform-react-pure-annotations": "^7.24.7",
     "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.8",
