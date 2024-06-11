@@ -1,5 +1,13 @@
 # @kaizen/package-bundler
 
+## 1.1.1
+
+### Patch Changes
+
+- [#4745](https://github.com/cultureamp/kaizen-design-system/pull/4745) [`1b17a65773afe0f3b9598c5e148379aab8c86875`](https://github.com/cultureamp/kaizen-design-system/commit/1b17a65773afe0f3b9598c5e148379aab8c86875) - Update package-bundler dep `@babel/plugin-transform-react-pure-annotations` to ^7.24.7
+
+- [#4745](https://github.com/cultureamp/kaizen-design-system/pull/4745) [`1b17a65773afe0f3b9598c5e148379aab8c86875`](https://github.com/cultureamp/kaizen-design-system/commit/1b17a65773afe0f3b9598c5e148379aab8c86875) - Update package-bundler dep `ts-patch` to ^3.2.0
+
 ## 1.1.0
 
 ### Minor Changes
