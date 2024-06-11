@@ -206,6 +206,7 @@ const renderCustomComponent = (
     LinkContext
   )
   // @ts-expect-error
+  // @todo: Make a wrapper and take it out of Button
   const { linkProps } = useLink(contextProps, contextRef)
 
   return (
@@ -220,10 +221,14 @@ const renderCustomComponent = (
       <CustomComponent
         {...contextProps}
         {...linkProps}
-        aria-describedby={classnames(
-          contextProps["aria-describedby"],
-          linkProps["aria-describedby"]
-        )}
+        aria-describedby={
+          props["aria-describedby"] === null
+            ? undefined
+            : classnames(
+              contextProps["aria-describedby"],
+              linkProps["aria-describedby"]
+            )
+        }
         // Unset this because the one defined in buttonProps shows
         // focus-visible styles on click
         onPointerDown={undefined}
@@ -280,10 +285,14 @@ const renderButton = (
     <button
       {...contextProps}
       {...buttonProps}
-      aria-describedby={classnames(
-        contextProps["aria-describedby"],
-        buttonProps["aria-describedby"]
-      )}
+      aria-describedby={
+        props["aria-describedby"] === null
+          ? undefined
+          : classnames(
+            contextProps["aria-describedby"],
+            buttonProps["aria-describedby"]
+          )
+      }
       // Unset this because the one defined in buttonProps shows
       // focus-visible styles on click
       onPointerDown={undefined}
@@ -330,10 +339,14 @@ const renderLink = (
     <a
       {...contextProps}
       {...linkProps}
-      aria-describedby={classnames(
-        contextProps["aria-describedby"],
-        linkProps["aria-describedby"]
-      )}
+      aria-describedby={
+        props["aria-describedby"] === null
+          ? undefined
+          : classnames(
+            contextProps["aria-describedby"],
+            linkProps["aria-describedby"]
+          )
+      }
       // Unset this because the one defined in linkProps shows
       // focus-visible styles on click
       onPointerDown={undefined}

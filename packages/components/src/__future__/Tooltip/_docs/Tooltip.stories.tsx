@@ -66,19 +66,17 @@ export const OnButtonWithDesc: Story = {
 
 export const OnIconButton: Story = {
   render: args => (
-    <>
-      <TooltipTrigger>
-        <IconButton
-          label="Add something"
-          icon={<AddIcon role="presentation" />}
-          primary
-          // Negate the aria description (added by RAC) as it should be the
-          // same as the accessible name, therefore no need to duplicate it
-          aria-describedby={null}
-        />
-        <Tooltip {...args}>Add something</Tooltip>
-      </TooltipTrigger>
-    </>
+    <TooltipTrigger>
+      <IconButton
+        label="Add something"
+        icon={<AddIcon role="presentation" />}
+        primary
+        // Negate the aria description (added by RAC) as it should be the
+        // same as the accessible name, therefore no need to duplicate it
+        aria-describedby={null}
+      />
+      <Tooltip {...args}>Add something</Tooltip>
+    </TooltipTrigger>
   ),
 }
 
