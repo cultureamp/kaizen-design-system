@@ -1,4 +1,5 @@
 {
+  "name": "kaizen",
   "private": true,
   "engines": {
     "node": ">=v18.19.0"
