@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef, useRef } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, within } from "@storybook/test"
 import { Button, IconButton } from "~components/Button"
@@ -164,14 +164,20 @@ export const OnCustomButtonAnchor: Story = {
   ),
 }
 
+// @note:
+// - Unfortunately the composition of Button's `component`, we cannot
+// pass through the ref; maybe once we are all on R19 and `ref` is a prop
+// - For the meantime, as long as we wrap the component, the Tooltip can work fine
 export const OnCustomButton: Story = {
   name: "On Button with custom <button>",
   render: args => (
-    <TooltipTrigger {...args}>
-      <Button
-        label="Button with tooltip"
-        component={props => <button type="button" {...props} />}
-      />
+    <TooltipTrigger>
+      <TooltipRef.Interactive childDoesNotHaveRef>
+        <Button
+          label="Custom component - no ref"
+          component={props => <button type="button" {...props} />}
+          />
+      </TooltipRef.Interactive>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
