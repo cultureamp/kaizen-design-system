@@ -9,7 +9,7 @@ export type ToggleTipTriggerProps = {
   className?: HTMLAttributes<HTMLButtonElement>["className"]
 } & AriaButtonOptions<"button">
 
-export const ToggleTipTrigger = ({
+export const ToggleTip = ({
   children,
   className,
   ...props

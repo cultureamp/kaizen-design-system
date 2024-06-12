@@ -52,23 +52,26 @@ const decorators = [
   // reverseColor parameter wraps story in ReversedColors context and sets default background to Purple 700
   // @ts-ignore
   (Story, context) => {
-    if (!context.parameters.reverseColors) return <Story />
-
     if (
       // set in top toolbar
       !context.globals.backgrounds &&
       // set on story
       !context.moduleExport?.parameters.backgrounds
     ) {
-      context.parameters.backgrounds.default = "Purple 700"
+      context.parameters.backgrounds.default = context.parameters.reverseColors
+        ? "Purple 700"
+        : "White"
     }
 
     return withBackground(
-      () => (
-        <ReversedColors>
+      () =>
+        context.parameters.reverseColors ? (
+          <ReversedColors>
+            <Story />
+          </ReversedColors>
+        ) : (
           <Story />
-        </ReversedColors>
-      ),
+        ),
       context
     )
   },

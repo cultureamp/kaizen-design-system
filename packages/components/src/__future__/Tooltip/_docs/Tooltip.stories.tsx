@@ -4,7 +4,7 @@ import { expect, userEvent, within } from "@storybook/test"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
-import { Focusable, ToggleTipTrigger, Tooltip, TooltipTrigger } from "../index"
+import { Focusable, ToggleTip, Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
   title: "Components/__Tooltip/v2",
@@ -163,13 +163,14 @@ export const ReversedColors: Story = {
   },
 }
 
-export const ToggleTip: Story = {
+export const ToggleTipStory: Story = {
+  name: "ToggleTip",
   args: { defaultOpen: false },
   render: args => (
     <TooltipTrigger {...args}>
-      <ToggleTipTrigger>
+      <ToggleTip>
         <InformationIcon role="img" aria-label="Information" />
-      </ToggleTipTrigger>
+      </ToggleTip>
       <Tooltip
         {...args}
         style={{ display: "flex", textAlign: "left", alignItems: "center" }}
