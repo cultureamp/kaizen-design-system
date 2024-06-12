@@ -39,7 +39,7 @@ type Story = StoryObj<typeof meta>
 export const OnButton: Story = {
   render: args => (
     <TooltipTrigger {...args}>
-      <TooltipRef>
+      <TooltipRef.Interactive>
         <Button
           label="Button with tooltip"
           // eslint-disable-next-line no-console
@@ -47,7 +47,7 @@ export const OnButton: Story = {
           // eslint-disable-next-line no-console
           onFocus={e => console.log("Focus!!!", e)}
         />
-      </TooltipRef>
+      </TooltipRef.Interactive>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -56,9 +56,9 @@ export const OnButton: Story = {
 export const OnLink: Story = {
   render: args => (
     <TooltipTrigger {...args}>
-      <TooltipRef>
+      <TooltipRef.Interactive>
         <Button label="Button with tooltip" href="#" />
-      </TooltipRef>
+      </TooltipRef.Interactive>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -68,14 +68,14 @@ export const OnButtonWithDesc: Story = {
   render: args => (
     <>
       <TooltipTrigger>
-        <TooltipRef>
+        <TooltipRef.Interactive>
           <IconButton
             label="(TESTING) Add label"
             icon={<AddIcon role="presentation" />}
             primary
             aria-describedby="blah"
           />
-        </TooltipRef>
+        </TooltipRef.Interactive>
         <Tooltip {...args}>Tooltip content</Tooltip>
       </TooltipTrigger>
       <div id="blah">Custom description</div>
@@ -100,9 +100,9 @@ export const OnTabs: Story = {
         <Tab>
           <Tooltip>
             {/* @todo: nullify desc */}
-            <TooltipRef>
+            <TooltipRef.Interactive>
               <CommentIcon role="img" aria-label="Comments" />
-            </TooltipRef>
+            </TooltipRef.Interactive>
             <Tooltip>Comments</Tooltip>
           </Tooltip>
         </Tab>
@@ -122,7 +122,7 @@ export const OnTabs: Story = {
 export const OnIconButton: Story = {
   render: args => (
     <TooltipTrigger>
-      <TooltipRef>
+      <TooltipRef.Interactive>
         <IconButton
           label="Add something"
           icon={<AddIcon role="presentation" />}
@@ -131,7 +131,7 @@ export const OnIconButton: Story = {
           // same as the accessible name, therefore no need to duplicate it
           aria-describedby={null}
         />
-      </TooltipRef>
+      </TooltipRef.Interactive>
       <Tooltip {...args}>Add something</Tooltip>
     </TooltipTrigger>
   ),
@@ -179,12 +179,52 @@ export const OnCustomButton: Story = {
 
 export const OnCustomFocusableElement: Story = {
   render: args => (
-    <TooltipTrigger {...args}>
+    <TooltipTrigger>
       <Focusable>
         <Tag>Non-interactive element</Tag>
       </Focusable>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
+  ),
+}
+
+export const TestingTooltipWrappers: Story = {
+  render: args => (
+    <>
+    <div>
+    <TooltipTrigger>
+      <TooltipRef.Interactive>
+        <Button label="Interactive" />
+      </TooltipRef.Interactive>
+      <Tooltip>Tooltip content</Tooltip>
+    </TooltipTrigger>
+
+    <TooltipTrigger>
+      <TooltipRef.NonInteractive>
+        <Tag.WithRef>Non-interactive element with ref</Tag.WithRef>
+      </TooltipRef.NonInteractive>
+      <Tooltip>Tooltip content</Tooltip>
+    </TooltipTrigger>
+
+    <TooltipTrigger>
+      {/* @note: Prop is a workaround for children that do not accept a ref */}
+      <TooltipRef.NonInteractive childDoesNotHaveRef>
+        <Tag>Non-interactive element without ref</Tag>
+      </TooltipRef.NonInteractive>
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+    </div>
+
+    <div className="mt-48">
+      <div>button element</div>
+      <TooltipTrigger>
+      <TooltipRef.Interactive>
+        <button type="button">Custom button</button>
+      </TooltipRef.Interactive>
+      <Tooltip>Customised button</Tooltip>
+    </TooltipTrigger>
+    </div>
+    </>
   ),
 }
 
