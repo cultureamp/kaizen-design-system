@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.9
+
+### Patch Changes
+
+- [#4745](https://github.com/cultureamp/kaizen-design-system/pull/4745) [`1b17a65773afe0f3b9598c5e148379aab8c86875`](https://github.com/cultureamp/kaizen-design-system/commit/1b17a65773afe0f3b9598c5e148379aab8c86875) - Loosen `@kaizen/tailwind` peerDep `tailwindcss` version.
+
 ## 1.2.8
 
 ### Patch Changes
