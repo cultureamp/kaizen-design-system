@@ -18,7 +18,7 @@ export type TooltipProps = Omit<RACTooltipProps, "offset"> & {
   /**
    * The additional offset applied along the main axis between the element and its
    * anchor element.
-   * @default 10
+   * @default 8
    */
   offset?: number
 }
@@ -48,7 +48,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       <>
         <RACTooltip
           ref={ref}
-          offset={10}
+          offset={8}
           {...props}
           className={mergeClassNames(
             styles.tooltip,
