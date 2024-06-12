@@ -119,6 +119,43 @@ export const OnTabs: Story = {
   ),
 }
 
+// @note:
+// - a11y not considered; don't use this!
+// @todo: try a library and hope it's compatible
+export const CustomTabs: Story = {
+  render: args => {
+    const [activeTab, setActiveTab] = React.useState("tab-1")
+    return (
+      <div>
+        <div>
+          <TooltipTrigger>
+            <TooltipRef.Interactive>
+              <button type="button"
+              className={activeTab === "tab-1" ? "bg-blue-300" : undefined}
+              onClick={() => setActiveTab("tab-1")}
+              >Tab 1</button>
+            </TooltipRef.Interactive>
+            <Tooltip>Tab 1</Tooltip>
+          </TooltipTrigger>
+          <TooltipTrigger>
+            <TooltipRef.Interactive>
+              <button type="button"
+              className={activeTab === "tab-2" ? "bg-blue-300" : undefined}
+              onClick={() => setActiveTab("tab-2")}
+              >Tab 2</button>
+            </TooltipRef.Interactive>
+            <Tooltip>Tab 2</Tooltip>
+          </TooltipTrigger>
+        </div>
+        <div>
+          {activeTab === "tab-1" && <>Tab 1</>}
+          {activeTab === "tab-2" && <>Tab 2</>}
+        </div>
+      </div>
+    )
+  }
+}
+
 export const OnIconButton: Story = {
   render: args => (
     <TooltipTrigger>
