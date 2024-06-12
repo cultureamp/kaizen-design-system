@@ -1,19 +1,13 @@
 import React, {
   ComponentType,
-  FocusEvent,
-  MouseEvent,
-  Ref,
   forwardRef,
+  Ref,
   useImperativeHandle,
   useRef,
+  MouseEvent,
+  FocusEvent,
 } from "react"
 import classnames from "classnames"
-import { useButton, useLink } from "react-aria"
-import {
-  ButtonContext,
-  LinkContext,
-  useContextProps,
-} from "react-aria-components"
 import { Badge, BadgeAnimated } from "~components/Badge"
 import { LoadingSpinner } from "~components/Loading"
 import styles from "./GenericButton.module.scss"
@@ -141,7 +135,6 @@ export const GenericButton = forwardRef(
     ref: Ref<ButtonRef | undefined>
   ) => {
     const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
-    const wrapperRef = useRef<HTMLSpanElement>(null)
     useImperativeHandle(ref, () => ({
       focus: (): void => {
         buttonRef.current?.focus()
@@ -159,22 +152,27 @@ export const GenericButton = forwardRef(
       ...otherProps,
     }
 
-    if (props.component) {
-      return renderCustomComponent(props.component, props, wrapperRef)
+    const determineButtonRenderer = (): JSX.Element => {
+      if (props.component) {
+        return renderCustomComponent(props.component, props)
+      }
+
+      if (props.href && !props.disabled && !props.working) {
+        return renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
+      }
+
+      return renderButton(props, buttonRef as Ref<HTMLButtonElement>)
     }
 
     return (
       <span
-        ref={wrapperRef}
         className={classnames(
           styles.container,
           props.fullWidth && styles.fullWidth
         )}
         aria-live={"workingLabel" in props ? "polite" : undefined}
       >
-        {props.href && !props.disabled && !props.working
-          ? renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
-          : renderButton(props, buttonRef as Ref<HTMLButtonElement>)}
+        {determineButtonRenderer()}
       </span>
     )
   }
@@ -184,58 +182,24 @@ GenericButton.displayName = "GenericButton"
 
 const renderCustomComponent = (
   CustomComponent: ComponentType<CustomButtonProps>,
-  props: RenderProps,
-  ref: Ref<HTMLSpanElement>
+  props: RenderProps
 ): JSX.Element => {
-  const passedInProps = {
-    id: props.id,
-    className: buttonClass(props),
-    disabled: props.disabled,
-    href: props.href,
-    onClick: props.onClick,
-    onFocus: props.onFocus,
-    onBlur: props.onBlur,
-    "aria-label": generateAriaLabel(props),
-    ...getCustomProps(props),
-  }
-
-  const [contextProps, contextRef] = useContextProps(
-    passedInProps,
-    ref,
-    // @ts-expect-error we're using span ref on link context, but that's ok because we need only sizing
-    LinkContext
-  )
-  // @ts-expect-error
-  // @todo: Make a wrapper and take it out of Button
-  const { linkProps } = useLink(contextProps, contextRef)
-
+  const { id, disabled, href, onClick, onFocus, onBlur, ...rest } = props
+  const customProps = getCustomProps(rest)
   return (
-    <span
-      ref={contextRef}
-      className={classnames(
-        styles.container,
-        props.fullWidth && styles.fullWidth
-      )}
-      aria-live={"workingLabel" in props ? "polite" : undefined}
+    <CustomComponent
+      id={id}
+      className={buttonClass(props)}
+      disabled={disabled}
+      href={href}
+      onClick={onClick}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      aria-label={generateAriaLabel(props)}
+      {...customProps}
     >
-      <CustomComponent
-        {...contextProps}
-        {...linkProps}
-        aria-describedby={
-          props["aria-describedby"] === null
-            ? undefined
-            : classnames(
-              contextProps["aria-describedby"],
-              linkProps["aria-describedby"]
-            )
-        }
-        // Unset this because the one defined in buttonProps shows
-        // focus-visible styles on click
-        onPointerDown={undefined}
-      >
-        {renderContent(props)}
-      </CustomComponent>
-    </span>
+      {renderContent(props)}
+    </CustomComponent>
   )
 }
 
@@ -243,60 +207,51 @@ const renderButton = (
   props: RenderProps,
   ref: Ref<HTMLButtonElement>
 ): JSX.Element => {
-  const passedInProps: React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > = {
-    id: props.id,
-    disabled: props.disabled,
-    onClick: props.onClick,
-    onMouseDown: props.onMouseDown,
-    type: props.type,
-    onFocus: props.onFocus,
-    onBlur: props.onBlur,
-    form: props.form,
-    formAction: props.formAction,
-    formMethod: props.formMethod,
-    formEncType: props.formEncType,
-    formTarget: props.formTarget,
-    formNoValidate: props.formNoValidate,
-    className: buttonClass(props),
-    "aria-label": generateAriaLabel(props),
-    "aria-disabled": props.disabled || props.working ? true : undefined,
-    tabIndex: props.disableTabFocusAndIUnderstandTheAccessibilityImplications
-      ? -1
-      : undefined,
-    ...getCustomProps(props),
-  }
-
-  const [contextProps, contextRef] = useContextProps(
-    passedInProps,
-    ref,
-    ButtonContext
-  )
-  const { buttonProps } = useButton(
-    // @ts-expect-error
-    { ...contextProps, "aria-describedby": undefined },
-    contextRef
-  )
+  const {
+    id,
+    disabled,
+    onClick,
+    onMouseDown,
+    type,
+    disableTabFocusAndIUnderstandTheAccessibilityImplications,
+    onFocus,
+    onBlur,
+    form,
+    formAction,
+    formMethod,
+    formEncType,
+    formTarget,
+    formNoValidate,
+    ...rest
+  } = props
+  const customProps = getCustomProps(rest)
 
   return (
-    // eslint-disable-next-line react/button-has-type
     <button
-      {...contextProps}
-      {...buttonProps}
-      aria-describedby={
-        props["aria-describedby"] === null
-          ? undefined
-          : classnames(
-            contextProps["aria-describedby"],
-            buttonProps["aria-describedby"]
-          )
+      // eslint-disable-next-line react/button-has-type
+      type={type}
+      id={id}
+      disabled={disabled}
+      className={buttonClass(props)}
+      onClick={onClick}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      onMouseDown={(e): void => onMouseDown && onMouseDown(e)}
+      aria-label={generateAriaLabel(props)}
+      aria-disabled={disabled || props.working ? true : undefined}
+      form={form}
+      formAction={formAction}
+      formMethod={formMethod}
+      formEncType={formEncType}
+      formTarget={formTarget}
+      formNoValidate={formNoValidate}
+      tabIndex={
+        disableTabFocusAndIUnderstandTheAccessibilityImplications
+          ? -1
+          : undefined
       }
-      // Unset this because the one defined in buttonProps shows
-      // focus-visible styles on click
-      onPointerDown={undefined}
-      ref={contextRef}
+      ref={ref}
+      {...customProps}
     >
       {renderContent(props)}
     </button>
@@ -307,50 +262,34 @@ const renderLink = (
   props: RenderProps,
   ref: Ref<HTMLAnchorElement>
 ): JSX.Element => {
-  const target = props.newTabAndIUnderstandTheAccessibilityImplications
+  const {
+    id,
+    href,
+    onClick,
+    newTabAndIUnderstandTheAccessibilityImplications,
+    onFocus,
+    onBlur,
+    ...rest
+  } = props
+  const customProps = getCustomProps(rest)
+
+  const target = newTabAndIUnderstandTheAccessibilityImplications
     ? "_blank"
     : "_self"
 
-  const passedInProps: React.DetailedHTMLProps<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  > = {
-    id: props.id,
-    href: props.href,
-    target,
-    rel: target === "_blank" ? "noopener noreferrer" : undefined,
-    className: buttonClass(props),
-    onClick: props.onClick,
-    onFocus: props.onFocus,
-    onBlur: props.onBlur,
-    "aria-label": generateAriaLabel(props),
-    ...getCustomProps(props),
-  }
-
-  const [contextProps, contextRef] = useContextProps(
-    passedInProps,
-    ref,
-    LinkContext
-  )
-  // @ts-expect-error
-  const { linkProps } = useLink(contextProps, contextRef)
-
   return (
     <a
-      {...contextProps}
-      {...linkProps}
-      aria-describedby={
-        props["aria-describedby"] === null
-          ? undefined
-          : classnames(
-            contextProps["aria-describedby"],
-            linkProps["aria-describedby"]
-          )
-      }
-      // Unset this because the one defined in linkProps shows
-      // focus-visible styles on click
-      onPointerDown={undefined}
-      ref={contextRef}
+      id={id}
+      href={href}
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
+      className={buttonClass(props)}
+      onClick={onClick}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      ref={ref}
+      aria-label={generateAriaLabel(props)}
+      {...customProps}
     >
       {renderContent(props)}
     </a>
@@ -362,8 +301,6 @@ const buttonClass = (props: RenderProps): string => {
   return classnames(
     styles.button,
     isDefault && styles.default,
-    // @ts-ignore
-    (props.disabled || props["aria-disabled"]) && styles.disabled,
     props.primary && styles.primary,
     props.destructive && styles.destructive,
     props.secondary && styles.secondary,
