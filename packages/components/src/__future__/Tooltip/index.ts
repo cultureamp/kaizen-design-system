@@ -1,4 +1,4 @@
 export * from "./Focusable"
 export * from "./Tooltip"
 export * from "./TooltipTrigger"
-export * from "./ToggleTipTrigger"
+export * from "./ToggleTip"

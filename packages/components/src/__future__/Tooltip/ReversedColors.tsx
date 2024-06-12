@@ -5,7 +5,7 @@ export type ReversedColorsProps = {
   isReversed?: boolean
 }
 
-export const ReversedColorsContext = React.createContext<boolean>(false)
+const ReversedColorsContext = React.createContext<boolean>(false)
 
 export const useReversedColors = (): boolean =>
   React.useContext(ReversedColorsContext)

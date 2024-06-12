@@ -4,7 +4,7 @@ import { AriaButtonOptions, useTooltipTrigger } from "react-aria"
 import { TooltipTriggerStateContext } from "react-aria-components"
 import styles from "./ToggleTipTrigger.module.scss"
 
-export type ToggleTipTriggerProps = {
+export type ToggleTipProps = {
   children: ReactNode
   className?: HTMLAttributes<HTMLButtonElement>["className"]
 } & AriaButtonOptions<"button">
@@ -13,7 +13,7 @@ export const ToggleTip = ({
   children,
   className,
   ...props
-}: ToggleTipTriggerProps): JSX.Element => {
+}: ToggleTipProps): JSX.Element => {
   const ref = useRef<HTMLButtonElement>(null)
   const state = useContext(TooltipTriggerStateContext)!
 
@@ -29,7 +29,7 @@ export const ToggleTip = ({
     <button
       ref={ref}
       type="button"
-      className={classnames(styles.toggleTipTrigger, className)}
+      className={classnames(styles.toggleTip, className)}
       data-inline-hidden-content
       onKeyDown={e => {
         if (e.key === "Enter" || e.key === " ") toggle()
