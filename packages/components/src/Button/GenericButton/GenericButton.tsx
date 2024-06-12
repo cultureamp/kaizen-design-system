@@ -2,7 +2,6 @@ import React, {
   ComponentType,
   forwardRef,
   Ref,
-  useImperativeHandle,
   useRef,
   MouseEvent,
   FocusEvent,
@@ -93,34 +92,52 @@ export type SharedButtonProps = {
 export type WorkingButtonProps = WorkingProps | WorkingUndefinedProps
 
 export type BaseButtonProps = GenericProps &
-  ButtonFormAttributes & {
-    label: string
-    primary?: boolean
-    destructive?: boolean
-    secondary?: boolean
-    /** @default "regular" */
-    size?: "small" | "regular"
-    badge?: ButtonBadgeProps
-    type?: "submit" | "reset" | "button"
-    fullWidth?: boolean
-    iconPosition?: "start" | "end"
-    icon?: JSX.Element
-    disabled?: boolean
-  }
+  ButtonFormAttributes &
+  SharedButtonProps
 
 export type GenericButtonProps = BaseButtonProps & WorkingButtonProps
 
-// We're treating custom props as anything that is kebab cased.
-// This is so we can support properties like aria-* or data-*
-const getCustomProps = (props: Record<string, any>): Record<string, string> => {
-  const keys = Object.keys(props).filter(k => k.indexOf("-") !== -1)
-  return keys.reduce<Record<string, any>>((acc, val) => {
-    acc[val] = props[val]
+const getHTMLAttributesFromProps = (
+  props: Record<string, any>
+): Record<string, string> => {
+  const renderProps = [
+    "label",
+    "primary",
+    "destructive",
+    "secondary",
+    "size",
+    "badge",
+    "fullWidth",
+    "reversed,",
+  ]
+
+  const iconProps = ["iconPosition", "iconButton", "icon"]
+
+  const workingProps = ["working", "workingLabel", "workingLabelHidden"]
+
+  const a11yProps = [
+    "newTabAndIUnderstandTheAccessibilityImplications",
+    "disableTabFocusAndIUnderstandTheAccessibilityImplications",
+  ]
+
+  const customProps = [
+    ...renderProps,
+    ...iconProps,
+    ...workingProps,
+    ...a11yProps,
+  ]
+
+  return Object.keys(props).reduce<Record<string, any>>((acc, key) => {
+    if (customProps.includes(key)) return acc
+    acc[key] = props[key]
     return acc
   }, {})
 }
 
-export const GenericButton = forwardRef(
+export const GenericButton = forwardRef<
+  HTMLButtonElement | HTMLAnchorElement,
+  RenderProps
+>(
   (
     {
       iconPosition = "start",
@@ -131,15 +148,11 @@ export const GenericButton = forwardRef(
       disableTabFocusAndIUnderstandTheAccessibilityImplications = false,
       type = "button",
       ...otherProps
-    }: RenderProps,
-    ref: Ref<ButtonRef | undefined>
+    },
+    ref
   ) => {
-    const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
-    useImperativeHandle(ref, () => ({
-      focus: (): void => {
-        buttonRef.current?.focus()
-      },
-    }))
+    const inbuiltRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null)
+    const buttonRef = ref ?? inbuiltRef
 
     const props = {
       iconPosition,
@@ -185,7 +198,7 @@ const renderCustomComponent = (
   props: RenderProps
 ): JSX.Element => {
   const { id, disabled, href, onClick, onFocus, onBlur, ...rest } = props
-  const customProps = getCustomProps(rest)
+  const customProps = getHTMLAttributesFromProps(rest)
   return (
     <CustomComponent
       id={id}
@@ -210,41 +223,18 @@ const renderButton = (
   const {
     id,
     disabled,
-    onClick,
-    onMouseDown,
-    type,
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
-    onFocus,
-    onBlur,
-    form,
-    formAction,
-    formMethod,
-    formEncType,
-    formTarget,
-    formNoValidate,
     ...rest
   } = props
-  const customProps = getCustomProps(rest)
+  const customProps = getHTMLAttributesFromProps(rest)
 
   return (
+    // eslint-disable-next-line react/button-has-type
     <button
-      // eslint-disable-next-line react/button-has-type
-      type={type}
       id={id}
-      disabled={disabled}
       className={buttonClass(props)}
-      onClick={onClick}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      onMouseDown={(e): void => onMouseDown && onMouseDown(e)}
       aria-label={generateAriaLabel(props)}
       aria-disabled={disabled || props.working ? true : undefined}
-      form={form}
-      formAction={formAction}
-      formMethod={formMethod}
-      formEncType={formEncType}
-      formTarget={formTarget}
-      formNoValidate={formNoValidate}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
@@ -262,16 +252,8 @@ const renderLink = (
   props: RenderProps,
   ref: Ref<HTMLAnchorElement>
 ): JSX.Element => {
-  const {
-    id,
-    href,
-    onClick,
-    newTabAndIUnderstandTheAccessibilityImplications,
-    onFocus,
-    onBlur,
-    ...rest
-  } = props
-  const customProps = getCustomProps(rest)
+  const { newTabAndIUnderstandTheAccessibilityImplications, ...rest } = props
+  const customProps = getHTMLAttributesFromProps(rest)
 
   const target = newTabAndIUnderstandTheAccessibilityImplications
     ? "_blank"
@@ -279,15 +261,10 @@ const renderLink = (
 
   return (
     <a
-      id={id}
-      href={href}
+      ref={ref}
       target={target}
       rel={target === "_blank" ? "noopener noreferrer" : undefined}
       className={buttonClass(props)}
-      onClick={onClick}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      ref={ref}
       aria-label={generateAriaLabel(props)}
       {...customProps}
     >

@@ -4,7 +4,13 @@ import { expect, userEvent, within } from "@storybook/test"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
-import { Focusable, ToggleTipTrigger, Tooltip, TooltipTrigger } from "../index"
+import {
+  Focusable,
+  ToggleTipTrigger,
+  Tooltip,
+  TooltipRef,
+  TooltipTrigger,
+} from "../index"
 
 const meta = {
   title: "Components/__Tooltip/v2",
@@ -32,7 +38,15 @@ type Story = StoryObj<typeof meta>
 export const OnButton: Story = {
   render: args => (
     <TooltipTrigger {...args}>
-      <Button label="Button with tooltip" />
+      <TooltipRef>
+        <Button
+          label="Button with tooltip"
+          // eslint-disable-next-line no-console
+          onClick={e => console.log("Click!", e)}
+          // eslint-disable-next-line no-console
+          onFocus={e => console.log("Focus!!!", e)}
+        />
+      </TooltipRef>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -41,7 +55,9 @@ export const OnButton: Story = {
 export const OnLink: Story = {
   render: args => (
     <TooltipTrigger {...args}>
-      <Button label="Button with tooltip" href="#" />
+      <TooltipRef>
+        <Button label="Button with tooltip" href="#" />
+      </TooltipRef>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -51,12 +67,14 @@ export const OnButtonWithDesc: Story = {
   render: args => (
     <>
       <TooltipTrigger>
-        <IconButton
-          label="(TESTING) Add label"
-          icon={<AddIcon role="presentation" />}
-          primary
-          aria-describedby="blah"
-        />
+        <TooltipRef>
+          <IconButton
+            label="(TESTING) Add label"
+            icon={<AddIcon role="presentation" />}
+            primary
+            aria-describedby="blah"
+          />
+        </TooltipRef>
         <Tooltip {...args}>Tooltip content</Tooltip>
       </TooltipTrigger>
       <div id="blah">Custom description</div>
@@ -67,14 +85,16 @@ export const OnButtonWithDesc: Story = {
 export const OnIconButton: Story = {
   render: args => (
     <TooltipTrigger>
-      <IconButton
-        label="Add something"
-        icon={<AddIcon role="presentation" />}
-        primary
-        // Negate the aria description (added by RAC) as it should be the
-        // same as the accessible name, therefore no need to duplicate it
-        aria-describedby={null}
-      />
+      <TooltipRef>
+        <IconButton
+          label="Add something"
+          icon={<AddIcon role="presentation" />}
+          primary
+          // Negate the aria description (added by RAC) as it should be the
+          // same as the accessible name, therefore no need to duplicate it
+          aria-describedby={null}
+        />
+      </TooltipRef>
       <Tooltip {...args}>Add something</Tooltip>
     </TooltipTrigger>
   ),
