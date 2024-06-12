@@ -5,7 +5,7 @@ import { Heading } from "~components/Heading"
 import { tokens } from "~design-tokens/js"
 
 export default {
-  title: "Tokens/Color Tokens",
+  title: "Guides/Tokens/Color Tokens",
   parameters: {
     chromatic: { disable: false },
     docsLayout: "fullPage",
