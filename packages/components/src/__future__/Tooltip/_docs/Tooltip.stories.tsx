@@ -2,7 +2,8 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, within } from "@storybook/test"
 import { Button, IconButton } from "~components/Button"
-import { AddIcon, InformationIcon } from "~components/Icon"
+import { AddIcon, CommentIcon, FeedbackShareIcon, InformationIcon } from "~components/Icon"
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
 import { Tag } from "~components/__future__/Tag"
 import {
   Focusable,
@@ -79,6 +80,42 @@ export const OnButtonWithDesc: Story = {
       </TooltipTrigger>
       <div id="blah">Custom description</div>
     </>
+  ),
+}
+
+// NOT WORKING
+// Appears that there is an incompability between the libraries as they both manipulate children
+// - Tab expects children to only be a rendered element, and it wraps it with a button with attributes
+// - Tooltip expects to wrap its children, then ties the trigger and content together
+export const OnTabs: Story = {
+  render: () => (
+    <Tabs>
+      <TabList aria-label="Tabs">
+        <Tab>
+          <Tooltip>
+            <FeedbackShareIcon role="img" aria-label="Feedback" />
+            <Tooltip>Feedback</Tooltip>
+          </Tooltip>
+        </Tab>
+        <Tab>
+          <Tooltip>
+            {/* @todo: nullify desc */}
+            <TooltipRef>
+              <CommentIcon role="img" aria-label="Comments" />
+            </TooltipRef>
+            <Tooltip>Comments</Tooltip>
+          </Tooltip>
+        </Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel classNameOverride="p-24">
+          Content 1
+        </TabPanel>
+        <TabPanel classNameOverride="p-24">
+          Content 2
+        </TabPanel>
+      </TabPanels>
+    </Tabs>
   ),
 }
 
