@@ -13,10 +13,9 @@
   z-index: $ca-z-index-tooltip;
 }
 
-.v2TooltipContent {
+.tooltipContent {
   max-width: 400px;
   padding: 0.4375rem 0.5313rem;
-  color: hotpink;
   text-align: center;
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-heading-6-font-size;
@@ -61,7 +60,8 @@
 }
 
 .tooltipTextTest {
-  margin-bottom: $spacing-12;
+  color: hotpink;
+  margin-bottom: $spacing-32;
 }
 
 .arrow {

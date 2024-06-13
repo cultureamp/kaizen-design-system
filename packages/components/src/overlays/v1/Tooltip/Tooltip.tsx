@@ -134,7 +134,7 @@ const TooltipContent = ({
       role="tooltip"
       id={tooltipId}
     >
-      <div className={classnames(styles.v1TooltipContent, styles[mood])}>
+      <div className={classnames(styles.tooltipContent, styles[mood])}>
         <Text classNameOverride={styles.tooltipTextTest} variant="body">
           {text}
         </Text>

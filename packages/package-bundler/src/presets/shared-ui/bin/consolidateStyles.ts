@@ -23,6 +23,7 @@ const pathsToDelete = [
 const combineFiles = (): void => {
   pathsToCombine.forEach(filePath => {
     const file = path.resolve(filePath)
+    console.log("File >>>>>>", filePath)
     if (fs.existsSync(file) && fs.statSync(file).isFile()) {
       const fileContent = fs.readFileSync(file).toString()
 

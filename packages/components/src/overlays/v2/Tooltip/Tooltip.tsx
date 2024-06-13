@@ -4,7 +4,7 @@ import styles from "./Tooltip.module.scss"
 
 export const Tooltip = ({ children }: { children: ReactNode }): JSX.Element => (
   <div className={styles.tooltip} role="tooltip">
-    <div className={styles.v2TooltipContent}>
+    <div className={styles.tooltipContent}>
       <Text classNameOverride={styles.tooltipTextTest} variant="body">
         {children}
       </Text>

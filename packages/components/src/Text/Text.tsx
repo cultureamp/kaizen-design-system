@@ -55,6 +55,7 @@ export const Text = ({
 }: TextProps): JSX.Element => {
   const className = classnames(
     styles.text,
+    styles.textAndImEasyToFind,
     styles[variant],
     styles[color],
     classNameOverride
