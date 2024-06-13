@@ -3,6 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
 import { Card } from "~components/Card"
 import { Text } from "~components/Text"
+import { Tooltip, TooltipTrigger } from "~components/__future__"
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "../index"
 
 const meta = {
@@ -12,7 +13,10 @@ const meta = {
     children: (
       <>
         <TabList aria-label="Tabs">
-          <Tab>Tab 1</Tab>
+          <TooltipTrigger>
+            <Tab>Tab 1</Tab>
+            <Tooltip>Tooltip content</Tooltip>
+          </TooltipTrigger>
           <Tab>Tab 2</Tab>
           <Tab badge="3">Tab 3</Tab>
           <Tab disabled>Disabled Tab</Tab>

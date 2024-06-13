@@ -2,7 +2,7 @@ import React, { HTMLAttributes, ReactNode, useContext, useRef } from "react"
 import classnames from "classnames"
 import { AriaButtonOptions, useTooltipTrigger } from "react-aria"
 import { TooltipTriggerStateContext } from "react-aria-components"
-import styles from "./ToggleTipTrigger.module.scss"
+import styles from "./ToggleTip.module.scss"
 
 export type ToggleTipProps = {
   children: ReactNode
