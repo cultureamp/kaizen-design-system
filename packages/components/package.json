@@ -14,7 +14,8 @@
   },
   "files": [
     "future",
-    "overlays",
+    "v2",
+    "v3",
     "dist",
     "icons",
     "locales",

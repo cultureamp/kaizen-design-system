@@ -7,7 +7,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Tooltip } from "../index"
+import { Tooltip } from "../"
 
 const openTooltipInChromatic: Decorator = (Story, { args }) => {
   if (isChromatic()) args.isInitiallyVisible = true
@@ -15,7 +15,7 @@ const openTooltipInChromatic: Decorator = (Story, { args }) => {
 }
 
 export default {
-  title: "Components/Overlays/V1/Tooltip",
+  title: "Overlays/Tooltip/v2",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

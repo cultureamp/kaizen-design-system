@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
-import { Tooltip } from "~components/overlays/v1"
+import { Tooltip } from "~components/__overlays__/v2"
 import {
   StickerSheet,
   StickerSheetStory,

@@ -13,10 +13,10 @@ import {
 } from "~components/Table"
 import { Text } from "~components/Text"
 import { Tag } from "~components/__future__"
-import { Tooltip } from "../index"
+import { Tooltip } from "../"
 
 const meta = {
-  title: "Components/Overlays/V1/Tooltip",
+  title: "Overlays/Tooltip/v2",
   component: Tooltip,
   args: {
     text: "Example tooltip text.",

@@ -3,8 +3,8 @@ import { pluginsSharedUi, rollupConfig } from "@kaizen/package-bundler";
 export default rollupConfig({
   input: { index: "./src/index.ts",
   future: "./src/__future__/index.ts",
-  overlaysV1: "./src/overlays/v1/index.ts",
-  overlaysV2: "./src/overlays/v2/index.ts",
+  overlaysV2: "./src/__overlays__/v2.ts",
+  overlaysV3: "./src/__overlays__/v3.ts",
   },
   plugins: pluginsSharedUi,
   alias: {

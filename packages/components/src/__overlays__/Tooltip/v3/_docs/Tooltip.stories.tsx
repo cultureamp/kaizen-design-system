@@ -1,9 +1,9 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Tooltip } from "../index"
+import { Tooltip } from "../"
 
 const meta = {
-  title: "Components/Overlays/V2/Tooltip",
+  title: "Overlays/Tooltip/v3",
   component: Tooltip,
   decorators: [
     Story => (
