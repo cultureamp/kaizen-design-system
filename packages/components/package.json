@@ -43,7 +43,7 @@
     "@floating-ui/react-dom": "^2.1.0",
     "@headlessui/react": "<=1.5.0",
     "@internationalized/date": "^3.5.4",
-    "@kaizen/hosted-assets": "^2.0.3",
+    "@kaizen/hosted-assets": "workspace:*",
     "@popperjs/core": "^2.11.8",
     "@reach/tabs": "^0.18.0",
     "@react-aria/button": "^3.9.5",
