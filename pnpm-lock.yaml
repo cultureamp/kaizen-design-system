@@ -597,7 +597,7 @@ importers:
         specifier: workspace:*
         version: link:../design-tokens
       tailwindcss:
-        specifier: '>=3.4.3'
+        specifier: '>=3.4.4'
         version: 3.4.4(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@20.14.2)(typescript@5.4.5))
 
 packages:
