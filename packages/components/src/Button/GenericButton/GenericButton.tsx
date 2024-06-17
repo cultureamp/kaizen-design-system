@@ -277,7 +277,7 @@ const renderButton = (
       aria-describedby={
         props["aria-describedby"] === null
           ? undefined
-          : focusableProps["aria-describedby"]
+          : props["aria-describedby"] || focusableProps["aria-describedby"]
       }
       // Unset this because the one defined in buttonProps shows
       // focus-visible styles on click
@@ -313,30 +313,24 @@ const renderLink = (
     ...getCustomProps(props),
   }
 
-  const [contextProps, contextRef] = useContextProps(
-    passedInProps,
-    ref,
-    LinkContext
-  )
-  // @ts-expect-error
-  const { linkProps } = useLink(contextProps, contextRef)
+  // we're using useFocusable instead of useLink because at this stage we want to hook only to focusable.
+  // Not standardize button behavior as we're currently relying on some weird native behaviours (like onClick firing on enter key press) see https://react-spectrum.adobe.com/blog/building-a-button-part-1.html
+  // @ts-ignore
+  const { focusableProps } = useFocusable(passedInProps, ref)
 
   return (
     <a
-      {...contextProps}
-      {...linkProps}
+      {...passedInProps}
+      {...focusableProps}
       aria-describedby={
         props["aria-describedby"] === null
           ? undefined
-          : classnames(
-              contextProps["aria-describedby"],
-              linkProps["aria-describedby"]
-            ) || undefined
+          : props["aria-describedby"] || focusableProps["aria-describedby"]
       }
       // Unset this because the one defined in linkProps shows
       // focus-visible styles on click
       onPointerDown={undefined}
-      ref={contextRef}
+      ref={ref}
     >
       {renderContent(props)}
     </a>
