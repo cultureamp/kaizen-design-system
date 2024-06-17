@@ -8,12 +8,8 @@ import React, {
   useRef,
 } from "react"
 import classnames from "classnames"
-import { useButton, useLink } from "react-aria"
-import {
-  ButtonContext,
-  LinkContext,
-  useContextProps,
-} from "react-aria-components"
+import { useFocusable, useLink } from "react-aria"
+import { LinkContext, useContextProps } from "react-aria-components"
 import { Badge, BadgeAnimated } from "~components/Badge"
 import { LoadingSpinner } from "~components/Loading"
 import styles from "./GenericButton.module.scss"
@@ -268,34 +264,25 @@ const renderButton = (
     ...getCustomProps(props),
   }
 
-  const [contextProps, contextRef] = useContextProps(
-    passedInProps,
-    ref,
-    ButtonContext
-  )
-  const { buttonProps } = useButton(
-    // @ts-expect-error
-    { ...contextProps, "aria-describedby": undefined },
-    contextRef
-  )
+  // we're using useFocusable instead of useButton because at this stage we want to hook only to focusable.
+  // Not standardize button behavior as we're currently relying on some weird native behaviours (like onClick firing on enter key press) see https://react-spectrum.adobe.com/blog/building-a-button-part-1.html
+  // @ts-ignore
+  const { focusableProps } = useFocusable(passedInProps, ref)
 
   return (
     // eslint-disable-next-line react/button-has-type
     <button
-      {...contextProps}
-      {...buttonProps}
+      {...passedInProps}
+      {...focusableProps}
       aria-describedby={
         props["aria-describedby"] === null
           ? undefined
-          : classnames(
-              contextProps["aria-describedby"],
-              buttonProps["aria-describedby"]
-            )
+          : focusableProps["aria-describedby"]
       }
       // Unset this because the one defined in buttonProps shows
       // focus-visible styles on click
       onPointerDown={undefined}
-      ref={contextRef}
+      ref={ref}
     >
       {renderContent(props)}
     </button>
@@ -344,7 +331,7 @@ const renderLink = (
           : classnames(
               contextProps["aria-describedby"],
               linkProps["aria-describedby"]
-            )
+            ) || undefined
       }
       // Unset this because the one defined in linkProps shows
       // focus-visible styles on click
