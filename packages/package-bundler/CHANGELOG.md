@@ -1,5 +1,11 @@
 # @kaizen/package-bundler
 
+## 1.1.2
+
+### Patch Changes
+
+- [#4755](https://github.com/cultureamp/kaizen-design-system/pull/4755) [`e220aeb123ec99c2f2ac11eb4960d1a351ff5161`](https://github.com/cultureamp/kaizen-design-system/commit/e220aeb123ec99c2f2ac11eb4960d1a351ff5161) - Update `@rollup/plugin-commonjs` to ^26.0.1
+
 ## 1.1.1
 
 ### Patch Changes
