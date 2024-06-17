@@ -1,10 +1,11 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import { Button } from "~components/Button"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Tooltip } from "../index"
+import { Tooltip, TooltipTrigger } from "../index"
 
 export default {
   title: "Components/Tooltip",
@@ -15,28 +16,16 @@ export default {
 } satisfies Meta
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
+  render: () => (
     /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
-    <StickerSheet isReversed={isReversed}>
+    <StickerSheet>
       <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <Tooltip isReversed={isReversed} exampleRequiredString="Tooltip" />
-          <Tooltip
-            isReversed={isReversed}
-            exampleRequiredString="Tooltip"
-            data-sb-pseudo-styles="hover"
-          />
-          <Tooltip
-            isReversed={isReversed}
-            exampleRequiredString="Tooltip"
-            data-sb-pseudo-styles="active"
-          />
-          <Tooltip
-            isReversed={isReversed}
-            exampleRequiredString="Tooltip"
-            data-sb-pseudo-styles="focus"
-          />
+          <TooltipTrigger defaultOpen={true}>
+            <Button label="Button with tooltip" />
+            <Tooltip>Tooltip content</Tooltip>
+          </TooltipTrigger>
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
@@ -64,9 +53,8 @@ export const StickerSheetReversed: StickerSheetStory = {
   parameters: {
     /** @note: Only required if template has parameters, otherwise this spread can be removed */
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
+    reverseColors: true,
   },
-  args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

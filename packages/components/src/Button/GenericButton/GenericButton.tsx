@@ -77,6 +77,7 @@ export type RenderProps = GenericButtonProps & {
   directionalLink?: boolean
   paginationLink?: boolean
   isActive?: boolean
+  "aria-describedby"?: string
 }
 
 export type ButtonRef = { focus: () => void }
@@ -209,6 +210,10 @@ const renderCustomComponent = (
   // @todo: Make a wrapper and take it out of Button
   const { linkProps } = useLink(contextProps, contextRef)
 
+  // Unset this because the one defined in buttonProps shows
+  // focus-visible styles on click, in future we'll style using [data-focus-visible] which is consistent across browsers
+  delete linkProps.onPointerDown
+
   return (
     <span
       ref={contextRef}
@@ -224,14 +229,8 @@ const renderCustomComponent = (
         aria-describedby={
           props["aria-describedby"] === null
             ? undefined
-            : classnames(
-              contextProps["aria-describedby"],
-              linkProps["aria-describedby"]
-            )
+            : linkProps["aria-describedby"]
         }
-        // Unset this because the one defined in buttonProps shows
-        // focus-visible styles on click
-        onPointerDown={undefined}
       >
         {renderContent(props)}
       </CustomComponent>
@@ -289,9 +288,9 @@ const renderButton = (
         props["aria-describedby"] === null
           ? undefined
           : classnames(
-            contextProps["aria-describedby"],
-            buttonProps["aria-describedby"]
-          )
+              contextProps["aria-describedby"],
+              buttonProps["aria-describedby"]
+            )
       }
       // Unset this because the one defined in buttonProps shows
       // focus-visible styles on click
@@ -343,9 +342,9 @@ const renderLink = (
         props["aria-describedby"] === null
           ? undefined
           : classnames(
-            contextProps["aria-describedby"],
-            linkProps["aria-describedby"]
-          )
+              contextProps["aria-describedby"],
+              linkProps["aria-describedby"]
+            )
       }
       // Unset this because the one defined in linkProps shows
       // focus-visible styles on click

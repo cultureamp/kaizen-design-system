@@ -13,7 +13,7 @@ import { globalA11yRules } from "./global-a11y-rules"
 const [, withBackground] = bgDecorators
 const IS_CHROMATIC = isChromatic()
 
-const globalTypes = {
+const globalTypes: Preview["globalTypes"] = {
   textDirection: {
     name: "Text direction",
     description: "",
@@ -23,9 +23,9 @@ const globalTypes = {
       items: ["ltr", "rtl"],
     },
   },
-} satisfies Preview["globalTypes"]
+}
 
-const decorators = [
+const decorators: Preview["decorators"] = [
   (Story): JSX.Element => (
     <KaizenProvider>
       <Story />
@@ -75,7 +75,7 @@ const decorators = [
       context
     )
   },
-] satisfies Preview["decorators"]
+]
 
 const preview = {
   parameters: {
