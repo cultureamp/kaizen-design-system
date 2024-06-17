@@ -56,7 +56,7 @@ const decorators: Preview["decorators"] = [
       // set in top toolbar
       !context.globals.backgrounds &&
       // set on story
-      !context.moduleExport?.parameters.backgrounds
+      !context.moduleExport?.parameters?.backgrounds
     ) {
       context.parameters.backgrounds.default = context.parameters.reverseColors
         ? "Purple 700"
