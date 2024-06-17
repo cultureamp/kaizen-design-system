@@ -225,14 +225,7 @@ const renderCustomComponent = (
         aria-describedby={
           props["aria-describedby"] === null
             ? undefined
-<<<<<<< HEAD
             : linkProps["aria-describedby"]
-=======
-            : classnames(
-                contextProps["aria-describedby"],
-                linkProps["aria-describedby"]
-              )
->>>>>>> 09ab01c5c (add Tooltip v1, alias in v2 and move poc to v3)
         }
       >
         {renderContent(props)}

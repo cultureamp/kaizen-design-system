@@ -4,7 +4,7 @@ import { expect, userEvent, within } from "@storybook/test"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
-import { Focusable } from "~components/__utilities__/v2"
+import { Focusable } from "~components/__utilities__/v3"
 import { ToggleTip, Tooltip, TooltipTrigger } from "../index"
 
 const meta = {

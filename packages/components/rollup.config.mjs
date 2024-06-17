@@ -7,8 +7,7 @@ export default rollupConfig({
     overlaysV1: "./src/__overlays__/v1.ts",
     overlaysV2: "./src/__overlays__/v2.ts",
     overlaysV3: "./src/__overlays__/v3.ts",
-    utilitiesV1: "./src/__utilities__/v1.ts",
-    utilitiesV2: "./src/__utilities__/v2.ts",
+    utilitiesV3: "./src/__utilities__/v3ts",
     },
   plugins: pluginsSharedUi,
   alias: {

@@ -7,7 +7,7 @@ import {
   TooltipTriggerStateContext,
   useContextProps,
 } from "react-aria-components"
-import { useReversedColors } from "~components/__utilities__/v2"
+import { useReversedColors } from "~components/__utilities__/v3"
 import { mergeClassNames } from "~utils/mergeClassNames"
 import { OverlayArrow } from "./OverlayArrow"
 import styles from "./Tooltip.module.scss"
