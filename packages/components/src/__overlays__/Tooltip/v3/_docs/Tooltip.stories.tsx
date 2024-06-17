@@ -1,6 +1,11 @@
+import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import * as TooltipV2Stories from "../../v2/_docs/Tooltip.stories"
-import { Tooltip } from "../index"
+import { expect, userEvent, within } from "@storybook/test"
+import { Button, IconButton } from "~components/Button"
+import { AddIcon, InformationIcon } from "~components/Icon"
+import { Tag } from "~components/__future__/Tag"
+import { Focusable } from "~components/__utilities__/v2"
+import { ToggleTip, Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
   title: "Overlays/Tooltip/v3",
@@ -26,44 +31,191 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const OnButton: Story = {
-  ...TooltipV2Stories.OnButton,
+  render: args => (
+    <TooltipTrigger {...args}>
+      <Button label="Button with tooltip" />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
 }
+
 export const OnLink: Story = {
-  ...TooltipV2Stories.OnLink,
+  render: args => (
+    <TooltipTrigger {...args}>
+      <Button label="Button with tooltip" href="#" />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
 }
+
 export const OnButtonWithDesc: Story = {
-  ...TooltipV2Stories.OnButtonWithDesc,
+  render: args => (
+    <>
+      <TooltipTrigger>
+        <IconButton
+          label="(TESTING) Add label"
+          icon={<AddIcon role="presentation" />}
+          primary
+          aria-describedby="blah"
+        />
+        <Tooltip {...args}>Tooltip content</Tooltip>
+      </TooltipTrigger>
+      <div id="blah">Custom description</div>
+    </>
+  ),
 }
+
 export const OnIconButton: Story = {
-  ...TooltipV2Stories.OnIconButton,
+  render: args => (
+    <TooltipTrigger>
+      <IconButton
+        label="Add something"
+        icon={<AddIcon role="presentation" />}
+        primary
+        // Negate the aria description (added by RAC) as it should be the
+        // same as the accessible name, therefore no need to duplicate it
+        aria-describedby={null}
+      />
+      <Tooltip {...args}>Add something</Tooltip>
+    </TooltipTrigger>
+  ),
 }
+
 export const OnDisabledButton: Story = {
-  ...TooltipV2Stories.OnDisabledButton,
+  render: args => (
+    <TooltipTrigger {...args}>
+      <Button label="Button with tooltip" disabled />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
 }
+
 export const OnCustomButtonAnchor: Story = {
-  ...TooltipV2Stories.OnCustomButtonAnchor,
+  name: "On Button with custom <a>",
+  render: args => (
+    <TooltipTrigger {...args}>
+      <Button
+        label="Button with tooltip"
+        component={props => (
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <a {...props} href="#" style={{ padding: "0 1rem" }}>
+            Custom Link with tooltip
+          </a>
+        )}
+      />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
 }
+
 export const OnCustomButton: Story = {
-  ...TooltipV2Stories.OnCustomButton,
+  name: "On Button with custom <button>",
+  render: args => (
+    <TooltipTrigger {...args}>
+      <Button
+        label="Button with tooltip"
+        component={props => <button type="button" {...props} />}
+      />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
 }
+
 export const OnCustomFocusableElement: Story = {
-  ...TooltipV2Stories.OnCustomFocusableElement,
+  render: args => (
+    <TooltipTrigger {...args}>
+      <Focusable>
+        <Tag>Non-interactive element</Tag>
+      </Focusable>
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
 }
+
 export const PlacementLeft: Story = {
-  ...TooltipV2Stories.PlacementLeft,
+  ...OnButton,
+  args: { placement: "left" },
 }
+
 export const PlacementRight: Story = {
-  ...TooltipV2Stories.PlacementRight,
+  ...OnButton,
+  args: { placement: "right" },
 }
+
 export const PlacementTop: Story = {
-  ...TooltipV2Stories.PlacementTop,
+  ...OnButton,
+  args: { placement: "top" },
 }
+
 export const PlacementBottom: Story = {
-  ...TooltipV2Stories.PlacementBottom,
+  ...OnButton,
+  args: { placement: "bottom" },
 }
+
 export const ReversedColors: Story = {
-  ...TooltipV2Stories.ReversedColors,
+  render: args => (
+    <TooltipTrigger {...args}>
+      <Button label="Button with tooltip" reversed={true} />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
+  parameters: {
+    reverseColors: true,
+  },
 }
+
 export const ToggleTipStory: Story = {
-  ...TooltipV2Stories.ToggleTipStory,
+  name: "ToggleTip",
+  args: { defaultOpen: false },
+  render: args => (
+    <TooltipTrigger {...args}>
+      <ToggleTip>
+        <InformationIcon role="img" aria-label="Information" />
+      </ToggleTip>
+      <Tooltip
+        {...args}
+        style={{ display: "flex", textAlign: "left", alignItems: "center" }}
+      >
+        <InformationIcon
+          role="presentation"
+          style={{ marginRight: "0.25rem" }}
+        />
+        With rich content
+      </Tooltip>
+    </TooltipTrigger>
+  ),
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+    // focus
+    await userEvent.tab()
+    await expect(canvas.queryByRole("tooltip")).toBeNull()
+
+    await step("Enter toggles", async () => {
+      await userEvent.keyboard("{enter}")
+      await expect(canvas.getByRole("tooltip")).toBeVisible()
+      await userEvent.keyboard("{enter}")
+      await expect(canvas.queryByRole("tooltip")).toBeNull()
+    })
+    await step("Space toggles", async () => {
+      await userEvent.keyboard(" ")
+      await expect(canvas.getByRole("tooltip")).toBeVisible()
+      await userEvent.keyboard(" ")
+      await expect(canvas.queryByRole("tooltip")).toBeNull()
+    })
+    await step("Pointer toggles", async () => {
+      const button = canvasElement.getElementsByTagName("button")[0]
+      await userEvent.click(button)
+      await expect(canvas.getByRole("tooltip")).toBeVisible()
+      await userEvent.click(button)
+      await expect(canvas.queryByRole("tooltip")).toBeNull()
+    })
+    await step("Escape closes", async () => {
+      await userEvent.keyboard("{enter}")
+      await userEvent.keyboard("{Escape}")
+      await expect(canvas.queryByRole("tooltip")).toBeNull()
+    })
+
+    // leave open for screenshot
+    await userEvent.keyboard("{enter}")
+  },
 }
