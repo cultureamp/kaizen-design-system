@@ -1,8 +1,10 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import { expect, userEvent, waitFor, within } from "@storybook/test"
+import isChromatic from "chromatic"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
 import { Tag } from "~components/__future__/Tag"
 import { Focusable, ToggleTip, Tooltip, TooltipTrigger } from "../index"
 
@@ -13,7 +15,7 @@ const meta = {
     layout: "centered",
   },
   args: {
-    // defaultOpen: true,
+    defaultOpen: isChromatic(),
   },
   argTypes: {
     // eslint-disable-next-line camelcase
@@ -30,8 +32,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const OnButton: Story = {
-  render: args => (
-    <TooltipTrigger {...args}>
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button label="Button with tooltip" />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
@@ -39,8 +41,8 @@ export const OnButton: Story = {
 }
 
 export const OnLink: Story = {
-  render: args => (
-    <TooltipTrigger {...args}>
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button label="Button with tooltip" href="#" />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
@@ -48,9 +50,9 @@ export const OnLink: Story = {
 }
 
 export const OnButtonWithDesc: Story = {
-  render: args => (
+  render: ({ defaultOpen, isOpen, ...args }) => (
     <>
-      <TooltipTrigger>
+      <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
         <IconButton
           label="(TESTING) Add label"
           icon={<AddIcon role="presentation" />}
@@ -65,8 +67,8 @@ export const OnButtonWithDesc: Story = {
 }
 
 export const OnIconButton: Story = {
-  render: args => (
-    <TooltipTrigger>
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <IconButton
         label="Add something"
         icon={<AddIcon role="presentation" />}
@@ -81,8 +83,8 @@ export const OnIconButton: Story = {
 }
 
 export const OnDisabledButton: Story = {
-  render: args => (
-    <TooltipTrigger {...args}>
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button label="Button with tooltip" disabled />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
@@ -91,8 +93,8 @@ export const OnDisabledButton: Story = {
 
 export const OnCustomButtonAnchor: Story = {
   name: "On Button with custom <a>",
-  render: args => (
-    <TooltipTrigger {...args}>
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button
         label="Button with tooltip"
         component={props => (
@@ -109,8 +111,8 @@ export const OnCustomButtonAnchor: Story = {
 
 export const OnCustomButton: Story = {
   name: "On Button with custom <button>",
-  render: args => (
-    <TooltipTrigger {...args}>
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button
         label="Button with tooltip"
         component={props => <button type="button" {...props} />}
@@ -121,13 +123,40 @@ export const OnCustomButton: Story = {
 }
 
 export const OnCustomFocusableElement: Story = {
-  render: args => (
-    <TooltipTrigger {...args}>
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Focusable>
         <Tag>Non-interactive element</Tag>
       </Focusable>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
+  ),
+}
+
+export const OnTabs: Story = {
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <Tabs>
+      <TabList aria-label="Tabs">
+        <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
+          <Tab>Tab 1</Tab>
+          <Tooltip {...args}>Tooltip content</Tooltip>
+        </TooltipTrigger>
+        <Tab>Tab 2</Tab>
+        <Tab badge="3">Tab 3</Tab>
+        <Tab disabled>Disabled Tab</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel classNameOverride="p-24 font-family-paragraph">
+          Content 1
+        </TabPanel>
+        <TabPanel classNameOverride="p-24 font-family-paragraph">
+          Content 2
+        </TabPanel>
+        <TabPanel classNameOverride="p-24 font-family-paragraph">
+          Content 3
+        </TabPanel>
+      </TabPanels>
+    </Tabs>
   ),
 }
 
@@ -152,8 +181,8 @@ export const PlacementBottom: Story = {
 }
 
 export const ReversedColors: Story = {
-  render: args => (
-    <TooltipTrigger {...args}>
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button label="Button with tooltip" reversed={true} />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
@@ -166,8 +195,8 @@ export const ReversedColors: Story = {
 export const ToggleTipStory: Story = {
   name: "ToggleTip",
   args: { defaultOpen: false },
-  render: args => (
-    <TooltipTrigger {...args}>
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <ToggleTip>
         <InformationIcon role="img" aria-label="Information" />
       </ToggleTip>
@@ -191,27 +220,27 @@ export const ToggleTipStory: Story = {
 
     await step("Enter toggles", async () => {
       await userEvent.keyboard("{enter}")
-      await expect(canvas.getByRole("tooltip")).toBeVisible()
+      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
       await userEvent.keyboard("{enter}")
-      await expect(canvas.queryByRole("tooltip")).toBeNull()
+      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
     })
     await step("Space toggles", async () => {
       await userEvent.keyboard(" ")
-      await expect(canvas.getByRole("tooltip")).toBeVisible()
+      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
       await userEvent.keyboard(" ")
-      await expect(canvas.queryByRole("tooltip")).toBeNull()
+      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
     })
     await step("Pointer toggles", async () => {
       const button = canvasElement.getElementsByTagName("button")[0]
       await userEvent.click(button)
-      await expect(canvas.getByRole("tooltip")).toBeVisible()
+      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
       await userEvent.click(button)
-      await expect(canvas.queryByRole("tooltip")).toBeNull()
+      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
     })
     await step("Escape closes", async () => {
       await userEvent.keyboard("{enter}")
       await userEvent.keyboard("{Escape}")
-      await expect(canvas.queryByRole("tooltip")).toBeNull()
+      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
     })
 
     // leave open for screenshot
