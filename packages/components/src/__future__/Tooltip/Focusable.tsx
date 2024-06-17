@@ -1,7 +1,6 @@
-import React, { HTMLAttributes, ReactNode, useContext, useRef } from "react"
+import React, { HTMLAttributes, ReactNode, useRef } from "react"
 import classnames from "classnames"
-import { FocusableOptions, useTooltipTrigger } from "react-aria"
-import { TooltipTriggerStateContext } from "react-aria-components"
+import { FocusableOptions, useFocusable } from "react-aria"
 import styles from "./Focusable.module.scss"
 
 export type FocusableProps = {
@@ -16,14 +15,13 @@ export const Focusable = ({
   ...props
 }: FocusableProps): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null)
-  const state = useContext(TooltipTriggerStateContext)!
-  const { triggerProps } = useTooltipTrigger(props, state, ref)
+  const { focusableProps } = useFocusable(props, ref)
 
   return (
     <div
       ref={ref}
       className={classnames(styles.focusableWrapper, className)}
-      {...triggerProps}
+      {...focusableProps}
       data-inline-hidden-content
       // We want the div to be focusable for keyboard users,
       // but screen readers will have the VisuallyHidden content
