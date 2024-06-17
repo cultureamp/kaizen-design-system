@@ -38,9 +38,34 @@ export const OnButton: Story = {
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const button = canvas.getByText("Button with tooltip")
+
+    await step("Hover shows", async () => {
+      await userEvent.hover(button)
+      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
+    })
+
+    await step("Focus shows", async () => {
+      await userEvent.tab() // focus
+      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
+      await userEvent.tab() // unfocus
+      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
+    })
+
+    await step("Escape closes", async () => {
+      await userEvent.tab() // focus
+      await userEvent.keyboard("{enter}")
+      await userEvent.keyboard("{Escape}")
+      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
+      await userEvent.tab() // unfocus
+    })
+  },
 }
 
 export const OnLink: Story = {
+  ...OnButton,
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button label="Button with tooltip" href="#" />
@@ -110,6 +135,7 @@ export const OnCustomButtonAnchor: Story = {
 }
 
 export const OnCustomButton: Story = {
+  ...OnButton,
   name: "On Button with custom <button>",
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
