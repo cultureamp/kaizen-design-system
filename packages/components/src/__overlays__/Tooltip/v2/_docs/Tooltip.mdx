@@ -1,10 +1,10 @@
-import { Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
+import { Meta, Canvas, Controls } from "@storybook/blocks"
+import { ResourceLinks, Installation } from "~storybook/components"
 import * as TooltipStories from "./Tooltip.stories"
 
 <Meta of={TooltipStories} />
 
-# Tooltip
+# Tooltip (v2)
 
 {/*
   * @todo:
@@ -18,14 +18,18 @@ import * as TooltipStories from "./Tooltip.stories"
   className="!mb-8"
 />
 
-<KAIOInstallation exportNames="Tooltip" />
+<Installation
+  installCommand="pnpm add @kaizen/components"
+  importStatement='import { Tooltip } from "@kaizen/components/v2/overlays"'
+/>
+
 
 ## Overview
 
 {/* @todo: Update summary. */}
 Brief summary of the component here.
 
-{/* <Canvas of={TooltipStories.Playground} />
-<Controls of={TooltipStories.Playground} /> */}
+<Canvas of={TooltipStories.OnButton} />
+<Controls of={TooltipStories.OnButton} />
 
 ## API

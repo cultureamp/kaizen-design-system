@@ -12,7 +12,7 @@ import {
   TableRow,
 } from "~components/Table"
 import { Text } from "~components/Text"
-import { Tag } from "~components/__future__"
+import { Tag } from "~components/__future__/Tag"
 import { Tooltip } from "../index"
 
 const meta = {

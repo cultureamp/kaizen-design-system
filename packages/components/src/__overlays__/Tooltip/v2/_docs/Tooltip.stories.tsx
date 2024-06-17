@@ -9,7 +9,7 @@ import { Tag } from "~components/__future__/Tag"
 import { Focusable, ToggleTip, Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
-  title: "Components/__Tooltip/v2",
+  title: "Overlays/Tooltip/v2",
   component: Tooltip,
   parameters: {
     layout: "centered",
