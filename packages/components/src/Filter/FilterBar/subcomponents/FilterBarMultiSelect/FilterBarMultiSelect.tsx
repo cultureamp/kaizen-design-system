@@ -11,14 +11,11 @@ import { checkArraysMatch } from "../../utils/checkArraysMatch"
 
 export type FilterBarMultiSelectProps = Omit<
   FilterMultiSelectProps,
-  | "isOpen"
-  | "setIsOpen"
-  | "renderTrigger"
-  | "label"
-  | "selectedKeys"
-  | "trigger"
+  "label" | "trigger"
 > & {
   id?: string
+  label?: FilterMultiSelectProps["label"]
+  trigger?: FilterMultiSelectProps["trigger"]
 }
 
 // This should technically be handled within the FilterMultiSelect

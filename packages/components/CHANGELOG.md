@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.49.3
+
+### Patch Changes
+
+- [#4758](https://github.com/cultureamp/kaizen-design-system/pull/4758) [`10c22b15e0decd6f8f279863f5bfe1cbbbea1990`](https://github.com/cultureamp/kaizen-design-system/commit/10c22b15e0decd6f8f279863f5bfe1cbbbea1990) - Fix `FilterBarMultiSelectProps` to allow consumer to override `label`, `trigger` and `selectedKeys`
+
+## 1.49.2
+
+### Patch Changes
+
+- [#4745](https://github.com/cultureamp/kaizen-design-system/pull/4745) [`1b17a65773afe0f3b9598c5e148379aab8c86875`](https://github.com/cultureamp/kaizen-design-system/commit/1b17a65773afe0f3b9598c5e148379aab8c86875) - Update prosemirror deps
+
 ## 1.49.1
 
 ### Patch Changes
