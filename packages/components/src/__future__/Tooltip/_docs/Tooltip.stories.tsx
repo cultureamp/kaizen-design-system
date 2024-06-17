@@ -40,15 +40,17 @@ export const OnButton: Story = {
   ),
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole("button")
+    const button = canvas.queryByRole("button") || canvas.getByRole("link")
 
     await step("Hover shows", async () => {
+      await userEvent.unhover(button)
       await userEvent.hover(button)
       await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
       expect(button).toHaveAttribute(
         "aria-describedby",
         canvas.getByRole("tooltip").id
       )
+      await userEvent.unhover(button)
     })
 
     await step("Focus shows", async () => {
