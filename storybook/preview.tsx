@@ -5,7 +5,7 @@ import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview
 import { Preview } from "@storybook/react"
 import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
-import { ReversedColors } from "~components/__overlays__/Tooltip/v2/ReversedColors"
+import { ReversedColors } from "~components/__utilities__/v2"
 import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"
 import { globalA11yRules } from "./global-a11y-rules"

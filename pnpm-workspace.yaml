@@ -1,6 +1,9 @@
 packages:
   - "packages/**"
   - "!packages/components/future"
+  - "!packages/utilities/v1"
+  - "!packages/utilities/v2"
+  - "!packages/components/v1"
   - "!packages/components/v2"
   - "!packages/components/v3"
   - "!packages/design-tokens/js"
