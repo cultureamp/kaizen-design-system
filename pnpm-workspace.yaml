@@ -1,8 +1,7 @@
 packages:
   - "packages/**"
   - "!packages/components/future"
-  - "!packages/utilities/v1"
-  - "!packages/utilities/v2"
+  - "!packages/utilities/v3"
   - "!packages/components/v1"
   - "!packages/components/v2"
   - "!packages/components/v3"
