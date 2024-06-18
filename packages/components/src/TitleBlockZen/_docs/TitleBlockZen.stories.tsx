@@ -104,7 +104,7 @@ export const Viewports: Story = {
       viewports: {
         default: {
           name: "Default",
-          styles: { width: "1800px", height: "800px" },
+          styles: { width: "1645px", height: "800px" },
           type: "desktop",
         },
         breadcrumbBreakpoint: {
@@ -127,7 +127,7 @@ export const Viewports: Story = {
     },
     chromatic: {
       disable: false,
-      viewports: [1079, 1365, 1644, 1800],
+      viewports: [1079, 1365, 1644, 1645],
     },
   },
 }
@@ -136,9 +136,9 @@ export const HasLongTitle: Story = {
   parameters: {
     viewport: {
       viewports: {
-        default: {
-          name: "Default",
-          styles: { width: "1800px", height: "800px" },
+        aboveEqual1366: {
+          name: "Above or equal to 1366",
+          styles: { width: "1366px", height: "800px" },
           type: "desktop",
         },
         under1366: {
@@ -151,7 +151,7 @@ export const HasLongTitle: Story = {
     },
     chromatic: {
       disable: false,
-      viewports: [1365, 1800],
+      viewports: [1365, 1366],
     },
   },
   args: { title: "A long title with over thirty characters" },
