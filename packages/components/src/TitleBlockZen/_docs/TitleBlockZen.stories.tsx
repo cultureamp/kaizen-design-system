@@ -98,6 +98,65 @@ export const Playground: Story = {
   },
 }
 
+export const Viewports: Story = {
+  parameters: {
+    viewport: {
+      viewports: {
+        default: {
+          name: "Default",
+          styles: { width: "1800px", height: "800px" },
+          type: "desktop",
+        },
+        breadcrumbBreakpoint: {
+          name: "Breadcrumb breakpoint",
+          styles: { width: "1644px", height: "800px" },
+          type: "desktop",
+        },
+        under1366: {
+          name: "Under 1366",
+          styles: { width: "1365px", height: "800px" },
+          type: "desktop",
+        },
+        mediumSmall: {
+          name: "Medium and small",
+          styles: { width: "1079px", height: "800px" },
+          type: "desktop",
+        },
+      },
+      defaultViewport: "default",
+    },
+    chromatic: {
+      disable: false,
+      viewports: [1079, 1365, 1644, 1800],
+    },
+  },
+}
+
+export const HasLongTitle: Story = {
+  parameters: {
+    viewport: {
+      viewports: {
+        default: {
+          name: "Default",
+          styles: { width: "1800px", height: "800px" },
+          type: "desktop",
+        },
+        under1366: {
+          name: "Under 1366",
+          styles: { width: "1365px", height: "800px" },
+          type: "desktop",
+        },
+      },
+      defaultViewport: "default",
+    },
+    chromatic: {
+      disable: false,
+      viewports: [1365, 1800],
+    },
+  },
+  args: { title: "A long title with over thirty characters" },
+}
+
 export const StickerSheetDefault: Story = {
   parameters: {
     docs: {
