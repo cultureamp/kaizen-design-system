@@ -1,2 +1,2 @@
 // Alias of current
-export * from "./Tooltip/v1"
+export * from "./Tooltip/v2"
