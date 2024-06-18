@@ -6,10 +6,11 @@ import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
 import { Tag } from "~components/__future__/Tag"
-import { Focusable, ToggleTip, Tooltip, TooltipTrigger } from "../index"
+import { Focusable } from "~components/__utilities__/v3"
+import { ToggleTip, Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
-  title: "Components/__Tooltip/v2",
+  title: "Overlays/Tooltip/v3",
   component: Tooltip,
   parameters: {
     layout: "centered",

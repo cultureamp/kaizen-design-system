@@ -8,7 +8,7 @@ import {
 import { Tooltip, TooltipTrigger } from "../index"
 
 export default {
-  title: "Components/Tooltip",
+  title: "Overlays/Tooltip/v3",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

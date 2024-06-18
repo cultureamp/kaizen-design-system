@@ -1,10 +1,10 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
+import { ResourceLinks, Installation } from "~storybook/components"
 import * as TooltipStories from "./Tooltip.stories"
 
 <Meta of={TooltipStories} />
 
-# Tooltip
+# Tooltip (v1)
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tooltip"
@@ -13,7 +13,13 @@ import * as TooltipStories from "./Tooltip.stories"
   className="!mb-8"
 />
 
-<KAIOInstallation exportNames="Tooltip" />
+<Installation
+  installCommand="pnpm add @kaizen/components"
+  importStatement='import { Tooltip } from "@kaizen/components/v1/overlays"'
+/>
+
+It is recommended that you import from the `v2` entry point.
+
 
 ## Overview
 

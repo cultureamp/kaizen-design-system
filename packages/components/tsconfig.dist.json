@@ -5,6 +5,7 @@
     "node_modules",
     "**/*.spec.ts",
     "**/*.spec.tsx",
-    "**/*.stories.tsx"
+    "**/*.stories.tsx",
+    "**/_docs/**/*"
   ]
 }

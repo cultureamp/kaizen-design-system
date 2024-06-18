@@ -500,6 +500,12 @@ importers:
         specifier: ^4.15.1
         version: 4.15.5
 
+  packages/components/v1/overlays: {}
+
+  packages/components/v2/overlays: {}
+
+  packages/components/v3/overlays: {}
+
   packages/design-tokens:
     dependencies:
       '@types/color-string':
