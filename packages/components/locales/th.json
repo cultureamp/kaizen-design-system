@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "จนถึงวันที่"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "กรองตัวเลือกตามคิวรีการค้นหา"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "ค้นหา…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "ล้างการค้นหา"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "ติดต่อฝ่ายสนับสนุน"

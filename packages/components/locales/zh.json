@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "结束日期"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "按搜索查询筛选选项"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "搜索…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "清除搜索"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "联系支持人员"

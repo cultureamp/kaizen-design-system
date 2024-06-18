@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Slutdatum"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filtrera alternativ efter sökfråga"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Sök …"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Rensa sökning"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "kontakta supporten"

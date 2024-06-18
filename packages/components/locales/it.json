@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Data di fine"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filtra le opzioni in base alla query di ricerca"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Cerca…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Cancella ricerca"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "contatta l'assistenza"

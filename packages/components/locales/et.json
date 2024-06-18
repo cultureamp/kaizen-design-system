@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Kuupäev kuni"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filtreerimisvalikud otsingupäringu järgi"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Otsing..."
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Tühjenda otsing"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "võtke ühendust toega"

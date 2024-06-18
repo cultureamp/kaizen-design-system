@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Dátum eddig:"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Lehetőségek szűrése keresési lekérdezés alapján"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Keresés…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Keresés törlése"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "forduljon az ügyfélszolgálathoz."
