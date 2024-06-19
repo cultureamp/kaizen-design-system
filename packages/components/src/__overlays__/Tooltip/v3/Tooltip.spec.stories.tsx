@@ -185,19 +185,10 @@ export const OnTabs: Story = {
           <Tab>Tab 1</Tab>
           <Tooltip {...args}>Tooltip content</Tooltip>
         </TooltipTrigger>
-        <Tab>Tab 2</Tab>
-        <Tab badge="3">Tab 3</Tab>
-        <Tab disabled>Disabled Tab</Tab>
       </TabList>
       <TabPanels>
         <TabPanel classNameOverride="p-24 font-family-paragraph">
-          Content 1
-        </TabPanel>
-        <TabPanel classNameOverride="p-24 font-family-paragraph">
-          Content 2
-        </TabPanel>
-        <TabPanel classNameOverride="p-24 font-family-paragraph">
-          Content 3
+          Tab content
         </TabPanel>
       </TabPanels>
     </Tabs>
