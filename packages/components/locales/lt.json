@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Data iki"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filtruoti parinktis pagal paieškos užklausą"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Paieška…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Išvalyti paiešką"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "kreipkitės į pagalbos tarnybą"

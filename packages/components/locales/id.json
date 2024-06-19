@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Tanggal sampai"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filter opsi berdasarkan kueri pencarian"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Cari…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Hapus pencarian"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "dukungan kontak"

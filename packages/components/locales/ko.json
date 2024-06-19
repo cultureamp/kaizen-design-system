@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "종료 날짜"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "검색어별 필터링 옵션"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "검색..."
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "검색 지우기"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "지원 센터에 문의하십시오."

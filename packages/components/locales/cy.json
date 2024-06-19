@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Dyddiad i"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Hidlo opsiynau yn ôl ymholiad chwilio"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Chwilio ..."
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Clirio chwiliad"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "cysylltu â chymorth"

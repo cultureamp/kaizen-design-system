@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "التاريخ إلى"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "خيارات التصفية حسب استعلام البحث"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "بحث..."
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "مسح البحث"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "اتصل بالدعم"

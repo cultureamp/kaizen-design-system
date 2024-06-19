@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Datum bis"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filteroptionen nach Suchanfrage"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Suche läuft …"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Suche löschen"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "kontaktieren Sie den Support,"
