@@ -211,14 +211,14 @@ export const Placement: Story = {
       <Tooltip {...args} placement="top" shouldFlip={false}>
         Placement top
       </Tooltip>
-      <Tooltip {...args} placement="right" shouldFlip={false}>
-        Placement right
+      <Tooltip {...args} placement="end" shouldFlip={false}>
+        Placement end
       </Tooltip>
       <Tooltip {...args} placement="bottom" shouldFlip={false}>
         Placement bottom
       </Tooltip>
-      <Tooltip {...args} placement="left" shouldFlip={false}>
-        Placement left
+      <Tooltip {...args} placement="start" shouldFlip={false}>
+        Placement start
       </Tooltip>
     </TooltipTrigger>
   ),

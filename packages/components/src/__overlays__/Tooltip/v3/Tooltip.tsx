@@ -1,5 +1,5 @@
 import React, { forwardRef, useContext, useLayoutEffect, useState } from "react"
-import { VisuallyHidden } from "react-aria"
+import { VisuallyHidden, useLocale } from "react-aria"
 import {
   Tooltip as RACTooltip,
   TooltipContext,
@@ -21,6 +21,23 @@ export type TooltipProps = Omit<RACTooltipProps, "offset"> & {
    * @default 8
    */
   offset?: number
+  /**
+   * The placement of the tooltip relative to the trigger.
+   * + we're intentionally limiting the placement options to rtl friendly ones (start, end, top, bottom)
+   */
+  placement?:
+    | "bottom"
+    | "bottom start"
+    | "bottom end"
+    | "top"
+    | "top start"
+    | "top end"
+    | "start"
+    | "start top"
+    | "start bottom"
+    | "end"
+    | "end top"
+    | "end bottom"
 }
 
 /**

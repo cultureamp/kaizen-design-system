@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { I18nProvider } from "react-aria"
 import { ToastNotificationsList } from "~components/Notification"
 import { ToastNotificationProvider } from "~components/Notification/ToastNotification/context/ToastNotificationContext"
 import { FontDefinitions } from "./subcomponents/FontDefinitions"
@@ -27,13 +28,13 @@ export const KaizenProvider = ({
 
   return (
     <OptionalIntlProvider locale={locale}>
-      <>
+      <I18nProvider locale={locale}>
         <ToastNotificationProvider>
           {notificationsList}
           {children}
         </ToastNotificationProvider>
         <FontDefinitions />
-      </>
+      </I18nProvider>
     </OptionalIntlProvider>
   )
 }
