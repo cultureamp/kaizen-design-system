@@ -5,9 +5,10 @@ import isChromatic from "chromatic"
 import { Button, IconButton } from "~components/Button"
 import { AddIcon, InformationIcon } from "~components/Icon"
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
+import { Text } from "~components/Text"
 import { Tag } from "~components/__future__/Tag"
 import { Focusable } from "~components/__utilities__/v3"
-import { ToggleTip, Tooltip, TooltipTrigger } from "../index"
+import { ToggleTip, Tooltip, TooltipTrigger } from "./index"
 
 const meta = {
   title: "Overlays/Tooltip/v3",
@@ -32,10 +33,19 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+export const Playground: Story = {
+  render: ({ defaultOpen: _, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={true} isOpen={isOpen}>
+      <Button label="Button" />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
+}
+
 export const OnButton: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button label="Button with tooltip" />
+      <Button label="Button" />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -74,7 +84,7 @@ export const OnLink: Story = {
   ...OnButton,
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button label="Button with tooltip" href="#" />
+      <Button label="Button" href="#" />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -92,7 +102,9 @@ export const OnButtonWithDesc: Story = {
         />
         <Tooltip {...args}>Tooltip content</Tooltip>
       </TooltipTrigger>
-      <div id="blah">Custom description</div>
+      <Text variant="body" id="blah">
+        This is target of aria-describedby
+      </Text>
     </>
   ),
 }
@@ -116,7 +128,7 @@ export const OnIconButton: Story = {
 export const OnDisabledButton: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button label="Button with tooltip" disabled />
+      <Button label="Button" disabled />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -127,11 +139,11 @@ export const OnCustomButtonAnchor: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button
-        label="Button with tooltip"
+        label="Button"
         component={props => (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a {...props} href="#" style={{ padding: "0 1rem" }}>
-            Custom Link with tooltip
+            Custom Link
           </a>
         )}
       />
@@ -146,7 +158,7 @@ export const OnCustomButton: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button
-        label="Button with tooltip"
+        label="Button"
         component={props => <button type="button" {...props} />}
       />
       <Tooltip {...args}>Tooltip content</Tooltip>
@@ -192,30 +204,30 @@ export const OnTabs: Story = {
   ),
 }
 
-export const PlacementLeft: Story = {
-  ...OnButton,
-  args: { placement: "left" },
-}
-
-export const PlacementRight: Story = {
-  ...OnButton,
-  args: { placement: "right" },
-}
-
-export const PlacementTop: Story = {
-  ...OnButton,
-  args: { placement: "top" },
-}
-
-export const PlacementBottom: Story = {
-  ...OnButton,
-  args: { placement: "bottom" },
+export const Placement: Story = {
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
+      <Button label="Button" />
+      <Tooltip {...args} placement="top" shouldFlip={false}>
+        Placement top
+      </Tooltip>
+      <Tooltip {...args} placement="right" shouldFlip={false}>
+        Placement right
+      </Tooltip>
+      <Tooltip {...args} placement="bottom" shouldFlip={false}>
+        Placement bottom
+      </Tooltip>
+      <Tooltip {...args} placement="left" shouldFlip={false}>
+        Placement left
+      </Tooltip>
+    </TooltipTrigger>
+  ),
 }
 
 export const ReversedColors: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button label="Button with tooltip" reversed={true} />
+      <Button label="Button" />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
