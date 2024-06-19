@@ -96,7 +96,6 @@ const preview = {
         headingSelector: "h2, h3",
         ignoreSelector: "#primary",
       },
-      page: UsaegGuidelinesTemplate,
       source: {
         excludeDecorators: true,
         language: "tsx",
