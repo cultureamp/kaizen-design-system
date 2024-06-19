@@ -37,8 +37,9 @@ export const ToggleTip = ({
       onPointerDown={toggle}
       onBlur={() => state.close(true)}
       {...props}
-      // Cannot use react-aria's Button component as it prevents adding aria-hidden
+      // we're hiding the button for screen readers because we're rendered the content inline and so the button itself carries no information or value
       aria-hidden="true"
+      data-a11y-ignore="aria-hidden-focus"
     >
       {children}
     </button>
