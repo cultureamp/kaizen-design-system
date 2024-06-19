@@ -102,7 +102,7 @@ export const OnButtonWithDesc: Story = {
         />
         <Tooltip {...args}>Tooltip content</Tooltip>
       </TooltipTrigger>
-      <Text variant="body" id="blah">
+      <Text variant="body" id="blah" classNameOverride="p-4">
         This is target of aria-describedby
       </Text>
     </>
