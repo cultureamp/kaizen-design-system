@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.50.0
+
+### Minor Changes
+
+- [#4773](https://github.com/cultureamp/kaizen-design-system/pull/4773) [`d64538c4850516d3425e8266c15e74b7060ea0c6`](https://github.com/cultureamp/kaizen-design-system/commit/d64538c4850516d3425e8266c15e74b7060ea0c6) - Translate embedded text within `FilterMultiSelect.SearchInput` and `InputSearch`.
+
+### Patch Changes
+
+- [#4774](https://github.com/cultureamp/kaizen-design-system/pull/4774) [`e206024491760b28787b068ccac56ab0aa652e1f`](https://github.com/cultureamp/kaizen-design-system/commit/e206024491760b28787b068ccac56ab0aa652e1f) - Add translations for FilterMultiSelect
+
 ## 1.49.3
 
 ### Patch Changes
