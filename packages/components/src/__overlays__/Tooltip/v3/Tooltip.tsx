@@ -1,5 +1,5 @@
 import React, { forwardRef, useContext, useLayoutEffect, useState } from "react"
-import { VisuallyHidden, useLocale } from "react-aria"
+import { VisuallyHidden } from "react-aria"
 import {
   Tooltip as RACTooltip,
   TooltipContext,

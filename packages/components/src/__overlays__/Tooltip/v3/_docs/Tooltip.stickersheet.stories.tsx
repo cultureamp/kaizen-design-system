@@ -15,11 +15,11 @@ const Stories = composeStories(stories)
 
 export const Standard: StickerSheetStory = {
   name: "Sticker Sheet (Default)",
-  render: () => (
+  render: args => (
     <div className="grid gap-x-128 gap-y-128 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {Object.values(Stories).map((Story, index) => (
         <div key={index} className="flex items-center justify-center">
-          <Story defaultOpen={true} />
+          <Story {...args} defaultOpen={true} />
         </div>
       ))}
     </div>

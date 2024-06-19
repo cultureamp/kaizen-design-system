@@ -5,6 +5,7 @@ import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview
 import { Preview } from "@storybook/react"
 import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
+import { I18nProvider } from "~components/__react-aria-components__"
 import { ReversedColors } from "~components/__utilities__/v3"
 import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"
@@ -26,21 +27,26 @@ const globalTypes: Preview["globalTypes"] = {
 }
 
 const decorators: Preview["decorators"] = [
+  (Story, context): JSX.Element => {
+    const dir =
+      context.parameters.textDirection ?? context.globals.textDirection
+
+    useEffect(() => {
+      if (document.body.getAttribute("dir") !== dir)
+        document.body.setAttribute("dir", dir)
+    }, [dir])
+
+    return (
+      <I18nProvider locale={dir === "rtl" ? "ar" : "en"}>
+        <Story />
+      </I18nProvider>
+    )
+  },
   (Story): JSX.Element => (
     <KaizenProvider>
       <Story />
     </KaizenProvider>
   ),
-  (Story, context): JSX.Element => {
-    useEffect(() => {
-      const dir =
-        context.parameters.textDirection ?? context.globals.textDirection
-      if (document.body.getAttribute("dir") !== dir)
-        document.body.setAttribute("dir", dir)
-    }, [context])
-
-    return <Story />
-  },
   (Story, context) =>
     (context.args.isReversed || context.args.reversed) && !IS_CHROMATIC ? (
       <div className="bg-purple-700 p-16 m-[-1rem]">
