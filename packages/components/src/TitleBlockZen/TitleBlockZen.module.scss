@@ -171,12 +171,6 @@ $tab-container-height-medium-and-small-collapsed: 0;
 .titleTextOverride.titleTextOverride {
   padding: 4px 0;
 
-  @media (max-width: $breadcrumb-breakpoint-width) {
-    font-size: $typography-heading-2-font-size;
-    line-height: $typography-heading-2-line-height;
-    letter-spacing: $typography-heading-2-letter-spacing;
-  }
-
   @include title-block-under-1366 {
     font-size: $typography-heading-2-font-size;
     line-height: $typography-heading-2-line-height;
