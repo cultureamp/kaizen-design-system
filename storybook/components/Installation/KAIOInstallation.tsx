@@ -1,26 +1,38 @@
 import React from "react"
+import { useOf } from "@storybook/blocks"
 import { Installation } from "./Installation"
 
 export type KAIOInstallationProps = {
   importStatement?: string
   exportNames: string | string[]
   isFuture?: boolean
+  version?: string
+  family?: string
 }
 
 export const KAIOInstallation = ({
   exportNames,
   isFuture,
+  version,
+  family,
 }: KAIOInstallationProps): JSX.Element => {
+  const resolvedOf = useOf("meta")
+
+  console.info("resolvedOf", resolvedOf)
+
   const csvComponentNames =
     typeof exportNames === "string" ? exportNames : exportNames.join(", ")
+
   const importStatement = isFuture
     ? `import { ${csvComponentNames} } from "@kaizen/components/future"`
     : `import { ${csvComponentNames} } from "@kaizen/components"`
 
+  const versionStatement = `import { ${csvComponentNames} } from "@kaizen/components/v${version}/${family}"`
+
   return (
     <Installation
-      installCommand="yarn add @kaizen/components"
-      importStatement={importStatement}
+      installCommand="pnpm add @kaizen/components"
+      importStatement={version ? versionStatement : importStatement}
     />
   )
 }
