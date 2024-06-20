@@ -129,7 +129,7 @@ Required files:
 - `tailwind.config.js`
 - `src/tailwind.css`
 
-Follow the [set up guide](../../docs/Systems/Tailwind/getting-started.mdx).
+Follow the [set up guide](../../docs/Tailwind/getting-started.mdx).
 
 As we use PostCSS, ensure your `postcss.config.js` has the following plugins installed:
 ```js

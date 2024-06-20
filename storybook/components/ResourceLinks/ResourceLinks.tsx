@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { Unstyled } from "@storybook/blocks"
-import classnames from "classnames"
-import styles from "./ResourceLinks.module.scss"
+import { Text } from "~components/Text"
+import { ExternalLinkIcon } from "../../../packages/components/src"
 
 type ResourceLinkProps = {
   href: string
@@ -9,15 +9,23 @@ type ResourceLinkProps = {
 }
 
 const ResourceLink = ({ href, text }: ResourceLinkProps): JSX.Element => (
-  <li className={styles.resourceLinkContainer}>
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer nofollow"
-      className={styles.resourceLink}
-    >
-      {text}
-    </a>
+  <li>
+    <Unstyled>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        className="border rounded inline-flex items-center p-8 text-blue-500"
+      >
+        <Text variant="small" tag="span" classNameOverride="text-inherit">
+          {text}
+        </Text>
+        <ExternalLinkIcon
+          role="presentation"
+          classNameOverride="ml-4 w-16 h-16"
+        />
+      </a>
+    </Unstyled>
   </li>
 )
 
@@ -31,11 +39,10 @@ export const ResourceLinks = ({
   sourceCode,
   figma,
   designGuidelines,
-  className,
   ...attributes
 }: ResourceLinksProps): JSX.Element => (
   <Unstyled>
-    <ul className={classnames(styles.resourceLinks, className)} {...attributes}>
+    <ul className="mb-40 list-none m-0 p-0 flex gap-8" {...attributes}>
       <ResourceLink href={sourceCode} text="Source Code" />
       {figma && <ResourceLink href={figma} text="Figma" />}
       {designGuidelines && (

@@ -2,12 +2,17 @@ import React, { useContext } from "react"
 import {
   DocsContainer,
   DocsContainerProps,
-  Unstyled,
   DocsContext,
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
 } from "@storybook/blocks"
+import { KAIOInstallation } from "../Installation"
 import { BackToTop } from "./BackToTop"
-import { Content, Main, Sidebar } from "./Layout"
-import { TableOfContents } from "./TableOfContents"
+import { Content, Main } from "./Layout"
 
 type LayoutProps = { children: React.ReactNode }
 
@@ -20,13 +25,6 @@ const FullPage = ({ children }: LayoutProps): JSX.Element => (
 
 const DefaultLayout = ({ children }: LayoutProps): JSX.Element => (
   <Main>
-    <Sidebar>
-      <div className="sticky right-0 top-12">
-        <Unstyled>
-          <TableOfContents />
-        </Unstyled>
-      </div>
-    </Sidebar>
     <Content>
       {children}
       <BackToTop className="mt-24" />
@@ -53,6 +51,11 @@ export const DefaultDocsContainer = ({
   ...props
 }: DocsContainerProps & { children: React.ReactNode }): JSX.Element => (
   <DocsContainer {...props}>
-    <DocsLayout>{children}</DocsLayout>
+    <DocsLayout>
+      <Title />
+      <KAIOInstallation exportNames="Tooltip" family="overlays" version="1" />
+      {children}
+      <Stories />
+    </DocsLayout>
   </DocsContainer>
 )

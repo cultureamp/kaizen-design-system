@@ -2,14 +2,15 @@ import "./styles/tailwind.scss"
 
 import React, { useEffect } from "react"
 import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
+
 import { Preview } from "@storybook/react"
 import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { I18nProvider } from "~components/__react-aria-components__"
 import { ReversedColors } from "~components/__utilities__/v3"
 import { backgrounds } from "./backgrounds"
-import { DefaultDocsContainer } from "./components/DocsContainer"
 import { globalA11yRules } from "./global-a11y-rules"
+import UsaegGuidelinesTemplate from "./templates/UsageGuidelinesTemplate.mdx"
 
 const [, withBackground] = bgDecorators
 const IS_CHROMATIC = isChromatic()
@@ -49,7 +50,7 @@ const decorators: Preview["decorators"] = [
   ),
   (Story, context) =>
     (context.args.isReversed || context.args.reversed) && !IS_CHROMATIC ? (
-      <div className="bg-purple-700 p-16 m-[-1rem]">
+      <div className="p-16 m-[-1rem]">
         <Story />
       </div>
     ) : (
@@ -90,7 +91,12 @@ const preview = {
       values: backgrounds,
     },
     docs: {
-      container: DefaultDocsContainer,
+      toc: {
+        title: "Table of contents",
+        headingSelector: "h2, h3",
+        ignoreSelector: "#primary",
+      },
+      page: UsaegGuidelinesTemplate,
       source: {
         excludeDecorators: true,
         language: "tsx",
@@ -102,9 +108,9 @@ const preview = {
         order: [
           "Introduction",
           "Guides",
-          "Systems",
           [
-            "*",
+            "App starter",
+            "Layout and spacing",
             "Tailwind",
             [
               "Overview",
@@ -116,13 +122,10 @@ const preview = {
               ["Overview", "*"],
             ],
           ],
+          "Overlays",
+          ["*", ["Usage Guidelines", "API Specifications", "*"]],
           "Components",
           ["Kaizen Provider", "*"],
-          "Pages",
-          "Helpers",
-          "Design Tokens",
-          "Deprecated",
-          "AIO",
         ],
       },
     },
