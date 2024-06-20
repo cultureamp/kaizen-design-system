@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Ημερομηνία έως"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Φιλτράρισμα επιλογών κατά ερώτημα αναζήτησης"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Αναζήτηση…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Διαγραφή αναζήτησης"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "επικοινωνήστε με την Υποστήριξη,"

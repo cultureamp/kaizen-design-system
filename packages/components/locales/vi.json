@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Ngày đến"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Tùy chọn lọc theo truy vấn tìm kiếm"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Tìm kiếm…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Tìm kiếm rõ ràng"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "liên hệ với bộ phận hỗ trợ"

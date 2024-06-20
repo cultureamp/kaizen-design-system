@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Datums līdz"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filtrēt opcijas pēc meklēšanas vaicājuma"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Meklēt…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Notīrīt meklēšanu"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "sazinieties ar atbalsta dienestu"

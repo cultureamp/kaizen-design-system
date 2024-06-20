@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "До дата"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Опции за филтриране по заявка за търсене"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Търсене..."
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Изчисти търсенето"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "се свържете с екипа за поддръжка"

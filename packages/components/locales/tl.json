@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Petsa hanggang"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "I-filter ang mga opsyon ayon sa query sa paghahanap"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Hanapin..."
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "I-clear ang paghahanap"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "makipag-ugnayan sa suporta"

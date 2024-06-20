@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "終了日"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "検索クエリによるオプションを絞り込む"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "検索..."
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "検索をクリア"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "サポートまでご連絡ください"
