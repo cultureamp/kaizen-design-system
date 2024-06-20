@@ -2,61 +2,55 @@ import { Canvas, Meta, Unstyled } from "@storybook/blocks"
 import { Heading } from "~components/Heading"
 import { CheckIcon, ClearIcon } from "~components/Icon"
 import { Text } from "~components/Text"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
+import { ResourceLinks, SbText } from "~storybook/components"
+import AnatomyPng from "./assets/tooltip_anatomy.png"
+import WhenToUse from "./assets/tooltip_when_to_use.png"
 import * as TooltipUsageGuidanceStories from "./usage-guidelines.stories"
+
 
 <Meta of={TooltipUsageGuidanceStories} />
 
-# Tooltip guidelines
+# Tooltip guidelines (v3)
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tooltip"
   figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=1929%3A32006&mode=design&t=LwTCBZ5E1uRvOA1l-1"
+  apiSpecification="/?path=/docs/overlays-tooltip-v3-api-specifications--docs"
 />
 
-<KAIOInstallation exportNames="Tooltip" version="3" family="overlays" />
 
 ## Overview
 
 <div className="mt-16 mb-64">
-  <Unstyled>
-    <Text variant="body" tag="span">
-      Tooltips are brief floating labels used to add additional contextual information when users hover, click or focus on an interactive element. These should offer concise explanations, elaborating on the element they are associated with.
-    </Text>
-  </Unstyled>
+  <SbText>
+    Tooltips are brief floating labels used to add additional contextual information when users hover, click or focus on an interactive element. These should offer concise explanations, elaborating on the element they are associated with.
+  </SbText>
 </div>
 
 ## Anatomy
 
 <div className="mt-16 mb-32">
-  <Unstyled>
-    <Text variant="body" tag="span">
-      - The anatomy of a tooltip is made up of a container, description and arrow.
-        - **They do not include a title or heading**. If you need to include a title, use a Popover
-      - A tooltip is connected to a trigger element, such as a button or icon, that shows the tooltip when the interactive trigger element is hovered or focused. (More details below.)
-    </Text>
-  </ Unstyled>
+  <SbText>
+    - The anatomy of a tooltip is made up of a container, description and arrow.
+      - **They do not include a title or heading**. If you need to include a title, use a Popover
+    - A tooltip is connected to a trigger element, such as a button or icon, that shows the tooltip when the interactive trigger element is hovered or focused. (More details below.)
+  </ SbText>
 </div>
 
-This would be better served as an image than a story ^
-
-<Canvas of={TooltipUsageGuidanceStories.Primary} className="mb-64" />
-
+<img src={AnatomyPng} alt="Indicates the anatomy of the Tooltip component, the Container, Label, Arrow and Trigger" className="mb-64" />
 
 ## When to use
 <div className="mt-16 mb-32">
-  <Unstyled>
-    <Text variant="body" tag="span">
+  <SbText>
       - Tooltips are used to provide additional information when space is tight.
       - Tooltips must be concise with one or more lines of text.
       - Tooltips must be accessible via hover and focus only.
       - Trigger tooltips from Interactive elements (Buttons, Links, Icon buttons) or Non-interactive elements (Icons, Abbreviations Truncated text)—be mindful of keyboard accessibility
       - **Never include any kind of error messages** in a tooltip
-    </Text>
-  </ Unstyled>
+  </ SbText>
 </ div>
 
-<Canvas of={TooltipUsageGuidanceStories.Primary} className="mb-32" />
+<img src={WhenToUse} alt="Illustration of when to use the Tooltip component" className="mb-32"/>
 
 ### Dos and don'ts
 <Unstyled>
@@ -76,7 +70,7 @@ This would be better served as an image than a story ^
       <div className="ml-16 w-2/3">
         <Heading tag="h4" variant="heading-4">Do use tooltips to describe icons</Heading>
         <Text variant="body" tag="span">
-          Icons are not always easy to identify on their own. When you use components that dont have labels — for example, icon-only action buttons and tabs — make sure to use tooltips to provide context for the icons.
+          Icons are not always easy to identify on their own. When you use components that don&apos;t have labels — for example, icon-only action buttons and tabs — make sure to use tooltips to provide context for the icons.
         </Text>
       </div>
     </div>
@@ -93,13 +87,13 @@ This would be better served as an image than a story ^
         <div className="relative [&>*]:m-0">
         <div className="bg-gray-500 absolute top-6 left-6 z-10 py-4 px-6 font-bold text-white rounded flex gap-2 items-center justify-center">
             <ClearIcon role="presentation" />
-            <Text variant="body" tag="span" color="white"><strong>Dont</strong></Text>
+            <Text variant="body" tag="span" color="white"><strong>Don&apos;t</strong></Text>
           </div>
           <Canvas of={TooltipUsageGuidanceStories.DontFieldTooltip} className="border-gray-500 !rounded-[10px]" />
         </div>
       </div>
       <div className="ml-16 w-2/3">
-        <Heading tag="h4" variant="heading-4">Dont use tooltips to communicate crucial information</Heading>
+        <Heading tag="h4" variant="heading-4">Don&apos;t use tooltips to communicate crucial information</Heading>
         <Text variant="body" tag="span">
           Tooltips should never stop a user (or be a gate) from completing a task or performing an action. They disappear so they should never contain critical information that a user would absolutely need to proceed, or information without which a user may cause errors. If the information is crucial for a user to proceed, consider using a modal or inline notification instead.
         </Text>
@@ -118,7 +112,7 @@ This would be better served as an image than a story ^
         <div className="relative [&>*]:m-0">
           <div className="bg-gray-500 absolute top-6 left-6 z-10 py-4 px-6 font-bold text-white rounded flex gap-2 items-center justify-center">
             <ClearIcon role="presentation" />
-            <Text variant="body" tag="span" color="white"><strong>Dont</strong></Text>
+            <Text variant="body" tag="span" color="white"><strong>Don&apos;t</strong></Text>
           </div>
           <Canvas of={TooltipUsageGuidanceStories.DontConcise} className="border-gray-500 !rounded-[10px]" />
         </div>

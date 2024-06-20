@@ -26,8 +26,6 @@ const meta = {
     },
     triggerRef: { control: false },
   },
-  // title: "Overlays/Tooltip/API Specifications",
-  // component: Tooltip,
   tags: ["autodocs"],
 } satisfies Meta<typeof Tooltip>
 

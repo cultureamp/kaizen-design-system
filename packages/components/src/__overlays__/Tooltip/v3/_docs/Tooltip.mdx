@@ -1,20 +1,15 @@
-import { Meta, Canvas, Controls,  } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { Meta, Canvas, Controls  } from "@storybook/blocks"
+import { ResourceLinks, Installation, SbText } from "~storybook/components"
 import * as TooltipStories from "../Tooltip.spec.stories"
 
 <Meta of={TooltipStories} />
 
 # Tooltip (v3)
 
-{/*
-  * @todo:
-  * - Adjust Github link (if needed)
-  * - Add Figma and Design Guidelines (Confluence) link
-  */}
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tooltip"
   figma=""
-  designGuidelines=""
+  designGuidelines="/?path=/docs/overlays-tooltip-v3-usage-guidelines--docs"
   className="!mb-8"
 />
 
@@ -26,15 +21,16 @@ import * as TooltipStories from "../Tooltip.spec.stories"
 
 ## Overview
 
-{/* @todo: Update summary. */}
-Brief summary of the component here.
+<SbText>
+  Tooltips are brief floating labels used to add additional contextual information when users hover, click or focus on an interactive element. These should offer concise explanations,  elaborating on the element they are associated with.
+</SbText>
 
 <Canvas of={TooltipStories.Playground} />
-<Controls of={TooltipStories.Playground} />
+<Controls of={TooltipStories.Playground} include={["placement", "isOpen"]} />
 
-## API
+## Quick links
 
-
-Placement
-
-<Canvas of={TooltipStories.Placement}  />
+<SbText>
+  - See our design documentation in the [Usage Guidelines](/?path=/docs/overlays-tooltip-v3-usage-guidelines--docs)
+  - See our engineering documentation in the [API Specification](/?path=/docs/overlays-tooltip-v3-api-specifications--docs)
+</SbText>
