@@ -1,6 +1,7 @@
+import React from "react"
 import { useOf } from "@storybook/blocks"
 
-export const RoutingTemplate = () => {
+export const RoutingTemplate = (): JSX.Element => {
   const resolvedOf = useOf("meta")
 
   switch (resolvedOf.type) {
@@ -11,4 +12,6 @@ export const RoutingTemplate = () => {
       return <h1>{resolvedOf.preparedMeta.title}</h1>
     }
   }
+
+  return <></>
 }

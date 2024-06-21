@@ -3,12 +3,8 @@ import {
   DocsContainer,
   DocsContainerProps,
   DocsContext,
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  Controls,
   Stories,
+  Title,
 } from "@storybook/blocks"
 import { KAIOInstallation } from "../Installation"
 import { BackToTop } from "./BackToTop"

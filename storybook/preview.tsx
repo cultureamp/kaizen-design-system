@@ -10,7 +10,6 @@ import { I18nProvider } from "~components/__react-aria-components__"
 import { ReversedColors } from "~components/__utilities__/v3"
 import { backgrounds } from "./backgrounds"
 import { globalA11yRules } from "./global-a11y-rules"
-import UsaegGuidelinesTemplate from "./templates/UsageGuidelinesTemplate.mdx"
 
 const [, withBackground] = bgDecorators
 const IS_CHROMATIC = isChromatic()

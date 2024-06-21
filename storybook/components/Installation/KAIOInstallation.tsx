@@ -1,5 +1,4 @@
 import React from "react"
-import { useOf } from "@storybook/blocks"
 import { Installation } from "./Installation"
 
 export type KAIOInstallationProps = {
@@ -16,10 +15,6 @@ export const KAIOInstallation = ({
   version,
   family,
 }: KAIOInstallationProps): JSX.Element => {
-  const resolvedOf = useOf("meta")
-
-  console.info("resolvedOf", resolvedOf)
-
   const csvComponentNames =
     typeof exportNames === "string" ? exportNames : exportNames.join(", ")
 
