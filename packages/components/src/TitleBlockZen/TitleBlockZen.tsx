@@ -329,7 +329,7 @@ export const TitleBlockZen = ({
                       <div className={styles.titleAndSubtitleInner}>
                         <div className={styles.title}>
                           <Heading
-                            variant="heading-1"
+                            variant="composable-header-title"
                             color={isReversed(variant) ? "white" : "dark"}
                             classNameOverride={styles.titleTextOverride}
                             data-automation-id={titleAutomationId}
