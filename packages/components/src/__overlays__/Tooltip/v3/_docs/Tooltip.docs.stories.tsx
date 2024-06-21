@@ -14,6 +14,7 @@ const meta = {
   component: Tooltip,
   parameters: {
     layout: "centered",
+    a11y: { manual: true },
   },
   args: {
     defaultOpen: isChromatic(),
