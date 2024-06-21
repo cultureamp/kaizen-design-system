@@ -122,7 +122,7 @@ const preview = {
             ],
           ],
           "Overlays",
-          ["*", ["Usage Guidelines", "API Specifications", "*"]],
+          ["*", ["*", ["Usage Guidelines", "API Specifications", "*"]]],
           "Components",
           ["Kaizen Provider", "*"],
         ],

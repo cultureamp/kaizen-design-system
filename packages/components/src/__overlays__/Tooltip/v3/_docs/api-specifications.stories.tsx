@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FunctionComponent } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, waitFor, within } from "@storybook/test"
 import isChromatic from "chromatic"
@@ -15,9 +15,10 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  args: {
-    defaultOpen: isChromatic(),
-  },
+  subcomponents: { TooltipTrigger, ToggleTip } as Record<
+    string,
+    FunctionComponent<any>
+  >,
   argTypes: {
     // eslint-disable-next-line camelcase
     UNSTABLE_portalContainer: {
@@ -26,7 +27,7 @@ const meta = {
     },
     triggerRef: { control: false },
   },
-  tags: ["autodocs"],
+  // tags: ["autodocs"],
 } satisfies Meta<typeof Tooltip>
 
 export default meta
@@ -36,41 +37,11 @@ type Story = StoryObj<typeof meta>
 export const OnButton: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button label="Button with tooltip" />
+      <Button label="Button" />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
-  play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement.parentElement!)
-    const button = canvas.queryByRole("button") || canvas.getByRole("link")
-
-    await step("Hover shows", async () => {
-      await userEvent.unhover(button)
-      await userEvent.hover(button)
-      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
-      expect(button).toHaveAttribute(
-        "aria-describedby",
-        canvas.getByRole("tooltip").id
-      )
-      await userEvent.unhover(button)
-    })
-
-    await step("Focus shows", async () => {
-      await userEvent.tab() // focus
-      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
-      await userEvent.tab() // unfocus
-      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
-    })
-
-    await step("Escape closes", async () => {
-      await userEvent.tab() // focus
-      await userEvent.keyboard("{Escape}")
-      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
-      await userEvent.tab() // unfocus
-    })
-  },
 }
-
 export const OnLink: Story = {
   ...OnButton,
   render: ({ defaultOpen, isOpen, ...args }) => (
@@ -195,12 +166,12 @@ export const OnTabs: Story = {
 
 export const PlacementLeft: Story = {
   ...OnButton,
-  args: { placement: "left" },
+  args: { placement: "start" },
 }
 
 export const PlacementRight: Story = {
   ...OnButton,
-  args: { placement: "right" },
+  args: { placement: "end" },
 }
 
 export const PlacementTop: Story = {
@@ -225,7 +196,7 @@ export const ReversedColors: Story = {
   },
 }
 
-export const ToggleTipStory: Story = {
+export const OnToggleTip: Story = {
   name: "ToggleTip",
   args: { defaultOpen: false },
   render: ({ defaultOpen, isOpen, ...args }) => (
@@ -245,38 +216,4 @@ export const ToggleTipStory: Story = {
       </Tooltip>
     </TooltipTrigger>
   ),
-  play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement.parentElement!)
-    // focus
-    await userEvent.tab()
-    await expect(canvas.queryByRole("tooltip")).toBeNull()
-
-    await step("Enter toggles", async () => {
-      await userEvent.keyboard("{enter}")
-      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
-      await userEvent.keyboard("{enter}")
-      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
-    })
-    await step("Space toggles", async () => {
-      await userEvent.keyboard(" ")
-      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
-      await userEvent.keyboard(" ")
-      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
-    })
-    await step("Pointer toggles", async () => {
-      const button = canvasElement.getElementsByTagName("button")[0]
-      await userEvent.click(button)
-      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
-      await userEvent.click(button)
-      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
-    })
-    await step("Escape closes", async () => {
-      await userEvent.keyboard("{enter}")
-      await userEvent.keyboard("{Escape}")
-      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
-    })
-
-    // leave open for screenshot
-    await userEvent.keyboard("{enter}")
-  },
 }

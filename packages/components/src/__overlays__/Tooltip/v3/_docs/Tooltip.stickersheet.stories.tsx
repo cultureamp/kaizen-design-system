@@ -3,10 +3,10 @@ import { Meta, composeStories } from "@storybook/react"
 import { ReversedColors } from "~components/__utilities__/v3"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import { mergeClassNames } from "~utils/mergeClassNames"
-import * as stories from "../Tooltip.spec.stories"
+import * as stories from "./Tooltip.spec.stories"
 
 export default {
-  title: "Overlays/Tooltip/v3/Sticker Sheets",
+  title: "Overlays/Tooltip/v3/Tests",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

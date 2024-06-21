@@ -8,10 +8,10 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
 import { Text } from "~components/Text"
 import { Tag } from "~components/__future__/Tag"
 import { Focusable } from "~components/__utilities__/v3"
-import { ToggleTip, Tooltip, TooltipTrigger } from "./index"
+import { ToggleTip, Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
-  title: "Overlays/Tooltip/v3",
+  title: "Overlays/Tooltip/v3/Tests",
   component: Tooltip,
   parameters: {
     layout: "centered",
@@ -27,23 +27,11 @@ const meta = {
     },
     triggerRef: { control: false },
   },
-  // title: "Overlays/Tooltip/API Specifications",
-  // component: Tooltip,
-  // tags: ["autodocs"],
 } satisfies Meta<typeof Tooltip>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
-
-export const Playground: Story = {
-  render: ({ defaultOpen: _, isOpen, ...args }) => (
-    <TooltipTrigger defaultOpen={true} isOpen={isOpen}>
-      <Button label="Button" />
-      <Tooltip {...args}>Tooltip content</Tooltip>
-    </TooltipTrigger>
-  ),
-}
 
 export const OnButton: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
