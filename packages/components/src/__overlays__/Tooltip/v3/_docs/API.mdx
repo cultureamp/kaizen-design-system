@@ -1,9 +1,10 @@
-import { Canvas, Meta, Controls } from "@storybook/blocks"
-import { ResourceLinks, SbText, SbHeading, KAIOInstallation } from "~storybook/components"
-import {Tooltip, TooltipTrigger} from "../index"
-import * as ApiSpecificationStories from "./api-specifications.stories"
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { KAIOInstallation, ResourceLinks, SbText } from "~storybook/components"
+import * as docStories from "./Tooltip.docs.stories"
+import * as exampleStories from "./Tooltip.stories"
 
-<Meta of={ApiSpecificationStories} />
+<Meta title="Overlays/Tooltip/v3/API Specification" of={exampleStories} />
+
 
 # Tooltip API specifications (v3)
 <SbText variant="extra-small">
@@ -26,8 +27,8 @@ Tooltips are brief floating labels used to add additional contextual information
 
 This component is built on top of [React Aria's Tooltip](https://react-spectrum.adobe.com/react-aria/Tooltip.html) and share similar [anatomy](https://react-spectrum.adobe.com/react-aria/Tooltip.html#anatomy) and functionality.
 
-<Canvas of={ApiSpecificationStories.OnButton} />
-<Controls of={ApiSpecificationStories.OnButton}  />
+<Canvas of={exampleStories.OnButton} />
+<Controls of={exampleStories.OnButton}  />
 
 ### triggerRef
 Notes on the `triggerRef`
@@ -35,12 +36,14 @@ Notes on the `triggerRef`
 ### Placement
 Notes on placement with examples, include `shouldFlip` and `offset`
 
+<Canvas of={docStories.Placement}  />
+
 ### Controlled state
 Notes on the controlled states vs out of the box
 
 ### ToggleTip
 
-<Canvas of={ApiSpecificationStories.OnToggleTip} />
+<Canvas of={exampleStories.ToggleTip} />
 
 ## Examples
 
@@ -48,30 +51,5 @@ Here are examples of how to use the Tooltip with compatible Kaizen components.
 
 ### On Button
 
-<Canvas of={ApiSpecificationStories.OnButton} />
-
-#### Disabled Button
-
-<Canvas of={ApiSpecificationStories.OnDisabledButton} />
-
-#### Custom Button
-
-<Canvas of={ApiSpecificationStories.OnCustomButton} />
-
-### On Button with link
-
-<Canvas of={ApiSpecificationStories.OnLink} />
-
-#### Custom link
-
-<Canvas of={ApiSpecificationStories.OnCustomButton} />
-
-### On IconButton
-
-<Canvas of={ApiSpecificationStories.OnIconButton} />
-
-### On Tabs
-
-<Canvas of={ApiSpecificationStories.OnTabs} />
-
+<Canvas of={exampleStories.OnButton} />
 

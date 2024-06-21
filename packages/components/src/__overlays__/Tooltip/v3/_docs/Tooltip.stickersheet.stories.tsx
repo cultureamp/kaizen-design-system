@@ -3,7 +3,7 @@ import { Meta, composeStories } from "@storybook/react"
 import { ReversedColors } from "~components/__utilities__/v3"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import { mergeClassNames } from "~utils/mergeClassNames"
-import * as stories from "./Tooltip.spec.stories"
+import * as testStories from "./Tooltip.spec.stories"
 
 export default {
   title: "Overlays/Tooltip/v3/Tests",
@@ -13,7 +13,7 @@ export default {
   },
 } satisfies Meta
 
-const Stories = composeStories(stories)
+const Stories = composeStories(testStories)
 
 export const Standard: StickerSheetStory = {
   name: "Sticker Sheet (Default)",
