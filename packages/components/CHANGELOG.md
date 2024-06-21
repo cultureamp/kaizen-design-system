@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.51.0
+
+### Minor Changes
+
+- [#4772](https://github.com/cultureamp/kaizen-design-system/pull/4772) [`9dac69a5492034b1ffc7a1355dcf6a092f48936f`](https://github.com/cultureamp/kaizen-design-system/commit/9dac69a5492034b1ffc7a1355dcf6a092f48936f) - Update TitleBlockZen title font to match composable header.
+
 ## 1.50.0
 
 ### Minor Changes
