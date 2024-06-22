@@ -135,7 +135,7 @@
     "ts-node": "^10.9.2",
     "turbo": "^2.0.4",
     "typescript": "^5.4.5",
-    "webpack": "^5.92.0"
+    "webpack": "^5.92.1"
   },
   "devDependenciesComments": {
     "ts-node": "Required for jest"
