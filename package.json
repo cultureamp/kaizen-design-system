@@ -61,7 +61,7 @@
     "@storybook/addon-essentials": "^8.1.9",
     "@storybook/addon-interactions": "^8.1.9",
     "@storybook/addon-links": "^8.1.9",
-    "@storybook/addon-webpack5-compiler-swc": "^1.0.3",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.4",
     "@storybook/blocks": "^8.1.9",
     "@storybook/components": "^8.1.9",
     "@storybook/core-events": "^8.1.9",
