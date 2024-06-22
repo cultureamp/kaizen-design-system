@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "तारीख तक"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filter options by search query"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "खोज की जा रही है..."
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Clear search"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "सहायता से संपर्क करें"
