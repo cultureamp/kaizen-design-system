@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as LinkStyleStories from "./LinkStyle.stories"
+
+<Meta of={LinkStyleStories} />
+
+# LinkStyle
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/LinkStyle"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { LinkStyle } from "@kaizen/components"'
+/>
+
+## Overview
+
+Style an element/component to look like a link (eg. `<a>`, `<button>`, `<Router>`).
+
+Note that the component inherits font (eg. `font-family`, `font-size`), so ensure you
+define the values (eg. wrap it in `<Text>`).
+
+<Canvas of={LinkStyleStories.Playground} />
+<Controls of={LinkStyleStories.Playground} />
+
+## API
+
+### Children
+
+The `children` prop accepts a **single** ReactElement (dom element or component).
+
+If the element you are passing in uses a different prop name to apply classNames, remember
+to also use the `classNamePropName` prop (see [Child with different className prop](#child-with-different-classname-prop)).
+
+<Canvas of={LinkStyleStories.Children} />
+<Controls of={LinkStyleStories.Children} />
+
+### Reversed
+
+Add reversed styles using `isReversed` when sitting on a dark background.
+
+<Canvas of={LinkStyleStories.Reversed} />
+
+### Child with different className prop
+
+If the component you use in `children` uses a different prop for `className` (eg. `classNameOverride`),
+use the `classNamePropName` prop to re-assign where the LinkStyle classes should be assigned.
+
+<Canvas of={LinkStyleStories.ClassNamePropName} />
