@@ -3,12 +3,12 @@ import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, waitFor, within } from "@storybook/test"
 import isChromatic from "chromatic"
 import { Button, IconButton } from "~components/Button"
-import { AddIcon, InformationIcon } from "~components/Icon"
+import { AddIcon } from "~components/Icon"
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
 import { Text } from "~components/Text"
 import { Tag } from "~components/__future__/Tag"
 import { Focusable } from "~components/__utilities__/v3"
-import { ToggleTip, Tooltip, TooltipTrigger } from "../index"
+import { Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
   title: "Overlays/Tooltip/v3/Tests",
@@ -215,61 +215,5 @@ export const ReversedColors: Story = {
   ),
   parameters: {
     reverseColors: true,
-  },
-}
-
-export const ToggleTipStory: Story = {
-  name: "ToggleTip",
-  args: { defaultOpen: false },
-  render: ({ defaultOpen, isOpen, ...args }) => (
-    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <ToggleTip>
-        <InformationIcon role="img" aria-label="Information" />
-      </ToggleTip>
-      <Tooltip
-        {...args}
-        style={{ display: "flex", textAlign: "left", alignItems: "center" }}
-      >
-        <InformationIcon
-          role="presentation"
-          style={{ marginRight: "0.25rem" }}
-        />
-        With rich content
-      </Tooltip>
-    </TooltipTrigger>
-  ),
-  play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement.parentElement!)
-    // focus
-    await userEvent.tab()
-    await expect(canvas.queryByRole("tooltip")).toBeNull()
-
-    await step("Enter toggles", async () => {
-      await userEvent.keyboard("{enter}")
-      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
-      await userEvent.keyboard("{enter}")
-      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
-    })
-    await step("Space toggles", async () => {
-      await userEvent.keyboard(" ")
-      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
-      await userEvent.keyboard(" ")
-      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
-    })
-    await step("Pointer toggles", async () => {
-      const button = canvasElement.getElementsByTagName("button")[0]
-      await userEvent.click(button)
-      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
-      await userEvent.click(button)
-      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
-    })
-    await step("Escape closes", async () => {
-      await userEvent.keyboard("{enter}")
-      await userEvent.keyboard("{Escape}")
-      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
-    })
-
-    // leave open for screenshot
-    await userEvent.keyboard("{enter}")
   },
 }

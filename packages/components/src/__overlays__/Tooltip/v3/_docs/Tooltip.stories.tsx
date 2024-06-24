@@ -39,7 +39,6 @@ export const Playground: Story = {
 }
 export const OnButton: Story = { ...spec.OnButton, play: undefined }
 export const OnIconButton: Story = { ...spec.OnIconButton, play: undefined }
-export const ToggleTip: Story = { ...spec.ToggleTipStory, play: undefined }
 export const Placement: Story = {
   ...spec.OnButton,
   play: undefined,
