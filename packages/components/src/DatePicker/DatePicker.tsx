@@ -1,4 +1,5 @@
 import React, { RefObject, useEffect, useId, useRef, useState } from "react"
+import { useIntl } from "@cultureamp/i18n-react-intl"
 import { DayClickEventHandler } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
 import {
@@ -105,6 +106,14 @@ export const DatePicker = ({
   onValidate,
   ...restDateInputFieldProps
 }: DatePickerProps): JSX.Element => {
+  const { formatMessage } = useIntl()
+
+  const calendarLabelDesc = formatMessage({
+    id: "datePicker.calendarLabelDescription",
+    defaultMessage: "Select date from calendar for:",
+    description: "Label for the search input",
+  })
+
   const reactId = useId()
   const id = propsId ?? reactId
 
@@ -312,7 +321,7 @@ export const DatePicker = ({
         >
           <>
             <VisuallyHidden id={`${id}-calendar-label`}>
-              Select date from calendar for:
+              {calendarLabelDesc}
             </VisuallyHidden>
             <CalendarSingle
               id={calendarId}
