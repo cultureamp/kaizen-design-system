@@ -4,20 +4,18 @@ env:
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
   GITHUB_REGISTRY_TOKEN: ${GITHUB_REGISTRY_TOKEN}
 
-x-defaults: &defaults
-  agent_query_rules: ["queue=build-unrestricted"]
-  plugins:
-    - docker-compose#v3.9.0:
-        run: build
-
 steps:
   - name: ":package: Build (storybook)"
     branches: "main"
     command: ".buildkite/scripts/build-storybook.sh"
     timeout_in_minutes: 15
     artifact_paths: "./storybook.tar.gz"
-    <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
+    plugins:
+      - docker#v5.9.0:
+        image: node:18.19.0-bullseye
+        propagate-environment: "true"
+        propagate-aws-auth-tokens: "true"
 
   - wait
 
@@ -28,12 +26,14 @@ steps:
     timeout_in_minutes: 15
     env:
       KAIZEN_EXTRACT_ARTIFACTS: true
-    <<: *defaults
+    agent_query_rules: ["queue=build-unrestricted"]
     plugins:
       - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.9.0:
-          run: publish
+      - docker#v5.9.0:
+        image: amazon/aws-cli
+        propagate-environment: "true"
+        propagate-aws-auth-tokens: "true"
 
   - name: "LinearB: Record deployment time"
     command: bin/ci_noop
