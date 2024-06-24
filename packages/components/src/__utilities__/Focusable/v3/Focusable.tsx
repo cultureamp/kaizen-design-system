@@ -27,7 +27,8 @@ export const Focusable = ({
       // but screen readers will have the VisuallyHidden content
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
       tabIndex={0}
-      // Negate the aria description (added by RAC) as we have the VisuallyHidden content
+      // aria-describedby on div doesn't do anthing so we instead render the content in VisuallyHidden from tooltip
+      // but because RAC adds it as it assumes it's interactive element we remove it here
       aria-describedby={undefined}
       {...props}
     >

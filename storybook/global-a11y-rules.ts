@@ -26,7 +26,7 @@ export const globalA11yRules = [
     selector: ':not(button[name="day"][role="gridcell"])',
   },
   {
-    // In some edgecases like ToggleTip we want to be able to disable the rule and hide the button from screen readers
+    // In some edgecases like Select we want to be able to disable the rule and hide the button from screen readers
     id: "aria-hidden-focus",
     selector:
       '[aria-hidden="true"]:not([data-a11y-ignore="aria-hidden-focus"])',
