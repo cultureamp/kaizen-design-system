@@ -13,10 +13,9 @@ steps:
     agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
       - docker#v5.9.0:
-        image: node:18.19.0-bullseye
-        propagate-environment: "true"
-        propagate-aws-auth-tokens: "true"
-
+          image: node:18.19.0-bullseye
+          propagate-environment: true
+          propagate-aws-auth-tokens: true
   - wait
 
   - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}"
@@ -27,13 +26,16 @@ steps:
     env:
       KAIZEN_EXTRACT_ARTIFACTS: true
     agent_query_rules: ["queue=build-unrestricted"]
+    concurrency_group: kaizen-design-system-publish
+    concurrency: 1
     plugins:
       - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
       - docker#v5.9.0:
-        image: amazon/aws-cli
-        propagate-environment: "true"
-        propagate-aws-auth-tokens: "true"
+          image: amazon/aws-cli
+          entrypoint: "/bin/bash"
+          propagate-environment: true
+          propagate-aws-auth-tokens: true
 
   - name: "LinearB: Record deployment time"
     command: bin/ci_noop
