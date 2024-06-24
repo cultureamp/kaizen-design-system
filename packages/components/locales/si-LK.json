@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "දිනය දක්වා"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filter options by search query"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "සොයන්න…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Clear search"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "සහය හා සම්බන්ධ වන්න"

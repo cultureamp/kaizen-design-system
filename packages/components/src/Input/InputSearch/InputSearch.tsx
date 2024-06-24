@@ -1,4 +1,5 @@
 import React, { InputHTMLAttributes, useRef } from "react"
+import { useIntl } from "@cultureamp/i18n-react-intl"
 import classnames from "classnames"
 import { ClearButton } from "~components/ClearButton"
 import { SearchIcon } from "~components/Icon/SearchIcon"
@@ -29,12 +30,20 @@ export const InputSearch = (props: InputSearchProps): JSX.Element => {
     secondary = false,
     ...restProps
   } = props
+  const { formatMessage } = useIntl()
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleOnClear = (): void => {
     inputRef.current?.focus()
     onClear && onClear()
   }
+
+  const clearButtonLabel = formatMessage({
+    id: "inputSearch.clear",
+    defaultMessage: "Clear search",
+    description: "Label for the clear search button",
+  })
+
   return (
     <div
       className={classnames(
@@ -78,7 +87,7 @@ export const InputSearch = (props: InputSearchProps): JSX.Element => {
           onClick={handleOnClear}
           disabled={disabled}
           classNameOverride={styles.endIconAdornment}
-          aria-label="clear search"
+          aria-label={clearButtonLabel}
         />
       )}
     </div>

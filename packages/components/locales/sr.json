@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Datum „Do“"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filtriranje opcija po upitu pretrage"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Pretraga..."
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Obriši pretragu"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "kontaktirajte podršku"

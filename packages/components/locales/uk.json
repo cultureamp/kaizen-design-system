@@ -21,6 +21,18 @@
     "description" : "Label for the 'date to' field",
     "message" : "Дата по"
   },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Параметри фільтрування за пошуковим запитом"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Пошук…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Очистити пошук"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "зверніться до служби підтримки,"
