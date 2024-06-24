@@ -1,10 +1,11 @@
+import { ReactElement } from "react"
 import { FieldMessageStatus } from "~components/FieldMessage"
 
 export type ValidationResponse = {
   date: Date | undefined
   inputValue: string | undefined // Input value upon validation
   status: FieldMessageStatus | undefined
-  validationMessage: string | undefined
+  validationMessage: string | ReactElement | undefined
   isDisabled: boolean
   isInvalid: boolean
   isEmpty: boolean

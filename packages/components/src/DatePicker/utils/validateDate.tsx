@@ -1,3 +1,5 @@
+import React from "react"
+import { FormattedMessage } from "@cultureamp/i18n-react-intl"
 import {
   DisabledDays,
   isDisabledDate,
@@ -47,9 +49,20 @@ export const validateDate = ({
       validationResponse: {
         ...baseResponse,
         status: "error",
-        validationMessage: inputValue
-          ? `${inputValue} is an invalid date`
-          : "Date is invalid",
+        validationMessage: inputValue ? (
+          <FormattedMessage
+            id="date.validation.invalidDateWithValue"
+            defaultMessage="{inputValue} is an invalid date"
+            description="Error message when the user enters an invalid date and we know their input value"
+            values={{ inputValue }}
+          />
+        ) : (
+          <FormattedMessage
+            id="date.validation.invalidDate"
+            defaultMessage="Date is invalid"
+            description="Error message when the user enters an invalid date and we do not know their input value"
+          />
+        ),
         isInvalid: true,
       },
       newDate: undefined,
@@ -61,7 +74,14 @@ export const validateDate = ({
       validationResponse: {
         ...baseResponse,
         status: "error",
-        validationMessage: `${inputValue} is not available, try another date`,
+        validationMessage: (
+          <FormattedMessage
+            id="date.validation.unavailableDate"
+            defaultMessage="{inputValue} is not available, try another date"
+            description="Error message when the user tries to select a date that is unavailable"
+            values={{ inputValue }}
+          />
+        ),
         isDisabled: true,
       },
       newDate: undefined,
