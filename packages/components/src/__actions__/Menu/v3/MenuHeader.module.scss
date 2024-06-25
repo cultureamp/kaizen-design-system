@@ -1,0 +1,12 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.header {
+  font-family: $typography-heading-6-font-family;
+  font-size: $typography-heading-6-font-size;
+  letter-spacing: $typography-heading-6-letter-spacing;
+  font-weight: $typography-heading-6-font-weight;
+  line-height: $typography-heading-6-line-height;
+  padding: $spacing-6 10px;
+  margin-inline: $spacing-xs;
+}
