@@ -2,6 +2,11 @@ import classnames from "classnames"
 
 type ClassNameValue = string | number | boolean | undefined | null
 
+/**
+ * Helper to merge classnames together with support for functions that receive state (render props).
+ * This is useful when working with react-aria-components which have a feature where you can pass a function that receives state and returns a classname.
+ * https://react-spectrum.adobe.com/react-aria/styling.html#render-props
+ */
 export const mergeClassNames = <
   ClassNameTypes extends Array<ClassNameValue | ((state: any) => string)>,
 >(
