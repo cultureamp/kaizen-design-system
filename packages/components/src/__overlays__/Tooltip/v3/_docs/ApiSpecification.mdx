@@ -28,7 +28,16 @@ import * as exampleStories from "./Tooltip.stories"
   Tooltips are brief floating labels used to add additional contextual information when users hover, click or focus on an interactive element.
 </SbContent>
 
-<Canvas className="mb-64" of={exampleStories.OnButton} />
+<Canvas
+  className="mb-64"
+  of={exampleStories.OnButton}
+  source={{code: `
+<TooltipTrigger>
+  <Button label="Button" />
+  <Tooltip>Tooltip content</Tooltip>
+</TooltipTrigger>
+  `}}
+/>
 
 <SbContent className="mb-64">
   ### React Aria

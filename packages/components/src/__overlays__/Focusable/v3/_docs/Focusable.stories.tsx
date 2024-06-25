@@ -1,6 +1,5 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import isChromatic from "chromatic"
 import { Tag } from "~components/__future__/Tag"
 import { Focusable } from "../index"
 
@@ -10,7 +9,6 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  args: {},
 } satisfies Meta<typeof Focusable>
 
 export default meta

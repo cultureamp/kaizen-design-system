@@ -38,7 +38,16 @@ import WhenToUsePng from "./assets/tooltip_when_to_use.png"
   Tooltips are brief floating labels used to add additional contextual information when users hover, click or focus on an interactive element. These should offer concise explanations,  elaborating on the element they are associated with.
 </SbContent>
 
-<Canvas of={TooltipStories.Playground} />
+
+<Canvas
+  of={TooltipStories.Playground}
+  source={{code: `
+<TooltipTrigger>
+  <Button label="Button" />
+  <Tooltip>Tooltip content</Tooltip>
+</TooltipTrigger>
+  `}}
+ />
 <Controls of={TooltipStories.Playground} include={["placement", "isOpen"]} className="mb-64" />
 
 
