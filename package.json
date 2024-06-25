@@ -20,7 +20,7 @@
     "storybook:build:root": "storybook build -c storybook -o storybook/public",
     "storybook:build:test:root": "pnpm storybook:build:root --test",
     "storybook:build:prod:root": "pnpm storybook:build:root --docs",
-    "test:storybook": "test-storybook --config-dir storybook",
+    "test:storybook": "test-storybook --config-dir storybook --url http://127.0.0.1:4479",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
     "lint:ts": "tsc --noEmit && pnpm turbo lint:ts",
     "eslint-config": "pnpm eslint -c .eslintrc.js --max-warnings=0",
