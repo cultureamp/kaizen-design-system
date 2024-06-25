@@ -1,0 +1,29 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.item {
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-paragraph-body-font-size;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  font-weight: $typography-paragraph-body-font-weight;
+  line-height: $typography-paragraph-body-line-height;
+  padding: $spacing-6 $spacing-8;
+  border: $border-focus-ring-border-width $border-focus-ring-border-style
+    transparent;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  margin-inline: $spacing-xs;
+}
+
+.item[data-focused] {
+  background-color: $color-blue-100;
+  color: $color-blue-500;
+  border-color: $border-borderless-border-color;
+}
+
+.item[data-disabled] {
+  opacity: 0.3;
+}

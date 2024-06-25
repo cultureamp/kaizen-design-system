@@ -1,0 +1,16 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.menu {
+  background-color: $color-white;
+  color: $color-purple-800;
+  width: 248px;
+  max-height: 22rem;
+  overflow: auto;
+  padding-block: $spacing-xs;
+  outline: none;
+  border-radius: $border-solid-border-radius;
+  box-shadow: $shadow-large-box-shadow;
+}
