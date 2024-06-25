@@ -7,7 +7,7 @@ import { AddIcon } from "~components/Icon"
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
 import { Text } from "~components/Text"
 import { Tag } from "~components/__future__/Tag"
-import { Focusable } from "~components/__utilities__/v3"
+import { Focusable } from "~components/__overlays__/v3"
 import { Tooltip, TooltipTrigger } from "../index"
 
 const meta = {

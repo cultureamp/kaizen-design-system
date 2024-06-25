@@ -6,7 +6,7 @@ import { FieldMessage } from "~components/FieldMessage"
 import { AddIcon, QuestionIcon } from "~components/Icon"
 import { Input } from "~components/Input"
 import { Label } from "~components/Label"
-import { Focusable } from "~components/__utilities__/v3"
+import { Focusable } from "~components/__overlays__/v3"
 import { Tooltip, TooltipTrigger } from "../index"
 import * as TestStories from "./Tooltip.spec.stories"
 
