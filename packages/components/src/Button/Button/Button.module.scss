@@ -63,6 +63,13 @@
       &::after {
         border-color: $color-blue-300;
       }
+
+      &.disabled,
+      &.working {
+        &::after {
+          border-color: $color-gray-400;
+        }
+      }
     }
   }
 
