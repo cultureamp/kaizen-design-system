@@ -4,13 +4,18 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["packages/**"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "cache": false
     },
     "lint:ts": {
       "cache": false
     },
-    "test": {},
-    "test:ci": {},
+    "test": {
+      "cache": false
+    },
+    "test:ci": {
+      "cache": false
+    },
     "clean": {
       "cache": false
     },
@@ -20,12 +25,14 @@
         "@kaizen/package-bundler#build"
       ],
       "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "cache": false
     },
     "@kaizen/tailwind#build": {
       "dependsOn": ["@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "cache": false
     },
     "@kaizen/design-tokens#build": {
       "inputs": ["css/**", "less/**", "sass/**", "src/**"],
@@ -33,7 +40,8 @@
     },
     "@kaizen/package-bundler#build": {
       "inputs": ["bin/*", "src/**", "tsconfig*.json"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "cache": false
     }
   }
 }
