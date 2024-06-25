@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { Canvas } from "@storybook/blocks"
 import classnames from "classnames"
-import { CheckIcon } from "~components/Icon"
+import { CheckIcon, CloseIcon } from "~components/Icon"
 import { SbContent } from "../SbContent"
 
 export const DosAndDonts = ({
@@ -36,7 +36,11 @@ export const DoOrDont = ({
           isDont ? "bg-red-500" : "bg-green-500"
         )}
       >
-        <CheckIcon role="presentation" />
+        {isDont ? (
+          <CloseIcon role="presentation" />
+        ) : (
+          <CheckIcon role="presentation" />
+        )}
         <SbContent>
           <span className="text-white">
             <strong>{isDont ? "Don't" : "Do"}</strong>
