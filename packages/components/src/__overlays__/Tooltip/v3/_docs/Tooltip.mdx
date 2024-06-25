@@ -3,7 +3,10 @@ import { CheckIcon, ClearIcon } from "~components/Icon"
 import { ResourceLinks, SbText, SbHeading, Installation } from "~storybook/components"
 import * as TooltipStories from "./Tooltip.docs.stories"
 import AnatomyPng from "./assets/tooltip_anatomy.png"
-import VariantsPng from "./assets/tooltip_variants.png"
+import Trigger1Png from "./assets/tooltip_trigger_1.png"
+import Trigger2Png from "./assets/tooltip_trigger_2.png"
+import Trigger3Png from "./assets/tooltip_trigger_3.png"
+import VariantsPng from "./assets/tooltip_variant.png"
 import WhenToUsePng from "./assets/tooltip_when_to_use.png"
 
 <Meta title="Overlays/Tooltip/v3/Usage Guidelines" />
@@ -40,7 +43,7 @@ import WhenToUsePng from "./assets/tooltip_when_to_use.png"
 
 ### Anatomy
 
-<div className="mb-32">
+<div className="mb-24">
   <SbText>
     - The anatomy of a tooltip is made up of a container, description and arrow.
       - **They do not include a title or heading**. If you need to include a title, use a Popover
@@ -52,7 +55,7 @@ import WhenToUsePng from "./assets/tooltip_when_to_use.png"
 
 ### When to use
 
-<div className="mt-16 mb-32">
+<div className="mt-16 mb-24">
   <SbText>
     - Tooltips are used to provide additional information when space is tight.
     - Tooltips must be concise with one or more lines of text.
@@ -62,7 +65,7 @@ import WhenToUsePng from "./assets/tooltip_when_to_use.png"
   </ SbText>
 </ div>
 
-<img src={WhenToUsePng} alt="Illustration of when to use the Tooltip component" className="mb-32"/>
+<img src={WhenToUsePng} alt="Illustration of when to use the Tooltip component" className="mb-24"/>
 
 ### Dos and don'ts
 <Unstyled>
@@ -153,3 +156,32 @@ import WhenToUsePng from "./assets/tooltip_when_to_use.png"
   </SbText>
 </ div>
 
+### Trigger
+
+<SbText>
+  - Should be shown on hover, click or on focus events
+  - Needs to be discoverable:
+    - E.g. something like an icon to suggest there’s a tooltip.
+    - Avoid triggering tooltips from text that excludes a visual indicator (e.g. underline)
+</SbText>
+
+<img src={Trigger1Png} alt="Indicates the anatomy of the Tooltip component, the Container, Label, zArrow and Trigger" className="mb-24" />
+
+<SbText>
+  - Only trigger tooltips from interactive elements, such as:
+    - Buttons
+    - Links
+    - Icon buttons
+</SbText>
+
+<img src={Trigger2Png} alt="Indicates the anatomy of the Tooltip component, the Container, Label, zArrow and Trigger" className="mb-24" />
+
+<SbText>
+  - Non-interactive elements (be mindful of keyboard accessibility):
+    - Icons
+    - Abbreviations (e.g. dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)
+    - Truncated text
+  - For interactive elements that trigger tooltips, only have optional information in the tooltip because it could be missed when the user clicks
+</SbText>
+
+<img src={Trigger3Png} alt="Indicates the anatomy of the Tooltip component, the Container, Label, zArrow and Trigger" className="mb-24" />

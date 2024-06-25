@@ -1,0 +1,142 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { KAIOInstallation, ResourceLinks, SbText } from "~storybook/components"
+import * as docsStories from "./Tooltip.docs.stories"
+import * as exampleStories from "./Tooltip.stories"
+
+<Meta title="Overlays/Tooltip/v3/API Specification"/>
+
+# Tooltip API Specification (v3)
+<SbText variant="extra-small">
+  Updated June X, 2024
+</SbText>
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tooltip"
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=1929%3A32006&mode=design&t=LwTCBZ5E1uRvOA1l-1"
+  designGuidelines="/?path=/docs/overlays-tooltip-v3-usage-guidelines--docs"
+  ariaComponentPage="https://react-spectrum.adobe.com/react-aria/Tooltip.html"
+  className="!mb-8"
+/>
+
+<KAIOInstallation exportNames={["Tooltip", "TooltipTrigger" ]} family="overlays" version="3" />
+
+## Overview
+
+<SbText>
+  Tooltips are brief floating labels used to add additional contextual information when users hover, click or focus on an interactive element.
+</SbText>
+
+<Canvas of={exampleStories.OnButton} />
+<Controls of={exampleStories.OnButton}  />
+
+### React Aria
+
+<SbText>
+  This component is built using the `react-aria-components` library and extends the [Tooltip component](https://react-spectrum.adobe.com/react-aria/Tooltip.html).
+
+  As this shares the same core [anatomy](https://react-spectrum.adobe.com/react-aria/Tooltip.html#anatomy), [props types](https://react-spectrum.adobe.com/react-aria/Tooltip.html#tooltip-1) and [functionality](https://react-spectrum.adobe.com/react-aria/Tooltip.html#features), the guidance below is tailored to our implementation and should cover known use cases of the Tooltip.
+
+  For more on the API and a deep dive into other examples can be found via the [React Aria docs page](https://react-spectrum.adobe.com/react-aria/Tooltip.html) if not present below.
+</SbText>
+
+## API
+
+<SbText>
+  While we will not document all features of the API, the core
+</SbText>
+
+
+### Placement
+
+<SbText>
+  Placement controls where the `Tooltip` will float, relative to its reference element defined by the `triggerRef`. By default, this will float to the `bottom`.
+</SbText>
+
+<Canvas of={exampleStories.Placement}  />
+
+<SbText>
+  The option, `shouldFlip`, will control whether the `Tooltip` inverts its orientation when insufficient room is available in the viewport. You can see the below example with a constrained [viewport here](?path=/story/overlays-tooltip-v3--should-flip&globals=viewport:small)
+</SbText>
+
+<Canvas of={docsStories.ShouldFlip}  />
+
+### Controlled state
+
+<SbText>
+  By default, the `Tooltip` state is controlled, so all interactive states do not need to be defined. There may be instances where a users may want want to toggle a `Tooltip` on or off. In this case we have exposed the `isOpen` prop.
+</SbText>
+
+<Canvas of={docsStories.UncontrolledState}  />
+
+<SbText>
+  `isOpen` prop will negate the default state and relinquish control of `Tooltip` open and close to the user.
+</SbText>
+
+### TooltipTrigger
+
+<SbText>
+  The `TooltipTrigger` wraps both the `Tooltip` and its trigger element, controlling the open and close interactions.
+</SbText>
+
+```JSX
+
+<TooltipTrigger>
+ */ In this case the trigger element is the Button /*
+  <Button label="Button" />
+   */ The Tooltip and its content is a child of the trigger /*
+  <Tooltip>
+    Tooltip content
+  </Tooltip>
+</TooltipTrigger>
+```
+
+<SbText>
+  Any compatible interactive element within the `TooltipTrigger` will enable the interaction state.
+</SbText>
+
+### Reversed
+
+<SbText>
+  The `Tooltip` uses the `useReversedColors` hook and `ReversedColors` provider to control the dark and light theme.
+</SbText>
+
+<Canvas className="bg-purple-600" of={exampleStories.OnReversed} />
+
+<SbText>
+  To enable the reversed theme, you will need to the component or application in the `ReversedColors` provider.
+</SbText>
+
+```JSX
+<ReversedColors isReversed={true}>
+  <Component />
+</ReversedColors>
+```
+
+<SbText>
+  These utilities can be imported from `@kaizen/components/v3/utilities`. This is an emerging pattern so more documentation will come.
+</SbText>
+
+## Examples
+
+<SbText>
+  Here are examples of how to use the `Tooltip` with compatible Kaizen components.
+</SbText>
+
+
+### On Button
+
+<Canvas of={exampleStories.OnButton} />
+
+### On Link
+
+<Canvas of={exampleStories.OnLink} />
+
+### On IconButton
+
+<Canvas of={exampleStories.OnIconButton} />
+
+### On Tabs
+
+<Canvas of={exampleStories.OnTabs} />
+
+

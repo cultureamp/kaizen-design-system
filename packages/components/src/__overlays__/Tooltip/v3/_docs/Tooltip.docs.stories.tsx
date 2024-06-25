@@ -6,6 +6,7 @@ import { FieldMessage } from "~components/FieldMessage"
 import { AddIcon, QuestionIcon } from "~components/Icon"
 import { Input } from "~components/Input"
 import { Label } from "~components/Label"
+import { Focusable } from "~components/__utilities__/v3"
 import { Tooltip, TooltipTrigger } from "../index"
 import * as TestStories from "./Tooltip.spec.stories"
 
@@ -66,20 +67,8 @@ export const DoFieldTooltip: Story = {
   render: () => (
     <div>
       <Label>Password</Label>
-      <div className="flex gap-4">
-        <Input type="text" />
-        <TooltipTrigger>
-          <IconButton
-            label="Help"
-            icon={<QuestionIcon role="presentation" />}
-            // Negate the aria description (added by RAC) as it should be the
-            // same as the accessible name, therefore no need to duplicate it
-            aria-describedby={null}
-          />
-          <Tooltip>Contact customer support for help</Tooltip>
-        </TooltipTrigger>
-      </div>
-      <FieldMessage message="Password must be at least 8 characters" />
+      <Input type="text" />
+      <FieldMessage message="Password must be at least 8 characters." />
     </div>
   ),
 }
@@ -92,16 +81,22 @@ export const DontFieldTooltip: Story = {
   },
   render: () => (
     <div>
-      <Label>Password</Label>
+      <TooltipTrigger>
+        <Focusable>
+          <Label>
+            Password{" "}
+            <span className="inline-flex align-middle">
+              <QuestionIcon
+                classNameOverride="w-[15px] m-auto"
+                role="presentation"
+              />
+            </span>
+          </Label>
+        </Focusable>
+        <Tooltip>Password must be at least 8 characters</Tooltip>
+      </TooltipTrigger>
       <div className="flex gap-4">
         <Input type="text" />
-        <TooltipTrigger>
-          <IconButton
-            label="Help"
-            icon={<QuestionIcon role="presentation" />}
-          />
-          <Tooltip>Password must be at least 8 characters</Tooltip>
-        </TooltipTrigger>
       </div>
     </div>
   ),
@@ -115,17 +110,17 @@ export const DoConcise: Story = {
   },
   render: () => (
     <div>
-      <Label>Email</Label>
-      <div className="flex gap-4">
-        <Input type="text" />
-        <TooltipTrigger>
-          <IconButton
-            label="Help"
-            icon={<QuestionIcon role="presentation" />}
-          />
-          <Tooltip>Enter your email to help us find your account</Tooltip>
-        </TooltipTrigger>
-      </div>
+      <TooltipTrigger>
+        <IconButton
+          label="Add topic"
+          icon={<AddIcon role="presentation" />}
+          primary
+          // Negate the aria description (added by RAC) as it should be the
+          // same as the accessible name, therefore no need to duplicate it
+          aria-describedby={null}
+        />
+        <Tooltip>Add topic to agenda</Tooltip>
+      </TooltipTrigger>
     </div>
   ),
 }
@@ -138,21 +133,20 @@ export const DontConcise: Story = {
   },
   render: () => (
     <div>
-      <Label>Email</Label>
-      <div className="flex gap-4">
-        <Input type="text" />
-        <TooltipTrigger>
-          <IconButton
-            label="Help"
-            icon={<QuestionIcon role="presentation" />}
-          />
-          <Tooltip>
-            The email field is required. Your email address will be used as an
-            identifier when we search for your account and we will also use it
-            to send you confirmation numbers via email.
-          </Tooltip>
-        </TooltipTrigger>
-      </div>
+      <TooltipTrigger>
+        <IconButton
+          label="Add something"
+          icon={<AddIcon role="presentation" />}
+          primary
+          // Negate the aria description (added by RAC) as it should be the
+          // same as the accessible name, therefore no need to duplicate it
+          aria-describedby={null}
+        />
+        <Tooltip>
+          Add Topic to agenda. This will create a new topic where you can
+          discuss recent work with your manager.{" "}
+        </Tooltip>
+      </TooltipTrigger>
     </div>
   ),
 }
