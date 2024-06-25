@@ -150,3 +150,54 @@ export const DontConcise: Story = {
     </div>
   ),
 }
+
+export const ShouldFlip: Story = {
+  play: undefined,
+  render: () => (
+    <div className="flex flex-col gap-8 pl-96 overflow-hidden max-w-[250px]">
+      <TooltipTrigger>
+        <Button label="Should flip" />
+        <Tooltip placement="end">Tooltip content</Tooltip>
+      </TooltipTrigger>
+      <TooltipTrigger>
+        <Button label="Won't flip" />
+        <Tooltip placement="end" shouldFlip={false}>
+          Tooltip content
+        </Tooltip>
+      </TooltipTrigger>
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      viewports: {
+        small: {
+          name: "small",
+          styles: {
+            width: "300px",
+            height: "300px",
+          },
+        },
+      },
+      defaultViewport: "small",
+    },
+  },
+}
+
+export const UncontrolledState: Story = {
+  play: undefined,
+  args: { placement: "end", shouldFlip: false },
+  render: () => {
+    const [isOpen, setIsOpen] = React.useState<boolean>(false)
+    return (
+      <div className="flex gap-12">
+        <button type="button" onClick={() => setIsOpen(!isOpen)}>
+          Toggle open
+        </button>
+        <TooltipTrigger isOpen={isOpen}>
+          <Button label="Button" />
+          <Tooltip>Tooltip content</Tooltip>
+        </TooltipTrigger>
+      </div>
+    )
+  },
+}

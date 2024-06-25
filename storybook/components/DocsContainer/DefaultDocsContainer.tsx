@@ -4,9 +4,9 @@ import {
   DocsContainerProps,
   DocsContext,
   Stories,
-  Title,
+  // Title,
 } from "@storybook/blocks"
-import { KAIOInstallation } from "../Installation"
+// import { KAIOInstallation } from "../Installation"
 import { BackToTop } from "./BackToTop"
 import { Content, Main } from "./Layout"
 
@@ -48,8 +48,8 @@ export const DefaultDocsContainer = ({
 }: DocsContainerProps & { children: React.ReactNode }): JSX.Element => (
   <DocsContainer {...props}>
     <DocsLayout>
-      <Title />
-      <KAIOInstallation exportNames="Tooltip" family="overlays" version="1" />
+      {/* <Title />
+      <KAIOInstallation exportNames="Tooltip" family="overlays" version="1" /> */}
       {children}
       <Stories />
     </DocsLayout>

@@ -2,12 +2,13 @@ import "./styles/tailwind.scss"
 
 import React, { useEffect } from "react"
 import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
-
+// import { DocsContainer } from "@storybook/blocks"
 import { Preview } from "@storybook/react"
 import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { I18nProvider } from "~components/__react-aria-components__"
 import { ReversedColors } from "~components/__utilities__/v3"
+import { DefaultDocsContainer } from "../storybook/components/DocsContainer"
 import { backgrounds } from "./backgrounds"
 import { globalA11yRules } from "./global-a11y-rules"
 
@@ -99,6 +100,7 @@ const preview = {
         excludeDecorators: true,
         language: "tsx",
       },
+      container: DefaultDocsContainer,
     },
     options: {
       storySort: {

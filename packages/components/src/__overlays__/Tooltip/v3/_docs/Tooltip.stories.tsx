@@ -1,8 +1,9 @@
-import React from "react"
+import React, { FunctionComponent } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Button } from "~components/Button"
 import { Tooltip, TooltipTrigger } from "../index"
+import * as testStories from "./Tooltip.spec.stories"
 
 const meta = {
   title: "Overlays/Tooltip/v3",
@@ -13,6 +14,7 @@ const meta = {
   args: {
     defaultOpen: isChromatic(),
   },
+  subcomponents: { TooltipTrigger } as Record<string, FunctionComponent<any>>,
   argTypes: {
     // eslint-disable-next-line camelcase
     UNSTABLE_portalContainer: {
@@ -27,8 +29,6 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-import * as spec from "./Tooltip.spec.stories"
-
 export const Playground: Story = {
   render: ({ defaultOpen: _, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={true} isOpen={isOpen}>
@@ -37,10 +37,23 @@ export const Playground: Story = {
     </TooltipTrigger>
   ),
 }
-export const OnButton: Story = { ...spec.OnButton, play: undefined }
-export const OnIconButton: Story = { ...spec.OnIconButton, play: undefined }
-export const Placement: Story = {
-  ...spec.OnButton,
+
+export const OnButton: Story = { ...testStories.OnButton, play: undefined }
+export const OnLink: Story = { ...testStories.OnLink, play: undefined }
+export const OnIconButton: Story = {
+  ...testStories.OnIconButton,
   play: undefined,
-  args: { placement: "start" },
+}
+export const Placement: Story = {
+  ...testStories.OnButton,
+  play: undefined,
+  args: { placement: "end" },
+}
+export const OnTabs: Story = {
+  ...testStories.OnTabs,
+  play: undefined,
+}
+export const OnReversed: Story = {
+  ...testStories.ReversedColors,
+  play: undefined,
 }
