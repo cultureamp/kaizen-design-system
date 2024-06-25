@@ -238,14 +238,15 @@ const renderButton = (
   props: RenderProps,
   ref: Ref<HTMLButtonElement>
 ): JSX.Element => {
+  const disableActions = props.disabled || props.working
   const passedInProps: React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > = {
     id: props.id,
     disabled: props.disabled,
-    onClick: props.onClick,
-    onMouseDown: props.onMouseDown,
+    onClick: !disableActions ? props.onClick : undefined,
+    onMouseDown: !disableActions ? props.onMouseDown : undefined,
     type: props.type,
     onFocus: props.onFocus,
     onBlur: props.onBlur,
