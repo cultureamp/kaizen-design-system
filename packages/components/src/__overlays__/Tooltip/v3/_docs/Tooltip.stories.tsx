@@ -2,6 +2,8 @@ import React, { FunctionComponent } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Button } from "~components/Button"
+import { Tag } from "~components/__future__"
+import { Focusable } from "~components/__overlays__/v3"
 import { Tooltip, TooltipTrigger } from "../index"
 import * as testStories from "./Tooltip.spec.stories"
 
@@ -51,6 +53,17 @@ export const Placement: Story = {
 }
 export const OnTabs: Story = {
   ...testStories.OnTabs,
+  play: undefined,
+}
+export const OnCustomFocusableElement: Story = {
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
+      <Focusable>
+        <Tag>Non-interactive element</Tag>
+      </Focusable>
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
   play: undefined,
 }
 export const OnReversed: Story = {
