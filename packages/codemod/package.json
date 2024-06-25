@@ -1,0 +1,17 @@
+{
+  "name": "@kaizen/codemod",
+  "version": "0.0.1",
+  "description": "Provides Codemod transformations to help upgrade your KAIO components when a feature is deprecated.",
+  "bin": "dist/cjs/cli.cjs",
+  "scripts": {
+    "build": "pnpm package-bundler build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cultureamp/kaizen-design-system",
+    "directory": "packages/codemod"
+  },
+  "devDependencies": {
+    "@kaizen/package-bundler": "workspace:*"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "extends": "@kaizen/package-bundler/tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  }
+}
