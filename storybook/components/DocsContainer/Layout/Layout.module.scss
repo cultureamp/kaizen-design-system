@@ -1,9 +1,11 @@
+@import "~@kaizen/design-tokens/sass/layout";
+
 .main {
-  max-width: 1200px;
-  margin: auto;
+  max-width: $layout-content-max-width;
+  // margin: auto;
   display: grid;
   // Content width = 100% - TOC width - gap
-  grid-template: "content sidebar" 1fr / minmax(calc(100% - 224px), 1fr) 200px;
+  // grid-template: "content sidebar" 1fr / minmax(calc(100% - 224px), 1fr) 200px;
   grid-gap: 0 24px;
 }
 
