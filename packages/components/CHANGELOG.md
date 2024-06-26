@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.52.1
+
+### Patch Changes
+
+- [#4783](https://github.com/cultureamp/kaizen-design-system/pull/4783) [`5433cd725f34f56c858713acadf5f95af628f7ab`](https://github.com/cultureamp/kaizen-design-system/commit/5433cd725f34f56c858713acadf5f95af628f7ab) - Fix workflow future logo a11y
+
 ## 1.52.0
 
 ### Minor Changes
