@@ -286,14 +286,14 @@ importers:
         specifier: ^5.91.0
         version: 5.91.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.20.2)
 
-  packages/codemod:
-    devDependencies:
-      '@kaizen/package-bundler':
-        specifier: ^1.1.2
-        version: 1.1.2(@babel/core@7.24.7)(@types/babel__core@7.20.5)(postcss-preset-env@9.5.14(postcss@8.4.38))(postcss@8.4.38)(rollup@4.18.0)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@20.14.2)(typescript@5.4.5))(tslib@2.6.3)(typescript@5.4.5)
-
   packages/components:
     dependencies:
+      '@ast-grep/cli':
+        specifier: ^0.24.0
+        version: 0.24.0
+      '@ast-grep/napi':
+        specifier: ^0.24.0
+        version: 0.24.0
       '@floating-ui/react-dom':
         specifier: ^2.1.0
         version: 2.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -636,6 +636,105 @@ packages:
     resolution: {integrity: sha512-sNiLY51vZOmSPFZA5TF35KZ2HbgYklQnTSDnkghamzLb3EkNtcQnrBQEj5AOCxHpTtXpqMCRM1CrmV2rG6nw4g==}
     peerDependencies:
       openapi-types: '>=7'
+
+  '@ast-grep/cli-darwin-arm64@0.24.0':
+    resolution: {integrity: sha512-8YkcaYNzy970snexNS2+8O+Uk8wrmgUELFdoVcJMIdzeTppbzKbAypJkTrOxosCIOoO6Bq0vp8hvmZj04wXhlQ==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@ast-grep/cli-darwin-x64@0.24.0':
+    resolution: {integrity: sha512-U7S2uZQmT4B79cVfvwd785yFj7ZF02hjhBhAuVQq81LPI8mE8NH/phmjoSoL1u1Olf3BxqUcBLFdM4zoLvryiw==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@ast-grep/cli-linux-arm64-gnu@0.24.0':
+    resolution: {integrity: sha512-NVn83DrcbBhrKwO3yNDdEPv05lr3TDq0pfDg8eEBfJQnZnvXliEYxJwyyzZ53867rLeqaPo4jvPHcIJKdKe0rw==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@ast-grep/cli-linux-x64-gnu@0.24.0':
+    resolution: {integrity: sha512-OMVq58p2BsMVBoh/cdSDmmUiIA+78FAyZXYWZ8mS1BudU6Ba+15ZVqeId90Q4U9X+yEqIHyaz+X1CcLiygnQxg==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@ast-grep/cli-win32-arm64-msvc@0.24.0':
+    resolution: {integrity: sha512-02CE3PfvwEsKvTITBP+J3Dm87MCeZl+t0Q4vBhQhcMBQt7N7D9DPY5tm0mVcgioY0Fm1yGn2z7IG56Dd6Pmnmw==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@ast-grep/cli-win32-ia32-msvc@0.24.0':
+    resolution: {integrity: sha512-JB0dFaPTf8JSuKsID4vV/FYGx9kDTxwvzSeNYXebmoEgiS7catiRWBmB4LSuJMvdd5RCSQskDRu733Qsyd4CoA==}
+    engines: {node: '>= 10'}
+    cpu: [ia32]
+    os: [win32]
+
+  '@ast-grep/cli-win32-x64-msvc@0.24.0':
+    resolution: {integrity: sha512-73LDMKe/O+wg1dAVww104UsAHo7u4GBcC+qzHODqGGP1j3QtESyDYRrZfiJAHhkTRSjitVZrxJ7SZzRmbaJn4g==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [win32]
+
+  '@ast-grep/cli@0.24.0':
+    resolution: {integrity: sha512-sK1/Ozd2HWPOqft+nZGNamO6hCBpdHbmZtiatdsO1Yhz3VRt7m9LSiKNZ7dUfFw9PXn0LRqyZk9SoHq222KcHw==}
+    engines: {node: '>= 12.0.0'}
+    hasBin: true
+
+  '@ast-grep/napi-darwin-arm64@0.24.0':
+    resolution: {integrity: sha512-5cj+N60E9019uHsMTcN9vKA/fghNiqN77Sd0XKBg35hDJMc54R5n+kpZ8t3YvP5sN2Rhtf9UbIhznXhB8DPSug==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@ast-grep/napi-darwin-x64@0.24.0':
+    resolution: {integrity: sha512-AaZAFkjnQAZ9LxK6uOXRlJVZAQriO37+wyjPjLC7KSuxzcSUBtrV2mGNkHRfNO6GcVCLbNZkk6qOhFNrRVOIxw==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@ast-grep/napi-linux-arm64-gnu@0.24.0':
+    resolution: {integrity: sha512-/CEVtWpeHZrFeoc5GBVZ0E70FULls1EKHze8r7stVTSkOhIsrFVOImxKlt98tXTM/zfS9BijVz41bHnTif2GUw==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@ast-grep/napi-linux-x64-gnu@0.24.0':
+    resolution: {integrity: sha512-CyNMKz2yPb65uEIGwmBcBexweHdT7cyqYFVahTx4rZs+tHpnGVEKHwffQ1Kob+HCeeGZBUupDNXZqpWjp8q6Fw==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@ast-grep/napi-linux-x64-musl@0.24.0':
+    resolution: {integrity: sha512-H3F7QG45Y9uXb3Kebe7RHDvFvbArNcBNG4qEpxq9T5eAyBWzbunMGC1oAZo6BgBJtO0Yhl3QyC2OvnuAB+4GWw==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@ast-grep/napi-win32-arm64-msvc@0.24.0':
+    resolution: {integrity: sha512-ZX0JQk7uZV+yaXVhn/mFSSf55JglYq0uAiXB53aAQCOyiKyaewl+tK4sPlcF1BpSh7D+SpP9GNIU4MAE8zB1aA==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@ast-grep/napi-win32-ia32-msvc@0.24.0':
+    resolution: {integrity: sha512-rCOEY27Wu3K/lqHXy1Wg7HoScJuHvsRdmlmfSw19HSv4vR2MQVQx/wd0P3WKzqS8LeDr333kQKbJO57dgDYg5Q==}
+    engines: {node: '>= 10'}
+    cpu: [ia32]
+    os: [win32]
+
+  '@ast-grep/napi-win32-x64-msvc@0.24.0':
+    resolution: {integrity: sha512-049I7DvvC8IFpezOtda0Dj7C5V+Erl1Jhcsq14mUnUEe++nMldicss7D0CXZHVQ9UjPJ5zpxnqYxx05caMMDzA==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [win32]
+
+  '@ast-grep/napi@0.24.0':
+    resolution: {integrity: sha512-pldAub9mf12u/xJRNMj0x88y9uH2DpVHWqXfp+MoY1NT1j9jdA/QrXHHwddyeerfCoHZK1j5RDA23LaJAZloGQ==}
+    engines: {node: '>= 10'}
 
   '@aw-web-design/x-default-browser@1.4.126':
     resolution: {integrity: sha512-Xk1sIhyNC/esHGGVjL/niHLowM0csl/kFO5uawBy4IrWwy0o1G8LGt3jP6nmWGz+USxeeqbihAmp/oVZju6wug==}
@@ -2256,15 +2355,6 @@ packages:
 
   '@jsdevtools/ono@7.1.3':
     resolution: {integrity: sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==}
-
-  '@kaizen/package-bundler@1.1.2':
-    resolution: {integrity: sha512-CZAWqmQh7v4nkOBcz2Px57FXMRawSehdNe2ObBg+uqo9TpcVF5KSml97jhag4JtDk1KRcaVV3lTsiv4lulEZhw==}
-    hasBin: true
-    peerDependencies:
-      postcss: ^8.4.38
-      postcss-preset-env: ^9.5.14
-      rollup: ^4.18.0
-      tslib: '>=2.6.2'
 
   '@ljharb/through@2.3.13':
     resolution: {integrity: sha512-/gKJun8NNiWGZJkGzI/Ragc53cOdcLNdzjLaIa+GEjguQs0ulsurx8WN0jijdK9yPqDvziX995sMRLyLt1uZMQ==}
@@ -5107,6 +5197,10 @@ packages:
 
   detect-indent@6.1.0:
     resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
+    engines: {node: '>=8'}
+
+  detect-libc@2.0.3:
+    resolution: {integrity: sha512-bwy0MGW55bG41VqxxypOsdSdGqLwXPI/focwgTYCFMbdUiBAxLg9CFzG08sz2aqzknwiX7Hkl0bQENjg8iLByw==}
     engines: {node: '>=8'}
 
   detect-newline@3.1.0:
@@ -10671,6 +10765,74 @@ snapshots:
       openapi-types: 12.1.3
       z-schema: 5.0.5
 
+  '@ast-grep/cli-darwin-arm64@0.24.0':
+    optional: true
+
+  '@ast-grep/cli-darwin-x64@0.24.0':
+    optional: true
+
+  '@ast-grep/cli-linux-arm64-gnu@0.24.0':
+    optional: true
+
+  '@ast-grep/cli-linux-x64-gnu@0.24.0':
+    optional: true
+
+  '@ast-grep/cli-win32-arm64-msvc@0.24.0':
+    optional: true
+
+  '@ast-grep/cli-win32-ia32-msvc@0.24.0':
+    optional: true
+
+  '@ast-grep/cli-win32-x64-msvc@0.24.0':
+    optional: true
+
+  '@ast-grep/cli@0.24.0':
+    dependencies:
+      detect-libc: 2.0.3
+    optionalDependencies:
+      '@ast-grep/cli-darwin-arm64': 0.24.0
+      '@ast-grep/cli-darwin-x64': 0.24.0
+      '@ast-grep/cli-linux-arm64-gnu': 0.24.0
+      '@ast-grep/cli-linux-x64-gnu': 0.24.0
+      '@ast-grep/cli-win32-arm64-msvc': 0.24.0
+      '@ast-grep/cli-win32-ia32-msvc': 0.24.0
+      '@ast-grep/cli-win32-x64-msvc': 0.24.0
+
+  '@ast-grep/napi-darwin-arm64@0.24.0':
+    optional: true
+
+  '@ast-grep/napi-darwin-x64@0.24.0':
+    optional: true
+
+  '@ast-grep/napi-linux-arm64-gnu@0.24.0':
+    optional: true
+
+  '@ast-grep/napi-linux-x64-gnu@0.24.0':
+    optional: true
+
+  '@ast-grep/napi-linux-x64-musl@0.24.0':
+    optional: true
+
+  '@ast-grep/napi-win32-arm64-msvc@0.24.0':
+    optional: true
+
+  '@ast-grep/napi-win32-ia32-msvc@0.24.0':
+    optional: true
+
+  '@ast-grep/napi-win32-x64-msvc@0.24.0':
+    optional: true
+
+  '@ast-grep/napi@0.24.0':
+    optionalDependencies:
+      '@ast-grep/napi-darwin-arm64': 0.24.0
+      '@ast-grep/napi-darwin-x64': 0.24.0
+      '@ast-grep/napi-linux-arm64-gnu': 0.24.0
+      '@ast-grep/napi-linux-x64-gnu': 0.24.0
+      '@ast-grep/napi-linux-x64-musl': 0.24.0
+      '@ast-grep/napi-win32-arm64-msvc': 0.24.0
+      '@ast-grep/napi-win32-ia32-msvc': 0.24.0
+      '@ast-grep/napi-win32-x64-msvc': 0.24.0
+
   '@aw-web-design/x-default-browser@1.4.126':
     dependencies:
       default-browser-id: 3.0.0
@@ -12632,32 +12794,6 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.4.15
 
   '@jsdevtools/ono@7.1.3': {}
-
-  '@kaizen/package-bundler@1.1.2(@babel/core@7.24.7)(@types/babel__core@7.20.5)(postcss-preset-env@9.5.14(postcss@8.4.38))(postcss@8.4.38)(rollup@4.18.0)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@20.14.2)(typescript@5.4.5))(tslib@2.6.3)(typescript@5.4.5)':
-    dependencies:
-      '@babel/plugin-transform-react-pure-annotations': 7.24.7(@babel/core@7.24.7)
-      '@rollup/plugin-alias': 5.1.0(rollup@4.18.0)
-      '@rollup/plugin-babel': 6.0.4(@babel/core@7.24.7)(@types/babel__core@7.20.5)(rollup@4.18.0)
-      '@rollup/plugin-commonjs': 26.0.1(rollup@4.18.0)
-      '@rollup/plugin-node-resolve': 15.2.3(rollup@4.18.0)
-      '@rollup/plugin-typescript': 11.1.6(rollup@4.18.0)(tslib@2.6.3)(typescript@5.4.5)
-      babel-plugin-pure-static-props: 0.2.0(@babel/core@7.24.7)
-      concat-cli: 4.0.0
-      postcss: 8.4.38
-      postcss-preset-env: 9.5.14(postcss@8.4.38)
-      rollup: 4.18.0
-      rollup-plugin-ignore: 1.0.10
-      rollup-plugin-node-externals: 7.1.2(rollup@4.18.0)
-      rollup-plugin-postcss: 4.0.2(postcss@8.4.38)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@20.14.2)(typescript@5.4.5))
-      ts-patch: 3.2.0
-      tslib: 2.6.3
-      typescript-transform-paths: 3.4.7(typescript@5.4.5)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@types/babel__core'
-      - supports-color
-      - ts-node
-      - typescript
 
   '@ljharb/through@2.3.13':
     dependencies:
@@ -16325,6 +16461,8 @@ snapshots:
   detect-file@1.0.0: {}
 
   detect-indent@6.1.0: {}
+
+  detect-libc@2.0.3: {}
 
   detect-newline@3.1.0: {}
 

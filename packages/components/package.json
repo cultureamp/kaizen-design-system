@@ -19,6 +19,9 @@
     "locales",
     "src"
   ],
+  "bin": {
+    "migrateV1ToV2": "./bin/codemod-migrate-v1-to-v2.sh"
+  },
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
@@ -38,6 +41,8 @@
     "i18n:extract": "pnpm i18n-extract"
   },
   "dependencies": {
+    "@ast-grep/cli": "^0.24.0",
+    "@ast-grep/napi": "^0.24.0",
     "@floating-ui/react-dom": "^2.1.0",
     "@headlessui/react": "<=1.5.0",
     "@internationalized/date": "^3.5.4",

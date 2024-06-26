@@ -1,6 +1,0 @@
-{
-  "extends": [
-    "./tsconfig.dist.json",
-    "@kaizen/package-bundler/tsconfig.types.json"
-  ]
-}
