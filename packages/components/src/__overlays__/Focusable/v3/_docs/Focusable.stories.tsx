@@ -13,7 +13,7 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof Focusable>
 
 export const Playground: Story = {
   render: args => (

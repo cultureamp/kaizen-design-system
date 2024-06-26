@@ -50,7 +50,7 @@ export const DefaultDocsContainer = ({
     <DocsLayout>
       {/* <Title />
       <KAIOInstallation exportNames="Tooltip" family="overlays" version="1" /> */}
-      {children}
+      <div className="test">{children}</div>
       <Stories />
     </DocsLayout>
   </DocsContainer>
