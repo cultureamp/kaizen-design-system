@@ -8,7 +8,6 @@ export type FocusableProps = {
 } & FocusableOptions &
   HTMLAttributes<HTMLDivElement>
 
-// todo this component will be reusable util for all components to give them focusable wrapper
 export const Focusable = ({
   children,
   className,
@@ -36,5 +35,3 @@ export const Focusable = ({
     </div>
   )
 }
-
-// TODO: Are we going to ship utils? if so this will need documentation and an versioned entrypoint
