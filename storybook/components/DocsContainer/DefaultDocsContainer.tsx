@@ -6,7 +6,7 @@ import {
   Stories,
 } from "@storybook/blocks"
 import { BackToTop } from "./BackToTop"
-import { Content, Main } from "./Layout"
+import { Content, Main, DocsWrapper } from "./Layout"
 
 type LayoutProps = { children: React.ReactNode }
 
@@ -44,10 +44,12 @@ export const DefaultDocsContainer = ({
   children,
   ...props
 }: DocsContainerProps & { children: React.ReactNode }): JSX.Element => (
-  <DocsContainer {...props}>
-    <DocsLayout>
-      {children}
-      <Stories />
-    </DocsLayout>
-  </DocsContainer>
+  <DocsWrapper>
+    <DocsContainer {...props}>
+      <DocsLayout>
+        {children}
+        <Stories />
+      </DocsLayout>
+    </DocsContainer>
+  </DocsWrapper>
 )

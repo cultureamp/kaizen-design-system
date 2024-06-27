@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import { Unstyled } from "@storybook/blocks"
+import classNames from "classnames"
 import { Text } from "~components/Text"
 import { ExternalLinkIcon } from "../../../packages/components/src"
 
@@ -39,10 +40,17 @@ export const ResourceLinks = ({
   figma,
   designGuidelines,
   apiSpecification,
+  className,
   ...attributes
 }: ResourceLinksProps): JSX.Element => (
   <Unstyled>
-    <ul {...attributes} className="mb-40 list-none m-0 p-0 flex gap-8">
+    <ul
+      {...attributes}
+      className={classNames(
+        "flex flex-wrap mb-40 list-none m-0 p-0 flex gap-8",
+        className
+      )}
+    >
       <ResourceLink href={sourceCode} text="Source Code" />
       {figma && <ResourceLink href={figma} text="Figma" />}
       {designGuidelines && (
