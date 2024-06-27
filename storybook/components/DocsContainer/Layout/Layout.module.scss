@@ -1,7 +1,9 @@
 @import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 // An approximation of storybooks default toc column size
-$storybook-toc: 150px;
+$storybook-toc: 160px;
+$storybook-toc-gutter: $spacing-48;
 
 .main {
   max-width: $layout-content-max-width-with-sidebar;
@@ -17,7 +19,7 @@ $storybook-toc: 150px;
 
 .docsWrapper {
   max-width: calc(
-    #{$layout-content-max-width-with-sidebar} + #{$storybook-toc}
+    #{$layout-content-max-width-with-sidebar} + #{$storybook-toc-gutter} + #{$storybook-toc}
   );
   margin: auto;
 }
