@@ -4,7 +4,7 @@
 $storybook-toc: 150px;
 
 .main {
-  max-width: $layout-content-max-width;
+  max-width: $layout-content-max-width-with-sidebar;
 }
 
 .content {
@@ -16,6 +16,8 @@ $storybook-toc: 150px;
 }
 
 .docsWrapper {
-  max-width: calc(#{$layout-content-max-width} + #{$storybook-toc});
+  max-width: calc(
+    #{$layout-content-max-width-with-sidebar} + #{$storybook-toc}
+  );
   margin: auto;
 }

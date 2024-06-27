@@ -3,7 +3,6 @@ import {
   DocsContainer,
   DocsContainerProps,
   DocsContext,
-  Stories,
 } from "@storybook/blocks"
 import { BackToTop } from "./BackToTop"
 import { Content, Main, DocsWrapper } from "./Layout"
@@ -46,10 +45,7 @@ export const DefaultDocsContainer = ({
 }: DocsContainerProps & { children: React.ReactNode }): JSX.Element => (
   <DocsWrapper>
     <DocsContainer {...props}>
-      <DocsLayout>
-        {children}
-        <Stories />
-      </DocsLayout>
+      <DocsLayout>{children}</DocsLayout>
     </DocsContainer>
   </DocsWrapper>
 )
