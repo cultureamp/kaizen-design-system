@@ -1,4 +1,5 @@
 import React, {
+  CSSProperties,
   ComponentType,
   FocusEvent,
   MouseEvent,
@@ -8,8 +9,13 @@ import React, {
   useRef,
 } from "react"
 import classnames from "classnames"
-import { useFocusable, useLink } from "react-aria"
-import { LinkContext, useContextProps } from "react-aria-components"
+import { PressEvent, useButton, useFocusable, useLink } from "react-aria"
+import {
+  ButtonContext,
+  ButtonProps,
+  LinkContext,
+  useContextProps,
+} from "react-aria-components"
 import { Badge, BadgeAnimated } from "~components/Badge"
 import { LoadingSpinner } from "~components/Loading"
 import styles from "./GenericButton.module.scss"
@@ -44,8 +50,8 @@ export type GenericProps = {
   href?: string
   newTabAndIUnderstandTheAccessibilityImplications?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
-  onFocus?: (e: FocusEvent<HTMLElement>) => void
-  onBlur?: (e: FocusEvent<HTMLElement>) => void
+  onFocus?: (e: FocusEvent<Element>) => void
+  onBlur?: (e: FocusEvent<Element>) => void
   component?: ComponentType<CustomButtonProps>
   classNameOverride?: string
 }
@@ -202,7 +208,7 @@ const renderCustomComponent = (
     // @ts-expect-error we're using span ref on link context, but that's ok because we need only sizing
     LinkContext
   )
-  // @ts-expect-error
+
   // @todo: Make a wrapper and take it out of Button
   const { linkProps } = useLink(contextProps, contextRef)
 
@@ -239,14 +245,12 @@ const renderButton = (
   ref: Ref<HTMLButtonElement>
 ): JSX.Element => {
   const disableActions = props.disabled || props.working
-  const passedInProps: React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > = {
+  const passedInProps: ButtonProps = {
     id: props.id,
-    disabled: props.disabled,
-    onClick: !disableActions ? props.onClick : undefined,
-    onMouseDown: !disableActions ? props.onMouseDown : undefined,
+    isDisabled: props.disabled,
+    onPress: !disableActions
+      ? (props.onClick as unknown as (e: PressEvent) => void)
+      : undefined,
     type: props.type,
     onFocus: props.onFocus,
     onBlur: props.onBlur,
@@ -258,32 +262,38 @@ const renderButton = (
     formNoValidate: props.formNoValidate,
     className: buttonClass(props),
     "aria-label": generateAriaLabel(props),
-    "aria-disabled": props.disabled || props.working ? true : undefined,
-    tabIndex: props.disableTabFocusAndIUnderstandTheAccessibilityImplications
-      ? -1
-      : undefined,
     ...getCustomProps(props),
   }
 
-  // we're using useFocusable instead of useButton because at this stage we want to hook only to focusable.
-  // Not standardize button behavior as we're currently relying on some weird native behaviours (like onClick firing on enter key press) see https://react-spectrum.adobe.com/blog/building-a-button-part-1.html
-  // @ts-ignore
-  const { focusableProps } = useFocusable(passedInProps, ref)
+  const [contextProps, contextRef] = useContextProps(
+    passedInProps,
+    ref,
+    ButtonContext
+  )
+
+  const { buttonProps } = useButton(contextProps, contextRef)
 
   return (
     // eslint-disable-next-line react/button-has-type
     <button
-      {...passedInProps}
-      {...focusableProps}
+      {...contextProps}
+      {...buttonProps}
+      className={contextProps.className as string}
+      slot={buttonProps.slot ?? undefined}
+      style={buttonProps.style as CSSProperties}
+      tabIndex={
+        props.disableTabFocusAndIUnderstandTheAccessibilityImplications
+          ? -1
+          : undefined
+      }
+      onMouseDown={!disableActions ? buttonProps.onMouseDown : undefined}
+      aria-disabled={props.disabled || props.working ? true : undefined}
       aria-describedby={
         props["aria-describedby"] === null
           ? undefined
-          : props["aria-describedby"] || focusableProps["aria-describedby"]
+          : props["aria-describedby"] || buttonProps["aria-describedby"]
       }
-      // Unset this because the one defined in buttonProps shows
-      // focus-visible styles on click
-      onPointerDown={undefined}
-      ref={ref}
+      ref={contextRef}
     >
       {renderContent(props)}
     </button>
