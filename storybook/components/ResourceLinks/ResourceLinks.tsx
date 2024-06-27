@@ -47,7 +47,7 @@ export const ResourceLinks = ({
     <ul
       {...attributes}
       className={classNames(
-        "flex flex-wrap mb-40 list-none m-0 p-0 flex gap-8",
+        "flex flex-wrap mt-16 mb-40 list-none m-0 p-0 gap-8",
         className
       )}
     >
