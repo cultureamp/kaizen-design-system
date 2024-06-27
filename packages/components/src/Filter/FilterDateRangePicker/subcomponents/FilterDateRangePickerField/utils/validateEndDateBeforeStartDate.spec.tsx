@@ -1,4 +1,17 @@
+import React from "react"
+import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
+import { render, screen, waitFor } from "@testing-library/react"
+import { DateValidationResponse } from "~components/Filter/FilterDatePicker"
 import { validateEndDateBeforeStartDate } from "./validateEndDateBeforeStartDate"
+
+const renderFormattedMessage = (
+  validationMessage: DateValidationResponse["validationMessage"]
+): ReturnType<typeof render> =>
+  render(
+    <StaticIntlProvider locale="en">
+      {validationMessage?.message}
+    </StaticIntlProvider>
+  )
 
 describe("validateEndDateBeforeStartDate()", () => {
   describe("when the end date is after the start date", () => {
@@ -83,18 +96,27 @@ describe("validateEndDateBeforeStartDate()", () => {
       })
     })
 
-    it("returns a response with an error status and validation message", () => {
-      expect(result.validationResponse).toStrictEqual({
+    it("returns a response with an error status and validation message", async () => {
+      const { validationMessage, ...response } = result.validationResponse
+
+      expect(response).toStrictEqual({
         date: endDate,
         inputValue: endDateInputValue,
-        validationMessage: {
-          status: "error",
-          message: 'Cannot be earlier than the selection in "Start date"',
-        },
         isInvalid: false,
         isDisabled: false,
         isEmpty: false,
         isValidDate: true,
+      })
+
+      expect(validationMessage?.status).toBe("error")
+
+      renderFormattedMessage(validationMessage)
+      await waitFor(() => {
+        expect(
+          screen.getByText(
+            'Cannot be earlier than the selection in "Start date"'
+          )
+        ).toBeVisible()
       })
     })
 

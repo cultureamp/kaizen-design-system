@@ -18,6 +18,10 @@
     "description": "Error message when the user enters an invalid date and we know their input value",
     "message": "{inputValue} is an invalid date"
   },
+  "date.validation.rangeEndBeforeRangeStart": {
+    "description": "Error message when the user tries to select an end date earlier than the start date",
+    "message": "Cannot be earlier than the selection in \"{startDateFieldLabel}\""
+  },
   "date.validation.unavailableDate": {
     "description": "Error message when the user tries to select a date that is unavailable",
     "message": "{inputValue} is not available, try another date"
