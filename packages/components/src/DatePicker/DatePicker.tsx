@@ -22,7 +22,7 @@ import {
   DateInputField,
   DateInputFieldProps,
 } from "./subcomponents/DateInputField"
-import { ValidationResponse } from "./types"
+import type { ValidationResponse } from "./types"
 import { DatePickerSupportedLocales, getLocale } from "./utils/getLocale"
 import { validateDate } from "./utils/validateDate"
 
@@ -133,7 +133,7 @@ export const DatePicker = ({
     DateInputFieldProps["status"] | undefined
   >()
   const [inbuiltValidationMessage, setInbuiltValidationMessage] = useState<
-    string | undefined
+    ValidationResponse["validationMessage"]
   >()
 
   const shouldUseInbuiltValidation = onValidate === undefined
