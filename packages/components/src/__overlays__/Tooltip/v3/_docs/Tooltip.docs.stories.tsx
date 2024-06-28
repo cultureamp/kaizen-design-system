@@ -1,0 +1,203 @@
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import isChromatic from "chromatic"
+import { Button, IconButton } from "~components/Button"
+import { FieldMessage } from "~components/FieldMessage"
+import { AddIcon, QuestionIcon } from "~components/Icon"
+import { Input } from "~components/Input"
+import { Label } from "~components/Label"
+import { Focusable } from "~components/__overlays__/v3"
+import { Tooltip, TooltipTrigger } from "../index"
+import * as TestStories from "./Tooltip.spec.stories"
+
+const meta = {
+  title: "Overlays/Tooltip/v3/Docs Assets",
+  component: Tooltip,
+  parameters: {
+    layout: "centered",
+    a11y: { disable: true },
+  },
+  args: {
+    defaultOpen: isChromatic(),
+  },
+  argTypes: {
+    // eslint-disable-next-line camelcase
+    UNSTABLE_portalContainer: {
+      control: false,
+      table: { disable: true },
+    },
+    triggerRef: { control: false },
+  },
+} satisfies Meta<typeof Tooltip>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Playground: Story = {
+  render: ({ defaultOpen: _, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={true} isOpen={isOpen}>
+      <Button label="Button" />
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
+  ),
+}
+
+export const Primary: Story = {
+  render: () => (
+    <TooltipTrigger>
+      <IconButton
+        label="Add something"
+        icon={<AddIcon role="presentation" />}
+        primary
+        // Negate the aria description (added by RAC) as it should be the
+        // same as the accessible name, therefore no need to duplicate it
+        aria-describedby={null}
+      />
+      <Tooltip>Add something</Tooltip>
+    </TooltipTrigger>
+  ),
+}
+
+export const Placement: Story = {
+  ...TestStories.Placement,
+}
+
+export const DoFieldTooltip: Story = {
+  render: () => (
+    <div>
+      <Label>Password</Label>
+      <Input type="text" />
+      <FieldMessage message="Password must be at least 8 characters." />
+    </div>
+  ),
+}
+
+export const DontFieldTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <div>
+      <TooltipTrigger>
+        <Focusable>
+          <Label>
+            Password{" "}
+            <span className="inline-flex align-middle">
+              <QuestionIcon
+                classNameOverride="w-[15px] m-auto"
+                role="presentation"
+              />
+            </span>
+          </Label>
+        </Focusable>
+        <Tooltip>Password must be at least 8 characters</Tooltip>
+      </TooltipTrigger>
+      <div className="flex gap-4">
+        <Input type="text" />
+      </div>
+    </div>
+  ),
+}
+
+export const DoConcise: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <div>
+      <TooltipTrigger>
+        <IconButton
+          label="Add topic"
+          icon={<AddIcon role="presentation" />}
+          primary
+          // Negate the aria description (added by RAC) as it should be the
+          // same as the accessible name, therefore no need to duplicate it
+          aria-describedby={null}
+        />
+        <Tooltip>Add topic to agenda</Tooltip>
+      </TooltipTrigger>
+    </div>
+  ),
+}
+
+export const DontConcise: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <div>
+      <TooltipTrigger>
+        <IconButton
+          label="Add something"
+          icon={<AddIcon role="presentation" />}
+          primary
+          // Negate the aria description (added by RAC) as it should be the
+          // same as the accessible name, therefore no need to duplicate it
+          aria-describedby={null}
+        />
+        <Tooltip>
+          Add Topic to agenda. This will create a new topic where you can
+          discuss recent work with your manager.{" "}
+        </Tooltip>
+      </TooltipTrigger>
+    </div>
+  ),
+}
+
+export const ShouldFlip: Story = {
+  play: undefined,
+  render: () => (
+    <div className="flex flex-col gap-8 pl-96 overflow-hidden max-w-[250px]">
+      <TooltipTrigger>
+        <Button label="Should flip" />
+        <Tooltip placement="end">Tooltip content</Tooltip>
+      </TooltipTrigger>
+      <TooltipTrigger>
+        <Button label="Won't flip" />
+        <Tooltip placement="end" shouldFlip={false}>
+          Tooltip content
+        </Tooltip>
+      </TooltipTrigger>
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      viewports: {
+        small: {
+          name: "small",
+          styles: {
+            width: "300px",
+            height: "300px",
+          },
+        },
+      },
+      defaultViewport: "small",
+    },
+  },
+}
+
+export const UncontrolledState: Story = {
+  play: undefined,
+  args: { placement: "end", shouldFlip: false },
+  render: () => {
+    const [isOpen, setIsOpen] = React.useState<boolean>(false)
+    return (
+      <div className="flex gap-12">
+        <button type="button" onClick={() => setIsOpen(!isOpen)}>
+          Toggle open
+        </button>
+        <TooltipTrigger isOpen={isOpen}>
+          <Button label="Button" />
+          <Tooltip>Tooltip content</Tooltip>
+        </TooltipTrigger>
+      </div>
+    )
+  },
+}

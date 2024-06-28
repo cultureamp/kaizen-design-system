@@ -43,7 +43,7 @@
       "outputs": ["dist/**"]
     },
     "@kaizen/design-tokens#build": {
-      "inputs": ["css/**", "less/**", "sass/**", "src/**", "tokens/**"],
+      "inputs": ["css/**", "less/**", "sass/**", "src/**", "Guides/Tokens/**"],
       "outputs": ["dist/**"]
     },
     "@kaizen/package-bundler#build": {

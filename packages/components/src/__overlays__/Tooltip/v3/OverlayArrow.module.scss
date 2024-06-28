@@ -1,0 +1,43 @@
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/color";
+
+.overlayArrow {
+  display: flex;
+
+  // for correct arrow positioning with rounded corners we need to do bit trickery here
+  // the positioning is done in js in RAC and works by first getting size of arrow without data-placement, and isn't recomputed after update
+  // so we first set padding on arrow from all sides (that'll be used for start position computation)
+  // and then we remove it from the oposite axis
+  padding: 8px;
+
+  &[data-placement="top"],
+  &[data-placement="bottom"] {
+    padding: 0 8px;
+  }
+
+  &[data-placement="left"],
+  &[data-placement="right"] {
+    padding: 8px 0;
+  }
+
+  path {
+    fill: $color-purple-800;
+    box-shadow: $shadow-small-box-shadow;
+  }
+
+  &[data-placement="right"] svg {
+    transform: rotate(90deg);
+  }
+
+  &[data-placement="bottom"] svg {
+    transform: rotate(180deg);
+  }
+
+  &[data-placement="left"] svg {
+    transform: rotate(270deg);
+  }
+
+  &.reversed path {
+    fill: $color-white;
+  }
+}

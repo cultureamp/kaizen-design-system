@@ -1,5 +1,21 @@
 # Change Log
 
+## 1.52.1
+
+### Patch Changes
+
+- [#4783](https://github.com/cultureamp/kaizen-design-system/pull/4783) [`5433cd725f34f56c858713acadf5f95af628f7ab`](https://github.com/cultureamp/kaizen-design-system/commit/5433cd725f34f56c858713acadf5f95af628f7ab) - Fix workflow future logo a11y
+
+## 1.52.0
+
+### Minor Changes
+
+- [#4744](https://github.com/cultureamp/kaizen-design-system/pull/4744) [`844942ea54668a9455fd6fc643b86659be80e7da`](https://github.com/cultureamp/kaizen-design-system/commit/844942ea54668a9455fd6fc643b86659be80e7da) - Create v3 Tooltip and versioned package entry points
+
+### Patch Changes
+
+- [#4779](https://github.com/cultureamp/kaizen-design-system/pull/4779) [`c390aac3420eef384b46510c6f3b61f50eff229a`](https://github.com/cultureamp/kaizen-design-system/commit/c390aac3420eef384b46510c6f3b61f50eff229a) - Add tiempos-headline-medium weight to font-face declaration
+
 ## 1.51.0
 
 ### Minor Changes

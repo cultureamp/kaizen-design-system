@@ -1,0 +1,67 @@
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.tooltip {
+  max-width: 200px;
+  padding: $spacing-8 $spacing-12;
+  color: $color-white;
+  text-align: center;
+  font-family: $typography-paragraph-extra-small-font-family;
+  font-size: $typography-paragraph-extra-small-font-size;
+  font-weight: $typography-paragraph-extra-small-font-weight;
+  letter-spacing: $typography-paragraph-extra-small-letter-spacing;
+  line-height: $typography-paragraph-extra-small-line-height;
+  border-radius: $border-solid-border-radius;
+  box-shadow: $shadow-small-box-shadow;
+  background-color: $color-purple-800;
+  text-wrap: pretty;
+
+  /* fixes FF gap */
+  transform: translate3d(0, 0, 0);
+
+  &.reversed {
+    background-color: $color-white;
+    color: $color-purple-800;
+  }
+
+  &[data-placement="top"] {
+    --origin: translateY(4px);
+  }
+
+  &[data-placement="bottom"] {
+    --origin: translateY(-4px);
+  }
+
+  &[data-placement="right"] {
+    --origin: translateX(-4px);
+  }
+
+  &[data-placement="left"] {
+    --origin: translateX(4px);
+  }
+
+  &[data-entering] {
+    animation: slide $animation-duration-fast;
+  }
+
+  &[data-exiting] {
+    animation: slide $animation-duration-fast reverse
+      $animation-easing-function-ease-in;
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: var(--origin);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
