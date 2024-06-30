@@ -221,7 +221,7 @@ importers:
         version: 8.4.39
       postcss-cli:
         specifier: ^11.0.0
-        version: 11.0.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.15.7)
+        version: 11.0.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.0)
       postcss-flexbugs-fixes:
         specifier: ^5.0.2
         version: 5.0.2(postcss@8.4.39)
@@ -488,8 +488,8 @@ importers:
         specifier: ^2.6.3
         version: 2.6.3
       tsx:
-        specifier: ^4.15.7
-        version: 4.15.7
+        specifier: ^4.16.0
+        version: 4.16.0
 
   packages/design-tokens:
     dependencies:
@@ -531,8 +531,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0(prop-types@15.8.1)(react@18.3.1)
       tsx:
-        specifier: ^4.15.7
-        version: 4.15.7
+        specifier: ^4.16.0
+        version: 4.16.0
 
   packages/hosted-assets: {}
 
@@ -10226,8 +10226,8 @@ packages:
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
 
-  tsx@4.15.7:
-    resolution: {integrity: sha512-u3H0iSFDZM3za+VxkZ1kywdCeHCn+8/qHQS1MNoO2sONDgD95HlWtt8aB23OzeTmFP9IU4/8bZUdg58Uu5J4cg==}
+  tsx@4.16.0:
+    resolution: {integrity: sha512-MPgN+CuY+4iKxGoJNPv+1pyo5YWZAQ5XfsyobUG+zoKG7IkvCPLZDEyoIb8yLS2FcWci1nlxAqmvPlFWD5AFiQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -20797,7 +20797,7 @@ snapshots:
       postcss: 8.4.39
       postcss-value-parser: 4.2.0
 
-  postcss-cli@11.0.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.15.7):
+  postcss-cli@11.0.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.0):
     dependencies:
       chokidar: 3.6.0
       dependency-graph: 0.11.0
@@ -20806,7 +20806,7 @@ snapshots:
       globby: 14.0.1
       picocolors: 1.0.1
       postcss: 8.4.39
-      postcss-load-config: 5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.15.7)
+      postcss-load-config: 5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.0)
       postcss-reporter: 7.1.0(postcss@8.4.39)
       pretty-hrtime: 1.0.3
       read-cache: 1.0.0
@@ -21067,14 +21067,14 @@ snapshots:
       postcss: 8.4.39
       ts-node: 10.9.2(@swc/core@1.6.5(@swc/helpers@0.5.11))(@types/node@20.14.8)(typescript@5.5.2)
 
-  postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.15.7):
+  postcss-load-config@5.1.0(jiti@1.21.6)(postcss@8.4.39)(tsx@4.16.0):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.4.5
     optionalDependencies:
       jiti: 1.21.6
       postcss: 8.4.39
-      tsx: 4.15.7
+      tsx: 4.16.0
 
   postcss-loader@8.1.1(postcss@8.4.39)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.11))(esbuild@0.20.2)):
     dependencies:
@@ -23168,7 +23168,7 @@ snapshots:
       tslib: 1.14.1
       typescript: 5.5.2
 
-  tsx@4.15.7:
+  tsx@4.16.0:
     dependencies:
       esbuild: 0.21.5
       get-tsconfig: 4.7.5
