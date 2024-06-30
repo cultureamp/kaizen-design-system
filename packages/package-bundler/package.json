@@ -34,7 +34,7 @@
     "rollup-plugin-ignore": "^1.0.10",
     "rollup-plugin-node-externals": "^7.1.2",
     "rollup-plugin-postcss": "^4.0.2",
-    "ts-patch": "^3.2.0",
+    "ts-patch": "^3.2.1",
     "typescript-transform-paths": "^3.4.7"
   },
   "dependenciesComments": {
