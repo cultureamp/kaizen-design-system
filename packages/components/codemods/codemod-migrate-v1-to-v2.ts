@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 import glob from "fast-glob"
 import ts from "typescript"
+
 const walkThroughDirectories = (): string[] => {
   const directories: string[] = []
   const files: string[] = []
@@ -65,9 +66,57 @@ const walkThroughDirectories = (): string[] => {
           )
           const exportsFromFile: string[] = []
           // loops through AST and get the export
-          exportedSourceFile.forEachChild(node =>
-            collectExports(node, exportsFromFile)
+          exportedSourceFile.forEachChild(
+            node => {
+              if (
+                (ts.isExportDeclaration(node) &&
+                  node.exportClause &&
+                  ts.isNamedExports(node.exportClause)) ||
+                ts.isExportSpecifier(node) ||
+                ts.isClassDeclaration(node) ||
+                ts.isTypeAliasDeclaration(node) ||
+                ts.isFunctionDeclaration(node) ||
+                ts.isVariableStatement(node)
+              ) {
+                switch (node.kind) {
+                  case ts.SyntaxKind.ExportDeclaration:
+                    if (node.exportClause) {
+                      exportsFromFile.push(node.exportClause.getText())
+                    }
+                    break
+                  case ts.SyntaxKind.ExportSpecifier:
+                    exportsFromFile.push(node.name.getText())
+                    break
+                  case ts.SyntaxKind.ClassDeclaration:
+                    if (node.name) {
+                      exportsFromFile.push(node.name.getText())
+                    }
+                    break
+                  case ts.SyntaxKind.TypeAliasDeclaration:
+                    if (node.name) {
+                      exportsFromFile.push(node.name.getText())
+                    }
+                    break
+                  case ts.SyntaxKind.FunctionDeclaration:
+                    if (node.name) {
+                      exportsFromFile.push(node.name.getText())
+                    }
+                    break
+                  default:
+                    if (ts.isVariableStatement(node)) {
+                      node.declarationList.declarations.forEach(declaration => {
+                        if (ts.isIdentifier(declaration.name)) {
+                          exportsFromFile.push(declaration.name.text)
+                        }
+                      })
+                    }
+                    break
+                }
+              }
+            }
+            // collectExports(node, exportsFromFile)
           )
+          console.log("exportsFromFile", exportsFromFile)
 
           // caution - we need to make sure that it is actually exported from the index and not just a internal component
         }
@@ -79,6 +128,73 @@ const walkThroughDirectories = (): string[] => {
 
   return directories
 }
+
+// /** will return an array of exported functions, named exports and variables */
+// export const getExportsFromAstSourcefile = (sourceFile: ts.SourceFile) => {
+//   const allExports: ValidExport[] = [];
+
+//   visitNode(sourceFile);
+
+//   function visitNode(node: ts.Node) {
+//     // if its a named export
+//     if (ts.isExportSpecifier(node)) {
+//       const name = node.name.getText();
+//       allExports.push({
+//         name,
+//         type: ts.SyntaxKind[node.kind],
+//       });
+//     }
+
+//     if (ts.isClassDeclaration(node)) {
+//       const name = node.name?.getText() || "";
+
+//       allExports.push({
+//         name,
+//         type: ts.SyntaxKind[node.kind],
+//       });
+//     }
+
+//     if (ts.isTypeAliasDeclaration(node) || ts.isInterfaceDeclaration(node)) {
+//       const name = node.name?.getText();
+//       allExports.push({
+//         name,
+//         type: ts.SyntaxKind[node.kind],
+//       });
+//     }
+
+//     // if its another export (ie: variable or function)
+//     if (node.kind === ts.SyntaxKind.ExportKeyword) {
+//       const parent = node.parent;
+
+//       if (ts.isFunctionDeclaration(parent)) {
+//         const name = parent.name?.getText() || "";
+//         allExports.push({
+//           name,
+//           type: ts.SyntaxKind[node.parent.kind],
+//         });
+//       }
+
+//       // this also include exports JSX as constants ie: const Heading = () => {...}
+//       if (ts.isVariableStatement(parent)) {
+//         parent.declarationList.declarations.forEach((declaration) => {
+//           const name = declaration.name.getText();
+//           const variableType =
+//             declaration.initializer?.kind &&
+//             ts.SyntaxKind[declaration.initializer?.kind];
+
+//           allExports.push({
+//             name,
+//             type: variableType || "variable",
+//           });
+//         });
+//       }
+//     }
+
+//     ts.forEachChild(node, visitNode);
+//   }
+
+//   return allExports;
+// };
 
 const collectExports = (
   node: ts.Node,
