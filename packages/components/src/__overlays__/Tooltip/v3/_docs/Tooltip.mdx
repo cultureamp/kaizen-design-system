@@ -1,12 +1,9 @@
 import { Canvas, Meta, Controls } from "@storybook/blocks"
-import { CheckIcon, ClearIcon } from "~components/Icon"
-import { ResourceLinks, SbContent, Installation } from "~storybook/components"
+import { ResourceLinks, SbContent, Installation, DosAndDonts, DoOrDont } from "~storybook/components"
 import * as TooltipStories from "./Tooltip.docs.stories"
 import AnatomyPng from "./assets/tooltip_anatomy.png"
 import PlacementPng from "./assets/tooltip_placement.png"
-import Trigger1Png from "./assets/tooltip_trigger_1.png"
-import Trigger2Png from "./assets/tooltip_trigger_2.png"
-import Trigger3Png from "./assets/tooltip_trigger_3.png"
+import DesignSpecPng from "./assets/tooltip_spec.png"
 import WhenToUsePng from "./assets/tooltip_variant.png"
 
 <Meta title="Overlays/Tooltip/v3/Usage Guidelines" />
@@ -69,76 +66,47 @@ import WhenToUsePng from "./assets/tooltip_variant.png"
   - Trigger tooltips from Interactive elements (Buttons, Links, Icon buttons) or Non-interactive elements (Icons, Abbreviations Truncated text)—be mindful of keyboard accessibility
   - **Never include any kind of error messages** in a tooltip
 
-  <img src={WhenToUsePng} alt="Illustration of when to use the Tooltip component" className="mt-24"/>
+  <img src={WhenToUsePng} className="mt-32" alt="Illustration of when to use the Tooltip component" />
 </ SbContent>
 
-<SbContent >
-  ### Dos and don'ts
-</SbContent >
+<SbContent className="mb-64">
+  ### Specs
+  <img src={DesignSpecPng} alt="" />
+</ SbContent>
 
 <div className="flex flex-col mt-16 gap-40 mb-64">
   <div className="flex flex-col m-0 gap-16">
-    <SbContent variant="heading-4">
+    <SbContent>
       #### Do use tooltips to describe icons
       Icons are not always easy to identify on their own. When you use components that don&apos;t have labels — for example, icon-only action buttons and tabs — make sure to use tooltips to provide context for the icons.
     </SbContent>
-    <div className="grid grid-cols-2 gap-16">
-      <div className="relative [&>*]:m-0">
-        <div className="bg-green-500 absolute top-6 left-6 z-10 py-4 px-6 font-bold text-white rounded flex gap-2 items-center justify-center">
-          <CheckIcon role="presentation" />
-          <SbContent ><span className="text-white"><strong>Do</strong></span></SbContent>
-        </div>
-        <Canvas of={TooltipStories.Primary} className="border-green-500 !rounded" />
-      </div>
-    </div>
+    <DosAndDonts>
+      <DoOrDont story={TooltipStories.Primary} />
+    </DosAndDonts>
   </div>
 
   <div className="flex flex-col gap-16">
-    <SbContent variant="heading-4">
+    <SbContent>
       #### Don&apos;t use tooltips to communicate crucial information
 
       Tooltips should never stop a user (or be a gate) from completing a task or performing an action. They disappear so they should never contain critical information that a user would absolutely need to proceed, or information without which a user may cause errors. If the information is crucial for a user to proceed, consider using a modal or inline notification instead.
     </SbContent>
-    <div className="grid grid-cols-2 gap-16">
-      <div className="relative [&>*]:m-0">
-        <div className="bg-green-500 absolute top-6 left-6 z-10 py-4 px-6 font-bold text-white rounded flex gap-2 items-center justify-center">
-          <CheckIcon role="presentation" />
-          <SbContent ><span className="text-white"><strong>Do</strong></span></SbContent>
-        </div>
-        <Canvas of={TooltipStories.DoFieldTooltip} className="border-green-500 !rounded-[10px]" />
-      </div>
-      <div className="relative [&>*]:m-0">
-        <div className="bg-gray-500 absolute top-6 left-6 z-10 py-4 px-6 font-bold text-white rounded flex gap-2 items-center justify-center">
-          <ClearIcon role="presentation" />
-          <SbContent ><span className="text-white"><strong>Don&apos;t</strong></span></SbContent>
-        </div>
-        <Canvas of={TooltipStories.DontFieldTooltip} className="border-gray-500 !rounded-[10px]" />
-      </div>
-    </div>
+    <DosAndDonts>
+      <DoOrDont story={TooltipStories.DoFieldTooltip} />
+      <DoOrDont story={TooltipStories.DontFieldTooltip} isDont />
+    </DosAndDonts>
   </div>
 
   <div className="flex flex-col m-0 gap-16">
-    <SbContent variant="heading-4">
+    <SbContent>
       #### Do be concise
 
       Good tooltips contain concise and helpful information, keep it short. If you need more space, consider using a Popover. Don’t use it to duplicate information that already exists on the page. Instead, closely consider its placement and whether the disclosed copy will inform the action the user is about to perform.
     </SbContent>
-    <div className="grid grid-cols-2 gap-16">
-      <div className="relative [&>*]:m-0">
-        <div className="bg-green-500 absolute top-6 left-6 z-10 py-4 px-6 font-bold text-white rounded flex gap-2 items-center justify-center">
-          <CheckIcon role="presentation" />
-          <SbContent ><span className="text-white"><strong>Do</strong></span></SbContent>
-        </div>
-        <Canvas of={TooltipStories.DoConcise} className="border-green-500 !rounded-[10px]" />
-      </div>
-      <div className="relative [&>*]:m-0">
-        <div className="bg-gray-500 absolute top-6 left-6 z-10 py-4 px-6 font-bold text-white rounded flex gap-2 items-center justify-center">
-          <ClearIcon role="presentation" />
-          <SbContent ><span className="text-white"><strong>Don&apos;t</strong></span></SbContent>
-        </div>
-        <Canvas of={TooltipStories.DontConcise} className="border-gray-500 !rounded-[10px]" />
-      </div>
-    </div>
+    <DosAndDonts>
+      <DoOrDont story={TooltipStories.DoConcise}/>
+      <DoOrDont story={TooltipStories.DontConcise}  isDont />
+    </DosAndDonts>
   </div>
 </div>
 
@@ -154,28 +122,40 @@ import WhenToUsePng from "./assets/tooltip_variant.png"
   - The proximity of tooltips is always paired to the element with which they are associated.
 </SbContent>
 
-<SbContent className="mb-64">
+<SbContent className="mb-24">
   ### Trigger
 
-  - Should be shown on hover, click or on focus events
-  - Needs to be discoverable:
+  - A tooltip trigger needs to be discoverable:
     - E.g. something like an icon to suggest there’s a tooltip.
     - Avoid triggering tooltips from text that excludes a visual indicator (e.g. underline)
+  - A tooltip should be shown and accessible on hover, click or on focus events.
+</SbContent>
 
-  <img src={Trigger1Png} alt="" className="my-24" />
+<div className="mb-32">
+  <DosAndDonts>
+    <DoOrDont story={TooltipStories.TriggerDo} />
+    <DoOrDont story={TooltipStories.TriggerDont} isDont/>
+  </DosAndDonts>
+</div>
 
+<SbContent className="mb-24">
   - Only trigger tooltips from interactive elements, such as:
     - Buttons
     - Links
     - Icon buttons
+</SbContent>
 
-  <img src={Trigger2Png} alt="" className="my-24" />
+<div className="mb-32">
+  <DosAndDonts>
+    <DoOrDont story={TooltipStories.Primary} />
+    <DoOrDont story={TooltipStories.TriggerLinkDescription} />
+  </DosAndDonts>
+</div>
 
+<SbContent>
   - Non-interactive elements (be mindful of keyboard accessibility):
     - Icons
     - Abbreviations (e.g. dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)
     - Truncated text
   - For interactive elements that trigger tooltips, only have optional information in the tooltip because it could be missed when the user clicks
-
-  <img src={Trigger3Png} alt="" className="my-24" />
 </SbContent>

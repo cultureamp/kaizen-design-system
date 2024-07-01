@@ -6,6 +6,7 @@ import { FieldMessage } from "~components/FieldMessage"
 import { AddIcon, QuestionIcon } from "~components/Icon"
 import { Input } from "~components/Input"
 import { Label } from "~components/Label"
+import { Text } from "~components/Text"
 import { Focusable } from "~components/__overlays__/v3"
 import { Tooltip, TooltipTrigger } from "../index"
 import * as TestStories from "./Tooltip.spec.stories"
@@ -200,4 +201,55 @@ export const UncontrolledState: Story = {
       </div>
     )
   },
+}
+
+export const TriggerDo: Story = {
+  play: undefined,
+  args: { placement: "end", shouldFlip: false },
+  render: () => (
+    <Text variant="body" classNameOverride="bg-white p-12 rounded">
+      This is an example of an inline{" "}
+      <TooltipTrigger>
+        <Focusable>
+          <a href="#inline-test" className="text-inherit">
+            tooltip
+          </a>
+        </Focusable>
+        <Tooltip>Tooltip label</Tooltip>
+      </TooltipTrigger>
+    </Text>
+  ),
+}
+export const TriggerDont: Story = {
+  play: undefined,
+  args: { placement: "end", shouldFlip: false },
+  render: () => (
+    <Text variant="body" classNameOverride="bg-white p-12 rounded">
+      This is an example of an inline{" "}
+      <TooltipTrigger>
+        <Focusable>
+          <span>tooltip</span>
+        </Focusable>
+        <Tooltip>Tooltip label</Tooltip>
+      </TooltipTrigger>
+    </Text>
+  ),
+}
+export const TriggerLinkDescription: Story = {
+  play: undefined,
+  args: { placement: "end", shouldFlip: false },
+  render: () => (
+    <Text variant="body" classNameOverride="bg-white p-12 rounded">
+      Use tooltips inline when you want to{" "}
+      <TooltipTrigger>
+        <Focusable>
+          <a href="#describe-link" className="text-inherit">
+            describe a link
+          </a>
+        </Focusable>
+        <Tooltip>Tooltip label</Tooltip>
+      </TooltipTrigger>
+      .
+    </Text>
+  ),
 }
