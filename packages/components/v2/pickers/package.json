@@ -1,0 +1,5 @@
+{
+  "main": "../../dist/cjs/pickersV2.cjs",
+  "module": "../../dist/esm/pickersV2.mjs",
+  "types": "../../dist/types/__pickers__/v2.d.ts"
+}

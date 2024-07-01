@@ -1,0 +1,5 @@
+{
+  "main": "../../dist/cjs/utilitiesV2.cjs",
+  "module": "../../dist/esm/utilitiesV2.mjs",
+  "types": "../../dist/types/__utilities__/v2.d.ts"
+}

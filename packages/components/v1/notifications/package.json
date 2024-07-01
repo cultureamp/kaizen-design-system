@@ -1,0 +1,5 @@
+{
+  "main": "../../dist/cjs/notificationsV1.cjs",
+  "module": "../../dist/esm/notificationsV1.mjs",
+  "types": "../../dist/types/__notifications__/v1.d.ts"
+}

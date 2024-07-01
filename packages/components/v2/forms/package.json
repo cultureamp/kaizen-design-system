@@ -1,0 +1,5 @@
+{
+  "main": "../../dist/cjs/formsV2.cjs",
+  "module": "../../dist/esm/formsV2.mjs",
+  "types": "../../dist/types/__forms__/v2.d.ts"
+}
