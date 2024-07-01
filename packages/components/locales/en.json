@@ -46,6 +46,10 @@
     "description": "Button label to clear all values within the filter bar",
     "message": "Clear all"
   },
+  "filterButton.removable.removeButtonLabel": {
+    "description": "Button label to remove a single filter from the filter bar",
+    "message": "Remove filter - {filterLabel}"
+  },
   "filterDatePickerDateInputField.dateInputLabelFallback": {
     "description": "Default label for date input field",
     "message": "Date"

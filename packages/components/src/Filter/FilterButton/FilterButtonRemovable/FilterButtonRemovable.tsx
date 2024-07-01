@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react"
+import { useIntl } from "@cultureamp/i18n-react-intl"
 import { ButtonGroup, ButtonGroupProps } from "~components/ButtonGroup"
 import { FilterTriggerRef } from "~components/Filter/Filter"
 import { ClearIcon } from "~components/Icon"
@@ -25,12 +26,24 @@ export const FilterButtonRemovable = forwardRef<
   FilterButtonRemovableRefs,
   FilterButtonRemovableProps
 >(({ triggerButtonProps, removeButtonProps, ...restProps }, ref) => {
+  const { formatMessage } = useIntl()
+
+  const removeButtonLabelFallback = formatMessage(
+    {
+      id: "filterButton.removable.removeButtonLabel",
+      defaultMessage: "Remove filter - {filterLabel}",
+      description: "Button label to remove a single filter from the filter bar",
+    },
+    {
+      filterLabel: triggerButtonProps?.label,
+    }
+  )
+
   const customRefObject = isRefObject(ref) ? ref.current : null
   const removeButtonRef = customRefObject?.removeButtonRef
 
   const removeButtonLabel =
-    removeButtonProps?.tooltipText ??
-    `Remove filter - ${triggerButtonProps?.label}`
+    removeButtonProps?.tooltipText ?? removeButtonLabelFallback
 
   return (
     <ButtonGroup {...restProps}>
