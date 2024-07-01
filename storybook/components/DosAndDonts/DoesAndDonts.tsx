@@ -10,7 +10,7 @@ export const DosAndDonts = ({
   ...otherProps
 }: HTMLAttributes<HTMLDivElement>): JSX.Element => (
   <div
-    className={classnames(className, "grid grid-cols-2 gap-16")}
+    className={classnames(className, "grid grid-cols-1 gap-16 lg:grid-cols-2")}
     {...otherProps}
   >
     {children}
@@ -43,7 +43,11 @@ export const DoOrDont = ({
           </span>
         </SbContent>
       </div>
-      <Canvas className="[&>*]:bg-gray-100 rounded-none" of={story} />
+      <Canvas
+        sourceState="none"
+        className="[&>*]:bg-gray-100 rounded-none shadow-none border-none"
+        of={story}
+      />
     </div>
   </div>
 )
