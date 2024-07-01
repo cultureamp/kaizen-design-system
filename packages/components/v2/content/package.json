@@ -1,0 +1,5 @@
+{
+  "main": "../../dist/cjs/contentV2.cjs",
+  "module": "../../dist/esm/contentV2.mjs",
+  "types": "../../dist/types/__content__/v2.d.ts"
+}

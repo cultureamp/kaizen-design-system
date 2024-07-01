@@ -1,0 +1,5 @@
+{
+  "main": "../../dist/cjs/loadingV1.cjs",
+  "module": "../../dist/esm/loadingV1.mjs",
+  "types": "../../dist/types/__loading__/v1.d.ts"
+}
