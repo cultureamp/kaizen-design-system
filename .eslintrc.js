@@ -299,6 +299,7 @@ module.exports = {
       files: [
         "storybook/*",
         "**/_docs/**/*",
+        "**/__tests__/**/*",
         "*.stories.tsx",
         "*.spec.ts",
         "*.spec.tsx",

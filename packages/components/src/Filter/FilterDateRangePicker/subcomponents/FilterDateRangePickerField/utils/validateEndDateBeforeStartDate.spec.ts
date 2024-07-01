@@ -1,17 +1,6 @@
-import React from "react"
-import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
-import { render, screen, waitFor } from "@testing-library/react"
-import { DateValidationResponse } from "~components/Filter/FilterDatePicker"
+import { screen, waitFor } from "@testing-library/react"
 import { validateEndDateBeforeStartDate } from "./validateEndDateBeforeStartDate"
-
-const renderFormattedMessage = (
-  validationMessage: DateValidationResponse["validationMessage"]
-): ReturnType<typeof render> =>
-  render(
-    <StaticIntlProvider locale="en">
-      {validationMessage?.message}
-    </StaticIntlProvider>
-  )
+import { renderWithIntl } from "~tests"
 
 describe("validateEndDateBeforeStartDate()", () => {
   describe("when the end date is after the start date", () => {
@@ -110,7 +99,7 @@ describe("validateEndDateBeforeStartDate()", () => {
 
       expect(validationMessage?.status).toBe("error")
 
-      renderFormattedMessage(validationMessage)
+      renderWithIntl(validationMessage?.message)
       await waitFor(() => {
         expect(
           screen.getByText(

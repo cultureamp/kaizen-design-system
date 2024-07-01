@@ -1,15 +1,6 @@
-import React from "react"
-import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
-import { render, screen, waitFor } from "@testing-library/react"
-import { ValidationResponse } from "../types"
+import { screen, waitFor } from "@testing-library/react"
 import { validateDate } from "./validateDate"
-
-const renderFormattedMessage = (
-  validationMessage: ValidationResponse["validationMessage"]
-): ReturnType<typeof render> =>
-  render(
-    <StaticIntlProvider locale="en">{validationMessage}</StaticIntlProvider>
-  )
+import { renderWithIntl } from "~tests"
 
 describe("validateDate", () => {
   it("returns expected response when selected day is undefined", () => {
@@ -49,7 +40,7 @@ describe("validateDate", () => {
     })
     expect(newDate).toBeUndefined()
 
-    renderFormattedMessage(validationMessage)
+    renderWithIntl(validationMessage)
     await waitFor(() => {
       expect(screen.getByText("Date is invalid")).toBeVisible()
     })
@@ -73,7 +64,7 @@ describe("validateDate", () => {
     })
     expect(newDate).toBeUndefined()
 
-    renderFormattedMessage(validationMessage)
+    renderWithIntl(validationMessage)
     await waitFor(() => {
       expect(screen.getByText("Date is invalid")).toBeVisible()
     })
@@ -97,7 +88,7 @@ describe("validateDate", () => {
     })
     expect(newDate).toBeUndefined()
 
-    renderFormattedMessage(validationMessage)
+    renderWithIntl(validationMessage)
     await waitFor(() => {
       expect(screen.getByText("potato is an invalid date")).toBeVisible()
     })
@@ -126,7 +117,7 @@ describe("validateDate", () => {
     })
     expect(newDate).toBeUndefined()
 
-    renderFormattedMessage(validationMessage)
+    renderWithIntl(validationMessage)
     await waitFor(() => {
       expect(
         screen.getByText("03/01/2022 is not available, try another date")
