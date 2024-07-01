@@ -1,6 +1,6 @@
 import { screen, waitFor } from "@testing-library/react"
-import { validateEndDateBeforeStartDate } from "./validateEndDateBeforeStartDate"
 import { renderWithIntl } from "~tests"
+import { validateEndDateBeforeStartDate } from "./validateEndDateBeforeStartDate"
 
 describe("validateEndDateBeforeStartDate()", () => {
   describe("when the end date is after the start date", () => {

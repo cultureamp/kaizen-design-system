@@ -1,11 +1,12 @@
-import React, { act } from "react"
+import { act } from "react"
+import { waitFor } from "@testing-library/react"
 import { renderHook } from "@testing-library/react-hooks"
-import { LabelledMessage } from "~components/LabelledMessage"
+import { renderWithIntl } from "~tests"
 import { useStartDateValidation } from "./useStartDateValidation"
 
 describe("useStartDateValidation()", () => {
   describe("validateDate()", () => {
-    it("returns a validation message and no date", () => {
+    it("returns a validation message and no date", async () => {
       const { result } = renderHook(() =>
         useStartDateValidation({
           inputLabel: "Start date",
@@ -21,14 +22,15 @@ describe("useStartDateValidation()", () => {
         expect(newDate).toBeUndefined()
       })
 
-      expect(result.current.validationMessage).toStrictEqual({
-        status: "error",
-        message: (
-          <LabelledMessage
-            label="Start date"
-            message="potato is an invalid date"
-          />
-        ),
+      expect(result.current.validationMessage?.status).toBe("error")
+
+      const { container } = renderWithIntl(
+        result.current.validationMessage?.message
+      )
+      await waitFor(() => {
+        expect(container).toHaveTextContent(
+          "Start date:potato is an invalid date"
+        )
       })
     })
   })

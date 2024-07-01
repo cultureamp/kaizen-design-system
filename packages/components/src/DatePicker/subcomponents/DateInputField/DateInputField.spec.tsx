@@ -1,7 +1,8 @@
 import React, { useRef } from "react"
-import { render, screen } from "@testing-library/react"
+import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { enUS } from "date-fns/locale"
+import { renderWithIntl } from "~tests"
 import { DateInputField, DateInputFieldProps } from "./DateInputField"
 
 const user = userEvent.setup()
@@ -9,8 +10,8 @@ const user = userEvent.setup()
 const defaultProps: DateInputFieldProps = {
   id: "test__date-input-field",
   labelText: "Bacon expiry",
-  onButtonClick: jest.fn<void, []>(),
-  onKeyDown: jest.fn<void, [React.KeyboardEvent<HTMLInputElement>]>(),
+  onButtonClick: jest.fn(),
+  onKeyDown: jest.fn(),
   value: undefined,
   locale: enUS,
 }
@@ -21,68 +22,83 @@ const DateInputFieldWrapper = (
 
 describe("<DateInputField />", () => {
   describe("Input", () => {
-    it("associates the description with the input", () => {
-      render(<DateInputFieldWrapper />)
-      expect(
-        screen.getByRole("textbox", {
-          name: "Bacon expiry",
-          description: "Input format : mm/dd/yyyy",
-        })
-      ).toBeInTheDocument()
+    it("associates the description with the input", async () => {
+      renderWithIntl(<DateInputFieldWrapper />)
+      await waitFor(() => {
+        expect(
+          screen.getByRole("textbox", {
+            name: "Bacon expiry",
+            description: "Input format : mm/dd/yyyy",
+          })
+        ).toBeInTheDocument()
+      })
     })
   })
 
   describe("Icon button", () => {
-    it("has helpful label", () => {
-      render(<DateInputFieldWrapper />)
-      expect(
-        screen.getByRole("button", { name: "Choose date" })
-      ).toBeInTheDocument()
+    it("has helpful label", async () => {
+      renderWithIntl(<DateInputFieldWrapper />)
+      await waitFor(() => {
+        expect(
+          screen.getByRole("button", { name: "Choose date" })
+        ).toBeInTheDocument()
+      })
     })
 
-    it("has helpful label showing the current date when one is selected", () => {
-      render(
+    it("has helpful label showing the current date when one is selected", async () => {
+      renderWithIntl(
         <DateInputFieldWrapper
           value="Mar 1, 2022"
           onChange={(): void => undefined}
         />
       )
-      expect(
-        screen.getByRole("button", { name: "Change date, Mar 1, 2022" })
-      ).toBeInTheDocument()
+      await waitFor(() => {
+        expect(
+          screen.getByRole("button", { name: "Change date, Mar 1, 2022" })
+        ).toBeInTheDocument()
+      })
     })
   })
 
   describe("States", () => {
-    it("disables both input and icon button", () => {
-      render(<DateInputFieldWrapper disabled />)
+    it("disables both input and icon button", async () => {
+      renderWithIntl(<DateInputFieldWrapper disabled />)
       const input = screen.getByRole("textbox", { name: "Bacon expiry" })
       const calendarButton = screen.getByRole("button", { name: "Choose date" })
-      expect(input).toBeDisabled()
-      expect(calendarButton).toBeDisabled()
+      await waitFor(() => {
+        expect(input).toBeDisabled()
+        expect(calendarButton).toBeDisabled()
+      })
     })
   })
 
   describe("Validation", () => {
-    it("shows validation message", () => {
-      render(
+    it("shows validation message", async () => {
+      renderWithIntl(
         <DateInputFieldWrapper
           status="error"
           validationMessage="There is an error"
         />
       )
       const errorMessage = screen.getByText("There is an error")
-      expect(errorMessage).toBeInTheDocument()
+      await waitFor(() => {
+        expect(errorMessage).toBeInTheDocument()
+      })
     })
 
-    it("does not show validation message when field is disabled", () => {
-      render(
+    it("does not show validation message when field is disabled", async () => {
+      renderWithIntl(
         <DateInputFieldWrapper
           status="error"
           validationMessage="There is an error"
           disabled
         />
       )
+      await waitFor(() => {
+        expect(
+          screen.getByRole("textbox", { name: "Bacon expiry" })
+        ).toBeVisible()
+      })
       const errorMessage = screen.queryByText("There is an error")
       expect(errorMessage).not.toBeInTheDocument()
     })
@@ -90,10 +106,7 @@ describe("<DateInputField />", () => {
 
   describe("Refs", () => {
     it("correctly passes through input and button refs", async () => {
-      const onButtonClick = jest.fn<
-        void,
-        [string | null | undefined, string | null | undefined]
-      >()
+      const onButtonClick = jest.fn()
 
       const Wrapper = (): JSX.Element => {
         const inputRef = useRef<HTMLInputElement>(null)
@@ -122,10 +135,10 @@ describe("<DateInputField />", () => {
         )
       }
 
-      render(<Wrapper />)
+      renderWithIntl(<Wrapper />)
 
       await user.click(screen.getByText("Click me"))
-      expect(onButtonClick).toBeCalledWith(
+      expect(onButtonClick).toHaveBeenCalledWith(
         "test__date-input-field--ref",
         "Choose date"
       )

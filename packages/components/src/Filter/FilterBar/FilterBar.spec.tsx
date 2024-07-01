@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { render, screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { renderWithIntl } from "~tests"
 import { FilterMultiSelect } from "../index"
 import { FilterBar, FilterBarProps } from "./FilterBar"
 import { useFilterBarContext } from "./context/FilterBarContext"
@@ -877,7 +878,7 @@ describe("<FilterBar />", () => {
       ] satisfies Filters<AsyncValues>
 
       it("can re-fetch options with all active filter values pulled off of the FilterBarContext", async () => {
-        const { getByRole, queryByRole } = render(
+        const { getByRole, queryByRole } = renderWithIntl(
           <FilterBarWrapper<AsyncValues> filters={config} defaultValues={{}} />
         )
 
@@ -951,7 +952,7 @@ describe("<FilterBar />", () => {
       ] satisfies Filters<CycleFilterValues>
 
       it("opens the Custom Date filter when Cycle's 'custom' value is selected", async () => {
-        const { getByRole } = render(
+        const { getByRole } = renderWithIntl(
           <FilterBarWrapper<CycleFilterValues> filters={cycleFilters} />
         )
 

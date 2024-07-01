@@ -1,7 +1,7 @@
 import React from "react"
 import { screen, waitFor } from "@testing-library/react"
-import { DropdownButton, DropdownButtonProps } from "./DropdownButton"
 import { renderWithIntl } from "~tests"
+import { DropdownButton, DropdownButtonProps } from "./DropdownButton"
 
 const DropdownButtonWrapper = (
   props?: Partial<DropdownButtonProps>

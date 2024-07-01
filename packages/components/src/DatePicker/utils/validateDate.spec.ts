@@ -1,6 +1,6 @@
 import { screen, waitFor } from "@testing-library/react"
-import { validateDate } from "./validateDate"
 import { renderWithIntl } from "~tests"
+import { validateDate } from "./validateDate"
 
 describe("validateDate", () => {
   it("returns expected response when selected day is undefined", () => {

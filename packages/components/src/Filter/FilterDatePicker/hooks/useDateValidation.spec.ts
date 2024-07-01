@@ -1,6 +1,7 @@
-import React, { act } from "react"
+import { act } from "react"
+import { waitFor } from "@testing-library/react"
 import { renderHook } from "@testing-library/react-hooks"
-import { LabelledMessage } from "~components/LabelledMessage"
+import { renderWithIntl } from "~tests"
 import { useDateValidation } from "./useDateValidation"
 
 describe("useDateValidation()", () => {
@@ -23,11 +24,9 @@ describe("useDateValidation()", () => {
   })
 
   describe("with an invalid date", () => {
-    it("returns a validation message and no date", () => {
+    it("returns a validation message and no date", async () => {
       const { result } = renderHook(() =>
-        useDateValidation({
-          inputLabel: "Date",
-        })
+        useDateValidation({ inputLabel: "Date" })
       )
       const { validateDate, updateValidation } = result.current
       const { validationResponse, newDate } = validateDate({
@@ -38,14 +37,16 @@ describe("useDateValidation()", () => {
       act(() => {
         updateValidation(validationResponse)
       })
+      expect(newDate).toEqual(undefined)
 
-      expect(result.current.validationMessage).toStrictEqual({
-        status: "error",
-        message: (
-          <LabelledMessage label="Date" message="potato is an invalid date" />
-        ),
+      expect(result.current.validationMessage?.status).toBe("error")
+
+      const { container } = renderWithIntl(
+        result.current.validationMessage?.message
+      )
+      await waitFor(() => {
+        expect(container).toHaveTextContent("Date:potato is an invalid date")
       })
-      expect(newDate).toBeUndefined()
     })
   })
 

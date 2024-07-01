@@ -1,11 +1,12 @@
-import React, { act } from "react"
+import { act } from "react"
+import { waitFor } from "@testing-library/react"
 import { renderHook } from "@testing-library/react-hooks"
-import { LabelledMessage } from "~components/LabelledMessage"
+import { renderWithIntl } from "~tests"
 import { useEndDateValidation } from "./useEndDateValidation"
 
 describe("useEndDateValidation()", () => {
   describe("validateDate()", () => {
-    it("returns a validation message and no date", () => {
+    it("returns a validation message and no date", async () => {
       const { result } = renderHook(() =>
         useEndDateValidation({
           inputLabel: "End date",
@@ -23,20 +24,21 @@ describe("useEndDateValidation()", () => {
         expect(newDate).toEqual(undefined)
       })
 
-      expect(result.current.validationMessage).toStrictEqual({
-        status: "error",
-        message: (
-          <LabelledMessage
-            label="End date"
-            message="potato is an invalid date"
-          />
-        ),
+      expect(result.current.validationMessage?.status).toBe("error")
+
+      const { container } = renderWithIntl(
+        result.current.validationMessage?.message
+      )
+      await waitFor(() => {
+        expect(container).toHaveTextContent(
+          "End date:potato is an invalid date"
+        )
       })
     })
   })
 
   describe("validateEndDateBeforeStartDate()", () => {
-    it("returns a validation message and date", () => {
+    it("returns a validation message and date", async () => {
       const { result } = renderHook(() =>
         useEndDateValidation({
           inputLabel: "End date",
@@ -54,14 +56,15 @@ describe("useEndDateValidation()", () => {
         expect(newDate).toEqual(new Date("2023-04-03"))
       })
 
-      expect(result.current.validationMessage).toStrictEqual({
-        status: "error",
-        message: (
-          <LabelledMessage
-            label="End date"
-            message='Cannot be earlier than the selection in "Start date"'
-          />
-        ),
+      expect(result.current.validationMessage?.status).toBe("error")
+
+      const { container } = renderWithIntl(
+        result.current.validationMessage?.message
+      )
+      await waitFor(() => {
+        expect(container).toHaveTextContent(
+          'Cannot be earlier than the selection in "Start date"'
+        )
       })
     })
   })
