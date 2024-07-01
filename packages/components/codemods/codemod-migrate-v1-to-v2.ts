@@ -45,13 +45,31 @@ const walkThroughDirectories = (): string[] => {
           exportPath.slice(1, -1)
         )
 
-        const exportedFile = getFilePath(resolvedPath)
+        const exportedFilePath = getFilePath(resolvedPath)
 
         // create AST from the file list
         // loop through that file and get all exports
 
-        if (exportedFile) {
-          files.push(exportedFile)
+        if (exportedFilePath) {
+          files.push(exportedFilePath)
+
+          // Read the file content
+          const exportedFileContent = fs.readFileSync(exportedFilePath, "utf8")
+
+          // Create a SourceFile (AST)
+          const exportedSourceFile = ts.createSourceFile(
+            exportedFilePath,
+            exportedFileContent,
+            ts.ScriptTarget.ES2015,
+            true
+          )
+          const exportsFromFile: string[] = []
+          // loops through AST and get the export
+          exportedSourceFile.forEachChild(node =>
+            collectExports(node, exportsFromFile)
+          )
+
+          // caution - we need to make sure that it is actually exported from the index and not just a internal component
         }
       })
     }
@@ -59,19 +77,35 @@ const walkThroughDirectories = (): string[] => {
 
   traverse(path.join(__dirname, "../src"))
 
-  console.log("files", files)
-
   return directories
+}
+
+const collectExports = (
+  node: ts.Node,
+  exportsFromFile: string[]
+): void | undefined => {
+  // Check if the node is a named export
+  if (
+    ts.isExportDeclaration(node) &&
+    node.exportClause &&
+    ts.isNamedExports(node.exportClause)
+  ) {
+    node.exportClause.elements.map(element => {
+      const exportName = element.name.getText()
+      // console.log("element", element)
+      console.log("exportName", exportName)
+
+      exportsFromFile.push(exportName)
+    })
+  }
 }
 
 const getFilePath = (resolvedPath: string): string | undefined => {
   if (!fs.existsSync(resolvedPath)) {
     if (fs.existsSync(`${resolvedPath}.ts`)) {
-      // console.log("YAY its a ts", `${resolvedPath}.ts`)
       return `${resolvedPath}.ts`
     }
     if (fs.existsSync(`${resolvedPath}.tsx`)) {
-      // console.log("YAY its a tsx", `${resolvedPath}.tsx`)
       return `${resolvedPath}.tsx`
     }
   }
