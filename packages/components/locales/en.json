@@ -38,6 +38,14 @@
     "description": "Menu button label to show additional available filter options",
     "message": "Add Filters"
   },
+  "filterBar.clearAllButton.ariaLabel": {
+    "description": "Button aria-label to clear all values within the filter bar",
+    "message": "Clear all filters"
+  },
+  "filterBar.clearAllButton.label": {
+    "description": "Button label to clear all values within the filter bar",
+    "message": "Clear all"
+  },
   "filterDatePickerDateInputField.dateInputLabelFallback": {
     "description": "Default label for date input field",
     "message": "Date"
