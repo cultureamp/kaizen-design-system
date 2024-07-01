@@ -1,24 +1,25 @@
 @import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+// An approximation of storybooks default toc column size
+$storybook-toc: 160px;
+$storybook-toc-gutter: $spacing-48;
 
 .main {
-  max-width: $layout-content-max-width;
-  // margin: auto;
-  display: grid;
-  // Content width = 100% - TOC width - gap
-  // grid-template: "content sidebar" 1fr / minmax(calc(100% - 224px), 1fr) 200px;
-  grid-gap: 0 24px;
-}
-
-.sidebar {
-  grid-area: sidebar;
+  max-width: $layout-content-max-width-with-sidebar;
 }
 
 .content {
-  grid-area: content;
-
   :global(code) {
     // If not set, the code overflows behind the TOC when it doesn't wrap.
     /* stylelint-disable-next-line declaration-no-important */
     white-space: pre-wrap !important;
   }
+}
+
+.docsWrapper {
+  max-width: calc(
+    #{$layout-content-max-width-with-sidebar} + #{$storybook-toc-gutter} + #{$storybook-toc}
+  );
+  margin: auto;
 }
