@@ -132,9 +132,8 @@ export const DatePicker = ({
   const [inbuiltStatus, setInbuiltStatus] = useState<
     DateInputFieldProps["status"] | undefined
   >()
-  const [inbuiltValidationMessage, setInbuiltValidationMessage] = useState<
-    ValidationResponse["validationMessage"]
-  >()
+  const [inbuiltValidationMessage, setInbuiltValidationMessage] =
+    useState<ValidationResponse["validationMessage"]>()
 
   const shouldUseInbuiltValidation = onValidate === undefined
 
