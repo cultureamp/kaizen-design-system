@@ -1,7 +1,7 @@
 import React from "react"
 import { Button } from "~components/Button"
 import { AddIcon } from "~components/Icon"
-import { Menu, MenuList, MenuItem } from "~components/Menu"
+import { Menu, MenuList, MenuItem } from "~components/__actions__/v1"
 import { useFilterBarContext } from "../../context/FilterBarContext"
 
 export const AddFiltersMenu = (): JSX.Element => {
