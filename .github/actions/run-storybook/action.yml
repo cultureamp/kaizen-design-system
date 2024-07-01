@@ -21,4 +21,4 @@ runs:
       uses: Eun/http-server-action@v1
       with:
         directory: "./storybook/public"
-        port: 6006
+        port: 4479
