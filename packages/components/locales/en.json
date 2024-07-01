@@ -34,6 +34,10 @@
     "description": "Label for the search input",
     "message": "Select date from calendar for:"
   },
+  "filterBar.addFiltersMenu.buttonLabel": {
+    "description": "Menu button label to show additional available filter options",
+    "message": "Add Filters"
+  },
   "filterDatePickerDateInputField.dateInputLabelFallback": {
     "description": "Default label for date input field",
     "message": "Date"
