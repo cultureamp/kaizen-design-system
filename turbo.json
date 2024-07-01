@@ -7,12 +7,12 @@
       "outputs": ["./storybook/public/**"]
     },
     "//#storybook:build:test:root": {
-      "dependsOn": ["//#storybook:build:root"],
+      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
       "inputs": ["*"],
       "outputs": ["./storybook/public/**"]
     },
     "//#storybook:build:prod:root": {
-      "dependsOn": ["//#storybook:build:root"],
+      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
       "inputs": ["*"],
       "outputs": ["./storybook/public/**"]
     },
