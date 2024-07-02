@@ -23,7 +23,7 @@
   },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
-    "message" : "Filter options by search query"
+    "message" : "ជម្រើសតម្រងដោយសំណួរស្វែងរក"
   },
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
@@ -31,7 +31,7 @@
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",
-    "message" : "Clear search"
+    "message" : "ជម្រះការស្វែងរក"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",

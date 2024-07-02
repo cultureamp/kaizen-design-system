@@ -23,7 +23,7 @@
   },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
-    "message" : "Filter options by search query"
+    "message" : "Možnosti filtrování podle vyhledávacího dotazu"
   },
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
@@ -31,7 +31,7 @@
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",
-    "message" : "Clear search"
+    "message" : "Vymazat hledání"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",

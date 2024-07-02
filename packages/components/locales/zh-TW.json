@@ -23,7 +23,7 @@
   },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
-    "message" : "Filter options by search query"
+    "message" : "依搜尋查詢篩選選項"
   },
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
@@ -31,7 +31,7 @@
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",
-    "message" : "Clear search"
+    "message" : "清除搜尋"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",

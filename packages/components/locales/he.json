@@ -23,15 +23,15 @@
   },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
-    "message" : "Filter options by search query"
+    "message" : "אפשרויות סינון לפי שאילתת חיפוש"
   },
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
-    "message" : "Search…"
+    "message" : "חיפוש..."
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",
-    "message" : "Clear search"
+    "message" : "ניקוי חיפוש"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
