@@ -6,6 +6,7 @@ import ts from "typescript"
 const walkThroughDirectories = (): string[] => {
   const directories: string[] = []
   const files: string[] = []
+  const exportsFromFile: string[] = []
 
   const traverse = (dir: string): void => {
     const stat = fs.statSync(dir)
@@ -64,7 +65,7 @@ const walkThroughDirectories = (): string[] => {
             ts.ScriptTarget.ES2015,
             true
           )
-          const exportsFromFile: string[] = []
+
           // loops through AST and get the export
           exportedSourceFile.forEachChild(
             node => {
@@ -116,7 +117,6 @@ const walkThroughDirectories = (): string[] => {
             }
             // collectExports(node, exportsFromFile)
           )
-          console.log("exportsFromFile", exportsFromFile)
 
           // caution - we need to make sure that it is actually exported from the index and not just a internal component
         }
@@ -125,76 +125,78 @@ const walkThroughDirectories = (): string[] => {
   }
 
   traverse(path.join(__dirname, "../src"))
-
+  console.info("exportsFromFile", exportsFromFile)
   return directories
 }
 
-// /** will return an array of exported functions, named exports and variables */
-// export const getExportsFromAstSourcefile = (sourceFile: ts.SourceFile) => {
-//   const allExports: ValidExport[] = [];
+/** will return an array of exported functions, named exports and variables */
+// export const getExportsFromAstSourcefile = (
+//   sourceFile: ts.SourceFile
+// ): Array<Record<string, string>> => {
+//   const allExports: Array<Record<string, string>> = []
 
-//   visitNode(sourceFile);
+//   visitNode(sourceFile)
 
-//   function visitNode(node: ts.Node) {
+//   function visitNode(node: ts.Node): any {
 //     // if its a named export
 //     if (ts.isExportSpecifier(node)) {
-//       const name = node.name.getText();
+//       const name = node.name.getText()
 //       allExports.push({
 //         name,
 //         type: ts.SyntaxKind[node.kind],
-//       });
+//       })
 //     }
 
 //     if (ts.isClassDeclaration(node)) {
-//       const name = node.name?.getText() || "";
+//       const name = node.name?.getText() || ""
 
 //       allExports.push({
 //         name,
 //         type: ts.SyntaxKind[node.kind],
-//       });
+//       })
 //     }
 
 //     if (ts.isTypeAliasDeclaration(node) || ts.isInterfaceDeclaration(node)) {
-//       const name = node.name?.getText();
+//       const name = node.name?.getText()
 //       allExports.push({
 //         name,
 //         type: ts.SyntaxKind[node.kind],
-//       });
+//       })
 //     }
 
 //     // if its another export (ie: variable or function)
 //     if (node.kind === ts.SyntaxKind.ExportKeyword) {
-//       const parent = node.parent;
+//       const parent = node.parent
 
 //       if (ts.isFunctionDeclaration(parent)) {
-//         const name = parent.name?.getText() || "";
+//         const name = parent.name?.getText() || ""
 //         allExports.push({
 //           name,
 //           type: ts.SyntaxKind[node.parent.kind],
-//         });
+//         })
 //       }
 
 //       // this also include exports JSX as constants ie: const Heading = () => {...}
 //       if (ts.isVariableStatement(parent)) {
-//         parent.declarationList.declarations.forEach((declaration) => {
-//           const name = declaration.name.getText();
+//         parent.declarationList.declarations.forEach(declaration => {
+//           const name = declaration.name.getText()
 //           const variableType =
 //             declaration.initializer?.kind &&
-//             ts.SyntaxKind[declaration.initializer?.kind];
+//             ts.SyntaxKind[declaration.initializer?.kind]
 
 //           allExports.push({
 //             name,
 //             type: variableType || "variable",
-//           });
-//         });
+//           })
+//         })
 //       }
 //     }
 
-//     ts.forEachChild(node, visitNode);
+//     ts.forEachChild(node, visitNode)
 //   }
 
-//   return allExports;
-// };
+//   return allExports
+// }
 
 const collectExports = (
   node: ts.Node,
