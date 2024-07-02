@@ -27,13 +27,11 @@ export const KaizenProvider = ({
 
   return (
     <OptionalIntlProvider locale={locale}>
-      <>
-        <ToastNotificationProvider>
-          {notificationsList}
-          {children}
-        </ToastNotificationProvider>
-        <FontDefinitions />
-      </>
+      <ToastNotificationProvider>
+        {notificationsList}
+        {children}
+      </ToastNotificationProvider>
+      <FontDefinitions />
     </OptionalIntlProvider>
   )
 }

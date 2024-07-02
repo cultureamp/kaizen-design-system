@@ -1,6 +1,7 @@
 import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { renderWithIntl } from "~tests"
 import { MenuItem, MenuList } from "~components/Menu"
 import { SplitButton, SplitButtonProps } from "./SplitButton"
 
@@ -29,8 +30,10 @@ const SplitButtonWrapper = (
 
 describe("<SplitButton />", () => {
   it("renders the correct structure", async () => {
-    render(<SplitButtonWrapper />)
-    expect(screen.getByText("Action Text")).toBeInTheDocument()
+    renderWithIntl(<SplitButtonWrapper />)
+    await waitFor(() => {
+      expect(screen.getByText("Action Text")).toBeInTheDocument()
+    })
 
     const dropdownButton = screen.getByLabelText("Dropdown Label")
     expect(dropdownButton).toBeInTheDocument()
@@ -42,9 +45,11 @@ describe("<SplitButton />", () => {
     })
   })
 
-  it("disables both buttons when disabled is true", () => {
-    render(<SplitButtonWrapper disabled />)
-    expect(screen.getByText("Action Text").closest("button")).toBeDisabled()
+  it("disables both buttons when disabled is true", async () => {
+    renderWithIntl(<SplitButtonWrapper disabled />)
+    await waitFor(() => {
+      expect(screen.getByText("Action Text").closest("button")).toBeDisabled()
+    })
     expect(
       screen.getByLabelText("Dropdown Label").closest("button")
     ).toBeDisabled()

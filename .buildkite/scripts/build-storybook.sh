@@ -4,8 +4,7 @@ set -e
 # shellcheck source=setup-registry.sh
 . ".buildkite/scripts/helpers/setup-registry.sh"
 
+corepack enable
 pnpm install --frozen-lockfile
-pnpm -F @kaizen/design-tokens build
-pnpm -F @kaizen/tailwind build
-pnpm storybook:build:prod
+pnpm turbo storybook:build:prod:root
 tar -czf ./storybook.tar.gz ./storybook/public

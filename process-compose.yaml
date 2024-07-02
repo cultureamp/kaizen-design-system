@@ -1,0 +1,18 @@
+processes:
+  README:
+    command: "./bin/readme.sh; tail -f /dev/null"
+
+  setup:
+    command: devbox run setup
+
+  build:
+    command: pnpm turbo build --filter=@kaizen/tailwind --filter=@kaizen/design-tokens
+    depends_on:
+      setup:
+        condition: process_completed_successfully
+
+  storybook:
+    command: pnpm storybook
+    depends_on:
+      build:
+        condition: process_completed_successfully

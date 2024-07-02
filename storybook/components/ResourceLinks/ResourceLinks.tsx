@@ -1,7 +1,8 @@
 import React, { HTMLAttributes } from "react"
 import { Unstyled } from "@storybook/blocks"
-import classnames from "classnames"
-import styles from "./ResourceLinks.module.scss"
+import classNames from "classnames"
+import { Text } from "~components/Text"
+import { ExternalLinkIcon } from "../../../packages/components/src"
 
 type ResourceLinkProps = {
   href: string
@@ -9,14 +10,20 @@ type ResourceLinkProps = {
 }
 
 const ResourceLink = ({ href, text }: ResourceLinkProps): JSX.Element => (
-  <li className={styles.resourceLinkContainer}>
+  <li>
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer nofollow"
-      className={styles.resourceLink}
+      className="border rounded inline-flex items-center p-8 text-blue-400 no-underline"
     >
-      {text}
+      <Text variant="small" tag="span" classNameOverride="text-inherit">
+        {text}
+      </Text>
+      <ExternalLinkIcon
+        role="presentation"
+        classNameOverride="ml-4 w-16 h-16"
+      />
     </a>
   </li>
 )
@@ -25,21 +32,32 @@ export type ResourceLinksProps = HTMLAttributes<HTMLUListElement> & {
   sourceCode: string
   figma?: string
   designGuidelines?: string
+  apiSpecification?: string
 }
 
 export const ResourceLinks = ({
   sourceCode,
   figma,
   designGuidelines,
+  apiSpecification,
   className,
   ...attributes
 }: ResourceLinksProps): JSX.Element => (
   <Unstyled>
-    <ul className={classnames(styles.resourceLinks, className)} {...attributes}>
+    <ul
+      {...attributes}
+      className={classNames(
+        "flex flex-wrap mt-16 mb-40 list-none m-0 p-0 gap-8",
+        className
+      )}
+    >
       <ResourceLink href={sourceCode} text="Source Code" />
       {figma && <ResourceLink href={figma} text="Figma" />}
       {designGuidelines && (
         <ResourceLink href={designGuidelines} text="Usage Guidelines" />
+      )}
+      {apiSpecification && (
+        <ResourceLink href={apiSpecification} text="API specification" />
       )}
     </ul>
   </Unstyled>

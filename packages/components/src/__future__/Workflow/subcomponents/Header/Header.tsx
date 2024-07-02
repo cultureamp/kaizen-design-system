@@ -18,7 +18,7 @@ export const Header = ({
   ...restProps
 }: HeaderProps): JSX.Element => (
   <HeaderRoot {...restProps}>
-    <Branding alt="Cultureamp" />
+    <Branding alt="Culture Amp" />
     <Titles workflowName={workflowName} stepName={stepName} status={status} />
     <Actions headerActions={headerActions} />
   </HeaderRoot>

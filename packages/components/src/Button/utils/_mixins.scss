@@ -2,7 +2,7 @@
   $background-color: undefined,
   $border-color: undefined
 ) {
-  &:not(:disabled) {
+  &:not(.disabled, .working) {
     &:hover,
     &:active,
     &:focus-visible {

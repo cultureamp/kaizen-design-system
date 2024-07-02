@@ -143,9 +143,8 @@ export const Validation: Story = {
     )
     const [status, setStatus] = useState<FieldMessageStatus | undefined>()
     const [response, setResponse] = useState<ValidationResponse | undefined>()
-    const [validationMessage, setValidationMessage] = useState<
-      string | undefined
-    >()
+    const [validationMessage, setValidationMessage] =
+      useState<ValidationResponse["validationMessage"]>()
 
     const handleValidation = (validationResponse: ValidationResponse): void => {
       setResponse(validationResponse)

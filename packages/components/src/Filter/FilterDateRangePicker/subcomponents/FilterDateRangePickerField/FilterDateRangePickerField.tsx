@@ -254,6 +254,11 @@ export const FilterDateRangePickerField = ({
   }
 
   useEffect(() => {
+    if (inputStartDateLabel === " " || inputEndDateLabel === " ") {
+      // Translations are loading
+      return
+    }
+
     const newStartDate = validateStartDate(
       selectedRange?.from,
       state.inputStartValue
@@ -268,7 +273,7 @@ export const FilterDateRangePickerField = ({
     }
 
     handleDateRangeChange({ from: newStartDate, to: newEndDate })
-  }, [])
+  }, [inputStartDateLabel, inputEndDateLabel])
 
   return (
     <div

@@ -1,7 +1,8 @@
 import React, { useRef } from "react"
-import { render, screen } from "@testing-library/react"
+import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { enAU } from "date-fns/locale"
+import { renderWithIntl } from "~tests"
 import {
   DateRangeInputField,
   DateRangeInputFieldProps,
@@ -23,29 +24,39 @@ const DateRangeInputFieldWrapper = (
 )
 
 describe("<DateRangeInputField />", () => {
-  it("has unique ids for both inputs", () => {
-    const { container } = render(<DateRangeInputFieldWrapper id="range" />)
+  it("has unique ids for both inputs", async () => {
+    const { container } = renderWithIntl(
+      <DateRangeInputFieldWrapper id="range" />
+    )
     const inputStart = container.querySelector("#range--from")
     const inputEnd = container.querySelector("#range--to")
-    expect(inputStart).toBeVisible()
-    expect(inputEnd).toBeVisible()
+    await waitFor(() => {
+      expect(inputStart).toBeVisible()
+      expect(inputEnd).toBeVisible()
+    })
   })
 
-  it("has an accessible name for the fieldset", () => {
-    render(<DateRangeInputFieldWrapper />)
-    expect(screen.getByRole("group", { name: "Dates" })).toBeVisible()
+  it("has an accessible name for the fieldset", async () => {
+    renderWithIntl(<DateRangeInputFieldWrapper />)
+    await waitFor(() => {
+      expect(screen.getByRole("group", { name: "Dates" })).toBeVisible()
+    })
   })
 
-  it("adds description to both inputs", () => {
-    render(<DateRangeInputFieldWrapper />)
+  it("adds description to both inputs", async () => {
+    renderWithIntl(<DateRangeInputFieldWrapper />)
     const inputStart = screen.getByRole("textbox", { name: "Date from" })
     const inputEnd = screen.getByRole("textbox", { name: "Date to" })
-    expect(inputStart).toHaveAccessibleDescription("Input format : dd/mm/yyyy")
-    expect(inputEnd).toHaveAccessibleDescription("Input format : dd/mm/yyyy")
+    await waitFor(() => {
+      expect(inputStart).toHaveAccessibleDescription(
+        "Input format : dd/mm/yyyy"
+      )
+      expect(inputEnd).toHaveAccessibleDescription("Input format : dd/mm/yyyy")
+    })
   })
 
-  it("adds validation message to description if it exists", () => {
-    render(
+  it("adds validation message to description if it exists", async () => {
+    renderWithIntl(
       <DateRangeInputFieldWrapper
         validationMessage={{
           dateStart: {
@@ -56,28 +67,29 @@ describe("<DateRangeInputField />", () => {
       />
     )
     const inputStart = screen.getByRole("textbox", { name: "Date from" })
-    expect(inputStart).toHaveAccessibleDescription(
-      "Date Start has an error Input format : dd/mm/yyyy"
-    )
-    expect(screen.getByText("Date Start has an error")).toBeVisible()
+    await waitFor(() => {
+      expect(inputStart).toHaveAccessibleDescription(
+        "Date Start has an error Input format : dd/mm/yyyy"
+      )
+      expect(screen.getByText("Date Start has an error")).toBeVisible()
+    })
   })
 
   describe("Disabled", () => {
-    it("disables both inputs", () => {
-      render(<DateRangeInputFieldWrapper disabled />)
+    it("disables both inputs", async () => {
+      renderWithIntl(<DateRangeInputFieldWrapper disabled />)
       const inputStart = screen.getByRole("textbox", { name: "Date from" })
       const inputEnd = screen.getByRole("textbox", { name: "Date to" })
-      expect(inputStart).toBeDisabled()
-      expect(inputEnd).toBeDisabled()
+      await waitFor(() => {
+        expect(inputStart).toBeDisabled()
+        expect(inputEnd).toBeDisabled()
+      })
     })
   })
 
   describe("Refs", () => {
     it("correctly passes through both input refs", async () => {
-      const onButtonClick = jest.fn<
-        void,
-        [string | undefined, string | undefined]
-      >()
+      const onButtonClick = jest.fn()
 
       const Wrapper = (): JSX.Element => {
         const inputStartDateRef = useRef<HTMLInputElement>(null)
@@ -107,10 +119,13 @@ describe("<DateRangeInputField />", () => {
         )
       }
 
-      render(<Wrapper />)
+      renderWithIntl(<Wrapper />)
 
       await user.click(screen.getByText("Click me"))
-      expect(onButtonClick).toBeCalledWith("test__id--from", "test__id--to")
+      expect(onButtonClick).toHaveBeenCalledWith(
+        "test__id--from",
+        "test__id--to"
+      )
     })
   })
 })

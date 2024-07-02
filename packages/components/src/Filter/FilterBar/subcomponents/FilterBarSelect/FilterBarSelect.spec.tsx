@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { Key } from "@react-types/shared"
-import { render, waitFor } from "@testing-library/react"
+import { waitFor, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { renderWithIntl } from "~tests"
 import {
   FilterAttributes,
   FilterBarProvider,
@@ -66,35 +66,46 @@ const FilterBarSelectWrapper = <ValuesMap extends FiltersValues = Values>({
 }
 
 describe("<FilterBarSelect />", () => {
-  it("shows the name in the trigger button", () => {
-    const { getByRole } = render(<FilterBarSelectWrapper />)
-    const triggerButton = getByRole("button", { name: "Flavour" })
-    expect(triggerButton).toBeInTheDocument()
+  it("shows the name in the trigger button", async () => {
+    renderWithIntl(<FilterBarSelectWrapper />)
+    await waitFor(() => {
+      const triggerButton = screen.getByRole("button", { name: "Flavour" })
+      expect(triggerButton).toBeInTheDocument()
+    })
   })
 
   describe("Removable", () => {
-    it("does not show the remove button when isRemovable is false", () => {
-      const { queryByRole } = render(<FilterBarSelectWrapper />)
+    it("does not show the remove button when isRemovable is false", async () => {
+      renderWithIntl(<FilterBarSelectWrapper />)
+      await waitFor(() => {
+        expect(
+          screen.getByRole("button", { name: "Flavour" })
+        ).toBeInTheDocument()
+      })
       expect(
-        queryByRole("button", { name: "Remove filter - Flavour" })
+        screen.queryByRole("button", { name: "Remove filter - Flavour" })
       ).not.toBeInTheDocument()
     })
 
-    it("shows the remove button when isRemovable is true", () => {
-      const { getByRole } = render(
+    it("shows the remove button when isRemovable is true", async () => {
+      renderWithIntl(
         <FilterBarSelectWrapper
           filterAttributes={{ isRemovable: true }}
           defaultValues={{ flavour: "jasmine-milk-tea" }}
         />
       )
-      expect(
-        getByRole("button", { name: "Remove filter - Flavour" })
-      ).toBeVisible()
+      await waitFor(() => {
+        expect(
+          screen.getByRole("button", { name: "Remove filter - Flavour" })
+        ).toBeVisible()
+      })
     })
   })
 
   it("can toggle its open state", async () => {
-    const { getByRole, queryByRole } = render(<FilterBarSelectWrapper />)
+    const { getByRole, queryByRole } = renderWithIntl(
+      <FilterBarSelectWrapper />
+    )
     const triggerButton = getByRole("button", { name: "Flavour" })
 
     await user.click(triggerButton)
@@ -110,18 +121,20 @@ describe("<FilterBarSelect />", () => {
     })
   })
 
-  it("shows a selected value when provided", () => {
-    const { getByRole } = render(
+  it("shows a selected value when provided", async () => {
+    const { getByRole } = renderWithIntl(
       <FilterBarSelectWrapper defaultValues={{ flavour: "jasmine-milk-tea" }} />
     )
-    const triggerButton = getByRole("button", {
-      name: "Flavour : Jasmine Milk Tea",
+    await waitFor(() => {
+      const triggerButton = getByRole("button", {
+        name: "Flavour : Jasmine Milk Tea",
+      })
+      expect(triggerButton).toBeInTheDocument()
     })
-    expect(triggerButton).toBeInTheDocument()
   })
 
   it("updates the selected value in the trigger button", async () => {
-    const { getByRole } = render(
+    const { getByRole } = renderWithIntl(
       <FilterBarSelectWrapper defaultValues={{ flavour: "jasmine-milk-tea" }} />
     )
     const triggerButton = getByRole("button", {
@@ -143,8 +156,8 @@ describe("<FilterBarSelect />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = jest.fn<void, [Key]>()
-    const { getByRole } = render(
+    const onChange = jest.fn()
+    const { getByRole } = renderWithIntl(
       <FilterBarSelectWrapper onSelectionChange={onChange} />
     )
     const triggerButton = getByRole("button", { name: "Flavour" })
@@ -195,7 +208,7 @@ describe("<FilterBarSelect />", () => {
       return <FilterBarSelect id="topping" items={items} />
     }
 
-    const { getByRole, getAllByRole, getByTestId } = render(
+    const { getByRole, getAllByRole, getByTestId } = renderWithIntl(
       <FilterBarSelectWrapper<ValuesDependent>
         additionalFilters={[
           {

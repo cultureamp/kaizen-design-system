@@ -1,6 +1,7 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
+import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { renderWithIntl } from "~tests"
 import { useSelectionContext } from "../../context"
 import { SearchInput } from "."
 
@@ -14,12 +15,14 @@ const SearchInputWrapper = (): JSX.Element => <SearchInput label="label-mock" />
 
 describe("<SearchInput /> - interaction", () => {
   describe("Given searchQuery is provided", () => {
-    it("shows searchQuery as value", () => {
+    it("shows searchQuery as value", async () => {
       ;(useSelectionContext as jest.Mock).mockReturnValue({
         searchQuery: "search-query-mock",
       })
-      render(<SearchInputWrapper />)
-      expect(screen.getByRole("searchbox")).toHaveValue("search-query-mock")
+      renderWithIntl(<SearchInputWrapper />)
+      await waitFor(() => {
+        expect(screen.getByRole("searchbox")).toHaveValue("search-query-mock")
+      })
     })
   })
 
@@ -29,7 +32,7 @@ describe("<SearchInput /> - interaction", () => {
       setSearchQuery: spy,
     })
 
-    render(<SearchInputWrapper />)
+    renderWithIntl(<SearchInputWrapper />)
     const search = screen.getByRole("searchbox")
     await user.type(search, "want to search this text")
 
@@ -43,7 +46,7 @@ describe("<SearchInput /> - interaction", () => {
       setSearchQuery: spy,
     })
 
-    render(<SearchInputWrapper />)
+    renderWithIntl(<SearchInputWrapper />)
     const clearButton = screen.getByRole("button")
     await user.click(clearButton)
 

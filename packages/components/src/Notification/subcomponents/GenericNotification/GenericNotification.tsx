@@ -18,7 +18,7 @@ export type GenericNotificationProps = {
   noBottomMargin?: boolean
   forceMultiline?: boolean
   headingProps?: HeadingProps
-} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
+} & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, "style">
 
 export const GenericNotification = ({
   type,

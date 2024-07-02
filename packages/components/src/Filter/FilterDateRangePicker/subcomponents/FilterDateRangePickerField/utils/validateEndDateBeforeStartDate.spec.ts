@@ -1,3 +1,5 @@
+import { screen, waitFor } from "@testing-library/react"
+import { renderWithIntl } from "~tests"
 import { validateEndDateBeforeStartDate } from "./validateEndDateBeforeStartDate"
 
 describe("validateEndDateBeforeStartDate()", () => {
@@ -83,18 +85,27 @@ describe("validateEndDateBeforeStartDate()", () => {
       })
     })
 
-    it("returns a response with an error status and validation message", () => {
-      expect(result.validationResponse).toStrictEqual({
+    it("returns a response with an error status and validation message", async () => {
+      const { validationMessage, ...response } = result.validationResponse
+
+      expect(response).toStrictEqual({
         date: endDate,
         inputValue: endDateInputValue,
-        validationMessage: {
-          status: "error",
-          message: 'Cannot be earlier than the selection in "Start date"',
-        },
         isInvalid: false,
         isDisabled: false,
         isEmpty: false,
         isValidDate: true,
+      })
+
+      expect(validationMessage?.status).toBe("error")
+
+      renderWithIntl(validationMessage?.message)
+      await waitFor(() => {
+        expect(
+          screen.getByText(
+            'Cannot be earlier than the selection in "Start date"'
+          )
+        ).toBeVisible()
       })
     })
 

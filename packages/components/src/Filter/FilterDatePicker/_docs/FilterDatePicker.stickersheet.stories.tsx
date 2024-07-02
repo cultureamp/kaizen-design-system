@@ -8,7 +8,7 @@ import {
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
-import { FilterDatePicker } from "../index"
+import { FilterDatePicker, FilterDatePickerProps } from "../index"
 import { FilterDatePickerField } from "../subcomponents/FilterDatePickerField"
 
 const IS_CHROMATIC = isChromatic()
@@ -129,4 +129,53 @@ export const StickerSheetRTL: StickerSheetStory = {
     chromatic: { delay: 400 },
     textDirection: "rtl",
   },
+}
+
+export const StickerSheetLocales: StickerSheetStory = {
+  name: "Sticker Sheet (Locales)",
+  render: () => {
+    const props = {
+      isOpen: false,
+      setIsOpen: () => undefined,
+      renderTrigger: (triggerButtonProps): JSX.Element => (
+        <FilterButton {...triggerButtonProps} />
+      ),
+      label: "Start day",
+      selectedDate: new Date("2022-05-01"),
+      onDateChange: () => undefined,
+      locale: "en-AU",
+    } satisfies FilterDatePickerProps
+
+    return (
+      <>
+        <StickerSheet heading="Localisation">
+          <StickerSheet.Header headings={["en-AU", "en-US"]} />
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <FilterDatePicker {...props} locale="en-AU" />
+              <FilterDatePicker {...props} locale="en-US" />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+
+        <StickerSheet>
+          <StickerSheet.Header headings={["fr-CA"]} />
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <StaticIntlProvider locale="fr-CA">
+                <FilterDatePicker {...props} locale="fr-CA" isOpen />
+              </StaticIntlProvider>
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+      </>
+    )
+  },
+  decorators: [
+    Story => (
+      <div className="mb-[500px]">
+        <Story />
+      </div>
+    ),
+  ],
 }

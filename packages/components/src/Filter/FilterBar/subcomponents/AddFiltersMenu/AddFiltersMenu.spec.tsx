@@ -1,6 +1,7 @@
 import React from "react"
-import { render, waitFor } from "@testing-library/react"
+import { waitFor, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { renderWithIntl } from "~tests"
 import {
   FilterBarProvider,
   FilterBarProviderProps,
@@ -52,22 +53,25 @@ describe("<AddFiltersMenu />", () => {
       },
     ] satisfies Filters<Values>
 
-    const { getByRole, queryByRole } = render(
-      <AddFiltersMenuWrapper filters={filters} />
-    )
+    renderWithIntl(<AddFiltersMenuWrapper filters={filters} />)
 
-    const addFiltersButton = getByRole("button", { name: "Add Filters" })
+    await waitFor(() => {
+      expect(screen.getByRole("button", { name: "Add Filters" })).toBeVisible()
+    })
+    const addFiltersButton = screen.getByRole("button", { name: "Add Filters" })
     await user.click(addFiltersButton)
 
     await waitFor(() => {
-      expect(getByRole("list")).toBeVisible()
+      expect(screen.getByRole("list")).toBeVisible()
     })
-    expect(getByRole("button", { name: "Coffee" })).toBeVisible()
-    expect(queryByRole("button", { name: "Tea" })).not.toBeInTheDocument()
-    expect(getByRole("button", { name: "Milk" })).toBeVisible()
+    expect(screen.getByRole("button", { name: "Coffee" })).toBeVisible()
+    expect(
+      screen.queryByRole("button", { name: "Tea" })
+    ).not.toBeInTheDocument()
+    expect(screen.getByRole("button", { name: "Milk" })).toBeVisible()
   })
 
-  it("disables the Add Filters button when there are no inactive filters", () => {
+  it("disables the Add Filters button when there are no inactive filters", async () => {
     const filters = [
       {
         id: "coffee",
@@ -76,9 +80,13 @@ describe("<AddFiltersMenu />", () => {
       },
     ] satisfies Filters<Values>
 
-    const { getByRole } = render(<AddFiltersMenuWrapper filters={filters} />)
+    renderWithIntl(<AddFiltersMenuWrapper filters={filters} />)
 
-    const addFiltersButton = getByRole("button", { name: "Add Filters" })
-    expect(addFiltersButton).toBeDisabled()
+    await waitFor(() => {
+      const addFiltersButton = screen.getByRole("button", {
+        name: "Add Filters",
+      })
+      expect(addFiltersButton).toBeDisabled()
+    })
   })
 })

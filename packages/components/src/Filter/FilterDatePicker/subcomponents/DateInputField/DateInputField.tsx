@@ -1,4 +1,5 @@
 import React from "react"
+import { useIntl } from "@cultureamp/i18n-react-intl"
 import type { Locale } from "date-fns"
 import {
   DateInput,
@@ -41,6 +42,14 @@ export const DateInputField = React.forwardRef<
     },
     ref
   ) => {
+    const { formatMessage } = useIntl()
+
+    const dateInputLabelFallback = formatMessage({
+      id: "filterDatePickerDateInputField.dateInputLabelFallback",
+      defaultMessage: "Date",
+      description: "Default label for date input field",
+    })
+
     const descriptionId = `${id}--field-message`
 
     const errorMessageId = validationMessage
@@ -58,7 +67,7 @@ export const DateInputField = React.forwardRef<
         <DateInput
           ref={ref}
           id={id}
-          labelText={labelText || "Date"}
+          labelText={labelText || dateInputLabelFallback}
           aria-describedby={inputDescribedBy}
           aria-errormessage={errorMessageId}
           aria-invalid={dateIsInvalid}

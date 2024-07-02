@@ -1,16 +1,21 @@
 import "./styles/tailwind.scss"
 
 import React, { useEffect } from "react"
+import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
+// import { DocsContainer } from "@storybook/blocks"
 import { Preview } from "@storybook/react"
 import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
+import { I18nProvider } from "~components/__react-aria-components__"
+import { ReversedColors } from "~components/__utilities__/v3"
+import { DefaultDocsContainer } from "../storybook/components/DocsContainer"
 import { backgrounds } from "./backgrounds"
-import { DefaultDocsContainer } from "./components/DocsContainer"
 import { globalA11yRules } from "./global-a11y-rules"
 
+const [, withBackground] = bgDecorators
 const IS_CHROMATIC = isChromatic()
 
-const globalTypes = {
+const globalTypes: Preview["globalTypes"] = {
   textDirection: {
     name: "Text direction",
     description: "",
@@ -20,33 +25,64 @@ const globalTypes = {
       items: ["ltr", "rtl"],
     },
   },
-} satisfies Preview["globalTypes"]
+}
 
-const decorators = [
+const decorators: Preview["decorators"] = [
+  (Story, context): JSX.Element => {
+    const dir =
+      context.parameters.textDirection ?? context.globals.textDirection
+
+    useEffect(() => {
+      if (document.body.getAttribute("dir") !== dir)
+        document.body.setAttribute("dir", dir)
+    }, [dir])
+
+    return (
+      <I18nProvider locale={dir === "rtl" ? "ar" : "en"}>
+        <Story />
+      </I18nProvider>
+    )
+  },
   (Story): JSX.Element => (
     <KaizenProvider>
       <Story />
     </KaizenProvider>
   ),
-  (Story, context): JSX.Element => {
-    useEffect(() => {
-      const dir =
-        context.parameters.textDirection ?? context.globals.textDirection
-      if (document.body.getAttribute("dir") !== dir)
-        document.body.setAttribute("dir", dir)
-    }, [context])
-
-    return <Story />
-  },
   (Story, context) =>
     (context.args.isReversed || context.args.reversed) && !IS_CHROMATIC ? (
-      <div className="bg-purple-700 p-16 m-[-1rem]">
+      <div className="p-16 m-[-1rem]">
         <Story />
       </div>
     ) : (
       <Story />
     ),
-] satisfies Preview["decorators"]
+  // reverseColor parameter wraps story in ReversedColors context and sets default background to Purple 700
+  // @ts-ignore
+  (Story, context) => {
+    if (
+      // set in top toolbar
+      !context.globals.backgrounds &&
+      // set on story
+      !context.moduleExport?.parameters?.backgrounds
+    ) {
+      context.parameters.backgrounds.default = context.parameters.reverseColors
+        ? "Purple 700"
+        : "White"
+    }
+
+    return withBackground(
+      () =>
+        context.parameters.reverseColors ? (
+          <ReversedColors>
+            <Story />
+          </ReversedColors>
+        ) : (
+          <Story />
+        ),
+      context
+    )
+  },
+]
 
 const preview = {
   parameters: {
@@ -55,11 +91,16 @@ const preview = {
       values: backgrounds,
     },
     docs: {
-      container: DefaultDocsContainer,
+      toc: {
+        title: "Table of contents",
+        headingSelector: "h2, h3",
+        ignoreSelector: "#primary",
+      },
       source: {
         excludeDecorators: true,
         language: "tsx",
       },
+      container: DefaultDocsContainer,
     },
     options: {
       storySort: {
@@ -67,9 +108,9 @@ const preview = {
         order: [
           "Introduction",
           "Guides",
-          "Systems",
           [
-            "*",
+            "App starter",
+            "Layout and spacing",
             "Tailwind",
             [
               "Overview",
@@ -81,13 +122,10 @@ const preview = {
               ["Overview", "*"],
             ],
           ],
+          "Overlays",
+          ["*", ["*", ["Usage Guidelines", "API Specification", "*"]]],
           "Components",
           ["Kaizen Provider", "*"],
-          "Pages",
-          "Helpers",
-          "Design Tokens",
-          "Deprecated",
-          "AIO",
         ],
       },
     },

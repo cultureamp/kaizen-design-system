@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
-import { render, screen } from "@testing-library/react"
+import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { renderWithIntl } from "~tests"
 import {
   FilterButtonRemovable,
   FilterButtonRemovableProps,
@@ -27,19 +28,18 @@ const FilterButtonRemovableWrapper = ({
 )
 
 describe("<FilterButtonRemovable />", () => {
-  it("should use fallback label for remove button if not specified", () => {
-    render(<FilterButtonRemovableWrapper />)
-    expect(
-      screen.getByRole("button", { name: "Remove filter - Desserts" })
-    ).toBeVisible()
+  it("should use fallback label for remove button if not specified", async () => {
+    renderWithIntl(<FilterButtonRemovableWrapper />)
+    await waitFor(() => {
+      expect(
+        screen.getByRole("button", { name: "Remove filter - Desserts" })
+      ).toBeVisible()
+    })
   })
 
   describe("Refs", () => {
     it("correctly passes through both button refs", async () => {
-      const onClick = jest.fn<
-        void,
-        [string | null | undefined, string | null | undefined]
-      >()
+      const onClick = jest.fn()
 
       const Wrapper = (): JSX.Element => {
         const triggerRef = useRef<HTMLButtonElement>(null)
@@ -72,10 +72,10 @@ describe("<FilterButtonRemovable />", () => {
         )
       }
 
-      render(<Wrapper />)
+      renderWithIntl(<Wrapper />)
 
       await user.click(screen.getByText("Click me"))
-      expect(onClick).toBeCalledWith(
+      expect(onClick).toHaveBeenCalledWith(
         "test__trigger-button",
         "test__remove-button"
       )

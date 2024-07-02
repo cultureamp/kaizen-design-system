@@ -6,7 +6,7 @@ import { Heading, HeadingProps } from "~components/Heading"
 import { ArrowForwardIcon } from "~components/Icon"
 import { SceneProps, SpotProps } from "~components/Illustration"
 import { Text } from "~components/Text"
-import { Tooltip, TooltipProps } from "~components/Tooltip"
+import { Tooltip, TooltipProps } from "~components/__overlays__/Tooltip/v1"
 import { VariantType } from "./types"
 import styles from "./GuidanceBlock.module.scss"
 
