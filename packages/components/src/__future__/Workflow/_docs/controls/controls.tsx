@@ -1,6 +1,6 @@
 import React from "react"
 import { ArgTypes } from "@storybook/react"
-import { Button } from "~components/Button"
+import { Button } from "~components/__actions__/Button/v1"
 import { CloseIcon, VisibleIcon } from "~components/Icon"
 
 export const WorkflowControls: Partial<ArgTypes> = {

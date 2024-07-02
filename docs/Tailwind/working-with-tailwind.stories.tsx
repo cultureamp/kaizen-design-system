@@ -1,6 +1,6 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
-import { Button } from "~components/Button"
+import { Button } from "~components/__actions__/Button/v1"
 import { Card } from "~components/Card"
 import { Heading } from "~components/Heading"
 import {

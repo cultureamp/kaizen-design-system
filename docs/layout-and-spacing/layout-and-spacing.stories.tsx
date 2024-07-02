@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryFn, StoryObj } from "@storybook/react"
-import { Button } from "~components/Button"
+import { Button } from "~components/__actions__/Button/v1"
 import { tokens } from "~design-tokens/js"
 
 const meta = {

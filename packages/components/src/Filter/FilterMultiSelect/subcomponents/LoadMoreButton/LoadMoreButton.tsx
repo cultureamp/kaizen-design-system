@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, ButtonProps } from "~components/Button"
+import { Button, ButtonProps } from "~components/__actions__/Button/v1"
 import styles from "./LoadMoreButton.module.scss"
 
 export type LoadMoreButtonProps = ButtonProps

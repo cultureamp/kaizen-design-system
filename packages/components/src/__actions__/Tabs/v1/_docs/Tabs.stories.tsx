@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Button } from "~components/Button"
+import { Button } from "~components/__actions__/Button/v1"
 import { Card } from "~components/Card"
 import { Text } from "~components/Text"
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "../index"

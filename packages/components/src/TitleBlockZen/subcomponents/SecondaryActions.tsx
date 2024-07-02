@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, IconButton } from "~components/Button"
+import { Button, IconButton } from "~components/__actions__/Button/v1"
 import { ChevronDownIcon, MeatballsIcon } from "~components/Icon"
 import { Menu, MenuList } from "~components/Menu"
 import styles from "../TitleBlockZen.module.scss"

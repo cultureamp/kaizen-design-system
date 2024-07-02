@@ -500,9 +500,49 @@ importers:
         specifier: ^4.15.1
         version: 4.15.5
 
+  packages/components/v1/Illustrations: {}
+
+  packages/components/v1/actions: {}
+
+  packages/components/v1/containers: {}
+
+  packages/components/v1/content: {}
+
+  packages/components/v1/forms: {}
+
+  packages/components/v1/layout: {}
+
+  packages/components/v1/loading: {}
+
+  packages/components/v1/notifications: {}
+
   packages/components/v1/overlays: {}
 
+  packages/components/v1/pickers: {}
+
+  packages/components/v1/utilities: {}
+
+  packages/components/v2/Illustrations: {}
+
+  packages/components/v2/actions: {}
+
+  packages/components/v2/containers: {}
+
+  packages/components/v2/content: {}
+
+  packages/components/v2/forms: {}
+
+  packages/components/v2/layout: {}
+
+  packages/components/v2/loading: {}
+
+  packages/components/v2/notifications: {}
+
   packages/components/v2/overlays: {}
+
+  packages/components/v2/pickers: {}
+
+  packages/components/v2/utilities: {}
 
   packages/components/v3/overlays: {}
 

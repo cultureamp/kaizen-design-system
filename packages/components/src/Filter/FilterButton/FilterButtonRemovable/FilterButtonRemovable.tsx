@@ -1,8 +1,11 @@
 import React, { forwardRef } from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
-import { ButtonGroup, ButtonGroupProps } from "~components/ButtonGroup"
 import { FilterTriggerRef } from "~components/Filter/Filter"
 import { ClearIcon } from "~components/Icon"
+import {
+  ButtonGroup,
+  ButtonGroupProps,
+} from "~components/__actions__/ButtonGroup/v1"
 import { Tooltip } from "~components/__overlays__/Tooltip/v1"
 import { DataAttributes } from "~types/DataAttributes"
 import { isRefObject } from "~utils/isRefObject"

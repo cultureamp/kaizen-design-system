@@ -1,5 +1,8 @@
 import React from "react"
-import { GenericProps, GenericButton } from "../../../Button/GenericButton"
+import {
+  GenericProps,
+  GenericButton,
+} from "~components/__actions__/Button/v1/GenericButton"
 
 export type PaginationLinkProps = GenericProps & {
   pageNumber: number

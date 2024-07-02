@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ButtonProps } from "~components/Button"
+import { ButtonProps } from "~components/__actions__/Button/v1"
 import {
   StatelessMenu,
   StatelessMenuProps,
