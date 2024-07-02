@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { render, screen, waitFor, within } from "@testing-library/react"
+import { screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { renderWithIntl } from "~tests"
 import { FilterMultiSelect } from "../index"
 import { FilterBar, FilterBarProps } from "./FilterBar"
 import { useFilterBarContext } from "./context/FilterBarContext"
@@ -137,11 +138,21 @@ const FilterBarWrapper = <T extends FiltersValues>({
   )
 }
 
+const waitForI18nContent = async (): Promise<void> => {
+  await waitFor(() => {
+    expect(
+      screen.getByRole("button", { name: "Clear all filters" })
+    ).toBeVisible()
+  })
+}
+
 describe("<FilterBar />", () => {
-  it("renders filters in the provided order", () => {
-    const { getAllByTestId } = render(
+  it("renders filters in the provided order", async () => {
+    const { getAllByTestId } = renderWithIntl(
       <FilterBarWrapper<ValuesSimple> filters={simpleFilters} />
     )
+    await waitForI18nContent()
+
     const filters = getAllByTestId(TEST_ID__FILTER)
     expect(filters.length).toBe(3)
     expect(filters[0]).toHaveTextContent("Flavour")
@@ -150,7 +161,7 @@ describe("<FilterBar />", () => {
   })
 
   it("retains Filter accessibility", async () => {
-    render(<FilterBarWrapper filters={simpleFilters} />)
+    renderWithIntl(<FilterBarWrapper filters={simpleFilters} />)
 
     const filterButton = screen.getByRole("button", { name: "Flavour" })
     await user.click(filterButton)
@@ -162,9 +173,11 @@ describe("<FilterBar />", () => {
 
   describe("Removable filters", () => {
     it("shows inactive filters in the Add Filters menu only", async () => {
-      const { getByRole, queryByText } = render(
+      const { getByRole, queryByText } = renderWithIntl(
         <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
       )
+      await waitForI18nContent()
+
       expect(queryByText("Topping")).not.toBeInTheDocument()
 
       const addFiltersButton = getByRole("button", { name: "Add Filters" })
@@ -178,13 +191,14 @@ describe("<FilterBar />", () => {
       })
     })
 
-    it("shows removable filter as active if there is a default value", () => {
-      const { getByRole } = render(
+    it("shows removable filter as active if there is a default value", async () => {
+      const { getByRole } = renderWithIntl(
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{ topping: "pearls" }}
         />
       )
+      await waitForI18nContent()
       expect(getByRole("button", { name: "Topping : Pearls" })).toBeVisible()
       expect(
         getByRole("button", { name: "Remove filter - Topping" })
@@ -192,12 +206,13 @@ describe("<FilterBar />", () => {
     })
 
     it("does not show active removable filters in the Add Filters menu", async () => {
-      const { getByRole } = render(
+      const { getByRole } = renderWithIntl(
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{ topping: "pearls" }}
         />
       )
+      await waitForI18nContent()
 
       const addFiltersButton = getByRole("button", { name: "Add Filters" })
       await user.click(addFiltersButton)
@@ -210,12 +225,13 @@ describe("<FilterBar />", () => {
     })
 
     it("clears the value of a filter if it is removed", async () => {
-      const { getByRole } = render(
+      const { getByRole } = renderWithIntl(
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{ topping: "pearls" }}
         />
       )
+      await waitForI18nContent()
 
       const filterButton = getByRole("button", { name: "Topping : Pearls" })
       expect(filterButton).toBeVisible()
@@ -242,7 +258,7 @@ describe("<FilterBar />", () => {
     })
 
     it("adds new filters in the provided order", async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = renderWithIntl(
         <FilterBarWrapper<ValuesSimple>
           filters={simpleFilters.map(filter => ({
             ...filter,
@@ -250,6 +266,7 @@ describe("<FilterBar />", () => {
           }))}
         />
       )
+      await waitForI18nContent()
 
       const addFiltersButton = getByRole("button", { name: "Add Filters" })
       await user.click(addFiltersButton)
@@ -275,18 +292,19 @@ describe("<FilterBar />", () => {
 
   describe("Dependent filters", () => {
     describe("Condition not met", () => {
-      it("does not show a dependent filter", () => {
-        const { queryByRole, getByRole } = render(
+      it("does not show a dependent filter", async () => {
+        const { queryByRole, getByRole } = renderWithIntl(
           <FilterBarWrapper filters={filtersDependent} />
         )
+        await waitForI18nContent()
         expect(
           queryByRole("button", { name: "Topping" })
         ).not.toBeInTheDocument()
         expect(getByRole("button", { name: "Add Filters" })).toBeDisabled()
       })
 
-      it("clears the value if the filter is not usable", () => {
-        const { getByTestId } = render(
+      it("clears the value if the filter is not usable", async () => {
+        const { getByTestId } = renderWithIntl(
           <FilterBarWrapper
             filters={filtersDependent}
             defaultValues={{
@@ -294,6 +312,7 @@ describe("<FilterBar />", () => {
             }}
           />
         )
+        await waitForI18nContent()
         expect(getByTestId("testid__values").textContent).toEqual(
           JSON.stringify({})
         )
@@ -302,9 +321,10 @@ describe("<FilterBar />", () => {
 
     describe("Condition met", () => {
       it("shows a non-removable dependent filter in active filters", async () => {
-        const { queryByRole, getByRole, findByRole } = render(
+        const { queryByRole, getByRole, findByRole } = renderWithIntl(
           <FilterBarWrapper filters={filtersDependent} />
         )
+        await waitForI18nContent()
 
         const flavourButton = getByRole("button", { name: "Flavour" })
         expect(
@@ -323,7 +343,7 @@ describe("<FilterBar />", () => {
       })
 
       it("shows a removable dependent filter in Add Filters menu", async () => {
-        const { getByRole, findByRole } = render(
+        const { getByRole, findByRole } = renderWithIntl(
           <FilterBarWrapper
             filters={[
               {
@@ -351,6 +371,7 @@ describe("<FilterBar />", () => {
             ]}
           />
         )
+        await waitForI18nContent()
 
         const addFiltersButton = getByRole("button", { name: "Add Filters" })
         expect(addFiltersButton).toBeDisabled()
@@ -400,7 +421,9 @@ describe("<FilterBar />", () => {
           )
         }
 
-        const { queryByRole, getByRole } = render(<Wrapper />)
+        const { queryByRole, getByRole } = renderWithIntl(<Wrapper />)
+        await waitForI18nContent()
+
         expect(
           queryByRole("button", { name: "Topping : Pearls" })
         ).not.toBeInTheDocument()
@@ -440,7 +463,9 @@ describe("<FilterBar />", () => {
           )
         }
 
-        const { getByRole } = render(<Wrapper />)
+        const { getByRole } = renderWithIntl(<Wrapper />)
+        await waitForI18nContent()
+
         expect(
           getByRole("button", { name: "Flavour : Jasmine Milk Tea" })
         ).toBeVisible()
@@ -533,12 +558,13 @@ describe("<FilterBar />", () => {
           },
         ] satisfies Filters<ValuesComplexDeps>
 
-        const { queryByRole, getByRole } = render(
+        const { queryByRole, getByRole } = renderWithIntl(
           <FilterBarWrapper
             filters={filters}
             defaultValues={{ milk: "full-cream" }}
           />
         )
+        await waitForI18nContent()
 
         const coffeeButton = getByRole("button", { name: "Coffee" })
         expect(coffeeButton).toBeVisible()
@@ -611,7 +637,7 @@ describe("<FilterBar />", () => {
 
   describe("Clear all", () => {
     it("clears all the values of all the filters", async () => {
-      const { getByRole } = render(
+      const { getByRole } = renderWithIntl(
         <FilterBarWrapper<ValuesSimple>
           filters={simpleFilters}
           defaultValues={{
@@ -621,6 +647,7 @@ describe("<FilterBar />", () => {
           }}
         />
       )
+      await waitForI18nContent()
 
       const flavourButton = getByRole("button", {
         name: "Flavour : Jasmine Milk Tea",
@@ -644,7 +671,7 @@ describe("<FilterBar />", () => {
     })
 
     it("removes all removable filters", async () => {
-      const { getByRole } = render(
+      const { getByRole } = renderWithIntl(
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{
@@ -653,6 +680,7 @@ describe("<FilterBar />", () => {
           }}
         />
       )
+      await waitForI18nContent()
 
       const flavourButton = getByRole("button", {
         name: "Flavour : Jasmine Milk Tea",
@@ -712,7 +740,8 @@ describe("<FilterBar />", () => {
         )
       }
 
-      const { getByRole } = render(<Wrapper />)
+      const { getByRole } = renderWithIntl(<Wrapper />)
+      await waitForI18nContent()
 
       const flavourButton = getByRole("button", { name: "Flavour" })
       expect(flavourButton.textContent).toEqual("Flavour")
@@ -767,7 +796,8 @@ describe("<FilterBar />", () => {
         )
       }
 
-      const { getByRole, queryByRole } = render(<Wrapper />)
+      const { getByRole, queryByRole } = renderWithIntl(<Wrapper />)
+      await waitForI18nContent()
 
       expect(queryByRole("button", { name: "Flavour" })).not.toBeInTheDocument()
 
@@ -877,7 +907,7 @@ describe("<FilterBar />", () => {
       ] satisfies Filters<AsyncValues>
 
       it("can re-fetch options with all active filter values pulled off of the FilterBarContext", async () => {
-        const { getByRole, queryByRole } = render(
+        const { getByRole, queryByRole } = renderWithIntl(
           <FilterBarWrapper<AsyncValues> filters={config} defaultValues={{}} />
         )
 
@@ -951,9 +981,10 @@ describe("<FilterBar />", () => {
       ] satisfies Filters<CycleFilterValues>
 
       it("opens the Custom Date filter when Cycle's 'custom' value is selected", async () => {
-        const { getByRole } = render(
+        const { getByRole } = renderWithIntl(
           <FilterBarWrapper<CycleFilterValues> filters={cycleFilters} />
         )
+        await waitForI18nContent()
 
         const customDateButton = getByRole("button", { name: "Custom Date" })
         expect(customDateButton).toHaveAttribute("aria-expanded", "false")

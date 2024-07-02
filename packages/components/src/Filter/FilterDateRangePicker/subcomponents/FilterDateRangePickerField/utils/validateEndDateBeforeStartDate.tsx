@@ -1,4 +1,5 @@
 import React from "react"
+import { FormattedMessage } from "@cultureamp/i18n-react-intl"
 import { DateValidationResponse } from "~components/Filter/FilterDatePicker"
 import { getNodeText } from "~utils/getNodeText"
 import { isValidRange } from "./isValidRange"
@@ -37,9 +38,14 @@ export const validateEndDateBeforeStartDate = ({
         ...baseResponse,
         validationMessage: {
           status: "error",
-          message: `Cannot be earlier than the selection in "${getNodeText(
-            startDateFieldLabel
-          )}"`,
+          message: (
+            <FormattedMessage
+              id="date.validation.rangeEndBeforeRangeStart"
+              defaultMessage='Cannot be earlier than the selection in "{startDateFieldLabel}"'
+              description="Error message when the user tries to select an end date earlier than the start date"
+              values={{ startDateFieldLabel: getNodeText(startDateFieldLabel) }}
+            />
+          ),
         },
       },
       newDate: endDate,

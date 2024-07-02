@@ -185,6 +185,11 @@ module.exports = {
             position: "after",
           },
           {
+            pattern: "~*",
+            group: "internal",
+            position: "before",
+          },
+          {
             pattern: "~*/**",
             group: "internal",
             position: "before",
@@ -299,6 +304,7 @@ module.exports = {
       files: [
         "storybook/*",
         "**/_docs/**/*",
+        "**/__tests__/**/*",
         "*.stories.tsx",
         "*.spec.ts",
         "*.spec.tsx",

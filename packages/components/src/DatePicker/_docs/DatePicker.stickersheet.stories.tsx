@@ -1,5 +1,7 @@
 import React, { useState } from "react"
+import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { Meta } from "@storybook/react"
+import { expect, userEvent, within } from "@storybook/test"
 import { Text } from "~components/Text"
 import {
   StickerSheet,
@@ -134,27 +136,6 @@ const StickerSheetTemplate: StickerSheetStory = {
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>
-
-        <StickerSheet isReversed={isReversed} heading="Localisation">
-          <StickerSheet.Header headings={["en-AU", "en-US"]} />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <DatePicker
-                labelText="Label"
-                selectedDay={new Date("2022, 1, 5")}
-                onDayChange={() => undefined}
-                isReversed={isReversed}
-              />
-              <DatePicker
-                labelText="Label"
-                selectedDay={new Date("2022, 1, 5")}
-                onDayChange={() => undefined}
-                isReversed={isReversed}
-                locale="en-US"
-              />
-            </StickerSheet.Row>
-          </StickerSheet.Body>
-        </StickerSheet>
       </>
     )
   },
@@ -197,5 +178,60 @@ export const StickerSheetRTL: StickerSheetStory = {
   parameters: {
     ...StickerSheetTemplate.parameters,
     textDirection: "rtl",
+  },
+}
+
+export const StickerSheetLocales: StickerSheetStory = {
+  name: "Sticker Sheet (Locales)",
+  render: () => (
+    <>
+      <StickerSheet heading="Localisation">
+        <StickerSheet.Header headings={["en-AU", "en-US"]} />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <DatePicker
+              labelText="Label"
+              selectedDay={new Date("2022, 1, 5")}
+              onDayChange={() => undefined}
+            />
+            <DatePicker
+              labelText="Label"
+              selectedDay={new Date("2022, 1, 5")}
+              onDayChange={() => undefined}
+              locale="en-US"
+            />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+
+      <StickerSheet>
+        <StickerSheet.Header headings={["fr-CA"]} />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <StaticIntlProvider locale="fr-CA">
+              <DatePicker
+                labelText="Label"
+                selectedDay={new Date("2022, 1, 5")}
+                onDayChange={() => undefined}
+                locale="fr-CA"
+                data-testid="id--dp-fr-ca"
+              />
+            </StaticIntlProvider>
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+    </>
+  ),
+  decorators: [
+    Story => (
+      <div className="mb-[400px]">
+        <Story />
+      </div>
+    ),
+  ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.click(canvas.getByTestId("id--dp-fr-ca"))
+    await expect(canvas.getByText("janvier 2022")).toBeInTheDocument()
   },
 }
