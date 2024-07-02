@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
-import { Button, IconButton } from "~components/Button"
+import { Button, IconButton } from "~components/__actions__/Button/v1"
 import { FieldMessage } from "~components/FieldMessage"
 import { AddIcon, QuestionIcon } from "~components/Icon"
 import { Input } from "~components/Input"

@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Button } from "~components/Button"
+import { Button } from "~components/__actions__/Button/v1"
 import { ChevronRightIcon } from "~components/Icon"
 import { EmptyState } from "../index"
 import styles from "./EmptyState.stories.module.scss"

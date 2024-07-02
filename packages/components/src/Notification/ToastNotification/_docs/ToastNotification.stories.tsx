@@ -1,6 +1,6 @@
 import React, { useEffect, useId } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Button } from "~components/Button"
+import { Button } from "~components/__actions__/Button/v1"
 import { ToastNotification, useToastNotification } from "../index"
 
 const meta = {

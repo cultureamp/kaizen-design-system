@@ -1,6 +1,6 @@
 import React from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
-import { Button } from "~components/Button"
+import { Button } from "~components/__actions__/Button/v1"
 import { CloseIcon } from "~components/Icon"
 import styles from "./ExampleHeaders.scss"
 

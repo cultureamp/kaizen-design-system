@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { ButtonProps } from "~components/Button"
+import { ButtonProps } from "~components/__actions__/Button/v1"
 import { Heading } from "~components/Heading"
 import {
   CautionWhiteIcon,

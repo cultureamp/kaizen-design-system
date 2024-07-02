@@ -1,5 +1,5 @@
 import React from "react"
-import { IconButton } from "~components/Button"
+import { IconButton } from "~components/__actions__/Button/v1"
 import { CloseIcon } from "~components/Icon"
 import { ModalBody } from "../ModalBody"
 import styles from "./ModalHeader.module.scss"

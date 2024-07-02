@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import classNames from "classnames"
 import Media from "react-media"
-import { Button, ButtonProps } from "~components/Button"
+import { Button, ButtonProps } from "~components/__actions__/Button/v1"
 import { Heading, HeadingProps } from "~components/Heading"
 import { ArrowForwardIcon } from "~components/Icon"
 import { SceneProps, SpotProps } from "~components/Illustration"

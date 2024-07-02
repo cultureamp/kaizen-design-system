@@ -1,5 +1,5 @@
 import React from "react"
-import { Button } from "~components/Button"
+import { Button } from "~components/__actions__/Button/v1"
 import { AddIcon } from "~components/Icon"
 import { Menu, MenuList, MenuItem } from "~components/Menu"
 import { useFilterBarContext } from "../../context/FilterBarContext"
