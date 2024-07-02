@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.53.0
+
+### Minor Changes
+
+- [#4788](https://github.com/cultureamp/kaizen-design-system/pull/4788) [`c04d33098c31ba5dd2516b95c7ea4c1e2975c2c3`](https://github.com/cultureamp/kaizen-design-system/commit/c04d33098c31ba5dd2516b95c7ea4c1e2975c2c3) - Add translations to `FilterBar` and `DatePicker` components.
+
+  Add locale `fr-CA` and translate text in `DatePicker`, `FilterDatePicker`, `FilterDateRangePicker`.
+
 ## 1.52.1
 
 ### Patch Changes
