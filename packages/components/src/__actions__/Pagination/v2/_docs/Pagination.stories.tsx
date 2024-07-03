@@ -1,8 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react"
+import * as PaginationV1Stories from "../../v1/_docs/Pagination.stories"
 import { Pagination } from "../index"
 
 const meta = {
-  title: "Actions/Pagination/v1",
+  title: "Actions/Pagination/v2",
   component: Pagination,
   args: {
     currentPage: 2,
@@ -20,12 +21,4 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Playground: Story = {
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: "shown",
-      },
-    },
-  },
-}
+export const Playground: Story = PaginationV1Stories.Playground

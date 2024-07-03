@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { DirectionalLink } from "../index"
 
 const meta = {
-  title: "Actions/Pagination/v1/DirectionalLink",
+  title: "Actions/Pagination/v2/DirectionalLink",
   component: DirectionalLink,
   args: {
     label: "Back",
