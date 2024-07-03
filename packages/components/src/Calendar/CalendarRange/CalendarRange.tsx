@@ -4,7 +4,6 @@ import { DayPicker, DayPickerRangeProps } from "react-day-picker"
 import { ArrowBackwardIcon, ArrowForwardIcon } from "~components/Icon"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { baseCalendarClassNames } from "../baseCalendarClassNames"
-import { DayOfWeek } from "../enums"
 import { isInvalidDate } from "../utils"
 import styles from "./CalendarRange.module.scss"
 
@@ -54,7 +53,6 @@ export const CalendarRange = ({
         mode="range"
         selected={selected}
         defaultMonth={selectedMonth}
-        weekStartsOn={DayOfWeek.Mon}
         classNames={classNames}
         components={{
           IconRight: () => <ArrowForwardIcon role="presentation" />,

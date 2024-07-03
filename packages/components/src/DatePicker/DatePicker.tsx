@@ -46,8 +46,8 @@ export type DatePickerProps = {
   onButtonClick?: DateInputFieldProps["onButtonClick"]
   locale?: DatePickerSupportedLocales
   /**
-   * Accepts a DayOfWeek value to start the week on that day. By default,
-   * it's set to Monday.
+   * Accepts a DayOfWeek value to start the week on that day.
+   * By default it adapts to the provided locale.
    */
   weekStartsOn?: CalendarSingleProps["weekStartsOn"]
   /**
