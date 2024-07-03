@@ -11,19 +11,19 @@
   },
   "date.validation.invalidDate" : {
     "description" : "Error message when the user enters an invalid date and we do not know their input value",
-    "message" : "Date is invalid"
+    "message" : "Tarih geçersiz"
   },
   "date.validation.invalidDateWithValue" : {
     "description" : "Error message when the user enters an invalid date and we know their input value",
-    "message" : "{inputValue} is an invalid date"
+    "message" : "{inputValue} geçersiz bir tarihtir"
   },
   "date.validation.rangeEndBeforeRangeStart" : {
     "description" : "Error message when the user tries to select an end date earlier than the start date",
-    "message" : "Cannot be earlier than the selection in \"{startDateFieldLabel}\""
+    "message" : "\"{startDateFieldLabel}\" içindeki seçimden önce olamaz"
   },
   "date.validation.unavailableDate" : {
     "description" : "Error message when the user tries to select a date that is unavailable",
-    "message" : "{inputValue} is not available, try another date"
+    "message" : "{inputValue} uygun değil, başka bir tarih deneyin"
   },
   "dateInputDescription.inputFormat" : {
     "description" : "Label for the 'Input format' field",
@@ -31,15 +31,15 @@
   },
   "datePicker.calendarLabelDescription" : {
     "description" : "Label for the search input",
-    "message" : "Select date from calendar for:"
+    "message" : "Şunun için takvimden tarih seçin:"
   },
   "filterBar.addFiltersMenu.buttonLabel" : {
     "description" : "Menu button label to show additional available filter options",
-    "message" : "Add Filters"
+    "message" : "Filtre ekle"
   },
   "filterBar.clearAllButton.ariaLabel" : {
     "description" : "Button aria-label to clear all values within the filter bar",
-    "message" : "Clear all filters"
+    "message" : "Tüm filtreleri temizle"
   },
   "filterBar.clearAllButton.label" : {
     "description" : "Button label to clear all values within the filter bar",

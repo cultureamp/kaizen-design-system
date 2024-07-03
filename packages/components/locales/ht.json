@@ -11,19 +11,19 @@
   },
   "date.validation.invalidDate" : {
     "description" : "Error message when the user enters an invalid date and we do not know their input value",
-    "message" : "Date is invalid"
+    "message" : "Dat la pa valid"
   },
   "date.validation.invalidDateWithValue" : {
     "description" : "Error message when the user enters an invalid date and we know their input value",
-    "message" : "{inputValue} is an invalid date"
+    "message" : "{inputValue} se yon dat ki pa valid"
   },
   "date.validation.rangeEndBeforeRangeStart" : {
     "description" : "Error message when the user tries to select an end date earlier than the start date",
-    "message" : "Cannot be earlier than the selection in \"{startDateFieldLabel}\""
+    "message" : "Li pa ka vin avan seleksyon an nan \"{startDateFieldLabel}\""
   },
   "date.validation.unavailableDate" : {
     "description" : "Error message when the user tries to select a date that is unavailable",
-    "message" : "{inputValue} is not available, try another date"
+    "message" : "{inputValue} pa disponib, eseye yon lòt dat"
   },
   "dateInputDescription.inputFormat" : {
     "description" : "Label for the 'Input format' field",
@@ -31,15 +31,15 @@
   },
   "datePicker.calendarLabelDescription" : {
     "description" : "Label for the search input",
-    "message" : "Select date from calendar for:"
+    "message" : "Chwazi dat la nan kalandriye a pou:"
   },
   "filterBar.addFiltersMenu.buttonLabel" : {
     "description" : "Menu button label to show additional available filter options",
-    "message" : "Add Filters"
+    "message" : "Ajoute filtè"
   },
   "filterBar.clearAllButton.ariaLabel" : {
     "description" : "Button aria-label to clear all values within the filter bar",
-    "message" : "Clear all filters"
+    "message" : "Efase tout filtè yo"
   },
   "filterBar.clearAllButton.label" : {
     "description" : "Button label to clear all values within the filter bar",
