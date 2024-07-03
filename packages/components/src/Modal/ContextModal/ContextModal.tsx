@@ -1,6 +1,5 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { ButtonProps } from "~components/__actions__/Button/v1"
 import { Heading } from "~components/Heading"
 import {
   GenericModal,
@@ -9,6 +8,7 @@ import {
   ModalAccessibleLabel,
   ModalBody,
 } from "~components/Modal/GenericModal"
+import { ButtonProps } from "~components/__actions__/Button/v1"
 import styles from "./ContextModal.module.scss"
 
 export type ContextModalSecondaryActionProps =

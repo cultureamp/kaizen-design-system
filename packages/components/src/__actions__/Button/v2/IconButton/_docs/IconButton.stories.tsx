@@ -1,10 +1,12 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { AddIcon, MeatballsIcon } from "~components/Icon"
+import * as IconButtonV1Stories from "../../../v1/IconButton/_docs/IconButton.stories"
+
 import { IconButton } from "../index"
 
 const meta = {
-  title: "Actions/IconButton/v1",
+  title: "Actions/IconButton/v2",
   component: IconButton,
   argTypes: {
     icon: {
@@ -26,12 +28,4 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Playground: Story = {
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: "shown",
-      },
-    },
-  },
-}
+export const Playground: Story = IconButtonV1Stories.Playground

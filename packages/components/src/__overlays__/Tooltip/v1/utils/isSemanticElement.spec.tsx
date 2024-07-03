@@ -1,6 +1,6 @@
 import React from "react"
-import { Button, IconButton } from "~components/__actions__/Button/v1"
 import { ArrowRightIcon } from "~components/Icon"
+import { Button, IconButton } from "~components/__actions__/Button/v1"
 import { isSemanticElement } from "./isSemanticElement"
 
 describe("isSemanticElement", () => {

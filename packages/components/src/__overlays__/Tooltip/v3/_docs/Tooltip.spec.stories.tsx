@@ -2,10 +2,16 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, waitFor, within } from "@storybook/test"
 import isChromatic from "chromatic"
-import { Button, IconButton } from "~components/__actions__/Button/v1"
 import { AddIcon } from "~components/Icon"
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
 import { Text } from "~components/Text"
+import { Button, IconButton } from "~components/__actions__/Button/v1"
+import {
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+} from "~components/__actions__/Tabs/v1"
 import { Tag } from "~components/__future__/Tag"
 import { Focusable } from "~components/__overlays__/v3"
 import { Tooltip, TooltipTrigger } from "../index"

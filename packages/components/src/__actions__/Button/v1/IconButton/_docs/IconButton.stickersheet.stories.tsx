@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { ButtonProps } from "~components/__actions__/Button/v1"
 import { FilterIcon, MeatballsIcon, TrashIcon } from "~components/Icon"
+import { ButtonProps } from "~components/__actions__/Button/v1"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -9,7 +9,7 @@ import {
 import { IconButton, IconButtonProps } from "../index"
 
 export default {
-  title: "Components/Buttons/IconButton",
+  title: "Actions/IconButton/v1",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

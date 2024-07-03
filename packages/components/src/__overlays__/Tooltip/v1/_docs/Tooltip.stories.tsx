@@ -1,7 +1,5 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Button, IconButton } from "~components/__actions__/Button/v1"
-import { ButtonGroup } from "~components/__actions__/v1Group"
 import { CheckboxField } from "~components/Checkbox"
 import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
 import { InformationIcon, RemoveLinkIcon, QuestionIcon } from "~components/Icon"
@@ -12,6 +10,8 @@ import {
   TableRow,
 } from "~components/Table"
 import { Text } from "~components/Text"
+import { Button, IconButton } from "~components/__actions__/Button/v1"
+import { ButtonGroup } from "~components/__actions__/ButtonGroup/v1"
 import { Tag } from "~components/__future__/Tag"
 import { Tooltip } from "../index"
 
