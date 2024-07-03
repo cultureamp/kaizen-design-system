@@ -57,7 +57,6 @@ export const getLocale = (locale: DatePickerSupportedLocales): Locale => {
       return da
     case "nl":
       return nl
-    case "en":
     case "en-US":
       return enUS
     case "fr":
@@ -88,6 +87,7 @@ export const getLocale = (locale: DatePickerSupportedLocales): Locale => {
       return ptBR
     case "uk":
       return uk
+    case "en":
     case "en-GB":
     case "en-AU":
       return enGB
