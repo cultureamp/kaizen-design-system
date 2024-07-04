@@ -1,14 +1,14 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { moodsList } from "~components/Tile/subcomponents/GenericTile/types"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { MultiActionTile } from "../index"
+import { moodsList } from "../../subcomponents/GenericTile/types"
+import { InformationTile } from "../index"
 
 export default {
-  title: "Components/Tiles/MultiActionTile",
+  title: "Containers/InformationTile/v1",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -21,17 +21,12 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         {moodsList.map(mood => (
           <StickerSheet.Row key={mood} rowTitle={mood}>
-            <MultiActionTile
+            <InformationTile
               mood={mood}
               title="Title"
               metadata="Side A"
               information="Side B"
-              primaryAction={{
-                label: "Take Action!",
-              }}
-              secondaryAction={{
-                label: "Nevermind",
-              }}
+              footer={<>Footer</>}
             />
           </StickerSheet.Row>
         ))}

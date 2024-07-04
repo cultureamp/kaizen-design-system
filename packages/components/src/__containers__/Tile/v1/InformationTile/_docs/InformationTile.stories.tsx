@@ -1,19 +1,17 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { moodsList } from "~components/Tile/subcomponents/GenericTile/types"
-import { MultiActionTile } from "../index"
+import { moodsList } from "../../subcomponents/GenericTile/types"
+import { InformationTile } from "../index"
 
 const meta = {
-  title: "Components/Tiles/MultiActionTile",
-  component: MultiActionTile,
+  title: "Containers/InformationTile/v1",
+  component: InformationTile,
   args: {
     title: "Title",
     metadata: "Side A",
-    primaryAction: {
-      label: "Take Action!",
-    },
+    footer: <>Example Footer</>,
   },
-} satisfies Meta<typeof MultiActionTile>
+} satisfies Meta<typeof InformationTile>
 
 export default meta
 
@@ -33,7 +31,7 @@ export const Moods: Story = {
   render: args => (
     <div className="flex gap-16 flex-wrap">
       {moodsList.map(mood => (
-        <MultiActionTile key={mood} mood={mood} {...args} />
+        <InformationTile key={mood} mood={mood} {...args} />
       ))}
     </div>
   ),
@@ -42,13 +40,5 @@ export const Moods: Story = {
 export const Information: Story = {
   args: {
     information: "Side B",
-  },
-}
-
-export const SecondaryAction: Story = {
-  args: {
-    secondaryAction: {
-      label: "Nevermind",
-    },
   },
 }

@@ -1,14 +1,14 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { InformationTile } from "~components/Tile"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { InformationTile } from "../../InformationTile"
 import { TileGrid } from "../index"
 
 export default {
-  title: "Components/Tiles/TileGrid",
+  title: "Containers/TileGrid/v1",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

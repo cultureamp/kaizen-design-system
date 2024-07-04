@@ -5,10 +5,10 @@ import {
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { moodsList } from "../../subcomponents/GenericTile/types"
-import { InformationTile } from "../index"
+import { MultiActionTile } from "../index"
 
 export default {
-  title: "Components/Tile/InformationTile",
+  title: "Containers/MultiActionTile/v1",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -21,12 +21,17 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         {moodsList.map(mood => (
           <StickerSheet.Row key={mood} rowTitle={mood}>
-            <InformationTile
+            <MultiActionTile
               mood={mood}
               title="Title"
               metadata="Side A"
               information="Side B"
-              footer={<>Footer</>}
+              primaryAction={{
+                label: "Take Action!",
+              }}
+              secondaryAction={{
+                label: "Nevermind",
+              }}
             />
           </StickerSheet.Row>
         ))}

@@ -1,10 +1,10 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { InformationTile } from "~components/Tile"
+import { InformationTile } from "../../InformationTile"
 import { TileGrid } from "../index"
 
 const meta = {
-  title: "Components/Tiles/TileGrid",
+  title: "Containers/TileGrid/v1",
   component: TileGrid,
   args: {
     children: (
