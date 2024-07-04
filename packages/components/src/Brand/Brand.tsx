@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { OverrideClassName } from "~types/OverrideClassName"
+import CollectiveIntelligence from "./BrandCollectiveIntelligenceLogo.svg"
 import styles from "./Brand.module.scss"
 
 export type BrandProps = {
@@ -20,6 +21,14 @@ export const Brand = ({
   classNameOverride,
   ...restProps
 }: BrandProps): JSX.Element => {
+  if (variant === "collective-intelligence") {
+    return (
+      <picture className={classNameOverride} {...restProps}>
+        <img src={CollectiveIntelligence} alt={alt} className={styles.img} />
+      </picture>
+    )
+  }
+
   const brandTheme = reversed ? "-reversed" : "-default"
 
   return (
