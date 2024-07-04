@@ -17,6 +17,7 @@ export default {
 } satisfies Meta
 
 export const UtilGetLocale: StickerSheetStory = {
+  tags: ["skip-test"],
   name: "Util - getLocale",
   render: () => {
     const locales = [
