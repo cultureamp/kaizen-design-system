@@ -10,26 +10,8 @@ import { Text } from "~components/Text"
 import { GuidanceBlock } from "../index"
 import { variantsMap } from "../types"
 
-const ContentComponent = (): JSX.Element => (
-  <>
-    <Heading tag="h3" variant="heading-3">
-      This is the Guidance block title
-    </Heading>
-    <Text variant="body">
-      Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite
-      divinis,
-    </Text>
-  </>
-)
-
-const defaultText = {
-  description:
-    "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
-  title: "This is the Guidance block title",
-}
-
 const meta = {
-  title: "Components/GuidanceBlock",
+  title: "Containers/GuidanceBlock/v1",
   component: GuidanceBlock,
   args: {
     layout: "default",
@@ -61,6 +43,24 @@ const meta = {
 } satisfies Meta<typeof GuidanceBlock>
 
 export default meta
+
+const ContentComponent = (): JSX.Element => (
+  <>
+    <Heading tag="h3" variant="heading-3">
+      This is the Guidance block title
+    </Heading>
+    <Text variant="body">
+      Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite
+      divinis,
+    </Text>
+  </>
+)
+
+const defaultText = {
+  description:
+    "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
+  title: "This is the Guidance block title",
+}
 
 type Story = StoryObj<typeof meta>
 

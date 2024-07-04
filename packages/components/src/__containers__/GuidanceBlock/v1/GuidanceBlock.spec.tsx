@@ -2,7 +2,7 @@ import React from "react"
 import { cleanup, render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Informative } from "~components/Illustration"
-import { GuidanceBlock } from "./GuidanceBlock"
+import { GuidanceBlock } from "./index"
 
 const user = userEvent.setup()
 
