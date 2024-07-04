@@ -17,6 +17,7 @@ export default {
 } satisfies Meta
 
 export const UtilGetLocale: StickerSheetStory = {
+  // Skip running this with test-storybook (still runs in Chromatic) as it times out
   tags: ["skip-test"],
   name: "Util - getLocale",
   render: () => {
