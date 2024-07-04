@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
 import { MenuItem, MenuList, MenuHeading } from "~components/Menu"
-import { ButtonProps } from "~components/__actions__/Button/v1"
+import { ButtonProps } from "~components/__actions__/v2"
 import { TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID } from "../constants"
 import {
   DefaultActionProps,

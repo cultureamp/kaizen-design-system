@@ -8,7 +8,7 @@ import {
 import {
   GenericButton,
   GenericProps,
-} from "~components/__actions__/Button/v1/GenericButton"
+} from "~components/__actions__/Button/v2/GenericButton"
 
 export type DirectionalLinkProps = {
   label: string

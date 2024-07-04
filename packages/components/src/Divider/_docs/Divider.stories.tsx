@@ -1,8 +1,8 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Card } from "~components/Card"
 import { Heading } from "~components/Heading"
 import { Text } from "~components/Text"
+import { Card } from "~components/__containers__/v2"
 import { Divider } from "../index"
 
 const meta = {

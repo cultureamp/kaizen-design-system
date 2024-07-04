@@ -1,6 +1,6 @@
 import React from "react"
 import { Heading } from "~components/Heading"
-import { Button } from "~components/__actions__/Button/v1"
+import { Button } from "~components/__actions__/v2"
 
 type CardContentProps = {
   title: string

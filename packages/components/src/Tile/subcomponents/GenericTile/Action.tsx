@@ -1,5 +1,5 @@
 import React from "react"
-import { Button } from "~components/__actions__/Button/v1"
+import { Button } from "~components/__actions__/v2"
 import { TileAction } from "./GenericTile"
 
 type ActionProps = {

@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { FilterIcon, MeatballsIcon, TrashIcon } from "~components/Icon"
-import { ButtonProps } from "~components/__actions__/Button/v1"
+import { ButtonProps } from "~components/__actions__/v2"
 import {
   StickerSheet,
   StickerSheetStory,

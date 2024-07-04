@@ -22,7 +22,7 @@ import {
   ModalAccessibleLabel,
   ModalBody,
 } from "~components/Modal/GenericModal"
-import { ButtonProps } from "~components/__actions__/Button/v1"
+import { ButtonProps } from "~components/__actions__/v2"
 import styles from "./ConfirmationModal.module.scss"
 
 export type ConfirmationModalProps = {

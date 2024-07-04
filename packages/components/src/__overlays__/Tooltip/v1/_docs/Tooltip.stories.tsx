@@ -10,8 +10,8 @@ import {
   TableRow,
 } from "~components/Table"
 import { Text } from "~components/Text"
-import { Button, IconButton } from "~components/__actions__/Button/v1"
 import { ButtonGroup } from "~components/__actions__/ButtonGroup/v1"
+import { Button, IconButton } from "~components/__actions__/v2"
 import { Tag } from "~components/__future__/Tag"
 import { Tooltip } from "../index"
 

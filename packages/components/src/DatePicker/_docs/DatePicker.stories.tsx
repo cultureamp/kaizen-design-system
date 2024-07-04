@@ -7,7 +7,7 @@ import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaul
 import { weekStartsOnControls } from "~components/Calendar/_docs/controls/weekStartsOnControls"
 import { FieldMessageStatus } from "~components/FieldMessage"
 import { Text } from "~components/Text"
-import { Button } from "~components/__actions__/Button/v1"
+import { Button } from "~components/__actions__/v2"
 import { DatePicker, ValidationResponse } from "../index"
 import { datePickerLocaleControls } from "./controls/datePickerLocaleControls"
 import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls"

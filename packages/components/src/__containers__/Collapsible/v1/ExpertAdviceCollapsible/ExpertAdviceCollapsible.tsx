@@ -1,7 +1,7 @@
 import React from "react"
 import { Brand } from "~components/Brand"
 import { Heading } from "~components/Heading"
-import { CollapsibleProps, Collapsible } from "~components/__containers__/v2"
+import { CollapsibleProps, Collapsible } from "../Collapsible"
 import styles from "./ExpertAdviceCollapsible.module.scss"
 
 export type ExpertAdviceCollapsibleProps = Omit<

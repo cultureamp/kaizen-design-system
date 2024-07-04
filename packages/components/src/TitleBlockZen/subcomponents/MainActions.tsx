@@ -1,7 +1,7 @@
 import React from "react"
 import { ChevronDownIcon, MeatballsIcon } from "~components/Icon"
 import { Menu, MenuList } from "~components/Menu"
-import { Button, IconButton } from "~components/__actions__/Button/v1"
+import { Button, IconButton } from "~components/__actions__/v2"
 import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from "../constants"
 import {
   DefaultActionProps,
