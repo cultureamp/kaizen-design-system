@@ -178,4 +178,10 @@ export const StickerSheetLocales: StickerSheetStory = {
       </div>
     ),
   ],
+  parameters: {
+    a11y: {
+      // Wait for translations to load
+      timeout: 1500,
+    },
+  },
 }
