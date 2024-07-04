@@ -3,7 +3,7 @@ import { Meta } from "@storybook/react"
 import { Heading } from "~components/Heading"
 import { EmptyStatesPositive, Informative } from "~components/Illustration"
 import { Tag } from "~components/Tag"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import {
   StickerSheet,
   StickerSheetStory,

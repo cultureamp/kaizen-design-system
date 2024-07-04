@@ -10,7 +10,7 @@ import {
 } from "@tanstack/react-query"
 import isChromatic from "chromatic"
 import { InlineNotification } from "~components/Notification"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { TextField } from "~components/TextField"
 import { FilterMultiSelect, getSelectedOptionLabels } from ".."
 import { mockItems } from "./MockData"

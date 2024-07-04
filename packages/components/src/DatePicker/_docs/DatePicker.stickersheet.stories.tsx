@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { Meta } from "@storybook/react"
 import { expect, userEvent, within } from "@storybook/test"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import {
   StickerSheet,
   StickerSheetStory,

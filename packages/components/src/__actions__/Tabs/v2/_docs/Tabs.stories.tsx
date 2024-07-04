@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import * as TabsV1Stories from "../../v1/_docs/Tabs.stories"
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "../index"
 

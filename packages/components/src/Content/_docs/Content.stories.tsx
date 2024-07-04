@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Container } from "~components/Container"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { Content } from "../index"
 
 const meta = {

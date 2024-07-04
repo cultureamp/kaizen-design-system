@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Heading } from "~components/Heading"
 import { AddIcon } from "~components/Icon"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { Collapsible } from "../index"
 
 const meta = {

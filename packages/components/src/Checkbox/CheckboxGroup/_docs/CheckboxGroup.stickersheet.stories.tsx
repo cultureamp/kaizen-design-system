@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { CheckboxField } from "~components/Checkbox/CheckboxField"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import {
   StickerSheet,
   StickerSheetStory,

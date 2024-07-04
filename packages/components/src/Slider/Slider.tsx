@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { FieldGroup } from "~components/FieldGroup"
 import { InputRange, InputRangeProps } from "~components/Input/InputRange"
 import { Label } from "~components/Label"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import styles from "./Slider.module.scss"
 
 export type SliderFieldProps = {

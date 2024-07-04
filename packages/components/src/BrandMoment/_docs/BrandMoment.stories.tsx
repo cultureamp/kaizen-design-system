@@ -15,7 +15,7 @@ import {
   BrandMomentError,
   AnimatedSceneProps,
 } from "~components/Illustration"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { BrandMoment } from "../index"
 import {
   MinimalBasic,

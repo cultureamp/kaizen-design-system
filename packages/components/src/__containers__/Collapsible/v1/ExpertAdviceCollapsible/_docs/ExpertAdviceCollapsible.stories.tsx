@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { ExpertAdviceCollapsible } from "../index"
 
 const meta = {

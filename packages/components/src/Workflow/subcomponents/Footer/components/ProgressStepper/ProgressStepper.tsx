@@ -5,7 +5,7 @@ import {
   IndicatorInactiveIcon,
   SuccessIcon,
 } from "~components/Icon"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { VisuallyHidden } from "~components/VisuallyHidden"
 import styles from "./ProgressStepper.module.scss"
 

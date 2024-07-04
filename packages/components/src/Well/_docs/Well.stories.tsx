@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Heading } from "~components/Heading"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { Well } from "../index"
 import { borderStyleTypes, variantTypes } from "../types"
 

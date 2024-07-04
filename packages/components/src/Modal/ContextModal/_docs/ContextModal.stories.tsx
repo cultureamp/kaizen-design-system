@@ -4,7 +4,7 @@ import { fn } from "@storybook/test"
 import isChromatic from "chromatic"
 import { AddImage } from "~components/Illustration"
 import { ModalAccessibleDescription } from "~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { chromaticModalSettings } from "../../_docs/controls"
 import { ContextModal } from "../index"
 

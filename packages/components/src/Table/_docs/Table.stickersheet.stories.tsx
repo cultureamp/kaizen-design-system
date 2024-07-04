@@ -2,7 +2,7 @@ import React from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
 import { EffectivenessIcon } from "~components/Icon"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import {
   TableCard,

@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import styles from "./NoResults.module.scss"
 
 export type NoResultsProps = {

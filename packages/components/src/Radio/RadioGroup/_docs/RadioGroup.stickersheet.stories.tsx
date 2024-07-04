@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { RadioField } from "~components/Radio/RadioField"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import {
   StickerSheet,
   StickerSheetStory,

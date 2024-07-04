@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, waitFor, within } from "@storybook/test"
 import isChromatic from "chromatic"
 import { AddIcon } from "~components/Icon"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import {
   Tab,
   TabList,

@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { VisuallyHidden } from "~components/VisuallyHidden"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { MultiSelectOption } from "../../types"

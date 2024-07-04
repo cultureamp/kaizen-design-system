@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { Unstyled } from "@storybook/blocks"
 import classNames from "classnames"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { ExternalLinkIcon } from "../../../packages/components/src"
 
 type ResourceLinkProps = {

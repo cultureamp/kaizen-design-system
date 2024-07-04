@@ -11,7 +11,7 @@ import {
 } from "~components/Filter/FilterButton"
 import { DateValidationResponse } from "~components/Filter/FilterDatePicker"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import {
   DateRangeFieldValidationMessage,
   FilterDateRangePicker,

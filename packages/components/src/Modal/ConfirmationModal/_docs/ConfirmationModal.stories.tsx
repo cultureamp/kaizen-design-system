@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 import isChromatic from "chromatic"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { chromaticModalSettings } from "../../_docs/controls"
 import { ConfirmationModal } from "../index"
 

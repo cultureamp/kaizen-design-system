@@ -6,7 +6,7 @@ import {
   Informative,
   SkillsCoachEssentialFeedback,
 } from "~components/Illustration"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 import { GuidanceBlock } from "../index"
 import { variantsMap } from "../types"
 

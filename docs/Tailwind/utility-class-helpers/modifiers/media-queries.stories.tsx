@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { Heading } from "~components/Heading"
-import { Text } from "~components/Text"
+import { Text } from "~components/__content__/v2"
 
 export default {
   title: "Guides/Tailwind/Utility Class References/Modifiers/Media Queries",
