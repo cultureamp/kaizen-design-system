@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
 import classnames from "classnames"
-import { HeadingProps } from "~components/Heading"
+import { HeadingProps } from "~components/__content__/v2"
 import { NotificationType } from "~components/Notification/types"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { CancelButton } from "../CancelButton"

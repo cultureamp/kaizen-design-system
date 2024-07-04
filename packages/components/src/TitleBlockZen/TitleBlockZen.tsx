@@ -1,7 +1,7 @@
 import React from "react"
 import classnames from "classnames"
 import { Avatar } from "~components/Avatar"
-import { Heading } from "~components/Heading"
+import { Heading } from "~components/__content__/v2"
 import { ArrowLeftIcon, ArrowRightIcon, HamburgerIcon } from "~components/Icon"
 import { Select } from "~components/Select"
 import { Tag } from "~components/Tag"

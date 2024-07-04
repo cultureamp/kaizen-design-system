@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Heading } from "~components/Heading"
+import { Heading } from "~components/__content__/v2"
 import {
   BrandMomentPositiveOutro,
   Informative,

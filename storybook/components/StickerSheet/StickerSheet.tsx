@@ -1,6 +1,6 @@
 import React, { TableHTMLAttributes } from "react"
 import classnames from "classnames"
-import { Heading } from "~components/Heading"
+import { Heading } from "~components/__content__/v2"
 import {
   StickerSheetBody,
   StickerSheetBodyProps,

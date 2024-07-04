@@ -1,7 +1,7 @@
 import React, { cloneElement, HTMLAttributes, ReactElement } from "react"
 import classnames from "classnames"
 import { Checkbox, CheckedStatus } from "~components/Checkbox"
-import { Heading } from "~components/Heading"
+import { Heading } from "~components/__content__/v2"
 import {
   ExclamationIcon,
   SortAscendingIcon,

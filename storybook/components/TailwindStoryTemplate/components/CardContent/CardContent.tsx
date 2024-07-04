@@ -1,5 +1,5 @@
 import React from "react"
-import { Heading } from "~components/Heading"
+import { Heading } from "~components/__content__/v2"
 import { Button } from "~components/__actions__/v2"
 
 type CardContentProps = {

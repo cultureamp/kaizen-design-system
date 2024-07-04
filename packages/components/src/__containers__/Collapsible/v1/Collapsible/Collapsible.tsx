@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, useId, useState } from "react"
 import classnames from "classnames"
 import AnimateHeight from "react-animate-height"
-import { Heading } from "~components/Heading"
+import { Heading } from "~components/__content__/v2"
 import { ChevronUpIcon, ChevronDownIcon } from "~components/Icon"
 import { IconButton } from "~components/__actions__/v2"
 import { OverrideClassName } from "~types/OverrideClassName"

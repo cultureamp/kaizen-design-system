@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Heading } from "../index"
 
 const meta = {
-  title: "Components/Heading",
+  title: "Content/Heading/v1",
   component: Heading,
   args: {
     variant: "heading-1",

@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { HeadingVariants } from "~components/Heading"
+import { HeadingVariants } from "~components/__content__/v2"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./LoadingHeading.module.scss"
 

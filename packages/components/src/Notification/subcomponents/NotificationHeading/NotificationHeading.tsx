@@ -1,5 +1,5 @@
 import React from "react"
-import { Heading, HeadingProps } from "~components/Heading"
+import { Heading, HeadingProps } from "~components/__content__/v2"
 import styles from "../GenericNotification/GenericNotification.module.scss"
 
 type NotificationHeadingProps = {

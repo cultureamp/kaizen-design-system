@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { HeadingProps, Heading } from "~components/Heading"
+import { HeadingProps, Heading } from "~components/__content__/v2"
 import {
   AnimatedSceneProps,
   EmptyStatesAction,

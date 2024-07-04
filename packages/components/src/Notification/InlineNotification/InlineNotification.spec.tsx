@@ -1,6 +1,6 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import { HeadingProps } from "~components/Heading"
+import { HeadingProps } from "~components/__content__/v2"
 import { InlineNotification } from "./InlineNotification"
 
 describe("<InlineNotification />", () => {

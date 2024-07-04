@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, useMemo, useState } from "react"
 import classnames from "classnames"
 import { usePopper } from "react-popper"
-import { Heading } from "~components/Heading"
+import { Heading } from "~components/__content__/v2"
 import { CloseIcon } from "~components/Icon"
 import { Text } from "~components/__content__/v2"
 import { OverrideClassName } from "~types/OverrideClassName"

@@ -1,7 +1,7 @@
 import React, { ReactNode, ReactElement, HTMLAttributes } from "react"
 import classnames from "classnames"
 import { assetUrl } from "@kaizen/hosted-assets"
-import { Heading } from "~components/Heading"
+import { Heading } from "~components/__content__/v2"
 import { SceneProps } from "~components/Illustration"
 import { Text } from "~components/__content__/v2"
 import { Button, ButtonProps } from "~components/__actions__/v2"

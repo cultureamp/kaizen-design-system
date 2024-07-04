@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, useState } from "react"
 import classnames from "classnames"
-import { AllowedHeadingTags, Heading } from "~components/Heading"
+import { AllowedHeadingTags, Heading } from "~components/__content__/v2"
 import { ArrowBackwardIcon, InformationIcon } from "~components/Icon"
 import { Text } from "~components/__content__/v2"
 import { GenericButtonProps } from "~components/__actions__/Button/v2/GenericButton"

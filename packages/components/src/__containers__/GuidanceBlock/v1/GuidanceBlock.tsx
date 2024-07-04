@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import classNames from "classnames"
 import Media from "react-media"
-import { Heading, HeadingProps } from "~components/Heading"
+import { Heading, HeadingProps } from "~components/__content__/v2"
 import { ArrowForwardIcon } from "~components/Icon"
 import { SceneProps, SpotProps } from "~components/Illustration"
 import { Text } from "~components/__content__/v2"

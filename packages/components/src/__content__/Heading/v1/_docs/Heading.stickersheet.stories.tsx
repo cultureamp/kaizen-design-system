@@ -7,7 +7,7 @@ import {
 import { Heading } from "../index"
 
 export default {
-  title: "Components/Heading",
+  title: "Content/Heading/v1",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

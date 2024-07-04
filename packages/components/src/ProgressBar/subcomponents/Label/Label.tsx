@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import { Heading } from "~components/Heading"
+import { Heading } from "~components/__content__/v2"
 import styles from "./Label.module.scss"
 
 type Label = {
