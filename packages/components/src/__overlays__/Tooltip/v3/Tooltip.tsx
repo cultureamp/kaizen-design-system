@@ -12,8 +12,6 @@ import { mergeClassNames } from "~utils/mergeClassNames"
 import { OverlayArrow } from "./OverlayArrow"
 import styles from "./Tooltip.module.scss"
 
-export { TooltipContext }
-
 export type TooltipProps = Omit<RACTooltipProps, "offset"> & {
   /**
    * The additional offset applied along the main axis between the element and its
