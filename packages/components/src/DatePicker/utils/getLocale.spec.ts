@@ -1,8 +1,8 @@
-import { enAU } from "date-fns/locale"
+import { enGB } from "date-fns/locale"
 import { getLocale } from "./getLocale"
 
 describe("getLocale", () => {
   it("retrieves fallback value when passed an unsupported locale", () => {
-    expect(getLocale("invalid")).toEqual(enAU)
+    expect(getLocale("invalid")).toEqual(enGB)
   })
 })
