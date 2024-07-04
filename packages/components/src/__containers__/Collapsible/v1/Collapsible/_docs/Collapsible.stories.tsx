@@ -6,7 +6,7 @@ import { Text } from "~components/Text"
 import { Collapsible } from "../index"
 
 const meta = {
-  title: "Components/Collapsibles/Collapsible",
+  title: "Containers/Collapsible/v1",
   component: Collapsible,
   args: {
     children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus

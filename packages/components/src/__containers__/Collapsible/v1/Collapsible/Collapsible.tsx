@@ -3,9 +3,9 @@ import classnames from "classnames"
 import AnimateHeight from "react-animate-height"
 import { Heading } from "~components/Heading"
 import { ChevronUpIcon, ChevronDownIcon } from "~components/Icon"
-import { IconButton } from "~components/__actions__/Button/v1"
+import { IconButton } from "~components/__actions__/v2"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { Sticky } from "../types"
+import { Sticky } from "./types"
 import styles from "./Collapsible.module.scss"
 
 export type CollapsibleProps = {

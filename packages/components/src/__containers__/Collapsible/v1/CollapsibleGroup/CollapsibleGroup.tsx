@@ -1,8 +1,8 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { CollapsibleProps } from "~components/Collapsible/Collapsible"
-import { Sticky } from "~components/Collapsible/types"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { CollapsibleProps } from "../Collapsible"
+import { Sticky } from "../Collapsible/types"
 import styles from "./CollapsibleGroup.module.scss"
 
 export type CollapsibleGroupProps = {
