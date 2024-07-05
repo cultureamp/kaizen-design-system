@@ -32,4 +32,4 @@ runs:
         npx playwright install
 
     - name: Setup turborepo cache
-      uses: dtinth/setup-github-actions-caching-for-turbo@v1
+      uses: rharkor/caching-for-turbo@v1.5
