@@ -1,4 +1,5 @@
-import { pluginsSharedUi, rollupConfig } from "@kaizen/package-bundler";
+import url from "@rollup/plugin-url"
+import { pluginsSharedUi, rollupConfig } from "@kaizen/package-bundler"
 
 export default rollupConfig({
   input: {
@@ -10,8 +11,8 @@ export default rollupConfig({
     utilitiesV3: "./src/__utilities__/v3.ts",
     reactAriaV3: "./src/__react-aria__/index.ts",
     reactAriaComponentsV3: "./src/__react-aria-components__/index.ts",
-    },
-  plugins: pluginsSharedUi,
+  },
+  plugins: [...pluginsSharedUi, url()],
   alias: {
     entries: [
       { find: "~types", replacement: "src/types" },
