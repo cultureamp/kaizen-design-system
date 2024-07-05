@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import { Heading } from "~components/__content__/v2"
-import { Tag, DefaultTagProps } from "~components/Tag"
+import { Tag, DefaultTagProps } from "~components/__content__/v1"
 import { VisuallyHidden } from "~components/VisuallyHidden"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Titles.module.scss"

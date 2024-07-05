@@ -12,7 +12,7 @@ import {
 import { Text } from "~components/__content__/v2"
 import { ButtonGroup } from "~components/__actions__/ButtonGroup/v1"
 import { Button, IconButton } from "~components/__actions__/v2"
-import { Tag } from "~components/__future__/Tag"
+import { Tag } from "~components/__content__/v2"
 import { Tooltip } from "../index"
 
 const meta = {

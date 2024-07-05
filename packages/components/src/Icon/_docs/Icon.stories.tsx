@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import * as ICONS from "~components/Icon"
 import { Text } from "~components/__content__/v2"
-import { Tag } from "~components/__future__/Tag"
+import { Tag } from "~components/__content__/v2"
 import { AddIcon } from "../index"
 import styles from "./icon.stories.scss"
 

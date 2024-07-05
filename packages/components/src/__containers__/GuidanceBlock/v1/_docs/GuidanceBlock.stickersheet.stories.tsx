@@ -2,7 +2,7 @@ import React from "react"
 import { Meta } from "@storybook/react"
 import { Heading } from "~components/__content__/v2"
 import { EmptyStatesPositive, Informative } from "~components/Illustration"
-import { Tag } from "~components/Tag"
+import { Tag } from "~components/__content__/v1"
 import { Text } from "~components/__content__/v2"
 import {
   StickerSheet,

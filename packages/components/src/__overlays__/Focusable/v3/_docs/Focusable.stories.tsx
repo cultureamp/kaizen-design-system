@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Tag } from "~components/__future__/Tag"
+import { Tag } from "~components/__content__/v2"
 import { Focusable } from "../index"
 
 const meta = {

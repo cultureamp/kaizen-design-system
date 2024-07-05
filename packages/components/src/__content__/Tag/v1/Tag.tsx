@@ -12,6 +12,7 @@ import {
 import { TagVariants } from "./types"
 import styles from "./Tag.module.scss"
 
+/** @deprecated: Upgrade to Tag v2 in `@kaizen/components/v2/content` */
 export type TagWithAvatarProps = Omit<DefaultTagProps, "variant"> & {
   variant: "profile"
   avatar: JSX.Element | AvatarProps
@@ -19,6 +20,7 @@ export type TagWithAvatarProps = Omit<DefaultTagProps, "variant"> & {
 
 type Variant = (typeof TagVariants)[number]
 
+/** @deprecated: Upgrade to Tag v2 in `@kaizen/components/v2/content` */
 export interface DefaultTagProps {
   variant?: Variant
   children: React.ReactNode
@@ -31,6 +33,7 @@ export interface DefaultTagProps {
   truncateWidth?: number
 }
 
+/** @deprecated: Upgrade to Tag v2 in `@kaizen/components/v2/content` */
 export type TagProps = DefaultTagProps | TagWithAvatarProps
 
 const isJSXElement = (
@@ -47,10 +50,7 @@ const renderAvatar = (
     <Avatar {...imageElementOrAvatarProps} size="small" />
   )
 
-/**
- * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081928978/Tags Guidance} |
- * {@link https://cultureamp.design/?path=/docs/components-tag--docs Storybook}
- */
+/** @deprecated: Upgrade to Tag v2 in `@kaizen/components/v2/content` */
 export const Tag = (props: TagProps): JSX.Element => {
   const {
     children,

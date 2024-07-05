@@ -4,7 +4,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { RemovableTag } from "../RemovableTag"
 
 const meta = {
-  title: "Components/Tag/Future/RemovableTag",
+  title: "Content/RemovableTag/v2",
   component: RemovableTag,
   args: {
     children: "My tag",

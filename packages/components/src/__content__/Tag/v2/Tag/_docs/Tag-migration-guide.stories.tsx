@@ -9,11 +9,11 @@ import {
   SuccessIcon,
   LiveIcon,
 } from "~components/Icon"
-import styles from "~components/Tag/Tag.module.scss"
 import { Tag, RemovableTag } from "../.."
+import styles from "../../../v1/Tag.module.scss"
 
 const meta = {
-  title: "Components/Tag/Future Tag Migration Guide",
+  title: "Content/Tag/v2/Tag Migration Guide",
   component: Tag,
   args: {
     children: "My tag",

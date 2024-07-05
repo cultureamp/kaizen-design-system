@@ -3,7 +3,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, waitFor, within } from "@storybook/test"
 import isChromatic from "chromatic"
 import { AddIcon } from "~components/Icon"
-import { Text } from "~components/__content__/v2"
 import {
   Tab,
   TabList,
@@ -12,7 +11,7 @@ import {
   Tabs,
 } from "~components/__actions__/Tabs/v1"
 import { Button, IconButton } from "~components/__actions__/v2"
-import { Tag } from "~components/__future__/Tag"
+import { Text, Tag } from "~components/__content__/v2"
 import { Focusable } from "~components/__overlays__/v3"
 import { Tooltip, TooltipTrigger } from "../index"
 
