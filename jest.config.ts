@@ -10,6 +10,9 @@ const jestConfig: JestConfigWithTsJest = {
     "\\.s?css$": "identity-obj-proxy",
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
+  transform: {
+    "^.+\\.svg$": "jest-transformer-svg",
+  },
 }
 
 export default jestConfig
