@@ -1,7 +1,7 @@
 import React from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
 import type { Locale } from "date-fns"
-import { LabelledMessage } from "~components/LabelledMessage"
+import { LabelledMessage } from "~components/__content__/v2"
 import { formatDescriptionInputFormat } from "./utils/formatDescriptionInputFormat"
 import styles from "./DateInputDescription.module.scss"
 

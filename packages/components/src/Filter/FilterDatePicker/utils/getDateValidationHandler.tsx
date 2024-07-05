@@ -1,5 +1,5 @@
 import React from "react"
-import { LabelledMessage } from "~components/LabelledMessage"
+import { LabelledMessage } from "~components/__content__/v2"
 import { getNodeText } from "~utils/getNodeText"
 import { DateValidationResponse, ValidationMessage } from "../types"
 
