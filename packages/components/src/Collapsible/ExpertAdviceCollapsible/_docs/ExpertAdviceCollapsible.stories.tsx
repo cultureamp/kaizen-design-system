@@ -6,7 +6,6 @@ import { ExpertAdviceCollapsible } from "../index"
 const meta = {
   title: "Components/Collapsibles/ExpertAdviceCollapsible",
   component: ExpertAdviceCollapsible,
-  parameters: { chromatic: { disable: false } },
   args: {
     title: "Expert advice collapsible",
     children: (
