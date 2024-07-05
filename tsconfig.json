@@ -21,7 +21,7 @@
     },
     "types": ["@testing-library/jest-dom"]
   },
-  "files": ["./types.d.ts"],
+  "files": ["types.d.ts", "packages/components/types.d.ts"],
   "include": ["storybook/**/*", "docs/**/*.tsx"],
   "exclude": ["**/node_modules"]
 }
