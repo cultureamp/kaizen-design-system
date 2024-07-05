@@ -1,69 +1,16 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-
-import {
-  EmptyStatesAction,
-  EmptyStatesInformative,
-  EmptyStatesNegative,
-  EmptyStatesNeutral,
-  EmptyStatesPositive,
-  Information360Upgrade,
-  InformationDemographicFocus,
-  InformationEmergingTrends,
-  InformationEmployeeLifecycle,
-  InformationReportOwner,
-  InformationReportOwnerByRule,
-  InformationTurnoverCalculator,
-  InformationTurnoverForecast,
-  Collaboration,
-  Communication,
-  CompanyValues,
-  ConnectTheDots,
-  CultureLab,
-  TermsAgreement,
-  Programs,
-  PerformanceCompanySettings,
-  EngagementSurveySummaryFemale,
-  EngagementSurveySummaryMale,
-  BrandMomentNewAccountOnboarding,
-  BrandMomentUploadEmployeeData,
-  BrandMomentPositiveOutro,
-  BrandMomentLogin,
-  BrandMomentError,
-  BrandMomentStarterKit,
-  SkillsCoach1On1Meetings,
-  SkillsCoachCoaching,
-  SkillsCoachEmployeeDevelopment,
-  SkillsCoachEssentialFeedback,
-  SkillsCoachEssentialProductivity,
-  SkillsCoachEssentialResilience,
-  SkillsCoachInfluentialCommunication,
-  SkillsCoachLeadingChange,
-  SkillsCoachFeedback,
-  SkillsCoachManagerHub,
-  SkillsCoachProductivity,
-  SkillsCoachRemoteManager,
-  SkillsCoachResilience,
-  SkillsCoachStrategy,
-  SurveyGetStarted,
-  SurveyOverviewClosed,
-} from "../index"
-
+import React from "react";
+import { Meta } from "@storybook/react";
+import { StickerSheet, StickerSheetStory, } from "~storybook/components/StickerSheet";
+import { EmptyStatesAction, EmptyStatesInformative, EmptyStatesNegative, EmptyStatesNeutral, EmptyStatesPositive, Information360Upgrade, InformationDemographicFocus, InformationEmergingTrends, InformationEmployeeLifecycle, InformationReportOwner, InformationReportOwnerByRule, InformationTurnoverCalculator, InformationTurnoverForecast, Collaboration, Communication, CompanyValues, ConnectTheDots, CultureLab, TermsAgreement, Programs, PerformanceCompanySettings, EngagementSurveySummaryFemale, EngagementSurveySummaryMale, BrandMomentNewAccountOnboarding, BrandMomentUploadEmployeeData, BrandMomentPositiveOutro, BrandMomentLogin, BrandMomentError, BrandMomentStarterKit, SkillsCoach1On1Meetings, SkillsCoachCoaching, SkillsCoachEmployeeDevelopment, SkillsCoachEssentialFeedback, SkillsCoachEssentialProductivity, SkillsCoachEssentialResilience, SkillsCoachInfluentialCommunication, SkillsCoachLeadingChange, SkillsCoachFeedback, SkillsCoachManagerHub, SkillsCoachProductivity, SkillsCoachRemoteManager, SkillsCoachResilience, SkillsCoachStrategy, SurveyGetStarted, SurveyOverviewClosed, } from "../index";
 export default {
-  title: "Components/Illustrations/Scene",
-  parameters: {
-    chromatic: { disable: false },
-    controls: { disable: true },
-  },
-} satisfies Meta
-
+    title: "Components/Illustrations/Scene",
+    parameters: {
+        chromatic: { disable: false },
+        controls: { disable: true },
+    },
+} satisfies Meta;
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
+    render: ({ isReversed }) => (<StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
         <StickerSheet.Row>
           EmptyStatesAction
@@ -248,11 +195,9 @@ const StickerSheetTemplate: StickerSheetStory = {
           <SurveyOverviewClosed />
         </StickerSheet.Row>
       </StickerSheet.Body>
-    </StickerSheet>
-  ),
-}
-
+    </StickerSheet>),
+};
 export const StickerSheetDefault: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
-}
+    ...StickerSheetTemplate,
+    name: "Sticker Sheet (Default)",
+};

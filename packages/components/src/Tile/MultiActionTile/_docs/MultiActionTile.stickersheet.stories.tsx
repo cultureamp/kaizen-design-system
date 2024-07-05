@@ -1,46 +1,29 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { moodsList } from "~components/Tile/subcomponents/GenericTile/types"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { MultiActionTile } from "../index"
-
+import React from "react";
+import { Meta } from "@storybook/react";
+import { moodsList } from "~components/Tile/subcomponents/GenericTile/types";
+import { StickerSheet, StickerSheetStory, } from "~storybook/components/StickerSheet";
+import { MultiActionTile } from "../index";
 export default {
-  title: "Components/Tiles/MultiActionTile",
-  parameters: {
-    chromatic: { disable: false },
-    controls: { disable: true },
-  },
-} satisfies Meta
-
+    title: "Components/Tiles/MultiActionTile",
+    parameters: {
+        chromatic: { disable: false },
+        controls: { disable: true },
+    },
+} satisfies Meta;
 const StickerSheetTemplate: StickerSheetStory = {
-  render: () => (
-    <StickerSheet>
+    render: () => (<StickerSheet>
       <StickerSheet.Body>
-        {moodsList.map(mood => (
-          <StickerSheet.Row key={mood} rowTitle={mood}>
-            <MultiActionTile
-              mood={mood}
-              title="Title"
-              metadata="Side A"
-              information="Side B"
-              primaryAction={{
+        {moodsList.map(mood => (<StickerSheet.Row key={mood} rowTitle={mood}>
+            <MultiActionTile mood={mood} title="Title" metadata="Side A" information="Side B" primaryAction={{
                 label: "Take Action!",
-              }}
-              secondaryAction={{
+            }} secondaryAction={{
                 label: "Nevermind",
-              }}
-            />
-          </StickerSheet.Row>
-        ))}
+            }}/>
+          </StickerSheet.Row>))}
       </StickerSheet.Body>
-    </StickerSheet>
-  ),
-}
-
+    </StickerSheet>),
+};
 export const StickerSheetDefault: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
-}
+    ...StickerSheetTemplate,
+    name: "Sticker Sheet (Default)",
+};

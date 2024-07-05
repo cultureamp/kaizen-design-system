@@ -1,25 +1,18 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Text } from "../index"
-
+import React from "react";
+import { Meta } from "@storybook/react";
+import { StickerSheet, StickerSheetStory, } from "~storybook/components/StickerSheet";
+import { Text } from "../index";
 export default {
-  title: "Components/Text",
-  parameters: {
-    chromatic: { disable: false },
-    controls: { disable: true },
-  },
-} satisfies Meta
-
+    title: "Components/Text",
+    parameters: {
+        chromatic: { disable: false },
+        controls: { disable: true },
+    },
+} satisfies Meta;
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => {
-    const fontColour = isReversed ? "white" : "dark"
-
-    return (
-      <>
+    render: ({ isReversed }) => {
+        const fontColour = isReversed ? "white" : "dark";
+        return (<>
         <StickerSheet isReversed={isReversed}>
           <StickerSheet.Body>
             <StickerSheet.Row rowTitle="Intro Lede">
@@ -47,8 +40,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 The quick brown fox jumps over the lazy dog.
               </Text>
             </StickerSheet.Row>
-            {!isReversed ? (
-              <>
+            {!isReversed ? (<>
                 <StickerSheet.Row rowTitle="Dark Reduced Opacity">
                   <Text variant="intro-lede" color="dark-reduced-opacity">
                     The quick brown fox jumps over the lazy dog.
@@ -64,35 +56,28 @@ const StickerSheetTemplate: StickerSheetStory = {
                     The quick brown fox jumps over the lazy dog.
                   </Text>
                 </StickerSheet.Row>
-              </>
-            ) : (
-              <StickerSheet.Row rowTitle="White Reduced Opacity">
+              </>) : (<StickerSheet.Row rowTitle="White Reduced Opacity">
                 <Text variant="intro-lede" color="white-reduced-opacity">
                   The quick brown fox jumps over the lazy dog.
                 </Text>
-              </StickerSheet.Row>
-            )}
+              </StickerSheet.Row>)}
           </StickerSheet.Body>
         </StickerSheet>
-      </>
-    )
-  },
-}
-
+      </>);
+    },
+};
 export const StickerSheetDefault: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
-}
-
+    ...StickerSheetTemplate,
+    name: "Sticker Sheet (Default)",
+};
 export const StickerSheetReversed: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
-  args: { isReversed: true },
-}
-
+    ...StickerSheetTemplate,
+    name: "Sticker Sheet (Reversed)",
+    parameters: { backgrounds: { default: "Purple 700" } },
+    args: { isReversed: true },
+};
 export const StickerSheetRTL: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
-}
+    ...StickerSheetTemplate,
+    name: "Sticker Sheet (RTL)",
+    parameters: { textDirection: "rtl" },
+};

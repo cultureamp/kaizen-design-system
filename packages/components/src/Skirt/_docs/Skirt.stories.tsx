@@ -1,15 +1,13 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Text } from "~components/Text"
-import { Skirt } from "../index"
-import { SkirtCard } from "../subcomponents/SkirtCard"
-
+import React from "react";
+import { Meta, StoryObj } from "@storybook/react";
+import { Text } from "~components/Text";
+import { Skirt } from "../index";
+import { SkirtCard } from "../subcomponents/SkirtCard";
 const meta = {
-  title: "Components/Skirt",
-  component: Skirt,
-  args: {
-    children: (
-      <SkirtCard>
+    title: "Components/Skirt",
+    component: Skirt,
+    args: {
+        children: (<SkirtCard>
         <Text variant="body">
           Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa
           drumstick fatback cow tongue ground round chicken. Jowl cow short
@@ -27,24 +25,20 @@ const meta = {
           pork meatball pastrami fatback. Strip steak beef ribs pork loin kevin,
           biltong fatback tongue salami brisket capicola flank tenderloin.
         </Text>
-      </SkirtCard>
-    ),
-  },
-  argTypes: {
-    children: { control: false },
-  },
-} satisfies Meta<typeof Skirt>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Playground: Story = {
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: "shown",
-      },
+      </SkirtCard>),
     },
-  },
-}
+    argTypes: {
+        children: { control: false },
+    },
+} satisfies Meta<typeof Skirt>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Playground: Story = {
+    parameters: {
+        docs: {
+            canvas: {
+                sourceState: "shown",
+            },
+        },
+    },
+};

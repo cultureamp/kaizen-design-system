@@ -1,51 +1,45 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react";
 // import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icon"
 // import { TagColorKeys } from "../../Tag/types"
-import { RemovableTag } from "../RemovableTag"
-
+import { RemovableTag } from "../RemovableTag";
 const meta = {
-  title: "Components/Tag/Future/RemovableTag",
-  component: RemovableTag,
-  args: {
-    children: "My tag",
-    removeButtonProps: {
-      onClick: () => alert("Clicked"),
-      ariaLabel: "Remove tag icon",
+    title: "Components/Tag/Future/RemovableTag",
+    component: RemovableTag,
+    args: {
+        children: "My tag",
+        removeButtonProps: {
+            onClick: () => alert("Clicked"),
+            ariaLabel: "Remove tag icon",
+        },
     },
-  },
-} satisfies Meta<typeof RemovableTag>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
-
+} satisfies Meta<typeof RemovableTag>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
-  // This can be added when we add Icon support
-  // argTypes: {
-  // icon: {
-  // options: ["AcademyIcon", "ActionOffIcon", "AddIcon", "TagIcon"],
-  // control: { type: "radio" },
-  // mapping: {
-  // AcademyIcon: <AcademyIcon role="presentation" />,
-  // ActionOffIcon: <ActionOffIcon role="presentation" />,
-  // AddIcon: <AddIcon role="presentation" />,
-  // TagIcon: <TagIcon role="presentation" />,
-  // },
-  // },
-  // },
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: "shown",
-      },
+    // This can be added when we add Icon support
+    // argTypes: {
+    // icon: {
+    // options: ["AcademyIcon", "ActionOffIcon", "AddIcon", "TagIcon"],
+    // control: { type: "radio" },
+    // mapping: {
+    // AcademyIcon: <AcademyIcon role="presentation" />,
+    // ActionOffIcon: <ActionOffIcon role="presentation" />,
+    // AddIcon: <AddIcon role="presentation" />,
+    // TagIcon: <TagIcon role="presentation" />,
+    // },
+    // },
+    // },
+    parameters: {
+        docs: {
+            canvas: {
+                sourceState: "shown",
+            },
+        },
     },
-  },
-}
-
+};
 export const Children: Story = {
-  args: { children: "This text is the children" },
-}
-
+    args: { children: "This text is the children" },
+};
 // Colors and Icons may be added in at a later time.
 //
 // export const Color: Story = {
@@ -107,9 +101,8 @@ export const Children: Story = {
 // </>
 // ),
 // }
-
 export const ClassNameOverride: Story = {
-  args: {
-    classNameOverride: "border-red-500 border-solid border-",
-  },
-}
+    args: {
+        classNameOverride: "border-red-500 border-solid border-",
+    },
+};

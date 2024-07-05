@@ -1,6 +1,8 @@
 import ts from "typescript"
 import familyExportDeclarations from "./data/familyExportDeclarations"
 
+// const futureComponentsTov2 = ["Tag", "Select", "Workflow"]
+
 const splitImportsIntoFamily = ({
   importDeclaration,
   updatedNodes,
@@ -21,6 +23,8 @@ const splitImportsIntoFamily = ({
     : []
 
   if (familyImports.length > 0) {
+    // check component which the imports belong to
+    // futureComponentsTov2.includes(component) ? `@kaizen/components/v2/${family}` : `@kaizen/components/${family}`
     updatedNodes.push(
       ts.factory.createImportDeclaration(
         undefined,

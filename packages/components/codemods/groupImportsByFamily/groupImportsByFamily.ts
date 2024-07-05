@@ -21,7 +21,7 @@ export const groupImportsByFamily = (
           undefined,
           ts.factory.createNamedImports(familyImports)
         ),
-        ts.factory.createStringLiteral(`@kaizen/components/v2/${family}`)
+        ts.factory.createStringLiteral(`@kaizen/components/v2/${family}`) // v2 needs to be a vartiable
       )
     )
   }

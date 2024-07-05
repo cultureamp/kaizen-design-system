@@ -1,109 +1,92 @@
-import React, { useEffect, useState } from "react"
-import { action } from "@storybook/addon-actions"
-import { Meta, StoryObj } from "@storybook/react"
-import { userEvent, within, expect } from "@storybook/test"
-import Highlight from "react-highlight"
-import { Button } from "~components/Button"
-import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
-import { weekStartsOnControls } from "~components/Calendar/_docs/controls/weekStartsOnControls"
-import { FieldMessageStatus } from "~components/FieldMessage"
-import { Text } from "~components/Text"
-import { DatePicker, ValidationResponse } from "../index"
-import { datePickerLocaleControls } from "./controls/datePickerLocaleControls"
-import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls"
-
+import React, { useEffect, useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, StoryObj } from "@storybook/react";
+import { userEvent, within, expect } from "@storybook/test";
+import Highlight from "react-highlight";
+import { Button } from "~components/Button";
+import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls";
+import { weekStartsOnControls } from "~components/Calendar/_docs/controls/weekStartsOnControls";
+import { FieldMessageStatus } from "~components/FieldMessage";
+import { Text } from "~components/Text";
+import { DatePicker, ValidationResponse } from "../index";
+import { datePickerLocaleControls } from "./controls/datePickerLocaleControls";
+import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls";
 const meta = {
-  title: "Components/Date controls/DatePicker",
-  component: DatePicker,
-  argTypes: {
-    ...datePickerLocaleControls,
-    ...defaultMonthControls,
-    ...disabledDayMatchersControls,
-    ...weekStartsOnControls,
-    buttonRef: {
-      control: false,
-    },
-    selectedDay: {
-      options: ["None", "Today", "May2022"],
-      control: {
-        type: "select",
-        labels: {
-          None: "undefined",
-          May2022: "1st May 2022",
+    title: "Components/Date controls/DatePicker",
+    component: DatePicker,
+    argTypes: {
+        ...datePickerLocaleControls,
+        ...defaultMonthControls,
+        ...disabledDayMatchersControls,
+        ...weekStartsOnControls,
+        buttonRef: {
+            control: false,
         },
-      },
-      mapping: {
-        None: undefined,
-        Today: new Date(),
-        May2022: new Date("2022-05-01"),
-      },
-    },
-    validationMessage: {
-      control: "text",
-    },
-    description: {
-      control: "text",
-    },
-    onValidate: {
-      options: [undefined, "Actions"],
-      control: {
-        type: "radio",
-        labels: {
-          Actions: "Log in Actions",
+        selectedDay: {
+            options: ["None", "Today", "May2022"],
+            control: {
+                type: "select",
+                labels: {
+                    None: "undefined",
+                    May2022: "1st May 2022",
+                },
+            },
+            mapping: {
+                None: undefined,
+                Today: new Date(),
+                May2022: new Date("2022-05-01"),
+            },
         },
-      },
-      mapping: {
-        Actions: action("onValidate"),
-      },
+        validationMessage: {
+            control: "text",
+        },
+        description: {
+            control: "text",
+        },
+        onValidate: {
+            options: [undefined, "Actions"],
+            control: {
+                type: "radio",
+                labels: {
+                    Actions: "Log in Actions",
+                },
+            },
+            mapping: {
+                Actions: action("onValidate"),
+            },
+        },
     },
-  },
-  args: {
-    labelText: "Date",
-    selectedDay: undefined,
-    onDayChange: action("on day change"),
-  },
-} satisfies Meta<typeof DatePicker>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
-
+    args: {
+        labelText: "Date",
+        selectedDay: undefined,
+        onDayChange: action("on day change"),
+    },
+} satisfies Meta<typeof DatePicker>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 const DatePickerTemplate: Story = {
-  render: args => {
-    const [selectedDate, setValueDate] = useState<Date | undefined>(
-      args.selectedDay
-    )
-
-    useEffect(() => {
-      setValueDate(args.selectedDay)
-    }, [args.selectedDay])
-
-    return (
-      <DatePicker
-        {...args}
-        selectedDay={selectedDate}
-        onDayChange={setValueDate}
-      />
-    )
-  },
-}
-
-export const Playground: Story = {
-  ...DatePickerTemplate,
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: "shown",
-      },
+    render: args => {
+        const [selectedDate, setValueDate] = useState<Date | undefined>(args.selectedDay);
+        useEffect(() => {
+            setValueDate(args.selectedDay);
+        }, [args.selectedDay]);
+        return (<DatePicker {...args} selectedDay={selectedDate} onDayChange={setValueDate}/>);
     },
-  },
-}
-
+};
+export const Playground: Story = {
+    ...DatePickerTemplate,
+    parameters: {
+        docs: {
+            canvas: {
+                sourceState: "shown",
+            },
+        },
+    },
+};
 export const LabelText: Story = {
-  ...DatePickerTemplate,
-  args: { labelText: "Label text" },
-}
-
+    ...DatePickerTemplate,
+    args: { labelText: "Label text" },
+};
 const sourceCodeControlled = `
 const [selectedDate, setValueDate] = useState<Date | undefined>()
 
@@ -113,81 +96,57 @@ return (
     onDayChange={setValueDate}
   />
 )
-`
-
+`;
 export const Controlled: Story = {
-  ...DatePickerTemplate,
-  args: { selectedDay: new Date() },
-  parameters: {
-    docs: {
-      source: {
-        code: sourceCodeControlled,
-      },
+    ...DatePickerTemplate,
+    args: { selectedDay: new Date() },
+    parameters: {
+        docs: {
+            source: {
+                code: sourceCodeControlled,
+            },
+        },
     },
-  },
-}
-
+};
 export const Locale: Story = {
-  ...DatePickerTemplate,
-  args: { locale: "en-US", selectedDay: new Date() },
-}
-
+    ...DatePickerTemplate,
+    args: { locale: "en-US", selectedDay: new Date() },
+};
 export const Description: Story = {
-  args: { description: "Custom description!" },
-}
-
+    args: { description: "Custom description!" },
+};
 export const Validation: Story = {
-  render: () => {
-    const [selectedDate, setValueDate] = useState<Date | undefined>(
-      new Date("2022-05-05")
-    )
-    const [status, setStatus] = useState<FieldMessageStatus | undefined>()
-    const [response, setResponse] = useState<ValidationResponse | undefined>()
-    const [validationMessage, setValidationMessage] =
-      useState<ValidationResponse["validationMessage"]>()
-
-    const handleValidation = (validationResponse: ValidationResponse): void => {
-      setResponse(validationResponse)
-      // An example of additional validation
-      if (
-        validationResponse.isValidDate &&
-        validationResponse.date?.getFullYear() !== new Date().getFullYear()
-      ) {
-        setStatus("caution")
-        setValidationMessage("Date is not this year")
-        return
-      }
-      setStatus(validationResponse.status)
-      setValidationMessage(validationResponse.validationMessage)
-    }
-
-    const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
-      e.preventDefault()
-
-      if (status === "error" || status === "caution") {
-        setValidationMessage("There is an error")
-        setStatus("error")
-        return alert("Error")
-      }
-
-      alert("Success")
-    }
-
-    return (
-      <>
+    render: () => {
+        const [selectedDate, setValueDate] = useState<Date | undefined>(new Date("2022-05-05"));
+        const [status, setStatus] = useState<FieldMessageStatus | undefined>();
+        const [response, setResponse] = useState<ValidationResponse | undefined>();
+        const [validationMessage, setValidationMessage] = useState<ValidationResponse["validationMessage"]>();
+        const handleValidation = (validationResponse: ValidationResponse): void => {
+            setResponse(validationResponse);
+            // An example of additional validation
+            if (validationResponse.isValidDate &&
+                validationResponse.date?.getFullYear() !== new Date().getFullYear()) {
+                setStatus("caution");
+                setValidationMessage("Date is not this year");
+                return;
+            }
+            setStatus(validationResponse.status);
+            setValidationMessage(validationResponse.validationMessage);
+        };
+        const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
+            e.preventDefault();
+            if (status === "error" || status === "caution") {
+                setValidationMessage("There is an error");
+                setStatus("error");
+                return alert("Error");
+            }
+            alert("Success");
+        };
+        return (<>
         <form onSubmit={submitRequest}>
-          <DatePicker
-            labelText="Label"
-            selectedDay={selectedDate}
-            onDayChange={setValueDate}
-            onValidate={handleValidation}
-            status={status}
-            validationMessage={validationMessage}
-            disabledBefore={new Date()}
-            locale="en-AU"
-          />
+          <DatePicker labelText="Label" selectedDay={selectedDate} onDayChange={setValueDate} onValidate={handleValidation} status={status} validationMessage={validationMessage} disabledBefore={new Date()} locale="en-AU"/>
           <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
-            <Button type="submit" label="Submit" />
+            <Button type="submit" label="Submit"/>
           </div>
         </form>
 
@@ -237,130 +196,118 @@ export const Validation: Story = {
             </li>
           </ul>
         </div>
-      </>
-    )
-  },
-  parameters: {
-    docs: { source: { type: "code" } },
-    controls: { disable: true },
-  },
-}
-
+      </>);
+    },
+    parameters: {
+        docs: { source: { type: "code" } },
+        controls: { disable: true },
+    },
+};
 export const DisabledDays: Story = {
-  parameters: { controls: { include: /^disabled/ } },
-}
-
+    parameters: { controls: { include: /^disabled/ } },
+};
 export const LimitedWindowWidth: Story = {
-  name: "At 400% window size",
-  parameters: {
-    controls: { disable: true },
-    viewport: {
-      viewports: {
-        ViewportAt400: {
-          name: "Viewport at 400%",
-          styles: {
-            width: "320px",
-            height: "350px",
-          },
+    name: "At 400% window size",
+    parameters: {
+        controls: { disable: true },
+        viewport: {
+            viewports: {
+                ViewportAt400: {
+                    name: "Viewport at 400%",
+                    styles: {
+                        width: "320px",
+                        height: "350px",
+                    },
+                },
+            },
+            defaultViewport: "ViewportAt400",
         },
-      },
-      defaultViewport: "ViewportAt400",
+        a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
     },
-    a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
-    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
-  },
-}
-
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        await userEvent.click(canvas.getByRole("button", { name: "Choose date" }));
+        await expect(canvas.getByRole("dialog")).toBeInTheDocument();
+    },
+};
 export const AboveIfAvailable: Story = {
-  name: "Limited viewport autoplacement above",
-  args: {
-    labelText: "Calendar with space above",
-  },
-  parameters: {
-    viewport: {
-      viewports: {
-        LimitedViewportAutoPlace: {
-          name: "Limited vertical space",
-          styles: {
-            width: "1024px",
-            height: "500px",
-          },
-        },
-      },
-      defaultViewport: "LimitedViewportAutoPlace",
+    name: "Limited viewport autoplacement above",
+    args: {
+        labelText: "Calendar with space above",
     },
-    a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
-  },
-  decorators: [
-    Story => (
-      <div className="mt-[350px]">
+    parameters: {
+        viewport: {
+            viewports: {
+                LimitedViewportAutoPlace: {
+                    name: "Limited vertical space",
+                    styles: {
+                        width: "1024px",
+                        height: "500px",
+                    },
+                },
+            },
+            defaultViewport: "LimitedViewportAutoPlace",
+        },
+        a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
+    },
+    decorators: [
+        Story => (<div className="mt-[350px]">
         <Story />
-      </div>
-    ),
-  ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
-    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
-  },
-}
-
+      </div>),
+    ],
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        await userEvent.click(canvas.getByRole("button", { name: "Choose date" }));
+        await expect(canvas.getByRole("dialog")).toBeInTheDocument();
+    },
+};
 export const LimitedViewportHeight: Story = {
-  name: "Limited viewport height",
-  args: {
-    labelText: "Calendar with reduced space below",
-  },
-  parameters: {
-    viewport: {
-      viewports: {
-        LimitedViewportHeight: {
-          name: "Limited vertical space",
-          styles: {
-            width: "1024px",
-            height: "300px",
-          },
-        },
-      },
-      defaultViewport: "LimitedViewportHeight",
+    name: "Limited viewport height",
+    args: {
+        labelText: "Calendar with reduced space below",
     },
-    a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
-  },
-  decorators: [
-    Story => (
-      <div className="mb-[150px]">
+    parameters: {
+        viewport: {
+            viewports: {
+                LimitedViewportHeight: {
+                    name: "Limited vertical space",
+                    styles: {
+                        width: "1024px",
+                        height: "300px",
+                    },
+                },
+            },
+            defaultViewport: "LimitedViewportHeight",
+        },
+        a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
+    },
+    decorators: [
+        Story => (<div className="mb-[150px]">
         <Story />
-      </div>
-    ),
-  ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
-    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
-  },
-}
-
+      </div>),
+    ],
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        await userEvent.click(canvas.getByRole("button", { name: "Choose date" }));
+        await expect(canvas.getByRole("dialog")).toBeInTheDocument();
+    },
+};
 export const FullViewportHeight: Story = {
-  name: "Full viewport height",
-  args: {
-    labelText: "Calendar with full space below",
-  },
-  decorators: [
-    Story => (
-      <div className="mb-[350px]">
+    name: "Full viewport height",
+    args: {
+        labelText: "Calendar with full space below",
+    },
+    decorators: [
+        Story => (<div className="mb-[350px]">
         <Story />
-      </div>
-    ),
-  ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
-    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
-  },
-  parameters: {
-    a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
-  },
-}
+      </div>),
+    ],
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        await userEvent.click(canvas.getByRole("button", { name: "Choose date" }));
+        await expect(canvas.getByRole("dialog")).toBeInTheDocument();
+    },
+    parameters: {
+        a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
+    },
+};

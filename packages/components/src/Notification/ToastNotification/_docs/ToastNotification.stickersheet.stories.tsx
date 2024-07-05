@@ -1,19 +1,16 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { StickerSheetStory } from "~storybook/components/StickerSheet"
-import { ToastNotification } from "../ToastNotification"
-
+import React from "react";
+import { Meta } from "@storybook/react";
+import { StickerSheetStory } from "~storybook/components/StickerSheet";
+import { ToastNotification } from "../ToastNotification";
 export default {
-  title: "Components/Notifications/ToastNotification",
-  parameters: {
-    chromatic: { disable: false, delay: 600 },
-    controls: { disable: true },
-  },
-} satisfies Meta
-
+    title: "Components/Notifications/ToastNotification",
+    parameters: {
+        chromatic: { disable: false, delay: 600 },
+        controls: { disable: true },
+    },
+} satisfies Meta;
 const StickerSheetTemplate: StickerSheetStory = {
-  render: () => (
-    <>
+    render: () => (<>
       <ToastNotification type="positive" title="Positive">
         New user data, imported by mackenzie@hooli.com has successfully
         uploaded. <a href="/">Manage users is now available</a>
@@ -33,29 +30,23 @@ const StickerSheetTemplate: StickerSheetStory = {
       <ToastNotification type="negative" title="Negative">
         Check your connection and try again. <a href="/">Refresh</a>.
       </ToastNotification>
-      <ToastNotification
-        type="positive"
-        title="Very long Title Example Very long title Example VerylongTitleExampleVerylongtitleExample"
-      >
+      <ToastNotification type="positive" title="Very long Title Example Very long title Example VerylongTitleExampleVerylongtitleExample">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla semper
         odio vitae sem gravida rutrum. Praesent vel sapien eget eros dictum
         luctus scelerisque eu nibh. Etiam ullamcorper lobortis gravida.
         Suspendisse massa tortor, ultricies et ipsum at, iaculis bibendum est.
       </ToastNotification>
-    </>
-  ),
-}
-
+    </>),
+};
 export const StickerSheetDefault: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
-}
-
+    ...StickerSheetTemplate,
+    name: "Sticker Sheet (Default)",
+};
 export const StickerSheetRTL: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: {
-    ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
-  },
-}
+    ...StickerSheetTemplate,
+    name: "Sticker Sheet (RTL)",
+    parameters: {
+        ...StickerSheetTemplate.parameters,
+        textDirection: "rtl",
+    },
+};

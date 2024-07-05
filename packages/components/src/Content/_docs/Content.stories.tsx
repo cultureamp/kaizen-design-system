@@ -1,15 +1,13 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Container } from "~components/Container"
-import { Text } from "~components/Text"
-import { Content } from "../index"
-
+import React from "react";
+import { Meta, StoryObj } from "@storybook/react";
+import { Container } from "~components/Container";
+import { Text } from "~components/Text";
+import { Content } from "../index";
 const meta = {
-  title: "Pages/Content",
-  component: Content,
-  args: {
-    children: (
-      <>
+    title: "Pages/Content",
+    component: Content,
+    args: {
+        children: (<>
         <Text variant="body">
           Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa
           drumstick fatback cow tongue ground round chicken. Jowl cow short
@@ -27,37 +25,30 @@ const meta = {
           pork meatball pastrami fatback. Strip steak beef ribs pork loin kevin,
           biltong fatback tongue salami brisket capicola flank tenderloin.
         </Text>
-      </>
-    ),
-  },
-} satisfies Meta<typeof Content>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
-
+      </>),
+    },
+} satisfies Meta<typeof Content>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: "shown",
-      },
+    parameters: {
+        docs: {
+            canvas: {
+                sourceState: "shown",
+            },
+        },
     },
-  },
-}
-
+};
 export const Example: Story = {
-  render: args => (
-    <Container>
-      <Content {...args} />
-    </Container>
-  ),
-  parameters: {
-    chromatic: { disable: false },
-    docs: {
-      canvas: {
-        sourceState: "shown",
-      },
+    render: args => (<Container>
+      <Content {...args}/>
+    </Container>),
+    parameters: {
+        chromatic: { disable: false },
+        docs: {
+            canvas: {
+                sourceState: "shown",
+            },
+        },
     },
-  },
-}
+};

@@ -1,60 +1,39 @@
-import React, { ReactNode, useId } from "react"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { MultiSelectItem } from "../../types"
-import styles from "./ListBoxSection.module.scss"
-
+import React, { ReactNode, useId } from "react";
+import { VisuallyHidden } from "~components/VisuallyHidden";
+import { MultiSelectItem } from "../../types";
+import styles from "./ListBoxSection.module.scss";
 type SectionNameProps = {
-  /**
-   * Becomes an aria-label on the section, informing
-   * unsighted users
-   */
-  sectionName: string
-}
-
+    /**
+     * Becomes an aria-label on the section, informing
+     * unsighted users
+     */
+    sectionName: string;
+};
 type SectionHeaderProps = {
-  /**
-   * Becomes an aria-label on the section, informing
-   * unsighted users
-   */
-  sectionName?: string
-  /**
-   * Can be used for a visual title of the ListBoxSection or to provide addition information in a React node.
-   * If this is the same title as sectionName, you should only pass in a sectionHeader to avoid duplicate descriptions.
-   */
-  sectionHeader: ReactNode
-}
-
+    /**
+     * Becomes an aria-label on the section, informing
+     * unsighted users
+     */
+    sectionName?: string;
+    /**
+     * Can be used for a visual title of the ListBoxSection or to provide addition information in a React node.
+     * If this is the same title as sectionName, you should only pass in a sectionHeader to avoid duplicate descriptions.
+     */
+    sectionHeader: ReactNode;
+};
 export type ListBoxSectionProps = {
-  items: MultiSelectItem[]
-  children: (item: MultiSelectItem) => React.ReactNode
-} & (SectionHeaderProps | SectionNameProps)
-
-export const ListBoxSection = ({
-  items,
-  children,
-  sectionName,
-  ...restProps
-}: ListBoxSectionProps): JSX.Element => {
-  const listSectionId = useId()
-  const hasSectionHeader = "sectionHeader" in restProps
-  return (
-    <li role="presentation">
-      <ul
-        className={styles.listBoxSection}
-        aria-label={!hasSectionHeader ? sectionName : undefined}
-        aria-labelledby={hasSectionHeader ? listSectionId : undefined}
-        role="group"
-      >
-        {hasSectionHeader && (
-          <li
-            className={styles.listBoxSectionHeader}
-            id={listSectionId}
-            role="presentation"
-          >
+    items: MultiSelectItem[];
+    children: (item: MultiSelectItem) => React.ReactNode;
+} & (SectionHeaderProps | SectionNameProps);
+export const ListBoxSection = ({ items, children, sectionName, ...restProps }: ListBoxSectionProps): JSX.Element => {
+    const listSectionId = useId();
+    const hasSectionHeader = "sectionHeader" in restProps;
+    return (<li role="presentation">
+      <ul className={styles.listBoxSection} aria-label={!hasSectionHeader ? sectionName : undefined} aria-labelledby={hasSectionHeader ? listSectionId : undefined} role="group">
+        {hasSectionHeader && (<li className={styles.listBoxSectionHeader} id={listSectionId} role="presentation">
             {sectionName && <VisuallyHidden>{sectionName}. </VisuallyHidden>}
             {restProps.sectionHeader}
-          </li>
-        )}
+          </li>)}
         {/*
          * This seems semantically strange but most closely aligns to WCAGs suggested pattern:
          https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/
@@ -63,7 +42,6 @@ export const ListBoxSection = ({
          */}
         {Array.from(items).map(node => node != undefined && children(node))}
       </ul>
-    </li>
-  )
-}
-ListBoxSection.displayName = "ListBoxSection"
+    </li>);
+};
+ListBoxSection.displayName = "ListBoxSection";

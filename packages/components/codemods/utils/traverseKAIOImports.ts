@@ -1,14 +1,7 @@
 import ts from "typescript"
+import { transformImportsIntoFamilies } from "../groupImportsByFamily/transformImportsIntoFamilies"
 
-export const traverseKAIOImports = ({
-  sourceFile,
-  transformers,
-}: {
-  sourceFile: ts.SourceFile
-  transformers: Array<
-    (node: ts.ImportDeclaration, updatedNodes: ts.Node[]) => void
-  >
-}): ts.SourceFile => {
+export const traverseKAIOImports = (sourceFile): ts.SourceFile => {
   const traverseFile =
     <T extends ts.Node>(context: ts.TransformationContext) =>
     (rootNode: T) => {
@@ -22,9 +15,7 @@ export const traverseKAIOImports = ({
           if (importPath === "@kaizen/components") {
             const updatedNodes: ts.Node[] = []
 
-            transformers.forEach(transformer =>
-              transformer(node as ts.ImportDeclaration, updatedNodes)
-            )
+            transformImportsIntoFamilies(node, updatedNodes)
 
             return ts.factory.createNodeArray(updatedNodes)
           }

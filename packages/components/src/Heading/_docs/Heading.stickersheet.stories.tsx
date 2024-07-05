@@ -1,24 +1,18 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Heading } from "../index"
-
+import React from "react";
+import { Meta } from "@storybook/react";
+import { StickerSheet, StickerSheetStory, } from "~storybook/components/StickerSheet";
+import { Heading } from "../index";
 export default {
-  title: "Components/Heading",
-  parameters: {
-    chromatic: { disable: false },
-    controls: { disable: true },
-  },
-} satisfies Meta
-
+    title: "Components/Heading",
+    parameters: {
+        chromatic: { disable: false },
+        controls: { disable: true },
+    },
+} satisfies Meta;
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => {
-    const fontColour = isReversed ? "white" : "dark"
-    return (
-      <>
+    render: ({ isReversed }) => {
+        const fontColour = isReversed ? "white" : "dark";
+        return (<>
         <StickerSheet heading="Heading" isReversed={isReversed}>
           <StickerSheet.Body>
             <StickerSheet.Row rowTitle="Display 0">
@@ -93,17 +87,13 @@ const StickerSheetTemplate: StickerSheetStory = {
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>
-        {!isReversed ? (
-          <StickerSheet isReversed={isReversed}>
-            <StickerSheet.Header
-              hasVerticalHeadings
-              headings={[
-                "Dark",
-                "Dark Reduced Opacity",
-                "Positive",
-                "Negative",
-              ]}
-            />
+        {!isReversed ? (<StickerSheet isReversed={isReversed}>
+            <StickerSheet.Header hasVerticalHeadings headings={[
+                    "Dark",
+                    "Dark Reduced Opacity",
+                    "Positive",
+                    "Negative",
+                ]}/>
             <StickerSheet.Body>
               <StickerSheet.Row rowTitle="Colours">
                 <Heading variant="heading-6" color="dark">
@@ -120,13 +110,8 @@ const StickerSheetTemplate: StickerSheetStory = {
                 </Heading>
               </StickerSheet.Row>
             </StickerSheet.Body>
-          </StickerSheet>
-        ) : (
-          <StickerSheet isReversed={isReversed}>
-            <StickerSheet.Header
-              hasVerticalHeadings
-              headings={["White", "White Reduced Opacity"]}
-            />
+          </StickerSheet>) : (<StickerSheet isReversed={isReversed}>
+            <StickerSheet.Header hasVerticalHeadings headings={["White", "White Reduced Opacity"]}/>
             <StickerSheet.Body>
               <StickerSheet.Row rowTitle="Colours">
                 <Heading variant="heading-6" color="white">
@@ -137,27 +122,22 @@ const StickerSheetTemplate: StickerSheetStory = {
                 </Heading>
               </StickerSheet.Row>
             </StickerSheet.Body>
-          </StickerSheet>
-        )}
-      </>
-    )
-  },
-}
-
+          </StickerSheet>)}
+      </>);
+    },
+};
 export const StickerSheetDefault: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
-}
-
+    ...StickerSheetTemplate,
+    name: "Sticker Sheet (Default)",
+};
 export const StickerSheetReversed: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
-  args: { isReversed: true },
-}
-
+    ...StickerSheetTemplate,
+    name: "Sticker Sheet (Reversed)",
+    parameters: { backgrounds: { default: "Purple 700" } },
+    args: { isReversed: true },
+};
 export const StickerSheetRTL: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
-}
+    ...StickerSheetTemplate,
+    name: "Sticker Sheet (RTL)",
+    parameters: { textDirection: "rtl" },
+};

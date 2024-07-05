@@ -1,213 +1,168 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import isChromatic from "chromatic"
-import { Button, IconButton } from "~components/Button"
-import { FieldMessage } from "~components/FieldMessage"
-import { AddIcon, QuestionIcon } from "~components/Icon"
-import { Input } from "~components/Input"
-import { Label } from "~components/Label"
-import { Text } from "~components/Text"
-import { Focusable } from "~components/__overlays__/v3"
-import { Tooltip, TooltipTrigger } from "../index"
-import * as TestStories from "./Tooltip.spec.stories"
-
+import React from "react";
+import { Meta, StoryObj } from "@storybook/react";
+import isChromatic from "chromatic";
+import { Button, IconButton } from "~components/Button";
+import { FieldMessage } from "~components/FieldMessage";
+import { AddIcon, QuestionIcon } from "~components/Icon";
+import { Input } from "~components/Input";
+import { Label } from "~components/Label";
+import { Text } from "~components/Text";
+import { Focusable } from "~components/__overlays__/v3";
+import { Tooltip, TooltipTrigger } from "../index";
+import * as TestStories from "./Tooltip.spec.stories";
 const meta = {
-  title: "Overlays/Tooltip/v3/Docs Assets",
-  component: Tooltip,
-  parameters: {
-    layout: "centered",
-    a11y: { disable: true },
-  },
-  args: {
-    defaultOpen: isChromatic(),
-  },
-  argTypes: {
-    // eslint-disable-next-line camelcase
-    UNSTABLE_portalContainer: {
-      control: false,
-      table: { disable: true },
+    title: "Overlays/Tooltip/v3/Docs Assets",
+    component: Tooltip,
+    parameters: {
+        layout: "centered",
+        a11y: { disable: true },
     },
-    triggerRef: { control: false },
-  },
-} satisfies Meta<typeof Tooltip>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
-
+    args: {
+        defaultOpen: isChromatic(),
+    },
+    argTypes: {
+        // eslint-disable-next-line camelcase
+        UNSTABLE_portalContainer: {
+            control: false,
+            table: { disable: true },
+        },
+        triggerRef: { control: false },
+    },
+} satisfies Meta<typeof Tooltip>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
-  render: ({ defaultOpen: _, isOpen, ...args }) => (
-    <TooltipTrigger defaultOpen={true} isOpen={isOpen}>
-      <Button label="Button" />
+    render: ({ defaultOpen: _, isOpen, ...args }) => (<TooltipTrigger defaultOpen={true} isOpen={isOpen}>
+      <Button label="Button"/>
       <Tooltip {...args}>Tooltip content</Tooltip>
-    </TooltipTrigger>
-  ),
-}
-
+    </TooltipTrigger>),
+};
 export const Primary: Story = {
-  render: () => (
-    <TooltipTrigger>
-      <IconButton
-        label="Add something"
-        icon={<AddIcon role="presentation" />}
-        primary
-        // Negate the aria description (added by RAC) as it should be the
-        // same as the accessible name, therefore no need to duplicate it
-        aria-describedby={null}
-      />
+    render: () => (<TooltipTrigger>
+      <IconButton label="Add something" icon={<AddIcon role="presentation"/>} primary 
+    // Negate the aria description (added by RAC) as it should be the
+    // same as the accessible name, therefore no need to duplicate it
+    aria-describedby={null}/>
       <Tooltip>Add something</Tooltip>
-    </TooltipTrigger>
-  ),
-}
-
+    </TooltipTrigger>),
+};
 export const Placement: Story = {
-  ...TestStories.Placement,
-}
-
+    ...TestStories.Placement,
+};
 export const DoFieldTooltip: Story = {
-  render: () => (
-    <div>
+    render: () => (<div>
       <Label>Password</Label>
-      <Input type="text" />
-      <FieldMessage message="Password must be at least 8 characters." />
-    </div>
-  ),
-}
-
+      <Input type="text"/>
+      <FieldMessage message="Password must be at least 8 characters."/>
+    </div>),
+};
 export const DontFieldTooltip: Story = {
-  parameters: {
-    docs: {
-      source: { type: "dynamic" },
+    parameters: {
+        docs: {
+            source: { type: "dynamic" },
+        },
     },
-  },
-  render: () => (
-    <div>
+    render: () => (<div>
       <TooltipTrigger>
         <Focusable>
           <Label>
             Password{" "}
             <span className="inline-flex align-middle">
-              <QuestionIcon
-                classNameOverride="w-[15px] m-auto"
-                role="presentation"
-              />
+              <QuestionIcon classNameOverride="w-[15px] m-auto" role="presentation"/>
             </span>
           </Label>
         </Focusable>
         <Tooltip>Password must be at least 8 characters</Tooltip>
       </TooltipTrigger>
       <div className="flex gap-4">
-        <Input type="text" />
+        <Input type="text"/>
       </div>
-    </div>
-  ),
-}
-
+    </div>),
+};
 export const DoConcise: Story = {
-  parameters: {
-    docs: {
-      source: { type: "dynamic" },
+    parameters: {
+        docs: {
+            source: { type: "dynamic" },
+        },
     },
-  },
-  render: () => (
-    <div>
+    render: () => (<div>
       <TooltipTrigger>
-        <IconButton
-          label="Add topic"
-          icon={<AddIcon role="presentation" />}
-          primary
-          // Negate the aria description (added by RAC) as it should be the
-          // same as the accessible name, therefore no need to duplicate it
-          aria-describedby={null}
-        />
+        <IconButton label="Add topic" icon={<AddIcon role="presentation"/>} primary 
+    // Negate the aria description (added by RAC) as it should be the
+    // same as the accessible name, therefore no need to duplicate it
+    aria-describedby={null}/>
         <Tooltip>Add topic to agenda</Tooltip>
       </TooltipTrigger>
-    </div>
-  ),
-}
-
+    </div>),
+};
 export const DontConcise: Story = {
-  parameters: {
-    docs: {
-      source: { type: "dynamic" },
+    parameters: {
+        docs: {
+            source: { type: "dynamic" },
+        },
     },
-  },
-  render: () => (
-    <div>
+    render: () => (<div>
       <TooltipTrigger>
-        <IconButton
-          label="Add something"
-          icon={<AddIcon role="presentation" />}
-          primary
-          // Negate the aria description (added by RAC) as it should be the
-          // same as the accessible name, therefore no need to duplicate it
-          aria-describedby={null}
-        />
+        <IconButton label="Add something" icon={<AddIcon role="presentation"/>} primary 
+    // Negate the aria description (added by RAC) as it should be the
+    // same as the accessible name, therefore no need to duplicate it
+    aria-describedby={null}/>
         <Tooltip>
           Add Topic to agenda. This will create a new topic where you can
           discuss recent work with your manager.{" "}
         </Tooltip>
       </TooltipTrigger>
-    </div>
-  ),
-}
-
+    </div>),
+};
 export const ShouldFlip: Story = {
-  play: undefined,
-  render: () => (
-    <div className="flex flex-col gap-8 pl-96 overflow-hidden max-w-[250px]">
+    play: undefined,
+    render: () => (<div className="flex flex-col gap-8 pl-96 overflow-hidden max-w-[250px]">
       <TooltipTrigger>
-        <Button label="Should flip" />
+        <Button label="Should flip"/>
         <Tooltip placement="end">Tooltip content</Tooltip>
       </TooltipTrigger>
       <TooltipTrigger>
-        <Button label="Won't flip" />
+        <Button label="Won't flip"/>
         <Tooltip placement="end" shouldFlip={false}>
           Tooltip content
         </Tooltip>
       </TooltipTrigger>
-    </div>
-  ),
-  parameters: {
-    viewport: {
-      viewports: {
-        small: {
-          name: "small",
-          styles: {
-            width: "300px",
-            height: "300px",
-          },
+    </div>),
+    parameters: {
+        viewport: {
+            viewports: {
+                small: {
+                    name: "small",
+                    styles: {
+                        width: "300px",
+                        height: "300px",
+                    },
+                },
+            },
+            defaultViewport: "small",
         },
-      },
-      defaultViewport: "small",
     },
-  },
-}
-
+};
 export const UncontrolledState: Story = {
-  play: undefined,
-  args: { placement: "end", shouldFlip: false },
-  render: () => {
-    const [isOpen, setIsOpen] = React.useState<boolean>(false)
-    return (
-      <div className="flex gap-12">
+    play: undefined,
+    args: { placement: "end", shouldFlip: false },
+    render: () => {
+        const [isOpen, setIsOpen] = React.useState<boolean>(false);
+        return (<div className="flex gap-12">
         <button type="button" onClick={() => setIsOpen(!isOpen)}>
           Toggle open
         </button>
         <TooltipTrigger isOpen={isOpen}>
-          <Button label="Button" />
+          <Button label="Button"/>
           <Tooltip>Tooltip content</Tooltip>
         </TooltipTrigger>
-      </div>
-    )
-  },
-}
-
+      </div>);
+    },
+};
 export const TriggerDo: Story = {
-  play: undefined,
-  args: { placement: "end", shouldFlip: false },
-  render: () => (
-    <Text variant="body" classNameOverride="bg-white p-12 rounded">
+    play: undefined,
+    args: { placement: "end", shouldFlip: false },
+    render: () => (<Text variant="body" classNameOverride="bg-white p-12 rounded">
       This is an example of an inline{" "}
       <TooltipTrigger>
         <Focusable>
@@ -217,14 +172,12 @@ export const TriggerDo: Story = {
         </Focusable>
         <Tooltip>Tooltip label</Tooltip>
       </TooltipTrigger>
-    </Text>
-  ),
-}
+    </Text>),
+};
 export const TriggerDont: Story = {
-  play: undefined,
-  args: { placement: "end", shouldFlip: false },
-  render: () => (
-    <Text variant="body" classNameOverride="bg-white p-12 rounded">
+    play: undefined,
+    args: { placement: "end", shouldFlip: false },
+    render: () => (<Text variant="body" classNameOverride="bg-white p-12 rounded">
       This is an example of an inline{" "}
       <TooltipTrigger>
         <Focusable>
@@ -232,14 +185,12 @@ export const TriggerDont: Story = {
         </Focusable>
         <Tooltip>Tooltip label</Tooltip>
       </TooltipTrigger>
-    </Text>
-  ),
-}
+    </Text>),
+};
 export const TriggerLinkDescription: Story = {
-  play: undefined,
-  args: { placement: "end", shouldFlip: false },
-  render: () => (
-    <Text variant="body" classNameOverride="bg-white p-12 rounded">
+    play: undefined,
+    args: { placement: "end", shouldFlip: false },
+    render: () => (<Text variant="body" classNameOverride="bg-white p-12 rounded">
       Use tooltips inline when you want to{" "}
       <TooltipTrigger>
         <Focusable>
@@ -250,6 +201,5 @@ export const TriggerLinkDescription: Story = {
         <Tooltip>Tooltip label</Tooltip>
       </TooltipTrigger>
       .
-    </Text>
-  ),
-}
+    </Text>),
+};
