@@ -241,7 +241,7 @@ importers:
         specifier: ^4.0.9
         version: 4.0.9(postcss@8.4.38)
       prettier:
-        specifier: ^3.3.1
+        specifier: ^3.3.2
         version: 3.3.2
       raw-loader:
         specifier: ^4.0.2
