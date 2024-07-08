@@ -1,4 +1,5 @@
 import React, { RefObject, useEffect, useId, useRef, useState } from "react"
+import { useIntl } from "@cultureamp/i18n-react-intl"
 import { DayClickEventHandler } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
 import {
@@ -21,7 +22,7 @@ import {
   DateInputField,
   DateInputFieldProps,
 } from "./subcomponents/DateInputField"
-import { ValidationResponse } from "./types"
+import type { ValidationResponse } from "./types"
 import { DatePickerSupportedLocales, getLocale } from "./utils/getLocale"
 import { validateDate } from "./utils/validateDate"
 
@@ -45,8 +46,8 @@ export type DatePickerProps = {
   onButtonClick?: DateInputFieldProps["onButtonClick"]
   locale?: DatePickerSupportedLocales
   /**
-   * Accepts a DayOfWeek value to start the week on that day. By default,
-   * it's set to Monday.
+   * Accepts a DayOfWeek value to start the week on that day.
+   * By default it adapts to the provided locale.
    */
   weekStartsOn?: CalendarSingleProps["weekStartsOn"]
   /**
@@ -105,6 +106,14 @@ export const DatePicker = ({
   onValidate,
   ...restDateInputFieldProps
 }: DatePickerProps): JSX.Element => {
+  const { formatMessage } = useIntl()
+
+  const calendarLabelDesc = formatMessage({
+    id: "datePicker.calendarLabelDescription",
+    defaultMessage: "Select date from calendar for:",
+    description: "Label for the search input",
+  })
+
   const reactId = useId()
   const id = propsId ?? reactId
 
@@ -123,9 +132,8 @@ export const DatePicker = ({
   const [inbuiltStatus, setInbuiltStatus] = useState<
     DateInputFieldProps["status"] | undefined
   >()
-  const [inbuiltValidationMessage, setInbuiltValidationMessage] = useState<
-    string | undefined
-  >()
+  const [inbuiltValidationMessage, setInbuiltValidationMessage] =
+    useState<ValidationResponse["validationMessage"]>()
 
   const shouldUseInbuiltValidation = onValidate === undefined
 
@@ -312,7 +320,7 @@ export const DatePicker = ({
         >
           <>
             <VisuallyHidden id={`${id}-calendar-label`}>
-              Select date from calendar for:
+              {calendarLabelDesc}
             </VisuallyHidden>
             <CalendarSingle
               id={calendarId}

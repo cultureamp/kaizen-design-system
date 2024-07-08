@@ -16,7 +16,6 @@ aws cloudfront create-invalidation \
 echo "Reporting the deployed URL via the GitHub status API"
 
 destination=${KAIZEN_DOMAIN_NAME}
-commit_hash=$(git rev-parse --verify HEAD)
-curl --fail -s "https://api.github.com/repos/cultureamp/kaizen-design-system/statuses/$commit_hash" \
+curl --fail -s "https://api.github.com/repos/cultureamp/kaizen-design-system/statuses/$BUILDKITE_COMMIT" \
   --header "authorization: Bearer $GITHUB_STATUS_TOKEN" \
   --data '{"state": "success", "target_url": "https://'"$destination"'", "description": "'"$destination"'", "context": "Branch preview"}'

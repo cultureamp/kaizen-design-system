@@ -1,10 +1,20 @@
 import React from "react"
+import { useIntl } from "@cultureamp/i18n-react-intl"
 import { Button } from "~components/Button"
 import { AddIcon } from "~components/Icon"
 import { Menu, MenuList, MenuItem } from "~components/Menu"
 import { useFilterBarContext } from "../../context/FilterBarContext"
 
 export const AddFiltersMenu = (): JSX.Element => {
+  const { formatMessage } = useIntl()
+
+  const menuButtonLabel = formatMessage({
+    id: "filterBar.addFiltersMenu.buttonLabel",
+    defaultMessage: "Add Filters",
+    description:
+      "Menu button label to show additional available filter options",
+  })
+
   const { getInactiveFilters, showFilter } = useFilterBarContext()
   const inactiveFilters = getInactiveFilters()
 
@@ -12,7 +22,7 @@ export const AddFiltersMenu = (): JSX.Element => {
     <Menu
       button={
         <Button
-          label="Add Filters"
+          label={menuButtonLabel}
           secondary
           disabled={inactiveFilters.length === 0}
           icon={<AddIcon role="presentation" />}

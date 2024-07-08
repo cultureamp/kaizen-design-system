@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "pnpm clean && tsc --project tsconfig.dist.json",

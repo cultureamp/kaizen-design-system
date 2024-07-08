@@ -10,7 +10,7 @@ import {
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
-import { FilterDateRangePicker } from "../index"
+import { FilterDateRangePicker, FilterDateRangePickerProps } from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
 
 const IS_CHROMATIC = isChromatic()
@@ -56,7 +56,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     })
 
     return (
-      <StaticIntlProvider locale="en">
+      <>
         <StickerSheet
           heading="Filter Date Range Picker"
           style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
@@ -138,28 +138,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>
-
-        <StickerSheet heading="Translated">
-          <StickerSheet.Body>
-            <StickerSheet.Row rowTitle="Japanese">
-              <StaticIntlProvider locale="ja">
-                <FilterDateRangePickerField
-                  id="stickersheet--filter-drp-field--translated"
-                  label="Dates"
-                  locale="en-US"
-                  selectedRange={rangeFieldValidation}
-                  onRangeChange={setRangeFieldValidation}
-                  onValidate={{
-                    dateStart: action(
-                      "Validation story: date start onValidate"
-                    ),
-                  }}
-                />
-              </StaticIntlProvider>
-            </StickerSheet.Row>
-          </StickerSheet.Body>
-        </StickerSheet>
-      </StaticIntlProvider>
+      </>
     )
   },
   play: async ({ canvasElement }): Promise<void> => {
@@ -190,4 +169,56 @@ export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
   parameters: { textDirection: "rtl" },
+}
+
+export const StickerSheetLocales: StickerSheetStory = {
+  name: "Sticker Sheet (Locales)",
+  render: () => {
+    const props = {
+      isOpen: false,
+      setIsOpen: () => undefined,
+      renderTrigger: (triggerButtonProps): JSX.Element => (
+        <FilterButton {...triggerButtonProps} />
+      ),
+      label: "Dates",
+      selectedRange: {
+        from: new Date("2022-05-15"),
+        to: new Date("2022-06-22"),
+      },
+      onRangeChange: () => undefined,
+      locale: "en-AU",
+    } satisfies FilterDateRangePickerProps
+
+    return (
+      <>
+        <StickerSheet heading="Localisation">
+          <StickerSheet.Header headings={["en-AU", "en-US"]} />
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <FilterDateRangePicker {...props} locale="en-AU" />
+              <FilterDateRangePicker {...props} locale="en-US" />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+
+        <StickerSheet>
+          <StickerSheet.Header headings={["fr-CA"]} />
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <StaticIntlProvider locale="fr-CA">
+                <FilterDateRangePicker {...props} locale="fr-CA" isOpen />
+              </StaticIntlProvider>
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+      </>
+    )
+  },
+  decorators: [
+    Story => (
+      <div className="mb-[520px]">
+        <Story />
+      </div>
+    ),
+  ],
 }

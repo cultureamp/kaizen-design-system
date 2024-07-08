@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.4.2
+
+### Patch Changes
+
+- [#4799](https://github.com/cultureamp/kaizen-design-system/pull/4799) [`d6031f0daa3a310851b34139339acc11e23f6e5a`](https://github.com/cultureamp/kaizen-design-system/commit/d6031f0daa3a310851b34139339acc11e23f6e5a) - Dep update: uuid from v9 to v10
+
 ## 10.4.1
 
 ### Patch Changes

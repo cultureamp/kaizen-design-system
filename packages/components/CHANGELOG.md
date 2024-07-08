@@ -1,5 +1,49 @@
 # Change Log
 
+## 1.54.1
+
+### Patch Changes
+
+- [#4799](https://github.com/cultureamp/kaizen-design-system/pull/4799) [`d6031f0daa3a310851b34139339acc11e23f6e5a`](https://github.com/cultureamp/kaizen-design-system/commit/d6031f0daa3a310851b34139339acc11e23f6e5a) - Dep update: uuid from v9 to v10
+
+## 1.54.0
+
+### Minor Changes
+
+- [#4794](https://github.com/cultureamp/kaizen-design-system/pull/4794) [`a2402b46621130fb8035122ffd231f15df54473f`](https://github.com/cultureamp/kaizen-design-system/commit/a2402b46621130fb8035122ffd231f15df54473f) - Add all supported locales to `DatePicker`, `FilterDatePicker`, `FilterDateRangePicker`.
+
+  Update `Calendar`s to infer starting weekday based on provided locale.
+
+## 1.53.0
+
+### Minor Changes
+
+- [#4788](https://github.com/cultureamp/kaizen-design-system/pull/4788) [`c04d33098c31ba5dd2516b95c7ea4c1e2975c2c3`](https://github.com/cultureamp/kaizen-design-system/commit/c04d33098c31ba5dd2516b95c7ea4c1e2975c2c3) - Add translations to `FilterBar` and `DatePicker` components.
+
+  Add locale `fr-CA` and translate text in `DatePicker`, `FilterDatePicker`, `FilterDateRangePicker`.
+
+## 1.52.1
+
+### Patch Changes
+
+- [#4783](https://github.com/cultureamp/kaizen-design-system/pull/4783) [`5433cd725f34f56c858713acadf5f95af628f7ab`](https://github.com/cultureamp/kaizen-design-system/commit/5433cd725f34f56c858713acadf5f95af628f7ab) - Fix workflow future logo a11y
+
+## 1.52.0
+
+### Minor Changes
+
+- [#4744](https://github.com/cultureamp/kaizen-design-system/pull/4744) [`844942ea54668a9455fd6fc643b86659be80e7da`](https://github.com/cultureamp/kaizen-design-system/commit/844942ea54668a9455fd6fc643b86659be80e7da) - Create v3 Tooltip and versioned package entry points
+
+### Patch Changes
+
+- [#4779](https://github.com/cultureamp/kaizen-design-system/pull/4779) [`c390aac3420eef384b46510c6f3b61f50eff229a`](https://github.com/cultureamp/kaizen-design-system/commit/c390aac3420eef384b46510c6f3b61f50eff229a) - Add tiempos-headline-medium weight to font-face declaration
+
+## 1.51.0
+
+### Minor Changes
+
+- [#4772](https://github.com/cultureamp/kaizen-design-system/pull/4772) [`9dac69a5492034b1ffc7a1355dcf6a092f48936f`](https://github.com/cultureamp/kaizen-design-system/commit/9dac69a5492034b1ffc7a1355dcf6a092f48936f) - Update TitleBlockZen title font to match composable header.
+
 ## 1.50.0
 
 ### Minor Changes

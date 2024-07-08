@@ -1,6 +1,7 @@
 import React, { useState } from "react"
-import { render, screen, waitFor, within } from "@testing-library/react"
+import { screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { renderWithIntl } from "~tests"
 import {
   FilterAttributes,
   FilterBarProvider,
@@ -56,35 +57,46 @@ const FilterBarDatePickerWrapper = ({
 }
 
 describe("<FilterBarDatePicker />", () => {
-  it("shows the name in the trigger button", () => {
-    const { getByRole } = render(<FilterBarDatePickerWrapper />)
-    const triggerButton = getByRole("button", { name: "Drank" })
-    expect(triggerButton).toBeInTheDocument()
+  it("shows the name in the trigger button", async () => {
+    renderWithIntl(<FilterBarDatePickerWrapper />)
+    await waitFor(() => {
+      const triggerButton = screen.getByRole("button", { name: "Drank" })
+      expect(triggerButton).toBeInTheDocument()
+    })
   })
 
   describe("Removable", () => {
-    it("does not show the remove button when isRemovable is false", () => {
-      const { queryByRole } = render(<FilterBarDatePickerWrapper />)
-      expect(
-        queryByRole("button", { name: "Remove filter - Drank" })
-      ).not.toBeInTheDocument()
+    it("does not show the remove button when isRemovable is false", async () => {
+      renderWithIntl(<FilterBarDatePickerWrapper />)
+      await waitFor(() => {
+        expect(
+          screen.getByRole("button", { name: "Drank" })
+        ).toBeInTheDocument()
+        expect(
+          screen.queryByRole("button", { name: "Remove filter - Drank" })
+        ).not.toBeInTheDocument()
+      })
     })
 
-    it("shows the remove button when isRemovable is true", () => {
-      const { getByRole } = render(
+    it("shows the remove button when isRemovable is true", async () => {
+      renderWithIntl(
         <FilterBarDatePickerWrapper
           filterAttributes={{ isRemovable: true }}
           defaultValues={{ drank: new Date("2023-05-01") }}
         />
       )
-      expect(
-        getByRole("button", { name: "Remove filter - Drank" })
-      ).toBeVisible()
+      await waitFor(() => {
+        expect(
+          screen.getByRole("button", { name: "Remove filter - Drank" })
+        ).toBeVisible()
+      })
     })
   })
 
   it("can toggle its open state", async () => {
-    const { getByRole, queryByRole } = render(<FilterBarDatePickerWrapper />)
+    const { getByRole, queryByRole } = renderWithIntl(
+      <FilterBarDatePickerWrapper />
+    )
     const triggerButton = getByRole("button", { name: "Drank" })
 
     await user.click(triggerButton)
@@ -100,20 +112,22 @@ describe("<FilterBarDatePicker />", () => {
     })
   })
 
-  it("shows a selected value when provided", () => {
-    const { getByRole } = render(
+  it("shows a selected value when provided", async () => {
+    const { getByRole } = renderWithIntl(
       <FilterBarDatePickerWrapper
         defaultValues={{ drank: new Date("2023-06-06") }}
       />
     )
-    const triggerButton = getByRole("button", {
-      name: "Drank : 6 Jun 2023",
+    await waitFor(() => {
+      const triggerButton = getByRole("button", {
+        name: "Drank : 6 Jun 2023",
+      })
+      expect(triggerButton).toBeInTheDocument()
     })
-    expect(triggerButton).toBeInTheDocument()
   })
 
   it("updates the selected value in the trigger button when selecting a date", async () => {
-    render(
+    renderWithIntl(
       <FilterBarDatePickerWrapper
         defaultValues={{ drank: new Date("2023-06-06") }}
       />
@@ -143,7 +157,7 @@ describe("<FilterBarDatePicker />", () => {
 
   it("allows calling additional functions on selection change", async () => {
     const onChange = jest.fn()
-    render(<FilterBarDatePickerWrapper onDateChange={onChange} />)
+    renderWithIntl(<FilterBarDatePickerWrapper onDateChange={onChange} />)
 
     const triggerButton = screen.getByRole("button", { name: "Drank" })
     await user.click(triggerButton)

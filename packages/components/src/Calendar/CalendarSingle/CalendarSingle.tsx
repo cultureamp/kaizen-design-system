@@ -4,7 +4,6 @@ import { DayPicker, DayPickerSingleProps } from "react-day-picker"
 import { ArrowBackwardIcon, ArrowForwardIcon } from "~components/Icon"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { baseCalendarClassNames } from "../baseCalendarClassNames"
-import { DayOfWeek } from "../enums"
 import { isInvalidDate, isValidWeekStartsOn } from "../utils"
 import styles from "./CalendarSingle.module.scss"
 
@@ -21,7 +20,7 @@ export const CalendarSingle = ({
   classNameOverride,
   selected,
   defaultMonth,
-  weekStartsOn = DayOfWeek.Mon,
+  weekStartsOn,
   locale = enAU,
   ...restProps
 }: CalendarSingleProps): JSX.Element => {

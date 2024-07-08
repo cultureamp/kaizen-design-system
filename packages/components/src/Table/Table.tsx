@@ -7,7 +7,7 @@ import {
   SortAscendingIcon,
   SortDescendingIcon,
 } from "~components/Icon"
-import { Tooltip } from "~components/Tooltip"
+import { Tooltip } from "~components/__overlays__/Tooltip/v1"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Table.module.scss"
 

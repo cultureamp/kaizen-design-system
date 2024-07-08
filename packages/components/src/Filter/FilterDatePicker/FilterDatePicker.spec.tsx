@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { render, screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { renderWithIntl } from "~tests"
 import { FilterButton } from "~components/Filter/FilterButton"
 import { FilterDatePicker, FilterDatePickerProps } from "."
 
@@ -40,17 +41,20 @@ describe("<FilterDatePicker />", () => {
   })
 
   describe("Filter button", () => {
-    it("should show the selected date in the button", () => {
-      render(<FilterDatePickerWrapper selectedDate={new Date("2022-05-01")} />)
-      const filterButton = screen.getByRole("button", {
-        name: "Drank : 1 May 2022",
+    it("should show the selected date in the button", async () => {
+      renderWithIntl(
+        <FilterDatePickerWrapper selectedDate={new Date("2022-05-01")} />
+      )
+      await waitFor(() => {
+        const filterButton = screen.getByRole("button", {
+          name: "Drank : 1 May 2022",
+        })
+        expect(filterButton).toBeVisible()
       })
-      expect(filterButton).toBeVisible()
     })
 
     it("should show the calendar when the filter button is clicked", async () => {
-      render(<FilterDatePickerWrapper />)
-      expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+      renderWithIntl(<FilterDatePickerWrapper />)
 
       const filterButton = screen.getByRole("button", {
         name: "Drank",
@@ -63,7 +67,7 @@ describe("<FilterDatePicker />", () => {
   })
 
   it("closes the popover when a valid date has been submitted via the calendar picker", async () => {
-    const { getByRole } = render(<FilterDatePickerWrapper />)
+    const { getByRole } = renderWithIntl(<FilterDatePickerWrapper />)
     const triggerButton = getByRole("button", {
       name: "Drank",
     })
@@ -86,7 +90,7 @@ describe("<FilterDatePicker />", () => {
 
   describe("Text input", () => {
     it("validates the date on blur", async () => {
-      const { getByRole, getByLabelText, getByText } = render(
+      const { getByRole, getByLabelText, getByText } = renderWithIntl(
         <FilterDatePickerWrapper />
       )
       const triggerButton = getByRole("button", {
@@ -112,7 +116,7 @@ describe("<FilterDatePicker />", () => {
 
     describe("Pressing Enter in the text input", () => {
       it("closes the popover when a valid date has been submitted via the text input field", async () => {
-        const { getByRole, getByLabelText } = render(
+        const { getByRole, getByLabelText } = renderWithIntl(
           <FilterDatePickerWrapper />
         )
         const triggerButton = getByRole("button", {
@@ -137,7 +141,7 @@ describe("<FilterDatePicker />", () => {
       })
 
       it("does not close the popover when an invalid date has been submitted via the text input field", async () => {
-        const { getByRole, getByLabelText, getByText } = render(
+        const { getByRole, getByLabelText, getByText } = renderWithIntl(
           <FilterDatePickerWrapper />
         )
         const triggerButton = getByRole("button", {
@@ -164,9 +168,10 @@ describe("<FilterDatePicker />", () => {
   })
 
   it("does not close the popover when the text input field has been cleared", async () => {
-    const { getByRole, getByLabelText, getByText, queryByText } = render(
-      <FilterDatePickerWrapper selectedDate={new Date("32/13/2022")} />
-    )
+    const { getByRole, getByLabelText, getByText, queryByText } =
+      renderWithIntl(
+        <FilterDatePickerWrapper selectedDate={new Date("32/13/2022")} />
+      )
     const triggerButton = getByRole("button", {
       name: "Drank : Invalid Date",
     })
@@ -193,7 +198,7 @@ describe("<FilterDatePicker />", () => {
   })
 
   it("does not close the popover when there is a selected date and the user navigates months", async () => {
-    const { getByRole } = render(
+    const { getByRole } = renderWithIntl(
       <FilterDatePickerWrapper selectedDate={new Date("01/01/2022")} />
     )
     const triggerButton = getByRole("button", {
@@ -219,7 +224,7 @@ describe("<FilterDatePicker />", () => {
   })
 
   it("updates the selected value in the trigger button when typing a date", async () => {
-    const { getByRole, getByLabelText } = render(
+    const { getByRole, getByLabelText } = renderWithIntl(
       <FilterDatePickerWrapper selectedDate={new Date("06-06-2022")} />
     )
     const triggerButton = getByRole("button", {

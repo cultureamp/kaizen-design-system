@@ -12,3 +12,11 @@ export const Sidebar = ({ children }: { children: ReactNode }): JSX.Element => (
 export const Content = ({ children }: { children: ReactNode }): JSX.Element => (
   <div className={`${styles.content} tocbot-content`}>{children}</div>
 )
+
+export const DocsWrapper = ({
+  children,
+}: {
+  children: ReactNode
+}): JSX.Element => (
+  <div className={`${styles.docsWrapper} tocbot-content`}>{children}</div>
+)

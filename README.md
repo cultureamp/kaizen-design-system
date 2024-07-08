@@ -37,20 +37,15 @@ To learn more, see the designer section of the [Contributing guidelines](./CONTR
 ### Setup
 Set up access to private Culture Amp packages on your laptop. You will need to update `~/.npmrc` with a Github token linked to your account. Refer to the [instructions here](https://cultureamp.atlassian.net/wiki/spaces/TV/pages/2776629375/Working+with+our+private+GitHub+package+registry).
 
-### Installation
-To begin developing the design system locally, run the following from the repository root:
+### Local development
+Ensure devbox is setup as per [https://cultureamp.atlassian.net/wiki/spaces/DE/pages/3342434338/Devbox+setup](https://cultureamp.atlassian.net/wiki/spaces/DE/pages/3342434338/Devbox+setup)
 
-```
-pnpm install
-```
+Install and start processes (this start an interactive UI in your terminal) `devbox services up`
+The interactive terminal UI that pops up is called process-compose, see our [Confluence page](1) for tips on how to use it.
 
-We use [Storybook](https://github.com/storybooks/storybook) to provide a local development environment for [React](https://reactjs.org/) components. All Kaizen Design System components have accompanying stories in Storybook.
-
-To run Storybook locally, run the following from the repository root:
-
-```
-pnpm storybook
-```
+Please see the [LDE Confluence page](2) for more information
+[1]:https://cultureamp.atlassian.net/wiki/x/ZYGJyw
+[2]:https://cultureamp.atlassian.net/wiki/spaces/DE/pages/3342434338
 
 (Having trouble running Storybook? Try running `pnpm reset`, which includes `pnpm clean` and `pnpm install --force`!)
 

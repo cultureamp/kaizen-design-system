@@ -1,12 +1,12 @@
-import { ChangeEvent, FocusEvent, KeyboardEvent, SetStateAction } from "react"
+import { ChangeEvent, FocusEvent, KeyboardEvent } from "react"
 import { renderHook, act } from "@testing-library/react-hooks"
 import { enAU } from "date-fns/locale"
 import * as isSelectingDayInCalendar from "~components/Calendar/utils/isSelectingDayInCalendar"
 import { useDateInputHandlers } from "./useDateInputHandlers"
 
 const locale = enAU
-const setInputValue = jest.fn<void, [SetStateAction<string>]>()
-const onDateChange = jest.fn<void, [Date | undefined]>()
+const setInputValue = jest.fn()
+const onDateChange = jest.fn()
 
 describe("useDateInputHandlers", () => {
   beforeEach(() => {
