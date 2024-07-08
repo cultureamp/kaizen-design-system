@@ -1,0 +1,171 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+
+$avatar-sm: 1.25rem;
+$avatar-md: 3rem;
+$avatar-lg: 4.5rem;
+$avatar-xl: 6rem;
+$avatar-xxl: 7.75rem;
+
+/* stylelint-disable no-descending-specificity */
+.wrapper {
+  background: $color-gray-300;
+  border-radius: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  &:not(.small) {
+    box-shadow: $shadow-small-box-shadow;
+    border: 3px solid $color-white;
+  }
+
+  // Themes
+  &.personal {
+    background: $color-orange-100;
+  }
+
+  &.otherUser {
+    background: $color-gray-300;
+  }
+
+  &.company {
+    border: 0;
+    background: $color-white;
+    padding: 6px;
+    border-radius: $border-solid-border-radius;
+  }
+
+  // Sizes
+  &.small {
+    width: $avatar-sm;
+    height: $avatar-sm;
+
+    .initials {
+      margin-bottom: -1px;
+    }
+
+    &.company {
+      padding: 0;
+    }
+  }
+
+  &.medium {
+    width: $avatar-md;
+    height: $avatar-md;
+
+    .initials {
+      margin-bottom: -1px;
+    }
+  }
+
+  &.large {
+    width: $avatar-lg;
+    height: $avatar-lg;
+  }
+
+  &.xlarge {
+    width: $avatar-xl;
+    height: $avatar-xl;
+  }
+
+  &.xxlarge {
+    width: $avatar-xxl;
+    height: $avatar-xxl;
+  }
+
+  & .initials {
+    text-decoration: none;
+    speak-as: spell-out;
+
+    // to override materialize.css global styling in performance-ui,
+    // which sets a border-bottom on abbr tags
+    border-bottom: none;
+  }
+}
+
+.avatarImage {
+  .loading & {
+    display: none;
+  }
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.companyAvatarImage {
+  object-fit: contain;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.fallbackIcon {
+  color: rgba($color-purple-800-rgb, 0.7);
+  width: 28px;
+
+  .xxlarge & {
+    width: 75px;
+  }
+
+  .xlarge & {
+    width: 60px;
+  }
+
+  .large & {
+    width: 35px;
+  }
+
+  .medium & {
+    width: 25px;
+    margin-bottom: -1px;
+  }
+
+  .small & {
+    width: 10px;
+    margin-bottom: -1px;
+  }
+}
+
+.initials {
+  box-sizing: border-box;
+  color: $color-purple-800;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  width: 100%;
+  font-size: 22px;
+  font-family: $typography-heading-1-font-family;
+  font-weight: $typography-heading-1-font-weight;
+  letter-spacing: $typography-heading-3-letter-spacing;
+
+  // Whitespace cropping
+  &:not(.longName)::before {
+    content: "";
+    display: block;
+    margin-top: -0.001em;
+  }
+
+  .xlarge &,
+  .xxlarge & {
+    font-size: 34px;
+    letter-spacing: $typography-heading-1-letter-spacing;
+  }
+
+  .medium & {
+    font-size: 16px;
+    font-weight: $typography-heading-5-font-weight;
+    letter-spacing: $typography-heading-5-letter-spacing;
+  }
+
+  .small & {
+    font-size: 8px;
+    font-weight: $typography-heading-5-font-weight;
+    letter-spacing: $typography-heading-5-letter-spacing;
+  }
+}
+/* stylelint-enable no-descending-specificity */
