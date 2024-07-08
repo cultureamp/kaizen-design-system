@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.54.2
+
+### Patch Changes
+
+- [#4776](https://github.com/cultureamp/kaizen-design-system/pull/4776) [`a9832552bc44db988e224a62ad18438d9be76221`](https://github.com/cultureamp/kaizen-design-system/commit/a9832552bc44db988e224a62ad18438d9be76221) - Add new translations
+
 ## 1.54.1
 
 ### Patch Changes
