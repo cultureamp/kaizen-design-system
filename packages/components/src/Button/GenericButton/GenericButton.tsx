@@ -97,7 +97,7 @@ export type WorkingButtonProps = WorkingProps | WorkingUndefinedProps
 
 export type BaseButtonProps = GenericProps &
   ButtonFormAttributes & {
-    label: string
+    label: React.ReactNode
     primary?: boolean
     destructive?: boolean
     secondary?: boolean
