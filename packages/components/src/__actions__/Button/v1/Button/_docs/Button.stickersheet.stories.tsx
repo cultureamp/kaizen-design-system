@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { AddIcon } from "~components/Icon"
+import { ArrowForwardIcon } from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -8,7 +8,7 @@ import {
 import { Button, ButtonProps } from "../index"
 
 export default {
-  title: "Components/Buttons/Button",
+  title: "Actions/Button/v1",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -69,12 +69,12 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     const ICON_LEFT_PROPS: ButtonProps = {
       label: "Label",
-      icon: <AddIcon role="presentation" />,
+      icon: <ArrowForwardIcon role="presentation" />,
     }
 
     const ICON_RIGHT_PROPS: ButtonProps = {
       label: "Label",
-      icon: <AddIcon role="presentation" />,
+      icon: <ArrowForwardIcon role="presentation" />,
       iconPosition: "end",
     }
 
@@ -84,12 +84,12 @@ const StickerSheetTemplate: StickerSheetStory = {
     }
     const BADGE_LEFT_PROPS: ButtonProps = {
       ...BADGE_PROPS,
-      icon: <AddIcon role="presentation" />,
+      icon: <ArrowForwardIcon role="presentation" />,
     }
 
     const BADGE_RIGHT_PROPS: ButtonProps = {
       ...BADGE_PROPS,
-      icon: <AddIcon role="presentation" />,
+      icon: <ArrowForwardIcon role="presentation" />,
       iconPosition: "end",
     }
 

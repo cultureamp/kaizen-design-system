@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import { StoryObj, Meta } from "@storybook/react"
-import { AddIcon, ArrowRightIcon } from "~components/Icon"
+import { ArrowForwardIcon, ArrowRightIcon } from "~components/Icon"
 import { LoadingInput } from "~components/Loading"
 import { TextField } from "~components/TextField"
 import { Button } from "../index"
 
 const meta = {
-  title: "Components/Buttons/Button",
+  title: "Actions/Button/v2",
   component: Button,
   args: {
     label: "Label",
@@ -63,14 +63,14 @@ export const Disabled: Story = {
 }
 
 const sourceCodeIcon = `
-import { Button, AddIcon } from "@kaizen/components"
+import { Button, ArrowForwardIcon } from "@kaizen/components"
 
-<Button label="Label" icon={<AddIcon role="presentation" />} />
+<Button label="Label" icon={<ArrowForwardIcon role="presentation" />} />
 `
 
 export const Icon: Story = {
   args: {
-    icon: <AddIcon role="presentation" />,
+    icon: <ArrowForwardIcon role="presentation" />,
   },
   parameters: {
     docs: { source: { code: sourceCodeIcon } },

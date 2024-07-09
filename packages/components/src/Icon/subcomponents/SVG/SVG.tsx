@@ -15,6 +15,7 @@ type DecorativeIcon = {
 
 export type BaseSVGProps = {
   inheritSize?: boolean
+  shouldFlipOnRtl?: boolean
 } & OverrideClassName<SVGAttributes<SVGElement>> &
   (MeaningfulIcon | DecorativeIcon)
 
@@ -31,12 +32,14 @@ export const SVG = ({
   viewBox = "0 0 20 20",
   classNameOverride,
   children,
+  shouldFlipOnRtl,
   ...restProps
 }: SVGProps): JSX.Element => {
   const classes = classnames(
     styles.icon,
     classNameOverride,
-    inheritSize && styles.inheritSize
+    inheritSize && styles.inheritSize,
+    shouldFlipOnRtl && styles.flipOnRtl
   )
 
   if (role === "presentation") {

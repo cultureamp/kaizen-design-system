@@ -18,5 +18,9 @@ export const ArrowForwardIcon = (props: IconProps): JSX.Element => {
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  return (
+    <SVG shouldFlipOnRtl {...props}>
+      {svgContent}
+    </SVG>
+  )
 }

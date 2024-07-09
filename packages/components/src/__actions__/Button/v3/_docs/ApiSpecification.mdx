@@ -1,0 +1,66 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks"
+import { ResourceLinks, SbContent, Installation } from "~storybook/components"
+import * as Button from "./Button.stories"
+
+<Meta title="Actions/Button/v3/API specification" />
+
+<SbContent>
+  # Button API Specification (v3)
+
+
+  Updated July 9, 2024
+</SbContent>
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__actions__/Button/v3"
+  figma="https://www.figma.com/design/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-Heart-UI-Kit?m=auto&node-id=6262-0&t=I4H23jCrCJz4O2nf-1"
+  ariaComponentPage="https://react-spectrum.adobe.com/react-aria/Menu.html"
+  apiSpecification="/?path=/docs/actions-menu-v3-api-specification--docs"
+/>
+
+<SbContent>
+  <Installation
+    installCommand="pnpm add @kaizen/components"
+    importStatement='import { Button } from "@kaizen/components/v3/actions"'
+  />
+
+  ## Overview
+
+</SbContent>
+
+<Canvas of={Button.Playground} />
+
+<SbContent className="mb-64">
+  ### React Aria
+
+  This component is built using the react-aria-components library and extends the [Button](https://react-spectrum.adobe.com/react-aria/Button.html#styling) component.
+
+  As this shares the same core [anatomy](https://react-spectrum.adobe.com/react-aria/Button.html#anatomy), [props types](https://react-spectrum.adobe.com/react-aria/Button.html#anatomy) and [event handlers](https://react-spectrum.adobe.com/react-aria/Button.html#events), the guidance below is tailored to our implementation and should cover known use cases of the Button.
+
+  For more scenarios that may not be present below, we recommend checkout out Reacts aria docs on the [Button's available hooks](https://react-spectrum.adobe.com/react-aria/Button.html#hooks) or [advanced customization](https://react-spectrum.adobe.com/react-aria/Button.html#advanced-customization) options.
+</SbContent>
+
+<SbContent>
+  ## API
+</SbContent>
+
+
+<Controls of={Button.Playground} className="mb-64" />
+
+<SbContent>
+  ### onPress vs onClick
+
+  Why this import in the RAC ecosystem and how it helps us better support touch events for all devices.
+
+  ### Pseudo states
+
+  include [styling the hover states in css](https://react-spectrum.adobe.com/react-aria/Button.html#styling) `[data-hovered]`
+
+  include hover events in `useHover`
+
+
+  ### Reversed Colors
+
+  How to use the reversed color provider to change the color of the button.
+</ SbContent>
+

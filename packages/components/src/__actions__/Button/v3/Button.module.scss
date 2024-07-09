@@ -1,0 +1,92 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "../../../../styles/utils/button-reset";
+
+$button-x-y-min: $spacing-48;
+// spacing-40 does not currently exist. Holding on adding this until the button rfc has been signed off
+$button-small-x-y-min: 2.5rem;
+$button-y-padding: calc(#{$spacing-12} - #{$border-solid-border-width});
+
+// $spacing-22 (1.375rem) doesn't exist in design tokens. Since this will be changes in the rebuild we shouldn't add it
+$button-x-padding: calc(1.375rem - #{$border-solid-border-width});
+$button-x-padding-small: calc(#{$spacing-8} - #{$border-solid-border-width});
+
+.button {
+  @include button-reset;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  align-items: center;
+  border: $border-solid-border-width $border-solid-border-style;
+  border-radius: $border-solid-border-radius;
+  box-sizing: border-box;
+  display: inline-flex;
+  gap: $spacing-8;
+  font-family: $typography-button-primary-font-family;
+  font-weight: $typography-button-primary-font-weight;
+  font-size: $typography-button-primary-font-size;
+  line-height: $typography-button-primary-line-height;
+  min-height: $button-x-y-min;
+  min-width: $button-x-y-min;
+  outline: none;
+  position: relative;
+
+  &[data-focus-visible] {
+    &::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-color: $color-blue-500;
+      border-radius: $border-focus-ring-border-radius;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      inset: calc(-1 * #{$focus-ring-offset});
+    }
+  }
+}
+
+.default {
+  border-color: $color-gray-500;
+  color: $color-purple-800;
+  padding: $button-y-padding $button-x-padding;
+
+  &[data-hovered],
+  &[data-focus-visible] {
+    background-color: $color-gray-200;
+    border-color: $color-purple-800;
+  }
+
+  &[data-disabled] {
+    opacity: 0.3;
+  }
+}
+
+.small {
+  min-height: $button-small-x-y-min;
+  min-width: $button-small-x-y-min;
+  gap: $spacing-4;
+  padding: $button-x-padding-small $button-x-padding;
+
+  svg {
+    max-width: 15px;
+    max-height: 15px;
+  }
+}
+
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+
+  &.end {
+    order: 2;
+  }
+
+  &.small {
+    max-width: 15px;
+    max-height: 15px;
+  }
+}

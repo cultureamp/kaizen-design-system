@@ -1,0 +1,98 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
+import * as ButtonStories from "./Button.stories"
+
+<Meta of={ButtonStories} />
+
+# Button (v1)
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Button/Button"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3062890984/Button"
+
+/>
+
+
+<KAIOInstallation exportNames="Button" family="actions" version="1" />
+
+## Overview
+
+Buttons perform actions.
+If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
+
+<Canvas of={ButtonStories.Playground} />
+<Controls of={ButtonStories.Playground} />
+
+## API
+
+### Variants
+
+`Default`, `Primary`, `Destructive`, `Secondary`
+If no `variant` is specified, a `Default` button will be rendered.
+
+<Canvas of={ButtonStories.Variants} />
+
+#### Reversed
+
+<Canvas of={ButtonStories.Reversed} />
+
+### Disabled
+
+A disabled Button prevents user interaction. It doesn't appear in the tab order, can't receive focus, and may not read aloud by a screenreader.
+
+<Canvas of={ButtonStories.Disabled} />
+
+### Icon
+
+Use any <LinkTo pageId="components-icons">Icon</LinkTo> component in the `icon` prop.
+
+<Canvas of={ButtonStories.Icon} />
+
+#### Icon position
+
+Change the icon placement with the `iconPosition` prop.
+Default position is `start`.
+
+<Canvas of={ButtonStories.IconPosition} />
+
+### Badge
+
+You can display a `Badge` component within the button using the `badge` prop.
+
+<Canvas of={ButtonStories.Badge} />
+
+### Full width
+
+Buttons can be stretched to fill the full width of their container.
+
+<Canvas of={ButtonStories.FullWidth} />
+
+### Working
+
+The `working` prop should be used in situations where a button action triggers a change in UI state but needs to wait for a server response, such as submitting a form.
+
+In conjuction use the `workingLabel` prop to update the label of the button when the working state is triggered.
+
+Alternatively use the `workingLabelHidden` prop to hide the button label all together.
+
+<Canvas of={ButtonStories.Working} />
+
+### Controlling the working state
+Here is an example of controlling whether the button is 'working' or not, using state.
+
+<Canvas of={ButtonStories.ResolveWorking} />
+
+### Loading
+
+Use the <LinkTo pageId="components-loading-states-loadinginput">LoadingInput</LinkTo> component for button placeholders.
+
+<Canvas of={ButtonStories.Loading} />
+
+### Native `form` attribute
+
+Button extends native HTML "form" attributes for `button`.
+
+You can use this to submit a `form` using `Button` with a matching form id.
+
+<Canvas of={ButtonStories.NativeFormButton} />

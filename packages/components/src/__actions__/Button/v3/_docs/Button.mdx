@@ -1,0 +1,33 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks"
+import { ResourceLinks, SbContent, Installation } from "~storybook/components"
+import * as Button from "./Button.stories"
+
+<Meta title="Actions/Button/v3/Usage Guidelines" />
+
+<SbContent>
+  # Button (v3)
+
+  Updated July 9, 2024
+</SbContent>
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__actions__/Button/v3"
+  figma="https://www.figma.com/design/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-Heart-UI-Kit?m=auto&node-id=6262-0&t=I4H23jCrCJz4O2nf-1"
+  ariaComponentPage="https://react-spectrum.adobe.com/react-aria/Menu.html"
+  apiSpecification="/?path=/docs/actions-menu-v3-api-specification--docs"
+/>
+
+<SbContent>
+  <Installation
+    installCommand="pnpm add @kaizen/components"
+    importStatement='import { Button } from "@kaizen/components/v3/actions"'
+  />
+
+  ## Overview
+
+  This is the rebuild of the Button component - the main changes present in v3 will relate to an updated API. At this time `default` is the only variant that will be released.
+</SbContent>
+
+<Canvas of={Button.Playground} />
+<Controls of={Button.Playground} include={["children", "variant", "isDisabled"]} className="mb-64" />
+

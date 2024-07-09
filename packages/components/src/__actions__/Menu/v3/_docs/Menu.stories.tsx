@@ -31,7 +31,7 @@ export const Playground: Story = {
   render: ({ defaultOpen: _, ...args }) => (
     <MenuTrigger {...args}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <RACButton className="p-8 justify-center">
         <MeatballsIcon role="img" aria-label="Additional actions" />
       </RACButton>
       <Popover>
