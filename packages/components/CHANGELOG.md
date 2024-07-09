@@ -1,5 +1,25 @@
 # Change Log
 
+## 1.54.2
+
+### Patch Changes
+
+- [#4776](https://github.com/cultureamp/kaizen-design-system/pull/4776) [`a9832552bc44db988e224a62ad18438d9be76221`](https://github.com/cultureamp/kaizen-design-system/commit/a9832552bc44db988e224a62ad18438d9be76221) - Add new translations
+
+## 1.54.1
+
+### Patch Changes
+
+- [#4799](https://github.com/cultureamp/kaizen-design-system/pull/4799) [`d6031f0daa3a310851b34139339acc11e23f6e5a`](https://github.com/cultureamp/kaizen-design-system/commit/d6031f0daa3a310851b34139339acc11e23f6e5a) - Dep update: uuid from v9 to v10
+
+## 1.54.0
+
+### Minor Changes
+
+- [#4794](https://github.com/cultureamp/kaizen-design-system/pull/4794) [`a2402b46621130fb8035122ffd231f15df54473f`](https://github.com/cultureamp/kaizen-design-system/commit/a2402b46621130fb8035122ffd231f15df54473f) - Add all supported locales to `DatePicker`, `FilterDatePicker`, `FilterDateRangePicker`.
+
+  Update `Calendar`s to infer starting weekday based on provided locale.
+
 ## 1.53.0
 
 ### Minor Changes
