@@ -16,10 +16,7 @@ type VariantSVG = {
 
 type PictureProps = OverrideClassName<HTMLAttributes<HTMLElement>>
 type VariantPicture = {
-  variant:
-    | "logo-horizontal"
-    | "logo-vertical"
-    | "enso"
+  variant: "logo-horizontal" | "logo-vertical" | "enso"
 } & PictureProps
 
 export type BrandProps = {
@@ -40,18 +37,20 @@ export const Brand = ({
   ...restProps
 }: BrandProps): JSX.Element => {
   if (isSVG(variant, restProps)) {
-    return <BrandCollectiveIntelligence
-      role="img"
-      aria-label={alt}
-      classNameOverride={classNameOverride}
-      {...restProps}
-    />
+    return (
+      <BrandCollectiveIntelligence
+        role="img"
+        aria-label={alt}
+        classNameOverride={classNameOverride}
+        {...restProps}
+      />
+    )
   }
 
   const brandTheme = reversed ? "-reversed" : "-default"
 
   return (
-    <picture className={classNameOverride} {...restProps as PictureProps}>
+    <picture className={classNameOverride} {...(restProps as PictureProps)}>
       <source
         srcSet={assetUrl(`brand/${variant}-reversed.svg`)}
         media="(forced-colors: active) and (prefers-color-scheme: dark)"
