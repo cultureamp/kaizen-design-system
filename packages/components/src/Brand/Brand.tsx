@@ -9,7 +9,9 @@ type DecorativeSVG = { role: "presentation"; "aria-label"?: never }
 export type BrandSVGProps = OverrideClassName<SVGAttributes<SVGElement>> &
   (MeaningfulSVG | DecorativeSVG)
 
-type SVGProps = Omit<BrandSVGProps, "role" | "aria-label">
+type SVGProps = Omit<BrandSVGProps, "role" | "aria-label"> & {
+  role?: "img" | "presentation"
+}
 type VariantSVG = {
   variant: "collective-intelligence"
 } & SVGProps
@@ -37,12 +39,24 @@ export const Brand = ({
   ...restProps
 }: BrandProps): JSX.Element => {
   if (isSVG(variant, restProps)) {
+    const { role = "img", ...props } = restProps
+
+    if (role === "presentation") {
+      return (
+        <BrandCollectiveIntelligence
+          role={role}
+          classNameOverride={classNameOverride}
+          {...props}
+        />
+      )
+    }
+
     return (
       <BrandCollectiveIntelligence
-        role="img"
+        role={role}
         aria-label={alt}
         classNameOverride={classNameOverride}
-        {...restProps}
+        {...props}
       />
     )
   }
