@@ -1,29 +1,54 @@
 import React, { HTMLAttributes } from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { BrandCollectiveIntelligence, BrandCollectiveIntelligenceProps } from "./BrandCollectiveIntelligence"
 import styles from "./Brand.module.scss"
 
-export type BrandProps = {
+type CollectiveIntelligenceProps = Omit<BrandCollectiveIntelligenceProps, "role" | "aria-label">
+
+type VariantCollectiveIntelligence = {
+  variant: "collective-intelligence"
+} & CollectiveIntelligenceProps
+
+type PictureProps = OverrideClassName<HTMLAttributes<HTMLElement>>
+
+type VariantPicture = {
   variant:
     | "logo-horizontal"
     | "logo-vertical"
     | "enso"
-    | "collective-intelligence"
+} & PictureProps
+
+export type BrandProps = {
   alt: string
   reversed?: boolean
-} & OverrideClassName<HTMLAttributes<HTMLElement>>
+} & (VariantPicture | VariantCollectiveIntelligence)
+
+const isCollectiveIntelligence = (
+  variant: VariantPicture["variant"] | VariantCollectiveIntelligence["variant"],
+  restProps: CollectiveIntelligenceProps | PictureProps
+): restProps is CollectiveIntelligenceProps => variant === "collective-intelligence"
 
 export const Brand = ({
-  variant,
   alt,
   reversed = false,
+  variant,
   classNameOverride,
   ...restProps
 }: BrandProps): JSX.Element => {
+  if (isCollectiveIntelligence(variant, restProps)) {
+    return <BrandCollectiveIntelligence
+      role="img"
+      aria-label={alt}
+      classNameOverride={classNameOverride}
+      {...restProps}
+    />
+  }
+
   const brandTheme = reversed ? "-reversed" : "-default"
 
   return (
-    <picture className={classNameOverride} {...restProps}>
+    <picture className={classNameOverride} {...restProps as PictureProps}>
       <source
         srcSet={assetUrl(`brand/${variant}-reversed.svg`)}
         media="(forced-colors: active) and (prefers-color-scheme: dark)"
