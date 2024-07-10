@@ -16,7 +16,7 @@ export const BrandCollectiveIntelligence = ({
   }
 
   return (
-    <svg width="56" height="56" fill="none" {...props}>
+    <svg viewBox="0 0 56 56" fill="none" {...props}>
       <path
         fill="#5F3361"
         fillRule="evenodd"
