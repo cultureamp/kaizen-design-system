@@ -1,17 +1,20 @@
-import React, { HTMLAttributes } from "react"
+import React, { HTMLAttributes, SVGAttributes } from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { BrandCollectiveIntelligence, BrandCollectiveIntelligenceProps } from "./BrandCollectiveIntelligence"
+import { BrandCollectiveIntelligence } from "./BrandCollectiveIntelligence"
 import styles from "./Brand.module.scss"
 
-type CollectiveIntelligenceProps = Omit<BrandCollectiveIntelligenceProps, "role" | "aria-label">
+type MeaningfulSVG = { role: "img"; "aria-label": string }
+type DecorativeSVG = { role: "presentation"; "aria-label"?: never }
+export type BrandSVGProps = OverrideClassName<SVGAttributes<SVGElement>> &
+  (MeaningfulSVG | DecorativeSVG)
 
-type VariantCollectiveIntelligence = {
+type SVGProps = Omit<BrandSVGProps, "role" | "aria-label">
+type VariantSVG = {
   variant: "collective-intelligence"
-} & CollectiveIntelligenceProps
+} & SVGProps
 
 type PictureProps = OverrideClassName<HTMLAttributes<HTMLElement>>
-
 type VariantPicture = {
   variant:
     | "logo-horizontal"
@@ -22,12 +25,12 @@ type VariantPicture = {
 export type BrandProps = {
   alt: string
   reversed?: boolean
-} & (VariantPicture | VariantCollectiveIntelligence)
+} & (VariantPicture | VariantSVG)
 
-const isCollectiveIntelligence = (
-  variant: VariantPicture["variant"] | VariantCollectiveIntelligence["variant"],
-  restProps: CollectiveIntelligenceProps | PictureProps
-): restProps is CollectiveIntelligenceProps => variant === "collective-intelligence"
+const isSVG = (
+  variant: VariantPicture["variant"] | VariantSVG["variant"],
+  restProps: SVGProps | PictureProps
+): restProps is SVGProps => variant === "collective-intelligence"
 
 export const Brand = ({
   alt,
@@ -36,7 +39,7 @@ export const Brand = ({
   classNameOverride,
   ...restProps
 }: BrandProps): JSX.Element => {
-  if (isCollectiveIntelligence(variant, restProps)) {
+  if (isSVG(variant, restProps)) {
     return <BrandCollectiveIntelligence
       role="img"
       aria-label={alt}

@@ -1,18 +1,7 @@
-import React, { SVGAttributes } from "react"
-import { OverrideClassName } from "~types/OverrideClassName"
+import React from "react"
+import { BrandSVGProps } from "../Brand"
 
-type MeaningfulImg = {
-  role: "img"
-  "aria-label": string
-}
-
-type DecorativeImg = {
-  role: "presentation"
-  "aria-label"?: never
-}
-
-export type BrandCollectiveIntelligenceProps = OverrideClassName<SVGAttributes<SVGElement>> &
-  (MeaningfulImg | DecorativeImg)
+export type BrandCollectiveIntelligenceProps = BrandSVGProps
 
 export const BrandCollectiveIntelligence = ({
   role,
