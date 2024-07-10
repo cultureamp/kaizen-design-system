@@ -4,63 +4,61 @@ import { OverrideClassName } from "~types/OverrideClassName"
 import { BrandCollectiveIntelligence } from "./BrandCollectiveIntelligence"
 import styles from "./Brand.module.scss"
 
-type MeaningfulSVG = { role: "img"; "aria-label": string }
-type DecorativeSVG = { role: "presentation"; "aria-label"?: never }
+type MeaningfulSVG = { role: "img"; "aria-label": string; alt?: never }
+type DecorativeSVG = { role: "presentation"; "aria-label"?: never; alt?: never }
 export type BrandSVGProps = OverrideClassName<SVGAttributes<SVGElement>> &
   (MeaningfulSVG | DecorativeSVG)
 
-type SVGProps = Omit<BrandSVGProps, "role" | "aria-label"> & {
-  role?: "img" | "presentation"
-}
+type SVGBackwardsCompatible = { role?: never; alt: string }
+type SVGProps = OverrideClassName<SVGAttributes<SVGElement>> &
+  (MeaningfulSVG | DecorativeSVG | SVGBackwardsCompatible)
 type VariantSVG = {
   variant: "collective-intelligence"
 } & SVGProps
 
-type PictureProps = OverrideClassName<HTMLAttributes<HTMLElement>>
+type PictureProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
+  alt: string
+}
 type VariantPicture = {
   variant: "logo-horizontal" | "logo-vertical" | "enso"
 } & PictureProps
 
 export type BrandProps = {
-  alt: string
   reversed?: boolean
-} & (VariantPicture | VariantSVG)
+} & (VariantSVG | VariantPicture)
 
 const isSVG = (
-  variant: VariantPicture["variant"] | VariantSVG["variant"],
+  variant: VariantSVG["variant"] | VariantPicture["variant"],
   restProps: SVGProps | PictureProps
 ): restProps is SVGProps => variant === "collective-intelligence"
 
 export const Brand = ({
-  alt,
   reversed = false,
   variant,
-  classNameOverride,
   ...restProps
 }: BrandProps): JSX.Element => {
   if (isSVG(variant, restProps)) {
-    const { role = "img", ...props } = restProps
+    const { role, alt, "aria-label": ariaLabel, ...props } = restProps
 
     if (role === "presentation") {
+      return <BrandCollectiveIntelligence role={role} {...props} />
+    }
+    if (role === "img") {
       return (
         <BrandCollectiveIntelligence
           role={role}
-          classNameOverride={classNameOverride}
+          aria-label={ariaLabel}
           {...props}
         />
       )
     }
 
     return (
-      <BrandCollectiveIntelligence
-        role={role}
-        aria-label={alt}
-        classNameOverride={classNameOverride}
-        {...props}
-      />
+      <BrandCollectiveIntelligence role="img" aria-label={alt} {...props} />
     )
   }
 
+  const { alt, classNameOverride } = restProps
   const brandTheme = reversed ? "-reversed" : "-default"
 
   return (
