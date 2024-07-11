@@ -33,6 +33,14 @@ $button-x-padding-small: calc(#{$spacing-8} - #{$border-solid-border-width});
   outline: none;
   position: relative;
 
+  // *:first-child {
+  //   background-color: pink;
+  // }
+
+  // *:nth-child(n + 2) {
+  //   background-color: red;
+  // }
+
   &[data-focus-visible] {
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
@@ -53,6 +61,11 @@ $button-x-padding-small: calc(#{$spacing-8} - #{$border-solid-border-width});
   border-color: $color-gray-500;
   color: $color-purple-800;
   padding: $button-y-padding $button-x-padding;
+
+  // This targets an svg that is the only child of its parent
+  svg:only-child {
+    margin: 0 calc(-1 * (#{$button-x-padding} - #{$spacing-12}));
+  }
 
   &[data-hovered],
   &[data-focus-visible] {
@@ -77,16 +90,6 @@ $button-x-padding-small: calc(#{$spacing-8} - #{$border-solid-border-width});
   }
 }
 
-.iconWrapper {
-  display: inline-flex;
-  align-items: center;
-
-  &.end {
-    order: 2;
-  }
-
-  &.small {
-    max-width: 15px;
-    max-height: 15px;
-  }
+.iconButton {
+  padding: $spacing-12;
 }

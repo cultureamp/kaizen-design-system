@@ -39,8 +39,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <AddIcon role="presentation" />
               Label
             </Button>
-            <Button>
-              <AddIcon role="presentation" />
+            <Button icon={<AddIcon role="presentation" />} iconPosition="end">
               Label
             </Button>
             <Button>

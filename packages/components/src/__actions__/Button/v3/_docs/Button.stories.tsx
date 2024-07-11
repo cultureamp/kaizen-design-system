@@ -58,29 +58,3 @@ export const IconButton: Story = {
     children: <TrashIcon role="presentation" />,
   },
 }
-
-export const ButtonWithIconStartAsProps: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button icon={<ArrowForwardIcon role="presentation" />} {...otherArgs}>
-      {children}
-    </Button>
-  ),
-  args: {
-    children: "Label",
-  },
-}
-
-export const ButtonWithIconEndAsProps: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button
-      icon={<ArrowForwardIcon role="presentation" />}
-      iconPosition="end"
-      {...otherArgs}
-    >
-      {children}
-    </Button>
-  ),
-  args: {
-    children: "Label",
-  },
-}
