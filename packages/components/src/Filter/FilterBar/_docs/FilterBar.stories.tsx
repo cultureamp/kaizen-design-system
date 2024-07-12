@@ -759,3 +759,72 @@ export const ExternalEventOpenFilter: Story = {
     )
   },
 }
+
+const cycleFilters = [
+  {
+    id: "cycle",
+    name: "",
+    Component: <CycleFilter />,
+    isRemovable: true,
+  },
+  {
+    id: "customRange",
+    name: "",
+    Component: <FilterBar.DateRangePicker />,
+    isRemovable: true,
+  },
+] satisfies Filters<CycleFilterValues>
+
+export const UpdateLabels: Story = {
+  render: () => {
+    const [values, setValues] = useState<Partial<CycleFilterValues>>({})
+
+    const [f, setF] = useState(cycleFilters)
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setF([
+          {
+            id: "cycle",
+            name: "Cycle",
+            Component: <CycleFilter />,
+            isRemovable: true,
+          },
+          {
+            id: "customRange",
+            name: "Custom Range",
+            Component: <FilterBar.DateRangePicker />,
+            isRemovable: true,
+          },
+        ])
+      }, 2000)
+      return () => clearTimeout(timer)
+    }, [])
+
+    return (
+      <>
+        <FilterBar<CycleFilterValues>
+          filters={f}
+          values={values}
+          onValuesChange={setValues}
+        />
+        <div className="mt-16">
+          <code>Filters:</code>
+          <Highlight className="json">
+            {JSON.stringify(
+              f.map(({ id, name }) => ({ id, name })),
+              null,
+              4
+            )}
+          </Highlight>
+        </div>
+        <div className="mt-16">
+          <code>Values:</code>
+          <Highlight className="json">
+            {JSON.stringify(values, null, 4)}
+          </Highlight>
+        </div>
+      </>
+    )
+  },
+}
