@@ -5,12 +5,13 @@
 @import "../../../../styles/utils/button-reset";
 
 $button-x-y-min: $spacing-48;
+
 // spacing-40 does not currently exist. Holding on adding this until the button rfc has been signed off
 $button-small-x-y-min: 2.5rem;
-$button-y-padding: calc(#{$spacing-12} - #{$border-solid-border-width});
+$button-y-padding: calc(#{$spacing-8} - #{$border-solid-border-width});
 
 // $spacing-22 (1.375rem) doesn't exist in design tokens. Since this will be changes in the rebuild we shouldn't add it
-$button-x-padding: calc(1.375rem - #{$border-solid-border-width});
+$button-x-padding: calc($spacing-12 - #{$border-solid-border-width});
 $button-x-padding-small: calc(#{$spacing-8} - #{$border-solid-border-width});
 
 .button {
@@ -33,14 +34,6 @@ $button-x-padding-small: calc(#{$spacing-8} - #{$border-solid-border-width});
   outline: none;
   position: relative;
 
-  // *:first-child {
-  //   background-color: pink;
-  // }
-
-  // *:nth-child(n + 2) {
-  //   background-color: red;
-  // }
-
   &[data-focus-visible] {
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
@@ -62,19 +55,44 @@ $button-x-padding-small: calc(#{$spacing-8} - #{$border-solid-border-width});
   color: $color-purple-800;
   padding: $button-y-padding $button-x-padding;
 
-  // This targets an svg that is the only child of its parent
-  svg:only-child {
-    margin: 0 calc(-1 * (#{$button-x-padding} - #{$spacing-12}));
+  svg {
+    height: $spacing-24;
+    width: $spacing-24;
   }
 
   &[data-hovered],
-  &[data-focus-visible] {
+  &[data-focus-visible],
+  &[data-pressed] {
     background-color: $color-gray-200;
     border-color: $color-purple-800;
   }
 
   &[data-disabled] {
     opacity: 0.3;
+  }
+
+  &.reversed {
+    background-color: transparent;
+    border-color: rgba($color-white-rgb, 0.65);
+    color: $color-white;
+
+    &[data-hovered],
+    &[data-focus-visible] {
+      background-color: rgba($color-white-rgb, 0.1);
+      border-color: $color-white;
+    }
+
+    &[data-focus-visible] {
+      &::after {
+        border-color: $color-blue-300;
+      }
+    }
+
+    &[data-disabled] {
+      &::after {
+        border-color: $color-gray-400;
+      }
+    }
   }
 }
 
@@ -85,11 +103,7 @@ $button-x-padding-small: calc(#{$spacing-8} - #{$border-solid-border-width});
   padding: $button-x-padding-small $button-x-padding;
 
   svg {
-    max-width: 15px;
-    max-height: 15px;
+    max-width: $spacing-16;
+    max-height: $spacing-16;
   }
-}
-
-.iconButton {
-  padding: $spacing-12;
 }

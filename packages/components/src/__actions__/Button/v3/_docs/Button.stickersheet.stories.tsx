@@ -32,14 +32,17 @@ const StickerSheetTemplate: StickerSheetStory = {
             <Button>Label</Button>
             <Button>Label</Button>
             <Button isDisabled>Label</Button>
-            <Button>Label</Button>
+            <Button isDisabled>
+              <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
+            </Button>
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Icon start">
             <Button>
               <AddIcon role="presentation" />
               Label
             </Button>
-            <Button icon={<AddIcon role="presentation" />} iconPosition="end">
+            <Button>
+              <AddIcon role="presentation" />
               Label
             </Button>
             <Button>
@@ -50,9 +53,8 @@ const StickerSheetTemplate: StickerSheetStory = {
               <AddIcon role="presentation" />
               Label
             </Button>
-            <Button>
-              <AddIcon role="presentation" />
-              Label
+            <Button isDisabled>
+              <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
             </Button>
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Icon end">
@@ -131,4 +133,15 @@ const StickerSheetTemplate: StickerSheetStory = {
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
+}
+
+export const StickerSheetReversed: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (Reversed)",
+  parameters: {
+    reverseColors: true,
+  },
+  args: {
+    isReversed: true,
+  },
 }
