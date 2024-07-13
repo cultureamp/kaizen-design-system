@@ -597,8 +597,8 @@ importers:
         specifier: ^4.0.2
         version: 4.0.2(postcss@8.4.38)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@20.14.2)(typescript@5.4.5))
       ts-patch:
-        specifier: ^3.2.0
-        version: 3.2.0
+        specifier: ^3.2.1
+        version: 3.2.1
       tslib:
         specifier: '>=2.6.2'
         version: 2.6.3
@@ -10309,8 +10309,8 @@ packages:
       '@swc/wasm':
         optional: true
 
-  ts-patch@3.2.0:
-    resolution: {integrity: sha512-fUGMkjGIlD4BFibDM+6pLYLXRguzCUY6fhP1KQzSnFJfAtTDT7DKyX0yHn3CJqfBv4mia/o3ZRte31UVf9Dl1A==}
+  ts-patch@3.2.1:
+    resolution: {integrity: sha512-hlR43v+GUIUy8/ZGFP1DquEqPh7PFKQdDMTAmYt671kCCA6AkDQMoeFaFmZ7ObPLYOmpMgyKUqL1C+coFMf30w==}
     hasBin: true
 
   tsconfig-paths@3.15.0:
@@ -23805,7 +23805,7 @@ snapshots:
     optionalDependencies:
       '@swc/core': 1.5.7(@swc/helpers@0.5.11)
 
-  ts-patch@3.2.0:
+  ts-patch@3.2.1:
     dependencies:
       chalk: 4.1.2
       global-prefix: 3.0.0
