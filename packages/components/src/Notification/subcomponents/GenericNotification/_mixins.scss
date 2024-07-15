@@ -67,40 +67,24 @@ $notification-slide-right: transform 300ms ease-out;
     background: $color-green-100;
     border-color: $color-green-300;
     color: $color-purple-800;
-
-    &%ca-notification---global {
-      background-color: $color-green-200;
-    }
   }
 
   &%ca-notification---informative {
     background: $color-blue-100;
     border-color: $color-blue-300;
     color: $color-purple-800;
-
-    &%ca-notification---global {
-      background-color: $color-blue-200;
-    }
   }
 
   &%ca-notification---cautionary {
     background: $color-yellow-100;
     border-color: $color-yellow-400;
     color: $color-purple-800;
-
-    &%ca-notification---global {
-      background-color: $color-yellow-200;
-    }
   }
 
   &%ca-notification---negative {
     background: $color-red-100;
     border-color: $color-red-300;
     color: $color-purple-800;
-
-    &%ca-notification---global {
-      background-color: $color-red-200;
-    }
   }
 
   // Hidden state
@@ -184,22 +168,6 @@ $notification-slide-right: transform 300ms ease-out;
     padding: calc(((#{$spacing-24} * 2) - #{$size}) / 2);
     margin: calc(#{$spacing-24} / 4);
     border-radius: $border-solid-border-radius;
-
-    // Override the type-specific color values set above
-    color: $color-white;
-  }
-
-  %ca-notification---global%ca-notification---positive & {
-    background-color: $color-green-500;
-  }
-  %ca-notification---global%ca-notification---informative & {
-    background-color: $color-blue-500;
-  }
-  %ca-notification---global%ca-notification---cautionary & {
-    background-color: $color-yellow-500;
-  }
-  %ca-notification---global%ca-notification---negative & {
-    background-color: $color-red-500;
   }
 }
 
