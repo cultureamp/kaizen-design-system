@@ -16,7 +16,7 @@ const DEFAULT_PROPS: Partial<InlineNotificationProps> = {
 }
 
 const meta = {
-  title: "Components/Notifications/Inline Notification",
+  title: "Components/Notifications/InlineNotification",
   component: InlineNotification,
   args: {
     ...DEFAULT_PROPS,
