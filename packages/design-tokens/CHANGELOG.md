@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.5.0
+
+### Minor Changes
+
+- [#4793](https://github.com/cultureamp/kaizen-design-system/pull/4793) [`ca19d4e9fc5c24c43a6414abf238859f7da5be54`](https://github.com/cultureamp/kaizen-design-system/commit/ca19d4e9fc5c24c43a6414abf238859f7da5be54) - Update hex value for color-green-500.
+
 ## 10.4.2
 
 ### Patch Changes
