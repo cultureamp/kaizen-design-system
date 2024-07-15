@@ -1,7 +1,8 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
-import { AddIcon, TrashIcon } from "~components/Icon"
+import { AddIcon, TrashIcon, ChevronUpIcon } from "~components/Icon"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import { Button } from "../index"
 
 const meta = {
@@ -30,7 +31,8 @@ export const ButtonWithIcon: Story = {
   args: {
     children: (
       <>
-        Label <AddIcon role="presentation" />
+        Label
+        <AddIcon role="presentation" />
       </>
     ),
   },
@@ -43,7 +45,8 @@ export const ButtonWithIconStart: Story = {
   args: {
     children: (
       <>
-        <TrashIcon role="presentation" /> Label
+        <TrashIcon role="presentation" />
+        Label
       </>
     ),
   },
@@ -54,7 +57,42 @@ export const IconButton: Story = {
     <Button {...otherArgs}>{children}</Button>
   ),
   args: {
-    "aria-label": "Label",
-    children: <TrashIcon role="presentation" />,
+    children: (
+      <>
+        <TrashIcon role="img" aria-label="Remove" />
+        <VisuallyHidden> Highlights: May 8, 2024</VisuallyHidden>
+      </>
+    ),
+  },
+}
+
+export const OnReversed: Story = {
+  render: ({ children, ...otherArgs }) => (
+    <Button {...otherArgs}>{children}</Button>
+  ),
+  args: {
+    children: (
+      <>
+        Label
+        <ChevronUpIcon role="presentation" />
+      </>
+    ),
+  },
+  parameters: {
+    reverseColors: true,
+    docs: {
+      source: {
+        code: `
+          <ReversedColors isReversed={true}>
+            <Button {...otherArgs}>
+              <>
+                Label
+                <ChevronUpIcon role="presentation" />
+              </>
+            </Button>
+          </ReversedColors>
+      `,
+      },
+    },
   },
 }

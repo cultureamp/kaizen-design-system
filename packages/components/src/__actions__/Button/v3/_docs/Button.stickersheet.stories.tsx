@@ -9,7 +9,7 @@ import {
 import { Button } from "../index"
 
 export default {
-  title: "Actions/Button/v3",
+  title: "Actions/Button/v3/Tests",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -21,7 +21,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <StickerSheet heading="Button" isReversed={isReversed}>
         <StickerSheet.Header
-          headings={["Base", "Hover", "Focus", "Disabled", "working"]}
+          headings={["Base", "Disabled", "working"]}
           headingsWidth="10rem"
           hasVerticalHeadings
           verticalHeadingsWidth="12rem"
@@ -29,22 +29,13 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
             <Button>Label</Button>
-            <Button>Label</Button>
-            <Button>Label</Button>
+
             <Button isDisabled>Label</Button>
             <Button isDisabled>
               <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
             </Button>
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Icon start">
-            <Button>
-              <AddIcon role="presentation" />
-              Label
-            </Button>
-            <Button>
-              <AddIcon role="presentation" />
-              Label
-            </Button>
             <Button>
               <AddIcon role="presentation" />
               Label
@@ -62,14 +53,6 @@ const StickerSheetTemplate: StickerSheetStory = {
               Label
               <ArrowForwardIcon role="presentation" />
             </Button>
-            <Button>
-              Label
-              <ArrowForwardIcon role="presentation" />
-            </Button>
-            <Button>
-              Label
-              <ArrowForwardIcon role="presentation" />
-            </Button>
             <Button isDisabled>
               Label
               <ArrowForwardIcon role="presentation" />
@@ -82,12 +65,6 @@ const StickerSheetTemplate: StickerSheetStory = {
             <Button aria-label="Label">
               <TrashIcon role="presentation" />
             </Button>
-            <Button aria-label="Label">
-              <TrashIcon role="presentation" />
-            </Button>
-            <Button aria-label="Label">
-              <TrashIcon role="presentation" />
-            </Button>
             <Button aria-label="Label" isDisabled>
               <TrashIcon role="presentation" />
             </Button>
@@ -96,14 +73,6 @@ const StickerSheetTemplate: StickerSheetStory = {
             </Button>
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="small">
-            <Button size="small">
-              Label
-              <ArrowForwardIcon role="presentation" />
-            </Button>
-            <Button size="small">
-              Label
-              <ArrowForwardIcon role="presentation" />
-            </Button>
             <Button size="small">
               Label
               <ArrowForwardIcon role="presentation" />
@@ -122,10 +91,10 @@ const StickerSheetTemplate: StickerSheetStory = {
   ),
   parameters: {
     pseudo: {
-      hover: '[data-sb-pseudo-styles="hover"]',
-      active: '[data-sb-pseudo-styles="active"]',
-      focus: '[data-sb-pseudo-styles="focus"]',
-      focusVisible: '[data-sb-pseudo-styles="focus-visible"]',
+      hover: '[data-hovered="true"]',
+      active: '[data-pressed="true"]',
+      focus: '[data-focused="true"]',
+      focusVisible: '[data-focus-visible="true"]',
     },
   },
 }
@@ -133,6 +102,14 @@ const StickerSheetTemplate: StickerSheetStory = {
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
+}
+
+export const StickerSheetRTL: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  parameters: {
+    textDirection: "rtl",
+  },
 }
 
 export const StickerSheetReversed: StickerSheetStory = {

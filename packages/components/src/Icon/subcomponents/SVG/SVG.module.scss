@@ -30,9 +30,3 @@ $ca-icon-height: 20px;
   height: inherit;
   display: block;
 }
-
-.flipOnRtl {
-  [dir="rtl"] & {
-    transform: scaleX(-1);
-  }
-}
