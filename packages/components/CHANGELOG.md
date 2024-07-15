@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.54.3
+
+### Patch Changes
+
+- [#4796](https://github.com/cultureamp/kaizen-design-system/pull/4796) [`d5fe6e6c14d848ae7bdff623cd46bdd70f0b3886`](https://github.com/cultureamp/kaizen-design-system/commit/d5fe6e6c14d848ae7bdff623cd46bdd70f0b3886) - Update source image for Brand Collective Intelligence
+
 ## 1.54.2
 
 ### Patch Changes
