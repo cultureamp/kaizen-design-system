@@ -19,7 +19,7 @@ export const LockWhiteIcon = (props: IconProps): JSX.Element => {
         <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
         <path
           fill="#FFF"
-          d="M10.095 14.19a1.528 1.528 0 0 1-1.524-1.523c0-.838.686-1.524 1.524-1.524s1.524.686 1.524 1.524-.686 1.523-1.524 1.523"
+          d="M10.095 14.19a1.53 1.53 0 0 1-1.524-1.523c0-.838.686-1.524 1.524-1.524s1.524.686 1.524 1.524-.686 1.523-1.524 1.523"
         />
       </g>
     </>
