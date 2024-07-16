@@ -9,9 +9,49 @@
     }],
     "variants_enabled" : true
   },
+  "date.validation.invalidDate" : {
+    "description" : "Error message when the user enters an invalid date and we do not know their input value",
+    "message" : "Data jest nieprawidłowa"
+  },
+  "date.validation.invalidDateWithValue" : {
+    "description" : "Error message when the user enters an invalid date and we know their input value",
+    "message" : "{inputValue} jest nieprawidłową datą"
+  },
+  "date.validation.rangeEndBeforeRangeStart" : {
+    "description" : "Error message when the user tries to select an end date earlier than the start date",
+    "message" : "Nie może być wcześniejsza niż wybór w polu „{startDateFieldLabel}”"
+  },
+  "date.validation.unavailableDate" : {
+    "description" : "Error message when the user tries to select a date that is unavailable",
+    "message" : "{inputValue} jest niedostępna, spróbuj innego terminu"
+  },
   "dateInputDescription.inputFormat" : {
     "description" : "Label for the 'Input format' field",
     "message" : "Format wejściowy"
+  },
+  "datePicker.calendarLabelDescription" : {
+    "description" : "Label for the search input",
+    "message" : "Wybierz datę z kalendarza dla:"
+  },
+  "filterBar.addFiltersMenu.buttonLabel" : {
+    "description" : "Menu button label to show additional available filter options",
+    "message" : "Dodaj filtry"
+  },
+  "filterBar.clearAllButton.ariaLabel" : {
+    "description" : "Button aria-label to clear all values within the filter bar",
+    "message" : "Wyczyść wszystkie filtry"
+  },
+  "filterBar.clearAllButton.label" : {
+    "description" : "Button label to clear all values within the filter bar",
+    "message" : "Wyczyść wszystko"
+  },
+  "filterButton.removable.removeButtonLabel" : {
+    "description" : "Button label to remove a single filter from the filter bar",
+    "message" : "Usuń filtr – {filterLabel}"
+  },
+  "filterDatePickerDateInputField.dateInputLabelFallback" : {
+    "description" : "Default label for date input field",
+    "message" : "Data"
   },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
@@ -20,6 +60,18 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Data zakończenia"
+  },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Opcje filtrowania według wyszukiwanego hasła"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Wyszukaj..."
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Wyczyść wyszukiwanie"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",

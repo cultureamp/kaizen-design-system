@@ -16,7 +16,7 @@
     border-color $animation-duration-immediate;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     border-color: $color-gray-600;
     background: $color-gray-200;
   }
@@ -46,6 +46,12 @@
   border-top-right-radius: 0;
 }
 
+.editorLabel {
+  margin-bottom: $spacing-6;
+  display: inline-block;
+}
+
+/* stylelint-disable no-descending-specificity */
 .editorWrapper {
   position: relative;
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
@@ -62,7 +68,6 @@
     }
   }
 
-  /* stylelint-disable no-descending-specificity */
   &.error {
     &,
     .toolbar {

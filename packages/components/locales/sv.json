@@ -9,9 +9,49 @@
     }],
     "variants_enabled" : true
   },
+  "date.validation.invalidDate" : {
+    "description" : "Error message when the user enters an invalid date and we do not know their input value",
+    "message" : "Datumet är ogiltigt"
+  },
+  "date.validation.invalidDateWithValue" : {
+    "description" : "Error message when the user enters an invalid date and we know their input value",
+    "message" : "{inputValue} är ett ogiltigt datum"
+  },
+  "date.validation.rangeEndBeforeRangeStart" : {
+    "description" : "Error message when the user tries to select an end date earlier than the start date",
+    "message" : "Kan inte vara tidigare än valet i {startDateFieldLabel}"
+  },
+  "date.validation.unavailableDate" : {
+    "description" : "Error message when the user tries to select a date that is unavailable",
+    "message" : "{inputValue} är inte tillgängligt, försök med ett annat datum"
+  },
   "dateInputDescription.inputFormat" : {
     "description" : "Label for the 'Input format' field",
     "message" : "Inmatningsformat"
+  },
+  "datePicker.calendarLabelDescription" : {
+    "description" : "Label for the search input",
+    "message" : "Välj datum från kalendern för:"
+  },
+  "filterBar.addFiltersMenu.buttonLabel" : {
+    "description" : "Menu button label to show additional available filter options",
+    "message" : "Lägg till filter"
+  },
+  "filterBar.clearAllButton.ariaLabel" : {
+    "description" : "Button aria-label to clear all values within the filter bar",
+    "message" : "Rensa alla filter"
+  },
+  "filterBar.clearAllButton.label" : {
+    "description" : "Button label to clear all values within the filter bar",
+    "message" : "Rensa allt"
+  },
+  "filterButton.removable.removeButtonLabel" : {
+    "description" : "Button label to remove a single filter from the filter bar",
+    "message" : "Ta bort filter – {filterLabel}"
+  },
+  "filterDatePickerDateInputField.dateInputLabelFallback" : {
+    "description" : "Default label for date input field",
+    "message" : "Datum"
   },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
@@ -20,6 +60,18 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Slutdatum"
+  },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filtrera alternativ efter sökfråga"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Sök …"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Rensa sökning"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",

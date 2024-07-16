@@ -24,27 +24,9 @@ compile_types() {
     echo -e "${GREEN}------${NC}"
 }
 
-add_ui_build_tools() {
-    echo -e "${GREEN}Adding UI build tools..."
-    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/addBuildTools.js --packagePath="$PWD"
-    echo -e "${GREEN}------${NC}"
-}
-
-inject_tailwind_imports() {
-    echo -e "${GREEN}Running Tailwind Styles Import command..."
-    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/injectTailwindImports.js --packagePath="$PWD"
-    echo -e "${GREEN}------${NC}"
-}
-
-apply_pure_to_style_inject() {
-    echo -e "${GREEN}Purify style inject for treeshaking...${NC}"
-    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/applyPureToStyleInject.js --packagePath="$PWD"
-    echo -e "${GREEN}------${NC}"
-}
-
-ui_post_build() {
-    echo -e "${GREEN}Post build...${NC}"
-    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/postBuild.js --packagePath="$PWD"
+consolidate_styles() {
+    echo -e "${GREEN}Consolidate styles...${NC}"
+    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/consolidateStyles.js --packagePath="$PWD"
     echo -e "${GREEN}------${NC}"
 }
 
@@ -53,6 +35,7 @@ elapsed_time() {
 }
 
 build() {
+    clean
     bundle
     compile_types
 }
@@ -60,18 +43,13 @@ build() {
 case "$1" in
     build)
         echo "Running build command..."
-        clean
         build
         elapsed_time
         ;;
     build-shared-ui)
         echo "Running build-shared-ui command..."
-        clean
-        add_ui_build_tools
         build
-        inject_tailwind_imports
-        apply_pure_to_style_inject
-        ui_post_build
+        consolidate_styles
         elapsed_time
         ;;
     help)

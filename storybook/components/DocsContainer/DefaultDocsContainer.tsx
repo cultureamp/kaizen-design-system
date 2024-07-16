@@ -2,12 +2,10 @@ import React, { useContext } from "react"
 import {
   DocsContainer,
   DocsContainerProps,
-  Unstyled,
   DocsContext,
 } from "@storybook/blocks"
 import { BackToTop } from "./BackToTop"
-import { Content, Main, Sidebar } from "./Layout"
-import { TableOfContents } from "./TableOfContents"
+import { Content, Main, DocsWrapper } from "./Layout"
 
 type LayoutProps = { children: React.ReactNode }
 
@@ -20,13 +18,6 @@ const FullPage = ({ children }: LayoutProps): JSX.Element => (
 
 const DefaultLayout = ({ children }: LayoutProps): JSX.Element => (
   <Main>
-    <Sidebar>
-      <div className="sticky right-0 top-12">
-        <Unstyled>
-          <TableOfContents />
-        </Unstyled>
-      </div>
-    </Sidebar>
     <Content>
       {children}
       <BackToTop className="mt-24" />
@@ -52,7 +43,9 @@ export const DefaultDocsContainer = ({
   children,
   ...props
 }: DocsContainerProps & { children: React.ReactNode }): JSX.Element => (
-  <DocsContainer {...props}>
-    <DocsLayout>{children}</DocsLayout>
-  </DocsContainer>
+  <DocsWrapper>
+    <DocsContainer {...props}>
+      <DocsLayout>{children}</DocsLayout>
+    </DocsContainer>
+  </DocsWrapper>
 )

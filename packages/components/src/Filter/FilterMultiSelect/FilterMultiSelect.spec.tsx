@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
-import { render, waitFor } from "@testing-library/react"
+import { waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { renderWithIntl } from "~tests"
 import { FilterMultiSelect, FilterMultiSelectProps } from "./FilterMultiSelect"
 import { ItemType } from "./types"
 import { getSelectedOptionLabels } from "./utils"
@@ -72,13 +73,8 @@ const FilterMultiSelectWrapper = ({
 }
 
 describe("<FilterMultiSelect>", () => {
-  it("does not show the popover initially", () => {
-    const { queryByRole } = render(<FilterMultiSelectWrapper />)
-    expect(queryByRole("listbox")).not.toBeInTheDocument()
-  })
-
   it("opens the popover using the trigger button", async () => {
-    const { getByRole } = render(<FilterMultiSelectWrapper />)
+    const { getByRole } = renderWithIntl(<FilterMultiSelectWrapper />)
 
     const triggerButton = getByRole("button", { name: "Engineer : Front-End" })
     await user.click(triggerButton)
@@ -89,7 +85,7 @@ describe("<FilterMultiSelect>", () => {
   })
 
   it("selects an unselected option on click", async () => {
-    const { getByRole } = render(<FilterMultiSelectWrapper isOpen />)
+    const { getByRole } = renderWithIntl(<FilterMultiSelectWrapper isOpen />)
 
     const devOpsOption = getByRole("option", {
       name: "Dev-ops",
@@ -103,7 +99,7 @@ describe("<FilterMultiSelect>", () => {
   })
 
   it("deselects a selected option on click", async () => {
-    const { getByRole } = render(<FilterMultiSelectWrapper isOpen />)
+    const { getByRole } = renderWithIntl(<FilterMultiSelectWrapper isOpen />)
 
     const devOpsOption = getByRole("option", {
       name: "Front-End",
@@ -117,7 +113,7 @@ describe("<FilterMultiSelect>", () => {
   })
 
   it("filters out options which do not match the search term", async () => {
-    const { getByRole, getAllByRole } = render(
+    const { getByRole, getAllByRole } = renderWithIntl(
       <FilterMultiSelectWrapper isOpen />
     )
     expect(getAllByRole("option")).toHaveLength(5)
@@ -131,7 +127,7 @@ describe("<FilterMultiSelect>", () => {
 
   describe("Clear button", () => {
     it("deselects all options when unfiltered", async () => {
-      const { getByRole, queryAllByRole } = render(
+      const { getByRole, queryAllByRole } = renderWithIntl(
         <FilterMultiSelectWrapper
           isOpen
           selectedKeys={new Set(["id-fe", "id-devops"])}
@@ -147,7 +143,7 @@ describe("<FilterMultiSelect>", () => {
     })
 
     it("deselects only selected filtered options", async () => {
-      const { getByRole, queryAllByRole } = render(
+      const { getByRole, queryAllByRole } = renderWithIntl(
         <FilterMultiSelectWrapper
           isOpen
           selectedKeys={new Set(["id-fe", "id-devops"])}
@@ -176,7 +172,7 @@ describe("<FilterMultiSelect>", () => {
       options.filter(option => option.hasAttribute("aria-disabled"))
 
     it("selects all non-disabled options when unfiltered", async () => {
-      const { getByRole, queryAllByRole } = render(
+      const { getByRole, queryAllByRole } = renderWithIntl(
         <FilterMultiSelectWrapper isOpen selectedKeys={new Set([])} />
       )
 
@@ -191,7 +187,7 @@ describe("<FilterMultiSelect>", () => {
     })
 
     it("selects only non-disabled filtered options", async () => {
-      const { getByRole, queryAllByRole } = render(
+      const { getByRole, queryAllByRole } = renderWithIntl(
         <FilterMultiSelectWrapper isOpen selectedKeys={new Set([])} />
       )
 

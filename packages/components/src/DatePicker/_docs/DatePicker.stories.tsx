@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
+import { userEvent, within, expect } from "@storybook/test"
 import Highlight from "react-highlight"
 import { Button } from "~components/Button"
 import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
@@ -142,9 +143,8 @@ export const Validation: Story = {
     )
     const [status, setStatus] = useState<FieldMessageStatus | undefined>()
     const [response, setResponse] = useState<ValidationResponse | undefined>()
-    const [validationMessage, setValidationMessage] = useState<
-      string | undefined
-    >()
+    const [validationMessage, setValidationMessage] =
+      useState<ValidationResponse["validationMessage"]>()
 
     const handleValidation = (validationResponse: ValidationResponse): void => {
       setResponse(validationResponse)
@@ -248,4 +248,119 @@ export const Validation: Story = {
 
 export const DisabledDays: Story = {
   parameters: { controls: { include: /^disabled/ } },
+}
+
+export const LimitedWindowWidth: Story = {
+  name: "At 400% window size",
+  parameters: {
+    controls: { disable: true },
+    viewport: {
+      viewports: {
+        ViewportAt400: {
+          name: "Viewport at 400%",
+          styles: {
+            width: "320px",
+            height: "350px",
+          },
+        },
+      },
+      defaultViewport: "ViewportAt400",
+    },
+    a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
+    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+  },
+}
+
+export const AboveIfAvailable: Story = {
+  name: "Limited viewport autoplacement above",
+  args: {
+    labelText: "Calendar with space above",
+  },
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: "Limited vertical space",
+          styles: {
+            width: "1024px",
+            height: "500px",
+          },
+        },
+      },
+      defaultViewport: "LimitedViewportAutoPlace",
+    },
+    a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
+  },
+  decorators: [
+    Story => (
+      <div className="mt-[350px]">
+        <Story />
+      </div>
+    ),
+  ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
+    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+  },
+}
+
+export const LimitedViewportHeight: Story = {
+  name: "Limited viewport height",
+  args: {
+    labelText: "Calendar with reduced space below",
+  },
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportHeight: {
+          name: "Limited vertical space",
+          styles: {
+            width: "1024px",
+            height: "300px",
+          },
+        },
+      },
+      defaultViewport: "LimitedViewportHeight",
+    },
+    a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
+  },
+  decorators: [
+    Story => (
+      <div className="mb-[150px]">
+        <Story />
+      </div>
+    ),
+  ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
+    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+  },
+}
+
+export const FullViewportHeight: Story = {
+  name: "Full viewport height",
+  args: {
+    labelText: "Calendar with full space below",
+  },
+  decorators: [
+    Story => (
+      <div className="mb-[350px]">
+        <Story />
+      </div>
+    ),
+  ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
+    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+  },
+  parameters: {
+    a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
+  },
 }

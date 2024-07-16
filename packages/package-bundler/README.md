@@ -10,9 +10,9 @@ pnpm add -D @kaizen/package-bundler
 
 ## build-shared-ui
 
-For shared UI packages, CSS modules and/or Tailwind will be included in the dist along side the components JS.
+For shared UI packages. CSS modules and/or Tailwind will be included in the dist in a single stylesheet (`{PACKAGE_NAME}/dist/styles.css`) to be imported by the consumer.
 
-_Note: styles are injected into the JS of components, so there's no need for consumers to manually import CSS files, it all comes with the component._
+_Note: If your package extends another shared UI package, you will need to list the other package as a peerDependency and have the end consumer import both stylesheets._
 
 ### `package.json`
 
@@ -25,7 +25,7 @@ Add the following to your `package.json`:
   "dist"
 ],
 "sideEffects": [
-  "tailwind.css.*" // If using Tailwind
+  "styles.css"
 ],
 "scripts": {
   "build": "pnpm package-bundler build-shared-ui",
@@ -49,7 +49,7 @@ pnpm add -D postcss postcss-preset-env rollup tslib
 ### Required files
 
 - `postcss.config.js`
-- `rollup.config.(mjs|ts)`
+- `rollup.config.mjs`
 - `tsconfig.json`
 - `tsconfig.dist.json`
 - `tsconfig.types.json`
@@ -84,7 +84,7 @@ module.exports = {
 
 ### Rollup
 
-In `rollup.config.(mjs|ts)`:
+In `rollup.config.mjs`:
 ```ts
 import { pluginsSharedUi, rollupConfig } from "@kaizen/package-bundler";
 
@@ -129,7 +129,7 @@ Required files:
 - `tailwind.config.js`
 - `src/tailwind.css`
 
-Follow the [set up guide](../../docs/Systems/Tailwind/getting-started.mdx).
+Follow the [set up guide](../../docs/Tailwind/getting-started.mdx).
 
 As we use PostCSS, ensure your `postcss.config.js` has the following plugins installed:
 ```js
@@ -151,13 +151,6 @@ If you are creating a UI library to share with others, ensure you set a unique p
 module.exports = {
   prefix: "{uniquePrefix}-"
 }
-```
-
-You will also need to add the compiled Tailwind stylesheet to `sideEffects` in your `package.json` to ensure it is not tree-shaken:
-```json
-"sideEffects": [
-  "tailwind.css.*"
-]
 ```
 
 ### Alias
@@ -182,7 +175,7 @@ Example:
 ```
 
 ```ts
-// rollup.config.(mjs|ts)
+// rollup.config.mjs
 export default rollupConfig({
   alias: {
     entries: [

@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: pnpm compile
+      - run: pnpm lint:ts
 
   eslint:
     if: github.head_ref != 'changeset-release/main'
@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: pnpm lint:ts && pnpm lint:md
+      - run: pnpm lint:js && pnpm lint:md
 
   prettier:
     if: github.head_ref != 'changeset-release/main'

@@ -1,10 +1,11 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "1.2.7",
+  "version": "1.2.11",
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "pnpm clean && tsc --project tsconfig.dist.json",
-    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
+    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'",
+    "lint:ts": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,6 @@
     "@kaizen/design-tokens": "workspace:*"
   },
   "peerDependencies": {
-    "tailwindcss": "^3.4.3"
+    "tailwindcss": ">=3.4.3"
   }
 }

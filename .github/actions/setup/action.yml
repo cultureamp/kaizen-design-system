@@ -7,30 +7,16 @@ description: Sets this repository up to allow efficient run of various github ac
 runs:
   using: composite
   steps:
-    - name: Install Node.js
-      uses: actions/setup-node@v3
+    - name: Install package manager via corepack
+      run: corepack enable
+      shell: bash
+
+    - name: Cache pnpm store
+      uses: actions/setup-node@v4
       with:
         node-version-file: package.json
         registry-url: https://npm.pkg.github.com/
-
-    - name: Install pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: 8
-        run_install: false
-
-    - name: Get pnpm store directory
-      shell: bash
-      run: |
-        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-    - name: Setup pnpm cache
-      uses: actions/cache@v3
-      with:
-        path: ${{ env.STORE_PATH }}
-        key: kaizen-${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pnpm-store-
+        cache: "pnpm"
 
     - name: Install dependencies
       shell: bash
@@ -46,4 +32,4 @@ runs:
         npx playwright install
 
     - name: Setup turborepo cache
-      uses: dtinth/setup-github-actions-caching-for-turbo@v1
+      uses: rharkor/caching-for-turbo@v1.5

@@ -171,17 +171,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 .titleTextOverride.titleTextOverride {
   padding: 4px 0;
 
-  @media (max-width: $breadcrumb-breakpoint-width) {
-    font-family: $typography-heading-2-font-family;
-    font-weight: $typography-heading-2-font-weight;
-    font-size: $typography-heading-2-font-size;
-    line-height: $typography-heading-2-line-height;
-    letter-spacing: $typography-heading-2-letter-spacing;
-  }
-
   @include title-block-under-1366 {
-    font-family: $typography-heading-2-font-family;
-    font-weight: $typography-heading-2-font-weight;
     font-size: $typography-heading-2-font-size;
     line-height: $typography-heading-2-line-height;
     letter-spacing: $typography-heading-2-letter-spacing;
@@ -190,8 +180,6 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
   .hasLongTitle & {
     @include title-block-under-1366 {
-      font-family: $typography-heading-3-font-family;
-      font-weight: $typography-heading-3-font-weight;
       font-size: $typography-heading-3-font-size;
       line-height: $typography-heading-3-line-height;
       letter-spacing: $typography-heading-3-letter-spacing;
@@ -200,8 +188,6 @@ $tab-container-height-medium-and-small-collapsed: 0;
   }
 
   @include title-block-medium-and-small {
-    font-family: $typography-heading-4-font-family;
-    font-weight: $typography-heading-4-font-weight;
     font-size: $typography-heading-4-font-size;
     line-height: $typography-heading-4-line-height;
     letter-spacing: $typography-heading-4-letter-spacing;

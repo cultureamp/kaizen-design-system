@@ -27,6 +27,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
     <div className={classnames(styles.dateInput, classNameOverride)}>
       <Label
         htmlFor={id}
+        id={`${id}-input-label`}
         labelText={labelText}
         reversed={isReversed}
         disabled={disabled}

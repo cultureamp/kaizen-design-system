@@ -36,13 +36,11 @@ const StickerSheetTemplate: StickerSheetStory = {
           <Brand alt="Culture Amp" variant="enso" reversed={isReversed} />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Collective Intelligence">
-          <div style={{ width: "200px" }}>
-            <Brand
-              alt="Collective Intelligence"
-              variant="collective-intelligence"
-              reversed={isReversed}
-            />
-          </div>
+          <Brand
+            alt="Collective Intelligence"
+            variant="collective-intelligence"
+            reversed={isReversed}
+          />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>

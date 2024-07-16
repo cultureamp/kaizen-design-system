@@ -9,9 +9,49 @@
     }],
     "variants_enabled" : true
   },
+  "date.validation.invalidDate" : {
+    "description" : "Error message when the user enters an invalid date and we do not know their input value",
+    "message" : "Nederīgs datums"
+  },
+  "date.validation.invalidDateWithValue" : {
+    "description" : "Error message when the user enters an invalid date and we know their input value",
+    "message" : "{inputValue} ir nederīgs datums"
+  },
+  "date.validation.rangeEndBeforeRangeStart" : {
+    "description" : "Error message when the user tries to select an end date earlier than the start date",
+    "message" : "Nevar būt agrāks par atlasi šeit: “{startDateFieldLabel}”"
+  },
+  "date.validation.unavailableDate" : {
+    "description" : "Error message when the user tries to select a date that is unavailable",
+    "message" : "{inputValue} nav pieejams, mēģiniet citu datumu"
+  },
   "dateInputDescription.inputFormat" : {
     "description" : "Label for the 'Input format' field",
     "message" : "Ievades formāts"
+  },
+  "datePicker.calendarLabelDescription" : {
+    "description" : "Label for the search input",
+    "message" : "Atlasiet datumu no kalendāra:"
+  },
+  "filterBar.addFiltersMenu.buttonLabel" : {
+    "description" : "Menu button label to show additional available filter options",
+    "message" : "Pievienot filtrus"
+  },
+  "filterBar.clearAllButton.ariaLabel" : {
+    "description" : "Button aria-label to clear all values within the filter bar",
+    "message" : "Notīrīt visus filtrus"
+  },
+  "filterBar.clearAllButton.label" : {
+    "description" : "Button label to clear all values within the filter bar",
+    "message" : "Notīrīt visu"
+  },
+  "filterButton.removable.removeButtonLabel" : {
+    "description" : "Button label to remove a single filter from the filter bar",
+    "message" : "Noņemt filtru - {filterLabel}"
+  },
+  "filterDatePickerDateInputField.dateInputLabelFallback" : {
+    "description" : "Default label for date input field",
+    "message" : "Datums"
   },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
@@ -20,6 +60,18 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Datums līdz"
+  },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filtrēt opcijas pēc meklēšanas vaicājuma"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Meklēt…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Notīrīt meklēšanu"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",

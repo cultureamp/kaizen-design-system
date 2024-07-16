@@ -1,5 +1,180 @@
 # Change Log
 
+## 1.55.0
+
+### Minor Changes
+
+- [#4834](https://github.com/cultureamp/kaizen-design-system/pull/4834) [`babb559e84ec8fb32c574ae642244da7c6e94d21`](https://github.com/cultureamp/kaizen-design-system/commit/babb559e84ec8fb32c574ae642244da7c6e94d21) - Added Assignment Icon
+
+### Patch Changes
+
+- [#4829](https://github.com/cultureamp/kaizen-design-system/pull/4829) [`291136b92d80a7329952fd844e1dec323884ae7b`](https://github.com/cultureamp/kaizen-design-system/commit/291136b92d80a7329952fd844e1dec323884ae7b) - add update_filter_labels action to respond to filter config label updates
+
+## 1.54.4
+
+### Patch Changes
+
+- [#4832](https://github.com/cultureamp/kaizen-design-system/pull/4832) [`d96f16d37bc49450afb18a86a4c4f90cd9de7f52`](https://github.com/cultureamp/kaizen-design-system/commit/d96f16d37bc49450afb18a86a4c4f90cd9de7f52) - Fix bug where menu focus goes to a different menu button on close
+
+## 1.54.3
+
+### Patch Changes
+
+- [#4796](https://github.com/cultureamp/kaizen-design-system/pull/4796) [`d5fe6e6c14d848ae7bdff623cd46bdd70f0b3886`](https://github.com/cultureamp/kaizen-design-system/commit/d5fe6e6c14d848ae7bdff623cd46bdd70f0b3886) - Update source image for Brand Collective Intelligence
+
+## 1.54.2
+
+### Patch Changes
+
+- [#4776](https://github.com/cultureamp/kaizen-design-system/pull/4776) [`a9832552bc44db988e224a62ad18438d9be76221`](https://github.com/cultureamp/kaizen-design-system/commit/a9832552bc44db988e224a62ad18438d9be76221) - Add new translations
+
+## 1.54.1
+
+### Patch Changes
+
+- [#4799](https://github.com/cultureamp/kaizen-design-system/pull/4799) [`d6031f0daa3a310851b34139339acc11e23f6e5a`](https://github.com/cultureamp/kaizen-design-system/commit/d6031f0daa3a310851b34139339acc11e23f6e5a) - Dep update: uuid from v9 to v10
+
+## 1.54.0
+
+### Minor Changes
+
+- [#4794](https://github.com/cultureamp/kaizen-design-system/pull/4794) [`a2402b46621130fb8035122ffd231f15df54473f`](https://github.com/cultureamp/kaizen-design-system/commit/a2402b46621130fb8035122ffd231f15df54473f) - Add all supported locales to `DatePicker`, `FilterDatePicker`, `FilterDateRangePicker`.
+
+  Update `Calendar`s to infer starting weekday based on provided locale.
+
+## 1.53.0
+
+### Minor Changes
+
+- [#4788](https://github.com/cultureamp/kaizen-design-system/pull/4788) [`c04d33098c31ba5dd2516b95c7ea4c1e2975c2c3`](https://github.com/cultureamp/kaizen-design-system/commit/c04d33098c31ba5dd2516b95c7ea4c1e2975c2c3) - Add translations to `FilterBar` and `DatePicker` components.
+
+  Add locale `fr-CA` and translate text in `DatePicker`, `FilterDatePicker`, `FilterDateRangePicker`.
+
+## 1.52.1
+
+### Patch Changes
+
+- [#4783](https://github.com/cultureamp/kaizen-design-system/pull/4783) [`5433cd725f34f56c858713acadf5f95af628f7ab`](https://github.com/cultureamp/kaizen-design-system/commit/5433cd725f34f56c858713acadf5f95af628f7ab) - Fix workflow future logo a11y
+
+## 1.52.0
+
+### Minor Changes
+
+- [#4744](https://github.com/cultureamp/kaizen-design-system/pull/4744) [`844942ea54668a9455fd6fc643b86659be80e7da`](https://github.com/cultureamp/kaizen-design-system/commit/844942ea54668a9455fd6fc643b86659be80e7da) - Create v3 Tooltip and versioned package entry points
+
+### Patch Changes
+
+- [#4779](https://github.com/cultureamp/kaizen-design-system/pull/4779) [`c390aac3420eef384b46510c6f3b61f50eff229a`](https://github.com/cultureamp/kaizen-design-system/commit/c390aac3420eef384b46510c6f3b61f50eff229a) - Add tiempos-headline-medium weight to font-face declaration
+
+## 1.51.0
+
+### Minor Changes
+
+- [#4772](https://github.com/cultureamp/kaizen-design-system/pull/4772) [`9dac69a5492034b1ffc7a1355dcf6a092f48936f`](https://github.com/cultureamp/kaizen-design-system/commit/9dac69a5492034b1ffc7a1355dcf6a092f48936f) - Update TitleBlockZen title font to match composable header.
+
+## 1.50.0
+
+### Minor Changes
+
+- [#4773](https://github.com/cultureamp/kaizen-design-system/pull/4773) [`d64538c4850516d3425e8266c15e74b7060ea0c6`](https://github.com/cultureamp/kaizen-design-system/commit/d64538c4850516d3425e8266c15e74b7060ea0c6) - Translate embedded text within `FilterMultiSelect.SearchInput` and `InputSearch`.
+
+### Patch Changes
+
+- [#4774](https://github.com/cultureamp/kaizen-design-system/pull/4774) [`e206024491760b28787b068ccac56ab0aa652e1f`](https://github.com/cultureamp/kaizen-design-system/commit/e206024491760b28787b068ccac56ab0aa652e1f) - Add translations for FilterMultiSelect
+
+## 1.49.3
+
+### Patch Changes
+
+- [#4758](https://github.com/cultureamp/kaizen-design-system/pull/4758) [`10c22b15e0decd6f8f279863f5bfe1cbbbea1990`](https://github.com/cultureamp/kaizen-design-system/commit/10c22b15e0decd6f8f279863f5bfe1cbbbea1990) - Fix `FilterBarMultiSelectProps` to allow consumer to override `label`, `trigger` and `selectedKeys`
+
+## 1.49.2
+
+### Patch Changes
+
+- [#4745](https://github.com/cultureamp/kaizen-design-system/pull/4745) [`1b17a65773afe0f3b9598c5e148379aab8c86875`](https://github.com/cultureamp/kaizen-design-system/commit/1b17a65773afe0f3b9598c5e148379aab8c86875) - Update prosemirror deps
+
+## 1.49.1
+
+### Patch Changes
+
+- [#4742](https://github.com/cultureamp/kaizen-design-system/pull/4742) [`fc8920ccd4f0fa1788677fd9030fbbf17845df03`](https://github.com/cultureamp/kaizen-design-system/commit/fc8920ccd4f0fa1788677fd9030fbbf17845df03) - Blank out alt text for illustrations in EmptyState
+
+## 1.49.0
+
+### Minor Changes
+
+- [#4732](https://github.com/cultureamp/kaizen-design-system/pull/4732) [`871f3f2868afd8cf4dad169363615fc06aa84ded`](https://github.com/cultureamp/kaizen-design-system/commit/871f3f2868afd8cf4dad169363615fc06aa84ded) - Deprecation of placeholders across Future `Select`, `Select`, `Input`
+
+### Patch Changes
+
+- [#4695](https://github.com/cultureamp/kaizen-design-system/pull/4695) [`c715b3e4187ec4782c9096b810a144ea45627742`](https://github.com/cultureamp/kaizen-design-system/commit/c715b3e4187ec4782c9096b810a144ea45627742) - Update EditableRichTextContent, RichTextContent and RichTextEditor border, label spacing, default text color and interaction styles to align with design.
+
+- [#4734](https://github.com/cultureamp/kaizen-design-system/pull/4734) [`65f0792b25c4996dd68760cf24dc56ebe87a7fd4`](https://github.com/cultureamp/kaizen-design-system/commit/65f0792b25c4996dd68760cf24dc56ebe87a7fd4) - update @cultureamp/i18n-react-intl dep
+
+- [#4734](https://github.com/cultureamp/kaizen-design-system/pull/4734) [`65f0792b25c4996dd68760cf24dc56ebe87a7fd4`](https://github.com/cultureamp/kaizen-design-system/commit/65f0792b25c4996dd68760cf24dc56ebe87a7fd4) - update prosemirror-view dep
+
+- [#4730](https://github.com/cultureamp/kaizen-design-system/pull/4730) [`3be853246158083f4c1226a6bc275b5b08f4b0d2`](https://github.com/cultureamp/kaizen-design-system/commit/3be853246158083f4c1226a6bc275b5b08f4b0d2) - Add more contenxt to the RTE link description and validation error
+
+- [#4734](https://github.com/cultureamp/kaizen-design-system/pull/4734) [`65f0792b25c4996dd68760cf24dc56ebe87a7fd4`](https://github.com/cultureamp/kaizen-design-system/commit/65f0792b25c4996dd68760cf24dc56ebe87a7fd4) - Update sass dep
+
+- [#4729](https://github.com/cultureamp/kaizen-design-system/pull/4729) [`2e70becbd233aad599535a47f2286c2a043020b4`](https://github.com/cultureamp/kaizen-design-system/commit/2e70becbd233aad599535a47f2286c2a043020b4) - Increase ToastNotificationList z-index so it shows on top of other components
+
+- [#4731](https://github.com/cultureamp/kaizen-design-system/pull/4731) [`016401cc8a01952aae70e4b527c619efa417e418`](https://github.com/cultureamp/kaizen-design-system/commit/016401cc8a01952aae70e4b527c619efa417e418) - Update DatePicker and DateRangePicker to use the labelText as the dialogues accessible title
+
+## 1.48.0
+
+### Minor Changes
+
+- [#4728](https://github.com/cultureamp/kaizen-design-system/pull/4728) [`d1ae4eb748b2f8a2ebd76aae10efb694632575c2`](https://github.com/cultureamp/kaizen-design-system/commit/d1ae4eb748b2f8a2ebd76aae10efb694632575c2) - Remove style injection
+
+## 1.47.6
+
+### Patch Changes
+
+- [#4717](https://github.com/cultureamp/kaizen-design-system/pull/4717) [`66728604c40cfae29e049989aa5251f71a9bd161`](https://github.com/cultureamp/kaizen-design-system/commit/66728604c40cfae29e049989aa5251f71a9bd161) - Updated dependency `stylelint`.
+
+  Refactored styles of the following components to satisfy linting:
+
+  - AvatarGroup
+  - ButtonGroup
+  - Checkbox
+  - CheckboxField
+  - ExpertAdviceCollapsible
+  - Label
+  - ToggleIconButton (RTE subcomponent)
+  - TimeSegment
+
+## 1.47.5
+
+### Patch Changes
+
+- [#4719](https://github.com/cultureamp/kaizen-design-system/pull/4719) [`ced88e55a0ef483e63eb93525a4212bd97af68ff`](https://github.com/cultureamp/kaizen-design-system/commit/ced88e55a0ef483e63eb93525a4212bd97af68ff) - Update dep `tsx`
+
+- [#4724](https://github.com/cultureamp/kaizen-design-system/pull/4724) [`253dd28c271844fbc89027cd0f678ffcafe69021`](https://github.com/cultureamp/kaizen-design-system/commit/253dd28c271844fbc89027cd0f678ffcafe69021) - Fix FilterMultiselect not opening the Menu when accessing it with a keyboard after it had previously being opened.
+
+## 1.47.4
+
+### Patch Changes
+
+- [#4709](https://github.com/cultureamp/kaizen-design-system/pull/4709) [`18cf2df4684317750440356d5cc3f2383f8fd148`](https://github.com/cultureamp/kaizen-design-system/commit/18cf2df4684317750440356d5cc3f2383f8fd148) - Update `react-aria` dependencies
+
+- [#4709](https://github.com/cultureamp/kaizen-design-system/pull/4709) [`18cf2df4684317750440356d5cc3f2383f8fd148`](https://github.com/cultureamp/kaizen-design-system/commit/18cf2df4684317750440356d5cc3f2383f8fd148) - update dependency @floating-ui/react-dom to ^2.1.0
+
+- [#4709](https://github.com/cultureamp/kaizen-design-system/pull/4709) [`18cf2df4684317750440356d5cc3f2383f8fd148`](https://github.com/cultureamp/kaizen-design-system/commit/18cf2df4684317750440356d5cc3f2383f8fd148) - Update dependency `use-debounce`
+
+- [#4683](https://github.com/cultureamp/kaizen-design-system/pull/4683) [`871ac443f985998c359e2237a86c5d925a27ba91`](https://github.com/cultureamp/kaizen-design-system/commit/871ac443f985998c359e2237a86c5d925a27ba91) - Migrate DatePicker and DateRangePicker to floatingUI
+
+- [#4709](https://github.com/cultureamp/kaizen-design-system/pull/4709) [`18cf2df4684317750440356d5cc3f2383f8fd148`](https://github.com/cultureamp/kaizen-design-system/commit/18cf2df4684317750440356d5cc3f2383f8fd148) - Update dependency `@internationalized/date`
+
+## 1.47.3
+
+### Patch Changes
+
+- [#4705](https://github.com/cultureamp/kaizen-design-system/pull/4705) [`c8e6004e0b252a65e07badffa05e255a98b87be8`](https://github.com/cultureamp/kaizen-design-system/commit/c8e6004e0b252a65e07badffa05e255a98b87be8) - Fix style injection by removing PURE comment.
+
+  Builds in Storybook and Next fail when the comment exists.
+
 ## 1.47.2
 
 ### Patch Changes

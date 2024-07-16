@@ -69,7 +69,7 @@ export const tokens: TokenStructure = {
       200: "#c4ede2",
       300: "#8fdbc7",
       400: "#5dcaad",
-      500: "#44a289",
+      500: "#3f9a86",
       600: "#2c7d67",
       700: "#22594a",
     },

@@ -9,9 +9,49 @@
     }],
     "variants_enabled" : true
   },
+  "date.validation.invalidDate" : {
+    "description" : "Error message when the user enters an invalid date and we do not know their input value",
+    "message" : "日期无效"
+  },
+  "date.validation.invalidDateWithValue" : {
+    "description" : "Error message when the user enters an invalid date and we know their input value",
+    "message" : "{inputValue}为无效日期"
+  },
+  "date.validation.rangeEndBeforeRangeStart" : {
+    "description" : "Error message when the user tries to select an end date earlier than the start date",
+    "message" : "不能早于“{startDateFieldLabel}”中的选择"
+  },
+  "date.validation.unavailableDate" : {
+    "description" : "Error message when the user tries to select a date that is unavailable",
+    "message" : "{inputValue}不可用，请尝试其他日期"
+  },
   "dateInputDescription.inputFormat" : {
     "description" : "Label for the 'Input format' field",
     "message" : "输入格式"
+  },
+  "datePicker.calendarLabelDescription" : {
+    "description" : "Label for the search input",
+    "message" : "从日历中选择日期："
+  },
+  "filterBar.addFiltersMenu.buttonLabel" : {
+    "description" : "Menu button label to show additional available filter options",
+    "message" : "添加筛选条件"
+  },
+  "filterBar.clearAllButton.ariaLabel" : {
+    "description" : "Button aria-label to clear all values within the filter bar",
+    "message" : "清除所有筛选条件"
+  },
+  "filterBar.clearAllButton.label" : {
+    "description" : "Button label to clear all values within the filter bar",
+    "message" : "全部清除"
+  },
+  "filterButton.removable.removeButtonLabel" : {
+    "description" : "Button label to remove a single filter from the filter bar",
+    "message" : "删除筛选条件 - {filterLabel}"
+  },
+  "filterDatePickerDateInputField.dateInputLabelFallback" : {
+    "description" : "Default label for date input field",
+    "message" : "日期"
   },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
@@ -20,6 +60,18 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "结束日期"
+  },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "按搜索查询筛选选项"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "搜索…"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "清除搜索"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",

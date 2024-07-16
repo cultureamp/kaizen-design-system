@@ -1,11 +1,13 @@
 import React, {
   HTMLAttributes,
   ReactNode,
-  useState,
   SyntheticEvent,
+  useRef,
+  useState,
 } from "react"
 import { Tab as ReachTab } from "@reach/tabs"
 import classnames from "classnames"
+import { useFocusable } from "react-aria"
 import { Badge } from "~components/Badge"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Tab.module.scss"
@@ -44,34 +46,38 @@ export const Tab = (props: TabProps): JSX.Element => {
     classNameOverride,
     ...restProps
   } = props
+  const ref = useRef<HTMLButtonElement>(null)
   const [isHovered, setIsHovered] = useState<boolean>(false)
   const [isFocused, setIsFocused] = useState<boolean>(false)
   const showActiveBadge = isSelected || isHovered || isFocused
 
-  const onFocus = (event: SyntheticEvent): void => {
-    setIsFocused(true)
-    props.onFocus?.(event)
+  const tabProps = {
+    disabled,
+    className: classnames(
+      styles.tab,
+      classNameOverride,
+      isSelected && styles.selected
+    ),
+    onFocus: (event: SyntheticEvent): void => {
+      setIsFocused(true)
+      props.onFocus?.(event)
+    },
+    onBlur: (event: SyntheticEvent): void => {
+      setIsFocused(false)
+      props.onBlur?.(event)
+    },
+    onMouseEnter: (): void => setIsHovered(true),
+    onMouseLeave: (): void => setIsHovered(false),
+    ...restProps,
   }
 
-  const onBlur = (event: SyntheticEvent): void => {
-    setIsFocused(false)
-    props.onBlur?.(event)
-  }
+  const { focusableProps } = useFocusable(tabProps, ref)
+
+  // Reach is setting and managing tabIndex for us here, so we remove it from the focusableProps (also it needs to be non-defined, undefined is not enough)
+  delete focusableProps.tabIndex
 
   return (
-    <ReachTab
-      disabled={disabled}
-      className={classnames(
-        styles.tab,
-        classNameOverride,
-        isSelected && styles.selected
-      )}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      onMouseEnter={(): void => setIsHovered(true)}
-      onMouseLeave={(): void => setIsHovered(false)}
-      {...restProps}
-    >
+    <ReachTab ref={ref} {...tabProps} {...focusableProps}>
       {children}
       {badge && (
         <span className={styles.badge}>

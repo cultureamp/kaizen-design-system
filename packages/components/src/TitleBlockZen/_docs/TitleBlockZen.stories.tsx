@@ -98,6 +98,60 @@ export const Playground: Story = {
   },
 }
 
+export const Viewports: Story = {
+  parameters: {
+    viewport: {
+      viewports: {
+        default: {
+          name: "Above or equal to 1366",
+          styles: { width: "1366px", height: "800px" },
+          type: "desktop",
+        },
+        under1366: {
+          name: "Under 1366",
+          styles: { width: "1365px", height: "800px" },
+          type: "desktop",
+        },
+        mediumSmall: {
+          name: "Medium and small",
+          styles: { width: "1079px", height: "800px" },
+          type: "desktop",
+        },
+      },
+      defaultViewport: "default",
+    },
+    chromatic: {
+      disable: false,
+      viewports: [1079, 1365, 1366],
+    },
+  },
+}
+
+export const HasLongTitle: Story = {
+  parameters: {
+    viewport: {
+      viewports: {
+        default: {
+          name: "Above or equal to 1366",
+          styles: { width: "1366px", height: "800px" },
+          type: "desktop",
+        },
+        under1366: {
+          name: "Under 1366",
+          styles: { width: "1365px", height: "800px" },
+          type: "desktop",
+        },
+      },
+      defaultViewport: "default",
+    },
+    chromatic: {
+      disable: false,
+      viewports: [1365, 1366],
+    },
+  },
+  args: { title: "A long title with over thirty characters" },
+}
+
 export const StickerSheetDefault: Story = {
   parameters: {
     docs: {

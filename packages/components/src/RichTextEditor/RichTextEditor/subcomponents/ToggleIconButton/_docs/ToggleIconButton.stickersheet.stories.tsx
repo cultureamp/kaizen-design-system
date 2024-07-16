@@ -52,6 +52,13 @@ const ToggleIconButtonGroup = ({
       {...props}
       disabled
     />
+    <ToggleIconButton
+      label="bold"
+      icon={<BoldIcon role="presentation" />}
+      {...props}
+      disabled
+      data-sb-pseudo-styles="focus"
+    />
   </StickerSheet.Row>
 )
 
@@ -59,7 +66,14 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
       <StickerSheet.Header
-        headings={["Default", "Hover", "Active", "Focus", "Disabled"]}
+        headings={[
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Disabled",
+          "Disabled (Focus)",
+        ]}
         hasVerticalHeadings
       />
       <StickerSheet.Body>

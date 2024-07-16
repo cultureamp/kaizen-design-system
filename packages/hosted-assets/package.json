@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "build": "pnpm clean && tsc --project tsconfig.dist.json",
-    "clean": "rm -rf dist && rimraf '*.d.ts' '*.js'"
+    "clean": "rm -rf dist && rimraf '*.d.ts' '*.js'",
+    "lint:ts": "tsc --noEmit"
   }
 }

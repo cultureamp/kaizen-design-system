@@ -71,6 +71,11 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
    * Creates a portal for the Popover to the matching element id
    */
   portalContainerId?: string
+  /**
+   * @deprecated Use of placeholder text goes against our a11y standards.
+   * Use the `labelText` prop to provide a concise name, and the `description` prop for any help text.
+   */
+  placeholder?: string
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
 /**
@@ -91,7 +96,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   classNameOverride,
   selectedKey,
   description,
-  placeholder,
+  placeholder = "",
   isDisabled,
   portalContainerId,
   ...restProps

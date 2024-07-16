@@ -1,4 +1,9 @@
-import React, { ButtonHTMLAttributes, HTMLAttributes, useContext } from "react"
+import React, {
+  ButtonHTMLAttributes,
+  HTMLAttributes,
+  useContext,
+  useRef,
+} from "react"
 import { useButton } from "@react-aria/button"
 import { AriaMenuOptions, useMenuTrigger } from "@react-aria/menu"
 import { MenuTriggerState, useMenuTriggerState } from "@react-stately/menu"
@@ -32,7 +37,7 @@ export function MenuTriggerProvider({
   const state = useMenuTriggerState({ isOpen, defaultOpen, onOpenChange })
 
   // Get A11y attributes and events for the menu trigger and menu elements
-  const ref = React.createRef<HTMLButtonElement>()
+  const ref = useRef<HTMLButtonElement>(null)
   const { menuTriggerProps, menuProps } = useMenuTrigger<ItemType>(
     {},
     state,

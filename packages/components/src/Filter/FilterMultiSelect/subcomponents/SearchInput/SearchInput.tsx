@@ -1,4 +1,5 @@
 import React, { useId } from "react"
+import { useIntl } from "@cultureamp/i18n-react-intl"
 import { InputSearch } from "~components/Input/InputSearch"
 import { useSelectionContext } from "../../context"
 import styles from "./SearchInput.module.scss"
@@ -14,6 +15,7 @@ export const SearchInput = ({
   id,
   isLoading,
 }: SearchInputProps): JSX.Element => {
+  const { formatMessage } = useIntl()
   const { setSearchQuery, searchQuery } = useSelectionContext()
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
@@ -25,13 +27,24 @@ export const SearchInput = ({
   const reactId = useId()
   const inputId = id ?? reactId
 
+  const defaultAriaLabel = formatMessage({
+    id: "filterMultiSelectSearchInput.label",
+    defaultMessage: "Filter options by search query",
+    description: "Label for the search input",
+  })
+  const placeholder = formatMessage({
+    id: "filterMultiSelectSearchInput.placeholder",
+    defaultMessage: "Search…",
+    description: "Placeholder for the search input",
+  })
+
   return (
     <div className={styles.inputSearchContainer}>
       <InputSearch
         id={inputId}
-        aria-label={label ?? "Filter options by search query"}
+        aria-label={label ?? defaultAriaLabel}
         secondary
-        placeholder="Search…"
+        placeholder={placeholder}
         value={searchQuery}
         onChange={handleChange}
         onClear={handleClear}

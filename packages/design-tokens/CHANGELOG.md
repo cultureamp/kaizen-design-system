@@ -1,5 +1,23 @@
 # Change Log
 
+## 10.5.0
+
+### Minor Changes
+
+- [#4793](https://github.com/cultureamp/kaizen-design-system/pull/4793) [`ca19d4e9fc5c24c43a6414abf238859f7da5be54`](https://github.com/cultureamp/kaizen-design-system/commit/ca19d4e9fc5c24c43a6414abf238859f7da5be54) - Update hex value for color-green-500.
+
+## 10.4.2
+
+### Patch Changes
+
+- [#4799](https://github.com/cultureamp/kaizen-design-system/pull/4799) [`d6031f0daa3a310851b34139339acc11e23f6e5a`](https://github.com/cultureamp/kaizen-design-system/commit/d6031f0daa3a310851b34139339acc11e23f6e5a) - Dep update: uuid from v9 to v10
+
+## 10.4.1
+
+### Patch Changes
+
+- [#4719](https://github.com/cultureamp/kaizen-design-system/pull/4719) [`ced88e55a0ef483e63eb93525a4212bd97af68ff`](https://github.com/cultureamp/kaizen-design-system/commit/ced88e55a0ef483e63eb93525a4212bd97af68ff) - Update dep `tsx`
+
 ## 10.4.0
 
 ### Minor Changes

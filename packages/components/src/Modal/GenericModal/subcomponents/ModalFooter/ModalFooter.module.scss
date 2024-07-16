@@ -18,7 +18,7 @@
   flex-direction: column;
 
   @media (min-width: $layout-breakpoints-medium) {
-    padding: 0 $spacing-lg $spacing-lg $spacing-lg;
+    padding: 0 $spacing-lg $spacing-lg;
     flex-direction: row-reverse;
   }
 }

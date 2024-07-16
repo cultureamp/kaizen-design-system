@@ -30,36 +30,20 @@
     border-color: $color-blue-500;
     inset: calc(-1 * #{$focus-ring-offset});
   }
-
-  &.disabled {
-    opacity: 30%;
-
-    &:focus-visible::after {
-      color: rgba($color-purple-800-rgb, 0.3);
-      outline-offset: -2px;
-      background-color: transparent;
-      border-color: transparent;
-      opacity: 100%;
-      outline: $color-purple-800 $border-dashed-border-style
-        $border-focus-ring-border-width;
-    }
-  }
 }
 
 .default {
   background-color: $color-white;
   color: $color-purple-800;
 
-  &:not(.disabled) {
-    &:hover:not(.active),
-    &:focus-visible:not(.active) {
-      background-color: $color-gray-200;
-    }
+  &:hover,
+  &:focus-visible {
+    background-color: $color-gray-200;
+  }
 
-    &.active {
-      background-color: $color-gray-300;
-      color: $color-purple-800;
-    }
+  &.active {
+    background-color: $color-gray-300;
+    color: $color-purple-800;
   }
 }
 
@@ -67,15 +51,13 @@
   background-color: $color-white;
   color: $color-blue-500;
 
-  &:not(.disabled) {
-    &:hover:not(.active),
-    &:focus-visible:not(.active) {
-      background-color: $color-blue-100;
-    }
+  &:hover,
+  &:focus-visible {
+    background-color: $color-blue-100;
+  }
 
-    &.active {
-      background-color: $color-blue-200;
-    }
+  &.active {
+    background-color: $color-blue-200;
   }
 }
 
@@ -83,15 +65,13 @@
   background-color: $color-blue-500;
   color: $color-white;
 
-  &:not(.disabled) {
-    &:hover:not(.active),
-    &:focus-visible:not(.active) {
-      background-color: $color-blue-600;
-    }
+  &:hover,
+  &:focus-visible {
+    background-color: $color-blue-600;
+  }
 
-    &.active {
-      background-color: $color-blue-700;
-    }
+  &.active {
+    background-color: $color-blue-700;
   }
 }
 
@@ -99,15 +79,13 @@
   background-color: $color-red-500;
   color: $color-white;
 
-  &:not(.disabled) {
-    &:hover:not(.active),
-    &:focus-visible:not(.active) {
-      background-color: $color-red-600;
-    }
+  &:hover,
+  &:focus-visible {
+    background-color: $color-red-600;
+  }
 
-    &.active {
-      background-color: $color-red-700;
-    }
+  &.active {
+    background-color: $color-red-700;
   }
 }
 
@@ -115,14 +93,27 @@
   background-color: $color-white;
   color: $color-red-600;
 
-  &:not(.disabled) {
-    &:hover:not(.active),
-    &:focus-visible:not(.active) {
-      background-color: $color-red-100;
-    }
+  &:hover,
+  &:focus-visible {
+    background-color: $color-red-100;
+  }
 
-    &.active {
-      background-color: $color-red-200;
-    }
+  &.active {
+    background-color: $color-red-200;
+  }
+}
+
+.disabled {
+  opacity: 30%;
+  pointer-events: none;
+
+  &:focus-visible::after {
+    color: rgba($color-purple-800-rgb, 0.3);
+    outline-offset: -2px;
+    background-color: transparent;
+    border-color: transparent;
+    opacity: 100%;
+    outline: $color-purple-800 $border-dashed-border-style
+      $border-focus-ring-border-width;
   }
 }

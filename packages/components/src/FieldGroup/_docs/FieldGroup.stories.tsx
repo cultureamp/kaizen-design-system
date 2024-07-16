@@ -12,7 +12,6 @@ const meta = {
         <Label htmlFor="id--field-1">Email</Label>
         <input
           className="ms-6 border border-gray-500"
-          placeholder="Native text input..."
           type="text"
           id="id--field-1"
         />
@@ -42,16 +41,14 @@ export const Inline: Story = {
         <Label htmlFor="id--field-1">Email</Label>
         <input
           className="ms-6 border border-gray-500"
-          placeholder="Native text input..."
           type="text"
-          id="id--field-2"
+          id="id--field-1"
         />
       </FieldGroup>
       <FieldGroup inline>
-        <Label htmlFor="id--field-1">Username</Label>
+        <Label htmlFor="id--field-2">Username</Label>
         <input
           className="ms-6 border border-gray-500"
-          placeholder="Native text input..."
           type="text"
           id="id--field-2"
         />
@@ -67,16 +64,14 @@ export const Default: Story = {
         <Label htmlFor="id--field-1">Email</Label>
         <input
           className="ms-6 border border-gray-500"
-          placeholder="Native text input..."
           type="text"
-          id="id--field-2"
+          id="id--field-1"
         />
       </FieldGroup>
       <FieldGroup>
-        <Label htmlFor="id--field-1">Username</Label>
+        <Label htmlFor="id--field-2">Username</Label>
         <input
           className="ms-6 border border-gray-500"
-          placeholder="Native text input..."
           type="text"
           id="id--field-2"
         />

@@ -1,14 +1,15 @@
 {
-  "extends": "../../tsconfig.dist.json",
-  "include": ["src/**/*.ts"],
-  "exclude": ["**/*.spec.ts"],
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "noImplicitAny": true,
+    "target": "es5",
     "rootDir": "src",
     "outDir": "dist",
+    "noEmit": false,
+    "declaration": true,
     "declarationMap": true,
-    "target": "es5",
-    "module": "CommonJS",
+    "sourceMap": true,
     "noUncheckedIndexedAccess": false
-  }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["**/*.spec.ts"]
 }

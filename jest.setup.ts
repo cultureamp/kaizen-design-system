@@ -14,12 +14,3 @@ CONSOLE_FAIL_TYPES.forEach(type => {
     )
   }
 })
-
-// This avoids errors related to our jest environment not having an Intl
-// object present in the app's context
-jest.mock("@cultureamp/i18n-react-intl", () => ({
-  useIntl: () => ({
-    formatMessage: (options: { defaultMessage: string }) =>
-      options.defaultMessage,
-  }),
-}))

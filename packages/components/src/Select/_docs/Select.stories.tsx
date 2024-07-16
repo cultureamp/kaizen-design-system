@@ -96,7 +96,4 @@ export const Async: Story = {
       </>
     )
   },
-  args: {
-    placeholder: "Placeholder",
-  },
 }

@@ -1,20 +1,20 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
-    "storybook:build": {
-      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"]
+  "tasks": {
+    "//#storybook:build": {
+      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
+      "outputs": ["storybook/public/**"]
     },
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["packages/**"],
       "outputs": ["dist/**"]
     },
+    "lint:ts": {
+      "cache": false
+    },
     "test": {},
     "test:ci": {},
-    "test:treeshake": {
-      "dependsOn": ["^build"],
-      "inputs": ["dist/**"]
-    },
     "clean": {
       "cache": false
     },
@@ -26,17 +26,13 @@
       "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json"],
       "outputs": ["dist/**"]
     },
-    "@kaizen/components#test:treeshake": {
-      "dependsOn": ["@kaizen/components#build"],
-      "inputs": ["dist/**"]
-    },
     "@kaizen/tailwind#build": {
       "dependsOn": ["@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
     "@kaizen/design-tokens#build": {
-      "inputs": ["css/**", "less/**", "sass/**", "src/**", "tokens/**"],
+      "inputs": ["css/**", "less/**", "sass/**", "src/**"],
       "outputs": ["dist/**"]
     },
     "@kaizen/package-bundler#build": {

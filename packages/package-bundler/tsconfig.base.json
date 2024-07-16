@@ -9,6 +9,7 @@
     "jsx": "react",
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "strict": true
+    "strict": true,
+    "noEmit": true
   }
 }

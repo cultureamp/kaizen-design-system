@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
+import dummyContent from "../../EditableRichTextContent/_docs/dummyContent.json"
 import { EditorContentArray } from "../../index"
 import { RichTextEditor, RichTextEditorProps } from "../index"
 
@@ -77,9 +79,26 @@ export const Controls: Story = {
       { name: "bold", group: "inline" },
       { name: "italic", group: "inline" },
       { name: "underline", group: "inline" },
-      { name: "orderedList", group: "list" },
-      { name: "bulletList", group: "list" },
-      { name: "link", group: "link" },
+    ],
+  },
+}
+
+export const ControlsWithoutBold: Story = {
+  args: {
+    controls: [
+      { name: "italic", group: "inline" },
+      { name: "underline", group: "inline" },
+    ],
+    defaultValue: [
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "This user text cannot be bolded",
+          },
+        ],
+      },
     ],
   },
 }
@@ -92,10 +111,24 @@ export const DefaultValue: Story = {
         content: [
           {
             type: "text",
-            text: "Some notes I'd like to share",
+            text: "User text goes here",
           },
         ],
       },
+    ],
+  },
+}
+
+export const AllAvailableContent: Story = {
+  args: {
+    defaultValue: dummyContent,
+    controls: [
+      { name: "bold", group: "inline" },
+      { name: "italic", group: "inline" },
+      { name: "underline", group: "inline" },
+      { name: "orderedList", group: "list" },
+      { name: "bulletList", group: "list" },
+      { name: "link", group: "link" },
     ],
   },
 }
@@ -109,13 +142,13 @@ export const Rows: Story = {
 
 export const Description: Story = {
   args: {
-    description: "I am a rich text editor",
+    description: "Description text",
   },
 }
 
 export const Validation: Story = {
   args: {
-    validationMessage: "something went wrong",
+    validationMessage: "Error message",
     status: "error",
   },
 }
@@ -129,10 +162,30 @@ export const MalformedContent: Story = {
           {
             type: "text",
             marks: [{ type: "strong" }],
-            text: "Some notes I'd like to share in bold text:",
+            text: "User text goes here in bold text",
           },
         ],
       },
     ],
+  },
+}
+
+export const IncorrectDataForControls: Story = {
+  args: {
+    defaultValue: [
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            marks: [{ type: "strong" }],
+            text: "User text goes here in bold text",
+          },
+        ],
+      },
+    ],
+    controls: [{ name: "italic", group: "inline" }],
+    dataError: <>Cannot bold text without a bold control</>,
+    onDataError: () => fn(),
   },
 }
