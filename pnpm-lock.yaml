@@ -146,7 +146,7 @@ importers:
         version: 7.13.0(eslint@8.57.0)(typescript@5.4.5)
       axe-playwright:
         specifier: ^2.0.1
-        version: 2.0.1(playwright@1.44.1)
+        version: 2.0.1(playwright@1.45.1)
       chromatic:
         specifier: ^11.5.5
         version: 11.5.5
@@ -214,8 +214,8 @@ importers:
         specifier: ^9.0.0
         version: 9.0.0
       playwright:
-        specifier: ^1.44.1
-        version: 1.44.1
+        specifier: ^1.45.1
+        version: 1.45.1
       plop:
         specifier: ^4.0.1
         version: 4.0.1
@@ -443,11 +443,11 @@ importers:
         version: 10.0.0
     devDependencies:
       '@cultureamp/frontend-apis':
-        specifier: ^9.5.1
-        version: 9.5.1(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.4.5)
+        specifier: ^9.6.0
+        version: 9.6.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.4.5)
       '@cultureamp/i18n-react-intl':
         specifier: ^2.5.8
-        version: 2.5.8(@cultureamp/frontend-apis@9.5.1(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.4.5))(encoding@0.1.13)(eslint@8.57.0)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(ts-jest@29.1.4(@babel/core@7.24.6)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.6))(esbuild@0.20.2)(jest@29.7.0(@types/node@20.14.2)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.2)(typescript@5.4.5)))(typescript@5.4.5))(typescript@5.4.5)
+        version: 2.5.8(@cultureamp/frontend-apis@9.6.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.4.5))(encoding@0.1.13)(eslint@8.57.0)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(ts-jest@29.1.4(@babel/core@7.24.6)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.6))(esbuild@0.20.2)(jest@29.7.0(@types/node@20.14.2)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.2)(typescript@5.4.5)))(typescript@5.4.5))(typescript@5.4.5)
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
@@ -1628,8 +1628,8 @@ packages:
   '@cultureamp/fetch@4.0.2':
     resolution: {integrity: sha512-IVeI5jSfSecVcUxvlwwdjl50mq1/+qzGUfb/3ueE9Tu07rFGIv+Nylq+nMZ2S9EvwubCfDyiuwJiqUemSaK+DQ==, tarball: https://npm.pkg.github.com/download/@cultureamp/fetch/4.0.2/a1d39d32eb5711d929761cf0fa5c5a6ef4ecef4e}
 
-  '@cultureamp/frontend-apis@9.5.1':
-    resolution: {integrity: sha512-inAXtFZ+b/krHu08Sh5IoSQPHatNOJsF0bg9if3xSMH71mMMYAfd17YbezVl5r4H53lMZwjtFf2irxEIYz8U8w==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.5.1/6d18714ba17465433694268f0fc1d236933ee1c4}
+  '@cultureamp/frontend-apis@9.6.0':
+    resolution: {integrity: sha512-6/rsapEJnZRbbUQXtIycep6Z2r3ijslDJNYAxzUOyQhNUrhqGli7lhloj3CkO/qPpwytYArnybIXVS1StKfR3w==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.6.0/720c7cc9109da1887caef1cf89e66672120f921e}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -8485,9 +8485,14 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  playwright@1.44.1:
-    resolution: {integrity: sha512-qr/0UJ5CFAtloI3avF95Y0L1xQo6r3LQArLIg/z/PoGJ6xa+EwzrwO5lpNr/09STxdHuUoP2mvuELJS+hLdtgg==}
-    engines: {node: '>=16'}
+  playwright-core@1.45.1:
+    resolution: {integrity: sha512-LF4CUUtrUu2TCpDw4mcrAIuYrEjVDfT1cHbJMfwnE2+1b8PZcFzPNgvZCvq2JfQ4aTjRCCHw5EJ2tmr2NSzdPg==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright@1.45.1:
+    resolution: {integrity: sha512-Hjrgae4kpSQBr98nhCj3IScxVeVUixqj+5oyif8TdIn2opTCPEzqAqNMeK42i3cWDCVu9MI+ZsGWw+gVR4ISBg==}
+    engines: {node: '>=18'}
     hasBin: true
 
   plop@4.0.1:
@@ -12492,7 +12497,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@cultureamp/frontend-apis@9.5.1(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.4.5)':
+  '@cultureamp/frontend-apis@9.6.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.4.5)':
     dependencies:
       '@cultureamp/fetch-sgw': 2.0.4(@cultureamp/fetch@4.0.2(encoding@0.1.13))(encoding@0.1.13)
       '@cultureamp/frontend-env': 2.1.2
@@ -12530,10 +12535,10 @@ snapshots:
     dependencies:
       chromatic: 9.1.0
 
-  '@cultureamp/i18n-react-intl@2.5.8(@cultureamp/frontend-apis@9.5.1(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.4.5))(encoding@0.1.13)(eslint@8.57.0)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(ts-jest@29.1.4(@babel/core@7.24.6)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.6))(esbuild@0.20.2)(jest@29.7.0(@types/node@20.14.2)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.2)(typescript@5.4.5)))(typescript@5.4.5))(typescript@5.4.5)':
+  '@cultureamp/i18n-react-intl@2.5.8(@cultureamp/frontend-apis@9.6.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.4.5))(encoding@0.1.13)(eslint@8.57.0)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(ts-jest@29.1.4(@babel/core@7.24.6)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.6))(esbuild@0.20.2)(jest@29.7.0(@types/node@20.14.2)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.2)(typescript@5.4.5)))(typescript@5.4.5))(typescript@5.4.5)':
     dependencies:
       '@calm/eslint-plugin-react-intl': 1.4.1
-      '@cultureamp/frontend-apis': 9.5.1(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.4.5)
+      '@cultureamp/frontend-apis': 9.6.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.4.5)
       '@cultureamp/frontend-env': 2.1.2
       '@formatjs/cli': 6.2.12
       '@formatjs/cli-lib': 6.4.2(ts-jest@29.1.4(@babel/core@7.24.6)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.6))(esbuild@0.20.2)(jest@29.7.0(@types/node@20.14.2)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.2)(typescript@5.4.5)))(typescript@5.4.5))
@@ -15281,7 +15286,7 @@ snapshots:
       jest-serializer-html: 7.1.0
       jest-watch-typeahead: 2.2.2(jest@29.7.0(@types/node@20.14.2)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.2)(typescript@5.4.5)))
       nyc: 15.1.0
-      playwright: 1.44.1
+      playwright: 1.45.1
     transitivePeerDependencies:
       - '@swc/helpers'
       - '@types/node'
@@ -16463,14 +16468,14 @@ snapshots:
       mustache: 4.2.0
       rimraf: 3.0.2
 
-  axe-playwright@2.0.1(playwright@1.44.1):
+  axe-playwright@2.0.1(playwright@1.45.1):
     dependencies:
       '@types/junit-report-builder': 3.0.2
       axe-core: 4.9.1
       axe-html-reporter: 2.2.3(axe-core@4.9.1)
       junit-report-builder: 3.2.1
       picocolors: 1.0.1
-      playwright: 1.44.1
+      playwright: 1.45.1
 
   axios@1.7.2:
     dependencies:
@@ -21329,9 +21334,11 @@ snapshots:
 
   playwright-core@1.44.1: {}
 
-  playwright@1.44.1:
+  playwright-core@1.45.1: {}
+
+  playwright@1.45.1:
     dependencies:
-      playwright-core: 1.44.1
+      playwright-core: 1.45.1
     optionalDependencies:
       fsevents: 2.3.2
 
