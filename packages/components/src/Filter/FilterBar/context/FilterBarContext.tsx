@@ -1,9 +1,16 @@
-import React, { useContext, useEffect, useMemo, useReducer } from "react"
+import React, {
+  useContext,
+  useEffect,
+  useMemo,
+  useReducer,
+  useRef,
+} from "react"
 import { FilterAttributes, FilterState, Filters, FiltersValues } from "../types"
 import { filterBarStateReducer } from "./reducer/filterBarStateReducer"
 import { setupFilterBarState } from "./reducer/setupFilterBarState"
 import { ActiveFiltersArray } from "./types"
 import { checkShouldUpdateValues } from "./utils/checkShouldUpdateValues"
+import { createFiltersHash } from "./utils/createFiltersHash"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 import { getMappedFilters } from "./utils/getMappedFilters"
 import { getValidValue } from "./utils/getValidValue"
@@ -70,7 +77,11 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   values,
   onValuesChange,
 }: FilterBarProviderProps<ValuesMap>): JSX.Element => {
-  const mappedFilters = useMemo(() => getMappedFilters(filters), [filters])
+  const filtersHash = useRef<string>(createFiltersHash(filters))
+  const mappedFilters = useMemo(
+    () => getMappedFilters(filters),
+    [filtersHash.current]
+  )
 
   const [state, dispatch] = useReducer(
     filterBarStateReducer<ValuesMap>,
@@ -134,6 +145,14 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       dispatch({ type: "complete_update_values" })
     }
   }, [state])
+
+  useEffect(() => {
+    const newFiltersHash = createFiltersHash(filters)
+    if (newFiltersHash !== filtersHash.current) {
+      filtersHash.current = newFiltersHash
+      dispatch({ type: "update_filter_labels", data: filters })
+    }
+  }, [filters])
 
   const activeFilters = Array.from(
     state.activeFilterIds,

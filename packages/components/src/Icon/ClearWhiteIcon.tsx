@@ -12,7 +12,7 @@ export const ClearWhiteIcon = (props: IconProps): JSX.Element => {
       <defs>
         <path
           id={uniqueId}
-          d="M10 2c-4.424 0-8 3.576-8 8 0 4.424 3.576 8 8 8 4.424 0 8-3.576 8-8 0-4.424-3.576-8-8-8"
+          d="M10 2c-4.424 0-8 3.576-8 8s3.576 8 8 8 8-3.576 8-8-3.576-8-8-8"
         />
       </defs>
       <g fill="none" fillRule="evenodd">
