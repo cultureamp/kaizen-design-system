@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.54.4
+
+### Patch Changes
+
+- [#4832](https://github.com/cultureamp/kaizen-design-system/pull/4832) [`d96f16d37bc49450afb18a86a4c4f90cd9de7f52`](https://github.com/cultureamp/kaizen-design-system/commit/d96f16d37bc49450afb18a86a4c4f90cd9de7f52) - Fix bug where menu focus goes to a different menu button on close
+
 ## 1.54.3
 
 ### Patch Changes
