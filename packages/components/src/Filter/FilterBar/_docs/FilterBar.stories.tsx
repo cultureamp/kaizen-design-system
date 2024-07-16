@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { expect, fn, userEvent, within } from "@storybook/test"
-import { waitFor } from "@storybook/testing-library"
+import { expect, fn, userEvent, within, waitFor } from "@storybook/test"
 import queryString from "query-string"
 import Highlight from "react-highlight"
 import {
