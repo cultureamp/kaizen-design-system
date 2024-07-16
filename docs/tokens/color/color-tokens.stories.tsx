@@ -7,7 +7,10 @@ import { tokens } from "~design-tokens/js"
 export default {
   title: "Guides/Tokens/Color Tokens",
   parameters: {
-    chromatic: { disable: false },
+    chromatic: {
+      disable: false,
+      diffThreshold: 0,
+    },
     docsLayout: "fullPage",
   },
 } satisfies Meta
