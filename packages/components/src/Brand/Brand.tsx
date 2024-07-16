@@ -62,7 +62,7 @@ export const Brand = ({
   const brandTheme = reversed ? "-reversed" : "-default"
 
   return (
-    <picture className={classNameOverride} {...(otherProps as PictureProps)}>
+    <picture className={classNameOverride} {...otherProps}>
       <source
         srcSet={assetUrl(`brand/${variant}-reversed.svg`)}
         media="(forced-colors: active) and (prefers-color-scheme: dark)"
