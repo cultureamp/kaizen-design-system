@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
+import { expect, fn, userEvent, within } from "@storybook/test"
+import { waitFor } from "@storybook/testing-library"
 import queryString from "query-string"
 import Highlight from "react-highlight"
 import {
@@ -760,7 +761,7 @@ export const ExternalEventOpenFilter: Story = {
   },
 }
 
-const cycleFilters = [
+const emptyLabelFilters = [
   {
     id: "cycle",
     name: "",
@@ -775,11 +776,16 @@ const cycleFilters = [
   },
 ] satisfies Filters<CycleFilterValues>
 
-export const UpdateLabels: Story = {
+export const UpdatesLabels: Story = {
+  parameters: {
+    chromatic: {
+      delay: 2500,
+    },
+  },
   render: () => {
     const [values, setValues] = useState<Partial<CycleFilterValues>>({})
 
-    const [f, setF] = useState(cycleFilters)
+    const [f, setF] = useState(emptyLabelFilters)
 
     useEffect(() => {
       const timer = setTimeout(() => {
@@ -826,5 +832,23 @@ export const UpdateLabels: Story = {
         </div>
       </>
     )
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+
+    await step("Initial render complete", async () => {
+      await waitFor(() => canvas.getByRole("button", { name: "Add Filters" }))
+    })
+
+    await userEvent.click(canvas.getByRole("button", { name: "Add Filters" }))
+
+    expect(canvas.queryByText("Custom Range")).not.toBeInTheDocument()
+
+    await step("Labels have updated", async () => {
+      await waitFor(
+        () => expect(canvas.queryByText("Custom Range")).toBeInTheDocument(),
+        { timeout: 2100 }
+      )
+    })
   },
 }
