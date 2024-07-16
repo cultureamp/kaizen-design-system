@@ -34,6 +34,10 @@
   color: $color-purple-800;
   text-align: left;
 
+  [dir="rtl"] & {
+    text-align: right;
+  }
+
   &.padded {
     padding: $spacing-md;
 
