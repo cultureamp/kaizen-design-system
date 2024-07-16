@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
+import { expect, fn, userEvent, within, waitFor } from "@storybook/test"
 import queryString from "query-string"
 import Highlight from "react-highlight"
 import {
@@ -757,5 +757,97 @@ export const ExternalEventOpenFilter: Story = {
         </div>
       </>
     )
+  },
+}
+
+const emptyLabelFilters = [
+  {
+    id: "cycle",
+    name: "",
+    Component: <CycleFilter />,
+    isRemovable: true,
+  },
+  {
+    id: "customRange",
+    name: "",
+    Component: <FilterBar.DateRangePicker />,
+    isRemovable: true,
+  },
+] satisfies Filters<CycleFilterValues>
+
+export const UpdatesLabels: Story = {
+  parameters: {
+    chromatic: {
+      delay: 2500,
+    },
+  },
+  render: () => {
+    const [values, setValues] = useState<Partial<CycleFilterValues>>({})
+
+    const [f, setF] = useState(emptyLabelFilters)
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setF([
+          {
+            id: "cycle",
+            name: "Cycle",
+            Component: <CycleFilter />,
+            isRemovable: true,
+          },
+          {
+            id: "customRange",
+            name: "Custom Range",
+            Component: <FilterBar.DateRangePicker />,
+            isRemovable: true,
+          },
+        ])
+      }, 2000)
+      return () => clearTimeout(timer)
+    }, [])
+
+    return (
+      <>
+        <FilterBar<CycleFilterValues>
+          filters={f}
+          values={values}
+          onValuesChange={setValues}
+        />
+        <div className="mt-16">
+          <code>Filters:</code>
+          <Highlight className="json">
+            {JSON.stringify(
+              f.map(({ id, name }) => ({ id, name })),
+              null,
+              4
+            )}
+          </Highlight>
+        </div>
+        <div className="mt-16">
+          <code>Values:</code>
+          <Highlight className="json">
+            {JSON.stringify(values, null, 4)}
+          </Highlight>
+        </div>
+      </>
+    )
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+
+    await step("Initial render complete", async () => {
+      await waitFor(() => canvas.getByRole("button", { name: "Add Filters" }))
+    })
+
+    await userEvent.click(canvas.getByRole("button", { name: "Add Filters" }))
+
+    expect(canvas.queryByText("Custom Range")).not.toBeInTheDocument()
+
+    await step("Labels have updated", async () => {
+      await waitFor(
+        () => expect(canvas.queryByText("Custom Range")).toBeInTheDocument(),
+        { timeout: 2100 }
+      )
+    })
   },
 }
