@@ -147,13 +147,6 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   }, [state])
 
   useEffect(() => {
-    if (state.hasUpdatedValues) {
-      onValuesChange({ ...state.values })
-      dispatch({ type: "complete_update_values" })
-    }
-  }, [state])
-
-  useEffect(() => {
     const newFiltersHash = createFiltersHash(filters)
     if (newFiltersHash !== filtersHash.current) {
       filtersHash.current = newFiltersHash
