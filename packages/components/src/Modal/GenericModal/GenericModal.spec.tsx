@@ -1,5 +1,5 @@
 import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { GenericModal, GenericModalProps } from "./GenericModal"
 import { ModalAccessibleLabel } from "./subcomponents/ModalAccessibleLabel"
@@ -73,7 +73,7 @@ describe("<GenericModal />", () => {
     const handleDismiss = jest.fn()
     render(<GenericModalWrapper onOutsideModalClick={handleDismiss} />)
 
-    await user.click(screen.getByTestId("GenericModalTestId-scrollLayer"))
+    fireEvent.click(screen.getByTestId("GenericModalTestId-scrollLayer"))
     await waitFor(() => {
       expect(handleDismiss).toHaveBeenCalledTimes(1)
     })

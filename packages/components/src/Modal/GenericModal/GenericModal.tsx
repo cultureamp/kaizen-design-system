@@ -139,7 +139,7 @@ export const GenericModal = ({
       afterEnter={onAfterEnterHandler}
       afterLeave={onAfterLeaveHandler}
       data-generic-modal-transition-wrapper
-      onClick={(e: React.MouseEvent): void => e.stopPropagation()}
+      // onClick={(e: React.MouseEvent): void => e.stopPropagation()}
     >
       <FocusLock
         disabled={focusLockDisabled}
