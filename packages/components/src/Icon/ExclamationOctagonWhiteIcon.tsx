@@ -19,7 +19,7 @@ export const ExclamationOctagonWhiteIcon = (props: IconProps): JSX.Element => {
         <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
         <path
           fill="#FFF"
-          d="M10 14.711c-.64 0-1.156-.515-1.156-1.155S9.36 12.4 10 12.4c.64 0 1.156.516 1.156 1.156 0 .64-.516 1.155-1.156 1.155M10.889 10.889H9.11V5.556h1.778z"
+          d="M10 14.711c-.64 0-1.156-.515-1.156-1.155S9.36 12.4 10 12.4s1.156.516 1.156 1.156S10.64 14.71 10 14.71M10.889 10.889H9.11V5.556h1.778z"
         />
       </g>
     </>

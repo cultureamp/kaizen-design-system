@@ -1,20 +1,9 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    "//#storybook:build:root": {
+    "//#storybook:build": {
       "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
-      "inputs": ["*"],
-      "outputs": ["./storybook/public/**"]
-    },
-    "//#storybook:build:test:root": {
-      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
-      "inputs": ["*"],
-      "outputs": ["./storybook/public/**"]
-    },
-    "//#storybook:build:prod:root": {
-      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
-      "inputs": ["*"],
-      "outputs": ["./storybook/public/**"]
+      "outputs": ["storybook/public/**"]
     },
     "build": {
       "dependsOn": ["^build"],
@@ -43,7 +32,7 @@
       "outputs": ["dist/**"]
     },
     "@kaizen/design-tokens#build": {
-      "inputs": ["css/**", "less/**", "sass/**", "src/**", "Guides/Tokens/**"],
+      "inputs": ["css/**", "less/**", "sass/**", "src/**"],
       "outputs": ["dist/**"]
     },
     "@kaizen/package-bundler#build": {
