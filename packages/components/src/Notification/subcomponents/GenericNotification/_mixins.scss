@@ -57,6 +57,9 @@ $notification-slide-right: transform 300ms ease-out;
     border-width: 0;
     border-radius: 0;
     margin-bottom: 0;
+    padding-top: $spacing-16;
+    padding-bottom: $spacing-16;
+    padding-inline-start: $spacing-8;
     transition: $notification-collapse-height;
     position: relative;
     z-index: 1030;
@@ -161,13 +164,8 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   %ca-notification---global & {
-    $size: calc(#{$spacing-24} * 1.25);
-
-    width: $size;
-    height: $size;
-    padding: calc(((#{$spacing-24} * 2) - #{$size}) / 2);
-    margin: calc(#{$spacing-24} / 4);
-    border-radius: $border-solid-border-radius;
+    width: 24px;
+    height: 24px;
   }
 }
 
@@ -190,8 +188,7 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   %ca-notification---global & {
-    margin-inline-start: $spacing-12;
-    padding: calc(0.25 * #{$spacing-24}) 0;
+    margin-inline-start: $spacing-8;
   }
 
   %ca-notification---inline & {
