@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.55.0
+
+### Minor Changes
+
+- [#4834](https://github.com/cultureamp/kaizen-design-system/pull/4834) [`babb559e84ec8fb32c574ae642244da7c6e94d21`](https://github.com/cultureamp/kaizen-design-system/commit/babb559e84ec8fb32c574ae642244da7c6e94d21) - Added Assignment Icon
+
+### Patch Changes
+
+- [#4829](https://github.com/cultureamp/kaizen-design-system/pull/4829) [`291136b92d80a7329952fd844e1dec323884ae7b`](https://github.com/cultureamp/kaizen-design-system/commit/291136b92d80a7329952fd844e1dec323884ae7b) - add update_filter_labels action to respond to filter config label updates
+
 ## 1.54.4
 
 ### Patch Changes
