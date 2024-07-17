@@ -1,5 +1,27 @@
 # Change Log
 
+## 1.55.0
+
+### Minor Changes
+
+- [#4834](https://github.com/cultureamp/kaizen-design-system/pull/4834) [`babb559e84ec8fb32c574ae642244da7c6e94d21`](https://github.com/cultureamp/kaizen-design-system/commit/babb559e84ec8fb32c574ae642244da7c6e94d21) - Added Assignment Icon
+
+### Patch Changes
+
+- [#4829](https://github.com/cultureamp/kaizen-design-system/pull/4829) [`291136b92d80a7329952fd844e1dec323884ae7b`](https://github.com/cultureamp/kaizen-design-system/commit/291136b92d80a7329952fd844e1dec323884ae7b) - add update_filter_labels action to respond to filter config label updates
+
+## 1.54.4
+
+### Patch Changes
+
+- [#4832](https://github.com/cultureamp/kaizen-design-system/pull/4832) [`d96f16d37bc49450afb18a86a4c4f90cd9de7f52`](https://github.com/cultureamp/kaizen-design-system/commit/d96f16d37bc49450afb18a86a4c4f90cd9de7f52) - Fix bug where menu focus goes to a different menu button on close
+
+## 1.54.3
+
+### Patch Changes
+
+- [#4796](https://github.com/cultureamp/kaizen-design-system/pull/4796) [`d5fe6e6c14d848ae7bdff623cd46bdd70f0b3886`](https://github.com/cultureamp/kaizen-design-system/commit/d5fe6e6c14d848ae7bdff623cd46bdd70f0b3886) - Update source image for Brand Collective Intelligence
+
 ## 1.54.2
 
 ### Patch Changes

@@ -113,6 +113,10 @@ export const MenuDropdown = ({
       noIsolation
       shards={referenceElement ? [referenceElement] : undefined}
       onEscapeKey={hideMenuDropdown}
+      returnFocus={() => {
+        referenceElement?.focus()
+        return false
+      }}
     >
       {/* eslint-disable-next-line
       jsx-a11y/click-events-have-key-events,
