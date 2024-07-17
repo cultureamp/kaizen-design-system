@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.55.1
+
+### Patch Changes
+
+- [#4840](https://github.com/cultureamp/kaizen-design-system/pull/4840) [`7c550128a1b4fb4a9339b0316dce35439c22dae4`](https://github.com/cultureamp/kaizen-design-system/commit/7c550128a1b4fb4a9339b0316dce35439c22dae4) - Aligned ContextModal heading text to the right for RTL languages
+
+- [#4837](https://github.com/cultureamp/kaizen-design-system/pull/4837) [`9ccf253a39435afa676603a8d2ed92b3b2c68db9`](https://github.com/cultureamp/kaizen-design-system/commit/9ccf253a39435afa676603a8d2ed92b3b2c68db9) - Update spread operator for restProps in Brand component to stop classNameOverride being passed directly to picture element
+
+- [#4838](https://github.com/cultureamp/kaizen-design-system/pull/4838) [`e5387d00465f40da7fc981f21527d271346b1029`](https://github.com/cultureamp/kaizen-design-system/commit/e5387d00465f40da7fc981f21527d271346b1029) - update prosemirror monolith deps
+
+- [#4838](https://github.com/cultureamp/kaizen-design-system/pull/4838) [`e5387d00465f40da7fc981f21527d271346b1029`](https://github.com/cultureamp/kaizen-design-system/commit/e5387d00465f40da7fc981f21527d271346b1029) - update dependency @floating-ui/react-dom to ^2.1.1
+
 ## 1.55.0
 
 ### Minor Changes
