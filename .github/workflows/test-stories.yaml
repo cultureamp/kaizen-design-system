@@ -40,7 +40,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: pnpm turbo storybook:build:test:root
+      - run: pnpm storybook:build:test
       - name: Upload Storybook build as artifact
         uses: actions/upload-artifact@v3
         with:
@@ -109,7 +109,7 @@ jobs:
       - uses: ./.github/actions/setup
       - name: Build Storybook for Chromatic
         # We want both stories and docs for the branch preview
-        run: pnpm turbo storybook:build:root -- --webpack-stats-json
+        run: pnpm storybook:build --stats-json
       - id: publishChromatic
         name: Publish to Chromatic
         uses: chromaui/action@v1

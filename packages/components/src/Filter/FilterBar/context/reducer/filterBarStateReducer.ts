@@ -1,4 +1,4 @@
-import { FiltersValues } from "../../types"
+import { Filters, FiltersValues } from "../../types"
 import { FilterBarState, FilterStateEditableAttributes } from "../types"
 import { updateDependentFilters } from "../utils/updateDependentFilters"
 import { updateSingleFilter } from "./updateSingleFilter"
@@ -14,6 +14,7 @@ type Actions<ValuesMap extends FiltersValues> =
     }
   | { type: "activate_filter"; id: keyof ValuesMap }
   | { type: "deactivate_filter"; id: keyof ValuesMap }
+  | { type: "update_filter_labels"; data: Filters<ValuesMap> }
 
 export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
   state: FilterBarState<ValuesMap>,
@@ -45,6 +46,20 @@ export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
       return {
         ...updateDependentFilters(state),
         hasUpdatedValues: true,
+      }
+
+    case "update_filter_labels":
+      return {
+        ...state,
+        filters: Object.values(state.filters).reduce((acc, filter) => {
+          acc[filter.id] = {
+            ...filter,
+            name:
+              action.data.find(({ id }) => id === filter.id)?.name ??
+              filter.name,
+          }
+          return acc
+        }, {}),
       }
   }
 }

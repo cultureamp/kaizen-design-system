@@ -19,7 +19,7 @@ export const KioskWhiteIcon = (props: IconProps): JSX.Element => {
         <use fill="currentColor" href={`#${uniqueId}`} />
         <path
           fill="#FFF"
-          d="M5 14.667h10V4H5zM9 16.333c0-.553.446-1 1-1s1 .447 1 1c0 .553-.446 1-1 1s-1-.447-1-1"
+          d="M5 14.667h10V4H5zM9 16.333c0-.553.446-1 1-1s1 .447 1 1-.446 1-1 1-1-.447-1-1"
         />
       </g>
     </>
