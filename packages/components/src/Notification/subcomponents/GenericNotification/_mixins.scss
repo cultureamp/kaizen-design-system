@@ -263,11 +263,6 @@ $notification-slide-right: transform 300ms ease-out;
       color: $color-blue-500;
       text-decoration: none;
     }
-
-    %ca-notification---global &,
-    %ca-notification---global &:hover {
-      color: $color-purple-800;
-    }
   }
 
   strong {
