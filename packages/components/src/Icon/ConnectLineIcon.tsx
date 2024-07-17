@@ -8,7 +8,7 @@ import type { IconProps } from "~components/Icon/types"
 export const ConnectLineIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
-      <path d="M9.05 17.5h1.9v-2.05l3.55-3.9V6.775h-9v4.775l3.55 3.893zM7.55 19v-2.95L4 12.15V6.775c0-.413.147-.766.44-1.06.294-.293.648-.44 1.06-.44h1.8l-.75.75V1h1.5v4.275h3.9V1h1.5v5.025l-.75-.75h1.8c.412 0 .766.147 1.06.44.293.294.44.648.44 1.06v5.375l-3.55 3.9V19z" />
+      <path d="M9.05 17.5h1.9v-2.05l3.55-3.9V6.775h-9v4.775l3.55 3.893zM7.55 19v-2.95L4 12.15V6.775q0-.62.44-1.06.442-.44 1.06-.44h1.8l-.75.75V1h1.5v4.275h3.9V1h1.5v5.025l-.75-.75h1.8q.619 0 1.06.44.44.441.44 1.06v5.375l-3.55 3.9V19z" />
     </>
   )
   return <SVG {...props}>{svgContent}</SVG>
