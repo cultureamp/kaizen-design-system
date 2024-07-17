@@ -335,11 +335,11 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   %ca-notification---inline & {
-    margin-right: calc(-1 * #{$spacing-12});
+    margin-inline-end: calc(-1 * #{$spacing-12});
   }
 
   %ca-notification---toast & {
-    margin-right: -10px;
+    margin-inline-end: -10px;
   }
 
   %ca-notification---global & {
