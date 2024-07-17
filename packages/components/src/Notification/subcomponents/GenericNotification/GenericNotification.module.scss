@@ -33,14 +33,15 @@
   align-items: center;
   justify-content: center;
 
-  &:focus {
+  &:focus,
+  &:focus-visible {
     outline: none;
   }
 
   &:focus-visible::after {
     content: "";
 
-    $focus-ring-offset: 6px;
+    $focus-ring-offset: $spacing-2;
 
     pointer-events: none;
     position: absolute;

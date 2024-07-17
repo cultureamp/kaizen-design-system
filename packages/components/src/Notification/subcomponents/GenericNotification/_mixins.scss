@@ -338,12 +338,10 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   %ca-notification---global & {
-    padding-right: calc((5 / 8) * #{$spacing-24});
-    width: 3.75rem;
-    height: 3.75rem;
-    margin-right: -15px;
-    margin-top: calc(-1 * #{$spacing-12});
-    margin-bottom: calc(-1 * #{$spacing-12});
+    width: $spacing-48;
+    height: $spacing-48;
+    margin-top: calc(-1 * #{$spacing-24});
+    margin-bottom: calc(-1 * #{$spacing-24});
   }
 }
 
