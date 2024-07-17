@@ -121,7 +121,7 @@
     "prettier": "^3.3.3",
     "raw-loader": "^4.0.2",
     "react-test-renderer": "^18.3.1",
-    "rimraf": "^5.0.9",
+    "rimraf": "^6.0.1",
     "sass-loader": "^14.2.1",
     "storybook": "^8.1.6",
     "storybook-addon-pseudo-states": "^3.1.1",
