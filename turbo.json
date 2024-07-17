@@ -1,10 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    "//#storybook:build": {
-      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
-      "outputs": ["storybook/public/**"]
-    },
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["packages/**"],
