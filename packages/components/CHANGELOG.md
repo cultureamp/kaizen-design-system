@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.55.2
+
+### Patch Changes
+
+- [#4845](https://github.com/cultureamp/kaizen-design-system/pull/4845) [`e30d28669a391160e2221bd5fe06a0af4e64ab43`](https://github.com/cultureamp/kaizen-design-system/commit/e30d28669a391160e2221bd5fe06a0af4e64ab43) - Pass onClick through to MenuItem even when it is rendered as a link
+
 ## 1.55.1
 
 ### Patch Changes
