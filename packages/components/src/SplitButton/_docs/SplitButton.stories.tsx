@@ -4,7 +4,7 @@ import {
   exampleActionButtonPropsButton,
   exampleDropdownContentEnabled,
   exampleDropdownContentOneDisabled,
-} from "~components/Menu/_docs/examples"
+} from "~components/__actions__/Menu/v1/_docs/examples"
 import { SplitButton } from "../index"
 
 const meta = {

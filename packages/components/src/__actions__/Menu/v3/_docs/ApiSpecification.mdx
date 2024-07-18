@@ -1,0 +1,96 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/blocks"
+import { KAIOInstallation, ResourceLinks,  SbContent } from "~storybook/components"
+import * as docsStories from "./Menu.docs.stories"
+import * as exampleStories from "./Menu.stories"
+
+<Meta title="Actions/Menu/v3/API Specification"/>
+
+<SbContent>
+  # Menu API Specification (v3)
+
+  Updated July 4, 2024
+</SbContent>
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__actions__/Menu"
+  figma="https://www.figma.com/design/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-Heart-UI-Kit?m=auto&node-id=6262-0&t=I4H23jCrCJz4O2nf-1"
+  designGuidelines="/?path=/docs/actions-menu-v3-usage-guidelines--docs"
+  ariaComponentPage="https://react-spectrum.adobe.com/react-aria/Menu.html"
+/>
+
+<SbContent className="mb-24">
+  <div className="bg-yellow-100 border-default border-yellow-400 rounded px-24">
+    ### Disclaimer
+
+    The `Menu` `v3` component is not backwards compatible with Kaizen `Button` `v1` and `v2`. For this reason, usage of this component is not recommended until a `Button` `v3` is released.
+  </div>
+</SbContent>
+
+<SbContent className="mb-24">
+
+  <KAIOInstallation exportNames={["Menu", "MenuTrigger", "MenuItem"]} family="overlays" version="3" />
+
+  <Source code={"import { Popover, Section, Header } from \"@kaizen/components/v3/react-aria-components\""} language="tsx" />
+
+  ## Overview
+
+  A menu displays a list of actions in a popover, toggled opened with a button.
+</SbContent>
+
+<Canvas
+  className="mb-64"
+  of={exampleStories.Basic}
+  source={{code: `
+<MenuTrigger>
+  <Button><MeatballsIcon aria-label="Actions" /></Button>
+  <Menu>
+    <MenuItem href="#">Menu Item</MenuItem>
+    <MenuItem onAction={handleAction}>Menu Item</MenuItem>
+  </Menu>
+</MenuTrigger>
+  `}}
+/>
+
+<SbContent className="mb-64">
+  ### React Aria
+
+  This component is built using the `react-aria-components` library and extends the [Menu component](https://react-spectrum.adobe.com/react-aria/Menu.html).
+
+  As this shares the same core [anatomy](https://react-spectrum.adobe.com/react-aria/Menu.html#anatomy), [props types](https://react-spectrum.adobe.com/react-aria/Menu.html#menu-1) and [functionality](https://react-spectrum.adobe.com/react-aria/Menu.html#features), the guidance below is tailored to our implementation and should cover known use cases of the Menu.
+
+  More on the React Aria API and a deep dive into other examples can be found via the [React Aria docs page](https://react-spectrum.adobe.com/react-aria/Menu.html) if not present below.
+</SbContent>
+
+<SbContent className="mb-12">
+  ## API
+</SbContent>
+
+<Controls of={exampleStories.Basic}  />
+
+## Actions and Next.js routing
+
+Use the `href` prop when an action navigates to a new page. Wrapping your app in `FrontendServices` from `@cultureamp/next-services` will automatically turn these into Next.js links.
+
+Otherwise, use the `onAction` prop to trigger an action within the page.
+
+<Canvas className="mb-24" of={docsStories.Actions}  />
+
+## Sections
+
+Sections can be added with the `Section` and `Header` component from `react-aria-components`.
+
+<Canvas className="mb-24" of={exampleStories.WithSections}  />
+
+## Disabling items
+
+Menu items can be disabled with the `isDisabled` prop.
+
+<Canvas className="mb-24" of={exampleStories.DisabledItems}  />
+
+## Controlled
+
+By default, the open/closed state of the menu is handled under the hood. In cases where you need control over the open state, use the `isOpen` and `onOpenChange` props on the `MenuTrigger` component (both props must be used for this to work).
+
+<Canvas className="mb-24" of={exampleStories.Controlled}  />
+
+

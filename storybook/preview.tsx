@@ -122,6 +122,7 @@ const preview = {
               ["Overview", "*"],
             ],
           ],
+          "Actions",
           "Overlays",
           ["*", ["*", ["Usage Guidelines", "API Specification", "*"]]],
           "Components",
