@@ -34,9 +34,7 @@ const DefaultMenuItems = (): ReactNode => (
     <MenuItem icon={<EditIcon role="presentation" />}>Edit</MenuItem>
     <MenuItem icon={<ArrowUpIcon role="presentation" />}>Move Up</MenuItem>
     <MenuItem icon={<ArrowDownIcon role="presentation" />}>Move Down</MenuItem>
-    <MenuItem icon={<TrashIcon role="presentation" />} variant="destructive">
-      Delete
-    </MenuItem>
+    <MenuItem icon={<TrashIcon role="presentation" />}>Delete</MenuItem>
   </>
 )
 
@@ -84,12 +82,7 @@ export const ItemsDont: Story = {
       </RACButton>
       <Popover>
         <Menu>
-          <MenuItem
-            icon={<TrashIcon role="presentation" />}
-            variant="destructive"
-          >
-            Delete
-          </MenuItem>
+          <MenuItem icon={<TrashIcon role="presentation" />}>Delete</MenuItem>
         </Menu>
       </Popover>
     </MenuTrigger>
@@ -217,7 +210,7 @@ export const MenuItemLabelsDont: Story = {
         <Menu {...args}>
           <MenuItem>Save comment</MenuItem>
           <MenuItem>Edit comment</MenuItem>
-          <MenuItem variant="destructive">Delete comment</MenuItem>
+          <MenuItem>Delete comment</MenuItem>
         </Menu>
       </Popover>
     </MenuTrigger>

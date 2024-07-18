@@ -74,17 +74,8 @@ export const KitchenSink: Story = {
             </MenuItem>
           </Section>
           <Section>
-            <MenuItem
-              icon={<TrashIcon role="presentation" />}
-              variant="destructive"
-            >
-              Delete
-            </MenuItem>
-            <MenuItem
-              icon={<TrashIcon role="presentation" />}
-              variant="destructive"
-              isDisabled
-            >
+            <MenuItem icon={<TrashIcon role="presentation" />}>Delete</MenuItem>
+            <MenuItem icon={<TrashIcon role="presentation" />} isDisabled>
               Delete but disabled
             </MenuItem>
             <MenuItem>Other action</MenuItem>

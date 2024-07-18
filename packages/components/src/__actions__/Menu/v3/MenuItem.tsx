@@ -11,24 +11,16 @@ export type MenuItemProps = RACMenuItemProps & {
    * Provides positioning for an icon to the left of the menu item content
    */
   icon?: ReactNode
-  /**
-   * Adjusts the styling to distinguish the action in some way
-   */
-  variant?: "default" | "destructive"
 }
 
 /**
  * A MenuItem represents an individual action in a Menu.
  */
 export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
-  ({ className, icon, children, variant, ...props }, ref): JSX.Element => (
+  ({ className, icon, children, ...props }, ref): JSX.Element => (
     <RACMenuItem
       ref={ref}
-      className={mergeClassNames(
-        styles.item,
-        variant === "destructive" && styles.destructive,
-        className
-      )}
+      className={mergeClassNames(styles.item, className)}
       {...props}
     >
       <>

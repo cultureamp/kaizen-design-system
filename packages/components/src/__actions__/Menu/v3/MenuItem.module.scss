@@ -31,11 +31,3 @@
 .item[data-disabled] {
   opacity: 0.3;
 }
-
-.item.destructive {
-  color: var(--color-red-600);
-}
-
-.item.destructive[data-focused] {
-  background-color: var(--color-red-100);
-}

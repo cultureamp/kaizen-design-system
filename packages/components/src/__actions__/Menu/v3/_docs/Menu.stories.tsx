@@ -46,12 +46,7 @@ export const Playground: Story = {
           <MenuItem icon={<ArrowDownIcon role="presentation" />}>
             Move Down
           </MenuItem>
-          <MenuItem
-            icon={<TrashIcon role="presentation" />}
-            variant="destructive"
-          >
-            Delete
-          </MenuItem>
+          <MenuItem icon={<TrashIcon role="presentation" />}>Delete</MenuItem>
         </Menu>
       </Popover>
     </MenuTrigger>
