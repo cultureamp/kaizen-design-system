@@ -42,10 +42,9 @@ const DefaultMenuItems = (): ReactNode => (
 export const Actions: Story = {
   render: ({ defaultOpen: _, ...args }) => (
     <MenuTrigger {...args}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu>
           <MenuItem href="https://cultureamp.com">
@@ -212,9 +211,9 @@ export const SentenceCaseDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu {...args}>
           <MenuItem>Quick export</MenuItem>
@@ -230,9 +229,9 @@ export const SentenceCaseDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu {...args}>
           <MenuItem>Quick Export</MenuItem>
@@ -248,9 +247,9 @@ export const ElipsesDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu {...args}>
           <MenuItem>Quick export</MenuItem>
@@ -266,9 +265,9 @@ export const ElipsesDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu {...args}>
           <MenuItem>Quick export…</MenuItem>
