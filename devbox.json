@@ -3,7 +3,7 @@
   "packages": ["nodejs@18.19.0"],
   "env": {
     "DEVBOX_COREPACK_ENABLED": "1",
-    "STORYBOOK_PORT": "4479"
+    "STORYBOOK_PORT": "6006"
   },
   "shell": {
     "scripts": {
