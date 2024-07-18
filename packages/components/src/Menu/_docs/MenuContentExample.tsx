@@ -26,7 +26,10 @@ export const MenuContentExample = ({
         <MenuList heading={<MenuHeading>Buttons</MenuHeading>}>
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >
             ): void => {
               alert("Hello")
               e.preventDefault()
@@ -36,7 +39,10 @@ export const MenuContentExample = ({
           />
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >
             ): void => {
               e.preventDefault()
             }}
@@ -45,7 +51,10 @@ export const MenuContentExample = ({
           />
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >
             ): void => {
               e.preventDefault()
             }}
@@ -55,7 +64,10 @@ export const MenuContentExample = ({
           />
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >
             ): void => {
               e.preventDefault()
             }}
@@ -65,7 +77,10 @@ export const MenuContentExample = ({
           />
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >
             ): void => {
               e.preventDefault()
             }}
@@ -78,7 +93,10 @@ export const MenuContentExample = ({
         <MenuList heading={<MenuHeading>Buttons (no icons)</MenuHeading>}>
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >
             ): void => {
               e.preventDefault()
             }}
@@ -86,7 +104,10 @@ export const MenuContentExample = ({
           />
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >
             ): void => {
               e.preventDefault()
             }}
