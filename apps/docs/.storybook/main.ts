@@ -1,6 +1,7 @@
 import fs from "fs"
 import path, { dirname, join } from "path"
 import type { StorybookConfig } from "@storybook/react-webpack5"
+import { buildWebpackConfig } from "./webpack/buildWebpackConfig"
 
 const getAbsolutePath = (value: string): string =>
   dirname(require.resolve(join(value, "package.json")))
@@ -26,8 +27,8 @@ const getStoryPathsFromEnv = (): string[] | false => {
 }
 
 const defaultStoryPaths = [
-  "../{docs,packages}/**/*.mdx",
-  "../{docs,packages}/**/*.stories.tsx",
+  "../../../packages/**/*.mdx",
+  "../../../packages/**/*.stories.tsx",
 ]
 
 const config = {
@@ -62,6 +63,9 @@ const config = {
         return !isHTMLElementProp
       },
     },
+  },
+  webpackFinal: async config => {
+    return buildWebpackConfig({ config })
   },
 } satisfies StorybookConfig
 

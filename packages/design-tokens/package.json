@@ -27,18 +27,21 @@
     "test:ci": "pnpm test -- --ci",
     "build": "pnpm clean && pnpm build:json && pnpm build:less && pnpm build:sass && pnpm build:ts",
     "build:json": "tsx ./bin/buildCssVarTokens.ts",
-    "build:ts": "tsc --project tsconfig.dist.json",
+    "build:ts": "npx tsc --project tsconfig.dist.json",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
     "clean": "rimraf dist"
   },
   "devDependencies": {
+    "@storybook/blocks": "^8.2.4",
     "@types/lodash.flatmap": "^4.5.9",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
     "object-to-css-variables": "^0.2.1",
     "postcss": "^8.4.39",
     "prettier": "*",
+    "raw-loader": "^4.0.2",
+    "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
     "tsx": "^4.16.2"
   },

@@ -24,7 +24,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/design-tokens": "workspace:*"
+    "@kaizen/design-tokens": "workspace:*",
+    "color-string": "^1.9.1"
   },
   "peerDependencies": {
     "tailwindcss": ">=3.4.3"

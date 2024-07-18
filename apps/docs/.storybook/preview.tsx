@@ -2,13 +2,12 @@ import "./styles/tailwind.scss"
 
 import React, { useEffect } from "react"
 import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
-// import { DocsContainer } from "@storybook/blocks"
 import { Preview } from "@storybook/react"
 import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { I18nProvider } from "~components/__react-aria-components__"
 import { ReversedColors } from "~components/__utilities__/v3"
-import { DefaultDocsContainer } from "../storybook/components/DocsContainer"
+import { DefaultDocsContainer } from "./components/DocsContainer"
 import { backgrounds } from "./backgrounds"
 import { globalA11yRules } from "./global-a11y-rules"
 
@@ -30,7 +29,7 @@ const globalTypes: Preview["globalTypes"] = {
 const decorators: Preview["decorators"] = [
   (Story, context): JSX.Element => {
     const dir =
-      context.parameters.textDirection ?? context.globals.textDirection
+      context.parameters.textDirection ?? context.initialGlobals.textDirection
 
     useEffect(() => {
       if (document.body.getAttribute("dir") !== dir)

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "react",
+    "paths": {
+      "~storybook/*": ["./.storybook/*"],
+      "~types/*": ["../../packages/components/src/types/*"],
+      "~utils/*": ["../../packages/components/src/utils/*"],
+      "~components/*": ["../../packages/components/src/*"],
+      "~design-tokens/*": ["../../packages/design-tokens/src/*"]
+    }
+  },
+  "files": ["./types.d.ts"],
+  "include": [".storybook/**/*", "pages/**/*.tsx"],
+  "exclude": ["**/node_modules"]
+}

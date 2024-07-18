@@ -55,6 +55,7 @@ export const styles: RuleSetRule = {
     ...stylePreprocessors,
   ],
 }
+
 export const tailwind: RuleSetRule = {
   test: /tailwind\.s?css$/,
   use: [

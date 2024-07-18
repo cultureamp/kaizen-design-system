@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import { Unstyled } from "@storybook/blocks"
 import classNames from "classnames"
 import { Text } from "~components/Text"
-import { ExternalLinkIcon } from "../../../packages/components/src"
+import { ExternalLinkIcon } from "~components/Icon"
 
 type ResourceLinkProps = {
   href: string

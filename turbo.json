@@ -6,6 +6,21 @@
       "inputs": ["packages/**"],
       "outputs": ["dist/**"]
     },
+    "docs#build": {
+      "dependsOn": [
+        "@kaizen/design-tokens#build",
+        "@kaizen/tailwind#build",
+        "@kaizen/components#build"
+      ],
+      "inputs": [".storybook/**", "./pages/**"],
+      "outputs": ["storybook-static/**"]
+    },
+    "docs#dev": {
+      "dependsOn": ["@kaizen/design-tokens#build", "@kaizen/tailwind#build"]
+    },
+    "docs#test": {
+      "dependsOn": ["docs#build"]
+    },
     "lint:ts": {
       "cache": false
     },

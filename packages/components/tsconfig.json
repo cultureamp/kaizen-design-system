@@ -2,6 +2,7 @@
   "extends": "@kaizen/package-bundler/tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "lib": ["esnext", "dom"],
     "paths": {
       "~storybook/*": ["../../storybook/*"],
       "~tests": ["./__tests__/index"],
