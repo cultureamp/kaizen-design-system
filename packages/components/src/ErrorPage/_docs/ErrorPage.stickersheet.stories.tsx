@@ -59,7 +59,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet>
       ))}
 
-      <StickerSheet heading="Custom error" isReversed={isReversed}>
+      <StickerSheet heading="TESTING - Custom error" isReversed={isReversed}>
         <StickerSheet.Body>
           <StickerSheet.Row>
             <ErrorPage
