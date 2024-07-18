@@ -71,7 +71,3 @@ export const Controlled: Story = {
   ...testStories.Controlled,
   play: undefined,
 }
-// export const Submenu: Story = {
-//   ...testStories.Submenu,
-//   play: undefined,
-// }

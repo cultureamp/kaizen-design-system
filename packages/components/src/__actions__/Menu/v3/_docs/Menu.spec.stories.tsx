@@ -87,18 +87,6 @@ export const KitchenSink: Story = {
             >
               Delete but disabled
             </MenuItem>
-            {/* <SubmenuTrigger>
-              <MenuItem>
-                <DuplicateIcon role="presentation" />
-                Submenu trigger with a long label
-              </MenuItem>
-              <Popover>
-                <Menu>
-                  <MenuItem>Submenu item 1</MenuItem>
-                  <MenuItem>Submenu item 2</MenuItem>
-                </Menu>
-              </Popover>
-            </SubmenuTrigger> */}
             <MenuItem>Other action</MenuItem>
             <MenuItem>Other action</MenuItem>
             <MenuItem>Other action</MenuItem>
@@ -297,65 +285,3 @@ export const Controlled: Story = {
     })
   },
 }
-
-// export const Submenu: Story = {
-//   render: () => (
-//     <MenuTrigger>
-//       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-//       <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
-//         <MeatballsIcon role="img" aria-label="Additional actions" />
-//       </RACButton>
-//       <Popover>
-//         <Menu>
-//           <MenuItem>
-//             <DuplicateIcon role="presentation" />
-//             Item 1
-//           </MenuItem>
-//           <MenuItem>Item 2</MenuItem>
-//           <MenuItem>Item 3</MenuItem>
-//           <MenuItem>Item 4</MenuItem>
-//           <MenuItem>Item 5</MenuItem>
-//           <SubmenuTrigger>
-//             <MenuItem>
-//               <DuplicateIcon role="presentation" />
-//               Submenu trigger
-//             </MenuItem>
-//             <Popover>
-//               <Menu>
-//                 <MenuItem>Submenu item 1</MenuItem>
-//                 <MenuItem>Submenu item 2</MenuItem>
-//               </Menu>
-//             </Popover>
-//           </SubmenuTrigger>
-//         </Menu>
-//       </Popover>
-//     </MenuTrigger>
-//   ),
-//   play: async ({ canvasElement, step }) => {
-//     const canvas = within(canvasElement.parentElement!)
-//     const menuButton = canvas.getByRole("button")
-
-//     await step("Submenu opens on click of trigger", async () => {
-//       await userEvent.click(menuButton)
-//       await userEvent.hover(
-//         canvas.getByRole("menuitem", { name: "Submenu trigger" })
-//       )
-//       await waitFor(() =>
-//         expect(
-//           canvas.getByRole("menuitem", { name: "Submenu item 1" })
-//         ).toBeVisible()
-//       )
-//       await userEvent.keyboard("[Escape]")
-//     })
-
-//     await step("Submenu opens on right arrow press", async () => {
-//       await userEvent.keyboard("[ArrowUp]")
-//       await userEvent.keyboard("[ArrowRight]")
-//       await waitFor(() =>
-//         expect(
-//           canvas.getByRole("menuitem", { name: "Submenu item 1" })
-//         ).toHaveFocus()
-//       )
-//     })
-//   },
-// }
