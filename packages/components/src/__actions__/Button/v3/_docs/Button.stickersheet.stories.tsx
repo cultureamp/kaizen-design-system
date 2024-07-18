@@ -72,7 +72,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
             </Button>
           </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="small">
+          <StickerSheet.Row rowTitle="Small">
             <Button size="small">
               Label
               <ArrowForwardIcon role="presentation" />
@@ -83,6 +83,17 @@ const StickerSheetTemplate: StickerSheetStory = {
             </Button>
             <Button size="small" isDisabled>
               <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
+            </Button>
+          </StickerSheet.Row>
+          <StickerSheet.Row rowTitle="Icon only small">
+            <Button size="small">
+              <TrashIcon role="img" aria-label="Remove label" />
+            </Button>
+            <Button size="small" isDisabled>
+              <TrashIcon role="img" aria-label="Remove label" />
+            </Button>
+            <Button size="small" isDisabled>
+              <LoadingSpinner size="sm" accessibilityLabel="Removing label" />
             </Button>
           </StickerSheet.Row>
         </StickerSheet.Body>

@@ -1,70 +1,67 @@
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/typography";
-@import "../../../../styles/utils/button-reset";
-
-$button-x-y-min: $spacing-48;
-
-// spacing-40 does not currently exist. Holding on adding this until the button rfc has been signed off
-$button-small-x-y-min: 2.5rem;
-$button-y-padding: calc(#{$spacing-8} - #{$border-solid-border-width});
-
-// $spacing-22 (1.375rem) doesn't exist in design tokens. Since this will be changes in the rebuild we shouldn't add it
-$button-x-padding: calc($spacing-12 - #{$border-solid-border-width});
-$button-x-padding-small: calc(#{$spacing-8} - #{$border-solid-border-width});
-
 .button {
-  @include button-reset;
+  --button-min-height-width: var(--spacing-48);
+  --button-padding-x: calc(
+    #{var(--spacing-12)} - #{var(--border-solid-border-width)}
+  );
+  --button-padding-y: calc(
+    #{var(--spacing-8)} - #{var(--border-solid-border-width)}
+  );
+  --button-icon-size: var(--spacing-24);
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  align-items: center;
-  border: $border-solid-border-width $border-solid-border-style;
-  border-radius: $border-solid-border-radius;
+  // RESET
+  appearance: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  border: none;
+  // RESET
+  border: var(--border-solid-border-width) var(--border-solid-border-style);
+  border-radius: var(--border-solid-border-radius);
   box-sizing: border-box;
   display: inline-flex;
-  gap: $spacing-8;
-  font-family: $typography-button-primary-font-family;
-  font-weight: $typography-button-primary-font-weight;
-  font-size: $typography-button-primary-font-size;
-  line-height: $typography-button-primary-line-height;
-  min-height: $button-x-y-min;
-  min-width: $button-x-y-min;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  gap: var(--spacing-8);
+  font-family: var(--typography-button-primary-font-family);
+  font-weight: var(--typography-button-primary-font-weight);
+  font-size: var(--typography-button-primary-font-size);
+  line-height: var(--typography-button-primary-line-height);
+  min-height: var(--button-min-height-width);
+  min-width: var(--button-min-height-width);
   outline: none;
   position: relative;
+  padding: var(--button-padding-y) var(--button-padding-x);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-  &[data-focus-visible] {
-    &::after {
-      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+  &[data-focus-visible]::after {
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-color: var(--color-blue-500);
+    border-radius: var(--border-focus-ring-border-radius);
+    border-width: var(--border-focus-ring-border-width);
+    border-style: var(--border-focus-ring-border-style);
+    inset: calc(-1 * ((#{var(--border-focus-ring-border-width)} * 2) + 1px));
+  }
 
-      content: "";
-      position: absolute;
-      background: transparent;
-      border-color: $color-blue-500;
-      border-radius: $border-focus-ring-border-radius;
-      border-width: $border-focus-ring-border-width;
-      border-style: $border-focus-ring-border-style;
-      inset: calc(-1 * #{$focus-ring-offset});
-    }
+  svg {
+    height: var(--button-icon-size);
+    width: var(--button-icon-size);
   }
 }
 
 .default {
-  border-color: $color-gray-500;
-  color: $color-purple-800;
-  padding: $button-y-padding $button-x-padding;
-
-  svg {
-    height: $spacing-24;
-    width: $spacing-24;
-  }
+  border-color: var(--color-gray-500);
+  color: var(--color-purple-800);
 
   &[data-hovered],
   &[data-focus-visible],
   &[data-pressed] {
-    background-color: $color-gray-200;
-    border-color: $color-purple-800;
+    background-color: var(--color-gray-200);
+    border-color: var(--color-purple-800);
   }
 
   &[data-disabled] {
@@ -73,37 +70,35 @@ $button-x-padding-small: calc(#{$spacing-8} - #{$border-solid-border-width});
 
   &.reversed {
     background-color: transparent;
-    border-color: rgba($color-white-rgb, 0.65);
-    color: $color-white;
+    border-color: rgba(var(--color-white-rgb), 0.65);
+    color: var(--color-white);
 
     &[data-hovered],
     &[data-focus-visible] {
-      background-color: rgba($color-white-rgb, 0.1);
-      border-color: $color-white;
+      background-color: rgba(var(--color-white-rgb), 0.1);
+      border-color: var(--color-white);
     }
 
-    &[data-focus-visible] {
-      &::after {
-        border-color: $color-blue-300;
-      }
+    &[data-focus-visible]::after {
+      border-color: var(--color-blue-300);
     }
 
-    &[data-disabled] {
-      &::after {
-        border-color: $color-gray-400;
-      }
+    &[data-disabled]::after {
+      border-color: var(--color-gray-400);
     }
   }
 }
 
 .small {
-  min-height: $button-small-x-y-min;
-  min-width: $button-small-x-y-min;
-  gap: $spacing-4;
-  padding: $button-x-padding-small $button-x-padding;
+  // spacing-40 does not currently exist. Holding on adding this until the button rfc has been signed off
+  --button-min-height-width: 2.5rem;
+  --button-padding-x: calc(
+    #{var(--spacing-8)} - #{var(--border-solid-border-width)}
+  );
+  --button-padding-y: calc(
+    #{var(--spacing-8)} - #{var(--border-solid-border-width)}
+  );
+  --button-icon-size: var(--spacing-16);
 
-  svg {
-    max-width: $spacing-16;
-    max-height: $spacing-16;
-  }
+  gap: var(--spacing-8);
 }
