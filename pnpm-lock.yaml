@@ -500,9 +500,15 @@ importers:
         specifier: ^4.16.2
         version: 4.16.2
 
+  packages/components/v1/actions: {}
+
   packages/components/v1/overlays: {}
 
+  packages/components/v2/actions: {}
+
   packages/components/v2/overlays: {}
+
+  packages/components/v3/actions: {}
 
   packages/components/v3/overlays: {}
 

@@ -1,7 +1,7 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
 import { DuplicateIcon, EditIcon } from "~components/Icon"
-import { MenuItem, MenuList } from "~components/Menu"
+import { MenuItem, MenuList } from "../"
 
 export const exampleActionButtonPropsButton = {
   label: "Edit Survey",

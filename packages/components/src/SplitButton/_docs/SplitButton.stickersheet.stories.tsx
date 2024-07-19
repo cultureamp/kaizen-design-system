@@ -4,7 +4,7 @@ import {
   exampleActionButtonPropsAnchor,
   exampleActionButtonPropsButton,
   exampleDropdownContentEnabled,
-} from "~components/Menu/_docs/examples"
+} from "~components/__actions__/Menu/v1/_docs/examples"
 import {
   StickerSheet,
   StickerSheetStory,

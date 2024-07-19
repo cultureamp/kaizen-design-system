@@ -7,7 +7,7 @@ export type MenuItemProps = {
   href?: string
   // Only applicable if href is supplied above
   target?: string
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
   icon?: JSX.Element
   destructive?: boolean
   disabled?: boolean
@@ -70,6 +70,7 @@ export const MenuItem = ({
         <a
           id={id}
           href={href}
+          onClick={onClick}
           className={className}
           target={target}
           // this tells screenreaders that this link represents the current page
