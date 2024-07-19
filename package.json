@@ -17,7 +17,7 @@
     "storybook:clean": "rm -rf storybook/public",
     "storybook:build": "storybook build -c storybook -o storybook/public",
     "storybook:test": "test-storybook --config-dir storybook --skipTags='skip-test' --url http://127.0.0.1:6006",
-    "turbo:storybook:build": "pnpm turbo storybook:build",
+    "turbo:storybook:build": "pnpm turbo storybook:build -- --stats-json",
     "turbo:storybook:build:test": "pnpm turbo:storybook:build -- --test",
     "turbo:storybook:build:prod": "pnpm turbo:storybook:build -- --docs",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
