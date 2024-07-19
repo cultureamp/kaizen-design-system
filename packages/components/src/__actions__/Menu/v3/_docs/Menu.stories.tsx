@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
-import { Popover, Button as RACButton } from "react-aria-components"
+import { Popover } from "react-aria-components"
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -10,6 +10,7 @@ import {
   MeatballsIcon,
   TrashIcon,
 } from "~components/Icon"
+import { Button } from "~components/__actions__/v3"
 import { Menu, MenuTrigger, MenuItem } from "../index"
 import * as testStories from "./Menu.spec.stories"
 
@@ -31,9 +32,9 @@ export const Playground: Story = {
   render: ({ defaultOpen: _, ...args }) => (
     <MenuTrigger {...args}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu>
           <MenuItem icon={<BookmarkOffIcon role="presentation" />}>
