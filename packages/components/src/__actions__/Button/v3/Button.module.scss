@@ -1,0 +1,104 @@
+.button {
+  --button-min-height-width: var(--spacing-48);
+  --button-padding-x: calc(
+    #{var(--spacing-12)} - #{var(--border-solid-border-width)}
+  );
+  --button-padding-y: calc(
+    #{var(--spacing-8)} - #{var(--border-solid-border-width)}
+  );
+  --button-icon-size: var(--spacing-24);
+
+  // RESET
+  appearance: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  border: none;
+  // RESET
+  border: var(--border-solid-border-width) var(--border-solid-border-style);
+  border-radius: var(--border-solid-border-radius);
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  gap: var(--spacing-8);
+  font-family: var(--typography-button-primary-font-family);
+  font-weight: var(--typography-button-primary-font-weight);
+  font-size: var(--typography-button-primary-font-size);
+  line-height: var(--typography-button-primary-line-height);
+  min-height: var(--button-min-height-width);
+  min-width: var(--button-min-height-width);
+  outline: none;
+  position: relative;
+  padding: var(--button-padding-y) var(--button-padding-x);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &[data-focus-visible]::after {
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-color: var(--color-blue-500);
+    border-radius: var(--border-focus-ring-border-radius);
+    border-width: var(--border-focus-ring-border-width);
+    border-style: var(--border-focus-ring-border-style);
+    inset: calc(-1 * ((#{var(--border-focus-ring-border-width)} * 2) + 1px));
+  }
+
+  svg {
+    height: var(--button-icon-size);
+    width: var(--button-icon-size);
+  }
+}
+
+.default {
+  border-color: var(--color-gray-500);
+  color: var(--color-purple-800);
+
+  &[data-hovered],
+  &[data-focus-visible],
+  &[data-pressed] {
+    background-color: var(--color-gray-200);
+    border-color: var(--color-purple-800);
+  }
+
+  &[data-disabled] {
+    opacity: 0.3;
+  }
+
+  &.reversed {
+    background-color: transparent;
+    border-color: rgba(var(--color-white-rgb), 0.65);
+    color: var(--color-white);
+
+    &[data-hovered],
+    &[data-focus-visible] {
+      background-color: rgba(var(--color-white-rgb), 0.1);
+      border-color: var(--color-white);
+    }
+
+    &[data-focus-visible]::after {
+      border-color: var(--color-blue-300);
+    }
+
+    &[data-disabled]::after {
+      border-color: var(--color-gray-400);
+    }
+  }
+}
+
+.small {
+  // spacing-40 does not currently exist. Holding on adding this until the button rfc has been signed off
+  --button-min-height-width: 2.5rem;
+  --button-padding-x: calc(
+    #{var(--spacing-8)} - #{var(--border-solid-border-width)}
+  );
+  --button-padding-y: calc(
+    #{var(--spacing-8)} - #{var(--border-solid-border-width)}
+  );
+  --button-icon-size: var(--spacing-16);
+
+  gap: var(--spacing-8);
+}

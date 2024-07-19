@@ -2,12 +2,7 @@ import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, waitFor, within, fn } from "@storybook/test"
 import isChromatic from "chromatic"
-import {
-  Button as RACButton,
-  Popover,
-  Header,
-  Section,
-} from "react-aria-components"
+import { Popover, Header, Section } from "react-aria-components"
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -18,6 +13,7 @@ import {
   MeatballsIcon,
   TrashIcon,
 } from "~components/Icon"
+import { Button } from "~components/__actions__/v3"
 import { Menu, MenuItem, MenuTrigger } from "../index"
 
 const meta = {
@@ -49,10 +45,9 @@ export const KitchenSink: Story = {
   ],
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu>
           <Section>
@@ -91,10 +86,9 @@ export const KitchenSink: Story = {
 export const Basic: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu>
           <MenuItem
@@ -173,10 +167,9 @@ const mockOnClick = fn()
 export const DisabledItems: Story = {
   render: () => (
     <MenuTrigger>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu>
           <MenuItem isDisabled onAction={mockOnClick}>
@@ -214,10 +207,9 @@ export const DisabledItems: Story = {
 export const WithSections: Story = {
   render: () => (
     <MenuTrigger>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu>
           <Section>
@@ -247,10 +239,9 @@ export const Controlled: Story = {
           Toggle open
         </button>
         <MenuTrigger isOpen={isOpen} onOpenChange={setOpen}>
-          {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-          <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+          <Button>
             <MeatballsIcon role="img" aria-label="Additional actions" />
-          </RACButton>
+          </Button>
           <Popover>
             <Menu>
               <MenuItem>Item 1</MenuItem>

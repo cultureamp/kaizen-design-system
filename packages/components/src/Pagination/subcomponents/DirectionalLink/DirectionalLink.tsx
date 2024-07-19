@@ -5,7 +5,10 @@ import {
   EndIcon,
   StartIcon,
 } from "~components/Icon"
-import { GenericButton, GenericProps } from "../../../Button/GenericButton"
+import {
+  GenericButton,
+  GenericProps,
+} from "~components/__actions__/Button/v2/GenericButton"
 
 export type DirectionalLinkProps = {
   label: string
