@@ -252,6 +252,9 @@ importers:
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
+      sass:
+        specifier: ^1.77.8
+        version: 1.77.8
       sass-loader:
         specifier: ^14.2.1
         version: 14.2.1(node-sass@9.0.0)(sass@1.77.8)(webpack@5.93.0(@swc/core@1.6.13(@swc/helpers@0.5.11))(esbuild@0.20.2))
@@ -23296,7 +23299,6 @@ snapshots:
       chokidar: 3.6.0
       immutable: 4.3.6
       source-map-js: 1.2.0
-    optional: true
 
   saxes@6.0.0:
     dependencies:
