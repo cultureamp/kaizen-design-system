@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
-import { Button as RACButton, Popover } from "react-aria-components"
+import { Popover } from "react-aria-components"
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -12,6 +12,7 @@ import {
   MeatballsIcon,
   TrashIcon,
 } from "~components/Icon"
+import { Button } from "~components/__actions__/v3"
 import { Menu, MenuItem, MenuTrigger } from "../index"
 
 const meta = {
@@ -41,10 +42,9 @@ const DefaultMenuItems = (): ReactNode => (
 export const Actions: Story = {
   render: ({ defaultOpen: _, ...args }) => (
     <MenuTrigger {...args}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu>
           <MenuItem href="https://cultureamp.com">
@@ -60,10 +60,9 @@ export const Actions: Story = {
 export const ItemsDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu>
           <DefaultMenuItems />
@@ -76,10 +75,9 @@ export const ItemsDo: Story = {
 export const ItemsDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu>
           <MenuItem icon={<TrashIcon role="presentation" />}>Delete</MenuItem>
@@ -92,11 +90,10 @@ export const ItemsDont: Story = {
 export const SelectionDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         Sort by
         <ChevronDownIcon role="presentation" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu>
           <MenuItem icon={<CheckIcon role="presentation" />}>
@@ -113,10 +110,10 @@ export const LabelChevronDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         Edit item
         <ChevronDownIcon role="presentation" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu>
           <DefaultMenuItems />
@@ -129,10 +126,7 @@ export const LabelChevronDo: Story = {
 export const LabelChevronDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
-        Edit item
-      </RACButton>
+      <Button>Edit item</Button>
       <Popover>
         <Menu>
           <DefaultMenuItems />
@@ -145,11 +139,10 @@ export const LabelChevronDont: Story = {
 export const LabelDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         Actions [visually hidden], conversation with Harper[/visually hidden]
         <ChevronDownIcon role="presentation" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu {...args}>
           <DefaultMenuItems />
@@ -162,11 +155,10 @@ export const LabelDo: Story = {
 export const LabelDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         Open menu
         <ChevronDownIcon role="presentation" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu {...args}>
           <DefaultMenuItems />
@@ -179,10 +171,9 @@ export const LabelDont: Story = {
 export const IconsDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu {...args}>
           <MenuItem icon={<EditIcon role="presentation" />}>
@@ -202,10 +193,9 @@ export const IconsDont: Story = {
 export const MenuItemLabelsDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu {...args}>
           <MenuItem>Save comment</MenuItem>
@@ -221,9 +211,9 @@ export const SentenceCaseDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu {...args}>
           <MenuItem>Quick export</MenuItem>
@@ -239,9 +229,9 @@ export const SentenceCaseDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu {...args}>
           <MenuItem>Quick Export</MenuItem>
@@ -257,9 +247,9 @@ export const ElipsesDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu {...args}>
           <MenuItem>Quick export</MenuItem>
@@ -275,9 +265,9 @@ export const ElipsesDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <RACButton className="bg-white border border-gray-500 rounded p-8 flex">
+      <Button>
         <MeatballsIcon role="img" aria-label="Additional actions" />
-      </RACButton>
+      </Button>
       <Popover>
         <Menu {...args}>
           <MenuItem>Quick export…</MenuItem>
