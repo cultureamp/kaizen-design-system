@@ -94,8 +94,8 @@ importers:
         specifier: ^8.1.6
         version: 8.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/react-query':
-        specifier: ^5.51.1
-        version: 5.51.1(react@18.3.1)
+        specifier: ^5.51.9
+        version: 5.51.9(react@18.3.1)
       '@testing-library/dom':
         specifier: ^10.3.1
         version: 10.3.1
@@ -3850,11 +3850,11 @@ packages:
   '@swc/types@0.1.9':
     resolution: {integrity: sha512-qKnCno++jzcJ4lM4NTfYifm1EFSCeIfKiAHAfkENZAV5Kl9PjJIyd2yeeVv6c/2CckuLyv2NmRC5pv6pm2WQBg==}
 
-  '@tanstack/query-core@5.51.1':
-    resolution: {integrity: sha512-fJBMQMpo8/KSsWW5ratJR5+IFr7YNJ3K2kfP9l5XObYHsgfVy1w3FJUWU4FT2fj7+JMaEg33zOcNDBo0LMwHnw==}
+  '@tanstack/query-core@5.51.9':
+    resolution: {integrity: sha512-HsAwaY5J19MD18ykZDS3aVVh+bAt0i7m6uQlFC2b77DLV9djo+xEN7MWQAQQTR8IM+7r/zbozTQ7P0xr0bHuew==}
 
-  '@tanstack/react-query@5.51.1':
-    resolution: {integrity: sha512-s47HKFnQ4HOJAHoIiXcpna/roMMPZJPy6fJ6p4ZNVn8+/onlLBEDd1+xc8OnDuwgvecqkZD7Z2mnSRbcWefrKw==}
+  '@tanstack/react-query@5.51.9':
+    resolution: {integrity: sha512-F8j6i42wfKvFrRcxfOyFyYME+bPfNthAGOSkjdv4UwZZXJjnBnBs/yRQGT0bD23LVCTuBzlIfZ0GKSIyclZ9rQ==}
     peerDependencies:
       react: ^18.0.0
 
@@ -12771,7 +12771,7 @@ snapshots:
       '@cultureamp/next-head-hook': 1.1.11(next@14.2.3(@babel/core@7.24.6)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.6.0(openapi-types@12.1.3)
-      '@tanstack/react-query': 5.51.1(react@18.3.1)
+      '@tanstack/react-query': 5.51.9(react@18.3.1)
       chromatic: 10.9.6
       deepmerge: 4.3.1
       fast-glob: 3.3.2
@@ -15720,11 +15720,11 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
 
-  '@tanstack/query-core@5.51.1': {}
+  '@tanstack/query-core@5.51.9': {}
 
-  '@tanstack/react-query@5.51.1(react@18.3.1)':
+  '@tanstack/react-query@5.51.9(react@18.3.1)':
     dependencies:
-      '@tanstack/query-core': 5.51.1
+      '@tanstack/query-core': 5.51.9
       react: 18.3.1
 
   '@testing-library/dom@10.3.1':
