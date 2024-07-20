@@ -146,7 +146,7 @@ importers:
         version: 7.16.0(eslint@8.57.0)(typescript@5.5.3)
       axe-playwright:
         specifier: ^2.0.1
-        version: 2.0.1(playwright@1.45.1)
+        version: 2.0.1(playwright@1.45.2)
       chromatic:
         specifier: ^11.5.6
         version: 11.5.6
@@ -214,8 +214,8 @@ importers:
         specifier: ^9.0.0
         version: 9.0.0
       playwright:
-        specifier: ^1.45.1
-        version: 1.45.1
+        specifier: ^1.45.2
+        version: 1.45.2
       plop:
         specifier: ^4.0.1
         version: 4.0.1
@@ -8667,8 +8667,13 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.45.1:
-    resolution: {integrity: sha512-Hjrgae4kpSQBr98nhCj3IScxVeVUixqj+5oyif8TdIn2opTCPEzqAqNMeK42i3cWDCVu9MI+ZsGWw+gVR4ISBg==}
+  playwright-core@1.45.2:
+    resolution: {integrity: sha512-ha175tAWb0dTK0X4orvBIqi3jGEt701SMxMhyujxNrgd8K0Uy5wMSwwcQHtyB4om7INUkfndx02XnQ2p6dvLDw==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright@1.45.2:
+    resolution: {integrity: sha512-ReywF2t/0teRvNBpfIgh5e4wnrI/8Su8ssdo5XsQKpjxJj+jspm00jSoz9BTg91TT0c9HRjXO7LBNVrgYj9X0g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -15553,7 +15558,7 @@ snapshots:
       jest-serializer-html: 7.1.0
       jest-watch-typeahead: 2.2.2(jest@29.7.0(@types/node@20.14.2)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.13(@swc/helpers@0.5.11))(@types/node@20.14.2)(typescript@5.5.3)))
       nyc: 15.1.0
-      playwright: 1.45.1
+      playwright: 1.45.2
     transitivePeerDependencies:
       - '@swc/helpers'
       - '@types/node'
@@ -16732,14 +16737,14 @@ snapshots:
       mustache: 4.2.0
       rimraf: 3.0.2
 
-  axe-playwright@2.0.1(playwright@1.45.1):
+  axe-playwright@2.0.1(playwright@1.45.2):
     dependencies:
       '@types/junit-report-builder': 3.0.2
       axe-core: 4.9.1
       axe-html-reporter: 2.2.3(axe-core@4.9.1)
       junit-report-builder: 3.2.1
       picocolors: 1.0.1
-      playwright: 1.45.1
+      playwright: 1.45.2
 
   axios@1.7.2:
     dependencies:
@@ -21637,9 +21642,11 @@ snapshots:
 
   playwright-core@1.45.1: {}
 
-  playwright@1.45.1:
+  playwright-core@1.45.2: {}
+
+  playwright@1.45.2:
     dependencies:
-      playwright-core: 1.45.1
+      playwright-core: 1.45.2
     optionalDependencies:
       fsevents: 2.3.2
 
