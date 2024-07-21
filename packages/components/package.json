@@ -96,7 +96,7 @@
   },
   "devDependencies": {
     "@cultureamp/frontend-apis": "^9.6.0",
-    "@cultureamp/i18n-react-intl": "^2.5.8",
+    "@cultureamp/i18n-react-intl": "^2.5.9",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/package-bundler": "workspace:*",
     "@types/lodash.debounce": "^4.0.9",
