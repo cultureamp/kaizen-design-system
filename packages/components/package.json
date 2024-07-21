@@ -80,7 +80,7 @@
     "react-animate-height": "^3.2.3",
     "react-aria": "^3.33.1",
     "react-aria-components": "^1.2.1",
-    "react-day-picker": "^8.10.1",
+    "react-day-picker": "^9.0.0",
     "react-focus-lock": "^2.12.1",
     "react-focus-on": "^3.9.3",
     "react-media": "^1.10.0",

@@ -412,8 +412,8 @@ importers:
         specifier: ^1.2.1
         version: 1.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-day-picker:
-        specifier: ^8.10.1
-        version: 8.10.1(date-fns@3.6.0)(react@18.3.1)
+        specifier: ^9.0.0
+        version: 9.0.0(react@18.3.1)
       react-focus-lock:
         specifier: ^2.12.1
         version: 2.12.1(@types/react@18.3.3)(react@18.3.1)
@@ -9427,11 +9427,10 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
-  react-day-picker@8.10.1:
-    resolution: {integrity: sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==}
+  react-day-picker@9.0.0:
+    resolution: {integrity: sha512-e1PeOl6AOTHm31YOEZ0Q6jTxSJjFfcpiVdlEPkxeyxfXA9OmV6d7j0jmZyaHeEb/mdZXaMnPluYTdadt/pWB3Q==}
     peerDependencies:
-      date-fns: ^2.28.0 || ^3.0.0
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: '>=16.8.0'
 
   react-docgen-typescript@2.2.2:
     resolution: {integrity: sha512-tvg2ZtOpOi6QDwsb3GZhOjDkkX0h8Z2gipvTg6OVMUyoYoURhEiRNePT8NZItTVCDh39JJHnLdfCOkzoLbFnTg==}
@@ -22702,7 +22701,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  react-day-picker@8.10.1(date-fns@3.6.0)(react@18.3.1):
+  react-day-picker@9.0.0(react@18.3.1):
     dependencies:
       date-fns: 3.6.0
       react: 18.3.1
