@@ -39,6 +39,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 .container {
   background-color: $color-white;
   box-shadow: $shadow-small-box-shadow;
+  border: $border-width-1 $border-solid-border-style $color-gray-500;
   border-radius: $border-borderless-border-radius;
 }
 

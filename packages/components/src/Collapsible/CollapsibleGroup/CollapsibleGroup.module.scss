@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/shadow";
 
 // We need a full border radius on this container element, then have classes
@@ -6,5 +7,6 @@
 .container {
   background-color: white;
   box-shadow: $shadow-small-box-shadow;
+  border: $border-width-1 $border-solid-border-style $color-gray-500;
   border-radius: $border-borderless-border-radius;
 }
