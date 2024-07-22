@@ -28,7 +28,7 @@ import * as exampleStories from "./Menu.stories"
 
 <SbContent className="mb-24">
 
-  <KAIOInstallation exportNames={["Menu", "MenuTrigger", "MenuItem"]} family="overlays" version="3" />
+  <KAIOInstallation exportNames={["Menu", "MenuTrigger", "MenuItem"]} family="actions" version="3" />
 
   <Source code={"import { Popover, Section, Header } from \"@kaizen/components/v3/react-aria-components\""} language="tsx" />
 
@@ -43,10 +43,12 @@ import * as exampleStories from "./Menu.stories"
   source={{code: `
 <MenuTrigger>
   <Button><MeatballsIcon aria-label="Actions" /></Button>
-  <Menu>
-    <MenuItem href="#">Menu Item</MenuItem>
-    <MenuItem onAction={handleAction}>Menu Item</MenuItem>
-  </Menu>
+  <Popover>
+    <Menu>
+      <MenuItem href="#">Menu Item</MenuItem>
+      <MenuItem onAction={handleAction}>Menu Item</MenuItem>
+    </Menu>
+  </Popover>
 </MenuTrigger>
   `}}
 />
