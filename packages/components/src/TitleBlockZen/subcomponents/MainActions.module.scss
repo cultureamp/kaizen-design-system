@@ -1,5 +1,10 @@
 @import "../../../styles/utils/legacy/layout";
-@import "../mixins";
+
+@mixin title-block-small {
+  @media (max-width: calc(#{$layout-breakpoints-medium} - 1px)) {
+    @content;
+  }
+}
 
 .mainActionsContainer {
   display: flex;

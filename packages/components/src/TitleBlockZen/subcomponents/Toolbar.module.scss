@@ -1,6 +1,11 @@
 @import "../../../styles/utils/legacy/layout";
 @import "../../../styles/utils/legacy/grid";
-@import "../mixins";
+
+@mixin title-block-under-1024 {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
 
 .toolbar {
   display: flex;

@@ -2,7 +2,24 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
-@import "../mixins";
+
+@mixin title-block-under-1440 {
+  @media (max-width: 1439px) {
+    @content;
+  }
+}
+
+@mixin title-block-under-1366 {
+  @media (max-width: 1365px) {
+    @content;
+  }
+}
+
+@mixin title-block-medium-and-small {
+  @media (max-width: calc(#{$layout-breakpoints-large} - 1px)) {
+    @content;
+  }
+}
 
 .container {
   display: flex;
