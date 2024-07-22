@@ -4,32 +4,44 @@
 
 .wrapper {
   color: $color-purple-800;
-  background-color: $color-white;
+  border-style: solid;
+  border-width: $border-width-1;
   border-radius: $border-borderless-border-radius;
   box-shadow: $shadow-small-box-shadow;
 }
 
+.default {
+  border-color: $color-gray-500;
+  background-color: $color-white;
+}
+
 .informative {
+  border-color: $color-blue-400;
   background-color: $color-blue-100;
 }
 
 .positive {
+  border-color: $color-green-500;
   background-color: $color-green-100;
 }
 
 .cautionary {
+  border-color: $color-yellow-700;
   background-color: $color-yellow-100;
 }
 
 .destructive {
+  border-color: $color-red-500;
   background-color: $color-red-100;
 }
 
 .assertive {
+  border-color: $color-orange-600;
   background-color: $color-orange-100;
 }
 
 .highlight {
+  border-color: $color-purple-400;
   background-color: $color-purple-100;
 }
 
