@@ -1,0 +1,173 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks"
+import { ResourceLinks, SbContent, KAIOInstallation } from "~storybook/components"
+import * as docsStories from "./Button.docs.stories"
+import * as exampleStories from "./Button.stories"
+
+<Meta title="Actions/Button/v3/API specification" />
+
+<SbContent>
+  # Button API Specification (v3)
+
+
+  Updated July 15, 2024
+</SbContent>
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__actions__/Button/v3"
+  figma="https://www.figma.com/design/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-Heart-UI-Kit?m=auto&t=a6VcoKBJx6snn0ut-1"
+  ariaComponentPage="https://react-spectrum.adobe.com/react-aria/Button.html"
+  designGuidelines="/?path=/docs/actions-button-v3-usage-guidelines--docs"
+/>
+
+<SbContent className="mb-24">
+  <div className="bg-yellow-100 border-default border-yellow-400 rounded px-24">
+    ### Disclaimer
+
+    The `v3` of `Button` is a partial rebuild to support [Menu v3](/docs/actions-menu-v3-api-specification--docs). As the changes to the API between `v1/v2` to `v3` is significant, our recommendation is to hold on adopting this outside of `Menu` `v3` as it will have a limited set of options.
+  </div>
+</SbContent>
+
+<SbContent>
+  <KAIOInstallation exportNames={["Tooltip", "TooltipTrigger" ]} family="actions" version="3" />
+
+
+  ## Overview
+
+</SbContent>
+
+<Canvas of={exampleStories.Playground} />
+
+<SbContent className="mb-64">
+  ### React Aria
+
+  This component is built using the react-aria-components library and extends the [Button](https://react-spectrum.adobe.com/react-aria/Button.html) component.
+
+  As this shares the same core [anatomy](https://react-spectrum.adobe.com/react-aria/Button.html#anatomy), [props types](https://react-spectrum.adobe.com/react-aria/Button.html#anatomy) and [event handlers](https://react-spectrum.adobe.com/react-aria/Button.html#events), the guidance below is tailored to our implementation and should cover most known use cases of the Button.
+
+  For more scenarios that may not be present below, we recommend checkout out React Aria&apos;s documentation on the [Button's available hooks](https://react-spectrum.adobe.com/react-aria/Button.html#hooks) or [advanced customization](https://react-spectrum.adobe.com/react-aria/Button.html#advanced-customization) options.
+</SbContent>
+
+<SbContent>
+  ## API
+</SbContent>
+
+
+<Controls of={exampleStories.Playground} className="mb-64" />
+
+<SbContent className="mb-64">
+  ### onPress vs onClick
+
+  One key change to the `Button`&apos;s API is the shift from `onClick` to `onPress`. This will not require a change to the implementation of `onClick` logic, ie:
+  ```
+  <Button label="Submit" onClick={(e) => sumbit(e)}/>
+  // can safely be migrated to:
+  <Button onPress={(e) => submit(e)}>
+    Submit
+  </Button>
+  ```
+
+  React Aria&apos;s implementation of `onPress` provides better support for consistent touch events across device types, such mobile, desktop and tablet. You can read more about the development and reason behind this pattern [here](https://react-spectrum.adobe.com/blog/building-a-button-part-1.html#touch-interactions).
+</SbContent>
+
+<SbContent>
+
+  ### Interactive states and styling pseudo-classes
+
+  Psuedo classes, such as `hover`, `focus` or `focus-visible`, are now targeted and styled with HTML data attributes that reflect the internal state of the React Aria Button (ie: `isHovered`, `isFocusVisible`).
+
+  When styling in CSS, it is recommended to use [data attributes](https://react-spectrum.adobe.com/react-aria/Button.html#styling), such as `:[data-hovered]` or `:[data-focus-visible]`, instead of using pseudo selectors like `:hover` or `:focus-visible`.
+
+  ```css
+  .button {
+    background-color: $color-white;
+    &:hover {
+      background-color: $color-gray-200;
+    }
+  }
+  // becomes
+  .button {
+    background-color: $color-white;
+    &:[data-hovered] {
+      background-color: $color-gray-200;
+    }
+  }
+  ```
+
+  #### Dynamic styles with ButtonRenderProps
+
+  As `Button` extends React Aria&apos;s functionality, `className` can now accept either a `string` or function that receives the `Button`&apos;s state for styling, such as `isPressed` or `isHovered`. This useful for add dynamic styling tweaks with Tailwind or other CSS-in-JS libraries.
+</SbContent>
+
+<Canvas of={docsStories.ButtonClassModifierWithRenderProps} sourceState="shown" />
+
+<SbContent className="mb-64">
+  This can also be styled in directly with Tailwind targeting the data attributes, ie:
+
+  ```tsx
+    <Button className="[&[data-focused='true']]:bg-blue-300">Label</Button>
+  ```
+
+  React Aria also offers a [Tailwind plugin](https://react-spectrum.adobe.com/react-aria/styling.html#plugin) that exposes the styling states of React Aria Components into Tailwind. This can make classes and allows you to leverage intellisense when working with React Aria components, ie:
+
+  ```tsx
+    <Button className="pressed:bg-blue-300">Label</Button>
+  ```
+
+
+  For more on styling with React Aria and other ways to extend the `Button`&apos;s styles, we recommend checking out the [docs here](https://react-spectrum.adobe.com/react-aria/Button.html#styling).
+</SbContent>
+
+<SbContent>
+  ### Icons, labels and content as children
+
+  In `v3`, labels, icons and their positions are controlled by the consumer as `children`. The immediate children of `Button` are spaced using `flex-gap` to ensure `RTL` can be supported out of the box for most cases.
+</ SbContent>
+
+<Canvas of={exampleStories.ButtonWithIcon} />
+
+<SbContent>
+  While the expected default is that `children` will be a `ReactNode`, it also accepts a render function that takes `ButtonRenderProps`. Similar to the className, this exposes the internal state (`isPressed`, `isHovered`, etc) of the button and can be used for conditional rendering.
+
+  ```tsx
+  <Button>
+    {({isPressed}) => (
+      <>
+        {isPressed && <PressHighlight />}
+        Press me
+      </>
+    )}
+  </Button>
+```
+</ SbContent>
+
+
+<SbContent>
+  ### Icon only buttons
+
+  To achieve the `IconButton` pattern in `v3`, we recommend passing an icon in as a the sole child. The label should be added to the icon&apos;s `aria-label` prop in the SVG Icon.
+</ SbContent>
+
+<Canvas of={exampleStories.IconButton} className="mb-32" />
+
+<SbContent className="mb-64">
+  We recommend against setting the `aria-label` on the `Button` itself, and letting the accessible label be [determined by the children](https://cultureamp.atlassian.net/wiki/spaces/PA/pages/3833331831/Accessible+button+and+link+labels). You can achieve this by using visually hidden elements as children, which will create an accessible label based off the contents of the button.
+</SbContent>
+
+<SbContent className="mb-64">
+  ### Reversed Colors
+
+  The `Button` uses the `useReversedColors` hook and `ReversedColors` provider to control the dark and light theme.
+
+  <Canvas className="bg-purple-600 mb-24" of={exampleStories.OnReversed} />
+
+  To enable the reversed theme, you will need to the component or application in the ReversedColors provider.
+</ SbContent>
+
+<SbContent>
+  ### Buttons and links
+
+  `v3` of the `Button` component does not support the `href` prop. While a `Link` component will be coming to Kaizen, we recommend using the `v2` of button if a `anchor` or routing link is needed.
+
+  We do not advise passing in an `anchor` tag as a child of the `Button` as this can lead to accessibility issues.
+</ SbContent>
+

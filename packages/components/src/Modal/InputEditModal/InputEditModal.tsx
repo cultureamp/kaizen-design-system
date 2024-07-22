@@ -1,6 +1,5 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { ButtonProps } from "~components/Button"
 import { Heading } from "~components/Heading"
 import {
   GenericModal,
@@ -9,6 +8,7 @@ import {
   ModalAccessibleLabel,
   ModalBody,
 } from "~components/Modal/GenericModal"
+import { ButtonProps } from "~components/__actions__/v2"
 import styles from "./InputEditModal.module.scss"
 
 export type InputEditModalProps = {

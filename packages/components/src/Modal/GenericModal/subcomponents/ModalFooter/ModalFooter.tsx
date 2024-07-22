@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { Button, ButtonProps } from "~components/Button"
+import { Button, ButtonProps } from "~components/__actions__/v2"
 import { useMediaQueries } from "~utils/useMediaQueries"
 import { ModalBody } from "../ModalBody/ModalBody"
 import styles from "./ModalFooter.module.scss"
