@@ -39,6 +39,7 @@
       "borderRadius-id": "--border-focus-ring-border-radius",
       "borderStyle": "var(--border-focus-ring-border-style, solid)",
       "borderStyle-id": "--border-focus-ring-border-style"
-    }
+    },
+    "width": { "1": "var(--border-width-1, 1px)", "1-id": "--border-width-1" }
   }
 }
