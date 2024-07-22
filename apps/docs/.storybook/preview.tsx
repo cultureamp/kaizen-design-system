@@ -134,6 +134,7 @@ const preview = {
         rules: globalA11yRules,
       },
     },
+    ...globalTypes,
   },
   globalTypes,
   decorators,

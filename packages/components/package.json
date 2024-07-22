@@ -101,6 +101,7 @@
     "@kaizen/package-bundler": "workspace:*",
     "@storybook/addon-actions": "^8.2.4",
     "@storybook/react": "^8.2.4",
+    "@storybook/test": "^8.2.4",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20.14.11",
