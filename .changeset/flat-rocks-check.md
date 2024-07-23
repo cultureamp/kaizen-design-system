@@ -18,3 +18,7 @@ Update components to match new accessible color designs.
 
 #### FieldMessage:
 - Update cautionary icon color
+
+#### GuidanceBlock:
+- Add border to variants
+- Change `assertive` (to later be deprecated) to match `negative` variant color
