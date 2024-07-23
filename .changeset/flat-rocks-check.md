@@ -44,3 +44,7 @@ Update components to match new accessible color designs.
 
 #### Tooltip (v1):
 - Update border for variants
+
+#### Well:
+- Update border for variants
+- Change `assertive` (to later be deprecated) to match `negative` variant color
