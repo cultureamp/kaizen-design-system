@@ -41,3 +41,6 @@ Update components to match new accessible color designs.
 #### Tiles:
 - Add border to variants
 - Change `assertive` (to later be deprecated) to match `negative` variant color
+
+#### Tooltip (v1):
+- Update border for variants
