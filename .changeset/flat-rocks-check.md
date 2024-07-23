@@ -30,3 +30,7 @@ Update components to match new accessible color designs.
 #### Notifications:
 - Update border to variants
 - Update cautionary icon color
+
+#### Popover:
+- Update border to variants
+- Update cautionary icon color
