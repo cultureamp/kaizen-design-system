@@ -122,6 +122,7 @@ jobs:
             [
               "**/!(*.module).scss",
               "packages/components/**/*.css",
+              "packages/components/src/RichTextEditor/_mixins.scss"
             ]
 
   update-branch-preview:
