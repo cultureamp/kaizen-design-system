@@ -120,8 +120,7 @@ jobs:
           onlyChanged: "!(main)"
           externals: |
             [
-              "**/!(*.module).scss",
-              "packages/components/**/*.css",
+              "packages/components/src/Notification/subcomponents/GenericNotification/_mixins.scss",
             ]
 
   update-branch-preview:
