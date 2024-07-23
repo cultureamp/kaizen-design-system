@@ -2,6 +2,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/layout";
 
 @mixin title-block-under-1440 {
   @media (max-width: 1439px) {
