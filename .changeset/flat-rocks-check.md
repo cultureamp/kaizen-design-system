@@ -28,9 +28,13 @@ Update components to match new accessible color designs.
 - Change `assertive` (to later be deprecated) to match `negative` variant color
 
 #### Notifications:
-- Update border to variants
+- Update border for variants
 - Update cautionary icon color
 
 #### Popover:
-- Update border to variants
+- Add border to variants
 - Update cautionary icon color
+
+#### Tile:
+- Add border to variants
+- Change `assertive` (to later be deprecated) to match `negative` variant color
