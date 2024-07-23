@@ -35,6 +35,9 @@ Update components to match new accessible color designs.
 - Add border to variants
 - Update cautionary icon color
 
-#### Tile:
+#### Tag (Legacy):
+- Update cautionary icon color
+
+#### Tiles:
 - Add border to variants
 - Change `assertive` (to later be deprecated) to match `negative` variant color
