@@ -46,8 +46,7 @@ $dt-assertive-header-background: $color-orange-100;
 .positiveHeader {
   background-color: $dt-positive-header-background;
 
-  .spotIcon,
-  .svgIcon > svg {
+  .spotIcon {
     color: $color-green-500;
   }
 }
@@ -55,8 +54,7 @@ $dt-assertive-header-background: $color-orange-100;
 .assertiveHeader {
   background-color: $dt-assertive-header-background;
 
-  .spotIcon,
-  .svgIcon > svg {
+  .spotIcon {
     color: $color-orange-500;
   }
 }
@@ -64,8 +62,7 @@ $dt-assertive-header-background: $color-orange-100;
 .informativeHeader {
   background-color: $dt-informative-header-background;
 
-  .spotIcon,
-  .svgIcon > svg {
+  .spotIcon {
     color: $color-blue-500;
   }
 }
@@ -73,8 +70,7 @@ $dt-assertive-header-background: $color-orange-100;
 .negativeHeader {
   background-color: $dt-negative-header-background;
 
-  .spotIcon,
-  .svgIcon > svg {
+  .spotIcon {
     color: $color-red-500;
   }
 }
@@ -82,8 +78,7 @@ $dt-assertive-header-background: $color-orange-100;
 .cautionaryHeader {
   background-color: $dt-cautionary-header-background;
 
-  .spotIcon,
-  .svgIcon > svg {
+  .spotIcon {
     color: $color-yellow-500;
   }
 }
@@ -105,8 +100,7 @@ $dt-assertive-header-background: $color-orange-100;
     }
   }
 
-  .spotIcon,
-  .svgIcon > svg {
+  .spotIcon {
     width: 30px;
     height: 30px;
 
@@ -138,8 +132,7 @@ $dt-assertive-header-background: $color-orange-100;
       }
     }
 
-    .spotIcon,
-    .svgIcon > svg {
+    .spotIcon {
       width: 155px;
       height: 155px;
       margin: 0 auto;
