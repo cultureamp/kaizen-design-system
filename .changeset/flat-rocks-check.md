@@ -26,3 +26,7 @@ Update components to match new accessible color designs.
 #### Modals:
 - Update `ConfirmationModal` cautionary icon color
 - Change `assertive` (to later be deprecated) to match `negative` variant color
+
+#### Notifications:
+- Update border to variants
+- Update cautionary icon color

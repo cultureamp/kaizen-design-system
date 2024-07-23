@@ -27,7 +27,7 @@ $notification-slide-right: transform 300ms ease-out;
   &%ca-notification---inline,
   &%ca-notification---toast {
     margin-bottom: $spacing-24;
-    border: $border-solid-border-width $border-solid-border-style;
+    border: $border-width-1 $border-solid-border-style;
     border-radius: $border-solid-border-radius;
   }
 
@@ -68,25 +68,25 @@ $notification-slide-right: transform 300ms ease-out;
   // Types
   &%ca-notification---positive {
     background: $color-green-100;
-    border-color: $color-green-300;
+    border-color: $color-green-500;
     color: $color-purple-800;
   }
 
   &%ca-notification---informative {
     background: $color-blue-100;
-    border-color: $color-blue-300;
+    border-color: $color-blue-400;
     color: $color-purple-800;
   }
 
   &%ca-notification---cautionary {
     background: $color-yellow-100;
-    border-color: $color-yellow-400;
+    border-color: $color-yellow-700;
     color: $color-purple-800;
   }
 
   &%ca-notification---negative {
     background: $color-red-100;
-    border-color: $color-red-300;
+    border-color: $color-red-500;
     color: $color-purple-800;
   }
 
@@ -149,7 +149,7 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   %ca-notification---cautionary & {
-    color: $color-yellow-500;
+    color: $color-yellow-700;
   }
 
   %ca-notification---negative & {
