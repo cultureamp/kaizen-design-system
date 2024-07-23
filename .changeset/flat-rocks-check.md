@@ -15,3 +15,6 @@ Update components to match new accessible color designs.
 #### EmptyState:
 - Add border to variants
 - Change `action` (to later be deprecated) to match `negative` variant color
+
+#### FieldMessage:
+- Update cautionary icon color
