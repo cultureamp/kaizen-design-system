@@ -51,14 +51,6 @@ $dt-assertive-header-background: $color-orange-100;
   }
 }
 
-.assertiveHeader {
-  background-color: $dt-assertive-header-background;
-
-  .spotIcon {
-    color: $color-orange-500;
-  }
-}
-
 .informativeHeader {
   background-color: $dt-informative-header-background;
 
@@ -67,7 +59,8 @@ $dt-assertive-header-background: $color-orange-100;
   }
 }
 
-.negativeHeader {
+.negativeHeader,
+.assertiveHeader {
   background-color: $dt-negative-header-background;
 
   .spotIcon {
@@ -79,7 +72,7 @@ $dt-assertive-header-background: $color-orange-100;
   background-color: $dt-cautionary-header-background;
 
   .spotIcon {
-    color: $color-yellow-500;
+    color: $color-yellow-700;
   }
 }
 

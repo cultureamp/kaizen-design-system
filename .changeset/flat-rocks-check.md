@@ -22,3 +22,7 @@ Update components to match new accessible color designs.
 #### GuidanceBlock:
 - Add border to variants
 - Change `assertive` (to later be deprecated) to match `negative` variant color
+
+#### Modals:
+- Update `ConfirmationModal` cautionary icon color
+- Change `assertive` (to later be deprecated) to match `negative` variant color
