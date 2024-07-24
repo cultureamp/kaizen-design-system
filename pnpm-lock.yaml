@@ -443,11 +443,11 @@ importers:
         version: 10.0.0
     devDependencies:
       '@cultureamp/frontend-apis':
-        specifier: ^9.6.0
-        version: 9.6.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4)
+        specifier: ^9.7.0
+        version: 9.7.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4)
       '@cultureamp/i18n-react-intl':
-        specifier: ^2.5.8
-        version: 2.5.8(@cultureamp/frontend-apis@9.6.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4))(encoding@0.1.13)(eslint@8.57.0)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))(typescript@5.5.4)
+        specifier: ^2.5.9
+        version: 2.5.9(@cultureamp/frontend-apis@9.7.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4))(encoding@0.1.13)(eslint@8.57.0)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))(typescript@5.5.4)
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
@@ -473,14 +473,14 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       query-string:
-        specifier: ^9.0.0
-        version: 9.0.0
+        specifier: ^9.1.0
+        version: 9.1.0
       react-intl:
         specifier: ^6.6.8
         version: 6.6.8(react@18.3.1)(typescript@5.5.4)
       rollup:
-        specifier: ^4.18.1
-        version: 4.18.1
+        specifier: ^4.19.0
+        version: 4.19.0
       sass:
         specifier: ^1.77.8
         version: 1.77.8
@@ -491,8 +491,8 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
       ts-jest:
-        specifier: ^29.2.2
-        version: 29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4)
+        specifier: ^29.2.3
+        version: 29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4)
       tslib:
         specifier: ^2.6.3
         version: 2.6.3
@@ -701,24 +701,12 @@ packages:
     peerDependencies:
       '@babel/core': ^7.4.0 || ^8.0.0-0 <8.0.0
 
-  '@babel/helper-environment-visitor@7.24.6':
-    resolution: {integrity: sha512-Y50Cg3k0LKLMjxdPjIl40SdJgMB85iXn27Vk/qbHZCFx/o5XO3PSnpi675h1KEmmDb6OFArfd5SCQEQ5Q4H88g==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/helper-environment-visitor@7.24.7':
     resolution: {integrity: sha512-DoiN84+4Gnd0ncbBOM9AZENV4a5ZiL39HYMyZJGZ/AZEykHYdJw0wW3kdcsh9/Kn+BRXHLkkklZ51ecPKmI1CQ==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/helper-function-name@7.24.6':
-    resolution: {integrity: sha512-xpeLqeeRkbxhnYimfr2PC+iA0Q7ljX/d1eZ9/inYbmfG2jpl8Lu3DyXvpOAnrS5kxkfOWJjioIMQsaMBXFI05w==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/helper-function-name@7.24.7':
     resolution: {integrity: sha512-FyoJTsj/PEUWu1/TYRiXTIHc8lbw+TDYkZuoE43opPS5TrI7MyONBE1oNvfguEXAD9yhQRrVBnXdXzSLQl9XnA==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/helper-hoist-variables@7.24.6':
-    resolution: {integrity: sha512-SF/EMrC3OD7dSta1bLJIlrsVxwtd0UpjRJqLno6125epQMJ/kyFmpTT4pbvPbdQHzCHg+biQ7Syo8lnDtbR+uA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-hoist-variables@7.24.7':
@@ -765,10 +753,6 @@ packages:
 
   '@babel/helper-skip-transparent-expression-wrappers@7.24.7':
     resolution: {integrity: sha512-IO+DLT3LQUElMbpzlatRASEyQtfhSE0+m465v++3jyyXeBTBUjtVZg28/gHeV5mrTJqvEKhKroBGAvhW+qPHiQ==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/helper-split-export-declaration@7.24.6':
-    resolution: {integrity: sha512-CvLSkwXGWnYlF9+J3iZUvwgAxKiYzK3BWuo+mLzD/MDGOZDj7Gq8+hqaOkMxmJwmlv0iu86uH5fdADd9Hxkymw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-split-export-declaration@7.24.7':
@@ -1303,10 +1287,6 @@ packages:
     resolution: {integrity: sha512-jYqfPrU9JTF0PmPy1tLYHW4Mp4KlgxJD9l2nP9fD6yT/ICi554DmrWBAEYpIelzjHf1msDP3PxJIRt/nFNfBig==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/traverse@7.24.6':
-    resolution: {integrity: sha512-OsNjaJwT9Zn8ozxcfoBc+RaHdj3gFmCmYoQLUII1o6ZrUwku0BMg80FoOTPx+Gi6XhcQxAYE4xyjPTo4SxEQqw==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/traverse@7.24.8':
     resolution: {integrity: sha512-t0P1xxAPzEDcEPmjprAQq19NWum4K0EQPjMwZQZbHt+GiZqvjCHjj755Weq1YRPVzBI+3zSfvScfpnuIecVFJQ==}
     engines: {node: '>=6.9.0'}
@@ -1644,33 +1624,25 @@ packages:
   '@cultureamp/fetch@4.0.2':
     resolution: {integrity: sha512-IVeI5jSfSecVcUxvlwwdjl50mq1/+qzGUfb/3ueE9Tu07rFGIv+Nylq+nMZ2S9EvwubCfDyiuwJiqUemSaK+DQ==, tarball: https://npm.pkg.github.com/download/@cultureamp/fetch/4.0.2/a1d39d32eb5711d929761cf0fa5c5a6ef4ecef4e}
 
-  '@cultureamp/frontend-apis@9.6.0':
-    resolution: {integrity: sha512-6/rsapEJnZRbbUQXtIycep6Z2r3ijslDJNYAxzUOyQhNUrhqGli7lhloj3CkO/qPpwytYArnybIXVS1StKfR3w==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.6.0/720c7cc9109da1887caef1cf89e66672120f921e}
+  '@cultureamp/frontend-apis@9.7.0':
+    resolution: {integrity: sha512-jW5IEpwoL44lq1qm+Z3LqPs/YRPDVUUWa/X81KhHXKsQRNrOnlY/+mKqqK9URrduvVrnahuyJTsiOiz6XlvTsw==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.7.0/cff771c58fe3dd3df90c2ad7d218c4c95e7a265b}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
       '@cultureamp/next-head-hook': '>=1 || ~0.0.0'
       next: '>=13.5.0'
       react: '>=16.14.0'
-    peerDependenciesMeta:
-      '@cultureamp/next-head-hook':
-        optional: true
-      next:
-        optional: true
 
   '@cultureamp/frontend-env@2.1.2':
     resolution: {integrity: sha512-0GBVGeJDeQL+XmUMvIbUjSsJiRxb46RRTuDhfbB0aViwZ3tG7t88GbnPznolCrp7d+xj0TaknbGS80kzgXL/1w==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.2/3478449ef282fcb929efc4f3955531ad3f0cdaca}
 
-  '@cultureamp/i18n-react-intl@2.5.8':
-    resolution: {integrity: sha512-x5WGWIeVwrEYWUIfqo4L6cmqh+YfVeTBrkU7BUDX4rVr5iW1Dt4lyeygT3rnTyOxl3ztRcSAs3oNlAAFATSc4A==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.5.8/e4a3220d410a58b37fa6a301eb2bad8223243b2a}
+  '@cultureamp/i18n-react-intl@2.5.9':
+    resolution: {integrity: sha512-F5fXA883npU+6VQ+9xbasHr5/XA0qs+mhW0r4GoxKp6Z1VYBU0WQmtQmPJeWy1w07h1nO0t1X7kLY+fDGlLBGA==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.5.9/7d508429e773cd1eef75f23822c4e663b14aba3b}
     hasBin: true
     peerDependencies:
       '@cultureamp/frontend-apis': '>=9 || ~0.0.0'
       next: '>=13.5.0'
       react: ^18.2.0
-    peerDependenciesMeta:
-      next:
-        optional: true
 
   '@cultureamp/next-head-hook@1.1.11':
     resolution: {integrity: sha512-FyaCA3oKHnxZ+pPHcPTCDoRCG4/1y0W16U1O5eyTgSxjuJfWTui3vz65MNvNxlJ20+DZ8BXmV3M0y93t/Fubog==, tarball: https://npm.pkg.github.com/download/@cultureamp/next-head-hook/1.1.11/5444465f7d6ce0d79ba33d60180245ed245956ad}
@@ -2036,10 +2008,6 @@ packages:
 
   '@inquirer/core@9.0.2':
     resolution: {integrity: sha512-nguvH3TZar3ACwbytZrraRTzGqyxJfYJwv+ZwqZNatAosdWQMP1GV8zvmkNlBe2JeZSaw0WYBHZk52pDpWC9qA==}
-    engines: {node: '>=18'}
-
-  '@inquirer/figures@1.0.3':
-    resolution: {integrity: sha512-ErXXzENMH5pJt5/ssXV0DfWUZqly8nGzf0UcBV9xTnP+KyffE2mqyxIMBrZ8ijQck2nU0TQm40EQB53YreyWHw==}
     engines: {node: '>=18'}
 
   '@inquirer/figures@1.0.5':
@@ -2949,19 +2917,9 @@ packages:
       rollup:
         optional: true
 
-  '@rollup/rollup-android-arm-eabi@4.18.1':
-    resolution: {integrity: sha512-lncuC4aHicncmbORnx+dUaAgzee9cm/PbIqgWz1PpXuwc+sa1Ct83tnqUDy/GFKleLiN7ZIeytM6KJ4cAn1SxA==}
-    cpu: [arm]
-    os: [android]
-
   '@rollup/rollup-android-arm-eabi@4.19.0':
     resolution: {integrity: sha512-JlPfZ/C7yn5S5p0yKk7uhHTTnFlvTgLetl2VxqE518QgyM7C9bSfFTYvB/Q/ftkq0RIPY4ySxTz+/wKJ/dXC0w==}
     cpu: [arm]
-    os: [android]
-
-  '@rollup/rollup-android-arm64@4.18.1':
-    resolution: {integrity: sha512-F/tkdw0WSs4ojqz5Ovrw5r9odqzFjb5LIgHdHZG65dFI1lWTWRVy32KDJLKRISHgJvqUeUhdIvy43fX41znyDg==}
-    cpu: [arm64]
     os: [android]
 
   '@rollup/rollup-android-arm64@4.19.0':
@@ -2969,19 +2927,9 @@ packages:
     cpu: [arm64]
     os: [android]
 
-  '@rollup/rollup-darwin-arm64@4.18.1':
-    resolution: {integrity: sha512-vk+ma8iC1ebje/ahpxpnrfVQJibTMyHdWpOGZ3JpQ7Mgn/3QNHmPq7YwjZbIE7km73dH5M1e6MRRsnEBW7v5CQ==}
-    cpu: [arm64]
-    os: [darwin]
-
   '@rollup/rollup-darwin-arm64@4.19.0':
     resolution: {integrity: sha512-emvKHL4B15x6nlNTBMtIaC9tLPRpeA5jMvRLXVbl/W9Ie7HhkrE7KQjvgS9uxgatL1HmHWDXk5TTS4IaNJxbAA==}
     cpu: [arm64]
-    os: [darwin]
-
-  '@rollup/rollup-darwin-x64@4.18.1':
-    resolution: {integrity: sha512-IgpzXKauRe1Tafcej9STjSSuG0Ghu/xGYH+qG6JwsAUxXrnkvNHcq/NL6nz1+jzvWAnQkuAJ4uIwGB48K9OCGA==}
-    cpu: [x64]
     os: [darwin]
 
   '@rollup/rollup-darwin-x64@4.19.0':
@@ -2989,18 +2937,8 @@ packages:
     cpu: [x64]
     os: [darwin]
 
-  '@rollup/rollup-linux-arm-gnueabihf@4.18.1':
-    resolution: {integrity: sha512-P9bSiAUnSSM7EmyRK+e5wgpqai86QOSv8BwvkGjLwYuOpaeomiZWifEos517CwbG+aZl1T4clSE1YqqH2JRs+g==}
-    cpu: [arm]
-    os: [linux]
-
   '@rollup/rollup-linux-arm-gnueabihf@4.19.0':
     resolution: {integrity: sha512-2Rn36Ubxdv32NUcfm0wB1tgKqkQuft00PtM23VqLuCUR4N5jcNWDoV5iBC9jeGdgS38WK66ElncprqgMUOyomw==}
-    cpu: [arm]
-    os: [linux]
-
-  '@rollup/rollup-linux-arm-musleabihf@4.18.1':
-    resolution: {integrity: sha512-5RnjpACoxtS+aWOI1dURKno11d7krfpGDEn19jI8BuWmSBbUC4ytIADfROM1FZrFhQPSoP+KEa3NlEScznBTyQ==}
     cpu: [arm]
     os: [linux]
 
@@ -3009,18 +2947,8 @@ packages:
     cpu: [arm]
     os: [linux]
 
-  '@rollup/rollup-linux-arm64-gnu@4.18.1':
-    resolution: {integrity: sha512-8mwmGD668m8WaGbthrEYZ9CBmPug2QPGWxhJxh/vCgBjro5o96gL04WLlg5BA233OCWLqERy4YUzX3bJGXaJgQ==}
-    cpu: [arm64]
-    os: [linux]
-
   '@rollup/rollup-linux-arm64-gnu@4.19.0':
     resolution: {integrity: sha512-0EkX2HYPkSADo9cfeGFoQ7R0/wTKb7q6DdwI4Yn/ULFE1wuRRCHybxpl2goQrx4c/yzK3I8OlgtBu4xvted0ug==}
-    cpu: [arm64]
-    os: [linux]
-
-  '@rollup/rollup-linux-arm64-musl@4.18.1':
-    resolution: {integrity: sha512-dJX9u4r4bqInMGOAQoGYdwDP8lQiisWb9et+T84l2WXk41yEej8v2iGKodmdKimT8cTAYt0jFb+UEBxnPkbXEQ==}
     cpu: [arm64]
     os: [linux]
 
@@ -3029,19 +2957,9 @@ packages:
     cpu: [arm64]
     os: [linux]
 
-  '@rollup/rollup-linux-powerpc64le-gnu@4.18.1':
-    resolution: {integrity: sha512-V72cXdTl4EI0x6FNmho4D502sy7ed+LuVW6Ym8aI6DRQ9hQZdp5sj0a2usYOlqvFBNKQnLQGwmYnujo2HvjCxQ==}
-    cpu: [ppc64]
-    os: [linux]
-
   '@rollup/rollup-linux-powerpc64le-gnu@4.19.0':
     resolution: {integrity: sha512-N6cFJzssruDLUOKfEKeovCKiHcdwVYOT1Hs6dovDQ61+Y9n3Ek4zXvtghPPelt6U0AH4aDGnDLb83uiJMkWYzQ==}
     cpu: [ppc64]
-    os: [linux]
-
-  '@rollup/rollup-linux-riscv64-gnu@4.18.1':
-    resolution: {integrity: sha512-f+pJih7sxoKmbjghrM2RkWo2WHUW8UbfxIQiWo5yeCaCM0TveMEuAzKJte4QskBp1TIinpnRcxkquY+4WuY/tg==}
-    cpu: [riscv64]
     os: [linux]
 
   '@rollup/rollup-linux-riscv64-gnu@4.19.0':
@@ -3049,28 +2967,13 @@ packages:
     cpu: [riscv64]
     os: [linux]
 
-  '@rollup/rollup-linux-s390x-gnu@4.18.1':
-    resolution: {integrity: sha512-qb1hMMT3Fr/Qz1OKovCuUM11MUNLUuHeBC2DPPAWUYYUAOFWaxInaTwTQmc7Fl5La7DShTEpmYwgdt2hG+4TEg==}
-    cpu: [s390x]
-    os: [linux]
-
   '@rollup/rollup-linux-s390x-gnu@4.19.0':
     resolution: {integrity: sha512-D6pkaF7OpE7lzlTOFCB2m3Ngzu2ykw40Nka9WmKGUOTS3xcIieHe82slQlNq69sVB04ch73thKYIWz/Ian8DUA==}
     cpu: [s390x]
     os: [linux]
 
-  '@rollup/rollup-linux-x64-gnu@4.18.1':
-    resolution: {integrity: sha512-7O5u/p6oKUFYjRbZkL2FLbwsyoJAjyeXHCU3O4ndvzg2OFO2GinFPSJFGbiwFDaCFc+k7gs9CF243PwdPQFh5g==}
-    cpu: [x64]
-    os: [linux]
-
   '@rollup/rollup-linux-x64-gnu@4.19.0':
     resolution: {integrity: sha512-HBndjQLP8OsdJNSxpNIN0einbDmRFg9+UQeZV1eiYupIRuZsDEoeGU43NQsS34Pp166DtwQOnpcbV/zQxM+rWA==}
-    cpu: [x64]
-    os: [linux]
-
-  '@rollup/rollup-linux-x64-musl@4.18.1':
-    resolution: {integrity: sha512-pDLkYITdYrH/9Cv/Vlj8HppDuLMDUBmgsM0+N+xLtFd18aXgM9Nyqupb/Uw+HeidhfYg2lD6CXvz6CjoVOaKjQ==}
     cpu: [x64]
     os: [linux]
 
@@ -3079,29 +2982,14 @@ packages:
     cpu: [x64]
     os: [linux]
 
-  '@rollup/rollup-win32-arm64-msvc@4.18.1':
-    resolution: {integrity: sha512-W2ZNI323O/8pJdBGil1oCauuCzmVd9lDmWBBqxYZcOqWD6aWqJtVBQ1dFrF4dYpZPks6F+xCZHfzG5hYlSHZ6g==}
-    cpu: [arm64]
-    os: [win32]
-
   '@rollup/rollup-win32-arm64-msvc@4.19.0':
     resolution: {integrity: sha512-HxDMKIhmcguGTiP5TsLNolwBUK3nGGUEoV/BO9ldUBoMLBssvh4J0X8pf11i1fTV7WShWItB1bKAKjX4RQeYmg==}
     cpu: [arm64]
     os: [win32]
 
-  '@rollup/rollup-win32-ia32-msvc@4.18.1':
-    resolution: {integrity: sha512-ELfEX1/+eGZYMaCIbK4jqLxO1gyTSOIlZr6pbC4SRYFaSIDVKOnZNMdoZ+ON0mrFDp4+H5MhwNC1H/AhE3zQLg==}
-    cpu: [ia32]
-    os: [win32]
-
   '@rollup/rollup-win32-ia32-msvc@4.19.0':
     resolution: {integrity: sha512-xItlIAZZaiG/u0wooGzRsx11rokP4qyc/79LkAOdznGRAbOFc+SfEdfUOszG1odsHNgwippUJavag/+W/Etc6Q==}
     cpu: [ia32]
-    os: [win32]
-
-  '@rollup/rollup-win32-x64-msvc@4.18.1':
-    resolution: {integrity: sha512-yjk2MAkQmoaPYCSu35RLJ62+dz358nE83VfTePJRp8CG7aMg25mEJYpXFiD+NcevhX8LxD5OP5tktPXnXN7GDw==}
-    cpu: [x64]
     os: [win32]
 
   '@rollup/rollup-win32-x64-msvc@4.19.0':
@@ -4183,9 +4071,6 @@ packages:
 
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
-
-  ajv@8.14.0:
-    resolution: {integrity: sha512-oYs1UUtO97ZO2lJ4bwnWeQW8/zvOIQLGKcvPTsWmvc2SYgBb+upuNS5NxoLaMU4h8Ju3Nbj6Cq8mD2LQoqVKFA==}
 
   ajv@8.17.1:
     resolution: {integrity: sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==}
@@ -8843,8 +8728,8 @@ packages:
     resolution: {integrity: sha512-AWJm14H1vVaO/iNZ4/hO+HyaTehuy9nRqVdkTqlJt0HWvBiBIEXFmb4C0DGeYo3Xes9rrEW+TxHsaigCbN5ICQ==}
     engines: {node: '>=0.6'}
 
-  query-string@9.0.0:
-    resolution: {integrity: sha512-4EWwcRGsO2H+yzq6ddHcVqkCQ2EFUSfDMEjF8ryp8ReymyZhIuaFRGLomeOQLkrzacMHoyky2HW0Qe30UbzkKw==}
+  query-string@9.1.0:
+    resolution: {integrity: sha512-t6dqMECpCkqfyv2FfwVS1xcB6lgXW/0XZSaKdsCNGYkqMO76AFiJEg4vINzoDKcZa6MS7JX+OHIjwh06K5vczw==}
     engines: {node: '>=18'}
 
   querystring@0.2.1:
@@ -9281,11 +9166,6 @@ packages:
   rollup-pluginutils@2.8.2:
     resolution: {integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==}
 
-  rollup@4.18.1:
-    resolution: {integrity: sha512-Elx2UT8lzxxOXMpy5HWQGZqkrQOtrVDDa/bm9l10+U4rQnVzbL/LgZ4NOM1MPIDyHk69W4InuYDF5dzRh4Kw1A==}
-    engines: {node: '>=18.0.0', npm: '>=8.0.0'}
-    hasBin: true
-
   rollup@4.19.0:
     resolution: {integrity: sha512-5r7EYSQIowHsK4eTZ0Y81qpZuJz+MUuYeqmmYmRMl1nwhdmbiYqt5jwzf6u7wyOzJgYqtCRMtVRKOtHANBz7rA==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
@@ -9383,11 +9263,6 @@ packages:
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
-    hasBin: true
-
-  semver@7.6.2:
-    resolution: {integrity: sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==}
-    engines: {node: '>=10'}
     hasBin: true
 
   semver@7.6.3:
@@ -10019,30 +9894,6 @@ packages:
 
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
-
-  ts-jest@29.2.2:
-    resolution: {integrity: sha512-sSW7OooaKT34AAngP6k1VS669a0HdLxkQZnlC7T76sckGCokXFnvJ3yRlQZGRTAoV5K19HfSgCiSwWOSIfcYlg==}
-    engines: {node: ^14.15.0 || ^16.10.0 || ^18.0.0 || >=20.0.0}
-    hasBin: true
-    peerDependencies:
-      '@babel/core': '>=7.0.0-beta.0 <8'
-      '@jest/transform': ^29.0.0
-      '@jest/types': ^29.0.0
-      babel-jest: ^29.0.0
-      esbuild: '*'
-      jest: ^29.0.0
-      typescript: '>=4.3 <6'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@jest/transform':
-        optional: true
-      '@jest/types':
-        optional: true
-      babel-jest:
-        optional: true
-      esbuild:
-        optional: true
 
   ts-jest@29.2.3:
     resolution: {integrity: sha512-yCcfVdiBFngVz9/keHin9EnsrQtQtEu3nRykNy9RVp+FiPFFbPJ3Sg6Qg4+TkmH0vMP5qsTKgXSsk80HRwvdgQ==}
@@ -10891,24 +10742,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/helper-environment-visitor@7.24.6': {}
-
   '@babel/helper-environment-visitor@7.24.7':
     dependencies:
-      '@babel/types': 7.24.9
-
-  '@babel/helper-function-name@7.24.6':
-    dependencies:
-      '@babel/template': 7.24.7
       '@babel/types': 7.24.9
 
   '@babel/helper-function-name@7.24.7':
     dependencies:
       '@babel/template': 7.24.7
-      '@babel/types': 7.24.9
-
-  '@babel/helper-hoist-variables@7.24.6':
-    dependencies:
       '@babel/types': 7.24.9
 
   '@babel/helper-hoist-variables@7.24.7':
@@ -10977,10 +10817,6 @@ snapshots:
       '@babel/types': 7.24.9
     transitivePeerDependencies:
       - supports-color
-
-  '@babel/helper-split-export-declaration@7.24.6':
-    dependencies:
-      '@babel/types': 7.24.9
 
   '@babel/helper-split-export-declaration@7.24.7':
     dependencies:
@@ -11640,21 +11476,6 @@ snapshots:
       '@babel/parser': 7.24.8
       '@babel/types': 7.24.9
 
-  '@babel/traverse@7.24.6':
-    dependencies:
-      '@babel/code-frame': 7.24.7
-      '@babel/generator': 7.24.10
-      '@babel/helper-environment-visitor': 7.24.6
-      '@babel/helper-function-name': 7.24.6
-      '@babel/helper-hoist-variables': 7.24.6
-      '@babel/helper-split-export-declaration': 7.24.6
-      '@babel/parser': 7.24.8
-      '@babel/types': 7.24.9
-      debug: 4.3.5
-      globals: 11.12.0
-    transitivePeerDependencies:
-      - supports-color
-
   '@babel/traverse@7.24.8':
     dependencies:
       '@babel/code-frame': 7.24.7
@@ -12127,10 +11948,11 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@cultureamp/frontend-apis@9.6.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4)':
+  '@cultureamp/frontend-apis@9.7.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4)':
     dependencies:
       '@cultureamp/fetch-sgw': 2.0.4(@cultureamp/fetch@4.0.2(encoding@0.1.13))(encoding@0.1.13)
       '@cultureamp/frontend-env': 2.1.2
+      '@cultureamp/next-head-hook': 1.1.11(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.6.0(openapi-types@12.1.3)
       '@tanstack/react-query': 5.51.11(react@18.3.1)
@@ -12143,6 +11965,7 @@ snapshots:
       js-yaml: 4.1.0
       jsrsasign: 11.1.0
       msw: 2.2.14(typescript@5.5.4)
+      next: 14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
       openapi-types: 12.1.3
       openapi-typescript: 6.7.6
       react: 18.3.1
@@ -12151,9 +11974,6 @@ snapshots:
       url-parse: 1.5.10
       uuid: 9.0.1
       yargs: 17.7.2
-    optionalDependencies:
-      '@cultureamp/next-head-hook': 1.1.11(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))
-      next: 14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -12165,28 +11985,27 @@ snapshots:
     dependencies:
       chromatic: 9.1.0
 
-  '@cultureamp/i18n-react-intl@2.5.8(@cultureamp/frontend-apis@9.6.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4))(encoding@0.1.13)(eslint@8.57.0)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))(typescript@5.5.4)':
+  '@cultureamp/i18n-react-intl@2.5.9(@cultureamp/frontend-apis@9.7.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4))(encoding@0.1.13)(eslint@8.57.0)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))(typescript@5.5.4)':
     dependencies:
       '@calm/eslint-plugin-react-intl': 1.4.1
-      '@cultureamp/frontend-apis': 9.6.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4)
+      '@cultureamp/frontend-apis': 9.7.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4)
       '@cultureamp/frontend-env': 2.1.2
       '@formatjs/cli': 6.2.12
-      '@formatjs/cli-lib': 6.4.2(ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))
-      babel-plugin-formatjs: 10.5.16(ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))
+      '@formatjs/cli-lib': 6.4.2(ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))
+      babel-plugin-formatjs: 10.5.16(ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))
       date-fns: 3.6.0
-      eslint-plugin-formatjs: 4.13.3(eslint@8.57.0)(ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))
+      eslint-plugin-formatjs: 4.13.3(eslint@8.57.0)(ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))
       fast-glob: 3.3.2
       form-data: 4.0.0
       intl-messageformat: 10.5.14
       isomorphic-resolve: 1.0.0
       json-stable-stringify: 1.1.1
       limiter-es6-compat: 2.1.2
+      next: 14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
       react: 18.3.1
       react-intl: 6.6.8(react@18.3.1)(typescript@5.5.4)
       smartling-api-sdk-nodejs: 2.11.0(encoding@0.1.13)
       yargs: 17.7.2
-    optionalDependencies:
-      next: 14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
     transitivePeerDependencies:
       - '@glimmer/env'
       - '@glimmer/reference'
@@ -12206,7 +12025,6 @@ snapshots:
     dependencies:
       next: 14.2.3(@babel/core@7.24.9)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
       react: 18.3.1
-    optional: true
 
   '@cultureamp/redirect-to-login@2.0.3': {}
 
@@ -12387,10 +12205,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.2': {}
 
-  '@formatjs/cli-lib@6.4.2(ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))':
+  '@formatjs/cli-lib@6.4.2(ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))':
     dependencies:
       '@formatjs/icu-messageformat-parser': 2.7.8
-      '@formatjs/ts-transformer': 3.13.14(ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))
+      '@formatjs/ts-transformer': 3.13.14(ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))
       '@types/estree': 1.0.5
       '@types/fs-extra': 9.0.13
       '@types/json-stable-stringify': 1.0.36
@@ -12456,7 +12274,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.5.4
 
-  '@formatjs/ts-transformer@3.13.14(ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))':
+  '@formatjs/ts-transformer@3.13.14(ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))':
     dependencies:
       '@formatjs/icu-messageformat-parser': 2.7.8
       '@types/json-stable-stringify': 1.0.36
@@ -12466,7 +12284,7 @@ snapshots:
       tslib: 2.6.3
       typescript: 5.5.4
     optionalDependencies:
-      ts-jest: 29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4)
+      ts-jest: 29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4)
 
   '@gar/promisify@1.1.3': {}
 
@@ -12502,7 +12320,7 @@ snapshots:
 
   '@inquirer/core@9.0.2':
     dependencies:
-      '@inquirer/figures': 1.0.3
+      '@inquirer/figures': 1.0.5
       '@inquirer/type': 1.4.0
       '@types/mute-stream': 0.0.4
       '@types/node': 20.14.12
@@ -12515,8 +12333,6 @@ snapshots:
       strip-ansi: 6.0.1
       wrap-ansi: 6.2.0
       yoctocolors-cjs: 2.1.2
-
-  '@inquirer/figures@1.0.3': {}
 
   '@inquirer/figures@1.0.5': {}
 
@@ -12788,8 +12604,7 @@ snapshots:
       outvariant: 1.4.2
       strict-event-emitter: 0.5.1
 
-  '@next/env@14.2.3':
-    optional: true
+  '@next/env@14.2.3': {}
 
   '@next/swc-darwin-arm64@14.2.3':
     optional: true
@@ -13888,12 +13703,12 @@ snapshots:
       '@react-types/shared': 3.24.1(react@18.3.1)
       react: 18.3.1
 
-  '@readme/better-ajv-errors@1.6.0(ajv@8.14.0)':
+  '@readme/better-ajv-errors@1.6.0(ajv@8.17.1)':
     dependencies:
       '@babel/code-frame': 7.24.7
       '@babel/runtime': 7.24.8
       '@humanwhocodes/momoa': 2.0.4
-      ajv: 8.14.0
+      ajv: 8.17.1
       chalk: 4.1.2
       json-to-ast: 2.1.0
       jsonpointer: 5.0.1
@@ -13910,11 +13725,11 @@ snapshots:
     dependencies:
       '@apidevtools/swagger-methods': 3.0.2
       '@jsdevtools/ono': 7.1.3
-      '@readme/better-ajv-errors': 1.6.0(ajv@8.14.0)
+      '@readme/better-ajv-errors': 1.6.0(ajv@8.17.1)
       '@readme/json-schema-ref-parser': 1.2.0
       '@readme/openapi-schemas': 3.1.0
-      ajv: 8.14.0
-      ajv-draft-04: 1.0.0(ajv@8.14.0)
+      ajv: 8.17.1
+      ajv-draft-04: 1.0.0(ajv@8.17.1)
       call-me-maybe: 1.0.2
       openapi-types: 12.1.3
 
@@ -13976,97 +13791,49 @@ snapshots:
     optionalDependencies:
       rollup: 4.19.0
 
-  '@rollup/rollup-android-arm-eabi@4.18.1':
-    optional: true
-
   '@rollup/rollup-android-arm-eabi@4.19.0':
-    optional: true
-
-  '@rollup/rollup-android-arm64@4.18.1':
     optional: true
 
   '@rollup/rollup-android-arm64@4.19.0':
     optional: true
 
-  '@rollup/rollup-darwin-arm64@4.18.1':
-    optional: true
-
   '@rollup/rollup-darwin-arm64@4.19.0':
-    optional: true
-
-  '@rollup/rollup-darwin-x64@4.18.1':
     optional: true
 
   '@rollup/rollup-darwin-x64@4.19.0':
     optional: true
 
-  '@rollup/rollup-linux-arm-gnueabihf@4.18.1':
-    optional: true
-
   '@rollup/rollup-linux-arm-gnueabihf@4.19.0':
-    optional: true
-
-  '@rollup/rollup-linux-arm-musleabihf@4.18.1':
     optional: true
 
   '@rollup/rollup-linux-arm-musleabihf@4.19.0':
     optional: true
 
-  '@rollup/rollup-linux-arm64-gnu@4.18.1':
-    optional: true
-
   '@rollup/rollup-linux-arm64-gnu@4.19.0':
-    optional: true
-
-  '@rollup/rollup-linux-arm64-musl@4.18.1':
     optional: true
 
   '@rollup/rollup-linux-arm64-musl@4.19.0':
     optional: true
 
-  '@rollup/rollup-linux-powerpc64le-gnu@4.18.1':
-    optional: true
-
   '@rollup/rollup-linux-powerpc64le-gnu@4.19.0':
-    optional: true
-
-  '@rollup/rollup-linux-riscv64-gnu@4.18.1':
     optional: true
 
   '@rollup/rollup-linux-riscv64-gnu@4.19.0':
     optional: true
 
-  '@rollup/rollup-linux-s390x-gnu@4.18.1':
-    optional: true
-
   '@rollup/rollup-linux-s390x-gnu@4.19.0':
-    optional: true
-
-  '@rollup/rollup-linux-x64-gnu@4.18.1':
     optional: true
 
   '@rollup/rollup-linux-x64-gnu@4.19.0':
     optional: true
 
-  '@rollup/rollup-linux-x64-musl@4.18.1':
-    optional: true
-
   '@rollup/rollup-linux-x64-musl@4.19.0':
-    optional: true
-
-  '@rollup/rollup-win32-arm64-msvc@4.18.1':
     optional: true
 
   '@rollup/rollup-win32-arm64-msvc@4.19.0':
     optional: true
 
-  '@rollup/rollup-win32-ia32-msvc@4.18.1':
-    optional: true
-
   '@rollup/rollup-win32-ia32-msvc@4.19.0':
-    optional: true
-
-  '@rollup/rollup-win32-x64-msvc@4.18.1':
     optional: true
 
   '@rollup/rollup-win32-x64-msvc@4.19.0':
@@ -14625,7 +14392,6 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
       tslib: 2.6.3
-    optional: true
 
   '@swc/jest@0.2.36(@swc/core@1.7.0(@swc/helpers@0.5.11))':
     dependencies:
@@ -14777,13 +14543,13 @@ snapshots:
 
   '@types/chalk@2.2.0':
     dependencies:
-      chalk: 2.4.2
+      chalk: 5.3.0
 
   '@types/color-string@1.5.5': {}
 
   '@types/commander@2.12.2':
     dependencies:
-      commander: 4.1.1
+      commander: 9.5.0
 
   '@types/concat-stream@2.0.3':
     dependencies:
@@ -14850,7 +14616,7 @@ snapshots:
 
   '@types/fs-extra@9.0.13':
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 20.14.12
 
   '@types/graceful-fs@4.1.9':
     dependencies:
@@ -15391,9 +15157,9 @@ snapshots:
       clean-stack: 4.2.0
       indent-string: 5.0.0
 
-  ajv-draft-04@1.0.0(ajv@8.14.0):
+  ajv-draft-04@1.0.0(ajv@8.17.1):
     optionalDependencies:
-      ajv: 8.14.0
+      ajv: 8.17.1
 
   ajv-formats@2.1.1(ajv@8.17.1):
     optionalDependencies:
@@ -15413,13 +15179,6 @@ snapshots:
       fast-deep-equal: 3.1.3
       fast-json-stable-stringify: 2.1.0
       json-schema-traverse: 0.4.1
-      uri-js: 4.4.1
-
-  ajv@8.14.0:
-    dependencies:
-      fast-deep-equal: 3.1.3
-      json-schema-traverse: 1.0.0
-      require-from-string: 2.0.2
       uri-js: 4.4.1
 
   ajv@8.17.1:
@@ -15660,15 +15419,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  babel-plugin-formatjs@10.5.16(ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4)):
+  babel-plugin-formatjs@10.5.16(ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4)):
     dependencies:
       '@babel/core': 7.24.9
       '@babel/helper-plugin-utils': 7.24.8
       '@babel/plugin-syntax-jsx': 7.24.7(@babel/core@7.24.9)
-      '@babel/traverse': 7.24.6
+      '@babel/traverse': 7.24.8
       '@babel/types': 7.24.9
       '@formatjs/icu-messageformat-parser': 2.7.8
-      '@formatjs/ts-transformer': 3.13.14(ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))
+      '@formatjs/ts-transformer': 3.13.14(ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))
       '@types/babel__core': 7.20.5
       '@types/babel__helper-plugin-utils': 7.10.3
       '@types/babel__traverse': 7.20.6
@@ -15843,7 +15602,6 @@ snapshots:
   busboy@1.6.0:
     dependencies:
       streamsearch: 1.1.0
-    optional: true
 
   bytes@3.1.2: {}
 
@@ -16170,8 +15928,7 @@ snapshots:
 
   commander@8.3.0: {}
 
-  commander@9.5.0:
-    optional: true
+  commander@9.5.0: {}
 
   commondir@1.0.1: {}
 
@@ -16996,10 +16753,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-formatjs@4.13.3(eslint@8.57.0)(ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4)):
+  eslint-plugin-formatjs@4.13.3(eslint@8.57.0)(ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4)):
     dependencies:
       '@formatjs/icu-messageformat-parser': 2.7.8
-      '@formatjs/ts-transformer': 3.13.14(ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))
+      '@formatjs/ts-transformer': 3.13.14(ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4))
       '@types/eslint': 8.56.10
       '@types/picomatch': 2.3.3
       '@typescript-eslint/utils': 6.21.0(eslint@8.57.0)(typescript@5.5.4)
@@ -19819,7 +19576,6 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
-    optional: true
 
   no-case@3.0.4:
     dependencies:
@@ -20929,7 +20685,6 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.0.1
       source-map-js: 1.2.0
-    optional: true
 
   postcss@8.4.39:
     dependencies:
@@ -21084,7 +20839,7 @@ snapshots:
     dependencies:
       side-channel: 1.0.6
 
-  query-string@9.0.0:
+  query-string@9.1.0:
     dependencies:
       decode-uri-component: 0.4.1
       filter-obj: 5.1.0
@@ -21697,28 +21452,6 @@ snapshots:
     dependencies:
       estree-walker: 0.6.1
 
-  rollup@4.18.1:
-    dependencies:
-      '@types/estree': 1.0.5
-    optionalDependencies:
-      '@rollup/rollup-android-arm-eabi': 4.18.1
-      '@rollup/rollup-android-arm64': 4.18.1
-      '@rollup/rollup-darwin-arm64': 4.18.1
-      '@rollup/rollup-darwin-x64': 4.18.1
-      '@rollup/rollup-linux-arm-gnueabihf': 4.18.1
-      '@rollup/rollup-linux-arm-musleabihf': 4.18.1
-      '@rollup/rollup-linux-arm64-gnu': 4.18.1
-      '@rollup/rollup-linux-arm64-musl': 4.18.1
-      '@rollup/rollup-linux-powerpc64le-gnu': 4.18.1
-      '@rollup/rollup-linux-riscv64-gnu': 4.18.1
-      '@rollup/rollup-linux-s390x-gnu': 4.18.1
-      '@rollup/rollup-linux-x64-gnu': 4.18.1
-      '@rollup/rollup-linux-x64-musl': 4.18.1
-      '@rollup/rollup-win32-arm64-msvc': 4.18.1
-      '@rollup/rollup-win32-ia32-msvc': 4.18.1
-      '@rollup/rollup-win32-x64-msvc': 4.18.1
-      fsevents: 2.3.3
-
   rollup@4.19.0:
     dependencies:
       '@types/estree': 1.0.5
@@ -21828,8 +21561,6 @@ snapshots:
   semver@5.7.2: {}
 
   semver@6.3.1: {}
-
-  semver@7.6.2: {}
 
   semver@7.6.3: {}
 
@@ -22112,8 +21843,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  streamsearch@1.1.0:
-    optional: true
+  streamsearch@1.1.0: {}
 
   strict-event-emitter@0.5.1: {}
 
@@ -22267,7 +21997,6 @@ snapshots:
     optionalDependencies:
       '@babel/core': 7.24.9
       babel-plugin-macros: 3.1.0
-    optional: true
 
   stylehacks@5.1.1(postcss@8.4.39):
     dependencies:
@@ -22645,26 +22374,6 @@ snapshots:
   ts-dedent@2.2.0: {}
 
   ts-interface-checker@0.1.13: {}
-
-  ts-jest@29.2.2(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4):
-    dependencies:
-      bs-logger: 0.2.6
-      ejs: 3.1.10
-      fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4))
-      jest-util: 29.7.0
-      json5: 2.2.3
-      lodash.memoize: 4.1.2
-      make-error: 1.3.6
-      semver: 7.6.2
-      typescript: 5.5.4
-      yargs-parser: 21.1.1
-    optionalDependencies:
-      '@babel/core': 7.24.9
-      '@jest/transform': 29.7.0
-      '@jest/types': 29.6.3
-      babel-jest: 29.7.0(@babel/core@7.24.9)
-      esbuild: 0.21.5
 
   ts-jest@29.2.3(@babel/core@7.24.9)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.9))(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.12)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.11))(@types/node@20.14.12)(typescript@5.5.4)))(typescript@5.5.4):
     dependencies:
