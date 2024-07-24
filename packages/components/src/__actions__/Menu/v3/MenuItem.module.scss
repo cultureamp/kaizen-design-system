@@ -25,7 +25,8 @@
 .item[data-focused] {
   background-color: var(--color-blue-100);
   color: var(--color-blue-500);
-  border-color: var(--border-borderless-border-color);
+  outline: none;
+  border-color: var(--color-blue-500);
 }
 
 .item[data-disabled] {

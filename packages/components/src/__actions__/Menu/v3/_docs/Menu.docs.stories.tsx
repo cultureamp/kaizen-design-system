@@ -33,8 +33,8 @@ const DefaultMenuItems = (): ReactNode => (
   <>
     <MenuItem icon={<BookmarkOffIcon role="presentation" />}>Save</MenuItem>
     <MenuItem icon={<EditIcon role="presentation" />}>Edit</MenuItem>
-    <MenuItem icon={<ArrowUpIcon role="presentation" />}>Move Up</MenuItem>
-    <MenuItem icon={<ArrowDownIcon role="presentation" />}>Move Down</MenuItem>
+    <MenuItem icon={<ArrowUpIcon role="presentation" />}>Move up</MenuItem>
+    <MenuItem icon={<ArrowDownIcon role="presentation" />}>Move down</MenuItem>
     <MenuItem icon={<TrashIcon role="presentation" />}>Delete</MenuItem>
   </>
 )

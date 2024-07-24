@@ -1,5 +1,19 @@
 # Change Log
 
+## 1.56.0
+
+### Minor Changes
+
+- [#4782](https://github.com/cultureamp/kaizen-design-system/pull/4782) [`57355d8e440b8d248faeaedbd8e57cfaff3c50a3`](https://github.com/cultureamp/kaizen-design-system/commit/57355d8e440b8d248faeaedbd8e57cfaff3c50a3) - v3 Menu component
+
+- [#4805](https://github.com/cultureamp/kaizen-design-system/pull/4805) [`7d343c39f708886f8608176d485b46e20eda1fdd`](https://github.com/cultureamp/kaizen-design-system/commit/7d343c39f708886f8608176d485b46e20eda1fdd) - Migrate and version Button to actions group, and create initial build of V3 Button component
+
+### Patch Changes
+
+- [#4864](https://github.com/cultureamp/kaizen-design-system/pull/4864) [`725f8f7c0ba53a4345f38cd7b1d757c53a21604e`](https://github.com/cultureamp/kaizen-design-system/commit/725f8f7c0ba53a4345f38cd7b1d757c53a21604e) - Updated minor and patch dependencies
+
+- [#4861](https://github.com/cultureamp/kaizen-design-system/pull/4861) [`a4565547c9ae510a7ccb512c6713a6401257693e`](https://github.com/cultureamp/kaizen-design-system/commit/a4565547c9ae510a7ccb512c6713a6401257693e) - Fix focus ring styling on MenuItems (v3)
+
 ## 1.55.2
 
 ### Patch Changes
