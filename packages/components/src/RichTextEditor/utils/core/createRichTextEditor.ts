@@ -31,6 +31,8 @@ export const createRichTextEditor = ({
   attributes,
   isEditable = () => true,
 }: EditorArgs): EditorAPI => {
+  let editorView: ProseMirrorEditorView | null = null
+
   // Handle transactions eminating from the EditorView instance
   const dispatch = (tx: Transaction): void => {
     const newEditorState = editorView && editorView.state.apply(tx)
@@ -52,7 +54,7 @@ export const createRichTextEditor = ({
     }
   }
 
-  const editorView = new ProseMirrorEditorView(node, {
+  editorView = new ProseMirrorEditorView(node, {
     state: initialEditorState,
     dispatchTransaction: dispatchCommandOrTransaction,
     attributes,
