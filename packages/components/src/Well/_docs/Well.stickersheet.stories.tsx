@@ -6,7 +6,11 @@ import {
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { Well, WellProps } from "../index"
+<<<<<<< HEAD
 import { borderStyleTypes, wellColors, variantTypes } from "../types"
+=======
+import { borderStyleTypes, wellColors } from "../types"
+>>>>>>> 0e78978d6 (Deprecate Well variant and update prop to color)
 
 export default {
   title: "Components/Well",
@@ -36,14 +40,10 @@ const StickerSheetTemplate: StickerSheetStory = {
           hasVerticalHeadings
         />
         <StickerSheet.Body>
-          {variantTypes.map(variant => (
-            <StickerSheet.Row key={variant} rowTitle={variant}>
+          {wellColors.map(color => (
+            <StickerSheet.Row key={color} rowTitle={color}>
               {borderStyleTypes.map(border => (
-                <WellWrapped
-                  key={border}
-                  variant={variant}
-                  borderStyle={border}
-                />
+                <WellWrapped key={border} color={color} borderStyle={border} />
               ))}
             </StickerSheet.Row>
           ))}
