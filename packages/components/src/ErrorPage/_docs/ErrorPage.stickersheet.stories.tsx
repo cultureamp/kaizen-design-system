@@ -4,7 +4,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { ErrorPage, ErrorPageProps } from "../ErrorPage"
+import { ErrorPage } from "../ErrorPage"
 
 export default {
   title: "Pages/Error Page",
@@ -30,34 +30,16 @@ export default {
   },
 } satisfies Meta
 
-const ERROR_CODES = [
-  "400",
-  "401",
-  "403",
-  "404",
-  "422",
-  "500",
-  "502",
-  "503",
-  "504",
-] satisfies Array<ErrorPageProps["code"]>
-
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
-      {ERROR_CODES.map(code => (
-        <StickerSheet
-          key={code}
-          heading={`Error ${code}`}
-          isReversed={isReversed}
-        >
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <ErrorPage code={code} />
-            </StickerSheet.Row>
-          </StickerSheet.Body>
-        </StickerSheet>
-      ))}
+      <StickerSheet heading="ErrorPage" isReversed={isReversed}>
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <ErrorPage code="400" />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
 
       <StickerSheet heading="Custom error" isReversed={isReversed}>
         <StickerSheet.Body>
