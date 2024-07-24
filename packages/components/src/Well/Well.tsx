@@ -1,12 +1,16 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { WellBorderStyleType, WellVariantType } from "./types"
+import { WellBorderStyleType, WellVariantType, WellColorType } from "./types"
 import styles from "./Well.module.scss"
 
 export type WellProps = {
   children?: React.ReactNode
+  /** @deprecated Use matching `color` prop instead */
   variant?: WellVariantType
+  /** @default `white` */
+  color?: WellColorType
+  /** @default `solid` */
   borderStyle?: WellBorderStyleType
   noMargin?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
@@ -17,7 +21,8 @@ export type WellProps = {
  */
 export const Well = ({
   children,
-  variant = "default",
+  variant,
+  color = "white",
   borderStyle = "solid",
   noMargin = false,
   classNameOverride,
@@ -27,7 +32,8 @@ export const Well = ({
     className={classnames(
       styles.container,
       styles[borderStyle],
-      styles[variant],
+      styles[color],
+      variant && styles[variant],
       noMargin && styles.noMargin,
       classNameOverride
     )}

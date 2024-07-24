@@ -12,7 +12,55 @@
   margin: 0;
 }
 
-// Background Style Variations
+.white {
+  background-color: $color-white;
+  border-color: $color-gray-500;
+  color: $color-purple-800;
+}
+
+.gray {
+  background-color: $color-gray-200;
+  border-color: $color-gray-500;
+  color: $color-purple-800;
+}
+
+.blue {
+  background-color: $color-blue-100;
+  border-color: $color-blue-400;
+  color: $color-purple-800;
+}
+
+.yellow {
+  background-color: $color-yellow-100;
+  border-color: $color-yellow-700;
+  color: $color-purple-800;
+}
+
+.orange {
+  background-color: $color-orange-100;
+  border-color: $color-orange-600;
+  color: $color-purple-800;
+}
+
+.red {
+  background-color: $color-red-100;
+  border-color: $color-red-500;
+  color: $color-purple-800;
+}
+
+.green {
+  background-color: $color-green-100;
+  border-color: $color-green-500;
+  color: $color-purple-800;
+}
+
+.purple {
+  background-color: $color-purple-100;
+  border-color: $color-purple-400;
+  color: $color-purple-800;
+}
+
+// These are @deprecated but must come after `color` so not everything will default to white
 .default {
   background-color: var(--color-gray-200);
   border-color: $color-gray-500;
@@ -53,6 +101,8 @@
   border-color: $color-purple-400;
   color: $color-purple-800;
 }
+
+// @deprecated end
 
 // Border Style Variations
 .solid {

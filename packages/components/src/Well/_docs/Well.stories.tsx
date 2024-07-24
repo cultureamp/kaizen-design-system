@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Heading } from "~components/Heading"
 import { Text } from "~components/Text"
 import { Well } from "../index"
-import { borderStyleTypes, variantTypes } from "../types"
+import { borderStyleTypes, wellColors } from "../types"
 
 const meta = {
   title: "Components/Well",
@@ -37,15 +37,15 @@ export const Playground: Story = {
   },
 }
 
-export const Variants: Story = {
+export const Colors: Story = {
   render: args => (
     <>
-      {variantTypes.map(variant => (
+      {wellColors.map(color => (
         <>
           <Heading tag="h3" variant="heading-6">
-            {variant}
+            {color}
           </Heading>
-          <Well variant={variant} {...args} />
+          <Well color={color} {...args} />
         </>
       ))}
     </>
@@ -86,6 +86,19 @@ export const NoMargin: Story = {
           <Well {...args} />
         </div>
       </div>
+    </>
+  ),
+}
+
+export const TestDeprecatedCompatibility: Story = {
+  render: () => (
+    <>
+      <>
+        <Well variant="prominent">
+          <code>variant</code> is deprecated but should still supersede color
+          default <code>white</code> to allow gradual migration
+        </Well>
+      </>
     </>
   ),
 }
