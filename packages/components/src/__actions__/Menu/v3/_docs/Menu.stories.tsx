@@ -42,10 +42,10 @@ export const Playground: Story = {
           </MenuItem>
           <MenuItem icon={<EditIcon role="presentation" />}>Edit</MenuItem>
           <MenuItem icon={<ArrowUpIcon role="presentation" />}>
-            Move Up
+            Move up
           </MenuItem>
           <MenuItem icon={<ArrowDownIcon role="presentation" />}>
-            Move Down
+            Move down
           </MenuItem>
           <MenuItem icon={<TrashIcon role="presentation" />}>Delete</MenuItem>
         </Menu>
