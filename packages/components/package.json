@@ -118,8 +118,7 @@
   "devDependenciesComments": {
     "postcss": "Installed in root",
     "postcss-cli": "Installed in root",
-    "postcss-preset-env": "Installed in root",
-    "react-day-picker": "Pinned to v8, v9 causes typescript errors"
+    "postcss-preset-env": "Installed in root"
   },
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.5.8",
