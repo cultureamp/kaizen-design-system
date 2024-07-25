@@ -4,44 +4,43 @@
 
 .wrapper {
   color: $color-purple-800;
-  border-style: solid;
-  border-width: $border-width-1;
+  border: var(--border-width-1) solid;
   border-radius: $border-borderless-border-radius;
   box-shadow: $shadow-small-box-shadow;
 }
 
 .default {
-  border-color: $color-gray-500;
-  background-color: $color-white;
+  border-color: var(--color-gray-500);
+  background-color: var(--color-white);
 }
 
 .informative {
-  border-color: $color-blue-400;
+  border-color: var(--color-blue-400);
   background-color: $color-blue-100;
 }
 
 .positive {
-  border-color: $color-green-500;
+  border-color: var(--color-green-500);
   background-color: $color-green-100;
 }
 
 .cautionary {
-  border-color: $color-yellow-700;
+  border-color: var(--color-yellow-700);
   background-color: $color-yellow-100;
 }
 
-.destructive{
-  border-color: $color-red-500;
+.destructive {
+  border-color: var(--color-red-500);
   background-color: $color-red-100;
 }
 
 .assertive {
-  border-color: $color-orange-600;
+  border-color: var(--color-orange-600);
   background-color: $color-orange-100;
 }
 
 .highlight {
-  border-color: $color-purple-400;
+  border-color: var(--color-purple-400);
   background-color: $color-purple-100;
 }
 

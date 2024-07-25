@@ -13,10 +13,10 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
   text-align: start;
   background-color: $color-white;
   border: none;
-  border-radius: $border-borderless-border-radius;
+  border-radius: var(--border-borderless-border-radius);
   transition: background-color $animation-duration-rapid;
-  padding-block: $spacing-12;
-  padding-inline: $spacing-24 $spacing-12;
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-24) var(--spacing-12);
 
   &:hover {
     background-color: $heading-active-color;
@@ -35,7 +35,8 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 .container {
   background-color: $color-white;
   box-shadow: $shadow-small-box-shadow;
-  border: $border-width-1 $border-solid-border-style $color-gray-500;
+  border: var(--border-width-1) var(--border-solid-border-style)
+    var(--color-gray-500);
   border-radius: $border-borderless-border-radius;
 }
 

@@ -38,8 +38,7 @@ $scene-illustration-size: 300px;
   gap: $spacing-sm;
   min-width: 320px;
   max-width: $layout-breakpoints-large;
-  border-width: $border-width-1;
-  border-style: $border-solid-border-style;
+  border: var(--border-width-1) var(--border-solid-border-style);
   border-radius: $border-solid-border-radius;
   padding: $bannerPadding;
   box-shadow: $shadow-small-box-shadow;
@@ -214,33 +213,33 @@ $scene-illustration-size: 300px;
 }
 
 .default {
-  border-color: $color-gray-500;
-  background: $color-white;
+  border-color: var(--color-gray-500);
+  background: var(--color-white);
 }
 
 .positive {
-  border-color: $color-green-500;
+  border-color: var(--color-green-500);
   background: $color-green-100;
 }
 
 .negative,
 .assertive {
-  border-color: $color-red-500;
+  border-color: var(--color-red-500);
   background: $color-red-100;
 }
 
 .informative {
-  border-color: $color-blue-400;
+  border-color: var(--color-blue-400);
   background: $color-blue-100;
 }
 
 .cautionary {
-  border-color: $color-yellow-700;
+  border-color: var(--color-yellow-700);
   background: $color-yellow-100;
 }
 
 .prominent {
-  border-color: $color-purple-400;
+  border-color: var(--color-purple-400);
   background: $color-purple-100;
 }
 

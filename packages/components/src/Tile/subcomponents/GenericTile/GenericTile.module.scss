@@ -45,7 +45,7 @@ $tilePaddingTop: $spacing-xl;
 .face {
   position: absolute;
   background-color: $color-white;
-  border: $border-width-1 $border-solid-border-style;
+  border: var(--border-width-1) var(--border-solid-border-style);
   border-radius: 7px;
   box-sizing: border-box;
   display: flex;
@@ -62,40 +62,40 @@ $tilePaddingTop: $spacing-xl;
 
 .faceFront {
   justify-content: space-between;
-  border-color: $color-gray-500;
+  border-color: var(--color-gray-500);
   padding: $tilePaddingTop $spacing-md $spacing-md;
 }
 
 .faceBack {
   padding-top: $tilePaddingTop;
   transform: rotateY(180deg);
-  border-color: $color-blue-400;
+  border-color: var(--color-blue-400);
   background-color: $color-blue-100;
 }
 
 .faceMoodPositive {
-  border-color: $color-green-500;
+  border-color: var(--color-green-500);
   background-color: $color-green-100;
 }
 
 .faceMoodInformative {
-  border-color: $color-blue-400;
+  border-color: var(--color-blue-400);
   background-color: $color-blue-100;
 }
 
 .faceMoodCautionary {
-  border-color: $color-yellow-700;
+  border-color: var(--color-yellow-700);
   background-color: $color-yellow-100;
 }
 
 .faceMoodNegative,
 .faceMoodAssertive {
-  border-color: $color-red-500;
+  border-color: var(--color-red-500);
   background-color: $color-red-100;
 }
 
 .faceMoodProminent {
-  border-color: $color-purple-400;
+  border-color: var(--color-purple-400);
   background-color: $color-purple-100;
 }
 

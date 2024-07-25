@@ -22,7 +22,7 @@
   font-weight: $typography-paragraph-body-font-weight;
   letter-spacing: $typography-paragraph-body-letter-spacing;
   line-height: $typography-paragraph-small-line-height;
-  border: $border-width-1 $border-solid-border-style;
+  border: var(--border-width-1) var(--border-solid-border-style);
   border-radius: $border-solid-border-radius;
   transition:
     opacity $animation-duration-fast,
@@ -31,27 +31,27 @@
 
   &.default {
     background-color: $color-white;
-    border-color: $color-gray-500;
+    border-color: var(--color-gray-500);
   }
 
   &.informative {
     background-color: $color-blue-100;
-    border-color: $color-blue-400;
+    border-color: var(--color-blue-400);
   }
 
   &.positive {
     background-color: $color-green-100;
-    border-color: $color-green-500;
+    border-color: var(--color-green-500);
   }
 
   &.cautionary {
     background-color: $color-yellow-100;
-    border-color: $color-yellow-700;
+    border-color: var(--color-yellow-700);
   }
 
   &.highlight {
     background-color: $color-purple-100;
-    border-color: $color-purple-400;
+    border-color: var(--color-purple-400);
   }
 }
 
@@ -108,23 +108,23 @@
 .arrowMain {
   // before styles
   &.default::before {
-    border-top: $arrow-height solid $color-gray-500;
+    border-top: $arrow-height solid var(--color-gray-500);
   }
 
   &.informative::before {
-    border-top: $arrow-height solid $color-blue-400;
+    border-top: $arrow-height solid var(--color-blue-400);
   }
 
   &.positive::before {
-    border-top: $arrow-height solid $color-green-500;
+    border-top: $arrow-height solid var(--color-green-500);
   }
 
   &.highlight::before {
-    border-top: $arrow-height solid $color-purple-400;
+    border-top: $arrow-height solid var(--color-purple-400);
   }
 
   &.cautionary::before {
-    border-top: $arrow-height solid $color-yellow-700;
+    border-top: $arrow-height solid var(--color-yellow-700);
   }
   // after styles
   &::after {

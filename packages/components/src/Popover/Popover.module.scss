@@ -44,7 +44,7 @@ $large-width: 450px;
 }
 
 %box {
-  border: $border-width-1 $border-solid-border-style;
+  border: var(--border-width-1) var(--border-solid-border-style);
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $border-solid-border-radius;
   color: $color-purple-800;
@@ -52,20 +52,20 @@ $large-width: 450px;
   padding: $spacing-sm 1rem 1rem;
 }
 
-$default-box-border-color: $color-gray-500;
+$default-box-border-color: var(--color-gray-500);
 
 .defaultBox {
   @extend %box;
 
-  background: $color-white;
+  background: var(--color-white);
   border-color: $default-box-border-color;
 }
 
 .defaultArrow {
-  @include arrow($color-white, $default-box-border-color);
+  @include arrow(var(--color-white), $default-box-border-color);
 }
 
-$informative-box-border-color: $color-blue-400;
+$informative-box-border-color: var(--color-blue-400);
 
 .informativeBox {
   @extend %box;
@@ -78,7 +78,7 @@ $informative-box-border-color: $color-blue-400;
   @include arrow($color-blue-100, $informative-box-border-color);
 }
 
-$positive-box-border-color: $color-green-500;
+$positive-box-border-color: var(--color-green-500);
 
 .positiveBox {
   @extend %box;
@@ -91,7 +91,7 @@ $positive-box-border-color: $color-green-500;
   @include arrow($color-green-100, $positive-box-border-color);
 }
 
-$negative-box-border-color: $color-red-500;
+$negative-box-border-color: var(--color-red-500);
 
 .negativeBox {
   @extend %box;
@@ -104,7 +104,7 @@ $negative-box-border-color: $color-red-500;
   @include arrow($color-red-100, $negative-box-border-color);
 }
 
-$cautionary-box-border-color: $color-yellow-700;
+$cautionary-box-border-color: var(--color-yellow-700);
 
 .cautionaryBox {
   @extend %box;
@@ -149,7 +149,7 @@ $cautionary-box-border-color: $color-yellow-700;
 }
 
 .cautionaryIcon {
-  color: $color-yellow-700;
+  color: var(--color-yellow-700);
 }
 
 .close {

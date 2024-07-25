@@ -9,8 +9,7 @@
   width: 100%;
   padding: 2% $spacing-md;
   color: $color-purple-800;
-  border-width: $border-width-1;
-  border-style: $border-solid-border-style;
+  border: var(--border-width-1) var(--border-solid-border-style);
   border-radius: $border-solid-border-radius;
 
   @include small {
@@ -40,23 +39,23 @@
   }
 
   &.positive {
-    border-color: $color-green-500;
+    border-color: var(--color-green-500);
     background-color: $color-green-100;
   }
 
   &.negative,
   &.action {
-    border-color: $color-red-500;
+    border-color: var(--color-red-500);
     background-color: $color-red-100;
   }
 
   &.neutral {
-    border-color: $color-purple-400;
+    border-color: var(--color-purple-400);
     background-color: $color-purple-100;
   }
 
   &.informative {
-    border-color: $color-blue-400;
+    border-color: var(--color-blue-400);
     background-color: $color-blue-100;
   }
 }
