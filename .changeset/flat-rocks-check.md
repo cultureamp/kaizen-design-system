@@ -11,6 +11,7 @@ Update components to match new accessible color designs.
 #### Collapsible:
 - Add border to `Collapsible` and `CollapsibleGroup`
 - Update border for `ExpertAdviceCollapsible`
+- Set `default` as default variant
 
 #### EmptyState:
 - Add border to variants

@@ -46,7 +46,7 @@ export const Collapsible = ({
   sticky,
   noSectionPadding,
   onToggle,
-  variant,
+  variant = "default",
   lazyLoad,
   controlled,
   classNameOverride,
