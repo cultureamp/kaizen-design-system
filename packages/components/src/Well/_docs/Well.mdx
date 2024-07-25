@@ -24,12 +24,19 @@ Wells are used as a visual container around secondary content.
 
 ## API
 
-### Colors
-Formerly controlled by `variants`, `color` will set the background and border color of the `Well`.
+### Color
+Formerly controlled by `variant`, `color` BorderStyles the background and border color of the `Well`.
 
 <Canvas of={WellStories.Colors} />
 
 While `purple-800` is applied to the text within a `Well`, ensure that color contrast for any `Children` meets minimum accessibility requirements.
+
+### Variant (deprecated)
+The `variant` prop is deprecated and the `default` value will no longer be used as the fallback for the `Well` background and border color.
+
+<Canvas of={WellStories.Variants} />
+
+It is advised to migrate to the equivalent `color` value before the next major release of `@kaizen/components`.
 
 ### Border Styles
 <Canvas of={WellStories.BorderStyles} />

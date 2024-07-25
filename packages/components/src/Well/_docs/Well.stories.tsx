@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Heading } from "~components/Heading"
 import { Text } from "~components/Text"
 import { Well } from "../index"
-import { borderStyleTypes, wellColors } from "../types"
+import { borderStyleTypes, variantTypes, wellColors } from "../types"
 
 const meta = {
   title: "Components/Well",
@@ -42,10 +42,25 @@ export const Colors: Story = {
     <>
       {wellColors.map(color => (
         <>
-          <Heading tag="h3" variant="heading-6">
+          <Heading tag="h4" variant="heading-6">
             {color}
           </Heading>
           <Well color={color} {...args} />
+        </>
+      ))}
+    </>
+  ),
+}
+
+export const Variants: Story = {
+  render: args => (
+    <>
+      {variantTypes.map(variant => (
+        <>
+          <Heading tag="h4" variant="heading-6">
+            {variant}
+          </Heading>
+          <Well variant={variant} {...args} />
         </>
       ))}
     </>
@@ -57,7 +72,7 @@ export const BorderStyles: Story = {
     <>
       {borderStyleTypes.map(border => (
         <>
-          <Heading tag="h3" variant="heading-6">
+          <Heading tag="h4" variant="heading-6">
             {border}
           </Heading>
           <Well borderStyle={border} {...args} />
@@ -72,14 +87,14 @@ export const NoMargin: Story = {
     <>
       <div className="flex gap-16">
         <div>
-          <Heading tag="h3" variant="heading-6">
+          <Heading tag="h4" variant="heading-6">
             Margin (default)
           </Heading>
           <Well {...args} />
           <Well {...args} />
         </div>
         <div>
-          <Heading tag="h3" variant="heading-6">
+          <Heading tag="h4" variant="heading-6">
             noMargin
           </Heading>
           <Well noMargin {...args} />
