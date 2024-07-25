@@ -10,25 +10,21 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 .header {
   display: flex;
   align-items: center;
-  text-align: left;
+  text-align: start;
   background-color: $color-white;
   border: none;
+  border-radius: $border-borderless-border-radius;
   transition: background-color $animation-duration-rapid;
-  padding: $spacing-sm $spacing-sm $spacing-sm $spacing-md;
+  padding-block: $spacing-12;
+  padding-inline: $spacing-24 $spacing-12;
 
   &:hover {
     background-color: $heading-active-color;
   }
 
-  [dir="rtl"] & {
-    text-align: right;
-    padding-left: $spacing-sm;
-    padding-right: $spacing-md;
-  }
-
   // Round the bottom corners of the header so when the container is open, the
   // header background is not rounded on the corners and flush with the content beneath.
-  .open {
+  &.open {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -43,21 +39,11 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
   border-radius: $border-borderless-border-radius;
 }
 
-.single {
-  .header {
-    border-radius: $border-borderless-border-radius;
-  }
-}
-
 .separated {
   & + .separated {
     margin-top: calc(#{$spacing-md} * 0.3);
     margin-right: 0;
     margin-left: 0;
-  }
-
-  .header {
-    border-radius: $border-borderless-border-radius;
   }
 }
 
@@ -67,6 +53,10 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 .groupItem {
   & + .groupItem {
     border-top: 1px $border-solid-border-style $border-color;
+  }
+
+  .header {
+    border-radius: 0;
   }
 
   &:first-of-type > .header {

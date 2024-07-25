@@ -33,8 +33,11 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
       <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Default">
+        <StickerSheet.Row rowTitle="Open">
           <CollapsibleWrapped title="Collapsible" />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Closed">
+          <CollapsibleWrapped title="Closed" open={false} />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="noSectionPadding">
           <CollapsibleWrapped title="No Padding" noSectionPadding />
