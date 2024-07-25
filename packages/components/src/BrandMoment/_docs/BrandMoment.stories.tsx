@@ -69,11 +69,11 @@ const IconRTLTemplate: Pick<Story, "render" | "parameters"> = {
   },
 }
 
-export const InformativeIntro: Story = {
+export const BlueIntro: Story = {
   ...IconRTLTemplate,
-  name: "Informative intro",
+  name: "Blue intro",
   args: {
-    mood: "informative",
+    variant: "blue",
     illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
     header: <MinimalBasic />,
     text: {
@@ -89,11 +89,11 @@ export const InformativeIntro: Story = {
   },
 }
 
-export const PositiveOutro: Story = {
+export const GreenOutro: Story = {
   ...IconRTLTemplate,
   name: "Positive outro",
   args: {
-    mood: "positive",
+    variant: "green",
     illustration: <BrandMomentPositiveOutro {...illustrationProps} />,
     header: <MinimalBasic />,
     text: {
@@ -116,11 +116,11 @@ export const PositiveOutro: Story = {
   },
 }
 
-export const InformativeIntroCustomerFocused: Story = {
+export const BlueIntroCustomerFocused: Story = {
   ...IconRTLTemplate,
-  name: "Informative intro (customer focused)",
+  name: "Blue intro (customer focused)",
   args: {
-    mood: "informative",
+    variant: "blue",
     illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
     header: <MinimalCustomerFocused />,
     text: {
@@ -150,11 +150,11 @@ export const InformativeIntroCustomerFocused: Story = {
   },
 }
 
-export const PositiveOutroCustomerFocused: Story = {
+export const GreenOutroCustomerFocused: Story = {
   ...IconRTLTemplate,
   name: "Positive outro (customer focused)",
   args: {
-    mood: "positive",
+    variant: "green",
     illustration: <BrandMomentPositiveOutro {...illustrationProps} />,
     header: <MinimalCustomerFocused />,
     text: {
@@ -189,10 +189,10 @@ export const PositiveOutroCustomerFocused: Story = {
   },
 }
 
-export const Error: Story = {
+export const Red: Story = {
   ...IconRTLTemplate,
   args: {
-    mood: "negative",
+    variant: "red",
     illustration: <BrandMomentError {...illustrationProps} />,
     header: <FakeNavBar />,
     text: {

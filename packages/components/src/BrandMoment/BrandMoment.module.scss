@@ -14,6 +14,9 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   flex-direction: column;
   align-items: center;
 
+  // --------------------------------
+  // @deprecated in favour of using blue, green, red classes
+  // --------------------------------
   &.informative {
     background: $color-blue-100;
   }
@@ -25,6 +28,19 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   &.negative {
     background: $color-red-100;
   }
+  //////////////////////////////////////////
+}
+
+.blue {
+  background-color: var(--color-blue-100);
+}
+
+.green {
+  background-color: var(--color-green-100);
+}
+
+.red {
+  background-color: var(--color-red-100);
 }
 
 // --------------------------------

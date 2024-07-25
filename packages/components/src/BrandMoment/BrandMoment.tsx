@@ -10,7 +10,9 @@ import { useMediaQueries } from "~utils/useMediaQueries"
 import styles from "./BrandMoment.module.scss"
 
 export type BrandMomentProps = {
-  mood: "informative" | "positive" | "negative"
+  // @deprecated use `variant` instead
+  mood?: "informative" | "positive" | "negative"
+  variant: "blue" | "green" | "red"
   illustration: ReactElement<SceneProps>
   header: ReactNode
   body?: ReactNode
@@ -30,6 +32,7 @@ export type BrandMomentProps = {
  */
 export const BrandMoment = ({
   mood,
+  variant,
   illustration,
   header,
   body,
@@ -43,7 +46,11 @@ export const BrandMoment = ({
 
   return (
     <div
-      className={classnames(styles.body, styles[mood], classNameOverride)}
+      className={classnames(
+        styles.body,
+        mood ? styles[mood] : styles[variant],
+        classNameOverride
+      )}
       {...restProps}
     >
       <header className={styles.header}>{header}</header>
