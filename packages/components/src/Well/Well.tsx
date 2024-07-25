@@ -1,15 +1,15 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { WellBorderStyleType, WellVariantType, WellColorType } from "./types"
+import { WellBorderStyleType, WellVariantType, WellColors } from "./types"
 import styles from "./Well.module.scss"
 
 export type WellProps = {
   children?: React.ReactNode
-  /** @deprecated Use matching `color` prop instead */
+  /** @deprecated This will not fallback to `default` variant. `default` can be used but must be explicitly passed to the Well component. It is recommended to use `color` prop and `gray` value if you need a gray background. */
   variant?: WellVariantType
   /** @default `white` */
-  color?: WellColorType
+  color?: WellColors
   /** @default `solid` */
   borderStyle?: WellBorderStyleType
   noMargin?: boolean

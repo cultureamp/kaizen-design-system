@@ -9,7 +9,7 @@ export const variantTypes = [
   "prominent",
 ] as const
 
-/** @deprecated use `WellColorType` and `color` prop instead  */
+/** @deprecated use `WellColors` and `color` prop instead  */
 export type WellVariantType = (typeof variantTypes)[number]
 
 export const wellColors = [
@@ -22,7 +22,7 @@ export const wellColors = [
   "purple",
 ] as const
 
-export type WellColorType = (typeof wellColors)[number]
+export type WellColors = (typeof wellColors)[number]
 
 export const borderStyleTypes = ["solid", "dashed", "none"] as const
 
