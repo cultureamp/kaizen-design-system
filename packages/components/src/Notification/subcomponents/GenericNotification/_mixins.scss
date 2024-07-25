@@ -57,9 +57,9 @@ $notification-slide-right: transform 300ms ease-out;
     border-width: 0;
     border-radius: 0;
     margin-bottom: 0;
-    padding-top: $spacing-16;
-    padding-bottom: $spacing-16;
-    padding-inline-start: $spacing-8;
+    padding-top: var(--spacing-16);
+    padding-bottom: var(--spacing-16);
+    padding-inline-start: var(--spacing-8);
     transition: $notification-collapse-height;
     position: relative;
     z-index: 1030;
@@ -188,7 +188,7 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   %ca-notification---global & {
-    margin-inline-start: $spacing-8;
+    margin-inline-start: var(--spacing-8);
   }
 
   %ca-notification---inline & {
@@ -323,14 +323,14 @@ $notification-slide-right: transform 300ms ease-out;
   // The negative margins below are so that our clickable area will overlap the notification padding
   %ca-notification---inline &,
   %ca-notification---toast & {
-    width: $spacing-48;
-    height: $spacing-48;
-    margin-top: calc(-1 * #{$spacing-6});
-    margin-bottom: calc(-1 * #{$spacing-6});
+    width: var(--spacing-48);
+    height: var(--spacing-48);
+    margin-top: calc(-1 * var(--spacing-6));
+    margin-bottom: calc(-1 * var(--spacing-6));
   }
 
   %ca-notification---inline & {
-    margin-inline-end: calc(-1 * #{$spacing-12});
+    margin-inline-end: calc(-1 * var(--spacing-12));
   }
 
   %ca-notification---toast & {
@@ -338,10 +338,10 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   %ca-notification---global & {
-    width: $spacing-48;
-    height: $spacing-48;
-    margin-top: calc(-1 * #{$spacing-24});
-    margin-bottom: calc(-1 * #{$spacing-24});
+    width: var(--spacing-48);
+    height: var(--spacing-48);
+    margin-top: calc(-1 * var(--spacing-24));
+    margin-bottom: calc(-1 * var(--spacing-24));
   }
 }
 
