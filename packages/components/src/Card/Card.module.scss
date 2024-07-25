@@ -30,10 +30,14 @@
   background-color: $color-yellow-100;
 }
 
-.destructive,
-.assertive {
+.destructive{
   border-color: $color-red-500;
   background-color: $color-red-100;
+}
+
+.assertive {
+  border-color: $color-orange-600;
+  background-color: $color-orange-100;
 }
 
 .highlight {

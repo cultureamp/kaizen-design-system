@@ -24,8 +24,7 @@
   color: $color-purple-800;
 }
 
-.negative,
-.assertive {
+.negative{
   background: $color-red-100;
   border-color: $color-red-500;
   color: $color-purple-800;
@@ -40,6 +39,12 @@
 .cautionary {
   background: $color-yellow-100;
   border-color: $color-yellow-700;
+  color: $color-purple-800;
+}
+
+.assertive {
+  background: $color-orange-100;
+  border-color: $color-orange-600;
   color: $color-purple-800;
 }
 
