@@ -17,6 +17,7 @@ export const wellColors = [
   "gray",
   "blue",
   "yellow",
+  "orange",
   "red",
   "green",
   "purple",
