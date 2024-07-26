@@ -84,15 +84,8 @@ export const Playground: Story = {
   },
 }
 
-export const Positive: Story = {
+export const Default: Story = {
   ...InputModalTemplate,
-  args: { mood: "positive" },
-  ...chromaticModalSettings,
-}
-
-export const Destructive: Story = {
-  ...InputModalTemplate,
-  args: { mood: "destructive" },
   ...chromaticModalSettings,
 }
 

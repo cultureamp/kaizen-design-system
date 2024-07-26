@@ -14,7 +14,10 @@ import styles from "./InputEditModal.module.scss"
 export type InputEditModalProps = {
   isOpen: boolean
   unpadded?: boolean
-  mood: "positive" | "destructive"
+  /**
+   * @deprecated no longer necessary
+   */
+  mood?: "positive" | "destructive"
   title: string
   onSubmit: () => void
   onSecondaryAction?: () => void
