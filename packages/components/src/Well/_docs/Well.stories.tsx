@@ -111,16 +111,3 @@ export const NoMargin: Story = {
     </div>
   ),
 }
-
-export const TestDeprecatedCompatibility: Story = {
-  render: () => (
-    <>
-      <>
-        <Well variant="prominent">
-          <code>variant</code> is deprecated but should still supersede color
-          default <code>white</code> to allow gradual migration
-        </Well>
-      </>
-    </>
-  ),
-}
