@@ -192,7 +192,7 @@ export const GreenOutroCustomerFocused: Story = {
 export const Red: Story = {
   ...IconRTLTemplate,
   args: {
-    mood: "negative",
+    color: "red",
     illustration: <BrandMomentError {...illustrationProps} />,
     header: <FakeNavBar />,
     text: {
