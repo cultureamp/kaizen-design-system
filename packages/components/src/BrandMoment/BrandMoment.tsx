@@ -9,10 +9,7 @@ import { OverrideClassName } from "~types/OverrideClassName"
 import { useMediaQueries } from "~utils/useMediaQueries"
 import styles from "./BrandMoment.module.scss"
 
-export type BrandMomentProps = {
-  // @deprecated use `color` instead
-  mood?: "informative" | "positive" | "negative"
-  color: "blue" | "green" | "red"
+type BaseBrandMomentProps = {
   illustration: ReactElement<SceneProps>
   header: ReactNode
   body?: ReactNode
@@ -26,13 +23,22 @@ export type BrandMomentProps = {
   }
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
+type BrandMomentMoods = {
+  mood: "informative" | "positive" | "negative"
+}
+
+type BrandMomentPropsColor = {
+  color: "blue" | "green" | "red"
+}
+
+export type BrandMomentProps = BaseBrandMomentProps &
+  (BrandMomentMoods | BrandMomentPropsColor)
+
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082061589/Brand+Moment Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-brand-moment--docs Storybook}
  */
 export const BrandMoment = ({
-  mood,
-  color,
   illustration,
   header,
   body,
@@ -44,6 +50,10 @@ export const BrandMoment = ({
 }: BrandMomentProps): JSX.Element => {
   const { queries } = useMediaQueries()
 
+  // extract mood and color from restProps
+  const { mood, color, ...containerProps } = restProps as BrandMomentMoods &
+    BrandMomentPropsColor
+
   return (
     <div
       className={classnames(
@@ -51,7 +61,7 @@ export const BrandMoment = ({
         mood ? styles[mood] : styles[color],
         classNameOverride
       )}
-      {...restProps}
+      {...containerProps}
     >
       <header className={styles.header}>{header}</header>
       <main className={styles.main}>
