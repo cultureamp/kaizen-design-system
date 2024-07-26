@@ -117,11 +117,6 @@ jobs:
           token: ${{ github.token }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: "./storybook/public"
-          onlyChanged: "!(main)"
-          externals: |
-            [
-              "packages/components/src/Notification/subcomponents/GenericNotification/_mixins.scss",
-            ]
 
   update-branch-preview:
     runs-on: ubuntu-latest
