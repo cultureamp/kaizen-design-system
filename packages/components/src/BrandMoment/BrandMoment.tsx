@@ -24,21 +24,25 @@ type BaseBrandMomentProps = {
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 type BrandMomentMoods = {
+  color?: never
   mood: "informative" | "positive" | "negative"
 }
 
-type BrandMomentPropsColor = {
+type BrandMomentColors = {
   color: "blue" | "green" | "red"
+  mood?: never
 }
 
 export type BrandMomentProps = BaseBrandMomentProps &
-  (BrandMomentMoods | BrandMomentPropsColor)
+  (BrandMomentMoods | BrandMomentColors)
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082061589/Brand+Moment Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-brand-moment--docs Storybook}
  */
 export const BrandMoment = ({
+  mood,
+  color,
   illustration,
   header,
   body,
@@ -50,10 +54,6 @@ export const BrandMoment = ({
 }: BrandMomentProps): JSX.Element => {
   const { queries } = useMediaQueries()
 
-  // extract mood and color from restProps
-  const { mood, color, ...containerProps } = restProps as BrandMomentMoods &
-    BrandMomentPropsColor
-
   return (
     <div
       className={classnames(
@@ -61,7 +61,7 @@ export const BrandMoment = ({
         mood ? styles[mood] : styles[color],
         classNameOverride
       )}
-      {...containerProps}
+      {...restProps}
     >
       <header className={styles.header}>{header}</header>
       <main className={styles.main}>
