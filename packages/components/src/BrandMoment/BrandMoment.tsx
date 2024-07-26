@@ -9,7 +9,12 @@ import { OverrideClassName } from "~types/OverrideClassName"
 import { useMediaQueries } from "~utils/useMediaQueries"
 import styles from "./BrandMoment.module.scss"
 
+<<<<<<< HEAD
 type BaseBrandMomentProps = {
+=======
+export type BrandMomentProps = {
+  mood: "informative" | "positive" | "negative"
+>>>>>>> parent of 34d12991c (update mood to variant, blue green red)
   illustration: ReactElement<SceneProps>
   header: ReactNode
   body?: ReactNode
@@ -42,7 +47,10 @@ export type BrandMomentProps = BaseBrandMomentProps &
  */
 export const BrandMoment = ({
   mood,
+<<<<<<< HEAD
   color,
+=======
+>>>>>>> parent of 34d12991c (update mood to variant, blue green red)
   illustration,
   header,
   body,
@@ -56,11 +64,15 @@ export const BrandMoment = ({
 
   return (
     <div
+<<<<<<< HEAD
       className={classnames(
         styles.body,
         color ? styles[color] : styles[mood],
         classNameOverride
       )}
+=======
+      className={classnames(styles.body, styles[mood], classNameOverride)}
+>>>>>>> parent of 34d12991c (update mood to variant, blue green red)
       {...restProps}
     >
       <header className={styles.header}>{header}</header>
