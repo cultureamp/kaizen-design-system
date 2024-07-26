@@ -5,14 +5,6 @@
 @import "../../../styles/utils/animation";
 @import "../GenericModal/GenericModal.module";
 
-$dt-positive-header-background: $color-green-100;
-$dt-informative-header-background: $color-blue-100;
-$dt-negative-header-background: $color-red-100;
-$dt-cautionary-header-background: $color-yellow-100;
-$dt-heading-text-color: $color-purple-800;
-$dt-cautionary-heading-text-color: $color-purple-800;
-$dt-assertive-header-background: $color-orange-100;
-
 .modal {
   @extend %genericModal;
 
@@ -24,75 +16,6 @@ $dt-assertive-header-background: $color-orange-100;
   color: $color-white;
   text-align: left;
   border-radius: $border-solid-border-radius $border-solid-border-radius 0 0;
-
-  &.padded {
-    padding: $spacing-md $spacing-lg;
-
-    @media (max-width: $layout-breakpoints-medium) {
-      padding: $spacing-md;
-    }
-  }
-
-  // override Murmur global styles :(
-  h1 {
-    color: $dt-heading-text-color;
-  }
-}
-
-.iconContainer {
-  position: relative;
-}
-
-.positiveHeader {
-  background-color: $dt-positive-header-background;
-
-  .spotIcon,
-  .svgIcon > svg {
-    color: $color-green-500;
-  }
-}
-
-.assertiveHeader {
-  background-color: $dt-assertive-header-background;
-
-  .spotIcon,
-  .svgIcon > svg {
-    color: $color-orange-500;
-  }
-}
-
-.informativeHeader {
-  background-color: $dt-informative-header-background;
-
-  .spotIcon,
-  .svgIcon > svg {
-    color: $color-blue-500;
-  }
-}
-
-.negativeHeader {
-  background-color: $dt-negative-header-background;
-
-  .spotIcon,
-  .svgIcon > svg {
-    color: $color-red-500;
-  }
-}
-
-.cautionaryHeader {
-  background-color: $dt-cautionary-header-background;
-
-  .spotIcon,
-  .svgIcon > svg {
-    color: $color-yellow-500;
-  }
-}
-
-.positiveHeader,
-.informativeHeader,
-.negativeHeader,
-.cautionaryHeader,
-.assertiveHeader {
   display: grid;
   grid-template-columns: 0.2fr 2fr;
   align-items: center;
@@ -151,6 +74,19 @@ $dt-assertive-header-background: $color-orange-100;
       }
     }
   }
+
+  &.padded {
+    padding: $spacing-md $spacing-lg;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      padding: $spacing-md;
+    }
+  }
+
+  // override Murmur global styles :(
+  h1 {
+    color: var(color-purple-800);
+  }
 }
 
 .prominent {
@@ -170,3 +106,105 @@ $dt-assertive-header-background: $color-orange-100;
     padding: $spacing-md;
   }
 }
+
+.iconContainer {
+  position: relative;
+}
+
+// --------------------------------
+// @Deprecated moods use variant styles instead
+// --------------------------------
+
+$dt-positive-header-background: $color-green-100;
+$dt-informative-header-background: $color-blue-100;
+$dt-negative-header-background: $color-red-100;
+$dt-cautionary-header-background: $color-yellow-100;
+$dt-assertive-header-background: $color-orange-100;
+
+.positiveHeader {
+  background-color: $dt-positive-header-background;
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-green-500;
+  }
+}
+
+.assertiveHeader {
+  background-color: $dt-assertive-header-background;
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-orange-500;
+  }
+}
+
+.informativeHeader {
+  background-color: $dt-informative-header-background;
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-blue-500;
+  }
+}
+
+.negativeHeader {
+  background-color: $dt-negative-header-background;
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-red-500;
+  }
+}
+
+.cautionaryHeader {
+  background-color: $dt-cautionary-header-background;
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-yellow-500;
+  }
+}
+
+//--------------------------------
+
+// --------------------------------
+// variant styles
+// --------------------------------
+
+.success {
+  background-color: var(--color-green-100);
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: var(--color-green-500);
+  }
+}
+
+.informative {
+  background-color: var(--color-blue-100);
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: var(--color-blue-500);
+  }
+}
+
+.warning {
+  background-color: var(--color-red-100);
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: var(--color-red-500);
+  }
+}
+
+.cautionary {
+  background-color: var(--color-yellow-100);
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: var(--color-yellow-500);
+  }
+}
+// --------------------------------
