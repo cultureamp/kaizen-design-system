@@ -14,7 +14,7 @@
 
 .tooltipContent {
   max-width: 400px;
-  padding: 0.4375rem 0.5313rem;
+  padding: var(--spacing-8) calc(9rem / 16); // 8px 9px
   color: $color-purple-800;
   text-align: center;
   font-family: $typography-paragraph-body-font-family;

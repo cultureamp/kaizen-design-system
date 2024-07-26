@@ -5,7 +5,18 @@
 @import "~@kaizen/design-tokens/sass/animation";
 
 $heading-active-color: $color-gray-200;
-$border-color: rgba($color-gray-600-rgb, 0.2);
+$divider-color: rgba($color-gray-600-rgb, 0.2);
+$container-border-width: var(--border-width-1);
+
+// We need a full border radius on this container element, then have classes
+// beneath to toggle nested borders off and on for different use cases.
+.container {
+  background-color: $color-white;
+  box-shadow: $shadow-small-box-shadow;
+  border: $container-border-width var(--border-solid-border-style)
+    var(--color-gray-500);
+  border-radius: $border-borderless-border-radius;
+}
 
 .header {
   display: flex;
@@ -15,7 +26,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
   border: none;
   border-radius: var(--border-borderless-border-radius);
   transition: background-color $animation-duration-rapid;
-  padding-block: var(--spacing-12);
+  padding-block: calc(var(--spacing-12) - #{$container-border-width});
   padding-inline: var(--spacing-24) var(--spacing-12);
 
   &:hover {
@@ -28,16 +39,6 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
-}
-
-// We need a full border radius on this container element, then have classes
-// beneath to toggle nested borders off and on for different use cases.
-.container {
-  background-color: $color-white;
-  box-shadow: $shadow-small-box-shadow;
-  border: var(--border-width-1) var(--border-solid-border-style)
-    var(--color-gray-500);
-  border-radius: $border-borderless-border-radius;
 }
 
 .separated {
@@ -53,21 +54,24 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 // is open we remove the rounded edge as the content sits beneath and needs to be straight.
 .groupItem {
   & + .groupItem {
-    border-top: 1px $border-solid-border-style $border-color;
+    border-top: 1px $border-solid-border-style $divider-color;
   }
 
   .header {
     border-radius: 0;
+    padding-block: var(--spacing-12);
   }
 
   &:first-of-type > .header {
     border-top-left-radius: $border-borderless-border-radius;
     border-top-right-radius: $border-borderless-border-radius;
+    padding-block-start: calc(var(--spacing-12) - #{$container-border-width});
   }
 
   &:last-of-type > .header:not(.open) {
     border-bottom-left-radius: $border-borderless-border-radius;
     border-bottom-right-radius: $border-borderless-border-radius;
+    padding-block-end: calc(var(--spacing-12) - #{$container-border-width});
   }
 }
 
@@ -85,7 +89,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 }
 
 .clearVariant {
-  border-bottom: 1px $border-solid-border-style $border-color;
+  border-bottom: 1px $border-solid-border-style $divider-color;
 }
 
 .sticky {
@@ -95,7 +99,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 }
 
 .section {
-  padding: $spacing-md;
+  padding: var(--spacing-24);
 }
 
 .noPadding {

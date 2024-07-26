@@ -5,9 +5,8 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/animation";
 
-$notification-vertical-padding: calc(
-  #{$spacing-6} - #{$border-solid-border-width}
-);
+$border-width: var(--border-width-1);
+$notification-vertical-padding: calc(#{$spacing-6} - #{$border-width});
 $notification-fade-out: opacity 200ms ease;
 $notification-collapse-height:
   margin-top 200ms ease,
@@ -27,7 +26,7 @@ $notification-slide-right: transform 300ms ease-out;
   &%ca-notification---inline,
   &%ca-notification---toast {
     margin-bottom: $spacing-24;
-    border: var(--border-width-1) var(--border-solid-border-style);
+    border: $border-width var(--border-solid-border-style);
     border-radius: $border-solid-border-radius;
   }
 
