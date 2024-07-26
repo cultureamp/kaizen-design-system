@@ -68,7 +68,11 @@ export const InformativeIntro: Story = {
   ...IconRTLTemplate,
   name: "Informative intro",
   args: {
+<<<<<<< HEAD
     mood: "informative",
+=======
+    variant: "blue",
+>>>>>>> parent of 7431c8dc4 (change variant to color)
     illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
     header: <MinimalBasic />,
     text: {
@@ -88,7 +92,11 @@ export const PositiveOutro: Story = {
   ...IconRTLTemplate,
   name: "Positive outro",
   args: {
+<<<<<<< HEAD
     mood: "positive",
+=======
+    variant: "green",
+>>>>>>> parent of 7431c8dc4 (change variant to color)
     illustration: <BrandMomentPositiveOutro {...illustrationProps} />,
     header: <MinimalBasic />,
     text: {
@@ -115,7 +123,11 @@ export const InformativeIntroCustomerFocused: Story = {
   ...IconRTLTemplate,
   name: "Informative intro (customer focused)",
   args: {
+<<<<<<< HEAD
     mood: "informative",
+=======
+    variant: "blue",
+>>>>>>> parent of 7431c8dc4 (change variant to color)
     illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
     header: <MinimalCustomerFocused />,
     text: {
@@ -149,8 +161,12 @@ export const PositiveOutroCustomerFocused: Story = {
   ...IconRTLTemplate,
   name: "Positive outro (customer focused)",
   args: {
+<<<<<<< HEAD
     mood: "positive",
 >>>>>>> parent of 34d12991c (update mood to variant, blue green red)
+=======
+    variant: "green",
+>>>>>>> parent of 7431c8dc4 (change variant to color)
     illustration: <BrandMomentPositiveOutro {...illustrationProps} />,
     header: <MinimalCustomerFocused />,
     text: {
@@ -202,7 +218,11 @@ export const Green = {
 export const Error: Story = {
   ...IconRTLTemplate,
   args: {
+<<<<<<< HEAD
     mood: "negative",
+=======
+    variant: "red",
+>>>>>>> parent of 7431c8dc4 (change variant to color)
     illustration: <BrandMomentError {...illustrationProps} />,
 >>>>>>> parent of 34d12991c (update mood to variant, blue green red)
     header: <FakeNavBar />,

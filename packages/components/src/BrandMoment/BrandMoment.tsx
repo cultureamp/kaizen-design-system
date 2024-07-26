@@ -13,8 +13,14 @@ import styles from "./BrandMoment.module.scss"
 type BaseBrandMomentProps = {
 =======
 export type BrandMomentProps = {
+<<<<<<< HEAD
   mood: "informative" | "positive" | "negative"
 >>>>>>> parent of 34d12991c (update mood to variant, blue green red)
+=======
+  // @deprecated use `variant` instead
+  mood?: "informative" | "positive" | "negative"
+  variant: "blue" | "green" | "red"
+>>>>>>> parent of 7431c8dc4 (change variant to color)
   illustration: ReactElement<SceneProps>
   header: ReactNode
   body?: ReactNode
@@ -48,9 +54,13 @@ export type BrandMomentProps = BaseBrandMomentProps &
 export const BrandMoment = ({
   mood,
 <<<<<<< HEAD
+<<<<<<< HEAD
   color,
 =======
 >>>>>>> parent of 34d12991c (update mood to variant, blue green red)
+=======
+  variant,
+>>>>>>> parent of 7431c8dc4 (change variant to color)
   illustration,
   header,
   body,
@@ -67,7 +77,11 @@ export const BrandMoment = ({
 <<<<<<< HEAD
       className={classnames(
         styles.body,
+<<<<<<< HEAD
         color ? styles[color] : styles[mood],
+=======
+        mood ? styles[mood] : styles[variant],
+>>>>>>> parent of 7431c8dc4 (change variant to color)
         classNameOverride
       )}
 =======
