@@ -36,40 +36,26 @@ const StickerSheetTemplate: StickerSheetStory = {
           hasVerticalHeadings
         />
         <StickerSheet.Body>
-          <>
-            {variantTypes.map(variant => (
-              <StickerSheet.Row key={variant} rowTitle={variant}>
-                {borderStyleTypes.map(border => (
-                  <WellWrapped
-                    key={border}
-                    variant={variant}
-                    borderStyle={border}
-                  />
-                ))}
-              </StickerSheet.Row>
-            ))}
-          </>
+          {variantTypes.map(variant => (
+            <StickerSheet.Row key={variant} rowTitle={variant}>
+              {borderStyleTypes.map(border => (
+                <WellWrapped
+                  key={border}
+                  variant={variant}
+                  borderStyle={border}
+                />
+              ))}
+            </StickerSheet.Row>
+          ))}
         </StickerSheet.Body>
-      </StickerSheet>
-      <StickerSheet>
-        <StickerSheet.Header
-          headings={["Solid Border", "Dashed Border", "None"]}
-          hasVerticalHeadings
-        />
         <StickerSheet.Body>
-          <>
-            {wellColors.map(color => (
-              <StickerSheet.Row key={color} rowTitle={color}>
-                {borderStyleTypes.map(border => (
-                  <WellWrapped
-                    key={border}
-                    color={color}
-                    borderStyle={border}
-                  />
-                ))}
-              </StickerSheet.Row>
-            ))}
-          </>
+          {wellColors.map(color => (
+            <StickerSheet.Row key={color} rowTitle={color}>
+              {borderStyleTypes.map(border => (
+                <WellWrapped key={border} color={color} borderStyle={border} />
+              ))}
+            </StickerSheet.Row>
+          ))}
         </StickerSheet.Body>
       </StickerSheet>
       <StickerSheet>

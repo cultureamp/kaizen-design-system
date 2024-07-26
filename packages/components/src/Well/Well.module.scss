@@ -1,12 +1,8 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/spacing";
-
 .container {
-  border-width: $border-width-1;
-  border-radius: $border-solid-border-radius;
-  margin-bottom: $spacing-md;
-  color: $color-purple-800;
+  border-width: var(--border-width-1);
+  border-radius: var(--border-solid-border-radius);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-purple-800);
 }
 
 .noMargin {
@@ -14,94 +10,94 @@
 }
 
 .white {
-  background-color: $color-white;
-  border-color: $color-gray-500;
+  background-color: var(--color-white);
+  border-color: var(--color-gray-500);
 }
 
 .gray {
-  background-color: $color-gray-200;
-  border-color: $color-gray-500;
+  background-color: var(--color-gray-200);
+  border-color: var(--color-gray-500);
 }
 
 .blue {
-  background-color: $color-blue-100;
-  border-color: $color-blue-400;
+  background-color: var(--color-blue-100);
+  border-color: var(--color-blue-400);
 }
 
 .yellow {
-  background-color: $color-yellow-100;
-  border-color: $color-yellow-700;
+  background-color: var(--color-yellow-100);
+  border-color: var(--color-yellow-700);
 }
 
 .orange {
-  background-color: $color-orange-100;
-  border-color: $color-orange-300;
+  background-color: var(--color-orange-100);
+  border-color: var(--color-orange-300);
 }
 
 .red {
-  background-color: $color-red-100;
-  border-color: $color-red-500;
+  background-color: var(--color-red-100);
+  border-color: var(--color-red-500);
 }
 
 .green {
-  background-color: $color-green-100;
-  border-color: $color-green-500;
+  background-color: var(--color-green-100);
+  border-color: var(--color-green-500);
 }
 
 .purple {
-  background-color: $color-purple-100;
-  border-color: $color-purple-400;
+  background-color: var(--color-purple-100);
+  border-color: var(--color-purple-400);
 }
 
 .positive {
-  background: $color-green-100;
-  border-color: $color-green-500;
+  background: var(--color-green-100);
+  border-color: var(--color-green-500);
 }
 
 // These are @deprecated but must come after `color` so not everything will default to white
 // This will be @deprecated
 .default {
-  background-color: $color-gray-300;
-  border-color: $color-gray-500;
+  background-color: var(--color-gray-300);
+  border-color: var(--color-gray-500);
 }
 
 .negative {
-  background: $color-red-100;
-  border-color: $color-red-500;
+  background: var(--color-red-100);
+  border-color: var(--color-red-500);
 }
 
 .informative {
-  background: $color-blue-100;
-  border-color: $color-blue-400;
+  background: var(--color-blue-100);
+  border-color: var(--color-blue-400);
 }
 
 .cautionary {
-  background: $color-yellow-100;
-  border-color: $color-yellow-700;
+  background: var(--color-yellow-100);
+  border-color: var(--color-yellow-700);
 }
 
 .assertive {
-  background: $color-orange-100;
-  border-color: $color-orange-600;
+  background: var(--color-orange-100);
+  border-color: var(--color-orange-600);
 }
 
 .prominent {
-  background: $color-purple-100;
-  border-color: $color-purple-400;
+  background: var(--color-purple-100);
+  border-color: var(--color-purple-400);
 }
 
 // @deprecated end
 
 // Border Style Variations
 .solid {
-  border-style: $border-solid-border-style;
+  border-style: var(--border-solid-border-style);
 }
 
 .dashed {
-  border-style: $border-dashed-border-style;
+  border-style: var(--border-dashed-border-style);
 }
 
 .none {
-  border-color: $border-borderless-border-color;
-  border-style: $border-borderless-border-style;
+  border-color: var(--border-borderless-border-color);
+  border-style: var(--border-borderless-border-style);
 }
