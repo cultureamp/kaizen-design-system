@@ -58,7 +58,7 @@ export const BrandMoment = ({
     <div
       className={classnames(
         styles.body,
-        mood ? styles[mood] : styles[color],
+        color ? styles[color] : styles[mood],
         classNameOverride
       )}
       {...restProps}
