@@ -73,7 +73,7 @@ export const BlueIntro: Story = {
   ...IconRTLTemplate,
   name: "Blue intro",
   args: {
-    variant: "blue",
+    color: "blue",
     illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
     header: <MinimalBasic />,
     text: {
@@ -93,7 +93,7 @@ export const GreenOutro: Story = {
   ...IconRTLTemplate,
   name: "Positive outro",
   args: {
-    variant: "green",
+    color: "green",
     illustration: <BrandMomentPositiveOutro {...illustrationProps} />,
     header: <MinimalBasic />,
     text: {
@@ -120,7 +120,7 @@ export const BlueIntroCustomerFocused: Story = {
   ...IconRTLTemplate,
   name: "Blue intro (customer focused)",
   args: {
-    variant: "blue",
+    color: "blue",
     illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
     header: <MinimalCustomerFocused />,
     text: {
@@ -154,7 +154,7 @@ export const GreenOutroCustomerFocused: Story = {
   ...IconRTLTemplate,
   name: "Positive outro (customer focused)",
   args: {
-    variant: "green",
+    color: "green",
     illustration: <BrandMomentPositiveOutro {...illustrationProps} />,
     header: <MinimalCustomerFocused />,
     text: {
@@ -192,7 +192,7 @@ export const GreenOutroCustomerFocused: Story = {
 export const Red: Story = {
   ...IconRTLTemplate,
   args: {
-    variant: "red",
+    color: "red",
     illustration: <BrandMomentError {...illustrationProps} />,
     header: <FakeNavBar />,
     text: {
