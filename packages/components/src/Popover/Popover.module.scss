@@ -7,7 +7,6 @@
 $arrow-width: 14px;
 $arrow-height: 7px;
 
-$border-width: var(--border-width-1);
 $large-width: 450px;
 
 // Suggestion: with this implementation, the anchor point of the popover is at the base of the triangle. But,
@@ -45,14 +44,16 @@ $large-width: 450px;
 }
 
 %box {
-  border: $border-width var(--border-solid-border-style);
+  --border-width: var(--border-width-1);
+
+  border: var(--border-width) var(--border-solid-border-style);
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $border-solid-border-radius;
   color: $color-purple-800;
   text-align: left;
-  padding-block: calc(var(--spacing-12) - #{$border-width})
-    calc(var(--spacing-16) - #{$border-width});
-  padding-inline: calc(var(--spacing-16) - #{$border-width});
+  padding-block: calc(var(--spacing-12) - var(--border-width))
+    calc(var(--spacing-16) - var(--border-width));
+  padding-inline: calc(var(--spacing-16) - var(--border-width));
 }
 
 $default-box-border-color: var(--color-gray-500);

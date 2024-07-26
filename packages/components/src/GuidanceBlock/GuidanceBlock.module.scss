@@ -14,7 +14,6 @@
 }
 
 $bannerPadding: $spacing-lg;
-$border-width: var(--border-width-1);
 $ca-banner-fade-out: opacity $animation-duration-slow ease;
 $ca-banner-collapse-height-delayed: margin-top $animation-duration-fast
   $animation-duration-slow ease;
@@ -34,14 +33,16 @@ $scene-illustration-size: 300px;
 }
 
 .banner {
+  --border-width: var(--border-width-1);
+
   display: flex;
   flex-direction: column;
   gap: $spacing-sm;
   min-width: 320px;
   max-width: $layout-breakpoints-large;
-  border: $border-width var(--border-solid-border-style);
+  border: var(--border-width) var(--border-solid-border-style);
   border-radius: $border-solid-border-radius;
-  padding: calc(#{$bannerPadding} - #{$border-width});
+  padding: calc(#{$bannerPadding} - var(--border-width));
   box-shadow: $shadow-small-box-shadow;
   position: relative;
   top: -1px;
