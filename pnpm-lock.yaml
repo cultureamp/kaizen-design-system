@@ -253,8 +253,8 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1
       sass-loader:
-        specifier: ^14.2.1
-        version: 14.2.1(node-sass@9.0.0)(sass@1.77.8)(webpack@5.93.0(@swc/core@1.7.0(@swc/helpers@0.5.11))(esbuild@0.21.5))
+        specifier: ^16.0.0
+        version: 16.0.0(node-sass@9.0.0)(sass@1.77.8)(webpack@5.93.0(@swc/core@1.7.0(@swc/helpers@0.5.11))(esbuild@0.21.5))
       storybook:
         specifier: ^8.2.5
         version: 8.2.5(@babel/preset-env@7.24.8(@babel/core@7.24.9))
@@ -7657,7 +7657,7 @@ packages:
   node-sass@9.0.0:
     resolution: {integrity: sha512-yltEuuLrfH6M7Pq2gAj5B6Zm7m+gdZoG66wTqG6mIZV/zijq3M2OO2HswtT6oBspPyFhHDcaxWpsBm0fRNDHPg==}
     engines: {node: '>=16'}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+    deprecated: Node Sass is no longer supported. Please use `sass` or `sass-embedded` instead.
     hasBin: true
 
   nopt@5.0.0:
@@ -9213,8 +9213,8 @@ packages:
     engines: {node: '>=12'}
     hasBin: true
 
-  sass-loader@14.2.1:
-    resolution: {integrity: sha512-G0VcnMYU18a4N7VoNDegg2OuMjYtxnqzQWARVWCIVSZwJeiL9kg8QMsuIZOplsJgTzZLF6jGxI3AClj8I9nRdQ==}
+  sass-loader@16.0.0:
+    resolution: {integrity: sha512-n13Z+3rU9A177dk4888czcVFiC8CL9dii4qpXWUg3YIIgZEvi9TCFKjOQcbK0kJM7DJu9VucrZFddvNfYCPwtw==}
     engines: {node: '>= 18.12.0'}
     peerDependencies:
       '@rspack/core': 0.x || 1.x
@@ -21518,7 +21518,7 @@ snapshots:
       scss-tokenizer: 0.4.3
       yargs: 17.7.2
 
-  sass-loader@14.2.1(node-sass@9.0.0)(sass@1.77.8)(webpack@5.93.0(@swc/core@1.7.0(@swc/helpers@0.5.11))(esbuild@0.21.5)):
+  sass-loader@16.0.0(node-sass@9.0.0)(sass@1.77.8)(webpack@5.93.0(@swc/core@1.7.0(@swc/helpers@0.5.11))(esbuild@0.21.5)):
     dependencies:
       neo-async: 2.6.2
     optionalDependencies:
