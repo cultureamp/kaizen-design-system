@@ -2,6 +2,34 @@ import fs from "fs"
 import path from "path"
 import ts from "typescript"
 
+/** Recurses through AST to determine if a valid import statement for Well has been provided */
+const checkForValidImports = (node: ts.Node): boolean => {
+  let shouldTransform = false
+
+  const visitNode = (visitedNode: ts.Node): boolean => {
+    if (ts.isImportDeclaration(visitedNode)) {
+      const moduleSpecifier = visitedNode.moduleSpecifier.getText()
+      if (
+        moduleSpecifier === "'@kaizen/components'" ||
+        moduleSpecifier === '"@kaizen/components"'
+      ) {
+        const namedBindings = visitedNode.importClause?.namedBindings
+        if (namedBindings && ts.isNamedImports(namedBindings)) {
+          namedBindings.elements.forEach(importSpecifier => {
+            if (importSpecifier.name.getText() === "Well") {
+              shouldTransform = true
+            }
+          })
+        }
+      }
+    }
+    return shouldTransform || ts.forEachChild(visitedNode, visitNode) || false
+  }
+
+  return visitNode(node)
+}
+
+/** Transformer function to update the inputs of Well to the new colors */
 const wellTransformer =
   <T extends ts.Node>(context: ts.TransformationContext) =>
   (rootNode: T) => {
@@ -71,28 +99,39 @@ const wellTransformer =
     return ts.visitNode(rootNode, visit)
   }
 
-export const transformAst = (sourceFile: ts.SourceFile): string => {
+/** Returns original the source file if invalid, otherwise runs the well transformer  */
+export const transformWellSource = (
+  sourceFile: ts.SourceFile
+): ts.SourceFile => {
+  const shouldTransform = checkForValidImports(sourceFile)
+
+  if (!shouldTransform) {
+    return sourceFile
+  }
   const result = ts.transform(sourceFile, [wellTransformer])
-  const printer = ts.createPrinter()
-  const transformedSource = printer.printFile(
-    result.transformed[0] as ts.SourceFile
-  )
+  const transformedSource = result.transformed[0] as ts.SourceFile
 
   return transformedSource
 }
 
-export const updateAstSource = (fileName: string): string => {
-  const source = fs.readFileSync(fileName, "utf8")
+/** runs the transformer and writes the updated source back to the path provided */
+export const updateAstSource = (filePath: string): void => {
+  const source = fs.readFileSync(filePath, "utf8")
   const sourceFile = ts.createSourceFile(
-    fileName,
+    filePath,
     source,
     ts.ScriptTarget.Latest,
     true
   )
+  const updatedSourceFile = transformWellSource(sourceFile)
 
-  return transformAst(sourceFile)
+  const printer = ts.createPrinter()
+  const updatedSource = printer.printFile(updatedSourceFile)
+
+  fs.writeFileSync(filePath, updatedSource, "utf8")
 }
 
+/** Walks the directory given and runs the runs the AST updater */
 export const processDirectory = (dir: string): void => {
   const files = fs.readdirSync(dir)
   files.forEach(file => {

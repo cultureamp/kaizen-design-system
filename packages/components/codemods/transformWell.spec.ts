@@ -1,6 +1,5 @@
 import ts from "typescript"
-import { TestWellComponent } from "./testInput"
-import { transformAst } from "./transformWell"
+import { transformWellSource } from "./transformWell"
 
 // This function is used to parse a stringified JSX element into an AST
 function parseJsx(jsx: string): ts.SourceFile {
@@ -19,59 +18,106 @@ function printAst(ast: ts.SourceFile): string {
   return printer.printFile(ast)
 }
 
-describe("wellTransformer", () => {
+describe("transformWellSource", () => {
+  it("should only transform when Well is imported from @kaizen/component", () => {
+    const input = parseJsx(`
+      import { Well } from "@kaizen/draft-well"
+      export const TestComponent = () => <div><Well>Test</Well></div>`)
+    const output = parseJsx(`
+      import {Well} from "@kaizen/draft-well"
+      export const TestComponent = () => <div><Well>Test</Well></div>`)
+    const transformed = transformWellSource(input)
+    expect(printAst(transformed).trim()).toBe(printAst(output).trim())
+  })
+
   it('should replace variant="default" with color="gray"', () => {
-    const inputAst = parseJsx('<Well variant="default">Test</Well>')
-    const outputAst = parseJsx('<Well color="gray">Test</Well>')
-    const transformed = transformAst(inputAst)
-    expect(transformed.trim()).toBe(printAst(outputAst).trim())
+    const inputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <Well variant="default">Test</Well>
+      `)
+    const outputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <Well color="gray">Test</Well>
+    `)
+    const transformed = transformWellSource(inputAst)
+    expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
   })
 
   it('should replace variant="informative" with color="blue"', () => {
-    const inputAst = parseJsx('<Well variant="informative">Test</Well>')
-    const outputAst = parseJsx('<Well color="blue">Test</Well>')
-    const transformed = transformAst(inputAst)
-    expect(transformed.trim()).toBe(printAst(outputAst).trim())
+    const inputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <Well variant="informative">Test</Well>
+    `)
+    const outputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <Well color="blue">Test</Well>
+    `)
+    const transformed = transformWellSource(inputAst)
+    expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
   })
 
   it('should add color="gray" if variant is not specified', () => {
-    const input = parseJsx("<Well>Test</Well>")
-    const output = parseJsx('<Well color="gray">Test</Well>')
-    const transformed = transformAst(input)
-    expect(transformed.trim()).toBe(printAst(output).trim())
+    const inputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <Well>Test</Well>
+    `)
+    const outputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <Well color="gray">Test</Well>
+    `)
+    const transformed = transformWellSource(inputAst)
+    expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
   })
 
-  it("should handle multiple attributes and replace variant", () => {
-    const input = parseJsx(
-      '<Well variant="informative" someProp="value">Test</Well>'
-    )
-    const output = parseJsx('<Well color="blue" someProp="value">Test</Well>')
-    const transformed = transformAst(input)
-    expect(transformed.trim()).toBe(printAst(output).trim())
+  it("should handle multiple attributes and replace only variant", () => {
+    const inputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <Well variant="informative" id="123">Test</Well>
+    `)
+    const outputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <Well color="blue" id="123">Test</Well>
+    `)
+    const transformed = transformWellSource(inputAst)
+    expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
   })
 
   it("should handle multiple attributes and add color if variant is not specified", () => {
-    const input = parseJsx('<Well someProp="value">Test</Well>')
-    const output = parseJsx('<Well someProp="value" color="gray">Test</Well>')
-    const transformed = transformAst(input)
-    expect(transformed.trim()).toBe(printAst(output).trim())
+    const inputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <Well id="123">Test</Well>
+    `)
+    const outputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <Well id="123"  color="gray">Test</Well>
+    `)
+    const transformed = transformWellSource(inputAst)
+    expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
   })
 
   it("should handle nested Well components", () => {
-    const input = parseJsx('<div><Well variant="informative">Test</Well></div>')
-    const output = parseJsx('<div><Well color="blue">Test</Well></div>')
-    const transformed = transformAst(input)
-    expect(transformed.trim()).toBe(printAst(output).trim())
+    const inputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <div><Well id="123">Test</Well></div>
+    `)
+    const outputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <div><Well id="123" color="gray">Test</Well></div>
+    `)
+    const transformed = transformWellSource(inputAst)
+    expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
   })
 
   it("should transform multiple Wells", () => {
-    const input = parseJsx(
-      '<div><Well variant="informative">Test</Well><Well>Test 2</Well></div>'
-    )
-    const output = parseJsx(
-      '<div><Well color="blue">Test</Well><Well color="gray">Test 2</Well></div>'
-    )
-    const transformed = transformAst(input)
-    expect(transformed.trim()).toBe(printAst(output).trim())
+    const inputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <div><Well variant="informative">Test</Well><Well>Test 2</Well></div>
+    `)
+    const outputAst = parseJsx(`
+      import {Well} from "@kaizen/components"
+      export const TestComponent = () => <div><Well color="blue">Test</Well><Well color="gray">Test 2</Well></div>
+    `)
+    const transformed = transformWellSource(inputAst)
+    expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
   })
 })
