@@ -53,6 +53,9 @@ export type TokenStructure = {
       borderRadius: KaizenCSSProperties["borderRadius"]
       borderStyle: KaizenCSSProperties["borderStyle"]
     }
+    width: {
+      1: KaizenCSSProperties["borderWidth"]
+    }
   }
   animation: {
     easingFunction: {

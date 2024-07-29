@@ -516,6 +516,8 @@ importers:
 
   packages/components/v3/react-aria-components: {}
 
+  packages/components/v3/utilities: {}
+
   packages/design-tokens:
     dependencies:
       '@types/color-string':
