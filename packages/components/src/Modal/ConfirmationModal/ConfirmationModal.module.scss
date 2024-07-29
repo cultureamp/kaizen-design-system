@@ -52,41 +52,6 @@
     }
   }
 
-  &.prominent {
-    grid-template-columns: 1.1fr 2fr;
-
-    @media (max-width: $layout-breakpoints-medium) {
-      display: flex;
-      flex-direction: column;
-      place-content: flex-start center;
-      align-items: flex-start;
-    }
-
-    .iconContainer {
-      position: absolute;
-      top: 8%;
-
-      @media (max-width: $layout-breakpoints-medium) {
-        position: relative;
-        top: 0;
-        margin-bottom: $spacing-sm;
-      }
-    }
-
-    .spotIcon,
-    .svgIcon > svg {
-      width: 155px;
-      height: 155px;
-      margin: 0 auto;
-      color: $color-purple-800;
-
-      @media (max-width: $layout-breakpoints-medium) {
-        width: 86px;
-        height: 86px;
-      }
-    }
-  }
-
   &.padded {
     padding: $spacing-md $spacing-lg;
 
@@ -107,7 +72,35 @@
   align-items: center;
 
   @media (max-width: $layout-breakpoints-medium) {
+    display: flex;
+    flex-direction: column;
+    place-content: flex-start center;
+    align-items: flex-start;
     grid-template-columns: 1fr;
+  }
+
+  .iconContainer {
+    position: absolute;
+    top: 8%;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      position: relative;
+      top: 0;
+      margin-bottom: $spacing-sm;
+    }
+  }
+
+  .spotIcon,
+  .svgIcon > svg {
+    width: 155px;
+    height: 155px;
+    margin: 0 auto;
+    color: $color-purple-800;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      width: 86px;
+      height: 86px;
+    }
   }
 }
 
