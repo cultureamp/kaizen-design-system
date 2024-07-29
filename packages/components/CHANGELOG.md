@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.57.2
+
+### Patch Changes
+
+- [#4872](https://github.com/cultureamp/kaizen-design-system/pull/4872) [`1f97fcdf30e6aea8221178aa0a88eb175e61f314`](https://github.com/cultureamp/kaizen-design-system/commit/1f97fcdf30e6aea8221178aa0a88eb175e61f314) - Menu v3: Add pointer cursor to all menu items
+
 ## 1.57.1
 
 ### Patch Changes
