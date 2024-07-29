@@ -1,5 +1,73 @@
 # Change Log
 
+## 1.57.0
+
+### Minor Changes
+
+- [#4862](https://github.com/cultureamp/kaizen-design-system/pull/4862) [`c1dde02a7257ca2f6af0407f66c2a43becc20324`](https://github.com/cultureamp/kaizen-design-system/commit/c1dde02a7257ca2f6af0407f66c2a43becc20324) - Update components to match new accessible color designs.
+
+  #### Card:
+
+  - Add border to variants
+
+  #### Collapsible:
+
+  - Add border to `Collapsible` and `CollapsibleGroup`
+  - Update border for `ExpertAdviceCollapsible`
+  - Set `default` as default variant
+  - Fix border-radius between header and content
+
+  #### EmptyState:
+
+  - Add border to variants
+  - Change `action` (to later be deprecated) to match `negative` variant color
+
+  #### FieldMessage:
+
+  - Update cautionary icon color
+
+  #### GuidanceBlock:
+
+  - Add border to variants
+  - Change `assertive` (to later be deprecated) to match `negative` variant color
+
+  #### Modals:
+
+  - Update `ConfirmationModal` cautionary icon color
+  - Change `assertive` (to later be deprecated) to match `negative` variant color
+
+  #### Notifications:
+
+  - Update border for variants
+  - Update cautionary icon color
+
+  #### Popover:
+
+  - Add border to variants
+  - Update cautionary icon color
+
+  #### Tag (Legacy):
+
+  - Update cautionary icon color
+
+  #### Tiles:
+
+  - Add border to variants
+  - Change `assertive` (to later be deprecated) to match `negative` variant color
+
+  #### Tooltip (v1):
+
+  - Update border for variants
+
+  #### Well:
+
+  - Update border for variants
+  - Update background color for `default` variant
+
+### Patch Changes
+
+- [#4831](https://github.com/cultureamp/kaizen-design-system/pull/4831) [`f4b4f1ab1c76acbb6b2f0b9fd4daee97da7c19d5`](https://github.com/cultureamp/kaizen-design-system/commit/f4b4f1ab1c76acbb6b2f0b9fd4daee97da7c19d5) - Update `GlobalNotification` colours to align to other notifications.
+
 ## 1.56.1
 
 ### Patch Changes
