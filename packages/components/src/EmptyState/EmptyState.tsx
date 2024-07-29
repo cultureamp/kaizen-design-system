@@ -3,7 +3,6 @@ import classnames from "classnames"
 import { HeadingProps, Heading } from "~components/Heading"
 import {
   AnimatedSceneProps,
-  EmptyStatesAction,
   EmptyStatesInformative,
   EmptyStatesNegative,
   EmptyStatesNeutral,
@@ -21,7 +20,7 @@ const ILLUSTRATIONS: Record<
   neutral: EmptyStatesNeutral,
   negative: EmptyStatesNegative,
   informative: EmptyStatesInformative,
-  action: EmptyStatesAction,
+  action: EmptyStatesNegative,
 }
 
 type IllustrationType =

@@ -43,6 +43,9 @@ export const tokens: TokenStructure = {
       borderRadius: "10px",
       borderStyle: "solid",
     },
+    width: {
+      1: "1px",
+    },
   },
   color: {
     purple: {
