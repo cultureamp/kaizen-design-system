@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.5.1
+
+### Patch Changes
+
+- [#4862](https://github.com/cultureamp/kaizen-design-system/pull/4862) [`c1dde02a7257ca2f6af0407f66c2a43becc20324`](https://github.com/cultureamp/kaizen-design-system/commit/c1dde02a7257ca2f6af0407f66c2a43becc20324) - Add new token `border-width-1`.
+
 ## 10.5.0
 
 ### Minor Changes
