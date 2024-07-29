@@ -120,10 +120,8 @@ jobs:
           onlyChanged: "!(main)"
           debug: true
           externals: |
-            [
-              "**/!(*.module).scss",
-              "packages/components/**/*.css",
-            ]
+            **/!(*.module).scss
+            packages/components/**/*.css
 
   update-branch-preview:
     runs-on: ubuntu-latest
