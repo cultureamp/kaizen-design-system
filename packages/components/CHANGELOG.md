@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.56.1
+
+### Patch Changes
+
+- [#4874](https://github.com/cultureamp/kaizen-design-system/pull/4874) [`db19c815617af1d08183e01417e14fae4af9cfa6`](https://github.com/cultureamp/kaizen-design-system/commit/db19c815617af1d08183e01417e14fae4af9cfa6) - Add v3 entry for utilities
+
 ## 1.56.0
 
 ### Minor Changes
