@@ -14,7 +14,7 @@
 
 // Background Style Variations
 .default {
-  background-color: $color-gray-300;
+  background-color: var(--color-gray-200);
   border-color: $color-gray-500;
 }
 

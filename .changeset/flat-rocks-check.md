@@ -48,3 +48,4 @@ Update components to match new accessible color designs.
 
 #### Well:
 - Update border for variants
+- Update background color for `default` variant
