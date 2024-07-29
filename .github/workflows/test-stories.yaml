@@ -118,6 +118,7 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: "./storybook/public"
           onlyChanged: "!(main)"
+          debug: true
           externals: |
             [
               "**/!(*.module).scss",
