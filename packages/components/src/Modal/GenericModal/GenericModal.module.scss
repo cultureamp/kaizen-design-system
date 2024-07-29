@@ -54,6 +54,20 @@
   @include ca-media-tablet-and-up {
     width: 100%;
   }
+
+  // wrap the modal container with a focus ring when the title has focus
+  // don't copy this over on the rebuild
+  // rather than putting the focus on the title, put it on the role=dialog element itself
+  &:has(:global([class*="modalLabel"]):focus-visible)::after {
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: $color-blue-300;
+    inset: -4px;
+  }
 }
 
 // WAITING FOR TEXTFIELD
