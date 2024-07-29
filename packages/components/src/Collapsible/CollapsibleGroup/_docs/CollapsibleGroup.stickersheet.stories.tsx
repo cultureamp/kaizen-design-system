@@ -46,8 +46,15 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="default">
+        <StickerSheet.Row rowTitle="Open">
           <CollapsibleGroupWrapped />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Closed">
+          <CollapsibleGroup>
+            <CollapsibleWrapped open={false} />
+            <CollapsibleWrapped open={false} />
+            <CollapsibleWrapped open={false} />
+          </CollapsibleGroup>
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="noSectionPadding">
           <CollapsibleGroupWrapped noSectionPadding />

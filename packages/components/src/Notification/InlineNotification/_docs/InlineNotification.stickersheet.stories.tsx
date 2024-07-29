@@ -10,7 +10,7 @@ import {
 } from "../InlineNotification"
 
 export default {
-  title: "Components/Notifications/Inline Notification",
+  title: "Components/Notifications/InlineNotification",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -160,7 +160,7 @@ const VARIANTS_PROPS: Array<{
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
-      <StickerSheet heading="Button" isReversed={isReversed}>
+      <StickerSheet heading="InlineNotification" isReversed={isReversed}>
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
             <StickerSheet.Row key={title} rowTitle={title}>
