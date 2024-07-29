@@ -41,11 +41,11 @@ export const Colors: Story = {
   render: args => (
     <>
       <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
-        `white` replaces the `default` variant
+        `white` is the new default when no color/variant is defined
       </Heading>
       <Well {...args} />
       <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
-        `gray` is an alternative to the `default` variant
+        `gray` is the accessible version of the former `default` variant
       </Heading>
       <Well color="gray" {...args} />
       <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
