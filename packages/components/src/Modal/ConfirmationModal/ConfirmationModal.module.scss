@@ -24,19 +24,6 @@
   position: relative;
 }
 
-.spotIcon,
-.svgIcon > svg {
-  width: 155px;
-  height: 155px;
-  margin: 0 auto;
-  color: $color-purple-800;
-
-  @media (max-width: $layout-breakpoints-medium) {
-    width: 86px;
-    height: 86px;
-  }
-}
-
 .header {
   color: $color-white;
   text-align: left;
@@ -83,6 +70,19 @@
         position: relative;
         top: 0;
         margin-bottom: $spacing-sm;
+      }
+    }
+
+    .spotIcon,
+    .svgIcon > svg {
+      width: 155px;
+      height: 155px;
+      margin: 0 auto;
+      color: $color-purple-800;
+
+      @media (max-width: $layout-breakpoints-medium) {
+        width: 86px;
+        height: 86px;
       }
     }
   }
