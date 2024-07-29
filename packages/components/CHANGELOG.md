@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.57.1
+
+### Patch Changes
+
+- [#4877](https://github.com/cultureamp/kaizen-design-system/pull/4877) [`3ca22cdcb6ad008a27159ec92b6d9f42a1399ffa`](https://github.com/cultureamp/kaizen-design-system/commit/3ca22cdcb6ad008a27159ec92b6d9f42a1399ffa) - Modal: Focus ring now wraps the dialog instead of the title
+
 ## 1.57.0
 
 ### Minor Changes
