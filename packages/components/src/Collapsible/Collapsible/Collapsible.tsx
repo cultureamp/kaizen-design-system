@@ -46,7 +46,7 @@ export const Collapsible = ({
   sticky,
   noSectionPadding,
   onToggle,
-  variant,
+  variant = "default",
   lazyLoad,
   controlled,
   classNameOverride,
@@ -81,9 +81,7 @@ export const Collapsible = ({
         classNameOverride,
         isContainer && styles.container,
         group && !separated && styles.groupItem,
-        separated && styles.separated,
-        isOpen && styles.open,
-        !group && styles.single
+        separated && styles.separated
       )}
       data-testid={`collapsible-container-${id}`}
       {...restProps} // `title` is missing because it is used for the header; requires breaking change to fix

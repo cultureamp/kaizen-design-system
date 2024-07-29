@@ -19,10 +19,10 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
-        {moodsList.map(mood => (
+        {(["default", ...moodsList] as const).map(mood => (
           <StickerSheet.Row key={mood} rowTitle={mood}>
             <GenericTile
-              mood={mood}
+              mood={mood === "default" ? undefined : mood}
               title="Title"
               metadata="metadata"
               information="string"
