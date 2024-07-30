@@ -4,3 +4,9 @@ export type NotificationType =
   | "cautionary"
   | "negative"
   | "security"
+
+export type NotificationVariant =
+  | "success"
+  | "warning"
+  | "informative"
+  | "cautionary"

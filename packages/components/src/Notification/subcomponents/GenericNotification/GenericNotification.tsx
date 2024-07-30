@@ -1,15 +1,20 @@
 import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
 import classnames from "classnames"
 import { HeadingProps } from "~components/Heading"
-import { NotificationType } from "~components/Notification/types"
+import {
+  NotificationType,
+  NotificationVariant,
+} from "~components/Notification/types"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { CancelButton } from "../CancelButton"
 import { NotificationHeading } from "../NotificationHeading"
-import { NotificationIcon } from "../NotificationIcon"
+import {
+  NotificationIconType,
+  NotificationIconVariant,
+} from "../NotificationIcon"
 import styles from "./GenericNotification.module.scss"
 
-export type GenericNotificationProps = {
-  type: NotificationType
+type GenericNotificationBase = {
   style: "global" | "inline" | "toast"
   children?: React.ReactNode
   title?: string
@@ -20,8 +25,31 @@ export type GenericNotificationProps = {
   headingProps?: HeadingProps
 } & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, "style">
 
+export type GenericNotificationType = {
+  /**
+   * @deprecated Please use `variant` instead
+   */
+  type: NotificationType
+  variant?: never
+}
+
+export type GenericNotificationVariant = {
+  type?: never
+  /**
+   * If you are transitioning from `type`:
+   * - `positive` should be `success`
+   * - `negative` should be `warning`
+   * - `security` should be `cautionary`
+   */
+  variant: NotificationVariant
+}
+
+export type GenericNotificationProps = GenericNotificationBase &
+  (GenericNotificationType | GenericNotificationVariant)
+
 export const GenericNotification = ({
   type,
+  variant,
   style,
   children,
   title,
@@ -70,7 +98,7 @@ export const GenericNotification = ({
       ref={containerRef}
       className={classnames(
         styles.notification,
-        styles[type],
+        variant ? styles[variant] : styles[type],
         styles[style],
         isHidden && styles.hidden,
         noBottomMargin && styles.noBottomMargin,
@@ -82,7 +110,8 @@ export const GenericNotification = ({
       {...restProps}
     >
       <div className={styles.icon}>
-        <NotificationIcon type={type} />
+        {type && <NotificationIconType type={type} />}
+        {variant && <NotificationIconVariant variant={variant} />}
       </div>
       <div
         className={classnames(

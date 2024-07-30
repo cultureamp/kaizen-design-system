@@ -45,38 +45,31 @@ const VARIANTS_PROPS: Array<{
     },
   },
   {
-    title: "Positive",
+    title: "Success",
     props: {
       ...DEFAULT_PROPS,
-      type: "positive",
-    },
-  },
-  {
-    title: "Negative",
-    props: {
-      ...DEFAULT_PROPS,
-      type: "negative",
+      variant: "success",
     },
   },
   {
     title: "Cautionary",
     props: {
       ...DEFAULT_PROPS,
-      type: "cautionary",
+      variant: "cautionary",
     },
   },
   {
-    title: "Security",
+    title: "Warning",
     props: {
       ...DEFAULT_PROPS,
-      type: "security",
+      variant: "warning",
     },
   },
   {
     title: "Persistent",
     props: {
       ...DEFAULT_PROPS,
-      type: "informative",
+      variant: "informative",
       persistent: true,
     },
   },

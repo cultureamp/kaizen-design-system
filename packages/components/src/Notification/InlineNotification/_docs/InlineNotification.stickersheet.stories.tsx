@@ -42,7 +42,7 @@ const VARIANTS_PROPS: Array<{
     title: "Informative",
     props: {
       ...DEFAULT_PROPS,
-      type: "informative",
+      variant: "informative",
       headingProps: {
         variant: "heading-6",
         tag: "span",
@@ -51,26 +51,14 @@ const VARIANTS_PROPS: Array<{
     },
   },
   {
-    title: "Positive",
+    title: "Success",
     props: {
       ...DEFAULT_PROPS,
-      type: "positive",
+      variant: "success",
       headingProps: {
         variant: "heading-6",
         tag: "span",
-        children: "Positive title",
-      },
-    },
-  },
-  {
-    title: "Negative",
-    props: {
-      ...DEFAULT_PROPS,
-      type: "negative",
-      headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Negative title",
+        children: "Success title",
       },
     },
   },
@@ -78,7 +66,7 @@ const VARIANTS_PROPS: Array<{
     title: "Cautionary",
     props: {
       ...DEFAULT_PROPS,
-      type: "cautionary",
+      variant: "cautionary",
       headingProps: {
         variant: "heading-6",
         tag: "span",
@@ -87,14 +75,14 @@ const VARIANTS_PROPS: Array<{
     },
   },
   {
-    title: "Security",
+    title: "Warning",
     props: {
       ...DEFAULT_PROPS,
-      type: "security",
+      variant: "warning",
       headingProps: {
         variant: "heading-6",
         tag: "span",
-        children: "Security title",
+        children: "Warning title",
       },
     },
   },
@@ -102,12 +90,12 @@ const VARIANTS_PROPS: Array<{
     title: "Persistent",
     props: {
       ...DEFAULT_PROPS,
-      type: "informative",
+      variant: "informative",
       persistent: true,
       headingProps: {
         variant: "heading-6",
         tag: "span",
-        children: "Security title",
+        children: "Persistent title",
       },
     },
   },
@@ -115,7 +103,7 @@ const VARIANTS_PROPS: Array<{
     title: "Subtle",
     props: {
       ...DEFAULT_PROPS,
-      type: "informative",
+      variant: "informative",
       isSubtle: true,
       persistent: true,
       headingProps: {
@@ -132,7 +120,7 @@ const VARIANTS_PROPS: Array<{
       ...DEFAULT_PROPS,
       children:
         "Content longer that the width of the container will break onto a new line. Lorem ipsum dolor, sit amet consectetur adipisicing elit. In aperiam voluptatem molestias saepe quia vitae quod ex illum, unde nihil impedit possimus officia labore atque quidem necessitatibus sint, maiores velit.",
-      type: "positive",
+      variant: "success",
       headingProps: {
         variant: "heading-6",
         tag: "span",
@@ -146,7 +134,7 @@ const VARIANTS_PROPS: Array<{
       ...DEFAULT_PROPS,
       children:
         "forceMultiline will break children onto a new line regardless of width",
-      type: "negative",
+      variant: "cautionary",
       headingProps: {
         variant: "heading-6",
         tag: "span",

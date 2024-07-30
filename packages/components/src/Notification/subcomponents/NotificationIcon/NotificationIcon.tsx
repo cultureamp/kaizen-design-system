@@ -4,15 +4,18 @@ import { ExclamationIcon } from "~components/Icon/ExclamationIcon"
 import { InformationIcon } from "~components/Icon/InformationIcon"
 import { SecurityTipIcon } from "~components/Icon/SecurityTipIcon"
 import { SuccessIcon } from "~components/Icon/SuccessIcon"
-import { NotificationType } from "~components/Notification/types"
+import {
+  NotificationType,
+  NotificationVariant,
+} from "~components/Notification/types"
 
-export type NotificationIconProps = {
+export type NotificationIconTypeProps = {
   type: NotificationType
 }
 
-export const NotificationIcon = ({
+export const NotificationIconType = ({
   type,
-}: NotificationIconProps): JSX.Element => {
+}: NotificationIconTypeProps): JSX.Element => {
   switch (type) {
     case "positive":
       return <SuccessIcon role="presentation" inheritSize />
@@ -29,4 +32,25 @@ export const NotificationIcon = ({
   }
 }
 
-NotificationIcon.displayName = "NotificationIcon"
+NotificationIconType.displayName = "NotificationIconType"
+
+export type NotificationIconVariantProps = {
+  variant: NotificationVariant
+}
+
+export const NotificationIconVariant = ({
+  variant,
+}: NotificationIconVariantProps): JSX.Element => {
+  switch (variant) {
+    case "success":
+      return <SuccessIcon role="presentation" inheritSize />
+    case "warning":
+      return <ExclamationIcon role="presentation" inheritSize />
+    case "cautionary":
+      return <CautionIcon role="presentation" inheritSize />
+    case "informative":
+      return <InformationIcon role="presentation" inheritSize />
+  }
+}
+
+NotificationIconVariant.displayName = "NotificationIconVariant"

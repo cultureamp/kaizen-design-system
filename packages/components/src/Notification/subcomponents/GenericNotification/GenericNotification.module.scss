@@ -88,7 +88,10 @@
   @extend %ca-notification---global;
 }
 
+// ------------------------------
 // Type
+// @deprecated use variant instead
+// ------------------------------
 .positive {
   @extend %ca-notification---positive;
 }
@@ -104,6 +107,34 @@
 
 .negative {
   @extend %ca-notification---negative;
+}
+// End deprecated styles
+
+// ------------------------------
+// Variant
+// ------------------------------
+.success {
+  background: $color-green-100;
+  border-color: var(--color-green-500);
+  color: $color-purple-800;
+}
+
+.informative {
+  background: $color-blue-100;
+  border-color: var(--color-blue-400);
+  color: $color-purple-800;
+}
+
+.cautionary {
+  background: $color-yellow-100;
+  border-color: var(--color-yellow-700);
+  color: $color-purple-800;
+}
+
+.warning {
+  background: $color-red-100;
+  border-color: var(--color-red-500);
+  color: $color-purple-800;
 }
 
 // Modifiers
