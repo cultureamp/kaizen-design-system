@@ -8,7 +8,7 @@ import { moodsList } from "../../subcomponents/GenericTile/types"
 import { InformationTile } from "../index"
 
 export default {
-  title: "Components/Tile/InformationTile",
+  title: "Components/Tiles/InformationTile",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -19,10 +19,10 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
       <StickerSheet.Body>
-        {moodsList.map(mood => (
+        {(["default", ...moodsList] as const).map(mood => (
           <StickerSheet.Row key={mood} rowTitle={mood}>
             <InformationTile
-              mood={mood}
+              mood={mood === "default" ? undefined : mood}
               title="Title"
               metadata="Side A"
               information="Side B"

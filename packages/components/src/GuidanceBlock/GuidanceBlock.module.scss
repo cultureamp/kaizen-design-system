@@ -33,16 +33,16 @@ $scene-illustration-size: 300px;
 }
 
 .banner {
+  --border-width: var(--border-width-1);
+
   display: flex;
   flex-direction: column;
   gap: $spacing-sm;
-  background: $color-white;
   min-width: 320px;
   max-width: $layout-breakpoints-large;
-  border: $border-borderless-border-width $border-borderless-border-style
-    $border-borderless-border-color;
+  border: var(--border-width) var(--border-solid-border-style);
   border-radius: $border-solid-border-radius;
-  padding: $bannerPadding;
+  padding: calc(#{$bannerPadding} - var(--border-width));
   box-shadow: $shadow-small-box-shadow;
   position: relative;
   top: -1px;
@@ -214,27 +214,34 @@ $scene-illustration-size: 300px;
   color: $color-purple-800;
 }
 
+.default {
+  border-color: var(--color-gray-500);
+  background: var(--color-white);
+}
+
 .positive {
+  border-color: var(--color-green-500);
   background: $color-green-100;
 }
 
-.negative {
+.negative,
+.assertive {
+  border-color: var(--color-red-500);
   background: $color-red-100;
 }
 
 .informative {
+  border-color: var(--color-blue-400);
   background: $color-blue-100;
 }
 
 .cautionary {
+  border-color: var(--color-yellow-700);
   background: $color-yellow-100;
 }
 
-.assertive {
-  background: $color-orange-100;
-}
-
 .prominent {
+  border-color: var(--color-purple-400);
   background: $color-purple-100;
 }
 

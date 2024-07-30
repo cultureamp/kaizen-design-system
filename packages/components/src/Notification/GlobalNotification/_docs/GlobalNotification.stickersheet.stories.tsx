@@ -10,7 +10,7 @@ import {
 } from "../GlobalNotification"
 
 export default {
-  title: "Components/Notifications/Global Notification",
+  title: "Components/Notifications/GlobalNotification",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -85,7 +85,7 @@ const VARIANTS_PROPS: Array<{
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
-      <StickerSheet heading="Button" isReversed={isReversed}>
+      <StickerSheet heading="GlobalNotification" isReversed={isReversed}>
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
             <StickerSheet.Row key={title} rowTitle={title}>
