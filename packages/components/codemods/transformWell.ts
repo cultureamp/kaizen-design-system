@@ -9,10 +9,7 @@ const checkForValidImports = (node: ts.Node): boolean => {
   const visitNode = (visitedNode: ts.Node): boolean => {
     if (ts.isImportDeclaration(visitedNode)) {
       const moduleSpecifier = visitedNode.moduleSpecifier.getText()
-      if (
-        moduleSpecifier === "'@kaizen/components'" ||
-        moduleSpecifier === '"@kaizen/components"'
-      ) {
+      if (moduleSpecifier.includes("@kaizen/components")) {
         const namedBindings = visitedNode.importClause?.namedBindings
         if (namedBindings && ts.isNamedImports(namedBindings)) {
           namedBindings.elements.forEach(importSpecifier => {
@@ -35,6 +32,7 @@ const wellTransformer =
   (rootNode: T) => {
     function visit(node: ts.Node): ts.Node {
       if (ts.isJsxOpeningElement(node)) {
+        // TODO: check alias names for Well
         if (node.tagName.getText() === "Well") {
           let hasVariant = false
           let newAttributes = node.attributes.properties.map(attr => {
@@ -115,7 +113,7 @@ export const transformWellSource = (
 }
 
 /** runs the transformer and writes the updated source back to the path provided */
-export const updateAstSource = (filePath: string): void => {
+export const updateFileContents = (filePath: string): string => {
   const source = fs.readFileSync(filePath, "utf8")
   const sourceFile = ts.createSourceFile(
     filePath,
@@ -128,7 +126,7 @@ export const updateAstSource = (filePath: string): void => {
   const printer = ts.createPrinter()
   const updatedSource = printer.printFile(updatedSourceFile)
 
-  fs.writeFileSync(filePath, updatedSource, "utf8")
+  return updatedSource
 }
 
 /** Walks the directory given and runs the runs the AST updater */
@@ -139,7 +137,7 @@ export const processDirectory = (dir: string): void => {
     if (fs.statSync(fullPath).isDirectory()) {
       processDirectory(fullPath)
     } else if (fullPath.endsWith(".tsx")) {
-      updateAstSource(fullPath)
+      fs.writeFileSync(fullPath, updateFileContents(fullPath), "utf8")
     }
   })
 }

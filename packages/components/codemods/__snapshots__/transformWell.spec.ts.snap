@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`updateFileContents should not update Well components imported from @kaizen/draft-well or legacy packages 1`] = `
+"import * as React from "react";
+import { Well } from "kaizen/draft-well";
+export const TestWellComponentUnhappy = (): JSX.Element => (<div>
+    <Well variant="default">Test 1 should have default variant</Well>
+    <Well>Test 2 should have no change</Well>
+    <Well>Test 3 should have informative variant</Well>
+    <Well id="test-id" variant="informative">
+      Test 3 should have informative variant and an id prop
+    </Well>
+  </div>);
+"
+`;
+
+exports[`updateFileContents should update Well components imported from @kaizen/component/path 1`] = `
+"import * as React from "react";
+import { Well } from "@kaizen/components/v3";
+export const TestWellComponent = (): JSX.Element => (<div>
+    <Well color="gray">Test 1 should have color gray</Well>
+    <Well color="gray">Test 2 should have color gray</Well>
+    <Well color="blue">Test 3 should have color blue</Well>
+    <Well id="test-id" color="blue">
+      Test 3 should have color blue and an id prop
+    </Well>
+  </div>);
+"
+`;
+
+exports[`updateFileContents should update Well components imported from @kaizen/components 1`] = `
+"import * as React from "react";
+import { Well } from "@kaizen/components";
+export const TestWellComponent = (): JSX.Element => (<div>
+    <Well color="gray">Test 1 should have color gray</Well>
+    <Well color="gray">Test 2 should have color gray</Well>
+    <Well color="blue">Test 3 should have color blue</Well>
+    <Well id="test-id" color="blue">
+      Test 3 should have color blue and an id prop
+    </Well>
+  </div>);
+"
+`;
