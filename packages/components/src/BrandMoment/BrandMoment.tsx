@@ -9,8 +9,19 @@ import { OverrideClassName } from "~types/OverrideClassName"
 import { useMediaQueries } from "~utils/useMediaQueries"
 import styles from "./BrandMoment.module.scss"
 
-export type BrandMomentProps = {
+type DeprecatedMoodProps = {
+  /** @deprecated Use `variant` instead */
   mood: "informative" | "positive" | "negative"
+  variant?: never
+}
+
+type VariantProps = {
+  variant: "informative" | "success" | "warning"
+  /** @deprecated Use `variant` instead */
+  mood?: never
+}
+
+export type BrandMomentProps = {
   illustration: ReactElement<SceneProps>
   header: ReactNode
   body?: ReactNode
@@ -22,7 +33,8 @@ export type BrandMomentProps = {
     body?: ReactNode
     footer?: ReactNode
   }
-} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>> &
+  (DeprecatedMoodProps | VariantProps)
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082061589/Brand+Moment Guidance} |
@@ -30,6 +42,7 @@ export type BrandMomentProps = {
  */
 export const BrandMoment = ({
   mood,
+  variant,
   illustration,
   header,
   body,
@@ -43,7 +56,11 @@ export const BrandMoment = ({
 
   return (
     <div
-      className={classnames(styles.body, styles[mood], classNameOverride)}
+      className={classnames(
+        styles.body,
+        variant ? styles[variant] : styles[mood],
+        classNameOverride
+      )}
       {...restProps}
     >
       <header className={styles.header}>{header}</header>

@@ -6,7 +6,6 @@ import {
   ArrowRightIcon,
   EmailIcon,
   FeedbackClassifyIcon,
-  SecurityTipIcon,
 } from "~components/Icon"
 import {
   BrandMomentCaptureIntro,
@@ -40,10 +39,9 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const InformativeIntro: Story = {
-  name: "Informative intro",
+export const Informative: Story = {
   args: {
-    mood: "informative",
+    variant: "informative",
     illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
     header: <MinimalBasic />,
     text: {
@@ -59,69 +57,9 @@ export const InformativeIntro: Story = {
   },
 }
 
-export const PositiveOutro: Story = {
-  name: "Positive outro",
+export const Success: Story = {
   args: {
-    mood: "positive",
-    illustration: <BrandMomentPositiveOutro {...illustrationProps} />,
-    header: <MinimalBasic />,
-    text: {
-      title: "Import in progress",
-      body: (
-        <>
-          That&apos;s it for now. Your data is importing but you don&apos;t need
-          to hang out here while it happens. Get on with your day and we&apos;ll
-          let you know on the <a href="#">Users page</a> when it&apos;s
-          complete.
-        </>
-      ),
-    },
-    primaryAction: {
-      label: "Go to Users",
-      href: "#",
-      icon: <ArrowRightIcon role="presentation" />,
-      iconPosition: "end",
-    },
-  },
-}
-
-export const InformativeIntroCustomerFocused: Story = {
-  name: "Informative intro (customer focused)",
-  args: {
-    mood: "informative",
-    illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
-    header: <MinimalCustomerFocused />,
-    text: {
-      subtitle: "A survey for Hooli",
-      title: "Manager Effectiveness Survey",
-      body: "Thank you for taking the time to respond to this survey. It'll help us better understand your experience and perspective.",
-      footer: (
-        <>
-          Your responses and information are securely collected and kept by
-          Culture Amp in accordance with our <a href="#">Privacy Policy</a>.
-          Your responses will be reported to Hooli based on the specific rules
-          for this survey. If you have any additional questions, please contact
-          us at <a href="#">support@cultureamp.com</a>.
-        </>
-      ),
-    },
-    primaryAction: {
-      label: "Take survey",
-      href: "#",
-      icon: <ArrowRightIcon role="presentation" />,
-      iconPosition: "end",
-    },
-    secondaryAction: {
-      label: "About data safety",
-      icon: <SecurityTipIcon role="presentation" />,
-    },
-  },
-}
-
-export const PositiveOutroCustomerFocused: Story = {
-  name: "Positive outro (customer focused)",
-  args: {
-    mood: "positive",
+    variant: "success",
     illustration: <BrandMomentPositiveOutro {...illustrationProps} />,
     header: <MinimalCustomerFocused />,
     text: {
@@ -156,10 +94,9 @@ export const PositiveOutroCustomerFocused: Story = {
   },
 }
 
-export const Error: Story = {
-  // ...IconRTLTemplate,
+export const Warning: Story = {
   args: {
-    mood: "negative",
+    variant: "warning",
     illustration: <BrandMomentError {...illustrationProps} />,
     header: <FakeNavBar />,
     text: {

@@ -1,5 +1,4 @@
 import { Canvas, Meta } from "@storybook/blocks"
-import { InlineNotification } from "~components/Notification"
 import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as BrandMoment from "./BrandMoment.stories"
 
@@ -20,18 +19,24 @@ import * as BrandMoment from "./BrandMoment.stories"
 
 A brand moment is a page that showcases the brand's vibrant animations and illustration. The page provides an engaging experience for users when they reach these junction, helping to create a strong connection between the brand and product.
 
-<InlineNotification persistent type="informative">Code snippets on this page have been disabled due to performance issues, see [Source Code](https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/BrandMoment) for code examples.</InlineNotification>
+## Color
 
-## Variants
+The `color` prop sets the background color. Previously named `mood`.
 
-### Informative Intro
-<Canvas of={BrandMoment.InformativeIntro} />
+### Blue
 
-### Positive Outro
-<Canvas of={BrandMoment.PositiveOutro} />
+Color `blue` - previously Mood `informative`.
 
-### Positive Outro Customer Focused
-<Canvas of={BrandMoment.PositiveOutroCustomerFocused} />
+<Canvas of={BrandMoment.Blue} />
 
-### Error
-<Canvas of={BrandMoment.Error} />
+### Green
+
+Color `green` - previously Mood `positive`.
+
+<Canvas of={BrandMoment.Green} />
+
+### Red
+
+Color `red` - previously Mood `negative`.
+
+<Canvas of={BrandMoment.Red} />
