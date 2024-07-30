@@ -35,6 +35,7 @@ const wellTransformer =
         // TODO: check alias names for Well
         if (node.tagName.getText() === "Well") {
           let hasVariant = false
+          let hasColor = false
           let newAttributes = node.attributes.properties.map(attr => {
             if (ts.isJsxAttribute(attr) && attr.name.getText() === "variant") {
               hasVariant = true
@@ -71,10 +72,13 @@ const wellTransformer =
                 )
               }
             }
+            if (ts.isJsxAttribute(attr) && attr.name.getText() === "color") {
+              hasColor = true
+            }
             return attr
           })
 
-          if (!hasVariant) {
+          if (!hasColor && !hasVariant) {
             newAttributes = [
               ...newAttributes,
               ts.factory.createJsxAttribute(
@@ -141,3 +145,5 @@ export const processDirectory = (dir: string): void => {
     }
   })
 }
+
+processDirectory(path.join(__dirname, "test"))
