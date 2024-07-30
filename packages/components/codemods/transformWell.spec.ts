@@ -137,24 +137,26 @@ describe("transformWellSource", () => {
 })
 
 describe("updateFileContents", () => {
-  it("should update Well components imported from @kaizen/components", async () => {
-    const filePath = path.resolve(path.join(__dirname, "./fixtures/Well.tsx"))
+  it("should update Well components imported from @kaizen/components", () => {
+    const filePath = path.resolve(
+      path.join(__dirname, "./__fixtures__/Well.tsx")
+    )
 
     const updatedFileContent = updateFileContents(filePath)
 
     expect(updatedFileContent).toMatchSnapshot()
   })
-  it("should not update Well components imported from @kaizen/draft-well or legacy packages", async () => {
+  it("should not update Well components imported from @kaizen/draft-well or legacy packages", () => {
     const legacyFilePath = path.resolve(
-      path.join(__dirname, "./fixtures/LegacyWell.tsx")
+      path.join(__dirname, "./__fixtures__/LegacyWell.tsx")
     )
 
     const updatedFileContent = updateFileContents(legacyFilePath)
     expect(updatedFileContent).toMatchSnapshot()
   })
-  it("should update Well components imported from @kaizen/component/path", async () => {
+  it("should update Well components imported from @kaizen/component/path", () => {
     const legacyFilePath = path.resolve(
-      path.join(__dirname, "./fixtures/WellV3.tsx")
+      path.join(__dirname, "./__fixtures__/WellV3.tsx")
     )
 
     const updatedFileContent = updateFileContents(legacyFilePath)

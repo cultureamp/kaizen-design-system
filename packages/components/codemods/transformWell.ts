@@ -146,4 +146,17 @@ export const processDirectory = (dir: string): void => {
   })
 }
 
-processDirectory(path.join(__dirname, "test"))
+const runner = (): void => {
+  // Get the rootDir from the command-line arguments
+  const rootDir = process.argv[2]
+  console.log(process.argv)
+
+  if (!rootDir) {
+    console.error("Error: rootDir argument is required")
+    process.exit(1)
+  }
+
+  processDirectory(rootDir)
+}
+
+runner()

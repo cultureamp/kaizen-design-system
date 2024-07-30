@@ -1,5 +1,6 @@
 import * as React from "react"
-import { Well } from "kaizen/draft-well"
+// @ts-ignore
+import { Well } from "@kaizen/draft-well"
 export const TestWellComponentUnhappy = (): JSX.Element => (
   <div>
     <Well variant="default">Test 1 should have default variant</Well>
