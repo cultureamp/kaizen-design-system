@@ -12,8 +12,6 @@ $ca-breakpoint-small-mobile: 375px;
 }
 
 .modalLabel {
-  position: relative;
-
   // TODO - Remove below styles for Heading once responsive styling has been added to the Heading Component
   h2 {
     @media (max-width: $layout-breakpoints-medium) {
@@ -34,18 +32,5 @@ $ca-breakpoint-small-mobile: 375px;
 
   &:focus {
     outline: none;
-  }
-
-  &:focus-visible::after {
-    $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
-
-    content: "";
-    position: absolute;
-    background: transparent;
-    border-radius: $border-focus-ring-border-radius;
-    border-width: $border-focus-ring-border-width;
-    border-style: $border-focus-ring-border-style;
-    border-color: $color-blue-500;
-    inset: calc(-1 * #{$focus-ring-offset});
   }
 }

@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.57.2
+
+### Patch Changes
+
+- [#4872](https://github.com/cultureamp/kaizen-design-system/pull/4872) [`1f97fcdf30e6aea8221178aa0a88eb175e61f314`](https://github.com/cultureamp/kaizen-design-system/commit/1f97fcdf30e6aea8221178aa0a88eb175e61f314) - Menu v3: Add pointer cursor to all menu items
+
+## 1.57.1
+
+### Patch Changes
+
+- [#4877](https://github.com/cultureamp/kaizen-design-system/pull/4877) [`3ca22cdcb6ad008a27159ec92b6d9f42a1399ffa`](https://github.com/cultureamp/kaizen-design-system/commit/3ca22cdcb6ad008a27159ec92b6d9f42a1399ffa) - Modal: Focus ring now wraps the dialog instead of the title
+
 ## 1.57.0
 
 ### Minor Changes
