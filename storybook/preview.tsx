@@ -93,7 +93,7 @@ const preview = {
     docs: {
       toc: {
         title: "Table of contents",
-        headingSelector: "h2, h3",
+        headingSelector: ".tocbot-content > h2, .tocbot-content > h3",
         ignoreSelector: "#primary",
       },
       source: {
