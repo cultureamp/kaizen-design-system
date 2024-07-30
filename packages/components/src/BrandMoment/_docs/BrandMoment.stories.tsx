@@ -3,7 +3,6 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import {
-  ArrowLeftIcon,
   ArrowRightIcon,
   EmailIcon,
   FeedbackClassifyIcon,
@@ -41,36 +40,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const IconRTLTemplate: Pick<Story, "render" | "parameters"> = {
-  render: ({ primaryAction, ...args }, { globals }) => (
-    <BrandMoment
-      {...args}
-      primaryAction={{
-        label: "Primary action label",
-        ...primaryAction,
-        icon:
-          globals.textDirection === "ltr" ? (
-            <ArrowRightIcon role="presentation" />
-          ) : (
-            <ArrowLeftIcon role="presentation" />
-          ),
-      }}
-    />
-  ),
-  parameters: {
-    docs: {
-      source: {
-        // Code snippets will cause the browser to freeze when using JSX.Elements
-        // within an object form prop, thus we must disable them to flip the
-        // primaryAction icon when changing the global text direction
-        code: "disabled",
-      },
-    },
-  },
-}
-
 export const InformativeIntro: Story = {
-  ...IconRTLTemplate,
   name: "Informative intro",
   args: {
     mood: "informative",
@@ -90,7 +60,6 @@ export const InformativeIntro: Story = {
 }
 
 export const PositiveOutro: Story = {
-  ...IconRTLTemplate,
   name: "Positive outro",
   args: {
     mood: "positive",
@@ -117,7 +86,6 @@ export const PositiveOutro: Story = {
 }
 
 export const InformativeIntroCustomerFocused: Story = {
-  ...IconRTLTemplate,
   name: "Informative intro (customer focused)",
   args: {
     mood: "informative",
@@ -151,7 +119,6 @@ export const InformativeIntroCustomerFocused: Story = {
 }
 
 export const PositiveOutroCustomerFocused: Story = {
-  ...IconRTLTemplate,
   name: "Positive outro (customer focused)",
   args: {
     mood: "positive",
@@ -190,7 +157,7 @@ export const PositiveOutroCustomerFocused: Story = {
 }
 
 export const Error: Story = {
-  ...IconRTLTemplate,
+  // ...IconRTLTemplate,
   args: {
     mood: "negative",
     illustration: <BrandMomentError {...illustrationProps} />,
