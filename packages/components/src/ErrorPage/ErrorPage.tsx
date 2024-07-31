@@ -64,7 +64,7 @@ export const ErrorPage = ({
           </>
         }
         illustration={<BrandMomentError isAnimated loop />}
-        mood="negative"
+        variant="warning"
         primaryAction={{
           ...actions.primary,
           icon: <ArrowRightIcon role="presentation" />,
