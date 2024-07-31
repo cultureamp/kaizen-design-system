@@ -12,3 +12,7 @@ Update components to use `variant` prop, to align design language.
 #### EmptyState:
 - Deprecate `illustrationType` prop
 - Introduce `variant` prop
+
+#### Tiles (GenericTile, InformationTile, MultiActionTile):
+- Deprecate `mood` prop
+- Introduce `variant` prop

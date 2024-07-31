@@ -45,7 +45,8 @@ $tilePaddingTop: $spacing-xl;
 .face {
   position: absolute;
   background-color: $color-white;
-  border: var(--border-width-1) var(--border-solid-border-style);
+  border: var(--border-width-1) var(--border-solid-border-style)
+    var(--color-gray-500);
   border-radius: 7px;
   box-sizing: border-box;
   display: flex;
@@ -62,7 +63,6 @@ $tilePaddingTop: $spacing-xl;
 
 .faceFront {
   justify-content: space-between;
-  border-color: var(--color-gray-500);
   padding: $tilePaddingTop $spacing-md $spacing-md;
 }
 
@@ -73,6 +73,7 @@ $tilePaddingTop: $spacing-xl;
   background-color: $color-blue-100;
 }
 
+/** @deprecated */
 .faceMoodPositive {
   border-color: var(--color-green-500);
   background-color: $color-green-100;
@@ -95,6 +96,17 @@ $tilePaddingTop: $spacing-xl;
 }
 
 .faceMoodProminent {
+  border-color: var(--color-purple-400);
+  background-color: $color-purple-100;
+}
+
+/** end @deprecated */
+.default {
+  border-color: var(--color-gray-500);
+  background-color: var(--color-white);
+}
+
+.expert-advice {
   border-color: var(--color-purple-400);
   background-color: $color-purple-100;
 }

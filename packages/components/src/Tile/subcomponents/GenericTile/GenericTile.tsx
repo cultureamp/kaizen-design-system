@@ -7,7 +7,6 @@ import { GenericButtonProps } from "~components/__actions__/Button/v1/GenericBut
 import { IconButton } from "~components/__actions__/v2"
 import { OverrideClassName } from "~types/OverrideClassName"
 import Action from "./Action"
-import { Moods } from "./types"
 import styles from "./GenericTile.module.scss"
 
 export type TileAction = {
@@ -34,7 +33,16 @@ export type GenericTileProps = {
   titleTag?: AllowedHeadingTags
   metadata?: string
   information?: TileInformation | React.ReactNode
-  mood?: Moods
+  /** @deprecated Use `variant` instead */
+  mood?:
+    | "positive"
+    | "informative"
+    | "cautionary"
+    | "assertive"
+    | "negative"
+    | "prominent"
+  /** @default default */
+  variant?: "default" | "expert-advice"
   footer: React.ReactNode
 } & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "title">>
 
@@ -45,6 +53,7 @@ export const GenericTile = ({
   metadata,
   information,
   mood,
+  variant,
   footer,
   classNameOverride,
   ...restProps
@@ -84,6 +93,7 @@ export const GenericTile = ({
       className={classnames(
         styles.face,
         styles.faceFront,
+        variant && styles[variant],
         mood === "positive" && styles.faceMoodPositive,
         mood === "informative" && styles.faceMoodInformative,
         mood === "cautionary" && styles.faceMoodCautionary,
