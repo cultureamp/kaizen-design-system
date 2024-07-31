@@ -28,7 +28,7 @@ echo ""
 if npx tsx $CODEMOD_PATH $TARGET_DIR; then
   echo "Codemod '$codemodFileName' completed successfully in directory '$transformDir'"
 else
-  echo "Fail"
+  echo "Codemod '$codemodFileName' could not be run in '$TARGET_DIR'"
   exit 1
 fi
 
