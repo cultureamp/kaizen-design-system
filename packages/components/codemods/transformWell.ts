@@ -141,18 +141,18 @@ export const processDirectory = (dir: string): void => {
     if (fs.statSync(fullPath).isDirectory()) {
       processDirectory(fullPath)
     } else if (fullPath.endsWith(".tsx")) {
-      fs.writeFileSync(fullPath, updateFileContents(fullPath), "utf8")
+      const updatedSourceFile = updateFileContents(fullPath)
+
+      console.log("Updating file: ", file)
+      fs.writeFileSync(fullPath, updatedSourceFile, "utf8")
     }
   })
 }
 
 const runner = (): void => {
-  // Get the rootDir from the command-line arguments
+  console.log(" ~(-_- ~) Running Well transformer (~ -_-)~")
   const rootDir = process.argv[2]
-  console.log(process.argv)
-
   if (!rootDir) {
-    console.error("Error: rootDir argument is required")
     process.exit(1)
   }
 
