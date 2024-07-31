@@ -16,10 +16,6 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 }
 
 /** @deprecated */
-.informative {
-  background: var(--color-blue-100);
-}
-
 .positive {
   background: var(--color-green-100);
 }
@@ -29,15 +25,15 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 }
 
 /** end @deprecated */
-.blue {
+.informative {
   background: var(--color-blue-100);
 }
 
-.green {
+.success {
   background: var(--color-green-100);
 }
 
-.red {
+.warning {
   background: var(--color-red-100);
 }
 
