@@ -41,6 +41,7 @@
   }
 }
 
+/** @deprecated */
 .positive {
   border-color: var(--color-green-500);
   background-color: $color-green-100;
@@ -57,9 +58,25 @@
   background-color: $color-purple-100;
 }
 
+/** end @deprecated */
+.success {
+  border-color: var(--color-green-500);
+  background-color: $color-green-100;
+}
+
+.warning {
+  border-color: var(--color-red-500);
+  background-color: $color-red-100;
+}
+
 .informative {
   border-color: var(--color-blue-400);
   background-color: $color-blue-100;
+}
+
+.expert-advice {
+  border-color: var(--color-purple-400);
+  background-color: $color-purple-100;
 }
 
 .illustrationSide,

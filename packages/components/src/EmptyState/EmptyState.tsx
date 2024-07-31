@@ -16,27 +16,33 @@ const ILLUSTRATIONS: Record<
   string,
   (props: AnimatedSceneProps) => JSX.Element
 > = {
-  positive: EmptyStatesPositive,
-  neutral: EmptyStatesNeutral,
-  negative: EmptyStatesNegative,
+  success: EmptyStatesPositive,
+  warning: EmptyStatesNegative,
   informative: EmptyStatesInformative,
+  "expert-advice": EmptyStatesNeutral,
+  /** @deprecated Replaced by success */
+  positive: EmptyStatesPositive,
+  /** @deprecated Replaced by default */
+  neutral: EmptyStatesNeutral,
+  /** @deprecated Replaced by warning */
+  negative: EmptyStatesNegative,
+  /** @deprecated */
   action: EmptyStatesNegative,
 }
-
-type IllustrationType =
-  | "positive"
-  | "neutral"
-  | "negative"
-  | "informative"
-  | "action"
-
-type LayoutContextType = "sidebarAndContent" | "contentOnly"
 
 export type EmptyStateProps = {
   children?: React.ReactNode
   id?: string
-  illustrationType?: IllustrationType
-  layoutContext?: LayoutContextType
+  /** @deprecated Use `variant` instead */
+  illustrationType?:
+    | "positive"
+    | "neutral"
+    | "negative"
+    | "informative"
+    | "action"
+  /** @default "informative" */
+  variant?: "success" | "warning" | "informative" | "expert-advice"
+  layoutContext?: "sidebarAndContent" | "contentOnly"
   bodyText: string | React.ReactNode
   straightCorners?: boolean
   headingProps?: HeadingProps
@@ -51,6 +57,7 @@ export const EmptyState = ({
   children,
   id,
   illustrationType = "informative",
+  variant,
   layoutContext = "sidebarAndContent",
   headingProps,
   bodyText,
@@ -60,15 +67,14 @@ export const EmptyState = ({
   classNameOverride,
   ...props
 }: EmptyStateProps): JSX.Element => {
-  const IllustrationComponent = ILLUSTRATIONS[illustrationType]
+  const IllustrationComponent = ILLUSTRATIONS[variant ?? illustrationType]
 
   return (
     <div
       className={classnames(
         classNameOverride,
-        styles[illustrationType],
+        variant ? styles[variant] : styles[illustrationType],
         styles.container,
-        styles.zen,
         styles[layoutContext],
         straightCorners && styles.straightCorners
       )}

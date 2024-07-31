@@ -3,7 +3,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { ChevronRightIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v2"
 import { EmptyState } from "../index"
-import styles from "./EmptyState.stories.module.scss"
 
 const meta = {
   title: "Components/EmptyState",
@@ -16,13 +15,11 @@ const meta = {
       mapping: {
         "Default (no children)": undefined,
         "Button (chevron right)": (
-          <div className={styles.buttonContainer}>
-            <Button
-              label="Label"
-              icon={<ChevronRightIcon role="presentation" />}
-              iconPosition="end"
-            />
-          </div>
+          <Button
+            label="Label"
+            icon={<ChevronRightIcon role="presentation" />}
+            iconPosition="end"
+          />
         ),
       },
     },
