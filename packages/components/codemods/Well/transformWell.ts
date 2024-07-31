@@ -1,5 +1,6 @@
 import fs from "fs"
 import path from "path"
+// eslint-disable-next-line import/no-extraneous-dependencies
 import ts from "typescript"
 
 /** Recurses through AST to find the target import. If found will return the import name or alias if one exists, else `undefined` */
