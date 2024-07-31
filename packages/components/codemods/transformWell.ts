@@ -35,7 +35,7 @@ const wellTransformer =
   (context: ts.TransformationContext, importAlias: string) =>
   (rootNode: ts.Node): ts.Node => {
     function visit(node: ts.Node): ts.Node {
-      if (ts.isJsxOpeningElement(node)) {
+      if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         if (node.tagName.getText() === importAlias) {
           let hasVariant = false
           let hasColor = false
@@ -91,12 +91,21 @@ const wellTransformer =
             ]
           }
 
-          return ts.factory.updateJsxOpeningElement(
-            node,
-            node.tagName,
-            node.typeArguments,
-            ts.factory.createJsxAttributes(newAttributes)
-          )
+          if (ts.isJsxOpeningElement(node)) {
+            return ts.factory.updateJsxOpeningElement(
+              node,
+              node.tagName,
+              node.typeArguments,
+              ts.factory.createJsxAttributes(newAttributes)
+            )
+          } else if (ts.isJsxSelfClosingElement(node)) {
+            return ts.factory.updateJsxSelfClosingElement(
+              node,
+              node.tagName,
+              node.typeArguments,
+              ts.factory.createJsxAttributes(newAttributes)
+            )
+          }
         }
       }
       return ts.visitEachChild(node, visit, context)
@@ -152,15 +161,3 @@ export const processDirectory = (dir: string): void => {
     }
   })
 }
-
-export const runner = (): void => {
-  console.log(" ~(-_- ~) Running Well transformer (~ -_-)~")
-  const rootDir = process.argv[2]
-  if (!rootDir) {
-    process.exit(1)
-  }
-
-  processDirectory(rootDir)
-}
-
-// runner()
