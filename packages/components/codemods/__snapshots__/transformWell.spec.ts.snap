@@ -2,6 +2,7 @@
 
 exports[`updateFileContents should not update Well components imported from @kaizen/draft-well or legacy packages 1`] = `
 "import * as React from "react";
+// @ts-ignore
 import { Well } from "@kaizen/draft-well";
 export const TestWellComponentUnhappy = (): JSX.Element => (<div>
     <Well variant="default">Test 1 should have default variant</Well>
@@ -16,6 +17,7 @@ export const TestWellComponentUnhappy = (): JSX.Element => (<div>
 
 exports[`updateFileContents should update Well components imported from @kaizen/component/path 1`] = `
 "import * as React from "react";
+// @ts-ignore
 import { Well } from "@kaizen/components/v3";
 export const TestWellComponent = (): JSX.Element => (<div>
     <Well color="gray">Test 1 should have color gray</Well>
@@ -31,6 +33,7 @@ export const TestWellComponent = (): JSX.Element => (<div>
 
 exports[`updateFileContents should update Well components imported from @kaizen/components 1`] = `
 "import * as React from "react";
+// @ts-ignore
 import { Well } from "@kaizen/components";
 export const TestWellComponent = (): JSX.Element => (<div>
     <Well color="gray">Test 1 should have color gray</Well>
@@ -40,6 +43,24 @@ export const TestWellComponent = (): JSX.Element => (<div>
       Test 4 should have color blue and an id prop
     </Well>
     <Well color="blue">Test 5 should have only one color attribute</Well>
+  </div>);
+"
+`;
+
+exports[`updateFileContents should update aliased Well components imported from @kaizen/component 1`] = `
+"import * as React from "react";
+// @ts-ignore
+import { Well as KaizenWell } from "@kaizen/components/v3";
+export const TestWellComponent = (): JSX.Element => (<div>
+    <KaizenWell color="gray">Test 1 should have color gray</KaizenWell>
+    <KaizenWell color="gray">Test 2 should have color gray</KaizenWell>
+    <KaizenWell color="blue">Test 3 should have color blue</KaizenWell>
+    <KaizenWell id="test-id" color="blue">
+      Test 4 should have color blue and an id prop
+    </KaizenWell>
+    <KaizenWell color="blue">
+      Test 5 should have only one color attribute
+    </KaizenWell>
   </div>);
 "
 `;

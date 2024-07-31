@@ -134,6 +134,19 @@ describe("transformWellSource", () => {
     const transformed = transformWellSource(inputAst)
     expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
   })
+
+  it("should should transform aliased Well components", () => {
+    const inputAst = parseJsx(`
+      import {Well as KaizenWell} from "@kaizen/components"
+      export const TestComponent = () => <div><KaizenWell variant="informative">Test</KaizenWell></div>
+    `)
+    const outputAst = parseJsx(`
+      import {Well as KaizenWell} from "@kaizen/components"
+      export const TestComponent = () => <div><KaizenWell color="blue">Test</KaizenWell></div>
+    `)
+    const transformed = transformWellSource(inputAst)
+    expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
+  })
 })
 
 describe("updateFileContents", () => {
@@ -157,6 +170,14 @@ describe("updateFileContents", () => {
   it("should update Well components imported from @kaizen/component/path", () => {
     const legacyFilePath = path.resolve(
       path.join(__dirname, "./__fixtures__/WellV3.tsx")
+    )
+
+    const updatedFileContent = updateFileContents(legacyFilePath)
+    expect(updatedFileContent).toMatchSnapshot()
+  })
+  it("should update aliased Well components imported from @kaizen/component", () => {
+    const legacyFilePath = path.resolve(
+      path.join(__dirname, "./__fixtures__/WellAlias.tsx")
     )
 
     const updatedFileContent = updateFileContents(legacyFilePath)

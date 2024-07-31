@@ -12,16 +12,21 @@ fi
 transformDir=$1
 codemodFileName=$2
 
-# Print the parameters (for debugging purposes)
-echo "RUNNING - codemod: '$codemodFileName' in directory: '$transformDir'"
-echo ""
+
 
 BASEPATH=$(pwd "$0")
 SCRIPT=$(realpath "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 CODEMOD_PATH="$SCRIPTPATH/../codemods/$codemodFileName"
+TARGET_DIR="$BASEPATH/$transformDir"
+
+# Print the parameters (for debugging purposes)
+echo ""
+echo "RUNNING - codemod '$codemodFileName' on the dir:"
+echo "$TARGET_DIR"
+echo ""
 
 # Run the codemod using ts-node
-npx tsx $CODEMOD_PATH $BASEPATH/$transformDir
+npx tsx $CODEMOD_PATH $TARGET_DIR
 
 echo "Codemod '$codemodFileName' completed successfully in directory '$transformDir'"

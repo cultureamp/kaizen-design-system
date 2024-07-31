@@ -2,38 +2,41 @@ import fs from "fs"
 import path from "path"
 import ts from "typescript"
 
-/** Recurses through AST to determine if a valid import statement for Well has been provided */
-const checkForValidImports = (node: ts.Node): boolean => {
-  let shouldTransform = false
+/** Recurses through AST to find the target import. If found will return the import name or alias if one exists, else `undefined` */
+const getImportAlias = (node: ts.Node, target: string): string | undefined => {
+  let alias: string | undefined
 
-  const visitNode = (visitedNode: ts.Node): boolean => {
+  const visitNode = (visitedNode: ts.Node): string | undefined => {
     if (ts.isImportDeclaration(visitedNode)) {
       const moduleSpecifier = visitedNode.moduleSpecifier.getText()
       if (moduleSpecifier.includes("@kaizen/components")) {
         const namedBindings = visitedNode.importClause?.namedBindings
         if (namedBindings && ts.isNamedImports(namedBindings)) {
           namedBindings.elements.forEach(importSpecifier => {
-            if (importSpecifier.name.getText() === "Well") {
-              shouldTransform = true
+            const importName = importSpecifier.name.getText()
+            const importAlias = importSpecifier.propertyName
+              ? importSpecifier.propertyName.getText()
+              : importName
+            if (importAlias === target) {
+              alias = importName
             }
           })
         }
       }
     }
-    return shouldTransform || ts.forEachChild(visitedNode, visitNode) || false
+    return alias || ts.forEachChild(visitedNode, visitNode) || undefined
   }
 
   return visitNode(node)
 }
 
-/** Transformer function to update the inputs of Well to the new colors */
+/** Recurses through AST to find and update any jsx element that matched the importAlias */
 const wellTransformer =
-  <T extends ts.Node>(context: ts.TransformationContext) =>
-  (rootNode: T) => {
+  (context: ts.TransformationContext, importAlias: string) =>
+  (rootNode: ts.Node): ts.Node => {
     function visit(node: ts.Node): ts.Node {
       if (ts.isJsxOpeningElement(node)) {
-        // TODO: check alias names for Well
-        if (node.tagName.getText() === "Well") {
+        if (node.tagName.getText() === importAlias) {
           let hasVariant = false
           let hasColor = false
           let newAttributes = node.attributes.properties.map(attr => {
@@ -101,16 +104,18 @@ const wellTransformer =
     return ts.visitNode(rootNode, visit)
   }
 
-/** Returns original the source file if invalid, otherwise runs the well transformer  */
 export const transformWellSource = (
   sourceFile: ts.SourceFile
 ): ts.SourceFile => {
-  const shouldTransform = checkForValidImports(sourceFile)
+  const importAlias = getImportAlias(sourceFile, "Well")
 
-  if (!shouldTransform) {
+  if (!importAlias) {
     return sourceFile
   }
-  const result = ts.transform(sourceFile, [wellTransformer])
+
+  const result = ts.transform(sourceFile, [
+    context => wellTransformer(context, importAlias),
+  ])
   const transformedSource = result.transformed[0] as ts.SourceFile
 
   return transformedSource
@@ -143,13 +148,12 @@ export const processDirectory = (dir: string): void => {
     } else if (fullPath.endsWith(".tsx")) {
       const updatedSourceFile = updateFileContents(fullPath)
 
-      console.log("Updating file: ", file)
       fs.writeFileSync(fullPath, updatedSourceFile, "utf8")
     }
   })
 }
 
-const runner = (): void => {
+export const runner = (): void => {
   console.log(" ~(-_- ~) Running Well transformer (~ -_-)~")
   const rootDir = process.argv[2]
   if (!rootDir) {
@@ -159,4 +163,4 @@ const runner = (): void => {
   processDirectory(rootDir)
 }
 
-runner()
+// runner()
