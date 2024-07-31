@@ -28,10 +28,13 @@ const illustrationProps = (
 ) satisfies AnimatedSceneProps
 
 const meta = {
-  title: "Components/Brand Moment",
+  title: "Components/BrandMoment",
   component: BrandMoment,
   parameters: {
     chromatic: { disable: false },
+  },
+  argTypes: {
+    mood: { control: { disabled: true } },
   },
 } satisfies Meta<typeof BrandMoment>
 
