@@ -40,7 +40,7 @@ export type EmptyStateProps = {
     | "negative"
     | "informative"
     | "action"
-  /** @default "informative" */
+  /** @default informative */
   variant?: "success" | "warning" | "informative" | "expert-advice"
   layoutContext?: "sidebarAndContent" | "contentOnly"
   bodyText: string | React.ReactNode
