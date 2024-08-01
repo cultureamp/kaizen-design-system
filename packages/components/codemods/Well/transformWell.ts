@@ -3,8 +3,11 @@ import path from "path"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ts from "typescript"
 
-/** Recurses through AST to find the target import. If found will return the import name or alias if one exists, else `undefined` */
-const getImportAlias = (node: ts.Node, target: string): string | undefined => {
+/** Recurses through AST to find the import specifier name and check it against the `importSpecifierTarget`. If found, it will return the import name or alias, otherwise will return `undefined` */
+export const getImportAlias = (
+  node: ts.Node,
+  importSpecifierTarget: string
+): string | undefined => {
   let alias: string | undefined
 
   const visitNode = (visitedNode: ts.Node): string | undefined => {
@@ -18,7 +21,7 @@ const getImportAlias = (node: ts.Node, target: string): string | undefined => {
             const importAlias = importSpecifier.propertyName
               ? importSpecifier.propertyName.getText()
               : importName
-            if (importAlias === target) {
+            if (importAlias === importSpecifierTarget) {
               alias = importName
             }
           })
