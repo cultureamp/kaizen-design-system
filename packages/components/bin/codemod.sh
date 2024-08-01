@@ -2,6 +2,12 @@
 
 set -e
 
+
+elapsed_time() {
+  echo -e "${GREEN}Built in: ${BOLD}${GREEN}$SECONDS${NC} ${GREEN}seconds${NC}"
+}
+
+
 # Check if the correct number of arguments is provided
 if [ "$#" -ne 2 ]; then
   echo "Usage: $0 transformDir codemodFileName"
@@ -16,7 +22,7 @@ codemodFileName=$2
 BASEPATH=$(pwd "$0")
 SCRIPT=$(realpath "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
-CODEMOD_PATH="$SCRIPTPATH/../codemods/$codemodFileName"
+CODEMOD_PATH="$SCRIPTPATH/../codemods/$codemodFileName/index.ts"
 TARGET_DIR="$BASEPATH/$transformDir"
 
 # Print the parameters (for debugging purposes)
@@ -31,4 +37,6 @@ else
   echo "Codemod '$codemodFileName' could not be run in '$TARGET_DIR'"
   exit 1
 fi
+
+elapsed_time
 

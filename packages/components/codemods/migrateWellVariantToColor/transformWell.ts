@@ -141,16 +141,11 @@ const wellTransformer =
   }
 
 export const transformWellSource = (
-  sourceFile: ts.SourceFile
+  sourceFile: ts.SourceFile,
+  tagName: string
 ): ts.SourceFile => {
-  const importAlias = getImportAlias(sourceFile, "Well")
-
-  if (!importAlias) {
-    return sourceFile
-  }
-
   const result = ts.transform(sourceFile, [
-    context => wellTransformer(context, importAlias),
+    context => wellTransformer(context, tagName),
   ])
   const transformedSource = result.transformed[0] as ts.SourceFile
 
@@ -158,15 +153,11 @@ export const transformWellSource = (
 }
 
 /** runs the transformer and writes the updated source back to the path provided */
-export const updateFileContents = (filePath: string): string => {
-  const source = fs.readFileSync(filePath, "utf8")
-  const sourceFile = ts.createSourceFile(
-    filePath,
-    source,
-    ts.ScriptTarget.Latest,
-    true
-  )
-  const updatedSourceFile = transformWellSource(sourceFile)
+export const updateFileContents = (
+  sourceFile: ts.SourceFile,
+  importAlias: string
+): string => {
+  const updatedSourceFile = transformWellSource(sourceFile, importAlias)
 
   const printer = ts.createPrinter()
   const updatedSource = printer.printFile(updatedSourceFile)
@@ -176,15 +167,30 @@ export const updateFileContents = (filePath: string): string => {
 
 /** Walks the directory given and runs the runs the AST updater */
 export const processDirectory = (dir: string): void => {
+  if (dir.includes("node_modules")) {
+    return
+  }
+
   const files = fs.readdirSync(dir)
   files.forEach(file => {
     const fullPath = path.join(dir, file)
     if (fs.statSync(fullPath).isDirectory()) {
       processDirectory(fullPath)
     } else if (fullPath.endsWith(".tsx")) {
-      const updatedSourceFile = updateFileContents(fullPath)
+      const source = fs.readFileSync(fullPath, "utf8")
+      const sourceFile = ts.createSourceFile(
+        fullPath,
+        source,
+        ts.ScriptTarget.Latest,
+        true
+      )
+      const importAlias = getImportAlias(sourceFile, "Well")
 
-      fs.writeFileSync(fullPath, updatedSourceFile, "utf8")
+      if (importAlias) {
+        const updatedSourceFile = updateFileContents(sourceFile, importAlias)
+
+        fs.writeFileSync(fullPath, updatedSourceFile, "utf8")
+      }
     }
   })
 }
