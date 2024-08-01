@@ -17,6 +17,27 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // There's gonna be duplicate landmarks here because it's a stickersheet
+            id: "landmark-no-duplicate-banner",
+            enabled: false,
+          },
+          {
+            // There's gonna be duplicate landmarks here because it's a stickersheet
+            id: "landmark-no-duplicate-contentinfo",
+            enabled: false,
+          },
+          {
+            // There's gonna be duplicate landmarks here because it's a stickersheet
+            id: "landmark-no-duplicate-main",
+            enabled: false,
+          },
+        ],
+      },
+    },
   },
 } satisfies Meta
 
