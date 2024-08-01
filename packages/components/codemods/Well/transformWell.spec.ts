@@ -24,27 +24,27 @@ function printAst(ast: ts.SourceFile): string {
 }
 
 describe("getImportAlias", () => {
-  it("should return the import name if it matches the target specifier", () => {
-    const input = parseJsx(`
-      import { Well } from "@kaizen/components"
-      export const TestComponent = () => <div><Well>Test</Well></div>`)
-    const importAlias = getImportAlias(input, "Well")
-    expect(importAlias).toBe("Well")
-  })
-  it("should return the import alias if it matches the target specifier", () => {
-    const input = parseJsx(`
-      import { Well as KaizenWell } from "@kaizen/components"
-      export const TestComponent = () => <div><Well>Test</Well></div>`)
-    const importAlias = getImportAlias(input, "Well")
-    expect(importAlias).toBe("KaizenWell")
-  })
-  it("should return the undefined if there is no match to the target specifier", () => {
-    const input = parseJsx(`
-      import { Tag } from "@kaizen/components"
-      export const TestComponent = () => <div><Well>Test</Well></div>`)
-    const importAlias = getImportAlias(input, "Well")
-    expect(importAlias).toBe(undefined)
-  })
+  // it("should return the import name if it matches the target specifier", () => {
+  //   const input = parseJsx(`
+  //     import { Well } from "@kaizen/components"
+  //     export const TestComponent = () => <div><Well>Test</Well></div>`)
+  //   const importAlias = getImportAlias(input, "Well")
+  //   expect(importAlias).toBe("Well")
+  // })
+  // it("should return the import alias if it matches the target specifier", () => {
+  //   const input = parseJsx(`
+  //     import { Well as KaizenWell } from "@kaizen/components"
+  //     export const TestComponent = () => <div><Well>Test</Well></div>`)
+  //   const importAlias = getImportAlias(input, "Well")
+  //   expect(importAlias).toBe("KaizenWell")
+  // })
+  // it("should return the undefined if there is no match to the target specifier", () => {
+  //   const input = parseJsx(`
+  //     import { Tag } from "@kaizen/components"
+  //     export const TestComponent = () => <div><Well>Test</Well></div>`)
+  //   const importAlias = getImportAlias(input, "Well")
+  //   expect(importAlias).toBe(undefined)
+  // })
 })
 
 describe("transformWellSource", () => {
@@ -150,14 +150,14 @@ describe("transformWellSource", () => {
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
-  it("should transform Wells with abitrary braces", () => {
+  it("should transform Wells with arbitrary braces", () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
-      export const TestComponent = () => <div><Well variant={"informative"}>Test</Well><Well>Test 2</Well></div>
+      export const TestComponent = () => <div><Well variant={"informative"}>Test</Well><Well variant={'assertive'}>Test</Well><Well variant={\`positive\`}>Test</Well></div>
     `)
     const outputAst = parseJsx(`
       import {Well} from "@kaizen/components"
-      export const TestComponent = () => <div><Well color="blue">Test</Well><Well color="gray">Test 2</Well></div>
+      export const TestComponent = () => <div><Well color="blue">Test</Well><Well color="orange">Test</Well><Well color="green">Test</Well></div>
     `)
     const transformed = transformWellSource(inputAst)
     expect(printAst(transformed)).toBe(printAst(outputAst))

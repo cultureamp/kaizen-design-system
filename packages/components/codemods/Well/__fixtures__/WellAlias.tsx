@@ -15,15 +15,12 @@ export const TestWellComponent = (): JSX.Element => {
         Test 4 should have color blue and an id prop
       </KaizenWell>
       <KaizenWell variant={"informative"}>
-        Test 5 unnecessary braces should match and have color blue
+        Test 5 should have color blue
       </KaizenWell>
       <KaizenWell variant={informativeVar}>
-        Test 6 use of variable in variant should be unchanged as we cannot
-        safely determine the value
+        Test 6 should have variant informativeVar
       </KaizenWell>
-      <KaizenWell color="blue">
-        Test 7 should have only one color attribute
-      </KaizenWell>
+      <KaizenWell color="blue">Test 7 should have color blue</KaizenWell>
     </>
   )
 }

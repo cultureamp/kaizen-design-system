@@ -1,7 +1,7 @@
 import * as React from "react"
 // @ts-ignore
 import { Well } from "@kaizen/draft-well"
-export const TestWellComponentUnhappy = (): JSX.Element => (
+export const LegacyWells = (): JSX.Element => (
   <>
     <Well variant="default">Test 1 should have default variant</Well>
     <Well>Test 2 should have no additional props</Well>

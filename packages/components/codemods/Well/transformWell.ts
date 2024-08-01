@@ -34,6 +34,26 @@ export const getImportAlias = (
   return visitNode(node)
 }
 
+/** a  helper function to get the initializer text from   */
+const getInitializerText = (
+  initializer: ts.JsxAttributeValue
+): string | undefined => {
+  if (ts.isStringLiteral(initializer)) {
+    return initializer.text
+  }
+
+  const expression = ts.isJsxExpression(initializer) && initializer.expression
+
+  if (expression) {
+    const expressionText = expression.getText()
+
+    if (expressionText.match(/^['"`]/)) {
+      return expressionText.replace(/^['"`]|['"`]$/g, "")
+    }
+  }
+  return undefined
+}
+
 /** Recurses through AST to find and update any jsx element that matched the importAlias */
 const wellTransformer =
   (context: ts.TransformationContext, importAlias: string) =>
@@ -46,9 +66,12 @@ const wellTransformer =
           let newAttributes = node.attributes.properties.map(attr => {
             if (ts.isJsxAttribute(attr) && attr.name.getText() === "variant") {
               hasVariant = true
-              if (attr.initializer && ts.isStringLiteral(attr.initializer)) {
+              const valueName =
+                attr.initializer && getInitializerText(attr.initializer)
+
+              if (valueName) {
                 let colorValue: string = "gray"
-                switch (attr.initializer.text) {
+                switch (valueName) {
                   case "default":
                     colorValue = "gray"
                     break
