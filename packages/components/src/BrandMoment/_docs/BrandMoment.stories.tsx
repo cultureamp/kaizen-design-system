@@ -30,9 +30,6 @@ const illustrationProps = (
 const meta = {
   title: "Components/BrandMoment",
   component: BrandMoment,
-  parameters: {
-    chromatic: { disable: false },
-  },
   argTypes: {
     mood: { control: { disabled: true } },
   },

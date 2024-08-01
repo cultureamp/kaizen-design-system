@@ -62,6 +62,11 @@ const StickerSheetTemplate: StickerSheetStory = {
               </StickerSheet.Row>
             ))}
           </StickerSheet.Body>
+          <StickerSheet.Body>
+            <StickerSheet.Row rowTitle="straightCorners">
+              <EmptyStateWrapper {...defaultProps} straightCorners />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
         </StickerSheet>
 
         <StickerSheet

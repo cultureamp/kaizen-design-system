@@ -47,7 +47,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               mood="informative"
             />
           </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Success">
+          <StickerSheet.Row rowTitle="Positive">
             <BrandMoment
               {...Success.args}
               illustration={<BrandMomentPositiveOutro />}
@@ -55,7 +55,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               mood="positive"
             />
           </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Warning">
+          <StickerSheet.Row rowTitle="Negative">
             <BrandMoment
               {...Warning.args}
               illustration={<BrandMomentError />}
