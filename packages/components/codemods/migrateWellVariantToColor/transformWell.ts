@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ts from "typescript"
+import { transformSource } from "../utils"
 
 /** Recurses through AST to find the import specifier name and check it against the `importSpecifierTarget`. If found, it will return the import name or alias, otherwise will return `undefined` */
 export const getImportAlias = (
@@ -139,36 +140,6 @@ export const wellTransformer =
     }
     return ts.visitNode(rootNode, visit)
   }
-
-// /** Transforms the source file with the transformer provided */
-// export const transformWellSource = (
-//   sourceFile: ts.SourceFile,
-//   tagName: string
-// ): ts.SourceFile => {
-//   const result = ts.transform(sourceFile, [
-//     context => wellTransformer(context, tagName),
-//   ])
-//   const transformedSource = result.transformed[0] as ts.SourceFile
-
-//   return transformedSource
-// }
-
-/** Transforms the source file with the transformer provided */
-export const transformSource = (
-  sourceFile: ts.SourceFile,
-  astTransformer: (
-    context: ts.TransformationContext,
-    importAlias: string
-  ) => (rootNode: ts.Node) => ts.Node,
-  importAlias: string
-): ts.SourceFile => {
-  const result = ts.transform(sourceFile, [
-    context => astTransformer(context, importAlias),
-  ])
-  const transformedSource = result.transformed[0] as ts.SourceFile
-
-  return transformedSource
-}
 
 /** runs the transformer and writes the updated source back to the path provided */
 export const updateFileContents = (

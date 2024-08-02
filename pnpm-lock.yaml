@@ -438,6 +438,9 @@ importers:
       tsx:
         specifier: ^4.16.2
         version: 4.16.2
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
       use-debounce:
         specifier: ^10.0.1
         version: 10.0.1(react@18.3.1)

@@ -13,6 +13,8 @@
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
   },
   "files": [
+    "bin",
+    "codemods",
     "future",
     "v1",
     "v2",
@@ -28,6 +30,9 @@
   "sideEffects": [
     "styles.css"
   ],
+  "bin": {
+    "kaizen-codemod": "./bin/codemod.sh"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "lint:ts": "tsc --noEmit",
@@ -123,6 +128,15 @@
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.5.9",
     "react": "^18.3.1",
-    "react-intl": "^6.6.8"
+    "react-intl": "^6.6.8",
+    "typescript": "^5.5.4"
+  },
+  "peerDependenciesComments": {
+    "typescript": "Used for codemods"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
   }
 }
