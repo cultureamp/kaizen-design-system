@@ -1,9 +1,13 @@
 import React, { useEffect, useId } from "react"
+import {
+  GenericNotificationType,
+  GenericNotificationVariant,
+} from "~components/Notification/subcomponents/GenericNotification"
 import { useToastNotificationContext } from "../context/ToastNotificationContext"
-import { ToastNotificationObj } from "../types"
+import { ToastNotificationObjBase } from "../types"
 
 export type ToastNotificationProps = Omit<
-  ToastNotificationObj,
+  ToastNotificationObjBase,
   "id" | "message" | "persistent"
 > & {
   children: React.ReactNode
@@ -14,12 +18,11 @@ export type ToastNotificationProps = Omit<
    * @default false
    */
   hideCloseIcon?: boolean
-}
+} & (GenericNotificationType | GenericNotificationVariant)
 
 export const ToastNotification = ({
   id: propsId,
   hideCloseIcon = false,
-  type,
   title,
   onHide,
   children,
@@ -33,7 +36,6 @@ export const ToastNotification = ({
   useEffect(() => {
     addToastNotification({
       id,
-      type,
       title,
       message: children,
       persistent,

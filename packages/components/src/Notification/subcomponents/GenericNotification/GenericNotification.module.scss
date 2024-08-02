@@ -11,6 +11,7 @@
 // Structure
 .icon {
   @extend %ca-notification__icon;
+
   color: var(--icon-color);
 }
 
@@ -97,11 +98,6 @@
   @extend %ca-notification---positive;
 }
 
-.informative {
-  @extend %ca-notification---informative;
-}
-
-.cautionary,
 .security {
   @extend %ca-notification---cautionary;
 }
@@ -109,6 +105,7 @@
 .negative {
   @extend %ca-notification---negative;
 }
+
 // End deprecated styles
 
 // ------------------------------

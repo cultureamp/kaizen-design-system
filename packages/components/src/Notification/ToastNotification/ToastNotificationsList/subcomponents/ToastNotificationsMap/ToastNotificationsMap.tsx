@@ -22,11 +22,10 @@ export const ToastNotificationsMap = ({
   return createPortal(
     <>
       {notifications.map(
-        ({ id, type, title, persistent, onHide, message, ...restProps }) => (
+        ({ id, title, persistent, onHide, message, ...restProps }) => (
           <GenericNotification
             key={id}
             style="toast"
-            type={type}
             title={title}
             persistent={persistent}
             onHide={(): void => {
