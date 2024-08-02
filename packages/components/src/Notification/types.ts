@@ -10,3 +10,4 @@ export type NotificationVariant =
   | "warning"
   | "informative"
   | "cautionary"
+  | "security"

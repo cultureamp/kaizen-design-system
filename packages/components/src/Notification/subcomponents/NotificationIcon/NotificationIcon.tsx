@@ -50,6 +50,8 @@ export const NotificationIconVariant = ({
       return <CautionIcon role="presentation" inheritSize />
     case "informative":
       return <InformationIcon role="presentation" inheritSize />
+    case "security":
+      return <SecurityTipIcon role="presentation" inheritSize />
   }
 }
 

@@ -66,10 +66,58 @@ const VARIANTS_PROPS: Array<{
     },
   },
   {
+    title: "Security",
+    props: {
+      ...DEFAULT_PROPS,
+      variant: "security",
+    },
+  },
+  {
     title: "Persistent",
     props: {
       ...DEFAULT_PROPS,
       variant: "informative",
+      persistent: true,
+    },
+  },
+]
+const TYPE_PROPS: Array<{
+  title: string
+  props: GlobalNotificationProps
+}> = [
+  {
+    title: "Informative",
+    props: {
+      ...DEFAULT_PROPS,
+      type: "informative",
+    },
+  },
+  {
+    title: "Success",
+    props: {
+      ...DEFAULT_PROPS,
+      type: "positive",
+    },
+  },
+  {
+    title: "Cautionary",
+    props: {
+      ...DEFAULT_PROPS,
+      type: "cautionary",
+    },
+  },
+  {
+    title: "Negative",
+    props: {
+      ...DEFAULT_PROPS,
+      type: "negative",
+    },
+  },
+  {
+    title: "Security",
+    props: {
+      ...DEFAULT_PROPS,
+      type: "security",
       persistent: true,
     },
   },
@@ -81,6 +129,15 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet heading="GlobalNotification" isReversed={isReversed}>
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
+            <StickerSheet.Row key={title} rowTitle={title}>
+              <GlobalNotification {...props} />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+      <StickerSheet heading="Type (deprecated)" isReversed={isReversed}>
+        <StickerSheet.Body>
+          {TYPE_PROPS.map(({ title, props }) => (
             <StickerSheet.Row key={title} rowTitle={title}>
               <GlobalNotification {...props} />
             </StickerSheet.Row>
