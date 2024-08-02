@@ -39,7 +39,6 @@ export type GenericNotificationVariant = {
    * If you are transitioning from `type`:
    * - `positive` should be `success`
    * - `negative` should be `warning`
-   * - `security` should be `cautionary`
    */
   variant: NotificationVariant
 }

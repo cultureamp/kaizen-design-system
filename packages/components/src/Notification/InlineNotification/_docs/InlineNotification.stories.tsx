@@ -1,25 +1,25 @@
 import { Meta, StoryObj } from "@storybook/react"
-import {
-  InlineNotification,
-  InlineNotificationProps,
-} from "../InlineNotification"
-
-const DEFAULT_PROPS: Partial<InlineNotificationProps> = {
-  headingProps: {
-    children: "Informative",
-    tag: "span",
-    variant: "heading-6",
-  },
-  type: "informative",
-  children:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quibusdam natus doloremque",
-}
+import { InlineNotification } from "../InlineNotification"
 
 const meta = {
   title: "Components/Notifications/InlineNotification",
   component: InlineNotification,
   args: {
-    ...DEFAULT_PROPS,
+    headingProps: {
+      children: "Informative",
+      tag: "span",
+      variant: "heading-6",
+    },
+    variant: "informative",
+    children:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quibusdam natus doloremque",
+  },
+  argTypes: {
+    type: {
+      control: {
+        disable: true,
+      },
+    },
   },
   parameters: {
     a11y: {
