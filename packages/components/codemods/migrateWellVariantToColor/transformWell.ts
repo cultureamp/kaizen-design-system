@@ -2,38 +2,7 @@ import fs from "fs"
 import path from "path"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ts from "typescript"
-import { transformSource } from "../utils"
-
-/** Recurses through AST to find the import specifier name and check it against the `importSpecifierTarget`. If found, it will return the import name or alias, otherwise will return `undefined` */
-export const getImportAlias = (
-  node: ts.Node,
-  importSpecifierTarget: string
-): string | undefined => {
-  let alias: string | undefined
-
-  const visitNode = (visitedNode: ts.Node): string | undefined => {
-    if (ts.isImportDeclaration(visitedNode)) {
-      const moduleSpecifier = visitedNode.moduleSpecifier.getText()
-      if (moduleSpecifier.includes("@kaizen/components")) {
-        const namedBindings = visitedNode.importClause?.namedBindings
-        if (namedBindings && ts.isNamedImports(namedBindings)) {
-          namedBindings.elements.forEach(importSpecifier => {
-            const importName = importSpecifier.name.getText()
-            const importAlias = importSpecifier.propertyName
-              ? importSpecifier.propertyName.getText()
-              : importName
-            if (importAlias === importSpecifierTarget) {
-              alias = importName
-            }
-          })
-        }
-      }
-    }
-    return alias || ts.forEachChild(visitedNode, visitNode) || undefined
-  }
-
-  return visitNode(node)
-}
+import { transformSource, getImportAlias } from "../utils"
 
 /** a  helper function to get the initializer text from   */
 const getInitializerText = (
