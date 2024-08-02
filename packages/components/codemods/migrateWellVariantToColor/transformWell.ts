@@ -140,6 +140,7 @@ const wellTransformer =
     return ts.visitNode(rootNode, visit)
   }
 
+/** Transforms the source file with the transformer provided */
 export const transformWellSource = (
   sourceFile: ts.SourceFile,
   tagName: string

@@ -1,3 +1,4 @@
+import fs from "fs"
 import path from "path"
 import ts from "typescript"
 import {
@@ -24,41 +25,31 @@ function printAst(ast: ts.SourceFile): string {
 }
 
 describe("getImportAlias", () => {
-  // it("should return the import name if it matches the target specifier", () => {
-  //   const input = parseJsx(`
-  //     import { Well } from "@kaizen/components"
-  //     export const TestComponent = () => <div><Well>Test</Well></div>`)
-  //   const importAlias = getImportAlias(input, "Well")
-  //   expect(importAlias).toBe("Well")
-  // })
-  // it("should return the import alias if it matches the target specifier", () => {
-  //   const input = parseJsx(`
-  //     import { Well as KaizenWell } from "@kaizen/components"
-  //     export const TestComponent = () => <div><Well>Test</Well></div>`)
-  //   const importAlias = getImportAlias(input, "Well")
-  //   expect(importAlias).toBe("KaizenWell")
-  // })
-  // it("should return the undefined if there is no match to the target specifier", () => {
-  //   const input = parseJsx(`
-  //     import { Tag } from "@kaizen/components"
-  //     export const TestComponent = () => <div><Well>Test</Well></div>`)
-  //   const importAlias = getImportAlias(input, "Well")
-  //   expect(importAlias).toBe(undefined)
-  // })
+  it("should return the import name if it matches the target specifier", () => {
+    const input = parseJsx(`
+      import { Well } from "@kaizen/components"
+      export const TestComponent = () => <div><Well>Test</Well></div>`)
+    const importAlias = getImportAlias(input, "Well")
+    expect(importAlias).toBe("Well")
+  })
+  it("should return the import alias if it matches the target specifier", () => {
+    const input = parseJsx(`
+      import { Well as KaizenWell } from "@kaizen/components"
+      export const TestComponent = () => <div><Well>Test</Well></div>`)
+    const importAlias = getImportAlias(input, "Well")
+    expect(importAlias).toBe("KaizenWell")
+  })
+  it("should return the undefined if there is no match to the target specifier", () => {
+    const input = parseJsx(`
+      import { Tag } from "@kaizen/components"
+      import { Well } from "@kaizen/well"
+      export const TestComponent = () => <div><Well>Test</Well></div>`)
+    const importAlias = getImportAlias(input, "Well")
+    expect(importAlias).toBe(undefined)
+  })
 })
 
 describe("transformWellSource", () => {
-  it("should only transform when Well is imported from @kaizen/components", () => {
-    const input = parseJsx(`
-      import { Well } from "@kaizen/draft-well"
-      export const TestComponent = () => <div><Well>Test</Well></div>`)
-    const output = parseJsx(`
-      import { Well } from "@kaizen/draft-well"
-      export const TestComponent = () => <div><Well>Test</Well></div>`)
-    const transformed = transformWellSource(input)
-    expect(printAst(transformed)).toBe(printAst(output))
-  })
-
   it('should replace variant="default" with color="gray"', () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
@@ -68,7 +59,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="gray">Test</Well>
     `)
-    const transformed = transformWellSource(inputAst)
+    const transformed = transformWellSource(inputAst, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -81,7 +72,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="blue">Test</Well>
     `)
-    const transformed = transformWellSource(inputAst)
+    const transformed = transformWellSource(inputAst, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -94,7 +85,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="gray">Test</Well>
     `)
-    const transformed = transformWellSource(inputAst)
+    const transformed = transformWellSource(inputAst, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -107,7 +98,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="blue" id="123">Test</Well>
     `)
-    const transformed = transformWellSource(inputAst)
+    const transformed = transformWellSource(inputAst, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -120,7 +111,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well id="123" color="gray">Test</Well>
     `)
-    const transformed = transformWellSource(inputAst)
+    const transformed = transformWellSource(inputAst, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -133,7 +124,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well id="123" color="gray">Test</Well></div>
     `)
-    const transformed = transformWellSource(inputAst)
+    const transformed = transformWellSource(inputAst, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -146,7 +137,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well color="blue">Test</Well><Well color="gray">Test 2</Well></div>
     `)
-    const transformed = transformWellSource(inputAst)
+    const transformed = transformWellSource(inputAst, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -159,7 +150,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well color="blue">Test</Well><Well color="orange">Test</Well><Well color="green">Test</Well></div>
     `)
-    const transformed = transformWellSource(inputAst)
+    const transformed = transformWellSource(inputAst, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -172,7 +163,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well color="blue">Test</Well></div>
     `)
-    const transformed = transformWellSource(inputAst)
+    const transformed = transformWellSource(inputAst, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -185,7 +176,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well variant={wellVariable}>Test</Well></div>
     `)
-    const transformed = transformWellSource(inputAst)
+    const transformed = transformWellSource(inputAst, "Well")
     expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
   })
 
@@ -198,7 +189,7 @@ describe("transformWellSource", () => {
       import {Well as KaizenWell} from "@kaizen/components"
       export const TestComponent = () => <div><KaizenWell color="blue">Test</KaizenWell></div>
     `)
-    const transformed = transformWellSource(inputAst)
+    const transformed = transformWellSource(inputAst, "KaizenWell")
     expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
   })
 })
@@ -208,33 +199,27 @@ describe("updateFileContents", () => {
     const filePath = path.resolve(
       path.join(__dirname, "./__fixtures__/Well.tsx")
     )
+    const fileContent = fs.readFileSync(filePath, "utf8")
+    const sourceFile = parseJsx(fileContent)
 
-    const updatedFileContent = updateFileContents(filePath)
-
-    expect(updatedFileContent).toMatchSnapshot()
-  })
-  it("should not update Well components imported from @kaizen/draft-well or legacy packages", () => {
-    const filePath = path.resolve(
-      path.join(__dirname, "./__fixtures__/LegacyWell.tsx")
-    )
-
-    const updatedFileContent = updateFileContents(filePath)
-    expect(updatedFileContent).toMatchSnapshot()
+    expect(updateFileContents(sourceFile, "Well")).toMatchSnapshot()
   })
   it("should update Well components imported from @kaizen/component/path", () => {
     const filePath = path.resolve(
       path.join(__dirname, "./__fixtures__/WellV3.tsx")
     )
+    const fileContent = fs.readFileSync(filePath, "utf8")
+    const sourceFile = parseJsx(fileContent)
 
-    const updatedFileContent = updateFileContents(filePath)
-    expect(updatedFileContent).toMatchSnapshot()
+    expect(updateFileContents(sourceFile, "Well")).toMatchSnapshot()
   })
   it("should update aliased Well components imported from @kaizen/component", () => {
     const filePath = path.resolve(
       path.join(__dirname, "./__fixtures__/WellAlias.tsx")
     )
+    const fileContent = fs.readFileSync(filePath, "utf8")
+    const sourceFile = parseJsx(fileContent)
 
-    const updatedFileContent = updateFileContents(filePath)
-    expect(updatedFileContent).toMatchSnapshot()
+    expect(updateFileContents(sourceFile, "KaizenWell")).toMatchSnapshot()
   })
 })
