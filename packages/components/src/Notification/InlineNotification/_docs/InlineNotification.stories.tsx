@@ -47,7 +47,7 @@ export const Playground: StoryObj<typeof meta> = {
 export const Persistent: StoryObj<typeof meta> = {
   args: {
     persistent: true,
-    type: "negative",
+    variant: "warning",
     children: "Please fill in all required fields before submitting",
     headingProps: {
       children: "Form error",
