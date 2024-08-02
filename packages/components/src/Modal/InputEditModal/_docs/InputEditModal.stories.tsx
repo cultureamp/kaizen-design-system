@@ -29,7 +29,6 @@ const meta = {
   args: {
     isOpen: false,
     title: "Your input is valuable",
-    mood: "positive",
     children: <ExampleForm />,
     submitLabel: "Submit label",
     onSubmit: fn(),
@@ -37,7 +36,14 @@ const meta = {
   },
   argTypes: {
     children: {
-      control: false,
+      control: {
+        disable: true,
+      },
+    },
+    mood: {
+      control: {
+        disable: true,
+      },
     },
   },
 } satisfies Meta<typeof InputEditModal>

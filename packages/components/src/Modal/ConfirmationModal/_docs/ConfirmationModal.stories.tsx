@@ -26,7 +26,14 @@ const meta = {
   },
   argTypes: {
     children: {
-      control: false,
+      control: {
+        disable: true,
+      },
+    },
+    mood: {
+      control: {
+        disable: true,
+      },
     },
   },
 } satisfies Meta<typeof ConfirmationModal>
