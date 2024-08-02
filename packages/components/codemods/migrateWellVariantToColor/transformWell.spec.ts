@@ -2,7 +2,8 @@ import fs from "fs"
 import path from "path"
 import ts from "typescript"
 import {
-  transformWellSource,
+  transformSource,
+  wellTransformer,
   updateFileContents,
   getImportAlias,
 } from "./transformWell"
@@ -49,7 +50,7 @@ describe("getImportAlias", () => {
   })
 })
 
-describe("transformWellSource", () => {
+describe("transformSource", () => {
   it('should replace variant="default" with color="gray"', () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
@@ -59,7 +60,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="gray">Test</Well>
     `)
-    const transformed = transformWellSource(inputAst, "Well")
+    const transformed = transformSource(inputAst, wellTransformer, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -72,7 +73,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="blue">Test</Well>
     `)
-    const transformed = transformWellSource(inputAst, "Well")
+    const transformed = transformSource(inputAst, wellTransformer, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -85,7 +86,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="gray">Test</Well>
     `)
-    const transformed = transformWellSource(inputAst, "Well")
+    const transformed = transformSource(inputAst, wellTransformer, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -98,7 +99,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="blue" id="123">Test</Well>
     `)
-    const transformed = transformWellSource(inputAst, "Well")
+    const transformed = transformSource(inputAst, wellTransformer, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -111,7 +112,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well id="123" color="gray">Test</Well>
     `)
-    const transformed = transformWellSource(inputAst, "Well")
+    const transformed = transformSource(inputAst, wellTransformer, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -124,7 +125,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well id="123" color="gray">Test</Well></div>
     `)
-    const transformed = transformWellSource(inputAst, "Well")
+    const transformed = transformSource(inputAst, wellTransformer, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -137,7 +138,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well color="blue">Test</Well><Well color="gray">Test 2</Well></div>
     `)
-    const transformed = transformWellSource(inputAst, "Well")
+    const transformed = transformSource(inputAst, wellTransformer, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -150,7 +151,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well color="blue">Test</Well><Well color="orange">Test</Well><Well color="green">Test</Well></div>
     `)
-    const transformed = transformWellSource(inputAst, "Well")
+    const transformed = transformSource(inputAst, wellTransformer, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -163,7 +164,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well color="blue">Test</Well></div>
     `)
-    const transformed = transformWellSource(inputAst, "Well")
+    const transformed = transformSource(inputAst, wellTransformer, "Well")
     expect(printAst(transformed)).toBe(printAst(outputAst))
   })
 
@@ -176,7 +177,7 @@ describe("transformWellSource", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well variant={wellVariable}>Test</Well></div>
     `)
-    const transformed = transformWellSource(inputAst, "Well")
+    const transformed = transformSource(inputAst, wellTransformer, "Well")
     expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
   })
 
@@ -189,7 +190,7 @@ describe("transformWellSource", () => {
       import {Well as KaizenWell} from "@kaizen/components"
       export const TestComponent = () => <div><KaizenWell color="blue">Test</KaizenWell></div>
     `)
-    const transformed = transformWellSource(inputAst, "KaizenWell")
+    const transformed = transformSource(inputAst, wellTransformer, "KaizenWell")
     expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
   })
 })

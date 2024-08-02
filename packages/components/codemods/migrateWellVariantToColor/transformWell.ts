@@ -55,7 +55,7 @@ const getInitializerText = (
 }
 
 /** Recurses through AST to find and update any jsx element that matched the importAlias */
-const wellTransformer =
+export const wellTransformer =
   (context: ts.TransformationContext, importAlias: string) =>
   (rootNode: ts.Node): ts.Node => {
     function visit(node: ts.Node): ts.Node {
@@ -140,13 +140,30 @@ const wellTransformer =
     return ts.visitNode(rootNode, visit)
   }
 
+// /** Transforms the source file with the transformer provided */
+// export const transformWellSource = (
+//   sourceFile: ts.SourceFile,
+//   tagName: string
+// ): ts.SourceFile => {
+//   const result = ts.transform(sourceFile, [
+//     context => wellTransformer(context, tagName),
+//   ])
+//   const transformedSource = result.transformed[0] as ts.SourceFile
+
+//   return transformedSource
+// }
+
 /** Transforms the source file with the transformer provided */
-export const transformWellSource = (
+export const transformSource = (
   sourceFile: ts.SourceFile,
-  tagName: string
+  astTransformer: (
+    context: ts.TransformationContext,
+    importAlias: string
+  ) => (rootNode: ts.Node) => ts.Node,
+  importAlias: string
 ): ts.SourceFile => {
   const result = ts.transform(sourceFile, [
-    context => wellTransformer(context, tagName),
+    context => astTransformer(context, importAlias),
   ])
   const transformedSource = result.transformed[0] as ts.SourceFile
 
@@ -158,7 +175,11 @@ export const updateFileContents = (
   sourceFile: ts.SourceFile,
   importAlias: string
 ): string => {
-  const updatedSourceFile = transformWellSource(sourceFile, importAlias)
+  const updatedSourceFile = transformSource(
+    sourceFile,
+    wellTransformer,
+    importAlias
+  )
 
   const printer = ts.createPrinter()
   const updatedSource = printer.printFile(updatedSourceFile)
