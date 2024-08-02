@@ -10,12 +10,7 @@
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
-  "bin": {
-    "codemod": "./bin/codemod.sh"
-  },
   "files": [
-    "bin",
-    "codemods",
     "sass",
     "less",
     "css",
