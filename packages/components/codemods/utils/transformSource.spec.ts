@@ -1,5 +1,6 @@
-import { parseJsx, printAst } from "../__tests__"
+import { parseJsx } from "../__tests__"
 import { wellTransformer } from "../migrateWellVariantToColor/transformWell"
+import { printAst } from "./printAst"
 import { transformSource } from "./transformSource"
 
 describe("transformSource", () => {
@@ -7,13 +8,13 @@ describe("transformSource", () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well variant="default">Test</Well>
-      `)
+    `)
     const outputAst = parseJsx(`
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="gray">Test</Well>
     `)
     const transformed = transformSource(inputAst, wellTransformer, "Well")
-    expect(printAst(transformed)).toBe(printAst(outputAst))
+    expect(transformed).toEqual(printAst(outputAst))
   })
 
   it('should replace variant="informative" with color="blue"', () => {
@@ -26,7 +27,7 @@ describe("transformSource", () => {
       export const TestComponent = () => <Well color="blue">Test</Well>
     `)
     const transformed = transformSource(inputAst, wellTransformer, "Well")
-    expect(printAst(transformed)).toBe(printAst(outputAst))
+    expect(transformed).toBe(printAst(outputAst))
   })
 
   it('should add color="gray" if variant is not specified', () => {
@@ -39,7 +40,7 @@ describe("transformSource", () => {
       export const TestComponent = () => <Well color="gray">Test</Well>
     `)
     const transformed = transformSource(inputAst, wellTransformer, "Well")
-    expect(printAst(transformed)).toBe(printAst(outputAst))
+    expect(transformed).toBe(printAst(outputAst))
   })
 
   it("should handle multiple attributes and replace only variant", () => {
@@ -52,7 +53,7 @@ describe("transformSource", () => {
       export const TestComponent = () => <Well color="blue" id="123">Test</Well>
     `)
     const transformed = transformSource(inputAst, wellTransformer, "Well")
-    expect(printAst(transformed)).toBe(printAst(outputAst))
+    expect(transformed).toBe(printAst(outputAst))
   })
 
   it("should handle multiple attributes and add color if variant is not specified", () => {
@@ -65,7 +66,7 @@ describe("transformSource", () => {
       export const TestComponent = () => <Well id="123" color="gray">Test</Well>
     `)
     const transformed = transformSource(inputAst, wellTransformer, "Well")
-    expect(printAst(transformed)).toBe(printAst(outputAst))
+    expect(transformed).toBe(printAst(outputAst))
   })
 
   it("should handle nested Well components", () => {
@@ -78,7 +79,7 @@ describe("transformSource", () => {
       export const TestComponent = () => <div><Well id="123" color="gray">Test</Well></div>
     `)
     const transformed = transformSource(inputAst, wellTransformer, "Well")
-    expect(printAst(transformed)).toBe(printAst(outputAst))
+    expect(transformed).toBe(printAst(outputAst))
   })
 
   it("should transform multiple Wells", () => {
@@ -91,7 +92,7 @@ describe("transformSource", () => {
       export const TestComponent = () => <div><Well color="blue">Test</Well><Well color="gray">Test 2</Well></div>
     `)
     const transformed = transformSource(inputAst, wellTransformer, "Well")
-    expect(printAst(transformed)).toBe(printAst(outputAst))
+    expect(transformed).toBe(printAst(outputAst))
   })
 
   it("should transform Wells with arbitrary braces", () => {
@@ -104,7 +105,7 @@ describe("transformSource", () => {
       export const TestComponent = () => <div><Well color="blue">Test</Well><Well color="orange">Test</Well><Well color="green">Test</Well></div>
     `)
     const transformed = transformSource(inputAst, wellTransformer, "Well")
-    expect(printAst(transformed)).toBe(printAst(outputAst))
+    expect(transformed).toBe(printAst(outputAst))
   })
 
   it("should not add color if color already exists", () => {
@@ -117,7 +118,7 @@ describe("transformSource", () => {
       export const TestComponent = () => <div><Well color="blue">Test</Well></div>
     `)
     const transformed = transformSource(inputAst, wellTransformer, "Well")
-    expect(printAst(transformed)).toBe(printAst(outputAst))
+    expect(transformed).toBe(printAst(outputAst))
   })
 
   it("should not modify variants usings variables", () => {
@@ -130,7 +131,7 @@ describe("transformSource", () => {
       export const TestComponent = () => <div><Well variant={wellVariable}>Test</Well></div>
     `)
     const transformed = transformSource(inputAst, wellTransformer, "Well")
-    expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
+    expect(transformed.trim()).toBe(printAst(outputAst).trim())
   })
 
   it("should transform aliased Well components", () => {
@@ -143,6 +144,6 @@ describe("transformSource", () => {
       export const TestComponent = () => <div><KaizenWell color="blue">Test</KaizenWell></div>
     `)
     const transformed = transformSource(inputAst, wellTransformer, "KaizenWell")
-    expect(printAst(transformed).trim()).toBe(printAst(outputAst).trim())
+    expect(transformed.trim()).toBe(printAst(outputAst).trim())
   })
 })

@@ -1,4 +1,5 @@
 import ts from "typescript"
+import { printAst } from "./printAst"
 
 /** Transforms the source file with the transformer provided */
 export const transformSource = (
@@ -8,11 +9,11 @@ export const transformSource = (
     importAlias: string
   ) => (rootNode: ts.Node) => ts.Node,
   importAlias: string
-): ts.SourceFile => {
+): string => {
   const result = ts.transform(sourceFile, [
     context => astTransformer(context, importAlias),
   ])
   const transformedSource = result.transformed[0] as ts.SourceFile
 
-  return transformedSource
+  return printAst(transformedSource)
 }

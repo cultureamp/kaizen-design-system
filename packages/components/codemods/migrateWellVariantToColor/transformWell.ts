@@ -110,23 +110,6 @@ export const wellTransformer =
     return ts.visitNode(rootNode, visit)
   }
 
-/** runs the transformer and writes the updated source back to the path provided */
-export const updateFileContents = (
-  sourceFile: ts.SourceFile,
-  importAlias: string
-): string => {
-  const updatedSourceFile = transformSource(
-    sourceFile,
-    wellTransformer,
-    importAlias
-  )
-
-  const printer = ts.createPrinter()
-  const updatedSource = printer.printFile(updatedSourceFile)
-
-  return updatedSource
-}
-
 /** Walks the directory given and runs the runs the AST updater */
 export const processDirectory = (dir: string): void => {
   if (dir.includes("node_modules")) {
@@ -149,7 +132,11 @@ export const processDirectory = (dir: string): void => {
       const importAlias = getImportAlias(sourceFile, "Well")
 
       if (importAlias) {
-        const updatedSourceFile = updateFileContents(sourceFile, importAlias)
+        const updatedSourceFile = transformSource(
+          sourceFile,
+          wellTransformer,
+          importAlias
+        )
 
         fs.writeFileSync(fullPath, updatedSourceFile, "utf8")
       }
