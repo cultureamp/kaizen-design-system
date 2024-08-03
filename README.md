@@ -66,7 +66,7 @@ Command | Summary
 `pnpm lint:fix` | Run all linters, fixing violations
 `pnpm plop` | Add a new component/subcomponent
 `pnpm test` | Run all [Jest](https://jestjs.io/) tests
-`pnpm test:storybook` | Run tests on all Storybook stories
+`pnpm storybook:test` | Run tests on all Storybook stories
 `pnpm reset` | Reinstall all dependencies
 
 ## Bugs and discussions
