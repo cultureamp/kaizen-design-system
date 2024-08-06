@@ -1,26 +1,56 @@
+import fs from "fs"
+import path from "path"
 import ts from "typescript"
+import { parseJsx } from "../__tests__"
 import { TransformConfig, transformSource } from "./transformSource"
 
-const mockSourceFile = ts.createSourceFile(
-  "test.ts",
-  "const x = 1;",
-  ts.ScriptTarget.Latest
-)
-
-const mockAstTransformer = jest
-  .fn()
-  .mockImplementation(() => (rootNode: ts.Node) => rootNode)
+export const mockedTransformer =
+  (context: ts.TransformationContext) =>
+  (rootNode: ts.Node): ts.Node => {
+    function visit(node: ts.Node): ts.Node {
+      if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
+        if (node.tagName.getText() === "Pancakes") {
+          const newAttributes = node.attributes.properties.map(attr => {
+            if (ts.isJsxAttribute(attr) && attr.name.getText() === "topping") {
+              return ts.factory.updateJsxAttribute(
+                attr,
+                attr.name,
+                ts.factory.createStringLiteral("jam")
+              )
+            }
+            return attr
+          })
+          if (ts.isJsxSelfClosingElement(node)) {
+            return ts.factory.updateJsxSelfClosingElement(
+              node,
+              node.tagName,
+              node.typeArguments,
+              ts.factory.createJsxAttributes(newAttributes)
+            )
+          }
+        }
+      }
+      return ts.visitEachChild(node, visit, context)
+    }
+    return ts.visitNode(rootNode, visit)
+  }
 
 describe("transformSource", () => {
-  it("should take a transform config and return a string once", () => {
-    const mockTransformConfig: TransformConfig = {
-      sourceFile: mockSourceFile,
-      astTransformer: mockAstTransformer,
+  it("should update Well components imported from @kaizen/components", () => {
+    const filePath = path.resolve(
+      path.join(__dirname, "./__fixtures__/KaioComponent.tsx")
+    )
+    const fileContent = fs.readFileSync(filePath, "utf8")
+    const sourceFile = parseJsx(fileContent)
+
+    const mockTransformConfig = {
+      sourceFile,
+      astTransformer: mockedTransformer,
       importAlias: "mockAlias",
-    }
+    } satisfies TransformConfig
 
     const transformed = transformSource(mockTransformConfig)
-    expect(typeof transformed).toBe("string")
-    expect(mockAstTransformer).toHaveBeenCalledTimes(1)
+
+    expect(transformed).toMatchSnapshot()
   })
 })

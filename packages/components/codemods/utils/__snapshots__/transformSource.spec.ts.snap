@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformSource should update Well components imported from @kaizen/components 1`] = `
+"import * as React from "react";
+// @ts-ignore
+import { Pancakes } from "@kaizen/components";
+/* eslint-disable react/jsx-curly-brace-presence */
+export const KaioComponent = (): JSX.Element => (<>
+    <Pancakes topping="jam"/>
+  </>);
+/* eslint-enable react/jsx-curly-brace-presence */
+"
+`;
