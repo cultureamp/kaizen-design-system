@@ -1,5 +1,5 @@
 import ts from "typescript"
-import { parseJsx } from "../__tests__"
+import { parseJsx } from "../__tests__/utils"
 import { getPropValueText } from "./getPropValueText"
 
 export const getJsxAttributeValue = (

@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import ts from "typescript"
-import { parseJsx } from "../__tests__"
+import { parseJsx } from "../__tests__/utils"
 import { TransformConfig, transformSource } from "./transformSource"
 
 export const mockedTransformer =

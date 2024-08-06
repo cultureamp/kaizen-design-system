@@ -1,4 +1,4 @@
-import { parseJsx } from "../__tests__"
+import { parseJsx } from "../__tests__/utils"
 import { getImportAlias } from "./getImportAlias"
 
 describe("getImportAlias", () => {

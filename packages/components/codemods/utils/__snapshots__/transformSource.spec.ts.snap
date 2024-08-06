@@ -5,9 +5,7 @@ exports[`transformSource updates the value of Pancakes topping to jam 1`] = `
 // @ts-ignore
 import { Pancakes } from "@kaizen/components";
 /* eslint-disable react/jsx-curly-brace-presence */
-export const KaioComponent = (): JSX.Element => (<>
-    <Pancakes topping="jam"/>
-  </>);
+export const KaioComponent = (): JSX.Element => <Pancakes topping="jam"/>;
 /* eslint-enable react/jsx-curly-brace-presence */
 "
 `;

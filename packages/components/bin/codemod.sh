@@ -2,11 +2,9 @@
 
 set -e
 
-
 elapsed_time() {
   echo -e "${GREEN}Built in: ${BOLD}${GREEN}$SECONDS${NC} ${GREEN}seconds${NC}"
 }
-
 
 # Check if the correct number of arguments is provided
 if [ "$#" -ne 2 ]; then
@@ -18,7 +16,7 @@ fi
 transformDir=$1
 codemodFileName=$2
 
-
+# Calculated variables
 BASEPATH=$(pwd "$0")
 SCRIPT=$(realpath "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
@@ -39,4 +37,3 @@ else
 fi
 
 elapsed_time
-

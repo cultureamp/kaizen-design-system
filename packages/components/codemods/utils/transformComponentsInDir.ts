@@ -1,10 +1,7 @@
 import fs from "fs"
 import path from "path"
-// eslint-disable-next-line import/no-extraneous-dependencies
 import ts from "typescript"
 import { transformSource, getImportAlias, TransformConfig } from "."
-
-/** a  helper function to get the initializer text from   */
 
 /** Walks the directory and runs the runs the AST transformer on the given component name */
 export const transformComponentsInDir = (

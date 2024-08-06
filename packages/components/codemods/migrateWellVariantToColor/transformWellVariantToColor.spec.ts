@@ -1,4 +1,4 @@
-import { parseJsx } from "../__tests__"
+import { parseJsx } from "../__tests__/utils"
 import { transformSource, printAst } from "../utils"
 import { transformWellVariantToColor } from "./transformWellVariantToColor"
 
@@ -170,7 +170,7 @@ describe("transformWellVariantToColor", () => {
       astTransformer: transformWellVariantToColor,
       importAlias: "Well",
     })
-    expect(transformed.trim()).toBe(printAst(outputAst).trim())
+    expect(transformed).toBe(printAst(outputAst))
   })
 
   it("transforms aliased Well components", () => {
@@ -187,6 +187,6 @@ describe("transformWellVariantToColor", () => {
       astTransformer: transformWellVariantToColor,
       importAlias: "KaizenWell",
     })
-    expect(transformed.trim()).toBe(printAst(outputAst).trim())
+    expect(transformed).toBe(printAst(outputAst))
   })
 })
