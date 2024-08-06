@@ -13,7 +13,7 @@ steps:
     agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
       - docker#v5.9.0:
-          image: node:18.19.0-bullseye
+          image: node:22-bullseye
           propagate-environment: true
           propagate-aws-auth-tokens: true
   - wait
