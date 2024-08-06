@@ -1,15 +1,21 @@
 import ts from "typescript"
 import { printAst } from "./printAst"
 
-/** Transforms the source file with the transformer provided */
-export const transformSource = (
-  sourceFile: ts.SourceFile,
+export type TransformConfig = {
+  sourceFile: ts.SourceFile
   astTransformer: (
     context: ts.TransformationContext,
     importAlias: string
-  ) => (rootNode: ts.Node) => ts.Node,
+  ) => (rootNode: ts.Node) => ts.Node
   importAlias: string
-): string => {
+}
+
+/** Transforms the source file with the transformer and target import alias provided */
+export const transformSource = ({
+  sourceFile,
+  astTransformer,
+  importAlias,
+}: TransformConfig): string => {
   const result = ts.transform(sourceFile, [
     context => astTransformer(context, importAlias),
   ])

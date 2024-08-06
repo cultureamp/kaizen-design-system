@@ -1,6 +1,7 @@
-import { processDirectory } from "./transformWell"
+import { transformComponentsInDir } from "../utils"
+import { transformWellVariantToColor } from "./transformWellVariantToColor"
 /** This is here as a script runner that  */
-const init = (): void => {
+const migrateWellVariantToColor = (): void => {
   // eslint-disable-next-line no-console
   console.log(" ~(-_- ~) Running Well transformer (~ -_-)~")
   const targetDir = process.argv[2]
@@ -8,7 +9,7 @@ const init = (): void => {
     process.exit(1)
   }
 
-  processDirectory(targetDir)
+  transformComponentsInDir(targetDir, transformWellVariantToColor, "Well")
 }
 
-init()
+migrateWellVariantToColor()

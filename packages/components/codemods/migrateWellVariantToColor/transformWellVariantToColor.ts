@@ -1,8 +1,4 @@
-import fs from "fs"
-import path from "path"
-// eslint-disable-next-line import/no-extraneous-dependencies
 import ts from "typescript"
-import { transformSource, getImportAlias } from "../utils"
 
 /** a  helper function to get the initializer text from   */
 const getInitializerText = (
@@ -25,7 +21,7 @@ const getInitializerText = (
 }
 
 /** Recurses through AST to find and update any jsx element that matched the importAlias */
-export const wellTransformer =
+export const transformWellVariantToColor =
   (context: ts.TransformationContext, importAlias: string) =>
   (rootNode: ts.Node): ts.Node => {
     function visit(node: ts.Node): ts.Node {
@@ -109,37 +105,3 @@ export const wellTransformer =
     }
     return ts.visitNode(rootNode, visit)
   }
-
-/** Walks the directory given and runs the runs the AST updater */
-export const processDirectory = (dir: string): void => {
-  if (dir.includes("node_modules")) {
-    return
-  }
-
-  const files = fs.readdirSync(dir)
-  files.forEach(file => {
-    const fullPath = path.join(dir, file)
-    if (fs.statSync(fullPath).isDirectory()) {
-      processDirectory(fullPath)
-    } else if (fullPath.endsWith(".tsx")) {
-      const source = fs.readFileSync(fullPath, "utf8")
-      const sourceFile = ts.createSourceFile(
-        fullPath,
-        source,
-        ts.ScriptTarget.Latest,
-        true
-      )
-      const importAlias = getImportAlias(sourceFile, "Well")
-
-      if (importAlias) {
-        const updatedSourceFile = transformSource(
-          sourceFile,
-          wellTransformer,
-          importAlias
-        )
-
-        fs.writeFileSync(fullPath, updatedSourceFile, "utf8")
-      }
-    }
-  })
-}
