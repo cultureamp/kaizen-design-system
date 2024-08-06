@@ -1,24 +1,5 @@
 import ts from "typescript"
-
-/** a  helper function to get the initializer text from   */
-const getInitializerText = (
-  initializer: ts.JsxAttributeValue
-): string | undefined => {
-  if (ts.isStringLiteral(initializer)) {
-    return initializer.text
-  }
-
-  const expression = ts.isJsxExpression(initializer) && initializer.expression
-
-  if (expression) {
-    const expressionText = expression.getText()
-
-    if (expressionText.match(/^['"`]/)) {
-      return expressionText.replace(/^['"`]|['"`]$/g, "")
-    }
-  }
-  return undefined
-}
+import { getPropValueText } from "../utils/getPropValueText"
 
 /** Recurses through AST to find and update any jsx element that matched the importAlias */
 export const transformWellVariantToColor =
@@ -33,7 +14,7 @@ export const transformWellVariantToColor =
             if (ts.isJsxAttribute(attr) && attr.name.getText() === "variant") {
               hasVariant = true
               const valueName =
-                attr.initializer && getInitializerText(attr.initializer)
+                attr.initializer && getPropValueText(attr.initializer)
 
               if (valueName) {
                 let colorValue: string = "gray"
