@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`transformSource should update Well components imported from @kaizen/components 1`] = `
+exports[`transformSource updates the value of Pancakes topping to jam 1`] = `
 "import * as React from "react";
 // @ts-ignore
 import { Pancakes } from "@kaizen/components";
