@@ -60,7 +60,7 @@
 // These are @deprecated but must come after `color` so not everything will default to white
 // This will be @deprecated
 .default {
-  --background-color: var(--color-gray-300);
+  --background-color: var(--color-gray-200);
   --border-color: var(--color-gray-500);
 }
 

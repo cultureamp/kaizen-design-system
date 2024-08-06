@@ -9,8 +9,6 @@ const meta = {
   title: "Components/Well",
   component: Well,
   args: {
-    color: "white",
-    borderStyle: "solid",
     children: (
       <Text variant="body">
         Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick
