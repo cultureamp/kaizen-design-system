@@ -36,7 +36,7 @@ export const mockedTransformer =
   }
 
 describe("transformSource", () => {
-  it("should update Well components imported from @kaizen/components", () => {
+  it("updates the value of Pancakes topping to jam", () => {
     const filePath = path.resolve(
       path.join(__dirname, "./__fixtures__/KaioComponent.tsx")
     )
