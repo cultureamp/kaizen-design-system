@@ -11,7 +11,7 @@ const meta = {
     footer: <>Example Footer</>,
   },
   argTypes: {
-    mood: { control: { disable: true } },
+    mood: { control: false },
   },
 } satisfies Meta<typeof InformationTile>
 

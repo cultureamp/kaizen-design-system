@@ -13,7 +13,7 @@ const meta = {
     },
   },
   argTypes: {
-    mood: { control: { disable: true } },
+    mood: { control: false },
   },
 } satisfies Meta<typeof MultiActionTile>
 

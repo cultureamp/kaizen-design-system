@@ -31,7 +31,7 @@ const meta = {
   title: "Components/BrandMoment",
   component: BrandMoment,
   argTypes: {
-    mood: { control: { disabled: true } },
+    mood: { control: false },
   },
 } satisfies Meta<typeof BrandMoment>
 
