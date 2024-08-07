@@ -15,10 +15,10 @@ export const getTagName = (
         if (namedBindings && ts.isNamedImports(namedBindings)) {
           namedBindings.elements.forEach(importSpecifier => {
             const importName = importSpecifier.name.getText()
-            const importAlias = importSpecifier.propertyName
+            const tagName = importSpecifier.propertyName
               ? importSpecifier.propertyName.getText()
               : importName
-            if (importAlias === importSpecifierTarget) {
+            if (tagName === importSpecifierTarget) {
               alias = importName
             }
           })
