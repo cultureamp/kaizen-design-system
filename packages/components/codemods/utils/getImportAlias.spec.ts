@@ -12,7 +12,7 @@ describe("getImportAlias", () => {
   it("returns the import alias if it matches the target specifier", () => {
     const input = parseJsx(`
       import { Well as KaizenWell } from "@kaizen/components"
-      export const TestComponent = () => <div><Well>Test</Well></div>`)
+      export const TestComponent = () => <div><KaizenWell>Test</KaizenWell></div>`)
     const importAlias = getImportAlias(input, "Well")
     expect(importAlias).toBe("KaizenWell")
   })
