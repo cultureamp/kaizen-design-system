@@ -10,7 +10,6 @@
 
   min-width: 300px;
   max-width: 600px;
-  background-color: var(--confirmation-modal-background-color);
 
   .spotIcon {
     color: var(--spot-icon-color);
@@ -155,22 +154,22 @@ $dt-assertive-header-background: $color-orange-100;
 // variant styles
 // --------------------------------
 .success {
-  --confirmation-modal-background-color: var(--color-green-100);
+  background-color: var(--color-green-100);
   --spot-icon-color: var(--color-green-500);
 }
 
 .informative {
-  --confirmation-modal-background-color: var(--color-blue-100);
+  background-color: var(--color-blue-100);
   --spot-icon-color: var(--color-blue-500);
 }
 
 .warning {
-  --confirmation-modal-background-color: var(--color-red-100);
+  background-color: var(--color-red-100);
   --spot-icon-color: var(--color-red-500);
 }
 
 .cautionary {
-  --confirmation-modal-background-color: var(--color-yellow-100);
+  background-color: var(--color-yellow-100);
   --spot-icon-color: var(--color-yellow-700);
 }
 
