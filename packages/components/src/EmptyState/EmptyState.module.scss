@@ -4,20 +4,21 @@
 @import "./mixins";
 
 .container {
+  --border-width: var(--border-width-1);
+
   display: flex;
   justify-content: space-around;
   width: 100%;
-  padding: 2% $spacing-md;
+  padding: calc(2% - var(--border-width))
+    calc(var(--spacing-24) - var(--border-width));
   color: $color-purple-800;
-  border: $border-solid-border-width $border-solid-border-style
-    $border-borderless-border-color-id;
+  border: var(--border-width) var(--border-solid-border-style);
   border-radius: $border-solid-border-radius;
 
   @include small {
     flex-direction: column;
     align-items: center;
-    padding-top: $spacing-md;
-    padding-bottom: $spacing-md;
+    padding-block: calc(var(--spacing-24) - var(--border-width));
   }
 
   &.straightCorners {
@@ -38,26 +39,27 @@
       padding-bottom: $spacing-md;
     }
   }
+}
 
-  &.positive {
-    background-color: $color-green-100;
-  }
+.positive {
+  border-color: var(--color-green-500);
+  background-color: $color-green-100;
+}
 
-  &.negative {
-    background-color: $color-red-100;
-  }
+.negative,
+.action {
+  border-color: var(--color-red-500);
+  background-color: $color-red-100;
+}
 
-  &.action {
-    background-color: $color-orange-100;
-  }
+.neutral {
+  border-color: var(--color-purple-400);
+  background-color: $color-purple-100;
+}
 
-  &.neutral {
-    background-color: $color-purple-100;
-  }
-
-  &.informative {
-    background-color: $color-blue-100;
-  }
+.informative {
+  border-color: var(--color-blue-400);
+  background-color: $color-blue-100;
 }
 
 .illustrationSide,

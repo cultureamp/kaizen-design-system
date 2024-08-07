@@ -11,7 +11,7 @@ const DEFAULT_PROPS: Partial<GlobalNotificationProps> = {
 }
 
 const meta = {
-  title: "Components/Notifications/Global Notification",
+  title: "Components/Notifications/GlobalNotification",
   component: GlobalNotification,
 
   args: {

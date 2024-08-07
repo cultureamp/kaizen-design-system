@@ -19,10 +19,10 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
       <StickerSheet.Body>
-        {moodsList.map(mood => (
+        {(["default", ...moodsList] as const).map(mood => (
           <StickerSheet.Row key={mood} rowTitle={mood}>
             <MultiActionTile
-              mood={mood}
+              mood={mood === "default" ? undefined : mood}
               title="Title"
               metadata="Side A"
               information="Side B"

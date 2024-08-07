@@ -65,7 +65,7 @@ $form-text-color-label-reversed: rgba($color-white-rgb, 0.8);
   }
 
   .caution & {
-    color: $color-yellow-500;
+    color: var(--color-yellow-700);
   }
 
   .reversed & {

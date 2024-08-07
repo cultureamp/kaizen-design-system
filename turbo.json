@@ -14,6 +14,11 @@
     "clean": {
       "cache": false
     },
+    "//#storybook:build": {
+      "dependsOn": ["@kaizen/design-tokens#build", "@kaizen/tailwind#build"],
+      "outputs": ["storybook/public/**"],
+      "cache": false
+    },
     "@kaizen/components#build": {
       "dependsOn": [
         "@kaizen/design-tokens#build",
