@@ -56,8 +56,8 @@ export type EmptyStateProps = {
 export const EmptyState = ({
   children,
   id,
-  illustrationType = "informative",
-  variant,
+  illustrationType,
+  variant = "informative",
   layoutContext = "sidebarAndContent",
   headingProps,
   bodyText,
@@ -72,11 +72,11 @@ export const EmptyState = ({
   return (
     <div
       className={classnames(
-        classNameOverride,
-        variant ? styles[variant] : styles[illustrationType],
         styles.container,
+        illustrationType ? styles[illustrationType] : styles[variant],
         styles[layoutContext],
-        straightCorners && styles.straightCorners
+        straightCorners && styles.straightCorners,
+        classNameOverride
       )}
       id={id}
       {...props}
