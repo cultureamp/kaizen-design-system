@@ -41,7 +41,12 @@ export type GenericTileProps = {
     | "assertive"
     | "negative"
     | "prominent"
-  /** @default default */
+  /**
+   * If you are transitioning from `mood`:
+   * - `prominent` should be `expert-advice`
+   * - all else should be `default`
+   * @default default
+   */
   variant?: "default" | "expert-advice"
   footer: React.ReactNode
 } & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "title">>

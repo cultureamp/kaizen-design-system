@@ -16,6 +16,12 @@ type DeprecatedMoodProps = {
 }
 
 type VariantProps = {
+  /**
+   * If you are transitioning from `mood`:
+   * - `informative` remains as `informative`
+   * - `positive` should be `success`
+   * - `negative` should be `warning`
+   */
   variant: "informative" | "success" | "warning"
   /** @deprecated Use `variant` instead */
   mood?: never

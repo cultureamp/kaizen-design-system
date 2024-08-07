@@ -36,11 +36,19 @@ export type EmptyStateProps = {
   /** @deprecated Use `variant` instead */
   illustrationType?:
     | "positive"
-    | "neutral"
-    | "negative"
     | "informative"
+    | "negative"
     | "action"
-  /** @default informative */
+    | "neutral"
+  /**
+   * If you are transitioning from `illustrationType`:
+   * - `positive` should be `success`
+   * - `informative` remains as `informative`
+   * - `negative` should be `warning`
+   * - `action` should be `warning`
+   * - `neutral` remains as `expert-advice`
+   * @default informative
+   */
   variant?: "success" | "warning" | "informative" | "expert-advice"
   layoutContext?: "sidebarAndContent" | "contentOnly"
   bodyText: string | React.ReactNode
