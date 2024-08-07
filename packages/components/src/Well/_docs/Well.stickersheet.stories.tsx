@@ -6,7 +6,7 @@ import {
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { Well, WellProps } from "../index"
-import { borderStyleTypes, variantTypes } from "../types"
+import { borderStyleTypes, wellColors, variantTypes } from "../types"
 
 export default {
   title: "Components/Well",
@@ -44,6 +44,15 @@ const StickerSheetTemplate: StickerSheetStory = {
                   variant={variant}
                   borderStyle={border}
                 />
+              ))}
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+        <StickerSheet.Body>
+          {wellColors.map(color => (
+            <StickerSheet.Row key={color} rowTitle={color}>
+              {borderStyleTypes.map(border => (
+                <WellWrapped key={border} color={color} borderStyle={border} />
               ))}
             </StickerSheet.Row>
           ))}
