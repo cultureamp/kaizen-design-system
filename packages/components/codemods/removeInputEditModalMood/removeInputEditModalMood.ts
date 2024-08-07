@@ -7,16 +7,15 @@ export const removeInputEditModalMood =
     function visit(node: ts.Node): ts.Node {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         if (node.tagName.getText() === tagName) {
-          const newAttributes = node.attributes.properties.reduce(
-            (acc: ts.JsxAttributeLike[], attr: ts.JsxAttributeLike) => {
-              if (ts.isJsxAttribute(attr) && attr.name.getText() === "mood") {
-                return acc
-              }
+          const newAttributes = node.attributes.properties.reduce<
+            ts.JsxAttributeLike[]
+          >((acc, attr) => {
+            if (ts.isJsxAttribute(attr) && attr.name.getText() === "mood") {
+              return acc
+            }
 
-              return [...acc, attr]
-            },
-            []
-          )
+            return [...acc, attr]
+          }, [])
 
           if (ts.isJsxOpeningElement(node)) {
             return ts.factory.updateJsxOpeningElement(
