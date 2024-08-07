@@ -61,6 +61,9 @@ type ConfirmationModalMoods = {
 }
 
 type ConfirmationModalVariants = {
+  /**
+   * @deprecated Please use `variant` instead
+   */
   mood?: never
   /**
    * If you are transitioning from Moods:
