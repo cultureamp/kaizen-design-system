@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Heading } from "~components/Heading"
 import { Text } from "~components/Text"
 import { Well } from "../index"
-import { borderStyleTypes, variantTypes } from "../types"
+import { borderStyleTypes } from "../types"
 
 const meta = {
   title: "Components/Well",
@@ -20,6 +20,9 @@ const meta = {
   },
   argTypes: {
     children: { control: false },
+    variant: {
+      control: false,
+    },
   },
 } satisfies Meta<typeof Well>
 
@@ -37,17 +40,41 @@ export const Playground: Story = {
   },
 }
 
-export const Variants: Story = {
+export const Colors: Story = {
   render: args => (
     <>
-      {variantTypes.map(variant => (
-        <>
-          <Heading tag="h3" variant="heading-6">
-            {variant}
-          </Heading>
-          <Well variant={variant} {...args} />
-        </>
-      ))}
+      <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
+        `white` is the new default when no color/variant is defined
+      </Heading>
+      <Well {...args} />
+      <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
+        `gray` is the accessible version of the former `default` variant
+      </Heading>
+      <Well {...args} color="gray" />
+      <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
+        `blue` replaces the `informative` variant
+      </Heading>
+      <Well {...args} color="blue" />
+      <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
+        `yellow` replaces the `cautionary` variant
+      </Heading>
+      <Well {...args} color="yellow" />
+      <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
+        `orange` replaces the `assertive` variant
+      </Heading>
+      <Well {...args} color="orange" />
+      <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
+        `red` replaces the `negative` variant
+      </Heading>
+      <Well {...args} color="red" />
+      <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
+        `green` replaces the `positive` variant
+      </Heading>
+      <Well {...args} color="green" />
+      <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
+        `purple` replaces the `prominent` variant
+      </Heading>
+      <Well {...args} color="purple" />
     </>
   ),
 }
@@ -57,10 +84,10 @@ export const BorderStyles: Story = {
     <>
       {borderStyleTypes.map(border => (
         <>
-          <Heading tag="h3" variant="heading-6">
+          <Heading tag="h4" variant="heading-6">
             {border}
           </Heading>
-          <Well borderStyle={border} {...args} />
+          <Well {...args} borderStyle={border} />
         </>
       ))}
     </>
@@ -69,23 +96,21 @@ export const BorderStyles: Story = {
 
 export const NoMargin: Story = {
   render: args => (
-    <>
-      <div className="flex gap-16">
-        <div>
-          <Heading tag="h3" variant="heading-6">
-            Margin (default)
-          </Heading>
-          <Well {...args} />
-          <Well {...args} />
-        </div>
-        <div>
-          <Heading tag="h3" variant="heading-6">
-            noMargin
-          </Heading>
-          <Well noMargin {...args} />
-          <Well {...args} />
-        </div>
+    <div className="flex gap-16">
+      <div>
+        <Heading tag="h4" variant="heading-6">
+          Margin (default)
+        </Heading>
+        <Well {...args} />
+        <Well {...args} />
       </div>
-    </>
+      <div>
+        <Heading tag="h4" variant="heading-6">
+          noMargin
+        </Heading>
+        <Well {...args} noMargin />
+        <Well {...args} />
+      </div>
+    </div>
   ),
 }
