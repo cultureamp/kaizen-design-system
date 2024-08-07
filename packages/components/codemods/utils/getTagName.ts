@@ -1,7 +1,7 @@
 import ts from "typescript"
 
 /** Recurses through AST to find the import specifier name and check it against the `importSpecifierTarget`. If found, it will return the import name or alias, otherwise will return `undefined` */
-export const getImportAlias = (
+export const getTagName = (
   node: ts.Node,
   importSpecifierTarget: string
 ): string | undefined => {
