@@ -1,8 +1,11 @@
 .container {
+  background-color: var(--background-color);
   border-width: var(--border-width-1);
   border-radius: var(--border-solid-border-radius);
+  border-style: var(--border-style);
   margin-bottom: var(--spacing-24);
   color: var(--color-purple-800);
+  border-color: var(--border-color);
 }
 
 .noMargin {
@@ -10,94 +13,94 @@
 }
 
 .white {
-  background-color: var(--color-white);
-  border-color: var(--color-gray-500);
+  --background-color: var(--color-white);
+  --border-color: var(--color-gray-500);
 }
 
 .gray {
-  background-color: var(--color-gray-200);
-  border-color: var(--color-gray-500);
+  --background-color: var(--color-gray-200);
+  --border-color: var(--color-gray-500);
 }
 
 .blue {
-  background-color: var(--color-blue-100);
-  border-color: var(--color-blue-400);
+  --background-color: var(--color-blue-100);
+  --border-color: var(--color-blue-400);
 }
 
 .yellow {
-  background-color: var(--color-yellow-100);
-  border-color: var(--color-yellow-700);
+  --background-color: var(--color-yellow-100);
+  --border-color: var(--color-yellow-700);
 }
 
 .orange {
-  background-color: var(--color-orange-100);
-  border-color: var(--color-orange-600);
+  --background-color: var(--color-orange-100);
+  --border-color: var(--color-orange-600);
 }
 
 .red {
-  background-color: var(--color-red-100);
-  border-color: var(--color-red-500);
+  --background-color: var(--color-red-100);
+  --border-color: var(--color-red-500);
 }
 
 .green {
-  background-color: var(--color-green-100);
-  border-color: var(--color-green-500);
+  --background-color: var(--color-green-100);
+  --border-color: var(--color-green-500);
 }
 
 .purple {
-  background-color: var(--color-purple-100);
-  border-color: var(--color-purple-400);
+  --background-color: var(--color-purple-100);
+  --border-color: var(--color-purple-400);
 }
 
 .positive {
-  background: var(--color-green-100);
-  border-color: var(--color-green-500);
+  --background-color: var(--color-green-100);
+  --border-color: var(--color-green-500);
 }
 
 // These are @deprecated but must come after `color` so not everything will default to white
 // This will be @deprecated
 .default {
-  background-color: var(--color-gray-300);
-  border-color: var(--color-gray-500);
+  --background-color: var(--color-gray-200);
+  --border-color: var(--color-gray-500);
 }
 
 .negative {
-  background: var(--color-red-100);
-  border-color: var(--color-red-500);
+  --background-color: var(--color-red-100);
+  --border-color: var(--color-red-500);
 }
 
 .informative {
-  background: var(--color-blue-100);
-  border-color: var(--color-blue-400);
+  --background-color: var(--color-blue-100);
+  --border-color: var(--color-blue-400);
 }
 
 .cautionary {
-  background: var(--color-yellow-100);
-  border-color: var(--color-yellow-700);
+  --background-color: var(--color-yellow-100);
+  --border-color: var(--color-yellow-700);
 }
 
 .assertive {
-  background: var(--color-orange-100);
-  border-color: var(--color-orange-600);
+  --background-color: var(--color-orange-100);
+  --border-color: var(--color-orange-600);
 }
 
 .prominent {
-  background: var(--color-purple-100);
-  border-color: var(--color-purple-400);
+  --background-color: var(--color-purple-100);
+  --border-color: var(--color-purple-400);
 }
 
 // @deprecated end
 
 // Border Style Variations
 .solid {
-  border-style: var(--border-solid-border-style);
+  --border-style: solid;
 }
 
 .dashed {
-  border-style: var(--border-dashed-border-style);
+  --border-style: dashed;
 }
 
 .none {
-  border-color: var(--border-borderless-border-color);
-  border-style: var(--border-borderless-border-style);
+  --border-color: transparent;
+  --border-style: none;
 }

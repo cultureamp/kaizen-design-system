@@ -20,6 +20,9 @@ const meta = {
   },
   argTypes: {
     children: { control: false },
+    variant: {
+      control: false,
+    },
   },
 } satisfies Meta<typeof Well>
 
@@ -47,31 +50,31 @@ export const Colors: Story = {
       <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
         `gray` is the accessible version of the former `default` variant
       </Heading>
-      <Well color="gray" {...args} />
+      <Well {...args} color="gray" />
       <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
         `blue` replaces the `informative` variant
       </Heading>
-      <Well color="blue" {...args} />
+      <Well {...args} color="blue" />
       <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
         `yellow` replaces the `cautionary` variant
       </Heading>
-      <Well color="yellow" {...args} />
+      <Well {...args} color="yellow" />
       <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
         `orange` replaces the `assertive` variant
       </Heading>
-      <Well color="orange" {...args} />
+      <Well {...args} color="orange" />
       <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
         `red` replaces the `negative` variant
       </Heading>
-      <Well color="red" {...args} />
+      <Well {...args} color="red" />
       <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
         `green` replaces the `positive` variant
       </Heading>
-      <Well color="green" {...args} />
+      <Well {...args} color="green" />
       <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
         `purple` replaces the `prominent` variant
       </Heading>
-      <Well color="purple" {...args} />
+      <Well {...args} color="purple" />
     </>
   ),
 }
@@ -84,7 +87,7 @@ export const BorderStyles: Story = {
           <Heading tag="h4" variant="heading-6">
             {border}
           </Heading>
-          <Well borderStyle={border} {...args} />
+          <Well {...args} borderStyle={border} />
         </>
       ))}
     </>
@@ -105,7 +108,7 @@ export const NoMargin: Story = {
         <Heading tag="h4" variant="heading-6">
           noMargin
         </Heading>
-        <Well noMargin {...args} />
+        <Well {...args} noMargin />
         <Well {...args} />
       </div>
     </div>
