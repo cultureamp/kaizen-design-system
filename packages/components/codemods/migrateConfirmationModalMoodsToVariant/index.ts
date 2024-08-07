@@ -3,7 +3,7 @@ import { transformConfirmationModalMoodsToVariant } from "./transformConfirmatio
 /** This is here as a script runner that migrates Well variant to their color equivalent */
 const migrateModalMoodsToVariant = (): void => {
   // eslint-disable-next-line no-console
-  console.log(" ~(-_- ~) Running Modal transformer (~ -_-)~")
+  console.log(" ~(-_- ~) Running ConfirmationModal transformer (~ -_-)~")
   const targetDir = process.argv[2]
   if (!targetDir) {
     process.exit(1)
