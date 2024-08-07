@@ -34,6 +34,9 @@ export type GenericNotificationType = {
 }
 
 export type GenericNotificationVariant = {
+  /**
+   * @deprecated Please use `variant` instead
+   */
   type?: never
   /**
    * If you are transitioning from `type`:
