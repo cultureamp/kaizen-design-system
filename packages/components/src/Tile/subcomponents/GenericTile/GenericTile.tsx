@@ -53,7 +53,7 @@ export const GenericTile = ({
   metadata,
   information,
   mood,
-  variant,
+  variant = "default",
   footer,
   classNameOverride,
   ...restProps
@@ -93,13 +93,7 @@ export const GenericTile = ({
       className={classnames(
         styles.face,
         styles.faceFront,
-        variant && styles[variant],
-        mood === "positive" && styles.faceMoodPositive,
-        mood === "informative" && styles.faceMoodInformative,
-        mood === "cautionary" && styles.faceMoodCautionary,
-        mood === "assertive" && styles.faceMoodAssertive,
-        mood === "negative" && styles.faceMoodNegative,
-        mood === "prominent" && styles.faceMoodProminent
+        mood ? styles[mood] : styles[variant]
       )}
     >
       {information && (
