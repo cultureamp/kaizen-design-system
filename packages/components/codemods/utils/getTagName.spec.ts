@@ -1,10 +1,10 @@
 import { parseJsx } from "../__tests__/utils"
-import { getImportAlias } from "./getImportAlias"
+import { getTagName } from "./getTagName"
 
-describe("getImportAlias", () => {
+describe("getTagName", () => {
   it("returns the import name if it matches the target specifier", () => {
     const input = parseJsx('import { Well } from "@kaizen/components"')
-    const importAlias = getImportAlias(input, "Well")
+    const importAlias = getTagName(input, "Well")
     expect(importAlias).toBe("Well")
   })
 
@@ -12,13 +12,13 @@ describe("getImportAlias", () => {
     const input = parseJsx(
       'import { Well as KaizenWell } from "@kaizen/components"'
     )
-    const importAlias = getImportAlias(input, "Well")
+    const importAlias = getTagName(input, "Well")
     expect(importAlias).toBe("KaizenWell")
   })
 
   it("returns undefined if there is no match to the target specifier", () => {
     const input = parseJsx('import { Well } from "@kaizen/well"')
-    const importAlias = getImportAlias(input, "Well")
+    const importAlias = getTagName(input, "Well")
     expect(importAlias).toBe(undefined)
   })
 })
