@@ -21,4 +21,5 @@ Example:
 
 ## Available codemods
 - `migrateBrandMomentMoodToVariant`: Migrates `BrandMoment` component prop from `mood` to `variant`.
+- `migrateEmptyStateIllustrationTypeToVariant`: Migrates `EmptyState` component prop from `illustrationType` to `variant`.
 - `migrateWellVariantToColor`: Migrates `Well` component prop from `variant` to `color`.
