@@ -1,13 +1,13 @@
 import ts from "typescript"
 import { getPropValueText } from "../utils/getPropValueText"
 
-/** Recurses through AST to find and update any jsx element that matched the importAlias */
+/** Recurses through AST to find and update any jsx element that matched the tagName */
 export const transformNotificationTypeToVariant =
-  (context: ts.TransformationContext, importAlias: string) =>
+  (context: ts.TransformationContext, tagName: string) =>
   (rootNode: ts.Node): ts.Node => {
     function visit(node: ts.Node): ts.Node {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-        if (node.tagName.getText() === importAlias) {
+        if (node.tagName.getText() === tagName) {
           const newAttributes = node.attributes.properties.map(attr => {
             if (ts.isJsxAttribute(attr) && attr.name.getText() === "type") {
               const valueName =

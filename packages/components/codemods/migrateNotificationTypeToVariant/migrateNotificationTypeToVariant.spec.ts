@@ -13,7 +13,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      importAlias: "InlineNotification",
+      tagName: "InlineNotification",
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
@@ -28,7 +28,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      importAlias: "GlobalNotification",
+      tagName: "GlobalNotification",
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
@@ -43,7 +43,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      importAlias: "ToastNotification",
+      tagName: "ToastNotification",
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
@@ -58,7 +58,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      importAlias: "InlineNotification",
+      tagName: "InlineNotification",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -73,7 +73,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      importAlias: "InlineNotification",
+      tagName: "InlineNotification",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -88,7 +88,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      importAlias: "InlineNotification",
+      tagName: "InlineNotification",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -103,7 +103,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      importAlias: "InlineNotification",
+      tagName: "InlineNotification",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -118,7 +118,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      importAlias: "InlineNotification",
+      tagName: "InlineNotification",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
