@@ -46,7 +46,7 @@ export type EmptyStateProps = {
    * - `informative` remains as `informative`
    * - `negative` should be `warning`
    * - `action` should be `warning`
-   * - `neutral` remains as `expert-advice`
+   * - `neutral` should be `expert-advice`
    * @default informative
    */
   variant?: "success" | "warning" | "informative" | "expert-advice"
