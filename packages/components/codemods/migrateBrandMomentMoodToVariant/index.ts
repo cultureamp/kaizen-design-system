@@ -1,6 +1,6 @@
 import { transformComponentsInDir } from "../utils"
 import { transformBrandMomentMoodToVariant } from "./transformBrandMomentMoodToVariant"
-/** This is here as a script runner that migrates Well variant to their color equivalent */
+
 const migrateBrandMomentMoodToVariant = (): void => {
   // eslint-disable-next-line no-console
   console.log(
