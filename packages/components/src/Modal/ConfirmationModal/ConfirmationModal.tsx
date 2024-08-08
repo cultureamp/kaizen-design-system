@@ -25,17 +25,16 @@ import {
 import { ButtonProps } from "~components/__actions__/v2"
 import styles from "./ConfirmationModal.module.scss"
 
-export type ConfirmationModalProps = {
+type Mood = "positive" | "informative" | "negative" | "cautionary" | "assertive"
+type Variant = "success" | "informative" | "warning" | "cautionary"
+
+type BaseConfirmationModalProps = {
   isOpen: boolean
   unpadded?: boolean
   /**
    * To display the Prominent variation of the modal types
    */
   isProminent?: boolean
-  /**
-   * Defines the modal type or mood
-   */
-  mood: Mood
   title: string
   onConfirm?: () => void
   onDismiss: () => void
@@ -53,10 +52,36 @@ export type ConfirmationModalProps = {
   children: React.ReactNode
 } & HTMLAttributes<HTMLDivElement>
 
-type Mood = "positive" | "informative" | "negative" | "cautionary" | "assertive"
+type ConfirmationModalMoods = {
+  /**
+   * @deprecated Please use `variant` instead
+   */
+  mood: Mood
+  variant?: never
+}
 
-const getIcon = (mood: Mood, isProminent: boolean): JSX.Element => {
-  switch (mood) {
+type ConfirmationModalVariants = {
+  /**
+   * @deprecated Please use `variant` instead
+   */
+  mood?: never
+  /**
+   * If you are transitioning from Moods:
+   * - `positive` should be `success`
+   * - `negative` should be `warning`
+   * - `assertive` should be `cautionary`
+   */
+  variant: Variant
+}
+
+export type ConfirmationModalProps = BaseConfirmationModalProps &
+  (ConfirmationModalMoods | ConfirmationModalVariants)
+
+const getIcon = (
+  variantName: Mood | Variant,
+  isProminent: boolean
+): JSX.Element => {
+  switch (variantName) {
     case "cautionary":
       return isProminent ? (
         <Cautionary />
@@ -70,12 +95,14 @@ const getIcon = (mood: Mood, isProminent: boolean): JSX.Element => {
         <InformationWhiteIcon inheritSize role="presentation" />
       )
     case "negative":
+    case "warning":
       return isProminent ? (
         <Negative />
       ) : (
         <ExclamationWhiteIcon inheritSize role="presentation" />
       )
     case "positive":
+    case "success":
       return isProminent ? (
         <Positive />
       ) : (
@@ -99,6 +126,7 @@ export const ConfirmationModal = ({
   isProminent = false,
   unpadded = false,
   mood,
+  variant,
   title,
   onConfirm,
   onAfterLeave,
@@ -110,9 +138,12 @@ export const ConfirmationModal = ({
   children,
   ...props
 }: ConfirmationModalProps): JSX.Element => {
+  const variantName = variant || mood
+
   const onDismiss = confirmWorking ? undefined : propsOnDismiss
 
   const footerActions: ButtonProps[] = []
+
   if (onConfirm) {
     const confirmAction = { label: confirmLabel, onClick: onConfirm }
     const workingProps = confirmWorking
@@ -145,7 +176,7 @@ export const ConfirmationModal = ({
           <div
             className={classnames(
               styles.header,
-              styles[`${mood}Header`],
+              variant ? styles[variant] : styles[`${mood}Header`],
               isProminent && styles.prominent,
               !unpadded && styles.padded
             )}
@@ -157,7 +188,7 @@ export const ConfirmationModal = ({
               )}
             >
               <div className={styles.spotIcon}>
-                {getIcon(mood, isProminent)}
+                {getIcon(variantName, isProminent)}
               </div>
             </div>
             <ModalAccessibleLabel isProminent={isProminent}>

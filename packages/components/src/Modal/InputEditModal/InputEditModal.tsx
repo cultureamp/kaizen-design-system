@@ -14,7 +14,10 @@ import styles from "./InputEditModal.module.scss"
 export type InputEditModalProps = {
   isOpen: boolean
   unpadded?: boolean
-  mood: "positive" | "destructive"
+  /**
+   * @deprecated we are no longer supporting different moods for InputModal, instead there will only be a single default variant set by the component.
+   */
+  mood?: "positive" | "destructive"
   title: string
   onSubmit: () => void
   onSecondaryAction?: () => void

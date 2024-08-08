@@ -5,19 +5,19 @@ export type TransformConfig = {
   sourceFile: ts.SourceFile
   astTransformer: (
     context: ts.TransformationContext,
-    importAlias: string
+    tagName: string
   ) => (rootNode: ts.Node) => ts.Node
-  importAlias: string
+  tagName: string
 }
 
 /** Transforms the source file with the transformer and target import alias provided */
 export const transformSource = ({
   sourceFile,
   astTransformer,
-  importAlias,
+  tagName,
 }: TransformConfig): string => {
   const result = ts.transform(sourceFile, [
-    context => astTransformer(context, importAlias),
+    context => astTransformer(context, tagName),
   ])
   const transformedSource = result.transformed[0] as ts.SourceFile
 
