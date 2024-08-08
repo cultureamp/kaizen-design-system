@@ -1,8 +1,8 @@
 import { parseJsx } from "../__tests__/utils"
 import { transformSource, printAst } from "../utils"
-import { transformWellVariantToColor } from "./transformWellVariantToColor"
+import { transformGuidanceBlockVariantProp } from "./transformGuidanceBlockVariantProp"
 
-describe("transformWellVariantToColor", () => {
+describe("transformGuidanceBlockVariantProp", () => {
   it('replaces variant="default" with color="gray"', () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
