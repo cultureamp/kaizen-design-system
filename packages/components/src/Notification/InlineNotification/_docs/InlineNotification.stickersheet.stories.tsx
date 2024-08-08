@@ -215,7 +215,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           {TYPE_PROPS.map(({ title, props }) => (
             <StickerSheet.Row key={title} rowTitle={title}>
-              <InlineNotification {...props} />
+              <InlineNotification {...DEFAULT_PROPS} {...props} />
             </StickerSheet.Row>
           ))}
         </StickerSheet.Body>
