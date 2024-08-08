@@ -1,6 +1,6 @@
 import { transformNotificationTypeToVariant } from "../migrateNotificationTypeToVariant"
 import { transformComponentsInDir } from "../utils"
-/** This is here as a script runner that migrates Well variant to their color equivalent */
+/** This is here as a script runner that migrates InlineNotification variant to their color equivalent */
 const migrateInlineNotificationTypeToVariant = (): void => {
   // eslint-disable-next-line no-console
   console.log(" ~(-_- ~) Running InlineNotification transformer (~ -_-)~")
