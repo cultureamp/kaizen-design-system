@@ -90,7 +90,7 @@
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "axe-playwright": "^2.0.1",
-    "chromatic": "^11.5.6",
+    "chromatic": "^11.5.7",
     "color-string": "^1.9.1",
     "css-loader": "^7.1.2",
     "eslint": "^8.57.0",
@@ -134,7 +134,7 @@
     "tailwindcss": "^3.4.7",
     "ts-jest": "^29.2.4",
     "ts-node": "^10.9.2",
-    "turbo": "^2.0.9",
+    "turbo": "^2.0.11",
     "typescript": "^5.5.4",
     "webpack": "^5.93.0"
   },
