@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.57.0",
+  "version": "1.57.2",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -13,6 +13,8 @@
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
   },
   "files": [
+    "bin",
+    "codemods",
     "future",
     "v1",
     "v2",
@@ -28,6 +30,9 @@
   "sideEffects": [
     "styles.css"
   ],
+  "bin": {
+    "kaizen-codemod": "./bin/codemod.sh"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "lint:ts": "tsc --noEmit",
@@ -89,6 +94,7 @@
     "react-textfit": "^1.1.1",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^10.0.1",
+    "tsx": "^4.16.2",
     "uuid": "^10.0.0"
   },
   "dependenciesComments": {
@@ -112,8 +118,7 @@
     "serialize-query-params": "^2.0.2",
     "svgo": "^3.3.2",
     "ts-jest": "^29.2.3",
-    "tslib": "^2.6.3",
-    "tsx": "^4.16.2"
+    "tslib": "^2.6.3"
   },
   "devDependenciesComments": {
     "postcss": "Installed in root",
@@ -123,6 +128,15 @@
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.5.9",
     "react": "^18.3.1",
-    "react-intl": "^6.6.8"
+    "react-intl": "^6.6.8",
+    "typescript": "^5.5.4"
+  },
+  "peerDependenciesComments": {
+    "typescript": "Used for codemods"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
   }
 }
