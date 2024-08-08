@@ -14,8 +14,6 @@ const getNewVariantValue = (
       return "success"
     case "negative":
       return "warning"
-    default:
-      return "informative"
   }
 }
 
