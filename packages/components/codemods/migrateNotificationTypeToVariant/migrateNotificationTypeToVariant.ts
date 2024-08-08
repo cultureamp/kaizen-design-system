@@ -18,11 +18,20 @@ export const transformNotificationTypeToVariant =
 
                 // Only change values that are necessary
                 switch (valueName) {
+                  case "cautionary":
+                    variantValue = "cautionary"
+                    break
+                  case "informative":
+                    variantValue = "informative"
+                    break
                   case "negative":
                     variantValue = "warning"
                     break
                   case "positive":
                     variantValue = "success"
+                    break
+                  case "security":
+                    variantValue = "security"
                     break
                 }
 
