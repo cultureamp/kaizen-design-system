@@ -1,5 +1,6 @@
-export * from "./transformSource"
 export * from "./getImportAlias"
 export * from "./getPropValueText"
 export * from "./printAst"
 export * from "./transformComponentsInDir"
+export * from "./transformSource"
+export * from "./updateJsxElementWithNewProps"
