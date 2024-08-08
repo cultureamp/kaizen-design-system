@@ -21,3 +21,7 @@ Example:
 
 ## Available codemods
 - `migrateWellVariantToColor`: Migrates `Well` component prop from `variant` to `color`.
+- `migrateNotificationTypeToVariant`: A utility transformer that updates any given Notification's `Type` prop to the correct `Variant` prop
+  - `migrateGlobalNotificationTypeToVariant`: uses the utility to transform `GlobalNotification`
+  - `migrateInlineNotificationTypeToVariant`: uses the utility to transform `InlineNotification`
+  - `migrateToastNotificationTypeToVariant`: uses the utility to transform `ToastNotification`
