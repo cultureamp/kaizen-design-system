@@ -2,7 +2,7 @@ import ts from "typescript"
 import { getPropValueText } from "../utils/getPropValueText"
 
 /** Recurses through AST to find and update any jsx element that matched the importAlias */
-export const transformInlineNotificationTypeToVariant =
+export const transformNotificationTypeToVariant =
   (context: ts.TransformationContext, importAlias: string) =>
   (rootNode: ts.Node): ts.Node => {
     function visit(node: ts.Node): ts.Node {

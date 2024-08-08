@@ -1,9 +1,9 @@
 import { parseJsx } from "../__tests__/utils"
 import { transformSource, printAst } from "../utils"
-import { transformInlineNotificationTypeToVariant } from "./migrateInlineNotificationTypeToVariant"
+import { transformNotificationTypeToVariant } from "./migrateNotificationTypeToVariant"
 
-describe("transformInlineNotificationTypeToVariant", () => {
-  it('replaces type="positive" with variant="success"', () => {
+describe("transformNotificationTypeToVariant", () => {
+  it('replaces InlineNotifications type="positive" with variant="success"', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <InlineNotification type="positive">Test</InlineNotification>
     `)
@@ -12,8 +12,38 @@ describe("transformInlineNotificationTypeToVariant", () => {
     `)
     const transformed = transformSource({
       sourceFile: inputAst,
-      astTransformer: transformInlineNotificationTypeToVariant,
+      astTransformer: transformNotificationTypeToVariant,
       importAlias: "InlineNotification",
+    })
+    expect(transformed).toEqual(printAst(outputAst))
+  })
+
+  it('replaces GlobalNotification type="positive" with variant="success"', () => {
+    const inputAst = parseJsx(`
+      export const TestComponent = () => <GlobalNotification type="positive">Test</GlobalNotification>
+    `)
+    const outputAst = parseJsx(`
+      export const TestComponent = () => <GlobalNotification variant="success">Test</GlobalNotification>
+    `)
+    const transformed = transformSource({
+      sourceFile: inputAst,
+      astTransformer: transformNotificationTypeToVariant,
+      importAlias: "GlobalNotification",
+    })
+    expect(transformed).toEqual(printAst(outputAst))
+  })
+
+  it('replaces ToastNotification type="positive" with variant="success"', () => {
+    const inputAst = parseJsx(`
+      export const TestComponent = () => <ToastNotification type="positive">Test</ToastNotification>
+    `)
+    const outputAst = parseJsx(`
+      export const TestComponent = () => <ToastNotification variant="success">Test</ToastNotification>
+    `)
+    const transformed = transformSource({
+      sourceFile: inputAst,
+      astTransformer: transformNotificationTypeToVariant,
+      importAlias: "ToastNotification",
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
@@ -27,7 +57,7 @@ describe("transformInlineNotificationTypeToVariant", () => {
     `)
     const transformed = transformSource({
       sourceFile: inputAst,
-      astTransformer: transformInlineNotificationTypeToVariant,
+      astTransformer: transformNotificationTypeToVariant,
       importAlias: "InlineNotification",
     })
     expect(transformed).toBe(printAst(outputAst))
@@ -42,7 +72,7 @@ describe("transformInlineNotificationTypeToVariant", () => {
     `)
     const transformed = transformSource({
       sourceFile: inputAst,
-      astTransformer: transformInlineNotificationTypeToVariant,
+      astTransformer: transformNotificationTypeToVariant,
       importAlias: "InlineNotification",
     })
     expect(transformed).toBe(printAst(outputAst))
@@ -57,7 +87,7 @@ describe("transformInlineNotificationTypeToVariant", () => {
     `)
     const transformed = transformSource({
       sourceFile: inputAst,
-      astTransformer: transformInlineNotificationTypeToVariant,
+      astTransformer: transformNotificationTypeToVariant,
       importAlias: "InlineNotification",
     })
     expect(transformed).toBe(printAst(outputAst))
@@ -72,7 +102,7 @@ describe("transformInlineNotificationTypeToVariant", () => {
     `)
     const transformed = transformSource({
       sourceFile: inputAst,
-      astTransformer: transformInlineNotificationTypeToVariant,
+      astTransformer: transformNotificationTypeToVariant,
       importAlias: "InlineNotification",
     })
     expect(transformed).toBe(printAst(outputAst))
@@ -87,7 +117,7 @@ describe("transformInlineNotificationTypeToVariant", () => {
     `)
     const transformed = transformSource({
       sourceFile: inputAst,
-      astTransformer: transformInlineNotificationTypeToVariant,
+      astTransformer: transformNotificationTypeToVariant,
       importAlias: "InlineNotification",
     })
     expect(transformed).toBe(printAst(outputAst))
