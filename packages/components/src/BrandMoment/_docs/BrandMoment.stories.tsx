@@ -32,12 +32,25 @@ const meta = {
   component: BrandMoment,
   argTypes: {
     mood: { control: false },
+    illustration: { control: false },
+    header: { control: false },
+  },
+  args: {
+    variant: "informative",
+    illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
+    header: <MinimalBasic />,
+    text: {
+      subtitle: "Welcome to Culture Amp",
+      title: "Let's dive in and see how it works",
+    },
   },
 } satisfies Meta<typeof BrandMoment>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
+
+export const Playground: Story = {}
 
 export const Informative: Story = {
   args: {

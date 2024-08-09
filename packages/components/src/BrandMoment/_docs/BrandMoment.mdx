@@ -1,4 +1,4 @@
-import { Canvas, Meta } from "@storybook/blocks"
+import { Canvas, Controls, Meta } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as BrandMoment from "./BrandMoment.stories"
 
@@ -19,24 +19,19 @@ import * as BrandMoment from "./BrandMoment.stories"
 
 A brand moment is a page that showcases the brand's vibrant animations and illustration. The page provides an engaging experience for users when they reach these junction, helping to create a strong connection between the brand and product.
 
+<Canvas of={BrandMoment.Playground} />
+<Controls of={BrandMoment.Playground} />
+
 ## Variant
 
-The `variant` prop sets the background color. Previously named `mood`.
-
 ### Informative
-
-Variant `informative` - previously Mood `informative`.
 
 <Canvas of={BrandMoment.Informative} />
 
 ### Green
 
-Variant `success` - previously Mood `positive`.
-
 <Canvas of={BrandMoment.Success} />
 
 ### Warning
-
-Variant `warning` - previously Mood `negative`.
 
 <Canvas of={BrandMoment.Warning} />
