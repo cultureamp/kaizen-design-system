@@ -7,7 +7,6 @@ import { SceneProps, SpotProps } from "~components/Illustration"
 import { Text } from "~components/Text"
 import { Button, ButtonProps } from "~components/__actions__/v2"
 import { Tooltip, TooltipProps } from "~components/__overlays__/Tooltip/v1"
-import { VariantType } from "./types"
 import styles from "./GuidanceBlock.module.scss"
 
 export type ActionProps = ButtonProps & {
@@ -42,7 +41,12 @@ type BaseGuidanceBlockProps = {
    * This will still require the secondary object to be passed into the actions ie: {secondary: { label: "Dismiss action" }}`
    */
   secondaryDismiss?: boolean
-  variant?: VariantType
+  /**
+   * If you are migrating from the KAIO v1:
+   * - `prominent` is now `expert-advice`
+   * - All other variants are removed in favour of `default`
+   */
+  variant?: "default" | "expert-advice"
   withActionButtonArrow?: boolean
   noMaxWidth?: boolean
 }
