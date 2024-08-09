@@ -39,6 +39,12 @@ const variants = [
     props: { variant: "warning" },
   },
   {
+    title: "Negative",
+    props: {
+      type: "negative",
+    },
+  },
+  {
     title: "Security",
     props: { variant: "security" },
   },
