@@ -16,27 +16,41 @@ const ILLUSTRATIONS: Record<
   string,
   (props: AnimatedSceneProps) => JSX.Element
 > = {
-  positive: EmptyStatesPositive,
-  neutral: EmptyStatesNeutral,
-  negative: EmptyStatesNegative,
+  success: EmptyStatesPositive,
+  warning: EmptyStatesNegative,
   informative: EmptyStatesInformative,
+  "expert-advice": EmptyStatesNeutral,
+  /** @deprecated Replaced by success */
+  positive: EmptyStatesPositive,
+  /** @deprecated Replaced by expert-advice */
+  neutral: EmptyStatesNeutral,
+  /** @deprecated Replaced by warning */
+  negative: EmptyStatesNegative,
+  /** @deprecated Replaced by warning */
   action: EmptyStatesNegative,
 }
-
-type IllustrationType =
-  | "positive"
-  | "neutral"
-  | "negative"
-  | "informative"
-  | "action"
-
-type LayoutContextType = "sidebarAndContent" | "contentOnly"
 
 export type EmptyStateProps = {
   children?: React.ReactNode
   id?: string
-  illustrationType?: IllustrationType
-  layoutContext?: LayoutContextType
+  /** @deprecated Use `variant` instead */
+  illustrationType?:
+    | "positive"
+    | "informative"
+    | "negative"
+    | "action"
+    | "neutral"
+  /**
+   * If you are transitioning from `illustrationType`:
+   * - `positive` should be `success`
+   * - `informative` remains as `informative`
+   * - `negative` should be `warning`
+   * - `action` should be `warning`
+   * - `neutral` should be `expert-advice`
+   * @default informative
+   */
+  variant?: "success" | "warning" | "informative" | "expert-advice"
+  layoutContext?: "sidebarAndContent" | "contentOnly"
   bodyText: string | React.ReactNode
   straightCorners?: boolean
   headingProps?: HeadingProps
@@ -50,7 +64,8 @@ export type EmptyStateProps = {
 export const EmptyState = ({
   children,
   id,
-  illustrationType = "informative",
+  illustrationType,
+  variant = "informative",
   layoutContext = "sidebarAndContent",
   headingProps,
   bodyText,
@@ -60,17 +75,16 @@ export const EmptyState = ({
   classNameOverride,
   ...props
 }: EmptyStateProps): JSX.Element => {
-  const IllustrationComponent = ILLUSTRATIONS[illustrationType]
+  const IllustrationComponent = ILLUSTRATIONS[illustrationType ?? variant]
 
   return (
     <div
       className={classnames(
-        classNameOverride,
-        styles[illustrationType],
         styles.container,
-        styles.zen,
+        illustrationType ? styles[illustrationType] : styles[variant],
         styles[layoutContext],
-        straightCorners && styles.straightCorners
+        straightCorners && styles.straightCorners,
+        classNameOverride
       )}
       id={id}
       {...props}

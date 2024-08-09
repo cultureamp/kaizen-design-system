@@ -1,6 +1,5 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { moodsList } from "~components/Tile/subcomponents/GenericTile/types"
 import { InformationTile } from "../index"
 
 const meta = {
@@ -10,6 +9,9 @@ const meta = {
     title: "Title",
     metadata: "Side A",
     footer: <>Example Footer</>,
+  },
+  argTypes: {
+    mood: { control: false },
   },
 } satisfies Meta<typeof InformationTile>
 
@@ -27,14 +29,24 @@ export const Playground: Story = {
   },
 }
 
-export const Moods: Story = {
+export const Variants: Story = {
   render: args => (
-    <div className="flex gap-16 flex-wrap">
-      {moodsList.map(mood => (
-        <InformationTile key={mood} mood={mood} {...args} />
-      ))}
-    </div>
+    <>
+      <InformationTile {...args} variant="default" title="default" />
+      <InformationTile
+        {...args}
+        variant="expert-advice"
+        title="expert-advice"
+      />
+    </>
   ),
+  decorators: [
+    Story => (
+      <div className="flex gap-16 flex-wrap">
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export const Information: Story = {

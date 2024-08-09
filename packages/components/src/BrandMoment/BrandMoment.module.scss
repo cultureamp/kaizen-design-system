@@ -13,18 +13,29 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--brand-moment-background-color);
+}
 
-  &.informative {
-    background: $color-blue-100;
-  }
+/** @deprecated */
+.positive {
+  --brand-moment-background-color: var(--color-green-100);
+}
 
-  &.positive {
-    background: $color-green-100;
-  }
+.negative {
+  --brand-moment-background-color: var(--color-red-100);
+}
 
-  &.negative {
-    background: $color-red-100;
-  }
+/** end @deprecated */
+.informative {
+  --brand-moment-background-color: var(--color-blue-100);
+}
+
+.success {
+  --brand-moment-background-color: var(--color-green-100);
+}
+
+.warning {
+  --brand-moment-background-color: var(--color-red-100);
 }
 
 // --------------------------------
