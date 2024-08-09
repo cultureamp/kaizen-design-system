@@ -21,17 +21,13 @@ export default {
   },
 } satisfies Meta
 
-const DEFAULT_CHILDREN: JSX.Element = (
-  <span>
-    New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
-    <a href="/">Manage users is now available</a>
-  </span>
-)
-
 const DEFAULT_PROPS = {
-  hideCloseIcon: false,
-  persistent: false,
-  children: DEFAULT_CHILDREN,
+  children: (
+    <span>
+      New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
+      <a href="/">Manage users is now available</a>
+    </span>
+  ),
 } satisfies Partial<InlineNotificationProps>
 
 const VARIANTS_PROPS: Array<{
@@ -41,7 +37,6 @@ const VARIANTS_PROPS: Array<{
   {
     title: "Informative",
     props: {
-      ...DEFAULT_PROPS,
       variant: "informative",
       headingProps: {
         variant: "heading-6",
@@ -53,7 +48,6 @@ const VARIANTS_PROPS: Array<{
   {
     title: "Success",
     props: {
-      ...DEFAULT_PROPS,
       variant: "success",
       headingProps: {
         variant: "heading-6",
@@ -65,7 +59,6 @@ const VARIANTS_PROPS: Array<{
   {
     title: "Cautionary",
     props: {
-      ...DEFAULT_PROPS,
       variant: "cautionary",
       headingProps: {
         variant: "heading-6",
@@ -77,7 +70,6 @@ const VARIANTS_PROPS: Array<{
   {
     title: "Warning",
     props: {
-      ...DEFAULT_PROPS,
       variant: "warning",
       headingProps: {
         variant: "heading-6",
@@ -89,7 +81,6 @@ const VARIANTS_PROPS: Array<{
   {
     title: "Persistent",
     props: {
-      ...DEFAULT_PROPS,
       variant: "informative",
       persistent: true,
       headingProps: {
@@ -102,7 +93,6 @@ const VARIANTS_PROPS: Array<{
   {
     title: "Subtle",
     props: {
-      ...DEFAULT_PROPS,
       variant: "informative",
       isSubtle: true,
       persistent: true,
@@ -117,7 +107,6 @@ const VARIANTS_PROPS: Array<{
   {
     title: "Multiline",
     props: {
-      ...DEFAULT_PROPS,
       children:
         "Content longer that the width of the container will break onto a new line. Lorem ipsum dolor, sit amet consectetur adipisicing elit. In aperiam voluptatem molestias saepe quia vitae quod ex illum, unde nihil impedit possimus officia labore atque quidem necessitatibus sint, maiores velit.",
       variant: "success",
@@ -131,7 +120,6 @@ const VARIANTS_PROPS: Array<{
   {
     title: "Forced multiline",
     props: {
-      ...DEFAULT_PROPS,
       children:
         "forceMultiline will break children onto a new line regardless of width",
       variant: "cautionary",
@@ -152,7 +140,6 @@ const TYPE_PROPS: Array<{
   {
     title: "Informative",
     props: {
-      ...DEFAULT_PROPS,
       type: "informative",
       headingProps: {
         variant: "heading-6",
@@ -164,7 +151,6 @@ const TYPE_PROPS: Array<{
   {
     title: "Positive",
     props: {
-      ...DEFAULT_PROPS,
       type: "positive",
       headingProps: {
         variant: "heading-6",
@@ -176,7 +162,6 @@ const TYPE_PROPS: Array<{
   {
     title: "Cautionary",
     props: {
-      ...DEFAULT_PROPS,
       type: "cautionary",
       headingProps: {
         variant: "heading-6",
@@ -188,7 +173,6 @@ const TYPE_PROPS: Array<{
   {
     title: "Negative",
     props: {
-      ...DEFAULT_PROPS,
       type: "negative",
       headingProps: {
         variant: "heading-6",
@@ -206,7 +190,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
             <StickerSheet.Row key={title} rowTitle={title}>
-              <InlineNotification {...props} />
+              <InlineNotification {...DEFAULT_PROPS} {...props} />
             </StickerSheet.Row>
           ))}
         </StickerSheet.Body>
