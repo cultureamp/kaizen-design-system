@@ -8,7 +8,7 @@ const transformInformationTile = (
   transformSource({
     sourceFile,
     astTransformer: transformInformationTileMoodToVariant,
-    importAlias: "InformationTile",
+    tagName: "InformationTile",
   })
 
 describe("transformInformationTileMoodToVariant()", () => {

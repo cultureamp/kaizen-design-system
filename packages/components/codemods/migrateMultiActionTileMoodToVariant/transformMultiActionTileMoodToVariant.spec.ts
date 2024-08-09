@@ -8,7 +8,7 @@ const transformMultiActionTile = (
   transformSource({
     sourceFile,
     astTransformer: transformMultiActionTileMoodToVariant,
-    importAlias: "MultiActionTile",
+    tagName: "MultiActionTile",
   })
 
 describe("transformMultiActionTileMoodToVariant()", () => {

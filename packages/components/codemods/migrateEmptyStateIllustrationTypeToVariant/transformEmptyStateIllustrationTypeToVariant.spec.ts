@@ -8,7 +8,7 @@ const transformEmptyState = (
   transformSource({
     sourceFile,
     astTransformer: transformEmptyStateIllustrationTypeToVariant,
-    importAlias: "EmptyState",
+    tagName: "EmptyState",
   })
 
 describe("transformEmptyStateIllustrationTypeToVariant()", () => {

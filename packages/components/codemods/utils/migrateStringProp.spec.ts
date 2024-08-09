@@ -21,7 +21,7 @@ const testMigrateStringProp = (
       "toppingNew",
       transformTopping
     ),
-    importAlias: "Pancakes",
+    tagName: "Pancakes",
   })
 
 describe("migrateStringProp()", () => {

@@ -8,7 +8,7 @@ const transformBrandMoment = (
   transformSource({
     sourceFile,
     astTransformer: transformBrandMomentMoodToVariant,
-    importAlias: "BrandMoment",
+    tagName: "BrandMoment",
   })
 
 describe("transformBrandMomentMoodToVariant()", () => {
