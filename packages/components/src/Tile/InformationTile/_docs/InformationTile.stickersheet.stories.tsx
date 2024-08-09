@@ -4,8 +4,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { moodsList } from "../../subcomponents/GenericTile/types"
-import { InformationTile } from "../index"
+import { InformationTile, InformationTileProps } from "../index"
 
 export default {
   title: "Components/Tiles/InformationTile",
@@ -16,26 +15,65 @@ export default {
 } satisfies Meta
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: () => (
-    <StickerSheet>
-      <StickerSheet.Body>
-        {(["default", ...moodsList] as const).map(mood => (
-          <StickerSheet.Row key={mood} rowTitle={mood}>
-            <InformationTile
-              mood={mood === "default" ? undefined : mood}
-              title="Title"
-              metadata="Side A"
-              information="Side B"
-              footer={<>Footer</>}
-            />
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
-    </StickerSheet>
-  ),
+  render: () => {
+    const defaultProps = {
+      title: "Title",
+      metadata: "Side A",
+      information: "Side B",
+      footer: <>Footer</>,
+    } satisfies InformationTileProps
+
+    const variants = ["default", "expert-advice"] satisfies Array<
+      InformationTileProps["variant"]
+    >
+
+    const moods = [
+      "positive",
+      "informative",
+      "cautionary",
+      "assertive",
+      "negative",
+      "prominent",
+    ] satisfies Array<InformationTileProps["mood"]>
+
+    return (
+      <>
+        <StickerSheet heading="InformationTile">
+          <StickerSheet.Body>
+            {variants.map(variant => (
+              <StickerSheet.Row key={variant} rowTitle={variant}>
+                <InformationTile {...defaultProps} variant={variant} />
+              </StickerSheet.Row>
+            ))}
+          </StickerSheet.Body>
+        </StickerSheet>
+
+        <StickerSheet heading="Mood (deprecated)">
+          <StickerSheet.Body>
+            <>
+              <StickerSheet.Row rowTitle="default">
+                <InformationTile {...defaultProps} />
+              </StickerSheet.Row>
+              {moods.map(mood => (
+                <StickerSheet.Row key={mood} rowTitle={mood}>
+                  <InformationTile {...defaultProps} mood={mood} />
+                </StickerSheet.Row>
+              ))}
+            </>
+          </StickerSheet.Body>
+        </StickerSheet>
+      </>
+    )
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
+}
+
+export const StickerSheetRTL: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
 }

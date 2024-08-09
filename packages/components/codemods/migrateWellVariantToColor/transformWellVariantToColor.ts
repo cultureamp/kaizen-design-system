@@ -1,4 +1,5 @@
 import ts from "typescript"
+import { updateJsxElementWithNewProps } from "../utils"
 import { getPropValueText } from "../utils/getPropValueText"
 
 /** Recurses through AST to find and update any jsx element that matched the tagName */
@@ -65,21 +66,7 @@ export const transformWellVariantToColor =
             ]
           }
 
-          if (ts.isJsxOpeningElement(node)) {
-            return ts.factory.updateJsxOpeningElement(
-              node,
-              node.tagName,
-              node.typeArguments,
-              ts.factory.createJsxAttributes(newAttributes)
-            )
-          } else if (ts.isJsxSelfClosingElement(node)) {
-            return ts.factory.updateJsxSelfClosingElement(
-              node,
-              node.tagName,
-              node.typeArguments,
-              ts.factory.createJsxAttributes(newAttributes)
-            )
-          }
+          return updateJsxElementWithNewProps(node, newAttributes)
         }
       }
       return ts.visitEachChild(node, visit, context)

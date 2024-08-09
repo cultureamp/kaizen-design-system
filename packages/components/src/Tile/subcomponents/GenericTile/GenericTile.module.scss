@@ -44,9 +44,6 @@ $tilePaddingTop: $spacing-xl;
 
 .face {
   position: absolute;
-  background-color: $color-white;
-  border: var(--border-width-1) var(--border-solid-border-style);
-  border-radius: 7px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -54,6 +51,9 @@ $tilePaddingTop: $spacing-xl;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  border: var(--border-width-1) solid var(--generic-tile-border-color);
+  border-radius: var(--border-solid-border-radius);
+  background-color: var(--generic-tile-background-color);
 
   * {
     backface-visibility: hidden;
@@ -62,41 +62,53 @@ $tilePaddingTop: $spacing-xl;
 
 .faceFront {
   justify-content: space-between;
-  border-color: var(--color-gray-500);
   padding: $tilePaddingTop $spacing-md $spacing-md;
 }
 
 .faceBack {
+  --generic-tile-border-color: var(--color-blue-400);
+  --generic-tile-background-color: var(--color-blue-100);
+
   padding-top: $tilePaddingTop;
   transform: rotateY(180deg);
-  border-color: var(--color-blue-400);
-  background-color: $color-blue-100;
 }
 
-.faceMoodPositive {
-  border-color: var(--color-green-500);
-  background-color: $color-green-100;
+/** @deprecated */
+.positive {
+  --generic-tile-border-color: var(--color-green-500);
+  --generic-tile-background-color: var(--color-green-100);
 }
 
-.faceMoodInformative {
-  border-color: var(--color-blue-400);
-  background-color: $color-blue-100;
+.informative {
+  --generic-tile-border-color: var(--color-blue-400);
+  --generic-tile-background-color: var(--color-blue-100);
 }
 
-.faceMoodCautionary {
-  border-color: var(--color-yellow-700);
-  background-color: $color-yellow-100;
+.cautionary {
+  --generic-tile-border-color: var(--color-yellow-700);
+  --generic-tile-background-color: var(--color-yellow-100);
 }
 
-.faceMoodNegative,
-.faceMoodAssertive {
-  border-color: var(--color-red-500);
-  background-color: $color-red-100;
+.negative,
+.assertive {
+  --generic-tile-border-color: var(--color-red-500);
+  --generic-tile-background-color: var(--color-red-100);
 }
 
-.faceMoodProminent {
-  border-color: var(--color-purple-400);
-  background-color: $color-purple-100;
+.prominent {
+  --generic-tile-border-color: var(--color-purple-400);
+  --generic-tile-background-color: var(--color-purple-100);
+}
+
+/** end @deprecated */
+.default {
+  --generic-tile-border-color: var(--color-gray-500);
+  --generic-tile-background-color: var(--color-white);
+}
+
+.expert-advice {
+  --generic-tile-border-color: var(--color-purple-400);
+  --generic-tile-background-color: var(--color-purple-100);
 }
 
 .isFlipped {
