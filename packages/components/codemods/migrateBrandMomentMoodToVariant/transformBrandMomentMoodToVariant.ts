@@ -1,5 +1,5 @@
 import type { BrandMomentProps } from "~components/BrandMoment"
-import { migrateStringProp } from "../utils/migrateStringProp"
+import { migrateStringProp } from "../utils"
 
 const OLD_PROP_NAME = "mood"
 const NEW_PROP_NAME = "variant"

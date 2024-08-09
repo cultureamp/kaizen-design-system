@@ -1,5 +1,5 @@
 import type { EmptyStateProps } from "~components/EmptyState"
-import { migrateStringProp } from "../utils/migrateStringProp"
+import { migrateStringProp } from "../utils"
 
 const OLD_PROP_NAME = "illustrationType"
 const NEW_PROP_NAME = "variant"
