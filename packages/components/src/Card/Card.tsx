@@ -22,33 +22,7 @@ export type CardColors =
   | "white"
   | "yellow"
 
-export type CardPropsVariants = {
-  /**
-   * @deprecated Please use `color` instead
-   */
-  variant?: CardVariants
-  color?: never
-}
-
-export type CardPropsColors = {
-  /**
-   * @deprecated Please use `color` instead
-   */
-  variant?: never
-  /**
-   * If you are transitioning from `variant`:
-   * - `default` should be `white` OR you can remove the prop
-   * - `positive` should be `green`
-   * - `negative` should be `red`
-   * - `informative` should be `blue`
-   * - `cautionary` should be `yellow`
-   * - `assertive` should be `orannge`
-   * - `highlight` should be `purple`
-   */
-  color?: CardColors
-}
-
-export type BaseCardProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
+export type CardProps = {
   children?: React.ReactNode
   /**
    * HTML elements that are allowed on Card.
@@ -58,9 +32,23 @@ export type BaseCardProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
    * Adds a larger box shadow to to the card container.
    */
   isElevated?: boolean
-}
-
-export type CardProps = BaseCardProps & (CardPropsVariants | CardPropsColors)
+  /**
+   * If you are transitioning from `variant`:
+   * - `default` replaces `white` OR you can remove the prop
+   * - `positive` replaces `green`
+   * - `negative` replaces `red`
+   * - `informative` replaces `blue`
+   * - `cautionary` replaces `yellow`
+   * - `assertive` replaces `orange`
+   * - `highlight` replaces `purple`
+   * @default white
+   */
+  color?: CardColors
+  /**
+   * @deprecated Please use color instead
+   */
+  variant?: CardVariants
+} & OverrideClassName<Omit<HTMLAttributes<HTMLElement>, "color">>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094938/Card Guidance} |

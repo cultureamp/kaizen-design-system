@@ -8,6 +8,11 @@ const meta = {
   args: {
     children: "This is a default container",
   },
+  argTypes: {
+    variant: {
+      control: false,
+    },
+  },
 } satisfies Meta<typeof Card>
 
 export default meta
