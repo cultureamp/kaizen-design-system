@@ -1,21 +1,18 @@
 import { Meta, StoryObj } from "@storybook/react"
-import {
-  GlobalNotification,
-  GlobalNotificationProps,
-} from "../GlobalNotification"
-
-const DEFAULT_PROPS: Partial<GlobalNotificationProps> = {
-  type: "positive",
-  children:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quibusdam natus doloremque",
-}
+import { GlobalNotification } from "../GlobalNotification"
 
 const meta = {
   title: "Components/Notifications/GlobalNotification",
   component: GlobalNotification,
-
   args: {
-    ...DEFAULT_PROPS,
+    variant: "success",
+    children:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quibusdam natus doloremque",
+  },
+  argTypes: {
+    type: {
+      control: false,
+    },
   },
 } satisfies Meta<typeof GlobalNotification>
 
@@ -41,7 +38,7 @@ export const Playground: StoryObj<typeof meta> = {
 export const Persistent: StoryObj<typeof meta> = {
   args: {
     persistent: true,
-    type: "negative",
+    variant: "warning",
     children: "Please fill in all required fields before submitting",
   },
 }

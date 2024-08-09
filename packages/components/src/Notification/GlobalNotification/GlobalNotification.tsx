@@ -1,14 +1,19 @@
 import React from "react"
-import { NotificationType } from "~components/Notification/types"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { GenericNotification } from "../subcomponents/GenericNotification"
+import {
+  GenericNotification,
+  GenericNotificationType,
+  GenericNotificationVariant,
+} from "../subcomponents/GenericNotification"
 
-export type GlobalNotificationProps = OverrideClassName<{
-  type: NotificationType
+export type GlobalNotificationBase = OverrideClassName<{
   children: React.ReactNode
   onHide?: () => void
   persistent?: boolean
 }>
+
+export type GlobalNotificationProps = GlobalNotificationBase &
+  (GenericNotificationType | GenericNotificationVariant)
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082060757/Global+Notification Guidance} |

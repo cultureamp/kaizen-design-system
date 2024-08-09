@@ -21,17 +21,13 @@ export default {
   },
 } satisfies Meta
 
-const DEFAULT_CHILDREN: JSX.Element = (
-  <span>
-    New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
-    <a href="/">Manage users is now available</a>
-  </span>
-)
-
 const DEFAULT_PROPS = {
-  hideCloseIcon: false,
-  persistent: false,
-  children: DEFAULT_CHILDREN,
+  children: (
+    <span>
+      New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
+      <a href="/">Manage users is now available</a>
+    </span>
+  ),
 } satisfies Partial<InlineNotificationProps>
 
 const VARIANTS_PROPS: Array<{
@@ -41,8 +37,7 @@ const VARIANTS_PROPS: Array<{
   {
     title: "Informative",
     props: {
-      ...DEFAULT_PROPS,
-      type: "informative",
+      variant: "informative",
       headingProps: {
         variant: "heading-6",
         tag: "span",
@@ -51,34 +46,20 @@ const VARIANTS_PROPS: Array<{
     },
   },
   {
-    title: "Positive",
+    title: "Success",
     props: {
-      ...DEFAULT_PROPS,
-      type: "positive",
+      variant: "success",
       headingProps: {
         variant: "heading-6",
         tag: "span",
-        children: "Positive title",
-      },
-    },
-  },
-  {
-    title: "Negative",
-    props: {
-      ...DEFAULT_PROPS,
-      type: "negative",
-      headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Negative title",
+        children: "Success title",
       },
     },
   },
   {
     title: "Cautionary",
     props: {
-      ...DEFAULT_PROPS,
-      type: "cautionary",
+      variant: "cautionary",
       headingProps: {
         variant: "heading-6",
         tag: "span",
@@ -87,35 +68,32 @@ const VARIANTS_PROPS: Array<{
     },
   },
   {
-    title: "Security",
+    title: "Warning",
     props: {
-      ...DEFAULT_PROPS,
-      type: "security",
+      variant: "warning",
       headingProps: {
         variant: "heading-6",
         tag: "span",
-        children: "Security title",
+        children: "Warning title",
       },
     },
   },
   {
     title: "Persistent",
     props: {
-      ...DEFAULT_PROPS,
-      type: "informative",
+      variant: "informative",
       persistent: true,
       headingProps: {
         variant: "heading-6",
         tag: "span",
-        children: "Security title",
+        children: "Persistent title",
       },
     },
   },
   {
     title: "Subtle",
     props: {
-      ...DEFAULT_PROPS,
-      type: "informative",
+      variant: "informative",
       isSubtle: true,
       persistent: true,
       headingProps: {
@@ -129,10 +107,9 @@ const VARIANTS_PROPS: Array<{
   {
     title: "Multiline",
     props: {
-      ...DEFAULT_PROPS,
       children:
         "Content longer that the width of the container will break onto a new line. Lorem ipsum dolor, sit amet consectetur adipisicing elit. In aperiam voluptatem molestias saepe quia vitae quod ex illum, unde nihil impedit possimus officia labore atque quidem necessitatibus sint, maiores velit.",
-      type: "positive",
+      variant: "success",
       headingProps: {
         variant: "heading-6",
         tag: "span",
@@ -143,16 +120,65 @@ const VARIANTS_PROPS: Array<{
   {
     title: "Forced multiline",
     props: {
-      ...DEFAULT_PROPS,
       children:
         "forceMultiline will break children onto a new line regardless of width",
-      type: "negative",
+      variant: "cautionary",
       headingProps: {
         variant: "heading-6",
         tag: "span",
         children: "Prop enforced multiline",
       },
       forceMultiline: true,
+    },
+  },
+]
+
+const TYPE_PROPS: Array<{
+  title: string
+  props: InlineNotificationProps
+}> = [
+  {
+    title: "Informative",
+    props: {
+      type: "informative",
+      headingProps: {
+        variant: "heading-6",
+        tag: "span",
+        children: "Informative title",
+      },
+    },
+  },
+  {
+    title: "Positive",
+    props: {
+      type: "positive",
+      headingProps: {
+        variant: "heading-6",
+        tag: "span",
+        children: "Positive title",
+      },
+    },
+  },
+  {
+    title: "Cautionary",
+    props: {
+      type: "cautionary",
+      headingProps: {
+        variant: "heading-6",
+        tag: "span",
+        children: "Cautionary title",
+      },
+    },
+  },
+  {
+    title: "Negative",
+    props: {
+      type: "negative",
+      headingProps: {
+        variant: "heading-6",
+        tag: "span",
+        children: "Negative title",
+      },
     },
   },
 ]
@@ -164,7 +190,16 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
             <StickerSheet.Row key={title} rowTitle={title}>
-              <InlineNotification {...props} />
+              <InlineNotification {...DEFAULT_PROPS} {...props} />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+      <StickerSheet heading="Type (deprecated)" isReversed={isReversed}>
+        <StickerSheet.Body>
+          {TYPE_PROPS.map(({ title, props }) => (
+            <StickerSheet.Row key={title} rowTitle={title}>
+              <InlineNotification {...DEFAULT_PROPS} {...props} />
             </StickerSheet.Row>
           ))}
         </StickerSheet.Body>

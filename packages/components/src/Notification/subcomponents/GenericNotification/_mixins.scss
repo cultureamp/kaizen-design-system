@@ -26,7 +26,8 @@ $notification-slide-right: transform 300ms ease-out;
   &%ca-notification---inline,
   &%ca-notification---toast {
     margin-bottom: $spacing-24;
-    border: $border-width var(--border-solid-border-style);
+    border-width: $border-width;
+    border-style: solid;
     border-radius: $border-solid-border-radius;
   }
 

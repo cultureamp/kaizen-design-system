@@ -1,9 +1,11 @@
 import { DataAttributes } from "~types/DataAttributes"
-import { NotificationType } from "../types"
+import {
+  GenericNotificationType,
+  GenericNotificationVariant,
+} from "../subcomponents/GenericNotification"
 
-export type ToastNotificationObj = {
+export type ToastNotificationObjBase = {
   id: string
-  type: NotificationType
   title: string
   message: React.ReactNode
   onHide?: () => void
@@ -13,3 +15,6 @@ export type ToastNotificationObj = {
    */
   persistent?: boolean
 } & DataAttributes
+
+export type ToastNotificationObj = ToastNotificationObjBase &
+  (GenericNotificationType | GenericNotificationVariant)

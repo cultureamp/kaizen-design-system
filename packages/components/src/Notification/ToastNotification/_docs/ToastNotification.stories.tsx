@@ -8,7 +8,7 @@ const meta = {
   component: ToastNotification,
   args: {
     id: "abc-123",
-    type: "positive",
+    variant: "success",
     title: "Success",
     children: (
       <div>
@@ -16,6 +16,11 @@ const meta = {
         uploaded. <a href="/">Manage users is now available</a>
       </div>
     ),
+  },
+  argTypes: {
+    type: {
+      control: false,
+    },
   },
 } satisfies Meta<typeof ToastNotification>
 
