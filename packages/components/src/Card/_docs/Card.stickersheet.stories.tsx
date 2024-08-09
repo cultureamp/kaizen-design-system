@@ -8,53 +8,58 @@ import { Card, CardProps } from "../index"
 
 export default {
   title: "Components/Card",
+  args: {
+    children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
 } satisfies Meta
 
-const CardWrapper = (args: CardProps): JSX.Element => (
-  <Card {...args}>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  </Card>
-)
+const colors = [
+  "blue",
+  "green",
+  "grey",
+  "orange",
+  "purple",
+  "red",
+  "white",
+  "yellow",
+] satisfies Array<CardProps["color"]>
+
+const variants = [
+  "default",
+  "informative",
+  "positive",
+  "cautionary",
+  "destructive",
+  "assertive",
+  "highlight",
+] satisfies Array<CardProps["variant"]>
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={[
-          "Base",
-          "Informative",
-          "Positive",
-          "Cautionary",
-          "Destructive",
-          "Assertive",
-          "Highlight",
-        ]}
-      />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <CardWrapper variant="default" />
-          <CardWrapper variant="informative" />
-          <CardWrapper variant="positive" />
-          <CardWrapper variant="cautionary" />
-          <CardWrapper variant="destructive" />
-          <CardWrapper variant="assertive" />
-          <CardWrapper variant="highlight" />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          <CardWrapper variant="default" isElevated />
-          <CardWrapper variant="informative" isElevated />
-          <CardWrapper variant="positive" isElevated />
-          <CardWrapper variant="cautionary" isElevated />
-          <CardWrapper variant="destructive" isElevated />
-          <CardWrapper variant="assertive" isElevated />
-          <CardWrapper variant="highlight" isElevated />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
-    </StickerSheet>
+  render: ({ isReversed, ...args }) => (
+    <>
+      <StickerSheet isReversed={isReversed} heading="Colors">
+        <StickerSheet.Body>
+          {colors.map(color => (
+            <StickerSheet.Row key={color} rowTitle={color}>
+              <Card {...args} color={color} />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+      <StickerSheet isReversed={isReversed} heading="Variants (deprecated)">
+        <StickerSheet.Body>
+          {variants.map(variant => (
+            <StickerSheet.Row key={variant} rowTitle={variant}>
+              <Card {...args} variant={variant} />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+    </>
   ),
 }
 

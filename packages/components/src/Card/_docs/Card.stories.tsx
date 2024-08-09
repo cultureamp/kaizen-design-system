@@ -23,30 +23,32 @@ export const Playground: Story = {
     },
   },
 }
-
-export const Variants: Story = {
+export const Colors: Story = {
   render: () => (
     <ul className="flex list-none gap-16">
       <li>
-        <Card variant="default">Default</Card>
+        <Card color="blue">Blue</Card>
       </li>
       <li>
-        <Card variant="informative">Informative</Card>
+        <Card color="green">Green</Card>
       </li>
       <li>
-        <Card variant="positive">Positive</Card>
+        <Card color="grey">Grey</Card>
       </li>
       <li>
-        <Card variant="cautionary">Cautionary</Card>
+        <Card color="orange">Orange</Card>
       </li>
       <li>
-        <Card variant="destructive">Destructive</Card>
+        <Card color="purple">Purple</Card>
       </li>
       <li>
-        <Card variant="assertive">Assertive</Card>
+        <Card color="red">Red</Card>
       </li>
       <li>
-        <Card variant="highlight">Highlight</Card>
+        <Card color="white">White</Card>
+      </li>
+      <li>
+        <Card color="yellow">Yellow</Card>
       </li>
     </ul>
   ),
