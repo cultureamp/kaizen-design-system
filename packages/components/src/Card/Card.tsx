@@ -15,7 +15,7 @@ export type CardVariants =
 export type CardColors =
   | "blue"
   | "green"
-  | "grey"
+  | "gray"
   | "orange"
   | "purple"
   | "red"
@@ -34,13 +34,13 @@ export type CardProps = {
   isElevated?: boolean
   /**
    * If you are transitioning from `variant`:
-   * - `default` replaces `white` OR you can remove the prop
-   * - `positive` replaces `green`
-   * - `negative` replaces `red`
-   * - `informative` replaces `blue`
-   * - `cautionary` replaces `yellow`
    * - `assertive` replaces `orange`
+   * - `cautionary` replaces `yellow`
+   * - `default` replaces `white` OR you can remove the prop
+   * - `destructive` replaces `red`
    * - `highlight` replaces `purple`
+   * - `informative` replaces `blue`
+   * - `positive` replaces `green`
    * @default white
    */
   color?: CardColors
