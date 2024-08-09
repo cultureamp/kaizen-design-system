@@ -22,11 +22,11 @@ const ILLUSTRATIONS: Record<
   "expert-advice": EmptyStatesNeutral,
   /** @deprecated Replaced by success */
   positive: EmptyStatesPositive,
-  /** @deprecated Replaced by default */
+  /** @deprecated Replaced by expert-advice */
   neutral: EmptyStatesNeutral,
   /** @deprecated Replaced by warning */
   negative: EmptyStatesNegative,
-  /** @deprecated */
+  /** @deprecated Replaced by warning */
   action: EmptyStatesNegative,
 }
 
