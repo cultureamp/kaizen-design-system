@@ -22,10 +22,9 @@ Example:
 ## Available codemods
 - `migrateBrandMomentMoodToVariant`: Migrates `BrandMoment` component prop from `mood` to `variant`.
 - `migrateEmptyStateIllustrationTypeToVariant`: Migrates `EmptyState` component prop from `illustrationType` to `variant`.
+- `migrateGlobalNotificationTypeToVariant`: Transforms `GlobalNotification`'s `type` prop to the new `variant` prop.
+- `migrateInlineNotificationTypeToVariant`: Transforms `InlineNotification`'s `type` prop to the new `variant` prop.
 - `migrateInformationTileMoodToVariant`: Migrates `InformationTile` component prop from `mood` to `variant`.
 - `migrateMultiActionTileMoodToVariant`: Migrates `MultiActionTile` component prop from `mood` to `variant`.
+- `migrateToastNotificationTypeToVariant`: Transforms `ToastNotification`'s `type` prop to the new `variant` prop.
 - `migrateWellVariantToColor`: Migrates `Well` component prop from `variant` to `color`.
-- `migrateNotificationTypeToVariant`: A utility transformer that updates any given Notification's `type` prop to the correct `variant` prop
-  - `migrateGlobalNotificationTypeToVariant`: uses the utility to transform `GlobalNotification`
-  - `migrateInlineNotificationTypeToVariant`: uses the utility to transform `InlineNotification`
-  - `migrateToastNotificationTypeToVariant`: uses the utility to transform `ToastNotification`
