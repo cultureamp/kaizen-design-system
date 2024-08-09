@@ -41,7 +41,6 @@ const variants = [
   {
     title: "Negative",
     props: {
-      ...DEFAULT_PROPS,
       type: "negative",
     },
   },
