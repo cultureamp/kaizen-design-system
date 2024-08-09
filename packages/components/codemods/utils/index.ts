@@ -1,4 +1,5 @@
-export * from "./getImportAlias"
+export * from "./transformSource"
+export * from "./getTagName"
 export * from "./getPropValueText"
 export * from "./printAst"
 export * from "./transformComponentsInDir"

@@ -21,7 +21,9 @@ const meta = {
   },
   argTypes: {
     children: {
-      control: false,
+      control: {
+        disable: true,
+      },
     },
   },
 } satisfies Meta<typeof ContextModal>

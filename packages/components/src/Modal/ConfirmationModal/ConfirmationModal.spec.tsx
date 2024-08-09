@@ -8,15 +8,15 @@ const user = userEvent.setup()
 
 const ConfirmationModalWrapper = ({
   children,
-  ...props
+  onDismiss: propsOnDismiss = (): void => undefined,
+  onConfirm: propsOnConfirm = (): void => undefined,
 }: Partial<ConfirmationModalProps>): JSX.Element => (
   <ConfirmationModal
-    mood="informative"
+    variant="success"
     isOpen={true}
     title="Example Modal Title"
-    onDismiss={(): void => undefined}
-    onConfirm={(): void => undefined}
-    {...props}
+    onDismiss={propsOnDismiss}
+    onConfirm={propsOnConfirm}
   >
     {children}
   </ConfirmationModal>

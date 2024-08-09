@@ -1,7 +1,7 @@
 import ts from "typescript"
 
 /** Recurses through AST to find the import specifier name and check it against the `importSpecifierTarget`. If found, it will return the import name or alias, otherwise will return `undefined` */
-export const getImportAlias = (
+export const getTagName = (
   node: ts.Node,
   importSpecifierTarget: string
 ): string | undefined => {
@@ -15,10 +15,10 @@ export const getImportAlias = (
         if (namedBindings && ts.isNamedImports(namedBindings)) {
           namedBindings.elements.forEach(importSpecifier => {
             const importName = importSpecifier.name.getText()
-            const importAlias = importSpecifier.propertyName
+            const tagName = importSpecifier.propertyName
               ? importSpecifier.propertyName.getText()
               : importName
-            if (importAlias === importSpecifierTarget) {
+            if (tagName === importSpecifierTarget) {
               alias = importName
             }
           })

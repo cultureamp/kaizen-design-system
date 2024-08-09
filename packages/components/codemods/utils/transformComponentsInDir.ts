@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import ts from "typescript"
-import { transformSource, getImportAlias, TransformConfig } from "."
+import { transformSource, getTagName, TransformConfig } from "."
 
 /** Walks the directory and runs the runs the AST transformer on the given component name */
 export const transformComponentsInDir = (
@@ -26,13 +26,13 @@ export const transformComponentsInDir = (
         ts.ScriptTarget.Latest,
         true
       )
-      const importAlias = getImportAlias(sourceFile, componentName)
+      const tagName = getTagName(sourceFile, componentName)
 
-      if (importAlias) {
+      if (tagName) {
         const updatedSourceFile = transformSource({
           sourceFile,
           astTransformer: transformer,
-          importAlias,
+          tagName,
         })
 
         fs.writeFileSync(fullPath, updatedSourceFile, "utf8")
