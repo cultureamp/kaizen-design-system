@@ -20,7 +20,7 @@ export default {
 const colors = [
   "blue",
   "green",
-  "grey",
+  "gray",
   "orange",
   "purple",
   "red",

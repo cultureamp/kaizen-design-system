@@ -38,7 +38,7 @@ export const Color: Story = {
         <Card color="green">Green</Card>
       </li>
       <li>
-        <Card color="grey">Grey</Card>
+        <Card color="gray">Grey</Card>
       </li>
       <li>
         <Card color="orange">Orange</Card>
