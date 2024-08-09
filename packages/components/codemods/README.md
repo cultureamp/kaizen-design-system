@@ -25,7 +25,7 @@ Example:
 - `migrateInformationTileMoodToVariant`: Migrates `InformationTile` component prop from `mood` to `variant`.
 - `migrateMultiActionTileMoodToVariant`: Migrates `MultiActionTile` component prop from `mood` to `variant`.
 - `migrateWellVariantToColor`: Migrates `Well` component prop from `variant` to `color`.
-- `migrateNotificationTypeToVariant`: A utility transformer that updates any given Notification's `Type` prop to the correct `Variant` prop
+- `migrateNotificationTypeToVariant`: A utility transformer that updates any given Notification's `type` prop to the correct `variant` prop
   - `migrateGlobalNotificationTypeToVariant`: uses the utility to transform `GlobalNotification`
   - `migrateInlineNotificationTypeToVariant`: uses the utility to transform `InlineNotification`
   - `migrateToastNotificationTypeToVariant`: uses the utility to transform `ToastNotification`
