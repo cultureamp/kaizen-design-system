@@ -75,7 +75,7 @@ export const EmptyState = ({
   classNameOverride,
   ...props
 }: EmptyStateProps): JSX.Element => {
-  const IllustrationComponent = ILLUSTRATIONS[variant ?? illustrationType]
+  const IllustrationComponent = ILLUSTRATIONS[illustrationType ?? variant]
 
   return (
     <div
