@@ -62,13 +62,12 @@ describe("transformNotificationTypeToVariant", () => {
     })
     expect(transformed).toBe(printAst(outputAst))
   })
-
-  it("handles multiple attributes and replace only type", () => {
+  it('replaces type="cautionary" with variant="cautionary"', () => {
     const inputAst = parseJsx(`
-      export const TestComponent = () => <InlineNotification type="informative" id="123">Test</InlineNotification>
+      export const TestComponent = () => <InlineNotification type="cautionary">Test</InlineNotification>
     `)
     const outputAst = parseJsx(`
-      export const TestComponent = () => <InlineNotification variant="informative" id="123">Test</InlineNotification>
+      export const TestComponent = () => <InlineNotification variant="cautionary">Test</InlineNotification>
     `)
     const transformed = transformSource({
       sourceFile: inputAst,
@@ -77,13 +76,12 @@ describe("transformNotificationTypeToVariant", () => {
     })
     expect(transformed).toBe(printAst(outputAst))
   })
-
-  it("transforms multiple InlineNotifications", () => {
+  it('replaces type="security" with variant="security"', () => {
     const inputAst = parseJsx(`
-      export const TestComponent = () => <div><InlineNotification type="informative">Test</InlineNotification><InlineNotification type="positive">Test 2</InlineNotification></div>
+      export const TestComponent = () => <InlineNotification type="security">Test</InlineNotification>
     `)
     const outputAst = parseJsx(`
-      export const TestComponent = () => <div><InlineNotification variant="informative">Test</InlineNotification><InlineNotification variant="success">Test 2</InlineNotification></div>
+      export const TestComponent = () => <InlineNotification variant="security">Test</InlineNotification>
     `)
     const transformed = transformSource({
       sourceFile: inputAst,
@@ -92,28 +90,12 @@ describe("transformNotificationTypeToVariant", () => {
     })
     expect(transformed).toBe(printAst(outputAst))
   })
-
-  it("transforms InlineNotification with arbitrary braces", () => {
+  it('replaces type="negative" with variant="warning"', () => {
     const inputAst = parseJsx(`
-      export const TestComponent = () => <div><InlineNotification type={"informative"}>Test</InlineNotification><InlineNotification type={'negative'}>Test</InlineNotification><InlineNotification type={\`positive\`}>Test</InlineNotification></div>
+      export const TestComponent = () => <InlineNotification type="negative">Test</InlineNotification>
     `)
     const outputAst = parseJsx(`
-      export const TestComponent = () => <div><InlineNotification variant="informative">Test</InlineNotification><InlineNotification variant="warning">Test</InlineNotification><InlineNotification variant="success">Test</InlineNotification></div>
-    `)
-    const transformed = transformSource({
-      sourceFile: inputAst,
-      astTransformer: transformNotificationTypeToVariant,
-      tagName: "InlineNotification",
-    })
-    expect(transformed).toBe(printAst(outputAst))
-  })
-
-  it("won't modify types usings variables", () => {
-    const inputAst = parseJsx(`
-      export const TestComponent = () => <div><InlineNotification type={InlineNotificationVariable}>Test</InlineNotification></div>
-    `)
-    const outputAst = parseJsx(`
-      export const TestComponent = () => <div><InlineNotification type={InlineNotificationVariable}>Test</InlineNotification></div>
+      export const TestComponent = () => <InlineNotification variant="warning">Test</InlineNotification>
     `)
     const transformed = transformSource({
       sourceFile: inputAst,

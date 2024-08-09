@@ -19,9 +19,7 @@ const meta = {
   },
   argTypes: {
     type: {
-      control: {
-        disable: true,
-      },
+      control: false,
     },
   },
 } satisfies Meta<typeof ToastNotification>

@@ -21,90 +21,22 @@ export default {
   },
 } satisfies Meta
 
-const DEFAULT_CHILDREN: JSX.Element = (
-  <span>
-    {"This survey status has been changed to 'Archived'. "}
-    <a href="/">View all</a>
-  </span>
-)
-
-const DEFAULT_PROPS = {
-  persistent: false,
-  children: DEFAULT_CHILDREN,
-} satisfies Partial<GlobalNotificationProps>
-
-const VARIANTS_PROPS: Array<{
-  title: string
-  props: GlobalNotificationProps
-}> = [
+const variants = [
   {
     title: "Informative",
-    props: {
-      ...DEFAULT_PROPS,
-      type: "informative",
-    },
+    props: { variant: "informative" },
   },
   {
     title: "Success",
-    props: {
-      ...DEFAULT_PROPS,
-      variant: "success",
-    },
+    props: { variant: "success" },
   },
   {
     title: "Cautionary",
-    props: {
-      ...DEFAULT_PROPS,
-      variant: "cautionary",
-    },
+    props: { variant: "cautionary" },
   },
   {
     title: "Warning",
-    props: {
-      ...DEFAULT_PROPS,
-      variant: "warning",
-    },
-  },
-  {
-    title: "Security",
-    props: {
-      ...DEFAULT_PROPS,
-      variant: "security",
-    },
-  },
-  {
-    title: "Persistent",
-    props: {
-      ...DEFAULT_PROPS,
-      variant: "informative",
-      persistent: true,
-    },
-  },
-]
-const TYPE_PROPS: Array<{
-  title: string
-  props: GlobalNotificationProps
-}> = [
-  {
-    title: "Informative",
-    props: {
-      ...DEFAULT_PROPS,
-      type: "informative",
-    },
-  },
-  {
-    title: "Success",
-    props: {
-      ...DEFAULT_PROPS,
-      type: "positive",
-    },
-  },
-  {
-    title: "Cautionary",
-    props: {
-      ...DEFAULT_PROPS,
-      type: "cautionary",
-    },
+    props: { variant: "warning" },
   },
   {
     title: "Negative",
@@ -115,37 +47,72 @@ const TYPE_PROPS: Array<{
   },
   {
     title: "Security",
-    props: {
-      ...DEFAULT_PROPS,
-      type: "security",
-      persistent: true,
-    },
+    props: { variant: "security" },
   },
-]
+  {
+    title: "Persistent",
+    props: { variant: "informative", persistent: true },
+  },
+] satisfies Array<{ title: string; props: Partial<GlobalNotificationProps> }>
+
+const types = [
+  {
+    title: "Informative",
+    props: { type: "informative" },
+  },
+  {
+    title: "Success",
+    props: { type: "positive" },
+  },
+  {
+    title: "Cautionary",
+    props: { type: "cautionary" },
+  },
+  {
+    title: "Negative",
+    props: { type: "negative" },
+  },
+  {
+    title: "Security",
+    props: { type: "security" },
+  },
+] satisfies Array<{ title: string; props: Partial<GlobalNotificationProps> }>
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    <>
-      <StickerSheet heading="GlobalNotification" isReversed={isReversed}>
-        <StickerSheet.Body>
-          {VARIANTS_PROPS.map(({ title, props }) => (
-            <StickerSheet.Row key={title} rowTitle={title}>
-              <GlobalNotification {...props} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
-      </StickerSheet>
-      <StickerSheet heading="Type (deprecated)" isReversed={isReversed}>
-        <StickerSheet.Body>
-          {TYPE_PROPS.map(({ title, props }) => (
-            <StickerSheet.Row key={title} rowTitle={title}>
-              <GlobalNotification {...DEFAULT_PROPS} {...props} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
-      </StickerSheet>
-    </>
-  ),
+  render: ({ isReversed }) => {
+    const defaultProps = {
+      persistent: false,
+      children: (
+        <span>
+          {"This survey status has been changed to 'Archived'. "}
+          <a href="/">View all</a>
+        </span>
+      ),
+    } satisfies Partial<GlobalNotificationProps>
+
+    return (
+      <>
+        <StickerSheet heading="GlobalNotification" isReversed={isReversed}>
+          <StickerSheet.Body>
+            {variants.map(({ title, props }) => (
+              <StickerSheet.Row key={title} rowTitle={title}>
+                <GlobalNotification {...defaultProps} {...props} />
+              </StickerSheet.Row>
+            ))}
+          </StickerSheet.Body>
+        </StickerSheet>
+        <StickerSheet heading="Type (deprecated)" isReversed={isReversed}>
+          <StickerSheet.Body>
+            {types.map(({ title, props }) => (
+              <StickerSheet.Row key={title} rowTitle={title}>
+                <GlobalNotification {...defaultProps} {...props} />
+              </StickerSheet.Row>
+            ))}
+          </StickerSheet.Body>
+        </StickerSheet>
+      </>
+    )
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
