@@ -1,7 +1,7 @@
 import { transformComponentsInDir } from "../utils"
 import { transformCardVariantToColor } from "./transformCardVariantToColor"
 
-const migrateBrandMomentMoodToVariant = (): void => {
+const migrateCardVariantToColor = (): void => {
   // eslint-disable-next-line no-console
   console.log(
     " ~(-_- ~) Running BrandMoment mood to variant transformer (~ -_-)~"
@@ -11,11 +11,7 @@ const migrateBrandMomentMoodToVariant = (): void => {
     process.exit(1)
   }
 
-  transformComponentsInDir(
-    targetDir,
-    transformCardVariantToColor,
-    "BrandMoment"
-  )
+  transformComponentsInDir(targetDir, transformCardVariantToColor, "Card")
 }
 
-migrateBrandMomentMoodToVariant()
+migrateCardVariantToColor()
