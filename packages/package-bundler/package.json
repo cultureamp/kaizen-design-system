@@ -35,7 +35,7 @@
     "rollup-plugin-node-externals": "^7.1.2",
     "rollup-plugin-postcss": "^4.0.2",
     "ts-patch": "^3.2.1",
-    "typescript-transform-paths": "^3.4.7"
+    "typescript-transform-paths": "^3.4.10"
   },
   "dependenciesComments": {
     "ts-patch": "Required for typescript-transform-paths"
