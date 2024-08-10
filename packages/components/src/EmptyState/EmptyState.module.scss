@@ -4,21 +4,22 @@
 @import "./mixins";
 
 .container {
-  --border-width: var(--border-width-1);
+  --empty-state-border-width: var(--border-width-1);
 
   display: flex;
   justify-content: space-around;
   width: 100%;
-  padding: calc(2% - var(--border-width))
-    calc(var(--spacing-24) - var(--border-width));
+  padding: calc(2% - var(--empty-state-border-width))
+    calc(var(--spacing-24) - var(--empty-state-border-width));
   color: $color-purple-800;
-  border: var(--border-width) var(--border-solid-border-style);
-  border-radius: $border-solid-border-radius;
+  border: var(--empty-state-border-width) solid var(--empty-state-border-color);
+  border-radius: var(--border-solid-border-radius);
+  background-color: var(--empty-state-background-color);
 
   @include small {
     flex-direction: column;
     align-items: center;
-    padding-block: calc(var(--spacing-24) - var(--border-width));
+    padding-block: calc(var(--spacing-24) - var(--empty-state-border-width));
   }
 
   &.straightCorners {
@@ -41,25 +42,42 @@
   }
 }
 
+/** @deprecated */
 .positive {
-  border-color: var(--color-green-500);
-  background-color: $color-green-100;
+  --empty-state-border-color: var(--color-green-500);
+  --empty-state-background-color: var(--color-green-100);
 }
 
 .negative,
 .action {
-  border-color: var(--color-red-500);
-  background-color: $color-red-100;
+  --empty-state-border-color: var(--color-red-500);
+  --empty-state-background-color: var(--color-red-100);
 }
 
 .neutral {
-  border-color: var(--color-purple-400);
-  background-color: $color-purple-100;
+  --empty-state-border-color: var(--color-purple-400);
+  --empty-state-background-color: var(--color-purple-100);
+}
+
+/** end @deprecated */
+.success {
+  --empty-state-border-color: var(--color-green-500);
+  --empty-state-background-color: var(--color-green-100);
+}
+
+.warning {
+  --empty-state-border-color: var(--color-red-500);
+  --empty-state-background-color: var(--color-red-100);
 }
 
 .informative {
-  border-color: var(--color-blue-400);
-  background-color: $color-blue-100;
+  --empty-state-border-color: var(--color-blue-400);
+  --empty-state-background-color: var(--color-blue-100);
+}
+
+.expert-advice {
+  --empty-state-border-color: var(--color-purple-400);
+  --empty-state-background-color: var(--color-purple-100);
 }
 
 .illustrationSide,

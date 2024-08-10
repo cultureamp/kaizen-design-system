@@ -15,7 +15,7 @@ describe("transformWellVariantToColor", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      importAlias: "Well",
+      tagName: "Well",
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
@@ -32,7 +32,7 @@ describe("transformWellVariantToColor", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      importAlias: "Well",
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -49,7 +49,7 @@ describe("transformWellVariantToColor", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      importAlias: "Well",
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -66,7 +66,7 @@ describe("transformWellVariantToColor", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      importAlias: "Well",
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -83,7 +83,7 @@ describe("transformWellVariantToColor", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      importAlias: "Well",
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -100,7 +100,7 @@ describe("transformWellVariantToColor", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      importAlias: "Well",
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -117,7 +117,7 @@ describe("transformWellVariantToColor", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      importAlias: "Well",
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -134,7 +134,7 @@ describe("transformWellVariantToColor", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      importAlias: "Well",
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -151,7 +151,7 @@ describe("transformWellVariantToColor", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      importAlias: "Well",
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -168,7 +168,7 @@ describe("transformWellVariantToColor", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      importAlias: "Well",
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -185,7 +185,7 @@ describe("transformWellVariantToColor", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      importAlias: "KaizenWell",
+      tagName: "KaizenWell",
     })
     expect(transformed).toBe(printAst(outputAst))
   })

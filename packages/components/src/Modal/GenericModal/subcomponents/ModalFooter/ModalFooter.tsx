@@ -18,6 +18,9 @@ export type ModalFooterProps = {
   variant?: ActionsVariantProps
   unpadded?: boolean
   actions: ButtonProps[]
+  /**
+   * @deprecated we are no longer supporting different appearances for ModalFooter, instead there will only be a single default appearance set by the Button.
+   */
   appearance?: "primary" | "destructive"
   /**
    * @deprecated Please use data-testid

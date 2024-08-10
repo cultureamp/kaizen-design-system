@@ -5,22 +5,21 @@
 @import "../../../styles/utils/animation";
 @import "../GenericModal/GenericModal.module";
 
-$dt-positive-header-background: $color-green-100;
-$dt-informative-header-background: $color-blue-100;
-$dt-negative-header-background: $color-red-100;
-$dt-cautionary-header-background: $color-yellow-100;
-$dt-heading-text-color: $color-purple-800;
-$dt-cautionary-heading-text-color: $color-purple-800;
-$dt-assertive-header-background: $color-orange-100;
-
 .modal {
   @extend %genericModal;
 
   min-width: 300px;
   max-width: 600px;
+
+  .spotIcon {
+    color: var(--spot-icon-color);
+  }
 }
 
 .header {
+  display: grid;
+  grid-template-columns: 0.2fr 2fr;
+  align-items: center;
   color: $color-white;
   text-align: left;
   border-radius: $border-solid-border-radius $border-solid-border-radius 0 0;
@@ -35,13 +34,86 @@ $dt-assertive-header-background: $color-orange-100;
 
   // override Murmur global styles :(
   h1 {
-    color: $dt-heading-text-color;
+    color: var(color-purple-800);
   }
 }
 
 .iconContainer {
   position: relative;
+  align-self: flex-start;
+
+  @media (min-width: $layout-breakpoints-medium) {
+    align-self: center;
+  }
+
+  .spotIcon {
+    width: 30px;
+    height: 30px;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      margin-right: 0.9375rem;
+      position: relative;
+      top: 0.125rem;
+    }
+  }
 }
+
+.prominent {
+  display: grid;
+  grid-template-columns: 1.1fr 2fr;
+  align-items: center;
+
+  @media (max-width: $layout-breakpoints-medium) {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    place-content: flex-start center;
+    align-items: flex-start;
+  }
+
+  .iconContainer {
+    position: absolute;
+    top: 8%;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      position: relative;
+      top: 0;
+      margin-bottom: $spacing-sm;
+    }
+  }
+
+  .spotIcon {
+    width: 155px;
+    height: 155px;
+    margin: 0 auto;
+    color: $color-purple-800;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      width: 86px;
+      height: 86px;
+    }
+  }
+}
+
+.padded {
+  padding: $spacing-md $spacing-lg $spacing-md $spacing-lg;
+
+  @media (max-width: $layout-breakpoints-medium) {
+    padding: $spacing-md;
+  }
+}
+
+// --------------------------------
+// @deprecated moods use variant styles instead
+// --------------------------------
+
+$dt-positive-header-background: $color-green-100;
+$dt-informative-header-background: $color-blue-100;
+$dt-negative-header-background: $color-red-100;
+$dt-cautionary-header-background: $color-yellow-100;
+$dt-heading-text-color: $color-purple-800;
+$dt-cautionary-heading-text-color: $color-purple-800;
+$dt-assertive-header-background: $color-orange-100;
 
 .positiveHeader {
   background-color: $dt-positive-header-background;
@@ -76,83 +148,33 @@ $dt-assertive-header-background: $color-orange-100;
   }
 }
 
-.positiveHeader,
-.informativeHeader,
-.negativeHeader,
-.cautionaryHeader,
-.assertiveHeader {
-  display: grid;
-  grid-template-columns: 0.2fr 2fr;
-  align-items: center;
+// End @deprecated ----------------
 
-  .iconContainer {
-    align-self: flex-start;
+// --------------------------------
+// variant styles
+// --------------------------------
+.success {
+  background-color: var(--color-green-100);
 
-    @media (min-width: $layout-breakpoints-medium) {
-      align-self: center;
-    }
-  }
-
-  .spotIcon {
-    width: 30px;
-    height: 30px;
-
-    @media (max-width: $layout-breakpoints-medium) {
-      margin-right: 0.9375rem;
-      position: relative;
-      top: 0.125rem;
-    }
-  }
-
-  &.prominent {
-    grid-template-columns: 1.1fr 2fr;
-
-    @media (max-width: $layout-breakpoints-medium) {
-      display: flex;
-      flex-direction: column;
-      place-content: flex-start center;
-      align-items: flex-start;
-    }
-
-    .iconContainer {
-      position: absolute;
-      top: 8%;
-
-      @media (max-width: $layout-breakpoints-medium) {
-        position: relative;
-        top: 0;
-        margin-bottom: $spacing-sm;
-      }
-    }
-
-    .spotIcon {
-      width: 155px;
-      height: 155px;
-      margin: 0 auto;
-      color: $color-purple-800;
-
-      @media (max-width: $layout-breakpoints-medium) {
-        width: 86px;
-        height: 86px;
-      }
-    }
-  }
+  --spot-icon-color: var(--color-green-500);
 }
 
-.prominent {
-  display: grid;
-  grid-template-columns: 1.1fr 2fr;
-  align-items: center;
+.informative {
+  background-color: var(--color-blue-100);
 
-  @media (max-width: $layout-breakpoints-medium) {
-    grid-template-columns: 1fr;
-  }
+  --spot-icon-color: var(--color-blue-500);
 }
 
-.padded {
-  padding: $spacing-md $spacing-lg $spacing-md $spacing-lg;
+.warning {
+  background-color: var(--color-red-100);
 
-  @media (max-width: $layout-breakpoints-medium) {
-    padding: $spacing-md;
-  }
+  --spot-icon-color: var(--color-red-500);
 }
+
+.cautionary {
+  background-color: var(--color-yellow-100);
+
+  --spot-icon-color: var(--color-yellow-700);
+}
+
+// --------------------------------

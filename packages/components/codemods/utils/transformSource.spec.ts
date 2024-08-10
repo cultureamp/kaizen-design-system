@@ -46,7 +46,7 @@ describe("transformSource", () => {
     const mockTransformConfig = {
       sourceFile,
       astTransformer: mockedTransformer,
-      importAlias: "mockAlias",
+      tagName: "mockAlias",
     } satisfies TransformConfig
 
     const transformed = transformSource(mockTransformConfig)
