@@ -28,7 +28,7 @@ export const Playground: Story = {
     },
   },
 }
-export const Color: Story = {
+export const Colors: Story = {
   render: () => (
     <ul className="flex list-none gap-16">
       <li>
