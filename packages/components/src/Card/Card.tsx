@@ -12,21 +12,43 @@ export type CardVariants =
   | "assertive"
   | "highlight"
 
-export type CardProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
+export type CardColors =
+  | "blue"
+  | "green"
+  | "gray"
+  | "orange"
+  | "purple"
+  | "red"
+  | "white"
+  | "yellow"
+
+export type CardProps = {
   children?: React.ReactNode
   /**
    * HTML elements that are allowed on Card.
    */
   tag?: "div" | "article" | "header" | "main" | "section" | "li"
   /**
-   * determines the card background colour on the card. It should match to the type of content being conveyed.
-   */
-  variant?: CardVariants
-  /**
    * Adds a larger box shadow to to the card container.
    */
   isElevated?: boolean
-}
+  /**
+   * If you are transitioning from `variant`:
+   * - `assertive` should be `orange`
+   * - `cautionary` should be `yellow`
+   * - `default` should be `white` OR you can remove the prop
+   * - `destructive` should be `red`
+   * - `highlight` should be `purple`
+   * - `informative` should be `blue`
+   * - `positive` should be `green`
+   * @default white
+   */
+  color?: CardColors
+  /**
+   * @deprecated Please use color instead
+   */
+  variant?: CardVariants
+} & OverrideClassName<Omit<HTMLAttributes<HTMLElement>, "color">>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094938/Card Guidance} |
@@ -35,24 +57,26 @@ export type CardProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
 export const Card = ({
   children,
   tag = "div",
-  variant = "default",
+  variant,
+  color = "white",
   isElevated = false,
   classNameOverride,
   ...props
 }: CardProps): JSX.Element => {
-  const Tag = tag
+  const Element = tag
+
   return (
-    <Tag
+    <Element
       className={classnames(
         styles.wrapper,
-        styles[variant],
+        variant ? styles[variant] : styles[color],
         classNameOverride,
         isElevated && styles.elevated
       )}
       {...props}
     >
       {children}
-    </Tag>
+    </Element>
   )
 }
 

@@ -1,12 +1,17 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Card } from "../index"
+import { Card, CardProps } from "../index"
 
 const meta = {
   title: "Components/Card",
   component: Card,
   args: {
     children: "This is a default container",
+  },
+  argTypes: {
+    variant: {
+      control: false,
+    },
   },
 } satisfies Meta<typeof Card>
 
@@ -24,30 +29,25 @@ export const Playground: Story = {
   },
 }
 
-export const Variants: Story = {
+const colors = [
+  "blue",
+  "green",
+  "gray",
+  "orange",
+  "purple",
+  "red",
+  "white",
+  "yellow",
+] satisfies Array<CardProps["color"]>
+
+export const Colors: Story = {
   render: () => (
     <ul className="flex list-none gap-16">
-      <li>
-        <Card variant="default">Default</Card>
-      </li>
-      <li>
-        <Card variant="informative">Informative</Card>
-      </li>
-      <li>
-        <Card variant="positive">Positive</Card>
-      </li>
-      <li>
-        <Card variant="cautionary">Cautionary</Card>
-      </li>
-      <li>
-        <Card variant="destructive">Destructive</Card>
-      </li>
-      <li>
-        <Card variant="assertive">Assertive</Card>
-      </li>
-      <li>
-        <Card variant="highlight">Highlight</Card>
-      </li>
+      {colors.map(color => (
+        <li key={color}>
+          <Card color={color}>This is a default container</Card>
+        </li>
+      ))}
     </ul>
   ),
 }
