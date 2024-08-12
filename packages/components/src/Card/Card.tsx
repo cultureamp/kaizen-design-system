@@ -34,13 +34,13 @@ export type CardProps = {
   isElevated?: boolean
   /**
    * If you are transitioning from `variant`:
-   * - `assertive` replaces `orange`
-   * - `cautionary` replaces `yellow`
-   * - `default` replaces `white` OR you can remove the prop
-   * - `destructive` replaces `red`
-   * - `highlight` replaces `purple`
-   * - `informative` replaces `blue`
-   * - `positive` replaces `green`
+   * - `assertive` should be `orange`
+   * - `cautionary` should be `yellow`
+   * - `default` should be `white` OR you can remove the prop
+   * - `destructive` should be `red`
+   * - `highlight` should be `purple`
+   * - `informative` should be `blue`
+   * - `positive` should be `green`
    * @default white
    */
   color?: CardColors
@@ -69,8 +69,7 @@ export const Card = ({
     <Element
       className={classnames(
         styles.wrapper,
-        variant && styles[variant],
-        styles[color],
+        variant ? styles[variant] : styles[color],
         classNameOverride,
         isElevated && styles.elevated
       )}
