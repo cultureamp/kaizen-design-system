@@ -148,7 +148,7 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(playwright@1.45.3)
       chromatic:
-        specifier: ^11.5.7
+        specifier: ^11.7.0
         version: 11.7.0
       color-string:
         specifier: ^1.9.1
