@@ -1,7 +1,7 @@
 import { transformComponentsInDir } from "../utils"
 import { transformProgressBarMoodToColor } from "./transformProgressBarMoodToColor"
 
-const migrateBrandMomentMoodToVariant = (): void => {
+const migrateProgressBarMoodToColor = (): void => {
   // eslint-disable-next-line no-console
   console.log(
     " ~(-_- ~) Running ProgressBar mood to color transformer (~ -_-)~"
@@ -14,7 +14,7 @@ const migrateBrandMomentMoodToVariant = (): void => {
   transformComponentsInDir(
     targetDir,
     transformProgressBarMoodToColor,
-    "BrandMoment"
+    "ProgressBar"
   )
 }
 
