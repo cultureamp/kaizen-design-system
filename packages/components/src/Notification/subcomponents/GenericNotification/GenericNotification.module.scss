@@ -11,6 +11,8 @@
 // Structure
 .icon {
   @extend %ca-notification__icon;
+
+  color: var(--icon-color);
 }
 
 .textContainer {
@@ -88,22 +90,57 @@
   @extend %ca-notification---global;
 }
 
+// ------------------------------
 // Type
+// @deprecated use variant instead
+// ------------------------------
 .positive {
   @extend %ca-notification---positive;
 }
 
-.informative {
-  @extend %ca-notification---informative;
-}
-
-.cautionary,
 .security {
   @extend %ca-notification---cautionary;
 }
 
 .negative {
   @extend %ca-notification---negative;
+}
+
+// End deprecated styles
+
+// ------------------------------
+// Variant
+// ------------------------------
+.success {
+  background: $color-green-100;
+  border-color: var(--color-green-500);
+  color: $color-purple-800;
+
+  --icon-color: var(--color-green-500);
+}
+
+.informative {
+  background: $color-blue-100;
+  border-color: var(--color-blue-400);
+  color: $color-purple-800;
+
+  --icon-color: var(--color-blue-400);
+}
+
+.cautionary {
+  background: $color-yellow-100;
+  border-color: var(--color-yellow-700);
+  color: $color-purple-800;
+
+  --icon-color: var(--color-yellow-700);
+}
+
+.warning {
+  background: $color-red-100;
+  border-color: var(--color-red-500);
+  color: $color-purple-800;
+
+  --icon-color: var(--color-red-500);
 }
 
 // Modifiers

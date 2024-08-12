@@ -14,7 +14,7 @@ const meta = {
   args: {
     isOpen: false,
     title: "Confirmation modal title",
-    mood: "cautionary",
+    variant: "success",
     children: (
       <Text variant="body">
         Confirmation modals contain smaller pieces of content and can provide
@@ -26,7 +26,14 @@ const meta = {
   },
   argTypes: {
     children: {
-      control: false,
+      control: {
+        disable: true,
+      },
+    },
+    mood: {
+      control: {
+        disable: true,
+      },
     },
   },
 } satisfies Meta<typeof ConfirmationModal>
@@ -79,9 +86,9 @@ export const Prominent: Story = {
   args: { isProminent: true },
 }
 
-export const Assertive: Story = {
+export const Cautionary: Story = {
   ...ConfirmationModalTemplate,
-  args: { mood: "assertive" },
+  args: { variant: "cautionary" },
 }
 
 export const Unpadded: Story = {

@@ -1,13 +1,14 @@
 import ts from "typescript"
+import { updateJsxElementWithNewProps } from "../utils"
 import { getPropValueText } from "../utils/getPropValueText"
 
-/** Recurses through AST to find and update any jsx element that matched the importAlias */
+/** Recurses through AST to find and update any jsx element that matched the tagName */
 export const transformWellVariantToColor =
-  (context: ts.TransformationContext, importAlias: string) =>
+  (context: ts.TransformationContext, tagName: string) =>
   (rootNode: ts.Node): ts.Node => {
     function visit(node: ts.Node): ts.Node {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-        if (node.tagName.getText() === importAlias) {
+        if (node.tagName.getText() === tagName) {
           let hasVariant = false
           let hasColor = false
           let newAttributes = node.attributes.properties.map(attr => {
@@ -65,21 +66,7 @@ export const transformWellVariantToColor =
             ]
           }
 
-          if (ts.isJsxOpeningElement(node)) {
-            return ts.factory.updateJsxOpeningElement(
-              node,
-              node.tagName,
-              node.typeArguments,
-              ts.factory.createJsxAttributes(newAttributes)
-            )
-          } else if (ts.isJsxSelfClosingElement(node)) {
-            return ts.factory.updateJsxSelfClosingElement(
-              node,
-              node.tagName,
-              node.typeArguments,
-              ts.factory.createJsxAttributes(newAttributes)
-            )
-          }
+          return updateJsxElementWithNewProps(node, newAttributes)
         }
       }
       return ts.visitEachChild(node, visit, context)

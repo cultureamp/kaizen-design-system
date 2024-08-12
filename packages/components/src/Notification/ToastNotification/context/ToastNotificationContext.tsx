@@ -1,10 +1,14 @@
 import React, { useContext, useState } from "react"
 import { v4 as uuidv4 } from "uuid"
-import { ToastNotificationObj } from "../types"
+import {
+  GenericNotificationType,
+  GenericNotificationVariant,
+} from "~components/Notification/subcomponents/GenericNotification"
+import { ToastNotificationObj, ToastNotificationObjBase } from "../types"
 
-type ToastNotificationObjOptionalId = Omit<ToastNotificationObj, "id"> & {
+type ToastNotificationObjOptionalId = Omit<ToastNotificationObjBase, "id"> & {
   id?: string
-}
+} & (GenericNotificationType | GenericNotificationVariant)
 
 export type ToastNotificationContextValue = {
   notifications: ToastNotificationObj[]
