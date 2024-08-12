@@ -128,6 +128,7 @@ const VARIANTS_PROPS: Array<{
         tag: "span",
         children: "Prop enforced multiline",
       },
+      forceMultiline: true,
     },
   },
 ]
