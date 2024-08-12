@@ -14,7 +14,7 @@ const migrateProgressBarMoodToColor = (): void => {
   transformComponentsInDir(
     targetDir,
     transformProgressBarMoodToColor,
-    "BrandMoment"
+    "ProgressBar"
   )
 }
 
