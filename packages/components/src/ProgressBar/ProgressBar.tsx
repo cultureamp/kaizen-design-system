@@ -6,7 +6,7 @@ import { Label } from "./subcomponents/Label"
 import { calculatePercentage } from "./utils/calculatePercentage"
 import styles from "./ProgressBar.module.scss"
 
-export type PogressBarMood = {
+export type ProgressBarMood = {
   /**
    * @deprecated Use `color` prop instead
    */
