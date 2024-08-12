@@ -6,14 +6,11 @@ import { Label } from "./subcomponents/Label"
 import { calculatePercentage } from "./utils/calculatePercentage"
 import styles from "./ProgressBar.module.scss"
 
-type Mood = "positive" | "informative" | "negative" | "cautionary"
-type Color = "blue" | "green" | "red" | "yellow"
-
 export type PogressBarMood = {
   /**
    * @deprecated Use `color` prop instead
    */
-  mood: Mood
+  mood: "positive" | "informative" | "negative" | "cautionary"
   color?: never
 }
 
@@ -29,7 +26,7 @@ export type PogressBarColor = {
    * - `negative` -> `Red`
    * - `positive` -> `Green`
    */
-  color: Color
+  color: "blue" | "green" | "red" | "yellow"
 }
 
 export type ProgressBarBaseProps = {
