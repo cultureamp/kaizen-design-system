@@ -39,38 +39,65 @@ $height: 10px;
   border-radius: $height;
   overflow: hidden;
   transition: transform 200ms ease;
+  background-color: var(--progressbar-background-color);
+
+  &:after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--progressbar-after-background-color) 75%,
+      transparent
+    );
+  }
 }
 
+// ------------------------------
+// Moods
+// @deprecated use colors instead
+// ------------------------------
 .positive {
-  composes: progress;
-  background: $color-green-400;
-
-  &::after {
-    @include animation-background($color-green-300);
-  }
+  --progressbar-background-color: var(--color-green-400);
+  --progressbar-after-background-color: var(--color-green-300);
 }
 
 .informative {
-  composes: progress;
-  background: $color-blue-400;
-
-  &::after {
-    @include animation-background($color-blue-300);
-  }
+  --progressbar-background-color: var(--color-blue-400);
+  --progressbar-after-background-color: var(--color-blue-300);
 }
 
 .cautionary {
-  composes: progress;
-  background: $color-yellow-400;
-
-  &::after {
-    @include animation-background($color-yellow-300);
-  }
+  --progressbar-background-color: var(--color-yellow-400);
+  --progressbar-after-background-color: var(--color-yellow-300);
 }
 
 .negative {
-  composes: progress;
-  background: $color-red-400;
+  --progressbar-background-color: var(--color-red-400);
+  --progressbar-after-background-color: var(--color-red-300);
+}
+
+// End deprecated styles
+
+// ------------------------------
+// Colors
+// ------------------------------
+.blue {
+  --progressbar-background-color: var(--color-blue-400);
+  --progressbar-after-background-color: var(--color-blue-300);
+}
+
+.green {
+  --progressbar-background-color: var(--color-green-400);
+  --progressbar-after-background-color: var(--color-green-300);
+}
+
+.red {
+  --progressbar-background-color: var(--color-red-400);
+  --progressbar-after-background-color: var(--color-red-300);
+}
+
+.yellow {
+  --progressbar-background-color: var(--color-yellow-400);
+  --progressbar-after-background-color: var(--color-yellow-300);
 }
 
 .isAnimating {
