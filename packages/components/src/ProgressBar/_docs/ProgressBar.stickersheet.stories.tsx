@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import isChromatic from "chromatic"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -24,6 +25,8 @@ export default {
     },
   },
 } satisfies Meta
+
+const isNotChromatic = !isChromatic()
 
 const moods = [
   {
@@ -60,6 +63,10 @@ const colors = [
   {
     title: "Yellow",
     props: { color: "yellow" },
+  },
+  {
+    title: "Green (Animated)",
+    props: { color: "green", isAnimating: isNotChromatic },
   },
 ] satisfies Array<{ title: string; props: Partial<ProgressBarProps> }>
 
