@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Card } from "../index"
+import { Card, CardProps } from "../index"
 
 const meta = {
   title: "Components/Card",
@@ -28,35 +28,33 @@ export const Playground: Story = {
     },
   },
 }
+
+const colors = [
+  "blue",
+  "green",
+  "gray",
+  "orange",
+  "purple",
+  "red",
+  "white",
+  "yellow",
+] satisfies Array<CardProps["color"]>
+
 export const Colors: Story = {
-  render: () => (
-    <ul className="flex list-none gap-16">
-      <li>
-        <Card color="blue">Blue</Card>
-      </li>
-      <li>
-        <Card color="green">Green</Card>
-      </li>
-      <li>
-        <Card color="gray">Grey</Card>
-      </li>
-      <li>
-        <Card color="orange">Orange</Card>
-      </li>
-      <li>
-        <Card color="purple">Purple</Card>
-      </li>
-      <li>
-        <Card color="red">Red</Card>
-      </li>
-      <li>
-        <Card color="white">White</Card>
-      </li>
-      <li>
-        <Card color="yellow">Yellow</Card>
-      </li>
-    </ul>
-  ),
+  render: () => {
+    const defaultProps = {
+      children: "This is a default container",
+    }
+    return (
+      <ul className="flex list-none gap-16">
+        {colors.map(color => (
+          <li key={color}>
+            <Card {...defaultProps} color={color} />
+          </li>
+        ))}
+      </ul>
+    )
+  },
 }
 
 export const Elevation: Story = {
