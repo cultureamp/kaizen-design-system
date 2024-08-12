@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { ProgressBar } from "../index"
+import { ProgressBar, ProgressBarProps } from "../index"
 
 const meta = {
   title: "Components/ProgressBar",
@@ -8,10 +8,13 @@ const meta = {
   args: {
     value: 25,
     max: 100,
-    mood: "positive",
+    color: "green",
     isAnimating: false,
     label: "25%",
     isReversed: false,
+  },
+  argTypes: {
+    color: { control: false },
   },
 } satisfies Meta<typeof ProgressBar>
 
@@ -44,6 +47,46 @@ export const Playground: Story = {
   },
 }
 
+const colors = [
+  {
+    title: "Blue",
+    props: { color: "blue" },
+  },
+  {
+    title: "Green",
+    props: { color: "green" },
+  },
+  {
+    title: "Red",
+    props: { color: "red" },
+  },
+  {
+    title: "Yellow",
+    props: { color: "yellow" },
+  },
+] satisfies Array<{ title: string; props: Partial<ProgressBarProps> }>
+
+export const Colors: Story = {
+  render: () => (
+    <div className="flex flex-col gap-16">
+      {colors.map(({ title, props }) => (
+        <ProgressBar
+          key={title}
+          {...props}
+          value={3}
+          max={5}
+          label={title}
+          isAnimating={false}
+          isReversed={false}
+        />
+      ))}
+    </div>
+  ),
+  parameters: {
+    ...a11yExclusions,
+  },
+}
+
 export const IsAnimating: Story = {
   args: { isAnimating: true },
   parameters: {
@@ -55,7 +98,7 @@ export const ValueAndMax: Story = {
   render: () => (
     <div className="flex flex-col gap-16">
       <ProgressBar
-        mood="positive"
+        color="green"
         value={3}
         max={5}
         label="3/5"
@@ -63,7 +106,7 @@ export const ValueAndMax: Story = {
         isReversed={false}
       />
       <ProgressBar
-        mood="positive"
+        color="green"
         value={60}
         max={100}
         label="60%"
