@@ -11,7 +11,7 @@ import {
 import { GuidanceBlock, GuidanceBlockProps } from "../index"
 
 export default {
-  title: "Components/GuidanceBlock",
+  title: "Components/Containers/GuidanceBlock/v2",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

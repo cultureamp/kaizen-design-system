@@ -509,6 +509,8 @@ importers:
 
   packages/components/v2/actions: {}
 
+  packages/components/v2/containers: {}
+
   packages/components/v2/overlays: {}
 
   packages/components/v3/actions: {}
