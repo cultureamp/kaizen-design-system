@@ -42,7 +42,7 @@ export type ProgressBarBaseProps = {
 } & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "color">>
 
 export type ProgressBarProps = ProgressBarBaseProps &
-  (PogressBarMood | PogressBarColor)
+  (ProgressBarMood | ProgressBarColor)
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896891/Progress+Bar Guidance} |
