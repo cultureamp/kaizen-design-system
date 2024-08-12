@@ -76,8 +76,6 @@ export const Colors: Story = {
           value={3}
           max={5}
           label={title}
-          isAnimating={false}
-          isReversed={false}
         />
       ))}
     </div>
