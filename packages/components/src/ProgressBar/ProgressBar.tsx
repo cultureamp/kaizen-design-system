@@ -6,20 +6,43 @@ import { Label } from "./subcomponents/Label"
 import { calculatePercentage } from "./utils/calculatePercentage"
 import styles from "./ProgressBar.module.scss"
 
-export type ProgressBarProps = {
+export type ProgressBarMood = {
+  /**
+   * @deprecated Use `color` prop instead
+   */
+  mood: "positive" | "informative" | "negative" | "cautionary"
+  color?: never
+}
+
+export type ProgressBarColor = {
+  /**
+   * @deprecated Use `color` prop instead
+   */
+  mood?: never
+  /**
+   * If transitioning from `mood`:
+   * - `cautionary` -> `yellow`
+   * - `informative` -> `blue`
+   * - `negative` -> `red`
+   * - `positive` -> `green`
+   */
+  color: "blue" | "green" | "red" | "yellow"
+}
+
+export type ProgressBarBaseProps = {
   /** A value that represents completed progress */
   value: number
   /** A value that sets the maximum progress that can be achieved */
   max: number
   /** Adds an animated state to indicate loading progress */
   isAnimating: boolean
-  mood: Mood
   subtext?: string
   label?: string
   isReversed: boolean
-} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
+} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "color">>
 
-type Mood = "positive" | "informative" | "negative" | "cautionary"
+export type ProgressBarProps = ProgressBarBaseProps &
+  (ProgressBarMood | ProgressBarColor)
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896891/Progress+Bar Guidance} |
@@ -30,6 +53,7 @@ export const ProgressBar = ({
   max,
   isAnimating,
   mood,
+  color,
   subtext,
   label,
   classNameOverride,
@@ -50,7 +74,8 @@ export const ProgressBar = ({
       <div className={styles.progressBackground}>
         <div
           className={classnames(
-            styles[mood],
+            styles.progress,
+            color ? styles[color] : styles[mood],
             isAnimating && styles.isAnimating
           )}
           style={{ transform: `translateX(-${100 - percentage}%` }}

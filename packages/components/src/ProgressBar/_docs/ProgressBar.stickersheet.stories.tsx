@@ -1,10 +1,11 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import isChromatic from "chromatic"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { ProgressBar } from "../index"
+import { ProgressBar, ProgressBarProps } from "../index"
 
 export default {
   title: "Components/ProgressBar",
@@ -25,57 +26,100 @@ export default {
   },
 } satisfies Meta
 
+const isNotChromatic = !isChromatic()
+
+const moods = [
+  {
+    title: "Positive",
+    props: { mood: "positive" },
+  },
+  {
+    title: "Informative",
+    props: { mood: "informative" },
+  },
+  {
+    title: "Negative",
+    props: { mood: "negative" },
+  },
+  {
+    title: "Cautionary",
+    props: { mood: "cautionary" },
+  },
+] satisfies Array<{ title: string; props: Partial<ProgressBarProps> }>
+
+const colors = [
+  {
+    title: "Blue",
+    props: { color: "blue" },
+  },
+  {
+    title: "Green",
+    props: { color: "green" },
+  },
+  {
+    title: "Red",
+    props: { color: "red" },
+  },
+  {
+    title: "Yellow",
+    props: { color: "yellow" },
+  },
+  {
+    title: "Green (Animated)",
+    props: { color: "green", isAnimating: isNotChromatic },
+  },
+] satisfies Array<{ title: string; props: Partial<ProgressBarProps> }>
+
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed = false }) => (
-    <StickerSheet className="w-full" isReversed={isReversed}>
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Positive" rowTitleWidth="100px">
-          <ProgressBar
-            value={25}
-            max={100}
-            mood="positive"
-            isAnimating={false}
-            label="25%"
-            subtext="Subtext"
-            isReversed={isReversed}
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Informative">
-          <ProgressBar
-            value={25}
-            max={100}
-            mood="informative"
-            isAnimating={false}
-            label="25%"
-            subtext="Subtext"
-            isReversed={isReversed}
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Negative">
-          <ProgressBar
-            value={25}
-            max={100}
-            mood="negative"
-            isAnimating={false}
-            label="25%"
-            subtext="Subtext"
-            isReversed={isReversed}
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Cautionary">
-          <ProgressBar
-            value={25}
-            max={100}
-            mood="cautionary"
-            isAnimating={false}
-            label="25%"
-            subtext="Subtext"
-            isReversed={isReversed}
-          />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
-    </StickerSheet>
-  ),
+  render: ({ isReversed = false }) => {
+    const defaultProps = {
+      label: "25%",
+      value: 25,
+      max: 100,
+      isAnimating: false,
+      isReversed,
+      subtext: "Subtext",
+    }
+
+    return (
+      <>
+        <StickerSheet
+          className="w-full"
+          heading="ProgressBar"
+          isReversed={isReversed}
+        >
+          <StickerSheet.Body>
+            {colors.map(({ title, props }) => (
+              <StickerSheet.Row
+                key={title}
+                rowTitle={title}
+                rowTitleWidth="100px"
+              >
+                <ProgressBar {...defaultProps} {...props} />
+              </StickerSheet.Row>
+            ))}
+          </StickerSheet.Body>
+        </StickerSheet>
+        <StickerSheet
+          className="w-full"
+          heading="ProgressBar Moods (deprecated)"
+          isReversed={isReversed}
+        >
+          <StickerSheet.Body>
+            {moods.map(({ title, props }) => (
+              <StickerSheet.Row
+                key={title}
+                rowTitle={title}
+                rowTitleWidth="100px"
+              >
+                <ProgressBar {...defaultProps} {...props} />
+              </StickerSheet.Row>
+            ))}
+          </StickerSheet.Body>
+        </StickerSheet>
+      </>
+    )
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {

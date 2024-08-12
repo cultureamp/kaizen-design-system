@@ -3,10 +3,6 @@
 
 $height: 10px;
 
-@mixin animation-background($color) {
-  background: linear-gradient(90deg, transparent, #{$color} 75%, transparent);
-}
-
 .subtext {
   color: $color-purple-800;
   padding-top: $spacing-6;
@@ -39,43 +35,59 @@ $height: 10px;
   border-radius: $height;
   overflow: hidden;
   transition: transform 200ms ease;
+  background-color: var(--progressbar-background-color);
 }
 
+// ------------------------------
+// Moods
+// @deprecated use colors instead
+// ------------------------------
 .positive {
-  composes: progress;
-  background: $color-green-400;
-
-  &::after {
-    @include animation-background($color-green-300);
-  }
+  --progressbar-background-color: var(--color-green-400);
 }
 
 .informative {
-  composes: progress;
-  background: $color-blue-400;
-
-  &::after {
-    @include animation-background($color-blue-300);
-  }
+  --progressbar-background-color: var(--color-blue-400);
 }
 
 .cautionary {
-  composes: progress;
-  background: $color-yellow-400;
-
-  &::after {
-    @include animation-background($color-yellow-300);
-  }
+  --progressbar-background-color: var(--color-yellow-400);
 }
 
 .negative {
-  composes: progress;
-  background: $color-red-400;
+  --progressbar-background-color: var(--color-red-400);
+}
+
+// End deprecated styles
+
+// ------------------------------
+// Colors
+// ------------------------------
+.blue {
+  --progressbar-background-color: var(--color-blue-400);
+}
+
+.green {
+  --progressbar-background-color: var(--color-green-400);
+}
+
+.red {
+  --progressbar-background-color: var(--color-red-400);
+}
+
+.yellow {
+  --progressbar-background-color: var(--color-yellow-400);
 }
 
 .isAnimating {
   &::after {
-    opacity: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-white) 75%,
+      transparent
+    );
+    opacity: 25%;
     content: "";
     position: absolute;
     top: 0;
