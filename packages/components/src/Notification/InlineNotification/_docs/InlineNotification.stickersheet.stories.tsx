@@ -126,7 +126,7 @@ const VARIANTS_PROPS: Array<{
       headingProps: {
         variant: "heading-6",
         tag: "span",
-        children: "Negative title",
+        children: "Prop enforced multiline",
       },
     },
   },
@@ -188,15 +188,6 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet heading="InlineNotification" isReversed={isReversed}>
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
-            <StickerSheet.Row key={title} rowTitle={title}>
-              <InlineNotification {...DEFAULT_PROPS} {...props} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
-      </StickerSheet>
-      <StickerSheet heading="Type (deprecated)" isReversed={isReversed}>
-        <StickerSheet.Body>
-          {TYPE_PROPS.map(({ title, props }) => (
             <StickerSheet.Row key={title} rowTitle={title}>
               <InlineNotification {...DEFAULT_PROPS} {...props} />
             </StickerSheet.Row>
