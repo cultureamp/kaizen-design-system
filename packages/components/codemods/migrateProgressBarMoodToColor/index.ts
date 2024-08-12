@@ -18,4 +18,4 @@ const migrateProgressBarMoodToColor = (): void => {
   )
 }
 
-migrateBrandMomentMoodToVariant()
+migrateProgressBarMoodToColor()
