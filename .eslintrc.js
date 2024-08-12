@@ -34,6 +34,7 @@ module.exports = {
   },
   plugins: [
     "@typescript-eslint",
+    "@stylistic",
     "import",
     "sort-imports-es6-autofix",
     "ssr-friendly",
@@ -48,35 +49,9 @@ module.exports = {
         default: "array-simple",
       },
     ],
-    "@typescript-eslint/ban-types": [
-      "error",
-      {
-        types: {
-          Object: {
-            message: "Avoid using the `Object` type. Did you mean `object`?",
-          },
-          Function: {
-            message:
-              "Avoid using the `Function` type. Prefer a specific function type, like `() => void`.",
-          },
-          // eslint-disable-next-line
-          Boolean: {
-            message: "Avoid using the `Boolean` type. Did you mean `boolean`?",
-          },
-          // eslint-disable-next-line
-          Number: {
-            message: "Avoid using the `Number` type. Did you mean `number`?",
-          },
-          // eslint-disable-next-line
-          String: {
-            message: "Avoid using the `String` type. Did you mean `string`?",
-          },
-          Symbol: {
-            message: "Avoid using the `Symbol` type. Did you mean `symbol`?",
-          },
-        },
-      },
-    ],
+    "@typescript-eslint/no-empty-object-type": "error",
+    "@typescript-eslint/no-unsafe-function-type": "error",
+    "@typescript-eslint/no-wrapper-object-types": "error",
     "@typescript-eslint/class-name-casing": "off",
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
@@ -115,13 +90,6 @@ module.exports = {
     "@typescript-eslint/prefer-for-of": "error",
     "@typescript-eslint/prefer-function-type": "error",
     "@typescript-eslint/prefer-namespace-keyword": "error",
-    "@typescript-eslint/quotes": [
-      "error",
-      "double",
-      {
-        avoidEscape: true,
-      },
-    ],
     "@typescript-eslint/semi": ["off", null],
     "@typescript-eslint/triple-slash-reference": [
       "error",
@@ -131,8 +99,9 @@ module.exports = {
         lib: "always",
       },
     ],
-    "@typescript-eslint/type-annotation-spacing": "error",
     "@typescript-eslint/unified-signatures": "error",
+    "@stylistic/quotes": ["error", "double", { avoidEscape: true }],
+    "@stylistic/type-annotation-spacing": "error",
     "arrow-body-style": "warn",
     "arrow-parens": ["error", "as-needed"],
     "brace-style": ["error", "1tbs"],
