@@ -21,10 +21,10 @@ export type ProgressBarColor = {
   mood?: never
   /**
    * If transitioning from `mood`:
-   * - `cautionary` -> `Yellow`
-   * - `informative` -> `Blue`
-   * - `negative` -> `Red`
-   * - `positive` -> `Green`
+   * - `cautionary` -> `yellow`
+   * - `informative` -> `blue`
+   * - `negative` -> `red`
+   * - `positive` -> `green`
    */
   color: "blue" | "green" | "red" | "yellow"
 }
