@@ -80,7 +80,7 @@ $height: 10px;
 }
 
 .isAnimating {
-  &:after {
+  &::after {
     background: linear-gradient(
       90deg,
       transparent,
