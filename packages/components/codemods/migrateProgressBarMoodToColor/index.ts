@@ -4,7 +4,7 @@ import { transformProgressBarMoodToColor } from "./transformProgressBarMoodToCol
 const migrateBrandMomentMoodToVariant = (): void => {
   // eslint-disable-next-line no-console
   console.log(
-    " ~(-_- ~) Running BrandMoment mood to variant transformer (~ -_-)~"
+    " ~(-_- ~) Running ProgressBar mood to color transformer (~ -_-)~"
   )
   const targetDir = process.argv[2]
   if (!targetDir) {
