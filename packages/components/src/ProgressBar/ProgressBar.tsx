@@ -74,7 +74,7 @@ export const ProgressBar = ({
       <div className={styles.progressBackground}>
         <div
           className={classnames(
-            styles["progress"],
+            styles.progress,
             color ? styles[color] : styles[mood],
             isAnimating && styles.isAnimating
           )}
