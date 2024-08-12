@@ -62,8 +62,12 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
-        <GuidanceBlock {...TEXT_PROPS} />
-        <GuidanceBlock variant="expert-advice" {...TEXT_PROPS} />
+        <StickerSheet.Row rowTitle="Default">
+          <GuidanceBlock {...TEXT_PROPS} />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Expert advice">
+          <GuidanceBlock variant="expert-advice" {...TEXT_PROPS} />
+        </StickerSheet.Row>
         <StickerSheet.Row rowTitle="No arrow">
           <GuidanceBlock withActionButtonArrow={false} {...TEXT_PROPS} />
         </StickerSheet.Row>
