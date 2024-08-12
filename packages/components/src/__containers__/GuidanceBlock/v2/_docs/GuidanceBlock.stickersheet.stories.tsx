@@ -9,10 +9,9 @@ import {
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { GuidanceBlock, GuidanceBlockProps } from "../index"
-import { variantsMap } from "../types"
 
 export default {
-  title: "Components/GuidanceBlock",
+  title: "Containers/GuidanceBlock/v2",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -63,13 +62,12 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
-        <>
-          {variantsMap.map(variant => (
-            <StickerSheet.Row key={variant} rowTitle={variant}>
-              <GuidanceBlock variant={variant} {...TEXT_PROPS} />
-            </StickerSheet.Row>
-          ))}
-        </>
+        <StickerSheet.Row rowTitle="Default">
+          <GuidanceBlock {...TEXT_PROPS} />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Expert advice">
+          <GuidanceBlock variant="expert-advice" {...TEXT_PROPS} />
+        </StickerSheet.Row>
         <StickerSheet.Row rowTitle="No arrow">
           <GuidanceBlock withActionButtonArrow={false} {...TEXT_PROPS} />
         </StickerSheet.Row>

@@ -4,8 +4,8 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "../../styles/utils/responsive";
-@import "../../styles/utils/button-reset";
+@import "../../../../styles/utils/responsive";
+@import "../../../../styles/utils/button-reset";
 
 @mixin guidance-block-under-480 {
   @media (max-width: 480px) {
@@ -219,28 +219,7 @@ $scene-illustration-size: 300px;
   background: var(--color-white);
 }
 
-.positive {
-  border-color: var(--color-green-500);
-  background: $color-green-100;
-}
-
-.negative,
-.assertive {
-  border-color: var(--color-red-500);
-  background: $color-red-100;
-}
-
-.informative {
-  border-color: var(--color-blue-400);
-  background: $color-blue-100;
-}
-
-.cautionary {
-  border-color: var(--color-yellow-700);
-  background: $color-yellow-100;
-}
-
-.prominent {
+.expert-advice {
   border-color: var(--color-purple-400);
   background: $color-purple-100;
 }
