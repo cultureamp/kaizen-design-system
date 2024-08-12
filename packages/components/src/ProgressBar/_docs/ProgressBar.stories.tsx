@@ -14,7 +14,7 @@ const meta = {
     isReversed: false,
   },
   argTypes: {
-    color: { control: false },
+    mood: { control: false },
   },
 } satisfies Meta<typeof ProgressBar>
 
