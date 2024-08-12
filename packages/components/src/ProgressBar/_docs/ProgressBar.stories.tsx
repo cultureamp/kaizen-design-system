@@ -17,17 +17,15 @@ const meta = {
     mood: { control: false },
   },
   parameters: {
-    docs: {
-      a11y: {
-        config: {
-          rules: [
-            {
-              // `label` is an optional prop so this has no accessible title by default. For now consumers can pass in `aria-labelledby` or `aria-label`, which can provide an accessible title.
-              id: "aria-progressbar-name",
-              enabled: false,
-            },
-          ],
-        },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // `label` is an optional prop so this has no accessible by default. consumers can pass in `aria-labelledby` or `aria-label` which can provide an accessible description pending a refactor.
+            id: "aria-progressbar-name",
+            enabled: false,
+          },
+        ],
       },
     },
   },
