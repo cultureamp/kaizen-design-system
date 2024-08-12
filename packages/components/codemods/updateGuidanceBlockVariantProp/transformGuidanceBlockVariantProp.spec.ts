@@ -21,7 +21,7 @@ describe("transformGuidanceBlockVariantProp", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformGuidanceBlockVariantProp,
-      importAlias: "GuidanceBlock",
+      tagName: "GuidanceBlock",
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
@@ -36,7 +36,7 @@ describe("transformGuidanceBlockVariantProp", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformGuidanceBlockVariantProp,
-      importAlias: "GuidanceBlock",
+      tagName: "GuidanceBlock",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -51,7 +51,7 @@ describe("transformGuidanceBlockVariantProp", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformGuidanceBlockVariantProp,
-      importAlias: "GuidanceBlock",
+      tagName: "GuidanceBlock",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -66,7 +66,7 @@ describe("transformGuidanceBlockVariantProp", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformGuidanceBlockVariantProp,
-      importAlias: "GuidanceBlock",
+      tagName: "GuidanceBlock",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -81,7 +81,7 @@ describe("transformGuidanceBlockVariantProp", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformGuidanceBlockVariantProp,
-      importAlias: "GuidanceBlock",
+      tagName: "GuidanceBlock",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -96,7 +96,7 @@ describe("transformGuidanceBlockVariantProp", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformGuidanceBlockVariantProp,
-      importAlias: "GuidanceBlock",
+      tagName: "GuidanceBlock",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -111,7 +111,7 @@ describe("transformGuidanceBlockVariantProp", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformGuidanceBlockVariantProp,
-      importAlias: "GuidanceBlock",
+      tagName: "GuidanceBlock",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
