@@ -14,7 +14,7 @@ export type ProgressBarMood = {
   color?: never
 }
 
-export type PogressBarColor = {
+export type ProgressBarColor = {
   /**
    * @deprecated Use `color` prop instead
    */
