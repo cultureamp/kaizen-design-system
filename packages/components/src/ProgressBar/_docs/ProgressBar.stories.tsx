@@ -16,21 +16,22 @@ const meta = {
   argTypes: {
     mood: { control: false },
   },
-} satisfies Meta<typeof ProgressBar>
-
-const a11yExclusions = {
-  a11y: {
-    config: {
-      rules: [
-        {
-          // `label` is an optional prop so this has no accessible title by default. For now consumers can pass in `aria-labelledby` or `aria-label`, which can provide an accessible title.
-          id: "aria-progressbar-name",
-          enabled: false,
+  parameters: {
+    docs: {
+      a11y: {
+        config: {
+          rules: [
+            {
+              // `label` is an optional prop so this has no accessible title by default. For now consumers can pass in `aria-labelledby` or `aria-label`, which can provide an accessible title.
+              id: "aria-progressbar-name",
+              enabled: false,
+            },
+          ],
         },
-      ],
+      },
     },
   },
-}
+} satisfies Meta<typeof ProgressBar>
 
 export default meta
 
@@ -43,7 +44,6 @@ export const Playground: Story = {
         sourceState: "shown",
       },
     },
-    ...a11yExclusions,
   },
 }
 
@@ -76,20 +76,16 @@ export const Colors: Story = {
           value={3}
           max={5}
           label={title}
+          isAnimating={false}
+          isReversed={false}
         />
       ))}
     </div>
   ),
-  parameters: {
-    ...a11yExclusions,
-  },
 }
 
 export const IsAnimating: Story = {
   args: { isAnimating: true },
-  parameters: {
-    ...a11yExclusions,
-  },
 }
 
 export const ValueAndMax: Story = {
@@ -113,15 +109,11 @@ export const ValueAndMax: Story = {
       />
     </div>
   ),
-  parameters: {
-    ...a11yExclusions,
-  },
 }
 
 export const Reversed: Story = {
   parameters: {
     backgrounds: { default: "Purple 700" },
-    ...a11yExclusions,
   },
   args: { isReversed: true },
 }
