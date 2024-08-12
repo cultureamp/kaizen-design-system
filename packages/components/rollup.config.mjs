@@ -7,6 +7,8 @@ export default rollupConfig({
     actionsV1: "./src/__actions__/v1.ts",
     actionsV2: "./src/__actions__/v2.ts",
     actionsV3: "./src/__actions__/v3.ts",
+    containersV1: "./src/__containers__/v1.ts",
+    containersV2: "./src/__containers__/v2.ts",
     overlaysV1: "./src/__overlays__/v1.ts",
     overlaysV2: "./src/__overlays__/v2.ts",
     overlaysV3: "./src/__overlays__/v3.ts",
