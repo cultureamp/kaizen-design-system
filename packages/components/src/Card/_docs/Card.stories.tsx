@@ -41,20 +41,15 @@ const colors = [
 ] satisfies Array<CardProps["color"]>
 
 export const Colors: Story = {
-  render: () => {
-    const defaultProps = {
-      children: "This is a default container",
-    }
-    return (
-      <ul className="flex list-none gap-16">
-        {colors.map(color => (
-          <li key={color}>
-            <Card {...defaultProps} color={color} />
-          </li>
-        ))}
-      </ul>
-    )
-  },
+  render: () => (
+    <ul className="flex list-none gap-16">
+      {colors.map(color => (
+        <li key={color}>
+          <Card color={color}>This is a default container</Card>
+        </li>
+      ))}
+    </ul>
+  ),
 }
 
 export const Elevation: Story = {
