@@ -3,6 +3,23 @@ import { transformSource, printAst } from "../utils"
 import { transformGuidanceBlockVariantProp } from "./transformGuidanceBlockVariantProp"
 
 describe("transformGuidanceBlockVariantProp", () => {
+  it("updates the import statement for GuidanceBlock to the new family version", () => {
+    const inputAst = parseJsx(`
+      import { GuidanceBlock } from "@kaizen/components"
+      import { Card } from "@kaizen/components"
+    `)
+    const outputAst = parseJsx(`
+      import { GuidanceBlock } from "@kaizen/components/v2/containers"
+      import { Card } from "@kaizen/components"
+    `)
+    const transformed = transformSource({
+      sourceFile: inputAst,
+      astTransformer: transformGuidanceBlockVariantProp,
+      tagName: "GuidanceBlock",
+    })
+    expect(transformed).toBe(printAst(outputAst))
+  })
+
   it("removes all instances of `positive`, `negative`, `informative`, `cautionary`, `assertive`", () => {
     const inputAst = parseJsx(`
       const TestComponent = () => <GuidanceBlock variant="positive" />
