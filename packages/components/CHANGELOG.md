@@ -1,5 +1,44 @@
 # Change Log
 
+## 1.58.0
+
+### Minor Changes
+
+- [#4869](https://github.com/cultureamp/kaizen-design-system/pull/4869) [`1461312edb8cee583f558b72f7271f739adbb3e1`](https://github.com/cultureamp/kaizen-design-system/commit/1461312edb8cee583f558b72f7271f739adbb3e1) - New GuidanceBlock v2:
+
+  - Removed `positive`, `negative`, `informative`, `cautionary`, `assertive` variants, replaced with `default`
+  - Changed the `prominent` variant to `expert-advice`
+
+- [#4919](https://github.com/cultureamp/kaizen-design-system/pull/4919) [`404b1cb887ecdb4bf47c5f61e4bbfed5a4fccb81`](https://github.com/cultureamp/kaizen-design-system/commit/404b1cb887ecdb4bf47c5f61e4bbfed5a4fccb81) - - ProgressBar: deprecated `mood` in favour of `color`
+
+- [#4882](https://github.com/cultureamp/kaizen-design-system/pull/4882) [`1f08683751182b8f437accc9f6264a3f08b46e5a`](https://github.com/cultureamp/kaizen-design-system/commit/1f08683751182b8f437accc9f6264a3f08b46e5a) - Deprecated `type` in favour of `variant` for InlineNotification, GlobalNotification and ToastNotification
+
+- [#4868](https://github.com/cultureamp/kaizen-design-system/pull/4868) [`2091c380c1292a2261107692a502733ec77fc709`](https://github.com/cultureamp/kaizen-design-system/commit/2091c380c1292a2261107692a502733ec77fc709) - Deprecate mood for ConfirmationModal and InputEditModal
+
+- [#4881](https://github.com/cultureamp/kaizen-design-system/pull/4881) [`780345e9840efd8f27fae498608d2f39829582b6`](https://github.com/cultureamp/kaizen-design-system/commit/780345e9840efd8f27fae498608d2f39829582b6) - Update components to use `variant` prop, to align design language.
+
+  #### BrandMoment:
+
+  - Deprecate `mood` prop
+  - Introduce `variant` prop
+  - Update usages
+
+  #### EmptyState:
+
+  - Deprecate `illustrationType` prop
+  - Introduce `variant` prop
+
+  #### Tiles (GenericTile, InformationTile, MultiActionTile):
+
+  - Deprecate `mood` prop
+  - Introduce `variant` prop
+
+- [#4866](https://github.com/cultureamp/kaizen-design-system/pull/4866) [`57b63e01c1ef902c3eecb1bca1014a2f12c65043`](https://github.com/cultureamp/kaizen-design-system/commit/57b63e01c1ef902c3eecb1bca1014a2f12c65043) - Deprecate and replace Well `variant` prop with `color` and update the background and border color to fallback to `white` instead of the `default` variant's grey.
+
+- [#4880](https://github.com/cultureamp/kaizen-design-system/pull/4880) [`bb719c30bc5f9c7a92c7b54921d27ccc514324d1`](https://github.com/cultureamp/kaizen-design-system/commit/bb719c30bc5f9c7a92c7b54921d27ccc514324d1) - Add codemod for Well variant to color prop
+
+- [#4908](https://github.com/cultureamp/kaizen-design-system/pull/4908) [`6a2d427df8b14a6ee814de323b33fa1b0b9496f9`](https://github.com/cultureamp/kaizen-design-system/commit/6a2d427df8b14a6ee814de323b33fa1b0b9496f9) - - Card: Deprecated `variant` in favour of `color`
+
 ## 1.57.2
 
 ### Patch Changes
