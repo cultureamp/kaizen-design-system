@@ -6,6 +6,19 @@ export const transformGuidanceBlockVariantProp =
   (context: ts.TransformationContext, tagName: string) =>
   (rootNode: ts.Node): ts.Node => {
     function visit(node: ts.Node): ts.Node {
+      if (ts.isImportDeclaration(node) && node.getText().includes(tagName)) {
+        const newModuleSpecifier = ts.factory.createStringLiteral(
+          "@kaizen/components/v2/containers"
+        )
+        return ts.factory.updateImportDeclaration(
+          node,
+          node.modifiers,
+          node.importClause,
+          newModuleSpecifier,
+          node.attributes
+        )
+      }
+
       if (ts.isJsxSelfClosingElement(node)) {
         if (node.tagName.getText() === tagName) {
           const newAttributes = node.attributes.properties.reduce<
