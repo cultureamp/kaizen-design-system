@@ -223,6 +223,10 @@
     "white": "var(--color-white, #ffffff)",
     "white-rgb": "var(--color-white-rgb, 255, 255, 255)",
     "white-rgb-id": "--color-white-rgb",
-    "white-id": "--color-white"
+    "white-id": "--color-white",
+    "black": "var(--color-black, #000000)",
+    "black-rgb": "var(--color-black-rgb, 0, 0, 0)",
+    "black-rgb-id": "--color-black-rgb",
+    "black-id": "--color-black"
   }
 }
