@@ -126,7 +126,7 @@ export const VideoPlayer = ({
            * https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#autoplay_availability
            */
         })
-      } catch (e) {
+      } catch {
         /**
          * Older browsers will raise a synchronous error because their first implementation
          * of `.play` was not a promise.
