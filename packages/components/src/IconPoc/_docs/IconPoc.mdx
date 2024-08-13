@@ -1,0 +1,34 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
+import * as IconPocStories from "./IconPoc.stories"
+
+<Meta of={IconPocStories} />
+
+# IconPoc
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/IconPoc"
+  figma=""
+  designGuidelines=""
+
+/>
+
+<KAIOInstallation exportNames="IconPoc" />
+
+## Overview
+
+{/* @todo: Update summary. */}
+Brief summary of the component here.
+
+<Canvas of={IconPocStories.Playground} />
+<Controls of={IconPocStories.Playground} />
+
+## API
+
+{/* @todo: Describe props and provide example stories. */}
+{/* <DocsStory of={IconPocStories.Reversed} /> */}
