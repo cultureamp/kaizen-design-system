@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.5.2
+
+### Patch Changes
+
+- [#4871](https://github.com/cultureamp/kaizen-design-system/pull/4871) [`1158d54eef5ea459603fcebecdc54d13934d7faa`](https://github.com/cultureamp/kaizen-design-system/commit/1158d54eef5ea459603fcebecdc54d13934d7faa) - update deps
+
 ## 10.5.1
 
 ### Patch Changes
