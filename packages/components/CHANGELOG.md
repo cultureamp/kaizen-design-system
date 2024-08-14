@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.58.1
+
+### Patch Changes
+
+- [#4924](https://github.com/cultureamp/kaizen-design-system/pull/4924) [`8071b2c29aee443910d0468bed78f0510a2e5c61`](https://github.com/cultureamp/kaizen-design-system/commit/8071b2c29aee443910d0468bed78f0510a2e5c61) - Remove shouldFlipOnRtl prop that doesn't get used in SVG primitive component
+
+- [#4871](https://github.com/cultureamp/kaizen-design-system/pull/4871) [`1158d54eef5ea459603fcebecdc54d13934d7faa`](https://github.com/cultureamp/kaizen-design-system/commit/1158d54eef5ea459603fcebecdc54d13934d7faa) - update deps
+
+- [#4922](https://github.com/cultureamp/kaizen-design-system/pull/4922) [`924e4627c75efb612251e2c0e927038a0bfe9c60`](https://github.com/cultureamp/kaizen-design-system/commit/924e4627c75efb612251e2c0e927038a0bfe9c60) - Fixed GuidanceBlock codemod to include a change to import statements
+
 ## 1.58.0
 
 ### Minor Changes
