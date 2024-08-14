@@ -55,6 +55,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           <li>Existing button sizes do not change font size - future will</li>
           <li>
             Tailwind limitation for `font-weight: inherit` if we do not want it as default/prop.
+            https://github.com/tailwindlabs/tailwindcss/discussions/6815
             `style` prop works though
           </li>
         </ul>
