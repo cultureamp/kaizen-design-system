@@ -200,4 +200,9 @@
 
 %variant-small {
   min-height: $button-small-height;
+
+  #{$className--content} {
+    padding-top: $button-vertical-padding--small;
+    padding-bottom: $button-vertical-padding--small;
+  }
 }
