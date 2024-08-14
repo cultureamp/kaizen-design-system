@@ -1,7 +1,12 @@
 .iconPoc {
+  font-weight: var(--iconpoc-font-weight, 400);
+
+  // Must use vars otherwise whole attribute must be set again
   font-variation-settings:
     'FILL' var(--iconpoc-fill, 0),
-    'wght' var(--iconpoc-weight, 400),
+    // Below cannot be set if we want to be able to inherit font weight
+    // Hard for consumers to override
+    // 'wght' var(--iconpoc-weight, 400),
     'GRAD' var(--iconpoc-grade, 0),
     'opsz' var(--iconpoc-optical-size, 24);
 }
@@ -10,17 +15,30 @@
   --iconpoc-fill: 1
 }
 
+// Do we want sizes to be relative to text it sits next to or static?
 .small {
   font-size: 16px;
-  --iconpoc-optical-size: 20
+  --iconpoc-optical-size: 20;
+  // --iconpoc-font-weight: 400;
 }
 
 .medium {
   font-size: 20px;
-  --iconpoc-optical-size: 24
+  --iconpoc-optical-size: 24;
+  // --iconpoc-font-weight: 400;
 }
 
 .large {
   font-size: 24px;
-  --iconpoc-optical-size: 40
+  --iconpoc-optical-size: 40;
+  // --iconpoc-font-weight: 400;
+}
+
+.inherit {
+  font-size: inherit;
+}
+
+.inheritWeight {
+  // We cannot declare the CSS variable to do the override as `inherit` does not work
+  font-weight: inherit;
 }
