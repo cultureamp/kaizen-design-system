@@ -1,38 +1,16 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "../utils/mixins";
 @import "../utils/variables";
 
 %icon-button {
   width: $button-height;
-  border-color: $border-borderless-border-color;
 
-  @include enabled-pseudo-states-variant(
-    $border-color: $border-borderless-border-color
-  );
+  &.default {
+    --button-border-color: transparent;
+    --button-hover-border-color: transparent;
+  }
 
   & #{$className--content} {
     justify-content: center;
     width: 100%;
     padding: 0;
-  }
-
-  &:not(.reversed) {
-    &.default {
-      background-color: transparent;
-      color: inherit;
-
-      @include enabled-pseudo-states-variant(
-        $background-color: $color-gray-200
-      );
-    }
-  }
-
-  &.reversed {
-    border-color: $border-borderless-border-color;
-
-    @include enabled-pseudo-states-variant(
-      $border-color: $border-borderless-border-color
-    );
   }
 }
