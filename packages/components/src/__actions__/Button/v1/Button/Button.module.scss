@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "../../../../../styles/utils/button-reset";
@@ -29,14 +28,29 @@
   cursor: pointer;
   overflow: visible; // Required for the focus ring on IE11
 
+  --button-color: var(--color-purple-800);
+  --button-hover-color: var(--color-white);
+
+  background-color: var(--button-background-color);
+  color: var(--button-color);
+  border-color: var(--button-border-color);
+
+  &:not(.disabled, .working) {
+    &:hover,
+    &:active,
+    &:focus-visible {
+      color: var(--button-hover-color);
+      background-color: var(--button-hover-background-color);
+      border-color: var(--button-hover-border-color);
+    }
+  }
+
   &[href] {
     text-decoration: none;
   }
 
-  &:not(.disabled, .working) {
-    &:active {
-      transform: translateY(1px);
-    }
+  &:active {
+    transform: translateY(1px);
   }
 
   &:focus {
@@ -50,7 +64,7 @@
       content: "";
       position: absolute;
       background: transparent;
-      border-color: $color-blue-500;
+      border-color: var(--color-blue-500);
       border-radius: $border-focus-ring-border-radius;
       border-width: $border-focus-ring-border-width;
       border-style: $border-focus-ring-border-style;
@@ -59,15 +73,17 @@
   }
 
   &.reversed {
+    --button-hover-color: var(--color-purple-800);
+
     &:focus-visible {
       &::after {
-        border-color: $color-blue-300;
+        border-color: var(--color-blue-300);
       }
 
       &.disabled,
       &.working {
         &::after {
-          border-color: $color-gray-400;
+          border-color: var(--color-gray-400);
         }
       }
     }
@@ -81,7 +97,7 @@
     &:focus-visible {
       &::after {
         border-style: $border-dashed-border-style;
-        border-color: $color-purple-800;
+        border-color: var(--color-purple-800);
       }
     }
   }
@@ -96,65 +112,55 @@
 }
 
 %variant-default {
-  background-color: $color-white;
-  border-color: $color-gray-500;
-  color: $color-purple-800;
+  --button-background-color: var(--color-white);
+  --button-border-color: var(--color-gray-500);
 
-  @include enabled-pseudo-states-variant($color-gray-200, $color-gray-600);
+  --button-hover-color: var(--color-purple-800);
+  --button-hover-background-color: var(--color-gray-100);
+  --button-hover-border-color: var(--color-gray-600);
 
   &.reversed {
-    background-color: transparent;
-    border-color: rgba($color-white-rgb, 0.65);
-    color: $color-white;
+    --button-background-color: transparent;
+    --button-border-color: rgba(var(--color-white-rgb), 0.65);
+    --button-color: var(--color-white);
 
-    @include enabled-pseudo-states-variant(
-      rgba($color-white-rgb, 0.1),
-      $color-white
-    );
+    --button-hover-color: var(--color-white);
+    --button-hover-background-color: rgba(var(--color-white-rgb), 0.1);
+    --button-hover-border-color: var(--color-white);
   }
 }
 
 %variant-primary {
-  background-color: $color-blue-500;
-  border-color: $border-borderless-border-color;
-  color: $color-white;
-
-  @include enabled-pseudo-states-variant(
-    $color-blue-600,
-    $border-borderless-border-color
-  );
+  --button-background-color: var(--color-blue-500);
+  --button-border-color: var(--color-blue-500);
+  --button-color: var(--color-white);
+  --button-hover-background-color: var(--color-blue-600);
+  --button-hover-border-color: var(--color-blue-600);
 
   &.reversed {
-    background-color: $color-green-300;
-    border-color: $border-borderless-border-color;
-    color: $color-purple-800;
+    --button-background-color: var(--color-green-300);
+    --button-border-color: var(--color-green-300);
+    --button-color: var(--color-purple-800);
 
-    @include enabled-pseudo-states-variant(
-      $color-green-400,
-      $border-borderless-border-color
-    );
+    --button-hover-background-color: var(--color-green-400);
+    --button-hover-border-color: var(--color-green-400);
   }
 }
 
 %variant-destructive {
-  background-color: $color-red-500;
-  border-color: $border-borderless-border-color;
-  color: $color-white;
+  --button-background-color: var(--color-red-500);
+  --button-border-color: var(--color-red-500);
+  --button-color: var(--color-white);
 
-  @include enabled-pseudo-states-variant(
-    $color-red-600,
-    $border-borderless-border-color
-  );
+  --button-hover-background-color: var(--color-red-700);
+  --button-hover-border-color: var(--color-red-700);
 
   &.reversed {
-    background-color: $color-red-300;
-    border-color: $border-borderless-border-color;
-    color: $color-purple-800;
-
-    @include enabled-pseudo-states-variant(
-      $color-red-400,
-      $border-borderless-border-color
-    );
+    --button-background-color: var(--color-red-300);
+    --button-border-color: var(--color-red-300);
+    --button-color: var(--color-purple-800);
+    --button-hover-background-color: var(--color-red-400);
+    --button-hover-border-color: var(--color-red-400);
   }
 }
 
@@ -164,45 +170,34 @@
   font-size: $typography-button-secondary-font-size;
   line-height: $typography-button-secondary-line-height;
   letter-spacing: $typography-button-secondary-letter-spacing;
-  background-color: transparent;
-  border-color: $border-borderless-border-color;
-  color: $color-blue-500;
 
-  @include enabled-pseudo-states-variant(
-    $color-blue-100,
-    $border-borderless-border-color
-  );
+  --button-color: var(--color-blue-500);
+  --button-background-color: var(--color-white);
+  --button-border-color: transparent;
 
-  #{$className--content} {
-    padding-left: calc(#{$spacing-sm} - #{$border-solid-border-width});
-    padding-right: calc(#{$spacing-sm} - #{$border-solid-border-width});
-  }
+  --button-hover-color: var(--color-blue-500);
+  --button-hover-background-color: var(--color-blue-100);
+  --button-hover-border-color: transparent;
 
   &.reversed {
-    border-color: $border-borderless-border-color;
-    color: $color-white;
+    --button-background-color: transparent;
+    --button-border-color: transparent;
+    --button-color: var(--color-white);
 
-    @include enabled-pseudo-states-variant(
-      rgba($color-white-rgb, 0.2),
-      $border-borderless-border-color
-    );
+    --button-hover-color: var(--color-white);
+    --button-hover-background-color: rgba(var(--color-white-rgb), 0.1);
+    --button-hover-border-color: var(--color-white);
   }
 }
 
 %variant-secondary-destructive {
-  color: $color-red-600;
+  --button-color: var(--color-red-600);
 
-  @include enabled-pseudo-states-variant(
-    $color-red-100,
-    $border-borderless-border-color
-  );
+  --button-hover-color: var(--color-red-600);
+  --button-hover-background-color: var(--color-red-100);
+  --button-hover-border-color: transparent;
 }
 
 %variant-small {
   min-height: $button-small-height;
-
-  #{$className--content} {
-    padding-top: $button-vertical-padding--small;
-    padding-bottom: $button-vertical-padding--small;
-  }
 }
