@@ -9,6 +9,10 @@
     'wght' var(--iconpoc-weight, 400),
     'GRAD' var(--iconpoc-grade, 0),
     'opsz' var(--iconpoc-optical-size, 24);
+
+  &.filled {
+    --iconpoc-fill: 1
+  }
 }
 
 .iconPocWithSize {
@@ -18,6 +22,25 @@
     'wght' var(--iconpoc-weight, 400),
     'GRAD' var(--iconpoc-grade, 0),
     'opsz' var(--iconpoc-optical-size, 24);
+
+  &.filled {
+    --iconpoc-fill: 1
+  }
+
+  &.small {
+    font-size: 16px;
+    --iconpoc-optical-size: 20;
+  }
+
+  &.medium {
+    font-size: 20px;
+    --iconpoc-optical-size: 24;
+  }
+
+  &.large {
+    font-size: 24px;
+    --iconpoc-optical-size: 40;
+  }
 }
 
 .iconPoc {
@@ -31,11 +54,10 @@
     // 'wght' var(--iconpoc-weight, 400),
     'GRAD' var(--iconpoc-grade, 0),
     'opsz' var(--iconpoc-optical-size, 24);
-}
 
-
-.filled {
-  --iconpoc-fill: 1
+  &.filled {
+    --iconpoc-fill: 1
+  }
 }
 
 // Do we want sizes to be relative to text it sits next to or static?

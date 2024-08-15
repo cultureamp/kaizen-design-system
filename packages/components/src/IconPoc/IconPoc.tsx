@@ -15,6 +15,11 @@ import styles from "./IconPoc.module.scss"
  */
 
 /**
+ * Notes:
+ * - "material-symbols-outlined" must be used for the icons to come through
+ */
+
+/**
  * Design questions:
  * - Do we want sizes to be relative to text it sits next to or static?
  *   - Notes:
@@ -85,7 +90,6 @@ export const IconPocBase = ({
 export type IconPocWithSizeProps = {
   name: string
   isFilled?: boolean
-  shouldInheritWeight?: boolean
   /** @default inherit */
   size?: "small" | "medium" | "large" | "inherit"
 } & HTMLAttributes<HTMLSpanElement>
@@ -94,16 +98,14 @@ export const IconPocWithSize = ({
   name,
   isFilled,
   size = "inherit",
-  shouldInheritWeight,
   className,
   ...restProps
 }: IconPocWithSizeProps): JSX.Element => (
   <span
     className={classnames(
       "material-symbols-outlined",
-      styles.iconPoc,
+      styles.iconPocWithSize,
       isFilled && styles.filled,
-      shouldInheritWeight && styles.inheritWeight,
       size && styles[size],
       className
     )}
@@ -113,26 +115,51 @@ export const IconPocWithSize = ({
   </span>
 )
 
-
 export type IconPocInheritWeightProps = {
   name: string
   isFilled?: boolean
-  shouldInheritWeight?: boolean
 } & HTMLAttributes<HTMLSpanElement>
 
 export const IconPocInheritWeight = ({
   name,
   isFilled,
-  shouldInheritWeight,
   className,
   ...restProps
-}: IconPocBaseProps): JSX.Element => (
+}: IconPocInheritWeightProps): JSX.Element => (
+  <span
+    className={classnames(
+      "material-symbols-outlined",
+      styles.iconPocInheritWeight,
+      isFilled && styles.filled,
+      className
+    )}
+    {...restProps}
+    >
+    {name}
+  </span>
+)
+
+export type IconPocWithSizeOptionalInheritWeightProps = {
+  name: string
+  isFilled?: boolean
+  /** @default inherit */
+  size?: "small" | "medium" | "large" | "inherit"
+  shouldInheritWeight?: boolean
+} & HTMLAttributes<HTMLSpanElement>
+
+export const IconPocWithSizeOptionalInherit = ({
+  name,
+  isFilled,
+  size = "inherit",
+  className,
+  ...restProps
+}: IconPocWithSizeOptionalInheritWeightProps): JSX.Element => (
   <span
     className={classnames(
       "material-symbols-outlined",
       styles.iconPoc,
       isFilled && styles.filled,
-      shouldInheritWeight && styles.inheritWeight,
+      size && styles[size],
       className
     )}
     {...restProps}
