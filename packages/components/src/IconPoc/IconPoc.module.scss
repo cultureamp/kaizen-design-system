@@ -1,12 +1,17 @@
+// NOTES:
+// - `'wght'` cannot be declared if we want to be able to adjust the
+//   font weight without redeclaring `font-variation-settings`
 
 // -------
 // BASE
 // -------
 .iconPocBase {
+  font-weight: var(--iconpoc-font-weight, 400);
+
   // Must use vars otherwise whole attribute must be set again
   font-variation-settings:
     'FILL' var(--iconpoc-fill, 0),
-    'wght' var(--iconpoc-weight, 400),
+    // 'wght' var(--iconpoc-weight, 400),
     'GRAD' var(--iconpoc-grade, 0),
     'opsz' var(--iconpoc-optical-size, 24);
 

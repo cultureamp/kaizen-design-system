@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import Highlight from "react-highlight"
 import { Heading } from "~components/Heading"
 import { Text } from "~components/Text"
 import { Button, IconButton } from "~components/__actions__/v2"
@@ -584,4 +585,210 @@ export const IconPocInheritWeightStory: StickerSheetStory = {
     </>
   )
 },
+}
+
+const FutureButton = ({ children, className }: { children: React.ReactNode; className: string }) => (
+  <Buttonv3 className={`border-1 min-h-[unset] font-500 ${className}`}>
+    {children}
+  </Buttonv3>
+)
+
+const FutureButtonLarge = ({ children }: { children: React.ReactNode }) => (
+  <FutureButton className="h-[48px] text-[16px]">{children}</FutureButton>
+)
+const FutureButtonMedium = ({ children }: { children: React.ReactNode }) => (
+  <FutureButton className="h-[40px] text-[16px]">{children}</FutureButton>
+)
+const FutureButtonSmall = ({ children }: { children: React.ReactNode }) => (
+  <FutureButton className="h-[32px] text-[12px]">{children}</FutureButton>
+)
+
+export const ExampleUsage: StickerSheetStory = {
+  render: () => (
+    <>
+    <Highlight>
+      Notes:
+      <ul>
+        <li>TW `text-[inherit] is mapped to `color`, not `font-size` (as it does not end in a measurement)</li>
+      </ul>
+    </Highlight>
+    <Highlight>
+      UI reqs:
+      <ul>
+        <li>Button large
+          <ul>
+            <li>Height: 48px</li>
+            <li>Font size: 16px</li>
+            <li>Icon size: 24px</li>
+            <li>Icon weight: 400</li>
+            <li>Optical size: 40</li>
+          </ul>
+        </li>
+        <li>Button medium
+          <ul>
+            <li>Height: 40px</li>
+            <li>Font size: 16px</li>
+            <li>Icon size: 20px</li>
+            <li>Icon weight: 400</li>
+            <li>Optical size: 24</li>
+          </ul>
+        </li>
+        <li>Button small
+          <ul>
+            <li>Height: 32px</li>
+            <li>Font size: 12px</li>
+            <li>Icon size: 16px</li>
+            <li>Icon weight: 400</li>
+            <li>Optical size: 20</li>
+          </ul>
+        </li>
+        <li>Heading 1
+          <ul>
+            <li>Font size: 34px</li>
+            <li>Font weight: 700</li>
+            <li>Line height: 42px</li>
+            <li>Icon size: inherit</li>
+            <li>Icon weight: inherit</li>
+            <li>Optical size: 48</li>
+          </ul>
+        </li>
+      </ul>
+    </Highlight>
+    <StickerSheet heading="Button large">
+      <StickerSheet.Header headings={[
+        "Example", "Code",
+      ]} hasVerticalHeadings />
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="Base">
+          <FutureButtonLarge>
+            Onwards! <IconPocBase name="arrow_forward" className="[--iconpoc-optical-size:40]" />
+          </FutureButtonLarge>
+          <Highlight>
+            {`<IconPocBase name="arrow_forward" className="[--iconpoc-optical-size:40]" />`}
+          </Highlight>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row rowTitle="Size prop">
+          <FutureButtonLarge>
+            Onwards! <IconPocWithSize name="arrow_forward" size="large" />
+          </FutureButtonLarge>
+          <Highlight>
+            {`<IconPocWithSize name="arrow_forward" size="large" />`}
+          </Highlight>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row rowTitle="Inherit weight">
+          <FutureButtonLarge>
+            Onwards! <IconPocInheritWeight name="arrow_forward" className="[--iconpoc-font-weight:400] [--iconpoc-optical-size:40]" />
+          </FutureButtonLarge>
+          <Highlight>
+            {`<IconPocInheritWeight name="arrow_forward" className="[--iconpoc-font-weight:400] [--iconpoc-optical-size:40]" />`}
+          </Highlight>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet heading="Button medium">
+      <StickerSheet.Header headings={[
+        "Example", "Code",
+      ]} hasVerticalHeadings />
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="Base">
+          <FutureButtonMedium>
+            Onwards! <IconPocBase name="arrow_forward" className="text-[20px]" />
+          </FutureButtonMedium>
+          <Highlight>
+            {`<IconPocBase name="arrow_forward" className="text-[20px]" />`}
+          </Highlight>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row rowTitle="Size prop">
+          <FutureButtonMedium>
+            Onwards! <IconPocWithSize name="arrow_forward" size="medium" />
+          </FutureButtonMedium>
+          <Highlight>
+            {`<IconPocWithSize name="arrow_forward" size="medium" />`}
+          </Highlight>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row rowTitle="Inherit weight">
+          <FutureButtonMedium>
+            Onwards! <IconPocInheritWeight name="arrow_forward" className="[--iconpoc-font-weight:400] text-[20px]" />
+          </FutureButtonMedium>
+          <Highlight>
+            {`<IconPocInheritWeight name="arrow_forward" className="[--iconpoc-font-weight:400] text-[20px]" />`}
+          </Highlight>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet heading="Button small">
+      <StickerSheet.Header headings={[
+        "Example", "Code",
+      ]} hasVerticalHeadings />
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="Base">
+          <FutureButtonSmall>
+            Onwards! <IconPocBase name="arrow_forward" className="text-[16px] [--iconpoc-optical-size:20]" />
+          </FutureButtonSmall>
+          <Highlight>
+            {`<IconPocBase name="arrow_forward" className="text-[16px] [--iconpoc-optical-size:20]" />`}
+          </Highlight>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row rowTitle="Size prop">
+          <FutureButtonSmall>
+            Onwards! <IconPocWithSize name="arrow_forward" size="small" />
+          </FutureButtonSmall>
+          <Highlight>
+            {`<IconPocWithSize name="arrow_forward" size="small" />`}
+          </Highlight>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row rowTitle="Inherit weight">
+          <FutureButtonSmall>
+            Onwards! <IconPocInheritWeight name="arrow_forward" className="[--iconpoc-font-weight:400] [--iconpoc-optical-size:20] text-[16px]" />
+          </FutureButtonSmall>
+          <Highlight>
+            {`<IconPocInheritWeight name="arrow_forward" className="[--iconpoc-font-weight:400] [--iconpoc-optical-size:20] text-[16px]" />`}
+          </Highlight>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet heading="Heading 1">
+      <StickerSheet.Header headings={[
+        "Example", "Code",
+      ]} hasVerticalHeadings />
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="Base">
+          <Heading variant="heading-1">
+            Onwards! <IconPocBase name="arrow_forward" className="[--iconpoc-font-weight:'inherit'] [--iconpoc-optical-size:48]" style={{ fontSize: "inherit" }} />
+          </Heading>
+          <Highlight>
+            {`<IconPocBase name="arrow_forward" className="[--iconpoc-font-weight:'inherit'] [--iconpoc-optical-size:48]" style={{ fontSize: "inherit" }} />`}
+          </Highlight>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row rowTitle="Size prop">
+          <Heading variant="heading-1">
+            Onwards! <IconPocWithSize name="arrow_forward" size="inherit" className="[--iconpoc-font-weight:'inherit'] [--iconpoc-optical-size:48]" />
+          </Heading>
+          <Highlight>
+            {`<IconPocWithSize name="arrow_forward" size="inherit" className="[--iconpoc-font-weight:'inherit'] [--iconpoc-optical-size:48]" />`}
+          </Highlight>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row rowTitle="Inherit weight">
+          <Heading variant="heading-1">
+            Onwards! <IconPocInheritWeight name="arrow_forward" className="[--iconpoc-optical-size:48]" style={{ fontSize: "inherit" }} />
+          </Heading>
+          <Highlight>
+            {`<IconPocInheritWeight name="arrow_forward" className="[--iconpoc-optical-size:48]" style={{ fontSize: "inherit" }} />`}
+          </Highlight>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+    </>
+  )
 }
