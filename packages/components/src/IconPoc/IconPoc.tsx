@@ -59,7 +59,6 @@ import styles from "./IconPoc.module.scss"
  * Technical questions:
  * - Can we bake in vertical alignment?
  * - Intellisense for name?
- * - A11y
  * - `name` or `children`?
  */
 

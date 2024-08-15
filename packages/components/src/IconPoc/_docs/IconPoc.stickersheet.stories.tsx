@@ -789,6 +789,34 @@ export const ExampleUsage: StickerSheetStory = {
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
+
+    <StickerSheet heading="A11y">
+      <StickerSheet.Header headings={[
+        "Example", "Code",
+      ]} hasVerticalHeadings />
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="Presentational">
+          <button type="button">
+            Onwards!<IconPocBase name="arrow_forward" aria-hidden={true} />
+          </button>
+          <Highlight>
+{`<button type="button">
+  Onwards!<IconPoc... name="arrow_forward" aria-hidden={true} />
+</button>`}
+          </Highlight>
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Meaningful">
+          <button type="button">
+            <IconPocBase name="arrow_forward" aria-label="Onwards!" />
+          </button>
+          <Highlight>
+{`<button type="button">
+  <IconPocBase name="arrow_forward" aria-label="Onwards!" />
+</button>`}
+          </Highlight>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
     </>
   )
 }
