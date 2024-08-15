@@ -70,3 +70,8 @@
     --iconpoc-fill: 1
   }
 }
+
+.adjustedAlignment {
+  position: relative;
+  inset-block-start: calc(11.5em/100);
+}

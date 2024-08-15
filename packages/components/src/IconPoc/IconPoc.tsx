@@ -114,6 +114,18 @@ export const IconPocWithSize = ({
   </span>
 )
 
+export type IconPocAdjustedAlignmentProps = IconPocWithSizeProps
+
+export const IconPocAdjustedAlignment = ({
+  className,
+  ...restProps
+}: IconPocAdjustedAlignmentProps): JSX.Element => (
+  <IconPocWithSize
+  className={classnames(styles.adjustedAlignment, className)}
+  {...restProps}
+  />
+)
+
 export type IconPocInheritWeightProps = {
   name: string
   isFilled?: boolean

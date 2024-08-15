@@ -9,7 +9,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { IconPocWithSize, IconPocBase, IconPocWithSizeProps, IconPocBaseProps, IconPocInheritWeightProps, IconPocInheritWeight, IconPocWithSizeOptionalInheritWeightProps, IconPocWithSizeOptionalInheritWeight } from "../index"
+import { IconPocWithSize, IconPocBase, IconPocWithSizeProps, IconPocBaseProps, IconPocInheritWeightProps, IconPocInheritWeight, IconPocWithSizeOptionalInheritWeightProps, IconPocWithSizeOptionalInheritWeight, IconPocAdjustedAlignment, IconPocAdjustedAlignmentProps } from "../index"
 
 export default {
   title: "Components/IconPoc",
@@ -40,14 +40,14 @@ export const IconPocBaseStory: StickerSheetStory = {
 
     return (
       <>
-      <div>
+      <Highlight>
         <p>Notes:</p>
         <ul>
           <li>MUI default is 24px</li>
           <li>Font weight is set to 400; does not inherit from parent</li>
           <li>Existing button sizes do not change font size - future will</li>
         </ul>
-      </div>
+      </Highlight>
     <StickerSheet isReversed={isReversed} heading="Icon POC - Base">
       <StickerSheet.Header headings={[
         "Default",
@@ -222,7 +222,7 @@ export const IconPocWithSizeStory: StickerSheetStory = {
 
     return (
       <>
-      <div>
+      <Highlight>
         <p>Notes:</p>
         <ul>
           <li>Size scaling also scales Optical Size</li>
@@ -241,7 +241,7 @@ export const IconPocWithSizeStory: StickerSheetStory = {
             </ul>
           </li>
         </ul>
-      </div>
+      </Highlight>
     <StickerSheet isReversed={isReversed} heading="Icon POC - With size prop">
       <StickerSheet.Header headings={[
         "Default",
@@ -429,14 +429,14 @@ export const IconPocInheritWeightStory: StickerSheetStory = {
 
     return (
       <>
-      <div>
+      <Highlight>
         <p>Notes:</p>
         <ul>
           <li>Icon will inherit weight from its parent</li>
           <li>Can be overridden by the consumer using CSS var `--iconpoc-font-weight`</li>
           <li>Existing button sizes do not change font size - future will</li>
         </ul>
-      </div>
+      </Highlight>
     <StickerSheet isReversed={isReversed} heading="Icon POC - Inherit weight">
     <StickerSheet.Header headings={[
         "Default",
@@ -587,6 +587,209 @@ export const IconPocInheritWeightStory: StickerSheetStory = {
 },
 }
 
+export const IconPocAdjustedAlignmentStory: StickerSheetStory = {
+  render: ({ isReversed }) => {
+    const names = [
+      "star",
+      "delete",
+      "invalid",
+    ]
+
+    const sizes = [
+      { size: "small" },
+      { size: "medium" },
+      { size: "large" },
+      { size: "inherit" },
+    ] satisfies Array<Partial<IconPocAdjustedAlignmentProps>>
+
+    const buttons = [
+      {
+        rowTitle: "inherit (18px - no optical size set)",
+        iconProps: {}
+      },
+      {
+        rowTitle: "medium (20px)",
+        iconProps: { size: "medium" }
+      },
+    ] satisfies Array<{ rowTitle: string, iconProps: Partial<IconPocAdjustedAlignmentProps> }>
+
+    return (
+      <>
+      <Highlight>
+        <p>Notes:</p>
+        <ul>
+          <li>Extends IconPocWithSize with adjusted alignment</li>
+          <li>Follows recommendation of 11.5% of font size</li>
+          <li>Works nicely if position has not already been adjusted,
+            but throws off alignment if it was already done</li>
+        </ul>
+      </Highlight>
+    <StickerSheet isReversed={isReversed} heading="Icon POC - Adjusted alignment">
+      <StickerSheet.Header headings={[
+        "Default",
+        "Filled",
+        "Color",
+      ]}
+      hasVerticalHeadings
+      />
+      <StickerSheet.Body>
+        {names.map(name => (
+          <StickerSheet.Row key={name} rowTitle={name}>
+            <IconPocAdjustedAlignment name={name} />
+            <IconPocAdjustedAlignment name={name} isFilled />
+            <IconPocAdjustedAlignment name={name} className="text-red-500" />
+        </StickerSheet.Row>
+        ))}
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet isReversed={isReversed} heading="Sizes (weight 400)">
+      <StickerSheet.Header headings={[
+        "Small (16px)", "Medium (20px)", "Large (24px)",
+        "Inherit",
+        "Inherit in Heading 1",
+        "Inherit in Heading 1 + inherit weight (style prop; TW does not work)",
+      ]}
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          {sizes.map((props, index) => (
+            <StickerSheet.Cell key={index}>
+              <IconPocAdjustedAlignment name="delete" {...props}/>
+              <IconPocAdjustedAlignment name="delete" {...props} isFilled />
+            </StickerSheet.Cell>
+          ))}
+          <StickerSheet.Cell>
+            <Heading variant="heading-1"><IconPocAdjustedAlignment name="delete" /> Heading 1</Heading>
+          </StickerSheet.Cell>
+          <StickerSheet.Cell>
+            <Heading variant="heading-1"><IconPocAdjustedAlignment name="delete" style={{ fontWeight: "inherit" }} /> Heading 1</Heading>
+          </StickerSheet.Cell>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet isReversed={isReversed} heading="Buttons">
+      <StickerSheet.Header headings={[
+          "Button v2", "Button v2 small",
+          "Button v3", "Button v3 small",
+          "Browser button",
+          "IconButton v2", "Button v3 icon only",
+        ]}
+        hasVerticalHeadings
+      />
+      <StickerSheet.Body>
+        {buttons.map(({ rowTitle, iconProps }) => (
+          <StickerSheet.Row key={rowTitle} rowTitle={rowTitle}>
+            <Button
+              label="I am the sun!"
+              icon={<IconPocAdjustedAlignment name="clear_day" {...iconProps} />}
+              />
+            <Button
+              label="I am the sun!"
+              icon={<IconPocAdjustedAlignment name="clear_day" {...iconProps} />}
+              size="small"
+              />
+            <Buttonv3>
+              <IconPocAdjustedAlignment name="clear_day" {...iconProps} /> I am the sun!
+            </Buttonv3>
+            <Buttonv3 size="small">
+              <IconPocAdjustedAlignment name="clear_day" {...iconProps} /> I am the sun!
+            </Buttonv3>
+            <button type="button">
+              <IconPocAdjustedAlignment name="clear_day" {...iconProps} /> I am the sun!
+            </button>
+            <IconButton
+              label="I am the sun!"
+              icon={<IconPocAdjustedAlignment name="clear_day" {...iconProps} />}
+              primary
+            />
+            <Buttonv3>
+              <IconPocAdjustedAlignment name="clear_day" {...iconProps} />
+            </Buttonv3>
+          </StickerSheet.Row>
+        ))}
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet isReversed={isReversed} heading="Simulated future Button">
+      <StickerSheet.Header headings={[
+          "Large", "Medium", "Small",
+        ]}
+        hasVerticalHeadings
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="inherit">
+          <Buttonv3 className="border-1 min-h-[unset] h-[48px] text-[16px]" style={{ fontWeight: 500 }}>
+            <IconPocAdjustedAlignment name="clear_day" /> I am the sun!
+          </Buttonv3>
+          <Buttonv3 className="border-1 min-h-[unset] h-[40px] text-[16px]" style={{ fontWeight: 500 }}>
+            <IconPocAdjustedAlignment name="clear_day" /> I am the sun!
+          </Buttonv3>
+          <Buttonv3 className="border-1 min-h-[unset] h-[32px] text-[12px]" style={{ fontWeight: 500 }}>
+            <IconPocAdjustedAlignment name="clear_day" /> I am the sun!
+          </Buttonv3>
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="using sizes">
+          <Buttonv3 className="border-1 min-h-[unset] h-[48px] text-[16px]" style={{ fontWeight: 500 }}>
+            <IconPocAdjustedAlignment name="clear_day" size="large" /> I am the sun!
+          </Buttonv3>
+          <Buttonv3 className="border-1 min-h-[unset] h-[40px] text-[16px]" style={{ fontWeight: 500 }}>
+            <IconPocAdjustedAlignment name="clear_day" size="medium" /> I am the sun!
+          </Buttonv3>
+          <Buttonv3 className="border-1 min-h-[unset] h-[32px] text-[12px]" style={{ fontWeight: 500 }}>
+            <IconPocAdjustedAlignment name="clear_day" size="small" /> I am the sun!
+          </Buttonv3>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet isReversed={isReversed} heading="Text">
+      <StickerSheet.Header headings={[
+          "div", "Text", "Wrapped text"
+        ]}
+        hasVerticalHeadings
+      />
+      <StickerSheet.Body>
+        {(["inherit", "medium"] satisfies Array<IconPocAdjustedAlignmentProps["size"]>).map(size => (
+          <StickerSheet.Row key={size} rowTitle={size}>
+            <div>
+              <IconPocAdjustedAlignment name="clear_day" size={size} /> I am the sun!
+            </div>
+            <Text variant="body">
+              <IconPocAdjustedAlignment name="clear_day" size={size} /> I am the sun!
+            </Text>
+            <div style={{ maxWidth: "100px" }}>
+              <Text variant="body">
+                <IconPocAdjustedAlignment name="clear_day" size={size} /> I should wrap around in my container!
+              </Text>
+            </div>
+          </StickerSheet.Row>
+        ))}
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet isReversed={isReversed} heading="Direction">
+      <StickerSheet.Header headings={[
+          "LTR", "RTL",
+        ]}
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <div dir="ltr">
+            <IconPocAdjustedAlignment name="arrow_forward" />
+          </div>
+          <div dir="rtl">
+            <IconPocAdjustedAlignment name="arrow_forward" />
+          </div>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+    </>
+  )
+},
+}
+
 const FutureButton = ({ children, className }: { children: React.ReactNode; className: string }) => (
   <Buttonv3 className={`border-1 min-h-[unset] font-500 ${className}`}>
     {children}
@@ -612,49 +815,18 @@ export const ExampleUsage: StickerSheetStory = {
         <li>TW `text-[inherit] is mapped to `color`, not `font-size` (as it does not end in a measurement)</li>
       </ul>
     </Highlight>
+
+    <Heading variant="heading-3">Button large</Heading>
     <Highlight>
-      UI reqs:
       <ul>
-        <li>Button large
-          <ul>
-            <li>Height: 48px</li>
-            <li>Font size: 16px</li>
-            <li>Icon size: 24px</li>
-            <li>Icon weight: 400</li>
-            <li>Optical size: 40</li>
-          </ul>
-        </li>
-        <li>Button medium
-          <ul>
-            <li>Height: 40px</li>
-            <li>Font size: 16px</li>
-            <li>Icon size: 20px</li>
-            <li>Icon weight: 400</li>
-            <li>Optical size: 24</li>
-          </ul>
-        </li>
-        <li>Button small
-          <ul>
-            <li>Height: 32px</li>
-            <li>Font size: 12px</li>
-            <li>Icon size: 16px</li>
-            <li>Icon weight: 400</li>
-            <li>Optical size: 20</li>
-          </ul>
-        </li>
-        <li>Heading 1
-          <ul>
-            <li>Font size: 34px</li>
-            <li>Font weight: 700</li>
-            <li>Line height: 42px</li>
-            <li>Icon size: inherit</li>
-            <li>Icon weight: inherit</li>
-            <li>Optical size: 48</li>
-          </ul>
-        </li>
+        <li>Height: 48px</li>
+        <li>Font size: 16px</li>
+        <li>Icon size: 24px</li>
+        <li>Icon weight: 400</li>
+        <li>Optical size: 40</li>
       </ul>
     </Highlight>
-    <StickerSheet heading="Button large">
+    <StickerSheet>
       <StickerSheet.Header headings={[
         "Example", "Code",
       ]} hasVerticalHeadings />
@@ -688,7 +860,17 @@ export const ExampleUsage: StickerSheetStory = {
       </StickerSheet.Body>
     </StickerSheet>
 
-    <StickerSheet heading="Button medium">
+    <Heading variant="heading-3">Button medium</Heading>
+    <Highlight>
+      <ul>
+        <li>Height: 40px</li>
+        <li>Font size: 16px</li>
+        <li>Icon size: 20px</li>
+        <li>Icon weight: 400</li>
+        <li>Optical size: 24</li>
+      </ul>
+    </Highlight>
+    <StickerSheet>
       <StickerSheet.Header headings={[
         "Example", "Code",
       ]} hasVerticalHeadings />
@@ -722,7 +904,17 @@ export const ExampleUsage: StickerSheetStory = {
       </StickerSheet.Body>
     </StickerSheet>
 
-    <StickerSheet heading="Button small">
+    <Heading variant="heading-3">Button small</Heading>
+    <Highlight>
+      <ul>
+        <li>Height: 32px</li>
+        <li>Font size: 12px</li>
+        <li>Icon size: 16px</li>
+        <li>Icon weight: 400</li>
+        <li>Optical size: 20</li>
+      </ul>
+    </Highlight>
+    <StickerSheet>
       <StickerSheet.Header headings={[
         "Example", "Code",
       ]} hasVerticalHeadings />
@@ -756,7 +948,18 @@ export const ExampleUsage: StickerSheetStory = {
       </StickerSheet.Body>
     </StickerSheet>
 
-    <StickerSheet heading="Heading 1">
+    <Heading variant="heading-3">Heading 1</Heading>
+    <Highlight>
+      <ul>
+        <li>Font size: 34px</li>
+        <li>Font weight: 700</li>
+        <li>Line height: 42px</li>
+        <li>Icon size: inherit</li>
+        <li>Icon weight: inherit</li>
+        <li>Optical size: 48</li>
+      </ul>
+    </Highlight>
+    <StickerSheet>
       <StickerSheet.Header headings={[
         "Example", "Code",
       ]} hasVerticalHeadings />
