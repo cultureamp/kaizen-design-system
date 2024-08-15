@@ -4,8 +4,8 @@
 .dropdownButton {
   display: inline-flex;
   position: relative;
-  inset-inline-start: calc(-1 * #{$border-solid-border-width});
-  margin-inline-start: $border-solid-border-width;
+  inset-inline-start: calc(-1 * #{$border-width-1});
+  margin-inline-start: $border-width-1;
   padding: $spacing-12;
   border-start-start-radius: 0;
   border-end-start-radius: 0;
@@ -16,8 +16,8 @@
   &:hover,
   &:active,
   &:focus-visible {
-    inset-inline-start: calc(-1 * #{$border-solid-border-width});
+    inset-inline-start: calc(-1 * #{$border-width-1});
     margin-inline-start: unset;
-    border-inline-start-width: $border-solid-border-width;
+    border-inline-start-width: $border-width-1;
   }
 }

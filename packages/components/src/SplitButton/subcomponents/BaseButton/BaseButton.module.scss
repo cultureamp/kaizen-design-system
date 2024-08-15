@@ -4,7 +4,7 @@
 @import "~@kaizen/design-tokens/sass/typography";
 
 .baseButton {
-  border-width: $border-solid-border-width;
+  border-width: $border-width-1;
   border-style: $border-solid-border-style;
   padding: calc(#{$spacing-sm} - #{$border-borderless-border-width})
     calc(#{$spacing-md} - #{$border-borderless-border-width});
@@ -33,7 +33,7 @@
 
   &:focus-visible {
     z-index: 3;
-    outline-width: $border-solid-border-width;
+    outline-width: $border-focus-ring-border-width;
     outline-style: $border-solid-border-style;
     outline-offset: 1px;
   }
