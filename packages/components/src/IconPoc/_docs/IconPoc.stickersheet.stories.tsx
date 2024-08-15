@@ -8,7 +8,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { IconPoc, IconPocNoSize, IconPocProps } from "../index"
+import { IconPocWithSize, IconPocBase, IconPocWithSizeProps, IconPocBaseProps } from "../index"
 
 export default {
   title: "Components/IconPoc",
@@ -18,7 +18,181 @@ export default {
   },
 } satisfies Meta
 
-const StickerSheetTemplate: StickerSheetStory = {
+export const IconPocBaseStory: StickerSheetStory = {
+  render: ({ isReversed }) => {
+    const names = [
+      "star",
+      "delete",
+      "invalid",
+    ]
+
+    const sizes = [
+      {},
+      { className: "text-[16px]" },
+      { className: "text-[20px]" },
+      { className: "text-[24px]" },
+    ] satisfies Array<Partial<IconPocBaseProps>>
+
+    const buttons = [
+      { className: "text-[20px]" }
+    ] satisfies Array<Partial<IconPocBaseProps>>
+
+    return (
+      <>
+      <div>
+        <p>Notes:</p>
+        <ul>
+          <li>MUI default is 24px</li>
+          <li>Existing button sizes do not change font size - future will</li>
+        </ul>
+      </div>
+    <StickerSheet isReversed={isReversed} heading="Icon POC - Base">
+      <StickerSheet.Header headings={[
+        "Default",
+        "Filled",
+        "Color",
+      ]}
+      hasVerticalHeadings
+      />
+      <StickerSheet.Body>
+        {names.map(name => (
+          <StickerSheet.Row key={name} rowTitle={name}>
+            <IconPocBase name={name} />
+            <IconPocBase name={name} isFilled />
+            <IconPocBase name={name} className="text-red-500" />
+        </StickerSheet.Row>
+        ))}
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet isReversed={isReversed} heading="Sizes (weight 400) - consumer styled">
+      <StickerSheet.Header headings={[
+        "Default (MUI 24px)",
+        "Small (16px)", "Medium (20px)", "Large (24px)",
+        "Default in Heading 1",
+      ]}
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          {sizes.map((props, index) => (
+            <StickerSheet.Cell key={index}>
+              <IconPocBase name="delete" {...props}/>
+              <IconPocBase name="delete" {...props} isFilled />
+            </StickerSheet.Cell>
+          ))}
+          <StickerSheet.Cell>
+            <Heading variant="heading-1"><IconPocBase name="delete" /> Heading 1</Heading>
+          </StickerSheet.Cell>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet isReversed={isReversed} heading="Buttons (icon font-size 20px - consumer styled)">
+      <StickerSheet.Header headings={[
+          "Button v2", "Button v2 small",
+          "Button v3", "Button v3 small",
+          "Browser button",
+          "IconButton v2", "Button v3 icon only",
+        ]}
+      />
+      <StickerSheet.Body>
+        {buttons.map((iconProps, index) => (
+          <StickerSheet.Row key={index}>
+            <Button
+              label="I am the sun!"
+              icon={<IconPocBase name="clear_day" {...iconProps} />}
+              />
+            <Button
+              label="I am the sun!"
+              icon={<IconPocBase name="clear_day" {...iconProps} />}
+              size="small"
+              />
+            <Buttonv3>
+              <IconPocBase name="clear_day" {...iconProps} /> I am the sun!
+            </Buttonv3>
+            <Buttonv3 size="small">
+              <IconPocBase name="clear_day" {...iconProps} /> I am the sun!
+            </Buttonv3>
+            <button type="button">
+              <IconPocBase name="clear_day" {...iconProps} /> I am the sun!
+            </button>
+            <IconButton
+              label="I am the sun!"
+              icon={<IconPocBase name="clear_day" {...iconProps} />}
+              primary
+            />
+            <Buttonv3>
+              <IconPocBase name="clear_day" {...iconProps} />
+            </Buttonv3>
+          </StickerSheet.Row>
+        ))}
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet isReversed={isReversed} heading="Simulated future Button (consumer styled)">
+      <StickerSheet.Header headings={[
+          "Large (24px)", "Medium (20px)", "Small (16px)",
+        ]}
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <Buttonv3 className="border-1 h-[48px] text-[16px] min-h-[unset]" style={{ fontWeight: 500 }}>
+            <IconPocBase name="clear_day" className="text-[24px]" /> I am the sun!
+          </Buttonv3>
+          <Buttonv3 className="border-1 h-[40px] text-[16px] min-h-[unset]" style={{ fontWeight: 500 }}>
+            <IconPocBase name="clear_day" className="text-[20px]" /> I am the sun!
+          </Buttonv3>
+          <Buttonv3 className="border-1 h-[32px] text-[12px] min-h-[unset]" style={{ fontWeight: 500 }}>
+            <IconPocBase name="clear_day" className="text-[16px]" /> I am the sun!
+          </Buttonv3>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet isReversed={isReversed} heading="Text">
+      <StickerSheet.Header headings={[
+          "div", "Text", "Wrapped text"
+        ]}
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <div>
+            <IconPocBase name="clear_day" /> I am the sun!
+          </div>
+          <Text variant="body">
+            <IconPocBase name="clear_day" /> I am the sun!
+          </Text>
+          <div style={{ maxWidth: "100px" }}>
+            <Text variant="body">
+              <IconPocBase name="clear_day" /> I should wrap around in my container!
+            </Text>
+          </div>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+
+    <StickerSheet isReversed={isReversed} heading="Direction">
+      <StickerSheet.Header headings={[
+          "LTR", "RTL",
+        ]}
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <div dir="ltr">
+            <IconPocBase name="arrow_forward" />
+          </div>
+          <div dir="rtl">
+            <IconPocBase name="arrow_forward" />
+          </div>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+    </>
+  )
+},
+}
+
+export const IconPocWithSizeStory: StickerSheetStory = {
   render: ({ isReversed }) => {
     const names = [
       "star",
@@ -43,7 +217,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         rowTitle: "inherit size + weight",
         iconProps: { shouldInheritWeight: true }
       },
-    ] satisfies Array<{ rowTitle: string, iconProps: Partial<IconPocProps> }>
+    ] satisfies Array<{ rowTitle: string, iconProps: Partial<IconPocWithSizeProps> }>
 
     return (
       <>
@@ -71,9 +245,9 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         {names.map(name => (
           <StickerSheet.Row key={name} rowTitle={name}>
-            <IconPoc name={name} />
-            <IconPoc name={name} isFilled />
-            <IconPoc name={name} className="text-red-500" />
+            <IconPocWithSize name={name} />
+            <IconPocWithSize name={name} isFilled />
+            <IconPocWithSize name={name} className="text-red-500" />
         </StickerSheet.Row>
         ))}
       </StickerSheet.Body>
@@ -90,64 +264,64 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Without prop (use className)">
           <StickerSheet.Cell>
-            <IconPocNoSize name="delete" className="text-[16px]"/>
-            <IconPocNoSize name="delete" className="text-[16px]" isFilled />
-            <IconPocNoSize name="delete" className="text-[16px] ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight />
-            <IconPocNoSize name="delete" className="text-[16px]" isFilled shouldInheritWeight />
+            <IconPocBase name="delete" className="text-[16px]"/>
+            <IconPocBase name="delete" className="text-[16px]" isFilled />
+            <IconPocBase name="delete" className="text-[16px] ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight />
+            <IconPocBase name="delete" className="text-[16px]" isFilled shouldInheritWeight />
           </StickerSheet.Cell>
           <StickerSheet.Cell>
-            <IconPocNoSize name="delete" className="text-[20px]" />
-            <IconPocNoSize name="delete" className="text-[20px]" isFilled />
-            <IconPocNoSize name="delete" className="text-[20px] ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight />
-            <IconPocNoSize name="delete" className="text-[20px]" isFilled shouldInheritWeight/>
+            <IconPocBase name="delete" className="text-[20px]" />
+            <IconPocBase name="delete" className="text-[20px]" isFilled />
+            <IconPocBase name="delete" className="text-[20px] ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight />
+            <IconPocBase name="delete" className="text-[20px]" isFilled shouldInheritWeight/>
           </StickerSheet.Cell>
           <StickerSheet.Cell>
-            <IconPocNoSize name="delete" className="text-[24px]" />
-            <IconPocNoSize name="delete" className="text-[24px]" isFilled />
-            <IconPocNoSize name="delete" className="text-[24px] ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight/>
-            <IconPocNoSize name="delete" className="text-[24px]" isFilled shouldInheritWeight/>
+            <IconPocBase name="delete" className="text-[24px]" />
+            <IconPocBase name="delete" className="text-[24px]" isFilled />
+            <IconPocBase name="delete" className="text-[24px] ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight/>
+            <IconPocBase name="delete" className="text-[24px]" isFilled shouldInheritWeight/>
           </StickerSheet.Cell>
           <StickerSheet.Cell>
-            <IconPocNoSize name="delete" />
-            <IconPocNoSize name="delete" isFilled />
-            <IconPocNoSize name="delete" className="ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight/>
-            <IconPocNoSize name="delete" isFilled shouldInheritWeight/>
+            <IconPocBase name="delete" />
+            <IconPocBase name="delete" isFilled />
+            <IconPocBase name="delete" className="ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight/>
+            <IconPocBase name="delete" isFilled shouldInheritWeight/>
           </StickerSheet.Cell>
           <StickerSheet.Cell>
-            <Heading variant="heading-1" style={{ display: "inline"}}><IconPocNoSize name="delete" /> Heading 1</Heading>
-            <Heading variant="heading-1" style={{ display: "inline"}}><IconPocNoSize name="delete" className="ml-16 pl-16 border-l-1 border-gray-400" shouldInheritWeight /> Heading 1</Heading>
+            <Heading variant="heading-1" style={{ display: "inline"}}><IconPocBase name="delete" /> Heading 1</Heading>
+            <Heading variant="heading-1" style={{ display: "inline"}}><IconPocBase name="delete" className="ml-16 pl-16 border-l-1 border-gray-400" shouldInheritWeight /> Heading 1</Heading>
           </StickerSheet.Cell>
         </StickerSheet.Row>
       </StickerSheet.Body>
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="With prop (baked in optical sizing; sans inherit)">
           <StickerSheet.Cell>
-            <IconPoc name="delete" size="small" />
-            <IconPoc name="delete" size="small" isFilled />
-            <IconPoc name="delete" size="small" className="ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight />
-            <IconPoc name="delete" size="small" isFilled shouldInheritWeight/>
+            <IconPocWithSize name="delete" size="small" />
+            <IconPocWithSize name="delete" size="small" isFilled />
+            <IconPocWithSize name="delete" size="small" className="ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight />
+            <IconPocWithSize name="delete" size="small" isFilled shouldInheritWeight/>
           </StickerSheet.Cell>
           <StickerSheet.Cell>
-            <IconPoc name="delete" size="medium" />
-            <IconPoc name="delete" size="medium" isFilled />
-            <IconPoc name="delete" size="medium"  className="ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight/>
-            <IconPoc name="delete" size="medium" isFilled shouldInheritWeight/>
+            <IconPocWithSize name="delete" size="medium" />
+            <IconPocWithSize name="delete" size="medium" isFilled />
+            <IconPocWithSize name="delete" size="medium"  className="ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight/>
+            <IconPocWithSize name="delete" size="medium" isFilled shouldInheritWeight/>
           </StickerSheet.Cell>
           <StickerSheet.Cell>
-            <IconPoc name="delete" size="large" />
-            <IconPoc name="delete" size="large" isFilled />
-            <IconPoc name="delete" size="large"  className="ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight/>
-            <IconPoc name="delete" size="large" isFilled shouldInheritWeight/>
+            <IconPocWithSize name="delete" size="large" />
+            <IconPocWithSize name="delete" size="large" isFilled />
+            <IconPocWithSize name="delete" size="large"  className="ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight/>
+            <IconPocWithSize name="delete" size="large" isFilled shouldInheritWeight/>
           </StickerSheet.Cell>
           <StickerSheet.Cell>
-            <IconPoc name="delete" />
-            <IconPoc name="delete" isFilled />
-            <IconPoc name="delete" className="ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight />
-            <IconPoc name="delete" isFilled shouldInheritWeight/>
+            <IconPocWithSize name="delete" />
+            <IconPocWithSize name="delete" isFilled />
+            <IconPocWithSize name="delete" className="ml-8 pl-8 border-l-1 border-gray-400" shouldInheritWeight />
+            <IconPocWithSize name="delete" isFilled shouldInheritWeight/>
           </StickerSheet.Cell>
           <StickerSheet.Cell>
-            <Heading variant="heading-1" style={{ display: "inline"}}><IconPoc name="delete" /> Heading 1</Heading>
-            <Heading variant="heading-1" style={{ display: "inline"}}><IconPoc name="delete" className="ml-16 pl-16 border-l-1 border-gray-400" shouldInheritWeight /> Heading 1</Heading>
+            <Heading variant="heading-1" style={{ display: "inline"}}><IconPocWithSize name="delete" /> Heading 1</Heading>
+            <Heading variant="heading-1" style={{ display: "inline"}}><IconPocWithSize name="delete" className="ml-16 pl-16 border-l-1 border-gray-400" shouldInheritWeight /> Heading 1</Heading>
           </StickerSheet.Cell>
         </StickerSheet.Row>
       </StickerSheet.Body>
@@ -167,29 +341,29 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row key={rowTitle} rowTitle={rowTitle}>
             <Button
               label="I am the sun!"
-              icon={<IconPoc name="clear_day" {...iconProps} />}
+              icon={<IconPocWithSize name="clear_day" {...iconProps} />}
               />
             <Button
               label="I am the sun!"
-              icon={<IconPoc name="clear_day" {...iconProps} />}
+              icon={<IconPocWithSize name="clear_day" {...iconProps} />}
               size="small"
               />
             <Buttonv3>
-              <IconPoc name="clear_day" {...iconProps} /> I am the sun!
+              <IconPocWithSize name="clear_day" {...iconProps} /> I am the sun!
             </Buttonv3>
             <Buttonv3 size="small">
-              <IconPoc name="clear_day" {...iconProps} /> I am the sun!
+              <IconPocWithSize name="clear_day" {...iconProps} /> I am the sun!
             </Buttonv3>
             <button type="button">
-              <IconPoc name="clear_day" {...iconProps} /> I am the sun!
+              <IconPocWithSize name="clear_day" {...iconProps} /> I am the sun!
             </button>
             <IconButton
               label="I am the sun!"
-              icon={<IconPoc name="clear_day" {...iconProps} />}
+              icon={<IconPocWithSize name="clear_day" {...iconProps} />}
               primary
             />
             <Buttonv3>
-              <IconPoc name="clear_day" {...iconProps} />
+              <IconPocWithSize name="clear_day" {...iconProps} />
             </Buttonv3>
           </StickerSheet.Row>
         ))}
@@ -206,13 +380,13 @@ const StickerSheetTemplate: StickerSheetStory = {
         {buttons.map(({ rowTitle, iconProps }) => (
           <StickerSheet.Row key={rowTitle} rowTitle={rowTitle}>
             <Buttonv3 className="border-1 h-[48px] text-[16px] min-h-[unset]" style={{ fontWeight: 500 }}>
-              <IconPoc name="clear_day" {...iconProps} /> I am the sun!
+              <IconPocWithSize name="clear_day" {...iconProps} /> I am the sun!
             </Buttonv3>
             <Buttonv3 className="border-1 h-[40px] text-[16px] min-h-[unset]" style={{ fontWeight: 500 }}>
-              <IconPoc name="clear_day" {...iconProps} /> I am the sun!
+              <IconPocWithSize name="clear_day" {...iconProps} /> I am the sun!
             </Buttonv3>
             <Buttonv3 className="border-1 h-[32px] text-[12px] min-h-[unset]" style={{ fontWeight: 500 }}>
-              <IconPoc name="clear_day" {...iconProps} /> I am the sun!
+              <IconPocWithSize name="clear_day" {...iconProps} /> I am the sun!
             </Buttonv3>
           </StickerSheet.Row>
         ))}
@@ -227,14 +401,14 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row>
           <div>
-            <IconPoc name="clear_day" /> I am the sun!
+            <IconPocWithSize name="clear_day" /> I am the sun!
           </div>
           <Text variant="body">
-            <IconPoc name="clear_day" /> I am the sun!
+            <IconPocWithSize name="clear_day" /> I am the sun!
           </Text>
           <div style={{ maxWidth: "100px" }}>
             <Text variant="body">
-              <IconPoc name="clear_day" /> I should wrap around in my container!
+              <IconPocWithSize name="clear_day" /> I should wrap around in my container!
             </Text>
           </div>
         </StickerSheet.Row>
@@ -249,10 +423,10 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row>
           <div dir="ltr">
-            <IconPoc name="arrow_forward" />
+            <IconPocWithSize name="arrow_forward" />
           </div>
           <div dir="rtl">
-            <IconPoc name="arrow_forward" />
+            <IconPocWithSize name="arrow_forward" />
           </div>
         </StickerSheet.Row>
       </StickerSheet.Body>
@@ -260,30 +434,4 @@ const StickerSheetTemplate: StickerSheetStory = {
     </>
   )
 },
-}
-
-export const StickerSheetDefault: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
-}
-
-export const StickerSheetReversed: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
-  parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
-    ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
-  },
-  args: { isReversed: true },
-}
-
-export const StickerSheetRTL: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
-    ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
-  },
 }

@@ -58,19 +58,75 @@ import styles from "./IconPoc.module.scss"
  * - `name` or `children`?
  */
 
-export type IconPocNoSizeProps = {
+export type IconPocBaseProps = {
+  name: string
+  isFilled?: boolean
+} & HTMLAttributes<HTMLSpanElement>
+
+export const IconPocBase = ({
+  name,
+  isFilled,
+  className,
+  ...restProps
+}: IconPocBaseProps): JSX.Element => (
+  <span
+    className={classnames(
+      "material-symbols-outlined",
+      styles.iconPocBase,
+      isFilled && styles.filled,
+      className
+    )}
+    {...restProps}
+    >
+    {name}
+  </span>
+)
+
+export type IconPocWithSizeProps = {
+  name: string
+  isFilled?: boolean
+  shouldInheritWeight?: boolean
+  /** @default inherit */
+  size?: "small" | "medium" | "large" | "inherit"
+} & HTMLAttributes<HTMLSpanElement>
+
+export const IconPocWithSize = ({
+  name,
+  isFilled,
+  size = "inherit",
+  shouldInheritWeight,
+  className,
+  ...restProps
+}: IconPocWithSizeProps): JSX.Element => (
+  <span
+    className={classnames(
+      "material-symbols-outlined",
+      styles.iconPoc,
+      isFilled && styles.filled,
+      shouldInheritWeight && styles.inheritWeight,
+      size && styles[size],
+      className
+    )}
+    {...restProps}
+    >
+    {name}
+  </span>
+)
+
+
+export type IconPocInheritWeightProps = {
   name: string
   isFilled?: boolean
   shouldInheritWeight?: boolean
 } & HTMLAttributes<HTMLSpanElement>
 
-export const IconPocNoSize = ({
+export const IconPocInheritWeight = ({
   name,
   isFilled,
   shouldInheritWeight,
   className,
   ...restProps
-}: IconPocNoSizeProps): JSX.Element => (
+}: IconPocBaseProps): JSX.Element => (
   <span
     className={classnames(
       "material-symbols-outlined",
@@ -83,23 +139,4 @@ export const IconPocNoSize = ({
     >
     {name}
   </span>
-)
-
-export type IconPocProps = IconPocNoSizeProps & {
-  /** @default inherit */
-  size?: "small" | "medium" | "large" | "inherit"
-}
-
-export const IconPoc = ({
-  size = "inherit",
-  className,
-  ...restProps
-}: IconPocProps): JSX.Element => (
-  <IconPocNoSize
-    className={classnames(
-      styles[size],
-      className
-    )}
-    {...restProps}
-  />
 )

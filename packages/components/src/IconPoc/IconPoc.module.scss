@@ -1,3 +1,25 @@
+
+// -------
+// BASE
+// -------
+.iconPocBase {
+  // Must use vars otherwise whole attribute must be set again
+  font-variation-settings:
+    'FILL' var(--iconpoc-fill, 0),
+    'wght' var(--iconpoc-weight, 400),
+    'GRAD' var(--iconpoc-grade, 0),
+    'opsz' var(--iconpoc-optical-size, 24);
+}
+
+.iconPocWithSize {
+  // Must use vars otherwise whole attribute must be set again
+  font-variation-settings:
+    'FILL' var(--iconpoc-fill, 0),
+    'wght' var(--iconpoc-weight, 400),
+    'GRAD' var(--iconpoc-grade, 0),
+    'opsz' var(--iconpoc-optical-size, 24);
+}
+
 .iconPoc {
   font-weight: var(--iconpoc-font-weight, 400);
 
@@ -10,6 +32,7 @@
     'GRAD' var(--iconpoc-grade, 0),
     'opsz' var(--iconpoc-optical-size, 24);
 }
+
 
 .filled {
   --iconpoc-fill: 1
