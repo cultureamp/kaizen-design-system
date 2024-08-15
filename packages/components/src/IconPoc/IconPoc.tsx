@@ -62,21 +62,21 @@ import styles from "./IconPoc.module.scss"
  * - `name` or `children`?
  */
 
-export type IconPocBaseProps = {
+export type IconPocBasicProps = {
   name: string
   isFilled?: boolean
 } & HTMLAttributes<HTMLSpanElement>
 
-export const IconPocBase = ({
+export const IconPocBasic = ({
   name,
   isFilled,
   className,
   ...restProps
-}: IconPocBaseProps): JSX.Element => (
+}: IconPocBasicProps): JSX.Element => (
   <span
     className={classnames(
       "material-symbols-outlined",
-      styles.iconPocBase,
+      styles.iconPocBasic,
       isFilled && styles.filled,
       className
     )}

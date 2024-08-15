@@ -9,17 +9,18 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { IconPocWithSize, IconPocBase, IconPocWithSizeProps, IconPocBaseProps, IconPocInheritWeightProps, IconPocInheritWeight, IconPocWithSizeOptionalInheritWeightProps, IconPocWithSizeOptionalInheritWeight, IconPocAdjustedAlignment, IconPocAdjustedAlignmentProps } from "../index"
+import { IconPocWithSize, IconPocBasic, IconPocWithSizeProps, IconPocBasicProps, IconPocInheritWeightProps, IconPocInheritWeight, IconPocWithSizeOptionalInheritWeightProps, IconPocWithSizeOptionalInheritWeight, IconPocAdjustedAlignment, IconPocAdjustedAlignmentProps } from "../index"
 
 export default {
-  title: "Components/IconPoc",
+  title: "__POC/IconPoc",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
 } satisfies Meta
 
-export const IconPocBaseStory: StickerSheetStory = {
+export const StoryIconPocBasic: StickerSheetStory = {
+  name: "Basic",
   render: ({ isReversed }) => {
     const names = [
       "star",
@@ -32,11 +33,11 @@ export const IconPocBaseStory: StickerSheetStory = {
       { className: "text-[16px]" },
       { className: "text-[20px]" },
       { className: "text-[24px]" },
-    ] satisfies Array<Partial<IconPocBaseProps>>
+    ] satisfies Array<Partial<IconPocBasicProps>>
 
     const buttons = [
       { className: "text-[20px]" }
-    ] satisfies Array<Partial<IconPocBaseProps>>
+    ] satisfies Array<Partial<IconPocBasicProps>>
 
     return (
       <>
@@ -59,9 +60,9 @@ export const IconPocBaseStory: StickerSheetStory = {
       <StickerSheet.Body>
         {names.map(name => (
           <StickerSheet.Row key={name} rowTitle={name}>
-            <IconPocBase name={name} />
-            <IconPocBase name={name} isFilled />
-            <IconPocBase name={name} className="text-red-500" />
+            <IconPocBasic name={name} />
+            <IconPocBasic name={name} isFilled />
+            <IconPocBasic name={name} className="text-red-500" />
         </StickerSheet.Row>
         ))}
       </StickerSheet.Body>
@@ -78,12 +79,12 @@ export const IconPocBaseStory: StickerSheetStory = {
         <StickerSheet.Row>
           {sizes.map((props, index) => (
             <StickerSheet.Cell key={index}>
-              <IconPocBase name="delete" {...props}/>
-              <IconPocBase name="delete" {...props} isFilled />
+              <IconPocBasic name="delete" {...props}/>
+              <IconPocBasic name="delete" {...props} isFilled />
             </StickerSheet.Cell>
           ))}
           <StickerSheet.Cell>
-            <Heading variant="heading-1"><IconPocBase name="delete" /> Heading 1</Heading>
+            <Heading variant="heading-1"><IconPocBasic name="delete" /> Heading 1</Heading>
           </StickerSheet.Cell>
         </StickerSheet.Row>
       </StickerSheet.Body>
@@ -102,29 +103,29 @@ export const IconPocBaseStory: StickerSheetStory = {
           <StickerSheet.Row key={index}>
             <Button
               label="I am the sun!"
-              icon={<IconPocBase name="clear_day" {...iconProps} />}
+              icon={<IconPocBasic name="clear_day" {...iconProps} />}
               />
             <Button
               label="I am the sun!"
-              icon={<IconPocBase name="clear_day" {...iconProps} />}
+              icon={<IconPocBasic name="clear_day" {...iconProps} />}
               size="small"
               />
             <Buttonv3>
-              <IconPocBase name="clear_day" {...iconProps} /> I am the sun!
+              <IconPocBasic name="clear_day" {...iconProps} /> I am the sun!
             </Buttonv3>
             <Buttonv3 size="small">
-              <IconPocBase name="clear_day" {...iconProps} /> I am the sun!
+              <IconPocBasic name="clear_day" {...iconProps} /> I am the sun!
             </Buttonv3>
             <button type="button">
-              <IconPocBase name="clear_day" {...iconProps} /> I am the sun!
+              <IconPocBasic name="clear_day" {...iconProps} /> I am the sun!
             </button>
             <IconButton
               label="I am the sun!"
-              icon={<IconPocBase name="clear_day" {...iconProps} />}
+              icon={<IconPocBasic name="clear_day" {...iconProps} />}
               primary
             />
             <Buttonv3>
-              <IconPocBase name="clear_day" {...iconProps} />
+              <IconPocBasic name="clear_day" {...iconProps} />
             </Buttonv3>
           </StickerSheet.Row>
         ))}
@@ -139,13 +140,13 @@ export const IconPocBaseStory: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row>
           <Buttonv3 className="border-1 h-[48px] text-[16px] min-h-[unset]" style={{ fontWeight: 500 }}>
-            <IconPocBase name="clear_day" className="text-[24px]" /> I am the sun!
+            <IconPocBasic name="clear_day" className="text-[24px]" /> I am the sun!
           </Buttonv3>
           <Buttonv3 className="border-1 h-[40px] text-[16px] min-h-[unset]" style={{ fontWeight: 500 }}>
-            <IconPocBase name="clear_day" className="text-[20px]" /> I am the sun!
+            <IconPocBasic name="clear_day" className="text-[20px]" /> I am the sun!
           </Buttonv3>
           <Buttonv3 className="border-1 h-[32px] text-[12px] min-h-[unset]" style={{ fontWeight: 500 }}>
-            <IconPocBase name="clear_day" className="text-[16px]" /> I am the sun!
+            <IconPocBasic name="clear_day" className="text-[16px]" /> I am the sun!
           </Buttonv3>
         </StickerSheet.Row>
       </StickerSheet.Body>
@@ -159,14 +160,14 @@ export const IconPocBaseStory: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row>
           <div>
-            <IconPocBase name="clear_day" /> I am the sun!
+            <IconPocBasic name="clear_day" /> I am the sun!
           </div>
           <Text variant="body">
-            <IconPocBase name="clear_day" /> I am the sun!
+            <IconPocBasic name="clear_day" /> I am the sun!
           </Text>
           <div style={{ maxWidth: "100px" }}>
             <Text variant="body">
-              <IconPocBase name="clear_day" /> I should wrap around in my container!
+              <IconPocBasic name="clear_day" /> I should wrap around in my container!
             </Text>
           </div>
         </StickerSheet.Row>
@@ -181,10 +182,10 @@ export const IconPocBaseStory: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row>
           <div dir="ltr">
-            <IconPocBase name="arrow_forward" />
+            <IconPocBasic name="arrow_forward" />
           </div>
           <div dir="rtl">
-            <IconPocBase name="arrow_forward" />
+            <IconPocBasic name="arrow_forward" />
           </div>
         </StickerSheet.Row>
       </StickerSheet.Body>
@@ -194,7 +195,8 @@ export const IconPocBaseStory: StickerSheetStory = {
 },
 }
 
-export const IconPocWithSizeStory: StickerSheetStory = {
+export const StoryIconPocWithSize: StickerSheetStory = {
+  name: "With size prop",
   render: ({ isReversed }) => {
     const names = [
       "star",
@@ -408,7 +410,8 @@ export const IconPocWithSizeStory: StickerSheetStory = {
 },
 }
 
-export const IconPocInheritWeightStory: StickerSheetStory = {
+export const StoryIconPocInheritWeight: StickerSheetStory = {
+  name: "Inherit weight",
   render: ({ isReversed }) => {
     const names = [
       "star",
@@ -587,7 +590,8 @@ export const IconPocInheritWeightStory: StickerSheetStory = {
 },
 }
 
-export const IconPocAdjustedAlignmentStory: StickerSheetStory = {
+export const StoryIconPocAdjustedAlignment: StickerSheetStory = {
+  name: "Adjusted alignment",
   render: ({ isReversed }) => {
     const names = [
       "star",
@@ -806,7 +810,7 @@ const FutureButtonSmall = ({ children }: { children: React.ReactNode }) => (
   <FutureButton className="h-[32px] text-[12px]">{children}</FutureButton>
 )
 
-export const ExampleUsage: StickerSheetStory = {
+export const APIComparison: StickerSheetStory = {
   render: () => (
     <>
     <Highlight>
@@ -833,10 +837,10 @@ export const ExampleUsage: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Base">
           <FutureButtonLarge>
-            Onwards! <IconPocBase name="arrow_forward" className="[--iconpoc-optical-size:40]" />
+            Onwards! <IconPocBasic name="arrow_forward" className="[--iconpoc-optical-size:40]" />
           </FutureButtonLarge>
           <Highlight>
-            {`<IconPocBase name="arrow_forward" className="[--iconpoc-optical-size:40]" />`}
+            {`<IconPocBasic name="arrow_forward" className="[--iconpoc-optical-size:40]" />`}
           </Highlight>
         </StickerSheet.Row>
 
@@ -877,10 +881,10 @@ export const ExampleUsage: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Base">
           <FutureButtonMedium>
-            Onwards! <IconPocBase name="arrow_forward" className="text-[20px]" />
+            Onwards! <IconPocBasic name="arrow_forward" className="text-[20px]" />
           </FutureButtonMedium>
           <Highlight>
-            {`<IconPocBase name="arrow_forward" className="text-[20px]" />`}
+            {`<IconPocBasic name="arrow_forward" className="text-[20px]" />`}
           </Highlight>
         </StickerSheet.Row>
 
@@ -921,10 +925,10 @@ export const ExampleUsage: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Base">
           <FutureButtonSmall>
-            Onwards! <IconPocBase name="arrow_forward" className="text-[16px] [--iconpoc-optical-size:20]" />
+            Onwards! <IconPocBasic name="arrow_forward" className="text-[16px] [--iconpoc-optical-size:20]" />
           </FutureButtonSmall>
           <Highlight>
-            {`<IconPocBase name="arrow_forward" className="text-[16px] [--iconpoc-optical-size:20]" />`}
+            {`<IconPocBasic name="arrow_forward" className="text-[16px] [--iconpoc-optical-size:20]" />`}
           </Highlight>
         </StickerSheet.Row>
 
@@ -966,10 +970,10 @@ export const ExampleUsage: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Base">
           <Heading variant="heading-1">
-            Onwards! <IconPocBase name="arrow_forward" className="[--iconpoc-font-weight:'inherit'] [--iconpoc-optical-size:48]" style={{ fontSize: "inherit" }} />
+            Onwards! <IconPocBasic name="arrow_forward" className="[--iconpoc-font-weight:'inherit'] [--iconpoc-optical-size:48]" style={{ fontSize: "inherit" }} />
           </Heading>
           <Highlight>
-            {`<IconPocBase name="arrow_forward" className="[--iconpoc-font-weight:'inherit'] [--iconpoc-optical-size:48]" style={{ fontSize: "inherit" }} />`}
+            {`<IconPocBasic name="arrow_forward" className="[--iconpoc-font-weight:'inherit'] [--iconpoc-optical-size:48]" style={{ fontSize: "inherit" }} />`}
           </Highlight>
         </StickerSheet.Row>
 
@@ -1000,7 +1004,7 @@ export const ExampleUsage: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Presentational">
           <button type="button">
-            Onwards!<IconPocBase name="arrow_forward" aria-hidden={true} />
+            Onwards!<IconPocBasic name="arrow_forward" aria-hidden={true} />
           </button>
           <Highlight>
 {`<button type="button">
@@ -1010,11 +1014,11 @@ export const ExampleUsage: StickerSheetStory = {
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Meaningful">
           <button type="button">
-            <IconPocBase name="arrow_forward" aria-label="Onwards!" />
+            <IconPocBasic name="arrow_forward" aria-label="Onwards!" />
           </button>
           <Highlight>
 {`<button type="button">
-  <IconPocBase name="arrow_forward" aria-label="Onwards!" />
+  <IconPocBasic name="arrow_forward" aria-label="Onwards!" />
 </button>`}
           </Highlight>
         </StickerSheet.Row>

@@ -1,14 +1,14 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { IconPocBase } from "../index"
+import { IconPocBasic } from "../index"
 
 const meta = {
-  title: "Components/IconPoc",
-  component: IconPocBase,
+  title: "__POC/IconPoc",
+  component: IconPocBasic,
   args: {
     name: "star"
   }
-} satisfies Meta<typeof IconPocBase>
+} satisfies Meta<typeof IconPocBasic>
 
 export default meta
 
