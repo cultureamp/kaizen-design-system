@@ -138,32 +138,3 @@ export const IconPocInheritWeight = ({
     {name}
   </span>
 )
-
-export type IconPocWithSizeOptionalInheritWeightProps = {
-  name: string
-  isFilled?: boolean
-  /** @default inherit */
-  size?: "small" | "medium" | "large" | "inherit"
-  shouldInheritWeight?: boolean
-} & HTMLAttributes<HTMLSpanElement>
-
-export const IconPocWithSizeOptionalInherit = ({
-  name,
-  isFilled,
-  size = "inherit",
-  className,
-  ...restProps
-}: IconPocWithSizeOptionalInheritWeightProps): JSX.Element => (
-  <span
-    className={classnames(
-      "material-symbols-outlined",
-      styles.iconPoc,
-      isFilled && styles.filled,
-      size && styles[size],
-      className
-    )}
-    {...restProps}
-    >
-    {name}
-  </span>
-)
