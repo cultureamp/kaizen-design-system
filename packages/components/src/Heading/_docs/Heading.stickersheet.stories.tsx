@@ -26,11 +26,6 @@ const StickerSheetTemplate: StickerSheetStory = {
                 Let&apos;s create a better world of work
               </Heading>
             </StickerSheet.Row>
-            <StickerSheet.Row rowTitle="Composable header title ">
-              <Heading variant="composable-header-title" color={fontColour}>
-                Use heading-1 instead
-              </Heading>
-            </StickerSheet.Row>
             <StickerSheet.Row rowTitle="Heading 1">
               <div>
                 <Heading variant="heading-1" color={fontColour}>
