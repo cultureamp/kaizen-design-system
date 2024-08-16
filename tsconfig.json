@@ -12,16 +12,7 @@
     "strict": true,
     "allowJs": false,
     "noEmit": true,
-    "paths": {
-      "~storybook/*": ["storybook/*"],
-      "~types/*": ["packages/components/src/types/*"],
-      "~utils/*": ["packages/components/src/utils/*"],
-      "~components/*": ["packages/components/src/*"],
-      "~design-tokens/*": ["packages/design-tokens/src/*"],
-      "~tailwind/*": ["packages/tailwind/src/*"]
-    },
     "types": ["@testing-library/jest-dom"]
   },
-  "files": ["./types.d.ts"],
   "exclude": ["**/node_modules"]
 }
