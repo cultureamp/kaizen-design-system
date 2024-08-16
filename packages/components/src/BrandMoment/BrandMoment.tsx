@@ -1,6 +1,6 @@
 import React, { ReactNode, ReactElement, HTMLAttributes } from "react"
 import classnames from "classnames"
-import { assetUrl } from "@kaizen/hosted-assets"
+import { assetUrl } from "~utils/hostedAssets"
 import { Heading } from "~components/Heading"
 import { SceneProps } from "~components/Illustration"
 import { Text } from "~components/Text"

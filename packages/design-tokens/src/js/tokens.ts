@@ -112,7 +112,6 @@ export const tokens: TokenStructure = {
       600: "#524e56",
     },
     white: "#ffffff",
-    black: "#000000",
   },
   dataViz: {
     favorable: "#7dd5bd",
@@ -157,7 +156,6 @@ export const tokens: TokenStructure = {
     8: ".5rem",
     12: ".75rem",
     16: "1rem",
-    20: "1.25rem",
     24: "1.5rem",
     32: "2rem",
     40: "2.5rem",

@@ -1,6 +1,7 @@
 node_modules
 yarn-*.log
 /storybook/public/
+/.storybook/public/
 .DS_Store
 dist
 .cache

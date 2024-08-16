@@ -47,8 +47,7 @@ ${typography.toString()}
       const newColorsWithHeartNames = newColors.filter(
         n =>
           heartColorNamePattern.test(n.prop) ||
-          n.prop.startsWith("$color-white") ||
-          n.prop.startsWith("$color-black")
+          n.prop.startsWith("$color-white")
       )
       expect(newColors.length).not.toBe(0)
       expect(newColors.length).toBe(newColorsWithHeartNames.length)

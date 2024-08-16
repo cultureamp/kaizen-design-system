@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, SVGAttributes } from "react"
-import { assetUrl } from "@kaizen/hosted-assets"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { assetUrl } from "~utils/hostedAssets"
 import { BrandCollectiveIntelligence } from "./BrandCollectiveIntelligence"
 import styles from "./Brand.module.scss"
 

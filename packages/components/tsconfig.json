@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~storybook/*": ["../../storybook/*"],
+      "~storybook/*": ["../../.storybook/*"],
       "~tests": ["./__tests__/index"],
       "~tests/*": ["./__tests__/*"],
       "~types/*": ["./src/types/*"],

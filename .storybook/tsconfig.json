@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "paths": {
+      "~storybook/*": ["./storybook/*"],
+      "~types/*": ["../packages/components/src/types/*"],
+      "~utils/*": ["../packages/components/src/utils/*"],
+      "~components/*": ["../packages/components/src/*"],
+      "~design-tokens/*": ["../packages/design-tokens/src/*"]
+    }
+  },
+  "files": ["./types.d.ts"]
+}

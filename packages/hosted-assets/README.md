@@ -26,7 +26,7 @@ asset-url("some/blob.png") // -> "https://<origin>/some/blob.png"
 3. Import the `@kaizen/hosted-assets` package and you can access the image through the `assetUrl`/`asset-url` function:
 
 ```js
-import { assetUrl } from "@kaizen/hosted-assets";
+import { assetUrl } from "~utils/hostedAssets";
 
 <SomeComponent
   image={assetUrl("illustrations/plant-based-ham-substitute.png")}

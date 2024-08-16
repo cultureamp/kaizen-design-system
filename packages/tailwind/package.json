@@ -26,6 +26,9 @@
   "dependencies": {
     "@kaizen/design-tokens": "workspace:*"
   },
+  "devDependencies": {
+    "@kaizen/components": "workspace:*"
+  },
   "peerDependencies": {
     "tailwindcss": ">=3.4.7"
   }

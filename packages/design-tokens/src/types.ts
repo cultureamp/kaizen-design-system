@@ -141,7 +141,6 @@ export type TokenStructure = {
       "600": Hex
     }
     white: Hex
-    black: Hex
   }
   dataViz: {
     favorable: Hex
@@ -184,7 +183,6 @@ export type TokenStructure = {
     8: string
     12: string
     16: string
-    20: string
     24: string
     32: string
     40: string

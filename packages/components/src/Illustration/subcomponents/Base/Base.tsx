@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { assetUrl } from "@kaizen/hosted-assets"
+import { assetUrl } from "~utils/hostedAssets"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Base.module.scss"
 

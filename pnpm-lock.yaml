@@ -478,6 +478,9 @@ importers:
       concat-cli:
         specifier: ^4.0.0
         version: 4.0.0
+      postcss-cli:
+        specifier: ^11.0.0
+        version: 11.0.0(jiti@1.21.6)(postcss@8.4.41)(tsx@4.17.0)
       query-string:
         specifier: ^9.1.0
         version: 9.1.0
@@ -633,6 +636,10 @@ importers:
       tailwindcss:
         specifier: '>=3.4.7'
         version: 3.4.7(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4))
+    devDependencies:
+      '@kaizen/components':
+        specifier: workspace:*
+        version: link:../components
 
 packages:
 

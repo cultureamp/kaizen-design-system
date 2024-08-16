@@ -22,6 +22,10 @@
     "types": ["@testing-library/jest-dom"]
   },
   "files": ["./types.d.ts"],
-  "include": ["storybook/**/*", "docs/**/*.tsx"],
+  // "include": [
+  //   "storybook/**/*",
+  //   "docs/**/*.tsx",
+  //   "packages/tailwind/docs/working-with-tailwind.stories.tsx"
+  // ],
   "exclude": ["**/node_modules"]
 }
