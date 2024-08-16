@@ -26,9 +26,9 @@ const StickerSheetTemplate: StickerSheetStory = {
                 Let&apos;s create a better world of work
               </Heading>
             </StickerSheet.Row>
-            <StickerSheet.Row rowTitle="Composable header title">
+            <StickerSheet.Row rowTitle="Composable header title ">
               <Heading variant="composable-header-title" color={fontColour}>
-                Use me in the composable header!
+                Use heading-1 instead
               </Heading>
             </StickerSheet.Row>
             <StickerSheet.Row rowTitle="Heading 1">

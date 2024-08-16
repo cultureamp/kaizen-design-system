@@ -5,6 +5,7 @@ import styles from "./Heading.module.scss"
 
 const VARIANTS_24PX_OR_GREATER = ["display-0", "heading-1", "heading-2"]
 
+/** `composable-header-title` now shares the same styles as `heading-1`. This will be removed from v3 when Heading is migrated to a versioned format */
 export type HeadingVariants =
   | "display-0"
   | "composable-header-title"
@@ -44,7 +45,8 @@ export type HeadingProps = {
    */
   tag?: AllowedHeadingTags
   /**
-   * Allowed heading variants
+   * Allowed heading variants:
+   * * `composable-header-title` can safely be replaced by `heading-1` as it now shares the same styles.
    */
   variant: HeadingVariants
   color?: AllowedHeadingColors

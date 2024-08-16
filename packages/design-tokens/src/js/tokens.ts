@@ -226,11 +226,7 @@ export const tokens: TokenStructure = {
       letterSpacing: "0em",
     },
     heading1: {
-      // fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
-      // fontWeight: 700,
-      // fontSize: "2.125rem",
-      // lineHeight: "2.625rem",
-      fontFamily: '"Tiempos Headline", Georgia, serif', // This is a change from inter to tiempos?
+      fontFamily: '"Tiempos Headline", Georgia, serif',
       fontWeight: 500,
       fontSize: "2.25rem",
       lineHeight: "3rem",
