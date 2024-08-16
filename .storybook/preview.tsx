@@ -1,3 +1,4 @@
+import "@kaizen/components/dist/styles.css"
 import "./tailwind.css"
 
 import React, { useEffect } from "react"
