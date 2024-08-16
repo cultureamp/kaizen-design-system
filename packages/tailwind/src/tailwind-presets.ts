@@ -1,5 +1,5 @@
 import { CustomThemeConfig } from "tailwindcss/types/config"
-import { defaultTheme } from "@kaizen/design-tokens/"
+import { defaultTheme } from "@kaizen/design-tokens"
 import { kzSpacing } from "./kz-spacing"
 
 export type KaizenTailwindTheme = Partial<CustomThemeConfig>
