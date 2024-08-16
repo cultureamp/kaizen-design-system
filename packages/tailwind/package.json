@@ -3,7 +3,7 @@
   "version": "1.2.13",
   "description": "Kaizen Tailwind presets",
   "scripts": {
-    "build": "pnpm clean && tsc --project tsconfig.dist.json",
+    "build": "pnpm package-bundler build",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'",
     "lint:ts": "tsc --noEmit"
   },
@@ -19,7 +19,9 @@
     "src",
     "dist"
   ],
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
   "author": "",
   "private": false,
   "license": "MIT",
@@ -27,7 +29,10 @@
     "@kaizen/design-tokens": "workspace:*"
   },
   "devDependencies": {
-    "@kaizen/components": "workspace:*"
+    "@kaizen/components": "workspace:*",
+    "@kaizen/package-bundler": "workspace:*",
+    "rollup": "^4.20.0",
+    "tslib": "^2.6.3"
   },
   "peerDependencies": {
     "tailwindcss": ">=3.4.7"
