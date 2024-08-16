@@ -17,7 +17,9 @@
     "js",
     "dist"
   ],
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
   "private": false,
   "license": "MIT",
   "sideEffects": false,
@@ -27,12 +29,13 @@
     "test:ci": "pnpm test -- --ci",
     "build": "pnpm clean && pnpm build:json && pnpm build:less && pnpm build:sass && pnpm build:ts",
     "build:json": "tsx ./bin/buildCssVarTokens.ts",
-    "build:ts": "tsc --project tsconfig.dist.json",
+    "build:ts": "pnpm package-bundler build",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
     "clean": "rimraf dist"
   },
   "devDependencies": {
+    "@kaizen/package-bundler": "workspace:*",
     "@types/lodash.flatmap": "^4.5.9",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
@@ -40,6 +43,8 @@
     "postcss": "^8.4.41",
     "prettier": "*",
     "react-map-interaction": "^2.1.0",
+    "rollup": "^4.20.0",
+    "tslib": "^2.6.3",
     "tsx": "^4.17.0"
   },
   "dependencies": {

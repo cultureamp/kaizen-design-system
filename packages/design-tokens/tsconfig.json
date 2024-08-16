@@ -1,22 +1,4 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "module": "commonjs",
-    "jsx": "react",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "strict": true,
-    "allowJs": false,
-    "noEmit": true,
-    "paths": {
-      "~storybook/*": ["../../storybook/*"],
-      "~types/*": ["../components/src/types/*"],
-      "~components/*": ["../components/src/*"]
-    }
-  },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "extends": "@kaizen/package-bundler/tsconfig.base.json",
+  "include": ["src/**/*", "__tests__/**/*"]
 }
