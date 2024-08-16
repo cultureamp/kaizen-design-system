@@ -85,13 +85,13 @@
       "letterSpacing-id": "--typography-display-0-letter-spacing"
     },
     "heading1": {
-      "fontFamily": "var(--typography-heading-1-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+      "fontFamily": "var(--typography-heading-1-font-family, \"Tiempos Headline\", Georgia, serif)",
       "fontFamily-id": "--typography-heading-1-font-family",
-      "fontWeight": "var(--typography-heading-1-font-weight, 700)",
+      "fontWeight": "var(--typography-heading-1-font-weight, 500)",
       "fontWeight-id": "--typography-heading-1-font-weight",
-      "fontSize": "var(--typography-heading-1-font-size, 2.125rem)",
+      "fontSize": "var(--typography-heading-1-font-size, 2.25rem)",
       "fontSize-id": "--typography-heading-1-font-size",
-      "lineHeight": "var(--typography-heading-1-line-height, 2.625rem)",
+      "lineHeight": "var(--typography-heading-1-line-height, 3rem)",
       "lineHeight-id": "--typography-heading-1-line-height",
       "letterSpacing": "var(--typography-heading-1-letter-spacing, normal)",
       "letterSpacing-id": "--typography-heading-1-letter-spacing"
@@ -99,11 +99,11 @@
     "heading2": {
       "fontFamily": "var(--typography-heading-2-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-heading-2-font-family",
-      "fontWeight": "var(--typography-heading-2-font-weight, 700)",
+      "fontWeight": "var(--typography-heading-2-font-weight, 600)",
       "fontWeight-id": "--typography-heading-2-font-weight",
       "fontSize": "var(--typography-heading-2-font-size, 1.75rem)",
       "fontSize-id": "--typography-heading-2-font-size",
-      "lineHeight": "var(--typography-heading-2-line-height, 2.25rem)",
+      "lineHeight": "var(--typography-heading-2-line-height, 2.5rem)",
       "lineHeight-id": "--typography-heading-2-line-height",
       "letterSpacing": "var(--typography-heading-2-letter-spacing, normal)",
       "letterSpacing-id": "--typography-heading-2-letter-spacing"
@@ -111,11 +111,11 @@
     "heading3": {
       "fontFamily": "var(--typography-heading-3-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-heading-3-font-family",
-      "fontWeight": "var(--typography-heading-3-font-weight, 700)",
+      "fontWeight": "var(--typography-heading-3-font-weight, 600)",
       "fontWeight-id": "--typography-heading-3-font-weight",
-      "fontSize": "var(--typography-heading-3-font-size, 1.375rem)",
+      "fontSize": "var(--typography-heading-3-font-size, 1.25rem)",
       "fontSize-id": "--typography-heading-3-font-size",
-      "lineHeight": "var(--typography-heading-3-line-height, 1.875rem)",
+      "lineHeight": "var(--typography-heading-3-line-height, 2rem)",
       "lineHeight-id": "--typography-heading-3-line-height",
       "letterSpacing": "var(--typography-heading-3-letter-spacing, normal)",
       "letterSpacing-id": "--typography-heading-3-letter-spacing"
@@ -125,7 +125,7 @@
       "fontFamily-id": "--typography-heading-4-font-family",
       "fontWeight": "var(--typography-heading-4-font-weight, 600)",
       "fontWeight-id": "--typography-heading-4-font-weight",
-      "fontSize": "var(--typography-heading-4-font-size, 1.125rem)",
+      "fontSize": "var(--typography-heading-4-font-size, 1rem)",
       "fontSize-id": "--typography-heading-4-font-size",
       "lineHeight": "var(--typography-heading-4-line-height, 1.5rem)",
       "lineHeight-id": "--typography-heading-4-line-height",
@@ -137,9 +137,9 @@
       "fontFamily-id": "--typography-heading-5-font-family",
       "fontWeight": "var(--typography-heading-5-font-weight, 600)",
       "fontWeight-id": "--typography-heading-5-font-weight",
-      "fontSize": "var(--typography-heading-5-font-size, 1rem)",
+      "fontSize": "var(--typography-heading-5-font-size, 0.875rem)",
       "fontSize-id": "--typography-heading-5-font-size",
-      "lineHeight": "var(--typography-heading-5-line-height, 1.5rem)",
+      "lineHeight": "var(--typography-heading-5-line-height, 1.25rem)",
       "lineHeight-id": "--typography-heading-5-line-height",
       "letterSpacing": "var(--typography-heading-5-letter-spacing, normal)",
       "letterSpacing-id": "--typography-heading-5-letter-spacing"
@@ -147,11 +147,11 @@
     "heading6": {
       "fontFamily": "var(--typography-heading-6-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-heading-6-font-family",
-      "fontWeight": "var(--typography-heading-6-font-weight, 700)",
+      "fontWeight": "var(--typography-heading-6-font-weight, 600)",
       "fontWeight-id": "--typography-heading-6-font-weight",
-      "fontSize": "var(--typography-heading-6-font-size, 0.875rem)",
+      "fontSize": "var(--typography-heading-6-font-size, 0.75rem)",
       "fontSize-id": "--typography-heading-6-font-size",
-      "lineHeight": "var(--typography-heading-6-line-height, 1.5rem)",
+      "lineHeight": "var(--typography-heading-6-line-height, 1rem)",
       "lineHeight-id": "--typography-heading-6-line-height",
       "letterSpacing": "var(--typography-heading-6-letter-spacing, normal)",
       "letterSpacing-id": "--typography-heading-6-letter-spacing"

@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.5.3
+
+### Patch Changes
+
+- [#4923](https://github.com/cultureamp/kaizen-design-system/pull/4923) [`5d6e0e71a2f675af0774b761d1c6a5033b2b4aa8`](https://github.com/cultureamp/kaizen-design-system/commit/5d6e0e71a2f675af0774b761d1c6a5033b2b4aa8) - Add new spacing and color black token to design tokens
+
 ## 10.5.2
 
 ### Patch Changes

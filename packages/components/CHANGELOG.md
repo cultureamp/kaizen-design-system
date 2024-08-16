@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.58.2
+
+### Patch Changes
+
+- [#4925](https://github.com/cultureamp/kaizen-design-system/pull/4925) [`c1d4c2bb9b2bb976c4ad8f5d02aad9c277684620`](https://github.com/cultureamp/kaizen-design-system/commit/c1d4c2bb9b2bb976c4ad8f5d02aad9c277684620) - Fix GuidanceBlock codemod
+
 ## 1.58.1
 
 ### Patch Changes
