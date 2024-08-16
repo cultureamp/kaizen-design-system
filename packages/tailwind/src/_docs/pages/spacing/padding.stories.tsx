@@ -1,13 +1,13 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
-import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
-import { utilityDescription } from "../../helpers/utilityDescription"
+import { TailwindStoryTemplate } from "~tailwind/_docs/utils/TailwindStoryTemplate"
+import { utilityDescription } from "~tailwind/_docs/utils/utilityDescription"
+import { kaizenTailwindTheme } from "~tailwind/tailwind-presets"
 
-const prefix = "border-"
+const prefix = "p-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme.borderWidth || []).map(
+  Object.entries(kaizenTailwindTheme.spacing || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -15,32 +15,32 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Guides/Tailwind/Utility Class References/Borders/Border Width",
+  title: "Guides/Tailwind/Utility Class References/Spacing/Padding",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },
     docsLayout: "fullPage",
     docs: {
       description: {
-        component: utilityDescription(prefix, classEntries[1].utilityClassName),
+        component: utilityDescription(prefix, classEntries[0].utilityClassName),
       },
     },
   },
 } satisfies Meta
 
-export const BorderWidth: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const Padding: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <TailwindStoryTemplate
-    compiledCssPropertyName="border-width"
+    compiledCssPropertyName="padding"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <div
+      <p
         className={classnames(
-          "w-[100px] h-[100px] border rounded",
-          !utilityClass.includes("-DEFAULT") && utilityClass
+          "border border-purple-100 w-min rounded bg-blue-100",
+          utilityClass
         )}
-      />
+      >
+        Padding
+      </p>
     )}
     isReversed={isReversed}
   />

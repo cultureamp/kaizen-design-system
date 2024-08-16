@@ -1,13 +1,13 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
-import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
-import { utilityDescription } from "../../helpers/utilityDescription"
+import { TailwindStoryTemplate } from "~tailwind/_docs/utils/TailwindStoryTemplate"
+import { utilityDescription } from "~tailwind/_docs/utils/utilityDescription"
+import { kaizenTailwindTheme } from "~tailwind/tailwind-presets"
 
-const prefix = "leading-"
+const prefix = "m-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme.lineHeight || []).map(
+  Object.entries(kaizenTailwindTheme.spacing || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -15,7 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Guides/Tailwind/Utility Class References/Typography/Line Height",
+  title: "Guides/Tailwind/Utility Class References/Spacing/Margin",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },
@@ -28,16 +28,21 @@ export default {
   },
 } satisfies Meta
 
-export const LineHeight: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const Margin: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <TailwindStoryTemplate
-    compiledCssPropertyName="line-height"
+    compiledCssPropertyName="margin"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <p className={classnames("w-0", utilityClass)}>
-        Tutant Meenage Neetle Teetles
-      </p>
+      <div className="w-min border rounded">
+        <p
+          className={classnames(
+            "p-4 border border-dashed w-min rounded bg-blue-100",
+            utilityClass
+          )}
+        >
+          Margin
+        </p>
+      </div>
     )}
     isReversed={isReversed}
   />

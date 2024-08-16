@@ -8,7 +8,7 @@ import {
   Heading,
 } from "@kaizen/components"
 import { Button } from "@kaizen/components/v2/actions"
-import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
+import { TailwindStoryTemplate } from "../utils/TailwindStoryTemplate"
 
 export default {
   title: "Guides/Tailwind/Working with Tailwind",

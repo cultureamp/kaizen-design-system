@@ -1,13 +1,13 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
-import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
-import { utilityDescription } from "../../helpers/utilityDescription"
+import { TailwindStoryTemplate } from "~tailwind/_docs/utils/TailwindStoryTemplate"
+import { utilityDescription } from "~tailwind/_docs/utils/utilityDescription"
+import { kaizenTailwindTheme } from "~tailwind/tailwind-presets"
 
-const prefix = "p-"
+const prefix = "shadow-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme.spacing || []).map(
+  Object.entries(kaizenTailwindTheme.boxShadow || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -15,7 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Guides/Tailwind/Utility Class References/Spacing/Padding",
+  title: "Guides/Tailwind/Utility Class References/Effects/Box Shadow",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },
@@ -28,19 +28,12 @@ export default {
   },
 } satisfies Meta
 
-export const Padding: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+export const BoxShadow: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <TailwindStoryTemplate
-    compiledCssPropertyName="padding"
+    compiledCssPropertyName="box-shadow"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <p
-        className={classnames(
-          "border border-purple-100 w-min rounded bg-blue-100",
-          utilityClass
-        )}
-      >
-        Padding
-      </p>
+      <div className={classnames("w-[100px] h-[100px]", utilityClass)} />
     )}
     isReversed={isReversed}
   />

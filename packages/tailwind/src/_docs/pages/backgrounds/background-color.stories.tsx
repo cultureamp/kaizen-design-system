@@ -1,10 +1,10 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
-import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
-import { flattenEntries } from "../../helpers/flattenEntries"
-import { utilityDescription } from "../../helpers/utilityDescription"
+import { TailwindStoryTemplate } from "~tailwind/_docs/utils/TailwindStoryTemplate"
+import { flattenEntries } from "~tailwind/_docs/utils/flattenEntries"
+import { utilityDescription } from "~tailwind/_docs/utils/utilityDescription"
+import { kaizenTailwindTheme } from "~tailwind/tailwind-presets"
 
 const prefix = "bg-"
 const classEntries = flattenEntries(prefix, kaizenTailwindTheme.colors || {})
