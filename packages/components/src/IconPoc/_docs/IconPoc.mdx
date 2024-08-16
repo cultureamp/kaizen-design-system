@@ -1,34 +1,95 @@
-import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as IconPocStories from "./IconPoc.stories"
+# Icon POC notes
 
-<Meta of={IconPocStories} />
+## Design
 
-# IconPoc
+### Do we want sizes to be relative to text it sits next to or static?
 
-{/*
-  * @todo:
-  * - Adjust Github link (if needed)
-  * - Add Figma and Design Guidelines (Confluence) link
-  */}
-<ResourceLinks
-  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/IconPoc"
-  figma=""
-  designGuidelines=""
+#### Notes
+- MUI default is 24px
+- Inheriting size must either be our baked in default or done manually by the consumer
 
-/>
+#### Options
+##### 1. Scale with text - no `size` prop
+  - Pro: Simpler implementation
+  - Con: Optical size cannot be baked in
+  - Allowance: CSS vars are available for customisation by consumer
 
-<KAIOInstallation exportNames="IconPoc" />
+##### 2. `size` prop - static sizes
+  - Pro: Can control optical size; more visually pleasing
+  - Pro: Consistent scaling
+  - Con: More thought required for implementation
+  - Allowance: CSS vars are available for customisation by consumer
 
-## Overview
+### Font weight (declare font-weight as opposed to wght in font-variation-settings)
 
-{/* @todo: Update summary. */}
-Brief summary of the component here.
+#### Options
+##### 1. Inherit font weight
+  - Pro: Weight will scale to match parent
+  - Con: May not be what we want
+##### 2. Baked in font weight
+  - Pro: We can create cohesion for controlled sizes
+  - Con: Consumer will need to manually set uncontrolled scaling
 
-<Canvas of={IconPocStories.Playground} />
-<Controls of={IconPocStories.Playground} />
+### Expectations for RTL? Should we try to bake it in, or rely on the consumer?
 
-## API
+#### Options
+##### 1. Bake it in
+Have a list of names which we know to apply a mirror
+##### 2. Add a prop
+Something like `shouldMirrorInRTL`
+##### 3. Do nothing
+Leave it to the consumer to handle the mirror
 
-{/* @todo: Describe props and provide example stories. */}
-{/* <DocsStory of={IconPocStories.Reversed} /> */}
+### Other
+Any missed test cases?
+
+## Technical
+
+### Scope
+
+#### Tested
+- Access to all available icons from [Material symbols](https://fonts.google.com/icons?icon.size=24&icon.color=%23e8eaed&icon.style=Outlined)
+  - Implemented currently as any string
+- Sizes (all allow customisation through `className`)
+  - Basic
+    - No default implementation
+  - `size` prop
+    - Small/Medium/Large implemented with optical scaling
+- Font weight (all allow customisation through `className`)
+  - Baked in at 400
+    - Consistent default value
+  - Inherit as default
+    - Scales according to parent
+- Outline and Filled variants
+  - Only Outlined style implemented
+  - Prop for supporting `Filled` version
+- Colour is customisable
+  - Inherits from parent
+- Presentation vs Meaningful icons (accessibility)
+  - Can be achieved with `aria-hidden` and `aria-label`
+
+#### Not tested in POC
+- Improved discovery for icon names (currently is just any string)
+- Supporting multiple styles (Outlined, Rounded, Sharp)
+
+### Implementation
+
+#### Set up
+
+CDN must be set up:
+- in preview-head.html for Storybook
+- in `<head>` of apps
+
+This cannot be done in plain HTML, so we either need to:
+1. Get the consumers to insert manually
+2. Add an injection into `KaizenProvider`
+3. Use [react-helmet](https://github.com/nfl/react-helmet)
+4. ??
+
+#### Limitations
+
+- Global class `"material-symbols-outlined"` must be used for the icons to come through
+- May be a flash of icons as text prior to font-family being loaded
+- CSS
+  - `wght` in `font-variation-settings` cannot be set if we want to allow consumers to scale the font weight
+  - See API Comparison for examples of consumer code

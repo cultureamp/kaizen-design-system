@@ -1018,7 +1018,7 @@ export const APIComparison: StickerSheetStory = {
           </button>
           <Highlight>
 {`<button type="button">
-  <IconPocBasic name="arrow_forward" aria-label="Onwards!" />
+  <IconPoc... name="arrow_forward" aria-label="Onwards!" />
 </button>`}
           </Highlight>
         </StickerSheet.Row>
