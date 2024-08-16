@@ -7,7 +7,7 @@ import isChromatic from "chromatic"
 import { KaizenProvider } from "@kaizen/components"
 import { I18nProvider } from "@kaizen/components/v3/react-aria-components"
 import { ReversedColors } from "@kaizen/components/v3/utilities"
-import { DefaultDocsContainer } from "../storybook/components/DocsContainer"
+import { DefaultDocsContainer } from "./components/DocsContainer"
 import { backgrounds } from "./backgrounds"
 import { globalA11yRules } from "./global-a11y-rules"
 
