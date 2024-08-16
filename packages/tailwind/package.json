@@ -3,8 +3,8 @@
   "version": "1.2.13",
   "description": "Kaizen Tailwind presets",
   "scripts": {
-    "build": "pnpm package-bundler build",
-    "build:styles": "npx tailwindcss -i ./src/_docs/helpers/tailwind.css -o ./dist/docs/tailwind.css",
+    "build": "pnpm package-bundler build && pnpm build:docs:styles",
+    "build:docs:styles": "npx tailwindcss -i ./src/_docs/utils/tailwind.css -o ./dist/docs/tailwind.css",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'",
     "lint:ts": "tsc --noEmit"
   },
