@@ -1,11 +1,11 @@
 import React, { ReactNode, ReactElement, HTMLAttributes } from "react"
 import classnames from "classnames"
-import { assetUrl } from "~utils/hostedAssets"
 import { Heading } from "~components/Heading"
 import { SceneProps } from "~components/Illustration"
 import { Text } from "~components/Text"
 import { Button, ButtonProps } from "~components/__actions__/v2"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { assetUrl } from "~utils/hostedAssets"
 import { useMediaQueries } from "~utils/useMediaQueries"
 import styles from "./BrandMoment.module.scss"
 

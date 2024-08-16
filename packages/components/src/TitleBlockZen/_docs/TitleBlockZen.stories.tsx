@@ -1,8 +1,8 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { assetUrl } from "~utils/hostedAssets"
 import { AddIcon, StarOnIcon } from "~components/Icon"
 import { StickerSheet } from "~storybook/components/StickerSheet"
+import { assetUrl } from "~utils/hostedAssets"
 import { NavigationTab, TitleBlockZen } from "../index"
 
 const SECONDARY_ACTIONS = [
