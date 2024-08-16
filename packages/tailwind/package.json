@@ -4,6 +4,7 @@
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "pnpm package-bundler build",
+    "build:styles": "npx tailwindcss -i ./src/_docs/helpers/tailwind.css -o ./dist/docs/tailwind.css",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'",
     "lint:ts": "tsc --noEmit"
   },
@@ -32,6 +33,7 @@
     "@kaizen/components": "workspace:*",
     "@kaizen/package-bundler": "workspace:*",
     "rollup": "^4.20.0",
+    "tailwindcss": "^3.4.9",
     "tslib": "^2.6.3"
   },
   "peerDependencies": {

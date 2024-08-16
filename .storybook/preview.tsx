@@ -1,5 +1,6 @@
 import "@kaizen/components/dist/styles.css"
-import "./tailwind.css"
+import "@kaizen/tailwind/dist/docs/tailwind.css"
+import "./preview.css"
 
 import React, { useEffect } from "react"
 import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
