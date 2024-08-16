@@ -13,6 +13,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@kaizen/design-tokens": "workspace:*",
     "@eslint/js": "^9.9.0",
     "@rollup/plugin-alias": "^5.1.0",
     "@storybook/addon-essentials": "^8.2.9",
@@ -35,8 +36,7 @@
     "storybook": "^8.2.9",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.1.0",
-    "vite": "^5.4.0",
-    "vite-aliases": "^0.11.7"
+    "vite": "^5.4.0"
   },
   "eslintConfig": {
     "extends": [
