@@ -6,6 +6,10 @@
       "inputs": ["packages/**"],
       "outputs": ["dist/**"]
     },
+    "dev": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
     "lint:ts": {
       "dependsOn": ["^build"],
       "cache": false
@@ -15,10 +19,9 @@
     "clean": {
       "cache": false
     },
-    "storybook:build": {
+    "@docs/storybook#build": {
       "dependsOn": ["^build"],
-      "outputs": [".storybook/public/**"],
-      "cache": false
+      "outputs": [".storybook/public/**"]
     },
     "@kaizen/components#build": {
       "dependsOn": [

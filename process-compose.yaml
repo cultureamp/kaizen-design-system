@@ -11,8 +11,8 @@ processes:
       setup:
         condition: process_completed_successfully
 
-  storybook:
-    command: pnpm storybook
+  docs:
+    command: pnpm dev
     depends_on:
       build:
         condition: process_completed_successfully

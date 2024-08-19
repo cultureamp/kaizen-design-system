@@ -1,13 +1,16 @@
 {
-  "name": "storybook",
+  "name": "@docs/storybook",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "lint": "eslint .",
     "lint:ts": "tsc --noEmit",
-    "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build -c ./ -o ./public"
+    "dev": "storybook dev -c ./ -p 6006",
+    "preview": "NODE_ENV=production pnpm dev --docs",
+    "build": "storybook build -c ./ -o ./public",
+    "test": "test-storybook -c ./ --skipTags='skip-test' --url http://127.0.0.1:6006",
+    "clean": "rimraf ./public && rimraf ./node_modules"
   },
   "dependencies": {
     "@kaizen/components": "workspace:*",
