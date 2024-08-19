@@ -1,0 +1,9 @@
+import{r,R as e}from"./index-CTjT7uj6.js";import{f as k}from"./index-BySiBzEG.js";import{E as g,d as y}from"./defaultContent-Bqdu-y45.js";import{R as _}from"./RichTextEditor-Cch1l_4N.js";import{B as i}from"./Button-DDkdQqLR.js";const O={title:"Components/RichTextEditor/EditableRichTextContent",component:g,args:{content:[],labelText:"Label",onClick:k()},argTypes:{content:{control:!1},onClick:{action:"onClick"}}},v={render:n=>{const[b,o]=r.useState(!1),[l,C]=r.useState(n.content),[s,c]=r.useState([]),x=S=>c(S.toJSON().doc.content),T=()=>{c(l),o(!0)},h=()=>o(!1),R=()=>{C(s),o(!1)};return b?e.createElement(e.Fragment,null,e.createElement(_,{labelText:n.labelText,controls:[{name:"bold",group:"inline"},{name:"italic",group:"inline"},{name:"underline",group:"inline"},{name:"orderedList",group:"list"},{name:"bulletList",group:"list"},{name:"link",group:"link"}],defaultValue:s,onChange:x}),e.createElement("div",{className:"flex justify-end mt-12 gap-8"},e.createElement(i,{label:"Cancel",secondary:!0,onClick:h}),e.createElement(i,{label:"Save",primary:!0,onClick:R}))):e.createElement(g,{onClick:T,content:l,labelText:n.labelText})},args:{content:y}},t={parameters:{chromatic:{disable:!1}}},a={...v};var m,d,u;t.parameters={...t.parameters,docs:{...(m=t.parameters)==null?void 0:m.docs,source:{originalSource:`{
+  parameters: {
+    chromatic: {
+      disable: false
+    }
+  }
+}`,...(u=(d=t.parameters)==null?void 0:d.docs)==null?void 0:u.source}}};var p,E,f;a.parameters={...a.parameters,docs:{...(p=a.parameters)==null?void 0:p.docs,source:{originalSource:`{
+  ...EditableRichTextContentTemplate
+}`,...(f=(E=a.parameters)==null?void 0:E.docs)==null?void 0:f.source}}};const D=["Playground","UsageExample"],B=Object.freeze(Object.defineProperty({__proto__:null,Playground:t,UsageExample:a,__namedExportsOrder:D,default:O},Symbol.toStringTag,{value:"Module"}));export{B as E,t as P,a as U};

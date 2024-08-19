@@ -1,0 +1,15 @@
+import{j as t}from"./jsx-runtime-Cw0GR0a5.js";import{useMDXComponents as m}from"./index-DSkyVWTJ.js";import{ae as s,ag as i,aj as a}from"./index-UYGUCD_e.js";import{R as p,K as c}from"./DoesAndDonts-BKQOirz7.js";import"./LinkTo-CCLy3Ahi.js";import"./index-CTjT7uj6.js";import{B as d,P as r,I as h,S as u,W as x}from"./BrandMoment.stories-BVnCwR_n.js";import"./iframe-KYiyEPLH.js";import"../sb-preview/runtime.js";import"./index-9r8iugjR.js";import"./index-D-8MO0q_.js";import"./_getPrototype-pu5AwQxR.js";import"./index-DrFu-skq.js";import"./index-CCQ3W5xA.js";import"./InlineNotification-DPK6p_Of.js";import"./tslib.es6-CY32MZYl.js";import"./GenericNotification-BhHHhCD8.js";import"./Heading-hQmlkvcj.js";import"./Text-DAOK2_W2.js";import"./isChromatic-VqprqId_.js";import"./ArrowRightIcon-CtsqbiFB.js";import"./SVG-7WFwBCn9.js";import"./EmailIcon-D6OEJsmY.js";import"./FeedbackClassifyIcon-Cr5NKlPT.js";import"./Text-D2gQH1xL.js";import"./ExampleHeaders-DL9EpwRe.js";import"./CloseIcon-BAUhi63R.js";import"./hostedAssets-CVq9d3MW.js";import"./Button-DDkdQqLR.js";import"./GenericButton-CnAyP-Wm.js";import"./utils-e-dMXvly.js";import"./focusSafely-ByiDPXQJ.js";import"./SSRProvider-C8o06Znb.js";import"./useFocusable-CuIK6Qs-.js";import"./Link-DkKiEG74.js";import"./usePress-nudZ2Xgz.js";import"./Badge-D9GUNioS.js";import"./LoadingSpinner-DHfeGxpm.js";import"./VisuallyHidden-CDYjeGzr.js";import"./BrandMoment-Drt-7p8A.js";import"./Heading-Y5F8SWRW.js";import"./useMediaQueries-C_upvC1L.js";import"./BrandMomentCaptureIntro-Cmbi87h4.js";import"./Base-CDU6uw3M.js";import"./VideoPlayer-DWL8rwWX.js";import"./PauseIcon-CgJL9HNl.js";import"./IconButton-DH93ECWt.js";import"./Scene-BFMjFkKq.js";function e(o){const n={h1:"h1",h2:"h2",h3:"h3",p:"p",...m(),...o.components};return t.jsxs(t.Fragment,{children:[t.jsx(s,{of:d}),`
+`,t.jsx(n.h1,{id:"brandmoment",children:"BrandMoment"}),`
+`,t.jsx(p,{sourceCode:"https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/BrandMoment",figma:"https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?type=design&node-id=9-132873&mode=design&t=ITSkv2Fu67xK6kBC-0",designGuidelines:"https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082061589/Brand+Moment"}),`
+`,t.jsx(c,{exportNames:"BrandMoment"}),`
+`,t.jsx(n.h2,{id:"overview",children:"Overview"}),`
+`,t.jsx(n.p,{children:"A brand moment is a page that showcases the brand's vibrant animations and illustration. The page provides an engaging experience for users when they reach these junction, helping to create a strong connection between the brand and product."}),`
+`,t.jsx(i,{of:r}),`
+`,t.jsx(a,{of:r}),`
+`,t.jsx(n.h2,{id:"variant",children:"Variant"}),`
+`,t.jsx(n.h3,{id:"informative",children:"Informative"}),`
+`,t.jsx(i,{of:h}),`
+`,t.jsx(n.h3,{id:"success",children:"Success"}),`
+`,t.jsx(i,{of:u}),`
+`,t.jsx(n.h3,{id:"warning",children:"Warning"}),`
+`,t.jsx(i,{of:x})]})}function pt(o={}){const{wrapper:n}={...m(),...o.components};return n?t.jsx(n,{...o,children:t.jsx(e,{...o})}):e(o)}export{pt as default};

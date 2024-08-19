@@ -1,0 +1,80 @@
+import{j as e}from"./jsx-runtime-Cw0GR0a5.js";import{useMDXComponents as t}from"./index-DSkyVWTJ.js";import{ae as l}from"./index-UYGUCD_e.js";import"./index-CTjT7uj6.js";import"./iframe-KYiyEPLH.js";import"../sb-preview/runtime.js";import"./index-9r8iugjR.js";import"./index-D-8MO0q_.js";import"./_getPrototype-pu5AwQxR.js";import"./index-DrFu-skq.js";const r=""+new URL("css-generation-BjSHqUrG.png",import.meta.url).href,o=""+new URL("inline-fold-BpjXGkn5.gif",import.meta.url).href,a=""+new URL("tailwind-play-tEkSOKys.gif",import.meta.url).href;function s(i){const n={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",li:"li",p:"p",pre:"pre",ul:"ul",...t(),...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(l,{title:"Guides/Tailwind/Getting Started"}),`
+`,e.jsx(n.h1,{id:"getting-started",children:"Getting Started"}),`
+`,e.jsxs(n.p,{children:["This page describes the steps needed to use our ",e.jsx(n.a,{href:"https://github.com/cultureamp/kaizen-design-system/tree/main/packages/tailwind",rel:"nofollow",children:"Kaizen Tailwind preset"}),`, not Tailwind itself.
+To learn more about Tailwind and how to install it in your project, check out there docs `,e.jsx(n.a,{href:"https://tailwindcss.com/docs/installation",rel:"nofollow",children:"here"}),"."]}),`
+`,e.jsxs(n.p,{children:["Note: Projects created from ",e.jsx(n.a,{href:"https://github.com/cultureamp/frontend-template",rel:"nofollow",children:"frontend-template"}),` should have steps 1 - 3 completed out of the box.
+If your project was created from this template, you should only need to do `,e.jsx(n.a,{href:"#4-useful-tools",children:"Step 4: Useful tools"}),"."]}),`
+`,e.jsxs(n.ul,{children:[`
+`,e.jsx(n.li,{children:e.jsx(n.a,{href:"#1-install-the-preset",children:"1. Install the preset"})}),`
+`,e.jsx(n.li,{children:e.jsx(n.a,{href:"#2-implement-the-preset",children:"2. Implement the preset"})}),`
+`,e.jsx(n.li,{children:e.jsx(n.a,{href:"#3-add-the-tailwind-directives",children:"3. Add the Tailwind directives"})}),`
+`,e.jsx(n.li,{children:e.jsx(n.a,{href:"#4-useful-tools",children:"4. Useful tools"})}),`
+`]}),`
+`,e.jsx("br",{}),`
+`,e.jsx(n.h2,{id:"1-install-the-preset",children:"1. Install the preset"}),`
+`,e.jsx(n.pre,{children:e.jsx(n.code,{className:"language-bash",children:`yarn add -D @kaizen/tailwind
+`})}),`
+`,e.jsx(n.h2,{id:"2-implement-the-preset",children:"2. Implement the Preset"}),`
+`,e.jsxs(n.p,{children:["In your tailwind config file, import the preset and add it to your ",e.jsx(n.code,{children:"presets"}),` array.
+This will override the default Tailwind preset, and make ours available for use.`]}),`
+`,e.jsx(n.pre,{children:e.jsx(n.code,{className:"language-js",children:`// tailwind.config.js
+
+const { Preset } = require("@kaizen/tailwind")
+
+module.exports = {
+  // Glob pattern to match files containing TW classes. May be different for your project.
+  content: ["./**/*.{ts,tsx}"],
+  // Override the default Tailwind preset with the Kaizen one.
+  presets: [Preset],
+  // This should be a selector that wraps your app. It ensures that your Tailwind classes supersede component styles, by increasing their specificity with the chosen selector.
+  important: "#root",
+  // Preflight is a heavy-handed css reset. We recommend disabling it in your project.
+  corePlugins: {
+    preflight: false,
+  },
+}
+`})}),`
+`,e.jsxs(n.p,{children:["For preset configuration options, see our ",e.jsx(n.a,{href:"/story/systems-tailwind-configuration--page",children:"configuration docs"})]}),`
+`,e.jsx(n.h2,{id:"3-add-the-tailwind-directives",children:"3. Add the Tailwind Directives"}),`
+`,e.jsx(n.p,{children:"The following directives need to be included in your project's main css file."}),`
+`,e.jsx(n.pre,{children:e.jsx(n.code,{className:"language-css",children:`@tailwind base;
+@tailwind components;
+@tailwind utilities;
+`})}),`
+`,e.jsxs(n.p,{children:[`These directives inject classes that are needed for certain Tailwind features.
+For more information, see `,e.jsx(n.a,{href:"https://tailwindcss.com/docs/functions-and-directives",rel:"nofollow",children:"here"}),"."]}),`
+`,e.jsx(n.h2,{id:"4-useful-tools",children:"4. Useful tools"}),`
+`,e.jsx(n.h3,{id:"tailwind-play",children:"Tailwind Play"}),`
+`,e.jsxs(n.p,{children:["Tailwind Play is an online code sandbox with Tailwind set up out of the box. The Kaizen Team has created an instance with the Kaizen Preset values ",e.jsx(n.a,{href:"https://play.tailwindcss.com/OUogvUgXQR",rel:"nofollow",children:"here"})]}),`
+`,e.jsx(n.p,{children:"Use this playground to get familiar with our preset, test out new config extensions, create a quick proof of concept, or share code examples with other engineers. Feel free to hit ‘Share’ - it’ll create a new url without overriding the one provided here."}),`
+`,e.jsx("img",{src:a,alt:"Tailwind Play"}),`
+`,e.jsx(n.p,{children:"The playground also has a great “Generated CSS” feature that let’s you see which css classes are generated by your preset when you implement tailwind utilities. It’s a great way to see what Tailwind is doing under the hood."}),`
+`,e.jsx("div",{className:"flex justify-center",children:e.jsx("img",{src:r,alt:"CSS Generation"})}),`
+`,e.jsx(n.h3,{id:"tailwind-css-vscode-intellisense-plugin",children:"Tailwind CSS VSCode IntelliSense plugin"}),`
+`,e.jsxs(n.p,{children:["Basic config for the ",e.jsx(n.a,{href:"https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss",rel:"nofollow",children:"VSCode plugin"})," for Tailwind IntelliSense lives in your project's ",e.jsx(n.code,{children:"settings.json"}),"."]}),`
+`,e.jsx(n.p,{children:`You can customise which keywords trigger IntelliSense using basic strings, or even regex expressions.
+Here are some examples you may wish to include in your own project:`}),`
+`,e.jsx(n.pre,{children:e.jsx(n.code,{children:`"tailwindCSS.classAttributes": [
+  "class",
+  "className",
+  "ngClass",
+  "classNameOverride"
+],
+"tailwindCSS.experimental.classRegex": [
+  "classnames\\\\(([^)]*)\\\\)",
+  "classNames\\\\(([^)]*)\\\\)",
+  "clsx\\\\(([^)]*)\\\\)",
+  "csx\\\\(([^)]*)\\\\)"
+]
+`})}),`
+`,e.jsxs(n.p,{children:[e.jsx(n.code,{children:"tailwindCSS.experimental.classRegex"})," is used to provide intelliSense within your ",e.jsx(n.code,{children:"classnames"}),` functions in your codebase.
+Ideally you only add the pattern that is used in your repo.`]}),`
+`,e.jsx(n.p,{children:"Calling out that this is still an experimental feature for the VSCode plugin."}),`
+`,e.jsx(n.h3,{id:"inline-fold-vscode-extension",children:"Inline fold VSCode extension"}),`
+`,e.jsx(n.p,{children:`Using tailwind often results in long class names, that can even span over multiple lines.
+Inline fold is a great extension that hides/ shows long class strings.`}),`
+`,e.jsxs(n.p,{children:["Check it out ",e.jsx(n.a,{href:"https://marketplace.visualstudio.com/items?itemName=moalamri.inline-fold",rel:"nofollow",children:"here"}),":"]}),`
+`,e.jsx("div",{className:"flex justify-center",children:e.jsx("img",{src:o,alt:"Inline fold VSCode extension"})}),`
+`,e.jsx(n.h3,{id:"prettier-plugin",children:"Prettier plugin"}),`
+`,e.jsxs(n.p,{children:["Tailwind now has prettier support! 🎉 This ",e.jsx(n.a,{href:"https://github.com/tailwindlabs/prettier-plugin-tailwindcss",rel:"nofollow",children:"prettier plugin"}),` will order your classnames for you.
+We’d highly recommend it for the sake of consistency. The Tailwind docs even have a guide `,e.jsx(n.a,{href:"https://tailwindcss.com/blog/automatic-class-sorting-with-prettier",rel:"nofollow",children:"here"}),"."]})]})}function g(i={}){const{wrapper:n}={...t(),...i.components};return n?e.jsx(n,{...i,children:e.jsx(s,{...i})}):s(i)}export{g as default};

@@ -1,0 +1,10 @@
+import{R as e}from"./index-CTjT7uj6.js";import{a}from"./chunk-454WOBUV-CM0pFb8Z.js";import{A as l}from"./AddIcon-C6V_KfCs.js";import{C as m}from"./ChevronUpIcon-D9pr3Qd6.js";import{T as n}from"./TrashIcon-4srkHYK2.js";import{B as o}from"./Button-AbBbn7Lr.js";import{V as s}from"./VisuallyHidden-CDYjeGzr.js";import"./v4-CQkTLCs1.js";import"./SVG-7WFwBCn9.js";import"./index-CCQ3W5xA.js";import"./utils-e-dMXvly.js";import"./focusSafely-ByiDPXQJ.js";import"./SSRProvider-C8o06Znb.js";import"./useFocusable-CuIK6Qs-.js";import"./index-9r8iugjR.js";import"./usePress-nudZ2Xgz.js";import"./useButton-CDp2hby9.js";import"./useFocusWithin-C7oArVkD.js";import"./useHover-Bq751pFs.js";import"./mergeClassNames-DEvgSslo.js";const W={title:"Actions/Button/v3",component:o,args:{children:"Label",onPress:a("Button onPress event")}},O={render:({children:t,...r})=>e.createElement(o,{...r},t)},x={render:({children:t,...r})=>e.createElement(o,{...r},t),args:{children:e.createElement(e.Fragment,null,"Label",e.createElement(l,{role:"presentation"}))}},H={render:({children:t,...r})=>e.createElement(o,{...r},t),args:{children:e.createElement(e.Fragment,null,e.createElement(n,{role:"presentation"}),"Label")}},S={render:({children:t,...r})=>e.createElement(o,{...r},t),args:{children:e.createElement(e.Fragment,null,e.createElement(n,{role:"img","aria-label":"Remove"}),e.createElement(s,null," Highlights: May 8, 2024"))}},T={render:({children:t,...r})=>e.createElement(o,{...r},t),args:{children:e.createElement(e.Fragment,null,"Label",e.createElement(m,{role:"presentation"}))},parameters:{reverseColors:!0,docs:{source:{code:`
+          <ReversedColors isReversed={true}>
+            <Button {...otherArgs}>
+              <>
+                Label
+                <ChevronUpIcon role="presentation" />
+              </>
+            </Button>
+          </ReversedColors>
+      `}}}},U=["Playground","ButtonWithIcon","ButtonWithIconStart","IconButton","OnReversed"];export{x as ButtonWithIcon,H as ButtonWithIconStart,S as IconButton,T as OnReversed,O as Playground,U as __namedExportsOrder,W as default};

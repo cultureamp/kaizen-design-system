@@ -1,0 +1,1 @@
+const u=({disabledDates:a=[],disabledDaysOfWeek:o,disabledRange:v,disabledBeforeAfter:c,disabledBefore:t,disabledAfter:i})=>[...a,o!==void 0&&{dayOfWeek:o},v!==void 0&&v,t!==void 0&&{before:t},i!==void 0&&{after:i},c!==void 0&&c].filter(p=>p!==!1);export{u as c};

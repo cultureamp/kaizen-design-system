@@ -1,0 +1,1 @@
+import{T as e}from"./TextArea-Ci-_Nq71.js";import"./index-CTjT7uj6.js";import"./index-CCQ3W5xA.js";const r={title:"Components/Text Input controls/Text Area",component:e,parameters:{a11y:{config:{rules:[{id:"label",enabled:!1}]}}}},n={parameters:{docs:{canvas:{sourceState:"shown"}}}},s=["Playground"];export{n as Playground,s as __namedExportsOrder,r as default};

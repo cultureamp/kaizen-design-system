@@ -1,0 +1,8 @@
+import{j as o}from"./jsx-runtime-Cw0GR0a5.js";import{useMDXComponents as n}from"./index-DSkyVWTJ.js";import{ae as s,ag as a,aj as p}from"./index-UYGUCD_e.js";import{R as m,K as c}from"./DoesAndDonts-BKQOirz7.js";import"./LinkTo-CCLy3Ahi.js";import"./index-CTjT7uj6.js";import{R as u,P as i}from"./RadioGroup.stories-DkePABWI.js";import"./iframe-KYiyEPLH.js";import"../sb-preview/runtime.js";import"./index-9r8iugjR.js";import"./index-D-8MO0q_.js";import"./_getPrototype-pu5AwQxR.js";import"./index-DrFu-skq.js";import"./index-CCQ3W5xA.js";import"./InlineNotification-DPK6p_Of.js";import"./tslib.es6-CY32MZYl.js";import"./GenericNotification-BhHHhCD8.js";import"./Heading-hQmlkvcj.js";import"./Text-DAOK2_W2.js";import"./RadioGroup-DNGPKkOt.js";import"./Label-DlmzItqQ.js";import"./RadioField-CU_b8UGV.js";import"./Radio-DztYLnpN.js";function r(t){const e={h1:"h1",h2:"h2",p:"p",...n(),...t.components};return o.jsxs(o.Fragment,{children:[o.jsx(s,{of:u}),`
+`,o.jsx(e.h1,{id:"radiogroup",children:"RadioGroup"}),`
+`,o.jsx(m,{sourceCode:"https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/RadioGroup",figma:"https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9%3A86405&t=P1w10jr2cpPuaayw-1",designGuidelines:"https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081929413/Radio+Group"}),`
+`,o.jsx(c,{exportNames:"RadioGroup"}),`
+`,o.jsx(e.h2,{id:"overview",children:"Overview"}),`
+`,o.jsx(e.p,{children:"Radio groups include a set of radios that let people select exactly one option in a set."}),`
+`,o.jsx(a,{of:i}),`
+`,o.jsx(p,{of:i})]})}function L(t={}){const{wrapper:e}={...n(),...t.components};return e?o.jsx(e,{...t,children:o.jsx(r,{...t})}):r(t)}export{L as default};

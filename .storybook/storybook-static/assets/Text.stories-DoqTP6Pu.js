@@ -1,0 +1,1 @@
+import{T as o}from"./Text-D2gQH1xL.js";import"./index-CTjT7uj6.js";import"./index-CCQ3W5xA.js";const e={title:"Components/Text",component:o,args:{variant:"body",children:"The quick brown fox jumps over the lazy dog."}},n={args:{color:"dark"},parameters:{docs:{canvas:{sourceState:"shown"}}}},s=["Playground"];export{n as Playground,s as __namedExportsOrder,e as default};

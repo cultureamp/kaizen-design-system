@@ -1,0 +1,8 @@
+const a=`@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+
+.myClass {
+  background-color: $color-gray-100;
+  font-family: $typography-data-large-font-family;
+}
+`;export{a as e};

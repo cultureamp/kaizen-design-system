@@ -11,7 +11,7 @@ import {
   StickerSheetHeaderProps,
 } from "./components/StickerSheetHeader"
 import { StickerSheetRow } from "./components/StickerSheetRow"
-import styles from "./StickerSheet.css"
+import styles from "./StickerSheet.module.css"
 
 type ReversibleSubcomponents = StickerSheetBodyProps | StickerSheetHeaderProps
 
