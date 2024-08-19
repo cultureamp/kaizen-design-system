@@ -1,3 +1,4 @@
+/* @import "material-symbols/outlined.css"; */
 @import "./foundation/_layers.css";
 @import "@kaizen/design-tokens/css/variables.css" layer(tokens);
 @import "./foundation/_normalize.css" layer(normalize);
