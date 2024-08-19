@@ -9,9 +9,7 @@
     "dev": {
       "dependsOn": ["^build"]
     },
-    "lint:ts": {
-      "dependsOn": ["^build"]
-    },
+    "lint:ts": {},
     "lint:styles": {},
     "test": {},
     "test:ci": {},

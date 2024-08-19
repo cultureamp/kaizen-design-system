@@ -1,4 +1,14 @@
 {
   "extends": "@kaizen/package-bundler/tsconfig.base.json",
-  "include": ["src/**/*", "__tests__/**/*"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~storybook/*": ["../../.storybook/*"],
+      "~design-tokens/*": ["../design-tokens/src/*"],
+      "~components/*": ["../components/src/*"],
+      "~tailwind/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*", "_docs/**/*"],
+  "files": ["./types.d.ts"]
 }
