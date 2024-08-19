@@ -20,7 +20,7 @@
     "lint:js": "pnpm eslint-config '**/*.{ts,tsx,mjs,js}'",
     "lint:md": "pnpm eslint-config '**/*.{md,mdx}'",
     "lint:format": "pnpm prettier --check '**/*'",
-    "lint:styles": "pnpm stylelint '**/*.scss'",
+    "lint:styles": "pnpm stylelint '**/*.scss' '**/*.css'",
     "lint:fix": "pnpm lint:styles --fix && pnpm lint:js --fix && pnpm lint:md --fix && pnpm lint:format --write",
     "reset": "pnpm clean && pnpm install --force",
     "chromatic": "chromatic",
