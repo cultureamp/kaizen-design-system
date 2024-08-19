@@ -2,7 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "react",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "~storybook/*": ["./*"]
+    }
   },
   "include": ["./components/**/*"],
   "files": ["./types.d.ts"]

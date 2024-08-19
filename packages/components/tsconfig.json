@@ -4,6 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "~storybook/*": ["../../.storybook/*"],
+      "~tests": ["./__tests__/index"],
+      "~tests/*": ["./__tests__/*"],
       "~components/*": ["./src/*"]
     },
     "types": ["@testing-library/jest-dom"]
