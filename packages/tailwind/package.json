@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "1.2.13",
+  "version": "1.2.14",
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "pnpm package-bundler build && pnpm build:docs:styles",
