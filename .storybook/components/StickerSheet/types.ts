@@ -1,5 +1,5 @@
 import { StoryObj } from "@storybook/react"
-import { ColorSchema } from "@kaizen/components"
+import { ColorSchema } from "~components/LikertScaleLegacy"
 
 export type StickerSheetArgs = {
   isReversed?: boolean

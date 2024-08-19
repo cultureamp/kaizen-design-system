@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Card.module.scss"
+import styles from "./Card.module.css"
 
 export type CardVariants =
   | "default"

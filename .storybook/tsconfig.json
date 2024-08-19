@@ -5,9 +5,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "paths": {
-      "~storybook/*": ["./*"]
+      "~storybook/*": ["./*"],
+      "~components/*": ["../packages/components/src/*"]
     }
   },
-  "include": ["./components/**/*"],
   "files": ["./types.d.ts"]
 }

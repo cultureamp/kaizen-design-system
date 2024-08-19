@@ -22,7 +22,8 @@
     "dist",
     "icons",
     "locales",
-    "src"
+    "src",
+    "styles"
   ],
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",

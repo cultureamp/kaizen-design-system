@@ -4,9 +4,11 @@
     "baseUrl": ".",
     "paths": {
       "~storybook/*": ["../../.storybook/*"],
-      "~design-tokens/*": ["../packages/design-tokens/src/*"],
+      "~design-tokens/*": ["../design-tokens/src/*"],
+      "~components/*": ["../components/src/*"],
       "~tailwind/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "files": ["./types.d.ts"]
 }

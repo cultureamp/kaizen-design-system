@@ -1,6 +1,6 @@
 import React, { TableHTMLAttributes } from "react"
 import classnames from "classnames"
-import { Heading } from "@kaizen/components"
+import { Heading } from "~components/Heading"
 import {
   StickerSheetBody,
   StickerSheetBodyProps,

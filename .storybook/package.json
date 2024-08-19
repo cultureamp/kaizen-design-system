@@ -13,13 +13,13 @@
     "clean": "rimraf ./public && rimraf ./node_modules"
   },
   "dependencies": {
-    "@kaizen/components": "workspace:*",
-    "@kaizen/design-tokens": "workspace:*",
-    "@kaizen/tailwind": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@kaizen/components": "workspace:*",
+    "@kaizen/design-tokens": "workspace:*",
+    "@kaizen/tailwind": "workspace:*",
     "@eslint/js": "^9.9.0",
     "@rollup/plugin-alias": "^5.1.0",
     "@storybook/addon-essentials": "^8.2.9",

@@ -1,13 +1,14 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
+import { Card } from "~components/Card"
+import { Heading } from "~components/Heading"
 import {
-  Card,
   CustomSurvey,
   CustomUnattributedSurvey,
-  Skirt,
-  Heading,
-} from "@kaizen/components"
-import { Button } from "@kaizen/components/v2/actions"
+} from "~components/Illustration"
+import { Skirt } from "~components/Skirt"
+import { Button } from "~components/__actions__/v2"
+
 import { TailwindStoryTemplate } from "../utils/TailwindStoryTemplate"
 
 export default {

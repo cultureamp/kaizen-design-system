@@ -1,6 +1,6 @@
 import React from "react"
-import { Heading } from "@kaizen/components"
-import { Button } from "@kaizen/components/v2/actions"
+import { Heading } from "~components/Heading"
+import { Button } from "~components/__actions__/v2"
 
 type CardContentProps = {
   title: string

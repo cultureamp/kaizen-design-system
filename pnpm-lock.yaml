@@ -291,15 +291,6 @@ importers:
 
   .storybook:
     dependencies:
-      '@kaizen/components':
-        specifier: workspace:*
-        version: link:../packages/components
-      '@kaizen/design-tokens':
-        specifier: workspace:*
-        version: link:../packages/design-tokens
-      '@kaizen/tailwind':
-        specifier: workspace:*
-        version: link:../packages/tailwind
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -310,6 +301,15 @@ importers:
       '@eslint/js':
         specifier: ^9.9.0
         version: 9.9.0
+      '@kaizen/components':
+        specifier: workspace:*
+        version: link:../packages/components
+      '@kaizen/design-tokens':
+        specifier: workspace:*
+        version: link:../packages/design-tokens
+      '@kaizen/tailwind':
+        specifier: workspace:*
+        version: link:../packages/tailwind
       '@rollup/plugin-alias':
         specifier: ^5.1.0
         version: 5.1.0(rollup@4.20.0)
@@ -388,9 +388,6 @@ importers:
       '@internationalized/date':
         specifier: ^3.5.5
         version: 3.5.5
-      '@kaizen/hosted-assets':
-        specifier: workspace:*
-        version: link:../hosted-assets
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8
@@ -726,14 +723,13 @@ importers:
         version: 4.20.0
 
   packages/tailwind:
-    dependencies:
+    devDependencies:
       '@kaizen/components':
         specifier: workspace:*
         version: link:../components
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
-    devDependencies:
       '@kaizen/package-bundler':
         specifier: workspace:*
         version: link:../package-bundler

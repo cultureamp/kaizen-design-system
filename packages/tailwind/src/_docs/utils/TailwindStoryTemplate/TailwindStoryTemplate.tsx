@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { InlineNotification } from "@kaizen/components"
+import { InlineNotification } from "~components/Notification"
 import { StickerSheet } from "~storybook/components/StickerSheet"
 import { CardContent } from "./components/CardContent"
 import { CodeSnippet } from "./components/CodeSnippet"

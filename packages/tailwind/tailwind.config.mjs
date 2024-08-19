@@ -13,7 +13,7 @@ module.exports = {
   safelist: [
     {
       pattern:
-        /(bg|border|rounded|shadow|h|w|m|p|font-family|font-weight|text|leading)-.*/,
+        /(bg|border|rounded|shadow|h|w|m|p|font-family|font-weight|text|leading|list)-.*/,
     },
   ],
 }
