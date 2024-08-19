@@ -3,11 +3,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~storybook/*": ["../../.storybook/*"],
-      "~tests": ["./__tests__/index"],
-      "~tests/*": ["./__tests__/*"],
-      "~types/*": ["./src/types/*"],
-      "~utils/*": ["./src/utils/*"],
       "~components/*": ["./src/*"]
     },
     "types": ["@testing-library/jest-dom"]

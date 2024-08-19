@@ -4,7 +4,7 @@ import { ClearButton } from "~components/ClearButton"
 import { FieldMessageProps } from "~components/FieldMessage"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
 import { RemovableTag } from "~components/__future__"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { MultiSelectOption } from "../../types"
 import styles from "./MultiSelectToggle.module.scss"
 

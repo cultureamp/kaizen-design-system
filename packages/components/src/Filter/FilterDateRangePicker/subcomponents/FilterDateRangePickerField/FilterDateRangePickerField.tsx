@@ -16,8 +16,8 @@ import {
 } from "~components/DatePicker/utils/getLocale"
 import { DateValidationResponse } from "~components/Filter/FilterDatePicker"
 import { useDateInputHandlers } from "~components/Filter/FilterDatePicker/hooks/useDateInputHandlers"
-import { DataAttributes } from "~types/DataAttributes"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { DataAttributes } from "~components/types/DataAttributes"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import {
   DateRangeInputField,
   DateRangeInputFieldProps,

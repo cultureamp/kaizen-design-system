@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Radio.module.scss"
 
 export type RadioProps = OverrideClassName<

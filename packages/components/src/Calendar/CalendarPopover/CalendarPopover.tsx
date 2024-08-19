@@ -8,7 +8,7 @@ import {
   autoPlacement,
 } from "@floating-ui/react-dom"
 import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./CalendarPopover.module.scss"
 
 export type CalendarPopoverProps = {

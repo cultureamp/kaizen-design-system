@@ -4,7 +4,7 @@ import { usePopper } from "react-popper"
 import { Heading } from "~components/Heading"
 import { CloseIcon } from "~components/Icon"
 import { Text } from "~components/Text"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { Placement, PopoverSize, PopoverVariant } from "./types"
 import {
   mapArrowVariantToClass,

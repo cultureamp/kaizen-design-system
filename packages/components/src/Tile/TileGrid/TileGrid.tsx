@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, ReactElement } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { InformationTileProps } from "../InformationTile"
 import { MultiActionTileProps } from "../MultiActionTile"
 import styles from "./TileGrid.module.scss"

@@ -1,7 +1,7 @@
 import React from "react"
 import { CloseIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v2"
-import { assetUrl } from "~utils/hostedAssets"
+import { assetUrl } from "~components/utils/hostedAssets"
 import styles from "./ExampleHeaders.module.scss"
 
 export const MinimalBasic = (): JSX.Element => (

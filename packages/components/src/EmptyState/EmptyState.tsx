@@ -9,7 +9,7 @@ import {
   EmptyStatesPositive,
 } from "~components/Illustration"
 import { Text } from "~components/Text"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./EmptyState.module.scss"
 
 const ILLUSTRATIONS: Record<

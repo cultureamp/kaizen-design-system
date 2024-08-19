@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, ReactNode } from "react"
 import { TabList as ReachTabList } from "@reach/tabs"
 import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./TabList.module.scss"
 
 export type TabListProps = {

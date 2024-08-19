@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ClosedIcon, SurveysIcon } from "~components/Icon"
+import { ClosedIcon, SurveysIcon } from "@kaizen/components"
 
 type Props = {
   text: string

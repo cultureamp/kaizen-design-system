@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { HeadingVariants } from "~components/Heading"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./LoadingHeading.module.scss"
 
 export type LoadingHeadingProps = {

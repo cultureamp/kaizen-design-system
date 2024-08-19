@@ -1,6 +1,6 @@
 import React, { LabelHTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Label.module.scss"
 
 type LabelType = "text" | "checkbox" | "toggle" | "radio"

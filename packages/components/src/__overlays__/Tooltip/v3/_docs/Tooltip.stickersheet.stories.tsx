@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, composeStories } from "@storybook/react"
 import { ReversedColors } from "~components/__utilities__/v3"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
-import { mergeClassNames } from "~utils/mergeClassNames"
+import { mergeClassNames } from "~components/utils/mergeClassNames"
 import * as testStories from "./Tooltip.spec.stories"
 
 export default {

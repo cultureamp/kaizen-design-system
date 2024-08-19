@@ -1,7 +1,6 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { Heading } from "~components/Heading"
-import { Text } from "~components/Text"
+import { Heading, Text } from "@kaizen/components"
 
 export default {
   title: "Guides/Tailwind/Utility Class References/Modifiers/Media Queries",

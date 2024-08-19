@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import { Heading } from "~components/Heading"
 import { Tag, DefaultTagProps } from "~components/Tag"
 import { VisuallyHidden } from "~components/VisuallyHidden"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Titles.module.scss"
 
 export type WorkflowStatus = {

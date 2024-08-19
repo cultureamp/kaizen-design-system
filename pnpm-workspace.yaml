@@ -1,5 +1,6 @@
 packages:
   - "packages/**"
+  - ".storybook"
   - "!packages/components/future"
   - "!packages/utilities/v3"
   - "!packages/components/v1"

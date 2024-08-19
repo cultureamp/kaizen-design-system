@@ -9,7 +9,7 @@ import { Tab as ReachTab } from "@reach/tabs"
 import classnames from "classnames"
 import { useFocusable } from "react-aria"
 import { Badge } from "~components/Badge"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Tab.module.scss"
 
 export type TabProps = {

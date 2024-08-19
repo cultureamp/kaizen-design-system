@@ -1,6 +1,6 @@
 import React, { TableHTMLAttributes } from "react"
 import classnames from "classnames"
-import { Heading } from "~components/Heading"
+import { Heading } from "@kaizen/components"
 import {
   StickerSheetBody,
   StickerSheetBodyProps,
@@ -11,7 +11,7 @@ import {
   StickerSheetHeaderProps,
 } from "./components/StickerSheetHeader"
 import { StickerSheetRow } from "./components/StickerSheetRow"
-import styles from "./StickerSheet.module.scss"
+import styles from "./StickerSheet.css"
 
 type ReversibleSubcomponents = StickerSheetBodyProps | StickerSheetHeaderProps
 

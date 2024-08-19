@@ -13,7 +13,7 @@ import {
   Popover,
   useFloating,
 } from "~components/MultiSelect/subcomponents/Popover"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { SelectProvider } from "./context"
 import {
   ListBox,

@@ -3,7 +3,7 @@ import {
   MenuItem as RACMenuItem,
   MenuItemProps as RACMenuItemProps,
 } from "react-aria-components"
-import { mergeClassNames } from "~utils/mergeClassNames"
+import { mergeClassNames } from "~components/utils/mergeClassNames"
 import styles from "./MenuItem.module.scss"
 
 export type MenuItemProps = RACMenuItemProps & {

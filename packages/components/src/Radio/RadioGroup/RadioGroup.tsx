@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, useId } from "react"
 import classnames from "classnames"
 import { Label } from "~components/Label"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./RadioGroup.module.scss"
 
 export type RadioGroupProps = OverrideClassName<

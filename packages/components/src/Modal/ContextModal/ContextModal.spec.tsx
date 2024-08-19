@@ -1,7 +1,7 @@
 import React from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { mockMatchMedia } from "~utils/useMediaQueries.spec"
+import { mockMatchMedia } from "~components/utils/useMediaQueries.spec"
 import { ContextModal, ContextModalProps } from "./ContextModal"
 
 const user = userEvent.setup()

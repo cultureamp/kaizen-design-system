@@ -9,7 +9,7 @@ import {
 import classnames from "classnames"
 import { FieldMessage } from "~components/FieldMessage"
 import { Label } from "~components/Label"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { TimeSegment } from "./subcomponents/TimeSegment"
 import { StatusType, TimeValue, ValueType } from "./types"
 import styles from "./TimeField.module.scss"

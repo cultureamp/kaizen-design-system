@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, ReactNode } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Wrapper.module.scss"
 
 export type WorkflowWrapperProps = OverrideClassName<

@@ -2,15 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "react",
-    "esModuleInterop": true,
-    "paths": {
-      "~storybook/*": ["./*"],
-      "~types/*": ["../packages/components/src/types/*"],
-      "~utils/*": ["../packages/components/src/utils/*"],
-      "~components/*": ["../packages/components/src/*"],
-      "~design-tokens/*": ["../packages/design-tokens/src/*"],
-      "~tailwind/*": ["../packages/tailwind/src/*"]
-    }
+    "esModuleInterop": true
   },
+  "include": ["./components/**/*"],
   "files": ["./types.d.ts"]
 }

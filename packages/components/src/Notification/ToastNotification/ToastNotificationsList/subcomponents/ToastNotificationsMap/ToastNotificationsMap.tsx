@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { createPortal } from "react-dom"
 import { GenericNotification } from "~components/Notification/subcomponents/GenericNotification"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { ToastNotificationObj } from "../../../types"
 
 export type ToastNotificationsMapProps = {

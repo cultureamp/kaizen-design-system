@@ -1,6 +1,6 @@
 import React from "react"
 import { LabelledMessage } from "~components/LabelledMessage"
-import { getNodeText } from "~utils/getNodeText"
+import { getNodeText } from "~components/utils/getNodeText"
 import { DateValidationResponse, ValidationMessage } from "../types"
 
 export type GetDateValidationHandlerArgs = {

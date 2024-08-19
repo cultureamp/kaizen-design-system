@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Textfit } from "react-textfit"
 import { UserIcon } from "~components/Icon"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Avatar.module.scss"
 
 export type AvatarSizes = "small" | "medium" | "large" | "xlarge" | "xxlarge"

@@ -2,7 +2,7 @@ import React from "react"
 import classnames from "classnames"
 import { Input, InputProps } from "~components/Input"
 import { Label } from "~components/Label"
-import { isRefObject } from "~utils/isRefObject"
+import { isRefObject } from "~components/utils/isRefObject"
 import styles from "./DateInput.module.scss"
 
 type OmittedInputProps = "reversed" | "type" | "inputRef"

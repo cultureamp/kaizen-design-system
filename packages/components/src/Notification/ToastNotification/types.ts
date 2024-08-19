@@ -1,4 +1,4 @@
-import { DataAttributes } from "~types/DataAttributes"
+import { DataAttributes } from "~components/types/DataAttributes"
 import {
   GenericNotificationType,
   GenericNotificationVariant,
