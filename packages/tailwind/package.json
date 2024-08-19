@@ -26,11 +26,10 @@
   "author": "",
   "private": false,
   "license": "MIT",
-  "dependencies": {
-    "@kaizen/design-tokens": "workspace:*",
-    "@kaizen/components": "workspace:*"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@kaizen/design-tokens": "workspace:*",
+    "@kaizen/components": "workspace:*",
     "@kaizen/package-bundler": "workspace:*",
     "rollup": "^4.20.0",
     "tailwindcss": "^3.4.9",

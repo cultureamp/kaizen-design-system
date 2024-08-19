@@ -3,8 +3,8 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["packages/**"],
-      "outputs": ["dist/**"]
+      "inputs": ["packages/**", ".storybook/**"],
+      "outputs": ["dist/**", ".storybook/public/**"]
     },
     "dev": {
       "dependsOn": ["^build"],

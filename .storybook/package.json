@@ -14,12 +14,12 @@
   },
   "dependencies": {
     "@kaizen/components": "workspace:*",
+    "@kaizen/design-tokens": "workspace:*",
+    "@kaizen/tailwind": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@kaizen/design-tokens": "workspace:*",
-    "@kaizen/tailwind": "workspace:*",
     "@eslint/js": "^9.9.0",
     "@rollup/plugin-alias": "^5.1.0",
     "@storybook/addon-essentials": "^8.2.9",
@@ -33,7 +33,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
-    "eslint": "^9.9.0",
+    "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.9",
     "eslint-plugin-storybook": "^0.8.0",

@@ -81,7 +81,7 @@ Updates the package API to export the asset URL functions from the root of the m
 ```js
 // TS/JS
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assetUrl } from "~utils/hostedAssets"
+import { assetUrl } from "@kaizen/hosted-assets"
 ;<SomeComponent
   image={assetUrl("illustrations/plant-based-ham-substitute.png")}
 />
