@@ -114,7 +114,11 @@
     "@types/uuid": "^10.0.0",
     "autoprefixer": "^10.4.20",
     "concat-cli": "^4.0.0",
+    "postcss": "^8.4.41",
     "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "postcss-preset-env": "^10.0.2",
+    "postcss-scss": "^4.0.9",
     "query-string": "^9.1.0",
     "react-intl": "^6.6.8",
     "rollup": "^4.20.0",
@@ -124,11 +128,6 @@
     "ts-jest": "^29.2.4",
     "tslib": "^2.6.3",
     "tsx": "^4.17.0"
-  },
-  "devDependenciesComments": {
-    "postcss": "Installed in root",
-    "postcss-cli": "Installed in root",
-    "postcss-preset-env": "Installed in root"
   },
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.5.9",
