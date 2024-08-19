@@ -1,5 +1,5 @@
 import React from "react"
-import { InlineNotification } from "~components/Notification"
+import { InlineNotification } from "@kaizen/components"
 
 export const SbReleaseNotification = (): JSX.Element => (
   <InlineNotification persistent type="negative">

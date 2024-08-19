@@ -3,9 +3,9 @@
     "baseUrl": ".",
     "jsx": "react",
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "paths": {
-      "~storybook/*": ["./*"],
-      "~components/*": ["../packages/components/src/*"]
+      "~storybook/*": ["./*"]
     }
   },
   "include": ["./components/**/*"],
