@@ -4,7 +4,8 @@
     "jsx": "react",
     "esModuleInterop": true,
     "paths": {
-      "~storybook/*": ["./*"]
+      "~storybook/*": ["./*"],
+      "~components/*": ["../packages/components/src/*"]
     }
   },
   "include": ["./components/**/*"],
