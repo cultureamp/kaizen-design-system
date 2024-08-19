@@ -14,6 +14,9 @@
       "dependsOn": ["^build"],
       "cache": false
     },
+    "lint:styles": {
+      "cache": false
+    },
     "test": {},
     "test:ci": {},
     "clean": {

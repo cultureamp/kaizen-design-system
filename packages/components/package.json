@@ -34,9 +34,12 @@
   "bin": {
     "kaizen-codemod": "./bin/codemod.sh"
   },
+  "type": "module",
   "scripts": {
     "clean": "rm -rf dist",
     "lint:ts": "tsc --noEmit",
+    "lint:css": "pnpm stylelint './src/**/*.css' --config .stylelintrc.js",
+    "lint:styles": "pnpm lint:css",
     "build": "pnpm package-bundler build-shared-ui && pnpm build:styles",
     "build:global-styles": "postcss ./styles/global.css --output dist/global.css",
     "build:combine-styles": "concat-cli -f ./dist/global.css ./dist/styles.css -o ./dist/styles.css && rm ./dist/global.css",

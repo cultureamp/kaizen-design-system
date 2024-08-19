@@ -32,6 +32,8 @@
     "build:ts": "pnpm package-bundler build",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
+    "lint:scss": "pnpm stylelint './src/**/*.scss' --config .stylelintrc-scss.json",
+    "lint:styles": "pnpm lint:css && pnpm lint:scss",
     "clean": "rimraf dist"
   },
   "dependencies": {
