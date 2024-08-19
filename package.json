@@ -99,6 +99,8 @@
     "typescript": "^5.5.4"
   },
   "devDependenciesComments": {
-    "ts-node": "Required for jest"
+    "ts-node": "Required for jest",
+    "@storybook/*": "Required for Storybook stories across all packages",
+    "playwright": "Required for github actions setup"
   }
 }
