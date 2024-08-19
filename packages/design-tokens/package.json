@@ -44,6 +44,7 @@
     "@kaizen/package-bundler": "workspace:*",
     "@types/color-string": "^1.5.5",
     "@types/lodash.flatmap": "^4.5.9",
+    "@types/react-highlight": "^0.12.8",
     "color-string": "^1.9.1",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
