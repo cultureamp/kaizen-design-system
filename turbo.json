@@ -7,6 +7,7 @@
       "outputs": ["dist/**"]
     },
     "lint:ts": {
+      "dependsOn": ["^build"],
       "cache": false
     },
     "test": {},
@@ -14,9 +15,9 @@
     "clean": {
       "cache": false
     },
-    "//#storybook:build": {
-      "dependsOn": ["@kaizen/design-tokens#build", "@kaizen/tailwind#build"],
-      "outputs": ["storybook/public/**"],
+    "storybook:build": {
+      "dependsOn": ["^build"],
+      "outputs": [".storybook/public/**"],
       "cache": false
     },
     "@kaizen/components#build": {
