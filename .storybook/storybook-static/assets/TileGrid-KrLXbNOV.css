@@ -1,1 +1,0 @@
-._grid_11vr3_2{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));grid-gap:var(--spacing-md, 1.5rem)}@media (max-width: 767px){._grid_11vr3_2{grid-template-columns:repeat(2,minmax(226px,370px))}._grid_11vr3_2>*{width:100%}}@media (max-width: 480px){._grid_11vr3_2{grid-template-columns:repeat(1,100%)}}

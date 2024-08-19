@@ -1,8 +1,0 @@
-import{j as t}from"./jsx-runtime-Cw0GR0a5.js";import{useMDXComponents as i}from"./index-DSkyVWTJ.js";import{ae as a,ag as r,aj as m}from"./index-UYGUCD_e.js";import{R as p,K as d}from"./DoesAndDonts-BKQOirz7.js";import"./LinkTo-CCLy3Ahi.js";import"./index-CTjT7uj6.js";import{B as c,P as n}from"./Badge.stories-DgqL_KCj.js";import"./iframe-KYiyEPLH.js";import"../sb-preview/runtime.js";import"./index-9r8iugjR.js";import"./index-D-8MO0q_.js";import"./_getPrototype-pu5AwQxR.js";import"./index-DrFu-skq.js";import"./index-CCQ3W5xA.js";import"./InlineNotification-DPK6p_Of.js";import"./tslib.es6-CY32MZYl.js";import"./GenericNotification-BhHHhCD8.js";import"./Heading-hQmlkvcj.js";import"./Text-DAOK2_W2.js";import"./Badge-D9GUNioS.js";function s(e){const o={h1:"h1",h2:"h2",p:"p",...i(),...e.components};return t.jsxs(t.Fragment,{children:[t.jsx(a,{of:c}),`
-`,t.jsx(o.h1,{id:"badge",children:"Badge"}),`
-`,t.jsx(p,{sourceCode:"https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Badge",figma:"https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?type=design&node-id=5-242&mode=design&t=ITSkv2Fu67xK6kBC-0",designGuidelines:"https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064857333/Badge"}),`
-`,t.jsx(d,{exportNames:"Badge"}),`
-`,t.jsx(o.h2,{id:"overview",children:"Overview"}),`
-`,t.jsx(o.p,{children:"Badges show the count of some adjacent data. A dot badge notifies the user that something is new or updated without showing a count."}),`
-`,t.jsx(r,{of:n}),`
-`,t.jsx(m,{of:n})]})}function G(e={}){const{wrapper:o}={...i(),...e.components};return o?t.jsx(o,{...e,children:t.jsx(s,{...e})}):s(e)}export{G as default};

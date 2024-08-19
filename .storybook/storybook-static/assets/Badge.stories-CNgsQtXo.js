@@ -1,1 +1,0 @@
-import{R as a}from"./index-CTjT7uj6.js";import{B as t,a as o}from"./Badge-D9GUNioS.js";import"./index-CCQ3W5xA.js";const d={title:"Components/Badge",component:t,args:{children:"3"}},m={parameters:{docs:{canvas:{sourceState:"shown"}}}},c={render:e=>a.createElement(o,{...e})},i=["Playground","Animated"];export{c as Animated,m as Playground,i as __namedExportsOrder,d as default};

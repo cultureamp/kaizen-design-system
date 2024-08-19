@@ -1,1 +1,0 @@
-const a=(e,c)=>{const o=Object.entries(c||[]),t=[];return o.forEach(i=>{const[r,s]=i;typeof s=="string"?t.push({utilityClassName:`${e}${r}`,cssProperty:s}):Object.entries(s).forEach(n=>t.push({utilityClassName:`${e}${r}-${n[0]}`,cssProperty:n[1]}))}),t};export{a as f};

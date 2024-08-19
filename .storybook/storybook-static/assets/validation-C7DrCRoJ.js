@@ -1,1 +1,0 @@
-import{R as t}from"./index-CTjT7uj6.js";const n=e=>/^https?:\/\//.test(e)?{status:"success"}:{status:"error",message:t.createElement(t.Fragment,null,"Empty or invalid link. Links must start with http or https, e.g:",t.createElement("ul",null,t.createElement("li",null,"https://google.com"),t.createElement("li",null,"http://www.google.com")))};export{n as v};

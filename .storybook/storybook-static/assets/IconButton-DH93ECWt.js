@@ -1,2 +1,0 @@
-import{r as e,R as s}from"./index-CTjT7uj6.js";import{G as a}from"./GenericButton-CnAyP-Wm.js";const t=e.forwardRef((o,n)=>s.createElement(a,{iconButton:!0,...o,ref:n}));t.displayName="IconButton";t.__docgenInfo={description:`{@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3062890984/Button Guidance} |
-{@link https://cultureamp.design/?path=/docs/components-iconbutton--docs Storybook}`,methods:[],displayName:"IconButton"};export{t as I};

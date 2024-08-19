@@ -1,1 +1,0 @@
-import{L as e}from"./LabelledMessage-CyRdzdqY.js";import"./index-CTjT7uj6.js";import"./index-CCQ3W5xA.js";const o={title:"Components/Utilities/Labelled Message",component:e,args:{label:"Label",message:"Custom message here"}},r={parameters:{docs:{canvas:{sourceState:"shown"}}}},l=["Playground"];export{r as Playground,l as __namedExportsOrder,o as default};

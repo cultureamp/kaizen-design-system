@@ -1,5 +1,0 @@
-import{j as o}from"./jsx-runtime-Cw0GR0a5.js";import{useMDXComponents as e}from"./index-DSkyVWTJ.js";import{ae as s,ah as i}from"./index-UYGUCD_e.js";import{C as m,a as p}from"./color-tokens.stories-C3lbP5-m.js";import"./index-CTjT7uj6.js";import"./iframe-KYiyEPLH.js";import"../sb-preview/runtime.js";import"./index-9r8iugjR.js";import"./index-D-8MO0q_.js";import"./_getPrototype-pu5AwQxR.js";import"./index-DrFu-skq.js";import"./index-Cz46hO83.js";import"./index-BQ5IbGbl.js";import"./Heading-Y5F8SWRW.js";import"./index-CCQ3W5xA.js";import"./tokens-R-QqTfm-.js";function n(r){const t={code:"code",h1:"h1",h2:"h2",p:"p",...e(),...r.components};return o.jsxs(o.Fragment,{children:[o.jsx(s,{of:m}),`
-`,o.jsx(t.h1,{id:"color-tokens",children:"Color Tokens"}),`
-`,o.jsxs(t.p,{children:["Import the color tokens into your SCSS with ",o.jsx(t.code,{children:'@import "~@kaizen/design-tokens/sass/color'}),"."]}),`
-`,o.jsx(t.h2,{id:"colors",children:"Colors"}),`
-`,o.jsx(i,{of:p})]})}function X(r={}){const{wrapper:t}={...e(),...r.components};return t?o.jsx(t,{...r,children:o.jsx(n,{...r})}):n(r)}export{X as default};

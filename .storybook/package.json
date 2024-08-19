@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "lint:ts": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build -c ./"
+    "storybook:build": "storybook build -c ./ -o ./public"
   },
   "dependencies": {
     "@kaizen/components": "workspace:*",
