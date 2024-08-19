@@ -291,6 +291,9 @@ importers:
 
   .storybook:
     dependencies:
+      '@kaizen/components':
+        specifier: workspace:*
+        version: link:../packages/components
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -301,9 +304,6 @@ importers:
       '@eslint/js':
         specifier: ^9.9.0
         version: 9.9.0
-      '@kaizen/components':
-        specifier: workspace:*
-        version: link:../packages/components
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../packages/design-tokens
