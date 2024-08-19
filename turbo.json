@@ -7,16 +7,12 @@
       "outputs": ["dist/**", ".storybook/public/**"]
     },
     "dev": {
-      "dependsOn": ["^build"],
-      "cache": false
+      "dependsOn": ["^build"]
     },
     "lint:ts": {
-      "dependsOn": ["^build"],
-      "cache": false
+      "dependsOn": ["^build"]
     },
-    "lint:styles": {
-      "cache": false
-    },
+    "lint:styles": {},
     "test": {},
     "test:ci": {},
     "clean": {
