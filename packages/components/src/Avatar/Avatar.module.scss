@@ -3,99 +3,70 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 
-$avatar-sm: 1.25rem;
-$avatar-md: 3rem;
-$avatar-lg: 4.5rem;
-$avatar-xl: 6rem;
-$avatar-xxl: 7.75rem;
-
-/* stylelint-disable no-descending-specificity */
 .wrapper {
-  background: $color-gray-300;
+  --avatar-size: 3rem;
+
+  box-shadow: var(--shadow-small-box-shadow);
+  border: 3px solid $color-white;
+  background: var(--color-gray-300);
   border-radius: 100%;
   box-sizing: border-box;
   overflow: hidden;
   align-items: center;
   display: flex;
   justify-content: center;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+}
 
-  &:not(.small) {
-    box-shadow: $shadow-small-box-shadow;
-    border: 3px solid $color-white;
-  }
+// Themes
+.wrapper.personal {
+  background: var(--color-orange-100);
+}
 
-  // Themes
-  &.personal {
-    background: $color-orange-100;
-  }
+.wrapper.otherUser {
+  background: var(--color-gray-300);
+}
 
-  &.otherUser {
-    background: $color-gray-300;
-  }
+.wrapper.company {
+  border: 0;
+  background: var(--color-white);
+  padding: 6px;
+  border-radius: var(--border-solid-border-radius);
+}
 
-  &.company {
-    border: 0;
-    background: $color-white;
-    padding: 6px;
-    border-radius: $border-solid-border-radius;
-  }
+// Sizes
+.wrapper.small {
+  --avatar-size: 1.25rem;
 
-  // Sizes
-  &.small {
-    width: $avatar-sm;
-    height: $avatar-sm;
+  box-shadow: unset;
+  border: unset;
+}
 
-    .initials {
-      margin-bottom: -1px;
-    }
+.wrapper.large {
+  --avatar-size: 4.5rem;
+}
 
-    &.company {
-      padding: 0;
-    }
-  }
+.wrapper.xlarge {
+  --avatar-size: 6rem;
+}
 
-  &.medium {
-    width: $avatar-md;
-    height: $avatar-md;
+.wrapper.xxlarge {
+  --avatar-size: 7.75rem;
+}
 
-    .initials {
-      margin-bottom: -1px;
-    }
-  }
-
-  &.large {
-    width: $avatar-lg;
-    height: $avatar-lg;
-  }
-
-  &.xlarge {
-    width: $avatar-xl;
-    height: $avatar-xl;
-  }
-
-  &.xxlarge {
-    width: $avatar-xxl;
-    height: $avatar-xxl;
-  }
-
-  & .initials {
-    text-decoration: none;
-    speak-as: spell-out;
-
-    // to override materialize.css global styling in performance-ui,
-    // which sets a border-bottom on abbr tags
-    border-bottom: none;
-  }
+.wrapper.small.company {
+  padding: 0;
 }
 
 .avatarImage {
-  .loading & {
-    display: none;
-  }
-
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+  .loading & {
+    display: none;
+  }
 }
 
 .companyAvatarImage {
@@ -105,8 +76,7 @@ $avatar-xxl: 7.75rem;
 }
 
 .fallbackIcon {
-  color: rgba($color-purple-800-rgb, 0.7);
-  width: 28px;
+  color: rgba(var(--color-purple-800-rgb), 0.7);
 
   .xxlarge & {
     width: 75px;
@@ -122,26 +92,26 @@ $avatar-xxl: 7.75rem;
 
   .medium & {
     width: 25px;
-    margin-bottom: -1px;
   }
 
   .small & {
     width: 10px;
-    margin-bottom: -1px;
   }
 }
 
 .initials {
+  speak-as: spell-out;
+  border-bottom: none;
   box-sizing: border-box;
-  color: $color-purple-800;
+  color: var(--color-purple-800);
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
   width: 100%;
-  font-size: 22px;
-  font-family: $typography-heading-1-font-family;
-  font-weight: $typography-heading-1-font-weight;
-  letter-spacing: $typography-heading-3-letter-spacing;
+  font-family: var(--typography-heading-2-font-family);
+  font-weight: 700;
+  letter-spacing: normal;
+  text-decoration: none;
 
   // Whitespace cropping
   &:not(.longName)::before {
@@ -152,20 +122,24 @@ $avatar-xxl: 7.75rem;
 
   .xlarge &,
   .xxlarge & {
-    font-size: 34px;
-    letter-spacing: $typography-heading-1-letter-spacing;
+    font-size: var(--typography-heading-2-font-size);
+    line-height: var(--typography-heading-2-line-height);
+  }
+
+  .large & {
+    font-size: var(--typography-heading-3-font-size);
+    line-height: var(--typography-heading-3-line-height);
   }
 
   .medium & {
-    font-size: 16px;
-    font-weight: $typography-heading-5-font-weight;
-    letter-spacing: $typography-heading-5-letter-spacing;
+    font-size: var(--typography-heading-5-font-size);
+    line-height: var(--typography-heading-5-line-height);
+    font-weight: 600;
   }
 
   .small & {
     font-size: 8px;
-    font-weight: $typography-heading-5-font-weight;
-    letter-spacing: $typography-heading-5-letter-spacing;
+    line-height: 18px;
+    font-weight: 600;
   }
 }
-/* stylelint-enable no-descending-specificity */

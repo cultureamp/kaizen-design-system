@@ -79,6 +79,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             "Initials Generic",
             "Default User",
           ]}
+          hasVerticalHeadings
         />
         <StickerSheet.Body>
           {ROWS.map(({ title, size }) => (
@@ -94,6 +95,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet isReversed={isReversed}>
         <StickerSheet.Header
           headings={["Initials Unicode", "Initials Long", "Company Avatar"]}
+          hasVerticalHeadings
         />
         <StickerSheet.Body>
           {ROWS.map(({ title, size }) => (

@@ -65,7 +65,7 @@ export const TailwindStoryTemplate = ({
             onHide={(): void => setCopiedText(null)}
             headingProps={{
               children: "Copied to clipboard: ",
-              variant: "heading-6",
+              variant: "heading-5",
             }}
           >
             {copiedText}
