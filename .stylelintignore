@@ -5,4 +5,4 @@ packages/components/dist/*
 packages/design-tokens/dist/*
 packages/tailwind/dist/*
 packages/tailwind/src/_docs/utils/tailwind.css
-.storybook/styles/*
+docs/storybook-static/*
