@@ -11,11 +11,11 @@
 }
 
 .menu :global(.react-aria-Header) {
-  font-family: var(--typography-heading-6-font-family);
-  font-size: var(--typography-heading-6-font-size);
-  letter-spacing: var(--typography-heading-6-letter-spacing);
-  font-weight: var(--typography-heading-6-font-weight);
-  line-height: var(--typography-heading-6-line-height);
+  font-family: var(--typography-heading-5-font-family);
+  font-size: var(--typography-heading-5-font-size);
+  letter-spacing: var(--typography-heading-5-letter-spacing);
+  font-weight: var(--typography-heading-5-font-weight);
+  line-height: var(--typography-heading-5-line-height);
   padding: var(--spacing-6) 10px;
   margin-inline: var(--spacing-6);
 }

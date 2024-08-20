@@ -14,7 +14,7 @@ export const MenuHeading = ({
 }: MenuHeadingProps): JSX.Element => (
   <Heading
     id={id}
-    variant="heading-6"
+    variant="heading-5"
     tag="span"
     classNameOverride={classnames(styles.heading, classNameOverride)}
     {...restProps}
