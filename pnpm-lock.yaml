@@ -193,9 +193,6 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@eslint/js':
-        specifier: ^9.9.0
-        version: 9.9.0
       '@kaizen/components':
         specifier: workspace:*
         version: link:../packages/components

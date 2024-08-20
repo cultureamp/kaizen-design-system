@@ -6,8 +6,10 @@
     "skipLibCheck": true,
     "paths": {
       "~storybook/*": ["./*"],
-      "~components/*": ["../packages/components/src/*"]
+      "~components/*": ["../packages/components/src/*"],
+      "~kaio-global-styles": ["../packages/components/styles/global.css"]
     }
   },
+  "include": ["**/*.ts", "**/*.tsx"],
   "files": ["./types.d.ts"]
 }

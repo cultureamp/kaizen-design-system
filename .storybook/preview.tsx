@@ -1,4 +1,4 @@
-import "@kaizen/components/styles/global.css"
+import "~kaio-global-styles"
 import "@kaizen/tailwind/dist/docs/tailwind.css"
 import "./preview.css"
 

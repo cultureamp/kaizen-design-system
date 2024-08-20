@@ -17,7 +17,6 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.0",
     "@kaizen/components": "workspace:*",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/tailwind": "workspace:*",

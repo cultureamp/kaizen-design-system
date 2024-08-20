@@ -52,13 +52,9 @@ const config: StorybookConfig = {
           ],
           {
             "~storybook": path.resolve(__dirname),
-            "~types": path.resolve(
+            "~kaio-global-styles": path.resolve(
               __dirname,
-              "../packages/components/src/types"
-            ),
-            "~utils": path.resolve(
-              __dirname,
-              "../packages/components/src/utils"
+              "../packages/components/styles/global.css"
             ),
             "~components": path.resolve(
               __dirname,
