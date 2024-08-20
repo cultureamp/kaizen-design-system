@@ -141,6 +141,7 @@ export type TokenStructure = {
       "600": Hex
     }
     white: Hex
+    black: Hex
   }
   dataViz: {
     favorable: Hex
