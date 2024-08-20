@@ -23,4 +23,16 @@ describe("<Avatar />", () => {
       expect(screen.getByText("JWAVLN")).toBeInTheDocument()
     })
   })
+
+  describe("alt text", () => {
+    it("uses alt prop over full name when using initials", () => {
+      render(<Avatar fullName="Jane Doe" alt="alt override" />)
+      expect(screen.getByTitle("alt override")).toBeInTheDocument()
+    })
+
+    it("uses alt prop over full name when using fallback img", () => {
+      render(<Avatar fullName="Jane Doe" alt="alt override" disableInitials />)
+      expect(screen.getByRole("img")).toHaveAccessibleName("alt override")
+    })
+  })
 })
