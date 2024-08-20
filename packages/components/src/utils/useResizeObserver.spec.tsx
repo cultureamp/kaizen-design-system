@@ -28,25 +28,29 @@ describe("useResizeObserver", () => {
   it("Calls the callback with the expected entries", async () => {
     const callback = jest.fn().mockImplementation(value => value)
     const { result, unmount } = renderHook(() => useResizeObserver(callback))
+
     await act(async () => {
       // @ts-ignore
       result.current[0]("node")
       expect(result.current[1]).toBe(undefined)
 
       await waitFor(() => {
-        expect(callback).toHaveBeenCalledTimes(2)
-        expect(result.current[1]).toBe("first")
+        expect(callback).toHaveBeenCalledTimes(1)
       })
+
+      expect(result.current[1]).toBe("first")
+
+      await waitFor(() => {
+        expect(callback).toHaveBeenCalledTimes(2)
+      })
+
+      expect(result.current[1]).toBe("second")
 
       await waitFor(() => {
         expect(callback).toHaveBeenCalledTimes(3)
-        expect(result.current[1]).toBe("second")
       })
 
-      await waitFor(() => {
-        expect(callback).toHaveBeenCalledTimes(4)
-        expect(result.current[1]).toBe("third")
-      })
+      expect(result.current[1]).toBe("third")
     })
     unmount()
     expect(disconnect).toBeCalled()
