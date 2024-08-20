@@ -1,5 +1,6 @@
+import { act } from "react"
 import { setImmediate } from "timers"
-import { renderHook, act } from "@testing-library/react-hooks"
+import { renderHook, waitFor } from "@testing-library/react"
 import { useResizeObserver } from "./useResizeObserver"
 
 function MockResizeObserver(callback: unknown): void {
@@ -26,22 +27,26 @@ jest.mock("resize-observer-polyfill", () => ({
 describe("useResizeObserver", () => {
   it("Calls the callback with the expected entries", async () => {
     const callback = jest.fn().mockImplementation(value => value)
-    const { result, waitForNextUpdate, unmount } = renderHook(() =>
-      useResizeObserver(callback)
-    )
+    const { result, unmount } = renderHook(() => useResizeObserver(callback))
     await act(async () => {
       // @ts-ignore
       result.current[0]("node")
       expect(result.current[1]).toBe(undefined)
-      await waitForNextUpdate()
-      expect(callback).toBeCalledTimes(1)
-      expect(result.current[1]).toBe("first")
-      await waitForNextUpdate()
-      expect(callback).toBeCalledTimes(2)
-      expect(result.current[1]).toBe("second")
-      await waitForNextUpdate()
-      expect(callback).toBeCalledTimes(3)
-      expect(result.current[1]).toBe("third")
+
+      await waitFor(() => {
+        expect(callback).toHaveBeenCalledTimes(1)
+        expect(result.current[1]).toBe("first")
+      })
+
+      await waitFor(() => {
+        expect(callback).toHaveBeenCalledTimes(2)
+        expect(result.current[1]).toBe("second")
+      })
+
+      await waitFor(() => {
+        expect(callback).toHaveBeenCalledTimes(3)
+        expect(result.current[1]).toBe("third")
+      })
     })
     unmount()
     expect(disconnect).toBeCalled()

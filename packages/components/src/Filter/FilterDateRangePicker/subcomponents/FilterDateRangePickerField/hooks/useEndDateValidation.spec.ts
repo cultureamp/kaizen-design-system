@@ -1,6 +1,5 @@
 import { act } from "react"
-import { waitFor } from "@testing-library/react"
-import { renderHook } from "@testing-library/react"
+import { waitFor, renderHook } from "@testing-library/react"
 import { renderWithIntl } from "~tests"
 import { useEndDateValidation } from "./useEndDateValidation"
 
