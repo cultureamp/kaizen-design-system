@@ -34,17 +34,17 @@ describe("useResizeObserver", () => {
       expect(result.current[1]).toBe(undefined)
 
       await waitFor(() => {
-        expect(callback).toHaveBeenCalledTimes(1)
+        expect(callback).toHaveBeenCalledTimes(2)
         expect(result.current[1]).toBe("first")
       })
 
       await waitFor(() => {
-        expect(callback).toHaveBeenCalledTimes(2)
+        expect(callback).toHaveBeenCalledTimes(3)
         expect(result.current[1]).toBe("second")
       })
 
       await waitFor(() => {
-        expect(callback).toHaveBeenCalledTimes(3)
+        expect(callback).toHaveBeenCalledTimes(4)
         expect(result.current[1]).toBe("third")
       })
     })
