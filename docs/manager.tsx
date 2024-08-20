@@ -2,7 +2,7 @@
 // See: https://storybook.js.org/docs/addons/using-addons/
 import React from "react"
 import { addons } from "@storybook/manager-api"
-import { tokens } from "../packages/design-tokens/src/js"
+import { tokens } from "@kaizen/design-tokens/src/js"
 import KaizenTheme from "./theme"
 
 const CATEGORIES_ICON: Record<string, string> = {
