@@ -8,9 +8,9 @@
     "lint:ts": "tsc --noEmit",
     "dev": "storybook dev -c ./ -p 6006",
     "preview": "NODE_ENV=production pnpm dev --docs",
-    "build": "storybook build -c ./ -o ./public",
+    "build": "storybook build -c ./ -o ../storybook-static",
     "test": "test-storybook -c ./ --skipTags='skip-test' --url http://127.0.0.1:6006",
-    "clean": "rimraf ./public && rimraf ./node_modules"
+    "clean": "rimraf ../storybook-static && rimraf ./node_modules"
   },
   "dependencies": {
     "react": "^18.3.1",

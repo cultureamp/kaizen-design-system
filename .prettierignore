@@ -16,7 +16,7 @@
 # Explicitly ignore...
 pnpm-lock.yaml
 **/node_modules/
-/.storybook/public/
+/storybook-static/
 /packages/**/dist
 /packages/components/locales
 /packages/design-tokens/css

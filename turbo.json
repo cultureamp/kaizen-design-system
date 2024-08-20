@@ -4,7 +4,7 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["packages/**", ".storybook/**"],
-      "outputs": ["dist/**", ".storybook/public/**"]
+      "outputs": ["dist/**", "storybook-static/**"]
     },
     "dev": {
       "dependsOn": ["^build"]
@@ -19,7 +19,7 @@
     },
     "@docs/storybook#build": {
       "dependsOn": ["^build"],
-      "outputs": [".storybook/public/**"]
+      "outputs": ["storybook-static/**"]
     },
     "@kaizen/components#build": {
       "dependsOn": [
