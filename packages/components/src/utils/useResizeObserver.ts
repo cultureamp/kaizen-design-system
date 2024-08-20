@@ -23,6 +23,7 @@ export interface DOMRectReadOnly {
  * @return {Array} An array containing a ref for binding to the observed DOM
  * element, and the current value of the callback-resolved ResizeObserverEntry
  * @callback resolveEntryCallback
+ * @deprecated use native `ResizeObserver` DOM API instead
  */
 export const useResizeObserver = <T, E extends Element = HTMLElement>(
   resolveEntry: (entry: ResizeObserverEntry) => any = defaultCallback
