@@ -52,7 +52,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
   },
   fontFamily: {
     "family-paragraph": [`${defaultTheme.typography.paragraphBody.fontFamily}`],
-    "family-heading": [`${defaultTheme.typography.heading1.fontFamily}`],
+    "family-heading": [`${defaultTheme.typography.heading2.fontFamily}`], // this should to be Inter which is why we are changing it to heading2 value
     "family-data": [`${defaultTheme.typography.dataLarge.fontFamily}`],
     "family-display": [`${defaultTheme.typography.display0.fontFamily}`],
   },
