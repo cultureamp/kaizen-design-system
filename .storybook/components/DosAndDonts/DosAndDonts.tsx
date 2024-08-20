@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { Canvas } from "@storybook/blocks"
 import classnames from "classnames"
-import { CheckIcon, CloseIcon } from "@kaizen/components"
+import { CheckIcon, CloseIcon } from "~components/Icon"
 import { SbContent } from "../SbContent"
 
 export const DosAndDonts = ({
