@@ -109,7 +109,7 @@ jobs:
       - uses: ./.github/actions/setup
       - name: Build Storybook for Chromatic
         # We want both stories and docs for the branch preview
-        run: pnpm turbo @docs/storybook#build -- --stats-json
+        run: pnpm turbo @docs/storybook#build:chromatic
       - id: publishChromatic
         name: Publish to Chromatic
         uses: chromaui/action@v11
@@ -120,6 +120,7 @@ jobs:
           onlyChanged: "!(main)"
           externals: |
             **/!(*.module).scss
+            **/!(*.module).css
             packages/components/**/*.css
 
   update-branch-preview:

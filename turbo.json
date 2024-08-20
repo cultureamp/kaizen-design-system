@@ -19,11 +19,13 @@
     },
     "@docs/storybook#build": {
       "dependsOn": ["^build"],
-      "outputs": ["storybook-static/**"]
+      "outputs": ["storybook-static/**"],
+      "cache": false
     },
     "@docs/storybook#build:chromatic": {
       "dependsOn": ["^build"],
-      "outputs": ["storybook-static/**"]
+      "outputs": ["storybook-static/**"],
+      "cache": false
     },
     "@kaizen/components#build": {
       "dependsOn": [
