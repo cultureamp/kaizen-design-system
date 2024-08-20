@@ -8,7 +8,6 @@ import {
 } from "~components/Illustration"
 import { Skirt } from "~components/Skirt"
 import { Button } from "~components/__actions__/v2"
-
 import { TailwindStoryTemplate } from "../utils/TailwindStoryTemplate"
 
 export default {
