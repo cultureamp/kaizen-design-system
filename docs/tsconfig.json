@@ -7,6 +7,8 @@
     "paths": {
       "~storybook/*": ["./*"],
       "~components/*": ["../packages/components/src/*"],
+      "~tailwind/*": ["../packages/tailwind/src/*"],
+      "~design-tokens/*": ["../packages/design-tokens/src/*"],
       "~kaio-global-styles": ["../packages/components/styles/global.css"]
     }
   },

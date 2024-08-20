@@ -1,7 +1,7 @@
 import "~kaio-global-styles"
 import "@kaizen/tailwind/dist/docs/tailwind.css"
 import "highlight.js/styles/a11y-light.css"
-import "./preview.css"
+import "./utils/tailwind.css"
 
 import React, { useEffect } from "react"
 import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
