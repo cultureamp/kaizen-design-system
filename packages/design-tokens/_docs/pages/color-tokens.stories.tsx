@@ -190,6 +190,10 @@ export const ColorTokens: StoryFn = () => (
           <Heading variant="heading-3">White</Heading>
           <ColorDemo name="White" color={tokens.color.white} />
         </Stack>
+        <Stack gapSize={24}>
+          <Heading variant="heading-3">black</Heading>
+          <ColorDemo name="Black" color={tokens.color.black} />
+        </Stack>
       </ComponentsSection>
     </Stack>
   </div>
