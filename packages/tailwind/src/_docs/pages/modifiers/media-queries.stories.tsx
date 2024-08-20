@@ -1,6 +1,5 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-
 import { Heading } from "~components/Heading"
 import { Text } from "~components/Text"
 
