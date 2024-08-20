@@ -3,4 +3,5 @@
 "@kaizen/tailwind": minor
 ---
 
-Now comes in ESM!
+- Added ESM bundle
+- Fixed design-tokens js entrypoint
