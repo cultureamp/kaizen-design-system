@@ -4,5 +4,6 @@ packages/components/locales/*
 packages/components/dist/*
 packages/design-tokens/dist/*
 packages/tailwind/dist/*
-packages/tailwind/src/_docs/utils/tailwind.css
 docs/storybook-static/*
+docs/utils/tailwind.css
+docs/tailwind.css
