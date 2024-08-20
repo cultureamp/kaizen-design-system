@@ -648,13 +648,14 @@ importers:
         version: 4.20.0
 
   packages/tailwind:
+    dependencies:
+      '@kaizen/design-tokens':
+        specifier: workspace:*
+        version: link:../design-tokens
     devDependencies:
       '@kaizen/components':
         specifier: workspace:*
         version: link:../components
-      '@kaizen/design-tokens':
-        specifier: workspace:*
-        version: link:../design-tokens
       '@kaizen/package-bundler':
         specifier: workspace:*
         version: link:../package-bundler
