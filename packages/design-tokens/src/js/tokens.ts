@@ -158,6 +158,7 @@ export const tokens: TokenStructure = {
     12: ".75rem",
     16: "1rem",
     24: "1.5rem",
+    20: "1.25rem",
     32: "2rem",
     40: "2.5rem",
     48: "3rem",
