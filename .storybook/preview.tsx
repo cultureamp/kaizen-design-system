@@ -1,5 +1,6 @@
 import "~kaio-global-styles"
 import "@kaizen/tailwind/dist/docs/tailwind.css"
+import "highlight.js/styles/a11y-light.css"
 import "./preview.css"
 
 import React, { useEffect } from "react"
