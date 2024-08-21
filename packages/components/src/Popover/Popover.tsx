@@ -18,6 +18,9 @@ import styles from "./Popover.module.scss"
 
 export type PopoverProps = {
   children: React.ReactNode
+  /**
+   * @deprecated We are no longer supporting different variants for Popover, instead there will only be a single default variant.
+   */
   variant?: PopoverVariant
   placement?: Placement
   size?: PopoverSize
@@ -26,8 +29,7 @@ export type PopoverProps = {
   onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void
   singleLine?: boolean
   /**
-   * For almost all intents and purposes, you should be using a pre-defined variant.
-   * Please avoid using a custom icon unless you have a very good reason to do so.
+   * @deprecated This was for customising the icon provided with variants.
    */
   customIcon?: JSX.Element
   referenceElement: HTMLElement | null
