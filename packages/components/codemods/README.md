@@ -20,12 +20,13 @@ Example:
 ```
 
 ## Available codemods
-- `migrateBrandMomentMoodToVariant`: Migrates `BrandMoment` component prop from `mood` to `variant`.
-- `migrateEmptyStateIllustrationTypeToVariant`: Migrates `EmptyState` component prop from `illustrationType` to `variant`.
-- `migrateGlobalNotificationTypeToVariant`: Transforms `GlobalNotification`'s `type` prop to the new `variant` prop.
-- `migrateInlineNotificationTypeToVariant`: Transforms `InlineNotification`'s `type` prop to the new `variant` prop.
-- `migrateInformationTileMoodToVariant`: Migrates `InformationTile` component prop from `mood` to `variant`.
-- `migrateMultiActionTileMoodToVariant`: Migrates `MultiActionTile` component prop from `mood` to `variant`.
+- `migrateBrandMomentMoodToVariant`: Migrates `BrandMoment` component prop from `mood` to `variant`
+- `migrateEmptyStateIllustrationTypeToVariant`: Migrates `EmptyState` component prop from `illustrationType` to `variant`
+- `migrateGlobalNotificationTypeToVariant`: Transforms `GlobalNotification`'s `type` prop to the new `variant` prop
+- `migrateInlineNotificationTypeToVariant`: Transforms `InlineNotification`'s `type` prop to the new `variant` prop
+- `migrateInformationTileMoodToVariant`: Migrates `InformationTile` component prop from `mood` to `variant`
+- `migrateMultiActionTileMoodToVariant`: Migrates `MultiActionTile` component prop from `mood` to `variant`
 - `migrateProgressBarMoodToColor`: Migrates `ProgressBar` component prop from `mood` to `color`
-- `migrateToastNotificationTypeToVariant`: Transforms `ToastNotification`'s `type` prop to the new `variant` prop.
-- `migrateWellVariantToColor`: Migrates `Well` component prop from `variant` to `color`.
+- `migrateToastNotificationTypeToVariant`: Transforms `ToastNotification`'s `type` prop to the new `variant` prop
+- `migrateWellVariantToColor`: Migrates `Well` component prop from `variant` to `color`
+- `removePopoverVariant`: Removes `Popover` component props `variant` and `customIcon`
