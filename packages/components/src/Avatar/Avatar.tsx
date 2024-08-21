@@ -31,6 +31,11 @@ type BaseAvatarProps = {
    * Renders Company Avatar variant - If true `fullName` and `avatarSrc` will be strictly typed.
    */
   isCompany?: boolean
+  /**
+   * Control of the alt property on the img (or title when initials are rendered)
+   * Defaults to the fullName if provided, otherwise an empty string
+   */
+  alt?: string
 } & OverrideClassName<HTMLAttributes<HTMLSpanElement>>
 
 export type GenericAvatarProps = BaseAvatarProps & {
@@ -71,9 +76,9 @@ const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
   return 22
 }
 
-const fallbackIcon = (fullName: string): JSX.Element => {
-  if (fullName) {
-    return <UserIcon inheritSize role="img" aria-label={fullName} />
+const fallbackIcon = (alt: string): JSX.Element => {
+  if (alt) {
+    return <UserIcon inheritSize role="img" aria-label={alt} />
   }
 
   return <UserIcon inheritSize role="presentation" />
@@ -81,6 +86,7 @@ const fallbackIcon = (fullName: string): JSX.Element => {
 
 const renderInitials = (
   fullName = "",
+  alt: string,
   size: AvatarSizes,
   disableInitials = false
 ): JSX.Element => {
@@ -89,11 +95,11 @@ const renderInitials = (
   const renderFallback = disableInitials || initials === ""
 
   return renderFallback ? (
-    <span className={styles.fallbackIcon}>{fallbackIcon(fullName)}</span>
+    <span className={styles.fallbackIcon}>{fallbackIcon(alt)}</span>
   ) : (
     <abbr
       className={classnames(styles.initials, isLongName && styles.longName)}
-      title={fullName || ""}
+      title={alt}
     >
       {isLongName ? (
         // Only called if 3 or more initials, fits text width for long names
@@ -118,6 +124,7 @@ export const Avatar = ({
   disableInitials = false,
   isCompany = false,
   isCurrentUser = true,
+  alt = fullName || "",
   classNameOverride,
   ...restProps
 }: AvatarProps): JSX.Element => {
@@ -167,10 +174,11 @@ export const Avatar = ({
           src={avatarSrc}
           onError={onImageFailure}
           onLoad={onImageSuccess}
-          alt={fullName || ""}
+          alt={alt}
         />
       )}
-      {renderInitialAvatar && renderInitials(fullName, size, disableInitials)}
+      {renderInitialAvatar &&
+        renderInitials(fullName, alt, size, disableInitials)}
     </span>
   )
 }
