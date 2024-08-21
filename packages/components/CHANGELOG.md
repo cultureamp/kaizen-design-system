@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.59.0
+
+### Minor Changes
+
+- [#4939](https://github.com/cultureamp/kaizen-design-system/pull/4939) [`9952feb18f13b25edb06baea5b1bf65688ffb55c`](https://github.com/cultureamp/kaizen-design-system/commit/9952feb18f13b25edb06baea5b1bf65688ffb55c) - Avatar: allow control over alt property
+
 ## 1.58.2
 
 ### Patch Changes
