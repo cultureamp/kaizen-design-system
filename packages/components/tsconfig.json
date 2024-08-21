@@ -10,7 +10,7 @@
     },
     "types": ["@testing-library/jest-dom"]
   },
-  "files": ["types.d.ts"],
   "include": ["src/**/*", "__tests__/**/*", "codemods/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "files": ["types.d.ts"]
 }
