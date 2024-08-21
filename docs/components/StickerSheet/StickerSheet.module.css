@@ -1,11 +1,11 @@
-.stickersheet-section-heading {
+.stickerSheetSectionHeading {
   margin-bottom: var(--spacing-md);
 
-  .stickersheet + .stickersheet & {
+  .stickerSheet + .stickerSheet & {
     margin-top: var(--spacing-lg);
   }
 }
 
-.stickersheet-table {
+.stickerSheetTable {
   margin-left: calc(-1 * var(--spacing-md));
 }

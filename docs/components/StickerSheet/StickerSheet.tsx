@@ -34,20 +34,20 @@ export const StickerSheet = ({
   className,
   ...restProps
 }: StickerSheetProps): JSX.Element => (
-  <div className={styles["stickersheet"]}>
+  <div className={styles.stickerSheet}>
     {heading && (
       <Heading
         variant="heading-3"
         tag="h1"
         color={isReversed ? "white" : "dark"}
-        classNameOverride={styles["stickersheet-section-heading"]}
+        classNameOverride={styles.stickerSheetSectionHeading}
       >
         {heading}
       </Heading>
     )}
 
     <table
-      className={classnames(styles["stickersheet-table"], className)}
+      className={classnames(styles.stickerSheetTable, className)}
       {...restProps}
     >
       {React.Children.map(children, child => {
