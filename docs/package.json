@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:ts": "tsc --noEmit",
-    "dev": "storybook dev -c ./ -p 6006",
+    "dev": "pnpm build:tailwind && storybook dev -c ./ -p 6006",
     "preview": "NODE_ENV=production pnpm dev --docs",
     "build": "pnpm build:tailwind && storybook build -c ./",
     "build:chromatic": "pnpm build -- --webpack-stats-json",

@@ -4,9 +4,11 @@
 import { Preset } from "@kaizen/tailwind"
 
 module.exports = {
-  // mode: "jit",
-  // purge: ["../packages/**/*.stories.{ts,tsx,mdx}"],
-  content: ["../packages/**/*.stories.{ts,tsx,mdx}", "!node_modules"],
+  content: [
+    "../packages/**/*.stories.{ts,tsx,mdx}",
+    "../packages/tailwind/src/_docs/**/*.{ts,tsx,mdx}",
+    "!node_modules",
+  ],
   presets: [Preset],
   important: "body",
   corePlugins: {
