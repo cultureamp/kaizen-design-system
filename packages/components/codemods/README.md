@@ -8,7 +8,7 @@ Install `@kaizen/components`.
 ## CLI pattern
 
 ```
-  kaizen-codemod {DIR} {CODEMOD_NAME}
+kaizen-codemod {DIR} {CODEMOD_NAME}
 ```
 
 DIR - the directory to run the codemod for. Note that node_modules are excluded.
@@ -16,16 +16,21 @@ CODEMOD_NAME - the name of the codemod (refer to list below).
 
 Example:
 ```
-  kaizen-codemod src migrateWellVariantToColor
+kaizen-codemod src migrateWellVariantToColor
 ```
 
 ## Available codemods
-- `migrateBrandMomentMoodToVariant`: Migrates `BrandMoment` component prop from `mood` to `variant`.
-- `migrateEmptyStateIllustrationTypeToVariant`: Migrates `EmptyState` component prop from `illustrationType` to `variant`.
-- `migrateGlobalNotificationTypeToVariant`: Transforms `GlobalNotification`'s `type` prop to the new `variant` prop.
-- `migrateInlineNotificationTypeToVariant`: Transforms `InlineNotification`'s `type` prop to the new `variant` prop.
-- `migrateInformationTileMoodToVariant`: Migrates `InformationTile` component prop from `mood` to `variant`.
-- `migrateMultiActionTileMoodToVariant`: Migrates `MultiActionTile` component prop from `mood` to `variant`.
+- `migrateBrandMomentMoodToVariant`: Migrates `BrandMoment` component prop from `mood` to `variant`
+- `migrateCardVariantToColor`: Migrates `Card` component prop from `variant` to `color`
+- `migrateConfirmationModalMoodsToVariant`: Migrates `ConfirmationModal` component prop from `mood` to `variant`
+- `migrateEmptyStateIllustrationTypeToVariant`: Migrates `EmptyState` component prop from `illustrationType` to `variant`
+- `migrateGlobalNotificationTypeToVariant`: Transforms `GlobalNotification`'s `type` prop to the new `variant` prop
+- `migrateInformationTileMoodToVariant`: Migrates `InformationTile` component prop from `mood` to `variant`
+- `migrateInlineNotificationTypeToVariant`: Transforms `InlineNotification`'s `type` prop to the new `variant` prop
+- `migrateMultiActionTileMoodToVariant`: Migrates `MultiActionTile` component prop from `mood` to `variant`
 - `migrateProgressBarMoodToColor`: Migrates `ProgressBar` component prop from `mood` to `color`
-- `migrateToastNotificationTypeToVariant`: Transforms `ToastNotification`'s `type` prop to the new `variant` prop.
-- `migrateWellVariantToColor`: Migrates `Well` component prop from `variant` to `color`.
+- `migrateToastNotificationTypeToVariant`: Transforms `ToastNotification`'s `type` prop to the new `variant` prop
+- `migrateWellVariantToColor`: Migrates `Well` component prop from `variant` to `color`
+- `removeInputEditModalMood`: Removes `InputEditModal` component prop `mood`
+- `removePopoverVariant`: Removes `Popover` component props `variant` and `customIcon`
+- `updateGuidanceBlockVariantProp`: Updates `GuidanceBlock` import location and updates `variant` prop to `default` or `expert-advice`

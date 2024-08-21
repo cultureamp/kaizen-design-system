@@ -120,10 +120,10 @@ describe("transformGuidanceBlockVariantProp", () => {
 
   it("won't modify variants usings variables", () => {
     const inputAst = parseJsx(`
-      export const TestComponent = () => <div><GuidanceBlock variant={wellVariable} /></div>
+      export const TestComponent = () => <div><GuidanceBlock variant={varName} /></div>
     `)
     const outputAst = parseJsx(`
-      export const TestComponent = () => <div><GuidanceBlock variant={wellVariable} /></div>
+      export const TestComponent = () => <div><GuidanceBlock variant={varName} /></div>
     `)
     const transformed = transformSource({
       sourceFile: inputAst,
