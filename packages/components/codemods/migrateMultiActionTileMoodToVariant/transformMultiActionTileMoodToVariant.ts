@@ -1,4 +1,4 @@
-import type { MultiActionTileProps } from "~components/Tile"
+import type { MultiActionTileProps } from "../../src/Tile"
 import { migrateStringProp } from "../utils"
 
 const OLD_PROP_NAME = "mood"

@@ -1,4 +1,4 @@
-import type { InformationTileProps } from "~components/Tile"
+import type { InformationTileProps } from "../../src/Tile"
 import { migrateStringProp } from "../utils"
 
 const OLD_PROP_NAME = "mood"

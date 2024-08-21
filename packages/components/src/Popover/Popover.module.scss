@@ -1,6 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/spacing";
 @import "../../styles/utils/button-reset";
 
 // Sync with PopoverModern.tsx
@@ -50,7 +49,7 @@ $large-width: 450px;
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $border-solid-border-radius;
   color: $color-purple-800;
-  text-align: left;
+  text-align: start;
   padding-block: calc(var(--spacing-12) - var(--border-width))
     calc(var(--spacing-16) - var(--border-width));
   padding-inline: calc(var(--spacing-16) - var(--border-width));
@@ -123,11 +122,11 @@ $cautionary-box-border-color: var(--color-yellow-700);
 
 .header {
   position: relative;
-  margin-bottom: $spacing-xs;
+  margin-bottom: var(--spacing-6);
   display: flex;
   align-items: center;
   white-space: nowrap;
-  padding-right: $spacing-md;
+  padding-inline-end: var(--spacing-24);
 }
 
 .container {
@@ -137,7 +136,7 @@ $cautionary-box-border-color: var(--color-yellow-700);
 
 .icon {
   display: inherit;
-  margin-right: $spacing-xs;
+  margin-inline-end: var(--spacing-6);
 }
 
 .informativeIcon {
@@ -205,7 +204,6 @@ $cautionary-box-border-color: var(--color-yellow-700);
  * Hence, the confusion below.
  */
 
-.arrowSideTop,
 [data-popper-placement^="bottom"] .arrowWrapper {
   bottom: 100%;
   left: 50%;
@@ -216,7 +214,6 @@ $cautionary-box-border-color: var(--color-yellow-700);
   }
 }
 
-.arrowSideLeft,
 [data-popper-placement^="left"] .arrowWrapper {
   right: 0;
   margin-right: -10px;
@@ -226,7 +223,6 @@ $cautionary-box-border-color: var(--color-yellow-700);
   }
 }
 
-.arrowSideRight,
 [data-popper-placement^="right"] .arrowWrapper {
   left: 0;
   margin-left: -10px;
@@ -236,27 +232,9 @@ $cautionary-box-border-color: var(--color-yellow-700);
   }
 }
 
-.arrowSideBottom,
 [data-popper-placement^="top"] .arrowWrapper {
   top: 100%;
   left: 50%;
-}
-
-// Legacy component only
-.arrowPositionCenter {
-  transform: translateX(-50%);
-}
-
-// Legacy component only
-.arrowPositionStart {
-  left: $spacing-md;
-  right: auto;
-}
-
-// Legacy component only
-.arrowPositionEnd {
-  right: $spacing-md;
-  left: auto;
 }
 
 .large {

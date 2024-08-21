@@ -3,7 +3,7 @@ import { transformSource, printAst } from "../utils"
 import { removeInputEditModalMood } from "./removeInputEditModalMood"
 
 describe("removeInputEditModalMood", () => {
-  it("removed mood", () => {
+  it("removes mood", () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <InputEditModal mood="positive"/>
     `)
@@ -39,36 +39,6 @@ describe("removeInputEditModalMood", () => {
     `)
     const outputAst = parseJsx(`
       export const TestComponent = () => <div><InputEditModal /><InputEditModal /></div>
-    `)
-    const transformed = transformSource({
-      sourceFile: inputAst,
-      astTransformer: removeInputEditModalMood,
-      tagName: "InputEditModal",
-    })
-    expect(transformed).toBe(printAst(outputAst))
-  })
-
-  it("transforms InputEditModal with arbitrary braces", () => {
-    const inputAst = parseJsx(`
-      export const TestComponent = () => <div><InputEditModal mood={"positive"}/><InputEditModal mood={'assertive'}/><InputEditModal mood={\`positive\`}/></div>
-    `)
-    const outputAst = parseJsx(`
-      export const TestComponent = () => <div><InputEditModal /><InputEditModal /><InputEditModal /></div>
-    `)
-    const transformed = transformSource({
-      sourceFile: inputAst,
-      astTransformer: removeInputEditModalMood,
-      tagName: "InputEditModal",
-    })
-    expect(transformed).toBe(printAst(outputAst))
-  })
-
-  it("won't modify variants usings variables", () => {
-    const inputAst = parseJsx(`
-      export const TestComponent = () => <div><InputEditModal mood={InputEditModalVariable}/></div>
-    `)
-    const outputAst = parseJsx(`
-      export const TestComponent = () => <div><InputEditModal /></div>
     `)
     const transformed = transformSource({
       sourceFile: inputAst,

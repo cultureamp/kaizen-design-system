@@ -1,4 +1,4 @@
-import type { GenericNotificationProps } from "~components/Notification/subcomponents/GenericNotification"
+import type { GenericNotificationProps } from "../../src/Notification/subcomponents/GenericNotification"
 import { migrateStringProp } from "../utils"
 
 const OLD_PROP_NAME = "type"

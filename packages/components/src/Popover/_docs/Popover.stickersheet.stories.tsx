@@ -58,7 +58,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         hasVerticalHeadings
       />
       <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Variants">
+        <StickerSheet.Row rowTitle="Variants (deprecated)">
           <StickerSheet.Cell style={cellStyle}>
             <PopoverWrapper />
           </StickerSheet.Cell>

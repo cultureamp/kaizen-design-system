@@ -1,7 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { AddIcon, MeatballsIcon } from "~components/Icon"
-import { Popover as PopoverComponent, PopoverProps, usePopover } from "../index"
+import { Popover as PopoverComponent, usePopover } from "../index"
 
 const meta = {
   title: "Components/Popover",
@@ -11,15 +10,8 @@ const meta = {
     referenceElement: undefined,
   },
   argTypes: {
-    customIcon: {
-      options: ["None", "MeatballsIcon", "AddIcon"],
-      control: { type: "radio" },
-      mapping: {
-        None: undefined,
-        MeatballsIcon: <MeatballsIcon role="presentation" />,
-        AddIcon: <AddIcon role="presentation" />,
-      },
-    },
+    variant: { control: false },
+    customIcon: { control: false },
   },
 } satisfies Meta<typeof PopoverComponent>
 
@@ -58,35 +50,4 @@ export const Playground: Story = {
       </div>
     ),
   ],
-}
-
-export const Variants: Story = {
-  render: (args, context) => {
-    const Popover = (props: PopoverProps): JSX.Element =>
-      PopoverTemplate.render!({ ...args, ...props }, context)
-    return (
-      <div className="flex pl-32">
-        <div className="w-[150px]">
-          <Popover {...args} heading="Default" />
-        </div>
-        <div className="w-[150px]">
-          <Popover {...args} variant="positive" heading="Positive" />
-        </div>
-        <div className="w-[150px]">
-          <Popover {...args} variant="informative" heading="Informative" />
-        </div>
-        <div className="w-[150px]">
-          <Popover {...args} variant="negative" heading="Negative" />
-        </div>
-        <div className="w-[150px]">
-          <Popover {...args} variant="cautionary" heading="Cautionary" />
-        </div>
-      </div>
-    )
-  },
-  parameters: {
-    docs: {
-      source: { type: "dynamic" },
-    },
-  },
 }
