@@ -9,6 +9,5 @@
       "~tailwind/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*"],
-  "files": ["./types.d.ts"]
+  "include": ["src/**/*"]
 }
