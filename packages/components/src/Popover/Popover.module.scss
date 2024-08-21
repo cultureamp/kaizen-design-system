@@ -50,7 +50,7 @@ $large-width: 450px;
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $border-solid-border-radius;
   color: $color-purple-800;
-  text-align: left;
+  text-align: start;
   padding-block: calc(var(--spacing-12) - var(--border-width))
     calc(var(--spacing-16) - var(--border-width));
   padding-inline: calc(var(--spacing-16) - var(--border-width));
@@ -127,7 +127,7 @@ $cautionary-box-border-color: var(--color-yellow-700);
   display: flex;
   align-items: center;
   white-space: nowrap;
-  padding-right: $spacing-md;
+  padding-inline-end: $spacing-md;
 }
 
 .container {
@@ -137,7 +137,7 @@ $cautionary-box-border-color: var(--color-yellow-700);
 
 .icon {
   display: inherit;
-  margin-right: $spacing-xs;
+  margin-inline-end: $spacing-xs;
 }
 
 .informativeIcon {
