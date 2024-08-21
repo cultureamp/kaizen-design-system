@@ -1,4 +1,4 @@
-import type { CardProps } from "~components/Card"
+import type { CardProps } from "../../src/Card"
 import { migrateStringProp } from "../utils"
 
 const OLD_PROP_NAME = "variant"

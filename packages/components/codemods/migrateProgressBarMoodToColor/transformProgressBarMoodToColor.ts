@@ -1,4 +1,4 @@
-import type { ProgressBarProps } from "~components/ProgressBar"
+import type { ProgressBarProps } from "../../src/ProgressBar"
 import { migrateStringProp } from "../utils"
 
 const OLD_PROP_NAME = "mood"

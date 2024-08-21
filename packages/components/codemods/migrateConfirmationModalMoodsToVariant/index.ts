@@ -1,7 +1,7 @@
 import { transformComponentsInDir } from "../utils"
 import { transformConfirmationModalMoodsToVariant } from "./transformConfirmationModalMoodsToVariant"
-/** This is here as a script runner that migrates Well variant to their color equivalent */
-const migrateModalMoodsToVariant = (): void => {
+
+const run = (): void => {
   // eslint-disable-next-line no-console
   console.log(" ~(-_- ~) Running ConfirmationModal transformer (~ -_-)~")
   const targetDir = process.argv[2]
@@ -16,4 +16,4 @@ const migrateModalMoodsToVariant = (): void => {
   )
 }
 
-migrateModalMoodsToVariant()
+run()
