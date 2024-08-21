@@ -42,7 +42,7 @@ export const TailwindExampleSpacingAndLayoutsComplex: StoryFn = () => (
           Clickable link
         </a>
         {/* Adds spacing with margin-top */}
-        <p className="mt-12 font-family-paragraph text-heading-6 font-weight-paragraph leading-paragraph-sm text-purple-800">
+        <p className="mt-12 font-family-paragraph text-heading-5 font-weight-paragraph leading-paragraph-sm text-purple-800">
           Supporting text
         </p>
         {/* Adds margin-top, flex, and a height of 200px */}

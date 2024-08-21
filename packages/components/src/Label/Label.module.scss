@@ -38,11 +38,11 @@ $label-start-margin: $spacing-xs;
 // This is to override bootstrap styles. Remove when appropriate
 .text,
 :global(.ideal-sans) .text {
-  font-family: $typography-heading-6-font-family;
-  font-size: $typography-heading-6-font-size;
-  line-height: $typography-heading-6-line-height;
-  letter-spacing: $typography-heading-6-letter-spacing;
-  font-weight: $typography-heading-6-font-weight;
+  font-family: $typography-heading-5-font-family;
+  font-size: $typography-heading-5-font-size;
+  line-height: $typography-heading-5-line-height;
+  letter-spacing: $typography-heading-5-letter-spacing;
+  font-weight: $typography-heading-5-font-weight;
 }
 
 %checkboxOrRadio,

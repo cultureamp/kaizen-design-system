@@ -23,7 +23,7 @@ export const ListBoxSection = <Option extends SelectOption = SelectOption>({
         {section.rendered && (
           <Heading
             tag="span"
-            variant="heading-6"
+            variant="heading-5"
             {...headingProps}
             classNameOverride={styles.sectionHeading}
           >

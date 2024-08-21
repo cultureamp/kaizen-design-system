@@ -32,7 +32,7 @@ export const Titles = ({
     >
       <Heading
         classNameOverride={styles.prefix}
-        variant="heading-6"
+        variant="heading-5"
         tag="span"
         color="dark-reduced-opacity"
       >

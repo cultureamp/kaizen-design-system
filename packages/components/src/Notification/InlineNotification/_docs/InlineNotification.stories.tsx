@@ -8,7 +8,7 @@ const meta = {
     headingProps: {
       children: "Informative",
       tag: "span",
-      variant: "heading-6",
+      variant: "heading-5",
     },
     variant: "informative",
     children:
@@ -51,7 +51,7 @@ export const Persistent: StoryObj<typeof meta> = {
     children: "Please fill in all required fields before submitting",
     headingProps: {
       children: "Form error",
-      variant: "heading-6",
+      variant: "heading-5",
       tag: "span",
     },
   },

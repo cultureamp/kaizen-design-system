@@ -6,7 +6,7 @@ import { InlineNotification } from "./InlineNotification"
 describe("<InlineNotification />", () => {
   it("renders a notification with a custom heading level", () => {
     const customHeadingProps: HeadingProps = {
-      variant: "heading-6",
+      variant: "heading-5",
       tag: "h2",
       children: "Custom",
     }

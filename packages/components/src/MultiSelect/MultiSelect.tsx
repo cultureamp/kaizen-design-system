@@ -83,7 +83,7 @@ export const MultiSelect = ({
 
   return (
     <div id={id} className={classnames(classNameOverride)} {...restProps}>
-      <Heading tag="span" variant="heading-6" id={`${id}--label`}>
+      <Heading tag="span" variant="heading-5" id={`${id}--label`}>
         {label}
       </Heading>
 

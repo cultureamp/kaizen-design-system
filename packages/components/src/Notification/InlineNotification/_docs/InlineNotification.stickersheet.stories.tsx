@@ -39,7 +39,7 @@ const VARIANTS_PROPS: Array<{
     props: {
       variant: "informative",
       headingProps: {
-        variant: "heading-6",
+        variant: "heading-5",
         tag: "span",
         children: "Informative title",
       },
@@ -50,7 +50,7 @@ const VARIANTS_PROPS: Array<{
     props: {
       variant: "success",
       headingProps: {
-        variant: "heading-6",
+        variant: "heading-5",
         tag: "span",
         children: "Success title",
       },
@@ -61,7 +61,7 @@ const VARIANTS_PROPS: Array<{
     props: {
       variant: "cautionary",
       headingProps: {
-        variant: "heading-6",
+        variant: "heading-5",
         tag: "span",
         children: "Cautionary title",
       },
@@ -72,7 +72,7 @@ const VARIANTS_PROPS: Array<{
     props: {
       variant: "warning",
       headingProps: {
-        variant: "heading-6",
+        variant: "heading-5",
         tag: "span",
         children: "Warning title",
       },
@@ -84,7 +84,7 @@ const VARIANTS_PROPS: Array<{
       variant: "informative",
       persistent: true,
       headingProps: {
-        variant: "heading-6",
+        variant: "heading-5",
         tag: "span",
         children: "Persistent title",
       },
@@ -97,7 +97,7 @@ const VARIANTS_PROPS: Array<{
       isSubtle: true,
       persistent: true,
       headingProps: {
-        variant: "heading-6",
+        variant: "heading-5",
         tag: "span",
         children: "Subtle title",
       },
@@ -111,7 +111,7 @@ const VARIANTS_PROPS: Array<{
         "Content longer that the width of the container will break onto a new line. Lorem ipsum dolor, sit amet consectetur adipisicing elit. In aperiam voluptatem molestias saepe quia vitae quod ex illum, unde nihil impedit possimus officia labore atque quidem necessitatibus sint, maiores velit.",
       variant: "success",
       headingProps: {
-        variant: "heading-6",
+        variant: "heading-5",
         tag: "span",
         children: "Content enforced multiline",
       },
@@ -124,7 +124,7 @@ const VARIANTS_PROPS: Array<{
         "forceMultiline will break children onto a new line regardless of width",
       variant: "cautionary",
       headingProps: {
-        variant: "heading-6",
+        variant: "heading-5",
         tag: "span",
         children: "Prop enforced multiline",
       },
@@ -142,7 +142,7 @@ const TYPE_PROPS: Array<{
     props: {
       type: "informative",
       headingProps: {
-        variant: "heading-6",
+        variant: "heading-5",
         tag: "span",
         children: "Informative title",
       },
@@ -153,7 +153,7 @@ const TYPE_PROPS: Array<{
     props: {
       type: "positive",
       headingProps: {
-        variant: "heading-6",
+        variant: "heading-5",
         tag: "span",
         children: "Positive title",
       },
@@ -164,7 +164,7 @@ const TYPE_PROPS: Array<{
     props: {
       type: "cautionary",
       headingProps: {
-        variant: "heading-6",
+        variant: "heading-5",
         tag: "span",
         children: "Cautionary title",
       },
@@ -175,7 +175,7 @@ const TYPE_PROPS: Array<{
     props: {
       type: "negative",
       headingProps: {
-        variant: "heading-6",
+        variant: "heading-5",
         tag: "span",
         children: "Negative title",
       },

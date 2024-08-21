@@ -204,11 +204,11 @@ $notification-slide-right: transform 300ms ease-out;
 
 %ca-notification__title {
   position: relative;
-  font-family: $typography-heading-6-font-family;
-  font-weight: $typography-heading-6-font-weight;
-  font-size: $typography-heading-6-font-size;
-  line-height: $typography-heading-6-line-height;
-  letter-spacing: $typography-heading-6-letter-spacing;
+  font-family: $typography-heading-5-font-family;
+  font-weight: $typography-heading-5-font-weight;
+  font-size: $typography-heading-5-font-size;
+  line-height: $typography-heading-5-line-height;
+  letter-spacing: $typography-heading-5-letter-spacing;
   margin: 0;
   padding-right: 6px;
   // overriding Bootstrap style that changes h6s to text-transform: uppercase

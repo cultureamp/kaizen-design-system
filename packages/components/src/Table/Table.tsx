@@ -176,7 +176,7 @@ export const TableHeaderRowCell = ({
       {!icon ? (
         <Heading
           tag="div"
-          variant="heading-6"
+          variant="heading-5"
           color={sorting || isHovered ? hoveredHeaderColor : headerColor}
           classNameOverride={styles.headerRowCellLabel}
         >

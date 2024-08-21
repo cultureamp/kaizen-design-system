@@ -138,7 +138,7 @@ export const RichTextEditor = ({
       <InlineNotification
         headingProps={{
           children: "Error",
-          variant: "heading-6",
+          variant: "heading-5",
         }}
         type="negative"
         persistent
