@@ -13,5 +13,5 @@
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "files": ["./types.d.ts"]
+  "files": ["../global.d.ts"]
 }

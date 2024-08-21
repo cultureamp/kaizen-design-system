@@ -452,6 +452,12 @@ importers:
       '@types/lodash.debounce':
         specifier: ^4.0.9
         version: 4.0.9
+      '@types/react':
+        specifier: ^18.3.4
+        version: 18.3.4
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.0
       '@types/react-highlight':
         specifier: ^0.12.8
         version: 0.12.8
@@ -546,15 +552,9 @@ importers:
 
   packages/design-tokens:
     dependencies:
-      '@types/lodash.kebabcase':
-        specifier: ^4.1.9
-        version: 4.1.9
       lodash.kebabcase:
         specifier: ^4.1.1
         version: 4.1.1
-      react:
-        specifier: '>=16 || ^17.0.0 || ^18.0.0'
-        version: 18.3.1
     devDependencies:
       '@kaizen/package-bundler':
         specifier: workspace:*
@@ -565,6 +565,15 @@ importers:
       '@types/lodash.flatmap':
         specifier: ^4.5.9
         version: 4.5.9
+      '@types/lodash.kebabcase':
+        specifier: ^4.1.9
+        version: 4.1.9
+      '@types/react':
+        specifier: ^18.3.4
+        version: 18.3.4
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.0
       '@types/react-highlight':
         specifier: ^0.12.8
         version: 0.12.8
@@ -586,6 +595,9 @@ importers:
       prettier:
         specifier: '*'
         version: 3.3.0
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
       react-highlight:
         specifier: ^0.15.0
         version: 0.15.0
@@ -671,6 +683,12 @@ importers:
       '@kaizen/package-bundler':
         specifier: workspace:*
         version: link:../package-bundler
+      '@types/react':
+        specifier: ^18.3.4
+        version: 18.3.4
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.0
       classnames:
         specifier: ^2.5.1
         version: 2.5.1

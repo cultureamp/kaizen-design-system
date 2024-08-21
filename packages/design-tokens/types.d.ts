@@ -8,13 +8,6 @@ declare module "*.scss" {
   export default classes
 }
 
-declare module "*.icon.svg" {
-  const content: {
-    id: string
-    viewBox: string
-  }
-  export default content
-}
 declare module "*?raw" {
   const content: string
   export default content
