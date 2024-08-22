@@ -1,9 +1,5 @@
 packages/design-tokens/**/*.scss
 packages/design-tokens/**/*.css
 packages/components/locales/*
-packages/components/dist/*
-packages/design-tokens/dist/*
-packages/tailwind/dist/*
+dist/*
 docs/storybook-static/*
-docs/utils/tailwind.css
-docs/tailwind.css

@@ -120,7 +120,6 @@ jobs:
           onlyChanged: "!(main)"
           externals: |
             **/!(*.module).scss
-            **/!(*.module).css
             packages/components/**/*.css
 
   update-branch-preview:
