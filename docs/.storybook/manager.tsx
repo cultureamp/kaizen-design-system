@@ -3,7 +3,7 @@
 import React from "react"
 import { addons } from "@storybook/manager-api"
 import { tokens } from "@kaizen/design-tokens/src/js"
-import KaizenTheme from "./theme"
+import KaizenTheme from "../theme"
 
 const CATEGORIES_ICON: Record<string, string> = {
   Introduction: "👋",

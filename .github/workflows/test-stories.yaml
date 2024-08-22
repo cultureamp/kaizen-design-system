@@ -117,6 +117,7 @@ jobs:
           token: ${{ github.token }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: "./docs/storybook-static"
+          storybookBaseDir: "./docs"
           onlyChanged: "!(main)"
           externals: |
             **/!(*.module).scss
