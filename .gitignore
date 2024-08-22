@@ -1,9 +1,10 @@
 node_modules
 yarn-*.log
-/storybook/public/
+docs/storybook-static
 .DS_Store
 dist
 .cache
 .yalc
 yalc.loc
 .turbo
+preview.css

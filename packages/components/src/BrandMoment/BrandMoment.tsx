@@ -1,12 +1,12 @@
 import React, { ReactNode, ReactElement, HTMLAttributes } from "react"
 import classnames from "classnames"
-import { assetUrl } from "@kaizen/hosted-assets"
 import { Heading } from "~components/Heading"
 import { SceneProps } from "~components/Illustration"
 import { Text } from "~components/Text"
 import { Button, ButtonProps } from "~components/__actions__/v2"
-import { OverrideClassName } from "~types/OverrideClassName"
-import { useMediaQueries } from "~utils/useMediaQueries"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import { assetUrl } from "~components/utils/hostedAssets"
+import { useMediaQueries } from "~components/utils/useMediaQueries"
 import styles from "./BrandMoment.module.scss"
 
 type DeprecatedMoodProps = {

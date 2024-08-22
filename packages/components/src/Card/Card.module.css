@@ -1,0 +1,90 @@
+.wrapper {
+  color: var(--color-purple-800);
+  border: var(--border-width-1) solid var(--card-border-color);
+  background-color: var(--card-background-color);
+  border-radius: var(--border-borderless-border-radius);
+  box-shadow: var(--card-box-shadow);
+
+  --card-border-color: var(--color-gray-500);
+  --card-background-color: var(--color-white);
+  --card-box-shadow: var(--shadow-small-box-shadow);
+}
+
+.elevated {
+  --card-box-shadow: var(--shadow-large-box-shadow);
+}
+
+.blue {
+  --card-background-color: var(--color-blue-100);
+  --card-border-color: var(--color-blue-400);
+}
+
+.gray {
+  --card-background-color: var(--color-gray-200);
+  --card-border-color: var(--color-gray-500);
+}
+
+.green {
+  --card-background-color: var(--color-green-100);
+  --card-border-color: var(--color-green-500);
+}
+
+.orange {
+  --card-background-color: var(--color-orange-100);
+  --card-border-color: var(--color-orange-600);
+}
+
+.purple {
+  --card-background-color: var(--color-purple-100);
+  --card-border-color: var(--color-purple-400);
+}
+
+.red {
+  --card-background-color: var(--color-red-100);
+  --card-border-color: var(--color-red-500);
+}
+
+.white {
+  --card-background-color: var(--color-white);
+  --card-border-color: var(--color-gray-500);
+}
+
+.yellow {
+  --card-background-color: var(--color-yellow-100);
+  --card-border-color: var(--color-yellow-700);
+}
+
+.default {
+  border-color: var(--color-gray-500);
+  background-color: var(--color-white);
+}
+
+.informative {
+  border-color: var(--color-blue-400);
+  background-color: var(--color-blue-100);
+}
+
+.positive {
+  border-color: var(--color-green-500);
+  background-color: var(--color-green-100);
+}
+
+.cautionary {
+  border-color: var(--color-yellow-700);
+  background-color: var(--color-yellow-100);
+}
+
+.destructive {
+  border-color: var(--color-red-500);
+  background-color: var(--color-red-100);
+}
+
+.assertive {
+  border-color: var(--color-orange-600);
+  background-color: var(--color-orange-100);
+}
+
+.highlight {
+  border-color: var(--color-purple-400);
+  background-color: var(--color-purple-100);
+}

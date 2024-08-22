@@ -5,7 +5,7 @@ echo "Publishing to ${KAIZEN_DOMAIN_NAME}"
 
 # Publish to production bucket
 aws s3 sync --delete \
-    "storybook/public" \
+    "docs/storybook-static" \
     "s3://${KAIZEN_DOMAIN_NAME}/storybook"
 
 aws cloudfront create-invalidation \

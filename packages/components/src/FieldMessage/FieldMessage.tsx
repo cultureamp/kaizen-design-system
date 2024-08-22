@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { CautionWhiteIcon, ExclamationWhiteIcon } from "~components/Icon"
 import { Text } from "~components/Text"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./FieldMessage.module.scss"
 
 export type FieldMessageStatus = "default" | "success" | "error" | "caution"

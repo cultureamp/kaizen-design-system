@@ -4,8 +4,8 @@ import { ButtonGroup, ButtonGroupProps } from "~components/ButtonGroup"
 import { FilterTriggerRef } from "~components/Filter/Filter"
 import { ClearIcon } from "~components/Icon"
 import { Tooltip } from "~components/__overlays__/Tooltip/v1"
-import { DataAttributes } from "~types/DataAttributes"
-import { isRefObject } from "~utils/isRefObject"
+import { DataAttributes } from "~components/types/DataAttributes"
+import { isRefObject } from "~components/utils/isRefObject"
 import { FilterButton, FilterButtonProps } from "../FilterButton"
 import {
   FilterButtonBase,

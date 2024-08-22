@@ -1,7 +1,7 @@
 import React from "react"
 import classnames from "classnames"
 import { Tooltip } from "~components/__overlays__/Tooltip/v1"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { ToggleIconButtonMoods } from "./types"
 import styles from "./ToggleIconButton.module.scss"
 

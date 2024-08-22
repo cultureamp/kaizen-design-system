@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "paths": {
+      "~storybook/*": ["./*"],
+      "~components/*": ["../packages/components/src/*"],
+      "~tailwind/*": ["../packages/tailwind/src/*"],
+      "~design-tokens/*": ["../packages/design-tokens/src/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "files": ["./types.d.ts"]
+}

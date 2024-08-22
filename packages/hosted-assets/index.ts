@@ -8,6 +8,8 @@ const ORIGIN_BASE_URL = "https://d1e7r7b0lb8p4d.cloudfront.net"
  * assetUrl("some/blob.png") -> "https://<origin>/some/blob.png"
  *
  * @see https://github.com/cultureamp/kaizen-design-system-assets/
+ *
+ * @deprecated import from `@kaizen/components` instead
  */
 export const assetUrl = (path: string): string =>
   [ORIGIN_BASE_URL, path].join("/")

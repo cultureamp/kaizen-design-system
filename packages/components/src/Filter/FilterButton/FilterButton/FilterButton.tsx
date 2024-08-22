@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react"
 import classnames from "classnames"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
-import { isRefObject } from "~utils/isRefObject"
+import { isRefObject } from "~components/utils/isRefObject"
 import { FilterTriggerRef } from "../../Filter/types"
 import {
   FilterButtonBase,

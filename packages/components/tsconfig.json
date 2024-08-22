@@ -3,16 +3,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~storybook/*": ["../../storybook/*"],
+      "~storybook/*": ["../../docs/*"],
       "~tests": ["./__tests__/index"],
       "~tests/*": ["./__tests__/*"],
-      "~types/*": ["./src/types/*"],
-      "~utils/*": ["./src/utils/*"],
       "~components/*": ["./src/*"]
     },
     "types": ["@testing-library/jest-dom"]
   },
-  "files": ["types.d.ts"],
   "include": ["src/**/*", "__tests__/**/*", "codemods/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "files": ["./types.d.ts"]
 }

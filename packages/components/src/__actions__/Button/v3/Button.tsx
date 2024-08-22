@@ -4,7 +4,7 @@ import {
   ButtonProps as RACButtonProps,
 } from "react-aria-components"
 import { useReversedColors } from "~components/__utilities__/v3"
-import { mergeClassNames } from "~utils/mergeClassNames"
+import { mergeClassNames } from "~components/utils/mergeClassNames"
 import styles from "./Button.module.scss"
 
 export type ButtonVariants = "default"

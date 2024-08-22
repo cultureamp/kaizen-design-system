@@ -1,8 +1,8 @@
 import React from "react"
-import { assetUrl } from "@kaizen/hosted-assets"
 import { CloseIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v2"
-import styles from "./ExampleHeaders.scss"
+import { assetUrl } from "~components/utils/hostedAssets"
+import styles from "./ExampleHeaders.module.scss"
 
 export const MinimalBasic = (): JSX.Element => (
   <div className={styles.header}>

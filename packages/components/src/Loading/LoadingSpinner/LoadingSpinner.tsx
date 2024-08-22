@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { VisuallyHidden } from "~components/VisuallyHidden"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./LoadingSpinner.module.scss"
 
 export type LoadingSpinnerProps = {

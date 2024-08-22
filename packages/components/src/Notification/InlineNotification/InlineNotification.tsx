@@ -1,7 +1,7 @@
 import React from "react"
 import classnames from "classnames"
 import { HeadingProps } from "~components/Heading"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import {
   GenericNotification,
   GenericNotificationType,

@@ -271,7 +271,7 @@ module.exports = {
   overrides: [
     {
       files: [
-        "storybook/*",
+        ".storybook/*",
         "**/_docs/**/*",
         "**/__tests__/**/*",
         "*.stories.tsx",

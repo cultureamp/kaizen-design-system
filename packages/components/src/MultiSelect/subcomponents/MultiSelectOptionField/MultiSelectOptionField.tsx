@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { MultiSelectOption } from "../../types"
 import { Checkbox, CheckboxProps } from "../Checkbox"
 import styles from "./MultiSelectOptionField.module.scss"

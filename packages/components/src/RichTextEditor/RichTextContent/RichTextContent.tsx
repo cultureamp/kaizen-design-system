@@ -1,6 +1,6 @@
 import React, { useState, HTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { createSchemaWithAll } from "../RichTextEditor/schema"
 import { EditorContentArray } from "../types"
 import { useRichTextEditor } from "../utils/core"

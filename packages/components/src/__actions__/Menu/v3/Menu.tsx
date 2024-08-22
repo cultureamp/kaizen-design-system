@@ -3,7 +3,7 @@ import {
   Menu as RACMenu,
   MenuProps as RACMenuProps,
 } from "react-aria-components"
-import { mergeClassNames } from "~utils/mergeClassNames"
+import { mergeClassNames } from "~components/utils/mergeClassNames"
 import styles from "./Menu.module.scss"
 
 export type MenuProps = Omit<

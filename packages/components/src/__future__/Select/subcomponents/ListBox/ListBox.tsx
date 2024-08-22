@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { AriaListBoxOptions, useListBox } from "@react-aria/listbox"
 import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { useSelectContext } from "../../context"
 import { SelectOption, SelectItem } from "../../types"
 import styles from "./ListBox.module.scss"

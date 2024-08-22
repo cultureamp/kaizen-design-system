@@ -2,7 +2,7 @@ import React from "react"
 import classnames from "classnames"
 import { Container } from "~components/Container"
 import { Content, ContentProps } from "~components/Content"
-import { useResizeObserver } from "~utils/useResizeObserver"
+import { useResizeObserver } from "~components/utils/useResizeObserver"
 import styles from "./Skirt.module.scss"
 
 const spacing = 24

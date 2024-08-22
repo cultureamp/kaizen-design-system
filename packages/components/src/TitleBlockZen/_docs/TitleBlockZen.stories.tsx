@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { assetUrl } from "@kaizen/hosted-assets"
 import { AddIcon, StarOnIcon } from "~components/Icon"
+import { assetUrl } from "~components/utils/hostedAssets"
 import { StickerSheet } from "~storybook/components/StickerSheet"
 import { NavigationTab, TitleBlockZen } from "../index"
 

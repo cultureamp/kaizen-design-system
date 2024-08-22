@@ -5,7 +5,7 @@ import {
   CompanyAvatarProps,
   GenericAvatarProps,
 } from "~components/Avatar"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./AvatarGroup.module.scss"
 
 export type AvatarGroupAvatarProps =
