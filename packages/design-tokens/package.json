@@ -42,8 +42,6 @@
     "@types/color-string": "^1.5.5",
     "@types/lodash.flatmap": "^4.5.9",
     "@types/lodash.kebabcase": "^4.1.9",
-    "@types/react": "^18.3.4",
-    "@types/react-dom": "^18.3.0",
     "@types/react-highlight": "^0.12.8",
     "color-string": "^1.9.1",
     "json-to-flat-sass": "^1.0.0",
@@ -59,6 +57,6 @@
     "tsx": "^4.17.0"
   },
   "peerDependencies": {
-    "react": ">=16 || ^17.0.0 || ^18.0.0"
+    "react": "^17.0.0 || ^18.0.0"
   }
 }
