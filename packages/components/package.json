@@ -113,7 +113,6 @@
     "@types/react-textfit": "^1.1.4",
     "@types/uuid": "^10.0.0",
     "autoprefixer": "^10.4.20",
-    "chromatic": "^11.7.1",
     "concat-cli": "^4.0.0",
     "identity-obj-proxy": "^3.0.0",
     "lodash.isempty": "^4.4.0",

@@ -1,4 +1,4 @@
-import "~kaio-global-styles"
+import "../packages/components/styles/global.css"
 import "highlight.js/styles/a11y-light.css"
 import "./utils/tailwind.css"
 
