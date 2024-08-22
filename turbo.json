@@ -6,17 +6,25 @@
       "inputs": ["packages/**"],
       "outputs": ["dist/**"]
     },
+    "dev": {
+      "dependsOn": ["^build"]
+    },
     "lint:ts": {
-      "cache": false
+      "dependsOn": ["^build"]
     },
     "test": {},
     "test:ci": {},
     "clean": {
       "cache": false
     },
-    "//#storybook:build": {
-      "dependsOn": ["@kaizen/design-tokens#build", "@kaizen/tailwind#build"],
-      "outputs": ["storybook/public/**"],
+    "@docs/storybook#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["storybook-static/**"],
+      "cache": false
+    },
+    "@docs/storybook#build:chromatic": {
+      "dependsOn": ["^build"],
+      "outputs": ["storybook-static/**"],
       "cache": false
     },
     "@kaizen/components#build": {

@@ -5,7 +5,7 @@ import React, {
   useState,
 } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./TextArea.module.scss"
 
 export type TextAreaProps = {

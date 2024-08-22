@@ -1,5 +1,5 @@
 import React from "react"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import {
   GenericNotification,
   GenericNotificationType,

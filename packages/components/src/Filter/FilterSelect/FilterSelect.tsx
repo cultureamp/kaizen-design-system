@@ -18,7 +18,7 @@ import {
 } from "~components/__future__/Select/subcomponents"
 import { getDisabledKeysFromItems } from "~components/__future__/Select/utils/getDisabledKeysFromItems"
 import { transformSelectItemToCollectionElement } from "~components/__future__/Select/utils/transformSelectItemToCollectionElement"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { SelectItem, SelectOption } from "./types"
 import styles from "./FilterSelect.module.scss"
 

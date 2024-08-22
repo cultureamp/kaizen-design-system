@@ -5,7 +5,7 @@ import {
   NotificationType,
   NotificationVariant,
 } from "~components/Notification/types"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { CancelButton } from "../CancelButton"
 import { NotificationHeading } from "../NotificationHeading"
 import {

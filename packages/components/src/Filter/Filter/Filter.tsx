@@ -6,7 +6,7 @@ import React, {
   useState,
 } from "react"
 import { FocusOn } from "react-focus-on"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { FilterPopover } from "./subcomponents/FilterPopover"
 import { FilterTriggerRef } from "./types"
 

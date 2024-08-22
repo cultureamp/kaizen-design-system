@@ -4,7 +4,7 @@ import * as ICONS from "~components/Icon"
 import { Text } from "~components/Text"
 import { Tag } from "~components/__future__/Tag"
 import { AddIcon } from "../index"
-import styles from "./icon.stories.scss"
+import styles from "./icon.module.scss"
 
 const meta = {
   title: "Components/Icons",

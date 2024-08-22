@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
 import { FieldMessage, FieldMessageProps } from "~components/FieldMessage"
 import { Heading } from "~components/Heading"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import {
   MultiSelectOptions,
   MultiSelectOptionsProps,

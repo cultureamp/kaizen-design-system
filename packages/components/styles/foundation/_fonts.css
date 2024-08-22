@@ -62,42 +62,42 @@
 /* INTER */
 
 @font-face {
-  font-family: "Inter";
+  font-family: Inter;
   src: url("https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-light.woff2"),
     url("https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-light.woff");
   font-weight: 300;
 }
 
 @font-face {
-  font-family: "Inter";
+  font-family: Inter;
   src: url("https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-regular.woff2"),
     url("https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-regular.woff");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "Inter";
+  font-family: Inter;
   src: url("https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-medium.woff2"),
     url("https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-medium.woff");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Inter";
+  font-family: Inter;
   src: url("https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-demi-bold.woff2"),
     url("https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-demi-bold.woff");
   font-weight: 600;
 }
 
 @font-face {
-  font-family: "Inter";
+  font-family: Inter;
   src: url("https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-bold.woff2"),
     url("https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-bold.woff");
   font-weight: 700;
 }
 
 @font-face {
-  font-family: "Inter";
+  font-family: Inter;
   src: url("https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-extra-bold.woff2"),
     url("https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-extra-bold.woff");
   font-weight: 800;

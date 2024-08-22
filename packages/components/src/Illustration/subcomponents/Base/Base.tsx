@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { assetUrl } from "@kaizen/hosted-assets"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import { assetUrl } from "~components/utils/hostedAssets"
 import styles from "./Base.module.scss"
 
 export type BaseProps = {

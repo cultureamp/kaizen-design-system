@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
 import { CheckIcon } from "~components/Icon"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./ToggleSwitch.module.scss"
 
 export type ToggledStatus = "on" | "off"

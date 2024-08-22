@@ -1,5 +1,5 @@
 import { ChangeEvent, FocusEvent, KeyboardEvent } from "react"
-import { renderHook, act } from "@testing-library/react-hooks"
+import { renderHook, act } from "@testing-library/react"
 import { enAU } from "date-fns/locale"
 import * as isSelectingDayInCalendar from "~components/Calendar/utils/isSelectingDayInCalendar"
 import { useDateInputHandlers } from "./useDateInputHandlers"

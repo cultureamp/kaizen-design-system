@@ -5,7 +5,7 @@ import { BrandMoment } from "~components/BrandMoment"
 import { ArrowRightIcon, EmailIcon } from "~components/Icon"
 import { BrandMomentError } from "~components/Illustration"
 import { Text } from "~components/Text"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { ErrorStatuses, useErrorMessages } from "./hooks"
 import styles from "./ErrorPage.module.scss"
 

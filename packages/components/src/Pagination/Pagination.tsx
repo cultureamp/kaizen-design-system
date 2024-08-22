@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { DirectionalLink } from "./subcomponents/DirectionalLink"
 import { PaginationLink } from "./subcomponents/PaginationLink"
 import { TruncateIndicator } from "./subcomponents/TruncateIndicator"

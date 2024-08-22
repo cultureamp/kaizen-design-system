@@ -5,7 +5,7 @@ import { ArrowBackwardIcon, InformationIcon } from "~components/Icon"
 import { Text } from "~components/Text"
 import { GenericButtonProps } from "~components/__actions__/Button/v1/GenericButton"
 import { IconButton } from "~components/__actions__/v2"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import Action from "./Action"
 import styles from "./GenericTile.module.scss"
 

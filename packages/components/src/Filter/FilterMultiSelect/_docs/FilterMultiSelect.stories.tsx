@@ -14,7 +14,7 @@ import { Text } from "~components/Text"
 import { TextField } from "~components/TextField"
 import { FilterMultiSelect, getSelectedOptionLabels } from ".."
 import { mockItems } from "./MockData"
-import styles from "./FilterMultiSelect.stories.scss"
+import styles from "./FilterMultiSelect.module.scss"
 
 const IS_CHROMATIC = isChromatic()
 

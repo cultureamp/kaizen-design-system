@@ -1,0 +1,46 @@
+{
+  "name": "@docs/storybook",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:ts": "tsc --noEmit",
+    "dev": "pnpm build:tailwind && storybook dev -c ./ -p 6006",
+    "preview": "NODE_ENV=production pnpm dev --docs",
+    "build": "pnpm build:tailwind && storybook build -c ./",
+    "build:chromatic": "pnpm build --webpack-stats-json",
+    "build:tailwind": "npx tailwindcss -i ./tailwind.css -o ./preview.css",
+    "test": "test-storybook -c ./ --skipTags='skip-test' --url http://127.0.0.1:6006",
+    "clean": "rimraf ./storybook-static && rimraf ./node_modules"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@kaizen/components": "workspace:*",
+    "@kaizen/design-tokens": "workspace:*",
+    "@kaizen/tailwind": "workspace:*",
+    "@rollup/plugin-alias": "^5.1.0",
+    "@storybook/addon-onboarding": "^8.2.9",
+    "@storybook/manager-api": "^8.2.9",
+    "@storybook/react-vite": "^8.2.9",
+    "@storybook/test-runner": "^0.19.1",
+    "@types/jest-axe": "^3.5.9",
+    "@vitejs/plugin-react": "^4.3.1",
+    "axe-playwright": "^2.0.1",
+    "classnames": "^2.5.1",
+    "globals": "^15.9.0",
+    "highlight.js": "^11.10.0",
+    "sass": "^1.77.8",
+    "storybook": "^8.2.9",
+    "tailwindcss": "^3.4.10",
+    "vite": "^5.4.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
+}

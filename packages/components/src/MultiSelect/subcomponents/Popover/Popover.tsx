@@ -13,7 +13,7 @@ import {
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
 import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Popover.module.scss"
 
 export type PopoverProps<RT extends ReferenceType = ReferenceType> = {

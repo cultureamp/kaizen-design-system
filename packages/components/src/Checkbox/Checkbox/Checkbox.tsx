@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
 import { CheckIcon, MinusIcon } from "~components/Icon"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Checkbox.module.scss"
 
 export type CheckedStatus = "on" | "off" | "mixed"

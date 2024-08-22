@@ -16,7 +16,8 @@
 # Explicitly ignore...
 pnpm-lock.yaml
 **/node_modules/
-/storybook/public/
+/docs/storybook-static/
+/docs/utils/tailwind.css
 /packages/**/dist
 /packages/components/locales
 /packages/design-tokens/css

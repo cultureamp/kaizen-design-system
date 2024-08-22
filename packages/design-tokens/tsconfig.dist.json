@@ -1,15 +1,10 @@
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "target": "es5",
-    "rootDir": "src",
-    "outDir": "dist",
-    "noEmit": false,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "noUncheckedIndexedAccess": true
-  },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["**/*.spec.ts"]
+  "extends": ["./tsconfig.json", "@kaizen/package-bundler/tsconfig.dist.json"],
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.stories.tsx"
+  ]
 }

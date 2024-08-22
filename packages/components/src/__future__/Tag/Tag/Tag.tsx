@@ -1,6 +1,6 @@
 import React, { ReactNode, HTMLAttributes } from "react"
 import classNames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import { TagColors } from "./types"
 import styles from "./Tag.module.scss"
 

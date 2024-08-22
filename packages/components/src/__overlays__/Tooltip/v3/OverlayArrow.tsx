@@ -4,7 +4,7 @@ import {
   type OverlayArrowProps,
 } from "react-aria-components"
 import { useReversedColors } from "~components/__utilities__/v3"
-import { mergeClassNames } from "~utils/mergeClassNames"
+import { mergeClassNames } from "~components/utils/mergeClassNames"
 
 import styles from "./OverlayArrow.module.scss"
 

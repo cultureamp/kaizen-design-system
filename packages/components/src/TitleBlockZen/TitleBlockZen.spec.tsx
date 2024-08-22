@@ -1,7 +1,7 @@
 import React from "react"
 import { render, waitFor, screen, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { mockMatchMedia } from "~utils/useMediaQueries.spec"
+import { mockMatchMedia } from "~components/utils/useMediaQueries.spec"
 import { CustomBreadcrumbProps, SectionTitleRenderProps } from "./types"
 import { TitleBlockZen } from "./index"
 

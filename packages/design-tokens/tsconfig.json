@@ -1,22 +1,14 @@
 {
+  "extends": "@kaizen/package-bundler/tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "module": "commonjs",
-    "jsx": "react",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "strict": true,
-    "allowJs": false,
-    "noEmit": true,
     "paths": {
-      "~storybook/*": ["../../storybook/*"],
-      "~types/*": ["../components/src/types/*"],
-      "~components/*": ["../components/src/*"]
+      "~storybook/*": ["../../docs/*"],
+      "~design-tokens/*": ["../design-tokens/src/*"],
+      "~components/*": ["../components/src/*"],
+      "~tailwind/*": ["./src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": ["src/**/*", "_docs/**/*"],
+  "files": ["./types.d.ts"]
 }

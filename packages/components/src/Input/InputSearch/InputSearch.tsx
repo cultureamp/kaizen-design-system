@@ -4,7 +4,7 @@ import classnames from "classnames"
 import { ClearButton } from "~components/ClearButton"
 import { SearchIcon } from "~components/Icon/SearchIcon"
 import { LoadingSpinner } from "~components/Loading"
-import { OverrideClassName } from "~types/OverrideClassName"
+import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./InputSearch.module.scss"
 
 export type InputSearchProps = {
