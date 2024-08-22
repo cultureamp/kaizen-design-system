@@ -1,4 +1,4 @@
-import "../packages/components/styles/global.css"
+import "../../packages/components/styles/global.css"
 import "highlight.js/styles/a11y-light.css"
 import "./preview.css"
 
@@ -12,9 +12,9 @@ import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { I18nProvider } from "~components/__react-aria-components__"
 import { ReversedColors } from "~components/__utilities__/v3"
-import { DefaultDocsContainer } from "./components/DocsContainer"
-import { backgrounds } from "./utils/backgrounds"
-import { globalA11yRules } from "./utils/global-a11y-rules"
+import { DefaultDocsContainer } from "../components/DocsContainer"
+import { backgrounds } from "../utils/backgrounds"
+import { globalA11yRules } from "../utils/global-a11y-rules"
 
 const [, withBackground] = bgDecorators
 const IS_CHROMATIC = isChromatic()
