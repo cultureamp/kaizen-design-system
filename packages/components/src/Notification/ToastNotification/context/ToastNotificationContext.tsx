@@ -49,15 +49,17 @@ export const ToastNotificationProvider = ({
         const uuid = uuidv4()
         const notificationWithId = { id: uuid, ...notification }
 
-        const notificationExists = notifications.find(
-          ({ id }) => id === notification.id
-        )
+        setNotifications(existing => {
+          const notificationExists = existing.find(
+            ({ id }) => id === notification.id
+          )
 
-        if (!notificationExists) {
-          setNotifications(existing => [...existing, notificationWithId])
-        }
+          return notificationExists
+            ? existing
+            : [...existing, notificationWithId]
+        })
       },
-      [notifications, setNotifications]
+      [setNotifications]
     )
 
   const updateToastNotification = (
