@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from "react"
+import React, { useContext, useState } from "react"
 import { v4 as uuidv4 } from "uuid"
 import {
   GenericNotificationType,
@@ -44,23 +44,18 @@ export const ToastNotificationProvider = ({
   const [notifications, setNotifications] = useState<ToastNotificationObj[]>([])
 
   const addToastNotification: ToastNotificationContextValue["addToastNotification"] =
-    useCallback(
-      notification => {
-        const uuid = uuidv4()
-        const notificationWithId = { id: uuid, ...notification }
+    notification => {
+      const uuid = uuidv4()
+      const notificationWithId = { id: uuid, ...notification }
 
-        setNotifications(existing => {
-          const notificationExists = existing.find(
-            ({ id }) => id === notification.id
-          )
+      setNotifications(existing => {
+        const notificationExists = existing.find(
+          ({ id }) => id === notification.id
+        )
 
-          return notificationExists
-            ? existing
-            : [...existing, notificationWithId]
-        })
-      },
-      [setNotifications]
-    )
+        return notificationExists ? existing : [...existing, notificationWithId]
+      })
+    }
 
   const updateToastNotification = (
     notification: ToastNotificationObj
