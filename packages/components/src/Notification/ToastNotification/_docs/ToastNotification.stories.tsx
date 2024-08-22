@@ -1,5 +1,6 @@
 import React, { useEffect, useId } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { expect, userEvent, within } from "@storybook/test"
 import { Button } from "~components/__actions__/v2"
 import { ToastNotification, useToastNotification } from "../index"
 
@@ -73,6 +74,58 @@ export const CreateNotification: Story = {
         }
       />
     )
+  },
+}
+
+export const CreateSingleNotification: Story = {
+  render: () => {
+    const { addToastNotification, clearToastNotifications } =
+      useToastNotification()
+    return (
+      <>
+        <Button
+          label="Create notifications"
+          classNameOverride="!mr-12"
+          onClick={() => {
+            addToastNotification({
+              id: "id--clear-example-1",
+              title: "First",
+              type: "positive",
+              message: "There should only be one notification",
+            })
+            addToastNotification({
+              id: "id--clear-example-1",
+              title: "First",
+              type: "positive",
+              message: "There should only be one notification",
+            })
+            addToastNotification({
+              id: "id--clear-example-1",
+              title: "First",
+              type: "positive",
+              message: "There should only be one notification",
+            })
+          }}
+        />
+        <Button
+          label="Clear notifications"
+          onClick={() => clearToastNotifications()}
+        />
+      </>
+    )
+  },
+  play: async context => {
+    const { canvasElement } = context
+    const { getByRole, findAllByText } = within(canvasElement.parentElement!)
+
+    const createNotificationsButton = getByRole("button", {
+      name: "Create notifications",
+    })
+    userEvent.click(createNotificationsButton)
+
+    const div = await findAllByText("There should only be one notification")
+
+    expect(div).toHaveLength(1)
   },
 }
 
