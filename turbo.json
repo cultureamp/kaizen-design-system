@@ -22,6 +22,11 @@
       "outputs": ["docs/storybook-static/**"],
       "cache": false
     },
+    "@docs/storybook#build:chromatic": {
+      "dependsOn": ["^build"],
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
+    },
     "@kaizen/components#build": {
       "dependsOn": [
         "@kaizen/design-tokens#build",
