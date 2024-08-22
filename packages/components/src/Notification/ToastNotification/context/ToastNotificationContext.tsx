@@ -57,7 +57,7 @@ export const ToastNotificationProvider = ({
           setNotifications(existing => [...existing, notificationWithId])
         }
       },
-      [setNotifications]
+      [notifications, setNotifications]
     )
 
   const updateToastNotification = (
