@@ -18,13 +18,11 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/setup
       - name: Build Storybook
-        run: pnpm turbo @docs/storybook#build
+        run: pnpm turbo @docs/storybook#build:chromatic
       - name: Publish to Chromatic
         uses: chromaui/action@v11
         with:
           token: ${{ github.token }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: "./docs/storybook-static"
-          onlyChanged: true
-          storybookBaseDir: "./docs"
           autoAcceptChanges: main # 👈 Auto accept main builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)
