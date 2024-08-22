@@ -1,4 +1,5 @@
 import React, { HTMLAttributes } from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Canvas } from "@storybook/blocks"
 import classnames from "classnames"
 import { CheckIcon, CloseIcon } from "~components/Icon"

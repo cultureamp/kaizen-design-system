@@ -3,8 +3,11 @@ import "highlight.js/styles/a11y-light.css"
 import "./preview.css"
 
 import React, { useEffect } from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Preview } from "@storybook/react"
+// eslint-disable-next-line import/no-extraneous-dependencies
 import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { I18nProvider } from "~components/__react-aria-components__"

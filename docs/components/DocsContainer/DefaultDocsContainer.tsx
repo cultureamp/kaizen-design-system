@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {
   DocsContainer,
   DocsContainerProps,

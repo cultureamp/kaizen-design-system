@@ -1,4 +1,5 @@
 import React, { HTMLAttributes } from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { linkTo } from "@storybook/addon-links"
 import classnames from "classnames"
 
