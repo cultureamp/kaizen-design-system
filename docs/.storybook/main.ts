@@ -12,10 +12,10 @@ function getAbsolutePath(value: string): any {
 
 const config: StorybookConfig = {
   stories: [
-    "../packages/**/*.mdx",
-    "../packages/**/*.stories.tsx",
-    "./pages/**/*.mdx",
-    "./pages/**/*.stories.tsx",
+    "../../packages/**/*.mdx",
+    "../../packages/**/*.stories.tsx",
+    "../pages/**/*.mdx",
+    "../pages/**/*.stories.tsx",
   ],
   addons: [
     getAbsolutePath("@storybook/addon-a11y"),
@@ -31,7 +31,7 @@ const config: StorybookConfig = {
   },
   staticDirs: [
     {
-      from: "./assets",
+      from: "../assets",
       to: "/static/media",
     },
   ],
@@ -48,27 +48,26 @@ const config: StorybookConfig = {
           {
             // monorepo workspace aliases
             find: /^\@kaizen(.*)$/,
-            replacement: path.resolve(__dirname, "../packages$1"),
+            replacement: path.resolve(__dirname, "../../packages$1"),
           },
         ],
         {
-          "~storybook": path.resolve(__dirname),
-          "~kaio-global-styles": path.resolve(
+          "~storybook": path.resolve(__dirname, "../"),
+          "~components": path.resolve(
             __dirname,
-            "../packages/components/styles/global.css"
+            "../../packages/components/src"
           ),
-          "~components": path.resolve(__dirname, "../packages/components/src"),
           "~design-tokens": path.resolve(
             __dirname,
-            "../packages/design-tokens/src"
+            "../../packages/design-tokens/src"
           ),
-          "~tailwind": path.resolve(__dirname, "../packages/tailwind/src"),
+          "~tailwind": path.resolve(__dirname, "../../packages/tailwind/src"),
           // i18n-react-intl package attempts to import locales from this path.
           // When rollup attempts to import from the 'find' path, it will be
           // redirected to import from the replacement path (Same as KAIO rollup config).
           "__@cultureamp/i18n-react-intl/locales": path.resolve(
             __dirname,
-            "../packages/components/locales"
+            "../../packages/components/locales"
           ),
         }
       ),

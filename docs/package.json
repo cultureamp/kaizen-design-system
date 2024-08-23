@@ -6,12 +6,12 @@
   "scripts": {
     "lint": "eslint .",
     "lint:ts": "tsc --noEmit",
-    "dev": "pnpm build:tailwind && storybook dev -c ./ -p 6006",
+    "dev": "pnpm build:tailwind && storybook dev -p 6006",
     "preview": "NODE_ENV=production pnpm dev --docs",
-    "build": "pnpm build:tailwind && storybook build -c ./",
+    "build": "pnpm build:tailwind && storybook build",
     "build:chromatic": "pnpm build --webpack-stats-json",
-    "build:tailwind": "npx tailwindcss -i ./tailwind.css -o ./preview.css",
-    "test": "test-storybook -c ./ --skipTags='skip-test' --url http://127.0.0.1:6006",
+    "build:tailwind": "npx tailwindcss -i ./tailwind.css -o ./.storybook/preview.css",
+    "test": "test-storybook --skipTags='skip-test' --url http://127.0.0.1:6006",
     "clean": "rimraf ./storybook-static && rimraf ./node_modules"
   },
   "dependencies": {
