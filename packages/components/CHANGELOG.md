@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.60.1
+
+### Patch Changes
+
+- [#4943](https://github.com/cultureamp/kaizen-design-system/pull/4943) [`123209d7d89ad6c4edd0741eae47f61a08f18d6f`](https://github.com/cultureamp/kaizen-design-system/commit/123209d7d89ad6c4edd0741eae47f61a08f18d6f) - Fix the toast notification addToastNotification function so that it correctly identifies whether a toast already exists or not
+
 ## 1.60.0
 
 ### Minor Changes
