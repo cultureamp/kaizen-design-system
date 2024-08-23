@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.60.2
+
+### Patch Changes
+
+- [#4946](https://github.com/cultureamp/kaizen-design-system/pull/4946) [`59fe10f72fb6e18a5aa8c72fcc44e323cb74366a`](https://github.com/cultureamp/kaizen-design-system/commit/59fe10f72fb6e18a5aa8c72fcc44e323cb74366a) - Fix dist styles (import statement was not properly compiled).
+
 ## 1.60.1
 
 ### Patch Changes
