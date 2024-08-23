@@ -1,5 +1,6 @@
 import React, { useEffect, useId } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { expect, within } from "@storybook/test"
 import { Button } from "~components/__actions__/v2"
 import { ToastNotification, useToastNotification } from "../index"
 
@@ -173,5 +174,37 @@ export const ClearNotifications: Story = {
         />
       </>
     )
+  },
+}
+
+export const NoDuplicatesWithSameId: Story = {
+  render: () => {
+    const { addToastNotification } = useToastNotification()
+
+    useEffect(() => {
+      addToastNotification({
+        id: "id--clear-example-1",
+        title: "First",
+        type: "positive",
+        message: "There should only be one notification",
+      })
+      addToastNotification({
+        id: "id--clear-example-1",
+        title: "First",
+        type: "positive",
+        message: "There should only be one notification",
+      })
+    }, [addToastNotification])
+
+    return <div>Irrelevant content</div>
+  },
+  play: async context => {
+    const { canvasElement } = context
+    const { findAllByText } = within(canvasElement.parentElement!)
+
+    const notifications = await findAllByText(
+      "There should only be one notification"
+    )
+    expect(notifications).toHaveLength(1)
   },
 }
