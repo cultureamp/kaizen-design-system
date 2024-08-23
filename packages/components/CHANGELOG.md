@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.60.0
+
+### Minor Changes
+
+- [#4931](https://github.com/cultureamp/kaizen-design-system/pull/4931) [`febd282047df18ca82b745ffed5ff037a11be0f0`](https://github.com/cultureamp/kaizen-design-system/commit/febd282047df18ca82b745ffed5ff037a11be0f0) - - Exported types from LikertScale
+  - Deprecated `useResizeObserver` in favour of native DOM API `ResizeObserver`
+
+### Patch Changes
+
+- [#4941](https://github.com/cultureamp/kaizen-design-system/pull/4941) [`df16927f386898b8c625b0ab54602653f6b4981f`](https://github.com/cultureamp/kaizen-design-system/commit/df16927f386898b8c625b0ab54602653f6b4981f) - Deprecate `Popover` `variant` and `customIcon` props, and fix RTL styles.
+
 ## 1.59.0
 
 ### Minor Changes
