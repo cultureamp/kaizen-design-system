@@ -1,5 +1,12 @@
 # Change Log
 
+## 10.6.0
+
+### Minor Changes
+
+- [#4931](https://github.com/cultureamp/kaizen-design-system/pull/4931) [`febd282047df18ca82b745ffed5ff037a11be0f0`](https://github.com/cultureamp/kaizen-design-system/commit/febd282047df18ca82b745ffed5ff037a11be0f0) - - Added ESM bundle
+  - Fixed design-tokens js entrypoint
+
 ## 10.5.3
 
 ### Patch Changes
