@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.3.0
+
+### Minor Changes
+
+- [#4931](https://github.com/cultureamp/kaizen-design-system/pull/4931) [`febd282047df18ca82b745ffed5ff037a11be0f0`](https://github.com/cultureamp/kaizen-design-system/commit/febd282047df18ca82b745ffed5ff037a11be0f0) - - Added ESM bundle
+  - Fixed design-tokens js entrypoint
+
+### Patch Changes
+
+- Updated dependencies [[`febd282047df18ca82b745ffed5ff037a11be0f0`](https://github.com/cultureamp/kaizen-design-system/commit/febd282047df18ca82b745ffed5ff037a11be0f0)]:
+  - @kaizen/design-tokens@10.6.0
+
 ## 1.2.14
 
 ### Patch Changes
