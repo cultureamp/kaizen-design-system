@@ -40,7 +40,7 @@
     "postcss": "^8.4.41",
     "prettier": "*",
     "react-map-interaction": "^2.1.0",
-    "tsx": "^4.17.0"
+    "tsx": "^4.18.0"
   },
   "dependencies": {
     "@types/color-string": "^1.5.5",
