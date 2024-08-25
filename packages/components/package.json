@@ -94,7 +94,7 @@
     "react-textfit": "^1.1.1",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^10.0.2",
-    "tsx": "^4.17.0",
+    "tsx": "^4.18.0",
     "uuid": "^10.0.0"
   },
   "dependenciesComments": {
@@ -119,7 +119,7 @@
     "svgo": "^3.3.2",
     "ts-jest": "^29.2.4",
     "tslib": "^2.6.3",
-    "tsx": "^4.17.0"
+    "tsx": "^4.18.0"
   },
   "devDependenciesComments": {
     "postcss": "Installed in root",
