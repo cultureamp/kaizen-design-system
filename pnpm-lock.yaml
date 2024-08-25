@@ -618,8 +618,8 @@ importers:
         specifier: '>=2.6.2'
         version: 2.6.3
       typescript-transform-paths:
-        specifier: ^3.4.10
-        version: 3.4.10(typescript@5.5.4)
+        specifier: ^3.5.0
+        version: 3.5.0(typescript@5.5.4)
     devDependencies:
       rollup:
         specifier: ^4.21.0
@@ -10503,8 +10503,8 @@ packages:
   typedarray@0.0.6:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
 
-  typescript-transform-paths@3.4.10:
-    resolution: {integrity: sha512-OPBjXDnwX/B4JzewvRAzEzcNK+hQn/JonCfUN93VARsFQcj/wk//4RJ3FPp/SgzsT1s1EJJhOass5grxy8Y2yA==}
+  typescript-transform-paths@3.5.0:
+    resolution: {integrity: sha512-Qsm5elv11DWu1q+yaugV37ygHhSLhPExkkQu3+blIYfEZAMtY6jSdXANoaR7p+uDoAAHrWXSzwFYK9AmTApLvw==}
     peerDependencies:
       typescript: '>=3.6.5'
 
@@ -23647,9 +23647,9 @@ snapshots:
 
   typedarray@0.0.6: {}
 
-  typescript-transform-paths@3.4.10(typescript@5.5.4):
+  typescript-transform-paths@3.5.0(typescript@5.5.4):
     dependencies:
-      minimatch: 3.1.2
+      minimatch: 10.0.1
       typescript: 5.5.4
 
   typescript@4.9.5: {}
