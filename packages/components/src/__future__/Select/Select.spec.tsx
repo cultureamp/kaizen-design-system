@@ -423,10 +423,13 @@ describe("<Select />", () => {
       }
       render(<SelectWithPortal />)
 
-      await waitFor(() => {
-        const popover = within(document.body).getByTestId("kz-select-popover")
+      const popover = screen.getByTestId("kz-select-popover")
+      // expected div that FocusOn adds to the popover
+      const popoverFocusWrapper = popover.parentNode
 
-        expect(popover).toBeInTheDocument()
+      await waitFor(() => {
+        const expectedBodyTag = popoverFocusWrapper?.parentNode
+        expect(expectedBodyTag?.nodeName).toEqual("BODY")
       })
     })
   })
