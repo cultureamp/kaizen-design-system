@@ -42,7 +42,6 @@
     "build:combine-styles": "concat-cli -f ./dist/global.css ./dist/styles.css -o ./dist/styles.css && rm ./dist/global.css",
     "build:styles": "pnpm build:global-styles && pnpm build:combine-styles",
     "test": "FORCE_COLOR=1 vitest",
-    "test:ci": "pnpm test -- --ci",
     "update-icons": "./src/Icon/bin/update-icons.sh",
     "i18n:extract": "pnpm i18n-extract"
   },

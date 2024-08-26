@@ -26,7 +26,6 @@
   "scripts": {
     "lint:ts": "tsc --noEmit",
     "test": "FORCE_COLOR=1 vitest",
-    "test:ci": "pnpm test -- --ci",
     "build": "pnpm clean && pnpm build:json && pnpm build:less && pnpm build:sass && pnpm build:ts",
     "build:json": "tsx ./bin/buildCssVarTokens.ts",
     "build:ts": "pnpm package-bundler build",

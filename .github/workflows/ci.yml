@@ -54,11 +54,11 @@ jobs:
       - uses: ./.github/actions/setup
       - run: pnpm lint:styles
 
-  jest:
+  test:
     if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: pnpm test:ci
+      - run: pnpm test
