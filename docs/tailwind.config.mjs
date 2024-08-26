@@ -7,7 +7,7 @@ module.exports = {
   content: [
     "../packages/**/*.mdx",
     "../packages/**/*.stories.{ts,tsx}",
-    "../**/*.{ts,tsx,mdx}",
+    "./**/*.{ts,tsx,mdx}",
     "!node_modules",
   ],
   presets: [Preset],
