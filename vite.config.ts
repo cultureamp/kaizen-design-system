@@ -20,6 +20,7 @@ export default {
       {
         "~storybook": path.resolve(__dirname, "./docs"),
         "~components": path.resolve(__dirname, "./packages/components/src"),
+        "~tests": path.resolve(__dirname, "./packages/components/__tests__"),
         "~design-tokens": path.resolve(
           __dirname,
           "./packages/design-tokens/src"
