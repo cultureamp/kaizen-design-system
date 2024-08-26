@@ -33,3 +33,9 @@
 .inherit {
   font-size: inherit;
 }
+
+.shouldMirrorInRTL {
+  [dir="rtl"] & {
+    transform: scale(-1, 1);
+  }
+}

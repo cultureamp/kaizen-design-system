@@ -7,12 +7,14 @@ export type IconProps = {
   isFilled?: boolean
   /** @default medium */
   size?: "small" | "medium" | "large" | "inherit"
+  shouldMirrorInRTL?: boolean
 } & HTMLAttributes<HTMLSpanElement>
 
 export const Icon = ({
   name,
   isFilled,
   size = "medium",
+  shouldMirrorInRTL,
   className,
   ...restProps
 }: IconProps): JSX.Element => (
@@ -22,6 +24,7 @@ export const Icon = ({
       styles.icon,
       isFilled && styles.filled,
       styles[size],
+      shouldMirrorInRTL && styles.shouldMirrorInRTL,
       className
     )}
     {...restProps}

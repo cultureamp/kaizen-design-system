@@ -23,9 +23,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <>
         <StickerSheet heading="Icon" isReversed={isReversed}>
-          <StickerSheet.Header
-            headings={["Outlined", "Filled", "Color (className)"]}
-          />
+          <StickerSheet.Header headings={["Outlined", "Filled", "Color"]} />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <Icon name="star" />
@@ -46,6 +44,23 @@ const StickerSheetTemplate: StickerSheetStory = {
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>
+
+        <StickerSheet heading="shouldMirrorInRTL" isReversed={isReversed}>
+          <StickerSheet.Header
+            headings={['dir=["ltr"]', 'dir=["rtl"]']}
+            hasVerticalHeadings
+          />
+          <StickerSheet.Body>
+            <StickerSheet.Row rowTitle="arrow_forward">
+              <div dir="ltr">
+                <Icon name="arrow_forward" shouldMirrorInRTL />
+              </div>
+              <div dir="rtl">
+                <Icon name="arrow_forward" shouldMirrorInRTL />
+              </div>
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
       </>
     )
   },
@@ -54,12 +69,4 @@ const StickerSheetTemplate: StickerSheetStory = {
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
-}
-
-export const StickerSheetRTL: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: {
-    textDirection: "rtl",
-  },
 }
