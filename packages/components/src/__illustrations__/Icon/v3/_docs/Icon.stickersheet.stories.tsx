@@ -4,7 +4,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Icon } from "../index"
+import { Icon, IconProps } from "../index"
 
 export default {
   title: "Illustrations/Icon/v3/Tests",
@@ -15,23 +15,40 @@ export default {
 } satisfies Meta
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    <>
-      <StickerSheet heading="Icon" isReversed={isReversed}>
-        <StickerSheet.Header
-          headings={["Base", "Disabled", "working"]}
-          headingsWidth="10rem"
-          hasVerticalHeadings
-          verticalHeadingsWidth="12rem"
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Default">
-            <Icon name="star">Label</Icon>
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-    </>
-  ),
+  render: ({ isReversed }) => {
+    const sizes = ["small", "medium", "large", "inherit"] satisfies Array<
+      IconProps["size"]
+    >
+
+    return (
+      <>
+        <StickerSheet heading="Icon" isReversed={isReversed}>
+          <StickerSheet.Header
+            headings={["Outlined", "Filled", "Color (className)"]}
+          />
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <Icon name="star" />
+              <Icon name="star" isFilled />
+              <Icon name="star" isFilled className="text-yellow-500" />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+
+        <StickerSheet heading="Sizes" isReversed={isReversed}>
+          <StickerSheet.Header headings={[...sizes, "custom"]} />
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              {sizes.map(size => (
+                <Icon key={size} name="star" size={size} />
+              ))}
+              <Icon name="star" className="text-heading-1" />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+      </>
+    )
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
