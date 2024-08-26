@@ -96,3 +96,53 @@ export const OnReversed: Story = {
     },
   },
 }
+
+export const RFCButtonVariants: Story = {
+  render: () => (
+    <>
+      <Button variant="primary">Label</Button>
+      <Button variant="secondary">Label</Button>
+      <Button variant="tertiary">Label</Button>
+    </>
+  ),
+}
+
+export const RFCButtonSizes: Story = {
+  render: () => (
+    <>
+      <Button variant="primary" size="small">
+        Label
+      </Button>
+      <Button variant="secondary" size="medium">
+        Label
+      </Button>
+      <Button variant="tertiary" size="large">
+        Label
+      </Button>
+    </>
+  ),
+}
+
+export const RFCButtonIcon: Story = {
+  render: () => (
+    <>
+      <Button variant="primary" icon={<AddIcon role="presentation" />}>
+        Label
+      </Button>
+      <Button
+        variant="primary"
+        icon={<AddIcon role="presentation" />}
+        iconPosition="end"
+      >
+        Label
+      </Button>
+      <Button label="esadasd" variant="tertiary">
+        Label
+      </Button>
+    </>
+  ),
+}
+
+export const RFCButtonPending: Story = {
+  render: () => <Button label="asdasd" isPending pendingLabel="Submitting" />,
+}
