@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import { DatePicker } from "./DatePicker"
 import { DatePickerProps } from "."
-
 const user = userEvent.setup()
 
 const DatePickerWrapper = ({
@@ -358,7 +358,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("does not show inbuilt validation message when onValidate is set", async () => {
-      const onValidate = jest.fn()
+      const onValidate = vi.fn()
       renderWithIntl(
         <DatePickerWrapper
           selectedDay={new Date("potato")}
@@ -377,7 +377,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("triggers validation when initial selected date is invalid", async () => {
-      const onValidate = jest.fn()
+      const onValidate = vi.fn()
       renderWithIntl(
         <DatePickerWrapper
           onValidate={onValidate}
@@ -390,7 +390,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("triggers validation when initial selected date is disabled", async () => {
-      const onValidate = jest.fn()
+      const onValidate = vi.fn()
       renderWithIntl(
         <DatePickerWrapper
           onValidate={onValidate}
@@ -404,7 +404,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("does not trigger validation when initial selected date is empty", async () => {
-      const onValidate = jest.fn()
+      const onValidate = vi.fn()
       renderWithIntl(
         <DatePickerWrapper onValidate={onValidate} selectedDay={undefined} />
       )
@@ -414,7 +414,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("does not trigger validation when initial selected date is valid", async () => {
-      const onValidate = jest.fn()
+      const onValidate = vi.fn()
       renderWithIntl(
         <DatePickerWrapper
           onValidate={onValidate}
@@ -427,7 +427,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("triggers validation when selected date is updated to invalid", async () => {
-      const onValidate = jest.fn()
+      const onValidate = vi.fn()
       renderWithIntl(
         <DatePickerWrapper
           onValidate={onValidate}

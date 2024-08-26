@@ -2,16 +2,16 @@ import React, { useRef } from "react"
 import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { enUS } from "date-fns/locale"
+import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import { DateInputField, DateInputFieldProps } from "./DateInputField"
-
 const user = userEvent.setup()
 
 const defaultProps: DateInputFieldProps = {
   id: "test__date-input-field",
   labelText: "Bacon expiry",
-  onButtonClick: jest.fn(),
-  onKeyDown: jest.fn(),
+  onButtonClick: vi.fn(),
+  onKeyDown: vi.fn(),
   value: undefined,
   locale: enUS,
 }
@@ -106,7 +106,7 @@ describe("<DateInputField />", () => {
 
   describe("Refs", () => {
     it("correctly passes through input and button refs", async () => {
-      const onButtonClick = jest.fn()
+      const onButtonClick = vi.fn()
 
       const Wrapper = (): JSX.Element => {
         const inputRef = useRef<HTMLInputElement>(null)
@@ -125,7 +125,7 @@ describe("<DateInputField />", () => {
               ref={ref}
               id="test__date-input-field--ref"
               labelText="Adventure time"
-              onButtonClick={jest.fn<void, []>()}
+              onButtonClick={vi.fn<void, []>()}
               locale={enUS}
             />
             <button type="button" onClick={handleClick}>

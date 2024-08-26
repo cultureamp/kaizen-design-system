@@ -1,10 +1,10 @@
 import React from "react"
 import { render, waitFor, screen, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { mockMatchMedia } from "~components/utils/useMediaQueries.spec"
 import { CustomBreadcrumbProps, SectionTitleRenderProps } from "./types"
 import { TitleBlockZen } from "./index"
-
 const user = userEvent.setup()
 
 describe("<TitleBlockZen />", () => {
@@ -41,7 +41,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the primary action is a button with only an onClick", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const primaryActionAsButton = {
       label: "primaryActionLabel",
       onClick: testOnClickFn,
@@ -84,7 +84,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the primary action is disabled", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const primaryActionAsButton = {
       label: "primaryActionLabel",
       onClick: testOnClickFn,
@@ -166,7 +166,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the primary action is a button with both an href and an onClick", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const primaryActionAsLinkAndOnClick = {
       label: "primaryActionLabel",
       href: "#primaryActionHref",
@@ -307,7 +307,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is a button with only an onClick", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const defaultActionAsButton = {
       label: "defaultActionLabel",
       onClick: testOnClickFn,
@@ -363,7 +363,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is a button with both an href and an onClick", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const defaultActionAsLinkAndOnClick = {
       label: "defaultActionLabel",
       href: "#defaultActionHref",
@@ -423,7 +423,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is disabled", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const defaultActionAsButton = {
       label: "defaultActionLabel",
       onClick: testOnClickFn,
@@ -504,7 +504,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a secondary action is passed with both an href and an onClick", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const secondaryActionWithLinkAndOnClick = {
       label: "secondaryActionLabel",
       href: "#secondaryActionHref",
@@ -516,7 +516,7 @@ describe("<TitleBlockZen />", () => {
     })
 
     it("renders the secondary action with both the href and onClick", async () => {
-      const mockWarnFn = jest.fn()
+      const mockWarnFn = vi.fn()
       const spy = jest
         .spyOn(global.console, "warn")
         .mockImplementation(mockWarnFn)
@@ -543,7 +543,7 @@ describe("<TitleBlockZen />", () => {
     })
 
     it("renders the action as a single mobile actions drawer item with an onClick", async () => {
-      const mockWarnFn = jest.fn()
+      const mockWarnFn = vi.fn()
       const spy = jest
         .spyOn(global.console, "warn")
         .mockImplementation(mockWarnFn)
@@ -681,7 +681,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a disabled secondary action is passed with only an onClick", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const secondaryActionWithOnClick = {
       label: "secondaryActionLabel",
       onClick: testOnClickFn,
@@ -708,7 +708,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a disabled secondary overflow menu item is passed with only an onClick for the action", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const secondaryOverflowMenuItemWithOnClick = {
       label: "secondaryActionOverflowMenuItemLabel",
       action: testOnClickFn,
@@ -807,7 +807,7 @@ describe("<TitleBlockZen />", () => {
             breadcrumb={{
               text: "Test Breadcrumb",
               path: "/",
-              handleClick: jest.fn(),
+              handleClick: vi.fn(),
             }}
             sectionTitle="Test Section Title"
             sectionTitleDescription="Test Section Title Description"
@@ -845,7 +845,7 @@ describe("<TitleBlockZen />", () => {
             breadcrumb={{
               text: "Test Breadcrumb",
               path: "/",
-              handleClick: jest.fn(),
+              handleClick: vi.fn(),
             }}
             sectionTitle="Test Section Title"
             sectionTitleDescription="Test Section Title Description"
@@ -909,7 +909,7 @@ describe("<TitleBlockZen />", () => {
     })
 
     it("renders a custom component when you pass a 'render' prop", async () => {
-      const mockFn = jest.fn()
+      const mockFn = vi.fn()
 
       const CustomComponent = (props: CustomBreadcrumbProps): JSX.Element => (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
@@ -1018,7 +1018,7 @@ describe("<TitleBlockZen />", () => {
       })
 
       it("will render custom button with functional onClick", async () => {
-        const testClickFunc = jest.fn()
+        const testClickFunc = vi.fn()
         render(
           <TitleBlockZen
             title="Test Title"
@@ -1045,7 +1045,7 @@ describe("<TitleBlockZen />", () => {
       })
 
       it("will render custom button with children and not label", () => {
-        const testClickFunc = jest.fn()
+        const testClickFunc = vi.fn()
         render(
           <TitleBlockZen
             title="Test Title"
@@ -1177,7 +1177,7 @@ describe("<TitleBlockZen />", () => {
       })
 
       it("will render the component in the top list of the Drawer content if it is a clickable button", () => {
-        const testClickFunc = jest.fn()
+        const testClickFunc = vi.fn()
         render(
           <TitleBlockZen
             title="Test Title"

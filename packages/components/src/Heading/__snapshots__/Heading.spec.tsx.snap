@@ -1,4 +1,88 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Heading /> > defaults to the correct HTML element > renders the correct element for <Heading variant={display-0} /> 1`] = `
+<body>
+  <div>
+    <h1
+      class="_heading_f442d8 _display-0_f442d8 _dark_f442d8 _large_f442d8"
+    >
+      Example
+    </h1>
+  </div>
+</body>
+`;
+
+exports[`<Heading /> > defaults to the correct HTML element > renders the correct element for <Heading variant={heading-1} /> 1`] = `
+<body>
+  <div>
+    <h1
+      class="_heading_f442d8 _heading-1_f442d8 _dark_f442d8 _large_f442d8"
+    >
+      Example
+    </h1>
+  </div>
+</body>
+`;
+
+exports[`<Heading /> > defaults to the correct HTML element > renders the correct element for <Heading variant={heading-2} /> 1`] = `
+<body>
+  <div>
+    <h2
+      class="_heading_f442d8 _heading-2_f442d8 _dark_f442d8 _large_f442d8"
+    >
+      Example
+    </h2>
+  </div>
+</body>
+`;
+
+exports[`<Heading /> > defaults to the correct HTML element > renders the correct element for <Heading variant={heading-3} /> 1`] = `
+<body>
+  <div>
+    <h3
+      class="_heading_f442d8 _heading-3_f442d8 _dark_f442d8 _small_f442d8"
+    >
+      Example
+    </h3>
+  </div>
+</body>
+`;
+
+exports[`<Heading /> > defaults to the correct HTML element > renders the correct element for <Heading variant={heading-4} /> 1`] = `
+<body>
+  <div>
+    <h4
+      class="_heading_f442d8 _heading-4_f442d8 _dark_f442d8 _small_f442d8"
+    >
+      Example
+    </h4>
+  </div>
+</body>
+`;
+
+exports[`<Heading /> > defaults to the correct HTML element > renders the correct element for <Heading variant={heading-5} /> 1`] = `
+<body>
+  <div>
+    <h5
+      class="_heading_f442d8 _heading-5_f442d8 _dark_f442d8 _small_f442d8"
+    >
+      Example
+    </h5>
+  </div>
+</body>
+`;
+
+exports[`<Heading /> > defaults to the correct HTML element > renders the correct element for <Heading variant={heading-6} /> 1`] = `
+<body>
+  <div>
+    <h6
+      class="_heading_f442d8 _heading-6_f442d8 _dark_f442d8 _small_f442d8"
+    >
+      Example
+    </h6>
+  </div>
+</body>
+`;
 
 exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={display-0} /> 1`] = `
 <body>

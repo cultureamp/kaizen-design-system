@@ -1,7 +1,7 @@
 import React from "react"
 import { render } from "@testing-library/react"
+import { vi } from "vitest"
 import { KaizenProvider, KaizenProviderProps } from "./KaizenProvider"
-
 const KaizenProviderWrapper = ({
   children,
   ...restProps
@@ -9,7 +9,7 @@ const KaizenProviderWrapper = ({
   <KaizenProvider {...restProps}>{children}</KaizenProvider>
 )
 
-jest.mock("./subcomponents/OptionalIntlProvider", () => ({
+vi.mock("./subcomponents/OptionalIntlProvider", () => ({
   OptionalIntlProvider: ({ children }: { children: React.ReactElement }) => (
     <div>{children}</div>
   ),

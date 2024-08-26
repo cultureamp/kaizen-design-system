@@ -2,12 +2,12 @@ import React, { useRef } from "react"
 import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { enAU } from "date-fns/locale"
+import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import {
   DateRangeInputField,
   DateRangeInputFieldProps,
 } from "./DateRangeInputField"
-
 const user = userEvent.setup()
 
 const DateRangeInputFieldWrapper = (
@@ -89,7 +89,7 @@ describe("<DateRangeInputField />", () => {
 
   describe("Refs", () => {
     it("correctly passes through both input refs", async () => {
-      const onButtonClick = jest.fn()
+      const onButtonClick = vi.fn()
 
       const Wrapper = (): JSX.Element => {
         const inputStartDateRef = useRef<HTMLInputElement>(null)

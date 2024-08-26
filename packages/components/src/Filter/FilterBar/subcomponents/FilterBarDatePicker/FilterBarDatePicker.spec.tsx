@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import {
   FilterAttributes,
@@ -10,7 +11,6 @@ import {
   FilterBarDatePicker,
   FilterBarDatePickerProps,
 } from "./FilterBarDatePicker"
-
 const user = userEvent.setup()
 
 type Values = {
@@ -156,7 +156,7 @@ describe("<FilterBarDatePicker />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
     renderWithIntl(<FilterBarDatePickerWrapper onDateChange={onChange} />)
 
     const triggerButton = screen.getByRole("button", { name: "Drank" })

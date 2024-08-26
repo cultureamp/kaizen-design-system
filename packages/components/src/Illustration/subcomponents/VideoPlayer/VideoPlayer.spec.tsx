@@ -1,15 +1,15 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { VideoPlayer } from "./VideoPlayer"
-
 const matchMedia = {
   media: "",
   onchange: null,
-  addListener: jest.fn(),
-  removeListener: jest.fn(),
-  addEventListener: jest.fn(),
-  removeEventListener: jest.fn(),
+  addListener: vi.fn(),
+  removeListener: vi.fn(),
+  addEventListener: vi.fn(),
+  removeEventListener: vi.fn(),
 }
 const mockPrefersReducedMotion = {
   matches: true,
@@ -19,9 +19,9 @@ const mockDoesNotPreferReducedMotion = {
   matches: false,
   ...matchMedia,
 }
-const mockPlay = jest.fn().mockResolvedValue(undefined)
-const mockLoad = jest.fn()
-const mockPause = jest.fn()
+const mockPlay = vi.fn().mockResolvedValue(undefined)
+const mockLoad = vi.fn()
+const mockPause = vi.fn()
 
 describe("<VideoPlayer />", () => {
   beforeEach(() => {
@@ -34,12 +34,12 @@ describe("<VideoPlayer />", () => {
     // this will stop throwing the unstable_flushDiscreteUpdates console error cause by react bug
     // https://stackoverflow.com/a/65338472/18285270
     Object.defineProperty(HTMLMediaElement.prototype, "muted", {
-      set: jest.fn(),
+      set: vi.fn(),
     })
   })
 
   afterEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   it("renders a video player in the document and autoplay", async () => {

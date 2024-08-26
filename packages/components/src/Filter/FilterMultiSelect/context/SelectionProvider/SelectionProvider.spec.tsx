@@ -3,6 +3,7 @@ import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { Selection } from "@react-types/shared"
 import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import { FilterMultiSelect } from "../../FilterMultiSelect"
 import { ListBox } from "../../subcomponents/ListBox"
@@ -13,7 +14,6 @@ import {
 } from "../../subcomponents/SelectionControlButton"
 import { ItemType } from "../../types"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
-
 const user = userEvent.setup()
 
 const itemsMock: ItemType[] = [
@@ -215,7 +215,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("fires onSelectionChange when clicks on a option", async () => {
-      const spy = jest.fn()
+      const spy = vi.fn()
       renderWithIntl(<SelectionProviderWrapper onSelectionChange={spy} />)
       const option1 = screen.getByRole("option", {
         name: "option-1-label-mock",
@@ -261,7 +261,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("fires onSelectionChange when clicks on Select all button", async () => {
-      const spy = jest.fn()
+      const spy = vi.fn()
       renderWithIntl(<SelectionProviderWrapper onSelectionChange={spy} />)
       const selectAll = screen.getByRole("button", {
         name: "Select all",
@@ -309,7 +309,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("fires onSelectionChange when clicks on Clear all button", async () => {
-      const spy = jest.fn()
+      const spy = vi.fn()
       renderWithIntl(
         <SelectionProviderWrapper
           onSelectionChange={spy}
@@ -475,7 +475,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("fires onSelectionChange when hits enter on a option", async () => {
-      const spy = jest.fn()
+      const spy = vi.fn()
       renderWithIntl(<SelectionProviderWrapper onSelectionChange={spy} />)
 
       await user.tab()
@@ -515,7 +515,7 @@ describe("<SelectionProvider>", () => {
     })
     describe("With a onSearchInputChange callback", () => {
       it("Does not filter the matched options", async () => {
-        const onSearchInputChange = jest.fn()
+        const onSearchInputChange = vi.fn()
 
         renderWithIntl(
           <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
@@ -544,7 +544,7 @@ describe("<SelectionProvider>", () => {
       })
 
       it("Calls back to the consumer with the search text", async () => {
-        const onSearchInputChange = jest.fn()
+        const onSearchInputChange = vi.fn()
 
         renderWithIntl(
           <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />

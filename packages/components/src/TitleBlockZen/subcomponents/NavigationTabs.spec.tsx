@@ -1,8 +1,8 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { NavigationTab, CustomNavigationTabProps } from "./NavigationTabs"
-
 const user = userEvent.setup()
 
 const CustomComponent = (props: CustomNavigationTabProps): JSX.Element => (
@@ -33,7 +33,7 @@ describe("NavigationTabs", () => {
 
   describe("with a render prop", () => {
     it("renders the component passed with the navigation tab props", async () => {
-      const handleClick = jest.fn()
+      const handleClick = vi.fn()
       const text = "I am also navigation tabs"
       const href = "www.cultureamp.com"
       render(

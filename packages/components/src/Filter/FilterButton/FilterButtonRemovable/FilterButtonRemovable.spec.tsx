@@ -1,13 +1,13 @@
 import React, { useRef } from "react"
 import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import {
   FilterButtonRemovable,
   FilterButtonRemovableProps,
   FilterButtonRemovableRefs,
 } from "."
-
 const user = userEvent.setup()
 
 const FilterButtonRemovableWrapper = ({
@@ -39,7 +39,7 @@ describe("<FilterButtonRemovable />", () => {
 
   describe("Refs", () => {
     it("correctly passes through both button refs", async () => {
-      const onClick = jest.fn()
+      const onClick = vi.fn()
 
       const Wrapper = (): JSX.Element => {
         const triggerRef = useRef<HTMLButtonElement>(null)

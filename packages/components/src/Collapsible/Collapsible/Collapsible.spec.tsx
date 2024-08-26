@@ -1,8 +1,8 @@
 import React from "react"
 import { queryByTestId, render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { Collapsible } from "./Collapsible"
-
 const user = userEvent.setup()
 
 describe("<Collapsible />", () => {
@@ -74,7 +74,7 @@ describe("<Collapsible />", () => {
   })
 
   it("runs the onToggle callback", async () => {
-    const onToggle = jest.fn()
+    const onToggle = vi.fn()
 
     const { getByTestId } = render(
       <Collapsible id="1" open title="First panel" onToggle={onToggle}>

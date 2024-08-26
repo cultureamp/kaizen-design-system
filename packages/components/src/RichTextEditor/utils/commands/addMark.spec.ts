@@ -1,4 +1,5 @@
 import { findByText, waitFor } from "@testing-library/dom"
+import { vi } from "vitest"
 import { createRichTextEditor } from "../core"
 import { addMark } from "./addMark"
 import {
@@ -7,9 +8,8 @@ import {
   simulateTextInsert,
 } from "./fixtures/helpers"
 import { testEditorState, testSchema } from "./fixtures/test-state"
-
 describe("addMark()", () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
 
   it("creates an empty wrapper of the given Mark type if no selection is provided", async () => {

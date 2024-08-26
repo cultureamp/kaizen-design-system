@@ -5,8 +5,8 @@ import {
   Transaction,
 } from "prosemirror-state"
 import { findChildrenByType } from "prosemirror-utils"
+import { vi } from "vitest"
 import { ProseMirrorModel } from "../../prosemirror"
-
 /*
  ** This is used handle the JSDom type error issue you may encounter in testing
  ** See https://github.com/jsdom/jsdom/issues/3002
@@ -30,7 +30,7 @@ export const mockRangeForBoundingRect = (): void => {
     range.getClientRects = () => ({
       item: () => null,
       length: 0,
-      [Symbol.iterator]: jest.fn(),
+      [Symbol.iterator]: vi.fn(),
     })
 
     return range

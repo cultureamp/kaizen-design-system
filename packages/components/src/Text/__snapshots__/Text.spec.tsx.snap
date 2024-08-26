@@ -1,4 +1,52 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Text /> > defaults to the correct HTML element > renders the correct element for <Text variant={body} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="_text_cb8147 _body_cb8147 _dark_cb8147"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Text /> > defaults to the correct HTML element > renders the correct element for <Text variant={extra-small} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="_text_cb8147 _extra-small_cb8147 _dark_cb8147"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Text /> > defaults to the correct HTML element > renders the correct element for <Text variant={intro-lede} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="_text_cb8147 _intro-lede_cb8147 _dark_cb8147"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Text /> > defaults to the correct HTML element > renders the correct element for <Text variant={small} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="_text_cb8147 _small_cb8147 _dark_cb8147"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
 
 exports[`<Text /> defaults to the correct HTML element renders the correct element for <Text variant={body} /> 1`] = `
 <body>

@@ -1,10 +1,10 @@
 import React from "react"
 import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import { MenuItem, MenuList } from "~components/__actions__/v2"
 import { SplitButton, SplitButtonProps } from "./SplitButton"
-
 const user = userEvent.setup()
 
 const SplitButtonWrapper = (
@@ -13,7 +13,7 @@ const SplitButtonWrapper = (
   <SplitButton
     actionButtonProps={{
       label: "Action Text",
-      onClick: jest.fn(),
+      onClick: vi.fn(),
     }}
     dropdownButtonProps={{
       "aria-label": "Dropdown Label",

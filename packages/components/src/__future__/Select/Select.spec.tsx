@@ -1,9 +1,9 @@
 import React from "react"
 import { render, waitFor, screen, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { Select, SelectProps } from "./Select"
 import { singleMockItems } from "./_docs/mockData"
-
 const user = userEvent.setup()
 
 const SelectWrapper = ({
@@ -87,7 +87,7 @@ describe("<Select />", () => {
       })
 
       it("fires the onOpenChange callback when the trigger is interacted", async () => {
-        const onOpenChange = jest.fn()
+        const onOpenChange = vi.fn()
         const { getByRole } = render(
           <SelectWrapper
             selectedKey="batch-brew"
@@ -267,7 +267,7 @@ describe("<Select />", () => {
 
     describe("Selection - Mouse interaction", () => {
       it("fires onSelectionChange when clicks on a option", async () => {
-        const spy = jest.fn()
+        const spy = vi.fn()
         const { getByRole } = render(
           <SelectWrapper defaultOpen onSelectionChange={spy} />
         )
@@ -335,7 +335,7 @@ describe("<Select />", () => {
       })
 
       it("fires onSelectionChange when hits enter on a option", async () => {
-        const spy = jest.fn()
+        const spy = vi.fn()
         const { getByRole } = render(<SelectWrapper onSelectionChange={spy} />)
 
         await user.tab()

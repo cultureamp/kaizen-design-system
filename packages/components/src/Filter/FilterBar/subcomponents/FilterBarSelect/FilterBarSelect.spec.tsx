@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { waitFor, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import {
   FilterAttributes,
@@ -11,7 +12,6 @@ import {
 } from "~components/Filter/FilterBar"
 import { SelectOption } from "~components/Filter/FilterSelect"
 import { FilterBarSelect, FilterBarSelectProps } from "./FilterBarSelect"
-
 const user = userEvent.setup()
 
 type Values = {
@@ -156,7 +156,7 @@ describe("<FilterBarSelect />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
     const { getByRole } = renderWithIntl(
       <FilterBarSelectWrapper onSelectionChange={onChange} />
     )

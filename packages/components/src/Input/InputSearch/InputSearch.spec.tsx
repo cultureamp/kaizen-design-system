@@ -1,16 +1,16 @@
 import React from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import { InputSearchProps } from "./InputSearch"
 import { InputSearch } from "."
-
 const user = userEvent.setup()
 
 const defaultInputProps = {
   id: "someInputId",
   value: "somevalue",
-  onChange: jest.fn(),
+  onChange: vi.fn(),
 }
 
 const renderInput = (

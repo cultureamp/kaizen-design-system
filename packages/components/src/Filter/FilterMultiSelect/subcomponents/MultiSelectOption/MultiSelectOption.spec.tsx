@@ -3,14 +3,15 @@
 import React from "react"
 import { useOption } from "@react-aria/listbox"
 import { render, screen } from "@testing-library/react"
+import { vi } from "vitest"
 import { ItemType } from "../../types"
 import { MultiSelectOption, MultiSelectOptionProps } from "./MultiSelectOption"
 
-jest.mock("@react-aria/listbox", () => ({
-  useOption: jest.fn(),
+vi.mock("@react-aria/listbox", () => ({
+  useOption: vi.fn(),
 }))
 
-jest.mock("../../context", () => ({
+vi.mock("../../context", () => ({
   useSelectionContext: (): { selectionState: Record<string, unknown> } => ({
     selectionState: {},
   }),
@@ -36,7 +37,7 @@ const MultiSelectOptionWrapper = ({
 describe("<MultiSelectOptionWrapper /> - Visual content", () => {
   describe("Given item is unselected", () => {
     beforeEach(() => {
-      ;(useOption as jest.Mock).mockReturnValue({
+      ;(useOption as vi.mock).mockReturnValue({
         optionProps: {},
         isSelected: false,
         isDisabled: false,
@@ -56,7 +57,7 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
 
   describe("Given item is disabled", () => {
     beforeEach(() => {
-      ;(useOption as jest.Mock).mockReturnValue({
+      ;(useOption as vi.mock).mockReturnValue({
         optionProps: {},
         isSelected: false,
         isDisabled: true,
@@ -72,7 +73,7 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
 
   describe("Given count is provided", () => {
     beforeEach(() => {
-      ;(useOption as jest.Mock).mockReturnValue({
+      ;(useOption as vi.mock).mockReturnValue({
         optionProps: {},
         isSelected: false,
         isDisabled: false,

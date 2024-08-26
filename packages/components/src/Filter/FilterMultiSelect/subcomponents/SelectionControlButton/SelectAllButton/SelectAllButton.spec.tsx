@@ -1,26 +1,26 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { useSelectionContext } from "../../../context"
 import { SelectAllButton } from "."
-
 const user = userEvent.setup()
 
-jest.mock("../../../context", () => ({
-  useSelectionContext: jest.fn(),
+vi.mock("../../../context", () => ({
+  useSelectionContext: vi.fn(),
 }))
 
 describe("<SelectAllButton /> - interaction", () => {
   describe("Given not all options are selected", () => {
     it("triggers selectionManager.setSelectedKeys() with currently selected and filtered options when button is clicked", async () => {
-      const spy = jest.fn()
+      const spy = vi.fn()
       const selectedAndFiltered = "selectedAndFiltered"
       const filteredButNotSelected = "focusedButNotSelected"
       const selectedButNotFiltered = "selectedButNotFiltered"
       const selectedKeys = [selectedAndFiltered, selectedButNotFiltered]
       const filteredKeys = [selectedAndFiltered, filteredButNotSelected]
 
-      ;(useSelectionContext as jest.Mock).mockReturnValue({
+      ;(useSelectionContext as vi.mock).mockReturnValue({
         selectionState: {
           collection: {
             getKeys: () => filteredKeys,
@@ -45,12 +45,12 @@ describe("<SelectAllButton /> - interaction", () => {
 
   describe("Given all filtered options are selected", () => {
     it("does not trigger selectionManager.setSelectedKeys() when clicks on the button", async () => {
-      const spy = jest.fn()
+      const spy = vi.fn()
       const selectedAndFiltered1 = "selectedAndFiltered1"
       const selectedAndFiltered2 = "selectedAndFocused2"
       const selectedKeys = [selectedAndFiltered1, selectedAndFiltered2]
       const filteredKeys = [selectedAndFiltered1, selectedAndFiltered2]
-      ;(useSelectionContext as jest.Mock).mockReturnValue({
+      ;(useSelectionContext as vi.mock).mockReturnValue({
         selectionState: {
           collection: {
             getKeys: () => filteredKeys,
@@ -74,7 +74,7 @@ describe("<SelectAllButton /> - interaction", () => {
 
   describe("Given some options are disabled", () => {
     it("triggers selectionManager.setSelectedKeys() on non-disabled options", async () => {
-      const spy = jest.fn()
+      const spy = vi.fn()
       const filtered = "filtered"
       const filteredAndSelected = "filteredAndSelected"
       const filteredAndDisabled = "filteredAndDisabled"
@@ -82,7 +82,7 @@ describe("<SelectAllButton /> - interaction", () => {
       const filteredKeys = [filtered, filteredAndSelected, filteredAndDisabled]
       const disabledKeys = [filteredAndDisabled]
 
-      ;(useSelectionContext as jest.Mock).mockReturnValue({
+      ;(useSelectionContext as vi.mock).mockReturnValue({
         selectionState: {
           disabledKeys,
           collection: {

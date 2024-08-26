@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react"
 import { screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import { FilterMultiSelect } from "../index"
 import { FilterBar, FilterBarProps } from "./FilterBar"
 import { useFilterBarContext } from "./context/FilterBarContext"
 import { Filters, FiltersValues } from "./types"
-
 const user = userEvent.setup()
 
 const TEST_ID__FILTER = "testid__filter"
@@ -400,7 +400,7 @@ describe("<FilterBar />", () => {
 
     describe("Condition result change", () => {
       it("clears the value for an unusable filter", async () => {
-        const checkValues = jest.fn<void, [Partial<ValuesDependent>]>()
+        const checkValues = vi.fn<void, [Partial<ValuesDependent>]>()
 
         const Wrapper = (): JSX.Element => {
           const [values, setValues] = useState<Partial<ValuesDependent>>({
@@ -435,7 +435,7 @@ describe("<FilterBar />", () => {
       })
 
       it("clears the value and removes a filter which loses usability", async () => {
-        const checkValues = jest.fn<void, [Partial<ValuesDependent>]>()
+        const checkValues = vi.fn<void, [Partial<ValuesDependent>]>()
 
         const Wrapper = (): JSX.Element => {
           const [values, setValues] = useState<Partial<ValuesDependent>>({
@@ -861,7 +861,7 @@ describe("<FilterBar />", () => {
         )
       }
 
-      const fetchCityOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
+      const fetchCityOptions = vi.fn((filterValues: Partial<AsyncValues>) => {
         const isSupermanInFilterValue = filterValues.hero?.includes("superman")
         const isBatmanInFilterValue = filterValues.hero?.includes("batman")
 
@@ -875,7 +875,7 @@ describe("<FilterBar />", () => {
         ])
       })
 
-      const fetchHeroOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
+      const fetchHeroOptions = vi.fn((filterValues: Partial<AsyncValues>) => {
         const isGothamInFilterValue = filterValues.city?.includes("gotham")
         const isMetroInFilterValue = filterValues.city?.includes("metro")
 

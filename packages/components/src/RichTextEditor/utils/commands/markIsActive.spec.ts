@@ -1,5 +1,6 @@
 import { waitFor } from "@testing-library/dom"
 import { EditorState } from "prosemirror-state"
+import { vi } from "vitest"
 import { createRichTextEditor } from "../core"
 import {
   simulateRangeSelection,
@@ -7,9 +8,8 @@ import {
 } from "./fixtures/helpers"
 import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
 import { markIsActive } from "./markIsActive"
-
 describe("markIsActive()", () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
 
   it("returns true if the provided Mark Type matches the current selection", async () => {
