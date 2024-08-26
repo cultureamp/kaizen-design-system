@@ -65,9 +65,6 @@ export const Popover = <RT extends ReferenceType>({
         ref={refs.setFloating}
         style={floatingStyles}
         className={classnames(styles.popover, classNameOverride)}
-        role="dialog"
-        aria-modal="true"
-        tabIndex={-1}
         {...restProps}
       >
         {children}
