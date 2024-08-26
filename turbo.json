@@ -17,8 +17,9 @@
     "clean": {
       "cache": false
     },
-    "@docs/storybook#build": {
+    "@docs/storybook#build:docs": {
       "dependsOn": ["^build"],
+      "inputs": ["packages/**", "docs/**"],
       "outputs": ["docs/storybook-static/**"],
       "cache": false
     },

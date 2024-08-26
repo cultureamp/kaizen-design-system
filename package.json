@@ -10,7 +10,7 @@
     "storybook": "pnpm dev",
     "dev": "pnpm turbo dev",
     "build": "pnpm turbo build",
-    "clean": "pnpm turbo clean && rimraf node_modules",
+    "clean": "pnpm turbo clean && rimraf node_modules && pnpm store prune",
     "test": "pnpm turbo test",
     "test:ci": "pnpm turbo test:ci",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
