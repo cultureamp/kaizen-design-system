@@ -20,7 +20,7 @@
       "~tests": ["./packages/components/__tests__/index"],
       "~tests/*": ["./packages/components/__tests__/*"]
     },
-    "types": ["@testing-library/jest-dom"]
+    "types": ["@testing-library/jest-dom", "vitest/globals"]
   },
   "exclude": ["**/node_modules"]
 }
