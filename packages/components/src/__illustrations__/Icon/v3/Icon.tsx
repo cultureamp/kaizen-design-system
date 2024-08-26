@@ -19,7 +19,7 @@ export const Icon = ({
   <span
     className={classNames(
       "material-symbols-outlined",
-      styles.iconPocWithSize,
+      styles.icon,
       isFilled && styles.filled,
       styles[size],
       className

@@ -1,4 +1,4 @@
-.iconPocWithSize {
+.icon {
   font-weight: var(--icon-font-weight, 400);
 
   /* Must use vars otherwise whole attribute must be set again */
@@ -13,21 +13,21 @@
 }
 
 .small {
-  font-size: 16px;
-
   --icon-optical-size: 20;
+
+  font-size: 16px;
 }
 
 .medium {
-  font-size: 20px;
-
   --icon-optical-size: 24;
+
+  font-size: 20px;
 }
 
 .large {
-  font-size: 24px;
-
   --icon-optical-size: 40;
+
+  font-size: 24px;
 }
 
 .inherit {
