@@ -88,57 +88,6 @@ export const CustomHeader: Story = {
   ),
 }
 
-export const Sticky: Story = {
-  args: {
-    title: "Sticky header",
-  },
-  render: ({ title }) => (
-    <Collapsible
-      open
-      title={title}
-      sticky={{ top: "-1px" }}
-      style={{ maxWidth: "300px" }}
-    >
-      <div className="py-24">
-        <Text variant="body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac
-          scelerisque sem, vel ultricies justo. Donec eu porttitor ante, nec
-          gravida orci. Nulla facilisi. Cras varius erat id fermentum mattis.
-          Mauris bibendum vestibulum erat, quis blandit metus viverra sit amet.
-          Vivamus pretium vitae turpis ut condimentum. Sed vulputate magna nisl,
-          in cursus urna hendrerit et. Aenean semper, est non feugiat sodales,
-          nisl ligula aliquet lorem, sit amet scelerisque arcu quam a sapien.
-          Donec in viverra urna.
-        </Text>
-        <Text variant="body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac
-          scelerisque sem, vel ultricies justo. Donec eu porttitor ante, nec
-          gravida orci. Nulla facilisi. Cras varius erat id fermentum mattis.
-          Mauris bibendum vestibulum erat, quis blandit metus viverra sit amet.
-          Vivamus pretium vitae turpis ut condimentum. Sed vulputate magna nisl,
-          in cursus urna hendrerit et. Aenean semper, est non feugiat sodales,
-          nisl ligula aliquet lorem, sit amet scelerisque arcu quam a sapien.
-          Donec in viverra urna.
-        </Text>
-        <Text variant="body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac
-          scelerisque sem, vel ultricies justo. Donec eu porttitor ante, nec
-          gravida orci. Nulla facilisi. Cras varius erat id fermentum mattis.
-          Mauris bibendum vestibulum erat, quis blandit metus viverra sit amet.
-          Vivamus pretium vitae turpis ut condimentum. Sed vulputate magna nisl,
-          in cursus urna hendrerit et. Aenean semper, est non feugiat sodales,
-          nisl ligula aliquet lorem, sit amet scelerisque arcu quam a sapien.
-          Donec in viverra urna.
-        </Text>
-      </div>
-    </Collapsible>
-  ),
-  parameters: {
-    height: "500px",
-    chromatic: { disable: false },
-  },
-}
-
 const controlledSourceCode = `
 const [isOpen, setIsOpen] = useState<boolean>(false)
 return (<Collapsible {...args} open={isOpen} onToggle={setIsOpen} />)

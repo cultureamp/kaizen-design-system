@@ -1,6 +1,8 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import { within } from "@storybook/test"
 import { Heading } from "~components/Heading"
+import { Text } from "~components/Text"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -72,4 +74,51 @@ export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
   parameters: { textDirection: "rtl" },
+}
+
+export const Sticky: StickerSheetStory = {
+  render: () => (
+    <StickerSheet>
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="Sticky header">
+          <div style={{ height: "300px", overflow: "auto" }}>
+            <Collapsible
+              open
+              title="Sticky"
+              sticky={{ top: "-1px" }}
+              style={{ maxWidth: "300px" }}
+            >
+              <Text variant="body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus ac scelerisque sem, vel ultricies justo. Donec eu
+                porttitor ante, nec gravida orci. Nulla facilisi. Cras varius
+                erat id fermentum mattis. Mauris bibendum vestibulum erat, quis
+                blandit metus viverra sit amet. Vivamus pretium vitae turpis ut
+                condimentum. Sed vulputate magna nisl, in cursus urna hendrerit
+                et. Aenean semper, est non feugiat sodales, nisl ligula aliquet
+                lorem, sit amet scelerisque arcu quam a sapien. Donec in viverra
+                urna.
+              </Text>
+              <Text variant="body" data-testid="bottom-content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus ac scelerisque sem, vel ultricies justo. Donec eu
+                porttitor ante, nec gravida orci. Nulla facilisi. Cras varius
+                erat id fermentum mattis. Mauris bibendum vestibulum erat, quis
+                blandit metus viverra sit amet. Vivamus pretium vitae turpis ut
+                condimentum. Sed vulputate magna nisl, in cursus urna hendrerit
+                et. Aenean semper, est non feugiat sodales, nisl ligula aliquet
+                lorem, sit amet scelerisque arcu quam a sapien. Donec in viverra
+                urna.
+              </Text>
+            </Collapsible>
+          </div>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const element = canvas.getByTestId("bottom-content")
+    element.scrollIntoView({ behavior: "instant", block: "end" })
+  },
 }
