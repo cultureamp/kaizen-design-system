@@ -1,6 +1,6 @@
 /** @type {import('vite').UserConfig} */
-import { mergeAlias } from "vite"
 import path from "path"
+import { mergeAlias } from "vite"
 
 export default {
   resolve: {
