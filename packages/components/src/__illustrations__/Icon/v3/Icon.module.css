@@ -1,0 +1,35 @@
+.iconPocWithSize {
+  font-weight: var(--icon-font-weight, 400);
+
+  /* Must use vars otherwise whole attribute must be set again */
+  font-variation-settings:
+    "FILL" var(--icon-fill, 0),
+    "GRAD" var(--icon-grade, 0),
+    "opsz" var(--icon-optical-size, 24);
+}
+
+.filled {
+  --icon-fill: 1;
+}
+
+.small {
+  font-size: 16px;
+
+  --icon-optical-size: 20;
+}
+
+.medium {
+  font-size: 20px;
+
+  --icon-optical-size: 24;
+}
+
+.large {
+  font-size: 24px;
+
+  --icon-optical-size: 40;
+}
+
+.inherit {
+  font-size: inherit;
+}
