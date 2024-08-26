@@ -7,3 +7,5 @@ expect.extend(matchers)
 afterEach(() => {
   cleanup()
 })
+
+process.env.TZ = "UTC"

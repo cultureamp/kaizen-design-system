@@ -36,8 +36,10 @@ export default {
     ),
   },
   test: {
+    testMatch: ["**/*.spec.ts?(x)"],
     environment: "jsdom",
     globals: true,
-    setupFiles: "./test.setup.ts",
+    setupFiles: path.resolve(__dirname, "./test.setup.ts"),
+    transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
   },
 }
