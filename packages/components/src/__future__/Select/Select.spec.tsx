@@ -370,7 +370,7 @@ describe("<Select />", () => {
     it("will portal to the document body by default", async () => {
       render(<SelectWrapper selectedKey="batch-brew" isOpen />)
 
-      const popover = screen.getByRole("dialog")
+      const popover = screen.getByTestId("kz-select-popover")
       // expected div that FocusOn adds to the popover
       const popoverFocusWrapper = popover.parentNode
 
@@ -401,7 +401,7 @@ describe("<Select />", () => {
 
       await waitFor(() => {
         const newPortalRegion = screen.getByTestId("id--portal-container-test")
-        const popover = within(newPortalRegion).getByRole("dialog")
+        const popover = within(newPortalRegion).getByRole("listbox")
 
         expect(popover).toBeInTheDocument()
       })
@@ -424,7 +424,7 @@ describe("<Select />", () => {
       render(<SelectWithPortal />)
 
       await waitFor(() => {
-        const popover = within(document.body).getByRole("dialog")
+        const popover = within(document.body).getByTestId("kz-select-popover")
 
         expect(popover).toBeInTheDocument()
       })

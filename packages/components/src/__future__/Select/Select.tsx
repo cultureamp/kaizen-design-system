@@ -195,6 +195,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
             id={popoverId}
             portalContainer={portalContainer}
             refs={refs}
+            data-testid="kz-select-popover"
             focusOnProps={{
               onEscapeKey: state.close,
               onClickOutside: state.close,
