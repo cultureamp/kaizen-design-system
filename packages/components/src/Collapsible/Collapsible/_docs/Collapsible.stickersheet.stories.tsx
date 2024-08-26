@@ -1,6 +1,7 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { Heading } from "~components/Heading"
+import { Text } from "~components/Text"
 import {
   StickerSheet,
   StickerSheetStory,

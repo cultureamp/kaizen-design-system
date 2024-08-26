@@ -2,7 +2,7 @@ import "../../packages/components/styles/global.css"
 import "highlight.js/styles/a11y-light.css"
 import "./preview.css"
 
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -52,9 +52,36 @@ const KaizenProviderDecorator = (Story): JSX.Element => (
   </KaizenProvider>
 )
 
+const HeightDecorator = (Story, context) => {
+  const rootRef = useRef<HTMLDivElement>(null)
+  const height = context?.parameters?.height as string | undefined
+
+  // when height is specified, we create a specific scrollable rootRef for the story
+  if (height != null) {
+    return (
+      <div ref={rootRef} style={{ height, overflow: "auto" }}>
+        <Story {...context} args={{ ...context.args, rootRef }} />
+      </div>
+    )
+  }
+
+  // when chromatic takes the screenshot, use the story as the rootRef to avoid accidental IntersectionObserver issues
+  if (isChromatic()) {
+    return (
+      <div ref={rootRef}>
+        <Story {...context} args={{ ...context.args, rootRef }} />
+      </div>
+    )
+  }
+
+  // for normal stories, rootRef will be `undefined`, causing it to fallback to `body`
+  return <Story {...context} args={{ ...context.args, rootRef }} />
+}
+
 const decorators: Preview["decorators"] = [
   RACDecorator,
   KaizenProviderDecorator,
+  HeightDecorator,
   (Story, context) =>
     (context.args.isReversed || context.args.reversed) && !IS_CHROMATIC ? (
       <div className="p-16 m-[-1rem]">
