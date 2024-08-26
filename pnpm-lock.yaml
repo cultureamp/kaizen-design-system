@@ -506,6 +506,8 @@ importers:
 
   packages/components/v3/actions: {}
 
+  packages/components/v3/illustrations: {}
+
   packages/components/v3/overlays: {}
 
   packages/components/v3/react-aria: {}
