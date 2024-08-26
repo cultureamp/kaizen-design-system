@@ -75,7 +75,7 @@ const HeightDecorator = (Story, context) => {
   }
 
   // for normal stories, rootRef will be `undefined`, causing it to fallback to `body`
-  return <Story {...context} args={{ ...context.args, rootRef }} />
+  return <Story {...context} args={{ ...context.args }} />
 }
 
 const decorators: Preview["decorators"] = [
