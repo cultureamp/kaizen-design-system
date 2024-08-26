@@ -6,7 +6,7 @@ import { ErrorPage } from "./ErrorPage"
 describe("<ErrorPage />", () => {
   beforeAll(() => {
     window.HTMLMediaElement.prototype.load = vi.fn()
-    window.HTMLMediaElement.prototype.play = jest
+    window.HTMLMediaElement.prototype.play = vi
       .fn()
       .mockResolvedValue(undefined)
     window.HTMLMediaElement.prototype.pause = vi.fn()

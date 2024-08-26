@@ -517,7 +517,7 @@ describe("<TitleBlockZen />", () => {
 
     it("renders the secondary action with both the href and onClick", async () => {
       const mockWarnFn = vi.fn()
-      const spy = jest
+      const spy = vi
         .spyOn(global.console, "warn")
         .mockImplementation(mockWarnFn)
       const { getByTestId } = render(
@@ -544,7 +544,7 @@ describe("<TitleBlockZen />", () => {
 
     it("renders the action as a single mobile actions drawer item with an onClick", async () => {
       const mockWarnFn = vi.fn()
-      const spy = jest
+      const spy = vi
         .spyOn(global.console, "warn")
         .mockImplementation(mockWarnFn)
       const { getAllByTestId } = render(

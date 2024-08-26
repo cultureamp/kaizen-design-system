@@ -28,14 +28,14 @@ describe("isSemanticElement", () => {
   it("will return true if provided a non-semantic element with a semantic role", () => {
     expect(
       isSemanticElement(
-        <span tabIndex={0} role="button" onKeyDown={vi.fn} onClick={vi.fn()}>
+        <span tabIndex={0} role="button" onKeyDown={vi.fn()} onClick={vi.fn()}>
           custom semantic el
         </span>
       )
     ).toBe(true)
     expect(
       isSemanticElement(
-        <div tabIndex={0} role="button" onKeyDown={vi.fn} onClick={vi.fn()}>
+        <div tabIndex={0} role="button" onKeyDown={vi.fn()} onClick={vi.fn()}>
           custom semantic el
         </div>
       )

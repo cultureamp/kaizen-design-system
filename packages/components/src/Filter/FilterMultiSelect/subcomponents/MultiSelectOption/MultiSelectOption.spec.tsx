@@ -3,9 +3,10 @@
 import React from "react"
 import { useOption } from "@react-aria/listbox"
 import { render, screen } from "@testing-library/react"
-import { vi } from "vitest"
+import { vi, beforeEach, Mock } from "vitest"
 import { ItemType } from "../../types"
 import { MultiSelectOption, MultiSelectOptionProps } from "./MultiSelectOption"
+import styles from "./MultiSelectOption.module.scss"
 
 vi.mock("@react-aria/listbox", () => ({
   useOption: vi.fn(),
@@ -37,7 +38,7 @@ const MultiSelectOptionWrapper = ({
 describe("<MultiSelectOptionWrapper /> - Visual content", () => {
   describe("Given item is unselected", () => {
     beforeEach(() => {
-      ;(useOption as vi.mock).mockReturnValue({
+      ;(useOption as Mock).mockReturnValue({
         optionProps: {},
         isSelected: false,
         isDisabled: false,
@@ -57,7 +58,7 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
 
   describe("Given item is disabled", () => {
     beforeEach(() => {
-      ;(useOption as vi.mock).mockReturnValue({
+      ;(useOption as Mock).mockReturnValue({
         optionProps: {},
         isSelected: false,
         isDisabled: true,
@@ -67,13 +68,13 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
 
     it("has a disabled class", () => {
       const label = screen.getByLabelText("label-mock")
-      expect(label).toHaveClass("isDisabled")
+      expect(label).toHaveClass(styles.isDisabled)
     })
   })
 
   describe("Given count is provided", () => {
     beforeEach(() => {
-      ;(useOption as vi.mock).mockReturnValue({
+      ;(useOption as Mock).mockReturnValue({
         optionProps: {},
         isSelected: false,
         isDisabled: false,

@@ -28,7 +28,7 @@ describe("<VideoPlayer />", () => {
     window.HTMLMediaElement.prototype.load = mockLoad
     window.HTMLMediaElement.prototype.play = mockPlay
     window.HTMLMediaElement.prototype.pause = mockPause
-    window.matchMedia = jest
+    window.matchMedia = vi
       .fn()
       .mockImplementation(() => mockDoesNotPreferReducedMotion)
     // this will stop throwing the unstable_flushDiscreteUpdates console error cause by react bug
@@ -57,7 +57,7 @@ describe("<VideoPlayer />", () => {
 
   describe("use-reduced-motion", () => {
     it("respects the use-reduced-motion preferences of the user", () => {
-      window.matchMedia = jest
+      window.matchMedia = vi
         .fn()
         .mockImplementation(() => mockPrefersReducedMotion)
       render(
@@ -73,7 +73,7 @@ describe("<VideoPlayer />", () => {
     })
 
     it("defaults to autoplay when user does not set use-reduced-motion preferences", () => {
-      window.matchMedia = jest
+      window.matchMedia = vi
         .fn()
         .mockImplementation(() => mockDoesNotPreferReducedMotion)
       render(
@@ -91,7 +91,7 @@ describe("<VideoPlayer />", () => {
 
   describe("when the aspect ratio is set as a prop", () => {
     it("has aspect ratio class", () => {
-      window.matchMedia = jest
+      window.matchMedia = vi
         .fn()
         .mockImplementation(() => mockDoesNotPreferReducedMotion)
       const { container } = render(
@@ -109,7 +109,7 @@ describe("<VideoPlayer />", () => {
 
   describe("when the aspect ratio is not set as a prop", () => {
     it("does not have aspect ratio class", () => {
-      window.matchMedia = jest
+      window.matchMedia = vi
         .fn()
         .mockImplementation(() => mockDoesNotPreferReducedMotion)
       const { container } = render(

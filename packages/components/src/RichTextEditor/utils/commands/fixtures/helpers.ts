@@ -5,6 +5,7 @@ import {
   Transaction,
 } from "prosemirror-state"
 import { findChildrenByType } from "prosemirror-utils"
+//  eslint-disable-next-line import/no-extraneous-dependencies
 import { vi } from "vitest"
 import { ProseMirrorModel } from "../../prosemirror"
 /*
@@ -12,7 +13,7 @@ import { ProseMirrorModel } from "../../prosemirror"
  ** See https://github.com/jsdom/jsdom/issues/3002
  */
 export const mockRangeForBoundingRect = (): void => {
-  jest.spyOn(document, "createRange").mockImplementation(() => {
+  vi.spyOn(document, "createRange").mockImplementation(() => {
     const range = new Range()
 
     range.getBoundingClientRect = () => ({
