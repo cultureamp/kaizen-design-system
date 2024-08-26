@@ -36,7 +36,7 @@ export default {
     ),
   },
   test: {
-    environment: "happy-dom",
+    environment: "jsdom",
     globals: true,
   },
 }
