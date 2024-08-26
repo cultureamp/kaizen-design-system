@@ -125,7 +125,7 @@ describe("<DateInputField />", () => {
               ref={ref}
               id="test__date-input-field--ref"
               labelText="Adventure time"
-              onButtonClick={vi.fn<void, []>()}
+              onButtonClick={vi.fn()}
               locale={enUS}
             />
             <button type="button" onClick={handleClick}>

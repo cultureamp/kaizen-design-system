@@ -1,7 +1,7 @@
 import React from "react"
 import { screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
+import { Mock, vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import { useSelectionContext } from "../../context"
 import { SearchInput } from "."
@@ -16,7 +16,7 @@ const SearchInputWrapper = (): JSX.Element => <SearchInput label="label-mock" />
 describe("<SearchInput /> - interaction", () => {
   describe("Given searchQuery is provided", () => {
     it("shows searchQuery as value", async () => {
-      ;(useSelectionContext as vi.mock).mockReturnValue({
+      ;(useSelectionContext as Mock).mockReturnValue({
         searchQuery: "search-query-mock",
       })
       renderWithIntl(<SearchInputWrapper />)
@@ -28,7 +28,7 @@ describe("<SearchInput /> - interaction", () => {
 
   it("triggers setSearchQuery with input value when user types the input", async () => {
     const spy = vi.fn()
-    ;(useSelectionContext as vi.mock).mockReturnValue({
+    ;(useSelectionContext as Mock).mockReturnValue({
       setSearchQuery: spy,
     })
 
@@ -41,7 +41,7 @@ describe("<SearchInput /> - interaction", () => {
 
   it("triggers setSearchQuery with input value when clear the input", async () => {
     const spy = vi.fn()
-    ;(useSelectionContext as vi.mock).mockReturnValue({
+    ;(useSelectionContext as Mock).mockReturnValue({
       searchQuery: "search-query-mock",
       setSearchQuery: spy,
     })

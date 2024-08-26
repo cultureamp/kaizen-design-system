@@ -1,13 +1,9 @@
 import React from "react"
 import { LabelledMessage } from "~components/LabelledMessage"
-import { DateValidationResponse, ValidationMessage } from "../types"
 import { getDateValidationHandler } from "./getDateValidationHandler"
 
-const onValidate = vi.fn<void, [DateValidationResponse]>()
-const setInbuiltValidationMessage = vi.fn<
-  void,
-  [ValidationMessage | undefined]
->()
+const onValidate = vi.fn()
+const setInbuiltValidationMessage = vi.fn()
 
 describe("getDateValidationHandler()", () => {
   afterEach(() => {

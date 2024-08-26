@@ -8,7 +8,7 @@
       "~tests/*": ["./__tests__/*"],
       "~components/*": ["./src/*"]
     },
-    "types": ["@testing-library/jest-dom"]
+    "types": ["@testing-library/jest-dom", "vitest/globals"]
   },
   "include": ["src/**/*", "__tests__/**/*", "codemods/**/*"],
   "exclude": ["node_modules"],

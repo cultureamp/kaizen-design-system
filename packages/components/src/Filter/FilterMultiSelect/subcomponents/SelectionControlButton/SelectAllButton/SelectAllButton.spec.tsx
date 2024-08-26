@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
+import { Mock, vi } from "vitest"
 import { useSelectionContext } from "../../../context"
 import { SelectAllButton } from "."
 const user = userEvent.setup()
@@ -20,7 +20,7 @@ describe("<SelectAllButton /> - interaction", () => {
       const selectedKeys = [selectedAndFiltered, selectedButNotFiltered]
       const filteredKeys = [selectedAndFiltered, filteredButNotSelected]
 
-      ;(useSelectionContext as vi.mock).mockReturnValue({
+      ;(useSelectionContext as Mock).mockReturnValue({
         selectionState: {
           collection: {
             getKeys: () => filteredKeys,
@@ -50,7 +50,7 @@ describe("<SelectAllButton /> - interaction", () => {
       const selectedAndFiltered2 = "selectedAndFocused2"
       const selectedKeys = [selectedAndFiltered1, selectedAndFiltered2]
       const filteredKeys = [selectedAndFiltered1, selectedAndFiltered2]
-      ;(useSelectionContext as vi.mock).mockReturnValue({
+      ;(useSelectionContext as Mock).mockReturnValue({
         selectionState: {
           collection: {
             getKeys: () => filteredKeys,
@@ -82,7 +82,7 @@ describe("<SelectAllButton /> - interaction", () => {
       const filteredKeys = [filtered, filteredAndSelected, filteredAndDisabled]
       const disabledKeys = [filteredAndDisabled]
 
-      ;(useSelectionContext as vi.mock).mockReturnValue({
+      ;(useSelectionContext as Mock).mockReturnValue({
         selectionState: {
           disabledKeys,
           collection: {

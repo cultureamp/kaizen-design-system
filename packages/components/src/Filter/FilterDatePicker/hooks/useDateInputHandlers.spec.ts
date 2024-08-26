@@ -34,7 +34,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onChange when provided", () => {
-      const onChangeMock = vi.fn<void, [ChangeEvent]>()
+      const onChangeMock = vi.fn()
 
       const { result } = renderHook(() =>
         useDateInputHandlers({
@@ -97,7 +97,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onFocus when provided", () => {
-      const onFocusMock = vi.fn<void, [FocusEvent<HTMLInputElement>]>()
+      const onFocusMock = vi.fn()
 
       const { result } = renderHook(() =>
         useDateInputHandlers({
@@ -122,7 +122,7 @@ describe("useDateInputHandlers", () => {
 
   describe("onBlur", () => {
     it("does not do anything when selecting a day in the calendar", () => {
-      const onBlurMock = vi.fn<void, [FocusEvent<HTMLInputElement>]>()
+      const onBlurMock = vi.fn()
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -235,7 +235,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onBlur when provided on input with value", () => {
-      const onBlurMock = vi.fn<void, [FocusEvent<HTMLInputElement>]>()
+      const onBlurMock = vi.fn()
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -257,7 +257,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onBlur when provided on empty", () => {
-      const onBlurMock = vi.fn<void, [FocusEvent<HTMLInputElement>]>()
+      const onBlurMock = vi.fn()
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -302,7 +302,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls onDateSubmit when provided", () => {
-      const onDateSubmit = vi.fn<void, [Date]>()
+      const onDateSubmit = vi.fn()
 
       const { result } = renderHook(() =>
         useDateInputHandlers({
@@ -327,7 +327,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onKeyDown when provided", () => {
-      const onKeyDownMock = vi.fn<void, [KeyboardEvent]>()
+      const onKeyDownMock = vi.fn()
 
       const { result } = renderHook(() =>
         useDateInputHandlers({

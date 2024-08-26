@@ -400,7 +400,7 @@ describe("<FilterBar />", () => {
 
     describe("Condition result change", () => {
       it("clears the value for an unusable filter", async () => {
-        const checkValues = vi.fn<void, [Partial<ValuesDependent>]>()
+        const checkValues = vi.fn()
 
         const Wrapper = (): JSX.Element => {
           const [values, setValues] = useState<Partial<ValuesDependent>>({
@@ -435,7 +435,7 @@ describe("<FilterBar />", () => {
       })
 
       it("clears the value and removes a filter which loses usability", async () => {
-        const checkValues = vi.fn<void, [Partial<ValuesDependent>]>()
+        const checkValues = vi.fn()
 
         const Wrapper = (): JSX.Element => {
           const [values, setValues] = useState<Partial<ValuesDependent>>({
