@@ -18,6 +18,7 @@
       "cache": false
     },
     "@docs/storybook#build:tailwind": {
+      "dependsOn": ["^build"],
       "inputs": ["packages/**", "docs/**"],
       "outputs": ["docs/storybook-static/**"]
     },
