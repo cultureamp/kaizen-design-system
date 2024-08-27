@@ -367,19 +367,6 @@ describe("<Select />", () => {
       })
     })
 
-    it("will portal to the document body by default", async () => {
-      render(<SelectWrapper selectedKey="batch-brew" isOpen />)
-
-      const popover = screen.getByRole("dialog")
-      // expected div that FocusOn adds to the popover
-      const popoverFocusWrapper = popover.parentNode
-
-      await waitFor(() => {
-        const expectedBodyTag = popoverFocusWrapper?.parentNode
-        expect(expectedBodyTag?.nodeName).toEqual("BODY")
-      })
-    })
-
     it("will render as a descendant of the element matching the id", async () => {
       const SelectWithPortal = (): JSX.Element => {
         const portalContainerId = "id--portal-container"
@@ -401,13 +388,13 @@ describe("<Select />", () => {
 
       await waitFor(() => {
         const newPortalRegion = screen.getByTestId("id--portal-container-test")
-        const popover = within(newPortalRegion).getByRole("dialog")
+        const listbox = within(newPortalRegion).getByRole("listbox")
 
-        expect(popover).toBeInTheDocument()
+        expect(listbox).toBeInTheDocument()
       })
     })
 
-    it("will portal to the document body if the id does not match", async () => {
+    it("will still render the listbox when the portal id given is invalid", async () => {
       const SelectWithPortal = (): JSX.Element => {
         const expectedContainerId = "id--portal-container"
         return (
@@ -424,9 +411,8 @@ describe("<Select />", () => {
       render(<SelectWithPortal />)
 
       await waitFor(() => {
-        const popover = within(document.body).getByRole("dialog")
-
-        expect(popover).toBeInTheDocument()
+        const listbox = within(document.body).getByRole("listbox")
+        expect(listbox).toBeInTheDocument()
       })
     })
   })

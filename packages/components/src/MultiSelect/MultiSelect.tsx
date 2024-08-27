@@ -114,6 +114,9 @@ export const MultiSelect = ({
         <Popover
           refs={refs}
           id={`${id}--popover`}
+          role="dialog"
+          aria-modal="true"
+          tabIndex={-1}
           focusOnProps={{
             enabled: true,
             onClickOutside,
