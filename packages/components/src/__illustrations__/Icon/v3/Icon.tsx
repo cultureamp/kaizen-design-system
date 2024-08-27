@@ -3,6 +3,7 @@ import classNames from "classnames"
 import styles from "./Icon.module.css"
 
 export type IconProps = {
+  /** Options available at https://fonts.google.com/icons */
   name: string
   isFilled?: boolean
   /** @default medium */

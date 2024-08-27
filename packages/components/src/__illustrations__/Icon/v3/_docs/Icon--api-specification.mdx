@@ -46,41 +46,15 @@ See [Material Symbols](https://fonts.google.com/icons) for all valid options.
 
 _Default: `medium`_
 
+_Options: `small`, `medium`, `large`, `inherit`_
+
 The `size` prop provides 3 default sizes (`small`, `medium`, `large`)
 which include [optical scaling](https://m3.material.io/styles/icons/applying-icons#b41cbc01-9b49-4a44-a525-d153d1ea1425).
 
+The `inherit` option will inherit the font-size from its parent.
+Note that it means you may also want to combine it with [optical size](#optical-size).
+
 <Canvas of={IconStories.Sizes} />
-
-### Custom sizes
-
-Should you need a custom size, you may either `inherit` from the parent,
-or override the `font-size` (eg. `className="text-heading-1"`).
-
-You may wish to pair this with adjusting the [optical size](#optical-size).
-
-<Canvas of={IconStories.CustomSizes} />
-
-#### Optical size
-
-_Options: `20`, `24`, `40`, `48`_
-
-To change the [optical size](https://m3.material.io/styles/icons/applying-icons#b41cbc01-9b49-4a44-a525-d153d1ea1425),
-override the CSS variable `--icon-optical-size` (eg. in Tailwind - `[--icon-optical-size:48]`).
-
-<Canvas of={IconStories.OpticalSize} />
-<Controls of={IconStories.OpticalSize} />
-
-#### Font weight
-
-_Default: `400`_
-
-_Options: `100`-`700`_
-
-To change the [font-weight](https://m3.material.io/styles/icons/applying-icons#d7f45762-67ac-473d-95b0-9214c791e242),
-override the `font-weight` (eg. `className="font-[100]"`).
-
-<Canvas of={IconStories.FontWeight} />
-<Controls of={IconStories.FontWeight} />
 
 ### Mirror in RTL
 
@@ -89,3 +63,21 @@ The `shouldMirrorInRTL` prop mirrors the Icon in `dir="rtl"`.
 Use this for directional icons based on your usage context.
 
 <Canvas of={IconStories.MirrorInRTL} />
+
+### Customisation
+
+The Icon component is a `span` that utilises a font, so you can modify the icon by using font-related styles.
+
+<Canvas of={IconStories.Customisation} />
+
+#### Optical size
+
+_Options: `20`, `24`, `40`, `48`_
+
+>For the image to look the same at different sizes, the stroke weight (thickness) changes as the icon size scales. Optical Size offers a way to automatically adjust the stroke weight when you increase or decrease the symbol size.
+
+To change the [optical size](https://m3.material.io/styles/icons/applying-icons#b41cbc01-9b49-4a44-a525-d153d1ea1425),
+override the CSS variable `--icon-optical-size` (eg. in Tailwind - `[--icon-optical-size:48]`).
+
+<Canvas of={IconStories.OpticalSize} />
+<Controls of={IconStories.OpticalSize} />

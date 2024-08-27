@@ -23,7 +23,7 @@ export const Filled: Story = {
 
 export const Sizes: Story = {
   render: () => {
-    const sizes = ["small", "medium", "large"] satisfies Array<
+    const sizes = ["small", "medium", "large", "inherit"] satisfies Array<
       IconProps["size"]
     >
     return (
@@ -39,59 +39,16 @@ export const Sizes: Story = {
       </StickerSheet>
     )
   },
-}
-
-export const CustomSizes: Story = {
-  render: () => (
-    <StickerSheet>
-      <StickerSheet.Header headings={["inherit", "custom"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <Icon name="star" size="inherit" />
-          <Icon name="star" className="text-heading-1" />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
-    </StickerSheet>
-  ),
-}
-
-export const OpticalSize: Story = {
-  render: ({ className }) => (
-    <Icon name="star" className={`text-heading-1 ${className}`} />
-  ),
-  parameters: { controls: { include: "className" } },
-  args: { className: "[--icon-optical-size:48]" },
-  argTypes: {
-    className: {
-      control: { type: "radio" },
-      options: [
-        "[--icon-optical-size:20]",
-        "[--icon-optical-size:24]",
-        "[--icon-optical-size:40]",
-        "[--icon-optical-size:48]",
-      ],
-    },
-  },
-}
-
-export const FontWeight: Story = {
-  render: ({ className }) => (
-    <Icon name="star" className={`text-heading-1 ${className}`} />
-  ),
-  parameters: { controls: { include: "className" } },
-  args: { className: "font-[400]" },
-  argTypes: {
-    className: {
-      control: { type: "radio" },
-      options: [
-        "font-[100]",
-        "font-[200]",
-        "font-[300]",
-        "font-[400]",
-        "font-[500]",
-        "font-[600]",
-        "font-[700]",
-      ],
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Icon name="star" size="small" />
+<Icon name="star" size="medium" />
+<Icon name="star" size="large" />
+<Icon name="star" size="inherit" />
+        `,
+      },
     },
   },
 }
@@ -112,4 +69,63 @@ export const MirrorInRTL: Story = {
       </StickerSheet.Body>
     </StickerSheet>
   ),
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<div dir="ltr" className="text-center">
+  <Icon name="arrow_forward" shouldMirrorInRTL />
+</div>
+<div dir="rtl" className="text-center">
+  <Icon name="arrow_forward" shouldMirrorInRTL />
+</div>
+        `,
+      },
+    },
+  },
+}
+
+export const Customisation: Story = {
+  render: () => (
+    <StickerSheet>
+      <StickerSheet.Header headings={["font-size", "font-weight", "color"]} />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <Icon name="star" className="text-heading-1" />
+          <Icon name="star" className="font-[700]" />
+          <Icon name="star" className="text-blue-500" />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Icon name="star" className="text-heading-1" />
+<Icon name="star" className="font-[700]" />
+<Icon name="star" className="text-blue-500" />
+        `,
+      },
+    },
+  },
+}
+
+export const OpticalSize: Story = {
+  render: ({ className }) => (
+    <Icon name="star" className={`text-heading-1 ${className}`} />
+  ),
+  parameters: { controls: { include: "className" } },
+  args: { className: "[--icon-optical-size:48]" },
+  argTypes: {
+    className: {
+      control: { type: "radio" },
+      options: [
+        "[--icon-optical-size:20]",
+        "[--icon-optical-size:24]",
+        "[--icon-optical-size:40]",
+        "[--icon-optical-size:48]",
+      ],
+    },
+  },
 }
