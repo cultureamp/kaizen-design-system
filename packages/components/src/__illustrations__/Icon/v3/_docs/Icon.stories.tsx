@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { Button } from "~components/__actions__/v3"
 import { StickerSheet } from "~storybook/components/StickerSheet"
 import { Icon, IconProps } from "../index"
 
@@ -128,4 +129,22 @@ export const OpticalSize: Story = {
       ],
     },
   },
+}
+
+export const MeaningfulIcon: Story = {
+  render: args => (
+    <Button>
+      <Icon {...args} />
+    </Button>
+  ),
+  args: { role: "img", "aria-label": "Favourite" },
+}
+
+export const PresentationalIcon: Story = {
+  render: args => (
+    <Button>
+      <Icon {...args} /> Favourite
+    </Button>
+  ),
+  args: { "aria-hidden": true },
 }

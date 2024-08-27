@@ -81,3 +81,14 @@ override the CSS variable `--icon-optical-size` (eg. in Tailwind - `[--icon-opti
 
 <Canvas of={IconStories.OpticalSize} />
 <Controls of={IconStories.OpticalSize} />
+
+### Accessibility
+
+Icons without accompanying text need to convey their intent to the screen reader.
+Add `role="img"` and an `aria-label` for these use cases.
+
+<Canvas of={IconStories.MeaningfulIcon} />
+
+For icons which are purely presentational, add `aria-hidden` to hide it from the screen reader.
+
+<Canvas of={IconStories.PresentationalIcon} />

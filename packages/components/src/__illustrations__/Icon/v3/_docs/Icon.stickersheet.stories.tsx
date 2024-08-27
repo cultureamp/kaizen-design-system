@@ -7,7 +7,7 @@ import {
 import { Icon, IconProps } from "../index"
 
 export default {
-  title: "Illustrations/Icon/Icon (v3)/Tests",
+  title: "Illustrations/Icon/Icon (v3)",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
