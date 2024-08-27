@@ -20,17 +20,19 @@
     "@docs/storybook#build:tailwind": {
       "dependsOn": ["^build"],
       "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/storybook-static/**"]
+      "outputs": ["docs/.storybook/preview.css"]
     },
     "@docs/storybook#build:docs": {
       "dependsOn": ["^build", "@docs/storybook#build:tailwind"],
       "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/storybook-static/**"]
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
     },
     "@docs/storybook#build:test": {
       "dependsOn": ["^build", "@docs/storybook#build:tailwind"],
       "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/storybook-static/**"]
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
     },
     "@docs/storybook#build:chromatic": {
       "dependsOn": ["^build", "@docs/storybook#build:tailwind"],
