@@ -6,7 +6,7 @@ import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
 const meta = {
-  title: "Pages/Workflow/Components/Header",
+  title: "Layout/Workflow/v2/Components/Header",
   component: Workflow.Header,
   argTypes: {
     ...WorkflowControls.headerActions,
@@ -35,7 +35,15 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Playground: Story = {}
+export const Playground: Story = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+  },
+}
 
 /** <p>`headerActions` gives consumers the ability to add multiple `JSX Element`'s to top of the Workflow Header. We assume these will be Button or Button-like components</p>
  * <p>There is no limit to the number of actions you can pass in, but please consider the limited realesate with labels.</p>  */

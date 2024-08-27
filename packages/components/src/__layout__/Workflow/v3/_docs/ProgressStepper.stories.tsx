@@ -1,13 +1,23 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Workflow } from "../"
+import { WorkflowControls } from "./controls"
 
 const meta = {
-  title: "Pages/Workflow/Components/Progress Stepper",
+  title: "Layout/Workflow/v3/Components/Progress Stepper",
   component: Workflow.ProgressStepper,
+  argTypes: {
+    currentStepId: WorkflowControls.currentStepId,
+  },
   args: {
-    stepName: "Settings",
-    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    currentStepId: "preview-step",
+    steps: [
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
+      { label: "Employees", id: "employees-step" },
+      { label: "Schedule", id: "schedule-step" },
+    ],
     isComplete: false,
   },
   decorators: [
@@ -42,7 +52,7 @@ export const Playground: Story = {
  */
 export const ProgressStates: Story = {
   args: {
-    stepName: "Questions",
+    currentStepId: "questions-step",
   },
 }
 
@@ -51,15 +61,19 @@ export const ProgressStates: Story = {
  */
 export const AllStepsComplete: Story = {
   args: {
-    stepName: "Schedule",
+    currentStepId: "schedule-step",
     isComplete: true,
   },
 }
 
 export const FewerSteps: Story = {
   args: {
-    stepName: "Questions",
-    steps: ["Settings", "Questions", "Preview"],
+    currentStepId: "questions-step",
+    steps: [
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
+    ],
   },
 }
 
@@ -69,16 +83,12 @@ export const FewerSteps: Story = {
  */
 export const EightSteps: Story = {
   args: {
-    stepName: "Questions",
+    currentStepId: "questions-step",
     steps: [
-      "Settings",
-      "Questions",
-      "Preview",
-      "Employees",
-      "Schedule",
-      "Plan",
-      "Provision",
-      "Another thing",
+      ...meta.args.steps,
+      { label: "Plan", id: "plan-step" },
+      { label: "Provision", id: "provision-step" },
+      { label: "Procure", id: "procure-step" },
     ],
   },
 }

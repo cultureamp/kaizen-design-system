@@ -1,23 +1,13 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Workflow } from "../"
-import { WorkflowControls } from "./controls"
 
 const meta = {
-  title: "Pages/Workflow/Future/Components/Progress Stepper",
+  title: "Layout/Workflow/v1/Components/Progress Stepper",
   component: Workflow.ProgressStepper,
-  argTypes: {
-    currentStepId: WorkflowControls.currentStepId,
-  },
   args: {
-    currentStepId: "preview-step",
-    steps: [
-      { label: "Settings", id: "settings-step" },
-      { label: "Questions", id: "questions-step" },
-      { label: "Preview", id: "preview-step" },
-      { label: "Employees", id: "employees-step" },
-      { label: "Schedule", id: "schedule-step" },
-    ],
+    stepName: "Settings",
+    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
     isComplete: false,
   },
   decorators: [
@@ -52,7 +42,7 @@ export const Playground: Story = {
  */
 export const ProgressStates: Story = {
   args: {
-    currentStepId: "questions-step",
+    stepName: "Questions",
   },
 }
 
@@ -61,19 +51,15 @@ export const ProgressStates: Story = {
  */
 export const AllStepsComplete: Story = {
   args: {
-    currentStepId: "schedule-step",
+    stepName: "Schedule",
     isComplete: true,
   },
 }
 
 export const FewerSteps: Story = {
   args: {
-    currentStepId: "questions-step",
-    steps: [
-      { label: "Settings", id: "settings-step" },
-      { label: "Questions", id: "questions-step" },
-      { label: "Preview", id: "preview-step" },
-    ],
+    stepName: "Questions",
+    steps: ["Settings", "Questions", "Preview"],
   },
 }
 
@@ -83,12 +69,16 @@ export const FewerSteps: Story = {
  */
 export const EightSteps: Story = {
   args: {
-    currentStepId: "questions-step",
+    stepName: "Questions",
     steps: [
-      ...meta.args.steps,
-      { label: "Plan", id: "plan-step" },
-      { label: "Provision", id: "provision-step" },
-      { label: "Procure", id: "procure-step" },
+      "Settings",
+      "Questions",
+      "Preview",
+      "Employees",
+      "Schedule",
+      "Plan",
+      "Provision",
+      "Another thing",
     ],
   },
 }

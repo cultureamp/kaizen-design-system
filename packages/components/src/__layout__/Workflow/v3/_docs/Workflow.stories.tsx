@@ -27,20 +27,26 @@ const MockContent = (): JSX.Element => (
 )
 
 const meta = {
-  title: "Pages/Workflow",
+  title: "Layout/Workflow/v3",
   component: Workflow,
-  argTypes: { ...WorkflowControls },
+  argTypes: WorkflowControls,
   args: {
     workflowName: "Create a self-reflection cycle",
-    stepName: "Settings",
-    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    currentStepId: "settings-step",
+    steps: [
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
+      { label: "Employees", id: "employees-step" },
+      { label: "Schedule", id: "schedule-step" },
+    ],
     isComplete: false,
     status: {
       content: "Draft",
       variant: "statusDraft",
     },
-    previousAction: <Button reversed label="Back" />,
-    nextAction: <Button reversed label="Next" />,
+    previousAction: <Button label="Back" />,
+    nextAction: <Button primary label="Next" />,
     headerActions: [
       <Button
         key="would-use-uui-2"
@@ -92,18 +98,12 @@ export const MultipleActions: Story = {
 }
 
 export const FinalStep: Story = {
-  args: {
-    stepName: "Schedule",
-  },
+  args: { currentStepId: "schedule-step" },
 }
 
 export const CompletedWorkflow: Story = {
-  args: {
-    isComplete: true,
-  },
-  parameters: {
-    chromatic: { disable: false },
-  },
+  args: { isComplete: true },
+  parameters: { chromatic: { disable: false } },
 }
 
 export const ComposableWorkflow: Story = {
@@ -111,7 +111,7 @@ export const ComposableWorkflow: Story = {
     steps,
     isComplete,
     workflowName,
-    stepName,
+    currentStepId,
     status,
     headerActions,
     previousAction,
@@ -121,7 +121,7 @@ export const ComposableWorkflow: Story = {
     <Workflow.Wrapper {...restProps}>
       <Workflow.Header
         workflowName={workflowName}
-        stepName={stepName}
+        stepName={steps.find(step => step.id === currentStepId)!.label}
         status={status}
         headerActions={headerActions}
       />
@@ -135,7 +135,7 @@ export const ComposableWorkflow: Story = {
         </p>
       </Workflow.Main>
       <Workflow.Footer
-        stepName={stepName}
+        currentStepId={currentStepId}
         steps={steps}
         isComplete={isComplete}
         nextAction={nextAction}
@@ -143,9 +143,7 @@ export const ComposableWorkflow: Story = {
       />
     </Workflow.Wrapper>
   ),
-  parameters: {
-    chromatic: { disable: false },
-  },
+  parameters: { chromatic: { disable: false } },
 }
 
 export const ResponsiveWorkflow: Story = {

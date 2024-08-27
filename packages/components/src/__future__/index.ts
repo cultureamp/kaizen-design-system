@@ -1,3 +1,3 @@
 export * from "./Select"
 export * from "./Tag"
-export * from "./Workflow"
+export * from "../__layout__/Workflow/v2"

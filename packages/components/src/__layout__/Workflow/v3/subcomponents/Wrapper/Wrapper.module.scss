@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+.wrapper {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  position: relative;
+  min-height: 100vh;
+  background: $color-gray-100;
+}
