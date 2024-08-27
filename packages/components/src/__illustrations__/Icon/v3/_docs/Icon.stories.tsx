@@ -4,7 +4,7 @@ import { StickerSheet } from "~storybook/components/StickerSheet"
 import { Icon, IconProps } from "../index"
 
 const meta = {
-  title: "Illustrations/Icon/v3",
+  title: "Illustrations/Icon/Icon (v3)",
   component: Icon,
   args: {
     name: "star",
