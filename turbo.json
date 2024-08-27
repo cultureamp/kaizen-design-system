@@ -17,12 +17,12 @@
     "clean": {
       "cache": false
     },
-    "@docs/storybook#build:docs": {
-      "dependsOn": ["^build", "@docs/storybook#build:tailwind"],
+    "@docs/storybook#build:tailwind": {
       "inputs": ["packages/**", "docs/**"],
       "outputs": ["docs/storybook-static/**"]
     },
-    "@docs/storybook#build:tailwind": {
+    "@docs/storybook#build:docs": {
+      "dependsOn": ["^build", "@docs/storybook#build:tailwind"],
       "inputs": ["packages/**", "docs/**"],
       "outputs": ["docs/storybook-static/**"]
     },
