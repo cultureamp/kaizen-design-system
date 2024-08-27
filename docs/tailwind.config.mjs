@@ -5,6 +5,7 @@ import { Preset } from "@kaizen/tailwind"
 
 module.exports = {
   content: [
+    "../packages/tailwind/src/_docs/**/*.{ts,tsx}",
     "../packages/**/*.mdx",
     "../packages/**/*.stories.{ts,tsx}",
     "./**/*.{ts,tsx,mdx}",

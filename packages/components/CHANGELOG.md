@@ -6,6 +6,8 @@
 
 - [#4962](https://github.com/cultureamp/kaizen-design-system/pull/4962) [`6665db9cd111222213d4a264146b6707a2ccb1c3`](https://github.com/cultureamp/kaizen-design-system/commit/6665db9cd111222213d4a264146b6707a2ccb1c3) - Dep updates (all dev dependencies)
 
+- [#4968](https://github.com/cultureamp/kaizen-design-system/pull/4968) [`0d5efc29c8d149fdfdb919fef5a810299f41b232`](https://github.com/cultureamp/kaizen-design-system/commit/0d5efc29c8d149fdfdb919fef5a810299f41b232) - Remove role=dialog from Select listbox container
+
 ## 1.60.2
 
 ### Patch Changes

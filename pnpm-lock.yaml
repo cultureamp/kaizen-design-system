@@ -1932,6 +1932,11 @@ packages:
       '@cultureamp/next-head-hook': '>=1 || ~0.0.0'
       next: '>=13.5.0'
       react: '>=16.14.0'
+    peerDependenciesMeta:
+      '@cultureamp/next-head-hook':
+        optional: true
+      next:
+        optional: true
 
   '@cultureamp/frontend-env@2.1.2':
     resolution: {integrity: sha512-0GBVGeJDeQL+XmUMvIbUjSsJiRxb46RRTuDhfbB0aViwZ3tG7t88GbnPznolCrp7d+xj0TaknbGS80kzgXL/1w==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.2/3478449ef282fcb929efc4f3955531ad3f0cdaca}
@@ -1943,6 +1948,9 @@ packages:
       '@cultureamp/frontend-apis': '>=9 || ~0.0.0'
       next: '>=13.5.0'
       react: ^18.2.0
+    peerDependenciesMeta:
+      next:
+        optional: true
 
   '@cultureamp/next-head-hook@1.1.11':
     resolution: {integrity: sha512-FyaCA3oKHnxZ+pPHcPTCDoRCG4/1y0W16U1O5eyTgSxjuJfWTui3vz65MNvNxlJ20+DZ8BXmV3M0y93t/Fubog==, tarball: https://npm.pkg.github.com/download/@cultureamp/next-head-hook/1.1.11/5444465f7d6ce0d79ba33d60180245ed245956ad}
@@ -12181,7 +12189,6 @@ snapshots:
     dependencies:
       '@cultureamp/fetch-sgw': 2.0.4(@cultureamp/fetch@4.0.2(encoding@0.1.13))(encoding@0.1.13)
       '@cultureamp/frontend-env': 2.1.2
-      '@cultureamp/next-head-hook': 1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.6.0(openapi-types@12.1.3)
       '@tanstack/react-query': 5.51.23(react@18.3.1)
@@ -12194,7 +12201,6 @@ snapshots:
       js-yaml: 4.1.0
       jsrsasign: 11.1.0
       msw: 2.2.14(typescript@5.5.4)
-      next: 14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
       openapi-types: 12.1.3
       openapi-typescript: 6.7.6
       react: 18.3.1
@@ -12203,6 +12209,9 @@ snapshots:
       url-parse: 1.5.10
       uuid: 9.0.1
       yargs: 17.7.2
+    optionalDependencies:
+      '@cultureamp/next-head-hook': 1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))
+      next: 14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -12230,11 +12239,12 @@ snapshots:
       isomorphic-resolve: 1.0.0
       json-stable-stringify: 1.1.1
       limiter-es6-compat: 2.1.2
-      next: 14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
       react: 18.3.1
       react-intl: 6.6.8(react@18.3.1)(typescript@5.5.4)
       smartling-api-sdk-nodejs: 2.11.0(encoding@0.1.13)
       yargs: 17.7.2
+    optionalDependencies:
+      next: 14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
     transitivePeerDependencies:
       - '@glimmer/env'
       - '@glimmer/reference'
@@ -12254,6 +12264,7 @@ snapshots:
     dependencies:
       next: 14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
       react: 18.3.1
+    optional: true
 
   '@cultureamp/redirect-to-login@2.0.3': {}
 
@@ -12947,7 +12958,8 @@ snapshots:
       outvariant: 1.4.2
       strict-event-emitter: 0.5.1
 
-  '@next/env@14.2.3': {}
+  '@next/env@14.2.3':
+    optional: true
 
   '@next/swc-darwin-arm64@14.2.3':
     optional: true
@@ -14719,6 +14731,7 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
       tslib: 2.6.3
+    optional: true
 
   '@swc/jest@0.2.36(@swc/core@1.7.10(@swc/helpers@0.5.11))':
     dependencies:
@@ -15791,6 +15804,7 @@ snapshots:
   busboy@1.6.0:
     dependencies:
       streamsearch: 1.1.0
+    optional: true
 
   bytes@3.1.2: {}
 
@@ -19544,6 +19558,7 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+    optional: true
 
   no-case@3.0.4:
     dependencies:
@@ -20749,6 +20764,7 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.0.1
       source-map-js: 1.2.0
+    optional: true
 
   postcss@8.4.41:
     dependencies:
@@ -21780,7 +21796,8 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  streamsearch@1.1.0: {}
+  streamsearch@1.1.0:
+    optional: true
 
   strict-event-emitter@0.5.1: {}
 
@@ -21921,6 +21938,7 @@ snapshots:
       react: 18.3.1
     optionalDependencies:
       '@babel/core': 7.25.2
+    optional: true
 
   stylehacks@5.1.1(postcss@8.4.41):
     dependencies:
