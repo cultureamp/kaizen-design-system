@@ -3,6 +3,8 @@ import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { vi } from "vitest"
 import { NavigationTab, CustomNavigationTabProps } from "./NavigationTabs"
+import styles from "./NavigationTabs.module.scss"
+
 const user = userEvent.setup()
 
 const CustomComponent = (props: CustomNavigationTabProps): JSX.Element => (
@@ -50,7 +52,11 @@ describe("NavigationTabs", () => {
       const button = screen.getByRole("button", {
         name: `${href} - ${text} - true`,
       })
-      expect(button).toHaveClass("linkAnchor", "active", "lightBackground")
+      expect(button).toHaveClass(
+        styles.linkAnchor,
+        styles.active,
+        styles.lightBackground
+      )
 
       await user.click(button)
       await waitFor(() => {
