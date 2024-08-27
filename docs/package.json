@@ -6,13 +6,14 @@
   "scripts": {
     "lint": "eslint .",
     "lint:ts": "tsc --noEmit",
-    "dev": "pnpm build:tailwind && storybook dev -p 6006",
+    "dev": "storybook dev -p 6006",
     "preview": "NODE_ENV=production pnpm dev --docs",
-    "build:docs": "pnpm build:tailwind && storybook build",
-    "build:chromatic": "pnpm build:docs --webpack-stats-json",
+    "build:docs": "storybook build --docs",
+    "build:test": "storybook build --test",
+    "build:chromatic": "storybook build --webpack-stats-json",
     "build:tailwind": "npx tailwindcss -i ./tailwind.css -o ./.storybook/preview.css",
     "test": "test-storybook --skipTags='skip-test' --url http://127.0.0.1:6006",
-    "clean": "rimraf ./storybook-static && rimraf ./node_modules"
+    "clean": "rimraf './storybook-static' './node_modules' '.turbo'"
   },
   "dependencies": {
     "react": "^18.3.1",

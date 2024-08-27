@@ -3,7 +3,4 @@ docs/storybook-static
 docs/.storybook/preview.css
 .DS_Store
 dist
-.cache
-.yalc
-yalc.loc
 .turbo
