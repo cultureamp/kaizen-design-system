@@ -29,16 +29,19 @@
     "@docs/storybook#build:docs": {
       "dependsOn": ["^build", "build:tailwind"],
       "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/storybook-static/**"]
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
     },
     "@docs/storybook#build:test": {
       "dependsOn": ["^build", "build:tailwind"],
       "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/storybook-static/**"]
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
     },
     "@docs/storybook#build:chromatic": {
       "dependsOn": ["^build", "build:tailwind"],
-      "outputs": ["docs/storybook-static/**"]
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
     },
     "@kaizen/components#build": {
       "dependsOn": [
