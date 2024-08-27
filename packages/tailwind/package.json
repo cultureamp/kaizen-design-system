@@ -4,7 +4,7 @@
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "pnpm package-bundler build",
-    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'",
+    "clean": "rimraf 'dist' 'node_modules' '.turbo'",
     "lint:ts": "tsc --noEmit"
   },
   "repository": {

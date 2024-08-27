@@ -9,6 +9,10 @@
     "dev": {
       "dependsOn": ["^build"]
     },
+    "@docs/storybook#dev": {
+      "dependsOn": ["^build", "build:tailwind"],
+      "cache": false
+    },
     "lint:ts": {
       "dependsOn": ["^build"]
     },
@@ -17,13 +21,26 @@
     "clean": {
       "cache": false
     },
-    "@docs/storybook#build": {
+    "@docs/storybook#build:tailwind": {
       "dependsOn": ["^build"],
+      "inputs": ["packages/**", "docs/**"],
+      "outputs": ["docs/.storybook/preview.css"],
+      "cache": false
+    },
+    "@docs/storybook#build:docs": {
+      "dependsOn": ["^build", "build:tailwind"],
+      "inputs": ["packages/**", "docs/**"],
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
+    },
+    "@docs/storybook#build:test": {
+      "dependsOn": ["^build", "build:tailwind"],
+      "inputs": ["packages/**", "docs/**"],
       "outputs": ["docs/storybook-static/**"],
       "cache": false
     },
     "@docs/storybook#build:chromatic": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "build:tailwind"],
       "outputs": ["docs/storybook-static/**"],
       "cache": false
     },

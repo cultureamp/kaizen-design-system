@@ -35,7 +35,6 @@
   },
   "type": "module",
   "scripts": {
-    "clean": "rm -rf dist",
     "lint:ts": "tsc --noEmit",
     "build": "pnpm package-bundler build-shared-ui && pnpm build:styles",
     "build:global-styles": "postcss ./styles/global.css --output dist/global.css",
@@ -46,7 +45,9 @@
     "test:shard2": "FORCE_COLOR=1 vitest run --shard=2/3",
     "test:shard3": "FORCE_COLOR=1 vitest run --shard=3/3",
     "update-icons": "./src/Icon/bin/update-icons.sh",
-    "i18n:extract": "pnpm i18n-extract"
+    "i18n:extract": "pnpm i18n-extract",
+    "clean": "rimraf 'dist' 'node_modules' '.turbo'",
+    "clean:dist": "rimraf 'dist'"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.1",

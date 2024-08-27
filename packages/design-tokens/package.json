@@ -26,12 +26,13 @@
   "scripts": {
     "lint:ts": "tsc --noEmit",
     "test": "FORCE_COLOR=1 vitest",
-    "build": "pnpm clean && pnpm build:json && pnpm build:less && pnpm build:sass && pnpm build:ts",
+    "build": "pnpm clean:dist && pnpm build:json && pnpm build:less && pnpm build:sass && pnpm build:ts",
     "build:json": "tsx ./bin/buildCssVarTokens.ts",
     "build:ts": "pnpm package-bundler build",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
-    "clean": "rimraf dist"
+    "clean": "rimraf 'dist' 'node_modules' '.turbo'",
+    "clean:dist": "rimraf 'dist'"
   },
   "dependencies": {
     "lodash.kebabcase": "^4.1.1"
