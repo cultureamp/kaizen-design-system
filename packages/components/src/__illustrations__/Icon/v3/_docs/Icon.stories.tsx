@@ -9,6 +9,14 @@ const meta = {
   component: Icon,
   args: {
     name: "star",
+    isPresentational: true,
+  },
+  argTypes: {
+    alt: {
+      // Manually add the control as the prop disappears due to being a discriminated union
+      type: "string",
+      description: "Set this value when `isPresentational={false}`",
+    },
   },
 } satisfies Meta<typeof Icon>
 
@@ -16,14 +24,19 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Playground: Story = {}
+export const Playground: Story = {
+  render: args => {
+    if (args.isPresentational) return <Icon {...args} alt={undefined} />
+    return <Icon {...args} alt={args.alt ?? "Fallback string"} />
+  },
+}
 
 export const Filled: Story = {
   args: { isFilled: true },
 }
 
 export const Sizes: Story = {
-  render: () => {
+  render: args => {
     const sizes = ["small", "medium", "large", "inherit"] satisfies Array<
       IconProps["size"]
     >
@@ -33,7 +46,7 @@ export const Sizes: Story = {
         <StickerSheet.Body>
           <StickerSheet.Row>
             {sizes.map(size => (
-              <Icon key={size} name="star" size={size} />
+              <Icon key={size} {...args} size={size} />
             ))}
           </StickerSheet.Row>
         </StickerSheet.Body>
@@ -44,10 +57,10 @@ export const Sizes: Story = {
     docs: {
       source: {
         code: `
-<Icon name="star" size="small" />
-<Icon name="star" size="medium" />
-<Icon name="star" size="large" />
-<Icon name="star" size="inherit" />
+<Icon {...props} name="star" size="small" />
+<Icon {...props} name="star" size="medium" />
+<Icon {...props} name="star" size="large" />
+<Icon {...props} name="star" size="inherit" />
         `,
       },
     },
@@ -55,16 +68,16 @@ export const Sizes: Story = {
 }
 
 export const MirrorInRTL: Story = {
-  render: () => (
+  render: args => (
     <StickerSheet>
       <StickerSheet.Header headings={['dir=["ltr"]', 'dir=["rtl"]']} />
       <StickerSheet.Body>
         <StickerSheet.Row>
           <div dir="ltr" className="text-center">
-            <Icon name="arrow_forward" shouldMirrorInRTL />
+            <Icon {...args} name="arrow_forward" shouldMirrorInRTL />
           </div>
           <div dir="rtl" className="text-center">
-            <Icon name="arrow_forward" shouldMirrorInRTL />
+            <Icon {...args} name="arrow_forward" shouldMirrorInRTL />
           </div>
         </StickerSheet.Row>
       </StickerSheet.Body>
@@ -75,10 +88,10 @@ export const MirrorInRTL: Story = {
       source: {
         code: `
 <div dir="ltr" className="text-center">
-  <Icon name="arrow_forward" shouldMirrorInRTL />
+  <Icon {...props} name="arrow_forward" shouldMirrorInRTL />
 </div>
 <div dir="rtl" className="text-center">
-  <Icon name="arrow_forward" shouldMirrorInRTL />
+  <Icon {...props} name="arrow_forward" shouldMirrorInRTL />
 </div>
         `,
       },
@@ -87,14 +100,14 @@ export const MirrorInRTL: Story = {
 }
 
 export const Customisation: Story = {
-  render: () => (
+  render: args => (
     <StickerSheet>
       <StickerSheet.Header headings={["font-size", "font-weight", "color"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <Icon name="star" className="text-heading-1" />
-          <Icon name="star" className="font-[700]" />
-          <Icon name="star" className="text-blue-500" />
+          <Icon {...args} className="text-heading-1" />
+          <Icon {...args} className="font-[700]" />
+          <Icon {...args} className="text-blue-500" />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
@@ -103,9 +116,9 @@ export const Customisation: Story = {
     docs: {
       source: {
         code: `
-<Icon name="star" className="text-heading-1" />
-<Icon name="star" className="font-[700]" />
-<Icon name="star" className="text-blue-500" />
+<Icon {...props} name="star" className="text-heading-1" />
+<Icon {...props} name="star" className="font-[700]" />
+<Icon {...props} name="star" className="text-blue-500" />
         `,
       },
     },
@@ -113,8 +126,8 @@ export const Customisation: Story = {
 }
 
 export const OpticalSize: Story = {
-  render: ({ className }) => (
-    <Icon name="star" className={`text-heading-1 ${className}`} />
+  render: ({ className, ...args }) => (
+    <Icon {...args} name="star" className={`text-heading-1 ${className}`} />
   ),
   parameters: { controls: { include: "className" } },
   args: { className: "[--icon-optical-size:48]" },
@@ -137,7 +150,7 @@ export const MeaningfulIcon: Story = {
       <Icon {...args} />
     </Button>
   ),
-  args: { role: "img", "aria-label": "Favourite" },
+  args: { isPresentational: false, alt: "Favourite" },
 }
 
 export const PresentationalIcon: Story = {
@@ -146,5 +159,5 @@ export const PresentationalIcon: Story = {
       <Icon {...args} /> Favourite
     </Button>
   ),
-  args: { "aria-hidden": true },
+  args: { isPresentational: true },
 }

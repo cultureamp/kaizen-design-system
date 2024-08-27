@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
 import styles from "./Icon.module.css"
 
-export type IconProps = {
+type BaseIconProps = {
   /** Options available at https://fonts.google.com/icons */
   name: string
   isFilled?: boolean
@@ -11,11 +11,25 @@ export type IconProps = {
   shouldMirrorInRTL?: boolean
 } & HTMLAttributes<HTMLSpanElement>
 
+type PresentationalIcon = {
+  isPresentational: true
+  alt?: never
+}
+
+type MeaningfulIcon = {
+  isPresentational?: false
+  alt: string
+}
+
+export type IconProps = BaseIconProps & (PresentationalIcon | MeaningfulIcon)
+
 export const Icon = ({
   name,
   isFilled,
   size = "medium",
   shouldMirrorInRTL,
+  isPresentational,
+  alt,
   className,
   ...restProps
 }: IconProps): JSX.Element => (
@@ -28,6 +42,9 @@ export const Icon = ({
       shouldMirrorInRTL && styles.shouldMirrorInRTL,
       className
     )}
+    aria-hidden={isPresentational}
+    role={isPresentational ? undefined : "img"}
+    aria-label={alt}
     {...restProps}
   >
     {name}

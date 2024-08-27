@@ -16,6 +16,11 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
+    const defaultProps = {
+      name: "star",
+      isPresentational: true,
+    } satisfies IconProps
+
     const sizes = ["small", "medium", "large", "inherit"] satisfies Array<
       IconProps["size"]
     >
@@ -26,9 +31,9 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Header headings={["Outlined", "Filled", "Color"]} />
           <StickerSheet.Body>
             <StickerSheet.Row>
-              <Icon name="star" />
-              <Icon name="star" isFilled />
-              <Icon name="star" isFilled className="text-yellow-500" />
+              <Icon {...defaultProps} />
+              <Icon {...defaultProps} isFilled />
+              <Icon {...defaultProps} isFilled className="text-yellow-500" />
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>
@@ -38,9 +43,9 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Body>
             <StickerSheet.Row>
               {sizes.map(size => (
-                <Icon key={size} name="star" size={size} />
+                <Icon key={size} {...defaultProps} size={size} />
               ))}
-              <Icon name="star" className="text-heading-1" />
+              <Icon {...defaultProps} className="text-heading-1" />
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>
@@ -53,10 +58,18 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Body>
             <StickerSheet.Row rowTitle="arrow_forward">
               <div dir="ltr">
-                <Icon name="arrow_forward" shouldMirrorInRTL />
+                <Icon
+                  {...defaultProps}
+                  name="arrow_forward"
+                  shouldMirrorInRTL
+                />
               </div>
               <div dir="rtl">
-                <Icon name="arrow_forward" shouldMirrorInRTL />
+                <Icon
+                  {...defaultProps}
+                  name="arrow_forward"
+                  shouldMirrorInRTL
+                />
               </div>
             </StickerSheet.Row>
           </StickerSheet.Body>
