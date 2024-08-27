@@ -9,7 +9,7 @@ import {
 import { Button } from "../index"
 
 export default {
-  title: "Actions/Button/v3/Tests",
+  title: "Actions/Button/Button (v3)/Tests",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
