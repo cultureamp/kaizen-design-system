@@ -17,11 +17,16 @@
     "clean": {
       "cache": false
     },
-    "@docs/storybook#build:docs": {
+    "@docs/storybook#build:stories": {
       "dependsOn": ["^build"],
       "inputs": ["packages/**", "docs/**"],
       "outputs": ["docs/storybook-static/**"],
       "cache": false
+    },
+    "@docs/storybook#build:docs": {
+      "dependsOn": ["^build"],
+      "inputs": ["packages/**", "docs/**"],
+      "outputs": ["docs/storybook-static/**"]
     },
     "@docs/storybook#build:chromatic": {
       "dependsOn": ["^build"],
