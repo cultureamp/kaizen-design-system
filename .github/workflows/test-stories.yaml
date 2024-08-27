@@ -40,9 +40,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: |
-          pnpm turbo @docs/storybook#build:tailwind
-          pnpm turbo @docs/storybook#build:test
+      - run: pnpm turbo @docs/storybook#build:test
       - name: Upload Storybook build as artifact
         uses: actions/upload-artifact@v3
         with:
