@@ -110,15 +110,22 @@ export const ProgressStepper = ({
                   {accessibleName}
                 </VisuallyHidden>
                 <Text
-                  classNameOverride={styles.stepName}
+                  classNameOverride={classnames(styles.stepName, {
+                    [styles.isCurrent]: isCurrentStep,
+                  })}
                   variant="small"
-                  color="white"
                   aria-hidden
                 >
                   {step.label}
                 </Text>
                 <div className={styles.stepIndicator}>
-                  <span className={styles.stepIcon}>{Icon}</span>
+                  <span
+                    className={classnames(styles.stepIcon, {
+                      [styles.isCompleted]: isCompletedStep,
+                    })}
+                  >
+                    {Icon}
+                  </span>
                 </div>
                 {index < steps.length - 1 && (
                   <div
@@ -136,7 +143,6 @@ export const ProgressStepper = ({
       <Text
         classNameOverride={styles.stepperDescription}
         variant="small"
-        color="white"
         id="stepper-description"
       >
         Step {currentStepIndex + 1} of {steps.length}

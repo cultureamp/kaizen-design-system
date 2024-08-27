@@ -44,10 +44,10 @@ export const WorkflowControls: Partial<ArgTypes> = {
     },
     options: ["Next active", "Next disabled", "Next submit", "No next action"],
     mapping: {
-      "Next active": <Button reversed label="Next" />,
-      "Next disabled": <Button reversed disabled label="Next" />,
+      "Next active": <Button primary label="Next" />,
+      "Next disabled": <Button primary disabled label="Next" />,
       "Next submit": (
-        <Button reversed formTarget="workflow-form-id" primary label="Finish" />
+        <Button formTarget="workflow-form-id" primary label="Finish" />
       ),
       "No next action": undefined,
     },
@@ -63,10 +63,10 @@ export const WorkflowControls: Partial<ArgTypes> = {
       "No Previous action",
     ],
     mapping: {
-      "Previous active": <Button reversed label="Back" />,
-      "Previous disabled": <Button reversed disabled label="Back" />,
+      "Previous active": <Button label="Back" />,
+      "Previous disabled": <Button disabled label="Back" />,
       "Previous submit": (
-        <Button reversed formTarget="workflow-form-id" primary label="Back" />
+        <Button formTarget="workflow-form-id" primary label="Back" />
       ),
       "No Previous action": undefined,
     },

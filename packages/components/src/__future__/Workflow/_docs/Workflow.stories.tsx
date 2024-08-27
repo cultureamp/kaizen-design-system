@@ -45,8 +45,8 @@ const meta = {
       content: "Draft",
       variant: "statusDraft",
     },
-    previousAction: <Button reversed label="Back" />,
-    nextAction: <Button reversed label="Next" />,
+    previousAction: <Button label="Back" />,
+    nextAction: <Button primary label="Next" />,
     headerActions: [
       <Button
         key="would-use-uui-2"

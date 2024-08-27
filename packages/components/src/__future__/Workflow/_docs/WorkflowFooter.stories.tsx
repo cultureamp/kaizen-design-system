@@ -22,8 +22,8 @@ const meta = {
       { label: "Schedule", id: "schedule-step" },
     ],
     isComplete: false,
-    previousAction: <Button reversed label="Back" />,
-    nextAction: <Button reversed label="Next" />,
+    previousAction: <Button label="Back" />,
+    nextAction: <Button primary label="Next" />,
   },
 } satisfies Meta<typeof Workflow.Footer>
 
@@ -47,7 +47,7 @@ export const FirstStep: Story = {
 }
 
 export const NextStepDisabled: Story = {
-  args: { nextAction: <Button disabled reversed label="Next" /> },
+  args: { nextAction: <Button primary disabled label="Next" /> },
 }
 
 export const LastStep: Story = {
@@ -55,7 +55,6 @@ export const LastStep: Story = {
     currentStepId: "schedule-step",
     nextAction: (
       <Button
-        reversed
         primary
         disabled
         form="worflow-form-id-for-submit"
