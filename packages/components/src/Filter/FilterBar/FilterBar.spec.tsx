@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react"
-import { screen, waitFor, within } from "@testing-library/react"
+import { screen, waitFor, within, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
+import { vi } from "vitest"
 import { FilterMultiSelect } from "../index"
 import { FilterBar, FilterBarProps } from "./FilterBar"
 import { useFilterBarContext } from "./context/FilterBarContext"
 import { Filters, FiltersValues } from "./types"
+
 const user = userEvent.setup()
 
 const TEST_ID__FILTER = "testid__filter"
@@ -147,7 +148,7 @@ const waitForI18nContent = async (): Promise<void> => {
 
 describe("<FilterBar />", () => {
   it("renders filters in the provided order", async () => {
-    const { getAllByTestId } = renderWithIntl(
+    const { getAllByTestId } = render(
       <FilterBarWrapper<ValuesSimple> filters={simpleFilters} />
     )
     await waitForI18nContent()
@@ -160,7 +161,7 @@ describe("<FilterBar />", () => {
   })
 
   it("retains Filter accessibility", async () => {
-    renderWithIntl(<FilterBarWrapper filters={simpleFilters} />)
+    render(<FilterBarWrapper filters={simpleFilters} />)
 
     const filterButton = screen.getByRole("button", { name: "Flavour" })
     await user.click(filterButton)
@@ -172,7 +173,7 @@ describe("<FilterBar />", () => {
 
   describe("Removable filters", () => {
     it("shows inactive filters in the Add Filters menu only", async () => {
-      const { getByRole, queryByText } = renderWithIntl(
+      const { getByRole, queryByText } = render(
         <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
       )
       await waitForI18nContent()
@@ -191,7 +192,7 @@ describe("<FilterBar />", () => {
     })
 
     it("shows removable filter as active if there is a default value", async () => {
-      const { getByRole } = renderWithIntl(
+      const { getByRole } = render(
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{ topping: "pearls" }}
@@ -205,7 +206,7 @@ describe("<FilterBar />", () => {
     })
 
     it("does not show active removable filters in the Add Filters menu", async () => {
-      const { getByRole } = renderWithIntl(
+      const { getByRole } = render(
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{ topping: "pearls" }}
@@ -224,7 +225,7 @@ describe("<FilterBar />", () => {
     })
 
     it("clears the value of a filter if it is removed", async () => {
-      const { getByRole } = renderWithIntl(
+      const { getByRole } = render(
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{ topping: "pearls" }}
@@ -257,7 +258,7 @@ describe("<FilterBar />", () => {
     })
 
     it("adds new filters in the provided order", async () => {
-      const { getByRole, getAllByTestId } = renderWithIntl(
+      const { getByRole, getAllByTestId } = render(
         <FilterBarWrapper<ValuesSimple>
           filters={simpleFilters.map(filter => ({
             ...filter,
@@ -292,7 +293,7 @@ describe("<FilterBar />", () => {
   describe("Dependent filters", () => {
     describe("Condition not met", () => {
       it("does not show a dependent filter", async () => {
-        const { queryByRole, getByRole } = renderWithIntl(
+        const { queryByRole, getByRole } = render(
           <FilterBarWrapper filters={filtersDependent} />
         )
         await waitForI18nContent()
@@ -303,7 +304,7 @@ describe("<FilterBar />", () => {
       })
 
       it("clears the value if the filter is not usable", async () => {
-        const { getByTestId } = renderWithIntl(
+        const { getByTestId } = render(
           <FilterBarWrapper
             filters={filtersDependent}
             defaultValues={{
@@ -320,7 +321,7 @@ describe("<FilterBar />", () => {
 
     describe("Condition met", () => {
       it("shows a non-removable dependent filter in active filters", async () => {
-        const { queryByRole, getByRole, findByRole } = renderWithIntl(
+        const { queryByRole, getByRole, findByRole } = render(
           <FilterBarWrapper filters={filtersDependent} />
         )
         await waitForI18nContent()
@@ -342,7 +343,7 @@ describe("<FilterBar />", () => {
       })
 
       it("shows a removable dependent filter in Add Filters menu", async () => {
-        const { getByRole, findByRole } = renderWithIntl(
+        const { getByRole, findByRole } = render(
           <FilterBarWrapper
             filters={[
               {
@@ -399,7 +400,7 @@ describe("<FilterBar />", () => {
 
     describe("Condition result change", () => {
       it("clears the value for an unusable filter", async () => {
-        const checkValues = jest.fn<void, [Partial<ValuesDependent>]>()
+        const checkValues = vi.fn()
 
         const Wrapper = (): JSX.Element => {
           const [values, setValues] = useState<Partial<ValuesDependent>>({
@@ -420,7 +421,7 @@ describe("<FilterBar />", () => {
           )
         }
 
-        const { queryByRole, getByRole } = renderWithIntl(<Wrapper />)
+        const { queryByRole, getByRole } = render(<Wrapper />)
         await waitForI18nContent()
 
         expect(
@@ -434,7 +435,7 @@ describe("<FilterBar />", () => {
       })
 
       it("clears the value and removes a filter which loses usability", async () => {
-        const checkValues = jest.fn<void, [Partial<ValuesDependent>]>()
+        const checkValues = vi.fn()
 
         const Wrapper = (): JSX.Element => {
           const [values, setValues] = useState<Partial<ValuesDependent>>({
@@ -462,7 +463,7 @@ describe("<FilterBar />", () => {
           )
         }
 
-        const { getByRole } = renderWithIntl(<Wrapper />)
+        const { getByRole } = render(<Wrapper />)
         await waitForI18nContent()
 
         expect(
@@ -557,7 +558,7 @@ describe("<FilterBar />", () => {
           },
         ] satisfies Filters<ValuesComplexDeps>
 
-        const { queryByRole, getByRole } = renderWithIntl(
+        const { queryByRole, getByRole } = render(
           <FilterBarWrapper
             filters={filters}
             defaultValues={{ milk: "full-cream" }}
@@ -636,7 +637,7 @@ describe("<FilterBar />", () => {
 
   describe("Clear all", () => {
     it("clears all the values of all the filters", async () => {
-      const { getByRole } = renderWithIntl(
+      const { getByRole } = render(
         <FilterBarWrapper<ValuesSimple>
           filters={simpleFilters}
           defaultValues={{
@@ -670,7 +671,7 @@ describe("<FilterBar />", () => {
     })
 
     it("removes all removable filters", async () => {
-      const { getByRole } = renderWithIntl(
+      const { getByRole } = render(
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{
@@ -739,7 +740,7 @@ describe("<FilterBar />", () => {
         )
       }
 
-      const { getByRole } = renderWithIntl(<Wrapper />)
+      const { getByRole } = render(<Wrapper />)
       await waitForI18nContent()
 
       const flavourButton = getByRole("button", { name: "Flavour" })
@@ -795,7 +796,7 @@ describe("<FilterBar />", () => {
         )
       }
 
-      const { getByRole, queryByRole } = renderWithIntl(<Wrapper />)
+      const { getByRole, queryByRole } = render(<Wrapper />)
       await waitForI18nContent()
 
       expect(queryByRole("button", { name: "Flavour" })).not.toBeInTheDocument()
@@ -860,7 +861,7 @@ describe("<FilterBar />", () => {
         )
       }
 
-      const fetchCityOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
+      const fetchCityOptions = vi.fn((filterValues: Partial<AsyncValues>) => {
         const isSupermanInFilterValue = filterValues.hero?.includes("superman")
         const isBatmanInFilterValue = filterValues.hero?.includes("batman")
 
@@ -874,7 +875,7 @@ describe("<FilterBar />", () => {
         ])
       })
 
-      const fetchHeroOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
+      const fetchHeroOptions = vi.fn((filterValues: Partial<AsyncValues>) => {
         const isGothamInFilterValue = filterValues.city?.includes("gotham")
         const isMetroInFilterValue = filterValues.city?.includes("metro")
 
@@ -906,7 +907,7 @@ describe("<FilterBar />", () => {
       ] satisfies Filters<AsyncValues>
 
       it("can re-fetch options with all active filter values pulled off of the FilterBarContext", async () => {
-        const { getByRole, queryByRole } = renderWithIntl(
+        const { getByRole, queryByRole } = render(
           <FilterBarWrapper<AsyncValues> filters={config} defaultValues={{}} />
         )
 
@@ -980,7 +981,7 @@ describe("<FilterBar />", () => {
       ] satisfies Filters<CycleFilterValues>
 
       it("opens the Custom Date filter when Cycle's 'custom' value is selected", async () => {
-        const { getByRole } = renderWithIntl(
+        const { getByRole } = render(
           <FilterBarWrapper<CycleFilterValues> filters={cycleFilters} />
         )
         await waitForI18nContent()

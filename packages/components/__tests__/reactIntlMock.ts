@@ -1,8 +1,16 @@
 import { MessageDescriptor } from "@cultureamp/i18n-react-intl"
 import { vi } from "vitest"
 
-const replaceInputValue = (str: string, value: string): string =>
-  str.replace("{inputValue}", value)
+const replaceInputValue = (str: string, value: string): string => {
+  const regex = /{([^}]+)}/g
+  return str.replace(regex, (match, capturedValue) => {
+    if (capturedValue) {
+      return value[capturedValue]
+    }
+    // Handle other captured values here if needed
+    return match
+  })
+}
 
 export const reactIntlMock = (): any => {
   const mocks = vi.hoisted(() => ({
@@ -12,14 +20,14 @@ export const reactIntlMock = (): any => {
 
   vi.mock("@cultureamp/i18n-react-intl", () => ({
     useIntl: () => ({
-      formatMessage: (message: MessageDescriptor) => message.defaultMessage,
+      formatMessage: (message: MessageDescriptor, values: any) =>
+        values
+          ? replaceInputValue(message.defaultMessage as string, values)
+          : message.defaultMessage,
     }),
     FormattedMessage: (message: MessageDescriptor & { values: any }) =>
       message.values
-        ? replaceInputValue(
-            message.defaultMessage as string,
-            message.values.inputValue
-          )
+        ? replaceInputValue(message.defaultMessage as string, message.values)
         : message.defaultMessage,
   }))
 

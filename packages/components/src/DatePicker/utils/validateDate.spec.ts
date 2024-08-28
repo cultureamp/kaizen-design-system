@@ -1,5 +1,4 @@
-import { screen, waitFor } from "@testing-library/react"
-import { renderWithIntl } from "~tests"
+import { screen, waitFor, render } from "@testing-library/react"
 import { validateDate } from "./validateDate"
 
 describe("validateDate", () => {
@@ -40,7 +39,7 @@ describe("validateDate", () => {
     })
     expect(newDate).toBeUndefined()
 
-    renderWithIntl(validationMessage)
+    render(validationMessage)
     await waitFor(() => {
       expect(screen.getByText("Date is invalid")).toBeVisible()
     })
@@ -64,7 +63,7 @@ describe("validateDate", () => {
     })
     expect(newDate).toBeUndefined()
 
-    renderWithIntl(validationMessage)
+    render(validationMessage)
     await waitFor(() => {
       expect(screen.getByText("Date is invalid")).toBeVisible()
     })
@@ -88,7 +87,7 @@ describe("validateDate", () => {
     })
     expect(newDate).toBeUndefined()
 
-    renderWithIntl(validationMessage)
+    render(validationMessage)
     await waitFor(() => {
       expect(screen.getByText("potato is an invalid date")).toBeVisible()
     })
@@ -117,7 +116,7 @@ describe("validateDate", () => {
     })
     expect(newDate).toBeUndefined()
 
-    renderWithIntl(validationMessage)
+    render(validationMessage)
     await waitFor(() => {
       expect(
         screen.getByText("03/01/2022 is not available, try another date")
