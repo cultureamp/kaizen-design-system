@@ -90,6 +90,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^8.0.1
         version: 8.1.0(eslint@8.57.0)(typescript@5.5.4)
+      '@vitest/ui':
+        specifier: ^2.0.5
+        version: 2.0.5(vitest@2.0.5)
       chromatic:
         specifier: ^11.7.1
         version: 11.7.1
