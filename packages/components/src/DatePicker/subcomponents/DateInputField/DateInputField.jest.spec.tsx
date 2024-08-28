@@ -124,7 +124,7 @@ describe("<DateInputField />", () => {
               ref={ref}
               id="test__date-input-field--ref"
               labelText="Adventure time"
-              onButtonClick={jest.fn()}
+              onButtonClick={jest.fn<void, []>()}
               locale={enUS}
             />
             <button type="button" onClick={handleClick}>

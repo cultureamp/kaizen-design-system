@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, FocusEvent } from "react"
 import { screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { renderWithIntl } from "~tests"
@@ -6,7 +6,7 @@ import { FilterDatePickerField, FilterDatePickerFieldProps } from "."
 
 const user = userEvent.setup()
 
-const inputDateOnSubmit = jest.fn()
+const inputDateOnSubmit = jest.fn<void, [Date | undefined]>()
 
 const FilterDatePickerFieldWrapper = ({
   selectedDate,
@@ -73,7 +73,7 @@ describe("<FilterDatePickerField />", () => {
 
     describe("onBlur", () => {
       it("updates date input and calendar values correctly on blur", async () => {
-        const inputDateOnBlur = jest.fn()
+        const inputDateOnBlur = jest.fn<void, [FocusEvent]>()
 
         renderWithIntl(
           <FilterDatePickerFieldWrapper
