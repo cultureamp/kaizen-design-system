@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Workflow } from "../"
 
 const meta = {
-  title: "Layout/Workflow/v1/Components/Progress Stepper",
+  title: "Layout/Workflow/Workflow (v1)/Components/Progress Stepper",
   component: Workflow.ProgressStepper,
   args: {
     stepName: "Settings",

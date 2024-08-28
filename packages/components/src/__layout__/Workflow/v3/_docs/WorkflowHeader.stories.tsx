@@ -6,7 +6,7 @@ import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
 const meta = {
-  title: "Layout/Workflow/v3/Components/Header",
+  title: "Layout/Workflow/Workflow (v3)/Components/Header",
   component: Workflow.Header,
   argTypes: {
     ...WorkflowControls.headerActions,
