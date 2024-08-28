@@ -1,6 +1,6 @@
 import { getStoryContext, TestRunnerConfig } from "@storybook/test-runner"
 import { configureAxe, getAxeResults, injectAxe } from "axe-playwright"
-import { expect, toHaveNoViolations } from "jest-axe"
+import { toHaveNoViolations } from "jest-axe"
 import { globalA11yRules } from "./utils/global-a11y-rules"
 
 const config = {
