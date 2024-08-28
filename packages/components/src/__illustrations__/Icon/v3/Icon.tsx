@@ -1,10 +1,12 @@
 import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
+import { StringSuggestions } from "~components/types/StringSuggestions"
+import { IconNames } from "./types"
 import styles from "./Icon.module.css"
 
 type BaseIconProps = {
   /** Options available at https://fonts.google.com/icons */
-  name: string
+  name: StringSuggestions<IconNames>
   isFilled?: boolean
   shouldMirrorInRTL?: boolean
 } & HTMLAttributes<HTMLSpanElement>
