@@ -25,7 +25,7 @@ export const Titles = ({
 }: WorkflowTitlesProps): JSX.Element => (
   <div className={styles.titles} {...restProps}>
     <Heading
-      variant="heading-1"
+      variant="composable-header-title"
       tag="h1"
       color="dark"
       classNameOverride={styles.pageTitle}
