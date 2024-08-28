@@ -42,7 +42,7 @@ jobs:
       - uses: ./.github/actions/setup
       - run: pnpm turbo @docs/storybook#build:test
       - name: Upload Storybook build as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: "./docs/storybook-static"
