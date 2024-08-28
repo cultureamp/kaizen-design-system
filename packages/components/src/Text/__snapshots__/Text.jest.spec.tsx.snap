@@ -1,10 +1,10 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Text /> > defaults to the correct HTML element > renders the correct element for <Text variant={body} /> 1`] = `
+exports[`<Text /> defaults to the correct HTML element renders the correct element for <Text variant={body} /> 1`] = `
 <body>
   <div>
     <p
-      class="_text_7d5a54 _body_7d5a54 _dark_7d5a54"
+      class="text body dark"
     >
       Example
     </p>
@@ -12,11 +12,11 @@ exports[`<Text /> > defaults to the correct HTML element > renders the correct e
 </body>
 `;
 
-exports[`<Text /> > defaults to the correct HTML element > renders the correct element for <Text variant={extra-small} /> 1`] = `
+exports[`<Text /> defaults to the correct HTML element renders the correct element for <Text variant={extra-small} /> 1`] = `
 <body>
   <div>
     <p
-      class="_text_7d5a54 _extra-small_7d5a54 _dark_7d5a54"
+      class="text extra-small dark"
     >
       Example
     </p>
@@ -24,11 +24,11 @@ exports[`<Text /> > defaults to the correct HTML element > renders the correct e
 </body>
 `;
 
-exports[`<Text /> > defaults to the correct HTML element > renders the correct element for <Text variant={intro-lede} /> 1`] = `
+exports[`<Text /> defaults to the correct HTML element renders the correct element for <Text variant={intro-lede} /> 1`] = `
 <body>
   <div>
     <p
-      class="_text_7d5a54 _intro-lede_7d5a54 _dark_7d5a54"
+      class="text intro-lede dark"
     >
       Example
     </p>
@@ -36,11 +36,11 @@ exports[`<Text /> > defaults to the correct HTML element > renders the correct e
 </body>
 `;
 
-exports[`<Text /> > defaults to the correct HTML element > renders the correct element for <Text variant={small} /> 1`] = `
+exports[`<Text /> defaults to the correct HTML element renders the correct element for <Text variant={small} /> 1`] = `
 <body>
   <div>
     <p
-      class="_text_7d5a54 _small_7d5a54 _dark_7d5a54"
+      class="text small dark"
     >
       Example
     </p>
