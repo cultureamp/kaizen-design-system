@@ -54,31 +54,11 @@ jobs:
       - uses: ./.github/actions/setup
       - run: pnpm lint:styles
 
-  test-1:
+  test:
     if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: |
-          pnpm turbo @kaizen/components#test:shard1
-          pnpm turbo @kaizen/design-system#test
-
-  test-2:
-    if: github.head_ref != 'changeset-release/main'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-      - run: pnpm turbo @kaizen/components#test:shard2
-
-  test-3:
-    if: github.head_ref != 'changeset-release/main'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-      - run: pnpm turbo @kaizen/components#test:shard3
+      - run: pnpm test:ci

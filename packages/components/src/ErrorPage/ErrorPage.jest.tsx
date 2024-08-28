@@ -1,22 +1,21 @@
 import React from "react"
 import { screen, waitFor } from "@testing-library/react"
-import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import { ErrorPage } from "./ErrorPage"
 describe("<ErrorPage />", () => {
   beforeAll(() => {
-    window.HTMLMediaElement.prototype.load = vi.fn()
-    window.HTMLMediaElement.prototype.play = vi
+    window.HTMLMediaElement.prototype.load = jest.fn()
+    window.HTMLMediaElement.prototype.play = jest
       .fn()
       .mockResolvedValue(undefined)
-    window.HTMLMediaElement.prototype.pause = vi.fn()
-    window.matchMedia = vi.fn().mockImplementation(() => ({
+    window.HTMLMediaElement.prototype.pause = jest.fn()
+    window.matchMedia = jest.fn().mockImplementation(() => ({
       media: "",
       onchange: null,
-      addListener: vi.fn(),
-      removeListener: vi.fn(),
-      addEventListener: vi.fn(),
-      removeEventListener: vi.fn(),
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
       matches: false,
     }))
   })

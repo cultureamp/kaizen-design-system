@@ -156,7 +156,7 @@ describe("<FilterBarDatePicker />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = vi.fn()
+    const onChange = jest.fn()
     renderWithIntl(<FilterBarDatePickerWrapper onDateChange={onChange} />)
 
     const triggerButton = screen.getByRole("button", { name: "Drank" })

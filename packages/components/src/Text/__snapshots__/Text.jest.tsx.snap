@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text /> defaults to the correct HTML element renders the correct element for <Text variant={body} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="text body dark"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Text /> defaults to the correct HTML element renders the correct element for <Text variant={extra-small} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="text extra-small dark"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Text /> defaults to the correct HTML element renders the correct element for <Text variant={intro-lede} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="text intro-lede dark"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Text /> defaults to the correct HTML element renders the correct element for <Text variant={small} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="text small dark"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;

@@ -156,7 +156,7 @@ describe("<FilterBarSelect />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = vi.fn()
+    const onChange = jest.fn()
     const { getByRole } = renderWithIntl(
       <FilterBarSelectWrapper onSelectionChange={onChange} />
     )

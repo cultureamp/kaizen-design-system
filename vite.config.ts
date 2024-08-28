@@ -37,10 +37,11 @@ export default {
     ),
   },
   test: {
-    testMatch: ["**/*.spec.ts?(x)"],
+    // Placed here for transitionary purposes to target only certain tests that
+    // are converted to vitest. This should be removed once all tests are converted.
+    include: ["**/*.spec.ts?(x)"],
     environment: "jsdom",
     globals: true,
-    setupFiles: path.resolve(__dirname, "./test.setup.ts"),
-    transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
+    setupFiles: path.resolve(__dirname, "./vitest.setup.ts"),
   },
 }

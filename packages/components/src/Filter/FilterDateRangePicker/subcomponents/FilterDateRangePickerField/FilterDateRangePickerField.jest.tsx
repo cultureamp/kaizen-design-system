@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import { DateRange } from "~components/Calendar"
 import { FilterDateRangePickerField, FilterDateRangePickerFieldProps } from "."
@@ -84,8 +83,8 @@ describe("<FilterDateRangePickerField />", () => {
 
     describe("onBlur", () => {
       it("updates start date input and calendar values correctly on blur", async () => {
-        const startDateOnBlur = vi.fn()
-        const endDateOnBlur = vi.fn()
+        const startDateOnBlur = jest.fn()
+        const endDateOnBlur = jest.fn()
 
         renderWithIntl(
           <FilterDateRangePickerFieldWrapper
@@ -126,8 +125,8 @@ describe("<FilterDateRangePickerField />", () => {
       })
 
       it("updates end date input and calendar values correctly on blur", async () => {
-        const startDateOnBlur = vi.fn()
-        const endDateOnBlur = vi.fn()
+        const startDateOnBlur = jest.fn()
+        const endDateOnBlur = jest.fn()
 
         renderWithIntl(
           <FilterDateRangePickerFieldWrapper
@@ -687,7 +686,7 @@ describe("<FilterDateRangePickerField />", () => {
   })
 
   it("only returns a valid date to the onRangeChange function", async () => {
-    const onRangeChange = vi.fn()
+    const onRangeChange = jest.fn()
 
     const { getByLabelText } = renderWithIntl(
       <FilterDateRangePickerFieldWrapper

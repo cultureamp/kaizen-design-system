@@ -11,7 +11,7 @@ const user = userEvent.setup()
 const defaultProps: DateInputWithIconButtonProps = {
   id: "test__date-input-with-icon-button",
   labelText: "Due date",
-  onButtonClick: vi.fn(),
+  onButtonClick: jest.fn(),
 }
 
 const DateInputWithIconButtonWrapper = (
@@ -52,7 +52,7 @@ describe("<DateInputWithIconButton />", () => {
 
   describe("Refs", () => {
     it("correctly passes through input and button refs", async () => {
-      const onButtonClick = vi.fn()
+      const onButtonClick = jest.fn()
 
       const Wrapper = (): JSX.Element => {
         const inputRef = useRef<HTMLInputElement>(null)
@@ -71,7 +71,7 @@ describe("<DateInputWithIconButton />", () => {
               ref={ref}
               id="test__date-input-field--ref"
               labelText="label"
-              onButtonClick={vi.fn()}
+              onButtonClick={jest.fn()}
             />
             <button type="button" onClick={handleClick}>
               Click me

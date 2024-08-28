@@ -1,7 +1,10 @@
 // Certain attributes work in html, but not React.
 // If an attribute needs to be converted to its React counterpart,
+
+import { RootItem, SVGOItem } from "./svgo.spec"
+
 // it can be added here.
-const attrKeysToReplace = [
+export const attrKeysToReplace = [
   {
     original: "xlink:href",
     replacement: "href",
@@ -32,7 +35,7 @@ const attrKeysToReplace = [
   },
 ]
 
-const replaceAttrKeys = child => {
+export const replaceAttrKeys = (child: SVGOItem): void => {
   attrKeysToReplace.forEach(({ original, replacement }) => {
     if (child.attributes.hasOwnProperty(original)) {
       child.attributes[replacement] = child.attributes[original]
@@ -43,7 +46,7 @@ const replaceAttrKeys = child => {
 
 // Figma/ Sketch don't allow us to set 'currentColor' when exporting SVGs.
 // We have a convention to export the color as #000 or #0000000, then change it here.
-const replaceColor = child => {
+export const replaceColor = (child: SVGOItem): void => {
   const hexCodesToReplace = [
     "#000",
     "#000000",
@@ -62,7 +65,7 @@ const replaceColor = child => {
 // Ids aren't necessarily unique when coming from figma, causing
 // Icon components to reference different, already-rendered Icons
 // with duplicate ids. This function allows us to set unique ids.
-const replaceId = child => {
+export const replaceId = (child: SVGOItem): void => {
   if (child.attributes.id) {
     child.attributes.id = "UNIQUE_ID"
   }
@@ -73,7 +76,7 @@ const replaceId = child => {
 
 // We remove the outermost <svg> element here, because we wrap its children in
 // our custom SVG component later
-const removeRootSVGElement = item => {
+export const removeRootSVGElement = (item: RootItem): void => {
   if (item.type !== "root") return
 
   const hasSingleSVGChild =
@@ -86,7 +89,7 @@ const removeRootSVGElement = item => {
 
 // Recurses through all elements and child elements of root item
 // Note: first item is not an element, it's children are the elements.
-const recurse = item => {
+export const recurse = (item: RootItem): void => {
   item.children.forEach(child => {
     replaceAttrKeys(child)
     replaceColor(child)
@@ -94,12 +97,4 @@ const recurse = item => {
 
     recurse(child)
   })
-}
-
-module.exports = {
-  recurse,
-  removeRootSVGElement,
-  replaceAttrKeys,
-  replaceColor,
-  replaceId,
 }

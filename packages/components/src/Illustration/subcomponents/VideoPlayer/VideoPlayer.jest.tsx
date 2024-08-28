@@ -1,15 +1,14 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
 import { VideoPlayer } from "./VideoPlayer"
 const matchMedia = {
   media: "",
   onchange: null,
-  addListener: vi.fn(),
-  removeListener: vi.fn(),
-  addEventListener: vi.fn(),
-  removeEventListener: vi.fn(),
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
+  addEventListener: jest.fn(),
+  removeEventListener: jest.fn(),
 }
 const mockPrefersReducedMotion = {
   matches: true,
@@ -19,27 +18,27 @@ const mockDoesNotPreferReducedMotion = {
   matches: false,
   ...matchMedia,
 }
-const mockPlay = vi.fn().mockResolvedValue(undefined)
-const mockLoad = vi.fn()
-const mockPause = vi.fn()
+const mockPlay = jest.fn().mockResolvedValue(undefined)
+const mockLoad = jest.fn()
+const mockPause = jest.fn()
 
 describe("<VideoPlayer />", () => {
   beforeEach(() => {
     window.HTMLMediaElement.prototype.load = mockLoad
     window.HTMLMediaElement.prototype.play = mockPlay
     window.HTMLMediaElement.prototype.pause = mockPause
-    window.matchMedia = vi
+    window.matchMedia = jest
       .fn()
       .mockImplementation(() => mockDoesNotPreferReducedMotion)
     // this will stop throwing the unstable_flushDiscreteUpdates console error cause by react bug
     // https://stackoverflow.com/a/65338472/18285270
     Object.defineProperty(HTMLMediaElement.prototype, "muted", {
-      set: vi.fn(),
+      set: jest.fn(),
     })
   })
 
   afterEach(() => {
-    vi.clearAllMocks()
+    jest.clearAllMocks()
   })
 
   it("renders a video player in the document and autoplay", async () => {
@@ -57,7 +56,7 @@ describe("<VideoPlayer />", () => {
 
   describe("use-reduced-motion", () => {
     it("respects the use-reduced-motion preferences of the user", () => {
-      window.matchMedia = vi
+      window.matchMedia = jest
         .fn()
         .mockImplementation(() => mockPrefersReducedMotion)
       render(
@@ -73,7 +72,7 @@ describe("<VideoPlayer />", () => {
     })
 
     it("defaults to autoplay when user does not set use-reduced-motion preferences", () => {
-      window.matchMedia = vi
+      window.matchMedia = jest
         .fn()
         .mockImplementation(() => mockDoesNotPreferReducedMotion)
       render(
@@ -91,7 +90,7 @@ describe("<VideoPlayer />", () => {
 
   describe("when the aspect ratio is set as a prop", () => {
     it("has aspect ratio class", () => {
-      window.matchMedia = vi
+      window.matchMedia = jest
         .fn()
         .mockImplementation(() => mockDoesNotPreferReducedMotion)
       const { container } = render(
@@ -109,7 +108,7 @@ describe("<VideoPlayer />", () => {
 
   describe("when the aspect ratio is not set as a prop", () => {
     it("does not have aspect ratio class", () => {
-      window.matchMedia = vi
+      window.matchMedia = jest
         .fn()
         .mockImplementation(() => mockDoesNotPreferReducedMotion)
       const { container } = render(
