@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/__actions__/v3"
 import { StickerSheet } from "~storybook/components/StickerSheet"
-import { Icon, IconProps } from "../index"
+import { Icon } from "../index"
 
 const meta = {
   title: "Illustrations/Icon/Icon (v3)",
@@ -17,6 +17,7 @@ const meta = {
       type: "string",
       description: "Set this value when `isPresentational={false}`",
     },
+    className: { type: "string" },
   },
 } satisfies Meta<typeof Icon>
 
@@ -33,38 +34,6 @@ export const Playground: Story = {
 
 export const Filled: Story = {
   args: { isFilled: true },
-}
-
-export const Sizes: Story = {
-  render: args => {
-    const sizes = ["small", "medium", "large", "inherit"] satisfies Array<
-      IconProps["size"]
-    >
-    return (
-      <StickerSheet>
-        <StickerSheet.Header headings={sizes} />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            {sizes.map(size => (
-              <Icon key={size} {...args} size={size} />
-            ))}
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-    )
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<Icon {...props} name="star" size="small" />
-<Icon {...props} name="star" size="medium" />
-<Icon {...props} name="star" size="large" />
-<Icon {...props} name="star" size="inherit" />
-        `,
-      },
-    },
-  },
 }
 
 export const MirrorInRTL: Story = {

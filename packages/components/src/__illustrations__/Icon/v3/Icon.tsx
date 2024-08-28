@@ -6,8 +6,6 @@ type BaseIconProps = {
   /** Options available at https://fonts.google.com/icons */
   name: string
   isFilled?: boolean
-  /** @default medium */
-  size?: "small" | "medium" | "large" | "inherit"
   shouldMirrorInRTL?: boolean
 } & HTMLAttributes<HTMLSpanElement>
 
@@ -26,7 +24,6 @@ export type IconProps = BaseIconProps & (PresentationalIcon | MeaningfulIcon)
 export const Icon = ({
   name,
   isFilled,
-  size = "medium",
   shouldMirrorInRTL,
   isPresentational,
   alt,
@@ -38,7 +35,6 @@ export const Icon = ({
       "material-symbols-outlined",
       styles.icon,
       isFilled && styles.filled,
-      styles[size],
       shouldMirrorInRTL && styles.shouldMirrorInRTL,
       className
     )}
