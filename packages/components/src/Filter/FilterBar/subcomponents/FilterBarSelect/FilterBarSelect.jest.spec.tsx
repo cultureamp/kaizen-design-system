@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { waitFor, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
 import { renderWithIntl } from "~tests"
 import {
   FilterAttributes,

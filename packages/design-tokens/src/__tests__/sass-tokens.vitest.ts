@@ -27,7 +27,7 @@ ${typography.toString()}
     `
   )
   describe("everything", () => {
-    test("no tokens start with kz", () => {
+    it("no tokens start with kz", () => {
       const allTokensStartingWithKz = everything.nodes
         .filter(
           (n): n is Declaration => n.type === "decl" && n.prop.startsWith("$kz")
@@ -38,7 +38,7 @@ ${typography.toString()}
   })
 
   describe("colors", () => {
-    test("new un-prefixed tokens only contain heart color names", () => {
+    it("new un-prefixed tokens only contain heart color names", () => {
       const newColors = colors.nodes.filter(
         (n): n is Declaration =>
           n.type === "decl" && n.prop.startsWith("$color")
@@ -55,7 +55,7 @@ ${typography.toString()}
   })
 
   describe("layout", () => {
-    test("new un-prefixed layout tokens are not CSS variables", () => {
+    it("new un-prefixed layout tokens are not CSS variables", () => {
       expect(
         layout.nodes.filter(
           n =>

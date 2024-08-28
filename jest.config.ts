@@ -3,7 +3,7 @@ import { JestConfigWithTsJest } from "ts-jest"
 const jestConfig: JestConfigWithTsJest = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  testMatch: ["**/*.jest.ts?(x)"],
+  testMatch: ["**/*.jest.spec.ts?(x)"],
   setupFilesAfterEnv: ["jest-canvas-mock", "<rootDir>/jest.setup.ts"],
   moduleNameMapper: {
     "\\.(jpe?g|png|webm|mp4)$": "jest-static-stubs/$1",
