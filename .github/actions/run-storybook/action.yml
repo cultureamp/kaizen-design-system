@@ -13,7 +13,7 @@ runs:
   steps:
     - name: Download Storybook build artifact
       id: download
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: ${{ inputs.artifactName }}
         path: "./docs/storybook-static"
