@@ -54,11 +54,38 @@ jobs:
       - uses: ./.github/actions/setup
       - run: pnpm lint:styles
 
-  test:
+  jest-legacy:
     if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: pnpm test:ci
+      - run: pnpm @kaizen/components#test:jest:ci
+
+  test-1:
+    if: github.head_ref != 'changeset-release/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: pnpm @kaizen/components#test:vitest:shard1
+
+  test-2:
+    if: github.head_ref != 'changeset-release/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: pnpm @kaizen/components#test:vitest:shard2
+
+  test-3:
+    if: github.head_ref != 'changeset-release/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: pnpm @kaizen/components#test:vitest:shard3

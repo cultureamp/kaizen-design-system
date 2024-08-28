@@ -17,7 +17,6 @@
       "dependsOn": ["^build"]
     },
     "test": {},
-    "test:ci": {},
     "clean": {
       "cache": false
     },
@@ -52,9 +51,10 @@
       "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json"],
       "outputs": ["dist/**"]
     },
-    "@kaizen/components#test:shard1": {},
-    "@kaizen/components#test:shard2": {},
-    "@kaizen/components#test:shard3": {},
+    "@kaizen/components#test:jest:ci": {},
+    "@kaizen/components#test:vitest:shard1": {},
+    "@kaizen/components#test:vitest:shard2": {},
+    "@kaizen/components#test:vitest:shard3": {},
     "@kaizen/tailwind#build": {
       "dependsOn": ["@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
