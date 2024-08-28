@@ -35,7 +35,7 @@ importers:
         version: 8.2.9(storybook@8.3.0-alpha.7)
       '@storybook/addon-interactions':
         specifier: ^8.2.9
-        version: 8.2.9(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(storybook@8.3.0-alpha.7)(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
+        version: 8.2.9(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(storybook@8.3.0-alpha.7)(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
       '@storybook/addon-links':
         specifier: ^8.2.9
         version: 8.2.9(react@18.3.1)(storybook@8.3.0-alpha.7)
@@ -53,7 +53,7 @@ importers:
         version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.0-alpha.7)(typescript@5.5.4)
       '@storybook/test':
         specifier: ^8.2.9
-        version: 8.2.9(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(storybook@8.3.0-alpha.7)(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
+        version: 8.2.9(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(storybook@8.3.0-alpha.7)(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
       '@storybook/theming':
         specifier: ^8.2.9
         version: 8.2.9(storybook@8.3.0-alpha.7)
@@ -191,10 +191,10 @@ importers:
         version: 5.4.2(@types/node@20.14.15)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5)
       vitest:
         specifier: ^2.0.5
-        version: 2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5)
+        version: 2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5)
       vitest-axe:
         specifier: ^0.1.0
-        version: 0.1.0(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
+        version: 0.1.0(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
 
   docs:
     dependencies:
@@ -362,14 +362,14 @@ importers:
         specifier: ^1.4.3
         version: 1.4.3
       prosemirror-transform:
-        specifier: ^1.10.0
-        version: 1.10.0
+        specifier: ^1.9.0
+        version: 1.9.0
       prosemirror-utils:
         specifier: ^1.2.2
         version: 1.2.2(prosemirror-model@1.22.3)(prosemirror-state@1.4.3)
       prosemirror-view:
-        specifier: ^1.34.1
-        version: 1.34.1
+        specifier: ^1.33.9
+        version: 1.33.9
       react-animate-height:
         specifier: ^3.2.3
         version: 3.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -6346,10 +6346,6 @@ packages:
     engines: {node: '>=0.4.7'}
     hasBin: true
 
-  happy-dom@15.0.0:
-    resolution: {integrity: sha512-DsvANUcxxY20iCo3Yllm7dqwzPVPduGfVFxa7mONwMBLczFeQgkN0LpDir1kIY322JMh+hrcPV3aGLyHCESDlA==}
-    engines: {node: '>=18.0.0'}
-
   harmony-reflect@1.6.2:
     resolution: {integrity: sha512-HIp/n38R9kQjDEziXyDTuW3vvoxxyxjxFzXLrBr18uB47GnSt+G9D29fqrpM5ZkspMcPICud3XsBJQ4Y2URg8g==}
 
@@ -8947,8 +8943,8 @@ packages:
   prosemirror-state@1.4.3:
     resolution: {integrity: sha512-goFKORVbvPuAQaXhpbemJFRKJ2aixr+AZMGiquiqKxaucC6hlpHNZHWgz5R7dS4roHiwq9vDctE//CZ++o0W1Q==}
 
-  prosemirror-transform@1.10.0:
-    resolution: {integrity: sha512-9UOgFSgN6Gj2ekQH5CTDJ8Rp/fnKR2IkYfGdzzp5zQMFsS4zDllLVx/+jGcX86YlACpG7UR5fwAXiWzxqWtBTg==}
+  prosemirror-transform@1.9.0:
+    resolution: {integrity: sha512-5UXkr1LIRx3jmpXXNKDhv8OyAOeLTGuXNwdVfg8x27uASna/wQkr9p6fD3eupGOi4PLJfbezxTyi/7fSJypXHg==}
 
   prosemirror-utils@1.2.2:
     resolution: {integrity: sha512-7a2MPf99oCW8/587rQYI1/snX71Ban40+apr1hLkY8TmU9YXd7JeR6QsmktcTisJURO3WRjxIia4lTMsYgZVOw==}
@@ -8956,8 +8952,8 @@ packages:
       prosemirror-model: ^1.19.2
       prosemirror-state: ^1.4.3
 
-  prosemirror-view@1.34.1:
-    resolution: {integrity: sha512-KS2xmqrAM09h3SLu1S2pNO/ZoIP38qkTJ6KFd7+BeSfmX/ek0n5yOfGuiTZjFNTC8GOsEIUa1tHxt+2FMu3yWQ==}
+  prosemirror-view@1.33.9:
+    resolution: {integrity: sha512-xV1A0Vz9cIcEnwmMhKKFAOkfIp8XmJRnaZoPqNXrPS7EK5n11Ov8V76KhR0RsfQd/SIzmWY+bg+M44A2Lx/Nnw==}
 
   proxy-addr@2.0.7:
     resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
@@ -14488,11 +14484,11 @@ snapshots:
       '@storybook/global': 5.0.0
       storybook: 8.3.0-alpha.7
 
-  '@storybook/addon-interactions@8.2.9(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(storybook@8.3.0-alpha.7)(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))':
+  '@storybook/addon-interactions@8.2.9(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(storybook@8.3.0-alpha.7)(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))':
     dependencies:
       '@storybook/global': 5.0.0
       '@storybook/instrumenter': 8.2.9(storybook@8.3.0-alpha.7)
-      '@storybook/test': 8.2.9(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(storybook@8.3.0-alpha.7)(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
+      '@storybook/test': 8.2.9(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(storybook@8.3.0-alpha.7)(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
       polished: 4.3.1
       storybook: 8.3.0-alpha.7
       ts-dedent: 2.2.0
@@ -14828,12 +14824,12 @@ snapshots:
       - supports-color
       - ts-node
 
-  '@storybook/test@8.2.9(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(storybook@8.3.0-alpha.7)(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))':
+  '@storybook/test@8.2.9(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(storybook@8.3.0-alpha.7)(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))':
     dependencies:
       '@storybook/csf': 0.1.11
       '@storybook/instrumenter': 8.2.9(storybook@8.3.0-alpha.7)
       '@testing-library/dom': 10.1.0
-      '@testing-library/jest-dom': 6.4.5(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
+      '@testing-library/jest-dom': 6.4.5(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
       '@testing-library/user-event': 14.5.2(@testing-library/dom@10.1.0)
       '@vitest/expect': 1.6.0
       '@vitest/spy': 1.6.0
@@ -14998,7 +14994,7 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/jest-dom@6.4.5(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))':
+  '@testing-library/jest-dom@6.4.5(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))':
     dependencies:
       '@adobe/css-tools': 4.4.0
       '@babel/runtime': 7.25.0
@@ -15012,7 +15008,7 @@ snapshots:
       '@jest/globals': 29.7.0
       '@types/jest': 29.5.12
       jest: 29.7.0(@types/node@20.14.15)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4))
-      vitest: 2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5)
+      vitest: 2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5)
 
   '@testing-library/jest-dom@6.4.8':
     dependencies:
@@ -15588,7 +15584,7 @@ snapshots:
       pathe: 1.1.2
       sirv: 2.0.4
       tinyrainbow: 1.2.0
-      vitest: 2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5)
+      vitest: 2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5)
 
   '@vitest/utils@1.6.0':
     dependencies:
@@ -18032,13 +18028,6 @@ snapshots:
       wordwrap: 1.0.0
     optionalDependencies:
       uglify-js: 3.19.2
-
-  happy-dom@15.0.0:
-    dependencies:
-      entities: 4.5.0
-      webidl-conversions: 7.0.0
-      whatwg-mimetype: 3.0.0
-    optional: true
 
   harmony-reflect@1.6.2: {}
 
@@ -21199,19 +21188,19 @@ snapshots:
     dependencies:
       prosemirror-model: 1.22.3
       prosemirror-state: 1.4.3
-      prosemirror-transform: 1.10.0
+      prosemirror-transform: 1.9.0
 
   prosemirror-history@1.4.1:
     dependencies:
       prosemirror-state: 1.4.3
-      prosemirror-transform: 1.10.0
-      prosemirror-view: 1.34.1
+      prosemirror-transform: 1.9.0
+      prosemirror-view: 1.33.9
       rope-sequence: 1.3.4
 
   prosemirror-inputrules@1.4.0:
     dependencies:
       prosemirror-state: 1.4.3
-      prosemirror-transform: 1.10.0
+      prosemirror-transform: 1.9.0
 
   prosemirror-keymap@1.2.2:
     dependencies:
@@ -21230,15 +21219,15 @@ snapshots:
     dependencies:
       prosemirror-model: 1.22.3
       prosemirror-state: 1.4.3
-      prosemirror-transform: 1.10.0
+      prosemirror-transform: 1.9.0
 
   prosemirror-state@1.4.3:
     dependencies:
       prosemirror-model: 1.22.3
-      prosemirror-transform: 1.10.0
-      prosemirror-view: 1.34.1
+      prosemirror-transform: 1.9.0
+      prosemirror-view: 1.33.9
 
-  prosemirror-transform@1.10.0:
+  prosemirror-transform@1.9.0:
     dependencies:
       prosemirror-model: 1.22.3
 
@@ -21247,11 +21236,11 @@ snapshots:
       prosemirror-model: 1.22.3
       prosemirror-state: 1.4.3
 
-  prosemirror-view@1.34.1:
+  prosemirror-view@1.33.9:
     dependencies:
       prosemirror-model: 1.22.3
       prosemirror-state: 1.4.3
-      prosemirror-transform: 1.10.0
+      prosemirror-transform: 1.9.0
 
   proxy-addr@2.0.7:
     dependencies:
@@ -23164,7 +23153,7 @@ snapshots:
       stylus: 0.62.0
       terser: 5.31.5
 
-  vitest-axe@0.1.0(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5)):
+  vitest-axe@0.1.0(vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5)):
     dependencies:
       aria-query: 5.3.0
       axe-core: 4.10.0
@@ -23172,9 +23161,9 @@ snapshots:
       dom-accessibility-api: 0.5.16
       lodash-es: 4.17.21
       redent: 3.0.0
-      vitest: 2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5)
+      vitest: 2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5)
 
-  vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(happy-dom@15.0.0)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5):
+  vitest@2.0.5(@types/node@20.14.15)(@vitest/ui@2.0.5)(jsdom@25.0.0)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5):
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@vitest/expect': 2.0.5
@@ -23198,7 +23187,6 @@ snapshots:
     optionalDependencies:
       '@types/node': 20.14.15
       '@vitest/ui': 2.0.5(vitest@2.0.5)
-      happy-dom: 15.0.0
       jsdom: 25.0.0
     transitivePeerDependencies:
       - less
