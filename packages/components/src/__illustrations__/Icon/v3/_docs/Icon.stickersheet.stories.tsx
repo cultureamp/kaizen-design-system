@@ -21,10 +21,6 @@ const StickerSheetTemplate: StickerSheetStory = {
       isPresentational: true,
     } satisfies IconProps
 
-    const sizes = ["small", "medium", "large", "inherit"] satisfies Array<
-      IconProps["size"]
-    >
-
     return (
       <>
         <StickerSheet heading="Icon" isReversed={isReversed}>
@@ -34,18 +30,6 @@ const StickerSheetTemplate: StickerSheetStory = {
               <Icon {...defaultProps} />
               <Icon {...defaultProps} isFilled />
               <Icon {...defaultProps} isFilled className="text-yellow-500" />
-            </StickerSheet.Row>
-          </StickerSheet.Body>
-        </StickerSheet>
-
-        <StickerSheet heading="Sizes" isReversed={isReversed}>
-          <StickerSheet.Header headings={[...sizes, "custom"]} />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              {sizes.map(size => (
-                <Icon key={size} {...defaultProps} size={size} />
-              ))}
-              <Icon {...defaultProps} className="text-heading-1" />
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>
