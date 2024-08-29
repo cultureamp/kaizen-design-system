@@ -1,4 +1,4 @@
-import React, { useState, FocusEvent } from "react"
+import React, { useState } from "react"
 import { screen, waitFor, within, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FilterDatePickerField, FilterDatePickerFieldProps } from "."
@@ -72,7 +72,7 @@ describe("<FilterDatePickerField />", () => {
 
     describe("onBlur", () => {
       it("updates date input and calendar values correctly on blur", async () => {
-        const inputDateOnBlur = vi.fn<void, [FocusEvent]>()
+        const inputDateOnBlur = vi.fn()
 
         render(
           <FilterDatePickerFieldWrapper
