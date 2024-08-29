@@ -1,13 +1,13 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import * as ICONS from "~components/Icon"
 import { Text } from "~components/Text"
 import { Tag } from "~components/__future__/Tag"
+import * as ICONS from "~components/__illustrations__/v1"
 import { AddIcon } from "../index"
-import styles from "./icon.module.scss"
+import styles from "./Icon.stories.module.scss"
 
 const meta = {
-  title: "Components/Icons",
+  title: "Illustrations/Icon/Icon (v1)",
   component: AddIcon,
   args: {
     role: "presentation",

@@ -1,0 +1,5 @@
+{
+  "main": "../../dist/cjs/illustrationsV2.cjs",
+  "module": "../../dist/esm/illustrationsV2.mjs",
+  "types": "../../dist/types/__illustrations__/v2.d.ts"
+}

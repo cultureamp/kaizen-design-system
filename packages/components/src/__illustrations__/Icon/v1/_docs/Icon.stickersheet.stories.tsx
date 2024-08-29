@@ -1,13 +1,13 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import * as ICONS from "~components/Icon"
+import * as ICONS from "~components/__illustrations__/v1"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 
 export default {
-  title: "Components/Icons",
+  title: "Illustrations/Icon/Icon (v1)",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
