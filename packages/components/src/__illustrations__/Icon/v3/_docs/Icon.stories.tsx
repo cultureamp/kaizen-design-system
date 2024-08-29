@@ -12,13 +12,9 @@ const meta = {
     isPresentational: true,
   },
   argTypes: {
-    name: { type: "string" },
     alt: {
-      // Manually add the control as the prop disappears due to being a discriminated union
-      type: "string",
       description: "Set this value when `isPresentational={false}`",
     },
-    className: { type: "string" },
   },
 } satisfies Meta<typeof Icon>
 
