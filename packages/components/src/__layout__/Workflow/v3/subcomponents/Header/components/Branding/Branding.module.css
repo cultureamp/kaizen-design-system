@@ -1,0 +1,15 @@
+.branding {
+  justify-content: center;
+  grid-area: branding;
+  display: flex;
+  flex-grow: 1;
+  padding-top: var(--spacing-4);
+
+  @media (width >= 768px) {
+    justify-content: unset;
+  }
+}
+
+.logo {
+  flex-basis: 7.5rem;
+}
