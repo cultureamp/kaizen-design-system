@@ -2,7 +2,7 @@ import "../../packages/components/styles/global.css"
 import "highlight.js/styles/a11y-light.css"
 import "./preview.css"
 
-import React, { useEffect, useRef } from "react"
+import React, { useEffect } from "react"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
 // eslint-disable-next-line import/no-extraneous-dependencies
