@@ -9,13 +9,3 @@ export const KaioComponent = (): JSX.Element => <Pancakes topping="jam"/>;
 /* eslint-enable react/jsx-curly-brace-presence */
 "
 `;
-
-exports[`transformSource updates the value of Pancakes topping to jam 1`] = `
-"import * as React from "react";
-// @ts-ignore
-import { Pancakes } from "@kaizen/components";
-/* eslint-disable react/jsx-curly-brace-presence */
-export const KaioComponent = (): JSX.Element => <Pancakes topping="jam"/>;
-/* eslint-enable react/jsx-curly-brace-presence */
-"
-`;

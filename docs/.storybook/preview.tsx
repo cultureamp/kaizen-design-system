@@ -52,36 +52,9 @@ const KaizenProviderDecorator = (Story): JSX.Element => (
   </KaizenProvider>
 )
 
-const HeightDecorator = (Story, context) => {
-  const rootRef = useRef<HTMLDivElement>(null)
-  const height = context?.parameters?.height as string | undefined
-
-  // when height is specified, we create a specific scrollable rootRef for the story
-  if (height != null) {
-    return (
-      <div ref={rootRef} style={{ height, overflow: "auto" }}>
-        <Story {...context} args={{ ...context.args, rootRef }} />
-      </div>
-    )
-  }
-
-  // when chromatic takes the screenshot, use the story as the rootRef to avoid accidental IntersectionObserver issues
-  if (isChromatic()) {
-    return (
-      <div ref={rootRef}>
-        <Story {...context} args={{ ...context.args, rootRef }} />
-      </div>
-    )
-  }
-
-  // for normal stories, rootRef will be `undefined`, causing it to fallback to `body`
-  return <Story {...context} args={{ ...context.args }} />
-}
-
 const decorators: Preview["decorators"] = [
   RACDecorator,
   KaizenProviderDecorator,
-  HeightDecorator,
   (Story, context) =>
     (context.args.isReversed || context.args.reversed) && !IS_CHROMATIC ? (
       <div className="p-16 m-[-1rem]">
