@@ -27,6 +27,7 @@ export type TypographyFont = {
   lineHeight: KaizenCSSProperties["lineHeight"]
   letterSpacing: KaizenCSSProperties["letterSpacing"]
   maxWidth?: KaizenCSSProperties["maxWidth"]
+  default: Omit<TypographyFont, "default">
 }
 
 export type TokenStructure = {

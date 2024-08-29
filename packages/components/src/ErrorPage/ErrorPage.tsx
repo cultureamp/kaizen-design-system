@@ -53,6 +53,20 @@ export const ErrorPage = ({
           <>
             <div className={styles.paragraphPadding}>
               <Text variant="intro-lede">{message || content.message}</Text>
+              <p className="text-paragraph font-family-paragraph">
+                (Tailwind) Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Suspendisse eget tristique eros, at vulputate quam. Fusce
+                id orci facilisis, tincidunt sapien a, ornare orci. In ultricies
+                pellentesque ligula, egestas hendrerit diam feugiat non. Quisque
+                ac turpis massa.
+              </p>
+              <p className="text-paragraph font-family-paragraph">
+                (Tailwind) Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Suspendisse eget tristique eros, at vulputate quam. Fusce
+                id orci facilisis, tincidunt sapien a, ornare orci. In ultricies
+                pellentesque ligula, egestas hendrerit diam feugiat non. Quisque
+                ac turpis massa.
+              </p>
             </div>
             <Text color="dark-reduced-opacity" variant="small">
               <FormattedMessage

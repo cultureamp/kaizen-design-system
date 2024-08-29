@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { ToastNotificationsList } from "~components/Notification"
 import { ToastNotificationProvider } from "~components/Notification/ToastNotification/context/ToastNotificationContext"
+import { AccessibilitySettingsProvider } from "./subcomponents/AccessibilitySettingsProvider/AccessibilitySettingsProvider"
 import { FontDefinitions } from "./subcomponents/FontDefinitions"
 import { OptionalIntlProvider } from "./subcomponents/OptionalIntlProvider"
 
@@ -26,13 +27,15 @@ export const KaizenProvider = ({
   }, [documentIsAvailable])
 
   return (
-    <OptionalIntlProvider locale={locale}>
-      <ToastNotificationProvider>
-        {notificationsList}
-        {children}
-      </ToastNotificationProvider>
-      <FontDefinitions />
-    </OptionalIntlProvider>
+    <AccessibilitySettingsProvider>
+      <OptionalIntlProvider locale={locale}>
+        <ToastNotificationProvider>
+          {notificationsList}
+          {children}
+        </ToastNotificationProvider>
+        <FontDefinitions />
+      </OptionalIntlProvider>
+    </AccessibilitySettingsProvider>
   )
 }
 

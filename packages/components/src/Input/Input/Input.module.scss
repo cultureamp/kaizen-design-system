@@ -70,6 +70,7 @@ $input-with-icon-padding: calc(
 
 .input:focus + .focusRing {
   $focus-ring-offset: 3px;
+  z-index: -10;
 
   position: absolute;
   background: transparent;

@@ -1,0 +1,11 @@
+.dialog {
+  padding: 24px 12px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  /* border-left: 2px solid var(--color-gray-600); */
+  box-shadow: var(--shadow-large-box-shadow);
+  background: white;
+  width: 300px;
+}

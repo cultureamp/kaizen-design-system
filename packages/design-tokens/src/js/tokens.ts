@@ -182,6 +182,13 @@ export const tokens: TokenStructure = {
       fontSize: "5.25rem",
       lineHeight: "5.25rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 700,
+        fontSize: "5.25rem",
+        lineHeight: "5.25rem",
+        letterSpacing: "normal",
+      },
     },
     dataLargeUnits: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -189,6 +196,13 @@ export const tokens: TokenStructure = {
       fontSize: "2.625rem",
       lineHeight: "5.25rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 700,
+        fontSize: "2.625rem",
+        lineHeight: "5.25rem",
+        letterSpacing: "normal",
+      },
     },
     dataMedium: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -196,6 +210,13 @@ export const tokens: TokenStructure = {
       fontSize: "3rem",
       lineHeight: "5rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 700,
+        fontSize: "3rem",
+        lineHeight: "5rem",
+        letterSpacing: "normal",
+      },
     },
     dataMediumUnits: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -203,6 +224,13 @@ export const tokens: TokenStructure = {
       fontSize: "1.5rem",
       lineHeight: "5rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 700,
+        fontSize: "1.5rem",
+        lineHeight: "5rem",
+        letterSpacing: "normal",
+      },
     },
     dataSmall: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -210,6 +238,13 @@ export const tokens: TokenStructure = {
       fontSize: "1.5rem",
       lineHeight: "1.5rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 700,
+        fontSize: "1.5rem",
+        lineHeight: "1.5rem",
+        letterSpacing: "normal",
+      },
     },
     dataSmallUnits: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -217,6 +252,13 @@ export const tokens: TokenStructure = {
       fontSize: "1.125rem",
       lineHeight: "1.5rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 700,
+        fontSize: "1.125rem",
+        lineHeight: "1.5rem",
+        letterSpacing: "normal",
+      },
     },
     display0: {
       fontFamily: '"Tiempos Headline", Georgia, serif',
@@ -224,6 +266,13 @@ export const tokens: TokenStructure = {
       fontSize: "4.5rem",
       lineHeight: "5.25rem",
       letterSpacing: "0em",
+      default: {
+        fontFamily: '"Tiempos Headline", Georgia, serif',
+        fontWeight: 800,
+        fontSize: "4.5rem",
+        lineHeight: "5.25rem",
+        letterSpacing: "0em",
+      },
     },
     heading1: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -231,6 +280,13 @@ export const tokens: TokenStructure = {
       fontSize: "2.125rem",
       lineHeight: "2.625rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 500,
+        fontSize: "2.125rem",
+        lineHeight: "2.625rem",
+        letterSpacing: "normal",
+      },
     },
     heading2: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -238,6 +294,13 @@ export const tokens: TokenStructure = {
       fontSize: "1.75rem",
       lineHeight: "2.25rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 600,
+        fontSize: "1.75rem",
+        lineHeight: "2.25rem",
+        letterSpacing: "normal",
+      },
     },
     heading3: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -245,6 +308,13 @@ export const tokens: TokenStructure = {
       fontSize: "1.375rem",
       lineHeight: "1.875rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 600,
+        fontSize: "1.375rem",
+        lineHeight: "1.875rem",
+        letterSpacing: "normal",
+      },
     },
     heading4: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -252,6 +322,13 @@ export const tokens: TokenStructure = {
       fontSize: "1.125rem",
       lineHeight: "1.5rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 600,
+        fontSize: "1.125rem",
+        lineHeight: "1.5rem",
+        letterSpacing: "normal",
+      },
     },
     heading5: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -259,6 +336,13 @@ export const tokens: TokenStructure = {
       fontSize: "1rem",
       lineHeight: "1.5rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 600,
+        fontSize: "1rem",
+        lineHeight: "1.5rem",
+        letterSpacing: "normal",
+      },
     },
     heading6: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -266,6 +350,13 @@ export const tokens: TokenStructure = {
       fontSize: "0.875rem",
       lineHeight: "1.5rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 600,
+        fontSize: "0.875rem",
+        lineHeight: "1.5rem",
+        letterSpacing: "normal",
+      },
     },
     paragraphIntroLede: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -274,6 +365,14 @@ export const tokens: TokenStructure = {
       lineHeight: "1.875rem",
       letterSpacing: "0",
       maxWidth: "975px",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 400,
+        fontSize: "1.25rem",
+        lineHeight: "1.875rem",
+        letterSpacing: "0",
+        maxWidth: "975px",
+      },
     },
     paragraphBody: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -282,6 +381,14 @@ export const tokens: TokenStructure = {
       lineHeight: "1.5rem",
       letterSpacing: "normal",
       maxWidth: "780px",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 400,
+        fontSize: "1rem",
+        lineHeight: "1.5rem",
+        letterSpacing: "normal",
+        maxWidth: "780px",
+      },
     },
     paragraphSmall: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -290,6 +397,14 @@ export const tokens: TokenStructure = {
       lineHeight: "1.125rem",
       letterSpacing: "normal",
       maxWidth: "680px",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 400,
+        fontSize: "0.875rem",
+        lineHeight: "1.125rem",
+        letterSpacing: "normal",
+        maxWidth: "680px",
+      },
     },
     paragraphExtraSmall: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -298,6 +413,14 @@ export const tokens: TokenStructure = {
       lineHeight: "1.125rem",
       letterSpacing: "normal",
       maxWidth: "600px",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 400,
+        fontSize: "0.75rem",
+        lineHeight: "1.125rem",
+        letterSpacing: "normal",
+        maxWidth: "600px",
+      },
     },
     paragraphBold: {
       fontWeight: 600,
@@ -308,6 +431,13 @@ export const tokens: TokenStructure = {
       fontSize: "1.125rem",
       lineHeight: "1.5rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 500,
+        fontSize: "1.125rem",
+        lineHeight: "1.5rem",
+        letterSpacing: "normal",
+      },
     },
     buttonSecondary: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -315,6 +445,13 @@ export const tokens: TokenStructure = {
       fontSize: "1rem",
       lineHeight: "1.5rem",
       letterSpacing: "normal",
+      default: {
+        fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
+        fontWeight: 500,
+        fontSize: "1rem",
+        lineHeight: "1.5rem",
+        letterSpacing: "normal",
+      },
     },
   },
 }

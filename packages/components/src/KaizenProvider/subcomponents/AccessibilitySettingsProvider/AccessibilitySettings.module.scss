@@ -1,0 +1,83 @@
+// :global(*) {
+// background-color: #000 !important;
+// color: #fff !important;
+// border-color: #fff !important;
+// opacity: 1;
+// box-shadow: none;
+
+// :before,
+// :after {
+//   background-color: #000 !important;
+//   color: #fff !important;
+//   border-color: #fff !important;
+// }
+// }
+
+// :root {
+//   --theme-font-color: var(--color-white);
+//   --theme-background-color: var(--color-purple-800);
+//   --theme-border-color: var(--color-white);
+// }
+
+// :global(*) {
+//   color: var(--theme-font-color) !important;
+// }
+
+// :global(div),
+// :global(span),
+// :global(header),
+// :global(footer),
+// :global(th),
+// :global(td),
+// :global(code) {
+//   background: var(--theme-background-color) !important;
+// }
+
+// :global(input),
+// :global(textarea) {
+//   color: var(--theme-font-color) !important;
+//   background: var(--theme-background-color) !important;
+//   border-color: var(--theme-border-color) !important;
+// }
+
+// :global(a[href]),
+// :global(a[href]):hover,
+// :global(a[href]):focus-visible {
+//   color: var(--theme-font-color) !important;
+//   border-color: var(--theme-border-color) !important;
+//   background: var(--theme-background-color) !important;
+// }
+
+// // focus rings
+// :global(button):focus-visible::after,
+// :global(a[href]):focus-visible::after,
+// :global(textarea):focus-visible::after,
+// :global(div[role="textbox"])::after {
+//   border-color: var(--theme-border-color) !important;
+// }
+
+// :global(button),
+// :global(button):hover,
+// :global(button):focus-visible {
+//   border-color: var(--theme-border-color) !important;
+//   color: var(--theme-font-color) !important;
+//   background: var(--theme-background-color) !important;
+// }
+
+// high contrast
+// wildcard or no?
+// :global(h1),
+// :global(h2),
+// :global(h3),
+// :global(h4),
+// :global(h5),
+// :global(h6),
+// :global(abbr),
+// :global(pre),
+// :global(p),
+// :global(p),
+// :global(td),
+// :global(th) {
+// :global(*) {
+//   opacity: 1 !important;
+// }

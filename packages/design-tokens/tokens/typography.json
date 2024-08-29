@@ -10,7 +10,19 @@
       "lineHeight": "var(--typography-data-large-line-height, 5.25rem)",
       "lineHeight-id": "--typography-data-large-line-height",
       "letterSpacing": "var(--typography-data-large-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-data-large-letter-spacing"
+      "letterSpacing-id": "--typography-data-large-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-data-large-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-data-large-default-font-family",
+        "fontWeight": "var(--typography-data-large-default-font-weight, 700)",
+        "fontWeight-id": "--typography-data-large-default-font-weight",
+        "fontSize": "var(--typography-data-large-default-font-size, 5.25rem)",
+        "fontSize-id": "--typography-data-large-default-font-size",
+        "lineHeight": "var(--typography-data-large-default-line-height, 5.25rem)",
+        "lineHeight-id": "--typography-data-large-default-line-height",
+        "letterSpacing": "var(--typography-data-large-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-data-large-default-letter-spacing"
+      }
     },
     "dataLargeUnits": {
       "fontFamily": "var(--typography-data-large-units-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -22,7 +34,19 @@
       "lineHeight": "var(--typography-data-large-units-line-height, 5.25rem)",
       "lineHeight-id": "--typography-data-large-units-line-height",
       "letterSpacing": "var(--typography-data-large-units-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-data-large-units-letter-spacing"
+      "letterSpacing-id": "--typography-data-large-units-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-data-large-units-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-data-large-units-default-font-family",
+        "fontWeight": "var(--typography-data-large-units-default-font-weight, 700)",
+        "fontWeight-id": "--typography-data-large-units-default-font-weight",
+        "fontSize": "var(--typography-data-large-units-default-font-size, 2.625rem)",
+        "fontSize-id": "--typography-data-large-units-default-font-size",
+        "lineHeight": "var(--typography-data-large-units-default-line-height, 5.25rem)",
+        "lineHeight-id": "--typography-data-large-units-default-line-height",
+        "letterSpacing": "var(--typography-data-large-units-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-data-large-units-default-letter-spacing"
+      }
     },
     "dataMedium": {
       "fontFamily": "var(--typography-data-medium-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -34,7 +58,19 @@
       "lineHeight": "var(--typography-data-medium-line-height, 5rem)",
       "lineHeight-id": "--typography-data-medium-line-height",
       "letterSpacing": "var(--typography-data-medium-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-data-medium-letter-spacing"
+      "letterSpacing-id": "--typography-data-medium-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-data-medium-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-data-medium-default-font-family",
+        "fontWeight": "var(--typography-data-medium-default-font-weight, 700)",
+        "fontWeight-id": "--typography-data-medium-default-font-weight",
+        "fontSize": "var(--typography-data-medium-default-font-size, 3rem)",
+        "fontSize-id": "--typography-data-medium-default-font-size",
+        "lineHeight": "var(--typography-data-medium-default-line-height, 5rem)",
+        "lineHeight-id": "--typography-data-medium-default-line-height",
+        "letterSpacing": "var(--typography-data-medium-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-data-medium-default-letter-spacing"
+      }
     },
     "dataMediumUnits": {
       "fontFamily": "var(--typography-data-medium-units-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -46,7 +82,19 @@
       "lineHeight": "var(--typography-data-medium-units-line-height, 5rem)",
       "lineHeight-id": "--typography-data-medium-units-line-height",
       "letterSpacing": "var(--typography-data-medium-units-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-data-medium-units-letter-spacing"
+      "letterSpacing-id": "--typography-data-medium-units-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-data-medium-units-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-data-medium-units-default-font-family",
+        "fontWeight": "var(--typography-data-medium-units-default-font-weight, 700)",
+        "fontWeight-id": "--typography-data-medium-units-default-font-weight",
+        "fontSize": "var(--typography-data-medium-units-default-font-size, 1.5rem)",
+        "fontSize-id": "--typography-data-medium-units-default-font-size",
+        "lineHeight": "var(--typography-data-medium-units-default-line-height, 5rem)",
+        "lineHeight-id": "--typography-data-medium-units-default-line-height",
+        "letterSpacing": "var(--typography-data-medium-units-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-data-medium-units-default-letter-spacing"
+      }
     },
     "dataSmall": {
       "fontFamily": "var(--typography-data-small-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -58,7 +106,19 @@
       "lineHeight": "var(--typography-data-small-line-height, 1.5rem)",
       "lineHeight-id": "--typography-data-small-line-height",
       "letterSpacing": "var(--typography-data-small-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-data-small-letter-spacing"
+      "letterSpacing-id": "--typography-data-small-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-data-small-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-data-small-default-font-family",
+        "fontWeight": "var(--typography-data-small-default-font-weight, 700)",
+        "fontWeight-id": "--typography-data-small-default-font-weight",
+        "fontSize": "var(--typography-data-small-default-font-size, 1.5rem)",
+        "fontSize-id": "--typography-data-small-default-font-size",
+        "lineHeight": "var(--typography-data-small-default-line-height, 1.5rem)",
+        "lineHeight-id": "--typography-data-small-default-line-height",
+        "letterSpacing": "var(--typography-data-small-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-data-small-default-letter-spacing"
+      }
     },
     "dataSmallUnits": {
       "fontFamily": "var(--typography-data-small-units-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -70,7 +130,19 @@
       "lineHeight": "var(--typography-data-small-units-line-height, 1.5rem)",
       "lineHeight-id": "--typography-data-small-units-line-height",
       "letterSpacing": "var(--typography-data-small-units-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-data-small-units-letter-spacing"
+      "letterSpacing-id": "--typography-data-small-units-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-data-small-units-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-data-small-units-default-font-family",
+        "fontWeight": "var(--typography-data-small-units-default-font-weight, 700)",
+        "fontWeight-id": "--typography-data-small-units-default-font-weight",
+        "fontSize": "var(--typography-data-small-units-default-font-size, 1.125rem)",
+        "fontSize-id": "--typography-data-small-units-default-font-size",
+        "lineHeight": "var(--typography-data-small-units-default-line-height, 1.5rem)",
+        "lineHeight-id": "--typography-data-small-units-default-line-height",
+        "letterSpacing": "var(--typography-data-small-units-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-data-small-units-default-letter-spacing"
+      }
     },
     "display0": {
       "fontFamily": "var(--typography-display-0-font-family, \"Tiempos Headline\", Georgia, serif)",
@@ -82,7 +154,19 @@
       "lineHeight": "var(--typography-display-0-line-height, 5.25rem)",
       "lineHeight-id": "--typography-display-0-line-height",
       "letterSpacing": "var(--typography-display-0-letter-spacing, 0em)",
-      "letterSpacing-id": "--typography-display-0-letter-spacing"
+      "letterSpacing-id": "--typography-display-0-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-display-0-default-font-family, \"Tiempos Headline\", Georgia, serif)",
+        "fontFamily-id": "--typography-display-0-default-font-family",
+        "fontWeight": "var(--typography-display-0-default-font-weight, 800)",
+        "fontWeight-id": "--typography-display-0-default-font-weight",
+        "fontSize": "var(--typography-display-0-default-font-size, 4.5rem)",
+        "fontSize-id": "--typography-display-0-default-font-size",
+        "lineHeight": "var(--typography-display-0-default-line-height, 5.25rem)",
+        "lineHeight-id": "--typography-display-0-default-line-height",
+        "letterSpacing": "var(--typography-display-0-default-letter-spacing, 0em)",
+        "letterSpacing-id": "--typography-display-0-default-letter-spacing"
+      }
     },
     "heading1": {
       "fontFamily": "var(--typography-heading-1-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -94,7 +178,19 @@
       "lineHeight": "var(--typography-heading-1-line-height, 2.625rem)",
       "lineHeight-id": "--typography-heading-1-line-height",
       "letterSpacing": "var(--typography-heading-1-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-heading-1-letter-spacing"
+      "letterSpacing-id": "--typography-heading-1-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-heading-1-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-heading-1-default-font-family",
+        "fontWeight": "var(--typography-heading-1-default-font-weight, 500)",
+        "fontWeight-id": "--typography-heading-1-default-font-weight",
+        "fontSize": "var(--typography-heading-1-default-font-size, 2.125rem)",
+        "fontSize-id": "--typography-heading-1-default-font-size",
+        "lineHeight": "var(--typography-heading-1-default-line-height, 2.625rem)",
+        "lineHeight-id": "--typography-heading-1-default-line-height",
+        "letterSpacing": "var(--typography-heading-1-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-heading-1-default-letter-spacing"
+      }
     },
     "heading2": {
       "fontFamily": "var(--typography-heading-2-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -106,7 +202,19 @@
       "lineHeight": "var(--typography-heading-2-line-height, 2.25rem)",
       "lineHeight-id": "--typography-heading-2-line-height",
       "letterSpacing": "var(--typography-heading-2-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-heading-2-letter-spacing"
+      "letterSpacing-id": "--typography-heading-2-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-heading-2-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-heading-2-default-font-family",
+        "fontWeight": "var(--typography-heading-2-default-font-weight, 600)",
+        "fontWeight-id": "--typography-heading-2-default-font-weight",
+        "fontSize": "var(--typography-heading-2-default-font-size, 1.75rem)",
+        "fontSize-id": "--typography-heading-2-default-font-size",
+        "lineHeight": "var(--typography-heading-2-default-line-height, 2.25rem)",
+        "lineHeight-id": "--typography-heading-2-default-line-height",
+        "letterSpacing": "var(--typography-heading-2-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-heading-2-default-letter-spacing"
+      }
     },
     "heading3": {
       "fontFamily": "var(--typography-heading-3-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -118,7 +226,19 @@
       "lineHeight": "var(--typography-heading-3-line-height, 1.875rem)",
       "lineHeight-id": "--typography-heading-3-line-height",
       "letterSpacing": "var(--typography-heading-3-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-heading-3-letter-spacing"
+      "letterSpacing-id": "--typography-heading-3-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-heading-3-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-heading-3-default-font-family",
+        "fontWeight": "var(--typography-heading-3-default-font-weight, 600)",
+        "fontWeight-id": "--typography-heading-3-default-font-weight",
+        "fontSize": "var(--typography-heading-3-default-font-size, 1.375rem)",
+        "fontSize-id": "--typography-heading-3-default-font-size",
+        "lineHeight": "var(--typography-heading-3-default-line-height, 1.875rem)",
+        "lineHeight-id": "--typography-heading-3-default-line-height",
+        "letterSpacing": "var(--typography-heading-3-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-heading-3-default-letter-spacing"
+      }
     },
     "heading4": {
       "fontFamily": "var(--typography-heading-4-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -130,7 +250,19 @@
       "lineHeight": "var(--typography-heading-4-line-height, 1.5rem)",
       "lineHeight-id": "--typography-heading-4-line-height",
       "letterSpacing": "var(--typography-heading-4-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-heading-4-letter-spacing"
+      "letterSpacing-id": "--typography-heading-4-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-heading-4-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-heading-4-default-font-family",
+        "fontWeight": "var(--typography-heading-4-default-font-weight, 600)",
+        "fontWeight-id": "--typography-heading-4-default-font-weight",
+        "fontSize": "var(--typography-heading-4-default-font-size, 1.125rem)",
+        "fontSize-id": "--typography-heading-4-default-font-size",
+        "lineHeight": "var(--typography-heading-4-default-line-height, 1.5rem)",
+        "lineHeight-id": "--typography-heading-4-default-line-height",
+        "letterSpacing": "var(--typography-heading-4-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-heading-4-default-letter-spacing"
+      }
     },
     "heading5": {
       "fontFamily": "var(--typography-heading-5-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -142,7 +274,19 @@
       "lineHeight": "var(--typography-heading-5-line-height, 1.5rem)",
       "lineHeight-id": "--typography-heading-5-line-height",
       "letterSpacing": "var(--typography-heading-5-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-heading-5-letter-spacing"
+      "letterSpacing-id": "--typography-heading-5-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-heading-5-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-heading-5-default-font-family",
+        "fontWeight": "var(--typography-heading-5-default-font-weight, 600)",
+        "fontWeight-id": "--typography-heading-5-default-font-weight",
+        "fontSize": "var(--typography-heading-5-default-font-size, 1rem)",
+        "fontSize-id": "--typography-heading-5-default-font-size",
+        "lineHeight": "var(--typography-heading-5-default-line-height, 1.5rem)",
+        "lineHeight-id": "--typography-heading-5-default-line-height",
+        "letterSpacing": "var(--typography-heading-5-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-heading-5-default-letter-spacing"
+      }
     },
     "heading6": {
       "fontFamily": "var(--typography-heading-6-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -154,7 +298,19 @@
       "lineHeight": "var(--typography-heading-6-line-height, 1.5rem)",
       "lineHeight-id": "--typography-heading-6-line-height",
       "letterSpacing": "var(--typography-heading-6-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-heading-6-letter-spacing"
+      "letterSpacing-id": "--typography-heading-6-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-heading-6-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-heading-6-default-font-family",
+        "fontWeight": "var(--typography-heading-6-default-font-weight, 600)",
+        "fontWeight-id": "--typography-heading-6-default-font-weight",
+        "fontSize": "var(--typography-heading-6-default-font-size, 0.875rem)",
+        "fontSize-id": "--typography-heading-6-default-font-size",
+        "lineHeight": "var(--typography-heading-6-default-line-height, 1.5rem)",
+        "lineHeight-id": "--typography-heading-6-default-line-height",
+        "letterSpacing": "var(--typography-heading-6-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-heading-6-default-letter-spacing"
+      }
     },
     "paragraphIntroLede": {
       "fontFamily": "var(--typography-paragraph-intro-lede-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -168,7 +324,21 @@
       "letterSpacing": "var(--typography-paragraph-intro-lede-letter-spacing, 0)",
       "letterSpacing-id": "--typography-paragraph-intro-lede-letter-spacing",
       "maxWidth": "var(--typography-paragraph-intro-lede-max-width, 975px)",
-      "maxWidth-id": "--typography-paragraph-intro-lede-max-width"
+      "maxWidth-id": "--typography-paragraph-intro-lede-max-width",
+      "default": {
+        "fontFamily": "var(--typography-paragraph-intro-lede-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-paragraph-intro-lede-default-font-family",
+        "fontWeight": "var(--typography-paragraph-intro-lede-default-font-weight, 400)",
+        "fontWeight-id": "--typography-paragraph-intro-lede-default-font-weight",
+        "fontSize": "var(--typography-paragraph-intro-lede-default-font-size, 1.25rem)",
+        "fontSize-id": "--typography-paragraph-intro-lede-default-font-size",
+        "lineHeight": "var(--typography-paragraph-intro-lede-default-line-height, 1.875rem)",
+        "lineHeight-id": "--typography-paragraph-intro-lede-default-line-height",
+        "letterSpacing": "var(--typography-paragraph-intro-lede-default-letter-spacing, 0)",
+        "letterSpacing-id": "--typography-paragraph-intro-lede-default-letter-spacing",
+        "maxWidth": "var(--typography-paragraph-intro-lede-default-max-width, 975px)",
+        "maxWidth-id": "--typography-paragraph-intro-lede-default-max-width"
+      }
     },
     "paragraphBody": {
       "fontFamily": "var(--typography-paragraph-body-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -182,7 +352,21 @@
       "letterSpacing": "var(--typography-paragraph-body-letter-spacing, normal)",
       "letterSpacing-id": "--typography-paragraph-body-letter-spacing",
       "maxWidth": "var(--typography-paragraph-body-max-width, 780px)",
-      "maxWidth-id": "--typography-paragraph-body-max-width"
+      "maxWidth-id": "--typography-paragraph-body-max-width",
+      "default": {
+        "fontFamily": "var(--typography-paragraph-body-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-paragraph-body-default-font-family",
+        "fontWeight": "var(--typography-paragraph-body-default-font-weight, 400)",
+        "fontWeight-id": "--typography-paragraph-body-default-font-weight",
+        "fontSize": "var(--typography-paragraph-body-default-font-size, 1rem)",
+        "fontSize-id": "--typography-paragraph-body-default-font-size",
+        "lineHeight": "var(--typography-paragraph-body-default-line-height, 1.5rem)",
+        "lineHeight-id": "--typography-paragraph-body-default-line-height",
+        "letterSpacing": "var(--typography-paragraph-body-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-paragraph-body-default-letter-spacing",
+        "maxWidth": "var(--typography-paragraph-body-default-max-width, 780px)",
+        "maxWidth-id": "--typography-paragraph-body-default-max-width"
+      }
     },
     "paragraphSmall": {
       "fontFamily": "var(--typography-paragraph-small-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -196,7 +380,21 @@
       "letterSpacing": "var(--typography-paragraph-small-letter-spacing, normal)",
       "letterSpacing-id": "--typography-paragraph-small-letter-spacing",
       "maxWidth": "var(--typography-paragraph-small-max-width, 680px)",
-      "maxWidth-id": "--typography-paragraph-small-max-width"
+      "maxWidth-id": "--typography-paragraph-small-max-width",
+      "default": {
+        "fontFamily": "var(--typography-paragraph-small-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-paragraph-small-default-font-family",
+        "fontWeight": "var(--typography-paragraph-small-default-font-weight, 400)",
+        "fontWeight-id": "--typography-paragraph-small-default-font-weight",
+        "fontSize": "var(--typography-paragraph-small-default-font-size, 0.875rem)",
+        "fontSize-id": "--typography-paragraph-small-default-font-size",
+        "lineHeight": "var(--typography-paragraph-small-default-line-height, 1.125rem)",
+        "lineHeight-id": "--typography-paragraph-small-default-line-height",
+        "letterSpacing": "var(--typography-paragraph-small-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-paragraph-small-default-letter-spacing",
+        "maxWidth": "var(--typography-paragraph-small-default-max-width, 680px)",
+        "maxWidth-id": "--typography-paragraph-small-default-max-width"
+      }
     },
     "paragraphExtraSmall": {
       "fontFamily": "var(--typography-paragraph-extra-small-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -210,7 +408,21 @@
       "letterSpacing": "var(--typography-paragraph-extra-small-letter-spacing, normal)",
       "letterSpacing-id": "--typography-paragraph-extra-small-letter-spacing",
       "maxWidth": "var(--typography-paragraph-extra-small-max-width, 600px)",
-      "maxWidth-id": "--typography-paragraph-extra-small-max-width"
+      "maxWidth-id": "--typography-paragraph-extra-small-max-width",
+      "default": {
+        "fontFamily": "var(--typography-paragraph-extra-small-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-paragraph-extra-small-default-font-family",
+        "fontWeight": "var(--typography-paragraph-extra-small-default-font-weight, 400)",
+        "fontWeight-id": "--typography-paragraph-extra-small-default-font-weight",
+        "fontSize": "var(--typography-paragraph-extra-small-default-font-size, 0.75rem)",
+        "fontSize-id": "--typography-paragraph-extra-small-default-font-size",
+        "lineHeight": "var(--typography-paragraph-extra-small-default-line-height, 1.125rem)",
+        "lineHeight-id": "--typography-paragraph-extra-small-default-line-height",
+        "letterSpacing": "var(--typography-paragraph-extra-small-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-paragraph-extra-small-default-letter-spacing",
+        "maxWidth": "var(--typography-paragraph-extra-small-default-max-width, 600px)",
+        "maxWidth-id": "--typography-paragraph-extra-small-default-max-width"
+      }
     },
     "paragraphBold": {
       "fontWeight": "var(--typography-paragraph-bold-font-weight, 600)",
@@ -226,7 +438,19 @@
       "lineHeight": "var(--typography-button-primary-line-height, 1.5rem)",
       "lineHeight-id": "--typography-button-primary-line-height",
       "letterSpacing": "var(--typography-button-primary-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-button-primary-letter-spacing"
+      "letterSpacing-id": "--typography-button-primary-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-button-primary-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-button-primary-default-font-family",
+        "fontWeight": "var(--typography-button-primary-default-font-weight, 500)",
+        "fontWeight-id": "--typography-button-primary-default-font-weight",
+        "fontSize": "var(--typography-button-primary-default-font-size, 1.125rem)",
+        "fontSize-id": "--typography-button-primary-default-font-size",
+        "lineHeight": "var(--typography-button-primary-default-line-height, 1.5rem)",
+        "lineHeight-id": "--typography-button-primary-default-line-height",
+        "letterSpacing": "var(--typography-button-primary-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-button-primary-default-letter-spacing"
+      }
     },
     "buttonSecondary": {
       "fontFamily": "var(--typography-button-secondary-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -238,7 +462,19 @@
       "lineHeight": "var(--typography-button-secondary-line-height, 1.5rem)",
       "lineHeight-id": "--typography-button-secondary-line-height",
       "letterSpacing": "var(--typography-button-secondary-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-button-secondary-letter-spacing"
+      "letterSpacing-id": "--typography-button-secondary-letter-spacing",
+      "default": {
+        "fontFamily": "var(--typography-button-secondary-default-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
+        "fontFamily-id": "--typography-button-secondary-default-font-family",
+        "fontWeight": "var(--typography-button-secondary-default-font-weight, 500)",
+        "fontWeight-id": "--typography-button-secondary-default-font-weight",
+        "fontSize": "var(--typography-button-secondary-default-font-size, 1rem)",
+        "fontSize-id": "--typography-button-secondary-default-font-size",
+        "lineHeight": "var(--typography-button-secondary-default-line-height, 1.5rem)",
+        "lineHeight-id": "--typography-button-secondary-default-line-height",
+        "letterSpacing": "var(--typography-button-secondary-default-letter-spacing, normal)",
+        "letterSpacing-id": "--typography-button-secondary-default-letter-spacing"
+      }
     }
   }
 }
