@@ -1,6 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { InlineNotification } from "~components/Notification"
-import { KAIOInstallation, ResourceLinks } from "~storybook/components"
+import { Installation, ResourceLinks } from "~storybook/components"
 import * as WorkflowHeaderStories from "./WorkflowHeader.stories"
 
 <Meta of={WorkflowHeaderStories} />
@@ -14,12 +13,10 @@ import * as WorkflowHeaderStories from "./WorkflowHeader.stories"
 
 />
 
-<InlineNotification type="negative" persistent>
-  {`This version of the Workflow is deprecated and will be removed in the next major release.
-  Import from "@kaizen/components/future" for the latest version.`}
-</InlineNotification>
-
-<KAIOInstallation exportNames="Workflow" />
+<Installation
+  installCommand="pnpm add @kaizen/components"
+  importStatement='import { Workflow } from "@kaizen/components/v1/layout"'
+/>
 
 ## Overview
 

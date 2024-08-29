@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { KAIOInstallation, KaioLegacyDocsNotification, ResourceLinks } from "~storybook/components"
+import { Installation, ResourceLinks } from "~storybook/components"
 import * as WorkflowHeaderStories from "./WorkflowHeader.stories"
 
 <Meta of={WorkflowHeaderStories} />
@@ -13,10 +13,10 @@ import * as WorkflowHeaderStories from "./WorkflowHeader.stories"
 
 />
 
-
-<KaioLegacyDocsNotification version="1.16.0" />
-
-<KAIOInstallation exportNames="WorkflowHeader" isFuture />
+<Installation
+  installCommand="pnpm add @kaizen/components"
+  importStatement='import { Workflow } from "@kaizen/components/v2/layout"'
+/>
 
 ## Overview
 
