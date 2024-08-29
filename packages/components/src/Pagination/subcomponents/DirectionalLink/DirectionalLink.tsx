@@ -4,7 +4,7 @@ import {
   ArrowForwardIcon,
   EndIcon,
   StartIcon,
-} from "~components/Icon"
+} from "~components/__illustrations__/v1"
 import {
   GenericButton,
   GenericProps,

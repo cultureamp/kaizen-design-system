@@ -1,6 +1,6 @@
 import React from "react"
 import classnames from "classnames"
-import { DateStartIcon } from "~components/Icon"
+import { DateStartIcon } from "~components/__illustrations__/v1"
 import { isRefObject } from "~components/utils/isRefObject"
 import { DateInput, DateInputProps } from "../DateInput"
 import styles from "./DateInputWithIconButton.module.scss"

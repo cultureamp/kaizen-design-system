@@ -1,5 +1,5 @@
 import React from "react"
-import { CloseIcon } from "~components/Icon/CloseIcon"
+import { CloseIcon } from "~components/__illustrations__/v1"
 import styles from "../GenericNotification/GenericNotification.module.scss"
 
 type CancelButtonProps = {

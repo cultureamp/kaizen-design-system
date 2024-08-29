@@ -7,7 +7,7 @@ import {
   TrashIcon,
   ThumbsUpOffIcon,
   ThumbsUpOnIcon,
-} from "~components/Icon"
+} from "~components/__illustrations__/v1"
 import { Tooltip, TooltipTrigger } from "~components/__overlays__/v3"
 import { Button } from "../index"
 

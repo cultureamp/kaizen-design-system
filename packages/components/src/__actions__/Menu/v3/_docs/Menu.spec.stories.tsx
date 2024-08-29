@@ -12,7 +12,7 @@ import {
   ExternalLinkIcon,
   MeatballsIcon,
   TrashIcon,
-} from "~components/Icon"
+} from "~components/__illustrations__/v1"
 import { Button } from "~components/__actions__/v3"
 import { Menu, MenuItem, MenuTrigger } from "../index"
 

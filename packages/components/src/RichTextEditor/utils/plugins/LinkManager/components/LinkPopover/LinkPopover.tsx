@@ -1,5 +1,5 @@
 import React from "react"
-import { EditIcon, ExternalLinkIcon, RemoveLinkIcon } from "~components/Icon"
+import { EditIcon, ExternalLinkIcon, RemoveLinkIcon } from "~components/__illustrations__/v1"
 import { usePopover } from "~components/Popover"
 import { Text } from "~components/Text"
 import { SelectionPosition } from "../../types"

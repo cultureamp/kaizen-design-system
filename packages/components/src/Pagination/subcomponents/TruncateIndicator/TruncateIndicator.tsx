@@ -1,5 +1,5 @@
 import React from "react"
-import { EllipsisIcon } from "~components/Icon"
+import { EllipsisIcon } from "~components/__illustrations__/v1"
 import styles from "./TruncateIndicator.module.scss"
 
 export const TruncateIndicator = (): JSX.Element => (

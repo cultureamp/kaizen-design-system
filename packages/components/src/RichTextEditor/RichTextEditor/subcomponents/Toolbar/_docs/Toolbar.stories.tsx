@@ -6,7 +6,7 @@ import {
   ItalicsIcon,
   NumberedListIcon,
   UnderlineIcon,
-} from "~components/Icon"
+} from "~components/__illustrations__/v1"
 import { ToggleIconButton } from "../../ToggleIconButton"
 import { ToolbarSection } from "../../ToolbarSection"
 import { Toolbar } from "../index"

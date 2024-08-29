@@ -1,7 +1,7 @@
 import React from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
 import classnames from "classnames"
-import { ChevronDownIcon } from "~components/Icon"
+import { ChevronDownIcon } from "~components/__illustrations__/v1"
 import { BaseButton, BaseButtonProps } from "../BaseButton"
 import styles from "./DropdownButton.module.scss"
 

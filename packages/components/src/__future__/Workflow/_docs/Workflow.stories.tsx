@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { CloseIcon, VisibleIcon } from "~components/Icon"
+import { CloseIcon, VisibleIcon } from "~components/__illustrations__/v1"
 import { TextField } from "~components/TextField"
 import { Button } from "~components/__actions__/v2"
 import { Workflow } from "../"

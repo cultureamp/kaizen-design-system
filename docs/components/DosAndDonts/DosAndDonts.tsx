@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Canvas } from "@storybook/blocks"
 import classnames from "classnames"
-import { CheckIcon, CloseIcon } from "~components/Icon"
+import { CheckIcon, CloseIcon } from "~components/__illustrations__/v1"
 import { SbContent } from "../SbContent"
 
 export const DosAndDonts = ({

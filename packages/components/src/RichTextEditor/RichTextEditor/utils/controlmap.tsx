@@ -8,7 +8,7 @@ import {
   ItalicsIcon,
   NumberedListIcon,
   UnderlineIcon,
-} from "~components/Icon"
+} from "~components/__illustrations__/v1"
 import { ToolbarItems, ToolbarControlTypes } from "../../types"
 import { listIsActive, markIsActive } from "../../utils/commands"
 import {

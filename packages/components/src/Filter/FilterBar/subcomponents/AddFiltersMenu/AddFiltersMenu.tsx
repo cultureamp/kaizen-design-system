@@ -1,6 +1,6 @@
 import React from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
-import { AddIcon } from "~components/Icon"
+import { AddIcon } from "~components/__illustrations__/v1"
 import { Menu, MenuList, MenuItem, Button } from "~components/__actions__/v2"
 import { useFilterBarContext } from "../../context/FilterBarContext"
 

@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
 import { Checkbox } from "~components/Checkbox"
 import { Divider } from "~components/Divider"
-import { EffectivenessIcon } from "~components/Icon"
+import { EffectivenessIcon } from "~components/__illustrations__/v1"
 import { Text } from "~components/Text"
 import {
   TableCard,

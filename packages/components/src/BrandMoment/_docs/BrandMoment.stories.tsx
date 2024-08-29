@@ -6,7 +6,7 @@ import {
   ArrowRightIcon,
   EmailIcon,
   FeedbackClassifyIcon,
-} from "~components/Icon"
+} from "~components/__illustrations__/v1"
 import {
   BrandMomentCaptureIntro,
   BrandMomentPositiveOutro,

@@ -1,7 +1,7 @@
 import React from "react"
 import { Decorator, Meta } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
-import { MeatballsIcon } from "~components/Icon"
+import { MeatballsIcon } from "~components/__illustrations__/v1"
 import { IconButton } from "~components/__actions__/v2"
 import {
   StickerSheet,

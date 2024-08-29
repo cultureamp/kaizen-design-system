@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { ArrowForwardIcon, AddIcon, TrashIcon } from "~components/Icon"
+import { ArrowForwardIcon, AddIcon, TrashIcon } from "~components/__illustrations__/v1"
 import { LoadingSpinner } from "~components/Loading"
 import {
   StickerSheet,

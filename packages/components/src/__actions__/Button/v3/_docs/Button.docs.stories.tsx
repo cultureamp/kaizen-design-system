@@ -1,7 +1,7 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
-import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
+import { ChevronDownIcon, ChevronUpIcon } from "~components/__illustrations__/v1"
 import { Button } from "../index"
 
 const meta = {

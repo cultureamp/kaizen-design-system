@@ -4,7 +4,7 @@ import {
   ExclamationIcon,
   InformationIcon,
   SuccessIcon,
-} from "~components/Icon"
+} from "~components/__illustrations__/v1"
 import styles from "../Popover.module.scss"
 import { PopoverVariant, PopoverSize } from "../types"
 

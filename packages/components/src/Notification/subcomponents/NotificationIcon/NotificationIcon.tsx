@@ -1,13 +1,15 @@
 import React from "react"
-import { CautionIcon } from "~components/Icon/CautionIcon"
-import { ExclamationIcon } from "~components/Icon/ExclamationIcon"
-import { InformationIcon } from "~components/Icon/InformationIcon"
-import { SecurityTipIcon } from "~components/Icon/SecurityTipIcon"
-import { SuccessIcon } from "~components/Icon/SuccessIcon"
 import {
   NotificationType,
   NotificationVariant,
 } from "~components/Notification/types"
+import {
+  CautionIcon,
+  ExclamationIcon,
+  InformationIcon,
+  SecurityTipIcon,
+  SuccessIcon
+} from "~components/__illustrations__/v1"
 
 export type NotificationIconTypeProps = {
   type: NotificationType

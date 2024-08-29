@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Heading } from "~components/Heading"
-import { AddIcon } from "~components/Icon"
+import { AddIcon } from "~components/__illustrations__/v1"
 import { Text } from "~components/Text"
 import { Collapsible } from "../index"
 

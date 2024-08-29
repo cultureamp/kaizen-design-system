@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes } from "react"
 import classnames from "classnames"
-import { ClearIcon } from "~components/Icon"
+import { ClearIcon } from "~components/__illustrations__/v1"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./ClearButton.module.scss"
 

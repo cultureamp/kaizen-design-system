@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icon"
+import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/__illustrations__/v1"
 import { TagColorKeys } from "../types"
 import { Tag } from ".."
 

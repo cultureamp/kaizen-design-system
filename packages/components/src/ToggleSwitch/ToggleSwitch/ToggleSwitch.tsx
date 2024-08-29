@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
-import { CheckIcon } from "~components/Icon"
+import { CheckIcon } from "~components/__illustrations__/v1"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./ToggleSwitch.module.scss"
 

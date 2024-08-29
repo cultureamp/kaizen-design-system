@@ -1,6 +1,6 @@
 import React from "react"
-import { SVG } from "~components/Icon/subcomponents/SVG"
-import type { IconProps } from "~components/Icon/types"
+import { SVG } from "~components/__illustrations__/Icon/v1/subcomponents/SVG"
+import type { IconProps } from "~components/__illustrations__/v1"
 
 export const RemoveTagIcon = (props: IconProps): JSX.Element => {
   const svgContent = (

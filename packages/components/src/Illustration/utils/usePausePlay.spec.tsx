@@ -1,6 +1,6 @@
 import React, { RefObject, act } from "react"
 import { render, renderHook } from "@testing-library/react"
-import { LaunchIcon, PauseIcon } from "~components/Icon"
+import { LaunchIcon, PauseIcon } from "~components/__illustrations__/v1"
 import { usePausePlay, usePausePlayHook } from "./usePausePlay"
 
 describe("usePausePlay()", () => {

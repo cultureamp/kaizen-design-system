@@ -6,7 +6,7 @@ import {
   ExclamationWhiteIcon,
   InformationWhiteIcon,
   SuccessWhiteIcon,
-} from "~components/Icon"
+} from "~components/__illustrations__/v1"
 import {
   Assertive,
   Cautionary,

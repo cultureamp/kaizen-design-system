@@ -1,6 +1,6 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
-import { DuplicateIcon, EditIcon } from "~components/Icon"
+import { DuplicateIcon, EditIcon } from "~components/__illustrations__/v1"
 import { MenuItem, MenuList } from "../"
 
 export const exampleActionButtonPropsButton = {

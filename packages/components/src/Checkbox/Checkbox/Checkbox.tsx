@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
-import { CheckIcon, MinusIcon } from "~components/Icon"
+import { CheckIcon, MinusIcon } from "~components/__illustrations__/v1"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Checkbox.module.scss"
 

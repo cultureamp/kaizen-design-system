@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { DOMAttributes, FocusableElement } from "@react-types/shared"
 import classnames from "classnames"
-import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
+import { ChevronDownIcon, ChevronUpIcon } from "~components/__illustrations__/v1"
 import { Label } from "~components/Label"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./SelectToggle.module.scss"
