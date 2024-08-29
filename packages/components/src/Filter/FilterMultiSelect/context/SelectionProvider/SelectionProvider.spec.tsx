@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { Selection } from "@react-types/shared"
-import { screen, waitFor } from "@testing-library/react"
+import { screen, waitFor, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
+import { vi } from "vitest"
 import { FilterMultiSelect } from "../../FilterMultiSelect"
 import { ListBox } from "../../subcomponents/ListBox"
 import { SearchInput } from "../../subcomponents/SearchInput"
@@ -13,6 +13,7 @@ import {
 } from "../../subcomponents/SelectionControlButton"
 import { ItemType } from "../../types"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
+
 const user = userEvent.setup()
 
 const itemsMock: ItemType[] = [
@@ -103,7 +104,7 @@ describe("<SelectionProvider>", () => {
   describe("<SelectionProviderWrapper /> - Visual content", () => {
     describe("Given no selectedKeys", () => {
       it("shows all the options unselected", async () => {
-        renderWithIntl(<SelectionProviderWrapper />)
+        render(<SelectionProviderWrapper />)
         await waitFor(() => {
           expect(
             screen.getByRole("option", {
@@ -127,7 +128,7 @@ describe("<SelectionProvider>", () => {
       })
 
       it("labels the listbox with the provided label", async () => {
-        renderWithIntl(<SelectionProviderWrapper />)
+        render(<SelectionProviderWrapper />)
         await waitFor(() => {
           const listBox = screen.getByLabelText("selection-label-mock", {
             selector: "ul",
@@ -139,7 +140,7 @@ describe("<SelectionProvider>", () => {
 
     describe("Given selectedKeys is [option-2-value-mock]", () => {
       it("shows only option 2 is selected", async () => {
-        renderWithIntl(
+        render(
           <SelectionProviderWrapper
             selectedKeys={new Set(["option-2-value-mock"])}
           />
@@ -169,7 +170,7 @@ describe("<SelectionProvider>", () => {
 
     describe("Given selectedKeys is 'all'", () => {
       it("shows all options are selected", async () => {
-        renderWithIntl(<SelectionProviderWrapper selectedKeys="all" />)
+        render(<SelectionProviderWrapper selectedKeys="all" />)
         await waitFor(() => {
           expect(
             screen.getByRole("option", {
@@ -196,7 +197,7 @@ describe("<SelectionProvider>", () => {
 
   describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
     it("selects the option when clicks on a non-selected option", async () => {
-      renderWithIntl(<SelectionProviderWrapper />)
+      render(<SelectionProviderWrapper />)
       const option1 = screen.getByRole("option", {
         name: "option-1-label-mock",
       })
@@ -214,8 +215,8 @@ describe("<SelectionProvider>", () => {
     })
 
     it("fires onSelectionChange when clicks on a option", async () => {
-      const spy = jest.fn()
-      renderWithIntl(<SelectionProviderWrapper onSelectionChange={spy} />)
+      const spy = vi.fn()
+      render(<SelectionProviderWrapper onSelectionChange={spy} />)
       const option1 = screen.getByRole("option", {
         name: "option-1-label-mock",
       })
@@ -228,7 +229,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("selects all options when clicks on Select all button", async () => {
-      renderWithIntl(<SelectionProviderWrapper />)
+      render(<SelectionProviderWrapper />)
       const selectAll = screen.getByRole("button", {
         name: "Select all",
       })
@@ -260,8 +261,8 @@ describe("<SelectionProvider>", () => {
     })
 
     it("fires onSelectionChange when clicks on Select all button", async () => {
-      const spy = jest.fn()
-      renderWithIntl(<SelectionProviderWrapper onSelectionChange={spy} />)
+      const spy = vi.fn()
+      render(<SelectionProviderWrapper onSelectionChange={spy} />)
       const selectAll = screen.getByRole("button", {
         name: "Select all",
       })
@@ -274,7 +275,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("clears all the selection when clicks on Clear button", async () => {
-      renderWithIntl(
+      render(
         <SelectionProviderWrapper
           selectedKeys={new Set(["option-2-value-mock"])}
         />
@@ -308,8 +309,8 @@ describe("<SelectionProvider>", () => {
     })
 
     it("fires onSelectionChange when clicks on Clear all button", async () => {
-      const spy = jest.fn()
-      renderWithIntl(
+      const spy = vi.fn()
+      render(
         <SelectionProviderWrapper
           onSelectionChange={spy}
           selectedKeys={new Set(["option-2-value-mock"])}
@@ -327,7 +328,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("de-selects the option when clicks on a selected option", async () => {
-      renderWithIntl(
+      render(
         <SelectionProviderWrapper
           selectedKeys={new Set(["option-2-value-mock"])}
         />
@@ -353,7 +354,7 @@ describe("<SelectionProvider>", () => {
   describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
     describe("Given no selectedKeys", () => {
       it("focuses on the frist option when tabs onto the list", async () => {
-        renderWithIntl(<SelectionProviderWrapper />)
+        render(<SelectionProviderWrapper />)
         await user.tab()
 
         await waitFor(() => {
@@ -366,7 +367,7 @@ describe("<SelectionProvider>", () => {
 
     describe("Given selectedKeys is [option-2-value-mock, option-3-value-mock]", () => {
       it("focuses the frist selected option when tabs onto the list", async () => {
-        renderWithIntl(
+        render(
           <SelectionProviderWrapper
             selectedKeys={new Set(["option-2-value-mock"])}
           />
@@ -382,7 +383,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("moves the focus down when hits arrow down key", async () => {
-      renderWithIntl(<SelectionProviderWrapper />)
+      render(<SelectionProviderWrapper />)
       await user.tab()
       await user.keyboard("{ArrowDown}")
 
@@ -394,7 +395,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("keeps the focus at the last element when hits arrow down key on it", async () => {
-      renderWithIntl(
+      render(
         <SelectionProviderWrapper
           selectedKeys={new Set(["option-3-value-mock"])}
         />
@@ -410,7 +411,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("moves the focus up when hits arrow up key", async () => {
-      renderWithIntl(
+      render(
         <SelectionProviderWrapper
           selectedKeys={new Set(["option-3-value-mock"])}
         />
@@ -426,7 +427,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("keeps the focus ring at the first element when hits arrow up key on it", async () => {
-      renderWithIntl(<SelectionProviderWrapper />)
+      render(<SelectionProviderWrapper />)
       await user.tab()
       await user.keyboard("{ArrowUp}")
 
@@ -438,7 +439,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("selects the option when hits enter on a non-selected option", async () => {
-      renderWithIntl(<SelectionProviderWrapper />)
+      render(<SelectionProviderWrapper />)
 
       await user.tab()
       await user.keyboard("{Enter}")
@@ -454,7 +455,7 @@ describe("<SelectionProvider>", () => {
     })
 
     it("de-selects the option when hits enter on a selected option", async () => {
-      renderWithIntl(
+      render(
         <SelectionProviderWrapper
           selectedKeys={new Set(["option-2-value-mock"])}
         />
@@ -474,8 +475,8 @@ describe("<SelectionProvider>", () => {
     })
 
     it("fires onSelectionChange when hits enter on a option", async () => {
-      const spy = jest.fn()
-      renderWithIntl(<SelectionProviderWrapper onSelectionChange={spy} />)
+      const spy = vi.fn()
+      render(<SelectionProviderWrapper onSelectionChange={spy} />)
 
       await user.tab()
       await user.keyboard("{Enter}")
@@ -489,7 +490,7 @@ describe("<SelectionProvider>", () => {
   describe("<SelectionProviderWrapper /> - Search Filtering", () => {
     describe("With no onSearchInputChange callback", () => {
       it("shows only the matched options", async () => {
-        renderWithIntl(<SelectionProviderWrapper />)
+        render(<SelectionProviderWrapper />)
         const searchInput = screen.getByRole("searchbox")
         await user.type(searchInput, "1")
 
@@ -514,9 +515,9 @@ describe("<SelectionProvider>", () => {
     })
     describe("With a onSearchInputChange callback", () => {
       it("Does not filter the matched options", async () => {
-        const onSearchInputChange = jest.fn()
+        const onSearchInputChange = vi.fn()
 
-        renderWithIntl(
+        render(
           <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
         )
         const searchInput = screen.getByRole("searchbox")
@@ -543,9 +544,9 @@ describe("<SelectionProvider>", () => {
       })
 
       it("Calls back to the consumer with the search text", async () => {
-        const onSearchInputChange = jest.fn()
+        const onSearchInputChange = vi.fn()
 
-        renderWithIntl(
+        render(
           <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
         )
         const searchInput = screen.getByRole("searchbox")
@@ -562,7 +563,7 @@ describe("<SelectionProvider>", () => {
 
   describe("<SelectionProviderWrapper /> - controlling items from the consumer", () => {
     it("renders only items passed", async () => {
-      const { rerender } = renderWithIntl(<SelectionProviderWrapper />)
+      const { rerender } = render(<SelectionProviderWrapper />)
       await waitFor(() => {
         expect(
           screen.getByRole("option", {

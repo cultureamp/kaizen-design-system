@@ -1,9 +1,10 @@
 import React, { useState } from "react"
-import { screen, waitFor, within } from "@testing-library/react"
+import { screen, waitFor, within, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
+import { vi } from "vitest"
 import { DateRange } from "~components/Calendar"
 import { FilterDateRangePickerField, FilterDateRangePickerFieldProps } from "."
+
 const user = userEvent.setup()
 
 const FilterDateRangePickerFieldWrapper = ({
@@ -35,7 +36,7 @@ const waitForI18nContent = async (): Promise<void> => {
 describe("<FilterDateRangePickerField />", () => {
   describe("Inputs", () => {
     it("has empty inputs when a date range is not provided", async () => {
-      renderWithIntl(<FilterDateRangePickerFieldWrapper />)
+      render(<FilterDateRangePickerFieldWrapper />)
       await waitForI18nContent()
 
       const inputStartDate = screen.getByLabelText("Date from")
@@ -45,7 +46,7 @@ describe("<FilterDateRangePickerField />", () => {
     })
 
     it("pre-fills the inputs when date range is provided", async () => {
-      renderWithIntl(
+      render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
             from: new Date("2022-05-01"),
@@ -62,7 +63,7 @@ describe("<FilterDateRangePickerField />", () => {
     })
 
     it("allows customising the input labels", async () => {
-      renderWithIntl(
+      render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
             from: new Date("2022-05-01"),
@@ -83,10 +84,10 @@ describe("<FilterDateRangePickerField />", () => {
 
     describe("onBlur", () => {
       it("updates start date input and calendar values correctly on blur", async () => {
-        const startDateOnBlur = jest.fn()
-        const endDateOnBlur = jest.fn()
+        const startDateOnBlur = vi.fn()
+        const endDateOnBlur = vi.fn()
 
-        renderWithIntl(
+        render(
           <FilterDateRangePickerFieldWrapper
             selectedRange={{
               from: new Date("2022-05-02"),
@@ -125,10 +126,10 @@ describe("<FilterDateRangePickerField />", () => {
       })
 
       it("updates end date input and calendar values correctly on blur", async () => {
-        const startDateOnBlur = jest.fn()
-        const endDateOnBlur = jest.fn()
+        const startDateOnBlur = vi.fn()
+        const endDateOnBlur = vi.fn()
 
-        renderWithIntl(
+        render(
           <FilterDateRangePickerFieldWrapper
             selectedRange={{
               from: new Date("2022-05-01"),
@@ -168,7 +169,7 @@ describe("<FilterDateRangePickerField />", () => {
     })
 
     it("updates the calendar month to match the new start date input", async () => {
-      renderWithIntl(
+      render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
             from: new Date("2022-05-02"),
@@ -199,7 +200,7 @@ describe("<FilterDateRangePickerField />", () => {
 
   describe("Calendar", () => {
     it("shows the default month as the start month when there isn't a selected value", async () => {
-      renderWithIntl(
+      render(
         <FilterDateRangePickerFieldWrapper
           defaultMonth={new Date("2022-05-02")}
         />
@@ -210,7 +211,7 @@ describe("<FilterDateRangePickerField />", () => {
     })
 
     it("shows the selected start date month as the start month when provided", async () => {
-      renderWithIntl(
+      render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
             from: new Date("2022-05-01"),
@@ -224,7 +225,7 @@ describe("<FilterDateRangePickerField />", () => {
     })
 
     it("shows the current month as the start month when selected start date is invalid", async () => {
-      renderWithIntl(
+      render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
             from: new Date("potato"),
@@ -241,7 +242,7 @@ describe("<FilterDateRangePickerField />", () => {
     })
 
     it("updates the range start input when changing the start date", async () => {
-      renderWithIntl(
+      render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
             from: new Date("2022-05-15"),
@@ -268,7 +269,7 @@ describe("<FilterDateRangePickerField />", () => {
     })
 
     it("updates the range end input when changing the end date", async () => {
-      renderWithIntl(
+      render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
             from: new Date("2022-05-15"),
@@ -295,7 +296,7 @@ describe("<FilterDateRangePickerField />", () => {
     })
 
     it("clears the inputs when clearing the calendar value", async () => {
-      renderWithIntl(
+      render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
             from: new Date("2022-05-15"),
@@ -331,7 +332,7 @@ describe("<FilterDateRangePickerField />", () => {
 
     describe("Custom validation", () => {
       it("shows validation messages passed in from the consumer", async () => {
-        renderWithIntl(
+        render(
           <FilterDateRangePickerFieldWrapper
             onValidate={{
               dateStart: (): void => undefined,
@@ -358,7 +359,7 @@ describe("<FilterDateRangePickerField />", () => {
 
     describe("Inbuilt validation", () => {
       it("shows inbuilt validation messages for start date", async () => {
-        const { container } = renderWithIntl(
+        const { container } = render(
           <FilterDateRangePickerFieldWrapper
             inputStartDateProps={{ labelText: "Start date" }}
           />
@@ -384,7 +385,7 @@ describe("<FilterDateRangePickerField />", () => {
       })
 
       it("shows inbuilt validation messages for end date", async () => {
-        const { container } = renderWithIntl(
+        const { container } = render(
           <FilterDateRangePickerFieldWrapper
             inputEndDateProps={{ labelText: "End date" }}
           />
@@ -407,7 +408,7 @@ describe("<FilterDateRangePickerField />", () => {
       })
 
       it("shows inbuilt validation messages for pre-existing values", async () => {
-        const { container } = renderWithIntl(
+        const { container } = render(
           <FilterDateRangePickerFieldWrapper
             selectedRange={{
               from: new Date("2022-05-15"),
@@ -435,7 +436,7 @@ describe("<FilterDateRangePickerField />", () => {
           'Date to:Cannot be earlier than the selection in "Date from"'
 
         it("shows error on updating end date input to be before start date", async () => {
-          const { container } = renderWithIntl(
+          const { container } = render(
             <FilterDateRangePickerFieldWrapper
               selectedRange={{
                 from: new Date("2022-05-15"),
@@ -461,7 +462,7 @@ describe("<FilterDateRangePickerField />", () => {
         })
 
         it("removes error on updating start date input to be before end date", async () => {
-          const { container } = renderWithIntl(
+          const { container } = render(
             <FilterDateRangePickerFieldWrapper
               selectedRange={{
                 from: new Date("2022-05-15"),
@@ -507,7 +508,7 @@ describe("<FilterDateRangePickerField />", () => {
         })
 
         it("displays only one date when the start date input is set to be before the end date", async () => {
-          const { container } = renderWithIntl(
+          const { container } = render(
             <FilterDateRangePickerFieldWrapper
               selectedRange={{
                 from: new Date("2022-05-15"),
@@ -538,7 +539,7 @@ describe("<FilterDateRangePickerField />", () => {
         })
 
         it("shows error on updating start date input to be after end date", async () => {
-          const { container } = renderWithIntl(
+          const { container } = render(
             <FilterDateRangePickerFieldWrapper
               selectedRange={{
                 from: new Date("2022-05-15"),
@@ -565,7 +566,7 @@ describe("<FilterDateRangePickerField />", () => {
         })
 
         it("shows error if the pre-existing end date is before start date", async () => {
-          const { container } = renderWithIntl(
+          const { container } = render(
             <FilterDateRangePickerFieldWrapper
               selectedRange={{
                 from: new Date("2022-05-15"),
@@ -587,7 +588,7 @@ describe("<FilterDateRangePickerField />", () => {
 
     describe("Combined validation", () => {
       it("shows custom start date validation with inbuilt end date validation", async () => {
-        const { container } = renderWithIntl(
+        const { container } = render(
           <FilterDateRangePickerFieldWrapper
             onValidate={{
               dateStart: (): void => undefined,
@@ -620,7 +621,7 @@ describe("<FilterDateRangePickerField />", () => {
       })
 
       it("shows custom end date validation with inbuilt start date validation", async () => {
-        const { container } = renderWithIntl(
+        const { container } = render(
           <FilterDateRangePickerFieldWrapper
             onValidate={{
               dateEnd: (): void => undefined,
@@ -655,7 +656,7 @@ describe("<FilterDateRangePickerField />", () => {
     })
 
     it("re-validates values when selecting a value using the calendar", async () => {
-      const { container } = renderWithIntl(
+      const { container } = render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
             from: new Date("2022-05-10"),
@@ -686,9 +687,9 @@ describe("<FilterDateRangePickerField />", () => {
   })
 
   it("only returns a valid date to the onRangeChange function", async () => {
-    const onRangeChange = jest.fn()
+    const onRangeChange = vi.fn()
 
-    const { getByLabelText } = renderWithIntl(
+    const { getByLabelText } = render(
       <FilterDateRangePickerFieldWrapper
         selectedRange={{
           from: new Date("2022-05-10"),

@@ -1,6 +1,5 @@
 import { act } from "react"
-import { waitFor, renderHook } from "@testing-library/react"
-import { renderWithIntl } from "~tests"
+import { waitFor, renderHook, render } from "@testing-library/react"
 import { useEndDateValidation } from "./useEndDateValidation"
 
 describe("useEndDateValidation()", () => {
@@ -25,9 +24,7 @@ describe("useEndDateValidation()", () => {
 
       expect(result.current.validationMessage?.status).toBe("error")
 
-      const { container } = renderWithIntl(
-        result.current.validationMessage?.message
-      )
+      const { container } = render(result.current.validationMessage?.message)
       await waitFor(() => {
         expect(container).toHaveTextContent(
           "End date:potato is an invalid date"
@@ -57,9 +54,7 @@ describe("useEndDateValidation()", () => {
 
       expect(result.current.validationMessage?.status).toBe("error")
 
-      const { container } = renderWithIntl(
-        result.current.validationMessage?.message
-      )
+      const { container } = render(result.current.validationMessage?.message)
       await waitFor(() => {
         expect(container).toHaveTextContent(
           'Cannot be earlier than the selection in "Start date"'

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { waitFor, screen } from "@testing-library/react"
+import { waitFor, screen, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
+import { vi } from "vitest"
 import {
   FilterAttributes,
   FilterBarProvider,
@@ -11,6 +11,7 @@ import {
 } from "~components/Filter/FilterBar"
 import { SelectOption } from "~components/Filter/FilterSelect"
 import { FilterBarSelect, FilterBarSelectProps } from "./FilterBarSelect"
+
 const user = userEvent.setup()
 
 type Values = {
@@ -66,7 +67,7 @@ const FilterBarSelectWrapper = <ValuesMap extends FiltersValues = Values>({
 
 describe("<FilterBarSelect />", () => {
   it("shows the name in the trigger button", async () => {
-    renderWithIntl(<FilterBarSelectWrapper />)
+    render(<FilterBarSelectWrapper />)
     await waitFor(() => {
       const triggerButton = screen.getByRole("button", { name: "Flavour" })
       expect(triggerButton).toBeInTheDocument()
@@ -75,7 +76,7 @@ describe("<FilterBarSelect />", () => {
 
   describe("Removable", () => {
     it("does not show the remove button when isRemovable is false", async () => {
-      renderWithIntl(<FilterBarSelectWrapper />)
+      render(<FilterBarSelectWrapper />)
       await waitFor(() => {
         expect(
           screen.getByRole("button", { name: "Flavour" })
@@ -87,7 +88,7 @@ describe("<FilterBarSelect />", () => {
     })
 
     it("shows the remove button when isRemovable is true", async () => {
-      renderWithIntl(
+      render(
         <FilterBarSelectWrapper
           filterAttributes={{ isRemovable: true }}
           defaultValues={{ flavour: "jasmine-milk-tea" }}
@@ -102,9 +103,7 @@ describe("<FilterBarSelect />", () => {
   })
 
   it("can toggle its open state", async () => {
-    const { getByRole, queryByRole } = renderWithIntl(
-      <FilterBarSelectWrapper />
-    )
+    const { getByRole, queryByRole } = render(<FilterBarSelectWrapper />)
     const triggerButton = getByRole("button", { name: "Flavour" })
 
     await user.click(triggerButton)
@@ -121,7 +120,7 @@ describe("<FilterBarSelect />", () => {
   })
 
   it("shows a selected value when provided", async () => {
-    const { getByRole } = renderWithIntl(
+    const { getByRole } = render(
       <FilterBarSelectWrapper defaultValues={{ flavour: "jasmine-milk-tea" }} />
     )
     await waitFor(() => {
@@ -133,7 +132,7 @@ describe("<FilterBarSelect />", () => {
   })
 
   it("updates the selected value in the trigger button", async () => {
-    const { getByRole } = renderWithIntl(
+    const { getByRole } = render(
       <FilterBarSelectWrapper defaultValues={{ flavour: "jasmine-milk-tea" }} />
     )
     const triggerButton = getByRole("button", {
@@ -155,8 +154,8 @@ describe("<FilterBarSelect />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = jest.fn()
-    const { getByRole } = renderWithIntl(
+    const onChange = vi.fn()
+    const { getByRole } = render(
       <FilterBarSelectWrapper onSelectionChange={onChange} />
     )
     const triggerButton = getByRole("button", { name: "Flavour" })
@@ -207,7 +206,7 @@ describe("<FilterBarSelect />", () => {
       return <FilterBarSelect id="topping" items={items} />
     }
 
-    const { getByRole, getAllByRole, getByTestId } = renderWithIntl(
+    const { getByRole, getAllByRole, getByTestId } = render(
       <FilterBarSelectWrapper<ValuesDependent>
         additionalFilters={[
           {

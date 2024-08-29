@@ -2,14 +2,16 @@ import React, { act } from "react"
 import { fireEvent, waitFor } from "@testing-library/dom"
 import { render } from "@testing-library/react"
 import ReactTestUtils from "react-dom/test-utils"
+import { vi } from "vitest"
 import { GenericNotification } from "./GenericNotification"
+
 describe("<GenericNotification />", () => {
   afterEach(() => {
-    jest.runAllTimers()
+    vi.runAllTimers()
   })
 
   beforeEach(() => {
-    jest.useFakeTimers()
+    vi.useFakeTimers()
   })
 
   it('begins "hidden" but transitions out of it immediately', async () => {
@@ -24,7 +26,7 @@ describe("<GenericNotification />", () => {
     })
 
     await act(async () => {
-      jest.advanceTimersByTime(50)
+      vi.advanceTimersByTime(50)
     })
 
     await waitFor(() => {
@@ -33,7 +35,7 @@ describe("<GenericNotification />", () => {
   })
 
   it("hides the notification and triggers the onHide callback when the cancel button is clicked", async () => {
-    const onHide = jest.fn()
+    const onHide = vi.fn()
     const { container, getByTestId } = render(
       <GenericNotification
         type="positive"

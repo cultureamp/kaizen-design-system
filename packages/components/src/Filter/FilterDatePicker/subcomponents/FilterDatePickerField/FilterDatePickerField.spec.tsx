@@ -1,12 +1,11 @@
 import React, { useState, FocusEvent } from "react"
-import { screen, waitFor, within } from "@testing-library/react"
+import { screen, waitFor, within, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
 import { FilterDatePickerField, FilterDatePickerFieldProps } from "."
 
 const user = userEvent.setup()
 
-const inputDateOnSubmit = jest.fn<void, [Date | undefined]>()
+const inputDateOnSubmit = vi.fn()
 
 const FilterDatePickerFieldWrapper = ({
   selectedDate,
@@ -36,19 +35,19 @@ const waitForI18nContent = async (): Promise<void> => {
 
 describe("<FilterDatePickerField />", () => {
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   describe("Inputs", () => {
     it("has empty inputs when a date is not provided", async () => {
-      renderWithIntl(<FilterDatePickerFieldWrapper />)
+      render(<FilterDatePickerFieldWrapper />)
       await waitForI18nContent()
       const inputDate = screen.getByLabelText("Date")
       expect(inputDate).toHaveValue("")
     })
 
     it("pre-fills the inputs when date is provided", async () => {
-      renderWithIntl(
+      render(
         <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-01")} />
       )
       await waitForI18nContent()
@@ -57,7 +56,7 @@ describe("<FilterDatePickerField />", () => {
     })
 
     it("allows customising the input labels", async () => {
-      renderWithIntl(
+      render(
         <FilterDatePickerFieldWrapper
           selectedDate={new Date("2022-05-01")}
           inputProps={{
@@ -73,9 +72,9 @@ describe("<FilterDatePickerField />", () => {
 
     describe("onBlur", () => {
       it("updates date input and calendar values correctly on blur", async () => {
-        const inputDateOnBlur = jest.fn<void, [FocusEvent]>()
+        const inputDateOnBlur = vi.fn<void, [FocusEvent]>()
 
-        renderWithIntl(
+        render(
           <FilterDatePickerFieldWrapper
             selectedDate={new Date("2022-05-02")}
             onBlur={inputDateOnBlur}
@@ -108,7 +107,7 @@ describe("<FilterDatePickerField />", () => {
 
     describe("Press Enter key", () => {
       it("updates calendar values and calls submit when the date is valid", async () => {
-        renderWithIntl(
+        render(
           <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-02")} />
         )
         await waitForI18nContent()
@@ -134,7 +133,7 @@ describe("<FilterDatePickerField />", () => {
       })
 
       it("does not call submit when the date is invalid", async () => {
-        renderWithIntl(
+        render(
           <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-02")} />
         )
         await waitForI18nContent()
@@ -152,7 +151,7 @@ describe("<FilterDatePickerField />", () => {
     })
 
     it("updates the calendar month to match the new start date input", async () => {
-      renderWithIntl(
+      render(
         <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-02")} />
       )
       await waitForI18nContent()
@@ -175,7 +174,7 @@ describe("<FilterDatePickerField />", () => {
 
   describe("Calendar", () => {
     it("shows the default month as the start month when there isn't a selected value", async () => {
-      renderWithIntl(
+      render(
         <FilterDatePickerFieldWrapper defaultMonth={new Date("2022-05-02")} />
       )
       await waitForI18nContent()
@@ -183,7 +182,7 @@ describe("<FilterDatePickerField />", () => {
     })
 
     it("shows the selected start date month as the start month when provided", async () => {
-      renderWithIntl(
+      render(
         <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-01")} />
       )
       await waitForI18nContent()
@@ -191,9 +190,7 @@ describe("<FilterDatePickerField />", () => {
     })
 
     it("shows the current month as the start month when selected date is invalid", async () => {
-      renderWithIntl(
-        <FilterDatePickerFieldWrapper selectedDate={new Date("potato")} />
-      )
+      render(<FilterDatePickerFieldWrapper selectedDate={new Date("potato")} />)
       await waitForI18nContent()
       const currentMonth = new Date().toLocaleDateString("en-AU", {
         month: "long",
@@ -203,7 +200,7 @@ describe("<FilterDatePickerField />", () => {
     })
 
     it("calls the onDateSubmit when selecting a date", async () => {
-      renderWithIntl(
+      render(
         <FilterDatePickerFieldWrapper defaultMonth={new Date("2022-05-01")} />
       )
       const targetMonth = screen.getByRole("grid", { name: "May 2022" })
@@ -218,7 +215,7 @@ describe("<FilterDatePickerField />", () => {
     })
 
     it("updates the input when changing the date", async () => {
-      renderWithIntl(
+      render(
         <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-15")} />
       )
       await waitForI18nContent()
@@ -240,7 +237,7 @@ describe("<FilterDatePickerField />", () => {
     })
 
     it("clears the inputs when clearing the calendar value", async () => {
-      renderWithIntl(
+      render(
         <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-15")} />
       )
       await waitForI18nContent()
@@ -266,7 +263,7 @@ describe("<FilterDatePickerField />", () => {
 
     describe("Custom validation", () => {
       it("shows validation messages passed in from the consumer", async () => {
-        renderWithIntl(
+        render(
           <FilterDatePickerFieldWrapper
             onValidate={(): void => undefined}
             validationMessage={{
@@ -282,7 +279,7 @@ describe("<FilterDatePickerField />", () => {
 
     describe("Inbuilt validation", () => {
       it("shows inbuilt validation messages", async () => {
-        const { container } = renderWithIntl(<FilterDatePickerFieldWrapper />)
+        const { container } = render(<FilterDatePickerFieldWrapper />)
         await waitForI18nContent()
 
         const inputDate = screen.getByLabelText("Date")
@@ -301,7 +298,7 @@ describe("<FilterDatePickerField />", () => {
       })
 
       it("shows inbuilt validation messages for pre-existing values", async () => {
-        const { container } = renderWithIntl(
+        const { container } = render(
           <FilterDatePickerFieldWrapper
             selectedDate={new Date("2022-05-15")}
             disabledDays={[new Date("2022-05-15")]}
@@ -317,9 +314,7 @@ describe("<FilterDatePickerField />", () => {
     })
 
     it("does not call onDateSubmit when the input value is invalid", async () => {
-      const { getByLabelText } = renderWithIntl(
-        <FilterDatePickerFieldWrapper />
-      )
+      const { getByLabelText } = render(<FilterDatePickerFieldWrapper />)
       await waitForI18nContent()
 
       const inputDate = getByLabelText("Date")
@@ -333,7 +328,7 @@ describe("<FilterDatePickerField />", () => {
     })
 
     it("re-validates values when selecting a value using the calendar", async () => {
-      const { container } = renderWithIntl(
+      const { container } = render(
         <FilterDatePickerFieldWrapper
           selectedDate={new Date("potato")}
           defaultMonth={new Date("2022-05-01")}

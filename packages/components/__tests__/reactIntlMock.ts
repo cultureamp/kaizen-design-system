@@ -19,6 +19,8 @@ export const reactIntlMock = (): any => {
   }))
 
   vi.mock("@cultureamp/i18n-react-intl", () => ({
+    StaticIntlProvider: ({ children }: { children: React.ReactNode }) =>
+      children,
     useIntl: () => ({
       formatMessage: (message: MessageDescriptor, values: any) =>
         values

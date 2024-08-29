@@ -1,5 +1,4 @@
-import { waitFor, screen } from "@testing-library/react"
-import { renderWithIntl } from "~tests"
+import { waitFor, screen, render } from "@testing-library/react"
 import { validateDate } from "./validateDate"
 
 describe("validateDate()", () => {
@@ -41,7 +40,7 @@ describe("validateDate()", () => {
 
     expect(validationMessage?.status).toBe("error")
 
-    renderWithIntl(validationMessage?.message)
+    render(validationMessage?.message)
     await waitFor(() => {
       expect(screen.getByText("Date is invalid")).toBeVisible()
     })
@@ -67,7 +66,7 @@ describe("validateDate()", () => {
 
     expect(validationMessage?.status).toBe("error")
 
-    renderWithIntl(validationMessage?.message)
+    render(validationMessage?.message)
     await waitFor(() => {
       expect(screen.getByText("Date is invalid")).toBeVisible()
     })
@@ -93,7 +92,7 @@ describe("validateDate()", () => {
 
     expect(validationMessage?.status).toBe("error")
 
-    renderWithIntl(validationMessage?.message)
+    render(validationMessage?.message)
     await waitFor(() => {
       expect(screen.getByText("potato is an invalid date")).toBeVisible()
     })
@@ -124,7 +123,7 @@ describe("validateDate()", () => {
 
     expect(validationMessage?.status).toBe("error")
 
-    renderWithIntl(validationMessage?.message)
+    render(validationMessage?.message)
     await waitFor(() => {
       expect(
         screen.getByText("03/01/2022 is not available, try another date")

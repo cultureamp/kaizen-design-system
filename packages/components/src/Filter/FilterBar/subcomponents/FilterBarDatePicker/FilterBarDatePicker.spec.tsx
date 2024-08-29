@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { screen, waitFor, within } from "@testing-library/react"
+import { screen, waitFor, within, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
+import { vi } from "vitest"
 import {
   FilterAttributes,
   FilterBarProvider,
@@ -10,6 +10,7 @@ import {
   FilterBarDatePicker,
   FilterBarDatePickerProps,
 } from "./FilterBarDatePicker"
+
 const user = userEvent.setup()
 
 type Values = {
@@ -57,7 +58,7 @@ const FilterBarDatePickerWrapper = ({
 
 describe("<FilterBarDatePicker />", () => {
   it("shows the name in the trigger button", async () => {
-    renderWithIntl(<FilterBarDatePickerWrapper />)
+    render(<FilterBarDatePickerWrapper />)
     await waitFor(() => {
       const triggerButton = screen.getByRole("button", { name: "Drank" })
       expect(triggerButton).toBeInTheDocument()
@@ -66,7 +67,7 @@ describe("<FilterBarDatePicker />", () => {
 
   describe("Removable", () => {
     it("does not show the remove button when isRemovable is false", async () => {
-      renderWithIntl(<FilterBarDatePickerWrapper />)
+      render(<FilterBarDatePickerWrapper />)
       await waitFor(() => {
         expect(
           screen.getByRole("button", { name: "Drank" })
@@ -78,7 +79,7 @@ describe("<FilterBarDatePicker />", () => {
     })
 
     it("shows the remove button when isRemovable is true", async () => {
-      renderWithIntl(
+      render(
         <FilterBarDatePickerWrapper
           filterAttributes={{ isRemovable: true }}
           defaultValues={{ drank: new Date("2023-05-01") }}
@@ -93,9 +94,7 @@ describe("<FilterBarDatePicker />", () => {
   })
 
   it("can toggle its open state", async () => {
-    const { getByRole, queryByRole } = renderWithIntl(
-      <FilterBarDatePickerWrapper />
-    )
+    const { getByRole, queryByRole } = render(<FilterBarDatePickerWrapper />)
     const triggerButton = getByRole("button", { name: "Drank" })
 
     await user.click(triggerButton)
@@ -112,7 +111,7 @@ describe("<FilterBarDatePicker />", () => {
   })
 
   it("shows a selected value when provided", async () => {
-    const { getByRole } = renderWithIntl(
+    const { getByRole } = render(
       <FilterBarDatePickerWrapper
         defaultValues={{ drank: new Date("2023-06-06") }}
       />
@@ -126,7 +125,7 @@ describe("<FilterBarDatePicker />", () => {
   })
 
   it("updates the selected value in the trigger button when selecting a date", async () => {
-    renderWithIntl(
+    render(
       <FilterBarDatePickerWrapper
         defaultValues={{ drank: new Date("2023-06-06") }}
       />
@@ -155,8 +154,8 @@ describe("<FilterBarDatePicker />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = jest.fn()
-    renderWithIntl(<FilterBarDatePickerWrapper onDateChange={onChange} />)
+    const onChange = vi.fn()
+    render(<FilterBarDatePickerWrapper onDateChange={onChange} />)
 
     const triggerButton = screen.getByRole("button", { name: "Drank" })
     await user.click(triggerButton)

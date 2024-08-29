@@ -1,6 +1,5 @@
 import React from "react"
-import { screen, waitFor } from "@testing-library/react"
-import { renderWithIntl } from "~tests"
+import { screen, waitFor, render } from "@testing-library/react"
 import { DropdownButton, DropdownButtonProps } from "./DropdownButton"
 
 const DropdownButtonWrapper = (
@@ -9,7 +8,7 @@ const DropdownButtonWrapper = (
 
 describe("<DropdownButton />", () => {
   it("renders icon with default aria-label", async () => {
-    renderWithIntl(<DropdownButtonWrapper />)
+    render(<DropdownButtonWrapper />)
     await waitFor(() => {
       const button = screen.getByRole("button", { name: "Additional actions" })
       expect(button.getAttribute("aria-label")).toBe("Additional actions")
@@ -18,7 +17,7 @@ describe("<DropdownButton />", () => {
   })
 
   it("renders custom aria-label", async () => {
-    renderWithIntl(<DropdownButtonWrapper aria-label="Custom aria label" />)
+    render(<DropdownButtonWrapper aria-label="Custom aria label" />)
     await waitFor(() => {
       const button = screen.getByRole("button", { name: "Custom aria label" })
       expect(button.getAttribute("aria-label")).toBe("Custom aria label")

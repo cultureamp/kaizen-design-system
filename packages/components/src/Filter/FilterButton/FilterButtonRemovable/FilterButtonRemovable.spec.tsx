@@ -1,12 +1,12 @@
 import React, { useRef } from "react"
-import { screen, waitFor } from "@testing-library/react"
+import { screen, waitFor, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
 import {
   FilterButtonRemovable,
   FilterButtonRemovableProps,
   FilterButtonRemovableRefs,
 } from "."
+
 const user = userEvent.setup()
 
 const FilterButtonRemovableWrapper = ({
@@ -28,7 +28,7 @@ const FilterButtonRemovableWrapper = ({
 
 describe("<FilterButtonRemovable />", () => {
   it("should use fallback label for remove button if not specified", async () => {
-    renderWithIntl(<FilterButtonRemovableWrapper />)
+    render(<FilterButtonRemovableWrapper />)
     await waitFor(() => {
       expect(
         screen.getByRole("button", { name: "Remove filter - Desserts" })
@@ -71,7 +71,7 @@ describe("<FilterButtonRemovable />", () => {
         )
       }
 
-      renderWithIntl(<Wrapper />)
+      render(<Wrapper />)
 
       await user.click(screen.getByText("Click me"))
       expect(onClick).toHaveBeenCalledWith(
