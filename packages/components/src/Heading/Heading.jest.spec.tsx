@@ -1,6 +1,6 @@
 import * as React from "react"
 import { render } from "@testing-library/react"
-import { AllowedHeadingTags, Heading, HeadingVariants } from "./"
+import { AllowedHeadingTags, Heading, HeadingVariants } from "."
 
 describe("<Heading />", () => {
   it("renders the correct classes", () => {

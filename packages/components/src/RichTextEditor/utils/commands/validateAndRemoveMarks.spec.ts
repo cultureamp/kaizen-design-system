@@ -1,10 +1,10 @@
 import { findByText, waitFor } from "@testing-library/dom"
+import { vi } from "vitest"
 import { createRichTextEditor } from "../core"
 import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
 import { validateAndRemoveMarks } from "./validateAndRemoveMarks"
-
 describe("validateAndRemoveMarks()", () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
 
   it("removes all Marks of the given type that fail the validator method", async () => {
@@ -16,7 +16,7 @@ describe("validateAndRemoveMarks()", () => {
       initialEditorState: testEditorStateWithMarks,
     })
     // The current mockData will always return true so using the mock to represent bad attributes
-    const failingValidatorMethod = jest.fn().mockImplementation(() => false)
+    const failingValidatorMethod = vi.fn().mockImplementation(() => false)
 
     expect(node.querySelectorAll("a").length).toBeGreaterThan(0)
 

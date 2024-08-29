@@ -1,16 +1,16 @@
 import React, { RefObject, act } from "react"
 import { render, renderHook } from "@testing-library/react"
+import { vi } from "vitest"
 import { LaunchIcon, PauseIcon } from "~components/Icon"
 import { usePausePlay, usePausePlayHook } from "./usePausePlay"
-
 describe("usePausePlay()", () => {
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   let hookResult: usePausePlayHook
-  const mockPause = jest.fn()
-  const mockPlay = jest.fn()
+  const mockPause = vi.fn()
+  const mockPlay = vi.fn()
 
   describe("when toggling a currently playing video", () => {
     beforeEach(() => {

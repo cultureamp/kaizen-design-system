@@ -1,8 +1,8 @@
 import React, { useRef } from "react"
-import { screen, waitFor } from "@testing-library/react"
+import { screen, waitFor, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { enAU } from "date-fns/locale"
-import { renderWithIntl } from "~tests"
+import { vi } from "vitest"
 import {
   DateRangeInputField,
   DateRangeInputFieldProps,
@@ -25,9 +25,7 @@ const DateRangeInputFieldWrapper = (
 
 describe("<DateRangeInputField />", () => {
   it("has unique ids for both inputs", async () => {
-    const { container } = renderWithIntl(
-      <DateRangeInputFieldWrapper id="range" />
-    )
+    const { container } = render(<DateRangeInputFieldWrapper id="range" />)
     const inputStart = container.querySelector("#range--from")
     const inputEnd = container.querySelector("#range--to")
     await waitFor(() => {
@@ -37,14 +35,14 @@ describe("<DateRangeInputField />", () => {
   })
 
   it("has an accessible name for the fieldset", async () => {
-    renderWithIntl(<DateRangeInputFieldWrapper />)
+    render(<DateRangeInputFieldWrapper />)
     await waitFor(() => {
       expect(screen.getByRole("group", { name: "Dates" })).toBeVisible()
     })
   })
 
   it("adds description to both inputs", async () => {
-    renderWithIntl(<DateRangeInputFieldWrapper />)
+    render(<DateRangeInputFieldWrapper />)
     const inputStart = screen.getByRole("textbox", { name: "Date from" })
     const inputEnd = screen.getByRole("textbox", { name: "Date to" })
     await waitFor(() => {
@@ -56,7 +54,7 @@ describe("<DateRangeInputField />", () => {
   })
 
   it("adds validation message to description if it exists", async () => {
-    renderWithIntl(
+    render(
       <DateRangeInputFieldWrapper
         validationMessage={{
           dateStart: {
@@ -77,7 +75,7 @@ describe("<DateRangeInputField />", () => {
 
   describe("Disabled", () => {
     it("disables both inputs", async () => {
-      renderWithIntl(<DateRangeInputFieldWrapper disabled />)
+      render(<DateRangeInputFieldWrapper disabled />)
       const inputStart = screen.getByRole("textbox", { name: "Date from" })
       const inputEnd = screen.getByRole("textbox", { name: "Date to" })
       await waitFor(() => {
@@ -89,7 +87,7 @@ describe("<DateRangeInputField />", () => {
 
   describe("Refs", () => {
     it("correctly passes through both input refs", async () => {
-      const onButtonClick = jest.fn()
+      const onButtonClick = vi.fn()
 
       const Wrapper = (): JSX.Element => {
         const inputStartDateRef = useRef<HTMLInputElement>(null)
@@ -119,7 +117,7 @@ describe("<DateRangeInputField />", () => {
         )
       }
 
-      renderWithIntl(<Wrapper />)
+      render(<Wrapper />)
 
       await user.click(screen.getByText("Click me"))
       expect(onButtonClick).toHaveBeenCalledWith(

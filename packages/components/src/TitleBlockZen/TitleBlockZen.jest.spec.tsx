@@ -1,11 +1,25 @@
 import React from "react"
 import { render, waitFor, screen, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { mockMatchMedia } from "~components/utils/useMediaQueries.spec"
 import { CustomBreadcrumbProps, SectionTitleRenderProps } from "./types"
 import { TitleBlockZen } from "./index"
-
 const user = userEvent.setup()
+
+const mockMatchMedia = (matches: boolean = false): void => {
+  Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    value: jest.fn().mockImplementation(query => ({
+      matches,
+      media: query,
+      onchange: null,
+      addListener: jest.fn(), // Deprecated
+      removeListener: jest.fn(), // Deprecated
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    })),
+  })
+}
 
 describe("<TitleBlockZen />", () => {
   beforeEach(() => {

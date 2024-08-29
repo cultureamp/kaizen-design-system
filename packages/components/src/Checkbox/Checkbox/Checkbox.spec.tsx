@@ -1,9 +1,9 @@
 import React from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { CheckboxProps } from "./Checkbox"
 import { Checkbox } from "."
-
 const user = userEvent.setup()
 
 const defaultProps = {
@@ -11,7 +11,7 @@ const defaultProps = {
   checkedStatus: "off",
   disabled: false,
   name: "someCheckboxName",
-  onCheck: jest.fn(),
+  onCheck: vi.fn(),
 } satisfies CheckboxProps
 
 describe("<Checkbox />", () => {

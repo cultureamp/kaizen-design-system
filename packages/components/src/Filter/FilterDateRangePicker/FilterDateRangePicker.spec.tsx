@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
 import { DateRange } from "~components/Calendar"
 import { FilterButton } from "~components/Filter/FilterButton"
 import { FilterDateRangePicker, FilterDateRangePickerProps } from "./index"
@@ -82,7 +81,7 @@ describe("<FilterDateRangePicker />", () => {
     })
 
     it("should show the calendar when the filter button is clicked", async () => {
-      const { queryByRole, getByRole, getByText } = renderWithIntl(
+      const { queryByRole, getByRole, getByText } = render(
         <FilterDateRangePickerWrapper defaultMonth={new Date("2022-05-01")} />
       )
       expect(queryByRole("dialog")).not.toBeInTheDocument()
@@ -96,7 +95,7 @@ describe("<FilterDateRangePicker />", () => {
     })
 
     it("should not show a date range in the button if the selected range is not valid", async () => {
-      const { getByRole, getByLabelText } = renderWithIntl(
+      const { getByRole, getByLabelText } = render(
         <FilterDateRangePickerWrapper
           selectedRange={{ from: new Date("2022-05-01") }}
         />

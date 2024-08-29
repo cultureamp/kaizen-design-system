@@ -1,11 +1,11 @@
 import React from "react"
 import { render } from "@testing-library/react"
+import { vi } from "vitest"
 import { RichTextContentProps } from "../RichTextContent"
 import { EditableRichTextContent } from "./EditableRichTextContent"
+const mockFn = vi.fn()
 
-const mockFn = jest.fn()
-
-jest.mock("../RichTextContent", () => ({
+vi.mock("../RichTextContent", () => ({
   __esModule: true,
   RichTextContent: (props: RichTextContentProps): JSX.Element => {
     mockFn(props)
@@ -26,7 +26,7 @@ describe("Content props are passed", () => {
       <EditableRichTextContent
         content={content}
         labelText=""
-        onClick={jest.fn()}
+        onClick={vi.fn()}
         contentProps={{ id: "sampleId" }}
       />
     )

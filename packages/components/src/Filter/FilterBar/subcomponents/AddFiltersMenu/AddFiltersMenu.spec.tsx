@@ -1,7 +1,6 @@
 import React from "react"
-import { waitFor, screen } from "@testing-library/react"
+import { waitFor, screen, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
 import {
   FilterBarProvider,
   FilterBarProviderProps,
@@ -53,7 +52,7 @@ describe("<AddFiltersMenu />", () => {
       },
     ] satisfies Filters<Values>
 
-    renderWithIntl(<AddFiltersMenuWrapper filters={filters} />)
+    render(<AddFiltersMenuWrapper filters={filters} />)
 
     await waitFor(() => {
       expect(screen.getByRole("button", { name: "Add Filters" })).toBeVisible()
@@ -80,7 +79,7 @@ describe("<AddFiltersMenu />", () => {
       },
     ] satisfies Filters<Values>
 
-    renderWithIntl(<AddFiltersMenuWrapper filters={filters} />)
+    render(<AddFiltersMenuWrapper filters={filters} />)
 
     await waitFor(() => {
       const addFiltersButton = screen.getByRole("button", {

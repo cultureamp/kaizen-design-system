@@ -1,25 +1,25 @@
 import React from "react"
 import { cleanup, render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { Informative } from "~components/Illustration"
 import { GuidanceBlock } from "./GuidanceBlock"
-
 const user = userEvent.setup()
 
 // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
-window.matchMedia = jest.fn().mockImplementation(() => ({
+window.matchMedia = vi.fn().mockImplementation(() => ({
   matches: false,
   media: "",
   onchange: null,
-  addListener: jest.fn(),
-  removeListener: jest.fn(),
+  addListener: vi.fn(),
+  removeListener: vi.fn(),
 }))
 
 describe("GuidanceBlock", () => {
   afterEach(cleanup)
 
   it("calls the action function when action button is clicked", async () => {
-    const onAction = jest.fn()
+    const onAction = vi.fn()
     const { container } = render(
       <GuidanceBlock
         illustration={<Informative alt="" />}

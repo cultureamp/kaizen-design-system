@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { TimeField, TimeFieldProps } from "./TimeField"
 import { ValueType } from "./types"
-
 const user = userEvent.setup()
 
-const mockOnChange = jest.fn()
+const mockOnChange = vi.fn()
 const LABEL = "Launch Time Label"
 
 const pressArrowKey =

@@ -1,8 +1,8 @@
 import React from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { TextArea } from "./TextArea"
-
 const user = userEvent.setup()
 
 describe("<TextArea />", () => {
@@ -22,7 +22,7 @@ describe("<TextArea />", () => {
   })
 
   it("calls the `onChange` event when the value is updated", async () => {
-    const mockFn = jest.fn()
+    const mockFn = vi.fn()
     const { getByRole } = render(<TextArea onChange={mockFn} />)
 
     await user.type(getByRole("textbox"), "Hello")

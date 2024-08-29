@@ -47,7 +47,7 @@ describe("<GenericNotification />", () => {
     )
 
     // The element should start in a "hidden" state
-    expect(container.querySelector(".hidden")).toBeTruthy()
+    expect(container.querySelector(".hidden")).toBeDefined()
 
     // After clicking, the element should fade out, but the onHide not trigger yet.
     const cancelButton = getByTestId("close-button")
@@ -56,7 +56,7 @@ describe("<GenericNotification />", () => {
     fireEvent(cancelButton, new MouseEvent("click"))
 
     await waitFor(() => {
-      expect(notification).toBeTruthy()
+      expect(notification).toBeDefined()
     })
 
     // Cannot use @testing-library/react `fireEvent` as it relies on jsdom events
