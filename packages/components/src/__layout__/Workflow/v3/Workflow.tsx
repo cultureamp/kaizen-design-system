@@ -12,14 +12,14 @@ import {
 
 export type WorkflowProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> &
   FooterProps &
-  Pick<HeaderProps, "workflowName" | "status" | "headerActions">
+  Pick<HeaderProps, "workflowName" | "statusTag" | "headerActions">
 
 export const Workflow = ({
   steps,
   currentStepId,
   isComplete,
   workflowName,
-  status,
+  statusTag,
   headerActions,
   children,
   nextAction,
@@ -33,7 +33,7 @@ export const Workflow = ({
       <Workflow.Header
         workflowName={workflowName}
         stepName={currentStep!.label}
-        status={status}
+        statusTag={statusTag}
         headerActions={headerActions}
       />
       <Workflow.Main>{children}</Workflow.Main>

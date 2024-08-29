@@ -15,7 +15,7 @@ const meta = {
   args: {
     workflowName: "Create a self-reflection cycle",
     stepName: "Settings",
-    status: <Tag color="purple">Draft</Tag>,
+    statusTag: <Tag color="purple">Draft</Tag>,
     headerActions: [
       <Button
         key="would-use-uui-2"

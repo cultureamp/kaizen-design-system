@@ -7,13 +7,13 @@ import styles from "./Titles.module.css"
 export type WorkflowTitlesProps = {
   workflowName: string
   stepName: string
-  status?: ReactNode
+  statusTag?: ReactNode
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const Titles = ({
   workflowName,
   stepName,
-  status,
+  statusTag,
   ...restProps
 }: WorkflowTitlesProps): JSX.Element => (
   <div className={styles.titles} {...restProps}>
@@ -34,9 +34,9 @@ export const Titles = ({
       </Heading>
       <span>{stepName}</span>
     </Heading>
-    {status && (
+    {statusTag && (
       // status may need to be update by a fetch
-      <div className={styles.status}>{status}</div>
+      <div className={styles.statusTag}>{statusTag}</div>
     )}
   </div>
 )

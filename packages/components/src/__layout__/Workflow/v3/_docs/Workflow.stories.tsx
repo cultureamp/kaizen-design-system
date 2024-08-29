@@ -42,7 +42,7 @@ const meta = {
       { label: "Schedule", id: "schedule-step" },
     ],
     isComplete: false,
-    status: <Tag color="purple">Draft</Tag>,
+    statusTag: <Tag color="purple">Draft</Tag>,
     previousAction: <Button label="Back" />,
     nextAction: <Button primary label="Next" />,
     headerActions: [
@@ -110,7 +110,7 @@ export const ComposableWorkflow: Story = {
     isComplete,
     workflowName,
     currentStepId,
-    status,
+    statusTag,
     headerActions,
     previousAction,
     nextAction,
@@ -120,7 +120,7 @@ export const ComposableWorkflow: Story = {
       <Workflow.Header
         workflowName={workflowName}
         stepName={steps.find(step => step.id === currentStepId)!.label}
-        status={status}
+        statusTag={statusTag}
         headerActions={headerActions}
       />
       <Workflow.Main>
