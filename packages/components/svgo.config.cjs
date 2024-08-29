@@ -1,4 +1,4 @@
-const { recurse, removeRootSVGElement } = require("./svgoUtils")
+const { recurse, removeRootSVGElement } = require("./svgoUtils.cjs")
 
 module.exports = {
   plugins: [

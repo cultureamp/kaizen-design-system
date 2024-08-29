@@ -325,5 +325,11 @@ module.exports = {
         "no-console": "off",
       },
     },
+    {
+      files: ["Template.tsx"],
+      rules: {
+        "@typescript-eslint/no-unused-vars": "off",
+      },
+    },
   ],
 }

@@ -3,7 +3,7 @@ const {
   replaceAttrKeys,
   replaceColor,
   replaceId,
-} = require("./svgoUtils")
+} = require("./svgoUtils.cjs")
 
 type SVGOItem = {
   type: "element"

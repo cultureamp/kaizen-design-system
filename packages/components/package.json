@@ -42,7 +42,7 @@
     "build:styles": "pnpm build:global-styles && pnpm build:combine-styles",
     "test": "FORCE_COLOR=1 jest",
     "test:ci": "pnpm test -- --ci",
-    "update-icons": "./src/Icon/bin/update-icons.sh",
+    "update-icons": "./src/__illustrations__/Icon/v1/bin/update-icons.sh",
     "i18n:extract": "pnpm i18n-extract",
     "clean": "rimraf 'dist' 'node_modules' '.turbo'",
     "clean:dist": "rimraf 'dist'"
