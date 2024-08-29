@@ -1,0 +1,61 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Text /> > defaults to the correct HTML element > renders the correct element for <Text variant={body} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="_text_8d461b _body_8d461b _dark_8d461b"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Text /> > defaults to the correct HTML element > renders the correct element for <Text variant={extra-small} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="_text_8d461b _extra-small_8d461b _dark_8d461b"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Text /> > defaults to the correct HTML element > renders the correct element for <Text variant={intro-lede} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="_text_8d461b _intro-lede_8d461b _dark_8d461b"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Text /> > defaults to the correct HTML element > renders the correct element for <Text variant={small} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="_text_8d461b _small_8d461b _dark_8d461b"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Text /> > defaults to the correct HTML element 1`] = `
+<body>
+  <div>
+    <p
+      class="_text_8d461b _intro-lede_8d461b _dark_8d461b"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
