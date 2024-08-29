@@ -52,9 +52,7 @@
       "outputs": ["dist/**"]
     },
     "@kaizen/components#test:jest:ci": {},
-    "@kaizen/components#test:vitest:shard1": {},
-    "@kaizen/components#test:vitest:shard2": {},
-    "@kaizen/components#test:vitest:shard3": {},
+    "@kaizen/components#test:vitest": {},
     "@kaizen/tailwind#build": {
       "dependsOn": ["@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
