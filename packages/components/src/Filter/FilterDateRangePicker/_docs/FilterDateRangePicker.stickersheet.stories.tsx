@@ -195,14 +195,7 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
-  decorators: [
-    Story => (
-      <div className="w-[1500px]">
-        <Story />
-      </div>
-    ),
-  ],
+  parameters: { textDirection: "rtl", delay: 800 },
 }
 
 export const StickerSheetLocales: StickerSheetStory = {
