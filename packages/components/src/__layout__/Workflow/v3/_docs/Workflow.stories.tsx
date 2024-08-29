@@ -3,6 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { CloseIcon, VisibleIcon } from "~components/Icon"
 import { TextField } from "~components/TextField"
 import { Button } from "~components/__actions__/v2"
+import { Tag } from "~components/__future__"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
@@ -41,10 +42,7 @@ const meta = {
       { label: "Schedule", id: "schedule-step" },
     ],
     isComplete: false,
-    status: {
-      content: "Draft",
-      variant: "statusDraft",
-    },
+    status: <Tag color="purple">Draft</Tag>,
     previousAction: <Button label="Back" />,
     nextAction: <Button primary label="Next" />,
     headerActions: [

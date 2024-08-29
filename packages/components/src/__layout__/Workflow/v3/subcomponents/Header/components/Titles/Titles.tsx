@@ -1,20 +1,13 @@
-import React, { HTMLAttributes } from "react"
+import React, { HTMLAttributes, ReactNode } from "react"
 import { Heading } from "~components/Heading"
-import { Tag, DefaultTagProps } from "~components/Tag"
 import { VisuallyHidden } from "~components/VisuallyHidden"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Titles.module.scss"
 
-export type WorkflowStatus = {
-  /** @default: "statusDraft" */
-  variant?: DefaultTagProps["variant"]
-  content?: string
-}
-
 export type WorkflowTitlesProps = {
   workflowName: string
   stepName: string
-  status?: WorkflowStatus
+  status?: ReactNode
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const Titles = ({
@@ -43,11 +36,7 @@ export const Titles = ({
     </Heading>
     {status && (
       // status may need to be update by a fetch
-      <div className={styles.status}>
-        <Tag inline variant={status?.variant || "statusDraft"}>
-          {status?.content}
-        </Tag>
-      </div>
+      <div className={styles.status}>{status}</div>
     )}
   </div>
 )
