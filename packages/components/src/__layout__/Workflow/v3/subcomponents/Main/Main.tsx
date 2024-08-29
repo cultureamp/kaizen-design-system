@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, ReactNode } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Main.module.scss"
+import styles from "./Main.module.css"
 
 export type WorkflowMainProps = OverrideClassName<
   HTMLAttributes<HTMLDivElement>

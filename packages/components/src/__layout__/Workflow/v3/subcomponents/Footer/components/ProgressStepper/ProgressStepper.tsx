@@ -7,7 +7,7 @@ import {
 } from "~components/Icon"
 import { Text } from "~components/Text"
 import { VisuallyHidden } from "~components/VisuallyHidden"
-import styles from "./ProgressStepper.module.scss"
+import styles from "./ProgressStepper.module.css"
 
 export type Step = {
   id: string

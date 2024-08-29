@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Root.module.scss"
+import styles from "./Root.module.css"
 
 export type HeaderRootProps = OverrideClassName<
   HTMLAttributes<HTMLHeadingElement>

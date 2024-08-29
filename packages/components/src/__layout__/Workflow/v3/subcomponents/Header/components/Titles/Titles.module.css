@@ -1,5 +1,3 @@
-@import "~@kaizen/design-tokens/sass/spacing";
-
 .titles {
   grid-area: titles;
   display: flex;
@@ -15,9 +13,9 @@
 }
 
 .prefix {
-  margin-bottom: $spacing-4;
+  margin-bottom: var(--spacing-4);
 }
 
 .status {
-  margin-top: $spacing-8;
+  margin-top: var(--spacing-8);
 }

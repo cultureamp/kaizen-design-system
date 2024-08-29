@@ -2,7 +2,7 @@ import React, { HTMLAttributes, ReactNode } from "react"
 import { Heading } from "~components/Heading"
 import { VisuallyHidden } from "~components/VisuallyHidden"
 import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Titles.module.scss"
+import styles from "./Titles.module.css"
 
 export type WorkflowTitlesProps = {
   workflowName: string
