@@ -20,21 +20,32 @@ const config: StorybookConfig = {
   addons: [
     getAbsolutePath("@storybook/addon-a11y"),
     getAbsolutePath("@storybook/addon-essentials"),
-    getAbsolutePath("@storybook/addon-onboarding"),
     getAbsolutePath("@storybook/addon-interactions"),
     getAbsolutePath("@storybook/addon-links"),
     "storybook-addon-pseudo-states",
   ],
-  framework: {
-    name: getAbsolutePath("@storybook/react-vite"),
-    options: {},
-  },
+  framework: "@storybook/react-vite",
   staticDirs: [
     {
       from: "../assets",
       to: "/static/media",
     },
   ],
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      include: ["../packages/**/*.tsx"],
+      skipChildrenPropWithoutDoc: false,
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldRemoveUndefinedFromOptional: true,
+      propFilter: (prop): boolean => {
+        if (prop.name === "className") return true
+        const isHTMLElementProp =
+          prop.parent?.fileName.includes("node_modules/@types/react") ?? false
+        return !isHTMLElementProp
+      },
+    },
+  },
   viteFinal: viteConfig => ({
     ...viteConfig,
     resolve: {
