@@ -50,6 +50,21 @@ Use this for directional icons based on your usage context.
 
 <Canvas of={IconStories.MirrorInRTL} />
 
+### Accessibility
+
+#### Meaningful icon
+
+Icons without accompanying text need to convey their intent to the screen reader.
+Add `alt` text for these use cases.
+
+<Canvas of={IconStories.MeaningfulIcon} />
+
+#### Presentational icon
+
+For icons which are purely presentational, add `isPresentational` to hide it from the screen reader.
+
+<Canvas of={IconStories.PresentationalIcon} />
+
 ### Customisation
 
 The Icon component is a `span` that utilises a font, so you can modify the icon by using font-related styles.
@@ -67,18 +82,3 @@ override the CSS variable `--icon-optical-size` (eg. in Tailwind - `[--icon-opti
 
 <Canvas of={IconStories.OpticalSize} />
 <Controls of={IconStories.OpticalSize} />
-
-### Accessibility
-
-#### Meaningful icon
-
-Icons without accompanying text need to convey their intent to the screen reader.
-Add `alt` text for these use cases.
-
-<Canvas of={IconStories.MeaningfulIcon} />
-
-#### Presentational icon
-
-For icons which are purely presentational, add `isPresentational` to hide it from the screen reader.
-
-<Canvas of={IconStories.PresentationalIcon} />
