@@ -1,12 +1,12 @@
 import React from "react"
 import classnames from "classnames"
+import { Text } from "~components/Text"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import {
   IndicatorActiveIcon,
   IndicatorInactiveIcon,
   SuccessIcon,
 } from "~components/__illustrations__/v1"
-import { Text } from "~components/Text"
-import { VisuallyHidden } from "~components/VisuallyHidden"
 import styles from "./ProgressStepper.module.scss"
 
 export type ProgressStepperProps = {

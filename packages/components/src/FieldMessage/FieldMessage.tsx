@@ -1,7 +1,10 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { CautionWhiteIcon, ExclamationWhiteIcon } from "~components/__illustrations__/v1"
 import { Text } from "~components/Text"
+import {
+  CautionWhiteIcon,
+  ExclamationWhiteIcon,
+} from "~components/__illustrations__/v1"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./FieldMessage.module.scss"
 

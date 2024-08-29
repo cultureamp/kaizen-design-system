@@ -8,7 +8,7 @@ import {
   ExclamationIcon,
   InformationIcon,
   SecurityTipIcon,
-  SuccessIcon
+  SuccessIcon,
 } from "~components/__illustrations__/v1"
 
 export type NotificationIconTypeProps = {

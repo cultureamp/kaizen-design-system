@@ -2,8 +2,8 @@ import React, { HTMLAttributes } from "react"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Unstyled } from "@storybook/blocks"
 import classNames from "classnames"
-import { ExternalLinkIcon } from "~components/__illustrations__/v1"
 import { Text } from "~components/Text"
+import { ExternalLinkIcon } from "~components/__illustrations__/v1"
 
 type ResourceLinkProps = {
   href: string

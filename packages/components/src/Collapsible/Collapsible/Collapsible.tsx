@@ -2,8 +2,11 @@ import React, { HTMLAttributes, useId, useState } from "react"
 import classnames from "classnames"
 import AnimateHeight from "react-animate-height"
 import { Heading } from "~components/Heading"
-import { ChevronUpIcon, ChevronDownIcon } from "~components/__illustrations__/v1"
 import { IconButton } from "~components/__actions__/v2"
+import {
+  ChevronUpIcon,
+  ChevronDownIcon,
+} from "~components/__illustrations__/v1"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { Sticky } from "../types"
 import styles from "./Collapsible.module.scss"

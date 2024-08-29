@@ -1,13 +1,16 @@
 import React, { useCallback, useEffect, useState } from "react"
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
-import { ChevronDownIcon, ChevronUpIcon } from "~components/__illustrations__/v1"
 import {
   MenuItem,
   MenuList,
   MenuHeading,
   ButtonProps,
 } from "~components/__actions__/v2"
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from "~components/__illustrations__/v1"
 import { TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID } from "../constants"
 import {
   DefaultActionProps,

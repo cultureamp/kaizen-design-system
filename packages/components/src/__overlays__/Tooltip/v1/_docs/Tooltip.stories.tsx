@@ -3,7 +3,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { ButtonGroup } from "~components/ButtonGroup"
 import { CheckboxField } from "~components/Checkbox"
 import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
-import { InformationIcon, RemoveLinkIcon, QuestionIcon } from "~components/__illustrations__/v1"
 import {
   TableContainer,
   TableHeader,
@@ -13,6 +12,11 @@ import {
 import { Text } from "~components/Text"
 import { Button, IconButton } from "~components/__actions__/v2"
 import { Tag } from "~components/__future__/Tag"
+import {
+  InformationIcon,
+  RemoveLinkIcon,
+  QuestionIcon,
+} from "~components/__illustrations__/v1"
 import { Tooltip } from "../index"
 
 const meta = {

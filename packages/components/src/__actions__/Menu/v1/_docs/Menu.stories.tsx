@@ -1,7 +1,10 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { ChevronDownIcon, DuplicateIcon } from "~components/__illustrations__/v1"
 import { Button } from "~components/__actions__/v2"
+import {
+  ChevronDownIcon,
+  DuplicateIcon,
+} from "~components/__illustrations__/v1"
 import { Menu } from "../index"
 import { MenuHeading } from "../subcomponents/MenuHeading"
 import { MenuItem } from "../subcomponents/MenuItem"

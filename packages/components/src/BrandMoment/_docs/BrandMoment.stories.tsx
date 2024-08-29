@@ -3,17 +3,17 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import {
-  ArrowRightIcon,
-  EmailIcon,
-  FeedbackClassifyIcon,
-} from "~components/__illustrations__/v1"
-import {
   BrandMomentCaptureIntro,
   BrandMomentPositiveOutro,
   BrandMomentError,
   AnimatedSceneProps,
 } from "~components/Illustration"
 import { Text } from "~components/Text"
+import {
+  ArrowRightIcon,
+  EmailIcon,
+  FeedbackClassifyIcon,
+} from "~components/__illustrations__/v1"
 import { BrandMoment } from "../index"
 import {
   MinimalBasic,

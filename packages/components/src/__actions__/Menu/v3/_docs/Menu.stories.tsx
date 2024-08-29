@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Popover } from "react-aria-components"
+import { Button } from "~components/__actions__/v3"
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -10,7 +11,6 @@ import {
   MeatballsIcon,
   TrashIcon,
 } from "~components/__illustrations__/v1"
-import { Button } from "~components/__actions__/v3"
 import { Menu, MenuTrigger, MenuItem } from "../index"
 import * as testStories from "./Menu.spec.stories"
 

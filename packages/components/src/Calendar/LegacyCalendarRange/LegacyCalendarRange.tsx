@@ -7,7 +7,10 @@ import {
   Matcher,
   DayPickerRangeProps,
 } from "react-day-picker"
-import { ArrowBackwardIcon, ArrowForwardIcon } from "~components/__illustrations__/v1"
+import {
+  ArrowBackwardIcon,
+  ArrowForwardIcon,
+} from "~components/__illustrations__/v1"
 import { baseCalendarClassNames } from "../baseCalendarClassNames"
 import { DayOfWeek } from "../enums"
 import { isInvalidDate, isValidWeekStartsOn } from "../utils"

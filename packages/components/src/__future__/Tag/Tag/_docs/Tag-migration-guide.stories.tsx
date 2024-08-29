@@ -2,6 +2,7 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 import { Avatar } from "~components/Avatar"
+import styles from "~components/Tag/Tag.module.scss"
 import {
   CautionIcon,
   ExclamationIcon,
@@ -9,7 +10,6 @@ import {
   SuccessIcon,
   LiveIcon,
 } from "~components/__illustrations__/v1"
-import styles from "~components/Tag/Tag.module.scss"
 import { Tag, RemovableTag } from "../.."
 
 const meta = {

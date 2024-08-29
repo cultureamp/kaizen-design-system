@@ -3,6 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, waitFor, within, fn } from "@storybook/test"
 import isChromatic from "chromatic"
 import { Popover, Header, Section } from "react-aria-components"
+import { Button } from "~components/__actions__/v3"
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -13,7 +14,6 @@ import {
   MeatballsIcon,
   TrashIcon,
 } from "~components/__illustrations__/v1"
-import { Button } from "~components/__actions__/v3"
 import { Menu, MenuItem, MenuTrigger } from "../index"
 
 const meta = {

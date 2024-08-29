@@ -2,10 +2,14 @@ import React from "react"
 import classnames from "classnames"
 import { Avatar } from "~components/Avatar"
 import { Heading } from "~components/Heading"
-import { ArrowLeftIcon, ArrowRightIcon, HamburgerIcon } from "~components/__illustrations__/v1"
 import { Select } from "~components/Select"
 import { Tag } from "~components/Tag"
 import { IconButton } from "~components/__actions__/v2"
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  HamburgerIcon,
+} from "~components/__illustrations__/v1"
 import { useMediaQueries } from "~components/utils/useMediaQueries"
 import { MainActions } from "./subcomponents/MainActions"
 import { MobileActions } from "./subcomponents/MobileActions"

@@ -2,12 +2,6 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Heading } from "~components/Heading"
 import {
-  CautionWhiteIcon,
-  ExclamationWhiteIcon,
-  InformationWhiteIcon,
-  SuccessWhiteIcon,
-} from "~components/__illustrations__/v1"
-import {
   Assertive,
   Cautionary,
   Informative,
@@ -23,6 +17,12 @@ import {
   ModalBody,
 } from "~components/Modal/GenericModal"
 import { ButtonProps } from "~components/__actions__/v2"
+import {
+  CautionWhiteIcon,
+  ExclamationWhiteIcon,
+  InformationWhiteIcon,
+  SuccessWhiteIcon,
+} from "~components/__illustrations__/v1"
 import styles from "./ConfirmationModal.module.scss"
 
 type Mood = "positive" | "informative" | "negative" | "cautionary" | "assertive"

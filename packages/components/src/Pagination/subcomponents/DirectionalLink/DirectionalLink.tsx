@@ -1,14 +1,14 @@
 import React from "react"
 import {
+  GenericButton,
+  GenericProps,
+} from "~components/__actions__/Button/v2/GenericButton"
+import {
   ArrowBackwardIcon,
   ArrowForwardIcon,
   EndIcon,
   StartIcon,
 } from "~components/__illustrations__/v1"
-import {
-  GenericButton,
-  GenericProps,
-} from "~components/__actions__/Button/v2/GenericButton"
 
 export type DirectionalLinkProps = {
   label: string

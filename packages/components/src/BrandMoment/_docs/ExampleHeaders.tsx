@@ -1,6 +1,6 @@
 import React from "react"
-import { CloseIcon } from "~components/__illustrations__/v1"
 import { Button } from "~components/__actions__/v2"
+import { CloseIcon } from "~components/__illustrations__/v1"
 import { assetUrl } from "~components/utils/hostedAssets"
 import styles from "./ExampleHeaders.module.scss"
 

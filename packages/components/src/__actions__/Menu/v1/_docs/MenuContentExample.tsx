@@ -1,5 +1,9 @@
 import React from "react"
-import { DuplicateIcon, EditIcon, TrashIcon } from "~components/__illustrations__/v1"
+import {
+  DuplicateIcon,
+  EditIcon,
+  TrashIcon,
+} from "~components/__illustrations__/v1"
 import { MenuHeading } from "../subcomponents/MenuHeading"
 import { MenuItem } from "../subcomponents/MenuItem"
 import { MenuList } from "../subcomponents/MenuList"

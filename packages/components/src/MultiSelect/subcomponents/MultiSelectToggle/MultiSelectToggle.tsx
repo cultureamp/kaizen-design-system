@@ -2,8 +2,11 @@ import React, { HTMLAttributes, forwardRef, useId } from "react"
 import classnames from "classnames"
 import { ClearButton } from "~components/ClearButton"
 import { FieldMessageProps } from "~components/FieldMessage"
-import { ChevronDownIcon, ChevronUpIcon } from "~components/__illustrations__/v1"
 import { RemovableTag } from "~components/__future__"
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from "~components/__illustrations__/v1"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { MultiSelectOption } from "../../types"
 import styles from "./MultiSelectToggle.module.scss"

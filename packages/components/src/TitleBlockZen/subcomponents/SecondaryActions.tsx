@@ -1,6 +1,9 @@
 import React from "react"
-import { ChevronDownIcon, MeatballsIcon } from "~components/__illustrations__/v1"
 import { Menu, MenuList, Button, IconButton } from "~components/__actions__/v2"
+import {
+  ChevronDownIcon,
+  MeatballsIcon,
+} from "~components/__illustrations__/v1"
 import styles from "../TitleBlockZen.module.scss"
 import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from "../constants"
 import { SecondaryActionsProps, TitleBlockMenuItemProps } from "../types"
