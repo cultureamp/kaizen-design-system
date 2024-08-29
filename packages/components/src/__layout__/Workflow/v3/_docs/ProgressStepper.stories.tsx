@@ -1,4 +1,3 @@
-import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
@@ -20,13 +19,6 @@ const meta = {
     ],
     isComplete: false,
   },
-  decorators: [
-    Story => (
-      <div className="bg-blue-500 p-8">
-        <Story />
-      </div>
-    ),
-  ],
 } satisfies Meta<typeof Workflow.ProgressStepper>
 
 export default meta
