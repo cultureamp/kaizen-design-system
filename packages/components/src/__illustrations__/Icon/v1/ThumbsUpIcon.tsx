@@ -2,8 +2,8 @@
 // Changes to this file will be overwritten
 
 import React, { useId } from "react"
-import { SVG } from "~components/Icon/subcomponents/SVG"
-import type { IconProps } from "~components/Icon/types"
+import { SVG } from "~components/__illustrations__/Icon/v1/subcomponents/SVG"
+import type { IconProps } from "~components/__illustrations__/v1"
 
 /** @deprecated Use `<ThumbsUpIconOn/>` or `<ThumbsUpIconOff/>` */
 export const ThumbsUpIcon = (props: IconProps): JSX.Element => {
