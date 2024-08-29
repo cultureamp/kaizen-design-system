@@ -12,6 +12,11 @@ const replaceInputValue = (str: string, value: string): string => {
   })
 }
 
+// Note: This mock does not exist to enable testing of internationalisation,
+// but to silence the errors from components that requires `useIntl`
+// and `FormattedMessage` from `@cultureamp/i18n-react-intl`
+//
+// If you need to test internationalisation, you should use Storybook stories
 export const reactIntlMock = (): any => {
   const mocks = vi.hoisted(() => ({
     useIntl: vi.fn(),
