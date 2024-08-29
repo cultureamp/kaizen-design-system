@@ -2,7 +2,7 @@
   "name": "kaizen",
   "private": true,
   "engines": {
-    "node": ">=v22.3.0"
+    "node": ">=v20.15.1"
   },
   "packageManager": "pnpm@9.8.0",
   "scripts": {
