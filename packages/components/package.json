@@ -112,6 +112,7 @@
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/package-bundler": "workspace:*",
     "@tanstack/react-query": "^5.51.23",
+    "@testing-library/jest-dom": "^6.4.8",
     "@types/lodash.debounce": "^4.0.9",
     "@types/react-highlight": "^0.12.8",
     "@types/react-textfit": "^1.1.4",

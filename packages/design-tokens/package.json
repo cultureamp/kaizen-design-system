@@ -25,8 +25,7 @@
   "sideEffects": true,
   "scripts": {
     "lint:ts": "tsc --noEmit",
-    "test": "FORCE_COLOR=1 jest",
-    "test:ci": "pnpm test -- --ci",
+    "test": "FORCE_COLOR=1 vitest --config ../../vite.config.ts",
     "build": "pnpm clean:dist && pnpm build:json && pnpm build:less && pnpm build:sass && pnpm build:ts",
     "build:json": "tsx ./bin/buildCssVarTokens.ts",
     "build:ts": "pnpm package-bundler build",
