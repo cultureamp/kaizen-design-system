@@ -3,9 +3,6 @@ import path from "path"
 import { mergeAlias } from "vite"
 
 export default {
-  optimizeDeps: {
-    include: ["@cultureamp/i18n-react-intl"],
-  },
   resolve: {
     alias: mergeAlias(
       [
