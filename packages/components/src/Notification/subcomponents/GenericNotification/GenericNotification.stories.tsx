@@ -55,4 +55,7 @@ export const GenericNotificationTest: StickerSheetStory = {
       }, 1000)
     })
   },
+  parameters: {
+    chromatic: { disable: true },
+  },
 }
