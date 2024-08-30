@@ -1,0 +1,15 @@
+.footerAction {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: auto;
+}
+
+.footerActionPrevious {
+  grid-area: "prev";
+  justify-content: start;
+}
+
+.footerActionNext {
+  grid-area: "next";
+  justify-content: end;
+}

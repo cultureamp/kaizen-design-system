@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.61.0
+
+### Minor Changes
+
+- [#4978](https://github.com/cultureamp/kaizen-design-system/pull/4978) [`2d34341ea9e6d8c28af80645e6bef3cd60cb8f8e`](https://github.com/cultureamp/kaizen-design-system/commit/2d34341ea9e6d8c28af80645e6bef3cd60cb8f8e) - Create v3 Workflow component, changing footer to a white background
+
+  A few adjustments will need to be made on the implementation side when upgrading from future (v2) to v3:
+
+  - All footer buttons should have the `reversed` prop removed
+  - Next button in the footer should have `primary` prop added (not just the finish button as previously)
+  - The `status` prop has been renamed to `statusTag` and now takes a ReactNode. You'll need to create your own Tag and pass it in.
+
 ## 1.60.3
 
 ### Patch Changes
