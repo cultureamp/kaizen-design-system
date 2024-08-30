@@ -6,9 +6,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: var(--shadow-small-box-shadow);
   padding: var(--spacing-24);
   gap: var(--spacing-16);
+  border-bottom: 2px solid rgb(var(--color-gray-600-rgb), 0.1);
 
   @media (width >= 768px) {
     align-items: start;

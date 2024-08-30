@@ -1,6 +1,8 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { Heading } from "~components/Heading"
 import { CloseIcon, VisibleIcon } from "~components/Icon"
+import { Text } from "~components/Text"
 import { TextField } from "~components/TextField"
 import { Button } from "~components/__actions__/v2"
 import { Tag } from "~components/__future__"
@@ -10,12 +12,16 @@ import { WorkflowControls } from "./controls"
 const MockContent = (): JSX.Element => (
   <div className="flex flex-col flex-1 m-24 items-center">
     <div className="max-w-[1392px] w-full">
-      <h2>Name and schedule the self-reflection cycle</h2>
+      <Text variant="intro-lede">
+        Name and schedule the self-reflection cycle
+      </Text>
       <form
         id="workflow-form-id"
         className="bg-white rounded shadow-sm my-32 p-64"
       >
-        <h3>Name the cycle</h3>
+        <Heading variant="heading-3" classNameOverride="mb-24">
+          Name the cycle
+        </Heading>
         <TextField
           labelText="Cycle name"
           type="text"
