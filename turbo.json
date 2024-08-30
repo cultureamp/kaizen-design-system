@@ -16,7 +16,9 @@
     "lint:ts": {
       "dependsOn": ["^build"]
     },
-    "test": {},
+    "test": {
+      "cache": false
+    },
     "clean": {
       "cache": false
     },
@@ -51,8 +53,6 @@
       "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json"],
       "outputs": ["dist/**"]
     },
-    "@kaizen/components#test:jest:ci": {},
-    "@kaizen/components#test:vitest": {},
     "@kaizen/tailwind#build": {
       "dependsOn": ["@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
