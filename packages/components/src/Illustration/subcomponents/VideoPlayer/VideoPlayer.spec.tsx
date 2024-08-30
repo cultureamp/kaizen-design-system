@@ -42,7 +42,7 @@ describe("<VideoPlayer />", () => {
     vi.clearAllMocks()
   })
 
-  it("renders a video player in the document and autoplay", async () => {
+  it("renders a video player in the document and autoplay", () => {
     render(
       <VideoPlayer
         autoplay
