@@ -19,9 +19,6 @@ module.exports = {
     react: {
       version: "detect",
     },
-    vitest: {
-      typecheck: true,
-    },
   },
   extends: [
     "prettier",
