@@ -1,0 +1,19 @@
+.footerRoot {
+  display: grid;
+  grid-template-areas: "prev stepper next";
+  grid-template-columns: 1fr 2fr 1fr;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-24) var(--spacing-12);
+  background: var(--color-white);
+  gap: var(--spacing-16);
+
+  @media (width >= 768px) {
+    grid-template-columns: 1fr 5fr 1fr;
+    padding: var(--spacing-24) var(--spacing-32);
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+  }
+}
