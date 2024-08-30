@@ -17,6 +17,7 @@
       "dependsOn": ["^build"]
     },
     "test": {
+      "inputs": ["packages/**"],
       "cache": false
     },
     "clean": {
