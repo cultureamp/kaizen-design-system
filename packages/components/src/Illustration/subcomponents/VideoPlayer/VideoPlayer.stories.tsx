@@ -20,35 +20,43 @@ const StickerSheetTemplate: StickerSheetStory = {
     <StickerSheet isReversed={isReversed} title="Aspect Ratio">
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="default">
-          <VideoPlayer
-            autoplay={false}
-            fallback="illustrations/heart/scene/brand-moments-positive-outro"
-            source="illustrations/heart/scene/brand-moments-positive-outro"
-          />
+          <div className="border border-dashed border-grey-500">
+            <VideoPlayer
+              autoplay={false}
+              fallback="illustrations/heart/scene/brand-moments-positive-outro"
+              source="illustrations/heart/scene/brand-moments-positive-outro"
+            />
+          </div>
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="landscape">
-          <VideoPlayer
-            autoplay={false}
-            aspectRatio="landscape"
-            fallback="illustrations/heart/scene/brand-moments-positive-outro"
-            source="illustrations/heart/scene/brand-moments-positive-outro"
-          />
+          <div className="border border-dashed border-grey-500">
+            <VideoPlayer
+              autoplay={false}
+              aspectRatio="landscape"
+              fallback="illustrations/heart/scene/brand-moments-positive-outro"
+              source="illustrations/heart/scene/brand-moments-positive-outro"
+            />
+          </div>
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="portrait">
-          <VideoPlayer
-            autoplay={false}
-            aspectRatio="portrait"
-            fallback="illustrations/heart/scene/brand-moments-positive-outro"
-            source="illustrations/heart/scene/brand-moments-positive-outro"
-          />
+          <div className="border border-dashed border-grey-500">
+            <VideoPlayer
+              autoplay={false}
+              aspectRatio="portrait"
+              fallback="illustrations/heart/scene/brand-moments-positive-outro"
+              source="illustrations/heart/scene/brand-moments-positive-outro"
+            />
+          </div>
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="square">
-          <VideoPlayer
-            autoplay={false}
-            aspectRatio="square"
-            fallback="illustrations/heart/scene/brand-moments-positive-outro"
-            source="illustrations/heart/scene/brand-moments-positive-outro"
-          />
+          <div className="border border-dashed border-grey-500">
+            <VideoPlayer
+              autoplay={false}
+              aspectRatio="square"
+              fallback="illustrations/heart/scene/brand-moments-positive-outro"
+              source="illustrations/heart/scene/brand-moments-positive-outro"
+            />
+          </div>
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
