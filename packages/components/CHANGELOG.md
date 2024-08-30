@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.61.1
+
+### Patch Changes
+
+- [#4986](https://github.com/cultureamp/kaizen-design-system/pull/4986) [`80ec92dc98031e3688bfaf4c21256e182a487689`](https://github.com/cultureamp/kaizen-design-system/commit/80ec92dc98031e3688bfaf4c21256e182a487689) - Styling fix for Workflow v3
+
 ## 1.61.0
 
 ### Minor Changes
