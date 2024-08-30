@@ -48,12 +48,11 @@ export const GenericNotificationTest: StickerSheetStory = {
 
     await userEvent.click(canvas.getByTestId("close-button"))
 
-    setTimeout(() => {
-      expect(hiddenState).toHaveTextContent("Hidden")
-    }, 1000)
-
     await waitFor(() => {
-      expect(element).not.toBeInTheDocument()
+      setTimeout(() => {
+        expect(hiddenState).toHaveTextContent("Hidden")
+        expect(element).not.toBeInTheDocument()
+      }, 1000)
     })
   },
 }
