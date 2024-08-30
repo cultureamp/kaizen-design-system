@@ -14,17 +14,17 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => {
-    const [hiddenState, setHiddenState] = useState<boolean>(false)
+    const [isHidden, setIsHidden] = useState<boolean>(false)
 
     return (
       <div>
-        {hiddenState && <span data-testid="hidden">Hidden!</span>}
+        <span data-testid="hidden-state">{isHidden ? "Hidden" : "Shown"}</span>
         <GenericNotification
           variant="success"
           style="inline"
           title="Success"
           data-testid="generic-notification"
-          onHide={() => setHiddenState(true)}
+          onHide={() => setIsHidden(true)}
         >
           This is my positive notification
         </GenericNotification>
@@ -39,16 +39,17 @@ export const GenericNotificationTest: StickerSheetStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const element = canvas.getByTestId("generic-notification")
+    const hiddenState = canvas.getByTestId("hidden-state")
 
     await waitFor(() => {
       expect(element).toBeInTheDocument()
+      expect(hiddenState).toHaveTextContent("Shown")
     })
 
-    const closeButton = canvas.getByTestId("close-button")
-    await userEvent.click(closeButton)
+    await userEvent.click(canvas.getByTestId("close-button"))
 
     await waitFor(() => {
-      expect(canvas.getByTestId("hidden")).toBeInTheDocument()
+      expect(hiddenState).toHaveTextContent("Hidden")
       expect(element).not.toBeInTheDocument()
     })
   },
