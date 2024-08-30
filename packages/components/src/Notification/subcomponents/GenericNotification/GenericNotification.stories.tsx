@@ -1,18 +1,24 @@
 import React, { useState } from "react"
-import { Meta } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within, expect, waitFor } from "@storybook/test"
-import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import { GenericNotification } from "./index"
 
-export default {
-  title: "Components/Notifications/Tests",
-  parameters: {
-    chromatic: { disable: false },
-    controls: { disable: true },
+const meta = {
+  title: "Components/Notifications/GenericNotification",
+  component: GenericNotification,
+  args: {
+    variant: "success",
+    style: "inline",
+    title: "Success",
+    children: "This is my positive notification",
   },
-} satisfies Meta
+} satisfies Meta<typeof GenericNotification>
 
-const StickerSheetTemplate: StickerSheetStory = {
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const GenericNotificationTest: Story = {
   render: () => {
     const [isHidden, setIsHidden] = useState<boolean>(false)
 
@@ -31,11 +37,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       </div>
     )
   },
-}
-
-export const GenericNotificationTest: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "GenericNotification: closes when close button is clicked and onHide is called",
+  name: "Test: Closes when close button is clicked and onHide is called",
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const element = canvas.getByTestId("generic-notification")
@@ -54,8 +56,5 @@ export const GenericNotificationTest: StickerSheetStory = {
         expect(element).not.toBeInTheDocument()
       }, 1000)
     })
-  },
-  parameters: {
-    chromatic: { disable: true },
   },
 }
