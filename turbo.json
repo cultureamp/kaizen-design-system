@@ -53,6 +53,9 @@
       "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json"],
       "outputs": ["dist/**"]
     },
+    "@kaizen/components#test": {
+      "cache": false
+    },
     "@kaizen/tailwind#build": {
       "dependsOn": ["@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
@@ -61,9 +64,6 @@
     "@kaizen/design-tokens#build": {
       "inputs": ["css/**", "less/**", "sass/**", "src/**"],
       "outputs": ["dist/**"]
-    },
-    "@kaizen/design-tokens#test": {
-      "dependsOn": ["@kaizen/design-tokens#build"]
     },
     "@kaizen/package-bundler#build": {
       "inputs": ["bin/*", "src/**", "tsconfig*.json"],
