@@ -4,7 +4,8 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { handledRtlIcons, Icon, IconProps } from "../index"
+import { handledRtlIcons } from "../constants"
+import { Icon, IconProps } from "../index"
 
 export default {
   title: "Illustrations/Icon/Icon (v3)",

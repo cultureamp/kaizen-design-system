@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/__actions__/v3"
 import { StickerSheet } from "~storybook/components/StickerSheet"
-import { handledRtlIcons, Icon } from "../index"
+import { Icon } from "../index"
 
 const meta = {
   title: "Illustrations/Icon/Icon (v3)",
@@ -37,14 +37,25 @@ export const Filled: Story = {
 export const MirrorInRTL: Story = {
   render: args => (
     <StickerSheet>
-      <StickerSheet.Header headings={['dir=["ltr"]', 'dir=["rtl"]']} />
+      <StickerSheet.Header
+        headings={['dir=["ltr"]', 'dir=["rtl"]']}
+        hasVerticalHeadings
+      />
       <StickerSheet.Body>
-        <StickerSheet.Row>
+        <StickerSheet.Row rowTitle="arrow_forward">
           <div dir="ltr" className="text-center">
             <Icon {...args} name="arrow_forward" shouldMirrorInRTL />
           </div>
           <div dir="rtl" className="text-center">
             <Icon {...args} name="arrow_forward" shouldMirrorInRTL />
+          </div>
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="format_list_numbered">
+          <div dir="ltr" className="text-center">
+            <Icon {...args} name="format_list_numbered" shouldMirrorInRTL />
+          </div>
+          <div dir="rtl" className="text-center">
+            <Icon {...args} name="format_list_numbered" shouldMirrorInRTL />
           </div>
         </StickerSheet.Row>
       </StickerSheet.Body>
@@ -60,33 +71,16 @@ export const MirrorInRTL: Story = {
 <div dir="rtl" className="text-center">
   <Icon {...props} name="arrow_forward" shouldMirrorInRTL />
 </div>
+<div dir="ltr" className="text-center">
+  <Icon {...props} name="format_list_numbered" shouldMirrorInRTL />
+</div>
+<div dir="rtl" className="text-center">
+  <Icon {...props} name="format_list_numbered" shouldMirrorInRTL />
+</div>
         `,
       },
     },
   },
-}
-
-export const HandledInRTL: Story = {
-  render: args => (
-    <StickerSheet>
-      <StickerSheet.Header
-        headings={['dir=["ltr"]', 'dir=["rtl"]']}
-        hasVerticalHeadings
-      />
-      <StickerSheet.Body>
-        {Object.keys(handledRtlIcons).map(name => (
-          <StickerSheet.Row key={name} rowTitle={name}>
-            <div dir="ltr" className="text-center">
-              <Icon {...args} name={name} shouldMirrorInRTL />
-            </div>
-            <div dir="rtl" className="text-center">
-              <Icon {...args} name={name} shouldMirrorInRTL />
-            </div>
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
-    </StickerSheet>
-  ),
 }
 
 export const Customisation: Story = {

@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
 import { StringSuggestions } from "~components/types/StringSuggestions"
+import { handledRtlIcons } from "./constants"
 import { IconNames } from "./types"
 import styles from "./Icon.module.css"
 
@@ -46,13 +47,6 @@ const MaterialIcon = ({
     {children}
   </span>
 )
-
-/* eslint-disable camelcase */
-export const handledRtlIcons = {
-  checklist: "checklist_rtl",
-  format_list_numbered: "format_list_numbered_rtl",
-} satisfies Partial<Record<IconNames, IconNames>>
-/* eslint-enable camelcase */
 
 export type IconProps = BaseIconProps & {
   /** Options available at https://fonts.google.com/icons */
