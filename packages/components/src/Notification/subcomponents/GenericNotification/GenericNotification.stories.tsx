@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Meta } from "@storybook/react"
 import { userEvent, within, expect, waitFor } from "@storybook/test"
+import { set } from "date-fns"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import { GenericNotification } from "./index"
 
@@ -48,8 +49,11 @@ export const GenericNotificationTest: StickerSheetStory = {
 
     await userEvent.click(canvas.getByTestId("close-button"))
 
-    await waitFor(() => {
+    setTimeout(() => {
       expect(hiddenState).toHaveTextContent("Hidden")
+    }, 1000)
+
+    await waitFor(() => {
       expect(element).not.toBeInTheDocument()
     })
   },
