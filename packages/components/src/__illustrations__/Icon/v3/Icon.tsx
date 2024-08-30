@@ -4,13 +4,6 @@ import { StringSuggestions } from "~components/types/StringSuggestions"
 import { IconNames } from "./types"
 import styles from "./Icon.module.css"
 
-type BaseIconProps = {
-  /** Options available at https://fonts.google.com/icons */
-  name: StringSuggestions<IconNames>
-  isFilled?: boolean
-  shouldMirrorInRTL?: boolean
-} & HTMLAttributes<HTMLSpanElement>
-
 type PresentationalIcon = {
   isPresentational: true
   alt?: never
@@ -21,23 +14,28 @@ type MeaningfulIcon = {
   alt: string
 }
 
-export type IconProps = BaseIconProps & (PresentationalIcon | MeaningfulIcon)
+type BaseIconProps = {
+  isFilled?: boolean
+} & HTMLAttributes<HTMLSpanElement> &
+  (PresentationalIcon | MeaningfulIcon)
 
-export const Icon = ({
-  name,
+type MaterialIconProps = BaseIconProps & {
+  children: React.ReactNode
+}
+
+const MaterialIcon = ({
+  children,
   isFilled,
-  shouldMirrorInRTL,
   isPresentational,
   alt,
   className,
   ...restProps
-}: IconProps): JSX.Element => (
+}: MaterialIconProps): JSX.Element => (
   <span
     className={classNames(
       "material-symbols-outlined",
       styles.icon,
       isFilled && styles.filled,
-      shouldMirrorInRTL && styles.shouldMirrorInRTL,
       className
     )}
     aria-hidden={isPresentational}
@@ -45,6 +43,50 @@ export const Icon = ({
     aria-label={alt}
     {...restProps}
   >
-    {name}
+    {children}
   </span>
 )
+
+/* eslint-disable camelcase */
+export const handledRtlIcons = {
+  checklist: "checklist_rtl",
+  format_list_numbered: "format_list_numbered_rtl",
+  keyboard_tab: "keyboard_tab_rtl",
+} satisfies Partial<Record<IconNames, IconNames>>
+/* eslint-enable camelcase */
+
+export type IconProps = BaseIconProps & {
+  /** Options available at https://fonts.google.com/icons */
+  name: StringSuggestions<IconNames>
+  shouldMirrorInRTL?: boolean
+}
+
+export const Icon = ({
+  name,
+  shouldMirrorInRTL,
+  ...restProps
+}: IconProps): JSX.Element => {
+  if (!shouldMirrorInRTL) {
+    return <MaterialIcon {...restProps}>{name}</MaterialIcon>
+  }
+
+  if (Object.keys(handledRtlIcons).includes(name)) {
+    return (
+      <MaterialIcon {...restProps}>
+        <span className={styles.iconLTR}>{name}</span>
+        <span className={styles.iconRTL}>
+          {handledRtlIcons[name as keyof typeof handledRtlIcons]}
+        </span>
+      </MaterialIcon>
+    )
+  }
+
+  return (
+    <MaterialIcon
+      {...restProps}
+      className={classNames(styles.shouldMirrorInRTL, restProps.className)}
+    >
+      {name}
+    </MaterialIcon>
+  )
+}

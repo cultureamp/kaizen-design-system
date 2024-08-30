@@ -18,3 +18,17 @@
     transform: scale(-1, 1);
   }
 }
+
+.iconLTR {
+  [dir="rtl"] & {
+    display: none;
+  }
+}
+
+.iconRTL {
+  display: none;
+
+  [dir="rtl"] & {
+    display: inherit;
+  }
+}

@@ -20,4 +20,17 @@ describe("<Icon />", () => {
     expect(icon).toHaveAttribute("role", "img")
     expect(icon).toHaveAttribute("aria-label", "Favourite")
   })
+
+  describe("shouldMirrorInRTL", () => {
+    it("does not show icon name in accessible name for switched icons", () => {
+      render(
+        <button type="button">
+          <Icon name="format_list_numbered" shouldMirrorInRTL alt="Pancakes" />
+        </button>
+      )
+      const button = screen.getByRole("button")
+
+      expect(button).toHaveAccessibleName("Pancakes")
+    })
+  })
 })

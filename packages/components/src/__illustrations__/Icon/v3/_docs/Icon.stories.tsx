@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/__actions__/v3"
 import { StickerSheet } from "~storybook/components/StickerSheet"
-import { Icon } from "../index"
+import { handledRtlIcons, Icon } from "../index"
 
 const meta = {
   title: "Illustrations/Icon/Icon (v3)",
@@ -12,6 +12,7 @@ const meta = {
     isPresentational: true,
   },
   argTypes: {
+    name: { type: "string" },
     alt: {
       description: "Set this value when `isPresentational={false}`",
     },
@@ -63,6 +64,29 @@ export const MirrorInRTL: Story = {
       },
     },
   },
+}
+
+export const HandledInRTL: Story = {
+  render: args => (
+    <StickerSheet>
+      <StickerSheet.Header
+        headings={['dir=["ltr"]', 'dir=["rtl"]']}
+        hasVerticalHeadings
+      />
+      <StickerSheet.Body>
+        {Object.keys(handledRtlIcons).map(name => (
+          <StickerSheet.Row key={name} rowTitle={name}>
+            <div dir="ltr" className="text-center">
+              <Icon {...args} name={name} shouldMirrorInRTL />
+            </div>
+            <div dir="rtl" className="text-center">
+              <Icon {...args} name={name} shouldMirrorInRTL />
+            </div>
+          </StickerSheet.Row>
+        ))}
+      </StickerSheet.Body>
+    </StickerSheet>
+  ),
 }
 
 export const Customisation: Story = {

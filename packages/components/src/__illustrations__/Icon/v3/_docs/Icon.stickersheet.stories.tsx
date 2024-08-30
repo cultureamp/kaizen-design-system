@@ -4,7 +4,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Icon, IconProps } from "../index"
+import { handledRtlIcons, Icon, IconProps } from "../index"
 
 export default {
   title: "Illustrations/Icon/Icon (v3)",
@@ -21,6 +21,12 @@ const StickerSheetTemplate: StickerSheetStory = {
       isPresentational: true,
     } satisfies IconProps
 
+    const mirrorInRTL = [
+      "arrow_forward",
+      "arrow_back",
+      ...Object.keys(handledRtlIcons),
+    ] satisfies Array<IconProps["name"]>
+
     return (
       <>
         <StickerSheet heading="Icon" isReversed={isReversed}>
@@ -36,26 +42,27 @@ const StickerSheetTemplate: StickerSheetStory = {
 
         <StickerSheet heading="shouldMirrorInRTL" isReversed={isReversed}>
           <StickerSheet.Header
-            headings={['dir=["ltr"]', 'dir=["rtl"]']}
+            headings={[
+              'true; dir=["ltr"]',
+              'true; dir=["rtl"]',
+              'false; dir=["rtl"]',
+            ]}
             hasVerticalHeadings
           />
           <StickerSheet.Body>
-            <StickerSheet.Row rowTitle="arrow_forward">
-              <div dir="ltr">
-                <Icon
-                  {...defaultProps}
-                  name="arrow_forward"
-                  shouldMirrorInRTL
-                />
-              </div>
-              <div dir="rtl">
-                <Icon
-                  {...defaultProps}
-                  name="arrow_forward"
-                  shouldMirrorInRTL
-                />
-              </div>
-            </StickerSheet.Row>
+            {mirrorInRTL.map(name => (
+              <StickerSheet.Row key={name} rowTitle={name}>
+                <div dir="ltr" className="text-center">
+                  <Icon {...defaultProps} name={name} shouldMirrorInRTL />
+                </div>
+                <div dir="rtl" className="text-center">
+                  <Icon {...defaultProps} name={name} shouldMirrorInRTL />
+                </div>
+                <div dir="rtl" className="text-center">
+                  <Icon {...defaultProps} name={name} />
+                </div>
+              </StickerSheet.Row>
+            ))}
           </StickerSheet.Body>
         </StickerSheet>
       </>

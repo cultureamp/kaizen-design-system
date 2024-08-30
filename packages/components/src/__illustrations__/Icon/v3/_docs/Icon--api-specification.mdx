@@ -48,7 +48,17 @@ The `shouldMirrorInRTL` prop mirrors the Icon in `dir="rtl"`.
 
 Use this for directional icons based on your usage context (eg. forwards in LTR will point right, whilst in RTL will point left).
 
+Read more about bidirectionality from [Material Design](https://m2.material.io/design/usability/bidirectionality.html#mirroring-elements).
+
 <Canvas of={IconStories.MirrorInRTL} />
+
+#### Handled icons
+
+Some icons are handled by the Icon component to mirror correctly in RTL with their counterpart icon.
+
+Note that if you do not add `shouldMirrorInRTL`, the icon will not mirror.
+
+<Canvas of={IconStories.HandledInRTL} />
 
 ### Accessibility
 
