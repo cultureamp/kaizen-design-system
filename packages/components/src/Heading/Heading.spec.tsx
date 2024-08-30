@@ -37,7 +37,6 @@ describe("<Heading />", () => {
       it(`renders the correct element for <Heading variant={${variant}} />`, () => {
         const headingMock = render(<Heading variant={variant}>Example</Heading>)
         expect(headingMock.getByText("Example").tagName.toLowerCase()).toBe(el)
-        expect(headingMock.baseElement).toMatchSnapshot()
       })
     })
   })

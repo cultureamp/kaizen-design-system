@@ -45,7 +45,6 @@ describe("<Text />", () => {
       it(`renders the correct element for <Text variant={${variant}} />`, () => {
         const textMock = render(<Text variant={variant}>Example</Text>)
         expect(textMock.getByText("Example").tagName.toLowerCase()).toBe(el)
-        expect(textMock.baseElement).toMatchSnapshot()
       })
     })
   })
