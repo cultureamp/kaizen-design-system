@@ -3,7 +3,7 @@ import { ResourceLinks, SbContent, KAIOInstallation } from "~storybook/component
 import * as docsStories from "./Button.docs.stories"
 import * as exampleStories from "./Button.stories"
 
-<Meta title="Actions/Button/v3/API Specification" />
+<Meta title="Actions/Button/Button (v3)/API Specification" />
 
 <SbContent>
   # Button API Specification (v3)
@@ -30,7 +30,6 @@ import * as exampleStories from "./Button.stories"
 <SbContent>
   <KAIOInstallation exportNames={["Tooltip", "TooltipTrigger" ]} family="actions" version="3" />
 
-
   ## Overview
 
 </SbContent>
@@ -52,7 +51,22 @@ import * as exampleStories from "./Button.stories"
 </SbContent>
 
 
-<Controls of={exampleStories.Playground} className="mb-64" />
+<Controls
+  of={exampleStories.Playground}
+  className="mb-64"
+  include={[
+    "label",
+    "variant",
+    "size",
+    "icon",
+    "iconPosition",
+    "children",
+    "isFullWidth",
+    "isPending",
+    "pendingLabel",
+    "isPendingLabelVisible"
+  ]}
+/>
 
 <SbContent className="mb-64">
   ### onPress vs onClick

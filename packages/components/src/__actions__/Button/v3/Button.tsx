@@ -9,13 +9,58 @@ import { mergeClassNames } from "~components/utils/mergeClassNames"
 import styles from "./Button.module.scss"
 
 export type ButtonVariants = "primary" | "secondary" | "tertiary"
+export type ButtonSizes = "small" | "medium" | "large"
 
-type SharedButtonProps = {
+// type ButtonPendingProps = {
+//   isPending?: false
+//   /** Rendered as the child while `pendingLabel` is `true` */
+//   pendingLabel?: string
+//   /** Hides the `pendingLabel` and renders only the loading spinner if `isPending` is `true`. This will still be used as the accessible label.
+//    * @default false
+//    */
+//   isPendingLabelVisible?: boolean
+// }
+
+// type ButtonContentProps = {
+//   /** The visual label of Button. */
+//   label?: string
+//   icon?: JSX.Element
+//   /** `iconPosition` will only control icons passed in as a prop
+//    * @default "start"
+//    */
+//   iconPosition?: "start" | "end"
+//   /** The visual size of the button. `medium` was formerly `regular`
+//    * @default "primary"
+//    */
+//   children?: never
+// } & ButtonPendingProps
+
+// type ButtonContentWithChildrenProps = {
+//   children: RACButtonProps["children"]
+//   label?: never
+//   icon?: never
+//   iconPosition?: never
+// } & ButtonPendingProps
+
+export type ButtonBaseProps = {
+  /** The visual label of Button. */
+  label?: string
+  icon?: JSX.Element
+  /** `iconPosition` will only control icons passed in as a prop
+   * @default "start"
+   */
+  iconPosition?: "start" | "end"
+  /** The visual size of the button. `medium` was formerly `regular`
+   * @default "primary"
+   */
   variant?: ButtonVariants
   /** The visual size of the button. `medium` was formerly `regular`
    * @default "medium"
    */
-  size?: "small" | "medium" | "large"
+  size?: ButtonSizes
+  /** Determines if the button should fill the width of its container
+   * @default false
+   */
   isFullWidth?: boolean
   /** Triggers a pending state and stops additional press events while waiting for a server response
    * @default false
@@ -27,58 +72,19 @@ type SharedButtonProps = {
    * @default false
    */
   isPendingLabelVisible?: boolean
+} & Omit<RACButtonProps, "children">
+
+export type ButtonWithoutChildren = ButtonBaseProps & {
+  label: string
+  children?: never
 }
 
-export type ButtonWithoutChildren = SharedButtonProps &
-  Omit<RACButtonProps, "children"> & {
-    /** The visual label of Button. */
-    label: string
-    icon: JSX.Element
-    /** `iconPosition` will only control icons passed in as a prop
-     * @default "start"
-     */
-    iconPosition?: "start" | "end"
-    /** Determines if the button should fill the width of its container
-     * @default false
-     */
-  }
+export type ButtonWithChildren = ButtonBaseProps & {
+  label?: never
+  children: RACButtonProps["children"]
+}
 
-export type ButtonWithChildren = SharedButtonProps & RACButtonProps
-
-export type ButtonProps = ButtonWithChildren | ButtonWithoutChildren
-
-// export type ButtonProps = RACButtonProps & {
-//   /** The visual label of Button. */
-//   label?: string
-//   /** The visual style of the button.
-//    * @default "primary"
-//    */
-//   variant?: ButtonVariants
-//   /** The visual size of the button. `medium` was formerly `regular`
-//    * @default "medium"
-//    */
-//   size?: "small" | "medium" | "large"
-//   /** renders an JSX icon at the start or end of the button component */
-//   icon?: JSX.Element
-//   /** `iconPosition` will only control icons passed in as a prop
-//    * @default "start"
-//    */
-//   iconPosition?: "start" | "end"
-//   /** Determines if the button should fill the width of its container
-//    * @default false
-//    */
-//   isFullWidth?: boolean
-//   /** Triggers a pending state and stops additional press events while waiting for a server response
-//    * @default false
-//    */
-//   isPending?: false
-//   /** Rendered as the child while `pendingLabel` is `true` */
-//   pendingLabel?: string
-//   /** Hides the `pendingLabel` and renders only the loading spinner if `isPending` is `true`. This will still be used as the accessible label.
-//    * @default false
-//    */
-//   isPendingLabelVisible?: boolean
-// }
+export type ButtonProps = ButtonWithoutChildren | ButtonWithChildren
 
 export type PendingButtonProps = Omit<
   ButtonProps,
@@ -94,7 +100,7 @@ export type PendingButtonProps = Omit<
   isPendingLabelVisible?: boolean
 }
 
-// TODO: smart way to define the content width based on the total size of the button content - if there's a way not to have to pass in all of button props that would be good
+// TODO: the content width based on the total size of the button content
 const PendingContent = ({
   pendingLabel,
   isPendingLabelVisible,
@@ -110,7 +116,22 @@ const PendingContent = ({
 
   return (
     <>
+      {/* TODO: the loading spinner will need to take size */}
       <LoadingSpinner size="md" accessibilityLabel={pendingLabel} />
+    </>
+  )
+}
+
+const ButtonContent = (props: ButtonProps): JSX.Element => {
+  const hasChildren = "children" in props
+
+  return hasChildren ? (
+    <>{props.children}</>
+  ) : (
+    <>
+      {props.iconPosition !== "end" && props.icon}
+      {props.label}
+      {props.iconPosition === "end" && props.icon}
     </>
   )
 }
@@ -120,15 +141,14 @@ export const Button = ({
   className,
   size = "medium",
   isFullWidth,
-  isPending,
+  // isPending,
   ...otherProps
-}: ButtonProps | PendingButtonProps): JSX.Element => {
+}: ButtonProps): JSX.Element => {
   const isReversed = useReversedColors()
-  const hasChildren = "children" in otherProps
 
   return (
     <RACButton
-      aria-live={"workingLabel" in otherProps ? "polite" : undefined}
+      aria-live={"pendingLabel" in otherProps ? "polite" : undefined}
       className={mergeClassNames(
         styles.button,
         styles[variant],
@@ -139,12 +159,7 @@ export const Button = ({
       )}
       {...otherProps}
     >
-      {/* TODO: maybe children is always there just visually hidden and removed from the a11y dom when it is pending */}
-      {isPending ? (
-        <PendingContent {...(otherProps as PendingButtonProps)} />
-      ) : (
-        hasChildren && otherProps.children
-      )}
+      <ButtonContent {...otherProps} />
     </RACButton>
   )
 }
