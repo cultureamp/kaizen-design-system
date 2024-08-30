@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Meta } from "@storybook/react"
 import { userEvent, within, expect, waitFor } from "@storybook/test"
-import { set } from "date-fns"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import { GenericNotification } from "./index"
 
