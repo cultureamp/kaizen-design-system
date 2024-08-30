@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import exp from "constants"
 import { Meta } from "@storybook/react"
 import { userEvent, within, expect, waitFor } from "@storybook/test"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
