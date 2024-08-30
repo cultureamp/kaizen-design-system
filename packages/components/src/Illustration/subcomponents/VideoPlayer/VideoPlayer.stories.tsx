@@ -16,8 +16,8 @@ export default {
 } satisfies Meta
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed} title="Aspect Ratio">
+  render: () => (
+    <StickerSheet title="Aspect Ratio">
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="default">
           <div className="border border-dashed border-grey-500">
