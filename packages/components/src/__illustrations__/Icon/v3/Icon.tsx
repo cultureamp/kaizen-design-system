@@ -51,7 +51,6 @@ const MaterialIcon = ({
 export const handledRtlIcons = {
   checklist: "checklist_rtl",
   format_list_numbered: "format_list_numbered_rtl",
-  keyboard_tab: "keyboard_tab_rtl",
 } satisfies Partial<Record<IconNames, IconNames>>
 /* eslint-enable camelcase */
 
