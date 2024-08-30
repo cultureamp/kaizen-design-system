@@ -6,7 +6,6 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: var(--shadow-small-box-shadow);
   padding: var(--spacing-24);
   gap: var(--spacing-16);
 
