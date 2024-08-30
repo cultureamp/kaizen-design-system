@@ -8,6 +8,7 @@
   padding: var(--spacing-24) var(--spacing-12);
   background: var(--color-white);
   gap: var(--spacing-16);
+  border-top: 2px solid rgba(var(--color-gray-600-rgb), 0.1);
 
   @media (width >= 768px) {
     grid-template-columns: 1fr 5fr 1fr;
