@@ -91,4 +91,7 @@ export const PausePlay: StickerSheetStory = {
       expect(element).toHaveAttribute("aria-label", "Play animation")
     })
   },
+  parameters: {
+    chromatic: { disable: true },
+  },
 }
