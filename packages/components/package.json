@@ -106,7 +106,7 @@
     "@cultureamp/i18n-react-intl": "^2.6.1",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/package-bundler": "workspace:*",
-    "@tanstack/react-query": "^5.51.23",
+    "@tanstack/react-query": "^5.53.1",
     "@types/lodash.debounce": "^4.0.9",
     "@types/react-highlight": "^0.12.8",
     "@types/react-textfit": "^1.1.4",
