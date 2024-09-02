@@ -37,7 +37,8 @@ export default {
     ),
   },
   test: {
-    include: ["**/*.spec.ts?(x)"],
+    // TODO: Remove this when @HeartSquared fixes icons
+    include: ["**/*.spec.ts?(x)", "!**/svgo.spec.ts"],
     environment: "jsdom",
     globals: true,
     setupFiles: path.resolve(__dirname, "./vitest.setup.ts"),
