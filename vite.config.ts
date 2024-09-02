@@ -37,7 +37,7 @@ export default {
     ),
   },
   test: {
-    include: ["**/*.spec.ts?(x)", "!**/*.jest.spec.ts?(x)"],
+    include: ["**/*.spec.ts?(x)"],
     environment: "jsdom",
     globals: true,
     setupFiles: path.resolve(__dirname, "./vitest.setup.ts"),

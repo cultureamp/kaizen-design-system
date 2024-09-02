@@ -1,19 +1,14 @@
-import {
+const {
   removeRootSVGElement,
   replaceAttrKeys,
   replaceColor,
   replaceId,
-} from "./svgoUtils"
+} = require("./svgoUtils")
 
-export type SVGOItem = {
+type SVGOItem = {
   type: "element"
   name: string
   attributes: { [key: string]: string }
-  children: SVGOItem[]
-}
-
-export type RootItem = {
-  type: string
   children: SVGOItem[]
 }
 
@@ -40,7 +35,7 @@ describe("removeRootSVGElement", () => {
   }
 
   it("Replaces the <svg> element with its children", () => {
-    const rootItem: RootItem = {
+    const rootItem = {
       type: "root",
       children: [svgElement],
     }
