@@ -4,7 +4,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { handledRtlIcons } from "../constants"
+import { handledRtlIcons, iconDefaultSet } from "../constants"
 import { Icon, IconProps } from "../index"
 
 export default {
@@ -31,13 +31,18 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <>
         <StickerSheet heading="Icon" isReversed={isReversed}>
-          <StickerSheet.Header headings={["Outlined", "Filled", "Color"]} />
+          <StickerSheet.Header
+            headings={["Outlined", "Filled", "Color"]}
+            hasVerticalHeadings
+          />
           <StickerSheet.Body>
-            <StickerSheet.Row>
-              <Icon {...defaultProps} />
-              <Icon {...defaultProps} isFilled />
-              <Icon {...defaultProps} isFilled className="text-yellow-500" />
-            </StickerSheet.Row>
+            {iconDefaultSet.map(name => (
+              <StickerSheet.Row key={name} rowTitle={name}>
+                <Icon {...defaultProps} name={name} />
+                <Icon {...defaultProps} name={name} isFilled />
+                <Icon {...defaultProps} name={name} className="text-blue-500" />
+              </StickerSheet.Row>
+            ))}
           </StickerSheet.Body>
         </StickerSheet>
 
