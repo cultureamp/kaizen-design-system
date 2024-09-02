@@ -38,30 +38,6 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row>
             <ErrorPage code="400" />
           </StickerSheet.Row>
-          <StickerSheet.Row>
-            <ErrorPage code="401" />
-          </StickerSheet.Row>
-          <StickerSheet.Row>
-            <ErrorPage code="403" />
-          </StickerSheet.Row>
-          <StickerSheet.Row>
-            <ErrorPage code="404" />
-          </StickerSheet.Row>
-          <StickerSheet.Row>
-            <ErrorPage code="422" />
-          </StickerSheet.Row>
-          <StickerSheet.Row>
-            <ErrorPage code="500" />
-          </StickerSheet.Row>
-          <StickerSheet.Row>
-            <ErrorPage code="502" />
-          </StickerSheet.Row>
-          <StickerSheet.Row>
-            <ErrorPage code="503" />
-          </StickerSheet.Row>
-          <StickerSheet.Row>
-            <ErrorPage code="504" />
-          </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
 

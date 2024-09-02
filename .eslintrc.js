@@ -320,7 +320,7 @@ module.exports = {
       },
     },
     {
-      files: ["**/bin/**", "jest.setup.ts"],
+      files: ["**/bin/**", "vitest.setup.ts"],
       rules: {
         "no-console": "off",
       },

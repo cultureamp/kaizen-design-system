@@ -217,6 +217,9 @@ importers:
       highlight.js:
         specifier: ^11.10.0
         version: 11.10.0
+      jest-axe:
+        specifier: ^9.0.0
+        version: 9.0.0
       sass:
         specifier: ^1.77.8
         version: 1.77.8
@@ -401,9 +404,6 @@ importers:
       '@testing-library/jest-dom':
         specifier: ^6.5.0
         version: 6.5.0
-      '@types/jest-axe':
-        specifier: ^3.5.9
-        version: 3.5.9
       '@types/lodash.debounce':
         specifier: ^4.0.9
         version: 4.0.9
@@ -425,9 +425,6 @@ importers:
       identity-obj-proxy:
         specifier: ^3.0.0
         version: 3.0.0
-      jest-axe:
-        specifier: ^9.0.0
-        version: 9.0.0
       lodash.isempty:
         specifier: ^4.4.0
         version: 4.4.0
