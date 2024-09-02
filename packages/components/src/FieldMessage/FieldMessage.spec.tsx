@@ -53,7 +53,7 @@ describe("<FieldMessage />", () => {
   it("renders the error icon with an accessible title", () => {
     const { getByLabelText } = render(<FieldMessageWrapper variant="warning" />)
 
-    expect(getByLabelText("error message")).toBeInTheDocument()
+    expect(getByLabelText("warning message")).toBeInTheDocument()
   })
 
   it("renders the caution icon with an accessible title", () => {
@@ -61,6 +61,6 @@ describe("<FieldMessage />", () => {
       <FieldMessageWrapper variant="cautionary" />
     )
 
-    expect(getByLabelText("caution message")).toBeInTheDocument()
+    expect(getByLabelText("cautionary message")).toBeInTheDocument()
   })
 })
