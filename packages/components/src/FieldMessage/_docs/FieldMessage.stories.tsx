@@ -1,7 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { FieldMessage } from "../index"
-import styles from "./customFieldMessage.module.css"
 
 const meta = {
   title: "Components/FieldMessage",
@@ -81,10 +80,4 @@ export const Position: Story = {
       />
     </div>
   ),
-}
-
-export const CustomVariant: Story = {
-  args: {
-    classNameOverride: styles.custom,
-  },
 }

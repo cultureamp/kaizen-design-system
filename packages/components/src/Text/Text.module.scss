@@ -44,21 +44,25 @@
 
 .dark {
   --text-color: var(--color-purple-800);
+
   opacity: 100%;
 }
 
 .dark-reduced-opacity {
   --text-color: --color-purple-800;
+
   opacity: 70%;
 }
 
 .white {
   --text-color: var(--color-white);
+
   opacity: 100%;
 }
 
 .white-reduced-opacity {
   --text-color: var(--color-white);
+
   opacity: 80%;
 }
 

@@ -39,53 +39,49 @@ export const FieldMessage = ({
   reversed = false,
   classNameOverride,
   ...restProps
-}: FieldMessageProps): JSX.Element => {
-  const textColor = variant === "default" ? "dark" : "light"
-
-  return (
-    <div
-      className={classnames(
-        styles.message,
-        styles[variant],
-        styles[status],
-        classNameOverride,
-        reversed && styles.reversed,
-        position === "bottom" && styles.positionBottom,
-        position === "top" && styles.positionTop
-      )}
-      {...restProps}
+}: FieldMessageProps): JSX.Element => (
+  <div
+    className={classnames(
+      styles.message,
+      styles[variant],
+      styles[status],
+      classNameOverride,
+      reversed && styles.reversed,
+      position === "bottom" && styles.positionBottom,
+      position === "top" && styles.positionTop
+    )}
+    {...restProps}
+  >
+    {variant && (
+      <>
+        {(variant === "cautionary" || status === "caution") && (
+          <span className={styles.icon}>
+            <CautionWhiteIcon
+              role="img"
+              inheritSize={false}
+              aria-label={`${variant} message`}
+            />
+          </span>
+        )}
+        {(variant === "warning" || status === "error") && (
+          <span className={styles.icon}>
+            <ExclamationWhiteIcon
+              role="img"
+              inheritSize={false}
+              aria-label={`${variant} message`}
+            />
+          </span>
+        )}
+      </>
+    )}
+    <Text
+      variant="small"
+      tag={typeof message === "string" ? "p" : "div"}
+      classNameOverride={styles.text}
     >
-      {variant && (
-        <>
-          {(variant === "cautionary" || status === "caution") && (
-            <span className={styles.icon}>
-              <CautionWhiteIcon
-                role="img"
-                inheritSize={false}
-                aria-label={`${variant} message`}
-              />
-            </span>
-          )}
-          {(variant === "warning" || status === "error") && (
-            <span className={styles.icon}>
-              <ExclamationWhiteIcon
-                role="img"
-                inheritSize={false}
-                aria-label={`${variant} message`}
-              />
-            </span>
-          )}
-        </>
-      )}
-      <Text
-        variant="small"
-        tag={typeof message === "string" ? "p" : "div"}
-        classNameOverride={styles.text}
-      >
-        {message}
-      </Text>
-    </div>
-  )
-}
+      {message}
+    </Text>
+  </div>
+)
 
 FieldMessage.displayName = "FieldMessage"

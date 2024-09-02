@@ -4,9 +4,19 @@
   align-items: center;
   gap: var(--spacing-6);
   background-color: var(--message-background-color);
+}
 
-  .text {
-    --text-color: var(--message-text-color);
+.text {
+  --text-color: var(--message-text-color);
+}
+
+.icon {
+  display: inline-flex;
+  width: 1.25rem;
+  align-self: flex-start;
+
+  .reversed & {
+    color: var(--color-purple-800);
   }
 }
 
@@ -62,14 +72,4 @@
 
 .positionTop {
   margin-bottom: var(--spacing-6);
-}
-
-.icon {
-  display: inline-flex;
-  width: 1.25rem;
-  align-self: flex-start;
-
-  .reversed & {
-    color: var(--color-purple-800);
-  }
 }
