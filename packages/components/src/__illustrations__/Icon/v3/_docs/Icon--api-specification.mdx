@@ -1,4 +1,4 @@
-import { Canvas, Meta, Controls } from "@storybook/blocks"
+import { Canvas, Meta, Controls, Story } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as IconStories from "./Icon.stories"
 
@@ -6,7 +6,7 @@ import * as IconStories from "./Icon.stories"
 
 # Icon API Specification (v3)
 
-Updated August 28, 2024
+Updated September 2, 2024
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__illustrations__/Icon/v3"
@@ -84,3 +84,9 @@ override the CSS variable `--icon-optical-size` (eg. in Tailwind - `[--icon-opti
 
 <Canvas of={IconStories.OpticalSize} />
 <Controls of={IconStories.OpticalSize} />
+
+## Default icon set
+
+Tip: Click on the icon you want for a quick copy!
+
+<Story of={IconStories.DefaultIconSet} />

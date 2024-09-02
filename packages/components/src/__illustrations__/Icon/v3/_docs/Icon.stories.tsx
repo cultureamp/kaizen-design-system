@@ -1,7 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import classnames from "classnames"
+import { Text } from "~components/Text"
+import { ToggleSwitchField } from "~components/ToggleSwitch"
 import { Button } from "~components/__actions__/v3"
+import { Tag } from "~components/__future__/Tag"
 import { StickerSheet } from "~storybook/components/StickerSheet"
+import { iconDefaultSet } from "../constants"
 import { Icon } from "../index"
 
 const meta = {
@@ -144,4 +149,79 @@ export const PresentationalIcon: Story = {
     </Button>
   ),
   args: { isPresentational: true },
+}
+
+const IconSetButton = ({
+  iconName,
+  isFilled,
+}: {
+  iconName: string
+  isFilled: boolean
+}): JSX.Element => {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = (): void => {
+    const snippet = isFilled
+      ? `<Icon name="${iconName}" isPresentational isFilled />`
+      : `<Icon name="${iconName}" isPresentational />`
+    navigator.clipboard.writeText(snippet)
+
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1000)
+  }
+
+  return (
+    <li>
+      <button
+        type="button"
+        onClick={handleCopy}
+        className={classnames(
+          "flex flex-col justify-center items-center gap-16",
+          "cursor-pointer h-full w-full p-16 rounded",
+          "bg-gray-100 hover:bg-gray-200"
+        )}
+      >
+        {copied ? (
+          <Tag color="green" classNameOverride="border-1 border-green-500">
+            Copied!
+          </Tag>
+        ) : (
+          <>
+            <Icon name={iconName} isPresentational isFilled={isFilled} />
+            <Text variant="small" tag="span">
+              {iconName}
+            </Text>
+          </>
+        )}
+      </button>
+    </li>
+  )
+}
+
+export const DefaultIconSet: Story = {
+  render: () => {
+    const [isFilled, setIsFilled] = useState(false)
+
+    return (
+      <div className="flex flex-col gap-8">
+        <ToggleSwitchField
+          labelText="Filled"
+          toggledStatus={isFilled ? "on" : "off"}
+          onToggle={() => setIsFilled(!isFilled)}
+        />
+        <ul
+          className="grid list-none gap-16 m-0 p-0"
+          style={{ gridTemplateColumns: "repeat(auto-fit, minmax(11em, 1fr))" }}
+        >
+          {iconDefaultSet.map(iconName => (
+            <IconSetButton
+              key={iconName}
+              iconName={iconName}
+              isFilled={isFilled}
+            />
+          ))}
+        </ul>
+      </div>
+    )
+  },
 }
