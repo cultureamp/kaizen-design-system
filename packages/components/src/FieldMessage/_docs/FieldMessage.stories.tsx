@@ -1,6 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { FieldMessage } from "../index"
+import styles from "./customFieldMessage.module.css"
 
 const meta = {
   title: "Components/FieldMessage",
@@ -42,23 +43,23 @@ export const DetailedHelperText: Story = {
   },
 }
 
-export const Error: Story = {
-  args: { status: "error", message: "Invalid email provided." },
+export const Warning: Story = {
+  args: { variant: "warning", message: "Invalid email provided." },
 }
 
 export const Cautionary: Story = {
   args: {
-    status: "caution",
+    variant: "cautionary",
     message: "Do not share your password or account details.",
   },
 }
 
 export const Success: Story = {
-  args: { status: "success", message: "Your account has been created" },
+  args: { variant: "success", message: "Your account has been created" },
 }
 
 export const Reversed: Story = {
-  args: { reversed: true, status: "error" },
+  args: { reversed: true, variant: "warning" },
   parameters: { backgrounds: { default: "Purple 700" } },
   name: "reversed",
 }
@@ -69,15 +70,21 @@ export const Position: Story = {
     <div className="flex gap-6">
       <FieldMessage
         {...args}
-        status="caution"
+        variant="cautionary"
         message='Position "bottom" will apply margin to the top'
       />
       <FieldMessage
         {...args}
-        status="caution"
+        variant="cautionary"
         position="top"
         message='Position "top" will apply margin to the bottom'
       />
     </div>
   ),
+}
+
+export const CustomVariant: Story = {
+  args: {
+    classNameOverride: styles.custom,
+  },
 }

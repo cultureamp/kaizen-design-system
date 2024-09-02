@@ -20,27 +20,58 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed, ...otherProps }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Default", "Success", "Error", "Caution"]}
-      />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <FieldMessage {...otherProps} reversed={isReversed} />
-          <FieldMessage
-            {...otherProps}
-            reversed={isReversed}
-            status="success"
-          />
-          <FieldMessage {...otherProps} reversed={isReversed} status="error" />
-          <FieldMessage
-            {...otherProps}
-            reversed={isReversed}
-            status="caution"
-          />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
-    </StickerSheet>
+    <>
+      <StickerSheet isReversed={isReversed} heading="Status (Deprecated)">
+        <StickerSheet.Header
+          headings={["Default", "Success", "Error", "Caution"]}
+        />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <FieldMessage {...otherProps} reversed={isReversed} />
+            <FieldMessage
+              {...otherProps}
+              reversed={isReversed}
+              status="success"
+            />
+            <FieldMessage
+              {...otherProps}
+              reversed={isReversed}
+              status="error"
+            />
+            <FieldMessage
+              {...otherProps}
+              reversed={isReversed}
+              status="caution"
+            />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+      <StickerSheet isReversed={isReversed} heading="Variant">
+        <StickerSheet.Header
+          headings={["Default", "Success", "Warning", "Cautionary"]}
+        />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <FieldMessage {...otherProps} reversed={isReversed} />
+            <FieldMessage
+              {...otherProps}
+              reversed={isReversed}
+              variant="success"
+            />
+            <FieldMessage
+              {...otherProps}
+              reversed={isReversed}
+              variant="warning"
+            />
+            <FieldMessage
+              {...otherProps}
+              reversed={isReversed}
+              variant="cautionary"
+            />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+    </>
   ),
 }
 

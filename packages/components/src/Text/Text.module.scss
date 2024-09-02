@@ -3,6 +3,7 @@
 
 .text {
   margin: 0;
+  color: var(--text-color);
 
   strong {
     font-weight: $typography-paragraph-bold-font-weight;
@@ -42,29 +43,29 @@
 }
 
 .dark {
-  color: $color-purple-800;
+  --text-color: var(--color-purple-800);
   opacity: 100%;
 }
 
 .dark-reduced-opacity {
-  color: $color-purple-800;
+  --text-color: --color-purple-800;
   opacity: 70%;
 }
 
 .white {
-  color: $color-white;
+  --text-color: var(--color-white);
   opacity: 100%;
 }
 
 .white-reduced-opacity {
-  color: $color-white;
+  --text-color: var(--color-white);
   opacity: 80%;
 }
 
 .positive {
-  color: $color-green-600;
+  --text-color: var(--color-green-600);
 }
 
 .negative {
-  color: $color-red-600;
+  --text-color: var(--color-red-600);
 }

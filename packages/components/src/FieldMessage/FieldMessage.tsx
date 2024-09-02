@@ -3,13 +3,28 @@ import classnames from "classnames"
 import { CautionWhiteIcon, ExclamationWhiteIcon } from "~components/Icon"
 import { Text } from "~components/Text"
 import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./FieldMessage.module.scss"
+import styles from "./FieldMessage.module.css"
 
 export type FieldMessageStatus = "default" | "success" | "error" | "caution"
 
+export type FieldMessageVariant =
+  | "default"
+  | "success"
+  | "warning"
+  | "cautionary"
+
 export type FieldMessageProps = {
   message?: React.ReactNode
-  /** @default "default" */
+  /**
+   * If transitioning from `status`:
+   * - `error` -> `warning`
+   * - `caution` -> `cautionary`
+   * @default "success"
+   */
+  variant?: FieldMessageVariant
+  /**
+   * @deprecated Use `variant` instead
+   */
   status?: FieldMessageStatus
   /** @default "bottom" */
   position?: "top" | "bottom"
@@ -18,23 +33,20 @@ export type FieldMessageProps = {
 
 export const FieldMessage = ({
   message,
+  variant = "default",
   status = "default",
   position = "bottom",
   reversed = false,
   classNameOverride,
   ...restProps
 }: FieldMessageProps): JSX.Element => {
-  const textColor =
-    status === "default" || status === "success"
-      ? reversed
-        ? "white-reduced-opacity"
-        : "dark-reduced-opacity"
-      : "dark"
+  const textColor = variant === "default" ? "dark" : "light"
 
   return (
     <div
       className={classnames(
         styles.message,
+        styles[variant],
         styles[status],
         classNameOverride,
         reversed && styles.reversed,
@@ -43,32 +55,35 @@ export const FieldMessage = ({
       )}
       {...restProps}
     >
-      {(status === "error" || status === "caution") && (
-        <span className={styles.warningIcon}>
-          {status === "error" ? (
-            <ExclamationWhiteIcon
-              role="img"
-              inheritSize={false}
-              aria-label={`${status} message`}
-            />
-          ) : (
-            <CautionWhiteIcon
-              role="img"
-              inheritSize={false}
-              aria-label={`${status} message`}
-            />
+      {variant && (
+        <>
+          {(variant === "cautionary" || status === "caution") && (
+            <span className={styles.icon}>
+              <CautionWhiteIcon
+                role="img"
+                inheritSize={false}
+                aria-label={`${variant} message`}
+              />
+            </span>
           )}
-        </span>
+          {(variant === "warning" || status === "error") && (
+            <span className={styles.icon}>
+              <ExclamationWhiteIcon
+                role="img"
+                inheritSize={false}
+                aria-label={`${variant} message`}
+              />
+            </span>
+          )}
+        </>
       )}
-      <div className={styles.message}>
-        <Text
-          variant="small"
-          tag={typeof message === "string" ? "p" : "div"}
-          color={textColor}
-        >
-          {message}
-        </Text>
-      </div>
+      <Text
+        variant="small"
+        tag={typeof message === "string" ? "p" : "div"}
+        classNameOverride={styles.text}
+      >
+        {message}
+      </Text>
     </div>
   )
 }

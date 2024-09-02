@@ -1,0 +1,75 @@
+.message {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: var(--spacing-6);
+  background-color: var(--message-background-color);
+
+  .text {
+    --text-color: var(--message-text-color);
+  }
+}
+
+.default {
+  &.reversed {
+    --message-text-color: var(--color-white);
+  }
+}
+
+.success {
+  &.reversed {
+    --message-text-color: var(--color-white);
+  }
+}
+
+.caution,
+.cautionary {
+  border-radius: var(--border-solid-border-radius);
+  padding: var(--spacing-8);
+
+  --message-background-color: var(--color-yellow-100);
+
+  .icon {
+    color: var(--color-yellow-700);
+  }
+
+  &.reversed {
+    --message-text-color: var(--color-purple-800);
+    --message-background-color: var(--color-yellow-400);
+  }
+}
+
+.error,
+.warning {
+  border-radius: var(--border-solid-border-radius);
+  padding: var(--spacing-8);
+
+  --message-background-color: var(--color-red-100);
+
+  .icon {
+    color: var(--color-red-500);
+  }
+
+  &.reversed {
+    --message-text-color: var(--color-purple-800);
+    --message-background-color: var(--color-red-300);
+  }
+}
+
+.positionBottom {
+  margin-top: var(--spacing-6);
+}
+
+.positionTop {
+  margin-bottom: var(--spacing-6);
+}
+
+.icon {
+  display: inline-flex;
+  width: 1.25rem;
+  align-self: flex-start;
+
+  .reversed & {
+    color: var(--color-purple-800);
+  }
+}
