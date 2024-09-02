@@ -49,7 +49,7 @@ jobs:
           retention-days: 1
 
   storybook-tests-1:
-    name: "test-storybook (shard 3/3)"
+    name: "test-storybook"
     needs: build-test-storybook
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -65,7 +65,7 @@ jobs:
         run: pnpm turbo @docs/storybook#test:storybook -- --shard 1/3
 
   storybook-tests-2:
-    name: "test-storybook (shard 2/3)"
+    name: "test-storybook"
     needs: build-test-storybook
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -81,7 +81,7 @@ jobs:
         run: pnpm turbo @docs/storybook#test:storybook -- --shard 2/3
 
   storybook-tests-3:
-    name: "test-storybook (shard 3/3)"
+    name: "test-storybook"
     needs: build-test-storybook
     runs-on: ubuntu-latest
     timeout-minutes: 10
