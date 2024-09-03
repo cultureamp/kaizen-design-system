@@ -1,7 +1,6 @@
 import React from "react"
-import { screen, waitFor } from "@testing-library/react"
+import { screen, waitFor, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
 import { FilterBarProvider } from "../../context/FilterBarContext"
 import { FilterBarButton, FilterBarButtonProps } from "./FilterBarButton"
 
@@ -43,9 +42,7 @@ const FilterBarButtonWrapper = (
 
 describe("<FilterBarButton />", () => {
   it("does not show a remove button when it is not removable", async () => {
-    const { getByRole, queryByRole } = renderWithIntl(
-      <FilterBarButtonWrapper />
-    )
+    const { getByRole, queryByRole } = render(<FilterBarButtonWrapper />)
     await waitFor(() => {
       expect(getByRole("button", { name: "Coffee" })).toBeVisible()
     })
@@ -55,7 +52,7 @@ describe("<FilterBarButton />", () => {
   })
 
   it("shows a remove button when it is removable", async () => {
-    renderWithIntl(<FilterBarButtonWrapper isRemovable />)
+    render(<FilterBarButtonWrapper isRemovable />)
     const filterButton = await screen.findByRole("button", { name: "Coffee" })
     await waitFor(() => {
       expect(filterButton).toBeVisible()

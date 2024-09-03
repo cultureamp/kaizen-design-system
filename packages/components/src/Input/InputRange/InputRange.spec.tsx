@@ -1,10 +1,10 @@
 import React from "react"
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
+import { vi } from "vitest"
 import { InputRange } from "./index"
-
 describe("<InputRange />", () => {
   it("fires onChange after interaction", async () => {
-    const onChange = jest.fn()
+    const onChange = vi.fn()
     render(
       <InputRange
         id="unique-3"

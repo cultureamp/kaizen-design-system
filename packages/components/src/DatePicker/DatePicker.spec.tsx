@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { screen, waitFor, within } from "@testing-library/react"
+import { render, screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
+import { vi } from "vitest"
 import { DatePicker } from "./DatePicker"
 import { DatePickerProps } from "."
 
@@ -27,14 +27,14 @@ const DatePickerWrapper = ({
 
 describe("<DatePicker />", () => {
   it("should not show the calendar initially", async () => {
-    renderWithIntl(<DatePickerWrapper />)
+    render(<DatePickerWrapper />)
     await waitFor(() => {
       expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
     })
   })
 
   it("should have an empty input value when a date is not provided", async () => {
-    renderWithIntl(<DatePickerWrapper />)
+    render(<DatePickerWrapper />)
     await waitFor(() => {
       const input = screen.getByLabelText("Input label", { selector: "input" })
       expect(input).toHaveValue("")
@@ -42,7 +42,7 @@ describe("<DatePicker />", () => {
   })
 
   it("should pre-fill the input when an initial date is provided", async () => {
-    renderWithIntl(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
+    render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
     await waitFor(() => {
       expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
     })
@@ -68,7 +68,7 @@ describe("<DatePicker />", () => {
       )
     }
 
-    renderWithIntl(<DelayedSelectedDate />)
+    render(<DelayedSelectedDate />)
     expect(screen.getByRole("combobox")).toBeInTheDocument()
     expect(screen.getByRole("combobox")).toHaveValue("")
     await waitFor(() => {
@@ -77,7 +77,7 @@ describe("<DatePicker />", () => {
   })
 
   it("allows you to tab through input, button and calendar", async () => {
-    renderWithIntl(<DatePickerWrapper />)
+    render(<DatePickerWrapper />)
     const input = screen.getByLabelText("Input label", { selector: "input" })
 
     await user.tab()
@@ -112,9 +112,7 @@ describe("<DatePicker />", () => {
   }, 6000)
 
   it("should validate and close the calendar when the user presses the Enter key while focus is in the input", async () => {
-    renderWithIntl(
-      <DatePickerWrapper disabledDates={[new Date("2022-05-01")]} />
-    )
+    render(<DatePickerWrapper disabledDates={[new Date("2022-05-01")]} />)
 
     const input = screen.getByLabelText("Input label", { selector: "input" })
     await user.click(input)
@@ -139,7 +137,7 @@ describe("<DatePicker />", () => {
 describe("<DatePicker /> - Focus element", () => {
   describe("Click on input", () => {
     beforeEach(async () => {
-      renderWithIntl(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
+      render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
       const input = screen.getByLabelText("Input label", { selector: "input" })
       await user.click(input)
@@ -181,7 +179,7 @@ describe("<DatePicker /> - Focus element", () => {
 
   describe("Keydown arrow on input", () => {
     it("shows focus within the calendar", async () => {
-      renderWithIntl(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
+      render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
       const input = screen.getByLabelText("Input label", { selector: "input" })
       await user.tab()
@@ -200,7 +198,7 @@ describe("<DatePicker /> - Focus element", () => {
     })
 
     it("returns focus to the input when the user escapes from the calendar", async () => {
-      renderWithIntl(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
+      render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
       const input = screen.getByLabelText("Input label", { selector: "input" })
       await user.tab()
@@ -222,7 +220,7 @@ describe("<DatePicker /> - Focus element", () => {
 
   describe("Click on calendar button", () => {
     beforeEach(async () => {
-      renderWithIntl(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
+      render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
       const calendarButton = screen.getByRole("button", {
         name: "Change date, Mar 1, 2022",
@@ -258,7 +256,7 @@ describe("<DatePicker /> - Focus element", () => {
     let calendarButton: HTMLElement
 
     beforeEach(async () => {
-      renderWithIntl(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
+      render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
       calendarButton = screen.getByRole("button", {
         name: "Change date, Mar 1, 2022",
@@ -305,7 +303,7 @@ describe("<DatePicker /> - Focus element", () => {
 
 describe("<DatePicker /> - Input format", () => {
   it("formats values when focus is on the input", async () => {
-    renderWithIntl(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
+    render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
     const input = screen.getByLabelText("Input label", { selector: "input" })
     expect(input).toHaveValue("Mar 1, 2022")
@@ -318,7 +316,7 @@ describe("<DatePicker /> - Input format", () => {
   })
 
   it("formats values when the input loses focus - onBlur", async () => {
-    renderWithIntl(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
+    render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
 
     const input = screen.getByLabelText("Input label", { selector: "input" })
     expect(input).toHaveValue("Mar 1, 2022")
@@ -340,7 +338,7 @@ describe("<DatePicker /> - Input format", () => {
 describe("<DatePicker /> - Validation", () => {
   describe("Custom Validation", () => {
     it("displays custom validation message when provided (overrides inbuilt validation)", async () => {
-      renderWithIntl(
+      render(
         <DatePickerWrapper
           status="error"
           validationMessage="Custom validation message"
@@ -358,8 +356,8 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("does not show inbuilt validation message when onValidate is set", async () => {
-      const onValidate = jest.fn()
-      renderWithIntl(
+      const onValidate = vi.fn()
+      render(
         <DatePickerWrapper
           selectedDay={new Date("potato")}
           onValidate={onValidate}
@@ -377,8 +375,8 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("triggers validation when initial selected date is invalid", async () => {
-      const onValidate = jest.fn()
-      renderWithIntl(
+      const onValidate = vi.fn()
+      render(
         <DatePickerWrapper
           onValidate={onValidate}
           selectedDay={new Date("potato")}
@@ -390,8 +388,8 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("triggers validation when initial selected date is disabled", async () => {
-      const onValidate = jest.fn()
-      renderWithIntl(
+      const onValidate = vi.fn()
+      render(
         <DatePickerWrapper
           onValidate={onValidate}
           disabledBefore={new Date("2022-05-15")}
@@ -404,8 +402,8 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("does not trigger validation when initial selected date is empty", async () => {
-      const onValidate = jest.fn()
-      renderWithIntl(
+      const onValidate = vi.fn()
+      render(
         <DatePickerWrapper onValidate={onValidate} selectedDay={undefined} />
       )
       await waitFor(() => {
@@ -414,8 +412,8 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("does not trigger validation when initial selected date is valid", async () => {
-      const onValidate = jest.fn()
-      renderWithIntl(
+      const onValidate = vi.fn()
+      render(
         <DatePickerWrapper
           onValidate={onValidate}
           selectedDay={new Date("2022-05-05")}
@@ -427,8 +425,8 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("triggers validation when selected date is updated to invalid", async () => {
-      const onValidate = jest.fn()
-      renderWithIntl(
+      const onValidate = vi.fn()
+      render(
         <DatePickerWrapper
           onValidate={onValidate}
           defaultMonth={new Date("2022-03-01")}
@@ -451,7 +449,7 @@ describe("<DatePicker /> - Validation", () => {
 
   describe("Inbuilt Validation", () => {
     it("displays error message when selected day is invalid", async () => {
-      renderWithIntl(<DatePickerWrapper selectedDay={new Date("potato")} />)
+      render(<DatePickerWrapper selectedDay={new Date("potato")} />)
 
       await waitFor(() => {
         const icon = screen.getByLabelText("error message")
@@ -461,7 +459,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("displays error message when selected day is disabled", async () => {
-      renderWithIntl(
+      render(
         <DatePickerWrapper
           disabledBefore={new Date("2022-05-15")}
           selectedDay={new Date("2022-05-05")}
@@ -476,7 +474,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("displays error message when input date is invalid", async () => {
-      renderWithIntl(<DatePickerWrapper />)
+      render(<DatePickerWrapper />)
 
       const input = screen.getByLabelText("Input label", { selector: "input" })
       await user.type(input, "05/05/2022Blah")
@@ -491,9 +489,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("displays error message when input date is disabled", async () => {
-      renderWithIntl(
-        <DatePickerWrapper disabledBefore={new Date("2022-05-15")} />
-      )
+      render(<DatePickerWrapper disabledBefore={new Date("2022-05-15")} />)
 
       const input = screen.getByLabelText("Input label", { selector: "input" })
       await user.type(input, "05/05/2022")

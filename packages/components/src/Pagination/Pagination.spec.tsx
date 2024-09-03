@@ -11,12 +11,12 @@ const defaultProps = {
   ariaLabelNextPage: "Next page",
   ariaLabelPreviousPage: "Previous page",
   ariaLabelPage: "Page",
-  onPageChange: jest.fn<void, [number]>(),
+  onPageChange: vi.fn(),
 }
 
 describe("<Pagination />", () => {
   it("calls onPageChange when clicking page number", async () => {
-    const onPageChange = jest.fn<void, [number]>()
+    const onPageChange = vi.fn()
 
     render(<Pagination {...defaultProps} onPageChange={onPageChange} />)
 

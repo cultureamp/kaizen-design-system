@@ -135,6 +135,33 @@ const StickerSheetTemplate: StickerSheetStory = {
                   "data-testid": "test__filter-drp-field--validation--end",
                 }}
               />
+              <FilterDateRangePickerField
+                id="stickersheet--filter-drp-field--validation-merged"
+                label="Dates"
+                locale="en-US"
+                selectedRange={rangeFieldValidation}
+                onRangeChange={setRangeFieldValidation}
+                onValidate={{
+                  dateStart: action("Validation story: date start onValidate"),
+                  dateEnd: action("Validation story: date end onValidate"),
+                }}
+                validationMessage={{
+                  dateStart: {
+                    status: "error",
+                    message:
+                      "(Start date custom message) Jelly-filled doughnuts are my favourite!",
+                  },
+                  dateEnd: {
+                    status: "caution",
+                    message:
+                      "(End date custom message) Jelly-filled doughnuts are dangerous!",
+                  },
+                }}
+                inputEndDateProps={{
+                  "data-testid":
+                    "test__filter-drp-field--validation-merged--end",
+                }}
+              />
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>

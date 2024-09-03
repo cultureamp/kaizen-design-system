@@ -1,11 +1,11 @@
 import { findByText, getByText, waitFor } from "@testing-library/dom"
+import { vi } from "vitest"
 import { createRichTextEditor } from "../core"
 import { simulateSelectionByText } from "./fixtures/helpers"
 import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
 import { removeMark } from "./removeMark"
-
 describe("removeMark()", () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
 
   it("removes the given <strong> Mark from a paragraph in the document", async () => {

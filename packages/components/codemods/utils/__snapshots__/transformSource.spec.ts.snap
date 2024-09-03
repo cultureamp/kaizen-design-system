@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`transformSource updates the value of Pancakes topping to jam 1`] = `
+exports[`transformSource > updates the value of Pancakes topping to jam 1`] = `
 "import * as React from "react";
 // @ts-ignore
 import { Pancakes } from "@kaizen/components";

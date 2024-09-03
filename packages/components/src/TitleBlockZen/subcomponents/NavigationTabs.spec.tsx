@@ -1,7 +1,9 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { NavigationTab, CustomNavigationTabProps } from "./NavigationTabs"
+import styles from "./NavigationTabs.module.scss"
 
 const user = userEvent.setup()
 
@@ -33,7 +35,7 @@ describe("NavigationTabs", () => {
 
   describe("with a render prop", () => {
     it("renders the component passed with the navigation tab props", async () => {
-      const handleClick = jest.fn()
+      const handleClick = vi.fn()
       const text = "I am also navigation tabs"
       const href = "www.cultureamp.com"
       render(
@@ -50,7 +52,11 @@ describe("NavigationTabs", () => {
       const button = screen.getByRole("button", {
         name: `${href} - ${text} - true`,
       })
-      expect(button).toHaveClass("linkAnchor", "active", "lightBackground")
+      expect(button).toHaveClass(
+        styles.linkAnchor,
+        styles.active,
+        styles.lightBackground
+      )
 
       await user.click(button)
       await waitFor(() => {

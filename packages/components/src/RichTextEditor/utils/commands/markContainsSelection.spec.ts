@@ -1,12 +1,12 @@
 import { waitFor } from "@testing-library/dom"
 import { EditorState } from "prosemirror-state"
+import { vi } from "vitest"
 import { createRichTextEditor } from "../core"
 import { simulateSelectionByText } from "./fixtures/helpers"
 import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
 import { markContainsSelection } from "./markContainsSelection"
-
 describe("markContainsSelection()", () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
 
   it("will return true if the current select contains the provided Mark", async () => {
