@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.61.2
+
+### Patch Changes
+
+- [#5012](https://github.com/cultureamp/kaizen-design-system/pull/5012) [`be6fbbb8ffc165849e1b2162c180f92e4f0902ba`](https://github.com/cultureamp/kaizen-design-system/commit/be6fbbb8ffc165849e1b2162c180f92e4f0902ba) - RichTextContent: remove contenteditable attribute instead of contenteditable=false
+
 ## 1.61.1
 
 ### Patch Changes
