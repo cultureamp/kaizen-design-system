@@ -115,19 +115,17 @@ export const Customisation: Story = {
 }
 
 export const OpticalSize: Story = {
-  render: ({ className, ...args }) => (
-    <Icon {...args} name="star" className={`text-heading-1 ${className}`} />
-  ),
+  render: args => <Icon {...args} name="star" />,
   parameters: { controls: { include: "className" } },
-  args: { className: "[--icon-optical-size:48]" },
+  args: { className: "text-[48px] [--icon-optical-size:48]" },
   argTypes: {
     className: {
       control: { type: "radio" },
       options: [
-        "[--icon-optical-size:20]",
-        "[--icon-optical-size:24]",
-        "[--icon-optical-size:40]",
-        "[--icon-optical-size:48]",
+        "text-[20px] [--icon-optical-size:20]",
+        "text-[24px] [--icon-optical-size:24]",
+        "text-[40px] [--icon-optical-size:40]",
+        "text-[48px] [--icon-optical-size:48]",
       ],
     },
   },
