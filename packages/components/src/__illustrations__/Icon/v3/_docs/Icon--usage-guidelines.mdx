@@ -1,12 +1,12 @@
-import { Canvas, Meta, Controls } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
+import { Canvas, Meta, Controls, Story } from "@storybook/blocks"
+import { ResourceLinks, KAIOInstallation, DosAndDonts, DoOrDont } from "~storybook/components"
 import * as IconStories from "./Icon.stories"
 
 <Meta title="Illustrations/Icon/Icon (v3)/Usage Guidelines" />
 
 # Icon (v3)
 
-Updated August 28, 2024
+Updated September 3, 2024
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__illustrations__/Icon/v3"
@@ -20,4 +20,37 @@ Updated August 28, 2024
 Icon extends [Material Symbols](https://fonts.google.com/icons), offering access to all available icons.
 
 <Canvas of={IconStories.Playground} />
-<Controls of={IconStories.Playground} />
+<Controls of={IconStories.Playground} include={["name", "isFilled"]} />
+
+## Guidelines
+
+Use [default icons](#default-icon-set) (common icons already in use within existing Kaizen components) they will remain available in Figma directly.
+
+When you need a new icon, use Google's [Material Symbols](https://fonts.google.com/icons) set via the [Figma plugin](https://www.figma.com/community/plugin/1088610476491668236/material-symbols) to add the relevant icons in:
+- Outlined
+- Weight: 400
+- Grade: Normal (0)
+- Fill: On or Off
+
+They will not need to be added to the Kaizen icon subset in order to be used in designs or to be built.
+
+### Optical size
+
+If using icons at a larger size than the default 20px, scale the Optical Size to match the size of the icon.
+
+<img src="https://lh3.googleusercontent.com/HOPC05vQ5XWnpO6eguPBVrvkRgtNhnIv7hllCJbFjnd0vWEQhVkogDeiHx47fh5Evb7XVKOaEtM18afa-JEFUoBDtBI_fIJSkjHRrkWKKoXwMA=s0" alt="Four icons gradually increasing in optical size." />
+
+### Alignment
+
+Vertically center the icon by shifting down the baseline of symbols to approximately 11.5% of the type size.
+
+<DosAndDonts>
+  <DoOrDont story={IconStories.AlignmentDo} />
+  <DoOrDont story={IconStories.AlignmentDont} isDont />
+</DosAndDonts>
+
+## Default icon set
+
+Whilst you have access to all Material Symbols, the following icons match the default set we have in Figma.
+
+<Story of={IconStories.DefaultIconSet} />

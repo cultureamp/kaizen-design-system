@@ -223,3 +223,23 @@ export const DefaultIconSet: Story = {
     )
   },
 }
+
+export const AlignmentDo: Story = {
+  render: () => (
+    <img
+      src="https://lh3.googleusercontent.com/twRAsK6vahc7l_yuhhlBzVp1yR_8tsspDL16Xry73IrhYE3ItxmKSqHC6MznHq9EZKfrOgP_a3RDNGLK28JmhHeFiDmiwYrbhBtpxjodrsw=s0"
+      alt="Symbol baseline set lower in relation to symbol."
+      className="w-full"
+    />
+  ),
+}
+
+export const AlignmentDont: Story = {
+  render: () => (
+    <img
+      src="https://lh3.googleusercontent.com/MePU5NYnrFy96fiDdULne6XwFlboyznBeVWD5CTrFwzNdzsMjrvg_ySLfXJVdUNxSkeUT4UH28_Orz916LRN78bhneYBA0dL8YpCQswiERo=s0"
+      alt="Both symbol and text set on same baseline."
+      className="w-full"
+    />
+  ),
+}
