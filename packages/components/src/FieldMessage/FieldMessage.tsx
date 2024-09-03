@@ -13,8 +13,15 @@ export type FieldMessageVariant =
   | "warning"
   | "cautionary"
 
-export type FieldMessageProps = {
-  message?: React.ReactNode
+export type FieldMessagePropsStatus = {
+  variant?: never
+  /**
+   * @deprecated Use `variant` instead
+   */
+  status?: FieldMessageStatus
+}
+
+export type FieldMessagePropsVariant = {
   /**
    * If transitioning from `status`:
    * - `error` -> `warning`
@@ -25,11 +32,18 @@ export type FieldMessageProps = {
   /**
    * @deprecated Use `variant` instead
    */
-  status?: FieldMessageStatus
+  status?: never
+}
+
+export type FieldMessagePropsBase = {
+  message?: React.ReactNode
   /** @default "bottom" */
   position?: "top" | "bottom"
   reversed?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
+
+export type FieldMessageProps = FieldMessagePropsBase &
+  (FieldMessagePropsStatus | FieldMessagePropsVariant)
 
 const MessageIcon = ({
   variant,

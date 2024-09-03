@@ -57,9 +57,7 @@ describe("<FieldMessage />", () => {
   })
 
   it("renders the caution icon with an accessible title", () => {
-    const { getByLabelText } = render(
-      <FieldMessageWrapper variant="cautionary" />
-    )
+    const { getByLabelText } = render(<FieldMessageWrapper status="caution" />)
 
     expect(getByLabelText("cautionary message")).toBeInTheDocument()
   })
