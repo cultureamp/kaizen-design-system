@@ -1,4 +1,4 @@
-import React, { useState, HTMLAttributes } from "react"
+import React, { useState, HTMLAttributes, useId, useEffect } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { createSchemaWithAll } from "../RichTextEditor/schema"
@@ -14,6 +14,13 @@ export type RichTextContentProps = {
 export const RichTextContent = (props: RichTextContentProps): JSX.Element => {
   const { content, classNameOverride, ...restProps } = props
   const [schema] = useState<ProseMirrorModel.Schema>(createSchemaWithAll())
+  const editorId = useId()
+
+  useEffect(() => {
+    // prosemirror only allows us to set this to false (which has caused a strange bug in the platform)
+    // so we have to hack a bit to remove the attribute completely
+    document.getElementById(editorId)?.removeAttribute("contenteditable")
+  }, [])
 
   const [editorRef] = useRichTextEditor(
     ProseMirrorState.EditorState.create({
@@ -23,7 +30,9 @@ export const RichTextContent = (props: RichTextContentProps): JSX.Element => {
       }),
       schema,
     }),
-    undefined,
+    {
+      id: editorId,
+    },
     {
       editable: false,
     }
