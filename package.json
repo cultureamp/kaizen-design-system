@@ -11,7 +11,7 @@
     "dev": "pnpm turbo dev",
     "build": "pnpm turbo build",
     "clean": "pnpm turbo clean && rimraf node_modules && pnpm store prune",
-    "test": "pnpm turbo test",
+    "test": "pnpm turbo test -- --run",
     "lint": "pnpm lint:js && pnpm lint:md && pnpm lint:format && pnpm lint:styles",
     "lint:ts": "pnpm turbo lint:ts",
     "lint:js": "pnpm eslint '**/*.{ts,tsx,mjs,js}' --max-warnings=0",
