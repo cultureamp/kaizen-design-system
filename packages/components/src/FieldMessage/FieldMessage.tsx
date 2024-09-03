@@ -31,6 +31,33 @@ export type FieldMessageProps = {
   reversed?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
+const MessageIcon = ({
+  variant,
+}: {
+  variant: FieldMessageVariant | FieldMessageStatus
+}): JSX.Element => (
+  <>
+    {(variant === "cautionary" || variant === "caution") && (
+      <span className={styles.icon}>
+        <CautionWhiteIcon
+          role="img"
+          inheritSize={false}
+          aria-label={`${variant} message`}
+        />
+      </span>
+    )}
+    {(variant === "warning" || variant === "error") && (
+      <span className={styles.icon}>
+        <ExclamationWhiteIcon
+          role="img"
+          inheritSize={false}
+          aria-label={`${variant} message`}
+        />
+      </span>
+    )}
+  </>
+)
+
 export const FieldMessage = ({
   message,
   variant = "default",
@@ -52,28 +79,8 @@ export const FieldMessage = ({
     )}
     {...restProps}
   >
-    {variant && (
-      <>
-        {(variant === "cautionary" || status === "caution") && (
-          <span className={styles.icon}>
-            <CautionWhiteIcon
-              role="img"
-              inheritSize={false}
-              aria-label={`${variant} message`}
-            />
-          </span>
-        )}
-        {(variant === "warning" || status === "error") && (
-          <span className={styles.icon}>
-            <ExclamationWhiteIcon
-              role="img"
-              inheritSize={false}
-              aria-label={`${variant} message`}
-            />
-          </span>
-        )}
-      </>
-    )}
+    {variant && <MessageIcon variant={variant} />}
+    {status && <MessageIcon variant={status} />}
     <Text
       variant="small"
       tag={typeof message === "string" ? "p" : "div"}
