@@ -1,14 +1,14 @@
 import { findByText, queryByText, getByText } from "@testing-library/dom"
 import { Command, EditorState } from "prosemirror-state"
+import { vi } from "vitest"
 import { createRichTextEditor } from "./createRichTextEditor"
 import { testEditorState } from "./fixtures/testState"
-
 describe("createRichTextEditor()", () => {
   const attributes = { "aria-labelledby": "label-text-123" }
 
   it("initializes an editor with the correct content", async () => {
     const node = document.createElement("div")
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     createRichTextEditor({
       node,
@@ -23,7 +23,7 @@ describe("createRichTextEditor()", () => {
 
   it("returns the expected API shape", async () => {
     const node = document.createElement("div")
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     const returnValue = createRichTextEditor({
       node,
@@ -39,7 +39,7 @@ describe("createRichTextEditor()", () => {
 
   it("destroys the instance", async () => {
     const node = document.createElement("div")
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     const { destroy } = createRichTextEditor({
       node,
@@ -58,7 +58,7 @@ describe("createRichTextEditor()", () => {
 
   it("updates the DOM when commands are dispatched", async () => {
     const node = document.createElement("div")
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     const command: Command = (state, dispatch) => {
       // Insert text at the current selection point, which is the start because
@@ -87,7 +87,7 @@ describe("createRichTextEditor()", () => {
 
   it("calls onChange when the editor state changes", async () => {
     const node = document.createElement("div")
-    const onChange = jest.fn()
+    const onChange = vi.fn()
     const command: Command = (state, dispatch) => {
       if (!dispatch) return false
       dispatch(state.tr.insertText("Prepended content. "))
@@ -110,7 +110,7 @@ describe("createRichTextEditor()", () => {
 
   it("calls onChange with the updated state", async () => {
     const node = document.createElement("div")
-    const onChange = jest.fn()
+    const onChange = vi.fn()
     const command: Command = (state, dispatch) => {
       if (!dispatch) return false
       dispatch(state.tr.insertText("Prepended content. "))
@@ -155,7 +155,7 @@ describe("createRichTextEditor()", () => {
 
   it("defaults to editable", async () => {
     const node = document.createElement("div")
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     createRichTextEditor({
       node,
@@ -169,7 +169,7 @@ describe("createRichTextEditor()", () => {
 
   it("respects initial isEditable value", async () => {
     const node = document.createElement("div")
-    const onChange = jest.fn()
+    const onChange = vi.fn()
 
     createRichTextEditor({
       node,
@@ -185,7 +185,7 @@ describe("createRichTextEditor()", () => {
   it("updates editable status", async () => {
     let editable = true
     const node = document.createElement("div")
-    const onChange = jest.fn()
+    const onChange = vi.fn()
     const noopCommand: Command = (state, dispatch) => {
       if (!dispatch) return false
       dispatch(state.tr)
@@ -211,7 +211,7 @@ describe("createRichTextEditor()", () => {
   it("aria-labelledby is present", async () => {
     const editable = true
     const node = document.createElement("div")
-    const onChange = jest.fn()
+    const onChange = vi.fn()
     const noopCommand: Command = (state, dispatch) => {
       if (!dispatch) return false
       dispatch(state.tr)

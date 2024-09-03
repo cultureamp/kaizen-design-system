@@ -1,6 +1,6 @@
 import { act } from "react"
-import { waitFor, renderHook } from "@testing-library/react"
-import { renderWithIntl } from "~tests"
+import { waitFor, renderHook, render } from "@testing-library/react"
+
 import { useDateValidation } from "./useDateValidation"
 
 describe("useDateValidation()", () => {
@@ -40,9 +40,7 @@ describe("useDateValidation()", () => {
 
       expect(result.current.validationMessage?.status).toBe("error")
 
-      const { container } = renderWithIntl(
-        result.current.validationMessage?.message
-      )
+      const { container } = render(result.current.validationMessage?.message)
       await waitFor(() => {
         expect(container).toHaveTextContent("Date:potato is an invalid date")
       })

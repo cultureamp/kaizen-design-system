@@ -1,15 +1,15 @@
 import React, { useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { CheckboxProps } from "../Checkbox"
 import {
   MultiSelectOptionField,
   MultiSelectOptionFieldProps,
 } from "./MultiSelectOptionField"
-
 const user = userEvent.setup()
 
-const onChange = jest.fn()
+const onChange = vi.fn()
 
 const MultiSelectOptionFieldWrapper = (
   customProps?: Partial<MultiSelectOptionFieldProps>
@@ -42,7 +42,7 @@ const MultiSelectOptionFieldWrapper = (
 
 describe("<MultiSelectOptionField />", () => {
   afterEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   it("has an accessible name", () => {

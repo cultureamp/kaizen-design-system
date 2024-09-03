@@ -1,11 +1,11 @@
 import React from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { MultiSelectToggle, MultiSelectToggleProps } from "./MultiSelectToggle"
-
 const user = userEvent.setup()
 
-const onClick = jest.fn()
+const onClick = vi.fn()
 
 const MultiSelectToggleWrapper = (
   customProps?: Partial<MultiSelectToggleProps>

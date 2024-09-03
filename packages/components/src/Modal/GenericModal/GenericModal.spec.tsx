@@ -1,11 +1,11 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { GenericModal, GenericModalProps } from "./GenericModal"
 import { ModalAccessibleLabel } from "./subcomponents/ModalAccessibleLabel"
 import { ModalBody } from "./subcomponents/ModalBody"
 import { ModalHeader } from "./subcomponents/ModalHeader"
-
 const user = userEvent.setup()
 
 const GenericModalWrapper = ({
@@ -50,7 +50,7 @@ describe("<GenericModal />", () => {
   })
 
   it("closes the modal when escape key is pressed", async () => {
-    const handleDismiss = jest.fn()
+    const handleDismiss = vi.fn()
 
     render(<GenericModalWrapper onEscapeKeyup={handleDismiss} />)
 
@@ -70,7 +70,7 @@ describe("<GenericModal />", () => {
   })
 
   it("closes the modal when a click is outside of the modal content", async () => {
-    const handleDismiss = jest.fn()
+    const handleDismiss = vi.fn()
     render(<GenericModalWrapper onOutsideModalClick={handleDismiss} />)
 
     await user.click(screen.getByTestId("GenericModalTestId-scrollLayer"))
@@ -80,7 +80,7 @@ describe("<GenericModal />", () => {
   })
 
   it("calls onAfterLeave after it closes", async () => {
-    const mockOnAfterLeave = jest.fn()
+    const mockOnAfterLeave = vi.fn()
     render(<GenericModalWrapper onAfterLeave={mockOnAfterLeave} />)
 
     await user.click(screen.getByTestId("GenericModalTestId-scrollLayer"))

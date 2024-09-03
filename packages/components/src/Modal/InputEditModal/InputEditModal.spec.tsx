@@ -1,9 +1,9 @@
 import React from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { mockMatchMedia } from "~components/utils/useMediaQueries.spec"
 import { InputEditModal, InputEditModalProps } from "./InputEditModal"
-
 const user = userEvent.setup()
 
 const InputEditModalWrapper = ({
@@ -28,8 +28,8 @@ describe("<InputEditModal />", () => {
   })
 
   it("supports a dismiss action when dismiss button is pressed", async () => {
-    const handleSubmit = jest.fn()
-    const handleDismiss = jest.fn()
+    const handleSubmit = vi.fn()
+    const handleDismiss = vi.fn()
     const { getByLabelText } = render(
       <InputEditModalWrapper onSubmit={handleSubmit} onDismiss={handleDismiss}>
         Example modal body
@@ -43,8 +43,8 @@ describe("<InputEditModal />", () => {
   })
 
   it("supports a dismiss action when cancel button is pressed", async () => {
-    const handleSubmit = jest.fn()
-    const handleDismiss = jest.fn()
+    const handleSubmit = vi.fn()
+    const handleDismiss = vi.fn()
     const { getByText } = render(
       <InputEditModalWrapper onDismiss={handleDismiss} onSubmit={handleSubmit}>
         Example modal body
@@ -58,8 +58,8 @@ describe("<InputEditModal />", () => {
   })
 
   it("supports a Submit action when Submit button is pressed", async () => {
-    const handleSubmit = jest.fn()
-    const handleDismiss = jest.fn()
+    const handleSubmit = vi.fn()
+    const handleDismiss = vi.fn()
     const { getByText } = render(
       <InputEditModalWrapper onDismiss={handleDismiss} onSubmit={handleSubmit}>
         Example modal body

@@ -1,7 +1,6 @@
 import React, { useState } from "react"
-import { screen, waitFor, within } from "@testing-library/react"
+import { screen, waitFor, within, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
 import {
   FilterAttributes,
   FilterBarProvider,
@@ -53,7 +52,7 @@ const FilterBarDateRangePickerWrapper = ({
 
 describe("<FilterBarDateRangePicker />", () => {
   it("shows the name in the trigger button", async () => {
-    renderWithIntl(<FilterBarDateRangePickerWrapper />)
+    render(<FilterBarDateRangePickerWrapper />)
     await waitFor(() => {
       const triggerButton = screen.getByRole("button", { name: "Dates" })
       expect(triggerButton).toBeInTheDocument()
@@ -62,7 +61,7 @@ describe("<FilterBarDateRangePicker />", () => {
 
   describe("Removable", () => {
     it("does not show the remove button when isRemovable is false", async () => {
-      renderWithIntl(<FilterBarDateRangePickerWrapper />)
+      render(<FilterBarDateRangePickerWrapper />)
       await waitFor(() => {
         expect(
           screen.getByRole("button", { name: "Dates" })
@@ -74,7 +73,7 @@ describe("<FilterBarDateRangePicker />", () => {
     })
 
     it("shows the remove button when isRemovable is true", async () => {
-      const { getByRole } = renderWithIntl(
+      const { getByRole } = render(
         <FilterBarDateRangePickerWrapper
           filterAttributes={{ isRemovable: true }}
           defaultValues={{ range: { from: new Date("2023-05-01") } }}
@@ -89,7 +88,7 @@ describe("<FilterBarDateRangePicker />", () => {
   })
 
   it("can toggle its open state", async () => {
-    const { getByRole, queryByRole } = renderWithIntl(
+    const { getByRole, queryByRole } = render(
       <FilterBarDateRangePickerWrapper />
     )
     const triggerButton = getByRole("button", { name: "Dates" })
@@ -108,7 +107,7 @@ describe("<FilterBarDateRangePicker />", () => {
   })
 
   it("shows a selected value when provided", async () => {
-    const { getByRole } = renderWithIntl(
+    const { getByRole } = render(
       <FilterBarDateRangePickerWrapper
         defaultValues={{
           range: {
@@ -127,7 +126,7 @@ describe("<FilterBarDateRangePicker />", () => {
   })
 
   it("updates the selected value in the trigger button", async () => {
-    const { getByRole, getByText } = renderWithIntl(
+    const { getByRole, getByText } = render(
       <FilterBarDateRangePickerWrapper
         defaultValues={{
           range: {
@@ -159,8 +158,8 @@ describe("<FilterBarDateRangePicker />", () => {
   }, 10000)
 
   it("allows calling additional functions on value change", async () => {
-    const onChange = jest.fn<void, [DateRange | undefined]>()
-    const { getByRole, getByText } = renderWithIntl(
+    const onChange = vi.fn()
+    const { getByRole, getByText } = render(
       <FilterBarDateRangePickerWrapper
         defaultValues={{
           range: {

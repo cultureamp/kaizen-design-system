@@ -16,8 +16,10 @@
     "lint:ts": {
       "dependsOn": ["^build"]
     },
-    "test": {},
-    "test:ci": {},
+    "test": {
+      "inputs": ["packages/**"],
+      "cache": false
+    },
     "clean": {
       "cache": false
     },
@@ -40,6 +42,11 @@
       "cache": false
     },
     "@docs/storybook#build:chromatic": {
+      "dependsOn": ["^build", "build:tailwind"],
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
+    },
+    "@docs/storybook#test:storybook": {
       "dependsOn": ["^build", "build:tailwind"],
       "outputs": ["docs/storybook-static/**"],
       "cache": false

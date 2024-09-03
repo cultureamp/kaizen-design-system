@@ -1,12 +1,12 @@
 import { waitFor } from "@testing-library/dom"
 import { EditorState } from "prosemirror-state"
+import { vi } from "vitest"
 import { createRichTextEditor } from "../core"
 import { simulateSelectionByText } from "./fixtures/helpers"
 import { testEditorStateWitList, testSchema } from "./fixtures/test-state"
 import { listIsActive } from "./listIsActive"
-
 describe("listIsActive()", () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
   const listNodes = [testSchema.nodes.bulletList, testSchema.nodes.orderedList]
 

@@ -1,12 +1,12 @@
 import { waitFor } from "@testing-library/dom"
 import { EditorState } from "prosemirror-state"
+import { vi } from "vitest"
 import { createRichTextEditor } from "../core"
 import { simulateSelectionByText } from "./fixtures/helpers"
 import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
 import { getMarkAttrs } from "./getMarkAttrs"
-
 describe("getMarkAttrs()", () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
 
   it("returns an empty object if the selected Mark has no attributes", async () => {

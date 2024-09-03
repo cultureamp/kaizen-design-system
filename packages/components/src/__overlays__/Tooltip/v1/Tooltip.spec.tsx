@@ -48,7 +48,7 @@ describe("<Tooltip />", () => {
     // Non-semantic elements without roles should not have aria-description on them.
     // They won't read to all screen readers as expected and may be reported in Storybook's accessibility tab (which uses Axe under the hood)
     it("doesn't add an accessible description when wrapping a non-semantic element", async () => {
-      const warn = jest.spyOn(console, "warn").mockImplementation()
+      const warn = vi.spyOn(console, "warn").mockImplementation(vi.fn())
 
       render(
         <Tooltip

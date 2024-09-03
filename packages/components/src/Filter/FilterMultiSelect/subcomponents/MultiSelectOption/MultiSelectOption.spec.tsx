@@ -3,14 +3,16 @@
 import React from "react"
 import { useOption } from "@react-aria/listbox"
 import { render, screen } from "@testing-library/react"
+import { vi, beforeEach, Mock } from "vitest"
 import { ItemType } from "../../types"
 import { MultiSelectOption, MultiSelectOptionProps } from "./MultiSelectOption"
+import styles from "./MultiSelectOption.module.scss"
 
-jest.mock("@react-aria/listbox", () => ({
-  useOption: jest.fn(),
+vi.mock("@react-aria/listbox", () => ({
+  useOption: vi.fn(),
 }))
 
-jest.mock("../../context", () => ({
+vi.mock("../../context", () => ({
   useSelectionContext: (): { selectionState: Record<string, unknown> } => ({
     selectionState: {},
   }),
@@ -36,7 +38,7 @@ const MultiSelectOptionWrapper = ({
 describe("<MultiSelectOptionWrapper /> - Visual content", () => {
   describe("Given item is unselected", () => {
     beforeEach(() => {
-      ;(useOption as jest.Mock).mockReturnValue({
+      ;(useOption as Mock).mockReturnValue({
         optionProps: {},
         isSelected: false,
         isDisabled: false,
@@ -56,7 +58,7 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
 
   describe("Given item is disabled", () => {
     beforeEach(() => {
-      ;(useOption as jest.Mock).mockReturnValue({
+      ;(useOption as Mock).mockReturnValue({
         optionProps: {},
         isSelected: false,
         isDisabled: true,
@@ -66,13 +68,13 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
 
     it("has a disabled class", () => {
       const label = screen.getByLabelText("label-mock")
-      expect(label).toHaveClass("isDisabled")
+      expect(label).toHaveClass(styles.isDisabled)
     })
   })
 
   describe("Given count is provided", () => {
     beforeEach(() => {
-      ;(useOption as jest.Mock).mockReturnValue({
+      ;(useOption as Mock).mockReturnValue({
         optionProps: {},
         isSelected: false,
         isDisabled: false,

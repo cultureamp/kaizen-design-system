@@ -1,8 +1,8 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { MobileActions } from "./MobileActions"
-
 const user = userEvent.setup()
 
 const MENU_LINKS = [
@@ -147,7 +147,7 @@ describe("<MobileActions />", () => {
 
 describe("when autoHide is true", () => {
   beforeEach(() => {
-    window.alert = jest.fn()
+    window.alert = vi.fn()
     render(
       <MobileActions
         primaryAction={{

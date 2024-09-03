@@ -1,3 +1,5 @@
+import { describe } from "vitest"
+
 const {
   removeRootSVGElement,
   replaceAttrKeys,

@@ -4,6 +4,7 @@
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "pnpm package-bundler build",
+    "test": "vitest --config ../../vite.config.ts",
     "clean": "rimraf 'dist' 'node_modules' '.turbo'",
     "lint:ts": "tsc --noEmit"
   },

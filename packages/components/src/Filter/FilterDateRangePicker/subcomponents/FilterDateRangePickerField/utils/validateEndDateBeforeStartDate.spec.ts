@@ -1,5 +1,4 @@
-import { screen, waitFor } from "@testing-library/react"
-import { renderWithIntl } from "~tests"
+import { screen, waitFor, render } from "@testing-library/react"
 import { validateEndDateBeforeStartDate } from "./validateEndDateBeforeStartDate"
 
 describe("validateEndDateBeforeStartDate()", () => {
@@ -99,7 +98,7 @@ describe("validateEndDateBeforeStartDate()", () => {
 
       expect(validationMessage?.status).toBe("error")
 
-      renderWithIntl(validationMessage?.message)
+      render(validationMessage?.message)
       await waitFor(() => {
         expect(
           screen.getByText(

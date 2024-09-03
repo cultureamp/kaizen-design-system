@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { screen, waitFor } from "@testing-library/react"
+import { screen, waitFor, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
+import { vi } from "vitest"
 import {
   FilterAttributes,
   FilterBarProvider,
@@ -91,7 +91,7 @@ const FilterBarMultiSelectWrapper = <ValuesMap extends FiltersValues = Values>({
 
 describe("<FilterBarMultiSelect />", () => {
   it("shows the name in the trigger button", async () => {
-    const { getByRole } = renderWithIntl(<FilterBarMultiSelectWrapper />)
+    const { getByRole } = render(<FilterBarMultiSelectWrapper />)
     await waitFor(() => {
       const triggerButton = getByRole("button", { name: "Toppings" })
       expect(triggerButton).toBeVisible()
@@ -100,7 +100,7 @@ describe("<FilterBarMultiSelect />", () => {
 
   describe("Removable", () => {
     it("does not show the remove button when isRemovable is false", async () => {
-      const { queryByRole } = renderWithIntl(<FilterBarMultiSelectWrapper />)
+      const { queryByRole } = render(<FilterBarMultiSelectWrapper />)
       await waitFor(() => {
         expect(screen.getByRole("button", { name: "Toppings" })).toBeVisible()
       })
@@ -110,7 +110,7 @@ describe("<FilterBarMultiSelect />", () => {
     })
 
     it("shows the remove button when isRemovable is true", async () => {
-      const { getByRole } = renderWithIntl(
+      const { getByRole } = render(
         <FilterBarMultiSelectWrapper
           filterAttributes={{ isRemovable: true }}
           defaultValues={{ toppings: ["pearls"] }}
@@ -124,7 +124,7 @@ describe("<FilterBarMultiSelect />", () => {
     })
 
     it("hides the filter when remove button is clicked", async () => {
-      const { getByRole } = renderWithIntl(
+      const { getByRole } = render(
         <FilterBarMultiSelectWrapper
           filterAttributes={{ isRemovable: true }}
           defaultValues={{ toppings: ["pearls"] }}
@@ -149,9 +149,7 @@ describe("<FilterBarMultiSelect />", () => {
   })
 
   it("can toggle its open state", async () => {
-    const { getByRole, queryByRole } = renderWithIntl(
-      <FilterBarMultiSelectWrapper />
-    )
+    const { getByRole, queryByRole } = render(<FilterBarMultiSelectWrapper />)
     const triggerButton = getByRole("button", { name: "Toppings" })
 
     await user.click(triggerButton)
@@ -168,7 +166,7 @@ describe("<FilterBarMultiSelect />", () => {
   })
 
   it("shows a selected value when provided", async () => {
-    const { getByRole } = renderWithIntl(
+    const { getByRole } = render(
       <FilterBarMultiSelectWrapper
         defaultValues={{ toppings: ["pearls", "fruit-jelly"] }}
       />
@@ -182,7 +180,7 @@ describe("<FilterBarMultiSelect />", () => {
   })
 
   it("updates the selected value in the trigger button", async () => {
-    const { getByRole } = renderWithIntl(
+    const { getByRole } = render(
       <FilterBarMultiSelectWrapper defaultValues={{ toppings: ["pearls"] }} />
     )
     const triggerButton = getByRole("button", {
@@ -204,8 +202,8 @@ describe("<FilterBarMultiSelect />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = jest.fn()
-    const { getByRole } = renderWithIntl(
+    const onChange = vi.fn()
+    const { getByRole } = render(
       <FilterBarMultiSelectWrapper onSelectionChange={onChange} />
     )
     const triggerButton = getByRole("button", { name: "Toppings" })
@@ -257,7 +255,7 @@ describe("<FilterBarMultiSelect />", () => {
       )
     }
 
-    const { getByRole, getAllByRole, getByTestId } = renderWithIntl(
+    const { getByRole, getAllByRole, getByTestId } = render(
       <FilterBarMultiSelectWrapper<ValuesDependent>
         additionalFilters={[
           {

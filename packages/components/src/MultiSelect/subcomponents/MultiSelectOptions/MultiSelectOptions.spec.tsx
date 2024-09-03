@@ -1,14 +1,14 @@
 import React, { useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import {
   MultiSelectOptions,
   MultiSelectOptionsProps,
 } from "./MultiSelectOptions"
-
 const user = userEvent.setup()
 
-const onChange = jest.fn()
+const onChange = vi.fn()
 const testOptions = [
   {
     label: "Pancakes",
@@ -46,7 +46,7 @@ const MultiSelectOptionsWrapper = (
 
 describe("<MultiSelectOptions />", () => {
   afterEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   it("contains the number of options available in the accessible description", () => {
