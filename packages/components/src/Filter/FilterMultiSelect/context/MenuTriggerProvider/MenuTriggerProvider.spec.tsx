@@ -1,6 +1,7 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { FilterTriggerButton } from "~components/Filter/FilterMultiSelect/subcomponents/Trigger"
 import { MenuPopup } from "../../subcomponents/MenuPopup"
 import {
@@ -59,7 +60,7 @@ describe("<MenuTriggerProvider /> - Visual content", () => {
     })
 
     it("fires the onOpenChange callback when the trigger is interacted", async () => {
-      const onOpenChange = jest.fn<void, [boolean]>()
+      const onOpenChange = vi.fn()
       render(<MenuTriggerProviderWrapper isOpen onOpenChange={onOpenChange} />)
 
       const trigger = screen.getByRole("button", {

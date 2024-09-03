@@ -1,8 +1,8 @@
 import React, { useRef } from "react"
-import { screen, waitFor } from "@testing-library/react"
+import { screen, waitFor, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { enUS } from "date-fns/locale"
-import { renderWithIntl } from "~tests"
+import { vi } from "vitest"
 import { DateInputField, DateInputFieldProps } from "./DateInputField"
 
 const user = userEvent.setup()
@@ -10,8 +10,8 @@ const user = userEvent.setup()
 const defaultProps: DateInputFieldProps = {
   id: "test__date-input-field",
   labelText: "Bacon expiry",
-  onButtonClick: jest.fn(),
-  onKeyDown: jest.fn(),
+  onButtonClick: vi.fn(),
+  onKeyDown: vi.fn(),
   value: undefined,
   locale: enUS,
 }
@@ -23,7 +23,7 @@ const DateInputFieldWrapper = (
 describe("<DateInputField />", () => {
   describe("Input", () => {
     it("associates the description with the input", async () => {
-      renderWithIntl(<DateInputFieldWrapper />)
+      render(<DateInputFieldWrapper />)
       await waitFor(() => {
         expect(
           screen.getByRole("textbox", {
@@ -37,7 +37,7 @@ describe("<DateInputField />", () => {
 
   describe("Icon button", () => {
     it("has helpful label", async () => {
-      renderWithIntl(<DateInputFieldWrapper />)
+      render(<DateInputFieldWrapper />)
       await waitFor(() => {
         expect(
           screen.getByRole("button", { name: "Choose date" })
@@ -46,7 +46,7 @@ describe("<DateInputField />", () => {
     })
 
     it("has helpful label showing the current date when one is selected", async () => {
-      renderWithIntl(
+      render(
         <DateInputFieldWrapper
           value="Mar 1, 2022"
           onChange={(): void => undefined}
@@ -62,7 +62,7 @@ describe("<DateInputField />", () => {
 
   describe("States", () => {
     it("disables both input and icon button", async () => {
-      renderWithIntl(<DateInputFieldWrapper disabled />)
+      render(<DateInputFieldWrapper disabled />)
       const input = screen.getByRole("textbox", { name: "Bacon expiry" })
       const calendarButton = screen.getByRole("button", { name: "Choose date" })
       await waitFor(() => {
@@ -74,7 +74,7 @@ describe("<DateInputField />", () => {
 
   describe("Validation", () => {
     it("shows validation message", async () => {
-      renderWithIntl(
+      render(
         <DateInputFieldWrapper
           status="error"
           validationMessage="There is an error"
@@ -87,7 +87,7 @@ describe("<DateInputField />", () => {
     })
 
     it("does not show validation message when field is disabled", async () => {
-      renderWithIntl(
+      render(
         <DateInputFieldWrapper
           status="error"
           validationMessage="There is an error"
@@ -106,7 +106,7 @@ describe("<DateInputField />", () => {
 
   describe("Refs", () => {
     it("correctly passes through input and button refs", async () => {
-      const onButtonClick = jest.fn()
+      const onButtonClick = vi.fn()
 
       const Wrapper = (): JSX.Element => {
         const inputRef = useRef<HTMLInputElement>(null)
@@ -125,7 +125,7 @@ describe("<DateInputField />", () => {
               ref={ref}
               id="test__date-input-field--ref"
               labelText="Adventure time"
-              onButtonClick={jest.fn<void, []>()}
+              onButtonClick={vi.fn()}
               locale={enUS}
             />
             <button type="button" onClick={handleClick}>
@@ -135,7 +135,7 @@ describe("<DateInputField />", () => {
         )
       }
 
-      renderWithIntl(<Wrapper />)
+      render(<Wrapper />)
 
       await user.click(screen.getByText("Click me"))
       expect(onButtonClick).toHaveBeenCalledWith(

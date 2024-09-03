@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
-import { screen, waitFor } from "@testing-library/react"
+import { screen, waitFor, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { renderWithIntl } from "~tests"
+import { vi } from "vitest"
 import {
   FilterButtonRemovable,
   FilterButtonRemovableProps,
@@ -29,7 +29,7 @@ const FilterButtonRemovableWrapper = ({
 
 describe("<FilterButtonRemovable />", () => {
   it("should use fallback label for remove button if not specified", async () => {
-    renderWithIntl(<FilterButtonRemovableWrapper />)
+    render(<FilterButtonRemovableWrapper />)
     await waitFor(() => {
       expect(
         screen.getByRole("button", { name: "Remove filter - Desserts" })
@@ -39,7 +39,7 @@ describe("<FilterButtonRemovable />", () => {
 
   describe("Refs", () => {
     it("correctly passes through both button refs", async () => {
-      const onClick = jest.fn()
+      const onClick = vi.fn()
 
       const Wrapper = (): JSX.Element => {
         const triggerRef = useRef<HTMLButtonElement>(null)
@@ -72,7 +72,7 @@ describe("<FilterButtonRemovable />", () => {
         )
       }
 
-      renderWithIntl(<Wrapper />)
+      render(<Wrapper />)
 
       await user.click(screen.getByText("Click me"))
       expect(onClick).toHaveBeenCalledWith(

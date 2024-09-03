@@ -1,13 +1,13 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { ToggleSwitch, ToggleSwitchProps } from "./ToggleSwitch"
-
 const user = userEvent.setup()
 
 const defaultToggleSwitchProps = {
   id: "someToggleSwitchId",
-  onToggle: jest.fn(),
+  onToggle: vi.fn(),
 }
 
 const renderToggleSwitch = (

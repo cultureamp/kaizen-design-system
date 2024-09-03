@@ -2,13 +2,13 @@ import React from "react"
 import { render, screen, within } from "@testing-library/react"
 import { format } from "date-fns"
 import { enUS } from "date-fns/locale"
+import { vi } from "vitest"
 import { CalendarSingle, CalendarSingleProps } from "../CalendarSingle"
 import { setFocusInCalendar } from "./setFocusInCalendar"
-
 const CalendarWrapper = (props: Partial<CalendarSingleProps>): JSX.Element => (
   <CalendarSingle
     id="calendar-dialog"
-    onDayClick={jest.fn()}
+    onDayClick={vi.fn()}
     locale={enUS}
     onMount={calendarElement =>
       setFocusInCalendar(calendarElement, props.selected)

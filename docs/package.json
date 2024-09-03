@@ -12,7 +12,7 @@
     "build:test": "storybook build --test",
     "build:chromatic": "storybook build --webpack-stats-json",
     "build:tailwind": "npx tailwindcss -i ./tailwind.css -o ./.storybook/preview.css",
-    "test": "test-storybook --skipTags='skip-test' --url http://127.0.0.1:6006",
+    "test:storybook": "test-storybook --skipTags='skip-test' --url http://127.0.0.1:6006",
     "clean": "rimraf './storybook-static' './node_modules' '.turbo'"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/tailwind": "workspace:*",
     "@rollup/plugin-alias": "^5.1.0",
+    "@storybook/builder-vite": "^8.2.9",
     "@storybook/manager-api": "^8.2.9",
     "@storybook/react-vite": "^8.2.9",
     "@storybook/test-runner": "^0.19.1",
@@ -33,10 +34,14 @@
     "classnames": "^2.5.1",
     "globals": "^15.9.0",
     "highlight.js": "^11.10.0",
+    "jest-axe": "^9.0.0",
     "sass": "^1.77.8",
     "storybook": "^8.2.9",
     "tailwindcss": "^3.4.10",
-    "vite": "^5.4.2"
+    "vite-plugin-node-polyfills": "^0.22.0"
+  },
+  "peerDependencies": {
+    "vite": ">=5.4.2"
   },
   "eslintConfig": {
     "extends": [

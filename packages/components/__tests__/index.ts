@@ -1,1 +1,1 @@
-export * from "./renderWithIntl"
+export * from "./reactIntlMock"

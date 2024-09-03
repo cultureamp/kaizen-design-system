@@ -88,17 +88,6 @@ export const CustomHeader: Story = {
   ),
 }
 
-export const Sticky: Story = {
-  args: {
-    title: "Sticky header",
-  },
-  render: ({ title }) => (
-    <Collapsible open title={title} sticky={{ top: "-1px" }}>
-      This does not work in Storybook docs, so use this as a code example only.
-    </Collapsible>
-  ),
-}
-
 const controlledSourceCode = `
 const [isOpen, setIsOpen] = useState<boolean>(false)
 return (<Collapsible {...args} open={isOpen} onToggle={setIsOpen} />)

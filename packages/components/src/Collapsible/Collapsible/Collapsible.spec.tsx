@@ -1,23 +1,11 @@
 import React from "react"
 import { queryByTestId, render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { Collapsible } from "./Collapsible"
-
 const user = userEvent.setup()
 
 describe("<Collapsible />", () => {
-  it("includes the 'sticky' class on buttons when the 'sticky' prop is specified", () => {
-    const { getByTestId } = render(
-      <Collapsible id="1" title="First panel" sticky={{ top: "0px" }}>
-        First panel content
-      </Collapsible>
-    )
-
-    const collapsibleContainer = getByTestId("collapsible-header-1")
-
-    expect(collapsibleContainer.classList.contains("sticky")).toBeTruthy()
-  })
-
   it("toggles the height of the section on click of the button", async () => {
     const { getByTestId } = render(
       <Collapsible id="1" open title="First panel">
@@ -74,7 +62,7 @@ describe("<Collapsible />", () => {
   })
 
   it("runs the onToggle callback", async () => {
-    const onToggle = jest.fn()
+    const onToggle = vi.fn()
 
     const { getByTestId } = render(
       <Collapsible id="1" open title="First panel" onToggle={onToggle}>

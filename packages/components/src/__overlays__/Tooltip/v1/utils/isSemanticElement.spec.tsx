@@ -1,13 +1,13 @@
 import React from "react"
+import { vi } from "vitest"
 import { ArrowRightIcon } from "~components/Icon"
 import { Button, IconButton } from "~components/__actions__/v2"
 import { isSemanticElement } from "./isSemanticElement"
-
 describe("isSemanticElement", () => {
   it("returns true if provided a native element with a semantic role", () => {
     expect(
       isSemanticElement(
-        <button onClick={jest.fn()} type="button">
+        <button onClick={vi.fn()} type="button">
           click
         </button>
       )
@@ -28,19 +28,14 @@ describe("isSemanticElement", () => {
   it("will return true if provided a non-semantic element with a semantic role", () => {
     expect(
       isSemanticElement(
-        <span
-          tabIndex={0}
-          role="button"
-          onKeyDown={jest.fn}
-          onClick={jest.fn()}
-        >
+        <span tabIndex={0} role="button" onKeyDown={vi.fn()} onClick={vi.fn()}>
           custom semantic el
         </span>
       )
     ).toBe(true)
     expect(
       isSemanticElement(
-        <div tabIndex={0} role="button" onKeyDown={jest.fn} onClick={jest.fn()}>
+        <div tabIndex={0} role="button" onKeyDown={vi.fn()} onClick={vi.fn()}>
           custom semantic el
         </div>
       )

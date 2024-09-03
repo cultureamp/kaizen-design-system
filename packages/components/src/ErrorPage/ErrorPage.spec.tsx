@@ -1,28 +1,28 @@
 import React from "react"
-import { screen, waitFor } from "@testing-library/react"
-import { renderWithIntl } from "~tests"
+import { screen, waitFor, render } from "@testing-library/react"
+import { vi } from "vitest"
 import { ErrorPage } from "./ErrorPage"
 
 describe("<ErrorPage />", () => {
   beforeAll(() => {
-    window.HTMLMediaElement.prototype.load = jest.fn()
-    window.HTMLMediaElement.prototype.play = jest
+    window.HTMLMediaElement.prototype.load = vi.fn()
+    window.HTMLMediaElement.prototype.play = vi
       .fn()
       .mockResolvedValue(undefined)
-    window.HTMLMediaElement.prototype.pause = jest.fn()
-    window.matchMedia = jest.fn().mockImplementation(() => ({
+    window.HTMLMediaElement.prototype.pause = vi.fn()
+    window.matchMedia = vi.fn().mockImplementation(() => ({
       media: "",
       onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
       matches: false,
     }))
   })
 
   it("shows the correct content for error 400", async () => {
-    renderWithIntl(<ErrorPage code="400" />)
+    render(<ErrorPage code="400" />)
     await waitFor(() => {
       expect(screen.getByText("Problem loading page")).toBeVisible()
       expect(
@@ -35,7 +35,7 @@ describe("<ErrorPage />", () => {
   })
 
   it("shows the correct content for error 401", async () => {
-    renderWithIntl(<ErrorPage code="401" />)
+    render(<ErrorPage code="401" />)
     await waitFor(() => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(
@@ -48,7 +48,7 @@ describe("<ErrorPage />", () => {
   })
 
   it("shows the correct content for error 403", async () => {
-    renderWithIntl(<ErrorPage code="403" />)
+    render(<ErrorPage code="403" />)
     await waitFor(() => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(
@@ -61,7 +61,7 @@ describe("<ErrorPage />", () => {
   })
 
   it("shows the correct content for error 404", async () => {
-    renderWithIntl(<ErrorPage code="404" />)
+    render(<ErrorPage code="404" />)
     await waitFor(() => {
       expect(screen.getByText("Page not found")).toBeVisible()
       expect(
@@ -74,7 +74,7 @@ describe("<ErrorPage />", () => {
   })
 
   it("shows the correct content for error 422", async () => {
-    renderWithIntl(<ErrorPage code="422" />)
+    render(<ErrorPage code="422" />)
     await waitFor(() => {
       expect(screen.getByText("Change couldn't be made")).toBeVisible()
       expect(
@@ -87,7 +87,7 @@ describe("<ErrorPage />", () => {
   })
 
   it("shows the correct content for error 500", async () => {
-    renderWithIntl(<ErrorPage code="500" />)
+    render(<ErrorPage code="500" />)
     await waitFor(() => {
       expect(
         screen.getByText("Something's gone wrong on our side")
@@ -102,7 +102,7 @@ describe("<ErrorPage />", () => {
   })
 
   it("shows the correct content for error 502", async () => {
-    renderWithIntl(<ErrorPage code="502" />)
+    render(<ErrorPage code="502" />)
     await waitFor(() => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(
@@ -115,7 +115,7 @@ describe("<ErrorPage />", () => {
   })
 
   it("shows the correct content for error 503", async () => {
-    renderWithIntl(<ErrorPage code="503" />)
+    render(<ErrorPage code="503" />)
     await waitFor(() => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(
@@ -128,7 +128,7 @@ describe("<ErrorPage />", () => {
   })
 
   it("shows the correct content for error 504", async () => {
-    renderWithIntl(<ErrorPage code="504" />)
+    render(<ErrorPage code="504" />)
     await waitFor(() => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(

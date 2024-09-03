@@ -1,9 +1,9 @@
 import React from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
 import { mockMatchMedia } from "~components/utils/useMediaQueries.spec"
 import { ContextModal, ContextModalProps } from "./ContextModal"
-
 const user = userEvent.setup()
 
 const ContextModalWrapper = ({
@@ -29,8 +29,8 @@ describe("<ContextModal />", () => {
   })
 
   it("supports a dismiss action when dismiss button is pressed", async () => {
-    const handleConfirm = jest.fn()
-    const handleDismiss = jest.fn()
+    const handleConfirm = vi.fn()
+    const handleDismiss = vi.fn()
     const { getByLabelText } = render(
       <ContextModalWrapper onConfirm={handleConfirm} onDismiss={handleDismiss}>
         Example modal body
@@ -44,8 +44,8 @@ describe("<ContextModal />", () => {
   })
 
   it("supports a confirm action when confirm button is pressed", async () => {
-    const handleConfirm = jest.fn()
-    const handleDismiss = jest.fn()
+    const handleConfirm = vi.fn()
+    const handleDismiss = vi.fn()
     const { getByText } = render(
       <ContextModalWrapper onDismiss={handleDismiss} onConfirm={handleConfirm}>
         Example modal body
