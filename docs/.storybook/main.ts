@@ -1,5 +1,6 @@
 import path, { join, dirname } from "path"
 import type { StorybookConfig } from "@storybook/react-vite"
+import { nodePolyfills } from "vite-plugin-node-polyfills"
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -52,6 +53,11 @@ const config: StorybookConfig = {
         return !isHTMLElementProp
       },
     },
+  },
+  viteFinal: config => {
+    config?.plugins?.push(nodePolyfills())
+
+    return config
   },
 }
 export default config

@@ -87,7 +87,6 @@
     "turbo": "^2.0.14",
     "typescript": "^5.5.4",
     "vite": "^5.4.2",
-    "vite-plugin-node-polyfills": "^0.22.0",
     "vitest": "^2.0.5",
     "vitest-axe": "^0.1.0"
   },

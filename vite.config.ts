@@ -1,10 +1,8 @@
 /** @type {import('vite').UserConfig} */
 import path from "path"
 import { mergeAlias } from "vite"
-import { nodePolyfills } from "vite-plugin-node-polyfills"
 
 export default {
-  plugins: [nodePolyfills()],
   resolve: {
     alias: mergeAlias(
       [
