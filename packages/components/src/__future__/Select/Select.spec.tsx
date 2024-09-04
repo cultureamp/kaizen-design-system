@@ -194,11 +194,11 @@ describe("<Select />", () => {
       })
 
       describe("Given the menu is opened", () => {
-        it("moves the focus to the first focusable element inside the menu initially", async () => {
+        it("focuses the listbox initially", async () => {
           const { getByRole } = render(<SelectWrapper defaultOpen />)
           expect(getByRole("listbox")).toBeVisible()
           await waitFor(() => {
-            expect(getByRole("option", { name: "Short black" })).toHaveFocus()
+            expect(getByRole("listbox")).toHaveFocus()
           })
         })
         it("is closed when hits the escape key", async () => {
@@ -305,12 +305,12 @@ describe("<Select />", () => {
         })
       })
 
-      it("keeps the focus ring at the first element when hits arrow up key on it", async () => {
+      it("focuses the last item in the list on up arrow press", async () => {
         const { getByRole } = render(<SelectWrapper />)
         await user.tab()
         await user.keyboard("{ArrowUp}")
         await waitFor(() => {
-          expect(getByRole("option", { name: "Short black" })).toHaveFocus()
+          expect(getByRole("option", { name: "Magic" })).toHaveFocus()
         })
       })
 

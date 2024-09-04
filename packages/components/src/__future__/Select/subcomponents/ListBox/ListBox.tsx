@@ -23,7 +23,7 @@ export const ListBox = <Option extends SelectOption>({
   const { state } = useSelectContext<Option>()
   const ref = React.useRef<HTMLUListElement>(null)
   const { listBoxProps } = useListBox(
-    { ...menuProps, disallowEmptySelection: true, autoFocus: "first" },
+    { ...menuProps, disallowEmptySelection: true },
     state,
     ref
   )
