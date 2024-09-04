@@ -513,6 +513,9 @@ importers:
 
   packages/design-tokens:
     dependencies:
+      color-string:
+        specifier: ^1.9.1
+        version: 1.9.1
       lodash.kebabcase:
         specifier: ^4.1.1
         version: 4.1.1
@@ -532,9 +535,6 @@ importers:
       '@types/react-highlight':
         specifier: ^0.12.8
         version: 0.12.8
-      color-string:
-        specifier: ^1.9.1
-        version: 1.9.1
       json-to-flat-sass:
         specifier: ^1.0.0
         version: 1.0.0
