@@ -95,5 +95,14 @@
     "chromatic": "Required for Storybook stories across all packages",
     "playwright": "Required for github actions setup",
     "vite-plugin-node-polyfills": "Adds the node `assert` polyfill to Vite for prosemirror to run in storybook"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "react": "18",
+        "react-dom": "18",
+        "eslint": "9"
+      }
+    }
   }
 }
