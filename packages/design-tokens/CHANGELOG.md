@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.6.1
+
+### Patch Changes
+
+- [#5019](https://github.com/cultureamp/kaizen-design-system/pull/5019) [`c1cb79944f215fe7d885b4b1dfbf33310d9c4d34`](https://github.com/cultureamp/kaizen-design-system/commit/c1cb79944f215fe7d885b4b1dfbf33310d9c4d34) - Move `color-string` to dependencies.
+
 ## 10.6.0
 
 ### Minor Changes

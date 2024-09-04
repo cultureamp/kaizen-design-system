@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.61.3
+
+### Patch Changes
+
+- [#5014](https://github.com/cultureamp/kaizen-design-system/pull/5014) [`390de02405bb8b4cab2c334d21925ef3e41d6802`](https://github.com/cultureamp/kaizen-design-system/commit/390de02405bb8b4cab2c334d21925ef3e41d6802) - Add z-index 100000 to Select/MultiSelect popover
+
+- [#5015](https://github.com/cultureamp/kaizen-design-system/pull/5015) [`6bb072f67008803fb8a604c187413ae2b756760e`](https://github.com/cultureamp/kaizen-design-system/commit/6bb072f67008803fb8a604c187413ae2b756760e) - Future Select: remove redundant focus management
+
 ## 1.61.2
 
 ### Patch Changes
