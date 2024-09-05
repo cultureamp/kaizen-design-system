@@ -1,12 +1,17 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
-import { AddIcon, TrashIcon, ChevronUpIcon } from "~components/Icon"
+import {
+  AddIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  TrashIcon,
+} from "~components/Icon"
 import { VisuallyHidden } from "~components/VisuallyHidden"
 import { Button } from "../index"
 
 const meta = {
-  title: "Actions/Button/v3",
+  title: "Actions/Button/Future",
   component: Button,
   args: {
     children: "Label",
@@ -91,6 +96,64 @@ export const OnReversed: Story = {
               </>
             </Button>
           </ReversedColors>
+      `,
+      },
+    },
+  },
+}
+
+export const ButtonClassModifierWithRenderProps: Story = {
+  render: ({ children, ...otherArgs }) => (
+    <Button
+      {...otherArgs}
+      className={({ isPressed }) => (isPressed ? "!bg-gray-300" : "")}
+    >
+      {children}
+    </Button>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: `
+    <Button
+      {...otherArgs}
+      className={({ isPressed }) => (isPressed ? "!bg-gray-300" : "")}
+    >
+      {children}
+    </Button>
+      `,
+      },
+    },
+  },
+}
+
+export const ButtonContentWithRenderProps: Story = {
+  render: ({ children, ...otherArgs }) => (
+    <Button {...otherArgs}>
+      {({ isPressed }) => (
+        <>
+          {children}
+          {isPressed ? (
+            <ChevronDownIcon role="presentation" />
+          ) : (
+            <ChevronUpIcon role="presentation" />
+          )}
+        </>
+      )}
+    </Button>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: `
+    <Button {...otherArgs}>
+      {({isPressed}) => (
+        <>
+          {children}
+          {isPressed ? <ChevronDownIcon role="presentation" /> : <ChevronUpIcon role="presentation" />}
+        </>
+      )}
+    </Button>
       `,
       },
     },

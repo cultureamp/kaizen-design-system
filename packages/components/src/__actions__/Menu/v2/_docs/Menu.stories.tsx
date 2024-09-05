@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { Button } from "~components/Button"
 import { ChevronDownIcon, DuplicateIcon } from "~components/Icon"
-import { Button } from "~components/__actions__/v2"
 import * as MenuV1Stories from "../../v1/_docs/Menu.stories"
 import { Menu, MenuList, MenuItem, MenuHeading } from "../index"
 

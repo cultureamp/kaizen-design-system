@@ -1,19 +1,18 @@
 import { Canvas, Meta, Controls } from "@storybook/blocks"
 import { ResourceLinks, SbContent, KAIOInstallation } from "~storybook/components"
 import * as docsStories from "./Button.docs.stories"
-import * as exampleStories from "./Button.stories"
 
-<Meta title="Actions/Button/v3/API Specification" />
+<Meta title="Actions/Button/Future/API Specification" />
 
 <SbContent>
-  # Button API Specification (v3)
+  # Button API Specification (future)
 
 
   Updated July 15, 2024
 </SbContent>
 
 <ResourceLinks
-  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__actions__/Button/v3"
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__future__/Button"
   figma="https://www.figma.com/design/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-Heart-UI-Kit?m=auto&t=a6VcoKBJx6snn0ut-1"
   ariaComponentPage="https://react-spectrum.adobe.com/react-aria/Button.html"
   designGuidelines="/?path=/docs/actions-button-v3-usage-guidelines--docs"
@@ -35,7 +34,7 @@ import * as exampleStories from "./Button.stories"
 
 </SbContent>
 
-<Canvas of={exampleStories.Playground} />
+<Canvas of={docsStories.Playground} />
 
 <SbContent className="mb-64">
   ### React Aria
@@ -52,7 +51,7 @@ import * as exampleStories from "./Button.stories"
 </SbContent>
 
 
-<Controls of={exampleStories.Playground} className="mb-64" />
+<Controls of={docsStories.Playground} className="mb-64" />
 
 <SbContent className="mb-64">
   ### onPress vs onClick
@@ -123,7 +122,7 @@ import * as exampleStories from "./Button.stories"
   In `v3`, labels, icons and their positions are controlled by the consumer as `children`. The immediate children of `Button` are spaced using `flex-gap` to ensure `RTL` can be supported out of the box for most cases.
 </ SbContent>
 
-<Canvas of={exampleStories.ButtonWithIcon} />
+<Canvas of={docsStories.ButtonWithIcon} />
 
 <SbContent>
   While the expected default is that `children` will be a `ReactNode`, it also accepts a render function that takes `ButtonRenderProps`. Similar to the className, this exposes the internal state (`isPressed`, `isHovered`, etc) of the button and can be used for conditional rendering.
@@ -147,7 +146,7 @@ import * as exampleStories from "./Button.stories"
   To achieve the `IconButton` pattern in `v3`, we recommend passing an icon in as a the sole child. The label should be added to the icon&apos;s `aria-label` prop in the SVG Icon.
 </ SbContent>
 
-<Canvas of={exampleStories.IconButton} className="mb-32" />
+<Canvas of={docsStories.IconButton} className="mb-32" />
 
 <SbContent className="mb-64">
   We recommend against setting the `aria-label` on the `Button` itself, and letting the accessible label be [determined by the children](https://cultureamp.atlassian.net/wiki/spaces/PA/pages/3833331831/Accessible+button+and+link+labels). You can achieve this by using visually hidden elements as children, which will create an accessible label based off the contents of the button.
@@ -158,7 +157,7 @@ import * as exampleStories from "./Button.stories"
 
   The `Button` uses the `useReversedColors` hook and `ReversedColors` provider to control the dark and light theme.
 
-  <Canvas className="bg-purple-600 mb-24" of={exampleStories.OnReversed} />
+  <Canvas className="bg-purple-600 mb-24" of={docsStories.OnReversed} />
 
   To enable the reversed theme, you will need to the component or application in the ReversedColors provider.
 </ SbContent>
