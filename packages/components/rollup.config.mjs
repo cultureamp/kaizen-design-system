@@ -3,6 +3,8 @@ import { pluginsSharedUi, rollupConfig } from "@kaizen/package-bundler"
 export default rollupConfig({
   input: {
     index: "./src/index.ts",
+    v2: "./src/__v2__/index.ts",
+    v3: "./src/__v3__/index.ts",
     future: "./src/__future__/index.ts",
     actionsV1: "./src/__actions__/v1.ts",
     actionsV2: "./src/__actions__/v2.ts",
