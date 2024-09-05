@@ -6,7 +6,7 @@ import { VisuallyHidden } from "~components/VisuallyHidden"
 import { Button } from "../index"
 
 const meta = {
-  title: "Actions/Button/v3",
+  title: "Actions/Button/Button (v3)",
   component: Button,
   args: {
     children: "Label",
