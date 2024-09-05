@@ -28,7 +28,7 @@ const defaultText = {
 }
 
 const meta = {
-  title: "Containers/GuidanceBlock/v2",
+  title: "Containers/GuidanceBlock/Future",
   component: GuidanceBlock,
   args: {
     layout: "default",
