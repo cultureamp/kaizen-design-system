@@ -4,8 +4,7 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["packages/**"],
-      "outputs": ["dist/**"],
-      "cache": false
+      "outputs": ["dist/**"]
     },
     "dev": {
       "dependsOn": ["^build"]
@@ -18,8 +17,7 @@
       "dependsOn": ["^build"]
     },
     "test": {
-      "inputs": ["packages/**"],
-      "cache": false
+      "inputs": ["packages/**"]
     },
     "clean": {
       "cache": false
@@ -27,30 +25,25 @@
     "@docs/storybook#build:tailwind": {
       "dependsOn": ["^build"],
       "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/.storybook/preview.css"],
-      "cache": false
+      "outputs": ["docs/.storybook/preview.css"]
     },
     "@docs/storybook#build:docs": {
       "dependsOn": ["^build", "build:tailwind"],
       "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/storybook-static/**"],
-      "cache": false
+      "outputs": ["docs/storybook-static/**"]
     },
     "@docs/storybook#build:test": {
       "dependsOn": ["^build", "build:tailwind"],
       "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/storybook-static/**"],
-      "cache": false
+      "outputs": ["docs/storybook-static/**"]
     },
     "@docs/storybook#build:chromatic": {
       "dependsOn": ["^build", "build:tailwind"],
-      "outputs": ["docs/storybook-static/**"],
-      "cache": false
+      "outputs": ["docs/storybook-static/**"]
     },
     "@docs/storybook#test:storybook": {
       "dependsOn": ["^build", "build:tailwind"],
-      "outputs": ["docs/storybook-static/**"],
-      "cache": false
+      "outputs": ["docs/storybook-static/**"]
     },
     "@kaizen/components#build": {
       "dependsOn": [
