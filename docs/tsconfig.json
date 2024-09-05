@@ -11,6 +11,6 @@
       "~design-tokens/*": ["../packages/design-tokens/src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", ".storybook/*.tsx"],
   "files": ["./types.d.ts"]
 }
