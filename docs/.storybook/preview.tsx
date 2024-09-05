@@ -148,7 +148,11 @@ const preview = {
         const titleDifference = titleA.localeCompare(titleB, undefined, {
           numeric: true,
         })
+
         if (titleDifference !== 0) {
+          if (a.title.includes(b.title)) return -1
+          if (b.title.includes(a.title)) return 1
+
           // Sort nested stories
           return titleDifference
         }
