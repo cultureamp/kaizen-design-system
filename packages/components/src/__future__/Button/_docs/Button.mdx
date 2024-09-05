@@ -1,5 +1,5 @@
 import { Canvas, Meta, Controls } from "@storybook/blocks"
-import { ResourceLinks, SbContent, Installation } from "~storybook/components"
+import { ResourceLinks, SbContent, KAIOInstallation } from "~storybook/components"
 import * as Button from "./Button.docs.stories"
 
 <Meta title="Actions/Button/Future/Usage Guidelines" />
@@ -26,10 +26,7 @@ import * as Button from "./Button.docs.stories"
 </SbContent>
 
 <SbContent>
-  <Installation
-    installCommand="pnpm add @kaizen/components"
-    importStatement='import { Button } from "@kaizen/components/future"'
-  />
+  <KAIOInstallation exportNames="Button" isFuture />
 
   ## Overview
 
