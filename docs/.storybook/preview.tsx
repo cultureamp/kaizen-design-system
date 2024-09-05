@@ -113,6 +113,50 @@ const preview = {
           return 0
         }
 
+        // Custom ordering for Tailwind docs
+        if (a.id.includes("tailwind") && b.id.includes("tailwind")) {
+          if (b.title.includes("References")) {
+            if (a.title.includes("References")) {
+              // Overview above all other stories
+              if (a.title.includes("Overview")) return -1
+              if (b.title.includes("Overview")) return 1
+              return 0
+            }
+            // Put References below other stories
+            return -1
+          }
+
+          // Put References below other stories
+          if (a.title.includes("References")) return 1
+
+          if (a.type === "docs" && b.type === "docs") {
+            const docs = [
+              "Overview",
+              "Getting Started",
+              "Configuration",
+              "Working with Tailwind",
+            ]
+            const docsNameA = a.title.split("/").pop()
+            const docsNameB = b.title.split("/").pop()
+            if (docs.includes(docsNameA) && docs.includes(docsNameB)) {
+              const docsDifference =
+                docs.indexOf(docsNameA) - docs.indexOf(docsNameB)
+              if (docsDifference !== 0) {
+                // Sort docs by listed order
+                return docsDifference
+              }
+            }
+
+            // Sort listed docs above unlisted ones
+            if (docs.includes(docsNameA)) return -1
+            // Sort unlisted docs below listed ones
+            if (docs.includes(docsNameB)) return 1
+          }
+
+          // All other stories appear in the order they are defined
+          return 0
+        }
+
         const customDocNames = ["Usage Guidelines", "API Specification"]
         // Don't type the param - we can't use TypeScript within storySort
         const removeCustomDocNames = title => {
@@ -158,15 +202,12 @@ const preview = {
         }
 
         if (a.type === "docs" && b.type === "docs") {
-          const docs = [
-            "Usage Guidelines",
-            "API Specification",
-            "Docs",
-          ]
+          const docs = ["Usage Guidelines", "API Specification", "Docs"]
           const docsNameA = a.title.split("/").pop()
           const docsNameB = b.title.split("/").pop()
 
-          const docsDifference = docs.indexOf(docsNameA) - docs.indexOf(docsNameB)
+          const docsDifference =
+            docs.indexOf(docsNameA) - docs.indexOf(docsNameB)
           if (docsDifference !== 0) {
             // Sort stories of different groups manually by the groups array
             return docsDifference
