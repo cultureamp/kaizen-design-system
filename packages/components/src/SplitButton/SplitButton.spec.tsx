@@ -2,7 +2,7 @@ import React from "react"
 import { screen, waitFor, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { vi } from "vitest"
-import { MenuItem, MenuList } from "~components/Button"
+import { MenuItem, MenuList } from "~components/__actions__/v2"
 import { SplitButton, SplitButtonProps } from "./SplitButton"
 
 const user = userEvent.setup()
