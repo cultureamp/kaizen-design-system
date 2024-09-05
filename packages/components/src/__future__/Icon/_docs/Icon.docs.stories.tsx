@@ -10,7 +10,7 @@ import { iconDefaultSet } from "../constants"
 import { Icon } from "../index"
 
 const meta = {
-  title: "Illustrations/Icon/Icon (v3)",
+  title: "Illustrations/Icon/Icon (Future)",
   component: Icon,
   args: {
     name: "star",

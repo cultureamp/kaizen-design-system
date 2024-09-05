@@ -8,7 +8,7 @@ import { handledRtlIcons, iconDefaultSet } from "../constants"
 import { Icon, IconProps } from "../index"
 
 export default {
-  title: "Illustrations/Icon/Icon (v3)",
+  title: "Illustrations/Icon/Icon (Future)",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

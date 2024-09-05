@@ -501,8 +501,6 @@ importers:
 
   packages/components/v3/actions: {}
 
-  packages/components/v3/illustrations: {}
-
   packages/components/v3/layout: {}
 
   packages/components/v3/overlays: {}
