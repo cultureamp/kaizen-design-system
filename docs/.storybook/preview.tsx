@@ -157,11 +157,21 @@ const preview = {
           return titleDifference
         }
 
-        // Sort docs to the top
-        if (a.type === "docs") return -1
-        if (b.name === "Usage Guidelines") return 1
-        if (b.name === "API Specification") return 1
-        if (b.name === "Docs") return 1
+        if (a.type === "docs" && b.type === "docs") {
+          const docs = [
+            "Usage Guidelines",
+            "API Specification",
+            "Docs",
+          ]
+          const docsNameA = a.title.split("/").pop()
+          const docsNameB = b.title.split("/").pop()
+
+          const docsDifference = docs.indexOf(docsNameA) - docs.indexOf(docsNameB)
+          if (docsDifference !== 0) {
+            // Sort stories of different groups manually by the groups array
+            return docsDifference
+          }
+        }
 
         // Let stories appear in the order they are defined
         return 0
