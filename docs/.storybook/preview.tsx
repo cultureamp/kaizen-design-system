@@ -189,15 +189,23 @@ const preview = {
           return groupDifference
         }
 
+        // Sort Kaizen Provider to top
+        if (a.title.includes("Kaizen Provider")) {
+          // If both are Kaizen Provider, do not sort
+          if (b.title.includes("Kaizen Provider")) return 0
+          return -1
+        }
+        if (b.title.includes("Kaizen Provider")) return 1
+
         const titleDifference = titleA.localeCompare(titleB, undefined, {
           numeric: true,
         })
 
         if (titleDifference !== 0) {
+          // Sort nested stories to top
           if (a.title.includes(b.title)) return -1
           if (b.title.includes(a.title)) return 1
 
-          // Sort nested stories
           return titleDifference
         }
 
