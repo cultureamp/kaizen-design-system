@@ -1,5 +1,14 @@
 # @kaizen/package-bundler
 
+## 1.1.5
+
+### Patch Changes
+
+- [#5020](https://github.com/cultureamp/kaizen-design-system/pull/5020) [`517a83b45eb4e83293af813ce01ee171cecbeeaf`](https://github.com/cultureamp/kaizen-design-system/commit/517a83b45eb4e83293af813ce01ee171cecbeeaf) - Allow postcss-preset-env v10 in peerDependencies.
+
+  Version 10 contains no breaking changes relevant to Culture Amp usage. [See the changelog for more details](https://github.com/csstools/postcss-plugins/wiki/PostCSS-Preset-Env-10).
+  Version 9 is still allowed.
+
 ## 1.1.4
 
 ### Patch Changes
