@@ -3,11 +3,8 @@ import "highlight.js/styles/a11y-light.css"
 import "./preview.css"
 
 import React, { useEffect } from "react"
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Preview } from "@storybook/react"
-// eslint-disable-next-line import/no-extraneous-dependencies
 import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { I18nProvider } from "~components/__react-aria-components__"
@@ -110,32 +107,60 @@ const preview = {
       container: DefaultDocsContainer,
     },
     options: {
-      storySort: {
-        method: "alphabetical",
-        order: [
+      storySort: (a, b) => {
+        // Two exact same stories
+        if (a.id === b.id) {
+          return 0
+        }
+
+        const customDocNames = ["Usage Guidelines", "API Specification"]
+        // Don't type the param - we can't use TypeScript within storySort
+        const removeCustomDocNames = title => {
+          return customDocNames.reduce((acc, docName) => {
+            const regex = new RegExp(`/${docName}$`)
+            return acc.replace(regex, "")
+          }, title)
+        }
+
+        const titleA = removeCustomDocNames(a.title)
+        const titleB = removeCustomDocNames(b.title)
+
+        const groupA = titleA.split("/")[0]
+        const groupB = titleB.split("/")[0]
+
+        const groups = [
           "Introduction",
           "Guides",
-          [
-            "App starter",
-            "Layout and spacing",
-            "Tailwind",
-            [
-              "Overview",
-              "Getting Started",
-              "Configuration",
-              "Working with Tailwind",
-              "*",
-              "Utility Class References",
-              ["Overview", "*"],
-            ],
-          ],
-          // This will group new folders like Actions, Overlays, etc in the same way
-          "*",
-          ["*", ["*", ["Usage Guidelines", "API Specification", "*"]]],
+          "Actions",
+          "Containers",
+          "Illustrations",
+          "Layout",
+          "Overlays",
           "Components",
-          ["Kaizen Provider", "*"],
           "Pages",
-        ],
+        ]
+        const groupDifference = groups.indexOf(groupA) - groups.indexOf(groupB)
+        if (groupDifference !== 0) {
+          // Sort stories of different groups manually by the groups array
+          return groupDifference
+        }
+
+        const titleDifference = titleA.localeCompare(titleB, undefined, {
+          numeric: true,
+        })
+        if (titleDifference !== 0) {
+          // Sort nested stories
+          return titleDifference
+        }
+
+        // Sort docs to the top
+        if (a.type === "docs") return -1
+        if (b.name === "Usage Guidelines") return 1
+        if (b.name === "API Specification") return 1
+        if (b.name === "Docs") return 1
+
+        // Let stories appear in the order they are defined
+        return 0
       },
     },
     chromatic: { disable: true },
