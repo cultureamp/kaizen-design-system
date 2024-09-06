@@ -13,7 +13,7 @@
     "allowJs": false,
     "noEmit": true,
     "paths": {
-      "~storybook/*": ["./.storybook/*"],
+      "~storybook/*": ["./docs/*"],
       "~components/*": ["./packages/components/src/*"],
       "~design-tokens/*": ["./packages/design-tokens/src/*"],
       "~tailwind/*": ["./packages/tailwind/src/*"],
