@@ -1,7 +1,7 @@
 import React from "react"
 import { vi } from "vitest"
+import { Button, IconButton } from "~components/Button"
 import { ArrowRightIcon } from "~components/Icon"
-import { Button, IconButton } from "~components/__actions__/v2"
 import { isSemanticElement } from "./isSemanticElement"
 describe("isSemanticElement", () => {
   it("returns true if provided a native element with a semantic role", () => {

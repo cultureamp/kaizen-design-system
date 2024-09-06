@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { Button } from "~components/Button"
 import { ChevronRightIcon } from "~components/Icon"
-import { Button } from "~components/__actions__/v2"
 import { EmptyState } from "../index"
 
 const meta = {

@@ -10,7 +10,7 @@ import {
   MeatballsIcon,
   TrashIcon,
 } from "~components/Icon"
-import { Button } from "~components/__actions__/v3"
+import { Button } from "~components/__future__/Button"
 import { Menu, MenuTrigger, MenuItem } from "../index"
 import * as testStories from "./Menu.spec.stories"
 

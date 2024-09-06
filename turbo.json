@@ -10,15 +10,13 @@
       "dependsOn": ["^build"]
     },
     "@docs/storybook#dev": {
-      "dependsOn": ["^build", "build:tailwind"],
-      "cache": false
+      "dependsOn": ["^build", "build:tailwind"]
     },
     "lint:ts": {
       "dependsOn": ["^build"]
     },
     "test": {
-      "inputs": ["packages/**"],
-      "cache": false
+      "inputs": ["packages/**"]
     },
     "clean": {
       "cache": false
@@ -32,8 +30,7 @@
     "@docs/storybook#build:docs": {
       "dependsOn": ["^build", "build:tailwind"],
       "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/storybook-static/**"],
-      "cache": false
+      "outputs": ["docs/storybook-static/**"]
     },
     "@docs/storybook#build:test": {
       "dependsOn": ["^build", "build:tailwind"],
@@ -48,8 +45,7 @@
     },
     "@docs/storybook#test:storybook": {
       "dependsOn": ["^build", "build:tailwind"],
-      "outputs": ["docs/storybook-static/**"],
-      "cache": false
+      "outputs": ["docs/storybook-static/**"]
     },
     "@kaizen/components#build": {
       "dependsOn": [
@@ -60,7 +56,10 @@
       "outputs": ["dist/**"]
     },
     "@kaizen/tailwind#build": {
-      "dependsOn": ["@kaizen/design-tokens#build"],
+      "dependsOn": [
+        "@kaizen/design-tokens#build",
+        "@kaizen/package-bundler#build"
+      ],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },

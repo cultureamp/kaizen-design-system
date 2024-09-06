@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { Button, IconButton } from "~components/Button"
 import { ButtonGroup } from "~components/ButtonGroup"
 import { CheckboxField } from "~components/Checkbox"
 import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
@@ -11,7 +12,6 @@ import {
   TableRow,
 } from "~components/Table"
 import { Text } from "~components/Text"
-import { Button, IconButton } from "~components/__actions__/v2"
 import { Tag } from "~components/__future__/Tag"
 import { Tooltip } from "../index"
 

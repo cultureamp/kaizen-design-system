@@ -8,7 +8,8 @@
     "package-bundler": "./bin/build-commands.sh"
   },
   "scripts": {
-    "build": "pnpm clean:dist && tsc --build",
+    "build": "pnpm clean:dist && pnpm build:ts",
+    "build:ts": "tsc --build",
     "prepare": "ts-patch install -s",
     "lint:ts": "tsc --noEmit",
     "clean": "rimraf 'dist' 'node_modules' '.turbo'",

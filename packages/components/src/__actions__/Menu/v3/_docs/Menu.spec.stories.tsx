@@ -13,7 +13,7 @@ import {
   MeatballsIcon,
   TrashIcon,
 } from "~components/Icon"
-import { Button } from "~components/__actions__/v3"
+import { Button } from "~components/__future__/Button"
 import { Menu, MenuItem, MenuTrigger } from "../index"
 
 const meta = {

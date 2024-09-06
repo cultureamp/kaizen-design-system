@@ -1,6 +1,6 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
-import { Button } from "~components/__actions__/v2"
+import { Button } from "~components/Button"
 import { Tooltip } from "./index"
 
 describe("<Tooltip />", () => {
