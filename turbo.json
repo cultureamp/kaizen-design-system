@@ -24,7 +24,8 @@
     "@docs/storybook#build:tailwind": {
       "dependsOn": ["^build"],
       "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/.storybook/preview.css"]
+      "outputs": ["docs/.storybook/preview.css"],
+      "cache": false
     },
     "@docs/storybook#build:docs": {
       "dependsOn": ["^build", "build:tailwind"],
