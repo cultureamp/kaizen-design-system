@@ -191,16 +191,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
           trigger(selectToggleProps, selectToggleProps.ref)
         )}
         {state.isOpen && (
-          <Popover
-            id={popoverId}
-            portalContainer={portalContainer}
-            refs={refs}
-            focusOnProps={{
-              onEscapeKey: state.close,
-              onClickOutside: state.close,
-              noIsolation: true,
-            }}
-          >
+          <Popover id={popoverId} portalContainer={portalContainer} refs={refs}>
             <SelectProvider<Option> state={state}>
               <SelectPopoverContents menuProps={menuProps}>
                 {children}
