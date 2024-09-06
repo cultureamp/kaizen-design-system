@@ -40,7 +40,8 @@
     },
     "@docs/storybook#build:chromatic": {
       "dependsOn": ["^build", "build:tailwind"],
-      "outputs": ["docs/storybook-static/**"]
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
     },
     "@docs/storybook#test:storybook": {
       "dependsOn": ["^build", "build:tailwind"],
