@@ -350,8 +350,8 @@ importers:
         specifier: ^1.2.2
         version: 1.2.2(prosemirror-model@1.22.3)(prosemirror-state@1.4.3)
       prosemirror-view:
-        specifier: ^1.34.1
-        version: 1.34.1
+        specifier: ^1.34.2
+        version: 1.34.2
       react-animate-height:
         specifier: ^3.2.3
         version: 3.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9064,8 +9064,8 @@ packages:
       prosemirror-model: ^1.19.2
       prosemirror-state: ^1.4.3
 
-  prosemirror-view@1.34.1:
-    resolution: {integrity: sha512-KS2xmqrAM09h3SLu1S2pNO/ZoIP38qkTJ6KFd7+BeSfmX/ek0n5yOfGuiTZjFNTC8GOsEIUa1tHxt+2FMu3yWQ==}
+  prosemirror-view@1.34.2:
+    resolution: {integrity: sha512-tPX/V2Xd70vrAGQ/V9CppJtPKnQyQMypJGlLylvdI94k6JaG+4P6fVmXPR1zc1eVTW0gq3c6zsfqwJKCRLaG9Q==}
 
   proxy-addr@2.0.7:
     resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
@@ -21423,7 +21423,7 @@ snapshots:
     dependencies:
       prosemirror-state: 1.4.3
       prosemirror-transform: 1.10.0
-      prosemirror-view: 1.34.1
+      prosemirror-view: 1.34.2
       rope-sequence: 1.3.4
 
   prosemirror-inputrules@1.4.0:
@@ -21454,7 +21454,7 @@ snapshots:
     dependencies:
       prosemirror-model: 1.22.3
       prosemirror-transform: 1.10.0
-      prosemirror-view: 1.34.1
+      prosemirror-view: 1.34.2
 
   prosemirror-transform@1.10.0:
     dependencies:
@@ -21465,7 +21465,7 @@ snapshots:
       prosemirror-model: 1.22.3
       prosemirror-state: 1.4.3
 
-  prosemirror-view@1.34.1:
+  prosemirror-view@1.34.2:
     dependencies:
       prosemirror-model: 1.22.3
       prosemirror-state: 1.4.3
