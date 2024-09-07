@@ -103,7 +103,7 @@
   },
   "devDependencies": {
     "@cultureamp/frontend-apis": "^9.8.2",
-    "@cultureamp/i18n-react-intl": "^2.6.1",
+    "@cultureamp/i18n-react-intl": "^2.6.2",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/package-bundler": "workspace:*",
     "@tanstack/react-query": "^5.53.1",
