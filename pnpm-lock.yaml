@@ -160,8 +160,8 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1
       storybook-addon-pseudo-states:
-        specifier: ^4.0.0
-        version: 4.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.0-alpha.7)
+        specifier: ^4.0.2
+        version: 4.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.0-alpha.7)
       stylelint:
         specifier: ^16.9.0
         version: 16.9.0(typescript@5.5.4)
@@ -9730,8 +9730,8 @@ packages:
     resolution: {integrity: sha512-iCGQj+0l0HOdZ2AEeBADlsRC+vsnDsZsbdSiH1yNSjcfKM7fdpCMfqAL/dwF5BLiw/XhRft/Wax6zQbhq2BcjQ==}
     engines: {node: '>= 0.4'}
 
-  storybook-addon-pseudo-states@4.0.0:
-    resolution: {integrity: sha512-ido6/KhuAu/uUbb1zlumgwBpfuAsj2xuTWyhuN5xPG9Nq4Zdqoj192Fcsb5AukBd6pTzSkjdCBYcjFd+4WFJBg==}
+  storybook-addon-pseudo-states@4.0.2:
+    resolution: {integrity: sha512-dTHkeq4VzqIrJfR8k2BHkX190cQ+aYBZUktWNZpDw3N5tJ8IwaRLzf6ZjHDHY6xwDshaNiTO5UkziRE0Ytukkw==}
     peerDependencies:
       storybook: ^8.2.0
 
@@ -22351,7 +22351,7 @@ snapshots:
     dependencies:
       internal-slot: 1.0.7
 
-  storybook-addon-pseudo-states@4.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.0-alpha.7):
+  storybook-addon-pseudo-states@4.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.0-alpha.7):
     dependencies:
       '@storybook/icons': 1.2.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       storybook: 8.3.0-alpha.7
