@@ -8,6 +8,7 @@ import {
 } from "~components/Illustration"
 import { Text } from "~components/Text"
 import { GuidanceBlock } from "../index"
+import { variantsMap } from "../types"
 
 const ContentComponent = (): JSX.Element => (
   <>
@@ -28,7 +29,7 @@ const defaultText = {
 }
 
 const meta = {
-  title: "Containers/GuidanceBlock/v2",
+  title: "Containers/GuidanceBlock",
   component: GuidanceBlock,
   args: {
     layout: "default",
@@ -142,8 +143,9 @@ export const SceneExample: Story = {
 export const Variants: Story = {
   render: args => (
     <div className="flex flex-col gap-16">
-      <GuidanceBlock {...args} />
-      <GuidanceBlock variant="expert-advice" {...args} />
+      {variantsMap.map(variant => (
+        <GuidanceBlock key={variant} {...args} variant={variant} />
+      ))}
     </div>
   ),
   args: {
