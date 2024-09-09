@@ -41,23 +41,36 @@ Icons are simplified visual symbols that represent ideas, objects, or actions. T
 
 ### Specs
 
-Use [default icons](#default-icon-set) (common icons already in use within existing Kaizen components) they will remain available in Figma directly.
+#### Do use icons consistently
 
-When you need a new icon, use Google's [Material Symbols](https://fonts.google.com/icons) set via the [Figma plugin](https://www.figma.com/community/plugin/1088610476491668236/material-symbols) to add the relevant icons in:
-- Outlined
-- Weight: 400
-- Grade: Normal (0)
-- Fill: On or Off
+Consistent use of icons helps users quickly recognize and understand their function, improving overall usability.
+Refer to the [default set](#default-icon-set) for icons commonly used across the platform.
 
-They will not need to be added to the Kaizen icon subset in order to be used in designs or to be built.
+When you need a new icon, use [Google's Material Symbols set](https://fonts.google.com/icons) via the [Figma plugin](https://www.figma.com/community/plugin/1088610476491668236/material-symbols) to add the relevant icons in:
+- **Outlined**
+- **Weight**: 400
+- **Grade**: Normal (0)
+- **Fill**: On or Off
 
-#### Optical size
+<DosAndDonts>
+  <DoOrDont story={IconStories.Playground} />
+  <DoOrDont story={IconStories.Filled} />
+</DosAndDonts>
 
-If using icons at a larger size than the default 20px, scale the Optical Size to match the size of the icon.
+#### Do choose between filled and unfilled icons based on context and state
 
-<img src="https://lh3.googleusercontent.com/HOPC05vQ5XWnpO6eguPBVrvkRgtNhnIv7hllCJbFjnd0vWEQhVkogDeiHx47fh5Evb7XVKOaEtM18afa-JEFUoBDtBI_fIJSkjHRrkWKKoXwMA=s0" alt="Four icons gradually increasing in optical size." />
+Filled icons can indicate an active state or selection. Unfilled icons often represent a default or inactive state. Not all icons change appearance when toggled between filled and untilled, so use this distinction thoughtfully.
 
-#### Alignment
+#### Do use the correct optical size
+
+Scale the optical size to match the size of the icon - do not mix icon sizes with a different optical size.
+
+<DosAndDonts>
+  <DoOrDont story={IconStories.OpticalSizeDo} />
+  <DoOrDont story={IconStories.OpticalSizeDont} isDont />
+</DosAndDonts>
+
+#### Do align the icon vertically
 
 Vertically center the icon by shifting down the baseline of symbols to approximately 11.5% of the type size.
 
@@ -65,6 +78,39 @@ Vertically center the icon by shifting down the baseline of symbols to approxima
   <DoOrDont story={IconStories.AlignmentDo} />
   <DoOrDont story={IconStories.AlignmentDont} isDont />
 </DosAndDonts>
+
+#### Do use icon colors that meet 3:1 contrast ratios with their background
+
+Icons should be easily distinguishable and clearly visible against their background to ensure they are accessible to all users, including those with visual impairments.
+
+<DosAndDonts>
+  <DoOrDont story={IconStories.ContrastDo} />
+  <DoOrDont story={IconStories.ContrastDont} isDont />
+</DosAndDonts>
+
+#### Do use color purposefully
+
+Where suitable, color can be used to highlight an icon or reinforce its meaning, such as using green for success or red for errors.
+
+<DosAndDonts>
+  <DoOrDont story={IconStories.ColorReinforceDo} />
+</DosAndDonts>
+
+#### Don't rely on color alone
+
+Ensure that icons are distinguishable by varying the icon, fill, or labels. Relying only on color can make the interface less accessible to colorblind users.
+
+#### Don't overload your interface with too many icons
+
+Overusing icons can create visual clutter and overwhelm users. Use them sparingly to highlight important actions or information.
+
+#### Don't rely on icons alone for conveying important information
+
+Icons should support, not replace, text labels, especially for accessibility. Screen readers and other assistive technologies may not always interpret icons correctly.
+
+#### Do use appropriate states on interactive icons
+
+If the icon is interactive, it should have a base, hover, and focus state.
 
 ## Default icon set
 

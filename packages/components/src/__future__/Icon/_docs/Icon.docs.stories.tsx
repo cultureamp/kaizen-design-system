@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import classnames from "classnames"
+import { InlineNotification } from "~components/Notification"
 import { Text } from "~components/Text"
 import { ToggleSwitchField } from "~components/ToggleSwitch"
 import { Button } from "~components/__actions__/v3"
@@ -224,6 +225,52 @@ export const DefaultIconSet: Story = {
   },
 }
 
+export const OpticalSizeDo: Story = {
+  render: () => (
+    <div className="flex gap-16">
+      <div className="flex items-center gap-4">
+        <Text variant="body">20/20</Text>
+        <Icon name="star" isPresentational className="text-[20px] [--icon-optical-size:20]" />
+      </div>
+      <div className="flex items-center gap-4">
+        <Text variant="body">24/24</Text>
+        <Icon name="star" isPresentational className="text-[24px] [--icon-optical-size:24]" />
+      </div>
+      <div className="flex items-center gap-4">
+        <Text variant="body">40/40</Text>
+        <Icon name="star" isPresentational className="text-[40px] [--icon-optical-size:40]" />
+      </div>
+      <div className="flex items-center gap-4">
+        <Text variant="body">48/48</Text>
+        <Icon name="star" isPresentational className="text-[48px] [--icon-optical-size:48]" />
+      </div>
+    </div>
+  ),
+}
+
+export const OpticalSizeDont: Story = {
+  render: () => (
+    <div className="flex gap-16">
+      <div className="flex items-center gap-4">
+        <Text variant="body">20/48</Text>
+        <Icon name="star" isPresentational className="text-[20px] [--icon-optical-size:48]" />
+      </div>
+      <div className="flex items-center gap-4">
+        <Text variant="body">24/40</Text>
+        <Icon name="star" isPresentational className="text-[24px] [--icon-optical-size:40]" />
+      </div>
+      <div className="flex items-center gap-4">
+        <Text variant="body">40/24</Text>
+        <Icon name="star" isPresentational className="text-[40px] [--icon-optical-size:24]" />
+      </div>
+      <div className="flex items-center gap-4">
+        <Text variant="body">48/20</Text>
+        <Icon name="star" isPresentational className="text-[48px] [--icon-optical-size:20]" />
+      </div>
+    </div>
+  ),
+}
+
 export const AlignmentDo: Story = {
   render: () => (
     <img
@@ -241,5 +288,27 @@ export const AlignmentDont: Story = {
       alt="Both symbol and text set on same baseline."
       className="w-full"
     />
+  ),
+}
+
+export const ContrastDo: Story = {
+  render: () => (
+    <div className="bg-yellow-100 p-16">
+      <Icon name="star" isPresentational className="text-yellow-700" />
+    </div>
+  ),
+}
+
+export const ContrastDont: Story = {
+  render: () => (
+    <div className="bg-yellow-100 p-16">
+      <Icon name="star" isPresentational className="text-yellow-500" />
+    </div>
+  ),
+}
+
+export const ColorReinforceDo: Story = {
+  render: () => (
+    <InlineNotification variant="success">Success!</InlineNotification>
   ),
 }
