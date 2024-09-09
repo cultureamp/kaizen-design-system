@@ -1,5 +1,0 @@
-{
-  "main": "../../dist/cjs/containersV1.cjs",
-  "module": "../../dist/esm/containersV1.mjs",
-  "types": "../../dist/types/__containers__/v1.d.ts"
-}
