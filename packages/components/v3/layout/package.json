@@ -1,5 +1,0 @@
-{
-  "main": "../../dist/cjs/layoutV3.cjs",
-  "module": "../../dist/esm/layoutV3.mjs",
-  "types": "../../dist/types/__layout__/v3.d.ts"
-}
