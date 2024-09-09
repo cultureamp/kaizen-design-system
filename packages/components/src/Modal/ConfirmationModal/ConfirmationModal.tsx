@@ -210,7 +210,11 @@ export const ConfirmationModal = ({
         </ModalBody>
         <ModalFooter
           actions={footerActions}
-          appearance={mood === "negative" || variant == "warning" ? "destructive" : "primary"}
+          appearance={
+            mood === "negative" || variant == "warning"
+              ? "destructive"
+              : "primary"
+          }
           unpadded={unpadded}
         />
       </div>
