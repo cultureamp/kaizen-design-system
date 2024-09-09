@@ -17,7 +17,7 @@ import {
   StatelessMenuProps as StatelessMenuPropsV1,
 } from "./subcomponents/StatelessMenu"
 
-// Note: deprecate all of these once we have Button v3
+// Note: deprecate all of these once we have RAC Button
 
 export const Menu = MenuV1
 export type MenuProps = MenuPropsV1
