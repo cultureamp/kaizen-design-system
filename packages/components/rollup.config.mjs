@@ -10,10 +10,9 @@ export default rollupConfig({
     layoutV1: "./src/__layout__/v1.ts",
     layoutV2: "./src/__layout__/v2.ts",
     layoutV3: "./src/__layout__/v3.ts",
-    // Maps to Tooltip as it was the only component in overlays
-    overlaysV1: "./src/Tooltip/index.ts",
-    overlaysV2: "./src/Tooltip/index.ts",
-    overlaysV3: "./src/__future__/Tooltip/index.ts",
+    overlaysV1: "./src/overlaysV1.ts",
+    overlaysV2: "./src/overlaysV1.ts",
+    overlaysV3: "./src/overlaysV3.ts",
     utilitiesV3: "./src/__utilities__/v3.ts",
     reactAriaV3: "./src/__react-aria__/index.ts",
     reactAriaComponentsV3: "./src/__react-aria-components__/index.ts",
