@@ -7,7 +7,7 @@ import { Input } from "~components/Input"
 import { Label } from "~components/Label"
 import { Text } from "~components/Text"
 import { Button, IconButton } from "~components/__actions__/v2"
-import { Focusable } from "~components/__overlays__/v3"
+import { Focusable } from "~components/__future__"
 import { Tooltip, TooltipTrigger } from "../index"
 import * as TestStories from "./Tooltip.spec.stories"
 
