@@ -8,7 +8,7 @@ import {
   ThumbsUpOffIcon,
   ThumbsUpOnIcon,
 } from "~components/Icon"
-import { Tooltip, TooltipTrigger } from "~components/__overlays__/v3"
+import { Tooltip, TooltipTrigger } from "~components/__future__"
 import { Button } from "../index"
 
 const onPressEvent = fn()
