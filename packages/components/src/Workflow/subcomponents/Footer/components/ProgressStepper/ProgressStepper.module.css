@@ -45,6 +45,9 @@
   display: none;
   text-align: center;
   margin-bottom: var(--spacing-12);
+  font-family: var(--typography-paragraph-small-font-family);
+  font-size: var(--typography-paragraph-small-font-size);
+  line-height: var(--typography-paragraph-small-line-height);
   font-weight: var(--typography-paragraph-bold-font-weight);
   color: var(--color-gray-600);
 }
@@ -96,7 +99,6 @@
   font-weight: var(--typography-paragraph-small-font-weight);
   font-size: var(--typography-paragraph-small-font-size);
   line-height: var(--typography-paragraph-small-line-height);
-  letter-spacing: var(--typography-paragraph-small-letter-spacing);
 
   @media (width >= 768px) {
     /* sr hidden styles */
