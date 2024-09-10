@@ -133,14 +133,9 @@ export const ProgressStepper = ({
           )
         })}
       </ol>
-      <Text
-        classNameOverride={styles.stepperDescription}
-        variant="small"
-        color="white"
-        id="stepper-description"
-      >
+      <span className={styles.stepperDescription} id="stepper-description">
         Step {currentStepIndex + 1} of {steps.length}
-      </Text>
+      </span>
     </div>
   )
 }
