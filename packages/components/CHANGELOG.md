@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.63.1
+
+### Patch Changes
+
+- [#5050](https://github.com/cultureamp/kaizen-design-system/pull/5050) [`f66a774b1c7bd987b432f0431baae064863ab1ee`](https://github.com/cultureamp/kaizen-design-system/commit/f66a774b1c7bd987b432f0431baae064863ab1ee) - fix missing export
+
 ## 1.63.0
 
 ### Minor Changes
