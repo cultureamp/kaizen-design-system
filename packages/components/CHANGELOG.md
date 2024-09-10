@@ -1,5 +1,21 @@
 # Change Log
 
+## 1.62.0
+
+### Minor Changes
+
+- [#5022](https://github.com/cultureamp/kaizen-design-system/pull/5022) [`adc3b0adb73b0ab88db490784e4ea2dfe920d4fa`](https://github.com/cultureamp/kaizen-design-system/commit/adc3b0adb73b0ab88db490784e4ea2dfe920d4fa) - Remove GuidanceBlock v2
+
+  We've decided against the idea of having a new version of this component.
+
+  There are no usages of v2 in our repos.
+
+### Patch Changes
+
+- [#5046](https://github.com/cultureamp/kaizen-design-system/pull/5046) [`245c64e43d74b93deda1e732110b030147a0e524`](https://github.com/cultureamp/kaizen-design-system/commit/245c64e43d74b93deda1e732110b030147a0e524) - Decouple ProgressStepper from Text component and fix spacing for Workflow stepper
+
+- [#5041](https://github.com/cultureamp/kaizen-design-system/pull/5041) [`3e68057c2f051b1b92f3bcc9241fb028a4de9431`](https://github.com/cultureamp/kaizen-design-system/commit/3e68057c2f051b1b92f3bcc9241fb028a4de9431) - Pass variant warning to Modal Footer
+
 ## 1.61.3
 
 ### Patch Changes
