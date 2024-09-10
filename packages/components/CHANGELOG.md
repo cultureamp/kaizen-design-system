@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.63.0
+
+### Minor Changes
+
+- [#5044](https://github.com/cultureamp/kaizen-design-system/pull/5044) [`10a2b1558e300aa7e7bdd3620b9c586de1c628ff`](https://github.com/cultureamp/kaizen-design-system/commit/10a2b1558e300aa7e7bdd3620b9c586de1c628ff) - Remove v1 (current) and v2 (future) Workflow, making v3 the current version
+
+  Shortly following this release, Doug will be submit PRs to the 4 repos currently using the Workflow component to cater for the breaking changes
+
 ## 1.62.0
 
 ### Minor Changes
