@@ -1,7 +1,8 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { ChevronDownIcon, DuplicateIcon } from "~components/Icon"
+import { ChevronDownIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { Menu } from "../index"
 import { MenuHeading } from "../subcomponents/MenuHeading"
 import { MenuItem } from "../subcomponents/MenuItem"
@@ -24,7 +25,7 @@ const meta = {
           onClick={() => {
             alert("Duplicated!")
           }}
-          icon={<DuplicateIcon role="presentation" />}
+          icon={<Icon name="content_copy" isPresentational isFilled />}
           label="Duplicate item"
         />
         <MenuList heading={<MenuHeading>Extra links</MenuHeading>}>

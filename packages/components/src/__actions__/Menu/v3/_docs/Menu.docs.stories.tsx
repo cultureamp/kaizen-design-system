@@ -2,17 +2,9 @@ import React, { FunctionComponent, ReactNode } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Popover } from "react-aria-components"
-import {
-  ArrowDownIcon,
-  ArrowUpIcon,
-  BookmarkOffIcon,
-  CheckIcon,
-  ChevronDownIcon,
-  EditIcon,
-  MeatballsIcon,
-  TrashIcon,
-} from "~components/Icon"
+import { CheckIcon, ChevronDownIcon, MeatballsIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v3"
+import { Icon } from "~components/__future__/Icon"
 import { Menu, MenuItem, MenuTrigger } from "../index"
 
 const meta = {
@@ -31,11 +23,19 @@ type Story = StoryObj<typeof meta>
 
 const DefaultMenuItems = (): ReactNode => (
   <>
-    <MenuItem icon={<BookmarkOffIcon role="presentation" />}>Save</MenuItem>
-    <MenuItem icon={<EditIcon role="presentation" />}>Edit</MenuItem>
-    <MenuItem icon={<ArrowUpIcon role="presentation" />}>Move up</MenuItem>
-    <MenuItem icon={<ArrowDownIcon role="presentation" />}>Move down</MenuItem>
-    <MenuItem icon={<TrashIcon role="presentation" />}>Delete</MenuItem>
+    <MenuItem icon={<Icon name="bookmark" isPresentational />}>Save</MenuItem>
+    <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>
+      Edit
+    </MenuItem>
+    <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>
+      Move up
+    </MenuItem>
+    <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>
+      Move down
+    </MenuItem>
+    <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>
+      Delete
+    </MenuItem>
   </>
 )
 
@@ -80,7 +80,9 @@ export const ItemsDont: Story = {
       </Button>
       <Popover>
         <Menu>
-          <MenuItem icon={<TrashIcon role="presentation" />}>Delete</MenuItem>
+          <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>
+            Delete
+          </MenuItem>
         </Menu>
       </Popover>
     </MenuTrigger>
@@ -176,10 +178,10 @@ export const IconsDont: Story = {
       </Button>
       <Popover>
         <Menu {...args}>
-          <MenuItem icon={<EditIcon role="presentation" />}>
+          <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>
             Edit &lsquo;Strengths&rsquo;
           </MenuItem>
-          <MenuItem icon={<EditIcon role="presentation" />}>
+          <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>
             Edit &lsquo;Weaknesses&rsquo;
           </MenuItem>
           <MenuItem>Export PDF</MenuItem>
