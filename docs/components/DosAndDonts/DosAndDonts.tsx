@@ -4,19 +4,14 @@ import { Canvas } from "@storybook/blocks"
 import classnames from "classnames"
 import { CheckIcon, CloseIcon } from "~components/Icon"
 import { SbContent } from "../SbContent"
+import styles from "./DosAndDonts.module.css"
 
 export const DosAndDonts = ({
   className,
   children,
   ...otherProps
 }: HTMLAttributes<HTMLDivElement>): JSX.Element => (
-  <div
-    className={classnames(
-      className,
-      "relative grid grid-cols-1 gap-16 lg:grid-cols-2"
-    )}
-    {...otherProps}
-  >
+  <div className={classnames(styles.dosAndDonts, className)} {...otherProps}>
     {children}
   </div>
 )
