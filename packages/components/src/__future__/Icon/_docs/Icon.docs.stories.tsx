@@ -461,20 +461,11 @@ export const InterfaceDont: Story = {
       <div>
         <Text variant="body">
           Add
-          <Icon name="add" isPresentational className="align-text-bottom" />
+          <Icon name="add" isPresentational />
           your favourite
-          <Icon
-            name="favorite"
-            isPresentational
-            className="align-text-bottom"
-          />
+          <Icon name="favorite" isPresentational />
           items and then print
-          <Icon
-            name="print"
-            isPresentational
-            className="align-text-bottom"
-          />{" "}
-          away!
+          <Icon name="print" isPresentational /> away!
         </Text>
       </div>
     </div>
@@ -487,8 +478,7 @@ export const ImportantInformationDo: Story = {
       <RadioField
         labelText={
           <>
-            Renovating{" "}
-            <Icon name="build" isPresentational className="align-text-bottom" />
+            Renovating <Icon name="build" isPresentational />
           </>
         }
         name="radio-group"
@@ -499,12 +489,7 @@ export const ImportantInformationDo: Story = {
       <RadioField
         labelText={
           <>
-            Gardening{" "}
-            <Icon
-              name="potted_plant"
-              isPresentational
-              className="align-text-bottom"
-            />
+            Gardening <Icon name="potted_plant" isPresentational />
           </>
         }
         name="radio-group"
@@ -514,12 +499,7 @@ export const ImportantInformationDo: Story = {
       <RadioField
         labelText={
           <>
-            Socialising{" "}
-            <Icon
-              name="groups"
-              isPresentational
-              className="align-text-bottom"
-            />
+            Socialising <Icon name="groups" isPresentational />
           </>
         }
         name="radio-group"
@@ -534,30 +514,20 @@ export const ImportantInformationDont: Story = {
   render: () => (
     <RadioGroup labelText="Hobby">
       <RadioField
-        labelText={
-          <Icon name="build" alt="Renovating" className="align-text-bottom" />
-        }
+        labelText={<Icon name="build" alt="Renovating" />}
         name="radio-group"
         onChange={() => undefined}
         selectedStatus
         value="radio-value-1"
       />
       <RadioField
-        labelText={
-          <Icon
-            name="potted_plant"
-            alt="Gardening"
-            className="align-text-bottom"
-          />
-        }
+        labelText={<Icon name="potted_plant" alt="Gardening" />}
         name="radio-group"
         onChange={() => undefined}
         value="radio-value-2"
       />
       <RadioField
-        labelText={
-          <Icon name="groups" alt="Socialising" className="align-text-bottom" />
-        }
+        labelText={<Icon name="groups" alt="Socialising" />}
         name="radio-group"
         onChange={() => undefined}
         value="radio-value-3"

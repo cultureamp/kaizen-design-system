@@ -1,6 +1,7 @@
 .icon {
   font-size: 20px;
   font-weight: var(--icon-font-weight, 400);
+  vertical-align: text-bottom;
 
   /* Must use vars otherwise whole attribute must be set again */
   font-variation-settings:
