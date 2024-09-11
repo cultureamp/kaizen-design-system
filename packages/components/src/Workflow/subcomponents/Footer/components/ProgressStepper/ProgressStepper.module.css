@@ -1,11 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/typography";
-
-$indicator-size: 1.25rem;
-
 .stepsContainer {
+  --progress-stepper-indicator-size: 1.25rem;
+
   width: 100%;
   grid-area: stepper;
 }
@@ -18,7 +13,7 @@ $indicator-size: 1.25rem;
   margin: 0;
   padding: 0;
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     display: flex;
   }
 }
@@ -28,7 +23,7 @@ $indicator-size: 1.25rem;
   flex-grow: 1;
   flex-basis: 100%;
   justify-content: center;
-  max-width: $spacing-96;
+  max-width: var(--spacing-96);
   overflow-wrap: break-word;
   position: relative;
   container: step / inline-size;
@@ -41,26 +36,38 @@ $indicator-size: 1.25rem;
 }
 
 .stepIndicator {
-  width: $indicator-size;
-  height: $indicator-size;
+  width: var(--progress-stepper-indicator-size);
+  height: var(--progress-stepper-indicator-size);
   position: relative;
 }
 
 .stepName {
   display: none;
   text-align: center;
-  margin-bottom: $spacing-12;
-  font-weight: $typography-paragraph-bold-font-weight;
+  margin-bottom: var(--spacing-12);
+  font-family: var(--typography-paragraph-small-font-family);
+  font-size: var(--typography-paragraph-small-font-size);
+  line-height: var(--typography-paragraph-small-line-height);
+  font-weight: var(--typography-paragraph-bold-font-weight);
+  color: var(--color-gray-600);
+}
+
+.stepName.isCurrent {
+  color: var(--color-purple-800);
 }
 
 .stepIcon {
-  color: $color-white;
+  color: var(--color-purple-800);
   position: absolute;
-  width: $indicator-size;
-  height: $indicator-size;
+  width: var(--progress-stepper-indicator-size);
+  height: var(--progress-stepper-indicator-size);
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.stepIcon.isCompleted {
+  color: var(--color-green-500);
 }
 
 .stepDivider {
@@ -68,13 +75,14 @@ $indicator-size: 1.25rem;
   display: flex;
   position: absolute;
   flex-grow: 1;
-  min-width: calc(100% - #{$spacing-24});
-  border: solid $spacing-1 $color-white;
+  min-width: calc(100% - var(--spacing-24));
+  border: solid var(--spacing-1) var(--color-gray-300);
   margin: 0;
-  border-radius: $border-solid-border-radius;
+  border-radius: var(--border-solid-border-radius);
   left: 100%;
-  // sets fron the bottom to the centre of the dot
-  top: calc(100% - calc(#{$indicator-size}/ 2));
+
+  /* sets fron the bottom to the centre of the dot */
+  top: calc(100% - calc(var(--progress-stepper-indicator-size) / 2));
   transform: translateX(-50%);
 
   [dir="rtl"] & {
@@ -87,12 +95,10 @@ $indicator-size: 1.25rem;
 .stepperDescription {
   display: flex;
   justify-content: center;
-  color: var(--color-white);
   font-family: var(--typography-paragraph-small-font-family);
   font-weight: var(--typography-paragraph-small-font-weight);
   font-size: var(--typography-paragraph-small-font-size);
   line-height: var(--typography-paragraph-small-line-height);
-  letter-spacing: var(--typography-paragraph-small-letter-spacing);
 
   @media (width >= 768px) {
     /* sr hidden styles */
@@ -103,8 +109,8 @@ $indicator-size: 1.25rem;
   }
 }
 
-// Some defensive CSS for many steps on desktop screens
-@container step (min-width: 4.5rem) {
+/* Some defensive CSS for many steps on desktop screens */
+@container step (width >= 4.5rem) {
   .stepName {
     display: inline;
   }

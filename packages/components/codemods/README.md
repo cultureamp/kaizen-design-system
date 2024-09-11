@@ -33,4 +33,3 @@ kaizen-codemod src migrateWellVariantToColor
 - `migrateWellVariantToColor`: Migrates `Well` component prop from `variant` to `color`
 - `removeInputEditModalMood`: Removes `InputEditModal` component prop `mood`
 - `removePopoverVariant`: Removes `Popover` component props `variant` and `customIcon`
-- `updateGuidanceBlockVariantProp`: Updates `GuidanceBlock` import location and updates `variant` prop to `default` or `expert-advice`

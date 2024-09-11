@@ -5,9 +5,8 @@ import {
   IndicatorInactiveIcon,
   SuccessIcon,
 } from "~components/Icon"
-import { Text } from "~components/Text"
 import { VisuallyHidden } from "~components/VisuallyHidden"
-import styles from "./ProgressStepper.module.scss"
+import styles from "./ProgressStepper.module.css"
 
 export type Step = {
   id: string
@@ -109,16 +108,22 @@ export const ProgressStepper = ({
                   {/* will need to be translated */}
                   {accessibleName}
                 </VisuallyHidden>
-                <Text
-                  classNameOverride={styles.stepName}
-                  variant="small"
-                  color="white"
+                <span
+                  className={classnames(styles.stepName, {
+                    [styles.isCurrent]: isCurrentStep,
+                  })}
                   aria-hidden
                 >
                   {step.label}
-                </Text>
+                </span>
                 <div className={styles.stepIndicator}>
-                  <span className={styles.stepIcon}>{Icon}</span>
+                  <span
+                    className={classnames(styles.stepIcon, {
+                      [styles.isCompleted]: isCompletedStep,
+                    })}
+                  >
+                    {Icon}
+                  </span>
                 </div>
                 {index < steps.length - 1 && (
                   <div

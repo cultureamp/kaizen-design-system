@@ -485,23 +485,13 @@ importers:
 
   packages/components/v1/actions: {}
 
-  packages/components/v1/containers: {}
-
-  packages/components/v1/layout: {}
-
   packages/components/v1/overlays: {}
 
   packages/components/v2/actions: {}
 
-  packages/components/v2/containers: {}
-
-  packages/components/v2/layout: {}
-
   packages/components/v2/overlays: {}
 
   packages/components/v3/actions: {}
-
-  packages/components/v3/layout: {}
 
   packages/components/v3/overlays: {}
 
