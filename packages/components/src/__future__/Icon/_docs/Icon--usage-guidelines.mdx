@@ -53,13 +53,17 @@ When you need a new icon, use [Google's Material Symbols set](https://fonts.goog
 - **Fill**: On or Off
 
 <DosAndDonts>
-  <DoOrDont story={IconStories.Playground} />
-  <DoOrDont story={IconStories.Filled} />
+  <DoOrDont story={IconStories.ConsistentDo} />
 </DosAndDonts>
 
 #### Do choose between filled and unfilled icons based on context and state
 
-Filled icons can indicate an active state or selection. Unfilled icons often represent a default or inactive state. Not all icons change appearance when toggled between filled and untilled, so use this distinction thoughtfully.
+Filled icons can indicate an active state or selection. Unfilled icons often represent a default or inactive state. Not all icons change appearance when toggled between filled and unfilled, so use this distinction thoughtfully.
+
+<DosAndDonts>
+  <DoOrDont story={IconStories.FilledUnfilledDo} />
+  <DoOrDont story={IconStories.FilledUnfilledDont} isDont />
+</DosAndDonts>
 
 #### Do use the correct optical size
 
@@ -100,17 +104,36 @@ Where suitable, color can be used to highlight an icon or reinforce its meaning,
 
 Ensure that icons are distinguishable by varying the icon, fill, or labels. Relying only on color can make the interface less accessible to colorblind users.
 
+<DosAndDonts>
+  <DoOrDont story={IconStories.DistinguishDo} />
+  <DoOrDont story={IconStories.DistinguishDont} isDont />
+</DosAndDonts>
+
 #### Don't overload your interface with too many icons
 
 Overusing icons can create visual clutter and overwhelm users. Use them sparingly to highlight important actions or information.
+
+<DosAndDonts>
+  <DoOrDont story={IconStories.InterfaceDo} />
+  <DoOrDont story={IconStories.InterfaceDont} isDont />
+</DosAndDonts>
 
 #### Don't rely on icons alone for conveying important information
 
 Icons should support, not replace, text labels, especially for accessibility. Screen readers and other assistive technologies may not always interpret icons correctly.
 
+<DosAndDonts>
+  <DoOrDont story={IconStories.ImportantInformationDo} />
+  <DoOrDont story={IconStories.ImportantInformationDont} isDont />
+</DosAndDonts>
+
 #### Do use appropriate states on interactive icons
 
 If the icon is interactive, it should have a base, hover, and focus state.
+
+<DosAndDonts>
+  <DoOrDont story={IconStories.InteractiveStatesDo} />
+</DosAndDonts>
 
 ## Default icon set
 

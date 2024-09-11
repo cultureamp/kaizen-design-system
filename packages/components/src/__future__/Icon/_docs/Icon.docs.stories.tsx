@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import classnames from "classnames"
 import { InlineNotification } from "~components/Notification"
+import { RadioField, RadioGroup } from "~components/Radio"
 import { Text } from "~components/Text"
 import { ToggleSwitchField } from "~components/ToggleSwitch"
 import { Button } from "~components/__actions__/v3"
@@ -225,24 +226,91 @@ export const DefaultIconSet: Story = {
   },
 }
 
+export const ConsistentDo: Story = {
+  render: () => (
+    <div>
+      <Icon name="star" isPresentational />
+      <Icon name="star" isPresentational isFilled />
+    </div>
+  ),
+}
+
+export const FilledUnfilledDo: Story = {
+  render: () => (
+    <div className="flex gap-16">
+      <div className="flex items-center gap-4">
+        <Text variant="body">Active</Text>
+        <Icon name="thumb_up" isPresentational isFilled />
+      </div>
+      <div className="flex items-center gap-4">
+        <Text variant="body">Inactive</Text>
+        <Icon name="thumb_up" isPresentational />
+      </div>
+    </div>
+  ),
+}
+
+export const FilledUnfilledDont: Story = {
+  render: () => (
+    <div className="flex flex-col gap-16">
+      <div className="flex gap-16">
+        <div className="flex items-center gap-4">
+          <Text variant="body">Active</Text>
+          <Icon name="thumb_up" isPresentational />
+        </div>
+        <div className="flex items-center gap-4">
+          <Text variant="body">Inactive</Text>
+          <Icon name="thumb_up" isPresentational isFilled />
+        </div>
+      </div>
+      <div className="flex gap-16">
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4">
+            <Text variant="body">Active (Filled)</Text>
+            <Icon name="format_bold" isPresentational isFilled />
+            <Text variant="body">Inactive (Unfilled)</Text>
+            <Icon name="format_bold" isPresentational />
+          </div>
+        </div>
+      </div>
+    </div>
+  ),
+}
+
 export const OpticalSizeDo: Story = {
   render: () => (
     <div className="flex gap-16">
       <div className="flex items-center gap-4">
         <Text variant="body">20/20</Text>
-        <Icon name="star" isPresentational className="text-[20px] [--icon-optical-size:20]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[20px] [--icon-optical-size:20]"
+        />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">24/24</Text>
-        <Icon name="star" isPresentational className="text-[24px] [--icon-optical-size:24]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[24px] [--icon-optical-size:24]"
+        />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">40/40</Text>
-        <Icon name="star" isPresentational className="text-[40px] [--icon-optical-size:40]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[40px] [--icon-optical-size:40]"
+        />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">48/48</Text>
-        <Icon name="star" isPresentational className="text-[48px] [--icon-optical-size:48]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[48px] [--icon-optical-size:48]"
+        />
       </div>
     </div>
   ),
@@ -253,19 +321,35 @@ export const OpticalSizeDont: Story = {
     <div className="flex gap-16">
       <div className="flex items-center gap-4">
         <Text variant="body">20/48</Text>
-        <Icon name="star" isPresentational className="text-[20px] [--icon-optical-size:48]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[20px] [--icon-optical-size:48]"
+        />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">24/40</Text>
-        <Icon name="star" isPresentational className="text-[24px] [--icon-optical-size:40]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[24px] [--icon-optical-size:40]"
+        />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">40/24</Text>
-        <Icon name="star" isPresentational className="text-[40px] [--icon-optical-size:24]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[40px] [--icon-optical-size:24]"
+        />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">48/20</Text>
-        <Icon name="star" isPresentational className="text-[48px] [--icon-optical-size:20]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[48px] [--icon-optical-size:20]"
+        />
       </div>
     </div>
   ),
@@ -309,6 +393,214 @@ export const ContrastDont: Story = {
 
 export const ColorReinforceDo: Story = {
   render: () => (
-    <InlineNotification variant="success">Success!</InlineNotification>
+    <>
+      <InlineNotification variant="success">Success!</InlineNotification>
+      <InlineNotification variant="warning" noBottomMargin>
+        Error!
+      </InlineNotification>
+    </>
   ),
+}
+
+export const DistinguishDo: Story = {
+  render: () => (
+    <div className="flex gap-16">
+      <div className="flex items-center gap-4">
+        <Text variant="body">Like</Text>
+        <Icon name="thumb_up" isPresentational />
+      </div>
+      <div className="flex items-center gap-4">
+        <Text variant="body">Liked</Text>
+        <Icon
+          name="thumb_up"
+          isPresentational
+          isFilled
+          className="text-blue-500"
+        />
+      </div>
+    </div>
+  ),
+}
+
+export const DistinguishDont: Story = {
+  render: () => (
+    <div className="flex gap-16">
+      <Icon name="thumb_up" isPresentational />
+      <Icon name="thumb_up" isPresentational className="text-blue-500" />
+    </div>
+  ),
+}
+
+export const InterfaceDo: Story = {
+  render: () => (
+    <div className="flex gap-16">
+      <div>
+        <Button>
+          Print
+          <Icon name="print" isPresentational />
+        </Button>
+      </div>
+      <div>
+        <Text variant="body">
+          Add your favourite items and then print away!
+        </Text>
+      </div>
+    </div>
+  ),
+}
+
+export const InterfaceDont: Story = {
+  render: () => (
+    <div className="flex gap-16">
+      <div>
+        <Button>
+          Print
+          <Icon name="print" isPresentational />
+        </Button>
+      </div>
+      <div>
+        <Text variant="body">
+          Add
+          <Icon name="add" isPresentational className="align-text-bottom" />
+          your favourite
+          <Icon
+            name="favorite"
+            isPresentational
+            className="align-text-bottom"
+          />
+          items and then print
+          <Icon
+            name="print"
+            isPresentational
+            className="align-text-bottom"
+          />{" "}
+          away!
+        </Text>
+      </div>
+    </div>
+  ),
+}
+
+export const ImportantInformationDo: Story = {
+  render: () => (
+    <RadioGroup labelText="Hobby">
+      <RadioField
+        labelText={
+          <>
+            Renovating{" "}
+            <Icon name="build" isPresentational className="align-text-bottom" />
+          </>
+        }
+        name="radio-group"
+        onChange={() => undefined}
+        selectedStatus
+        value="radio-value-1"
+      />
+      <RadioField
+        labelText={
+          <>
+            Gardening{" "}
+            <Icon
+              name="potted_plant"
+              isPresentational
+              className="align-text-bottom"
+            />
+          </>
+        }
+        name="radio-group"
+        onChange={() => undefined}
+        value="radio-value-2"
+      />
+      <RadioField
+        labelText={
+          <>
+            Socialising{" "}
+            <Icon
+              name="groups"
+              isPresentational
+              className="align-text-bottom"
+            />
+          </>
+        }
+        name="radio-group"
+        onChange={() => undefined}
+        value="radio-value-3"
+      />
+    </RadioGroup>
+  ),
+}
+
+export const ImportantInformationDont: Story = {
+  render: () => (
+    <RadioGroup labelText="Hobby">
+      <RadioField
+        labelText={
+          <Icon name="build" alt="Renovating" className="align-text-bottom" />
+        }
+        name="radio-group"
+        onChange={() => undefined}
+        selectedStatus
+        value="radio-value-1"
+      />
+      <RadioField
+        labelText={
+          <Icon
+            name="potted_plant"
+            alt="Gardening"
+            className="align-text-bottom"
+          />
+        }
+        name="radio-group"
+        onChange={() => undefined}
+        value="radio-value-2"
+      />
+      <RadioField
+        labelText={
+          <Icon name="groups" alt="Socialising" className="align-text-bottom" />
+        }
+        name="radio-group"
+        onChange={() => undefined}
+        value="radio-value-3"
+      />
+    </RadioGroup>
+  ),
+}
+
+const MockLink = ({
+  children,
+  ...props
+}: {
+  children: React.ReactNode
+}): JSX.Element => (
+  // eslint-disable-next-line jsx-a11y/anchor-is-valid
+  <a
+    href="#"
+    className="text-black hover:text-blue-500 focus:text-blue-500 focus:border-1 focus:border-solid focus:border-blue-500"
+    {...props}
+  >
+    {children}
+  </a>
+)
+
+export const InteractiveStatesDo: Story = {
+  render: () => (
+    <div className="flex gap-16">
+      <MockLink>
+        Base <Icon name="auto_awesome" isPresentational isFilled />
+      </MockLink>
+      <MockLink data-sb-pseudo-styles="hover">
+        Hover <Icon name="auto_awesome" isPresentational isFilled />
+      </MockLink>
+      <MockLink data-sb-pseudo-styles="focus">
+        Focus <Icon name="auto_awesome" isPresentational isFilled />
+      </MockLink>
+    </div>
+  ),
+  parameters: {
+    pseudo: {
+      hover: '[data-sb-pseudo-styles="hover"]',
+      focus: '[data-sb-pseudo-styles="focus"]',
+      focusVisible: '[data-sb-pseudo-styles="focus"]',
+    },
+  },
 }
