@@ -105,7 +105,7 @@ export const Size: Story = {
   render: args => (
     <div className="flex gap-16">
       <Icon {...args} className="[--icon-size:48]" />
-      <div className="inline-flex text-[48px]">
+      <div className="text-[48px]">
         <Icon {...args} className="text-[1em] [--icon-optical-size:48]" />
       </div>
     </div>
@@ -524,7 +524,7 @@ const MockLink = ({
   // eslint-disable-next-line jsx-a11y/anchor-is-valid
   <a
     href="#"
-    className="text-black hover:text-blue-500 focus:text-blue-500 focus:border-1 focus:border-solid focus:border-blue-500"
+    className="text-black hover:text-blue-500 focus:text-blue-500 focus:border-1 focus:border-solid focus:border-blue-500 [--icon-vertical-align:text-bottom]"
     {...props}
   >
     {children}
