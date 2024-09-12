@@ -1,8 +1,8 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import isChromatic from "chromatic"
-import { ChevronRightIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -85,7 +85,14 @@ const StickerSheetTemplate: StickerSheetStory = {
                 >
                   <Button
                     label="Label"
-                    icon={<ChevronRightIcon role="presentation" />}
+                    icon={
+                      <Icon
+                        name="chevron_right"
+                        isPresentational
+                        shouldMirrorInRTL
+                        className="align-baseline"
+                      />
+                    }
                     iconPosition="end"
                   />
                 </EmptyStateWrapper>

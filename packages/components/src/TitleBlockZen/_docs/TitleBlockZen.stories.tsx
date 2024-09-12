@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { AddIcon, StarOnIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { assetUrl } from "~components/utils/hostedAssets"
 import { StickerSheet } from "~storybook/components/StickerSheet"
 import { NavigationTab, TitleBlockZen } from "../index"
@@ -16,7 +16,7 @@ const SECONDARY_ACTIONS = [
       {
         onClick: (): void => alert("test"),
         label: "Secondary menu action 2",
-        icon: <StarOnIcon role="presentation" />,
+        icon: <Icon name="star" isPresentational isFilled />,
       },
     ],
   },
@@ -41,7 +41,7 @@ const meta = {
     },
     primaryAction: {
       label: "Primary link",
-      icon: <AddIcon role="presentation" />,
+      icon: <Icon name="add" isPresentational className="align-baseline" />,
       disabled: true,
       href: "#",
     },
@@ -53,11 +53,11 @@ const meta = {
     secondaryOverflowMenuItems: [
       {
         label: "Overflow action 1",
-        icon: <StarOnIcon role="presentation" />,
+        icon: <Icon name="star" isPresentational isFilled />,
       },
       {
         label: "Overflow link 1",
-        icon: <StarOnIcon role="presentation" />,
+        icon: <Icon name="star" isPresentational isFilled />,
       },
     ],
     handleHamburgerClick: (): void => alert("Hamburger clicked"),

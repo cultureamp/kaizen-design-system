@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { ButtonGroup } from "~components/ButtonGroup"
 import { CheckboxField } from "~components/Checkbox"
 import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
-import { InformationIcon, RemoveLinkIcon, QuestionIcon } from "~components/Icon"
+import { RemoveLinkIcon, QuestionIcon } from "~components/Icon"
 import {
   TableContainer,
   TableHeader,
@@ -12,6 +12,7 @@ import {
 } from "~components/Table"
 import { Text } from "~components/Text"
 import { Button, IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__"
 import { Tag } from "~components/__future__/Tag"
 import { Tooltip } from "../index"
 
@@ -106,7 +107,7 @@ export const OverflowScroll: Story = {
             }}
           >
             <Tooltip {...props} display="inline" text="Tooltip label">
-              <InformationIcon role="img" aria-label="Info" />
+              <Icon name="info" alt="Info" isFilled />
             </Tooltip>
           </div>
         </div>

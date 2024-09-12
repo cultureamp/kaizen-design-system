@@ -3,17 +3,13 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import {
-  ArrowRightIcon,
-  EmailIcon,
-  FeedbackClassifyIcon,
-} from "~components/Icon"
-import {
   BrandMomentCaptureIntro,
   BrandMomentPositiveOutro,
   BrandMomentError,
   AnimatedSceneProps,
 } from "~components/Illustration"
 import { Text } from "~components/Text"
+import { Icon } from "~components/__future__/Icon"
 import { BrandMoment } from "../index"
 import {
   MinimalBasic,
@@ -65,7 +61,14 @@ export const Informative: Story = {
     primaryAction: {
       label: "Get started",
       href: "#",
-      icon: <ArrowRightIcon role="presentation" />,
+      icon: (
+        <Icon
+          name="arrow_forward"
+          isPresentational
+          shouldMirrorInRTL
+          className="align-baseline"
+        />
+      ),
       iconPosition: "end",
     },
   },
@@ -98,12 +101,26 @@ export const Success: Story = {
     primaryAction: {
       label: "Go to Home",
       href: "#",
-      icon: <ArrowRightIcon role="presentation" />,
+      icon: (
+        <Icon
+          name="arrow_forward"
+          isPresentational
+          shouldMirrorInRTL
+          className="align-baseline"
+        />
+      ),
       iconPosition: "end",
     },
     secondaryAction: {
       label: "Rate this survey",
-      icon: <FeedbackClassifyIcon role="presentation" />,
+      icon: (
+        <Icon
+          name="reviews"
+          isPresentational
+          isFilled
+          className="align-baseline"
+        />
+      ),
     },
   },
 }
@@ -132,12 +149,26 @@ export const Warning: Story = {
     primaryAction: {
       label: "Go to Home",
       href: "#",
-      icon: <ArrowRightIcon role="presentation" />,
+      icon: (
+        <Icon
+          name="arrow_forward"
+          isPresentational
+          shouldMirrorInRTL
+          className="align-baseline"
+        />
+      ),
       iconPosition: "end",
     },
     secondaryAction: {
       label: "Contact support",
-      icon: <EmailIcon role="presentation" />,
+      icon: (
+        <Icon
+          name="mail"
+          isPresentational
+          isFilled
+          className="align-baseline"
+        />
+      ),
     },
   },
 }
