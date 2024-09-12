@@ -2,4 +2,4 @@
 "@kaizen/components": minor
 ---
 
-Add Icon v3
+Add future Icon and update internal icon usages (excluding Buttons).

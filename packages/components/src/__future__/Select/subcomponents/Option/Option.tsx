@@ -3,7 +3,7 @@ import { useFocusRing } from "@react-aria/focus"
 import { useOption } from "@react-aria/listbox"
 import { mergeProps } from "@react-aria/utils"
 import classnames from "classnames"
-import { CheckIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { useSelectContext } from "../../context"
 import { SelectOption, SelectOptionNode } from "../../types"
@@ -45,7 +45,7 @@ export const Option = <Option extends SelectOption = SelectOption>({
       <span
         className={classnames(styles.icon, isSelected && styles.isSelected)}
       >
-        {isSelected && <CheckIcon inheritSize role="presentation" />}
+        {isSelected && <Icon name="check" isPresentational />}
       </span>
     </li>
   )

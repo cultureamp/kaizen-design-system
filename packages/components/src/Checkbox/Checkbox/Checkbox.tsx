@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
-import { CheckIcon, MinusIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Checkbox.module.scss"
 
@@ -22,11 +22,19 @@ const renderCheckOrMixedIcon = (
   if (status === "off") return
 
   return (
+    <Icon
+      name={status === "on" ? "check" : "remove"}
+      isPresentational
+      className={classnames(styles.icon, reversed && styles.reversed)}
+    />
+  )
+
+  return (
     <span className={classnames(styles.icon, reversed && styles.reversed)}>
       {status === "on" ? (
-        <CheckIcon role="presentation" inheritSize />
+        <Icon name="check" isPresentational />
       ) : (
-        <MinusIcon role="presentation" inheritSize />
+        <Icon name="remove" isPresentational />
       )}
     </span>
   )

@@ -2,8 +2,8 @@ import React, { HTMLAttributes, useId, useState } from "react"
 import classnames from "classnames"
 import AnimateHeight from "react-animate-height"
 import { Heading } from "~components/Heading"
-import { ChevronUpIcon, ChevronDownIcon } from "~components/Icon"
 import { IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { Sticky } from "../types"
 import styles from "./Collapsible.module.scss"
@@ -117,11 +117,11 @@ export const Collapsible = ({
           <IconButton
             label={title}
             icon={
-              isOpen ? (
-                <ChevronUpIcon role="presentation" />
-              ) : (
-                <ChevronDownIcon role="presentation" />
-              )
+              <Icon
+                name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+                isPresentational
+                className={styles.chevronIcon}
+              />
             }
             type="button"
             aria-expanded={isOpen}

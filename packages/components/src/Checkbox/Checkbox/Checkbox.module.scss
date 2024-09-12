@@ -4,7 +4,6 @@
 @import "../../../styles/utils/form-variables";
 
 $checkbox-size: 24px;
-$icon-size: 24px;
 $focus-ring-offset: 2px;
 
 $dt-color-checkbox-background-color-checked: $color-gray-500;
@@ -25,12 +24,6 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
 .icon {
   height: $checkbox-size;
   width: $checkbox-size;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  // .icon is inside .box so .box's border-box rule means
-  // .icon sits to the right of .box's left-side border
-  left: calc(-1 * #{$border-solid-border-width});
   color: $color-white;
 }
 
