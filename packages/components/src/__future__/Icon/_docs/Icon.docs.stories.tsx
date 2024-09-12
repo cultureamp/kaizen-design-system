@@ -90,47 +90,26 @@ export const MirrorInRTL: Story = {
   },
 }
 
-export const Customisation: Story = {
+export const Color: Story = {
   render: args => (
-    <StickerSheet>
-      <StickerSheet.Header headings={["font-size", "font-weight", "color"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <Icon {...args} className="text-heading-1" />
-          <Icon {...args} className="font-[700]" />
-          <Icon {...args} className="text-blue-500" />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
-    </StickerSheet>
+    <div className="flex gap-16">
+      <div className="text-green-500">
+        <Icon {...args} />
+      </div>
+      <Icon {...args} className="text-blue-500" />
+    </div>
   ),
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<Icon {...props} name="star" className="text-heading-1" />
-<Icon {...props} name="star" className="font-[700]" />
-<Icon {...props} name="star" className="text-blue-500" />
-        `,
-      },
-    },
-  },
 }
 
-export const OpticalSize: Story = {
-  render: args => <Icon {...args} name="star" />,
-  parameters: { controls: { include: "className" } },
-  args: { className: "text-[48px] [--icon-optical-size:48]" },
-  argTypes: {
-    className: {
-      control: { type: "radio" },
-      options: [
-        "text-[20px] [--icon-optical-size:20]",
-        "text-[24px] [--icon-optical-size:24]",
-        "text-[40px] [--icon-optical-size:40]",
-        "text-[48px] [--icon-optical-size:48]",
-      ],
-    },
-  },
+export const Size: Story = {
+  render: args => (
+    <div className="flex gap-16">
+      <Icon {...args} className="[--icon-size:48]" />
+      <div className="inline-flex text-[48px]">
+        <Icon {...args} className="text-[1em] [--icon-optical-size:48]" />
+      </div>
+    </div>
+  ),
 }
 
 export const MeaningfulIcon: Story = {

@@ -69,21 +69,25 @@ For icons which are purely presentational, add `isPresentational` to hide it fro
 
 ### Customisation
 
-The Icon component is a `span` that utilises a font, so you can modify the icon by using font-related styles.
+#### Color
 
-<Canvas of={IconStories.Customisation} />
+The Icon component inherits the color from its parent by default. You may also change the color using `className`.
 
-#### Optical size
+<Canvas of={IconStories.Color} />
 
-_Options: `20`, `24`, `40`, `48`_
+#### Size
 
->For the image to look the same at different sizes, the stroke weight (thickness) changes as the icon size scales. Optical Size offers a way to automatically adjust the stroke weight when you increase or decrease the symbol size.
+There are two ways to change the size of the icon:
 
-To change the [optical size](https://m3.material.io/styles/icons/applying-icons#b41cbc01-9b49-4a44-a525-d153d1ea1425),
-override the CSS variable `--icon-optical-size` (eg. in Tailwind - `[--icon-optical-size:48]`).
+1. (Recommended) Change the value of the `--icon-size` CSS variable (eg. in Tailwind - `[--icon-size:48]`).
+This option will also scale the [optical size](https://m3.material.io/styles/icons/applying-icons#b41cbc01-9b49-4a44-a525-d153d1ea1425) of the icon.
+Note that the value must be a whole number value without units.
 
-<Canvas of={IconStories.OpticalSize} />
-<Controls of={IconStories.OpticalSize} />
+2. Override the `font-size` CSS attribute (eg. in Tailwind - `text-[1em]`).
+This option will not scale the optical size of the icon for you, so you will need to combine it with also
+overriding the `--icon-optical-size` CSS variable (eg. in Tailwind - `[--icon-optical-size:48]`).
+
+<Canvas of={IconStories.Size} />
 
 ## Default icon set
 
