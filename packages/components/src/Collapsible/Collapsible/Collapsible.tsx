@@ -120,7 +120,6 @@ export const Collapsible = ({
               <Icon
                 name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
                 isPresentational
-                className={styles.chevronIcon}
               />
             }
             type="button"

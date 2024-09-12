@@ -41,7 +41,7 @@ const meta = {
     },
     primaryAction: {
       label: "Primary link",
-      icon: <Icon name="add" isPresentational className="align-baseline" />,
+      icon: <Icon name="add" isPresentational />,
       disabled: true,
       href: "#",
     },

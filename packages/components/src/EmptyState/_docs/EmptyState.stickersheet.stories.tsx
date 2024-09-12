@@ -90,7 +90,6 @@ const StickerSheetTemplate: StickerSheetStory = {
                         name="chevron_right"
                         isPresentational
                         shouldMirrorInRTL
-                        className="align-baseline"
                       />
                     }
                     iconPosition="end"

@@ -68,12 +68,7 @@ export const ErrorPage = ({
         primaryAction={{
           ...actions.primary,
           icon: (
-            <Icon
-              name="arrow_forward"
-              isPresentational
-              shouldMirrorInRTL
-              className={styles.buttonIcon}
-            />
+            <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
           ),
           iconPosition: "end",
           label: formatMessage({
@@ -84,14 +79,7 @@ export const ErrorPage = ({
         }}
         secondaryAction={{
           ...actions.secondary,
-          icon: (
-            <Icon
-              name="mail"
-              isPresentational
-              isFilled
-              className={styles.buttonIcon}
-            />
-          ),
+          icon: <Icon name="mail" isPresentational isFilled />,
           label: formatMessage({
             id: "kzErrorPage",
             defaultMessage: "Contact support",
