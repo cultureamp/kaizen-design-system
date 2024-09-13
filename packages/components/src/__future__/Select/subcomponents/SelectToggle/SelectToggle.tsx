@@ -69,19 +69,11 @@ export const SelectToggle = React.forwardRef<
         <span {...valueProps} className={styles.value}>
           {value ?? placeholder}
         </span>
-        {isOpen ? (
-          <Icon
-            name="keyboard_arrow_up"
-            isPresentational
-            className={styles.icon}
-          />
-        ) : (
-          <Icon
-            name="keyboard_arrow_down"
-            isPresentational
-            className={styles.icon}
-          />
-        )}
+        <Icon
+          name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+          isPresentational
+          className={styles.icon}
+        />
       </button>
     </div>
   )

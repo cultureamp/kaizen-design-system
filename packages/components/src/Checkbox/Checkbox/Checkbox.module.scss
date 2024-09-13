@@ -22,8 +22,8 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
 }
 
 .icon {
-  height: $checkbox-size;
-  width: $checkbox-size;
+  position: relative;
+  top: -2px;
   color: $color-white;
 }
 
