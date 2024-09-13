@@ -55,6 +55,8 @@ $small: $spacing-md;
 }
 
 .iconWrapper {
+  --icon-size: 16;
+
   position: relative;
   height: 16px;
   width: 16px;
