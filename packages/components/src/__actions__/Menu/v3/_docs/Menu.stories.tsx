@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Popover } from "react-aria-components"
-import { MeatballsIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v3"
 import { Icon } from "~components/__future__/Icon"
 import { Menu, MenuTrigger, MenuItem } from "../index"
@@ -26,8 +25,8 @@ export const Playground: Story = {
   render: ({ defaultOpen: _, ...args }) => (
     <MenuTrigger {...args}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+      <Button className="[--icon-size:24]">
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>

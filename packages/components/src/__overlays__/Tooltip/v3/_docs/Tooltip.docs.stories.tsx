@@ -2,7 +2,6 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { FieldMessage } from "~components/FieldMessage"
-import { AddIcon } from "~components/Icon"
 import { Input } from "~components/Input"
 import { Label } from "~components/Label"
 import { Text } from "~components/Text"
@@ -50,7 +49,7 @@ export const Primary: Story = {
     <TooltipTrigger>
       <IconButton
         label="Add something"
-        icon={<AddIcon role="presentation" />}
+        icon={<Icon name="add" isPresentational />}
         primary
         // Negate the aria description (added by RAC) as it should be the
         // same as the accessible name, therefore no need to duplicate it
@@ -115,7 +114,7 @@ export const DoConcise: Story = {
       <TooltipTrigger>
         <IconButton
           label="Add topic"
-          icon={<AddIcon role="presentation" />}
+          icon={<Icon name="add" isPresentational />}
           primary
           // Negate the aria description (added by RAC) as it should be the
           // same as the accessible name, therefore no need to duplicate it
@@ -138,7 +137,7 @@ export const DontConcise: Story = {
       <TooltipTrigger>
         <IconButton
           label="Add something"
-          icon={<AddIcon role="presentation" />}
+          icon={<Icon name="add" isPresentational />}
           primary
           // Negate the aria description (added by RAC) as it should be the
           // same as the accessible name, therefore no need to duplicate it

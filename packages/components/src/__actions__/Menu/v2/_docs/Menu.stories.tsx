@@ -1,6 +1,5 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { ChevronDownIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v2"
 import { Icon } from "~components/__future__/Icon"
 import * as MenuV1Stories from "../../v1/_docs/Menu.stories"
@@ -13,7 +12,7 @@ const meta = {
     button: (
       <Button
         label="Actions"
-        icon={<ChevronDownIcon role="presentation" />}
+        icon={<Icon name="keyboard_arrow_down" isPresentational />}
         iconPosition="end"
       />
     ),

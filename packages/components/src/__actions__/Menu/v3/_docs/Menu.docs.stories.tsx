@@ -2,7 +2,6 @@ import React, { FunctionComponent, ReactNode } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Popover } from "react-aria-components"
-import { CheckIcon, ChevronDownIcon, MeatballsIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v3"
 import { Icon } from "~components/__future__/Icon"
 import { Menu, MenuItem, MenuTrigger } from "../index"
@@ -42,8 +41,8 @@ const DefaultMenuItems = (): ReactNode => (
 export const Actions: Story = {
   render: ({ defaultOpen: _, ...args }) => (
     <MenuTrigger {...args}>
-      <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+      <Button className="[--icon-size:24]">
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>
@@ -60,8 +59,8 @@ export const Actions: Story = {
 export const ItemsDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+      <Button className="[--icon-size:24]">
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>
@@ -75,8 +74,8 @@ export const ItemsDo: Story = {
 export const ItemsDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+      <Button className="[--icon-size:24]">
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>
@@ -92,13 +91,13 @@ export const ItemsDont: Story = {
 export const SelectionDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      <Button>
+      <Button className="[--icon-size:24]">
         Sort by
-        <ChevronDownIcon role="presentation" />
+        <Icon name="keyboard_arrow_down" isPresentational />
       </Button>
       <Popover>
         <Menu>
-          <MenuItem icon={<CheckIcon role="presentation" />}>
+          <MenuItem icon={<Icon name="check" isPresentational />}>
             Recommended
           </MenuItem>
           <MenuItem>Most recent</MenuItem>
@@ -112,9 +111,9 @@ export const LabelChevronDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <Button>
+      <Button className="[--icon-size:24]">
         Edit item
-        <ChevronDownIcon role="presentation" />
+        <Icon name="keyboard_arrow_down" isPresentational />
       </Button>
       <Popover>
         <Menu>
@@ -141,9 +140,9 @@ export const LabelChevronDont: Story = {
 export const LabelDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      <Button>
+      <Button className="[--icon-size:24]">
         Actions [visually hidden], conversation with Harper[/visually hidden]
-        <ChevronDownIcon role="presentation" />
+        <Icon name="keyboard_arrow_down" isPresentational />
       </Button>
       <Popover>
         <Menu {...args}>
@@ -157,9 +156,9 @@ export const LabelDo: Story = {
 export const LabelDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      <Button>
+      <Button className="[--icon-size:24]">
         Open menu
-        <ChevronDownIcon role="presentation" />
+        <Icon name="keyboard_arrow_down" isPresentational />
       </Button>
       <Popover>
         <Menu {...args}>
@@ -173,8 +172,8 @@ export const LabelDont: Story = {
 export const IconsDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+      <Button className="[--icon-size:24]">
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu {...args}>
@@ -195,8 +194,8 @@ export const IconsDont: Story = {
 export const MenuItemLabelsDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+      <Button className="[--icon-size:24]">
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu {...args}>
@@ -213,8 +212,8 @@ export const SentenceCaseDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+      <Button className="[--icon-size:24]">
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu {...args}>
@@ -231,8 +230,8 @@ export const SentenceCaseDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+      <Button className="[--icon-size:24]">
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu {...args}>
@@ -249,8 +248,8 @@ export const ElipsesDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+      <Button className="[--icon-size:24]">
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu {...args}>
@@ -267,8 +266,8 @@ export const ElipsesDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+      <Button className="[--icon-size:24]">
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu {...args}>

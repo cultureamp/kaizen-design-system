@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { FilterIcon, MeatballsIcon, TrashIcon } from "~components/Icon"
 import { ButtonProps } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -30,14 +30,14 @@ const REVERSED__VARIANT_PROPS: Array<{
     title: "Default",
     props: {
       label: "Default label",
-      icon: <MeatballsIcon role="presentation" />,
+      icon: <Icon name="more_horiz" isPresentational />,
     },
   },
   {
     title: "Primary",
     props: {
       label: "Primary label",
-      icon: <MeatballsIcon role="presentation" />,
+      icon: <Icon name="more_horiz" isPresentational />,
       primary: true,
     },
   },
@@ -45,7 +45,7 @@ const REVERSED__VARIANT_PROPS: Array<{
     title: "Destructive",
     props: {
       label: "Label",
-      icon: <TrashIcon role="presentation" />,
+      icon: <Icon name="delete" isPresentational isFilled />,
       destructive: true,
     },
   },
@@ -53,7 +53,7 @@ const REVERSED__VARIANT_PROPS: Array<{
     title: "Secondary",
     props: {
       label: "Label",
-      icon: <FilterIcon role="presentation" />,
+      icon: <Icon name="tune" isPresentational />,
       secondary: true,
     },
   },
@@ -72,7 +72,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             title: "Secondary Destructive",
             props: {
               label: "Label",
-              icon: <TrashIcon role="presentation" />,
+              icon: <Icon name="delete" isPresentational isFilled />,
               secondary: true,
               destructive: true,
             },

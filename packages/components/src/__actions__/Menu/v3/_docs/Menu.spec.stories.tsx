@@ -3,7 +3,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, waitFor, within, fn } from "@storybook/test"
 import isChromatic from "chromatic"
 import { Popover, Header, Section } from "react-aria-components"
-import { MeatballsIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v3"
 import { Icon } from "~components/__future__/Icon"
 import { Menu, MenuItem, MenuTrigger } from "../index"
@@ -38,7 +37,7 @@ export const KitchenSink: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
       <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>
@@ -86,7 +85,7 @@ export const Basic: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
       <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>
@@ -167,7 +166,7 @@ export const DisabledItems: Story = {
   render: () => (
     <MenuTrigger>
       <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>
@@ -207,7 +206,7 @@ export const WithSections: Story = {
   render: () => (
     <MenuTrigger>
       <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>
@@ -239,7 +238,7 @@ export const Controlled: Story = {
         </button>
         <MenuTrigger isOpen={isOpen} onOpenChange={setOpen}>
           <Button>
-            <MeatballsIcon role="img" aria-label="Additional actions" />
+            <Icon name="more_horiz" alt="Additional actions" />
           </Button>
           <Popover>
             <Menu>

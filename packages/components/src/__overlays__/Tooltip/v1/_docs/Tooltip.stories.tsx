@@ -3,7 +3,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { ButtonGroup } from "~components/ButtonGroup"
 import { CheckboxField } from "~components/Checkbox"
 import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
-import { RemoveLinkIcon, QuestionIcon } from "~components/Icon"
 import {
   TableContainer,
   TableHeader,
@@ -160,12 +159,15 @@ export const ButtonsWithTooltip: Story = {
   render: args => (
     <>
       <Tooltip {...args} text="Contact customer support.">
-        <Button label="Help" icon={<QuestionIcon role="presentation" />} />
+        <Button
+          label="Help"
+          icon={<Icon name="help" isPresentational isFilled />}
+        />
       </Tooltip>
       <Tooltip {...args} text="Remove the link from current selection.">
         <IconButton
           label="Remove link"
-          icon={<RemoveLinkIcon role="presentation" />}
+          icon={<Icon name="link_off" isPresentational />}
         />
       </Tooltip>
     </>
