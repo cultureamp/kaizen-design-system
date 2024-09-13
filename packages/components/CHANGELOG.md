@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.63.2
+
+### Patch Changes
+
+- [#5053](https://github.com/cultureamp/kaizen-design-system/pull/5053) [`b6316077432894b318928b6d8ad0e188c44fd9f9`](https://github.com/cultureamp/kaizen-design-system/commit/b6316077432894b318928b6d8ad0e188c44fd9f9) - Allow aria props on GuidanceBlock actions
+
 ## 1.63.1
 
 ### Patch Changes

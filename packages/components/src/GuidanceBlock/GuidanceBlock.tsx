@@ -12,6 +12,9 @@ import styles from "./GuidanceBlock.module.scss"
 
 export type ActionProps = ButtonProps & {
   tooltip?: TooltipProps
+  "aria-label"?: string
+  "aria-labelledby"?: string
+  "aria-describedby"?: string
 }
 
 type LayoutType = "default" | "inline" | "stacked"
