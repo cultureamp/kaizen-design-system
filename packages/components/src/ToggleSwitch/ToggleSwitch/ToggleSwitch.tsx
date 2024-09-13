@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
-import { CheckIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./ToggleSwitch.module.scss"
 
@@ -39,7 +39,7 @@ export const ToggleSwitch = ({
       />
       <span className={styles.track}>
         <span className={styles.thumb}>
-          <CheckIcon classNameOverride={styles.checkIcon} role="presentation" />
+          <Icon name="check" isPresentational className={styles.checkIcon} />
         </span>
       </span>
     </span>

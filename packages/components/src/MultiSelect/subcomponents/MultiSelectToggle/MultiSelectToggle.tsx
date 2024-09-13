@@ -2,8 +2,7 @@ import React, { HTMLAttributes, forwardRef, useId } from "react"
 import classnames from "classnames"
 import { ClearButton } from "~components/ClearButton"
 import { FieldMessageProps } from "~components/FieldMessage"
-import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
-import { RemovableTag } from "~components/__future__"
+import { Icon, RemovableTag } from "~components/__future__"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { MultiSelectOption } from "../../types"
 import styles from "./MultiSelectToggle.module.scss"
@@ -70,11 +69,10 @@ export const MultiSelectToggle = forwardRef<
               onClick(e)
             }}
           >
-            {isOpen ? (
-              <ChevronUpIcon role="presentation" />
-            ) : (
-              <ChevronDownIcon role="presentation" />
-            )}
+            <Icon
+              name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+              isPresentational
+            />
           </button>
 
           <div

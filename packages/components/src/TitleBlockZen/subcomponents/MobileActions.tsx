@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react"
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
-import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
 import {
   MenuItem,
   MenuList,
   MenuHeading,
   ButtonProps,
 } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID } from "../constants"
 import {
   DefaultActionProps,
@@ -352,11 +352,10 @@ const DrawerHandle = ({
           >
             {primaryAction.label}
             <span className={styles.mobileActionsChevronSquare}>
-              {isOpen ? (
-                <ChevronDownIcon role="presentation" />
-              ) : (
-                <ChevronUpIcon role="presentation" />
-              )}
+              <Icon
+                name={isOpen ? "keyboard_arrow_down" : "keyboard_arrow_up"}
+                isPresentational
+              />
             </span>
           </button>
         </div>
@@ -407,11 +406,10 @@ const DrawerHandle = ({
             id={TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID}
             aria-label="Other actions"
           >
-            {isOpen ? (
-              <ChevronDownIcon role="presentation" />
-            ) : (
-              <ChevronUpIcon role="presentation" />
-            )}
+            <Icon
+              name={isOpen ? "keyboard_arrow_down" : "keyboard_arrow_up"}
+              isPresentational
+            />
           </button>
         )}
       </div>
@@ -440,11 +438,10 @@ const DrawerHandle = ({
         >
           {renderDrawerHandleLabel("Other actions")}
           <span className={styles.mobileActionsChevronSquare}>
-            {isOpen ? (
-              <ChevronDownIcon role="presentation" />
-            ) : (
-              <ChevronUpIcon role="presentation" />
-            )}
+            <Icon
+              name={isOpen ? "keyboard_arrow_down" : "keyboard_arrow_up"}
+              isPresentational
+            />
           </span>
         </button>
       </div>

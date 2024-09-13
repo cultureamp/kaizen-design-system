@@ -2,9 +2,9 @@ import React, { useId } from "react"
 import classnames from "classnames"
 import { FieldGroup } from "~components/FieldGroup"
 import { FieldMessage } from "~components/FieldMessage"
-import { SuccessIcon } from "~components/Icon"
 import { Input, InputProps } from "~components/Input"
 import { Label } from "~components/Label"
+import { Icon } from "~components/__future__/Icon"
 import styles from "./TextField.module.scss"
 
 type OmittedInputProps =
@@ -92,7 +92,7 @@ export const TextField = ({
                 disabled && styles.disabled
               )}
             >
-              <SuccessIcon role="presentation" />
+              <Icon name="check_circle" isPresentational isFilled />
             </div>
           )
         }

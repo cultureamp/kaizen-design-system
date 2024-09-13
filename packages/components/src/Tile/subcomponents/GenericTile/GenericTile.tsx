@@ -1,10 +1,10 @@
 import React, { HTMLAttributes, useState } from "react"
 import classnames from "classnames"
 import { AllowedHeadingTags, Heading } from "~components/Heading"
-import { ArrowBackwardIcon, InformationIcon } from "~components/Icon"
 import { Text } from "~components/Text"
 import { GenericButtonProps } from "~components/__actions__/Button/v1/GenericButton"
 import { IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import Action from "./Action"
 import styles from "./GenericTile.module.scss"
@@ -105,7 +105,7 @@ export const GenericTile = ({
         <div className={styles.informationBtn}>
           <IconButton
             label="Information"
-            icon={<InformationIcon role="presentation" />}
+            icon={<Icon name="info" isPresentational isFilled />}
             onClick={(): void => setIsFlipped(true)}
             disabled={isFlipped}
             aria-hidden={isFlipped}
@@ -154,7 +154,7 @@ export const GenericTile = ({
         <div className={styles.informationBtn}>
           <IconButton
             label="Information"
-            icon={<ArrowBackwardIcon role="presentation" />}
+            icon={<Icon name="arrow_back" isPresentational />}
             onClick={(): void => setIsFlipped(false)}
             disabled={!isFlipped}
             aria-hidden={!isFlipped}
