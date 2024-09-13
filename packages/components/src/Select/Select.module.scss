@@ -347,6 +347,8 @@ $focus-border-color: $color-blue-500;
     }
 
     .dropdownIndicator {
+      --icon-size: 14;
+
       padding-top: 0;
       padding-bottom: 0;
       transform: translateY(1px);
