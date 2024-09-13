@@ -6,7 +6,7 @@ import * as IconStories from "./Icon.docs.stories"
 
 # Icon (Future)
 
-Updated September 9, 2024
+Updated September 13, 2024
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__illustrations__/Icon/v3"
@@ -25,11 +25,8 @@ Icons are simplified visual symbols that represent ideas, objects, or actions. T
 
 ### When to use
 
-- To represent an idea, object, or action in a clear and concise manner.
-- To enhance the user interface by providing visual cues and improving navigation.
-- To draw attention to important information or actions.
-- To improve comprehension and reduce the need for textual explanations.
-- To create a more engaging and visually appealing design.
+- To support comprehension of an idea, object, or action.
+- To provide visual cues and improving navigation.
 
 ### When not to use
 
@@ -41,28 +38,27 @@ Icons are simplified visual symbols that represent ideas, objects, or actions. T
 
 ### Specs
 
-#### Do use icons consistently
-
-Consistent use of icons helps users quickly recognize and understand their function, improving overall usability.
-Refer to the [default set](#default-icon-set) for icons commonly used across the platform.
-
 When you need a new icon, use [Google's Material Symbols set](https://fonts.google.com/icons) via the [Figma plugin](https://www.figma.com/community/plugin/1088610476491668236/material-symbols) to add the relevant icons in:
 - **Outlined**
 - **Weight**: 400
 - **Grade**: Normal (0)
 - **Fill**: On or Off
 
+#### Do use icons consistently
+
+Consistent use of icons helps users quickly recognize and understand their function, improving overall usability.
+Refer to the [default set](#default-icon-set) for icons commonly used across the platform.
+
 <DosAndDonts>
   <DoOrDont story={IconStories.ConsistentDo} />
 </DosAndDonts>
 
-#### Do choose between filled and unfilled icons based on context and state
+#### Do use the appropriate fill for the icon context and state
 
 Filled icons can indicate an active state or selection. Unfilled icons often represent a default or inactive state. Not all icons change appearance when toggled between filled and unfilled, so use this distinction thoughtfully.
 
 <DosAndDonts>
   <DoOrDont story={IconStories.FilledUnfilledDo} />
-  <DoOrDont story={IconStories.FilledUnfilledDont} isDont />
 </DosAndDonts>
 
 #### Do use the correct optical size
@@ -123,7 +119,6 @@ Overusing icons can create visual clutter and overwhelm users. Use them sparingl
 Icons should support, not replace, text labels, especially for accessibility. Screen readers and other assistive technologies may not always interpret icons correctly.
 
 <DosAndDonts>
-  <DoOrDont story={IconStories.ImportantInformationDo} />
   <DoOrDont story={IconStories.ImportantInformationDont} isDont />
 </DosAndDonts>
 

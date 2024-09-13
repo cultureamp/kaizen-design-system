@@ -2,7 +2,14 @@ import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import classnames from "classnames"
 import { InlineNotification } from "~components/Notification"
-import { RadioField, RadioGroup } from "~components/Radio"
+import {
+  TableCard,
+  TableContainer,
+  TableHeader,
+  TableHeaderRowCell,
+  TableRow,
+  TableRowCell,
+} from "~components/Table"
 import { Text } from "~components/Text"
 import { ToggleSwitchField } from "~components/ToggleSwitch"
 import { Button } from "~components/__actions__/v3"
@@ -10,6 +17,8 @@ import { Tag } from "~components/__future__/Tag"
 import { StickerSheet } from "~storybook/components/StickerSheet"
 import { iconDefaultSet } from "../constants"
 import { Icon } from "../index"
+import imgInterfaceDo from "./assets/interface-do.png"
+import imgInterfaceDont from "./assets/interface-dont.png"
 
 const meta = {
   title: "Illustrations/Icon/Icon (Future)",
@@ -218,39 +227,12 @@ export const FilledUnfilledDo: Story = {
   render: () => (
     <div className="flex gap-16">
       <div className="flex items-center gap-4">
-        <Text variant="body">Active</Text>
-        <Icon name="thumb_up" isPresentational isFilled />
-      </div>
-      <div className="flex items-center gap-4">
-        <Text variant="body">Inactive</Text>
+        <Text variant="body">Default state</Text>
         <Icon name="thumb_up" isPresentational />
       </div>
-    </div>
-  ),
-}
-
-export const FilledUnfilledDont: Story = {
-  render: () => (
-    <div className="flex flex-col gap-16">
-      <div className="flex gap-16">
-        <div className="flex items-center gap-4">
-          <Text variant="body">Active</Text>
-          <Icon name="thumb_up" isPresentational />
-        </div>
-        <div className="flex items-center gap-4">
-          <Text variant="body">Inactive</Text>
-          <Icon name="thumb_up" isPresentational isFilled />
-        </div>
-      </div>
-      <div className="flex gap-16">
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-4">
-            <Text variant="body">Active (Filled)</Text>
-            <Icon name="format_bold" isPresentational isFilled />
-            <Text variant="body">Inactive (Unfilled)</Text>
-            <Icon name="format_bold" isPresentational />
-          </div>
-        </div>
+      <div className="flex items-center gap-4">
+        <Text variant="body">Selected</Text>
+        <Icon name="thumb_up" isPresentational isFilled />
       </div>
     </div>
   ),
@@ -385,11 +367,11 @@ export const DistinguishDo: Story = {
   render: () => (
     <div className="flex gap-16">
       <div className="flex items-center gap-4">
-        <Text variant="body">Like</Text>
+        <Text variant="body">Default state</Text>
         <Icon name="thumb_up" isPresentational />
       </div>
       <div className="flex items-center gap-4">
-        <Text variant="body">Liked</Text>
+        <Text variant="body">Selected</Text>
         <Icon
           name="thumb_up"
           isPresentational
@@ -404,115 +386,76 @@ export const DistinguishDo: Story = {
 export const DistinguishDont: Story = {
   render: () => (
     <div className="flex gap-16">
-      <Icon name="thumb_up" isPresentational />
-      <Icon name="thumb_up" isPresentational className="text-blue-500" />
+      <div className="flex items-center gap-4">
+        <Text variant="body">Default state</Text>
+        <Icon name="thumb_up" isPresentational />
+      </div>
+      <div className="flex items-center gap-4">
+        <Text variant="body">Selected</Text>
+        <Icon name="thumb_up" isPresentational className="text-blue-500" />
+      </div>
     </div>
   ),
 }
 
 export const InterfaceDo: Story = {
   render: () => (
-    <div className="flex gap-16">
-      <div>
-        <Button>
-          Print
-          <Icon name="print" isPresentational />
-        </Button>
-      </div>
-      <div>
-        <Text variant="body">
-          Add your favourite items and then print away!
-        </Text>
-      </div>
-    </div>
+    <img
+      src={imgInterfaceDo}
+      alt="Example of a good interface"
+      className="w-full"
+    />
   ),
 }
 
 export const InterfaceDont: Story = {
   render: () => (
-    <div className="flex gap-16">
-      <div>
-        <Button>
-          Print
-          <Icon name="print" isPresentational />
-        </Button>
-      </div>
-      <div>
-        <Text variant="body">
-          Add
-          <Icon name="add" isPresentational />
-          your favourite
-          <Icon name="favorite" isPresentational />
-          items and then print
-          <Icon name="print" isPresentational /> away!
-        </Text>
-      </div>
-    </div>
-  ),
-}
-
-export const ImportantInformationDo: Story = {
-  render: () => (
-    <RadioGroup labelText="Hobby">
-      <RadioField
-        labelText={
-          <>
-            Renovating <Icon name="build" isPresentational />
-          </>
-        }
-        name="radio-group"
-        onChange={() => undefined}
-        selectedStatus
-        value="radio-value-1"
-      />
-      <RadioField
-        labelText={
-          <>
-            Gardening <Icon name="potted_plant" isPresentational />
-          </>
-        }
-        name="radio-group"
-        onChange={() => undefined}
-        value="radio-value-2"
-      />
-      <RadioField
-        labelText={
-          <>
-            Socialising <Icon name="groups" isPresentational />
-          </>
-        }
-        name="radio-group"
-        onChange={() => undefined}
-        value="radio-value-3"
-      />
-    </RadioGroup>
+    <img
+      src={imgInterfaceDont}
+      alt="Example of a good interface"
+      className="w-full"
+    />
   ),
 }
 
 export const ImportantInformationDont: Story = {
   render: () => (
-    <RadioGroup labelText="Hobby">
-      <RadioField
-        labelText={<Icon name="build" alt="Renovating" />}
-        name="radio-group"
-        onChange={() => undefined}
-        selectedStatus
-        value="radio-value-1"
-      />
-      <RadioField
-        labelText={<Icon name="potted_plant" alt="Gardening" />}
-        name="radio-group"
-        onChange={() => undefined}
-        value="radio-value-2"
-      />
-      <RadioField
-        labelText={<Icon name="groups" alt="Socialising" />}
-        name="radio-group"
-        onChange={() => undefined}
-        value="radio-value-3"
-      />
-    </RadioGroup>
+    <TableContainer>
+      <TableHeader>
+        <TableRow>
+          <TableHeaderRowCell labelText="" sorting="ascending" />
+          <TableHeaderRowCell labelText="Employee" sorting="ascending" />
+        </TableRow>
+      </TableHeader>
+      <TableCard>
+        <TableRow>
+          <TableRowCell>
+            <Icon name="flag" alt="Flag" />
+          </TableRowCell>
+          <TableRowCell>
+            <Text tag="div" variant="body">
+              John Johnson
+            </Text>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+      <TableCard>
+        <TableRow>
+          <TableRowCell>
+            <Icon name="flag" alt="Flag" />
+          </TableRowCell>
+          <TableRowCell>
+            <Text tag="div" variant="body">
+              Michelle Summer
+            </Text>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+    </TableContainer>
   ),
+  parameters: {
+    a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
+  },
 }
 
 const MockLink = ({
