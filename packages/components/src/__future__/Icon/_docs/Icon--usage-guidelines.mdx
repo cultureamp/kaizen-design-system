@@ -93,7 +93,7 @@ Icons should be easily distinguishable and clearly visible against their backgro
 Where suitable, color can be used to highlight an icon or reinforce its meaning, such as using green for success or red for errors.
 
 <DosAndDonts>
-  <DoOrDont story={IconStories.ColorReinforceDo} />
+  <DoOrDont story={IconStories.ColorPurposefulDo} />
 </DosAndDonts>
 
 #### Don't rely on color alone
@@ -110,7 +110,6 @@ Ensure that icons are distinguishable by varying the icon, fill, or labels. Rely
 Overusing icons can create visual clutter and overwhelm users. Use them sparingly to highlight important actions or information.
 
 <DosAndDonts>
-  <DoOrDont story={IconStories.InterfaceDo} />
   <DoOrDont story={IconStories.InterfaceDont} isDont />
 </DosAndDonts>
 
@@ -119,6 +118,7 @@ Overusing icons can create visual clutter and overwhelm users. Use them sparingl
 Icons should support, not replace, text labels, especially for accessibility. Screen readers and other assistive technologies may not always interpret icons correctly.
 
 <DosAndDonts>
+  <DoOrDont story={IconStories.ImportantInformationDo} />
   <DoOrDont story={IconStories.ImportantInformationDont} isDont />
 </DosAndDonts>
 
@@ -128,6 +128,14 @@ If the icon is interactive, it should have a base, hover, and focus state.
 
 <DosAndDonts>
   <DoOrDont story={IconStories.InteractiveStatesDo} />
+</DosAndDonts>
+
+#### Don't rely on tooltips to covey icon meaning
+
+Important information can be hidden if it's only explained in tooltips, leading to poor user experience. Whenever possible, include a text label or other contextual information alongside the icon to clearly convey its meaning.
+
+<DosAndDonts>
+  <DoOrDont story={IconStories.TooltipDont} isDont />
 </DosAndDonts>
 
 ## Default icon set

@@ -17,8 +17,9 @@ import { Tag } from "~components/__future__/Tag"
 import { StickerSheet } from "~storybook/components/StickerSheet"
 import { iconDefaultSet } from "../constants"
 import { Icon } from "../index"
-import imgInterfaceDo from "./assets/interface-do.png"
 import imgInterfaceDont from "./assets/interface-dont.png"
+import imgTooltipDont from "./assets/tooltip-dont.png"
+import styles from "./Icon.docs.module.css"
 
 const meta = {
   title: "Illustrations/Icon/Icon (Future)",
@@ -216,10 +217,9 @@ export const DefaultIconSet: Story = {
 
 export const ConsistentDo: Story = {
   render: () => (
-    <div>
-      <Icon name="star" isPresentational />
-      <Icon name="star" isPresentational isFilled />
-    </div>
+    <Text variant="body">
+      Edit <Icon name="edit" isPresentational />
+    </Text>
   ),
 }
 
@@ -352,12 +352,12 @@ export const ContrastDont: Story = {
   ),
 }
 
-export const ColorReinforceDo: Story = {
+export const ColorPurposefulDo: Story = {
   render: () => (
     <>
-      <InlineNotification variant="success">Success!</InlineNotification>
+      <InlineNotification variant="success">Success</InlineNotification>
       <InlineNotification variant="warning" noBottomMargin>
-        Error!
+        Error
       </InlineNotification>
     </>
   ),
@@ -372,12 +372,7 @@ export const DistinguishDo: Story = {
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">Selected</Text>
-        <Icon
-          name="thumb_up"
-          isPresentational
-          isFilled
-          className="text-blue-500"
-        />
+        <Icon name="thumb_up" isPresentational isFilled />
       </div>
     </div>
   ),
@@ -398,23 +393,54 @@ export const DistinguishDont: Story = {
   ),
 }
 
-export const InterfaceDo: Story = {
-  render: () => (
-    <img
-      src={imgInterfaceDo}
-      alt="Example of a good interface"
-      className="w-full"
-    />
-  ),
-}
-
 export const InterfaceDont: Story = {
   render: () => (
     <img
       src={imgInterfaceDont}
-      alt="Example of a good interface"
-      className="w-full"
+      alt="Example of a bad interface"
+      className="block m-auto max-w-[600px]"
     />
+  ),
+}
+
+export const ImportantInformationDo: Story = {
+  render: () => (
+    <TableContainer>
+      <TableHeader>
+        <TableRow>
+          <TableHeaderRowCell
+            labelText="Flag for review"
+            sorting="ascending"
+            width={4 / 12}
+          />
+          <TableHeaderRowCell labelText="Employee" sorting="ascending" />
+        </TableRow>
+      </TableHeader>
+      <TableCard>
+        <TableRow>
+          <TableRowCell width={4 / 12}>
+            <Icon name="flag" alt="Flag" />
+          </TableRowCell>
+          <TableRowCell>
+            <Text tag="div" variant="body">
+              John Johnson
+            </Text>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+      <TableCard>
+        <TableRow>
+          <TableRowCell width={4 / 12}>
+            <Icon name="flag" alt="Flag" />
+          </TableRowCell>
+          <TableRowCell>
+            <Text tag="div" variant="body">
+              Michelle Summer
+            </Text>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+    </TableContainer>
   ),
 }
 
@@ -458,34 +484,24 @@ export const ImportantInformationDont: Story = {
   },
 }
 
-const MockLink = ({
-  children,
-  ...props
-}: {
-  children: React.ReactNode
-}): JSX.Element => (
-  // eslint-disable-next-line jsx-a11y/anchor-is-valid
-  <a
-    href="#"
-    className="text-black hover:text-blue-500 focus:text-blue-500 focus:border-1 focus:border-solid focus:border-blue-500 [--icon-vertical-align:text-bottom]"
-    {...props}
-  >
-    {children}
-  </a>
+const InteractiveIcon = (props: Record<string, any>): JSX.Element => (
+  <button type="button" className={styles.interactiveIcon} {...props}>
+    <Icon name="info" isPresentational isFilled />
+  </button>
 )
 
 export const InteractiveStatesDo: Story = {
   render: () => (
     <div className="flex gap-16">
-      <MockLink>
-        Base <Icon name="auto_awesome" isPresentational isFilled />
-      </MockLink>
-      <MockLink data-sb-pseudo-styles="hover">
-        Hover <Icon name="auto_awesome" isPresentational isFilled />
-      </MockLink>
-      <MockLink data-sb-pseudo-styles="focus">
-        Focus <Icon name="auto_awesome" isPresentational isFilled />
-      </MockLink>
+      <Text variant="body">
+        Base <InteractiveIcon />
+      </Text>
+      <Text variant="body">
+        Hover <InteractiveIcon data-sb-pseudo-styles="hover" />
+      </Text>
+      <Text variant="body">
+        Focus <InteractiveIcon data-sb-pseudo-styles="focus" />
+      </Text>
     </div>
   ),
   parameters: {
@@ -495,4 +511,14 @@ export const InteractiveStatesDo: Story = {
       focusVisible: '[data-sb-pseudo-styles="focus"]',
     },
   },
+}
+
+export const TooltipDont: Story = {
+  render: () => (
+    <img
+      src={imgTooltipDont}
+      alt="Example of a bad use of a tooltip on an icon"
+      className="block m-auto max-w-[600px]"
+    />
+  ),
 }

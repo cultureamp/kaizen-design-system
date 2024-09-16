@@ -1,0 +1,17 @@
+.interactiveIcon {
+  position: relative;
+  background: none;
+  padding: 0;
+  color: var(--color-blue-500);
+
+  &:hover {
+    color: var(--color-blue-400);
+  }
+}
+
+.interactiveIcon:focus::after {
+  position: absolute;
+  content: "";
+  border: var(--border-focus-ring-border-width) solid var(--color-blue-500);
+  inset: -2px;
+}
