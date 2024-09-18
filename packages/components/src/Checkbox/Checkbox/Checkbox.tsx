@@ -28,16 +28,6 @@ const renderCheckOrMixedIcon = (
       className={classnames(styles.icon, reversed && styles.reversed)}
     />
   )
-
-  return (
-    <span className={classnames(styles.icon, reversed && styles.reversed)}>
-      {status === "on" ? (
-        <Icon name="check" isPresentational />
-      ) : (
-        <Icon name="remove" isPresentational />
-      )}
-    </span>
-  )
 }
 
 const getCheckedFromStatus = (checkedStatus: CheckedStatus): boolean =>
