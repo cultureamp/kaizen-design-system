@@ -67,7 +67,8 @@ describe("<DateRangeInputField />", () => {
     const inputStart = screen.getByRole("textbox", { name: "Date from" })
     await waitFor(() => {
       expect(inputStart).toHaveAccessibleDescription(
-        "Date Start has an error Input format : dd/mm/yyyy"
+        // RTL bug: Icon should be showing aria-label "error message" instead
+        "error Date Start has an error Input format : dd/mm/yyyy"
       )
       expect(screen.getByText("Date Start has an error")).toBeVisible()
     })
