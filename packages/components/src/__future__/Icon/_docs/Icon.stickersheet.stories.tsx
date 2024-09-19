@@ -1,5 +1,10 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import { CheckboxField } from "~components/Checkbox"
+import { Label } from "~components/Label"
+import { Text } from "~components/Text"
+import { Button as ButtonV2 } from "~components/__actions__/v2"
+import { Button as ButtonV3 } from "~components/__actions__/v3"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -69,6 +74,45 @@ const StickerSheetTemplate: StickerSheetStory = {
                 </div>
               </StickerSheet.Row>
             ))}
+          </StickerSheet.Body>
+        </StickerSheet>
+
+        <StickerSheet
+          heading="Alignment as children within other components"
+          isReversed={isReversed}
+        >
+          <StickerSheet.Body>
+            <StickerSheet.Row rowTitle="Text">
+              <Text variant="body">
+                Showcase alignment of an icon <Icon {...defaultProps} /> within
+                a sentence
+              </Text>
+            </StickerSheet.Row>
+            <StickerSheet.Row rowTitle="Label">
+              <Label>
+                Field label <Icon {...defaultProps} />
+              </Label>
+            </StickerSheet.Row>
+            <StickerSheet.Row rowTitle="CheckboxField">
+              <CheckboxField
+                labelText={
+                  <>
+                    Checkbox label <Icon {...defaultProps} />
+                  </>
+                }
+              />
+            </StickerSheet.Row>
+            <StickerSheet.Row rowTitle="Button (v2)">
+              <ButtonV2
+                label="Button label"
+                icon={<Icon {...defaultProps} />}
+              />
+            </StickerSheet.Row>
+            <StickerSheet.Row rowTitle="Button (v3)">
+              <ButtonV3>
+                <Icon {...defaultProps} /> Button label
+              </ButtonV3>
+            </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>
       </>
