@@ -70,12 +70,7 @@ export const ToastNotificationProvider = ({
   }
 
   const removeToastNotification = (notificationID: string): void => {
-    const notificationIndex = notifications.findIndex(
-      ({ id }) => id === notificationID
-    )
-    const copy = notifications.slice()
-    copy.splice(notificationIndex, 1) // Mutation
-    setNotifications(copy)
+    setNotifications(prev => prev.filter(({ id }) => id !== notificationID))
   }
 
   const clearToastNotifications = (): void => {
