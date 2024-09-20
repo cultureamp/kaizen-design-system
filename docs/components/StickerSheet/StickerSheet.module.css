@@ -1,5 +1,5 @@
 .stickerSheetSectionHeading {
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-12);
 
   .stickerSheet + .stickerSheet & {
     margin-top: var(--spacing-lg);
@@ -7,5 +7,5 @@
 }
 
 .stickerSheetTable {
-  margin-left: calc(-1 * var(--spacing-sm));
+  margin-left: calc(-1 * var(--spacing-12));
 }
