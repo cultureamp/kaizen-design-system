@@ -1,0 +1,10 @@
+.dosAndDonts {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-16);
+
+  > :only-child {
+    grid-column: span 2;
+  }
+}
