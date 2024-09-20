@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.64.0
+
+### Minor Changes
+
+- [#5070](https://github.com/cultureamp/kaizen-design-system/pull/5070) [`91601557a77a9752ba3c2cfba4b6e07ebe36fc31`](https://github.com/cultureamp/kaizen-design-system/commit/91601557a77a9752ba3c2cfba4b6e07ebe36fc31) - Allow native div props on InlineNotification
+
 ## 1.63.2
 
 ### Patch Changes
