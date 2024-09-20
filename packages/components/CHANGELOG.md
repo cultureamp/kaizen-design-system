@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.64.1
+
+### Patch Changes
+
+- [#5069](https://github.com/cultureamp/kaizen-design-system/pull/5069) [`61448a1406de8968b70d47ba763ba3f9250eba76`](https://github.com/cultureamp/kaizen-design-system/commit/61448a1406de8968b70d47ba763ba3f9250eba76) - Fix removeToastNotification
+
 ## 1.64.0
 
 ### Minor Changes
