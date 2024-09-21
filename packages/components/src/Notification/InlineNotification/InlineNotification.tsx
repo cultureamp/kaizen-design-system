@@ -1,4 +1,4 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { HeadingProps } from "~components/Heading"
 import { OverrideClassName } from "~components/types/OverrideClassName"
@@ -9,7 +9,7 @@ import {
 } from "../subcomponents/GenericNotification"
 import styles from "../subcomponents/GenericNotification/GenericNotification.module.scss"
 
-export type InlineNotificationBase = OverrideClassName<{
+export type InlineNotificationBase = {
   children?: React.ReactNode
   /** @default false */
   persistent?: boolean
@@ -20,7 +20,8 @@ export type InlineNotificationBase = OverrideClassName<{
   forceMultiline?: boolean
   headingProps?: HeadingProps
   isSubtle?: boolean
-}>
+} & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, "style">
+// Omitted `style` above because GenericNotification has its own `style` prop
 
 export type InlineNotificationProps = InlineNotificationBase &
   (GenericNotificationType | GenericNotificationVariant)
