@@ -76,7 +76,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-vitest": "^0.5.4",
     "node-fetch": "^3.3.2",
-    "playwright": "^1.46.1",
+    "playwright": "^1.47.2",
     "plop": "^4.0.1",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
