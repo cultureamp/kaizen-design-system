@@ -1,5 +1,5 @@
 export * from "./getPropValueText"
-export * from "./getTagName"
+export * from "./getKaioTagName"
 export * from "./migrateStringProp"
 export * from "./printAst"
 export * from "./transformComponentsInDir"

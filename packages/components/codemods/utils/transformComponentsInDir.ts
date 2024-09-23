@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import ts from "typescript"
-import { transformSource, getTagName, TransformConfig } from "."
+import { transformSource, getKaioTagName, TransformConfig } from "."
 
 /** Walks the directory and runs the runs the AST transformer on the given component name */
 export const transformComponentsInDir = (
@@ -26,7 +26,7 @@ export const transformComponentsInDir = (
         ts.ScriptTarget.Latest,
         true
       )
-      const tagName = getTagName(sourceFile, componentName)
+      const tagName = getKaioTagName(sourceFile, componentName)
 
       if (tagName) {
         const updatedSourceFile = transformSource({
