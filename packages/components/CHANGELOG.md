@@ -1,5 +1,23 @@
 # Change Log
 
+## 1.64.1
+
+### Patch Changes
+
+- [#5069](https://github.com/cultureamp/kaizen-design-system/pull/5069) [`61448a1406de8968b70d47ba763ba3f9250eba76`](https://github.com/cultureamp/kaizen-design-system/commit/61448a1406de8968b70d47ba763ba3f9250eba76) - Fix removeToastNotification
+
+## 1.64.0
+
+### Minor Changes
+
+- [#5070](https://github.com/cultureamp/kaizen-design-system/pull/5070) [`91601557a77a9752ba3c2cfba4b6e07ebe36fc31`](https://github.com/cultureamp/kaizen-design-system/commit/91601557a77a9752ba3c2cfba4b6e07ebe36fc31) - Allow native div props on InlineNotification
+
+## 1.63.2
+
+### Patch Changes
+
+- [#5053](https://github.com/cultureamp/kaizen-design-system/pull/5053) [`b6316077432894b318928b6d8ad0e188c44fd9f9`](https://github.com/cultureamp/kaizen-design-system/commit/b6316077432894b318928b6d8ad0e188c44fd9f9) - Allow aria props on GuidanceBlock actions
+
 ## 1.63.1
 
 ### Patch Changes
