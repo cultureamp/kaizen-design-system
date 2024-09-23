@@ -16,10 +16,24 @@ const getKaioNamedImports = (
   return undefined
 }
 
-/*
-Recurses through AST to find the import specifier name and check it against the `importSpecifierTarget`.
-If found, it will return the import name or alias, otherwise will return `undefined`
-*/
+const getNamesFromSpecifier = (
+  importSpecifier: ts.ImportSpecifier
+): { importName: string; tagName: string } => {
+  const importName = importSpecifier.name.getText()
+  const tagName = importSpecifier.propertyName
+    ? importSpecifier.propertyName.getText()
+    : importName
+
+  return { importName, tagName }
+}
+
+/**
+ * Recurses through AST to find the import name or alias in KAIO that matches the provided component name.
+ *
+ * @returns string | undefined
+ * - `string` the import name or alias found
+ * - `undefined` no import that matches the target
+ */
 export const getKaioTagName = (
   node: ts.Node,
   importSpecifierTarget: string
@@ -34,10 +48,7 @@ export const getKaioTagName = (
     }
 
     kaioNamedImports.find(importSpecifier => {
-      const importName = importSpecifier.name.getText()
-      const tagName = importSpecifier.propertyName
-        ? importSpecifier.propertyName.getText()
-        : importName
+      const { importName, tagName } = getNamesFromSpecifier(importSpecifier)
 
       if (tagName === importSpecifierTarget) {
         alias = importName
@@ -48,6 +59,40 @@ export const getKaioTagName = (
     })
 
     return alias
+  }
+
+  return visitNode(node)
+}
+
+/**
+ * Recurses through AST to find all the import names or aliases in KAIO that match the provided regex.
+ *
+ * @returns string[] | undefined
+ * - `string[]` the import names or aliases found
+ * - `undefined` no imports that match the target
+ */
+export const getKaioTagNamesByRegex = (
+  node: ts.Node,
+  importSpecifierTarget: string
+): string[] | undefined => {
+  const tags: string[] = []
+
+  const visitNode = (visitedNode: ts.Node): string[] | undefined => {
+    const kaioNamedImports = getKaioNamedImports(visitedNode)
+
+    if (!kaioNamedImports) {
+      return ts.forEachChild(visitedNode, visitNode) || undefined
+    }
+
+    kaioNamedImports.forEach(importSpecifier => {
+      const { importName, tagName } = getNamesFromSpecifier(importSpecifier)
+
+      if (new RegExp(importSpecifierTarget).test(tagName)) {
+        tags.push(importName)
+      }
+    })
+
+    return tags.length === 0 ? undefined : tags
   }
 
   return visitNode(node)
