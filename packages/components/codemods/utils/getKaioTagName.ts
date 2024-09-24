@@ -16,15 +16,17 @@ const getKaioNamedImports = (
   return undefined
 }
 
+type ImportSpecifierNames = { tagName: string; originalName: string }
+
 const getNamesFromSpecifier = (
   importSpecifier: ts.ImportSpecifier
-): { importName: string; tagName: string } => {
-  const importName = importSpecifier.name.getText()
-  const tagName = importSpecifier.propertyName
+): ImportSpecifierNames => {
+  const tagName = importSpecifier.name.getText()
+  const originalName = importSpecifier.propertyName
     ? importSpecifier.propertyName.getText()
-    : importName
+    : tagName
 
-  return { importName, tagName }
+  return { tagName, originalName }
 }
 
 /**
@@ -48,10 +50,10 @@ export const getKaioTagName = (
     }
 
     kaioNamedImports.find(importSpecifier => {
-      const { importName, tagName } = getNamesFromSpecifier(importSpecifier)
+      const { tagName, originalName } = getNamesFromSpecifier(importSpecifier)
 
-      if (tagName === importSpecifierTarget) {
-        alias = importName
+      if (originalName === importSpecifierTarget) {
+        alias = tagName
         return true
       }
 
@@ -74,10 +76,10 @@ export const getKaioTagName = (
 export const getKaioTagNamesByRegex = (
   node: ts.Node,
   importSpecifierTarget: string
-): string[] | undefined => {
-  const tags: string[] = []
+): Map<string, string> | undefined => {
+  const tags = new Map<string, string>()
 
-  const visitNode = (visitedNode: ts.Node): string[] | undefined => {
+  const visitNode = (visitedNode: ts.Node): Map<string, string> | undefined => {
     const kaioNamedImports = getKaioNamedImports(visitedNode)
 
     if (!kaioNamedImports) {
@@ -85,14 +87,14 @@ export const getKaioTagNamesByRegex = (
     }
 
     kaioNamedImports.forEach(importSpecifier => {
-      const { importName, tagName } = getNamesFromSpecifier(importSpecifier)
+      const { tagName, originalName } = getNamesFromSpecifier(importSpecifier)
 
-      if (new RegExp(importSpecifierTarget).test(tagName)) {
-        tags.push(importName)
+      if (new RegExp(importSpecifierTarget).test(originalName)) {
+        tags.set(tagName, originalName)
       }
     })
 
-    return tags.length === 0 ? undefined : tags
+    return tags.size === 0 ? undefined : tags
   }
 
   return visitNode(node)
