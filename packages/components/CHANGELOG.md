@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.64.2
+
+### Patch Changes
+
+- [#5074](https://github.com/cultureamp/kaizen-design-system/pull/5074) [`3ee2e8a484150204996b6c2903904b537da321f0`](https://github.com/cultureamp/kaizen-design-system/commit/3ee2e8a484150204996b6c2903904b537da321f0) - fix(useMediaQueries): values will now update when jumping from small to large, or vice versa
+
 ## 1.64.1
 
 ### Patch Changes
