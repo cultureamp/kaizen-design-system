@@ -1,21 +1,23 @@
 import ts from "typescript"
 import { printAst } from "./printAst"
 
-export type TransformConfig = {
+export type TransformConfig<
+  TagName extends string | Map<string, string> = string,
+> = {
   sourceFile: ts.SourceFile
   astTransformer: (
     context: ts.TransformationContext,
-    tagName: string
+    tagName: TagName
   ) => (rootNode: ts.Node) => ts.Node
-  tagName: string
+  tagName: TagName
 }
 
 /** Transforms the source file with the transformer and target import alias provided */
-export const transformSource = ({
+export const transformSource = <TagName extends string | Map<string, string>>({
   sourceFile,
   astTransformer,
   tagName,
-}: TransformConfig): string => {
+}: TransformConfig<TagName>): string => {
   const result = ts.transform(sourceFile, [
     context => astTransformer(context, tagName),
   ])
