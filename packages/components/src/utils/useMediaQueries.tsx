@@ -97,7 +97,7 @@ export const useMediaQueries = (
   })
 
   // ---------------------------------------
-  // Create an event listener based on the medium breakpoint and update state whenever it changes
+  // Create an event listener based on the small and large breakpoints and update state whenever one of those changes
   // ---------------------------------------
   useEffect(() => {
     if (isLegacyEdge || isUnsupportedSafari) {
@@ -118,10 +118,12 @@ export const useMediaQueries = (
       })
     }
 
-    mediumMatchMedia.addEventListener("change", updateMatches, true)
+    smallMatchMedia.addEventListener("change", updateMatches, true)
+    largeMatchMedia.addEventListener("change", updateMatches, true)
 
     return () => {
-      mediumMatchMedia.removeEventListener("change", updateMatches)
+      smallMatchMedia.removeEventListener("change", updateMatches)
+      largeMatchMedia.removeEventListener("change", updateMatches)
     }
   }, [])
 
