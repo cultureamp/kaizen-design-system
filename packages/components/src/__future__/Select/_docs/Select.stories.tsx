@@ -172,20 +172,17 @@ export const PortalContainer: Story = {
     const portalContainerId = "id--portal-container"
     return (
       <>
+        <div className=" h-[500px] mb-24 block bg-gray-100 flex justify-center items-center">
+          Page content
+        </div>
         <div
           id={portalContainerId}
           className="flex gap-24 bg-gray-200 p-12 overflow-hidden h-[200px] relative"
         >
-          <Select
-            {...args}
-            label="Default"
-            selectedKey="batch-brew"
-            id="id--select-default"
-          />
+          <Select {...args} label="Default" id="id--select-default" />
           <Select
             {...args}
             label="Inner portal"
-            selectedKey="batch-brew"
             id="id--select-inner"
             portalContainerId={portalContainerId}
           />
