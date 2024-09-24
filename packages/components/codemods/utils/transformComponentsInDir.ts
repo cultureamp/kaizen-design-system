@@ -3,21 +3,9 @@ import path from "path"
 import ts from "typescript"
 import { transformSource, getKaioTagName, TransformConfig } from "."
 
-const createTsSourceFile = (fullPath: string): ts.SourceFile => {
-  const source = fs.readFileSync(fullPath, "utf8")
-  return ts.createSourceFile(
-    fullPath,
-    source,
-    ts.ScriptTarget.Latest,
-    true
-  )
-}
-
-/** Walks the directory and runs the AST transformer on the given component name */
-export const transformComponentsInDir = (
+export const traverseDir = (
   dir: string,
-  transformer: TransformConfig["astTransformer"],
-  componentName: string
+  transformFile: (componentFilePath: string, sourceFile: ts.SourceFile) => void
 ): void => {
   if (dir.includes("node_modules")) {
     return
@@ -29,20 +17,42 @@ export const transformComponentsInDir = (
     const fullPath = path.join(dir, file)
 
     if (fs.statSync(fullPath).isDirectory()) {
-      transformComponentsInDir(fullPath, transformer, componentName)
+      traverseDir(fullPath, transformFile)
     } else if (fullPath.endsWith(".tsx")) {
-      const sourceFile = createTsSourceFile(fullPath)
+      const source = fs.readFileSync(fullPath, "utf8")
+      const sourceFile = ts.createSourceFile(
+        fullPath,
+        source,
+        ts.ScriptTarget.Latest,
+        true
+      )
 
-      const tagName = getKaioTagName(sourceFile, componentName)
-      if (tagName) {
-        const updatedSourceFile = transformSource({
-          sourceFile,
-          astTransformer: transformer,
-          tagName,
-        })
-
-        fs.writeFileSync(fullPath, updatedSourceFile, "utf8")
-      }
+      transformFile(fullPath, sourceFile)
     }
   })
+}
+
+/** Walks the directory and runs the AST transformer on the given component name */
+export const transformComponentsInDir = (
+  dir: string,
+  transformer: TransformConfig["astTransformer"],
+  componentName: string
+): void => {
+  const transformFile = (
+    componentFilePath: string,
+    sourceFile: ts.SourceFile
+  ): void => {
+    const tagName = getKaioTagName(sourceFile, componentName)
+    if (tagName) {
+      const updatedSourceFile = transformSource({
+        sourceFile,
+        astTransformer: transformer,
+        tagName,
+      })
+
+      fs.writeFileSync(componentFilePath, updatedSourceFile, "utf8")
+    }
+  }
+
+  traverseDir(dir, transformFile)
 }
