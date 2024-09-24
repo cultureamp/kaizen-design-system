@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Story } from "@storybook/blocks"
 import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
@@ -37,6 +38,22 @@ const meta = {
       argTypesRegex: "^on.*",
     },
   },
+  decorators: [
+    StoryComponent => (
+      <div>
+        <div
+          style={{
+            height: "1000px",
+            marginBottom: "20px",
+            background: "coral",
+          }}
+        >
+          Scroll down to see the story
+        </div>
+        <StoryComponent />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof FilterSelect>
 
 export default meta

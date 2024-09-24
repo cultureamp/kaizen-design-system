@@ -167,6 +167,9 @@ export const PortalContainer: Story = {
     const portalContainerId = "id--portal-container"
     return (
       <>
+        <div style={{ paddingTop: "2000px" }} className=" block bg-red-100">
+          content
+        </div>
         <div
           id={portalContainerId}
           className="flex gap-24 bg-gray-200 p-12 overflow-hidden h-[200px] relative"
