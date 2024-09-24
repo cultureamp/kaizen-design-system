@@ -38,22 +38,6 @@ const meta = {
       argTypesRegex: "^on.*",
     },
   },
-  decorators: [
-    StoryComponent => (
-      <div>
-        <div
-          style={{
-            height: "1000px",
-            marginBottom: "20px",
-            background: "coral",
-          }}
-        >
-          Scroll down to see the story
-        </div>
-        <StoryComponent />
-      </div>
-    ),
-  ],
 } satisfies Meta<typeof FilterSelect>
 
 export default meta
