@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.64.3
+
+### Patch Changes
+
+- [#5078](https://github.com/cultureamp/kaizen-design-system/pull/5078) [`9ff945f692d6e2927fe3c59ef4b2e2a0115bc67d`](https://github.com/cultureamp/kaizen-design-system/commit/9ff945f692d6e2927fe3c59ef4b2e2a0115bc67d) - Remove default `onToggle` event from ToggleSwitch type. We already override it with a `ChangeEvent` instead.
+
 ## 1.64.2
 
 ### Patch Changes
