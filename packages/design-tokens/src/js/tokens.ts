@@ -304,7 +304,7 @@ export const tokens: TokenStructure = {
     },
     buttonPrimary: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
-      fontWeight: 700,
+      fontWeight: 500,
       fontSize: "1.125rem",
       lineHeight: "1.5rem",
       letterSpacing: "normal",
