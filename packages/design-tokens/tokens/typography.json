@@ -87,7 +87,7 @@
     "heading1": {
       "fontFamily": "var(--typography-heading-1-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-heading-1-font-family",
-      "fontWeight": "var(--typography-heading-1-font-weight, 700)",
+      "fontWeight": "var(--typography-heading-1-font-weight, 500)",
       "fontWeight-id": "--typography-heading-1-font-weight",
       "fontSize": "var(--typography-heading-1-font-size, 2.125rem)",
       "fontSize-id": "--typography-heading-1-font-size",
@@ -99,7 +99,7 @@
     "heading2": {
       "fontFamily": "var(--typography-heading-2-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-heading-2-font-family",
-      "fontWeight": "var(--typography-heading-2-font-weight, 700)",
+      "fontWeight": "var(--typography-heading-2-font-weight, 600)",
       "fontWeight-id": "--typography-heading-2-font-weight",
       "fontSize": "var(--typography-heading-2-font-size, 1.75rem)",
       "fontSize-id": "--typography-heading-2-font-size",
@@ -111,7 +111,7 @@
     "heading3": {
       "fontFamily": "var(--typography-heading-3-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-heading-3-font-family",
-      "fontWeight": "var(--typography-heading-3-font-weight, 700)",
+      "fontWeight": "var(--typography-heading-3-font-weight, 600)",
       "fontWeight-id": "--typography-heading-3-font-weight",
       "fontSize": "var(--typography-heading-3-font-size, 1.375rem)",
       "fontSize-id": "--typography-heading-3-font-size",
@@ -147,7 +147,7 @@
     "heading6": {
       "fontFamily": "var(--typography-heading-6-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-heading-6-font-family",
-      "fontWeight": "var(--typography-heading-6-font-weight, 700)",
+      "fontWeight": "var(--typography-heading-6-font-weight, 600)",
       "fontWeight-id": "--typography-heading-6-font-weight",
       "fontSize": "var(--typography-heading-6-font-size, 0.875rem)",
       "fontSize-id": "--typography-heading-6-font-size",
