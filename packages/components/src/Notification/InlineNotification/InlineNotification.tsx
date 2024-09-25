@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from "react"
+import React, { forwardRef, HTMLAttributes } from "react"
 import classnames from "classnames"
 import { HeadingProps } from "~components/Heading"
 import { OverrideClassName } from "~components/types/OverrideClassName"
@@ -30,21 +30,30 @@ export type InlineNotificationProps = InlineNotificationBase &
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093392/Inline+Notification Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-notifications-inline-notification--docs Storybook}
  */
-export const InlineNotification = ({
-  isSubtle,
-  hideCloseIcon = false,
-  persistent = false,
-  classNameOverride,
-  ...otherProps
-}: InlineNotificationProps): JSX.Element => (
-  <GenericNotification
-    style="inline"
-    persistent={persistent || hideCloseIcon}
-    classNameOverride={classnames(classNameOverride, [
-      isSubtle && styles.subtle,
-    ])}
-    {...otherProps}
-  />
+export const InlineNotification = forwardRef<
+  HTMLDivElement,
+  InlineNotificationProps
+>(
+  (
+    {
+      isSubtle,
+      hideCloseIcon = false,
+      persistent = false,
+      classNameOverride,
+      ...otherProps
+    },
+    ref
+  ): JSX.Element => (
+    <GenericNotification
+      style="inline"
+      persistent={persistent || hideCloseIcon}
+      classNameOverride={classnames(classNameOverride, [
+        isSubtle && styles.subtle,
+      ])}
+      ref={ref}
+      {...otherProps}
+    />
+  )
 )
 
 InlineNotification.displayName = "InlineNotification"
