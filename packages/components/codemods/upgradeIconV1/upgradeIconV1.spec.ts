@@ -90,6 +90,7 @@ describe("upgradeIconV1()", () => {
           <>
             <AddIcon role="presentation" />
             <AddIcon role="img" aria-label="Add something" />
+            <AddIcon role="img" aria-label={alt} />
           </>
         )
       `)
@@ -98,6 +99,7 @@ describe("upgradeIconV1()", () => {
           <>
             <Icon name="add" isPresentational />
             <Icon name="add" alt="Add something" />
+            <Icon name="add" alt={alt} />
           </>
         )
       `)
