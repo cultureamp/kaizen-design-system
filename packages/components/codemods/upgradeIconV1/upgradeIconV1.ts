@@ -6,6 +6,7 @@ import {
   updateJsxElementWithNewProps,
 } from "../utils"
 import { getNewIconPropsFromOldIconName } from "./getNewIconPropsFromOldIconName"
+import { transformCaMonogramIconToBrand } from "./transformCaMonogramIconToBrand"
 
 const transformPropRole = (
   oldValue: string
@@ -50,6 +51,11 @@ export const upgradeIconV1 =
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         const tagName = node.tagName.getText()
+
+        if (tagName === "CaMonogramIcon") {
+          return transformCaMonogramIconToBrand(node)
+        }
+
         if (tagNames.has(tagName)) {
           // Above has checked the key exists, so the value should also exist and not be undefined
           const newIconProps = getNewIconPropsFromOldIconName(

@@ -126,4 +126,58 @@ describe("upgradeIconV1()", () => {
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
   })
+
+  describe("CaMonogramIcon to Brand", () => {
+    it("replaces CaMonogramIcon with Brand variant enso and adds size", () => {
+      const inputAst = parseJsx(`
+        export const TestComponent = () => <CaMonogramIcon />
+      `)
+      const outputAst = parseJsx(`
+        export const TestComponent = () => <Brand variant="enso" style={{ width: "20px" }} />
+      `)
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    })
+
+    describe("transform existing props", () => {
+      it("leaves role and aria-label as is", () => {
+        const inputAst = parseJsx(`
+          export const TestComponent = () => (
+            <>
+              <CaMonogramIcon role="presentation" />
+              <CaMonogramIcon role="img" aria-label="Add something" />
+            </>
+          )
+        `)
+        const outputAst = parseJsx(`
+          export const TestComponent = () => (
+            <>
+              <Brand variant="enso" style={{ width: "20px" }} role="presentation" />
+              <Brand variant="enso" style={{ width: "20px" }} role="img" aria-label="Add something" />
+            </>
+          )
+        `)
+        expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      })
+
+      it("leaves classNameOverride as is", () => {
+        const inputAst = parseJsx(`
+          export const TestComponent = () => <CaMonogramIcon classNameOverride="mt-16" />
+        `)
+        const outputAst = parseJsx(`
+          export const TestComponent = () => <Brand variant="enso" style={{ width: "20px" }} classNameOverride="mt-16" />
+        `)
+        expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      })
+
+      it("removes inheritSize and does not add size", () => {
+        const inputAst = parseJsx(`
+          export const TestComponent = () => <CaMonogramIcon inheritSize />
+        `)
+        const outputAst = parseJsx(`
+          export const TestComponent = () => <Brand variant="enso" />
+        `)
+        expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      })
+    })
+  })
 })
