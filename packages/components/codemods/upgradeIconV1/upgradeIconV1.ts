@@ -1,8 +1,6 @@
 import ts from "typescript"
-import * as OLD_ICONS from "~components/Icon"
-import { IconNames } from "~components/__future__/Icon/types"
-import { StringSuggestions } from "~components/types/StringSuggestions"
 import { getPropValueText, updateJsxElementWithNewProps } from "../utils"
+import { getNewIconPropsFromOldIconName } from "./getNewIconPropsFromOldIconName"
 
 const createProp = (
   name: string,
@@ -12,16 +10,6 @@ const createProp = (
 
 const createStringProp = (name: string, value: string): ts.JsxAttribute =>
   createProp(name, ts.factory.createStringLiteral(value))
-
-const iconMap = new Map<keyof typeof OLD_ICONS, IconNames>([
-  ["AddIcon", "add"],
-  ["HamburgerIcon", "menu"],
-  ["MeatballsIcon", "more_horiz"],
-])
-
-const getNewIconName = (
-  oldValue: StringSuggestions<keyof typeof OLD_ICONS>
-): IconNames | undefined => iconMap.get(oldValue as keyof typeof OLD_ICONS)
 
 const transformRoleProp = (
   oldValue: string
@@ -68,8 +56,10 @@ export const upgradeIconV1 =
         const tagName = node.tagName.getText()
         if (tagNames.has(tagName)) {
           // Above has checked the key exists, so the value should also exist and not be undefined
-          const nameValue = getNewIconName(tagNames.get(tagName) as string)
-          if (nameValue === undefined) {
+          const newIconProps = getNewIconPropsFromOldIconName(
+            tagNames.get(tagName) as string
+          )
+          if (newIconProps === undefined) {
             // eslint-disable-next-line no-console
             console.info(
               "SKIPPED - No new icon equivalent found for",
@@ -109,8 +99,10 @@ export const upgradeIconV1 =
             return acc
           }, [])
 
-          const nameProp = createStringProp("name", nameValue)
-          newAttributes.unshift(nameProp)
+          if (newIconProps.isFilled) {
+            newAttributes.unshift(createProp("isFilled"))
+          }
+          newAttributes.unshift(createStringProp("name", newIconProps.name))
 
           return updateJsxElementWithNewProps(node, newAttributes, "Icon")
         }

@@ -8,6 +8,9 @@ const transformIcons = (sourceFile: TransformConfig["sourceFile"]): string =>
     astTransformer: upgradeIconV1,
     tagName: new Map([
       ["AddIcon", "AddIcon"],
+      ["FlagOffIcon", "FlagOffIcon"],
+      ["FlagOffWhiteIcon", "FlagOffWhiteIcon"],
+      ["FlagOnIcon", "FlagOnIcon"],
       ["IconAlias", "HamburgerIcon"],
       ["MeatballsIcon", "MeatballsIcon"],
     ]),
@@ -43,6 +46,9 @@ describe("upgradeIconV1()", () => {
       export const TestComponent = () => (
         <>
           <AddIcon />
+          <FlagOffIcon />
+          <FlagOffWhiteIcon />
+          <FlagOnIcon />
           <IconAlias />
           <MeatballsIcon />
         </>
@@ -52,9 +58,26 @@ describe("upgradeIconV1()", () => {
       export const TestComponent = () => (
         <>
           <Icon name="add" />
+          <Icon name="flag" />
+          <Icon name="flag" />
+          <Icon name="flag" isFilled />
           <Icon name="menu" />
           <Icon name="more_horiz" />
         </>
+      )
+    `)
+    expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+  })
+
+  it("leaves icons which do not have a new equivalent", () => {
+    const inputAst = parseJsx(`
+      export const TestComponent = () => (
+        <SomeInvalidIcon />
+      )
+    `)
+    const outputAst = parseJsx(`
+      export const TestComponent = () => (
+        <SomeInvalidIcon />
       )
     `)
     expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
