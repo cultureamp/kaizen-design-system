@@ -13,21 +13,15 @@ const createProp = (
 const createStringProp = (name: string, value: string): ts.JsxAttribute =>
   createProp(name, ts.factory.createStringLiteral(value))
 
+const iconMap = new Map<keyof typeof OLD_ICONS, IconNames>([
+  ["AddIcon", "add"],
+  ["HamburgerIcon", "menu"],
+  ["MeatballsIcon", "more_horiz"],
+])
+
 const getNewIconName = (
   oldValue: StringSuggestions<keyof typeof OLD_ICONS>
-): IconNames | undefined => {
-  switch (oldValue) {
-    case "AddIcon":
-      return "add"
-    case "HamburgerIcon":
-      return "menu"
-    case "MeatballsIcon":
-      return "more_horiz"
-    default:
-      // Unlisted old Icons are unused, thus skipped
-      return undefined
-  }
-}
+): IconNames | undefined => iconMap.get(oldValue as keyof typeof OLD_ICONS)
 
 const transformRoleProp = (
   oldValue: string
@@ -89,6 +83,17 @@ export const upgradeIconV1 =
           >((acc, attr) => {
             if (ts.isJsxAttribute(attr)) {
               const propName = attr.name.getText()
+
+              if (propName === "inheritSize") {
+                ts.addSyntheticLeadingComment(
+                  attr,
+                  ts.SyntaxKind.SingleLineCommentTrivia,
+                  ' @todo: Apply the correct --icon-size (eg. in Tailwind: className="[--icon-size:48]")',
+                  true
+                )
+                acc.push(attr)
+                return acc
+              }
 
               const newProp = transformProp(propName, attr.initializer)
 

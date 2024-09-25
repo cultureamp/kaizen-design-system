@@ -38,7 +38,7 @@ describe("upgradeIconV1()", () => {
     expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
   })
 
-  it("renames component and adds equivalent name prop", () => {
+  it("renames component and adds equivalent props", () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => (
         <>
@@ -60,33 +60,47 @@ describe("upgradeIconV1()", () => {
     expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
   })
 
-  it("replaces role and aria-label with equivalent prop", () => {
-    const inputAst = parseJsx(`
-      export const TestComponent = () => (
-        <>
-          <AddIcon role="presentation" />
-          <AddIcon role="img" aria-label="Add something" />
-        </>
-      )
-    `)
-    const outputAst = parseJsx(`
-      export const TestComponent = () => (
-        <>
-          <Icon name="add" isPresentational />
-          <Icon name="add" alt="Add something" />
-        </>
-      )
-    `)
-    expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
-  })
+  describe("transform existing props", () => {
+    it("replaces role and aria-label with equivalent prop", () => {
+      const inputAst = parseJsx(`
+        export const TestComponent = () => (
+          <>
+            <AddIcon role="presentation" />
+            <AddIcon role="img" aria-label="Add something" />
+          </>
+        )
+      `)
+      const outputAst = parseJsx(`
+        export const TestComponent = () => (
+          <>
+            <Icon name="add" isPresentational />
+            <Icon name="add" alt="Add something" />
+          </>
+        )
+      `)
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    })
 
-  it("replaces classNameOverride with className prop", () => {
-    const inputAst = parseJsx(`
-      export const TestComponent = () => <AddIcon role="presentation" classNameOverride="" />
-    `)
-    const outputAst = parseJsx(`
-      export const TestComponent = () => <AddIcon role="presentation" />
-    `)
-    expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    it("replaces classNameOverride with className prop", () => {
+      const inputAst = parseJsx(`
+        export const TestComponent = () => <AddIcon role="presentation" classNameOverride="" />
+      `)
+      const outputAst = parseJsx(`
+        export const TestComponent = () => <AddIcon role="presentation" />
+      `)
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    })
+
+    it("leaves inheritSize - this should throw a TS error for the consumer", () => {
+      const inputAst = parseJsx(`
+        export const TestComponent = () => <AddIcon role="presentation" inheritSize />
+      `)
+      const outputAst = parseJsx(`
+        export const TestComponent = () => <Icon name="add" isPresentational
+        // @todo: Apply the correct --icon-size (eg. in Tailwind: className="[--icon-size:48]")
+        inheritSize />
+      `)
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    })
   })
 })
