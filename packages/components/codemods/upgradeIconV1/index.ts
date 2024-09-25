@@ -15,7 +15,7 @@ const run = (): void => {
     componentFilePath: string,
     sourceFile: ts.SourceFile
   ): void => {
-    const tagNames = getKaioTagNamesByRegex(sourceFile, "Icon")
+    const tagNames = getKaioTagNamesByRegex(sourceFile, "Icon$")
     if (tagNames) {
       const updatedSourceFile = transformSource({
         sourceFile,
