@@ -80,7 +80,8 @@ export const GenericNotification = forwardRef<
     const [isHidden, setIsHidden] = useState<boolean>(true)
     const [isRemoved, setIsRemoved] = useState<boolean>(false)
 
-    const containerRef = isRefObject(ref) ? ref : useRef<HTMLDivElement>(null)
+    const fallbackRef = useRef<HTMLDivElement>(null)
+    const containerRef = isRefObject(ref) ? ref : fallbackRef
 
     useEffect(() => {
       requestAnimationFrame(() => {
