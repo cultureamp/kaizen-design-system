@@ -1,5 +1,29 @@
 # Change Log
 
+## 1.64.3
+
+### Patch Changes
+
+- [#5078](https://github.com/cultureamp/kaizen-design-system/pull/5078) [`9ff945f692d6e2927fe3c59ef4b2e2a0115bc67d`](https://github.com/cultureamp/kaizen-design-system/commit/9ff945f692d6e2927fe3c59ef4b2e2a0115bc67d) - Remove default `onToggle` event from ToggleSwitch type. We already override it with a `ChangeEvent` instead.
+
+## 1.64.2
+
+### Patch Changes
+
+- [#5074](https://github.com/cultureamp/kaizen-design-system/pull/5074) [`3ee2e8a484150204996b6c2903904b537da321f0`](https://github.com/cultureamp/kaizen-design-system/commit/3ee2e8a484150204996b6c2903904b537da321f0) - fix(useMediaQueries): values will now update when jumping from small to large, or vice versa
+
+## 1.64.1
+
+### Patch Changes
+
+- [#5069](https://github.com/cultureamp/kaizen-design-system/pull/5069) [`61448a1406de8968b70d47ba763ba3f9250eba76`](https://github.com/cultureamp/kaizen-design-system/commit/61448a1406de8968b70d47ba763ba3f9250eba76) - Fix removeToastNotification
+
+## 1.64.0
+
+### Minor Changes
+
+- [#5070](https://github.com/cultureamp/kaizen-design-system/pull/5070) [`91601557a77a9752ba3c2cfba4b6e07ebe36fc31`](https://github.com/cultureamp/kaizen-design-system/commit/91601557a77a9752ba3c2cfba4b6e07ebe36fc31) - Allow native div props on InlineNotification
+
 ## 1.63.2
 
 ### Patch Changes
