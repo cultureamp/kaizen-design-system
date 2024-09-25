@@ -106,10 +106,10 @@ describe("upgradeIconV1()", () => {
 
     it("replaces classNameOverride with className prop", () => {
       const inputAst = parseJsx(`
-        export const TestComponent = () => <AddIcon role="presentation" classNameOverride="" />
+        export const TestComponent = () => <AddIcon role="presentation" classNameOverride="mt-16" />
       `)
       const outputAst = parseJsx(`
-        export const TestComponent = () => <AddIcon role="presentation" />
+        export const TestComponent = () => <Icon name="add" isPresentational className="mt-16" />
       `)
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })

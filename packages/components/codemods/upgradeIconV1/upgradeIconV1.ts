@@ -1,17 +1,13 @@
 import ts from "typescript"
-import { getPropValueText, updateJsxElementWithNewProps } from "../utils"
+import {
+  createProp,
+  createStringProp,
+  getPropValueText,
+  updateJsxElementWithNewProps,
+} from "../utils"
 import { getNewIconPropsFromOldIconName } from "./getNewIconPropsFromOldIconName"
 
-const createProp = (
-  name: string,
-  value?: ts.JsxAttributeValue | undefined
-): ts.JsxAttribute =>
-  ts.factory.createJsxAttribute(ts.factory.createIdentifier(name), value)
-
-const createStringProp = (name: string, value: string): ts.JsxAttribute =>
-  createProp(name, ts.factory.createStringLiteral(value))
-
-const transformRoleProp = (
+const transformPropRole = (
   oldValue: string
 ): ts.JsxAttribute | null | undefined => {
   switch (oldValue) {
@@ -31,14 +27,14 @@ const transformRoleProp = (
  * - `null` if the prop should be removed
  * - `undefined` if the prop should be kept as is
  */
-const transformProp = (
+const transformIconProp = (
   propName: string,
   propValue: ts.JsxAttributeValue | undefined
 ): ts.JsxAttribute | null | undefined => {
   switch (propName) {
     case "role":
       const oldValue = propValue && getPropValueText(propValue)
-      return oldValue ? transformRoleProp(oldValue) : undefined
+      return oldValue ? transformPropRole(oldValue) : undefined
     case "aria-label":
       return createProp("alt", propValue)
     case "classNameOverride":
@@ -85,7 +81,7 @@ export const upgradeIconV1 =
                 return acc
               }
 
-              const newProp = transformProp(propName, attr.initializer)
+              const newProp = transformIconProp(propName, attr.initializer)
 
               if (newProp === null) return acc
 
