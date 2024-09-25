@@ -2,4 +2,4 @@
 "@kaizen/components": patch
 ---
 
-Fix Brand `classNameOverride` to be on the `<img>` instead of `<picture>`
+Fix Brand styling props to be on the `<img>` instead of `<picture>`

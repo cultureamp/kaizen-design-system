@@ -59,7 +59,7 @@ export const Brand = ({
     )
   }
 
-  const { alt, classNameOverride, ...otherProps } = restProps
+  const { alt, classNameOverride, style, ...otherProps } = restProps
   const brandTheme = reversed ? "-reversed" : "-default"
 
   return (
@@ -76,6 +76,7 @@ export const Brand = ({
         src={assetUrl(`brand/${variant}${brandTheme}.svg`)}
         alt={alt}
         className={classnames(styles.img, classNameOverride)}
+        style={style}
       />
     </picture>
   )
