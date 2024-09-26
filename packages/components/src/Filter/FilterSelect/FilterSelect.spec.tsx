@@ -107,7 +107,7 @@ describe("<FilterSelect>", () => {
         render(<FilterSelectWrapper isOpen />)
         expect(screen.queryByRole("listbox")).toBeVisible()
         await waitFor(() => {
-          expect(screen.queryAllByRole("option")[0]).toHaveFocus()
+          expect(screen.getAllByRole("option")[0]).toHaveFocus()
         })
       })
 
