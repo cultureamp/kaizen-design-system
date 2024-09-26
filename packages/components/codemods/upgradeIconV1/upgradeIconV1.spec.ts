@@ -199,6 +199,16 @@ describe("upgradeIconV1()", () => {
         expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
       })
     })
+
+    it("transforms height and width to style", () => {
+      const inputAst = parseJsx(`
+        export const TestComponent = () => <AddIcon height={24} width={24} />
+      `)
+      const outputAst = parseJsx(`
+        export const TestComponent = () => <Icon name="add" style={{ height: 24, width: 24 }} />
+      `)
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    })
   })
 
   describe("CaMonogramIcon to Brand", () => {

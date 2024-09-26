@@ -9,6 +9,12 @@ import {
 import { getNewIconPropsFromOldIconName } from "./getNewIconPropsFromOldIconName"
 import { transformCaMonogramIconToBrand } from "./transformCaMonogramIconToBrand"
 
+const propsToStyleMap = new Map<string, string>([
+  ["color", "color"],
+  ["height", "height"],
+  ["width", "width"],
+])
+
 const transformPropRole = (
   oldValue: string
 ): ts.JsxAttribute | null | undefined => {
@@ -41,8 +47,6 @@ const transformIconProp = (
       return createProp("alt", propValue)
     case "classNameOverride":
       return createProp("className", propValue)
-    case "color":
-      return propValue ? createStyleProp({ color: propValue }) : null
     // `aria-hidden` is not necessary as `role` will cater for presentational icons
     case "aria-hidden":
     // `fontSize` did nothing for svg icons
@@ -80,6 +84,8 @@ export const upgradeIconV1 =
             return node
           }
 
+          const styles: Map<string, ts.JsxAttributeValue> = new Map()
+
           const newAttributes = node.attributes.properties.reduce<
             ts.JsxAttributeLike[]
           >((acc, attr) => {
@@ -97,6 +103,16 @@ export const upgradeIconV1 =
                 return acc
               }
 
+              if (propsToStyleMap.has(propName)) {
+                if (attr.initializer) {
+                  styles.set(
+                    propsToStyleMap.get(propName) as string,
+                    attr.initializer
+                  )
+                }
+                return acc
+              }
+
               const newProp = transformIconProp(propName, attr.initializer)
 
               if (newProp === null) return acc
@@ -110,6 +126,12 @@ export const upgradeIconV1 =
             acc.push(attr)
             return acc
           }, [])
+
+          if (styles.size > 0) {
+            newAttributes.unshift(
+              createStyleProp(Object.fromEntries(styles.entries()))
+            )
+          }
 
           if (newIconProps.isFilled) {
             newAttributes.unshift(createProp("isFilled"))
