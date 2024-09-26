@@ -42,6 +42,8 @@ const transformIconProp = (
       return createProp("className", propValue)
     // `aria-hidden` is not necessary as `role` will cater for presentational icons
     case "aria-hidden":
+    // `fontSize` did nothing for svg icons
+    case "fontSize":
       return null
     default:
       return undefined

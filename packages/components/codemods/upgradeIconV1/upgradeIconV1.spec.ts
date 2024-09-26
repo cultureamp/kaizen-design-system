@@ -137,6 +137,16 @@ describe("upgradeIconV1()", () => {
       `)
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
+
+    it("removes fontSize", () => {
+      const inputAst = parseJsx(`
+        export const TestComponent = () => <AddIcon role="presentation" fontSize={20} />
+      `)
+      const outputAst = parseJsx(`
+        export const TestComponent = () => <Icon name="add" isPresentational />
+      `)
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    })
   })
 
   describe("CaMonogramIcon to Brand", () => {
