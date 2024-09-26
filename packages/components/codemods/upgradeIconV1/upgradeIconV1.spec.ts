@@ -127,6 +127,16 @@ describe("upgradeIconV1()", () => {
       `)
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
+
+    it("removes aria-hidden", () => {
+      const inputAst = parseJsx(`
+        export const TestComponent = () => <AddIcon role="presentation" aria-hidden={true} />
+      `)
+      const outputAst = parseJsx(`
+        export const TestComponent = () => <Icon name="add" isPresentational />
+      `)
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    })
   })
 
   describe("CaMonogramIcon to Brand", () => {
