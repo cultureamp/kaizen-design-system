@@ -79,7 +79,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
 
   const { buttonProps } = useButton(triggerProps, triggerRef)
 
-  // The id is being remapped be the button props id point to nowhere. This should ideally be refactored but this should solve the a11y warnings we have been receiving
+  // The id is being remapped because the buttonProps id points to nowhere. This should ideally be refactored but will point the aria attributes tot he right components
   const renderTriggerButtonProps = {
     ...buttonProps,
     "aria-labelledby": undefined,

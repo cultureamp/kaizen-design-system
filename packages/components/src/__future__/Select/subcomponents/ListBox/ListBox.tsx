@@ -38,20 +38,28 @@ export const ListBox = <Option extends SelectOption>({
 }: SingleListBoxProps<Option>): JSX.Element => {
   const { state } = useSelectContext<Option>()
   const ref = React.useRef<HTMLUListElement>(null)
-  const [isDocumentReady, setIsDocumentReady] = React.useState(false)
-
+  const [isListboxReady, setListboxReady] = React.useState(false)
   const { listBoxProps } = useListBox(
     {
       ...menuProps,
       disallowEmptySelection: true,
+      // This is to ensure that the listbox use React Aria's auto focus feature for Listbox, which creates a visual bug
       autoFocus: false,
     },
     state,
     ref
   )
 
+  /**
+   * This is a slightly hacky way to ensure the Listbox is aware of its position without using timeout.
+   * This solves the page from refocusing to the top of the DOM when it is opened for the first time with keyboard.
+   */
   useEffect(() => {
-    if (isDocumentReady) {
+    setListboxReady(true)
+  }, [])
+
+  useEffect(() => {
+    if (isListboxReady) {
       const optionKey = getOptionKeyFromCollection(state)
       const focusToElement = document.querySelector(
         `[data-key="${optionKey}"]`
@@ -60,12 +68,7 @@ export const ListBox = <Option extends SelectOption>({
         focusToElement.focus()
       }
     }
-    /* This will check that the document exists and also give enough to for the listbox to be aware of its position in the DOM.
-    If this is remove we will have an issue with the focus jumping up to the top of the page */
-    if (document !== undefined) {
-      setIsDocumentReady(true)
-    }
-  }, [isDocumentReady])
+  }, [isListboxReady])
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
