@@ -44,6 +44,8 @@ const transformIconProp = (
     case "aria-hidden":
     // `fontSize` did nothing for svg icons
     case "fontSize":
+    // `viewBox` no longer relevant
+    case "viewBox":
       return null
     default:
       return undefined

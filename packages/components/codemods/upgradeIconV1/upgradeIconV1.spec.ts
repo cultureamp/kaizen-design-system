@@ -147,6 +147,16 @@ describe("upgradeIconV1()", () => {
       `)
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
+
+    it("removes viewBox", () => {
+      const inputAst = parseJsx(`
+        export const TestComponent = () => <AddIcon role="presentation" viewBox="0 0 24 24" />
+      `)
+      const outputAst = parseJsx(`
+        export const TestComponent = () => <Icon name="add" isPresentational />
+      `)
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    })
   })
 
   describe("CaMonogramIcon to Brand", () => {
