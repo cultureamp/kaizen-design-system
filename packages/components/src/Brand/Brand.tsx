@@ -1,4 +1,5 @@
 import React, { HTMLAttributes, SVGAttributes } from "react"
+import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { assetUrl } from "~components/utils/hostedAssets"
 import { BrandCollectiveIntelligence } from "./BrandCollectiveIntelligence"
@@ -58,11 +59,11 @@ export const Brand = ({
     )
   }
 
-  const { alt, classNameOverride, ...otherProps } = restProps
+  const { alt, classNameOverride, style, ...otherProps } = restProps
   const brandTheme = reversed ? "-reversed" : "-default"
 
   return (
-    <picture className={classNameOverride} {...otherProps}>
+    <picture {...otherProps}>
       <source
         srcSet={assetUrl(`brand/${variant}-reversed.svg`)}
         media="(forced-colors: active) and (prefers-color-scheme: dark)"
@@ -74,7 +75,8 @@ export const Brand = ({
       <img
         src={assetUrl(`brand/${variant}${brandTheme}.svg`)}
         alt={alt}
-        className={styles.img}
+        className={classnames(styles.img, classNameOverride)}
+        style={style}
       />
     </picture>
   )

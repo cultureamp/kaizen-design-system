@@ -36,7 +36,7 @@ export const Overlay = <Option extends SelectOption>({
       {...restProps}
     >
       {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
-      <FocusScope autoFocus restoreFocus>
+      <FocusScope autoFocus={false} restoreFocus>
         <DismissButton onDismiss={state.close} />
         {children}
         <DismissButton onDismiss={state.close} />
