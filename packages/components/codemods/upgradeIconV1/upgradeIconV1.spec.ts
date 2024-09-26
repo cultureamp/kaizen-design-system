@@ -8,6 +8,7 @@ const transformIcons = (sourceFile: TransformConfig["sourceFile"]): string =>
     astTransformer: upgradeIconV1,
     tagName: new Map([
       ["AddIcon", "AddIcon"],
+      ["CaMonogramIcon", "CaMonogramIcon"],
       ["FlagOffIcon", "FlagOffIcon"],
       ["FlagOffWhiteIcon", "FlagOffWhiteIcon"],
       ["FlagOnIcon", "FlagOnIcon"],
@@ -17,28 +18,74 @@ const transformIcons = (sourceFile: TransformConfig["sourceFile"]): string =>
   })
 
 describe("upgradeIconV1()", () => {
-  it("updates imports of updated Icons", () => {
+  it("updates imports and components", () => {
     const inputAst = parseJsx(`
-      import { AddIcon, HamburgerIcon as IconAlias, MeatballsIcon } from "@kaizen/components"
+      import { AddIcon, Card, CaMonogramIcon, HamburgerIcon as IconAlias } from "@kaizen/components"
       export const TestComponent = () => (
-        <>
+        <Card>
           <AddIcon />
+          <CaMonogramIcon />
           <IconAlias />
-          <MeatballsIcon />
-        </>
+        </Card>
       )
     `)
     const outputAst = parseJsx(`
+      import { Brand, Card } from "@kaizen/components"
       import { Icon } from "@kaizen/components/future"
       export const TestComponent = () => (
-        <>
+        <Card>
           <Icon name="add" />
+          <Brand variant="enso />
           <Icon name="menu" />
-          <Icon name="more_horiz" />
-        </>
+        </Card>
       )
     `)
     expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+  })
+
+  describe("import statements", () => {
+    it("updates imports of Icons", () => {
+      const inputAst = parseJsx(`
+        import { AddIcon, MeatballsIcon } from "@kaizen/components"
+      `)
+      const outputAst = parseJsx(`
+        import { Icon } from "@kaizen/components/future"
+      `)
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    })
+
+    it("updates imports of aliased Icons", () => {
+      const inputAst = parseJsx(`
+        import { AddIcon, HamburgerIcon as IconAlias } from "@kaizen/components"
+      `)
+      const outputAst = parseJsx(`
+        import { Icon } from "@kaizen/components/future"
+      `)
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    })
+
+    it("does not update import of components which are not Icons", () => {
+      const inputAst = parseJsx(`
+        import { AddIcon, Card } from "@kaizen/components"
+      `)
+      const outputAst = parseJsx(`
+        import { Card } from "@kaizen/components"
+        import { Icon } from "@kaizen/components/future"
+      `)
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    })
+
+    it("does not update import of components which are not from KAIO", () => {
+      const inputAst = parseJsx(`
+        import { AddIcon, HamburgerIcon as IconAlias } from "@kaizen/components"
+        import { HamburgerIcon as HamHam } from "@somewhere-else"
+      `)
+      const outputAst = parseJsx(`
+        import { Icon } from "@kaizen/components/future"
+        import { HamburgerIcon as HamHam } from "@somewhere-else"
+      `)
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    })
   })
 
   it("renames component and adds equivalent props", () => {
