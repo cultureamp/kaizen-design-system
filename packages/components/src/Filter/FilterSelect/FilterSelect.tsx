@@ -79,6 +79,12 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
 
   const { buttonProps } = useButton(triggerProps, triggerRef)
 
+  // The id is being remapped because the buttonProps id points to nowhere. This should ideally be refactored but will point the aria attributes tot he right components
+  const renderTriggerButtonProps = {
+    ...buttonProps,
+    "aria-labelledby": undefined,
+    "aria-controls": menuProps.id,
+  }
   return (
     <>
       <HiddenSelect label={label} state={state} triggerRef={triggerRef} />
@@ -90,19 +96,23 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
             selectedValue: state.selectedItem?.textValue || undefined,
             label,
             isOpen,
-            ...buttonProps,
+            ...renderTriggerButtonProps,
           })
         }
         onMount={setTriggerRef}
         classNameOverride={classNameOverride}
       >
-        <FilterContents classNameOverride={styles.filterContents}>
-          <SelectProvider<Option> state={state}>
-            <SelectPopoverContents menuProps={menuProps}>
-              {children}
-            </SelectPopoverContents>
-          </SelectProvider>
-        </FilterContents>
+        <>
+          <FilterContents classNameOverride={styles.filterContents}>
+            <SelectProvider<Option> state={state}>
+              <SelectPopoverContents
+                menuProps={{ ...menuProps, "aria-labelledby": buttonProps.id }}
+              >
+                {children}
+              </SelectPopoverContents>
+            </SelectProvider>
+          </FilterContents>
+        </>
       </Filter>
     </>
   )
