@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.64.5
+
+### Patch Changes
+
+- [#5077](https://github.com/cultureamp/kaizen-design-system/pull/5077) [`c03634202d054a5e65f2235d37d71dcfd1662a2e`](https://github.com/cultureamp/kaizen-design-system/commit/c03634202d054a5e65f2235d37d71dcfd1662a2e) - fix focus jump issue for FilterSelect and Future Select and accessibility bugs.
+
+## 1.64.4
+
+### Patch Changes
+
+- [#5076](https://github.com/cultureamp/kaizen-design-system/pull/5076) [`e896e5ff65a6c0aee19b38477695d90524c7913e`](https://github.com/cultureamp/kaizen-design-system/commit/e896e5ff65a6c0aee19b38477695d90524c7913e) - InlineNotification: allow ref to be passed in, and add focus styling
+
 ## 1.64.3
 
 ### Patch Changes
