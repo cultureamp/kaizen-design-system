@@ -1,7 +1,7 @@
 import ts from "typescript"
 import {
-  createProp,
   createStringProp,
+  createStyleProp,
   updateJsxElementWithNewProps,
 } from "../utils"
 
@@ -25,15 +25,7 @@ export const transformCaMonogramIconToBrand = (
   }, [])
 
   if (!shouldInheritSize) {
-    const styleValue = ts.factory.createObjectLiteralExpression([
-      ts.factory.createPropertyAssignment(
-        "width",
-        ts.factory.createStringLiteral("20px")
-      ),
-    ])
-    newAttributes.unshift(
-      createProp("style", ts.factory.createJsxExpression(undefined, styleValue))
-    )
+    newAttributes.unshift(createStyleProp({ width: "20px" }))
   }
 
   newAttributes.unshift(createStringProp("variant", "enso"))

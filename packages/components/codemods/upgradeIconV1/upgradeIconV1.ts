@@ -2,6 +2,7 @@ import ts from "typescript"
 import {
   createProp,
   createStringProp,
+  createStyleProp,
   getPropValueText,
   updateJsxElementWithNewProps,
 } from "../utils"
@@ -40,6 +41,8 @@ const transformIconProp = (
       return createProp("alt", propValue)
     case "classNameOverride":
       return createProp("className", propValue)
+    case "color":
+      return propValue ? createStyleProp({ color: propValue }) : null
     // `aria-hidden` is not necessary as `role` will cater for presentational icons
     case "aria-hidden":
     // `fontSize` did nothing for svg icons

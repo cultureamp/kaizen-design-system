@@ -157,6 +157,48 @@ describe("upgradeIconV1()", () => {
       `)
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
+
+    describe("color prop to style", () => {
+      it("transforms a string value", () => {
+        const inputAst = parseJsx(`
+          export const TestComponent = () => (
+            <>
+              <AddIcon color="grey" />
+              <AddIcon color="#0168b3" />
+            </>
+          )
+        `)
+        const outputAst = parseJsx(`
+          export const TestComponent = () => (
+            <>
+              <Icon name="add" style={{ color: "grey" }} />
+              <Icon name="add" style={{ color: "#0168b3" }} />
+            </>
+          )
+        `)
+        expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      })
+
+      it("transforms a variable", () => {
+        const inputAst = parseJsx(`
+          export const TestComponent = () => (
+            <>
+              <AddIcon color={c.gray500} />
+              <AddIcon color={variableGrey} />
+            </>
+          )
+        `)
+        const outputAst = parseJsx(`
+          export const TestComponent = () => (
+            <>
+              <Icon name="add" style={{ color: c.gray500 }} />
+              <Icon name="add" style={{ color: variableGrey }} />
+            </>
+          )
+        `)
+        expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      })
+    })
   })
 
   describe("CaMonogramIcon to Brand", () => {
