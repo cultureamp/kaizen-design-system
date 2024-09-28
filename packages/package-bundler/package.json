@@ -28,8 +28,8 @@
     "@babel/plugin-transform-react-pure-annotations": "^7.24.7",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^26.0.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-commonjs": "^26.0.3",
+    "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-typescript": "^11.1.6",
     "babel-plugin-pure-static-props": "^0.2.0",
     "concat-cli": "^4.0.0",
@@ -43,7 +43,7 @@
     "ts-patch": "Required for typescript-transform-paths"
   },
   "devDependencies": {
-    "rollup": "^4.22.4"
+    "rollup": "^4.22.5"
   },
   "devDependenciesComments": {
     "typescript": "Installed in root"
