@@ -206,8 +206,8 @@ importers:
         specifier: ^4.3.1
         version: 4.3.1(vite@5.4.2(@types/node@20.14.15)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
       axe-playwright:
-        specifier: ^2.0.2
-        version: 2.0.2(playwright@1.47.2)
+        specifier: ^2.0.3
+        version: 2.0.3(playwright@1.47.2)
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -4437,14 +4437,14 @@ packages:
     resolution: {integrity: sha512-QbUdXJVTpvUTHU7871ppZkdOLBeGUKBQWHkHrvN2V9IQWGMt61zf3B45BtzjxEJzYuj0JBjBZP/hmYS/R9pmAw==}
     engines: {node: '>=4'}
 
-  axe-html-reporter@2.2.3:
-    resolution: {integrity: sha512-io8aCEt4fJvv43W+33n3zEa8rdplH5Ti2v5fOnth3GBKLhLHarNs7jj46xGfpnGnpaNrz23/tXPHC3HbwTzwwA==}
+  axe-html-reporter@2.2.11:
+    resolution: {integrity: sha512-WlF+xlNVgNVWiM6IdVrsh+N0Cw7qupe5HT9N6Uyi+aN7f6SSi92RDomiP1noW8OWIV85V6x404m5oKMeqRV3tQ==}
     engines: {node: '>=8.9.0'}
     peerDependencies:
       axe-core: '>=3'
 
-  axe-playwright@2.0.2:
-    resolution: {integrity: sha512-ti/oyzfxdvoxcidqCIe+YoOoRumU1Vs55WXEmruE2SxyI1ZQ/+mzsB294o2T1b0YdoMKNO9h4S+8CbO1lXqiQw==}
+  axe-playwright@2.0.3:
+    resolution: {integrity: sha512-s7iI2okyHHsD3XZK4RMJtTy2UASkNWLQtnzLuaHiK3AWkERf+cqZJqkxb7O4b56fnbib9YnZVRByTl92ME3o6g==}
     peerDependencies:
       playwright: '>1.0.0'
 
@@ -5175,10 +5175,6 @@ packages:
 
   date-fns@3.6.0:
     resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
-
-  date-format@4.0.3:
-    resolution: {integrity: sha512-7P3FyqDcfeznLZp2b+OMitV9Sz2lUnsT87WaTat9nVwqsBkTzPG3lPLNwW3en6F4pHUiWzr6vb8CLhjdK9bcxQ==}
-    engines: {node: '>=4.0'}
 
   debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -7105,9 +7101,9 @@ packages:
     resolution: {integrity: sha512-ZZow9HBI5O6EPgSJLUb8n2NKgmVWTwCvHGwFuJlMjvLFqlGG6pjirPhtdsseaLZjSibD8eegzmYpUZwoIlj2cQ==}
     engines: {node: '>=4.0'}
 
-  junit-report-builder@3.2.1:
-    resolution: {integrity: sha512-IMCp5XyDQ4YESDE4Za7im3buM0/7cMnRfe17k2X8B05FnUl9vqnaliX6cgOEmPIeWKfJrEe/gANRq/XgqttCqQ==}
-    engines: {node: '>=8'}
+  junit-report-builder@5.1.1:
+    resolution: {integrity: sha512-ZNOIIGMzqCGcHQEA2Q4rIQQ3Df6gSIfne+X9Rly9Bc2y55KxAZu8iGv+n2pP0bLf0XAOctJZgeloC54hWzCahQ==}
+    engines: {node: '>=16'}
 
   just-performance-es6-compat@4.3.2:
     resolution: {integrity: sha512-bNPuqRaV8PrqYVivdN8FsKi0rmXaQ0Y63oasFUQFJooJPH0r26LdfBAfoodhUQI6I6cek9yNo+tnGiF0R3pIHw==}
@@ -10695,7 +10691,7 @@ snapshots:
   '@babel/code-frame@7.24.7':
     dependencies:
       '@babel/highlight': 7.24.7
-      picocolors: 1.0.1
+      picocolors: 1.1.0
 
   '@babel/compat-data@7.25.2': {}
 
@@ -10879,7 +10875,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       chalk: 2.4.2
       js-tokens: 4.0.0
-      picocolors: 1.0.1
+      picocolors: 1.1.0
 
   '@babel/parser@7.25.3':
     dependencies:
@@ -15544,19 +15540,18 @@ snapshots:
 
   axe-core@4.9.1: {}
 
-  axe-html-reporter@2.2.3(axe-core@4.10.0):
+  axe-html-reporter@2.2.11(axe-core@4.10.0):
     dependencies:
       axe-core: 4.10.0
       mustache: 4.2.0
-      rimraf: 3.0.2
 
-  axe-playwright@2.0.2(playwright@1.47.2):
+  axe-playwright@2.0.3(playwright@1.47.2):
     dependencies:
       '@types/junit-report-builder': 3.0.2
       axe-core: 4.10.0
-      axe-html-reporter: 2.2.3(axe-core@4.10.0)
-      junit-report-builder: 3.2.1
-      picocolors: 1.0.1
+      axe-html-reporter: 2.2.11(axe-core@4.10.0)
+      junit-report-builder: 5.1.1
+      picocolors: 1.1.0
       playwright: 1.47.2
 
   axios@1.7.4:
@@ -16429,8 +16424,6 @@ snapshots:
   dataloader@1.4.0: {}
 
   date-fns@3.6.0: {}
-
-  date-format@4.0.3: {}
 
   debug@2.6.9:
     dependencies:
@@ -18931,9 +18924,8 @@ snapshots:
       object.assign: 4.1.5
       object.values: 1.2.0
 
-  junit-report-builder@3.2.1:
+  junit-report-builder@5.1.1:
     dependencies:
-      date-format: 4.0.3
       lodash: 4.17.21
       make-dir: 3.1.0
       xmlbuilder: 15.1.1
@@ -20726,7 +20718,7 @@ snapshots:
 
   postcss-reporter@7.1.0(postcss@8.4.41):
     dependencies:
-      picocolors: 1.0.1
+      picocolors: 1.1.0
       postcss: 8.4.41
       thenby: 1.3.4
 
@@ -22716,7 +22708,7 @@ snapshots:
     dependencies:
       browserslist: 4.23.3
       escalade: 3.1.2
-      picocolors: 1.0.1
+      picocolors: 1.1.0
 
   upper-case-first@2.0.2:
     dependencies:
