@@ -22,6 +22,11 @@ $notification-slide-right: transform 300ms ease-out;
   box-sizing: border-box;
   pointer-events: all;
 
+  &:focus {
+    outline-offset: 1px;
+    outline: 2px solid var(--color-blue-500);
+  }
+
   // Variants
   &%ca-notification---inline,
   &%ca-notification---toast {

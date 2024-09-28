@@ -13,7 +13,9 @@ export type ToggleSwitchProps = {
    */
   onToggle?: React.ChangeEventHandler<HTMLInputElement>
   reversed?: boolean
-} & OverrideClassName<Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">>
+} & OverrideClassName<
+  Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "onToggle">
+>
 
 export const ToggleSwitch = ({
   toggledStatus,
