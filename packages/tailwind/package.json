@@ -36,7 +36,7 @@
     "classnames": "^2.5.1",
     "rollup": "^4.22.5",
     "tailwindcss": "^3.4.10",
-    "tslib": "^2.6.3"
+    "tslib": "^2.7.0"
   },
   "peerDependencies": {
     "tailwindcss": ">=3.4.7"
