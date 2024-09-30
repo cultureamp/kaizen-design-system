@@ -68,7 +68,7 @@
     "@react-stately/select": "^3.6.6",
     "@react-types/shared": "^3.24.1",
     "classnames": "^2.5.1",
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.1.0",
     "lodash.debounce": "^4.0.8",
     "nanobus": "^4.5.0",
     "prosemirror-commands": "^1.6.0",
