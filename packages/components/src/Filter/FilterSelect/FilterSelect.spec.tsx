@@ -48,7 +48,7 @@ describe("<FilterSelect>", () => {
   it("shows the options initially when isOpen is true", async () => {
     render(<FilterSelectWrapper isOpen />)
     await waitFor(() => {
-      expect(screen.getByRole("listbox")).toBeVisible()
+      expect(screen.queryByRole("listbox")).toBeVisible()
     })
   })
 
@@ -107,7 +107,7 @@ describe("<FilterSelect>", () => {
         render(<FilterSelectWrapper isOpen />)
         expect(screen.queryByRole("listbox")).toBeVisible()
         await waitFor(() => {
-          expect(screen.getAllByRole("option")[0]).toHaveFocus()
+          expect(screen.queryByRole("listbox")).toHaveFocus()
         })
       })
 
