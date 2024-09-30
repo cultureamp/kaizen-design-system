@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.64.6
+
+### Patch Changes
+
+- [#5079](https://github.com/cultureamp/kaizen-design-system/pull/5079) [`da4e5137289d0173de09f1a1145e016de9146cc2`](https://github.com/cultureamp/kaizen-design-system/commit/da4e5137289d0173de09f1a1145e016de9146cc2) - Fix Brand styling props to be on the `<img>` instead of `<picture>`
+
+- [#5111](https://github.com/cultureamp/kaizen-design-system/pull/5111) [`91ff2cb3e2de88099cfd50726f1ae20dfe6eaae1`](https://github.com/cultureamp/kaizen-design-system/commit/91ff2cb3e2de88099cfd50726f1ae20dfe6eaae1) - Revert "Filter select accessible label and focus jump fix" released in 1.64.5
+
 ## 1.64.5
 
 ### Patch Changes
