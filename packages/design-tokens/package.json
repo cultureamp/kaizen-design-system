@@ -47,13 +47,13 @@
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
     "object-to-css-variables": "^0.2.1",
-    "postcss": "^8.4.41",
+    "postcss": "^8.4.47",
     "prettier": "*",
     "react": "^18.3.1",
     "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
-    "rollup": "^4.20.0",
-    "tslib": "^2.6.3",
+    "rollup": "^4.22.5",
+    "tslib": "^2.7.0",
     "tsx": "^4.17.0"
   },
   "peerDependencies": {
