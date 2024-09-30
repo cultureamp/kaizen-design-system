@@ -194,13 +194,11 @@ describe("<Select />", () => {
       })
 
       describe("Given the menu is opened", () => {
-        it("focuses on the first item", async () => {
-          const { getByRole, getAllByRole } = render(
-            <SelectWrapper defaultOpen />
-          )
+        it("focuses the listbox initially", async () => {
+          const { getByRole } = render(<SelectWrapper defaultOpen />)
           expect(getByRole("listbox")).toBeVisible()
           await waitFor(() => {
-            expect(getAllByRole("option")[0]).toHaveFocus()
+            expect(getByRole("listbox")).toHaveFocus()
           })
         })
         it("is closed when hits the escape key", async () => {

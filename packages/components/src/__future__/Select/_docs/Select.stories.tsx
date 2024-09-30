@@ -1,6 +1,5 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { ContextModal } from "~components/Modal"
 import { Select } from "../Select"
 import { SelectOption } from "../types"
 import {
@@ -166,41 +165,25 @@ export const FullWidth: Story = {
 export const PortalContainer: Story = {
   render: args => {
     const portalContainerId = "id--portal-container"
-
-    const [isOpen, setIsOpen] = React.useState(false)
-
-    const handleOpen = (): void => setIsOpen(true)
-    const handleClose = (): void => setIsOpen(false)
     return (
       <>
-        <div className=" h-[500px] mb-24 block bg-gray-100 flex flex-col gap-16 justify-center items-center">
-          Page content
-          <button
-            type="button"
-            className="border border-gray-500"
-            onClick={handleOpen}
-          >
-            Open Modal
-          </button>
-          <ContextModal
+        <div
+          id={portalContainerId}
+          className="flex gap-24 bg-gray-200 p-12 overflow-hidden h-[200px] relative"
+        >
+          <Select
             {...args}
-            isOpen={isOpen}
-            onConfirm={handleClose}
-            onDismiss={handleClose}
-            title="Select test"
-          >
-            <div
-              className="flex gap-24 bg-gray-200 p-12 h-[500px] relative"
-              id={portalContainerId}
-            >
-              <Select
-                {...args}
-                label="Select within a modal"
-                id="id--select-inner"
-                portalContainerId={portalContainerId}
-              />
-            </div>
-          </ContextModal>
+            label="Default"
+            selectedKey="batch-brew"
+            id="id--select-default"
+          />
+          <Select
+            {...args}
+            label="Inner portal"
+            selectedKey="batch-brew"
+            id="id--select-inner"
+            portalContainerId={portalContainerId}
+          />
         </div>
       </>
     )

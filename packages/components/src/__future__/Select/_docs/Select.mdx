@@ -98,6 +98,8 @@ Set `isFullWidth` to `true` to have the Select span the full width of its contai
 
 By default, the Select's popover will attach itself to the `body` of the document using React's `createPortal`.
 
-You can change the default behavior by providing a `portalContainerId` to attach this to different element in the DOM. This can help to resolve issues that may arise with `z-index` or having a Select in a modal.
+You can change the default behaviour by providing a `portalContainerId` to attach this to different element in the DOM. This can help to resolve issues that may arise with `z-index` or having a Select in a modal.
 
 <Canvas of={SelectStories.PortalContainer} />
+
+There is currently a known issue whereby a selected option will cause the page to scroll to the top of the window on open (click on [default to see example](https://cultureamp.design/?path=/docs/components-select-future--docs#portals)). This can be solved by setting a `portalContainerId` to the closest parent of the Select.
