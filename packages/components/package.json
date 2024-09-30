@@ -94,7 +94,7 @@
     "react-textfit": "^1.1.1",
     "resize-observer-polyfill": "^1.5.1",
     "tsx": "^4.17.0",
-    "use-debounce": "^10.0.2",
+    "use-debounce": "^10.0.3",
     "uuid": "^10.0.0"
   },
   "dependenciesComments": {
