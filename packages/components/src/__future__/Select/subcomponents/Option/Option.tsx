@@ -1,8 +1,6 @@
 import React, { HTMLAttributes } from "react"
-import { useFocusRing } from "@react-aria/focus"
-import { useOption } from "@react-aria/listbox"
-import { mergeProps } from "@react-aria/utils"
 import classnames from "classnames"
+import { mergeProps, useFocusRing, useOption } from "react-aria"
 import { CheckIcon } from "~components/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { useSelectContext } from "../../context"
@@ -26,11 +24,24 @@ export const Option = <Option extends SelectOption = SelectOption>({
     ref
   )
 
+  const {
+    // Remove these props as they cause propagation issues on touch devices
+    onClick: _onClick,
+    onPointerUp: _onPointerUp,
+    ...restOptionProps
+  } = optionProps
+
   const { isFocusVisible, focusProps } = useFocusRing()
 
   return (
     <li
-      {...mergeProps(optionProps, focusProps, props)}
+      {...mergeProps(restOptionProps, focusProps, props, {
+        // Manually control onClick to stop propagation on touch devices
+        onClick: () => {
+          state.setSelectedKey(item.key)
+          state.close()
+        },
+      })}
       ref={ref}
       className={classnames(
         styles.option,
