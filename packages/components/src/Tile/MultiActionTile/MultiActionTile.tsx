@@ -1,10 +1,10 @@
 import React from "react"
+import { Button } from "~components/__actions__/v2"
 import {
   GenericTile,
   GenericTileProps,
   TileAction,
 } from "../subcomponents/GenericTile"
-import Action from "../subcomponents/GenericTile/Action"
 import styles from "./MultiActionTile.module.scss"
 
 export type MultiActionTileProps = {
@@ -19,10 +19,10 @@ const renderActions = (
   <div className={styles.actions}>
     {secondaryAction && (
       <div className={styles.secondaryAction}>
-        <Action action={secondaryAction} secondary />
+        <Button secondary {...secondaryAction} />
       </div>
     )}
-    <Action action={primaryAction} />
+    <Button {...primaryAction} />
   </div>
 )
 
