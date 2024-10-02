@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.64.9
+
+### Patch Changes
+
+- [#5116](https://github.com/cultureamp/kaizen-design-system/pull/5116) [`7b43c719bf93d2c09711c3512095b067c0368d30`](https://github.com/cultureamp/kaizen-design-system/commit/7b43c719bf93d2c09711c3512095b067c0368d30) - Tiles: fix typing on actions to map to Button API, and pass through all props
+
 ## 1.64.8
 
 ### Patch Changes
