@@ -1,7 +1,7 @@
 {
   "name": "@docs/storybook",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "lint": "eslint .",
@@ -23,7 +23,7 @@
     "@kaizen/components": "workspace:*",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/tailwind": "workspace:*",
-    "@rollup/plugin-alias": "^5.1.0",
+    "@rollup/plugin-alias": "^5.1.1",
     "@storybook/builder-vite": "^8.2.9",
     "@storybook/manager-api": "^8.2.9",
     "@storybook/react-vite": "^8.2.9",

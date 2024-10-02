@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { RadioField, RadioGroup } from "~components/Radio"
 import { Select } from "../Select"
 import { SelectOption } from "../types"
 import {
@@ -26,6 +27,10 @@ const meta = {
   args: {
     label: "Label",
     items: singleMockItems,
+    onFocus: undefined,
+    onFocusChange: undefined,
+    onOpenChange: undefined,
+    onSelectionChange: undefined,
   },
   parameters: {
     actions: {
@@ -189,4 +194,46 @@ export const PortalContainer: Story = {
     )
   },
   parameters: { docs: { source: { type: "code" } } },
+}
+
+export const TouchDeviceTest: Story = {
+  name: "Touch Device Pointer Event (Manual Test)",
+  render: args => {
+    const [selected, setSelected] = React.useState("radio-1")
+    return (
+      <div>
+        <p>
+          On touch devices, the radios below were changing when selecting an
+          option sitting above it.
+          <br />
+          At this time, we could not automate this test, so this story exists
+          for manual testing.
+        </p>
+        <Select {...args} />
+        <RadioGroup labelText="Radio group">
+          <RadioField
+            labelText="Label 1"
+            name="radio-group"
+            value="radio-value-1"
+            onChange={() => setSelected("radio-1")}
+            selectedStatus={selected === "radio-1"}
+          />
+          <RadioField
+            labelText="Label 2"
+            name="radio-group"
+            value="radio-value-2"
+            onChange={() => setSelected("radio-2")}
+            selectedStatus={selected === "radio-2"}
+          />
+          <RadioField
+            labelText="Label 3"
+            name="radio-group"
+            value="radio-value-3"
+            onChange={() => setSelected("radio-3")}
+            selectedStatus={selected === "radio-3"}
+          />
+        </RadioGroup>
+      </div>
+    )
+  },
 }
