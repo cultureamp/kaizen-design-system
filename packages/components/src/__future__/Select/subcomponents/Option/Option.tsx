@@ -1,4 +1,5 @@
 import React, { HTMLAttributes } from "react"
+import { FocusableElement } from "@react-types/shared"
 import classnames from "classnames"
 import { mergeProps, useFocusRing, useOption } from "react-aria"
 import { CheckIcon } from "~components/Icon"
@@ -24,22 +25,21 @@ export const Option = <Option extends SelectOption = SelectOption>({
     ref
   )
 
-  const {
-    // Remove these props as they cause propagation issues on touch devices
-    onClick: _onClick,
-    onPointerUp: _onPointerUp,
-    ...restOptionProps
-  } = optionProps
+  const { onPointerUp, ...restOptionProps } = optionProps
 
   const { isFocusVisible, focusProps } = useFocusRing()
 
   return (
     <li
       {...mergeProps(restOptionProps, focusProps, props, {
-        // Manually control onClick to stop propagation on touch devices
-        onClick: () => {
-          state.setSelectedKey(item.key)
-          state.close()
+        onPointerUp: (e: React.PointerEvent<FocusableElement>) => {
+          if (e.pointerType === "touch") {
+            // On touch devices, the listbox closes too quickly so below elements will trigger their pointer events.
+            // Slow it down a bit to prevent the appearance of propagation.
+            setTimeout(() => state.setSelectedKey(item.key), 250)
+          } else {
+            onPointerUp?.(e)
+          }
         },
       })}
       ref={ref}

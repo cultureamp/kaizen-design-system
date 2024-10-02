@@ -196,8 +196,8 @@ export const PortalContainer: Story = {
   parameters: { docs: { source: { type: "code" } } },
 }
 
-export const Propagation: Story = {
-  name: "Stop Propagation (Manual Test)",
+export const TouchDeviceTest: Story = {
+  name: "Touch Device Pointer Event (Manual Test)",
   render: args => {
     const [selected, setSelected] = React.useState("radio-1")
     return (
