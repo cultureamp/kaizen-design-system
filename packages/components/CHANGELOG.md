@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.64.10
+
+### Patch Changes
+
+- [#5118](https://github.com/cultureamp/kaizen-design-system/pull/5118) [`b2c5996518aad8e34f74a1cf486d37705e3e1b86`](https://github.com/cultureamp/kaizen-design-system/commit/b2c5996518aad8e34f74a1cf486d37705e3e1b86) - Revert `@kaizen/components` from being explicitly an ESM build"
+
 ## 1.64.9
 
 ### Patch Changes
