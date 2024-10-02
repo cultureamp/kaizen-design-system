@@ -365,7 +365,7 @@ describe("Has validation status", () => {
     expect(
       screen.getByRole("button", {
         name: "Breakfast menu",
-        // RTL bug: Icon should be showing aria-label "caution message" instead
+        // React Testing Library bug: Icon should be showing aria-label "caution message" instead
         description: "warning Only four waffles remain",
       })
     ).toBeInTheDocument()
@@ -373,7 +373,7 @@ describe("Has validation status", () => {
 
   it("announces the validation message before the Toggle's description", () => {
     const description = "Choose your breakfast."
-    // RTL bug: Icon should be showing aria-label "caution message" instead
+    // React Testing Library bug: Icon should be showing aria-label "caution message" instead
     const validationMessage = "warning Only four waffles remain."
 
     render(
