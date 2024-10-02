@@ -33,7 +33,6 @@
   "bin": {
     "kaizen-codemod": "./bin/codemod.sh"
   },
-  "type": "module",
   "scripts": {
     "lint:ts": "tsc --noEmit",
     "build": "pnpm package-bundler build-shared-ui && pnpm build:styles",
