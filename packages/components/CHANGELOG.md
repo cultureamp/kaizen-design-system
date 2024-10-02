@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.64.8
+
+### Patch Changes
+
+- [#5113](https://github.com/cultureamp/kaizen-design-system/pull/5113) [`54dd00689cafd922d1c423ea90994b1822a543e2`](https://github.com/cultureamp/kaizen-design-system/commit/54dd00689cafd922d1c423ea90994b1822a543e2) - Future Select - stop propagation when selecting an option using a touch device.
+
 ## 1.64.7
 
 ### Patch Changes
