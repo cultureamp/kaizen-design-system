@@ -222,7 +222,7 @@ describe("Stringified object values", () => {
             label: "Created by Z-A",
           },
         ]}
-        selectedKey={'{"sortBy":"creator_name","sortOrder":"asc"}'}
+        selectedKey='{"sortBy":"creator_name","sortOrder":"asc"}'
       />
     )
     expect(

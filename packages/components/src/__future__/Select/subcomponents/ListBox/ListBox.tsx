@@ -31,7 +31,8 @@ const getOptionKeyFromCollection = (
   return state.collection.getFirstKey()
 }
 
-// This makes the use of query selector less brittle in instances where a failed selector is passed in
+/** This makes the use of query selector less brittle in instances where a failed selector is passed in
+ */
 const safeQuerySelector = (selector: string): HTMLElement | null => {
   try {
     return document.querySelector(selector)
@@ -72,6 +73,9 @@ export const ListBox = <Option extends SelectOption>({
 
       if (focusToElement) {
         focusToElement.focus()
+      } else {
+        // If an element is not found, focus on the listbox. This ensures the list can still be navigated to via keyboard if the keys do not align to the data attributes of the list items.
+        ref.current?.focus()
       }
     }
   }, [isClientReady])
