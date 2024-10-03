@@ -1,7 +1,5 @@
 import ts from "typescript"
 
-const removeQuotes = (str: string): string => str.replace(/['"]+/g, "")
-
 const getKaioNamedImports = (
   visitedNode: ts.Node
 ):
@@ -11,12 +9,12 @@ const getKaioNamedImports = (
     }
   | undefined => {
   if (ts.isImportDeclaration(visitedNode)) {
-    const moduleSpecifier = visitedNode.moduleSpecifier.getText()
+    const moduleSpecifier = (visitedNode.moduleSpecifier as ts.StringLiteral).text
     if (moduleSpecifier.includes("@kaizen/components")) {
       const namedBindings = visitedNode.importClause?.namedBindings
       if (namedBindings && ts.isNamedImports(namedBindings)) {
         return {
-          importModuleName: removeQuotes(moduleSpecifier),
+          importModuleName: moduleSpecifier,
           namedImports: namedBindings.elements,
         }
       }
