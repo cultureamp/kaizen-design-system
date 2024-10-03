@@ -219,7 +219,7 @@
     "buttonPrimary": {
       "fontFamily": "var(--typography-button-primary-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-button-primary-font-family",
-      "fontWeight": "var(--typography-button-primary-font-weight, 700)",
+      "fontWeight": "var(--typography-button-primary-font-weight, 500)",
       "fontWeight-id": "--typography-button-primary-font-weight",
       "fontSize": "var(--typography-button-primary-font-size, 1.125rem)",
       "fontSize-id": "--typography-button-primary-font-size",
