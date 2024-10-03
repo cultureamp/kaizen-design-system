@@ -78,7 +78,11 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
   )
 
   const { buttonProps } = useButton(triggerProps, triggerRef)
-
+  const renderTriggerButtonProps = {
+    ...buttonProps,
+    "aria-labelledby": undefined,
+    "aria-controls": menuProps.id,
+  }
   return (
     <>
       <HiddenSelect label={label} state={state} triggerRef={triggerRef} />
@@ -90,7 +94,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
             selectedValue: state.selectedItem?.textValue || undefined,
             label,
             isOpen,
-            ...buttonProps,
+            ...renderTriggerButtonProps,
           })
         }
         onMount={setTriggerRef}
@@ -98,7 +102,9 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
       >
         <FilterContents classNameOverride={styles.filterContents}>
           <SelectProvider<Option> state={state}>
-            <SelectPopoverContents menuProps={menuProps}>
+            <SelectPopoverContents
+              menuProps={{ ...menuProps, "aria-labelledby": buttonProps.id }}
+            >
               {children}
             </SelectPopoverContents>
           </SelectProvider>
