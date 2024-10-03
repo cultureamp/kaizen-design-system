@@ -18,6 +18,24 @@ export const DosAndDonts = ({
 
 DosAndDonts.displayName = "DosAndDonts"
 
+const DoOrDontTag = ({ isDont }: { isDont: boolean }): JSX.Element => (
+  <Unstyled>
+    <span
+      className={classnames(
+        styles.doOrDontTag,
+        isDont ? "bg-red-500" : "bg-green-500"
+      )}
+    >
+      <Icon name={isDont ? "close" : "check"} isPresentational />
+      <Text variant="body" color="white">
+        <strong>{isDont ? "Don't" : "Do"}</strong>
+      </Text>
+    </span>
+  </Unstyled>
+)
+
+DoOrDontTag.displayName = "DoOrDontTag"
+
 export const DoOrDont = ({
   isDont = false,
   className,
@@ -28,19 +46,7 @@ export const DoOrDont = ({
   story: any
 } & HTMLAttributes<HTMLDivElement>): JSX.Element => (
   <div className={classnames("relative", className)} {...otherProps}>
-    <div
-      className={classnames(
-        "absolute top-6 left-6 z-10 py-2 ps-4 pe-8 font-bold text-white rounded flex gap-2 items-center justify-center",
-        isDont ? "bg-red-500" : "bg-green-500"
-      )}
-    >
-      <Unstyled style={{ display: "contents" }}>
-        <Icon name={isDont ? "close" : "check"} isPresentational />
-        <Text variant="body" color="white">
-          <strong>{isDont ? "Don't" : "Do"}</strong>
-        </Text>
-      </Unstyled>
-    </div>
+    <DoOrDontTag isDont={isDont} />
     <Canvas
       sourceState="none"
       className="h-full m-0 bg-gray-100 rounded-none shadow-none border-none"
