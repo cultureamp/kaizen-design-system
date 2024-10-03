@@ -29,7 +29,17 @@ describe("getKaioTagNamesByRegex", () => {
       'import { AddIcon, ArrowDownIcon, Well } from "@kaizen/components"'
     )
     const tagNames = getKaioTagNamesByRegex(input, "Icon")
-    expect(tagNames).toEqual(["AddIcon", "ArrowDownIcon"])
+    expect(tagNames).toEqual(
+      new Map([
+        [
+          "@kaizen/components",
+          new Map([
+            ["AddIcon", "AddIcon"],
+            ["ArrowDownIcon", "ArrowDownIcon"],
+          ]),
+        ],
+      ])
+    )
   })
 
   it("returns the import alias if it matches the target specifier", () => {
@@ -37,7 +47,31 @@ describe("getKaioTagNamesByRegex", () => {
       'import { AddIcon as KzAddIcon, ArrowDownIcon, Well } from "@kaizen/components"'
     )
     const tagNames = getKaioTagNamesByRegex(input, "Icon")
-    expect(tagNames).toEqual(["KzAddIcon", "ArrowDownIcon"])
+    expect(tagNames).toEqual(
+      new Map([
+        [
+          "@kaizen/components",
+          new Map([
+            ["KzAddIcon", "AddIcon"],
+            ["ArrowDownIcon", "ArrowDownIcon"],
+          ]),
+        ],
+      ])
+    )
+  })
+
+  it("returns matching import names from different KAIO imports", () => {
+    const input = parseJsx(`
+      import { AddIcon, Well } from "@kaizen/components"
+      import { Icon } from "@kaizen/components/future"
+    `)
+    const tagNames = getKaioTagNamesByRegex(input, "Icon$")
+    expect(tagNames).toEqual(
+      new Map([
+        ["@kaizen/components", new Map([["AddIcon", "AddIcon"]])],
+        ["@kaizen/components/future", new Map([["Icon", "Icon"]])],
+      ])
+    )
   })
 
   it("returns undefined if there is no match to the target specifier", () => {

@@ -7,13 +7,18 @@ const transformIcons = (sourceFile: TransformConfig["sourceFile"]): string =>
     sourceFile,
     astTransformer: upgradeIconV1,
     tagName: new Map([
-      ["AddIcon", "AddIcon"],
-      ["CaMonogramIcon", "CaMonogramIcon"],
-      ["FlagOffIcon", "FlagOffIcon"],
-      ["FlagOffWhiteIcon", "FlagOffWhiteIcon"],
-      ["FlagOnIcon", "FlagOnIcon"],
-      ["IconAlias", "HamburgerIcon"],
-      ["MeatballsIcon", "MeatballsIcon"],
+      [
+        "@kaizen/components",
+        new Map([
+          ["AddIcon", "AddIcon"],
+          ["CaMonogramIcon", "CaMonogramIcon"],
+          ["FlagOffIcon", "FlagOffIcon"],
+          ["FlagOffWhiteIcon", "FlagOffWhiteIcon"],
+          ["FlagOnIcon", "FlagOnIcon"],
+          ["IconAlias", "HamburgerIcon"],
+          ["MeatballsIcon", "MeatballsIcon"],
+        ]),
+      ],
     ]),
   })
 

@@ -4,6 +4,8 @@ import {
   createStringProp,
   createStyleProp,
   getPropValueText,
+  ImportModuleNameTagsMap,
+  // updateImports,
   updateJsxElementWithNewProps,
 } from "../utils"
 import { getNewIconPropsFromOldIconName } from "./getNewIconPropsFromOldIconName"
@@ -60,8 +62,11 @@ const transformIconProp = (
 }
 
 export const upgradeIconV1 =
-  (context: ts.TransformationContext, tagNames: Map<string, string>) =>
+  (context: ts.TransformationContext, tagNames: ImportModuleNameTagsMap) =>
   (rootNode: ts.Node): ts.Node => {
+    const kaioTagNames = tagNames.get("@kaizen/components")
+    if (!kaioTagNames) return rootNode
+
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         const tagName = node.tagName.getText()
@@ -70,10 +75,10 @@ export const upgradeIconV1 =
           return transformCaMonogramIconToBrand(node)
         }
 
-        if (tagNames.has(tagName)) {
+        if (kaioTagNames.has(tagName)) {
           // Above has checked the key exists, so the value should also exist and not be undefined
           const newIconProps = getNewIconPropsFromOldIconName(
-            tagNames.get(tagName) as string
+            kaioTagNames.get(tagName) as string
           )
           if (newIconProps === undefined) {
             // eslint-disable-next-line no-console
@@ -143,5 +148,8 @@ export const upgradeIconV1 =
       }
       return ts.visitEachChild(node, visit, context)
     }
-    return ts.visitNode(rootNode, visit)
+    const node = ts.visitNode(rootNode, visit)
+
+    // return updateImports(context)(node)
+    return node
   }

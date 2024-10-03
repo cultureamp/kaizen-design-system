@@ -1,8 +1,9 @@
 import ts from "typescript"
+import { ImportModuleNameTagsMap } from "./getKaioTagName"
 import { printAst } from "./printAst"
 
 export type TransformConfig<
-  TagName extends string | Map<string, string> = string,
+  TagName extends string | ImportModuleNameTagsMap = string,
 > = {
   sourceFile: ts.SourceFile
   astTransformer: (
@@ -13,7 +14,9 @@ export type TransformConfig<
 }
 
 /** Transforms the source file with the transformer and target import alias provided */
-export const transformSource = <TagName extends string | Map<string, string>>({
+export const transformSource = <
+  TagName extends string | ImportModuleNameTagsMap,
+>({
   sourceFile,
   astTransformer,
   tagName,
