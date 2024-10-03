@@ -80,7 +80,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
   const { buttonProps } = useButton(triggerProps, triggerRef)
   const renderTriggerButtonProps = {
     ...buttonProps,
-    "aria-labelledBy": undefined,
+    "aria-labelledby": undefined,
     "aria-controls": menuProps.id,
   }
   return (
