@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.64.11
+
+### Patch Changes
+
+- [#5122](https://github.com/cultureamp/kaizen-design-system/pull/5122) [`27706c61039ec02526eea17a1e15d1055c124c54`](https://github.com/cultureamp/kaizen-design-system/commit/27706c61039ec02526eea17a1e15d1055c124c54) - Add accessible label fix for selects
+
 ## 1.64.10
 
 ### Patch Changes
