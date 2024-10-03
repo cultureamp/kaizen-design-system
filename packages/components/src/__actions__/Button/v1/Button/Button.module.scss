@@ -80,7 +80,6 @@
 
     &:focus-visible {
       &::after {
-        border-style: $border-dashed-border-style;
         border-color: $color-purple-800;
       }
     }
