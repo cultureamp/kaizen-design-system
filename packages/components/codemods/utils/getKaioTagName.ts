@@ -69,8 +69,8 @@ export const getKaioTagName = (
 /**
  * Recurses through AST to find all the import names or aliases in KAIO that match the provided regex.
  *
- * @returns string[] | undefined
- * - `string[]` the import names or aliases found
+ * @returns Map<string, string> | undefined
+ * - `Map<string, string>` where the key is the tag name (possibly an alias) and the value is the original component name
  * - `undefined` no imports that match the target
  */
 export const getKaioTagNamesByRegex = (
