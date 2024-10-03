@@ -131,6 +131,19 @@ const VARIANTS_PROPS: Array<{
       forceMultiline: true,
     },
   },
+  {
+    title: "Focus",
+    props: {
+      // @ts-ignore
+      "data-sb-pseudo-styles": "focus",
+      variant: "informative",
+      headingProps: {
+        variant: "heading-6",
+        tag: "span",
+        children: "Focused title",
+      },
+    },
+  },
 ]
 
 const TYPE_PROPS: Array<{
@@ -206,6 +219,11 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
     </>
   ),
+  parameters: {
+    pseudo: {
+      focus: '[data-sb-pseudo-styles="focus"]',
+    },
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {

@@ -1,8 +1,7 @@
 import React, { HTMLAttributes } from "react"
-import { useFocusRing } from "@react-aria/focus"
-import { useOption } from "@react-aria/listbox"
-import { mergeProps } from "@react-aria/utils"
+import { FocusableElement } from "@react-types/shared"
 import classnames from "classnames"
+import { mergeProps, useFocusRing, useOption } from "react-aria"
 import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { useSelectContext } from "../../context"
@@ -26,11 +25,23 @@ export const Option = <Option extends SelectOption = SelectOption>({
     ref
   )
 
+  const { onPointerUp, ...restOptionProps } = optionProps
+
   const { isFocusVisible, focusProps } = useFocusRing()
 
   return (
     <li
-      {...mergeProps(optionProps, focusProps, props)}
+      {...mergeProps(restOptionProps, focusProps, props, {
+        onPointerUp: (e: React.PointerEvent<FocusableElement>) => {
+          if (e.pointerType === "touch") {
+            // On touch devices, the listbox closes too quickly so below elements will trigger their pointer events.
+            // Slow it down a bit to prevent the appearance of propagation.
+            setTimeout(() => state.setSelectedKey(item.key), 250)
+          } else {
+            onPointerUp?.(e)
+          }
+        },
+      })}
       ref={ref}
       className={classnames(
         styles.option,
