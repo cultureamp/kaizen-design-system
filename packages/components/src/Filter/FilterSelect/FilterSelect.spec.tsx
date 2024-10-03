@@ -103,11 +103,51 @@ describe("<FilterSelect>", () => {
         })
       })
 
+      it("opens the menu when user hits enter key", async () => {
+        render(<FilterSelectWrapper />)
+        const trigger = screen.getByRole("button", { name: "Coffee" })
+        await user.tab()
+        await waitFor(() => {
+          expect(trigger).toHaveFocus()
+        })
+        await user.keyboard("{Enter}")
+        await waitFor(() => {
+          expect(screen.queryByRole("listbox")).toBeVisible()
+        })
+      })
+
       it("moves the focus to the first focusable element inside the menu initially", async () => {
         render(<FilterSelectWrapper isOpen />)
         expect(screen.queryByRole("listbox")).toBeVisible()
         await waitFor(() => {
           expect(screen.getAllByRole("option")[0]).toHaveFocus()
+        })
+      })
+
+      it("focuses to the first item on arrow down when no key is selected", async () => {
+        render(<FilterSelectWrapper selectedKey={undefined} />)
+        const trigger = screen.getByRole("button", { name: "Coffee" })
+        await user.tab()
+        await waitFor(() => {
+          expect(trigger).toHaveFocus()
+        })
+        await user.keyboard("{ArrowDown}")
+
+        await waitFor(() => {
+          expect(screen.getByRole("option", { name: "Regular" })).toHaveFocus()
+        })
+      })
+      it("focuses to the last item on arrow up when no key is selected", async () => {
+        render(<FilterSelectWrapper selectedKey={undefined} />)
+        const trigger = screen.getByRole("button", { name: "Coffee" })
+        await user.tab()
+        await waitFor(() => {
+          expect(trigger).toHaveFocus()
+        })
+        await user.keyboard("{ArrowUp}")
+
+        await waitFor(() => {
+          expect(screen.getByRole("option", { name: "Hazelnut" })).toHaveFocus()
         })
       })
 
@@ -165,6 +205,29 @@ describe("<FilterSelect>", () => {
       )
       expect(getByRole("button", { name: "Coffee : 50" })).toBeInTheDocument()
     })
+  })
+})
+
+describe("Stringified object values", () => {
+  it("finds selected option when value is a stringified object", () => {
+    const { getByRole } = render(
+      <FilterSelectWrapper
+        items={[
+          {
+            value: '{"sortBy":"creator_name","sortOrder":"asc"}',
+            label: "Created by A-Z",
+          },
+          {
+            value: '{"sortBy":"creator_name","sortOrder":"dsc"}',
+            label: "Created by Z-A",
+          },
+        ]}
+        selectedKey={'{"sortBy":"creator_name","sortOrder":"asc"}'}
+      />
+    )
+    expect(
+      getByRole("button", { name: "Coffee : Created by A-Z" })
+    ).toBeInTheDocument()
   })
 })
 
