@@ -100,18 +100,15 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
         onMount={setTriggerRef}
         classNameOverride={classNameOverride}
       >
-        <>
-          {/* <VisuallyHidden id={menuProps.id}>{label}</VisuallyHidden> */}
-          <FilterContents classNameOverride={styles.filterContents}>
-            <SelectProvider<Option> state={state}>
-              <SelectPopoverContents
-                menuProps={{ ...menuProps, "aria-labelledby": buttonProps.id }}
-              >
-                {children}
-              </SelectPopoverContents>
-            </SelectProvider>
-          </FilterContents>
-        </>
+        <FilterContents classNameOverride={styles.filterContents}>
+          <SelectProvider<Option> state={state}>
+            <SelectPopoverContents
+              menuProps={{ ...menuProps, "aria-labelledby": buttonProps.id }}
+            >
+              {children}
+            </SelectPopoverContents>
+          </SelectProvider>
+        </FilterContents>
       </Filter>
     </>
   )
