@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Selection, Key } from "@react-types/shared"
 import {
   FilterMultiSelect,
@@ -43,9 +43,16 @@ export const FilterBarMultiSelect = ({
   onSelectionChange,
   ...props
 }: FilterBarMultiSelectProps): JSX.Element | null => {
-  const { getFilterState, setFilterOpenState, updateValue, hideFilter } =
-    useFilterBarContext<ConsumableSelection>()
+  const {
+    getFilterState,
+    setFilterOpenState,
+    updateValue,
+    hideFilter,
+    focusId,
+    setFocus,
+  } = useFilterBarContext<ConsumableSelection>()
   const [items, setItems] = useState<ItemType[]>(propsItems)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   if (!id) throw Error("Missing `id` prop in FilterBarMultiSelect")
 
@@ -69,6 +76,13 @@ export const FilterBarMultiSelect = ({
       }
     }
   }, [items])
+
+  useEffect(() => {
+    if (focusId === id) {
+      buttonRef.current?.focus()
+      setFocus(undefined)
+    }
+  }, [focusId])
 
   return (
     <FilterMultiSelect
@@ -103,6 +117,7 @@ export const FilterBarMultiSelect = ({
           <FilterMultiSelect.TriggerButton {...triggerProps} />
         )
       }}
+      triggerRef={buttonRef}
       {...props}
     >
       {children}

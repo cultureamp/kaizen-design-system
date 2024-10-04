@@ -14,6 +14,7 @@ export type MenuTriggerProviderProps = {
   defaultOpen?: boolean
   onOpenChange?: (isOpen: boolean) => void
   children: React.ReactNode
+  triggerRef?: React.RefObject<HTMLButtonElement>
 }
 
 export type MenuTriggerProviderContextType = {
@@ -32,12 +33,14 @@ export function MenuTriggerProvider({
   defaultOpen,
   onOpenChange,
   children,
+  triggerRef,
 }: MenuTriggerProviderProps): JSX.Element {
   // Create state based on the incoming props to manage the open/close
   const state = useMenuTriggerState({ isOpen, defaultOpen, onOpenChange })
 
   // Get A11y attributes and events for the menu trigger and menu elements
-  const ref = useRef<HTMLButtonElement>(null)
+  const fallbackRef = useRef<HTMLButtonElement>(null)
+  const ref = triggerRef || fallbackRef
   const { menuTriggerProps, menuProps } = useMenuTrigger<ItemType>(
     {},
     state,
