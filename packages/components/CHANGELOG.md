@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.64.12
+
+### Patch Changes
+
+- [#5121](https://github.com/cultureamp/kaizen-design-system/pull/5121) [`b8fd77b8c79279d4a173ce9425a5a57c46688f06`](https://github.com/cultureamp/kaizen-design-system/commit/b8fd77b8c79279d4a173ce9425a5a57c46688f06) - Change dashed disabled focus rings to solid borders
+
 ## 1.64.11
 
 ### Patch Changes
