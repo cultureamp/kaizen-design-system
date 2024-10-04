@@ -1,6 +1,6 @@
 import React from "react"
 import classnames from "classnames"
-import { MenuItem } from "~components/__actions__/v2"
+import { MenuItem } from "~components/Menu"
 import { TitleBlockMenuItemProps } from "../types"
 import styles from "./TitleBlockMenuItem.module.scss"
 

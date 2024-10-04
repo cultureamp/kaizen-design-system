@@ -1,10 +1,7 @@
 import { CompanyAvatarProps, GenericAvatarProps } from "~components/Avatar"
+import { MenuItemProps } from "~components/Menu"
 import { Select } from "~components/Select"
-import {
-  ButtonProps,
-  CustomButtonProps,
-  MenuItemProps,
-} from "~components/__actions__/v2"
+import { ButtonProps, CustomButtonProps } from "~components/__actions__/v2"
 import { NavigationTabProps } from "./subcomponents/NavigationTabs"
 
 /**

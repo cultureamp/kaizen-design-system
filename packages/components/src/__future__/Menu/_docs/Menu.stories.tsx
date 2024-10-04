@@ -15,7 +15,7 @@ import { Menu, MenuTrigger, MenuItem } from "../index"
 import * as testStories from "./Menu.spec.stories"
 
 const meta = {
-  title: "Actions/Menu/v3",
+  title: "Actions/Menu/Future",
   component: MenuTrigger,
   args: {
     defaultOpen: isChromatic(),

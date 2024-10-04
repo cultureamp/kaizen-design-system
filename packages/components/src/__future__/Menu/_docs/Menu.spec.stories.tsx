@@ -17,7 +17,7 @@ import { Button } from "~components/__actions__/v3"
 import { Menu, MenuItem, MenuTrigger } from "../index"
 
 const meta = {
-  title: "Actions/Menu/v3/Tests",
+  title: "Actions/Menu/Future/Tests",
   component: MenuTrigger,
   args: {
     defaultOpen: isChromatic(),
