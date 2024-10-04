@@ -9,7 +9,8 @@ const getKaioNamedImports = (
     }
   | undefined => {
   if (ts.isImportDeclaration(visitedNode)) {
-    const moduleSpecifier = (visitedNode.moduleSpecifier as ts.StringLiteral).text
+    const moduleSpecifier = (visitedNode.moduleSpecifier as ts.StringLiteral)
+      .text
     if (moduleSpecifier.includes("@kaizen/components")) {
       const namedBindings = visitedNode.importClause?.namedBindings
       if (namedBindings && ts.isNamedImports(namedBindings)) {
