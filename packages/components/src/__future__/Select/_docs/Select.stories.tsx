@@ -188,14 +188,13 @@ export const PortalContainer: Story = {
             Open Modal
           </button>
           <ContextModal
-            {...args}
             isOpen={isOpen}
             onConfirm={handleClose}
             onDismiss={handleClose}
             title="Select test"
           >
             <div
-              className="flex gap-24 bg-gray-200 p-12 h-[500px] relative"
+              className="flex gap-24 bg-gray-200 p-12"
               id={portalContainerId}
             >
               <Select
