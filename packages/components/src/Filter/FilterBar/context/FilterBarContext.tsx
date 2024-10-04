@@ -119,8 +119,10 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
         values: { ...values, [id]: getValidValue(newValue) },
       })
     },
-    showFilter: <Id extends keyof ValuesMap>(id: Id): void =>
-      dispatch({ type: "activate_filter", id }),
+    showFilter: <Id extends keyof ValuesMap>(id: Id): void => {
+      dispatch({ type: "activate_filter", id })
+      dispatch({ type: "set_focus", id })
+    },
     hideFilter: <Id extends keyof ValuesMap>(id: Id): void => {
       dispatch({ type: "deactivate_filter", id })
     },
@@ -132,6 +134,10 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       })
       dispatch({ type: "update_values", values: {} })
     },
+    setFocus: <Id extends keyof ValuesMap>(id: Id | undefined) => {
+      dispatch({ type: "set_focus", id })
+    },
+    focusId: state.focusId,
   } satisfies FilterBarContextValue<any, ValuesMap>
 
   useEffect(() => {

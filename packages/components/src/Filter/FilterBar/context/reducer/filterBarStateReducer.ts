@@ -21,6 +21,12 @@ export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
   action: Actions<ValuesMap>
 ): FilterBarState<ValuesMap> => {
   switch (action.type) {
+    case "set_focus":
+      return {
+        ...state,
+        focusId: action.id,
+      }
+
     case "update_values":
       return { ...updateValues(state, action.values) }
 
