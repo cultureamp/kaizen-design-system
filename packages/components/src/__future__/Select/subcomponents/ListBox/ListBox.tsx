@@ -38,7 +38,7 @@ const safeQuerySelector = (selector: string): HTMLElement | null => {
     return document.querySelector(selector)
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error("QuerySelector failed:", error)
+    console.error("Kaizen querySelector failed:", error)
     return null
   }
 }
