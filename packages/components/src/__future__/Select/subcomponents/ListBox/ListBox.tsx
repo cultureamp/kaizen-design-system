@@ -2,7 +2,7 @@ import React, { HTMLAttributes, Key, useEffect, useRef, ReactNode } from "react"
 import { AriaListBoxOptions, useListBox } from "@react-aria/listbox"
 import { SelectState } from "@react-stately/select"
 import classnames from "classnames"
-import { useIsClientReady } from "~components/__utilities__/isClientReady"
+import { useIsClientReady } from "~components/__utilities__/useIsClientReady"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { useSelectContext } from "../../context"
 import { SelectOption, SelectItem } from "../../types"
@@ -81,7 +81,6 @@ export const ListBox = <Option extends SelectOption>({
   }, [isClientReady])
 
   return (
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <ul
       ref={ref}
       className={classnames(styles.listBox, classNameOverride)}
