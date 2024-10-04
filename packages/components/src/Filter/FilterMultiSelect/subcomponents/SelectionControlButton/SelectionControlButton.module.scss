@@ -64,7 +64,6 @@ $focus-ring-offset: 1px;
     }
 
     &:focus-visible::after {
-      border-style: $border-dashed-border-style;
       border-color: $color-gray-400;
     }
   }
