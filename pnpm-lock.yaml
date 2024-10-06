@@ -356,8 +356,8 @@ importers:
         specifier: ^2.13.2
         version: 2.13.2(@types/react@18.3.11)(react@18.3.1)
       react-focus-on:
-        specifier: ^3.9.3
-        version: 3.9.3(@types/react@18.3.11)(react@18.3.1)
+        specifier: ^3.9.4
+        version: 3.9.4(@types/react@18.3.11)(react@18.3.1)
       react-media:
         specifier: ^1.10.0
         version: 1.10.0(react@18.3.1)
@@ -8906,8 +8906,8 @@ packages:
       '@types/react':
         optional: true
 
-  react-focus-on@3.9.3:
-    resolution: {integrity: sha512-GSLz54TvP6OUlsvnlgHJu80nHOAO2ikRTtDt/aP8GZu3DPPAbwHFdliveBwUfPnyKLUKutFMCJUkH55vuo4uKQ==}
+  react-focus-on@3.9.4:
+    resolution: {integrity: sha512-NFKmeH6++wu8e7LJcbwV8TTd4L5w/U5LMXTMOdUcXhCcZ7F5VOvgeTHd4XN1PD7TNmdvldDu/ENROOykUQ4yQg==}
     engines: {node: '>=8.5.0'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -8972,8 +8972,8 @@ packages:
       '@types/react':
         optional: true
 
-  react-remove-scroll@2.5.10:
-    resolution: {integrity: sha512-m3zvBRANPBw3qxVVjEIPEQinkcwlFZ4qyomuWVpNJdv4c6MvHfXV0C3L9Jx5rr3HeBHKNRX+1jreB5QloDIJjA==}
+  react-remove-scroll@2.6.0:
+    resolution: {integrity: sha512-I2U4JVEsQenxDAKaVa3VZ/JeJZe0/2DxPWL8Tj8yLKctQJQiZM52pn/GWFpSp8dftjM3pSAHVJZscAnC/y+ySQ==}
     engines: {node: '>=10'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -21572,12 +21572,12 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.11
 
-  react-focus-on@3.9.3(@types/react@18.3.11)(react@18.3.1):
+  react-focus-on@3.9.4(@types/react@18.3.11)(react@18.3.1):
     dependencies:
       aria-hidden: 1.2.4
       react: 18.3.1
       react-focus-lock: 2.13.2(@types/react@18.3.11)(react@18.3.1)
-      react-remove-scroll: 2.5.10(@types/react@18.3.11)(react@18.3.1)
+      react-remove-scroll: 2.6.0(@types/react@18.3.11)(react@18.3.1)
       react-style-singleton: 2.2.1(@types/react@18.3.11)(react@18.3.1)
       tslib: 2.7.0
       use-sidecar: 1.1.2(@types/react@18.3.11)(react@18.3.1)
@@ -21643,7 +21643,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.11
 
-  react-remove-scroll@2.5.10(@types/react@18.3.11)(react@18.3.1):
+  react-remove-scroll@2.6.0(@types/react@18.3.11)(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-remove-scroll-bar: 2.3.6(@types/react@18.3.11)(react@18.3.1)
