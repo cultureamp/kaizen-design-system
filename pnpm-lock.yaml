@@ -387,11 +387,11 @@ importers:
         version: 10.0.0
     devDependencies:
       '@cultureamp/frontend-apis':
-        specifier: ^9.9.0
-        version: 9.9.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4)
+        specifier: ^10.0.0
+        version: 10.0.0(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4)
       '@cultureamp/i18n-react-intl':
         specifier: ^2.6.3
-        version: 2.6.3(@cultureamp/frontend-apis@9.9.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4))(encoding@0.1.13)(eslint@9.9.0(jiti@1.21.6))(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(ts-jest@29.2.4(@babel/core@7.25.2)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.2))(esbuild@0.23.0)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(typescript@5.5.4))(typescript@5.5.4)
+        version: 2.6.3(@cultureamp/frontend-apis@10.0.0(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4))(encoding@0.1.13)(eslint@9.9.0(jiti@1.21.6))(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(ts-jest@29.2.4(@babel/core@7.25.2)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.2))(esbuild@0.23.0)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(typescript@5.5.4))(typescript@5.5.4)
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
@@ -1669,16 +1669,8 @@ packages:
   '@cultureamp/changelog-github@0.1.0':
     resolution: {integrity: sha512-zaTBVXnv1MhyEClIFtG4TOeddBF+ufGnw8JF2ABip0l/IOLjpJs0lcIDix+UwOkClPdVCBzzvxT78M46rpgWxg==, tarball: https://npm.pkg.github.com/download/@cultureamp/changelog-github/0.1.0/1243c6a9e702bfa0e9fb28997f94c99af489ae93}
 
-  '@cultureamp/fetch-sgw@2.0.4':
-    resolution: {integrity: sha512-zij2eKxGc63FPylssFuVYfyQDkA7VPEOhVMQD2aSxB3AnsIpLTiJDBL3QmX0vXYGgmXczA12x4fZYTH4VopVkw==, tarball: https://npm.pkg.github.com/download/@cultureamp/fetch-sgw/2.0.4/b090a86a069730e51a5a8dfc940c990c9a28c636}
-    peerDependencies:
-      '@cultureamp/fetch': ^4.0.0
-
-  '@cultureamp/fetch@4.0.2':
-    resolution: {integrity: sha512-IVeI5jSfSecVcUxvlwwdjl50mq1/+qzGUfb/3ueE9Tu07rFGIv+Nylq+nMZ2S9EvwubCfDyiuwJiqUemSaK+DQ==, tarball: https://npm.pkg.github.com/download/@cultureamp/fetch/4.0.2/a1d39d32eb5711d929761cf0fa5c5a6ef4ecef4e}
-
-  '@cultureamp/frontend-apis@9.9.0':
-    resolution: {integrity: sha512-zBeKBmCmdIwS32STuMagc8y2ArUdxmka+QIABBtplTGm99CNh08ZB72WG45fyLV2FKR6co94fc6/Yj4hYsCieQ==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.9.0/dfa33bd9585fd682968bf2d29bf00652c26ad6a1}
+  '@cultureamp/frontend-apis@10.0.0':
+    resolution: {integrity: sha512-U0dfpWD3DijIkhgrg6uXREL/nLVN2aKaDQahzElSAE57Fzca9JUcmQz5qQ7NM6BzfPAVhAg/K3ob0g5+OJIO0w==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-apis/10.0.0/cc6c1c336f419322f8d72584f40356911d6a5359}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -3895,9 +3887,6 @@ packages:
   '@types/node@20.14.15':
     resolution: {integrity: sha512-Fz1xDMCF/B00/tYSVMlmK7hVeLh7jE5f3B7X1/hmV0MJBwE27KlS7EvD/Yp+z1lm8mVhwV5w+n8jOZG8AfTlKw==}
 
-  '@types/opossum@8.1.7':
-    resolution: {integrity: sha512-nIihJLNA412EioGg7mHTwDY7nfmSb4TpnSMSsftZYQ+vvKf1GYz3WSWnKrxGyFaeWpoTD5FTnZabkhR8ql50Iw==}
-
   '@types/parse-json@4.0.2':
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
 
@@ -4428,8 +4417,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  aws4@1.13.0:
-    resolution: {integrity: sha512-3AungXC4I8kKsS9PuS4JH2nc+0bVY/mjgrephHTIi8fpEeGsTHBUJeosp0Wc1myYMElmD0B3Oc4XL/HVJ4PV2g==}
+  aws4@1.13.2:
+    resolution: {integrity: sha512-lHe62zvbTB5eEABUVi/AwVh0ZKY9rMMDhmm+eeyuuUQbQ3+J+fONVQOZyj+DdrvD4BY33uYniyRJ4UJIaSKAfw==}
 
   axe-core@3.5.6:
     resolution: {integrity: sha512-LEUDjgmdJoA3LqklSTwKYqkjcZ4HKc4ddIYGSAiSkr46NTjzg2L9RNB+lekO9P7Dlpa87+hBtzc2Fzn/+GUWMQ==}
@@ -5027,9 +5016,6 @@ packages:
 
   cross-fetch@3.1.8:
     resolution: {integrity: sha512-cvA+JwZoU0Xq+h6WkMvAUqPEYy92Obet6UdKLfW60qn99ftItKjB5T+BkyWOFWe2pUyfQ+IJHmpOTznqk1M6Kg==}
-
-  cross-fetch@4.0.0:
-    resolution: {integrity: sha512-e4a5N8lVvuLgAWgnCrLr2PP0YyDOTHa9H/Rj54dirp61qXnNq46m82bRhNqIA5VccJtWBvPTFRV3TtvHUKPB1g==}
 
   cross-spawn@5.1.0:
     resolution: {integrity: sha512-pTgQJ5KC0d2hcY8eyL1IzlBPYjTkyH72XRZPnLyKus2mBfNjQs3klqbJU2VILqZryAZUt9JOb3h/mWMy23/f5A==}
@@ -7705,9 +7691,6 @@ packages:
   no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
 
-  node-abort-controller@1.2.1:
-    resolution: {integrity: sha512-79PYeJuj6S9+yOHirR0JBLFOgjB6sQCir10uN6xRx25iD+ZD4ULqgRn3MwWBRaQGB0vEgReJzWwJo42T1R6YbQ==}
-
   node-dir@0.1.17:
     resolution: {integrity: sha512-tmPX422rYgofd4epzrNoOXiE8XFZYOcCq1vD7MAXCDO+O+zndlA2ztdKKMa+EeuBG5tHETpr4ml4RGgpqDCCAg==}
     engines: {node: '>= 0.10.5'}
@@ -7900,10 +7883,6 @@ packages:
 
   openapi3-ts@1.4.0:
     resolution: {integrity: sha512-8DmE2oKayvSkIR3XSZ4+pRliBsx19bSNeIzkTPswY8r4wvjX86bMxsORdqwAwMxE8PefOcSAT2auvi/0TZe9yA==}
-
-  opossum@8.1.4:
-    resolution: {integrity: sha512-ktDDCD2MKX7yx8ZLtt57JrUE0IyYJthmTyXtaF4dEdPYHvX0kkWRiKkQkhEjtZnTNN5y1ErMriKNqOLqgpYXtQ==}
-    engines: {node: ^22 || ^21 || ^20 || ^18 || ^16}
 
   optionator@0.9.4:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
@@ -12233,36 +12212,14 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@cultureamp/fetch-sgw@2.0.4(@cultureamp/fetch@4.0.2(encoding@0.1.13))(encoding@0.1.13)':
+  '@cultureamp/frontend-apis@10.0.0(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4)':
     dependencies:
-      '@cultureamp/fetch': 4.0.2(encoding@0.1.13)
-      aws4: 1.13.0
-      cross-fetch: 4.0.0(encoding@0.1.13)
-      node-fetch: 2.7.0(encoding@0.1.13)
-    transitivePeerDependencies:
-      - encoding
-
-  '@cultureamp/fetch@4.0.2(encoding@0.1.13)':
-    dependencies:
-      '@types/opossum': 8.1.7
-      '@types/uuid': 9.0.8
-      cross-fetch: 4.0.0(encoding@0.1.13)
-      deepmerge: 4.3.1
-      is-plain-object: 5.0.0
-      node-abort-controller: 1.2.1
-      opossum: 8.1.4
-      uuid: 9.0.1
-    transitivePeerDependencies:
-      - encoding
-
-  '@cultureamp/frontend-apis@9.9.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4)':
-    dependencies:
-      '@cultureamp/fetch-sgw': 2.0.4(@cultureamp/fetch@4.0.2(encoding@0.1.13))(encoding@0.1.13)
       '@cultureamp/frontend-env': 2.1.2
       '@cultureamp/next-head-hook': 1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.6.0(openapi-types@12.1.3)
       '@tanstack/react-query': 5.59.0(react@18.3.1)
+      aws4: 1.13.2
       chromatic: 10.9.6
       deepmerge: 4.3.1
       fast-glob: 3.3.2
@@ -12284,18 +12241,16 @@ snapshots:
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
-      - '@cultureamp/fetch'
-      - encoding
       - typescript
 
   '@cultureamp/frontend-env@2.1.2':
     dependencies:
       chromatic: 9.1.0
 
-  '@cultureamp/i18n-react-intl@2.6.3(@cultureamp/frontend-apis@9.9.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4))(encoding@0.1.13)(eslint@9.9.0(jiti@1.21.6))(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(ts-jest@29.2.4(@babel/core@7.25.2)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.2))(esbuild@0.23.0)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(typescript@5.5.4))(typescript@5.5.4)':
+  '@cultureamp/i18n-react-intl@2.6.3(@cultureamp/frontend-apis@10.0.0(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4))(encoding@0.1.13)(eslint@9.9.0(jiti@1.21.6))(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(ts-jest@29.2.4(@babel/core@7.25.2)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.2))(esbuild@0.23.0)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(typescript@5.5.4))(typescript@5.5.4)':
     dependencies:
       '@calm/eslint-plugin-react-intl': 1.4.1
-      '@cultureamp/frontend-apis': 9.9.0(@cultureamp/fetch@4.0.2(encoding@0.1.13))(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(encoding@0.1.13)(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4)
+      '@cultureamp/frontend-apis': 10.0.0(@cultureamp/next-head-hook@1.1.11(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)))(next@14.2.3(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react@18.3.1)(typescript@5.5.4)
       '@cultureamp/frontend-env': 2.1.2
       '@formatjs/cli': 6.2.12
       '@formatjs/cli-lib': 6.4.2(ts-jest@29.2.4(@babel/core@7.25.2)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.2))(esbuild@0.23.0)(jest@29.7.0(@types/node@20.14.15)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.11))(@types/node@20.14.15)(typescript@5.5.4)))(typescript@5.5.4))
@@ -15133,10 +15088,6 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/opossum@8.1.7':
-    dependencies:
-      '@types/node': 20.14.15
-
   '@types/parse-json@4.0.2': {}
 
   '@types/picomatch@2.3.3': {}
@@ -15793,7 +15744,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.0.0
 
-  aws4@1.13.0: {}
+  aws4@1.13.2: {}
 
   axe-core@3.5.6: {}
 
@@ -16478,12 +16429,6 @@ snapshots:
   create-require@1.1.1: {}
 
   cross-fetch@3.1.8(encoding@0.1.13):
-    dependencies:
-      node-fetch: 2.7.0(encoding@0.1.13)
-    transitivePeerDependencies:
-      - encoding
-
-  cross-fetch@4.0.0(encoding@0.1.13):
     dependencies:
       node-fetch: 2.7.0(encoding@0.1.13)
     transitivePeerDependencies:
@@ -19969,8 +19914,6 @@ snapshots:
       lower-case: 2.0.2
       tslib: 2.7.0
 
-  node-abort-controller@1.2.1: {}
-
   node-dir@0.1.17:
     dependencies:
       minimatch: 3.1.2
@@ -20237,8 +20180,6 @@ snapshots:
       yargs-parser: 21.1.1
 
   openapi3-ts@1.4.0: {}
-
-  opossum@8.1.4: {}
 
   optionator@0.9.4:
     dependencies:
