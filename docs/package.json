@@ -30,7 +30,7 @@
     "@storybook/test-runner": "^0.19.1",
     "@types/jest-axe": "^3.5.9",
     "@vitejs/plugin-react": "^4.3.2",
-    "axe-playwright": "^2.0.2",
+    "axe-playwright": "^2.0.3",
     "classnames": "^2.5.1",
     "globals": "^15.9.0",
     "highlight.js": "^11.10.0",
