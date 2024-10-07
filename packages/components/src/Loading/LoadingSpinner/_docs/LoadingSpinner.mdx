@@ -29,14 +29,17 @@ When inside a button, it is intended to have the same color as the label text.
 
 ## API
 
+
+### Size
+
+Generally use `"md"` (default value) unless spinner is inside a form field, in which case use `sm`. The `xs` size is for buttons or content dense layouts.
+
+<Canvas of={LoadingSpinnerStories.Size} />
+
 ### ClassNameOverride
 
 Override styles such as the colour of the spinner using `classNameOverride`.
 
 <Canvas of={LoadingSpinnerStories.ClassNameOverride} />
 
-### Size
-
-Generally use `"md"` (default value) unless spinner is inside a form field.
-
-<Canvas of={LoadingSpinnerStories.Size} />
+You can also use this to target the `--loading-spinner-size` CSS variable if required. Note that this will not affect the stroke width of the svg so use with caution.
