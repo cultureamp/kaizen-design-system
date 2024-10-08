@@ -1,6 +1,7 @@
 import alias from "@rollup/plugin-alias"
 import { babel, getBabelOutputPlugin } from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
+import json from "@rollup/plugin-json"
 import resolve from "@rollup/plugin-node-resolve"
 import { InputPluginOption } from "rollup"
 import ignore from "rollup-plugin-ignore"
@@ -59,4 +60,5 @@ export const pluginsDefault = [
   }),
   // https://rollupjs.org/tools/#rollup-plugin-commonjs
   commonjs(),
+  json(),
 ] satisfies InputPluginOption[]
