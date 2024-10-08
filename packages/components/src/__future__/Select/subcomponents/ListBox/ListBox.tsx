@@ -56,7 +56,7 @@ export const ListBox = <Option extends SelectOption>({
     {
       ...menuProps,
       disallowEmptySelection: true,
-      // This is to ensure that the listbox use React Aria's auto focus feature for Listbox, which creates a visual bug
+      // This is to ensure that the listbox doesn't use React Aria's auto focus feature for Listbox, which creates a visual bug
       autoFocus: false,
     },
     state,
