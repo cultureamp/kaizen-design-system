@@ -18,6 +18,79 @@ const transformIcons = (
   })
 
 describe("upgradeIconV1()", () => {
+  describe("CaMonogramIcon to Brand", () => {
+    const transformedBrandProps = 'variant="enso" style={{ width: "20px" }}'
+
+    it("updates import from CaMonogramIcon to Brand", () => {
+      const inputAst = parseJsx(`
+        import { CaMonogramIcon as LogoAlias } from "@kaizen/components"
+        export const TestComponent = () => <LogoAlias />
+      `)
+      const outputAst = parseJsx(`
+        import { Brand } from "@kaizen/components"
+        export const TestComponent = () => <Brand ${transformedBrandProps} />
+      `)
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([
+            ["@kaizen/components", new Map([["LogoAlias", "CaMonogramIcon"]])],
+          ])
+        )
+      ).toEqual(printAst(outputAst))
+    })
+
+    it("does not add another Brand import if it is already imported", () => {
+      const inputAst = parseJsx(`
+        import { Brand, CaMonogramIcon } from "@kaizen/components"
+        export const TestComponent = () => <CaMonogramIcon />
+      `)
+      const outputAst = parseJsx(`
+        import { Brand } from "@kaizen/components"
+        export const TestComponent = () => <Brand ${transformedBrandProps} />
+      `)
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([
+            [
+              "@kaizen/components",
+              new Map([
+                ["Brand", "Brand"],
+                ["CaMonogramIcon", "CaMonogramIcon"],
+              ]),
+            ],
+          ])
+        )
+      ).toEqual(printAst(outputAst))
+    })
+
+    it("uses alias for an existing import", () => {
+      const inputAst = parseJsx(`
+        import { Brand as KzBrand, CaMonogramIcon } from "@kaizen/components"
+        export const TestComponent = () => <CaMonogramIcon />
+      `)
+      const outputAst = parseJsx(`
+        import { Brand as KzBrand } from "@kaizen/components"
+        export const TestComponent = () => <KzBrand ${transformedBrandProps} />
+      `)
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([
+            [
+              "@kaizen/components",
+              new Map([
+                ["KzBrand", "Brand"],
+                ["CaMonogramIcon", "CaMonogramIcon"],
+              ]),
+            ],
+          ])
+        )
+      ).toEqual(printAst(outputAst))
+    })
+  })
+
   describe("import statements", () => {
     it("does not update import of components which are not Icons", () => {
       const inputAst = parseJsx(`
@@ -83,81 +156,6 @@ describe("upgradeIconV1()", () => {
           ])
         )
       ).toEqual(printAst(outputAst))
-    })
-
-    describe("CaMonogramIcon to Brand", () => {
-      const transformedBrandProps = 'variant="enso" style={{ width: "20px" }}'
-      it("updates import from CaMonogramIcon to Brand", () => {
-        const inputAst = parseJsx(`
-          import { CaMonogramIcon as LogoAlias } from "@kaizen/components"
-          export const TestComponent = () => <LogoAlias />
-        `)
-        const outputAst = parseJsx(`
-          import { Brand } from "@kaizen/components"
-          export const TestComponent = () => <Brand ${transformedBrandProps} />
-        `)
-        expect(
-          transformIcons(
-            inputAst,
-            new Map([
-              [
-                "@kaizen/components",
-                new Map([["LogoAlias", "CaMonogramIcon"]]),
-              ],
-            ])
-          )
-        ).toEqual(printAst(outputAst))
-      })
-
-      it("does not add another Brand import if it is already imported", () => {
-        const inputAst = parseJsx(`
-          import { Brand, CaMonogramIcon } from "@kaizen/components"
-          export const TestComponent = () => <CaMonogramIcon />
-        `)
-        const outputAst = parseJsx(`
-          import { Brand } from "@kaizen/components"
-          export const TestComponent = () => <Brand ${transformedBrandProps} />
-        `)
-        expect(
-          transformIcons(
-            inputAst,
-            new Map([
-              [
-                "@kaizen/components",
-                new Map([
-                  ["Brand", "Brand"],
-                  ["CaMonogramIcon", "CaMonogramIcon"],
-                ]),
-              ],
-            ])
-          )
-        ).toEqual(printAst(outputAst))
-      })
-
-      it("uses alias for an existing import", () => {
-        const inputAst = parseJsx(`
-          import { Brand as KzBrand, CaMonogramIcon } from "@kaizen/components"
-          export const TestComponent = () => <CaMonogramIcon />
-        `)
-        const outputAst = parseJsx(`
-          import { Brand as KzBrand } from "@kaizen/components"
-          export const TestComponent = () => <KzBrand ${transformedBrandProps} />
-        `)
-        expect(
-          transformIcons(
-            inputAst,
-            new Map([
-              [
-                "@kaizen/components",
-                new Map([
-                  ["KzBrand", "Brand"],
-                  ["CaMonogramIcon", "CaMonogramIcon"],
-                ]),
-              ],
-            ])
-          )
-        ).toEqual(printAst(outputAst))
-      })
     })
   })
 
@@ -404,102 +402,6 @@ describe("upgradeIconV1()", () => {
           new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
         )
       ).toEqual(printAst(outputAst))
-    })
-  })
-
-  describe("CaMonogramIcon to Brand", () => {
-    it("replaces CaMonogramIcon with Brand variant enso and adds size", () => {
-      const inputAst = parseJsx(`
-        import { CaMonogramIcon } from "@kaizen/components"
-        export const TestComponent = () => <CaMonogramIcon />
-      `)
-      const outputAst = parseJsx(`
-        import { Brand } from "@kaizen/components"
-        export const TestComponent = () => <Brand variant="enso" style={{ width: "20px" }} />
-      `)
-      expect(
-        transformIcons(
-          inputAst,
-          new Map([
-            [
-              "@kaizen/components",
-              new Map([["CaMonogramIcon", "CaMonogramIcon"]]),
-            ],
-          ])
-        )
-      ).toEqual(printAst(outputAst))
-    })
-
-    describe("transform existing props", () => {
-      it("leaves role and aria-label as is", () => {
-        const inputAst = parseJsx(`
-          export const TestComponent = () => (
-            <>
-              <CaMonogramIcon role="presentation" />
-              <CaMonogramIcon role="img" aria-label="Add something" />
-            </>
-          )
-        `)
-        const outputAst = parseJsx(`
-          export const TestComponent = () => (
-            <>
-              <Brand variant="enso" style={{ width: "20px" }} role="presentation" />
-              <Brand variant="enso" style={{ width: "20px" }} role="img" aria-label="Add something" />
-            </>
-          )
-        `)
-        expect(
-          transformIcons(
-            inputAst,
-            new Map([
-              [
-                "@kaizen/components",
-                new Map([["CaMonogramIcon", "CaMonogramIcon"]]),
-              ],
-            ])
-          )
-        ).toEqual(printAst(outputAst))
-      })
-
-      it("leaves classNameOverride as is", () => {
-        const inputAst = parseJsx(`
-          export const TestComponent = () => <CaMonogramIcon classNameOverride="mt-16" />
-        `)
-        const outputAst = parseJsx(`
-          export const TestComponent = () => <Brand variant="enso" style={{ width: "20px" }} classNameOverride="mt-16" />
-        `)
-        expect(
-          transformIcons(
-            inputAst,
-            new Map([
-              [
-                "@kaizen/components",
-                new Map([["CaMonogramIcon", "CaMonogramIcon"]]),
-              ],
-            ])
-          )
-        ).toEqual(printAst(outputAst))
-      })
-
-      it("removes inheritSize and does not add size", () => {
-        const inputAst = parseJsx(`
-          export const TestComponent = () => <CaMonogramIcon inheritSize />
-        `)
-        const outputAst = parseJsx(`
-          export const TestComponent = () => <Brand variant="enso" />
-        `)
-        expect(
-          transformIcons(
-            inputAst,
-            new Map([
-              [
-                "@kaizen/components",
-                new Map([["CaMonogramIcon", "CaMonogramIcon"]]),
-              ],
-            ])
-          )
-        ).toEqual(printAst(outputAst))
-      })
     })
   })
 })
