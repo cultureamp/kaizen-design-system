@@ -102,13 +102,13 @@ const updateNamedImports = (
 }
 
 // Key is module specifier (eg. "@kaizen/components")
-type ImportsToRemoveByPackage = Map<string, ImportsToRemove>
+type ImportsToRemoveMap = Map<string, ImportsToRemove>
 // Key is module specifier (eg. "@kaizen/components")
-type ImportsToAddByPackage = Map<string, ImportsToAdd>
+type ImportsToAddMap = Map<string, ImportsToAdd>
 
 export type UpdateKaioImportsArgs = {
-  importsToRemove?: ImportsToRemoveByPackage
-  importsToAdd?: ImportsToAddByPackage
+  importsToRemove?: ImportsToRemoveMap
+  importsToAdd?: ImportsToAddMap
 }
 
 export const updateKaioImports =
@@ -130,6 +130,8 @@ export const updateKaioImports =
             ts.isImportDeclaration(s) &&
             (s.moduleSpecifier as ts.StringLiteral).text === moduleSpecifier
         )
+
+        if (importIndex === -1) return
 
         const importDeclaration = statements[
           importIndex
@@ -195,3 +197,31 @@ export const updateKaioImports =
 
     return factory.updateSourceFile(rootNode, statements)
   }
+
+/* Consumer helpers */
+export const setImportToRemove = (
+  map: ImportsToRemoveMap,
+  moduleSpecifier: string,
+  componentName: string
+): void => {
+  if (!map.has(moduleSpecifier)) {
+    map.set(moduleSpecifier, new Set([componentName]))
+  }
+  map.get(moduleSpecifier)?.add(componentName)
+}
+
+export const setImportToAdd = (
+  map: ImportsToAddMap,
+  moduleSpecifier: string,
+  importAttributes: NewImportAttributes
+): void => {
+  if (!map.has(moduleSpecifier)) {
+    map.set(
+      moduleSpecifier,
+      new Map([[importAttributes.componentName, importAttributes]])
+    )
+  }
+  map
+    .get(moduleSpecifier)
+    ?.set(importAttributes.componentName, importAttributes)
+}

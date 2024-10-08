@@ -55,6 +55,20 @@ describe("updateKaioImports()", () => {
         })
       ).toEqual(printAst(outputAst))
     })
+
+    it("does nothing if the import does not exist", () => {
+      const inputAst = parseJsx(`
+        import { Select } from "@kaizen/components/future"
+      `)
+      const outputAst = parseJsx(`
+        import { Select } from "@kaizen/components/future"
+      `)
+      expect(
+        transformInput(inputAst)({
+          importsToRemove: new Map([["@kaizen/components", new Set(["Card"])]]),
+        })
+      ).toEqual(printAst(outputAst))
+    })
   })
 
   describe("add imports", () => {
