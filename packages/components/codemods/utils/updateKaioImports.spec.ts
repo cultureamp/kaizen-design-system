@@ -1,21 +1,20 @@
 import ts from "typescript"
 import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst } from "../utils"
-import { ImportsToAdd, ImportsToRemove, updateImports } from "./updateImports"
+import { ImportsToAdd, ImportsToRemove, updateKaioImports } from "./updateKaioImports"
+import { printAst } from "."
 
 const transformInput =
   (sourceFile: ts.SourceFile) =>
   (imports: {
     importsToRemove?: ImportsToRemove
     importsToAdd?: ImportsToAdd
-  }): string =>
-    transformSource({
-      sourceFile,
-      astTransformer: updateImports(imports),
-      tagName: "Pancakes", // Irrelevant
-    })
+  }): string => {
+    const result = ts.transform(sourceFile, [updateKaioImports(imports)])
+    const transformedSource = result.transformed[0] as ts.SourceFile
+    return printAst(transformedSource)
+  }
 
-describe("updateImports()", () => {
+describe("updateKaioImports()", () => {
   describe("remove imports", () => {
     it("removes listed named imports", () => {
       const inputAst = parseJsx(`

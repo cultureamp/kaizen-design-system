@@ -114,7 +114,7 @@ const createImportDeclaration = (
 export type ImportsToRemove = Map<string, Set<string>>
 export type ImportsToAdd = Map<string, Map<string, NewImportAttributes>>
 
-export const updateImports =
+export const updateKaioImports =
   ({
     importsToRemove,
     importsToAdd,
@@ -187,9 +187,7 @@ export const updateImports =
           return
         }
 
-        const importDeclaration = statements[
-          importIndex
-        ] as ts.ImportDeclaration
+        const importDeclaration = (statements[importIndex]) as ts.ImportDeclaration
 
         const updatedImportDeclaration = updateNamedImports(
           factory,
