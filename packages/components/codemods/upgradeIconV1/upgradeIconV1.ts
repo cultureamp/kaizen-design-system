@@ -1,12 +1,15 @@
 import ts from "typescript"
 import {
+  setImportToRemove,
   createProp,
   createStringProp,
   createStyleProp,
   getPropValueText,
   ImportModuleNameTagsMap,
-  // updateImports,
   updateJsxElementWithNewProps,
+  updateKaioImports,
+  UpdateKaioImportsArgs,
+  setImportToAdd,
 } from "../utils"
 import { getNewIconPropsFromOldIconName } from "./getNewIconPropsFromOldIconName"
 import { transformCaMonogramIconToBrand } from "./transformCaMonogramIconToBrand"
@@ -61,25 +64,48 @@ const transformIconProp = (
   }
 }
 
+const reverseStringMap = <Key extends string, Value extends string>(
+  map: Map<Key, Value>
+): Map<Value, Key> => {
+  const reverseMap = new Map<Value, Key>()
+  map.forEach((value, key) => reverseMap.set(value, key))
+  return reverseMap
+}
+
 export const upgradeIconV1 =
   (context: ts.TransformationContext, tagNames: ImportModuleNameTagsMap) =>
   (rootNode: ts.Node): ts.Node => {
-    const kaioTagNames = tagNames.get("@kaizen/components")
+    const oldImportSource = "@kaizen/components"
+
+    const kaioTagNames = tagNames.get(oldImportSource)
     if (!kaioTagNames) return rootNode
+
+    const componentToAliasMap = reverseStringMap(kaioTagNames)
+    const importsToRemove =
+      new Map() satisfies UpdateKaioImportsArgs["importsToRemove"]
+    const importsToAdd =
+      new Map() satisfies UpdateKaioImportsArgs["importsToAdd"]
 
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         const tagName = node.tagName.getText()
+        const kaioComponentName = kaioTagNames.get(tagName)
 
-        if (tagName === "CaMonogramIcon") {
-          return transformCaMonogramIconToBrand(node)
+        if (kaioComponentName === "CaMonogramIcon") {
+          setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
+          const alias = componentToAliasMap.get("Brand") as string
+
+          if (!kaioTagNames.has(alias)) {
+            setImportToAdd(importsToAdd, "@kaizen/components", {
+              componentName: "Brand",
+              alias: alias !== "Brand" ? alias : undefined,
+            })
+          }
+          return transformCaMonogramIconToBrand(node, alias)
         }
 
-        if (kaioTagNames.has(tagName)) {
-          // Above has checked the key exists, so the value should also exist and not be undefined
-          const newIconProps = getNewIconPropsFromOldIconName(
-            kaioTagNames.get(tagName) as string
-          )
+        if (kaioComponentName) {
+          const newIconProps = getNewIconPropsFromOldIconName(kaioComponentName)
           if (newIconProps === undefined) {
             // eslint-disable-next-line no-console
             console.info(
@@ -143,6 +169,10 @@ export const upgradeIconV1 =
           }
           newAttributes.unshift(createStringProp("name", newIconProps.name))
 
+          setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
+          setImportToAdd(importsToAdd, "@kaizen/components/future", {
+            componentName: "Icon",
+          })
           return updateJsxElementWithNewProps(node, newAttributes, "Icon")
         }
       }
@@ -150,6 +180,8 @@ export const upgradeIconV1 =
     }
     const node = ts.visitNode(rootNode, visit)
 
-    // return updateImports(context)(node)
-    return node
+    return updateKaioImports({
+      importsToRemove: importsToRemove.size > 0 ? importsToRemove : undefined,
+      importsToAdd: importsToAdd.size > 0 ? importsToAdd : undefined,
+    })(context)(node)
   }

@@ -6,7 +6,8 @@ import {
 } from "../utils"
 
 export const transformCaMonogramIconToBrand = (
-  node: ts.JsxOpeningElement | ts.JsxSelfClosingElement
+  node: ts.JsxOpeningElement | ts.JsxSelfClosingElement,
+  tagName: string = "Brand"
 ): ts.Node => {
   let shouldInheritSize = false
   const newAttributes = node.attributes.properties.reduce<
@@ -30,5 +31,5 @@ export const transformCaMonogramIconToBrand = (
 
   newAttributes.unshift(createStringProp("variant", "enso"))
 
-  return updateJsxElementWithNewProps(node, newAttributes, "Brand")
+  return updateJsxElementWithNewProps(node, newAttributes, tagName)
 }

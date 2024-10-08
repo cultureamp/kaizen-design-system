@@ -1,100 +1,169 @@
 import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst, TransformConfig } from "../utils"
+import {
+  transformSource,
+  printAst,
+  TransformConfig,
+  ImportModuleNameTagsMap,
+} from "../utils"
 import { upgradeIconV1 } from "./upgradeIconV1"
 
-const transformIcons = (sourceFile: TransformConfig["sourceFile"]): string =>
+const transformIcons = (
+  sourceFile: TransformConfig["sourceFile"],
+  tagNames: ImportModuleNameTagsMap
+): string =>
   transformSource({
     sourceFile,
     astTransformer: upgradeIconV1,
-    tagName: new Map([
-      [
-        "@kaizen/components",
-        new Map([
-          ["AddIcon", "AddIcon"],
-          ["CaMonogramIcon", "CaMonogramIcon"],
-          ["FlagOffIcon", "FlagOffIcon"],
-          ["FlagOffWhiteIcon", "FlagOffWhiteIcon"],
-          ["FlagOnIcon", "FlagOnIcon"],
-          ["IconAlias", "HamburgerIcon"],
-          ["MeatballsIcon", "MeatballsIcon"],
-        ]),
-      ],
-    ]),
+    tagName: tagNames,
   })
 
 describe("upgradeIconV1()", () => {
-  it("updates imports and components", () => {
-    const inputAst = parseJsx(`
-      import { AddIcon, Card, CaMonogramIcon, HamburgerIcon as IconAlias } from "@kaizen/components"
-      export const TestComponent = () => (
-        <Card>
-          <AddIcon />
-          <CaMonogramIcon />
-          <IconAlias />
-        </Card>
-      )
-    `)
-    const outputAst = parseJsx(`
-      import { Brand, Card } from "@kaizen/components"
-      import { Icon } from "@kaizen/components/future"
-      export const TestComponent = () => (
-        <Card>
-          <Icon name="add" />
-          <Brand variant="enso />
-          <Icon name="menu" />
-        </Card>
-      )
-    `)
-    expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
-  })
-
   describe("import statements", () => {
-    it("updates imports of Icons", () => {
-      const inputAst = parseJsx(`
-        import { AddIcon, MeatballsIcon } from "@kaizen/components"
-      `)
-      const outputAst = parseJsx(`
-        import { Icon } from "@kaizen/components/future"
-      `)
-      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
-    })
-
-    it("updates imports of aliased Icons", () => {
-      const inputAst = parseJsx(`
-        import { AddIcon, HamburgerIcon as IconAlias } from "@kaizen/components"
-      `)
-      const outputAst = parseJsx(`
-        import { Icon } from "@kaizen/components/future"
-      `)
-      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
-    })
-
     it("does not update import of components which are not Icons", () => {
       const inputAst = parseJsx(`
         import { AddIcon, Card } from "@kaizen/components"
+        export const TestComponent = () => <Card><AddIcon /></Card>
       `)
       const outputAst = parseJsx(`
         import { Card } from "@kaizen/components"
         import { Icon } from "@kaizen/components/future"
+        export const TestComponent = () => <Card><Icon name="add" /></Card>
       `)
-      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([
+            [
+              "@kaizen/components",
+              new Map([
+                ["AddIcon", "AddIcon"],
+                ["Card", "Card"],
+              ]),
+            ],
+          ])
+        )
+      ).toEqual(printAst(outputAst))
     })
 
     it("does not update import of components which are not from KAIO", () => {
       const inputAst = parseJsx(`
         import { AddIcon, HamburgerIcon as IconAlias } from "@kaizen/components"
-        import { HamburgerIcon as HamHam } from "@somewhere-else"
+        import { HamburgerIcon as HamHam } from "somewhere-else"
+        export const TestComponent = () => (
+          <>
+            <AddIcon />
+            <IconAlias />
+            <HamHam />
+          </>
+        )
       `)
       const outputAst = parseJsx(`
         import { Icon } from "@kaizen/components/future"
-        import { HamburgerIcon as HamHam } from "@somewhere-else"
+        import { HamburgerIcon as HamHam } from "somewhere-else"
+        export const TestComponent = () => (
+          <>
+            <Icon name="add" />
+            <Icon name="menu" />
+            <HamHam />
+          </>
+        )
       `)
-      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([
+            [
+              "@kaizen/components",
+              new Map([
+                ["AddIcon", "AddIcon"],
+                ["IconAlias", "HamburgerIcon"],
+              ]),
+            ],
+            ["somewhere-else", new Map([["HamHam", "HamburgerIcon"]])],
+          ])
+        )
+      ).toEqual(printAst(outputAst))
+    })
+
+    describe("CaMonogramIcon to Brand", () => {
+      const transformedBrandProps = 'variant="enso" style={{ width: "20px" }}'
+      it("updates import from CaMonogramIcon to Brand", () => {
+        const inputAst = parseJsx(`
+          import { CaMonogramIcon as LogoAlias } from "@kaizen/components"
+          export const TestComponent = () => <LogoAlias />
+        `)
+        const outputAst = parseJsx(`
+          import { Brand } from "@kaizen/components"
+          export const TestComponent = () => <Brand ${transformedBrandProps} />
+        `)
+        expect(
+          transformIcons(
+            inputAst,
+            new Map([
+              [
+                "@kaizen/components",
+                new Map([["LogoAlias", "CaMonogramIcon"]]),
+              ],
+            ])
+          )
+        ).toEqual(printAst(outputAst))
+      })
+
+      it("does not add another Brand import if it is already imported", () => {
+        const inputAst = parseJsx(`
+          import { Brand, CaMonogramIcon } from "@kaizen/components"
+          export const TestComponent = () => <CaMonogramIcon />
+        `)
+        const outputAst = parseJsx(`
+          import { Brand } from "@kaizen/components"
+          export const TestComponent = () => <Brand ${transformedBrandProps} />
+        `)
+        expect(
+          transformIcons(
+            inputAst,
+            new Map([
+              [
+                "@kaizen/components",
+                new Map([
+                  ["Brand", "Brand"],
+                  ["CaMonogramIcon", "CaMonogramIcon"],
+                ]),
+              ],
+            ])
+          )
+        ).toEqual(printAst(outputAst))
+      })
+
+      it("uses alias for an existing import", () => {
+        const inputAst = parseJsx(`
+          import { Brand as KzBrand, CaMonogramIcon } from "@kaizen/components"
+          export const TestComponent = () => <CaMonogramIcon />
+        `)
+        const outputAst = parseJsx(`
+          import { Brand as KzBrand } from "@kaizen/components"
+          export const TestComponent = () => <KzBrand ${transformedBrandProps} />
+        `)
+        expect(
+          transformIcons(
+            inputAst,
+            new Map([
+              [
+                "@kaizen/components",
+                new Map([
+                  ["KzBrand", "Brand"],
+                  ["CaMonogramIcon", "CaMonogramIcon"],
+                ]),
+              ],
+            ])
+          )
+        ).toEqual(printAst(outputAst))
+      })
     })
   })
 
   it("renames component and adds equivalent props", () => {
     const inputAst = parseJsx(`
+      import { AddIcon, FlagOffIcon, FlagOffWhiteIcon, FlagOnIcon, HamburgerIcon as IconAlias, MeatballsIcon } from "@kaizen/components"
       export const TestComponent = () => (
         <>
           <AddIcon />
@@ -107,6 +176,7 @@ describe("upgradeIconV1()", () => {
       )
     `)
     const outputAst = parseJsx(`
+      import { Icon } from "@kaizen/components/future"
       export const TestComponent = () => (
         <>
           <Icon name="add" />
@@ -118,21 +188,50 @@ describe("upgradeIconV1()", () => {
         </>
       )
     `)
-    expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    expect(
+      transformIcons(
+        inputAst,
+        new Map([
+          [
+            "@kaizen/components",
+            new Map([
+              ["AddIcon", "AddIcon"],
+              ["FlagOffIcon", "FlagOffIcon"],
+              ["FlagOffWhiteIcon", "FlagOffWhiteIcon"],
+              ["FlagOnIcon", "FlagOnIcon"],
+              ["IconAlias", "HamburgerIcon"],
+              ["MeatballsIcon", "MeatballsIcon"],
+            ]),
+          ],
+        ])
+      )
+    ).toEqual(printAst(outputAst))
   })
 
   it("leaves icons which do not have a new equivalent", () => {
     const inputAst = parseJsx(`
+      import { SomeInvalidIcon } from "@kaizen/components"
       export const TestComponent = () => (
         <SomeInvalidIcon />
       )
     `)
     const outputAst = parseJsx(`
+      import { SomeInvalidIcon } from "@kaizen/components"
       export const TestComponent = () => (
         <SomeInvalidIcon />
       )
     `)
-    expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+    expect(
+      transformIcons(
+        inputAst,
+        new Map([
+          [
+            "@kaizen/components",
+            new Map([["SomeInvalidationIcon", "SomeInvalidationIcon"]]),
+          ],
+        ])
+      )
+    ).toEqual(printAst(outputAst))
   })
 
   describe("transform existing props", () => {
@@ -155,7 +254,12 @@ describe("upgradeIconV1()", () => {
           </>
         )
       `)
-      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
+        )
+      ).toEqual(printAst(outputAst))
     })
 
     it("replaces classNameOverride with className prop", () => {
@@ -165,7 +269,12 @@ describe("upgradeIconV1()", () => {
       const outputAst = parseJsx(`
         export const TestComponent = () => <Icon name="add" isPresentational className="mt-16" />
       `)
-      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
+        )
+      ).toEqual(printAst(outputAst))
     })
 
     it("leaves inheritSize - this should throw a TS error for the consumer", () => {
@@ -177,7 +286,12 @@ describe("upgradeIconV1()", () => {
         // @todo: Apply the correct --icon-size (eg. in Tailwind: className="[--icon-size:48]")
         inheritSize />
       `)
-      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
+        )
+      ).toEqual(printAst(outputAst))
     })
 
     it("removes aria-hidden", () => {
@@ -187,7 +301,12 @@ describe("upgradeIconV1()", () => {
       const outputAst = parseJsx(`
         export const TestComponent = () => <Icon name="add" isPresentational />
       `)
-      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
+        )
+      ).toEqual(printAst(outputAst))
     })
 
     it("removes fontSize", () => {
@@ -197,7 +316,12 @@ describe("upgradeIconV1()", () => {
       const outputAst = parseJsx(`
         export const TestComponent = () => <Icon name="add" isPresentational />
       `)
-      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
+        )
+      ).toEqual(printAst(outputAst))
     })
 
     it("removes viewBox", () => {
@@ -207,7 +331,12 @@ describe("upgradeIconV1()", () => {
       const outputAst = parseJsx(`
         export const TestComponent = () => <Icon name="add" isPresentational />
       `)
-      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
+        )
+      ).toEqual(printAst(outputAst))
     })
 
     describe("color prop to style", () => {
@@ -228,7 +357,12 @@ describe("upgradeIconV1()", () => {
             </>
           )
         `)
-        expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+        expect(
+          transformIcons(
+            inputAst,
+            new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
+          )
+        ).toEqual(printAst(outputAst))
       })
 
       it("transforms a variable", () => {
@@ -248,7 +382,12 @@ describe("upgradeIconV1()", () => {
             </>
           )
         `)
-        expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+        expect(
+          transformIcons(
+            inputAst,
+            new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
+          )
+        ).toEqual(printAst(outputAst))
       })
     })
 
@@ -259,19 +398,36 @@ describe("upgradeIconV1()", () => {
       const outputAst = parseJsx(`
         export const TestComponent = () => <Icon name="add" style={{ height: 24, width: 24 }} />
       `)
-      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
+        )
+      ).toEqual(printAst(outputAst))
     })
   })
 
   describe("CaMonogramIcon to Brand", () => {
     it("replaces CaMonogramIcon with Brand variant enso and adds size", () => {
       const inputAst = parseJsx(`
+        import { CaMonogramIcon } from "@kaizen/components"
         export const TestComponent = () => <CaMonogramIcon />
       `)
       const outputAst = parseJsx(`
+        import { Brand } from "@kaizen/components"
         export const TestComponent = () => <Brand variant="enso" style={{ width: "20px" }} />
       `)
-      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([
+            [
+              "@kaizen/components",
+              new Map([["CaMonogramIcon", "CaMonogramIcon"]]),
+            ],
+          ])
+        )
+      ).toEqual(printAst(outputAst))
     })
 
     describe("transform existing props", () => {
@@ -292,7 +448,17 @@ describe("upgradeIconV1()", () => {
             </>
           )
         `)
-        expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+        expect(
+          transformIcons(
+            inputAst,
+            new Map([
+              [
+                "@kaizen/components",
+                new Map([["CaMonogramIcon", "CaMonogramIcon"]]),
+              ],
+            ])
+          )
+        ).toEqual(printAst(outputAst))
       })
 
       it("leaves classNameOverride as is", () => {
@@ -302,7 +468,17 @@ describe("upgradeIconV1()", () => {
         const outputAst = parseJsx(`
           export const TestComponent = () => <Brand variant="enso" style={{ width: "20px" }} classNameOverride="mt-16" />
         `)
-        expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+        expect(
+          transformIcons(
+            inputAst,
+            new Map([
+              [
+                "@kaizen/components",
+                new Map([["CaMonogramIcon", "CaMonogramIcon"]]),
+              ],
+            ])
+          )
+        ).toEqual(printAst(outputAst))
       })
 
       it("removes inheritSize and does not add size", () => {
@@ -312,7 +488,17 @@ describe("upgradeIconV1()", () => {
         const outputAst = parseJsx(`
           export const TestComponent = () => <Brand variant="enso" />
         `)
-        expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
+        expect(
+          transformIcons(
+            inputAst,
+            new Map([
+              [
+                "@kaizen/components",
+                new Map([["CaMonogramIcon", "CaMonogramIcon"]]),
+              ],
+            ])
+          )
+        ).toEqual(printAst(outputAst))
       })
     })
   })
