@@ -1,12 +1,11 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { ArrowForwardIcon, AddIcon, TrashIcon } from "~components/Icon"
-import { LoadingSpinner } from "~components/Loading"
+import { ArrowForwardIcon, TrashIcon } from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Button } from "../index"
+import { Button, ButtonSize, ButtonVariant } from "../index"
 
 export default {
   title: "Actions/Button/Button (v3)/Tests",
@@ -16,86 +15,137 @@ export default {
   },
 } satisfies Meta
 
+function capitalize(str: string): string {
+  if (!str) return str
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+const RowTemplate = ({
+  variant,
+  sizes,
+  isReversed = false,
+}: {
+  variant: ButtonVariant
+  sizes: ButtonSize[]
+  isReversed?: boolean
+}): JSX.Element => (
+  <>
+    {sizes.map((size, key) => (
+      <StickerSheet.Row
+        key={key}
+        isReversed={isReversed}
+        rowTitle={`${capitalize(variant)} (${size})`}
+      >
+        <Button variant={variant} size={size}>
+          Label
+        </Button>
+        <Button
+          isPending={true}
+          pendingLabel="Submitting"
+          variant={variant}
+          size={size}
+        />
+        <Button
+          isPending={true}
+          pendingLabel="Submitting"
+          isPendingLabelHidden
+          variant={variant}
+          size={size}
+        />
+        <Button variant={variant} size={size} isDisabled>
+          Label
+        </Button>
+      </StickerSheet.Row>
+    ))}
+    {/* {sizes.map((size, key) => (
+      <StickerSheet.Row
+        key={key}
+        isReversed={isReversed}
+        rowTitle={`${capitalize(variant)} (${size}) icon start `}
+      >
+        <Button variant={variant} size={size}>
+          <TrashIcon role="presentation" /> Label
+        </Button>
+        <Button
+          isPending={true}
+          pendingLabel="Submitting"
+          variant={variant}
+          size={size}
+        />
+        <Button variant={variant} size={size} isDisabled>
+          <TrashIcon role="presentation" /> Label
+        </Button>
+      </StickerSheet.Row>
+    ))}
+    {sizes.map((size, key) => (
+      <StickerSheet.Row
+        key={key}
+        isReversed={isReversed}
+        rowTitle={`${capitalize(variant)} (${size}) icon end `}
+      >
+        <Button variant={variant} size={size}>
+          Label <ArrowForwardIcon role="presentation" />
+        </Button>
+        <Button
+          isPending={true}
+          pendingLabel="Submitting"
+          variant={variant}
+          size={size}
+        />
+        <Button variant={variant} size={size} isDisabled>
+          Label <ArrowForwardIcon role="presentation" />
+        </Button>
+      </StickerSheet.Row>
+    ))}
+    {sizes.map((size, key) => (
+      <StickerSheet.Row
+        key={key}
+        isReversed={isReversed}
+        rowTitle={`${capitalize(variant)} (${size}) icon only `}
+      >
+        <Button variant={variant} size={size}>
+          <TrashIcon role="img" aria-label="Label" />
+        </Button>
+        <Button
+          isPending={true}
+          pendingLabel="Submitting"
+          variant={variant}
+          size={size}
+        />
+        <Button variant={variant} size={size} isDisabled>
+          <TrashIcon role="img" aria-label="Label" />
+        </Button>
+      </StickerSheet.Row>
+    ))} */}
+  </>
+)
+
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
       <StickerSheet heading="Button" isReversed={isReversed}>
         <StickerSheet.Header
-          headings={["Base", "Disabled", "working"]}
+          headings={["Base", "Pending", "Pending (hidden)", "Disabled"]}
           headingsWidth="10rem"
           hasVerticalHeadings
           verticalHeadingsWidth="12rem"
         />
         <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Default">
-            <Button>Label</Button>
-
-            <Button isDisabled>Label</Button>
-            <Button isDisabled>
-              <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Icon start">
-            <Button>
-              <AddIcon role="presentation" />
-              Label
-            </Button>
-            <Button isDisabled>
-              <AddIcon role="presentation" />
-              Label
-            </Button>
-            <Button isDisabled>
-              <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Icon end">
-            <Button>
-              Label
-              <ArrowForwardIcon role="presentation" />
-            </Button>
-            <Button isDisabled>
-              Label
-              <ArrowForwardIcon role="presentation" />
-            </Button>
-            <Button isDisabled>
-              <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Icon only">
-            <Button aria-label="Label">
-              <TrashIcon role="presentation" />
-            </Button>
-            <Button aria-label="Label" isDisabled>
-              <TrashIcon role="presentation" />
-            </Button>
-            <Button aria-label="Label" isDisabled>
-              <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Small">
-            <Button size="small">
-              Label
-              <ArrowForwardIcon role="presentation" />
-            </Button>
-            <Button size="small" isDisabled>
-              Label
-              <ArrowForwardIcon role="presentation" />
-            </Button>
-            <Button size="small" isDisabled>
-              <LoadingSpinner size="xs" accessibilityLabel="submitting label" />
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Icon only small">
-            <Button size="small">
-              <TrashIcon role="img" aria-label="Remove label" />
-            </Button>
-            <Button size="small" isDisabled>
-              <TrashIcon role="img" aria-label="Remove label" />
-            </Button>
-            <Button size="small" isDisabled>
-              <LoadingSpinner size="xs" accessibilityLabel="Removing label" />
-            </Button>
-          </StickerSheet.Row>
+          <RowTemplate
+            isReversed={isReversed}
+            sizes={["large", "medium", "small"]}
+            variant="primary"
+          />
+          <RowTemplate
+            isReversed={isReversed}
+            sizes={["large", "medium", "small"]}
+            variant="secondary"
+          />
+          <RowTemplate
+            isReversed={isReversed}
+            sizes={["large", "medium", "small"]}
+            variant="tertiary"
+          />
         </StickerSheet.Body>
       </StickerSheet>
     </>

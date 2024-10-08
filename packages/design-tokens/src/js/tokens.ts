@@ -302,21 +302,6 @@ export const tokens: TokenStructure = {
     paragraphBold: {
       fontWeight: 600,
     },
-    // TODO: this seems like a logical token to have but check with team
-    button: {
-      fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
-      fontWeight: 500,
-      fontSize: "1rem",
-      lineHeight: "1.5rem",
-      letterSpacing: "normal",
-    },
-    buttonSmall: {
-      fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
-      fontWeight: 500,
-      fontSize: ".75rem",
-      lineHeight: "1rem",
-      letterSpacing: "normal",
-    },
     // TODO: These seem redundant now -  not that we can easily remove them we can start phasing this our in favor of the above
     buttonPrimary: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
