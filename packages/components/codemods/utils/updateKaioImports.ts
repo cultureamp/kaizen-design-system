@@ -1,13 +1,82 @@
 import ts from "typescript"
 
+type ImportsToRemove = Set<string>
+
+const removeNamedImports = (
+  factory: ts.NodeFactory,
+  node: ts.ImportDeclaration,
+  importsToRemove: ImportsToRemove
+): ts.ImportDeclaration | null => {
+  const namedBindings = node.importClause?.namedBindings
+  if (namedBindings && ts.isNamedImports(namedBindings)) {
+    const namedImports = namedBindings.elements.filter(importSpecifier => {
+      const componentName =
+        importSpecifier.propertyName?.getText() ??
+        importSpecifier.name.getText()
+      return !importsToRemove.has(componentName)
+    })
+
+    if (namedImports.length === 0) return null
+
+    return factory.updateImportDeclaration(
+      node,
+      node.modifiers,
+      factory.updateImportClause(
+        node.importClause,
+        node.importClause.isTypeOnly,
+        node.importClause.name,
+        factory.updateNamedImports(namedBindings, namedImports)
+      ),
+      node.moduleSpecifier,
+      node.attributes
+    )
+  }
+
+  return node
+}
+
 type NewImportAttributes = { componentName: string; alias?: string }
+type ImportsToAdd = Map<string, NewImportAttributes>
+
+const createImportDeclaration = (
+  factory: ts.NodeFactory,
+  importsToAdd: ImportsToAdd,
+  moduleSpecifier: string
+): ts.ImportDeclaration => {
+  const namedImports = Array.from(importsToAdd.values()).map(
+    ({ componentName, alias }) =>
+      factory.createImportSpecifier(
+        false,
+        alias ? factory.createIdentifier(componentName) : undefined,
+        factory.createIdentifier(alias ?? componentName)
+      )
+  )
+
+  return factory.createImportDeclaration(
+    undefined,
+    factory.createImportClause(
+      false,
+      undefined,
+      factory.createNamedImports(namedImports)
+    ),
+    factory.createStringLiteral(moduleSpecifier)
+  )
+}
 
 const updateNamedImports = (
   factory: ts.NodeFactory,
   node: ts.ImportDeclaration,
-  importsToAdd: Map<string, NewImportAttributes>
+  importsToAdd: ImportsToAdd
 ): ts.ImportDeclaration => {
+  if (!node.importClause) return node
+
   const importSpecifiers: ts.ImportSpecifier[] = []
+
+  const namedBindings = node.importClause.namedBindings
+  if (namedBindings && ts.isNamedImports(namedBindings)) {
+    importSpecifiers.push(...namedBindings.elements)
+  }
+
   const newNamedImports = Array.from(importsToAdd.values()).map(
     ({ alias, componentName }) =>
       factory.createImportSpecifier(
@@ -18,110 +87,32 @@ const updateNamedImports = (
   )
   importSpecifiers.push(...newNamedImports)
 
-  const namedBindings = node.importClause?.namedBindings
-  if (namedBindings && ts.isNamedImports(namedBindings)) {
-    importSpecifiers.unshift(...namedBindings.elements)
-  }
-
-  let importClause: ts.ImportClause
-  if (node.importClause && node.importClause.namedBindings) {
-    const namedImports = factory.createNamedImports(importSpecifiers)
-
-    importClause = factory.updateImportClause(
-      node.importClause,
-      node.importClause.isTypeOnly,
-      node.importClause.name,
-      namedImports
-    )
-  } else {
-    importClause = factory.createImportClause(
-      false,
-      undefined,
-      factory.createNamedImports(newNamedImports)
-    )
-  }
-
   return factory.updateImportDeclaration(
     node,
     node.modifiers,
-    importClause,
+    factory.updateImportClause(
+      node.importClause,
+      node.importClause.isTypeOnly,
+      node.importClause.name,
+      factory.createNamedImports(importSpecifiers)
+    ),
     node.moduleSpecifier,
     node.attributes
   )
 }
 
-const removeNamedImports = (
-  factory: ts.NodeFactory,
-  node: ts.ImportDeclaration,
-  toRemove: Set<string>
-): ts.ImportDeclaration | null => {
-  const namedBindings = node.importClause?.namedBindings
-  if (namedBindings && ts.isNamedImports(namedBindings)) {
-    const namedImports = namedBindings.elements.filter(importSpecifier => {
-      const componentName =
-        importSpecifier.propertyName?.getText() ??
-        importSpecifier.name.getText()
-      return !toRemove.has(componentName)
-    })
+// Key is module specifier (eg. "@kaizen/components")
+type ImportsToRemoveByPackage = Map<string, ImportsToRemove>
+// Key is module specifier (eg. "@kaizen/components")
+type ImportsToAddByPackage = Map<string, ImportsToAdd>
 
-    if (namedImports.length === 0) {
-      return null
-    }
-
-    const importClause = factory.updateImportClause(
-      node.importClause,
-      node.importClause.isTypeOnly,
-      node.importClause.name,
-      factory.updateNamedImports(namedBindings, namedImports)
-    )
-
-    return factory.updateImportDeclaration(
-      node,
-      node.modifiers,
-      importClause,
-      node.moduleSpecifier,
-      node.attributes
-    )
-  }
-
-  return node
+export type UpdateKaioImportsArgs = {
+  importsToRemove?: ImportsToRemoveByPackage
+  importsToAdd?: ImportsToAddByPackage
 }
 
-const createImportDeclaration = (
-  factory: ts.NodeFactory,
-  importAttributesMap: Map<string, NewImportAttributes>,
-  moduleSpecifier: string
-): ts.ImportDeclaration =>
-  factory.createImportDeclaration(
-    undefined,
-    factory.createImportClause(
-      false,
-      undefined,
-      factory.createNamedImports(
-        Array.from(importAttributesMap.values()).map(
-          ({ componentName, alias }) =>
-            factory.createImportSpecifier(
-              false,
-              alias ? factory.createIdentifier(componentName) : undefined,
-              factory.createIdentifier(alias ?? componentName)
-            )
-        )
-      )
-    ),
-    factory.createStringLiteral(moduleSpecifier)
-  )
-
-export type ImportsToRemove = Map<string, Set<string>>
-export type ImportsToAdd = Map<string, Map<string, NewImportAttributes>>
-
 export const updateKaioImports =
-  ({
-    importsToRemove,
-    importsToAdd,
-  }: {
-    importsToRemove?: ImportsToRemove
-    importsToAdd?: ImportsToAdd
-  }) =>
+  ({ importsToRemove, importsToAdd }: UpdateKaioImportsArgs) =>
   (context: ts.TransformationContext) =>
   (rootNode: ts.Node): ts.Node => {
     if (!ts.isSourceFile(rootNode)) return rootNode
@@ -187,7 +178,9 @@ export const updateKaioImports =
           return
         }
 
-        const importDeclaration = (statements[importIndex]) as ts.ImportDeclaration
+        const importDeclaration = statements[
+          importIndex
+        ] as ts.ImportDeclaration
 
         const updatedImportDeclaration = updateNamedImports(
           factory,
