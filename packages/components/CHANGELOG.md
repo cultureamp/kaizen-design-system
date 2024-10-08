@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.64.14
+
+### Patch Changes
+
+- [#5123](https://github.com/cultureamp/kaizen-design-system/pull/5123) [`cdabe86df383a2403b56fd65d9743811ae7a08b4`](https://github.com/cultureamp/kaizen-design-system/commit/cdabe86df383a2403b56fd65d9743811ae7a08b4) - Fix for the tab focus jump issue on future Select and FilterSelect
+
 ## 1.64.13
 
 ### Patch Changes
