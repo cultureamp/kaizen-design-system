@@ -1,0 +1,197 @@
+.button {
+  --button-min-height: var(--spacing-40);
+  --button-padding: calc(var(--spacing-8) - var(--border-solid-border-width));
+  --button-icon-size: var(--spacing-24);
+  --button-bg-color: var(--color-white);
+  --button-border-color: var(--color-white);
+  --button-text-color: var(--color-white);
+  /* TODO: Make sure folks are across the proposed new button typography tokens */
+  --button-font-family: var(--typography-button-font-family);
+  --button-font-weight: var(--typography-button-font-weight);
+  --button-font-size: var(--typography-button-font-size);
+  --button-line-height: var(--typography-button-line-height);
+
+  /* RESET */
+  appearance: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  border: none;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* RESET */
+
+  background-color: var(--button-bg-color);
+  border: var(--border-solid-border-width) var(--border-solid-border-style);
+  border-radius: var(--border-solid-border-radius);
+  border-color: var(--button-border-color);
+  box-sizing: border-box;
+  color: var(--button-text-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  gap: var(--spacing-8);
+  font-family: var(--button-font-family);
+  font-weight: var(--button-font-weight);
+  font-size: var(--button-font-size);
+  line-height: var(--button-line-height);
+  min-height: var(--button-min-height);
+  min-width: var(--button-min-height);
+  position: relative;
+  padding: var(--button-padding);
+
+  &[data-focus-visible]::after {
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-color: var(--color-blue-500);
+    border-radius: var(--border-focus-ring-border-radius);
+    border-width: var(--border-focus-ring-border-width);
+    border-style: var(--border-focus-ring-border-style);
+    inset: calc(-1 * (var(--border-focus-ring-border-width) * 2) - 1px);
+  }
+
+  &.reversed[data-focus-visible]::after {
+    border-color: var(--color-blue-300);
+  }
+}
+
+.button svg {
+  height: var(--button-icon-size);
+  width: var(--button-icon-size);
+}
+
+.icon {
+  /* TODO: Ideally not the above ^ I should add styles that can be passed into the icon here */
+}
+
+.small {
+  --button-font-size: var(--typography-button-small-font-size);
+  --button-line-height: var(--typography-button-small-line-height);
+  --button-min-height: var(--spacing-32);
+  --button-icon-size: var(--spacing-16);
+  gap: var(--spacing-4);
+}
+
+.medium {
+  --button-min-height: var(--spacing-40);
+}
+
+.large {
+  --button-min-height: var(--spacing-48);
+  --button-padding: calc(var(--spacing-12) - var(--border-solid-border-width));
+  --button-icon-size: var(--spacing-24);
+}
+
+.primary {
+  --button-bg-color: var(--color-blue-500);
+  --button-border-color: var(--color-blue-500);
+  --button-text-color: var(--color-white);
+
+  &[data-hovered] {
+    --button-bg-color: var(--color-blue-400);
+    --button-border-color: var(--color-blue-400);
+  }
+
+  &[data-pressed] {
+    --button-bg-color: var(--color-blue-600);
+    --button-border-color: var(--color-blue-600);
+  }
+}
+
+.primary.reversed {
+  --button-bg-color: var(--color-white);
+  --button-border-color: var(--color-white);
+  --button-text-color: var(--color-purple-800);
+
+  /* TODO: check on this state in designs.... doesn't seem right */
+  &[data-hovered] {
+    --button-bg-color: var(--color-white);
+    --button-border-color: var(--color-white);
+  }
+
+  /* TODO: check on this state in designs.... doesn't seem right */
+  &[data-pressed] {
+    --button-bg-color: var(--color-white);
+    --button-border-color: var(--color-white);
+  }
+}
+
+.secondary {
+  --button-bg-color: var(--color-white);
+  --button-border-color: var(--color-gray-500);
+  --button-text-color: var(--color-purple-800);
+
+  &[data-hovered] {
+    --button-bg-color: var(--color-gray-500);
+  }
+
+  &[data-pressed] {
+    --button-bg-color: var(--color-gray-300);
+  }
+}
+
+.secondary.reversed {
+  --button-bg-color: transparent;
+  --button-border-color: var(--color-white);
+  --button-text-color: var(--color-white);
+
+  &[data-hovered] {
+    --button-bg-color: rgba(var(--color-white-rgb), 0.2);
+  }
+
+  &[data-pressed] {
+    --button-bg-color: rgba(var(--color-white-rgb), 0.1);
+  }
+}
+
+.tertiary {
+  /* TODO: Check if is white or transparent */
+  --button-bg-color: transparent;
+  --button-border-color: transparent;
+  --button-text-color: var(--color-purple-800);
+
+  &[data-hovered] {
+    --button-bg-color: var(--gray-200);
+    --button-border-color: var(--gray-200);
+  }
+
+  &[data-pressed] {
+    --button-bg-color: var(--color-gray-300);
+    --button-border-color: var(--color-gray-300);
+  }
+}
+
+.tertiary.reversed {
+  --button-bg-color: transparent;
+  --button-border-color: transparent;
+  --button-text-color: var(--color-white);
+
+  &[data-hovered] {
+    --button-bg-color: rgba(var(--color-white-rgb), 0.2);
+    --button-border-color: rgba(var(--color-white-rgb), 0.2);
+  }
+
+  &[data-pressed] {
+    --button-bg-color: rgba(var(--color-white-rgb), 0.1);
+    --button-border-color: rgba(var(--color-white-rgb), 0.1);
+  }
+}
+
+.primary[data-disabled],
+.secondary[data-disabled],
+.tertiary[data-disabled] {
+  --button-bg-color: var(--color-gray-400);
+  --button-border-color: var(--color-gray-400);
+  --button-text-color: var(--color-white);
+
+  &:hover {
+    /* do we want to do this? */
+    cursor: not-allowed;
+    --button-bg-color: var(--color-gray-400);
+    --button-border-color: var(--color-gray-400);
+  }
+}

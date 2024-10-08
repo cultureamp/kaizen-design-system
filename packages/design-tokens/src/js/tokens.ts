@@ -302,7 +302,7 @@ export const tokens: TokenStructure = {
     paragraphBold: {
       fontWeight: 600,
     },
-    // TODO: this seems like a logical token to have but check with team
+    // TODO: this seems like a logical token to have but check with team // leave in the style - we haven't landed on the typography yet
     button: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
       fontWeight: 500,
