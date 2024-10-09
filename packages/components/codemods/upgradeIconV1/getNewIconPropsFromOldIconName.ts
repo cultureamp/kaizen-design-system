@@ -151,7 +151,7 @@ const iconMap = new Map<keyof typeof OLD_ICONS, NewIconProps>([
   ["LaunchWhiteIcon", undefined],
   ["LeaderboardIcon", undefined],
   ["ListViewIcon", { name: "list" }],
-  // "LiveIcon" is only used in Tag, thus moved as a subcomponent instead
+  ["LiveIcon", { name: "sensors" }],
   ["LockIcon", { name: "lock" }],
   ["LockWhiteIcon", undefined],
   ["LogOutIcon", { name: "logout" }],
