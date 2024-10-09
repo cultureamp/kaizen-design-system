@@ -112,6 +112,25 @@ describe("updateKaioImports()", () => {
       ).toEqual(printAst(outputAst))
     })
 
+    it("does not add a new named import if it already exists", () => {
+      const inputAst = parseJsx(`
+        import { Icon } from "@kaizen/components/future"
+      `)
+      const outputAst = parseJsx(`
+        import { Icon } from "@kaizen/components/future"
+      `)
+      expect(
+        transformInput(inputAst)({
+          importsToAdd: new Map([
+            [
+              "@kaizen/components/future",
+              new Map([["Icon", { componentName: "Icon" }]]),
+            ],
+          ]),
+        })
+      ).toEqual(printAst(outputAst))
+    })
+
     it("updates existing import declaration with new imports", () => {
       const inputAst = parseJsx(`
         import { Select } from "@kaizen/components/future"

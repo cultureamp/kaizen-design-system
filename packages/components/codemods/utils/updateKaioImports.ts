@@ -70,22 +70,28 @@ const updateNamedImports = (
 ): ts.ImportDeclaration => {
   if (!node.importClause) return node
 
+  const existingNamedImportNames = new Set<string>()
   const importSpecifiers: ts.ImportSpecifier[] = []
 
   const namedBindings = node.importClause.namedBindings
   if (namedBindings && ts.isNamedImports(namedBindings)) {
-    importSpecifiers.push(...namedBindings.elements)
+    namedBindings.elements.forEach(importSpecifier => {
+      existingNamedImportNames.add(importSpecifier.name.getText())
+      importSpecifiers.push(importSpecifier)
+    })
   }
 
-  const newNamedImports = Array.from(importsToAdd.values()).map(
-    ({ alias, componentName }) =>
-      factory.createImportSpecifier(
-        false,
-        alias ? factory.createIdentifier(componentName) : undefined,
-        factory.createIdentifier(alias ?? componentName)
-      )
-  )
-  importSpecifiers.push(...newNamedImports)
+  Array.from(importsToAdd.values()).forEach(({ alias, componentName }) => {
+    const newImport = factory.createImportSpecifier(
+      false,
+      alias ? factory.createIdentifier(componentName) : undefined,
+      factory.createIdentifier(alias ?? componentName)
+    )
+
+    if (!existingNamedImportNames.has(componentName)) {
+      importSpecifiers.push(newImport)
+    }
+  })
 
   return factory.updateImportDeclaration(
     node,
