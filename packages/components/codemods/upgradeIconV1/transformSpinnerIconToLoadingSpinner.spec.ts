@@ -63,9 +63,9 @@ describe("transformSpinnerIconToLoadingSpinner()", () => {
     })
 
     it("leaves classNameOverride as is", () => {
-      const inputAst = parseJsx(`<SpinnerIcon classNameOverride="mt-16" />`)
+      const inputAst = parseJsx('<SpinnerIcon classNameOverride="mt-16" />')
       const outputAst = parseJsx(
-        `<LoadingSpinner size="xs" accessibilityLabel="Loading" classNameOverride="mt-16" />`
+        '<LoadingSpinner size="xs" accessibilityLabel="Loading" classNameOverride="mt-16" />'
       )
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
