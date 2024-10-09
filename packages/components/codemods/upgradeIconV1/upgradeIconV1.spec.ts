@@ -23,6 +23,28 @@ describe("upgradeIconV1()", () => {
 
     it("updates import from CaMonogramIcon to Brand", () => {
       const inputAst = parseJsx(`
+        import { CaMonogramIcon } from "@kaizen/components"
+        export const TestComponent = () => <CaMonogramIcon />
+      `)
+      const outputAst = parseJsx(`
+        import { Brand } from "@kaizen/components"
+        export const TestComponent = () => <Brand ${transformedBrandProps} />
+      `)
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([
+            [
+              "@kaizen/components",
+              new Map([["CaMonogramIcon", "CaMonogramIcon"]]),
+            ],
+          ])
+        )
+      ).toEqual(printAst(outputAst))
+    })
+
+    it("updates import from CaMonogramIcon using alias to Brand", () => {
+      const inputAst = parseJsx(`
         import { CaMonogramIcon as LogoAlias } from "@kaizen/components"
         export const TestComponent = () => <LogoAlias />
       `)
@@ -65,7 +87,7 @@ describe("upgradeIconV1()", () => {
       ).toEqual(printAst(outputAst))
     })
 
-    it("uses alias for an existing import", () => {
+    it("uses Brand alias for an existing import", () => {
       const inputAst = parseJsx(`
         import { Brand as KzBrand, CaMonogramIcon } from "@kaizen/components"
         export const TestComponent = () => <CaMonogramIcon />
@@ -83,6 +105,99 @@ describe("upgradeIconV1()", () => {
               new Map([
                 ["KzBrand", "Brand"],
                 ["CaMonogramIcon", "CaMonogramIcon"],
+              ]),
+            ],
+          ])
+        )
+      ).toEqual(printAst(outputAst))
+    })
+  })
+
+  describe("SpinnerIcon to LoadingSpinner", () => {
+    const transformedLoadingSpinnerProps =
+      'size="xs" accessibilityLabel="Loading"'
+
+    it("updates import from SpinnerIcon to LoadingSpinner", () => {
+      const inputAst = parseJsx(`
+        import { SpinnerIcon } from "@kaizen/components"
+        export const TestComponent = () => <SpinnerIcon />
+      `)
+      const outputAst = parseJsx(`
+        import { LoadingSpinner } from "@kaizen/components"
+        export const TestComponent = () => <LoadingSpinner ${transformedLoadingSpinnerProps} />
+      `)
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([
+            ["@kaizen/components", new Map([["SpinnerIcon", "SpinnerIcon"]])],
+          ])
+        )
+      ).toEqual(printAst(outputAst))
+    })
+
+    it("updates import from SpinnerIcon using alias to LoadingSpinner", () => {
+      const inputAst = parseJsx(`
+        import { SpinnerIcon as LogoAlias } from "@kaizen/components"
+        export const TestComponent = () => <LogoAlias />
+      `)
+      const outputAst = parseJsx(`
+        import { LoadingSpinner } from "@kaizen/components"
+        export const TestComponent = () => <LoadingSpinner ${transformedLoadingSpinnerProps} />
+      `)
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([
+            ["@kaizen/components", new Map([["LogoAlias", "SpinnerIcon"]])],
+          ])
+        )
+      ).toEqual(printAst(outputAst))
+    })
+
+    it("does not add another LoadingSpinner import if it is already imported", () => {
+      const inputAst = parseJsx(`
+        import { LoadingSpinner, SpinnerIcon } from "@kaizen/components"
+        export const TestComponent = () => <SpinnerIcon />
+      `)
+      const outputAst = parseJsx(`
+        import { LoadingSpinner } from "@kaizen/components"
+        export const TestComponent = () => <LoadingSpinner ${transformedLoadingSpinnerProps} />
+      `)
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([
+            [
+              "@kaizen/components",
+              new Map([
+                ["LoadingSpinner", "LoadingSpinner"],
+                ["SpinnerIcon", "SpinnerIcon"],
+              ]),
+            ],
+          ])
+        )
+      ).toEqual(printAst(outputAst))
+    })
+
+    it("uses LoadingSpinner alias for an existing import", () => {
+      const inputAst = parseJsx(`
+        import { LoadingSpinner as KzLoadingSpinner, SpinnerIcon } from "@kaizen/components"
+        export const TestComponent = () => <SpinnerIcon />
+      `)
+      const outputAst = parseJsx(`
+        import { LoadingSpinner as KzLoadingSpinner } from "@kaizen/components"
+        export const TestComponent = () => <KzLoadingSpinner ${transformedLoadingSpinnerProps} />
+      `)
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([
+            [
+              "@kaizen/components",
+              new Map([
+                ["KzLoadingSpinner", "LoadingSpinner"],
+                ["SpinnerIcon", "SpinnerIcon"],
               ]),
             ],
           ])

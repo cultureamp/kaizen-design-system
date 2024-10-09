@@ -9,6 +9,7 @@ import {
 import { getNewIconPropsFromOldIconName } from "./getNewIconPropsFromOldIconName"
 import { transformCaMonogramIconToBrand } from "./transformCaMonogramIconToBrand"
 import { transformIcon } from "./transformIcon"
+import { transformSpinnerIconToLoadingSpinner } from "./transformSpinnerIconToLoadingSpinner"
 
 const reverseStringMap = <Key extends string, Value extends string>(
   map: Map<Key, Value>
@@ -48,6 +49,19 @@ export const upgradeIconV1 =
             })
           }
           return transformCaMonogramIconToBrand(node, alias)
+        }
+
+        if (kaioComponentName === "SpinnerIcon") {
+          setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
+          const alias = componentToAliasMap.get("LoadingSpinner") as string
+
+          if (!kaioTagNames.has(alias)) {
+            setImportToAdd(importsToAdd, "@kaizen/components", {
+              componentName: "LoadingSpinner",
+              alias: alias !== "LoadingSpinner" ? alias : undefined,
+            })
+          }
+          return transformSpinnerIconToLoadingSpinner(node, alias)
         }
 
         if (kaioComponentName) {
