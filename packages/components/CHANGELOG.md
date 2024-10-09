@@ -1,5 +1,29 @@
 # Change Log
 
+## 1.64.14
+
+### Patch Changes
+
+- [#5123](https://github.com/cultureamp/kaizen-design-system/pull/5123) [`cdabe86df383a2403b56fd65d9743811ae7a08b4`](https://github.com/cultureamp/kaizen-design-system/commit/cdabe86df383a2403b56fd65d9743811ae7a08b4) - Fix for the tab focus jump issue on future Select and FilterSelect
+
+## 1.64.13
+
+### Patch Changes
+
+- [#5127](https://github.com/cultureamp/kaizen-design-system/pull/5127) [`839243db981f262347cc1556b00212ab46e4f75b`](https://github.com/cultureamp/kaizen-design-system/commit/839243db981f262347cc1556b00212ab46e4f75b) - Dep updates
+
+## 1.64.12
+
+### Patch Changes
+
+- [#5121](https://github.com/cultureamp/kaizen-design-system/pull/5121) [`b8fd77b8c79279d4a173ce9425a5a57c46688f06`](https://github.com/cultureamp/kaizen-design-system/commit/b8fd77b8c79279d4a173ce9425a5a57c46688f06) - Change dashed disabled focus rings to solid borders
+
+## 1.64.11
+
+### Patch Changes
+
+- [#5122](https://github.com/cultureamp/kaizen-design-system/pull/5122) [`27706c61039ec02526eea17a1e15d1055c124c54`](https://github.com/cultureamp/kaizen-design-system/commit/27706c61039ec02526eea17a1e15d1055c124c54) - Add accessible label fix for selects
+
 ## 1.64.10
 
 ### Patch Changes
