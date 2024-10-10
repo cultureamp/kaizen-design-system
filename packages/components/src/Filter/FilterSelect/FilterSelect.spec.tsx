@@ -111,6 +111,78 @@ describe("<FilterSelect>", () => {
         })
       })
 
+      it("moves focus to the first item on ArrowDown if nothing has been selected", async () => {
+        render(<FilterSelectWrapper selectedKey={undefined} />)
+        const trigger = screen.getByRole("button", { name: "Coffee" })
+        await user.tab()
+        await waitFor(() => {
+          expect(trigger).toHaveFocus()
+        })
+        await user.keyboard("{ArrowDown}")
+
+        await waitFor(() => {
+          expect(screen.getAllByRole("option")[0]).toHaveFocus()
+        })
+      })
+      it("moves focus to the last item on ArrowUp if nothing has been selected", async () => {
+        render(<FilterSelectWrapper selectedKey={undefined} />)
+        const trigger = screen.getByRole("button", { name: "Coffee" })
+        await user.tab()
+        await waitFor(() => {
+          expect(trigger).toHaveFocus()
+        })
+        await user.keyboard("{ArrowUp}")
+
+        await waitFor(() => {
+          const options = screen.getAllByRole("option")
+          expect(options[options.length - 1]).toHaveFocus()
+        })
+      })
+      it("moves focus to the current selected item on Enter", async () => {
+        render(<FilterSelectWrapper selectedKey="hazelnut" />)
+        const trigger = screen.getByRole("button", {
+          name: "Coffee : Hazelnut",
+        })
+        await user.tab()
+        await waitFor(() => {
+          expect(trigger).toHaveFocus()
+        })
+        await user.keyboard("{Enter}")
+
+        await waitFor(() => {
+          expect(screen.getByRole("option", { name: "Hazelnut" })).toHaveFocus()
+        })
+      })
+      it("moves focus to the current selected item on ArrowUp", async () => {
+        render(<FilterSelectWrapper selectedKey="hazelnut" />)
+        const trigger = screen.getByRole("button", {
+          name: "Coffee : Hazelnut",
+        })
+        await user.tab()
+        await waitFor(() => {
+          expect(trigger).toHaveFocus()
+        })
+        await user.keyboard("{ArrowUp}")
+
+        await waitFor(() => {
+          expect(screen.getByRole("option", { name: "Hazelnut" })).toHaveFocus()
+        })
+      })
+      it("moves focus to the current selected item on ArrowDown", async () => {
+        render(<FilterSelectWrapper selectedKey="hazelnut" />)
+        const trigger = screen.getByRole("button", {
+          name: "Coffee : Hazelnut",
+        })
+        await user.tab()
+        await waitFor(() => {
+          expect(trigger).toHaveFocus()
+        })
+        await user.keyboard("{ArrowDown}")
+
+        await waitFor(() => {
+          expect(screen.getByRole("option", { name: "Hazelnut" })).toHaveFocus()
+        })
+      })
       it("closes when user hits the escape key", async () => {
         render(<FilterSelectWrapper isOpen />)
         expect(screen.queryByRole("listbox")).toBeVisible()
@@ -165,6 +237,29 @@ describe("<FilterSelect>", () => {
       )
       expect(getByRole("button", { name: "Coffee : 50" })).toBeInTheDocument()
     })
+  })
+})
+
+describe("Stringified object values", () => {
+  it("finds selected option when value is a stringified object", () => {
+    const { getByRole } = render(
+      <FilterSelectWrapper
+        items={[
+          {
+            value: '{"sortBy":"creator_name","sortOrder":"asc"}',
+            label: "Created by A-Z",
+          },
+          {
+            value: '{"sortBy":"creator_name","sortOrder":"dsc"}',
+            label: "Created by Z-A",
+          },
+        ]}
+        selectedKey='{"sortBy":"creator_name","sortOrder":"asc"}'
+      />
+    )
+    expect(
+      getByRole("button", { name: "Coffee : Created by A-Z" })
+    ).toBeInTheDocument()
   })
 })
 

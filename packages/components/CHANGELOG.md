@@ -1,5 +1,61 @@
 # Change Log
 
+## 1.64.14
+
+### Patch Changes
+
+- [#5123](https://github.com/cultureamp/kaizen-design-system/pull/5123) [`cdabe86df383a2403b56fd65d9743811ae7a08b4`](https://github.com/cultureamp/kaizen-design-system/commit/cdabe86df383a2403b56fd65d9743811ae7a08b4) - Fix for the tab focus jump issue on future Select and FilterSelect
+
+## 1.64.13
+
+### Patch Changes
+
+- [#5127](https://github.com/cultureamp/kaizen-design-system/pull/5127) [`839243db981f262347cc1556b00212ab46e4f75b`](https://github.com/cultureamp/kaizen-design-system/commit/839243db981f262347cc1556b00212ab46e4f75b) - Dep updates
+
+## 1.64.12
+
+### Patch Changes
+
+- [#5121](https://github.com/cultureamp/kaizen-design-system/pull/5121) [`b8fd77b8c79279d4a173ce9425a5a57c46688f06`](https://github.com/cultureamp/kaizen-design-system/commit/b8fd77b8c79279d4a173ce9425a5a57c46688f06) - Change dashed disabled focus rings to solid borders
+
+## 1.64.11
+
+### Patch Changes
+
+- [#5122](https://github.com/cultureamp/kaizen-design-system/pull/5122) [`27706c61039ec02526eea17a1e15d1055c124c54`](https://github.com/cultureamp/kaizen-design-system/commit/27706c61039ec02526eea17a1e15d1055c124c54) - Add accessible label fix for selects
+
+## 1.64.10
+
+### Patch Changes
+
+- [#5118](https://github.com/cultureamp/kaizen-design-system/pull/5118) [`b2c5996518aad8e34f74a1cf486d37705e3e1b86`](https://github.com/cultureamp/kaizen-design-system/commit/b2c5996518aad8e34f74a1cf486d37705e3e1b86) - Revert `@kaizen/components` from being explicitly an ESM build"
+
+## 1.64.9
+
+### Patch Changes
+
+- [#5116](https://github.com/cultureamp/kaizen-design-system/pull/5116) [`7b43c719bf93d2c09711c3512095b067c0368d30`](https://github.com/cultureamp/kaizen-design-system/commit/7b43c719bf93d2c09711c3512095b067c0368d30) - Tiles: fix typing on actions to map to Button API, and pass through all props
+
+## 1.64.8
+
+### Patch Changes
+
+- [#5113](https://github.com/cultureamp/kaizen-design-system/pull/5113) [`54dd00689cafd922d1c423ea90994b1822a543e2`](https://github.com/cultureamp/kaizen-design-system/commit/54dd00689cafd922d1c423ea90994b1822a543e2) - Future Select - stop propagation when selecting an option using a touch device.
+
+## 1.64.7
+
+### Patch Changes
+
+- [#5056](https://github.com/cultureamp/kaizen-design-system/pull/5056) [`f60b8ee3dfcd03553dd36f6efb440e9841971bb0`](https://github.com/cultureamp/kaizen-design-system/commit/f60b8ee3dfcd03553dd36f6efb440e9841971bb0) - Dep updates
+
+## 1.64.6
+
+### Patch Changes
+
+- [#5079](https://github.com/cultureamp/kaizen-design-system/pull/5079) [`da4e5137289d0173de09f1a1145e016de9146cc2`](https://github.com/cultureamp/kaizen-design-system/commit/da4e5137289d0173de09f1a1145e016de9146cc2) - Fix Brand styling props to be on the `<img>` instead of `<picture>`
+
+- [#5111](https://github.com/cultureamp/kaizen-design-system/pull/5111) [`91ff2cb3e2de88099cfd50726f1ae20dfe6eaae1`](https://github.com/cultureamp/kaizen-design-system/commit/91ff2cb3e2de88099cfd50726f1ae20dfe6eaae1) - Revert "Filter select accessible label and focus jump fix" released in 1.64.5
+
 ## 1.64.5
 
 ### Patch Changes

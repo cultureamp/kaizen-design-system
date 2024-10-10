@@ -4,22 +4,11 @@ import { AllowedHeadingTags, Heading } from "~components/Heading"
 import { ArrowBackwardIcon, InformationIcon } from "~components/Icon"
 import { Text } from "~components/Text"
 import { GenericButtonProps } from "~components/__actions__/Button/v1/GenericButton"
-import { IconButton } from "~components/__actions__/v2"
+import { IconButton, Button } from "~components/__actions__/v2"
 import { OverrideClassName } from "~components/types/OverrideClassName"
-import Action from "./Action"
 import styles from "./GenericTile.module.scss"
 
-export type TileAction = {
-  label: string
-  onClick?: GenericButtonProps["onClick"]
-  href?: string
-  icon?: JSX.Element
-  /**
-   * @deprecated use data-testid instead
-   */
-  automationId?: string
-  newTabAndIUnderstandTheAccessibilityImplications?: boolean
-} & HTMLAttributes<HTMLButtonElement>
+export type TileAction = GenericButtonProps
 
 export type TileInformation = {
   text: string
@@ -80,19 +69,6 @@ export const GenericTile = ({
     </div>
   )
 
-  const renderActions = (
-    primaryAction?: TileAction,
-    secondaryAction?: TileAction,
-    disabled?: boolean
-  ): JSX.Element => (
-    <div className={styles.actions}>
-      {secondaryAction && (
-        <Action action={secondaryAction} secondary disabled={disabled} />
-      )}
-      {primaryAction && <Action action={primaryAction} disabled={disabled} />}
-    </div>
-  )
-
   const renderFront = (): JSX.Element => (
     <div
       className={classnames(
@@ -132,11 +108,21 @@ export const GenericTile = ({
           {(informationProp.primaryAction ||
             informationProp.secondaryAction) && (
             <div className={styles.footer}>
-              {renderActions(
-                informationProp.primaryAction,
-                informationProp.secondaryAction,
-                !isFlipped
-              )}
+              <div className={styles.actions}>
+                {informationProp.secondaryAction && (
+                  <Button
+                    secondary
+                    disabled={!isFlipped}
+                    {...informationProp.secondaryAction}
+                  />
+                )}
+                {informationProp.primaryAction && (
+                  <Button
+                    disabled={!isFlipped}
+                    {...informationProp.primaryAction}
+                  />
+                )}
+              </div>
             </div>
           )}
         </>

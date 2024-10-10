@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Story } from "@storybook/blocks"
 import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"

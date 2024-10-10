@@ -1,7 +1,8 @@
-import React, { HTMLAttributes, Key, useEffect } from "react"
+import React, { HTMLAttributes, Key, useEffect, useRef, ReactNode } from "react"
 import { AriaListBoxOptions, useListBox } from "@react-aria/listbox"
 import { SelectState } from "@react-stately/select"
 import classnames from "classnames"
+import { useIsClientReady } from "~components/__utilities__/useIsClientReady"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { useSelectContext } from "../../context"
 import { SelectOption, SelectItem } from "../../types"
@@ -10,7 +11,7 @@ import styles from "./ListBox.module.scss"
 export type SingleListBoxProps<Option extends SelectOption> = OverrideClassName<
   HTMLAttributes<HTMLUListElement>
 > & {
-  children: React.ReactNode
+  children: ReactNode
   /** Props for the popup. */
   menuProps: AriaListBoxOptions<SelectItem<Option>>
 }
@@ -30,20 +31,32 @@ const getOptionKeyFromCollection = (
   return state.collection.getFirstKey()
 }
 
+/** This makes the use of query selector less brittle in instances where a failed selector is passed in
+ */
+const safeQuerySelector = (selector: string): HTMLElement | null => {
+  try {
+    return document.querySelector(selector)
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error("Kaizen querySelector failed:", error)
+    return null
+  }
+}
+
 export const ListBox = <Option extends SelectOption>({
   children,
   menuProps,
   classNameOverride,
   ...restProps
 }: SingleListBoxProps<Option>): JSX.Element => {
+  const isClientReady = useIsClientReady()
   const { state } = useSelectContext<Option>()
-  const ref = React.useRef<HTMLUListElement>(null)
-  const [isListboxReady, setListboxReady] = React.useState(false)
+  const ref = useRef<HTMLUListElement>(null)
   const { listBoxProps } = useListBox(
     {
       ...menuProps,
       disallowEmptySelection: true,
-      // This is to ensure that the listbox use React Aria's auto focus feature for Listbox, which creates a visual bug
+      // This is to ensure that the listbox doesn't use React Aria's auto focus feature for Listbox, which creates a visual bug
       autoFocus: false,
     },
     state,
@@ -51,27 +64,23 @@ export const ListBox = <Option extends SelectOption>({
   )
 
   /**
-   * This is a slightly hacky way to ensure the Listbox is aware of its position without using timeout.
-   * This solves the page from refocusing to the top of the DOM when it is opened for the first time with keyboard.
+   * This uses the new useIsClientReady to ensure document exists before trying to querySelector and give the time to focus to the correct element
    */
   useEffect(() => {
-    setListboxReady(true)
-  }, [])
-
-  useEffect(() => {
-    if (isListboxReady) {
+    if (isClientReady) {
       const optionKey = getOptionKeyFromCollection(state)
-      const focusToElement = document.querySelector(
-        `[data-key="${optionKey}"]`
-      ) as HTMLElement
+      const focusToElement = safeQuerySelector(`[data-key='${optionKey}']`)
+
       if (focusToElement) {
         focusToElement.focus()
+      } else {
+        // If an element is not found, focus on the listbox. This ensures the list can still be navigated to via keyboard if the keys do not align to the data attributes of the list items.
+        ref.current?.focus()
       }
     }
-  }, [isListboxReady])
+  }, [isClientReady])
 
   return (
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <ul
       ref={ref}
       className={classnames(styles.listBox, classNameOverride)}
