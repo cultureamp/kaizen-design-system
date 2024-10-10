@@ -2,14 +2,9 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 import { Avatar } from "~components/Avatar"
-import {
-  CautionIcon,
-  ExclamationIcon,
-  InformationIcon,
-  SuccessIcon,
-  LiveIcon,
-} from "~components/Icon"
+import { LiveIcon } from "~components/Icon"
 import styles from "~components/Tag/Tag.module.scss"
+import { Icon } from "~components/__future__/Icon"
 import { Tag, RemovableTag } from "../.."
 
 const meta = {
@@ -148,25 +143,19 @@ export const ValidationMigration: StoryObj = {
     <>
       <Tag
         color="green"
-        icon={<SuccessIcon role="img" aria-label="Success," />}
+        icon={<Icon name="check_circle" isFilled alt="Success," />}
       >
         Tag
       </Tag>
-      <Tag
-        color="blue"
-        icon={<InformationIcon role="img" aria-label="Note," />}
-      >
+      <Tag color="blue" icon={<Icon name="info" isFilled alt="Note," />}>
         Tag
       </Tag>
-      <Tag
-        color="red"
-        icon={<ExclamationIcon role="img" aria-label="Error," />}
-      >
+      <Tag color="red" icon={<Icon name="error" isFilled alt="Error," />}>
         Tag
       </Tag>
       <Tag
         color="yellow"
-        icon={<CautionIcon role="img" aria-label="Warning," />}
+        icon={<Icon name="warning" isFilled alt="Warning," />}
       >
         Tag
       </Tag>

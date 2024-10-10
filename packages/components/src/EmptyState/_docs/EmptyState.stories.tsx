@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { ChevronRightIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { EmptyState } from "../index"
 
 const meta = {
@@ -17,7 +17,9 @@ const meta = {
         "Button (chevron right)": (
           <Button
             label="Label"
-            icon={<ChevronRightIcon role="presentation" />}
+            icon={
+              <Icon name="chevron_right" isPresentational shouldMirrorInRTL />
+            }
             iconPosition="end"
           />
         ),

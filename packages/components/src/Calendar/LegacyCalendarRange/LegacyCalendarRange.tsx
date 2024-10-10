@@ -7,7 +7,7 @@ import {
   Matcher,
   DayPickerRangeProps,
 } from "react-day-picker"
-import { ArrowBackwardIcon, ArrowForwardIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { baseCalendarClassNames } from "../baseCalendarClassNames"
 import { DayOfWeek } from "../enums"
 import { isInvalidDate, isValidWeekStartsOn } from "../utils"
@@ -62,8 +62,12 @@ export const LegacyCalendarRange = ({
         onDayClick={onDayChange}
         classNames={classNames}
         components={{
-          IconRight: () => <ArrowForwardIcon role="presentation" />,
-          IconLeft: () => <ArrowBackwardIcon role="presentation" />,
+          IconRight: () => (
+            <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
+          ),
+          IconLeft: () => (
+            <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
+          ),
         }}
         locale={locale}
       />

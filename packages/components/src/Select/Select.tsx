@@ -7,9 +7,9 @@ import ReactSelect, {
 } from "react-select"
 import Async, { AsyncProps as ReactAsyncSelectProps } from "react-select/async"
 import { FieldMessage } from "~components/FieldMessage"
-import { ChevronDownIcon, ChevronUpIcon, ClearIcon } from "~components/Icon"
 import { Label } from "~components/Label"
 import { Tag } from "~components/Tag"
+import { Icon } from "~components/__future__/Icon"
 import styles from "./Select.module.scss"
 
 export type SelectProps = {
@@ -183,11 +183,14 @@ const Placeholder: typeof components.Placeholder = props => (
 
 const DropdownIndicator: typeof components.DropdownIndicator = props => (
   <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
-    {props.selectProps.menuIsOpen ? (
-      <ChevronUpIcon role="presentation" />
-    ) : (
-      <ChevronDownIcon role="presentation" />
-    )}
+    <Icon
+      name={
+        props.selectProps.menuIsOpen
+          ? "keyboard_arrow_up"
+          : "keyboard_arrow_down"
+      }
+      isPresentational
+    />
   </components.DropdownIndicator>
 )
 
@@ -258,6 +261,6 @@ const ValueContainer: typeof components.ValueContainer = props => (
 )
 const ClearIndicator: typeof components.ClearIndicator = props => (
   <components.ClearIndicator {...props} className={styles.clearIndicator}>
-    <ClearIcon role="presentation" />
+    <Icon name="cancel" isPresentational isFilled />
   </components.ClearIndicator>
 )

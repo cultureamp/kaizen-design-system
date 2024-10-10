@@ -1,6 +1,6 @@
 import React from "react"
-import { CloseIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { assetUrl } from "~components/utils/hostedAssets"
 import styles from "./ExampleHeaders.module.scss"
 
@@ -18,7 +18,7 @@ export const MinimalBasic = (): JSX.Element => (
       <Button
         href="#"
         label="Exit"
-        icon={<CloseIcon role="presentation" />}
+        icon={<Icon name="close" isPresentational />}
         secondary
       />
       <div className={styles.logoContainer}>

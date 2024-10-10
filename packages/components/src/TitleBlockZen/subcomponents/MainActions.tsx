@@ -1,6 +1,6 @@
 import React from "react"
-import { ChevronDownIcon, MeatballsIcon } from "~components/Icon"
 import { Menu, MenuList, Button, IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from "../constants"
 import {
   DefaultActionProps,
@@ -71,7 +71,9 @@ export const MainActions = ({
                       label={primaryAction.label}
                       primary
                       reversed={reversed}
-                      icon={<ChevronDownIcon role="presentation" />}
+                      icon={
+                        <Icon name="keyboard_arrow_down" isPresentational />
+                      }
                       iconPosition="end"
                       data-automation-id="title-block-primary-action-button"
                       data-testid="title-block-primary-action-button"
@@ -162,7 +164,7 @@ export const MainActions = ({
                 id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
                 label="Open secondary menu"
                 reversed={reversed}
-                icon={<MeatballsIcon role="presentation" />}
+                icon={<Icon name="more_horiz" isPresentational />}
               />
             }
           >

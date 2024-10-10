@@ -1,5 +1,5 @@
 import React from "react"
-import { CloseIcon } from "~components/Icon/CloseIcon"
+import { Icon } from "~components/__future__/Icon"
 import styles from "../GenericNotification/GenericNotification.module.scss"
 
 type CancelButtonProps = {
@@ -14,7 +14,7 @@ export const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
     data-testid="close-button"
     aria-label="Close notification"
   >
-    <CloseIcon role="presentation" />
+    <Icon name="close" isPresentational />
   </button>
 )
 

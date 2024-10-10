@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { TagIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -26,7 +26,10 @@ const StickerSheetTemplate: StickerSheetStory = {
             <Tag color={color}>
               {color.charAt(0).toUpperCase() + color.slice(1)}
             </Tag>
-            <Tag icon={<TagIcon role="presentation" />} color={color}>
+            <Tag
+              icon={<Icon name="label" isPresentational isFilled />}
+              color={color}
+            >
               {color.charAt(0).toUpperCase() + color.slice(1)}
             </Tag>
           </StickerSheet.Row>

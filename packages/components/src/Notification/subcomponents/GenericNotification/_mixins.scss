@@ -165,12 +165,14 @@ $notification-slide-right: transform 300ms ease-out;
   %ca-notification---toast & {
     width: 22px;
     height: 22px;
+    font-size: 22px;
     margin-top: $spacing-6;
   }
 
   %ca-notification---global & {
     width: 24px;
     height: 24px;
+    font-size: 24px;
   }
 }
 

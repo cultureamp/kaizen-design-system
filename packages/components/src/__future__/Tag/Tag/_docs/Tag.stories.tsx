@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { TagColorKeys } from "../types"
 import { Tag } from ".."
 
@@ -34,7 +34,11 @@ export const Color: StoryObj = {
   render: () => (
     <div className="flex gap-16">
       {TagColorKeys.map(color => (
-        <Tag color={color} icon={<TagIcon role="presentation" />} key={color}>
+        <Tag
+          color={color}
+          icon={<Icon name="label" isPresentational isFilled />}
+          key={color}
+        >
           {color}
         </Tag>
       ))}
@@ -47,14 +51,17 @@ export const Color: StoryObj = {
   },
 }
 
-export const Icon: StoryObj = {
+export const IconStory: StoryObj = {
+  name: "Icon",
   render: () => (
     <div className="flex gap-16">
-      <Tag icon={<AcademyIcon role="presentation" />}>AcademyIcon</Tag>
-      <Tag color="yellow" icon={<ActionOffIcon role="presentation" />}>
+      <Tag icon={<Icon name="school" isPresentational isFilled />}>
+        AcademyIcon
+      </Tag>
+      <Tag color="yellow" icon={<Icon name="flash_on" isPresentational />}>
         ActionOffIcon
       </Tag>
-      <Tag color="green" icon={<AddIcon role="presentation" />}>
+      <Tag color="green" icon={<Icon name="add" isPresentational />}>
         AddIcon
       </Tag>
     </div>

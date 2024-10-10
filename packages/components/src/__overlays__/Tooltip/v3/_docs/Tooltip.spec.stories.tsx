@@ -2,10 +2,10 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, waitFor, within } from "@storybook/test"
 import isChromatic from "chromatic"
-import { AddIcon } from "~components/Icon"
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
 import { Text } from "~components/Text"
 import { Button, IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { Tag } from "~components/__future__/Tag"
 import { Focusable } from "~components/__overlays__/v3"
 import { Tooltip, TooltipTrigger } from "../index"
@@ -87,7 +87,7 @@ export const OnButtonWithDesc: Story = {
       <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
         <IconButton
           label="(TESTING) Add label"
-          icon={<AddIcon role="presentation" />}
+          icon={<Icon name="add" isPresentational />}
           primary
           aria-describedby="blah"
         />
@@ -105,7 +105,7 @@ export const OnIconButton: Story = {
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <IconButton
         label="Add something"
-        icon={<AddIcon role="presentation" />}
+        icon={<Icon name="add" isPresentational />}
         primary
         // Negate the aria description (added by RAC) as it should be the
         // same as the accessible name, therefore no need to duplicate it

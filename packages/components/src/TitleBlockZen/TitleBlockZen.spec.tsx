@@ -258,7 +258,7 @@ describe("<TitleBlockZen />", () => {
         </TitleBlockZen>
       )
       const btn = getByTestId("title-block-primary-action-button")
-      expect(btn.textContent).toEqual(primaryActionAsMenu.label)
+      expect(btn).toHaveAccessibleName(primaryActionAsMenu.label)
       await user.click(btn)
 
       await waitFor(() => {

@@ -1,20 +1,10 @@
 import React, { ButtonHTMLAttributes } from "react"
 import classnames from "classnames"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
-import { RemoveTagIcon } from "./RemoveTagIcon"
 import styles from "./RemoveButton.module.scss"
 
-// type RemoveButtonColor =
-// | "gray"
-// | "blue"
-// | "green"
-// | "yellow"
-// | "orange"
-// | "red"
-// | "purple"
-
 export type RemoveButtonBaseProps = {
-  // color?: RemoveButtonColor
   ariaLabel: string
   onClick: () => void
 }
@@ -37,7 +27,7 @@ export const RemoveButton = ({
     onClick={onClick}
     {...restProps}
   >
-    <RemoveTagIcon role="presentation" />
+    <Icon name="close" isPresentational />
   </button>
 )
 

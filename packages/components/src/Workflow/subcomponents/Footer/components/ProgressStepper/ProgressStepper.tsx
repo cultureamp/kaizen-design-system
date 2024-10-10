@@ -1,11 +1,7 @@
 import React from "react"
 import classnames from "classnames"
-import {
-  IndicatorActiveIcon,
-  IndicatorInactiveIcon,
-  SuccessIcon,
-} from "~components/Icon"
 import { VisuallyHidden } from "~components/VisuallyHidden"
+import { Icon } from "~components/__future__/Icon"
 import styles from "./ProgressStepper.module.css"
 
 export type Step = {
@@ -34,39 +30,18 @@ const getStepStatus = (
 } => {
   if (isComplete) {
     return {
-      icon: (
-        <SuccessIcon
-          key={index}
-          inheritSize
-          role="presentation"
-          classNameOverride="success"
-        />
-      ),
+      icon: <Icon key={index} name="check_circle" isPresentational isFilled />,
       accessibleName: `Completed: ${step.label}`,
     }
   }
   if (isCurrentStep) {
     return {
-      icon: (
-        <IndicatorActiveIcon
-          key={index}
-          inheritSize
-          role="presentation"
-          classNameOverride="active"
-        />
-      ),
+      icon: <Icon key={index} name="radio_button_checked" isPresentational />,
       accessibleName: `Current: ${step.label}`,
     }
   }
   return {
-    icon: (
-      <IndicatorInactiveIcon
-        key={index}
-        inheritSize
-        classNameOverride="incomplete"
-        role="presentation"
-      />
-    ),
+    icon: <Icon key={index} name="radio_button_unchecked" isPresentational />,
     accessibleName: `Not started: ${step.label}`,
   }
 }
@@ -91,7 +66,7 @@ export const ProgressStepper = ({
         {steps.map((step, index: number) => {
           const isCurrentStep = currentStepIndex === index
           const isCompletedStep = index < currentStepIndex || isComplete
-          const { accessibleName, icon: Icon } = getStepStatus(
+          const { accessibleName, icon } = getStepStatus(
             isCompletedStep,
             isCurrentStep,
             step,
@@ -122,7 +97,7 @@ export const ProgressStepper = ({
                       [styles.isCompleted]: isCompletedStep,
                     })}
                   >
-                    {Icon}
+                    {icon}
                   </span>
                 </div>
                 {index < steps.length - 1 && (

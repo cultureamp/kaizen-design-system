@@ -1,8 +1,8 @@
 import React, { createRef, useState } from "react"
 import classnames from "classnames"
 import { FieldMessage } from "~components/FieldMessage"
-import { CheckIcon } from "~components/Icon"
 import { Text } from "~components/Text"
+import { Icon } from "~components/__future__/Icon"
 import { ScaleValue, Scale, ScaleItem, ColorSchema } from "./types"
 import determineSelectionFromKeyPress from "./utils/determineSelectionFromKeyPress"
 import styles from "./LikertScaleLegacy.module.scss"
@@ -29,7 +29,7 @@ export type LikertScaleProps = {
 }
 
 const SelectedItemIcon = (): JSX.Element => (
-  <CheckIcon role="presentation" classNameOverride={styles.check} />
+  <Icon name="check" isPresentational className={styles.check} />
 )
 
 /**

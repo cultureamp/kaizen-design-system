@@ -16,10 +16,6 @@ export default rollupConfig({
   },
   plugins: pluginsSharedUi,
   alias: {
-    entries: [
-      { find: "~types", replacement: "src/types" },
-      { find: "~utils", replacement: "src/utils" },
-      { find: "~components", replacement: "src" },
-    ],
+    entries: [{ find: "~components", replacement: "src" }],
   },
 })

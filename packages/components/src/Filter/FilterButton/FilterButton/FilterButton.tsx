@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react"
 import classnames from "classnames"
-import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { isRefObject } from "~components/utils/isRefObject"
 import { FilterTriggerRef } from "../../Filter/types"
 import {
@@ -45,11 +45,10 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
             label
           )}
         </span>
-        {isOpen ? (
-          <ChevronUpIcon role="presentation" />
-        ) : (
-          <ChevronDownIcon role="presentation" />
-        )}
+        <Icon
+          name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+          isPresentational
+        />
       </FilterButtonBase>
     )
   }

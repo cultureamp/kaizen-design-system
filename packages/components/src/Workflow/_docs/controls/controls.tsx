@@ -1,7 +1,7 @@
 import React from "react"
 import { ArgTypes } from "@storybook/react"
-import { CloseIcon, VisibleIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 
 export const WorkflowControls: Partial<ArgTypes> = {
   headerActions: {
@@ -14,7 +14,7 @@ export const WorkflowControls: Partial<ArgTypes> = {
         <Button
           key="would-use-uui-1"
           label="Close"
-          icon={<CloseIcon role="presentation" />}
+          icon={<Icon name="close" isPresentational />}
           secondary
           iconPosition="end"
         />,
@@ -23,14 +23,14 @@ export const WorkflowControls: Partial<ArgTypes> = {
         <Button
           key="would-use-uui-1"
           label="Close"
-          icon={<CloseIcon role="presentation" />}
+          icon={<Icon name="close" isPresentational />}
           secondary
           iconPosition="end"
         />,
         <Button
           key="would-use-uui-2"
           label="Preview"
-          icon={<VisibleIcon role="presentation" />}
+          icon={<Icon name="visibility" isPresentational isFilled />}
           secondary
           iconPosition="start"
         />,

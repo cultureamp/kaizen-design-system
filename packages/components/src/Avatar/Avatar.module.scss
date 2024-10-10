@@ -106,28 +106,26 @@ $avatar-xxl: 7.75rem;
 
 .fallbackIcon {
   color: rgba($color-purple-800-rgb, 0.7);
-  width: 28px;
+  font-size: var(--avatar-fallback-icon-size);
 
   .xxlarge & {
-    width: 75px;
+    --avatar-fallback-icon-size: calc(#{$avatar-xxl} * 0.8);
   }
 
   .xlarge & {
-    width: 60px;
+    --avatar-fallback-icon-size: calc(#{$avatar-xl} * 0.8);
   }
 
   .large & {
-    width: 35px;
+    --avatar-fallback-icon-size: calc(#{$avatar-lg} * 0.7);
   }
 
   .medium & {
-    width: 25px;
-    margin-bottom: -1px;
+    --avatar-fallback-icon-size: calc(#{$avatar-md} * 0.7);
   }
 
   .small & {
-    width: 10px;
-    margin-bottom: -1px;
+    --avatar-fallback-icon-size: calc(#{$avatar-sm} * 0.7);
   }
 }
 

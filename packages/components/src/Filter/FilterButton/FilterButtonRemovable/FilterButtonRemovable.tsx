@@ -2,7 +2,7 @@ import React, { forwardRef } from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
 import { ButtonGroup, ButtonGroupProps } from "~components/ButtonGroup"
 import { FilterTriggerRef } from "~components/Filter/Filter"
-import { ClearIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { Tooltip } from "~components/__overlays__/Tooltip/v1"
 import { DataAttributes } from "~components/types/DataAttributes"
 import { isRefObject } from "~components/utils/isRefObject"
@@ -50,7 +50,7 @@ export const FilterButtonRemovable = forwardRef<
       <FilterButton ref={ref} {...triggerButtonProps} />
       <Tooltip text={removeButtonLabel} display="inline-block" position="below">
         <FilterButtonBase ref={removeButtonRef} {...removeButtonProps}>
-          <ClearIcon role="img" aria-label={removeButtonLabel} />
+          <Icon name="cancel" alt={removeButtonLabel} isFilled />
         </FilterButtonBase>
       </Tooltip>
     </ButtonGroup>

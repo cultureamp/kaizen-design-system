@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react"
 import classNames from "classnames"
 import Media from "react-media"
 import { Heading, HeadingProps } from "~components/Heading"
-import { ArrowForwardIcon } from "~components/Icon"
 import { SceneProps, SpotProps } from "~components/Illustration"
 import { Text } from "~components/Text"
 import { Button, ButtonProps } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { Tooltip, TooltipProps } from "~components/__overlays__/Tooltip/v1"
 import { VariantType } from "./types"
 import styles from "./GuidanceBlock.module.scss"
@@ -223,7 +223,11 @@ export const GuidanceBlock = ({
                     <Button
                       icon={
                         withActionButtonArrow ? (
-                          <ArrowForwardIcon role="presentation" />
+                          <Icon
+                            name="arrow_forward"
+                            isPresentational
+                            shouldMirrorInRTL
+                          />
                         ) : undefined
                       }
                       iconPosition="end"

@@ -42,7 +42,7 @@ import * as exampleStories from "./Menu.stories"
   of={exampleStories.Basic}
   source={{code: `
 <MenuTrigger>
-  <Button><MeatballsIcon aria-label="Actions" /></Button>
+  <Button><Icon name="more_horiz" alt="Actions" /></Button>
   <Popover>
     <Menu>
       <MenuItem href="#">Menu Item</MenuItem>
@@ -94,5 +94,3 @@ Menu items can be disabled with the `isDisabled` prop.
 By default, the open/closed state of the menu is handled under the hood. In cases where you need control over the open state, use the `isOpen` and `onOpenChange` props on the `MenuTrigger` component (both props must be used for this to work).
 
 <Canvas className="mb-24" of={exampleStories.Controlled}  />
-
-

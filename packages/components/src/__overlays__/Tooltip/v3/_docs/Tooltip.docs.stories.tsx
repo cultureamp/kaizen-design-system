@@ -2,11 +2,11 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { FieldMessage } from "~components/FieldMessage"
-import { AddIcon, QuestionIcon } from "~components/Icon"
 import { Input } from "~components/Input"
 import { Label } from "~components/Label"
 import { Text } from "~components/Text"
 import { Button, IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { Focusable } from "~components/__overlays__/v3"
 import { Tooltip, TooltipTrigger } from "../index"
 import * as TestStories from "./Tooltip.spec.stories"
@@ -49,7 +49,7 @@ export const Primary: Story = {
     <TooltipTrigger>
       <IconButton
         label="Add something"
-        icon={<AddIcon role="presentation" />}
+        icon={<Icon name="add" isPresentational />}
         primary
         // Negate the aria description (added by RAC) as it should be the
         // same as the accessible name, therefore no need to duplicate it
@@ -86,12 +86,12 @@ export const DontFieldTooltip: Story = {
         <Focusable>
           <Label>
             Password{" "}
-            <span className="inline-flex align-middle">
-              <QuestionIcon
-                classNameOverride="w-[15px] m-auto"
-                role="presentation"
-              />
-            </span>
+            <Icon
+              name="help"
+              isPresentational
+              isFilled
+              className="text-paragraph"
+            />
           </Label>
         </Focusable>
         <Tooltip>Password must be at least 8 characters</Tooltip>
@@ -114,7 +114,7 @@ export const DoConcise: Story = {
       <TooltipTrigger>
         <IconButton
           label="Add topic"
-          icon={<AddIcon role="presentation" />}
+          icon={<Icon name="add" isPresentational />}
           primary
           // Negate the aria description (added by RAC) as it should be the
           // same as the accessible name, therefore no need to duplicate it
@@ -137,7 +137,7 @@ export const DontConcise: Story = {
       <TooltipTrigger>
         <IconButton
           label="Add something"
-          icon={<AddIcon role="presentation" />}
+          icon={<Icon name="add" isPresentational />}
           primary
           // Negate the aria description (added by RAC) as it should be the
           // same as the accessible name, therefore no need to duplicate it

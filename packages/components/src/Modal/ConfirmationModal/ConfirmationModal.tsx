@@ -2,12 +2,6 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Heading } from "~components/Heading"
 import {
-  CautionWhiteIcon,
-  ExclamationWhiteIcon,
-  InformationWhiteIcon,
-  SuccessWhiteIcon,
-} from "~components/Icon"
-import {
   Assertive,
   Cautionary,
   Informative,
@@ -23,6 +17,7 @@ import {
   ModalBody,
 } from "~components/Modal/GenericModal"
 import { ButtonProps } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import styles from "./ConfirmationModal.module.scss"
 
 type Mood = "positive" | "informative" | "negative" | "cautionary" | "assertive"
@@ -77,44 +72,46 @@ type ConfirmationModalVariants = {
 export type ConfirmationModalProps = BaseConfirmationModalProps &
   (ConfirmationModalMoods | ConfirmationModalVariants)
 
+const getIconName = (variantName: Mood | Variant): string => {
+  switch (variantName) {
+    case "cautionary":
+      return "warning"
+    case "informative":
+      return "info"
+    case "negative":
+    case "warning":
+      return "error"
+    case "positive":
+    case "success":
+      return "check_circle"
+    case "assertive":
+      return "error"
+  }
+}
+
 const getIcon = (
   variantName: Mood | Variant,
   isProminent: boolean
 ): JSX.Element => {
-  switch (variantName) {
-    case "cautionary":
-      return isProminent ? (
-        <Cautionary />
-      ) : (
-        <CautionWhiteIcon inheritSize role="presentation" />
-      )
-    case "informative":
-      return isProminent ? (
-        <Informative />
-      ) : (
-        <InformationWhiteIcon inheritSize role="presentation" />
-      )
-    case "negative":
-    case "warning":
-      return isProminent ? (
-        <Negative />
-      ) : (
-        <ExclamationWhiteIcon inheritSize role="presentation" />
-      )
-    case "positive":
-    case "success":
-      return isProminent ? (
-        <Positive />
-      ) : (
-        <SuccessWhiteIcon inheritSize role="presentation" />
-      )
-    case "assertive":
-      return isProminent ? (
-        <Assertive />
-      ) : (
-        <ExclamationWhiteIcon inheritSize role="presentation" />
-      )
+  if (isProminent) {
+    switch (variantName) {
+      case "cautionary":
+        return <Cautionary />
+      case "informative":
+        return <Informative />
+      case "negative":
+      case "warning":
+        return <Negative />
+      case "positive":
+      case "success":
+        return <Positive />
+      case "assertive":
+        return <Assertive />
+    }
   }
+
+  const iconName = getIconName(variantName)
+  return <Icon name={iconName} isPresentational isFilled />
 }
 
 /**

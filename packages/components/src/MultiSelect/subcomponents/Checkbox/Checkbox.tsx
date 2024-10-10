@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, InputHTMLAttributes } from "react"
 import classnames from "classnames"
-import { CheckIcon, MinusIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Checkbox.module.scss"
 
@@ -25,14 +25,15 @@ export type CheckboxProps = {
   >
 
 const renderIcon = (status: CheckedStatus): JSX.Element | null => {
-  switch (status) {
-    case "indeterminate":
-      return <MinusIcon role="presentation" classNameOverride={styles.icon} />
-    case "checked":
-      return <CheckIcon role="presentation" classNameOverride={styles.icon} />
-    default:
-      return null
-  }
+  if (status === "unchecked") return null
+
+  return (
+    <Icon
+      name={status === "checked" ? "check" : "remove"}
+      isPresentational
+      className={styles.icon}
+    />
+  )
 }
 
 export const Checkbox = ({

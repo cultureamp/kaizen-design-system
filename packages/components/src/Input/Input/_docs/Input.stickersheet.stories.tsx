@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { MeatballsIcon, WritingIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -35,16 +35,18 @@ const InputExampleGroup = (props: InputProps): JSX.Element => (
           value={type}
           type={type}
           startIconAdornment={
-            <WritingIcon
-              role="presentation"
+            <Icon
+              name="edit"
+              isPresentational
               data-sb-a11y-color-contrast-disable={
                 props.disabled ? "true" : "false"
               }
             />
           }
           endIconAdornment={
-            <MeatballsIcon
-              role="presentation"
+            <Icon
+              name="close"
+              isPresentational
               data-sb-a11y-color-contrast-disable={
                 props.disabled ? "true" : "false"
               }

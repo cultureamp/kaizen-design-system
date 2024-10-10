@@ -2,10 +2,10 @@ import React from "react"
 import classnames from "classnames"
 import { Avatar } from "~components/Avatar"
 import { Heading } from "~components/Heading"
-import { ArrowLeftIcon, ArrowRightIcon, HamburgerIcon } from "~components/Icon"
 import { Select } from "~components/Select"
 import { Tag } from "~components/Tag"
 import { IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { useMediaQueries } from "~components/utils/useMediaQueries"
 import { MainActions } from "./subcomponents/MainActions"
 import { MobileActions } from "./subcomponents/MobileActions"
@@ -157,15 +157,12 @@ const Breadcrumb = ({
   textDirection,
 }: TitleBlockBreadcrumbProps): JSX.Element => {
   const { path, handleClick, text, render } = breadcrumb
-  const icon =
-    textDirection === "rtl" ? (
-      <ArrowRightIcon role="presentation" />
-    ) : (
-      <ArrowLeftIcon role="presentation" />
-    )
+
   const InnerContents = (): JSX.Element => (
     <>
-      <div className={styles.circle}>{icon}</div>
+      <div className={styles.circle}>
+        <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
+      </div>
       <span
         className={styles.breadcrumbTextLink}
         data-automation-id={textAutomationId}
@@ -318,7 +315,7 @@ export const TitleBlockZen = ({
                       <div className={styles.hamburger}>
                         <IconButton
                           onClick={handleHamburgerClick}
-                          icon={<HamburgerIcon role="presentation" />}
+                          icon={<Icon name="menu" isPresentational />}
                           label="Open menu"
                           reversed={isReversed(variant)}
                         />

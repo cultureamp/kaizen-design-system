@@ -140,15 +140,15 @@ $cautionary-box-border-color: var(--color-yellow-700);
 }
 
 .informativeIcon {
-  color: $color-blue-500;
+  color: var(--color-blue-500);
 }
 
 .positiveIcon {
-  color: $color-green-400;
+  color: var(--color-green-500);
 }
 
 .negativeIcon {
-  color: $color-red-500;
+  color: var(--color-red-500);
 }
 
 .cautionaryIcon {

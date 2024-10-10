@@ -2,9 +2,9 @@ import React, { HTMLAttributes } from "react"
 import { FormattedMessage, useIntl } from "@cultureamp/i18n-react-intl"
 import classNames from "classnames"
 import { BrandMoment } from "~components/BrandMoment"
-import { ArrowRightIcon, EmailIcon } from "~components/Icon"
 import { BrandMomentError } from "~components/Illustration"
 import { Text } from "~components/Text"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { ErrorStatuses, useErrorMessages } from "./hooks"
 import styles from "./ErrorPage.module.scss"
@@ -67,7 +67,9 @@ export const ErrorPage = ({
         variant="warning"
         primaryAction={{
           ...actions.primary,
-          icon: <ArrowRightIcon role="presentation" />,
+          icon: (
+            <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
+          ),
           iconPosition: "end",
           label: formatMessage({
             id: "kzErrorPage.goToHome",
@@ -77,7 +79,7 @@ export const ErrorPage = ({
         }}
         secondaryAction={{
           ...actions.secondary,
-          icon: <EmailIcon role="presentation" />,
+          icon: <Icon name="mail" isPresentational isFilled />,
           label: formatMessage({
             id: "kzErrorPage",
             defaultMessage: "Contact support",

@@ -1,7 +1,7 @@
 import React from "react"
-import { EditIcon, ExternalLinkIcon, RemoveLinkIcon } from "~components/Icon"
 import { usePopover } from "~components/Popover"
 import { Text } from "~components/Text"
+import { Icon } from "~components/__future__/Icon"
 import { SelectionPosition } from "../../types"
 import { Positioner } from "./Positioner"
 import styles from "./LinkPopover.module.scss"
@@ -26,7 +26,7 @@ export const LinkPopover = ({
       <Positioner ref={ElementRef} {...selectionPosition} />
       <Popover size="large">
         <div className={styles.popoverContent}>
-          <ExternalLinkIcon role="presentation" />
+          <Icon name="open_in_new" isPresentational />
           <div className={styles.popoverLinkContainer}>
             <Text
               variant="body"
@@ -44,13 +44,9 @@ export const LinkPopover = ({
             </Text>
           </div>
           <div className={styles.popoverActions}>
-            <EditIcon role="img" onClick={onEdit} aria-label="Edit link" />
+            <Icon name="edit" onClick={onEdit} alt="Edit link" />
           </div>
-          <RemoveLinkIcon
-            role="img"
-            onClick={onRemove}
-            aria-label="Remove link"
-          />
+          <Icon name="link_off" onClick={onRemove} alt="Remove link" />
         </div>
       </Popover>
     </>

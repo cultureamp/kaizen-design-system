@@ -7,20 +7,19 @@ const DropdownButtonWrapper = (
 ): JSX.Element => <DropdownButton {...props} />
 
 describe("<DropdownButton />", () => {
-  it("renders icon with default aria-label", async () => {
+  it("has default accessible name", async () => {
     render(<DropdownButtonWrapper />)
     await waitFor(() => {
       const button = screen.getByRole("button", { name: "Additional actions" })
-      expect(button.getAttribute("aria-label")).toBe("Additional actions")
-      expect(button.firstChild?.nodeName).toEqual("svg")
+      expect(button).toBeInTheDocument()
     })
   })
 
-  it("renders custom aria-label", async () => {
+  it("can customise accessible name", async () => {
     render(<DropdownButtonWrapper aria-label="Custom aria label" />)
     await waitFor(() => {
       const button = screen.getByRole("button", { name: "Custom aria label" })
-      expect(button.getAttribute("aria-label")).toBe("Custom aria label")
+      expect(button).toBeInTheDocument()
     })
   })
 })

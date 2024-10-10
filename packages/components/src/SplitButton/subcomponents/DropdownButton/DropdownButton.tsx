@@ -1,7 +1,7 @@
 import React from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
 import classnames from "classnames"
-import { ChevronDownIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { BaseButton, BaseButtonProps } from "../BaseButton"
 import styles from "./DropdownButton.module.scss"
 
@@ -23,7 +23,7 @@ export const DropdownButton = ({
           description: "Label for a dropdown menu holding additional actions",
         })
       }
-      icon={<ChevronDownIcon role="presentation" />}
+      icon={<Icon name="keyboard_arrow_down" isPresentational />}
       classNameOverride={classnames(styles.dropdownButton, classNameOverride)}
       {...restProps}
     />

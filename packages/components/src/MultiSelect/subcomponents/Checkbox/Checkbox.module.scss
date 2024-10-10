@@ -68,11 +68,5 @@ $focus-ring-size: calc(#{$checkbox-size} + #{$focus-ring-offset});
 }
 
 .icon {
-  height: $checkbox-size;
-  width: $checkbox-size;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   color: $color-white;
 }

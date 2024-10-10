@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Textfit } from "react-textfit"
-import { UserIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Avatar.module.scss"
 
@@ -76,12 +76,21 @@ const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
   return 22
 }
 
-const fallbackIcon = (alt: string): JSX.Element => {
+const FallbackIcon = ({ alt }: { alt: string }): JSX.Element => {
   if (alt) {
-    return <UserIcon inheritSize role="img" aria-label={alt} />
+    return (
+      <Icon name="person" alt={alt} isFilled className={styles.fallbackIcon} />
+    )
   }
 
-  return <UserIcon inheritSize role="presentation" />
+  return (
+    <Icon
+      name="person"
+      isPresentational
+      isFilled
+      className={styles.fallbackIcon}
+    />
+  )
 }
 
 const renderInitials = (
@@ -95,7 +104,7 @@ const renderInitials = (
   const renderFallback = disableInitials || initials === ""
 
   return renderFallback ? (
-    <span className={styles.fallbackIcon}>{fallbackIcon(alt)}</span>
+    <FallbackIcon alt={alt} />
   ) : (
     <abbr
       className={classnames(styles.initials, isLongName && styles.longName)}

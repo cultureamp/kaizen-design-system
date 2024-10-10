@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { WritingIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { TextField } from "../index"
 
 const meta = {
@@ -40,8 +40,9 @@ export const Types: Story = {
   },
 }
 
-export const Icon: Story = {
-  args: { icon: <WritingIcon role="presentation" /> },
+export const IconStory: Story = {
+  name: "Icon",
+  args: { icon: <Icon name="edit" isPresentational isFilled /> },
 }
 
 export const Description: Story = {

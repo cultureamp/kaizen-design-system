@@ -9,7 +9,6 @@
 }
 
 .icon {
-  margin-inline-start: $spacing-12;
   color: $color-gray-500;
 }
 
@@ -145,4 +144,5 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-inline-end: var(--spacing-12);
 }

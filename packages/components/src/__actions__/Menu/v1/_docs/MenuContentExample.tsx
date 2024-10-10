@@ -1,5 +1,5 @@
 import React from "react"
-import { DuplicateIcon, EditIcon, TrashIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { MenuHeading } from "../subcomponents/MenuHeading"
 import { MenuItem } from "../subcomponents/MenuItem"
 import { MenuList } from "../subcomponents/MenuList"
@@ -34,7 +34,7 @@ export const MenuContentExample = ({
               alert("Hello")
               e.preventDefault()
             }}
-            icon={<EditIcon role="presentation" />}
+            icon={<Icon name="edit" isPresentational isFilled />}
             label="Menu button"
           />
           <MenuItem
@@ -46,7 +46,7 @@ export const MenuContentExample = ({
             ): void => {
               e.preventDefault()
             }}
-            icon={<DuplicateIcon role="presentation" />}
+            icon={<Icon name="content_copy" isPresentational isFilled />}
             label="Menu button but the label is too long"
           />
           <MenuItem
@@ -58,7 +58,7 @@ export const MenuContentExample = ({
             ): void => {
               e.preventDefault()
             }}
-            icon={<TrashIcon role="presentation" />}
+            icon={<Icon name="delete" isPresentational isFilled />}
             destructive
             label="Destructive Menu button"
           />
@@ -71,7 +71,7 @@ export const MenuContentExample = ({
             ): void => {
               e.preventDefault()
             }}
-            icon={<TrashIcon role="presentation" />}
+            icon={<Icon name="delete" isPresentational isFilled />}
             disabled
             label="Disabled Menu button"
           />
@@ -84,7 +84,7 @@ export const MenuContentExample = ({
             ): void => {
               e.preventDefault()
             }}
-            icon={<TrashIcon role="presentation" />}
+            icon={<Icon name="delete" isPresentational isFilled />}
             disabled
             destructive
             label="Disabled Destructive Menu button"

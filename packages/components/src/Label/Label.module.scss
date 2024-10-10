@@ -5,6 +5,10 @@
 
 $label-start-margin: $spacing-xs;
 
+.label {
+  --icon-vertical-align: text-bottom;
+}
+
 .label,
 :global(.ideal-sans) .label {
   // override Murmur global styles :(

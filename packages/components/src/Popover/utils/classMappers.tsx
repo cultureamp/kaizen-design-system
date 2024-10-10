@@ -1,10 +1,5 @@
 import React from "react"
-import {
-  CautionIcon,
-  ExclamationIcon,
-  InformationIcon,
-  SuccessIcon,
-} from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import styles from "../Popover.module.scss"
 import { PopoverVariant, PopoverSize } from "../types"
 
@@ -43,15 +38,15 @@ export const mapVariantToIconClass = (
 export const mapVariantToIcon = (variant: PopoverVariant): JSX.Element => {
   switch (variant) {
     case "informative":
-      return <InformationIcon role="presentation" />
+      return <Icon name="info" isPresentational isFilled />
     case "positive":
-      return <SuccessIcon role="presentation" />
+      return <Icon name="check_circle" isPresentational isFilled />
     case "negative":
-      return <ExclamationIcon role="presentation" />
+      return <Icon name="error" isPresentational isFilled />
     case "cautionary":
-      return <CautionIcon role="presentation" />
+      return <Icon name="warning" isPresentational isFilled />
     default:
-      return <InformationIcon role="presentation" />
+      return <Icon name="info" isPresentational isFilled />
   }
 }
 

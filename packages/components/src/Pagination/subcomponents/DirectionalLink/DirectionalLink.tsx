@@ -1,14 +1,9 @@
 import React from "react"
 import {
-  ArrowBackwardIcon,
-  ArrowForwardIcon,
-  EndIcon,
-  StartIcon,
-} from "~components/Icon"
-import {
   GenericButton,
   GenericProps,
 } from "~components/__actions__/Button/v2/GenericButton"
+import { Icon } from "~components/__future__/Icon"
 
 export type DirectionalLinkProps = {
   label: string
@@ -16,11 +11,11 @@ export type DirectionalLinkProps = {
   direction: "prev" | "next" | "start" | "end"
 } & GenericProps
 
-const iconMap = {
-  prev: <ArrowBackwardIcon role="presentation" />,
-  next: <ArrowForwardIcon role="presentation" />,
-  start: <StartIcon role="presentation" />,
-  end: <EndIcon role="presentation" />,
+const iconNameMap = {
+  prev: "arrow_back",
+  next: "arrow_forward",
+  start: "keyboard_tab_rtl",
+  end: "keyboard_tab",
 }
 
 /**
@@ -38,7 +33,13 @@ export const DirectionalLink = ({
     {...otherProps}
     iconButton
     directionalLink
-    icon={iconMap[otherProps.direction]}
+    icon={
+      <Icon
+        name={iconNameMap[otherProps.direction]}
+        isPresentational
+        shouldMirrorInRTL
+      />
+    }
   />
 )
 

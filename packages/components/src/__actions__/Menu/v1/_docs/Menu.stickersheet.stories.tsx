@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { ChevronDownIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -30,7 +30,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               button={
                 <Button
                   label="Menu"
-                  icon={<ChevronDownIcon role="presentation" />}
+                  icon={<Icon name="keyboard_arrow_down" isPresentational />}
                   iconPosition="end"
                 />
               }
@@ -45,7 +45,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               button={
                 <Button
                   label="Menu"
-                  icon={<ChevronDownIcon role="presentation" />}
+                  icon={<Icon name="keyboard_arrow_down" isPresentational />}
                   iconPosition="end"
                 />
               }

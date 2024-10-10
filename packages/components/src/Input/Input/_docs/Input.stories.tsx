@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { UserAddIcon, WritingIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { Input } from "../index"
 
 const meta = {
@@ -87,14 +87,16 @@ export const Icons: Story = {
         <Input
           type="text"
           value="Start Icon"
-          startIconAdornment={<UserAddIcon role="presentation" />}
+          startIconAdornment={
+            <Icon name="person_add" isPresentational isFilled />
+          }
         />
       </li>
       <li>
         <Input
           type="text"
           value="End Icon"
-          endIconAdornment={<WritingIcon role="presentation" />}
+          endIconAdornment={<Icon name="edit" isPresentational isFilled />}
         />
       </li>
     </ul>

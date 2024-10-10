@@ -1,6 +1,6 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
-import { DuplicateIcon, EditIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { MenuItem, MenuList } from "../"
 
 export const exampleActionButtonPropsButton = {
@@ -16,12 +16,12 @@ export const exampleActionButtonPropsAnchor = {
 export const exampleDropdownContentEnabled = (
   <MenuList>
     <MenuItem
-      icon={<EditIcon role="presentation" />}
+      icon={<Icon name="edit" isPresentational isFilled />}
       label="Menu Item 1"
       onClick={action("clicked")}
     />
     <MenuItem
-      icon={<DuplicateIcon role="presentation" />}
+      icon={<Icon name="content_copy" isPresentational isFilled />}
       label="Menu Item 2"
     />
   </MenuList>
@@ -30,12 +30,12 @@ export const exampleDropdownContentEnabled = (
 export const exampleDropdownContentOneDisabled = (
   <MenuList>
     <MenuItem
-      icon={<EditIcon role="presentation" />}
+      icon={<Icon name="edit" isPresentational isFilled />}
       label="Menu Item 1"
       disabled
     />
     <MenuItem
-      icon={<DuplicateIcon role="presentation" />}
+      icon={<Icon name="content_copy" isPresentational isFilled />}
       label="Menu Item 2"
     />
   </MenuList>

@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "jsx": "react",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "paths": {
       "~storybook/*": ["./*"],

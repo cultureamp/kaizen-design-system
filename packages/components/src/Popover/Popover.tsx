@@ -2,8 +2,8 @@ import React, { HTMLAttributes, useMemo, useState } from "react"
 import classnames from "classnames"
 import { usePopper } from "react-popper"
 import { Heading } from "~components/Heading"
-import { CloseIcon } from "~components/Icon"
 import { Text } from "~components/Text"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { Placement, PopoverSize, PopoverVariant } from "./types"
 import {
@@ -140,7 +140,7 @@ export const Popover = ({
                 type="button"
                 aria-label="close"
               >
-                <CloseIcon role="presentation" />
+                <Icon name="close" isPresentational isFilled />
               </button>
             )}
           </div>

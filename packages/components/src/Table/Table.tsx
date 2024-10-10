@@ -2,11 +2,7 @@ import React, { cloneElement, HTMLAttributes, ReactElement } from "react"
 import classnames from "classnames"
 import { Checkbox, CheckedStatus } from "~components/Checkbox"
 import { Heading } from "~components/Heading"
-import {
-  ExclamationIcon,
-  SortAscendingIcon,
-  SortDescendingIcon,
-} from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { Tooltip } from "~components/__overlays__/Tooltip/v1"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./Table.module.scss"
@@ -169,7 +165,7 @@ export const TableHeaderRowCell = ({
       )}
       {tooltipInfo != null && !isTooltipIconHidden ? (
         <div className={styles.headerRowCellTooltipIcon}>
-          <ExclamationIcon role="presentation" />
+          <Icon name="error" isPresentational isFilled />
         </div>
       ) : null}
       {/* If an "icon" is supplied, the label is displayed inside the icon aria title instead */}
@@ -192,9 +188,9 @@ export const TableHeaderRowCell = ({
           )}
         >
           {sorting === "ascending" || sortingArrowsOnHover === "ascending" ? (
-            <SortAscendingIcon role="presentation" />
+            <Icon name="arrow_drop_up" isPresentational />
           ) : (
-            <SortDescendingIcon role="presentation" />
+            <Icon name="arrow_drop_down" isPresentational />
           )}
         </div>
       )}

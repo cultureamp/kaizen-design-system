@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { CautionWhiteIcon, ExclamationWhiteIcon } from "~components/Icon"
 import { Text } from "~components/Text"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./FieldMessage.module.scss"
 
@@ -45,19 +45,11 @@ export const FieldMessage = ({
     >
       {(status === "error" || status === "caution") && (
         <span className={styles.warningIcon}>
-          {status === "error" ? (
-            <ExclamationWhiteIcon
-              role="img"
-              inheritSize={false}
-              aria-label={`${status} message`}
-            />
-          ) : (
-            <CautionWhiteIcon
-              role="img"
-              inheritSize={false}
-              aria-label={`${status} message`}
-            />
-          )}
+          <Icon
+            name={status === "error" ? "error" : "warning"}
+            isFilled
+            alt={`${status} message`}
+          />
         </span>
       )}
       <div className={styles.message}>
