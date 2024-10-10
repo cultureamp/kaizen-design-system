@@ -6,12 +6,16 @@
   height: var(--loading-spinner-size);
 }
 
-.loadingSpinner.xs {
+.xs {
   --loading-spinner-size: var(--spacing-16);
 }
 
-.loadingSpinner.sm {
+.sm {
   --loading-spinner-size: var(--spacing-24);
+}
+
+.md {
+  --loading-spinner-size: var(--spacing-48);
 }
 
 .spinner {
