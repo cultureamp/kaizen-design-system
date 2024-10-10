@@ -1,5 +1,5 @@
 .loadingSpinner {
-  --loading-spinner-size: var(--spacing-48);
+  --loading-spinner-size: 48px;
 
   display: flex;
   width: var(--loading-spinner-size);
@@ -7,15 +7,15 @@
 }
 
 .xs {
-  --loading-spinner-size: var(--spacing-16);
+  --loading-spinner-size: 16px;
 }
 
 .sm {
-  --loading-spinner-size: var(--spacing-24);
+  --loading-spinner-size: 24px;
 }
 
 .md {
-  --loading-spinner-size: var(--spacing-48);
+  --loading-spinner-size: 48px;
 }
 
 .spinner {
