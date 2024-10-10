@@ -25,16 +25,7 @@ export const Playground: Story = {
 }
 
 export const ClassNameOverride: Story = {
-  render: args => (
-    <LoadingSpinner {...args} classNameOverride="text-green-400" />
-  ),
-  decorators: [
-    Story => (
-      <div className="flex gap-24">
-        <Story />
-      </div>
-    ),
-  ],
+args: { classNameOverride: "text-green-400" },
 }
 
 export const Colors: Story = {
