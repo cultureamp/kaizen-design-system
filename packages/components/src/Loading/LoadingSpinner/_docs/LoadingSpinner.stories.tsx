@@ -25,7 +25,7 @@ export const Playground: Story = {
 }
 
 export const ClassNameOverride: Story = {
-args: { classNameOverride: "text-green-400" },
+  args: { classNameOverride: "text-green-400" },
 }
 
 export const Colors: Story = {

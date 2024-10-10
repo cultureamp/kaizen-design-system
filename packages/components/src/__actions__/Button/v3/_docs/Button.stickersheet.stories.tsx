@@ -82,7 +82,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <ArrowForwardIcon role="presentation" />
             </Button>
             <Button size="small" isDisabled>
-              <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
+              <LoadingSpinner size="xs" accessibilityLabel="submitting label" />
             </Button>
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Icon only small">
@@ -93,7 +93,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <TrashIcon role="img" aria-label="Remove label" />
             </Button>
             <Button size="small" isDisabled>
-              <LoadingSpinner size="sm" accessibilityLabel="Removing label" />
+              <LoadingSpinner size="xs" accessibilityLabel="Removing label" />
             </Button>
           </StickerSheet.Row>
         </StickerSheet.Body>
