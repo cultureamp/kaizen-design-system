@@ -23,16 +23,6 @@ import * as TabsStories from "./Tabs.stories"
 <Canvas of={TabsStories.Playground} />
 <Controls of={TabsStories.Playground} />
 
-## Migration from current Tabs
-
-- `<Tab>` and `<TabPanel>` now need matching id strings, e.g. `<Tab id="my-first-tab">` and `<TabPanel id="my-first-tab">`
-- `<TabPanel>`s no longer needs to be wrapped in a `<TabPanels>` component
-- `classNameOverride` changes to `className`
-- `<Tabs defaultIndex={}>` changes to `<Tabs defaultSelectedKey={}>`
-- `<Tabs index={}>` changes to `<Tabs selectedKey={}>`
-- `<Tabs onChange={}>` changes to `<Tabs onSelectionChange={}>`
-- `<Tab disabled>` changes to `<Tab isDisabled>`
-
 ## Uncontrolled vs controlled
 
 This component is uncontrolled by default. You can specify a default active tab on load with `defaultSelectedKey`.

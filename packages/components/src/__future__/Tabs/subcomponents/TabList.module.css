@@ -3,6 +3,6 @@
   padding: var(--spacing-xs) var(--spacing-md) 0;
 }
 
-.tabList.noPadding {
+.noPadding {
   padding: 0;
 }

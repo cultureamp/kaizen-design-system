@@ -1,0 +1,89 @@
+# Future Tabs migration guide
+
+A brief guide on how and why to migrate from Kaizen's current `Tabs` to the `future` release.
+
+## Why the change?
+
+Current Tabs uses the Reach UI library under the hood, which is no longer actively maintained. This switches the library used internally to React Aria Components.
+
+## Component and API changes at a glance
+
+The Reach UI and React Aria APIs are fairly similar so there's not too much to adjust.
+
+The biggest adjustment is that you now need to provide an `id` for each `<Tab>` and match it with the one on `<TabPanel>`
+
+Additionally:
+- `<TabPanel>`s no longer needs to be wrapped in a `<TabPanels>` component
+- `classNameOverride` changes to `className`
+- `<Tabs defaultIndex={}>` changes to `<Tabs defaultSelectedKey={}>`
+- `<Tabs index={}>` changes to `<Tabs selectedKey={}>`
+- `<Tabs onChange={}>` changes to `<Tabs onSelectionChange={}>`
+- `<Tab disabled>` changes to `<Tab isDisabled>`
+
+## Migration examples
+
+### Uncontrolled
+
+#### Before
+
+```
+<Tabs defaultIndex={1}>
+  <TabList>
+    <Tab>Tab 1</Tab>
+    <Tab>Tab 2</Tab>
+    <Tab disabled>Disabled tab</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel classNameOverride="p-4">Content 1</TabPanel>
+    <TabPanel>Content 2</TabPanel>
+    <TabPanel>Disabled content</TabPanel>
+  </TabPanels>
+</Tabs>
+```
+
+#### After
+
+```
+<Tabs defaultSelectedKey="two">
+  <TabList>
+    <Tab id="one">Tab 1</Tab>
+    <Tab id="two">Tab 2</Tab>
+    <Tab id="three" isDisabled>Disabled tab</Tab>
+  </TabList>
+  <TabPanel id="one" className="p-4">Content 1</TabPanel>
+  <TabPanel id="two">Content 2</TabPanel>
+</Tabs>
+```
+
+### Controlled
+
+#### Before
+
+```
+<Tabs onChange={setSelectedTab} defaultIndex={1}>
+  <TabList>
+    <Tab>Tab 1</Tab>
+    <Tab>Tab 2</Tab>
+    <Tab disabled>Disabled tab</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>Content 1</TabPanel>
+    <TabPanel>Content 2</TabPanel>
+    <TabPanel>Disabled content</TabPanel>
+  </TabPanels>
+</Tabs>
+```
+
+#### After
+
+```
+<Tabs onSelectionChange={setSelectedTab} selectedKey="two">
+  <TabList>
+    <Tab id="one">Tab 1</Tab>
+    <Tab id="two">Tab 2</Tab>
+    <Tab id="three" isDisabled>Disabled tab</Tab>
+  </TabList>
+  <TabPanel id="one">Content 1</TabPanel>
+  <TabPanel id="two">Content 2</TabPanel>
+</Tabs>
+```
