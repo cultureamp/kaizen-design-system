@@ -18,13 +18,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
-        headings={[
-          'Size "xs"',
-          'Size "sm"',
-          'Size "md"',
-          "Custom color",
-          "Custom size",
-        ]}
+        headings={['Size "xs"', 'Size "sm"', 'Size "md"', "Custom color"]}
       />
       <StickerSheet.Body>
         <StickerSheet.Row>
