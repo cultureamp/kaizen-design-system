@@ -1,0 +1,32 @@
+.loadingSpinner {
+  --loading-spinner-size: 48px;
+
+  display: flex;
+  width: var(--loading-spinner-size);
+  height: var(--loading-spinner-size);
+}
+
+.xs {
+  --loading-spinner-size: 16px;
+}
+
+.sm {
+  --loading-spinner-size: 24px;
+}
+
+.md {
+  --loading-spinner-size: 48px;
+}
+
+.spinner {
+  animation: spinner var(--animation-duration-deliberate)
+    var(--animation-easing-function-ease-in-out) infinite;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}
