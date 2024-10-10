@@ -22,7 +22,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           'Size "xs"',
           'Size "sm"',
           'Size "md"',
-          "Custom colour",
+          "Custom color",
           "Custom size",
         ]}
       />
@@ -34,11 +34,6 @@ const StickerSheetTemplate: StickerSheetStory = {
           <LoadingSpinner
             accessibilityLabel="Loading"
             classNameOverride="text-purple-400"
-          />
-          <LoadingSpinner
-            accessibilityLabel="Loading"
-            size="xs"
-            classNameOverride="[--loading-spinner-size:10px]"
           />
         </StickerSheet.Row>
       </StickerSheet.Body>
