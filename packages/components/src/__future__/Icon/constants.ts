@@ -124,6 +124,7 @@ export const iconDefaultSet = [
   "school",
   "search",
   "send",
+  "sensors",
   "sentiment_dissatisfied",
   "sentiment_neutral",
   "sentiment_satisfied",
