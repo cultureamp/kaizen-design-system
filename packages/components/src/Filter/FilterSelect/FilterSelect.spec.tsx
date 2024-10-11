@@ -198,16 +198,15 @@ describe("<FilterSelect>", () => {
     it("changes the value within the button when an option is selected", async () => {
       render(
         <FilterSelectWrapper
-          isOpen
           renderTrigger={(triggerButtonProps): JSX.Element => (
-            <FilterButton data-testid="test__trigger" {...triggerButtonProps} />
+            <FilterButton {...triggerButtonProps} />
           )}
         />
       )
-      // Use testid because when the filter is open, the button is inaccessible
-      expect(screen.getByTestId("test__trigger").textContent).toBe("Coffee")
 
-      await user.tab()
+      const button = screen.getByRole("button", { name: "Coffee" })
+
+      await user.click(button)
       await waitFor(() => {
         expect(screen.queryByRole("listbox")).toBeVisible()
       })

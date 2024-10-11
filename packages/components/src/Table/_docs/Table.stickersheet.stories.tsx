@@ -1,8 +1,8 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
-import { EffectivenessIcon } from "~components/Icon"
 import { Text } from "~components/Text"
+import { Icon } from "~components/__future__/Icon"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import {
   TableCard,
@@ -178,7 +178,7 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
               width={4 / 12}
               sorting="descending"
               onClick={action("header 1")}
-              icon={<EffectivenessIcon role="img" aria-label="Focus" />}
+              icon={<Icon name="potted_plant" alt="Focus" isFilled />}
             />
             <TableHeaderRowCell
               reversed={isReversed}
@@ -187,7 +187,7 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
               sorting="ascending"
               onClick={action("header 3")}
               data-sb-pseudo-styles="hover"
-              icon={<EffectivenessIcon role="img" aria-label="Focus" />}
+              icon={<Icon name="potted_plant" alt="Focus" isFilled />}
             />
             <TableHeaderRowCell
               reversed={isReversed}
@@ -196,7 +196,7 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
               sorting="ascending"
               onClick={action("header 2")}
               data-sb-pseudo-styles="focus-visible"
-              icon={<EffectivenessIcon role="img" aria-label="Focus" />}
+              icon={<Icon name="potted_plant" alt="Focus" isFilled />}
             />
           </TableRow>
         </TableHeader>

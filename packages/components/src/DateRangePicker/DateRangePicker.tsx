@@ -13,9 +13,9 @@ import {
   LegacyCalendarRange,
   LegacyCalendarRangeProps,
 } from "~components/Calendar/LegacyCalendarRange"
-import { DateStartIcon } from "~components/Icon"
 import { Label } from "~components/Label"
 import { VisuallyHidden } from "~components/VisuallyHidden"
+import { Icon } from "~components/__future__/Icon"
 import styles from "./DateRangePicker.module.scss"
 
 export type DateRangePickerProps = {
@@ -168,7 +168,7 @@ export const DateRangePicker = ({
           {...inputProps}
         >
           <div className={styles.startIconAdornment}>
-            <DateStartIcon role="presentation" />
+            <Icon name="today" isPresentational isFilled />
           </div>
           <span className={styles.value}>
             {selectedDateRange?.from ? value : undefined}

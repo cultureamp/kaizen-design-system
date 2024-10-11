@@ -350,6 +350,7 @@ describe("Has validation status", () => {
     )
     expect(screen.getByText("No waffles are available")).toBeInTheDocument()
   })
+
   it("describes the Toggle", () => {
     render(
       <MultiSelectWrapper
@@ -364,13 +365,16 @@ describe("Has validation status", () => {
     expect(
       screen.getByRole("button", {
         name: "Breakfast menu",
-        description: "Only four waffles remain",
+        // React Testing Library bug: Icon should be showing aria-label "caution message" instead
+        description: "warning Only four waffles remain",
       })
     ).toBeInTheDocument()
   })
+
   it("announces the validation message before the Toggle's description", () => {
-    const description = "Choose you breakfast."
-    const validationMessage = "Only four waffles remain."
+    const description = "Choose your breakfast."
+    // React Testing Library bug: Icon should be showing aria-label "caution message" instead
+    const validationMessage = "warning Only four waffles remain."
 
     render(
       <MultiSelectWrapper

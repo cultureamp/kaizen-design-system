@@ -1,7 +1,7 @@
 import React from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
-import { AddIcon } from "~components/Icon"
 import { Menu, MenuList, MenuItem, Button } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { useFilterBarContext } from "../../context/FilterBarContext"
 
 export const AddFiltersMenu = (): JSX.Element => {
@@ -24,7 +24,7 @@ export const AddFiltersMenu = (): JSX.Element => {
           label={menuButtonLabel}
           secondary
           disabled={inactiveFilters.length === 0}
-          icon={<AddIcon role="presentation" />}
+          icon={<Icon name="add" isPresentational />}
         />
       }
     >

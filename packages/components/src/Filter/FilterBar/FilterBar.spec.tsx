@@ -313,7 +313,7 @@ describe("<FilterBar />", () => {
           />
         )
         await waitForI18nContent()
-        expect(getByTestId("testid__values").textContent).toEqual(
+        expect(getByTestId("testid__values").textContent).toBe(
           JSON.stringify({})
         )
       })
@@ -580,7 +580,7 @@ describe("<FilterBar />", () => {
         await user.click(getByRole("option", { name: "Long Black" }))
 
         await waitFor(() => {
-          expect(coffeeButton.textContent).toBe("Coffee:Long Black")
+          expect(coffeeButton).toHaveAccessibleName("Coffee : Long Black")
         })
         const iceButton = getByRole("button", { name: "Ice" })
         expect(iceButton).toBeVisible()
@@ -590,7 +590,7 @@ describe("<FilterBar />", () => {
         await user.click(getByRole("option", { name: "Latte" }))
 
         await waitFor(() => {
-          expect(coffeeButton.textContent).toBe("Coffee:Latte")
+          expect(coffeeButton).toHaveAccessibleName("Coffee : Latte")
         })
         const milkButton = getByRole("button", { name: "Milk" })
         expect(milkButton).toBeVisible()
@@ -600,7 +600,7 @@ describe("<FilterBar />", () => {
         await user.click(getByRole("option", { name: "Oat" }))
 
         await waitFor(() => {
-          expect(milkButton.textContent).toBe("Milk:Oat")
+          expect(milkButton).toHaveAccessibleName("Milk : Oat")
         })
         expect(addFiltersButton).not.toBeDisabled()
 
@@ -657,16 +657,16 @@ describe("<FilterBar />", () => {
       })
       const iceLevelButton = getByRole("button", { name: "Ice Level : 100%" })
 
-      expect(flavourButton.textContent).toBe("Flavour:Jasmine Milk Tea")
-      expect(sugarLevelButton.textContent).toBe("Sugar Level:50%")
-      expect(iceLevelButton.textContent).toBe("Ice Level:100%")
+      expect(flavourButton).toHaveAccessibleName("Flavour : Jasmine Milk Tea")
+      expect(sugarLevelButton).toHaveAccessibleName("Sugar Level : 50%")
+      expect(iceLevelButton).toHaveAccessibleName("Ice Level : 100%")
 
       await user.click(getByRole("button", { name: "Clear all filters" }))
 
       await waitFor(() => {
-        expect(flavourButton.textContent).toBe("Flavour")
-        expect(sugarLevelButton.textContent).toBe("Sugar Level")
-        expect(iceLevelButton.textContent).toBe("Ice Level")
+        expect(flavourButton).toHaveAccessibleName("Flavour")
+        expect(sugarLevelButton).toHaveAccessibleName("Sugar Level")
+        expect(iceLevelButton).toHaveAccessibleName("Ice Level")
       })
     })
 
@@ -744,14 +744,14 @@ describe("<FilterBar />", () => {
       await waitForI18nContent()
 
       const flavourButton = getByRole("button", { name: "Flavour" })
-      expect(flavourButton.textContent).toEqual("Flavour")
+      expect(flavourButton).toHaveAccessibleName("Flavour")
 
       await user.click(
         getByRole("button", { name: "Update Flavour to honey-milk-tea" })
       )
 
       await waitFor(() => {
-        expect(flavourButton.textContent).toEqual("Flavour:Honey Milk Tea")
+        expect(flavourButton).toHaveAccessibleName("Flavour : Honey Milk Tea")
       })
     })
 

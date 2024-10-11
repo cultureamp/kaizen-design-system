@@ -1,8 +1,8 @@
 import React from "react"
 import { Decorator, Meta } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
-import { MeatballsIcon } from "~components/Icon"
 import { IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -38,7 +38,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <Tooltip {...props} position="above" text="Tooltip label">
                 <IconButton
                   label="Label"
-                  icon={<MeatballsIcon role="presentation" />}
+                  icon={<Icon name="more_horiz" isPresentational />}
                 />
               </Tooltip>
             </StickerSheet.Cell>
@@ -46,7 +46,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <Tooltip {...props} position="below" text="Tooltip label">
                 <IconButton
                   label="Label"
-                  icon={<MeatballsIcon role="presentation" />}
+                  icon={<Icon name="more_horiz" isPresentational />}
                 />
               </Tooltip>
             </StickerSheet.Cell>
@@ -54,7 +54,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <Tooltip {...props} position="left" text="Tooltip label">
                 <IconButton
                   label="Label"
-                  icon={<MeatballsIcon role="presentation" />}
+                  icon={<Icon name="more_horiz" isPresentational />}
                 />
               </Tooltip>
             </StickerSheet.Cell>
@@ -67,7 +67,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               >
                 <IconButton
                   label="Label"
-                  icon={<MeatballsIcon role="presentation" />}
+                  icon={<Icon name="more_horiz" isPresentational />}
                 />
               </Tooltip>
             </StickerSheet.Cell>
@@ -90,7 +90,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <Tooltip {...props} text="Tooltip label" mood="default">
                 <IconButton
                   label="Label"
-                  icon={<MeatballsIcon role="presentation" />}
+                  icon={<Icon name="more_horiz" isPresentational />}
                 />
               </Tooltip>
             </StickerSheet.Cell>
@@ -98,7 +98,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <Tooltip {...props} text="Tooltip label" mood="informative">
                 <IconButton
                   label="Label"
-                  icon={<MeatballsIcon role="presentation" />}
+                  icon={<Icon name="more_horiz" isPresentational />}
                 />
               </Tooltip>
             </StickerSheet.Cell>
@@ -106,7 +106,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <Tooltip {...props} text="Tooltip label" mood="positive">
                 <IconButton
                   label="Label"
-                  icon={<MeatballsIcon role="presentation" />}
+                  icon={<Icon name="more_horiz" isPresentational />}
                 />
               </Tooltip>
             </StickerSheet.Cell>
@@ -114,7 +114,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <Tooltip {...props} text="Tooltip label" mood="highlight">
                 <IconButton
                   label="Label"
-                  icon={<MeatballsIcon role="presentation" />}
+                  icon={<Icon name="more_horiz" isPresentational />}
                 />
               </Tooltip>
             </StickerSheet.Cell>
@@ -122,7 +122,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <Tooltip {...props} text="Tooltip label" mood="cautionary">
                 <IconButton
                   label="Label"
-                  icon={<MeatballsIcon role="presentation" />}
+                  icon={<Icon name="more_horiz" isPresentational />}
                 />
               </Tooltip>
             </StickerSheet.Cell>

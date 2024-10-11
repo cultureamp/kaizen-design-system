@@ -3,8 +3,8 @@ import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
 import { Checkbox } from "~components/Checkbox"
 import { Divider } from "~components/Divider"
-import { EffectivenessIcon } from "~components/Icon"
 import { Text } from "~components/Text"
+import { Icon } from "~components/__future__/Icon"
 import {
   TableCard,
   TableCardProps,
@@ -331,12 +331,12 @@ export const IconVariant: StoryObj<TableStoryProps> = {
   args: {
     headerRowCells: [
       {
-        icon: <EffectivenessIcon role="presentation" />,
+        icon: <Icon name="potted_plant" isPresentational isFilled />,
         labelText: "Resource name",
         width: 3 / 12,
       },
       {
-        icon: <EffectivenessIcon role="presentation" />,
+        icon: <Icon name="potted_plant" isPresentational isFilled />,
         labelText: "Supplementary information",
         width: 3 / 12,
       },

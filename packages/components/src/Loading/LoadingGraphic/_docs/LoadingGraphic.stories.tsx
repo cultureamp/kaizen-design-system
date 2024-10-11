@@ -1,8 +1,8 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Avatar } from "~components/Avatar"
-import { ConfigureIcon } from "~components/Icon"
 import { BrandMomentPositiveOutro, Informative } from "~components/Illustration"
+import { Icon } from "~components/__future__/Icon"
 import { StickerSheet } from "~storybook/components/StickerSheet"
 import { LoadingGraphic } from "../index"
 
@@ -49,7 +49,7 @@ export const Size: Story = {
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Icon (small)">
           <LoadingGraphic size="small" />
-          <ConfigureIcon aria-label="Aliens approaching!" role="img" />
+          <Icon name="build" alt="Aliens approaching!" isFilled />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Avatar (medium)">
           <LoadingGraphic size="medium" />

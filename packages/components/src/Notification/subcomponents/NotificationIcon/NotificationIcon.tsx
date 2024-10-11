@@ -1,13 +1,19 @@
 import React from "react"
-import { CautionIcon } from "~components/Icon/CautionIcon"
-import { ExclamationIcon } from "~components/Icon/ExclamationIcon"
-import { InformationIcon } from "~components/Icon/InformationIcon"
-import { SecurityTipIcon } from "~components/Icon/SecurityTipIcon"
-import { SuccessIcon } from "~components/Icon/SuccessIcon"
 import {
   NotificationType,
   NotificationVariant,
 } from "~components/Notification/types"
+import { Icon } from "~components/__future__"
+import styles from "./NotificationIcon.module.css"
+
+const NotificationIcon = ({ name }: { name: string }): JSX.Element => (
+  <Icon
+    name={name}
+    isFilled
+    isPresentational
+    className={styles.notificationIcon}
+  />
+)
 
 export type NotificationIconTypeProps = {
   type: NotificationType
@@ -18,17 +24,17 @@ export const NotificationIconType = ({
 }: NotificationIconTypeProps): JSX.Element => {
   switch (type) {
     case "positive":
-      return <SuccessIcon role="presentation" inheritSize />
+      return <NotificationIcon name="check_circle" />
     case "negative":
-      return <ExclamationIcon role="presentation" inheritSize />
+      return <NotificationIcon name="error" />
     case "cautionary":
-      return <CautionIcon role="presentation" inheritSize />
+      return <NotificationIcon name="warning" />
     case "informative":
-      return <InformationIcon role="presentation" inheritSize />
+      return <NotificationIcon name="info" />
     case "security":
-      return <SecurityTipIcon role="presentation" inheritSize />
+      return <NotificationIcon name="privacy_tip" />
     default:
-      return <InformationIcon role="presentation" inheritSize />
+      return <NotificationIcon name="info" />
   }
 }
 
@@ -43,15 +49,15 @@ export const NotificationIconVariant = ({
 }: NotificationIconVariantProps): JSX.Element => {
   switch (variant) {
     case "success":
-      return <SuccessIcon role="presentation" inheritSize />
+      return <NotificationIcon name="check_circle" />
     case "warning":
-      return <ExclamationIcon role="presentation" inheritSize />
+      return <NotificationIcon name="error" />
     case "cautionary":
-      return <CautionIcon role="presentation" inheritSize />
+      return <NotificationIcon name="warning" />
     case "informative":
-      return <InformationIcon role="presentation" inheritSize />
+      return <NotificationIcon name="info" />
     case "security":
-      return <SecurityTipIcon role="presentation" inheritSize />
+      return <NotificationIcon name="privacy_tip" />
   }
 }
 

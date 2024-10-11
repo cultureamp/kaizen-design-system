@@ -1,6 +1,6 @@
 import React from "react"
-import { CloseIcon } from "~components/Icon"
 import { IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 import { ModalBody } from "../ModalBody"
 import styles from "./ModalHeader.module.scss"
 
@@ -20,7 +20,7 @@ export const ModalHeader = ({
     <div className={styles.dismissButton}>
       <IconButton
         label="Dismiss"
-        icon={<CloseIcon role="presentation" />}
+        icon={<Icon name="close" isPresentational />}
         reversed={reversed}
         onClick={onDismiss}
         disabled={onDismiss == undefined}

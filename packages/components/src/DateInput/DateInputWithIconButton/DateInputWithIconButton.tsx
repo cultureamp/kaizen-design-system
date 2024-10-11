@@ -1,6 +1,6 @@
 import React from "react"
 import classnames from "classnames"
-import { DateStartIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { isRefObject } from "~components/utils/isRefObject"
 import { DateInput, DateInputProps } from "../DateInput"
 import styles from "./DateInputWithIconButton.module.scss"
@@ -39,7 +39,7 @@ export const DateInputWithIconButton = React.forwardRef<
         disabled && styles.disabled
       )}
     >
-      <DateStartIcon role="presentation" />
+      <Icon name="today" isPresentational isFilled />
     </button>
   )
 

@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { BoldIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { ToggleIconButton } from "../ToggleIconButton"
 import { ToolbarSection } from "../ToolbarSection"
 import { Toolbar } from "."
@@ -11,14 +11,17 @@ const user = userEvent.setup()
 const ExampleToolbar = (): JSX.Element => (
   <Toolbar aria-label="Toolbar" aria-controls="editable-id">
     <ToolbarSection>
-      <ToggleIconButton label="Bold" icon={<BoldIcon role="presentation" />} />
+      <ToggleIconButton
+        label="Bold"
+        icon={<Icon name="format_bold" isPresentational />}
+      />
       <ToggleIconButton
         label="Italic"
-        icon={<BoldIcon role="presentation" />}
+        icon={<Icon name="format_italic" isPresentational />}
       />
       <ToggleIconButton
         label="Underline"
-        icon={<BoldIcon role="presentation" />}
+        icon={<Icon name="format_underlined" isPresentational />}
       />
     </ToolbarSection>
   </Toolbar>

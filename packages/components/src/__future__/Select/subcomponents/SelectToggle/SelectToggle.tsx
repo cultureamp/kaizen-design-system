@@ -1,8 +1,8 @@
 import React, { HTMLAttributes } from "react"
 import { DOMAttributes, FocusableElement } from "@react-types/shared"
 import classnames from "classnames"
-import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
 import { Label } from "~components/Label"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./SelectToggle.module.scss"
 
@@ -69,14 +69,11 @@ export const SelectToggle = React.forwardRef<
         <span {...valueProps} className={styles.value}>
           {value ?? placeholder}
         </span>
-        {isOpen ? (
-          <ChevronUpIcon role="presentation" classNameOverride={styles.icon} />
-        ) : (
-          <ChevronDownIcon
-            role="presentation"
-            classNameOverride={styles.icon}
-          />
-        )}
+        <Icon
+          name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+          isPresentational
+          className={styles.icon}
+        />
       </button>
     </div>
   )

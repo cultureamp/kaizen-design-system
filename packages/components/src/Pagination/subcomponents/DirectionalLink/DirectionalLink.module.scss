@@ -4,10 +4,6 @@
 @import "../../../__actions__/Button/v1/utils/variables";
 
 %directional-link {
-  [dir="rtl"] & {
-    transform: rotate(180deg);
-  }
-
   border: $border-solid-border-width solid $color-blue-300;
 
   @include enabled-pseudo-states-variant($color-blue-100, $color-blue-400);

@@ -9,8 +9,8 @@ $input-disabled-opacity: 0.3;
 .iconButton {
   @include button-reset;
 
-  display: inherit;
-  padding: 0.25rem $spacing-xs;
+  display: flex;
+  padding: var(--spacing-6);
   border: $border-solid-border-width $border-solid-border-style transparent;
   border-radius: $border-solid-border-radius;
   position: relative;
@@ -34,11 +34,6 @@ $input-disabled-opacity: 0.3;
   &:hover:not([disabled]) {
     background-color: $color-blue-100;
     color: $color-blue-500;
-  }
-
-  svg {
-    position: relative;
-    top: 2px;
   }
 }
 

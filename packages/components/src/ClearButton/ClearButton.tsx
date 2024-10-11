@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes } from "react"
 import classnames from "classnames"
-import { ClearIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./ClearButton.module.scss"
 
@@ -23,7 +23,7 @@ export const ClearButton = ({
     )}
     {...restProps}
   >
-    <ClearIcon role="presentation" />
+    <Icon name="cancel" isPresentational isFilled />
   </button>
 )
 
