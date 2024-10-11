@@ -93,7 +93,7 @@ export type ImportModuleNameTagsMap = Map<string, TagNamesMap>
  */
 export const getKaioTagNamesByRegex = (
   node: ts.Node,
-  importSpecifierTarget: string
+  importSpecifierPattern: RegExp | string
 ): ImportModuleNameTagsMap | undefined => {
   const tagsByImportModuleName = new Map() as ImportModuleNameTagsMap
 
@@ -108,7 +108,7 @@ export const getKaioTagNamesByRegex = (
     kaioNamedImports.namedImports.forEach(importSpecifier => {
       const { tagName, originalName } = getNamesFromSpecifier(importSpecifier)
 
-      if (new RegExp(importSpecifierTarget).test(originalName)) {
+      if (new RegExp(importSpecifierPattern).test(originalName)) {
         tags.set(tagName, originalName)
       }
     })
