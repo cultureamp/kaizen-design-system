@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Card } from "~components/Card"
 import { Text } from "~components/Text"
 import { Button } from "~components/__actions__/v2"
 import { Tab, TabList, TabPanel, Tabs, Key } from "../index"
@@ -72,15 +71,4 @@ export const Controlled: Story = {
       </>
     )
   },
-}
-
-export const UsageInCard: Story = {
-  parameters: {
-    backgrounds: { default: "Gray 100" },
-  },
-  render: args => (
-    <Card>
-      <Tabs {...args} />
-    </Card>
-  ),
 }
