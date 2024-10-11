@@ -1,3 +1,7 @@
+import { Meta } from "@storybook/blocks"
+
+<Meta title="Components/Tabs/Tabs (Future)/Migration Guide" />
+
 # Future Tabs migration guide
 
 A brief guide on how and why to migrate from Kaizen's current `Tabs` to the `future` release.
@@ -26,7 +30,7 @@ Additionally:
 
 #### Before
 
-```
+```tsx
 <Tabs defaultIndex={1}>
   <TabList>
     <Tab>Tab 1</Tab>
@@ -43,7 +47,7 @@ Additionally:
 
 #### After
 
-```
+```tsx
 <Tabs defaultSelectedKey="two">
   <TabList>
     <Tab id="one">Tab 1</Tab>
@@ -59,7 +63,7 @@ Additionally:
 
 #### Before
 
-```
+```tsx
 <Tabs onChange={setSelectedTab} defaultIndex={1}>
   <TabList>
     <Tab>Tab 1</Tab>
@@ -76,7 +80,7 @@ Additionally:
 
 #### After
 
-```
+```tsx
 <Tabs onSelectionChange={setSelectedTab} selectedKey="two">
   <TabList>
     <Tab id="one">Tab 1</Tab>
