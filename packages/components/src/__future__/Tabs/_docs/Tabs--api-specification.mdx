@@ -27,7 +27,10 @@ import * as TabsStories from "./Tabs.stories"
 
 This component is uncontrolled by default. You can specify a default active tab on load with `defaultSelectedKey`.
 
-If you need to control the state of the active tabs on the consuming side, use the `selectedKey` prop instead of `defaultSelectedKey`.
+If you need to control the state of the active tabs on the consuming side, use the `selectedKey` prop instead of `defaultSelectedKey`, and hook into `onSelectionChange`.
+
+<Canvas of={TabsStories.Controlled} />
+
 
 ## `tablist|tab` role vs `nav|link`
 
