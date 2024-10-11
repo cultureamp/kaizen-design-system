@@ -40,7 +40,7 @@ describe("transformCaMonogramIconToBrand()", () => {
   })
 
   describe("transform existing props", () => {
-    it("leaves role and aria-label as is", () => {
+    it("removes role and changes aria-label to alt", () => {
       const inputAst = parseJsx(`
           export const TestComponent = () => (
             <>
@@ -52,8 +52,8 @@ describe("transformCaMonogramIconToBrand()", () => {
       const outputAst = parseJsx(`
           export const TestComponent = () => (
             <>
-              <Brand variant="enso" style={{ width: "20px" }} role="presentation" />
-              <Brand variant="enso" style={{ width: "20px" }} role="img" aria-label="Add something" />
+              <Brand variant="enso" style={{ width: "20px" }} alt="" />
+              <Brand variant="enso" style={{ width: "20px" }} alt="Add something" />
             </>
           )
         `)
