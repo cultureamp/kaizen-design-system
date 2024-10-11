@@ -204,7 +204,7 @@ export const updateKaioImports =
     return factory.updateSourceFile(rootNode, statements)
   }
 
-/* Consumer helpers */
+/* Transformer helpers to generate `importsToRemove` and `importsToAdd` for `updateKaioImports` */
 export const setImportToRemove = (
   map: ImportsToRemoveMap,
   moduleSpecifier: string,
