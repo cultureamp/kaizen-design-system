@@ -11,6 +11,8 @@ export const createStringProp = (
   value: string
 ): ts.JsxAttribute => createProp(name, ts.factory.createStringLiteral(value))
 
+// A util that creates a style prop with the given attributes
+// ie. adding style={{ width: "100px" }}
 export const createStyleProp = (
   attributes: Record<string, string | number | ts.JsxAttributeValue>
 ): ts.JsxAttribute => {
