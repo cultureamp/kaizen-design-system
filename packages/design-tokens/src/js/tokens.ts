@@ -227,21 +227,21 @@ export const tokens: TokenStructure = {
     },
     heading1: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
-      fontWeight: 700,
+      fontWeight: 500,
       fontSize: "2.125rem",
       lineHeight: "2.625rem",
       letterSpacing: "normal",
     },
     heading2: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
-      fontWeight: 700,
+      fontWeight: 600,
       fontSize: "1.75rem",
       lineHeight: "2.25rem",
       letterSpacing: "normal",
     },
     heading3: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
-      fontWeight: 700,
+      fontWeight: 600,
       fontSize: "1.375rem",
       lineHeight: "1.875rem",
       letterSpacing: "normal",
@@ -262,7 +262,7 @@ export const tokens: TokenStructure = {
     },
     heading6: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
-      fontWeight: 700,
+      fontWeight: 600,
       fontSize: "0.875rem",
       lineHeight: "1.5rem",
       letterSpacing: "normal",

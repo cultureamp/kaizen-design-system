@@ -1,5 +1,23 @@
 # Change Log
 
+## 1.65.0
+
+### Minor Changes
+
+- [#5150](https://github.com/cultureamp/kaizen-design-system/pull/5150) [`d9147f522c93879899657def9561a58edafde73c`](https://github.com/cultureamp/kaizen-design-system/commit/d9147f522c93879899657def9561a58edafde73c) - Create future Tabs component
+
+## 1.64.14
+
+### Patch Changes
+
+- [#5123](https://github.com/cultureamp/kaizen-design-system/pull/5123) [`cdabe86df383a2403b56fd65d9743811ae7a08b4`](https://github.com/cultureamp/kaizen-design-system/commit/cdabe86df383a2403b56fd65d9743811ae7a08b4) - Fix for the tab focus jump issue on future Select and FilterSelect
+
+## 1.64.13
+
+### Patch Changes
+
+- [#5127](https://github.com/cultureamp/kaizen-design-system/pull/5127) [`839243db981f262347cc1556b00212ab46e4f75b`](https://github.com/cultureamp/kaizen-design-system/commit/839243db981f262347cc1556b00212ab46e4f75b) - Dep updates
+
 ## 1.64.12
 
 ### Patch Changes

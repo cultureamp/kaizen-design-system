@@ -1,5 +1,17 @@
 # Change Log
 
+## 10.7.0
+
+### Minor Changes
+
+- [#5084](https://github.com/cultureamp/kaizen-design-system/pull/5084) [`05c45fc7ba3f824174ed55d73e9535560d3bed7a`](https://github.com/cultureamp/kaizen-design-system/commit/05c45fc7ba3f824174ed55d73e9535560d3bed7a) - Update heading token font weights to align with design changes
+
+## 10.6.3
+
+### Patch Changes
+
+- [#5127](https://github.com/cultureamp/kaizen-design-system/pull/5127) [`839243db981f262347cc1556b00212ab46e4f75b`](https://github.com/cultureamp/kaizen-design-system/commit/839243db981f262347cc1556b00212ab46e4f75b) - Dep updates
+
 ## 10.6.2
 
 ### Patch Changes

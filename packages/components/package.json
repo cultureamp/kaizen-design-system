@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.64.12",
+  "version": "1.65.0",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -92,7 +92,7 @@
     "react-select": "^5.8.1",
     "react-textfit": "^1.1.1",
     "resize-observer-polyfill": "^1.5.1",
-    "tsx": "^4.17.0",
+    "tsx": "^4.19.1",
     "use-debounce": "^10.0.3",
     "uuid": "^10.0.0"
   },
@@ -100,7 +100,7 @@
     "react-day-picker": "Version locked until a11y gets fixed (https://github.com/gpbl/react-day-picker/pull/1708)"
   },
   "devDependencies": {
-    "@cultureamp/frontend-apis": "^9.9.0",
+    "@cultureamp/frontend-apis": "^10.0.0",
     "@cultureamp/i18n-react-intl": "^2.6.3",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/package-bundler": "workspace:*",
@@ -132,7 +132,7 @@
     "serialize-query-params": "^2.0.2",
     "svgo": "^3.3.2",
     "tslib": "^2.7.0",
-    "tsx": "^4.17.0"
+    "tsx": "^4.19.1"
   },
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.5.9",

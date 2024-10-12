@@ -1,7 +1,7 @@
 {
   "name": "@docs/storybook",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "lint": "eslint .",
@@ -30,9 +30,9 @@
     "@storybook/test-runner": "^0.19.1",
     "@types/jest-axe": "^3.5.9",
     "@vitejs/plugin-react": "^4.3.2",
-    "axe-playwright": "^2.0.2",
+    "axe-playwright": "^2.0.3",
     "classnames": "^2.5.1",
-    "globals": "^15.9.0",
+    "globals": "^15.10.0",
     "highlight.js": "^11.10.0",
     "jest-axe": "^9.0.0",
     "sass": "^1.77.8",
@@ -44,8 +44,6 @@
     "vite": ">=5.4.2"
   },
   "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
+    "extends": ["plugin:storybook/recommended"]
   }
 }
