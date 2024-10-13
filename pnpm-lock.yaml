@@ -85,8 +85,8 @@ importers:
         specifier: ^8.8.1
         version: 8.8.1(eslint@8.57.1)(typescript@5.5.4)
       chromatic:
-        specifier: ^11.11.0
-        version: 11.11.0
+        specifier: ^11.12.5
+        version: 11.12.5
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -4846,8 +4846,8 @@ packages:
       '@chromatic-com/playwright':
         optional: true
 
-  chromatic@11.11.0:
-    resolution: {integrity: sha512-mwmYsNMsZlRLtlfFUEtac5zhoVRhc+O/lsuMdOpwkiDQiKX6WdSNIhic+dkLenfuzao2r18s50nphcOgFoatBg==}
+  chromatic@11.12.5:
+    resolution: {integrity: sha512-5z+BXQy3TMyXIzCdCDO9Psc8aMs9kIrCFHhMgYbwA6dTXxAL0oUjHZbICn5h4Ay/fM9cZQPaCH9T7a3myPA8Sw==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -16356,7 +16356,7 @@ snapshots:
 
   chromatic@10.9.6: {}
 
-  chromatic@11.11.0: {}
+  chromatic@11.12.5: {}
 
   chromatic@9.1.0: {}
 
