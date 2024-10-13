@@ -64,18 +64,21 @@ export const ListBox = <Option extends SelectOption>({
   )
 
   /**
-   * This uses the new useIsClientReady to ensure document exists before trying to querySelector and give the time to focus to the correct element
-   */
+   * This uses the new useIsClientReady to ensure document exists before trying to querySelector and a timeout to give the Listbox time to calc its position before focus is shifted  */
   useEffect(() => {
     if (isClientReady) {
       const optionKey = getOptionKeyFromCollection(state)
       const focusToElement = safeQuerySelector(`[data-key='${optionKey}']`)
 
       if (focusToElement) {
-        focusToElement.focus()
+        setTimeout(() => {
+          focusToElement.focus()
+        }, 1)
       } else {
         // If an element is not found, focus on the listbox. This ensures the list can still be navigated to via keyboard if the keys do not align to the data attributes of the list items.
-        ref.current?.focus()
+        setTimeout(() => {
+          ref.current?.focus()
+        }, 1)
       }
     }
   }, [isClientReady])
