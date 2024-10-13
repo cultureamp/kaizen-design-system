@@ -33,3 +33,8 @@ kaizen-codemod src migrateWellVariantToColor
 - `migrateWellVariantToColor`: Migrates `Well` component prop from `variant` to `color`
 - `removeInputEditModalMood`: Removes `InputEditModal` component prop `mood`
 - `removePopoverVariant`: Removes `Popover` component props `variant` and `customIcon`
+- `upgradeIconV1`: Migrates `*Icon` components to a new equivalent
+  - `CaMonogramIcon` becomes `Brand`
+  - `SpinnerIcon` becomes `LoadingSpinner`
+  - All other Icons become future `Icon`
+    - **Note:** See [Icon API Specification (Future)](https://cultureamp.design/?path=/docs/illustrations-icon-icon-future-api-specification--docs) for setup instructions
