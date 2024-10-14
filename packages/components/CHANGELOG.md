@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.66.1
+
+### Patch Changes
+
+- [#5158](https://github.com/cultureamp/kaizen-design-system/pull/5158) [`d52b5654905320c54051186f65757999cd110573`](https://github.com/cultureamp/kaizen-design-system/commit/d52b5654905320c54051186f65757999cd110573) - Dep updates
+
 ## 1.66.0
 
 ### Minor Changes
