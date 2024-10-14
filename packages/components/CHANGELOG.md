@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.65.0
+
+### Minor Changes
+
+- [#5150](https://github.com/cultureamp/kaizen-design-system/pull/5150) [`d9147f522c93879899657def9561a58edafde73c`](https://github.com/cultureamp/kaizen-design-system/commit/d9147f522c93879899657def9561a58edafde73c) - Create future Tabs component
+
 ## 1.64.14
 
 ### Patch Changes
