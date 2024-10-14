@@ -1,0 +1,24 @@
+.listboxItem {
+  padding: var(--spacing-6) var(--spacing-12);
+  border-radius: 7px;
+
+  &:focus {
+    outline: none;
+  }
+
+  /* &[data-focused] {
+    outline: 2px solid var(--color-blue-500);
+    background-color: var(--color-purple-100);
+  } */
+
+  &[data-hovered],
+  &[data-focus-visible] {
+    background-color: var(--color-blue-100);
+    color: var(--color-blue-500);
+  }
+
+  &[data-focus-visible] {
+    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+      var(--color-blue-500);
+  }
+}

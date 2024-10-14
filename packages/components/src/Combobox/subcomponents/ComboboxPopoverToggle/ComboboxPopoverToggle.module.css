@@ -1,0 +1,6 @@
+.button {
+  background: none;
+  position: absolute;
+  inset-inline-end: 20px;
+  inset-block-start: 14px;
+}

@@ -1,0 +1,16 @@
+.listbox {
+  width: 280px;
+  border-radius: 7px;
+  padding: 12px;
+  box-shadow: var(--shadow-large-box-shadow);
+
+  font-family: var(--typography-paragraph-body-font-family);
+  font-size: var(--typography-paragraph-body-font-size);
+  font-weight: var(--typography-paragraph-body-font-weight);
+  line-height: var(--typography-paragraph-body-line-height);
+  letter-spacing: var(--typography-paragraph-body-letter-spacing);
+
+  &:focus {
+    outline: none;
+  }
+}

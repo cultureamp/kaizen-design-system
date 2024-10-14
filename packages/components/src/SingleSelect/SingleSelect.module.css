@@ -1,0 +1,28 @@
+.button {
+  background: white;
+  display: flex;
+  align-items: center;
+  border: var(--border-solid-border-width) var(--border-solid-border-style) var(--color-gray-500);
+  border-radius: var(--border-solid-border-radius);
+  font-family: var(--typography-paragraph-body-font-family);
+  font-weight: var(--typography-paragraph-body-font-weight);
+  font-size: var(--typography-paragraph-body-font-size);
+  line-height: var(--typography-paragraph-body-line-height);
+  letter-spacing: var(--typography-paragraph-body-letter-spacing);
+  color: var(--color-purple-800);
+  padding: 0.625rem 0.875rem var(--spacing-12);
+
+  &[data-hovered] {
+    background-color: var(--color-gray-200);
+    border-color: var(--color-gray-600);
+  }
+
+  &[data-focused] {
+    outline: none;
+  }
+
+  &[data-focus-visible] {
+    outline: 2px solid var(--color-blue-500);
+    outline-offset: 1px;
+  }
+}

@@ -9,6 +9,10 @@
   overflow-y: auto;
 }
 
+.listBox[data-focused] {
+  outline: none;
+}
+
 .overflown {
   padding-right: $spacing-sm;
 }
