@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.66.1
+
+### Patch Changes
+
+- [#5158](https://github.com/cultureamp/kaizen-design-system/pull/5158) [`d52b5654905320c54051186f65757999cd110573`](https://github.com/cultureamp/kaizen-design-system/commit/d52b5654905320c54051186f65757999cd110573) - Dep updates
+
+## 1.66.0
+
+### Minor Changes
+
+- [#5148](https://github.com/cultureamp/kaizen-design-system/pull/5148) [`3e2d4e6d7e02aee995041c9be1dd5a5d8b9c6bec`](https://github.com/cultureamp/kaizen-design-system/commit/3e2d4e6d7e02aee995041c9be1dd5a5d8b9c6bec) - Add `xs` size to LoadingSpinner
+
 ## 1.65.0
 
 ### Minor Changes

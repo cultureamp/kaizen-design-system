@@ -28,9 +28,28 @@ export const ClassNameOverride: Story = {
   args: { classNameOverride: "text-green-400" },
 }
 
+export const Colors: Story = {
+  render: args => (
+    <>
+      <LoadingSpinner {...args} classNameOverride="text-green-400" />
+      <LoadingSpinner {...args} classNameOverride="text-purple-800" />
+      <LoadingSpinner {...args} classNameOverride="text-blue-500" />
+      <LoadingSpinner {...args} classNameOverride="text-red-500" />
+    </>
+  ),
+  decorators: [
+    Story => (
+      <div className="flex gap-24">
+        <Story />
+      </div>
+    ),
+  ],
+}
+
 export const Size: Story = {
   render: args => (
     <>
+      <LoadingSpinner {...args} size="xs" />
       <LoadingSpinner {...args} size="sm" />
       <LoadingSpinner {...args} size="md" />
     </>
