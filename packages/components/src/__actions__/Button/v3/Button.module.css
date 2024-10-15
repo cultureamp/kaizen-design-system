@@ -1,16 +1,4 @@
 .button {
-  --button-min-height: var(--spacing-40);
-  --button-padding: calc(var(--spacing-8) - var(--border-solid-border-width));
-  --button-icon-size: var(--spacing-24);
-  --button-bg-color: var(--color-white);
-  --button-border-color: var(--color-white);
-  --button-text-color: var(--color-white);
-  /* TODO: Make sure folks are across the proposed new button typography tokens */
-  --button-font-family: var(--typography-button-font-family);
-  --button-font-weight: var(--typography-button-font-weight);
-  --button-font-size: var(--typography-button-font-size);
-  --button-line-height: var(--typography-button-line-height);
-
   /* RESET */
   appearance: none;
   background: transparent;
@@ -22,6 +10,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* RESET */
+
+  --button-font-family: var(--typography-paragraph-body-font-family);
+  /* We don't want to couple these to paragraph design tokens or old button tokens */
+  --button-font-weight: 500;
+  --button-font-size: 1rem;
+  --button-line-height: 1.5rem;
+  --button-text-color: var(--color-white);
+  --button-min-x-y: var(--spacing-40);
+  --button-padding: calc(var(--spacing-8) - var(--border-solid-border-width));
+  --button-icon-size: var(--spacing-24);
+  --button-bg-color: var(--color-blue-500);
+  --button-border-color: var(--color-blue-500);
 
   background-color: var(--button-bg-color);
   border: var(--border-solid-border-width) var(--border-solid-border-style);
@@ -38,8 +38,8 @@
   font-weight: var(--button-font-weight);
   font-size: var(--button-font-size);
   line-height: var(--button-line-height);
-  min-height: var(--button-min-height);
-  min-width: var(--button-min-height);
+  min-height: var(--button-min-x-y);
+  min-width: var(--button-min-x-y);
   position: relative;
   padding: var(--button-padding);
 
@@ -52,10 +52,6 @@
     border-width: var(--border-focus-ring-border-width);
     border-style: var(--border-focus-ring-border-style);
     inset: calc(-1 * (var(--border-focus-ring-border-width) * 2) - 1px);
-  }
-
-  &.reversed[data-focus-visible]::after {
-    border-color: var(--color-blue-300);
   }
 }
 
@@ -71,38 +67,104 @@
 .small {
   --button-font-size: var(--typography-button-small-font-size);
   --button-line-height: var(--typography-button-small-line-height);
-  --button-min-height: var(--spacing-32);
+  --button-min-x-y: var(--spacing-32);
   --button-icon-size: var(--spacing-16);
   gap: var(--spacing-4);
 }
 
 .medium {
-  --button-min-height: var(--spacing-40);
+  --button-min-x-y: var(--spacing-40);
 }
 
 .large {
-  --button-min-height: var(--spacing-48);
+  --button-min-x-y: var(--spacing-48);
   --button-padding: calc(var(--spacing-12) - var(--border-solid-border-width));
   --button-icon-size: var(--spacing-24);
 }
 
 .primary {
-  --button-bg-color: var(--color-blue-500);
-  --button-border-color: var(--color-blue-500);
-  --button-text-color: var(--color-white);
-
   &[data-hovered] {
-    --button-bg-color: var(--color-blue-400);
-    --button-border-color: var(--color-blue-400);
-  }
-
-  &[data-pressed] {
     --button-bg-color: var(--color-blue-600);
     --button-border-color: var(--color-blue-600);
   }
+
+  &[data-pressed] {
+    --button-bg-color: var(--color-blue-700);
+    --button-border-color: var(--color-blue-700);
+  }
+
+  &[data-pending] {
+    --button-bg-color: var(--color-blue-700);
+    --button-border-color: var(--color-blue-700);
+    --button-text-color: var(--color-white);
+
+    &[data-focus-visible]::after {
+      border-color: var(--color-gray-500);
+    }
+  }
 }
 
-.primary.reversed {
+.secondary {
+  --button-bg-color: var(--color-white);
+  --button-border-color: var(--color-gray-500);
+  --button-text-color: var(--color-purple-800);
+
+  &[data-hovered] {
+    --button-bg-color: var(--color-gray-200);
+    --button-border-color: var(--color-gray-600);
+  }
+
+  &[data-pressed] {
+    --button-bg-color: var(--color-gray-300);
+    --button-border-color: var(--color-black);
+  }
+
+  &[data-pending] {
+    --button-bg-color: var(--color-gray-300);
+    --button-border-color: var(--color-gray-500);
+    --button-text-color: var(--purple-800);
+
+    &[data-focus-visible]::after {
+      border-color: var(--color-gray-500);
+    }
+  }
+}
+
+.tertiary {
+  --button-bg-color: transparent;
+  --button-border-color: transparent;
+  --button-text-color: var(--color-purple-800);
+
+  &[data-hovered] {
+    --button-bg-color: var(--color-gray-200);
+    --button-border-color: var(--color-gray-200);
+  }
+
+  &[data-pressed] {
+    --button-bg-color: var(--color-gray-300);
+    --button-border-color: var(--color-gray-300);
+  }
+
+  &[data-pending] {
+    --button-bg-color: var(--color-gray-300);
+    --button-border-color: var(--color-gray-300);
+    --button-text-color: var(--color-purple);
+
+    &[data-focus-visible]::after {
+      border-color: var(--color-gray-500);
+    }
+  }
+}
+
+.primary-reversed,
+.secondary-reversed,
+.tertiary-reversed {
+  &[data-focus-visible]::after {
+    border-color: var(--color-blue-300);
+  }
+}
+
+.primary-reversed {
   --button-bg-color: var(--color-white);
   --button-border-color: var(--color-white);
   --button-text-color: var(--color-purple-800);
@@ -120,21 +182,7 @@
   }
 }
 
-.secondary {
-  --button-bg-color: var(--color-white);
-  --button-border-color: var(--color-gray-500);
-  --button-text-color: var(--color-purple-800);
-
-  &[data-hovered] {
-    --button-bg-color: var(--color-gray-500);
-  }
-
-  &[data-pressed] {
-    --button-bg-color: var(--color-gray-300);
-  }
-}
-
-.secondary.reversed {
+.secondary-reversed {
   --button-bg-color: transparent;
   --button-border-color: var(--color-white);
   --button-text-color: var(--color-white);
@@ -148,24 +196,7 @@
   }
 }
 
-.tertiary {
-  /* TODO: Check if is white or transparent */
-  --button-bg-color: transparent;
-  --button-border-color: transparent;
-  --button-text-color: var(--color-purple-800);
-
-  &[data-hovered] {
-    --button-bg-color: var(--gray-200);
-    --button-border-color: var(--gray-200);
-  }
-
-  &[data-pressed] {
-    --button-bg-color: var(--color-gray-300);
-    --button-border-color: var(--color-gray-300);
-  }
-}
-
-.tertiary.reversed {
+.tertiary-reversed {
   --button-bg-color: transparent;
   --button-border-color: transparent;
   --button-text-color: var(--color-white);
@@ -181,17 +212,23 @@
   }
 }
 
-.primary[data-disabled],
-.secondary[data-disabled],
-.tertiary[data-disabled] {
+.disabled {
   --button-bg-color: var(--color-gray-400);
   --button-border-color: var(--color-gray-400);
   --button-text-color: var(--color-white);
 
-  &:hover {
+  &[data-hovered] {
     /* do we want to do this? */
     cursor: not-allowed;
     --button-bg-color: var(--color-gray-400);
     --button-border-color: var(--color-gray-400);
   }
+
+  &[data-focus-visible]::after {
+    border-color: var(--color-gray-500);
+  }
+}
+
+.hiddenPendingContent {
+  visibility: hidden;
 }

@@ -3,6 +3,7 @@ import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
 import { AddIcon, TrashIcon, ChevronUpIcon } from "~components/Icon"
 import { VisuallyHidden } from "~components/VisuallyHidden"
+import { TooltipTrigger, Tooltip } from "~components/__overlays__/v3"
 import { Button } from "../index"
 
 const meta = {
@@ -66,33 +67,34 @@ export const IconButton: Story = {
   },
 }
 
-export const OnReversed: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button {...otherArgs}>{children}</Button>
-  ),
-  args: {
-    children: (
+export const pending: Story = {
+  render: ({ children, ...otherArgs }) => {
+    const [isPending, setIsPending] = React.useState(false)
+    return (
       <>
-        Label
-        <ChevronUpIcon role="presentation" />
+        <Button
+          {...otherArgs}
+          isPending={isPending}
+          pendingLabel="I'm pending!"
+          className="mr-12"
+        >
+          {children}
+        </Button>
+        <Button {...otherArgs} onPress={() => setIsPending(!isPending)}>
+          update content
+        </Button>
       </>
-    ),
+    )
   },
-  parameters: {
-    reverseColors: true,
-    docs: {
-      source: {
-        code: `
-          <ReversedColors isReversed={true}>
-            <Button {...otherArgs}>
-              <>
-                Label
-                <ChevronUpIcon role="presentation" />
-              </>
-            </Button>
-          </ReversedColors>
-      `,
-      },
-    },
-  },
+}
+
+export const DisabledTest: Story = {
+  render: ({ children, ...otherArgs }) => (
+    <>
+      <TooltipTrigger>
+        <Button>{children}</Button>
+        <Tooltip>Tooltip content</Tooltip>
+      </TooltipTrigger>
+    </>
+  ),
 }

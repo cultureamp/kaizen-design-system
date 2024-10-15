@@ -216,30 +216,6 @@
       "fontWeight": "var(--typography-paragraph-bold-font-weight, 600)",
       "fontWeight-id": "--typography-paragraph-bold-font-weight"
     },
-    "button": {
-      "fontFamily": "var(--typography-button-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
-      "fontFamily-id": "--typography-button-font-family",
-      "fontWeight": "var(--typography-button-font-weight, 500)",
-      "fontWeight-id": "--typography-button-font-weight",
-      "fontSize": "var(--typography-button-font-size, 1rem)",
-      "fontSize-id": "--typography-button-font-size",
-      "lineHeight": "var(--typography-button-line-height, 1.5rem)",
-      "lineHeight-id": "--typography-button-line-height",
-      "letterSpacing": "var(--typography-button-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-button-letter-spacing"
-    },
-    "buttonSmall": {
-      "fontFamily": "var(--typography-button-small-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
-      "fontFamily-id": "--typography-button-small-font-family",
-      "fontWeight": "var(--typography-button-small-font-weight, 500)",
-      "fontWeight-id": "--typography-button-small-font-weight",
-      "fontSize": "var(--typography-button-small-font-size, .75rem)",
-      "fontSize-id": "--typography-button-small-font-size",
-      "lineHeight": "var(--typography-button-small-line-height, 1rem)",
-      "lineHeight-id": "--typography-button-small-line-height",
-      "letterSpacing": "var(--typography-button-small-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-button-small-letter-spacing"
-    },
     "buttonPrimary": {
       "fontFamily": "var(--typography-button-primary-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
       "fontFamily-id": "--typography-button-primary-font-family",
