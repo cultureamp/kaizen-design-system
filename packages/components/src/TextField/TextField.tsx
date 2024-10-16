@@ -62,9 +62,7 @@ export const TextField = ({
       id={`${id}-field-group`}
       data-testid={`${id}-field-group`}
       inline={inline}
-      classNameOverride={classnames(
-        reversed && styles.reversed,
-      )}
+      classNameOverride={classnames(reversed && styles.reversed)}
     >
       <Label
         id={`${id}-field-label`}

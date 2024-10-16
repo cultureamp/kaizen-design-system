@@ -49,7 +49,7 @@ $focus-border-color: $color-blue-500;
   .control {
     min-height: $input-height;
     border: $border-solid-border-width $border-solid-border-style
-    $color-gray-500;
+      $color-gray-500;
     border-radius: $border-solid-border-radius;
 
     &.disabled {

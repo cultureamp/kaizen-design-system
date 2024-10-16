@@ -75,6 +75,7 @@ input[type="range"].ratingScaleRange {
 
   &::-webkit-slider-runnable-track {
     margin: $spacing-sm 0;
+
     @include track;
   }
 

@@ -242,7 +242,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   line-height: $typography-paragraph-small-line-height;
   letter-spacing: $typography-paragraph-small-letter-spacing;
   max-width: 230px;
-  margin-inline-start: var(--spacing-12);
+  margin-inline: var(--spacing-12) 0;
 
   .adminVariant & {
     color: $color-purple-800;
@@ -283,7 +283,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .sectionTitleOverride.sectionTitleOverride {
   white-space: nowrap;
-  margin-inline-end: var(--spacing-24);
+  margin-inline: 0 var(--spacing-24);
   font-family: $typography-heading-2-font-family;
   font-weight: $typography-heading-2-font-weight;
   font-size: $typography-heading-2-font-size;
@@ -321,7 +321,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   letter-spacing: $typography-paragraph-small-letter-spacing;
 
   .sectionTitle + & {
-    margin-top: calc(#{$ca-grid} / 4);
+    margin-top: var(--spacing-6);
   }
 
   &.dark {
@@ -358,7 +358,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 .tag {
   display: flex;
   align-items: center;
-  margin-inline-start: var(--spacing-12);
+  margin-inline: var(--spacing-12) 0;
 
   @include title-block-medium-and-small {
     display: none;
@@ -372,7 +372,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 .pageSwitcherSelectNextToTitle {
   flex-shrink: 0;
   width: var(--spacing-240);
-  margin-inline-start: var(--spacing-12);
+  margin-inline: var(--spacing-12) 0;
 }
 
 .pageSwitcherSelectUnderneathTitle {
@@ -553,7 +553,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   @media only screen and (max-width: $breadcrumb-breakpoint-width) {
     position: relative;
     transform: translateY(0);
-    margin-inline-end: var(--spacing-24);
+    margin-inline: 0 var(--spacing-12);
 
     @include ca-position($start: 0);
   }
