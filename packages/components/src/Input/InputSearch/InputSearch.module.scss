@@ -27,12 +27,6 @@ $classname--input: '.input[type="search"]';
 }
 
 #{$classname--input} {
-  @include form-input-reset;
-
-  @include form-input-placeholder {
-    opacity: 100%;
-  }
-
   display: flex;
   align-items: center;
   height: $input-height;
@@ -43,6 +37,12 @@ $classname--input: '.input[type="search"]';
   padding-inline: $input-padding-with-icon $input-padding-after-end-icon;
   font-size: 1rem;
   line-height: 1.5;
+
+  @include form-input-reset;
+
+  @include form-input-placeholder {
+    opacity: 100%;
+  }
 
   &::-webkit-search-cancel-button {
     -webkit-appearance: none;
@@ -113,14 +113,14 @@ $classname--input: '.input[type="search"]';
 // Default
 .default {
   #{$classname--input} {
+    border-color: $color-gray-500;
+    background-color: $color-white;
+    color: $color-purple-800;
+
     @include form-input-placeholder {
       color: $color-purple-800;
       opacity: $input-placeholder-opacity--default;
     }
-
-    border-color: $color-gray-500;
-    background-color: $color-white;
-    color: $color-purple-800;
   }
 
   .focusRing {
@@ -135,12 +135,12 @@ $classname--input: '.input[type="search"]';
   &:hover,
   &:focus-within {
     #{$classname--input} {
+      border-color: $color-gray-600;
+      background-color: $color-gray-200;
+
       @include form-input-placeholder {
         opacity: 100%;
       }
-
-      border-color: $color-gray-600;
-      background-color: $color-gray-200;
     }
 
     .startIconAdornment {
@@ -152,14 +152,14 @@ $classname--input: '.input[type="search"]';
 // Secondary
 .secondary {
   #{$classname--input} {
+    border-color: transparent;
+    background-color: $color-gray-200;
+    color: $color-purple-800;
+
     @include form-input-placeholder {
       color: $color-purple-800;
       opacity: $input-placeholder-opacity--default;
     }
-
-    border-color: transparent;
-    background-color: $color-gray-200;
-    color: $color-purple-800;
   }
 
   .focusRing {
@@ -174,12 +174,12 @@ $classname--input: '.input[type="search"]';
   &:hover,
   &:focus-within {
     #{$classname--input} {
+      border-color: transparent;
+      background-color: $color-gray-300;
+
       @include form-input-placeholder {
         opacity: 100%;
       }
-
-      border-color: transparent;
-      background-color: $color-gray-300;
     }
 
     .startIconAdornment {
@@ -191,13 +191,13 @@ $classname--input: '.input[type="search"]';
 // Reversed
 .reversed {
   #{$classname--input} {
+    background: rgba($color-white-rgb, 0.1);
+    color: $color-white;
+
     @include form-input-placeholder {
       color: $color-white;
       opacity: $input-placeholder-opacity--reversed;
     }
-
-    background: rgba($color-white-rgb, 0.1);
-    color: $color-white;
   }
 
   .focusRing {

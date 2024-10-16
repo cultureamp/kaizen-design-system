@@ -177,7 +177,13 @@ $scene-illustration-size: 300px;
 .cancel {
   @include button-reset;
 
-  cursor: pointer;
+  & {
+    cursor: pointer;
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    color: $color-purple-800;
+  }
 
   .icon {
     opacity: 70%;
@@ -207,11 +213,6 @@ $scene-illustration-size: 300px;
       }
     }
   }
-
-  position: absolute;
-  top: $spacing-sm;
-  right: $spacing-sm;
-  color: $color-purple-800;
 }
 
 .default {

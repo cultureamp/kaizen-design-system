@@ -282,13 +282,16 @@ $notification-slide-right: transform 300ms ease-out;
 }
 
 %ca-notification__cancel {
+  cursor: pointer;
   appearance: none;
-  background: transparent;
-  border: none;
-  font: inherit;
+  transition: none;
+  transform: none;
   margin: 0;
   padding: 0;
-  transition: none;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: $color-purple-800;
 
   .icon {
     opacity: 70%;
@@ -318,10 +321,6 @@ $notification-slide-right: transform 300ms ease-out;
       }
     }
   }
-
-  cursor: pointer;
-  color: $color-purple-800;
-  transform: none;
 
   &:active {
     transform: translateY(1px);

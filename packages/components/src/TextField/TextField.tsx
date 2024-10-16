@@ -63,8 +63,7 @@ export const TextField = ({
       data-testid={`${id}-field-group`}
       inline={inline}
       classNameOverride={classnames(
-        styles.withLabel,
-        disabled && styles.withDisabled
+        reversed && styles.reversed,
       )}
     >
       <Label
@@ -88,6 +87,7 @@ export const TextField = ({
           status === "success" && (
             <div
               className={classnames(
+                styles.icon,
                 styles.success,
                 disabled && styles.disabled
               )}
