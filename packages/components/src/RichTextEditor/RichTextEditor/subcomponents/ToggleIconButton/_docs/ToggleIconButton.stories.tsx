@@ -1,13 +1,13 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { BoldIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { ToggleIconButton } from "../ToggleIconButton"
 
 const meta = {
   title: "Components/RichTextEditor/Subcomponents/ToggleIconButton",
   component: ToggleIconButton,
   args: {
-    icon: <BoldIcon role="presentation" />,
+    icon: <Icon name="format_bold" isPresentational />,
     label: "Bold",
   },
   argTypes: {

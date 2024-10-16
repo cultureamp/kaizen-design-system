@@ -1,8 +1,9 @@
 import React from "react"
 import { vi } from "vitest"
-import { ArrowRightIcon } from "~components/Icon"
 import { Button, IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__"
 import { isSemanticElement } from "./isSemanticElement"
+
 describe("isSemanticElement", () => {
   it("returns true if provided a native element with a semantic role", () => {
     expect(
@@ -48,15 +49,7 @@ describe("isSemanticElement", () => {
   })
 
   it("returns false if provided an element using a role 'presentation' or 'none'", () => {
-    expect(isSemanticElement(<ArrowRightIcon role="presentation" />)).toBe(
-      false
-    )
-    expect(
-      isSemanticElement(
-        <span role="none">
-          <ArrowRightIcon role="presentation" />
-        </span>
-      )
-    ).toBe(false)
+    expect(isSemanticElement(<Icon name="add" isPresentational />)).toBe(false)
+    expect(isSemanticElement(<span role="none">Hello</span>)).toBe(false)
   })
 })

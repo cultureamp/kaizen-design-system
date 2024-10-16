@@ -1,8 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { CloseIcon, VisibleIcon } from "~components/Icon"
 import { Button } from "~components/__actions__/v2"
-import { Tag } from "~components/__future__"
+import { Icon, Tag } from "~components/__future__"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
@@ -20,7 +19,7 @@ const meta = {
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={<CloseIcon role="presentation" />}
+        icon={<Icon name="close" isPresentational />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}
@@ -51,14 +50,14 @@ export const MultipleActions: Story = {
       <Button
         key="would-use-uui-1"
         label="Preview"
-        icon={<VisibleIcon role="presentation" />}
+        icon={<Icon name="visibility" isPresentational isFilled />}
         secondary
         iconPosition="start"
       />,
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={<CloseIcon role="presentation" />}
+        icon={<Icon name="close" isPresentational />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}

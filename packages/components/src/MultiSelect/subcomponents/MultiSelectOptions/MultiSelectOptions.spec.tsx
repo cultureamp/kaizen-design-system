@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { render, waitFor } from "@testing-library/react"
+import { render, waitFor, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { vi } from "vitest"
 import {
@@ -83,10 +83,10 @@ describe("<MultiSelectOptions />", () => {
     })
 
     it("returns updated selected values when selecting an option", async () => {
-      const { getByRole, queryAllByRole } = render(
+      const { getByRole } = render(
         <MultiSelectOptionsWrapper selectedValues={new Set(["pancakes"])} />
       )
-      expect(queryAllByRole("presentation", { hidden: true }).length).toBe(1)
+      expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(1)
 
       const waffleOption = getByRole("checkbox", { name: "Waffle" })
       expect(waffleOption).not.toBeChecked()
@@ -96,17 +96,19 @@ describe("<MultiSelectOptions />", () => {
       await waitFor(() => {
         expect(onChange).toBeCalledWith(new Set(["pancakes", "waffle"]))
         expect(waffleOption).toBeChecked()
-        expect(queryAllByRole("presentation", { hidden: true }).length).toBe(2)
+        expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(
+          2
+        )
       })
     })
 
     it("returns updated selected values when unselecting an option", async () => {
-      const { getByRole, queryAllByRole } = render(
+      const { getByRole } = render(
         <MultiSelectOptionsWrapper
           selectedValues={new Set(["pancakes", "waffle"])}
         />
       )
-      expect(queryAllByRole("presentation", { hidden: true }).length).toBe(2)
+      expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(2)
 
       const waffleOption = getByRole("checkbox", { name: "Waffle" })
       expect(waffleOption).toBeChecked()
@@ -116,7 +118,9 @@ describe("<MultiSelectOptions />", () => {
       await waitFor(() => {
         expect(onChange).toBeCalledWith(new Set(["pancakes"]))
         expect(waffleOption).not.toBeChecked()
-        expect(queryAllByRole("presentation", { hidden: true }).length).toBe(1)
+        expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(
+          1
+        )
       })
     })
   })

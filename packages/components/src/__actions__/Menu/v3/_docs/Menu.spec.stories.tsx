@@ -3,17 +3,8 @@ import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, waitFor, within, fn } from "@storybook/test"
 import isChromatic from "chromatic"
 import { Popover, Header, Section } from "react-aria-components"
-import {
-  ArrowDownIcon,
-  ArrowUpIcon,
-  BookmarkOffIcon,
-  CautionIcon,
-  EditIcon,
-  ExternalLinkIcon,
-  MeatballsIcon,
-  TrashIcon,
-} from "~components/Icon"
 import { Button } from "~components/__actions__/v3"
+import { Icon } from "~components/__future__/Icon"
 import { Menu, MenuItem, MenuTrigger } from "../index"
 
 const meta = {
@@ -46,31 +37,38 @@ export const KitchenSink: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
       <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>
           <Section>
             <Header>Section One</Header>
             <MenuItem
-              icon={<BookmarkOffIcon role="presentation" />}
+              icon={<Icon name="bookmark" isPresentational />}
               href="https://cultureamp.com"
             >
               Save
             </MenuItem>
-            <MenuItem icon={<EditIcon role="presentation" />}>Edit</MenuItem>
+            <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>
+              Edit
+            </MenuItem>
           </Section>
           <Section>
-            <MenuItem icon={<ArrowUpIcon role="presentation" />}>
+            <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>
               Move Up
             </MenuItem>
-            <MenuItem icon={<ArrowDownIcon role="presentation" />}>
+            <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>
               Menu item with a longer label
             </MenuItem>
           </Section>
           <Section>
-            <MenuItem icon={<TrashIcon role="presentation" />}>Delete</MenuItem>
-            <MenuItem icon={<TrashIcon role="presentation" />} isDisabled>
+            <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>
+              Delete
+            </MenuItem>
+            <MenuItem
+              icon={<Icon name="delete" isPresentational isFilled />}
+              isDisabled
+            >
               Delete but disabled
             </MenuItem>
             <MenuItem>Other action</MenuItem>
@@ -87,18 +85,18 @@ export const Basic: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
       <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>
           <MenuItem
-            icon={<CautionIcon role="presentation" />}
+            icon={<Icon name="warning" isPresentational isFilled />}
             onAction={() => alert("Menu item pressed")}
           >
             Trigger an alert
           </MenuItem>
           <MenuItem
-            icon={<ExternalLinkIcon role="presentation" />}
+            icon={<Icon name="open_in_new" isPresentational />}
             href="https://cultureamp.com"
             target="_blank"
           >
@@ -168,7 +166,7 @@ export const DisabledItems: Story = {
   render: () => (
     <MenuTrigger>
       <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>
@@ -208,7 +206,7 @@ export const WithSections: Story = {
   render: () => (
     <MenuTrigger>
       <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>
@@ -240,7 +238,7 @@ export const Controlled: Story = {
         </button>
         <MenuTrigger isOpen={isOpen} onOpenChange={setOpen}>
           <Button>
-            <MeatballsIcon role="img" aria-label="Additional actions" />
+            <Icon name="more_horiz" alt="Additional actions" />
           </Button>
           <Popover>
             <Menu>

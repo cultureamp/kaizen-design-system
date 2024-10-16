@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import { FocusableElement } from "@react-types/shared"
 import classnames from "classnames"
 import { mergeProps, useFocusRing, useOption } from "react-aria"
-import { CheckIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { useSelectContext } from "../../context"
 import { SelectOption, SelectOptionNode } from "../../types"
@@ -56,7 +56,7 @@ export const Option = <Option extends SelectOption = SelectOption>({
       <span
         className={classnames(styles.icon, isSelected && styles.isSelected)}
       >
-        {isSelected && <CheckIcon inheritSize role="presentation" />}
+        {isSelected && <Icon name="check" isPresentational />}
       </span>
     </li>
   )

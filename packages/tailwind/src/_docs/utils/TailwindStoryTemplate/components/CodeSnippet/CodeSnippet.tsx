@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ClosedIcon, SurveysIcon } from "~components/Icon"
+import { Icon } from "~components/__future__"
 
 type Props = {
   text: string
@@ -25,9 +25,9 @@ export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
         <span>{text}</span>
         <span className="text-underline text-white">
           {copyIconIsChecked ? (
-            <ClosedIcon role="img" aria-label="copied" />
+            <Icon name="assignment_turned_in" alt="Copied" isFilled />
           ) : (
-            <SurveysIcon role="img" aria-label="copy" />
+            <Icon name="assignment" alt="Copy" isFilled />
           )}
         </span>
       </p>

@@ -1,12 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import {
-  BoldIcon,
-  BullettedListIcon,
-  ItalicsIcon,
-  NumberedListIcon,
-  UnderlineIcon,
-} from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { ToggleIconButton } from "../../ToggleIconButton"
 import { ToolbarSection } from "../../ToolbarSection"
 import { Toolbar } from "../index"
@@ -22,25 +16,37 @@ const meta = {
         <ToolbarSection>
           <ToggleIconButton
             label="Bold"
-            icon={<BoldIcon role="presentation" />}
+            icon={<Icon name="format_bold" isPresentational />}
           />
           <ToggleIconButton
             label="Italic"
-            icon={<ItalicsIcon role="presentation" />}
+            icon={<Icon name="format_italic" isPresentational />}
           />
           <ToggleIconButton
             label="Underline"
-            icon={<UnderlineIcon role="presentation" />}
+            icon={<Icon name="format_underlined" isPresentational />}
           />
         </ToolbarSection>
         <ToolbarSection>
           <ToggleIconButton
             label="Bullet list"
-            icon={<BullettedListIcon role="presentation" />}
+            icon={
+              <Icon
+                name="format_list_bulleted"
+                isPresentational
+                shouldMirrorInRTL
+              />
+            }
           />
           <ToggleIconButton
             label="Numbered list"
-            icon={<NumberedListIcon role="presentation" />}
+            icon={
+              <Icon
+                name="format_list_numbered"
+                isPresentational
+                shouldMirrorInRTL
+              />
+            }
           />
         </ToolbarSection>
       </>
