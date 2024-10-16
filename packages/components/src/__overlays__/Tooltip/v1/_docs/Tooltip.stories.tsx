@@ -3,7 +3,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { ButtonGroup } from "~components/ButtonGroup"
 import { CheckboxField } from "~components/Checkbox"
 import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
-import { InformationIcon, RemoveLinkIcon, QuestionIcon } from "~components/Icon"
 import {
   TableContainer,
   TableHeader,
@@ -12,6 +11,7 @@ import {
 } from "~components/Table"
 import { Text } from "~components/Text"
 import { Button, IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__"
 import { Tag } from "~components/__future__/Tag"
 import { Tooltip } from "../index"
 
@@ -106,7 +106,7 @@ export const OverflowScroll: Story = {
             }}
           >
             <Tooltip {...props} display="inline" text="Tooltip label">
-              <InformationIcon role="img" aria-label="Info" />
+              <Icon name="info" alt="Info" isFilled />
             </Tooltip>
           </div>
         </div>
@@ -159,12 +159,15 @@ export const ButtonsWithTooltip: Story = {
   render: args => (
     <>
       <Tooltip {...args} text="Contact customer support.">
-        <Button label="Help" icon={<QuestionIcon role="presentation" />} />
+        <Button
+          label="Help"
+          icon={<Icon name="help" isPresentational isFilled />}
+        />
       </Tooltip>
       <Tooltip {...args} text="Remove the link from current selection.">
         <IconButton
           label="Remove link"
-          icon={<RemoveLinkIcon role="presentation" />}
+          icon={<Icon name="link_off" isPresentational />}
         />
       </Tooltip>
     </>

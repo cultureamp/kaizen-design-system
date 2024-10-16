@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import { enAU } from "date-fns/locale"
 import { DayPicker, DayPickerSingleProps } from "react-day-picker"
-import { ArrowBackwardIcon, ArrowForwardIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { baseCalendarClassNames } from "../baseCalendarClassNames"
 import { isInvalidDate, isValidWeekStartsOn } from "../utils"
@@ -53,8 +53,12 @@ export const CalendarSingle = ({
         }
         classNames={classNames}
         components={{
-          IconRight: () => <ArrowForwardIcon role="presentation" />,
-          IconLeft: () => <ArrowBackwardIcon role="presentation" />,
+          IconRight: () => (
+            <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
+          ),
+          IconLeft: () => (
+            <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
+          ),
         }}
         locale={locale}
         {...restProps}

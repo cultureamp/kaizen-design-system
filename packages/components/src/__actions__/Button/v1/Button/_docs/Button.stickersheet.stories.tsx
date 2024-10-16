@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { AddIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -69,12 +69,12 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     const ICON_LEFT_PROPS: ButtonProps = {
       label: "Label",
-      icon: <AddIcon role="presentation" />,
+      icon: <Icon name="add" isPresentational />,
     }
 
     const ICON_RIGHT_PROPS: ButtonProps = {
       label: "Label",
-      icon: <AddIcon role="presentation" />,
+      icon: <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
       iconPosition: "end",
     }
 
@@ -84,12 +84,12 @@ const StickerSheetTemplate: StickerSheetStory = {
     }
     const BADGE_LEFT_PROPS: ButtonProps = {
       ...BADGE_PROPS,
-      icon: <AddIcon role="presentation" />,
+      icon: <Icon name="add" isPresentational />,
     }
 
     const BADGE_RIGHT_PROPS: ButtonProps = {
       ...BADGE_PROPS,
-      icon: <AddIcon role="presentation" />,
+      icon: <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
       iconPosition: "end",
     }
 

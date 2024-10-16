@@ -4,8 +4,8 @@ import { useOption } from "@react-aria/listbox"
 import { mergeProps } from "@react-aria/utils"
 import classnames from "classnames"
 import { Badge } from "~components/Badge"
-import { CheckIcon } from "~components/Icon"
 import { VisuallyHidden } from "~components/VisuallyHidden"
+import { Icon } from "~components/__future__/Icon"
 import { useSelectionContext } from "../../context"
 import { MultiSelectItem } from "../../types"
 import styles from "./MultiSelectOption.module.scss"
@@ -50,7 +50,7 @@ export const MultiSelectOption = ({
       <span
         className={classnames(styles.icon, isSelected && styles.isSelected)}
       >
-        {isSelected && <CheckIcon role="presentation" />}
+        {isSelected && <Icon name="check" isPresentational />}
       </span>
       {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
       {item.rendered}

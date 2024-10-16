@@ -1,14 +1,5 @@
 import React from "react"
-import {
-  AddLinkIcon,
-  BoldIcon,
-  BullettedListIcon,
-  DecreaseIndentIcon,
-  IncreaseIndentIcon,
-  ItalicsIcon,
-  NumberedListIcon,
-  UnderlineIcon,
-} from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { ToolbarItems, ToolbarControlTypes } from "../../types"
 import { listIsActive, markIsActive } from "../../utils/commands"
 import {
@@ -210,7 +201,7 @@ export const buildControlMap = (
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
       label: "Bold",
-      icon: <BoldIcon role="presentation" />,
+      icon: <Icon name="format_bold" isPresentational />,
     })
   }
 
@@ -221,7 +212,7 @@ export const buildControlMap = (
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
       label: "Italic",
-      icon: <ItalicsIcon role="presentation" />,
+      icon: <Icon name="format_italic" isPresentational />,
     })
   }
 
@@ -232,7 +223,7 @@ export const buildControlMap = (
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
       label: "Underline",
-      icon: <UnderlineIcon role="presentation" />,
+      icon: <Icon name="format_underlined" isPresentational />,
     })
   }
 
@@ -243,7 +234,9 @@ export const buildControlMap = (
       action: createToggleListCommand(type),
       isActive: listIsActive(editorState, type, listNodes),
       label: "Bullet List",
-      icon: <BullettedListIcon role="presentation" />,
+      icon: (
+        <Icon name="format_list_bulleted" isPresentational shouldMirrorInRTL />
+      ),
     })
   }
 
@@ -254,7 +247,9 @@ export const buildControlMap = (
       action: createToggleListCommand(type),
       isActive: listIsActive(editorState, type, listNodes),
       label: "Numbered List",
-      icon: <NumberedListIcon role="presentation" />,
+      icon: (
+        <Icon name="format_list_numbered" isPresentational shouldMirrorInRTL />
+      ),
     })
   }
 
@@ -270,14 +265,26 @@ export const buildControlMap = (
         disabled: liftListIsDisabled(editorState),
         isActive: false,
         label: "Decrease indent",
-        icon: <DecreaseIndentIcon role="presentation" />,
+        icon: (
+          <Icon
+            name="format_indent_decrease"
+            isPresentational
+            shouldMirrorInRTL
+          />
+        ),
       },
       {
         action: createIndentListCommand(),
         disabled: indentListIsDisabled(editorState),
         isActive: false,
         label: "Increase indent",
-        icon: <IncreaseIndentIcon role="presentation" />,
+        icon: (
+          <Icon
+            name="format_indent_increase"
+            isPresentational
+            shouldMirrorInRTL
+          />
+        ),
       }
     )
   }
@@ -290,7 +297,7 @@ export const buildControlMap = (
       disabled: editorState.selection.empty,
       isActive: false,
       label: "Link",
-      icon: <AddLinkIcon role="presentation" />,
+      icon: <Icon name="add_link" isPresentational />,
     })
   }
 

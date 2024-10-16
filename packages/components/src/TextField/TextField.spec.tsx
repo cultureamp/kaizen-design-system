@@ -26,25 +26,30 @@ describe("<TextField />", () => {
       <TextField
         {...defaultProps}
         description={undefined}
-        validationMessage="Error message"
+        status="caution"
+        validationMessage="Revision required"
       />
     )
+    // React Testing Library bug: Icon should be showing aria-label "caution message" instead
     const input = getByRole("textbox", {
-      description: "Error message",
+      description: "warning Revision required",
     })
 
     expect(input).toBeInTheDocument()
   })
+
   it("renders correct aria-describedby when both description and validation message provided", () => {
     const { getByRole } = render(
       <TextField
         {...defaultProps}
         description="Description text"
-        validationMessage="Error message"
+        status="error"
+        validationMessage="Something went wrong"
       />
     )
+    // React Testing Library bug: Icon should be showing aria-label "error message" instead
     const input = getByRole("textbox", {
-      description: "Description text Error message",
+      description: "Description text error Something went wrong",
     })
 
     expect(input).toBeInTheDocument()

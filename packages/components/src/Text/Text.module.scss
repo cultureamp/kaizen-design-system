@@ -2,6 +2,8 @@
 @import "~@kaizen/design-tokens/sass/typography";
 
 .text {
+  --icon-vertical-align: text-bottom;
+
   margin: 0;
 
   strong {

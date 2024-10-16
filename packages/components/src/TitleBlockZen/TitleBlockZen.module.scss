@@ -525,6 +525,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   align-items: center;
   top: 50%;
   transform: translateY(-50%);
+  text-decoration: none;
 
   @include ca-position(
     $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid})

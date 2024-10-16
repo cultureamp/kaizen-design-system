@@ -2,15 +2,8 @@ import React, { FunctionComponent } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Popover } from "react-aria-components"
-import {
-  ArrowDownIcon,
-  ArrowUpIcon,
-  BookmarkOffIcon,
-  EditIcon,
-  MeatballsIcon,
-  TrashIcon,
-} from "~components/Icon"
 import { Button } from "~components/__actions__/v3"
+import { Icon } from "~components/__future__/Icon"
 import { Menu, MenuTrigger, MenuItem } from "../index"
 import * as testStories from "./Menu.spec.stories"
 
@@ -32,22 +25,26 @@ export const Playground: Story = {
   render: ({ defaultOpen: _, ...args }) => (
     <MenuTrigger {...args}>
       {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
-      <Button>
-        <MeatballsIcon role="img" aria-label="Additional actions" />
+      <Button className="[--icon-size:24]">
+        <Icon name="more_horiz" alt="Additional actions" />
       </Button>
       <Popover>
         <Menu>
-          <MenuItem icon={<BookmarkOffIcon role="presentation" />}>
+          <MenuItem icon={<Icon name="bookmark" isPresentational />}>
             Save
           </MenuItem>
-          <MenuItem icon={<EditIcon role="presentation" />}>Edit</MenuItem>
-          <MenuItem icon={<ArrowUpIcon role="presentation" />}>
+          <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>
+            Edit
+          </MenuItem>
+          <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>
             Move up
           </MenuItem>
-          <MenuItem icon={<ArrowDownIcon role="presentation" />}>
+          <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>
             Move down
           </MenuItem>
-          <MenuItem icon={<TrashIcon role="presentation" />}>Delete</MenuItem>
+          <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>
+            Delete
+          </MenuItem>
         </Menu>
       </Popover>
     </MenuTrigger>

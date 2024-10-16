@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { BoldIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -25,36 +25,36 @@ const ToggleIconButtonGroup = ({
   <StickerSheet.Row rowTitle={rowTitle}>
     <ToggleIconButton
       label="bold"
-      icon={<BoldIcon role="presentation" />}
+      icon={<Icon name="format_bold" isPresentational />}
       {...props}
     />
     <ToggleIconButton
       label="bold"
-      icon={<BoldIcon role="presentation" />}
+      icon={<Icon name="format_bold" isPresentational />}
       {...props}
       data-sb-pseudo-styles="hover"
     />
     <ToggleIconButton
       label="bold"
-      icon={<BoldIcon role="presentation" />}
+      icon={<Icon name="format_bold" isPresentational />}
       {...props}
       isActive
     />
     <ToggleIconButton
       label="bold"
-      icon={<BoldIcon role="presentation" />}
+      icon={<Icon name="format_bold" isPresentational />}
       {...props}
       data-sb-pseudo-styles="focus"
     />
     <ToggleIconButton
       label="bold"
-      icon={<BoldIcon role="presentation" />}
+      icon={<Icon name="format_bold" isPresentational />}
       {...props}
       disabled
     />
     <ToggleIconButton
       label="bold"
-      icon={<BoldIcon role="presentation" />}
+      icon={<Icon name="format_bold" isPresentational />}
       {...props}
       disabled
       data-sb-pseudo-styles="focus"

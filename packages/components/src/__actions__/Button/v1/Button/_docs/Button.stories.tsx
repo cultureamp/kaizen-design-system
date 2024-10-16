@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { StoryObj, Meta } from "@storybook/react"
-import { AddIcon, ArrowRightIcon } from "~components/Icon"
 import { LoadingInput } from "~components/Loading"
 import { TextField } from "~components/TextField"
+import { Icon } from "~components/__future__/Icon"
 import { Button } from "../index"
 
 const meta = {
@@ -65,12 +65,13 @@ export const Disabled: Story = {
 const sourceCodeIcon = `
 import { Button, AddIcon } from "@kaizen/components"
 
-<Button label="Label" icon={<AddIcon role="presentation" />} />
+<Button label="Label" icon={<Icon name="add" isPresentational />} />
 `
 
-export const Icon: Story = {
+export const IconStory: Story = {
+  name: "Icon",
   args: {
-    icon: <AddIcon role="presentation" />,
+    icon: <Icon name="add" isPresentational />,
   },
   parameters: {
     docs: { source: { code: sourceCodeIcon } },
@@ -79,7 +80,7 @@ export const Icon: Story = {
 
 export const IconPosition: Story = {
   args: {
-    icon: <ArrowRightIcon role="presentation" />,
+    icon: <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
     iconPosition: "end",
   },
 }

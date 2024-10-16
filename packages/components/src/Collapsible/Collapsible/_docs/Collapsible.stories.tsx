@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Heading } from "~components/Heading"
-import { AddIcon } from "~components/Icon"
 import { Text } from "~components/Text"
+import { Icon } from "~components/__future__/Icon"
 import { Collapsible } from "../index"
 
 const meta = {
@@ -76,7 +76,7 @@ export const CustomHeader: Story = {
       renderHeader={title => (
         <Heading variant="heading-4" tag="span">
           <span className="flex gap-8 items-center">
-            <AddIcon role="presentation" /> {title}
+            <Icon name="potted_plant" isPresentational /> {title}
           </span>
         </Heading>
       )}

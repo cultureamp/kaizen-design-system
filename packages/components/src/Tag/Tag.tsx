@@ -1,14 +1,8 @@
 import React from "react"
 import classnames from "classnames"
 import { Avatar, AvatarProps } from "~components/Avatar"
-import {
-  CautionIcon,
-  ClearIcon,
-  ExclamationIcon,
-  InformationIcon,
-  LiveIcon,
-  SuccessIcon,
-} from "~components/Icon"
+import { LiveIcon } from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { TagVariants } from "./types"
 import styles from "./Tag.module.scss"
 
@@ -85,25 +79,25 @@ export const Tag = (props: TagProps): JSX.Element => {
                 case "validationPositive":
                   return (
                     <span className={styles.validationIcon}>
-                      <SuccessIcon role="presentation" />
+                      <Icon name="check_circle" isPresentational isFilled />
                     </span>
                   )
                 case "validationNegative":
                   return (
                     <span className={styles.validationIcon}>
-                      <ExclamationIcon role="presentation" />
+                      <Icon name="error" isPresentational isFilled />
                     </span>
                   )
                 case "validationCautionary":
                   return (
                     <span className={styles.validationIcon}>
-                      <CautionIcon role="presentation" />
+                      <Icon name="warning" isPresentational isFilled />
                     </span>
                   )
                 case "validationInformative":
                   return (
                     <span className={styles.validationIcon}>
-                      <InformationIcon role="presentation" />
+                      <Icon name="info" isPresentational isFilled />
                     </span>
                   )
                 case "profile":
@@ -137,7 +131,7 @@ export const Tag = (props: TagProps): JSX.Element => {
                 onMouseLeave={onMouseLeave}
               >
                 <div className={styles.iconWrapper}>
-                  <ClearIcon inheritSize role="img" aria-label="Dismiss" />
+                  <Icon name="cancel" alt="Dismiss" isFilled />
                 </div>
               </button>
             </>
