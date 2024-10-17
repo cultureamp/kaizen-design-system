@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { MultiActionTile } from "../index"
 
 const meta = {
-  title: "Components/Tiles/MultiActionTile",
+  title: "Containers/Tile/MultiActionTile",
   component: MultiActionTile,
   args: {
     title: "Title",

@@ -4,7 +4,7 @@ import { Text } from "~components/Text"
 import { ExpertAdviceCollapsible } from "../index"
 
 const meta = {
-  title: "Containers/ExpertAdviceCollapsible",
+  title: "Containers/Collapsible/ExpertAdviceCollapsible",
   component: ExpertAdviceCollapsible,
   args: {
     title: "Expert advice collapsible",

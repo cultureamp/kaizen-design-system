@@ -10,7 +10,7 @@ import {
 import { Collapsible, CollapsibleProps } from "../index"
 
 export default {
-  title: "Containers/Collapsible",
+  title: "Containers/Collapsible/Collapsible",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

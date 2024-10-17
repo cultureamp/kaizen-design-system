@@ -6,7 +6,7 @@ import { Icon } from "~components/__future__/Icon"
 import { Collapsible } from "../index"
 
 const meta = {
-  title: "Containers/Collapsible",
+  title: "Containers/Collapsible/Collapsible",
   component: Collapsible,
   args: {
     children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus

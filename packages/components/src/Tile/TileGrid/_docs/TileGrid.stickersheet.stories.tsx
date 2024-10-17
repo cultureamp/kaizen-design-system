@@ -8,7 +8,7 @@ import {
 import { TileGrid } from "../index"
 
 export default {
-  title: "Components/Tiles/TileGrid",
+  title: "Containers/Tile/TileGrid",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

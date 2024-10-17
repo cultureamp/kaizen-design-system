@@ -5,7 +5,7 @@ import { expect, within, userEvent } from "@storybook/test"
 import { GenericTile } from "./GenericTile"
 
 const meta: Meta<typeof GenericTile> = {
-  title: "Components/Tiles/GenericTile/Tests",
+  title: "Containers/Tile/GenericTile",
   component: GenericTile,
   args: {
     title: "Title",
