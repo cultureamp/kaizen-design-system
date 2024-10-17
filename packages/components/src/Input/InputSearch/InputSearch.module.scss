@@ -27,6 +27,8 @@ $classname--input: '.input[type="search"]';
 }
 
 #{$classname--input} {
+  @include form-input-reset;
+
   display: flex;
   align-items: center;
   height: $input-height;
@@ -37,8 +39,6 @@ $classname--input: '.input[type="search"]';
   padding-inline: $input-padding-with-icon $input-padding-after-end-icon;
   font-size: 1rem;
   line-height: 1.5;
-
-  @include form-input-reset;
 
   @include form-input-placeholder {
     opacity: 100%;
