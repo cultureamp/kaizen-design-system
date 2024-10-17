@@ -63,7 +63,8 @@ export const Disabled: Story = {
 }
 
 const sourceCodeIcon = `
-import { Button, AddIcon } from "@kaizen/components"
+import { Button } from "@kaizen/components"
+import { Icon } from "@kaizen/components/future"
 
 <Button label="Label" icon={<Icon name="add" isPresentational />} />
 `

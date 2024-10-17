@@ -18,8 +18,8 @@ import * as FilterStories from "./Filter.stories"
 
 ## Overview
 
-These components are mainly used for constructing Filter components (eg. <LinkTo pageId="components-filter-select">FilterSelect</LinkTo>):
-- <LinkTo pageId="components-filter-filter-buttons">FilterButton</LinkTo> for the renderTrigger
+These components are mainly used for constructing Filter components (eg. <LinkTo pageId="pickers-filterselect">FilterSelect</LinkTo>):
+- <LinkTo pageId="pickers-filter-filterbutton">FilterButton</LinkTo> for the renderTrigger
 - `FilterContents` to wrap the contents within a Filter
 
 <NoClipCanvas of={FilterStories.SimpleFilter} />
@@ -44,7 +44,7 @@ This is called by the `onClick` prop passed through to the trigger button props.
 
 ### `renderTrigger`
 
-A callback that provides trigger button props to the provided <LinkTo pageId="components-filter-filter-buttons">FilterButton</LinkTo>.
+A callback that provides trigger button props to the provided <LinkTo pageId="pickers-filter-filterbutton">FilterButton</LinkTo>.
 
 ```ts
 type TriggerButtonProps = {
