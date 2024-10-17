@@ -6,7 +6,7 @@ import { Well } from "../index"
 import { borderStyleTypes } from "../types"
 
 const meta = {
-  title: "Components/Well",
+  title: "Containers/Well",
   component: Well,
   args: {
     children: (
