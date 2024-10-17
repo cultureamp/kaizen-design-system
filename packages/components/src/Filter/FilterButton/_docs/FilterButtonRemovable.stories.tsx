@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { FilterButtonRemovable } from "../FilterButtonRemovable"
 
 const meta = {
-  title: "Components/Filter Base/Filter Buttons/Filter Button Removable",
+  title: "Pickers/FilterButtonRemovable",
   component: FilterButtonRemovable,
   args: {
     triggerButtonProps: {

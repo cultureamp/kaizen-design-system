@@ -7,7 +7,7 @@ import {
 import { Divider } from "../index"
 
 export default {
-  title: "Components/Divider",
+  title: "Layout/Divider",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -11,7 +11,7 @@ import { Filter, FilterContents } from "../index"
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: "Components/Filter Base",
+  title: "Pickers/Filter",
   parameters: {
     a11y: {
       config: {

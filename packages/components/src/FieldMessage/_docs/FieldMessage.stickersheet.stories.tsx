@@ -7,7 +7,7 @@ import {
 import { FieldMessage } from "../index"
 
 export default {
-  title: "Components/FieldMessage",
+  title: "Forms/FieldMessage",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

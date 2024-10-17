@@ -4,7 +4,7 @@ import { Label } from "~components/Label"
 import { FieldGroup } from "../index"
 
 const meta = {
-  title: "Components/FieldGroup",
+  title: "Forms/FieldGroup",
   component: FieldGroup,
   args: {
     children: (
