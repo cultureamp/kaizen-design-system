@@ -1,10 +1,10 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within, expect, waitFor } from "@storybook/test"
-import { VideoPlayer } from "./index"
+import { VideoPlayer } from "../index"
 
 const meta = {
-  title: "Components/Illustrations/VideoPlayer",
+  title: "Illustrations/VideoPlayer",
   component: VideoPlayer,
   args: {
     autoplay: false,

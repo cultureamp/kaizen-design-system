@@ -135,7 +135,7 @@ import {
 } from "../"
 
 export default {
-  title: "Components/Illustrations/Spot",
+  title: "Illustrations/Spot",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

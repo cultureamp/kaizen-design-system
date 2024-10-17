@@ -54,7 +54,7 @@ import {
 } from "../index"
 
 export default {
-  title: "Components/Illustrations/Scene",
+  title: "Illustrations/Scene",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
