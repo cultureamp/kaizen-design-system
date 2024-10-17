@@ -9,7 +9,7 @@ import {
 import { ButtonGroup } from "../index"
 
 export default {
-  title: "Actions/ButtonGroup",
+  title: "Pickers/Filter/FilterButton/ButtonGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

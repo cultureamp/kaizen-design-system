@@ -4,7 +4,7 @@ import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/
 import { ButtonGroup } from ".."
 
 const meta = {
-  title: "Actions/ButtonGroup",
+  title: "Pickers/Filter/FilterButton/ButtonGroup",
   component: ButtonGroup,
   args: { children: undefined },
 } satisfies Meta<typeof ButtonGroup>
