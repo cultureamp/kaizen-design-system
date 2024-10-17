@@ -11,7 +11,7 @@ import { CalendarSingle } from "../../CalendarSingle"
 import { CalendarPopover, CalendarPopoverProps } from "../index"
 
 export default {
-  title: "Pickers/CalendarPopover",
+  title: "Pickers/Calendar/CalendarPopover",
   parameters: {
     chromatic: {
       disable: false,

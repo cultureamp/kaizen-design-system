@@ -5,7 +5,7 @@ import { weekStartsOnControls } from "../../_docs/controls/weekStartsOnControls"
 import { CalendarSingle } from "../index"
 
 const meta = {
-  title: "Pickers/CalendarSingle",
+  title: "Pickers/Calendar/CalendarSingle",
   component: CalendarSingle,
   argTypes: {
     ...defaultMonthControls,
