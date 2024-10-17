@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Card, CardProps } from "../index"
 
 const meta = {
-  title: "Components/Card",
+  title: "Containers/Card",
   component: Card,
   args: {
     children: "This is a default container",

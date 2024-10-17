@@ -7,7 +7,7 @@ import {
 import { Brand } from "../index"
 
 export default {
-  title: "Components/Brand",
+  title: "Illustrations/Brand",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

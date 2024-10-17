@@ -7,7 +7,7 @@ import {
 import { Card, CardProps } from "../index"
 
 export default {
-  title: "Components/Card",
+  title: "Containers/Card",
   args: {
     children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
