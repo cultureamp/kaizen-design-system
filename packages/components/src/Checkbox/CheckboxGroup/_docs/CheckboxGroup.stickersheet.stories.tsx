@@ -9,7 +9,7 @@ import {
 import { CheckboxGroup, CheckboxGroupProps } from "../index"
 
 export default {
-  title: "Components/Checkbox controls/CheckboxGroup",
+  title: "Forms/CheckboxGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { CheckboxField, CheckboxFieldProps } from "../index"
 
 const meta = {
-  title: "Components/Checkbox controls/CheckboxField",
+  title: "Forms/CheckboxField",
   component: CheckboxField,
   args: {
     labelText: "Checkbox",

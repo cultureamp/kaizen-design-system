@@ -4,7 +4,7 @@ import { CheckboxFieldProps } from "~components/Checkbox"
 import { Checkbox } from "../index"
 
 const meta = {
-  title: "Components/Checkbox controls/Checkbox",
+  title: "Forms/Checkbox",
   component: Checkbox,
   args: {
     checkedStatus: "off",
