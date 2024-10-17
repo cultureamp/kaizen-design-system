@@ -8,7 +8,7 @@ import { Icon } from "~components/__future__/Icon"
 import { Tag, RemovableTag } from "../.."
 
 const meta = {
-  title: "Components/Tag/Future Tag Migration Guide",
+  title: "Content/Tag/Tag (Future)/Migration Guide",
   component: Tag,
   args: {
     children: "My tag",

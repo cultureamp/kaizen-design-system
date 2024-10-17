@@ -9,7 +9,7 @@ import { Tag } from "../Tag"
 import { TagColorKeys } from "../types"
 
 export default {
-  title: "Components/Tag/Future",
+  title: "Content/Tag/Tag (Future)",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
