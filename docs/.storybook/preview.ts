@@ -135,6 +135,13 @@ const preview = {
         })
 
         if (titleDifference !== 0) {
+          // Sort components containing the same name part alphabetically
+          // eg. Avatar and AvatarGroup
+          const titleAWithoutB = a.title.replace(b.title, "")
+          if (titleAWithoutB && !titleAWithoutB.includes("/")) return 1
+          const titleBWithoutA = b.title.replace(a.title, "")
+          if (titleBWithoutA && !titleBWithoutA.includes("/")) return -1
+
           // Sort nested stories to top
           if (a.title.includes(b.title)) return -1
           if (b.title.includes(a.title)) return 1
