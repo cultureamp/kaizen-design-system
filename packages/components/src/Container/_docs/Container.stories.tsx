@@ -5,7 +5,7 @@ import { Text } from "~components/Text"
 import { Container } from "../index"
 
 const meta = {
-  title: "Pages/Container",
+  title: "Layout/Container",
   component: Container,
   args: {
     children: (

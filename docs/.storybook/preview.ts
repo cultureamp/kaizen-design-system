@@ -118,22 +118,12 @@ const preview = {
           "Overlays",
           "Pickers",
           "Utilities",
-          "Components",
-          "Pages",
         ]
         const groupDifference = groups.indexOf(groupA) - groups.indexOf(groupB)
         if (groupDifference !== 0) {
           // Sort stories of different groups manually by the groups array
           return groupDifference
         }
-
-        // Sort Kaizen Provider to top
-        if (a.title.includes("Kaizen Provider")) {
-          // If both are Kaizen Provider, do not sort
-          if (b.title.includes("Kaizen Provider")) return 0
-          return -1
-        }
-        if (b.title.includes("Kaizen Provider")) return 1
 
         const titleDifference = titleA.localeCompare(titleB, undefined, {
           numeric: true,

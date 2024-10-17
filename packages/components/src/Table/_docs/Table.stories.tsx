@@ -64,7 +64,7 @@ const TableTemplate: StoryObj<TableStoryProps> = {
 
 export default {
   ...TableTemplate,
-  title: "Components/Table",
+  title: "Content/Table",
   parameters: {
     chromatic: { disable: false },
     docs: {

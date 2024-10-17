@@ -7,7 +7,7 @@ import {
 import { Slider } from "../index"
 
 export default {
-  title: "Components/Slider",
+  title: "Forms/Slider",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

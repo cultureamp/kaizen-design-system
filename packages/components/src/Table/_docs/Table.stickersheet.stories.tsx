@@ -14,7 +14,7 @@ import {
 } from "../index"
 
 export default {
-  title: "Components/Table",
+  title: "Content/Table",
   parameters: {
     chromatic: { disable: false },
     docs: {
