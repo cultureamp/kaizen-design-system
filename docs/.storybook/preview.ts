@@ -113,6 +113,7 @@ const preview = {
           "Forms",
           "Illustrations",
           "Layout",
+          "Notifications",
           "Overlays",
           "Pickers",
           "Components",

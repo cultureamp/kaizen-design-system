@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { InlineNotification } from "../InlineNotification"
 
 const meta = {
-  title: "Components/Notifications/InlineNotification",
+  title: "Notifications/InlineNotification",
   component: InlineNotification,
   args: {
     headingProps: {

@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within, expect, waitFor } from "@storybook/test"
-import { GenericNotification } from "./index"
+import { GenericNotification } from "../index"
 
 const meta = {
-  title: "Components/Notifications/GenericNotification",
+  title: "Notifications/GenericNotification",
   component: GenericNotification,
   args: {
     variant: "success",
