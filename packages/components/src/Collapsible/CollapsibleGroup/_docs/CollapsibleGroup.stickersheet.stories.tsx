@@ -11,7 +11,7 @@ import {
 import { CollapsibleGroup, CollapsibleGroupProps } from "../index"
 
 export default {
-  title: "Containers/CollapsibleGroup",
+  title: "Containers/Collapsible/CollapsibleGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
