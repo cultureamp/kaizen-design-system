@@ -13,19 +13,18 @@ $tilePaddingTop: $spacing-xl;
 }
 
 .tile {
+  position: relative;
   width: $tileWidth;
+  height: $tileHeight;
+  transition: transform $ca-duration-slow $ca-default;
+  transform-style: preserve-3d;
+  box-shadow: $shadow-small-box-shadow;
+  border-radius: 7px;
+  background-color: $color-white;
 
   [data-tile-grid] & {
     width: auto;
   }
-
-  height: $tileHeight;
-  position: relative;
-  box-shadow: $shadow-small-box-shadow;
-  background-color: $color-white;
-  transition: transform $ca-duration-slow $ca-default;
-  transform-style: preserve-3d;
-  border-radius: 7px;
 
   @include ca-media-mobile {
     width: 100%;

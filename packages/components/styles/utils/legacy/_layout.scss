@@ -13,27 +13,15 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
 @mixin ca-margin($start: 0, $end: 0, $top: null, $bottom: null) {
   margin-top: $top;
   margin-bottom: $bottom;
-  margin-right: $end;
-  margin-left: $start;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    margin-right: $start;
-    margin-left: $end;
-  }
+  margin-inline-end: $end;
+  margin-inline-start: $start;
 }
 
 @mixin ca-padding($start: 0, $end: 0, $top: null, $bottom: null) {
   padding-top: $top;
   padding-bottom: $bottom;
-  padding-right: $end;
-  padding-left: $start;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    padding-right: $start;
-    padding-left: $end;
-  }
+  padding-inline-end: $end;
+  padding-inline-start: $start;
 }
 
 @mixin ca-position($start: null, $end: null, $top: null, $bottom: null) {
@@ -47,14 +35,8 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
 
   top: $top;
   bottom: $bottom;
-  right: $end;
-  left: $start;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    right: $start;
-    left: $end;
-  }
+  inset-inline-end: $end;
+  inset-inline-start: $start;
 }
 
 /* stylelint-enable scss/at-if-no-null, declaration-block-no-redundant-longhand-properties */

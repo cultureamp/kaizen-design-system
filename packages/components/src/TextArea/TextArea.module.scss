@@ -91,14 +91,14 @@ $input-disabled-border-alpha: 50%;
 
 // Reversed (Dark Backgrounds)
 .textarea.reversed {
+  border-color: rgba($color-white-rgb, 0.65);
+  background: transparent;
+  color: $color-white;
+
   @include form-input-focus-state {
     background: rgba($color-white-rgb, 0.1);
     border-color: $color-white;
   }
-
-  border-color: rgba($color-white-rgb, 0.65);
-  background: transparent;
-  color: $color-white;
 
   @include form-input-placeholder {
     line-height: 1.5;
