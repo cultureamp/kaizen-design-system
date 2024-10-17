@@ -5,7 +5,7 @@ import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
 import { Button } from "../index"
 
 const meta = {
-  title: "Actions/Button/v3/Doc Assets",
+  title: "Actions/Button/Button (v3)/Doc Assets",
   component: Button,
   args: {
     children: "Label",
