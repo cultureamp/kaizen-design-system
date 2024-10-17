@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.67.2
+
+### Patch Changes
+
+- [#5174](https://github.com/cultureamp/kaizen-design-system/pull/5174) [`52c8fc91031f30d197359a544be14603753abaee`](https://github.com/cultureamp/kaizen-design-system/commit/52c8fc91031f30d197359a544be14603753abaee) - Fix sass deprecation warnings.
+
+  Also fixes:
+
+  - Button v1 right-to-left padding
+  - TextField reversed success icon styles
+
 ## 1.67.1
 
 ### Patch Changes
