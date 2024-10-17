@@ -20,12 +20,14 @@
       "matchDepTypes": ["peerDependencies", "dependencies"]
     },
     {
-      "groupName": "adobe/react-spectrum",
+      "groupName": "react-aria",
       "matchPackagePrefixes": [
         "@react-aria/",
         "@react-stately/",
         "@internationalized/",
-        "@react-types/shared"
+        "@react-types/shared",
+        "react-aria",
+        "react-aria-components",
       ]
     },
     {
