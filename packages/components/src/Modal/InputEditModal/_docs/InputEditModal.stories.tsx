@@ -24,7 +24,7 @@ const ExampleForm = (): JSX.Element => (
 )
 
 const meta = {
-  title: "Components/Modals/Input Edit Modal",
+  title: "Overlays/Modal/InputEditModal",
   component: InputEditModal,
   args: {
     isOpen: false,
