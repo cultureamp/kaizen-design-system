@@ -4,7 +4,7 @@ import { Text } from "~components/Text"
 import { RichTextContent } from "../index"
 
 const meta = {
-  title: "Components/RichTextEditor/RichTextContent",
+  title: "Forms/RichTextEditor/RichTextContent",
   component: RichTextContent,
   args: {
     content: [

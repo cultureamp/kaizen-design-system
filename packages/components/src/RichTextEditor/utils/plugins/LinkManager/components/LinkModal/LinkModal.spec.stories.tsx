@@ -3,7 +3,7 @@ import { userEvent, waitFor, fn, expect } from "@storybook/test"
 import { LinkModal } from "./LinkModal"
 
 const meta = {
-  title: "Components/RichTextEditor/Subcomponents/LinkModal/Tests",
+  title: "Forms/RichTextEditor/Subcomponents/LinkModal",
   component: LinkModal,
   args: {
     onSubmit: fn(),

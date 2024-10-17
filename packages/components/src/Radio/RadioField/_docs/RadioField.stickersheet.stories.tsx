@@ -7,7 +7,7 @@ import {
 import { RadioField } from "../index"
 
 export default {
-  title: "Components/Radio controls/RadioField",
+  title: "Forms/RadioField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

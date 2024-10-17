@@ -7,7 +7,7 @@ import {
 import { InputSearch } from "../index"
 
 export default {
-  title: "Components/Inputs/InputSearch",
+  title: "Forms/InputSearch",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

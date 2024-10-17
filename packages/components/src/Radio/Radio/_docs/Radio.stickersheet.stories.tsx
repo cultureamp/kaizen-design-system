@@ -7,7 +7,7 @@ import {
 import { Radio } from "../index"
 
 export default {
-  title: "Components/Radio controls/Radio",
+  title: "Forms/Radio",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

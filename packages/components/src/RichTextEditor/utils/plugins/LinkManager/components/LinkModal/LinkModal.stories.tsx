@@ -3,7 +3,7 @@ import { fn } from "@storybook/test"
 import { LinkModal } from "./LinkModal"
 
 const meta = {
-  title: "Components/RichTextEditor/Subcomponents/LinkModal",
+  title: "Forms/RichTextEditor/Subcomponents/LinkModal",
   component: LinkModal,
   args: {
     onSubmit: fn(),

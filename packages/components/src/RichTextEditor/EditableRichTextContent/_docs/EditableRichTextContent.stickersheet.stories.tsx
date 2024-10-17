@@ -9,7 +9,7 @@ import { EditableRichTextContent } from "../index"
 import defaultContent from "./defaultContent.json"
 
 const meta = {
-  title: "Components/RichTextEditor/EditableRichTextContent",
+  title: "Forms/RichTextEditor/EditableRichTextContent",
   component: EditableRichTextContent,
 } satisfies Meta<typeof EditableRichTextContent>
 

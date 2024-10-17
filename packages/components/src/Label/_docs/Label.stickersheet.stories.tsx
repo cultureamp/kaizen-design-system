@@ -8,7 +8,7 @@ import { Label, LabelProps } from "../index"
 import { BlockLabelTypes, InlineLabelTypes } from "../types"
 
 export default {
-  title: "Components/Label",
+  title: "Forms/Label",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

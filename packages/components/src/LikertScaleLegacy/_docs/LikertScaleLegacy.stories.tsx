@@ -31,7 +31,7 @@ const scale: Scale = [
 ]
 
 const meta = {
-  title: "Components/LikertScaleLegacy",
+  title: "Forms/LikertScaleLegacy",
   component: LikertScaleLegacy,
   args: {
     scale,
@@ -63,7 +63,7 @@ export const Playground: Story = {
         code: `
   const SatisfactionExample = () => {
     const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
-  
+
     return (
       <LikertScaleLegacy
         scale={[
