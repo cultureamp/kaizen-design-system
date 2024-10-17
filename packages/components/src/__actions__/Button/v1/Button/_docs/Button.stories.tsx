@@ -169,3 +169,22 @@ export const ResolveWorking: Story = {
     )
   },
 }
+
+export const WorkingLongLabel: Story = {
+  render: () => {
+    const [state, setState] = useState<boolean>(false)
+    const handleClick = (): void => {
+      setState(!state)
+    }
+
+    return (
+      <Button
+        label="I'm super long and and I'm going to make a weird button"
+        working={state}
+        workingLabel="Button is doing some work"
+        workingLabelHidden
+        onClick={handleClick}
+      />
+    )
+  },
+}
