@@ -170,6 +170,13 @@ $blue-fifth: $color-blue-500;
 .likertItem {
   margin-right: 2px;
   margin-left: 2px;
+  font-size: 1px;
+  line-height: 1;
+  padding: 0;
+  overflow-x: visible;
+  display: inline-block;
+  width: 18.5%; // 5 columns
+  position: relative;
 
   &[dir="rtl"],
   [dir="rtl"] & {
@@ -183,14 +190,6 @@ $blue-fifth: $color-blue-500;
   }
 
   @include fill($block-height);
-
-  font-size: 1px;
-  line-height: 1;
-  padding: 0;
-  overflow-x: visible;
-  display: inline-block;
-  width: 18.5%; // 5 columns
-  position: relative;
 
   &:first-child {
     margin-right: 2px;

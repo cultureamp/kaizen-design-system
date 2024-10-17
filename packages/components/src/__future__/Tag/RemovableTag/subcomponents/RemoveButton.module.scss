@@ -8,6 +8,7 @@
   position: relative;
   display: inline-flex;
   border-radius: 50%;
+  color: rgba($color-purple-800-rgb, 0.7);
 
   &:focus,
   &:focus-visible {
@@ -33,8 +34,6 @@
     inset: -5px;
     border-radius: 50%;
   }
-
-  color: rgba($color-purple-800-rgb, 0.7);
 
   &:hover,
   &:focus,

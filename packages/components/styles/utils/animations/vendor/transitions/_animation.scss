@@ -6,9 +6,8 @@
 /* prettier-ignore */
 @mixin mui-animation($args...) {
   $name: map-get(-mui-process-args($args...), name);
-
-  @include mui-keyframes($name, $args...);
-
   /* stylelint-disable-next-line scss/function-unquote-no-unquoted-strings-inside */
   animation-name: unquote($name);
+
+  @include mui-keyframes($name, $args...);
 }
