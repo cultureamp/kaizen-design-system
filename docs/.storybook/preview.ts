@@ -110,6 +110,7 @@ const preview = {
           "Actions",
           "Containers",
           "Content",
+          "Forms",
           "Illustrations",
           "Layout",
           "Overlays",
