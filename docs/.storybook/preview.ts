@@ -114,6 +114,7 @@ const preview = {
           "Illustrations",
           "Layout",
           "Overlays",
+          "Pickers",
           "Components",
           "Pages",
         ]

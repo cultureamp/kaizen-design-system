@@ -9,7 +9,7 @@ import {
 import { getLocale } from "../utils/getLocale"
 
 export default {
-  title: "Components/Date controls/DatePicker/Tests",
+  title: "Pickers/DatePicker",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

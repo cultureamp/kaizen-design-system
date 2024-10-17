@@ -9,7 +9,7 @@ import styles from "../../baseCalendarClassNames.module.scss"
 import { CalendarSingle, CalendarSingleProps } from "../index"
 
 export default {
-  title: "Components/Date controls/Calendars/CalendarSingle",
+  title: "Pickers/CalendarSingle",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
