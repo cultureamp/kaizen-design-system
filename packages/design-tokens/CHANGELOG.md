@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.8.0
+
+### Minor Changes
+
+- [#5083](https://github.com/cultureamp/kaizen-design-system/pull/5083) [`9283ae28aa87c39202b97f77772bae8047777f15`](https://github.com/cultureamp/kaizen-design-system/commit/9283ae28aa87c39202b97f77772bae8047777f15) - Update Button token font weights
+
 ## 10.7.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.67.0
+
+### Minor Changes
+
+- [#5153](https://github.com/cultureamp/kaizen-design-system/pull/5153) [`17951f367e7b4fa2a99b601e64c8452f1ef6141f`](https://github.com/cultureamp/kaizen-design-system/commit/17951f367e7b4fa2a99b601e64c8452f1ef6141f) - Add future Icon and update internal icon usages (excluding Buttons).
+
+### Patch Changes
+
+- [#5153](https://github.com/cultureamp/kaizen-design-system/pull/5153) [`17951f367e7b4fa2a99b601e64c8452f1ef6141f`](https://github.com/cultureamp/kaizen-design-system/commit/17951f367e7b4fa2a99b601e64c8452f1ef6141f) - Fix future Tag cautionary icon colour.
+
 ## 1.66.1
 
 ### Patch Changes
