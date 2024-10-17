@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.67.1
+
+### Patch Changes
+
+- [#5132](https://github.com/cultureamp/kaizen-design-system/pull/5132) [`a227606160a82b80082dc5883d23a8aa9336e3d5`](https://github.com/cultureamp/kaizen-design-system/commit/a227606160a82b80082dc5883d23a8aa9336e3d5) - Update react-aria deps.
+
 ## 1.67.0
 
 ### Minor Changes
