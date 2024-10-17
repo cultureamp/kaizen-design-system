@@ -11,7 +11,7 @@ import {
 } from "./mockData"
 
 const meta = {
-  title: "Components/Select/Future",
+  title: "Pickers/Select/Select (Future)",
   component: Select,
   argTypes: {
     items: {

@@ -8,7 +8,7 @@ import { TimeField } from "../index"
 import { ValueType } from "../types"
 
 export default {
-  title: "Components/TimeField",
+  title: "Pickers/TimeField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
