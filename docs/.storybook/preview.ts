@@ -117,6 +117,7 @@ const preview = {
           "Notifications",
           "Overlays",
           "Pickers",
+          "Utilities",
           "Components",
           "Pages",
         ]
