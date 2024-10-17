@@ -7,7 +7,7 @@ import {
 import { ToggleSwitchField } from "../ToggleSwitchField"
 
 export default {
-  title: "Forms/ToggleSwitchField",
+  title: "Forms/ToggleSwitch/ToggleSwitchField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

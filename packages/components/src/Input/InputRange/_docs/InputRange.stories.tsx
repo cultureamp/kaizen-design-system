@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { InputRange } from "../index"
 
 const meta = {
-  title: "Forms/InputRange",
+  title: "Forms/Slider/InputRange",
   component: InputRange,
   args: {
     id: "inputRange",

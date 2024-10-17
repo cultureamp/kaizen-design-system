@@ -7,7 +7,7 @@ import {
 import { SearchField, SearchFieldProps } from "../index"
 
 export default {
-  title: "Forms/SearchField",
+  title: "Forms/Search/SearchField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

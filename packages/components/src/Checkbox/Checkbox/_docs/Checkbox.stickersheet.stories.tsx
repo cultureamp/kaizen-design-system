@@ -7,7 +7,7 @@ import {
 import { Checkbox, CheckboxProps } from "../index"
 
 export default {
-  title: "Forms/Checkbox",
+  title: "Forms/Checkbox/Checkbox",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

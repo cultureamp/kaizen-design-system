@@ -7,7 +7,7 @@ import {
 import { CheckboxGroup } from "../index"
 
 const meta = {
-  title: "Forms/CheckboxGroup",
+  title: "Forms/Checkbox/CheckboxGroup",
   component: CheckboxGroup,
   args: {
     labelText: "Label",

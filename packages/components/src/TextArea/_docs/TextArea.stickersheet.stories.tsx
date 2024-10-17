@@ -7,7 +7,7 @@ import {
 import { TextArea } from "../index"
 
 export default {
-  title: "Forms/TextArea",
+  title: "Forms/TextArea/TextArea",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
