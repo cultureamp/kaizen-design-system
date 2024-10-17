@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { VisuallyHidden } from "react-aria"
 import {
   Button as RACButton,
@@ -13,13 +13,18 @@ export type ButtonVariant = "primary" | "secondary" | "tertiary"
 export type ButtonSize = "small" | "medium" | "large"
 
 type PendingProps = {
-  isPending: true
+  isPending: boolean
   /** Rendered as the child while `pendingLabel` is `true` */
   pendingLabel: string
   /** Hides the `pendingLabel` rendering only the loading spinner. This will still be used as the accessible label.
    * @default false
    */
   isPendingLabelHidden?: boolean
+}
+
+type PendingContentProps = PendingProps & {
+  children: RACButtonProps["children"]
+  size: ButtonSize
 }
 
 export type ButtonContentProps = RACButtonProps & {
@@ -29,16 +34,13 @@ export type ButtonContentProps = RACButtonProps & {
   /** The visual size of the button. `medium` was formerly `regular`
    *  @default "medium" */
   size?: ButtonSize
-  // /** what if we use this for when they want to truly disable a button */
-  // isDisabledWithNoFocus?: boolean
-  isPending: false
 }
 
 export type ButtonPendingProps = Omit<ButtonContentProps, "isPending"> &
   PendingProps
 
 // TODO: we need to have type safe
-type ButtonProps = ButtonContentProps | ButtonPendingProps
+type ButtonProps = ButtonContentProps & PendingProps
 
 export const Button = ({
   // TODO: in the original button v3 this was set to "default", which is close to "secondary" styles
@@ -47,10 +49,12 @@ export const Button = ({
   size = "medium",
   children,
   isDisabled,
+  isPending,
   ...otherProps
 }: ButtonProps): JSX.Element => {
   const isReversed = useReversedColors()
-  const isPending = "isPending" in otherProps
+
+  // console.log("otherProps", otherProps)
 
   return (
     <RACButton
@@ -62,14 +66,23 @@ export const Button = ({
         isReversed && styles[`${variant}-reversed`],
         className
       )}
+      isPending={isPending}
       isDisabled={isDisabled}
       {...otherProps}
     >
-      {isPending && otherProps.isPending === true ? (
-        <PendingContent {...otherProps} size={size} />
-      ) : (
-        children
-      )}
+      <>
+        {!isPending && children}
+        {isPending && (
+          <PendingContent
+            isPending={isPending}
+            isPendingLabelHidden={otherProps.isPendingLabelHidden}
+            pendingLabel={otherProps.pendingLabel}
+            size={size}
+          >
+            {children}
+          </PendingContent>
+        )}
+      </>
     </RACButton>
   )
 }
@@ -79,37 +92,33 @@ const PendingContent = ({
   isPendingLabelHidden,
   size,
   children,
-}: ButtonPendingProps): JSX.Element => {
-  if (isPendingLabelHidden) {
-    return (
-      <>
-        <span className={styles.hiddenPendingContent} aria-hidden="true">
-          {children as React.ReactNode}
-        </span>
-        <VisuallyHidden>{pendingLabel}</VisuallyHidden>
-        <LoadingSpinner
-          classNameOverride={styles.pendingSpinnerOnly}
-          size={size === "small" ? "xs" : "sm"}
-          accessibilityLabel=""
-        />
-      </>
-    )
-  }
-
-  return (
-    <>
-      <span className={styles.hiddenPendingContent} aria-hidden="true">
-        {children as React.ReactNode}
+}: PendingContentProps): JSX.Element => (
+  <>
+    {/* maintains button size if label is hidden */}
+    {isPendingLabelHidden && (
+      <span className={styles.hiddenButtonContent} aria-hidden="true">
+        {children}
       </span>
-      {pendingLabel}
+    )}
+    <span
+      className={mergeClassNames(
+        styles.pendingContent,
+        isPendingLabelHidden && styles.pendingContentSpinnerOnly
+      )}
+    >
+      {isPendingLabelHidden ? (
+        <VisuallyHidden>{pendingLabel}</VisuallyHidden>
+      ) : (
+        pendingLabel
+      )}
       <LoadingSpinner
-        classNameOverride={styles.pendingSpinner}
+        classNameOverride={styles.spinner}
         size={size === "small" ? "xs" : "sm"}
         accessibilityLabel=""
       />
-    </>
-  )
-}
+    </span>
+  </>
+)
 
 // const PendingContent = (
 //   props: Extract<RenderProps, { working: true }>
