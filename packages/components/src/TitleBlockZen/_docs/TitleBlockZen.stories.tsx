@@ -27,7 +27,7 @@ const SECONDARY_ACTIONS = [
 ]
 
 const meta = {
-  title: "Components/TitleBlockZen",
+  title: "Layout/TitleBlockZen",
   component: TitleBlockZen,
   parameters: {
     chromatic: { disable: false },

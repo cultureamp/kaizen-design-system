@@ -7,7 +7,7 @@ import {
 import { InputRange } from "../index"
 
 export default {
-  title: "Components/Inputs/InputRange",
+  title: "Forms/Slider/InputRange",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

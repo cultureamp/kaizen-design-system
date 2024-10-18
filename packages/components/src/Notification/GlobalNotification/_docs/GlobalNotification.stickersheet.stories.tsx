@@ -10,7 +10,7 @@ import {
 } from "../GlobalNotification"
 
 export default {
-  title: "Components/Notifications/GlobalNotification",
+  title: "Notifications/GlobalNotification",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

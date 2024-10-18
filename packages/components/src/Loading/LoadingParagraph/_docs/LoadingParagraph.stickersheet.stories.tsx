@@ -7,7 +7,7 @@ import {
 import { LoadingParagraph } from "../index"
 
 export default {
-  title: "Components/Loading states/LoadingParagraph",
+  title: "Loading/LoadingParagraph",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

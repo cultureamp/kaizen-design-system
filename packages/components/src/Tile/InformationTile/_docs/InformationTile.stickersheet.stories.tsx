@@ -7,7 +7,7 @@ import {
 import { InformationTile, InformationTileProps } from "../index"
 
 export default {
-  title: "Components/Tiles/InformationTile",
+  title: "Containers/Tile/InformationTile",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

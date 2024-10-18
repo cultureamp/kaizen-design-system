@@ -11,7 +11,7 @@ import {
 } from "../index"
 
 const meta: Meta<typeof GenericModal> = {
-  title: "Components/Modals/Generic Modal/Tests",
+  title: "Overlays/Modal/GenericModal",
   component: GenericModal,
 }
 

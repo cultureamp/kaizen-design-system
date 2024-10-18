@@ -9,7 +9,7 @@ import { Tag } from "../index"
 import { TagVariants } from "../types"
 
 export default {
-  title: "Components/Tag",
+  title: "Content/Tag",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

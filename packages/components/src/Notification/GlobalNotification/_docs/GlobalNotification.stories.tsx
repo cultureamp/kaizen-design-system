@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { GlobalNotification } from "../GlobalNotification"
 
 const meta = {
-  title: "Components/Notifications/GlobalNotification",
+  title: "Notifications/GlobalNotification",
   component: GlobalNotification,
   args: {
     variant: "success",

@@ -7,7 +7,7 @@ import {
 import { MultiSelectOptions, MultiSelectOptionsProps } from "../index"
 
 export default {
-  title: "Components/MultiSelect/MultiSelectOptions",
+  title: "Pickers/MultiSelect/MultiSelectOptions",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

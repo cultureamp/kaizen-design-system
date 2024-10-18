@@ -4,7 +4,7 @@ import { Icon } from "~components/__future__/Icon"
 import { TextField } from "../index"
 
 const meta = {
-  title: "Components/Text Input controls/Text Field",
+  title: "Forms/TextField",
   component: TextField,
   args: {
     labelText: "Label",

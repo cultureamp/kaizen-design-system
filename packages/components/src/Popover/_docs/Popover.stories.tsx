@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Popover as PopoverComponent, usePopover } from "../index"
 
 const meta = {
-  title: "Components/Popover",
+  title: "Overlays/Popover",
   component: PopoverComponent,
   args: {
     children: undefined,

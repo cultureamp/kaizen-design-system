@@ -8,7 +8,7 @@ import {
 import { TextField, TextFieldProps } from "../index"
 
 export default {
-  title: "Components/Text Input controls/Text Field",
+  title: "Forms/TextField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

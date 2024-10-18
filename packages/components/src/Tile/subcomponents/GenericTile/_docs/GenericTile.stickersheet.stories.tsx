@@ -7,7 +7,7 @@ import {
 import { GenericTile, GenericTileProps } from "../index"
 
 export default {
-  title: "Components/Tiles/GenericTile",
+  title: "Containers/Tile/GenericTile",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

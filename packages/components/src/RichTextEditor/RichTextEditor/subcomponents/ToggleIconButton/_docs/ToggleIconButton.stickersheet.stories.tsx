@@ -9,7 +9,7 @@ import { ToggleIconButton, ToggleIconButtonProps } from "../index"
 import { moodsList } from "../types"
 
 export default {
-  title: "Components/RichTextEditor/Subcomponents/ToggleIconButton",
+  title: "Forms/RichTextEditor/Subcomponents/ToggleIconButton",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

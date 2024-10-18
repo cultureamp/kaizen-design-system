@@ -6,7 +6,7 @@ import { Icon } from "~components/__future__/Icon"
 import { Button } from "../index"
 
 const meta = {
-  title: "Actions/Button/Button (v1)",
+  title: "Actions/Button/Button (Tier 1) (v1)",
   component: Button,
   args: {
     label: "Label",
@@ -63,7 +63,8 @@ export const Disabled: Story = {
 }
 
 const sourceCodeIcon = `
-import { Button, AddIcon } from "@kaizen/components"
+import { Button } from "@kaizen/components"
+import { Icon } from "@kaizen/components/future"
 
 <Button label="Label" icon={<Icon name="add" isPresentational />} />
 `

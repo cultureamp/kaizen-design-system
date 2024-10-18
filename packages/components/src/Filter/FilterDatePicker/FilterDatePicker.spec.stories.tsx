@@ -8,7 +8,7 @@ import {
 import { FilterDatePicker } from "./FilterDatePicker"
 
 export default {
-  title: "Components/Filter Date Picker/Tests",
+  title: "Pickers/FilterDatePicker",
   component: FilterDatePicker,
   parameters: {
     a11y: {

@@ -9,7 +9,7 @@ import { Well, WellProps } from "../index"
 import { borderStyleTypes, wellColors, variantTypes } from "../types"
 
 export default {
-  title: "Components/Well",
+  title: "Containers/Well",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

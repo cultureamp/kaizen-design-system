@@ -35,7 +35,7 @@ const GROUPED_OPTIONS = [
 ]
 
 const meta = {
-  title: "Components/Select",
+  title: "Pickers/Select",
   component: Select,
   args: {
     options: OPTIONS,

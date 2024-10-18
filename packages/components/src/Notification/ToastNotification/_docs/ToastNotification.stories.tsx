@@ -5,7 +5,7 @@ import { Button } from "~components/__actions__/v2"
 import { ToastNotification, useToastNotification } from "../index"
 
 const meta = {
-  title: "Components/Notifications/ToastNotification",
+  title: "Notifications/ToastNotification",
   component: ToastNotification,
   args: {
     id: "abc-123",

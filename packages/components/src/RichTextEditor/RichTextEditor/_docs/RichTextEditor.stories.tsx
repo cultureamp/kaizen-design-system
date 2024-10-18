@@ -6,7 +6,7 @@ import { EditorContentArray } from "../../index"
 import { RichTextEditor, RichTextEditorProps } from "../index"
 
 const meta = {
-  title: "Components/RichTextEditor/RichTextEditor",
+  title: "Forms/RichTextEditor/RichTextEditor",
   component: RichTextEditor,
   parameters: {
     chromatic: { disable: false },
