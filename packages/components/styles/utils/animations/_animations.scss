@@ -3,17 +3,17 @@
 @import "./vendor/effects/zoom";
 
 @mixin ca-animation-pop($duration: $ca-duration-slow, $delay: null) {
-  @include ca-animation(pop());
-
   animation-duration: $duration;
   animation-delay: $delay;
+
+  @include ca-animation(pop());
 }
 
 @mixin ca-animation-pulsate($duration: $ca-duration-slow, $delay: null) {
-  @include ca-animation(pulsate());
-
   animation-duration: $duration;
   animation-delay: $delay;
+
+  @include ca-animation(pulsate());
 }
 
 @mixin ca-animation-fade(
@@ -23,16 +23,16 @@
   $from: 0,
   $to: 1
 ) {
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-fill-mode: forwards;
+
   @if ($state == out) {
     $from: 1;
     $to: 0;
   }
 
   @include ca-animation(fade($from: $from, $to: $to));
-
-  animation-duration: $duration;
-  animation-delay: $delay;
-  animation-fill-mode: forwards;
 }
 
 @mixin ca-animation-slide-fade(
@@ -52,16 +52,16 @@
     $timing: $ca-bounce-out;
   }
 
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-fill-mode: forwards;
+  animation-timing-function: $timing;
+
   @include ca-animation(
     fade($from: $from, $to: $to),
     slide($state: out, $direction: $direction)
   );
   @include mui-animation(fade(in));
-
-  animation-duration: $duration;
-  animation-delay: $delay;
-  animation-fill-mode: forwards;
-  animation-timing-function: $timing;
 }
 
 @mixin ca-animation-scale-fade(
@@ -79,13 +79,13 @@
     $timing: $ca-bounce-out;
   }
 
-  @include ca-animation(
-    fade($from: $from, $to: $to),
-    zoom($from: $from, $to: $to)
-  );
-
   animation-duration: $duration;
   animation-delay: $delay;
   animation-fill-mode: forwards;
   animation-timing-function: $timing;
+
+  @include ca-animation(
+    fade($from: $from, $to: $to),
+    zoom($from: $from, $to: $to)
+  );
 }

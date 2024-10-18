@@ -74,9 +74,9 @@ input[type="range"].ratingScaleRange {
   }
 
   &::-webkit-slider-runnable-track {
-    @include track;
-
     margin: $spacing-sm 0;
+
+    @include track;
   }
 
   &::-moz-range-track {
@@ -84,10 +84,10 @@ input[type="range"].ratingScaleRange {
   }
 
   &::-webkit-slider-thumb {
-    @include thumb;
-
     -webkit-appearance: none;
     margin-top: calc((#{$thumb-height-with-border}/ 2) * -1);
+
+    @include thumb;
   }
 
   &::-moz-range-thumb {

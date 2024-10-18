@@ -77,8 +77,6 @@ $slide-up-duration: 0.4s;
 }
 
 .mobileActionsPrimaryLabel {
-  @include ca-padding($start: $ca-grid * 0.75);
-
   text-align: left;
   text-decoration: none;
   color: $color-white;
@@ -87,6 +85,8 @@ $slide-up-duration: 0.4s;
   font-size: $typography-button-primary-font-size;
   line-height: $typography-button-primary-line-height;
   letter-spacing: $typography-button-primary-letter-spacing;
+
+  @include ca-padding($start: $ca-grid * 0.75);
 }
 
 .mobileActionsPrimaryButton,
