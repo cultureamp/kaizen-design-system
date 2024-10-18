@@ -7,7 +7,7 @@ import {
 import { Badge } from "../index"
 
 export default {
-  title: "Content/Badge",
+  title: "Content/Badge (Tier 1)",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

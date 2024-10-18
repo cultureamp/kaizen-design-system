@@ -13,7 +13,7 @@ import {
 } from "../index"
 
 export default {
-  title: "Content/Avatar",
+  title: "Content/Avatar/Avatar (Tier 1)",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

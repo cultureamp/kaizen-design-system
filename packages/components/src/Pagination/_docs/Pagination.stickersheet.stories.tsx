@@ -7,7 +7,7 @@ import {
 import { Pagination } from "../index"
 
 export default {
-  title: "Actions/Pagination",
+  title: "Actions/Pagination/Pagination (Tier 2)",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

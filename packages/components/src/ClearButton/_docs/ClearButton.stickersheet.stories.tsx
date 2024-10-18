@@ -7,7 +7,7 @@ import {
 import { ClearButton } from "../index"
 
 export default {
-  title: "Actions/ClearButton",
+  title: "Actions/ClearButton (Tier 1)",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

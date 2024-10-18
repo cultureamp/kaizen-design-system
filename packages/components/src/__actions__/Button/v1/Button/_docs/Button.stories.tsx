@@ -6,7 +6,7 @@ import { Icon } from "~components/__future__/Icon"
 import { Button } from "../index"
 
 const meta = {
-  title: "Actions/Button/Button (v1)",
+  title: "Actions/Button/Button (Tier 1) (v1)",
   component: Button,
   args: {
     label: "Label",

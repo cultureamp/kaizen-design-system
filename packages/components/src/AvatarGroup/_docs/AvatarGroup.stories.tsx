@@ -3,7 +3,7 @@ import { AvatarGroup } from "../index"
 import { AVATARS } from "./example-data"
 
 const meta = {
-  title: "Content/Avatar/AvatarGroup",
+  title: "Content/Avatar/AvatarGroup (Tier 2)",
   component: AvatarGroup,
   args: {
     maxVisible: 2,

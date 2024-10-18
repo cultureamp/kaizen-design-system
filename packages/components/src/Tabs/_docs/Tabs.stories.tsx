@@ -6,7 +6,7 @@ import { Button } from "~components/__actions__/v2"
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "../index"
 
 const meta = {
-  title: "Actions/Tabs",
+  title: "Actions/Tabs/Tabs (Tier 1)",
   component: Tabs,
   args: {
     children: (

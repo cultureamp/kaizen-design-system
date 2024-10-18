@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { PaginationLink } from "../index"
 
 const meta = {
-  title: "Actions/Pagination/PaginationLink",
+  title: "Actions/Pagination/PaginationLink (Tier 1)",
   component: PaginationLink,
   args: {
     pageNumber: 1,

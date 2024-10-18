@@ -12,7 +12,7 @@ import {
 import { SplitButton, SplitButtonProps } from "../index"
 
 export default {
-  title: "Actions/SplitButton",
+  title: "Actions/SplitButton (Tier 1)",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
