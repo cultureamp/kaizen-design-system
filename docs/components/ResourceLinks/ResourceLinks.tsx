@@ -1,5 +1,4 @@
 import React, { HTMLAttributes } from "react"
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Unstyled } from "@storybook/blocks"
 import classNames from "classnames"
 import { Text } from "~components/Text"

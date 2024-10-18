@@ -187,6 +187,9 @@ importers:
       '@rollup/plugin-alias':
         specifier: ^5.1.1
         version: 5.1.1(rollup@4.24.0)
+      '@storybook/blocks':
+        specifier: ^8.3.5
+        version: 8.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5)
       '@storybook/builder-vite':
         specifier: ^8.3.5
         version: 8.3.5(storybook@8.3.5)(typescript@5.5.4)(vite@5.4.2(@types/node@20.14.15)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
@@ -202,6 +205,9 @@ importers:
       '@types/jest-axe':
         specifier: ^3.5.9
         version: 3.5.9
+      '@types/react-highlight':
+        specifier: ^0.12.8
+        version: 0.12.8
       '@vitejs/plugin-react':
         specifier: ^4.3.2
         version: 4.3.2(vite@5.4.2(@types/node@20.14.15)(less@4.2.0)(sass@1.77.8)(stylus@0.62.0)(terser@5.31.5))
@@ -220,6 +226,9 @@ importers:
       jest-axe:
         specifier: ^9.0.0
         version: 9.0.0
+      react-highlight:
+        specifier: ^0.15.0
+        version: 0.15.0
       sass:
         specifier: ^1.77.8
         version: 1.77.8
