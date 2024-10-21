@@ -65,6 +65,7 @@ const simpleFilters = [
 type ValuesRemovable = {
   flavour: string
   topping: string
+  others: string
 }
 
 const filtersRemovable = [
@@ -83,6 +84,37 @@ const filtersRemovable = [
     name: "Topping",
     Component: (
       <FilterBar.Select items={[{ value: "pearls", label: "Pearls" }]} />
+    ),
+    isRemovable: true,
+  },
+  {
+    id: "others",
+    name: "Others",
+    Component: (
+      <FilterBar.MultiSelect
+        items={[
+          { value: "gluten-free", label: "Gluten Free" },
+          { value: "no-sugar", label: "No Sugar" },
+          { value: "dairy-free", label: "Dairy Free" },
+        ]}
+      >
+        {(): JSX.Element => (
+          <>
+            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.ListBox>
+              {({ allItems }): JSX.Element | JSX.Element[] =>
+                allItems.map(item => (
+                  <FilterMultiSelect.Option key={item.key} item={item} />
+                ))
+              }
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterBar.MultiSelect>
     ),
     isRemovable: true,
   },
@@ -287,6 +319,61 @@ describe("<FilterBar />", () => {
       expect(filters[0]).toHaveTextContent("Ice Level")
       expect(filters[1]).toHaveTextContent("Flavour")
       expect(filters[2]).toHaveTextContent("Sugar Level")
+    })
+
+    it("moves focus to recently added filter button", async () => {
+      const { getByRole } = render(
+        <FilterBarWrapper<ValuesSimple>
+          filters={simpleFilters.map(filter => ({
+            ...filter,
+            isRemovable: true,
+          }))}
+        />
+      )
+      await waitForI18nContent()
+
+      const addFiltersButton = getByRole("button", { name: "Add Filters" })
+      await user.click(addFiltersButton)
+
+      const menuOptionIceLevel = getByRole("button", { name: "Ice Level" })
+      await user.click(menuOptionIceLevel)
+
+      expect(getByRole("button", { name: "Ice Level" })).toHaveFocus()
+    })
+
+    it("moves focus to recently added filter button in the FilterMultiSelect case", async () => {
+      const { getByRole } = render(
+        <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
+      )
+      await waitForI18nContent()
+
+      const addFiltersButton = getByRole("button", { name: "Add Filters" })
+      await user.click(addFiltersButton)
+
+      const menuOptionOthers = getByRole("button", { name: "Others" })
+      await user.click(menuOptionOthers)
+
+      expect(getByRole("button", { name: "Others" })).toHaveFocus()
+    })
+
+    it("restores focus to the add filter button after remove", async () => {
+      const { getByRole } = render(
+        <FilterBarWrapper<ValuesRemovable>
+          filters={filtersRemovable}
+          defaultValues={{ topping: "pearls" }}
+        />
+      )
+      await waitForI18nContent()
+
+      const filterButton = getByRole("button", { name: "Topping : Pearls" })
+      expect(filterButton).toBeVisible()
+
+      await user.click(getByRole("button", { name: "Remove filter - Topping" }))
+      await waitFor(() => {
+        expect(filterButton).not.toBeInTheDocument()
+      })
+
+      expect(getByRole("button", { name: "Add Filters" })).toHaveFocus()
     })
   })
 
