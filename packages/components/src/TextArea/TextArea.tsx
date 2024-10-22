@@ -1,7 +1,7 @@
 import React, { TextareaHTMLAttributes, useRef, useState } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./TextArea.module.scss"
+import styles from "./TextArea.module.css"
 
 export type TextAreaProps = {
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
