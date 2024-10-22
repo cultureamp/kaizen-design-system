@@ -1,9 +1,4 @@
-import React, {
-  TextareaHTMLAttributes,
-  useEffect,
-  useRef,
-  useState,
-} from "react"
+import React, { TextareaHTMLAttributes, useRef, useState } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./TextArea.module.scss"
@@ -11,6 +6,8 @@ import styles from "./TextArea.module.scss"
 export type TextAreaProps = {
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
   status?: "default" | "error" | "caution"
+  // Grows the input height as more content is added
+  // Replace with CSS field-sizing once it's supported by all major browsers
   autogrow?: boolean
   reversed?: boolean
   /**
@@ -32,73 +29,46 @@ export const TextArea = ({
   onChange: propsOnChange,
   ...restProps
 }: TextAreaProps): JSX.Element => {
-  const [textAreaHeight, setTextAreaHeight] = useState<string>("auto")
-  const [parentHeight, setParentHeight] = useState<string>("auto")
   const [internalValue, setInternalValue] = useState<
     string | number | readonly string[] | undefined
-  >(autogrow ? defaultValue : undefined)
+  >(autogrow && !value ? defaultValue : undefined)
   // ^ holds an internal state of the value so that autogrow can still work with uncontrolled textareas
-  // essentially forces the textarea into an (interally) controlled mode if autogrow is true
-  const textAreaRef = propsTextAreaRef || useRef(null)
-
-  useEffect(() => {
-    if (!autogrow) return
-
-    const scrollHeight = textAreaRef.current!.scrollHeight
-    if (scrollHeight < 1) return
-
-    const borderWidth = textAreaRef.current
-      ? parseInt(getComputedStyle(textAreaRef.current).borderTopWidth, 10)
-      : 0
-    const newHeight = scrollHeight + borderWidth * 2
-    setParentHeight(`${newHeight}px`)
-    setTextAreaHeight(`${newHeight}px`)
-  }, [internalValue])
-
-  const onChange = !autogrow
-    ? undefined
-    : (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-        setTextAreaHeight("auto")
-        // ^ this is required to avoid the textarea height from building up indefinitely
-        // see https://medium.com/@lucasalgus/creating-a-custom-auto-resize-textarea-component-for-your-react-web-application-6959c0ad68bc#2dee
-
-        setInternalValue(event.target.value)
-        if (propsOnChange) {
-          propsOnChange(event)
-        }
-      }
-
-  const getWrapperStyle = (): { minHeight: string } | undefined =>
-    autogrow ? { minHeight: parentHeight } : undefined
-
-  const getTextAreaStyle = (): { height: string } | undefined =>
-    autogrow ? { height: textAreaHeight } : undefined
+  // essentially forces the textarea into an (interally) controlled mode if autogrow is true and mode is uncontrolled
 
   const controlledValue = value || internalValue
+  const textAreaRef = propsTextAreaRef || useRef(null)
+
+  const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    propsOnChange && propsOnChange(event)
+    setInternalValue(event.target.value)
+  }
 
   return (
-    <div className={styles.wrapper} style={getWrapperStyle()}>
+    <div
+      className={classnames(styles.wrapper, {
+        [styles.wrapperAutogrow]: autogrow,
+      })}
+      data-value={autogrow ? controlledValue : undefined}
+    >
       <textarea
         className={classnames(
           styles.textarea,
           styles[status],
           reversed ? styles.reversed : styles.default,
-          disabled && styles.disabled
+          {
+            [styles.disabled]: disabled,
+            [styles.textareaAutogrow]: autogrow,
+          }
         )}
         rows={rows}
-        onChange={onChange || propsOnChange}
+        onChange={onChange}
         value={controlledValue}
         defaultValue={controlledValue ? undefined : defaultValue}
         // ^ React throws a warning if you specify both a value and a defaultValue
         ref={textAreaRef}
-        style={getTextAreaStyle()}
         disabled={disabled}
         {...restProps}
       />
-
-      {/* Textareas aren't able to have pseudo elements like ::after on them,
-          so we have to create an element ourselves for the focus ring */}
-      <div className={styles.focusRing} />
     </div>
   )
 }
