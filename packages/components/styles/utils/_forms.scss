@@ -23,9 +23,7 @@ $input-placeholder-line-height: 2.9rem;
 }
 
 @mixin form-input-placeholder() {
-  &::-webkit-input-placeholder,
-  &:-moz-placeholder,
-  &:-ms-input-placeholder {
+  &::placeholder {
     font-family: $typography-paragraph-body-font-family;
     font-size: $typography-paragraph-body-font-size;
     font-weight: $typography-paragraph-body-font-weight;

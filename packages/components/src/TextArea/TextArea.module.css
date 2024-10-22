@@ -57,13 +57,6 @@
 }
 
 .default {
-  &:focus:not([disabled]),
-  &:hover:not([disabled]),
-  &:hover:focus:not([disabled]) {
-    background-color: var(--color-gray-200);
-    border-color: var(--color-gray-600);
-  }
-
   &:not(.error, .caution) {
     &:disabled {
       border-color: rgba(
@@ -71,6 +64,13 @@
         var(--input-disabled-opacity)
       );
     }
+  }
+
+  &:focus:not([disabled]),
+  &:hover:not([disabled]),
+  &:hover:focus:not([disabled]) {
+    background-color: var(--color-gray-200);
+    border-color: var(--color-gray-600);
   }
 
   &.error {
@@ -84,7 +84,7 @@
   }
 
   &.caution {
-    border-color: var(---color-yellow-600);
+    border-color: var(--color-yellow-600);
 
     &:focus:not([disabled]),
     &:hover:not([disabled]),
@@ -105,15 +105,15 @@
   background: transparent;
   color: var(--color-white);
 
+  &:focus {
+    outline-color: var(--color-blue-300);
+  }
+
   &:focus:not([disabled]),
   &:hover:not([disabled]),
   &:hover:focus:not([disabled]) {
     background: rgba(var(--color-white-rgb), 0.1);
     border-color: var(--color-white);
-  }
-
-  &:focus {
-    outline-color: var(--color-blue-300);
   }
 
   &.error {
