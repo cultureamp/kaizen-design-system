@@ -60,10 +60,7 @@
 .default {
   &:not(.error, .caution) {
     &:disabled {
-      border-color: rgba(
-        var(--color-gray-500-rgb),
-        var(--input-disabled-opacity)
-      );
+      border-color: rgba(var(--color-gray-500-rgb), 0.3);
     }
   }
 
