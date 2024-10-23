@@ -32,7 +32,7 @@ export type FilterBarState<ValuesMap extends FiltersValues> = {
   activeFilterIds: Set<keyof ValuesMap>
   values: Partial<ValuesMap>
   dependentFilterIds: Set<keyof ValuesMap>
-  focusId?: keyof ValuesMap | undefined
+  focusId?: keyof ValuesMap
 }
 
 export type ActiveFiltersArray<ValuesMap extends FiltersValues> = Array<

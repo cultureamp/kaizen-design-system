@@ -44,7 +44,7 @@ export type FilterBarContextValue<
   getInactiveFilters: () => Array<FilterAttributes<ValuesMap>>
   clearAllFilters: () => void
   setFocus: <Id extends keyof ValuesMap>(id: Id | undefined) => void
-  focusId: keyof ValuesMap | undefined
+  focusId?: keyof ValuesMap
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue<any> | null>(
