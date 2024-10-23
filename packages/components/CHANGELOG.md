@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.67.3
+
+### Patch Changes
+
+- [#5194](https://github.com/cultureamp/kaizen-design-system/pull/5194) [`44aeeb9f8526018e74c3de780aafc0836396a744`](https://github.com/cultureamp/kaizen-design-system/commit/44aeeb9f8526018e74c3de780aafc0836396a744) - FilterBar: manage focus on add/remove filters
+
 ## 1.67.2
 
 ### Patch Changes
