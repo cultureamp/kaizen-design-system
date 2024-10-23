@@ -36,7 +36,8 @@
 
 .textarea {
   display: block;
-  border: var(--border-solid-border-width) var(--border-solid-border-style);
+  border: var(--border-solid-border-width) var(--border-solid-border-style)
+    var(--color-gray-500);
   border-radius: var(--border-solid-border-radius);
   padding: var(--spacing-sm);
   resize: vertical;
