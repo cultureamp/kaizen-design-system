@@ -6,8 +6,10 @@ import styles from "./TextArea.module.css"
 export type TextAreaProps = {
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
   status?: "default" | "error" | "caution"
-  // Grows the input height as more content is added
-  // Replace with CSS field-sizing once it's supported by all major browsers
+  /**
+   * Grows the input height as more content is added
+   * Replace with CSS field-sizing once it's supported by all major browsers
+   */
   autogrow?: boolean
   reversed?: boolean
   /**

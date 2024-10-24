@@ -29,7 +29,7 @@
   font: inherit;
 }
 
-.textAreaAutogrow,
+.textareaAutogrow,
 .wrapperAutogrow::after {
   grid-area: 2 / 1;
 }
