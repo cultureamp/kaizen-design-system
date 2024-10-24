@@ -56,8 +56,10 @@
 }
 
 .button svg {
-  height: var(--button-icon-size);
-  width: var(--button-icon-size);
+  max-height: var(--button-icon-size);
+  max-width: var(--button-icon-size);
+  height: 100%;
+  width: 100%;
 }
 
 .icon {
@@ -229,18 +231,29 @@
   }
 }
 
-.hiddenButtonContent {
+.buttonContent {
+  display: inline-flex;
+  align-items: center;
+  gap: inherit;
+}
+
+.buttonContentHidden {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   visibility: hidden;
 }
 
 .pendingContent {
   display: inline-flex;
-  gap: inherit;
 }
 
-.pendingContentSpinnerOnly {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.spinner {
+  --spinner-spacing: var(--spacing-8);
+  margin-inline-start: var(--spinner-spacing);
+}
+
+.spinner-small {
+  --spinner-spacing: var(--spacing-4);
 }
