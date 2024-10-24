@@ -118,10 +118,10 @@ export const IconButtonWithAccessibleLabel: Story = {
 export const ButtonWithRACRenderPropsAsChildren: Story = {
   render: ({ children: _, ...otherArgs }) => (
     <Button {...otherArgs}>
-      {({ isFocused }) => (
+      {({ isFocusVisible }) => (
         <>
           Label
-          {isFocused ? (
+          {isFocusVisible ? (
             <ThumbsUpOnIcon role="img" aria-label=" is focused" />
           ) : (
             <ThumbsUpOffIcon role="img" aria-label=" is unfocused" />
