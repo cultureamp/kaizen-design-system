@@ -43,6 +43,8 @@ export type FilterBarContextValue<
   hideFilter: <Id extends keyof ValuesMap>(id: Id) => void
   getInactiveFilters: () => Array<FilterAttributes<ValuesMap>>
   clearAllFilters: () => void
+  setFocus: <Id extends keyof ValuesMap>(id: Id | undefined) => void
+  focusId?: keyof ValuesMap
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue<any> | null>(
@@ -119,10 +121,13 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
         values: { ...values, [id]: getValidValue(newValue) },
       })
     },
-    showFilter: <Id extends keyof ValuesMap>(id: Id): void =>
-      dispatch({ type: "activate_filter", id }),
+    showFilter: <Id extends keyof ValuesMap>(id: Id): void => {
+      dispatch({ type: "activate_filter", id })
+      dispatch({ type: "set_focus", id })
+    },
     hideFilter: <Id extends keyof ValuesMap>(id: Id): void => {
       dispatch({ type: "deactivate_filter", id })
+      dispatch({ type: "set_focus", id: "add_filter" })
     },
     getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
     clearAllFilters: () => {
@@ -132,6 +137,10 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       })
       dispatch({ type: "update_values", values: {} })
     },
+    setFocus: <Id extends keyof ValuesMap>(id: Id | undefined) => {
+      dispatch({ type: "set_focus", id })
+    },
+    focusId: state.focusId,
   } satisfies FilterBarContextValue<any, ValuesMap>
 
   useEffect(() => {

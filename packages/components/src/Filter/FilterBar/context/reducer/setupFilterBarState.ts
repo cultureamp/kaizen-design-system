@@ -35,6 +35,7 @@ export const setupFilterBarState = <ValuesMap extends FiltersValues>(
       values,
       dependentFilterIds: new Set(),
       hasUpdatedValues: false,
+      focusId: undefined,
     } as FilterBarState<ValuesMap>
   )
 
