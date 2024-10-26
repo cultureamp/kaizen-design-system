@@ -41,6 +41,7 @@ type SelectionProps = {
 export type FilterMultiSelectProps = {
   trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
+  triggerRef?: React.RefObject<HTMLButtonElement>
 } & Omit<MenuPopupProps, "children"> &
   Omit<MenuTriggerProviderProps, "children"> &
   SelectionProps
@@ -60,8 +61,9 @@ export const FilterMultiSelect = ({
   onSelectionChange,
   selectionMode = "multiple",
   onSearchInputChange,
+  triggerRef,
 }: FilterMultiSelectProps): JSX.Element => {
-  const menuTriggerProps = { isOpen, defaultOpen, onOpenChange }
+  const menuTriggerProps = { isOpen, defaultOpen, onOpenChange, triggerRef }
   const menuPopupProps = { isLoading, loadingSkeleton }
   const disabledKeys: Selection = new Set(
     items

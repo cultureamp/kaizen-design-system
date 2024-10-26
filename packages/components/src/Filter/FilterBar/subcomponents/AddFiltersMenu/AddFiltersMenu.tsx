@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
 import { Menu, MenuList, MenuItem, Button } from "~components/__actions__/v2"
 import { Icon } from "~components/__future__/Icon"
@@ -6,6 +6,7 @@ import { useFilterBarContext } from "../../context/FilterBarContext"
 
 export const AddFiltersMenu = (): JSX.Element => {
   const { formatMessage } = useIntl()
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   const menuButtonLabel = formatMessage({
     id: "filterBar.addFiltersMenu.buttonLabel",
@@ -14,13 +15,22 @@ export const AddFiltersMenu = (): JSX.Element => {
       "Menu button label to show additional available filter options",
   })
 
-  const { getInactiveFilters, showFilter } = useFilterBarContext()
+  const { getInactiveFilters, showFilter, focusId, setFocus } =
+    useFilterBarContext()
   const inactiveFilters = getInactiveFilters()
+
+  useEffect(() => {
+    if (focusId === "add_filter") {
+      buttonRef.current?.focus()
+      setFocus(undefined)
+    }
+  }, [focusId])
 
   return (
     <Menu
       button={
         <Button
+          ref={buttonRef}
           label={menuButtonLabel}
           secondary
           disabled={inactiveFilters.length === 0}

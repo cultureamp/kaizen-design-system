@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.67.4
+
+### Patch Changes
+
+- [#5197](https://github.com/cultureamp/kaizen-design-system/pull/5197) [`b5cc795efb301cd684c843997ca4003effbff299`](https://github.com/cultureamp/kaizen-design-system/commit/b5cc795efb301cd684c843997ca4003effbff299) - fix(TextArea: Refactor autogrow to remove visual jank
+
+## 1.67.3
+
+### Patch Changes
+
+- [#5194](https://github.com/cultureamp/kaizen-design-system/pull/5194) [`44aeeb9f8526018e74c3de780aafc0836396a744`](https://github.com/cultureamp/kaizen-design-system/commit/44aeeb9f8526018e74c3de780aafc0836396a744) - FilterBar: manage focus on add/remove filters
+
 ## 1.67.2
 
 ### Patch Changes
