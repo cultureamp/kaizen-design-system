@@ -43,7 +43,7 @@
     "ts-patch": "Required for typescript-transform-paths"
   },
   "devDependencies": {
-    "rollup": "^4.24.0"
+    "rollup": "^4.24.1"
   },
   "devDependenciesComments": {
     "typescript": "Installed in root"
