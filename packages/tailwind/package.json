@@ -34,7 +34,7 @@
     "@kaizen/components": "workspace:*",
     "@kaizen/package-bundler": "workspace:*",
     "classnames": "^2.5.1",
-    "rollup": "^4.24.0",
+    "rollup": "^4.24.1",
     "tailwindcss": "^3.4.13",
     "tslib": "^2.7.0"
   },
