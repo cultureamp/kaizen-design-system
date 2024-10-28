@@ -1,0 +1,23 @@
+.buttonContent {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  gap: var(--icon-gap);
+}
+
+.buttonContentPending {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+.buttonContentPendingHidden {
+  visibility: hidden;
+}
+
+.buttonIcon {
+  display: inline-flex;
+  vertical-align: middle;
+}

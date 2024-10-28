@@ -17,6 +17,7 @@
 }
 
 .icon {
+  /* --icon-size: 20px; */
   font-size: calc(1px * var(--icon-size, 20));
   font-weight: var(--icon-font-weight, 400);
   vertical-align: var(--icon-vertical-align);

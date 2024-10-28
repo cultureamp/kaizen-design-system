@@ -1,0 +1,16 @@
+.pendingContent {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pending-gap, var(--spacing-8));
+}
+
+.small {
+  --pending-gap: var(--spacing-4);
+}
+
+.spinnerHidden {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

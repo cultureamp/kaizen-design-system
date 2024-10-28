@@ -48,11 +48,17 @@ import * as exampleStories from "./Button.stories"
 </SbContent>
 
 <SbContent>
-  ## API
+  ## Core API
 </SbContent>
 
+<Controls of={exampleStories.Playground} className="mb-64" include={["children", "className",  "size", "variant", "onPress", "icon", "iconPosition", "isFullWidth", "isDisabled", "isPending", "isPendingLabelHidden",  "pendingLabel"]} />
 
-<Controls of={exampleStories.Playground} className="mb-64" />
+<SbContent>
+  ### Other API options
+  Additional API options including those defined in the [React Aria Button API](https://react-spectrum.adobe.com/react-aria/Button.html#props).
+</SbContent>
+
+<Controls of={exampleStories.Playground} className="mb-64" exclude={["children", "className",  "size", "variant", "onPress", "icon", "iconPosition", "isFullWidth", "isDisabled", "isPending", "isPendingLabelHidden",  "pendingLabel"]} />
 
 <SbContent className="mb-64">
   ### onPress vs onClick
@@ -158,7 +164,7 @@ import * as exampleStories from "./Button.stories"
 
   The `Button` uses the `useReversedColors` hook and `ReversedColors` provider to control the dark and light theme.
 
-  <Canvas className="bg-purple-600 mb-24" of={exampleStories.OnReversed} />
+  {/* <Canvas className="bg-purple-600 mb-24" of={exampleStories.OnReversed} /> */}
 
   To enable the reversed theme, you will need to the component or application in the ReversedColors provider.
 </ SbContent>

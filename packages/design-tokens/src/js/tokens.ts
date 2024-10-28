@@ -302,7 +302,6 @@ export const tokens: TokenStructure = {
     paragraphBold: {
       fontWeight: 600,
     },
-    // TODO: These seem redundant now -  not that we can easily remove them we can start phasing this our in favor of the above
     buttonPrimary: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
       fontWeight: 500,
