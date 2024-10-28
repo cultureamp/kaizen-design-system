@@ -27,19 +27,21 @@ export const FilterBar = <ValuesMap extends FiltersValues>({
 }: FilterBarProps<ValuesMap>): JSX.Element => (
   <FilterBarProvider<ValuesMap> filters={filters} {...providerProps}>
     {(activeFilters): JSX.Element => (
-      <div className={classnames(styles.filterBar, classNameOverride)}>
-        <div className={styles.filtersContainer}>
-          {Object.values(activeFilters).map(({ id, Component }) => (
-            // `id` will always be `string`, but keyof ValuesMap transformed it
-            <React.Fragment key={id as string}>
-              {React.cloneElement(Component, { id })}
-            </React.Fragment>
-          ))}
-          <AddFiltersMenu />
-        </div>
+      <div className={styles.wrapper}>
+        <div className={classnames(styles.filterBar, classNameOverride)}>
+          <div className={styles.filtersContainer}>
+            {Object.values(activeFilters).map(({ id, Component }) => (
+              // `id` will always be `string`, but keyof ValuesMap transformed it
+              <React.Fragment key={id as string}>
+                {React.cloneElement(Component, { id })}
+              </React.Fragment>
+            ))}
+            <AddFiltersMenu />
+          </div>
 
-        <div>
-          <ClearAllButton />
+          <div>
+            <ClearAllButton />
+          </div>
         </div>
       </div>
     )}

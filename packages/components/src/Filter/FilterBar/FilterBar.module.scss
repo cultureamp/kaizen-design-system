@@ -3,12 +3,22 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/spacing";
 
+.wrapper {
+  container: filterBar / inline-size;
+}
+
 .filterBar {
   display: flex;
   padding: $spacing-8;
   box-shadow: $shadow-small-box-shadow;
   border-radius: $border-solid-border-radius;
   background-color: $color-white;
+}
+
+@container filterBar (max-width: 768px) {
+  .filterBar {
+    flex-direction: column;
+  }
 }
 
 .filtersContainer {
