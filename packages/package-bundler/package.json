@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/package-bundler",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Bundles libraries",
   "main": "dist/index.js",
   "type": "module",

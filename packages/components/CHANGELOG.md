@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.67.5
+
+### Patch Changes
+
+- [#5204](https://github.com/cultureamp/kaizen-design-system/pull/5204) [`47addf7df6478f39066a38a278122bd589f4863c`](https://github.com/cultureamp/kaizen-design-system/commit/47addf7df6478f39066a38a278122bd589f4863c) - Update dep `react-intl` to `^6.8.4`
+
+- [#5207](https://github.com/cultureamp/kaizen-design-system/pull/5207) [`4425e41f155413cbfae45016141047851862a2e8`](https://github.com/cultureamp/kaizen-design-system/commit/4425e41f155413cbfae45016141047851862a2e8) - Update dep `react-select` to `^5.8.2`
+
+- [#5206](https://github.com/cultureamp/kaizen-design-system/pull/5206) [`defcda633742dfefa9150a05138440253569c67c`](https://github.com/cultureamp/kaizen-design-system/commit/defcda633742dfefa9150a05138440253569c67c) - Update dep `prosemirror-commands` to `^1.6.2`
+
+- [#5179](https://github.com/cultureamp/kaizen-design-system/pull/5179) [`c023956a2c98f7afb44a5709879040b826e2987f`](https://github.com/cultureamp/kaizen-design-system/commit/c023956a2c98f7afb44a5709879040b826e2987f) - Update dep `@cultureamp/i18n-react-intl` to `^2.7.1`
+
 ## 1.67.4
 
 ### Patch Changes
