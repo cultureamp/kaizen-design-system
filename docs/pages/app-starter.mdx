@@ -59,3 +59,16 @@ Note: If you are using Storybook, you will also need to add it in your `preview.
 import "@kaizen/components/dist/styles.css"
 import "tailwind.css"
 ```
+
+## 5. Link to Google Material Symbols CDN
+
+*Note that this step is required as long as you use any Kaizen component that contains an Icon, not just if you use (Future) Icon directly.*
+
+Our <LinkTo pageId="illustrations-icon-icon-future-api-specification">Icons</LinkTo> are sourced from [Google Material Symbols](https://fonts.google.com/icons).
+You will need to add the following to your Storybook `preview-head.html` and to the `<head>` of your apps.
+
+```html
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block" />
+```
