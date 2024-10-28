@@ -1,12 +1,11 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { AddIcon, TrashIcon } from "~components/Icon"
 import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Button, ButtonSize, ButtonVariant } from "../index"
+import { Button, ButtonSize, ButtonVariant, ButtonProps } from "../index"
 
 export default {
   title: "Actions/Button/Button (v3)/Tests",
@@ -22,14 +21,16 @@ function capitalize(str: string): string {
 }
 
 const RowTemplate = ({
-  content,
+  childContent,
+  icon,
+  iconPosition,
   sizes,
   isReversed = false,
 }: {
-  content: React.ReactNode
+  childContent?: React.ReactNode
   sizes: ButtonSize[]
   isReversed?: boolean
-}): JSX.Element => {
+} & Pick<ButtonProps, "icon" | "iconPosition">): JSX.Element => {
   const variants: ButtonVariant[] = ["primary", "secondary", "tertiary"]
   return (
     <>
@@ -40,92 +41,47 @@ const RowTemplate = ({
             isReversed={isReversed}
             rowTitle={`${capitalize(buttonVariant)} (${size})`}
           >
-            <Button variant={buttonVariant} size={size}>
-              {content}
+            <Button
+              icon={icon}
+              iconPosition={iconPosition}
+              variant={buttonVariant}
+              size={size}
+            >
+              {childContent}
             </Button>
             <Button
+              icon={icon}
+              iconPosition={iconPosition}
               isPending={true}
               pendingLabel="Submitting"
               variant={buttonVariant}
               size={size}
             >
-              {content}
+              {childContent}
             </Button>
             <Button
+              icon={icon}
+              iconPosition={iconPosition}
               isPending={true}
               pendingLabel="Submitting"
               isPendingLabelHidden
               variant={buttonVariant}
               size={size}
             >
-              {content}
+              {childContent}
             </Button>
-            <Button variant={buttonVariant} size={size} isDisabled>
-              {content}
+            <Button
+              icon={icon}
+              iconPosition={iconPosition}
+              variant={buttonVariant}
+              size={size}
+              isDisabled
+            >
+              {childContent}
             </Button>
           </StickerSheet.Row>
         ))
       )}
-      {/* {sizes.map((size, key) => (
-      <StickerSheet.Row
-        key={key}
-        isReversed={isReversed}
-        rowTitle={`${capitalize(variant)} (${size}) icon start `}
-      >
-        <Button variant={variant} size={size}>
-          <TrashIcon role="presentation" /> Label
-        </Button>
-        <Button
-          isPending={true}
-          pendingLabel="Submitting"
-          variant={variant}
-          size={size}
-        />
-        <Button variant={variant} size={size} isDisabled>
-          <TrashIcon role="presentation" /> Label
-        </Button>
-      </StickerSheet.Row>
-    ))}
-    {sizes.map((size, key) => (
-      <StickerSheet.Row
-        key={key}
-        isReversed={isReversed}
-        rowTitle={`${capitalize(variant)} (${size}) icon end `}
-      >
-        <Button variant={variant} size={size}>
-          Label <Icon name="arrow_forward" isPresentational/>
-        </Button>
-        <Button
-          isPending={true}
-          pendingLabel="Submitting"
-          variant={variant}
-          size={size}
-        />
-        <Button variant={variant} size={size} isDisabled>
-          Label <Icon name="arrow_forward" isPresentational/>
-        </Button>
-      </StickerSheet.Row>
-    ))}
-    {sizes.map((size, key) => (
-      <StickerSheet.Row
-        key={key}
-        isReversed={isReversed}
-        rowTitle={`${capitalize(variant)} (${size}) icon only `}
-      >
-        <Button variant={variant} size={size}>
-          <TrashIcon role="img" aria-label="Label" />
-        </Button>
-        <Button
-          isPending={true}
-          pendingLabel="Submitting"
-          variant={variant}
-          size={size}
-        />
-        <Button variant={variant} size={size} isDisabled>
-          <TrashIcon role="img" aria-label="Label" />
-        </Button>
-      </StickerSheet.Row>
-    ))} */}
     </>
   )
 }
@@ -144,7 +100,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           <RowTemplate
             isReversed={isReversed}
             sizes={["large", "medium", "small"]}
-            content="Label"
+            childContent="Label"
           />
         </StickerSheet.Body>
       </StickerSheet>
@@ -160,11 +116,9 @@ const StickerSheetTemplate: StickerSheetStory = {
           <RowTemplate
             isReversed={isReversed}
             sizes={["large", "medium", "small"]}
-            content={
-              <>
-                Label <Icon name="arrow_forward" isPresentational />
-              </>
-            }
+            iconPosition="end"
+            icon={<Icon name="arrow_forward" isPresentational />}
+            childContent={<>Label</>}
           />
         </StickerSheet.Body>
       </StickerSheet>
@@ -179,11 +133,8 @@ const StickerSheetTemplate: StickerSheetStory = {
           <RowTemplate
             isReversed={isReversed}
             sizes={["large", "medium", "small"]}
-            content={
-              <>
-                <Icon isPresentational name="add" /> Label
-              </>
-            }
+            icon={<Icon isPresentational name="add" />}
+            childContent={<>Label</>}
           />
         </StickerSheet.Body>
       </StickerSheet>
@@ -198,11 +149,8 @@ const StickerSheetTemplate: StickerSheetStory = {
           <RowTemplate
             isReversed={isReversed}
             sizes={["large", "medium", "small"]}
-            content={
-              <>
-                <TrashIcon role="img" aria-label="Label" />
-              </>
-            }
+            icon={<Icon name="delete" alt="Label" />}
+            iconPosition="start"
           />
         </StickerSheet.Body>
       </StickerSheet>

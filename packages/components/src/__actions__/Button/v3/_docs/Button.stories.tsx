@@ -1,10 +1,8 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
-import { AddIcon, TrashIcon, ChevronUpIcon } from "~components/Icon"
 import { VisuallyHidden } from "~components/VisuallyHidden"
 import { Icon } from "~components/__future__"
-import { TooltipTrigger, Tooltip } from "~components/__overlays__/v3"
 import { Button } from "../index"
 
 const meta = {
@@ -31,12 +29,9 @@ export const ButtonWithIcon: Story = {
     <Button {...otherArgs}>{children}</Button>
   ),
   args: {
-    children: (
-      <>
-        Label
-        <AddIcon role="presentation" />
-      </>
-    ),
+    children: <>Label</>,
+    icon: <Icon isPresentational name="thumb_up" />,
+    iconPosition: "end",
   },
 }
 
@@ -45,12 +40,8 @@ export const ButtonWithIconStart: Story = {
     <Button {...otherArgs}>{children}</Button>
   ),
   args: {
-    children: (
-      <>
-        <TrashIcon role="presentation" />
-        Label
-      </>
-    ),
+    children: <>Label</>,
+    icon: <Icon isPresentational name="delete" />,
   },
 }
 
@@ -61,25 +52,22 @@ export const IconButton: Story = {
   args: {
     children: (
       <>
-        <TrashIcon role="img" aria-label="Remove" />
-        <VisuallyHidden> Highlights: May 8, 2024</VisuallyHidden>
+        <VisuallyHidden>Remove highlights from: May 8, 2024</VisuallyHidden>
       </>
     ),
+    icon: <Icon isPresentational name="delete" />,
   },
 }
 
-export const pending: Story = {
+export const ShouldFail: Story = {
+  render: () => <Button>thing</Button>,
+}
+
+export const Pending: Story = {
   render: ({ children, ...otherArgs }) => {
     const [isPending, setIsPending] = React.useState(false)
-    const [asyncButtonContent, setAsyncButtonContent] = React.useState<
-      string | undefined
-    >(undefined)
+    const [isPending2, setIsPending2] = React.useState(false)
 
-    useEffect(() => {
-      setTimeout(() => setAsyncButtonContent("Simulated button content"), 6000)
-    }, [])
-
-    // TODO: check if this content should only be announce while on focus on the button or if it should be announced on every render elsewhere
     return (
       <>
         <Button
@@ -96,59 +84,18 @@ export const pending: Story = {
         </Button>
         <Button
           {...otherArgs}
-          isPending={isPending}
-          pendingLabel="Adding"
+          isPending={isPending2}
+          pendingLabel="loading"
           isPendingLabelHidden
           className="mr-12"
           onPress={() => {
-            setIsPending(true)
-            setTimeout(() => setIsPending(false), 3000)
+            setIsPending2(true)
+            setTimeout(() => setIsPending2(false), 3000)
           }}
         >
-          <AddIcon role="img" aria-label="Add" />
+          Hidden labels don&apos;t shrink
         </Button>
-        <Button
-          {...otherArgs}
-          isPending={isPending}
-          pendingLabel="Adding"
-          isPendingLabelHidden
-          className="mr-12"
-          onPress={() => {
-            setIsPending(true)
-            setTimeout(() => setIsPending(false), 3000)
-          }}
-        >
-          <>
-            lorem
-            {asyncButtonContent}
-          </>
-        </Button>
-        <Button></Button>
       </>
     )
   },
-}
-
-export const DisabledTest: Story = {
-  render: ({ children }) => (
-    <>
-      <TooltipTrigger>
-        <Button>{children}</Button>
-        <Tooltip>Tooltip content</Tooltip>
-      </TooltipTrigger>
-    </>
-  ),
-}
-
-export const IconTest: Story = {
-  render: ({ children }) => (
-    <>
-      <Button
-        iconPosition="end"
-        icon={<Icon isPresentational name="thumb_up" />}
-      >
-        {children}
-      </Button>
-    </>
-  ),
 }

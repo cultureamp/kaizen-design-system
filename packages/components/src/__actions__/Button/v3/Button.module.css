@@ -19,9 +19,9 @@
   --button-text-color: var(--color-white);
   --button-min-x-y: var(--spacing-40);
   --button-padding: calc(var(--spacing-8) - var(--border-solid-border-width));
-  --button-icon-size: var(--spacing-24);
   --button-bg-color: var(--color-blue-500);
   --button-border-color: var(--color-blue-500);
+  --icon-gap: var(--spacing-8);
 
   background-color: var(--button-bg-color);
   border: var(--border-solid-border-width) var(--border-solid-border-style);
@@ -33,7 +33,6 @@
   align-items: center;
   justify-content: center;
   text-align: left;
-  gap: var(--spacing-8);
   font-family: var(--button-font-family);
   font-weight: var(--button-font-weight);
   font-size: var(--button-font-size);
@@ -55,33 +54,27 @@
   }
 }
 
-.button svg {
-  max-height: var(--button-icon-size);
-  max-width: var(--button-icon-size);
-  height: 100%;
+.fullWidth {
   width: 100%;
 }
 
-.icon {
-  /* TODO: Ideally not the above ^ I should add styles that can be passed into the icon here */
-}
-
 .small {
-  --button-font-size: var(--typography-button-small-font-size);
-  --button-line-height: var(--typography-button-small-line-height);
+  --icon-gap: var(--spacing-4);
+  --button-font-size: 0.75rem;
+  --button-line-height: 1rem;
   --button-min-x-y: var(--spacing-32);
-  --button-icon-size: var(--spacing-16);
-  gap: var(--spacing-4);
+  --icon-size: 16;
 }
 
 .medium {
   --button-min-x-y: var(--spacing-40);
+  --icon-size: 24;
 }
 
 .large {
   --button-min-x-y: var(--spacing-48);
   --button-padding: calc(var(--spacing-12) - var(--border-solid-border-width));
-  --button-icon-size: var(--spacing-24);
+  --icon-size: 24;
 }
 
 .primary {
@@ -158,15 +151,15 @@
   }
 }
 
-.primary-reversed,
-.secondary-reversed,
-.tertiary-reversed {
+.primaryReversed,
+.secondaryReversed,
+.tertiaryReversed {
   &[data-focus-visible]::after {
     border-color: var(--color-blue-300);
   }
 }
 
-.primary-reversed {
+.primaryReversed {
   --button-bg-color: var(--color-white);
   --button-border-color: var(--color-white);
   --button-text-color: var(--color-purple-800);
@@ -184,7 +177,7 @@
   }
 }
 
-.secondary-reversed {
+.secondaryReversed {
   --button-bg-color: transparent;
   --button-border-color: var(--color-white);
   --button-text-color: var(--color-white);
@@ -198,7 +191,7 @@
   }
 }
 
-.tertiary-reversed {
+.tertiaryReversed {
   --button-bg-color: transparent;
   --button-border-color: transparent;
   --button-text-color: var(--color-white);
@@ -214,7 +207,7 @@
   }
 }
 
-.disabled {
+.isDisabled {
   --button-bg-color: var(--color-gray-400);
   --button-border-color: var(--color-gray-400);
   --button-text-color: var(--color-white);
@@ -229,31 +222,4 @@
   &[data-focus-visible]::after {
     border-color: var(--color-gray-500);
   }
-}
-
-.buttonContent {
-  display: inline-flex;
-  align-items: center;
-  gap: inherit;
-}
-
-.buttonContentHidden {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  visibility: hidden;
-}
-
-.pendingContent {
-  display: inline-flex;
-}
-
-.spinner {
-  --spinner-spacing: var(--spacing-8);
-  margin-inline-start: var(--spinner-spacing);
-}
-
-.spinner-small {
-  --spinner-spacing: var(--spacing-4);
 }

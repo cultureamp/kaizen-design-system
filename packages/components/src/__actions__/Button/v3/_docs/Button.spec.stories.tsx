@@ -2,12 +2,7 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, waitFor, within, expect, fn } from "@storybook/test"
 import { VisuallyHidden } from "react-aria"
-import {
-  AddIcon,
-  TrashIcon,
-  ThumbsUpOffIcon,
-  ThumbsUpOnIcon,
-} from "~components/Icon"
+import { Icon } from "~components/__future__/Icon"
 import { Tooltip, TooltipTrigger } from "~components/__overlays__/v3"
 import { Button } from "../index"
 
@@ -28,11 +23,12 @@ type Story = StoryObj<typeof meta>
 
 export const ButtonDefault: Story = {
   render: ({ children, ...otherArgs }) => (
-    <Button {...otherArgs}>
-      <>
-        {children}
-        <AddIcon role="presentation" />
-      </>
+    <Button
+      {...otherArgs}
+      icon={<Icon name="arrow_forward" isPresentational />}
+      iconPosition="end"
+    >
+      <>{children}</>
     </Button>
   ),
 }
@@ -96,7 +92,7 @@ export const IconButtonWithAccessibleLabel: Story = {
   render: ({ children: _, ...otherArgs }) => (
     <Button {...otherArgs}>
       <>
-        <TrashIcon role="img" aria-label="Remove" />
+        <Icon name="delete" isPresentational />
         <VisuallyHidden> Highlight: 18, June, 2024</VisuallyHidden>
       </>
     </Button>
@@ -121,11 +117,12 @@ export const ButtonWithRACRenderPropsAsChildren: Story = {
       {({ isFocusVisible }) => (
         <>
           Label
-          {isFocusVisible ? (
-            <ThumbsUpOnIcon role="img" aria-label=" is focused" />
-          ) : (
-            <ThumbsUpOffIcon role="img" aria-label=" is unfocused" />
-          )}
+          <Icon
+            name={isFocusVisible ? "thumb_up" : "thumb_down"}
+            alt="is focused"
+            isFilled={true}
+            className=" [--icon-size:16]"
+          />
         </>
       )}
     </Button>

@@ -75,6 +75,11 @@ export type DatePickerProps = {
    * A descriptive message for the 'status' states.
    */
   validationMessage?: DateInputFieldProps["validationMessage"] | undefined
+  /**
+   * Custom components to override the default ones.
+   */
+  components?: CalendarSingleProps["components"]
+  /** Day picker  */
 } & DisabledDayMatchers &
   Omit<DateInputFieldProps, OmittedDateInputFieldProps>
 
@@ -104,6 +109,7 @@ export const DatePicker = ({
   onButtonClick,
   onDayChange,
   onValidate,
+  components,
   ...restDateInputFieldProps
 }: DatePickerProps): JSX.Element => {
   const { formatMessage } = useIntl()
@@ -331,6 +337,7 @@ export const DatePicker = ({
               locale={locale}
               onDayClick={handleCalendarDayChange}
               onMount={handleCalendarMount}
+              components={components}
             />
           </>
         </CalendarPopover>

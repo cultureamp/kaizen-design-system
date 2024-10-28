@@ -223,8 +223,6 @@ export type TokenStructure = {
     paragraphBold: {
       fontWeight: KaizenCSSProperties["fontWeight"]
     }
-    button: TypographyFont
-    buttonSmall: TypographyFont
     buttonPrimary: TypographyFont
     buttonSecondary: TypographyFont
   }
