@@ -19,14 +19,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button {...otherArgs}>{children}</Button>
+  render: ({ children, ...otherProps }) => (
+    <Button {...otherProps}>{children}</Button>
   ),
 }
 
 export const ButtonWithIcon: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button {...otherArgs}>{children}</Button>
+  render: ({ children, ...otherProps }) => (
+    <Button {...otherProps}>{children}</Button>
   ),
   args: {
     children: <>Label</>,
@@ -36,8 +36,8 @@ export const ButtonWithIcon: Story = {
 }
 
 export const ButtonWithIconStart: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button {...otherArgs}>{children}</Button>
+  render: ({ children, ...otherProps }) => (
+    <Button {...otherProps}>{children}</Button>
   ),
   args: {
     children: <>Label</>,
@@ -46,8 +46,8 @@ export const ButtonWithIconStart: Story = {
 }
 
 export const IconButton: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button {...otherArgs}>{children}</Button>
+  render: ({ children, ...otherProps }) => (
+    <Button {...otherProps}>{children}</Button>
   ),
   args: {
     children: (
@@ -59,43 +59,50 @@ export const IconButton: Story = {
   },
 }
 
-export const ShouldFail: Story = {
-  render: () => <Button>thing</Button>,
+export const Pending: Story = {
+  render: ({ children, isPending = false, ...otherProps }) => {
+    const [isPendingStatus, setIsPendingStatus] =
+      React.useState<boolean>(isPending)
+    return (
+      <Button
+        {...otherProps}
+        isPending={isPendingStatus}
+        pendingLabel="loading"
+        className="mr-12"
+        onPress={() => {
+          setIsPendingStatus(true)
+          setTimeout(() => setIsPendingStatus(false), 3000)
+        }}
+      >
+        {children}
+      </Button>
+    )
+  },
 }
 
-export const Pending: Story = {
-  render: ({ children, ...otherArgs }) => {
-    const [isPending, setIsPending] = React.useState(false)
-    const [isPending2, setIsPending2] = React.useState(false)
+export const PendingLongLabel: Story = {
+  render: ({ children, isPending = false, ...otherProps }) => {
+    const [isPendingStatus, setIsPendingStatus] =
+      React.useState<boolean>(isPending)
 
     return (
-      <>
-        <Button
-          {...otherArgs}
-          isPending={isPending}
-          pendingLabel="loading"
-          className="mr-12"
-          onPress={() => {
-            setIsPending(true)
-            setTimeout(() => setIsPending(false), 3000)
-          }}
-        >
-          {children}
-        </Button>
-        <Button
-          {...otherArgs}
-          isPending={isPending2}
-          pendingLabel="loading"
-          isPendingLabelHidden
-          className="mr-12"
-          onPress={() => {
-            setIsPending2(true)
-            setTimeout(() => setIsPending2(false), 3000)
-          }}
-        >
-          Hidden labels don&apos;t shrink
-        </Button>
-      </>
+      <Button
+        {...otherProps}
+        icon={undefined}
+        isPending={isPendingStatus}
+        pendingLabel="loading"
+        isPendingLabelHidden
+        className="mr-12"
+        onPress={() => {
+          setIsPendingStatus(true)
+          setTimeout(() => setIsPendingStatus(false), 3000)
+        }}
+      >
+        {children}
+      </Button>
     )
+  },
+  args: {
+    children: "Hidden labels don't shrink",
   },
 }
