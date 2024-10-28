@@ -32,7 +32,7 @@ type ButtonPropsWithChildren = ButtonBaseProps & {
 
 type ButtonPropsWithIcon = ButtonBaseProps & {
   icon: ButtonBaseProps["icon"]
-  children?: React.ReactNode
+  children?: ButtonBaseProps["children"]
 }
 
 export type ButtonProps = (ButtonPropsWithChildren | ButtonPropsWithIcon) &
@@ -44,7 +44,6 @@ export const Button = ({
   className,
   children,
   isDisabled,
-  isPending = false,
   isFullWidth = false,
   ...otherProps
 }: ButtonProps): JSX.Element => {
@@ -61,23 +60,16 @@ export const Button = ({
         isFullWidth && styles.fullWidth,
         className
       )}
-      isPending={isPending}
+      isPending={otherProps.isPending || false}
       isDisabled={isDisabled}
       {...otherProps}
     >
       {racStateProps => {
         const childIsFunction = typeof children === "function"
 
-        if (childIsFunction) {
-          return (
-            <ButtonContent isPending={isPending} size={size} {...otherProps}>
-              {children(racStateProps)}
-            </ButtonContent>
-          )
-        }
         return (
-          <ButtonContent isPending={isPending} size={size} {...otherProps}>
-            {children}
+          <ButtonContent size={size} {...otherProps}>
+            {childIsFunction ? children(racStateProps) : children}
           </ButtonContent>
         )
       }}

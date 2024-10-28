@@ -10,7 +10,9 @@ export const ButtonContent = ({
   icon,
   iconPosition = "start",
   ...otherProps
-}: ButtonProps & { children: React.ReactNode }): JSX.Element => {
+}: ButtonProps & {
+  children?: React.ReactNode
+}): JSX.Element => {
   const buttonIsPending = otherProps.isPending === true
 
   return (
