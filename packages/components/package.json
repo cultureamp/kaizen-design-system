@@ -70,7 +70,7 @@
     "date-fns": "^4.1.0",
     "lodash.debounce": "^4.0.8",
     "nanobus": "^4.5.0",
-    "prosemirror-commands": "^1.6.1",
+    "prosemirror-commands": "^1.6.2",
     "prosemirror-history": "^1.4.1",
     "prosemirror-inputrules": "^1.4.0",
     "prosemirror-keymap": "^1.2.2",
