@@ -1,5 +1,11 @@
 # @kaizen/package-bundler
 
+## 1.1.8
+
+### Patch Changes
+
+- [#5192](https://github.com/cultureamp/kaizen-design-system/pull/5192) [`9c2049519bcde0697c99b2db12b98fdc88853bc9`](https://github.com/cultureamp/kaizen-design-system/commit/9c2049519bcde0697c99b2db12b98fdc88853bc9) - Update dep `@babel/plugin-transform-react-pure-annotations` to `^7.25.9`
+
 ## 1.1.7
 
 ### Patch Changes
