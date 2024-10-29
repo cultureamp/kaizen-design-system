@@ -34,14 +34,16 @@ export const ButtonContent = ({
           <span className={styles.buttonIcon}>{icon}</span>
         )}
       </span>
-      {buttonIsPending && (
-        <PendingContent
-          isPending={otherProps.isPending}
-          isPendingLabelHidden={otherProps.isPendingLabelHidden}
-          pendingLabel={otherProps.pendingLabel}
-          size={size}
-        />
-      )}
+      <span aria-hidden={!buttonIsPending}>
+        {buttonIsPending && (
+          <PendingContent
+            isPending={otherProps.isPending}
+            isPendingLabelHidden={otherProps.isPendingLabelHidden}
+            pendingLabel={otherProps.pendingLabel}
+            size={size}
+          />
+        )}
+      </span>
     </>
   )
 }
