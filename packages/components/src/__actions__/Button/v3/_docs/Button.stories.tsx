@@ -59,23 +59,27 @@ export const IconButton: Story = {
   },
 }
 
+// TODO: check the expect user behaviour of using a pending button and the a11y need to announce the content after pending
 export const Pending: Story = {
   render: ({ children, isPending = false, ...otherProps }) => {
     const [isPendingStatus, setIsPendingStatus] =
       React.useState<boolean>(isPending)
+
     return (
-      <Button
-        {...otherProps}
-        isPending={isPendingStatus}
-        pendingLabel="loading"
-        className="mr-12"
-        onPress={() => {
-          setIsPendingStatus(true)
-          setTimeout(() => setIsPendingStatus(false), 3000)
-        }}
-      >
-        {children}
-      </Button>
+      <>
+        <Button
+          {...otherProps}
+          isPending={isPendingStatus}
+          pendingLabel="loading"
+          className="mr-12"
+          onPress={() => {
+            setIsPendingStatus(true)
+            setTimeout(() => setIsPendingStatus(false), 3000)
+          }}
+        >
+          {children}
+        </Button>
+      </>
     )
   },
 }
@@ -88,7 +92,6 @@ export const PendingLongLabel: Story = {
     return (
       <Button
         {...otherProps}
-        icon={undefined}
         isPending={isPendingStatus}
         pendingLabel="loading"
         isPendingLabelHidden

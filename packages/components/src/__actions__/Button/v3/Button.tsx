@@ -9,8 +9,7 @@ import { ButtonContent } from "./subcomponents"
 import { ButtonSize, ButtonVariant, PendingButtonProps } from "./types"
 import styles from "./Button.module.css"
 
-// TODO: update this so that this either must have children or must have an icon
-type ButtonBaseProps = Omit<RACButtonProps, "isPending"> & {
+type ButtonBaseProps = Omit<RACButtonProps, "children"> & {
   /** The visual style of the button.
    *  @default "default" */
   variant?: ButtonVariant
@@ -23,20 +22,10 @@ type ButtonBaseProps = Omit<RACButtonProps, "isPending"> & {
   iconPosition?: "start" | "end"
   /** Controls if the button inherits size from its parent. @default "false" */
   isFullWidth?: boolean
+  children: RACButtonProps["children"]
 }
 
-type ButtonPropsWithChildren = ButtonBaseProps & {
-  children: ButtonBaseProps["children"]
-  icon?: ButtonBaseProps["icon"]
-}
-
-type ButtonPropsWithIcon = ButtonBaseProps & {
-  icon: ButtonBaseProps["icon"]
-  children?: ButtonBaseProps["children"]
-}
-
-export type ButtonProps = (ButtonPropsWithChildren | ButtonPropsWithIcon) &
-  PendingButtonProps
+export type ButtonProps = ButtonBaseProps & PendingButtonProps
 
 export const Button = ({
   variant = "primary",
@@ -54,13 +43,11 @@ export const Button = ({
       className={mergeClassNames(
         styles.button,
         styles[size],
-        !isReversed && styles[variant],
         isDisabled && styles.isDisabled,
-        isReversed && styles[`${variant}Reversed`],
+        isReversed ? styles[`${variant}Reversed`] : styles[variant],
         isFullWidth && styles.fullWidth,
         className
       )}
-      isPending={otherProps.isPending || false}
       isDisabled={isDisabled}
       {...otherProps}
     >
