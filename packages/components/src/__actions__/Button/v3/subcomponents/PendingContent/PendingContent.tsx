@@ -19,7 +19,9 @@ export const PendingContent = ({
     <LoadingSpinner
       size={size === "small" ? "xs" : "sm"}
       accessibilityLabel=""
-      classNameOverride={isPendingLabelHidden ? styles.spinnerHidden : ""}
+      classNameOverride={
+        isPendingLabelHidden ? styles.spinnerHidden : undefined
+      }
     />
   </span>
 )

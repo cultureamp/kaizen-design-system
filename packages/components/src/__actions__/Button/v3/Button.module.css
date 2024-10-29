@@ -2,16 +2,16 @@
   /* RESET */
   appearance: none;
   background: transparent;
-  color: inherit;
   font: inherit;
   margin: 0;
-  border: none;
   outline: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   /* RESET */
 
   --button-font-family: var(--typography-paragraph-body-font-family);
+
   /* We don't want to couple these to paragraph design tokens or old button tokens */
   --button-font-weight: 500;
   --button-font-size: 1rem;
@@ -215,6 +215,7 @@
   &[data-hovered] {
     /* do we want to do this? */
     cursor: not-allowed;
+
     --button-bg-color: var(--color-gray-400);
     --button-border-color: var(--color-gray-400);
   }
