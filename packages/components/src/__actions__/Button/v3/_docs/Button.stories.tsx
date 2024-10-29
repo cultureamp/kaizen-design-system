@@ -1,6 +1,7 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
+import { Badge } from "~components/Badge"
 import { VisuallyHidden } from "~components/VisuallyHidden"
 import { Icon } from "~components/__future__"
 import { Button } from "../index"
@@ -71,7 +72,6 @@ export const Pending: Story = {
           {...otherProps}
           isPending={isPendingStatus}
           pendingLabel="loading"
-          className="mr-12"
           onPress={() => {
             setIsPendingStatus(true)
             setTimeout(() => setIsPendingStatus(false), 3000)
@@ -90,22 +90,38 @@ export const PendingLongLabel: Story = {
       React.useState<boolean>(isPending)
 
     return (
-      <Button
-        {...otherProps}
-        isPending={isPendingStatus}
-        pendingLabel="loading"
-        isPendingLabelHidden
-        className="mr-12"
-        onPress={() => {
-          setIsPendingStatus(true)
-          setTimeout(() => setIsPendingStatus(false), 3000)
-        }}
-      >
-        {children}
-      </Button>
+      <>
+        <Button
+          {...otherProps}
+          isPending={isPendingStatus}
+          pendingLabel="loading"
+          isPendingLabelHidden
+          onPress={() => {
+            setIsPendingStatus(true)
+            setTimeout(() => setIsPendingStatus(false), 3000)
+          }}
+        >
+          {children}
+        </Button>
+        <Button>something else</Button>
+      </>
     )
   },
   args: {
     children: "Hidden labels don't shrink",
+  },
+}
+
+export const ButtonWithBadge: Story = {
+  render: ({ children, ...otherProps }) => (
+    <Button {...otherProps}>
+      <>
+        {children}
+        <Badge size="small">3</Badge>
+      </>
+    </Button>
+  ),
+  args: {
+    children: "Label",
   },
 }
