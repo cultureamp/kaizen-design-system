@@ -4,15 +4,14 @@ This directory is a collection of codemods that can be executed via CLI with the
 
 ## Prerequisites
 
-- Install `@kaizen/components`
-- The codemod runner script uses [npx](https://docs.npmjs.com/cli/v10/commands/npx) to run [tsx](https://tsx.is/getting-started)
+Install `@kaizen/components`
 
 ## CLI pattern
 
-_Note: This uses npx, so do not run this with pnpm/yarn_
+_Note: Navigate into your package which has installed `@kaizen/components` then run the codemod script._
 
 ```
-kaizen-codemod {DIR} {CODEMOD_NAME}
+pnpm kaizen-codemod {DIR} {CODEMOD_NAME}
 ```
 
 DIR - the directory to run the codemod for. Note that node_modules are excluded.
@@ -20,7 +19,7 @@ CODEMOD_NAME - the name of the codemod (refer to list below).
 
 Example:
 ```
-kaizen-codemod src migrateWellVariantToColor
+pnpm kaizen-codemod src migrateWellVariantToColor
 ```
 
 ## Available codemods
