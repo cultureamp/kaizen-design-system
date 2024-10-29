@@ -17,13 +17,6 @@ import * as Button from "./Button.stories"
   apiSpecification="/?path=/docs/actions-button-v3-api-specification--docs"
 />
 
-<SbContent className="mb-24">
-  <div className="bg-yellow-100 border-default border-yellow-400 rounded px-24">
-    ### Disclaimer
-
-    The `v3` of `Button` is a partial rebuild to support [Menu v3](/docs/actions-menu-v3-api-specification--docs). As the changes to the API between `v1/v2` to `v3` is significant, our recommendation is to hold on adopting this outside of `Menu` `v3` as it will have a limited set of options.
-  </div>
-</SbContent>
 
 <SbContent>
   <Installation
@@ -37,5 +30,5 @@ import * as Button from "./Button.stories"
 </SbContent>
 
 <Canvas of={Button.Playground} />
-<Controls of={Button.Playground} include={["children", "variant", "isDisabled"]} className="mb-64" />
+<Controls of={Button.Playground} include={["children", "variant", "size", "isPending", "isDisabled"]} className="mb-64" />
 

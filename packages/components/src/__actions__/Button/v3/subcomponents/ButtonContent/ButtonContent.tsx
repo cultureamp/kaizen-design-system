@@ -1,26 +1,31 @@
 import React from "react"
 import { mergeClassNames } from "~components/utils/mergeClassNames"
 import { ButtonProps } from "../../Button"
+import { PendingButtonProps } from "../../types"
 import { PendingContent } from "../PendingContent"
 import styles from "./ButtonContent.module.css"
+
+type ButtonContentProps = {
+  children: React.ReactNode
+  size?: ButtonProps["size"]
+  icon?: ButtonProps["icon"]
+  iconPosition?: ButtonProps["iconPosition"]
+} & PendingButtonProps
 
 export const ButtonContent = ({
   children,
   size = "medium",
   icon,
   iconPosition = "start",
-  ...otherProps
-}: ButtonProps & {
-  children?: React.ReactNode
-}): JSX.Element => {
-  const buttonIsPending = otherProps.isPending === true
-
+  ...pendingProps
+}: ButtonContentProps): JSX.Element => {
+  const buttonIsPending = pendingProps.isPending
   return (
     <>
       <span
         className={mergeClassNames(
           styles.buttonContent,
-          buttonIsPending && otherProps.isPendingLabelHidden
+          buttonIsPending && pendingProps.isPendingLabelHidden
             ? styles.buttonContentPendingHidden
             : buttonIsPending && styles.buttonContentPending
         )}
@@ -34,14 +39,9 @@ export const ButtonContent = ({
           <span className={styles.buttonIcon}>{icon}</span>
         )}
       </span>
-      <span aria-hidden={!buttonIsPending}>
+      <span aria-live="polite">
         {buttonIsPending && (
-          <PendingContent
-            isPending={otherProps.isPending}
-            isPendingLabelHidden={otherProps.isPendingLabelHidden}
-            pendingLabel={otherProps.pendingLabel}
-            size={size}
-          />
+          <PendingContent {...pendingProps} size={size} />
         )}
       </span>
     </>
