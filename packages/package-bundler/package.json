@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/package-bundler",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Bundles libraries",
   "main": "dist/index.js",
   "type": "module",
@@ -25,12 +25,12 @@
   "homepage": "https://cultureamp.design",
   "license": "MIT",
   "dependencies": {
-    "@babel/plugin-transform-react-pure-annotations": "^7.24.7",
+    "@babel/plugin-transform-react-pure-annotations": "^7.25.9",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^28.0.0",
+    "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
-    "@rollup/plugin-typescript": "^12.1.0",
+    "@rollup/plugin-typescript": "^12.1.1",
     "babel-plugin-pure-static-props": "^0.2.0",
     "concat-cli": "^4.0.0",
     "rollup-plugin-ignore": "^1.0.10",
@@ -43,7 +43,7 @@
     "ts-patch": "Required for typescript-transform-paths"
   },
   "devDependencies": {
-    "rollup": "^4.24.0"
+    "rollup": "^4.24.2"
   },
   "devDependenciesComments": {
     "typescript": "Installed in root"
