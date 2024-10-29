@@ -2,10 +2,14 @@
 # Kaizen codemods
 This directory is a collection of codemods that can be executed via CLI with the `kaizen-codemod` command.
 
-## Prerequisite
-Install `@kaizen/components`.
+## Prerequisites
+
+- Install `@kaizen/components`
+- The codemod runner script uses [npx](https://docs.npmjs.com/cli/v10/commands/npx) to run [tsx](https://tsx.is/getting-started)
 
 ## CLI pattern
+
+_Note: This uses npx, so do not run this with pnpm/yarn_
 
 ```
 kaizen-codemod {DIR} {CODEMOD_NAME}

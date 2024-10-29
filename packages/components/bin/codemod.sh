@@ -25,7 +25,7 @@ TARGET_DIR="$BASEPATH/$transformDir"
 
 # Print the parameters (for debugging purposes)
 echo ""
-echo "RUNNING - codemod '$codemodFileName' on the dir:"
+echo "Attempting to run codemod '$codemodFileName' on the dir:"
 echo "$TARGET_DIR"
 echo ""
 
