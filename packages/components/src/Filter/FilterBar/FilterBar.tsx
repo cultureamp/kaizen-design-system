@@ -14,7 +14,7 @@ import {
 import { AddFiltersMenu } from "./subcomponents/AddFiltersMenu"
 import { ClearAllButton } from "./subcomponents/ClearAllButton"
 import { FiltersValues } from "./types"
-import styles from "./FilterBar.module.scss"
+import styles from "./FilterBar.module.css"
 
 export type FilterBarProps<ValuesMap extends FiltersValues> = OverrideClassName<
   Omit<FilterBarProviderProps<ValuesMap>, "children">
