@@ -25,11 +25,11 @@ TARGET_DIR="$BASEPATH/$transformDir"
 
 # Print the parameters (for debugging purposes)
 echo ""
-echo "RUNNING - codemod '$codemodFileName' on the dir:"
+echo "Attempting to run codemod '$codemodFileName' on the dir:"
 echo "$TARGET_DIR"
 echo ""
 
-if npx tsx $CODEMOD_PATH $TARGET_DIR; then
+if npx tsx@latest $CODEMOD_PATH $TARGET_DIR; then
   echo "Codemod '$codemodFileName' completed successfully in directory '$transformDir'"
 else
   echo "Codemod '$codemodFileName' could not be run in '$TARGET_DIR'"
