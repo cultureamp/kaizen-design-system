@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.67.7
+
+### Patch Changes
+
+- [#5187](https://github.com/cultureamp/kaizen-design-system/pull/5187) [`c03a7805919425b40fb3fb122fd9261aa919d379`](https://github.com/cultureamp/kaizen-design-system/commit/c03a7805919425b40fb3fb122fd9261aa919d379) - Update dep `sass` to `^1.80.4`
+
 ## 1.67.6
 
 ### Patch Changes
