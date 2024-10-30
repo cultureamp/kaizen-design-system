@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.8.1
+
+### Patch Changes
+
+- [#5188](https://github.com/cultureamp/kaizen-design-system/pull/5188) [`6351873e57473741384d9089afa8350051cbaf26`](https://github.com/cultureamp/kaizen-design-system/commit/6351873e57473741384d9089afa8350051cbaf26) - Update dep `tslib` to `^2.8.0`
+
 ## 10.8.0
 
 ### Minor Changes

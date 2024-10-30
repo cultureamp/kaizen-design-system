@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.3.7
+
+### Patch Changes
+
+- [#5182](https://github.com/cultureamp/kaizen-design-system/pull/5182) [`57b11c24436af002ac02cea5e5538bd2a2acd7df`](https://github.com/cultureamp/kaizen-design-system/commit/57b11c24436af002ac02cea5e5538bd2a2acd7df) - Update dep `tailwindcss` to `^3.4.14`
+
+- [#5188](https://github.com/cultureamp/kaizen-design-system/pull/5188) [`6351873e57473741384d9089afa8350051cbaf26`](https://github.com/cultureamp/kaizen-design-system/commit/6351873e57473741384d9089afa8350051cbaf26) - Update dep `tslib` to `^2.8.0`
+
+- Updated dependencies [[`6351873e57473741384d9089afa8350051cbaf26`](https://github.com/cultureamp/kaizen-design-system/commit/6351873e57473741384d9089afa8350051cbaf26)]:
+  - @kaizen/design-tokens@10.8.1
+
 ## 1.3.6
 
 ### Patch Changes
