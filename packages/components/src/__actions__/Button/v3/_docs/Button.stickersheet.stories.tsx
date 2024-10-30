@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import { within } from "@storybook/test"
 import { VisuallyHidden } from "react-aria"
 import { Icon } from "~components/__future__/Icon"
 import {
@@ -90,6 +91,25 @@ const RowTemplate = ({
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
+      <StickerSheet heading="Pseudo states" isReversed={isReversed}>
+        <StickerSheet.Header
+          headings={["Hover", "Focus", "Pressed"]}
+          headingsWidth="10rem"
+          hasVerticalHeadings
+          verticalHeadingsWidth="12rem"
+        />
+        <StickerSheet.Body>
+          <StickerSheet.Row isReversed={isReversed} rowTitle="Large">
+            <Button data-sb-pseudo-styles="hover">
+              Label
+            </Button>
+            <Button data-testid="testid__button-focus">
+              Label
+            </Button>
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+
       <StickerSheet heading="Button" isReversed={isReversed}>
         <StickerSheet.Header
           headings={["Base", "Pending", "Pending (hidden)", "Disabled"]}
@@ -105,6 +125,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
         </StickerSheet.Body>
       </StickerSheet>
+
 
       <StickerSheet heading="Button with icons" isReversed={isReversed}>
         <StickerSheet.Header
@@ -200,11 +221,13 @@ const StickerSheetTemplate: StickerSheetStory = {
   ),
   parameters: {
     pseudo: {
-      hover: '[data-hovered="true"]',
-      active: '[data-pressed="true"]',
-      focus: '[data-focused="true"]',
-      focusVisible: '[data-focus-visible="true"]',
+      hover: '[data-sb-pseudo-styles="hover"]',
     },
+  },
+  play: ({ canvasElement }): void => {
+    const canvas = within(canvasElement)
+    const focusButton = canvas.getByTestId("testid__button-focus")
+    focusButton.setAttribute("data-focus-visible", "true")
   },
 }
 

@@ -83,6 +83,11 @@
     --button-border-color: var(--color-blue-600);
   }
 
+  &:hover {
+    --button-bg-color: var(--color-blue-600);
+    --button-border-color: var(--color-blue-600);
+  }
+
   &[data-pressed] {
     --button-bg-color: var(--color-blue-700);
     --button-border-color: var(--color-blue-700);
