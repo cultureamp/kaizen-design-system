@@ -8,7 +8,7 @@ Install `@kaizen/components`
 
 ## CLI pattern
 
-_Note: Navigate into your package which has installed `@kaizen/components` then run the codemod script._
+_Note: Navigate into the directory which has installed `@kaizen/components` then run the codemod script._
 
 ```
 pnpm kaizen-codemod {DIR} {CODEMOD_NAME}
