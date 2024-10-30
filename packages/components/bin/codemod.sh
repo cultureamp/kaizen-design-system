@@ -29,7 +29,7 @@ echo "Attempting to run codemod '$codemodFileName' on the dir:"
 echo "$TARGET_DIR"
 echo ""
 
-if npm exec tsx@^4.19.2 -y $CODEMOD_PATH $TARGET_DIR; then
+if npx tsx@latest $CODEMOD_PATH $TARGET_DIR; then
   echo "Codemod '$codemodFileName' completed successfully in directory '$transformDir'"
 else
   echo "Codemod '$codemodFileName' could not be run in '$TARGET_DIR'"
