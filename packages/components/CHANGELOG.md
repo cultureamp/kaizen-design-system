@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.67.6
+
+### Patch Changes
+
+- [#5210](https://github.com/cultureamp/kaizen-design-system/pull/5210) [`1aca0e0355c0ca454de69f5f072bb318d68984f9`](https://github.com/cultureamp/kaizen-design-system/commit/1aca0e0355c0ca454de69f5f072bb318d68984f9) - Fix codemod runner
+
+- [#5203](https://github.com/cultureamp/kaizen-design-system/pull/5203) [`d1d46a7d2cae4682a2a9df2a70954a22f85174a1`](https://github.com/cultureamp/kaizen-design-system/commit/d1d46a7d2cae4682a2a9df2a70954a22f85174a1) - Update dep `postcss-preset-env` to `^10.0.8`
+
+- [#5188](https://github.com/cultureamp/kaizen-design-system/pull/5188) [`6351873e57473741384d9089afa8350051cbaf26`](https://github.com/cultureamp/kaizen-design-system/commit/6351873e57473741384d9089afa8350051cbaf26) - Update dep `tslib` to `^2.8.0`
+
 ## 1.67.5
 
 ### Patch Changes
