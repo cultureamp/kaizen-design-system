@@ -90,6 +90,53 @@ const RowTemplate = ({
   )
 }
 
+const IconButtonRowTemplate = ({
+  childContent,
+  isReversed = false,
+  sizes,
+}: {
+  childContent?: React.ReactNode
+  isReversed?: boolean
+  sizes: ButtonSize[]
+}): JSX.Element => {
+  const variants: ButtonVariant[] = ["primary", "secondary", "tertiary"]
+
+  return (
+    <>
+      {sizes.map((size, sizesKey) => (
+        <StickerSheet.Row
+          isReversed={isReversed}
+          rowTitle={`${capitalize(size)}`}
+          key={sizesKey}
+        >
+          {variants.map((buttonVariant, key) => (
+            <React.Fragment key={key}>
+              <Button
+                icon={<Icon name="delete" isPresentational />}
+                size={size}
+                variant={buttonVariant}
+              >
+                <VisuallyHidden>{childContent}</VisuallyHidden>
+              </Button>
+              <Button
+                icon={<Icon name="delete" isPresentational />}
+                size={size}
+                className="ms-6"
+                isPending
+                isPendingLabelHidden
+                pendingLabel="Submitting"
+                variant={buttonVariant}
+              >
+                <VisuallyHidden>{childContent}</VisuallyHidden>
+              </Button>
+            </React.Fragment>
+          ))}
+        </StickerSheet.Row>
+      ))}
+    </>
+  )
+}
+
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
@@ -111,93 +158,17 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <StickerSheet heading="Icon only button" isReversed={isReversed}>
         <StickerSheet.Header
-          headings={["primary", "secondary", "tertiary", "pending"]}
+          headings={["primary", "secondary", "tertiary"]}
           headingsWidth="10rem"
           hasVerticalHeadings
           verticalHeadingsWidth="12rem"
         />
         <StickerSheet.Body>
-          <StickerSheet.Row isReversed={isReversed} rowTitle="Large">
-            <Button icon={<Icon name="delete" isPresentational />} size="large">
-              <VisuallyHidden>label</VisuallyHidden>
-            </Button>
-            <Button
-              icon={<Icon name="delete" isPresentational />}
-              variant="secondary"
-              size="large"
-            >
-              <VisuallyHidden>label</VisuallyHidden>
-            </Button>
-            <Button
-              icon={<Icon name="delete" isPresentational />}
-              variant="tertiary"
-              size="large"
-            >
-              <VisuallyHidden>label</VisuallyHidden>
-            </Button>
-            <Button
-              icon={<Icon name="delete" isPresentational />}
-              size="large"
-              isPending
-              isPendingLabelHidden
-              pendingLabel="Submitting"
-            >
-              <VisuallyHidden>label</VisuallyHidden>
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row isReversed={isReversed} rowTitle="Medium">
-            <Button icon={<Icon name="delete" isPresentational />}>
-              <VisuallyHidden>label</VisuallyHidden>
-            </Button>
-            <Button
-              icon={<Icon name="delete" isPresentational />}
-              variant="secondary"
-            >
-              <VisuallyHidden>label</VisuallyHidden>
-            </Button>
-            <Button
-              icon={<Icon name="delete" isPresentational />}
-              variant="tertiary"
-            >
-              <VisuallyHidden>label</VisuallyHidden>
-            </Button>
-            <Button
-              icon={<Icon name="delete" isPresentational />}
-              isPending
-              isPendingLabelHidden
-              pendingLabel="Submitting"
-            >
-              <VisuallyHidden>label</VisuallyHidden>
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row isReversed={isReversed} rowTitle="Small">
-            <Button icon={<Icon name="delete" isPresentational />} size="small">
-              <VisuallyHidden>label</VisuallyHidden>
-            </Button>
-            <Button
-              icon={<Icon name="delete" isPresentational />}
-              variant="secondary"
-              size="small"
-            >
-              <VisuallyHidden>label</VisuallyHidden>
-            </Button>
-            <Button
-              icon={<Icon name="delete" isPresentational />}
-              variant="tertiary"
-              size="small"
-            >
-              <VisuallyHidden>label</VisuallyHidden>
-            </Button>
-            <Button
-              icon={<Icon name="delete" isPresentational />}
-              size="small"
-              isPending
-              isPendingLabelHidden
-              pendingLabel="Submitting"
-            >
-              <VisuallyHidden>label</VisuallyHidden>
-            </Button>
-          </StickerSheet.Row>
+          <IconButtonRowTemplate
+            isReversed={isReversed}
+            sizes={["large", "medium", "small"]}
+            childContent={<VisuallyHidden>Label</VisuallyHidden>}
+          />
         </StickerSheet.Body>
       </StickerSheet>
     </>
