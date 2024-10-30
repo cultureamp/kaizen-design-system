@@ -11,6 +11,7 @@ const meta = {
   component: Button,
   args: {
     children: "Label",
+    pendingLabel: "Submitting",
     onPress: action("Button onPress event"),
   },
 } satisfies Meta<typeof Button>
@@ -26,102 +27,66 @@ export const Playground: Story = {
 }
 
 export const ButtonWithIcon: Story = {
-  render: ({ children, ...otherProps }) => (
-    <Button {...otherProps}>{children}</Button>
-  ),
-  args: {
-    children: <>Label</>,
-    icon: <Icon isPresentational name="thumb_up" />,
-    iconPosition: "end",
-  },
-}
-
-export const ButtonWithIconStart: Story = {
-  render: ({ children, ...otherProps }) => (
-    <Button {...otherProps}>{children}</Button>
-  ),
   args: {
     children: <>Label</>,
     icon: <Icon isPresentational name="delete" />,
   },
 }
 
+export const ButtonWithIconEnd: Story = {
+  args: {
+    children: <>Label</>,
+    icon: <Icon isPresentational name="arrow_forward" shouldMirrorInRTL />,
+    iconPosition: "end",
+  },
+}
+
 export const IconButton: Story = {
-  render: ({ children, ...otherProps }) => (
-    <Button {...otherProps}>{children}</Button>
-  ),
   args: {
     children: (
-      <>
-        <VisuallyHidden>Remove highlights from: May 8, 2024</VisuallyHidden>
-      </>
+      <VisuallyHidden>Remove highlights from: May 8, 2024</VisuallyHidden>
     ),
     icon: <Icon isPresentational name="delete" />,
   },
 }
 
-// TODO: check the expect user behaviour of using a pending button and the a11y need to announce the content after pending
-export const Pending: Story = {
-  render: ({ children, isPending = false, ...otherProps }) => {
-    const [isPendingStatus, setIsPendingStatus] =
-      React.useState<boolean>(isPending)
-
-    return (
-      <>
-        <Button
-          {...otherProps}
-          isPending={isPendingStatus}
-          pendingLabel="loading"
-          onPress={() => {
-            setIsPendingStatus(true)
-            setTimeout(() => setIsPendingStatus(false), 3000)
-          }}
-        >
-          {children}
-        </Button>
-      </>
-    )
+export const PendingButton: Story = {
+  args: {
+    isPending: true,
+    pendingLabel: "Submitting",
   },
 }
 
-export const PendingLongLabel: Story = {
-  render: ({ children, isPending = false, ...otherProps }) => {
-    const [isPendingStatus, setIsPendingStatus] =
-      React.useState<boolean>(isPending)
-
-    return (
-      <>
-        <Button
-          {...otherProps}
-          isPending={isPendingStatus}
-          pendingLabel="loading"
-          isPendingLabelHidden
-          onPress={() => {
-            setIsPendingStatus(true)
-            setTimeout(() => setIsPendingStatus(false), 3000)
-          }}
-        >
-          {children}
-        </Button>
-        <Button>something else</Button>
-      </>
-    )
-  },
+export const PendingIconButton: Story = {
   args: {
-    children: "Hidden labels don't shrink",
+    isPending: true,
+    isPendingLabelHidden: true,
+    children: <VisuallyHidden>Label</VisuallyHidden>,
+    pendingLabel: "Removing",
+    icon: <Icon isPresentational name="delete" />,
+  },
+}
+
+export const ReversedButton: Story = {
+  parameters: {
+    reverseColors: true,
+    docs: {
+      source: {
+        code: `<ReversedColors isReversed={true}>
+          <Button>Label</Button>
+        </ReversedColors>
+      `,
+      },
+    },
   },
 }
 
 export const ButtonWithBadge: Story = {
-  render: ({ children, ...otherProps }) => (
-    <Button {...otherProps}>
-      <>
-        {children}
-        <Badge size="small">3</Badge>
-      </>
-    </Button>
-  ),
   args: {
-    children: "Label",
+    children: (
+      <>
+        Label <Badge size="small">3</Badge>
+      </>
+    ),
   },
 }

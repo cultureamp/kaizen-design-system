@@ -4,11 +4,7 @@ export type ButtonSize = "small" | "medium" | "large"
 
 export type PendingPropsUndefined = {
   isPending?: undefined
-  /** Rendered as the child while `pendingLabel` is `true` */
   pendingLabel?: never
-  /** Hides the `pendingLabel` rendering only the loading spinner. This will still be used as the accessible label.
-   * @default false
-   */
   isPendingLabelHidden?: never
 }
 
@@ -16,7 +12,7 @@ export type PendingProps = {
   isPending: boolean
   /** Rendered as the child while `pendingLabel` is `true` */
   pendingLabel: string
-  /** Hides the `pendingLabel` rendering only the loading spinner. This will still be used as the accessible label.
+  /** Visually Hides the `pendingLabel` rendering only the loading spinner. This will maintain the width of the Button's `children` to avoid layout shifts.
    * @default false
    */
   isPendingLabelHidden?: boolean

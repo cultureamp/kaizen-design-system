@@ -6,7 +6,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Button, ButtonSize, ButtonVariant, ButtonProps } from "../index"
+import { Button, ButtonSize, ButtonVariant } from "../index"
 
 export default {
   title: "Actions/Button/Button (v3)/Tests",
@@ -23,15 +23,13 @@ function capitalize(str: string): string {
 
 const RowTemplate = ({
   childContent,
-  icon,
-  iconPosition,
   sizes,
   isReversed = false,
 }: {
   childContent?: React.ReactNode
   sizes: ButtonSize[]
   isReversed?: boolean
-} & Pick<ButtonProps, "icon" | "iconPosition">): JSX.Element => {
+}): JSX.Element => {
   const variants: ButtonVariant[] = ["primary", "secondary", "tertiary"]
   return (
     <>
@@ -42,38 +40,43 @@ const RowTemplate = ({
             isReversed={isReversed}
             rowTitle={`${capitalize(buttonVariant)} (${size})`}
           >
+            <Button variant={buttonVariant} size={size}>
+              {childContent}
+            </Button>
             <Button
-              icon={icon}
-              iconPosition={iconPosition}
+              icon={<Icon name="add" isPresentational />}
               variant={buttonVariant}
               size={size}
             >
               {childContent}
             </Button>
             <Button
-              icon={icon}
-              iconPosition={iconPosition}
-              isPending={true}
+              icon={
+                <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
+              }
+              iconPosition="end"
+              variant={buttonVariant}
+              size={size}
+            >
+              {childContent}
+            </Button>
+            <Button
+              icon={
+                <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
+              }
+              iconPosition="end"
+              variant={buttonVariant}
+              isPending
               pendingLabel="Submitting"
-              variant={buttonVariant}
               size={size}
             >
               {childContent}
             </Button>
             <Button
-              icon={icon}
-              iconPosition={iconPosition}
-              isPending={true}
-              pendingLabel="Submitting"
-              isPendingLabelHidden
-              variant={buttonVariant}
-              size={size}
-            >
-              {childContent}
-            </Button>
-            <Button
-              icon={icon}
-              iconPosition={iconPosition}
+              icon={
+                <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
+              }
+              iconPosition="end"
               variant={buttonVariant}
               size={size}
               isDisabled
@@ -92,7 +95,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <StickerSheet heading="Button" isReversed={isReversed}>
         <StickerSheet.Header
-          headings={["Base", "Pending", "Pending (hidden)", "Disabled"]}
+          headings={["Base", "Icon start", "Icon end", "Pending", "Disabled"]}
           headingsWidth="10rem"
           hasVerticalHeadings
           verticalHeadingsWidth="12rem"
@@ -106,90 +109,91 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Body>
       </StickerSheet>
 
-      <StickerSheet heading="Button with icons" isReversed={isReversed}>
+      <StickerSheet heading="Icon only button" isReversed={isReversed}>
         <StickerSheet.Header
-          headings={[
-            "Icon start",
-            "Icon end",
-            "Icon only",
-            "Icon only (pending)",
-          ]}
+          headings={["primary", "secondary", "tertiary", "pending"]}
           headingsWidth="10rem"
           hasVerticalHeadings
           verticalHeadingsWidth="12rem"
         />
         <StickerSheet.Body>
           <StickerSheet.Row isReversed={isReversed} rowTitle="Large">
-            <Button icon={<Icon name="add" isPresentational />} size="large">
-              label
-            </Button>
-            <Button
-              icon={<Icon name="arrow_forward" isPresentational />}
-              iconPosition="end"
-              size="large"
-            >
-              label
-            </Button>
             <Button icon={<Icon name="delete" isPresentational />} size="large">
               <VisuallyHidden>label</VisuallyHidden>
             </Button>
             <Button
               icon={<Icon name="delete" isPresentational />}
-              isPending
-              pendingLabel="Loading"
-              isPendingLabelHidden
+              variant="secondary"
               size="large"
+            >
+              <VisuallyHidden>label</VisuallyHidden>
+            </Button>
+            <Button
+              icon={<Icon name="delete" isPresentational />}
+              variant="tertiary"
+              size="large"
+            >
+              <VisuallyHidden>label</VisuallyHidden>
+            </Button>
+            <Button
+              icon={<Icon name="delete" isPresentational />}
+              size="large"
+              isPending
+              isPendingLabelHidden
+              pendingLabel="Submitting"
             >
               <VisuallyHidden>label</VisuallyHidden>
             </Button>
           </StickerSheet.Row>
           <StickerSheet.Row isReversed={isReversed} rowTitle="Medium">
-            <Button icon={<Icon name="add" isPresentational />} size="medium">
-              label
-            </Button>
-            <Button
-              icon={<Icon name="arrow_forward" isPresentational />}
-              iconPosition="end"
-              size="medium"
-            >
-              label
+            <Button icon={<Icon name="delete" isPresentational />}>
+              <VisuallyHidden>label</VisuallyHidden>
             </Button>
             <Button
               icon={<Icon name="delete" isPresentational />}
-              size="medium"
+              variant="secondary"
+            >
+              <VisuallyHidden>label</VisuallyHidden>
+            </Button>
+            <Button
+              icon={<Icon name="delete" isPresentational />}
+              variant="tertiary"
             >
               <VisuallyHidden>label</VisuallyHidden>
             </Button>
             <Button
               icon={<Icon name="delete" isPresentational />}
               isPending
-              pendingLabel="Loading"
               isPendingLabelHidden
-              size="medium"
+              pendingLabel="Submitting"
             >
               <VisuallyHidden>label</VisuallyHidden>
             </Button>
           </StickerSheet.Row>
           <StickerSheet.Row isReversed={isReversed} rowTitle="Small">
-            <Button icon={<Icon name="add" isPresentational />} size="small">
-              label
-            </Button>
-            <Button
-              icon={<Icon name="arrow_forward" isPresentational />}
-              iconPosition="end"
-              size="small"
-            >
-              label
-            </Button>
             <Button icon={<Icon name="delete" isPresentational />} size="small">
               <VisuallyHidden>label</VisuallyHidden>
             </Button>
             <Button
               icon={<Icon name="delete" isPresentational />}
-              isPending
-              pendingLabel="Loading"
-              isPendingLabelHidden
+              variant="secondary"
               size="small"
+            >
+              <VisuallyHidden>label</VisuallyHidden>
+            </Button>
+            <Button
+              icon={<Icon name="delete" isPresentational />}
+              variant="tertiary"
+              size="small"
+            >
+              <VisuallyHidden>label</VisuallyHidden>
+            </Button>
+            <Button
+              icon={<Icon name="delete" isPresentational />}
+              size="small"
+              isPending
+              isPendingLabelHidden
+              pendingLabel="Submitting"
             >
               <VisuallyHidden>label</VisuallyHidden>
             </Button>

@@ -165,6 +165,37 @@ export const ButtonWithRACRenderPropsAsClassname: Story = {
   },
 }
 
+export const TriggerPending: Story = {
+  render: ({ children, isPending = false, ...otherProps }) => {
+    const [isPendingStatus, setIsPendingStatus] =
+      React.useState<boolean>(isPending)
+
+    return (
+      <>
+        <Button
+          {...otherProps}
+          isPending={isPendingStatus}
+          pendingLabel="loading"
+          onPress={() => {
+            setIsPendingStatus(true)
+            setTimeout(() => setIsPendingStatus(false), 3000)
+          }}
+        >
+          {children}
+        </Button>
+      </>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const button = canvas.getByRole("button")
+    expect(button).toHaveAccessibleName("Label")
+    await button.focus()
+    await userEvent.click(button)
+    expect(button).toHaveAccessibleName("loading")
+  },
+}
+
 // A compatibility check since when we develop tooltip the v1 button was an issue
 export const ButtonWithTooltip: Story = {
   render: ({ children: _, ...otherArgs }) => (

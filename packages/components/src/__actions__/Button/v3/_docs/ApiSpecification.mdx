@@ -137,9 +137,21 @@ We recommend against setting the `aria-label` on the `Button` itself, and lettin
 
 The `Button` uses the `useReversedColors` hook and `ReversedColors` provider to control the dark and light theme.
 
-<Canvas className="bg-purple-600 mb-24" of={exampleStories.OnReversed} />
+<Canvas className="bg-purple-600 mb-24" of={exampleStories.ReversedButton} />
 
-To enable the reversed theme, you will need to the component or application in the ReversedColors provider.
+To enable the reversed theme, you will need to the component or application in the ReversedColors provider, ie:
+
+```tsx
+import { Button } from "@kaizen/components/v3/actions"
+import { ReversedColors } from "~components/__utilities__/v3"
+// application code
+
+return (
+  <ReversedColors isReversed={true}>
+    <Button {...buttonProps} />
+  </ReversedColors>
+)
+```
 
 
 ### Buttons and links
