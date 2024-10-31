@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.67.7
+
+### Patch Changes
+
+- [#5220](https://github.com/cultureamp/kaizen-design-system/pull/5220) [`f235962d126a05c2a4566822f51df00d7ed959ff`](https://github.com/cultureamp/kaizen-design-system/commit/f235962d126a05c2a4566822f51df00d7ed959ff) - Peer dependency version for `typescript` updated to `5.x`.
+
 ## 1.67.6
 
 ### Patch Changes
