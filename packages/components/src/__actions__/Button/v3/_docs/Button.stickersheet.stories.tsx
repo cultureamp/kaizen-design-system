@@ -10,7 +10,7 @@ import {
 import { Button, ButtonSize, ButtonVariant } from "../index"
 
 export default {
-  title: "Actions/Button/Button (v3)/Tests",
+  title: "Actions/Button/Button (v3)",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
