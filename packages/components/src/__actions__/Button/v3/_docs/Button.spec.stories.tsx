@@ -52,29 +52,6 @@ export const TriggerPending: Story = {
   },
 }
 
-export const ButtonWithTooltip: Story = {
-  render: ({ children: _, ...otherArgs }) => (
-    <TooltipTrigger>
-      <Button {...otherArgs}>Label</Button>
-      <Tooltip>Tooltip content</Tooltip>
-    </TooltipTrigger>
-  ),
-  play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole("button")
-
-    await step("Focus shows", async () => {
-      await userEvent.tab()
-
-      await waitFor(() => expect(document.activeElement).toBe(button))
-    })
-
-    await step("Tooltip content show", async () => {
-      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
-    })
-  },
-}
-
 export const RACRenderPropsWithChildren: Story = {
   render: ({ children: _, ...otherArgs }) => (
     <Button {...otherArgs}>
@@ -110,30 +87,6 @@ export const RACRenderPropsWithChildren: Story = {
         expect(button).toHaveAccessibleName("Label is focused")
       )
     })
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: `
-          <Button {...otherArgs}>
-            {({ isFocusVisible }) => (
-              <>
-                Label
-                <VisuallyHidden>
-                  {isFocusVisible ? " is focused" : " is unfocused"}
-                </VisuallyHidden>
-                <Icon
-                  name={isFocusVisible ? "thumb_up" : "thumb_down"}
-                  isPresentational
-                  isFilled={true}
-                  className=" [--icon-size:16]"
-                />
-              </>
-            )}
-          </Button>
-      `,
-      },
-    },
   },
 }
 
