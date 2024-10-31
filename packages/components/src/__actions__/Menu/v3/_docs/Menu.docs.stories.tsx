@@ -1,6 +1,7 @@
 import React, { FunctionComponent, ReactNode } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
+import { VisuallyHidden } from "react-aria"
 import { Popover } from "react-aria-components"
 import { Button } from "~components/__actions__/v3"
 import { Icon } from "~components/__future__/Icon"
@@ -41,8 +42,8 @@ const DefaultMenuItems = (): ReactNode => (
 export const Actions: Story = {
   render: ({ defaultOpen: _, ...args }) => (
     <MenuTrigger {...args}>
-      <Button className="[--icon-size:24]">
-        <Icon name="more_horiz" alt="Additional actions" />
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
       <Popover>
         <Menu>
@@ -59,8 +60,8 @@ export const Actions: Story = {
 export const ItemsDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      <Button className="[--icon-size:24]">
-        <Icon name="more_horiz" alt="Additional actions" />
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
       <Popover>
         <Menu>
@@ -74,8 +75,8 @@ export const ItemsDo: Story = {
 export const ItemsDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      <Button className="[--icon-size:24]">
-        <Icon name="more_horiz" alt="Additional actions" />
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
       <Popover>
         <Menu>
@@ -171,8 +172,8 @@ export const LabelDont: Story = {
 export const IconsDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      <Button className="[--icon-size:24]">
-        <Icon name="more_horiz" alt="Additional actions" />
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
       <Popover>
         <Menu {...args}>
@@ -193,8 +194,8 @@ export const IconsDont: Story = {
 export const MenuItemLabelsDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      <Button className="[--icon-size:24]">
-        <Icon name="more_horiz" alt="Additional actions" />
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
       <Popover>
         <Menu {...args}>
@@ -210,8 +211,9 @@ export const MenuItemLabelsDont: Story = {
 export const SentenceCaseDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      <Button className="[--icon-size:24]">
-        <Icon name="more_horiz" alt="Additional actions" />
+      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
       <Popover>
         <Menu {...args}>
@@ -227,8 +229,9 @@ export const SentenceCaseDo: Story = {
 export const SentenceCaseDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      <Button className="[--icon-size:24]">
-        <Icon name="more_horiz" alt="Additional actions" />
+      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
       <Popover>
         <Menu {...args}>
@@ -244,8 +247,9 @@ export const SentenceCaseDont: Story = {
 export const ElipsesDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      <Button className="[--icon-size:24]">
-        <Icon name="more_horiz" alt="Additional actions" />
+      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
       <Popover>
         <Menu {...args}>
@@ -261,8 +265,9 @@ export const ElipsesDo: Story = {
 export const ElipsesDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      <Button className="[--icon-size:24]">
-        <Icon name="more_horiz" alt="Additional actions" />
+      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
       <Popover>
         <Menu {...args}>

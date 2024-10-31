@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, waitFor, within, fn } from "@storybook/test"
 import isChromatic from "chromatic"
+import { VisuallyHidden } from "react-aria"
 import { Popover, Header, Section } from "react-aria-components"
 import { Button } from "~components/__actions__/v3"
 import { Icon } from "~components/__future__/Icon"
@@ -36,8 +37,8 @@ export const KitchenSink: Story = {
   ],
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      <Button>
-        <Icon name="more_horiz" alt="Additional actions" />
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
       <Popover>
         <Menu>
@@ -84,9 +85,10 @@ export const KitchenSink: Story = {
 export const Basic: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      <Button>
-        <Icon name="more_horiz" alt="Additional actions" />
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
+
       <Popover>
         <Menu>
           <MenuItem
@@ -165,8 +167,8 @@ const mockOnClick = fn()
 export const DisabledItems: Story = {
   render: () => (
     <MenuTrigger>
-      <Button>
-        <Icon name="more_horiz" alt="Additional actions" />
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
       <Popover>
         <Menu>
@@ -205,8 +207,8 @@ export const DisabledItems: Story = {
 export const WithSections: Story = {
   render: () => (
     <MenuTrigger>
-      <Button>
-        <Icon name="more_horiz" alt="Additional actions" />
+      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
+        <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
       <Popover>
         <Menu>
