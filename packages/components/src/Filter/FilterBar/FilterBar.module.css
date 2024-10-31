@@ -5,7 +5,6 @@
 .filterBar {
   display: flex;
   padding: var(--spacing-8);
-  box-shadow: var(--shadow-small-box-shadow);
   border-radius: var(--border-solid-border-radius);
   background-color: var(--color-white);
 }
