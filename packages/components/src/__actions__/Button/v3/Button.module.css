@@ -21,7 +21,7 @@
   --button-padding: calc(var(--spacing-8) - var(--border-solid-border-width));
   --button-bg-color: var(--color-blue-500);
   --button-border-color: var(--color-blue-500);
-  --icon-gap: var(--spacing-8);
+  --icon-gap: var(--spacing-4);
 
   background-color: var(--button-bg-color);
   border: var(--border-solid-border-width) var(--border-solid-border-style);
@@ -59,7 +59,6 @@
 }
 
 .small {
-  --icon-gap: var(--spacing-4);
   --button-font-size: 0.75rem;
   --button-line-height: 1rem;
   --button-min-x-y: var(--spacing-32);
@@ -75,6 +74,7 @@
   --button-min-x-y: var(--spacing-48);
   --button-padding: calc(var(--spacing-12) - var(--border-solid-border-width));
   --icon-size: 24;
+  --icon-gap: var(--spacing-8);
 }
 
 .primary {
@@ -198,12 +198,12 @@
 
   &[data-hovered] {
     --button-bg-color: rgba(var(--color-white-rgb), 0.2);
-    --button-border-color: rgba(var(--color-white-rgb), 0.2);
+    --button-border-color: transparent;
   }
 
   &[data-pressed] {
     --button-bg-color: rgba(var(--color-white-rgb), 0.1);
-    --button-border-color: rgba(var(--color-white-rgb), 0.1);
+    --button-border-color: transparent;
   }
 }
 

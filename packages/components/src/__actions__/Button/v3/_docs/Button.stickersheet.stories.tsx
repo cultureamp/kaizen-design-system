@@ -111,7 +111,7 @@ const IconButtonRowTemplate = ({
           key={sizesKey}
         >
           {variants.map((buttonVariant, key) => (
-            <React.Fragment key={key}>
+            <span className="flex gap-8" key={key}>
               <Button
                 icon={<Icon name="delete" isPresentational />}
                 size={size}
@@ -130,7 +130,7 @@ const IconButtonRowTemplate = ({
               >
                 <VisuallyHidden>{childContent}</VisuallyHidden>
               </Button>
-            </React.Fragment>
+            </span>
           ))}
         </StickerSheet.Row>
       ))}
