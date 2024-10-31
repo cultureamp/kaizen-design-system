@@ -1,5 +1,12 @@
 # @kaizen/package-bundler
 
+## 1.1.9
+
+### Patch Changes
+
+- [#5220](https://github.com/cultureamp/kaizen-design-system/pull/5220) [`f235962d126a05c2a4566822f51df00d7ed959ff`](https://github.com/cultureamp/kaizen-design-system/commit/f235962d126a05c2a4566822f51df00d7ed959ff) - Peer dependency `typescript` version restricted as alias resolution breaks.
+  See https://github.com/LeDDGroup/typescript-transform-paths/issues/266
+
 ## 1.1.8
 
 ### Patch Changes
