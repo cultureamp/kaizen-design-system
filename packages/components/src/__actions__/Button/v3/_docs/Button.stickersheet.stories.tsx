@@ -7,7 +7,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Button, ButtonSize, ButtonVariant } from "../index"
+import { Button, ButtonSizes, ButtonVariants } from "../index"
 
 export default {
   title: "Actions/Button/Button (v3)",
@@ -17,126 +17,108 @@ export default {
   },
 } satisfies Meta
 
-function capitalize(str: string): string {
-  if (!str) return str
-  return str.charAt(0).toUpperCase() + str.slice(1)
-}
+const variants = ["primary", "secondary", "tertiary"] satisfies ButtonVariants[]
+const sizes = ["small", "medium", "large"] satisfies ButtonSizes[]
 
 const RowTemplate = ({
-  childContent,
-  sizes,
   isReversed = false,
 }: {
-  childContent?: React.ReactNode
-  sizes: ButtonSize[]
   isReversed?: boolean
-}): JSX.Element => {
-  const variants: ButtonVariant[] = ["primary", "secondary", "tertiary"]
-  return (
-    <>
-      {variants.map(buttonVariant =>
-        sizes.map((size, key) => (
-          <StickerSheet.Row
-            key={key}
-            isReversed={isReversed}
-            rowTitle={`${capitalize(buttonVariant)} (${size})`}
+}): JSX.Element => (
+  <>
+    {variants.map(buttonVariants =>
+      sizes.map(size => (
+        <StickerSheet.Row
+          key={size + variants}
+          isReversed={isReversed}
+          rowTitle={`${buttonVariants} (${size})`}
+        >
+          <Button variant={buttonVariants} size={size}>
+            Label
+          </Button>
+          <Button
+            icon={<Icon name="add" isPresentational />}
+            variant={buttonVariants}
+            size={size}
           >
-            <Button variant={buttonVariant} size={size}>
-              {childContent}
-            </Button>
-            <Button
-              icon={<Icon name="add" isPresentational />}
-              variant={buttonVariant}
-              size={size}
-            >
-              {childContent}
-            </Button>
-            <Button
-              icon={
-                <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
-              }
-              iconPosition="end"
-              variant={buttonVariant}
-              size={size}
-            >
-              {childContent}
-            </Button>
-            <Button
-              icon={
-                <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
-              }
-              iconPosition="end"
-              variant={buttonVariant}
-              isPending
-              pendingLabel="Submitting"
-              size={size}
-            >
-              {childContent}
-            </Button>
-            <Button
-              icon={
-                <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
-              }
-              iconPosition="end"
-              variant={buttonVariant}
-              size={size}
-              isDisabled
-            >
-              {childContent}
-            </Button>
-          </StickerSheet.Row>
-        ))
-      )}
-    </>
-  )
-}
+            Label
+          </Button>
+          <Button
+            icon={
+              <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
+            }
+            iconPosition="end"
+            variant={buttonVariants}
+            size={size}
+          >
+            Label
+          </Button>
+          <Button
+            icon={
+              <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
+            }
+            iconPosition="end"
+            variant={buttonVariants}
+            isPending
+            pendingLabel="Submitting"
+            size={size}
+          >
+            Label
+          </Button>
+          <Button
+            icon={
+              <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
+            }
+            iconPosition="end"
+            variant={buttonVariants}
+            size={size}
+            isDisabled
+          >
+            Label
+          </Button>
+        </StickerSheet.Row>
+      ))
+    )}
+  </>
+)
 
 const IconButtonRowTemplate = ({
-  childContent,
   isReversed = false,
-  sizes,
 }: {
-  childContent?: React.ReactNode
   isReversed?: boolean
-  sizes: ButtonSize[]
-}): JSX.Element => {
-  const variants: ButtonVariant[] = ["primary", "secondary", "tertiary"]
-
-  return (
-    <>
-      {sizes.map((size, sizesKey) => (
-        <StickerSheet.Row
-          isReversed={isReversed}
-          rowTitle={`${capitalize(size)}`}
-          key={sizesKey}
-        >
-          {variants.map((buttonVariant, key) => (
-            <span className="flex gap-8" key={key}>
-              <Button
-                icon={<Icon name="delete" isPresentational />}
-                size={size}
-                variant={buttonVariant}
-              >
-                <VisuallyHidden>{childContent}</VisuallyHidden>
-              </Button>
-              <Button
-                icon={<Icon name="delete" isPresentational />}
-                size={size}
-                className="ms-6"
-                isPending
-                isPendingLabelHidden
-                pendingLabel="Submitting"
-                variant={buttonVariant}
-              >
-                <VisuallyHidden>{childContent}</VisuallyHidden>
-              </Button>
-            </span>
-          ))}
-        </StickerSheet.Row>
-      ))}
-    </>
-  )
-}
+}): JSX.Element => (
+  <>
+    {sizes.map(size => (
+      <StickerSheet.Row
+        isReversed={isReversed}
+        rowTitle={`${size}`}
+        key={size + variants}
+      >
+        {variants.map((buttonVariants, key) => (
+          <span className="flex gap-8" key={key}>
+            <Button
+              icon={<Icon name="delete" isPresentational />}
+              size={size}
+              variant={buttonVariants}
+            >
+              <VisuallyHidden>Label</VisuallyHidden>
+            </Button>
+            <Button
+              icon={<Icon name="delete" isPresentational />}
+              size={size}
+              isPending
+              isPendingLabelHidden
+              pendingLabel="Submitting"
+              variant={buttonVariants}
+            >
+              <VisuallyHidden>Label</VisuallyHidden>
+            </Button>
+          </span>
+        ))}
+      </StickerSheet.Row>
+    ))}
+  </>
+)
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
@@ -155,11 +137,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           verticalHeadingsWidth="12rem"
         />
         <StickerSheet.Body>
-          <RowTemplate
-            isReversed={isReversed}
-            sizes={["large", "medium", "small"]}
-            childContent="Label"
-          />
+          <RowTemplate isReversed={isReversed} />
         </StickerSheet.Body>
       </StickerSheet>
       <StickerSheet heading="Icon only button" isReversed={isReversed}>
@@ -170,11 +148,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           verticalHeadingsWidth="12rem"
         />
         <StickerSheet.Body>
-          <IconButtonRowTemplate
-            isReversed={isReversed}
-            sizes={["large", "medium", "small"]}
-            childContent={<VisuallyHidden>Label</VisuallyHidden>}
-          />
+          <IconButtonRowTemplate isReversed={isReversed} />
         </StickerSheet.Body>
       </StickerSheet>
       <StickerSheet heading="Pseudo states" isReversed={isReversed}>
@@ -216,11 +190,6 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
     </>
   ),
-  parameters: {
-    pseudo: {
-      hover: '[data-sb-pseudo-styles="hover"]',
-    },
-  },
   play: ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const focusButtons = canvas.getAllByTestId("testid__button-focus")
