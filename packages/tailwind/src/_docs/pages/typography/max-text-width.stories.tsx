@@ -6,10 +6,10 @@ import { kaizenTailwindTheme } from "~tailwind/tailwind-presets"
 
 const prefix = "max-w-"
 const classEntries = Object.entries(
-  kaizenTailwindTheme.extend.maxWidth || []
+  kaizenTailwindTheme.extend.maxWidth ?? []
 ).map(([suffix, cssPropertyArr]) => ({
   utilityClassName: `${prefix}${suffix}`,
-  cssProperty: cssPropertyArr as string,
+  cssProperty: cssPropertyArr,
 }))
 
 export default {

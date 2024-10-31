@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import React from "react"
 import { Unstyled } from "@storybook/blocks"
 import { toCustomMediaQueriesArray } from "object-to-css-variables"

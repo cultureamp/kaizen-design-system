@@ -8,7 +8,7 @@ export type KaizenTailwindPreset = {
 }
 
 // Note: changing any token will require to to run `pnpm build` from the root
-export const kaizenTailwindTheme: KaizenTailwindTheme = {
+export const kaizenTailwindTheme = {
   extend: {
     maxWidth: {
       paragraph: `${tokens.typography.paragraphBody.maxWidth}`,
@@ -109,7 +109,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     md: tokens.layout.breakpoints.medium, // => @media (min-width: 768px) { ... }
     lg: tokens.layout.breakpoints.large, // => @media (min-width: 1080px) { ... }
   },
-} as const
+} satisfies KaizenTailwindTheme
 
 export const Preset: KaizenTailwindPreset = {
   theme: kaizenTailwindTheme,

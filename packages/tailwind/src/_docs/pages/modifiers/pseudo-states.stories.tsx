@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { StickerSheet } from "~storybook/components/StickerSheet"

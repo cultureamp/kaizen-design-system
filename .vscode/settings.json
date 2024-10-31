@@ -15,9 +15,11 @@ Happy linting! 💖
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "eslint.options": {
-    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
-  },
+  "eslint.useFlatConfig": true,
+  // "eslint.options": {
+  //   "overrideConfigFile": "./eslint.config.mjs",
+  //   // "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
+  // },
   "eslint.validate": [
     "markdown",
     "mdx",

@@ -49,7 +49,7 @@ export function makeCSSVariableTheme<
     const leafObject = pathWithoutLast.reduce(
       (child, segment) =>
         (child[segment] || (child[segment] = {})) as Record<string, unknown>,
-      augmentedTheme as Record<string, unknown>
+      augmentedTheme
     )
     if (!leafKey) {
       throw new Error("leafKey is undefined")

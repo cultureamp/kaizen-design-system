@@ -23,7 +23,7 @@ export const rollupConfig = (
     input: config.input,
     plugins: [
       alias(config.alias),
-      ...((config?.plugins as InputPluginOption[]) || pluginsDefault),
+      ...(config?.plugins ?? pluginsDefault),
     ],
   } satisfies RollupOptions
 

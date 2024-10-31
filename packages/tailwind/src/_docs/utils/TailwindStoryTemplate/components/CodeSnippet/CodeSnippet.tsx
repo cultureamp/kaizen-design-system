@@ -10,8 +10,13 @@ export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
   const [copyIconIsChecked, setCopyIconIsChecked] = useState(false)
   const handleCopy = (utilityClassNameName: string): void => {
     navigator.clipboard.writeText(text)
-    setCopyIconIsChecked(true)
-    onCopy && onCopy(utilityClassNameName)
+      .then(
+        () => {
+          setCopyIconIsChecked(true)
+          onCopy?.(utilityClassNameName)
+        },
+        () => undefined
+      )
   }
 
   return (

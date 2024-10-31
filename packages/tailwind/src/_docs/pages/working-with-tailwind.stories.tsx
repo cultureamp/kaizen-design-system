@@ -33,7 +33,7 @@ export const TailwindExampleSpacingAndLayoutsComplex: StoryFn = () => (
     {/* Adds flex, makes the width 100% and centers content */}
     <div className="flex w-full justify-center">
       {/* Adds margins, width, and max width */}
-      <div className="mx-72 my-24 w-full  max-w-[1392px]">
+      <div className="mx-72 my-24 w-full max-w-[1392px]">
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a
           className="font-weight-[500px] font-family-paragraph text-heading-5 text-blue-500"
