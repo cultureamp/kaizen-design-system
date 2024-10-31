@@ -151,7 +151,7 @@ importers:
         specifier: ^2.2.3
         version: 2.2.3
       typescript:
-        specifier: ^5.5.4
+        specifier: 5.5.4
         version: 5.5.4
       vite:
         specifier: ^5.4.10
@@ -374,7 +374,7 @@ importers:
         specifier: ^1.5.1
         version: 1.5.1
       typescript:
-        specifier: ^5.5.4
+        specifier: 5.x
         version: 5.5.4
       use-debounce:
         specifier: ^10.0.4
@@ -608,6 +608,9 @@ importers:
       tslib:
         specifier: '>=2.6.2'
         version: 2.6.3
+      typescript:
+        specifier: '>= 5.4.5 <= 5.5.4'
+        version: 5.5.4
       typescript-transform-paths:
         specifier: ^3.5.1
         version: 3.5.1(typescript@5.5.4)

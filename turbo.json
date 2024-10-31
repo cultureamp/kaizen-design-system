@@ -60,11 +60,15 @@
       "outputs": ["dist/**"]
     },
     "@kaizen/tailwind#build": {
-      "dependsOn": ["@kaizen/design-tokens#build"],
+      "dependsOn": [
+        "@kaizen/design-tokens#build",
+        "@kaizen/package-bundler#build"
+      ],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
     "@kaizen/design-tokens#build": {
+      "dependsOn": ["@kaizen/package-bundler#build"],
       "inputs": ["css/**", "less/**", "sass/**", "src/**"],
       "outputs": ["dist/**"]
     },
