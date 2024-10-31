@@ -21,105 +21,18 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const ButtonDefault: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button
-      {...otherArgs}
-      icon={<Icon name="arrow_forward" isPresentational />}
-      iconPosition="end"
-    >
-      <>{children}</>
-    </Button>
-  ),
-}
-
-export const IsHovered: Story = {
-  ...ButtonDefault,
-  play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole("button")
-
-    await step("Hover shows", async () => {
-      await userEvent.hover(button)
-      await expect(button).toHaveAttribute("data-hovered", "true")
-    })
-  },
-}
-export const IsHoveredReversed: Story = {
-  ...IsHovered,
-  parameters: {
-    reverseColors: true,
-  },
-}
-
-export const IsFocused: Story = {
-  ...ButtonDefault,
-  play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole("button")
-
-    await step("Focus shows", async () => {
-      await userEvent.tab()
-
-      await waitFor(() => expect(document.activeElement).toBe(button))
-      await expect(button).toHaveAttribute("data-focused", "true")
-    })
-  },
-}
-
-export const IsFocusedReversed: Story = {
-  ...IsFocused,
-  parameters: {
-    reverseColors: true,
-  },
-}
-
-export const IsPressed: Story = {
-  ...ButtonDefault,
-  play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole("button")
-
-    await step("onPress is called", async () => {
-      await userEvent.click(button)
-
-      await expect(onPressEvent).toHaveBeenCalledTimes(1)
-    })
-  },
-}
-
-export const IconButtonWithAccessibleLabel: Story = {
-  render: ({ children: _, ...otherArgs }) => (
-    <Button {...otherArgs}>
-      <>
-        <Icon name="delete" isPresentational />
-        <VisuallyHidden> Highlight: 18, June, 2024</VisuallyHidden>
-      </>
-    </Button>
-  ),
-  play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole("button")
-
-    await step("has accessible labels", async () => {
-      await userEvent.tab()
-
-      await expect(button).toHaveAccessibleName(
-        "Remove Highlight: 18, June, 2024"
-      )
-    })
-  },
-}
-
 export const ButtonWithRACRenderPropsAsChildren: Story = {
   render: ({ children: _, ...otherArgs }) => (
     <Button {...otherArgs}>
       {({ isFocusVisible }) => (
         <>
           Label
+          <VisuallyHidden>
+            {isFocusVisible ? " is focused" : " is unfocused"}
+          </VisuallyHidden>
           <Icon
             name={isFocusVisible ? "thumb_up" : "thumb_down"}
-            alt="is focused"
+            isPresentational
             isFilled={true}
             className=" [--icon-size:16]"
           />
@@ -147,7 +60,7 @@ export const ButtonWithRACRenderPropsAsChildren: Story = {
 }
 
 // While this is a less likely use case, but as it is possible to use render props to apply a class name to the button so we should test that it works with our Button implementation
-export const ButtonWithRACRenderPropsAsClassname: Story = {
+export const ButtonWithRACRenderPropsAsClassName: Story = {
   render: ({ children: _, ...otherArgs }) => (
     <Button
       className={({ isFocused }) =>

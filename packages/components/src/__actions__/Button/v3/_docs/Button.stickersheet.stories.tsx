@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import { within } from "@storybook/test"
 import { VisuallyHidden } from "react-aria"
 import { Icon } from "~components/__future__/Icon"
 import {
@@ -142,7 +143,13 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <StickerSheet heading="Button" isReversed={isReversed}>
         <StickerSheet.Header
-          headings={["Base", "Icon start", "Icon end", "Pending", "Disabled"]}
+          headings={[
+            "Base",
+            "Icon start",
+            "Icon end",
+            "isPending",
+            "isDisabled",
+          ]}
           headingsWidth="10rem"
           hasVerticalHeadings
           verticalHeadingsWidth="12rem"
@@ -155,7 +162,6 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
         </StickerSheet.Body>
       </StickerSheet>
-
       <StickerSheet heading="Icon only button" isReversed={isReversed}>
         <StickerSheet.Header
           headings={["primary", "secondary", "tertiary"]}
@@ -171,15 +177,65 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
         </StickerSheet.Body>
       </StickerSheet>
+      <StickerSheet heading="Pseudo states" isReversed={isReversed}>
+        <StickerSheet.Header
+          headings={["isHovered", "isFocusVisible", "isPressed"]}
+          headingsWidth="10rem"
+          hasVerticalHeadings
+          verticalHeadingsWidth="12rem"
+        />
+        <StickerSheet.Body>
+          <StickerSheet.Row isReversed={isReversed} rowTitle="Primary">
+            <Button data-testid="testid__button-hover">Label</Button>
+            <Button data-testid="testid__button-focus">Label</Button>
+            <Button data-testid="testid__button-pressed">Label</Button>
+          </StickerSheet.Row>
+          <StickerSheet.Row isReversed={isReversed} rowTitle="Secondary">
+            <Button variant="secondary" data-testid="testid__button-hover">
+              Label
+            </Button>
+            <Button variant="secondary" data-testid="testid__button-focus">
+              Label
+            </Button>
+            <Button variant="secondary" data-testid="testid__button-pressed">
+              Label
+            </Button>
+          </StickerSheet.Row>
+          <StickerSheet.Row isReversed={isReversed} rowTitle="Tertiary">
+            <Button variant="tertiary" data-testid="testid__button-hover">
+              Label
+            </Button>
+            <Button variant="tertiary" data-testid="testid__button-focus">
+              Label
+            </Button>
+            <Button variant="tertiary" data-testid="testid__button-pressed">
+              Label
+            </Button>
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
     </>
   ),
   parameters: {
     pseudo: {
-      hover: '[data-hovered="true"]',
-      active: '[data-pressed="true"]',
-      focus: '[data-focused="true"]',
-      focusVisible: '[data-focus-visible="true"]',
+      hover: '[data-sb-pseudo-styles="hover"]',
     },
+  },
+  play: ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const focusButtons = canvas.getAllByTestId("testid__button-focus")
+    const hoverButtons = canvas.getAllByTestId("testid__button-hover")
+    const pressedButton = canvas.getAllByTestId("testid__button-pressed")
+
+    focusButtons.forEach(button => {
+      button.setAttribute("data-focus-visible", "true")
+    })
+    hoverButtons.forEach(button => {
+      button.setAttribute("data-hovered", "true")
+    })
+    pressedButton.forEach(button => {
+      button.setAttribute("data-pressed", "true")
+    })
   },
 }
 
