@@ -1,5 +1,13 @@
 .filterButton {
   gap: var(--spacing-xs);
+  justify-content: space-between;
+}
+
+/* keep max-width value in sync with other places using this container */
+@container filter-bar-wrapper (max-width: 767px) {
+  .filterButton {
+    flex-grow: 1;
+  }
 }
 
 .labelContainer {

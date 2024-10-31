@@ -8,6 +8,7 @@ import {
 } from "~components/Filter/FilterMultiSelect"
 import { useFilterBarContext } from "../../context/FilterBarContext"
 import { checkArraysMatch } from "../../utils/checkArraysMatch"
+import styles from "./FilterBarMultiSelect.module.css"
 
 export type FilterBarMultiSelectProps = Omit<
   FilterMultiSelectProps,
@@ -97,6 +98,7 @@ export const FilterBarMultiSelect = ({
       items={items}
       isOpen={filterState.isOpen}
       onOpenChange={(open): void => setFilterOpenState(id, open)}
+      className={styles.filterMultiSelect}
       trigger={(): JSX.Element => {
         const triggerProps = {
           selectedOptionLabels: filterState.value
@@ -112,9 +114,13 @@ export const FilterBarMultiSelect = ({
           <FilterMultiSelect.RemovableTrigger
             {...triggerProps}
             onRemove={() => hideFilter(id)}
+            classNameOverride={styles.triggerButton}
           />
         ) : (
-          <FilterMultiSelect.TriggerButton {...triggerProps} />
+          <FilterMultiSelect.TriggerButton
+            classNameOverride={styles.triggerButton}
+            {...triggerProps}
+          />
         )
       }}
       triggerRef={buttonRef}

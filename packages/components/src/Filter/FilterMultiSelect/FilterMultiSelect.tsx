@@ -42,6 +42,7 @@ export type FilterMultiSelectProps = {
   trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
   triggerRef?: React.RefObject<HTMLButtonElement>
+  className?: string
 } & Omit<MenuPopupProps, "children"> &
   Omit<MenuTriggerProviderProps, "children"> &
   SelectionProps
@@ -62,6 +63,7 @@ export const FilterMultiSelect = ({
   selectionMode = "multiple",
   onSearchInputChange,
   triggerRef,
+  className,
 }: FilterMultiSelectProps): JSX.Element => {
   const menuTriggerProps = { isOpen, defaultOpen, onOpenChange, triggerRef }
   const menuPopupProps = { isLoading, loadingSkeleton }
@@ -83,7 +85,7 @@ export const FilterMultiSelect = ({
 
   return (
     <MenuTriggerProvider {...menuTriggerProps}>
-      <div>
+      <div className={className}>
         <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
         <MenuPopup {...menuPopupProps}>
           <SelectionProvider {...selectionProps}>
