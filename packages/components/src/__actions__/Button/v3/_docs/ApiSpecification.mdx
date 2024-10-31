@@ -1,6 +1,6 @@
 import { Canvas, Meta, Controls } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as docsStories from "./Button.docs.stories"
+import * as specStories from "./Button.spec.stories"
 import * as exampleStories from "./Button.stories"
 
 <Meta title="Actions/Button/Button (v3)/API Specification" />
@@ -22,9 +22,7 @@ import * as exampleStories from "./Button.stories"
 
 ## Overview
 
-
 <Canvas of={exampleStories.Playground} />
-
 
 ## API
 
@@ -85,7 +83,7 @@ When styling in CSS, it is recommended to use [data attributes](https://react-sp
 As `Button` extends React Aria&apos;s functionality, `className` can now accept either a `string` or function that receives the `Button`&apos;s state for styling, such as `isPressed` or `isHovered`. This useful for add dynamic styling tweaks with Tailwind or other CSS-in-JS libraries.
 
 
-<Canvas of={docsStories.ButtonClassModifierWithRenderProps} sourceState="shown" />
+<Canvas of={specStories.RACRenderPropsWithClassName} sourceState="shown" />
 
 This can also be styled in directly with Tailwind targeting the data attributes, ie:
 
