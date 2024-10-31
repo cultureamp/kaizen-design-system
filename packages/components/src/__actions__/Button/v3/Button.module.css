@@ -8,39 +8,34 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* RESET */
-
-  --button-font-family: var(--typography-paragraph-body-font-family);
-
-  /* We don't want to couple these to paragraph design tokens or old button tokens */
-  --button-font-weight: 500;
-  --button-font-size: 1rem;
-  --button-line-height: 1.5rem;
-  --button-text-color: var(--color-white);
   --button-min-x-y: var(--spacing-40);
-  --button-padding: calc(var(--spacing-8) - var(--border-solid-border-width));
-  --button-bg-color: var(--color-blue-500);
-  --button-border-color: var(--color-blue-500);
-  --icon-gap: var(--spacing-4);
+  --button-icon-gap: var(--spacing-4);
+  --button-border-width: var(--border-solid-border-width);
 
-  background-color: var(--button-bg-color);
-  border: var(--border-solid-border-width) var(--border-solid-border-style);
+  background-color: var(--button-bg-color, var(--color-blue-500));
+  border: var(--button-border-width) solid;
   border-radius: var(--border-solid-border-radius);
-  border-color: var(--button-border-color);
+  border-color: var(--button-border-color, var(--color-blue-500));
   box-sizing: border-box;
-  color: var(--button-text-color);
+  color: var(--button-text-color, var(--color-white));
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  text-align: left;
-  font-family: var(--button-font-family);
-  font-weight: var(--button-font-weight);
-  font-size: var(--button-font-size);
-  line-height: var(--button-line-height);
+  text-align: start;
+  font-family: var(
+    --button-font-family,
+    var(--typography-paragraph-body-font-family)
+  );
+  font-weight: var(--button-font-weight, 500);
+  font-size: var(--button-font-size, 1rem);
+  line-height: var(--button-line-height, 1.5rem);
   min-height: var(--button-min-x-y);
   min-width: var(--button-min-x-y);
   position: relative;
-  padding: var(--button-padding);
+  padding: var(
+    --button-padding,
+    calc(var(--spacing-8) - var(--button-border-width))
+  );
 
   &[data-focus-visible]::after {
     content: "";
@@ -51,6 +46,10 @@
     border-width: var(--border-focus-ring-border-width);
     border-style: var(--border-focus-ring-border-style);
     inset: calc(-1 * (var(--border-focus-ring-border-width) * 2) - 1px);
+  }
+
+  &[data-focus-visible][data-pending]::after {
+    border-color: var(--color-gray-500);
   }
 }
 
@@ -72,12 +71,16 @@
 
 .large {
   --button-min-x-y: var(--spacing-48);
-  --button-padding: calc(var(--spacing-12) - var(--border-solid-border-width));
+  --button-padding: calc(var(--spacing-12) - var(--button-border-width));
   --icon-size: 24;
-  --icon-gap: var(--spacing-8);
+  --button-icon-gap: var(--spacing-8);
 }
 
 .primary {
+  --button-bg-color: var(--color-blue-500);
+  --button-border-color: var(--color-blue-500);
+  --button-text-color: var(--color-white);
+
   &[data-hovered] {
     --button-bg-color: var(--color-blue-600);
     --button-border-color: var(--color-blue-600);
@@ -92,10 +95,6 @@
     --button-bg-color: var(--color-blue-700);
     --button-border-color: var(--color-blue-700);
     --button-text-color: var(--color-white);
-
-    &[data-focus-visible]::after {
-      border-color: var(--color-gray-500);
-    }
   }
 }
 
@@ -117,11 +116,7 @@
   &[data-pending] {
     --button-bg-color: var(--color-gray-300);
     --button-border-color: var(--color-gray-500);
-    --button-text-color: var(--purple-800);
-
-    &[data-focus-visible]::after {
-      border-color: var(--color-gray-500);
-    }
+    --button-text-color: var(--color-purple-800);
   }
 }
 
@@ -129,7 +124,6 @@
   --button-bg-color: transparent;
   --button-border-color: transparent;
   --button-text-color: var(--color-purple-800);
-
   &[data-hovered] {
     --button-bg-color: var(--color-gray-200);
     --button-border-color: var(--color-gray-200);
@@ -143,11 +137,7 @@
   &[data-pending] {
     --button-bg-color: var(--color-gray-300);
     --button-border-color: var(--color-gray-300);
-    --button-text-color: var(--color-purple);
-
-    &[data-focus-visible]::after {
-      border-color: var(--color-gray-500);
-    }
+    --button-text-color: var(--color-purple-800);
   }
 }
 
@@ -164,14 +154,17 @@
   --button-border-color: var(--color-white);
   --button-text-color: var(--color-purple-800);
 
-  /* TODO: check on this state in designs.... doesn't seem right */
   &[data-hovered] {
     --button-bg-color: var(--color-white);
     --button-border-color: var(--color-white);
   }
 
-  /* TODO: check on this state in designs.... doesn't seem right */
   &[data-pressed] {
+    --button-bg-color: var(--color-white);
+    --button-border-color: var(--color-white);
+  }
+
+  &[data-pending] {
     --button-bg-color: var(--color-white);
     --button-border-color: var(--color-white);
   }
@@ -189,6 +182,11 @@
   &[data-pressed] {
     --button-bg-color: rgba(var(--color-white-rgb), 0.1);
   }
+
+  &[data-pending] {
+    --button-bg-color: rgba(var(--color-white-rgb), 0.1);
+    --button-border-color: transparent;
+  }
 }
 
 .tertiaryReversed {
@@ -205,6 +203,11 @@
     --button-bg-color: rgba(var(--color-white-rgb), 0.1);
     --button-border-color: transparent;
   }
+
+  &[data-pending] {
+    --button-bg-color: rgba(var(--color-white-rgb), 0.1);
+    --button-border-color: transparent;
+  }
 }
 
 .isDisabled {
@@ -213,9 +216,6 @@
   --button-text-color: var(--color-white);
 
   &[data-hovered] {
-    /* do we want to do this? */
-    cursor: not-allowed;
-
     --button-bg-color: var(--color-gray-400);
     --button-border-color: var(--color-gray-400);
   }
