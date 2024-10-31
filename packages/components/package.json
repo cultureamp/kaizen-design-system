@@ -133,19 +133,20 @@
     "tslib": "^2.8.0",
     "tsx": "^4.19.2"
   },
+  "devDependenciesComments": {
+    "typescript": "Installed in root"
+  },
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.5.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-intl": "^6.6.8",
-    "typescript": "^5.5.4"
-  },
-  "peerDependenciesComments": {
-    "typescript": "Used for codemods"
+    "typescript": "5.x"
   },
   "peerDependenciesMeta": {
     "typescript": {
-      "optional": true
+      "optional": true,
+      "comments": "Used for codemods"
     }
   }
 }

@@ -86,7 +86,7 @@
     "stylelint-config-standard": "^36.0.1",
     "stylelint-config-standard-scss": "^13.1.0",
     "turbo": "^2.2.3",
-    "typescript": "^5.5.4",
+    "typescript": "5.5.4",
     "vite": "^5.4.10",
     "vitest": "^2.1.3",
     "vitest-axe": "^0.1.0"
@@ -95,6 +95,7 @@
     "@storybook/*": "Required for Storybook stories across all packages",
     "chromatic": "Required for Storybook stories across all packages",
     "playwright": "Required for github actions setup",
+    "typescript": "Version locked for package-bundler",
     "vite-plugin-node-polyfills": "Adds the node `assert` polyfill to Vite for prosemirror to run in storybook"
   },
   "pnpm": {
