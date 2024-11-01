@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
-  gap: var(--icon-gap);
+  gap: var(--button-icon-gap);
 }
 
 .buttonContentPending {
