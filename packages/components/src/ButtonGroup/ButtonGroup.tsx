@@ -50,7 +50,10 @@ export const ButtonGroup = ({
           if (isFilterButton(button)) {
             return React.cloneElement(child, {
               children: React.cloneElement(button, {
-                classNameOverride: buttonClassNames,
+                classNameOverride: classnames(
+                  button.props.classNameOverride,
+                  buttonClassNames
+                ),
               }),
             })
           }

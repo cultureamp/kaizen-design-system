@@ -7,7 +7,7 @@ import {
   FilterButtonBase,
   FilterButtonBaseProps,
 } from "../subcomponents/FilterButtonBase"
-import styles from "./FilterButton.module.scss"
+import styles from "./FilterButton.module.css"
 
 export type FilterButtonProps = {
   label: string

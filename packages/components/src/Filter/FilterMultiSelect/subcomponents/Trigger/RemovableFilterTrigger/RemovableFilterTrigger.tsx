@@ -1,9 +1,11 @@
 import React, { useRef } from "react"
+import classnames from "classnames"
 import { FilterTriggerRef } from "~components/Filter/Filter"
 import { FilterButtonRemovable } from "~components/Filter/FilterButton"
 import { useMenuTriggerContext } from "../../../context"
 import { getTruncatedLabels } from "../../../utils"
 import { FilterTriggerButtonProps } from "../FilterTriggerButton"
+import styles from "./RemovableFilterTrigger.module.css"
 
 export type RemovableFilterTriggerProps = FilterTriggerButtonProps & {
   onRemove: () => void
@@ -22,7 +24,10 @@ export const RemovableFilterTrigger = ({
   return (
     <FilterButtonRemovable
       ref={ref}
-      classNameOverride={classNameOverride}
+      classNameOverride={classnames(
+        styles.filterButtonRemovable,
+        classNameOverride
+      )}
       triggerButtonProps={{
         ...buttonProps,
         label,

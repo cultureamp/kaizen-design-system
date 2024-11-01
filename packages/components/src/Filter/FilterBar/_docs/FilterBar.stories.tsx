@@ -152,6 +152,11 @@ const filters = [
           { value: "none", label: "None" },
           { value: "pearls", label: "Pearls" },
           { value: "fruit-jelly", label: "Fruit Jelly" },
+          { value: "peanuts", label: "Peanuts" },
+          { value: "coconut", label: "Coconut" },
+          { value: "aloe", label: "Aloe Vera" },
+          { value: "mochi", label: "Mini Mochi" },
+          { value: "popping-pearls", label: "Popping Pearls" },
         ]}
       >
         {(): JSX.Element => (
