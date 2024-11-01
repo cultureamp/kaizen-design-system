@@ -3,7 +3,7 @@
 
 import { Preset } from "./src"
 
-module.exports = {
+export default {
   content: ["./src/_docs/**/*.{tsx,mdx}"],
   presets: [Preset],
   important: "body",

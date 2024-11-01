@@ -384,8 +384,11 @@ export default tseslint.config(
       "**/*.d.ts",
       "**/dist",
       "**/__fixtures__",
-      "packages/components/src/Icon/bin/Template.tsx",
       'docs/storybook-static',
+      "packages/components/src/Icon/bin/Template.tsx",
+      "packages/components/svgo.config.js",
+      "packages/components/svgo.spec.js",
+      "packages/components/svgoUtils.js"
     ]
   },
   {

@@ -3,7 +3,7 @@
 
 import { Preset } from "@kaizen/tailwind"
 
-module.exports = {
+export default {
   content: [
     "../packages/tailwind/src/_docs/**/*.{ts,tsx}",
     "../packages/**/*.mdx",
