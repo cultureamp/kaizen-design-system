@@ -10,7 +10,7 @@
 }
 
 /* keep max-width value in sync with other places using this container */
-@container filter-bar-wrapper (max-width: 768px) {
+@container filter-bar-wrapper (max-width: 767px) {
   .filterBar {
     flex-direction: column;
   }
