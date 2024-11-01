@@ -6,6 +6,7 @@ import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
 import vitest from "@vitest/eslint-plugin";
+import storybook from 'eslint-plugin-storybook'
 
 // const rules = {
 //   "@typescript-eslint/adjacent-overload-signatures": "error",
@@ -509,4 +510,5 @@ export default tseslint.config(
       'import/no-extraneous-dependencies': 'error',
     },
   },
+  ...storybook.configs['flat/recommended'],
 );
