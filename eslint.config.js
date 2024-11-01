@@ -261,25 +261,6 @@ import storybook from 'eslint-plugin-storybook'
 //   },
 // ]
 
-const sharedOptions = {
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
-  languageOptions: {
-    ecmaVersion: 2020,
-    globals: globals.browser,
-    // parserOptions: {
-    //   project: ['./tsconfig.json', './docs/tsconfig.json'],
-    //   tsconfigRootDir: import.meta.dirname,
-    //   ecmaFeatures: {
-    //     jsx: true,
-    //   },
-    // },
-  },
-}
-
 export default tseslint.config(
   {
     ignores: [
@@ -298,9 +279,16 @@ export default tseslint.config(
       js.configs.recommended,
       reactPlugin.configs.flat.recommended,
       reactPlugin.configs.flat['jsx-runtime'],
-      jsxA11y.flatConfigs.recommended,
     ],
-    ...sharedOptions,
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
     files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     plugins: {
       react: reactPlugin,
@@ -346,9 +334,7 @@ export default tseslint.config(
   },
   {
     extends: tseslint.configs.recommended,
-    ...sharedOptions,
     languageOptions: {
-      ...sharedOptions.languageOptions,
       parserOptions: {
         project: ['./tsconfig.json', './docs/tsconfig.json'],
         tsconfigRootDir: import.meta.dirname,
@@ -383,7 +369,6 @@ export default tseslint.config(
     },
   },
   {
-    ...sharedOptions,
     files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     ignores: [
       "**/*.stories.{ts,tsx}",
@@ -397,16 +382,17 @@ export default tseslint.config(
     },
   },
   {
-    ...sharedOptions,
     extends: [
       importPlugin.flatConfigs.recommended,
     ],
     settings: {
-      ...sharedOptions.settings,
       'import/resolver': {
         typescript: true,
         node: true,
       },
+    },
+    languageOptions: {
+      ecmaVersion: 2020,
     },
     files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     ignores: [
@@ -422,4 +408,8 @@ export default tseslint.config(
     },
   },
   ...storybook.configs['flat/recommended'],
+  {
+    ...jsxA11y.flatConfigs.recommended,
+    files: ['**/*.{jsx,mjsx,tsx,mtsx}'],
+  },
 );
