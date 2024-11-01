@@ -29,7 +29,7 @@ const isValidToken = (key: string | number): boolean =>
 
 // Filters out non-pixel-based spacing tokens, such as shirt sizes
 export const filterDenyListValues = (
-  spacingTokensObject: Record<string, string>
+  spacingTokensObject: Record<string, string>,
 ): Record<string, string> => {
   const keyValuePairs = Object.entries(spacingTokensObject)
 

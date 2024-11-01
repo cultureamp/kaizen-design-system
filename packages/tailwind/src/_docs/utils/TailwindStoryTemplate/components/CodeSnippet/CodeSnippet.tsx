@@ -15,7 +15,7 @@ export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
           setCopyIconIsChecked(true)
           onCopy?.(utilityClassNameName)
         },
-        () => undefined
+        () => undefined,
       )
   }
 
@@ -29,11 +29,9 @@ export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
       <p className="font-family-paragraph text-white flex justify-between items-center">
         <span>{text}</span>
         <span className="text-underline text-white">
-          {copyIconIsChecked ? (
-            <Icon name="assignment_turned_in" alt="Copied" isFilled />
-          ) : (
-            <Icon name="assignment" alt="Copy" isFilled />
-          )}
+          {copyIconIsChecked
+            ? <Icon name="assignment_turned_in" alt="Copied" isFilled />
+            : <Icon name="assignment" alt="Copy" isFilled />}
         </span>
       </p>
     </button>

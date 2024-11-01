@@ -41,8 +41,7 @@ export default (
       const componentNamePascal = plop.getHelper("pascalCase")(componentName)
 
       if (isSubcomponent) {
-        const parentComponentNamePascal =
-          plop.getHelper("pascalCase")(parentComponentName)
+        const parentComponentNamePascal = plop.getHelper("pascalCase")(parentComponentName)
 
         return [
           {

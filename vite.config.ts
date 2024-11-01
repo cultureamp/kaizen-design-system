@@ -23,7 +23,7 @@ export default {
         "~tests": path.resolve(__dirname, "./packages/components/__tests__"),
         "~design-tokens": path.resolve(
           __dirname,
-          "./packages/design-tokens/src"
+          "./packages/design-tokens/src",
         ),
         "~tailwind": path.resolve(__dirname, "./packages/tailwind/src"),
         // i18n-react-intl package attempts to import locales from this path.
@@ -31,9 +31,9 @@ export default {
         // redirected to import from the replacement path (Same as KAIO rollup config).
         "__@cultureamp/i18n-react-intl/locales": path.resolve(
           __dirname,
-          "./packages/components/locales"
+          "./packages/components/locales",
         ),
-      }
+      },
     ),
   },
   test: {
