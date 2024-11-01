@@ -27,6 +27,12 @@ type ButtonBaseProps = Omit<RACButtonProps, "children"> & {
 
 export type ButtonProps = ButtonBaseProps & PendingButtonProps
 
+// const getPendingProps = ({
+//   isPending,
+//   pendingLabel,
+//   isPendingLabelHidden,
+// }) => {}
+
 // TODO: add ref
 export const Button = ({
   variant = "primary",
@@ -35,9 +41,21 @@ export const Button = ({
   children,
   isDisabled,
   isFullWidth = false,
+  icon,
+  iconPosition,
+  isPending,
+  isPendingLabelHidden,
+  pendingLabel,
   ...otherProps
 }: ButtonProps): JSX.Element => {
   const isReversed = useReversedColors()
+  const pendingProps = isPending
+    ? {
+        isPending,
+        isPendingLabelHidden,
+        pendingLabel,
+      }
+    : {}
 
   return (
     <RACButton
@@ -50,14 +68,19 @@ export const Button = ({
         className
       )}
       isDisabled={isDisabled}
+      isPending={isPending}
       {...otherProps}
     >
       {racStateProps => {
         const childIsFunction = typeof children === "function"
 
         return (
-          // TODO: update the spread to be more specific to content props - we don't want irrelevant spread props to be passed to the ButtonContent component - ie: test id and RAC stuff
-          <ButtonContent size={size} {...otherProps}>
+          <ButtonContent
+            size={size}
+            icon={icon}
+            iconPosition={iconPosition}
+            {...pendingProps}
+          >
             {childIsFunction ? children(racStateProps) : children}
           </ButtonContent>
         )

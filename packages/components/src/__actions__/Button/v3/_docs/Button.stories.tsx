@@ -50,23 +50,6 @@ export const IconButton: Story = {
   },
 }
 
-export const PendingButton: Story = {
-  args: {
-    isPending: true,
-    pendingLabel: "Submitting",
-  },
-}
-
-export const PendingIconButton: Story = {
-  args: {
-    isPending: true,
-    isPendingLabelHidden: true,
-    children: <VisuallyHidden>Label</VisuallyHidden>,
-    pendingLabel: "Removing",
-    icon: <Icon isPresentational name="delete" />,
-  },
-}
-
 export const ReversedButton: Story = {
   parameters: {
     reverseColors: true,

@@ -20,9 +20,11 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const TriggerPending: Story = {
-  render: ({ children, isPending = false, ...otherProps }) => {
+export const PendingButton: Story = {
+  render: ({ isPending = false, ...otherProps }) => {
     const [isPendingStatus, setIsPendingStatus] =
+      React.useState<boolean>(isPending)
+    const [isIconPendingStatus, setIsIconPendingStatus] =
       React.useState<boolean>(isPending)
 
     return (
@@ -30,24 +32,55 @@ export const TriggerPending: Story = {
         <Button
           {...otherProps}
           isPending={isPendingStatus}
-          pendingLabel="loading"
+          pendingLabel="Loading"
           onPress={() => {
-            setIsPendingStatus(true)
-            setTimeout(() => setIsPendingStatus(false), 3000)
+            setIsPendingStatus(!isPendingStatus)
           }}
         >
-          {children}
+          Label
+        </Button>
+        <Button
+          {...otherProps}
+          isPending={isIconPendingStatus}
+          icon={<Icon name="add" isPresentational />}
+          pendingLabel="Loading"
+          isPendingLabelHidden
+          onPress={() => {
+            setIsIconPendingStatus(!isIconPendingStatus)
+          }}
+        >
+          <VisuallyHidden>Icon label</VisuallyHidden>
         </Button>
       </>
     )
   },
-  play: async ({ canvasElement }) => {
+  decorators: [
+    Story => (
+      <div className="flex gap-8">
+        <Story />
+      </div>
+    ),
+  ],
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole("button")
+    const button = canvas.getByRole("button", { name: "Label" })
     expect(button).toHaveAccessibleName("Label")
     await button.focus()
     await userEvent.click(button)
-    expect(button).toHaveAccessibleName("loading")
+
+    await step("Accessible label updates on press", async () => {
+      await waitFor(() => expect(button).toHaveAccessibleName("Loading"))
+    })
+
+    await step("Original label returns on press", async () => {
+      await waitFor(() => {
+        setTimeout(() => {
+          userEvent.click(button)
+        }, 1000)
+      })
+
+      await waitFor(() => expect(button).toHaveAccessibleName("Label"))
+    })
   },
 }
 
