@@ -2,8 +2,8 @@ import { waitFor } from "@testing-library/dom"
 import { EditorState } from "prosemirror-state"
 import { vi } from "vitest"
 import { createRichTextEditor } from "../core"
-import { simulateSelectionByText } from "./fixtures/helpers"
-import { testEditorStateWitList, testSchema } from "./fixtures/test-state"
+import { simulateSelectionByText } from "./__fixtures__/helpers"
+import { testEditorStateWitList, testSchema } from "./__fixtures__/test-state"
 import { listIsActive } from "./listIsActive"
 describe("listIsActive()", () => {
   const onChange = vi.fn()

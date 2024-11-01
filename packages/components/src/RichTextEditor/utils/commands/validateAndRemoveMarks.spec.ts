@@ -1,7 +1,7 @@
 import { findByText, waitFor } from "@testing-library/dom"
 import { vi } from "vitest"
 import { createRichTextEditor } from "../core"
-import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
+import { testEditorStateWithMarks, testSchema } from "./__fixtures__/test-state"
 import { validateAndRemoveMarks } from "./validateAndRemoveMarks"
 describe("validateAndRemoveMarks()", () => {
   const onChange = vi.fn()

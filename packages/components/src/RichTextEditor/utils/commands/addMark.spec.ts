@@ -6,8 +6,8 @@ import {
   mockRangeForBoundingRect,
   simulateSelectionByText,
   simulateTextInsert,
-} from "./fixtures/helpers"
-import { testEditorState, testSchema } from "./fixtures/test-state"
+} from "./__fixtures__/helpers"
+import { testEditorState, testSchema } from "./__fixtures__/test-state"
 describe("addMark()", () => {
   const onChange = vi.fn()
   const attributes = { "aria-labelledby": "label-text-123" }

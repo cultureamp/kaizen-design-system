@@ -5,8 +5,8 @@ import { createRichTextEditor } from "../core"
 import {
   simulateRangeSelection,
   simulateSelectionByText,
-} from "./fixtures/helpers"
-import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
+} from "./__fixtures__/helpers"
+import { testEditorStateWithMarks, testSchema } from "./__fixtures__/test-state"
 import { markIsActive } from "./markIsActive"
 describe("markIsActive()", () => {
   const onChange = vi.fn()

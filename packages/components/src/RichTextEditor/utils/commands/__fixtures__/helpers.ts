@@ -5,7 +5,6 @@ import {
   Transaction,
 } from "prosemirror-state"
 import { findChildrenByType } from "prosemirror-utils"
-//  eslint-disable-next-line import/no-extraneous-dependencies
 import { vi } from "vitest"
 import { ProseMirrorModel } from "../../prosemirror"
 /*
