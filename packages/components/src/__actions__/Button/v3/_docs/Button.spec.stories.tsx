@@ -158,3 +158,57 @@ export const RACRenderPropsWithClassName: Story = {
     },
   },
 }
+
+export const ButtonWithForwardRef: Story = {
+  render: ({ children: _, ...otherProps }) => {
+    const primaryRef = React.useRef<HTMLButtonElement>(null)
+    const secondaryRef = React.useRef<HTMLButtonElement>(null)
+    return (
+      <>
+        <Button
+          {...otherProps}
+          ref={primaryRef}
+          onPress={() => secondaryRef?.current?.focus()}
+        >
+          Focus on secondary
+        </Button>
+        <Button
+          {...otherProps}
+          ref={secondaryRef}
+          variant="secondary"
+          onPress={() => primaryRef?.current?.focus()}
+        >
+          Focus on primary
+        </Button>
+      </>
+    )
+  },
+  decorators: [
+    Story => (
+      <div className="flex gap-8">
+        <Story />
+      </div>
+    ),
+  ],
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const primaryButton = canvas.getByRole("button", {
+      name: "Focus on secondary",
+    })
+    const secondaryButton = canvas.getByRole("button", {
+      name: "Focus on primary",
+    })
+
+    await step("Use ref to focus on the secondary button", async () => {
+      await primaryButton.focus()
+      await userEvent.click(primaryButton)
+      await waitFor(() => expect(secondaryButton).toHaveFocus())
+    })
+
+    await step("Use ref to focus on the primary button", async () => {
+      await secondaryButton.focus()
+      await userEvent.click(secondaryButton)
+      await waitFor(() => expect(primaryButton).toHaveFocus())
+    })
+  },
+}

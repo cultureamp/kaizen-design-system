@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Ref, forwardRef, useRef } from "react"
 import {
   Button as RACButton,
   ButtonProps as RACButtonProps,
@@ -27,64 +27,63 @@ type ButtonBaseProps = Omit<RACButtonProps, "children"> & {
 
 export type ButtonProps = ButtonBaseProps & PendingButtonProps
 
-// const getPendingProps = ({
-//   isPending,
-//   pendingLabel,
-//   isPendingLabelHidden,
-// }) => {}
+export const Button = forwardRef(
+  (
+    {
+      variant = "primary",
+      size = "medium",
+      className,
+      children,
+      isDisabled,
+      isFullWidth = false,
+      icon,
+      iconPosition,
+      isPending,
+      isPendingLabelHidden,
+      pendingLabel,
+      ...otherProps
+    }: ButtonProps,
+    ref: React.ForwardedRef<HTMLButtonElement>
+  ) => {
+    const isReversed = useReversedColors()
+    const pendingProps = isPending
+      ? {
+          isPending,
+          isPendingLabelHidden,
+          pendingLabel,
+        }
+      : {}
 
-// TODO: add ref
-export const Button = ({
-  variant = "primary",
-  size = "medium",
-  className,
-  children,
-  isDisabled,
-  isFullWidth = false,
-  icon,
-  iconPosition,
-  isPending,
-  isPendingLabelHidden,
-  pendingLabel,
-  ...otherProps
-}: ButtonProps): JSX.Element => {
-  const isReversed = useReversedColors()
-  const pendingProps = isPending
-    ? {
-        isPending,
-        isPendingLabelHidden,
-        pendingLabel,
-      }
-    : {}
+    return (
+      <RACButton
+        ref={ref}
+        className={mergeClassNames(
+          styles.button,
+          styles[size],
+          isDisabled && styles.isDisabled,
+          isReversed ? styles[`${variant}Reversed`] : styles[variant],
+          isFullWidth && styles.fullWidth,
+          className
+        )}
+        isDisabled={isDisabled}
+        isPending={isPending}
+        {...otherProps}
+      >
+        {racStateProps => {
+          const childIsFunction = typeof children === "function"
 
-  return (
-    <RACButton
-      className={mergeClassNames(
-        styles.button,
-        styles[size],
-        isDisabled && styles.isDisabled,
-        isReversed ? styles[`${variant}Reversed`] : styles[variant],
-        isFullWidth && styles.fullWidth,
-        className
-      )}
-      isDisabled={isDisabled}
-      isPending={isPending}
-      {...otherProps}
-    >
-      {racStateProps => {
-        const childIsFunction = typeof children === "function"
-
-        return (
-          <ButtonContent
-            size={size}
-            icon={icon}
-            iconPosition={iconPosition}
-            {...pendingProps}
-          >
-            {childIsFunction ? children(racStateProps) : children}
-          </ButtonContent>
-        )
-      }}
-    </RACButton>
-  )
-}
+          return (
+            <ButtonContent
+              size={size}
+              icon={icon}
+              iconPosition={iconPosition}
+              {...pendingProps}
+            >
+              {childIsFunction ? children(racStateProps) : children}
+            </ButtonContent>
+          )
+        }}
+      </RACButton>
+    )
+  }
+)
