@@ -37,16 +37,17 @@ export const ButtonGroup = ({
   return (
     <div {...containerProps}>
       {React.Children.map(children, (child, index) => {
+        const isTooltip = child.type === Tooltip
+        const button = isTooltip ? child.props.children : child
+
         const buttonClassNames = classnames(
           styles.child,
           index === 0 && styles.firstChild,
           index === childCount - 1 && styles.lastChild,
-          child.props.classNameOverride
+          button.props.classNameOverride
         )
 
-        if (child.type === Tooltip) {
-          const button = child.props.children
-
+        if (isTooltip) {
           if (isFilterButton(button)) {
             return React.cloneElement(child, {
               children: React.cloneElement(button, {

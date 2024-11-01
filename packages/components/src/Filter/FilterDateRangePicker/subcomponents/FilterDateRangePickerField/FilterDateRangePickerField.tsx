@@ -18,6 +18,7 @@ import { DateValidationResponse } from "~components/Filter/FilterDatePicker"
 import { useDateInputHandlers } from "~components/Filter/FilterDatePicker/hooks/useDateInputHandlers"
 import { DataAttributes } from "~components/types/DataAttributes"
 import { OverrideClassName } from "~components/types/OverrideClassName"
+import { useMediaQueries } from "~components/utils/useMediaQueries"
 import {
   DateRangeInputField,
   DateRangeInputFieldProps,
@@ -275,6 +276,8 @@ export const FilterDateRangePickerField = ({
     handleDateRangeChange({ from: newStartDate, to: newEndDate })
   }, [inputStartDateLabel, inputEndDateLabel])
 
+  const { queries } = useMediaQueries()
+
   return (
     <div
       className={classnames(
@@ -317,6 +320,7 @@ export const FilterDateRangePickerField = ({
         }}
         onSelect={handleCalendarSelectRange}
         month={state.startMonth}
+        numberOfMonths={queries.isSmall ? 1 : 2}
         onMonthChange={(value: Date) =>
           dispatch({ type: "navigate_months", date: value })
         }

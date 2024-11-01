@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react"
+import classnames from "classnames"
 import { useIntl } from "@cultureamp/i18n-react-intl"
 import { ButtonGroup, ButtonGroupProps } from "~components/ButtonGroup"
 import { FilterTriggerRef } from "~components/Filter/Filter"
@@ -11,6 +12,7 @@ import {
   FilterButtonBase,
   FilterButtonBaseProps,
 } from "../subcomponents/FilterButtonBase"
+import styles from "./FilterButtonRemovable.module.scss"
 
 export type FilterButtonRemovableProps = {
   triggerButtonProps: FilterButtonProps & DataAttributes
@@ -45,11 +47,18 @@ export const FilterButtonRemovable = forwardRef<
   const removeButtonLabel =
     removeButtonProps?.tooltipText ?? removeButtonLabelFallback
 
+  const removeButtonPropsWithChanges = { ...removeButtonProps, ...{
+    classNameOverride: classnames(
+      styles.removeFilterButton,
+      removeButtonProps?.classNameOverride
+    )
+  }};
+
   return (
     <ButtonGroup {...restProps}>
       <FilterButton ref={ref} {...triggerButtonProps} />
       <Tooltip text={removeButtonLabel} display="inline-block" position="below">
-        <FilterButtonBase ref={removeButtonRef} {...removeButtonProps}>
+        <FilterButtonBase ref={removeButtonRef} {...removeButtonPropsWithChanges}>
           <Icon name="cancel" alt={removeButtonLabel} isFilled />
         </FilterButtonBase>
       </Tooltip>

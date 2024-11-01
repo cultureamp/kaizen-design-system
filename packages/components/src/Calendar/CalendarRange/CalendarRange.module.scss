@@ -47,6 +47,11 @@ $cell-border-radius: 3px;
   .captionEnd & {
     flex-direction: row-reverse;
   }
+
+  .captionStart.captionEnd & {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .dayRangeStart,

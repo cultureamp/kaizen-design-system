@@ -39,7 +39,7 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
                 <span>{label}</span>
                 <span className={styles.labelSeparator}>:</span>
               </span>
-              <span>{selectedValuesLabel}</span>
+              <span className={styles.selectedValues}>{selectedValuesLabel}</span>
             </>
           ) : (
             label

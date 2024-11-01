@@ -2,15 +2,22 @@
 @import "~@kaizen/design-tokens/sass/typography";
 
 .filterButton {
+  height: auto;
   gap: $spacing-xs;
 }
 
 .labelContainer {
   display: inline-flex;
+  flex-wrap: wrap;
 }
 
 .hasSelectedValues {
   font-weight: bold;
+}
+
+.selectedValues {
+  text-align: left;
+  text-wrap: wrap;
 }
 
 .labelSeparator {
