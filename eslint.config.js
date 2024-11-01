@@ -3,6 +3,7 @@ import vitest from "@vitest/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier";
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
+import * as mdx from 'eslint-plugin-mdx'
 import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import storybook from 'eslint-plugin-storybook'
@@ -182,33 +183,6 @@ import tseslint from 'typescript-eslint';
 //         "error",
 //         { allowExpressions: true },
 //       ],
-//     },
-//   },
-//   {
-//     files: ["*.md", "*.mdx"],
-//     extends: "plugin:mdx/recommended",
-//     rules: {
-//       "import/no-extraneous-dependencies": "off",
-//       // This is throwing false positives in MDX
-//       // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/780
-//       "jsx-a11y/anchor-has-content": "off",
-//       semi: ["error", "never"],
-//     },
-//     settings: {
-//       "mdx/code-blocks": true,
-//     },
-//   },
-//   {
-//     files: "**/*.{md,mdx}/**",
-//     extends: "plugin:mdx/code-blocks",
-//     rules: {
-//       "react/react-in-jsx-scope": "off",
-//       "react/jsx-no-undef": "off",
-//       "@typescript-eslint/no-unused-vars": "off",
-//       "@typescript-eslint/explicit-function-return-type": "off",
-//       "react/jsx-no-comment-textnodes": "off",
-//       "react/no-unknown-property": "off",
-//       "no-duplicate-imports": "off",
 //     },
 //   },
 // ]
@@ -420,5 +394,7 @@ export default tseslint.config(
     ...jsxA11y.flatConfigs.recommended,
     files: ['**/*.{jsx,mjsx,tsx,mtsx}'],
   },
+  mdx.flat,
+  mdx.flatCodeBlocks,
   eslintConfigPrettier,
 );
