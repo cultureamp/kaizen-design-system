@@ -144,19 +144,6 @@ import storybook from 'eslint-plugin-storybook'
 //       pathGroupsExcludedImportTypes: [],
 //     },
 //   ],
-//   "vitest/consistent-test-it": ["error", { fn: "it" }],
-//   "vitest/expect-expect": "error",
-//   "vitest/no-commented-out-tests": "error",
-//   "vitest/no-conditional-expect": "error",
-//   "vitest/no-focused-tests": "error",
-//   "vitest/no-disabled-tests": "error",
-//   "vitest/no-standalone-expect": "error",
-//   "vitest/no-test-return-statement": "error",
-//   "vitest/prefer-equality-matcher": "error",
-//   "vitest/require-top-level-describe": "error",
-//   "vitest/valid-describe-callback": "error",
-//   "vitest/valid-expect": "error",
-//   "vitest/valid-title": "error",
 //   "jsdoc/check-alignment": "off",
 //   "jsdoc/check-indentation": "off",
 //   "jsdoc/newline-after-description": "off",
@@ -237,20 +224,6 @@ import storybook from 'eslint-plugin-storybook'
 // }
 // const overrides = [
 //   {
-//     files: [
-//       ".storybook/*",
-//       "**/_docs/**/*",
-//       "**/__tests__/**/*",
-//       "*.stories.tsx",
-//       "*.spec.ts",
-//       "*.spec.tsx",
-//       "*.docsExample.tsx",
-//     ],
-//     rules: {
-//       "import/no-extraneous-dependencies": "off",
-//     },
-//   },
-//   {
 //     files: ["*.ts", "*.mts", "*.cts", "*.tsx"],
 //     rules: {
 //       "@typescript-eslint/explicit-function-return-type": [
@@ -286,78 +259,6 @@ import storybook from 'eslint-plugin-storybook'
 //       "no-duplicate-imports": "off",
 //     },
 //   },
-//   {
-//     files: ["**/bin/**", "vitest.setup.ts"],
-//     rules: {
-//       "no-console": "off",
-//     },
-//   },
-// ]
-
-// export default [
-//   js.configs.recommended,
-//   {
-//     "settings": {
-//       "import/resolver": {
-//         typescript: true,
-//         node: true,
-//       },
-//       "react": {
-//         "version": "detect"
-//       }
-//     },
-//     files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
-//     ignores: [
-//       "**/*.d.ts",
-//       "./packages/**/dist",
-//       "./packages/components/src/Icon/bin/Template.tsx",
-//       './docs/storybook-static',
-//       './docs/preview.css'
-//     ],
-//     ...reactPlugin.configs.flat.recommended,
-//     languageOptions: {
-//       ...reactPlugin.configs.flat.recommended.languageOptions,
-//       globals: {
-//         ...globals.serviceworker,
-//         ...globals.browser,
-//       },
-//       ecmaVersion: 2020,
-//       parserOptions: {
-//         project: ['./tsconfig.json'],
-//         tsconfigRootDir: import.meta.dirname,
-//       },
-//     },
-//     // env: {
-//     //   browser: true,
-//     //   node: true,
-//     // },
-//     // settings: {
-//     //   "import/resolver": {
-//     //     typescript: {}, // this empty key is required for eslint-import-resolver-typescript
-//     //   },
-//     //   react: {
-//     //     version: "detect",
-//     //   },
-//     // },
-//     // extends: [
-//     //   "prettier",
-//     //   "plugin:ssr-friendly/recommended",
-//     //   "plugin:jsx-a11y/recommended",
-//     //   "plugin:storybook/recommended",
-//     //   "plugin:import/typescript",
-//     //   "plugin:react/recommended",
-//     // ],
-//     // plugins: [
-//     //   "@typescript-eslint",
-//     //   "@stylistic",
-//     //   "import",
-//     //   "sort-imports-es6-autofix",
-//     //   "ssr-friendly",
-//     //   "jsx-a11y",
-//     //   "vitest",
-//     // ],
-
-//   }
 // ]
 
 const sharedOptions = {
@@ -403,10 +304,8 @@ export default tseslint.config(
     files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     plugins: {
       react: reactPlugin,
-      vitest,
     },
     rules: {
-      ...vitest.configs.recommended.rules,
       camelcase: ["error", {
         allow: ["^UNSAFE_", "^UNSTABLE_"]
       }],
@@ -429,7 +328,19 @@ export default tseslint.config(
       ],
       "react/button-has-type": "error",
       "react/prop-types": "off",
+    },
+  },
+  {
+    extends: [vitest.configs.recommended],
+    files: ['**/*.{spec,test}.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
+    rules: {
+      "vitest/consistent-test-it": ["error", { fn: "it" }],
       "vitest/no-conditional-expect": "error",
+      "vitest/no-focused-tests": "error",
+      "vitest/no-disabled-tests": "error",
+      "vitest/no-standalone-expect": "error",
+      "vitest/no-test-return-statement": "error",
+      "vitest/prefer-equality-matcher": "error",
       "vitest/require-top-level-describe": "error",
     },
   },
