@@ -28,7 +28,7 @@ export const CalendarSingle = ({
 
   useEffect(() => {
     if (calendarRef.current) onMount?.(calendarRef.current)
-  }, [calendarRef])
+  }, [calendarRef, onMount])
 
   const monthToShow = selected || defaultMonth
   const selectedMonth =

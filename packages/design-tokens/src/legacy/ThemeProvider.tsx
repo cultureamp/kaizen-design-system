@@ -38,6 +38,8 @@ export const ThemeProvider = ({
       cancelled = true
       themeManagerInstance.removeThemeChangeListener(listener)
     }
+  // Legacy function, so keeping it as it was
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

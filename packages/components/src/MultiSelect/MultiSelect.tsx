@@ -41,7 +41,8 @@ export const MultiSelect = ({
   validationMessage,
   ...restProps
 }: MultiSelectProps): JSX.Element => {
-  const id = propsId ?? useId()
+  const fallbackId = useId()
+  const id = propsId ?? fallbackId
   const descriptionId = `${id}-description`
   const validationId = `${id}-validation-message`
 

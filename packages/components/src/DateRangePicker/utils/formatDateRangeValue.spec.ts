@@ -11,7 +11,7 @@ describe("formatDateRangeValue", () => {
     expect(formatDateRangeValue(dateRangeFromOnly)).toEqual("Feb 1, 2022")
   })
 
-  it("displays a from date by itself", () => {
+  it("displays the year once when both dates share the same year", () => {
     const dateRangeBothValues: DateRange = {
       from: new Date(2022, 1, 1),
       to: new Date(2022, 2, 2),
@@ -22,7 +22,7 @@ describe("formatDateRangeValue", () => {
     )
   })
 
-  it("displays a from date by itself", () => {
+  it("displays the year for both dates when they are not the same", () => {
     const dateRangeOvertoNewYear: DateRange = {
       from: new Date(2022, 1, 1),
       to: new Date(2023, 1, 1),

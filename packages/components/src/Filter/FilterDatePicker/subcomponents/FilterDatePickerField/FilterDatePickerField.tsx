@@ -175,6 +175,8 @@ export const FilterDatePickerField = ({
 
   useEffect(() => {
     validateDate(selectedDate, state.inputValue)
+  // Only run on first load as subsequent validation is handled separately
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

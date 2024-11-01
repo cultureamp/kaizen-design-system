@@ -1,4 +1,4 @@
-import { NodeSpec } from "prosemirror-model"
+import type { NodeSpec } from "prosemirror-model"
 import { nodes as proseNodes } from "prosemirror-schema-basic"
 import { bulletList, listItem, orderedList } from "prosemirror-schema-list"
 

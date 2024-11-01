@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import classNames from "classnames"
 import Media from "react-media"
 import { Heading, HeadingProps } from "~components/Heading"
@@ -80,12 +80,11 @@ type WithTooltipProps = {
 const WithTooltip = ({
   tooltipProps,
   children,
-}: WithTooltipProps): JSX.Element =>
-  !!tooltipProps ? (
-    <Tooltip {...tooltipProps}>{children}</Tooltip>
-  ) : (
-    <>{children}</>
-  )
+}: WithTooltipProps): JSX.Element => {
+  if (tooltipProps) return <Tooltip {...tooltipProps}>{children}</Tooltip>
+
+  return <>{children}</>
+}
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093807/Guidance+Block Guidance} |
@@ -109,11 +108,29 @@ export const GuidanceBlock = ({
 
   const containerRef = React.createRef<HTMLDivElement>()
 
+  const handleMediaQueryLayout = (width: number): void => {
+    if (width <= 320) {
+      setMediaQueryLayout("centerContent")
+    } else {
+      setMediaQueryLayout("")
+    }
+  }
+
+  const containerQuery = useCallback((): void => {
+    const resizeObserver = new ResizeObserver(entries => {
+      if (entries.length === 1) {
+        handleMediaQueryLayout(entries[0].contentRect.width)
+      }
+    })
+
+    resizeObserver.observe(containerRef.current as HTMLElement)
+  }, [containerRef])
+
   useEffect(() => {
     if (layout === "inline" || layout === "stacked") {
       containerQuery()
     }
-  }, [])
+  }, [containerQuery, layout])
 
   const handleDismissBanner = (): void => {
     setHidden(true)
@@ -124,24 +141,6 @@ export const GuidanceBlock = ({
     // Be careful: this assumes the final CSS property to be animated is "margin-top".
     if (hidden && e.propertyName === "margin-top") {
       setRemoved(true)
-    }
-  }
-
-  const containerQuery = (): void => {
-    const resizeObserver = new ResizeObserver(entries => {
-      if (entries.length === 1) {
-        handleMediaQueryLayout(entries[0].contentRect.width)
-      }
-    })
-
-    resizeObserver.observe(containerRef.current as HTMLElement)
-  }
-
-  const handleMediaQueryLayout = (width: number): void => {
-    if (width <= 320) {
-      setMediaQueryLayout("centerContent")
-    } else {
-      setMediaQueryLayout("")
     }
   }
 

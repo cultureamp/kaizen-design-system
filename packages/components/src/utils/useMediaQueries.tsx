@@ -1,3 +1,5 @@
+/* This is a legacy function, so keeping it as it was */
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState, ReactNode, useMemo } from "react"
 
 type Props = { [key: string]: string }
@@ -70,7 +72,7 @@ export const useMediaQueries = (
           breakpoints.large
         )})`
       ),
-    [breakpoints.large]
+    [breakpoints.large, breakpoints.medium]
   )
   const largeMatchMedia = useMemo(
     () => window.matchMedia(`(min-width: ${breakpoints.large})`),
@@ -125,6 +127,8 @@ export const useMediaQueries = (
       smallMatchMedia.removeEventListener("change", updateMatches)
       largeMatchMedia.removeEventListener("change", updateMatches)
     }
+  // This is a legacy function, so keeping it as it was
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // ---------------------------------------
@@ -177,6 +181,8 @@ export const useMediaQueries = (
         matchMedia.removeEventListener("change", eventListener)
       })
     }
+  // This is a legacy function, so keeping it as it was
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // ---------------------------------------

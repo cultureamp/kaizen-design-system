@@ -4,7 +4,7 @@ import "./preview.css"
 
 import React, { useEffect } from "react"
 import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
-import { Preview } from "@storybook/react"
+import { Decorator, Preview } from "@storybook/react"
 import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { I18nProvider } from "~components/__react-aria-components__"
@@ -28,7 +28,7 @@ const globalTypes: Preview["globalTypes"] = {
   },
 }
 
-const RACDecorator = (Story, context): JSX.Element => {
+const RACDecorator: Decorator = (Story, context) => {
   const dir = context.parameters.textDirection ?? context.globals.textDirection
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const RACDecorator = (Story, context): JSX.Element => {
   )
 }
 
-const KaizenProviderDecorator = (Story): JSX.Element => (
+const KaizenProviderDecorator: Decorator = (Story) => (
   <KaizenProvider>
     <Story />
   </KaizenProvider>
@@ -61,7 +61,6 @@ const decorators: Preview["decorators"] = [
       <Story />
     ),
   // reverseColor parameter wraps story in ReversedColors context and sets default background to Purple 700
-  // @ts-ignore
   (Story, context) => {
     if (
       // set in top toolbar
@@ -159,6 +158,7 @@ const preview = {
 
         const customDocNames = ["Usage Guidelines", "API Specification"]
         // Don't type the param - we can't use TypeScript within storySort
+        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         const removeCustomDocNames = title => {
           return customDocNames.reduce((acc, docName) => {
             const regex = new RegExp(`/${docName}$`)

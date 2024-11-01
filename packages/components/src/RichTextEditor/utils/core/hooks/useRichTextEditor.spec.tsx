@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { Command, EditorState } from "prosemirror-state"
+import type { Command, EditorState } from "prosemirror-state"
 import { vi } from "vitest"
 import { testEditorState } from "../fixtures/testState"
 import { useRichTextEditor } from "./useRichTextEditor"
@@ -32,7 +32,7 @@ const Scenario = ({
   useEffect(() => {
     // Propagate changes to the editorState
     onChange(editorState)
-  }, [editorState])
+  }, [editorState, onChange])
 
   return (
     <div>

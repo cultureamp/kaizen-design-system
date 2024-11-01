@@ -56,7 +56,8 @@ export const Collapsible = ({
   const [stateIsOpen, setIsOpen] = useState<boolean>(open ?? false)
   const getOpen = (): boolean | undefined => (controlled ? open : stateIsOpen)
 
-  const id = propsId ?? useId()
+  const fallbackId = useId()
+  const id = propsId ?? fallbackId
 
   const handleSectionToggle = (): void => {
     const newIsOpen = !getOpen()

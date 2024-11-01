@@ -246,6 +246,8 @@ describe("<FilterBarMultiSelect />", () => {
         setAllItems(
           data.filter(({ topping }) => toppingsFilter.value?.includes(topping))
         )
+      // `data` does not change
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [toppingsFilter.value])
 
       return (

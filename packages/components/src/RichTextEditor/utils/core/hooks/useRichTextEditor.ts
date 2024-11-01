@@ -65,7 +65,7 @@ export const useRichTextEditor = (
         return true
       })
     },
-    [editableStatusRef]
+    [editableStatusRef, dispatchTransaction]
   )
 
   const editorRef = useCallback(
@@ -85,7 +85,8 @@ export const useRichTextEditor = (
 
     // Including editorState in the dependencies here will cause an endless
     // loop as the initialization changes its value
-    [setEditorState, editableStatusRef]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [setEditorState, editableStatusRef, attributes]
   )
 
   // Tear down ProseMirror when the consuming component is unmounted

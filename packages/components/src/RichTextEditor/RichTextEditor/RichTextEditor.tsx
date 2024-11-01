@@ -109,6 +109,7 @@ export const RichTextEditor = ({
     | ReturnType<typeof useRichTextEditor>
     | Error => {
     try {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       return useRichTextEditor(
         ProseMirrorState.EditorState.create({
           doc: ProseMirrorModel.Node.fromJSON(schema, {
@@ -133,7 +134,7 @@ export const RichTextEditor = ({
   })()
 
   if (useRichTextEditorResult instanceof Error) {
-    onDataError && onDataError()
+    onDataError?.()
     return (
       <InlineNotification
         headingProps={{
@@ -152,9 +153,11 @@ export const RichTextEditor = ({
 
   const controlMap = buildControlMap(schema, editorState, controls)
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     onChange(editorState)
-    // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
+  // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editorState])
 
   return (

@@ -89,7 +89,7 @@ export const GenericNotification = forwardRef<
           setIsHidden(false)
         }
       })
-    }, [])
+    }, [containerRef])
 
     const getMarginTop = (): string => {
       if (isHidden && containerRef.current) {

@@ -484,7 +484,7 @@ export const MobileActions = ({
         setIsOpen(false)
       }
     },
-    [menuContent]
+    [isOpen, menuContent]
   )
 
   useEffect(() => {

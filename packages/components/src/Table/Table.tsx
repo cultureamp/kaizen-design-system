@@ -136,10 +136,10 @@ export const TableHeaderRowCell = ({
       setIsHovered(hoverState)
   }
 
-  const headerColor = !!reversed
+  const headerColor = reversed
     ? "white-reduced-opacity"
     : "dark-reduced-opacity"
-  const hoveredHeaderColor = !!reversed ? "white" : "dark"
+  const hoveredHeaderColor = reversed ? "white" : "dark"
 
   // For this "cellContents" variable, we start at the inner most child, and
   // wrap it elements, depending on what the props dictate.

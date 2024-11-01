@@ -47,7 +47,7 @@ const SelectionProviderWrapper = ({
       selectedKeys={selected}
       onSelectionChange={(selection): void => {
         setSelected(selection)
-        onSelectionChange && onSelectionChange(selection)
+        onSelectionChange?.(selection)
       }}
       {...props}
     >

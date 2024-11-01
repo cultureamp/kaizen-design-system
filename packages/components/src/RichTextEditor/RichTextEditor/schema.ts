@@ -1,4 +1,4 @@
-import { MarkSpec } from "prosemirror-model"
+import type { MarkSpec } from "prosemirror-model"
 import { TOOLBAR_CONTROLS } from "../constants"
 import { ToolbarItems, ToolbarControlTypes } from "../types"
 import { ProseMirrorModel } from "../utils/prosemirror"

@@ -1,3 +1,5 @@
+/* This is a legacy component, so leaving it as is */
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, {
   ComponentType,
   FocusEvent,
@@ -202,7 +204,7 @@ const renderCustomComponent = (
     // @ts-expect-error we're using span ref on link context, but that's ok because we need only sizing
     LinkContext
   )
-  // @ts-expect-error
+  // @ts-expect-error See below
   // @todo: Make a wrapper and take it out of Button
   const { linkProps } = useLink(contextProps, contextRef)
 
@@ -265,9 +267,8 @@ const renderButton = (
     ...getCustomProps(props),
   }
 
-  // we're using useFocusable instead of useButton because at this stage we want to hook only to focusable.
+  // @ts-expect-error We're using useFocusable instead of useButton because at this stage we want to hook only to focusable.
   // Not standardize button behavior as we're currently relying on some weird native behaviours (like onClick firing on enter key press) see https://react-spectrum.adobe.com/blog/building-a-button-part-1.html
-  // @ts-ignore
   const { focusableProps } = useFocusable(passedInProps, ref)
 
   return (
@@ -314,9 +315,8 @@ const renderLink = (
     ...getCustomProps(props),
   }
 
-  // we're using useFocusable instead of useLink because at this stage we want to hook only to focusable.
+  // @ts-expect-error We're using useFocusable instead of useLink because at this stage we want to hook only to focusable.
   // Not standardize button behavior as we're currently relying on some weird native behaviours (like onClick firing on enter key press) see https://react-spectrum.adobe.com/blog/building-a-button-part-1.html
-  // @ts-ignore
   const { focusableProps } = useFocusable(passedInProps, ref)
 
   return (
@@ -343,7 +343,7 @@ const buttonClass = (props: RenderProps): string => {
   return classnames(
     styles.button,
     isDefault && styles.default,
-    // @ts-ignore
+    // @ts-expect-error aria-disabled exists
     (props.disabled || props["aria-disabled"]) && styles.disabled,
     props.primary && styles.primary,
     props.destructive && styles.destructive,

@@ -84,7 +84,7 @@ export type DatePickerProps = {
  */
 export const DatePicker = ({
   id: propsId,
-  buttonRef: propsButtonRef = useRef<HTMLButtonElement>(null),
+  buttonRef: propsButtonRef,
   locale: propsLocale = "en-AU",
   disabledDates,
   disabledDaysOfWeek,
@@ -119,7 +119,8 @@ export const DatePicker = ({
 
   const containerRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  const buttonRef = useRef<HTMLButtonElement>(propsButtonRef?.current || null)
+  const fallbackButtonRef = useRef<HTMLButtonElement>(null)
+  const buttonRef = propsButtonRef ?? fallbackButtonRef
   const dateInputRefs = useRef({
     inputRef,
     buttonRef,
@@ -270,6 +271,7 @@ export const DatePicker = ({
         handleValidation(validationResponse)
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedDay])
 
   const calendarId = `${id}-calendar-dialog`

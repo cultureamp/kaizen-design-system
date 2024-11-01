@@ -1,5 +1,5 @@
 import { findByText, queryByText, getByText } from "@testing-library/dom"
-import { Command, EditorState } from "prosemirror-state"
+import type { Command, EditorState } from "prosemirror-state"
 import { vi } from "vitest"
 import { createRichTextEditor } from "./createRichTextEditor"
 import { testEditorState } from "./fixtures/testState"

@@ -9,7 +9,6 @@ import {
   TableRowCell,
 } from "./Table"
 
-// eslint-disable-next-line @typescript-eslint/no-shadow
 enum TestId {
   tableContainer = "table-container",
   tableHeader = "table-header",

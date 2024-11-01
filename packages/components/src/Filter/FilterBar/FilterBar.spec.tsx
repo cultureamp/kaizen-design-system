@@ -926,7 +926,7 @@ describe("<FilterBar />", () => {
               setItems(fetchedItems)
             }
           })
-        }, [JSON.stringify(activeFilterVals)])
+        }, [activeFilterVals, fetcher, items])
 
         return (
           <FilterBar.MultiSelect id={id} items={items}>

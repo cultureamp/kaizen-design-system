@@ -61,8 +61,6 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
     hasNoItems,
   })
 
-  // Only update rendering of items when filtering.
-  // Avoids re-ordering of items when making a selection
   useEffect(() => {
     setItemsState({
       selectedItems,
@@ -71,6 +69,9 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
       allItems,
       hasNoItems,
     })
+  // Only update rendering of items when filtering.
+  // Avoids re-ordering of items when making a selection
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectionState.collection.size])
 
   if (hasNoItems) {

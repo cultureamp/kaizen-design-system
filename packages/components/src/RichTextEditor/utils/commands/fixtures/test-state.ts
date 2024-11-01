@@ -3,7 +3,7 @@ import { createDocNode, createEditorState } from "../../core/state"
 import { getMarks } from "../../schema/marks"
 import { getNodes } from "../../schema/nodes"
 
-const data = require("./data.json")
+import data from "./data.json"
 
 export const testSchema = new Schema({
   nodes: getNodes(),

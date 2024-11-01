@@ -67,8 +67,7 @@ export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
   if (schema.nodes.hardBreak) {
     const br = schema.nodes.hardBreak
     const cmd = chainCommands(exitCode, (state, dispatch) => {
-      dispatch &&
-        dispatch(state.tr.replaceSelectionWith(br.create()).scrollIntoView())
+      dispatch?.(state.tr.replaceSelectionWith(br.create()).scrollIntoView())
       return true
     })
     keys["Mod-Enter"] = cmd

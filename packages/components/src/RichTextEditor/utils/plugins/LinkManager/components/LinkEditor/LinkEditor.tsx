@@ -27,7 +27,6 @@ export const LinkEditor = ({
     attrs.href != null
   )
   const [modalOpen, setModalOpen] = useState<boolean>(
-    // eslint-disable-next-line no-underscore-dangle
     attrs._metadata?.added === true
   )
 

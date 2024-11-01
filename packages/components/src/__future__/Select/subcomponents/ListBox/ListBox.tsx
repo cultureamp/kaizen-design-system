@@ -78,7 +78,7 @@ export const ListBox = <Option extends SelectOption>({
         ref.current?.focus()
       }
     }
-  }, [isClientReady])
+  }, [isClientReady, state])
 
   return (
     <ul

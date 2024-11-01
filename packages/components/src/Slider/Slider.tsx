@@ -30,7 +30,8 @@ export const Slider = ({
   readOnlyMessage,
   ...restProps
 }: SliderFieldProps): JSX.Element => {
-  const id = propsId ?? useId()
+  const fallbackId = useId()
+  const id = propsId ?? fallbackId
   const descriptionId = `${id}-description`
 
   return (

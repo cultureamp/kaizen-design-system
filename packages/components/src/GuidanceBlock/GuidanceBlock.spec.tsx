@@ -34,7 +34,7 @@ describe("GuidanceBlock", () => {
       />
     )
     const actionButton = container.querySelector("button")
-    actionButton && (await user.click(actionButton))
+    if (actionButton) await user.click(actionButton)
 
     await waitFor(() => {
       expect(onAction).toHaveBeenCalledTimes(1)

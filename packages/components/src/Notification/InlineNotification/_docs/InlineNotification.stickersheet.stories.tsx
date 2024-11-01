@@ -134,7 +134,7 @@ const VARIANTS_PROPS: Array<{
   {
     title: "Focus",
     props: {
-      // @ts-ignore
+      // @ts-expect-error data attributes are valid
       "data-sb-pseudo-styles": "focus",
       variant: "informative",
       headingProps: {

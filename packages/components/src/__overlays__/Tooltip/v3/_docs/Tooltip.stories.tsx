@@ -18,7 +18,6 @@ const meta = {
   },
   subcomponents: { TooltipTrigger } as Record<string, FunctionComponent<any>>,
   argTypes: {
-    // eslint-disable-next-line camelcase
     UNSTABLE_portalContainer: {
       control: false,
       table: { disable: true },

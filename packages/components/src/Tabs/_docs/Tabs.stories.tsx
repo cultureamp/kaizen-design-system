@@ -48,7 +48,6 @@ export const Playground: Story = {
   },
   args: {
     defaultIndex: 1,
-    // eslint-disable-next-line no-console
     onChange: (index): void => console.log("Tab changed to ", index),
   },
 }

@@ -12,11 +12,9 @@ export const ClearButton = (): JSX.Element => {
   )
   const isDisabled =
     filteredOptions.length === 0 ||
-    !Boolean(
-      filteredOptions.find(key =>
+    !filteredOptions.find(key =>
         selectionState.selectionManager.isSelected(key)
       )
-    )
 
   return (
     <button
@@ -25,12 +23,13 @@ export const ClearButton = (): JSX.Element => {
       aria-disabled={isDisabled}
       onClick={
         (): void => {
-          !isDisabled &&
+          if (!isDisabled) {
             selectionState.selectionManager.setSelectedKeys(
               selectedOptions.filter(
                 option => !filteredOptions.includes(option)
               )
             )
+          }
         }
         // TODO: add announcement here to inform selection cleared
       }

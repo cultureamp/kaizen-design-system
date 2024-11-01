@@ -24,7 +24,7 @@ export const AddFiltersMenu = (): JSX.Element => {
       buttonRef.current?.focus()
       setFocus(undefined)
     }
-  }, [focusId])
+  }, [focusId, setFocus])
 
   return (
     <Menu

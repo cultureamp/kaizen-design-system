@@ -390,7 +390,7 @@ export const TitleBlockZen = ({
                 renderSectionTitle) && (
                 <div className={styles.sectionTitleContainer}>
                   <div className={styles.sectionTitleInner}>
-                    {!!renderSectionTitle
+                    {renderSectionTitle !== undefined
                       ? renderSectionTitle({
                           sectionTitle,
                           sectionTitleAutomationId,

@@ -38,7 +38,7 @@ export const createRichTextEditor = ({
     const newEditorState = editorView && editorView.state.apply(tx)
     if (newEditorState) {
       onChange(newEditorState)
-      editorView && editorView.updateState(newEditorState)
+      editorView?.updateState(newEditorState)
     }
   }
 
@@ -63,7 +63,7 @@ export const createRichTextEditor = ({
 
   return {
     destroy: () => {
-      editorView && editorView.destroy()
+      editorView?.destroy()
     },
     dispatchTransaction: dispatchCommandOrTransaction,
   }

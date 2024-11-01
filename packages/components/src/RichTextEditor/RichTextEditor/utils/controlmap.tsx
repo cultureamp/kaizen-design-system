@@ -34,7 +34,7 @@ const chainTransactions =
   (state, dispatch): boolean => {
     const updateStateAndDispatch = (tr: ProseMirrorState.Transaction): void => {
       state = state.apply(tr)
-      dispatch && dispatch(tr)
+      dispatch?.(tr)
     }
     const lastCommand = commands.pop()
 

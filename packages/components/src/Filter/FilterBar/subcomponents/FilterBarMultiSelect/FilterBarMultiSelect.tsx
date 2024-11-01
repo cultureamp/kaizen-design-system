@@ -63,6 +63,8 @@ export const FilterBarMultiSelect = ({
     if (!checkArraysMatch(items, propsItems)) {
       setItems(propsItems)
     }
+  // One way check to update on external changes
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsItems])
 
   useEffect(() => {
@@ -76,14 +78,14 @@ export const FilterBarMultiSelect = ({
         updateValue(id, filteredValues)
       }
     }
-  }, [items])
+  }, [filterState.value, id, items, updateValue])
 
   useEffect(() => {
     if (focusId === id) {
       buttonRef.current?.focus()
       setFocus(undefined)
     }
-  }, [focusId])
+  }, [focusId, id, setFocus])
 
   return (
     <FilterMultiSelect

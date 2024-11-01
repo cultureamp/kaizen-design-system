@@ -57,7 +57,7 @@ export type DateRangePickerProps = {
  */
 export const DateRangePicker = ({
   id: propsId,
-  buttonRef = useRef<HTMLButtonElement>(null),
+  buttonRef: propsRef,
   description: _description, // not used
   labelText,
   isDisabled = false,
@@ -75,6 +75,8 @@ export const DateRangePicker = ({
   onChange,
   ...inputProps
 }: DateRangePickerProps): JSX.Element => {
+  const fallbackRef = useRef<HTMLButtonElement>(null)
+  const buttonRef = propsRef ?? fallbackRef
   const reactId = useId()
   const id = propsId ?? reactId
 

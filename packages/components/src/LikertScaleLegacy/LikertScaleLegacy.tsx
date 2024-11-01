@@ -86,7 +86,7 @@ export const LikertScaleLegacy = ({
 
       // Update focus
       const itemRef = itemRefs.find(item => item.value === newPosition)
-      itemRef && itemRef.ref.current && itemRef.ref.current.focus()
+      itemRef?.ref?.current?.focus()
     }
   }
 

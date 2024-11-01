@@ -1,8 +1,10 @@
 import js from '@eslint/js';
 import globals from 'globals';
+import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import ssrFriendly from 'eslint-plugin-ssr-friendly';
 import tseslint from 'typescript-eslint';
 import vitest from "@vitest/eslint-plugin";
 
@@ -358,51 +360,83 @@ import vitest from "@vitest/eslint-plugin";
 //   }
 // ]
 
+const sharedOptions = {
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  languageOptions: {
+    ecmaVersion: 2020,
+    globals: globals.browser,
+    parserOptions: {
+      project: ['./tsconfig.json', './docs/tsconfig.json'],
+      tsconfigRootDir: import.meta.dirname,
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
+  },
+}
+
 export default tseslint.config(
   {
     ignores: [
       "**/*.d.ts",
-      "dist",
-      "./packages/components/src/Icon/bin/Template.tsx",
-      './docs/storybook-static',
-      './docs/preview.css'
+      "**/dist",
+      "**/__fixtures__",
+      "packages/components/src/Icon/bin/Template.tsx",
+      'docs/storybook-static',
     ]
   },
   {
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
     extends: [
       js.configs.recommended,
+      importPlugin.flatConfigs.recommended,
       reactPlugin.configs.flat.recommended,
       reactPlugin.configs.flat['jsx-runtime'],
       ...tseslint.configs.recommended,
+      jsxA11y.flatConfigs.recommended,
     ],
-    files: ['**/*.{ts,tsx}'],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-      parserOptions: {
-        project: ['./tsconfig.json'],
-        tsconfigRootDir: import.meta.dirname,
-        ecmaFeatures: {
-          jsx: true,
-        },
+    ...sharedOptions,
+    settings: {
+      ...sharedOptions.settings,
+      'import/resolver': {
+        typescript: true,
+        node: true,
       },
     },
+    files: ['**/*.{ts,tsx}'],
     plugins: {
       react: reactPlugin,
-      'react-hooks': reactHooks,
-      'jsx-a11y': jsxA11y,
+      // 'ssr-friendly': ssrFriendly,
       vitest,
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
       ...vitest.configs.recommended.rules,
-      ...jsxA11y.flatConfigs.recommended.rules,
-      "jsx-a11y/anchor-is-valid": "error",
+      // ...ssrFriendly.configs.recommended.rules,
+      camelcase: ["error", {
+        allow: ["^UNSAFE_", "^UNSTABLE_"]
+      }],
+      // "import/no-extraneous-dependencies": "error",
+      "no-irregular-whitespace": [
+        "error",
+        {
+          skipStrings: true,
+          skipComments: true,
+          skipRegExps: true,
+          skipTemplates: true,
+        },
+      ],
+      "no-template-curly-in-string": "error",
+      "no-underscore-dangle": ["error",
+        {
+          "allowInArrayDestructuring": true,
+          "allowInObjectDestructuring": true,
+          "allow": ["_metadata"]
+        }
+      ],
+      "react/button-has-type": "error",
       "react/prop-types": "off",
       // @todo: do we still want this?
       "@typescript-eslint/array-type": [
@@ -416,6 +450,7 @@ export default tseslint.config(
         { allowExpressions: true },
       ],
       '@typescript-eslint/consistent-type-definitions': 'off',
+      "@typescript-eslint/no-empty-function": "error",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unused-vars": [
         "error",
@@ -428,4 +463,24 @@ export default tseslint.config(
       "vitest/require-top-level-describe": "error",
     },
   },
+  {
+    ...sharedOptions,
+    files: ['**/*.{ts,tsx}'],
+    ignores: [
+      "**/*.stories.{ts,tsx}",
+    ],
+    plugins: {
+      'react-hooks': reactHooks,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      "no-console": "error",
+    },
+  },
+  // {
+  //   files: ['**/*.stories.{ts,tsx}'],
+  //   rules: {
+  //     "react-hooks/rules-of-hooks" : "off",
+  //   },
+  // }
 );

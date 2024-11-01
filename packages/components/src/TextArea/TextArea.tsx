@@ -31,6 +31,7 @@ export const TextArea = ({
   onChange: propsOnChange,
   ...restProps
 }: TextAreaProps): JSX.Element => {
+  const fallbackRef = useRef(null)
   const [internalValue, setInternalValue] = useState<
     string | number | readonly string[] | undefined
   >(autogrow && !value ? defaultValue : undefined)
@@ -38,10 +39,10 @@ export const TextArea = ({
   // essentially forces the textarea into an (interally) controlled mode if autogrow is true and mode is uncontrolled
 
   const controlledValue = value || internalValue
-  const textAreaRef = propsTextAreaRef || useRef(null)
+  const textAreaRef = propsTextAreaRef || fallbackRef
 
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    propsOnChange && propsOnChange(event)
+    propsOnChange?.(event)
     setInternalValue(event.target.value)
   }
 

@@ -46,7 +46,8 @@ export const TextField = ({
   disabled,
   ...restProps
 }: TextFieldProps): JSX.Element => {
-  const id = propsId ?? useId()
+  const fallbackId = useId()
+  const id = propsId ?? fallbackId
   const validationMessageAria = validationMessage
     ? `${id}-field-validation-message`
     : ""
