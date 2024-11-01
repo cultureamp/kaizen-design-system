@@ -368,13 +368,13 @@ const sharedOptions = {
   languageOptions: {
     ecmaVersion: 2020,
     globals: globals.browser,
-    parserOptions: {
-      project: ['./tsconfig.json', './docs/tsconfig.json'],
-      tsconfigRootDir: import.meta.dirname,
-      ecmaFeatures: {
-        jsx: true,
-      },
-    },
+    // parserOptions: {
+    //   project: ['./tsconfig.json', './docs/tsconfig.json'],
+    //   tsconfigRootDir: import.meta.dirname,
+    //   ecmaFeatures: {
+    //     jsx: true,
+    //   },
+    // },
   },
 }
 
@@ -393,11 +393,10 @@ export default tseslint.config(
       js.configs.recommended,
       reactPlugin.configs.flat.recommended,
       reactPlugin.configs.flat['jsx-runtime'],
-      ...tseslint.configs.recommended,
       jsxA11y.flatConfigs.recommended,
     ],
     ...sharedOptions,
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     plugins: {
       react: reactPlugin,
       vitest,
@@ -426,6 +425,25 @@ export default tseslint.config(
       ],
       "react/button-has-type": "error",
       "react/prop-types": "off",
+      "vitest/no-conditional-expect": "error",
+      "vitest/require-top-level-describe": "error",
+    },
+  },
+  {
+    extends: tseslint.configs.recommended,
+    ...sharedOptions,
+    languageOptions: {
+      ...sharedOptions.languageOptions,
+      parserOptions: {
+        project: ['./tsconfig.json', './docs/tsconfig.json'],
+        tsconfigRootDir: import.meta.dirname,
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    files: ['**/*.{ts,tsx}'],
+    rules: {
       // @todo: do we still want this?
       "@typescript-eslint/array-type": [
         "error",
@@ -447,13 +465,11 @@ export default tseslint.config(
           argsIgnorePattern: "^_",
         },
       ],
-      "vitest/no-conditional-expect": "error",
-      "vitest/require-top-level-describe": "error",
     },
   },
   {
     ...sharedOptions,
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     ignores: [
       "**/*.stories.{ts,tsx}",
     ],
@@ -477,7 +493,7 @@ export default tseslint.config(
         node: true,
       },
     },
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     ignores: [
       "docs/**/*",
       "**/_docs/**/*",
