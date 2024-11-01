@@ -63,10 +63,6 @@
     border-style: var(--border-focus-ring-border-style);
     inset: calc(-1 * (var(--border-focus-ring-border-width) * 2) - 1px);
   }
-
-  &[data-focus-visible][data-pending]::after {
-    border-color: var(--color-gray-500);
-  }
 }
 
 .fullWidth {
@@ -218,9 +214,5 @@
   &[data-hovered] {
     --button-bg-color: var(--color-gray-400);
     --button-border-color: var(--color-gray-400);
-  }
-
-  &[data-focus-visible]::after {
-    border-color: var(--color-gray-500);
   }
 }
