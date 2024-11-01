@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.67.8
+
+### Patch Changes
+
+- [#5214](https://github.com/cultureamp/kaizen-design-system/pull/5214) [`f10f7a4fc20dd8fa4bcab3ebcce654f4577ffcb3`](https://github.com/cultureamp/kaizen-design-system/commit/f10f7a4fc20dd8fa4bcab3ebcce654f4577ffcb3) - FilterBar responsiveness and styling adjustments
+
+  - Box shadow removed from filter bar container
+  - Filter buttons will now expand in height and reflow text as required
+  - 'Clear all' button now reflows to a new line
+  - Filter buttons will go to full width on containers 767px in width or below
+
 ## 1.67.7
 
 ### Patch Changes
