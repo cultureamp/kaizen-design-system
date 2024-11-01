@@ -37,6 +37,22 @@
     calc(var(--spacing-8) - var(--button-border-width))
   );
 
+  &[data-hovered] {
+    --button-bg-color: var(--color-blue-600);
+    --button-border-color: var(--color-blue-600);
+  }
+
+  &[data-pressed] {
+    --button-bg-color: var(--color-blue-700);
+    --button-border-color: var(--color-blue-700);
+  }
+
+  &[data-pending] {
+    --button-bg-color: var(--color-blue-700);
+    --button-border-color: var(--color-blue-700);
+    --button-text-color: var(--color-white);
+  }
+
   &[data-focus-visible]::after {
     content: "";
     position: absolute;
@@ -76,28 +92,6 @@
   --button-icon-gap: var(--spacing-8);
 }
 
-.primary {
-  --button-bg-color: var(--color-blue-500);
-  --button-border-color: var(--color-blue-500);
-  --button-text-color: var(--color-white);
-
-  &[data-hovered] {
-    --button-bg-color: var(--color-blue-600);
-    --button-border-color: var(--color-blue-600);
-  }
-
-  &[data-pressed] {
-    --button-bg-color: var(--color-blue-700);
-    --button-border-color: var(--color-blue-700);
-  }
-
-  &[data-pending] {
-    --button-bg-color: var(--color-blue-700);
-    --button-border-color: var(--color-blue-700);
-    --button-text-color: var(--color-white);
-  }
-}
-
 .secondary {
   --button-bg-color: var(--color-white);
   --button-border-color: var(--color-gray-500);
@@ -115,7 +109,7 @@
 
   &[data-pending] {
     --button-bg-color: var(--color-gray-300);
-    --button-border-color: var(--color-gray-500);
+    --button-border-color: var(--color-black);
     --button-text-color: var(--color-purple-800);
   }
 }
@@ -124,6 +118,7 @@
   --button-bg-color: transparent;
   --button-border-color: transparent;
   --button-text-color: var(--color-purple-800);
+
   &[data-hovered] {
     --button-bg-color: var(--color-gray-200);
     --button-border-color: var(--color-gray-200);
@@ -167,6 +162,7 @@
   &[data-pending] {
     --button-bg-color: var(--color-white);
     --button-border-color: var(--color-white);
+    --button-text-color: var(--color-purple-800);
   }
 }
 
@@ -177,15 +173,18 @@
 
   &[data-hovered] {
     --button-bg-color: rgba(var(--color-white-rgb), 0.2);
+    --button-border-color: var(--color-white);
   }
 
   &[data-pressed] {
     --button-bg-color: rgba(var(--color-white-rgb), 0.1);
+    --button-border-color: var(--color-white);
   }
 
   &[data-pending] {
     --button-bg-color: rgba(var(--color-white-rgb), 0.1);
-    --button-border-color: transparent;
+    --button-border-color: var(--color-white);
+    --button-text-color: var(--color-white);
   }
 }
 
@@ -207,6 +206,7 @@
   &[data-pending] {
     --button-bg-color: rgba(var(--color-white-rgb), 0.1);
     --button-border-color: transparent;
+    --button-text-color: var(--color-white);
   }
 }
 
