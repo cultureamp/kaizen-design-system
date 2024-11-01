@@ -1,7 +1,6 @@
 .buttonContent {
   display: inline-flex;
   align-items: center;
-  vertical-align: middle;
   gap: var(--button-icon-gap);
 }
 
@@ -19,5 +18,4 @@
 
 .buttonIcon {
   display: inline-flex;
-  vertical-align: middle;
 }
