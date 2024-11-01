@@ -392,20 +392,12 @@ export default tseslint.config(
   {
     extends: [
       js.configs.recommended,
-      importPlugin.flatConfigs.recommended,
       reactPlugin.configs.flat.recommended,
       reactPlugin.configs.flat['jsx-runtime'],
       ...tseslint.configs.recommended,
       jsxA11y.flatConfigs.recommended,
     ],
     ...sharedOptions,
-    settings: {
-      ...sharedOptions.settings,
-      'import/resolver': {
-        typescript: true,
-        node: true,
-      },
-    },
     files: ['**/*.{ts,tsx}'],
     plugins: {
       react: reactPlugin,
@@ -418,7 +410,6 @@ export default tseslint.config(
       camelcase: ["error", {
         allow: ["^UNSAFE_", "^UNSTABLE_"]
       }],
-      // "import/no-extraneous-dependencies": "error",
       "no-irregular-whitespace": [
         "error",
         {
@@ -477,10 +468,29 @@ export default tseslint.config(
       "no-console": "error",
     },
   },
-  // {
-  //   files: ['**/*.stories.{ts,tsx}'],
-  //   rules: {
-  //     "react-hooks/rules-of-hooks" : "off",
-  //   },
-  // }
+  {
+    ...sharedOptions,
+    extends: [
+      importPlugin.flatConfigs.recommended,
+    ],
+    settings: {
+      ...sharedOptions.settings,
+      'import/resolver': {
+        typescript: true,
+        node: true,
+      },
+    },
+    files: ['**/*.{ts,tsx}'],
+    ignores: [
+      "docs/**/*",
+      "**/_docs/**/*",
+      "**/__tests__/**/*",
+      "**/*.stories.tsx",
+      "**/*.spec.ts",
+      "**/*.spec.tsx",
+    ],
+    rules: {
+      'import/no-extraneous-dependencies': 'error',
+    },
+  },
 );

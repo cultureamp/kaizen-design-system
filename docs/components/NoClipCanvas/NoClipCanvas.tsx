@@ -1,5 +1,4 @@
 import React, { useId, useState } from "react"
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Source, SourceProps, Story, Unstyled } from "@storybook/blocks"
 import classnames from "classnames"
 import styles from "./NoClipCanvas.module.scss"
