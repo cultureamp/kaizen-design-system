@@ -34,7 +34,10 @@ export const PendingButton: Story = {
           isPending={isPendingStatus}
           pendingLabel="Loading"
           onPress={() => {
-            setIsPendingStatus(!isPendingStatus)
+            setIsPendingStatus(true)
+            setTimeout(() => {
+              setIsPendingStatus(false)
+            }, 1000)
           }}
         >
           Label
@@ -46,7 +49,10 @@ export const PendingButton: Story = {
           pendingLabel="Loading"
           isPendingLabelHidden
           onPress={() => {
-            setIsIconPendingStatus(!isIconPendingStatus)
+            setIsIconPendingStatus(true)
+            setTimeout(() => {
+              setIsIconPendingStatus(false)
+            }, 1000)
           }}
         >
           <VisuallyHidden>Icon label</VisuallyHidden>
@@ -64,22 +70,23 @@ export const PendingButton: Story = {
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
     const button = canvas.getByRole("button", { name: "Label" })
+    // Simulates a delay that may occur when a button must wait for a response
+    const timeToWait = 1000
+
     expect(button).toHaveAccessibleName("Label")
-    await button.focus()
-    await userEvent.click(button)
 
     await step("Accessible label updates on press", async () => {
+      await button.focus()
+      await userEvent.click(button)
       await waitFor(() => expect(button).toHaveAccessibleName("Loading"))
     })
 
-    await step("Original label returns on press", async () => {
-      await waitFor(() => {
+    await step("Accessible label reverts once isPending is false", async () => {
+      await waitFor(() =>
         setTimeout(() => {
-          userEvent.click(button)
-        }, 1000)
-      })
-
-      await waitFor(() => expect(button).toHaveAccessibleName("Label"))
+          expect(button).toHaveAccessibleName("Label")
+        }, timeToWait)
+      )
     })
   },
 }
