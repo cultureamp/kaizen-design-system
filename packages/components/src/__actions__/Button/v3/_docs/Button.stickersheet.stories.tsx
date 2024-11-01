@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { within } from "@storybook/test"
-import { VisuallyHidden } from "react-aria"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,

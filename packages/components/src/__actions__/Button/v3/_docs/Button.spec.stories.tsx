@@ -1,9 +1,8 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, waitFor, within, expect, fn } from "@storybook/test"
-import { VisuallyHidden } from "react-aria"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import { Icon } from "~components/__future__/Icon"
-import { Tooltip, TooltipTrigger } from "~components/__overlays__/v3"
 import { Button } from "../index"
 
 const onPressEvent = fn()
