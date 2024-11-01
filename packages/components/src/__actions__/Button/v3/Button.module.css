@@ -50,7 +50,6 @@
   &[data-pending] {
     --button-bg-color: var(--color-blue-700);
     --button-border-color: var(--color-blue-700);
-    --button-text-color: var(--color-white);
   }
 
   &[data-focus-visible]::after {
@@ -106,7 +105,6 @@
   &[data-pending] {
     --button-bg-color: var(--color-gray-300);
     --button-border-color: var(--color-black);
-    --button-text-color: var(--color-purple-800);
   }
 }
 
@@ -128,7 +126,6 @@
   &[data-pending] {
     --button-bg-color: var(--color-gray-300);
     --button-border-color: var(--color-gray-300);
-    --button-text-color: var(--color-purple-800);
   }
 }
 
@@ -158,7 +155,6 @@
   &[data-pending] {
     --button-bg-color: var(--color-white);
     --button-border-color: var(--color-white);
-    --button-text-color: var(--color-purple-800);
   }
 }
 
@@ -180,7 +176,6 @@
   &[data-pending] {
     --button-bg-color: rgba(var(--color-white-rgb), 0.1);
     --button-border-color: var(--color-white);
-    --button-text-color: var(--color-white);
   }
 }
 
@@ -202,7 +197,6 @@
   &[data-pending] {
     --button-bg-color: rgba(var(--color-white-rgb), 0.1);
     --button-border-color: transparent;
-    --button-text-color: var(--color-white);
   }
 }
 

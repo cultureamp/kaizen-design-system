@@ -33,6 +33,8 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+// TODO: update this to use the new button component v3
+
 export const OnButton: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
