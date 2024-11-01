@@ -1,13 +1,13 @@
 import { findByText, waitFor } from "@testing-library/dom"
 import { vi } from "vitest"
 import { createRichTextEditor } from "../core"
-import { addMark } from "./addMark"
 import {
   mockRangeForBoundingRect,
   simulateSelectionByText,
   simulateTextInsert,
 } from "./__fixtures__/helpers"
 import { testEditorState, testSchema } from "./__fixtures__/test-state"
+import { addMark } from "./addMark"
 describe("addMark()", () => {
   const onChange = vi.fn()
   const attributes = { "aria-labelledby": "label-text-123" }

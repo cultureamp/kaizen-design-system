@@ -1,5 +1,6 @@
 import js from '@eslint/js';
 import vitest from "@vitest/eslint-plugin";
+import eslintConfigPrettier from "eslint-config-prettier";
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
@@ -419,4 +420,5 @@ export default tseslint.config(
     ...jsxA11y.flatConfigs.recommended,
     files: ['**/*.{jsx,mjsx,tsx,mtsx}'],
   },
+  eslintConfigPrettier,
 );
