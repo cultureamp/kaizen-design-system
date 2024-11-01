@@ -1,6 +1,3 @@
-/* keep max-width value in sync with other places using this container */
-@container filter-bar-wrapper (max-width: 767px) {
-  .filterBarButton {
-    flex-basis: 100%;
-  }
+.filterBarButton {
+  width: 100%;
 }
