@@ -159,33 +159,32 @@ const StickerSheetTemplate: StickerSheetStory = {
           verticalHeadingsWidth="12rem"
         />
         <StickerSheet.Body>
-          <StickerSheet.Row isReversed={isReversed} rowTitle="Primary">
-            <Button data-testid="testid__button-hover">Label</Button>
-            <Button data-testid="testid__button-focus">Label</Button>
-            <Button data-testid="testid__button-pressed">Label</Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row isReversed={isReversed} rowTitle="Secondary">
-            <Button variant="secondary" data-testid="testid__button-hover">
-              Label
-            </Button>
-            <Button variant="secondary" data-testid="testid__button-focus">
-              Label
-            </Button>
-            <Button variant="secondary" data-testid="testid__button-pressed">
-              Label
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row isReversed={isReversed} rowTitle="Tertiary">
-            <Button variant="tertiary" data-testid="testid__button-hover">
-              Label
-            </Button>
-            <Button variant="tertiary" data-testid="testid__button-focus">
-              Label
-            </Button>
-            <Button variant="tertiary" data-testid="testid__button-pressed">
-              Label
-            </Button>
-          </StickerSheet.Row>
+          {variants.map(buttonVariants => (
+            <StickerSheet.Row
+              key={buttonVariants}
+              isReversed={isReversed}
+              rowTitle={buttonVariants}
+            >
+              <Button
+                data-testid="testid__button-hover"
+                variant={buttonVariants}
+              >
+                Label
+              </Button>
+              <Button
+                data-testid="testid__button-focus"
+                variant={buttonVariants}
+              >
+                Label
+              </Button>
+              <Button
+                data-testid="testid__button-pressed"
+                variant={buttonVariants}
+              >
+                Label
+              </Button>
+            </StickerSheet.Row>
+          ))}
         </StickerSheet.Body>
       </StickerSheet>
     </>
