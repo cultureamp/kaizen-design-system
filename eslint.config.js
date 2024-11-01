@@ -1,12 +1,12 @@
 import js from '@eslint/js';
-import globals from 'globals';
+import vitest from "@vitest/eslint-plugin";
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import tseslint from 'typescript-eslint';
-import vitest from "@vitest/eslint-plugin";
 import storybook from 'eslint-plugin-storybook'
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 // const rules = {
 //   "@typescript-eslint/adjacent-overload-signatures": "error",
@@ -95,55 +95,6 @@ import storybook from 'eslint-plugin-storybook'
 //   "id-match": "error",
 //   "import/no-extraneous-dependencies": "error",
 //   "import/no-internal-modules": "off",
-//   "import/order": [
-//     "error",
-//     {
-//       alphabetize: {
-//         order: "asc",
-//       },
-//       groups: [
-//         "builtin",
-//         "external",
-//         "internal",
-//         "parent",
-//         "sibling",
-//         "index",
-//       ],
-//       pathGroups: [
-//         {
-//           pattern: "{react,react-dom}",
-//           group: "builtin",
-//           position: "before",
-//         },
-//         {
-//           pattern: "@kaizen/**",
-//           group: "external",
-//           position: "after",
-//         },
-//         {
-//           pattern: "~*",
-//           group: "internal",
-//           position: "before",
-//         },
-//         {
-//           pattern: "~*/**",
-//           group: "internal",
-//           position: "before",
-//         },
-//         {
-//           pattern: "..",
-//           group: "parent",
-//           position: "after",
-//         },
-//         {
-//           pattern: "{**,.}/*+(.scss|.css)",
-//           group: "index",
-//           position: "after",
-//         },
-//       ],
-//       pathGroupsExcludedImportTypes: [],
-//     },
-//   ],
 //   "jsdoc/check-alignment": "off",
 //   "jsdoc/check-indentation": "off",
 //   "jsdoc/newline-after-description": "off",
@@ -260,6 +211,20 @@ import storybook from 'eslint-plugin-storybook'
 //     },
 //   },
 // ]
+
+const sharedImportConfig = {
+  extends: [importPlugin.flatConfigs.recommended],
+  settings: {
+    'import/resolver': {
+      typescript: true,
+      node: true,
+    },
+  },
+  languageOptions: {
+    ecmaVersion: 2020,
+  },
+  files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
+}
 
 export default tseslint.config(
   {
@@ -382,19 +347,61 @@ export default tseslint.config(
     },
   },
   {
-    extends: [
-      importPlugin.flatConfigs.recommended,
-    ],
-    settings: {
-      'import/resolver': {
-        typescript: true,
-        node: true,
-      },
+    ...sharedImportConfig,
+    rules: {
+      "import/order": [
+        "error",
+        {
+          alphabetize: {
+            order: "asc",
+          },
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+          ],
+          pathGroups: [
+            {
+              pattern: "{react,react-dom}",
+              group: "builtin",
+              position: "before",
+            },
+            {
+              pattern: "@kaizen/**",
+              group: "external",
+              position: "after",
+            },
+            {
+              pattern: "~*",
+              group: "internal",
+              position: "before",
+            },
+            {
+              pattern: "~*/**",
+              group: "internal",
+              position: "before",
+            },
+            {
+              pattern: "..",
+              group: "parent",
+              position: "after",
+            },
+            {
+              pattern: "{**,.}/*+(.scss|.css)",
+              group: "index",
+              position: "after",
+            },
+          ],
+          pathGroupsExcludedImportTypes: [],
+        },
+      ],
     },
-    languageOptions: {
-      ecmaVersion: 2020,
-    },
-    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
+  },
+  {
+    ...sharedImportConfig,
     ignores: [
       "docs/**/*",
       "**/_docs/**/*",
