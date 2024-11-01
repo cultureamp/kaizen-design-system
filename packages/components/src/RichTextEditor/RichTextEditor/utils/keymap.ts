@@ -18,7 +18,6 @@ export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
     ProseMirrorSchemaList
 
   const mac =
-    // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
     typeof navigator != "undefined" ? /Mac/.test(navigator.platform) : false
 
   const {

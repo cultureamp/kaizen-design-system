@@ -4,7 +4,6 @@ import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import ssrFriendly from 'eslint-plugin-ssr-friendly';
 import tseslint from 'typescript-eslint';
 import vitest from "@vitest/eslint-plugin";
 
@@ -401,12 +400,10 @@ export default tseslint.config(
     files: ['**/*.{ts,tsx}'],
     plugins: {
       react: reactPlugin,
-      // 'ssr-friendly': ssrFriendly,
       vitest,
     },
     rules: {
       ...vitest.configs.recommended.rules,
-      // ...ssrFriendly.configs.recommended.rules,
       camelcase: ["error", {
         allow: ["^UNSAFE_", "^UNSTABLE_"]
       }],

@@ -6,7 +6,6 @@ import { Informative } from "~components/Illustration"
 import { GuidanceBlock } from "./GuidanceBlock"
 const user = userEvent.setup()
 
-// eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
 window.matchMedia = vi.fn().mockImplementation(() => ({
   matches: false,
   media: "",
