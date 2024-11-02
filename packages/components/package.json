@@ -126,7 +126,7 @@
     "react-dom": "^18.3.1",
     "react-highlight": "^0.15.0",
     "react-intl": "^6.8.4",
-    "rollup": "^4.24.2",
+    "rollup": "^4.24.3",
     "sass": "1.79.6",
     "serialize-query-params": "^2.0.2",
     "svgo": "^3.3.2",
