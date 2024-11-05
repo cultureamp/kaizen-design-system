@@ -74,6 +74,8 @@
 
 - [#5153](https://github.com/cultureamp/kaizen-design-system/pull/5153) [`17951f367e7b4fa2a99b601e64c8452f1ef6141f`](https://github.com/cultureamp/kaizen-design-system/commit/17951f367e7b4fa2a99b601e64c8452f1ef6141f) - Add future Icon and update internal icon usages (excluding Buttons).
 
+  BREAKING CHANGE: All components consuming the future Icon (eg. Avatar) will require linking to the Google Material Symbols CDN
+
 ### Patch Changes
 
 - [#5153](https://github.com/cultureamp/kaizen-design-system/pull/5153) [`17951f367e7b4fa2a99b601e64c8452f1ef6141f`](https://github.com/cultureamp/kaizen-design-system/commit/17951f367e7b4fa2a99b601e64c8452f1ef6141f) - Fix future Tag cautionary icon colour.
