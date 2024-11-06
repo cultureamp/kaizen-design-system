@@ -15,11 +15,11 @@ describe("<ProgressBar />", () => {
         isAnimating={false}
         mood="positive"
         data-testid="id--progress-bar"
-      />
+      />,
     )
     expect(screen.getByTestId("id--progress-bar")).toHaveAttribute(
       "aria-valuenow",
-      expectedAccessiblePercent
+      expectedAccessiblePercent,
     )
   })
 })

@@ -16,7 +16,7 @@ describe("<Text />", () => {
         const textMock = render(
           <Text variant={variant} tag="div">
             Example
-          </Text>
+          </Text>,
         )
         expect(textMock.getByText("Example").tagName).toBe("DIV")
       })
@@ -27,7 +27,7 @@ describe("<Text />", () => {
     const { getByTestId } = render(
       <Text variant="intro-lede" data-testid="test-id">
         Example
-      </Text>
+      </Text>,
     )
     expect(getByTestId("test-id")).toBeInTheDocument()
   })

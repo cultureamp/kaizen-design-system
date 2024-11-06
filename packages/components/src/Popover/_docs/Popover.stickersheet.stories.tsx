@@ -16,7 +16,7 @@ export default {
 } satisfies Meta
 
 const PopoverWrapper = (
-  props: Omit<PopoverProps, "children" | "referenceElement">
+  props: Omit<PopoverProps, "children" | "referenceElement">,
 ): JSX.Element => {
   const [referenceElementRef, Popover] = usePopover()
 

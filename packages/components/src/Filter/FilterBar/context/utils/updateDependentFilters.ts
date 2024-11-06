@@ -3,7 +3,7 @@ import { FilterBarState } from "../types"
 import { getIsUsableWhenArgs } from "./getIsUsableWhenArgs"
 
 export const updateDependentFilters = <ValuesMap extends FiltersValues>(
-  state: FilterBarState<ValuesMap>
+  state: FilterBarState<ValuesMap>,
 ): FilterBarState<ValuesMap> => {
   if (state.dependentFilterIds.size === 0) return state
 

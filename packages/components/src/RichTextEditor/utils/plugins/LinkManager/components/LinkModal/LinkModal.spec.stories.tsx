@@ -30,7 +30,7 @@ export const InvalidLink: Story = {
 
     await waitFor(() => {
       expect(document.activeElement).toHaveAccessibleDescription(
-        /Empty or invalid link\. Links must start with http or https/
+        /Empty or invalid link\. Links must start with http or https/,
       )
     })
   },

@@ -76,7 +76,7 @@ export const ProgressBar = ({
           className={classnames(
             styles.progress,
             color ? styles[color] : styles[mood],
-            isAnimating && styles.isAnimating
+            isAnimating && styles.isAnimating,
           )}
           style={{ transform: `translateX(-${100 - percentage}%` }}
         />

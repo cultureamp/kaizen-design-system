@@ -7,7 +7,7 @@ import { isInvalidDate } from "./isInvalidDate"
 export const formatDateAsText = (
   date: Date,
   disabledDays: DisabledDays,
-  locale: Locale
+  locale: Locale,
 ): string => {
   if (isDisabledDate(date, disabledDays)) {
     return format(date, DateFormat.Numeral, { locale })

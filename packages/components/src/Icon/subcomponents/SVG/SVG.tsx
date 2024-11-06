@@ -36,7 +36,7 @@ export const SVG = ({
   const classes = classnames(
     styles.icon,
     classNameOverride,
-    inheritSize && styles.inheritSize
+    inheritSize && styles.inheritSize,
   )
 
   if (role === "presentation") {

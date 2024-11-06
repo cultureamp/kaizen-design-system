@@ -14,7 +14,7 @@ export const Positioner = forwardRef<HTMLElement, SelectionPosition>(
     }, [])
 
     const onResize = useRef(
-      debounce(() => setWindowScroll([window.scrollX, window.scrollY]), 15)
+      debounce(() => setWindowScroll([window.scrollX, window.scrollY]), 15),
     )
 
     useEffect(() => {
@@ -41,9 +41,9 @@ export const Positioner = forwardRef<HTMLElement, SelectionPosition>(
           width: `${width}px`,
         }}
       />,
-      portalContainer
+      portalContainer,
     )
-  }
+  },
 )
 
 Positioner.displayName = "Positioner"

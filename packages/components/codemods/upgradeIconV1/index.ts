@@ -13,7 +13,7 @@ const run = (): void => {
 
   const transformFile = (
     componentFilePath: string,
-    sourceFile: ts.SourceFile
+    sourceFile: ts.SourceFile,
   ): void => {
     const tagNames = getKaioTagNamesByRegex(sourceFile, "Icon$")
     if (tagNames) {

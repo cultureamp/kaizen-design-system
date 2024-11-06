@@ -161,7 +161,7 @@ export const RenderTrigger: Story = {
           label="FilterButton"
           locale="en-AU"
           renderTrigger={(
-            triggerButtonProps: FilterButtonProps
+            triggerButtonProps: FilterButtonProps,
           ): JSX.Element => <FilterButton {...triggerButtonProps} />}
           isOpen={isOpenButton}
           setIsOpen={setIsOpenButton}
@@ -173,7 +173,7 @@ export const RenderTrigger: Story = {
           label="FilterButtonRemovable"
           locale="en-AU"
           renderTrigger={(
-            triggerButtonProps: FilterButtonProps
+            triggerButtonProps: FilterButtonProps,
           ): JSX.Element => (
             <FilterButtonRemovable
               triggerButtonProps={{ ...triggerButtonProps }}
@@ -285,7 +285,7 @@ export const Validation: Story = {
     >()
 
     const handleValidate = (
-      validationResponse: DateValidationResponse
+      validationResponse: DateValidationResponse,
     ): void => {
       setResponse(validationResponse)
       // An example of additional validation

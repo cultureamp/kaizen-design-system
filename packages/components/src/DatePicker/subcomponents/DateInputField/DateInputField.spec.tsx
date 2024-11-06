@@ -17,7 +17,7 @@ const defaultProps: DateInputFieldProps = {
 }
 
 const DateInputFieldWrapper = (
-  props: Partial<DateInputFieldProps>
+  props: Partial<DateInputFieldProps>,
 ): JSX.Element => <DateInputField {...defaultProps} {...props} />
 
 describe("<DateInputField />", () => {
@@ -29,7 +29,7 @@ describe("<DateInputField />", () => {
           screen.getByRole("textbox", {
             name: "Bacon expiry",
             description: "Input format : mm/dd/yyyy",
-          })
+          }),
         ).toBeInTheDocument()
       })
     })
@@ -40,7 +40,7 @@ describe("<DateInputField />", () => {
       render(<DateInputFieldWrapper />)
       await waitFor(() => {
         expect(
-          screen.getByRole("button", { name: "Choose date" })
+          screen.getByRole("button", { name: "Choose date" }),
         ).toBeInTheDocument()
       })
     })
@@ -50,11 +50,11 @@ describe("<DateInputField />", () => {
         <DateInputFieldWrapper
           value="Mar 1, 2022"
           onChange={(): void => undefined}
-        />
+        />,
       )
       await waitFor(() => {
         expect(
-          screen.getByRole("button", { name: "Change date, Mar 1, 2022" })
+          screen.getByRole("button", { name: "Change date, Mar 1, 2022" }),
         ).toBeInTheDocument()
       })
     })
@@ -78,7 +78,7 @@ describe("<DateInputField />", () => {
         <DateInputFieldWrapper
           status="error"
           validationMessage="There is an error"
-        />
+        />,
       )
       const errorMessage = screen.getByText("There is an error")
       await waitFor(() => {
@@ -92,11 +92,11 @@ describe("<DateInputField />", () => {
           status="error"
           validationMessage="There is an error"
           disabled
-        />
+        />,
       )
       await waitFor(() => {
         expect(
-          screen.getByRole("textbox", { name: "Bacon expiry" })
+          screen.getByRole("textbox", { name: "Bacon expiry" }),
         ).toBeVisible()
       })
       const errorMessage = screen.queryByText("There is an error")
@@ -116,7 +116,7 @@ describe("<DateInputField />", () => {
         const handleClick = (): void =>
           onButtonClick(
             inputRef.current?.id,
-            buttonRef.current?.getAttribute("aria-label")
+            buttonRef.current?.getAttribute("aria-label"),
           )
 
         return (
@@ -140,7 +140,7 @@ describe("<DateInputField />", () => {
       await user.click(screen.getByText("Click me"))
       expect(onButtonClick).toHaveBeenCalledWith(
         "test__date-input-field--ref",
-        "Choose date"
+        "Choose date",
       )
     })
   })

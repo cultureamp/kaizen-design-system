@@ -9,7 +9,7 @@ describe("formatDateAsNumeral", () => {
   describe("localisation - en-AU", () => {
     it("formats valid date in en-AU text format", () => {
       expect(formatDateAsNumeral(new Date("2022-01-16"), enAU)).toEqual(
-        "16/01/2022"
+        "16/01/2022",
       )
     })
   })
@@ -17,7 +17,7 @@ describe("formatDateAsNumeral", () => {
   describe("localisation - en-US", () => {
     it("formats valid date in en-US text format", () => {
       expect(formatDateAsNumeral(new Date("2022-01-16"), enUS)).toEqual(
-        "01/16/2022"
+        "01/16/2022",
       )
     })
   })

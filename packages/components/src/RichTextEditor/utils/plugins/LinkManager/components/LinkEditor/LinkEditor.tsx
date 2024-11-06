@@ -24,14 +24,14 @@ export const LinkEditor = ({
   focusEditor,
 }: LinkEditorProps): JSX.Element => {
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(
-    attrs.href != null
+    attrs.href != null,
   )
   const [modalOpen, setModalOpen] = useState<boolean>(
-    attrs._metadata?.added === true
+    attrs._metadata?.added === true,
   )
 
   const [href, setHref] = useState<string | undefined>(
-    attrs.href ? attrs.href : undefined
+    attrs.href ? attrs.href : undefined,
   )
 
   return (

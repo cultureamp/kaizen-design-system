@@ -172,7 +172,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     const canvas = within(canvasElement)
 
     const validationInputEndDate = canvas.getByTestId(
-      "test__filter-drp-field--validation--end"
+      "test__filter-drp-field--validation--end",
     )
     await userEvent.click(validationInputEndDate)
     await userEvent.type(validationInputEndDate, "potato")
@@ -180,7 +180,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     if (IS_CHROMATIC) {
       const partialRangeButton = canvas.getByTestId(
-        "stickersheet--filter-drp--partial-range-button"
+        "stickersheet--filter-drp--partial-range-button",
       )
       await userEvent.click(partialRangeButton)
     }

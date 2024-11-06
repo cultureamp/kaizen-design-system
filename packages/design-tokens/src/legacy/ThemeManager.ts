@@ -22,7 +22,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     theme: Theme,
     rootElementId: string = "",
     /* This allows you to stop the  class from applying the theme automatically during construction. Defaults to true */
-    apply: boolean = true
+    apply: boolean = true,
   ) {
     /*
       For some reason, storybook likes this way of defining class properties better.
@@ -55,16 +55,16 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     this.themeChangeListeners.push(listener)
   }
   public removeThemeChangeListener = (
-    listener: (theme: Theme) => void
+    listener: (theme: Theme) => void,
   ): void => {
     this.themeChangeListeners = this.themeChangeListeners.filter(
-      l => l !== listener
+      l => l !== listener,
     )
   }
   public applyCurrentTheme = (): void => {
     if (typeof window !== "undefined") {
       this.setRootElement(
-        document.getElementById(this.rootElementId) ?? document.documentElement
+        document.getElementById(this.rootElementId) ?? document.documentElement,
       )
       const cssVariableDefinitions = makeCssVariableDefinitionsMap(this.theme)
       Object.entries(cssVariableDefinitions).forEach(([key, value]) => {

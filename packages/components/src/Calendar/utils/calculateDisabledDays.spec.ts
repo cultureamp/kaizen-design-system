@@ -22,7 +22,7 @@ describe("calculateDisabledDays", () => {
     expect(
       calculateDisabledDays({
         disabledDates: [DISABLED_DATE__1, DISABLED_DATE__2],
-      })
+      }),
     ).toEqual([DISABLED_DATE__1, DISABLED_DATE__2])
   })
 

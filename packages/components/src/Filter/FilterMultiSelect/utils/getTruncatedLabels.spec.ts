@@ -21,7 +21,7 @@ describe("getTruncatedLabels", () => {
       const longLabel = "My super long label with a lot of characters"
       const withLongFirstLabel = [longLabel, secondLabel]
       expect(getTruncatedLabels(withLongFirstLabel, limit)).toEqual(
-        `${longLabel} + 1 more`
+        `${longLabel} + 1 more`,
       )
     })
   })
@@ -29,7 +29,7 @@ describe("getTruncatedLabels", () => {
     it("Shows all labels, connected with commas", () => {
       const limit = 100
       expect(getTruncatedLabels(labels, limit)).toEqual(
-        `${firstLabel}, ${secondLabel}, ${thirdLabel}`
+        `${firstLabel}, ${secondLabel}, ${thirdLabel}`,
       )
     })
   })
@@ -37,7 +37,7 @@ describe("getTruncatedLabels", () => {
     it("Replaces last item with '+1 more'", () => {
       const limit = 25
       expect(getTruncatedLabels(labels, limit)).toEqual(
-        `${firstLabel}, ${secondLabel} + 1 more`
+        `${firstLabel}, ${secondLabel} + 1 more`,
       )
     })
   })
@@ -45,7 +45,7 @@ describe("getTruncatedLabels", () => {
     it("Replaces last two items with '+2 more'", () => {
       const limit = 20
       expect(getTruncatedLabels(labels, limit)).toEqual(
-        `${firstLabel} + 2 more`
+        `${firstLabel} + 2 more`,
       )
     })
   })

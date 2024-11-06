@@ -7,5 +7,5 @@ export const parseJsx = (jsx: string): ts.SourceFile =>
     jsx,
     ts.ScriptTarget.Latest,
     true,
-    ts.ScriptKind.TSX
+    ts.ScriptKind.TSX,
   )

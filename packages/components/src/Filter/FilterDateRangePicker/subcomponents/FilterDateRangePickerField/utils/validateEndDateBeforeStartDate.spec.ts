@@ -102,8 +102,8 @@ describe("validateEndDateBeforeStartDate()", () => {
       await waitFor(() => {
         expect(
           screen.getByText(
-            'Cannot be earlier than the selection in "Start date"'
-          )
+            'Cannot be earlier than the selection in "Start date"',
+          ),
         ).toBeVisible()
       })
     })

@@ -33,7 +33,7 @@ export const Label = ({
       styles[labelType],
       reversed && styles.reversed,
       variant === "prominent" && styles.prominent,
-      disabled && styles.disabled
+      disabled && styles.disabled,
     )}
     {...restProps}
   >
@@ -41,7 +41,7 @@ export const Label = ({
     <span
       className={classnames(
         labelPosition === "start" && styles.prependedLabel,
-        labelPosition === "end" && styles.appendedLabel
+        labelPosition === "end" && styles.appendedLabel,
       )}
     >
       {labelText}

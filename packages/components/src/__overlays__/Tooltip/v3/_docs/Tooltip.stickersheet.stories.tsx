@@ -24,7 +24,7 @@ export const Standard: StickerSheetStory = {
           key={index}
           className={mergeClassNames(
             "flex items-center justify-center min-h-[10rem]",
-            Story.parameters.reverseColors ? "bg-purple-700" : ""
+            Story.parameters.reverseColors ? "bg-purple-700" : "",
           )}
         >
           <ReversedColors isReversed={!!Story.parameters.reverseColors}>

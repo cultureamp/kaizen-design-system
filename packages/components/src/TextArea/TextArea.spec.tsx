@@ -8,7 +8,7 @@ const user = userEvent.setup()
 describe("<TextArea />", () => {
   it("renders a value when component is controlled", () => {
     const { queryByText } = render(
-      <TextArea value="Some field value" onChange={() => undefined} />
+      <TextArea value="Some field value" onChange={() => undefined} />,
     )
     expect(queryByText("Some field value")).toBeTruthy()
   })

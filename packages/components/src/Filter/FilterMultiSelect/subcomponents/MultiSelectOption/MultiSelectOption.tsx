@@ -25,7 +25,7 @@ export const MultiSelectOption = ({
   const { optionProps, isSelected, isDisabled } = useOption(
     { key: item.key },
     state,
-    ref
+    ref,
   )
 
   // Determine whether we should show a keyboard
@@ -42,7 +42,7 @@ export const MultiSelectOption = ({
         classNameOverride,
         isSelected && styles.isSelected,
         isFocusVisible && styles.isFocusVisible,
-        isDisabled && styles.isDisabled
+        isDisabled && styles.isDisabled,
       )}
       aria-label={item.value?.label}
       aria-describedby={item.value?.count ? countElementId : undefined}

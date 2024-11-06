@@ -26,7 +26,7 @@ const Scenario = ({
     useRichTextEditor(
       testEditorState,
       { "aria-labelledby": "label-ref-id", "data-testid": "12345678" },
-      { editable }
+      { editable },
     )
 
   useEffect(() => {
@@ -70,7 +70,7 @@ describe("useRichTextEditor()", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText("Prepended content. Example content")
+        screen.getByText("Prepended content. Example content"),
       ).toBeInTheDocument()
     })
   })

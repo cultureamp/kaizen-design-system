@@ -16,7 +16,7 @@ const defaultProps: DateInputWithIconButtonProps = {
 }
 
 const DateInputWithIconButtonWrapper = (
-  props: Partial<DateInputWithIconButtonProps>
+  props: Partial<DateInputWithIconButtonProps>,
 ): JSX.Element => <DateInputWithIconButton {...defaultProps} {...props} />
 
 describe("<DateInputWithIconButton />", () => {
@@ -24,7 +24,7 @@ describe("<DateInputWithIconButton />", () => {
     it("has helpful label", () => {
       render(<DateInputWithIconButtonWrapper />)
       expect(
-        screen.getByRole("button", { name: "Choose date" })
+        screen.getByRole("button", { name: "Choose date" }),
       ).toBeInTheDocument()
     })
 
@@ -33,10 +33,10 @@ describe("<DateInputWithIconButton />", () => {
         <DateInputWithIconButtonWrapper
           value="Mar 1, 2022"
           onChange={(): void => undefined}
-        />
+        />,
       )
       expect(
-        screen.getByRole("button", { name: "Change date, Mar 1, 2022" })
+        screen.getByRole("button", { name: "Change date, Mar 1, 2022" }),
       ).toBeInTheDocument()
     })
   })
@@ -63,7 +63,7 @@ describe("<DateInputWithIconButton />", () => {
         const handleClick = (): void =>
           onButtonClick(
             inputRef.current?.id,
-            buttonRef.current?.getAttribute("aria-label")
+            buttonRef.current?.getAttribute("aria-label"),
           )
 
         return (
@@ -86,7 +86,7 @@ describe("<DateInputWithIconButton />", () => {
       await user.click(screen.getByText("Click me"))
       expect(onButtonClick).toBeCalledWith(
         "test__date-input-field--ref",
-        "Choose date"
+        "Choose date",
       )
     })
   })

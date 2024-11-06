@@ -7,7 +7,7 @@ export const migrateStringProp =
   <OldValue extends string, NewValue extends string>(
     oldPropName: string,
     newPropName: string,
-    valueTransformer: (value: OldValue) => NewValue
+    valueTransformer: (value: OldValue) => NewValue,
   ) =>
   (context: ts.TransformationContext, tagName: string) =>
   (rootNode: ts.Node): ts.Node => {
@@ -26,7 +26,7 @@ export const migrateStringProp =
                 const newValue = valueTransformer(oldValue as OldValue)
                 return ts.factory.createJsxAttribute(
                   ts.factory.createIdentifier(newPropName),
-                  ts.factory.createStringLiteral(newValue)
+                  ts.factory.createStringLiteral(newValue),
                 )
               }
             }

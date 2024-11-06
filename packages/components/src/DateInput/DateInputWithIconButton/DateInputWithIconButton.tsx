@@ -36,7 +36,7 @@ export const DateInputWithIconButton = React.forwardRef<
       className={classnames(
         styles.iconButton,
         restProps["aria-expanded"] && styles.calendarActive,
-        disabled && styles.disabled
+        disabled && styles.disabled,
       )}
     >
       <Icon name="today" isPresentational isFilled />

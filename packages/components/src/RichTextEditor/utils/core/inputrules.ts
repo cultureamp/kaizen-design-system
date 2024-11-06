@@ -9,7 +9,7 @@ export const orderedListRule = (nodeType: NodeType): InputRule =>
     /^(\d+)\.\s$/,
     nodeType,
     match => ({ order: +match[1] }),
-    (match, node) => node.childCount + node.attrs.order == +match[1]
+    (match, node) => node.childCount + node.attrs.order == +match[1],
   )
 
 // Given a list node type, returns an input rule that turns a bullet

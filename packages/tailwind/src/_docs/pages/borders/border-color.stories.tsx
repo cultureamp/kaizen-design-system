@@ -9,7 +9,7 @@ import { kaizenTailwindTheme } from "~tailwind/tailwind-presets"
 const prefix = "border-"
 const classEntries = flattenEntries(
   prefix,
-  kaizenTailwindTheme.borderColor || {}
+  kaizenTailwindTheme.borderColor || {},
 )
 
 export default {
@@ -36,7 +36,7 @@ export const BorderColor: StoryFn<{ isReversed: boolean }> = ({
       <div
         className={classnames(
           "rounded w-[100px] h-[100px] border",
-          utilityClass.replace("-DEFAULT", "")
+          utilityClass.replace("-DEFAULT", ""),
         )}
       />
     )}

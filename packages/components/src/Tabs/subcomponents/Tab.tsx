@@ -56,7 +56,7 @@ export const Tab = (props: TabProps): JSX.Element => {
     className: classnames(
       styles.tab,
       classNameOverride,
-      isSelected && styles.selected
+      isSelected && styles.selected,
     ),
     onFocus: (event: SyntheticEvent): void => {
       setIsFocused(true)

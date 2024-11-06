@@ -46,7 +46,7 @@ export const ModalFooter = ({
           styles.actions,
           !unpadded && styles.padded,
           variant === "context" && styles.informationPadded,
-          alignStart && styles.actionsAlignStart
+          alignStart && styles.actionsAlignStart,
         )}
         {...props}
       >

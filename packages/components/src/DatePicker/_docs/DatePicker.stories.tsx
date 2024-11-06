@@ -71,7 +71,7 @@ type Story = StoryObj<typeof meta>
 const DatePickerTemplate: Story = {
   render: args => {
     const [selectedDate, setValueDate] = useState<Date | undefined>(
-      args.selectedDay
+      args.selectedDay,
     )
 
     useEffect(() => {
@@ -139,7 +139,7 @@ export const Description: Story = {
 export const Validation: Story = {
   render: () => {
     const [selectedDate, setValueDate] = useState<Date | undefined>(
-      new Date("2022-05-05")
+      new Date("2022-05-05"),
     )
     const [status, setStatus] = useState<FieldMessageStatus | undefined>()
     const [response, setResponse] = useState<ValidationResponse | undefined>()

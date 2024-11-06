@@ -154,7 +154,7 @@ const FilterBarWrapper = <T extends FiltersValues>({
   defaultValues?: FilterBarProps<T>["values"]
 }): JSX.Element => {
   const [activeValues, setActiveValues] = useState<Partial<T>>(
-    defaultValues ?? {}
+    defaultValues ?? {},
   )
 
   return (
@@ -173,7 +173,7 @@ const FilterBarWrapper = <T extends FiltersValues>({
 const waitForI18nContent = async (): Promise<void> => {
   await waitFor(() => {
     expect(
-      screen.getByRole("button", { name: "Clear all filters" })
+      screen.getByRole("button", { name: "Clear all filters" }),
     ).toBeVisible()
   })
 }
@@ -181,7 +181,7 @@ const waitForI18nContent = async (): Promise<void> => {
 describe("<FilterBar />", () => {
   it("renders filters in the provided order", async () => {
     const { getAllByTestId } = render(
-      <FilterBarWrapper<ValuesSimple> filters={simpleFilters} />
+      <FilterBarWrapper<ValuesSimple> filters={simpleFilters} />,
     )
     await waitForI18nContent()
 
@@ -206,7 +206,7 @@ describe("<FilterBar />", () => {
   describe("Removable filters", () => {
     it("shows inactive filters in the Add Filters menu only", async () => {
       const { getByRole, queryByText } = render(
-        <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
+        <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />,
       )
       await waitForI18nContent()
 
@@ -228,12 +228,12 @@ describe("<FilterBar />", () => {
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{ topping: "pearls" }}
-        />
+        />,
       )
       await waitForI18nContent()
       expect(getByRole("button", { name: "Topping : Pearls" })).toBeVisible()
       expect(
-        getByRole("button", { name: "Remove filter - Topping" })
+        getByRole("button", { name: "Remove filter - Topping" }),
       ).toBeVisible()
     })
 
@@ -242,7 +242,7 @@ describe("<FilterBar />", () => {
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{ topping: "pearls" }}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -261,7 +261,7 @@ describe("<FilterBar />", () => {
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{ topping: "pearls" }}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -296,7 +296,7 @@ describe("<FilterBar />", () => {
             ...filter,
             isRemovable: true,
           }))}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -328,7 +328,7 @@ describe("<FilterBar />", () => {
             ...filter,
             isRemovable: true,
           }))}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -343,7 +343,7 @@ describe("<FilterBar />", () => {
 
     it("moves focus to recently added filter button in the FilterMultiSelect case", async () => {
       const { getByRole } = render(
-        <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
+        <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />,
       )
       await waitForI18nContent()
 
@@ -361,7 +361,7 @@ describe("<FilterBar />", () => {
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{ topping: "pearls" }}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -381,11 +381,11 @@ describe("<FilterBar />", () => {
     describe("Condition not met", () => {
       it("does not show a dependent filter", async () => {
         const { queryByRole, getByRole } = render(
-          <FilterBarWrapper filters={filtersDependent} />
+          <FilterBarWrapper filters={filtersDependent} />,
         )
         await waitForI18nContent()
         expect(
-          queryByRole("button", { name: "Topping" })
+          queryByRole("button", { name: "Topping" }),
         ).not.toBeInTheDocument()
         expect(getByRole("button", { name: "Add Filters" })).toBeDisabled()
       })
@@ -397,11 +397,11 @@ describe("<FilterBar />", () => {
             defaultValues={{
               topping: "pearls",
             }}
-          />
+          />,
         )
         await waitForI18nContent()
         expect(getByTestId("testid__values").textContent).toBe(
-          JSON.stringify({})
+          JSON.stringify({}),
         )
       })
     })
@@ -409,13 +409,13 @@ describe("<FilterBar />", () => {
     describe("Condition met", () => {
       it("shows a non-removable dependent filter in active filters", async () => {
         const { queryByRole, getByRole, findByRole } = render(
-          <FilterBarWrapper filters={filtersDependent} />
+          <FilterBarWrapper filters={filtersDependent} />,
         )
         await waitForI18nContent()
 
         const flavourButton = getByRole("button", { name: "Flavour" })
         expect(
-          queryByRole("button", { name: "Topping" })
+          queryByRole("button", { name: "Topping" }),
         ).not.toBeInTheDocument()
 
         await user.click(flavourButton)
@@ -456,7 +456,7 @@ describe("<FilterBar />", () => {
                 isRemovable: true,
               },
             ]}
-          />
+          />,
         )
         await waitForI18nContent()
 
@@ -512,7 +512,7 @@ describe("<FilterBar />", () => {
         await waitForI18nContent()
 
         expect(
-          queryByRole("button", { name: "Topping : Pearls" })
+          queryByRole("button", { name: "Topping : Pearls" }),
         ).not.toBeInTheDocument()
 
         await user.click(getByRole("button", { name: "Check values" }))
@@ -554,7 +554,7 @@ describe("<FilterBar />", () => {
         await waitForI18nContent()
 
         expect(
-          getByRole("button", { name: "Flavour : Jasmine Milk Tea" })
+          getByRole("button", { name: "Flavour : Jasmine Milk Tea" }),
         ).toBeVisible()
         const toppingsButton = getByRole("button", { name: "Topping : Pearls" })
         expect(toppingsButton).toBeVisible()
@@ -649,7 +649,7 @@ describe("<FilterBar />", () => {
           <FilterBarWrapper
             filters={filters}
             defaultValues={{ milk: "full-cream" }}
-          />
+          />,
         )
         await waitForI18nContent()
 
@@ -732,7 +732,7 @@ describe("<FilterBar />", () => {
             sugarLevel: 50,
             iceLevel: 100,
           }}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -765,7 +765,7 @@ describe("<FilterBar />", () => {
             flavour: "jasmine-milk-tea",
             topping: "pearls",
           }}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -834,7 +834,7 @@ describe("<FilterBar />", () => {
       expect(flavourButton).toHaveAccessibleName("Flavour")
 
       await user.click(
-        getByRole("button", { name: "Update Flavour to honey-milk-tea" })
+        getByRole("button", { name: "Update Flavour to honey-milk-tea" }),
       )
 
       await waitFor(() => {
@@ -889,12 +889,12 @@ describe("<FilterBar />", () => {
       expect(queryByRole("button", { name: "Flavour" })).not.toBeInTheDocument()
 
       await user.click(
-        getByRole("button", { name: "Update Flavour to honey-milk-tea" })
+        getByRole("button", { name: "Update Flavour to honey-milk-tea" }),
       )
 
       await waitFor(() => {
         expect(
-          getByRole("button", { name: "Flavour : Honey Milk Tea" })
+          getByRole("button", { name: "Flavour : Honey Milk Tea" }),
         ).toBeVisible()
       })
     })
@@ -995,7 +995,7 @@ describe("<FilterBar />", () => {
 
       it("can re-fetch options with all active filter values pulled off of the FilterBarContext", async () => {
         const { getByRole, queryByRole } = render(
-          <FilterBarWrapper<AsyncValues> filters={config} defaultValues={{}} />
+          <FilterBarWrapper<AsyncValues> filters={config} defaultValues={{}} />,
         )
 
         await user.click(getByRole("button", { name: "City" }))
@@ -1015,7 +1015,7 @@ describe("<FilterBar />", () => {
         await waitFor(() => {
           expect(getByRole("option", { name: "Batman" })).toBeVisible()
           expect(
-            queryByRole("option", { name: "Superman" })
+            queryByRole("option", { name: "Superman" }),
           ).not.toBeInTheDocument()
         })
 
@@ -1028,7 +1028,7 @@ describe("<FilterBar />", () => {
         await waitFor(() => {
           expect(getByRole("option", { name: "Gotham" })).toBeVisible()
           expect(
-            queryByRole("option", { name: "Metropolis" })
+            queryByRole("option", { name: "Metropolis" }),
           ).not.toBeInTheDocument()
         })
       })
@@ -1069,7 +1069,7 @@ describe("<FilterBar />", () => {
 
       it("opens the Custom Date filter when Cycle's 'custom' value is selected", async () => {
         const { getByRole } = render(
-          <FilterBarWrapper<CycleFilterValues> filters={cycleFilters} />
+          <FilterBarWrapper<CycleFilterValues> filters={cycleFilters} />,
         )
         await waitForI18nContent()
 

@@ -49,7 +49,7 @@ export const ToggleIconButton = React.forwardRef<
           classNameOverride,
           styles[mood],
           isActive && styles.active,
-          disabled && styles.disabled
+          disabled && styles.disabled,
         )}
         {...nativeButtonProps}
       >

@@ -37,7 +37,7 @@ const MaterialIcon = ({
       "material-symbols-outlined",
       styles.icon,
       isFilled && styles.filled,
-      className
+      className,
     )}
     aria-hidden={isPresentational}
     role={isPresentational ? undefined : "img"}

@@ -25,7 +25,7 @@ export const MultiSelectOptions = ({
   const optionsCountId = `${id}--options-count`
 
   const handleOptionChange = (
-    optionValue: MultiSelectOption["value"]
+    optionValue: MultiSelectOption["value"],
   ): void => {
     const newValues = new Set(selectedValues.values())
     if (newValues.has(optionValue)) {

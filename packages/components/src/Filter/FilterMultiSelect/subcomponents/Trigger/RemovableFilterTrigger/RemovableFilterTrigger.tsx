@@ -26,14 +26,14 @@ export const RemovableFilterTrigger = ({
       ref={ref}
       classNameOverride={classnames(
         styles.filterButtonRemovable,
-        classNameOverride
+        classNameOverride,
       )}
       triggerButtonProps={{
         ...buttonProps,
         label,
         selectedValue: getTruncatedLabels(
           selectedOptionLabels,
-          labelCharacterLimitBeforeTruncate
+          labelCharacterLimitBeforeTruncate,
         ),
         isOpen: menuTriggerState.isOpen,
       }}

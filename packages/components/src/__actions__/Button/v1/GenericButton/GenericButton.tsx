@@ -137,7 +137,7 @@ export const GenericButton = forwardRef(
       type = "button",
       ...otherProps
     }: RenderProps,
-    ref: Ref<ButtonRef | undefined>
+    ref: Ref<ButtonRef | undefined>,
   ) => {
     const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
     const wrapperRef = useRef<HTMLSpanElement>(null)
@@ -167,7 +167,7 @@ export const GenericButton = forwardRef(
         ref={wrapperRef}
         className={classnames(
           styles.container,
-          props.fullWidth && styles.fullWidth
+          props.fullWidth && styles.fullWidth,
         )}
         aria-live={"workingLabel" in props ? "polite" : undefined}
       >
@@ -176,7 +176,7 @@ export const GenericButton = forwardRef(
           : renderButton(props, buttonRef as Ref<HTMLButtonElement>)}
       </span>
     )
-  }
+  },
 )
 
 GenericButton.displayName = "GenericButton"
@@ -184,7 +184,7 @@ GenericButton.displayName = "GenericButton"
 const renderCustomComponent = (
   CustomComponent: ComponentType<CustomButtonProps>,
   props: RenderProps,
-  ref: Ref<HTMLSpanElement>
+  ref: Ref<HTMLSpanElement>,
 ): JSX.Element => {
   const passedInProps = {
     id: props.id,
@@ -202,7 +202,7 @@ const renderCustomComponent = (
     passedInProps,
     ref,
     // @ts-expect-error we're using span ref on link context, but that's ok because we need only sizing
-    LinkContext
+    LinkContext,
   )
   // @ts-expect-error See below
   // @todo: Make a wrapper and take it out of Button
@@ -217,7 +217,7 @@ const renderCustomComponent = (
       ref={contextRef}
       className={classnames(
         styles.container,
-        props.fullWidth && styles.fullWidth
+        props.fullWidth && styles.fullWidth,
       )}
       aria-live={"workingLabel" in props ? "polite" : undefined}
     >
@@ -238,7 +238,7 @@ const renderCustomComponent = (
 
 const renderButton = (
   props: RenderProps,
-  ref: Ref<HTMLButtonElement>
+  ref: Ref<HTMLButtonElement>,
 ): JSX.Element => {
   const disableActions = props.disabled || props.working
   const passedInProps: React.DetailedHTMLProps<
@@ -293,7 +293,7 @@ const renderButton = (
 
 const renderLink = (
   props: RenderProps,
-  ref: Ref<HTMLAnchorElement>
+  ref: Ref<HTMLAnchorElement>,
 ): JSX.Element => {
   const target = props.newTabAndIUnderstandTheAccessibilityImplications
     ? "_blank"
@@ -356,7 +356,7 @@ const buttonClass = (props: RenderProps): string => {
     props.directionalLink && styles.directionalLink,
     props.paginationLink && styles.paginationLink,
     props.isActive && styles.isPaginationLinkActive,
-    props.classNameOverride
+    props.classNameOverride,
   )
 }
 
@@ -367,7 +367,7 @@ const renderLoadingSpinner = (): JSX.Element => (
 )
 
 const renderWorkingContent = (
-  props: Extract<RenderProps, { working: true }>
+  props: Extract<RenderProps, { working: true }>,
 ): JSX.Element => {
   if (props.workingLabelHidden) {
     return (

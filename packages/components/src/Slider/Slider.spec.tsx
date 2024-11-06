@@ -10,7 +10,7 @@ describe("<Slider />", () => {
         id="unique-1"
         minLabel="Awful"
         maxLabel="Fantastic"
-      />
+      />,
     )
     const label = await screen.findByText(/Work overall/i)
 
@@ -25,7 +25,7 @@ describe("<Slider />", () => {
         id="unique-1"
         minLabel="Awful"
         maxLabel="Fantastic"
-      />
+      />,
     )
     const description = await screen.findByText(/General feeling about work/i)
 
@@ -40,7 +40,7 @@ describe("<Slider />", () => {
         minLabel="Awful"
         maxLabel="Fantastic"
         readOnlyMessage="Waiting for Sally to respond"
-      />
+      />,
     )
     const readOnlyMsg = await screen.findByText(/Waiting for Sally to respond/i)
     expect(readOnlyMsg).toBeInTheDocument()

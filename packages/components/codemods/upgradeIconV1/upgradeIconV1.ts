@@ -12,7 +12,7 @@ import { transformIcon } from "./transformIcon"
 import { transformSpinnerIconToLoadingSpinner } from "./transformSpinnerIconToLoadingSpinner"
 
 const reverseStringMap = <Key extends string, Value extends string>(
-  map: Map<Key, Value>
+  map: Map<Key, Value>,
 ): Map<Value, Key> => {
   const reverseMap = new Map<Value, Key>()
   map.forEach((value, key) => reverseMap.set(value, key))
@@ -70,7 +70,7 @@ export const upgradeIconV1 =
             // eslint-disable-next-line no-console
             console.info(
               "SKIPPED - No new icon equivalent found for",
-              node.tagName.getText()
+              node.tagName.getText(),
             )
             return node
           }

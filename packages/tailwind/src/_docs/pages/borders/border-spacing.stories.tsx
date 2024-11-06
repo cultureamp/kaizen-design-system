@@ -10,7 +10,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
-    })
+    }),
   )
 
 export default {

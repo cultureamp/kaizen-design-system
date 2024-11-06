@@ -83,7 +83,7 @@ export const useDateInputHandlers = ({
       e.preventDefault()
       const date = parseDateFromNumeralFormatValue(
         e.currentTarget.value,
-        locale
+        locale,
       )
       onDateChange(date)
       onDateSubmit?.(date)

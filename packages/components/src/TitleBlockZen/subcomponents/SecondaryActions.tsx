@@ -15,7 +15,7 @@ type Props = {
 
 const renderSecondaryOverflowMenu = (
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
-  reversed?: boolean
+  reversed?: boolean,
 ): JSX.Element | undefined => {
   if (!secondaryOverflowMenuItems) return undefined
   return (
@@ -81,7 +81,7 @@ export const SecondaryActions = ({
             // eslint-disable-next-line no-console
             console.warn(
               "\u001b[33m \nTITLE BLOCK WARNING:\nSecondary actions only support " +
-                "either an href or an onClick, not both simultaneously.\n"
+                "either an href or an onClick, not both simultaneously.\n",
             )
           }
           return {
@@ -102,7 +102,7 @@ export const SecondaryActions = ({
 
   const overflowMenu = renderSecondaryOverflowMenu(
     secondaryOverflowMenuItems,
-    reversed
+    reversed,
   )
 
   const toolbarItems = [

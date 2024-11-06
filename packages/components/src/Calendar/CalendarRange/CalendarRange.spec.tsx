@@ -16,7 +16,7 @@ describe("<CalendarRange />", () => {
           from: new Date("2022-03-01"),
           to: new Date("2022-06-20"),
         }}
-      />
+      />,
     )
     expect(screen.getByText("March 2022")).toBeInTheDocument()
   })

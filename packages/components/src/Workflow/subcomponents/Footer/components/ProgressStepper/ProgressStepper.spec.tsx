@@ -21,7 +21,7 @@ describe("<ProgressStepperr />", () => {
     render(<ProgressStepper currentStepId="settings-step" {...defaultArgs} />)
     screen.getByText("Current: Settings")
     expect(
-      screen.getByText(`Step 1 of ${defaultArgs.steps.length}`)
+      screen.getByText(`Step 1 of ${defaultArgs.steps.length}`),
     ).toBeInTheDocument()
   })
   it("renders the correct number of completed steps with an accessible name", () => {
@@ -38,7 +38,7 @@ describe("<ProgressStepperr />", () => {
         currentStepId="preview-step"
         {...defaultArgs}
         isComplete
-      />
+      />,
     )
     expect(screen.getAllByText("Completed:", { exact: false }).length).toBe(5)
   })

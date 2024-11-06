@@ -25,7 +25,7 @@ const testOptions = [
 ]
 
 const MultiSelectOptionsWrapper = (
-  customProps?: Partial<MultiSelectOptionsProps>
+  customProps?: Partial<MultiSelectOptionsProps>,
 ): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<
     MultiSelectOptionsProps["selectedValues"]
@@ -74,7 +74,7 @@ describe("<MultiSelectOptions />", () => {
 
     it("renders the correct checked status for each option", () => {
       const { getAllByRole } = render(
-        <MultiSelectOptionsWrapper selectedValues={new Set(["waffle"])} />
+        <MultiSelectOptionsWrapper selectedValues={new Set(["waffle"])} />,
       )
       const options = getAllByRole("checkbox")
       expect(options[0]).not.toBeChecked()
@@ -84,7 +84,7 @@ describe("<MultiSelectOptions />", () => {
 
     it("returns updated selected values when selecting an option", async () => {
       const { getByRole } = render(
-        <MultiSelectOptionsWrapper selectedValues={new Set(["pancakes"])} />
+        <MultiSelectOptionsWrapper selectedValues={new Set(["pancakes"])} />,
       )
       expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(1)
 
@@ -97,7 +97,7 @@ describe("<MultiSelectOptions />", () => {
         expect(onChange).toBeCalledWith(new Set(["pancakes", "waffle"]))
         expect(waffleOption).toBeChecked()
         expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(
-          2
+          2,
         )
       })
     })
@@ -106,7 +106,7 @@ describe("<MultiSelectOptions />", () => {
       const { getByRole } = render(
         <MultiSelectOptionsWrapper
           selectedValues={new Set(["pancakes", "waffle"])}
-        />
+        />,
       )
       expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(2)
 
@@ -119,7 +119,7 @@ describe("<MultiSelectOptions />", () => {
         expect(onChange).toBeCalledWith(new Set(["pancakes"]))
         expect(waffleOption).not.toBeChecked()
         expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(
-          1
+          1,
         )
       })
     })

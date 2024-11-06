@@ -14,7 +14,7 @@ describe("<TextAreaField />", () => {
         {...defaultProps}
         description={undefined}
         validationMessage={undefined}
-      />
+      />,
     )
     const ariaDescribedBy = getByRole("textbox", {
       description: "",

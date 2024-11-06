@@ -28,12 +28,12 @@ export interface DefaultTagProps {
 export type TagProps = DefaultTagProps | TagWithAvatarProps
 
 const isJSXElement = (
-  imageElementOrAvatarProps: JSX.Element | AvatarProps
+  imageElementOrAvatarProps: JSX.Element | AvatarProps,
 ): imageElementOrAvatarProps is JSX.Element =>
   "props" in imageElementOrAvatarProps
 
 const renderAvatar = (
-  imageElementOrAvatarProps: JSX.Element | AvatarProps
+  imageElementOrAvatarProps: JSX.Element | AvatarProps,
 ): JSX.Element =>
   isJSXElement(imageElementOrAvatarProps) ? (
     <>{imageElementOrAvatarProps}</>
@@ -68,7 +68,7 @@ export const Tag = (props: TagProps): JSX.Element => {
         variant === "profile" && styles.default,
         styles[size],
         inline && styles.inline,
-        dismissible && styles.dismissible
+        dismissible && styles.dismissible,
       )}
     >
       <div className={styles.layoutContainer}>
@@ -113,7 +113,7 @@ export const Tag = (props: TagProps): JSX.Element => {
           <span
             className={classnames(
               styles.textContent,
-              isTruncated && styles.truncate
+              isTruncated && styles.truncate,
             )}
             style={{
               maxWidth: isTruncated ? truncateWidth : undefined,

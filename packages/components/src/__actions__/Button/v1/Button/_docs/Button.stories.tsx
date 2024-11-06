@@ -147,7 +147,7 @@ export const NativeFormButton: Story = {
 export const ResolveWorking: Story = {
   render: () => {
     const [state, setState] = useState<"Ready" | "Working" | "Completed">(
-      "Ready"
+      "Ready",
     )
     const handleClick = (): void => {
       if (state === "Ready") {

@@ -19,7 +19,7 @@ export const LinkTo = ({
     onClick={linkTo(pageId, sectionName)}
     className={classnames(
       "bg-transparent border-none text-blue-400 hover:underline cursor-pointer p-0",
-      className
+      className,
     )}
     {...restButtonAttributes}
   >

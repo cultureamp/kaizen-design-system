@@ -30,7 +30,7 @@ export const MenuDropdown = ({
   width = "default",
 }: MenuDropdownProps): JSX.Element => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
+    null,
   )
   const { styles: popperStyles, attributes } = usePopper(
     referenceElement,
@@ -52,7 +52,7 @@ export const MenuDropdown = ({
         },
       ],
       placement: align === "left" ? "bottom-start" : "bottom-end",
-    }
+    },
   )
 
   // This callback handler will not run when autoHide === "off"
@@ -68,7 +68,7 @@ export const MenuDropdown = ({
         hideMenuDropdown()
       }
     },
-    [popperElement, referenceElement, hideMenuDropdown]
+    [popperElement, referenceElement, hideMenuDropdown],
   )
 
   const handleDocumentResize = useCallback(() => {
@@ -100,7 +100,7 @@ export const MenuDropdown = ({
         document.removeEventListener(
           "click",
           handleDocumentClickForAutoHide,
-          true
+          true,
         )
       }
     }
@@ -128,7 +128,7 @@ export const MenuDropdown = ({
         style={popperStyles.popper}
         className={classnames(
           styles.menuContainer,
-          width == "default" && styles.defaultWidth
+          width == "default" && styles.defaultWidth,
         )}
         onClick={handleRootClick}
       >

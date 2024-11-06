@@ -32,7 +32,7 @@ describe("<FilterButtonRemovable />", () => {
     render(<FilterButtonRemovableWrapper />)
     await waitFor(() => {
       expect(
-        screen.getByRole("button", { name: "Remove filter - Desserts" })
+        screen.getByRole("button", { name: "Remove filter - Desserts" }),
       ).toBeVisible()
     })
   })
@@ -77,7 +77,7 @@ describe("<FilterButtonRemovable />", () => {
       await user.click(screen.getByText("Click me"))
       expect(onClick).toHaveBeenCalledWith(
         "test__trigger-button",
-        "test__remove-button"
+        "test__remove-button",
       )
     })
   })

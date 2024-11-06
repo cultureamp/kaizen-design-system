@@ -12,7 +12,7 @@ export type ButtonProps = GenericButtonProps
 export const Button = forwardRef(
   (props: ButtonProps, ref: Ref<ButtonRef | undefined>) => (
     <GenericButton iconPosition="start" ref={ref} {...props} />
-  )
+  ),
 )
 
 Button.displayName = "Button"

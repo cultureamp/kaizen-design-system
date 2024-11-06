@@ -33,7 +33,7 @@ describe("<Avatar />", () => {
 
       it("uses alt prop over full name when using fallback img", () => {
         render(
-          <Avatar fullName="Jane Doe" alt="alt override" disableInitials />
+          <Avatar fullName="Jane Doe" alt="alt override" disableInitials />,
         )
         expect(screen.getByRole("img")).toHaveAccessibleName("alt override")
       })
@@ -44,7 +44,7 @@ describe("<Avatar />", () => {
             fullName="Jane Doe"
             alt="alt override"
             avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
-          />
+          />,
         )
         expect(screen.getByRole("img")).toHaveAccessibleName("alt override")
       })
@@ -66,7 +66,7 @@ describe("<Avatar />", () => {
           <Avatar
             fullName="Jane Doe"
             avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
-          />
+          />,
         )
         expect(screen.getByRole("img")).toHaveAccessibleName("Jane Doe")
       })
@@ -80,7 +80,7 @@ describe("<Avatar />", () => {
 
       it("has blank alt text when img provided", () => {
         render(
-          <Avatar avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png" />
+          <Avatar avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png" />,
         )
         expect(screen.queryByRole("img")).not.toBeInTheDocument()
       })

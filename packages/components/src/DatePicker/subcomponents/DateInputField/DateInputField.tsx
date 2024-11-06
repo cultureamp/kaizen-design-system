@@ -44,7 +44,7 @@ export const DateInputField = React.forwardRef<
       classNameOverride,
       ...dateInputWithIconButtonProps
     },
-    ref
+    ref,
   ) => {
     const reactId = useId()
     const id = propsId ?? reactId
@@ -82,7 +82,7 @@ export const DateInputField = React.forwardRef<
         </div>
       </div>
     )
-  }
+  },
 )
 
 DateInputField.displayName = "DateInputField"

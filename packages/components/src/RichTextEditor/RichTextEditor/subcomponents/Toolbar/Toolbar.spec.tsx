@@ -73,7 +73,7 @@ describe("Tabbing out of the toolbar", () => {
       <>
         <ExampleToolbar />
         <button type="button">I&apos;m here for the focus</button>
-      </>
+      </>,
     )
     screen.getByRole("toolbar").focus()
     await user.tab()

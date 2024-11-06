@@ -24,7 +24,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
       ref={ref}
       {...props}
     />
-  )
+  ),
 )
 
 Menu.displayName = "Menu"

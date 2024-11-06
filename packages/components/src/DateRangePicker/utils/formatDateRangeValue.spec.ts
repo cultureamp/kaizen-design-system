@@ -18,7 +18,7 @@ describe("formatDateRangeValue", () => {
     }
 
     expect(formatDateRangeValue(dateRangeBothValues)).toEqual(
-      "Feb 1 – Mar 2, 2022"
+      "Feb 1 – Mar 2, 2022",
     )
   })
 
@@ -29,7 +29,7 @@ describe("formatDateRangeValue", () => {
     }
 
     expect(formatDateRangeValue(dateRangeOvertoNewYear)).toEqual(
-      "Feb 1, 2022 – Feb 1, 2023"
+      "Feb 1, 2022 – Feb 1, 2023",
     )
   })
 })

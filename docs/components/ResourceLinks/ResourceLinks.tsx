@@ -45,7 +45,7 @@ export const ResourceLinks = ({
       {...attributes}
       className={classNames(
         "flex flex-wrap mt-16 mb-40 list-none m-0 p-0 gap-8",
-        className
+        className,
       )}
     >
       <ResourceLink href={sourceCode} text="Source Code" />

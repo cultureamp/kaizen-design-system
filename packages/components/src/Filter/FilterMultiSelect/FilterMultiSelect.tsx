@@ -70,7 +70,7 @@ export const FilterMultiSelect = ({
   const disabledKeys: Selection = new Set(
     items
       ?.filter(item => item.isDisabled === true)
-      .map(disabledItem => disabledItem.value)
+      .map(disabledItem => disabledItem.value),
   )
   const selectionProps = {
     label,

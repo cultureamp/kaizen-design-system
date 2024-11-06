@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react"
 import { FilterButton, FilterButtonProps } from "."
 
 const FilterButtonWrapper = (
-  props: Partial<FilterButtonProps>
+  props: Partial<FilterButtonProps>,
 ): JSX.Element => <FilterButton label="Desserts" isOpen={false} {...props} />
 
 describe("<FilterButton />", () => {
@@ -31,7 +31,7 @@ describe("<FilterButton />", () => {
   it("should show the label and selected value when defined", () => {
     render(<FilterButtonWrapper selectedValue="Cake" />)
     expect(
-      screen.getByRole("button", { name: "Desserts : Cake" })
+      screen.getByRole("button", { name: "Desserts : Cake" }),
     ).toBeVisible()
   })
 

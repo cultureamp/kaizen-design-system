@@ -8,7 +8,7 @@ describe("<VisuallyHidden />", () => {
     const { getByText } = render(
       <VisuallyHidden>
         <p>Lorem ipsum</p>
-      </VisuallyHidden>
+      </VisuallyHidden>,
     )
 
     expect(getByText("Lorem ipsum")).toBeInTheDocument()

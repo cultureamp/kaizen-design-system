@@ -7,7 +7,7 @@ describe("<GlobalNotification />", () => {
     const { getByText } = render(
       <GlobalNotification type="positive">
         This is my positive notification
-      </GlobalNotification>
+      </GlobalNotification>,
     )
 
     expect(getByText("This is my positive notification")).toBeInTheDocument()
@@ -16,11 +16,11 @@ describe("<GlobalNotification />", () => {
     const { getByRole } = render(
       <GlobalNotification type="positive">
         This is my positive notification
-      </GlobalNotification>
+      </GlobalNotification>,
     )
 
     expect(
-      getByRole("button", { name: "Close notification" })
+      getByRole("button", { name: "Close notification" }),
     ).toBeInTheDocument()
   })
 })

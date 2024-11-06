@@ -36,7 +36,7 @@ const Wrapper = ({
 export const createReactTooltipWrapper = (
   parentNode: HTMLElement,
   Component: ElementType,
-  componentProps: LinkEditorProps
+  componentProps: LinkEditorProps,
 ): {
   destroy: () => void
   update: (props: LinkEditorProps) => void
@@ -51,7 +51,7 @@ export const createReactTooltipWrapper = (
       componentProps={componentProps}
       Component={Component}
       emitter={emitter}
-    />
+    />,
   )
 
   function destroy(): void {

@@ -9,7 +9,7 @@ describe("<SVG />", () => {
       render(
         <SVG role="img" aria-label={label}>
           <path />
-        </SVG>
+        </SVG>,
       )
 
       expect(screen.getByRole("img", { name: label })).toBeInTheDocument()

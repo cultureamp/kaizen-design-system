@@ -12,7 +12,7 @@ const FilterDatePickerFieldWrapper = ({
   ...restProps
 }: Partial<FilterDatePickerFieldProps>): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState<Date | undefined>(
-    selectedDate
+    selectedDate,
   )
 
   return (
@@ -48,7 +48,7 @@ describe("<FilterDatePickerField />", () => {
 
     it("pre-fills the inputs when date is provided", async () => {
       render(
-        <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-01")} />
+        <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-01")} />,
       )
       await waitForI18nContent()
       const inputDate = screen.getByLabelText("Date")
@@ -62,7 +62,7 @@ describe("<FilterDatePickerField />", () => {
           inputProps={{
             labelText: "Due date",
           }}
-        />
+        />,
       )
       await waitFor(() => {
         const date = screen.getByLabelText("Due date")
@@ -78,7 +78,7 @@ describe("<FilterDatePickerField />", () => {
           <FilterDatePickerFieldWrapper
             selectedDate={new Date("2022-05-02")}
             onBlur={inputDateOnBlur}
-          />
+          />,
         )
         await waitForI18nContent()
 
@@ -108,7 +108,7 @@ describe("<FilterDatePickerField />", () => {
     describe("Press Enter key", () => {
       it("updates calendar values and calls submit when the date is valid", async () => {
         render(
-          <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-02")} />
+          <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-02")} />,
         )
         await waitForI18nContent()
 
@@ -134,7 +134,7 @@ describe("<FilterDatePickerField />", () => {
 
       it("does not call submit when the date is invalid", async () => {
         render(
-          <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-02")} />
+          <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-02")} />,
         )
         await waitForI18nContent()
 
@@ -152,7 +152,7 @@ describe("<FilterDatePickerField />", () => {
 
     it("updates the calendar month to match the new start date input", async () => {
       render(
-        <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-02")} />
+        <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-02")} />,
       )
       await waitForI18nContent()
 
@@ -175,7 +175,7 @@ describe("<FilterDatePickerField />", () => {
   describe("Calendar", () => {
     it("shows the default month as the start month when there isn't a selected value", async () => {
       render(
-        <FilterDatePickerFieldWrapper defaultMonth={new Date("2022-05-02")} />
+        <FilterDatePickerFieldWrapper defaultMonth={new Date("2022-05-02")} />,
       )
       await waitForI18nContent()
       expect(screen.getByText("May 2022")).toBeVisible()
@@ -183,7 +183,7 @@ describe("<FilterDatePickerField />", () => {
 
     it("shows the selected start date month as the start month when provided", async () => {
       render(
-        <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-01")} />
+        <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-01")} />,
       )
       await waitForI18nContent()
       expect(screen.getByText("May 2022")).toBeVisible()
@@ -201,7 +201,7 @@ describe("<FilterDatePickerField />", () => {
 
     it("calls the onDateSubmit when selecting a date", async () => {
       render(
-        <FilterDatePickerFieldWrapper defaultMonth={new Date("2022-05-01")} />
+        <FilterDatePickerFieldWrapper defaultMonth={new Date("2022-05-01")} />,
       )
       const targetMonth = screen.getByRole("grid", { name: "May 2022" })
       const targetDay = within(targetMonth).getByRole("gridcell", {
@@ -216,7 +216,7 @@ describe("<FilterDatePickerField />", () => {
 
     it("updates the input when changing the date", async () => {
       render(
-        <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-15")} />
+        <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-15")} />,
       )
       await waitForI18nContent()
 
@@ -238,7 +238,7 @@ describe("<FilterDatePickerField />", () => {
 
     it("clears the inputs when clearing the calendar value", async () => {
       render(
-        <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-15")} />
+        <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-15")} />,
       )
       await waitForI18nContent()
 
@@ -270,7 +270,7 @@ describe("<FilterDatePickerField />", () => {
               status: "error",
               message: "Date error message",
             }}
-          />
+          />,
         )
         await waitForI18nContent()
         expect(screen.getByText("Date error message")).toBeVisible()
@@ -292,7 +292,7 @@ describe("<FilterDatePickerField />", () => {
         await waitFor(() => {
           const dateErrorContainer = container.querySelector(dateErrorId)
           expect(dateErrorContainer).toHaveTextContent(
-            "potato is an invalid date"
+            "potato is an invalid date",
           )
         })
       })
@@ -302,13 +302,13 @@ describe("<FilterDatePickerField />", () => {
           <FilterDatePickerFieldWrapper
             selectedDate={new Date("2022-05-15")}
             disabledDays={[new Date("2022-05-15")]}
-          />
+          />,
         )
         await waitForI18nContent()
 
         const dateErrorContainer = container.querySelector(dateErrorId)
         expect(dateErrorContainer).toHaveTextContent(
-          "15/05/2022 is not available, try another date"
+          "15/05/2022 is not available, try another date",
         )
       })
     })
@@ -332,14 +332,14 @@ describe("<FilterDatePickerField />", () => {
         <FilterDatePickerFieldWrapper
           selectedDate={new Date("potato")}
           defaultMonth={new Date("2022-05-01")}
-        />
+        />,
       )
 
       const dateErrorContainer = container.querySelector(dateErrorId)
 
       await waitFor(() => {
         expect(dateErrorContainer).toHaveTextContent(
-          "Invalid Date is an invalid date"
+          "Invalid Date is an invalid date",
         )
       })
 

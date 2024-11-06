@@ -24,7 +24,7 @@ export type UseEndDateValidationValue = {
 }
 
 export const useEndDateValidation = (
-  args: UseEndDateValidationArgs
+  args: UseEndDateValidationArgs,
 ): UseEndDateValidationValue => {
   const { validationMessage, validateDate, updateValidation } =
     useDateValidation(args)

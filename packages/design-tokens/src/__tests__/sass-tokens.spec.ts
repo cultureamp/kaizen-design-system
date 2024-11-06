@@ -24,13 +24,13 @@ ${border.toString()}
 ${spacing.toString()}
 ${animation.toString()}
 ${typography.toString()}
-    `
+    `,
   )
   describe("everything", () => {
     it("no tokens start with kz", () => {
       const allTokensStartingWithKz = everything.nodes
         .filter(
-          (n): n is Declaration => n.type === "decl" && n.prop.startsWith("$kz")
+          (n): n is Declaration => n.type === "decl" && n.prop.startsWith("$kz"),
         )
         .map(n => n.prop)
       expect(allTokensStartingWithKz).toHaveLength(0)
@@ -41,13 +41,13 @@ ${typography.toString()}
     it("new un-prefixed tokens only contain heart color names", () => {
       const newColors = colors.nodes.filter(
         (n): n is Declaration =>
-          n.type === "decl" && n.prop.startsWith("$color")
+          n.type === "decl" && n.prop.startsWith("$color"),
       )
       const newColorsWithHeartNames = newColors.filter(
         n =>
           heartColorNamePattern.test(n.prop) ||
           n.prop.startsWith("$color-white") ||
-          n.prop.startsWith("$color-black")
+          n.prop.startsWith("$color-black"),
       )
       expect(newColors.length).not.toBe(0)
       expect(newColors.length).toBe(newColorsWithHeartNames.length)
@@ -61,8 +61,8 @@ ${typography.toString()}
           n =>
             n.type === "decl" &&
             n.prop.startsWith("$layout") &&
-            n.value.startsWith("var(")
-        )
+            n.value.startsWith("var("),
+        ),
       ).toHaveLength(0)
     })
   })

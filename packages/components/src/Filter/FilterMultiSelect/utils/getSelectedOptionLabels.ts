@@ -3,7 +3,7 @@ import { ItemType } from "../types"
 
 export const getSelectedOptionLabels = (
   keys?: Selection,
-  items?: ItemType[]
+  items?: ItemType[],
 ): string[] => {
   if (!keys || !items) {
     return []

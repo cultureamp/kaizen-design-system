@@ -49,7 +49,7 @@ describe("<VideoPlayer />", () => {
         fallback="illustrations/heart/spot/moods-cautionary.svg"
         source="illustrations/heart/spot/moods-cautionary.webm"
         data-testid="kz-video-player"
-      />
+      />,
     )
     const videoPlayer = screen.getByTestId("kz-video-player")
     expect(videoPlayer).toBeInTheDocument()
@@ -66,7 +66,7 @@ describe("<VideoPlayer />", () => {
         fallback="illustrations/heart/spot/moods-cautionary.svg"
         source="illustrations/heart/spot/moods-cautionary.webm"
         data-testid="kz-video-player"
-      />
+      />,
     )
     const videoPlayer = screen.getByTestId("kz-video-player")
     expect(videoPlayer).not.toHaveAttribute("autoplay")
@@ -83,7 +83,7 @@ describe("<VideoPlayer />", () => {
         fallback="illustrations/heart/spot/moods-cautionary.svg"
         source="illustrations/heart/spot/moods-cautionary.webm"
         data-testid="kz-video-player"
-      />
+      />,
     )
     const videoPlayer = screen.getByTestId("kz-video-player")
     expect(videoPlayer).toHaveAttribute("autoplay")

@@ -34,7 +34,7 @@ describe("<ContextModal />", () => {
     const { getByLabelText } = render(
       <ContextModalWrapper onConfirm={handleConfirm} onDismiss={handleDismiss}>
         Example modal body
-      </ContextModalWrapper>
+      </ContextModalWrapper>,
     )
     await user.click(getByLabelText(/Dismiss/i))
     await waitFor(() => {
@@ -49,7 +49,7 @@ describe("<ContextModal />", () => {
     const { getByText } = render(
       <ContextModalWrapper onDismiss={handleDismiss} onConfirm={handleConfirm}>
         Example modal body
-      </ContextModalWrapper>
+      </ContextModalWrapper>,
     )
     await user.click(getByText(/Confirm/i))
     await waitFor(() => {

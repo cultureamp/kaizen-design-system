@@ -11,7 +11,7 @@ describe("<InputRange />", () => {
         onChange={onChange}
         minLabel="Awful"
         maxLabel="Fantastic"
-      />
+      />,
     )
 
     const slider = await screen.findByRole("slider")
@@ -30,7 +30,7 @@ describe("<InputRange />", () => {
         max={10}
         minLabel="bad"
         maxLabel="good"
-      />
+      />,
     )
     const helpText = await screen.findByText(/1 is bad, 10 is good/i)
 

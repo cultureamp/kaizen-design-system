@@ -8,7 +8,7 @@ import {
 
 export const transformCaMonogramIconToBrand = (
   node: ts.JsxOpeningElement | ts.JsxSelfClosingElement,
-  tagName: string = "Brand"
+  tagName: string = "Brand",
 ): ts.Node => {
   let shouldInheritSize = false
   const newAttributes = node.attributes.properties.reduce<

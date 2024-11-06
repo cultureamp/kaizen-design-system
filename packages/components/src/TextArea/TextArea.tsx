@@ -61,7 +61,7 @@ export const TextArea = ({
           {
             [styles.disabled]: disabled,
             [styles.textareaAutogrow]: autogrow,
-          }
+          },
         )}
         rows={rows}
         onChange={onChange}

@@ -18,7 +18,7 @@ export const StickerSheetBody = ({
       React.cloneElement(child, {
         isReversed,
         ...child.props,
-      })
+      }),
     )}
   </tbody>
 )

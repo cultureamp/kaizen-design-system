@@ -82,7 +82,7 @@ export const Collapsible = ({
         classNameOverride,
         isContainer && styles.container,
         group && !separated && styles.groupItem,
-        separated && styles.separated
+        separated && styles.separated,
       )}
       data-testid={`collapsible-container-${id}`}
       {...restProps} // `title` is missing because it is used for the header; requires breaking change to fix
@@ -96,7 +96,7 @@ export const Collapsible = ({
           isOpen && styles.open,
           sticky && styles.sticky,
           isOpen && variant === "default" && styles.defaultVariant,
-          isOpen && variant === "clear" && styles.clearVariant
+          isOpen && variant === "clear" && styles.clearVariant,
         )}
         style={sticky && { top: sticky.top }}
         onClick={handleSectionToggle}
@@ -142,7 +142,7 @@ export const Collapsible = ({
             id={sectionId}
             className={classnames(
               styles.section,
-              noSectionPadding && styles.noPadding
+              noSectionPadding && styles.noPadding,
             )}
             role="region"
             aria-labelledby={buttonId}

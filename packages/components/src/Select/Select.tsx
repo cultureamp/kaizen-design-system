@@ -61,7 +61,7 @@ export const Select = React.forwardRef<any, SelectProps>(
       placeholder,
       ...props
     },
-    ref
+    ref,
   ) => {
     const reactId = useId()
 
@@ -82,7 +82,7 @@ export const Select = React.forwardRef<any, SelectProps>(
       variant === "secondary-small" && styles.secondarySmall,
       !fullWidth && styles.notFullWidth,
       isDisabled && styles.disabled,
-      status === "error" && styles.error
+      status === "error" && styles.error,
     )
 
     const [labelId] = useState<string | undefined>(label ? reactId : undefined)
@@ -123,7 +123,7 @@ export const Select = React.forwardRef<any, SelectProps>(
         {description ? <FieldMessage message={description} /> : null}
       </>
     )
-  }
+  },
 )
 Select.displayName = "Select"
 
@@ -134,7 +134,7 @@ interface AsyncProps
 export const AsyncSelect = React.forwardRef(
   (
     { className: propsClassName, placeholder, ...props }: AsyncProps,
-    ref: React.Ref<any>
+    ref: React.Ref<any>,
   ) => (
     <Async
       {...props}
@@ -158,7 +158,7 @@ export const AsyncSelect = React.forwardRef(
       }}
       className={classnames(styles.specificityIncreaser, propsClassName)}
     />
-  )
+  ),
 )
 AsyncSelect.displayName = "AsyncSelect"
 
@@ -169,7 +169,7 @@ const Control: typeof components.Control = props => (
       className={classnames(
         styles.control,
         props.isFocused && styles.focusedControl,
-        props.isDisabled && styles.disabled
+        props.isDisabled && styles.disabled,
       )}
     />
   </div>
@@ -214,7 +214,7 @@ const Option: typeof components.Option = props => (
         styles.option,
         props.isFocused && styles.focusedOption,
         props.isSelected && styles.selectedOption,
-        props.isDisabled && styles.disabledOption
+        props.isDisabled && styles.disabledOption,
       )}
     />
   </div>

@@ -15,7 +15,7 @@ export default {
 } satisfies Meta
 
 const ExpertAdviceCollapsibleWrapped = (
-  args: Omit<ExpertAdviceCollapsibleProps, "children">
+  args: Omit<ExpertAdviceCollapsibleProps, "children">,
 ): JSX.Element => (
   <ExpertAdviceCollapsible open {...args}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac

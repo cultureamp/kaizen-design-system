@@ -38,7 +38,7 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId("title-block-primary-action-button")
       expect(btn.textContent).toEqual(primaryActionAsLink.label)
@@ -49,7 +49,7 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId("title-block-mobile-actions-primary-button")
       expect(btn.getAttribute("href")).toEqual(primaryActionAsLink.href)
@@ -72,7 +72,7 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId("title-block-primary-action-button")
       expect(btn.textContent).toEqual(primaryActionAsButton.label)
@@ -87,7 +87,7 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       const btn = getByTestId("title-block-mobile-actions-primary-button")
@@ -121,10 +121,10 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId(
-        "title-block-primary-action-button"
+        "title-block-primary-action-button",
       ) as HTMLButtonElement
       expect(btn.textContent).toEqual(primaryActionAsButton.label)
       expect(btn.disabled).toBeTruthy()
@@ -139,10 +139,10 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId(
-        "title-block-primary-action-button"
+        "title-block-primary-action-button",
       ) as HTMLButtonElement
       expect(btn.textContent).toEqual(primaryActionAsLink.label)
       expect(btn.getAttribute("href")).not.toEqual(primaryActionAsLink.href)
@@ -152,11 +152,11 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       const btn = getByTestId(
-        "title-block-mobile-actions-primary-button"
+        "title-block-mobile-actions-primary-button",
       ) as HTMLButtonElement
       expect(btn.textContent).toEqual(primaryActionAsButton.label)
       await user.click(btn)
@@ -170,11 +170,11 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       const btn = getByTestId(
-        "title-block-mobile-actions-primary-button"
+        "title-block-mobile-actions-primary-button",
       ) as HTMLButtonElement
       expect(btn.textContent).toEqual(primaryActionAsLink.label)
       expect(btn.getAttribute("href")).not.toEqual(primaryActionAsLink.href)
@@ -201,12 +201,12 @@ describe("<TitleBlockZen />", () => {
           primaryAction={primaryActionAsLinkAndOnClick}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId("title-block-primary-action-button")
       expect(btn.textContent).toEqual(primaryActionAsLinkAndOnClick.label)
       expect(btn.getAttribute("href")).toEqual(
-        primaryActionAsLinkAndOnClick.href
+        primaryActionAsLinkAndOnClick.href,
       )
       await user.click(btn)
 
@@ -222,11 +222,11 @@ describe("<TitleBlockZen />", () => {
           primaryAction={primaryActionAsLinkAndOnClick}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId("title-block-mobile-actions-primary-button")
       expect(btn.getAttribute("href")).toEqual(
-        primaryActionAsLinkAndOnClick.href
+        primaryActionAsLinkAndOnClick.href,
       )
       await user.click(btn)
 
@@ -255,7 +255,7 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId, getAllByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsMenu}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId("title-block-primary-action-button")
       expect(btn).toHaveAccessibleName(primaryActionAsMenu.label)
@@ -271,10 +271,10 @@ describe("<TitleBlockZen />", () => {
       const { getAllByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsMenu}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const menuItems = getAllByTestId(
-        /^title-block-mobile-actions-primary-link-/
+        /^title-block-mobile-actions-primary-link-/,
       )
       expect(menuItems.length).toEqual(2)
     })
@@ -290,7 +290,7 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId("title-block-default-action-button")
       expect(btn.textContent).toEqual(defaultActionAsLink.label)
@@ -301,7 +301,7 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       const menuItem = getByTestId("title-block-mobile-actions-default-link")
@@ -313,11 +313,11 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       expect(
-        getByTestId("title-block-mobile-actions-drawer-handle")
+        getByTestId("title-block-mobile-actions-drawer-handle"),
       ).toBeTruthy()
     })
   })
@@ -338,7 +338,7 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId("title-block-default-action-button")
       expect(btn.textContent).toEqual(defaultActionAsButton.label)
@@ -353,7 +353,7 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       const menuItem = getByTestId("title-block-mobile-actions-default-action")
@@ -369,11 +369,11 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       expect(
-        getByTestId("title-block-mobile-actions-drawer-handle")
+        getByTestId("title-block-mobile-actions-drawer-handle"),
       ).toBeTruthy()
     })
   })
@@ -397,12 +397,12 @@ describe("<TitleBlockZen />", () => {
           defaultAction={defaultActionAsLinkAndOnClick}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId("title-block-default-action-button")
       expect(btn.textContent).toEqual(defaultActionAsLinkAndOnClick.label)
       expect(btn.getAttribute("href")).toEqual(
-        defaultActionAsLinkAndOnClick.href
+        defaultActionAsLinkAndOnClick.href,
       )
       await user.click(btn)
 
@@ -418,16 +418,16 @@ describe("<TitleBlockZen />", () => {
           defaultAction={defaultActionAsLinkAndOnClick}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       const menuItem = getByTestId("title-block-mobile-actions-default-link")
       const defaultAction = queryByTestId(
-        "title-block-mobile-actions-default-action"
+        "title-block-mobile-actions-default-action",
       )
       expect(defaultAction).toBeFalsy()
       expect(menuItem.getAttribute("href")).toEqual(
-        defaultActionAsLinkAndOnClick.href
+        defaultActionAsLinkAndOnClick.href,
       )
       expect(menuItem.textContent).toEqual(defaultActionAsLinkAndOnClick.label)
       await user.click(menuItem)
@@ -459,10 +459,10 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId(
-        "title-block-default-action-button"
+        "title-block-default-action-button",
       ) as HTMLButtonElement
       expect(btn.textContent).toEqual(defaultActionAsButton.label)
       expect(btn.disabled).toBeTruthy()
@@ -477,10 +477,10 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId(
-        "title-block-default-action-button"
+        "title-block-default-action-button",
       ) as HTMLButtonElement
       expect(btn.textContent).toEqual(defaultActionAsLink.label)
       expect(btn.getAttribute("href")).not.toEqual(defaultActionAsLink.href)
@@ -490,11 +490,11 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       const btn = getByTestId(
-        "title-block-mobile-actions-default-action"
+        "title-block-mobile-actions-default-action",
       ) as HTMLButtonElement
       expect(btn.textContent).toEqual(defaultActionAsButton.label)
       await user.click(btn)
@@ -508,11 +508,11 @@ describe("<TitleBlockZen />", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       const btn = getByTestId(
-        "title-block-mobile-actions-default-link"
+        "title-block-mobile-actions-default-link",
       ) as HTMLButtonElement
       expect(btn.textContent).toEqual(defaultActionAsLink.label)
       expect(btn.getAttribute("href")).not.toEqual(defaultActionAsLink.href)
@@ -542,14 +542,14 @@ describe("<TitleBlockZen />", () => {
           secondaryActions={[secondaryActionWithLinkAndOnClick]}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getByTestId("title-block-secondary-actions-button")
       expect(btn).toBeTruthy()
       expect(mockWarnFn).toBeCalled()
       expect(btn.textContent).toEqual(secondaryActionWithLinkAndOnClick.label)
       expect(btn.getAttribute("href")).toEqual(
-        secondaryActionWithLinkAndOnClick.href
+        secondaryActionWithLinkAndOnClick.href,
       )
       await user.click(btn)
       await waitFor(() => {
@@ -569,12 +569,12 @@ describe("<TitleBlockZen />", () => {
           secondaryActions={[secondaryActionWithLinkAndOnClick]}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
       expect(btn.length).toEqual(1)
       expect(btn[0].getAttribute("href")).not.toEqual(
-        secondaryActionWithLinkAndOnClick.href
+        secondaryActionWithLinkAndOnClick.href,
       )
       await user.click(btn[0])
 
@@ -596,7 +596,7 @@ describe("<TitleBlockZen />", () => {
           title="Test title"
           sectionTitle={expectedText}
           renderSectionTitle={CustomComponent}
-        />
+        />,
       )
       const el = await screen.findByRole("button")
       expect(el.textContent).toBe(expectedText)
@@ -623,7 +623,7 @@ describe("<TitleBlockZen />", () => {
           secondaryActions={[secondaryActionWithLink]}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
       expect(btn.length).toEqual(1)
@@ -645,7 +645,7 @@ describe("<TitleBlockZen />", () => {
           autoHideMobileActionsMenu
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       const mobileActionsButton = screen.getByRole("button", {
@@ -656,7 +656,7 @@ describe("<TitleBlockZen />", () => {
       await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
-          "true"
+          "true",
         )
       })
 
@@ -666,7 +666,7 @@ describe("<TitleBlockZen />", () => {
 
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
-          "false"
+          "false",
         )
       })
     })
@@ -686,12 +686,12 @@ describe("<TitleBlockZen />", () => {
           secondaryActions={[secondaryActionWithLink]}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
       expect(btn.length).toEqual(1)
       expect(btn[0].getAttribute("href")).not.toEqual(
-        secondaryActionWithLink.href
+        secondaryActionWithLink.href,
       )
     })
   })
@@ -711,7 +711,7 @@ describe("<TitleBlockZen />", () => {
           secondaryActions={[secondaryActionWithOnClick]}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
       expect(btn.length).toEqual(1)
@@ -739,10 +739,10 @@ describe("<TitleBlockZen />", () => {
           secondaryOverflowMenuItems={[secondaryOverflowMenuItemWithOnClick]}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
       const btn = getAllByTestId(
-        "title-block-mobile-actions-overflow-menu-item"
+        "title-block-mobile-actions-overflow-menu-item",
       )
       expect(btn.length).toEqual(1)
       await user.click(btn[0])
@@ -781,12 +781,12 @@ describe("<TitleBlockZen />", () => {
             sectionTitleDescription="Test Section Title Description"
           >
             Example
-          </TitleBlockZen>
+          </TitleBlockZen>,
         )
 
         for (const automationId of Object.values(automationdIds)) {
           expect(
-            container.querySelector(`[data-automation-id="${automationId}"]`)
+            container.querySelector(`[data-automation-id="${automationId}"]`),
           ).toBeTruthy()
         }
       })
@@ -830,12 +830,12 @@ describe("<TitleBlockZen />", () => {
             }
           >
             Example
-          </TitleBlockZen>
+          </TitleBlockZen>,
         )
 
         for (const automationId of Object.values(automationdIds)) {
           expect(
-            container.querySelector(`[data-automation-id="${automationId}"]`)
+            container.querySelector(`[data-automation-id="${automationId}"]`),
           ).toBeTruthy()
         }
       })
@@ -854,7 +854,7 @@ describe("<TitleBlockZen />", () => {
           }}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       expect(screen.getByRole("link", { name: "Back" })).toBeInTheDocument()
@@ -870,7 +870,7 @@ describe("<TitleBlockZen />", () => {
           }}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       expect(screen.getByRole("button", { name: "Back" })).toBeInTheDocument()
@@ -900,7 +900,7 @@ describe("<TitleBlockZen />", () => {
           }}
         >
           Example
-        </TitleBlockZen>
+        </TitleBlockZen>,
       )
 
       const customElement = screen.getByTestId("custom-component")
@@ -946,7 +946,7 @@ describe("<TitleBlockZen />", () => {
             }}
           >
             Example
-          </TitleBlockZen>
+          </TitleBlockZen>,
         )
         const toolbar = screen.getByTestId("title-block-main-actions-toolbar")
         within(toolbar).getByRole("link", {
@@ -955,7 +955,7 @@ describe("<TitleBlockZen />", () => {
         expect(
           within(toolbar).getByRole("link", {
             name: "Primary action",
-          })
+          }),
         ).toHaveAttribute("href", "#test-primary")
       })
 
@@ -970,10 +970,10 @@ describe("<TitleBlockZen />", () => {
             }}
           >
             Example
-          </TitleBlockZen>
+          </TitleBlockZen>,
         )
         const drawer = screen.getByTestId(
-          "title-block-mobile-actions-drawer-handle"
+          "title-block-mobile-actions-drawer-handle",
         )
         within(drawer).getByRole("link", {
           name: "Primary action",
@@ -981,7 +981,7 @@ describe("<TitleBlockZen />", () => {
         expect(
           within(drawer).getByRole("link", {
             name: "Primary action",
-          })
+          }),
         ).toHaveAttribute("href", "#test-primary")
       })
 
@@ -997,10 +997,10 @@ describe("<TitleBlockZen />", () => {
             }}
           >
             Example
-          </TitleBlockZen>
+          </TitleBlockZen>,
         )
         const drawer = screen.getByTestId(
-          "title-block-mobile-actions-drawer-handle"
+          "title-block-mobile-actions-drawer-handle",
         )
         const drawerBtn = within(drawer).getByRole("button", {
           name: "Primary action",
@@ -1028,10 +1028,10 @@ describe("<TitleBlockZen />", () => {
             }}
           >
             Example
-          </TitleBlockZen>
+          </TitleBlockZen>,
         )
         const drawer = screen.getByTestId(
-          "title-block-mobile-actions-drawer-handle"
+          "title-block-mobile-actions-drawer-handle",
         )
         within(drawer).getByRole("button", {
           name: "This will replace label",
@@ -1039,7 +1039,7 @@ describe("<TitleBlockZen />", () => {
         expect(
           within(drawer).queryByRole("button", {
             name: "Primary action",
-          })
+          }),
         ).toBeFalsy()
       })
     })
@@ -1063,10 +1063,10 @@ describe("<TitleBlockZen />", () => {
             ]}
           >
             Example
-          </TitleBlockZen>
+          </TitleBlockZen>,
         )
         const toolbar = screen.getByTestId(
-          "title-block-secondary-actions-toolbar"
+          "title-block-secondary-actions-toolbar",
         )
         const links = within(toolbar).getAllByRole("link")
         expect(links.length).toBe(2)
@@ -1092,10 +1092,10 @@ describe("<TitleBlockZen />", () => {
             ]}
           >
             Example
-          </TitleBlockZen>
+          </TitleBlockZen>,
         )
         const links = screen.getAllByTestId(
-          "title-block-mobile-actions-secondary-action"
+          "title-block-mobile-actions-secondary-action",
         )
         expect(links.length).toBe(2)
         expect(links[0]).toHaveAttribute("href", "#test-secondary")
@@ -1115,7 +1115,7 @@ describe("<TitleBlockZen />", () => {
             }}
           >
             Example
-          </TitleBlockZen>
+          </TitleBlockZen>,
         )
         const toolbar = screen.getByTestId("title-block-main-actions-toolbar")
         const defaultActionAnchor = within(toolbar).getByRole("link", {
@@ -1135,10 +1135,10 @@ describe("<TitleBlockZen />", () => {
             }}
           >
             Example
-          </TitleBlockZen>
+          </TitleBlockZen>,
         )
         const mobileActionLink = screen.getByTestId(
-          "title-block-mobile-actions-default-link"
+          "title-block-mobile-actions-default-link",
         )
 
         expect(mobileActionLink).toBeInTheDocument()
@@ -1156,13 +1156,13 @@ describe("<TitleBlockZen />", () => {
             }}
           >
             Example
-          </TitleBlockZen>
+          </TitleBlockZen>,
         )
         expect(
-          screen.queryByTestId("title-block-mobile-actions-default-link")
+          screen.queryByTestId("title-block-mobile-actions-default-link"),
         ).toBeFalsy()
         expect(
-          screen.getByTestId("title-block-mobile-actions-default-action")
+          screen.getByTestId("title-block-mobile-actions-default-action"),
         ).toBeInTheDocument()
       })
     })

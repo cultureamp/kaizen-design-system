@@ -3,7 +3,7 @@ import { transformSource, printAst, TransformConfig } from "../utils"
 import { transformProgressBarMoodToColor } from "./transformProgressBarMoodToColor"
 
 const transformProgressBar = (
-  sourceFile: TransformConfig["sourceFile"]
+  sourceFile: TransformConfig["sourceFile"],
 ): string =>
   transformSource({
     sourceFile,
@@ -14,40 +14,40 @@ const transformProgressBar = (
 describe("transformProgressBarMoodToColor()", () => {
   it('replaces mood="cautionary" with color="yellow"', () => {
     const inputAst = parseJsx(
-      'export const TestComponent = () => <ProgressBar mood="cautionary" />'
+      'export const TestComponent = () => <ProgressBar mood="cautionary" />',
     )
     const outputAst = parseJsx(
-      'export const TestComponent = () => <ProgressBar color="yellow" />'
+      'export const TestComponent = () => <ProgressBar color="yellow" />',
     )
     expect(transformProgressBar(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('replaces mood="informative" with color="blue', () => {
     const inputAst = parseJsx(
-      'export const TestComponent = () => <ProgressBar mood="informative" />'
+      'export const TestComponent = () => <ProgressBar mood="informative" />',
     )
     const outputAst = parseJsx(
-      'export const TestComponent = () => <ProgressBar color="blue" />'
+      'export const TestComponent = () => <ProgressBar color="blue" />',
     )
     expect(transformProgressBar(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('replaces mood="negative" with color="red"', () => {
     const inputAst = parseJsx(
-      'export const TestComponent = () => <ProgressBar mood="negative" />'
+      'export const TestComponent = () => <ProgressBar mood="negative" />',
     )
     const outputAst = parseJsx(
-      'export const TestComponent = () => <ProgressBar color="red" />'
+      'export const TestComponent = () => <ProgressBar color="red" />',
     )
     expect(transformProgressBar(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('replaces mood="positive" with color="green"', () => {
     const inputAst = parseJsx(
-      'export const TestComponent = () => <ProgressBar mood="positive" />'
+      'export const TestComponent = () => <ProgressBar mood="positive" />',
     )
     const outputAst = parseJsx(
-      'export const TestComponent = () => <ProgressBar color="green" />'
+      'export const TestComponent = () => <ProgressBar color="green" />',
     )
     expect(transformProgressBar(inputAst)).toEqual(printAst(outputAst))
   })

@@ -16,5 +16,5 @@ export const getIsUsableWhenArgs = <ValuesMap extends FiltersValues>({
       }
       return acc
     },
-    {} as SourceFiltersState<ValuesMap>
+    {} as SourceFiltersState<ValuesMap>,
   )

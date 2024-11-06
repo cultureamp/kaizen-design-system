@@ -36,7 +36,7 @@ export const mockedTransformer =
   }
 
 const testCreateStyleProp = (
-  sourceFile: TransformConfig["sourceFile"]
+  sourceFile: TransformConfig["sourceFile"],
 ): string =>
   transformSource({
     sourceFile,

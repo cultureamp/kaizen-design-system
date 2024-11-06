@@ -35,7 +35,7 @@ export const RichTextContent = (props: RichTextContentProps): JSX.Element => {
     },
     {
       editable: false,
-    }
+    },
   )
 
   return (

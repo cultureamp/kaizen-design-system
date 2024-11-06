@@ -40,7 +40,7 @@ export const DateInputField = React.forwardRef<
       classNameOverride,
       ...restProps
     },
-    ref
+    ref,
   ) => {
     const { formatMessage } = useIntl()
 
@@ -97,7 +97,7 @@ export const DateInputField = React.forwardRef<
         />
       </div>
     )
-  }
+  },
 )
 
 DateInputField.displayName = "DateInputField"

@@ -7,7 +7,7 @@ import {
 
 export const transformSpinnerIconToLoadingSpinner = (
   node: ts.JsxOpeningElement | ts.JsxSelfClosingElement,
-  tagName: string = "LoadingSpinner"
+  tagName: string = "LoadingSpinner",
 ): ts.Node => {
   let accessibilityLabel = "Loading"
   const newAttributes = node.attributes.properties.reduce<
@@ -33,7 +33,7 @@ export const transformSpinnerIconToLoadingSpinner = (
   }, [])
 
   newAttributes.unshift(
-    createStringProp("accessibilityLabel", accessibilityLabel)
+    createStringProp("accessibilityLabel", accessibilityLabel),
   )
   newAttributes.unshift(createStringProp("size", "xs"))
 

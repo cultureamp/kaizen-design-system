@@ -26,7 +26,7 @@ export type MenuTriggerProviderContextType = {
 }
 
 const MenuTriggerContext = React.createContext<MenuTriggerProviderContextType>(
-  {} as MenuTriggerProviderContextType
+  {} as MenuTriggerProviderContextType,
 )
 export function MenuTriggerProvider({
   isOpen,
@@ -44,7 +44,7 @@ export function MenuTriggerProvider({
   const { menuTriggerProps, menuProps } = useMenuTrigger<ItemType>(
     {},
     state,
-    ref
+    ref,
   )
 
   // Get A11y attributes and events for the button based on the trigger props from useMenuTrigger

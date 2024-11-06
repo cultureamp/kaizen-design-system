@@ -9,7 +9,7 @@ const classEntries = Object.entries(kaizenTailwindTheme.fontSize || []).map(
   ([suffix, cssProperty]) => ({
     utilityClassName: `${prefix}${suffix}`,
     cssProperty,
-  })
+  }),
 )
 
 export default {

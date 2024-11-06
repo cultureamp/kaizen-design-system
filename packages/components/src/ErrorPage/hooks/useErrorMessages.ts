@@ -16,7 +16,7 @@ export type ErrorStatuses = (typeof statusCodes)[number]
 type TranslationMap = Record<ErrorStatuses, { title: string; message: string }>
 
 export const useErrorMessages = (
-  code: ErrorStatuses
+  code: ErrorStatuses,
 ): TranslationMap[ErrorStatuses] => {
   const { formatMessage } = useIntl()
 

@@ -34,7 +34,7 @@ export const CheckboxGroup = ({
         styles.checkboxGroupContainer,
         classNameOverride,
         noBottomMargin && styles.noBottomMargin,
-        reversed && styles.reversed
+        reversed && styles.reversed,
       )}
       role="group"
       aria-labelledby={labelId}

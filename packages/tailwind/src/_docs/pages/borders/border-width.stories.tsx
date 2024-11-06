@@ -11,7 +11,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
-    })
+    }),
   )
 
 export default {
@@ -38,7 +38,7 @@ export const BorderWidth: StoryFn<{ isReversed: boolean }> = ({
       <div
         className={classnames(
           "w-[100px] h-[100px] border rounded",
-          !utilityClass.includes("-DEFAULT") && utilityClass
+          !utilityClass.includes("-DEFAULT") && utilityClass,
         )}
       />
     )}

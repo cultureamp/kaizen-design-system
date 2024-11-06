@@ -19,7 +19,7 @@ export type ListBoxProps = {
 
 const getItemsFromKeys = (
   items: Collection<MultiSelectItem>,
-  keys: Set<Key>
+  keys: Set<Key>,
 ): MultiSelectItem[] => {
   const itemKeys = Array.from(keys)
   return itemKeys.reduce<MultiSelectItem[]>((acc, itemKey) => {
@@ -48,7 +48,7 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
   const selectedItems = getItemsFromKeys(items, selectedKeys)
 
   const unselectedItems = Array.from(items).filter(
-    item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key)
+    item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key),
   )
   const allItems = Array.from(items)
   const hasNoItems = allItems.length === 0

@@ -32,7 +32,7 @@ const EditableRichTextContentTemplate: Story = {
   render: props => {
     const [editMode, setEditMode] = useState<boolean>(false)
     const [readRteData, setReadRTEData] = useState<EditorContentArray>(
-      props.content
+      props.content,
     )
     const [editRteData, setEditRTEData] = useState<EditorContentArray>([])
 

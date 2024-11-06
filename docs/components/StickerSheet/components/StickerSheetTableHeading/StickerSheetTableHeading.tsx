@@ -17,7 +17,7 @@ export const StickerSheetTableHeading = ({
     className={classnames(
       styles.stickerSheetTableHeading,
       isReversed && styles.isReversed,
-      className
+      className,
     )}
     {...restProps}
   >

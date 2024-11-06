@@ -33,7 +33,7 @@ export const LoadingInput = ({
       styles.loadingInput,
       isAnimated && styles.isAnimated,
       isReversed && styles.isReversed,
-      classNameOverride
+      classNameOverride,
     )}
     style={{ width: `${width}%`, height: `${height}px` }}
     {...props}

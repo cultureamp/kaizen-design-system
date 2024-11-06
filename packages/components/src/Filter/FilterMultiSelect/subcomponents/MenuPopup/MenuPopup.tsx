@@ -28,7 +28,7 @@ export const MenuPopup = ({
       isOpen: menuTriggerState.isOpen,
       isDismissable: true,
     },
-    overlayRef
+    overlayRef,
   )
 
   // Wrap in <FocusScope> so that focus is restored back to the trigger when the menu is closed

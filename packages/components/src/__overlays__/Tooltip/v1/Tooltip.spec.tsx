@@ -14,14 +14,14 @@ describe("<Tooltip />", () => {
           position="below"
         >
           <Button label="More info" />
-        </Tooltip>
+        </Tooltip>,
       )
 
       await waitFor(() => {
         expect(
-          screen.getByRole("button", { name: "More info" })
+          screen.getByRole("button", { name: "More info" }),
         ).toHaveAccessibleDescription(
-          "Tooltip popup description for Kaizen Button"
+          "Tooltip popup description for Kaizen Button",
         )
       })
     })
@@ -34,13 +34,13 @@ describe("<Tooltip />", () => {
           position="below"
         >
           <Button label="More info" />
-        </Tooltip>
+        </Tooltip>,
       )
 
       await waitFor(() => {
         expect(screen.queryByRole("tooltip")).toBe(null)
         expect(
-          screen.getByRole("button", { name: "More info" })
+          screen.getByRole("button", { name: "More info" }),
         ).not.toHaveAttribute("aria-describedby")
       })
     })
@@ -58,14 +58,14 @@ describe("<Tooltip />", () => {
           position="below"
         >
           <div>Non semantic element</div>
-        </Tooltip>
+        </Tooltip>,
       )
       await waitFor(() => {
         expect(screen.getByText("Non semantic element")).not.toHaveAttribute(
-          "aria-describedby"
+          "aria-describedby",
         )
         expect(warn).toHaveBeenCalledWith(
-          "<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info. To ensure accessibility, Tooltip should be wrapping a semantic and focusable element directly."
+          "<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info. To ensure accessibility, Tooltip should be wrapping a semantic and focusable element directly.",
         )
       })
     })
@@ -80,11 +80,11 @@ describe("<Tooltip />", () => {
         position="below"
       >
         <div role="textbox" contentEditable="true" aria-multiline="true" />
-      </Tooltip>
+      </Tooltip>,
     )
     await waitFor(() => {
       expect(screen.getByRole("textbox")).toHaveAccessibleDescription(
-        "Tooltip popup description for div"
+        "Tooltip popup description for div",
       )
     })
   })

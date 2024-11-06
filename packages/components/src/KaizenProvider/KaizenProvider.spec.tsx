@@ -21,7 +21,7 @@ describe("<KaizenProvider />", () => {
     const screen = render(
       <KaizenProviderWrapper>
         <ReactApp />
-      </KaizenProviderWrapper>
+      </KaizenProviderWrapper>,
     )
 
     expect(screen.getByText("Hello App")).toBeInTheDocument()

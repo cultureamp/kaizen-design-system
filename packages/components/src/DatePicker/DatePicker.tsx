@@ -160,7 +160,7 @@ export const DatePicker = ({
 
   const handleDayChange = (
     date: Date | undefined,
-    newInputValue?: string
+    newInputValue?: string,
   ): void => {
     const { validationResponse, newDate } = validateDate({
       date,
@@ -243,7 +243,7 @@ export const DatePicker = ({
   }
 
   const handleCalendarMount = (
-    calendarElement: CalendarSingleElement
+    calendarElement: CalendarSingleElement,
   ): void => {
     if (lastTrigger === "inputFocus") return
     setFocusInCalendar(calendarElement, selectedDay)

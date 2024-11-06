@@ -7,7 +7,7 @@ import {
 import { CollapsibleGroup, CollapsibleGroupProps } from "../index"
 
 const CollapsibleWrapped = (
-  args: Omit<CollapsibleProps, "children" | "title">
+  args: Omit<CollapsibleProps, "children" | "title">,
 ): JSX.Element => (
   <Collapsible title="Title" {...args}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac
@@ -21,7 +21,7 @@ const CollapsibleWrapped = (
 )
 
 const CollapsibleGroupWrapped = (
-  args: Omit<CollapsibleGroupProps, "children">
+  args: Omit<CollapsibleGroupProps, "children">,
 ): JSX.Element => (
   <CollapsibleGroup {...args}>
     <CollapsibleWrapped key="collapsible-1" />

@@ -33,7 +33,7 @@ describe("<InputEditModal />", () => {
     const { getByLabelText } = render(
       <InputEditModalWrapper onSubmit={handleSubmit} onDismiss={handleDismiss}>
         Example modal body
-      </InputEditModalWrapper>
+      </InputEditModalWrapper>,
     )
     await user.click(getByLabelText(/Dismiss/i))
     await waitFor(() => {
@@ -48,7 +48,7 @@ describe("<InputEditModal />", () => {
     const { getByText } = render(
       <InputEditModalWrapper onDismiss={handleDismiss} onSubmit={handleSubmit}>
         Example modal body
-      </InputEditModalWrapper>
+      </InputEditModalWrapper>,
     )
     await user.click(getByText(/Cancel/i))
     await waitFor(() => {
@@ -63,7 +63,7 @@ describe("<InputEditModal />", () => {
     const { getByText } = render(
       <InputEditModalWrapper onDismiss={handleDismiss} onSubmit={handleSubmit}>
         Example modal body
-      </InputEditModalWrapper>
+      </InputEditModalWrapper>,
     )
     await user.click(getByText(/Submit/i))
     await waitFor(() => {

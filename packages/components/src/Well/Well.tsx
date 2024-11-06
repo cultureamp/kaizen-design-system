@@ -35,7 +35,7 @@ export const Well = ({
       styles[color],
       variant && styles[variant],
       noMargin && styles.noMargin,
-      classNameOverride
+      classNameOverride,
     )}
     {...restProps}
   >

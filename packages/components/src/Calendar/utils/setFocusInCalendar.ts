@@ -8,12 +8,12 @@ const isHTMLElement = (element: Element | undefined): element is HTMLElement =>
 
 export const setFocusInCalendar = (
   calendarElement: CalendarSingleElement | CalendarRangeElement,
-  selectedDay: Date | undefined
+  selectedDay: Date | undefined,
 ): void => {
   const daySelectedOrToday = calendarElement.getElementsByClassName(
     selectedDay && !isInvalidDate(selectedDay)
       ? calendarStyles.daySelected
-      : calendarStyles.dayToday
+      : calendarStyles.dayToday,
   )[0]
 
   const dayToFocus =

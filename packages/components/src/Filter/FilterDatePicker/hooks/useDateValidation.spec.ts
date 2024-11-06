@@ -9,7 +9,7 @@ describe("useDateValidation()", () => {
       const { result } = renderHook(() =>
         useDateValidation({
           inputLabel: "Start date",
-        })
+        }),
       )
       const { validateDate } = result.current
       const { newDate } = validateDate({
@@ -25,7 +25,7 @@ describe("useDateValidation()", () => {
   describe("with an invalid date", () => {
     it("returns a validation message and no date", async () => {
       const { result } = renderHook(() =>
-        useDateValidation({ inputLabel: "Date" })
+        useDateValidation({ inputLabel: "Date" }),
       )
       const { validateDate, updateValidation } = result.current
       const { validationResponse, newDate } = validateDate({
@@ -57,7 +57,7 @@ describe("useDateValidation()", () => {
             message: "Jelly-filled doughnuts",
           },
           onValidate: (): void => undefined,
-        })
+        }),
       )
       const { validateDate, updateValidation } = result.current
       const { validationResponse, newDate } = validateDate({

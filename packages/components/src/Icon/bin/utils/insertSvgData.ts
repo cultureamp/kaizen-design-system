@@ -4,7 +4,7 @@ const hrefReplacement = "href={`#${uniqueId}`}"
 export const insertSvgData = (
   reactTemplate: string,
   componentName: string,
-  svgContent: string
+  svgContent: string,
 ): string => {
   const completedTemplate = reactTemplate
     .replace("COMPONENT_TITLE", componentName)
@@ -21,6 +21,6 @@ export const insertSvgData = (
     .replace("  const uniqueId = useId()", "")
     .replace(
       'import React, { useId } from "react"',
-      'import React from "react"'
+      'import React from "react"',
     )
 }

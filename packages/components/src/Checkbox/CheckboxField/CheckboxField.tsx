@@ -41,7 +41,7 @@ export const CheckboxField = ({
         checkedStatus === "on" && styles.checked,
         checkedStatus === "mixed" && styles.mixed,
         reversed && styles.reversed,
-        noBottomMargin && styles.noBottomMargin
+        noBottomMargin && styles.noBottomMargin,
       )}
     >
       <Label

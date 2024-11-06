@@ -9,7 +9,7 @@ import { upgradeIconV1 } from "./upgradeIconV1"
 
 const transformIcons = (
   sourceFile: TransformConfig["sourceFile"],
-  tagNames: ImportModuleNameTagsMap
+  tagNames: ImportModuleNameTagsMap,
 ): string =>
   transformSource({
     sourceFile,
@@ -38,8 +38,8 @@ describe("upgradeIconV1()", () => {
               "@kaizen/components",
               new Map([["CaMonogramIcon", "CaMonogramIcon"]]),
             ],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
@@ -57,8 +57,8 @@ describe("upgradeIconV1()", () => {
           inputAst,
           new Map([
             ["@kaizen/components", new Map([["LogoAlias", "CaMonogramIcon"]])],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
@@ -82,8 +82,8 @@ describe("upgradeIconV1()", () => {
                 ["CaMonogramIcon", "CaMonogramIcon"],
               ]),
             ],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
@@ -107,8 +107,8 @@ describe("upgradeIconV1()", () => {
                 ["CaMonogramIcon", "CaMonogramIcon"],
               ]),
             ],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
   })
@@ -131,8 +131,8 @@ describe("upgradeIconV1()", () => {
           inputAst,
           new Map([
             ["@kaizen/components", new Map([["SpinnerIcon", "SpinnerIcon"]])],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
@@ -150,8 +150,8 @@ describe("upgradeIconV1()", () => {
           inputAst,
           new Map([
             ["@kaizen/components", new Map([["LogoAlias", "SpinnerIcon"]])],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
@@ -175,8 +175,8 @@ describe("upgradeIconV1()", () => {
                 ["SpinnerIcon", "SpinnerIcon"],
               ]),
             ],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
@@ -200,8 +200,8 @@ describe("upgradeIconV1()", () => {
                 ["SpinnerIcon", "SpinnerIcon"],
               ]),
             ],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
   })
@@ -220,8 +220,8 @@ describe("upgradeIconV1()", () => {
         inputAst,
         new Map([
           ["@kaizen/components", new Map([["FlagOnIcon", "FlagOnIcon"]])],
-        ])
-      )
+        ]),
+      ),
     ).toEqual(printAst(outputAst))
   })
 
@@ -239,8 +239,8 @@ describe("upgradeIconV1()", () => {
         inputAst,
         new Map([
           ["@kaizen/components", new Map([["IconAlias", "HamburgerIcon"]])],
-        ])
-      )
+        ]),
+      ),
     ).toEqual(printAst(outputAst))
   })
 
@@ -258,8 +258,8 @@ describe("upgradeIconV1()", () => {
       expect(
         transformIcons(
           inputAst,
-          new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
-        )
+          new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
@@ -298,8 +298,8 @@ describe("upgradeIconV1()", () => {
               ]),
             ],
             ["somewhere-else", new Map([["HamHam", "HamburgerIcon"]])],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
   })

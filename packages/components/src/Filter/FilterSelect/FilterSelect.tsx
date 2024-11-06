@@ -74,7 +74,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
   const { triggerProps, menuProps } = useSelect(
     ariaSelectProps,
     state,
-    triggerRef
+    triggerRef,
   )
 
   const { buttonProps } = useButton(triggerProps, triggerRef)

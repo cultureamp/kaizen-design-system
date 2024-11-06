@@ -10,8 +10,8 @@ describe("isSemanticElement", () => {
       isSemanticElement(
         <button onClick={vi.fn()} type="button">
           click
-        </button>
-      )
+        </button>,
+      ),
     ).toBe(true)
     expect(isSemanticElement(<a href="/">link</a>)).toBe(true)
   })
@@ -31,20 +31,20 @@ describe("isSemanticElement", () => {
       isSemanticElement(
         <span tabIndex={0} role="button" onKeyDown={vi.fn()} onClick={vi.fn()}>
           custom semantic el
-        </span>
-      )
+        </span>,
+      ),
     ).toBe(true)
     expect(
       isSemanticElement(
         <div tabIndex={0} role="button" onKeyDown={vi.fn()} onClick={vi.fn()}>
           custom semantic el
-        </div>
-      )
+        </div>,
+      ),
     ).toBe(true)
     expect(
       isSemanticElement(
-        <div role="textbox" contentEditable="true" aria-multiline="true" />
-      )
+        <div role="textbox" contentEditable="true" aria-multiline="true" />,
+      ),
     ).toBe(true)
   })
 

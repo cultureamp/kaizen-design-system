@@ -52,7 +52,7 @@ export const InputSearch = (props: InputSearchProps): JSX.Element => {
         reversed && styles.reversed,
         disabled && styles.disabled,
         value && styles.hasEndIconAdornment,
-        classNameOverride
+        classNameOverride,
       )}
     >
       <div className={styles.startIconAdornment}>

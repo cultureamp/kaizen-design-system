@@ -19,7 +19,7 @@ export const ModalAccessibleLabel = ({
         tabIndex={-1}
         className={classnames(
           styles.modalLabel,
-          isProminent && styles.prominent
+          isProminent && styles.prominent,
         )}
       >
         {children}

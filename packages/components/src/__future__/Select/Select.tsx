@@ -143,7 +143,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   const triggerProps = {
     ...reactAriaTriggerProps,
     "aria-labelledby": reactAriaLabelledBy?.substring(
-      reactAriaLabelledBy.indexOf(" ") + 1
+      reactAriaLabelledBy.indexOf(" ") + 1,
     ),
   }
 
@@ -175,7 +175,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
     <div
       className={classnames(
         !isFullWidth && styles.notFullWidth,
-        classNameOverride
+        classNameOverride,
       )}
     >
       <HiddenSelect

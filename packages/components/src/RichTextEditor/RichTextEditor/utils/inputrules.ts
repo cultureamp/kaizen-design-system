@@ -5,7 +5,7 @@ import {
 } from "../../utils/prosemirror"
 
 export const buildInputRules = (
-  schema: ProseMirrorModel.Schema
+  schema: ProseMirrorModel.Schema,
 ): ReturnType<(typeof ProseMirrorInputrules)["inputRules"]> => {
   const { smartQuotes, ellipsis, emDash, inputRules } = ProseMirrorInputrules
   const rules = smartQuotes.concat(ellipsis, emDash)

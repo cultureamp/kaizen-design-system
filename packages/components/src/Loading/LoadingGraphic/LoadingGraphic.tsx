@@ -45,7 +45,7 @@ export const LoadingGraphic = ({
         styles.loadingGraphic,
         isAnimated && styles.isAnimated,
         isReversed && styles.isReversed,
-        classNameOverride
+        classNameOverride,
       )}
       style={{ width: sizeValue, height: sizeValue }}
       {...props}

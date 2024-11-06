@@ -73,13 +73,13 @@ const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
 }
 
 const isJSXElement = (
-  imageElementOrAvatarProps: JSX.Element | TitleBlockAvatarProps
+  imageElementOrAvatarProps: JSX.Element | TitleBlockAvatarProps,
 ): imageElementOrAvatarProps is JSX.Element =>
   "props" in imageElementOrAvatarProps
 
 const renderAvatar = (
   imageElementOrAvatarProps: JSX.Element | TitleBlockAvatarProps,
-  avatarAutomationId: string
+  avatarAutomationId: string,
 ): JSX.Element =>
   isJSXElement(imageElementOrAvatarProps) ? (
     <div
@@ -101,7 +101,7 @@ const renderAvatar = (
 
 const renderSubtitle = (
   subtitle: React.ReactNode,
-  subtitleAutomationId: string
+  subtitleAutomationId: string,
 ): JSX.Element => (
   <div className={styles.subtitle}>
     <span
@@ -119,7 +119,7 @@ const defaultRenderSectionTitle = (
   sectionTitleDescription?: string,
   variant?: TitleBlockVariant,
   sectionTitleAutomationId?: string,
-  sectionTitleDescriptionAutomationId?: string
+  sectionTitleDescriptionAutomationId?: string,
 ): JSX.Element => (
   <>
     {sectionTitle && (
@@ -141,7 +141,7 @@ const defaultRenderSectionTitle = (
         data-testid={sectionTitleDescriptionAutomationId}
         className={classnames(
           styles.sectionTitleDescription,
-          !isReversed(variant) && styles.dark
+          !isReversed(variant) && styles.dark,
         )}
       >
         {sectionTitleDescription}
@@ -208,13 +208,13 @@ const Breadcrumb = ({
 const renderNavigationTabs = (
   navigationTabs: NavigationTabs | undefined,
   collapse: boolean,
-  ariaLabel: string
+  ariaLabel: string,
 ): JSX.Element => (
   <div className={styles.navigationTabScrollerContainer}>
     <div
       className={classnames(
         styles.navigationTabsContainer,
-        collapse && styles.navigationTabsContainerCollapsed
+        collapse && styles.navigationTabsContainerCollapsed,
       )}
     >
       {!collapse && navigationTabs !== undefined && (
@@ -294,7 +294,7 @@ export const TitleBlockZen = ({
             typeof subtitle === "string" &&
             subtitle.length >= 18 &&
             styles.hasLongSubtitle,
-          hasNavigationTabs && styles.hasNavigationTabs
+          hasNavigationTabs && styles.hasNavigationTabs,
         )}
       >
         <div className={styles.titleRow}>
@@ -374,7 +374,7 @@ export const TitleBlockZen = ({
                   reversed={isReversed(variant)}
                   overflowMenuItems={createTabletOverflowMenuItems(
                     secondaryActions,
-                    secondaryOverflowMenuItems
+                    secondaryOverflowMenuItems,
                   )}
                   showOverflowMenu={isSmallOrMediumViewport}
                 />
@@ -402,7 +402,7 @@ export const TitleBlockZen = ({
                           sectionTitleDescription,
                           variant,
                           sectionTitleAutomationId,
-                          sectionTitleDescriptionAutomationId
+                          sectionTitleDescriptionAutomationId,
                         )}
                   </div>
                 </div>
@@ -410,7 +410,7 @@ export const TitleBlockZen = ({
               {renderNavigationTabs(
                 navigationTabs,
                 collapseNavigationArea,
-                title
+                title,
               )}
               {(secondaryActions || secondaryOverflowMenuItems) && (
                 <SecondaryActions

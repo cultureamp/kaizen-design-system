@@ -24,8 +24,8 @@ describe("getNodeText()", () => {
       getNodeText(
         <div>
           3 <span>bacon</span> pancakes
-        </div>
-      )
+        </div>,
+      ),
     ).toBe("3 bacon pancakes")
   })
 })

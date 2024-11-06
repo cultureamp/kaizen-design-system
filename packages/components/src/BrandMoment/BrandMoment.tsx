@@ -65,7 +65,7 @@ export const BrandMoment = ({
       className={classnames(
         styles.body,
         variant ? styles[variant] : styles[mood],
-        classNameOverride
+        classNameOverride,
       )}
       {...restProps}
     >

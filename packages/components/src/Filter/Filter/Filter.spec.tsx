@@ -26,7 +26,7 @@ describe("<Filter />", () => {
   it("does not show content initially", () => {
     render(<FilterWrapper />)
     expect(
-      screen.queryByRole("dialog", { name: "Label" })
+      screen.queryByRole("dialog", { name: "Label" }),
     ).not.toBeInTheDocument()
   })
 

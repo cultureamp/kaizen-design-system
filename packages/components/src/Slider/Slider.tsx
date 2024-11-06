@@ -39,7 +39,7 @@ export const Slider = ({
       <div
         className={classnames(
           styles.wrapper,
-          labelPosition === "inline" && styles.labelInline
+          labelPosition === "inline" && styles.labelInline,
         )}
       >
         <div className={styles.labelWrapper}>

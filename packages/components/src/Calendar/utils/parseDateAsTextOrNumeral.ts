@@ -4,7 +4,7 @@ import { parseDateFromTextFormatValue } from "./parseDateFromTextFormatValue"
 
 export const parseDateAsTextOrNumeral = (
   value: string,
-  locale: Locale
+  locale: Locale,
 ): Date => {
   const parsedAsText = parseDateFromTextFormatValue(value, locale)
   if (parsedAsText.toString() !== "Invalid Date") return parsedAsText

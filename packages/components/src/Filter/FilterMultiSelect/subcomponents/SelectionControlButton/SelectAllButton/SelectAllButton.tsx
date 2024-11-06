@@ -6,13 +6,13 @@ import styles from "../SelectionControlButton.module.scss"
 export const SelectAllButton = (): JSX.Element => {
   const { selectionState } = useSelectionContext()
   const selectedOptions = Array.from(
-    selectionState.selectionManager.selectedKeys
+    selectionState.selectionManager.selectedKeys,
   )
   const disabledOptions = selectionState.disabledKeys
     ? Array.from(selectionState.disabledKeys)
     : []
   const filteredOptions = Array.from(
-    selectionState.collection.getKeys()
+    selectionState.collection.getKeys(),
   ).filter(key => !disabledOptions.includes(key))
 
   return (
@@ -20,7 +20,7 @@ export const SelectAllButton = (): JSX.Element => {
       type="button"
       className={classnames(
         styles.button,
-        selectionState.selectionManager.isSelectAll && styles.isDisabled
+        selectionState.selectionManager.isSelectAll && styles.isDisabled,
       )}
       aria-disabled={selectionState.selectionManager.isSelectAll}
       onClick={

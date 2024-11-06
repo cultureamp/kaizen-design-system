@@ -35,7 +35,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
       className={classnames(
         styles.tabList,
         className,
-        noPadding && styles.noPadding
+        noPadding && styles.noPadding,
       )}
       {...restProps}
     >

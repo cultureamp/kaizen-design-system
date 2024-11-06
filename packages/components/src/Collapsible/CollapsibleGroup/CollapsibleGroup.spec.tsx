@@ -17,7 +17,7 @@ describe("<CollapsibleGroup />", () => {
         <Collapsible id="2" open title="Second panel">
           Second panel content
         </Collapsible>
-      </CollapsibleGroup>
+      </CollapsibleGroup>,
     )
 
     const header = getByTestId("collapsible-header-1")

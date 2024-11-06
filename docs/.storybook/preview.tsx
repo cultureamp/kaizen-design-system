@@ -82,7 +82,7 @@ const decorators: Preview["decorators"] = [
         ) : (
           <Story />
         ),
-      context
+      context,
     )
   },
 ]

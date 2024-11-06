@@ -58,7 +58,7 @@ describe("filterBarStateReducer", () => {
       })
 
       expect(newState.activeFilterIds).toEqual(
-        new Set(["flavour", "sugarLevel"])
+        new Set(["flavour", "sugarLevel"]),
       )
     })
   })

@@ -19,7 +19,7 @@ export const mapVariantToBoxClass = (variant: PopoverVariant): string => {
 }
 
 export const mapVariantToIconClass = (
-  variant: PopoverVariant
+  variant: PopoverVariant,
 ): string | undefined => {
   switch (variant) {
     case "informative":

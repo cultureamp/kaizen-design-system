@@ -22,7 +22,7 @@ export const Option = <Option extends SelectOption = SelectOption>({
   const { optionProps, isSelected, isDisabled } = useOption(
     { key: item.key },
     state,
-    ref
+    ref,
   )
 
   const { onPointerUp, ...restOptionProps } = optionProps
@@ -48,7 +48,7 @@ export const Option = <Option extends SelectOption = SelectOption>({
         isSelected && styles.isSelected,
         isFocusVisible && styles.isFocusVisible,
         isDisabled && styles.disabled,
-        classNameOverride
+        classNameOverride,
       )}
       aria-label={item.textValue}
     >

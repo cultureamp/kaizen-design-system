@@ -8,7 +8,7 @@ export type usePausePlayHook = {
 }
 
 export const usePausePlay = (
-  videoRef: RefObject<HTMLVideoElement>
+  videoRef: RefObject<HTMLVideoElement>,
 ): usePausePlayHook => {
   const [isPaused, setPaused] = useState(false)
 

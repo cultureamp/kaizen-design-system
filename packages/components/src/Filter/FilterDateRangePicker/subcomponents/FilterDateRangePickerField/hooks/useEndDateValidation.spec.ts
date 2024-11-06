@@ -8,7 +8,7 @@ describe("useEndDateValidation()", () => {
       const { result } = renderHook(() =>
         useEndDateValidation({
           inputLabel: "End date",
-        })
+        }),
       )
       const { validateDate } = result.current
 
@@ -27,7 +27,7 @@ describe("useEndDateValidation()", () => {
       const { container } = render(result.current.validationMessage?.message)
       await waitFor(() => {
         expect(container).toHaveTextContent(
-          "End date:potato is an invalid date"
+          "End date:potato is an invalid date",
         )
       })
     })
@@ -38,7 +38,7 @@ describe("useEndDateValidation()", () => {
       const { result } = renderHook(() =>
         useEndDateValidation({
           inputLabel: "End date",
-        })
+        }),
       )
       const { validateEndDateBeforeStartDate } = result.current
 
@@ -57,7 +57,7 @@ describe("useEndDateValidation()", () => {
       const { container } = render(result.current.validationMessage?.message)
       await waitFor(() => {
         expect(container).toHaveTextContent(
-          'Cannot be earlier than the selection in "Start date"'
+          'Cannot be earlier than the selection in "Start date"',
         )
       })
     })

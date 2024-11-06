@@ -30,7 +30,7 @@ const config = {
     const a11yResults = await getAxeResults(
       page,
       parameters?.a11y?.element ?? "#storybook-root",
-      parameters?.a11y?.options
+      parameters?.a11y?.options,
     )
     expect(a11yResults).toHaveNoViolations()
   },

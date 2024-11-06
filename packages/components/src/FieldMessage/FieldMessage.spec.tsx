@@ -8,7 +8,7 @@ const defaultFieldMessageProps = {
 }
 
 const FieldMessageWrapper = (
-  props: Partial<FieldMessageProps>
+  props: Partial<FieldMessageProps>,
 ): JSX.Element => (
   <FieldMessage
     id={defaultFieldMessageProps.id}
@@ -20,7 +20,7 @@ const FieldMessageWrapper = (
 describe("<FieldMessage />", () => {
   it("renders a message within a <p> tag when given a string", () => {
     const { getByText } = render(
-      <FieldMessageWrapper message="Hello I am a message" />
+      <FieldMessageWrapper message="Hello I am a message" />,
     )
     const labelContainer = getByText("Hello I am a message")
 
@@ -32,7 +32,7 @@ describe("<FieldMessage />", () => {
     const { getByText } = render(
       <FieldMessageWrapper
         message={<span>Hello I am a message within a span</span>}
-      />
+      />,
     )
 
     const labelContainer = getByText("Hello I am a message within a span")
@@ -44,7 +44,7 @@ describe("<FieldMessage />", () => {
 
   it("renders an `id` attribute", () => {
     const { getByTestId } = render(
-      <FieldMessageWrapper data-testid="id--fieldMessage" id="id--test" />
+      <FieldMessageWrapper data-testid="id--fieldMessage" id="id--test" />,
     )
 
     expect(getByTestId("id--fieldMessage")).toHaveAttribute("id", "id--test")

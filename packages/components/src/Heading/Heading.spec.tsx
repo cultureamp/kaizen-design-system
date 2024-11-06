@@ -7,7 +7,7 @@ describe("<Heading />", () => {
     const headingMock = render(
       <Heading variant="display-0" tag="div">
         Example
-      </Heading>
+      </Heading>,
     )
     expect(headingMock.getByText("Example").tagName).toBe("DIV")
   })
@@ -16,7 +16,7 @@ describe("<Heading />", () => {
     const { getByTestId } = render(
       <Heading variant="display-0" data-testid="test-id">
         Example
-      </Heading>
+      </Heading>,
     )
     expect(getByTestId("test-id")).toBeInTheDocument()
   })
@@ -45,7 +45,7 @@ describe("<Heading />", () => {
     const { getByText } = render(
       <Heading variant="heading-4" classNameOverride="example-classname">
         Example
-      </Heading>
+      </Heading>,
     )
     expect(getByText("Example").classList).toContain("example-classname")
   })

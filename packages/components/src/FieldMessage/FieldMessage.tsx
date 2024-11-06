@@ -39,7 +39,7 @@ export const FieldMessage = ({
         classNameOverride,
         reversed && styles.reversed,
         position === "bottom" && styles.positionBottom,
-        position === "top" && styles.positionTop
+        position === "top" && styles.positionTop,
       )}
       {...restProps}
     >

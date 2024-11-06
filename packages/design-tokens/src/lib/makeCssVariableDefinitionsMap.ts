@@ -31,7 +31,7 @@ import { mapLeafsOfObject } from "./mapLeafsOfObject"
  * }
  */
 export function makeCssVariableDefinitionsMap(
-  theme: Record<string | number, unknown>
+  theme: Record<string | number, unknown>,
 ): Record<string, string> {
   let accumulatedCssVariables = {} as Record<string, string>
 
@@ -44,7 +44,7 @@ export function makeCssVariableDefinitionsMap(
       key,
       value,
       (_, v) => `${v}`,
-      { augmentWithId: false }
+      { augmentWithId: false },
     )
     accumulatedCssVariables = {
       ...accumulatedCssVariables,

@@ -21,7 +21,7 @@ describe("validateAndRemoveMarks()", () => {
     expect(node.querySelectorAll("a").length).toBeGreaterThan(0)
 
     dispatchTransaction(
-      validateAndRemoveMarks(testSchema.marks.link, failingValidatorMethod)
+      validateAndRemoveMarks(testSchema.marks.link, failingValidatorMethod),
     )
 
     // Check that this text still exists from the removed mark

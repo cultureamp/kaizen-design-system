@@ -54,7 +54,7 @@ const renderCounter = (remainingAvatars: number): JSX.Element | void => {
 const renderAvatars = (
   avatars: AvatarList,
   maxVisible: number,
-  size: AvatarGroupSize
+  size: AvatarGroupSize,
 ): JSX.Element => (
   <>
     {avatars?.map(
@@ -63,7 +63,7 @@ const renderAvatars = (
           <li key={`avatar-${index}`} className={styles.AvatarGroupItem}>
             <Avatar {...avatarProps} size={size} />
           </li>
-        )
+        ),
     )}
     {renderCounter(avatars?.length - maxVisible)}
   </>

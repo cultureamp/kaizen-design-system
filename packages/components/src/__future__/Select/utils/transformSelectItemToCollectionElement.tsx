@@ -7,7 +7,7 @@ import { isSelectOptionGroup } from "./isSelectOptionGroup"
 export const transformSelectItemToCollectionElement = <
   Option extends SelectOption,
 >(
-  item: SelectItem<Option>
+  item: SelectItem<Option>,
 ): CollectionElement<SelectItem<Option>> =>
   isSelectOptionGroup<Option>(item) ? (
     <Section<Option> key={item.label} title={item.label} items={item.options}>

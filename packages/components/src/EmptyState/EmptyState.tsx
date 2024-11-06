@@ -84,7 +84,7 @@ export const EmptyState = ({
         illustrationType ? styles[illustrationType] : styles[variant],
         styles[layoutContext],
         straightCorners && styles.straightCorners,
-        classNameOverride
+        classNameOverride,
       )}
       id={id}
       {...props}

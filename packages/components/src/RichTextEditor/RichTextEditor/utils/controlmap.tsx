@@ -48,7 +48,7 @@ const chainTransactions =
 /** Dispatches a transaction to create initial p tag required for pm commands */
 const createInitialParagraph = (
   state: ProseMirrorState.EditorState,
-  dispatch?: (tr: ProseMirrorState.Transaction) => void
+  dispatch?: (tr: ProseMirrorState.Transaction) => void,
 ): boolean => {
   if (dispatch) {
     const { tr, schema } = state
@@ -68,7 +68,7 @@ const createToggleMarkCommand =
     if (docIsEmpty) {
       return chainTransactions(
         createInitialParagraph,
-        ProseMirrorCommands.toggleMark(mark)
+        ProseMirrorCommands.toggleMark(mark),
       )(state, dispatch)
     }
     return ProseMirrorCommands.toggleMark(mark)(state, dispatch)
@@ -83,7 +83,7 @@ const createToggleListCommand =
     if (docIsEmpty) {
       return chainTransactions(
         createInitialParagraph,
-        ProseMirrorSchemaList.wrapInList(node)
+        ProseMirrorSchemaList.wrapInList(node),
       )(state, dispatch)
     }
     return ProseMirrorSchemaList.wrapInList(node)(state, dispatch)
@@ -128,7 +128,7 @@ const indentListIsDisabled = (state: ProseMirrorState.EditorState): boolean => {
 
   const range = $from.blockRange(
     $to,
-    node => node.childCount > 0 && node.firstChild!.type === listItemNode
+    node => node.childCount > 0 && node.firstChild!.type === listItemNode,
   )
 
   return !range || range.startIndex === 0 ? true : false
@@ -146,10 +146,10 @@ const createControlGroupIndex = (controls: ToolbarItems[]): ControlGroupTypes =>
 
 /** Creates an initial object used to map button configuration into its respective groups */
 const createInitialControls = (
-  controlGroupIndex: ControlGroupTypes
+  controlGroupIndex: ControlGroupTypes,
 ): GroupedToolbarControls => {
   const uniqueGroups: string[] = Array.from(
-    new Set(Object.values(controlGroupIndex))
+    new Set(Object.values(controlGroupIndex)),
   )
 
   const initialControlObject: Record<string, ToolbarControl[]> =
@@ -168,7 +168,7 @@ const createInitialControls = (
 /** Retrieves the name of the group a control belongs to */
 const getGroupIndex = (
   controlGroupIndex: ControlGroupTypes,
-  controlType?: ToolbarControlTypes
+  controlType?: ToolbarControlTypes,
 ): string => {
   if (controlType) {
     return controlGroupIndex[controlType] ?? "ungrouped"
@@ -178,7 +178,7 @@ const getGroupIndex = (
 
 /** Filters out empty control groups and returns a multi dimensional array  */
 const filterToolbarControls = (
-  groupedControls: GroupedToolbarControls
+  groupedControls: GroupedToolbarControls,
 ): ToolbarControl[][] =>
   Object.values(groupedControls).filter(controls => controls.length > 0)
 
@@ -186,7 +186,7 @@ const filterToolbarControls = (
 export const buildControlMap = (
   schema: ProseMirrorModel.Schema,
   editorState: ProseMirrorState.EditorState,
-  controls?: ToolbarItems[]
+  controls?: ToolbarItems[],
 ): ToolbarControl[][] => {
   if (!controls) return []
   const controlGroupIndex: ControlGroupTypes = createControlGroupIndex(controls)
@@ -285,7 +285,7 @@ export const buildControlMap = (
             shouldMirrorInRTL
           />
         ),
-      }
+      },
     )
   }
 

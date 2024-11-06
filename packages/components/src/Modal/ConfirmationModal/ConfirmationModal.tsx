@@ -91,7 +91,7 @@ const getIconName = (variantName: Mood | Variant): string => {
 
 const getIcon = (
   variantName: Mood | Variant,
-  isProminent: boolean
+  isProminent: boolean,
 ): JSX.Element => {
   if (isProminent) {
     switch (variantName) {
@@ -175,13 +175,13 @@ export const ConfirmationModal = ({
               styles.header,
               variant ? styles[variant] : styles[`${mood}Header`],
               isProminent && styles.prominent,
-              !unpadded && styles.padded
+              !unpadded && styles.padded,
             )}
           >
             <div
               className={classnames(
                 styles.iconContainer,
-                isProminent && styles.prominent
+                isProminent && styles.prominent,
               )}
             >
               <div className={styles.spotIcon}>
@@ -199,7 +199,7 @@ export const ConfirmationModal = ({
           <div
             className={classnames(
               isProminent && styles.prominent,
-              !unpadded && styles.padded
+              !unpadded && styles.padded,
             )}
           >
             <ModalAccessibleDescription>{children}</ModalAccessibleDescription>

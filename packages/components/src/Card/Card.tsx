@@ -71,7 +71,7 @@ export const Card = ({
         styles.wrapper,
         variant ? styles[variant] : styles[color],
         classNameOverride,
-        isElevated && styles.elevated
+        isElevated && styles.elevated,
       )}
       {...props}
     >

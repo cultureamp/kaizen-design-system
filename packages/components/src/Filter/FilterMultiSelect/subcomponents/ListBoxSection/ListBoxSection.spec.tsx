@@ -8,7 +8,7 @@ describe("<ListBoxSection />", () => {
       const { getByRole } = render(
         <ListBoxSection sectionName="Test sectionName only" items={[]}>
           {() => undefined}
-        </ListBoxSection>
+        </ListBoxSection>,
       )
       const group = getByRole("group")
       expect(group).toHaveAttribute("aria-label", "Test sectionName only")
@@ -21,7 +21,7 @@ describe("<ListBoxSection />", () => {
       const { getByRole } = render(
         <ListBoxSection sectionHeader="Test sectionHeader only" items={[]}>
           {() => undefined}
-        </ListBoxSection>
+        </ListBoxSection>,
       )
       const group = getByRole("group", { name: "Test sectionHeader only" })
       expect(group).toBeInTheDocument()
@@ -38,7 +38,7 @@ describe("<ListBoxSection />", () => {
           items={[]}
         >
           {() => undefined}
-        </ListBoxSection>
+        </ListBoxSection>,
       )
       const group = getByRole("group", {
         name: "Hidden group name. sectionHeader name",

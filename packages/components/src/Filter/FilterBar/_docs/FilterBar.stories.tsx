@@ -337,7 +337,7 @@ export const DependentFilter: Story = {
 }
 
 const ExampleFilterMultiSelect = (
-  props: Omit<FilterBarMultiSelectProps, "children">
+  props: Omit<FilterBarMultiSelectProps, "children">,
 ): JSX.Element => (
   <FilterBar.MultiSelect {...props}>
     {(): JSX.Element => (
@@ -652,7 +652,7 @@ export const ExternalEventValuesUpdate: Story = {
     const encodedQueryParams = encodeQueryParams(paramConfigMap, values)
     const decodedQueryParams = decodeQueryParams(
       paramConfigMap,
-      encodedQueryParams
+      encodedQueryParams,
     )
 
     return (
@@ -823,7 +823,7 @@ export const UpdatesLabels: Story = {
             {JSON.stringify(
               f.map(({ id, name }) => ({ id, name })),
               null,
-              4
+              4,
             )}
           </Highlight>
         </div>
@@ -850,7 +850,7 @@ export const UpdatesLabels: Story = {
     await step("Labels have updated", async () => {
       await waitFor(
         () => expect(canvas.queryByText("Custom Range")).toBeInTheDocument(),
-        { timeout: 2100 }
+        { timeout: 2100 },
       )
     })
   },

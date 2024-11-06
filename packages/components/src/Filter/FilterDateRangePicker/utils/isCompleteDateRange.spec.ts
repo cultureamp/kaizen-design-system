@@ -8,7 +8,7 @@ describe("isCompleteDateRange", () => {
   it("is not a complete date range if it is partially defined", () => {
     expect(isCompleteDateRange({ from: new Date("2022-05-01") })).toBe(false)
     expect(
-      isCompleteDateRange({ from: undefined, to: new Date("2022-05-01") })
+      isCompleteDateRange({ from: undefined, to: new Date("2022-05-01") }),
     ).toBe(false)
   })
 
@@ -17,7 +17,7 @@ describe("isCompleteDateRange", () => {
       isCompleteDateRange({
         from: new Date("2022-05-01"),
         to: new Date("2022-12-17"),
-      })
+      }),
     ).toBe(true)
   })
 })

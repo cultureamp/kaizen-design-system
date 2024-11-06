@@ -6,11 +6,11 @@ import { IconButton } from "./IconButton"
 describe("<IconButton />", () => {
   it("renders an accessible label when it's a link", () => {
     const { getByLabelText } = render(
-      <IconButton href="#" label="Accessible label on the link version" />
+      <IconButton href="#" label="Accessible label on the link version" />,
     )
 
     expect(
-      getByLabelText("Accessible label on the link version")
+      getByLabelText("Accessible label on the link version"),
     ).toBeInTheDocument()
   })
 
@@ -19,10 +19,10 @@ describe("<IconButton />", () => {
       <IconButton
         onClick={(): void => undefined}
         label="Accessible label on the button version"
-      />
+      />,
     )
     expect(
-      getByLabelText("Accessible label on the button version")
+      getByLabelText("Accessible label on the button version"),
     ).toBeInTheDocument()
   })
 
@@ -35,11 +35,11 @@ describe("<IconButton />", () => {
       <IconButton
         component={CustomComponent}
         label="Accessible label on the custom component version"
-      />
+      />,
     )
 
     expect(
-      getByLabelText("Accessible label on the custom component version")
+      getByLabelText("Accessible label on the custom component version"),
     ).toBeInTheDocument()
   })
 })

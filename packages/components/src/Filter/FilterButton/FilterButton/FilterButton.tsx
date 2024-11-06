@@ -18,7 +18,7 @@ export type FilterButtonProps = {
 export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
   (
     { label, selectedValue, isOpen = false, classNameOverride, ...restProps },
-    ref
+    ref,
   ) => {
     const customRefObject = isRefObject(ref) ? ref.current : null
     const triggerRef = customRefObject?.triggerRef
@@ -51,7 +51,7 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
         />
       </FilterButtonBase>
     )
-  }
+  },
 )
 
 FilterButton.displayName = "FilterButton"

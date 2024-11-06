@@ -39,7 +39,7 @@ describe("<Popover />", () => {
 
     it("renders within portal container", async () => {
       const { getByTestId } = render(
-        <PopoverWrapperWithPortal shouldUsePortal />
+        <PopoverWrapperWithPortal shouldUsePortal />,
       )
 
       await waitFor(() => {

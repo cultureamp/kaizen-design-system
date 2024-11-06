@@ -10,7 +10,7 @@ describe("<Collapsible />", () => {
     const { getByTestId } = render(
       <Collapsible id="1" open title="First panel">
         First panel content
-      </Collapsible>
+      </Collapsible>,
     )
 
     const collapsible = getByTestId("collapsible-header-1")
@@ -38,14 +38,14 @@ describe("<Collapsible />", () => {
         )}
       >
         First panel content
-      </Collapsible>
+      </Collapsible>,
     )
 
     const titleText = getByTestId("collapsible-header-1").querySelector("div")
 
     expect(titleText).toHaveTextContent("This title should be rendered")
     expect(
-      queryByTestId(container as HTMLElement, "collapsible-button-title-1")
+      queryByTestId(container as HTMLElement, "collapsible-button-title-1"),
     ).toBeNull()
   })
 
@@ -53,11 +53,11 @@ describe("<Collapsible />", () => {
     const { container } = render(
       <Collapsible id="1" title="Title" lazyLoad>
         <div data-testid="lazy-load-content">First panel content</div>
-      </Collapsible>
+      </Collapsible>,
     )
 
     expect(
-      queryByTestId(container as HTMLElement, "lazy-load-content")
+      queryByTestId(container as HTMLElement, "lazy-load-content"),
     ).toBeNull()
   })
 
@@ -67,7 +67,7 @@ describe("<Collapsible />", () => {
     const { getByTestId } = render(
       <Collapsible id="1" open title="First panel" onToggle={onToggle}>
         First panel content
-      </Collapsible>
+      </Collapsible>,
     )
 
     const collapsible = getByTestId("collapsible-header-1")
@@ -89,7 +89,7 @@ describe("<Collapsible />", () => {
     const { getByTestId } = render(
       <Collapsible id="1" open title="First panel" controlled>
         First panel content
-      </Collapsible>
+      </Collapsible>,
     )
 
     const collapsible = getByTestId("collapsible-header-1")

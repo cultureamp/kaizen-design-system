@@ -122,15 +122,15 @@ export const Basic: Story = {
       await userEvent.keyboard("[ArrowDown]")
       await waitFor(() =>
         expect(
-          canvas.getByRole("menuitem", { name: "Go to cultureamp.com" })
-        ).toHaveFocus()
+          canvas.getByRole("menuitem", { name: "Go to cultureamp.com" }),
+        ).toHaveFocus(),
       )
     })
 
     await step("Esc closes menu", async () => {
       await userEvent.keyboard("[Escape]")
       await waitFor(() =>
-        expect(canvas.queryByRole("menu")).not.toBeInTheDocument()
+        expect(canvas.queryByRole("menu")).not.toBeInTheDocument(),
       )
     })
 
@@ -138,8 +138,8 @@ export const Basic: Story = {
       await userEvent.keyboard("[Enter]")
       await waitFor(() =>
         expect(
-          canvas.getByRole("menuitem", { name: "Trigger an alert" })
-        ).toHaveFocus()
+          canvas.getByRole("menuitem", { name: "Trigger an alert" }),
+        ).toHaveFocus(),
       )
       await userEvent.keyboard("[Escape]")
     })
@@ -148,14 +148,14 @@ export const Basic: Story = {
       await userEvent.keyboard("[ArrowDown]")
       await waitFor(() =>
         expect(
-          canvas.getByRole("menuitem", { name: "Trigger an alert" })
-        ).toHaveFocus()
+          canvas.getByRole("menuitem", { name: "Trigger an alert" }),
+        ).toHaveFocus(),
       )
       await userEvent.keyboard("[Escape]")
 
       await userEvent.keyboard("[ArrowUp]")
       await waitFor(() =>
-        expect(canvas.getByRole("menuitem", { name: "Item 5" })).toHaveFocus()
+        expect(canvas.getByRole("menuitem", { name: "Item 5" })).toHaveFocus(),
       )
     })
   },

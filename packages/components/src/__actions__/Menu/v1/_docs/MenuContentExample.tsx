@@ -29,7 +29,7 @@ export const MenuContentExample = ({
               e: React.MouseEvent<
                 HTMLButtonElement | HTMLAnchorElement,
                 MouseEvent
-              >
+              >,
             ): void => {
               alert("Hello")
               e.preventDefault()
@@ -42,7 +42,7 @@ export const MenuContentExample = ({
               e: React.MouseEvent<
                 HTMLButtonElement | HTMLAnchorElement,
                 MouseEvent
-              >
+              >,
             ): void => {
               e.preventDefault()
             }}
@@ -54,7 +54,7 @@ export const MenuContentExample = ({
               e: React.MouseEvent<
                 HTMLButtonElement | HTMLAnchorElement,
                 MouseEvent
-              >
+              >,
             ): void => {
               e.preventDefault()
             }}
@@ -67,7 +67,7 @@ export const MenuContentExample = ({
               e: React.MouseEvent<
                 HTMLButtonElement | HTMLAnchorElement,
                 MouseEvent
-              >
+              >,
             ): void => {
               e.preventDefault()
             }}
@@ -80,7 +80,7 @@ export const MenuContentExample = ({
               e: React.MouseEvent<
                 HTMLButtonElement | HTMLAnchorElement,
                 MouseEvent
-              >
+              >,
             ): void => {
               e.preventDefault()
             }}
@@ -96,7 +96,7 @@ export const MenuContentExample = ({
               e: React.MouseEvent<
                 HTMLButtonElement | HTMLAnchorElement,
                 MouseEvent
-              >
+              >,
             ): void => {
               e.preventDefault()
             }}
@@ -107,7 +107,7 @@ export const MenuContentExample = ({
               e: React.MouseEvent<
                 HTMLButtonElement | HTMLAnchorElement,
                 MouseEvent
-              >
+              >,
             ): void => {
               e.preventDefault()
             }}

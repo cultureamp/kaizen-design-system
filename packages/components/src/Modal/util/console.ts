@@ -7,7 +7,7 @@ const reset = "\u001b[0m "
 export const warn = (message: string): void => {
   // eslint-disable-next-line no-console
   console.warn(
-    `${yellow}\nCULTUREAMP UI WARNING:\n${singleLine(message)}${reset}\n`
+    `${yellow}\nCULTUREAMP UI WARNING:\n${singleLine(message)}${reset}\n`,
   )
 }
 

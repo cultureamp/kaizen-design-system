@@ -72,12 +72,12 @@ export const LikertScaleLegacy = ({
    */
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLDivElement>,
-    focusedItem: ScaleItem
+    focusedItem: ScaleItem,
   ): void => {
     const newPosition = determineSelectionFromKeyPress(
       event.keyCode,
       selectedItem,
-      focusedItem
+      focusedItem,
     )
     if (newPosition) {
       event.preventDefault()
@@ -107,7 +107,7 @@ export const LikertScaleLegacy = ({
         styles.container,
         isRated && styles.rated,
         reversed && [styles.reversed],
-        hoveredItem !== null && styles.hovered
+        hoveredItem !== null && styles.hovered,
       )}
       aria-labelledby={labelId}
       role="radiogroup"
@@ -127,7 +127,7 @@ export const LikertScaleLegacy = ({
         className={classnames(
           styles.itemContainer,
           isRated && styles.rated,
-          reversed && styles.reversed
+          reversed && styles.reversed,
         )}
       >
         {scale.map((item: ScaleItem) => {
@@ -164,7 +164,7 @@ export const LikertScaleLegacy = ({
                 styles[`likertItem${item.value}`],
                 isSelected && styles.selected,
                 isSuggested && styles.suggested,
-                isUnselected && styles.unselected
+                isUnselected && styles.unselected,
               )}
               key={item.value}
               data-testid={dataTestId && `${dataTestId}-item-${item.value}`}
@@ -186,7 +186,7 @@ export const LikertScaleLegacy = ({
                 className={classnames(
                   styles.likertItemFill,
                   styles[`field${item.value}`],
-                  isSelectedItem && styles.pop
+                  isSelectedItem && styles.pop,
                 )}
               />
               {isSelectedItem ? <SelectedItemIcon /> : null}

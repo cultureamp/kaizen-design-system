@@ -109,7 +109,7 @@ export const IconButtonWithAccessibleLabel: Story = {
       await userEvent.tab()
 
       await expect(button).toHaveAccessibleName(
-        "Remove Highlight: 18, June, 2024"
+        "Remove Highlight: 18, June, 2024",
       )
     })
   },
@@ -136,14 +136,14 @@ export const ButtonWithRACRenderPropsAsChildren: Story = {
 
     await step("button icon reflects unfocused state", async () => {
       await waitFor(() =>
-        expect(button).toHaveAccessibleName("Label is unfocused")
+        expect(button).toHaveAccessibleName("Label is unfocused"),
       )
     })
 
     await step("focus on button and update icon", async () => {
       await userEvent.tab()
       await waitFor(() =>
-        expect(button).toHaveAccessibleName("Label is focused")
+        expect(button).toHaveAccessibleName("Label is focused"),
       )
     })
   },

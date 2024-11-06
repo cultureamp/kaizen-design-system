@@ -35,13 +35,13 @@ class LinkManager {
     view: CAEditorView,
     markType: MarkType,
     editorComponent: ComponentType<LinkEditorProps>,
-    linkAttributeValidator: AttrsValidator
+    linkAttributeValidator: AttrsValidator,
   ) {
     this.editorComponent = editorComponent
     this.linkActive = state => markIsActive(state, markType)
     this.validateLinks = validateAndRemoveMarks(
       markType,
-      linkAttributeValidator
+      linkAttributeValidator,
     )
     this.markType = markType
     this.tooltipTarget = null
@@ -91,7 +91,7 @@ class LinkManager {
     this.tooltipTarget = createReactTooltipWrapper(
       view.dom.parentElement,
       this.editorComponent,
-      this.getEditorProps(view)
+      this.getEditorProps(view),
     )
     window.addEventListener("resize", this.onResize)
   }
@@ -173,7 +173,7 @@ export const createLinkManager = ({
         editorView,
         markType,
         editorComponent,
-        linkAttributeValidator
+        linkAttributeValidator,
       )
     },
   })

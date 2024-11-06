@@ -94,7 +94,7 @@ export const InputEditModal = ({
             className={classnames(
               styles.header,
               localeDirection === "rtl" && styles.textAlignRTL,
-              !unpadded && styles.padded
+              !unpadded && styles.padded,
             )}
           >
             <ModalAccessibleLabel>

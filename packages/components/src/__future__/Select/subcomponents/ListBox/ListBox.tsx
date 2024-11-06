@@ -21,7 +21,7 @@ export type SingleListBoxProps<Option extends SelectOption> = OverrideClassName<
  * ie: UpArrow will set the focusStrategy to "last"
  */
 const getOptionKeyFromCollection = (
-  state: SelectState<SelectItem<any>>
+  state: SelectState<SelectItem<any>>,
 ): Key | null => {
   if (state.selectedItem) {
     return state.selectedItem.key
@@ -60,7 +60,7 @@ export const ListBox = <Option extends SelectOption>({
       autoFocus: false,
     },
     state,
-    ref
+    ref,
   )
 
   /**

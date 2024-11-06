@@ -55,7 +55,7 @@ export const TextField = ({
 
   const ariaDescribedBy = [validationMessageAria, descriptionAria].reduce(
     (prev, curr) => (curr ? [curr, prev].join(" ") : prev),
-    ""
+    "",
   )
 
   return (
@@ -88,7 +88,7 @@ export const TextField = ({
               className={classnames(
                 styles.icon,
                 styles.success,
-                disabled && styles.disabled
+                disabled && styles.disabled,
               )}
             >
               <Icon name="check_circle" isPresentational isFilled />

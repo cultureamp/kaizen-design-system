@@ -11,7 +11,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
-    })
+    }),
   )
 
 export default {
@@ -36,7 +36,7 @@ export const Padding: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
       <p
         className={classnames(
           "border border-purple-100 w-min rounded bg-blue-100",
-          utilityClass
+          utilityClass,
         )}
       >
         Padding

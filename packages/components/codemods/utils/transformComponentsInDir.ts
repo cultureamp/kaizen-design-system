@@ -5,7 +5,7 @@ import { transformSource, getKaioTagName, TransformConfig } from "."
 
 export const traverseDir = (
   dir: string,
-  transformFile: (componentFilePath: string, sourceFile: ts.SourceFile) => void
+  transformFile: (componentFilePath: string, sourceFile: ts.SourceFile) => void,
 ): void => {
   if (dir.includes("node_modules")) {
     return
@@ -24,7 +24,7 @@ export const traverseDir = (
         fullPath,
         source,
         ts.ScriptTarget.Latest,
-        true
+        true,
       )
 
       transformFile(fullPath, sourceFile)
@@ -36,11 +36,11 @@ export const traverseDir = (
 export const transformComponentsInDir = (
   dir: string,
   transformer: TransformConfig["astTransformer"],
-  componentName: string
+  componentName: string,
 ): void => {
   const transformFile = (
     componentFilePath: string,
-    sourceFile: ts.SourceFile
+    sourceFile: ts.SourceFile,
   ): void => {
     const tagName = getKaioTagName(sourceFile, componentName)
     if (tagName) {

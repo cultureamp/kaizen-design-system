@@ -23,7 +23,7 @@ type FilterDatePickerState = {
 
 export const filterDatePickerFieldReducer = (
   state: FilterDatePickerState,
-  action: DateFieldActions
+  action: DateFieldActions,
 ): FilterDatePickerState => {
   switch (action.type) {
     case "update_selected_date":

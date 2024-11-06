@@ -9,7 +9,7 @@ import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./ButtonGroup.module.scss"
 
 const isFilterButton = (
-  node: React.ReactNode
+  node: React.ReactNode,
 ): node is React.ReactElement<FilterButtonBaseProps> =>
   React.isValidElement(node) && node.type === FilterButtonBase
 
@@ -41,7 +41,7 @@ export const ButtonGroup = ({
           styles.child,
           index === 0 && styles.firstChild,
           index === childCount - 1 && styles.lastChild,
-          child.props.classNameOverride
+          child.props.classNameOverride,
         )
 
         if (child.type === Tooltip) {
@@ -52,7 +52,7 @@ export const ButtonGroup = ({
               children: React.cloneElement(button, {
                 classNameOverride: classnames(
                   button.props.classNameOverride,
-                  buttonClassNames
+                  buttonClassNames,
                 ),
               }),
             })

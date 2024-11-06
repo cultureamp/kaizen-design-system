@@ -12,7 +12,7 @@ import {
 const user = userEvent.setup()
 
 const MenuTriggerProviderWrapper = (
-  props: Partial<MenuTriggerProviderProps>
+  props: Partial<MenuTriggerProviderProps>,
 ): JSX.Element => (
   <MenuTriggerProvider {...props}>
     <FilterTriggerButton
@@ -157,7 +157,7 @@ describe("<MenuTriggerProvider /> - Keyboard interaction", () => {
       expect(screen.queryByText("menu-content-mock")).toBeVisible()
 
       expect(
-        screen.queryByRole("button", { name: "menu-content-button-mock" })
+        screen.queryByRole("button", { name: "menu-content-button-mock" }),
       ).toHaveFocus()
     })
 
@@ -165,7 +165,7 @@ describe("<MenuTriggerProvider /> - Keyboard interaction", () => {
       render(<MenuTriggerProviderWrapper defaultOpen />)
 
       expect(
-        screen.queryByRole("button", { name: "menu-content-button-mock" })
+        screen.queryByRole("button", { name: "menu-content-button-mock" }),
       ).toHaveFocus()
 
       await user.keyboard("{Escape}")
@@ -178,7 +178,7 @@ describe("<MenuTriggerProvider /> - Keyboard interaction", () => {
       render(<MenuTriggerProviderWrapper defaultOpen />)
 
       expect(
-        screen.queryByRole("button", { name: "menu-content-button-mock" })
+        screen.queryByRole("button", { name: "menu-content-button-mock" }),
       ).toHaveFocus()
 
       await user.click(document.body)

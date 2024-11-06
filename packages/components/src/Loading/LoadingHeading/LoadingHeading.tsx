@@ -35,7 +35,7 @@ export const LoadingHeading = ({
       styles[variant],
       isAnimated && styles.isAnimated,
       isReversed && styles.isReversed,
-      isLink && styles.link
+      isLink && styles.link,
     )}
     style={{ width: `${width}%` }}
     {...props}

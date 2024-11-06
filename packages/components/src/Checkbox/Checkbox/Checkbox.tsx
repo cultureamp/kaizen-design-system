@@ -17,7 +17,7 @@ export type CheckboxProps = {
 
 const renderCheckOrMixedIcon = (
   status: CheckedStatus,
-  reversed: boolean
+  reversed: boolean,
 ): React.ReactNode => {
   if (status === "off") return
 
@@ -54,7 +54,7 @@ export const Checkbox = ({
       className={classnames(
         styles.checkbox,
         classNameOverride,
-        reversed && styles.reversed
+        reversed && styles.reversed,
       )}
       checked={getCheckedFromStatus(checkedStatus)}
       onChange={onCheck}

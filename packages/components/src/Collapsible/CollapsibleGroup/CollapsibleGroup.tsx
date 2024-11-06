@@ -40,7 +40,7 @@ export const CollapsibleGroup = ({
         noSectionPadding,
         lazyLoad,
         onToggle,
-      })
+      }),
     )}
   </div>
 )

@@ -47,7 +47,7 @@ describe("<FilterDateRangePicker />", () => {
             from: new Date("2022-05-01"),
             to: new Date("2022-11-25"),
           }}
-        />
+        />,
       )
       const filterButton = getByRole("button", {
         name: "Dates : 1 May 2022 - 25 Nov 2022",
@@ -62,7 +62,7 @@ describe("<FilterDateRangePicker />", () => {
             from: new Date("2022-05-01"),
             to: new Date("2022-04-01"),
           }}
-        />
+        />,
       )
       const filterButton = getByRole("button", { name: "Dates" })
       expect(filterButton).toBeVisible()
@@ -74,7 +74,7 @@ describe("<FilterDateRangePicker />", () => {
           selectedRange={{
             from: new Date("2022-05-01"),
           }}
-        />
+        />,
       )
       const filterButton = getByRole("button", { name: "Dates" })
       expect(filterButton).toBeVisible()
@@ -82,7 +82,7 @@ describe("<FilterDateRangePicker />", () => {
 
     it("should show the calendar when the filter button is clicked", async () => {
       const { queryByRole, getByRole, getByText } = render(
-        <FilterDateRangePickerWrapper defaultMonth={new Date("2022-05-01")} />
+        <FilterDateRangePickerWrapper defaultMonth={new Date("2022-05-01")} />,
       )
       expect(queryByRole("dialog")).not.toBeInTheDocument()
 
@@ -98,7 +98,7 @@ describe("<FilterDateRangePicker />", () => {
       const { getByRole, getByLabelText } = render(
         <FilterDateRangePickerWrapper
           selectedRange={{ from: new Date("2022-05-01") }}
-        />
+        />,
       )
 
       const filterButton = getByRole("button", { name: "Dates" })

@@ -36,7 +36,7 @@ export const Base = ({
     <figure
       className={classnames(
         styles.aspectRatioWrapper,
-        aspectRatio && styles[aspectRatio]
+        aspectRatio && styles[aspectRatio],
       )}
     >
       <img

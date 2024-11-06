@@ -22,7 +22,7 @@ const DoOrDontTag = ({ isDont }: { isDont: boolean }): JSX.Element => (
     <span
       className={classnames(
         styles.doOrDontTag,
-        isDont ? "bg-red-500" : "bg-green-500"
+        isDont ? "bg-red-500" : "bg-green-500",
       )}
     >
       <Icon name={isDont ? "close" : "check"} isPresentational />

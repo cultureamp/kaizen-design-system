@@ -203,7 +203,7 @@ export const NoDuplicatesWithSameId: Story = {
     const { findAllByText } = within(canvasElement.parentElement!)
 
     const notifications = await findAllByText(
-      "There should only be one notification"
+      "There should only be one notification",
     )
     expect(notifications).toHaveLength(1)
   },

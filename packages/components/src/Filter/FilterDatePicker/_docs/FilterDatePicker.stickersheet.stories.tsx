@@ -32,7 +32,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     >(new Date("potato"))
 
     const [dateValue, setDateValue] = useState<Date | undefined>(
-      new Date("2022-05-15")
+      new Date("2022-05-15"),
     )
 
     return (

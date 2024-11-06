@@ -75,7 +75,7 @@ export const GenericNotification = forwardRef<
       classNameOverride,
       ...restProps
     },
-    ref
+    ref,
   ): JSX.Element | null => {
     const [isHidden, setIsHidden] = useState<boolean>(true)
     const [isRemoved, setIsRemoved] = useState<boolean>(false)
@@ -99,7 +99,7 @@ export const GenericNotification = forwardRef<
     }
 
     const onTransitionEnd = (
-      e: React.TransitionEvent<HTMLDivElement>
+      e: React.TransitionEvent<HTMLDivElement>,
     ): void => {
       // Be careful: this assumes the final CSS property to be animated is "margin-top".
       if (isHidden && e.propertyName === "margin-top") {
@@ -122,7 +122,7 @@ export const GenericNotification = forwardRef<
           isHidden && styles.hidden,
           noBottomMargin && styles.noBottomMargin,
           classNameOverride,
-          persistent && styles.persistent
+          persistent && styles.persistent,
         )}
         style={{ marginTop: getMarginTop() }}
         onTransitionEnd={onTransitionEnd}
@@ -138,7 +138,7 @@ export const GenericNotification = forwardRef<
         <div
           className={classnames(
             styles.textContainer,
-            forceMultiline && styles.forceMultiline
+            forceMultiline && styles.forceMultiline,
           )}
         >
           {style !== "global" && (
@@ -152,7 +152,7 @@ export const GenericNotification = forwardRef<
         {!persistent && <CancelButton onClick={() => setIsHidden(true)} />}
       </div>
     )
-  }
+  },
 )
 
 GenericNotification.displayName = "GenericNotification"

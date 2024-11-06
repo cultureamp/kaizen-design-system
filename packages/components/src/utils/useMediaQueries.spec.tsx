@@ -45,20 +45,20 @@ describe("useMediaQueries()", () => {
     mockMatchMedia()
     render(<ExampleComponent />)
     expect(
-      screen.queryByRole("button", { name: /Small only boolean/i })
+      screen.queryByRole("button", { name: /Small only boolean/i }),
     ).not.toBeInTheDocument()
     expect(
-      screen.queryByRole("button", { name: /Medium only component/i })
+      screen.queryByRole("button", { name: /Medium only component/i }),
     ).not.toBeInTheDocument()
 
     mockMatchMedia(true)
     render(<ExampleComponent />)
 
     expect(
-      screen.queryByRole("button", { name: /Small only boolean/i })
+      screen.queryByRole("button", { name: /Small only boolean/i }),
     ).toBeInTheDocument()
     expect(
-      screen.queryByRole("button", { name: /Medium only component/i })
+      screen.queryByRole("button", { name: /Medium only component/i }),
     ).toBeInTheDocument()
   })
 
@@ -67,20 +67,20 @@ describe("useMediaQueries()", () => {
     render(<ExampleComponent />)
 
     expect(
-      screen.queryByRole("button", { name: /Prefers reduced boolean/i })
+      screen.queryByRole("button", { name: /Prefers reduced boolean/i }),
     ).not.toBeInTheDocument()
     expect(
-      screen.queryByRole("button", { name: /Prefers reduced component/i })
+      screen.queryByRole("button", { name: /Prefers reduced component/i }),
     ).not.toBeInTheDocument()
 
     mockMatchMedia(true)
     render(<ExampleComponent />)
 
     expect(
-      screen.queryByRole("button", { name: /Prefers reduced boolean/i })
+      screen.queryByRole("button", { name: /Prefers reduced boolean/i }),
     ).toBeInTheDocument()
     expect(
-      screen.queryByRole("button", { name: /Prefers reduced component/i })
+      screen.queryByRole("button", { name: /Prefers reduced component/i }),
     ).toBeInTheDocument()
   })
 

@@ -14,7 +14,7 @@ export type MultiActionTileProps = {
 
 const renderActions = (
   primaryAction: TileAction,
-  secondaryAction?: TileAction
+  secondaryAction?: TileAction,
 ): JSX.Element => (
   <div className={styles.actions}>
     {secondaryAction && (

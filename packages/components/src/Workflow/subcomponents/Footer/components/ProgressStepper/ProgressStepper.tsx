@@ -23,7 +23,7 @@ const getStepStatus = (
   isComplete: boolean,
   isCurrentStep: boolean,
   step: Step,
-  index: number
+  index: number,
 ): {
   icon: JSX.Element
   accessibleName: string
@@ -53,7 +53,7 @@ export const ProgressStepper = ({
   ...restprops
 }: ProgressStepperProps): JSX.Element => {
   const currentStepIndex = steps.findIndex(
-    stepItem => stepItem.id === currentStepId
+    stepItem => stepItem.id === currentStepId,
   )
 
   return (
@@ -70,7 +70,7 @@ export const ProgressStepper = ({
             isCompletedStep,
             isCurrentStep,
             step,
-            index
+            index,
           )
           return (
             <li

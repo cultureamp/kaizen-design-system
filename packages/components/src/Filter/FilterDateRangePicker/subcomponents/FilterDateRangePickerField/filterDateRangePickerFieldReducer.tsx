@@ -34,7 +34,7 @@ type FilterDateRangePickerState = {
 
 export const filterDatePickerFieldReducer = (
   state: FilterDateRangePickerState,
-  action: DateRangeFieldActions
+  action: DateRangeFieldActions,
 ): FilterDateRangePickerState => {
   switch (action.type) {
     case "update_selected_start_date":

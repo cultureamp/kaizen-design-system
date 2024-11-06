@@ -23,7 +23,7 @@ export const OverlayArrow = (props: OverlayArrowProps): JSX.Element => {
       className={mergeClassNames(
         styles.overlayArrow,
         reverseColors && styles.reversed,
-        props.className
+        props.className,
       )}
     >
       <svg width={8} height={8} viewBox="0 0 8 8">

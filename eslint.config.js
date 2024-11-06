@@ -237,13 +237,6 @@ export default tseslint.config(
       camelcase: ["error", {
         allow: ["^UNSAFE_", "^UNSTABLE_"],
       }],
-      // 'comma-dangle': ["error", {
-      //   "arrays": "only-multiline",
-      //   "objects": "only-multiline",
-      //   "imports": "only-multiline",
-      //   "exports": "only-multiline",
-      //   "functions": "never",
-      // }],
       "no-irregular-whitespace": [
         "error",
         {
@@ -404,19 +397,19 @@ export default tseslint.config(
   mdx.flat,
   mdx.flatCodeBlocks,
   {
-    extends: [stylistic.configs["recommended-flat"]],
+    // extends: [stylistic.configs["recommended-flat"]],
     files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
-    // plugins: {
-    //   '@stylistic': stylistic
-    // },
+    plugins: {
+      "@stylistic": stylistic,
+    },
     rules: {
-      // ...stylistic.configs.recommended.rules,
-      "@stylistic/comma-dangle": ["error", "always-multiline"],
-      "@stylistic/jsx-one-expression-per-line": ["error", { allow: "non-jsx"}],
-      "@stylistic/multiline-ternary": ["error", "always-multiline"],
-      "@stylistic/quote-props": ["error", "as-needed"],
-      "@stylistic/quotes": ["error", "double", { avoidEscape: true }],
-      "@stylistic/type-annotation-spacing": "error",
+      // ...stylistic.configs["recommended-flat"].rules,
+      "@stylistic/comma-dangle": stylistic.configs["recommended-flat"].rules["@stylistic/comma-dangle"],
+      // "@stylistic/jsx-one-expression-per-line": ["error", { allow: "non-jsx" }],
+      // "@stylistic/multiline-ternary": ["error", "always-multiline"],
+      // "@stylistic/quote-props": ["error", "as-needed"],
+      // "@stylistic/quotes": ["error", "double", { avoidEscape: true }],
+      // "@stylistic/type-annotation-spacing": "error",
     },
   },
   eslintConfigPrettier,

@@ -42,7 +42,7 @@ export const InlineNotification = forwardRef<
       classNameOverride,
       ...otherProps
     },
-    ref
+    ref,
   ): JSX.Element => (
     <GenericNotification
       style="inline"
@@ -53,7 +53,7 @@ export const InlineNotification = forwardRef<
       ref={ref}
       {...otherProps}
     />
-  )
+  ),
 )
 
 InlineNotification.displayName = "InlineNotification"

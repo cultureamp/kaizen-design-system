@@ -40,7 +40,7 @@ describe("<EmptyState />", () => {
     const { getByText } = render(
       <EmptyState {...defaultProps}>
         <h1>Child Heading</h1>
-      </EmptyState>
+      </EmptyState>,
     )
 
     expect(getByText("Child Heading")).toBeTruthy()

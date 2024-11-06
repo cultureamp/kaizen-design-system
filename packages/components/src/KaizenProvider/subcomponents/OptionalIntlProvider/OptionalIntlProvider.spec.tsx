@@ -15,7 +15,7 @@ describe("<OptionalIntlProvider>", () => {
     render(
       <OptionalIntlProvider locale="en">
         <div>children</div>
-      </OptionalIntlProvider>
+      </OptionalIntlProvider>,
     )
     const result = await screen.findByTestId("mockedIntlProvider")
     expect(result).toBeInTheDocument()
@@ -28,7 +28,7 @@ describe("<OptionalIntlProvider>", () => {
         <OptionalIntlProvider locale="en">
           <div>children</div>
         </OptionalIntlProvider>
-      </IntlProvider>
+      </IntlProvider>,
     )
     const result = screen.queryByTestId("mockedIntlProvider")
     expect(result).not.toBeInTheDocument()

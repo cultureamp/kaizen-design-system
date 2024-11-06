@@ -15,12 +15,12 @@ describe("updateJsxElementWithNewProps()", () => {
     const newAttributes = [
       ts.factory.createJsxAttribute(
         ts.factory.createIdentifier("topping"),
-        ts.factory.createStringLiteral("butter")
+        ts.factory.createStringLiteral("butter"),
       ),
     ]
     const updatedNode = updateJsxElementWithNewProps(
       jsxElement.expression,
-      newAttributes
+      newAttributes,
     )
 
     const result = printNode(updatedNode, source)
@@ -45,7 +45,7 @@ describe("updateJsxElementWithNewProps()", () => {
     const newAttributes = [
       ts.factory.createJsxAttribute(
         ts.factory.createIdentifier("topping"),
-        ts.factory.createStringLiteral("butter")
+        ts.factory.createStringLiteral("butter"),
       ),
     ]
     const updatedNode = updateJsxElementWithNewProps(node, newAttributes)

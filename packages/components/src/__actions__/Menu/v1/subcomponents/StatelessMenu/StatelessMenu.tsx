@@ -92,7 +92,7 @@ export const StatelessMenu = ({
     if (portalSelector && !portalSelectorElementRef.current) {
       // eslint-disable-next-line no-console
       console.warn(
-        "The portal could not be created using the selector: " + portalSelector
+        "The portal could not be created using the selector: " + portalSelector,
       )
     }
   }, [portalSelectorElementRef, portalSelector])

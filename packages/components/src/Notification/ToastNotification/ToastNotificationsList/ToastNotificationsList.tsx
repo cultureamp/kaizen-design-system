@@ -9,7 +9,7 @@ export const ToastNotificationsList = (): JSX.Element => {
     useToastNotificationContext()
 
   const containers = document.querySelectorAll(
-    '[data-testid="toast-notifications-list"'
+    '[data-testid="toast-notifications-list"',
   )
 
   if (containers) {
@@ -33,7 +33,7 @@ export const ToastNotificationsList = (): JSX.Element => {
         container={containers[0]}
       />
     </div>,
-    document.body
+    document.body,
   )
 }
 

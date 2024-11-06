@@ -11,7 +11,7 @@ type Values = {
 }
 
 const FilterBarButtonWrapper = (
-  props: Partial<FilterBarButtonProps>
+  props: Partial<FilterBarButtonProps>,
 ): JSX.Element => (
   <FilterBarProvider<Values>
     filters={[
@@ -47,7 +47,7 @@ describe("<FilterBarButton />", () => {
       expect(getByRole("button", { name: "Coffee" })).toBeVisible()
     })
     expect(
-      queryByRole("button", { name: "Remove filter - Coffee" })
+      queryByRole("button", { name: "Remove filter - Coffee" }),
     ).not.toBeInTheDocument()
   })
 

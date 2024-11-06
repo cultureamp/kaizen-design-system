@@ -6,7 +6,7 @@ import { markIsActive } from "./markIsActive"
 /** Check the current PM Selection against the Mark Type provided */
 export const markContainsSelection = (
   state: EditorState,
-  markType: MarkType
+  markType: MarkType,
 ): boolean => {
   if (!markIsActive(state, markType)) {
     return false

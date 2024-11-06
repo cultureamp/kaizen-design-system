@@ -12,7 +12,7 @@ const migrateToastNotificationTypeToVariant = (): void => {
   transformComponentsInDir(
     targetDir,
     transformNotificationTypeToVariant,
-    "ToastNotification"
+    "ToastNotification",
   )
 }
 

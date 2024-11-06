@@ -49,7 +49,7 @@ export const OnButton: Story = {
       await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
       expect(button).toHaveAttribute(
         "aria-describedby",
-        canvas.getByRole("tooltip").id
+        canvas.getByRole("tooltip").id,
       )
       await userEvent.unhover(button)
     })

@@ -21,7 +21,7 @@ export const FilterBarButton = forwardRef<
 >(
   (
     { filterId, isRemovable = false, classNameOverride, ...props },
-    ref
+    ref,
   ): JSX.Element => {
     const { hideFilter, focusId, setFocus } = useFilterBarContext()
 
@@ -39,7 +39,7 @@ export const FilterBarButton = forwardRef<
         removeButtonProps={{ onClick: () => hideFilter(filterId) }}
         classNameOverride={classnames(
           classNameOverride,
-          styles.filterBarButton
+          styles.filterBarButton,
         )}
       />
     ) : (
@@ -47,12 +47,12 @@ export const FilterBarButton = forwardRef<
         ref={ref}
         classNameOverride={classnames(
           classNameOverride,
-          styles.filterBarButton
+          styles.filterBarButton,
         )}
         {...props}
       />
     )
-  }
+  },
 )
 
 FilterBarButton.displayName = "FilterBar.Button"

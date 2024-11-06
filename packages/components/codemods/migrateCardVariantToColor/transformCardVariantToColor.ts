@@ -5,7 +5,7 @@ const OLD_PROP_NAME = "variant"
 const NEW_PROP_NAME = "color"
 
 const getNewVariantValue = (
-  oldValue: Exclude<CardProps[typeof OLD_PROP_NAME], undefined>
+  oldValue: Exclude<CardProps[typeof OLD_PROP_NAME], undefined>,
 ): Exclude<CardProps[typeof NEW_PROP_NAME], undefined> => {
   switch (oldValue) {
     case "assertive":
@@ -28,5 +28,5 @@ const getNewVariantValue = (
 export const transformCardVariantToColor = migrateStringProp(
   OLD_PROP_NAME,
   NEW_PROP_NAME,
-  getNewVariantValue
+  getNewVariantValue,
 )

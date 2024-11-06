@@ -33,8 +33,8 @@ describe("getTruncatedLabels", () => {
       expect(
         getSelectedOptionKeys(
           new Set(["option-1-value-mock", "option-3-value-mock"]),
-          itemsMock
-        )
+          itemsMock,
+        ),
       ).toMatchObject(["option-1-value-mock", "option-3-value-mock"])
     })
   })

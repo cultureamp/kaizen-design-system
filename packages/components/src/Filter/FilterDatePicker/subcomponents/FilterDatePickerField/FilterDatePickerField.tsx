@@ -93,7 +93,7 @@ export const FilterDatePickerField = ({
 
   const validateDate = (
     date: Date | undefined,
-    inputValue: string
+    inputValue: string,
   ): Date | undefined => {
     const { validationResponse, newDate } = dateValidation.validateDate({
       date,

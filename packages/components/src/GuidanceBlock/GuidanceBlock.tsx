@@ -168,7 +168,7 @@ export const GuidanceBlock = ({
         mediaQueryLayout === "centerContent" && styles.centerContent,
         noMaxWidth && styles.noMaxWidth,
         illustrationType === "scene" && styles.hasSceneIllustration,
-        smallScreenTextAlignment === "left" && styles.smallScreenTextAlignment
+        smallScreenTextAlignment === "left" && styles.smallScreenTextAlignment,
       )}
       style={{
         marginTop: marginTop(),
@@ -215,7 +215,7 @@ export const GuidanceBlock = ({
                 <div
                   className={classNames(
                     styles.buttonContainer,
-                    actions?.secondary && styles.secondaryAction
+                    actions?.secondary && styles.secondaryAction,
                   )}
                 >
                   <WithTooltip tooltipProps={actions.primary.tooltip}>

@@ -110,19 +110,19 @@ describe("<SelectionProvider>", () => {
             screen.getByRole("option", {
               name: "option-1-label-mock",
               selected: false,
-            })
+            }),
           ).toBeVisible()
           expect(
             screen.getByRole("option", {
               name: "option-2-label-mock",
               selected: false,
-            })
+            }),
           ).toBeVisible()
           expect(
             screen.getByRole("option", {
               name: "option-3-label-mock",
               selected: false,
-            })
+            }),
           ).toBeVisible()
         })
       })
@@ -143,26 +143,26 @@ describe("<SelectionProvider>", () => {
         render(
           <SelectionProviderWrapper
             selectedKeys={new Set(["option-2-value-mock"])}
-          />
+          />,
         )
         await waitFor(() => {
           expect(
             screen.getByRole("option", {
               name: "option-1-label-mock",
               selected: false,
-            })
+            }),
           ).toBeVisible()
           expect(
             screen.getByRole("option", {
               name: "option-2-label-mock",
               selected: true,
-            })
+            }),
           ).toBeVisible()
           expect(
             screen.getByRole("option", {
               name: "option-3-label-mock",
               selected: false,
-            })
+            }),
           ).toBeVisible()
         })
       })
@@ -176,19 +176,19 @@ describe("<SelectionProvider>", () => {
             screen.getByRole("option", {
               name: "option-1-label-mock",
               selected: true,
-            })
+            }),
           ).toBeVisible()
           expect(
             screen.getByRole("option", {
               name: "option-2-label-mock",
               selected: true,
-            })
+            }),
           ).toBeVisible()
           expect(
             screen.getByRole("option", {
               name: "option-3-label-mock",
               selected: true,
-            })
+            }),
           ).toBeVisible()
         })
       })
@@ -209,7 +209,7 @@ describe("<SelectionProvider>", () => {
           screen.getByRole("option", {
             name: "option-1-label-mock",
             selected: true,
-          })
+          }),
         ).toBeVisible()
       })
     })
@@ -241,21 +241,21 @@ describe("<SelectionProvider>", () => {
           screen.getByRole("option", {
             name: "option-1-label-mock",
             selected: true,
-          })
+          }),
         ).toBeVisible()
 
         expect(
           screen.getByRole("option", {
             name: "option-2-label-mock",
             selected: true,
-          })
+          }),
         ).toBeVisible()
 
         expect(
           screen.getByRole("option", {
             name: "option-3-label-mock",
             selected: true,
-          })
+          }),
         ).toBeVisible()
       })
     })
@@ -278,7 +278,7 @@ describe("<SelectionProvider>", () => {
       render(
         <SelectionProviderWrapper
           selectedKeys={new Set(["option-2-value-mock"])}
-        />
+        />,
       )
       const clear = screen.getByRole("button", {
         name: "Clear selections",
@@ -291,19 +291,19 @@ describe("<SelectionProvider>", () => {
           screen.getByRole("option", {
             name: "option-1-label-mock",
             selected: false,
-          })
+          }),
         ).toBeVisible()
         expect(
           screen.getByRole("option", {
             name: "option-2-label-mock",
             selected: false,
-          })
+          }),
         ).toBeVisible()
         expect(
           screen.getByRole("option", {
             name: "option-3-label-mock",
             selected: false,
-          })
+          }),
         ).toBeVisible()
       })
     })
@@ -314,7 +314,7 @@ describe("<SelectionProvider>", () => {
         <SelectionProviderWrapper
           onSelectionChange={spy}
           selectedKeys={new Set(["option-2-value-mock"])}
-        />
+        />,
       )
       const clear = screen.getByRole("button", {
         name: "Clear selections",
@@ -331,7 +331,7 @@ describe("<SelectionProvider>", () => {
       render(
         <SelectionProviderWrapper
           selectedKeys={new Set(["option-2-value-mock"])}
-        />
+        />,
       )
       const option2 = screen.getByRole("option", {
         name: "option-2-label-mock",
@@ -345,7 +345,7 @@ describe("<SelectionProvider>", () => {
           screen.getByRole("option", {
             name: "option-2-label-mock",
             selected: false,
-          })
+          }),
         ).toBeVisible()
       })
     })
@@ -359,7 +359,7 @@ describe("<SelectionProvider>", () => {
 
         await waitFor(() => {
           expect(
-            screen.getByRole("option", { name: "option-1-label-mock" })
+            screen.getByRole("option", { name: "option-1-label-mock" }),
           ).toHaveFocus()
         })
       })
@@ -370,13 +370,13 @@ describe("<SelectionProvider>", () => {
         render(
           <SelectionProviderWrapper
             selectedKeys={new Set(["option-2-value-mock"])}
-          />
+          />,
         )
         await user.tab()
 
         await waitFor(() => {
           expect(
-            screen.getByRole("option", { name: "option-2-label-mock" })
+            screen.getByRole("option", { name: "option-2-label-mock" }),
           ).toHaveFocus()
         })
       })
@@ -389,7 +389,7 @@ describe("<SelectionProvider>", () => {
 
       await waitFor(() => {
         expect(
-          screen.getByRole("option", { name: "option-2-label-mock" })
+          screen.getByRole("option", { name: "option-2-label-mock" }),
         ).toHaveFocus()
       })
     })
@@ -398,14 +398,14 @@ describe("<SelectionProvider>", () => {
       render(
         <SelectionProviderWrapper
           selectedKeys={new Set(["option-3-value-mock"])}
-        />
+        />,
       )
       await user.tab()
       await user.keyboard("{ArrowDown}")
 
       await waitFor(() => {
         expect(
-          screen.getByRole("option", { name: "option-3-label-mock" })
+          screen.getByRole("option", { name: "option-3-label-mock" }),
         ).toHaveFocus()
       })
     })
@@ -414,14 +414,14 @@ describe("<SelectionProvider>", () => {
       render(
         <SelectionProviderWrapper
           selectedKeys={new Set(["option-3-value-mock"])}
-        />
+        />,
       )
       await user.tab()
       await user.keyboard("{ArrowUp}")
 
       await waitFor(() => {
         expect(
-          screen.getByRole("option", { name: "option-2-label-mock" })
+          screen.getByRole("option", { name: "option-2-label-mock" }),
         ).toHaveFocus()
       })
     })
@@ -433,7 +433,7 @@ describe("<SelectionProvider>", () => {
 
       await waitFor(() => {
         expect(
-          screen.getByRole("option", { name: "option-1-label-mock" })
+          screen.getByRole("option", { name: "option-1-label-mock" }),
         ).toHaveFocus()
       })
     })
@@ -449,7 +449,7 @@ describe("<SelectionProvider>", () => {
           screen.getByRole("option", {
             name: "option-1-label-mock",
             selected: true,
-          })
+          }),
         ).toBeVisible()
       })
     })
@@ -458,7 +458,7 @@ describe("<SelectionProvider>", () => {
       render(
         <SelectionProviderWrapper
           selectedKeys={new Set(["option-2-value-mock"])}
-        />
+        />,
       )
 
       await user.tab()
@@ -469,7 +469,7 @@ describe("<SelectionProvider>", () => {
           screen.getByRole("option", {
             name: "option-2-label-mock",
             selected: false,
-          })
+          }),
         ).toBeVisible()
       })
     })
@@ -498,17 +498,17 @@ describe("<SelectionProvider>", () => {
           expect(
             screen.getByRole("option", {
               name: "option-1-label-mock",
-            })
+            }),
           ).toBeVisible()
           expect(
             screen.queryByRole("option", {
               name: "option-2-label-mock",
-            })
+            }),
           ).not.toBeInTheDocument()
           expect(
             screen.queryByRole("option", {
               name: "option-3-label-mock",
-            })
+            }),
           ).not.toBeInTheDocument()
         })
       })
@@ -518,7 +518,7 @@ describe("<SelectionProvider>", () => {
         const onSearchInputChange = vi.fn()
 
         render(
-          <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
+          <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />,
         )
         const searchInput = screen.getByRole("searchbox")
         const searchString = "1"
@@ -528,17 +528,17 @@ describe("<SelectionProvider>", () => {
           expect(
             screen.getByRole("option", {
               name: "option-1-label-mock",
-            })
+            }),
           ).toBeVisible()
           expect(
             screen.getByRole("option", {
               name: "option-2-label-mock",
-            })
+            }),
           ).toBeVisible()
           expect(
             screen.getByRole("option", {
               name: "option-3-label-mock",
-            })
+            }),
           ).toBeVisible()
         })
       })
@@ -547,7 +547,7 @@ describe("<SelectionProvider>", () => {
         const onSearchInputChange = vi.fn()
 
         render(
-          <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
+          <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />,
         )
         const searchInput = screen.getByRole("searchbox")
         const searchString = "1"
@@ -568,40 +568,40 @@ describe("<SelectionProvider>", () => {
         expect(
           screen.getByRole("option", {
             name: "option-1-label-mock",
-          })
+          }),
         ).toBeVisible()
         expect(
           screen.getByRole("option", {
             name: "option-2-label-mock",
-          })
+          }),
         ).toBeVisible()
         expect(
           screen.getByRole("option", {
             name: "option-3-label-mock",
-          })
+          }),
         ).toBeVisible()
       })
 
       rerender(
         <StaticIntlProvider locale="en">
           <SelectionProviderWrapper items={itemsMock.slice(2)} />
-        </StaticIntlProvider>
+        </StaticIntlProvider>,
       )
       await waitFor(() => {
         expect(
           screen.queryByRole("option", {
             name: "option-1-label-mock",
-          })
+          }),
         ).not.toBeInTheDocument()
         expect(
           screen.queryByRole("option", {
             name: "option-2-label-mock",
-          })
+          }),
         ).not.toBeInTheDocument()
         expect(
           screen.getByRole("option", {
             name: "option-3-label-mock",
-          })
+          }),
         ).toBeVisible()
       })
     })

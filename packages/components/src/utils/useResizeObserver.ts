@@ -26,7 +26,7 @@ export interface DOMRectReadOnly {
  * @deprecated use native `ResizeObserver` DOM API instead
  */
 export const useResizeObserver = <T, E extends Element = HTMLElement>(
-  resolveEntry: (entry: ResizeObserverEntry) => any = defaultCallback
+  resolveEntry: (entry: ResizeObserverEntry) => any = defaultCallback,
 ): [Ref<E>, T | undefined] => {
   const destroyResizeObserverRef: React.MutableRefObject<
     undefined | (() => void)
@@ -47,7 +47,7 @@ export const useResizeObserver = <T, E extends Element = HTMLElement>(
                 setDimensions(value)
               }
             }
-          }
+          },
         )
         resizeObserver.observe(node)
         destroyResizeObserverRef.current = (): void => {
@@ -55,7 +55,7 @@ export const useResizeObserver = <T, E extends Element = HTMLElement>(
         }
       }
     },
-    [destroyResizeObserverRef, setDimensions, resolveEntryRef]
+    [destroyResizeObserverRef, setDimensions, resolveEntryRef],
   )
 
   // Ensure the resolveEntryRef has the latest value
@@ -70,7 +70,7 @@ export const useResizeObserver = <T, E extends Element = HTMLElement>(
         destroyResizeObserverRef.current()
       }
     },
-    []
+    [],
   )
   return [ref, dimensions]
 }

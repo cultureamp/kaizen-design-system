@@ -1,6 +1,6 @@
 export default (
   /** @type {import('plop').NodePlopAPI} */
-  plop
+  plop,
 ) => {
   plop.setHelper("preCurly", t => `{${t}`)
 

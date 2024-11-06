@@ -16,7 +16,7 @@ import styles from "./StickerSheet.module.css"
 type ReversibleSubcomponents = StickerSheetBodyProps | StickerSheetHeaderProps
 
 const isReversibleSubcomponent = (
-  child: React.ReactNode
+  child: React.ReactNode,
 ): child is React.ReactElement<ReversibleSubcomponents> =>
   React.isValidElement<ReversibleSubcomponents>(child) &&
   (child.type === StickerSheetHeader || child.type === StickerSheetBody)

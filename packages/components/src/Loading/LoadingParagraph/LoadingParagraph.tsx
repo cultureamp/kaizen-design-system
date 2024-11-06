@@ -43,7 +43,7 @@ export const LoadingParagraph = ({
       isLink && styles.isLink,
       inheritBaseline && styles.inheritBaseline,
       isInline && styles.isInline,
-      noBottomMargin && styles.noBottomMargin
+      noBottomMargin && styles.noBottomMargin,
     )}
     style={{ width: `${width}%` }}
     {...restProps}

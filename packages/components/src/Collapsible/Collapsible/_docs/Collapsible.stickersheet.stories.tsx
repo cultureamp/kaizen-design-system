@@ -18,7 +18,7 @@ export default {
 } satisfies Meta
 
 const CollapsibleWrapped = (
-  args: Omit<CollapsibleProps, "children">
+  args: Omit<CollapsibleProps, "children">,
 ): JSX.Element => (
   <Collapsible open {...args}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac

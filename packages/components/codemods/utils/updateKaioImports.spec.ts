@@ -23,7 +23,7 @@ describe("updateKaioImports()", () => {
       expect(
         transformInput(inputAst)({
           importsToRemove: new Map([["@kaizen/components", new Set(["Card"])]]),
-        })
+        }),
       ).toEqual(printAst(outputAst))
     })
 
@@ -37,7 +37,7 @@ describe("updateKaioImports()", () => {
       expect(
         transformInput(inputAst)({
           importsToRemove: new Map([["@kaizen/components", new Set(["Card"])]]),
-        })
+        }),
       ).toEqual(printAst(outputAst))
     })
 
@@ -52,7 +52,7 @@ describe("updateKaioImports()", () => {
       expect(
         transformInput(inputAst)({
           importsToRemove: new Map([["@kaizen/components", new Set(["Card"])]]),
-        })
+        }),
       ).toEqual(printAst(outputAst))
     })
 
@@ -66,7 +66,7 @@ describe("updateKaioImports()", () => {
       expect(
         transformInput(inputAst)({
           importsToRemove: new Map([["@kaizen/components", new Set(["Card"])]]),
-        })
+        }),
       ).toEqual(printAst(outputAst))
     })
   })
@@ -88,7 +88,7 @@ describe("updateKaioImports()", () => {
               new Map([["Card", { componentName: "Card" }]]),
             ],
           ]),
-        })
+        }),
       ).toEqual(printAst(outputAst))
     })
 
@@ -108,7 +108,7 @@ describe("updateKaioImports()", () => {
               new Map([["Card", { componentName: "Card", alias: "KzCard" }]]),
             ],
           ]),
-        })
+        }),
       ).toEqual(printAst(outputAst))
     })
 
@@ -127,7 +127,7 @@ describe("updateKaioImports()", () => {
               new Map([["Icon", { componentName: "Icon" }]]),
             ],
           ]),
-        })
+        }),
       ).toEqual(printAst(outputAst))
     })
 
@@ -146,7 +146,7 @@ describe("updateKaioImports()", () => {
               new Map([["Card", { componentName: "Card" }]]),
             ],
           ]),
-        })
+        }),
       ).toEqual(printAst(outputAst))
     })
 
@@ -171,7 +171,7 @@ describe("updateKaioImports()", () => {
                 new Map([["Card", { componentName: "Card" }]]),
               ],
             ]),
-          })
+          }),
         ).toEqual(printAst(outputAst))
       })
 
@@ -195,7 +195,7 @@ describe("updateKaioImports()", () => {
                 new Map([["Card", { componentName: "Card" }]]),
               ],
             ]),
-          })
+          }),
         ).toEqual(printAst(outputAst))
       })
 
@@ -215,7 +215,7 @@ describe("updateKaioImports()", () => {
                 new Map([["Card", { componentName: "Card" }]]),
               ],
             ]),
-          })
+          }),
         ).toEqual(printAst(outputAst))
       })
     })

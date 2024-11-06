@@ -11,7 +11,7 @@ const defaultToggleSwitchProps = {
 }
 
 const renderToggleSwitch = (
-  props?: ToggleSwitchProps
+  props?: ToggleSwitchProps,
 ): ReturnType<typeof render> => {
   const mergedToggleSwitchProps = { ...defaultToggleSwitchProps, ...props }
 

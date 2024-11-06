@@ -14,7 +14,7 @@ const propsToStyleMap = new Map<string, string>([
 ])
 
 const transformPropRole = (
-  oldValue: string
+  oldValue: string,
 ): ts.JsxAttribute | null | undefined => {
   switch (oldValue) {
     case "presentation":
@@ -35,7 +35,7 @@ const transformPropRole = (
  */
 const transformIconProp = (
   propName: string,
-  propValue: ts.JsxAttributeValue | undefined
+  propValue: ts.JsxAttributeValue | undefined,
 ): ts.JsxAttribute | null | undefined => {
   switch (propName) {
     case "role": {
@@ -61,7 +61,7 @@ const transformIconProp = (
 export const transformIcon = (
   node: ts.JsxOpeningElement | ts.JsxSelfClosingElement,
   name: string,
-  isFilled?: boolean
+  isFilled?: boolean,
 ): ts.Node => {
   const styles: Map<string, ts.JsxAttributeValue> = new Map()
 
@@ -76,7 +76,7 @@ export const transformIcon = (
           attr,
           ts.SyntaxKind.SingleLineCommentTrivia,
           ' @todo: Apply the correct --icon-size (eg. in Tailwind: className="[--icon-size:48]")',
-          true
+          true,
         )
         acc.push(attr)
         return acc

@@ -4,5 +4,5 @@ import { DisabledDays, formatDateAsText } from "~components/Calendar"
 export const transformDateToInputValue = (
   date: Date | undefined,
   disabledDays: DisabledDays,
-  locale: Locale
+  locale: Locale,
 ): string => (date ? formatDateAsText(date, disabledDays, locale) : "")

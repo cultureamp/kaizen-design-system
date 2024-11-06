@@ -43,7 +43,7 @@ describe("updateMark()", () => {
         _metadata: null,
         rel: "noreferrer",
         target: "_self",
-      })
+      }),
     )
     await waitFor(() => {
       const linkExample: HTMLAnchorElement = getByText(node, "Example Link")
@@ -78,13 +78,13 @@ describe("updateMark()", () => {
           rel: "noreferrer",
           target: "_self",
         },
-        { toExtent: true }
-      )
+        { toExtent: true },
+      ),
     )
     await waitFor(() => {
       const linkExample: HTMLAnchorElement = getByText(
         node,
-        "Example Link Mark"
+        "Example Link Mark",
       )
       expect(linkExample.href).toEqual("https://google.com/")
     })

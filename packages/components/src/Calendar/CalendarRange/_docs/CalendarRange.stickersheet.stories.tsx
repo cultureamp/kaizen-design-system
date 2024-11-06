@@ -28,7 +28,7 @@ export default {
 } satisfies Meta
 
 const CalendarRangeWrapper = (
-  props: Partial<CalendarRangeProps>
+  props: Partial<CalendarRangeProps>,
 ): JSX.Element => (
   <div data-testid={props.id}>
     <CalendarRange
@@ -99,7 +99,7 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   const getElementWithinCalendar = (
     id: string,
     monthName: string,
-    dayName: string
+    dayName: string,
   ): HTMLElement => {
     const calendar = canvas.getByTestId(id)
     const month = within(calendar).getByRole("grid", { name: monthName })
@@ -127,11 +127,11 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   calendarsPseudoStates.forEach(({ id, monthName, dayName }) => {
     getElementWithinCalendar(`${id}--hover`, monthName, dayName).setAttribute(
       "data-sb-pseudo-styles",
-      "hover"
+      "hover",
     )
     getElementWithinCalendar(`${id}--focus`, monthName, dayName).setAttribute(
       "data-sb-pseudo-styles",
-      "focus"
+      "focus",
     )
   })
 }

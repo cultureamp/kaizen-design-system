@@ -5,7 +5,7 @@ import { ProseMirrorModel } from "../utils/prosemirror"
 import { getMarks, getNodes } from "../utils/schema"
 
 export const createSchemaFromControls = (
-  controls?: ToolbarItems[]
+  controls?: ToolbarItems[],
 ): ProseMirrorModel.Schema<string> => {
   if (!controls) {
     return createSchema()
@@ -13,7 +13,7 @@ export const createSchemaFromControls = (
 
   const namesFromControls = controls.reduce(
     (acc: ToolbarControlTypes[], c: ToolbarItems) => [...acc, c.name],
-    []
+    [],
   )
 
   return createSchema(namesFromControls)
@@ -23,7 +23,7 @@ export const createSchemaWithAll = (): ProseMirrorModel.Schema<string> =>
   createSchema(TOOLBAR_CONTROLS)
 
 const createSchema = (
-  controls?: ToolbarControlTypes[]
+  controls?: ToolbarControlTypes[],
 ): ProseMirrorModel.Schema<string> => {
   const nodes = getNodes()
   const marks = getMarks()

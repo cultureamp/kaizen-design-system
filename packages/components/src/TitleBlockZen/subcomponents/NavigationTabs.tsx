@@ -31,7 +31,7 @@ export const NavigationTab = (props: NavigationTabProps): JSX.Element => {
   const className = classnames(
     styles.linkAnchor,
     isLight(props.variant) && styles.lightBackground,
-    props.active && styles.active
+    props.active && styles.active,
   )
 
   if (props.render) {

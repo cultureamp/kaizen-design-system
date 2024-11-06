@@ -25,7 +25,7 @@ export type FilterBarMultiSelectProps = Omit<
 export type ConsumableSelection = string | Key[] | undefined
 
 const convertSelectionToAConsumableFormat = (
-  value: Selection
+  value: Selection,
 ): ConsumableSelection => {
   if (value === "all") return "all"
   const arrayOfValues = Array.from(value)
@@ -34,7 +34,7 @@ const convertSelectionToAConsumableFormat = (
 }
 
 const convertConsumableFormatIntoSelection = (
-  value: ConsumableSelection
+  value: ConsumableSelection,
 ): Selection => new Set(value)
 
 export const FilterBarMultiSelect = ({
@@ -71,7 +71,7 @@ export const FilterBarMultiSelect = ({
     if (Array.isArray(filterState.value)) {
       const itemValues = items.map(({ value }) => value)
       const filteredValues = filterState.value.filter(value =>
-        itemValues.includes(value)
+        itemValues.includes(value),
       )
 
       if (!checkArraysMatch(filterState.value, filteredValues)) {
@@ -106,7 +106,7 @@ export const FilterBarMultiSelect = ({
           selectedOptionLabels: filterState.value
             ? getSelectedOptionLabels(
                 convertConsumableFormatIntoSelection(filterState.value),
-                items
+                items,
               )
             : [],
           label: filterState.name,

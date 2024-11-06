@@ -27,7 +27,7 @@ export const useToastNotificationContext =
 
     if (!context) {
       throw new Error(
-        "useToastNotificationContext must be used within the ToastNotificationContext.Provider"
+        "useToastNotificationContext must be used within the ToastNotificationContext.Provider",
       )
     }
 
@@ -50,7 +50,7 @@ export const ToastNotificationProvider = ({
 
       setNotifications(existing => {
         const notificationExists = existing.find(
-          ({ id }) => id === notification.id
+          ({ id }) => id === notification.id,
         )
 
         return notificationExists ? existing : [...existing, notificationWithId]
@@ -58,10 +58,10 @@ export const ToastNotificationProvider = ({
     }
 
   const updateToastNotification = (
-    notification: ToastNotificationObj
+    notification: ToastNotificationObj,
   ): void => {
     const notificationIndex = notifications.findIndex(
-      ({ id }) => id === notification.id
+      ({ id }) => id === notification.id,
     )
 
     const copy = notifications.slice()

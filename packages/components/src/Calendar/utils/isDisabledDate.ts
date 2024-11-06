@@ -3,7 +3,7 @@ import { DisabledDays } from "../types"
 
 export const isDisabledDate = (
   date: Date,
-  disabledDays: DisabledDays
+  disabledDays: DisabledDays,
 ): boolean =>
   disabledDays === undefined
     ? false

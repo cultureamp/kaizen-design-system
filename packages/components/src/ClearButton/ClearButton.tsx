@@ -19,7 +19,7 @@ export const ClearButton = ({
     className={classnames(
       styles.clearButton,
       isReversed ? styles.reversed : styles.default,
-      classNameOverride
+      classNameOverride,
     )}
     {...restProps}
   >

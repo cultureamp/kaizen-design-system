@@ -24,12 +24,12 @@ describe("NavigationTabs", () => {
     expect(
       screen.getByRole("link", {
         name: text,
-      })
+      }),
     ).toBeInTheDocument()
     expect(
       screen.getByRole("link", {
         name: text,
-      })
+      }),
     ).toHaveAttribute("href", href)
   })
 
@@ -46,7 +46,7 @@ describe("NavigationTabs", () => {
           active
           render={CustomComponent}
           variant="education"
-        />
+        />,
       )
 
       const button = screen.getByRole("button", {
@@ -55,7 +55,7 @@ describe("NavigationTabs", () => {
       expect(button).toHaveClass(
         styles.linkAnchor,
         styles.active,
-        styles.lightBackground
+        styles.lightBackground,
       )
 
       await user.click(button)

@@ -43,7 +43,7 @@ export const SelectToggle = React.forwardRef<
       classNameOverride,
       ...restProps
     },
-    ref
+    ref,
   ) => (
     <div>
       <Label {...labelProps} reversed={isReversed} disabled={isDisabled}>
@@ -63,7 +63,7 @@ export const SelectToggle = React.forwardRef<
           status === "caution" && styles.caution,
           isDisabled && styles.disabled,
           isReversed && styles.reversed,
-          classNameOverride
+          classNameOverride,
         )}
       >
         <span {...valueProps} className={styles.value}>
@@ -76,7 +76,7 @@ export const SelectToggle = React.forwardRef<
         />
       </button>
     </div>
-  )
+  ),
 )
 
 SelectToggle.displayName = "SelectToggle"

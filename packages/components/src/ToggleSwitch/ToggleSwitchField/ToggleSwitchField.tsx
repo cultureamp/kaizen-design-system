@@ -44,7 +44,7 @@ export const ToggleSwitchField = ({
       classNameOverride={classnames(
         styles.container,
         fullWidth && styles.fullWidth,
-        toggledStatus === "on" && styles.on
+        toggledStatus === "on" && styles.on,
       )}
     >
       <div className={styles.inner}>

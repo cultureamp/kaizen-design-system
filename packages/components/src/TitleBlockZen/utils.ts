@@ -10,7 +10,7 @@ import {
 export const isMenuGroupNotButton = (
   value:
     | (TitleBlockButtonProps | TitleBlockCustomButtonProps)
-    | TitleBlockMenuGroup
+    | TitleBlockMenuGroup,
 ): value is TitleBlockMenuGroup => "menuItems" in value
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
@@ -22,7 +22,7 @@ export const isReversed = (variant: TitleBlockVariant | undefined): boolean => {
 }
 
 export const convertSecondaryActionsToMenuItems = (
-  secondaryActions: SecondaryActionsProps
+  secondaryActions: SecondaryActionsProps,
 ): TitleBlockMenuItemProps[] =>
   secondaryActions.reduce<TitleBlockMenuItemProps[]>((acc, cur) => {
     if ("menuItems" in cur) {
@@ -63,7 +63,7 @@ export const convertSecondaryActionsToMenuItems = (
 
 export const createTabletOverflowMenuItems = (
   secondaryActions?: SecondaryActionsProps,
-  secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
+  secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
 ): TitleBlockMenuItemProps[] => {
   let secondaryActionsList: TitleBlockMenuItemProps[]
   if (secondaryActions) {

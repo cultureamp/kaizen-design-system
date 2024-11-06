@@ -26,7 +26,7 @@ describe("<Icon />", () => {
       render(
         <button type="button">
           <Icon name="format_list_numbered" shouldMirrorInRTL alt="Pancakes" />
-        </button>
+        </button>,
       )
       const button = screen.getByRole("button")
 

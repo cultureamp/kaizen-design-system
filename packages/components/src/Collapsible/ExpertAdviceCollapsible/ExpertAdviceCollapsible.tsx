@@ -17,7 +17,7 @@ export type ExpertAdviceCollapsibleProps = Omit<
  * {@link https://cultureamp.design/?path=/docs/components-collapsible--docs Storybook}
  */
 export const ExpertAdviceCollapsible = (
-  props: ExpertAdviceCollapsibleProps
+  props: ExpertAdviceCollapsibleProps,
 ): JSX.Element => (
   <Collapsible
     {...props}

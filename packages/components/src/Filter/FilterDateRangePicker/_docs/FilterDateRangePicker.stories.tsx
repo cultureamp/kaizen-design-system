@@ -184,7 +184,7 @@ export const RenderTrigger: Story = {
           label="FilterButton"
           locale="en-AU"
           renderTrigger={(
-            triggerButtonProps: FilterButtonProps
+            triggerButtonProps: FilterButtonProps,
           ): JSX.Element => <FilterButton {...triggerButtonProps} />}
           isOpen={isOpenButton}
           setIsOpen={setIsOpenButton}
@@ -196,7 +196,7 @@ export const RenderTrigger: Story = {
           label="FilterButtonRemovable"
           locale="en-AU"
           renderTrigger={(
-            triggerButtonProps: FilterButtonProps
+            triggerButtonProps: FilterButtonProps,
           ): JSX.Element => (
             <FilterButtonRemovable
               triggerButtonProps={{ ...triggerButtonProps }}
@@ -361,7 +361,7 @@ export const Validation: Story = {
 
     const handleValidate = (
       validationResponse: DateValidationResponse,
-      input: "dateStart" | "dateEnd"
+      input: "dateStart" | "dateEnd",
     ): void => {
       setResponse(validationResponse)
       // An example of additional validation
@@ -386,11 +386,11 @@ export const Validation: Story = {
     }
 
     const handleDateStartValidate = (
-      validationResponse: DateValidationResponse
+      validationResponse: DateValidationResponse,
     ): void => handleValidate(validationResponse, "dateStart")
 
     const handleDateEndValidate = (
-      validationResponse: DateValidationResponse
+      validationResponse: DateValidationResponse,
     ): void => handleValidate(validationResponse, "dateEnd")
 
     const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {

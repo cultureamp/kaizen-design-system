@@ -28,7 +28,7 @@ describe("Content props are passed", () => {
         labelText=""
         onClick={vi.fn()}
         contentProps={{ id: "sampleId" }}
-      />
+      />,
     )
     expect(mockFn).toHaveBeenCalledWith({ content, id: "sampleId" })
   })

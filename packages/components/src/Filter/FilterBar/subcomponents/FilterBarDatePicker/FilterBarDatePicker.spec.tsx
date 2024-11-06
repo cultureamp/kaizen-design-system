@@ -70,10 +70,10 @@ describe("<FilterBarDatePicker />", () => {
       render(<FilterBarDatePickerWrapper />)
       await waitFor(() => {
         expect(
-          screen.getByRole("button", { name: "Drank" })
+          screen.getByRole("button", { name: "Drank" }),
         ).toBeInTheDocument()
         expect(
-          screen.queryByRole("button", { name: "Remove filter - Drank" })
+          screen.queryByRole("button", { name: "Remove filter - Drank" }),
         ).not.toBeInTheDocument()
       })
     })
@@ -83,11 +83,11 @@ describe("<FilterBarDatePicker />", () => {
         <FilterBarDatePickerWrapper
           filterAttributes={{ isRemovable: true }}
           defaultValues={{ drank: new Date("2023-05-01") }}
-        />
+        />,
       )
       await waitFor(() => {
         expect(
-          screen.getByRole("button", { name: "Remove filter - Drank" })
+          screen.getByRole("button", { name: "Remove filter - Drank" }),
         ).toBeVisible()
       })
     })
@@ -114,7 +114,7 @@ describe("<FilterBarDatePicker />", () => {
     const { getByRole } = render(
       <FilterBarDatePickerWrapper
         defaultValues={{ drank: new Date("2023-06-06") }}
-      />
+      />,
     )
     await waitFor(() => {
       const triggerButton = getByRole("button", {
@@ -128,7 +128,7 @@ describe("<FilterBarDatePicker />", () => {
     render(
       <FilterBarDatePickerWrapper
         defaultValues={{ drank: new Date("2023-06-06") }}
-      />
+      />,
     )
     const triggerButton = screen.getByRole("button", {
       name: "Drank : 6 Jun 2023",
@@ -148,7 +148,7 @@ describe("<FilterBarDatePicker />", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByRole("button", { name: "Drank : 7 Jun 2023" })
+        screen.getByRole("button", { name: "Drank : 7 Jun 2023" }),
       ).toBeInTheDocument()
     })
   })

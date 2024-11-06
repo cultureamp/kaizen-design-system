@@ -78,7 +78,7 @@ type Story = StoryObj<typeof meta>
 const FilterMultiSelectTemplate: Story = {
   render: args => {
     const [selectedKeys, setSelectedKeys] = useState<Selection | undefined>(
-      args.selectedKeys
+      args.selectedKeys,
     )
 
     return (
@@ -90,7 +90,7 @@ const FilterMultiSelectTemplate: Story = {
           <FilterMultiSelect.TriggerButton
             selectedOptionLabels={getSelectedOptionLabels(
               selectedKeys,
-              args.items
+              args.items,
             )}
             label={args.label}
           />
@@ -119,7 +119,7 @@ export const Loading: Story = {
 export const TruncatedLabels: Story = {
   render: args => {
     const [selectedKeys, setSelectedKeys] = useState<Selection | undefined>(
-      args.selectedKeys
+      args.selectedKeys,
     )
     const [characterLimit, setCharacterLimit] = useState<number>(50)
 
@@ -143,7 +143,7 @@ export const TruncatedLabels: Story = {
             <FilterMultiSelect.TriggerButton
               selectedOptionLabels={getSelectedOptionLabels(
                 selectedKeys,
-                mockItems
+                mockItems,
               )}
               label={args.label}
               labelCharacterLimitBeforeTruncate={characterLimit}
@@ -178,7 +178,7 @@ export const Async: Story = {
       next: string
     }> => {
       const res = await fetch(
-        `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`
+        `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`,
       )
 
       return res.json()
@@ -225,7 +225,7 @@ export const Async: Story = {
         data?.pages
           .flatMap(res => res.results)
           .flatMap(person => ({ label: person.name, value: person.url })) || [],
-      [data]
+      [data],
     )
 
     /**
@@ -235,7 +235,7 @@ export const Async: Story = {
      */
     const mergedPeople = [...currentPeople, ...cachedPeople].filter(
       (item, index, a) =>
-        a.findIndex(currItem => currItem.value === item.value) === index
+        a.findIndex(currItem => currItem.value === item.value) === index,
     )
 
     /**
@@ -257,7 +257,7 @@ export const Async: Story = {
             <FilterMultiSelect.TriggerButton
               selectedOptionLabels={getSelectedOptionLabels(
                 new Set(selectedPeople),
-                cachedPeople
+                cachedPeople,
               )}
               label="People"
             />

@@ -27,7 +27,7 @@ describe("markContainsSelection()", () => {
 
     await waitFor(() => {
       expect(markContainsSelection(currentState, testSchema.marks.em)).toBe(
-        true
+        true,
       )
     })
   })
@@ -50,7 +50,7 @@ describe("markContainsSelection()", () => {
 
     await waitFor(() => {
       expect(markContainsSelection(currentState, testSchema.marks.strong)).toBe(
-        true
+        true,
       )
     })
   })
@@ -73,7 +73,7 @@ describe("markContainsSelection()", () => {
 
     await waitFor(() => {
       expect(markContainsSelection(currentState, testSchema.marks.em)).toBe(
-        false
+        false,
       )
     })
   })

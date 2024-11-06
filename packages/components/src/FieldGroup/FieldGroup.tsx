@@ -18,7 +18,7 @@ export const FieldGroup = ({
     className={classnames(
       styles.group,
       classNameOverride,
-      inline && styles.inline
+      inline && styles.inline,
     )}
     {...restProps}
   >

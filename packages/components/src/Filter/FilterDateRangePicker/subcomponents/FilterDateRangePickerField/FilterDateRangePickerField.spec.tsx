@@ -52,7 +52,7 @@ describe("<FilterDateRangePickerField />", () => {
             from: new Date("2022-05-01"),
             to: new Date("2022-05-22"),
           }}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -71,7 +71,7 @@ describe("<FilterDateRangePickerField />", () => {
           }}
           inputStartDateProps={{ labelText: "Start date" }}
           inputEndDateProps={{ labelText: "End date" }}
-        />
+        />,
       )
 
       await waitFor(() => {
@@ -95,7 +95,7 @@ describe("<FilterDateRangePickerField />", () => {
             }}
             inputStartDateProps={{ onBlur: startDateOnBlur }}
             inputEndDateProps={{ onBlur: endDateOnBlur }}
-          />
+          />,
         )
         await waitForI18nContent()
 
@@ -137,7 +137,7 @@ describe("<FilterDateRangePickerField />", () => {
             }}
             inputStartDateProps={{ onBlur: startDateOnBlur }}
             inputEndDateProps={{ onBlur: endDateOnBlur }}
-          />
+          />,
         )
         await waitForI18nContent()
 
@@ -175,7 +175,7 @@ describe("<FilterDateRangePickerField />", () => {
             from: new Date("2022-05-02"),
             to: new Date("2022-12-17"),
           }}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -203,7 +203,7 @@ describe("<FilterDateRangePickerField />", () => {
       render(
         <FilterDateRangePickerFieldWrapper
           defaultMonth={new Date("2022-05-02")}
-        />
+        />,
       )
       await waitForI18nContent()
       expect(screen.getByText("May 2022")).toBeVisible()
@@ -217,7 +217,7 @@ describe("<FilterDateRangePickerField />", () => {
             from: new Date("2022-05-01"),
             to: new Date("2022-12-17"),
           }}
-        />
+        />,
       )
       await waitForI18nContent()
       expect(screen.getByText("May 2022")).toBeVisible()
@@ -230,7 +230,7 @@ describe("<FilterDateRangePickerField />", () => {
           selectedRange={{
             from: new Date("potato"),
           }}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -248,7 +248,7 @@ describe("<FilterDateRangePickerField />", () => {
             from: new Date("2022-05-15"),
             to: new Date("2022-06-15"),
           }}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -275,7 +275,7 @@ describe("<FilterDateRangePickerField />", () => {
             from: new Date("2022-05-15"),
             to: new Date("2022-06-15"),
           }}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -302,7 +302,7 @@ describe("<FilterDateRangePickerField />", () => {
             from: new Date("2022-05-15"),
             to: new Date("2022-05-22"),
           }}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -348,7 +348,7 @@ describe("<FilterDateRangePickerField />", () => {
                 message: "End date caution message",
               },
             }}
-          />
+          />,
         )
         await waitFor(() => {
           expect(screen.getByText("Start date error message")).toBeVisible()
@@ -362,7 +362,7 @@ describe("<FilterDateRangePickerField />", () => {
         const { container } = render(
           <FilterDateRangePickerFieldWrapper
             inputStartDateProps={{ labelText: "Start date" }}
-          />
+          />,
         )
         await waitFor(() => {
           expect(screen.getByLabelText("Start date")).toBeVisible()
@@ -379,7 +379,7 @@ describe("<FilterDateRangePickerField />", () => {
           const dateStartErrorContainer =
             container.querySelector(dateStartErrorId)
           expect(dateStartErrorContainer).toHaveTextContent(
-            "Start date:potato is an invalid date"
+            "Start date:potato is an invalid date",
           )
         })
       })
@@ -388,7 +388,7 @@ describe("<FilterDateRangePickerField />", () => {
         const { container } = render(
           <FilterDateRangePickerFieldWrapper
             inputEndDateProps={{ labelText: "End date" }}
-          />
+          />,
         )
         await waitForI18nContent()
 
@@ -402,7 +402,7 @@ describe("<FilterDateRangePickerField />", () => {
         await waitFor(() => {
           const dateEndErrorContainer = container.querySelector(dateEndErrorId)
           expect(dateEndErrorContainer).toHaveTextContent(
-            "End date:potato is an invalid date"
+            "End date:potato is an invalid date",
           )
         })
       })
@@ -415,19 +415,19 @@ describe("<FilterDateRangePickerField />", () => {
               to: new Date("2022-05-23"),
             }}
             disabledDays={[new Date("2022-05-15"), new Date("2022-05-23")]}
-          />
+          />,
         )
         await waitForI18nContent()
 
         const dateStartErrorContainer =
           container.querySelector(dateStartErrorId)
         expect(dateStartErrorContainer).toHaveTextContent(
-          "Date from:15/05/2022 is not available, try another date"
+          "Date from:15/05/2022 is not available, try another date",
         )
 
         const dateEndErrorContainer = container.querySelector(dateEndErrorId)
         expect(dateEndErrorContainer).toHaveTextContent(
-          "Date to:23/05/2022 is not available, try another date"
+          "Date to:23/05/2022 is not available, try another date",
         )
       })
 
@@ -441,7 +441,7 @@ describe("<FilterDateRangePickerField />", () => {
               selectedRange={{
                 from: new Date("2022-05-15"),
               }}
-            />
+            />,
           )
           await waitForI18nContent()
 
@@ -456,7 +456,7 @@ describe("<FilterDateRangePickerField />", () => {
             const dateEndErrorContainer =
               container.querySelector(dateEndErrorId)
             expect(dateEndErrorContainer).toHaveTextContent(
-              invalidDateOrderErrorMessage
+              invalidDateOrderErrorMessage,
             )
           })
         })
@@ -468,7 +468,7 @@ describe("<FilterDateRangePickerField />", () => {
                 from: new Date("2022-05-15"),
                 to: new Date("2022-05-22"),
               }}
-            />
+            />,
           )
           await waitForI18nContent()
 
@@ -483,11 +483,11 @@ describe("<FilterDateRangePickerField />", () => {
 
           await waitFor(() => {
             expect(dateEndErrorContainer).toHaveTextContent(
-              invalidDateOrderErrorMessage
+              invalidDateOrderErrorMessage,
             )
             // End date in Calendar is deselected
             expect(
-              screen.getAllByRole("gridcell", { selected: true }).length
+              screen.getAllByRole("gridcell", { selected: true }).length,
             ).toEqual(1)
           })
 
@@ -502,7 +502,7 @@ describe("<FilterDateRangePickerField />", () => {
             expect(dateEndErrorContainer).not.toBeInTheDocument()
             // End date in Calendar is re-selected
             expect(
-              screen.getAllByRole("gridcell", { selected: true }).length
+              screen.getAllByRole("gridcell", { selected: true }).length,
             ).toEqual(3)
           })
         })
@@ -514,7 +514,7 @@ describe("<FilterDateRangePickerField />", () => {
                 from: new Date("2022-05-15"),
                 to: new Date("2022-05-22"),
               }}
-            />
+            />,
           )
           await waitForI18nContent()
 
@@ -529,11 +529,11 @@ describe("<FilterDateRangePickerField />", () => {
 
           await waitFor(() => {
             expect(dateEndErrorContainer).toHaveTextContent(
-              invalidDateOrderErrorMessage
+              invalidDateOrderErrorMessage,
             )
             // End date in Calendar is deselected
             expect(
-              screen.getAllByRole("gridcell", { selected: true }).length
+              screen.getAllByRole("gridcell", { selected: true }).length,
             ).toEqual(1)
           })
         })
@@ -545,7 +545,7 @@ describe("<FilterDateRangePickerField />", () => {
                 from: new Date("2022-05-15"),
                 to: new Date("2022-05-22"),
               }}
-            />
+            />,
           )
           await waitForI18nContent()
 
@@ -560,7 +560,7 @@ describe("<FilterDateRangePickerField />", () => {
             const dateEndErrorContainer =
               container.querySelector(dateEndErrorId)
             expect(dateEndErrorContainer).toHaveTextContent(
-              invalidDateOrderErrorMessage
+              invalidDateOrderErrorMessage,
             )
           })
         })
@@ -572,14 +572,14 @@ describe("<FilterDateRangePickerField />", () => {
                 from: new Date("2022-05-15"),
                 to: new Date("2022-05-01"),
               }}
-            />
+            />,
           )
 
           await waitFor(() => {
             const dateEndErrorContainer =
               container.querySelector(dateEndErrorId)
             expect(dateEndErrorContainer).toHaveTextContent(
-              invalidDateOrderErrorMessage
+              invalidDateOrderErrorMessage,
             )
           })
         })
@@ -599,7 +599,7 @@ describe("<FilterDateRangePickerField />", () => {
                 message: "Start date error message",
               },
             }}
-          />
+          />,
         )
         await waitForI18nContent()
 
@@ -615,7 +615,7 @@ describe("<FilterDateRangePickerField />", () => {
 
           const dateEndErrorContainer = container.querySelector(dateEndErrorId)
           expect(dateEndErrorContainer).toHaveTextContent(
-            "Date to:potato is an invalid date"
+            "Date to:potato is an invalid date",
           )
         })
       })
@@ -632,7 +632,7 @@ describe("<FilterDateRangePickerField />", () => {
                 message: "End date error message",
               },
             }}
-          />
+          />,
         )
         await waitForI18nContent()
 
@@ -649,7 +649,7 @@ describe("<FilterDateRangePickerField />", () => {
           const dateStartErrorContainer =
             container.querySelector(dateStartErrorId)
           expect(dateStartErrorContainer).toHaveTextContent(
-            "Date from:potato is an invalid date"
+            "Date from:potato is an invalid date",
           )
         })
       })
@@ -662,7 +662,7 @@ describe("<FilterDateRangePickerField />", () => {
             from: new Date("2022-05-10"),
             to: new Date("potato"),
           }}
-        />
+        />,
       )
       await waitForI18nContent()
 
@@ -670,7 +670,7 @@ describe("<FilterDateRangePickerField />", () => {
 
       await waitFor(() => {
         expect(dateEndErrorContainer).toHaveTextContent(
-          "Date to:Invalid Date is an invalid date"
+          "Date to:Invalid Date is an invalid date",
         )
       })
 
@@ -696,7 +696,7 @@ describe("<FilterDateRangePickerField />", () => {
           to: new Date("2022-06-10"),
         }}
         onRangeChange={onRangeChange}
-      />
+      />,
     )
     await waitForI18nContent()
 

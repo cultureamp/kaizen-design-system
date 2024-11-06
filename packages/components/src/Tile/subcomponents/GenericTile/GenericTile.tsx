@@ -74,7 +74,7 @@ export const GenericTile = ({
       className={classnames(
         styles.face,
         styles.faceFront,
-        mood ? styles[mood] : styles[variant]
+        mood ? styles[mood] : styles[variant],
       )}
     >
       {information && (
@@ -95,7 +95,7 @@ export const GenericTile = ({
   )
 
   const renderInformation = (
-    informationProp: GenericTileProps["information"] | undefined
+    informationProp: GenericTileProps["information"] | undefined,
   ): JSX.Element | React.ReactNode => {
     if (
       informationProp &&

@@ -13,7 +13,7 @@ describe("<GenericButton />", () => {
             <div>{props.children}</div>
           </div>
         )}
-      />
+      />,
     )
     expect(screen.getByText("I'm custom")).toBeInTheDocument()
     expect(screen.getByText("button label")).toBeInTheDocument()
@@ -26,11 +26,11 @@ describe("<GenericButton />", () => {
 
   it("does not render an anchor element when passed the href prop but has a truthy disabled prop or a truthy working prop", () => {
     const { rerender } = render(
-      <GenericButton label="My link" href="/to-infinity" disabled={true} />
+      <GenericButton label="My link" href="/to-infinity" disabled={true} />,
     )
 
     expect(
-      screen.queryByRole("link", { name: "My link" })
+      screen.queryByRole("link", { name: "My link" }),
     ).not.toBeInTheDocument()
     expect(screen.getByRole("button", { name: "My link" })).toBeInTheDocument()
 
@@ -40,14 +40,14 @@ describe("<GenericButton />", () => {
         href="/to-infinity"
         working={true}
         workingLabel="My link working"
-      />
+      />,
     )
 
     expect(
-      screen.queryByRole("link", { name: "My link working" })
+      screen.queryByRole("link", { name: "My link working" }),
     ).not.toBeInTheDocument()
     expect(
-      screen.getByRole("button", { name: "My link working" })
+      screen.getByRole("button", { name: "My link working" }),
     ).toBeInTheDocument()
   })
 
@@ -55,7 +55,7 @@ describe("<GenericButton />", () => {
     render(<GenericButton label="My button" />)
 
     expect(
-      screen.getByRole("button", { name: "My button" })
+      screen.getByRole("button", { name: "My button" }),
     ).toBeInTheDocument()
   })
 
@@ -65,7 +65,7 @@ describe("<GenericButton />", () => {
         label="button label"
         data-testid="custom-prop"
         component={(props): React.ReactElement => <div {...props} />}
-      />
+      />,
     )
     expect(screen.getByTestId("custom-prop")).toBeInTheDocument()
   })
@@ -76,7 +76,7 @@ describe("<GenericButton />", () => {
         label="button label"
         data-testid="custom-prop"
         href="/and-beyond"
-      />
+      />,
     )
     expect(screen.getByTestId("custom-prop")).toBeInTheDocument()
   })
@@ -103,11 +103,11 @@ describe("<GenericButton /> with native HTML `form` attributes", () => {
         label="submit button"
         data-testid="custom-prop"
         {...buttonFormAttributes}
-      />
+      />,
     )
 
     expect(
-      screen.getByRole("button", { name: "submit button" })
+      screen.getByRole("button", { name: "submit button" }),
     ).toHaveAttribute("form", buttonFormAttributes.form)
   })
 })
@@ -119,7 +119,7 @@ describe("<GenericButton /> `working` accessible states", () => {
         data-testid="id--generic-test"
         id="id--button"
         label="button label"
-      />
+      />,
     )
 
     const button = getByTestId("id--generic-test")
@@ -136,7 +136,7 @@ describe("<GenericButton /> `working` accessible states", () => {
         id="id--button"
         label="button label"
         workingLabel="Loading"
-      />
+      />,
     )
     const button = getByTestId("id--generic-test")
     const buttonContainer = button.parentElement
@@ -152,7 +152,7 @@ describe("<GenericButton /> `working` accessible states", () => {
         label="button label"
         workingLabel="Loading"
         href="/"
-      />
+      />,
     )
     const button = getByTestId("id--generic-test")
     const buttonContainer = button.parentElement
@@ -172,7 +172,7 @@ describe("<GenericButton /> `working` accessible states", () => {
             Custom button
           </button>
         )}
-      />
+      />,
     )
     const button = getByTestId("id--generic-test")
     const buttonContainer = button.parentElement

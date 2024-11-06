@@ -6,7 +6,7 @@ import { MarkRange } from "../core/types"
 // There's no impact on the other marks like bold, italics and underline.
 export const getMarkRange = (
   $pos: ResolvedPos | null = null,
-  type: MarkType | null = null
+  type: MarkType | null = null,
 ): MarkRange | null => {
   if (!$pos || !type) {
     return null

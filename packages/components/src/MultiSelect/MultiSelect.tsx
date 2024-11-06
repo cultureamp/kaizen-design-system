@@ -66,11 +66,11 @@ export const MultiSelect = ({
       acc[item.value] = item
       return acc
     },
-    {} as Record<MultiSelectOption["value"], MultiSelectOption>
+    {} as Record<MultiSelectOption["value"], MultiSelectOption>,
   )
 
   const handleOnRemoveOption = (
-    optionValue: MultiSelectOption["value"]
+    optionValue: MultiSelectOption["value"],
   ): void => {
     const newValues = new Set(selectedValues.values())
     newValues.delete(optionValue)
@@ -98,7 +98,7 @@ export const MultiSelect = ({
           onClick={handleToggleClick}
           isOpen={isOpen}
           selectedOptions={Array.from(selectedValues).map(
-            value => itemsMap[value]
+            value => itemsMap[value],
           )}
           status={validationMessage?.status}
           onRemoveOption={handleOnRemoveOption}

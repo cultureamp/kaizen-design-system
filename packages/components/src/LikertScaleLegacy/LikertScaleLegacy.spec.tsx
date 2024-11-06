@@ -31,7 +31,7 @@ const scale: Scale = [
 ]
 
 const LikertScaleLegacyWrapper = (
-  props: Partial<LikertScaleProps>
+  props: Partial<LikertScaleProps>,
 ): JSX.Element => (
   <LikertScaleLegacy
     scale={scale}

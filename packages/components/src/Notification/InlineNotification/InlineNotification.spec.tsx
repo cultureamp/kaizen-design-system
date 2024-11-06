@@ -17,7 +17,7 @@ describe("<InlineNotification />", () => {
         persistent
       >
         Something has gone wrong
-      </InlineNotification>
+      </InlineNotification>,
     )
 
     expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument()

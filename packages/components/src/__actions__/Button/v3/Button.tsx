@@ -34,7 +34,7 @@ export const Button = ({
         styles[variant],
         styles[size],
         isReversed && styles.reversed,
-        className
+        className,
       )}
       {...otherProps}
     >

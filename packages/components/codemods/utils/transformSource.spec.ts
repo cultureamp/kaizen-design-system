@@ -15,7 +15,7 @@ export const mockedTransformer =
               return ts.factory.updateJsxAttribute(
                 attr,
                 attr.name,
-                ts.factory.createStringLiteral("jam")
+                ts.factory.createStringLiteral("jam"),
               )
             }
             return attr
@@ -25,7 +25,7 @@ export const mockedTransformer =
               node,
               node.tagName,
               node.typeArguments,
-              ts.factory.createJsxAttributes(newAttributes)
+              ts.factory.createJsxAttributes(newAttributes),
             )
           }
         }
@@ -38,7 +38,7 @@ export const mockedTransformer =
 describe("transformSource", () => {
   it("updates the value of Pancakes topping to jam", () => {
     const filePath = path.resolve(
-      path.join(__dirname, "./__fixtures__/KaioComponent.tsx")
+      path.join(__dirname, "./__fixtures__/KaioComponent.tsx"),
     )
     const fileContent = fs.readFileSync(filePath, "utf8")
     const sourceFile = parseJsx(fileContent)

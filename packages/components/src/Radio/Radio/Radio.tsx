@@ -21,7 +21,7 @@ export type RadioProps = OverrideClassName<
 
 const renderSelected = (
   selectedStatus: boolean,
-  reversed: boolean
+  reversed: boolean,
 ): React.ReactNode => {
   if (selectedStatus) {
     return (
@@ -50,7 +50,7 @@ export const Radio = ({
       className={classnames(
         styles.radioInput,
         classNameOverride,
-        reversed && styles.reversed
+        reversed && styles.reversed,
       )}
       onChange={onChange}
       readOnly={onChange === undefined}

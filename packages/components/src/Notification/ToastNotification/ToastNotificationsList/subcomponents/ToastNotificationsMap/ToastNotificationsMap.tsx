@@ -38,10 +38,10 @@ export const ToastNotificationsMap = ({
           >
             {message}
           </GenericNotification>
-        )
+        ),
       )}
     </>,
-    container
+    container,
   )
 }
 

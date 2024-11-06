@@ -38,7 +38,7 @@ export const FilterButtonRemovable = forwardRef<
     },
     {
       filterLabel: triggerButtonProps?.label,
-    }
+    },
   )
 
   const customRefObject = isRefObject(ref) ? ref.current : null
@@ -55,7 +55,7 @@ export const FilterButtonRemovable = forwardRef<
           ref={removeButtonRef}
           classNameOverride={classnames(
             styles.filterButtonBase,
-            restProps.classNameOverride
+            restProps.classNameOverride,
           )}
           {...removeButtonProps}
         >

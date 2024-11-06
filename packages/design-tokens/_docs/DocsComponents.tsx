@@ -77,7 +77,7 @@ const themesBlocks: Array<
     name: "CSS Variables",
     language: "css",
     code: toCustomMediaQueriesArray(
-      makeCssVariableDefinitionsMap(tokens)
+      makeCssVariableDefinitionsMap(tokens),
     ).reduce((acc, item) => acc + `${item.key}: ${item.value}; \n`, ""),
     caption: (
       <span>

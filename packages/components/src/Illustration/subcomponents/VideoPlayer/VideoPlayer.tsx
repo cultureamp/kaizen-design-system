@@ -84,12 +84,12 @@ export const VideoPlayer = ({
     if (!window) return
 
     const reducedMotionQuery = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     )
     setPrefersReducedMotion(reducedMotionQuery.matches)
     const updateMotionPreferences = (): void => {
       const { matches = false } = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
+        "(prefers-reduced-motion: reduce)",
       )
       setPrefersReducedMotion(matches)
     }
@@ -168,7 +168,7 @@ export const VideoPlayer = ({
       className={classnames(
         styles.figure,
         aspectRatio && styles[aspectRatio],
-        aspectRatio && styles.aspectRatioWrapper
+        aspectRatio && styles.aspectRatioWrapper,
       )}
     >
       <video

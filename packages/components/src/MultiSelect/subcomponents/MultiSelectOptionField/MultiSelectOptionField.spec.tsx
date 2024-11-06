@@ -12,7 +12,7 @@ const user = userEvent.setup()
 const onChange = vi.fn()
 
 const MultiSelectOptionFieldWrapper = (
-  customProps?: Partial<MultiSelectOptionFieldProps>
+  customProps?: Partial<MultiSelectOptionFieldProps>,
 ): JSX.Element => {
   const [checkedStatus, setCheckedStatus] =
     useState<CheckboxProps["checkedStatus"]>("unchecked")

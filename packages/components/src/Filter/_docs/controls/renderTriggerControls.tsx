@@ -23,7 +23,7 @@ export const renderTriggerControls: Partial<ArgTypes> = {
         <FilterButton {...triggerButtonProps} />
       ),
       "Filter Button Removable": (
-        triggerButtonProps: FilterButtonProps
+        triggerButtonProps: FilterButtonProps,
       ): JSX.Element => (
         <FilterButtonRemovable
           triggerButtonProps={{ ...triggerButtonProps }}

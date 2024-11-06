@@ -44,7 +44,7 @@ export const Badge = ({
       styles[variant],
       classNameOverride,
       reversed && styles.reversed,
-      size === "large" && styles.large
+      size === "large" && styles.large,
     )}
     {...restProps}
   >

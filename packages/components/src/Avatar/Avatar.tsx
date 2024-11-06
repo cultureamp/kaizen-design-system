@@ -59,7 +59,7 @@ export type AvatarProps = GenericAvatarProps | CompanyAvatarProps
 
 const getInitials = (
   fullName?: string,
-  max2Characters: boolean = false
+  max2Characters: boolean = false,
 ): string =>
   fullName == null
     ? ""
@@ -97,7 +97,7 @@ const renderInitials = (
   fullName = "",
   alt: string,
   size: AvatarSizes,
-  disableInitials = false
+  disableInitials = false,
 ): JSX.Element => {
   const initials = getInitials(fullName)
   const isLongName = initials.length > 2 && size !== "small"
@@ -169,7 +169,7 @@ export const Avatar = ({
         isCompany && styles.company,
         isPersonal && styles.personal,
         isOtherUser && styles.otherUser,
-        (avatarState === "loading" || avatarState === "error") && styles.loading
+        (avatarState === "loading" || avatarState === "error") && styles.loading,
       )}
       {...restProps}
     >
@@ -178,7 +178,7 @@ export const Avatar = ({
           ref={image}
           className={classnames(
             styles.avatarImage,
-            isCompany && styles.companyAvatarImage
+            isCompany && styles.companyAvatarImage,
           )}
           src={avatarSrc}
           onError={onImageFailure}

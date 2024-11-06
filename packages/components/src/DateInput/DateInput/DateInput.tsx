@@ -22,7 +22,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
       classNameOverride,
       ...inputProps
     },
-    ref
+    ref,
   ) => (
     <div className={classnames(styles.dateInput, classNameOverride)}>
       <Label
@@ -43,7 +43,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
         {...inputProps}
       />
     </div>
-  )
+  ),
 )
 
 DateInput.displayName = "DateInput"

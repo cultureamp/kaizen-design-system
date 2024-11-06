@@ -65,7 +65,7 @@ describe("<AddFiltersMenu />", () => {
     })
     expect(screen.getByRole("button", { name: "Coffee" })).toBeVisible()
     expect(
-      screen.queryByRole("button", { name: "Tea" })
+      screen.queryByRole("button", { name: "Tea" }),
     ).not.toBeInTheDocument()
     expect(screen.getByRole("button", { name: "Milk" })).toBeVisible()
   })

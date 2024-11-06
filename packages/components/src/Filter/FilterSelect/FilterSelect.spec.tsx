@@ -201,7 +201,7 @@ describe("<FilterSelect>", () => {
           renderTrigger={(triggerButtonProps): JSX.Element => (
             <FilterButton {...triggerButtonProps} />
           )}
-        />
+        />,
       )
 
       const button = screen.getByRole("button", { name: "Coffee" })
@@ -216,7 +216,7 @@ describe("<FilterSelect>", () => {
 
       await waitFor(() => {
         expect(
-          screen.getByRole("button", { name: "Coffee : Magic" })
+          screen.getByRole("button", { name: "Coffee : Magic" }),
         ).toBeVisible()
       })
     })
@@ -232,7 +232,7 @@ describe("<FilterSelect>", () => {
             { value: 100, label: "100" },
           ]}
           selectedKey={50}
-        />
+        />,
       )
       expect(getByRole("button", { name: "Coffee : 50" })).toBeInTheDocument()
     })
@@ -254,10 +254,10 @@ describe("Stringified object values", () => {
           },
         ]}
         selectedKey='{"sortBy":"creator_name","sortOrder":"asc"}'
-      />
+      />,
     )
     expect(
-      getByRole("button", { name: "Coffee : Created by A-Z" })
+      getByRole("button", { name: "Coffee : Created by A-Z" }),
     ).toBeInTheDocument()
   })
 })
@@ -298,7 +298,7 @@ describe("FilterSelect generic", () => {
               <li key={item.key}>{item.value?.isRubberDuck}</li>
             ) : (
               <li key={item.key}>Section</li>
-            )
+            ),
           )
         }
       </FilterSelect>

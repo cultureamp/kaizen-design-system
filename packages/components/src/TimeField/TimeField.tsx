@@ -92,7 +92,7 @@ const TimeFieldComponent = ({
       "aria-describedby": descriptionId,
     },
     state,
-    inputRef
+    inputRef,
   )
   return (
     <div className={classNameOverride}>
@@ -111,7 +111,7 @@ const TimeFieldComponent = ({
           className={classnames(
             styles.input,
             state.isDisabled && styles.isDisabled,
-            state.validationState === "invalid" && styles.error
+            state.validationState === "invalid" && styles.error,
           )}
         >
           {state.segments.map((segment, i) => (

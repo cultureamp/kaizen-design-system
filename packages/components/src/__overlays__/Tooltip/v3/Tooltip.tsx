@@ -48,7 +48,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     const [{ triggerRef }] = useContextProps(
       { children, className, ...props },
       ref,
-      TooltipContext
+      TooltipContext,
     )
     const contextState = useContext(TooltipTriggerStateContext)
     const reverseColors = useReversedColors()
@@ -57,7 +57,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
 
     useLayoutEffect(() => {
       setShouldInlineHiddenContent(
-        !!triggerRef?.current?.getAttribute("data-inline-hidden-content")
+        !!triggerRef?.current?.getAttribute("data-inline-hidden-content"),
       )
     }, [triggerRef])
 
@@ -70,7 +70,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           className={mergeClassNames(
             styles.tooltip,
             className,
-            reverseColors && styles.reversed
+            reverseColors && styles.reversed,
           )}
         >
           {renderProps => (
@@ -97,7 +97,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         ) : null}
       </>
     )
-  }
+  },
 )
 
 Tooltip.displayName = "Tooltip"

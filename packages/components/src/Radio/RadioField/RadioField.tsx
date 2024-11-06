@@ -37,7 +37,7 @@ export const RadioField = ({
         styles.container,
         classNameOverride,
         selectedStatus && styles.selected,
-        reversed && styles.reversed
+        reversed && styles.reversed,
       )}
     >
       <Label

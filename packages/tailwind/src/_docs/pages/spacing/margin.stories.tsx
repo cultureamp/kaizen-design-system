@@ -11,7 +11,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
-    })
+    }),
   )
 
 export default {
@@ -37,7 +37,7 @@ export const Margin: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
         <p
           className={classnames(
             "p-4 border border-dashed w-min rounded bg-blue-100",
-            utilityClass
+            utilityClass,
           )}
         >
           Margin

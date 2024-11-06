@@ -3,7 +3,7 @@ import { screen, waitFor, render } from "@testing-library/react"
 import { DropdownButton, DropdownButtonProps } from "./DropdownButton"
 
 const DropdownButtonWrapper = (
-  props?: Partial<DropdownButtonProps>
+  props?: Partial<DropdownButtonProps>,
 ): JSX.Element => <DropdownButton {...props} />
 
 describe("<DropdownButton />", () => {

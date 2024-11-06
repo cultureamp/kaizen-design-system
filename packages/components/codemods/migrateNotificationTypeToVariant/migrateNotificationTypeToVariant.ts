@@ -5,7 +5,7 @@ const OLD_PROP_NAME = "type"
 const NEW_PROP_NAME = "variant"
 
 const getNewVariantValue = (
-  oldValue: Exclude<GenericNotificationProps[typeof OLD_PROP_NAME], undefined>
+  oldValue: Exclude<GenericNotificationProps[typeof OLD_PROP_NAME], undefined>,
 ): Exclude<GenericNotificationProps[typeof NEW_PROP_NAME], undefined> => {
   switch (oldValue) {
     case "cautionary":
@@ -24,5 +24,5 @@ const getNewVariantValue = (
 export const transformNotificationTypeToVariant = migrateStringProp(
   OLD_PROP_NAME,
   NEW_PROP_NAME,
-  getNewVariantValue
+  getNewVariantValue,
 )

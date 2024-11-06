@@ -9,7 +9,7 @@ export const subtractOnePixel = (breakpoint: string): string =>
   `${parseInt(breakpoint, 10) - 1}px`
 
 export const useMediaQueries = (
-  propQueries: Props = {}
+  propQueries: Props = {},
 ): {
   queries: {
     [key: string]: boolean
@@ -62,21 +62,21 @@ export const useMediaQueries = (
   const smallMatchMedia = useMemo(
     () =>
       window.matchMedia(`(max-width: ${subtractOnePixel(breakpoints.medium)})`),
-    [breakpoints.medium]
+    [breakpoints.medium],
   )
 
   const mediumMatchMedia = useMemo(
     () =>
       window.matchMedia(
         `(min-width: ${breakpoints.medium}) and (max-width: ${subtractOnePixel(
-          breakpoints.large
-        )})`
+          breakpoints.large,
+        )})`,
       ),
-    [breakpoints.large, breakpoints.medium]
+    [breakpoints.large, breakpoints.medium],
   )
   const largeMatchMedia = useMemo(
     () => window.matchMedia(`(min-width: ${breakpoints.large})`),
-    [breakpoints.large]
+    [breakpoints.large],
   )
 
   const isSmall = smallMatchMedia.matches || false
@@ -157,7 +157,7 @@ export const useMediaQueries = (
 
     const updateCustomMatches = (
       matchMedia: MediaQueryList,
-      queryName: string
+      queryName: string,
     ): void =>
       setCustomMatches({
         ...customQueryMatches,
@@ -220,7 +220,7 @@ export const useMediaQueries = (
   Object.keys(propQueries).map(key => {
     const componentName = key.charAt(0).toUpperCase() + key.slice(1)
     customComponents[componentName] = (
-      props: HelperComponentProps
+      props: HelperComponentProps,
     ): JSX.Element => <>{customMatches[key] && props.children}</>
   })
 

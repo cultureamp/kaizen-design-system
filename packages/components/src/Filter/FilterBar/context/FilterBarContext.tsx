@@ -48,7 +48,7 @@ export type FilterBarContextValue<
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue<any> | null>(
-  null
+  null,
 )
 
 export const useFilterBarContext = <
@@ -59,7 +59,7 @@ export const useFilterBarContext = <
 
   if (!context) {
     throw new Error(
-      "useFilterBarContext must be used within the FilterBarContext.Provider"
+      "useFilterBarContext must be used within the FilterBarContext.Provider",
     )
   }
 
@@ -83,12 +83,12 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   const mappedFilters = useMemo(
     () => getMappedFilters(filters),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [filtersHash.current]
+    [filtersHash.current],
   )
 
   const [state, dispatch] = useReducer(
     filterBarStateReducer<ValuesMap>,
-    setupFilterBarState<ValuesMap>(filters, values)
+    setupFilterBarState<ValuesMap>(filters, values),
   )
 
   const value = {
@@ -100,13 +100,13 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     getActiveFilterValues: () => values,
     toggleOpenFilter: <Id extends keyof ValuesMap>(
       id: Id,
-      isOpen: boolean
+      isOpen: boolean,
     ): void => {
       dispatch({ type: "update_single_filter", id, data: { isOpen } })
     },
     setFilterOpenState: <Id extends keyof ValuesMap>(
       id: Id,
-      isOpen: boolean
+      isOpen: boolean,
     ): void => {
       dispatch({ type: "update_single_filter", id, data: { isOpen } })
     },
@@ -115,7 +115,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     },
     updateValue: <Id extends keyof ValuesMap>(
       id: Id,
-      newValue: ValuesMap[Id]
+      newValue: ValuesMap[Id],
     ): void => {
       dispatch({
         type: "update_values",
@@ -170,7 +170,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
 
   const activeFilters = Array.from(
     state.activeFilterIds,
-    id => mappedFilters[id]
+    id => mappedFilters[id],
   )
 
   return (

@@ -10,7 +10,7 @@ import { Doc, DocContent } from "./types"
 export const createEditorState = (
   schema: Schema,
   doc: Node | undefined,
-  plugins: Plugin[] = []
+  plugins: Plugin[] = [],
 ): EditorState => EditorState.create({ doc, schema, plugins })
 
 /**
@@ -26,5 +26,5 @@ export const createDocNode = (schema: Schema, docObject: Doc): Node =>
  */
 export const createDocNodeFromContent = (
   schema: Schema,
-  docContent: DocContent
+  docContent: DocContent,
 ): Node => createDocNode(schema, { type: "doc", content: docContent })

@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: ({ onClick, selectedStatus, ...props }) => {
     const [status, setStatus] = React.useState<boolean | undefined>(
-      selectedStatus
+      selectedStatus,
     )
 
     const handleClick: React.MouseEventHandler<HTMLInputElement> = e => {

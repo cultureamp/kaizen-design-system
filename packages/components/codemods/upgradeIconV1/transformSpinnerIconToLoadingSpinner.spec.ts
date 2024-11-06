@@ -26,7 +26,7 @@ describe("transformSpinnerIconToLoadingSpinner()", () => {
   it("replaces SpinnerIcon with LoadingSpinner and adds size and accessibilityLabel", () => {
     const inputAst = parseJsx("<SpinnerIcon />")
     const outputAst = parseJsx(
-      '<LoadingSpinner size="xs" accessibilityLabel="Loading" />'
+      '<LoadingSpinner size="xs" accessibilityLabel="Loading" />',
     )
     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
   })
@@ -34,10 +34,10 @@ describe("transformSpinnerIconToLoadingSpinner()", () => {
   it("uses alias if it is defined", () => {
     const inputAst = parseJsx("<SpinnerIcon />")
     const outputAst = parseJsx(
-      '<KzLoadingSpinner size="xs" accessibilityLabel="Loading" />'
+      '<KzLoadingSpinner size="xs" accessibilityLabel="Loading" />',
     )
     expect(transformInput(inputAst, "KzLoadingSpinner")).toEqual(
-      printAst(outputAst)
+      printAst(outputAst),
     )
   })
 
@@ -65,7 +65,7 @@ describe("transformSpinnerIconToLoadingSpinner()", () => {
     it("leaves classNameOverride as is", () => {
       const inputAst = parseJsx('<SpinnerIcon classNameOverride="mt-16" />')
       const outputAst = parseJsx(
-        '<LoadingSpinner size="xs" accessibilityLabel="Loading" classNameOverride="mt-16" />'
+        '<LoadingSpinner size="xs" accessibilityLabel="Loading" classNameOverride="mt-16" />',
       )
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
@@ -73,7 +73,7 @@ describe("transformSpinnerIconToLoadingSpinner()", () => {
     it("removes viewBox", () => {
       const inputAst = parseJsx('<SpinnerIcon viewBox="0 0 100 100" />')
       const outputAst = parseJsx(
-        '<LoadingSpinner size="xs" accessibilityLabel="Loading" />'
+        '<LoadingSpinner size="xs" accessibilityLabel="Loading" />',
       )
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })

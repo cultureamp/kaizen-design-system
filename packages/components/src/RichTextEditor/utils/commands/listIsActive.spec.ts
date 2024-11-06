@@ -28,7 +28,7 @@ describe("listIsActive()", () => {
 
     await waitFor(() => {
       expect(
-        listIsActive(currentState, testSchema.nodes.bulletList, listNodes)
+        listIsActive(currentState, testSchema.nodes.bulletList, listNodes),
       ).toBe(true)
     })
   })
@@ -50,7 +50,7 @@ describe("listIsActive()", () => {
 
     await waitFor(() => {
       expect(
-        listIsActive(currentState, testSchema.nodes.orderedList, listNodes)
+        listIsActive(currentState, testSchema.nodes.orderedList, listNodes),
       ).toBe(false)
     })
   })

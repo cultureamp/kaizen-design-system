@@ -39,12 +39,12 @@ export const TextAreaField = ({
   const descriptionAria = description ? `${id}-field-message` : ""
   const ariaDescribedBy = [validationMessageAria, descriptionAria].reduce(
     (prev, curr) => (curr ? [curr, prev].join(" ") : prev),
-    ""
+    "",
   )
 
   const renderDescriptionOnTop = variant === "prominent"
   const renderDescription = (
-    position: "top" | "bottom"
+    position: "top" | "bottom",
   ): JSX.Element | null => {
     if (!description) return null
     return (
@@ -70,7 +70,7 @@ export const TextAreaField = ({
       <div
         className={classnames(
           styles.textareaLabel,
-          variant === "prominent" && styles.textareaLabelProminent
+          variant === "prominent" && styles.textareaLabelProminent,
         )}
       >
         <Label

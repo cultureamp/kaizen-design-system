@@ -44,7 +44,7 @@ export const MenuItem = ({
     styles.menuItem,
     destructive && styles["menuItem--destructive"],
     disabled && styles["menuItem--disabled"],
-    isActive && styles["menuItem--active"]
+    isActive && styles["menuItem--active"],
   )
 
   if (disabled) {

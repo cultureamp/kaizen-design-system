@@ -12,7 +12,7 @@ const migrateGlobalNotificationTypeToVariant = (): void => {
   transformComponentsInDir(
     targetDir,
     transformNotificationTypeToVariant,
-    "GlobalNotification"
+    "GlobalNotification",
   )
 }
 

@@ -14,7 +14,7 @@ describe("makeCssVariableDefinitionsMap()", () => {
   })
 
   const cssVariableKeysThatAreColors = Object.keys(
-    cssVariableDefinitions
+    cssVariableDefinitions,
   ).filter(key => key.startsWith("--color-"))
   it("produces heart color vars", () => {
     cssVariableKeysThatAreColors.forEach(key => {

@@ -64,10 +64,10 @@ describe("<FilterBarDateRangePicker />", () => {
       render(<FilterBarDateRangePickerWrapper />)
       await waitFor(() => {
         expect(
-          screen.getByRole("button", { name: "Dates" })
+          screen.getByRole("button", { name: "Dates" }),
         ).toBeInTheDocument()
         expect(
-          screen.queryByRole("button", { name: "Remove filter - Dates" })
+          screen.queryByRole("button", { name: "Remove filter - Dates" }),
         ).not.toBeInTheDocument()
       })
     })
@@ -77,11 +77,11 @@ describe("<FilterBarDateRangePicker />", () => {
         <FilterBarDateRangePickerWrapper
           filterAttributes={{ isRemovable: true }}
           defaultValues={{ range: { from: new Date("2023-05-01") } }}
-        />
+        />,
       )
       await waitFor(() => {
         expect(
-          getByRole("button", { name: "Remove filter - Dates" })
+          getByRole("button", { name: "Remove filter - Dates" }),
         ).toBeVisible()
       })
     })
@@ -89,7 +89,7 @@ describe("<FilterBarDateRangePicker />", () => {
 
   it("can toggle its open state", async () => {
     const { getByRole, queryByRole } = render(
-      <FilterBarDateRangePickerWrapper />
+      <FilterBarDateRangePickerWrapper />,
     )
     const triggerButton = getByRole("button", { name: "Dates" })
 
@@ -115,7 +115,7 @@ describe("<FilterBarDateRangePicker />", () => {
             to: new Date("2022-11-25"),
           },
         }}
-      />
+      />,
     )
     await waitFor(() => {
       const triggerButton = getByRole("button", {
@@ -134,7 +134,7 @@ describe("<FilterBarDateRangePicker />", () => {
             to: new Date("2022-06-20"),
           },
         }}
-      />
+      />,
     )
     const triggerButton = getByRole("button", {
       name: "Dates : 1 May 2022 - 20 Jun 2022",
@@ -152,7 +152,7 @@ describe("<FilterBarDateRangePicker />", () => {
 
     await waitFor(() => {
       expect(
-        getByRole("button", { name: "Dates : 1 May 2022 - 23 Jun 2022" })
+        getByRole("button", { name: "Dates : 1 May 2022 - 23 Jun 2022" }),
       ).toBeInTheDocument()
     })
   }, 10000)
@@ -168,7 +168,7 @@ describe("<FilterBarDateRangePicker />", () => {
           },
         }}
         onRangeChange={onChange}
-      />
+      />,
     )
     const triggerButton = getByRole("button", {
       name: "Dates : 1 May 2022 - 20 Jun 2022",

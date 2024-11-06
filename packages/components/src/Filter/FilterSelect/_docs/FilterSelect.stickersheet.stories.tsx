@@ -205,7 +205,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                                 child => ({
                                   ...child,
                                   rendered: <div>-- {child.rendered}</div>,
-                                })
+                                }),
                               ),
                             }}
                           />

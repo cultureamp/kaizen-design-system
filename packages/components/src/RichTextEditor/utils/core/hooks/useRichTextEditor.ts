@@ -30,7 +30,7 @@ export const useRichTextEditor = (
    * Pass in HTML attributes into the parent RTE node
    */
   attributes?: Record<string, string>,
-  options?: RTEOptions
+  options?: RTEOptions,
 ): UseRichTextEditorReturnValue => {
   options = {
     editable: true,
@@ -50,7 +50,7 @@ export const useRichTextEditor = (
     (commandOrTransaction: CommandOrTransaction) => {
       dispatchTransactionRef.current(commandOrTransaction)
     },
-    [dispatchTransactionRef]
+    [dispatchTransactionRef],
   )
 
   // Hold editableStatus as a ref so we can toggle its status
@@ -65,7 +65,7 @@ export const useRichTextEditor = (
         return true
       })
     },
-    [editableStatusRef, dispatchTransaction]
+    [editableStatusRef, dispatchTransaction],
   )
 
   const editorRef = useCallback(
@@ -86,7 +86,7 @@ export const useRichTextEditor = (
     // Including editorState in the dependencies here will cause an endless
     // loop as the initialization changes its value
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [setEditorState, editableStatusRef, attributes]
+    [setEditorState, editableStatusRef, attributes],
   )
 
   // Tear down ProseMirror when the consuming component is unmounted
@@ -96,7 +96,7 @@ export const useRichTextEditor = (
         destroyEditorRef.current()
       }
     },
-    [destroyEditorRef]
+    [destroyEditorRef],
   )
 
   return [editorRef, editorState, dispatchTransaction, setEditableStatus]

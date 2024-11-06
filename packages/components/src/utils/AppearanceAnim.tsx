@@ -34,7 +34,7 @@ export const AppearanceAnim = ({
       setIsAnimOut(false)
     },
     ANIM_DURATION_MS + ANIM_BUFFER,
-    { leading: false }
+    { leading: false },
   )
 
   // Allows us to flash the component in an "invisible" state, for one frame.
@@ -45,7 +45,7 @@ export const AppearanceAnim = ({
       setIsAnimIn(false)
     },
     0,
-    { leading: false }
+    { leading: false },
   )
 
   if (isVisible !== prevIsOpen) {

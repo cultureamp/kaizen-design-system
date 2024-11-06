@@ -45,7 +45,7 @@ describe("<MultiSelect />", () => {
   describe("accessible name and description", () => {
     it("has an accessible name and description when provided a description", () => {
       const { getByRole } = render(
-        <MultiSelectWrapper description="A short description" />
+        <MultiSelectWrapper description="A short description" />,
       )
       const toggleButton = getByRole("button", {
         name: "Jalapeno",
@@ -66,14 +66,14 @@ describe("<MultiSelect />", () => {
           selectedValues={new Set()}
           data-testid="test-id--waffle"
           isOpen
-        />
+        />,
       )
 
       await waitFor(() => {
         expect(getByTestId("test-id--waffle")).toHaveAttribute("id", "waffle")
         expect(getByRole("button", { name: "Jalapeno" })).toHaveAttribute(
           "aria-labelledby",
-          "waffle--label"
+          "waffle--label",
         )
         expect(getByRole("dialog")).toHaveAttribute("id", "waffle--popover")
       })
@@ -81,7 +81,7 @@ describe("<MultiSelect />", () => {
 
     it("creates a fallback id when one is not provided", () => {
       const { getByTestId } = render(
-        <MultiSelectWrapper data-testid="test-id--waffle" />
+        <MultiSelectWrapper data-testid="test-id--waffle" />,
       )
       expect(getByTestId("test-id--waffle")).toHaveAttribute("id")
     })
@@ -183,7 +183,7 @@ describe("<MultiSelect />", () => {
 
     it("does not close the popover when clearing a selected option", async () => {
       const { getByRole, getByLabelText } = render(
-        <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
+        <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />,
       )
 
       const toggleButton = getByRole("button", { name: "Jalapeno" })
@@ -201,7 +201,7 @@ describe("<MultiSelect />", () => {
     })
     it("does not close the popover when clearing all selected options", async () => {
       const { getByRole } = render(
-        <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
+        <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />,
       )
 
       const toggleButton = getByRole("button", { name: "Jalapeno" })
@@ -213,7 +213,7 @@ describe("<MultiSelect />", () => {
       })
 
       await user.click(
-        getByRole("button", { name: "Remove all options from Jalapeno" })
+        getByRole("button", { name: "Remove all options from Jalapeno" }),
       )
 
       await waitFor(() => {
@@ -229,7 +229,7 @@ describe("<MultiSelect />", () => {
           <MultiSelectWrapper
             items={[{ label: "Pancakes", value: "pancakes" }]}
             isOpen
-          />
+          />,
         )
         const toggleButton = getByRole("button", { name: "Jalapeno" })
         const dialog = getByRole("dialog")
@@ -249,7 +249,7 @@ describe("<MultiSelect />", () => {
       describe("When closed", () => {
         it("has expected focus order", async () => {
           const { getByRole, getByLabelText } = render(
-            <MultiSelectWrapper selectedValues={new Set(["waffle"])} />
+            <MultiSelectWrapper selectedValues={new Set(["waffle"])} />,
           )
           const toggleButton = getByRole("button", { name: "Jalapeno" })
 
@@ -266,7 +266,7 @@ describe("<MultiSelect />", () => {
           await user.tab()
           await waitFor(() => {
             expect(
-              getByRole("button", { name: "Remove all options from Jalapeno" })
+              getByRole("button", { name: "Remove all options from Jalapeno" }),
             ).toHaveFocus()
           })
         })
@@ -280,7 +280,7 @@ describe("<MultiSelect />", () => {
         id="jalapeno"
         selectedValues={new Set(["toastie"])}
         isOpen
-      />
+      />,
     )
     const waffleOption = getByRole("checkbox", { name: "Waffle" })
     await user.click(waffleOption)
@@ -297,7 +297,7 @@ describe("<MultiSelect />", () => {
 describe("Removing an option", () => {
   it("removes the option when the clear button is clicked", async () => {
     const { getByRole, getByText, getByLabelText } = render(
-      <MultiSelectWrapper selectedValues={new Set(["waffle"])} />
+      <MultiSelectWrapper selectedValues={new Set(["waffle"])} />,
     )
 
     const waffleOption = getByText("Waffle")
@@ -320,7 +320,7 @@ describe("Removing an option", () => {
 describe("Removing all options", () => {
   it("removes all selected options when the 'clear all' button is clicked", async () => {
     const { getByRole, getByText } = render(
-      <MultiSelectWrapper selectedValues={new Set(["pancakes", "waffle"])} />
+      <MultiSelectWrapper selectedValues={new Set(["pancakes", "waffle"])} />,
     )
 
     const pancakesOption = getByText("Pancakes")
@@ -346,7 +346,7 @@ describe("Has validation status", () => {
           status: "error",
           message: "No waffles are available",
         }}
-      />
+      />,
     )
     expect(screen.getByText("No waffles are available")).toBeInTheDocument()
   })
@@ -360,14 +360,14 @@ describe("Has validation status", () => {
           status: "caution",
           message: "Only four waffles remain",
         }}
-      />
+      />,
     )
     expect(
       screen.getByRole("button", {
         name: "Breakfast menu",
         // React Testing Library bug: Icon should be showing aria-label "caution message" instead
         description: "warning Only four waffles remain",
-      })
+      }),
     ).toBeInTheDocument()
   })
 
@@ -385,13 +385,13 @@ describe("Has validation status", () => {
           status: "caution",
           message: "Only four waffles remain.",
         }}
-      />
+      />,
     )
     expect(
       screen.getByRole("button", {
         name: "Breakfast menu",
         description: `${validationMessage} ${description}`,
-      })
+      }),
     ).toBeInTheDocument()
   })
 })

@@ -63,7 +63,7 @@ export const Checkbox = ({
       className={classnames(
         styles.checkbox,
         checkedStatus !== "unchecked" && styles.selected,
-        classNameOverride
+        classNameOverride,
       )}
     >
       <input

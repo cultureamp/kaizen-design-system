@@ -30,7 +30,7 @@ describe("GuidanceBlock", () => {
         actions={{
           primary: { label: "Action!", onClick: onAction },
         }}
-      />
+      />,
     )
     const actionButton = container.querySelector("button")
     if (actionButton) await user.click(actionButton)
@@ -49,13 +49,13 @@ describe("GuidanceBlock", () => {
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
-      />
+      />,
     )
     expect(
       getByRole("heading", {
         level: 3,
         name: "This is the call to action title",
-      })
+      }),
     ).toBeInTheDocument()
   })
 
@@ -69,13 +69,13 @@ describe("GuidanceBlock", () => {
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
           titleTag: "h2",
         }}
-      />
+      />,
     )
     expect(
       getByRole("heading", {
         level: 2,
         name: "This is the call to action title",
-      })
+      }),
     ).toBeInTheDocument()
   })
 })

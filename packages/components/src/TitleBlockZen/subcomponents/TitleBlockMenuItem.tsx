@@ -5,13 +5,13 @@ import { TitleBlockMenuItemProps } from "../types"
 import styles from "./TitleBlockMenuItem.module.scss"
 
 export const TitleBlockMenuItem = (
-  props: TitleBlockMenuItemProps
+  props: TitleBlockMenuItemProps,
 ): JSX.Element => {
   const className = classnames(
     styles.menuItem,
     styles.destructive && styles["menuItem--destructive"],
     styles.disabled && styles["menuItem--disabled"],
-    styles.isActive && styles["menuItem--active"]
+    styles.isActive && styles["menuItem--active"],
   )
 
   if ("component" in props) {

@@ -14,7 +14,7 @@ import kebab from "lodash.kebabcase"
  */
 export const objectPathToCssVarFunction = (
   path: string[],
-  value: unknown
+  value: unknown,
 ): string => `var(${objectPathToCssVarIdentifier(path)}, ${value})`
 
 /**

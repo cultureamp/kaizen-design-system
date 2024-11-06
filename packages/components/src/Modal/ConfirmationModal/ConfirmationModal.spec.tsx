@@ -36,7 +36,7 @@ describe("<ConfirmationModal />", () => {
         onDismiss={handleDismiss}
       >
         Example modal body
-      </ConfirmationModalWrapper>
+      </ConfirmationModalWrapper>,
     )
     await user.click(getByLabelText(/Dismiss/i))
     await waitFor(() => {
@@ -54,7 +54,7 @@ describe("<ConfirmationModal />", () => {
         onConfirm={handleConfirm}
       >
         Example modal body
-      </ConfirmationModalWrapper>
+      </ConfirmationModalWrapper>,
     )
     await user.click(getByText(/Cancel/i))
     await waitFor(() => {
@@ -72,7 +72,7 @@ describe("<ConfirmationModal />", () => {
         onConfirm={handleConfirm}
       >
         Example modal body
-      </ConfirmationModalWrapper>
+      </ConfirmationModalWrapper>,
     )
     await user.click(getByText(/Confirm/i))
     await waitFor(() => {

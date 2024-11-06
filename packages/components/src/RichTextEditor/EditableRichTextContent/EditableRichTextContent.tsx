@@ -19,7 +19,7 @@ export type EditableRichTextContentProps = {
 
 const handleEditableClick = (
   e: MouseEvent<HTMLElement>,
-  onClick: (event: MouseEvent<HTMLElement>) => void
+  onClick: (event: MouseEvent<HTMLElement>) => void,
 ): void => {
   if ((e.target as HTMLElement).hasAttribute("href")) {
     return

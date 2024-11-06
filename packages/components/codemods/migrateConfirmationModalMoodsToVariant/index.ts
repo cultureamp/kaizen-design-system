@@ -12,7 +12,7 @@ const run = (): void => {
   transformComponentsInDir(
     targetDir,
     transformConfirmationModalMoodsToVariant,
-    "ConfirmationModal"
+    "ConfirmationModal",
   )
 }
 

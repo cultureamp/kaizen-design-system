@@ -76,7 +76,7 @@ const TooltipContent = ({
   mood = "default",
 }: TooltipContentProps): JSX.Element | null => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
+    null,
   )
   const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null)
   const { styles: popperStyles, attributes } = usePopper(
@@ -120,7 +120,7 @@ const TooltipContent = ({
         },
       ],
       placement: position ? positionToPlacement.get(position) : undefined,
-    }
+    },
   )
   const { isVisible, isAnimIn, isAnimOut } = useAnimation()
 
@@ -153,7 +153,7 @@ const TooltipContent = ({
 const renderChildren = (
   content: ReactNode,
   tooltipId: string,
-  hasActiveTooltip: boolean
+  hasActiveTooltip: boolean,
 ): ReactNode => {
   if (isSemanticElement(content)) {
     return cloneElement(content, {
@@ -163,7 +163,7 @@ const renderChildren = (
   // We don't want to block them from this but just provide context for better a11y guidance
   // eslint-disable-next-line no-console
   console.warn(
-    "<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info. To ensure accessibility, Tooltip should be wrapping a semantic and focusable element directly."
+    "<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info. To ensure accessibility, Tooltip should be wrapping a semantic and focusable element directly.",
   )
   return content
 }
@@ -208,7 +208,7 @@ export const Tooltip = ({
     if (portalSelector && !portalSelectorElementRef.current) {
       // eslint-disable-next-line no-console
       console.warn(
-        "The portal could not be created using the selector: " + portalSelector
+        "The portal could not be created using the selector: " + portalSelector,
       )
     }
   }, [portalSelectorElementRef, portalSelector])

@@ -35,7 +35,7 @@ export const RadioGroup = ({
         styles.radioGroupContainer,
         classNameOverride,
         noBottomMargin && styles.noBottomMargin,
-        reversed && styles.reversed
+        reversed && styles.reversed,
       )}
       role="radiogroup"
       aria-labelledby={labelId}

@@ -31,11 +31,11 @@ export type SelectionProviderContextType = {
 }
 
 const SelectionContext = React.createContext<SelectionProviderContextType>(
-  {} as SelectionProviderContextType
+  {} as SelectionProviderContextType,
 )
 
 export const SelectionProvider = (
-  props: SelectionProviderProps
+  props: SelectionProviderProps,
 ): JSX.Element => {
   const { onSearchInputChange, ...otherProps } = props
   const [searchQuery, setSearchQuery] = useState<string>("")
@@ -56,10 +56,10 @@ export const SelectionProvider = (
     (nodes: Iterable<MultiSelectItem>): Iterable<MultiSelectItem> =>
       searchQuery
         ? Array.from(nodes).filter(f =>
-            f.textValue.toLowerCase().includes(searchQuery.toLowerCase())
+            f.textValue.toLowerCase().includes(searchQuery.toLowerCase()),
           )
         : nodes,
-    [searchQuery]
+    [searchQuery],
   )
 
   // Create state based on the incoming props to manage the selection
@@ -78,7 +78,7 @@ export const SelectionProvider = (
       disallowEmptySelection: true, // stop escape key from clearing selection
     },
     state,
-    ref
+    ref,
   )
 
   return (

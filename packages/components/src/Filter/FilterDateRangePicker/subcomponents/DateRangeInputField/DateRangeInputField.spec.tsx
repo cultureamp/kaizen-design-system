@@ -11,7 +11,7 @@ import {
 const user = userEvent.setup()
 
 const DateRangeInputFieldWrapper = (
-  props: Partial<DateRangeInputFieldProps>
+  props: Partial<DateRangeInputFieldProps>,
 ): JSX.Element => (
   <DateRangeInputField
     id="test__date-range-input-field"
@@ -47,7 +47,7 @@ describe("<DateRangeInputField />", () => {
     const inputEnd = screen.getByRole("textbox", { name: "Date to" })
     await waitFor(() => {
       expect(inputStart).toHaveAccessibleDescription(
-        "Input format : dd/mm/yyyy"
+        "Input format : dd/mm/yyyy",
       )
       expect(inputEnd).toHaveAccessibleDescription("Input format : dd/mm/yyyy")
     })
@@ -62,13 +62,13 @@ describe("<DateRangeInputField />", () => {
             message: "Date Start has an error",
           },
         }}
-      />
+      />,
     )
     const inputStart = screen.getByRole("textbox", { name: "Date from" })
     await waitFor(() => {
       expect(inputStart).toHaveAccessibleDescription(
         // React Testing Library bug: Icon should be showing aria-label "error message" instead
-        "error Date Start has an error Input format : dd/mm/yyyy"
+        "error Date Start has an error Input format : dd/mm/yyyy",
       )
       expect(screen.getByText("Date Start has an error")).toBeVisible()
     })
@@ -98,7 +98,7 @@ describe("<DateRangeInputField />", () => {
         const handleClick = (): void =>
           onButtonClick(
             inputStartDateRef.current?.id,
-            inputEndDateRef.current?.id
+            inputEndDateRef.current?.id,
           )
 
         return (
@@ -123,7 +123,7 @@ describe("<DateRangeInputField />", () => {
       await user.click(screen.getByText("Click me"))
       expect(onButtonClick).toHaveBeenCalledWith(
         "test__id--from",
-        "test__id--to"
+        "test__id--to",
       )
     })
   })

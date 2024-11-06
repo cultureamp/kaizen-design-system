@@ -57,13 +57,13 @@ export const Text = ({
     styles.text,
     styles[variant],
     styles[color],
-    classNameOverride
+    classNameOverride,
   )
 
   return createElement(
     tag === undefined ? "p" : tag,
     { ...restProps, className },
-    children
+    children,
   )
 }
 

@@ -76,27 +76,27 @@ export const Pagination = ({
       const firstPagesStart = 1
       const firstPagesEnd = boundaryPagesRange
       const firstPages = createRange(firstPagesStart, firstPagesEnd).map(
-        paginationIndicator
+        paginationIndicator,
       )
 
       // Calculate group of last pages
       const lastPagesStart = pageCount + 1 - boundaryPagesRange
       const lastPagesEnd = pageCount
       const lastPages = createRange(lastPagesStart, lastPagesEnd).map(
-        paginationIndicator
+        paginationIndicator,
       )
 
       // Calculate group of main pages
       const mainPagesStart = Math.min(
         Math.max(
           currentPage - siblingPagesRange,
-          firstPagesEnd + truncateSize + 1
+          firstPagesEnd + truncateSize + 1,
         ),
-        lastPagesStart - truncateSize - 2 * siblingPagesRange - 1
+        lastPagesStart - truncateSize - 2 * siblingPagesRange - 1,
       )
       const mainPagesEnd = mainPagesStart + 2 * siblingPagesRange
       const mainPages = createRange(mainPagesStart, mainPagesEnd).map(
-        paginationIndicator
+        paginationIndicator,
       )
 
       // Add group of first pages
@@ -111,7 +111,7 @@ export const Pagination = ({
           paginationIndicator(firstEllipsisPageNumber)
         ) : (
           <TruncateIndicator key={firstEllipsisPageNumber} />
-        )
+        ),
       )
 
       // Add group of main pages
@@ -126,7 +126,7 @@ export const Pagination = ({
           paginationIndicator(secondEllipsisPageNumber)
         ) : (
           <TruncateIndicator key={secondEllipsisPageNumber} />
-        )
+        ),
       )
 
       // Add group of last pages

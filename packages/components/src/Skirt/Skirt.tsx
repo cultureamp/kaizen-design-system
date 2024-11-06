@@ -30,7 +30,7 @@ export const Skirt = ({
         return deriveSkirtHeight(entry.contentRect, titleBlockHasNavigation)
       }
       return undefined
-    }
+    },
   )
 
   return (
@@ -52,7 +52,7 @@ Skirt.displayName = "Skirt"
 
 const deriveSkirtHeight = (
   rect: DOMRectReadOnly,
-  titleBlockHasNavigation: boolean
+  titleBlockHasNavigation: boolean,
 ): number => {
   const { height, width } = rect
   let responsiveOffset: number = 0
@@ -71,6 +71,6 @@ const deriveSkirtHeight = (
     spacing,
     height > maxHeightWithSpacing
       ? derivedMaxHeight
-      : height * fallbackPercentage - spacing
+      : height * fallbackPercentage - spacing,
   )
 }

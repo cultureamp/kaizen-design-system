@@ -8,7 +8,7 @@ const user = userEvent.setup()
 const onClick = vi.fn()
 
 const MultiSelectToggleWrapper = (
-  customProps?: Partial<MultiSelectToggleProps>
+  customProps?: Partial<MultiSelectToggleProps>,
 ): JSX.Element => (
   <>
     <span id="id--label">Waffle</span>
@@ -73,7 +73,7 @@ describe("<MultiSelectToggle />", () => {
     it("does not show the clear all button", () => {
       const { queryByRole } = render(<MultiSelectToggleWrapper />)
       expect(
-        queryByRole("button", { name: "Remove all options from Waffle" })
+        queryByRole("button", { name: "Remove all options from Waffle" }),
       ).not.toBeInTheDocument()
     })
   })
@@ -83,7 +83,7 @@ describe("<MultiSelectToggle />", () => {
       const { getByRole } = render(
         <MultiSelectToggleWrapper
           selectedOptions={[{ value: "waffle", label: "Waffle" }]}
-        />
+        />,
       )
       await user.click(getByRole("button", { name: "Remove option: Waffle" }))
       await waitFor(() => {
@@ -95,10 +95,10 @@ describe("<MultiSelectToggle />", () => {
       const { getByRole } = render(
         <MultiSelectToggleWrapper
           selectedOptions={[{ value: "waffle", label: "Waffle" }]}
-        />
+        />,
       )
       await user.click(
-        getByRole("button", { name: "Remove all options from Waffle" })
+        getByRole("button", { name: "Remove all options from Waffle" }),
       )
       await waitFor(() => {
         expect(onClick).not.toHaveBeenCalled()

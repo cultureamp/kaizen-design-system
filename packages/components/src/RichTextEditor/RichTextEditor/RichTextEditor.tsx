@@ -89,7 +89,7 @@ export const RichTextEditor = ({
 }: RichTextEditorProps): JSX.Element => {
   const generatedId = useId()
   const [schema] = useState<ProseMirrorModel.Schema>(
-    createSchemaFromControls(controls)
+    createSchemaFromControls(controls),
   )
 
   const editorId = id || generatedId
@@ -102,7 +102,7 @@ export const RichTextEditor = ({
   const ariaDescribedBy = classnames(
     validationMessageAria,
     descriptionAria,
-    describedBy
+    describedBy,
   )
 
   const useRichTextEditorResult = (():
@@ -126,7 +126,7 @@ export const RichTextEditor = ({
           "aria-labelledby": labelId,
           role: "textbox",
           "aria-describedby": ariaDescribedBy,
-        }
+        },
       )
     } catch {
       return new Error("Bad data error")
@@ -201,7 +201,7 @@ export const RichTextEditor = ({
             styles.editor,
             styles[`rows${rows}`],
             classNameOverride,
-            controls != null && controls.length > 0 && styles.hasToolbar
+            controls != null && controls.length > 0 && styles.hasToolbar,
           )}
           {...restProps}
         />
@@ -226,7 +226,7 @@ RichTextEditor.displayName = "RichTextEditor"
 
 function getPlugins(
   controls: ToolbarItems[] | undefined,
-  schema: ProseMirrorModel.Schema
+  schema: ProseMirrorModel.Schema,
 ): Array<
   | ProseMirrorState.Plugin<unknown>
   | ProseMirrorState.Plugin<{
@@ -250,7 +250,7 @@ function getPlugins(
     plugins.push(
       createLinkManager({
         markType: schema.marks.link,
-      })
+      }),
     )
   }
 

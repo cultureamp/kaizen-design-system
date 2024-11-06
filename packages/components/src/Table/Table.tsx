@@ -26,7 +26,7 @@ export const TableContainer = ({
     className={classnames(
       styles.container,
       variant === "default" && styles.defaultSpacing,
-      variant === "data" && styles.dataVariant
+      variant === "data" && styles.dataVariant,
     )}
     {...otherProps}
   >
@@ -184,7 +184,7 @@ export const TableHeaderRowCell = ({
           className={classnames(
             align === "center" && styles.headerRowCellIconAlignCenter,
             align === "end" && styles.headerRowCellIconAlignEnd,
-            reversed && styles.whiteText
+            reversed && styles.whiteText,
           )}
         >
           {sorting === "ascending" || sortingArrowsOnHover === "ascending" ? (
@@ -201,7 +201,7 @@ export const TableHeaderRowCell = ({
     <a
       className={classnames(
         styles.headerRowCellButton,
-        reversed && styles.headerRowCellButtonReversed
+        reversed && styles.headerRowCellButtonReversed,
       )}
       href={href}
       onClick={
@@ -219,7 +219,7 @@ export const TableHeaderRowCell = ({
       type="button"
       className={classnames(
         styles.headerRowCellButton,
-        reversed && styles.headerRowCellButtonReversed
+        reversed && styles.headerRowCellButtonReversed,
       )}
       onClick={onClick as (e: React.MouseEvent<HTMLButtonElement>) => any}
       onMouseEnter={(): void => updateHoverState(true)}
@@ -260,7 +260,7 @@ export const TableHeaderRowCell = ({
         align === "center" && styles.headerRowCellAlignCenter,
         align === "end" && styles.headerRowCellAlignEnd,
         sorting && styles.headerRowCellActive,
-        classNameOverride
+        classNameOverride,
       )}
       style={{
         width: ratioToPercent(width),
@@ -319,7 +319,7 @@ export const TableCard = ({
     expanded && styles[expandedStyle],
     (forceHoverState || onClick != null || href != null) &&
       styles.hasHoverState,
-    classNameOverride
+    classNameOverride,
   )
   return href != null ? (
     <a

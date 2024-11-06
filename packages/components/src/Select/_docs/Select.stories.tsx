@@ -73,11 +73,11 @@ export const Async: Story = {
   render: args => {
     const filterNames = (inputValue: string): typeof OPTIONS =>
       OPTIONS.filter(({ label }) =>
-        label.toLowerCase().includes(inputValue.toLowerCase())
+        label.toLowerCase().includes(inputValue.toLowerCase()),
       )
 
     const promiseOptions = (
-      inputValue: string
+      inputValue: string,
     ): Promise<Array<{ value: string; label: string }>> =>
       new Promise(resolve => {
         setTimeout(() => {

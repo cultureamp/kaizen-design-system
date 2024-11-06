@@ -59,7 +59,7 @@ describe("updateDependentFilters()", () => {
 
     expect(sugarLevelIsUsableWhen).toBeCalledTimes(1)
     expect(sugarLevelIsUsableWhen).toHaveReturnedWith(
-      stateFilters.sugarLevel.isUsable
+      stateFilters.sugarLevel.isUsable,
     )
     expect(newState).toEqual(state)
   })
@@ -121,7 +121,7 @@ describe("updateDependentFilters()", () => {
 
       const newState = updateDependentFilters<Values>(state)
       expect(newState.activeFilterIds).toEqual(
-        new Set(["flavour", "sugarLevel"])
+        new Set(["flavour", "sugarLevel"]),
       )
     })
 
@@ -143,7 +143,7 @@ describe("updateDependentFilters()", () => {
 
       const newState = updateDependentFilters<Values>(state)
       expect(newState.activeFilterIds).toEqual(
-        new Set(["flavour", "sugarLevel"])
+        new Set(["flavour", "sugarLevel"]),
       )
     })
 

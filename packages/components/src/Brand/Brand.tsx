@@ -30,7 +30,7 @@ export type BrandProps = {
 
 const isSVG = (
   variant: VariantSVG["variant"] | VariantPicture["variant"],
-  restProps: SVGProps | PictureProps
+  restProps: SVGProps | PictureProps,
 ): restProps is SVGProps => variant === "collective-intelligence"
 
 export const Brand = ({

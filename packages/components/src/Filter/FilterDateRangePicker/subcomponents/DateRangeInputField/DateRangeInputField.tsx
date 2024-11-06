@@ -55,7 +55,7 @@ export const DateRangeInputField = React.forwardRef<
       classNameOverride,
       ...restProps
     },
-    ref
+    ref,
   ) => {
     const customRefObject = isRefObject(ref) ? ref.current : null
     const inputStartDateRef = customRefObject?.inputStartDateRef
@@ -103,7 +103,7 @@ export const DateRangeInputField = React.forwardRef<
             {...inputStartDateProps}
             classNameOverride={classnames(
               styles.inputStartDate,
-              inputStartDateProps.classNameOverride
+              inputStartDateProps.classNameOverride,
             )}
           />
           <DateInput
@@ -118,7 +118,7 @@ export const DateRangeInputField = React.forwardRef<
             {...inputEndDateProps}
             classNameOverride={classnames(
               styles.inputEndDate,
-              inputEndDateProps.classNameOverride
+              inputEndDateProps.classNameOverride,
             )}
           />
         </fieldset>
@@ -142,7 +142,7 @@ export const DateRangeInputField = React.forwardRef<
         />
       </div>
     )
-  }
+  },
 )
 
 DateRangeInputField.displayName = "DateRangeInputField"

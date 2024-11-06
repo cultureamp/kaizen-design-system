@@ -8,7 +8,7 @@ describe("useStartDateValidation()", () => {
       const { result } = renderHook(() =>
         useStartDateValidation({
           inputLabel: "Start date",
-        })
+        }),
       )
       const { validateDate } = result.current
 
@@ -25,7 +25,7 @@ describe("useStartDateValidation()", () => {
       const { container } = render(result.current.validationMessage?.message)
       await waitFor(() => {
         expect(container).toHaveTextContent(
-          "Start date:potato is an invalid date"
+          "Start date:potato is an invalid date",
         )
       })
     })

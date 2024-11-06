@@ -58,7 +58,7 @@ export const Popover = ({
   ...restProps
 }: PopoverProps): JSX.Element => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
+    null,
   )
   const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null)
   const { styles: popperStyles, attributes } = usePopper(
@@ -102,7 +102,7 @@ export const Popover = ({
         },
       ],
       placement,
-    }
+    },
   )
 
   return (
@@ -113,7 +113,7 @@ export const Popover = ({
       className={classnames(
         styles.root,
         mapSizeToClass(size),
-        classNameOverride
+        classNameOverride,
       )}
       {...restProps}
     >
@@ -124,7 +124,7 @@ export const Popover = ({
               <span
                 className={classnames(
                   styles.icon,
-                  mapVariantToIconClass(variant)
+                  mapVariantToIconClass(variant),
                 )}
               >
                 {customIcon ?? mapVariantToIcon(variant)}
@@ -150,7 +150,7 @@ export const Popover = ({
           variant="small"
           classNameOverride={classnames(
             styles.container,
-            mapLineVariant(singleLine)
+            mapLineVariant(singleLine),
           )}
         >
           {children}
@@ -197,7 +197,7 @@ export const usePopover = (): [
   (props: PopoverPropsWithoutRef) => JSX.Element | null,
 ] => {
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
-    null
+    null,
   )
 
   // I guess the problem with this pattern, is that every time referenceElement
@@ -210,7 +210,7 @@ export const usePopover = (): [
       referenceElement ? (
         <Popover {...props} referenceElement={referenceElement} />
       ) : null,
-    [referenceElement]
+    [referenceElement],
   )
 
   return [setReferenceElement, PopoverWithRef]

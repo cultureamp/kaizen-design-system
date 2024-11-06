@@ -27,7 +27,7 @@ export const LoadingSpinner = ({
     className={classnames(
       styles.loadingSpinner,
       styles[size],
-      classNameOverride
+      classNameOverride,
     )}
     role="status"
     {...props}

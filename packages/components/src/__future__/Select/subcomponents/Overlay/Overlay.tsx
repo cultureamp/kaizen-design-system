@@ -21,7 +21,7 @@ export const Overlay = <Option extends SelectOption>({
   const overlayRef = React.useRef<HTMLDivElement>(null)
   const { overlayProps } = useOverlay(
     { isDismissable: true, isOpen: state.isOpen, onClose: state.close },
-    overlayRef
+    overlayRef,
   )
 
   // Wrap in <FocusScope> so that focus is restored back to the trigger when the menu is closed

@@ -19,7 +19,7 @@ export const FilterPopover = ({
   ...restProps
 }: FilterPopoverProps): JSX.Element => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
+    null,
   )
 
   const { styles: popperStyles, attributes: popperAttributes } = usePopper(
@@ -36,7 +36,7 @@ export const FilterPopover = ({
       ],
       placement: "bottom-start",
       ...popperOptions,
-    }
+    },
   )
 
   return (

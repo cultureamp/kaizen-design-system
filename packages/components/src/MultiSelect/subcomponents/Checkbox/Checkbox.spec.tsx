@@ -9,7 +9,7 @@ describe("<Checkbox />", () => {
   describe("unchecked", () => {
     it("has correct unchecked attributes", () => {
       const { getByRole } = render(
-        <Checkbox checkedStatus="unchecked" readOnly />
+        <Checkbox checkedStatus="unchecked" readOnly />,
       )
       const checkbox = getByRole("checkbox") as HTMLInputElement
       expect(checkbox.checked).toBe(false)
@@ -20,7 +20,7 @@ describe("<Checkbox />", () => {
   describe("checked", () => {
     it("has correct checked attributes", () => {
       const { getByRole } = render(
-        <Checkbox checkedStatus="checked" readOnly />
+        <Checkbox checkedStatus="checked" readOnly />,
       )
       const checkbox = getByRole("checkbox") as HTMLInputElement
       expect(checkbox.checked).toBe(true)
@@ -31,7 +31,7 @@ describe("<Checkbox />", () => {
   describe("indeterminate", () => {
     it("has correct indeterminate attributes", () => {
       const { getByRole } = render(
-        <Checkbox checkedStatus="indeterminate" readOnly />
+        <Checkbox checkedStatus="indeterminate" readOnly />,
       )
       const checkbox = getByRole("checkbox") as HTMLInputElement
       expect(checkbox.checked).toBe(false)

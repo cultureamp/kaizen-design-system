@@ -9,7 +9,7 @@ describe("generateSegmentDisplayText()", () => {
         text: "2",
         isEditable: true,
         placeholder: "--",
-      })
+      }),
     ).toBe("--"))
 
   it("displays the time when it is not a placeholder", () =>
@@ -20,7 +20,7 @@ describe("generateSegmentDisplayText()", () => {
         text: "2",
         isEditable: true,
         placeholder: "--",
-      })
+      }),
     ).toBe("2"))
 
   it("displays the day period text when it is a placeholder", () =>
@@ -31,6 +31,6 @@ describe("generateSegmentDisplayText()", () => {
         text: "AM",
         isEditable: true,
         placeholder: "AM",
-      })
+      }),
     ).toBe("AM"))
 })

@@ -29,7 +29,7 @@ export const ToggleSwitch = ({
     <span
       className={classnames(
         isOn ? styles.on : styles.off,
-        reversed && styles.reversed
+        reversed && styles.reversed,
       )}
     >
       <input

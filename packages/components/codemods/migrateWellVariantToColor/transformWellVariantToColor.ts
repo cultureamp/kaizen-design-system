@@ -46,7 +46,7 @@ export const transformWellVariantToColor =
                 }
                 return ts.factory.createJsxAttribute(
                   ts.factory.createIdentifier("color"),
-                  ts.factory.createStringLiteral(colorValue)
+                  ts.factory.createStringLiteral(colorValue),
                 )
               }
             }
@@ -61,7 +61,7 @@ export const transformWellVariantToColor =
               ...newAttributes,
               ts.factory.createJsxAttribute(
                 ts.factory.createIdentifier("color"),
-                ts.factory.createStringLiteral("gray")
+                ts.factory.createStringLiteral("gray"),
               ),
             ]
           }

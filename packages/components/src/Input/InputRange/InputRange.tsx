@@ -49,7 +49,7 @@ export const InputRange = ({
           styles.ratingScaleRange,
           classNameOverride,
           readOnlyWithNoValue && styles.hideThumb,
-          disabled && styles.disabled
+          disabled && styles.disabled,
         )}
         disabled={disabled || readOnly}
         type="range"
@@ -85,7 +85,7 @@ export const InputRange = ({
           <div
             className={classnames(
               styles.sliderLabels,
-              disabled && styles.disabled
+              disabled && styles.disabled,
             )}
           >
             <Text variant="small" color="dark-reduced-opacity" tag="span">

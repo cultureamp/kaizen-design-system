@@ -117,7 +117,7 @@ export const TriggerOnAfterEnterFocus: Story = {
 
     await step("Expect to be able to type without shifting focus", async () => {
       await userEvent.keyboard(
-        "All lorem and no ipsum make dolar a dull boy..."
+        "All lorem and no ipsum make dolar a dull boy...",
       )
     })
   },

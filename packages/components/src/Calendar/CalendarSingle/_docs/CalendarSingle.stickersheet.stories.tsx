@@ -17,7 +17,7 @@ export default {
 } satisfies Meta
 
 const CalendarSingleExample = (
-  props: Partial<CalendarSingleProps>
+  props: Partial<CalendarSingleProps>,
 ): JSX.Element => (
   <div data-testid={props.id}>
     <CalendarSingle defaultMonth={new Date("2021-09-05")} {...props} />
@@ -112,7 +112,7 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   const getElementWithinCalendar = (
     id: string,
     role: string,
-    name: string
+    name: string,
   ): HTMLElement => {
     const calendar = canvas.getByTestId(id)
     return within(calendar).getByRole(role, { name })
@@ -149,11 +149,11 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   calendarsPseudoStates.forEach(({ id, role, name }) => {
     getElementWithinCalendar(`${id}--hover`, role, name).setAttribute(
       "data-sb-pseudo-styles",
-      "hover"
+      "hover",
     )
     getElementWithinCalendar(`${id}--focus`, role, name).setAttribute(
       "data-sb-pseudo-styles",
-      "focus"
+      "focus",
     )
   })
 }

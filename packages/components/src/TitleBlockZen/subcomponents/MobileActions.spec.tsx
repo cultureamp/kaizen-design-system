@@ -57,7 +57,7 @@ describe("<MobileActions />", () => {
             href: "#",
           }}
           secondaryActions={SECONDARY_ACTIONS}
-        />
+        />,
       )
       const mobileActionsButton = screen.getByRole("button", {
         name: "Primary menu",
@@ -67,13 +67,13 @@ describe("<MobileActions />", () => {
       await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
-          "true"
+          "true",
         )
       })
       await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
-          "false"
+          "false",
         )
       })
     })
@@ -91,7 +91,7 @@ describe("<MobileActions />", () => {
             href: "#",
           }}
           secondaryActions={SECONDARY_ACTIONS}
-        />
+        />,
       )
       const mobileActionsButton = screen.getByRole("button", {
         name: "Other actions",
@@ -101,13 +101,13 @@ describe("<MobileActions />", () => {
       await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
-          "true"
+          "true",
         )
       })
       await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
-          "false"
+          "false",
         )
       })
     })
@@ -122,7 +122,7 @@ describe("<MobileActions />", () => {
             href: "#",
           }}
           secondaryActions={SECONDARY_ACTIONS}
-        />
+        />,
       )
       const mobileActionsButton = screen.getByRole("button", {
         name: "Other actions",
@@ -132,13 +132,13 @@ describe("<MobileActions />", () => {
       await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
-          "true"
+          "true",
         )
       })
       await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
-          "false"
+          "false",
         )
       })
     })
@@ -160,7 +160,7 @@ describe("when autoHide is true", () => {
         secondaryActions={SECONDARY_ACTIONS}
         secondaryOverflowMenuItems={SECONDARY_OVERFLOW_ACTIONS}
         autoHide
-      />
+      />,
     )
   })
   it("hides the menu when user clicks a default action item", async () => {
@@ -193,7 +193,7 @@ describe("when autoHide is true", () => {
       expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("true")
     })
     const btn = screen.getAllByTestId(
-      "title-block-mobile-actions-secondary-action"
+      "title-block-mobile-actions-secondary-action",
     )
     expect(btn.length).toEqual(3)
     await user.click(btn[0])
@@ -214,7 +214,7 @@ describe("when autoHide is true", () => {
       expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("true")
     })
     const btn = screen.getAllByTestId(
-      "title-block-mobile-actions-overflow-menu-item"
+      "title-block-mobile-actions-overflow-menu-item",
     )
     expect(btn.length).toEqual(1)
     await user.click(btn[0])

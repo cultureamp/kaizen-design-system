@@ -20,7 +20,7 @@ describe("useDateInputHandlers", () => {
           locale,
           setInputValue,
           onDateChange,
-        })
+        }),
       )
       const { onChange } = result.current
 
@@ -42,7 +42,7 @@ describe("useDateInputHandlers", () => {
           setInputValue,
           onDateChange,
           onChange: onChangeMock,
-        })
+        }),
       )
       const { onChange } = result.current
       const changeEvent = {
@@ -64,7 +64,7 @@ describe("useDateInputHandlers", () => {
           locale,
           setInputValue,
           onDateChange,
-        })
+        }),
       )
       const { onFocus } = result.current
 
@@ -83,7 +83,7 @@ describe("useDateInputHandlers", () => {
           locale,
           setInputValue,
           onDateChange,
-        })
+        }),
       )
       const { onFocus } = result.current
 
@@ -105,7 +105,7 @@ describe("useDateInputHandlers", () => {
           setInputValue,
           onDateChange,
           onFocus: onFocusMock,
-        })
+        }),
       )
       const { onFocus } = result.current
       const focusEvent = {
@@ -129,7 +129,7 @@ describe("useDateInputHandlers", () => {
           setInputValue,
           onDateChange,
           onBlur: onBlurMock,
-        })
+        }),
       )
       const { onBlur } = result.current
       const blurEvent = {
@@ -154,7 +154,7 @@ describe("useDateInputHandlers", () => {
           locale,
           setInputValue,
           onDateChange,
-        })
+        }),
       )
       const { onBlur } = result.current
       const blurEvent = {
@@ -175,7 +175,7 @@ describe("useDateInputHandlers", () => {
           locale,
           setInputValue,
           onDateChange,
-        })
+        }),
       )
       const { onBlur } = result.current
       const blurEvent = {
@@ -196,7 +196,7 @@ describe("useDateInputHandlers", () => {
           locale,
           setInputValue,
           onDateChange,
-        })
+        }),
       )
       const { onBlur } = result.current
       const blurEvent = {
@@ -219,7 +219,7 @@ describe("useDateInputHandlers", () => {
           disabledDays: new Date("2022-05-01"),
           setInputValue,
           onDateChange,
-        })
+        }),
       )
       const { onBlur } = result.current
       const blurEvent = {
@@ -242,7 +242,7 @@ describe("useDateInputHandlers", () => {
           setInputValue,
           onDateChange,
           onBlur: onBlurMock,
-        })
+        }),
       )
       const { onBlur } = result.current
       const blurEvent = {
@@ -264,7 +264,7 @@ describe("useDateInputHandlers", () => {
           setInputValue,
           onDateChange,
           onBlur: onBlurMock,
-        })
+        }),
       )
       const { onBlur } = result.current
       const blurEvent = {
@@ -286,7 +286,7 @@ describe("useDateInputHandlers", () => {
           locale,
           setInputValue,
           onDateChange,
-        })
+        }),
       )
       const { onKeyDown } = result.current
 
@@ -310,7 +310,7 @@ describe("useDateInputHandlers", () => {
           setInputValue,
           onDateChange,
           onDateSubmit,
-        })
+        }),
       )
       const { onKeyDown } = result.current
       const keyboardEvent = {
@@ -335,7 +335,7 @@ describe("useDateInputHandlers", () => {
           setInputValue,
           onDateChange,
           onKeyDown: onKeyDownMock,
-        })
+        }),
       )
       const { onKeyDown } = result.current
       const keyboardEvent = {

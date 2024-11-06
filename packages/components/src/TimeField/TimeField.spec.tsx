@@ -148,7 +148,7 @@ describe("onChange", () => {
         value={{ hour: 16, minutes: 44 }}
         onChange={mockOnChange}
         locale="en-AU"
-      />
+      />,
     )
     const hourSpinner = screen.getByRole("spinbutton", {
       name: `hour, ${LABEL}`,
@@ -167,7 +167,7 @@ describe("onChange", () => {
         value={{ hour: 16, minutes: 44 }}
         onChange={mockOnChange}
         locale="en-GB"
-      />
+      />,
     )
     const hourSpinner = screen.getByRole("spinbutton", {
       name: `hour, ${LABEL}`,

@@ -51,8 +51,8 @@ describe("markIsActive()", () => {
     dispatchTransaction(
       simulateRangeSelection(
         currentState.selection.to,
-        currentState.selection.to
-      )
+        currentState.selection.to,
+      ),
     )
     dispatchTransaction((editorState: EditorState) => {
       currentState = editorState

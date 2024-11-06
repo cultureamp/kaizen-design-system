@@ -27,8 +27,8 @@ describe("<ErrorPage />", () => {
       expect(screen.getByText("Problem loading page")).toBeVisible()
       expect(
         screen.getByText(
-          "Problem loading page right now. Try again or head home."
-        )
+          "Problem loading page right now. Try again or head home.",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 400")).toBeVisible()
     })
@@ -40,8 +40,8 @@ describe("<ErrorPage />", () => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(
         screen.getByText(
-          "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
-        )
+          "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 401")).toBeVisible()
     })
@@ -53,8 +53,8 @@ describe("<ErrorPage />", () => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(
         screen.getByText(
-          "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
-        )
+          "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 403")).toBeVisible()
     })
@@ -66,8 +66,8 @@ describe("<ErrorPage />", () => {
       expect(screen.getByText("Page not found")).toBeVisible()
       expect(
         screen.getByText(
-          "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
-        )
+          "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 404")).toBeVisible()
     })
@@ -79,8 +79,8 @@ describe("<ErrorPage />", () => {
       expect(screen.getByText("Change couldn't be made")).toBeVisible()
       expect(
         screen.getByText(
-          "Sorry but your change couldn't be made. Go back and try again, or head to Home"
-        )
+          "Sorry but your change couldn't be made. Go back and try again, or head to Home",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 422")).toBeVisible()
     })
@@ -90,12 +90,12 @@ describe("<ErrorPage />", () => {
     render(<ErrorPage code="500" />)
     await waitFor(() => {
       expect(
-        screen.getByText("Something's gone wrong on our side")
+        screen.getByText("Something's gone wrong on our side"),
       ).toBeVisible()
       expect(
         screen.getByText(
-          "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
-        )
+          "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 500")).toBeVisible()
     })
@@ -107,8 +107,8 @@ describe("<ErrorPage />", () => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(
         screen.getByText(
-          "Sorry about this. The best thing to do is go back and try again."
-        )
+          "Sorry about this. The best thing to do is go back and try again.",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 502")).toBeVisible()
     })
@@ -120,8 +120,8 @@ describe("<ErrorPage />", () => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(
         screen.getByText(
-          "Sorry about this. The best thing to do is go back and try again."
-        )
+          "Sorry about this. The best thing to do is go back and try again.",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 503")).toBeVisible()
     })
@@ -133,8 +133,8 @@ describe("<ErrorPage />", () => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(
         screen.getByText(
-          "Sorry about this. The best thing to do is go back and try again."
-        )
+          "Sorry about this. The best thing to do is go back and try again.",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 504")).toBeVisible()
     })

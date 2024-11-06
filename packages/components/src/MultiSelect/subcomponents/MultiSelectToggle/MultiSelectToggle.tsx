@@ -36,7 +36,7 @@ export const MultiSelectToggle = forwardRef<
       status,
       ...restProps
     },
-    ref
+    ref,
   ): JSX.Element => {
     const clearAllId = useId()
     return (
@@ -50,7 +50,7 @@ export const MultiSelectToggle = forwardRef<
           className={classnames(
             styles.multiSelectToggle,
             classNameOverride,
-            status && styles[status]
+            status && styles[status],
           )}
           onClick={onClick}
           {...restProps}
@@ -78,7 +78,7 @@ export const MultiSelectToggle = forwardRef<
           <div
             className={classnames(
               styles.selectedItemsContainer,
-              selectedOptions.length && styles.hasSelectedItems
+              selectedOptions.length && styles.hasSelectedItems,
             )}
           >
             {selectedOptions.length > 0 && (
@@ -118,7 +118,7 @@ export const MultiSelectToggle = forwardRef<
         </div>
       </>
     )
-  }
+  },
 )
 
 MultiSelectToggle.displayName = "MultiSelectToggle"

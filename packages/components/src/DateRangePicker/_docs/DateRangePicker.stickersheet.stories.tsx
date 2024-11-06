@@ -25,7 +25,7 @@ export default {
 } satisfies Meta
 
 const DateRangePickerTemplate = (
-  props: Partial<DateRangePickerProps>
+  props: Partial<DateRangePickerProps>,
 ): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
     from: undefined,
@@ -56,7 +56,7 @@ const DateRangePickerTemplate = (
 }
 
 const LegacyCalendarRangeTemplate = (
-  props: Partial<LegacyCalendarRangeProps>
+  props: Partial<LegacyCalendarRangeProps>,
 ): JSX.Element => {
   const selectedDateRange = {
     from: undefined,

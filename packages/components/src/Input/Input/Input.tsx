@@ -41,7 +41,7 @@ export const Input = ({
       disabled && styles.withDisabled,
       startIconAdornment && styles.withStartIconAdornment,
       endIconAdornment && styles.withEndIconAdornment,
-      status != "default" && styles.hasStatus
+      status != "default" && styles.hasStatus,
     )}
   >
     {startIconAdornment && (
@@ -59,7 +59,7 @@ export const Input = ({
         styles[status],
         classNameOverride,
         reversed ? styles.reversed : styles.default,
-        disabled && styles.disabled
+        disabled && styles.disabled,
       )}
       {...restProps}
     />

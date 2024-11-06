@@ -79,11 +79,11 @@ describe("<FilterBarSelect />", () => {
       render(<FilterBarSelectWrapper />)
       await waitFor(() => {
         expect(
-          screen.getByRole("button", { name: "Flavour" })
+          screen.getByRole("button", { name: "Flavour" }),
         ).toBeInTheDocument()
       })
       expect(
-        screen.queryByRole("button", { name: "Remove filter - Flavour" })
+        screen.queryByRole("button", { name: "Remove filter - Flavour" }),
       ).not.toBeInTheDocument()
     })
 
@@ -92,11 +92,11 @@ describe("<FilterBarSelect />", () => {
         <FilterBarSelectWrapper
           filterAttributes={{ isRemovable: true }}
           defaultValues={{ flavour: "jasmine-milk-tea" }}
-        />
+        />,
       )
       await waitFor(() => {
         expect(
-          screen.getByRole("button", { name: "Remove filter - Flavour" })
+          screen.getByRole("button", { name: "Remove filter - Flavour" }),
         ).toBeVisible()
       })
     })
@@ -121,7 +121,7 @@ describe("<FilterBarSelect />", () => {
 
   it("shows a selected value when provided", async () => {
     const { getByRole } = render(
-      <FilterBarSelectWrapper defaultValues={{ flavour: "jasmine-milk-tea" }} />
+      <FilterBarSelectWrapper defaultValues={{ flavour: "jasmine-milk-tea" }} />,
     )
     await waitFor(() => {
       const triggerButton = getByRole("button", {
@@ -133,7 +133,7 @@ describe("<FilterBarSelect />", () => {
 
   it("updates the selected value in the trigger button", async () => {
     const { getByRole } = render(
-      <FilterBarSelectWrapper defaultValues={{ flavour: "jasmine-milk-tea" }} />
+      <FilterBarSelectWrapper defaultValues={{ flavour: "jasmine-milk-tea" }} />,
     )
     const triggerButton = getByRole("button", {
       name: "Flavour : Jasmine Milk Tea",
@@ -148,7 +148,7 @@ describe("<FilterBarSelect />", () => {
     await user.click(getByRole("option", { name: "Honey Milk Tea" }))
     await waitFor(() => {
       expect(
-        getByRole("button", { name: "Flavour : Honey Milk Tea" })
+        getByRole("button", { name: "Flavour : Honey Milk Tea" }),
       ).toBeInTheDocument()
     })
   })
@@ -156,7 +156,7 @@ describe("<FilterBarSelect />", () => {
   it("allows calling additional functions on selection change", async () => {
     const onChange = vi.fn()
     const { getByRole } = render(
-      <FilterBarSelectWrapper onSelectionChange={onChange} />
+      <FilterBarSelectWrapper onSelectionChange={onChange} />,
     )
     const triggerButton = getByRole("button", { name: "Flavour" })
 
@@ -217,7 +217,7 @@ describe("<FilterBarSelect />", () => {
             Component: <FilterTopping />,
           },
         ]}
-      />
+      />,
     )
 
     const flavourButton = getByRole("button", { name: "Flavour" })
@@ -243,7 +243,7 @@ describe("<FilterBarSelect />", () => {
         JSON.stringify({
           flavour: "jasmine-milk-tea",
           topping: "pearls",
-        })
+        }),
       )
     })
 
@@ -255,7 +255,7 @@ describe("<FilterBarSelect />", () => {
       expect(getByTestId("json-values").textContent).toBe(
         JSON.stringify({
           flavour: "honey-milk-tea",
-        })
+        }),
       )
     })
   })

@@ -14,7 +14,7 @@ const defaultInputProps = {
 }
 
 const renderInput = (
-  props?: Omit<InputSearchProps, "id">
+  props?: Omit<InputSearchProps, "id">,
 ): ReturnType<typeof render> => {
   const mergedInputProps = { ...defaultInputProps, ...props }
 
@@ -26,7 +26,7 @@ describe("<InputSearch />", () => {
     const { container } = renderInput()
     await waitFor(() => {
       expect(
-        container.querySelector(`[value="${defaultInputProps.value}"]`)
+        container.querySelector(`[value="${defaultInputProps.value}"]`),
       ).toBeTruthy()
     })
   })

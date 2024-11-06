@@ -5,7 +5,7 @@ const OLD_PROP_NAME = "mood"
 const NEW_PROP_NAME = "color"
 
 const getNewVariantValue = (
-  oldValue: Exclude<ProgressBarProps[typeof OLD_PROP_NAME], undefined>
+  oldValue: Exclude<ProgressBarProps[typeof OLD_PROP_NAME], undefined>,
 ): Exclude<ProgressBarProps[typeof NEW_PROP_NAME], undefined> => {
   switch (oldValue) {
     case "cautionary":
@@ -22,5 +22,5 @@ const getNewVariantValue = (
 export const transformProgressBarMoodToColor = migrateStringProp(
   OLD_PROP_NAME,
   NEW_PROP_NAME,
-  getNewVariantValue
+  getNewVariantValue,
 )

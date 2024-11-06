@@ -16,7 +16,7 @@ export const rollupConfig = (
   config: Config = {
     input: { index: "./src/index.ts" },
     plugins: pluginsDefault as InputPluginOption[],
-  }
+  },
 ): RollupOptions[] => {
   // Shared config
   const userConfig = {
@@ -65,7 +65,7 @@ export const rollupConfig = (
   } satisfies RollupOptions
 
   const hasTailwind = fs.existsSync(
-    path.resolve(process.cwd(), "./tailwind.config.js")
+    path.resolve(process.cwd(), "./tailwind.config.js"),
   )
 
   return hasTailwind

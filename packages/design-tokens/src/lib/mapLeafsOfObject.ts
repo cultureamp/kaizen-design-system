@@ -25,15 +25,15 @@ export function mapLeafsOfObject<
   Value,
 >(
   object: Obj,
-  mapper: (pathToLeaf: string[], value: unknown) => Value
+  mapper: (pathToLeaf: string[], value: unknown) => Value,
 ): DeepMapObjectLeafs<Obj, Value> {
   const recurser = <O extends Record<string | number, unknown>>(
     currentPath: string[],
-    obj: O
+    obj: O,
   ): DeepMapObjectLeafs<O, Value> => {
     const handleEntry = (
       key: string,
-      value: unknown
+      value: unknown,
     ):
       | {
           [x: string]: unknown
@@ -52,7 +52,7 @@ export function mapLeafsOfObject<
         ...acc,
         [nextKey]: handleEntry(nextKey, nextValue),
       }),
-      {} as DeepMapObjectLeafs<O, Value>
+      {} as DeepMapObjectLeafs<O, Value>,
     )
   }
   return recurser([], object)

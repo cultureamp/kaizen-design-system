@@ -15,7 +15,7 @@ export type UseStartDateValidationValue = {
 }
 
 export const useStartDateValidation = (
-  args: UseStartDateValidationArgs
+  args: UseStartDateValidationArgs,
 ): UseStartDateValidationValue => {
   const { validationMessage, validateDate, updateValidation } =
     useDateValidation(args)

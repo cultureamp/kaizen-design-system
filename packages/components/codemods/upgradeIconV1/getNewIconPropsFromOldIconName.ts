@@ -251,5 +251,5 @@ const iconMap = new Map<keyof typeof OLD_ICONS, NewIconProps>([
 ])
 
 export const getNewIconPropsFromOldIconName = (
-  oldValue: StringSuggestions<keyof typeof OLD_ICONS>
+  oldValue: StringSuggestions<keyof typeof OLD_ICONS>,
 ): NewIconProps => iconMap.get(oldValue as keyof typeof OLD_ICONS)

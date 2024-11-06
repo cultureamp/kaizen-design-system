@@ -72,7 +72,7 @@ export const GenericModal = ({
     if (!document.getElementById(labelledByID)) {
       warn(
         `When using the Modal component, you must provide a label for the modal.
-        Make sure you have a <ModalAccessibleLabel /> component with content that labels the modal.`
+        Make sure you have a <ModalAccessibleLabel /> component with content that labels the modal.`,
       )
     }
   }
@@ -113,7 +113,7 @@ export const GenericModal = ({
   const cleanUpAfterClose = useCallback((): void => {
     document.documentElement.classList.remove(
       styles.unscrollable,
-      styles.pseudoScrollbar
+      styles.pseudoScrollbar,
     )
 
     if (onEscapeKeyup) {
@@ -180,7 +180,7 @@ export const GenericModal = ({
         </div>
       </FocusLock>
     </Transition>,
-    document.body
+    document.body,
   )
 }
 

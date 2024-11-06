@@ -22,7 +22,7 @@ const TestRTE = (
     "defaultValue" | "onChange" | "aria-labelledby"
   > & {
     rteMockData?: RichTextEditorProps["defaultValue"]
-  }
+  },
 ): JSX.Element => {
   const { rteMockData, ...rest } = args
   const [rteData, setRTEData] = useState<EditorContentArray>(rteMockData || [])
@@ -47,7 +47,7 @@ describe("accessible name and description", () => {
   it("has the correct accessible name", () => {
     render(<TestRTE labelText="Some label" />)
     expect(
-      screen.getByRole("textbox", { name: "Some label" })
+      screen.getByRole("textbox", { name: "Some label" }),
     ).toBeInTheDocument()
   })
 
@@ -60,13 +60,13 @@ describe("accessible name and description", () => {
           aria-labelledby="external-label"
           aria-describedby="external-description"
         />
-      </>
+      </>,
     )
     expect(
       screen.getByRole("textbox", {
         name: "External label",
         description: "External description",
-      })
+      }),
     ).toBeInTheDocument()
   })
 
@@ -80,13 +80,13 @@ describe("accessible name and description", () => {
           validationMessage="Some error"
           aria-describedby="external-description"
         />
-      </>
+      </>,
     )
     expect(
       screen.getByRole("textbox", {
         name: "Some label",
         description: "Some error Some help text External description",
-      })
+      }),
     ).toBeInTheDocument()
   })
 })

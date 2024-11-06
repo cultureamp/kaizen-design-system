@@ -70,7 +70,7 @@ export const Popover = <RT extends ReferenceType>({
         {children}
       </div>
     </FocusOn>,
-    portalContainer ?? document.body
+    portalContainer ?? document.body,
   )
 }
 

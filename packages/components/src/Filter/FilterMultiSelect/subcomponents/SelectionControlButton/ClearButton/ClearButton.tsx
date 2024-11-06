@@ -8,12 +8,12 @@ export const ClearButton = (): JSX.Element => {
   const { selectionState } = useSelectionContext()
   const filteredOptions = Array.from(selectionState.collection.getKeys())
   const selectedOptions = Array.from(
-    selectionState.selectionManager.selectedKeys
+    selectionState.selectionManager.selectedKeys,
   )
   const isDisabled =
     filteredOptions.length === 0 ||
     !filteredOptions.find(key =>
-        selectionState.selectionManager.isSelected(key)
+        selectionState.selectionManager.isSelected(key),
       )
 
   return (
@@ -26,8 +26,8 @@ export const ClearButton = (): JSX.Element => {
           if (!isDisabled) {
             selectionState.selectionManager.setSelectedKeys(
               selectedOptions.filter(
-                option => !filteredOptions.includes(option)
-              )
+                option => !filteredOptions.includes(option),
+              ),
             )
           }
         }

@@ -21,7 +21,7 @@ const FilterMultiSelectWrapper = ({
   ...props
 }: Partial<FilterMultiSelectProps>): JSX.Element => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
-    propsSelectedKeys ?? new Set(["id-fe"])
+    propsSelectedKeys ?? new Set(["id-fe"]),
   )
 
   const handleSelectionChange = (keys: Selection): void => setSelectedKeys(keys)
@@ -36,7 +36,7 @@ const FilterMultiSelectWrapper = ({
         <FilterMultiSelect.TriggerButton
           selectedOptionLabels={getSelectedOptionLabels(
             selectedKeys,
-            mockItems
+            mockItems,
           )}
           label="Engineer"
         />
@@ -113,7 +113,7 @@ describe("<FilterMultiSelect>", () => {
 
   it("filters out options which do not match the search term", async () => {
     const { getByRole, getAllByRole } = render(
-      <FilterMultiSelectWrapper isOpen />
+      <FilterMultiSelectWrapper isOpen />,
     )
     expect(getAllByRole("option")).toHaveLength(5)
 
@@ -130,7 +130,7 @@ describe("<FilterMultiSelect>", () => {
         <FilterMultiSelectWrapper
           isOpen
           selectedKeys={new Set(["id-fe", "id-devops"])}
-        />
+        />,
       )
 
       expect(queryAllByRole("option", { selected: true })).toHaveLength(2)
@@ -146,7 +146,7 @@ describe("<FilterMultiSelect>", () => {
         <FilterMultiSelectWrapper
           isOpen
           selectedKeys={new Set(["id-fe", "id-devops"])}
-        />
+        />,
       )
 
       expect(queryAllByRole("option")).toHaveLength(5)
@@ -172,7 +172,7 @@ describe("<FilterMultiSelect>", () => {
 
     it("selects all non-disabled options when unfiltered", async () => {
       const { getByRole, queryAllByRole } = render(
-        <FilterMultiSelectWrapper isOpen selectedKeys={new Set([])} />
+        <FilterMultiSelectWrapper isOpen selectedKeys={new Set([])} />,
       )
 
       const allOptions = queryAllByRole("option")
@@ -187,7 +187,7 @@ describe("<FilterMultiSelect>", () => {
 
     it("selects only non-disabled filtered options", async () => {
       const { getByRole, queryAllByRole } = render(
-        <FilterMultiSelectWrapper isOpen selectedKeys={new Set([])} />
+        <FilterMultiSelectWrapper isOpen selectedKeys={new Set([])} />,
       )
 
       expect(queryAllByRole("option")).toHaveLength(5)

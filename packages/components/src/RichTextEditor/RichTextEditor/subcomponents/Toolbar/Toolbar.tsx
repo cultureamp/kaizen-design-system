@@ -17,7 +17,7 @@ export type ToolbarProps = {
 } & OverrideClassName<React.HTMLAttributes<HTMLElement>>
 
 const determineValidKeypress = (
-  event: React.KeyboardEvent<HTMLElement>
+  event: React.KeyboardEvent<HTMLElement>,
 ): boolean => {
   const validKeys = {
     left: "ArrowLeft",
@@ -31,7 +31,7 @@ const handleKeyDown = (
   buttonIndex: number,
   buttonFocusIndex: number,
   setFocusIndex: React.Dispatch<React.SetStateAction<number>>,
-  toolbarButtons: React.MutableRefObject<any>
+  toolbarButtons: React.MutableRefObject<any>,
 ): void => {
   if (!determineValidKeypress(e)) return
   let newFocusIndex
@@ -94,7 +94,7 @@ export const Toolbar = (props: ToolbarProps): JSX.Element => {
                       buttonIndex,
                       buttonFocusIndex,
                       setButtonFocusIndex,
-                      toolbarButtonsRef
+                      toolbarButtonsRef,
                     )
                   }
                   ref={(ref: React.ReactNode | undefined): React.ReactNode =>

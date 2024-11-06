@@ -24,7 +24,7 @@ export const Divider = ({
       styles.wrapper,
       classNameOverride,
       isReversed && styles.reversed,
-      styles[variant]
+      styles[variant],
     )}
     {...props}
   />

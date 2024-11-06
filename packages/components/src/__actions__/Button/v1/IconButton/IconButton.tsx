@@ -16,7 +16,7 @@ export type IconButtonProps = Omit<BaseButtonProps, "iconPosition"> &
 export const IconButton = forwardRef(
   (props: IconButtonProps, ref: Ref<ButtonRef | undefined>): JSX.Element => (
     <GenericButton iconButton {...props} ref={ref} />
-  )
+  ),
 )
 
 IconButton.displayName = "IconButton"

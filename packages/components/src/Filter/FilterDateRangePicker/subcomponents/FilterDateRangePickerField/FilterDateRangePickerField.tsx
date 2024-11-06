@@ -128,7 +128,7 @@ export const FilterDateRangePickerField = ({
 
   const validateStartDate = (
     date: Date | undefined,
-    inputValue: string
+    inputValue: string,
   ): Date | undefined =>
     dateStartValidation.validateDate({
       date,
@@ -137,7 +137,7 @@ export const FilterDateRangePickerField = ({
 
   const validateEndDate = (
     date: Date | undefined,
-    inputValue: string
+    inputValue: string,
   ): Date | undefined =>
     dateEndValidation.validateDate({
       endDate: date,
@@ -261,7 +261,7 @@ export const FilterDateRangePickerField = ({
 
     const newStartDate = validateStartDate(
       selectedRange?.from,
-      state.inputStartValue
+      state.inputStartValue,
     )
     const newEndDate = validateEndDate(selectedRange?.to, state.inputEndValue)
 
@@ -281,7 +281,7 @@ export const FilterDateRangePickerField = ({
     <div
       className={classnames(
         styles.filterDateRangePickerField,
-        classNameOverride
+        classNameOverride,
       )}
       {...restProps}
     >

@@ -11,7 +11,7 @@ describe("Dropdown", () => {
     render(
       <Menu button={<Button label="Button"></Button>}>
         <div>Item</div>
-      </Menu>
+      </Menu>,
     )
 
     expect(screen.queryByText("Item")).toBeFalsy()
@@ -28,7 +28,7 @@ describe("Dropdown", () => {
     render(
       <Menu button={<Button label="Button" onClick={onButtonClick} />}>
         <div>Item</div>
-      </Menu>
+      </Menu>,
     )
 
     expect(screen.queryByText("Item")).not.toBeInTheDocument()
@@ -47,7 +47,7 @@ describe("Dropdown", () => {
     render(
       <Menu button={<Button label="Button" onMouseDown={onMouseDown} />}>
         <div>Item</div>
-      </Menu>
+      </Menu>,
     )
 
     expect(screen.queryByText("Item")).not.toBeInTheDocument()

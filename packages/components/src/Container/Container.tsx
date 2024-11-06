@@ -17,7 +17,7 @@ export const Container = React.forwardRef<HTMLDivElement, ContentProps>(
     >
       {children}
     </div>
-  )
+  ),
 )
 
 Container.displayName = "Container"

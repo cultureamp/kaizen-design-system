@@ -12,7 +12,7 @@ const migrateInlineNotificationTypeToVariant = (): void => {
   transformComponentsInDir(
     targetDir,
     transformNotificationTypeToVariant,
-    "InlineNotification"
+    "InlineNotification",
   )
 }
 

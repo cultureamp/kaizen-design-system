@@ -33,7 +33,7 @@ describe("checkShouldUpdateValues()", () => {
   it("is true when the values do not match", () => {
     const result = checkShouldUpdateValues<Values>(
       { ...state, values: { flavour: "jasmine" } },
-      { flavour: "jasmine", toppings: ["pearls"] }
+      { flavour: "jasmine", toppings: ["pearls"] },
     )
 
     expect(result).toBe(true)
@@ -42,7 +42,7 @@ describe("checkShouldUpdateValues()", () => {
   it("is false when the values match", () => {
     const result = checkShouldUpdateValues<Values>(
       { ...state, values: { flavour: "jasmine" } },
-      { flavour: "jasmine" }
+      { flavour: "jasmine" },
     )
 
     expect(result).toBe(false)
@@ -52,7 +52,7 @@ describe("checkShouldUpdateValues()", () => {
     it("is true when the array values do not match", () => {
       const result = checkShouldUpdateValues<Values>(
         { ...state, values: { toppings: ["pearls"] } },
-        { toppings: ["jelly"] }
+        { toppings: ["jelly"] },
       )
 
       expect(result).toBe(true)
@@ -61,7 +61,7 @@ describe("checkShouldUpdateValues()", () => {
     it("is false when the array values match", () => {
       const result = checkShouldUpdateValues<Values>(
         { ...state, values: { toppings: ["pearls"] } },
-        { toppings: ["pearls"] }
+        { toppings: ["pearls"] },
       )
 
       expect(result).toBe(false)

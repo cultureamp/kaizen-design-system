@@ -5,7 +5,7 @@ const OLD_PROP_NAME = "illustrationType"
 const NEW_PROP_NAME = "variant"
 
 const getNewVariantValue = (
-  oldValue: Exclude<EmptyStateProps[typeof OLD_PROP_NAME], undefined>
+  oldValue: Exclude<EmptyStateProps[typeof OLD_PROP_NAME], undefined>,
 ): Exclude<EmptyStateProps[typeof NEW_PROP_NAME], undefined> => {
   switch (oldValue) {
     case "informative":
@@ -24,5 +24,5 @@ const getNewVariantValue = (
 export const transformEmptyStateIllustrationTypeToVariant = migrateStringProp(
   OLD_PROP_NAME,
   NEW_PROP_NAME,
-  getNewVariantValue
+  getNewVariantValue,
 )

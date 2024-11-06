@@ -37,7 +37,7 @@ export const AnimationProvider = ({
       setIsAnimOut(false)
     },
     animationDuration,
-    { leading: false }
+    { leading: false },
   )
 
   // Allows us to flash the component in an "invisible" state, for one frame.
@@ -48,7 +48,7 @@ export const AnimationProvider = ({
       setIsAnimIn(false)
     },
     0,
-    { leading: false }
+    { leading: false },
   )
 
   if (isVisible !== prevIsOpen) {
