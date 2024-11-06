@@ -1,12 +1,12 @@
-import React, { useRef, useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
-import isChromatic from "chromatic"
-import { ModalAccessibleDescription } from "~components/Modal"
-import { Text } from "~components/Text"
-import { TextField } from "~components/TextField"
-import { chromaticModalSettings } from "../../_docs/controls"
-import { InputEditModal } from "../index"
+import React, { useRef, useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import isChromatic from 'chromatic'
+import { ModalAccessibleDescription } from '~components/Modal'
+import { Text } from '~components/Text'
+import { TextField } from '~components/TextField'
+import { chromaticModalSettings } from '../../_docs/controls'
+import { InputEditModal } from '../index'
 
 const IS_CHROMATIC = isChromatic()
 
@@ -24,13 +24,13 @@ const ExampleForm = (): JSX.Element => (
 )
 
 const meta = {
-  title: "Components/Modals/Input Edit Modal",
+  title: 'Components/Modals/Input Edit Modal',
   component: InputEditModal,
   args: {
     isOpen: false,
-    title: "Your input is valuable",
+    title: 'Your input is valuable',
     children: <ExampleForm />,
-    submitLabel: "Submit label",
+    submitLabel: 'Submit label',
     onSubmit: fn(),
     onDismiss: fn(),
   },
@@ -84,7 +84,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -104,8 +104,8 @@ export const Unpadded: Story = {
 export const OnAfterEnter: Story = {
   ...chromaticModalSettings,
   args: {
-    title: "Create new link",
-    submitLabel: "Add link",
+    title: 'Create new link',
+    submitLabel: 'Add link',
   },
   render: args => {
     const [isOpen, setIsOpen] = useState(IS_CHROMATIC)

@@ -1,9 +1,9 @@
-import React from "react"
-import { render, screen } from "@testing-library/react"
-import { Slider } from "./index"
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import { Slider } from './index'
 
-describe("<Slider />", () => {
-  it("renders the label", async () => {
+describe('<Slider />', () => {
+  it('renders the label', async () => {
     render(
       <Slider
         labelText="Work overall"
@@ -17,7 +17,7 @@ describe("<Slider />", () => {
     expect(label).toBeInTheDocument()
   })
 
-  it("renders the description when provided", async () => {
+  it('renders the description when provided', async () => {
     render(
       <Slider
         labelText="Work overall"
@@ -32,7 +32,7 @@ describe("<Slider />", () => {
     expect(description).toBeInTheDocument()
   })
 
-  it("renders read only message when provided", async () => {
+  it('renders read only message when provided', async () => {
     render(
       <Slider
         labelText="Work overall"

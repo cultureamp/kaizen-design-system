@@ -1,17 +1,17 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   Collapsible,
   CollapsibleProps,
-} from "~components/Collapsible/Collapsible"
+} from '~components/Collapsible/Collapsible'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { CollapsibleGroup, CollapsibleGroupProps } from "../index"
+} from '~storybook/components/StickerSheet'
+import { CollapsibleGroup, CollapsibleGroupProps } from '../index'
 
 export default {
-  title: "Components/Collapsibles/CollapsibleGroup",
+  title: 'Components/Collapsibles/CollapsibleGroup',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -19,7 +19,7 @@ export default {
 } satisfies Meta
 
 const CollapsibleWrapped = (
-  args: Omit<CollapsibleProps, "children" | "title">,
+  args: Omit<CollapsibleProps, 'children' | 'title'>,
 ): JSX.Element => (
   <Collapsible title="Title" open {...args}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac
@@ -33,7 +33,7 @@ const CollapsibleWrapped = (
 )
 
 const CollapsibleGroupWrapped = (
-  args: Omit<CollapsibleGroupProps, "children">,
+  args: Omit<CollapsibleGroupProps, 'children'>,
 ): JSX.Element => (
   <CollapsibleGroup {...args}>
     <CollapsibleWrapped key="collapsible-1" />
@@ -72,11 +72,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

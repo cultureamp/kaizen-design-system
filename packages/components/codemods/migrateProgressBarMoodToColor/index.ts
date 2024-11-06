@@ -1,10 +1,10 @@
-import { transformComponentsInDir } from "../utils"
-import { transformProgressBarMoodToColor } from "./transformProgressBarMoodToColor"
+import { transformComponentsInDir } from '../utils'
+import { transformProgressBarMoodToColor } from './transformProgressBarMoodToColor'
 
 const migrateProgressBarMoodToColor = (): void => {
   // eslint-disable-next-line no-console
   console.log(
-    " ~(-_- ~) Running ProgressBar mood to color transformer (~ -_-)~",
+    ' ~(-_- ~) Running ProgressBar mood to color transformer (~ -_-)~',
   )
   const targetDir = process.argv[2]
   if (!targetDir) {
@@ -14,7 +14,7 @@ const migrateProgressBarMoodToColor = (): void => {
   transformComponentsInDir(
     targetDir,
     transformProgressBarMoodToColor,
-    "ProgressBar",
+    'ProgressBar',
   )
 }
 

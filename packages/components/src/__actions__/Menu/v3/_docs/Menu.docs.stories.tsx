@@ -1,13 +1,13 @@
-import React, { FunctionComponent, ReactNode } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import isChromatic from "chromatic"
-import { Popover } from "react-aria-components"
-import { Button } from "~components/__actions__/v3"
-import { Icon } from "~components/__future__/Icon"
-import { Menu, MenuItem, MenuTrigger } from "../index"
+import React, { FunctionComponent, ReactNode } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import isChromatic from 'chromatic'
+import { Popover } from 'react-aria-components'
+import { Button } from '~components/__actions__/v3'
+import { Icon } from '~components/__future__/Icon'
+import { Menu, MenuItem, MenuTrigger } from '../index'
 
 const meta = {
-  title: "Actions/Menu/v3/Docs Assets",
+  title: 'Actions/Menu/v3/Docs Assets',
   component: MenuTrigger,
   args: {
     defaultOpen: isChromatic(),

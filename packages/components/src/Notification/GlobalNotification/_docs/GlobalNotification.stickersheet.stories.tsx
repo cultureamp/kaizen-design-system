@@ -1,16 +1,16 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
+} from '~storybook/components/StickerSheet'
 import {
   GlobalNotificationProps,
   GlobalNotification,
-} from "../GlobalNotification"
+} from '../GlobalNotification'
 
 export default {
-  title: "Components/Notifications/GlobalNotification",
+  title: 'Components/Notifications/GlobalNotification',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -23,51 +23,51 @@ export default {
 
 const variants = [
   {
-    title: "Informative",
-    props: { variant: "informative" },
+    title: 'Informative',
+    props: { variant: 'informative' },
   },
   {
-    title: "Success",
-    props: { variant: "success" },
+    title: 'Success',
+    props: { variant: 'success' },
   },
   {
-    title: "Cautionary",
-    props: { variant: "cautionary" },
+    title: 'Cautionary',
+    props: { variant: 'cautionary' },
   },
   {
-    title: "Warning",
-    props: { variant: "warning" },
+    title: 'Warning',
+    props: { variant: 'warning' },
   },
   {
-    title: "Security",
-    props: { variant: "security" },
+    title: 'Security',
+    props: { variant: 'security' },
   },
   {
-    title: "Persistent",
-    props: { variant: "informative", persistent: true },
+    title: 'Persistent',
+    props: { variant: 'informative', persistent: true },
   },
 ] satisfies Array<{ title: string; props: Partial<GlobalNotificationProps> }>
 
 const types = [
   {
-    title: "Informative",
-    props: { type: "informative" },
+    title: 'Informative',
+    props: { type: 'informative' },
   },
   {
-    title: "Success",
-    props: { type: "positive" },
+    title: 'Success',
+    props: { type: 'positive' },
   },
   {
-    title: "Cautionary",
-    props: { type: "cautionary" },
+    title: 'Cautionary',
+    props: { type: 'cautionary' },
   },
   {
-    title: "Negative",
-    props: { type: "negative" },
+    title: 'Negative',
+    props: { type: 'negative' },
   },
   {
-    title: "Security",
-    props: { type: "security" },
+    title: 'Security',
+    props: { type: 'security' },
   },
 ] satisfies Array<{ title: string; props: Partial<GlobalNotificationProps> }>
 
@@ -77,7 +77,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       persistent: false,
       children: (
         <span>
-          {"This survey status has been changed to 'Archived'. "}
+          {'This survey status has been changed to \'Archived\'. '}
           <a href="/">View all</a>
         </span>
       ),
@@ -110,11 +110,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

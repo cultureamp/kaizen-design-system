@@ -1,11 +1,11 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { DirectionalLink } from "./subcomponents/DirectionalLink"
-import { PaginationLink } from "./subcomponents/PaginationLink"
-import { TruncateIndicator } from "./subcomponents/TruncateIndicator"
-import { createRange } from "./utils/createRange"
-import styles from "./Pagination.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { DirectionalLink } from './subcomponents/DirectionalLink'
+import { PaginationLink } from './subcomponents/PaginationLink'
+import { TruncateIndicator } from './subcomponents/TruncateIndicator'
+import { createRange } from './utils/createRange'
+import styles from './Pagination.module.scss'
 
 export type PaginationProps = {
   currentPage: number
@@ -16,7 +16,7 @@ export type PaginationProps = {
   onPageChange: (newPage: number) => void
 } & OverrideClassName<HTMLAttributes<HTMLElement>>
 
-type PageAction = "prev" | "next"
+type PageAction = 'prev' | 'next'
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082092975/Pagination Guidance} |
@@ -34,11 +34,11 @@ export const Pagination = ({
 }: PaginationProps): JSX.Element => {
   // Click event for all pagination buttons (next, prev, and the actual numbers)
   const handleButtonClick = (newPage: number | PageAction): void => {
-    if (newPage === "prev") {
+    if (newPage === 'prev') {
       onPageChange(currentPage - 1)
       return
     }
-    if (newPage === "next") {
+    if (newPage === 'next') {
       onPageChange(currentPage + 1)
       return
     }
@@ -147,7 +147,7 @@ export const Pagination = ({
         label={ariaLabelPreviousPage}
         direction="prev"
         disabled={previousPageDisabled}
-        onClick={(): void => handleButtonClick("prev")}
+        onClick={(): void => handleButtonClick('prev')}
       />
 
       <div className={styles.pagesIndicatorWrapper}>{pagination()}</div>
@@ -156,7 +156,7 @@ export const Pagination = ({
         label={ariaLabelNextPage}
         direction="next"
         disabled={nextPageDisabled}
-        onClick={(): void => handleButtonClick("next")}
+        onClick={(): void => handleButtonClick('next')}
       />
     </nav>
   )

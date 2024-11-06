@@ -1,14 +1,14 @@
-import React from "react"
-import { render, screen } from "@testing-library/react"
-import { HeadingProps } from "~components/Heading"
-import { InlineNotification } from "./InlineNotification"
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import { HeadingProps } from '~components/Heading'
+import { InlineNotification } from './InlineNotification'
 
-describe("<InlineNotification />", () => {
-  it("renders a notification with a custom heading level", () => {
+describe('<InlineNotification />', () => {
+  it('renders a notification with a custom heading level', () => {
     const customHeadingProps: HeadingProps = {
-      variant: "heading-6",
-      tag: "h2",
-      children: "Custom",
+      variant: 'heading-6',
+      tag: 'h2',
+      children: 'Custom',
     }
     render(
       <InlineNotification
@@ -20,6 +20,6 @@ describe("<InlineNotification />", () => {
       </InlineNotification>,
     )
 
-    expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument()
   })
 })

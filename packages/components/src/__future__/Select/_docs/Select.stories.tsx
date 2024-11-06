@@ -1,32 +1,32 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { ContextModal } from "~components/Modal"
-import { RadioField, RadioGroup } from "~components/Radio"
-import { Select } from "../Select"
-import { SelectOption } from "../types"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { ContextModal } from '~components/Modal'
+import { RadioField, RadioGroup } from '~components/Radio'
+import { Select } from '../Select'
+import { SelectOption } from '../types'
 import {
   groupedMockItems,
   mixedMockItemsDisabled,
   singleMockItems,
-} from "./mockData"
+} from './mockData'
 
 const meta = {
-  title: "Components/Select/Future",
+  title: 'Components/Select/Future',
   component: Select,
   argTypes: {
     items: {
-      options: ["Single", "Grouped"],
-      control: { type: "radio" },
+      options: ['Single', 'Grouped'],
+      control: { type: 'radio' },
       mapping: {
         Single: singleMockItems,
         Grouped: groupedMockItems,
       },
     },
-    description: { type: "string" },
-    validationMessage: { type: "string" },
+    description: { type: 'string' },
+    validationMessage: { type: 'string' },
   },
   args: {
-    label: "Label",
+    label: 'Label',
     items: singleMockItems,
     onFocus: undefined,
     onFocusChange: undefined,
@@ -35,7 +35,7 @@ const meta = {
   },
   parameters: {
     actions: {
-      argTypesRegex: "^on.*",
+      argTypesRegex: '^on.*',
     },
   },
 } satisfies Meta<typeof Select>
@@ -48,7 +48,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -74,10 +74,10 @@ export const DisabledItems: Story = {
 
 export const SectionDivider: Story = {
   args: {
-    items: [{ label: "Customise...", value: "custom" }, ...singleMockItems],
+    items: [{ label: 'Customise...', value: 'custom' }, ...singleMockItems],
     children: ({ items }): JSX.Element[] =>
       items.map(item => {
-        if (item.type === "item" && item.key === "custom") {
+        if (item.type === 'item' && item.key === 'custom') {
           return (
             <React.Fragment key={item.key}>
               <Select.Option item={item} />
@@ -89,7 +89,7 @@ export const SectionDivider: Story = {
         return <Select.ItemDefaultRender key={item.key} item={item} />
       }),
   },
-  parameters: { docs: { source: { type: "code" } } },
+  parameters: { docs: { source: { type: 'code' } } },
 }
 
 export const AdditionalProperties: Story = {
@@ -98,16 +98,16 @@ export const AdditionalProperties: Story = {
       {...args}
       label="Custom"
       items={[
-        { label: "Bubblegum", value: "bubblegum", isFruit: false },
-        { label: "Strawberry", value: "strawberry", isFruit: true },
-        { label: "Chocolate", value: "chocolate", isFruit: false },
-        { label: "Apple", value: "apple", isFruit: true },
-        { label: "Lemon", value: "lemon", isFruit: true },
+        { label: 'Bubblegum', value: 'bubblegum', isFruit: false },
+        { label: 'Strawberry', value: 'strawberry', isFruit: true },
+        { label: 'Chocolate', value: 'chocolate', isFruit: false },
+        { label: 'Apple', value: 'apple', isFruit: true },
+        { label: 'Lemon', value: 'lemon', isFruit: true },
       ]}
     >
       {({ items }): JSX.Element[] =>
         items.map(item =>
-          item.type === "item" ? (
+          item.type === 'item' ? (
             <Select.Option
               key={item.key}
               item={{
@@ -124,7 +124,7 @@ export const AdditionalProperties: Story = {
       }
     </Select>
   ),
-  parameters: { docs: { source: { type: "code" } } },
+  parameters: { docs: { source: { type: 'code' } } },
 }
 
 const sourceCodeCustomiseTrigger = `
@@ -170,7 +170,7 @@ export const FullWidth: Story = {
 
 export const PortalContainer: Story = {
   render: args => {
-    const portalContainerId = "id--portal-container"
+    const portalContainerId = 'id--portal-container'
 
     const [isOpen, setIsOpen] = React.useState(false)
 
@@ -209,13 +209,13 @@ export const PortalContainer: Story = {
       </>
     )
   },
-  parameters: { docs: { source: { type: "code" } } },
+  parameters: { docs: { source: { type: 'code' } } },
 }
 
 export const TouchDeviceTest: Story = {
-  name: "Touch Device Pointer Event (Manual Test)",
+  name: 'Touch Device Pointer Event (Manual Test)',
   render: args => {
-    const [selected, setSelected] = React.useState("radio-1")
+    const [selected, setSelected] = React.useState('radio-1')
     return (
       <div>
         <p>
@@ -231,22 +231,22 @@ export const TouchDeviceTest: Story = {
             labelText="Label 1"
             name="radio-group"
             value="radio-value-1"
-            onChange={() => setSelected("radio-1")}
-            selectedStatus={selected === "radio-1"}
+            onChange={() => setSelected('radio-1')}
+            selectedStatus={selected === 'radio-1'}
           />
           <RadioField
             labelText="Label 2"
             name="radio-group"
             value="radio-value-2"
-            onChange={() => setSelected("radio-2")}
-            selectedStatus={selected === "radio-2"}
+            onChange={() => setSelected('radio-2')}
+            selectedStatus={selected === 'radio-2'}
           />
           <RadioField
             labelText="Label 3"
             name="radio-group"
             value="radio-value-3"
-            onChange={() => setSelected("radio-3")}
-            selectedStatus={selected === "radio-3"}
+            onChange={() => setSelected('radio-3')}
+            selectedStatus={selected === 'radio-3'}
           />
         </RadioGroup>
       </div>

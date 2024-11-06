@@ -1,12 +1,12 @@
-import React, { HTMLAttributes, useState } from "react"
-import classnames from "classnames"
-import { AllowedHeadingTags, Heading } from "~components/Heading"
-import { Text } from "~components/Text"
-import { GenericButtonProps } from "~components/__actions__/Button/v1/GenericButton"
-import { IconButton, Button } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./GenericTile.module.scss"
+import React, { HTMLAttributes, useState } from 'react'
+import classnames from 'classnames'
+import { AllowedHeadingTags, Heading } from '~components/Heading'
+import { Text } from '~components/Text'
+import { GenericButtonProps } from '~components/__actions__/Button/v1/GenericButton'
+import { IconButton, Button } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './GenericTile.module.scss'
 
 export type TileAction = GenericButtonProps
 
@@ -24,30 +24,30 @@ export type GenericTileProps = {
   information?: TileInformation | React.ReactNode
   /** @deprecated Use `variant` instead */
   mood?:
-    | "positive"
-    | "informative"
-    | "cautionary"
-    | "assertive"
-    | "negative"
-    | "prominent"
+    | 'positive'
+    | 'informative'
+    | 'cautionary'
+    | 'assertive'
+    | 'negative'
+    | 'prominent'
   /**
    * If you are transitioning from `mood`:
    * - `prominent` should be `expert-advice`
    * - all else should be `default`
    * @default default
    */
-  variant?: "default" | "expert-advice"
+  variant?: 'default' | 'expert-advice'
   footer: React.ReactNode
-} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "title">>
+} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'title'>>
 
 export const GenericTile = ({
   children,
   title,
-  titleTag = "h3",
+  titleTag = 'h3',
   metadata,
   information,
   mood,
-  variant = "default",
+  variant = 'default',
   footer,
   classNameOverride,
   ...restProps
@@ -95,12 +95,12 @@ export const GenericTile = ({
   )
 
   const renderInformation = (
-    informationProp: GenericTileProps["information"] | undefined,
+    informationProp: GenericTileProps['information'] | undefined,
   ): JSX.Element | React.ReactNode => {
     if (
       informationProp &&
-      typeof informationProp === "object" &&
-      "text" in informationProp
+      typeof informationProp === 'object' &&
+      'text' in informationProp
     ) {
       return (
         <>
@@ -165,4 +165,4 @@ export const GenericTile = ({
   )
 }
 
-GenericTile.displayName = "GenericTile"
+GenericTile.displayName = 'GenericTile'

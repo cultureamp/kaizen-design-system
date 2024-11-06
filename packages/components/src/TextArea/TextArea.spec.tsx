@@ -1,30 +1,30 @@
-import React from "react"
-import { render, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
-import { TextArea } from "./TextArea"
+import React from 'react'
+import { render, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
+import { TextArea } from './TextArea'
 const user = userEvent.setup()
 
-describe("<TextArea />", () => {
-  it("renders a value when component is controlled", () => {
+describe('<TextArea />', () => {
+  it('renders a value when component is controlled', () => {
     const { queryByText } = render(
       <TextArea value="Some field value" onChange={() => undefined} />,
     )
-    expect(queryByText("Some field value")).toBeTruthy()
+    expect(queryByText('Some field value')).toBeTruthy()
   })
 
-  it("renders a default value when component is uncontrolled", () => {
+  it('renders a default value when component is uncontrolled', () => {
     const { queryByText } = render(<TextArea defaultValue="default value" />)
 
-    expect(queryByText("Some field value")).toBeFalsy()
-    expect(queryByText("default value")).toBeTruthy()
+    expect(queryByText('Some field value')).toBeFalsy()
+    expect(queryByText('default value')).toBeTruthy()
   })
 
-  it("calls the `onChange` event when the value is updated", async () => {
+  it('calls the `onChange` event when the value is updated', async () => {
     const mockFn = vi.fn()
     const { getByRole } = render(<TextArea onChange={mockFn} />)
 
-    await user.type(getByRole("textbox"), "Hello")
+    await user.type(getByRole('textbox'), 'Hello')
 
     await waitFor(() => {
       expect(mockFn).toBeCalledTimes(5)

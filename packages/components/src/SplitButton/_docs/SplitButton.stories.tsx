@@ -1,20 +1,20 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from '@storybook/react'
 import {
   exampleActionButtonPropsAnchor,
   exampleActionButtonPropsButton,
   exampleDropdownContentEnabled,
   exampleDropdownContentOneDisabled,
-} from "~components/__actions__/Menu/v1/_docs/examples"
-import { SplitButton } from "../index"
+} from '~components/__actions__/Menu/v1/_docs/examples'
+import { SplitButton } from '../index'
 
 const meta = {
-  title: "Components/Buttons/SplitButton",
+  title: 'Components/Buttons/SplitButton',
   component: SplitButton,
   argTypes: {
     actionButtonProps: {
-      options: ["Button", "Anchor"],
+      options: ['Button', 'Anchor'],
       control: {
-        type: "select",
+        type: 'select',
         labels: {
           Button: '{ label: "Edit Survey", onClick: action("clicked") }',
           Anchor: '{ label: "Edit Survey", href: "//example.com" }',
@@ -27,13 +27,13 @@ const meta = {
     },
     dropdownContent: {
       options: [
-        "MenuList - MenuItems enabled",
-        "MenuList - one MenuItem disabled",
+        'MenuList - MenuItems enabled',
+        'MenuList - one MenuItem disabled',
       ],
-      control: { type: "select" },
+      control: { type: 'select' },
       mapping: {
-        "MenuList - MenuItems enabled": exampleDropdownContentEnabled,
-        "MenuList - one MenuItem disabled": exampleDropdownContentOneDisabled,
+        'MenuList - MenuItems enabled': exampleDropdownContentEnabled,
+        'MenuList - one MenuItem disabled': exampleDropdownContentOneDisabled,
       },
     },
   },
@@ -51,14 +51,14 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
 }
 
 export const Reversed: Story = {
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: { backgrounds: { default: 'Purple 700' } },
   args: { isReversed: true },
 }
 
@@ -67,5 +67,5 @@ export const Disabled: Story = {
 }
 
 export const DisabledMenuItem: Story = {
-  args: { dropdownContent: "MenuList - one MenuItem disabled" },
+  args: { dropdownContent: 'MenuList - one MenuItem disabled' },
 }

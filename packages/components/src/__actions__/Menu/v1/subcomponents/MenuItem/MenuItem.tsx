@@ -1,6 +1,6 @@
-import React from "react"
-import classnames from "classnames"
-import styles from "./MenuItem.module.scss"
+import React from 'react'
+import classnames from 'classnames'
+import styles from './MenuItem.module.scss'
 
 export type MenuItemProps = {
   label: string
@@ -21,7 +21,7 @@ export type MenuItemProps = {
    * because they are supposed to be a bunch of links/actions.
    */
   isActive?: boolean
-  "data-testid"?: string
+  'data-testid'?: string
   id?: string
 }
 
@@ -34,7 +34,7 @@ export const MenuItem = ({
   href,
   target,
   isActive,
-  "data-testid": dataTestId,
+  'data-testid': dataTestId,
   id,
 }: MenuItemProps): JSX.Element => {
   const wrappedLabel = <span className={styles.menuItem__Label}>{label}</span>
@@ -42,9 +42,9 @@ export const MenuItem = ({
 
   const className = classnames(
     styles.menuItem,
-    destructive && styles["menuItem--destructive"],
-    disabled && styles["menuItem--disabled"],
-    isActive && styles["menuItem--active"],
+    destructive && styles['menuItem--destructive'],
+    disabled && styles['menuItem--disabled'],
+    isActive && styles['menuItem--active'],
   )
 
   if (disabled) {
@@ -75,7 +75,7 @@ export const MenuItem = ({
           target={target}
           // this tells screenreaders that this link represents the current page
           // (only intended for use in things like a nav with dropdowns)
-          aria-current={isActive ? "page" : undefined}
+          aria-current={isActive ? 'page' : undefined}
           data-testid={dataTestId}
         >
           {iconNode}
@@ -101,4 +101,4 @@ export const MenuItem = ({
   )
 }
 
-MenuItem.displayName = "MenuItem"
+MenuItem.displayName = 'MenuItem'

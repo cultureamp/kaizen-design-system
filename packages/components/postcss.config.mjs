@@ -1,6 +1,6 @@
 export default {
   plugins: {
-    "postcss-import": {},
+    'postcss-import': {},
     cssnano: {},
   },
 }

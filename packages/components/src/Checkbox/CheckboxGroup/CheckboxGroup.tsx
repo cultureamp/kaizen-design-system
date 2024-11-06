@@ -1,8 +1,8 @@
-import React, { HTMLAttributes, useId } from "react"
-import classnames from "classnames"
-import { Label } from "~components/Label"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./CheckboxGroup.module.scss"
+import React, { HTMLAttributes, useId } from 'react'
+import classnames from 'classnames'
+import { Label } from '~components/Label'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './CheckboxGroup.module.scss'
 
 export type CheckboxGroupProps = {
   children?: React.ReactNode
@@ -53,4 +53,4 @@ export const CheckboxGroup = ({
   )
 }
 
-CheckboxGroup.displayName = "CheckboxGroup"
+CheckboxGroup.displayName = 'CheckboxGroup'

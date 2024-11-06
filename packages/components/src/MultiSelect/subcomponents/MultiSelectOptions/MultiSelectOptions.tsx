@@ -1,18 +1,18 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { Text } from "~components/Text"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { MultiSelectOption } from "../../types"
-import { MultiSelectOptionField } from "../MultiSelectOptionField"
-import styles from "./MultiSelectOptions.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Text } from '~components/Text'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { MultiSelectOption } from '../../types'
+import { MultiSelectOptionField } from '../MultiSelectOptionField'
+import styles from './MultiSelectOptions.module.scss'
 
 export type MultiSelectOptionsProps = {
   id: string
   options: MultiSelectOption[]
-  selectedValues: Set<MultiSelectOption["value"]>
-  onChange: (selectedValues: Set<MultiSelectOption["value"]>) => void
-} & OverrideClassName<Omit<HTMLAttributes<HTMLFieldSetElement>, "onChange">>
+  selectedValues: Set<MultiSelectOption['value']>
+  onChange: (selectedValues: Set<MultiSelectOption['value']>) => void
+} & OverrideClassName<Omit<HTMLAttributes<HTMLFieldSetElement>, 'onChange'>>
 
 export const MultiSelectOptions = ({
   id,
@@ -25,7 +25,7 @@ export const MultiSelectOptions = ({
   const optionsCountId = `${id}--options-count`
 
   const handleOptionChange = (
-    optionValue: MultiSelectOption["value"],
+    optionValue: MultiSelectOption['value'],
   ): void => {
     const newValues = new Set(selectedValues.values())
     if (newValues.has(optionValue)) {
@@ -57,7 +57,7 @@ export const MultiSelectOptions = ({
             id={`${id}--${option.value}`}
             onChange={() => handleOptionChange(option.value)}
             checkedStatus={
-              selectedValues.has(option.value) ? "checked" : "unchecked"
+              selectedValues.has(option.value) ? 'checked' : 'unchecked'
             }
             option={option}
           />
@@ -67,4 +67,4 @@ export const MultiSelectOptions = ({
   )
 }
 
-MultiSelectOptions.displayName = "MultiSelectOptions"
+MultiSelectOptions.displayName = 'MultiSelectOptions'

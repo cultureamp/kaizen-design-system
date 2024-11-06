@@ -1,20 +1,20 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
-import isChromatic from "chromatic"
-import { Text } from "~components/Text"
-import { chromaticModalSettings } from "../../_docs/controls"
-import { ConfirmationModal } from "../index"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import isChromatic from 'chromatic'
+import { Text } from '~components/Text'
+import { chromaticModalSettings } from '../../_docs/controls'
+import { ConfirmationModal } from '../index'
 
 const IS_CHROMATIC = isChromatic()
 
 const meta = {
-  title: "Components/Modals/Confirmation Modal",
+  title: 'Components/Modals/Confirmation Modal',
   component: ConfirmationModal,
   args: {
     isOpen: false,
-    title: "Confirmation modal title",
-    variant: "success",
+    title: 'Confirmation modal title',
+    variant: 'success',
     children: (
       <Text variant="body">
         Confirmation modals contain smaller pieces of content and can provide
@@ -75,7 +75,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -88,7 +88,7 @@ export const Prominent: Story = {
 
 export const Cautionary: Story = {
   ...ConfirmationModalTemplate,
-  args: { variant: "cautionary" },
+  args: { variant: 'cautionary' },
 }
 
 export const Unpadded: Story = {

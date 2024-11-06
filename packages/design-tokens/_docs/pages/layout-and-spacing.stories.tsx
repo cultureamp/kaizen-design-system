@@ -1,10 +1,10 @@
-import React from "react"
-import { Meta, StoryFn, StoryObj } from "@storybook/react"
-import { Button } from "~components/__actions__/v2"
-import { tokens } from "~design-tokens/js"
+import React from 'react'
+import { Meta, StoryFn, StoryObj } from '@storybook/react'
+import { Button } from '~components/__actions__/v2'
+import { tokens } from '~design-tokens/js'
 
 const meta = {
-  title: "Guides/Layout and spacing",
+  title: 'Guides/Layout and spacing',
 } satisfies Meta
 
 export default meta
@@ -65,7 +65,7 @@ export const MarginExample: Story = {
     docs: {
       source: { code: marginExampleSource },
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

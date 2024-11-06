@@ -1,24 +1,24 @@
-import { heartTheme } from "@kaizen/design-tokens"
+import { heartTheme } from '@kaizen/design-tokens'
 
 const tokenDenyList: string[] = [
-  "xs",
-  "sm",
-  "md",
-  "lg",
-  "xl",
-  "xxl",
-  "xxxl",
-  "xxxxl",
-  "xxxxxl",
-  "xs-id",
-  "sm-id",
-  "md-id",
-  "lg-id",
-  "xl-id",
-  "xxl-id",
-  "xxxl-id",
-  "xxxxl-id",
-  "xxxxxl-id",
+  'xs',
+  'sm',
+  'md',
+  'lg',
+  'xl',
+  'xxl',
+  'xxxl',
+  'xxxxl',
+  'xxxxxl',
+  'xs-id',
+  'sm-id',
+  'md-id',
+  'lg-id',
+  'xl-id',
+  'xxl-id',
+  'xxxl-id',
+  'xxxxl-id',
+  'xxxxxl-id',
 ]
 
 /**

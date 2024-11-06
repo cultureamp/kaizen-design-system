@@ -1,12 +1,12 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { GenericModal } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { GenericModal } from '../index'
 
 const meta = {
-  title: "Components/Modals/Generic Modal",
+  title: 'Components/Modals/Generic Modal',
   component: GenericModal,
   args: {
-    children: "Example content",
+    children: 'Example content',
     isOpen: false,
   },
 } satisfies Meta<typeof GenericModal>
@@ -41,7 +41,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

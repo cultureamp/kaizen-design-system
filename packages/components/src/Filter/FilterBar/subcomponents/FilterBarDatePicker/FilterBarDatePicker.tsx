@@ -1,37 +1,37 @@
-import React from "react"
+import React from 'react'
 import {
   FilterDatePicker,
   FilterDatePickerProps,
-} from "~components/Filter/FilterDatePicker"
-import { useFilterBarContext } from "../../context/FilterBarContext"
-import { FilterBarButton } from "../FilterBarButton"
+} from '~components/Filter/FilterDatePicker'
+import { useFilterBarContext } from '../../context/FilterBarContext'
+import { FilterBarButton } from '../FilterBarButton'
 
 export type FilterBarDatePickerProps = Omit<
   FilterDatePickerProps,
-  | "id"
-  | "label"
-  | "renderTrigger"
-  | "isOpen"
-  | "setIsOpen"
-  | "selectedDate"
-  | "onDateChange"
-  | "locale"
+  | 'id'
+  | 'label'
+  | 'renderTrigger'
+  | 'isOpen'
+  | 'setIsOpen'
+  | 'selectedDate'
+  | 'onDateChange'
+  | 'locale'
 > & {
   id?: string
-  locale?: FilterDatePickerProps["locale"]
-  onDateChange?: FilterDatePickerProps["onDateChange"]
+  locale?: FilterDatePickerProps['locale']
+  onDateChange?: FilterDatePickerProps['onDateChange']
 }
 
 export const FilterBarDatePicker = ({
   id,
   onDateChange,
-  locale = "en-AU",
+  locale = 'en-AU',
   ...props
 }: FilterBarDatePickerProps): JSX.Element => {
   const { getFilterState, setFilterOpenState, updateValue } =
     useFilterBarContext<Date | undefined>()
 
-  if (!id) throw Error("Missing `id` prop in FilterBarDatePicker")
+  if (!id) throw Error('Missing `id` prop in FilterBarDatePicker')
 
   const filterState = getFilterState(id)
 
@@ -59,4 +59,4 @@ export const FilterBarDatePicker = ({
   )
 }
 
-FilterBarDatePicker.displayName = "FilterBar.DatePicker"
+FilterBarDatePicker.displayName = 'FilterBar.DatePicker'

@@ -1,12 +1,12 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { LoadingSpinner } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { LoadingSpinner } from '../index'
 
 const meta = {
-  title: "Components/Loading states/LoadingSpinner",
+  title: 'Components/Loading states/LoadingSpinner',
   component: LoadingSpinner,
   args: {
-    accessibilityLabel: "Loading",
+    accessibilityLabel: 'Loading',
   },
 } satisfies Meta<typeof LoadingSpinner>
 
@@ -18,14 +18,14 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
 }
 
 export const ClassNameOverride: Story = {
-  args: { classNameOverride: "text-green-400" },
+  args: { classNameOverride: 'text-green-400' },
 }
 
 export const Colors: Story = {

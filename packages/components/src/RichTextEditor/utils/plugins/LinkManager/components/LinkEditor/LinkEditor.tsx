@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import { SelectionPosition } from "../../types"
-import { LinkModal } from "../LinkModal"
-import { LinkPopover } from "../LinkPopover"
+import React, { useState } from 'react'
+import { SelectionPosition } from '../../types'
+import { LinkModal } from '../LinkModal'
+import { LinkPopover } from '../LinkPopover'
 
 export type LinkEditorAttrs = {
   href: string | null
@@ -72,4 +72,4 @@ export const LinkEditor = ({
   )
 }
 
-LinkEditor.displayName = "LinkEditor"
+LinkEditor.displayName = 'LinkEditor'

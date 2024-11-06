@@ -1,12 +1,12 @@
-import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
-import { ToggleSwitch, ToggleSwitchProps } from "./ToggleSwitch"
+import React from 'react'
+import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
+import { ToggleSwitch, ToggleSwitchProps } from './ToggleSwitch'
 const user = userEvent.setup()
 
 const defaultToggleSwitchProps = {
-  id: "someToggleSwitchId",
+  id: 'someToggleSwitchId',
   onToggle: vi.fn(),
 }
 
@@ -18,18 +18,18 @@ const renderToggleSwitch = (
   return render(<ToggleSwitch {...mergedToggleSwitchProps} />)
 }
 
-describe("<ToggleSwitch />", () => {
-  it("calls onToggle when toggle is changed", async () => {
+describe('<ToggleSwitch />', () => {
+  it('calls onToggle when toggle is changed', async () => {
     renderToggleSwitch()
 
-    await user.click(screen.getByRole("checkbox"))
+    await user.click(screen.getByRole('checkbox'))
     await waitFor(() => {
       expect(defaultToggleSwitchProps.onToggle).toHaveBeenCalledTimes(1)
     })
   })
 
-  it("has disabled attribute when disabled prop passed in", async () => {
+  it('has disabled attribute when disabled prop passed in', async () => {
     const { container } = renderToggleSwitch({ disabled: true })
-    expect(container.querySelector("[disabled]")).toBeTruthy()
+    expect(container.querySelector('[disabled]')).toBeTruthy()
   })
 })

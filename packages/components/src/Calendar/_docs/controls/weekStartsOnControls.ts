@@ -1,19 +1,19 @@
-import { ArgTypes } from "@storybook/react"
-import { DayOfWeek } from "~components/Calendar"
+import { ArgTypes } from '@storybook/react'
+import { DayOfWeek } from '~components/Calendar'
 
 export const weekStartsOnControls: Partial<ArgTypes> = {
   weekStartsOn: {
-    options: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    options: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     control: {
-      type: "radio",
+      type: 'radio',
       labels: {
-        Sun: "DayOfWeek.Sun",
-        Mon: "DayOfWeek.Mon",
-        Tue: "DayOfWeek.Tue",
-        Wed: "DayOfWeek.Wed",
-        Thu: "DayOfWeek.Thu",
-        Fri: "DayOfWeek.Fri",
-        Sat: "DayOfWeek.Sat",
+        Sun: 'DayOfWeek.Sun',
+        Mon: 'DayOfWeek.Mon',
+        Tue: 'DayOfWeek.Tue',
+        Wed: 'DayOfWeek.Wed',
+        Thu: 'DayOfWeek.Thu',
+        Fri: 'DayOfWeek.Fri',
+        Sat: 'DayOfWeek.Sat',
       },
     },
     mapping: {

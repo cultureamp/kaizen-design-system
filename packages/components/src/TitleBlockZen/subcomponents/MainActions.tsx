@@ -1,16 +1,16 @@
-import React from "react"
-import { Menu, MenuList, Button, IconButton } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
-import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from "../constants"
+import React from 'react'
+import { Menu, MenuList, Button, IconButton } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
+import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from '../constants'
 import {
   DefaultActionProps,
   PrimaryActionProps,
   TitleBlockMenuItemProps,
-} from "../types"
-import { isMenuGroupNotButton } from "../utils"
-import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
-import { Toolbar } from "./Toolbar"
-import styles from "./MainActions.module.scss"
+} from '../types'
+import { isMenuGroupNotButton } from '../utils'
+import { TitleBlockMenuItem } from './TitleBlockMenuItem'
+import { Toolbar } from './Toolbar'
+import styles from './MainActions.module.scss'
 
 type MainActionsProps = {
   primaryAction?: PrimaryActionProps
@@ -42,7 +42,7 @@ export const MainActions = ({
       ...(defaultAction
         ? [
             {
-              key: "defaultAction",
+              key: 'defaultAction',
               node: (
                 <Button
                   {...{
@@ -62,7 +62,7 @@ export const MainActions = ({
       ...(primaryAction
         ? [
             {
-              key: "primaryAction",
+              key: 'primaryAction',
               node: (
                 <Menu
                   align="right"
@@ -81,7 +81,7 @@ export const MainActions = ({
                         primaryAction.badge
                           ? {
                               ...primaryAction.badge,
-                              variant: "dark",
+                              variant: 'dark',
                             }
                           : undefined
                       }
@@ -100,7 +100,7 @@ export const MainActions = ({
       ...(defaultAction
         ? [
             {
-              key: "defaultAction",
+              key: 'defaultAction',
               node: (
                 <Button
                   {...{
@@ -120,7 +120,7 @@ export const MainActions = ({
       ...(primaryAction
         ? [
             {
-              key: "primaryAction",
+              key: 'primaryAction',
               node: (
                 <Button
                   {...{
@@ -140,7 +140,7 @@ export const MainActions = ({
                     primaryAction.badge
                       ? {
                           ...primaryAction.badge,
-                          variant: "dark",
+                          variant: 'dark',
                         }
                       : undefined
                   }
@@ -155,7 +155,7 @@ export const MainActions = ({
   if (overflowMenuItems && showOverflowMenu && overflowMenuItems.length > 0) {
     items = [
       {
-        key: "overflowMenu",
+        key: 'overflowMenu',
         node: (
           <Menu
             align="right"
@@ -194,4 +194,4 @@ export const MainActions = ({
   )
 }
 
-MainActions.displayName = "MainActions"
+MainActions.displayName = 'MainActions'

@@ -1,4 +1,4 @@
-import { Filters, FiltersValues } from "../../types"
+import { Filters, FiltersValues } from '../../types'
 
 export function createFiltersHash<Values extends FiltersValues>(
   filters: Filters<Values>,

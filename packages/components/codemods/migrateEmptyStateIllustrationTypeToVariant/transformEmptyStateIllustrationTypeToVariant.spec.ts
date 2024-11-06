@@ -1,17 +1,17 @@
-import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst, TransformConfig } from "../utils"
-import { transformEmptyStateIllustrationTypeToVariant } from "./transformEmptyStateIllustrationTypeToVariant"
+import { parseJsx } from '../__tests__/utils'
+import { transformSource, printAst, TransformConfig } from '../utils'
+import { transformEmptyStateIllustrationTypeToVariant } from './transformEmptyStateIllustrationTypeToVariant'
 
 const transformEmptyState = (
-  sourceFile: TransformConfig["sourceFile"],
+  sourceFile: TransformConfig['sourceFile'],
 ): string =>
   transformSource({
     sourceFile,
     astTransformer: transformEmptyStateIllustrationTypeToVariant,
-    tagName: "EmptyState",
+    tagName: 'EmptyState',
   })
 
-describe("transformEmptyStateIllustrationTypeToVariant()", () => {
+describe('transformEmptyStateIllustrationTypeToVariant()', () => {
   it('replaces illustrationType="positive" with variant="success"', () => {
     const inputAst = parseJsx(
       'export const TestComponent = () => <EmptyState illustrationType="positive">Hello</EmptyState>',
@@ -62,12 +62,12 @@ describe("transformEmptyStateIllustrationTypeToVariant()", () => {
     expect(transformEmptyState(inputAst)).toEqual(printAst(outputAst))
   })
 
-  it("does not add variant if illustrationType was not defined", () => {
+  it('does not add variant if illustrationType was not defined', () => {
     const inputAst = parseJsx(
-      "export const TestComponent = () => <EmptyState>Hello</EmptyState>",
+      'export const TestComponent = () => <EmptyState>Hello</EmptyState>',
     )
     const outputAst = parseJsx(
-      "export const TestComponent = () => <EmptyState>Hello</EmptyState>",
+      'export const TestComponent = () => <EmptyState>Hello</EmptyState>',
     )
     expect(transformEmptyState(inputAst)).toEqual(printAst(outputAst))
   })

@@ -1,9 +1,9 @@
-import React, { HTMLAttributes } from "react"
-import { Canvas, Unstyled } from "@storybook/blocks"
-import classnames from "classnames"
-import { Text } from "~components/Text"
-import { Icon } from "~components/__future__/Icon"
-import styles from "./DosAndDonts.module.css"
+import React, { HTMLAttributes } from 'react'
+import { Canvas, Unstyled } from '@storybook/blocks'
+import classnames from 'classnames'
+import { Text } from '~components/Text'
+import { Icon } from '~components/__future__/Icon'
+import styles from './DosAndDonts.module.css'
 
 export const DosAndDonts = ({
   className,
@@ -15,25 +15,25 @@ export const DosAndDonts = ({
   </div>
 )
 
-DosAndDonts.displayName = "DosAndDonts"
+DosAndDonts.displayName = 'DosAndDonts'
 
 const DoOrDontTag = ({ isDont }: { isDont: boolean }): JSX.Element => (
   <Unstyled>
     <span
       className={classnames(
         styles.doOrDontTag,
-        isDont ? "bg-red-500" : "bg-green-500",
+        isDont ? 'bg-red-500' : 'bg-green-500',
       )}
     >
-      <Icon name={isDont ? "close" : "check"} isPresentational />
+      <Icon name={isDont ? 'close' : 'check'} isPresentational />
       <Text variant="body" color="white">
-        <strong>{isDont ? "Don't" : "Do"}</strong>
+        <strong>{isDont ? 'Don\'t' : 'Do'}</strong>
       </Text>
     </span>
   </Unstyled>
 )
 
-DoOrDontTag.displayName = "DoOrDontTag"
+DoOrDontTag.displayName = 'DoOrDontTag'
 
 export const DoOrDont = ({
   isDont = false,
@@ -44,7 +44,7 @@ export const DoOrDont = ({
   isDont?: boolean
   story: any
 } & HTMLAttributes<HTMLDivElement>): JSX.Element => (
-  <div className={classnames("relative", className)} {...otherProps}>
+  <div className={classnames('relative', className)} {...otherProps}>
     <DoOrDontTag isDont={isDont} />
     <Canvas
       sourceState="none"
@@ -54,4 +54,4 @@ export const DoOrDont = ({
   </div>
 )
 
-DoOrDont.displayName = "DoOrDont"
+DoOrDont.displayName = 'DoOrDont'

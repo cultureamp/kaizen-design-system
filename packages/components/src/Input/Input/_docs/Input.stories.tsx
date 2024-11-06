@@ -1,10 +1,10 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Icon } from "~components/__future__/Icon"
-import { Input } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Icon } from '~components/__future__/Icon'
+import { Input } from '../index'
 
 const meta = {
-  title: "Components/Inputs/Input",
+  title: 'Components/Inputs/Input',
   component: Input,
   parameters: {
     a11y: {
@@ -12,7 +12,7 @@ const meta = {
         rules: [
           {
             // Built with no label on purpose, to be used within `TextField` where label is present
-            id: "label",
+            id: 'label',
             enabled: false,
           },
         ],
@@ -29,7 +29,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -51,7 +51,7 @@ export const Types: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
 }
@@ -75,7 +75,7 @@ export const Status: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
 }
@@ -103,7 +103,7 @@ export const Icons: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
 }

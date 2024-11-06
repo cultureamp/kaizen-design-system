@@ -1,5 +1,5 @@
-import { EditorState, Transaction } from "prosemirror-state"
-import { CommandFactory } from "../core/types"
+import { EditorState, Transaction } from 'prosemirror-state'
+import { CommandFactory } from '../core/types'
 
 /** Wrap the users current selection in the given Mark type   */
 export const addMark: CommandFactory =

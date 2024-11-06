@@ -4,13 +4,13 @@ import React, {
   useId,
   useRef,
   useState,
-} from "react"
-import classnames from "classnames"
-import { FocusOn } from "react-focus-on"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { FilterPopover } from "./subcomponents/FilterPopover"
-import { FilterTriggerRef } from "./types"
-import styles from "./Filter.module.css"
+} from 'react'
+import classnames from 'classnames'
+import { FocusOn } from 'react-focus-on'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { FilterPopover } from './subcomponents/FilterPopover'
+import { FilterTriggerRef } from './types'
+import styles from './Filter.module.css'
 
 export type FilterProps = {
   children: React.ReactNode
@@ -83,4 +83,4 @@ export const Filter = ({
   )
 }
 
-Filter.displayName = "Filter"
+Filter.displayName = 'Filter'

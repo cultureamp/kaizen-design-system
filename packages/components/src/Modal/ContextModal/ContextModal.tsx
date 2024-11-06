@@ -1,15 +1,15 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { Heading } from "~components/Heading"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Heading } from '~components/Heading'
 import {
   GenericModal,
   ModalFooter,
   ModalHeader,
   ModalAccessibleLabel,
   ModalBody,
-} from "~components/Modal/GenericModal"
-import { ButtonProps } from "~components/__actions__/v2"
-import styles from "./ContextModal.module.scss"
+} from '~components/Modal/GenericModal'
+import { ButtonProps } from '~components/__actions__/v2'
+import styles from './ContextModal.module.scss'
 
 export type ContextModalSecondaryActionProps =
   | {
@@ -28,7 +28,7 @@ export type ContextModalProps = Readonly<
     /**
      * Defines the orientation layout of the image and content
      */
-    layout?: "portrait" | "landscape"
+    layout?: 'portrait' | 'landscape'
     title: string
     onConfirm?: () => void
     onDismiss: () => void
@@ -57,13 +57,13 @@ export type ContextModalProps = Readonly<
 export const ContextModal = ({
   isOpen,
   unpadded = false,
-  layout = "portrait",
+  layout = 'portrait',
   title,
   onConfirm,
   onDismiss: propsOnDismiss,
   onAfterLeave,
   onAfterEnter,
-  confirmLabel = "Confirm",
+  confirmLabel = 'Confirm',
   confirmWorking,
   renderBackground,
   children,
@@ -145,7 +145,7 @@ export const ContextModal = ({
           </div>
         </ModalBody>
         <ModalFooter
-          variant={image ? "context" : undefined}
+          variant={image ? 'context' : undefined}
           actions={footerActions}
           appearance="primary"
           unpadded={unpadded}
@@ -155,4 +155,4 @@ export const ContextModal = ({
   )
 }
 
-ContextModal.displayName = "ContextModal"
+ContextModal.displayName = 'ContextModal'

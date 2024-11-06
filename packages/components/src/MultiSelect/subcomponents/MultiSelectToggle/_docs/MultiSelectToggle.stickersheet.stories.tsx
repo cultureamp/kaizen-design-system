@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { MultiSelectToggle, MultiSelectToggleProps } from "../index"
+} from '~storybook/components/StickerSheet'
+import { MultiSelectToggle, MultiSelectToggleProps } from '../index'
 
 export default {
-  title: "Components/MultiSelect/MultiSelectToggle",
+  title: 'Components/MultiSelect/MultiSelectToggle',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -16,12 +16,12 @@ export default {
         rules: [
           {
             // Built with no controlled element on purpose, to be used within `MultiSelect` where popover is present
-            id: "aria-valid-attr-value",
+            id: 'aria-valid-attr-value',
             enabled: false,
           },
           {
             // Built with no label for the button on purpose, to be used within `MultiSelect` where label is present
-            id: "button-name",
+            id: 'button-name',
             enabled: false,
           },
         ],
@@ -34,8 +34,8 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
     const defaultProps = {
       selectedOptions: [],
-      "aria-labelledby": "id--label",
-      "aria-controls": "id--popover",
+      'aria-labelledby': 'id--label',
+      'aria-controls': 'id--popover',
       onClick: () => undefined,
       onRemoveOption: () => undefined,
       onRemoveAllOptions: () => undefined,
@@ -64,7 +64,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           className="w-full"
         >
           <StickerSheet.Header
-            headings={["Hover", "Focus"]}
+            headings={['Hover', 'Focus']}
             hasVerticalHeadings
             verticalHeadingsWidth="10rem"
           />
@@ -98,7 +98,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           className="w-full"
         >
           <StickerSheet.Header
-            headings={["Error", "Caution"]}
+            headings={['Error', 'Caution']}
             verticalHeadingsWidth="10rem"
           />
           <StickerSheet.Body>
@@ -115,7 +115,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           className="w-full"
         >
           <StickerSheet.Header
-            headings={["Default", "Hover", "Multi-line"]}
+            headings={['Default', 'Hover', 'Multi-line']}
             headingsWidth="30%"
           />
           <StickerSheet.Body>
@@ -124,8 +124,8 @@ const StickerSheetTemplate: StickerSheetStory = {
                 <MultiSelectToggle
                   {...defaultProps}
                   selectedOptions={[
-                    { value: "pancakes", label: "Pancakes" },
-                    { value: "waffles", label: "Waffles" },
+                    { value: 'pancakes', label: 'Pancakes' },
+                    { value: 'waffles', label: 'Waffles' },
                   ]}
                 />
               </StickerSheet.Cell>
@@ -133,8 +133,8 @@ const StickerSheetTemplate: StickerSheetStory = {
                 <MultiSelectToggle
                   {...defaultProps}
                   selectedOptions={[
-                    { value: "pancakes", label: "Pancakes" },
-                    { value: "waffles", label: "Waffles" },
+                    { value: 'pancakes', label: 'Pancakes' },
+                    { value: 'waffles', label: 'Waffles' },
                   ]}
                   data-sb-pseudo-styles="hover"
                 />
@@ -143,12 +143,12 @@ const StickerSheetTemplate: StickerSheetStory = {
                 <MultiSelectToggle
                   {...defaultProps}
                   selectedOptions={[
-                    { value: "pancakes", label: "Pancakes" },
-                    { value: "toastie", label: "Toastie" },
-                    { value: "jaffle", label: "Jaffle" },
-                    { value: "pikelets", label: "Pikelets" },
-                    { value: "crumpets", label: "Crumpets" },
-                    { value: "waffles", label: "Waffles" },
+                    { value: 'pancakes', label: 'Pancakes' },
+                    { value: 'toastie', label: 'Toastie' },
+                    { value: 'jaffle', label: 'Jaffle' },
+                    { value: 'pikelets', label: 'Pikelets' },
+                    { value: 'crumpets', label: 'Crumpets' },
+                    { value: 'waffles', label: 'Waffles' },
                   ]}
                 />
               </StickerSheet.Cell>
@@ -179,11 +179,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

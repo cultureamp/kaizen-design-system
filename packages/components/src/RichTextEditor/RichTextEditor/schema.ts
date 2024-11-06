@@ -1,8 +1,8 @@
-import type { MarkSpec } from "prosemirror-model"
-import { TOOLBAR_CONTROLS } from "../constants"
-import { ToolbarItems, ToolbarControlTypes } from "../types"
-import { ProseMirrorModel } from "../utils/prosemirror"
-import { getMarks, getNodes } from "../utils/schema"
+import type { MarkSpec } from 'prosemirror-model'
+import { TOOLBAR_CONTROLS } from '../constants'
+import { ToolbarItems, ToolbarControlTypes } from '../types'
+import { ProseMirrorModel } from '../utils/prosemirror'
+import { getMarks, getNodes } from '../utils/schema'
 
 export const createSchemaFromControls = (
   controls?: ToolbarItems[],
@@ -44,30 +44,30 @@ const createSchema = (
   const newNodes: typeof nodes = { ...defaultNodes }
   const newMarks: MarkSpec = {}
 
-  if (controls.includes("bold")) {
-    newMarks["strong"] = marks.strong
+  if (controls.includes('bold')) {
+    newMarks['strong'] = marks.strong
   }
 
-  if (controls.includes("italic")) {
-    newMarks["em"] = marks.em
+  if (controls.includes('italic')) {
+    newMarks['em'] = marks.em
   }
 
-  if (controls.includes("underline")) {
-    newMarks["underline"] = marks.underline
+  if (controls.includes('underline')) {
+    newMarks['underline'] = marks.underline
   }
 
-  if (controls.includes("bulletList")) {
-    newNodes["bulletList"] = nodes.bulletList
-    newNodes["listItem"] = nodes.listItem
+  if (controls.includes('bulletList')) {
+    newNodes['bulletList'] = nodes.bulletList
+    newNodes['listItem'] = nodes.listItem
   }
 
-  if (controls.includes("orderedList")) {
-    newNodes["orderedList"] = nodes.orderedList
-    newNodes["listItem"] = nodes.listItem
+  if (controls.includes('orderedList')) {
+    newNodes['orderedList'] = nodes.orderedList
+    newNodes['listItem'] = nodes.listItem
   }
 
-  if (controls.includes("link")) {
-    newMarks["link"] = marks.link
+  if (controls.includes('link')) {
+    newMarks['link'] = marks.link
   }
 
   return new ProseMirrorModel.Schema({

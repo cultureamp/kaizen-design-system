@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useId, useState } from "react"
-import { createPortal } from "react-dom"
-import { Transition } from "@headlessui/react"
-import FocusLock from "react-focus-lock"
-import { warn } from "../util/console"
-import { ModalContext } from "./context/ModalContext"
-import styles from "./GenericModal.module.scss"
+import React, { useCallback, useEffect, useId, useState } from 'react'
+import { createPortal } from 'react-dom'
+import { Transition } from '@headlessui/react'
+import FocusLock from 'react-focus-lock'
+import { warn } from '../util/console'
+import { ModalContext } from './context/ModalContext'
+import styles from './GenericModal.module.scss'
 
 export type GenericModalProps = {
   id?: string
@@ -102,8 +102,8 @@ export const GenericModal = ({
     preventBodyScroll()
 
     if (onEscapeKeyup) {
-      document.addEventListener("keyup", event => {
-        if (event.key === "Escape") {
+      document.addEventListener('keyup', event => {
+        if (event.key === 'Escape') {
           onEscapeKeyup?.(event)
         }
       })
@@ -117,7 +117,7 @@ export const GenericModal = ({
     )
 
     if (onEscapeKeyup) {
-      document.removeEventListener("keyup", onEscapeKeyup)
+      document.removeEventListener('keyup', onEscapeKeyup)
     }
   }, [onEscapeKeyup])
 
@@ -184,4 +184,4 @@ export const GenericModal = ({
   )
 }
 
-GenericModal.displayName = "GenericModal"
+GenericModal.displayName = 'GenericModal'

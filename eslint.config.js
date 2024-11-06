@@ -1,15 +1,15 @@
-import js from "@eslint/js"
-import stylistic from "@stylistic/eslint-plugin"
-import vitest from "@vitest/eslint-plugin"
-import eslintConfigPrettier from "eslint-config-prettier"
-import importPlugin from "eslint-plugin-import"
-import jsxA11y from "eslint-plugin-jsx-a11y"
-import * as mdx from "eslint-plugin-mdx"
-import reactPlugin from "eslint-plugin-react"
-import reactHooks from "eslint-plugin-react-hooks"
-import storybook from "eslint-plugin-storybook"
-import globals from "globals"
-import tseslint from "typescript-eslint"
+import js from '@eslint/js'
+import stylistic from '@stylistic/eslint-plugin'
+import vitest from '@vitest/eslint-plugin'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import importPlugin from 'eslint-plugin-import'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
+import * as mdx from 'eslint-plugin-mdx'
+import reactPlugin from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
+import storybook from 'eslint-plugin-storybook'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
 // const rules = {
 //   "@typescript-eslint/adjacent-overload-signatures": "error",
@@ -190,7 +190,7 @@ import tseslint from "typescript-eslint"
 const sharedImportConfig = {
   extends: [importPlugin.flatConfigs.recommended],
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       typescript: true,
       node: true,
     },
@@ -198,47 +198,47 @@ const sharedImportConfig = {
   languageOptions: {
     ecmaVersion: 2020,
   },
-  files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
+  files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
 }
 
 export default tseslint.config(
   {
     ignores: [
-      "**/*.d.ts",
-      "**/dist",
-      "**/__fixtures__",
-      "docs/storybook-static",
-      "packages/components/src/Icon/bin/Template.tsx",
-      "packages/components/svgo.config.js",
-      "packages/components/svgo.spec.js",
-      "packages/components/svgoUtils.js",
+      '**/*.d.ts',
+      '**/dist',
+      '**/__fixtures__',
+      'docs/storybook-static',
+      'packages/components/src/Icon/bin/Template.tsx',
+      'packages/components/svgo.config.js',
+      'packages/components/svgo.spec.js',
+      'packages/components/svgoUtils.js',
     ],
   },
   {
     extends: [
       js.configs.recommended,
       reactPlugin.configs.flat.recommended,
-      reactPlugin.configs.flat["jsx-runtime"],
+      reactPlugin.configs.flat['jsx-runtime'],
     ],
     settings: {
       react: {
-        version: "detect",
+        version: 'detect',
       },
     },
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
     },
-    files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
+    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     plugins: {
       react: reactPlugin,
     },
     rules: {
-      camelcase: ["error", {
-        allow: ["^UNSAFE_", "^UNSTABLE_"],
+      'camelcase': ['error', {
+        allow: ['^UNSAFE_', '^UNSTABLE_'],
       }],
-      "no-irregular-whitespace": [
-        "error",
+      'no-irregular-whitespace': [
+        'error',
         {
           skipStrings: true,
           skipComments: true,
@@ -246,128 +246,128 @@ export default tseslint.config(
           skipTemplates: true,
         },
       ],
-      "no-template-curly-in-string": "error",
-      "no-underscore-dangle": ["error",
+      'no-template-curly-in-string': 'error',
+      'no-underscore-dangle': ['error',
         {
           allowInArrayDestructuring: true,
           allowInObjectDestructuring: true,
-          allow: ["_metadata"],
+          allow: ['_metadata'],
         },
       ],
-      "react/button-has-type": "error",
-      "react/prop-types": "off",
+      'react/button-has-type': 'error',
+      'react/prop-types': 'off',
     },
   },
   {
     extends: [vitest.configs.recommended],
-    files: ["**/*.{spec,test}.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
+    files: ['**/*.{spec,test}.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     rules: {
-      "vitest/consistent-test-it": ["error", { fn: "it" }],
-      "vitest/no-conditional-expect": "error",
-      "vitest/no-focused-tests": "error",
-      "vitest/no-disabled-tests": "error",
-      "vitest/no-standalone-expect": "error",
-      "vitest/no-test-return-statement": "error",
-      "vitest/prefer-equality-matcher": "error",
-      "vitest/require-top-level-describe": "error",
+      'vitest/consistent-test-it': ['error', { fn: 'it' }],
+      'vitest/no-conditional-expect': 'error',
+      'vitest/no-focused-tests': 'error',
+      'vitest/no-disabled-tests': 'error',
+      'vitest/no-standalone-expect': 'error',
+      'vitest/no-test-return-statement': 'error',
+      'vitest/prefer-equality-matcher': 'error',
+      'vitest/require-top-level-describe': 'error',
     },
   },
   {
     extends: tseslint.configs.recommended,
     languageOptions: {
       parserOptions: {
-        project: ["./tsconfig.json", "./docs/tsconfig.json"],
+        project: ['./tsconfig.json', './docs/tsconfig.json'],
         tsconfigRootDir: import.meta.dirname,
         ecmaFeatures: {
           jsx: true,
         },
       },
     },
-    files: ["**/*.{ts,tsx}"],
+    files: ['**/*.{ts,tsx}'],
     rules: {
       // @todo: do we still want this?
-      "@typescript-eslint/array-type": [
-        "error",
+      '@typescript-eslint/array-type': [
+        'error',
         {
-          default: "array-simple",
+          default: 'array-simple',
         },
       ],
-      "@typescript-eslint/explicit-function-return-type": [
-        "error",
+      '@typescript-eslint/explicit-function-return-type': [
+        'error',
         { allowExpressions: true },
       ],
-      "@typescript-eslint/consistent-type-definitions": "off",
-      "@typescript-eslint/no-empty-function": "error",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-unused-vars": [
-        "error",
+      '@typescript-eslint/consistent-type-definitions': 'off',
+      '@typescript-eslint/no-empty-function': 'error',
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
         {
-          varsIgnorePattern: "(^_|^React$)",
-          argsIgnorePattern: "^_",
+          varsIgnorePattern: '(^_|^React$)',
+          argsIgnorePattern: '^_',
         },
       ],
     },
   },
   {
-    files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
+    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     ignores: [
-      "**/*.stories.{ts,tsx}",
+      '**/*.stories.{ts,tsx}',
     ],
     plugins: {
-      "react-hooks": reactHooks,
+      'react-hooks': reactHooks,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      "no-console": "error",
+      'no-console': 'error',
     },
   },
   {
     ...sharedImportConfig,
     rules: {
-      "import/order": [
-        "error",
+      'import/order': [
+        'error',
         {
           alphabetize: {
-            order: "asc",
+            order: 'asc',
           },
           groups: [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index",
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
           ],
           pathGroups: [
             {
-              pattern: "{react,react-dom}",
-              group: "builtin",
-              position: "before",
+              pattern: '{react,react-dom}',
+              group: 'builtin',
+              position: 'before',
             },
             {
-              pattern: "@kaizen/**",
-              group: "external",
-              position: "after",
+              pattern: '@kaizen/**',
+              group: 'external',
+              position: 'after',
             },
             {
-              pattern: "~*",
-              group: "internal",
-              position: "before",
+              pattern: '~*',
+              group: 'internal',
+              position: 'before',
             },
             {
-              pattern: "~*/**",
-              group: "internal",
-              position: "before",
+              pattern: '~*/**',
+              group: 'internal',
+              position: 'before',
             },
             {
-              pattern: "..",
-              group: "parent",
-              position: "after",
+              pattern: '..',
+              group: 'parent',
+              position: 'after',
             },
             {
-              pattern: "{**,.}/*+(.scss|.css)",
-              group: "index",
-              position: "after",
+              pattern: '{**,.}/*+(.scss|.css)',
+              group: 'index',
+              position: 'after',
             },
           ],
           pathGroupsExcludedImportTypes: [],
@@ -378,33 +378,33 @@ export default tseslint.config(
   {
     ...sharedImportConfig,
     ignores: [
-      "docs/**/*",
-      "**/_docs/**/*",
-      "**/__tests__/**/*",
-      "**/*.stories.tsx",
-      "**/*.spec.ts",
-      "**/*.spec.tsx",
+      'docs/**/*',
+      '**/_docs/**/*',
+      '**/__tests__/**/*',
+      '**/*.stories.tsx',
+      '**/*.spec.ts',
+      '**/*.spec.tsx',
     ],
     rules: {
-      "import/no-extraneous-dependencies": "error",
+      'import/no-extraneous-dependencies': 'error',
     },
   },
-  ...storybook.configs["flat/recommended"],
+  ...storybook.configs['flat/recommended'],
   {
     ...jsxA11y.flatConfigs.recommended,
-    files: ["**/*.{jsx,mjsx,tsx,mtsx}"],
+    files: ['**/*.{jsx,mjsx,tsx,mtsx}'],
   },
   mdx.flat,
   mdx.flatCodeBlocks,
   {
     // extends: [stylistic.configs["recommended-flat"]],
-    files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
+    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     plugins: {
-      "@stylistic": stylistic,
+      '@stylistic': stylistic,
     },
     rules: {
-      // ...stylistic.configs["recommended-flat"].rules,
-      "@stylistic/comma-dangle": stylistic.configs["recommended-flat"].rules["@stylistic/comma-dangle"],
+      ...stylistic.configs['recommended-flat'].rules,
+      // '@stylistic/quotes': stylistic.configs['recommended-flat'].rules['@stylistic/quotes'],
       // "@stylistic/jsx-one-expression-per-line": ["error", { allow: "non-jsx" }],
       // "@stylistic/multiline-ternary": ["error", "always-multiline"],
       // "@stylistic/quote-props": ["error", "as-needed"],

@@ -4,25 +4,25 @@ import React, {
   useEffect,
   useRef,
   useState,
-} from "react"
-import classnames from "classnames"
-import { HeadingProps } from "~components/Heading"
+} from 'react'
+import classnames from 'classnames'
+import { HeadingProps } from '~components/Heading'
 import {
   NotificationType,
   NotificationVariant,
-} from "~components/Notification/types"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { isRefObject } from "~components/utils/isRefObject"
-import { CancelButton } from "../CancelButton"
-import { NotificationHeading } from "../NotificationHeading"
+} from '~components/Notification/types'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { isRefObject } from '~components/utils/isRefObject'
+import { CancelButton } from '../CancelButton'
+import { NotificationHeading } from '../NotificationHeading'
 import {
   NotificationIconType,
   NotificationIconVariant,
-} from "../NotificationIcon"
-import styles from "./GenericNotification.module.scss"
+} from '../NotificationIcon'
+import styles from './GenericNotification.module.scss'
 
 type GenericNotificationBase = {
-  style: "global" | "inline" | "toast"
+  style: 'global' | 'inline' | 'toast'
   children?: React.ReactNode
   title?: string
   persistent?: boolean
@@ -30,7 +30,7 @@ type GenericNotificationBase = {
   noBottomMargin?: boolean
   forceMultiline?: boolean
   headingProps?: HeadingProps
-} & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, "style">
+} & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, 'style'>
 
 export type GenericNotificationType = {
   /**
@@ -93,16 +93,16 @@ export const GenericNotification = forwardRef<
 
     const getMarginTop = (): string => {
       if (isHidden && containerRef.current) {
-        return -containerRef.current.clientHeight + "px"
+        return -containerRef.current.clientHeight + 'px'
       }
-      return "0"
+      return '0'
     }
 
     const onTransitionEnd = (
       e: React.TransitionEvent<HTMLDivElement>,
     ): void => {
       // Be careful: this assumes the final CSS property to be animated is "margin-top".
-      if (isHidden && e.propertyName === "margin-top") {
+      if (isHidden && e.propertyName === 'margin-top') {
         setIsRemoved(true)
         onHide?.()
       }
@@ -141,7 +141,7 @@ export const GenericNotification = forwardRef<
             forceMultiline && styles.forceMultiline,
           )}
         >
-          {style !== "global" && (
+          {style !== 'global' && (
             <NotificationHeading
               titleProp={title}
               headingProps={headingProps}
@@ -155,4 +155,4 @@ export const GenericNotification = forwardRef<
   },
 )
 
-GenericNotification.displayName = "GenericNotification"
+GenericNotification.displayName = 'GenericNotification'

@@ -1,19 +1,19 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Text } from "~components/Text"
-import { RichTextContent } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Text } from '~components/Text'
+import { RichTextContent } from '../index'
 
 const meta = {
-  title: "Components/RichTextEditor/RichTextContent",
+  title: 'Components/RichTextEditor/RichTextContent',
   component: RichTextContent,
   args: {
     content: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            type: "text",
-            text: "User text goes here",
+            type: 'text',
+            text: 'User text goes here',
           },
         ],
       },
@@ -41,11 +41,11 @@ export const ReadOnly: Story = {
   args: {
     content: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            type: "text",
-            text: "User text goes here",
+            type: 'text',
+            text: 'User text goes here',
           },
         ],
       },

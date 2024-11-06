@@ -1,8 +1,8 @@
-import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst } from "../utils"
-import { transformConfirmationModalMoodsToVariant } from "./transformConfirmationModalMoodsToVariant"
+import { parseJsx } from '../__tests__/utils'
+import { transformSource, printAst } from '../utils'
+import { transformConfirmationModalMoodsToVariant } from './transformConfirmationModalMoodsToVariant'
 
-describe("transformConfirmationModalMoodsToVariant", () => {
+describe('transformConfirmationModalMoodsToVariant', () => {
   it('replaces mood="positive" with variant="success"', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <ConfirmationModal mood="positive"/>
@@ -13,7 +13,7 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
-      tagName: "ConfirmationModal",
+      tagName: 'ConfirmationModal',
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
@@ -28,12 +28,12 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
-      tagName: "ConfirmationModal",
+      tagName: 'ConfirmationModal',
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
 
-  it("handles multiple attributes and replace only variant", () => {
+  it('handles multiple attributes and replace only variant', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <ConfirmationModal mood="negative" id="123"/>
     `)
@@ -43,12 +43,12 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
-      tagName: "ConfirmationModal",
+      tagName: 'ConfirmationModal',
     })
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it("transforms multiple ConfirmationModals", () => {
+  it('transforms multiple ConfirmationModals', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <div><ConfirmationModal mood="positive"/><ConfirmationModal  mood="negative"/></div>
     `)
@@ -58,12 +58,12 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
-      tagName: "ConfirmationModal",
+      tagName: 'ConfirmationModal',
     })
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it("transforms ConfirmationModal with arbitrary braces", () => {
+  it('transforms ConfirmationModal with arbitrary braces', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <div><ConfirmationModal mood={"positive"}/><ConfirmationModal mood={'assertive'}/><ConfirmationModal mood={\`positive\`}/></div>
     `)
@@ -73,12 +73,12 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
-      tagName: "ConfirmationModal",
+      tagName: 'ConfirmationModal',
     })
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it("won't add variant if variant already exists", () => {
+  it('won\'t add variant if variant already exists', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <div><ConfirmationModal variant="success"/></div>
     `)
@@ -88,12 +88,12 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
-      tagName: "ConfirmationModal",
+      tagName: 'ConfirmationModal',
     })
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it("won't modify variants usings variables", () => {
+  it('won\'t modify variants usings variables', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <div><ConfirmationModal variant={confirmationModalVariable}/></div>
     `)
@@ -103,7 +103,7 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
-      tagName: "ConfirmationModal",
+      tagName: 'ConfirmationModal',
     })
     expect(transformed).toBe(printAst(outputAst))
   })

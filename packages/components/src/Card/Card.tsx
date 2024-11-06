@@ -1,33 +1,33 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Card.module.css"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Card.module.css'
 
 export type CardVariants =
-  | "default"
-  | "informative"
-  | "positive"
-  | "cautionary"
-  | "destructive"
-  | "assertive"
-  | "highlight"
+  | 'default'
+  | 'informative'
+  | 'positive'
+  | 'cautionary'
+  | 'destructive'
+  | 'assertive'
+  | 'highlight'
 
 export type CardColors =
-  | "blue"
-  | "green"
-  | "gray"
-  | "orange"
-  | "purple"
-  | "red"
-  | "white"
-  | "yellow"
+  | 'blue'
+  | 'green'
+  | 'gray'
+  | 'orange'
+  | 'purple'
+  | 'red'
+  | 'white'
+  | 'yellow'
 
 export type CardProps = {
   children?: React.ReactNode
   /**
    * HTML elements that are allowed on Card.
    */
-  tag?: "div" | "article" | "header" | "main" | "section" | "li"
+  tag?: 'div' | 'article' | 'header' | 'main' | 'section' | 'li'
   /**
    * Adds a larger box shadow to to the card container.
    */
@@ -48,7 +48,7 @@ export type CardProps = {
    * @deprecated Please use color instead
    */
   variant?: CardVariants
-} & OverrideClassName<Omit<HTMLAttributes<HTMLElement>, "color">>
+} & OverrideClassName<Omit<HTMLAttributes<HTMLElement>, 'color'>>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094938/Card Guidance} |
@@ -56,9 +56,9 @@ export type CardProps = {
  */
 export const Card = ({
   children,
-  tag = "div",
+  tag = 'div',
   variant,
-  color = "white",
+  color = 'white',
   isElevated = false,
   classNameOverride,
   ...props
@@ -80,4 +80,4 @@ export const Card = ({
   )
 }
 
-Card.displayName = "Card"
+Card.displayName = 'Card'

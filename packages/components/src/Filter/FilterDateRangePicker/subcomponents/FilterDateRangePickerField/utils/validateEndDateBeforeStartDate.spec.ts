@@ -1,12 +1,12 @@
-import { screen, waitFor, render } from "@testing-library/react"
-import { validateEndDateBeforeStartDate } from "./validateEndDateBeforeStartDate"
+import { screen, waitFor, render } from '@testing-library/react'
+import { validateEndDateBeforeStartDate } from './validateEndDateBeforeStartDate'
 
-describe("validateEndDateBeforeStartDate()", () => {
-  describe("when the end date is after the start date", () => {
-    const startDate = new Date("2022-04-03")
-    const startDateFieldLabel = "Start date"
-    const endDate = new Date("2022-05-01")
-    const endDateInputValue = "01/05/2022"
+describe('validateEndDateBeforeStartDate()', () => {
+  describe('when the end date is after the start date', () => {
+    const startDate = new Date('2022-04-03')
+    const startDateFieldLabel = 'Start date'
+    const endDate = new Date('2022-05-01')
+    const endDateInputValue = '01/05/2022'
     let result: ReturnType<typeof validateEndDateBeforeStartDate>
 
     beforeEach(() => {
@@ -18,7 +18,7 @@ describe("validateEndDateBeforeStartDate()", () => {
       })
     })
 
-    it("returns a response with no errors", () => {
+    it('returns a response with no errors', () => {
       expect(result.validationResponse).toStrictEqual({
         date: endDate,
         inputValue: endDateInputValue,
@@ -30,16 +30,16 @@ describe("validateEndDateBeforeStartDate()", () => {
       })
     })
 
-    it("returns a new date that is the same as the given end date", () => {
+    it('returns a new date that is the same as the given end date', () => {
       expect(result.newDate).toBe(endDate)
     })
   })
 
-  describe("when the end date equals the start date", () => {
-    const startDate = new Date("2022-05-01")
-    const startDateFieldLabel = "Start date"
-    const endDate = new Date("2022-05-01")
-    const endDateInputValue = "01/05/2022"
+  describe('when the end date equals the start date', () => {
+    const startDate = new Date('2022-05-01')
+    const startDateFieldLabel = 'Start date'
+    const endDate = new Date('2022-05-01')
+    const endDateInputValue = '01/05/2022'
     let result: ReturnType<typeof validateEndDateBeforeStartDate>
 
     beforeEach(() => {
@@ -51,7 +51,7 @@ describe("validateEndDateBeforeStartDate()", () => {
       })
     })
 
-    it("returns a response with no errors", () => {
+    it('returns a response with no errors', () => {
       expect(result.validationResponse).toStrictEqual({
         date: endDate,
         inputValue: endDateInputValue,
@@ -63,16 +63,16 @@ describe("validateEndDateBeforeStartDate()", () => {
       })
     })
 
-    it("returns a new date that is the same as the given end date", () => {
+    it('returns a new date that is the same as the given end date', () => {
       expect(result.newDate).toBe(endDate)
     })
   })
 
-  describe("when the end date is before the start date", () => {
-    const startDate = new Date("2022-05-01")
-    const startDateFieldLabel = "Start date"
-    const endDate = new Date("2022-04-03")
-    const endDateInputValue = "03/04/2022"
+  describe('when the end date is before the start date', () => {
+    const startDate = new Date('2022-05-01')
+    const startDateFieldLabel = 'Start date'
+    const endDate = new Date('2022-04-03')
+    const endDateInputValue = '03/04/2022'
     let result: ReturnType<typeof validateEndDateBeforeStartDate>
 
     beforeEach(() => {
@@ -84,7 +84,7 @@ describe("validateEndDateBeforeStartDate()", () => {
       })
     })
 
-    it("returns a response with an error status and validation message", async () => {
+    it('returns a response with an error status and validation message', async () => {
       const { validationMessage, ...response } = result.validationResponse
 
       expect(response).toStrictEqual({
@@ -96,7 +96,7 @@ describe("validateEndDateBeforeStartDate()", () => {
         isValidDate: true,
       })
 
-      expect(validationMessage?.status).toBe("error")
+      expect(validationMessage?.status).toBe('error')
 
       render(validationMessage?.message)
       await waitFor(() => {
@@ -108,7 +108,7 @@ describe("validateEndDateBeforeStartDate()", () => {
       })
     })
 
-    it("returns the new end date", () => {
+    it('returns the new end date', () => {
       expect(result.newDate).toEqual(endDate)
     })
   })

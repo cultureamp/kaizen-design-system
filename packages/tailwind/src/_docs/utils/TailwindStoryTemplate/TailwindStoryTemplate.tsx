@@ -1,8 +1,8 @@
-import React, { useState } from "react"
-import { InlineNotification } from "~components/Notification"
-import { StickerSheet } from "~storybook/components/StickerSheet"
-import { CardContent } from "./components/CardContent"
-import { CodeSnippet } from "./components/CodeSnippet"
+import React, { useState } from 'react'
+import { InlineNotification } from '~components/Notification'
+import { StickerSheet } from '~storybook/components/StickerSheet'
+import { CardContent } from './components/CardContent'
+import { CodeSnippet } from './components/CodeSnippet'
 
 type Props = {
   compiledCssPropertyName: string
@@ -29,7 +29,7 @@ export const TailwindStoryTemplate = ({
       >
         <StickerSheet.Header
           className="text-left border-b border-gray-400"
-          headings={["Utility Class", "Compiled CSS", "Example"]}
+          headings={['Utility Class', 'Compiled CSS', 'Example']}
         />
         <StickerSheet.Body>
           {classKeyValues.map((presetData, _index) => {
@@ -42,7 +42,7 @@ export const TailwindStoryTemplate = ({
               >
                 <div className="mr-32 min-w-max max-w-[300px]">
                   <CodeSnippet
-                    text={utilityClassName.replace("-DEFAULT", "")}
+                    text={utilityClassName.replace('-DEFAULT', '')}
                     onCopy={(text: string): void => setCopiedText(text)}
                   />
                 </div>
@@ -64,8 +64,8 @@ export const TailwindStoryTemplate = ({
             hideCloseIcon
             onHide={(): void => setCopiedText(null)}
             headingProps={{
-              children: "Copied to clipboard: ",
-              variant: "heading-6",
+              children: 'Copied to clipboard: ',
+              variant: 'heading-6',
             }}
           >
             {copiedText}
@@ -78,4 +78,4 @@ export const TailwindStoryTemplate = ({
 
 TailwindStoryTemplate.CardContent = CardContent
 
-TailwindStoryTemplate.displayName = "TailwindStoryTemplate"
+TailwindStoryTemplate.displayName = 'TailwindStoryTemplate'

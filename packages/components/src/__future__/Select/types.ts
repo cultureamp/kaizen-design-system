@@ -1,4 +1,4 @@
-import { Node, Key } from "@react-types/shared"
+import { Node, Key } from '@react-types/shared'
 
 export type SelectOption = {
   label: string
@@ -18,13 +18,13 @@ export type SelectItem<Option extends SelectOption = SelectOption> =
 
 export type SelectOptionNode<Option extends SelectOption = SelectOption> =
   Node<Option> & {
-    type: "item"
+    type: 'item'
     hasChildNodes: false
   }
 
 export type SelectOptionGroupNode<Option extends SelectOption = SelectOption> =
-  Omit<Node<SelectOptionGroup<Option>>, "childNodes"> & {
-    type: "section"
+  Omit<Node<SelectOptionGroup<Option>>, 'childNodes'> & {
+    type: 'section'
     hasChildNodes: true
     childNodes: Array<SelectOptionNode<Option>>
   }

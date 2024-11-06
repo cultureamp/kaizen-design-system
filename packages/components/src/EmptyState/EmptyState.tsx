@@ -1,16 +1,16 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { HeadingProps, Heading } from "~components/Heading"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { HeadingProps, Heading } from '~components/Heading'
 import {
   AnimatedSceneProps,
   EmptyStatesInformative,
   EmptyStatesNegative,
   EmptyStatesNeutral,
   EmptyStatesPositive,
-} from "~components/Illustration"
-import { Text } from "~components/Text"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./EmptyState.module.scss"
+} from '~components/Illustration'
+import { Text } from '~components/Text'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './EmptyState.module.scss'
 
 const ILLUSTRATIONS: Record<
   string,
@@ -19,7 +19,7 @@ const ILLUSTRATIONS: Record<
   success: EmptyStatesPositive,
   warning: EmptyStatesNegative,
   informative: EmptyStatesInformative,
-  "expert-advice": EmptyStatesNeutral,
+  'expert-advice': EmptyStatesNeutral,
   /** @deprecated Replaced by success */
   positive: EmptyStatesPositive,
   /** @deprecated Replaced by expert-advice */
@@ -35,11 +35,11 @@ export type EmptyStateProps = {
   id?: string
   /** @deprecated Use `variant` instead */
   illustrationType?:
-    | "positive"
-    | "informative"
-    | "negative"
-    | "action"
-    | "neutral"
+    | 'positive'
+    | 'informative'
+    | 'negative'
+    | 'action'
+    | 'neutral'
   /**
    * If you are transitioning from `illustrationType`:
    * - `positive` should be `success`
@@ -49,13 +49,13 @@ export type EmptyStateProps = {
    * - `neutral` should be `expert-advice`
    * @default informative
    */
-  variant?: "success" | "warning" | "informative" | "expert-advice"
-  layoutContext?: "sidebarAndContent" | "contentOnly"
+  variant?: 'success' | 'warning' | 'informative' | 'expert-advice'
+  layoutContext?: 'sidebarAndContent' | 'contentOnly'
   bodyText: string | React.ReactNode
   straightCorners?: boolean
   headingProps?: HeadingProps
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>> &
-  Pick<AnimatedSceneProps, "isAnimated" | "loop">
+  Pick<AnimatedSceneProps, 'isAnimated' | 'loop'>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094098/Empty+State Guidance} |
@@ -65,8 +65,8 @@ export const EmptyState = ({
   children,
   id,
   illustrationType,
-  variant = "informative",
-  layoutContext = "sidebarAndContent",
+  variant = 'informative',
+  layoutContext = 'sidebarAndContent',
   headingProps,
   bodyText,
   straightCorners,
@@ -115,4 +115,4 @@ export const EmptyState = ({
   )
 }
 
-EmptyState.displayName = "EmptyState"
+EmptyState.displayName = 'EmptyState'

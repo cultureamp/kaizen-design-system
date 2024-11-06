@@ -1,15 +1,15 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { ButtonProps } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { ButtonProps } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { IconButton, IconButtonProps } from "../index"
+} from '~storybook/components/StickerSheet'
+import { IconButton, IconButtonProps } from '../index'
 
 export default {
-  title: "Actions/IconButton/IconButton (v1)",
+  title: 'Actions/IconButton/IconButton (v1)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -17,9 +17,9 @@ export default {
 } satisfies Meta
 
 const WORKING_PROPS: ButtonProps = {
-  label: "Label",
+  label: 'Label',
   working: true,
-  workingLabel: "Submitting",
+  workingLabel: 'Submitting',
   workingLabelHidden: true,
 }
 const REVERSED__VARIANT_PROPS: Array<{
@@ -27,32 +27,32 @@ const REVERSED__VARIANT_PROPS: Array<{
   props: IconButtonProps
 }> = [
   {
-    title: "Default",
+    title: 'Default',
     props: {
-      label: "Default label",
+      label: 'Default label',
       icon: <Icon name="more_horiz" isPresentational />,
     },
   },
   {
-    title: "Primary",
+    title: 'Primary',
     props: {
-      label: "Primary label",
+      label: 'Primary label',
       icon: <Icon name="more_horiz" isPresentational />,
       primary: true,
     },
   },
   {
-    title: "Destructive",
+    title: 'Destructive',
     props: {
-      label: "Label",
+      label: 'Label',
       icon: <Icon name="delete" isPresentational isFilled />,
       destructive: true,
     },
   },
   {
-    title: "Secondary",
+    title: 'Secondary',
     props: {
-      label: "Label",
+      label: 'Label',
       icon: <Icon name="tune" isPresentational />,
       secondary: true,
     },
@@ -69,9 +69,9 @@ const StickerSheetTemplate: StickerSheetStory = {
       : [
           ...REVERSED__VARIANT_PROPS,
           {
-            title: "Secondary Destructive",
+            title: 'Secondary Destructive',
             props: {
-              label: "Label",
+              label: 'Label',
               icon: <Icon name="delete" isPresentational isFilled />,
               secondary: true,
               destructive: true,
@@ -81,7 +81,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <StickerSheet isReversed={isReversed}>
         <StickerSheet.Header
-          headings={["Base", "Hover", "Active", "Focus", "Disabled", "Working"]}
+          headings={['Base', 'Hover', 'Active', 'Focus', 'Disabled', 'Working']}
           hasVerticalHeadings
         />
         <StickerSheet.Body>
@@ -123,24 +123,24 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

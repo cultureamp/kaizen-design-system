@@ -1,10 +1,10 @@
-import React, { useId, useState } from "react"
-import { Source, SourceProps, Story, Unstyled } from "@storybook/blocks"
-import classnames from "classnames"
-import styles from "./NoClipCanvas.module.scss"
+import React, { useId, useState } from 'react'
+import { Source, SourceProps, Story, Unstyled } from '@storybook/blocks'
+import classnames from 'classnames'
+import styles from './NoClipCanvas.module.scss'
 
 export type NoClipCanvasProps = {
-  of: SourceProps["of"]
+  of: SourceProps['of']
   initialIsOpen?: boolean
   className?: string
 }
@@ -32,7 +32,7 @@ export const NoClipCanvas = ({
           aria-expanded={isOpen}
           aria-controls={sourceId}
         >
-          {isOpen ? "Hide code" : "Show code"}
+          {isOpen ? 'Hide code' : 'Show code'}
         </button>
       </div>
 

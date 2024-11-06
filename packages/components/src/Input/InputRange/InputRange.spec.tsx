@@ -1,9 +1,9 @@
-import React from "react"
-import { render, screen, fireEvent, waitFor } from "@testing-library/react"
-import { vi } from "vitest"
-import { InputRange } from "./index"
-describe("<InputRange />", () => {
-  it("fires onChange after interaction", async () => {
+import React from 'react'
+import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { vi } from 'vitest'
+import { InputRange } from './index'
+describe('<InputRange />', () => {
+  it('fires onChange after interaction', async () => {
     const onChange = vi.fn()
     render(
       <InputRange
@@ -14,15 +14,15 @@ describe("<InputRange />", () => {
       />,
     )
 
-    const slider = await screen.findByRole("slider")
+    const slider = await screen.findByRole('slider')
 
     fireEvent.change(slider, { target: { value: 8 } })
 
     await waitFor(() => expect(onChange).toHaveBeenCalledTimes(1))
-    screen.getByDisplayValue("8")
+    screen.getByDisplayValue('8')
   })
 
-  it("renders the screenreader help text", async () => {
+  it('renders the screenreader help text', async () => {
     render(
       <InputRange
         id="unique-6"

@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react"
-import { action } from "@storybook/addon-actions"
-import { Meta, StoryObj } from "@storybook/react"
-import { userEvent, within, expect } from "@storybook/test"
-import Highlight from "react-highlight"
-import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
-import { weekStartsOnControls } from "~components/Calendar/_docs/controls/weekStartsOnControls"
-import { FieldMessageStatus } from "~components/FieldMessage"
-import { Text } from "~components/Text"
-import { Button } from "~components/__actions__/v2"
-import { DatePicker, ValidationResponse } from "../index"
-import { datePickerLocaleControls } from "./controls/datePickerLocaleControls"
-import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls"
+import React, { useEffect, useState } from 'react'
+import { action } from '@storybook/addon-actions'
+import { Meta, StoryObj } from '@storybook/react'
+import { userEvent, within, expect } from '@storybook/test'
+import Highlight from 'react-highlight'
+import { defaultMonthControls } from '~components/Calendar/_docs/controls/defaultMonthControls'
+import { weekStartsOnControls } from '~components/Calendar/_docs/controls/weekStartsOnControls'
+import { FieldMessageStatus } from '~components/FieldMessage'
+import { Text } from '~components/Text'
+import { Button } from '~components/__actions__/v2'
+import { DatePicker, ValidationResponse } from '../index'
+import { datePickerLocaleControls } from './controls/datePickerLocaleControls'
+import { disabledDayMatchersControls } from './controls/disabledDayMatchersControls'
 
 const meta = {
-  title: "Components/Date controls/DatePicker",
+  title: 'Components/Date controls/DatePicker',
   component: DatePicker,
   argTypes: {
     ...datePickerLocaleControls,
@@ -24,43 +24,43 @@ const meta = {
       control: false,
     },
     selectedDay: {
-      options: ["None", "Today", "May2022"],
+      options: ['None', 'Today', 'May2022'],
       control: {
-        type: "select",
+        type: 'select',
         labels: {
-          None: "undefined",
-          May2022: "1st May 2022",
+          None: 'undefined',
+          May2022: '1st May 2022',
         },
       },
       mapping: {
         None: undefined,
         Today: new Date(),
-        May2022: new Date("2022-05-01"),
+        May2022: new Date('2022-05-01'),
       },
     },
     validationMessage: {
-      control: "text",
+      control: 'text',
     },
     description: {
-      control: "text",
+      control: 'text',
     },
     onValidate: {
-      options: [undefined, "Actions"],
+      options: [undefined, 'Actions'],
       control: {
-        type: "radio",
+        type: 'radio',
         labels: {
-          Actions: "Log in Actions",
+          Actions: 'Log in Actions',
         },
       },
       mapping: {
-        Actions: action("onValidate"),
+        Actions: action('onValidate'),
       },
     },
   },
   args: {
-    labelText: "Date",
+    labelText: 'Date',
     selectedDay: undefined,
-    onDayChange: action("on day change"),
+    onDayChange: action('on day change'),
   },
 } satisfies Meta<typeof DatePicker>
 
@@ -93,7 +93,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -101,7 +101,7 @@ export const Playground: Story = {
 
 export const LabelText: Story = {
   ...DatePickerTemplate,
-  args: { labelText: "Label text" },
+  args: { labelText: 'Label text' },
 }
 
 const sourceCodeControlled = `
@@ -129,22 +129,22 @@ export const Controlled: Story = {
 
 export const Locale: Story = {
   ...DatePickerTemplate,
-  args: { locale: "en-US", selectedDay: new Date() },
+  args: { locale: 'en-US', selectedDay: new Date() },
 }
 
 export const Description: Story = {
-  args: { description: "Custom description!" },
+  args: { description: 'Custom description!' },
 }
 
 export const Validation: Story = {
   render: () => {
     const [selectedDate, setValueDate] = useState<Date | undefined>(
-      new Date("2022-05-05"),
+      new Date('2022-05-05'),
     )
     const [status, setStatus] = useState<FieldMessageStatus | undefined>()
     const [response, setResponse] = useState<ValidationResponse | undefined>()
     const [validationMessage, setValidationMessage] =
-      useState<ValidationResponse["validationMessage"]>()
+      useState<ValidationResponse['validationMessage']>()
 
     const handleValidation = (validationResponse: ValidationResponse): void => {
       setResponse(validationResponse)
@@ -153,8 +153,8 @@ export const Validation: Story = {
         validationResponse.isValidDate &&
         validationResponse.date?.getFullYear() !== new Date().getFullYear()
       ) {
-        setStatus("caution")
-        setValidationMessage("Date is not this year")
+        setStatus('caution')
+        setValidationMessage('Date is not this year')
         return
       }
       setStatus(validationResponse.status)
@@ -164,13 +164,13 @@ export const Validation: Story = {
     const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
       e.preventDefault()
 
-      if (status === "error" || status === "caution") {
-        setValidationMessage("There is an error")
-        setStatus("error")
-        return alert("Error")
+      if (status === 'error' || status === 'caution') {
+        setValidationMessage('There is an error')
+        setStatus('error')
+        return alert('Error')
       }
 
-      alert("Success")
+      alert('Success')
     }
 
     return (
@@ -186,7 +186,7 @@ export const Validation: Story = {
             disabledBefore={new Date()}
             locale="en-AU"
           />
-          <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+          <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
             <Button type="submit" label="Submit" />
           </div>
         </form>
@@ -199,18 +199,18 @@ export const Validation: Story = {
           </Text>
           <ul>
             <li>
-              There will be a caution when the selectedDay{" "}
-              <strong>is valid</strong> but{" "}
+              There will be a caution when the selectedDay{' '}
+              <strong>is valid</strong> but{' '}
               <strong>is not within this year</strong>.
             </li>
             <li>
-              There will be an error when the{" "}
-              <strong>submit button is clicked</strong> and there is a{" "}
+              There will be an error when the{' '}
+              <strong>submit button is clicked</strong> and there is a{' '}
               <strong>current error</strong> within the DatePicker.
             </li>
           </ul>
           <Text variant="body">
-            The <code>onValidate</code> callback returns a{" "}
+            The <code>onValidate</code> callback returns a{' '}
             <code>validationResponse</code> object which provides data such as a
             default validation message, and can be utilised for custom
             validation.
@@ -231,8 +231,8 @@ export const Validation: Story = {
               <code>isEmpty</code>: Input is empty.
             </li>
             <li>
-              <code>isValidDate</code>: Date input that is not{" "}
-              <code>invalid</code> nor <code>disabled</code> nor{" "}
+              <code>isValidDate</code>: Date input that is not{' '}
+              <code>invalid</code> nor <code>disabled</code> nor{' '}
               <code>empty</code>.
             </li>
           </ul>
@@ -241,7 +241,7 @@ export const Validation: Story = {
     )
   },
   parameters: {
-    docs: { source: { type: "code" } },
+    docs: { source: { type: 'code' } },
     controls: { disable: true },
   },
 }
@@ -251,47 +251,47 @@ export const DisabledDays: Story = {
 }
 
 export const LimitedWindowWidth: Story = {
-  name: "At 400% window size",
+  name: 'At 400% window size',
   parameters: {
     controls: { disable: true },
     viewport: {
       viewports: {
         ViewportAt400: {
-          name: "Viewport at 400%",
+          name: 'Viewport at 400%',
           styles: {
-            width: "320px",
-            height: "350px",
+            width: '320px',
+            height: '350px',
           },
         },
       },
-      defaultViewport: "ViewportAt400",
+      defaultViewport: 'ViewportAt400',
     },
     a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
-    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+    await userEvent.click(canvas.getByRole('button', { name: 'Choose date' }))
+    await expect(canvas.getByRole('dialog')).toBeInTheDocument()
   },
 }
 
 export const AboveIfAvailable: Story = {
-  name: "Limited viewport autoplacement above",
+  name: 'Limited viewport autoplacement above',
   args: {
-    labelText: "Calendar with space above",
+    labelText: 'Calendar with space above',
   },
   parameters: {
     viewport: {
       viewports: {
         LimitedViewportAutoPlace: {
-          name: "Limited vertical space",
+          name: 'Limited vertical space',
           styles: {
-            width: "1024px",
-            height: "500px",
+            width: '1024px',
+            height: '500px',
           },
         },
       },
-      defaultViewport: "LimitedViewportAutoPlace",
+      defaultViewport: 'LimitedViewportAutoPlace',
     },
     a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
   },
@@ -304,28 +304,28 @@ export const AboveIfAvailable: Story = {
   ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
-    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+    await userEvent.click(canvas.getByRole('button', { name: 'Choose date' }))
+    await expect(canvas.getByRole('dialog')).toBeInTheDocument()
   },
 }
 
 export const LimitedViewportHeight: Story = {
-  name: "Limited viewport height",
+  name: 'Limited viewport height',
   args: {
-    labelText: "Calendar with reduced space below",
+    labelText: 'Calendar with reduced space below',
   },
   parameters: {
     viewport: {
       viewports: {
         LimitedViewportHeight: {
-          name: "Limited vertical space",
+          name: 'Limited vertical space',
           styles: {
-            width: "1024px",
-            height: "300px",
+            width: '1024px',
+            height: '300px',
           },
         },
       },
-      defaultViewport: "LimitedViewportHeight",
+      defaultViewport: 'LimitedViewportHeight',
     },
     a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
   },
@@ -338,15 +338,15 @@ export const LimitedViewportHeight: Story = {
   ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
-    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+    await userEvent.click(canvas.getByRole('button', { name: 'Choose date' }))
+    await expect(canvas.getByRole('dialog')).toBeInTheDocument()
   },
 }
 
 export const FullViewportHeight: Story = {
-  name: "Full viewport height",
+  name: 'Full viewport height',
   args: {
-    labelText: "Calendar with full space below",
+    labelText: 'Calendar with full space below',
   },
   decorators: [
     Story => (
@@ -357,8 +357,8 @@ export const FullViewportHeight: Story = {
   ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
-    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+    await userEvent.click(canvas.getByRole('button', { name: 'Choose date' }))
+    await expect(canvas.getByRole('dialog')).toBeInTheDocument()
   },
   parameters: {
     a11y: { disable: true }, // accessible label fix to be addressed in a separate PR

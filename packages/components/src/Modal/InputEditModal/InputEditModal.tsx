@@ -1,15 +1,15 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { Heading } from "~components/Heading"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Heading } from '~components/Heading'
 import {
   GenericModal,
   ModalFooter,
   ModalHeader,
   ModalAccessibleLabel,
   ModalBody,
-} from "~components/Modal/GenericModal"
-import { ButtonProps } from "~components/__actions__/v2"
-import styles from "./InputEditModal.module.scss"
+} from '~components/Modal/GenericModal'
+import { ButtonProps } from '~components/__actions__/v2'
+import styles from './InputEditModal.module.scss'
 
 export type InputEditModalProps = {
   isOpen: boolean
@@ -17,7 +17,7 @@ export type InputEditModalProps = {
   /**
    * @deprecated we are no longer supporting different moods for InputModal, instead there will only be a single default variant set by the component.
    */
-  mood?: "positive" | "destructive"
+  mood?: 'positive' | 'destructive'
   title: string
   onSubmit: () => void
   onSecondaryAction?: () => void
@@ -26,7 +26,7 @@ export type InputEditModalProps = {
   onAfterEnter?: () => void
   /** A callback that is triggered after the modal is closed. */
   onAfterLeave?: () => void
-  localeDirection?: "rtl" | "ltr"
+  localeDirection?: 'rtl' | 'ltr'
   submitLabel?: string
   dismissLabel?: string
   secondaryLabel?: string
@@ -36,7 +36,7 @@ export type InputEditModalProps = {
   automationId?: string
   children: React.ReactNode
   submitWorking?: { label: string; labelHidden?: boolean }
-} & Omit<HTMLAttributes<HTMLDivElement>, "onSubmit">
+} & Omit<HTMLAttributes<HTMLDivElement>, 'onSubmit'>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093114/Modal#Input-Edit-Modal Guidance} |
@@ -49,9 +49,9 @@ export const InputEditModal = ({
   onSubmit,
   onSecondaryAction,
   onAfterLeave,
-  localeDirection = "ltr",
-  submitLabel = "Submit",
-  dismissLabel = "Cancel",
+  localeDirection = 'ltr',
+  submitLabel = 'Submit',
+  dismissLabel = 'Cancel',
   secondaryLabel,
   submitWorking,
   children,
@@ -93,7 +93,7 @@ export const InputEditModal = ({
           <div
             className={classnames(
               styles.header,
-              localeDirection === "rtl" && styles.textAlignRTL,
+              localeDirection === 'rtl' && styles.textAlignRTL,
               !unpadded && styles.padded,
             )}
           >
@@ -114,7 +114,7 @@ export const InputEditModal = ({
         </ModalBody>
         <ModalFooter
           actions={footerActions}
-          appearance={mood === "destructive" ? "destructive" : "primary"}
+          appearance={mood === 'destructive' ? 'destructive' : 'primary'}
           variant="inputEdit"
           unpadded={unpadded}
         />
@@ -123,4 +123,4 @@ export const InputEditModal = ({
   )
 }
 
-InputEditModal.displayName = "InputEditModal"
+InputEditModal.displayName = 'InputEditModal'

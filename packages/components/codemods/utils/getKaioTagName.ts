@@ -1,4 +1,4 @@
-import ts from "typescript"
+import ts from 'typescript'
 
 const getKaioNamedImports = (
   visitedNode: ts.Node,
@@ -11,7 +11,7 @@ const getKaioNamedImports = (
   if (ts.isImportDeclaration(visitedNode)) {
     const moduleSpecifier = (visitedNode.moduleSpecifier as ts.StringLiteral)
       .text
-    if (moduleSpecifier.includes("@kaizen/components")) {
+    if (moduleSpecifier.includes('@kaizen/components')) {
       const namedBindings = visitedNode.importClause?.namedBindings
       if (namedBindings && ts.isNamedImports(namedBindings)) {
         return {

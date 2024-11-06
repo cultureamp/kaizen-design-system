@@ -1,11 +1,11 @@
-import React, { createRef, useState } from "react"
-import classnames from "classnames"
-import { FieldMessage } from "~components/FieldMessage"
-import { Text } from "~components/Text"
-import { Icon } from "~components/__future__/Icon"
-import { ScaleValue, Scale, ScaleItem, ColorSchema } from "./types"
-import determineSelectionFromKeyPress from "./utils/determineSelectionFromKeyPress"
-import styles from "./LikertScaleLegacy.module.scss"
+import React, { createRef, useState } from 'react'
+import classnames from 'classnames'
+import { FieldMessage } from '~components/FieldMessage'
+import { Text } from '~components/Text'
+import { Icon } from '~components/__future__/Icon'
+import { ScaleValue, Scale, ScaleItem, ColorSchema } from './types'
+import determineSelectionFromKeyPress from './utils/determineSelectionFromKeyPress'
+import styles from './LikertScaleLegacy.module.scss'
 
 type ItemRefs = Array<{
   value: ScaleValue
@@ -20,11 +20,11 @@ export type LikertScaleProps = {
    * @deprecated Please use data-testid instead
    */
   automationId?: string
-  "data-testid"?: string
+  'data-testid'?: string
   reversed?: boolean
-  colorSchema?: ColorSchema | "classical"
+  colorSchema?: ColorSchema | 'classical'
   validationMessage?: string
-  status?: "default" | "error"
+  status?: 'default' | 'error'
   onSelect: (value: ScaleItem | null) => void
 }
 
@@ -40,8 +40,8 @@ export const LikertScaleLegacy = ({
   scale,
   selectedItem,
   reversed,
-  colorSchema = "classical",
-  "data-testid": dataTestId,
+  colorSchema = 'classical',
+  'data-testid': dataTestId,
   onSelect,
   validationMessage,
   status,
@@ -90,10 +90,10 @@ export const LikertScaleLegacy = ({
     }
   }
 
-  const legend = hoveredItem?.label || selectedItem?.label || "Not rated"
+  const legend = hoveredItem?.label || selectedItem?.label || 'Not rated'
 
   const shouldDisplayValidationMessage =
-    status !== "default" && validationMessage !== undefined
+    status !== 'default' && validationMessage !== undefined
 
   const validationMessageId = shouldDisplayValidationMessage
     ? `${labelId}-field-validation-message`
@@ -119,7 +119,7 @@ export const LikertScaleLegacy = ({
         className={styles.legend}
         data-testid={dataTestId && `${dataTestId}-legend`}
       >
-        <Text variant="small" color={reversed ? "white" : "dark"}>
+        <Text variant="small" color={reversed ? 'white' : 'dark'}>
           {legend}
         </Text>
       </div>
@@ -158,7 +158,7 @@ export const LikertScaleLegacy = ({
             <div
               className={classnames(
                 styles.likertItem,
-                colorSchema == "blue"
+                colorSchema == 'blue'
                   ? styles.blueColorSchema
                   : styles.classicalColorSchema,
                 styles[`likertItem${item.value}`],

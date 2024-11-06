@@ -1,26 +1,26 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { Heading } from "~components/Heading"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { Heading } from '~components/Heading'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { TextAreaField, TextAreaFieldProps } from "../index"
+} from '~storybook/components/StickerSheet'
+import { TextAreaField, TextAreaFieldProps } from '../index'
 
 export default {
-  title: "Components/Text Input controls/Text Area Field",
+  title: 'Components/Text Input controls/Text Area Field',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
 } satisfies Meta
 
-const TAFieldStatus = ["default", "error", "caution"] as const
+const TAFieldStatus = ['default', 'error', 'caution'] as const
 
 const TAFieldStatusGroup = ({
   isReversed,
   ...props
-}: Omit<TextAreaFieldProps, "labelText"> & {
+}: Omit<TextAreaFieldProps, 'labelText'> & {
   isReversed?: boolean
 }): JSX.Element => (
   <>
@@ -69,12 +69,12 @@ const TAFieldStatusGroup = ({
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
-      <Heading variant="heading-2" color={isReversed ? "white" : "dark"}>
+      <Heading variant="heading-2" color={isReversed ? 'white' : 'dark'}>
         Enabled
       </Heading>
       <StickerSheet isReversed={isReversed}>
         <StickerSheet.Header
-          headings={["Default", "Hover", "Active", "Focus"]}
+          headings={['Default', 'Hover', 'Active', 'Focus']}
           hasVerticalHeadings
         />
         <StickerSheet.Body>
@@ -82,12 +82,12 @@ const StickerSheetTemplate: StickerSheetStory = {
           <TAFieldStatusGroup isReversed={isReversed} variant="prominent" />
         </StickerSheet.Body>
       </StickerSheet>
-      <Heading variant="heading-2" color={isReversed ? "white" : "dark"}>
+      <Heading variant="heading-2" color={isReversed ? 'white' : 'dark'}>
         Disabled
       </Heading>
       <StickerSheet isReversed={isReversed}>
         <StickerSheet.Header
-          headings={["Default", "Hover", "Active", "Focus"]}
+          headings={['Default', 'Hover', 'Active', 'Focus']}
           hasVerticalHeadings
         />
         <StickerSheet.Body>
@@ -117,24 +117,24 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

@@ -1,21 +1,21 @@
-import React from "react"
+import React from 'react'
 import {
   GenericButton,
   GenericProps,
-} from "~components/__actions__/Button/v2/GenericButton"
-import { Icon } from "~components/__future__/Icon"
+} from '~components/__actions__/Button/v2/GenericButton'
+import { Icon } from '~components/__future__/Icon'
 
 export type DirectionalLinkProps = {
   label: string
   disabled?: boolean
-  direction: "prev" | "next" | "start" | "end"
+  direction: 'prev' | 'next' | 'start' | 'end'
 } & GenericProps
 
 const iconNameMap = {
-  prev: "arrow_back",
-  next: "arrow_forward",
-  start: "keyboard_tab_rtl",
-  end: "keyboard_tab",
+  prev: 'arrow_back',
+  next: 'arrow_forward',
+  start: 'keyboard_tab_rtl',
+  end: 'keyboard_tab',
 }
 
 /**
@@ -43,4 +43,4 @@ export const DirectionalLink = ({
   />
 )
 
-DirectionalLink.displayName = "DirectionalLink"
+DirectionalLink.displayName = 'DirectionalLink'

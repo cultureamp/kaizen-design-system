@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { useDebouncedCallback } from "use-debounce"
+import React, { useState } from 'react'
+import { useDebouncedCallback } from 'use-debounce'
 
 type AnimationProps = {
   isAnimIn?: boolean
@@ -79,7 +79,7 @@ export const AnimationProvider = ({
 export const useAnimation = (): AnimationProps => {
   const context = React.useContext(AnimationContext)
   if (!context) {
-    throw new Error("useAnimation must be used within a AnimationProvider")
+    throw new Error('useAnimation must be used within a AnimationProvider')
   }
   return context
 }

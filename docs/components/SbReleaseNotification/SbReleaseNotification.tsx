@@ -1,5 +1,5 @@
-import React from "react"
-import { InlineNotification } from "~components/Notification"
+import React from 'react'
+import { InlineNotification } from '~components/Notification'
 
 export const SbReleaseNotification = (): JSX.Element => (
   <InlineNotification persistent type="negative">
@@ -9,4 +9,4 @@ export const SbReleaseNotification = (): JSX.Element => (
   </InlineNotification>
 )
 
-SbReleaseNotification.displayName = "SbReleaseNotification"
+SbReleaseNotification.displayName = 'SbReleaseNotification'

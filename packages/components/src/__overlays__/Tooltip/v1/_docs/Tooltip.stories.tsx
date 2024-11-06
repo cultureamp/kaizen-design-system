@@ -1,25 +1,25 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { ButtonGroup } from "~components/ButtonGroup"
-import { CheckboxField } from "~components/Checkbox"
-import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { ButtonGroup } from '~components/ButtonGroup'
+import { CheckboxField } from '~components/Checkbox'
+import { FilterButtonBase } from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
 import {
   TableContainer,
   TableHeader,
   TableHeaderRowCell,
   TableRow,
-} from "~components/Table"
-import { Text } from "~components/Text"
-import { Button, IconButton } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__"
-import { Tag } from "~components/__future__/Tag"
-import { Tooltip } from "../index"
+} from '~components/Table'
+import { Text } from '~components/Text'
+import { Button, IconButton } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__'
+import { Tag } from '~components/__future__/Tag'
+import { Tooltip } from '../index'
 
 const meta = {
-  title: "Overlays/Tooltip/v1",
+  title: 'Overlays/Tooltip/v1',
   component: Tooltip,
   args: {
-    text: "Example tooltip text.",
+    text: 'Example tooltip text.',
   },
   decorators: [
     Story => (
@@ -29,7 +29,7 @@ const meta = {
     ),
   ],
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<typeof Tooltip>
 
@@ -41,7 +41,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -63,27 +63,27 @@ export const OverflowScroll: Story = {
 
       <div
         style={{
-          display: "flex",
-          width: "300px",
-          maxHeight: "700px",
-          overflow: "scroll",
-          border: "solid black 2px",
-          flexDirection: "column",
+          display: 'flex',
+          width: '300px',
+          maxHeight: '700px',
+          overflow: 'scroll',
+          border: 'solid black 2px',
+          flexDirection: 'column',
         }}
       >
         <div
           style={{
-            width: "500px",
-            marginLeft: "200px",
-            marginTop: "400px",
+            width: '500px',
+            marginLeft: '200px',
+            marginTop: '400px',
           }}
         >
           <div
             style={{
-              width: "300px",
-              height: "200px",
-              textAlign: "center",
-              position: "relative",
+              width: '300px',
+              height: '200px',
+              textAlign: 'center',
+              position: 'relative',
             }}
           >
             <Tooltip {...props} display="inline-block" text="Tooltip label">
@@ -93,16 +93,16 @@ export const OverflowScroll: Story = {
         </div>
         <div
           style={{
-            width: "500px",
-            marginLeft: "200px",
+            width: '500px',
+            marginLeft: '200px',
           }}
         >
           <div
             style={{
-              width: "300px",
-              height: "100px",
-              textAlign: "center",
-              position: "relative",
+              width: '300px',
+              height: '100px',
+              textAlign: 'center',
+              position: 'relative',
             }}
           >
             <Tooltip {...props} display="inline" text="Tooltip label">
@@ -112,27 +112,27 @@ export const OverflowScroll: Story = {
         </div>
         <div
           style={{
-            width: "500px",
-            marginLeft: "200px",
-            marginBottom: "500px",
+            width: '500px',
+            marginLeft: '200px',
+            marginBottom: '500px',
           }}
         >
           <div
             style={{
-              width: "300px",
-              height: "200px",
-              textAlign: "center",
-              position: "relative",
+              width: '300px',
+              height: '200px',
+              textAlign: 'center',
+              position: 'relative',
             }}
           >
             <Text tag="div" variant="body">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-              nulla quas corporis? Perspiciatis, ratione voluptas{" "}
+              nulla quas corporis? Perspiciatis, ratione voluptas{' '}
               <Tooltip {...props} display="inline-block" text="Tooltip label">
                 <Tag>ad veniam sapiente</Tag>
-              </Tooltip>{" "}
+              </Tooltip>{' '}
               Maxime harum, ducimus maiores itaque pariatur quod vel porro
-              mollitia. Lorem ipsum dolor sit{" "}
+              mollitia. Lorem ipsum dolor sit{' '}
               <Tooltip {...props} display="inline" text="Open in new tab">
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a href="#">
@@ -141,7 +141,7 @@ export const OverflowScroll: Story = {
                 </a>
               </Tooltip>
               . Magni perspiciatis assumenda in adipisci, eaque commodi quidem
-              dolore, tempore provident animi{" "}
+              dolore, tempore provident animi{' '}
             </Text>
           </div>
         </div>
@@ -153,7 +153,7 @@ export const OverflowScroll: Story = {
 export const ButtonsWithTooltip: Story = {
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
   render: args => (
@@ -177,7 +177,7 @@ export const ButtonsWithTooltip: Story = {
 export const ButtonGroupWithTooltip: Story = {
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
   render: args => (
@@ -197,7 +197,7 @@ export const ButtonGroupWithTooltip: Story = {
 export const TableHeadersWithTooltips: Story = {
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
   render: () => (
@@ -231,7 +231,7 @@ export const TableHeadersWithTooltips: Story = {
 export const TagWithHoverOnlyTooltip: Story = {
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
   render: () => (
@@ -244,7 +244,7 @@ export const TagWithHoverOnlyTooltip: Story = {
 export const TagWithTooltip: Story = {
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
   render: () => (
@@ -261,7 +261,7 @@ export const TagWithTooltip: Story = {
 export const TagWithCheckboxField: Story = {
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
   render: () => (
@@ -276,7 +276,7 @@ export const TagWithCheckboxField: Story = {
 export const CheckboxFieldTooltip: Story = {
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
   render: () => (
@@ -291,7 +291,7 @@ export const CheckboxFieldTooltip: Story = {
 export const CheckboxFieldWithDescriptionTooltip: Story = {
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
   render: () => (

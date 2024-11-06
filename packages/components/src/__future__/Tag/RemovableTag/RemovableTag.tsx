@@ -1,15 +1,15 @@
-import React from "react"
-import classNames from "classnames"
-import { Tag, TagProps } from "../Tag"
+import React from 'react'
+import classNames from 'classnames'
+import { Tag, TagProps } from '../Tag'
 import {
   RemoveButton,
   RemoveButtonBaseProps,
-} from "./subcomponents/RemoveButton"
-import styles from "./RemovableTag.module.scss"
+} from './subcomponents/RemoveButton'
+import styles from './RemovableTag.module.scss'
 
 export type RemovableTagProps = {
   removeButtonProps: RemoveButtonBaseProps
-} & Omit<TagProps, "color" | "icon">
+} & Omit<TagProps, 'color' | 'icon'>
 
 export const RemovableTag = ({
   children,
@@ -33,4 +33,4 @@ export const RemovableTag = ({
   </Tag>
 )
 
-RemovableTag.displayName = "RemovableTag"
+RemovableTag.displayName = 'RemovableTag'

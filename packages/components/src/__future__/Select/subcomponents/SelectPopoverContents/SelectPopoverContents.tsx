@@ -1,11 +1,11 @@
-import React from "react"
-import { AriaListBoxOptions } from "@react-aria/listbox"
-import { useSelectContext } from "../../context"
-import { SelectOption, SelectItem, SelectItemNode } from "../../types"
-import { ListBox } from "../ListBox"
-import { ListItems } from "../ListItems"
-import { Overlay } from "../Overlay"
-import styles from "./SelectPopoverContents.module.scss"
+import React from 'react'
+import { AriaListBoxOptions } from '@react-aria/listbox'
+import { useSelectContext } from '../../context'
+import { SelectOption, SelectItem, SelectItemNode } from '../../types'
+import { ListBox } from '../ListBox'
+import { ListItems } from '../ListItems'
+import { Overlay } from '../Overlay'
+import styles from './SelectPopoverContents.module.scss'
 
 export type SelectPopoverContentsProps<Option extends SelectOption> = {
   children?: (args: { items: Array<SelectItemNode<Option>> }) => React.ReactNode
@@ -41,4 +41,4 @@ export const SelectPopoverContents = <Option extends SelectOption>({
   )
 }
 
-SelectPopoverContents.displayName = "Select.PopoverContents"
+SelectPopoverContents.displayName = 'Select.PopoverContents'

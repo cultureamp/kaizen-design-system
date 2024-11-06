@@ -1,18 +1,18 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
 import {
   Avatar,
   CompanyAvatarProps,
   GenericAvatarProps,
-} from "~components/Avatar"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./AvatarGroup.module.scss"
+} from '~components/Avatar'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './AvatarGroup.module.scss'
 
 export type AvatarGroupAvatarProps =
-  | Omit<GenericAvatarProps, "size">
-  | Omit<CompanyAvatarProps, "size">
+  | Omit<GenericAvatarProps, 'size'>
+  | Omit<CompanyAvatarProps, 'size'>
 
-export type AvatarGroupSize = "small" | "medium" | "large"
+export type AvatarGroupSize = 'small' | 'medium' | 'large'
 export type AvatarList = [AvatarGroupAvatarProps, ...AvatarGroupAvatarProps[]]
 
 export type AvatarGroupProps = {
@@ -74,7 +74,7 @@ const renderAvatars = (
  * {@link https://cultureamp.design/?path=/docs/components-avatar-avatar-group--docs Storybook}
  */
 export const AvatarGroup = ({
-  size = "medium",
+  size = 'medium',
   maxVisible = 2,
   avatars,
   classNameOverride,

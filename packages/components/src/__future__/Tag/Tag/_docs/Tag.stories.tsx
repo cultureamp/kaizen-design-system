@@ -1,14 +1,14 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Icon } from "~components/__future__/Icon"
-import { TagColorKeys } from "../types"
-import { Tag } from ".."
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Icon } from '~components/__future__/Icon'
+import { TagColorKeys } from '../types'
+import { Tag } from '..'
 
 const meta = {
-  title: "Components/Tag/Future",
+  title: 'Components/Tag/Future',
   component: Tag,
   args: {
-    children: "My tag",
+    children: 'My tag',
   },
 } satisfies Meta<typeof Tag>
 
@@ -20,14 +20,14 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
 }
 
 export const Children: StoryObj = {
-  args: { children: "This text is the children" },
+  args: { children: 'This text is the children' },
 }
 
 export const Color: StoryObj = {
@@ -46,13 +46,13 @@ export const Color: StoryObj = {
   ),
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
 }
 
 export const IconStory: StoryObj = {
-  name: "Icon",
+  name: 'Icon',
   render: () => (
     <div className="flex gap-16">
       <Tag icon={<Icon name="school" isPresentational isFilled />}>
@@ -68,13 +68,13 @@ export const IconStory: StoryObj = {
   ),
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
 }
 
 export const ClassNameOverride: StoryObj = {
   args: {
-    classNameOverride: "border-red-500 border-solid border",
+    classNameOverride: 'border-red-500 border-solid border',
   },
 }

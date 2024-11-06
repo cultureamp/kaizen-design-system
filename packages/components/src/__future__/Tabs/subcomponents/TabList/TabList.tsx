@@ -1,16 +1,16 @@
-import React, { ReactNode } from "react"
-import classnames from "classnames"
+import React, { ReactNode } from 'react'
+import classnames from 'classnames'
 import {
   TabList as RACTabList,
   TabListProps as RACTabListProps,
-} from "react-aria-components"
-import styles from "./TabList.module.css"
+} from 'react-aria-components'
+import styles from './TabList.module.css'
 
 export type TabListProps = {
   /**
    * Accessible name for the set of tabs
    */
-  "aria-label": string
+  'aria-label': string
   /**
    * Removes the built in padding
    */
@@ -23,7 +23,7 @@ export type TabListProps = {
  */
 export const TabList = (props: TabListProps): JSX.Element => {
   const {
-    "aria-label": ariaLabel,
+    'aria-label': ariaLabel,
     noPadding = false,
     children,
     className,

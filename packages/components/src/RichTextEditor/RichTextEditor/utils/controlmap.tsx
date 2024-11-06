@@ -1,13 +1,13 @@
-import React from "react"
-import { Icon } from "~components/__future__/Icon"
-import { ToolbarItems, ToolbarControlTypes } from "../../types"
-import { listIsActive, markIsActive } from "../../utils/commands"
+import React from 'react'
+import { Icon } from '~components/__future__/Icon'
+import { ToolbarItems, ToolbarControlTypes } from '../../types'
+import { listIsActive, markIsActive } from '../../utils/commands'
 import {
   ProseMirrorCommands,
   ProseMirrorModel,
   ProseMirrorSchemaList,
   ProseMirrorState,
-} from "../../utils/prosemirror"
+} from '../../utils/prosemirror'
 
 /** Configuration for individual controls */
 type ToolbarControl = {
@@ -111,7 +111,7 @@ const createIndentListCommand =
 const liftListIsDisabled = (state: ProseMirrorState.EditorState): boolean => {
   const { $from } = state.selection
   const listItemNode = $from.node($from.depth - 1)?.type
-  const isValidListItem = listItemNode?.name === "listItem" || false
+  const isValidListItem = listItemNode?.name === 'listItem' || false
 
   return !isValidListItem
 }
@@ -120,7 +120,7 @@ const liftListIsDisabled = (state: ProseMirrorState.EditorState): boolean => {
 const indentListIsDisabled = (state: ProseMirrorState.EditorState): boolean => {
   const { $from, $to } = state.selection
   const listItemNode = $from.node($from.depth - 1)?.type
-  const isValidListItem = listItemNode?.name === "listItem" || false
+  const isValidListItem = listItemNode?.name === 'listItem' || false
 
   if (!isValidListItem) {
     return true
@@ -140,7 +140,7 @@ const createControlGroupIndex = (controls: ToolbarItems[]): ControlGroupTypes =>
     if (!currentControl?.name) return groups
     return {
       ...groups,
-      [currentControl.name]: currentControl.group || "ungrouped",
+      [currentControl.name]: currentControl.group || 'ungrouped',
     }
   }, {})
 
@@ -154,14 +154,14 @@ const createInitialControls = (
 
   const initialControlObject: Record<string, ToolbarControl[]> =
     uniqueGroups.reduce((controlObject, controlKey) => {
-      if (controlKey === "ungrouped") return controlObject
+      if (controlKey === 'ungrouped') return controlObject
       return {
         ...controlObject,
         [controlKey]: [],
       }
     }, {})
   // This ensure that ungrouped controls are always last
-  initialControlObject["ungrouped"] = []
+  initialControlObject['ungrouped'] = []
   return initialControlObject
 }
 
@@ -171,9 +171,9 @@ const getGroupIndex = (
   controlType?: ToolbarControlTypes,
 ): string => {
   if (controlType) {
-    return controlGroupIndex[controlType] ?? "ungrouped"
+    return controlGroupIndex[controlType] ?? 'ungrouped'
   }
-  return "ungrouped"
+  return 'ungrouped'
 }
 
 /** Filters out empty control groups and returns a multi dimensional array  */
@@ -196,44 +196,44 @@ export const buildControlMap = (
 
   if (schema.marks.strong) {
     const type = schema.marks.strong
-    const groupIndex = getGroupIndex(controlGroupIndex, "bold")
+    const groupIndex = getGroupIndex(controlGroupIndex, 'bold')
     toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
-      label: "Bold",
+      label: 'Bold',
       icon: <Icon name="format_bold" isPresentational />,
     })
   }
 
   if (schema.marks.em) {
     const type = schema.marks.em
-    const groupIndex = getGroupIndex(controlGroupIndex, "italic")
+    const groupIndex = getGroupIndex(controlGroupIndex, 'italic')
     toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
-      label: "Italic",
+      label: 'Italic',
       icon: <Icon name="format_italic" isPresentational />,
     })
   }
 
   if (schema.marks.underline) {
     const type = schema.marks.underline
-    const groupIndex = getGroupIndex(controlGroupIndex, "underline")
+    const groupIndex = getGroupIndex(controlGroupIndex, 'underline')
     toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
-      label: "Underline",
+      label: 'Underline',
       icon: <Icon name="format_underlined" isPresentational />,
     })
   }
 
   if (schema.nodes.bulletList) {
     const type = schema.nodes.bulletList
-    const groupIndex = getGroupIndex(controlGroupIndex, "bulletList")
+    const groupIndex = getGroupIndex(controlGroupIndex, 'bulletList')
     toolbarControls[groupIndex].push({
       action: createToggleListCommand(type),
       isActive: listIsActive(editorState, type, listNodes),
-      label: "Bullet List",
+      label: 'Bullet List',
       icon: (
         <Icon name="format_list_bulleted" isPresentational shouldMirrorInRTL />
       ),
@@ -242,11 +242,11 @@ export const buildControlMap = (
 
   if (schema.nodes.orderedList) {
     const type = schema.nodes.orderedList
-    const groupIndex = getGroupIndex(controlGroupIndex, "orderedList")
+    const groupIndex = getGroupIndex(controlGroupIndex, 'orderedList')
     toolbarControls[groupIndex].push({
       action: createToggleListCommand(type),
       isActive: listIsActive(editorState, type, listNodes),
-      label: "Numbered List",
+      label: 'Numbered List',
       icon: (
         <Icon name="format_list_numbered" isPresentational shouldMirrorInRTL />
       ),
@@ -255,16 +255,16 @@ export const buildControlMap = (
 
   if (schema.nodes.orderedList || schema.nodes.bulletList) {
     const groupIndex =
-      controlGroupIndex["orderedList"] ||
-      controlGroupIndex["bulletList"] ||
-      "ungrouped"
+      controlGroupIndex['orderedList'] ||
+      controlGroupIndex['bulletList'] ||
+      'ungrouped'
 
     toolbarControls[groupIndex].push(
       {
         action: createLiftListCommand(),
         disabled: liftListIsDisabled(editorState),
         isActive: false,
-        label: "Decrease indent",
+        label: 'Decrease indent',
         icon: (
           <Icon
             name="format_indent_decrease"
@@ -277,7 +277,7 @@ export const buildControlMap = (
         action: createIndentListCommand(),
         disabled: indentListIsDisabled(editorState),
         isActive: false,
-        label: "Increase indent",
+        label: 'Increase indent',
         icon: (
           <Icon
             name="format_indent_increase"
@@ -291,12 +291,12 @@ export const buildControlMap = (
 
   if (schema.marks.link) {
     const type = schema.marks.link
-    const groupIndex = getGroupIndex(controlGroupIndex, "link")
+    const groupIndex = getGroupIndex(controlGroupIndex, 'link')
     toolbarControls[groupIndex].push({
       action: createToggleMarkCommand(type),
       disabled: editorState.selection.empty,
       isActive: false,
-      label: "Link",
+      label: 'Link',
       icon: <Icon name="add_link" isPresentational />,
     })
   }

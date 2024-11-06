@@ -1,7 +1,7 @@
-import { ComponentType } from "react"
-import debounce from "lodash.debounce"
-import { MarkType } from "prosemirror-model"
-import { type Command, type EditorState, Plugin } from "prosemirror-state"
+import { ComponentType } from 'react'
+import debounce from 'lodash.debounce'
+import { MarkType } from 'prosemirror-model'
+import { type Command, type EditorState, Plugin } from 'prosemirror-state'
 import {
   AttrsValidator,
   getMarkAttrs,
@@ -11,14 +11,14 @@ import {
   removeMark,
   updateMark,
   validateAndRemoveMarks,
-} from "../../commands"
+} from '../../commands'
 import {
   LinkEditor,
   LinkEditorAttrs,
   LinkEditorProps,
-} from "./components/LinkEditor"
-import { createReactTooltipWrapper } from "./createReactTooltipWrapper"
-import { CAEditorView, SelectionPosition } from "./types"
+} from './components/LinkEditor'
+import { createReactTooltipWrapper } from './createReactTooltipWrapper'
+import { CAEditorView, SelectionPosition } from './types'
 
 class LinkManager {
   editorComponent: ComponentType<LinkEditorProps>
@@ -83,7 +83,7 @@ class LinkManager {
 
   destroy(): void {
     this.tooltipTarget?.destroy()
-    window.removeEventListener("resize", this.onResize)
+    window.removeEventListener('resize', this.onResize)
   }
 
   createElement(view: CAEditorView): void {
@@ -93,7 +93,7 @@ class LinkManager {
       this.editorComponent,
       this.getEditorProps(view),
     )
-    window.addEventListener("resize", this.onResize)
+    window.addEventListener('resize', this.onResize)
   }
 
   updateElement(view: CAEditorView): void {
@@ -159,7 +159,7 @@ const defaultLinkAttributeValidator: AttrsValidator = attrs => {
   if (attrs == null) {
     return false
   }
-  return attrs.href && attrs.href !== ""
+  return attrs.href && attrs.href !== ''
 }
 
 export const createLinkManager = ({

@@ -12,8 +12,8 @@ export const DayOfWeek = {
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek]
 
 export const DateFormat = {
-  Numeral: "P", // eg. 01/15/2022
-  Text: "PP", // eg. Jan 15, 2022
+  Numeral: 'P', // eg. 01/15/2022
+  Text: 'PP', // eg. Jan 15, 2022
 } as const
 
 // Intentionally naming the type the same as the const for tree-shaking

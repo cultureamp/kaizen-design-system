@@ -1,7 +1,7 @@
-import React, { ReactNode, useId } from "react"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { MultiSelectItem } from "../../types"
-import styles from "./ListBoxSection.module.scss"
+import React, { ReactNode, useId } from 'react'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { MultiSelectItem } from '../../types'
+import styles from './ListBoxSection.module.scss'
 
 type SectionNameProps = {
   /**
@@ -36,7 +36,7 @@ export const ListBoxSection = ({
   ...restProps
 }: ListBoxSectionProps): JSX.Element => {
   const listSectionId = useId()
-  const hasSectionHeader = "sectionHeader" in restProps
+  const hasSectionHeader = 'sectionHeader' in restProps
   return (
     <li role="presentation">
       <ul
@@ -66,4 +66,4 @@ export const ListBoxSection = ({
     </li>
   )
 }
-ListBoxSection.displayName = "ListBoxSection"
+ListBoxSection.displayName = 'ListBoxSection'

@@ -1,6 +1,6 @@
-import React, { HTMLAttributes } from "react"
-import { StickerSheetCell } from "../StickerSheetCell"
-import { StickerSheetTableHeading } from "../StickerSheetTableHeading"
+import React, { HTMLAttributes } from 'react'
+import { StickerSheetCell } from '../StickerSheetCell'
+import { StickerSheetTableHeading } from '../StickerSheetTableHeading'
 
 export type StickerSheetRowProps = {
   children: React.ReactNode
@@ -17,9 +17,9 @@ export const StickerSheetRow = ({
   dir,
   ...restProps
 }: StickerSheetRowProps): JSX.Element => {
-  const headingPaddingX = "1.5rem" // $spacing-sm * 2
+  const headingPaddingX = '1.5rem' // $spacing-sm * 2
   const rowTitleWidthString =
-    typeof rowTitleWidth === "number" ? `${rowTitleWidth}px` : rowTitleWidth
+    typeof rowTitleWidth === 'number' ? `${rowTitleWidth}px` : rowTitleWidth
 
   return (
     <tr {...restProps}>
@@ -43,4 +43,4 @@ export const StickerSheetRow = ({
   )
 }
 
-StickerSheetRow.displayName = "StickerSheet.Row"
+StickerSheetRow.displayName = 'StickerSheet.Row'

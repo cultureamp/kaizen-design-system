@@ -1,8 +1,8 @@
-import { waitFor, screen, render } from "@testing-library/react"
-import { validateDate } from "./validateDate"
+import { waitFor, screen, render } from '@testing-library/react'
+import { validateDate } from './validateDate'
 
-describe("validateDate()", () => {
-  it("returns expected response when selected day is undefined", () => {
+describe('validateDate()', () => {
+  it('returns expected response when selected day is undefined', () => {
     const date = undefined
     const inputValue = undefined
     const { validationResponse, newDate } = validateDate({ date, inputValue })
@@ -20,8 +20,8 @@ describe("validateDate()", () => {
     expect(newDate).toBeUndefined()
   })
 
-  it("returns expected response when selected day is invalid and input value is undefined", async () => {
-    const date = new Date("potato")
+  it('returns expected response when selected day is invalid and input value is undefined', async () => {
+    const date = new Date('potato')
     const inputValue = undefined
     const { validationResponse, newDate } = validateDate({ date, inputValue })
 
@@ -38,17 +38,17 @@ describe("validateDate()", () => {
       isValidDate: false,
     })
 
-    expect(validationMessage?.status).toBe("error")
+    expect(validationMessage?.status).toBe('error')
 
     render(validationMessage?.message)
     await waitFor(() => {
-      expect(screen.getByText("Date is invalid")).toBeVisible()
+      expect(screen.getByText('Date is invalid')).toBeVisible()
     })
   })
 
-  it("returns expected response when selected day is invalid and input value is empty string", async () => {
-    const date = new Date("potato")
-    const inputValue = ""
+  it('returns expected response when selected day is invalid and input value is empty string', async () => {
+    const date = new Date('potato')
+    const inputValue = ''
     const { validationResponse, newDate } = validateDate({ date, inputValue })
 
     expect(newDate).toBeUndefined()
@@ -64,17 +64,17 @@ describe("validateDate()", () => {
       isValidDate: false,
     })
 
-    expect(validationMessage?.status).toBe("error")
+    expect(validationMessage?.status).toBe('error')
 
     render(validationMessage?.message)
     await waitFor(() => {
-      expect(screen.getByText("Date is invalid")).toBeVisible()
+      expect(screen.getByText('Date is invalid')).toBeVisible()
     })
   })
 
-  it("returns expected response when selected day is invalid and input value is valid string", async () => {
-    const date = new Date("potato")
-    const inputValue = "potato"
+  it('returns expected response when selected day is invalid and input value is valid string', async () => {
+    const date = new Date('potato')
+    const inputValue = 'potato'
     const { validationResponse, newDate } = validateDate({ date, inputValue })
 
     expect(newDate).toBeUndefined()
@@ -90,18 +90,18 @@ describe("validateDate()", () => {
       isValidDate: false,
     })
 
-    expect(validationMessage?.status).toBe("error")
+    expect(validationMessage?.status).toBe('error')
 
     render(validationMessage?.message)
     await waitFor(() => {
-      expect(screen.getByText("potato is an invalid date")).toBeVisible()
+      expect(screen.getByText('potato is an invalid date')).toBeVisible()
     })
   })
 
-  it("returns expected response when selected day is disabled", async () => {
-    const date = new Date("2022-03-01")
-    const inputValue = "03/01/2022"
-    const disabledDays = [new Date("2022-03-01")]
+  it('returns expected response when selected day is disabled', async () => {
+    const date = new Date('2022-03-01')
+    const inputValue = '03/01/2022'
+    const disabledDays = [new Date('2022-03-01')]
     const { validationResponse, newDate } = validateDate({
       date,
       inputValue,
@@ -121,19 +121,19 @@ describe("validateDate()", () => {
       isValidDate: false,
     })
 
-    expect(validationMessage?.status).toBe("error")
+    expect(validationMessage?.status).toBe('error')
 
     render(validationMessage?.message)
     await waitFor(() => {
       expect(
-        screen.getByText("03/01/2022 is not available, try another date"),
+        screen.getByText('03/01/2022 is not available, try another date'),
       ).toBeVisible()
     })
   })
 
-  it("returns expected response when selected day is valid", () => {
-    const date = new Date("2022-03-01")
-    const inputValue = "03/01/2022"
+  it('returns expected response when selected day is valid', () => {
+    const date = new Date('2022-03-01')
+    const inputValue = '03/01/2022'
     const { validationResponse, newDate } = validateDate({ date, inputValue })
 
     expect(validationResponse).toStrictEqual({

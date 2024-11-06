@@ -1,17 +1,17 @@
-import React, { ReactNode, ReactElement, HTMLAttributes } from "react"
-import classnames from "classnames"
-import { Heading } from "~components/Heading"
-import { SceneProps } from "~components/Illustration"
-import { Text } from "~components/Text"
-import { Button, ButtonProps } from "~components/__actions__/v2"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { assetUrl } from "~components/utils/hostedAssets"
-import { useMediaQueries } from "~components/utils/useMediaQueries"
-import styles from "./BrandMoment.module.scss"
+import React, { ReactNode, ReactElement, HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Heading } from '~components/Heading'
+import { SceneProps } from '~components/Illustration'
+import { Text } from '~components/Text'
+import { Button, ButtonProps } from '~components/__actions__/v2'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { assetUrl } from '~components/utils/hostedAssets'
+import { useMediaQueries } from '~components/utils/useMediaQueries'
+import styles from './BrandMoment.module.scss'
 
 type DeprecatedMoodProps = {
   /** @deprecated Use `variant` instead */
-  mood: "informative" | "positive" | "negative"
+  mood: 'informative' | 'positive' | 'negative'
   variant?: never
 }
 
@@ -22,7 +22,7 @@ type VariantProps = {
    * - `positive` should be `success`
    * - `negative` should be `warning`
    */
-  variant: "informative" | "success" | "warning"
+  variant: 'informative' | 'success' | 'warning'
   /** @deprecated Use `variant` instead */
   mood?: never
 }
@@ -89,7 +89,7 @@ export const BrandMoment = ({
                 )}
                 <Heading
                   variant="display-0"
-                  tag={text.subtitle ? "h2" : "h1"}
+                  tag={text.subtitle ? 'h2' : 'h1'}
                   classNameOverride={styles.title}
                 >
                   {text.title}
@@ -139,7 +139,7 @@ export const BrandMoment = ({
                   className={styles.poweredByLogo}
                 >
                   <img
-                    src={assetUrl("brand/logo-horizontal-default.svg")}
+                    src={assetUrl('brand/logo-horizontal-default.svg')}
                     alt="Culture Amp"
                   />
                 </a>
@@ -155,4 +155,4 @@ export const BrandMoment = ({
   )
 }
 
-BrandMoment.displayName = "BrandMoment"
+BrandMoment.displayName = 'BrandMoment'

@@ -1,11 +1,11 @@
-import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
-import { GenericModal, GenericModalProps } from "./GenericModal"
-import { ModalAccessibleLabel } from "./subcomponents/ModalAccessibleLabel"
-import { ModalBody } from "./subcomponents/ModalBody"
-import { ModalHeader } from "./subcomponents/ModalHeader"
+import React from 'react'
+import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
+import { GenericModal, GenericModalProps } from './GenericModal'
+import { ModalAccessibleLabel } from './subcomponents/ModalAccessibleLabel'
+import { ModalBody } from './subcomponents/ModalBody'
+import { ModalHeader } from './subcomponents/ModalHeader'
 const user = userEvent.setup()
 
 const GenericModalWrapper = ({
@@ -38,29 +38,29 @@ const GenericModalWrapper = ({
   )
 }
 
-describe("<GenericModal />", () => {
-  it("renders an open modal with the provided content", () => {
+describe('<GenericModal />', () => {
+  it('renders an open modal with the provided content', () => {
     render(<GenericModalWrapper />)
-    expect(screen.getByText("Example")).toBeVisible()
+    expect(screen.getByText('Example')).toBeVisible()
   })
 
-  it("does not render a closed modal with the provided content", () => {
+  it('does not render a closed modal with the provided content', () => {
     render(<GenericModalWrapper isOpen={false} />)
-    expect(screen.queryByText("Example")).not.toBeInTheDocument()
+    expect(screen.queryByText('Example')).not.toBeInTheDocument()
   })
 
-  it("closes the modal when escape key is pressed", async () => {
+  it('closes the modal when escape key is pressed', async () => {
     const handleDismiss = vi.fn()
 
     render(<GenericModalWrapper onEscapeKeyup={handleDismiss} />)
 
-    const modal = screen.getByTestId("GenericModalTestId")
+    const modal = screen.getByTestId('GenericModalTestId')
 
     await waitFor(() => {
       expect(modal).toBeVisible()
     })
 
-    await user.keyboard("{Escape}")
+    await user.keyboard('{Escape}')
 
     await waitFor(() => {
       expect(modal).not.toBeInTheDocument()
@@ -69,21 +69,21 @@ describe("<GenericModal />", () => {
     })
   })
 
-  it("closes the modal when a click is outside of the modal content", async () => {
+  it('closes the modal when a click is outside of the modal content', async () => {
     const handleDismiss = vi.fn()
     render(<GenericModalWrapper onOutsideModalClick={handleDismiss} />)
 
-    await user.click(screen.getByTestId("GenericModalTestId-scrollLayer"))
+    await user.click(screen.getByTestId('GenericModalTestId-scrollLayer'))
     await waitFor(() => {
       expect(handleDismiss).toHaveBeenCalledTimes(1)
     })
   })
 
-  it("calls onAfterLeave after it closes", async () => {
+  it('calls onAfterLeave after it closes', async () => {
     const mockOnAfterLeave = vi.fn()
     render(<GenericModalWrapper onAfterLeave={mockOnAfterLeave} />)
 
-    await user.click(screen.getByTestId("GenericModalTestId-scrollLayer"))
+    await user.click(screen.getByTestId('GenericModalTestId-scrollLayer'))
     await waitFor(() => expect(mockOnAfterLeave).toHaveBeenCalledTimes(1))
   })
 })

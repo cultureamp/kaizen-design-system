@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Root.module.css"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Root.module.css'
 
 export type HeaderRootProps = OverrideClassName<
   HTMLAttributes<HTMLHeadingElement>
@@ -17,4 +17,4 @@ export const HeaderRoot = ({
   </header>
 )
 
-HeaderRoot.displayName = "Workflow.HeaderRoot"
+HeaderRoot.displayName = 'Workflow.HeaderRoot'

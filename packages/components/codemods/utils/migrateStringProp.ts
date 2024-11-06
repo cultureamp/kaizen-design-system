@@ -1,6 +1,6 @@
-import ts from "typescript"
-import { getPropValueText } from "./getPropValueText"
-import { updateJsxElementWithNewProps } from "./updateJsxElementWithNewProps"
+import ts from 'typescript'
+import { getPropValueText } from './getPropValueText'
+import { updateJsxElementWithNewProps } from './updateJsxElementWithNewProps'
 
 /** Recurses through AST to find and update any jsx element that matched the tagName */
 export const migrateStringProp =

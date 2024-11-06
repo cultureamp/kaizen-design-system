@@ -1,10 +1,10 @@
-import React, { InputHTMLAttributes } from "react"
-import classnames from "classnames"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./ToggleSwitch.module.scss"
+import React, { InputHTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './ToggleSwitch.module.scss'
 
-export type ToggledStatus = "on" | "off"
+export type ToggledStatus = 'on' | 'off'
 
 export type ToggleSwitchProps = {
   toggledStatus?: ToggledStatus
@@ -14,7 +14,7 @@ export type ToggleSwitchProps = {
   onToggle?: React.ChangeEventHandler<HTMLInputElement>
   reversed?: boolean
 } & OverrideClassName<
-  Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "onToggle">
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'onToggle'>
 >
 
 export const ToggleSwitch = ({
@@ -23,7 +23,7 @@ export const ToggleSwitch = ({
   reversed,
   ...restProps
 }: ToggleSwitchProps): JSX.Element => {
-  const isOn = toggledStatus === "on"
+  const isOn = toggledStatus === 'on'
 
   return (
     <span
@@ -48,4 +48,4 @@ export const ToggleSwitch = ({
   )
 }
 
-ToggleSwitch.displayName = "ToggleSwitch"
+ToggleSwitch.displayName = 'ToggleSwitch'

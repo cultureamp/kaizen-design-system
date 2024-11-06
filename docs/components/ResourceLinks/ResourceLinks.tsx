@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from "react"
-import { Unstyled } from "@storybook/blocks"
-import classNames from "classnames"
-import { Text } from "~components/Text"
-import { Icon } from "~components/__future__/Icon"
+import React, { HTMLAttributes } from 'react'
+import { Unstyled } from '@storybook/blocks'
+import classNames from 'classnames'
+import { Text } from '~components/Text'
+import { Icon } from '~components/__future__/Icon'
 
 type ResourceLinkProps = {
   href: string
@@ -44,7 +44,7 @@ export const ResourceLinks = ({
     <ul
       {...attributes}
       className={classNames(
-        "flex flex-wrap mt-16 mb-40 list-none m-0 p-0 gap-8",
+        'flex flex-wrap mt-16 mb-40 list-none m-0 p-0 gap-8',
         className,
       )}
     >
@@ -60,4 +60,4 @@ export const ResourceLinks = ({
   </Unstyled>
 )
 
-ResourceLinks.displayName = "ResourceLinks"
+ResourceLinks.displayName = 'ResourceLinks'

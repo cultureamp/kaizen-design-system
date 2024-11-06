@@ -1,15 +1,15 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { Icon } from "~components/__future__/Icon"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { Icon } from '~components/__future__/Icon'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Input, InputProps } from "../index"
-import { InputStatus, InputTypes } from "../types"
+} from '~storybook/components/StickerSheet'
+import { Input, InputProps } from '../index'
+import { InputStatus, InputTypes } from '../types'
 
 export default {
-  title: "Components/Inputs/Input",
+  title: 'Components/Inputs/Input',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -18,7 +18,7 @@ export default {
         rules: [
           {
             // Built with no label on purpose, to be used within `TextField` where label is present
-            id: "label",
+            id: 'label',
             enabled: false,
           },
         ],
@@ -39,7 +39,7 @@ const InputExampleGroup = (props: InputProps): JSX.Element => (
               name="edit"
               isPresentational
               data-sb-a11y-color-contrast-disable={
-                props.disabled ? "true" : "false"
+                props.disabled ? 'true' : 'false'
               }
             />
           }
@@ -48,7 +48,7 @@ const InputExampleGroup = (props: InputProps): JSX.Element => (
               name="close"
               isPresentational
               data-sb-a11y-color-contrast-disable={
-                props.disabled ? "true" : "false"
+                props.disabled ? 'true' : 'false'
               }
             />
           }
@@ -63,7 +63,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
-        headings={["Default", "Hover", "Active", "Focus", "Disabled"]}
+        headings={['Default', 'Hover', 'Active', 'Focus', 'Disabled']}
         hasVerticalHeadings
       />
       <StickerSheet.Body>
@@ -108,21 +108,21 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  name: 'Sticker Sheet (Reversed)',
+  parameters: { backgrounds: { default: 'Purple 700' } },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

@@ -1,22 +1,22 @@
-import React, { useId } from "react"
-import classnames from "classnames"
-import type { Locale } from "date-fns"
-import { enAU } from "date-fns/locale"
+import React, { useId } from 'react'
+import classnames from 'classnames'
+import type { Locale } from 'date-fns'
+import { enAU } from 'date-fns/locale'
 import {
   DateInputDescription,
   DateInputDescriptionProps,
   DateInputWithIconButton,
   DateInputWithIconButtonProps,
   DateInputWithIconButtonRefs,
-} from "~components/DateInput"
-import { FieldMessage, FieldMessageStatus } from "~components/FieldMessage"
-import styles from "./DateInputField.module.scss"
+} from '~components/DateInput'
+import { FieldMessage, FieldMessageStatus } from '~components/FieldMessage'
+import styles from './DateInputField.module.scss'
 
 export type DateInputFieldProps = {
   /**
    * A description that provides context for the text field
    */
-  description?: DateInputDescriptionProps["description"]
+  description?: DateInputDescriptionProps['description']
   /**
    * Updates the styling of the validation FieldMessage
    */
@@ -85,4 +85,4 @@ export const DateInputField = React.forwardRef<
   },
 )
 
-DateInputField.displayName = "DateInputField"
+DateInputField.displayName = 'DateInputField'

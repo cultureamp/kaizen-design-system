@@ -1,8 +1,8 @@
-import React from "react"
-import classnames from "classnames"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { useSelectionContext } from "../../../context"
-import styles from "../SelectionControlButton.module.scss"
+import React from 'react'
+import classnames from 'classnames'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { useSelectionContext } from '../../../context'
+import styles from '../SelectionControlButton.module.scss'
 
 export const ClearButton = (): JSX.Element => {
   const { selectionState } = useSelectionContext()
@@ -39,4 +39,4 @@ export const ClearButton = (): JSX.Element => {
   )
 }
 
-ClearButton.displayName = "FilterMultiSelect.ClearButton"
+ClearButton.displayName = 'FilterMultiSelect.ClearButton'

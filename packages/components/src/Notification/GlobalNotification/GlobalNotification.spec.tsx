@@ -1,18 +1,18 @@
-import React from "react"
-import { render } from "@testing-library/react"
-import { GlobalNotification } from "./GlobalNotification"
+import React from 'react'
+import { render } from '@testing-library/react'
+import { GlobalNotification } from './GlobalNotification'
 
-describe("<GlobalNotification />", () => {
-  it("renders the positive notification correctly", () => {
+describe('<GlobalNotification />', () => {
+  it('renders the positive notification correctly', () => {
     const { getByText } = render(
       <GlobalNotification type="positive">
         This is my positive notification
       </GlobalNotification>,
     )
 
-    expect(getByText("This is my positive notification")).toBeInTheDocument()
+    expect(getByText('This is my positive notification')).toBeInTheDocument()
   })
-  it("removes the notification from the DOM", () => {
+  it('removes the notification from the DOM', () => {
     const { getByRole } = render(
       <GlobalNotification type="positive">
         This is my positive notification
@@ -20,7 +20,7 @@ describe("<GlobalNotification />", () => {
     )
 
     expect(
-      getByRole("button", { name: "Close notification" }),
+      getByRole('button', { name: 'Close notification' }),
     ).toBeInTheDocument()
   })
 })

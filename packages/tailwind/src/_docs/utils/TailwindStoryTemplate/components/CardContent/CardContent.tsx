@@ -1,6 +1,6 @@
-import React from "react"
-import { Heading } from "~components/Heading"
-import { Button } from "~components/__actions__/v2"
+import React from 'react'
+import { Heading } from '~components/Heading'
+import { Button } from '~components/__actions__/v2'
 
 type CardContentProps = {
   title: string
@@ -23,4 +23,4 @@ export const CardContent = ({
   </div>
 )
 
-CardContent.displayName = "CardContent"
+CardContent.displayName = 'CardContent'

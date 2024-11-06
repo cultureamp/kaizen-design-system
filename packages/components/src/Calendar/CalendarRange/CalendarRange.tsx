@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react"
-import { enAU } from "date-fns/locale"
-import { DayPicker, DayPickerRangeProps } from "react-day-picker"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { baseCalendarClassNames } from "../baseCalendarClassNames"
-import { isInvalidDate } from "../utils"
-import styles from "./CalendarRange.module.scss"
+import React, { useEffect, useRef } from 'react'
+import { enAU } from 'date-fns/locale'
+import { DayPicker, DayPickerRangeProps } from 'react-day-picker'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { baseCalendarClassNames } from '../baseCalendarClassNames'
+import { isInvalidDate } from '../utils'
+import styles from './CalendarRange.module.scss'
 
 export type CalendarRangeElement = HTMLDivElement
 
@@ -13,7 +13,7 @@ export type CalendarRangeProps = {
   id?: string
   onMount?: (calendarElement: CalendarRangeElement) => void
   hasDivider?: boolean
-} & OverrideClassName<Omit<DayPickerRangeProps, "mode">>
+} & OverrideClassName<Omit<DayPickerRangeProps, 'mode'>>
 
 export const CalendarRange = ({
   id,
@@ -44,7 +44,7 @@ export const CalendarRange = ({
     day_range_start: styles.dayRangeStart,
     day_range_end: styles.dayRangeEnd,
     day_range_middle: styles.dayRangeMiddle,
-  } satisfies DayPickerRangeProps["classNames"]
+  } satisfies DayPickerRangeProps['classNames']
   /* eslint-enable camelcase */
 
   return (
@@ -70,4 +70,4 @@ export const CalendarRange = ({
   )
 }
 
-CalendarRange.displayName = "CalendarRange"
+CalendarRange.displayName = 'CalendarRange'

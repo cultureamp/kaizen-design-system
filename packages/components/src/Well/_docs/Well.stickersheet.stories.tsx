@@ -1,15 +1,15 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { Text } from "~components/Text"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { Text } from '~components/Text'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Well, WellProps } from "../index"
-import { borderStyleTypes, wellColors, variantTypes } from "../types"
+} from '~storybook/components/StickerSheet'
+import { Well, WellProps } from '../index'
+import { borderStyleTypes, wellColors, variantTypes } from '../types'
 
 export default {
-  title: "Components/Well",
+  title: 'Components/Well',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -32,7 +32,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <StickerSheet>
         <StickerSheet.Header
-          headings={["Solid Border", "Dashed Border", "None"]}
+          headings={['Solid Border', 'Dashed Border', 'None']}
           hasVerticalHeadings
         />
         <StickerSheet.Body>
@@ -59,7 +59,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Body>
       </StickerSheet>
       <StickerSheet>
-        <StickerSheet.Header headings={["Margin", "No Margin"]} />
+        <StickerSheet.Header headings={['Margin', 'No Margin']} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <StickerSheet.Cell>
@@ -79,5 +79,5 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }

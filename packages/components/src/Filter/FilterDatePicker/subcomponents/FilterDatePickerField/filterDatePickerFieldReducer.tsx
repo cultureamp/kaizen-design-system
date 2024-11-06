@@ -1,17 +1,17 @@
-import { isInvalidDate } from "~components/Calendar"
+import { isInvalidDate } from '~components/Calendar'
 
 type DateFieldActions =
   | {
-      type: "update_selected_date"
+      type: 'update_selected_date'
       date: Date | undefined
       inputValue?: string
     }
   | {
-      type: "navigate_months"
+      type: 'navigate_months'
       date: Date | undefined
     }
   | {
-      type: "update_input_field"
+      type: 'update_input_field'
       inputValue: string
     }
 
@@ -26,7 +26,7 @@ export const filterDatePickerFieldReducer = (
   action: DateFieldActions,
 ): FilterDatePickerState => {
   switch (action.type) {
-    case "update_selected_date":
+    case 'update_selected_date':
       return {
         ...state,
         selectedDate: action.date,
@@ -38,14 +38,14 @@ export const filterDatePickerFieldReducer = (
           action.date && !isInvalidDate(action.date) ? action.date : new Date(),
       }
 
-    case "navigate_months":
+    case 'navigate_months':
       return {
         ...state,
         startMonth:
           action.date && !isInvalidDate(action.date) ? action.date : new Date(),
       }
 
-    case "update_input_field":
+    case 'update_input_field':
       return {
         ...state,
         inputValue: action.inputValue,

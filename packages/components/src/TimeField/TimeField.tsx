@@ -1,26 +1,26 @@
-import React, { useId } from "react"
-import { Time } from "@internationalized/date"
-import { useTimeField } from "@react-aria/datepicker"
-import { I18nProvider } from "@react-aria/i18n"
+import React, { useId } from 'react'
+import { Time } from '@internationalized/date'
+import { useTimeField } from '@react-aria/datepicker'
+import { I18nProvider } from '@react-aria/i18n'
 import {
   useTimeFieldState,
   TimeFieldStateOptions,
-} from "@react-stately/datepicker"
-import classnames from "classnames"
-import { FieldMessage } from "~components/FieldMessage"
-import { Label } from "~components/Label"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { TimeSegment } from "./subcomponents/TimeSegment"
-import { StatusType, TimeValue, ValueType } from "./types"
-import styles from "./TimeField.module.scss"
+} from '@react-stately/datepicker'
+import classnames from 'classnames'
+import { FieldMessage } from '~components/FieldMessage'
+import { Label } from '~components/Label'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { TimeSegment } from './subcomponents/TimeSegment'
+import { StatusType, TimeValue, ValueType } from './types'
+import styles from './TimeField.module.scss'
 
 type OmittedTimeFieldProps =
-  | "errorMessage"
-  | "validationState"
-  | "value"
-  | "onChange"
-  | "label"
-  | "hideTimeZone"
+  | 'errorMessage'
+  | 'validationState'
+  | 'value'
+  | 'onChange'
+  | 'label'
+  | 'hideTimeZone'
 
 export type TimeFieldProps = {
   id?: string
@@ -46,7 +46,7 @@ export const TimeField = (props: TimeFieldProps): JSX.Element => (
   </I18nProvider>
 )
 
-TimeField.displayName = "TimeField"
+TimeField.displayName = 'TimeField'
 
 const TimeFieldComponent = ({
   id: propsId,
@@ -54,7 +54,7 @@ const TimeFieldComponent = ({
   locale,
   onChange,
   value,
-  status = "default",
+  status = 'default',
   validationMessage,
   isDisabled,
   classNameOverride,
@@ -77,10 +77,10 @@ const TimeFieldComponent = ({
     isDisabled,
     hideTimeZone: true,
     locale,
-    validationState: status === "default" ? "valid" : "invalid",
+    validationState: status === 'default' ? 'valid' : 'invalid',
   })
 
-  const hasError = !!validationMessage && status === "error"
+  const hasError = !!validationMessage && status === 'error'
   const descriptionId = hasError ? `${id}-field-message` : undefined
 
   const inputRef = React.useRef(null)
@@ -89,7 +89,7 @@ const TimeFieldComponent = ({
       ...restProps,
       label,
       isDisabled,
-      "aria-describedby": descriptionId,
+      'aria-describedby': descriptionId,
     },
     state,
     inputRef,
@@ -111,7 +111,7 @@ const TimeFieldComponent = ({
           className={classnames(
             styles.input,
             state.isDisabled && styles.isDisabled,
-            state.validationState === "invalid" && styles.error,
+            state.validationState === 'invalid' && styles.error,
           )}
         >
           {state.segments.map((segment, i) => (
@@ -131,4 +131,4 @@ const TimeFieldComponent = ({
   )
 }
 
-TimeFieldComponent.displayName = "TimeFieldComponent"
+TimeFieldComponent.displayName = 'TimeFieldComponent'

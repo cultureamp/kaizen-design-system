@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react"
-import classnames from "classnames"
-import { FocusOn } from "react-focus-on"
-import { usePopper } from "react-popper"
-import styles from "./MenuDropdown.module.scss"
+import React, { useCallback, useEffect, useState } from 'react'
+import classnames from 'classnames'
+import { FocusOn } from 'react-focus-on'
+import { usePopper } from 'react-popper'
+import styles from './MenuDropdown.module.scss'
 
 export type MenuDropdownProps = {
   id?: string
@@ -13,9 +13,9 @@ export type MenuDropdownProps = {
     left: number
     right: number
   } | null
-  align?: "left" | "right"
-  width?: "default" | "contain"
-  autoHide?: "on" | "outside-click-only" | "off"
+  align?: 'left' | 'right'
+  width?: 'default' | 'contain'
+  autoHide?: 'on' | 'outside-click-only' | 'off'
   children: React.ReactNode
   referenceElement: HTMLElement | null
 }
@@ -25,9 +25,9 @@ export const MenuDropdown = ({
   referenceElement,
   id,
   hideMenuDropdown,
-  autoHide = "on",
-  align = "left",
-  width = "default",
+  autoHide = 'on',
+  align = 'left',
+  width = 'default',
 }: MenuDropdownProps): JSX.Element => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null,
@@ -38,20 +38,20 @@ export const MenuDropdown = ({
     {
       modifiers: [
         {
-          name: "offset",
+          name: 'offset',
           options: {
             offset: [0, 6], // value used from the $spacing-xs scss variable,
           },
         },
         {
-          name: "preventOverflow",
+          name: 'preventOverflow',
           options: {
             // Gives some room so the menu shadow doesn't get clipped if near the edge of the viewport.
             padding: 8,
           },
         },
       ],
-      placement: align === "left" ? "bottom-start" : "bottom-end",
+      placement: align === 'left' ? 'bottom-start' : 'bottom-end',
     },
   )
 
@@ -76,29 +76,29 @@ export const MenuDropdown = ({
   }, [hideMenuDropdown])
 
   const handleRootClick = (): void => {
-    if (autoHide === "on") {
+    if (autoHide === 'on') {
       // ie. is not equal to "off" | "outside-click-only"
       hideMenuDropdown()
     }
   }
 
   useEffect(() => {
-    window.addEventListener("resize", handleDocumentResize, false)
+    window.addEventListener('resize', handleDocumentResize, false)
 
     return () => {
-      window.removeEventListener("resize", handleDocumentResize, false)
+      window.removeEventListener('resize', handleDocumentResize, false)
     }
   }, [handleDocumentResize])
 
   useEffect(() => {
-    if (autoHide !== "off") {
-      document.addEventListener("click", handleDocumentClickForAutoHide, true)
+    if (autoHide !== 'off') {
+      document.addEventListener('click', handleDocumentClickForAutoHide, true)
     }
 
     return () => {
-      if (autoHide !== "off") {
+      if (autoHide !== 'off') {
         document.removeEventListener(
-          "click",
+          'click',
           handleDocumentClickForAutoHide,
           true,
         )
@@ -128,7 +128,7 @@ export const MenuDropdown = ({
         style={popperStyles.popper}
         className={classnames(
           styles.menuContainer,
-          width == "default" && styles.defaultWidth,
+          width == 'default' && styles.defaultWidth,
         )}
         onClick={handleRootClick}
       >
@@ -138,4 +138,4 @@ export const MenuDropdown = ({
   )
 }
 
-MenuDropdown.displayName = "MenuDropdown"
+MenuDropdown.displayName = 'MenuDropdown'

@@ -1,16 +1,16 @@
-import React, { useState } from "react"
-import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
-import { Meta } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
-import { Text } from "~components/Text"
+import React, { useState } from 'react'
+import { StaticIntlProvider } from '@cultureamp/i18n-react-intl'
+import { Meta } from '@storybook/react'
+import { expect, userEvent, within } from '@storybook/test'
+import { Text } from '~components/Text'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { DatePicker } from "../index"
+} from '~storybook/components/StickerSheet'
+import { DatePicker } from '../index'
 
 export default {
-  title: "Components/Date controls/DatePicker",
+  title: 'Components/Date controls/DatePicker',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -25,14 +25,14 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet isReversed={isReversed} heading="DatePicker">
           <StickerSheet.Header
             headings={[
-              "Default",
-              "Selected Value",
-              "Custom Description",
-              "Disabled",
+              'Default',
+              'Selected Value',
+              'Custom Description',
+              'Disabled',
             ]}
           />
           <StickerSheet.Body>
-            <StickerSheet.Row style={{ verticalAlign: "top" }}>
+            <StickerSheet.Row style={{ verticalAlign: 'top' }}>
               <DatePicker
                 labelText="Label"
                 selectedDay={selectedDate}
@@ -55,7 +55,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                     <Text
                       tag="span"
                       variant="small"
-                      color={isReversed ? "white" : "dark"}
+                      color={isReversed ? 'white' : 'dark'}
                     >
                       My <strong>Custom</strong> Description
                     </Text>
@@ -75,7 +75,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
         <StickerSheet isReversed={isReversed} heading="Pseudo states">
           <StickerSheet.Header
-            headings={["Hover", "Focus"]}
+            headings={['Hover', 'Focus']}
             hasVerticalHeadings
           />
           <StickerSheet.Body>
@@ -116,12 +116,12 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet>
 
         <StickerSheet isReversed={isReversed} heading="Validation">
-          <StickerSheet.Header headings={["Error", "Caution"]} />
+          <StickerSheet.Header headings={['Error', 'Caution']} />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <DatePicker
                 labelText="Label"
-                selectedDay={new Date("potato")}
+                selectedDay={new Date('potato')}
                 onDayChange={() => undefined}
                 isReversed={isReversed}
               />
@@ -143,15 +143,15 @@ const StickerSheetTemplate: StickerSheetStory = {
     pseudo: {
       hover: [
         '[data-sb-pseudo-styles="hover"]',
-        ".story__date-input-single-field--hover button",
+        '.story__date-input-single-field--hover button',
       ],
       focus: [
         '[data-sb-pseudo-styles="focus"]',
-        ".story__date-input-single-field--focus button",
+        '.story__date-input-single-field--focus button',
       ],
       focusVisible: [
         '[data-sb-pseudo-styles="focus"]',
-        ".story__date-input-single-field--focus button",
+        '.story__date-input-single-field--focus button',
       ],
     },
   },
@@ -159,44 +159,44 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }
 
 export const StickerSheetLocales: StickerSheetStory = {
-  name: "Sticker Sheet (Locales)",
+  name: 'Sticker Sheet (Locales)',
   render: () => (
     <>
       <StickerSheet heading="Localisation">
-        <StickerSheet.Header headings={["en-AU", "en-US"]} />
+        <StickerSheet.Header headings={['en-AU', 'en-US']} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <DatePicker
               labelText="Label"
-              selectedDay={new Date("2022, 1, 5")}
+              selectedDay={new Date('2022, 1, 5')}
               onDayChange={() => undefined}
             />
             <DatePicker
               labelText="Label"
-              selectedDay={new Date("2022, 1, 5")}
+              selectedDay={new Date('2022, 1, 5')}
               onDayChange={() => undefined}
               locale="en-US"
             />
@@ -205,13 +205,13 @@ export const StickerSheetLocales: StickerSheetStory = {
       </StickerSheet>
 
       <StickerSheet>
-        <StickerSheet.Header headings={["fr-CA"]} />
+        <StickerSheet.Header headings={['fr-CA']} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <StaticIntlProvider locale="fr-CA">
               <DatePicker
                 labelText="Label"
-                selectedDay={new Date("2022, 1, 5")}
+                selectedDay={new Date('2022, 1, 5')}
                 onDayChange={() => undefined}
                 locale="fr-CA"
                 data-testid="id--dp-fr-ca"
@@ -231,7 +231,7 @@ export const StickerSheetLocales: StickerSheetStory = {
   ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await userEvent.click(canvas.getByTestId("id--dp-fr-ca"))
-    await expect(canvas.getByText("janvier 2022")).toBeInTheDocument()
+    await userEvent.click(canvas.getByTestId('id--dp-fr-ca'))
+    await expect(canvas.getByText('janvier 2022')).toBeInTheDocument()
   },
 }

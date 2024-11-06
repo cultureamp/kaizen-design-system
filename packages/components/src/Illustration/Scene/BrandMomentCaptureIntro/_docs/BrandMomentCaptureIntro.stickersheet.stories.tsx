@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { BrandMomentCaptureIntro } from "../index"
+} from '~storybook/components/StickerSheet'
+import { BrandMomentCaptureIntro } from '../index'
 
 export default {
-  title: "Components/Illustrations/Scene/BrandMomentCaptureIntro",
+  title: 'Components/Illustrations/Scene/BrandMomentCaptureIntro',
   parameters: {
     chromatic: { disable: false, delay: 400 },
     controls: { disable: true },
@@ -17,7 +17,7 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Autoplay (hover)"]} />
+      <StickerSheet.Header headings={['Default', 'Autoplay (hover)']} />
       <StickerSheet.Body>
         <StickerSheet.Row>
           <BrandMomentCaptureIntro />
@@ -35,5 +35,5 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }

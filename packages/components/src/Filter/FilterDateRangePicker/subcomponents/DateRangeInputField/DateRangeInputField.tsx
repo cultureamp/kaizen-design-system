@@ -1,34 +1,34 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import type { Locale } from "date-fns"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import type { Locale } from 'date-fns'
 import {
   DateInput,
   DateInputDescription,
   DateInputDescriptionProps,
   DateInputProps,
-} from "~components/DateInput"
-import { FieldMessage } from "~components/FieldMessage"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { isRefObject } from "~components/utils/isRefObject"
+} from '~components/DateInput'
+import { FieldMessage } from '~components/FieldMessage'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { isRefObject } from '~components/utils/isRefObject'
 import {
   DateRangeValidationMessage,
   DateRangeValidationMessageProps,
-} from "../DateRangeValidationMessage"
-import styles from "./DateRangeInputField.module.scss"
+} from '../DateRangeValidationMessage'
+import styles from './DateRangeInputField.module.scss'
 
 export type DateRangeInputFieldProps = {
   id: string
   legend: string
-  inputStartDateProps: Omit<DateInputProps, "id">
-  inputEndDateProps: Omit<DateInputProps, "id">
+  inputStartDateProps: Omit<DateInputProps, 'id'>
+  inputEndDateProps: Omit<DateInputProps, 'id'>
   locale: Locale
   /**
    * A description that provides context for the text field
    */
-  description?: DateInputDescriptionProps["description"]
+  description?: DateInputDescriptionProps['description']
   isReversed?: boolean
-  validationMessage?: DateRangeValidationMessageProps["validationMessage"]
+  validationMessage?: DateRangeValidationMessageProps['validationMessage']
   disabled?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
@@ -145,4 +145,4 @@ export const DateRangeInputField = React.forwardRef<
   },
 )
 
-DateRangeInputField.displayName = "DateRangeInputField"
+DateRangeInputField.displayName = 'DateRangeInputField'

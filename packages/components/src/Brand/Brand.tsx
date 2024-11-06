@@ -1,12 +1,12 @@
-import React, { HTMLAttributes, SVGAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { assetUrl } from "~components/utils/hostedAssets"
-import { BrandCollectiveIntelligence } from "./BrandCollectiveIntelligence"
-import styles from "./Brand.module.scss"
+import React, { HTMLAttributes, SVGAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { assetUrl } from '~components/utils/hostedAssets'
+import { BrandCollectiveIntelligence } from './BrandCollectiveIntelligence'
+import styles from './Brand.module.scss'
 
-type MeaningfulSVG = { role: "img"; "aria-label": string; alt?: never }
-type DecorativeSVG = { role: "presentation"; "aria-label"?: never; alt?: never }
+type MeaningfulSVG = { role: 'img'; 'aria-label': string; alt?: never }
+type DecorativeSVG = { role: 'presentation'; 'aria-label'?: never; alt?: never }
 export type BrandSVGProps = OverrideClassName<SVGAttributes<SVGElement>> &
   (MeaningfulSVG | DecorativeSVG)
 
@@ -14,14 +14,14 @@ type SVGBackwardsCompatible = { role?: never; alt: string }
 type SVGProps = OverrideClassName<SVGAttributes<SVGElement>> &
   (MeaningfulSVG | DecorativeSVG | SVGBackwardsCompatible)
 type VariantSVG = {
-  variant: "collective-intelligence"
+  variant: 'collective-intelligence'
 } & SVGProps
 
 type PictureProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
   alt: string
 }
 type VariantPicture = {
-  variant: "logo-horizontal" | "logo-vertical" | "enso"
+  variant: 'logo-horizontal' | 'logo-vertical' | 'enso'
 } & PictureProps
 
 export type BrandProps = {
@@ -29,9 +29,9 @@ export type BrandProps = {
 } & (VariantSVG | VariantPicture)
 
 const isSVG = (
-  variant: VariantSVG["variant"] | VariantPicture["variant"],
+  variant: VariantSVG['variant'] | VariantPicture['variant'],
   restProps: SVGProps | PictureProps,
-): restProps is SVGProps => variant === "collective-intelligence"
+): restProps is SVGProps => variant === 'collective-intelligence'
 
 export const Brand = ({
   reversed = false,
@@ -39,12 +39,12 @@ export const Brand = ({
   ...restProps
 }: BrandProps): JSX.Element => {
   if (isSVG(variant, restProps)) {
-    const { role, alt, "aria-label": ariaLabel, ...props } = restProps
+    const { role, alt, 'aria-label': ariaLabel, ...props } = restProps
 
-    if (role === "presentation") {
+    if (role === 'presentation') {
       return <BrandCollectiveIntelligence role={role} {...props} />
     }
-    if (role === "img") {
+    if (role === 'img') {
       return (
         <BrandCollectiveIntelligence
           role={role}
@@ -60,7 +60,7 @@ export const Brand = ({
   }
 
   const { alt, classNameOverride, style, ...otherProps } = restProps
-  const brandTheme = reversed ? "-reversed" : "-default"
+  const brandTheme = reversed ? '-reversed' : '-default'
 
   return (
     <picture {...otherProps}>
@@ -82,4 +82,4 @@ export const Brand = ({
   )
 }
 
-Brand.displayName = "Brand"
+Brand.displayName = 'Brand'

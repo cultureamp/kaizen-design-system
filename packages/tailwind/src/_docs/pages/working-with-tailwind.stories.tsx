@@ -1,17 +1,17 @@
-import React from "react"
-import { StoryFn } from "@storybook/react"
-import { Card } from "~components/Card"
-import { Heading } from "~components/Heading"
+import React from 'react'
+import { StoryFn } from '@storybook/react'
+import { Card } from '~components/Card'
+import { Heading } from '~components/Heading'
 import {
   CustomSurvey,
   CustomUnattributedSurvey,
-} from "~components/Illustration"
-import { Skirt } from "~components/Skirt"
-import { Button } from "~components/__actions__/v2"
-import { TailwindStoryTemplate } from "../utils/TailwindStoryTemplate"
+} from '~components/Illustration'
+import { Skirt } from '~components/Skirt'
+import { Button } from '~components/__actions__/v2'
+import { TailwindStoryTemplate } from '../utils/TailwindStoryTemplate'
 
 export default {
-  title: "Guides/Tailwind/Working with Tailwind",
+  title: 'Guides/Tailwind/Working with Tailwind',
 }
 
 export const TailwindExampleSpacingAndLayouts: StoryFn = () => (

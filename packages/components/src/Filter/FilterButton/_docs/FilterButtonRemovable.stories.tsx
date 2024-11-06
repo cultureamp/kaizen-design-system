@@ -1,15 +1,15 @@
-import { Meta, StoryObj } from "@storybook/react"
-import { FilterButtonRemovable } from "../FilterButtonRemovable"
+import { Meta, StoryObj } from '@storybook/react'
+import { FilterButtonRemovable } from '../FilterButtonRemovable'
 
 const meta = {
-  title: "Components/Filter Base/Filter Buttons/Filter Button Removable",
+  title: 'Components/Filter Base/Filter Buttons/Filter Button Removable',
   component: FilterButtonRemovable,
   args: {
     triggerButtonProps: {
-      label: "Label",
+      label: 'Label',
     },
     removeButtonProps: {
-      onClick: (): void => alert("Remove clicked!"),
+      onClick: (): void => alert('Remove clicked!'),
     },
   },
 } satisfies Meta<typeof FilterButtonRemovable>
@@ -20,7 +20,7 @@ export const Playground: StoryObj<typeof meta> = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -29,9 +29,9 @@ export const Playground: StoryObj<typeof meta> = {
 export const TriggerButtonProps: StoryObj<typeof meta> = {
   args: {
     triggerButtonProps: {
-      label: "Ice cream flavour",
-      selectedValue: "Vanilla",
-      "data-testid": "testid__ice-cream-sandwich",
+      label: 'Ice cream flavour',
+      selectedValue: 'Vanilla',
+      'data-testid': 'testid__ice-cream-sandwich',
     },
   },
 }
@@ -39,8 +39,8 @@ export const TriggerButtonProps: StoryObj<typeof meta> = {
 export const RemoveButtonProps: StoryObj<typeof meta> = {
   args: {
     removeButtonProps: {
-      tooltipText: "Custom tooltip :)",
-      "data-testid": "testid__carrot-cake",
+      tooltipText: 'Custom tooltip :)',
+      'data-testid': 'testid__carrot-cake',
     },
   },
 }

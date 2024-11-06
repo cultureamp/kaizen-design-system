@@ -1,27 +1,27 @@
-import React, { useCallback, useEffect, useState } from "react"
-import classNames from "classnames"
-import Media from "react-media"
-import { Heading, HeadingProps } from "~components/Heading"
-import { SceneProps, SpotProps } from "~components/Illustration"
-import { Text } from "~components/Text"
-import { Button, ButtonProps } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
-import { Tooltip, TooltipProps } from "~components/__overlays__/Tooltip/v1"
-import { VariantType } from "./types"
-import styles from "./GuidanceBlock.module.scss"
+import React, { useCallback, useEffect, useState } from 'react'
+import classNames from 'classnames'
+import Media from 'react-media'
+import { Heading, HeadingProps } from '~components/Heading'
+import { SceneProps, SpotProps } from '~components/Illustration'
+import { Text } from '~components/Text'
+import { Button, ButtonProps } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
+import { Tooltip, TooltipProps } from '~components/__overlays__/Tooltip/v1'
+import { VariantType } from './types'
+import styles from './GuidanceBlock.module.scss'
 
 export type ActionProps = ButtonProps & {
   tooltip?: TooltipProps
-  "aria-label"?: string
-  "aria-labelledby"?: string
-  "aria-describedby"?: string
+  'aria-label'?: string
+  'aria-labelledby'?: string
+  'aria-describedby'?: string
 }
 
-type LayoutType = "default" | "inline" | "stacked"
+type LayoutType = 'default' | 'inline' | 'stacked'
 
-type IllustrationType = "spot" | "scene"
+type IllustrationType = 'spot' | 'scene'
 
-type TextAlignment = "center" | "left"
+type TextAlignment = 'center' | 'left'
 
 type GuidanceBlockActions = {
   primary: ActionProps
@@ -53,7 +53,7 @@ type BaseGuidanceBlockProps = {
 type GuidanceBlockWithText = {
   text: {
     title: string
-    titleTag?: HeadingProps["tag"]
+    titleTag?: HeadingProps['tag']
     description: string | React.ReactNode
   }
 } & BaseGuidanceBlockProps
@@ -91,12 +91,12 @@ const WithTooltip = ({
  * {@link https://cultureamp.design/?path=/docs/components-guidanceblock--docs Storybook}
  */
 export const GuidanceBlock = ({
-  layout = "default",
-  variant = "default",
+  layout = 'default',
+  variant = 'default',
   withActionButtonArrow = true,
   noMaxWidth = false,
-  illustrationType = "spot",
-  smallScreenTextAlignment = "center",
+  illustrationType = 'spot',
+  smallScreenTextAlignment = 'center',
   actions,
   illustration,
   secondaryDismiss,
@@ -104,15 +104,15 @@ export const GuidanceBlock = ({
 }: GuidanceBlockProps): JSX.Element => {
   const [hidden, setHidden] = useState<boolean>(false)
   const [removed, setRemoved] = useState<boolean>(false)
-  const [mediaQueryLayout, setMediaQueryLayout] = useState<string>("")
+  const [mediaQueryLayout, setMediaQueryLayout] = useState<string>('')
 
   const containerRef = React.createRef<HTMLDivElement>()
 
   const handleMediaQueryLayout = (width: number): void => {
     if (width <= 320) {
-      setMediaQueryLayout("centerContent")
+      setMediaQueryLayout('centerContent')
     } else {
-      setMediaQueryLayout("")
+      setMediaQueryLayout('')
     }
   }
 
@@ -127,7 +127,7 @@ export const GuidanceBlock = ({
   }, [containerRef])
 
   useEffect(() => {
-    if (layout === "inline" || layout === "stacked") {
+    if (layout === 'inline' || layout === 'stacked') {
       containerQuery()
     }
   }, [containerQuery, layout])
@@ -139,24 +139,24 @@ export const GuidanceBlock = ({
 
   const onTransitionEnd = (e: React.TransitionEvent<HTMLDivElement>): void => {
     // Be careful: this assumes the final CSS property to be animated is "margin-top".
-    if (hidden && e.propertyName === "margin-top") {
+    if (hidden && e.propertyName === 'margin-top') {
       setRemoved(true)
     }
   }
 
   const marginTop = (): string => {
     if (hidden && containerRef.current) {
-      return -containerRef.current.clientHeight + "px"
+      return -containerRef.current.clientHeight + 'px'
     }
 
-    return "0"
+    return '0'
   }
 
   if (removed) {
     return <></>
   }
 
-  const componentIsMobile = mediaQueryLayout.includes("centerContent")
+  const componentIsMobile = mediaQueryLayout.includes('centerContent')
 
   return (
     <div
@@ -165,10 +165,10 @@ export const GuidanceBlock = ({
         variant && styles[variant],
         layout && styles[layout],
         hidden && styles.hidden,
-        mediaQueryLayout === "centerContent" && styles.centerContent,
+        mediaQueryLayout === 'centerContent' && styles.centerContent,
         noMaxWidth && styles.noMaxWidth,
-        illustrationType === "scene" && styles.hasSceneIllustration,
-        smallScreenTextAlignment === "left" && styles.smallScreenTextAlignment,
+        illustrationType === 'scene' && styles.hasSceneIllustration,
+        smallScreenTextAlignment === 'left' && styles.smallScreenTextAlignment,
       )}
       style={{
         marginTop: marginTop(),
@@ -178,19 +178,19 @@ export const GuidanceBlock = ({
     >
       <div className={styles.illustrationWrapper}>
         <div className={styles.illustration}>
-          {illustrationType === "scene"
+          {illustrationType === 'scene'
             ? React.cloneElement(illustration, { enableAspectRatio: true })
             : illustration}
         </div>
       </div>
       <div className={styles.descriptionAndActions}>
         <div className={styles.descriptionContainer}>
-          {"content" in restProps && restProps.content}
-          {"text" in restProps && (
+          {'content' in restProps && restProps.content}
+          {'text' in restProps && (
             <>
               <div className={styles.headingWrapper}>
                 <Heading
-                  tag={restProps?.text?.titleTag ?? "h3"}
+                  tag={restProps?.text?.titleTag ?? 'h3'}
                   variant="heading-3"
                 >
                   {restProps?.text?.title}
@@ -209,7 +209,7 @@ export const GuidanceBlock = ({
                 className={classNames({
                   noRightMargin: isMobile || componentIsMobile,
                   rightMargin:
-                    !(isMobile || componentIsMobile) && layout === "default",
+                    !(isMobile || componentIsMobile) && layout === 'default',
                 })}
               >
                 <div
@@ -261,4 +261,4 @@ export const GuidanceBlock = ({
   )
 }
 
-GuidanceBlock.displayName = "GuidanceBlock"
+GuidanceBlock.displayName = 'GuidanceBlock'

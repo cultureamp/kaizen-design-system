@@ -1,10 +1,10 @@
-import React, { InputHTMLAttributes } from "react"
-import classnames from "classnames"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Checkbox.module.scss"
+import React, { InputHTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Checkbox.module.scss'
 
-export type CheckedStatus = "on" | "off" | "mixed"
+export type CheckedStatus = 'on' | 'off' | 'mixed'
 
 export type CheckboxProps = {
   checkedStatus?: CheckedStatus
@@ -12,18 +12,18 @@ export type CheckboxProps = {
   reversed?: boolean
   value?: string
 } & OverrideClassName<
-  Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "onChange" | "checked">
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange' | 'checked'>
 >
 
 const renderCheckOrMixedIcon = (
   status: CheckedStatus,
   reversed: boolean,
 ): React.ReactNode => {
-  if (status === "off") return
+  if (status === 'off') return
 
   return (
     <Icon
-      name={status === "on" ? "check" : "remove"}
+      name={status === 'on' ? 'check' : 'remove'}
       isPresentational
       className={classnames(styles.icon, reversed && styles.reversed)}
     />
@@ -31,10 +31,10 @@ const renderCheckOrMixedIcon = (
 }
 
 const getCheckedFromStatus = (checkedStatus: CheckedStatus): boolean =>
-  checkedStatus === "on"
+  checkedStatus === 'on'
 
 export const Checkbox = ({
-  checkedStatus = "off",
+  checkedStatus = 'off',
   onCheck,
   reversed = false,
   value,
@@ -45,11 +45,11 @@ export const Checkbox = ({
     <input
       ref={(node): void => {
         if (node) {
-          node.indeterminate = checkedStatus === "mixed"
+          node.indeterminate = checkedStatus === 'mixed'
         }
       }}
       // This is only used as a handle for unit testing
-      data-indeterminate={checkedStatus === "mixed"}
+      data-indeterminate={checkedStatus === 'mixed'}
       type="checkbox"
       className={classnames(
         styles.checkbox,
@@ -68,4 +68,4 @@ export const Checkbox = ({
   </span>
 )
 
-Checkbox.displayName = "Checkbox"
+Checkbox.displayName = 'Checkbox'

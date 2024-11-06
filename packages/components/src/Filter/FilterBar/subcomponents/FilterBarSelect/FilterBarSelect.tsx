@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from 'react'
 import {
   FilterSelect,
   FilterSelectProps,
   SelectItem,
   SelectOption,
-} from "~components/Filter/FilterSelect"
-import { useFilterBarContext } from "../../context/FilterBarContext"
-import { checkArraysMatch } from "../../utils/checkArraysMatch"
-import { FilterBarButton } from "../FilterBarButton"
+} from '~components/Filter/FilterSelect'
+import { useFilterBarContext } from '../../context/FilterBarContext'
+import { checkArraysMatch } from '../../utils/checkArraysMatch'
+import { FilterBarButton } from '../FilterBarButton'
 
 export type FilterBarSelectProps<Option extends SelectOption = SelectOption> =
   Omit<
     FilterSelectProps<Option>,
-    "isOpen" | "setIsOpen" | "renderTrigger" | "label" | "selectedKey"
+    'isOpen' | 'setIsOpen' | 'renderTrigger' | 'label' | 'selectedKey'
   > & {
     id?: string
   }
@@ -24,10 +24,10 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
   ...props
 }: FilterBarSelectProps<Option>): JSX.Element => {
   const { getFilterState, setFilterOpenState, updateValue } =
-    useFilterBarContext<Option["value"] | undefined>()
+    useFilterBarContext<Option['value'] | undefined>()
   const [items, setItems] = useState<Array<SelectItem<Option>>>(propsItems)
 
-  if (!id) throw Error("Missing `id` prop in FilterBarSelect")
+  if (!id) throw Error('Missing `id` prop in FilterBarSelect')
 
   const filterState = getFilterState(id)
 
@@ -71,4 +71,4 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
   )
 }
 
-FilterBarSelect.displayName = "FilterBarSelect"
+FilterBarSelect.displayName = 'FilterBarSelect'

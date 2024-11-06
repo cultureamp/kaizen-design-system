@@ -1,7 +1,7 @@
-import { objectPathToCssVarFunction } from "../cssVariables"
-import { mapLeafsOfObject } from "../mapLeafsOfObject"
+import { objectPathToCssVarFunction } from '../cssVariables'
+import { mapLeafsOfObject } from '../mapLeafsOfObject'
 
-describe("mapLeafsOfObject()", () => {
+describe('mapLeafsOfObject()', () => {
   it.each([
     [
       {
@@ -18,7 +18,7 @@ describe("mapLeafsOfObject()", () => {
         test: {
           one: {
             two: {
-              three: "var(--test-one-two-three, 123)",
+              three: 'var(--test-one-two-three, 123)',
             },
           },
         },
@@ -26,25 +26,25 @@ describe("mapLeafsOfObject()", () => {
     ],
     [
       {
-        rootValue: "Yep",
+        rootValue: 'Yep',
         test: {
-          imACamel: "im-a-camel",
+          imACamel: 'im-a-camel',
           one: {
             two: {
-              three: (): string => "i'm a function",
+              three: (): string => 'i\'m a function',
             },
           },
         },
       },
       objectPathToCssVarFunction,
       {
-        rootValue: "var(--root-value, Yep)",
+        rootValue: 'var(--root-value, Yep)',
         test: {
-          imACamel: "var(--test-im-a-camel, im-a-camel)",
+          imACamel: 'var(--test-im-a-camel, im-a-camel)',
           one: {
             two: {
               three: `var(--test-one-two-three, ${(): string =>
-                "i'm a function"})`,
+                'i\'m a function'})`,
             },
           },
         },
@@ -52,32 +52,32 @@ describe("mapLeafsOfObject()", () => {
     ],
     [
       {
-        rootValue: "Yep",
+        rootValue: 'Yep',
         test: {
-          imACamel: "im-a-camel",
+          imACamel: 'im-a-camel',
           one: {
             two: {
-              three: (): string => "this shouldn't show",
+              three: (): string => 'this shouldn\'t show',
             },
           },
         },
       },
       (path: string[], value: unknown): string =>
         `${path[path.length - 1]}: ${
-          typeof value === "string" ? value : "not-a-string"
+          typeof value === 'string' ? value : 'not-a-string'
         }`,
       {
-        rootValue: "rootValue: Yep",
+        rootValue: 'rootValue: Yep',
         test: {
           one: {
             two: {
-              three: "three: not-a-string",
+              three: 'three: not-a-string',
             },
           },
         },
       },
     ],
-  ])("test case %#", (input, mapper, output) => {
+  ])('test case %#', (input, mapper, output) => {
     expect(mapLeafsOfObject(input, mapper)).toMatchObject(output)
   })
 })

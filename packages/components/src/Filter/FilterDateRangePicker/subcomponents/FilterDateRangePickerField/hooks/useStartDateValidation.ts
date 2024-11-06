@@ -2,7 +2,7 @@ import {
   useDateValidation,
   UseDateValidationArgs,
   ValidationMessage,
-} from "~components/Filter/FilterDatePicker"
+} from '~components/Filter/FilterDatePicker'
 
 export type UseStartDateValidationArgs = UseDateValidationArgs
 
@@ -20,7 +20,7 @@ export const useStartDateValidation = (
   const { validationMessage, validateDate, updateValidation } =
     useDateValidation(args)
 
-  const validateStartDate: UseStartDateValidationValue["validateDate"] = ({
+  const validateStartDate: UseStartDateValidationValue['validateDate'] = ({
     date,
     inputValue,
   }) => {

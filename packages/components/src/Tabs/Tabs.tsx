@@ -1,5 +1,5 @@
-import React, { HTMLAttributes, ReactNode } from "react"
-import { Tabs as ReachTabs } from "@reach/tabs"
+import React, { HTMLAttributes, ReactNode } from 'react'
+import { Tabs as ReachTabs } from '@reach/tabs'
 
 export type TabsProps = {
   /**
@@ -17,7 +17,7 @@ export type TabsProps = {
    */
   onChange?: (index: number) => void
   children: ReactNode
-} & Omit<HTMLAttributes<HTMLDivElement>, "onChange">
+} & Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081929117/Tabs Guidance} |
@@ -41,4 +41,4 @@ export const Tabs = (props: TabsProps): JSX.Element => {
   )
 }
 
-Tabs.displayName = "Tabs"
+Tabs.displayName = 'Tabs'

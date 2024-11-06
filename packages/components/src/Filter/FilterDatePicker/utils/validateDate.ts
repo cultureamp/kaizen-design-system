@@ -1,8 +1,8 @@
 import {
   validateDate as dpValidateDate,
   ValidateDateArgs,
-} from "~components/DatePicker/utils/validateDate"
-import { DateValidationResponse } from "../types"
+} from '~components/DatePicker/utils/validateDate'
+import { DateValidationResponse } from '../types'
 
 export type ValidateDateResponse = {
   validationResponse: DateValidationResponse

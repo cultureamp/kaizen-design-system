@@ -1,20 +1,20 @@
-import { ChangeEvent, FocusEvent, KeyboardEvent } from "react"
-import { renderHook, act } from "@testing-library/react"
-import { enAU } from "date-fns/locale"
-import { vi } from "vitest"
-import * as isSelectingDayInCalendar from "~components/Calendar/utils/isSelectingDayInCalendar"
-import { useDateInputHandlers } from "./useDateInputHandlers"
+import { ChangeEvent, FocusEvent, KeyboardEvent } from 'react'
+import { renderHook, act } from '@testing-library/react'
+import { enAU } from 'date-fns/locale'
+import { vi } from 'vitest'
+import * as isSelectingDayInCalendar from '~components/Calendar/utils/isSelectingDayInCalendar'
+import { useDateInputHandlers } from './useDateInputHandlers'
 const locale = enAU
 const setInputValue = vi.fn()
 const onDateChange = vi.fn()
 
-describe("useDateInputHandlers", () => {
+describe('useDateInputHandlers', () => {
   beforeEach(() => {
     vi.clearAllMocks()
   })
 
-  describe("onChange", () => {
-    it("updates input value", () => {
+  describe('onChange', () => {
+    it('updates input value', () => {
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -26,14 +26,14 @@ describe("useDateInputHandlers", () => {
 
       act(() => {
         onChange?.({
-          currentTarget: { value: "a" },
+          currentTarget: { value: 'a' },
         } as ChangeEvent<HTMLInputElement>)
       })
 
-      expect(setInputValue).toHaveBeenCalledWith("a")
+      expect(setInputValue).toHaveBeenCalledWith('a')
     })
 
-    it("calls custom onChange when provided", () => {
+    it('calls custom onChange when provided', () => {
       const onChangeMock = vi.fn()
 
       const { result } = renderHook(() =>
@@ -46,7 +46,7 @@ describe("useDateInputHandlers", () => {
       )
       const { onChange } = result.current
       const changeEvent = {
-        currentTarget: { value: "a" },
+        currentTarget: { value: 'a' },
       } as ChangeEvent<HTMLInputElement>
 
       act(() => {
@@ -57,8 +57,8 @@ describe("useDateInputHandlers", () => {
     })
   })
 
-  describe("onFocus", () => {
-    it("transforms input value when it is a valid date", () => {
+  describe('onFocus', () => {
+    it('transforms input value when it is a valid date', () => {
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -70,14 +70,14 @@ describe("useDateInputHandlers", () => {
 
       act(() => {
         onFocus?.({
-          currentTarget: { value: "1 May 2022" },
+          currentTarget: { value: '1 May 2022' },
         } as FocusEvent<HTMLInputElement>)
       })
 
-      expect(setInputValue).toHaveBeenCalledWith("01/05/2022")
+      expect(setInputValue).toHaveBeenCalledWith('01/05/2022')
     })
 
-    it("does not transform input value when it is an invalid date", () => {
+    it('does not transform input value when it is an invalid date', () => {
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -89,14 +89,14 @@ describe("useDateInputHandlers", () => {
 
       act(() => {
         onFocus?.({
-          currentTarget: { value: "potato" },
+          currentTarget: { value: 'potato' },
         } as FocusEvent<HTMLInputElement>)
       })
 
       expect(setInputValue).not.toHaveBeenCalled()
     })
 
-    it("calls custom onFocus when provided", () => {
+    it('calls custom onFocus when provided', () => {
       const onFocusMock = vi.fn()
 
       const { result } = renderHook(() =>
@@ -109,7 +109,7 @@ describe("useDateInputHandlers", () => {
       )
       const { onFocus } = result.current
       const focusEvent = {
-        currentTarget: { value: "potato" },
+        currentTarget: { value: 'potato' },
       } as FocusEvent<HTMLInputElement>
 
       act(() => {
@@ -120,8 +120,8 @@ describe("useDateInputHandlers", () => {
     })
   })
 
-  describe("onBlur", () => {
-    it("does not do anything when selecting a day in the calendar", () => {
+  describe('onBlur', () => {
+    it('does not do anything when selecting a day in the calendar', () => {
       const onBlurMock = vi.fn()
       const { result } = renderHook(() =>
         useDateInputHandlers({
@@ -133,10 +133,10 @@ describe("useDateInputHandlers", () => {
       )
       const { onBlur } = result.current
       const blurEvent = {
-        currentTarget: { value: "" },
+        currentTarget: { value: '' },
       } as FocusEvent<HTMLInputElement>
 
-      const spy = vi.spyOn(isSelectingDayInCalendar, "isSelectingDayInCalendar")
+      const spy = vi.spyOn(isSelectingDayInCalendar, 'isSelectingDayInCalendar')
       spy.mockReturnValue(true)
 
       act(() => {
@@ -148,7 +148,7 @@ describe("useDateInputHandlers", () => {
       spy.mockReset()
     })
 
-    it("changes date to undefined when input is empty", () => {
+    it('changes date to undefined when input is empty', () => {
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -158,7 +158,7 @@ describe("useDateInputHandlers", () => {
       )
       const { onBlur } = result.current
       const blurEvent = {
-        currentTarget: { value: "" },
+        currentTarget: { value: '' },
       } as FocusEvent<HTMLInputElement>
 
       act(() => {
@@ -169,7 +169,7 @@ describe("useDateInputHandlers", () => {
       expect(onDateChange).toHaveBeenCalledWith(undefined)
     })
 
-    it("transforms input value when it is a valid date", () => {
+    it('transforms input value when it is a valid date', () => {
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -179,18 +179,18 @@ describe("useDateInputHandlers", () => {
       )
       const { onBlur } = result.current
       const blurEvent = {
-        currentTarget: { value: "01/05/2022" },
+        currentTarget: { value: '01/05/2022' },
       } as FocusEvent<HTMLInputElement>
 
       act(() => {
         onBlur?.(blurEvent)
       })
 
-      expect(setInputValue).toHaveBeenCalledWith("1 May 2022")
-      expect(onDateChange).toHaveBeenCalledWith(new Date("2022-05-1"))
+      expect(setInputValue).toHaveBeenCalledWith('1 May 2022')
+      expect(onDateChange).toHaveBeenCalledWith(new Date('2022-05-1'))
     })
 
-    it("does not transform input value when it is an invalid date", () => {
+    it('does not transform input value when it is an invalid date', () => {
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -200,7 +200,7 @@ describe("useDateInputHandlers", () => {
       )
       const { onBlur } = result.current
       const blurEvent = {
-        currentTarget: { value: "potato" },
+        currentTarget: { value: 'potato' },
       } as FocusEvent<HTMLInputElement>
 
       act(() => {
@@ -212,18 +212,18 @@ describe("useDateInputHandlers", () => {
       expect(onDateChange).toHaveBeenCalledTimes(1)
     })
 
-    it("does not transform input value when it is a disabled date", () => {
+    it('does not transform input value when it is a disabled date', () => {
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
-          disabledDays: new Date("2022-05-01"),
+          disabledDays: new Date('2022-05-01'),
           setInputValue,
           onDateChange,
         }),
       )
       const { onBlur } = result.current
       const blurEvent = {
-        currentTarget: { value: "01/05/2022" },
+        currentTarget: { value: '01/05/2022' },
       } as FocusEvent<HTMLInputElement>
 
       act(() => {
@@ -231,10 +231,10 @@ describe("useDateInputHandlers", () => {
       })
 
       expect(setInputValue).not.toHaveBeenCalled()
-      expect(onDateChange).toHaveBeenCalledWith(new Date("2022-05-01"))
+      expect(onDateChange).toHaveBeenCalledWith(new Date('2022-05-01'))
     })
 
-    it("calls custom onBlur when provided on input with value", () => {
+    it('calls custom onBlur when provided on input with value', () => {
       const onBlurMock = vi.fn()
       const { result } = renderHook(() =>
         useDateInputHandlers({
@@ -246,7 +246,7 @@ describe("useDateInputHandlers", () => {
       )
       const { onBlur } = result.current
       const blurEvent = {
-        currentTarget: { value: "1 May 2022" },
+        currentTarget: { value: '1 May 2022' },
       } as FocusEvent<HTMLInputElement>
 
       act(() => {
@@ -256,7 +256,7 @@ describe("useDateInputHandlers", () => {
       expect(onBlurMock).toHaveBeenCalledWith(blurEvent)
     })
 
-    it("calls custom onBlur when provided on empty", () => {
+    it('calls custom onBlur when provided on empty', () => {
       const onBlurMock = vi.fn()
       const { result } = renderHook(() =>
         useDateInputHandlers({
@@ -268,7 +268,7 @@ describe("useDateInputHandlers", () => {
       )
       const { onBlur } = result.current
       const blurEvent = {
-        currentTarget: { value: "" },
+        currentTarget: { value: '' },
       } as FocusEvent<HTMLInputElement>
 
       act(() => {
@@ -279,8 +279,8 @@ describe("useDateInputHandlers", () => {
     })
   })
 
-  describe("onKeyDown - Enter", () => {
-    it("calls onDateChange with date", () => {
+  describe('onKeyDown - Enter', () => {
+    it('calls onDateChange with date', () => {
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -293,15 +293,15 @@ describe("useDateInputHandlers", () => {
       act(() => {
         onKeyDown?.({
           preventDefault: (): void => undefined,
-          currentTarget: { value: "01/05/2022" },
-          key: "Enter",
+          currentTarget: { value: '01/05/2022' },
+          key: 'Enter',
         } as KeyboardEvent<HTMLInputElement>)
       })
 
-      expect(onDateChange).toBeCalledWith(new Date("2022-05-01"))
+      expect(onDateChange).toBeCalledWith(new Date('2022-05-01'))
     })
 
-    it("calls onDateSubmit when provided", () => {
+    it('calls onDateSubmit when provided', () => {
       const onDateSubmit = vi.fn()
 
       const { result } = renderHook(() =>
@@ -315,18 +315,18 @@ describe("useDateInputHandlers", () => {
       const { onKeyDown } = result.current
       const keyboardEvent = {
         preventDefault: (): void => undefined,
-        currentTarget: { value: "01/05/2022" },
-        key: "Enter",
+        currentTarget: { value: '01/05/2022' },
+        key: 'Enter',
       } as KeyboardEvent<HTMLInputElement>
 
       act(() => {
         onKeyDown?.(keyboardEvent)
       })
 
-      expect(onDateSubmit).toBeCalledWith(new Date("2022-05-01"))
+      expect(onDateSubmit).toBeCalledWith(new Date('2022-05-01'))
     })
 
-    it("calls custom onKeyDown when provided", () => {
+    it('calls custom onKeyDown when provided', () => {
       const onKeyDownMock = vi.fn()
 
       const { result } = renderHook(() =>
@@ -339,7 +339,7 @@ describe("useDateInputHandlers", () => {
       )
       const { onKeyDown } = result.current
       const keyboardEvent = {
-        currentTarget: { value: "potato" },
+        currentTarget: { value: 'potato' },
       } as KeyboardEvent<HTMLInputElement>
 
       act(() => {

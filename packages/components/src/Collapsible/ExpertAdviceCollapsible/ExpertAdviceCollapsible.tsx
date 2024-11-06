@@ -1,15 +1,15 @@
-import React from "react"
-import { Brand } from "~components/Brand"
+import React from 'react'
+import { Brand } from '~components/Brand'
 import {
   CollapsibleProps,
   Collapsible,
-} from "~components/Collapsible/Collapsible"
-import { Heading } from "~components/Heading"
-import styles from "./ExpertAdviceCollapsible.module.scss"
+} from '~components/Collapsible/Collapsible'
+import { Heading } from '~components/Heading'
+import styles from './ExpertAdviceCollapsible.module.scss'
 
 export type ExpertAdviceCollapsibleProps = Omit<
   CollapsibleProps,
-  "renderHeader" | "variant" | "group" | "separated"
+  'renderHeader' | 'variant' | 'group' | 'separated'
 >
 
 /**
@@ -47,4 +47,4 @@ export const ExpertAdviceCollapsible = (
   </Collapsible>
 )
 
-ExpertAdviceCollapsible.displayName = "ExpertAdviceCollapsible"
+ExpertAdviceCollapsible.displayName = 'ExpertAdviceCollapsible'

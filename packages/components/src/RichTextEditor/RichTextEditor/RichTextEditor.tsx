@@ -4,30 +4,30 @@ import React, {
   HTMLAttributes,
   ReactNode,
   useId,
-} from "react"
-import classnames from "classnames"
-import { FieldMessage } from "~components/FieldMessage"
-import { Label } from "~components/Label"
-import { InlineNotification } from "~components/Notification"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { ToolbarItems, EditorContentArray, EditorRows } from "../types"
-import { useRichTextEditor } from "../utils/core"
-import { createLinkManager } from "../utils/plugins"
+} from 'react'
+import classnames from 'classnames'
+import { FieldMessage } from '~components/FieldMessage'
+import { Label } from '~components/Label'
+import { InlineNotification } from '~components/Notification'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { ToolbarItems, EditorContentArray, EditorRows } from '../types'
+import { useRichTextEditor } from '../utils/core'
+import { createLinkManager } from '../utils/plugins'
 import {
   ProseMirrorCommands,
   ProseMirrorHistory,
   ProseMirrorKeymap,
   ProseMirrorModel,
   ProseMirrorState,
-} from "../utils/prosemirror"
-import { createSchemaFromControls } from "./schema"
-import { ToggleIconButton } from "./subcomponents/ToggleIconButton"
-import { Toolbar } from "./subcomponents/Toolbar"
-import { ToolbarSection } from "./subcomponents/ToolbarSection"
-import { buildControlMap } from "./utils/controlmap"
-import { buildInputRules } from "./utils/inputrules"
-import { buildKeymap } from "./utils/keymap"
-import styles from "./RichTextEditor.module.scss"
+} from '../utils/prosemirror'
+import { createSchemaFromControls } from './schema'
+import { ToggleIconButton } from './subcomponents/ToggleIconButton'
+import { Toolbar } from './subcomponents/Toolbar'
+import { ToolbarSection } from './subcomponents/ToolbarSection'
+import { buildControlMap } from './utils/controlmap'
+import { buildInputRules } from './utils/inputrules'
+import { buildKeymap } from './utils/keymap'
+import styles from './RichTextEditor.module.scss'
 
 type BaseRichTextEditorProps = {
   id?: string
@@ -41,7 +41,7 @@ type BaseRichTextEditorProps = {
   rows?: EditorRows
   dataError?: React.ReactElement
   onDataError?: () => void
-  status?: "default" | "error" | "caution"
+  status?: 'default' | 'error' | 'caution'
   /**
    * A descriptive message for `error` or `caution` states
    */
@@ -51,17 +51,17 @@ type BaseRichTextEditorProps = {
    */
   description?: React.ReactNode
 } & OverrideClassName<
-  Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue">
+  Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'>
 >
 
 type WithLabelText = {
   labelText: ReactNode
-  "aria-labelledby"?: never
+  'aria-labelledby'?: never
 }
 
 type WithLabelledBy = {
   labelText?: never
-  "aria-labelledby": string
+  'aria-labelledby': string
 }
 
 export type RichTextEditorProps = BaseRichTextEditorProps &
@@ -75,8 +75,8 @@ export const RichTextEditor = ({
   onChange,
   defaultValue,
   labelText,
-  "aria-labelledby": labelledBy,
-  "aria-describedby": describedBy,
+  'aria-labelledby': labelledBy,
+  'aria-describedby': describedBy,
   classNameOverride,
   controls,
   rows = 3,
@@ -84,7 +84,7 @@ export const RichTextEditor = ({
   onDataError,
   validationMessage,
   description,
-  status = "default",
+  status = 'default',
   ...restProps
 }: RichTextEditorProps): JSX.Element => {
   const generatedId = useId()
@@ -96,8 +96,8 @@ export const RichTextEditor = ({
   const labelId = labelledBy || `${editorId}-rte-label`
   const validationMessageAria = validationMessage
     ? `${editorId}-rte-validation-message`
-    : ""
-  const descriptionAria = description ? `${editorId}-rte-description` : ""
+    : ''
+  const descriptionAria = description ? `${editorId}-rte-description` : ''
 
   const ariaDescribedBy = classnames(
     validationMessageAria,
@@ -113,23 +113,23 @@ export const RichTextEditor = ({
       return useRichTextEditor(
         ProseMirrorState.EditorState.create({
           doc: ProseMirrorModel.Node.fromJSON(schema, {
-            type: "doc",
+            type: 'doc',
             // we're converting empty arrays to the ProseMirror default "empty" state because when
             // given an empty array ProseMirror returns undefined, breaking the type
             content:
-              defaultValue?.length > 0 ? defaultValue : [{ type: "paragraph" }],
+              defaultValue?.length > 0 ? defaultValue : [{ type: 'paragraph' }],
           }),
           schema,
           plugins: getPlugins(controls, schema),
         }),
         {
-          "aria-labelledby": labelId,
-          role: "textbox",
-          "aria-describedby": ariaDescribedBy,
+          'aria-labelledby': labelId,
+          role: 'textbox',
+          'aria-describedby': ariaDescribedBy,
         },
       )
     } catch {
-      return new Error("Bad data error")
+      return new Error('Bad data error')
     }
   })()
 
@@ -138,13 +138,13 @@ export const RichTextEditor = ({
     return (
       <InlineNotification
         headingProps={{
-          children: "Error",
-          variant: "heading-6",
+          children: 'Error',
+          variant: 'heading-6',
         }}
         type="negative"
         persistent
       >
-        {dataError || "Something went wrong"}
+        {dataError || 'Something went wrong'}
       </InlineNotification>
     )
   }
@@ -222,7 +222,7 @@ export const RichTextEditor = ({
   )
 }
 
-RichTextEditor.displayName = "RichTextEditor"
+RichTextEditor.displayName = 'RichTextEditor'
 
 function getPlugins(
   controls: ToolbarItems[] | undefined,
@@ -246,7 +246,7 @@ function getPlugins(
     buildInputRules(schema),
   ]
 
-  if (allControlNames.includes("link")) {
+  if (allControlNames.includes('link')) {
     plugins.push(
       createLinkManager({
         markType: schema.marks.link,

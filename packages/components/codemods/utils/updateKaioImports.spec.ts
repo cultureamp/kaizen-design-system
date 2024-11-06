@@ -1,7 +1,7 @@
-import ts from "typescript"
-import { parseJsx } from "../__tests__/utils"
-import { updateKaioImports, UpdateKaioImportsArgs } from "./updateKaioImports"
-import { printAst } from "."
+import ts from 'typescript'
+import { parseJsx } from '../__tests__/utils'
+import { updateKaioImports, UpdateKaioImportsArgs } from './updateKaioImports'
+import { printAst } from '.'
 
 const transformInput =
   (sourceFile: ts.SourceFile) =>
@@ -11,9 +11,9 @@ const transformInput =
     return printAst(transformedSource)
   }
 
-describe("updateKaioImports()", () => {
-  describe("remove imports", () => {
-    it("removes listed named imports", () => {
+describe('updateKaioImports()', () => {
+  describe('remove imports', () => {
+    it('removes listed named imports', () => {
       const inputAst = parseJsx(`
         import { Card, Well } from "@kaizen/components"
       `)
@@ -22,12 +22,12 @@ describe("updateKaioImports()", () => {
       `)
       expect(
         transformInput(inputAst)({
-          importsToRemove: new Map([["@kaizen/components", new Set(["Card"])]]),
+          importsToRemove: new Map([['@kaizen/components', new Set(['Card'])]]),
         }),
       ).toEqual(printAst(outputAst))
     })
 
-    it("removes listed named aliased imports", () => {
+    it('removes listed named aliased imports', () => {
       const inputAst = parseJsx(`
         import { Card as KzCard, Well } from "@kaizen/components"
       `)
@@ -36,12 +36,12 @@ describe("updateKaioImports()", () => {
       `)
       expect(
         transformInput(inputAst)({
-          importsToRemove: new Map([["@kaizen/components", new Set(["Card"])]]),
+          importsToRemove: new Map([['@kaizen/components', new Set(['Card'])]]),
         }),
       ).toEqual(printAst(outputAst))
     })
 
-    it("removes import statement when all named imports are removed", () => {
+    it('removes import statement when all named imports are removed', () => {
       const inputAst = parseJsx(`
         import { Card } from "@kaizen/components"
         import { Select } from "@kaizen/components/future"
@@ -51,12 +51,12 @@ describe("updateKaioImports()", () => {
       `)
       expect(
         transformInput(inputAst)({
-          importsToRemove: new Map([["@kaizen/components", new Set(["Card"])]]),
+          importsToRemove: new Map([['@kaizen/components', new Set(['Card'])]]),
         }),
       ).toEqual(printAst(outputAst))
     })
 
-    it("does nothing if the import does not exist", () => {
+    it('does nothing if the import does not exist', () => {
       const inputAst = parseJsx(`
         import { Select } from "@kaizen/components/future"
       `)
@@ -65,14 +65,14 @@ describe("updateKaioImports()", () => {
       `)
       expect(
         transformInput(inputAst)({
-          importsToRemove: new Map([["@kaizen/components", new Set(["Card"])]]),
+          importsToRemove: new Map([['@kaizen/components', new Set(['Card'])]]),
         }),
       ).toEqual(printAst(outputAst))
     })
   })
 
-  describe("add imports", () => {
-    it("creates a new import declaration for new imports", () => {
+  describe('add imports', () => {
+    it('creates a new import declaration for new imports', () => {
       const inputAst = parseJsx(`
         import { Well } from "@kaizen/components"
       `)
@@ -84,15 +84,15 @@ describe("updateKaioImports()", () => {
         transformInput(inputAst)({
           importsToAdd: new Map([
             [
-              "@kaizen/components/future",
-              new Map([["Card", { componentName: "Card" }]]),
+              '@kaizen/components/future',
+              new Map([['Card', { componentName: 'Card' }]]),
             ],
           ]),
         }),
       ).toEqual(printAst(outputAst))
     })
 
-    it("creates a new import declaration for new aliased imports", () => {
+    it('creates a new import declaration for new aliased imports', () => {
       const inputAst = parseJsx(`
         import { Well } from "@kaizen/components"
       `)
@@ -104,15 +104,15 @@ describe("updateKaioImports()", () => {
         transformInput(inputAst)({
           importsToAdd: new Map([
             [
-              "@kaizen/components/future",
-              new Map([["Card", { componentName: "Card", alias: "KzCard" }]]),
+              '@kaizen/components/future',
+              new Map([['Card', { componentName: 'Card', alias: 'KzCard' }]]),
             ],
           ]),
         }),
       ).toEqual(printAst(outputAst))
     })
 
-    it("does not add a new named import if it already exists", () => {
+    it('does not add a new named import if it already exists', () => {
       const inputAst = parseJsx(`
         import { Icon } from "@kaizen/components/future"
       `)
@@ -123,15 +123,15 @@ describe("updateKaioImports()", () => {
         transformInput(inputAst)({
           importsToAdd: new Map([
             [
-              "@kaizen/components/future",
-              new Map([["Icon", { componentName: "Icon" }]]),
+              '@kaizen/components/future',
+              new Map([['Icon', { componentName: 'Icon' }]]),
             ],
           ]),
         }),
       ).toEqual(printAst(outputAst))
     })
 
-    it("updates existing import declaration with new imports", () => {
+    it('updates existing import declaration with new imports', () => {
       const inputAst = parseJsx(`
         import { Select } from "@kaizen/components/future"
       `)
@@ -142,16 +142,16 @@ describe("updateKaioImports()", () => {
         transformInput(inputAst)({
           importsToAdd: new Map([
             [
-              "@kaizen/components/future",
-              new Map([["Card", { componentName: "Card" }]]),
+              '@kaizen/components/future',
+              new Map([['Card', { componentName: 'Card' }]]),
             ],
           ]),
         }),
       ).toEqual(printAst(outputAst))
     })
 
-    describe("insert position", () => {
-      it("inserts the new import below @kaizen/components", () => {
+    describe('insert position', () => {
+      it('inserts the new import below @kaizen/components', () => {
         const inputAst = parseJsx(`
           import React from "react"
           import { Well } from "@kaizen/components"
@@ -167,15 +167,15 @@ describe("updateKaioImports()", () => {
           transformInput(inputAst)({
             importsToAdd: new Map([
               [
-                "@kaizen/components/future",
-                new Map([["Card", { componentName: "Card" }]]),
+                '@kaizen/components/future',
+                new Map([['Card', { componentName: 'Card' }]]),
               ],
             ]),
           }),
         ).toEqual(printAst(outputAst))
       })
 
-      it("inserts the new import below the first subpath of @kaizen/components", () => {
+      it('inserts the new import below the first subpath of @kaizen/components', () => {
         const inputAst = parseJsx(`
           import React from "react"
           import { Well } from "@kaizen/components/v1"
@@ -191,15 +191,15 @@ describe("updateKaioImports()", () => {
           transformInput(inputAst)({
             importsToAdd: new Map([
               [
-                "@kaizen/components/future",
-                new Map([["Card", { componentName: "Card" }]]),
+                '@kaizen/components/future',
+                new Map([['Card', { componentName: 'Card' }]]),
               ],
             ]),
           }),
         ).toEqual(printAst(outputAst))
       })
 
-      it("inserts at the top of the file if no pre-existing import of @kaizen/components", () => {
+      it('inserts at the top of the file if no pre-existing import of @kaizen/components', () => {
         const inputAst = parseJsx(`
           import React from "react"
         `)
@@ -211,8 +211,8 @@ describe("updateKaioImports()", () => {
           transformInput(inputAst)({
             importsToAdd: new Map([
               [
-                "@kaizen/components/future",
-                new Map([["Card", { componentName: "Card" }]]),
+                '@kaizen/components/future',
+                new Map([['Card', { componentName: 'Card' }]]),
               ],
             ]),
           }),

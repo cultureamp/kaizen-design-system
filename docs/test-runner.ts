@@ -1,7 +1,7 @@
-import { getStoryContext, TestRunnerConfig } from "@storybook/test-runner"
-import { configureAxe, getAxeResults, injectAxe } from "axe-playwright"
-import { toHaveNoViolations } from "jest-axe"
-import { globalA11yRules } from "./utils/global-a11y-rules"
+import { getStoryContext, TestRunnerConfig } from '@storybook/test-runner'
+import { configureAxe, getAxeResults, injectAxe } from 'axe-playwright'
+import { toHaveNoViolations } from 'jest-axe'
+import { globalA11yRules } from './utils/global-a11y-rules'
 
 const config = {
   setup: () => {
@@ -29,7 +29,7 @@ const config = {
 
     const a11yResults = await getAxeResults(
       page,
-      parameters?.a11y?.element ?? "#storybook-root",
+      parameters?.a11y?.element ?? '#storybook-root',
       parameters?.a11y?.options,
     )
     expect(a11yResults).toHaveNoViolations()

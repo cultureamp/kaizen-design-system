@@ -1,27 +1,27 @@
-import React, { HTMLAttributes, useRef, useId } from "react"
-import classnames from "classnames"
-import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
-import { FieldMessage, FieldMessageProps } from "~components/FieldMessage"
-import { Heading } from "~components/Heading"
-import { OverrideClassName } from "~components/types/OverrideClassName"
+import React, { HTMLAttributes, useRef, useId } from 'react'
+import classnames from 'classnames'
+import { ReactFocusOnProps } from 'react-focus-on/dist/es5/types'
+import { FieldMessage, FieldMessageProps } from '~components/FieldMessage'
+import { Heading } from '~components/Heading'
+import { OverrideClassName } from '~components/types/OverrideClassName'
 import {
   MultiSelectOptions,
   MultiSelectOptionsProps,
-} from "./subcomponents/MultiSelectOptions"
-import { MultiSelectToggle } from "./subcomponents/MultiSelectToggle"
-import { Popover, useFloating } from "./subcomponents/Popover"
-import { MultiSelectOption, ValidationMessage } from "./types"
-import styles from "./MultiSelect.module.scss"
+} from './subcomponents/MultiSelectOptions'
+import { MultiSelectToggle } from './subcomponents/MultiSelectToggle'
+import { Popover, useFloating } from './subcomponents/Popover'
+import { MultiSelectOption, ValidationMessage } from './types'
+import styles from './MultiSelect.module.scss'
 
 export type MultiSelectProps = {
   label: string
-  items: MultiSelectOptionsProps["options"]
-  selectedValues: Set<MultiSelectOption["value"]>
+  items: MultiSelectOptionsProps['options']
+  selectedValues: Set<MultiSelectOption['value']>
   /**
    * A description that provides context for the field
    */
-  description?: FieldMessageProps["message"]
-  onSelectedValuesChange: MultiSelectOptionsProps["onChange"]
+  description?: FieldMessageProps['message']
+  onSelectedValuesChange: MultiSelectOptionsProps['onChange']
   isOpen: boolean
   onOpenChange: (isOpen: boolean) => void
   /** A status and message to provide context to the validation issue  */
@@ -52,7 +52,7 @@ export const MultiSelect = ({
   const handleToggleClick = (): void => onOpenChange(!isOpen)
   const handleClose = (): void => onOpenChange(false)
 
-  const onClickOutside: ReactFocusOnProps["onClickOutside"] = e => {
+  const onClickOutside: ReactFocusOnProps['onClickOutside'] = e => {
     const toggle = refs.reference.current as Node
     const isInToggle = toggle.contains(e.target as HTMLElement)
     if (!isInToggle) {
@@ -66,11 +66,11 @@ export const MultiSelect = ({
       acc[item.value] = item
       return acc
     },
-    {} as Record<MultiSelectOption["value"], MultiSelectOption>,
+    {} as Record<MultiSelectOption['value'], MultiSelectOption>,
   )
 
   const handleOnRemoveOption = (
-    optionValue: MultiSelectOption["value"],
+    optionValue: MultiSelectOption['value'],
   ): void => {
     const newValues = new Set(selectedValues.values())
     newValues.delete(optionValue)
@@ -140,4 +140,4 @@ export const MultiSelect = ({
   )
 }
 
-MultiSelect.displayName = "MultiSelect"
+MultiSelect.displayName = 'MultiSelect'

@@ -1,21 +1,21 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
-import isChromatic from "chromatic"
-import { AddImage } from "~components/Illustration"
-import { ModalAccessibleDescription } from "~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription"
-import { Text } from "~components/Text"
-import { chromaticModalSettings } from "../../_docs/controls"
-import { ContextModal } from "../index"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import isChromatic from 'chromatic'
+import { AddImage } from '~components/Illustration'
+import { ModalAccessibleDescription } from '~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription'
+import { Text } from '~components/Text'
+import { chromaticModalSettings } from '../../_docs/controls'
+import { ContextModal } from '../index'
 
 const IS_CHROMATIC = isChromatic()
 
 const meta = {
-  title: "Components/Modals/Context Modal",
+  title: 'Components/Modals/Context Modal',
   component: ContextModal,
   args: {
     isOpen: false,
-    title: "Context modal title",
+    title: 'Context modal title',
     children: undefined,
     onDismiss: fn(),
   },
@@ -56,7 +56,7 @@ const ContextModalTemplate: Story = {
           image={
             <AddImage
               classNameOverride={
-                args.layout === "landscape" ? "!w-auto h-200" : undefined
+                args.layout === 'landscape' ? '!w-auto h-200' : undefined
               }
               alt="placeholder"
             />
@@ -100,7 +100,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -108,13 +108,13 @@ export const Playground: Story = {
 
 export const Portrait: Story = {
   ...ContextModalTemplate,
-  args: { layout: "portrait" },
+  args: { layout: 'portrait' },
   ...chromaticModalSettings,
 }
 
 export const Landscape: Story = {
   ...ContextModalTemplate,
-  args: { layout: "landscape" },
+  args: { layout: 'landscape' },
   ...chromaticModalSettings,
 }
 

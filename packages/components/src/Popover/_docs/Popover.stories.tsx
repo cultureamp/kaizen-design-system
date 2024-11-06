@@ -1,9 +1,9 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Popover as PopoverComponent, usePopover } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Popover as PopoverComponent, usePopover } from '../index'
 
 const meta = {
-  title: "Components/Popover",
+  title: 'Components/Popover',
   component: PopoverComponent,
   args: {
     children: undefined,
@@ -33,7 +33,7 @@ const PopoverTemplate: Story = {
           Pop
         </button>
         <Popover {...args}>
-          Popover body that explains something useful.{" "}
+          Popover body that explains something useful.{' '}
           <a href="/">Optional link</a>
         </Popover>
       </div>

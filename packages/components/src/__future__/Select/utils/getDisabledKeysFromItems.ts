@@ -1,6 +1,6 @@
-import { Key } from "@react-types/shared"
-import { SelectItem, SelectOption } from "../types"
-import { isSelectOptionGroup } from "./isSelectOptionGroup"
+import { Key } from '@react-types/shared'
+import { SelectItem, SelectOption } from '../types'
+import { isSelectOptionGroup } from './isSelectOptionGroup'
 
 export const getDisabledKeysFromItems = <
   Option extends SelectOption = SelectOption,

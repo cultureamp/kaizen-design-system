@@ -1,1 +1,1 @@
-export * from "../../v1/GenericButton"
+export * from '../../v1/GenericButton'

@@ -1,9 +1,9 @@
-import React from "react"
-import { useListBoxSection } from "@react-aria/listbox"
-import { Heading } from "~components/Heading"
-import { SelectOption, SelectOptionGroupNode } from "../../types"
-import { Option } from "../Option/Option"
-import styles from "./ListBoxSection.module.scss"
+import React from 'react'
+import { useListBoxSection } from '@react-aria/listbox'
+import { Heading } from '~components/Heading'
+import { SelectOption, SelectOptionGroupNode } from '../../types'
+import { Option } from '../Option/Option'
+import styles from './ListBoxSection.module.scss'
 
 export type ListBoxSectionProps<Option extends SelectOption> = {
   section: SelectOptionGroupNode<Option>
@@ -14,7 +14,7 @@ export const ListBoxSection = <Option extends SelectOption = SelectOption>({
 }: ListBoxSectionProps<Option>): JSX.Element => {
   const { itemProps, headingProps, groupProps } = useListBoxSection({
     heading: section.rendered,
-    "aria-label": section["aria-label"],
+    'aria-label': section['aria-label'],
   })
 
   return (
@@ -40,4 +40,4 @@ export const ListBoxSection = <Option extends SelectOption = SelectOption>({
   )
 }
 
-ListBoxSection.displayName = "ListBoxSection"
+ListBoxSection.displayName = 'ListBoxSection'

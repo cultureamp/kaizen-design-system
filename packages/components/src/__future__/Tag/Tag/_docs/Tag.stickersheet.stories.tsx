@@ -1,15 +1,15 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { Icon } from "~components/__future__/Icon"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { Icon } from '~components/__future__/Icon'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Tag } from "../Tag"
-import { TagColorKeys } from "../types"
+} from '~storybook/components/StickerSheet'
+import { Tag } from '../Tag'
+import { TagColorKeys } from '../types'
 
 export default {
-  title: "Components/Tag/Future",
+  title: 'Components/Tag/Future',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -19,7 +19,7 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet heading="Tag">
-      <StickerSheet.Header headings={["Label Only", "Icon"]} />
+      <StickerSheet.Header headings={['Label Only', 'Icon']} />
       <StickerSheet.Body>
         {TagColorKeys.map(color => (
           <StickerSheet.Row key={color}>
@@ -41,7 +41,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
   parameters: {
     controls: { disable: true },
   },
@@ -49,8 +49,8 @@ export const StickerSheetDefault: StickerSheetStory = {
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

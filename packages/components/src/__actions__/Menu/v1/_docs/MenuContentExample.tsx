@@ -1,8 +1,8 @@
-import React from "react"
-import { Icon } from "~components/__future__/Icon"
-import { MenuHeading } from "../subcomponents/MenuHeading"
-import { MenuItem } from "../subcomponents/MenuItem"
-import { MenuList } from "../subcomponents/MenuList"
+import React from 'react'
+import { Icon } from '~components/__future__/Icon'
+import { MenuHeading } from '../subcomponents/MenuHeading'
+import { MenuItem } from '../subcomponents/MenuItem'
+import { MenuList } from '../subcomponents/MenuList'
 
 type MenuContentExampleProps = {
   isShortList?: boolean
@@ -31,7 +31,7 @@ export const MenuContentExample = ({
                 MouseEvent
               >,
             ): void => {
-              alert("Hello")
+              alert('Hello')
               e.preventDefault()
             }}
             icon={<Icon name="edit" isPresentational isFilled />}

@@ -4,16 +4,16 @@ import React, {
   useMemo,
   useReducer,
   useRef,
-} from "react"
-import { FilterAttributes, FilterState, Filters, FiltersValues } from "../types"
-import { filterBarStateReducer } from "./reducer/filterBarStateReducer"
-import { setupFilterBarState } from "./reducer/setupFilterBarState"
-import { ActiveFiltersArray } from "./types"
-import { checkShouldUpdateValues } from "./utils/checkShouldUpdateValues"
-import { createFiltersHash } from "./utils/createFiltersHash"
-import { getInactiveFilters } from "./utils/getInactiveFilters"
-import { getMappedFilters } from "./utils/getMappedFilters"
-import { getValidValue } from "./utils/getValidValue"
+} from 'react'
+import { FilterAttributes, FilterState, Filters, FiltersValues } from '../types'
+import { filterBarStateReducer } from './reducer/filterBarStateReducer'
+import { setupFilterBarState } from './reducer/setupFilterBarState'
+import { ActiveFiltersArray } from './types'
+import { checkShouldUpdateValues } from './utils/checkShouldUpdateValues'
+import { createFiltersHash } from './utils/createFiltersHash'
+import { getInactiveFilters } from './utils/getInactiveFilters'
+import { getMappedFilters } from './utils/getMappedFilters'
+import { getValidValue } from './utils/getValidValue'
 
 export type FilterBarContextValue<
   Value,
@@ -59,7 +59,7 @@ export const useFilterBarContext = <
 
   if (!context) {
     throw new Error(
-      "useFilterBarContext must be used within the FilterBarContext.Provider",
+      'useFilterBarContext must be used within the FilterBarContext.Provider',
     )
   }
 
@@ -102,51 +102,51 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       id: Id,
       isOpen: boolean,
     ): void => {
-      dispatch({ type: "update_single_filter", id, data: { isOpen } })
+      dispatch({ type: 'update_single_filter', id, data: { isOpen } })
     },
     setFilterOpenState: <Id extends keyof ValuesMap>(
       id: Id,
       isOpen: boolean,
     ): void => {
-      dispatch({ type: "update_single_filter", id, data: { isOpen } })
+      dispatch({ type: 'update_single_filter', id, data: { isOpen } })
     },
     openFilter: <Id extends keyof ValuesMap>(id: Id): void => {
-      dispatch({ type: "update_single_filter", id, data: { isOpen: true } })
+      dispatch({ type: 'update_single_filter', id, data: { isOpen: true } })
     },
     updateValue: <Id extends keyof ValuesMap>(
       id: Id,
       newValue: ValuesMap[Id],
     ): void => {
       dispatch({
-        type: "update_values",
+        type: 'update_values',
         values: { ...values, [id]: getValidValue(newValue) },
       })
     },
     showFilter: <Id extends keyof ValuesMap>(id: Id): void => {
-      dispatch({ type: "activate_filter", id })
-      dispatch({ type: "set_focus", id })
+      dispatch({ type: 'activate_filter', id })
+      dispatch({ type: 'set_focus', id })
     },
     hideFilter: <Id extends keyof ValuesMap>(id: Id): void => {
-      dispatch({ type: "deactivate_filter", id })
-      dispatch({ type: "set_focus", id: "add_filter" })
+      dispatch({ type: 'deactivate_filter', id })
+      dispatch({ type: 'set_focus', id: 'add_filter' })
     },
     getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
     clearAllFilters: () => {
       state.activeFilterIds.forEach(id => {
         if (mappedFilters[id].isRemovable)
-          dispatch({ type: "deactivate_filter", id })
+          dispatch({ type: 'deactivate_filter', id })
       })
-      dispatch({ type: "update_values", values: {} })
+      dispatch({ type: 'update_values', values: {} })
     },
     setFocus: <Id extends keyof ValuesMap>(id: Id | undefined) => {
-      dispatch({ type: "set_focus", id })
+      dispatch({ type: 'set_focus', id })
     },
     focusId: state.focusId,
   } satisfies FilterBarContextValue<any, ValuesMap>
 
   useEffect(() => {
     const shouldUpdate = checkShouldUpdateValues<ValuesMap>(state, values)
-    if (shouldUpdate) dispatch({ type: "update_values", values: { ...values } })
+    if (shouldUpdate) dispatch({ type: 'update_values', values: { ...values } })
   // Only run this effect when `values` change
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values])
@@ -154,7 +154,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   useEffect(() => {
     if (state.hasUpdatedValues) {
       onValuesChange({ ...state.values })
-      dispatch({ type: "complete_update_values" })
+      dispatch({ type: 'complete_update_values' })
     }
   // Only run this effect when `state` change
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -164,7 +164,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     const newFiltersHash = createFiltersHash(filters)
     if (newFiltersHash !== filtersHash.current) {
       filtersHash.current = newFiltersHash
-      dispatch({ type: "update_filter_labels", data: filters })
+      dispatch({ type: 'update_filter_labels', data: filters })
     }
   }, [filters])
 

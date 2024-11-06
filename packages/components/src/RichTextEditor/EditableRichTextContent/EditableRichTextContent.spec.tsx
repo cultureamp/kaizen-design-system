@@ -1,11 +1,11 @@
-import React from "react"
-import { render } from "@testing-library/react"
-import { vi } from "vitest"
-import { RichTextContentProps } from "../RichTextContent"
-import { EditableRichTextContent } from "./EditableRichTextContent"
+import React from 'react'
+import { render } from '@testing-library/react'
+import { vi } from 'vitest'
+import { RichTextContentProps } from '../RichTextContent'
+import { EditableRichTextContent } from './EditableRichTextContent'
 const mockFn = vi.fn()
 
-vi.mock("../RichTextContent", () => ({
+vi.mock('../RichTextContent', () => ({
   __esModule: true,
   RichTextContent: (props: RichTextContentProps): JSX.Element => {
     mockFn(props)
@@ -15,21 +15,21 @@ vi.mock("../RichTextContent", () => ({
 
 const content = [
   {
-    type: "paragraph",
-    content: [{ type: "text", text: "Sample rich text content" }],
+    type: 'paragraph',
+    content: [{ type: 'text', text: 'Sample rich text content' }],
   },
 ]
 
-describe("Content props are passed", () => {
-  it("should pass them to RichTextContent component", () => {
+describe('Content props are passed', () => {
+  it('should pass them to RichTextContent component', () => {
     render(
       <EditableRichTextContent
         content={content}
         labelText=""
         onClick={vi.fn()}
-        contentProps={{ id: "sampleId" }}
+        contentProps={{ id: 'sampleId' }}
       />,
     )
-    expect(mockFn).toHaveBeenCalledWith({ content, id: "sampleId" })
+    expect(mockFn).toHaveBeenCalledWith({ content, id: 'sampleId' })
   })
 })

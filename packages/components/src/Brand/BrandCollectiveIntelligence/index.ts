@@ -1,1 +1,1 @@
-export * from "./BrandCollectiveIntelligence"
+export * from './BrandCollectiveIntelligence'

@@ -1,4 +1,4 @@
-import kebab from "lodash.kebabcase"
+import kebab from 'lodash.kebabcase'
 
 /**
  * Given an object path (an array of strings) and a value, return a CSS var() function that represents it.
@@ -26,4 +26,4 @@ export const objectPathToCssVarFunction = (
  *      Output: "--color-wisteria-100"
  */
 export const objectPathToCssVarIdentifier = (path: string[]): string =>
-  `--${path.map(kebab).join("-")}`
+  `--${path.map(kebab).join('-')}`

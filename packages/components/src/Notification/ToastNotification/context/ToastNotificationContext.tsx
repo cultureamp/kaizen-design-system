@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react"
-import { v4 as uuidv4 } from "uuid"
+import React, { useContext, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import {
   GenericNotificationType,
   GenericNotificationVariant,
-} from "~components/Notification/subcomponents/GenericNotification"
-import { ToastNotificationObj, ToastNotificationObjBase } from "../types"
+} from '~components/Notification/subcomponents/GenericNotification'
+import { ToastNotificationObj, ToastNotificationObjBase } from '../types'
 
-type ToastNotificationObjOptionalId = Omit<ToastNotificationObjBase, "id"> & {
+type ToastNotificationObjOptionalId = Omit<ToastNotificationObjBase, 'id'> & {
   id?: string
 } & (GenericNotificationType | GenericNotificationVariant)
 
@@ -27,7 +27,7 @@ export const useToastNotificationContext =
 
     if (!context) {
       throw new Error(
-        "useToastNotificationContext must be used within the ToastNotificationContext.Provider",
+        'useToastNotificationContext must be used within the ToastNotificationContext.Provider',
       )
     }
 
@@ -43,7 +43,7 @@ export const ToastNotificationProvider = ({
 }: ToastNotificationProviderProps): JSX.Element | null => {
   const [notifications, setNotifications] = useState<ToastNotificationObj[]>([])
 
-  const addToastNotification: ToastNotificationContextValue["addToastNotification"] =
+  const addToastNotification: ToastNotificationContextValue['addToastNotification'] =
     notification => {
       const uuid = uuidv4()
       const notificationWithId = { id: uuid, ...notification }
@@ -92,4 +92,4 @@ export const ToastNotificationProvider = ({
   )
 }
 
-ToastNotificationProvider.displayName = "ToastNotificationProvider"
+ToastNotificationProvider.displayName = 'ToastNotificationProvider'

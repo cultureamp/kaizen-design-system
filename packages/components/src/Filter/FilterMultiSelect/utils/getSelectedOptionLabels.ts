@@ -1,5 +1,5 @@
-import { Selection } from "@react-types/shared"
-import { ItemType } from "../types"
+import { Selection } from '@react-types/shared'
+import { ItemType } from '../types'
 
 export const getSelectedOptionLabels = (
   keys?: Selection,
@@ -9,11 +9,11 @@ export const getSelectedOptionLabels = (
     return []
   }
 
-  if (keys === "all") {
+  if (keys === 'all') {
     return items.map(item => item.label)
   }
 
   return Array.from(keys)
-    .map(key => items.find(item => item.value === key)?.label ?? "")
-    .filter(item => item !== "")
+    .map(key => items.find(item => item.value === key)?.label ?? '')
+    .filter(item => item !== '')
 }

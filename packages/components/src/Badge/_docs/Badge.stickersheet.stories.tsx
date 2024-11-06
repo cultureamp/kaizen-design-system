@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Badge } from "../index"
+} from '~storybook/components/StickerSheet'
+import { Badge } from '../index'
 
 export default {
-  title: "Components/Badge",
+  title: 'Components/Badge',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -17,7 +17,7 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Size", "Default", "Active", "Dot"]} />
+      <StickerSheet.Header headings={['Size', 'Default', 'Active', 'Dot']} />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Small">
           <Badge size="small" variant="default" reversed={isReversed}>
@@ -44,22 +44,22 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }

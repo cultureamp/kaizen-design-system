@@ -1,13 +1,13 @@
-import React, { useState } from "react"
-import { useButton } from "@react-aria/button"
-import { HiddenSelect, useSelect } from "@react-aria/select"
+import React, { useState } from 'react'
+import { useButton } from '@react-aria/button'
+import { HiddenSelect, useSelect } from '@react-aria/select'
 import {
   useSelectState,
   SelectProps as AriaSelectProps,
-} from "@react-stately/select"
-import { Filter, FilterContents } from "~components/Filter/Filter"
-import { FilterButtonProps } from "~components/Filter/FilterButton"
-import { SelectProvider } from "~components/__future__/Select/context"
+} from '@react-stately/select'
+import { Filter, FilterContents } from '~components/Filter/Filter'
+import { FilterButtonProps } from '~components/Filter/FilterButton'
+import { SelectProvider } from '~components/__future__/Select/context'
 import {
   ListBoxSection,
   ListItem,
@@ -15,27 +15,27 @@ import {
   SectionDivider,
   SelectPopoverContents,
   SelectPopoverContentsProps,
-} from "~components/__future__/Select/subcomponents"
-import { getDisabledKeysFromItems } from "~components/__future__/Select/utils/getDisabledKeysFromItems"
-import { transformSelectItemToCollectionElement } from "~components/__future__/Select/utils/transformSelectItemToCollectionElement"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { SelectItem, SelectOption } from "./types"
-import styles from "./FilterSelect.module.scss"
+} from '~components/__future__/Select/subcomponents'
+import { getDisabledKeysFromItems } from '~components/__future__/Select/utils/getDisabledKeysFromItems'
+import { transformSelectItemToCollectionElement } from '~components/__future__/Select/utils/transformSelectItemToCollectionElement'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { SelectItem, SelectOption } from './types'
+import styles from './FilterSelect.module.scss'
 
 type OmittedAriaSelectProps =
-  | "label"
-  | "children"
-  | "isOpen"
-  | "onOpenChange"
-  | "defaultOpen"
-  | "items"
+  | 'label'
+  | 'children'
+  | 'isOpen'
+  | 'onOpenChange'
+  | 'defaultOpen'
+  | 'items'
 
 export type FilterSelectProps<Option extends SelectOption = SelectOption> = {
   isOpen: boolean
   setIsOpen: (isOpen: boolean) => void
   renderTrigger: (triggerButtonProps: FilterButtonProps) => JSX.Element
   label: string
-  children?: SelectPopoverContentsProps<Option>["children"]
+  children?: SelectPopoverContentsProps<Option>['children']
   items: Array<SelectItem<Option>>
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
@@ -65,7 +65,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
     onOpenChange: setIsOpen,
     disabledKeys,
     selectedKey:
-      typeof selectedKey === "number" ? selectedKey.toString() : selectedKey,
+      typeof selectedKey === 'number' ? selectedKey.toString() : selectedKey,
     ...restProps,
   }
 
@@ -83,8 +83,8 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
   // This should ideally be refactored but for now the `aria-controls` is set to the Filter's Listbox (menuProps.id) and the `aria-labelledby` to undefined so the accessible name is derived from the buttons content.
   const renderTriggerButtonProps = {
     ...buttonProps,
-    "aria-labelledby": undefined,
-    "aria-controls": menuProps.id,
+    'aria-labelledby': undefined,
+    'aria-controls': menuProps.id,
   }
   return (
     <>
@@ -106,7 +106,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
         <FilterContents classNameOverride={styles.filterContents}>
           <SelectProvider<Option> state={state}>
             <SelectPopoverContents
-              menuProps={{ ...menuProps, "aria-labelledby": buttonProps.id }}
+              menuProps={{ ...menuProps, 'aria-labelledby': buttonProps.id }}
             >
               {children}
             </SelectPopoverContents>
@@ -117,7 +117,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
   )
 }
 
-FilterSelect.displayName = "FilterSelect"
+FilterSelect.displayName = 'FilterSelect'
 
 FilterSelect.Section = ListBoxSection
 FilterSelect.SectionDivider = SectionDivider

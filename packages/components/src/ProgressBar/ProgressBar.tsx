@@ -1,16 +1,16 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { Heading } from "~components/Heading"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { Label } from "./subcomponents/Label"
-import { calculatePercentage } from "./utils/calculatePercentage"
-import styles from "./ProgressBar.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Heading } from '~components/Heading'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { Label } from './subcomponents/Label'
+import { calculatePercentage } from './utils/calculatePercentage'
+import styles from './ProgressBar.module.scss'
 
 export type ProgressBarMood = {
   /**
    * @deprecated Use `color` prop instead
    */
-  mood: "positive" | "informative" | "negative" | "cautionary"
+  mood: 'positive' | 'informative' | 'negative' | 'cautionary'
   color?: never
 }
 
@@ -26,7 +26,7 @@ export type ProgressBarColor = {
    * - `negative` -> `red`
    * - `positive` -> `green`
    */
-  color: "blue" | "green" | "red" | "yellow"
+  color: 'blue' | 'green' | 'red' | 'yellow'
 }
 
 export type ProgressBarBaseProps = {
@@ -39,7 +39,7 @@ export type ProgressBarBaseProps = {
   subtext?: string
   label?: string
   isReversed: boolean
-} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "color">>
+} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'color'>>
 
 export type ProgressBarProps = ProgressBarBaseProps &
   (ProgressBarMood | ProgressBarColor)
@@ -86,7 +86,7 @@ export const ProgressBar = ({
           <Heading
             variant="heading-6"
             tag="p"
-            color={isReversed ? "white" : "dark"}
+            color={isReversed ? 'white' : 'dark'}
           >
             {subtext}
           </Heading>
@@ -96,4 +96,4 @@ export const ProgressBar = ({
   )
 }
 
-ProgressBar.displayName = "ProgressBar"
+ProgressBar.displayName = 'ProgressBar'

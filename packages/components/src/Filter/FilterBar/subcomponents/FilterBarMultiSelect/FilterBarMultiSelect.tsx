@@ -1,22 +1,22 @@
-import React, { useEffect, useRef, useState } from "react"
-import { Selection, Key } from "@react-types/shared"
+import React, { useEffect, useRef, useState } from 'react'
+import { Selection, Key } from '@react-types/shared'
 import {
   FilterMultiSelect,
   FilterMultiSelectProps,
   ItemType,
   getSelectedOptionLabels,
-} from "~components/Filter/FilterMultiSelect"
-import { useFilterBarContext } from "../../context/FilterBarContext"
-import { checkArraysMatch } from "../../utils/checkArraysMatch"
-import styles from "./FilterBarMultiSelect.module.css"
+} from '~components/Filter/FilterMultiSelect'
+import { useFilterBarContext } from '../../context/FilterBarContext'
+import { checkArraysMatch } from '../../utils/checkArraysMatch'
+import styles from './FilterBarMultiSelect.module.css'
 
 export type FilterBarMultiSelectProps = Omit<
   FilterMultiSelectProps,
-  "label" | "trigger"
+  'label' | 'trigger'
 > & {
   id?: string
-  label?: FilterMultiSelectProps["label"]
-  trigger?: FilterMultiSelectProps["trigger"]
+  label?: FilterMultiSelectProps['label']
+  trigger?: FilterMultiSelectProps['trigger']
 }
 
 // This should technically be handled within the FilterMultiSelect
@@ -27,7 +27,7 @@ export type ConsumableSelection = string | Key[] | undefined
 const convertSelectionToAConsumableFormat = (
   value: Selection,
 ): ConsumableSelection => {
-  if (value === "all") return "all"
+  if (value === 'all') return 'all'
   const arrayOfValues = Array.from(value)
 
   return arrayOfValues.length > 0 ? Array.from(value) : undefined
@@ -55,7 +55,7 @@ export const FilterBarMultiSelect = ({
   const [items, setItems] = useState<ItemType[]>(propsItems)
   const buttonRef = useRef<HTMLButtonElement>(null)
 
-  if (!id) throw Error("Missing `id` prop in FilterBarMultiSelect")
+  if (!id) throw Error('Missing `id` prop in FilterBarMultiSelect')
 
   const filterState = getFilterState(id)
 
@@ -133,4 +133,4 @@ export const FilterBarMultiSelect = ({
   )
 }
 
-FilterBarMultiSelect.displayName = "FilterBar.MultiSelect"
+FilterBarMultiSelect.displayName = 'FilterBar.MultiSelect'

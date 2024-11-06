@@ -1,17 +1,17 @@
-import React, { useRef } from "react"
-import { render, screen } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
+import React, { useRef } from 'react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
 import {
   DateInputWithIconButton,
   DateInputWithIconButtonProps,
-} from "./DateInputWithIconButton"
+} from './DateInputWithIconButton'
 
 const user = userEvent.setup()
 
 const defaultProps: DateInputWithIconButtonProps = {
-  id: "test__date-input-with-icon-button",
-  labelText: "Due date",
+  id: 'test__date-input-with-icon-button',
+  labelText: 'Due date',
   onButtonClick: vi.fn(),
 }
 
@@ -19,16 +19,16 @@ const DateInputWithIconButtonWrapper = (
   props: Partial<DateInputWithIconButtonProps>,
 ): JSX.Element => <DateInputWithIconButton {...defaultProps} {...props} />
 
-describe("<DateInputWithIconButton />", () => {
-  describe("Icon button", () => {
-    it("has helpful label", () => {
+describe('<DateInputWithIconButton />', () => {
+  describe('Icon button', () => {
+    it('has helpful label', () => {
       render(<DateInputWithIconButtonWrapper />)
       expect(
-        screen.getByRole("button", { name: "Choose date" }),
+        screen.getByRole('button', { name: 'Choose date' }),
       ).toBeInTheDocument()
     })
 
-    it("has helpful label showing the current date when one is selected", () => {
+    it('has helpful label showing the current date when one is selected', () => {
       render(
         <DateInputWithIconButtonWrapper
           value="Mar 1, 2022"
@@ -36,23 +36,23 @@ describe("<DateInputWithIconButton />", () => {
         />,
       )
       expect(
-        screen.getByRole("button", { name: "Change date, Mar 1, 2022" }),
+        screen.getByRole('button', { name: 'Change date, Mar 1, 2022' }),
       ).toBeInTheDocument()
     })
   })
 
-  describe("States", () => {
-    it("disables both input and icon button", () => {
+  describe('States', () => {
+    it('disables both input and icon button', () => {
       render(<DateInputWithIconButtonWrapper disabled />)
-      const input = screen.getByLabelText("Due date")
-      const calendarButton = screen.getByRole("button", { name: "Choose date" })
+      const input = screen.getByLabelText('Due date')
+      const calendarButton = screen.getByRole('button', { name: 'Choose date' })
       expect(input).toBeDisabled()
       expect(calendarButton).toBeDisabled()
     })
   })
 
-  describe("Refs", () => {
-    it("correctly passes through input and button refs", async () => {
+  describe('Refs', () => {
+    it('correctly passes through input and button refs', async () => {
       const onButtonClick = vi.fn()
 
       const Wrapper = (): JSX.Element => {
@@ -63,7 +63,7 @@ describe("<DateInputWithIconButton />", () => {
         const handleClick = (): void =>
           onButtonClick(
             inputRef.current?.id,
-            buttonRef.current?.getAttribute("aria-label"),
+            buttonRef.current?.getAttribute('aria-label'),
           )
 
         return (
@@ -83,10 +83,10 @@ describe("<DateInputWithIconButton />", () => {
 
       render(<Wrapper />)
 
-      await user.click(screen.getByText("Click me"))
+      await user.click(screen.getByText('Click me'))
       expect(onButtonClick).toBeCalledWith(
-        "test__date-input-field--ref",
-        "Choose date",
+        'test__date-input-field--ref',
+        'Choose date',
       )
     })
   })

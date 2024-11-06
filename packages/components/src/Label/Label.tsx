@@ -1,27 +1,27 @@
-import React, { LabelHTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Label.module.scss"
+import React, { LabelHTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Label.module.scss'
 
-type LabelType = "text" | "checkbox" | "toggle" | "radio"
+type LabelType = 'text' | 'checkbox' | 'toggle' | 'radio'
 
 export type LabelProps = {
   children?: React.ReactNode
   labelText?: string | React.ReactNode
   labelType?: LabelType
-  labelPosition?: "start" | "end"
+  labelPosition?: 'start' | 'end'
   reversed?: boolean
-  variant?: "default" | "prominent"
+  variant?: 'default' | 'prominent'
   disabled?: boolean
 } & OverrideClassName<LabelHTMLAttributes<HTMLLabelElement>>
 
 export const Label = ({
   children,
-  labelText = "",
-  labelType = "text",
-  labelPosition = "end",
+  labelText = '',
+  labelType = 'text',
+  labelPosition = 'end',
   reversed = false,
-  variant = "default",
+  variant = 'default',
   disabled,
   classNameOverride,
   ...restProps
@@ -32,7 +32,7 @@ export const Label = ({
       classNameOverride,
       styles[labelType],
       reversed && styles.reversed,
-      variant === "prominent" && styles.prominent,
+      variant === 'prominent' && styles.prominent,
       disabled && styles.disabled,
     )}
     {...restProps}
@@ -40,8 +40,8 @@ export const Label = ({
     {children}
     <span
       className={classnames(
-        labelPosition === "start" && styles.prependedLabel,
-        labelPosition === "end" && styles.appendedLabel,
+        labelPosition === 'start' && styles.prependedLabel,
+        labelPosition === 'end' && styles.appendedLabel,
       )}
     >
       {labelText}
@@ -49,4 +49,4 @@ export const Label = ({
   </label>
 )
 
-Label.displayName = "Label"
+Label.displayName = 'Label'

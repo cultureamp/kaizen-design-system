@@ -1,7 +1,7 @@
-import { MarkType } from "prosemirror-model"
-import { EditorState } from "prosemirror-state"
-import { getMarkRange } from "./getMarkRange"
-import { markIsActive } from "./markIsActive"
+import { MarkType } from 'prosemirror-model'
+import { EditorState } from 'prosemirror-state'
+import { getMarkRange } from './getMarkRange'
+import { markIsActive } from './markIsActive'
 
 /** Check the current PM Selection against the Mark Type provided */
 export const markContainsSelection = (

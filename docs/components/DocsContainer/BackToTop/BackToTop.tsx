@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useLayoutEffect } from "react"
+import React, { HTMLAttributes, useLayoutEffect } from 'react'
 
 export const BackToTop = ({
   children,
@@ -11,8 +11,8 @@ export const BackToTop = ({
   }
 
   useLayoutEffect(() => {
-    document.addEventListener("scroll", onScroll)
-    return () => document.removeEventListener("scroll", onScroll)
+    document.addEventListener('scroll', onScroll)
+    return () => document.removeEventListener('scroll', onScroll)
   }, [])
 
   if (!visible) return null
@@ -21,7 +21,7 @@ export const BackToTop = ({
     <button
       type="button"
       onClick={(): void =>
-        window.scroll({ top: 0, left: 0, behavior: "smooth" })
+        window.scroll({ top: 0, left: 0, behavior: 'smooth' })
       }
       {...buttonAttributes}
     >
@@ -34,4 +34,4 @@ export const BackToTop = ({
   )
 }
 
-BackToTop.displayName = "BackToTop"
+BackToTop.displayName = 'BackToTop'

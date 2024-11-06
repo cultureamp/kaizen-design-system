@@ -1,6 +1,6 @@
-import { addExtraThemeEntries } from "./addExtraThemeEntries"
-import { objectPathToCssVarIdentifier } from "./cssVariables"
-import { mapLeafsOfObject } from "./mapLeafsOfObject"
+import { addExtraThemeEntries } from './addExtraThemeEntries'
+import { objectPathToCssVarIdentifier } from './cssVariables'
+import { mapLeafsOfObject } from './mapLeafsOfObject'
 
 /**
 

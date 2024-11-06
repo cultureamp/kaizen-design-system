@@ -1,8 +1,8 @@
-import React from "react"
-import { Item, Section } from "@react-stately/collections"
-import { CollectionElement } from "@react-types/shared"
-import { SelectItem, SelectOption } from "../types"
-import { isSelectOptionGroup } from "./isSelectOptionGroup"
+import React from 'react'
+import { Item, Section } from '@react-stately/collections'
+import { CollectionElement } from '@react-types/shared'
+import { SelectItem, SelectOption } from '../types'
+import { isSelectOptionGroup } from './isSelectOptionGroup'
 
 export const transformSelectItemToCollectionElement = <
   Option extends SelectOption,

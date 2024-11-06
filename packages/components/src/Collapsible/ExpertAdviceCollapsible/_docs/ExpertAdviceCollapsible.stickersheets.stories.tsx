@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { ExpertAdviceCollapsible, ExpertAdviceCollapsibleProps } from "../index"
+} from '~storybook/components/StickerSheet'
+import { ExpertAdviceCollapsible, ExpertAdviceCollapsibleProps } from '../index'
 
 export default {
-  title: "Components/Collapsibles/ExpertAdviceCollapsible",
+  title: 'Components/Collapsibles/ExpertAdviceCollapsible',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -15,7 +15,7 @@ export default {
 } satisfies Meta
 
 const ExpertAdviceCollapsibleWrapped = (
-  args: Omit<ExpertAdviceCollapsibleProps, "children">,
+  args: Omit<ExpertAdviceCollapsibleProps, 'children'>,
 ): JSX.Element => (
   <ExpertAdviceCollapsible open {...args}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac
@@ -45,11 +45,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

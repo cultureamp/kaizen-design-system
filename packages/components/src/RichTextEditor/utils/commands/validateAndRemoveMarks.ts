@@ -1,6 +1,6 @@
-import { Mark, MarkType } from "prosemirror-model"
-import { EditorState, Transaction } from "prosemirror-state"
-import { RemoveMarkStep } from "prosemirror-transform"
+import { Mark, MarkType } from 'prosemirror-model'
+import { EditorState, Transaction } from 'prosemirror-state'
+import { RemoveMarkStep } from 'prosemirror-transform'
 
 type KnownAttrs = {
   varibleHref?: string

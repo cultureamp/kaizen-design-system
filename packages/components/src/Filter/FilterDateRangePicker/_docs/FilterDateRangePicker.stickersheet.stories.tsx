@@ -1,22 +1,22 @@
-import React, { useState } from "react"
-import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
-import { action } from "@storybook/addon-actions"
-import { Meta } from "@storybook/react"
-import { within, userEvent } from "@storybook/test"
-import isChromatic from "chromatic"
-import { DateRange } from "~components/Calendar"
+import React, { useState } from 'react'
+import { StaticIntlProvider } from '@cultureamp/i18n-react-intl'
+import { action } from '@storybook/addon-actions'
+import { Meta } from '@storybook/react'
+import { within, userEvent } from '@storybook/test'
+import isChromatic from 'chromatic'
+import { DateRange } from '~components/Calendar'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { FilterButton } from "../../FilterButton"
-import { FilterDateRangePicker, FilterDateRangePickerProps } from "../index"
-import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
+} from '~storybook/components/StickerSheet'
+import { FilterButton } from '../../FilterButton'
+import { FilterDateRangePicker, FilterDateRangePickerProps } from '../index'
+import { FilterDateRangePickerField } from '../subcomponents/FilterDateRangePickerField'
 
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: "Components/Filter Date Range Picker",
+  title: 'Components/Filter Date Range Picker',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -32,12 +32,12 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => {
     const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
     const [rangePartial, setRangePartial] = useState<DateRange | undefined>({
-      from: new Date("2022-05-15"),
+      from: new Date('2022-05-15'),
     })
     const [isOpenComplete, setIsOpenComplete] = useState<boolean>(false)
     const [rangeComplete, setRangeComplete] = useState<DateRange | undefined>({
-      from: new Date("2022-05-15"),
-      to: new Date("2022-06-22"),
+      from: new Date('2022-05-15'),
+      to: new Date('2022-06-22'),
     })
 
     const [rangeFieldDefault, setRangeFieldDefault] = useState<
@@ -46,22 +46,22 @@ const StickerSheetTemplate: StickerSheetStory = {
     const [rangeFieldExisting, setRangeFieldExisting] = useState<
       DateRange | undefined
     >({
-      from: new Date("2022-05-15"),
-      to: new Date("2022-06-22"),
+      from: new Date('2022-05-15'),
+      to: new Date('2022-06-22'),
     })
     const [rangeFieldValidation, setRangeFieldValidation] = useState<
       DateRange | undefined
     >({
-      from: new Date("2022-05-15"),
+      from: new Date('2022-05-15'),
     })
 
     return (
       <>
         <StickerSheet
           heading="Filter Date Range Picker"
-          style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
+          style={{ paddingBottom: IS_CHROMATIC ? '33rem' : undefined }}
         >
-          <StickerSheet.Header headings={["Partial range", "Complete range"]} />
+          <StickerSheet.Header headings={['Partial range', 'Complete range']} />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <FilterDateRangePicker
@@ -100,7 +100,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 id="stickersheet--filter-drp-field--default"
                 label="Dates"
                 locale="en-US"
-                defaultMonth={new Date("2022-05-01")}
+                defaultMonth={new Date('2022-05-01')}
                 selectedRange={rangeFieldDefault}
                 onRangeChange={setRangeFieldDefault}
               />
@@ -122,17 +122,17 @@ const StickerSheetTemplate: StickerSheetStory = {
                 selectedRange={rangeFieldValidation}
                 onRangeChange={setRangeFieldValidation}
                 onValidate={{
-                  dateStart: action("Validation story: date start onValidate"),
+                  dateStart: action('Validation story: date start onValidate'),
                 }}
                 validationMessage={{
                   dateStart: {
-                    status: "error",
+                    status: 'error',
                     message:
-                      "(Start date custom message) Jelly-filled doughnuts are my favourite!",
+                      '(Start date custom message) Jelly-filled doughnuts are my favourite!',
                   },
                 }}
                 inputEndDateProps={{
-                  "data-testid": "test__filter-drp-field--validation--end",
+                  'data-testid': 'test__filter-drp-field--validation--end',
                 }}
               />
               <FilterDateRangePickerField
@@ -142,24 +142,24 @@ const StickerSheetTemplate: StickerSheetStory = {
                 selectedRange={rangeFieldValidation}
                 onRangeChange={setRangeFieldValidation}
                 onValidate={{
-                  dateStart: action("Validation story: date start onValidate"),
-                  dateEnd: action("Validation story: date end onValidate"),
+                  dateStart: action('Validation story: date start onValidate'),
+                  dateEnd: action('Validation story: date end onValidate'),
                 }}
                 validationMessage={{
                   dateStart: {
-                    status: "error",
+                    status: 'error',
                     message:
-                      "(Start date custom message) Jelly-filled doughnuts are my favourite!",
+                      '(Start date custom message) Jelly-filled doughnuts are my favourite!',
                   },
                   dateEnd: {
-                    status: "caution",
+                    status: 'caution',
                     message:
-                      "(End date custom message) Jelly-filled doughnuts are dangerous!",
+                      '(End date custom message) Jelly-filled doughnuts are dangerous!',
                   },
                 }}
                 inputEndDateProps={{
-                  "data-testid":
-                    "test__filter-drp-field--validation-merged--end",
+                  'data-testid':
+                    'test__filter-drp-field--validation-merged--end',
                 }}
               />
             </StickerSheet.Row>
@@ -172,15 +172,15 @@ const StickerSheetTemplate: StickerSheetStory = {
     const canvas = within(canvasElement)
 
     const validationInputEndDate = canvas.getByTestId(
-      "test__filter-drp-field--validation--end",
+      'test__filter-drp-field--validation--end',
     )
     await userEvent.click(validationInputEndDate)
-    await userEvent.type(validationInputEndDate, "potato")
+    await userEvent.type(validationInputEndDate, 'potato')
     await userEvent.click(document.body)
 
     if (IS_CHROMATIC) {
       const partialRangeButton = canvas.getByTestId(
-        "stickersheet--filter-drp--partial-range-button",
+        'stickersheet--filter-drp--partial-range-button',
       )
       await userEvent.click(partialRangeButton)
     }
@@ -189,17 +189,17 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }
 
 export const StickerSheetLocales: StickerSheetStory = {
-  name: "Sticker Sheet (Locales)",
+  name: 'Sticker Sheet (Locales)',
   render: () => {
     const props = {
       isOpen: false,
@@ -207,19 +207,19 @@ export const StickerSheetLocales: StickerSheetStory = {
       renderTrigger: (triggerButtonProps): JSX.Element => (
         <FilterButton {...triggerButtonProps} />
       ),
-      label: "Dates",
+      label: 'Dates',
       selectedRange: {
-        from: new Date("2022-05-15"),
-        to: new Date("2022-06-22"),
+        from: new Date('2022-05-15'),
+        to: new Date('2022-06-22'),
       },
       onRangeChange: () => undefined,
-      locale: "en-AU",
+      locale: 'en-AU',
     } satisfies FilterDateRangePickerProps
 
     return (
       <>
         <StickerSheet heading="Localisation">
-          <StickerSheet.Header headings={["en-AU", "en-US"]} />
+          <StickerSheet.Header headings={['en-AU', 'en-US']} />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <FilterDateRangePicker {...props} locale="en-AU" />
@@ -229,7 +229,7 @@ export const StickerSheetLocales: StickerSheetStory = {
         </StickerSheet>
 
         <StickerSheet>
-          <StickerSheet.Header headings={["fr-CA"]} />
+          <StickerSheet.Header headings={['fr-CA']} />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <StaticIntlProvider locale="fr-CA">

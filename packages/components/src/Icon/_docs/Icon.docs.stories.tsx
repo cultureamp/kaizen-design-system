@@ -1,23 +1,23 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import * as ICONS from "~components/Icon"
-import { Text } from "~components/Text"
-import { Tag } from "~components/__future__/Tag"
-import { AddIcon } from "../index"
-import styles from "./icon.module.scss"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import * as ICONS from '~components/Icon'
+import { Text } from '~components/Text'
+import { Tag } from '~components/__future__/Tag'
+import { AddIcon } from '../index'
+import styles from './icon.module.scss'
 
 const meta = {
-  title: "Illustrations/Icon",
+  title: 'Illustrations/Icon',
   component: AddIcon,
   args: {
-    role: "presentation",
+    role: 'presentation',
   },
   argTypes: {
     role: {
-      options: ["presentation", "img"],
-      control: { type: "radio" },
+      options: ['presentation', 'img'],
+      control: { type: 'radio' },
     },
-    "aria-label": { control: "text", if: { arg: "role", eq: "img" } },
+    'aria-label': { control: 'text', if: { arg: 'role', eq: 'img' } },
   },
 } satisfies Meta<typeof AddIcon>
 
@@ -29,7 +29,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -85,7 +85,7 @@ const ReferenceButton = ({
  * Deprecated icons will still exist in as a React component but have been removed from the assets folder
  * This will remove them from the documentation but give us time to remove them in the next major
  */
-const deprecatedList: string[] = ["ThumbsUpIcon", "ThumbsDownIcon"]
+const deprecatedList: string[] = ['ThumbsUpIcon', 'ThumbsDownIcon']
 
 export const Reference: Story = {
   render: () => (
@@ -95,7 +95,7 @@ export const Reference: Story = {
           .filter(iconName => !deprecatedList.includes(iconName))
           .map(iconName => {
             const icon = ICONS[iconName as keyof typeof ICONS]({
-              role: "presentation",
+              role: 'presentation',
             })
 
             return (

@@ -1,41 +1,41 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { LikertScaleLegacy } from "../index"
-import { Scale, ScaleItem } from "../types"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { LikertScaleLegacy } from '../index'
+import { Scale, ScaleItem } from '../types'
 
 const scale: Scale = [
   {
     value: -1,
-    label: "Not rated",
+    label: 'Not rated',
   },
   {
     value: 1,
-    label: "Strong Disagree",
+    label: 'Strong Disagree',
   },
   {
     value: 2,
-    label: "Disagree",
+    label: 'Disagree',
   },
   {
     value: 3,
-    label: "Neither agree or disagree",
+    label: 'Neither agree or disagree',
   },
   {
     value: 4,
-    label: "Agree",
+    label: 'Agree',
   },
   {
     value: 5,
-    label: "Strongly agree",
+    label: 'Strongly agree',
   },
 ]
 
 const meta = {
-  title: "Components/LikertScaleLegacy",
+  title: 'Components/LikertScaleLegacy',
   component: LikertScaleLegacy,
   args: {
     scale,
-    labelId: "labelId",
+    labelId: 'labelId',
     selectedItem: scale[0],
     onSelect: (): void => undefined,
   },
@@ -59,7 +59,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       source: {
-        language: "tsx",
+        language: 'tsx',
         code: `
   const SatisfactionExample = () => {
     const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
@@ -83,7 +83,7 @@ export const Playground: Story = {
         `,
       },
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

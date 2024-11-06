@@ -1,10 +1,10 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Label } from "~components/Label"
-import { FieldGroup } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Label } from '~components/Label'
+import { FieldGroup } from '../index'
 
 const meta = {
-  title: "Components/FieldGroup",
+  title: 'Components/FieldGroup',
   component: FieldGroup,
   args: {
     children: (
@@ -28,7 +28,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

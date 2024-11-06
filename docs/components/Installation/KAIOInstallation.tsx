@@ -1,5 +1,5 @@
-import React from "react"
-import { Installation } from "./Installation"
+import React from 'react'
+import { Installation } from './Installation'
 
 export type KAIOInstallationProps = {
   importStatement?: string
@@ -16,7 +16,7 @@ export const KAIOInstallation = ({
   family,
 }: KAIOInstallationProps): JSX.Element => {
   const csvComponentNames =
-    typeof exportNames === "string" ? exportNames : exportNames.join(", ")
+    typeof exportNames === 'string' ? exportNames : exportNames.join(', ')
 
   const importStatement = isFuture
     ? `import { ${csvComponentNames} } from "@kaizen/components/future"`
@@ -32,4 +32,4 @@ export const KAIOInstallation = ({
   )
 }
 
-KAIOInstallation.displayName = "KAIOInstallation"
+KAIOInstallation.displayName = 'KAIOInstallation'

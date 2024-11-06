@@ -1,25 +1,25 @@
-import React from "react"
-import { render, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
-import { CheckboxProps } from "./Checkbox"
-import { Checkbox } from "."
+import React from 'react'
+import { render, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
+import { CheckboxProps } from './Checkbox'
+import { Checkbox } from '.'
 const user = userEvent.setup()
 
 const defaultProps = {
-  id: "someCheckboxId",
-  checkedStatus: "off",
+  id: 'someCheckboxId',
+  checkedStatus: 'off',
   disabled: false,
-  name: "someCheckboxName",
+  name: 'someCheckboxName',
   onCheck: vi.fn(),
 } satisfies CheckboxProps
 
-describe("<Checkbox />", () => {
-  it("calls the `onCheck` event when clicked", async () => {
+describe('<Checkbox />', () => {
+  it('calls the `onCheck` event when clicked', async () => {
     const { getByTestId } = render(
       <Checkbox {...defaultProps} data-testid="checkbox" />,
     )
-    const checkbox = getByTestId("checkbox")
+    const checkbox = getByTestId('checkbox')
 
     await user.click(checkbox)
     await waitFor(() => {

@@ -1,15 +1,15 @@
-import React from "react"
-import classnames from "classnames"
-import { Container } from "~components/Container"
-import { Content, ContentProps } from "~components/Content"
-import { useResizeObserver } from "~components/utils/useResizeObserver"
-import styles from "./Skirt.module.scss"
+import React from 'react'
+import classnames from 'classnames'
+import { Container } from '~components/Container'
+import { Content, ContentProps } from '~components/Content'
+import { useResizeObserver } from '~components/utils/useResizeObserver'
+import styles from './Skirt.module.scss'
 
 const spacing = 24
 const maxHeight = 222
 const fallbackPercentage = 0.8
 
-type Variant = "default" | "education"
+type Variant = 'default' | 'education'
 
 export type SkirtProps = {
   children: React.ReactNode
@@ -19,7 +19,7 @@ export type SkirtProps = {
 
 export const Skirt = ({
   children,
-  variant = "default",
+  variant = 'default',
   titleBlockHasNavigation = true,
   classNameOverride,
   ...restProps
@@ -48,7 +48,7 @@ export const Skirt = ({
   )
 }
 
-Skirt.displayName = "Skirt"
+Skirt.displayName = 'Skirt'
 
 const deriveSkirtHeight = (
   rect: DOMRectReadOnly,

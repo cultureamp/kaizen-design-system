@@ -1,4 +1,4 @@
-const ORIGIN_BASE_URL = "https://d1e7r7b0lb8p4d.cloudfront.net"
+const ORIGIN_BASE_URL = 'https://d1e7r7b0lb8p4d.cloudfront.net'
 
 /**
  * Returns the full URL of the asset at `path` managed by the
@@ -12,4 +12,4 @@ const ORIGIN_BASE_URL = "https://d1e7r7b0lb8p4d.cloudfront.net"
  * @deprecated import from `@kaizen/components` instead
  */
 export const assetUrl = (path: string): string =>
-  [ORIGIN_BASE_URL, path].join("/")
+  [ORIGIN_BASE_URL, path].join('/')

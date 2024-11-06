@@ -1,21 +1,21 @@
 export type PopoverVariant =
-  | "default"
-  | "informative"
-  | "positive"
-  | "negative"
-  | "cautionary"
+  | 'default'
+  | 'informative'
+  | 'positive'
+  | 'negative'
+  | 'cautionary'
 
-export type PopoverSize = "small" | "large"
+export type PopoverSize = 'small' | 'large'
 
 export const popoverPlacements = [
-  "top",
-  "bottom",
-  "top-start",
-  "top-end",
-  "bottom-start",
-  "bottom-end",
-  "left",
-  "right",
+  'top',
+  'bottom',
+  'top-start',
+  'top-end',
+  'bottom-start',
+  'bottom-end',
+  'left',
+  'right',
 ] as const
 
 export type Placement = (typeof popoverPlacements)[number]

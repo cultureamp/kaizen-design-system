@@ -1,7 +1,7 @@
-import { DeepMapObjectLeafs } from "../legacy/types"
-import { addExtraThemeEntries } from "./addExtraThemeEntries"
-import { objectPathToCssVarFunction } from "./cssVariables"
-import { mapLeafsOfObject } from "./mapLeafsOfObject"
+import { DeepMapObjectLeafs } from '../legacy/types'
+import { addExtraThemeEntries } from './addExtraThemeEntries'
+import { objectPathToCssVarFunction } from './cssVariables'
+import { mapLeafsOfObject } from './mapLeafsOfObject'
 
 /**
  * This function could use a new name during a breaking change
@@ -52,7 +52,7 @@ export function makeCSSVariableTheme<
       augmentedTheme,
     )
     if (!leafKey) {
-      throw new Error("leafKey is undefined")
+      throw new Error('leafKey is undefined')
     }
     const cssVariablesOfToken = addExtraThemeEntries(
       leafPath,

@@ -1,7 +1,7 @@
-import React, { RefObject, useEffect, useId, useRef, useState } from "react"
-import { useIntl } from "@cultureamp/i18n-react-intl"
-import { DayClickEventHandler } from "react-day-picker"
-import { FocusOn } from "react-focus-on"
+import React, { RefObject, useEffect, useId, useRef, useState } from 'react'
+import { useIntl } from '@cultureamp/i18n-react-intl'
+import { DayClickEventHandler } from 'react-day-picker'
+import { FocusOn } from 'react-focus-on'
 import {
   CalendarSingle,
   CalendarSingleElement,
@@ -15,45 +15,45 @@ import {
   isSelectingDayInCalendar,
   parseDateAsTextOrNumeral,
   setFocusInCalendar,
-} from "~components/Calendar"
-import { CalendarPopover } from "~components/Calendar/CalendarPopover"
-import { VisuallyHidden } from "~components/VisuallyHidden"
+} from '~components/Calendar'
+import { CalendarPopover } from '~components/Calendar/CalendarPopover'
+import { VisuallyHidden } from '~components/VisuallyHidden'
 import {
   DateInputField,
   DateInputFieldProps,
-} from "./subcomponents/DateInputField"
-import type { ValidationResponse } from "./types"
-import { DatePickerSupportedLocales, getLocale } from "./utils/getLocale"
-import { validateDate } from "./utils/validateDate"
+} from './subcomponents/DateInputField'
+import type { ValidationResponse } from './types'
+import { DatePickerSupportedLocales, getLocale } from './utils/getLocale'
+import { validateDate } from './utils/validateDate'
 
 type OmittedDateInputFieldProps =
-  | "onClick"
-  | "onFocus"
-  | "onChange"
-  | "onBlur"
-  | "onButtonClick"
-  | "value"
-  | "locale"
-  | "id"
+  | 'onClick'
+  | 'onFocus'
+  | 'onChange'
+  | 'onBlur'
+  | 'onButtonClick'
+  | 'value'
+  | 'locale'
+  | 'id'
 
 export type DatePickerProps = {
   id?: string
   buttonRef?: RefObject<HTMLButtonElement>
-  onInputClick?: DateInputFieldProps["onClick"]
-  onInputFocus?: DateInputFieldProps["onFocus"]
-  onInputChange?: DateInputFieldProps["onChange"]
-  onInputBlur?: DateInputFieldProps["onBlur"]
-  onButtonClick?: DateInputFieldProps["onButtonClick"]
+  onInputClick?: DateInputFieldProps['onClick']
+  onInputFocus?: DateInputFieldProps['onFocus']
+  onInputChange?: DateInputFieldProps['onChange']
+  onInputBlur?: DateInputFieldProps['onBlur']
+  onButtonClick?: DateInputFieldProps['onButtonClick']
   locale?: DatePickerSupportedLocales
   /**
    * Accepts a DayOfWeek value to start the week on that day.
    * By default it adapts to the provided locale.
    */
-  weekStartsOn?: CalendarSingleProps["weekStartsOn"]
+  weekStartsOn?: CalendarSingleProps['weekStartsOn']
   /**
    * Accepts a date to display that month on first render.
    */
-  defaultMonth?: CalendarSingleProps["defaultMonth"]
+  defaultMonth?: CalendarSingleProps['defaultMonth']
   /**
    *  The date passed in from the consumer that renders in the input and calendar.
    */
@@ -70,11 +70,11 @@ export type DatePickerProps = {
   /**
    * Updates the styling of the validation FieldMessage.
    */
-  status?: DateInputFieldProps["status"] | undefined
+  status?: DateInputFieldProps['status'] | undefined
   /**
    * A descriptive message for the 'status' states.
    */
-  validationMessage?: DateInputFieldProps["validationMessage"] | undefined
+  validationMessage?: DateInputFieldProps['validationMessage'] | undefined
 } & DisabledDayMatchers &
   Omit<DateInputFieldProps, OmittedDateInputFieldProps>
 
@@ -85,7 +85,7 @@ export type DatePickerProps = {
 export const DatePicker = ({
   id: propsId,
   buttonRef: propsButtonRef,
-  locale: propsLocale = "en-AU",
+  locale: propsLocale = 'en-AU',
   disabledDates,
   disabledDaysOfWeek,
   disabledRange,
@@ -109,9 +109,9 @@ export const DatePicker = ({
   const { formatMessage } = useIntl()
 
   const calendarLabelDesc = formatMessage({
-    id: "datePicker.calendarLabelDescription",
-    defaultMessage: "Select date from calendar for:",
-    description: "Label for the search input",
+    id: 'datePicker.calendarLabelDescription',
+    defaultMessage: 'Select date from calendar for:',
+    description: 'Label for the search input',
   })
 
   const reactId = useId()
@@ -125,16 +125,16 @@ export const DatePicker = ({
     inputRef,
     buttonRef,
   })
-  const [inputValue, setInputValue] = useState<string>("")
+  const [inputValue, setInputValue] = useState<string>('')
   const [isOpen, setIsOpen] = useState(false)
   const [lastTrigger, setLastTrigger] = useState<
-    "inputFocus" | "inputKeydown" | "calendarButton"
+    'inputFocus' | 'inputKeydown' | 'calendarButton'
   >()
   const [inbuiltStatus, setInbuiltStatus] = useState<
-    DateInputFieldProps["status"] | undefined
+    DateInputFieldProps['status'] | undefined
   >()
   const [inbuiltValidationMessage, setInbuiltValidationMessage] =
-    useState<ValidationResponse["validationMessage"]>()
+    useState<ValidationResponse['validationMessage']>()
 
   const shouldUseInbuiltValidation = onValidate === undefined
 
@@ -174,7 +174,7 @@ export const DatePicker = ({
   const handleCalendarDayChange: DayClickEventHandler = date => {
     if (!isDisabledDate(date, disabledDays)) {
       const newInputValue =
-        lastTrigger === "calendarButton"
+        lastTrigger === 'calendarButton'
           ? formatDateAsText(date, disabledDays, locale)
           : formatDateAsNumeral(date, locale)
 
@@ -190,7 +190,7 @@ export const DatePicker = ({
   }
 
   const handleInputFocus: React.FocusEventHandler<HTMLInputElement> = e => {
-    setLastTrigger("inputFocus")
+    setLastTrigger('inputFocus')
     if (selectedDay) {
       const newInputValue = formatDateAsNumeral(selectedDay, locale)
       setInputValue(newInputValue)
@@ -206,7 +206,7 @@ export const DatePicker = ({
   const handleInputBlur: React.FocusEventHandler<HTMLInputElement> = e => {
     if (isSelectingDayInCalendar(e.relatedTarget)) return
 
-    if (inputValue !== "") {
+    if (inputValue !== '') {
       const parsedDate = parseDateAsTextOrNumeral(inputValue, locale)
 
       if (!isInvalidDate(parsedDate)) {
@@ -223,34 +223,34 @@ export const DatePicker = ({
   }
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = e => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       setIsOpen(false)
       const parsedDate = parseDateAsTextOrNumeral(inputValue, locale)
       handleDayChange(parsedDate, e.currentTarget.value)
     }
 
-    if (e.key === "ArrowDown" || (e.key === "ArrowDown" && e.altKey === true)) {
+    if (e.key === 'ArrowDown' || (e.key === 'ArrowDown' && e.altKey === true)) {
       e.preventDefault()
       setIsOpen(true)
-      setLastTrigger("inputKeydown")
+      setLastTrigger('inputKeydown')
     }
   }
 
   const handleButtonClick: React.MouseEventHandler<HTMLButtonElement> = e => {
     setIsOpen(!isOpen)
-    setLastTrigger("calendarButton")
+    setLastTrigger('calendarButton')
     onButtonClick?.(e)
   }
 
   const handleCalendarMount = (
     calendarElement: CalendarSingleElement,
   ): void => {
-    if (lastTrigger === "inputFocus") return
+    if (lastTrigger === 'inputFocus') return
     setFocusInCalendar(calendarElement, selectedDay)
   }
 
   const handleReturnFocus = (): void => {
-    if (lastTrigger === "inputKeydown" || lastTrigger === "inputFocus") {
+    if (lastTrigger === 'inputKeydown' || lastTrigger === 'inputFocus') {
       return inputRef.current?.focus()
     }
     buttonRef.current?.focus()
@@ -341,4 +341,4 @@ export const DatePicker = ({
   )
 }
 
-DatePicker.displayName = "DatePicker"
+DatePicker.displayName = 'DatePicker'

@@ -1,10 +1,10 @@
-import React from "react"
-import { usePopover } from "~components/Popover"
-import { Text } from "~components/Text"
-import { Icon } from "~components/__future__/Icon"
-import { SelectionPosition } from "../../types"
-import { Positioner } from "./Positioner"
-import styles from "./LinkPopover.module.scss"
+import React from 'react'
+import { usePopover } from '~components/Popover'
+import { Text } from '~components/Text'
+import { Icon } from '~components/__future__/Icon'
+import { SelectionPosition } from '../../types'
+import { Positioner } from './Positioner'
+import styles from './LinkPopover.module.scss'
 
 export type LinkPopoverProps = {
   href?: string
@@ -53,4 +53,4 @@ export const LinkPopover = ({
   )
 }
 
-LinkPopover.displayName = "LinkPopover"
+LinkPopover.displayName = 'LinkPopover'

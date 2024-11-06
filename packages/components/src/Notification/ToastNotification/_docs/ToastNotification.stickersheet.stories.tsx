@@ -1,10 +1,10 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { StickerSheetStory } from "~storybook/components/StickerSheet"
-import { ToastNotification } from "../ToastNotification"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheetStory } from '~storybook/components/StickerSheet'
+import { ToastNotification } from '../ToastNotification'
 
 export default {
-  title: "Components/Notifications/ToastNotification",
+  title: 'Components/Notifications/ToastNotification',
   parameters: {
     chromatic: { disable: false, delay: 600 },
     controls: { disable: true },
@@ -53,14 +53,14 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

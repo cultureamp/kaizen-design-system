@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { assetUrl } from "~components/utils/hostedAssets"
-import styles from "./Base.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { assetUrl } from '~components/utils/hostedAssets'
+import styles from './Base.module.scss'
 
 export type BaseProps = {
   /**
@@ -20,12 +20,12 @@ export type BaseProps = {
    * Aspect ratio that is set on the illustration in Scene/Spot which wraps the
    * component in a container, forcing the aspect ratio.
    */
-  aspectRatio?: "landscape" | "portrait" | "square"
+  aspectRatio?: 'landscape' | 'portrait' | 'square'
 } & OverrideClassName<HTMLAttributes<HTMLImageElement>>
 
 export const Base = ({
   name,
-  alt = "",
+  alt = '',
   classNameOverride,
   aspectRatio,
   ...restProps
@@ -51,4 +51,4 @@ export const Base = ({
   )
 }
 
-Base.displayName = "Base"
+Base.displayName = 'Base'

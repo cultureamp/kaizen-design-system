@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { InformationTile, InformationTileProps } from "../index"
+} from '~storybook/components/StickerSheet'
+import { InformationTile, InformationTileProps } from '../index'
 
 export default {
-  title: "Components/Tiles/InformationTile",
+  title: 'Components/Tiles/InformationTile',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -17,24 +17,24 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => {
     const defaultProps = {
-      title: "Title",
-      metadata: "Side A",
-      information: "Side B",
+      title: 'Title',
+      metadata: 'Side A',
+      information: 'Side B',
       footer: <>Footer</>,
     } satisfies InformationTileProps
 
-    const variants = ["default", "expert-advice"] satisfies Array<
-      InformationTileProps["variant"]
+    const variants = ['default', 'expert-advice'] satisfies Array<
+      InformationTileProps['variant']
     >
 
     const moods = [
-      "positive",
-      "informative",
-      "cautionary",
-      "assertive",
-      "negative",
-      "prominent",
-    ] satisfies Array<InformationTileProps["mood"]>
+      'positive',
+      'informative',
+      'cautionary',
+      'assertive',
+      'negative',
+      'prominent',
+    ] satisfies Array<InformationTileProps['mood']>
 
     return (
       <>
@@ -69,11 +69,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

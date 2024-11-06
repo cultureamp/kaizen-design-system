@@ -1,19 +1,19 @@
-import React, { forwardRef } from "react"
-import classnames from "classnames"
-import { Icon } from "~components/__future__/Icon"
-import { isRefObject } from "~components/utils/isRefObject"
-import { FilterTriggerRef } from "../../Filter/types"
+import React, { forwardRef } from 'react'
+import classnames from 'classnames'
+import { Icon } from '~components/__future__/Icon'
+import { isRefObject } from '~components/utils/isRefObject'
+import { FilterTriggerRef } from '../../Filter/types'
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
-} from "../subcomponents/FilterButtonBase"
-import styles from "./FilterButton.module.css"
+} from '../subcomponents/FilterButtonBase'
+import styles from './FilterButton.module.css'
 
 export type FilterButtonProps = {
   label: string
   selectedValue?: string | JSX.Element
   isOpen?: boolean
-} & Omit<FilterButtonBaseProps, "children">
+} & Omit<FilterButtonBaseProps, 'children'>
 
 export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
   (
@@ -46,7 +46,7 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
           )}
         </span>
         <Icon
-          name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+          name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
           isPresentational
         />
       </FilterButtonBase>
@@ -54,4 +54,4 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
   },
 )
 
-FilterButton.displayName = "FilterButton"
+FilterButton.displayName = 'FilterButton'

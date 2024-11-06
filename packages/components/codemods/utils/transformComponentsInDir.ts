@@ -1,13 +1,13 @@
-import fs from "fs"
-import path from "path"
-import ts from "typescript"
-import { transformSource, getKaioTagName, TransformConfig } from "."
+import fs from 'fs'
+import path from 'path'
+import ts from 'typescript'
+import { transformSource, getKaioTagName, TransformConfig } from '.'
 
 export const traverseDir = (
   dir: string,
   transformFile: (componentFilePath: string, sourceFile: ts.SourceFile) => void,
 ): void => {
-  if (dir.includes("node_modules")) {
+  if (dir.includes('node_modules')) {
     return
   }
 
@@ -18,8 +18,8 @@ export const traverseDir = (
 
     if (fs.statSync(fullPath).isDirectory()) {
       traverseDir(fullPath, transformFile)
-    } else if (fullPath.endsWith(".tsx")) {
-      const source = fs.readFileSync(fullPath, "utf8")
+    } else if (fullPath.endsWith('.tsx')) {
+      const source = fs.readFileSync(fullPath, 'utf8')
       const sourceFile = ts.createSourceFile(
         fullPath,
         source,
@@ -35,7 +35,7 @@ export const traverseDir = (
 /** Walks the directory and runs the AST transformer on the given component name */
 export const transformComponentsInDir = (
   dir: string,
-  transformer: TransformConfig["astTransformer"],
+  transformer: TransformConfig['astTransformer'],
   componentName: string,
 ): void => {
   const transformFile = (
@@ -50,7 +50,7 @@ export const transformComponentsInDir = (
         tagName,
       })
 
-      fs.writeFileSync(componentFilePath, updatedSourceFile, "utf8")
+      fs.writeFileSync(componentFilePath, updatedSourceFile, 'utf8')
     }
   }
 

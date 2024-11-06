@@ -1,17 +1,17 @@
-import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst, TransformConfig } from "../utils"
-import { transformMultiActionTileMoodToVariant } from "./transformMultiActionTileMoodToVariant"
+import { parseJsx } from '../__tests__/utils'
+import { transformSource, printAst, TransformConfig } from '../utils'
+import { transformMultiActionTileMoodToVariant } from './transformMultiActionTileMoodToVariant'
 
 const transformMultiActionTile = (
-  sourceFile: TransformConfig["sourceFile"],
+  sourceFile: TransformConfig['sourceFile'],
 ): string =>
   transformSource({
     sourceFile,
     astTransformer: transformMultiActionTileMoodToVariant,
-    tagName: "MultiActionTile",
+    tagName: 'MultiActionTile',
   })
 
-describe("transformMultiActionTileMoodToVariant()", () => {
+describe('transformMultiActionTileMoodToVariant()', () => {
   it('replaces mood="positive" with variant="default"', () => {
     const inputAst = parseJsx(
       'export const TestComponent = () => <MultiActionTile mood="positive">Hello</MultiActionTile>',
@@ -72,12 +72,12 @@ describe("transformMultiActionTileMoodToVariant()", () => {
     expect(transformMultiActionTile(inputAst)).toEqual(printAst(outputAst))
   })
 
-  it("does not add variant if mood was not defined", () => {
+  it('does not add variant if mood was not defined', () => {
     const inputAst = parseJsx(
-      "export const TestComponent = () => <MultiActionTile>Hello</MultiActionTile>",
+      'export const TestComponent = () => <MultiActionTile>Hello</MultiActionTile>',
     )
     const outputAst = parseJsx(
-      "export const TestComponent = () => <MultiActionTile>Hello</MultiActionTile>",
+      'export const TestComponent = () => <MultiActionTile>Hello</MultiActionTile>',
     )
     expect(transformMultiActionTile(inputAst)).toEqual(printAst(outputAst))
   })

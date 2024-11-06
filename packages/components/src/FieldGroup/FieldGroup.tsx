@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./FieldGroup.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './FieldGroup.module.scss'
 
 export type FieldGroupProps = {
   children?: React.ReactNode
@@ -26,4 +26,4 @@ export const FieldGroup = ({
   </div>
 )
 
-FieldGroup.displayName = "FieldGroup"
+FieldGroup.displayName = 'FieldGroup'

@@ -1,15 +1,15 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Card, CardProps } from "../index"
+} from '~storybook/components/StickerSheet'
+import { Card, CardProps } from '../index'
 
 export default {
-  title: "Components/Card",
+  title: 'Components/Card',
   args: {
-    children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
   parameters: {
     chromatic: { disable: false },
@@ -18,25 +18,25 @@ export default {
 } satisfies Meta
 
 const colors = [
-  "blue",
-  "green",
-  "gray",
-  "orange",
-  "purple",
-  "red",
-  "white",
-  "yellow",
-] satisfies Array<CardProps["color"]>
+  'blue',
+  'green',
+  'gray',
+  'orange',
+  'purple',
+  'red',
+  'white',
+  'yellow',
+] satisfies Array<CardProps['color']>
 
 const variants = [
-  "default",
-  "informative",
-  "positive",
-  "cautionary",
-  "destructive",
-  "assertive",
-  "highlight",
-] satisfies Array<CardProps["variant"]>
+  'default',
+  'informative',
+  'positive',
+  'cautionary',
+  'destructive',
+  'assertive',
+  'highlight',
+] satisfies Array<CardProps['variant']>
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed, ...args }) => (
@@ -65,11 +65,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

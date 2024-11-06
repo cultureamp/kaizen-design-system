@@ -1,9 +1,9 @@
-import React from "react"
-import classnames from "classnames"
-import { Tooltip } from "~components/__overlays__/Tooltip/v1"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { ToggleIconButtonMoods } from "./types"
-import styles from "./ToggleIconButton.module.scss"
+import React from 'react'
+import classnames from 'classnames'
+import { Tooltip } from '~components/__overlays__/Tooltip/v1'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { ToggleIconButtonMoods } from './types'
+import styles from './ToggleIconButton.module.scss'
 
 export type ToggleIconButtonProps = {
   icon: JSX.Element
@@ -23,7 +23,7 @@ export const ToggleIconButton = React.forwardRef<
     label,
     icon,
     isActive = false,
-    mood = "default",
+    mood = 'default',
     disabled = false,
     classNameOverride,
     onClick,
@@ -59,4 +59,4 @@ export const ToggleIconButton = React.forwardRef<
   )
 })
 
-ToggleIconButton.displayName = "ToggleIconButton"
+ToggleIconButton.displayName = 'ToggleIconButton'

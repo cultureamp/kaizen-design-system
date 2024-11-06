@@ -1,9 +1,9 @@
-import React from "react"
-import { render, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
-import { mockMatchMedia } from "~components/utils/useMediaQueries.spec"
-import { ContextModal, ContextModalProps } from "./ContextModal"
+import React from 'react'
+import { render, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
+import { mockMatchMedia } from '~components/utils/useMediaQueries.spec'
+import { ContextModal, ContextModalProps } from './ContextModal'
 const user = userEvent.setup()
 
 const ContextModalWrapper = ({
@@ -23,12 +23,12 @@ const ContextModalWrapper = ({
   </ContextModal>
 )
 
-describe("<ContextModal />", () => {
+describe('<ContextModal />', () => {
   beforeEach(() => {
     mockMatchMedia()
   })
 
-  it("supports a dismiss action when dismiss button is pressed", async () => {
+  it('supports a dismiss action when dismiss button is pressed', async () => {
     const handleConfirm = vi.fn()
     const handleDismiss = vi.fn()
     const { getByLabelText } = render(
@@ -43,7 +43,7 @@ describe("<ContextModal />", () => {
     })
   })
 
-  it("supports a confirm action when confirm button is pressed", async () => {
+  it('supports a confirm action when confirm button is pressed', async () => {
     const handleConfirm = vi.fn()
     const handleDismiss = vi.fn()
     const { getByText } = render(

@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./FooterRoot.module.css"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './FooterRoot.module.css'
 
 export type FooterRootProps = OverrideClassName<
   HTMLAttributes<HTMLHeadingElement>
@@ -20,4 +20,4 @@ export const FooterRoot = ({
   </footer>
 )
 
-FooterRoot.displayName = "Workflow.FooterRoot"
+FooterRoot.displayName = 'Workflow.FooterRoot'

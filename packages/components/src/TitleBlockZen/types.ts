@@ -1,11 +1,11 @@
-import { CompanyAvatarProps, GenericAvatarProps } from "~components/Avatar"
-import { Select } from "~components/Select"
+import { CompanyAvatarProps, GenericAvatarProps } from '~components/Avatar'
+import { Select } from '~components/Select'
 import {
   ButtonProps,
   CustomButtonProps,
   MenuItemProps,
-} from "~components/__actions__/v2"
-import { NavigationTabProps } from "./subcomponents/NavigationTabs"
+} from '~components/__actions__/v2'
+import { NavigationTabProps } from './subcomponents/NavigationTabs'
 
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
@@ -116,14 +116,14 @@ export type TitleBlockBadgeProps = {
 
 export type TitleBlockButtonProps = TitleBlockDistributiveOmit<
   ButtonProps,
-  "onClick" | "component"
+  'onClick' | 'component'
 > & {
   onClick?: (e: any) => void
 }
 
 export type TitleBlockCustomButtonProps = TitleBlockDistributiveOmit<
   TitleBlockButtonProps,
-  "component"
+  'component'
 > & {
   className?: string
   component: (props: CustomButtonProps) => JSX.Element
@@ -135,11 +135,11 @@ export type TitleBlockMenuItemProps =
 
 export type ButtonWithHrefNotOnClick = TitleBlockDistributiveOmit<
   ButtonProps,
-  "onClick"
+  'onClick'
 >
 export type ButtonWithOnClickNotHref = TitleBlockDistributiveOmit<
   TitleBlockButtonProps,
-  "href"
+  'href'
 >
 
 export type TitleBlockMenuGroup = {
@@ -161,8 +161,8 @@ export type TitleBlockDistributiveOmit<T, K extends keyof any> = T extends any
   : never
 
 export type TitleBlockAvatarProps =
-  | Omit<GenericAvatarProps, "size">
-  | Omit<CompanyAvatarProps, "size">
+  | Omit<GenericAvatarProps, 'size'>
+  | Omit<CompanyAvatarProps, 'size'>
 
 export type DefaultActionProps =
   | TitleBlockButtonProps
@@ -170,27 +170,27 @@ export type DefaultActionProps =
 
 export type SectionTitleRenderProps = Pick<
   TitleBlockProps,
-  | "sectionTitle"
-  | "sectionTitleAutomationId"
-  | "sectionTitleDescription"
-  | "sectionTitleDescriptionAutomationId"
+  | 'sectionTitle'
+  | 'sectionTitleAutomationId'
+  | 'sectionTitleDescription'
+  | 'sectionTitleDescriptionAutomationId'
 >
 
-export type TitleBlockVariant = "admin" | "education" // the default is wisteria bg (AKA "reporting")
+export type TitleBlockVariant = 'admin' | 'education' // the default is wisteria bg (AKA "reporting")
 
 export type NavigationTabs = Array<React.ReactElement<NavigationTabProps>>
 
-export type TextDirection = "ltr" | "rtl"
+export type TextDirection = 'ltr' | 'rtl'
 
 export type SurveyStatus = {
   text: string
   status:
-    | "draft"
-    | "live"
-    | "scheduled"
-    | "closed"
-    | "sentimentPositive"
-    | "default"
+    | 'draft'
+    | 'live'
+    | 'scheduled'
+    | 'closed'
+    | 'sentimentPositive'
+    | 'default'
 }
 
 export type TitleBlockBreadcrumbType = {

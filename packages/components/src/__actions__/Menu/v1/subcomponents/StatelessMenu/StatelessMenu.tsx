@@ -1,7 +1,7 @@
-import React, { useEffect, useState, SyntheticEvent, useRef } from "react"
-import ReactDOM from "react-dom"
-import { MenuDropdown } from "../MenuDropdown"
-import styles from "./StatelessMenu.module.scss"
+import React, { useEffect, useState, SyntheticEvent, useRef } from 'react'
+import ReactDOM from 'react-dom'
+import { MenuDropdown } from '../MenuDropdown'
+import styles from './StatelessMenu.module.scss'
 
 export type StatelessMenuProps = {
   /**
@@ -10,7 +10,7 @@ export type StatelessMenuProps = {
    * is aligned to the left of the button (and vice versa)
    * @default "left"
    */
-  align?: "left" | "right"
+  align?: 'left' | 'right'
 
   /**
    * The width of the dropdown.
@@ -18,18 +18,18 @@ export type StatelessMenuProps = {
    * "contain": contain the children's width (will be same width as children)
    * @default "default"
    */
-  dropdownWidth?: "default" | "contain"
+  dropdownWidth?: 'default' | 'contain'
   /**
    * @deprecated use data-testid instead
    */
   automationId?: string
-  "data-testid"?: string
+  'data-testid'?: string
   dropdownId?: string
   /**
    * Determines when the menu should automatically hide.
    * @default: "on"
    */
-  autoHide?: "on" | "outside-click-only" | "off"
+  autoHide?: 'on' | 'outside-click-only' | 'off'
   /**
    * The content to appear inside the dropdown when it is open
    */
@@ -46,17 +46,17 @@ export type StatelessMenuProps = {
   renderButton: (args: {
     onClick: (e: any) => void
     onMouseDown: (e: any) => void
-    "aria-haspopup": boolean
-    "aria-expanded": boolean
+    'aria-haspopup': boolean
+    'aria-expanded': boolean
   }) => React.ReactElement
   onClick?: (event: SyntheticEvent) => void
 }
 
 export const StatelessMenu = ({
-  align = "left",
-  dropdownWidth = "default",
-  autoHide = "on",
-  "data-testid": dataTestId,
+  align = 'left',
+  dropdownWidth = 'default',
+  autoHide = 'on',
+  'data-testid': dataTestId,
   dropdownId,
   children,
   portalSelector,
@@ -78,8 +78,8 @@ export const StatelessMenu = ({
     },
     onMouseDown: (e: React.MouseEvent<Element, MouseEvent>) =>
       e.preventDefault(),
-    "aria-haspopup": true,
-    "aria-expanded": isMenuVisible,
+    'aria-haspopup': true,
+    'aria-expanded': isMenuVisible,
   })
 
   useEffect(() => {
@@ -92,7 +92,7 @@ export const StatelessMenu = ({
     if (portalSelector && !portalSelectorElementRef.current) {
       // eslint-disable-next-line no-console
       console.warn(
-        "The portal could not be created using the selector: " + portalSelector,
+        'The portal could not be created using the selector: ' + portalSelector,
       )
     }
   }, [portalSelectorElementRef, portalSelector])
@@ -123,4 +123,4 @@ export const StatelessMenu = ({
   )
 }
 
-StatelessMenu.displayName = "StatelessMenu"
+StatelessMenu.displayName = 'StatelessMenu'

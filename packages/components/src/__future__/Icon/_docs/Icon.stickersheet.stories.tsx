@@ -1,19 +1,19 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { CheckboxField } from "~components/Checkbox"
-import { Label } from "~components/Label"
-import { Text } from "~components/Text"
-import { Button as ButtonV2 } from "~components/__actions__/v2"
-import { Button as ButtonV3 } from "~components/__actions__/v3"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { CheckboxField } from '~components/Checkbox'
+import { Label } from '~components/Label'
+import { Text } from '~components/Text'
+import { Button as ButtonV2 } from '~components/__actions__/v2'
+import { Button as ButtonV3 } from '~components/__actions__/v3'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { handledRtlIcons, iconDefaultSet } from "../constants"
-import { Icon, IconProps } from "../index"
+} from '~storybook/components/StickerSheet'
+import { handledRtlIcons, iconDefaultSet } from '../constants'
+import { Icon, IconProps } from '../index'
 
 export default {
-  title: "Illustrations/Icon/Icon (Future)",
+  title: 'Illustrations/Icon/Icon (Future)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -23,21 +23,21 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
     const defaultProps = {
-      name: "star",
+      name: 'star',
       isPresentational: true,
     } satisfies IconProps
 
     const mirrorInRTL = [
-      "arrow_forward",
-      "arrow_back",
+      'arrow_forward',
+      'arrow_back',
       ...Object.keys(handledRtlIcons),
-    ] satisfies Array<IconProps["name"]>
+    ] satisfies Array<IconProps['name']>
 
     return (
       <>
         <StickerSheet heading="Icon" isReversed={isReversed}>
           <StickerSheet.Header
-            headings={["Outlined", "Filled", "Color"]}
+            headings={['Outlined', 'Filled', 'Color']}
             hasVerticalHeadings
           />
           <StickerSheet.Body>
@@ -122,5 +122,5 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }

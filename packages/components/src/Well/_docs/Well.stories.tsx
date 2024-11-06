@@ -1,12 +1,12 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Heading } from "~components/Heading"
-import { Text } from "~components/Text"
-import { Well } from "../index"
-import { borderStyleTypes } from "../types"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Heading } from '~components/Heading'
+import { Text } from '~components/Text'
+import { Well } from '../index'
+import { borderStyleTypes } from '../types'
 
 const meta = {
-  title: "Components/Well",
+  title: 'Components/Well',
   component: Well,
   args: {
     children: (
@@ -34,7 +34,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

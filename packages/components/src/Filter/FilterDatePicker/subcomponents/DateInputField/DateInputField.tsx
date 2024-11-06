@@ -1,15 +1,15 @@
-import React from "react"
-import { useIntl } from "@cultureamp/i18n-react-intl"
-import type { Locale } from "date-fns"
+import React from 'react'
+import { useIntl } from '@cultureamp/i18n-react-intl'
+import type { Locale } from 'date-fns'
 import {
   DateInput,
   DateInputProps,
   DateInputDescription,
   DateInputDescriptionProps,
-} from "~components/DateInput"
-import { FieldMessage } from "~components/FieldMessage"
-import { ValidationMessage } from "../../types"
-import styles from "./DateInputField.module.scss"
+} from '~components/DateInput'
+import { FieldMessage } from '~components/FieldMessage'
+import { ValidationMessage } from '../../types'
+import styles from './DateInputField.module.scss'
 
 export type DateInputFieldProps = {
   id: string
@@ -17,12 +17,12 @@ export type DateInputFieldProps = {
   /**
    * A description that provides context for the text field
    */
-  description?: DateInputDescriptionProps["description"]
+  description?: DateInputDescriptionProps['description']
   isReversed?: boolean
   validationMessage?: ValidationMessage
   disabled?: boolean
-  labelText?: DateInputProps["labelText"]
-} & Omit<DateInputProps, "id" | "labelText">
+  labelText?: DateInputProps['labelText']
+} & Omit<DateInputProps, 'id' | 'labelText'>
 
 export const DateInputField = React.forwardRef<
   HTMLInputElement,
@@ -45,9 +45,9 @@ export const DateInputField = React.forwardRef<
     const { formatMessage } = useIntl()
 
     const dateInputLabelFallback = formatMessage({
-      id: "filterDatePickerDateInputField.dateInputLabelFallback",
-      defaultMessage: "Date",
-      description: "Default label for date input field",
+      id: 'filterDatePickerDateInputField.dateInputLabelFallback',
+      defaultMessage: 'Date',
+      description: 'Default label for date input field',
     })
 
     const descriptionId = `${id}--field-message`
@@ -100,4 +100,4 @@ export const DateInputField = React.forwardRef<
   },
 )
 
-DateInputField.displayName = "DateInputField"
+DateInputField.displayName = 'DateInputField'

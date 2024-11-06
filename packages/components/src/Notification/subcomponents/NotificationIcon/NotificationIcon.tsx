@@ -1,10 +1,10 @@
-import React from "react"
+import React from 'react'
 import {
   NotificationType,
   NotificationVariant,
-} from "~components/Notification/types"
-import { Icon } from "~components/__future__"
-import styles from "./NotificationIcon.module.css"
+} from '~components/Notification/types'
+import { Icon } from '~components/__future__'
+import styles from './NotificationIcon.module.css'
 
 const NotificationIcon = ({ name }: { name: string }): JSX.Element => (
   <Icon
@@ -23,22 +23,22 @@ export const NotificationIconType = ({
   type,
 }: NotificationIconTypeProps): JSX.Element => {
   switch (type) {
-    case "positive":
+    case 'positive':
       return <NotificationIcon name="check_circle" />
-    case "negative":
+    case 'negative':
       return <NotificationIcon name="error" />
-    case "cautionary":
+    case 'cautionary':
       return <NotificationIcon name="warning" />
-    case "informative":
+    case 'informative':
       return <NotificationIcon name="info" />
-    case "security":
+    case 'security':
       return <NotificationIcon name="privacy_tip" />
     default:
       return <NotificationIcon name="info" />
   }
 }
 
-NotificationIconType.displayName = "NotificationIconType"
+NotificationIconType.displayName = 'NotificationIconType'
 
 export type NotificationIconVariantProps = {
   variant: NotificationVariant
@@ -48,17 +48,17 @@ export const NotificationIconVariant = ({
   variant,
 }: NotificationIconVariantProps): JSX.Element => {
   switch (variant) {
-    case "success":
+    case 'success':
       return <NotificationIcon name="check_circle" />
-    case "warning":
+    case 'warning':
       return <NotificationIcon name="error" />
-    case "cautionary":
+    case 'cautionary':
       return <NotificationIcon name="warning" />
-    case "informative":
+    case 'informative':
       return <NotificationIcon name="info" />
-    case "security":
+    case 'security':
       return <NotificationIcon name="privacy_tip" />
   }
 }
 
-NotificationIconVariant.displayName = "NotificationIconVariant"
+NotificationIconVariant.displayName = 'NotificationIconVariant'

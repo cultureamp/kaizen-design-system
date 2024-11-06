@@ -1,5 +1,5 @@
-import { Filters, FiltersValues } from "../../types"
-import { MappedFilters } from "../types"
+import { Filters, FiltersValues } from '../../types'
+import { MappedFilters } from '../types'
 
 export const getMappedFilters = <ValuesMap extends FiltersValues>(
   filters: Filters<ValuesMap>,

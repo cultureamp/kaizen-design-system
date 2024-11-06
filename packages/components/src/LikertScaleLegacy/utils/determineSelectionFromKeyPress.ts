@@ -1,4 +1,4 @@
-import { ScaleValue, ScaleItem } from "../types"
+import { ScaleValue, ScaleItem } from '../types'
 
 /**
  * Takes a keypress on a div that's imitating a radio and determines where the selection should go.

@@ -1,18 +1,18 @@
-import React, { useEffect, useRef } from "react"
-import { enAU } from "date-fns/locale"
-import { DayPicker, DayPickerSingleProps } from "react-day-picker"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { baseCalendarClassNames } from "../baseCalendarClassNames"
-import { isInvalidDate, isValidWeekStartsOn } from "../utils"
-import styles from "./CalendarSingle.module.scss"
+import React, { useEffect, useRef } from 'react'
+import { enAU } from 'date-fns/locale'
+import { DayPicker, DayPickerSingleProps } from 'react-day-picker'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { baseCalendarClassNames } from '../baseCalendarClassNames'
+import { isInvalidDate, isValidWeekStartsOn } from '../utils'
+import styles from './CalendarSingle.module.scss'
 
 export type CalendarSingleElement = HTMLDivElement
 
 export type CalendarSingleProps = {
   id?: string
   onMount?: (calendarElement: CalendarSingleElement) => void
-} & OverrideClassName<Omit<DayPickerSingleProps, "mode">>
+} & OverrideClassName<Omit<DayPickerSingleProps, 'mode'>>
 
 export const CalendarSingle = ({
   id,
@@ -39,7 +39,7 @@ export const CalendarSingle = ({
     ...baseCalendarClassNames,
     nav: styles.nav,
     nav_button_next: styles.navButtonNext,
-  } satisfies DayPickerSingleProps["classNames"]
+  } satisfies DayPickerSingleProps['classNames']
   /* eslint-enable camelcase */
 
   return (
@@ -67,4 +67,4 @@ export const CalendarSingle = ({
   )
 }
 
-CalendarSingle.displayName = "CalendarSingle"
+CalendarSingle.displayName = 'CalendarSingle'

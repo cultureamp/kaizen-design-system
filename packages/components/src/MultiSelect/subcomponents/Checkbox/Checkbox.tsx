@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, InputHTMLAttributes } from "react"
-import classnames from "classnames"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Checkbox.module.scss"
+import React, { useEffect, useRef, InputHTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Checkbox.module.scss'
 
-export type CheckedStatus = "checked" | "unchecked" | "indeterminate"
+export type CheckedStatus = 'checked' | 'unchecked' | 'indeterminate'
 
 type ReadOnly = {
   readOnly: true
@@ -13,7 +13,7 @@ type ReadOnly = {
 
 type Controlled = {
   readOnly?: false
-  onChange: Required<InputHTMLAttributes<HTMLInputElement>["onChange"]>
+  onChange: Required<InputHTMLAttributes<HTMLInputElement>['onChange']>
 }
 
 export type CheckboxProps = {
@@ -21,15 +21,15 @@ export type CheckboxProps = {
 } & (ReadOnly | Controlled) &
   OverrideClassName<
     // `checked` is omitted as it conflicts with controlled checkboxes
-    Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked">
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'checked'>
   >
 
 const renderIcon = (status: CheckedStatus): JSX.Element | null => {
-  if (status === "unchecked") return null
+  if (status === 'unchecked') return null
 
   return (
     <Icon
-      name={status === "checked" ? "check" : "remove"}
+      name={status === 'checked' ? 'check' : 'remove'}
       isPresentational
       className={styles.icon}
     />
@@ -45,13 +45,13 @@ export const Checkbox = ({
 
   useEffect(() => {
     if (checkboxRef.current) {
-      if (checkedStatus === "checked") {
+      if (checkedStatus === 'checked') {
         checkboxRef.current.checked = true
         checkboxRef.current.indeterminate = false
-      } else if (checkedStatus === "unchecked") {
+      } else if (checkedStatus === 'unchecked') {
         checkboxRef.current.checked = false
         checkboxRef.current.indeterminate = false
-      } else if (checkedStatus === "indeterminate") {
+      } else if (checkedStatus === 'indeterminate') {
         checkboxRef.current.checked = false
         checkboxRef.current.indeterminate = true
       }
@@ -62,7 +62,7 @@ export const Checkbox = ({
     <span
       className={classnames(
         styles.checkbox,
-        checkedStatus !== "unchecked" && styles.selected,
+        checkedStatus !== 'unchecked' && styles.selected,
         classNameOverride,
       )}
     >
@@ -77,4 +77,4 @@ export const Checkbox = ({
   )
 }
 
-Checkbox.displayName = "Checkbox"
+Checkbox.displayName = 'Checkbox'

@@ -1,9 +1,9 @@
-import React from "react"
-import { SelectOption } from "../../types"
-import { ListItem, ListItemProps } from "../ListItem"
+import React from 'react'
+import { SelectOption } from '../../types'
+import { ListItem, ListItemProps } from '../ListItem'
 
 export type ListItemsProps<Option extends SelectOption> = {
-  items: Array<ListItemProps<Option>["item"]>
+  items: Array<ListItemProps<Option>['item']>
 }
 
 /*
@@ -19,4 +19,4 @@ export const ListItems = <Option extends SelectOption>({
   </>
 )
 
-ListItems.displayName = "ListItems"
+ListItems.displayName = 'ListItems'

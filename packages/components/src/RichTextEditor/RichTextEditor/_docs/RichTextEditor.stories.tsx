@@ -1,24 +1,24 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
-import dummyContent from "../../EditableRichTextContent/_docs/dummyContent.json"
-import { EditorContentArray } from "../../index"
-import { RichTextEditor, RichTextEditorProps } from "../index"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import dummyContent from '../../EditableRichTextContent/_docs/dummyContent.json'
+import { EditorContentArray } from '../../index'
+import { RichTextEditor, RichTextEditorProps } from '../index'
 
 const meta = {
-  title: "Components/RichTextEditor/RichTextEditor",
+  title: 'Components/RichTextEditor/RichTextEditor',
   component: RichTextEditor,
   parameters: {
     chromatic: { disable: false },
   },
   args: {
-    labelText: "Rich Text",
+    labelText: 'Rich Text',
     defaultValue: [],
     onChange: () => undefined,
     controls: [
-      { name: "bold", group: "inline" },
-      { name: "italic", group: "inline" },
-      { name: "underline", group: "inline" },
+      { name: 'bold', group: 'inline' },
+      { name: 'italic', group: 'inline' },
+      { name: 'underline', group: 'inline' },
     ],
   },
 } satisfies Meta<typeof RichTextEditor>
@@ -30,7 +30,7 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: args => {
     const [rteData, setRTEData] = useState<EditorContentArray>([])
-    const handleOnChange: RichTextEditorProps["onChange"] = editorState =>
+    const handleOnChange: RichTextEditorProps['onChange'] = editorState =>
       setRTEData(editorState.toJSON().doc.content)
 
     return (
@@ -67,7 +67,7 @@ const MyEditor = () => {
 `,
       },
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -76,9 +76,9 @@ const MyEditor = () => {
 export const Controls: Story = {
   args: {
     controls: [
-      { name: "bold", group: "inline" },
-      { name: "italic", group: "inline" },
-      { name: "underline", group: "inline" },
+      { name: 'bold', group: 'inline' },
+      { name: 'italic', group: 'inline' },
+      { name: 'underline', group: 'inline' },
     ],
   },
 }
@@ -86,16 +86,16 @@ export const Controls: Story = {
 export const ControlsWithoutBold: Story = {
   args: {
     controls: [
-      { name: "italic", group: "inline" },
-      { name: "underline", group: "inline" },
+      { name: 'italic', group: 'inline' },
+      { name: 'underline', group: 'inline' },
     ],
     defaultValue: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            type: "text",
-            text: "This user text cannot be bolded",
+            type: 'text',
+            text: 'This user text cannot be bolded',
           },
         ],
       },
@@ -107,11 +107,11 @@ export const DefaultValue: Story = {
   args: {
     defaultValue: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            type: "text",
-            text: "User text goes here",
+            type: 'text',
+            text: 'User text goes here',
           },
         ],
       },
@@ -123,33 +123,33 @@ export const AllAvailableContent: Story = {
   args: {
     defaultValue: dummyContent,
     controls: [
-      { name: "bold", group: "inline" },
-      { name: "italic", group: "inline" },
-      { name: "underline", group: "inline" },
-      { name: "orderedList", group: "list" },
-      { name: "bulletList", group: "list" },
-      { name: "link", group: "link" },
+      { name: 'bold', group: 'inline' },
+      { name: 'italic', group: 'inline' },
+      { name: 'underline', group: 'inline' },
+      { name: 'orderedList', group: 'list' },
+      { name: 'bulletList', group: 'list' },
+      { name: 'link', group: 'link' },
     ],
   },
 }
 
 export const Rows: Story = {
   args: {
-    labelText: "1 Row",
+    labelText: '1 Row',
     rows: 1,
   },
 }
 
 export const Description: Story = {
   args: {
-    description: "Description text",
+    description: 'Description text',
   },
 }
 
 export const Validation: Story = {
   args: {
-    validationMessage: "Error message",
-    status: "error",
+    validationMessage: 'Error message',
+    status: 'error',
   },
 }
 
@@ -157,12 +157,12 @@ export const MalformedContent: Story = {
   args: {
     defaultValue: [
       {
-        type: "plaragraph",
+        type: 'plaragraph',
         content: [
           {
-            type: "text",
-            marks: [{ type: "strong" }],
-            text: "User text goes here in bold text",
+            type: 'text',
+            marks: [{ type: 'strong' }],
+            text: 'User text goes here in bold text',
           },
         ],
       },
@@ -174,17 +174,17 @@ export const IncorrectDataForControls: Story = {
   args: {
     defaultValue: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            type: "text",
-            marks: [{ type: "strong" }],
-            text: "User text goes here in bold text",
+            type: 'text',
+            marks: [{ type: 'strong' }],
+            text: 'User text goes here in bold text',
           },
         ],
       },
     ],
-    controls: [{ name: "italic", group: "inline" }],
+    controls: [{ name: 'italic', group: 'inline' }],
     dataError: <>Cannot bold text without a bold control</>,
     onDataError: () => fn(),
   },

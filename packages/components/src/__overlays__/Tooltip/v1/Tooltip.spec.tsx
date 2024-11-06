@@ -1,11 +1,11 @@
-import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
-import { Button } from "~components/__actions__/v2"
-import { Tooltip } from "./index"
+import React from 'react'
+import { render, screen, waitFor } from '@testing-library/react'
+import { Button } from '~components/__actions__/v2'
+import { Tooltip } from './index'
 
-describe("<Tooltip />", () => {
-  describe("Linking the tooltip to the inner element with aria-describedby", () => {
-    it("adds an accessible description when wrapping Kaizen Button", async () => {
+describe('<Tooltip />', () => {
+  describe('Linking the tooltip to the inner element with aria-describedby', () => {
+    it('adds an accessible description when wrapping Kaizen Button', async () => {
       render(
         <Tooltip
           text="Tooltip popup description for Kaizen Button"
@@ -19,14 +19,14 @@ describe("<Tooltip />", () => {
 
       await waitFor(() => {
         expect(
-          screen.getByRole("button", { name: "More info" }),
+          screen.getByRole('button', { name: 'More info' }),
         ).toHaveAccessibleDescription(
-          "Tooltip popup description for Kaizen Button",
+          'Tooltip popup description for Kaizen Button',
         )
       })
     })
 
-    it("doesn't add an accessible description if the tooltip is inactive", async () => {
+    it('doesn\'t add an accessible description if the tooltip is inactive', async () => {
       render(
         <Tooltip
           text="Tooltip popup description for button"
@@ -38,17 +38,17 @@ describe("<Tooltip />", () => {
       )
 
       await waitFor(() => {
-        expect(screen.queryByRole("tooltip")).toBe(null)
+        expect(screen.queryByRole('tooltip')).toBe(null)
         expect(
-          screen.getByRole("button", { name: "More info" }),
-        ).not.toHaveAttribute("aria-describedby")
+          screen.getByRole('button', { name: 'More info' }),
+        ).not.toHaveAttribute('aria-describedby')
       })
     })
 
     // Non-semantic elements without roles should not have aria-description on them.
     // They won't read to all screen readers as expected and may be reported in Storybook's accessibility tab (which uses Axe under the hood)
-    it("doesn't add an accessible description when wrapping a non-semantic element", async () => {
-      const warn = vi.spyOn(console, "warn").mockImplementation(vi.fn())
+    it('doesn\'t add an accessible description when wrapping a non-semantic element', async () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(vi.fn())
 
       render(
         <Tooltip
@@ -61,17 +61,17 @@ describe("<Tooltip />", () => {
         </Tooltip>,
       )
       await waitFor(() => {
-        expect(screen.getByText("Non semantic element")).not.toHaveAttribute(
-          "aria-describedby",
+        expect(screen.getByText('Non semantic element')).not.toHaveAttribute(
+          'aria-describedby',
         )
         expect(warn).toHaveBeenCalledWith(
-          "<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info. To ensure accessibility, Tooltip should be wrapping a semantic and focusable element directly.",
+          '<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info. To ensure accessibility, Tooltip should be wrapping a semantic and focusable element directly.',
         )
       })
     })
   })
 
-  it("adds an accessible description when wrapping a semantic element", async () => {
+  it('adds an accessible description when wrapping a semantic element', async () => {
     render(
       <Tooltip
         text="Tooltip popup description for div"
@@ -83,8 +83,8 @@ describe("<Tooltip />", () => {
       </Tooltip>,
     )
     await waitFor(() => {
-      expect(screen.getByRole("textbox")).toHaveAccessibleDescription(
-        "Tooltip popup description for div",
+      expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
+        'Tooltip popup description for div',
       )
     })
   })

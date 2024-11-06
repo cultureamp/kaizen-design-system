@@ -1,20 +1,20 @@
-import React, { useState } from "react"
-import { Selection } from "@react-types/shared"
-import { Decorator, Meta, StoryObj } from "@storybook/react"
+import React, { useState } from 'react'
+import { Selection } from '@react-types/shared'
+import { Decorator, Meta, StoryObj } from '@storybook/react'
 import {
   QueryClientProvider,
   QueryClient,
   useInfiniteQuery,
   useQueryClient,
   keepPreviousData,
-} from "@tanstack/react-query"
-import isChromatic from "chromatic"
-import { InlineNotification } from "~components/Notification"
-import { Text } from "~components/Text"
-import { TextField } from "~components/TextField"
-import { FilterMultiSelect, getSelectedOptionLabels } from ".."
-import { mockItems } from "./MockData"
-import styles from "./FilterMultiSelect.module.scss"
+} from '@tanstack/react-query'
+import isChromatic from 'chromatic'
+import { InlineNotification } from '~components/Notification'
+import { Text } from '~components/Text'
+import { TextField } from '~components/TextField'
+import { FilterMultiSelect, getSelectedOptionLabels } from '..'
+import { mockItems } from './MockData'
+import styles from './FilterMultiSelect.module.scss'
 
 const IS_CHROMATIC = isChromatic()
 
@@ -27,20 +27,20 @@ const withQueryProvider: Decorator = Story => (
 )
 
 const meta = {
-  title: "Components/Filter Multi-Select",
+  title: 'Components/Filter Multi-Select',
   component: FilterMultiSelect,
   parameters: {
     docs: {
-      source: { type: "code" },
+      source: { type: 'code' },
     },
   },
   args: {
-    label: "Engineer",
+    label: 'Engineer',
     items: mockItems,
-    selectedKeys: new Set(["id-fe"]),
+    selectedKeys: new Set(['id-fe']),
     trigger: (): JSX.Element => (
       <FilterMultiSelect.TriggerButton
-        selectedOptionLabels={["Front-End"]}
+        selectedOptionLabels={['Front-End']}
         label="Engineer"
       />
     ),
@@ -166,7 +166,7 @@ export const Async: Story = {
   render: () => {
     const [open, setOpen] = useState(false)
     const [selectedPeople, setSelectedPeople] = useState<string[]>([])
-    const [searchState, setSearchState] = useState("")
+    const [searchState, setSearchState] = useState('')
     const queryClient = useQueryClient()
 
     const fetchSWAPI = async ({
@@ -193,15 +193,15 @@ export const Async: Story = {
       isRefetching,
     } = useInfiniteQuery({
       enabled: true,
-      initialPageParam: "1",
-      queryKey: ["startrek-sg1", searchState],
+      initialPageParam: '1',
+      queryKey: ['startrek-sg1', searchState],
       queryFn: fetchSWAPI,
       placeholderData: keepPreviousData,
       getNextPageParam: lastPage => {
         if (!lastPage.next) return undefined
         const url = new URL(lastPage.next)
         const params = new URLSearchParams(url.searchParams)
-        return params.get("page")
+        return params.get('page')
       },
     })
 
@@ -215,7 +215,7 @@ export const Async: Story = {
      * only the selected keys to work with, no renderable values.
      */
     const cachedPeople = queryClient
-      .getQueriesData<QueriesData>({ queryKey: ["startrek-sg1"] })
+      .getQueriesData<QueriesData>({ queryKey: ['startrek-sg1'] })
       .flatMap(([, cachedData]) => cachedData?.pages ?? [])
       .flatMap(page => page.results)
       .map(item => ({ label: item.name, value: item.url }))
@@ -241,7 +241,7 @@ export const Async: Story = {
     /**
      * Only show the current filtered people when there is a search query
      */
-    const items = searchState !== "" ? currentPeople : Array.from(mergedPeople)
+    const items = searchState !== '' ? currentPeople : Array.from(mergedPeople)
 
     const filteredCount = currentPeople.length
     const totalCount = cachedPeople.length
@@ -265,7 +265,7 @@ export const Async: Story = {
           onSearchInputChange={setSearchState}
           onOpenChange={setOpen}
           onSelectionChange={(keys): void => {
-            if (keys === "all") {
+            if (keys === 'all') {
               return
             }
             setSelectedPeople(Array.from(keys) as string[])
@@ -276,7 +276,7 @@ export const Async: Story = {
           {(): JSX.Element => (
             <>
               <FilterMultiSelect.SearchInput
-                isLoading={isRefetching && searchState !== ""}
+                isLoading={isRefetching && searchState !== ''}
               />
               <FilterMultiSelect.ListBox>
                 {({
@@ -289,7 +289,7 @@ export const Async: Story = {
                       <FilterMultiSelect.NoResults>
                         No results found for {searchState}.
                       </FilterMultiSelect.NoResults>
-                    ) : searchState !== "" ? (
+                    ) : searchState !== '' ? (
                       <Text
                         classNameOverride={styles.helperMessage}
                         variant="extra-small"
@@ -548,9 +548,9 @@ export const WithSectionNotification: Story = {
                             persistent
                             noBottomMargin
                             headingProps={{
-                              tag: "span",
-                              variant: "heading-5",
-                              children: "Confidentiality protection",
+                              tag: 'span',
+                              variant: 'heading-5',
+                              children: 'Confidentiality protection',
                             }}
                           >
                             Results for these filters are hidden to protect

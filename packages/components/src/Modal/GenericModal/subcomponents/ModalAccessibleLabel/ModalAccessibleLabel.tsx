@@ -1,7 +1,7 @@
-import React from "react"
-import classnames from "classnames"
-import { ModalContext } from "../../context/ModalContext"
-import styles from "./ModalAccessibleLabel.module.scss"
+import React from 'react'
+import classnames from 'classnames'
+import { ModalContext } from '../../context/ModalContext'
+import styles from './ModalAccessibleLabel.module.scss'
 
 export type ModalAccessibleLabelProps = {
   children: React.ReactNode
@@ -28,4 +28,4 @@ export const ModalAccessibleLabel = ({
   </ModalContext.Consumer>
 )
 
-ModalAccessibleLabel.displayName = "ModalAccessibleLabel"
+ModalAccessibleLabel.displayName = 'ModalAccessibleLabel'

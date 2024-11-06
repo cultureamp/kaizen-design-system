@@ -1,9 +1,9 @@
-import React, { HTMLAttributes } from "react"
-import { FocusScope } from "@react-aria/focus"
-import { useOverlay, DismissButton } from "@react-aria/overlays"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { useSelectContext } from "../../context"
-import { SelectOption } from "../../types"
+import React, { HTMLAttributes } from 'react'
+import { FocusScope } from '@react-aria/focus'
+import { useOverlay, DismissButton } from '@react-aria/overlays'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { useSelectContext } from '../../context'
+import { SelectOption } from '../../types'
 
 export type OverlayProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> & {
   children: React.ReactNode
@@ -45,4 +45,4 @@ export const Overlay = <Option extends SelectOption>({
   )
 }
 
-Overlay.displayName = "Overlay"
+Overlay.displayName = 'Overlay'

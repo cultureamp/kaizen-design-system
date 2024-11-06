@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { CheckboxFieldProps } from "~components/Checkbox"
-import { Checkbox } from "../index"
+import React, { useEffect, useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { CheckboxFieldProps } from '~components/Checkbox'
+import { Checkbox } from '../index'
 
 const meta = {
-  title: "Components/Checkbox controls/Checkbox",
+  title: 'Components/Checkbox controls/Checkbox',
   component: Checkbox,
   args: {
-    checkedStatus: "off",
+    checkedStatus: 'off',
   },
   parameters: {
     a11y: {
@@ -15,7 +15,7 @@ const meta = {
         rules: [
           {
             // Built with no label on purpose, to be used within `RadioField` where label is present
-            id: "label",
+            id: 'label',
             enabled: false,
           },
         ],
@@ -31,15 +31,15 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: ({ onCheck, checkedStatus, ...props }) => {
     const [status, setStatus] =
-      useState<CheckboxFieldProps["checkedStatus"]>(checkedStatus)
+      useState<CheckboxFieldProps['checkedStatus']>(checkedStatus)
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
-      if (status === "off") {
-        setStatus("mixed")
-      } else if (status === "mixed") {
-        setStatus("on")
-      } else if (status === "on") {
-        setStatus("off")
+      if (status === 'off') {
+        setStatus('mixed')
+      } else if (status === 'mixed') {
+        setStatus('on')
+      } else if (status === 'on') {
+        setStatus('off')
       }
       onCheck?.(e)
     }
@@ -53,7 +53,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

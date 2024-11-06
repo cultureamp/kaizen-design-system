@@ -1,15 +1,15 @@
-import React, { HTMLAttributes } from "react"
-import { Brand, BrandProps } from "~components/Brand"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Branding.module.css"
+import React, { HTMLAttributes } from 'react'
+import { Brand, BrandProps } from '~components/Brand'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Branding.module.css'
 
 export type WorflowBrandingProps = {
-  variant?: BrandProps["variant"]
+  variant?: BrandProps['variant']
   alt: string
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const Branding = ({
-  variant = "logo-horizontal",
+  variant = 'logo-horizontal',
   alt,
 }: WorflowBrandingProps): JSX.Element => (
   <div className={styles.branding}>
@@ -17,4 +17,4 @@ export const Branding = ({
   </div>
 )
 
-Branding.displayName = "Workflow.Branding"
+Branding.displayName = 'Workflow.Branding'

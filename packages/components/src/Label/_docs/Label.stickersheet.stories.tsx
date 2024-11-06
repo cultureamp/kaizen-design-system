@@ -1,14 +1,14 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Label, LabelProps } from "../index"
-import { BlockLabelTypes, InlineLabelTypes } from "../types"
+} from '~storybook/components/StickerSheet'
+import { Label, LabelProps } from '../index'
+import { BlockLabelTypes, InlineLabelTypes } from '../types'
 
 export default {
-  title: "Components/Label",
+  title: 'Components/Label',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -16,7 +16,7 @@ export default {
 } satisfies Meta
 
 type WrapperProps = LabelProps & {
-  "data-sb-a11y-color-contrast-disable"?: boolean
+  'data-sb-a11y-color-contrast-disable'?: boolean
 }
 
 const DefaultLabelWrapper = ({
@@ -29,7 +29,7 @@ const DefaultLabelWrapper = ({
       // since none of the props apply to the internal labelText wrapper
       <span
         data-sb-a11y-color-contrast-disable={
-          props["data-sb-a11y-color-contrast-disable"]
+          props['data-sb-a11y-color-contrast-disable']
         }
       >
         {labelText}
@@ -45,14 +45,14 @@ const InlineControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
     labelText={
       <span
         data-sb-a11y-color-contrast-disable={
-          props["data-sb-a11y-color-contrast-disable"]
+          props['data-sb-a11y-color-contrast-disable']
         }
       >
-        {labelText}{" "}
+        {labelText}{' '}
         <a
           href="/"
           data-sb-a11y-color-contrast-disable={
-            props["data-sb-a11y-color-contrast-disable"]
+            props['data-sb-a11y-color-contrast-disable']
           }
         >
           a
@@ -71,14 +71,14 @@ const BlockControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
       labelText={
         <span
           data-sb-a11y-color-contrast-disable={
-            props["data-sb-a11y-color-contrast-disable"]
+            props['data-sb-a11y-color-contrast-disable']
           }
         >
-          {labelText}{" "}
+          {labelText}{' '}
           <a
             href="/"
             data-sb-a11y-color-contrast-disable={
-              props["data-sb-a11y-color-contrast-disable"]
+              props['data-sb-a11y-color-contrast-disable']
             }
           >
             anchor
@@ -95,10 +95,10 @@ const StickerSheetTemplate: StickerSheetStory = {
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
         headings={[
-          "Default",
-          "Default (disabled)",
-          "Prominent",
-          "Prominent (disabled)",
+          'Default',
+          'Default (disabled)',
+          'Prominent',
+          'Prominent (disabled)',
         ]}
         hasVerticalHeadings
       />
@@ -197,18 +197,18 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  name: 'Sticker Sheet (Reversed)',
+  parameters: { backgrounds: { default: 'Purple 700' } },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

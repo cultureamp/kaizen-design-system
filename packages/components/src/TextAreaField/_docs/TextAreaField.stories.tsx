@@ -1,12 +1,12 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { TextAreaField } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { TextAreaField } from '../index'
 
 const meta = {
-  title: "Components/Text Input controls/Text Area Field",
+  title: 'Components/Text Input controls/Text Area Field',
   component: TextAreaField,
   args: {
-    labelText: "Label",
+    labelText: 'Label',
   },
 } satisfies Meta<typeof TextAreaField>
 
@@ -18,7 +18,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -34,7 +34,7 @@ export const Variant: Story = {
 }
 
 export const Description: Story = {
-  args: { description: "A short description" },
+  args: { description: 'A short description' },
 }
 
 export const Validation: Story = {
@@ -57,7 +57,7 @@ export const Validation: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
 }
@@ -66,7 +66,7 @@ export const Autogrow: Story = {
   args: {
     autogrow: true,
     defaultValue:
-      "Bacon ipsum dolor amet tenderloin buffalo kevin salami flank cupim. Leberkas rump ham tri-tip hamburger. Hamburger ball tip cupim meatball. Short loin tenderloin pork belly, short ribs prosciutto alcatra meatloaf chislic boudin buffalo pig jerky. Frankfurter meatloaf flank bacon, porchetta prosciutto swine. Jerky ham ball tip, venison hamburger meatball pancetta drumstick prosciutto shank boudin beef pork chop chicken t-bone.",
+      'Bacon ipsum dolor amet tenderloin buffalo kevin salami flank cupim. Leberkas rump ham tri-tip hamburger. Hamburger ball tip cupim meatball. Short loin tenderloin pork belly, short ribs prosciutto alcatra meatloaf chislic boudin buffalo pig jerky. Frankfurter meatloaf flank bacon, porchetta prosciutto swine. Jerky ham ball tip, venison hamburger meatball pancetta drumstick prosciutto shank boudin beef pork chop chicken t-bone.',
   },
 }
 

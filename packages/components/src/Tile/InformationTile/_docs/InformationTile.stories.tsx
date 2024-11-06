@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { InformationTile } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { InformationTile } from '../index'
 
 const meta = {
-  title: "Components/Tiles/InformationTile",
+  title: 'Components/Tiles/InformationTile',
   component: InformationTile,
   args: {
-    title: "Title",
-    metadata: "Side A",
+    title: 'Title',
+    metadata: 'Side A',
     footer: <>Example Footer</>,
   },
   argTypes: {
@@ -23,7 +23,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -51,6 +51,6 @@ export const Variants: Story = {
 
 export const Information: Story = {
   args: {
-    information: "Side B",
+    information: 'Side B',
   },
 }

@@ -1,17 +1,17 @@
-import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
-import { Heading } from "~components/Heading"
-import { Text } from "~components/Text"
+import React from 'react'
+import { Meta, StoryFn } from '@storybook/react'
+import { Heading } from '~components/Heading'
+import { Text } from '~components/Text'
 
 export default {
-  title: "Guides/Tailwind/Utility Class References/Modifiers/Media Queries",
+  title: 'Guides/Tailwind/Utility Class References/Modifiers/Media Queries',
   parameters: {
-    docsLayout: "fullPage",
+    docsLayout: 'fullPage',
     docs: {
       a11y: { disable: true },
       description: {
         component:
-          "Require @kaizen/tailwind and add it into your tailwind config",
+          'Require @kaizen/tailwind and add it into your tailwind config',
       },
     },
   },
@@ -55,16 +55,16 @@ export const ArbitraryMediaQueries: StoryFn = () => (
   <div className="py-32">
     <Heading tag="p" variant="heading-4" classNameOverride="text-center">
       Bespoke, one-off media queries can be created with arbitrary values. See
-      the{" "}
+      the{' '}
       <a href="https://tailwindcss.com/docs/responsive-design#arbitrary-values">
         Tailwind docs
-      </a>{" "}
+      </a>{' '}
       for more info.
     </Heading>
 
     <div className="py-32">
       <Text variant="body">
-        <strong>Min-width breakpoint</strong> (applied when the screen gets{" "}
+        <strong>Min-width breakpoint</strong> (applied when the screen gets{' '}
         <em>wider</em>)
       </Text>
       <Text variant="body">In this example: min-[500px]:bg-blue-400</Text>
@@ -72,7 +72,7 @@ export const ArbitraryMediaQueries: StoryFn = () => (
     </div>
 
     <Text variant="body">
-      <strong>Max-width breakpoint</strong> (applied when the screen gets{" "}
+      <strong>Max-width breakpoint</strong> (applied when the screen gets{' '}
       <em>slimmer</em>)
     </Text>
     <Text variant="body">In this example: max-[500px]:bg-blue-400</Text>

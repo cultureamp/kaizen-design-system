@@ -1,20 +1,20 @@
-import React from "react"
-import { formatDateAsText } from "~components/Calendar"
-import { getLocale } from "~components/DatePicker/utils/getLocale"
-import { Filter, FilterContents, FilterProps } from "../Filter"
-import { FilterButtonProps } from "../FilterButton"
+import React from 'react'
+import { formatDateAsText } from '~components/Calendar'
+import { getLocale } from '~components/DatePicker/utils/getLocale'
+import { Filter, FilterContents, FilterProps } from '../Filter'
+import { FilterButtonProps } from '../FilterButton'
 import {
   FilterDatePickerField,
   FilterDatePickerFieldProps,
-} from "./subcomponents/FilterDatePickerField"
+} from './subcomponents/FilterDatePickerField'
 
 export type FilterDatePickerProps = {
   id?: string
   label: string
-  isOpen: FilterProps["isOpen"]
-  setIsOpen: FilterProps["setIsOpen"]
+  isOpen: FilterProps['isOpen']
+  setIsOpen: FilterProps['setIsOpen']
   renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
-} & Omit<FilterDatePickerFieldProps, "id">
+} & Omit<FilterDatePickerFieldProps, 'id'>
 
 export const FilterDatePicker = ({
   isOpen,
@@ -53,4 +53,4 @@ export const FilterDatePicker = ({
   </Filter>
 )
 
-FilterDatePicker.displayName = "FilterDatePicker"
+FilterDatePicker.displayName = 'FilterDatePicker'

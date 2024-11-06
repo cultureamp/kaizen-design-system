@@ -1,9 +1,9 @@
-import React, { HTMLAttributes } from "react"
-import classNames from "classnames"
-import { StringSuggestions } from "~components/types/StringSuggestions"
-import { handledRtlIcons } from "./constants"
-import { IconNames } from "./types"
-import styles from "./Icon.module.css"
+import React, { HTMLAttributes } from 'react'
+import classNames from 'classnames'
+import { StringSuggestions } from '~components/types/StringSuggestions'
+import { handledRtlIcons } from './constants'
+import { IconNames } from './types'
+import styles from './Icon.module.css'
 
 type PresentationalIcon = {
   isPresentational: true
@@ -34,13 +34,13 @@ const MaterialIcon = ({
 }: MaterialIconProps): JSX.Element => (
   <span
     className={classNames(
-      "material-symbols-outlined",
+      'material-symbols-outlined',
       styles.icon,
       isFilled && styles.filled,
       className,
     )}
     aria-hidden={isPresentational}
-    role={isPresentational ? undefined : "img"}
+    role={isPresentational ? undefined : 'img'}
     aria-label={alt}
     {...restProps}
   >

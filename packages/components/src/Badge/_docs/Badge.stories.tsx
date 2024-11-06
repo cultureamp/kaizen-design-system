@@ -1,12 +1,12 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Badge, BadgeAnimated } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Badge, BadgeAnimated } from '../index'
 
 const meta = {
-  title: "Components/Badge",
+  title: 'Components/Badge',
   component: Badge,
   args: {
-    children: "3",
+    children: '3',
   },
 } satisfies Meta<typeof Badge>
 
@@ -18,7 +18,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

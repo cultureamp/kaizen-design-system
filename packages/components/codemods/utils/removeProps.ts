@@ -1,5 +1,5 @@
-import ts from "typescript"
-import { updateJsxElementWithNewProps } from "./updateJsxElementWithNewProps"
+import ts from 'typescript'
+import { updateJsxElementWithNewProps } from './updateJsxElementWithNewProps'
 
 export const removeProps =
   (propsToRemove: string[]) =>

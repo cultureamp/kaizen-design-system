@@ -1,20 +1,20 @@
-import React, { ReactNode, useId } from "react"
-import classnames from "classnames"
-import { FieldGroup } from "~components/FieldGroup"
-import { InputRange, InputRangeProps } from "~components/Input/InputRange"
-import { Label } from "~components/Label"
-import { Text } from "~components/Text"
-import styles from "./Slider.module.scss"
+import React, { ReactNode, useId } from 'react'
+import classnames from 'classnames'
+import { FieldGroup } from '~components/FieldGroup'
+import { InputRange, InputRangeProps } from '~components/Input/InputRange'
+import { Label } from '~components/Label'
+import { Text } from '~components/Text'
+import styles from './Slider.module.scss'
 
 export type SliderFieldProps = {
   id?: string
   labelText: ReactNode
   description?: ReactNode
-  labelPosition?: "inline" | "block"
-  variant?: "default" | "prominent"
+  labelPosition?: 'inline' | 'block'
+  variant?: 'default' | 'prominent'
   disabled?: boolean
   readOnlyMessage?: ReactNode
-} & Omit<InputRangeProps, "id">
+} & Omit<InputRangeProps, 'id'>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896335/Slider Guidance} |
@@ -24,8 +24,8 @@ export const Slider = ({
   id: propsId,
   labelText,
   description,
-  labelPosition = "inline",
-  variant = "default",
+  labelPosition = 'inline',
+  variant = 'default',
   disabled,
   readOnlyMessage,
   ...restProps
@@ -39,7 +39,7 @@ export const Slider = ({
       <div
         className={classnames(
           styles.wrapper,
-          labelPosition === "inline" && styles.labelInline,
+          labelPosition === 'inline' && styles.labelInline,
         )}
       >
         <div className={styles.labelWrapper}>
@@ -79,4 +79,4 @@ export const Slider = ({
   )
 }
 
-Slider.displayName = "Slider"
+Slider.displayName = 'Slider'

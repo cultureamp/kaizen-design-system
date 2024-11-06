@@ -1,12 +1,12 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Button } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
-import * as MenuV1Stories from "../../v1/_docs/Menu.stories"
-import { Menu, MenuList, MenuItem, MenuHeading } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Button } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
+import * as MenuV1Stories from '../../v1/_docs/Menu.stories'
+import { Menu, MenuList, MenuItem, MenuHeading } from '../index'
 
 const meta = {
-  title: "Actions/Menu/v2",
+  title: 'Actions/Menu/v2',
   component: Menu,
   args: {
     button: (
@@ -20,7 +20,7 @@ const meta = {
       <MenuList>
         <MenuItem
           onClick={() => {
-            alert("Duplicated!")
+            alert('Duplicated!')
           }}
           icon={<Icon name="content_copy" isPresentational isFilled />}
           label="Duplicate item"
@@ -43,7 +43,7 @@ const meta = {
     ),
   ],
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<typeof Menu>
 

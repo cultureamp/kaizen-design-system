@@ -1,15 +1,15 @@
-import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst, TransformConfig } from "../utils"
-import { transformCardVariantToColor } from "./transformCardVariantToColor"
+import { parseJsx } from '../__tests__/utils'
+import { transformSource, printAst, TransformConfig } from '../utils'
+import { transformCardVariantToColor } from './transformCardVariantToColor'
 
-const transformCard = (sourceFile: TransformConfig["sourceFile"]): string =>
+const transformCard = (sourceFile: TransformConfig['sourceFile']): string =>
   transformSource({
     sourceFile,
     astTransformer: transformCardVariantToColor,
-    tagName: "Card",
+    tagName: 'Card',
   })
 
-describe("transformCardVariantToColor()", () => {
+describe('transformCardVariantToColor()', () => {
   it('replaces variant="assertive" with color="orange"', () => {
     const inputAst = parseJsx(
       'export const TestComponent = () => <Card variant="assertive">Hello</Card>',
@@ -79,12 +79,12 @@ describe("transformCardVariantToColor()", () => {
     )
     expect(transformCard(inputAst)).toEqual(printAst(outputAst))
   })
-  it("If no variant exists, it does not add one", () => {
+  it('If no variant exists, it does not add one', () => {
     const inputAst = parseJsx(
-      "export const TestComponent = () => <Card>Hello</Card>",
+      'export const TestComponent = () => <Card>Hello</Card>',
     )
     const outputAst = parseJsx(
-      "export const TestComponent = () => <Card>Hello</Card>",
+      'export const TestComponent = () => <Card>Hello</Card>',
     )
     expect(transformCard(inputAst)).toEqual(printAst(outputAst))
   })

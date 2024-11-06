@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { ToggleSwitch } from "../index"
+} from '~storybook/components/StickerSheet'
+import { ToggleSwitch } from '../index'
 
 export default {
-  title: "Components/Toggle Switch controls/ToggleSwitch",
+  title: 'Components/Toggle Switch controls/ToggleSwitch',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -16,7 +16,7 @@ export default {
         rules: [
           {
             // Built with no label on purpose, to be used within `ToggleSwitchField` where label is present
-            id: "label",
+            id: 'label',
             enabled: false,
           },
         ],
@@ -29,7 +29,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
-        headings={["Default", "Hover", "Focus", "Disabled"]}
+        headings={['Default', 'Hover', 'Focus', 'Disabled']}
         hasVerticalHeadings
       />
       <StickerSheet.Body>
@@ -67,24 +67,24 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

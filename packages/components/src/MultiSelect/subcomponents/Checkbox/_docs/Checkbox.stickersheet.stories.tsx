@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Checkbox, CheckedStatus } from "../index"
+} from '~storybook/components/StickerSheet'
+import { Checkbox, CheckedStatus } from '../index'
 
 export default {
-  title: "Components/MultiSelect/Checkbox",
+  title: 'Components/MultiSelect/Checkbox',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -15,16 +15,16 @@ export default {
 } satisfies Meta
 
 const STATUS_ROWS = [
-  { title: "Unchecked", status: "unchecked" },
-  { title: "Checked", status: "checked" },
-  { title: "Indeterminate", status: "indeterminate" },
+  { title: 'Unchecked', status: 'unchecked' },
+  { title: 'Checked', status: 'checked' },
+  { title: 'Indeterminate', status: 'indeterminate' },
 ] satisfies Array<{ title: string; status: CheckedStatus }>
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
       <StickerSheet.Header
-        headings={["Default", "Hover", "Focus"]}
+        headings={['Default', 'Hover', 'Focus']}
         hasVerticalHeadings
       />
       <StickerSheet.Body>
@@ -56,13 +56,13 @@ const StickerSheetTemplate: StickerSheetStory = {
     pseudo: {
       // We need to use `classNameOverride` to target the container div
       // as data-attributes are passed into the input.
-      hover: ".story__checkbox--hover",
-      focusWithin: ".story__checkbox--focus",
+      hover: '.story__checkbox--hover',
+      focusWithin: '.story__checkbox--focus',
     },
   },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }

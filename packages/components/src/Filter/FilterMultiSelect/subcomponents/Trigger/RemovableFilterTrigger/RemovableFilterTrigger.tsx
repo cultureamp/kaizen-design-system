@@ -1,11 +1,11 @@
-import React, { useRef } from "react"
-import classnames from "classnames"
-import { FilterTriggerRef } from "~components/Filter/Filter"
-import { FilterButtonRemovable } from "~components/Filter/FilterButton"
-import { useMenuTriggerContext } from "../../../context"
-import { getTruncatedLabels } from "../../../utils"
-import { FilterTriggerButtonProps } from "../FilterTriggerButton"
-import styles from "./RemovableFilterTrigger.module.css"
+import React, { useRef } from 'react'
+import classnames from 'classnames'
+import { FilterTriggerRef } from '~components/Filter/Filter'
+import { FilterButtonRemovable } from '~components/Filter/FilterButton'
+import { useMenuTriggerContext } from '../../../context'
+import { getTruncatedLabels } from '../../../utils'
+import { FilterTriggerButtonProps } from '../FilterTriggerButton'
+import styles from './RemovableFilterTrigger.module.css'
 
 export type RemovableFilterTriggerProps = FilterTriggerButtonProps & {
   onRemove: () => void
@@ -44,4 +44,4 @@ export const RemovableFilterTrigger = ({
   )
 }
 
-RemovableFilterTrigger.displayName = "FilterMultiSelect.RemovableTrigger"
+RemovableFilterTrigger.displayName = 'FilterMultiSelect.RemovableTrigger'

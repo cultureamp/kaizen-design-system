@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { VideoPlayer } from "./index"
+} from '~storybook/components/StickerSheet'
+import { VideoPlayer } from './index'
 
 export default {
-  title: "Components/Illustrations/VideoPlayer",
+  title: 'Components/Illustrations/VideoPlayer',
   parameters: {
     controls: { disable: true },
     chromatic: { disable: false },
@@ -64,5 +64,5 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }

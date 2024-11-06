@@ -1,18 +1,18 @@
-import React, { useState } from "react"
-import { ButtonProps } from "~components/__actions__/v2"
+import React, { useState } from 'react'
+import { ButtonProps } from '~components/__actions__/v2'
 import {
   StatelessMenu,
   StatelessMenuProps,
-} from "./subcomponents/StatelessMenu"
+} from './subcomponents/StatelessMenu'
 
 type ButtonPropsWithOptionalAria = ButtonProps & {
-  "aria-haspopup"?: boolean
-  "aria-expanded"?: boolean
+  'aria-haspopup'?: boolean
+  'aria-expanded'?: boolean
 }
 
 export type MenuProps = Omit<
   StatelessMenuProps,
-  "renderButton" | "hideMenuDropdown" | "toggleMenuDropdown" | "isMenuVisible"
+  'renderButton' | 'hideMenuDropdown' | 'toggleMenuDropdown' | 'isMenuVisible'
 > & {
   /**
    * The initial state of the dropdown. Once initalised, further changes to this
@@ -74,4 +74,4 @@ export const Menu = ({
   )
 }
 
-Menu.displayName = "Menu"
+Menu.displayName = 'Menu'

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react"
-import { ToastNotificationsList } from "~components/Notification"
-import { ToastNotificationProvider } from "~components/Notification/ToastNotification/context/ToastNotificationContext"
-import { FontDefinitions } from "./subcomponents/FontDefinitions"
-import { OptionalIntlProvider } from "./subcomponents/OptionalIntlProvider"
+import React, { useEffect, useState } from 'react'
+import { ToastNotificationsList } from '~components/Notification'
+import { ToastNotificationProvider } from '~components/Notification/ToastNotification/context/ToastNotificationContext'
+import { FontDefinitions } from './subcomponents/FontDefinitions'
+import { OptionalIntlProvider } from './subcomponents/OptionalIntlProvider'
 
 export type KaizenProviderProps = {
   children: React.ReactNode
@@ -11,7 +11,7 @@ export type KaizenProviderProps = {
 
 export const KaizenProvider = ({
   children,
-  locale = "en",
+  locale = 'en',
 }: KaizenProviderProps): JSX.Element => {
   const [documentIsAvailable, setDocumentIsAvailable] = useState<boolean>(false)
   const [notificationsList, setNotificationsList] = useState<JSX.Element>()
@@ -36,4 +36,4 @@ export const KaizenProvider = ({
   )
 }
 
-KaizenProvider.displayName = "KaizenProvider"
+KaizenProvider.displayName = 'KaizenProvider'

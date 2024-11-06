@@ -1,4 +1,4 @@
-import ts from "typescript"
+import ts from 'typescript'
 
 /** a helper function to get prop's value text from a JSX attribute */
 export const getPropValueText = (
@@ -14,7 +14,7 @@ export const getPropValueText = (
     const expressionText = expression.getText()
 
     if (expressionText.match(/^['"`]/)) {
-      return expressionText.replace(/^['"`]|['"`]$/g, "")
+      return expressionText.replace(/^['"`]|['"`]$/g, '')
     }
   }
   return undefined

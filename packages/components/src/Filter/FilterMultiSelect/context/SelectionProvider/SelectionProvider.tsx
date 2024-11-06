@@ -1,11 +1,11 @@
-import React, { HTMLAttributes, useCallback, useContext, useState } from "react"
-import { useListBox } from "@react-aria/listbox"
-import { Item } from "@react-stately/collections"
-import { ListState, useListState } from "@react-stately/list"
-import { SelectionMode, Selection } from "@react-types/shared"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { ItemType, MultiSelectItem } from "../../types"
-import { useMenuTriggerContext } from "../MenuTriggerProvider"
+import React, { HTMLAttributes, useCallback, useContext, useState } from 'react'
+import { useListBox } from '@react-aria/listbox'
+import { Item } from '@react-stately/collections'
+import { ListState, useListState } from '@react-stately/list'
+import { SelectionMode, Selection } from '@react-types/shared'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { ItemType, MultiSelectItem } from '../../types'
+import { useMenuTriggerContext } from '../MenuTriggerProvider'
 
 export type SelectionProviderProps = {
   selectionMode: SelectionMode
@@ -38,7 +38,7 @@ export const SelectionProvider = (
   props: SelectionProviderProps,
 ): JSX.Element => {
   const { onSearchInputChange, ...otherProps } = props
-  const [searchQuery, setSearchQuery] = useState<string>("")
+  const [searchQuery, setSearchQuery] = useState<string>('')
   const { menuProps } = useMenuTriggerContext()
   /**
    * While the onSearchInputChange  is a side-effect, this useEffect should be fine.

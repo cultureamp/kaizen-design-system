@@ -1,12 +1,12 @@
-import React, { forwardRef, Ref } from "react"
+import React, { forwardRef, Ref } from 'react'
 import {
   GenericButton,
   BaseButtonProps,
   WorkingButtonProps,
   ButtonRef,
-} from "../GenericButton"
+} from '../GenericButton'
 
-export type IconButtonProps = Omit<BaseButtonProps, "iconPosition"> &
+export type IconButtonProps = Omit<BaseButtonProps, 'iconPosition'> &
   WorkingButtonProps
 
 /**
@@ -19,4 +19,4 @@ export const IconButton = forwardRef(
   ),
 )
 
-IconButton.displayName = "IconButton"
+IconButton.displayName = 'IconButton'

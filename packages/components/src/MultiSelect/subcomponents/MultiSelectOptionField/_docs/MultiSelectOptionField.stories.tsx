@@ -1,20 +1,20 @@
-import React, { useState } from "react"
-import { action } from "@storybook/addon-actions"
-import { Meta, StoryObj } from "@storybook/react"
-import { CheckboxProps } from "../../Checkbox"
-import { MultiSelectOptionField } from "../index"
+import React, { useState } from 'react'
+import { action } from '@storybook/addon-actions'
+import { Meta, StoryObj } from '@storybook/react'
+import { CheckboxProps } from '../../Checkbox'
+import { MultiSelectOptionField } from '../index'
 
 const meta = {
-  title: "Components/MultiSelect/MultiSelectOptionField",
+  title: 'Components/MultiSelect/MultiSelectOptionField',
   component: MultiSelectOptionField,
   args: {
-    id: "id--multi-select-option-field",
+    id: 'id--multi-select-option-field',
     option: {
-      label: "Jaffle",
-      value: "jaffle",
+      label: 'Jaffle',
+      value: 'jaffle',
     },
-    checkedStatus: "unchecked",
-    onChange: action(">:] on change [:<"),
+    checkedStatus: 'unchecked',
+    onChange: action('>:] on change [:<'),
   },
 } satisfies Meta<typeof MultiSelectOptionField>
 
@@ -25,15 +25,15 @@ type Story = StoryObj<typeof meta>
 const MultiSelectOptionFieldTemplate: Story = {
   render: args => {
     const [checkedStatus, setCheckedStatus] = useState<
-      CheckboxProps["checkedStatus"]
+      CheckboxProps['checkedStatus']
     >(args.checkedStatus)
 
     const handleChange = (): void => {
       switch (checkedStatus) {
-        case "checked":
-          return setCheckedStatus("unchecked")
+        case 'checked':
+          return setCheckedStatus('unchecked')
         default:
-          return setCheckedStatus("checked")
+          return setCheckedStatus('checked')
       }
     }
 
@@ -50,12 +50,12 @@ const MultiSelectOptionFieldTemplate: Story = {
 export const Playground: Story = {
   ...MultiSelectOptionFieldTemplate,
   args: {
-    id: "id--jaffle",
+    id: 'id--jaffle',
   },
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

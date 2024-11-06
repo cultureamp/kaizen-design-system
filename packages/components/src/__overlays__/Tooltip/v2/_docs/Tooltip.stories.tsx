@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import * as TooltipV1Stories from "../../v1/_docs/Tooltip.stories"
-import { Tooltip } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import * as TooltipV1Stories from '../../v1/_docs/Tooltip.stories'
+import { Tooltip } from '../index'
 
 const meta = {
-  title: "Overlays/Tooltip/v2",
+  title: 'Overlays/Tooltip/v2',
   component: Tooltip,
   args: {
-    text: "Example tooltip text.",
+    text: 'Example tooltip text.',
   },
   decorators: [
     Story => (
@@ -17,7 +17,7 @@ const meta = {
     ),
   ],
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<typeof Tooltip>
 

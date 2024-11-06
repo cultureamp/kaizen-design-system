@@ -1,10 +1,10 @@
-import React, { forwardRef, ReactNode } from "react"
+import React, { forwardRef, ReactNode } from 'react'
 import {
   MenuItem as RACMenuItem,
   MenuItemProps as RACMenuItemProps,
-} from "react-aria-components"
-import { mergeClassNames } from "~components/utils/mergeClassNames"
-import styles from "./MenuItem.module.scss"
+} from 'react-aria-components'
+import { mergeClassNames } from '~components/utils/mergeClassNames'
+import styles from './MenuItem.module.scss'
 
 export type MenuItemProps = RACMenuItemProps & {
   /**
@@ -31,4 +31,4 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   ),
 )
 
-MenuItem.displayName = "MenuItem"
+MenuItem.displayName = 'MenuItem'

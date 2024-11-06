@@ -1,14 +1,14 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { InputRange } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { InputRange } from '../index'
 
 const meta = {
-  title: "Components/Inputs/InputRange",
+  title: 'Components/Inputs/InputRange',
   component: InputRange,
   args: {
-    id: "inputRange",
-    minLabel: "Min",
-    maxLabel: "Max",
+    id: 'inputRange',
+    minLabel: 'Min',
+    maxLabel: 'Max',
   },
   parameters: {
     a11y: {
@@ -16,12 +16,12 @@ const meta = {
         rules: [
           {
             // Built with no label on purpose, to be used within `Slider` where label is present
-            id: "label",
+            id: 'label',
             enabled: false,
           },
           {
             // Built with no label on purpose, to be used within `Slider` where label is present
-            id: "label-title-only",
+            id: 'label-title-only',
             enabled: false,
           },
         ],
@@ -38,7 +38,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

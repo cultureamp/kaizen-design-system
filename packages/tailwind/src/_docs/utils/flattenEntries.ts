@@ -18,7 +18,7 @@ export const flattenEntries = (
   }> = []
   classKeyVal.forEach((colorGroup) => {
     const [classModifier, cssProperty] = colorGroup
-    if (typeof cssProperty === "string") {
+    if (typeof cssProperty === 'string') {
       flattenedEntries.push({
         utilityClassName: `${prefix}${classModifier}`,
         cssProperty,

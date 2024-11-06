@@ -1,15 +1,15 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { CheckboxField } from "~components/Checkbox/CheckboxField"
-import { Text } from "~components/Text"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { CheckboxField } from '~components/Checkbox/CheckboxField'
+import { Text } from '~components/Text'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { CheckboxGroup, CheckboxGroupProps } from "../index"
+} from '~storybook/components/StickerSheet'
+import { CheckboxGroup, CheckboxGroupProps } from '../index'
 
 export default {
-  title: "Components/Checkbox controls/CheckboxGroup",
+  title: 'Components/Checkbox controls/CheckboxGroup',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -39,7 +39,7 @@ const CheckboxGroupWrapped = ({
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "No Bottom Margin"]} />
+      <StickerSheet.Header headings={['Default', 'No Bottom Margin']} />
       <StickerSheet.Body>
         <StickerSheet.Row>
           <>
@@ -47,7 +47,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               reversed={isReversed}
               labelText="CheckboxGroup"
             />
-            <Text variant="body" color={isReversed ? "white" : "dark"}>
+            <Text variant="body" color={isReversed ? 'white' : 'dark'}>
               Next line
             </Text>
           </>
@@ -57,7 +57,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               labelText="CheckboxGroup"
               noBottomMargin
             />
-            <Text variant="body" color={isReversed ? "white" : "dark"}>
+            <Text variant="body" color={isReversed ? 'white' : 'dark'}>
               Next line
             </Text>
           </>
@@ -69,26 +69,26 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     /** @note: Only required if template has parameters, otherwise this spread can be removed */
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     /** @note: Only required if template has parameters, otherwise this spread can be removed */
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

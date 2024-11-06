@@ -1,20 +1,20 @@
-import React, { HTMLAttributes, forwardRef, useId } from "react"
-import classnames from "classnames"
-import { ClearButton } from "~components/ClearButton"
-import { FieldMessageProps } from "~components/FieldMessage"
-import { Icon, RemovableTag } from "~components/__future__"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { MultiSelectOption } from "../../types"
-import styles from "./MultiSelectToggle.module.scss"
+import React, { HTMLAttributes, forwardRef, useId } from 'react'
+import classnames from 'classnames'
+import { ClearButton } from '~components/ClearButton'
+import { FieldMessageProps } from '~components/FieldMessage'
+import { Icon, RemovableTag } from '~components/__future__'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { MultiSelectOption } from '../../types'
+import styles from './MultiSelectToggle.module.scss'
 
 export type MultiSelectToggleProps = {
   onClick: React.MouseEventHandler
-  ["aria-labelledby"]: string
-  ["aria-controls"]: string
+  ['aria-labelledby']: string
+  ['aria-controls']: string
   selectedOptions: MultiSelectOption[]
   isOpen?: boolean
-  status?: FieldMessageProps["status"]
-  onRemoveOption: (optionValue: MultiSelectOption["value"]) => void
+  status?: FieldMessageProps['status']
+  onRemoveOption: (optionValue: MultiSelectOption['value']) => void
   onRemoveAllOptions: () => void
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
@@ -25,9 +25,9 @@ export const MultiSelectToggle = forwardRef<
   (
     {
       onClick,
-      "aria-labelledby": ariaLabelledBy,
-      "aria-describedby": ariaDescribedBy,
-      "aria-controls": ariaControls,
+      'aria-labelledby': ariaLabelledBy,
+      'aria-describedby': ariaDescribedBy,
+      'aria-controls': ariaControls,
       isOpen = false,
       classNameOverride,
       selectedOptions,
@@ -70,7 +70,7 @@ export const MultiSelectToggle = forwardRef<
             }}
           >
             <Icon
-              name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+              name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
               isPresentational
             />
           </button>
@@ -121,4 +121,4 @@ export const MultiSelectToggle = forwardRef<
   },
 )
 
-MultiSelectToggle.displayName = "MultiSelectToggle"
+MultiSelectToggle.displayName = 'MultiSelectToggle'

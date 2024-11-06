@@ -1,16 +1,16 @@
-import React, { ReactNode, SVGAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./SVG.module.scss"
+import React, { ReactNode, SVGAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './SVG.module.scss'
 
 type MeaningfulIcon = {
-  role: "img"
-  "aria-label": string
+  role: 'img'
+  'aria-label': string
 }
 
 type DecorativeIcon = {
-  role: "presentation"
-  "aria-label"?: never
+  role: 'presentation'
+  'aria-label'?: never
 }
 
 export type BaseSVGProps = {
@@ -28,7 +28,7 @@ export type SVGProps = BaseSVGProps & {
 export const SVG = ({
   inheritSize = false,
   role,
-  viewBox = "0 0 20 20",
+  viewBox = '0 0 20 20',
   classNameOverride,
   children,
   ...restProps
@@ -39,7 +39,7 @@ export const SVG = ({
     inheritSize && styles.inheritSize,
   )
 
-  if (role === "presentation") {
+  if (role === 'presentation') {
     return (
       <svg
         className={classes}
@@ -60,4 +60,4 @@ export const SVG = ({
   )
 }
 
-SVG.displayName = "SVG"
+SVG.displayName = 'SVG'

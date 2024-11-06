@@ -1,16 +1,16 @@
-import React from "react"
-import { Button } from "~components/__actions__/v2"
+import React from 'react'
+import { Button } from '~components/__actions__/v2'
 import {
   GenericTile,
   GenericTileProps,
   TileAction,
-} from "../subcomponents/GenericTile"
-import styles from "./MultiActionTile.module.scss"
+} from '../subcomponents/GenericTile'
+import styles from './MultiActionTile.module.scss'
 
 export type MultiActionTileProps = {
   primaryAction: TileAction
   secondaryAction?: TileAction
-} & Omit<GenericTileProps, "footer">
+} & Omit<GenericTileProps, 'footer'>
 
 const renderActions = (
   primaryAction: TileAction,
@@ -44,4 +44,4 @@ export const MultiActionTile = ({
   </GenericTile>
 )
 
-MultiActionTile.displayName = "MultiActionTile"
+MultiActionTile.displayName = 'MultiActionTile'

@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import { ThemeManager } from "./ThemeManager"
-import { defaultTheme } from "./themes"
-import { Theme } from "./types"
+import React, { useState } from 'react'
+import { ThemeManager } from './ThemeManager'
+import { defaultTheme } from './themes'
+import { Theme } from './types'
 
 export const ThemeContext = React.createContext<Theme>(defaultTheme)
 

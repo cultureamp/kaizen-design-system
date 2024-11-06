@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from 'react'
+import { Meta } from '@storybook/react'
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { GenericTile, GenericTileProps } from "../index"
+} from '~storybook/components/StickerSheet'
+import { GenericTile, GenericTileProps } from '../index'
 
 export default {
-  title: "Components/Tiles/GenericTile",
+  title: 'Components/Tiles/GenericTile',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -17,24 +17,24 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => {
     const defaultProps = {
-      title: "Title",
-      metadata: "metadata",
-      information: "string",
+      title: 'Title',
+      metadata: 'metadata',
+      information: 'string',
       footer: <>Footer</>,
     } satisfies GenericTileProps
 
-    const variants = ["default", "expert-advice"] satisfies Array<
-      GenericTileProps["variant"]
+    const variants = ['default', 'expert-advice'] satisfies Array<
+      GenericTileProps['variant']
     >
 
     const moods = [
-      "positive",
-      "informative",
-      "cautionary",
-      "assertive",
-      "negative",
-      "prominent",
-    ] satisfies Array<GenericTileProps["mood"]>
+      'positive',
+      'informative',
+      'cautionary',
+      'assertive',
+      'negative',
+      'prominent',
+    ] satisfies Array<GenericTileProps['mood']>
 
     return (
       <>
@@ -69,11 +69,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

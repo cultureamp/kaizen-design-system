@@ -1,12 +1,12 @@
-import React, { ButtonHTMLAttributes } from "react"
-import classnames from "classnames"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./ClearButton.module.scss"
+import React, { ButtonHTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './ClearButton.module.scss'
 
 export type ClearButtonProps = {
   isReversed?: boolean
-} & OverrideClassName<Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">>
+} & OverrideClassName<Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'>>
 
 export const ClearButton = ({
   classNameOverride,
@@ -27,4 +27,4 @@ export const ClearButton = ({
   </button>
 )
 
-ClearButton.displayName = "ClearButton"
+ClearButton.displayName = 'ClearButton'

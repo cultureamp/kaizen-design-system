@@ -1,5 +1,5 @@
-import React, { HTMLAttributes } from "react"
-import { OverrideClassName } from "~components/types/OverrideClassName"
+import React, { HTMLAttributes } from 'react'
+import { OverrideClassName } from '~components/types/OverrideClassName'
 import {
   Footer,
   FooterProps,
@@ -8,11 +8,11 @@ import {
   HeaderProps,
   ProgressStepper,
   Wrapper,
-} from "./subcomponents"
+} from './subcomponents'
 
 export type WorkflowProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> &
   FooterProps &
-  Pick<HeaderProps, "workflowName" | "statusTag" | "headerActions">
+  Pick<HeaderProps, 'workflowName' | 'statusTag' | 'headerActions'>
 
 export const Workflow = ({
   steps,

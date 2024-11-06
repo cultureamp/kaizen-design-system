@@ -1,17 +1,17 @@
-import React, { FunctionComponent } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import isChromatic from "chromatic"
-import { Button } from "~components/__actions__/v2"
-import { Tag } from "~components/__future__"
-import { Focusable } from "~components/__overlays__/v3"
-import { Tooltip, TooltipTrigger } from "../index"
-import * as testStories from "./Tooltip.spec.stories"
+import React, { FunctionComponent } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import isChromatic from 'chromatic'
+import { Button } from '~components/__actions__/v2'
+import { Tag } from '~components/__future__'
+import { Focusable } from '~components/__overlays__/v3'
+import { Tooltip, TooltipTrigger } from '../index'
+import * as testStories from './Tooltip.spec.stories'
 
 const meta = {
-  title: "Overlays/Tooltip/v3",
+  title: 'Overlays/Tooltip/v3',
   component: Tooltip,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
   args: {
     defaultOpen: isChromatic(),
@@ -48,7 +48,7 @@ export const OnIconButton: Story = {
 export const Placement: Story = {
   ...testStories.OnButton,
   play: undefined,
-  args: { placement: "end" },
+  args: { placement: 'end' },
 }
 export const OnTabs: Story = {
   ...testStories.OnTabs,

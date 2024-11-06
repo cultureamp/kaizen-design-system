@@ -1,6 +1,6 @@
-import { Filters, FiltersValues } from "../../types"
-import { FilterBarState } from "../types"
-import { updateDependentFilters } from "../utils/updateDependentFilters"
+import { Filters, FiltersValues } from '../../types'
+import { FilterBarState } from '../types'
+import { updateDependentFilters } from '../utils/updateDependentFilters'
 
 export const setupFilterBarState = <ValuesMap extends FiltersValues>(
   filters: Filters<ValuesMap>,
