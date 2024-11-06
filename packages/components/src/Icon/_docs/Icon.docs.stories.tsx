@@ -13,7 +13,7 @@ const meta = {
     role: 'presentation',
   },
   argTypes: {
-    role: {
+    'role': {
       options: ['presentation', 'img'],
       control: { type: 'radio' },
     },

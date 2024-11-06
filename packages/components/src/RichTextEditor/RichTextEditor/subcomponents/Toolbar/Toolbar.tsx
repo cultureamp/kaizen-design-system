@@ -5,7 +5,7 @@ import { ToolbarSectionProps } from '../ToolbarSection'
 import styles from './Toolbar.module.scss'
 
 export type ToolbarProps = {
-  children: React.ReactNode
+  'children': React.ReactNode
   /*
    * Connect the Toolbar with the editable content area through its ID
    */

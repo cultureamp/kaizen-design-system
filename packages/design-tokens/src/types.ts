@@ -78,67 +78,67 @@ export type TokenStructure = {
   }
   color: {
     purple: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-      '700': Hex
-      '800': Hex
+      100: Hex
+      200: Hex
+      300: Hex
+      400: Hex
+      500: Hex
+      600: Hex
+      700: Hex
+      800: Hex
     }
     blue: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-      '700': Hex
+      100: Hex
+      200: Hex
+      300: Hex
+      400: Hex
+      500: Hex
+      600: Hex
+      700: Hex
     }
     green: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-      '700': Hex
+      100: Hex
+      200: Hex
+      300: Hex
+      400: Hex
+      500: Hex
+      600: Hex
+      700: Hex
     }
     yellow: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-      '700': Hex
+      100: Hex
+      200: Hex
+      300: Hex
+      400: Hex
+      500: Hex
+      600: Hex
+      700: Hex
     }
     red: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-      '700': Hex
+      100: Hex
+      200: Hex
+      300: Hex
+      400: Hex
+      500: Hex
+      600: Hex
+      700: Hex
     }
     orange: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-      '700': Hex
+      100: Hex
+      200: Hex
+      300: Hex
+      400: Hex
+      500: Hex
+      600: Hex
+      700: Hex
     }
     gray: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
+      100: Hex
+      200: Hex
+      300: Hex
+      400: Hex
+      500: Hex
+      600: Hex
     }
     white: Hex
     black: Hex

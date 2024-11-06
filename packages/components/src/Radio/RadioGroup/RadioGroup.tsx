@@ -7,11 +7,11 @@ import styles from './RadioGroup.module.scss'
 export type RadioGroupProps = OverrideClassName<
   HTMLAttributes<HTMLDivElement>
 > & {
-  children?: React.ReactNode
-  labelText: string | React.ReactNode
-  labelId?: string
-  noBottomMargin?: boolean
-  reversed?: boolean
+  'children'?: React.ReactNode
+  'labelText': string | React.ReactNode
+  'labelId'?: string
+  'noBottomMargin'?: boolean
+  'reversed'?: boolean
   'data-testid'?: string
 }
 

@@ -13,19 +13,19 @@ type ItemRefs = Array<{
 }>
 
 export type LikertScaleProps = {
-  labelId: string
-  scale: Scale
-  selectedItem: ScaleItem | null
+  'labelId': string
+  'scale': Scale
+  'selectedItem': ScaleItem | null
   /**
    * @deprecated Please use data-testid instead
    */
-  automationId?: string
+  'automationId'?: string
   'data-testid'?: string
-  reversed?: boolean
-  colorSchema?: ColorSchema | 'classical'
-  validationMessage?: string
-  status?: 'default' | 'error'
-  onSelect: (value: ScaleItem | null) => void
+  'reversed'?: boolean
+  'colorSchema'?: ColorSchema | 'classical'
+  'validationMessage'?: string
+  'status'?: 'default' | 'error'
+  'onSelect': (value: ScaleItem | null) => void
 }
 
 const SelectedItemIcon = (): JSX.Element => (

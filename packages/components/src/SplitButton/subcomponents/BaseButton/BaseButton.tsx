@@ -31,7 +31,7 @@ export const BaseButton = ({
 
   const contentProps = icon
     ? {
-        children: <>{icon}</>,
+        'children': <>{icon}</>,
         'aria-label': label,
       }
     : { children: label }

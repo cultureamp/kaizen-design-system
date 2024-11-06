@@ -21,16 +21,16 @@ const PAGINATION_LINK_PROPS: Array<{
   {
     title: 'isActive={false}',
     props: {
-      pageNumber: 1,
+      'pageNumber': 1,
       'aria-label': 'Page 1',
     },
   },
   {
     title: 'isActive={true}',
     props: {
-      pageNumber: 1,
+      'pageNumber': 1,
       'aria-label': 'Page 1',
-      isActive: true,
+      'isActive': true,
     },
   },
 ]

@@ -5,8 +5,8 @@ import {
 } from '~components/__actions__/Button/v2/GenericButton'
 
 export type PaginationLinkProps = GenericProps & {
-  pageNumber: number
-  isActive?: boolean
+  'pageNumber': number
+  'isActive'?: boolean
   /* A description for screen readers to understand because label used here is a number */
   'aria-label': string
 }

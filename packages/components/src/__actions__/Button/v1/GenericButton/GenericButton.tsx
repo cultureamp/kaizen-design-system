@@ -17,14 +17,14 @@ import { LoadingSpinner } from '~components/Loading'
 import styles from './GenericButton.module.scss'
 
 export type CustomButtonProps = {
-  id?: string
-  className: string
-  href?: string
-  disabled?: boolean
-  onClick?: (e: MouseEvent<any>) => void
-  onFocus?: (e: FocusEvent<HTMLElement>) => void
-  onBlur?: (e: FocusEvent<HTMLElement>) => void
-  children?: React.ReactNode
+  'id'?: string
+  'className': string
+  'href'?: string
+  'disabled'?: boolean
+  'onClick'?: (e: MouseEvent<any>) => void
+  'onFocus'?: (e: FocusEvent<HTMLElement>) => void
+  'onBlur'?: (e: FocusEvent<HTMLElement>) => void
+  'children'?: React.ReactNode
   'data-testid'?: string
 }
 
@@ -70,11 +70,11 @@ export type ButtonBadgeProps = {
 }
 
 export type RenderProps = GenericButtonProps & {
-  additionalContent?: React.ReactNode
-  iconButton?: boolean
-  directionalLink?: boolean
-  paginationLink?: boolean
-  isActive?: boolean
+  'additionalContent'?: React.ReactNode
+  'iconButton'?: boolean
+  'directionalLink'?: boolean
+  'paginationLink'?: boolean
+  'isActive'?: boolean
   'aria-describedby'?: string
 }
 
@@ -187,13 +187,13 @@ const renderCustomComponent = (
   ref: Ref<HTMLSpanElement>,
 ): JSX.Element => {
   const passedInProps = {
-    id: props.id,
-    className: buttonClass(props),
-    disabled: props.disabled,
-    href: props.href,
-    onClick: props.onClick,
-    onFocus: props.onFocus,
-    onBlur: props.onBlur,
+    'id': props.id,
+    'className': buttonClass(props),
+    'disabled': props.disabled,
+    'href': props.href,
+    'onClick': props.onClick,
+    'onFocus': props.onFocus,
+    'onBlur': props.onBlur,
     'aria-label': generateAriaLabel(props),
     ...getCustomProps(props),
   }
@@ -245,23 +245,23 @@ const renderButton = (
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > = {
-    id: props.id,
-    disabled: props.disabled,
-    onClick: !disableActions ? props.onClick : undefined,
-    onMouseDown: !disableActions ? props.onMouseDown : undefined,
-    type: props.type,
-    onFocus: props.onFocus,
-    onBlur: props.onBlur,
-    form: props.form,
-    formAction: props.formAction,
-    formMethod: props.formMethod,
-    formEncType: props.formEncType,
-    formTarget: props.formTarget,
-    formNoValidate: props.formNoValidate,
-    className: buttonClass(props),
+    'id': props.id,
+    'disabled': props.disabled,
+    'onClick': !disableActions ? props.onClick : undefined,
+    'onMouseDown': !disableActions ? props.onMouseDown : undefined,
+    'type': props.type,
+    'onFocus': props.onFocus,
+    'onBlur': props.onBlur,
+    'form': props.form,
+    'formAction': props.formAction,
+    'formMethod': props.formMethod,
+    'formEncType': props.formEncType,
+    'formTarget': props.formTarget,
+    'formNoValidate': props.formNoValidate,
+    'className': buttonClass(props),
     'aria-label': generateAriaLabel(props),
     'aria-disabled': props.disabled || props.working ? true : undefined,
-    tabIndex: props.disableTabFocusAndIUnderstandTheAccessibilityImplications
+    'tabIndex': props.disableTabFocusAndIUnderstandTheAccessibilityImplications
       ? -1
       : undefined,
     ...getCustomProps(props),
@@ -303,14 +303,14 @@ const renderLink = (
     React.AnchorHTMLAttributes<HTMLAnchorElement>,
     HTMLAnchorElement
   > = {
-    id: props.id,
-    href: props.href,
+    'id': props.id,
+    'href': props.href,
     target,
-    rel: target === '_blank' ? 'noopener noreferrer' : undefined,
-    className: buttonClass(props),
-    onClick: props.onClick,
-    onFocus: props.onFocus,
-    onBlur: props.onBlur,
+    'rel': target === '_blank' ? 'noopener noreferrer' : undefined,
+    'className': buttonClass(props),
+    'onClick': props.onClick,
+    'onFocus': props.onFocus,
+    'onBlur': props.onBlur,
     'aria-label': generateAriaLabel(props),
     ...getCustomProps(props),
   }

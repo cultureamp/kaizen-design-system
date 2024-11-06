@@ -55,12 +55,12 @@ type BaseRichTextEditorProps = {
 >
 
 type WithLabelText = {
-  labelText: ReactNode
+  'labelText': ReactNode
   'aria-labelledby'?: never
 }
 
 type WithLabelledBy = {
-  labelText?: never
+  'labelText'?: never
   'aria-labelledby': string
 }
 
@@ -124,7 +124,7 @@ export const RichTextEditor = ({
         }),
         {
           'aria-labelledby': labelId,
-          role: 'textbox',
+          'role': 'textbox',
           'aria-describedby': ariaDescribedBy,
         },
       )

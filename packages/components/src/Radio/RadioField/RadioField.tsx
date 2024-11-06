@@ -5,11 +5,11 @@ import { Radio, RadioProps } from '../Radio/Radio'
 import styles from './RadioField.module.scss'
 
 export type RadioFieldProps = Omit<RadioProps, 'id'> & {
-  id?: string
-  labelText: string | React.ReactNode
-  selectedStatus?: boolean
-  disabled?: boolean
-  reversed?: boolean
+  'id'?: string
+  'labelText': string | React.ReactNode
+  'selectedStatus'?: boolean
+  'disabled'?: boolean
+  'reversed'?: boolean
   'data-testid'?: string
 }
 

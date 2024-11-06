@@ -13,7 +13,7 @@ export const ListBoxSection = <Option extends SelectOption = SelectOption>({
   section,
 }: ListBoxSectionProps<Option>): JSX.Element => {
   const { itemProps, headingProps, groupProps } = useListBoxSection({
-    heading: section.rendered,
+    'heading': section.rendered,
     'aria-label': section['aria-label'],
   })
 

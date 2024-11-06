@@ -49,14 +49,14 @@ const meta = {
       control: {
         type: 'select',
         labels: {
-          None: 'undefined',
+          'None': 'undefined',
           'Partial Range': '{ from: new Date() }',
           'Complete Range':
             '{ from: new Date("2022-05-01"), to: new Date("2022-05-12") }',
         },
       },
       mapping: {
-        None: undefined,
+        'None': undefined,
         'Partial Range': { from: new Date() },
         'Complete Range': {
           from: new Date('2022-05-01'),

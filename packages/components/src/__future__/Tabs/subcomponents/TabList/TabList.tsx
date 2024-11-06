@@ -14,8 +14,8 @@ export type TabListProps = {
   /**
    * Removes the built in padding
    */
-  noPadding?: boolean
-  children: ReactNode
+  'noPadding'?: boolean
+  'children': ReactNode
 } & RACTabListProps<HTMLElement>
 
 /**

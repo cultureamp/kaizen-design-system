@@ -29,8 +29,8 @@ export const Playground: StoryObj<typeof meta> = {
 export const TriggerButtonProps: StoryObj<typeof meta> = {
   args: {
     triggerButtonProps: {
-      label: 'Ice cream flavour',
-      selectedValue: 'Vanilla',
+      'label': 'Ice cream flavour',
+      'selectedValue': 'Vanilla',
       'data-testid': 'testid__ice-cream-sandwich',
     },
   },
@@ -39,7 +39,7 @@ export const TriggerButtonProps: StoryObj<typeof meta> = {
 export const RemoveButtonProps: StoryObj<typeof meta> = {
   args: {
     removeButtonProps: {
-      tooltipText: 'Custom tooltip :)',
+      'tooltipText': 'Custom tooltip :)',
       'data-testid': 'testid__carrot-cake',
     },
   },

@@ -11,7 +11,7 @@ const meta = {
   args: {
     'aria-controls': 'my-rich-text-editor-id',
     'aria-label': 'Custom Super Toolbar',
-    children: (
+    'children': (
       <>
         <ToolbarSection>
           <ToggleIconButton

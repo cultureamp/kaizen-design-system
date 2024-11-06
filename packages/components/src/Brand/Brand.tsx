@@ -5,8 +5,8 @@ import { assetUrl } from '~components/utils/hostedAssets'
 import { BrandCollectiveIntelligence } from './BrandCollectiveIntelligence'
 import styles from './Brand.module.scss'
 
-type MeaningfulSVG = { role: 'img'; 'aria-label': string; alt?: never }
-type DecorativeSVG = { role: 'presentation'; 'aria-label'?: never; alt?: never }
+type MeaningfulSVG = { 'role': 'img'; 'aria-label': string; 'alt'?: never }
+type DecorativeSVG = { 'role': 'presentation'; 'aria-label'?: never; 'alt'?: never }
 export type BrandSVGProps = OverrideClassName<SVGAttributes<SVGElement>> &
   (MeaningfulSVG | DecorativeSVG)
 

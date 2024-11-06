@@ -6,8 +6,8 @@ const meta = {
   title: 'Components/MultiSelect/Checkbox',
   component: Checkbox,
   args: {
-    checkedStatus: 'unchecked',
-    readOnly: false,
+    'checkedStatus': 'unchecked',
+    'readOnly': false,
     'aria-label': 'Checkbox label',
   },
 } satisfies Meta<typeof Checkbox>

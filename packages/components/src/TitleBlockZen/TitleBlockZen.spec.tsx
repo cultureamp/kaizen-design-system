@@ -325,8 +325,8 @@ describe('<TitleBlockZen />', () => {
   describe('when the default action is a button with only an onClick', () => {
     const testOnClickFn = vi.fn()
     const defaultActionAsButton = {
-      label: 'defaultActionLabel',
-      onClick: testOnClickFn,
+      'label': 'defaultActionLabel',
+      'onClick': testOnClickFn,
       'data-testid': 'title-block-mobile-actions-default-action',
     }
 

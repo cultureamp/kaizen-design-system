@@ -136,8 +136,8 @@ const VARIANTS_PROPS: Array<{
     props: {
       // @ts-expect-error data attributes are valid
       'data-sb-pseudo-styles': 'focus',
-      variant: 'informative',
-      headingProps: {
+      'variant': 'informative',
+      'headingProps': {
         variant: 'heading-6',
         tag: 'span',
         children: 'Focused title',

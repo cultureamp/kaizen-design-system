@@ -4,12 +4,12 @@ import { OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './SVG.module.scss'
 
 type MeaningfulIcon = {
-  role: 'img'
+  'role': 'img'
   'aria-label': string
 }
 
 type DecorativeIcon = {
-  role: 'presentation'
+  'role': 'presentation'
   'aria-label'?: never
 }
 

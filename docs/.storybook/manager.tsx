@@ -6,15 +6,15 @@ import { tokens } from '@kaizen/design-tokens/src/js'
 import KaizenTheme from '../theme'
 
 const CATEGORIES_ICON: Record<string, string> = {
-  Introduction: '👋',
-  Guides: '📚',
-  Components: '⚙️',
-  Pages: '📖',
-  Helpers: '🤝',
+  'Introduction': '👋',
+  'Guides': '📚',
+  'Components': '⚙️',
+  'Pages': '📖',
+  'Helpers': '🤝',
   'Design Tokens': '🎨',
-  Deprecated: '💣',
-  Systems: '🤖',
-  AIO: '📦',
+  'Deprecated': '💣',
+  'Systems': '🤖',
+  'AIO': '📦',
 }
 
 const colors = tokens.color

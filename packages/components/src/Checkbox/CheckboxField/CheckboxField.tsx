@@ -5,12 +5,12 @@ import { Checkbox, CheckboxProps, CheckedStatus } from '../Checkbox/Checkbox'
 import styles from './CheckboxField.module.scss'
 
 export type CheckboxFieldProps = Omit<CheckboxProps, 'id'> & {
-  id?: string
-  labelText: string | React.ReactNode
-  checkedStatus?: CheckedStatus
-  disabled?: boolean
-  reversed?: boolean
-  noBottomMargin?: boolean
+  'id'?: string
+  'labelText': string | React.ReactNode
+  'checkedStatus'?: CheckedStatus
+  'disabled'?: boolean
+  'reversed'?: boolean
+  'noBottomMargin'?: boolean
   'data-testid'?: string
 }
 

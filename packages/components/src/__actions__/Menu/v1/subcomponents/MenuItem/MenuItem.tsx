@@ -3,26 +3,26 @@ import classnames from 'classnames'
 import styles from './MenuItem.module.scss'
 
 export type MenuItemProps = {
-  label: string
-  href?: string
+  'label': string
+  'href'?: string
   // Only applicable if href is supplied above
-  target?: string
-  onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
-  icon?: JSX.Element
-  destructive?: boolean
-  disabled?: boolean
+  'target'?: string
+  'onClick'?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
+  'icon'?: JSX.Element
+  'destructive'?: boolean
+  'disabled'?: boolean
   /**
    * @deprecated use data-testid
    */
-  automationId?: string
+  'automationId'?: string
   /**
    * Not recommended - this was added for use in exceptional cases like the navigation bar, which needs
    * to highlight which page the user is currently on. By design, Menus don't have active items,
    * because they are supposed to be a bunch of links/actions.
    */
-  isActive?: boolean
+  'isActive'?: boolean
   'data-testid'?: string
-  id?: string
+  'id'?: string
 }
 
 export const MenuItem = ({

@@ -34,11 +34,11 @@ export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
   const keys: KeyBinding = {
     'Mod-z': undo,
     'Shift-Mod-z': redo,
-    Backspace: undoInputRule,
+    'Backspace': undoInputRule,
     'Alt-ArrowUp': joinUp,
     'Alt-ArrowDown': joinDown,
     'Mod-BracketLeft': lift,
-    Escape: selectParentNode,
+    'Escape': selectParentNode,
   }
 
   if (!mac) {

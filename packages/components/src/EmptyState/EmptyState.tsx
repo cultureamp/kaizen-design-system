@@ -16,18 +16,18 @@ const ILLUSTRATIONS: Record<
   string,
   (props: AnimatedSceneProps) => JSX.Element
 > = {
-  success: EmptyStatesPositive,
-  warning: EmptyStatesNegative,
-  informative: EmptyStatesInformative,
+  'success': EmptyStatesPositive,
+  'warning': EmptyStatesNegative,
+  'informative': EmptyStatesInformative,
   'expert-advice': EmptyStatesNeutral,
   /** @deprecated Replaced by success */
-  positive: EmptyStatesPositive,
+  'positive': EmptyStatesPositive,
   /** @deprecated Replaced by expert-advice */
-  neutral: EmptyStatesNeutral,
+  'neutral': EmptyStatesNeutral,
   /** @deprecated Replaced by warning */
-  negative: EmptyStatesNegative,
+  'negative': EmptyStatesNegative,
   /** @deprecated Replaced by warning */
-  action: EmptyStatesNegative,
+  'action': EmptyStatesNegative,
 }
 
 export type EmptyStateProps = {

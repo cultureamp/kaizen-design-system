@@ -33,12 +33,12 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
     const defaultProps = {
-      selectedOptions: [],
+      'selectedOptions': [],
       'aria-labelledby': 'id--label',
       'aria-controls': 'id--popover',
-      onClick: () => undefined,
-      onRemoveOption: () => undefined,
-      onRemoveAllOptions: () => undefined,
+      'onClick': () => undefined,
+      'onRemoveOption': () => undefined,
+      'onRemoveAllOptions': () => undefined,
     } satisfies MultiSelectToggleProps
 
     return (

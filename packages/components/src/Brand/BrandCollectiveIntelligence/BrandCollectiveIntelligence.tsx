@@ -11,7 +11,7 @@ export const BrandCollectiveIntelligence = ({
   const props = {
     role,
     'aria-hidden': role === 'presentation' ? true : undefined,
-    className: classNameOverride,
+    'className': classNameOverride,
     ...restProps,
   }
 

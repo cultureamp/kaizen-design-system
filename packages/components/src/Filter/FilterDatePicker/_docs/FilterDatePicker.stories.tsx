@@ -212,8 +212,8 @@ export const ExtendInputProps: Story = {
   ...FilterDatePickerTemplate,
   args: {
     ...FilterDatePickerTemplate.args,
-    id: 'filterdp--extend-input-props',
-    label: 'Check the DOM for the inputs',
+    'id': 'filterdp--extend-input-props',
+    'label': 'Check the DOM for the inputs',
     // @ts-expect-error: Data-attributes are exempt when directly injected into a JSX.Element
     'data-testid': 'filterdp--input-testid',
   },

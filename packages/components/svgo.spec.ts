@@ -66,7 +66,7 @@ describe('replaceAttrKeys', () => {
       'stroke-linejoin': dummyLinejoin,
       'stroke-linecap': dummyLinecap,
       'clip-rule': dummyClipRule,
-      class: dummyClass,
+      'class': dummyClass,
     },
     children: [],
   }
