@@ -1,5 +1,4 @@
 import React, { forwardRef, useContext, useLayoutEffect, useState } from "react"
-import { VisuallyHidden } from "react-aria"
 import {
   Tooltip as RACTooltip,
   TooltipContext,
@@ -7,6 +6,7 @@ import {
   TooltipTriggerStateContext,
   useContextProps,
 } from "react-aria-components"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import { useReversedColors } from "~components/__utilities__/v3"
 import { mergeClassNames } from "~components/utils/mergeClassNames"
 import { OverlayArrow } from "./OverlayArrow"
