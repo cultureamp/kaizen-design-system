@@ -143,20 +143,6 @@ export const RACRenderPropsWithClassName: Story = {
     const button = canvas.getByRole("button")
     await button.focus()
   },
-  parameters: {
-    docs: {
-      source: {
-        code: `
-          <Button
-            {...otherArgs}
-            className={({ isFocusVisible }) => (isFocusVisible ? "!bg-gray-300" : "")}
-          >
-            {children}
-          </Button>
-      `,
-      },
-    },
-  },
 }
 
 export const ButtonWithForwardRef: Story = {

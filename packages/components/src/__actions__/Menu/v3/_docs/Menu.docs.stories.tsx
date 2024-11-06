@@ -211,7 +211,6 @@ export const MenuItemLabelsDont: Story = {
 export const SentenceCaseDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
       <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
         <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
@@ -229,7 +228,6 @@ export const SentenceCaseDo: Story = {
 export const SentenceCaseDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
       <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
         <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
@@ -247,7 +245,6 @@ export const SentenceCaseDont: Story = {
 export const ElipsesDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
       <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
         <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>
@@ -265,7 +262,6 @@ export const ElipsesDo: Story = {
 export const ElipsesDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
       <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
         <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>

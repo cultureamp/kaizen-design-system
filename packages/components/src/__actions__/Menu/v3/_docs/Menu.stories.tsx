@@ -26,7 +26,6 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: ({ defaultOpen: _, ...args }) => (
     <MenuTrigger {...args}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
       <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
         <VisuallyHidden>Additional actions</VisuallyHidden>
       </Button>

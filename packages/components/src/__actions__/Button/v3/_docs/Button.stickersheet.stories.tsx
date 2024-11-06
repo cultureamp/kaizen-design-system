@@ -26,19 +26,19 @@ const RowTemplate = ({
   isReversed?: boolean
 }): JSX.Element => (
   <>
-    {variants.map(buttonVariants =>
+    {variants.map(variant =>
       sizes.map(size => (
         <StickerSheet.Row
           key={size + variants}
           isReversed={isReversed}
-          rowTitle={`${buttonVariants} (${size})`}
+          rowTitle={`${variant} (${size})`}
         >
-          <Button variant={buttonVariants} size={size}>
+          <Button variant={variant} size={size}>
             Label
           </Button>
           <Button
             icon={<Icon name="add" isPresentational />}
-            variant={buttonVariants}
+            variant={variant}
             size={size}
           >
             Label
@@ -48,7 +48,7 @@ const RowTemplate = ({
               <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
             }
             iconPosition="end"
-            variant={buttonVariants}
+            variant={variant}
             size={size}
           >
             Label
@@ -58,7 +58,7 @@ const RowTemplate = ({
               <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
             }
             iconPosition="end"
-            variant={buttonVariants}
+            variant={variant}
             isPending
             pendingLabel="Submitting"
             size={size}
@@ -70,7 +70,7 @@ const RowTemplate = ({
               <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
             }
             iconPosition="end"
-            variant={buttonVariants}
+            variant={variant}
             size={size}
             isDisabled
           >
@@ -91,15 +91,15 @@ const IconButtonRowTemplate = ({
     {sizes.map(size => (
       <StickerSheet.Row
         isReversed={isReversed}
-        rowTitle={`${size}`}
+        rowTitle={size}
         key={size + variants}
       >
-        {variants.map((buttonVariants, key) => (
-          <span className="flex gap-8" key={key}>
+        {variants.map(variant => (
+          <span className="flex gap-8" key={variant}>
             <Button
               icon={<Icon name="delete" isPresentational />}
               size={size}
-              variant={buttonVariants}
+              variant={variant}
             >
               <VisuallyHidden>Label</VisuallyHidden>
             </Button>
@@ -109,7 +109,7 @@ const IconButtonRowTemplate = ({
               isPending
               isPendingLabelHidden
               pendingLabel="Submitting"
-              variant={buttonVariants}
+              variant={variant}
             >
               <VisuallyHidden>Label</VisuallyHidden>
             </Button>
@@ -159,28 +159,19 @@ const StickerSheetTemplate: StickerSheetStory = {
           verticalHeadingsWidth="12rem"
         />
         <StickerSheet.Body>
-          {variants.map(buttonVariants => (
+          {variants.map(variant => (
             <StickerSheet.Row
-              key={buttonVariants}
+              key={variant}
               isReversed={isReversed}
-              rowTitle={buttonVariants}
+              rowTitle={variant}
             >
-              <Button
-                data-testid="testid__button-hover"
-                variant={buttonVariants}
-              >
+              <Button data-testid="testid__button-hover" variant={variant}>
                 Label
               </Button>
-              <Button
-                data-testid="testid__button-focus"
-                variant={buttonVariants}
-              >
+              <Button data-testid="testid__button-focus" variant={variant}>
                 Label
               </Button>
-              <Button
-                data-testid="testid__button-pressed"
-                variant={buttonVariants}
-              >
+              <Button data-testid="testid__button-pressed" variant={variant}>
                 Label
               </Button>
             </StickerSheet.Row>
