@@ -409,7 +409,9 @@ export default tseslint.config(
       '@stylistic/quote-props': stylistic.configs['recommended-flat'].rules['@stylistic/quote-props'],
       '@stylistic/arrow-parens': stylistic.configs['recommended-flat'].rules['@stylistic/arrow-parens'],
       '@stylistic/member-delimiter-style': stylistic.configs['recommended-flat'].rules['@stylistic/member-delimiter-style'],
+      // Custom
       '@stylistic/jsx-one-expression-per-line': 'off',
+      '@stylistic/operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
       // "@stylistic/multiline-ternary": ["error", "always-multiline"],
       // "@stylistic/type-annotation-spacing": "error",
     },
