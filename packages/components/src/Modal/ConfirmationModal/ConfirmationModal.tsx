@@ -39,7 +39,7 @@ type BaseConfirmationModalProps = {
   onAfterLeave?: () => void
   confirmLabel?: string
   dismissLabel?: string
-  confirmWorking?: { label: string; labelHidden?: boolean }
+  confirmWorking?: { label: string, labelHidden?: boolean }
   /**
    * @deprecated Please use data-testid
    */

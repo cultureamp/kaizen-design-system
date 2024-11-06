@@ -25,7 +25,7 @@ const getKaioNamedImports = (
   return undefined
 }
 
-type ImportSpecifierNames = { tagName: string; originalName: string }
+type ImportSpecifierNames = { tagName: string, originalName: string }
 
 const getNamesFromSpecifier = (
   importSpecifier: ts.ImportSpecifier,

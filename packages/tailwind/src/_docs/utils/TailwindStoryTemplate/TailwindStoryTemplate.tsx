@@ -6,7 +6,7 @@ import { CodeSnippet } from './components/CodeSnippet'
 
 type Props = {
   compiledCssPropertyName: string
-  classKeyValues: Array<{ utilityClassName: string; cssProperty: string }>
+  classKeyValues: Array<{ utilityClassName: string, cssProperty: string }>
   renderExampleComponent: (utilityClass: string) => React.ReactElement
   isReversed?: boolean
 }

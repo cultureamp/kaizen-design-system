@@ -46,7 +46,7 @@ const variants = [
     title: 'Persistent',
     props: { variant: 'informative', persistent: true },
   },
-] satisfies Array<{ title: string; props: Partial<GlobalNotificationProps> }>
+] satisfies Array<{ title: string, props: Partial<GlobalNotificationProps> }>
 
 const types = [
   {
@@ -69,7 +69,7 @@ const types = [
     title: 'Security',
     props: { type: 'security' },
   },
-] satisfies Array<{ title: string; props: Partial<GlobalNotificationProps> }>
+] satisfies Array<{ title: string, props: Partial<GlobalNotificationProps> }>
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {

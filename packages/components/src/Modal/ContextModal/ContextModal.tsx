@@ -37,7 +37,7 @@ export type ContextModalProps = Readonly<
     /** A callback that is triggered after the modal is closed. */
     onAfterLeave?: () => void
     confirmLabel?: string
-    confirmWorking?: { label: string; labelHidden?: boolean }
+    confirmWorking?: { label: string, labelHidden?: boolean }
     /**
      * @deprecated use data-testid instead
      */

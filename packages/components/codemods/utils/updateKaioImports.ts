@@ -35,7 +35,7 @@ const removeNamedImports = (
   return node
 }
 
-type NewImportAttributes = { componentName: string; alias?: string }
+type NewImportAttributes = { componentName: string, alias?: string }
 type ImportsToAdd = Map<string, NewImportAttributes>
 
 const createImportDeclaration = (

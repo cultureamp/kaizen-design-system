@@ -60,7 +60,7 @@ const PROPS_COMPANY: CompanyAvatarProps = {
   isCompany: true,
 }
 
-const ROWS: Array<{ title: string; size: AvatarSizes }> = [
+const ROWS: Array<{ title: string, size: AvatarSizes }> = [
   { title: 'XX-Large', size: 'xxlarge' },
   { title: 'X-Large', size: 'xlarge' },
   { title: 'Large', size: 'large' },

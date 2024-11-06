@@ -18,7 +18,7 @@ const STATUS_ROWS = [
   { title: 'Unchecked', status: 'unchecked' },
   { title: 'Checked', status: 'checked' },
   { title: 'Indeterminate', status: 'indeterminate' },
-] satisfies Array<{ title: string; status: CheckedStatus }>
+] satisfies Array<{ title: string, status: CheckedStatus }>
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (

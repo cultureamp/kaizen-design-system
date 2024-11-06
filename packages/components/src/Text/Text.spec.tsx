@@ -33,7 +33,7 @@ describe('<Text />', () => {
   })
 
   describe('defaults to the correct HTML element', () => {
-    type TestObject = { variant: TextVariants; el: AllowedTextTags }
+    type TestObject = { variant: TextVariants, el: AllowedTextTags }
     const testCases: TestObject[] = [
       { variant: 'intro-lede', el: 'p' },
       { variant: 'body', el: 'p' },

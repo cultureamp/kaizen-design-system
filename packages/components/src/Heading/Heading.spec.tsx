@@ -22,7 +22,7 @@ describe('<Heading />', () => {
   })
 
   describe('defaults to the correct HTML element', () => {
-    type TestObject = { variant: HeadingVariants; el: AllowedHeadingTags }
+    type TestObject = { variant: HeadingVariants, el: AllowedHeadingTags }
     const testCases: TestObject[] = [
       { variant: 'display-0', el: 'h1' },
       { variant: 'heading-1', el: 'h1' },

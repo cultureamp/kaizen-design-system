@@ -45,7 +45,7 @@ const moods = [
     title: 'Cautionary',
     props: { mood: 'cautionary' },
   },
-] satisfies Array<{ title: string; props: Partial<ProgressBarProps> }>
+] satisfies Array<{ title: string, props: Partial<ProgressBarProps> }>
 
 const colors = [
   {
@@ -68,7 +68,7 @@ const colors = [
     title: 'Green (Animated)',
     props: { color: 'green', isAnimating: isNotChromatic },
   },
-] satisfies Array<{ title: string; props: Partial<ProgressBarProps> }>
+] satisfies Array<{ title: string, props: Partial<ProgressBarProps> }>
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed = false }) => {
