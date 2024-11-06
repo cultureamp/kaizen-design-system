@@ -38,9 +38,9 @@ export const createReactTooltipWrapper = (
   Component: ElementType,
   componentProps: LinkEditorProps,
 ): {
-  destroy: () => void
-  update: (props: LinkEditorProps) => void
-} => {
+    destroy: () => void
+    update: (props: LinkEditorProps) => void
+  } => {
   const emitter = new Nanobus()
   const container = document.createElement('div')
   parentNode.appendChild(container)

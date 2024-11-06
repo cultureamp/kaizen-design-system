@@ -5,16 +5,16 @@ import { transformCaMonogramIconToBrand } from './transformCaMonogramIconToBrand
 
 export const mockedTransformer =
   (alias?: string) =>
-  (context: ts.TransformationContext) =>
-  (rootNode: ts.Node): ts.Node => {
-    const visit = (node: ts.Node): ts.Node => {
-      if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-        return transformCaMonogramIconToBrand(node, alias)
+    (context: ts.TransformationContext) =>
+      (rootNode: ts.Node): ts.Node => {
+        const visit = (node: ts.Node): ts.Node => {
+          if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
+            return transformCaMonogramIconToBrand(node, alias)
+          }
+          return ts.visitEachChild(node, visit, context)
+        }
+        return ts.visitNode(rootNode, visit)
       }
-      return ts.visitEachChild(node, visit, context)
-    }
-    return ts.visitNode(rootNode, visit)
-  }
 
 const transformInput = (sourceFile: ts.SourceFile, alias?: string): string => {
   const result = ts.transform(sourceFile, [mockedTransformer(alias)])

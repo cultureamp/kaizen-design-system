@@ -10,7 +10,7 @@ export type SceneProps = {
 type BaseAnimatedSceneProps = {
   isAnimated?: boolean
 } & SceneProps &
-  Pick<VideoPlayerProps, 'autoplay' | 'loop'>
+Pick<VideoPlayerProps, 'autoplay' | 'loop'>
 
 type AnimatedProps = {
   isAnimated: true

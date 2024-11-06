@@ -31,19 +31,19 @@ type ControlGroupTypes = {
 /** Chains multiple commands to dispatch each transitions in sequential order */
 const chainTransactions =
   (...commands: ProseMirrorState.Command[]): ProseMirrorState.Command =>
-  (state, dispatch): boolean => {
-    const updateStateAndDispatch = (tr: ProseMirrorState.Transaction): void => {
-      state = state.apply(tr)
-      dispatch?.(tr)
-    }
-    const lastCommand = commands.pop()
+    (state, dispatch): boolean => {
+      const updateStateAndDispatch = (tr: ProseMirrorState.Transaction): void => {
+        state = state.apply(tr)
+        dispatch?.(tr)
+      }
+      const lastCommand = commands.pop()
 
-    for (const command of commands) {
-      command(state, updateStateAndDispatch)
-    }
+      for (const command of commands) {
+        command(state, updateStateAndDispatch)
+      }
 
-    return lastCommand !== undefined && lastCommand(state, dispatch)
-  }
+      return lastCommand !== undefined && lastCommand(state, dispatch)
+    }
 
 /** Dispatches a transaction to create initial p tag required for pm commands */
 const createInitialParagraph = (
@@ -62,32 +62,32 @@ const createInitialParagraph = (
 /** Create command for toggling Marks */
 const createToggleMarkCommand =
   (mark: ProseMirrorModel.MarkType): ProseMirrorState.Command =>
-  (state, dispatch) => {
-    const docIsEmpty = state.doc.content.size === 0
+    (state, dispatch) => {
+      const docIsEmpty = state.doc.content.size === 0
 
-    if (docIsEmpty) {
-      return chainTransactions(
-        createInitialParagraph,
-        ProseMirrorCommands.toggleMark(mark),
-      )(state, dispatch)
+      if (docIsEmpty) {
+        return chainTransactions(
+          createInitialParagraph,
+          ProseMirrorCommands.toggleMark(mark),
+        )(state, dispatch)
+      }
+      return ProseMirrorCommands.toggleMark(mark)(state, dispatch)
     }
-    return ProseMirrorCommands.toggleMark(mark)(state, dispatch)
-  }
 
 /** Create command for toggling Lists */
 const createToggleListCommand =
   (node: ProseMirrorModel.NodeType): ProseMirrorState.Command =>
-  (state, dispatch) => {
-    const docIsEmpty = state.doc.content.size === 0
+    (state, dispatch) => {
+      const docIsEmpty = state.doc.content.size === 0
 
-    if (docIsEmpty) {
-      return chainTransactions(
-        createInitialParagraph,
-        ProseMirrorSchemaList.wrapInList(node),
-      )(state, dispatch)
+      if (docIsEmpty) {
+        return chainTransactions(
+          createInitialParagraph,
+          ProseMirrorSchemaList.wrapInList(node),
+        )(state, dispatch)
+      }
+      return ProseMirrorSchemaList.wrapInList(node)(state, dispatch)
     }
-    return ProseMirrorSchemaList.wrapInList(node)(state, dispatch)
-  }
 
 /** Create command for reducing indents in a List */
 const createLiftListCommand =

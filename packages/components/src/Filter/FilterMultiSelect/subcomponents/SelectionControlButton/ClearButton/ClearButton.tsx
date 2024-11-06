@@ -13,8 +13,8 @@ export const ClearButton = (): JSX.Element => {
   const isDisabled =
     filteredOptions.length === 0 ||
     !filteredOptions.find(key =>
-        selectionState.selectionManager.isSelected(key),
-      )
+      selectionState.selectionManager.isSelected(key),
+    )
 
   return (
     <button

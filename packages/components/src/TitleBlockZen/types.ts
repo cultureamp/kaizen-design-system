@@ -71,8 +71,8 @@ export type TitleBlockProps = {
 export type PrimaryActionProps =
   | (TitleBlockMenuGroup & { badge?: TitleBlockBadgeProps })
   | ((TitleBlockButtonProps | TitleBlockCustomButtonProps) & {
-      badge?: TitleBlockBadgeProps
-    })
+    badge?: TitleBlockBadgeProps
+  })
 
 /**
  * ### SecondaryActionsProps
@@ -104,9 +104,9 @@ export type SecondaryActionsProps = SecondaryActionItemProps[]
 export type SecondaryActionItemProps =
   | TitleBlockMenuGroup
   | (
-      | ButtonWithHrefNotOnClick
-      | ButtonWithOnClickNotHref
-      | TitleBlockCustomButtonProps
+    | ButtonWithHrefNotOnClick
+    | ButtonWithOnClickNotHref
+    | TitleBlockCustomButtonProps
     )
 
 export type TitleBlockBadgeProps = {

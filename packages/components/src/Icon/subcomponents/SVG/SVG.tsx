@@ -16,7 +16,7 @@ type DecorativeIcon = {
 export type BaseSVGProps = {
   inheritSize?: boolean
 } & OverrideClassName<SVGAttributes<SVGElement>> &
-  (MeaningfulIcon | DecorativeIcon)
+(MeaningfulIcon | DecorativeIcon)
 
 export type SVGProps = BaseSVGProps & {
   children: ReactNode

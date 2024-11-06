@@ -13,13 +13,13 @@ import styles from './ContextModal.module.scss'
 
 export type ContextModalSecondaryActionProps =
   | {
-      secondaryLabel: string
-      onSecondaryAction: () => void
-    }
+    secondaryLabel: string
+    onSecondaryAction: () => void
+  }
   | {
-      secondaryLabel?: undefined
-      onSecondaryAction?: never
-    }
+    secondaryLabel?: undefined
+    onSecondaryAction?: never
+  }
 
 export type ContextModalProps = Readonly<
   {
@@ -47,7 +47,7 @@ export type ContextModalProps = Readonly<
     children: React.ReactNode
     contentHeader?: React.ReactNode
   } & ContextModalSecondaryActionProps &
-    HTMLAttributes<HTMLDivElement>
+  HTMLAttributes<HTMLDivElement>
 >
 
 /**

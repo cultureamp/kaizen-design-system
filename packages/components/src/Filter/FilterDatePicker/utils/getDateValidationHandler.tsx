@@ -17,25 +17,25 @@ export const getDateValidationHandler =
     setInbuiltValidationMessage,
     inputLabel,
   }: GetDateValidationHandlerArgs) =>
-  (validationResponse: DateValidationResponse): void => {
-    if (onValidate) return onValidate(validationResponse)
+    (validationResponse: DateValidationResponse): void => {
+      if (onValidate) return onValidate(validationResponse)
 
-    const { validationMessage } = validationResponse
+      const { validationMessage } = validationResponse
 
-    if (!validationMessage) {
-      setInbuiltValidationMessage(undefined)
-      return
+      if (!validationMessage) {
+        setInbuiltValidationMessage(undefined)
+        return
+      }
+
+      setInbuiltValidationMessage({
+        status: validationMessage.status,
+        message: inputLabel ? (
+          <LabelledMessage
+            label={`${getNodeText(inputLabel)}`}
+            message={validationMessage.message}
+          />
+        ) : (
+          validationMessage.message
+        ),
+      })
     }
-
-    setInbuiltValidationMessage({
-      status: validationMessage.status,
-      message: inputLabel ? (
-        <LabelledMessage
-          label={`${getNodeText(inputLabel)}`}
-          message={validationMessage.message}
-        />
-      ) : (
-        validationMessage.message
-      ),
-    })
-  }

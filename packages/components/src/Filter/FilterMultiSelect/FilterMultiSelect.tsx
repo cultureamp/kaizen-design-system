@@ -44,8 +44,8 @@ export type FilterMultiSelectProps = {
   triggerRef?: React.RefObject<HTMLButtonElement>
   className?: string
 } & Omit<MenuPopupProps, 'children'> &
-  Omit<MenuTriggerProviderProps, 'children'> &
-  SelectionProps
+Omit<MenuTriggerProviderProps, 'children'> &
+SelectionProps
 
 export const FilterMultiSelect = ({
   trigger,

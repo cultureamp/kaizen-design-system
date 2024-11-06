@@ -21,74 +21,74 @@ const reverseStringMap = <Key extends string, Value extends string>(
 
 export const upgradeIconV1 =
   (context: ts.TransformationContext, tagNames: ImportModuleNameTagsMap) =>
-  (rootNode: ts.Node): ts.Node => {
-    const oldImportSource = '@kaizen/components'
+    (rootNode: ts.Node): ts.Node => {
+      const oldImportSource = '@kaizen/components'
 
-    const kaioTagNames = tagNames.get(oldImportSource)
-    if (!kaioTagNames) return rootNode
+      const kaioTagNames = tagNames.get(oldImportSource)
+      if (!kaioTagNames) return rootNode
 
-    const componentToAliasMap = reverseStringMap(kaioTagNames)
-    const importsToRemove =
+      const componentToAliasMap = reverseStringMap(kaioTagNames)
+      const importsToRemove =
       new Map() satisfies UpdateKaioImportsArgs['importsToRemove']
-    const importsToAdd =
+      const importsToAdd =
       new Map() satisfies UpdateKaioImportsArgs['importsToAdd']
 
-    const visit = (node: ts.Node): ts.Node => {
-      if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-        const tagName = node.tagName.getText()
-        const kaioComponentName = kaioTagNames.get(tagName)
+      const visit = (node: ts.Node): ts.Node => {
+        if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
+          const tagName = node.tagName.getText()
+          const kaioComponentName = kaioTagNames.get(tagName)
 
-        if (kaioComponentName === 'CaMonogramIcon') {
-          setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
-          const alias = componentToAliasMap.get('Brand') as string
+          if (kaioComponentName === 'CaMonogramIcon') {
+            setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
+            const alias = componentToAliasMap.get('Brand') as string
 
-          if (!kaioTagNames.has(alias)) {
-            setImportToAdd(importsToAdd, '@kaizen/components', {
-              componentName: 'Brand',
-              alias: alias !== 'Brand' ? alias : undefined,
-            })
+            if (!kaioTagNames.has(alias)) {
+              setImportToAdd(importsToAdd, '@kaizen/components', {
+                componentName: 'Brand',
+                alias: alias !== 'Brand' ? alias : undefined,
+              })
+            }
+            return transformCaMonogramIconToBrand(node, alias)
           }
-          return transformCaMonogramIconToBrand(node, alias)
-        }
 
-        if (kaioComponentName === 'SpinnerIcon') {
-          setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
-          const alias = componentToAliasMap.get('LoadingSpinner') as string
+          if (kaioComponentName === 'SpinnerIcon') {
+            setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
+            const alias = componentToAliasMap.get('LoadingSpinner') as string
 
-          if (!kaioTagNames.has(alias)) {
-            setImportToAdd(importsToAdd, '@kaizen/components', {
-              componentName: 'LoadingSpinner',
-              alias: alias !== 'LoadingSpinner' ? alias : undefined,
-            })
+            if (!kaioTagNames.has(alias)) {
+              setImportToAdd(importsToAdd, '@kaizen/components', {
+                componentName: 'LoadingSpinner',
+                alias: alias !== 'LoadingSpinner' ? alias : undefined,
+              })
+            }
+            return transformSpinnerIconToLoadingSpinner(node, alias)
           }
-          return transformSpinnerIconToLoadingSpinner(node, alias)
-        }
 
-        if (kaioComponentName) {
-          const newIconProps = getNewIconPropsFromOldIconName(kaioComponentName)
-          if (newIconProps === undefined) {
+          if (kaioComponentName) {
+            const newIconProps = getNewIconPropsFromOldIconName(kaioComponentName)
+            if (newIconProps === undefined) {
             // eslint-disable-next-line no-console
-            console.info(
-              'SKIPPED - No new icon equivalent found for',
-              node.tagName.getText(),
-            )
-            return node
+              console.info(
+                'SKIPPED - No new icon equivalent found for',
+                node.tagName.getText(),
+              )
+              return node
+            }
+
+            setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
+            setImportToAdd(importsToAdd, '@kaizen/components/future', {
+              componentName: 'Icon',
+            })
+
+            return transformIcon(node, newIconProps.name, newIconProps.isFilled)
           }
-
-          setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
-          setImportToAdd(importsToAdd, '@kaizen/components/future', {
-            componentName: 'Icon',
-          })
-
-          return transformIcon(node, newIconProps.name, newIconProps.isFilled)
         }
+        return ts.visitEachChild(node, visit, context)
       }
-      return ts.visitEachChild(node, visit, context)
-    }
-    const node = ts.visitNode(rootNode, visit)
+      const node = ts.visitNode(rootNode, visit)
 
-    return updateKaioImports({
-      importsToRemove: importsToRemove.size > 0 ? importsToRemove : undefined,
-      importsToAdd: importsToAdd.size > 0 ? importsToAdd : undefined,
-    })(context)(node)
-  }
+      return updateKaioImports({
+        importsToRemove: importsToRemove.size > 0 ? importsToRemove : undefined,
+        importsToAdd: importsToAdd.size > 0 ? importsToAdd : undefined,
+      })(context)(node)
+    }

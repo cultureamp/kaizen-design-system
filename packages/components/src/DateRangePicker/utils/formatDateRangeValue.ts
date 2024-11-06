@@ -18,9 +18,9 @@ export const formatDateRangeValue = (dateRange: DateRange): string => {
 
     const from = isSameYear
       ? dateRange.from?.toLocaleDateString(
-          'en-US',
-          dateWithoutYearFormatOptions,
-        )
+        'en-US',
+        dateWithoutYearFormatOptions,
+      )
       : dateRange.from?.toLocaleDateString('en-US', dateFormatOptions)
 
     const to = dateRange.to.toLocaleDateString('en-US', dateFormatOptions)

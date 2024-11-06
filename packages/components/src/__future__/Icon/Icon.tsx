@@ -18,7 +18,7 @@ type MeaningfulIcon = {
 type BaseIconProps = {
   isFilled?: boolean
 } & HTMLAttributes<HTMLSpanElement> &
-  (PresentationalIcon | MeaningfulIcon)
+(PresentationalIcon | MeaningfulIcon)
 
 type MaterialIconProps = BaseIconProps & {
   children: React.ReactNode

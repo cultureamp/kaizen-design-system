@@ -96,7 +96,7 @@ export type TableHeaderRowCellProps = {
   when the header cell is hovered over. */
   sortingArrowsOnHover?: 'ascending' | 'descending' | undefined
 } & TableHeaderRowCellCheckboxProps &
-  OverrideClassName<HTMLAttributes<HTMLElement>>
+OverrideClassName<HTMLAttributes<HTMLElement>>
 
 export const TableHeaderRowCell = ({
   labelText,
@@ -318,7 +318,7 @@ export const TableCard = ({
     expanded && styles.expanded,
     expanded && styles[expandedStyle],
     (forceHoverState || onClick != null || href != null) &&
-      styles.hasHoverState,
+    styles.hasHoverState,
     classNameOverride,
   )
   return href != null ? (

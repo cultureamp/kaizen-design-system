@@ -2,18 +2,18 @@ import { isInvalidDate } from '~components/Calendar'
 
 type DateFieldActions =
   | {
-      type: 'update_selected_date'
-      date: Date | undefined
-      inputValue?: string
-    }
+    type: 'update_selected_date'
+    date: Date | undefined
+    inputValue?: string
+  }
   | {
-      type: 'navigate_months'
-      date: Date | undefined
-    }
+    type: 'navigate_months'
+    date: Date | undefined
+  }
   | {
-      type: 'update_input_field'
-      inputValue: string
-    }
+    type: 'update_input_field'
+    inputValue: string
+  }
 
 type FilterDatePickerState = {
   selectedDate: Date | undefined

@@ -37,24 +37,24 @@ export const Playground: Story = {
 
     const onCheckHandler =
       (id: string): ChangeEventHandler<HTMLInputElement> =>
-      () => {
-        if (checkedStatus[id] === 'off') {
-          setCheckedStatus({
-            ...checkedStatus,
-            [id]: 'mixed',
-          })
-        } else if (checkedStatus[id] === 'mixed') {
-          setCheckedStatus({
-            ...checkedStatus,
-            [id]: 'on',
-          })
-        } else if (checkedStatus[id] === 'on') {
-          setCheckedStatus({
-            ...checkedStatus,
-            [id]: 'off',
-          })
+        () => {
+          if (checkedStatus[id] === 'off') {
+            setCheckedStatus({
+              ...checkedStatus,
+              [id]: 'mixed',
+            })
+          } else if (checkedStatus[id] === 'mixed') {
+            setCheckedStatus({
+              ...checkedStatus,
+              [id]: 'on',
+            })
+          } else if (checkedStatus[id] === 'on') {
+            setCheckedStatus({
+              ...checkedStatus,
+              [id]: 'off',
+            })
+          }
         }
-      }
 
     return (
       <CheckboxGroup {...args}>

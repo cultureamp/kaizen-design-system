@@ -6,34 +6,34 @@ import { TransformConfig, transformSource } from './transformSource'
 
 export const mockedTransformer =
   (context: ts.TransformationContext) =>
-  (rootNode: ts.Node): ts.Node => {
-    function visit(node: ts.Node): ts.Node {
-      if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-        if (node.tagName.getText() === 'Pancakes') {
-          const newAttributes = node.attributes.properties.map((attr) => {
-            if (ts.isJsxAttribute(attr) && attr.name.getText() === 'topping') {
-              return ts.factory.updateJsxAttribute(
-                attr,
-                attr.name,
-                ts.factory.createStringLiteral('jam'),
+    (rootNode: ts.Node): ts.Node => {
+      function visit(node: ts.Node): ts.Node {
+        if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
+          if (node.tagName.getText() === 'Pancakes') {
+            const newAttributes = node.attributes.properties.map((attr) => {
+              if (ts.isJsxAttribute(attr) && attr.name.getText() === 'topping') {
+                return ts.factory.updateJsxAttribute(
+                  attr,
+                  attr.name,
+                  ts.factory.createStringLiteral('jam'),
+                )
+              }
+              return attr
+            })
+            if (ts.isJsxSelfClosingElement(node)) {
+              return ts.factory.updateJsxSelfClosingElement(
+                node,
+                node.tagName,
+                node.typeArguments,
+                ts.factory.createJsxAttributes(newAttributes),
               )
             }
-            return attr
-          })
-          if (ts.isJsxSelfClosingElement(node)) {
-            return ts.factory.updateJsxSelfClosingElement(
-              node,
-              node.tagName,
-              node.typeArguments,
-              ts.factory.createJsxAttributes(newAttributes),
-            )
           }
         }
+        return ts.visitEachChild(node, visit, context)
       }
-      return ts.visitEachChild(node, visit, context)
+      return ts.visitNode(rootNode, visit)
     }
-    return ts.visitNode(rootNode, visit)
-  }
 
 describe('transformSource', () => {
   it('updates the value of Pancakes topping to jam', () => {

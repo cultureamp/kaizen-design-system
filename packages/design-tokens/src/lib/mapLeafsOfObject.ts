@@ -36,9 +36,9 @@ export function mapLeafsOfObject<
       value: unknown,
     ):
       | {
-          [x: string]: unknown
-          [x: number]: unknown
-        }
+        [x: string]: unknown
+        [x: number]: unknown
+      }
       | Value => {
       const pathToKey = [...currentPath, key]
       if (typeof value === 'object' && value !== null && value !== undefined) {

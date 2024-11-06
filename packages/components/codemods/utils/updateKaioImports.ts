@@ -119,90 +119,90 @@ export type UpdateKaioImportsArgs = {
 
 export const updateKaioImports =
   ({ importsToRemove, importsToAdd }: UpdateKaioImportsArgs) =>
-  (context: ts.TransformationContext) =>
-  (rootNode: ts.Node): ts.Node => {
-    if (!ts.isSourceFile(rootNode)) return rootNode
+    (context: ts.TransformationContext) =>
+      (rootNode: ts.Node): ts.Node => {
+        if (!ts.isSourceFile(rootNode)) return rootNode
 
-    if (!importsToRemove && !importsToAdd) return rootNode
+        if (!importsToRemove && !importsToAdd) return rootNode
 
-    const { factory } = context
+        const { factory } = context
 
-    const statements = Array.from(rootNode.statements)
+        const statements = Array.from(rootNode.statements)
 
-    if (importsToRemove) {
-      Array.from(importsToRemove.keys()).forEach((moduleSpecifier) => {
-        const importIndex = statements.findIndex(
-          s =>
-            ts.isImportDeclaration(s) &&
-            (s.moduleSpecifier as ts.StringLiteral).text === moduleSpecifier,
-        )
+        if (importsToRemove) {
+          Array.from(importsToRemove.keys()).forEach((moduleSpecifier) => {
+            const importIndex = statements.findIndex(
+              s =>
+                ts.isImportDeclaration(s) &&
+                (s.moduleSpecifier as ts.StringLiteral).text === moduleSpecifier,
+            )
 
-        if (importIndex === -1) return
+            if (importIndex === -1) return
 
-        const importDeclaration = statements[
-          importIndex
-        ] as ts.ImportDeclaration
+            const importDeclaration = statements[
+              importIndex
+            ] as ts.ImportDeclaration
 
-        const updatedImportDeclaration = removeNamedImports(
-          factory,
-          importDeclaration,
-          importsToRemove.get(moduleSpecifier)!,
-        )
+            const updatedImportDeclaration = removeNamedImports(
+              factory,
+              importDeclaration,
+              importsToRemove.get(moduleSpecifier)!,
+            )
 
-        if (updatedImportDeclaration === null) {
-          // Remove import statement as there are no more imports
-          statements.splice(importIndex, 1)
-          return
+            if (updatedImportDeclaration === null) {
+              // Remove import statement as there are no more imports
+              statements.splice(importIndex, 1)
+              return
+            }
+
+            // Update import statement
+            statements[importIndex] = updatedImportDeclaration
+          })
         }
 
-        // Update import statement
-        statements[importIndex] = updatedImportDeclaration
-      })
-    }
+        if (importsToAdd) {
+          Array.from(importsToAdd.keys()).forEach((newModuleSpecifier) => {
+            const importIndex = statements.findIndex(
+              s =>
+                ts.isImportDeclaration(s) &&
+                (s.moduleSpecifier as ts.StringLiteral).text === newModuleSpecifier,
+            )
 
-    if (importsToAdd) {
-      Array.from(importsToAdd.keys()).forEach((newModuleSpecifier) => {
-        const importIndex = statements.findIndex(
-          s =>
-            ts.isImportDeclaration(s) &&
-            (s.moduleSpecifier as ts.StringLiteral).text === newModuleSpecifier,
-        )
+            if (importIndex === -1) {
+              const fallbackKaioImportIdx = statements.findIndex(
+                s =>
+                  ts.isImportDeclaration(s) &&
+                  (s.moduleSpecifier as ts.StringLiteral).text.includes(
+                    '@kaizen/components',
+                  ),
+              )
 
-        if (importIndex === -1) {
-          const fallbackKaioImportIdx = statements.findIndex(
-            s =>
-              ts.isImportDeclaration(s) &&
-              (s.moduleSpecifier as ts.StringLiteral).text.includes(
-                '@kaizen/components',
-              ),
-          )
+              const newImport = createImportDeclaration(
+                factory,
+                importsToAdd.get(newModuleSpecifier)!,
+                newModuleSpecifier,
+              )
+              statements.splice(fallbackKaioImportIdx + 1, 0, newImport)
+              return
+            }
 
-          const newImport = createImportDeclaration(
-            factory,
-            importsToAdd.get(newModuleSpecifier)!,
-            newModuleSpecifier,
-          )
-          statements.splice(fallbackKaioImportIdx + 1, 0, newImport)
-          return
+            const importDeclaration = statements[
+              importIndex
+            ] as ts.ImportDeclaration
+
+            const updatedImportDeclaration = updateNamedImports(
+              factory,
+              importDeclaration,
+              importsToAdd.get(newModuleSpecifier)!,
+            )
+
+            // Update import statement
+            statements[importIndex] = updatedImportDeclaration
+          })
         }
 
-        const importDeclaration = statements[
-          importIndex
-        ] as ts.ImportDeclaration
-
-        const updatedImportDeclaration = updateNamedImports(
-          factory,
-          importDeclaration,
-          importsToAdd.get(newModuleSpecifier)!,
-        )
-
-        // Update import statement
-        statements[importIndex] = updatedImportDeclaration
-      })
-    }
-
-    return factory.updateSourceFile(rootNode, statements)
-  }
+        return factory.updateSourceFile(rootNode, statements)
+      }
 
 /* Transformer helpers to generate `importsToRemove` and `importsToAdd` for `updateKaioImports` */
 export const setImportToRemove = (

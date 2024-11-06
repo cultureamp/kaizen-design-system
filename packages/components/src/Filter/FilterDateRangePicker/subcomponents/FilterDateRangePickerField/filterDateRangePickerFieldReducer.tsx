@@ -2,27 +2,27 @@ import { isInvalidDate } from '~components/Calendar'
 
 type DateRangeFieldActions =
   | {
-      type: 'update_selected_start_date'
-      date: Date | undefined
-      inputValue?: string
-    }
+    type: 'update_selected_start_date'
+    date: Date | undefined
+    inputValue?: string
+  }
   | {
-      type: 'update_selected_end_date'
-      date: Date | undefined
-      inputValue?: string
-    }
+    type: 'update_selected_end_date'
+    date: Date | undefined
+    inputValue?: string
+  }
   | {
-      type: 'navigate_months'
-      date: Date | undefined
-    }
+    type: 'navigate_months'
+    date: Date | undefined
+  }
   | {
-      type: 'update_input_start_field'
-      inputValue: string
-    }
+    type: 'update_input_start_field'
+    inputValue: string
+  }
   | {
-      type: 'update_input_end_field'
-      inputValue: string
-    }
+    type: 'update_input_end_field'
+    inputValue: string
+  }
 
 type FilterDateRangePickerState = {
   selectedStartDate: Date | undefined

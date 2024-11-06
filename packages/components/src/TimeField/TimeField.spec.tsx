@@ -11,10 +11,10 @@ const LABEL = 'Launch Time Label'
 
 const pressArrowKey =
   (direction: 'ArrowUp' | 'ArrowDown') =>
-  async (element: HTMLElement): Promise<void> => {
-    await user.click(element)
-    await user.keyboard(`{${direction}}`)
-  }
+    async (element: HTMLElement): Promise<void> => {
+      await user.click(element)
+      await user.keyboard(`{${direction}}`)
+    }
 
 const pressArrowUpKey = pressArrowKey('ArrowUp')
 const pressArrowDownKey = pressArrowKey('ArrowDown')

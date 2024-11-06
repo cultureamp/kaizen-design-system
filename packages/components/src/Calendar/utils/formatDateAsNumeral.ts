@@ -6,5 +6,5 @@ export const formatDateAsNumeral = (date: Date, locale: Locale): string =>
   isInvalidDate(date)
     ? ''
     : format(date, DateFormat.Numeral, {
-        locale,
-      })
+      locale,
+    })

@@ -76,7 +76,7 @@ export type DatePickerProps = {
    */
   validationMessage?: DateInputFieldProps['validationMessage'] | undefined
 } & DisabledDayMatchers &
-  Omit<DateInputFieldProps, OmittedDateInputFieldProps>
+Omit<DateInputFieldProps, OmittedDateInputFieldProps>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082061174/Date+Picker Guidance} |

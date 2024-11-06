@@ -6,17 +6,17 @@ import { transformIcon } from './transformIcon'
 
 export const mockedTransformer =
   (context: ts.TransformationContext) =>
-  (rootNode: ts.Node): ts.Node => {
-    const visit = (node: ts.Node): ts.Node => {
-      if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-        const oldIconName = node.tagName.getText()
-        const newIconProps = getNewIconPropsFromOldIconName(oldIconName)
-        return transformIcon(node, newIconProps!.name, newIconProps!.isFilled)
+    (rootNode: ts.Node): ts.Node => {
+      const visit = (node: ts.Node): ts.Node => {
+        if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
+          const oldIconName = node.tagName.getText()
+          const newIconProps = getNewIconPropsFromOldIconName(oldIconName)
+          return transformIcon(node, newIconProps!.name, newIconProps!.isFilled)
+        }
+        return ts.visitEachChild(node, visit, context)
       }
-      return ts.visitEachChild(node, visit, context)
+      return ts.visitNode(rootNode, visit)
     }
-    return ts.visitNode(rootNode, visit)
-  }
 
 const transformInput = (sourceFile: ts.SourceFile): string => {
   const result = ts.transform(sourceFile, [mockedTransformer])

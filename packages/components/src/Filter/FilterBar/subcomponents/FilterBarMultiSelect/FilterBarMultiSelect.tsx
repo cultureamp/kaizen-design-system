@@ -105,9 +105,9 @@ export const FilterBarMultiSelect = ({
         const triggerProps = {
           selectedOptionLabels: filterState.value
             ? getSelectedOptionLabels(
-                convertConsumableFormatIntoSelection(filterState.value),
-                items,
-              )
+              convertConsumableFormatIntoSelection(filterState.value),
+              items,
+            )
             : [],
           label: filterState.name,
         }

@@ -6,7 +6,7 @@ import styles from './Focusable.module.scss'
 export type FocusableProps = {
   children: ReactNode
 } & FocusableOptions &
-  HTMLAttributes<HTMLDivElement>
+HTMLAttributes<HTMLDivElement>
 
 export const Focusable = ({
   children,

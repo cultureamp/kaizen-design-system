@@ -230,12 +230,12 @@ function getPlugins(
 ): Array<
   | ProseMirrorState.Plugin<unknown>
   | ProseMirrorState.Plugin<{
-      transform: ProseMirrorState.Transaction
-      from: number
-      to: number
-      text: string
-    } | null>
-> {
+    transform: ProseMirrorState.Transaction
+    from: number
+    to: number
+    text: string
+  } | null>
+  > {
   const allControlNames: string[] = controls
     ? controls.reduce((acc: string[], c: ToolbarItems) => [...acc, c.name], [])
     : []

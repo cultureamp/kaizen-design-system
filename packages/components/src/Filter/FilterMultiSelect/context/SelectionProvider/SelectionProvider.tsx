@@ -56,8 +56,8 @@ export const SelectionProvider = (
     (nodes: Iterable<MultiSelectItem>): Iterable<MultiSelectItem> =>
       searchQuery
         ? Array.from(nodes).filter(f =>
-            f.textValue.toLowerCase().includes(searchQuery.toLowerCase()),
-          )
+          f.textValue.toLowerCase().includes(searchQuery.toLowerCase()),
+        )
         : nodes,
     [searchQuery],
   )

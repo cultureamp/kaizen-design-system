@@ -5,11 +5,11 @@ import { printAst } from '.'
 
 const transformInput =
   (sourceFile: ts.SourceFile) =>
-  (imports: UpdateKaioImportsArgs): string => {
-    const result = ts.transform(sourceFile, [updateKaioImports(imports)])
-    const transformedSource = result.transformed[0] as ts.SourceFile
-    return printAst(transformedSource)
-  }
+    (imports: UpdateKaioImportsArgs): string => {
+      const result = ts.transform(sourceFile, [updateKaioImports(imports)])
+      const transformedSource = result.transformed[0] as ts.SourceFile
+      return printAst(transformedSource)
+    }
 
 describe('updateKaioImports()', () => {
   describe('remove imports', () => {

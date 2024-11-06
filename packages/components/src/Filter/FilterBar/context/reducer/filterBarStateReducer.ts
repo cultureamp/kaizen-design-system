@@ -8,10 +8,10 @@ type Actions<ValuesMap extends FiltersValues> =
   | { type: 'update_values', values: Partial<ValuesMap> }
   | { type: 'complete_update_values' }
   | {
-      type: 'update_single_filter'
-      id: keyof ValuesMap
-      data: Partial<FilterStateEditableAttributes>
-    }
+    type: 'update_single_filter'
+    id: keyof ValuesMap
+    data: Partial<FilterStateEditableAttributes>
+  }
   | { type: 'activate_filter', id: keyof ValuesMap }
   | { type: 'deactivate_filter', id: keyof ValuesMap }
   | { type: 'update_filter_labels', data: Filters<ValuesMap> }

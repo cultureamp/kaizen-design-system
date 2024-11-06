@@ -86,12 +86,12 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           <VisuallyHidden>
             {typeof children === 'function'
               ? children({
-                  placement: 'center',
-                  isEntering: false,
-                  isExiting: false,
-                  state: contextState,
-                  defaultChildren: undefined,
-                })
+                placement: 'center',
+                isEntering: false,
+                isExiting: false,
+                state: contextState,
+                defaultChildren: undefined,
+              })
               : children}
           </VisuallyHidden>
         ) : null}

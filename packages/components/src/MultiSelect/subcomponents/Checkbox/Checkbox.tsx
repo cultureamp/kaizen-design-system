@@ -19,10 +19,10 @@ type Controlled = {
 export type CheckboxProps = {
   checkedStatus: CheckedStatus
 } & (ReadOnly | Controlled) &
-  OverrideClassName<
-    // `checked` is omitted as it conflicts with controlled checkboxes
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'checked'>
-  >
+OverrideClassName<
+  // `checked` is omitted as it conflicts with controlled checkboxes
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'checked'>
+>
 
 const renderIcon = (status: CheckedStatus): JSX.Element | null => {
   if (status === 'unchecked') return null

@@ -401,8 +401,8 @@ export const WithSections: Story = {
 
               {disabledItems.length > 0 &&
                 (selectedItems.length > 0 || unselectedItems.length > 0) && (
-                  <FilterMultiSelect.SectionDivider />
-                )}
+                <FilterMultiSelect.SectionDivider />
+              )}
               <FilterMultiSelect.ListBoxSection
                 items={disabledItems}
                 sectionName="Disabled items"

@@ -4,9 +4,9 @@ const getKaioNamedImports = (
   visitedNode: ts.Node,
 ):
   | {
-      importModuleName: string
-      namedImports: ts.NodeArray<ts.ImportSpecifier>
-    }
+    importModuleName: string
+    namedImports: ts.NodeArray<ts.ImportSpecifier>
+  }
   | undefined => {
   if (ts.isImportDeclaration(visitedNode)) {
     const moduleSpecifier = (visitedNode.moduleSpecifier as ts.StringLiteral)

@@ -10,7 +10,7 @@ export type RemoveButtonBaseProps = {
 }
 export type RemoveButtonProps = OverrideClassName<
   Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'color'> &
-    RemoveButtonBaseProps
+  RemoveButtonBaseProps
 >
 
 export const RemoveButton = ({

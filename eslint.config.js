@@ -409,6 +409,8 @@ export default tseslint.config(
       '@stylistic/quote-props': stylistic.configs['recommended-flat'].rules['@stylistic/quote-props'],
       '@stylistic/arrow-parens': stylistic.configs['recommended-flat'].rules['@stylistic/arrow-parens'],
       '@stylistic/member-delimiter-style': stylistic.configs['recommended-flat'].rules['@stylistic/member-delimiter-style'],
+      '@stylistic/indent': stylistic.configs['recommended-flat'].rules['@stylistic/indent'],
+      '@stylistic/indent-binary-ops': stylistic.configs['recommended-flat'].rules['@stylistic/indent-binary-ops'],
       // Custom
       '@stylistic/brace-style': ['error', '1tbs'],
       '@stylistic/jsx-one-expression-per-line': 'off',

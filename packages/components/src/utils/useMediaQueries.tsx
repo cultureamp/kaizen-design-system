@@ -11,23 +11,23 @@ export const subtractOnePixel = (breakpoint: string): string =>
 export const useMediaQueries = (
   propQueries: Props = {},
 ): {
-  queries: {
-    [key: string]: boolean
-    isSmall: boolean
-    isMedium: boolean
-    isLarge: boolean
-    isMediumOrSmaller: boolean
-    isMediumOrLarger: boolean
-  }
-  components: {
-    [key: string]: (props: GenericChildrenType) => JSX.Element
-    SmallOnly: (props: GenericChildrenType) => JSX.Element
-    MediumOnly: (props: GenericChildrenType) => JSX.Element
-    LargeOnly: (props: GenericChildrenType) => JSX.Element
-    MediumOrSmaller: (props: GenericChildrenType) => JSX.Element
-    MediumOrLarger: (props: GenericChildrenType) => JSX.Element
-  }
-} => {
+    queries: {
+      [key: string]: boolean
+      isSmall: boolean
+      isMedium: boolean
+      isLarge: boolean
+      isMediumOrSmaller: boolean
+      isMediumOrLarger: boolean
+    }
+    components: {
+      [key: string]: (props: GenericChildrenType) => JSX.Element
+      SmallOnly: (props: GenericChildrenType) => JSX.Element
+      MediumOnly: (props: GenericChildrenType) => JSX.Element
+      LargeOnly: (props: GenericChildrenType) => JSX.Element
+      MediumOrSmaller: (props: GenericChildrenType) => JSX.Element
+      MediumOrLarger: (props: GenericChildrenType) => JSX.Element
+    }
+  } => {
   if (typeof window === 'undefined') {
     return {
       queries: {

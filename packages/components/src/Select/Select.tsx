@@ -129,7 +129,7 @@ Select.displayName = 'Select'
 
 interface AsyncProps
   extends ReactAsyncSelectProps<any, boolean, any>,
-    ReactSelectProps<any, boolean, any> {}
+  ReactSelectProps<any, boolean, any> {}
 
 export const AsyncSelect = React.forwardRef(
   (

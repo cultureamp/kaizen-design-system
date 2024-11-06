@@ -40,7 +40,7 @@ export type BrandMomentProps = {
     footer?: ReactNode
   }
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>> &
-  (DeprecatedMoodProps | VariantProps)
+(DeprecatedMoodProps | VariantProps)
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082061589/Brand+Moment Guidance} |

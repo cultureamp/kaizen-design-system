@@ -287,13 +287,13 @@ export const TitleBlockZen = ({
           Boolean(subtitle) && styles.hasSubtitle,
           Boolean(pageSwitcherSelect) && styles.hasPageSwitcherSelect,
           collapseNavigationArea &&
-            !(sectionTitle || sectionTitleDescription || renderSectionTitle) &&
-            styles.collapseNavigationArea,
+          !(sectionTitle || sectionTitleDescription || renderSectionTitle) &&
+          styles.collapseNavigationArea,
           title && title.length >= 30 && styles.hasLongTitle,
           subtitle &&
-            typeof subtitle === 'string' &&
-            subtitle.length >= 18 &&
-            styles.hasLongSubtitle,
+          typeof subtitle === 'string' &&
+          subtitle.length >= 18 &&
+          styles.hasLongSubtitle,
           hasNavigationTabs && styles.hasNavigationTabs,
         )}
       >
@@ -392,18 +392,18 @@ export const TitleBlockZen = ({
                   <div className={styles.sectionTitleInner}>
                     {renderSectionTitle !== undefined
                       ? renderSectionTitle({
-                          sectionTitle,
-                          sectionTitleAutomationId,
-                          sectionTitleDescription,
-                          sectionTitleDescriptionAutomationId,
-                        })
+                        sectionTitle,
+                        sectionTitleAutomationId,
+                        sectionTitleDescription,
+                        sectionTitleDescriptionAutomationId,
+                      })
                       : defaultRenderSectionTitle(
-                          sectionTitle,
-                          sectionTitleDescription,
-                          variant,
-                          sectionTitleAutomationId,
-                          sectionTitleDescriptionAutomationId,
-                        )}
+                        sectionTitle,
+                        sectionTitleDescription,
+                        variant,
+                        sectionTitleAutomationId,
+                        sectionTitleDescriptionAutomationId,
+                      )}
                   </div>
                 </div>
               )}

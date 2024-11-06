@@ -55,7 +55,7 @@ export type EmptyStateProps = {
   straightCorners?: boolean
   headingProps?: HeadingProps
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>> &
-  Pick<AnimatedSceneProps, 'isAnimated' | 'loop'>
+Pick<AnimatedSceneProps, 'isAnimated' | 'loop'>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094098/Empty+State Guidance} |
