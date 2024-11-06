@@ -6,7 +6,6 @@ import React, {
   useState,
 } from "react"
 import classnames from "classnames"
-import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { FilterPopover } from "./subcomponents/FilterPopover"
 import { FilterTriggerRef } from "./types"
@@ -64,20 +63,19 @@ export const Filter = ({
         ref: filterButtonRef,
       })}
       {isRefLoaded && isOpen && (
-        <FocusOn
-          scrollLock={false}
-          onClickOutside={(): void => setIsOpen(false)}
-          onEscapeKey={(): void => setIsOpen(false)}
+        <FilterPopover
+          referenceElement={
+            filterButtonRef.current?.triggerRef?.current || null
+          }
+          aria-labelledby={trigger.props.id}
+          focusOnProps={{
+            scrollLock: false,
+            onClickOutside: (): void => setIsOpen(false),
+            onEscapeKey: (): void => setIsOpen(false),
+          }}
         >
-          <FilterPopover
-            referenceElement={
-              filterButtonRef.current?.triggerRef?.current || null
-            }
-            aria-labelledby={trigger.props.id}
-          >
-            {children}
-          </FilterPopover>
-        </FocusOn>
+          {children}
+        </FilterPopover>
       )}
     </div>
   )

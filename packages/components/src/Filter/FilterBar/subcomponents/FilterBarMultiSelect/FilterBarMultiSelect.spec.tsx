@@ -195,9 +195,9 @@ describe("<FilterBarMultiSelect />", () => {
 
     await user.click(getByRole("option", { name: "Fruit Jelly" }))
     await waitFor(() => {
-      expect(
-        getByRole("button", { name: "Toppings : Pearls, Fruit Jelly" })
-      ).toBeInTheDocument()
+      expect(triggerButton).toHaveAccessibleName(
+        "Toppings : Pearls, Fruit Jelly"
+      )
     })
   })
 

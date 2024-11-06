@@ -8,8 +8,8 @@ $menu-container-width: 294px;
 $menu-container-max-height: 312px;
 
 .menuPopup {
-  position: absolute;
-  z-index: 1000; // from $ca-z-index-dropdown
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   background: $color-white;
   color: $color-purple-800;

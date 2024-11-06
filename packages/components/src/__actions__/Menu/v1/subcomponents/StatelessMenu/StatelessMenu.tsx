@@ -85,7 +85,7 @@ export const StatelessMenu = ({
   useEffect(() => {
     portalSelectorElementRef.current = portalSelector
       ? document.querySelector(portalSelector)
-      : null
+      : document.body
   }, [portalSelector])
 
   useEffect(() => {
@@ -116,9 +116,8 @@ export const StatelessMenu = ({
       <div className={styles.buttonWrapper} ref={setReferenceElement}>
         {menuButton}
       </div>
-      {portalSelector && portalSelectorElementRef.current
-        ? ReactDOM.createPortal(menu, portalSelectorElementRef.current)
-        : menu}
+      {portalSelectorElementRef.current &&
+        ReactDOM.createPortal(menu, portalSelectorElementRef.current)}
     </div>
   )
 }

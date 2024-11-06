@@ -201,7 +201,7 @@ export const Tooltip = ({
   useEffect(() => {
     portalSelectorElementRef.current = portalSelector
       ? document.querySelector(portalSelector)
-      : null
+      : document.body
   }, [portalSelector])
 
   useEffect(() => {
@@ -247,9 +247,8 @@ export const Tooltip = ({
           {renderChildren(children, tooltipId, hasActiveTooltip)}
         </div>
 
-        {portalSelector && portalSelectorElementRef.current
-          ? ReactDOM.createPortal(tooltip, portalSelectorElementRef.current)
-          : tooltip}
+        {portalSelectorElementRef.current &&
+          ReactDOM.createPortal(tooltip, portalSelectorElementRef.current)}
       </>
     </AnimationProvider>
   )

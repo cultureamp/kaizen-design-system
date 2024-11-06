@@ -195,12 +195,18 @@ export const BasicImplementation: Story = {
     })
 
     return (
-      <FilterBar<Values>
-        {...args}
-        filters={filters}
-        values={activeValues}
-        onValuesChange={onActiveValuesChange}
-      />
+      <div>
+        <FilterBar<Values>
+          {...args}
+          filters={filters}
+          values={activeValues}
+          onValuesChange={onActiveValuesChange}
+        />
+        <p style={{ position: "relative", zIndex: 2 }}>
+          Some content that sits below with z-index
+        </p>
+        <p style={{ opacity: 0.9 }}>Text with opacity</p>
+      </div>
     )
   },
   parameters: {
