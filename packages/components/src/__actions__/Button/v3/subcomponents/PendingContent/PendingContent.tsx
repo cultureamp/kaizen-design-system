@@ -1,7 +1,7 @@
 import React from "react"
+import classNames from "classnames"
 import { LoadingSpinner } from "~components/Loading"
 import { VisuallyHidden } from "~components/VisuallyHidden"
-import { mergeClassNames } from "~components/utils/mergeClassNames"
 import { ButtonSizes, PendingProps } from "../../types"
 import styles from "./PendingContent.module.css"
 
@@ -10,7 +10,7 @@ export const PendingContent = ({
   isPendingLabelHidden = false,
   size = "medium",
 }: PendingProps & { size?: ButtonSizes }): JSX.Element => (
-  <span className={mergeClassNames(styles.pendingContent, styles[size])}>
+  <span className={classNames(styles.pendingContent, styles[size])}>
     {isPendingLabelHidden ? (
       <VisuallyHidden>{pendingLabel}</VisuallyHidden>
     ) : (

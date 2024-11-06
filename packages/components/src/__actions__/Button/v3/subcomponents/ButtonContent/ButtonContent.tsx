@@ -1,5 +1,5 @@
 import React from "react"
-import { mergeClassNames } from "~components/utils/mergeClassNames"
+import classNames from "classnames"
 import { ButtonProps } from "../../Button"
 import { PendingButtonProps } from "../../types"
 import { PendingContent } from "../PendingContent"
@@ -23,7 +23,7 @@ export const ButtonContent = ({
   return (
     <>
       <span
-        className={mergeClassNames(
+        className={classNames(
           styles.buttonContent,
           buttonIsPending && pendingProps.isPendingLabelHidden
             ? styles.buttonContentPendingHidden
