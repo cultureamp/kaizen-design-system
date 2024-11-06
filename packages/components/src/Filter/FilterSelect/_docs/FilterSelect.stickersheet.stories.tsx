@@ -135,7 +135,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   items={singleMockItems}
                 >
                   {({ items }): JSX.Element[] =>
-                    items.map(item => {
+                    items.map((item) => {
                       if (item.type === 'item') {
                         return (
                           <FilterSelect.Option
@@ -182,7 +182,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   items={mixedMockItemsUngroupedFirst}
                 >
                   {({ items }): JSX.Element[] =>
-                    items.map(item => {
+                    items.map((item) => {
                       if (item.type === 'item' && item.key === 'batch-brew') {
                         return (
                           <FilterSelect.Option
@@ -263,7 +263,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   ]}
                 >
                   {({ items }): JSX.Element[] =>
-                    items.map(item => {
+                    items.map((item) => {
                       if (item.type === 'item' && item.key === 'custom') {
                         return (
                           <React.Fragment key={item.key}>

@@ -23,7 +23,7 @@ export const Playground: Story = {
       selectedStatus,
     )
 
-    const handleClick: React.MouseEventHandler<HTMLInputElement> = e => {
+    const handleClick: React.MouseEventHandler<HTMLInputElement> = (e) => {
       setStatus(!status)
       onClick?.(e)
     }

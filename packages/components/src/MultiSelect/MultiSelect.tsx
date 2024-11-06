@@ -52,7 +52,7 @@ export const MultiSelect = ({
   const handleToggleClick = (): void => onOpenChange(!isOpen)
   const handleClose = (): void => onOpenChange(false)
 
-  const onClickOutside: ReactFocusOnProps['onClickOutside'] = e => {
+  const onClickOutside: ReactFocusOnProps['onClickOutside'] = (e) => {
     const toggle = refs.reference.current as Node
     const isInToggle = toggle.contains(e.target as HTMLElement)
     if (!isInToggle) {

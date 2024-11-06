@@ -11,7 +11,7 @@ describe('<Text />', () => {
       'extra-small',
     ]
 
-    testCases.forEach(variant => {
+    testCases.forEach((variant) => {
       it(`renders the correct element for <Text variant={${variant}} />`, () => {
         const textMock = render(
           <Text variant={variant} tag="div">

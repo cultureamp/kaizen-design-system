@@ -18,7 +18,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const DateRangePickerTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
       from: args?.selectedDateRange?.from,
       to: args?.selectedDateRange?.to,

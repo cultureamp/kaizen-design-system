@@ -19,11 +19,11 @@ const GenericModalWrapper = ({
   return (
     <GenericModal
       isOpen={isOpen}
-      onOutsideModalClick={e => {
+      onOutsideModalClick={(e) => {
         setIsOpen(false)
         onOutsideModalClick?.(e)
       }}
-      onEscapeKeyup={e => {
+      onEscapeKeyup={(e) => {
         setIsOpen(false)
         onEscapeKeyup?.(e)
       }}

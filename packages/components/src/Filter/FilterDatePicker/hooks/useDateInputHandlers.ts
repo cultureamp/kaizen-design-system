@@ -44,12 +44,12 @@ export const useDateInputHandlers = ({
   const isValidDate = (date: Date): boolean =>
     !isInvalidDate(date) && !isDisabledDate(date, disabledDays)
 
-  const handleChange: DateInputProps['onChange'] = e => {
+  const handleChange: DateInputProps['onChange'] = (e) => {
     setInputValue(e.currentTarget.value)
     onChange?.(e)
   }
 
-  const handleFocus: DateInputProps['onFocus'] = e => {
+  const handleFocus: DateInputProps['onFocus'] = (e) => {
     const date = parseDateFromTextFormatValue(e.currentTarget.value, locale)
     if (!isInvalidDate(date)) {
       const newInputValue = formatDateAsNumeral(date, locale)
@@ -58,7 +58,7 @@ export const useDateInputHandlers = ({
     onFocus?.(e)
   }
 
-  const handleBlur: DateInputProps['onBlur'] = e => {
+  const handleBlur: DateInputProps['onBlur'] = (e) => {
     if (isSelectingDayInCalendar(e.relatedTarget)) return
 
     if (e.currentTarget.value === '') {
@@ -78,7 +78,7 @@ export const useDateInputHandlers = ({
     onBlur?.(e)
   }
 
-  const handleKeyDown: DateInputProps['onKeyDown'] = e => {
+  const handleKeyDown: DateInputProps['onKeyDown'] = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault()
       const date = parseDateFromNumeralFormatValue(

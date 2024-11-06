@@ -13,7 +13,7 @@ export const traverseDir = (
 
   const files = fs.readdirSync(dir)
 
-  files.forEach(file => {
+  files.forEach((file) => {
     const fullPath = path.join(dir, file)
 
     if (fs.statSync(fullPath).isDirectory()) {

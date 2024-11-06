@@ -53,7 +53,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const InputModalTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
 
     const handleOpen = (): void => setIsOpen(true)
@@ -107,7 +107,7 @@ export const OnAfterEnter: Story = {
     title: 'Create new link',
     submitLabel: 'Add link',
   },
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
     const inputRef = useRef<HTMLInputElement>(null)
     const handleOpen = (): void => setIsOpen(true)

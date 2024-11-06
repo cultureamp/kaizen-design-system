@@ -98,7 +98,7 @@ export const Controlled: Story = {
     title: 'Controlled',
     controlled: true,
   },
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     return <Collapsible {...args} open={isOpen} onToggle={setIsOpen} />
   },

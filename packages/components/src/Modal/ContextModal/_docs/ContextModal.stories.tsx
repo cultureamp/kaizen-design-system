@@ -33,7 +33,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const ContextModalTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
 
     const handleOpen = (): void => setIsOpen(true)

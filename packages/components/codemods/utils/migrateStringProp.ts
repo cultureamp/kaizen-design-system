@@ -14,7 +14,7 @@ export const migrateStringProp =
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         if (node.tagName.getText() === tagName) {
-          const newAttributes = node.attributes.properties.map(attr => {
+          const newAttributes = node.attributes.properties.map((attr) => {
             if (
               ts.isJsxAttribute(attr) &&
               attr.name.getText() === oldPropName

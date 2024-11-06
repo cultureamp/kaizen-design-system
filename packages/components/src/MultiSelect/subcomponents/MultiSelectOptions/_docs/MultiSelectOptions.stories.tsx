@@ -32,7 +32,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const MultiSelectOptionsTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [selectedValues, setSelectedValues] = useState<
       MultiSelectOptionsProps['selectedValues']
     >(args.selectedValues)

@@ -93,7 +93,7 @@ export const Reference: Story = {
       <ul className={styles.grid}>
         {Object.keys(ICONS)
           .filter(iconName => !deprecatedList.includes(iconName))
-          .map(iconName => {
+          .map((iconName) => {
             const icon = ICONS[iconName as keyof typeof ICONS]({
               role: 'presentation',
             })

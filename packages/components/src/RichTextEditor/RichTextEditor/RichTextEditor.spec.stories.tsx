@@ -46,7 +46,7 @@ const TestBase: Story = {
 }
 
 const CreateFirstUnorderedListItem: Story = {
-  play: async context => {
+  play: async (context) => {
     await TestBase.play?.(context)
     const { canvasElement, step } = context
 
@@ -64,7 +64,7 @@ const CreateFirstUnorderedListItem: Story = {
 export const KeyboardShortcutUnorderedList: Story = {
   ...TestBase,
   name: 'Create unordered list via keyboard shortcut',
-  play: async context => {
+  play: async (context) => {
     await CreateFirstUnorderedListItem.play?.(context)
     const { canvasElement, step } = context
 
@@ -78,7 +78,7 @@ export const KeyboardShortcutUnorderedList: Story = {
 export const KeyboardShortcutOrderedList: Story = {
   ...TestBase,
   name: 'Create ordered list via keyboard shortcut',
-  play: async context => {
+  play: async (context) => {
     await TestBase.play?.(context)
     const { canvasElement, step } = context
 
@@ -101,7 +101,7 @@ export const KeyboardShortcutOrderedList: Story = {
 export const DecreaseIndent: Story = {
   ...TestBase,
   name: 'Decrease indent of an existing list item',
-  play: async context => {
+  play: async (context) => {
     await KeyboardShortcutUnorderedList.play?.(context)
     const { canvasElement, step } = context
     const { getByRole } = within(canvasElement)
@@ -116,7 +116,7 @@ export const DecreaseIndent: Story = {
 export const IncreaseIndent: Story = {
   ...TestBase,
   name: 'Increase indent of an existing list item',
-  play: async context => {
+  play: async (context) => {
     await CreateFirstUnorderedListItem.play?.(context)
     const { canvasElement, step } = context
 
@@ -151,7 +151,7 @@ export const IncreaseIndent: Story = {
 export const CreateALink: Story = {
   ...TestBase,
   name: 'Create a link',
-  play: async context => {
+  play: async (context) => {
     const { canvasElement, step } = context
     const { getByRole, getByText } = within(canvasElement)
     const editor = getByRole('textbox')

@@ -121,13 +121,13 @@ export const FilterDatePickerField = ({
   const inputDateHandlers = useDateInputHandlers({
     locale,
     disabledDays,
-    setInputValue: value => {
+    setInputValue: (value) => {
       dispatch({
         type: 'update_input_field',
         inputValue: value,
       })
     },
-    onDateChange: date => {
+    onDateChange: (date) => {
       // Because the input value is being tracked in the state as the user types
       // we can reliably utilise state.inputValue as part of the validation message,
       // which is triggered by `onBlur` function
@@ -140,7 +140,7 @@ export const FilterDatePickerField = ({
 
       handleDateChange(newDate)
     },
-    onDateSubmit: date => {
+    onDateSubmit: (date) => {
       // Only provide consumers with a valid date to the `onDateSubmit` function
       if (!isInvalidDate(date)) {
         onDateSubmit?.(date)
@@ -149,7 +149,7 @@ export const FilterDatePickerField = ({
     ...inputProps,
   })
 
-  const handleCalendarSelect: CalendarSingleProps['onSelect'] = date => {
+  const handleCalendarSelect: CalendarSingleProps['onSelect'] = (date) => {
     // Transforming the date to an InputValue and validating the date with the result
     // can operate in this order because we are guaranteed a valid date from the calendar.
     //

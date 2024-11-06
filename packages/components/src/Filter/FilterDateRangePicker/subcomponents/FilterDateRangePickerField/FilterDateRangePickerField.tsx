@@ -160,13 +160,13 @@ export const FilterDateRangePickerField = ({
   const inputStartDateHandlers = useDateInputHandlers({
     locale,
     disabledDays,
-    setInputValue: value => {
+    setInputValue: (value) => {
       dispatch({
         type: 'update_input_start_field',
         inputValue: value,
       })
     },
-    onDateChange: date => {
+    onDateChange: (date) => {
       const newDate = validateStartDate(date, state.inputStartValue)
 
       // We need to parse the date from the input field due to the
@@ -207,13 +207,13 @@ export const FilterDateRangePickerField = ({
   const inputEndDateHandlers = useDateInputHandlers({
     locale,
     disabledDays,
-    setInputValue: value => {
+    setInputValue: (value) => {
       dispatch({
         type: 'update_input_end_field',
         inputValue: value,
       })
     },
-    onDateChange: date => {
+    onDateChange: (date) => {
       const startDate = state.selectedStartDate
       const newEndDate = validateEndDate(date, state.inputEndValue)
       const isRangeValid = isValidRange(startDate, newEndDate)
@@ -231,7 +231,7 @@ export const FilterDateRangePickerField = ({
     ...inputEndDateProps,
   })
 
-  const handleCalendarSelectRange: CalendarRangeProps['onSelect'] = range => {
+  const handleCalendarSelectRange: CalendarRangeProps['onSelect'] = (range) => {
     const inputStartValue = transformDateToInputValue(range?.from)
     const inputEndValue = transformDateToInputValue(range?.to)
 

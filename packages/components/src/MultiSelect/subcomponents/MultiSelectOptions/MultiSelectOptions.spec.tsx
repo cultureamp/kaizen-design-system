@@ -36,7 +36,7 @@ const MultiSelectOptionsWrapper = (
       options={testOptions}
       {...customProps}
       selectedValues={selectedValues}
-      onChange={newValues => {
+      onChange={(newValues) => {
         setSelectedValues(newValues)
         onChange(newValues)
       }}

@@ -69,7 +69,7 @@ const getInitials = (
         .toUpperCase()
         .substring(0, max2Characters ? 2 : 8)
 
-const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
+const getMaxFontSizePixels: (size: AvatarSizes) => number = (size) => {
   if (size === 'small') return 8
   if (size === 'medium') return 16
   if (size === 'xlarge' || size === 'xxlarge') return 34

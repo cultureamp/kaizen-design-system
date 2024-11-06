@@ -34,7 +34,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const PopoverTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const { refs } = useFloating()
     const handleClose = (): void => setIsOpen(false)

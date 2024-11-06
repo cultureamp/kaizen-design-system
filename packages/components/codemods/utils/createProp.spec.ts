@@ -11,7 +11,7 @@ export const mockedTransformer =
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         if (node.tagName.getText() === 'Pancakes') {
-          const newAttributes = node.attributes.properties.map(attr => {
+          const newAttributes = node.attributes.properties.map((attr) => {
             if (ts.isJsxAttribute(attr)) {
               if (attr.name.getText() === 'replaceWithExistingValue') {
                 return createStyleProp({ width: attr.initializer! })

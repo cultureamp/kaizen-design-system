@@ -58,7 +58,7 @@ export const getKaioTagName = (
       return ts.forEachChild(visitedNode, visitNode) || undefined
     }
 
-    kaioNamedImports.namedImports.find(importSpecifier => {
+    kaioNamedImports.namedImports.find((importSpecifier) => {
       const { tagName, originalName } = getNamesFromSpecifier(importSpecifier)
 
       if (originalName === importSpecifierTarget) {
@@ -105,7 +105,7 @@ export const getKaioTagNamesByRegex = (
     }
 
     const tags = new Map() as TagNamesMap
-    kaioNamedImports.namedImports.forEach(importSpecifier => {
+    kaioNamedImports.namedImports.forEach((importSpecifier) => {
       const { tagName, originalName } = getNamesFromSpecifier(importSpecifier)
 
       if (new RegExp(importSpecifierPattern).test(originalName)) {

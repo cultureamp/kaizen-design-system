@@ -54,7 +54,7 @@ const config: StorybookConfig = {
       },
     },
   },
-  viteFinal: config => {
+  viteFinal: (config) => {
     config?.plugins?.push(nodePolyfills())
 
     return config

@@ -7,7 +7,7 @@ export const getArgs = (): Record<string, any> =>
       args[longArgFlag] = longArgValue
     } else if (arg.startsWith('-')) {
       const flags = arg.slice(1).split('')
-      flags.forEach(flag => {
+      flags.forEach((flag) => {
         args[flag] = true
       })
     }

@@ -69,7 +69,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const DatePickerTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [selectedDate, setValueDate] = useState<Date | undefined>(
       args.selectedDay,
     )
@@ -161,7 +161,7 @@ export const Validation: Story = {
       setValidationMessage(validationResponse.validationMessage)
     }
 
-    const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
+    const submitRequest: React.FormEventHandler<HTMLFormElement> = (e) => {
       e.preventDefault()
 
       if (status === 'error' || status === 'caution') {

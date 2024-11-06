@@ -22,7 +22,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         hasVerticalHeadings
       />
       <StickerSheet.Body>
-        {Object.keys(ICONS).map(iconName => {
+        {Object.keys(ICONS).map((iconName) => {
           const icon = ICONS[iconName as keyof typeof ICONS]({
             role: 'presentation',
           })

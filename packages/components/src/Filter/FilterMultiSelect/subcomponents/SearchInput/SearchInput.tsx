@@ -18,7 +18,7 @@ export const SearchInput = ({
   const { formatMessage } = useIntl()
   const { setSearchQuery, searchQuery } = useSelectionContext()
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setSearchQuery(e.target.value)
   }
 

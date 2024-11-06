@@ -19,7 +19,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const CalendarRangeTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [selected, setSelected] = useState<DateRange | undefined>(
       args.selected,
     )

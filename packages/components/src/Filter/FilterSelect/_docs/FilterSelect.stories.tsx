@@ -44,7 +44,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const FilterSelectTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState<boolean>(args.isOpen)
     return <FilterSelect {...args} isOpen={isOpen} setIsOpen={setIsOpen} />
   },
@@ -65,7 +65,7 @@ export const Playground: Story = {
  * Extend the option type to have additional properties to use for rendering.
  */
 export const AdditionalProperties: Story = {
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     return (

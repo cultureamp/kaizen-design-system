@@ -30,7 +30,7 @@ export const useEndDateValidation = (
     useDateValidation(args)
 
   const handleValidateEndDateBeforeStartDate: UseEndDateValidationValue['validateEndDateBeforeStartDate'] =
-    handlerArgs => {
+    (handlerArgs) => {
       const { validationResponse, newDate } =
         validateEndDateBeforeStartDate(handlerArgs)
       updateValidation(validationResponse)

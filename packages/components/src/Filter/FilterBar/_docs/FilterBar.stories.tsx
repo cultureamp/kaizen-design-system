@@ -187,7 +187,7 @@ const filters = [
 ] satisfies Filters<Values>
 
 export const BasicImplementation: Story = {
-  render: args => {
+  render: (args) => {
     const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
       flavour: 'jasmine-milk-tea',
       toppings: ['pearls', 'fruit-jelly'],
@@ -621,7 +621,7 @@ export const ExternalEventValuesUpdate: Story = {
     })
 
     const DateRangeParam = {
-      encode: dateRange => {
+      encode: (dateRange) => {
         if (!dateRange) return undefined
         return (
           encodeObject({
@@ -721,7 +721,7 @@ const CycleFilter = ({ id }: { id?: string }): JSX.Element => {
         { value: 'cycle-1', label: 'Cycle 1' },
         { value: 'cycle-2', label: 'Cycle 2' },
       ]}
-      onSelectionChange={key => {
+      onSelectionChange={(key) => {
         if (key === 'custom') openFilter('customRange')
       }}
     />

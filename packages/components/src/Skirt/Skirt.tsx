@@ -25,7 +25,7 @@ export const Skirt = ({
   ...restProps
 }: SkirtProps): JSX.Element => {
   const [ref, skirtHeight] = useResizeObserver<number, HTMLDivElement>(
-    entry => {
+    (entry) => {
       if (entry.contentRect) {
         return deriveSkirtHeight(entry.contentRect, titleBlockHasNavigation)
       }

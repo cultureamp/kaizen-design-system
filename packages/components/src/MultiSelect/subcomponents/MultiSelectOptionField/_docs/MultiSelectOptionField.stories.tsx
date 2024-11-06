@@ -23,7 +23,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const MultiSelectOptionFieldTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [checkedStatus, setCheckedStatus] = useState<
       CheckboxProps['checkedStatus']
     >(args.checkedStatus)

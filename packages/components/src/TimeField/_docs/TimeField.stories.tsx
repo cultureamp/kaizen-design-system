@@ -28,7 +28,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const TimeFieldTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [value, setValue] = useState<ValueType | null>(args.value)
     return <TimeField {...args} value={value} onChange={setValue} />
   },

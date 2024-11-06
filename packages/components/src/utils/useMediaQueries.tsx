@@ -217,7 +217,7 @@ export const useMediaQueries = (
     string,
     (props: GenericChildrenType) => JSX.Element
   > = {}
-  Object.keys(propQueries).map(key => {
+  Object.keys(propQueries).map((key) => {
     const componentName = key.charAt(0).toUpperCase() + key.slice(1)
     customComponents[componentName] = (
       props: HelperComponentProps,

@@ -30,7 +30,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const ToastNotificationTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const reactId = useId()
     const { updateToastNotification } = useToastNotification()
 
@@ -198,7 +198,7 @@ export const NoDuplicatesWithSameId: Story = {
 
     return <div>Irrelevant content</div>
   },
-  play: async context => {
+  play: async (context) => {
     const { canvasElement } = context
     const { findAllByText } = within(canvasElement.parentElement!)
 

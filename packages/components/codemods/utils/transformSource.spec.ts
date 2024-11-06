@@ -10,7 +10,7 @@ export const mockedTransformer =
     function visit(node: ts.Node): ts.Node {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         if (node.tagName.getText() === 'Pancakes') {
-          const newAttributes = node.attributes.properties.map(attr => {
+          const newAttributes = node.attributes.properties.map((attr) => {
             if (ts.isJsxAttribute(attr) && attr.name.getText() === 'topping') {
               return ts.factory.updateJsxAttribute(
                 attr,

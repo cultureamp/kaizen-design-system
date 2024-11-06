@@ -20,7 +20,7 @@ export const Playground: Story = {
   render: ({ readOnly, onChange, checkedStatus, ...args }) => {
     const [status, setStatus] = React.useState<CheckedStatus>(checkedStatus)
 
-    const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
+    const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       if (status === 'unchecked') {
         setStatus('indeterminate')
       } else if (status === 'indeterminate') {

@@ -50,7 +50,7 @@ export const StickerSheet = ({
       className={classnames(styles.stickerSheetTable, className)}
       {...restProps}
     >
-      {React.Children.map(children, child => {
+      {React.Children.map(children, (child) => {
         if (isReversibleSubcomponent(child)) {
           return React.cloneElement(child, {
             ...child.props,

@@ -29,7 +29,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const EditableRichTextContentTemplate: Story = {
-  render: props => {
+  render: (props) => {
     const [editMode, setEditMode] = useState<boolean>(false)
     const [readRteData, setReadRTEData] = useState<EditorContentArray>(
       props.content,

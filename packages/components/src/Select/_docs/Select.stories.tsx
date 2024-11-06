@@ -70,7 +70,7 @@ export const Disabled: Story = {
 }
 
 export const Async: Story = {
-  render: args => {
+  render: (args) => {
     const filterNames = (inputValue: string): typeof OPTIONS =>
       OPTIONS.filter(({ label }) =>
         label.toLowerCase().includes(inputValue.toLowerCase()),
@@ -79,7 +79,7 @@ export const Async: Story = {
     const promiseOptions = (
       inputValue: string,
     ): Promise<Array<{ value: string; label: string }>> =>
-      new Promise(resolve => {
+      new Promise((resolve) => {
         setTimeout(() => {
           resolve(filterNames(inputValue))
         }, 1000)

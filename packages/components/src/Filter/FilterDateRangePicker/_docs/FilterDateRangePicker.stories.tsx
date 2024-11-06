@@ -86,7 +86,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const FilterDateRangePickerTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState<boolean>(args.isOpen)
     const [range, setRange] = useState<DateRange | undefined>()
 
@@ -219,7 +219,7 @@ export const RenderTrigger: Story = {
  * Selected value will only be passed into the Filter Button when date range has both a Start and End date.
  */
 export const SelectedRange: Story = {
-  render: args => {
+  render: (args) => {
     const [isOpenNotSelected, setIsOpenNotSelected] = useState<boolean>(false)
     const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
     const [isOpenComplete, setIsOpenComplete] = useState<boolean>(false)
@@ -393,7 +393,7 @@ export const Validation: Story = {
       validationResponse: DateValidationResponse,
     ): void => handleValidate(validationResponse, 'dateEnd')
 
-    const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
+    const submitRequest: React.FormEventHandler<HTMLFormElement> = (e) => {
       e.preventDefault()
 
       let errors: DateRangeFieldValidationMessage | undefined

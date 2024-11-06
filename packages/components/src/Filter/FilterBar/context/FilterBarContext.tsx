@@ -132,7 +132,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     },
     getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
     clearAllFilters: () => {
-      state.activeFilterIds.forEach(id => {
+      state.activeFilterIds.forEach((id) => {
         if (mappedFilters[id].isRemovable)
           dispatch({ type: 'deactivate_filter', id })
       })

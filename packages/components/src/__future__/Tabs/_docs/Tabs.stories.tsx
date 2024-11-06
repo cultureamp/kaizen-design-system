@@ -54,7 +54,7 @@ export const Playground: Story = {
 }
 
 export const Controlled: Story = {
-  render: args => {
+  render: (args) => {
     const [selectedKey, setSelectedKey] = useState<Key>(0)
     return (
       <>

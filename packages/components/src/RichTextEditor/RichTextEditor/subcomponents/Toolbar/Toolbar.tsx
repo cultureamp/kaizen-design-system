@@ -77,7 +77,7 @@ export const Toolbar = (props: ToolbarProps): JSX.Element => {
             {...toolbarSectionProps}
             key={`rte-section-${sectionIndex}`}
           >
-            {React.Children.map(sectionChildren, toolbarButton => {
+            {React.Children.map(sectionChildren, (toolbarButton) => {
               if (!React.isValidElement(toolbarButton)) {
                 return
               }

@@ -67,7 +67,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const FilterDatePickerTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [date, setDate] = useState<Date | undefined>()
 
@@ -303,7 +303,7 @@ export const Validation: Story = {
       setValidationMessage(validationResponse.validationMessage)
     }
 
-    const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
+    const submitRequest: React.FormEventHandler<HTMLFormElement> = (e) => {
       e.preventDefault()
 
       const status = validationMessage?.status

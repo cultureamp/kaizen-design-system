@@ -30,7 +30,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const FilterTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState(args.isOpen)
     return <Filter {...args} isOpen={isOpen} setIsOpen={setIsOpen} />
   },

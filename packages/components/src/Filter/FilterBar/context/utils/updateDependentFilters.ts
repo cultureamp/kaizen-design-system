@@ -11,7 +11,7 @@ export const updateDependentFilters = <ValuesMap extends FiltersValues>(
 
   const args = getIsUsableWhenArgs(state)
 
-  Array.from(state.dependentFilterIds).forEach(id => {
+  Array.from(state.dependentFilterIds).forEach((id) => {
     const isUsable = state.filters[id].isUsableWhen!(args)
 
     const shouldUpdate = state.filters[id].isUsable !== isUsable

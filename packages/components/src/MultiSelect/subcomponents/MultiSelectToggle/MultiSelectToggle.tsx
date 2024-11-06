@@ -64,7 +64,7 @@ export const MultiSelectToggle = forwardRef<
             aria-expanded={isOpen}
             aria-haspopup="dialog"
             type="button"
-            onClick={e => {
+            onClick={(e) => {
               e.stopPropagation()
               onClick(e)
             }}
@@ -107,7 +107,7 @@ export const MultiSelectToggle = forwardRef<
                   aria-label="Remove all options from "
                   aria-labelledby={`${clearAllId} ${ariaLabelledBy}`}
                   classNameOverride={styles.clearAllButton}
-                  onClick={e => {
+                  onClick={(e) => {
                     e.stopPropagation()
                     onRemoveAllOptions()
                   }}

@@ -31,7 +31,7 @@ const MultiSelectOptionFieldWrapper = (
       id="id--jaffle"
       option={{ label: 'Jaffle', value: 'jaffle' }}
       checkedStatus={checkedStatus}
-      onChange={e => {
+      onChange={(e) => {
         handleChange()
         onChange(e)
       }}

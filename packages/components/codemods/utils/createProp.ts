@@ -16,7 +16,7 @@ export const createStringProp = (
 export const createStyleProp = (
   attributes: Record<string, string | number | ts.JsxAttributeValue>,
 ): ts.JsxAttribute => {
-  const styles = Object.keys(attributes).map(name => {
+  const styles = Object.keys(attributes).map((name) => {
     const value = attributes[name]
     if (typeof value === 'string') {
       return ts.factory.createPropertyAssignment(

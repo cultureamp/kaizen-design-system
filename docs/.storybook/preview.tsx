@@ -43,7 +43,7 @@ const RACDecorator: Decorator = (Story, context) => {
   )
 }
 
-const KaizenProviderDecorator: Decorator = (Story) => (
+const KaizenProviderDecorator: Decorator = Story => (
   <KaizenProvider>
     <Story />
   </KaizenProvider>
@@ -159,7 +159,7 @@ const preview = {
         const customDocNames = ['Usage Guidelines', 'API Specification']
         // Don't type the param - we can't use TypeScript within storySort
         // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-        const removeCustomDocNames = title => {
+        const removeCustomDocNames = (title) => {
           return customDocNames.reduce((acc, docName) => {
             const regex = new RegExp(`/${docName}$`)
             return acc.replace(regex, '')

@@ -76,7 +76,7 @@ export const SectionDivider: Story = {
   args: {
     items: [{ label: 'Customise...', value: 'custom' }, ...singleMockItems],
     children: ({ items }): JSX.Element[] =>
-      items.map(item => {
+      items.map((item) => {
         if (item.type === 'item' && item.key === 'custom') {
           return (
             <React.Fragment key={item.key}>
@@ -169,7 +169,7 @@ export const FullWidth: Story = {
 }
 
 export const PortalContainer: Story = {
-  render: args => {
+  render: (args) => {
     const portalContainerId = 'id--portal-container'
 
     const [isOpen, setIsOpen] = React.useState(false)
@@ -214,7 +214,7 @@ export const PortalContainer: Story = {
 
 export const TouchDeviceTest: Story = {
   name: 'Touch Device Pointer Event (Manual Test)',
-  render: args => {
+  render: (args) => {
     const [selected, setSelected] = React.useState('radio-1')
     return (
       <div>

@@ -102,7 +102,7 @@ export const GenericModal = ({
     preventBodyScroll()
 
     if (onEscapeKeyup) {
-      document.addEventListener('keyup', event => {
+      document.addEventListener('keyup', (event) => {
         if (event.key === 'Escape') {
           onEscapeKeyup?.(event)
         }

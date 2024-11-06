@@ -28,14 +28,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  render: args => {
+  render: (args) => {
     const [searchTerm, setSearchTerm] = useState<string>('')
 
     return (
       <InputSearch
         {...args}
         value={searchTerm}
-        onChange={event => {
+        onChange={(event) => {
           setSearchTerm(event.target.value)
         }}
       />

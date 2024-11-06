@@ -9,7 +9,7 @@ const removeNamedImports = (
 ): ts.ImportDeclaration | null => {
   const namedBindings = node.importClause?.namedBindings
   if (namedBindings && ts.isNamedImports(namedBindings)) {
-    const namedImports = namedBindings.elements.filter(importSpecifier => {
+    const namedImports = namedBindings.elements.filter((importSpecifier) => {
       const componentName =
         importSpecifier.propertyName?.getText() ??
         importSpecifier.name.getText()
@@ -75,7 +75,7 @@ const updateNamedImports = (
 
   const namedBindings = node.importClause.namedBindings
   if (namedBindings && ts.isNamedImports(namedBindings)) {
-    namedBindings.elements.forEach(importSpecifier => {
+    namedBindings.elements.forEach((importSpecifier) => {
       existingNamedImportNames.add(importSpecifier.name.getText())
       importSpecifiers.push(importSpecifier)
     })
@@ -130,7 +130,7 @@ export const updateKaioImports =
     const statements = Array.from(rootNode.statements)
 
     if (importsToRemove) {
-      Array.from(importsToRemove.keys()).forEach(moduleSpecifier => {
+      Array.from(importsToRemove.keys()).forEach((moduleSpecifier) => {
         const importIndex = statements.findIndex(
           s =>
             ts.isImportDeclaration(s) &&
@@ -161,7 +161,7 @@ export const updateKaioImports =
     }
 
     if (importsToAdd) {
-      Array.from(importsToAdd.keys()).forEach(newModuleSpecifier => {
+      Array.from(importsToAdd.keys()).forEach((newModuleSpecifier) => {
         const importIndex = statements.findIndex(
           s =>
             ts.isImportDeclaration(s) &&

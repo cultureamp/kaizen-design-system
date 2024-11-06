@@ -43,7 +43,7 @@ export const FilterDatePicker = ({
       <FilterDatePickerField
         locale={locale}
         selectedDate={selectedDate}
-        onDateSubmit={date => {
+        onDateSubmit={(date) => {
           setIsOpen(false)
           onDateSubmit?.(date)
         }}

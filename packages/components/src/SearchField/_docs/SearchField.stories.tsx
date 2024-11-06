@@ -15,7 +15,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  render: args => {
+  render: (args) => {
     const [value, setValue] = useState('Some value')
 
     return (

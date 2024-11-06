@@ -11,7 +11,7 @@ export const transformWellVariantToColor =
         if (node.tagName.getText() === tagName) {
           let hasVariant = false
           let hasColor = false
-          let newAttributes = node.attributes.properties.map(attr => {
+          let newAttributes = node.attributes.properties.map((attr) => {
             if (ts.isJsxAttribute(attr) && attr.name.getText() === 'variant') {
               hasVariant = true
               const valueName =

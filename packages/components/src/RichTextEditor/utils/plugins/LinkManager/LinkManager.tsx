@@ -155,7 +155,7 @@ type CreateLinkManagerArgs = {
   editorComponent?: ComponentType<LinkEditorProps>
 }
 
-const defaultLinkAttributeValidator: AttrsValidator = attrs => {
+const defaultLinkAttributeValidator: AttrsValidator = (attrs) => {
   if (attrs == null) {
     return false
   }

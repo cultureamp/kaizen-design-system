@@ -20,7 +20,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const PopoverTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [referenceElementRef, Popover] = usePopover()
 
     return (

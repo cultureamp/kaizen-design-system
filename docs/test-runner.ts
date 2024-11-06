@@ -7,7 +7,7 @@ const config = {
   setup: () => {
     expect.extend(toHaveNoViolations)
   },
-  preVisit: async page => {
+  preVisit: async (page) => {
     await injectAxe(page)
   },
   postVisit: async (page, context) => {

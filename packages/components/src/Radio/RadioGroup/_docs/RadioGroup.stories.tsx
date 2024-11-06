@@ -16,7 +16,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  render: args => {
+  render: (args) => {
     const [selected, setSelected] = useState('radio-1')
     return (
       <RadioGroup {...args}>
@@ -25,7 +25,7 @@ export const Playground: Story = {
           name="radio-group"
           value="radio-value-1"
           reversed={args?.reversed}
-          onChange={event => {
+          onChange={(event) => {
             setSelected(event.target.value)
           }}
           selectedStatus={selected === 'radio-1'}
@@ -35,7 +35,7 @@ export const Playground: Story = {
           name="radio-group"
           value="radio-value-2"
           reversed={args?.reversed}
-          onChange={event => {
+          onChange={(event) => {
             setSelected(event.target.value)
           }}
           selectedStatus={selected === 'radio-2'}
@@ -45,7 +45,7 @@ export const Playground: Story = {
           name="radio-group"
           value="radio-value-3"
           reversed={args?.reversed}
-          onChange={event => {
+          onChange={(event) => {
             setSelected(event.target.value)
           }}
           selectedStatus={selected === 'radio-3'}

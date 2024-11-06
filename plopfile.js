@@ -82,7 +82,7 @@ export default (
         {
           type: 'modify',
           path: `packages/components/${src}/index.ts`,
-          transform: content => {
+          transform: (content) => {
             const exportStatement = `export * from "./${componentNamePascal}"`
 
             if (content.includes(exportStatement)) return content

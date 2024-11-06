@@ -28,7 +28,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  render: args => {
+  render: (args) => {
     const [rteData, setRTEData] = useState<EditorContentArray>([])
     const handleOnChange: RichTextEditorProps['onChange'] = editorState =>
       setRTEData(editorState.toJSON().doc.content)

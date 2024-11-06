@@ -117,7 +117,7 @@ export const GuidanceBlock = ({
   }
 
   const containerQuery = useCallback((): void => {
-    const resizeObserver = new ResizeObserver(entries => {
+    const resizeObserver = new ResizeObserver((entries) => {
       if (entries.length === 1) {
         handleMediaQueryLayout(entries[0].contentRect.width)
       }

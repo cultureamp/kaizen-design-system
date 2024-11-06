@@ -8,7 +8,7 @@ describe('makeCssVariableDefinitionsMap()', () => {
   // We don't want any CSS variable identifiers within CSS variables - we don't need them
   // E.g. we want to avoid: `--kz-var-color-wisteria-100-id: --kz-var-color-wisteria-100`
   it('doesn\'t contain any CSS variable identifiers in values', () => {
-    Object.values(cssVariableDefinitions).forEach(value => {
+    Object.values(cssVariableDefinitions).forEach((value) => {
       expect(value).not.toMatch(/^--/)
     })
   })
@@ -17,7 +17,7 @@ describe('makeCssVariableDefinitionsMap()', () => {
     cssVariableDefinitions,
   ).filter(key => key.startsWith('--color-'))
   it('produces heart color vars', () => {
-    cssVariableKeysThatAreColors.forEach(key => {
+    cssVariableKeysThatAreColors.forEach((key) => {
       // eslint-disable-next-line vitest/no-conditional-expect
       if (key.startsWith('--color')) expect(key).toMatch(heartColorNamePattern)
     })

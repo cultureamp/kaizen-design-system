@@ -53,7 +53,7 @@ export const Playground: Story = {
 }
 
 export const Controlled: Story = {
-  render: args => {
+  render: (args) => {
     const [selectedIndex, setSelectedIndex] = useState<number>(0)
     return (
       <>

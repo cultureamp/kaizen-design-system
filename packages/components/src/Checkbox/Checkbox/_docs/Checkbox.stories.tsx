@@ -33,7 +33,7 @@ export const Playground: Story = {
     const [status, setStatus] =
       useState<CheckboxFieldProps['checkedStatus']>(checkedStatus)
 
-    const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
+    const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       if (status === 'off') {
         setStatus('mixed')
       } else if (status === 'mixed') {

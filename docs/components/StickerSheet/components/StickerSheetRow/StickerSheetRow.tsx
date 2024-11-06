@@ -32,7 +32,7 @@ export const StickerSheetRow = ({
           {rowTitle}
         </StickerSheetTableHeading>
       )}
-      {React.Children.map(children, child => {
+      {React.Children.map(children, (child) => {
         if (React.isValidElement(child) && child.type === StickerSheetCell) {
           return child
         }

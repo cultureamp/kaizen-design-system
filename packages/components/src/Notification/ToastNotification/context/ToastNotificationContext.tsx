@@ -44,11 +44,11 @@ export const ToastNotificationProvider = ({
   const [notifications, setNotifications] = useState<ToastNotificationObj[]>([])
 
   const addToastNotification: ToastNotificationContextValue['addToastNotification'] =
-    notification => {
+    (notification) => {
       const uuid = uuidv4()
       const notificationWithId = { id: uuid, ...notification }
 
-      setNotifications(existing => {
+      setNotifications((existing) => {
         const notificationExists = existing.find(
           ({ id }) => id === notification.id,
         )

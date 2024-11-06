@@ -9,7 +9,7 @@ export const getMarkAttrs = (state: EditorState, type: MarkType): Attrs => {
   const { from, to } = state.selection
   let marks: Mark[] = []
 
-  state.doc.nodesBetween(from, to, node => {
+  state.doc.nodesBetween(from, to, (node) => {
     marks = [...marks, ...node.marks]
   })
 

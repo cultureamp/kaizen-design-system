@@ -921,7 +921,7 @@ describe('<FilterBar />', () => {
         const activeFilterVals = getActiveFilterValues()
 
         useEffect(() => {
-          fetcher(activeFilterVals).then(fetchedItems => {
+          fetcher(activeFilterVals).then((fetchedItems) => {
             if (JSON.stringify(fetchedItems) !== JSON.stringify(items)) {
               setItems(fetchedItems)
             }
@@ -1047,7 +1047,7 @@ describe('<FilterBar />', () => {
           <FilterBar.Select
             id={id}
             items={[{ value: 'custom', label: 'Custom Date' }]}
-            onSelectionChange={key => {
+            onSelectionChange={(key) => {
               if (key === 'custom') openFilter('customDate')
             }}
           />

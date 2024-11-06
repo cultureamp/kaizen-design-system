@@ -76,7 +76,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const FilterMultiSelectTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [selectedKeys, setSelectedKeys] = useState<Selection | undefined>(
       args.selectedKeys,
     )
@@ -117,7 +117,7 @@ export const Loading: Story = {
 }
 
 export const TruncatedLabels: Story = {
-  render: args => {
+  render: (args) => {
     const [selectedKeys, setSelectedKeys] = useState<Selection | undefined>(
       args.selectedKeys,
     )
@@ -197,7 +197,7 @@ export const Async: Story = {
       queryKey: ['startrek-sg1', searchState],
       queryFn: fetchSWAPI,
       placeholderData: keepPreviousData,
-      getNextPageParam: lastPage => {
+      getNextPageParam: (lastPage) => {
         if (!lastPage.next) return undefined
         const url = new URL(lastPage.next)
         const params = new URLSearchParams(url.searchParams)

@@ -171,7 +171,7 @@ export const DatePicker = ({
     onDayChange(newDate)
   }
 
-  const handleCalendarDayChange: DayClickEventHandler = date => {
+  const handleCalendarDayChange: DayClickEventHandler = (date) => {
     if (!isDisabledDate(date, disabledDays)) {
       const newInputValue =
         lastTrigger === 'calendarButton'
@@ -184,12 +184,12 @@ export const DatePicker = ({
     }
   }
 
-  const handleInputClick: React.MouseEventHandler<HTMLInputElement> = e => {
+  const handleInputClick: React.MouseEventHandler<HTMLInputElement> = (e) => {
     setIsOpen(true)
     onInputClick?.(e)
   }
 
-  const handleInputFocus: React.FocusEventHandler<HTMLInputElement> = e => {
+  const handleInputFocus: React.FocusEventHandler<HTMLInputElement> = (e) => {
     setLastTrigger('inputFocus')
     if (selectedDay) {
       const newInputValue = formatDateAsNumeral(selectedDay, locale)
@@ -198,12 +198,12 @@ export const DatePicker = ({
     onInputFocus?.(e)
   }
 
-  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = e => {
+  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setInputValue(e.target.value)
     onInputChange?.(e)
   }
 
-  const handleInputBlur: React.FocusEventHandler<HTMLInputElement> = e => {
+  const handleInputBlur: React.FocusEventHandler<HTMLInputElement> = (e) => {
     if (isSelectingDayInCalendar(e.relatedTarget)) return
 
     if (inputValue !== '') {
@@ -222,7 +222,7 @@ export const DatePicker = ({
     onInputBlur?.(e)
   }
 
-  const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = e => {
+  const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
     if (e.key === 'Enter') {
       setIsOpen(false)
       const parsedDate = parseDateAsTextOrNumeral(inputValue, locale)
@@ -236,7 +236,7 @@ export const DatePicker = ({
     }
   }
 
-  const handleButtonClick: React.MouseEventHandler<HTMLButtonElement> = e => {
+  const handleButtonClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     setIsOpen(!isOpen)
     setLastTrigger('calendarButton')
     onButtonClick?.(e)

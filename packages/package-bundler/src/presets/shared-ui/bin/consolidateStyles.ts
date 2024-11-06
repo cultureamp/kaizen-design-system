@@ -21,7 +21,7 @@ const pathsToDelete = [
 ]
 
 const combineFiles = (): void => {
-  pathsToCombine.forEach(filePath => {
+  pathsToCombine.forEach((filePath) => {
     const file = path.resolve(filePath)
     if (fs.existsSync(file) && fs.statSync(file).isFile()) {
       const fileContent = fs.readFileSync(file).toString()
@@ -32,7 +32,7 @@ const combineFiles = (): void => {
 }
 
 const deleteFiles = (): void => {
-  pathsToDelete.forEach(filePath => {
+  pathsToDelete.forEach((filePath) => {
     const file = path.resolve(filePath)
     if (fs.existsSync(file)) {
       fs.unlinkSync(file)

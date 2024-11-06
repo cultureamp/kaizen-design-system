@@ -124,7 +124,7 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
     'id--calendar-today--disabled',
   ]
 
-  todayCalendarIds.forEach(id => {
+  todayCalendarIds.forEach((id) => {
     getElementWithinCalendar(id, 'gridcell', '1').classList.add(styles.dayToday)
   })
 

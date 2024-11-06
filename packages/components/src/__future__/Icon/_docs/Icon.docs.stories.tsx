@@ -41,7 +41,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  render: args => {
+  render: (args) => {
     if (args.isPresentational) return <Icon {...args} alt={undefined} />
     return <Icon {...args} alt={args.alt ?? 'Fallback string'} />
   },

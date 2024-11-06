@@ -56,7 +56,7 @@ export const useRichTextEditor = (
   // Hold editableStatus as a ref so we can toggle its status
   const editableStatusRef = useRef<boolean>(options.editable)
   const setEditableStatus = useCallback<SetEditableStatus>(
-    status => {
+    (status) => {
       editableStatusRef.current = status
       // Trigger an update within ProseMirror by issuing a noop transaction
       dispatchTransaction((state, dispatch) => {
