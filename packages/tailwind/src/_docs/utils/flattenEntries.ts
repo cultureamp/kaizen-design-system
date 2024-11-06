@@ -23,8 +23,7 @@ export const flattenEntries = (
         utilityClassName: `${prefix}${classModifier}`,
         cssProperty,
       })
-    }
-    else {
+    } else {
       Object.entries(cssProperty as Record<string, string>).forEach(
         classNamePair =>
           flattenedEntries.push({

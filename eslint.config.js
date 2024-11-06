@@ -410,6 +410,7 @@ export default tseslint.config(
       '@stylistic/arrow-parens': stylistic.configs['recommended-flat'].rules['@stylistic/arrow-parens'],
       '@stylistic/member-delimiter-style': stylistic.configs['recommended-flat'].rules['@stylistic/member-delimiter-style'],
       // Custom
+      '@stylistic/brace-style': ['error', '1tbs'],
       '@stylistic/jsx-one-expression-per-line': 'off',
       '@stylistic/operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
       // "@stylistic/multiline-ternary": ["error", "always-multiline"],
