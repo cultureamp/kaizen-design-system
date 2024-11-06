@@ -407,7 +407,7 @@ export default tseslint.config(
       '@stylistic/comma-dangle': stylistic.configs['recommended-flat'].rules['@stylistic/comma-dangle'],
       '@stylistic/quotes': stylistic.configs['recommended-flat'].rules['@stylistic/quotes'],
       '@stylistic/quote-props': stylistic.configs['recommended-flat'].rules['@stylistic/quote-props'],
-      // "@stylistic/jsx-one-expression-per-line": ["error", { allow: "non-jsx" }],
+      '@stylistic/jsx-one-expression-per-line': 'off',
       // "@stylistic/multiline-ternary": ["error", "always-multiline"],
       // "@stylistic/type-annotation-spacing": "error",
     },
