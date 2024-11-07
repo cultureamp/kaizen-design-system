@@ -21,7 +21,7 @@ const determineSelectionFromKeyPress = (
   focusedItem: ScaleItem,
 ): null | ScaleValue => {
   const supportedKeyCodes = [32, 37, 38, 39, 40]
-  if (supportedKeyCodes.indexOf(keyCode) === -1) {
+  if (!supportedKeyCodes.includes(keyCode)) {
     return null
   }
 

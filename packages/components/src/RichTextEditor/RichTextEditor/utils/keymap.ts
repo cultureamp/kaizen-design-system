@@ -16,7 +16,7 @@ export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
     ProseMirrorSchemaList
 
   const mac =
-    typeof navigator != 'undefined' ? /Mac/.test(navigator.platform) : false
+    typeof navigator != 'undefined' ? navigator.platform.includes('Mac') : false
 
   const {
     chainCommands,
