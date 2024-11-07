@@ -1,5 +1,4 @@
-/* keep max-width value in sync with other places using this container */
-@container filter-bar-wrapper (max-width: 767px) {
+@media (width < 768px) {
   .filterMultiSelect {
     flex-basis: 100%;
   }
