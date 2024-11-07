@@ -40,7 +40,7 @@ export const upgradeIconV1 =
 
           if (kaioComponentName === 'CaMonogramIcon') {
             setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
-            const alias = componentToAliasMap.get('Brand') as string
+            const alias = componentToAliasMap.get('Brand')!
 
             if (!kaioTagNames.has(alias)) {
               setImportToAdd(importsToAdd, '@kaizen/components', {
@@ -53,7 +53,7 @@ export const upgradeIconV1 =
 
           if (kaioComponentName === 'SpinnerIcon') {
             setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
-            const alias = componentToAliasMap.get('LoadingSpinner') as string
+            const alias = componentToAliasMap.get('LoadingSpinner')!
 
             if (!kaioTagNames.has(alias)) {
               setImportToAdd(importsToAdd, '@kaizen/components', {

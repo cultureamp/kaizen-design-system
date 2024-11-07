@@ -84,7 +84,7 @@ export const transformIcon = (
 
       if (propsToStyleMap.has(propName)) {
         if (attr.initializer) {
-          styles.set(propsToStyleMap.get(propName) as string, attr.initializer)
+          styles.set(propsToStyleMap.get(propName)!, attr.initializer)
         }
         return acc
       }

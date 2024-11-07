@@ -294,6 +294,7 @@ export default tseslint.config(
       '@typescript-eslint/prefer-includes': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/prefer-includes'],
       '@typescript-eslint/prefer-optional-chain': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/prefer-optional-chain'],
       '@typescript-eslint/dot-notation': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/dot-notation'],
+      '@typescript-eslint/non-nullable-type-assertion-style': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/non-nullable-type-assertion-style'],
       // Custom
       '@typescript-eslint/explicit-function-return-type': [
         'error',
