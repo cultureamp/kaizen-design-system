@@ -16,10 +16,6 @@ Happy linting! 💖
     "source.fixAll.eslint": "explicit"
   },
   "eslint.useFlatConfig": true,
-  // "eslint.options": {
-  //   "overrideConfigFile": "./eslint.config.mjs",
-  //   // "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
-  // },
   "eslint.validate": [
     "markdown",
     "mdx",
@@ -30,7 +26,6 @@ Happy linting! 💖
   ],
   "editor.formatOnSave": true,
   "javascript.suggestionActions.enabled": false,
-  "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "typescript.tsdk": "node_modules/typescript/lib",
   "tailwindCSS.classAttributes": ["class", "className", "ngClass", "classNameOverride"],
   "tailwindCSS.experimental.classRegex": [
