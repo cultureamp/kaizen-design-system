@@ -10,6 +10,18 @@
     "opsz" var(--icon-optical-size, var(--icon-size, 20));
 }
 
+.icon.IconOverride {
+  font-size: calc(1px * var(--icon-size, 20));
+  font-weight: var(--icon-font-weight, 400);
+  vertical-align: var(--icon-vertical-align);
+
+  /* Must use vars otherwise whole attribute must be set again */
+  font-variation-settings:
+    "FILL" var(--icon-fill, 0),
+    "GRAD" var(--icon-grade, 0),
+    "opsz" var(--icon-optical-size, var(--icon-size, 20));
+}
+
 .filled {
   --icon-fill: 1;
 }

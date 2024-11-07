@@ -36,6 +36,7 @@ const MaterialIcon = ({
     className={classNames(
       "material-symbols-outlined",
       styles.icon,
+      "IconOverride",
       isFilled && styles.filled,
       className
     )}
