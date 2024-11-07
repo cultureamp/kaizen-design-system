@@ -58,7 +58,7 @@ export const LikertScaleLegacy = ({
     const isClickOnSelectedItem = selectedItem?.value === item.value
 
     // Grab "Not rated" state item from the scale, its value is -1
-    const notYetRated = scale.find(s => s.value === -1) || null
+    const notYetRated = scale.find(s => s.value === -1) ?? null
 
     // Clear or set new selection
     const newItem = isClickOnSelectedItem ? notYetRated : item
@@ -82,7 +82,7 @@ export const LikertScaleLegacy = ({
     if (newPosition) {
       event.preventDefault()
 
-      onSelect(scale.find(s => s.value === newPosition) || null)
+      onSelect(scale.find(s => s.value === newPosition) ?? null)
 
       // Update focus
       const itemRef = itemRefs.find(item => item.value === newPosition)
@@ -90,7 +90,7 @@ export const LikertScaleLegacy = ({
     }
   }
 
-  const legend = hoveredItem?.label || selectedItem?.label || 'Not rated'
+  const legend = hoveredItem?.label ?? selectedItem?.label ?? 'Not rated'
 
   const shouldDisplayValidationMessage =
     status !== 'default' && validationMessage !== undefined

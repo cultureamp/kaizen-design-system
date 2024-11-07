@@ -67,7 +67,7 @@ export const DateInputField = React.forwardRef<
         <DateInput
           ref={ref}
           id={id}
-          labelText={labelText || dateInputLabelFallback}
+          labelText={labelText ?? dateInputLabelFallback}
           aria-describedby={inputDescribedBy}
           aria-errormessage={errorMessageId}
           aria-invalid={dateIsInvalid}

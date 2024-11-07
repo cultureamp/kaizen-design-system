@@ -39,7 +39,7 @@ export const InputRange = ({
 
   // This has been split out into a different variable to allow usage of defaultValue above^
   // Plus it lets us use max from props with its default value
-  const defaultValueWithDefault = defaultValue || (max + 1) / 2
+  const defaultValueWithDefault = defaultValue ?? (max + 1) / 2
 
   return (
     <>
@@ -51,7 +51,7 @@ export const InputRange = ({
           readOnlyWithNoValue && styles.hideThumb,
           disabled && styles.disabled,
         )}
-        disabled={disabled || readOnly}
+        disabled={disabled ?? readOnly}
         type="range"
         min={min}
         max={max}

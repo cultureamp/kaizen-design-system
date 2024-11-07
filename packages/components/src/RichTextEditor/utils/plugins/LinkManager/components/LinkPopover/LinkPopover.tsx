@@ -35,7 +35,7 @@ export const LinkPopover = ({
             >
               <a
                 className={styles.popoverLink}
-                href={href != null ? href : undefined}
+                href={href}
                 target="_blank"
                 rel="noopener noreferrer"
               >

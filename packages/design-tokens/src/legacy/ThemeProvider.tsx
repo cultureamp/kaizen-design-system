@@ -22,7 +22,7 @@ export const ThemeProvider = ({
   children: React.ReactNode
 }): JSX.Element => {
   const [themeManagerInstance] = useState(
-    () => themeManager || new ThemeManager(defaultTheme),
+    () => themeManager ?? new ThemeManager(defaultTheme),
   )
 
   const [theme, setTheme] = React.useState<Theme>(

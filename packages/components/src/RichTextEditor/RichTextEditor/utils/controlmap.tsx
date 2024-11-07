@@ -140,7 +140,7 @@ const createControlGroupIndex = (controls: ToolbarItems[]): ControlGroupTypes =>
     if (!currentControl?.name) return groups
     return {
       ...groups,
-      [currentControl.name]: currentControl.group || 'ungrouped',
+      [currentControl.name]: currentControl.group ?? 'ungrouped',
     }
   }, {})
 
@@ -255,8 +255,8 @@ export const buildControlMap = (
 
   if (schema.nodes.orderedList || schema.nodes.bulletList) {
     const groupIndex =
-      controlGroupIndex['orderedList'] ||
-      controlGroupIndex['bulletList'] ||
+      controlGroupIndex['orderedList'] ??
+      controlGroupIndex['bulletList'] ??
       'ungrouped'
 
     toolbarControls[groupIndex].push(

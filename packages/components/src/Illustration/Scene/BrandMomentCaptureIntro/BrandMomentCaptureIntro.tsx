@@ -10,7 +10,7 @@ import { VideoPlayer } from '~components/Illustration/subcomponents/VideoPlayer'
  */
 export const BrandMomentCaptureIntro = ({
   isAnimated,
-  alt,
+  alt = '',
   enableAspectRatio,
   ...otherProps
 }: AnimatedSceneProps): JSX.Element => {
@@ -22,7 +22,7 @@ export const BrandMomentCaptureIntro = ({
     return (
       <Base
         aspectRatio={aspectRatio}
-        alt={alt || ''}
+        alt={alt}
         {...otherProps}
         name="illustrations/heart/scene/brand-moments-capture-intro-loop.png"
       />

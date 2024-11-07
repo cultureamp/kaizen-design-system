@@ -47,10 +47,7 @@ export const MainActions = ({
                 <Button
                   {...{
                     ...defaultAction,
-                    reversed:
-                      defaultAction.reversed !== undefined
-                        ? defaultAction.reversed
-                        : reversed,
+                    reversed: defaultAction.reversed ?? reversed,
                   }}
                   data-automation-id="title-block-default-action-button"
                   data-testid="title-block-default-action-button"
@@ -105,10 +102,7 @@ export const MainActions = ({
                 <Button
                   {...{
                     ...defaultAction,
-                    reversed:
-                      defaultAction.reversed !== undefined
-                        ? defaultAction.reversed
-                        : reversed,
+                    reversed: defaultAction.reversed ?? reversed,
                   }}
                   data-automation-id="title-block-default-action-button"
                   data-testid="title-block-default-action-button"
@@ -125,14 +119,8 @@ export const MainActions = ({
                 <Button
                   {...{
                     ...primaryAction,
-                    primary:
-                      primaryAction.primary !== undefined
-                        ? primaryAction.primary
-                        : true,
-                    reversed:
-                      primaryAction.reversed !== undefined
-                        ? primaryAction.reversed
-                        : reversed,
+                    primary: primaryAction.primary ?? true,
+                    reversed: primaryAction.reversed ?? reversed,
                   }}
                   data-automation-id="title-block-primary-action-button"
                   data-testid="title-block-primary-action-button"

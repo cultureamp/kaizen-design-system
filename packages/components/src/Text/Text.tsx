@@ -61,7 +61,7 @@ export const Text = ({
   )
 
   return createElement(
-    tag === undefined ? 'p' : tag,
+    tag ?? 'p',
     { ...restProps, className },
     children,
   )

@@ -31,7 +31,7 @@ const PopoverTemplate = (
       </button>
       {isOpen && (
         <Popover refs={refs} aria-label="Pancakes!" {...args}>
-          <div className="p-16">{args.children || 'Content here!'}</div>
+          <div className="p-16">{args.children ?? 'Content here!'}</div>
         </Popover>
       )}
     </div>

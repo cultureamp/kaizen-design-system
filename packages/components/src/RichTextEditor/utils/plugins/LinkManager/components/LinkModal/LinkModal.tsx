@@ -19,7 +19,7 @@ export const LinkModal = ({
   isOpen,
   defaultHref,
 }: LinkModalProps): JSX.Element => {
-  const [href, setHref] = useState<string>(defaultHref || '')
+  const [href, setHref] = useState<string>(defaultHref ?? '')
   const [validationStatus, setValidationStatus] = useState<ValidationResponse>({
     status: 'default',
   })

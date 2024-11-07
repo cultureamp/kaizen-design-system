@@ -106,12 +106,11 @@ export const FilterDatePickerField = ({
 
   const [state, dispatch] = useReducer(filterDatePickerFieldReducer, {
     selectedDate,
-    inputValue:
-      transformDateToInputValue(selectedDate, disabledDays, locale) || '',
+    inputValue: transformDateToInputValue(selectedDate, disabledDays, locale) ?? '',
     startMonth:
       selectedDate && !isInvalidDate(selectedDate)
         ? selectedDate
-        : defaultMonth || new Date(),
+        : defaultMonth ?? new Date(),
   })
 
   const handleDateChange = (date: Date | undefined): void => {

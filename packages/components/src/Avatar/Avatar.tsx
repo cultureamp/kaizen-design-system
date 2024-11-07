@@ -133,7 +133,7 @@ export const Avatar = ({
   disableInitials = false,
   isCompany = false,
   isCurrentUser = true,
-  alt = fullName || '',
+  alt = fullName ?? '',
   classNameOverride,
   ...restProps
 }: AvatarProps): JSX.Element => {

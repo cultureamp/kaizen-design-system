@@ -58,7 +58,7 @@ export const Checkbox = ({
       )}
       checked={getCheckedFromStatus(checkedStatus)}
       onChange={onCheck}
-      value={value || checkedStatus}
+      value={value ?? checkedStatus}
       readOnly={onCheck === undefined}
       {...restProps}
     />

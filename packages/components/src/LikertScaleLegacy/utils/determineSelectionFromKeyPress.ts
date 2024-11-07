@@ -57,7 +57,7 @@ const oneSelectionForward = (value: ScaleValue): ScaleValue | null => {
     return 1
   }
   const calculatedPosition = SCALE_VALUE_RESPONSE.get(value + 1)
-  return calculatedPosition || null
+  return calculatedPosition ?? null
 }
 
 const oneSelectionBackward = (value: ScaleValue): ScaleValue | null => {
@@ -65,7 +65,7 @@ const oneSelectionBackward = (value: ScaleValue): ScaleValue | null => {
     return 5
   }
   const calculatedPosition = SCALE_VALUE_RESPONSE.get(value - 1)
-  return calculatedPosition || null
+  return calculatedPosition ?? null
 }
 
 export default determineSelectionFromKeyPress

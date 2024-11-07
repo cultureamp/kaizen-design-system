@@ -23,7 +23,7 @@ export const BackToTop = ({
       onClick={() => window.scroll({ top: 0, left: 0, behavior: 'smooth' })}
       {...buttonAttributes}
     >
-      {children || (
+      {children ?? (
         <>
           <span aria-hidden={true}>↑</span> <span>Back to top</span>
         </>

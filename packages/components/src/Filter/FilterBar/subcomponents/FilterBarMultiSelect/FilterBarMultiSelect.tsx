@@ -91,7 +91,7 @@ export const FilterBarMultiSelect = ({
     <FilterMultiSelect
       label={filterState.name}
       // Convert the incoming FilterBar state to a Set (internal FilterMultiSelect state)
-      selectedKeys={new Set(filterState.value || null)}
+      selectedKeys={new Set(filterState.value ?? null)}
       onSelectionChange={(keys): void => {
         // Convert the internal FilterMultiSelect state (Set) to an Array for FilterBar state
         updateValue(id, convertSelectionToAConsumableFormat(keys))

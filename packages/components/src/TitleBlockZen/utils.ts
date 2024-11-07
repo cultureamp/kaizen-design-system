@@ -73,6 +73,6 @@ export const createTabletOverflowMenuItems = (
   } else {
     secondaryActionsList = []
   }
-  const flatSecondaryOverflowItemsList = secondaryOverflowMenuItems || []
+  const flatSecondaryOverflowItemsList = secondaryOverflowMenuItems ?? []
   return secondaryActionsList.concat(flatSecondaryOverflowItemsList)
 }

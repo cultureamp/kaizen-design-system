@@ -15,8 +15,8 @@ export const NotificationHeading = ({
     return (
       <Heading
         variant={headingProps.variant || 'heading-6'}
-        tag={headingProps.tag || 'div'}
-        color={headingProps.color || 'dark'}
+        tag={headingProps.tag ?? 'div'}
+        color={headingProps.color ?? 'dark'}
         classNameOverride={styles.notificationTitle}
       >
         {headingProps.children}

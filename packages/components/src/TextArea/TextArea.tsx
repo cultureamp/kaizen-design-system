@@ -38,8 +38,8 @@ export const TextArea = ({
   // ^ holds an internal state of the value so that autogrow can still work with uncontrolled textareas
   // essentially forces the textarea into an (interally) controlled mode if autogrow is true and mode is uncontrolled
 
-  const controlledValue = value || internalValue
-  const textAreaRef = propsTextAreaRef || fallbackRef
+  const controlledValue = value ?? internalValue
+  const textAreaRef = propsTextAreaRef ?? fallbackRef
 
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     propsOnChange?.(event)

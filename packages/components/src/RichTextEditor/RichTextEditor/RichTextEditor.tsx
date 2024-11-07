@@ -92,8 +92,8 @@ export const RichTextEditor = ({
     createSchemaFromControls(controls),
   )
 
-  const editorId = id || generatedId
-  const labelId = labelledBy || `${editorId}-rte-label`
+  const editorId = id ?? generatedId
+  const labelId = labelledBy ?? `${editorId}-rte-label`
   const validationMessageAria = validationMessage
     ? `${editorId}-rte-validation-message`
     : ''
@@ -144,7 +144,7 @@ export const RichTextEditor = ({
         type="negative"
         persistent
       >
-        {dataError || 'Something went wrong'}
+        {dataError ?? 'Something went wrong'}
       </InlineNotification>
     )
   }

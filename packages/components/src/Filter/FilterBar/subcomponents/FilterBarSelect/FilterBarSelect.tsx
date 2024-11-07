@@ -52,7 +52,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
     <FilterSelect<Option>
       {...props}
       items={items}
-      selectedKey={filterState.value || null}
+      selectedKey={filterState.value ?? null}
       label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element => (
         <FilterBarButton

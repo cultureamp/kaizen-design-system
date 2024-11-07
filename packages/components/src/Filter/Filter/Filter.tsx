@@ -71,7 +71,7 @@ export const Filter = ({
         >
           <FilterPopover
             referenceElement={
-              filterButtonRef.current?.triggerRef?.current || null
+              filterButtonRef.current?.triggerRef?.current ?? null
             }
             aria-labelledby={trigger.props.id}
           >

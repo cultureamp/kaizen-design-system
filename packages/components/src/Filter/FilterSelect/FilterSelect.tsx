@@ -94,7 +94,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
         setIsOpen={setIsOpen}
         renderTrigger={(): JSX.Element =>
           renderTrigger({
-            selectedValue: state.selectedItem?.textValue || undefined,
+            selectedValue: state.selectedItem?.textValue,
             label,
             isOpen,
             ...renderTriggerButtonProps,

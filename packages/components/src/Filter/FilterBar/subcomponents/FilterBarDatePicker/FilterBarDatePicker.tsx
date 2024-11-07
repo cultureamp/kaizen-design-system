@@ -40,7 +40,7 @@ export const FilterBarDatePicker = ({
       {...props}
       id={id}
       locale={locale}
-      selectedDate={filterState.value || undefined}
+      selectedDate={filterState.value}
       label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element => (
         <FilterBarButton

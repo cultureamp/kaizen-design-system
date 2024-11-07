@@ -15,7 +15,7 @@ const DateRangePickerWrapper = (
     to: props.selectedDateRange?.to,
   })
   const { value: propValue, ...restProps } = props
-  const [value, setValue] = useState(propValue || '')
+  const [value, setValue] = useState(propValue ?? '')
 
   const onDateRangeChange = (dateRange: DateRange): void => {
     setSelectedDateRange(dateRange)

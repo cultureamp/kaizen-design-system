@@ -200,7 +200,7 @@ const sharedImportConfig = {
   },
   files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
 }
-
+// console.log(tseslint.configs.stylisticTypeChecked)
 export default tseslint.config(
   {
     ignores: [
@@ -288,7 +288,7 @@ export default tseslint.config(
     },
     files: ['**/*.{ts,tsx}'],
     rules: {
-      '@typescript-eslint/array-type': 'error',
+      '@typescript-eslint/array-type': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/array-type'],
       // Custom
       '@typescript-eslint/explicit-function-return-type': [
         'error',
@@ -302,6 +302,10 @@ export default tseslint.config(
           varsIgnorePattern: '(^_|^React$)',
           argsIgnorePattern: '^_',
         },
+      ],
+      '@typescript-eslint/prefer-nullish-coalescing': [
+        'error',
+        { ignoreBooleanCoercion: true },
       ],
     },
   },
