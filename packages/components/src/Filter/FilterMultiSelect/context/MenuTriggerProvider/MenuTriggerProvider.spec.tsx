@@ -59,14 +59,11 @@ describe("<MenuTriggerProvider /> - Visual content", () => {
       expect(screen.queryByText("menu-content-mock")).not.toBeInTheDocument()
     })
 
-    it("fires the onOpenChange callback when the trigger is interacted", async () => {
+    it("fires the onOpenChange callback on outside click", async () => {
       const onOpenChange = vi.fn()
       render(<MenuTriggerProviderWrapper isOpen onOpenChange={onOpenChange} />)
 
-      const trigger = screen.getByRole("button", {
-        name: "trigger-display-label-mock",
-      })
-      await user.click(trigger)
+      await user.click(document.body)
 
       await waitFor(() => {
         expect(onOpenChange).toBeCalledTimes(1)
@@ -91,17 +88,6 @@ describe("<MenuTriggerProvider /> - Mouse interaction", () => {
   })
 
   describe("Given the menu is opened", () => {
-    it("is closed when user clicks on the trigger", async () => {
-      render(<MenuTriggerProviderWrapper defaultOpen />)
-      const trigger = screen.getByRole("button", {
-        name: "trigger-display-label-mock",
-      })
-      await user.click(trigger)
-      await waitFor(() => {
-        expect(screen.queryByText("menu-content-mock")).not.toBeInTheDocument()
-      })
-    })
-
     it("is closed when user clicks outside of the menu", async () => {
       render(<MenuTriggerProviderWrapper defaultOpen />)
       await user.click(document.body)

@@ -1,6 +1,6 @@
 import React from "react"
 import { FocusScope } from "@react-aria/focus"
-import { useOverlay, DismissButton } from "@react-aria/overlays"
+import { Overlay, usePopover, DismissButton } from "react-aria"
 import { useMenuTriggerContext } from "../../context"
 import styles from "./MenuPopup.module.scss"
 
@@ -15,20 +15,18 @@ export const MenuPopup = ({
   loadingSkeleton,
   children,
 }: MenuPopupProps): JSX.Element => {
-  const { menuTriggerState } = useMenuTriggerContext()
+  const { menuTriggerState, buttonRef } = useMenuTriggerContext()
 
   const onClose = (): void => menuTriggerState.close()
 
-  // Handle events that should cause the menu to close,
-  // e.g. blur, clicking outside, or pressing the escape key.
-  const overlayRef = React.createRef<HTMLDivElement>()
-  const { overlayProps } = useOverlay(
+  const popoverRef = React.useRef(null)
+  const { popoverProps } = usePopover(
     {
-      onClose,
-      isOpen: menuTriggerState.isOpen,
-      isDismissable: true,
+      triggerRef: buttonRef,
+      popoverRef,
+      placement: "bottom start",
     },
-    overlayRef
+    menuTriggerState
   )
 
   // Wrap in <FocusScope> so that focus is restored back to the trigger when the menu is closed
@@ -36,23 +34,25 @@ export const MenuPopup = ({
   // In addition, add hidden <DismissButton> components at the start and end of the list
   // to allow screen reader users to dismiss the popup easily.
   return menuTriggerState.isOpen ? (
-    <div {...overlayProps} ref={overlayRef} className={styles.menuPopup}>
-      {isLoading && loadingSkeleton ? (
-        <>
-          <DismissButton onDismiss={onClose} />
-          {loadingSkeleton}
-          <DismissButton onDismiss={onClose} />
-        </>
-      ) : (
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        <FocusScope contain autoFocus restoreFocus>
-          <DismissButton onDismiss={onClose} />
+    <Overlay>
+      <div ref={popoverRef} className={styles.menuPopup} {...popoverProps}>
+        {isLoading && loadingSkeleton ? (
+          <>
+            <DismissButton onDismiss={onClose} />
+            {loadingSkeleton}
+            <DismissButton onDismiss={onClose} />
+          </>
+        ) : (
+          // eslint-disable-next-line jsx-a11y/no-autofocus
+          <FocusScope contain autoFocus restoreFocus>
+            <DismissButton onDismiss={onClose} />
 
-          {children}
-          <DismissButton onDismiss={onClose} />
-        </FocusScope>
-      )}
-    </div>
+            {children}
+            <DismissButton onDismiss={onClose} />
+          </FocusScope>
+        )}
+      </div>
+    </Overlay>
   ) : (
     <></>
   )
