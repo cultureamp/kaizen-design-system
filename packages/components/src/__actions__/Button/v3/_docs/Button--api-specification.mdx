@@ -1,0 +1,160 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
+import * as specStories from "./Button.spec.stories"
+import * as exampleStories from "./Button.stories"
+
+<Meta title="Actions/Button/Button (v3)/API Specification" />
+
+  # Button API Specification (v3)
+
+  Updated Nov 11, 2024
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__actions__/Button/v3"
+  figma="https://www.figma.com/design/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-Heart-UI-Kit?m=auto&t=a6VcoKBJx6snn0ut-1"
+  ariaComponentPage="https://react-spectrum.adobe.com/react-aria/Button.html"
+  designGuidelines="/?path=/docs/actions-button-v3-usage-guidelines--docs"
+/>
+
+<KAIOInstallation exportNames={["Button" ]} family="actions" version="3" />
+
+## Overview
+
+`Button` allows users to perform an action. If the component needs to navigate somewhere and can be opened in a new tab, use a [link instead](#buttons-and-links).
+
+<Canvas of={exampleStories.Playground} />
+
+## API
+
+This is built on top [React Aria's Button component](https://react-spectrum.adobe.com/react-aria/Button.html#props) and seeks to provide a flexible API with convenient abstractions that handle variants, sizes, pending states and icons.
+
+The following table showcases the essential props that enable the core functionality of `Button`.
+
+<Controls of={exampleStories.Playground} className="mb-64" include={["children", "className",  "size", "variant", "onPress", "icon", "iconPosition", "isFullWidth", "isDisabled", "isPending", "isPendingLabelHidden",  "pendingLabel"]} />
+
+### `onPress` vs `onClick`
+
+One key change to the `Button`&apos;s API is the shift from `onClick` to `onPress`. This will not require a change to the implementation of `onClick` logic, ie:
+
+```tsx
+<Button label="Submit" onClick={e => sumbit(e)}/>
+```
+
+Can safely be replaced with the following:
+
+```tsx
+<Button onPress={e => submit(e)}>
+  Submit
+</Button>
+```
+
+React Aria&apos;s implementation of `onPress` provides better support for consistent touch events across device types, such mobile, desktop and tablet. You can read more about the development and reason behind this pattern [here](https://react-spectrum.adobe.com/blog/building-a-button-part-1.html#touch-interactions).
+
+
+### Button content and children
+
+Labels and any button content can be passed into the `Button` as `children`. Content wrapped by the `Button` will be spaced using `flex-gap` relative to the `size` prop. This enables consistent spacing in `RTL` layouts.
+
+```tsx
+<Button variant="secondary" onPress={e => submit(e)}>
+  Label
+</Button>
+```
+
+While in most cases, `children` will be a `ReactNode`, `Button` also accepts a render function with React Aria's `ButtonRenderProps`. This allows for more advanced styling and rendering options by hooking into React Aria's internal button state. You can read more about this [here](https://react-spectrum.adobe.com/react-aria/Button.html#styling).
+
+
+### Icons and positioning
+
+The `icon` property abstracts the need to handle positioning and sizing logic for icons within the `Button`. When paired with the [Icon component](/docs/illustrations-icon-icon-future-api-specification--docs), this will scale optical size and stroke width `size` prop.
+
+<Canvas of={exampleStories.ButtonWithIcon} />
+
+Set the position of the icon using the `iconPosition` prop. This will ensure content is flipped in `RTL` layouts.
+
+<Canvas of={exampleStories.ButtonWithIconEnd} />
+
+Note that icons will need the [shouldMirrorInRTL](/docs/illustrations-icon-icon-future-api-specification--docs#mirror-in-rtl) prop set to `true` when mirroring is required.
+
+
+### Icon only buttons
+
+The recommended pattern to achieve an icon only button (aka: `IconButton`) is to pass an icon in as props, then to use a [VisuallyHidden](/docs/components-visually-hidden--docs) component as `children`.
+
+<Canvas of={exampleStories.IconButton} className="mb-32"  />
+
+This pattern ensures that the `Button`'s accessible name is determined by its children, which helps to announce relevant content to the screen readers, as with the [pending state](#pending-state). You can learn more about this [accessible pattern here](https://cultureamp.atlassian.net/wiki/spaces/PA/pages/3833331831/Accessible+button+and+link+labels).
+
+### Pending state
+
+`isPending` and `pendingLabel` are used to indicate that an interaction is in progress. This will disable the `Button`'s press events while rendering a loading spinner and `pendingLabel`.
+
+<Canvas of={specStories.PendingButton} />
+
+For an icon only `Button`, this can be paired with the `isPendingLabelHidden` prop to visibly hide the `pendingLabel` to avoid layout shifts. It is important that the `pendingLabel` is still given meaningful message as this will be announced to a screen reader.
+
+### Full width Buttons
+
+If a button is statically the full width of a container you can use `isFullWidth` property.
+
+<Canvas of={exampleStories.ButtonFullWidth} />
+
+For resizing on on smaller screens, consider using the `className` to leverage CSS media or container queries, ie: `<Button className="w-full md:w-[initial]">Label</Button>`.
+
+
+### Styling hover, focus and other pseudo-classes
+
+Pseudo-classes, such as `:hover` or `:focus-visible`, are styled via data attributes that reflect React Aria's Button internal state, ie: `isHovered`, `isFocusVisible`.
+
+When adding styles via the `className` prop, we recommended using [React Aria's data attributes](https://react-spectrum.adobe.com/react-aria/Button.html#styling), such as `:[data-hovered]` or `:[data-focus-visible]`, to ensure styles are applied consistently.
+
+```css
+/* From this: */
+.button:hover {
+  background-color: $color-gray-200;
+}
+
+/* To this: */
+.button:[data-hovered] {
+  background-color: $color-gray-200;
+}
+```
+
+For more on styling with React Aria and other ways to extend the `Button`&apos;s styles, we recommend checking out the [docs here](https://react-spectrum.adobe.com/react-aria/Button.html#styling).
+
+
+### Reversed Colors
+
+The `Button` uses the `useReversedColors` hook and `ReversedColors` provider to control the dark and light theme.
+
+<Canvas className="bg-purple-600 mb-24" of={exampleStories.ReversedButton} />
+
+To enable the reversed theme, you will need to wrap the component or application in the `ReversedColors` provider, ie:
+
+```tsx
+import { Button } from "@kaizen/components/v3/actions"
+import { ReversedColors } from "@kaizen/components/v3/utilities"
+// application code
+
+return (
+  <ReversedColors isReversed={true}>
+    <Button {...buttonProps} />
+  </ReversedColors>
+)
+```
+
+## Additional API options
+
+The following table is a collection of additional React Aria and native HTML props that are exposed from the React Aria Button's API. These are not required for the implementation of `Button` but can be used to extend its functionality.
+
+You can learn more about React Aria's Button API and advance configuration options [here](https://react-spectrum.adobe.com/react-aria/Button.html#props).
+
+<Controls of={exampleStories.Playground} className="mb-64" exclude={["children", "className",  "size", "variant", "onPress", "icon", "iconPosition", "isFullWidth", "isDisabled", "isPending", "isPendingLabelHidden",  "pendingLabel"]}  />
+
+
+## Buttons and links
+
+The `Button` component does not support the `href` property or have any inbuilt routing support. This component is intended as a semantic button and should only be used to perform actions on a page. We advise against passing in an `anchor` tag as a child of the `Button` as this can lead to accessibility issues.
+
+A `LinkButton` component will be provided in the future to handle routing and navigation use cases. In the meantime, we recommend staying on [Button V1](/docs/actions-button-button-v1--docs) if an `href` is needed.
+

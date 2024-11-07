@@ -28,14 +28,12 @@ export const Playground: Story = {
 
 export const ButtonWithIcon: Story = {
   args: {
-    children: <>Label</>,
     icon: <Icon isPresentational name="delete" />,
   },
 }
 
 export const ButtonWithIconEnd: Story = {
   args: {
-    children: <>Label</>,
     icon: <Icon isPresentational name="arrow_forward" shouldMirrorInRTL />,
     iconPosition: "end",
   },
@@ -61,6 +59,12 @@ export const ReversedButton: Story = {
       `,
       },
     },
+  },
+}
+
+export const ButtonFullWidth: Story = {
+  args: {
+    isFullWidth: true,
   },
 }
 
