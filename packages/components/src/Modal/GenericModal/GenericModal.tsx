@@ -121,7 +121,7 @@ export const GenericModal = ({
     }
   }, [onEscapeKeyup])
 
-  /* Ensure sure add-on styles (e.g. unscrollable) and key event is cleaned up when the modal is unmounted*/
+  /* Ensure sure add-on styles (e.g. unscrollable) and key event is cleaned up when the modal is unmounted */
   useEffect(() => () => cleanUpAfterClose(), [cleanUpAfterClose])
 
   const onAfterLeaveHandler = (): void => {

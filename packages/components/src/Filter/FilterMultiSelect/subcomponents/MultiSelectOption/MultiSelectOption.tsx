@@ -52,7 +52,7 @@ export const MultiSelectOption = ({
       >
         {isSelected && <Icon name="check" isPresentational />}
       </span>
-      {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
+      {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider */}
       {item.rendered}
       {item.value?.count && (
         <span id={countElementId} className={styles.badgeContainer}>
