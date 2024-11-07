@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.67.9
+
+### Patch Changes
+
+- [#5238](https://github.com/cultureamp/kaizen-design-system/pull/5238) [`0fa693d56d4b8a20e0759969eed85e232f7940fc`](https://github.com/cultureamp/kaizen-design-system/commit/0fa693d56d4b8a20e0759969eed85e232f7940fc) - FilterBar: Switch container queries to media queries to avoid stacking context issues
+
 ## 1.67.8
 
 ### Patch Changes
