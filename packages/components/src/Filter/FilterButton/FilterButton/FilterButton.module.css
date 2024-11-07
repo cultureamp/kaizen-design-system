@@ -3,8 +3,7 @@
   justify-content: space-between;
 }
 
-/* keep max-width value in sync with other places using this container */
-@container filter-bar-wrapper (max-width: 767px) {
+@media (width < 768px) {
   .filterButton {
     flex-grow: 1;
   }
