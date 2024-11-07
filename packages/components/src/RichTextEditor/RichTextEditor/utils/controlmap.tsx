@@ -19,14 +19,10 @@ type ToolbarControl = {
 }
 
 /** Toolbar controls mapped to a group */
-type GroupedToolbarControls = {
-  [group: string]: ToolbarControl[]
-}
+type GroupedToolbarControls = Record<string, ToolbarControl[]>
 
 /** An index for each control's group */
-type ControlGroupTypes = {
-  [key in ToolbarControlTypes]?: string
-}
+type ControlGroupTypes = Partial<Record<ToolbarControlTypes, string>>
 
 /** Chains multiple commands to dispatch each transitions in sequential order */
 const chainTransactions =

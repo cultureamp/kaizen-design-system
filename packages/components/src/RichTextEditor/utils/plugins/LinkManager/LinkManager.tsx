@@ -138,7 +138,7 @@ class LinkManager {
       removeMark: () => {
         view.dispatch(removeMark(this.markType, { toExtent: true }))
       },
-      updateAttrs: (attrs: { [key: string]: unknown }) => {
+      updateAttrs: (attrs: Record<string, unknown>) => {
         view.dispatch(updateMark(this.markType, attrs, { toExtent: true }))
       },
       attrs: getMarkAttrs(view.state, this.markType) as LinkEditorAttrs,

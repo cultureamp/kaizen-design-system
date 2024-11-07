@@ -11,7 +11,7 @@ const {
 type SVGOItem = {
   type: 'element'
   name: string
-  attributes: { [key: string]: string }
+  attributes: Record<string, string>
   children: SVGOItem[]
 }
 

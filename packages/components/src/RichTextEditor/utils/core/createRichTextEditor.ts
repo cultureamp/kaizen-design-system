@@ -14,9 +14,7 @@ type EditorArgs = {
   /*
    * Pass in HTML attributes into the parent RTE node
    */
-  attributes?: {
-    [name: string]: string
-  }
+  attributes?: Record<string, string>
   isEditable?: () => boolean
 }
 

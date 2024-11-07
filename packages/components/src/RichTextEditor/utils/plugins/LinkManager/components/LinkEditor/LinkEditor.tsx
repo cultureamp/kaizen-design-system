@@ -5,7 +5,7 @@ import { LinkPopover } from '../LinkPopover'
 
 export type LinkEditorAttrs = {
   href: string | null
-  _metadata: { [key: string]: unknown } | null
+  _metadata: Record<string, unknown> | null
 }
 
 export type LinkEditorProps = {

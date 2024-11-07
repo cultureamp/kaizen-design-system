@@ -289,6 +289,7 @@ export default tseslint.config(
     files: ['**/*.{ts,tsx}'],
     rules: {
       '@typescript-eslint/array-type': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/array-type'],
+      '@typescript-eslint/consistent-indexed-object-style': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/consistent-indexed-object-style'],
       // Custom
       '@typescript-eslint/explicit-function-return-type': [
         'error',

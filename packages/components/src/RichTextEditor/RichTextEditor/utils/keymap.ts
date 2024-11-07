@@ -7,9 +7,7 @@ import {
   ProseMirrorState,
 } from '../../utils/prosemirror'
 
-type KeyBinding = {
-  [key: string]: ProseMirrorState.Command
-}
+type KeyBinding = Record<string, ProseMirrorState.Command>
 
 export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
   const { redo, undo } = ProseMirrorHistory

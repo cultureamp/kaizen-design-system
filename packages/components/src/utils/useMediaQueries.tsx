@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState, ReactNode, useMemo } from 'react'
 
-type Props = { [key: string]: string }
+type Props = Record<string, string>
 type GenericChildrenType = { children?: ReactNode }
 
 export const subtractOnePixel = (breakpoint: string): string =>

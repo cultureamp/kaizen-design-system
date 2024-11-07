@@ -14,7 +14,7 @@ export type ToolbarItems = {
   group?: string
 }
 
-export type EditorContentArray = { [key: string]: any }[]
+export type EditorContentArray = Record<string, any>[]
 
 export type EditorRows =
   | 1
