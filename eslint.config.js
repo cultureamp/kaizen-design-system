@@ -296,6 +296,7 @@ export default tseslint.config(
       ],
       '@typescript-eslint/consistent-type-definitions': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-inferrable-types': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
