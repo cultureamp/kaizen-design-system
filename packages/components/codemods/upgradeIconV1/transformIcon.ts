@@ -63,7 +63,7 @@ export const transformIcon = (
   name: string,
   isFilled?: boolean,
 ): ts.Node => {
-  const styles: Map<string, ts.JsxAttributeValue> = new Map()
+  const styles = new Map<string, ts.JsxAttributeValue>()
 
   const newAttributes = node.attributes.properties.reduce<
     ts.JsxAttributeLike[]

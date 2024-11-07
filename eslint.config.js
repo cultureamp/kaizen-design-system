@@ -275,7 +275,7 @@ export default tseslint.config(
   {
     extends: [
       ...tseslint.configs.recommended,
-      // ...tseslint.configs.stylisticTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
     ],
     languageOptions: {
       parserOptions: {
@@ -288,14 +288,6 @@ export default tseslint.config(
     },
     files: ['**/*.{ts,tsx}'],
     rules: {
-      '@typescript-eslint/array-type': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/array-type'],
-      '@typescript-eslint/consistent-indexed-object-style': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/consistent-indexed-object-style'],
-      '@typescript-eslint/prefer-regexp-exec': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/prefer-regexp-exec'],
-      '@typescript-eslint/prefer-includes': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/prefer-includes'],
-      '@typescript-eslint/prefer-optional-chain': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/prefer-optional-chain'],
-      '@typescript-eslint/dot-notation': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/dot-notation'],
-      '@typescript-eslint/non-nullable-type-assertion-style': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/non-nullable-type-assertion-style'],
-      // Custom
       '@typescript-eslint/explicit-function-return-type': [
         'error',
         { allowExpressions: true },
