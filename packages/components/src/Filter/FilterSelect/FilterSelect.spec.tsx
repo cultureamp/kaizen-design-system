@@ -276,31 +276,27 @@ const defaultProps: FilterSelectProps = {
 describe('FilterSelect generic', () => {
   it('should prevent adding `options` attribute to option', () => {
     /* @ts-expect-error TS error expected */
-    ;<FilterSelect<SelectOption & { options: string[] }> {...defaultProps} />
+    <FilterSelect<SelectOption & { options: string[] }> {...defaultProps} />
   })
 
   describe('Extended option', () => {
     it('should error when new required attribute is missing from items', () => {
       /* @ts-expect-error TS error expected */
-      ;<FilterSelect<SelectOption & { isRubberDuck: boolean }>
+      <FilterSelect<SelectOption & { isRubberDuck: boolean }>
         {...defaultProps}
       />
     })
 
     it('should allow consumer to access custom attributes in children', () => {
-      ;<FilterSelect<SelectOption & { isRubberDuck: boolean }>
+      <FilterSelect<SelectOption & { isRubberDuck: boolean }>
         {...defaultProps}
         items={[{ label: 'Bubblegum', value: 'bubblegum', isRubberDuck: true }]}
       >
         {({ items }): JSX.Element[] =>
           items.map(item =>
             item.type === 'item'
-              ? (
-                  <li key={item.key}>{item.value?.isRubberDuck}</li>
-                )
-              : (
-                  <li key={item.key}>Section</li>
-                ),
+              ? <li key={item.key}>{item.value?.isRubberDuck}</li>
+              : <li key={item.key}>Section</li>
           )}
       </FilterSelect>
     })

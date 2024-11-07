@@ -139,7 +139,7 @@ export const ContextModal = ({
                       ? styles.footerWithSecondaryAction
                       : styles.footer
                   }
-                ></div>
+                />
               )}
             </div>
           </div>

@@ -12,7 +12,9 @@ const CustomComponent = (props: CustomNavigationTabProps): JSX.Element => (
     type="button"
     onClick={props.handleClick}
     className={props.className}
-  >{`${props.href} - ${props.text} - ${props.active}`}</button>
+  >
+    {`${props.href} - ${props.text} - ${props.active}`}
+  </button>
 )
 
 describe('NavigationTabs', () => {

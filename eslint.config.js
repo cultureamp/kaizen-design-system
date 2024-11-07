@@ -414,6 +414,7 @@ export default tseslint.config(
       '@stylistic/lines-between-class-members': stylistic.configs['recommended-flat'].rules['@stylistic/lines-between-class-members'],
       '@stylistic/multiline-ternary': stylistic.configs['recommended-flat'].rules['@stylistic/multiline-ternary'],
       '@stylistic/jsx-curly-newline': stylistic.configs['recommended-flat'].rules['@stylistic/jsx-curly-newline'],
+      '@stylistic/jsx-closing-tag-location': stylistic.configs['recommended-flat'].rules['@stylistic/jsx-closing-tag-location'],
       // Custom
       '@stylistic/brace-style': ['error', '1tbs'],
       '@stylistic/jsx-one-expression-per-line': 'off',

@@ -377,7 +377,7 @@ describe('<Select />', () => {
             <div
               id={portalContainerId}
               data-testid="id--portal-container-test"
-            ></div>
+            />
             <SelectWrapper
               selectedKey="batch-brew"
               isOpen
