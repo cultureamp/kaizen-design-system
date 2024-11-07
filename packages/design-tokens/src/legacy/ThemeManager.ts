@@ -40,8 +40,10 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   public setRootElement = (element: HTMLElement): void => {
     this.rootElement = element
   }
+
   public setRootElementId = (rootElementId: string): string =>
     (this.rootElementId = rootElementId)
+
   public setAndApplyTheme = (theme: Theme, force?: boolean): void => {
     if (!force) {
       if (this.theme === theme) return
@@ -54,6 +56,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   public addThemeChangeListener = (listener: (theme: Theme) => void): void => {
     this.themeChangeListeners.push(listener)
   }
+
   public removeThemeChangeListener = (
     listener: (theme: Theme) => void,
   ): void => {
@@ -61,6 +64,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
       l => l !== listener,
     )
   }
+
   public applyCurrentTheme = (): void => {
     if (typeof window !== 'undefined') {
       this.setRootElement(

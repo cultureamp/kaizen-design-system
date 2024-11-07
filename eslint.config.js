@@ -411,6 +411,7 @@ export default tseslint.config(
       '@stylistic/member-delimiter-style': stylistic.configs['recommended-flat'].rules['@stylistic/member-delimiter-style'],
       '@stylistic/indent': stylistic.configs['recommended-flat'].rules['@stylistic/indent'],
       '@stylistic/indent-binary-ops': stylistic.configs['recommended-flat'].rules['@stylistic/indent-binary-ops'],
+      '@stylistic/lines-between-class-members': stylistic.configs['recommended-flat'].rules['@stylistic/lines-between-class-members'],
       // Custom
       '@stylistic/brace-style': ['error', '1tbs'],
       '@stylistic/jsx-one-expression-per-line': 'off',

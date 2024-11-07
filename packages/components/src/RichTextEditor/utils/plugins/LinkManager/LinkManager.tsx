@@ -29,6 +29,7 @@ class LinkManager {
     destroy: () => void
     update: (props: LinkEditorProps) => void
   } | null
+
   onResize: () => void
 
   constructor(
