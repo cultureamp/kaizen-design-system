@@ -47,7 +47,7 @@ describe('getInactiveFilters()', () => {
   it('fetches only usable inactive filters', () => {
     const state = {
       filters: {
-        flavour: stateFilters['flavour'],
+        flavour: stateFilters.flavour,
         sugarLevel: {
           id: 'sugarLevel',
           name: 'Sugar Level',

@@ -96,7 +96,7 @@ export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (RTL)',
   parameters: {
-    ...StickerSheetTemplate['parameters'],
+    ...StickerSheetTemplate.parameters,
     textDirection: 'rtl',
   },
 }

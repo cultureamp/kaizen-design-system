@@ -88,7 +88,7 @@ export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
 
   if (schema.nodes.listItem) {
     const type = schema.nodes.listItem
-    keys['Enter'] = splitListItem(type)
+    keys.Enter = splitListItem(type)
     keys['Mod-['] = liftListItem(type)
     keys['Mod-]'] = sinkListItem(type)
   }

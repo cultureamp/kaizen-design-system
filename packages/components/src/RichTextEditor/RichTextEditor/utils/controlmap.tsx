@@ -157,7 +157,7 @@ const createInitialControls = (
       }
     }, {})
   // This ensure that ungrouped controls are always last
-  initialControlObject['ungrouped'] = []
+  initialControlObject.ungrouped = []
   return initialControlObject
 }
 
@@ -251,8 +251,8 @@ export const buildControlMap = (
 
   if (schema.nodes.orderedList || schema.nodes.bulletList) {
     const groupIndex =
-      controlGroupIndex['orderedList'] ??
-      controlGroupIndex['bulletList'] ??
+      controlGroupIndex.orderedList ??
+      controlGroupIndex.bulletList ??
       'ungrouped'
 
     toolbarControls[groupIndex].push(
