@@ -70,8 +70,7 @@ export const CreateNotification: Story = {
             title: 'Informative',
             type: 'informative',
             message: 'New notification!',
-          })
-        }
+          })}
       />
     )
   },
@@ -92,8 +91,7 @@ export const UpdateNotification: Story = {
               title: 'Cautionary',
               type: 'cautionary',
               message: 'This content will be updated',
-            })
-          }
+            })}
         />
         <Button
           label="Update notification"
@@ -103,8 +101,7 @@ export const UpdateNotification: Story = {
               title: 'Success',
               type: 'positive',
               message: 'The content was successfully updated',
-            })
-          }
+            })}
         />
       </>
     )
@@ -126,8 +123,7 @@ export const RemoveNotification: Story = {
               title: 'Remove',
               type: 'negative',
               message: 'This notification will be removed',
-            })
-          }
+            })}
         />
         <Button
           label="Remove notification"

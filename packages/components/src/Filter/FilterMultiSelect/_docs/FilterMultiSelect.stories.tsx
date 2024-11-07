@@ -341,8 +341,7 @@ export const Async: Story = {
                         workingLabel="Loading…"
                         working={isFetchingNextPage}
                         onClick={(): ReturnType<typeof fetchNextPage> =>
-                          fetchNextPage()
-                        }
+                          fetchNextPage()}
                       />
                     )}
                   </>
@@ -485,8 +484,7 @@ export const WithSectionHeaders: Story = {
                       </FilterMultiSelect.ListBoxSection>
                     )}
                   </>
-                )
-          }
+                )}
         </FilterMultiSelect.ListBox>
         <FilterMultiSelect.MenuFooter>
           <FilterMultiSelect.SelectAllButton />

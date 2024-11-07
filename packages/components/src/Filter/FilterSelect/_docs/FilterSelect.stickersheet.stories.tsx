@@ -166,8 +166,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                           item={item}
                         />
                       )
-                    })
-                  }
+                    })}
                 </FilterSelect>
               </div>
 
@@ -218,8 +217,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                           item={item}
                         />
                       )
-                    })
-                  }
+                    })}
                 </FilterSelect>
               </div>
 
@@ -244,8 +242,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                           <FilterSelect.SectionDivider />
                         )}
                       </React.Fragment>
-                    ))
-                  }
+                    ))}
                 </FilterSelect>
               </div>
 
@@ -279,8 +276,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                           item={item}
                         />
                       )
-                    })
-                  }
+                    })}
                 </FilterSelect>
               </div>
             </StickerSheet.Row>

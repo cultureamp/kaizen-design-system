@@ -413,6 +413,7 @@ export default tseslint.config(
       '@stylistic/indent-binary-ops': stylistic.configs['recommended-flat'].rules['@stylistic/indent-binary-ops'],
       '@stylistic/lines-between-class-members': stylistic.configs['recommended-flat'].rules['@stylistic/lines-between-class-members'],
       '@stylistic/multiline-ternary': stylistic.configs['recommended-flat'].rules['@stylistic/multiline-ternary'],
+      '@stylistic/jsx-curly-newline': stylistic.configs['recommended-flat'].rules['@stylistic/jsx-curly-newline'],
       // Custom
       '@stylistic/brace-style': ['error', '1tbs'],
       '@stylistic/jsx-one-expression-per-line': 'off',

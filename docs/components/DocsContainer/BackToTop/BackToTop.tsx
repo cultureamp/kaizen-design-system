@@ -20,9 +20,7 @@ export const BackToTop = ({
   return (
     <button
       type="button"
-      onClick={(): void =>
-        window.scroll({ top: 0, left: 0, behavior: 'smooth' })
-      }
+      onClick={() => window.scroll({ top: 0, left: 0, behavior: 'smooth' })}
       {...buttonAttributes}
     >
       {children || (

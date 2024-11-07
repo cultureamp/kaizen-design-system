@@ -122,8 +122,7 @@ export const AdditionalProperties: Story = {
             : (
                 <Select.ItemDefaultRender key={item.key} item={item} />
               ),
-        )
-      }
+        )}
     </Select>
   ),
   parameters: { docs: { source: { type: 'code' } } },

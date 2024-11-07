@@ -11,8 +11,7 @@ const CalendarWrapper = (props: Partial<CalendarSingleProps>): JSX.Element => (
     onDayClick={vi.fn()}
     locale={enUS}
     onMount={calendarElement =>
-      setFocusInCalendar(calendarElement, props.selected)
-    }
+      setFocusInCalendar(calendarElement, props.selected)}
     {...props}
   />
 )

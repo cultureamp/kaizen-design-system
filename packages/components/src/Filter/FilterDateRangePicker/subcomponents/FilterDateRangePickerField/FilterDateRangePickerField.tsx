@@ -320,8 +320,7 @@ export const FilterDateRangePickerField = ({
         onSelect={handleCalendarSelectRange}
         month={state.startMonth}
         onMonthChange={(value: Date) =>
-          dispatch({ type: 'navigate_months', date: value })
-        }
+          dispatch({ type: 'navigate_months', date: value })}
       />
     </div>
   )

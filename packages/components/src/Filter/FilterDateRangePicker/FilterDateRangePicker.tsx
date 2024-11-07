@@ -48,8 +48,7 @@ export const FilterDateRangePicker = ({
               : undefined,
           label,
           ...triggerProps,
-        })
-      }
+        })}
     >
       <FilterContents>
         <FilterDateRangePickerField

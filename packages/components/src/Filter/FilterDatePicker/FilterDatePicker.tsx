@@ -36,8 +36,7 @@ export const FilterDatePicker = ({
           : undefined,
         label,
         ...triggerProps,
-      })
-    }
+      })}
   >
     <FilterContents>
       <FilterDatePickerField

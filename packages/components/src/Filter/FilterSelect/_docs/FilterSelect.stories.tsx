@@ -99,8 +99,7 @@ export const AdditionalProperties: Story = {
               : (
                   <FilterSelect.ItemDefaultRender key={item.key} item={item} />
                 ),
-          )
-        }
+          )}
       </FilterSelect>
     )
   },

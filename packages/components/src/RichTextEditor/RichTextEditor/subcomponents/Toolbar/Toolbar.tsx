@@ -95,11 +95,9 @@ export const Toolbar = (props: ToolbarProps): JSX.Element => {
                       buttonFocusIndex,
                       setButtonFocusIndex,
                       toolbarButtonsRef,
-                    )
-                  }
+                    )}
                   ref={(ref: React.ReactNode | undefined): React.ReactNode =>
-                    (toolbarButtonsRef.current[buttonIndex] = ref)
-                  }
+                    (toolbarButtonsRef.current[buttonIndex] = ref)}
                 />
               )
             })}

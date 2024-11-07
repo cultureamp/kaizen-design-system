@@ -156,8 +156,7 @@ export const ButtonWithRACRenderPropsAsClassname: Story = {
   render: ({ children: _, ...otherArgs }) => (
     <Button
       className={({ isFocused }) =>
-        isFocused ? '!bg-blue-500 !text-white !border-transparent' : ''
-      }
+        isFocused ? '!bg-blue-500 !text-white !border-transparent' : ''}
       {...otherArgs}
     >
       Label

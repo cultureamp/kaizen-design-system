@@ -105,8 +105,7 @@ const filtersRemovable = [
               {({ allItems }): JSX.Element | JSX.Element[] =>
                 allItems.map(item => (
                   <FilterMultiSelect.Option key={item.key} item={item} />
-                ))
-              }
+                ))}
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />

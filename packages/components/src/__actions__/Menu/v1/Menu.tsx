@@ -68,8 +68,7 @@ export const Menu = ({
             props.onMouseDown(e)
             button.props.onMouseDown?.(e)
           },
-        })
-      }
+        })}
     />
   )
 }

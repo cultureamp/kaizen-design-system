@@ -301,8 +301,7 @@ describe('FilterSelect generic', () => {
               : (
                   <li key={item.key}>Section</li>
                 ),
-          )
-        }
+          )}
       </FilterSelect>
     })
   })

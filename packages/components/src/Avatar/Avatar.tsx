@@ -117,8 +117,7 @@ const renderInitials = (
                   {initials}
                 </Textfit>
               )
-            : getInitials(fullName, size === 'small')
-          }
+            : getInitials(fullName, size === 'small')}
         </abbr>
       )
 }

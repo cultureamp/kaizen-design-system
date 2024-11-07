@@ -186,8 +186,7 @@ export const RichTextEditor = ({
                     label={controlConfig.label}
                     isActive={controlConfig.isActive}
                     onClick={(): void =>
-                      dispatchTransaction(controlConfig.action)
-                    }
+                      dispatchTransaction(controlConfig.action)}
                   />
                 ))}
               </ToolbarSection>

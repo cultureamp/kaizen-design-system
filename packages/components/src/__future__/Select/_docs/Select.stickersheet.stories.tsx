@@ -292,8 +292,7 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                     return (
                       <Select.ItemDefaultRender key={item.key} item={item} />
                     )
-                  })
-                }
+                  })}
               </Select>
             </StickerSheet.Cell>
 
@@ -337,8 +336,7 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                     return (
                       <Select.ItemDefaultRender key={item.key} item={item} />
                     )
-                  })
-                }
+                  })}
               </Select>
             </StickerSheet.Cell>
 
@@ -355,8 +353,7 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                       <Select.ItemDefaultRender item={item} />
                       {item.type === 'section' && <Select.SectionDivider />}
                     </React.Fragment>
-                  ))
-                }
+                  ))}
               </Select>
             </StickerSheet.Cell>
 
@@ -383,8 +380,7 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                     return (
                       <Select.ItemDefaultRender key={item.key} item={item} />
                     )
-                  })
-                }
+                  })}
               </Select>
             </StickerSheet.Cell>
           </StickerSheet.Row>
