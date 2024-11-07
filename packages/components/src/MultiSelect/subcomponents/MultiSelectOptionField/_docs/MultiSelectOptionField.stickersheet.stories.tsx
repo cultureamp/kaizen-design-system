@@ -20,10 +20,10 @@ const STATUS_ROWS = [
   { title: 'Unchecked', status: 'unchecked' },
   { title: 'Checked', status: 'checked' },
   { title: 'Indeterminate', status: 'indeterminate' },
-] satisfies Array<{
+] satisfies {
   title: string
   status: MultiSelectOptionFieldProps['checkedStatus']
-}>
+}[]
 
 const StickerSheetTemplate: Story = {
   render: () => (

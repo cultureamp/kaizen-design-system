@@ -37,7 +37,7 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
   /**
    * Item objects in the collection.
    */
-  items: Array<SelectItem<Option>>
+  items: SelectItem<Option>[]
   id?: string
   trigger?: (
     selectToggleProps: SelectToggleProps & {

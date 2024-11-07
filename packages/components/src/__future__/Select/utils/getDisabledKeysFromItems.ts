@@ -5,7 +5,7 @@ import { isSelectOptionGroup } from './isSelectOptionGroup'
 export const getDisabledKeysFromItems = <
   Option extends SelectOption = SelectOption,
 >(
-  items: Array<SelectItem<Option>>,
+  items: SelectItem<Option>[],
 ): Key[] =>
   items.reduce((acc: Key[], item) => {
     if (isSelectOptionGroup(item)) {

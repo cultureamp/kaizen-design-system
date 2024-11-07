@@ -273,7 +273,10 @@ export default tseslint.config(
     },
   },
   {
-    extends: tseslint.configs.recommended,
+    extends: [
+      ...tseslint.configs.recommended,
+      // ...tseslint.configs.stylisticTypeChecked,
+    ],
     languageOptions: {
       parserOptions: {
         project: ['./tsconfig.json', './docs/tsconfig.json'],
@@ -285,19 +288,13 @@ export default tseslint.config(
     },
     files: ['**/*.{ts,tsx}'],
     rules: {
-      // @todo: do we still want this?
-      '@typescript-eslint/array-type': [
-        'error',
-        {
-          default: 'array-simple',
-        },
-      ],
+      '@typescript-eslint/array-type': 'error',
+      // Custom
       '@typescript-eslint/explicit-function-return-type': [
         'error',
         { allowExpressions: true },
       ],
       '@typescript-eslint/consistent-type-definitions': 'off',
-      '@typescript-eslint/no-empty-function': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',

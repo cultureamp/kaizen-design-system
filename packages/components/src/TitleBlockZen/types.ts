@@ -178,7 +178,7 @@ export type SectionTitleRenderProps = Pick<
 
 export type TitleBlockVariant = 'admin' | 'education' // the default is wisteria bg (AKA "reporting")
 
-export type NavigationTabs = Array<React.ReactElement<NavigationTabProps>>
+export type NavigationTabs = React.ReactElement<NavigationTabProps>[]
 
 export type TextDirection = 'ltr' | 'rtl'
 

@@ -8,7 +8,7 @@ import { Overlay } from '../Overlay'
 import styles from './SelectPopoverContents.module.scss'
 
 export type SelectPopoverContentsProps<Option extends SelectOption> = {
-  children?: (args: { items: Array<SelectItemNode<Option>> }) => React.ReactNode
+  children?: (args: { items: SelectItemNode<Option>[] }) => React.ReactNode
   menuProps: AriaListBoxOptions<SelectItem<Option>>
 }
 
@@ -22,9 +22,7 @@ export const SelectPopoverContents = <Option extends SelectOption>({
   // which we have used a util to ensure the following structure
   // - SelectOptionGroup => Section
   // - Option => Item
-  const itemNodes = Array.from(state.collection) as Array<
-    SelectItemNode<Option>
-  >
+  const itemNodes = Array.from(state.collection) as SelectItemNode<Option>[]
 
   return (
     <div className={styles.selectPopoverContents}>

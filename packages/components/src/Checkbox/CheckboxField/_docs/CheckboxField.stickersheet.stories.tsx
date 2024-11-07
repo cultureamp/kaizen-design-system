@@ -25,10 +25,10 @@ const StickerSheetTemplate: StickerSheetStory = {
       { title: 'Off', checkedStatus: 'off' },
       { title: 'On', checkedStatus: 'on' },
       { title: 'Mixed', checkedStatus: 'mixed' },
-    ] satisfies Array<{
+    ] satisfies {
       title: string
       checkedStatus: CheckboxFieldProps['checkedStatus']
-    }>
+    }[]
 
     return (
       <StickerSheet isReversed={isReversed}>

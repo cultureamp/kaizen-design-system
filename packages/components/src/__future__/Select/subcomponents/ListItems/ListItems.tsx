@@ -3,7 +3,7 @@ import { SelectOption } from '../../types'
 import { ListItem, ListItemProps } from '../ListItem'
 
 export type ListItemsProps<Option extends SelectOption> = {
-  items: Array<ListItemProps<Option>['item']>
+  items: ListItemProps<Option>['item'][]
 }
 
 /*

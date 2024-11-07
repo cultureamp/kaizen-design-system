@@ -174,7 +174,7 @@ export const Async: Story = {
     }: {
       pageParam: string
     }): Promise<{
-      results: Array<{ name: string, url: string }>
+      results: { name: string, url: string }[]
       next: string
     }> => {
       const res = await fetch(
@@ -206,7 +206,7 @@ export const Async: Story = {
     })
 
     type QueriesData = {
-      pages: { results: Array<{ name: string, url: string }> }
+      pages: { results: { name: string, url: string }[] }
     }
 
     /**

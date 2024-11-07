@@ -38,7 +38,7 @@ const colors = [
   'red',
   'white',
   'yellow',
-] satisfies Array<CardProps['color']>
+] satisfies CardProps['color'][]
 
 export const Colors: Story = {
   render: () => (

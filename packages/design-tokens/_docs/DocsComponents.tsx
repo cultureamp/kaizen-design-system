@@ -40,9 +40,7 @@ export const CodeBlock = (props: {
 const TabbedCodeBlocks = ({
   blocks,
 }: {
-  blocks: Array<
-    React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
-  >
+  blocks: (React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string })[]
 }): JSX.Element => (
   <Tabs>
     <TabList aria-label="Tabs">
@@ -60,9 +58,7 @@ const TabbedCodeBlocks = ({
   </Tabs>
 )
 
-const themesBlocks: Array<
-  React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
-> = [
+const themesBlocks: (React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string })[] = [
   {
     name: 'JS',
     language: 'typescript',
@@ -91,9 +87,7 @@ const themesBlocks: Array<
 export const ThemesCodeBlocks = (): JSX.Element => (
   <TabbedCodeBlocks blocks={themesBlocks} />
 )
-const sassBlocks: Array<
-  React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
-> = [
+const sassBlocks: (React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string })[] = [
   {
     name: 'Color',
     language: 'scss',

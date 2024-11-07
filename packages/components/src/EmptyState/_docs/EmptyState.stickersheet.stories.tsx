@@ -42,7 +42,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       'warning',
       'informative',
       'expert-advice',
-    ] satisfies Array<EmptyStateProps['variant']>
+    ] satisfies EmptyStateProps['variant'][]
 
     const illustrationTypes = [
       'positive',
@@ -50,7 +50,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       'negative',
       'informative',
       'action',
-    ] satisfies Array<EmptyStateProps['illustrationType']>
+    ] satisfies EmptyStateProps['illustrationType'][]
 
     return (
       <>

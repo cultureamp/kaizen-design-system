@@ -14,10 +14,10 @@ export default {
   },
 } satisfies Meta
 
-const PAGINATION_LINK_PROPS: Array<{
+const PAGINATION_LINK_PROPS: {
   title: string
   props: PaginationLinkProps
-}> = [
+}[] = [
   {
     title: 'isActive={false}',
     props: {

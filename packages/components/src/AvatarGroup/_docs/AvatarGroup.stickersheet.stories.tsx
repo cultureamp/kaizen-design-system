@@ -15,7 +15,7 @@ export default {
   },
 } satisfies Meta
 
-const ROWS: Array<{ title: string, size: AvatarGroupSize }> = [
+const ROWS: { title: string, size: AvatarGroupSize }[] = [
   { title: 'Large', size: 'large' },
   { title: 'Medium', size: 'medium' },
   { title: 'Small', size: 'small' },

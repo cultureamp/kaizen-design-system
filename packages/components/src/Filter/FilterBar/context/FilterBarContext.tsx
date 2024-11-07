@@ -41,7 +41,7 @@ export type FilterBarContextValue<
   ) => void
   showFilter: <Id extends keyof ValuesMap>(id: Id) => void
   hideFilter: <Id extends keyof ValuesMap>(id: Id) => void
-  getInactiveFilters: () => Array<FilterAttributes<ValuesMap>>
+  getInactiveFilters: () => FilterAttributes<ValuesMap>[]
   clearAllFilters: () => void
   setFocus: <Id extends keyof ValuesMap>(id: Id | undefined) => void
   focusId?: keyof ValuesMap

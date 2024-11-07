@@ -8,7 +8,7 @@ type ClassNameValue = string | number | boolean | undefined | null
  * https://react-spectrum.adobe.com/react-aria/styling.html#render-props
  */
 export const mergeClassNames = <
-  ClassNameTypes extends Array<ClassNameValue | ((state: any) => string)>,
+  ClassNameTypes extends (ClassNameValue | ((state: any) => string))[],
 >(
   ...classNames: ClassNameTypes
 ): (() => string) extends ClassNameTypes[number]

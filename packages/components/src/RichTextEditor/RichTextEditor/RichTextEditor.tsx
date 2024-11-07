@@ -223,18 +223,17 @@ export const RichTextEditor = ({
 
 RichTextEditor.displayName = 'RichTextEditor'
 
+type Plugin = ProseMirrorState.Plugin<unknown> | ProseMirrorState.Plugin<{
+  transform: ProseMirrorState.Transaction
+  from: number
+  to: number
+  text: string
+} | null>
+
 function getPlugins(
   controls: ToolbarItems[] | undefined,
   schema: ProseMirrorModel.Schema,
-): Array<
-  | ProseMirrorState.Plugin<unknown>
-  | ProseMirrorState.Plugin<{
-    transform: ProseMirrorState.Transaction
-    from: number
-    to: number
-    text: string
-  } | null>
-  > {
+): Plugin[] {
   const allControlNames: string[] = controls
     ? controls.reduce((acc: string[], c: ToolbarItems) => [...acc, c.name], [])
     : []

@@ -16,7 +16,7 @@ const isFilterButton = (
 export type ButtonGroupProps = {
   children:
     | React.ReactElement<FilterButtonBaseProps | TooltipProps>
-    | Array<React.ReactElement<FilterButtonBaseProps | TooltipProps>>
+    | React.ReactElement<FilterButtonBaseProps | TooltipProps>[]
 } & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, 'children'>
 
 export const ButtonGroup = ({

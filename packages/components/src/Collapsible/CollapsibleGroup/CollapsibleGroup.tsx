@@ -6,7 +6,7 @@ import { OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './CollapsibleGroup.module.scss'
 
 export type CollapsibleGroupProps = {
-  children: Array<React.ReactElement<CollapsibleProps>>
+  children: React.ReactElement<CollapsibleProps>[]
   separated?: boolean
   sticky?: Sticky
   noSectionPadding?: boolean

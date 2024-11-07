@@ -13,7 +13,7 @@ import { Theme as BaseTheme } from './types'
  * {@link https://cultureamp.design/?path=/docs/guides-app-starter--docs Check App Starter guidance}
  */
 export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
-  private themeChangeListeners = [] as Array<(theme: Theme) => void>
+  private themeChangeListeners = [] as ((theme: Theme) => void)[]
   private theme: Theme
   private rootElement: HTMLElement | null = null
   private rootElementId: string

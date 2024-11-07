@@ -30,10 +30,10 @@ const DEFAULT_PROPS = {
   ),
 } satisfies Partial<InlineNotificationProps>
 
-const VARIANTS_PROPS: Array<{
+const VARIANTS_PROPS: {
   title: string
   props: InlineNotificationProps
-}> = [
+}[] = [
   {
     title: 'Informative',
     props: {
@@ -146,10 +146,10 @@ const VARIANTS_PROPS: Array<{
   },
 ]
 
-const TYPE_PROPS: Array<{
+const TYPE_PROPS: {
   title: string
   props: InlineNotificationProps
-}> = [
+}[] = [
   {
     title: 'Informative',
     props: {

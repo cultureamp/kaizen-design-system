@@ -7,15 +7,15 @@ type ResolvableTo<T> = T | ((utils: any) => T)
 export const flattenEntries = (
   prefix: string,
   themeObj: ResolvableTo<RecursiveKeyValuePair<string, string>>,
-): Array<{
+): {
   utilityClassName: string
   cssProperty: string
-}> => {
+}[] => {
   const classKeyVal: string[][] = Object.entries(themeObj || [])
-  const flattenedEntries: Array<{
+  const flattenedEntries: {
     utilityClassName: string
     cssProperty: string
-  }> = []
+  }[] = []
   classKeyVal.forEach((colorGroup) => {
     const [classModifier, cssProperty] = colorGroup
     if (typeof cssProperty === 'string') {

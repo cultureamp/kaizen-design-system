@@ -6,7 +6,7 @@ import { utilityDescription } from '~tailwind/_docs/utils/utilityDescription'
 import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
 
 const prefix = 'border-'
-const classEntries: Array<{ utilityClassName: string, cssProperty: string }> =
+const classEntries: { utilityClassName: string, cssProperty: string }[] =
   Object.entries(kaizenTailwindTheme.borderWidth || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,

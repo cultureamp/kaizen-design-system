@@ -26,7 +26,7 @@ const colors = [
   'red',
   'white',
   'yellow',
-] satisfies Array<CardProps['color']>
+] satisfies CardProps['color'][]
 
 const variants = [
   'default',
@@ -36,7 +36,7 @@ const variants = [
   'destructive',
   'assertive',
   'highlight',
-] satisfies Array<CardProps['variant']>
+] satisfies CardProps['variant'][]
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed, ...args }) => (

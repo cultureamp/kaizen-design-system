@@ -14,10 +14,10 @@ export default {
   },
 } satisfies Meta
 
-const DIRECTIONAL_LINK_PROPS: Array<{
+const DIRECTIONAL_LINK_PROPS: {
   title: string
   props: DirectionalLinkProps
-}> = [
+}[] = [
   {
     title: 'Prev',
     props: {

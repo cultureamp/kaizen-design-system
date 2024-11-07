@@ -28,9 +28,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       },
     } satisfies MultiActionTileProps
 
-    const variants = ['default', 'expert-advice'] satisfies Array<
-      MultiActionTileProps['variant']
-    >
+    const variants = ['default', 'expert-advice'] satisfies MultiActionTileProps['variant'][]
 
     const moods = [
       'positive',
@@ -39,7 +37,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       'assertive',
       'negative',
       'prominent',
-    ] satisfies Array<MultiActionTileProps['mood']>
+    ] satisfies MultiActionTileProps['mood'][]
 
     return (
       <>

@@ -5,7 +5,7 @@ import { utilityDescription } from '~tailwind/_docs/utils/utilityDescription'
 import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
 
 const prefix = 'border-spacing-'
-const classEntries: Array<{ utilityClassName: string, cssProperty: string }> =
+const classEntries: { utilityClassName: string, cssProperty: string }[] =
   Object.entries(kaizenTailwindTheme.spacing || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,

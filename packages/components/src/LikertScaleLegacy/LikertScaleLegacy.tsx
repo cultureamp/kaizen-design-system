@@ -7,10 +7,10 @@ import { ScaleValue, Scale, ScaleItem, ColorSchema } from './types'
 import determineSelectionFromKeyPress from './utils/determineSelectionFromKeyPress'
 import styles from './LikertScaleLegacy.module.scss'
 
-type ItemRefs = Array<{
+type ItemRefs = {
   value: ScaleValue
   ref: { current: null | HTMLDivElement }
-}>
+}[]
 
 export type LikertScaleProps = {
   'labelId': string

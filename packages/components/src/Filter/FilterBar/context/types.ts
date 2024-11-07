@@ -35,6 +35,4 @@ export type FilterBarState<ValuesMap extends FiltersValues> = {
   focusId?: keyof ValuesMap
 }
 
-export type ActiveFiltersArray<ValuesMap extends FiltersValues> = Array<
-  FilterAttributes<ValuesMap>
->
+export type ActiveFiltersArray<ValuesMap extends FiltersValues> = FilterAttributes<ValuesMap>[]
