@@ -30,23 +30,23 @@ const meta = {
         <ToolbarSection>
           <ToggleIconButton
             label="Bullet list"
-            icon={
+            icon={(
               <Icon
                 name="format_list_bulleted"
                 isPresentational
                 shouldMirrorInRTL
               />
-            }
+            )}
           />
           <ToggleIconButton
             label="Numbered list"
-            icon={
+            icon={(
               <Icon
                 name="format_list_numbered"
                 isPresentational
                 shouldMirrorInRTL
               />
-            }
+            )}
           />
         </ToolbarSection>
       </>

@@ -117,12 +117,12 @@ export const Collapsible = ({
         <div>
           <IconButton
             label={title}
-            icon={
+            icon={(
               <Icon
                 name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
                 isPresentational
               />
-            }
+            )}
             type="button"
             aria-expanded={isOpen}
             aria-controls={sectionId}

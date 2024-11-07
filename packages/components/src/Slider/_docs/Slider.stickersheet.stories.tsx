@@ -36,11 +36,11 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
           <Slider
             labelText="Slider"
-            description={
+            description={(
               <span data-sb-a11y-color-contrast-disable>
                 Example Description
               </span>
-            }
+            )}
             minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
             maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             disabled
@@ -55,11 +55,11 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
           <Slider
             labelText="Slider"
-            description={
+            description={(
               <span data-sb-a11y-color-contrast-disable>
                 Example Description
               </span>
-            }
+            )}
             minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
             maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             variant="prominent"
@@ -77,11 +77,11 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
           <Slider
             labelText="Slider"
-            description={
+            description={(
               <span data-sb-a11y-color-contrast-disable>
                 Example Description
               </span>
-            }
+            )}
             minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
             maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             labelPosition="block"
@@ -98,11 +98,11 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
           <Slider
             labelText="Slider"
-            description={
+            description={(
               <span data-sb-a11y-color-contrast-disable>
                 Example Description
               </span>
-            }
+            )}
             minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
             maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             variant="prominent"

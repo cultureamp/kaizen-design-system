@@ -27,13 +27,13 @@ const StickerSheetTemplate: StickerSheetStory = {
             <Menu
               menuVisible
               autoHide="off"
-              button={
+              button={(
                 <Button
                   label="Menu"
                   icon={<Icon name="keyboard_arrow_down" isPresentational />}
                   iconPosition="end"
                 />
-              }
+              )}
             >
               <MenuContentExample />
             </Menu>
@@ -42,13 +42,13 @@ const StickerSheetTemplate: StickerSheetStory = {
             <Menu
               menuVisible
               autoHide="off"
-              button={
+              button={(
                 <Button
                   label="Menu"
                   icon={<Icon name="keyboard_arrow_down" isPresentational />}
                   iconPosition="end"
                 />
-              }
+              )}
             >
               <MenuContentExample isShortList />
             </Menu>

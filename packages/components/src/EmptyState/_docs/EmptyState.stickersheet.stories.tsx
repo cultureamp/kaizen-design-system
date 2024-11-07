@@ -85,13 +85,13 @@ const StickerSheetTemplate: StickerSheetStory = {
                 >
                   <Button
                     label="Label"
-                    icon={
+                    icon={(
                       <Icon
                         name="chevron_right"
                         isPresentational
                         shouldMirrorInRTL
                       />
-                    }
+                    )}
                     iconPosition="end"
                   />
                 </EmptyStateWrapper>

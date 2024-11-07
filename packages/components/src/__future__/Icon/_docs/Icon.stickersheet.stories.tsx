@@ -95,11 +95,11 @@ const StickerSheetTemplate: StickerSheetStory = {
             </StickerSheet.Row>
             <StickerSheet.Row rowTitle="CheckboxField">
               <CheckboxField
-                labelText={
+                labelText={(
                   <>
                     Checkbox label <Icon {...defaultProps} />
                   </>
-                }
+                )}
               />
             </StickerSheet.Row>
             <StickerSheet.Row rowTitle="Button (v2)">

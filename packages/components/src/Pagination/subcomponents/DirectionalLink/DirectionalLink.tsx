@@ -33,13 +33,13 @@ export const DirectionalLink = ({
     {...otherProps}
     iconButton
     directionalLink
-    icon={
+    icon={(
       <Icon
         name={iconNameMap[otherProps.direction]}
         isPresentational
         shouldMirrorInRTL
       />
-    }
+    )}
   />
 )
 

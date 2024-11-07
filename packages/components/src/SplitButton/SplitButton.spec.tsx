@@ -18,12 +18,12 @@ const SplitButtonWrapper = (
     dropdownButtonProps={{
       'aria-label': 'Dropdown Label',
     }}
-    dropdownContent={
+    dropdownContent={(
       <MenuList>
         <MenuItem label="Menu Item 1" />
         <MenuItem label="Menu Item 2" />
       </MenuList>
-    }
+    )}
     {...customProps}
   />
 )

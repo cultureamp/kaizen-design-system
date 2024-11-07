@@ -24,17 +24,15 @@ const DefaultLabelWrapper = ({
   ...props
 }: WrapperProps): JSX.Element => (
   <Label
-    labelText={
-      // Need this so we can add a data attrib to the labelText
-      // since none of the props apply to the internal labelText wrapper
+    // Need this so we can add a data attrib to the labelText
+    // since none of the props apply to the internal labelText wrapper
+    labelText={(
       <span
-        data-sb-a11y-color-contrast-disable={
-          props['data-sb-a11y-color-contrast-disable']
-        }
+        data-sb-a11y-color-contrast-disable={props['data-sb-a11y-color-contrast-disable']}
       >
         {labelText}
       </span>
-    }
+    )}
     {...props}
   />
 )
@@ -42,23 +40,19 @@ const DefaultLabelWrapper = ({
 const InlineControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
   <Label
     {...props}
-    labelText={
+    labelText={(
       <span
-        data-sb-a11y-color-contrast-disable={
-          props['data-sb-a11y-color-contrast-disable']
-        }
+        data-sb-a11y-color-contrast-disable={props['data-sb-a11y-color-contrast-disable']}
       >
         {labelText}{' '}
         <a
           href="/"
-          data-sb-a11y-color-contrast-disable={
-            props['data-sb-a11y-color-contrast-disable']
-          }
+          data-sb-a11y-color-contrast-disable={props['data-sb-a11y-color-contrast-disable']}
         >
           a
         </a>
       </span>
-    }
+    )}
   >
     <span className="inline-block w-16 h-16 bg-gray-500"></span>
   </Label>
@@ -68,23 +62,19 @@ const BlockControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
   <>
     <Label
       {...props}
-      labelText={
+      labelText={(
         <span
-          data-sb-a11y-color-contrast-disable={
-            props['data-sb-a11y-color-contrast-disable']
-          }
+          data-sb-a11y-color-contrast-disable={props['data-sb-a11y-color-contrast-disable']}
         >
           {labelText}{' '}
           <a
             href="/"
-            data-sb-a11y-color-contrast-disable={
-              props['data-sb-a11y-color-contrast-disable']
-            }
+            data-sb-a11y-color-contrast-disable={props['data-sb-a11y-color-contrast-disable']}
           >
             anchor
           </a>
         </span>
-      }
+      )}
     />
     <span className="block w-200 h-16 bg-gray-500"></span>
   </>

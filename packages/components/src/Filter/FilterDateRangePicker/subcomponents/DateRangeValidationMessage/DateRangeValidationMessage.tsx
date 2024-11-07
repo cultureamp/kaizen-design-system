@@ -25,12 +25,12 @@ export const DateRangeValidationMessage = ({
     if (dateStart.status === dateEnd.status) {
       return (
         <FieldMessage
-          message={
+          message={(
             <ul className={styles.fieldMessageList}>
               <li id={dateStartId}>{dateStart.message}</li>
               <li id={dateEndId}>{dateEnd.message}</li>
             </ul>
-          }
+          )}
           status={dateStart.status || dateEnd.status}
           reversed={isReversed}
         />

@@ -49,7 +49,7 @@ export const ErrorPage = ({
     <div className={classNames(classNameOverride)}>
       <BrandMoment
         header={<></>}
-        body={
+        body={(
           <>
             <div className={styles.paragraphPadding}>
               <Text variant="intro-lede">{message || content.message}</Text>
@@ -62,7 +62,7 @@ export const ErrorPage = ({
               />
             </Text>
           </>
-        }
+        )}
         illustration={<BrandMomentError isAnimated loop />}
         variant="warning"
         primaryAction={{

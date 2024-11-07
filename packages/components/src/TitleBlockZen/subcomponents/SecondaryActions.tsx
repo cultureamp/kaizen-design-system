@@ -21,14 +21,14 @@ const renderSecondaryOverflowMenu = (
   return (
     <Menu
       align="right"
-      button={
+      button={(
         <IconButton
           label="Open secondary menu"
           reversed={reversed}
           icon={<Icon name="more_horiz" isPresentational />}
           id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
         />
-      }
+      )}
     >
       <MenuList>
         {secondaryOverflowMenuItems.map((menuItem, i) => (
@@ -58,7 +58,7 @@ export const SecondaryActions = ({
           node: (
             <Menu
               align="right"
-              button={
+              button={(
                 <Button
                   secondary
                   label={action.label}
@@ -66,7 +66,7 @@ export const SecondaryActions = ({
                   icon={<Icon name="keyboard_arrow_down" isPresentational />}
                   iconPosition="end"
                 />
-              }
+              )}
             >
               <MenuList>
                 {action.menuItems.map((menuItem, i2) => (

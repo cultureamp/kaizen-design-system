@@ -53,14 +53,14 @@ const ContextModalTemplate: Story = {
           isOpen={isOpen}
           onConfirm={handleClose}
           onDismiss={handleClose}
-          image={
+          image={(
             <AddImage
               classNameOverride={
                 args.layout === 'landscape' ? '!w-auto h-200' : undefined
               }
               alt="placeholder"
             />
-          }
+          )}
         >
           <ModalAccessibleDescription>
             <Text variant="body">

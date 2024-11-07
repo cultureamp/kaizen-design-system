@@ -34,7 +34,7 @@ const InputExampleGroup = (props: InputProps): JSX.Element => (
         <Input
           value={type}
           type={type}
-          startIconAdornment={
+          startIconAdornment={(
             <Icon
               name="edit"
               isPresentational
@@ -42,8 +42,8 @@ const InputExampleGroup = (props: InputProps): JSX.Element => (
                 props.disabled ? 'true' : 'false'
               }
             />
-          }
-          endIconAdornment={
+          )}
+          endIconAdornment={(
             <Icon
               name="close"
               isPresentational
@@ -51,7 +51,7 @@ const InputExampleGroup = (props: InputProps): JSX.Element => (
                 props.disabled ? 'true' : 'false'
               }
             />
-          }
+          )}
           {...props}
         />
       </li>

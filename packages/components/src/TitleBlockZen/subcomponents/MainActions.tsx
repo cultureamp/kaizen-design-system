@@ -66,7 +66,7 @@ export const MainActions = ({
               node: (
                 <Menu
                   align="right"
-                  button={
+                  button={(
                     <Button
                       label={primaryAction.label}
                       primary
@@ -86,7 +86,7 @@ export const MainActions = ({
                           : undefined
                       }
                     />
-                  }
+                  )}
                 >
                   <MenuList>{menuContent}</MenuList>
                 </Menu>
@@ -159,14 +159,14 @@ export const MainActions = ({
         node: (
           <Menu
             align="right"
-            button={
+            button={(
               <IconButton
                 id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
                 label="Open secondary menu"
                 reversed={reversed}
                 icon={<Icon name="more_horiz" isPresentational />}
               />
-            }
+            )}
           >
             <MenuList>
               {overflowMenuItems.map((menuItem, idx) => (

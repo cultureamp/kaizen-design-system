@@ -71,13 +71,13 @@ export const SplitButton = ({
     <Menu
       align={dir === 'rtl' ? 'left' : 'right'}
       dropdownWidth="contain"
-      button={
+      button={(
         <DropdownButton
           disabled={disabled}
           isReversed={isReversed}
           {...dropdownButtonProps}
         />
-      }
+      )}
       menuVisible={isDropdownInitOpen}
     >
       {dropdownContent}

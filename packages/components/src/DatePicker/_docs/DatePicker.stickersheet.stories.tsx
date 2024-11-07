@@ -50,7 +50,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 selectedDay={undefined}
                 onDayChange={() => undefined}
                 isReversed={isReversed}
-                description={
+                description={(
                   <>
                     <Text
                       tag="span"
@@ -60,7 +60,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                       My <strong>Custom</strong> Description
                     </Text>
                   </>
-                }
+                )}
               />
               <DatePicker
                 labelText="Label"

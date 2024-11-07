@@ -546,7 +546,7 @@ export const WithSectionNotification: Story = {
                       {disabledItems.length > 0 && (
                         <FilterMultiSelect.ListBoxSection
                           items={disabledItems}
-                          sectionHeader={
+                          sectionHeader={(
                             <>
                               <span className="mb-6">Disabled items</span>
                               <InlineNotification
@@ -563,7 +563,7 @@ export const WithSectionNotification: Story = {
                                 identities of individuals and small groups
                               </InlineNotification>
                             </>
-                          }
+                          )}
                         >
                           {(item): JSX.Element => (
                             <FilterMultiSelect.Option key={item.key} item={item} />

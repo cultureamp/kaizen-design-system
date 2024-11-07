@@ -28,7 +28,7 @@ export const AddFiltersMenu = (): JSX.Element => {
 
   return (
     <Menu
-      button={
+      button={(
         <Button
           ref={buttonRef}
           label={menuButtonLabel}
@@ -36,7 +36,7 @@ export const AddFiltersMenu = (): JSX.Element => {
           disabled={inactiveFilters.length === 0}
           icon={<Icon name="add" isPresentational />}
         />
-      }
+      )}
     >
       <MenuList>
         {inactiveFilters.map(({ id, name }) => (
