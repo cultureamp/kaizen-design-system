@@ -290,6 +290,7 @@ export default tseslint.config(
     rules: {
       '@typescript-eslint/array-type': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/array-type'],
       '@typescript-eslint/consistent-indexed-object-style': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/consistent-indexed-object-style'],
+      '@typescript-eslint/prefer-regexp-exec': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/prefer-regexp-exec'],
       // Custom
       '@typescript-eslint/explicit-function-return-type': [
         'error',

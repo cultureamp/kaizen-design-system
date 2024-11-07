@@ -94,7 +94,7 @@ export const VideoPlayer = ({
       setPrefersReducedMotion(matches)
     }
 
-    const isLegacyEdge = navigator.userAgent.match(/Edge/)
+    const isLegacyEdge = /Edge/.exec(navigator.userAgent)
 
     const isUnsupportedSafari =
       window.matchMedia('').addEventListener === undefined
