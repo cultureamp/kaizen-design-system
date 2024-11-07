@@ -103,7 +103,7 @@ const filtersRemovable = [
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
               {({ allItems }): JSX.Element | JSX.Element[] =>
-                allItems.map(item => (
+                allItems.map((item) => (
                   <FilterMultiSelect.Option key={item.key} item={item} />
                 ))}
             </FilterMultiSelect.ListBox>
@@ -140,7 +140,7 @@ const filtersDependent = [
     Component: (
       <FilterBar.Select items={[{ value: 'pearls', label: 'Pearls' }]} />
     ),
-    isUsableWhen: state => state.flavour.value !== undefined,
+    isUsableWhen: (state) => state.flavour.value !== undefined,
   },
 ] satisfies Filters<ValuesDependent>
 
@@ -291,7 +291,7 @@ describe('<FilterBar />', () => {
     it('adds new filters in the provided order', async () => {
       const { getByRole, getAllByTestId } = render(
         <FilterBarWrapper<ValuesSimple>
-          filters={simpleFilters.map(filter => ({
+          filters={simpleFilters.map((filter) => ({
             ...filter,
             isRemovable: true,
           }))}
@@ -323,7 +323,7 @@ describe('<FilterBar />', () => {
     it('moves focus to recently added filter button', async () => {
       const { getByRole } = render(
         <FilterBarWrapper<ValuesSimple>
-          filters={simpleFilters.map(filter => ({
+          filters={simpleFilters.map((filter) => ({
             ...filter,
             isRemovable: true,
           }))}
@@ -451,7 +451,7 @@ describe('<FilterBar />', () => {
                     items={[{ value: 'pearls', label: 'Pearls' }]}
                   />
                 ),
-                isUsableWhen: state => state.flavour.value !== undefined,
+                isUsableWhen: (state) => state.flavour.value !== undefined,
                 isRemovable: true,
               },
             ]}
@@ -602,7 +602,7 @@ describe('<FilterBar />', () => {
                 ]}
               />
             ),
-            isUsableWhen: state => state.coffee.value === 'latte',
+            isUsableWhen: (state) => state.coffee.value === 'latte',
           },
           {
             id: 'syrup',
@@ -616,7 +616,7 @@ describe('<FilterBar />', () => {
               />
             ),
             isRemovable: true,
-            isUsableWhen: state =>
+            isUsableWhen: (state) =>
               state.milk.value !== undefined && !state.sugar.isActive,
           },
           {
@@ -626,7 +626,7 @@ describe('<FilterBar />', () => {
               <FilterBar.Select items={[{ value: 'yes', label: 'Yes' }]} />
             ),
             isRemovable: true,
-            isUsableWhen: state =>
+            isUsableWhen: (state) =>
               state.milk.value !== undefined && !state.syrup.isActive,
           },
           {
@@ -640,7 +640,7 @@ describe('<FilterBar />', () => {
                 ]}
               />
             ),
-            isUsableWhen: state => state.coffee.value !== undefined,
+            isUsableWhen: (state) => state.coffee.value !== undefined,
           },
         ] satisfies Filters<ValuesComplexDeps>
 
@@ -936,7 +936,7 @@ describe('<FilterBar />', () => {
                     items={allItems}
                     sectionName="All Items"
                   >
-                    {item => (
+                    {(item) => (
                       <FilterMultiSelect.Option key={item.key} item={item} />
                     )}
                   </FilterMultiSelect.ListBoxSection>

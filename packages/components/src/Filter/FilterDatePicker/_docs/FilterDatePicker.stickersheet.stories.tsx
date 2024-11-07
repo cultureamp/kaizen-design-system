@@ -172,7 +172,7 @@ export const StickerSheetLocales: StickerSheetStory = {
     )
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="mb-[500px]">
         <Story />
       </div>

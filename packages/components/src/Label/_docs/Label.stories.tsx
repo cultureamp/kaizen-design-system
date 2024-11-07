@@ -79,7 +79,7 @@ export const BlockControls: Story = {
 export const Types: Story = {
   render: () => (
     <ul className="flex gap-16 list-none m-0 p-0">
-      {LabelTypes.map(type => (
+      {LabelTypes.map((type) => (
         <li key={type}>
           <Label labelType={type}>{type}</Label>
         </li>

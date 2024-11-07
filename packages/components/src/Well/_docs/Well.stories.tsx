@@ -41,7 +41,7 @@ export const Playground: Story = {
 }
 
 export const Colors: Story = {
-  render: args => (
+  render: (args) => (
     <>
       <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
         `white` is the new default when no color/variant is defined
@@ -80,9 +80,9 @@ export const Colors: Story = {
 }
 
 export const BorderStyles: Story = {
-  render: args => (
+  render: (args) => (
     <>
-      {borderStyleTypes.map(border => (
+      {borderStyleTypes.map((border) => (
         <>
           <Heading tag="h4" variant="heading-6">
             {border}
@@ -95,7 +95,7 @@ export const BorderStyles: Story = {
 }
 
 export const NoMargin: Story = {
-  render: args => (
+  render: (args) => (
     <div className="flex gap-16">
       <div>
         <Heading tag="h4" variant="heading-6">

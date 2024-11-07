@@ -36,7 +36,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         hasVerticalHeadings
       />
       <StickerSheet.Body>
-        {TagVariants.map(variant => (
+        {TagVariants.map((variant) => (
           <StickerSheet.Row key={variant} rowTitle={variant}>
             <>
               <Tag variant={variant}>Tag</Tag>

@@ -230,6 +230,7 @@ export default tseslint.config(
     extends: [stylistic.configs['recommended-flat']],
     files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     rules: {
+      '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/brace-style': ['error', '1tbs'],
       '@stylistic/jsx-one-expression-per-line': 'off',
       '@stylistic/operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],

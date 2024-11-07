@@ -30,7 +30,7 @@ export const Toolbar = ({
       data-automation-id={automationId}
       data-testid={automationId}
     >
-      {items.map(item => (
+      {items.map((item) => (
         <div
           className={classnames(styles.toolbarItem, noGap && styles.noGap)}
           key={item.key}

@@ -41,7 +41,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
 
   useEffect(() => {
     if (filterState.value) {
-      const itemValues = items.map(item => (item as Option)?.value)
+      const itemValues = items.map((item) => (item as Option)?.value)
       if (!itemValues.includes(filterState.value)) {
         updateValue(id, undefined)
       }

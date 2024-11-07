@@ -53,7 +53,7 @@ export const MultiSelectOptions = ({
             </Text>
           )
         : (
-            options.map(option => (
+            options.map((option) => (
               <MultiSelectOptionField
                 key={option.value}
                 id={`${id}--${option.value}`}

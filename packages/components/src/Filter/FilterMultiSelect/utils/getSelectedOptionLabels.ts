@@ -10,10 +10,10 @@ export const getSelectedOptionLabels = (
   }
 
   if (keys === 'all') {
-    return items.map(item => item.label)
+    return items.map((item) => item.label)
   }
 
   return Array.from(keys)
-    .map(key => items.find(item => item.value === key)?.label ?? '')
-    .filter(item => item !== '')
+    .map((key) => items.find((item) => item.value === key)?.label ?? '')
+    .filter((item) => item !== '')
 }

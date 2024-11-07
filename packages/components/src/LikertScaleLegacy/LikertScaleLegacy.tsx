@@ -48,7 +48,7 @@ export const LikertScaleLegacy = ({
   labelId,
 }: LikertScaleProps): JSX.Element => {
   const [hoveredItem, setHoveredItem] = useState<ScaleItem | null>(null)
-  const itemRefs: ItemRefs = scale.map(s => ({
+  const itemRefs: ItemRefs = scale.map((s) => ({
     value: s.value,
     ref: createRef<HTMLDivElement>(),
   }))
@@ -58,7 +58,7 @@ export const LikertScaleLegacy = ({
     const isClickOnSelectedItem = selectedItem?.value === item.value
 
     // Grab "Not rated" state item from the scale, its value is -1
-    const notYetRated = scale.find(s => s.value === -1) ?? null
+    const notYetRated = scale.find((s) => s.value === -1) ?? null
 
     // Clear or set new selection
     const newItem = isClickOnSelectedItem ? notYetRated : item
@@ -82,10 +82,10 @@ export const LikertScaleLegacy = ({
     if (newPosition) {
       event.preventDefault()
 
-      onSelect(scale.find(s => s.value === newPosition) ?? null)
+      onSelect(scale.find((s) => s.value === newPosition) ?? null)
 
       // Update focus
-      const itemRef = itemRefs.find(item => item.value === newPosition)
+      const itemRef = itemRefs.find((item) => item.value === newPosition)
       itemRef?.ref?.current?.focus()
     }
   }
@@ -136,7 +136,7 @@ export const LikertScaleLegacy = ({
           }
 
           const isSelectedItem = selectedItem?.value === item.value
-          const itemRef = itemRefs.find(i => item.value === i.value)
+          const itemRef = itemRefs.find((i) => item.value === i.value)
 
           // Make control tabbable
           let tabIndex = 0

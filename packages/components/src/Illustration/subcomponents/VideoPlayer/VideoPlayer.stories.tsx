@@ -18,7 +18,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const PausePlay: Story = {
-  render: args => <VideoPlayer {...args} />,
+  render: (args) => <VideoPlayer {...args} />,
   name: 'VideoPlayer: Pause/Play',
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)

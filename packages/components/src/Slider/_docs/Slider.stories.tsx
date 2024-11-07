@@ -28,7 +28,7 @@ export const Playground: Story = {
 }
 
 export const Variants: Story = {
-  render: args => (
+  render: (args) => (
     <div className="flex flex-col gap-16">
       <Slider {...args} labelText="Default" variant="default" />
       <Slider {...args} labelText="Prominent" variant="prominent" />
@@ -39,7 +39,7 @@ export const Variants: Story = {
 export const MinMaxLabels: Story = {}
 
 export const LabelPosition: Story = {
-  render: args => (
+  render: (args) => (
     <div className="flex flex-col gap-16">
       <Slider
         {...args}

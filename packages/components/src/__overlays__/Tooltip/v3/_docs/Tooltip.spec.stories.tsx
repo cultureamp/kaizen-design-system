@@ -130,7 +130,7 @@ export const OnCustomButtonAnchor: Story = {
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button
         label="Button"
-        component={props => (
+        component={(props) => (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a {...props} href="#" style={{ padding: '0 1rem' }}>
             Custom Link
@@ -149,7 +149,7 @@ export const OnCustomButton: Story = {
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button
         label="Button"
-        component={props => <button type="button" {...props} />}
+        component={(props) => <button type="button" {...props} />}
       />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>

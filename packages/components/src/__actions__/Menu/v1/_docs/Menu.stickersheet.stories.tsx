@@ -58,7 +58,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     </StickerSheet>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ minHeight: '500px' }}>
         <Story />
       </div>

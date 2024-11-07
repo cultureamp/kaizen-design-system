@@ -36,7 +36,7 @@ export const Playground: Story = {
 }
 
 export const ApplyColour: Story = {
-  render: args => (
+  render: (args) => (
     <div className="text-blue-500">
       <AddIcon {...args} />
     </div>
@@ -94,7 +94,7 @@ export const Reference: Story = {
     <div className="flex flex-col gap-16">
       <ul className={styles.grid}>
         {Object.keys(ICONS)
-          .filter(iconName => !deprecatedList.includes(iconName))
+          .filter((iconName) => !deprecatedList.includes(iconName))
           .map((iconName) => {
             const icon = ICONS[iconName as keyof typeof ICONS]({
               role: 'presentation',

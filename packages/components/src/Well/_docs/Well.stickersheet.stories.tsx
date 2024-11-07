@@ -36,9 +36,9 @@ const StickerSheetTemplate: StickerSheetStory = {
           hasVerticalHeadings
         />
         <StickerSheet.Body>
-          {variantTypes.map(variant => (
+          {variantTypes.map((variant) => (
             <StickerSheet.Row key={variant} rowTitle={variant}>
-              {borderStyleTypes.map(border => (
+              {borderStyleTypes.map((border) => (
                 <WellWrapped
                   key={border}
                   variant={variant}
@@ -49,9 +49,9 @@ const StickerSheetTemplate: StickerSheetStory = {
           ))}
         </StickerSheet.Body>
         <StickerSheet.Body>
-          {wellColors.map(color => (
+          {wellColors.map((color) => (
             <StickerSheet.Row key={color} rowTitle={color}>
-              {borderStyleTypes.map(border => (
+              {borderStyleTypes.map((border) => (
                 <WellWrapped key={border} color={color} borderStyle={border} />
               ))}
             </StickerSheet.Row>

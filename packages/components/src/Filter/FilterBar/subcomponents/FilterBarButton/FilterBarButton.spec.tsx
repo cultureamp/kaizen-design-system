@@ -24,7 +24,7 @@ const FilterBarButtonWrapper = (
     values={{}}
     onValuesChange={() => undefined}
   >
-    {filters => (
+    {(filters) => (
       <>
         {Object.values(filters).map(({ id, name }) => (
           <FilterBarButton

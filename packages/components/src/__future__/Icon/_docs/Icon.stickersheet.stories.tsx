@@ -41,7 +41,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             hasVerticalHeadings
           />
           <StickerSheet.Body>
-            {iconDefaultSet.map(name => (
+            {iconDefaultSet.map((name) => (
               <StickerSheet.Row key={name} rowTitle={name}>
                 <Icon {...defaultProps} name={name} />
                 <Icon {...defaultProps} name={name} isFilled />
@@ -61,7 +61,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             hasVerticalHeadings
           />
           <StickerSheet.Body>
-            {mirrorInRTL.map(name => (
+            {mirrorInRTL.map((name) => (
               <StickerSheet.Row key={name} rowTitle={name}>
                 <div dir="ltr" className="text-center">
                   <Icon {...defaultProps} name={name} shouldMirrorInRTL />

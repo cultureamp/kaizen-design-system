@@ -25,7 +25,7 @@ export const InvalidLink: Story = {
     defaultHref: 'google.com',
   },
   play: async () => {
-    await new Promise(resolve => setTimeout(resolve, 500))
+    await new Promise((resolve) => setTimeout(resolve, 500))
     await userEvent.keyboard('{Tab}{Enter}')
 
     await waitFor(() => {

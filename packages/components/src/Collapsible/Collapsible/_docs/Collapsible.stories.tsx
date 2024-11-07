@@ -73,7 +73,7 @@ export const CustomHeader: Story = {
     <Collapsible
       open
       title={standardTitle}
-      renderHeader={title => (
+      renderHeader={(title) => (
         <Heading variant="heading-4" tag="span">
           <span className="flex gap-8 items-center">
             <Icon name="potted_plant" isPresentational /> {title}

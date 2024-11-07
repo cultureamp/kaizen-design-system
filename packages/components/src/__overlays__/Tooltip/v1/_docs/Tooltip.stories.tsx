@@ -22,7 +22,7 @@ const meta = {
     text: 'Example tooltip text.',
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex mt-[60px] gap-12">
         <Story />
       </div>
@@ -45,7 +45,7 @@ export const Playground: Story = {
       },
     },
   },
-  render: args => (
+  render: (args) => (
     <Tooltip {...args}>
       <Button label="Hover or focus me" />
     </Tooltip>
@@ -53,7 +53,7 @@ export const Playground: Story = {
 }
 
 export const OverflowScroll: Story = {
-  render: props => (
+  render: (props) => (
     <>
       <p>
         Default Placement is &apos;above&apos;. Scroll horizontally or
@@ -156,7 +156,7 @@ export const ButtonsWithTooltip: Story = {
       source: { type: 'dynamic' },
     },
   },
-  render: args => (
+  render: (args) => (
     <>
       <Tooltip {...args} text="Contact customer support.">
         <Button
@@ -180,7 +180,7 @@ export const ButtonGroupWithTooltip: Story = {
       source: { type: 'dynamic' },
     },
   },
-  render: args => (
+  render: (args) => (
     <>
       <ButtonGroup>
         <Tooltip {...args} text="Sort by first">

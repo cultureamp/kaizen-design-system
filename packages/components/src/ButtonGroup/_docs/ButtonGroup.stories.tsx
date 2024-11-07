@@ -16,7 +16,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  render: args => (
+  render: (args) => (
     <ButtonGroup {...args}>
       <FilterButtonBase>First</FilterButtonBase>
       <FilterButtonBase>Last</FilterButtonBase>

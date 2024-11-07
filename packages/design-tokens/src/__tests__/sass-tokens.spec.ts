@@ -32,7 +32,7 @@ ${typography.toString()}
         .filter(
           (n): n is Declaration => n.type === 'decl' && n.prop.startsWith('$kz'),
         )
-        .map(n => n.prop)
+        .map((n) => n.prop)
       expect(allTokensStartingWithKz).toHaveLength(0)
     })
   })
@@ -44,7 +44,7 @@ ${typography.toString()}
           n.type === 'decl' && n.prop.startsWith('$color'),
       )
       const newColorsWithHeartNames = newColors.filter(
-        n =>
+        (n) =>
           heartColorNamePattern.test(n.prop) ||
           n.prop.startsWith('$color-white') ||
           n.prop.startsWith('$color-black'),
@@ -58,7 +58,7 @@ ${typography.toString()}
     it('new un-prefixed layout tokens are not CSS variables', () => {
       expect(
         layout.nodes.filter(
-          n =>
+          (n) =>
             n.type === 'decl' &&
             n.prop.startsWith('$layout') &&
             n.value.startsWith('var('),

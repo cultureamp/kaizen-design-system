@@ -2,7 +2,7 @@ export default (
   /** @type {import('plop').NodePlopAPI} */
   plop,
 ) => {
-  plop.setHelper('preCurly', t => `{${t}`)
+  plop.setHelper('preCurly', (t) => `{${t}`)
 
   plop.setGenerator('basic component', {
     description: 'Generate a basic component',
@@ -22,7 +22,7 @@ export default (
         type: 'input',
         name: 'parentComponentName',
         message: 'What is the parent component name?',
-        when: answers => answers.isSubcomponent,
+        when: (answers) => answers.isSubcomponent,
       },
       {
         type: 'confirm',

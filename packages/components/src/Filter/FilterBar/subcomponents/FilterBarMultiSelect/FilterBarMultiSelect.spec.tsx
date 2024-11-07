@@ -28,7 +28,7 @@ const SelectContents = (): JSX.Element => (
   <>
     <FilterMultiSelect.ListBox>
       {({ allItems }): JSX.Element | JSX.Element[] =>
-        allItems.map(item => (
+        allItems.map((item) => (
           <FilterMultiSelect.Option key={item.key} item={item} />
         ))}
     </FilterMultiSelect.ListBox>
@@ -76,7 +76,7 @@ const FilterBarMultiSelectWrapper = <ValuesMap extends FiltersValues = Values>({
       values={values}
       onValuesChange={setValues}
     >
-      {filters => (
+      {(filters) => (
         <>
           {Object.values(filters).map(({ id, Component }) => (
             <React.Fragment key={id as string}>{Component}</React.Fragment>

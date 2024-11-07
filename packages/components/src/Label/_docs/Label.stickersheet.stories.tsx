@@ -117,7 +117,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet.Body>
 
       <StickerSheet.Body>
-        {InlineLabelTypes.map(type => (
+        {InlineLabelTypes.map((type) => (
           <StickerSheet.Row key={type} rowTitle={type}>
             <InlineControl
               reversed={isReversed}
@@ -150,7 +150,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet.Body>
 
       <StickerSheet.Body>
-        {BlockLabelTypes.map(type => (
+        {BlockLabelTypes.map((type) => (
           <StickerSheet.Row key={type} rowTitle={type}>
             <BlockControl
               reversed={isReversed}

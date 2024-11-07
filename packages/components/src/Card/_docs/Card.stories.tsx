@@ -43,7 +43,7 @@ const colors = [
 export const Colors: Story = {
   render: () => (
     <ul className="flex list-none gap-16">
-      {colors.map(color => (
+      {colors.map((color) => (
         <li key={color}>
           <Card color={color}>This is a default container</Card>
         </li>

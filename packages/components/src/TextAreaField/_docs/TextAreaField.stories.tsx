@@ -79,7 +79,7 @@ export const Autogrow: Story = {
 export const Reversed: Story = {
   args: { reversed: true },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="bg-purple-700 p-16">
         <Story />
       </div>

@@ -55,7 +55,7 @@ export const Variant: Story = {
         hasVerticalHeadings
       />
       <StickerSheet.Body>
-        {headingVariants.map(variant => (
+        {headingVariants.map((variant) => (
           <StickerSheet.Row key={variant} rowTitle={variant}>
             <LoadingHeading variant={variant} />
             <Heading variant={variant}>Heading</Heading>

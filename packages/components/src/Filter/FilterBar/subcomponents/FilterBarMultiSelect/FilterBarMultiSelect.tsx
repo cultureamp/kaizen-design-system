@@ -70,7 +70,7 @@ export const FilterBarMultiSelect = ({
   useEffect(() => {
     if (Array.isArray(filterState.value)) {
       const itemValues = items.map(({ value }) => value)
-      const filteredValues = filterState.value.filter(value =>
+      const filteredValues = filterState.value.filter((value) =>
         itemValues.includes(value),
       )
 

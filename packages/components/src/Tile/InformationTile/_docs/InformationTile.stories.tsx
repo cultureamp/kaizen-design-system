@@ -30,7 +30,7 @@ export const Playground: Story = {
 }
 
 export const Variants: Story = {
-  render: args => (
+  render: (args) => (
     <>
       <InformationTile {...args} variant="default" title="default" />
       <InformationTile
@@ -41,7 +41,7 @@ export const Variants: Story = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-16 flex-wrap">
         <Story />
       </div>

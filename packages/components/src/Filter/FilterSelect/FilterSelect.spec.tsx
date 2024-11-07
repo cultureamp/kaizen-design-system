@@ -293,7 +293,7 @@ describe('FilterSelect generic', () => {
         items={[{ label: 'Bubblegum', value: 'bubblegum', isRubberDuck: true }]}
       >
         {({ items }): JSX.Element[] =>
-          items.map(item =>
+          items.map((item) =>
             item.type === 'item'
               ? <li key={item.key}>{item.value?.isRubberDuck}</li>
               : <li key={item.key}>Section</li>,

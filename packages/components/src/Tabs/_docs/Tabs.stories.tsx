@@ -75,7 +75,7 @@ export const UsageInCard: Story = {
   parameters: {
     backgrounds: { default: 'Gray 100' },
   },
-  render: args => (
+  render: (args) => (
     <Card>
       <Tabs {...args} />
     </Card>

@@ -43,7 +43,7 @@ export default {
     },
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="w-full max-w-[60rem] flex flex-col gap-12 mx-auto">
         <Story />
       </div>

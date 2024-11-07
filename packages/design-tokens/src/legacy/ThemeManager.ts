@@ -61,7 +61,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     listener: (theme: Theme) => void,
   ): void => {
     this.themeChangeListeners = this.themeChangeListeners.filter(
-      l => l !== listener,
+      (l) => l !== listener,
     )
   }
 
@@ -78,7 +78,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   }
 
   private notifyThemeChangeListeners = (theme: Theme): void => {
-    this.themeChangeListeners.forEach(listener => listener(theme))
+    this.themeChangeListeners.forEach((listener) => listener(theme))
   }
 }
 

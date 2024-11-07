@@ -177,13 +177,13 @@ export const CreateALink: Story = {
     })
 
     // wait for the transition to end and focus to shift
-    await new Promise(resolve => setTimeout(resolve, 500))
+    await new Promise((resolve) => setTimeout(resolve, 500))
 
     await step('Enter text', async () => {
       await userEvent.keyboard('https://www.google.com')
     })
 
-    await new Promise(resolve => setTimeout(resolve, 500))
+    await new Promise((resolve) => setTimeout(resolve, 500))
 
     await step('Tab and save', async () => {
       await userEvent.keyboard('{Tab}{Enter}')

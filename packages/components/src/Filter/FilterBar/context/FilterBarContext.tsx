@@ -170,7 +170,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
 
   const activeFilters = Array.from(
     state.activeFilterIds,
-    id => mappedFilters[id],
+    (id) => mappedFilters[id],
   )
 
   return (

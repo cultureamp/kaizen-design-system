@@ -18,7 +18,7 @@ export const getMarkRange = (
     return null
   }
 
-  const mark = start.node.marks.find(m => m.type === type)
+  const mark = start.node.marks.find((m) => m.type === type)
   if (!mark) {
     return null
   }

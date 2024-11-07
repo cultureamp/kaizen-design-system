@@ -28,7 +28,7 @@ export const KitchenSink: Story = {
     defaultOpen: true,
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ height: '500px' }}>
         <Story />
       </div>

@@ -164,7 +164,7 @@ export const AsyncSelect = React.forwardRef(
 )
 AsyncSelect.displayName = 'AsyncSelect'
 
-const Control: typeof components.Control = props => (
+const Control: typeof components.Control = (props) => (
   <div data-automation-id="Select__Control">
     <components.Control
       {...props}
@@ -177,13 +177,13 @@ const Control: typeof components.Control = props => (
   </div>
 )
 
-const Placeholder: typeof components.Placeholder = props => (
+const Placeholder: typeof components.Placeholder = (props) => (
   <components.Placeholder {...props} className={styles.placeholderOverrides}>
     <span className={styles.placeholder}>{props.children}</span>
   </components.Placeholder>
 )
 
-const DropdownIndicator: typeof components.DropdownIndicator = props => (
+const DropdownIndicator: typeof components.DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
     <Icon
       name={
@@ -200,15 +200,15 @@ const LoadingMessage = (props: NoticeProps): JSX.Element => (
   <components.LoadingMessage {...props} className={styles.loadingMessage} />
 )
 
-const Menu: typeof components.Menu = props => (
+const Menu: typeof components.Menu = (props) => (
   <components.Menu {...props} className={styles.menu} />
 )
 
-const GroupHeading: typeof components.GroupHeading = props => (
+const GroupHeading: typeof components.GroupHeading = (props) => (
   <components.GroupHeading {...props} className={styles.groupHeading} />
 )
 
-const Option: typeof components.Option = props => (
+const Option: typeof components.Option = (props) => (
   <div data-automation-id="Select__Option">
     <components.Option
       {...props}
@@ -228,13 +228,13 @@ const NoOptionsMessage = (props: NoticeProps): JSX.Element => (
   </components.NoOptionsMessage>
 )
 
-const SingleValue: typeof components.SingleValue = props => (
+const SingleValue: typeof components.SingleValue = (props) => (
   <components.SingleValue {...props} className={styles.singleValueOverrides}>
     <span className={styles.singleValue}>{props.children}</span>
   </components.SingleValue>
 )
 
-const MultiValue: typeof components.MultiValue = props => (
+const MultiValue: typeof components.MultiValue = (props) => (
   <div className={styles.multiValue}>
     <Tag
       variant="default"
@@ -247,21 +247,21 @@ const MultiValue: typeof components.MultiValue = props => (
   </div>
 )
 
-const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
+const IndicatorsContainer: typeof components.IndicatorsContainer = (props) => (
   <components.IndicatorsContainer
     {...props}
     className={styles.indicatorsContainer}
   />
 )
 
-const Input: typeof components.Input = props => (
+const Input: typeof components.Input = (props) => (
   <components.Input className={styles.input} {...props} />
 )
 
-const ValueContainer: typeof components.ValueContainer = props => (
+const ValueContainer: typeof components.ValueContainer = (props) => (
   <components.ValueContainer {...props} className={styles.valueContainer} />
 )
-const ClearIndicator: typeof components.ClearIndicator = props => (
+const ClearIndicator: typeof components.ClearIndicator = (props) => (
   <components.ClearIndicator {...props} className={styles.clearIndicator}>
     <Icon name="cancel" isPresentational isFilled />
   </components.ClearIndicator>

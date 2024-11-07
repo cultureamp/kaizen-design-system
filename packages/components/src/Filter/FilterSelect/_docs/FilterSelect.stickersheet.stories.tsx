@@ -66,7 +66,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   label="Label"
                   isOpen={isOpenDefaultSingle}
                   setIsOpen={setIsOpenDefaultSingle}
-                  renderTrigger={triggerProps => (
+                  renderTrigger={(triggerProps) => (
                     <FilterButton {...triggerProps} />
                   )}
                   items={singleMockItems}
@@ -77,7 +77,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   label="Label"
                   isOpen={isOpenDefaultGroup}
                   setIsOpen={setIsOpenDefaultGroup}
-                  renderTrigger={triggerProps => (
+                  renderTrigger={(triggerProps) => (
                     <FilterButton {...triggerProps} />
                   )}
                   items={groupedMockItems}
@@ -88,7 +88,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   label="Label"
                   isOpen={isOpenDefaultExisting}
                   setIsOpen={setIsOpenDefaultExisting}
-                  renderTrigger={triggerProps => (
+                  renderTrigger={(triggerProps) => (
                     <FilterButton {...triggerProps} />
                   )}
                   items={singleMockItems}
@@ -100,7 +100,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   label="Label"
                   isOpen={isOpenDefaultDisabled}
                   setIsOpen={setIsOpenDefaultDisabled}
-                  renderTrigger={triggerProps => (
+                  renderTrigger={(triggerProps) => (
                     <FilterButton {...triggerProps} />
                   )}
                   items={mixedMockItemsDisabled}
@@ -129,7 +129,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   label="Label"
                   isOpen={isOpenCustomSingle}
                   setIsOpen={setIsOpenCustomSingle}
-                  renderTrigger={triggerProps => (
+                  renderTrigger={(triggerProps) => (
                     <FilterButton {...triggerProps} />
                   )}
                   items={singleMockItems}
@@ -175,7 +175,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   label="Label"
                   isOpen={isOpenCustomPartial}
                   setIsOpen={setIsOpenCustomPartial}
-                  renderTrigger={triggerProps => (
+                  renderTrigger={(triggerProps) => (
                     <FilterButton {...triggerProps} />
                   )}
                   items={mixedMockItemsUngroupedFirst}
@@ -201,7 +201,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                             section={{
                               ...item,
                               childNodes: Array.from(item.childNodes).map(
-                                child => ({
+                                (child) => ({
                                   ...child,
                                   rendered: <div>-- {child.rendered}</div>,
                                 }),
@@ -226,13 +226,13 @@ const StickerSheetTemplate: StickerSheetStory = {
                   label="Label"
                   isOpen={isOpenCustomDividerMixed}
                   setIsOpen={setIsOpenCustomDividerMixed}
-                  renderTrigger={triggerProps => (
+                  renderTrigger={(triggerProps) => (
                     <FilterButton {...triggerProps} />
                   )}
                   items={mixedMockItemsUnordered}
                 >
                   {({ items }): JSX.Element[] =>
-                    items.map(item => (
+                    items.map((item) => (
                       <React.Fragment key={item.key}>
                         {item.type === 'section' && (
                           <FilterSelect.SectionDivider />
@@ -251,7 +251,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   label="Label"
                   isOpen={isOpenCustomDividerSpecific}
                   setIsOpen={setIsOpenCustomDividerSpecific}
-                  renderTrigger={triggerProps => (
+                  renderTrigger={(triggerProps) => (
                     <FilterButton {...triggerProps} />
                   )}
                   items={[
@@ -295,7 +295,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   label="Label"
                   isOpen={isOpenMin}
                   setIsOpen={setIsOpenMin}
-                  renderTrigger={triggerProps => (
+                  renderTrigger={(triggerProps) => (
                     <FilterButton {...triggerProps} />
                   )}
                   items={[{ value: 'a', label: 'A' }]}
@@ -306,7 +306,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   label="Label"
                   isOpen={isOpenMax}
                   setIsOpen={setIsOpenMax}
-                  renderTrigger={triggerProps => (
+                  renderTrigger={(triggerProps) => (
                     <FilterButton {...triggerProps} />
                   )}
                   items={[

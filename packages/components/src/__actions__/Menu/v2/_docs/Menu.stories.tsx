@@ -36,7 +36,7 @@ const meta = {
     ),
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex mt-[60px] gap-12">
         <Story />
       </div>

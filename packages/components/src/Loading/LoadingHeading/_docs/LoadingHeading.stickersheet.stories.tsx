@@ -28,7 +28,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
-        {headingVariants.map(variant => (
+        {headingVariants.map((variant) => (
           <StickerSheet.Row key={variant} rowTitle={variant}>
             <StickerSheet.Cell className="w-320">
               <LoadingHeading variant={variant} />

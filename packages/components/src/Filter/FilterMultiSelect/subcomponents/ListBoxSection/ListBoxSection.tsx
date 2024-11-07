@@ -61,7 +61,7 @@ export const ListBoxSection = ({
          * the role="presentation" will throw an error a11y warning "Element has children which are not allowed".
          This is expected and is an accepted issue / potential limitation with axe
          */}
-        {Array.from(items).map(node => node != undefined && children(node))}
+        {Array.from(items).map((node) => node != undefined && children(node))}
       </ul>
     </li>
   )

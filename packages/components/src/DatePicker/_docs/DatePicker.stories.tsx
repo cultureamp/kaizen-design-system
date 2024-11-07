@@ -296,7 +296,7 @@ export const AboveIfAvailable: Story = {
     a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="mt-[350px]">
         <Story />
       </div>
@@ -330,7 +330,7 @@ export const LimitedViewportHeight: Story = {
     a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="mb-[150px]">
         <Story />
       </div>
@@ -349,7 +349,7 @@ export const FullViewportHeight: Story = {
     labelText: 'Calendar with full space below',
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="mb-[350px]">
         <Story />
       </div>

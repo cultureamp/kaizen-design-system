@@ -13,7 +13,7 @@ export const SelectAllButton = (): JSX.Element => {
     : []
   const filteredOptions = Array.from(
     selectionState.collection.getKeys(),
-  ).filter(key => !disabledOptions.includes(key))
+  ).filter((key) => !disabledOptions.includes(key))
 
   return (
     <button

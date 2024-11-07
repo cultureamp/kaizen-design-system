@@ -83,7 +83,7 @@ export const AdditionalProperties: Story = {
         ]}
       >
         {({ items }): JSX.Element[] =>
-          items.map(item =>
+          items.map((item) =>
             item.type === 'item'
               ? (
                   <FilterSelect.Option

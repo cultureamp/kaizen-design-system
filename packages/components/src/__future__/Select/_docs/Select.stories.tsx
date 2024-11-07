@@ -93,7 +93,7 @@ export const SectionDivider: Story = {
 }
 
 export const AdditionalProperties: Story = {
-  render: args => (
+  render: (args) => (
     <Select<SelectOption & { isFruit: boolean }>
       {...args}
       label="Custom"
@@ -106,7 +106,7 @@ export const AdditionalProperties: Story = {
       ]}
     >
       {({ items }): JSX.Element[] =>
-        items.map(item =>
+        items.map((item) =>
           item.type === 'item'
             ? (
                 <Select.Option
@@ -135,7 +135,7 @@ const sourceCodeCustomiseTrigger = `
 `
 export const CustomiseTrigger: Story = {
   args: {
-    trigger: props => (
+    trigger: (props) => (
       <Select.TriggerButton {...props} id="select--custom-trigger" />
     ),
   },
@@ -149,7 +149,7 @@ export const CustomiseTrigger: Story = {
 }
 
 export const Validation: Story = {
-  render: args => (
+  render: (args) => (
     <div className="flex gap-16">
       <Select
         {...args}

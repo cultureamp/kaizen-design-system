@@ -27,7 +27,7 @@ export const Workflow = ({
   classNameOverride,
   ...restProps
 }: WorkflowProps): JSX.Element => {
-  const currentStep = steps.find(step => step.id === currentStepId)
+  const currentStep = steps.find((step) => step.id === currentStepId)
   return (
     <Workflow.Wrapper classNameOverride={classNameOverride} {...restProps}>
       <Workflow.Header

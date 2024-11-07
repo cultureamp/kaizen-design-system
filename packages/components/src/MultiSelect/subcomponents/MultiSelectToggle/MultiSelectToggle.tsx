@@ -89,7 +89,7 @@ export const MultiSelectToggle = forwardRef<
                   {selectedOptions.map(({ label, value }) => (
                     // This stops the underlying toggle collapsing the popover when interactive with Tags
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
-                    <li key={value} onClick={e => e.stopPropagation()}>
+                    <li key={value} onClick={(e) => e.stopPropagation()}>
                       <RemovableTag
                         removeButtonProps={{
                           ariaLabel: `Remove option: ${label}`,

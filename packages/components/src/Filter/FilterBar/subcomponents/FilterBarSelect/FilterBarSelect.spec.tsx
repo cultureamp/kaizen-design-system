@@ -53,7 +53,7 @@ const FilterBarSelectWrapper = <ValuesMap extends FiltersValues = Values>({
       values={values}
       onValuesChange={setValues}
     >
-      {filters => (
+      {(filters) => (
         <>
           {Object.values(filters).map(({ id, Component }) => (
             <React.Fragment key={id as string}>{Component}</React.Fragment>

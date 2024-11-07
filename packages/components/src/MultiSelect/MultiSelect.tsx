@@ -98,7 +98,7 @@ export const MultiSelect = ({
           onClick={handleToggleClick}
           isOpen={isOpen}
           selectedOptions={Array.from(selectedValues).map(
-            value => itemsMap[value],
+            (value) => itemsMap[value],
           )}
           status={validationMessage?.status}
           onRemoveOption={handleOnRemoveOption}

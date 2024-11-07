@@ -20,7 +20,7 @@ const IS_CHROMATIC = isChromatic()
 
 const client = new QueryClient()
 
-const withQueryProvider: Decorator = Story => (
+const withQueryProvider: Decorator = (Story) => (
   <QueryClientProvider client={client}>
     <Story />
   </QueryClientProvider>
@@ -57,7 +57,7 @@ const meta = {
               )
             }
 
-            return allItems.map(item => (
+            return allItems.map((item) => (
               <FilterMultiSelect.Option key={item.key} item={item} />
             ))
           }}
@@ -125,7 +125,7 @@ export const TruncatedLabels: Story = {
 
     const handleCharacterLimitChange: React.ChangeEventHandler<
       HTMLInputElement
-    > = e => setCharacterLimit(+e.target.value)
+    > = (e) => setCharacterLimit(+e.target.value)
 
     return (
       <>
@@ -217,14 +217,14 @@ export const Async: Story = {
     const cachedPeople = queryClient
       .getQueriesData<QueriesData>({ queryKey: ['startrek-sg1'] })
       .flatMap(([, cachedData]) => cachedData?.pages ?? [])
-      .flatMap(page => page.results)
-      .map(item => ({ label: item.name, value: item.url }))
+      .flatMap((page) => page.results)
+      .map((item) => ({ label: item.name, value: item.url }))
 
     const currentPeople = React.useMemo(
       () =>
         data?.pages
-          .flatMap(res => res.results)
-          .flatMap(person => ({ label: person.name, value: person.url })) ?? [],
+          .flatMap((res) => res.results)
+          .flatMap((person) => ({ label: person.name, value: person.url })) ?? [],
       [data],
     )
 
@@ -235,7 +235,7 @@ export const Async: Story = {
      */
     const mergedPeople = [...currentPeople, ...cachedPeople].filter(
       (item, index, a) =>
-        a.findIndex(currItem => currItem.value === item.value) === index,
+        a.findIndex((currItem) => currItem.value === item.value) === index,
     )
 
     /**

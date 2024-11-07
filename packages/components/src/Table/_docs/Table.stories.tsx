@@ -139,7 +139,7 @@ export default {
     ],
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ margin: '1rem auto', width: '100%', maxWidth: '60rem' }}>
         <Story />
       </div>
@@ -233,7 +233,7 @@ export const Reversed: StoryObj<TableStoryProps> = {
     },
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="bg-purple-700 p-16">
         <Story />
       </div>

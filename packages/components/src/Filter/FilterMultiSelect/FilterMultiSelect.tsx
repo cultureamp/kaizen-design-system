@@ -69,8 +69,8 @@ export const FilterMultiSelect = ({
   const menuPopupProps = { isLoading, loadingSkeleton }
   const disabledKeys: Selection = new Set(
     items
-      ?.filter(item => item.isDisabled === true)
-      .map(disabledItem => disabledItem.value),
+      ?.filter((item) => item.isDisabled === true)
+      .map((disabledItem) => disabledItem.value),
   )
   const selectionProps = {
     label,

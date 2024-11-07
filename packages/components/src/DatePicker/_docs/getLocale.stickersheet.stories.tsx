@@ -34,7 +34,7 @@ export const UtilGetLocale: StickerSheetStory = {
     return (
       <StickerSheet heading="Util - getLocale">
         <StickerSheet.Body>
-          {locales.map(locale => (
+          {locales.map((locale) => (
             <StickerSheet.Row key={locale} rowTitle={locale}>
               <CalendarSingle
                 defaultMonth={new Date('2021-09-05')}

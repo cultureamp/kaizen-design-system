@@ -10,8 +10,8 @@ export const getDisabledKeysFromItems = <
   items.reduce((acc: Key[], item) => {
     if (isSelectOptionGroup(item)) {
       const keys = Array.from(item.options)
-        .filter(groupItem => groupItem.disabled)
-        .map(disabledItems => disabledItems.value)
+        .filter((groupItem) => groupItem.disabled)
+        .map((disabledItems) => disabledItems.value)
       return [...acc, ...keys]
     }
 

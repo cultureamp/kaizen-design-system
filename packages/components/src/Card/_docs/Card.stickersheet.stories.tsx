@@ -43,7 +43,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <StickerSheet isReversed={isReversed} heading="Colors">
         <StickerSheet.Body>
-          {colors.map(color => (
+          {colors.map((color) => (
             <StickerSheet.Row key={color} rowTitle={color}>
               <Card {...args} color={color} />
             </StickerSheet.Row>
@@ -52,7 +52,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
       <StickerSheet isReversed={isReversed} heading="Variants (deprecated)">
         <StickerSheet.Body>
-          {variants.map(variant => (
+          {variants.map((variant) => (
             <StickerSheet.Row key={variant} rowTitle={variant}>
               <Card {...args} variant={variant} />
             </StickerSheet.Row>

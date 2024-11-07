@@ -53,7 +53,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Row rowTitle="custom heading">
           <CollapsibleWrapped
             title="Custom header"
-            renderHeader={title => (
+            renderHeader={(title) => (
               <Heading variant="heading-4" tag="span">
                 {title}
               </Heading>

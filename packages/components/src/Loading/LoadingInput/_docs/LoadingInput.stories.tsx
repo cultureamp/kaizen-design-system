@@ -36,7 +36,7 @@ export const Reversed: Story = {
 }
 
 const TextControlExampleTemplate: Story = {
-  render: args => (
+  render: (args) => (
     <>
       <LoadingHeading variant="heading-6" width={10} />
       <LoadingInput {...args} />

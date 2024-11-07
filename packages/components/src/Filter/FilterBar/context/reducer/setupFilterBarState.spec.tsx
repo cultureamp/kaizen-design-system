@@ -51,7 +51,7 @@ describe('setupFilterBarState()', () => {
         id: 'sugarLevel',
         name: 'Sugar Level',
         Component: <div />,
-        isUsableWhen: state => state.flavour.value !== undefined,
+        isUsableWhen: (state) => state.flavour.value !== undefined,
       },
     ] satisfies Filters<Values>
 

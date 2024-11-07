@@ -132,7 +132,7 @@ export const updateKaioImports =
         if (importsToRemove) {
           Array.from(importsToRemove.keys()).forEach((moduleSpecifier) => {
             const importIndex = statements.findIndex(
-              s =>
+              (s) =>
                 ts.isImportDeclaration(s) &&
                 (s.moduleSpecifier as ts.StringLiteral).text === moduleSpecifier,
             )
@@ -163,14 +163,14 @@ export const updateKaioImports =
         if (importsToAdd) {
           Array.from(importsToAdd.keys()).forEach((newModuleSpecifier) => {
             const importIndex = statements.findIndex(
-              s =>
+              (s) =>
                 ts.isImportDeclaration(s) &&
                 (s.moduleSpecifier as ts.StringLiteral).text === newModuleSpecifier,
             )
 
             if (importIndex === -1) {
               const fallbackKaioImportIdx = statements.findIndex(
-                s =>
+                (s) =>
                   ts.isImportDeclaration(s) &&
                   (s.moduleSpecifier as ts.StringLiteral).text.includes(
                     '@kaizen/components',

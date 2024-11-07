@@ -47,7 +47,7 @@ export const Playground: Story = {
 }
 
 export const Example: Story = {
-  render: args => (
+  render: (args) => (
     <Container>
       <Content {...args} />
     </Container>

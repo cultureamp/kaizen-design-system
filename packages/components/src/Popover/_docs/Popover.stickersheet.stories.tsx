@@ -76,7 +76,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Cell>
         </StickerSheet.Row>
         <>
-          {popoverPlacements.map(placement => (
+          {popoverPlacements.map((placement) => (
             <PopoverRow key={placement} placement={placement} />
           ))}
         </>

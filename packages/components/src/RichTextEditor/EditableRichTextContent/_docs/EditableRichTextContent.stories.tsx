@@ -36,7 +36,7 @@ const EditableRichTextContentTemplate: Story = {
     )
     const [editRteData, setEditRTEData] = useState<EditorContentArray>([])
 
-    const handleOnChange: RichTextEditorProps['onChange'] = editorState =>
+    const handleOnChange: RichTextEditorProps['onChange'] = (editorState) =>
       setEditRTEData(editorState.toJSON().doc.content)
 
     const handleContentClick = (): void => {

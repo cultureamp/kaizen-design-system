@@ -22,7 +22,7 @@ export const Playground: Story = {
       },
     },
   },
-  render: args => (
+  render: (args) => (
     <div>
       There is visually hidden text between the two brackets (click &quot;Show
       code&quot; to see more): [<VisuallyHidden {...args} />]

@@ -43,7 +43,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <>
         <StickerSheet heading="MultiActionTile">
           <StickerSheet.Body>
-            {variants.map(variant => (
+            {variants.map((variant) => (
               <StickerSheet.Row key={variant} rowTitle={variant}>
                 <MultiActionTile {...defaultProps} variant={variant} />
               </StickerSheet.Row>
@@ -57,7 +57,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <StickerSheet.Row rowTitle="default">
                 <MultiActionTile {...defaultProps} />
               </StickerSheet.Row>
-              {moods.map(mood => (
+              {moods.map((mood) => (
                 <StickerSheet.Row key={mood} rowTitle={mood}>
                   <MultiActionTile {...defaultProps} mood={mood} />
                 </StickerSheet.Row>

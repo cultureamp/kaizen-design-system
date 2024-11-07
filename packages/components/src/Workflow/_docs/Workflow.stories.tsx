@@ -124,7 +124,7 @@ export const ComposableWorkflow: Story = {
     <Workflow.Wrapper {...restProps}>
       <Workflow.Header
         workflowName={workflowName}
-        stepName={steps.find(step => step.id === currentStepId)!.label}
+        stepName={steps.find((step) => step.id === currentStepId)!.label}
         statusTag={statusTag}
         headerActions={headerActions}
       />

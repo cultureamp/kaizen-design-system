@@ -55,7 +55,7 @@ export const SelectionProvider = (
   const searchFilter = useCallback(
     (nodes: Iterable<MultiSelectItem>): Iterable<MultiSelectItem> =>
       searchQuery
-        ? Array.from(nodes).filter(f =>
+        ? Array.from(nodes).filter((f) =>
           f.textValue.toLowerCase().includes(searchQuery.toLowerCase()),
         )
         : nodes,
@@ -65,7 +65,7 @@ export const SelectionProvider = (
   // Create state based on the incoming props to manage the selection
   const state = useListState({
     ...otherProps,
-    children: item => <Item key={item.value}>{item.label}</Item>, // For initialising selection and determined item.renderer, can be only Item or Section
+    children: (item) => <Item key={item.value}>{item.label}</Item>, // For initialising selection and determined item.renderer, can be only Item or Section
     filter: onSearchInputChange ? undefined : searchFilter, // If the user has passed an `onSearchInputChange` we opt them out of the default filtering
   })
 

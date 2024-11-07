@@ -10,7 +10,7 @@ export const getSelectedOptionKeys = (
   }
 
   if (keys === 'all') {
-    return items.map(item => item.value)
+    return items.map((item) => item.value)
   }
 
   return Array.from(keys)

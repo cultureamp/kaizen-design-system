@@ -56,7 +56,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <>
         <StickerSheet isReversed={isReversed} heading="EmptyState">
           <StickerSheet.Body>
-            {variants.map(variant => (
+            {variants.map((variant) => (
               <StickerSheet.Row key={variant} rowTitle={variant}>
                 <EmptyStateWrapper {...defaultProps} variant={variant} />
               </StickerSheet.Row>
@@ -74,7 +74,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           heading="Illustration type (deprecated)"
         >
           <StickerSheet.Body>
-            {illustrationTypes.map(illustrationType => (
+            {illustrationTypes.map((illustrationType) => (
               <StickerSheet.Row
                 key={illustrationType}
                 rowTitle={illustrationType}

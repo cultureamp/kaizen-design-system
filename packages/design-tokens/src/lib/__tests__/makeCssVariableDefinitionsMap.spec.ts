@@ -15,7 +15,7 @@ describe('makeCssVariableDefinitionsMap()', () => {
 
   const cssVariableKeysThatAreColors = Object.keys(
     cssVariableDefinitions,
-  ).filter(key => key.startsWith('--color-'))
+  ).filter((key) => key.startsWith('--color-'))
   it('produces heart color vars', () => {
     cssVariableKeysThatAreColors.forEach((key) => {
       // eslint-disable-next-line vitest/no-conditional-expect

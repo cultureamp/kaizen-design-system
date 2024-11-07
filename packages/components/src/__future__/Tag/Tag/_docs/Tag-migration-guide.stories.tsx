@@ -130,7 +130,7 @@ export const StatusMigration: StoryObj = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-12">
         <Story />
       </div>
@@ -162,7 +162,7 @@ export const ValidationMigration: StoryObj = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-12">
         <Story />
       </div>
@@ -182,7 +182,7 @@ export const SentimentsMigration: StoryObj = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-12">
         <Story />
       </div>
@@ -242,7 +242,7 @@ export const AvatarMigration: StoryObj = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-12">
         <Story />
       </div>
@@ -296,7 +296,7 @@ export const AvatarRemovableMigration: StoryObj = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-12">
         <Story />
       </div>

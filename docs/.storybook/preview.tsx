@@ -43,7 +43,7 @@ const RACDecorator: Decorator = (Story, context) => {
   )
 }
 
-const KaizenProviderDecorator: Decorator = Story => (
+const KaizenProviderDecorator: Decorator = (Story) => (
   <KaizenProvider>
     <Story />
   </KaizenProvider>

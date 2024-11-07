@@ -13,7 +13,7 @@ export const getMarkAttrs = (state: EditorState, type: MarkType): Attrs => {
     marks = [...marks, ...node.marks]
   })
 
-  const mark = marks.find(markItem => markItem.type.name === type.name)
+  const mark = marks.find((markItem) => markItem.type.name === type.name)
 
   if (mark) {
     return mark.attrs

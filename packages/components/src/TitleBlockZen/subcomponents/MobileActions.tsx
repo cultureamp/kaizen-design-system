@@ -25,20 +25,20 @@ import { TitleBlockMenuItem } from './TitleBlockMenuItem'
 
 import styles from './MobileActions.module.scss'
 
-const menuItemIsLink: (item: TitleBlockMenuItemProps) => boolean = item =>
+const menuItemIsLink: (item: TitleBlockMenuItemProps) => boolean = (item) =>
   'href' in item
 
-const defaultActionIsLink: (action: DefaultActionProps) => boolean = action =>
+const defaultActionIsLink: (action: DefaultActionProps) => boolean = (action) =>
   'href' in action
 
-const defaultActionIsButton: (action: DefaultActionProps) => boolean = action =>
+const defaultActionIsButton: (action: DefaultActionProps) => boolean = (action) =>
   (!('href' in action) && 'onClick' in action) || 'component' in action
 
 const filterActions = (
   menuItems: TitleBlockMenuItemProps[],
   filterType: 'link' | 'action',
 ): TitleBlockMenuItemProps[] =>
-  menuItems.filter(item =>
+  menuItems.filter((item) =>
     filterType === 'link' ? menuItemIsLink(item) : !menuItemIsLink(item),
   )
 

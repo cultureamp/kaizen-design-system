@@ -29,7 +29,7 @@ export default {
 
 const InputExampleGroup = (props: InputProps): JSX.Element => (
   <ul className="grid gap-16 list-none p-0 m-0">
-    {InputTypes.map(type => (
+    {InputTypes.map((type) => (
       <li key={type}>
         <Input
           value={type}
@@ -67,7 +67,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         hasVerticalHeadings
       />
       <StickerSheet.Body>
-        {InputStatus.map(status => (
+        {InputStatus.map((status) => (
           <StickerSheet.Row key={status} rowTitle={status}>
             <InputExampleGroup reversed={isReversed} />
             <InputExampleGroup

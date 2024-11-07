@@ -177,7 +177,7 @@ export const StickerSheetBreadcrumbs: Story = {
       },
     },
   },
-  render: args => (
+  render: (args) => (
     <StickerSheet>
       <StickerSheet.Row rowTitle="Tab hover">
         <div className="px-12 bg-purple-600">

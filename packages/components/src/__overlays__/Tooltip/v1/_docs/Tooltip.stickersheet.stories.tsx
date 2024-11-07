@@ -28,7 +28,7 @@ const cellStyle = {
 }
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: props => (
+  render: (props) => (
     <div style={{ padding: '50px 100px' }}>
       <StickerSheet heading="Positions">
         <StickerSheet.Header headings={['Top', 'Bottom', 'Left', 'Right']} />

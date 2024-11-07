@@ -32,7 +32,7 @@ export const Playground: Story = {
 }
 
 export const Variants: Story = {
-  render: args => (
+  render: (args) => (
     <>
       <MultiActionTile {...args} variant="default" title="default" />
       <MultiActionTile
@@ -43,7 +43,7 @@ export const Variants: Story = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-16 flex-wrap">
         <Story />
       </div>

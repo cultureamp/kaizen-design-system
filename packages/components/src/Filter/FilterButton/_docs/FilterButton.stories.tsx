@@ -30,7 +30,7 @@ export const Playground: StoryObj<typeof meta> = {
  * A string or JSX.Element (most common for values with dom formatting).
  */
 export const SelectedValue: StoryObj<typeof meta> = {
-  render: args => (
+  render: (args) => (
     <div style={{ display: 'flex', gap: '1rem' }}>
       <FilterButton {...args} selectedValue="Pancakes" />
       <FilterButton
@@ -49,7 +49,7 @@ export const SelectedValue: StoryObj<typeof meta> = {
  * Controls the open state (chevron changes direction).
  */
 export const IsOpen: StoryObj<typeof meta> = {
-  render: args => (
+  render: (args) => (
     <div style={{ display: 'flex', gap: '1rem' }}>
       <FilterButton {...args} />
       <FilterButton {...args} isOpen />

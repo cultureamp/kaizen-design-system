@@ -120,7 +120,7 @@ export const CustomContent: Story = {
 }
 
 export const Stacked: Story = {
-  render: args => (
+  render: (args) => (
     <div style={{ display: 'flex', gap: '36px' }}>
       <GuidanceBlock {...args} />
       <GuidanceBlock {...args} />
@@ -141,9 +141,9 @@ export const SceneExample: Story = {
 }
 
 export const Variants: Story = {
-  render: args => (
+  render: (args) => (
     <div className="flex flex-col gap-16">
-      {variantsMap.map(variant => (
+      {variantsMap.map((variant) => (
         <GuidanceBlock key={variant} {...args} variant={variant} />
       ))}
     </div>

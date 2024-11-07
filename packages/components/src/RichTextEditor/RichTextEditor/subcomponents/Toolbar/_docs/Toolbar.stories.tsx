@@ -56,7 +56,7 @@ const meta = {
     children: { control: false },
   },
   decorators: [
-    Story => (
+    (Story) => (
       <>
         {/* Must give the toolbar something to control */}
         <Story />

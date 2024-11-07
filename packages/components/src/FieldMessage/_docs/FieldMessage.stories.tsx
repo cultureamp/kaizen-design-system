@@ -65,7 +65,7 @@ export const Reversed: Story = {
 
 export const Position: Story = {
   args: { position: 'bottom' },
-  render: args => (
+  render: (args) => (
     <div className="flex gap-6">
       <FieldMessage
         {...args}

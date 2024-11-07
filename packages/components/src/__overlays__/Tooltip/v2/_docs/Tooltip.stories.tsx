@@ -10,7 +10,7 @@ const meta = {
     text: 'Example tooltip text.',
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex mt-[60px] gap-12">
         <Story />
       </div>

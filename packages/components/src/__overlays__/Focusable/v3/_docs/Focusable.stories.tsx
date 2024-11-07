@@ -16,7 +16,7 @@ export default meta
 type Story = StoryObj<typeof Focusable>
 
 export const Playground: Story = {
-  render: args => (
+  render: (args) => (
     <Focusable {...args}>
       <Tag>Name</Tag>
     </Focusable>

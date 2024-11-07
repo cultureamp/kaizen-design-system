@@ -49,7 +49,7 @@ export const validateAndRemoveMarks =
         }
       })
 
-      matched.forEach(m => tr.step(new RemoveMarkStep(m.from, m.to, m.style)))
+      matched.forEach((m) => tr.step(new RemoveMarkStep(m.from, m.to, m.style)))
       dispatch(tr)
       return true
     }

@@ -16,7 +16,7 @@ const meta = {
     ),
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="overflow-scroll max-w-[200px] max-h-[200px] border-solid">
         <div
           id="testing-ground"

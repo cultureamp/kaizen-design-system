@@ -31,7 +31,7 @@ export const ListBoxSection = <Option extends SelectOption = SelectOption>({
           </Heading>
         )}
         <ul {...groupProps} className={styles.sectionList}>
-          {Array.from(section.childNodes).map(item => (
+          {Array.from(section.childNodes).map((item) => (
             <Option key={item.key} item={item} />
           ))}
         </ul>

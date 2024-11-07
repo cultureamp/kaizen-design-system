@@ -13,7 +13,7 @@ export const ListItems = <Option extends SelectOption>({
   items,
 }: ListItemsProps<Option>): JSX.Element => (
   <>
-    {items.map(item => (
+    {items.map((item) => (
       <ListItem<Option> key={item.key} item={item} />
     ))}
   </>

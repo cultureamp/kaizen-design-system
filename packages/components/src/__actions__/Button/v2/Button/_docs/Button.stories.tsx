@@ -40,7 +40,7 @@ export const Variants: Story = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ display: 'flex', gap: '1rem' }}>
         <Story />
       </div>
@@ -109,7 +109,7 @@ export const Working: Story = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ display: 'flex', gap: '1rem' }}>
         <Story />
       </div>

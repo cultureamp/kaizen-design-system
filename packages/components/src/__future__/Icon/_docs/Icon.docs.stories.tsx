@@ -52,7 +52,7 @@ export const Filled: Story = {
 }
 
 export const MirrorInRTL: Story = {
-  render: args => (
+  render: (args) => (
     <StickerSheet>
       <StickerSheet.Header
         headings={['dir=["ltr"]', 'dir=["rtl"]']}
@@ -101,7 +101,7 @@ export const MirrorInRTL: Story = {
 }
 
 export const Color: Story = {
-  render: args => (
+  render: (args) => (
     <div className="flex gap-16">
       <div className="text-green-500">
         <Icon {...args} />
@@ -112,7 +112,7 @@ export const Color: Story = {
 }
 
 export const Size: Story = {
-  render: args => (
+  render: (args) => (
     <div className="flex gap-16">
       <Icon {...args} className="[--icon-size:48]" />
       <div className="text-[48px]">
@@ -123,7 +123,7 @@ export const Size: Story = {
 }
 
 export const MeaningfulIcon: Story = {
-  render: args => (
+  render: (args) => (
     <Button>
       <Icon {...args} />
     </Button>
@@ -132,7 +132,7 @@ export const MeaningfulIcon: Story = {
 }
 
 export const PresentationalIcon: Story = {
-  render: args => (
+  render: (args) => (
     <Button>
       <Icon {...args} /> Favourite
     </Button>
@@ -204,7 +204,7 @@ export const DefaultIconSet: Story = {
           className="grid list-none gap-16 m-0 p-0"
           style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(11em, 1fr))' }}
         >
-          {iconDefaultSet.map(iconName => (
+          {iconDefaultSet.map((iconName) => (
             <IconSetButton
               key={iconName}
               iconName={iconName}

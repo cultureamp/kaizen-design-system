@@ -10,7 +10,7 @@ const user = userEvent.setup()
 const mockMatchMedia = (matches: boolean = false): void => {
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
-    value: vi.fn().mockImplementation(query => ({
+    value: vi.fn().mockImplementation((query) => ({
       matches,
       media: query,
       onchange: null,

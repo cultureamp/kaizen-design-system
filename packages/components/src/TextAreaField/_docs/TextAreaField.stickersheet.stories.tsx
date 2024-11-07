@@ -24,7 +24,7 @@ const TAFieldStatusGroup = ({
   isReversed?: boolean
 }): JSX.Element => (
   <>
-    {TAFieldStatus.map(status => (
+    {TAFieldStatus.map((status) => (
       <StickerSheet.Row key={status} rowTitle={status} isReversed={isReversed}>
         <TextAreaField
           labelText={`Variant: ${props.variant}`}

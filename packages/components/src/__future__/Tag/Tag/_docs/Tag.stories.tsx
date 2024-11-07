@@ -33,7 +33,7 @@ export const Children: StoryObj = {
 export const Color: StoryObj = {
   render: () => (
     <div className="flex gap-16">
-      {TagColorKeys.map(color => (
+      {TagColorKeys.map((color) => (
         <Tag
           color={color}
           icon={<Icon name="label" isPresentational isFilled />}

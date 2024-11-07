@@ -48,7 +48,7 @@ export const Playground: Story = {
 export const Status: Story = {
   render: () => (
     <>
-      {StatusTagVariants.map(variant => (
+      {StatusTagVariants.map((variant) => (
         <Tag key={variant} variant={variant}>
           Tag
         </Tag>
@@ -65,7 +65,7 @@ export const Status: Story = {
 export const Validation: Story = {
   render: () => (
     <>
-      {ValidationTagVariants.map(variant => (
+      {ValidationTagVariants.map((variant) => (
         <Tag key={variant} variant={variant}>
           Tag
         </Tag>
@@ -82,7 +82,7 @@ export const Validation: Story = {
 export const Sentiments: Story = {
   render: () => (
     <>
-      {SentimentTagVariants.map(variant => (
+      {SentimentTagVariants.map((variant) => (
         <Tag key={variant} variant={variant}>
           Tag
         </Tag>
@@ -152,7 +152,7 @@ export const Truncate: Story = {
 }
 
 export const Inline: Story = {
-  render: args => (
+  render: (args) => (
     <>
       <Tag {...args} inline />
       <Tag {...args} inline />

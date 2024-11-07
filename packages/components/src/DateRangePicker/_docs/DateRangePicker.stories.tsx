@@ -86,7 +86,7 @@ export const AboveIfAvailable: Story = {
     },
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="mt-[350px]">
         <Story />
       </div>
@@ -121,7 +121,7 @@ export const LimitedViewportHeight: Story = {
     },
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="mb-[150px]">
         <Story />
       </div>
@@ -142,7 +142,7 @@ export const FullViewportHeight: Story = {
     selectedDateRange,
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="mb-[350px]">
         <Story />
       </div>

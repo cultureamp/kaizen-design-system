@@ -39,7 +39,7 @@ const FilterBarDateRangePickerWrapper = ({
       values={values}
       onValuesChange={setValues}
     >
-      {filters => (
+      {(filters) => (
         <>
           {Object.values(filters).map(({ id, Component }) => (
             <React.Fragment key={id}>{Component}</React.Fragment>

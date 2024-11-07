@@ -53,7 +53,7 @@ export const ProgressStepper = ({
   ...restprops
 }: ProgressStepperProps): JSX.Element => {
   const currentStepIndex = steps.findIndex(
-    stepItem => stepItem.id === currentStepId,
+    (stepItem) => stepItem.id === currentStepId,
   )
 
   return (

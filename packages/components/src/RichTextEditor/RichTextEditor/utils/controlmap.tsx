@@ -124,7 +124,7 @@ const indentListIsDisabled = (state: ProseMirrorState.EditorState): boolean => {
 
   const range = $from.blockRange(
     $to,
-    node => node.childCount > 0 && node.firstChild!.type === listItemNode,
+    (node) => node.childCount > 0 && node.firstChild!.type === listItemNode,
   )
 
   return !range || range.startIndex === 0 ? true : false
@@ -176,7 +176,7 @@ const getGroupIndex = (
 const filterToolbarControls = (
   groupedControls: GroupedToolbarControls,
 ): ToolbarControl[][] =>
-  Object.values(groupedControls).filter(controls => controls.length > 0)
+  Object.values(groupedControls).filter((controls) => controls.length > 0)
 
 /** Builds an array of object used to map control configuration to rte toolbar buttons */
 export const buildControlMap = (

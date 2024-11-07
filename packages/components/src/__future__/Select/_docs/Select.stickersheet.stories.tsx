@@ -323,7 +323,7 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                           section={{
                             ...item,
                             childNodes: Array.from(item.childNodes).map(
-                              child => ({
+                              (child) => ({
                                 ...child,
                                 rendered: <div>-- {child.rendered}</div>,
                               }),
@@ -347,7 +347,7 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                 items={mixedMockItemsUnordered}
               >
                 {({ items }): JSX.Element[] =>
-                  items.map(item => (
+                  items.map((item) => (
                     <React.Fragment key={item.key}>
                       {item.type === 'section' && <Select.SectionDivider />}
                       <Select.ItemDefaultRender item={item} />

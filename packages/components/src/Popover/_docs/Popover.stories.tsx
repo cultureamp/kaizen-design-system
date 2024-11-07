@@ -44,7 +44,7 @@ const PopoverTemplate: Story = {
 export const Playground: Story = {
   ...PopoverTemplate,
   decorators: [
-    Story => (
+    (Story) => (
       <div className="h-[300px]">
         <Story />
       </div>

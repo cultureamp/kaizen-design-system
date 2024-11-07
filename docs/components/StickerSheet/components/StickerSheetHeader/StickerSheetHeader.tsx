@@ -20,7 +20,7 @@ export const StickerSheetHeader = ({
   <thead {...restProps}>
     <tr>
       {hasVerticalHeadings && <td style={{ width: verticalHeadingsWidth }} />}
-      {headings.map(heading => (
+      {headings.map((heading) => (
         <StickerSheetTableHeading
           key={heading}
           scope="col"

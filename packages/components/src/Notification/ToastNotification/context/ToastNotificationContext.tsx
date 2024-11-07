@@ -70,7 +70,7 @@ export const ToastNotificationProvider = ({
   }
 
   const removeToastNotification = (notificationID: string): void => {
-    setNotifications(prev => prev.filter(({ id }) => id !== notificationID))
+    setNotifications((prev) => prev.filter(({ id }) => id !== notificationID))
   }
 
   const clearToastNotifications = (): void => {

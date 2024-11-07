@@ -167,7 +167,7 @@ describe('<GenericButton /> `working` accessible states', () => {
         id="id--button"
         label="button label"
         workingLabel="Loading"
-        component={props => (
+        component={(props) => (
           <button type="button" {...props}>
             Custom button
           </button>

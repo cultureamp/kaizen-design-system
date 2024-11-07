@@ -369,7 +369,7 @@ export const Validation: Story = {
         validationResponse.isValidDate &&
         validationResponse.date?.getFullYear() !== new Date().getFullYear()
       ) {
-        setValidationMessage(currentValue => ({
+        setValidationMessage((currentValue) => ({
           ...currentValue,
           [input]: {
             status: 'caution',
@@ -379,7 +379,7 @@ export const Validation: Story = {
         return
       }
 
-      setValidationMessage(currentValue => ({
+      setValidationMessage((currentValue) => ({
         ...currentValue,
         [input]: validationResponse.validationMessage,
       }))

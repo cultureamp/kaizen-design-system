@@ -22,7 +22,7 @@ export const transformSource = <
   tagName,
 }: TransformConfig<TagName>): string => {
   const result = ts.transform(sourceFile, [
-    context => astTransformer(context, tagName),
+    (context) => astTransformer(context, tagName),
   ])
   const transformedSource = result.transformed[0] as ts.SourceFile
 

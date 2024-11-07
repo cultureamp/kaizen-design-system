@@ -163,7 +163,7 @@ const filters = [
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
               {({ allItems }): JSX.Element | JSX.Element[] =>
-                allItems.map(item => (
+                allItems.map((item) => (
                   <FilterMultiSelect.Option key={item.key} item={item} />
                 ))}
             </FilterMultiSelect.ListBox>
@@ -266,7 +266,7 @@ export const DependentFilter: Story = {
             ]}
           />
         ),
-        isUsableWhen: state => state.coffee.value === 'latte',
+        isUsableWhen: (state) => state.coffee.value === 'latte',
       },
       {
         id: 'syrup',
@@ -280,7 +280,7 @@ export const DependentFilter: Story = {
           />
         ),
         isRemovable: true,
-        isUsableWhen: state =>
+        isUsableWhen: (state) =>
           state.milk.value !== undefined && !state.sugar.isActive,
       },
       {
@@ -290,7 +290,7 @@ export const DependentFilter: Story = {
           <FilterBar.Select items={[{ value: 'yes', label: 'Yes' }]} />
         ),
         isRemovable: true,
-        isUsableWhen: state =>
+        isUsableWhen: (state) =>
           state.milk.value !== undefined && !state.syrup.isActive,
       },
       {
@@ -304,7 +304,7 @@ export const DependentFilter: Story = {
             ]}
           />
         ),
-        isUsableWhen: state => state.coffee.value !== undefined,
+        isUsableWhen: (state) => state.coffee.value !== undefined,
       },
     ] satisfies Filters<ValuesDependent>
 
@@ -349,7 +349,7 @@ const ExampleFilterMultiSelect = (
               </FilterMultiSelect.NoResults>
             )
           }
-          return allItems.map(item => (
+          return allItems.map((item) => (
             <FilterMultiSelect.Option key={item.key} item={item} />
           ))
         }}
@@ -365,7 +365,7 @@ type ValuesSiblingDependent = {
 }
 
 const sleep = (ms: number): Promise<unknown> =>
-  new Promise(resolve => setTimeout(resolve, ms))
+  new Promise((resolve) => setTimeout(resolve, ms))
 
 const FilterPerson = (props: { id?: string }): JSX.Element => {
   const data = [
@@ -405,7 +405,7 @@ const FilterPerson = (props: { id?: string }): JSX.Element => {
   const loadItems = async (roles: string[] | undefined): Promise<void> => {
     await sleep(3000).then(() => {
       setIsLoading(false)
-      setItems(data.filter(({ role }) => role.find(r => roles?.includes(r))))
+      setItems(data.filter(({ role }) => role.find((r) => roles?.includes(r))))
     })
   }
 
@@ -584,7 +584,7 @@ export const SiblingValueDependentFilter: Story = {
         name: 'Room',
         Component: <FilterRoom />,
         isRemovable: true,
-        isUsableWhen: state => state.role.value !== undefined,
+        isUsableWhen: (state) => state.role.value !== undefined,
       },
     ] satisfies Filters<ValuesSiblingDependent>
 
@@ -741,7 +741,7 @@ export const ExternalEventOpenFilter: Story = {
         id: 'customRange',
         name: 'Custom Range',
         Component: <FilterBar.DateRangePicker />,
-        isUsableWhen: state => state.cycle.value === 'custom',
+        isUsableWhen: (state) => state.cycle.value === 'custom',
       },
     ] satisfies Filters<CycleFilterValues>
 

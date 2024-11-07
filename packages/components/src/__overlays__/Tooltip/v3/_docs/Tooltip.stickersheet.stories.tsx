@@ -17,7 +17,7 @@ const Stories = composeStories(testStories)
 
 export const Standard: StickerSheetStory = {
   name: 'Sticker Sheet (Default)',
-  render: args => (
+  render: (args) => (
     <div className="grid gap-x-128 gap-y-128 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {Object.values(Stories).map((Story, index) => (
         <div

@@ -51,7 +51,7 @@ export const ReadOnly: Story = {
       },
     ],
   },
-  render: args => (
+  render: (args) => (
     <>
       {/* Note that since RichTextContent is not content editable, it is essentially just a div. This is why we haven't used the Label component */}
       <Text

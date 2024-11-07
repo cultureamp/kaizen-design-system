@@ -32,7 +32,7 @@ export const CollapsibleGroup = ({
     className={classnames(classNameOverride, !separated && styles.container)}
     {...props}
   >
-    {React.Children.map(children, collapsible =>
+    {React.Children.map(children, (collapsible) =>
       React.cloneElement(collapsible, {
         group: true,
         separated,

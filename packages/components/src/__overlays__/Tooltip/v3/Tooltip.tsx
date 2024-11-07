@@ -73,7 +73,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
             reverseColors && styles.reversed,
           )}
         >
-          {renderProps => (
+          {(renderProps) => (
             <>
               <OverlayArrow />
               {typeof children === 'function'

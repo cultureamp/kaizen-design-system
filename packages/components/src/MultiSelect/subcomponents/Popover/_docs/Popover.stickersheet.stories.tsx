@@ -131,7 +131,7 @@ const PopoverWithPortal = ({
 
 const List = ({ items }: { items: string[] }): JSX.Element => (
   <ul>
-    {items.map(item => (
+    {items.map((item) => (
       <li key={item}>{item}</li>
     ))}
   </ul>

@@ -64,7 +64,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
         <>
-          {variantsMap.map(variant => (
+          {variantsMap.map((variant) => (
             <StickerSheet.Row key={variant} rowTitle={variant}>
               <GuidanceBlock variant={variant} {...TEXT_PROPS} />
             </StickerSheet.Row>

@@ -27,5 +27,5 @@ export const Playground: Story = {
 // Adding story just for development testing/knowing it exists
 // Not particularly useful to show on docs cause the animation is too quick
 export const Animated: Story = {
-  render: props => <BadgeAnimated {...props} />,
+  render: (props) => <BadgeAnimated {...props} />,
 }

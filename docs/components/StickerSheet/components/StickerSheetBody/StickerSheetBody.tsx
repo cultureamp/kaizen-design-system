@@ -14,7 +14,7 @@ export const StickerSheetBody = ({
   ...restProps
 }: StickerSheetBodyProps): JSX.Element => (
   <tbody {...restProps}>
-    {React.Children.map(children, child =>
+    {React.Children.map(children, (child) =>
       React.cloneElement(child, {
         isReversed,
         ...child.props,

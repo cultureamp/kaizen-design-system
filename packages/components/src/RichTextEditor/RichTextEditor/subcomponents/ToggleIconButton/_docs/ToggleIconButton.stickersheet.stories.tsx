@@ -77,7 +77,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         hasVerticalHeadings
       />
       <StickerSheet.Body>
-        {moodsList.map(mood => (
+        {moodsList.map((mood) => (
           <ToggleIconButtonGroup key={mood} rowTitle={mood} mood={mood} />
         ))}
       </StickerSheet.Body>

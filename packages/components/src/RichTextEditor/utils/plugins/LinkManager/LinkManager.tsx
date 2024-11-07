@@ -39,7 +39,7 @@ class LinkManager {
     linkAttributeValidator: AttrsValidator,
   ) {
     this.editorComponent = editorComponent
-    this.linkActive = state => markIsActive(state, markType)
+    this.linkActive = (state) => markIsActive(state, markType)
     this.validateLinks = validateAndRemoveMarks(
       markType,
       linkAttributeValidator,

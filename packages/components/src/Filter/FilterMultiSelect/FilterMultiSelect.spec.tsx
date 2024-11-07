@@ -56,7 +56,7 @@ const FilterMultiSelectWrapper = ({
                 )
               }
 
-              return allItems.map(item => (
+              return allItems.map((item) => (
                 <FilterMultiSelect.Option key={item.key} item={item} />
               ))
             }}
@@ -168,7 +168,7 @@ describe('<FilterMultiSelect>', () => {
 
   describe('Select all button', () => {
     const getDisabledOptions = (options: HTMLElement[]): HTMLElement[] =>
-      options.filter(option => option.hasAttribute('aria-disabled'))
+      options.filter((option) => option.hasAttribute('aria-disabled'))
 
     it('selects all non-disabled options when unfiltered', async () => {
       const { getByRole, queryAllByRole } = render(

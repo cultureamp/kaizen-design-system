@@ -47,7 +47,7 @@ export const TailwindExampleSpacingAndLayoutsComplex: StoryFn = () => (
         </p>
         {/* Adds margin-top, flex, and a height of 200px */}
         <div className="mt-64 flex h-[200px]">
-          {[0, 1, 2, 3].map(index => (
+          {[0, 1, 2, 3].map((index) => (
             <Card
               key={index}
               variant="informative"
