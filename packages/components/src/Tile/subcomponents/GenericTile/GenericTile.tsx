@@ -91,7 +91,7 @@ export const GenericTile = ({
       return (
         <>
           <Text variant="body">{informationProp.text}</Text>
-          {(informationProp.primaryAction || informationProp.secondaryAction) && (
+          {(informationProp.primaryAction ?? informationProp.secondaryAction) && (
             <div className={styles.footer}>
               <div className={styles.actions}>
                 {informationProp.secondaryAction && (

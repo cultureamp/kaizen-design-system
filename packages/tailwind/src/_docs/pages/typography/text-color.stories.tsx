@@ -7,7 +7,7 @@ import { utilityDescription } from '~tailwind/_docs/utils/utilityDescription'
 import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
 
 const prefix = 'text-'
-const classEntries = flattenEntries(prefix, kaizenTailwindTheme.colors || {})
+const classEntries = flattenEntries(prefix, kaizenTailwindTheme.colors ?? {})
 
 export default {
   title: 'Guides/Tailwind/Utility Class References/Typography/Text Color',

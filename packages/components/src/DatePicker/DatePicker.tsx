@@ -116,7 +116,7 @@ export const DatePicker = ({
 
   const containerRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  const buttonRef = useRef<HTMLButtonElement>(propsButtonRef?.current || null)
+  const buttonRef = useRef<HTMLButtonElement>(propsButtonRef?.current ?? null)
   const dateInputRefs = useRef({
     inputRef,
     buttonRef,

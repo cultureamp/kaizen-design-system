@@ -39,7 +39,7 @@ export const ErrorPage = ({
   const content = useErrorMessages(code)
 
   const actions = {
-    primary: { href: callToAction?.homeHref || HOME_HREF },
+    primary: { href: callToAction?.homeHref ?? HOME_HREF },
     secondary: callToAction?.onContactSupport
       ? { onClick: callToAction.onContactSupport }
       : { href: getMailToHref(code) },
@@ -52,7 +52,7 @@ export const ErrorPage = ({
         body={
           <>
             <div className={styles.paragraphPadding}>
-              <Text variant="intro-lede">{message || content.message}</Text>
+              <Text variant="intro-lede">{message ?? content.message}</Text>
             </div>
             <Text color="dark-reduced-opacity" variant="small">
               <FormattedMessage
@@ -85,7 +85,7 @@ export const ErrorPage = ({
           }),
         }}
         text={{
-          title: title || content.title,
+          title: title ?? content.title,
         }}
       />
     </div>

@@ -35,7 +35,7 @@ export function MenuTriggerProvider({
 
   // Get A11y attributes and events for the menu trigger and menu elements
   const fallbackRef = useRef<HTMLButtonElement>(null)
-  const ref = triggerRef || fallbackRef
+  const ref = triggerRef ?? fallbackRef
   const { menuTriggerProps, menuProps } = useMenuTrigger<ItemType>({}, state, ref)
 
   // Get A11y attributes and events for the button based on the trigger props from useMenuTrigger

@@ -7,7 +7,7 @@ import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
 
 const prefix = 'shadow-'
 const classEntries: { utilityClassName: string; cssProperty: string }[] = Object.entries(
-  kaizenTailwindTheme.boxShadow || [],
+  kaizenTailwindTheme.boxShadow ?? [],
 ).map(([suffix, cssProperty]) => ({
   utilityClassName: `${prefix}${suffix}`,
   cssProperty,

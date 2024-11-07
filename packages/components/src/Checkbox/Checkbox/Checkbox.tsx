@@ -48,7 +48,7 @@ export const Checkbox = ({
       className={classnames(styles.checkbox, classNameOverride, reversed && styles.reversed)}
       checked={getCheckedFromStatus(checkedStatus)}
       onChange={onCheck}
-      value={value || checkedStatus}
+      value={value ?? checkedStatus}
       readOnly={onCheck === undefined}
       {...restProps}
     />

@@ -62,7 +62,7 @@ export const Heading = ({
   classNameOverride,
   ...restProps
 }: HeadingProps): JSX.Element => {
-  const inferredTag = tag === undefined ? translateHeadingLevelToTag(variant) : tag
+  const inferredTag = tag ?? translateHeadingLevelToTag(variant)
 
   const className = classnames(
     styles.heading,

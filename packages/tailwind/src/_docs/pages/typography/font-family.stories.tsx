@@ -6,7 +6,7 @@ import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
 
 const prefix = 'font-'
 const classEntries: { utilityClassName: string; cssProperty: string }[] = Object.entries(
-  kaizenTailwindTheme.fontFamily || [],
+  kaizenTailwindTheme.fontFamily ?? [],
 ).map(([suffix, cssPropertyArr]) => ({
   utilityClassName: `${prefix}${suffix}`,
   cssProperty: cssPropertyArr[0],

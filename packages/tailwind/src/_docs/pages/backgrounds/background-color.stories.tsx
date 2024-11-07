@@ -7,7 +7,7 @@ import { utilityDescription } from '~tailwind/_docs/utils/utilityDescription'
 import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
 
 const prefix = 'bg-'
-const classEntries = flattenEntries(prefix, kaizenTailwindTheme.colors || {})
+const classEntries = flattenEntries(prefix, kaizenTailwindTheme.colors ?? {})
 
 export default {
   title: 'Guides/Tailwind/Utility Class References/Backgrounds/Background Color',

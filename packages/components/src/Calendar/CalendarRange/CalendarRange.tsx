@@ -28,10 +28,10 @@ export const CalendarRange = ({
   const calendarRef = useRef<CalendarRangeElement>(null)
 
   useEffect(() => {
-    if (calendarRef.current) onMount && onMount(calendarRef.current)
+    if (calendarRef.current) onMount?.(calendarRef.current)
   }, [calendarRef])
 
-  const monthToShow = selected?.from || defaultMonth
+  const monthToShow = selected?.from ?? defaultMonth
   const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */

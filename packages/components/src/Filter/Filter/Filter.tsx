@@ -61,7 +61,7 @@ export const Filter = ({
           onEscapeKey={(): void => setIsOpen(false)}
         >
           <FilterPopover
-            referenceElement={filterButtonRef.current?.triggerRef?.current || null}
+            referenceElement={filterButtonRef.current?.triggerRef?.current ?? null}
             aria-labelledby={trigger.props.id}
           >
             {children}

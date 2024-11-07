@@ -30,7 +30,7 @@ const chainTransactions =
   (state, dispatch): boolean => {
     const updateStateAndDispatch = (tr: ProseMirrorState.Transaction): void => {
       state = state.apply(tr)
-      dispatch && dispatch(tr)
+      dispatch?.(tr)
     }
     const lastCommand = commands.pop()
 
@@ -38,7 +38,7 @@ const chainTransactions =
       command(state, updateStateAndDispatch)
     }
 
-    return lastCommand !== undefined && lastCommand(state, dispatch)
+    return lastCommand?.(state, dispatch) ?? false
   }
 
 /** Dispatches a transaction to create initial p tag required for pm commands */
@@ -134,7 +134,7 @@ const createControlGroupIndex = (controls: ToolbarItems[]): ControlGroupTypes =>
     if (!currentControl?.name) return groups
     return {
       ...groups,
-      [currentControl.name]: currentControl.group || 'ungrouped',
+      [currentControl.name]: currentControl.group ?? 'ungrouped',
     }
   }, {})
 
@@ -239,7 +239,7 @@ export const buildControlMap = (
   }
 
   if (schema.nodes.orderedList || schema.nodes.bulletList) {
-    const groupIndex = controlGroupIndex.orderedList || controlGroupIndex.bulletList || 'ungrouped'
+    const groupIndex = controlGroupIndex.orderedList ?? controlGroupIndex.bulletList ?? 'ungrouped'
 
     toolbarControls[groupIndex].push(
       {

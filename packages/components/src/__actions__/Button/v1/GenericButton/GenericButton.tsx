@@ -222,7 +222,7 @@ const renderCustomComponent = (
 }
 
 const renderButton = (props: RenderProps, ref: Ref<HTMLButtonElement>): JSX.Element => {
-  const disableActions = props.disabled || props.working
+  const disableActions = Boolean(props.disabled || props.working)
   const passedInProps: React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
@@ -260,7 +260,7 @@ const renderButton = (props: RenderProps, ref: Ref<HTMLButtonElement>): JSX.Elem
       aria-describedby={
         props['aria-describedby'] === null
           ? undefined
-          : props['aria-describedby'] || focusableProps['aria-describedby']
+          : (props['aria-describedby'] ?? focusableProps['aria-describedby'])
       }
       // Unset this because the one defined in buttonProps shows
       // focus-visible styles on click
@@ -303,7 +303,7 @@ const renderLink = (props: RenderProps, ref: Ref<HTMLAnchorElement>): JSX.Elemen
       aria-describedby={
         props['aria-describedby'] === null
           ? undefined
-          : props['aria-describedby'] || focusableProps['aria-describedby']
+          : (props['aria-describedby'] ?? focusableProps['aria-describedby'])
       }
       // Unset this because the one defined in linkProps shows
       // focus-visible styles on click
@@ -320,8 +320,8 @@ const buttonClass = (props: RenderProps): string => {
   return classnames(
     styles.button,
     isDefault && styles.default,
-    // @ts-ignore
-    (props.disabled || props['aria-disabled']) && styles.disabled,
+    // @ts-expect-error aria-described exists in props
+    Boolean(props.disabled || props['aria-disabled']) && styles.disabled,
     props.primary && styles.primary,
     props.destructive && styles.destructive,
     props.secondary && styles.secondary,
@@ -329,7 +329,7 @@ const buttonClass = (props: RenderProps): string => {
     props.reversed && styles.reversed,
     props.iconButton && styles.iconButton,
     props.working && styles.working,
-    (props.directionalLink || props.paginationLink) && styles.circleButton,
+    Boolean(props.directionalLink || props.paginationLink) && styles.circleButton,
     props.directionalLink && styles.directionalLink,
     props.paginationLink && styles.paginationLink,
     props.isActive && styles.isPaginationLinkActive,

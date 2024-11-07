@@ -7,7 +7,7 @@ import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
 
 const prefix = 'leading-'
 const classEntries: { utilityClassName: string; cssProperty: string }[] = Object.entries(
-  kaizenTailwindTheme.lineHeight || [],
+  kaizenTailwindTheme.lineHeight ?? [],
 ).map(([suffix, cssProperty]) => ({
   utilityClassName: `${prefix}${suffix}`,
   cssProperty,

@@ -140,8 +140,8 @@ const DrawerMenuContent = ({
   secondaryOverflowMenuItems,
 }: DrawerMenuContentProps): JSX.Element => {
   const showOtherActionsHeading =
-    (defaultAction && defaultActionIsButton(defaultAction)) ||
-    secondaryActions ||
+    (defaultAction && defaultActionIsButton(defaultAction)) ??
+    secondaryActions ??
     secondaryOverflowMenuItems
 
   return (
@@ -151,8 +151,10 @@ const DrawerMenuContent = ({
         {defaultAction && renderDefaultLink(defaultAction)}
         {primaryAction && renderPrimaryActionDrawerContent(primaryAction, 'action')}
       </MenuList>
-      {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
-        <MenuList heading={showOtherActionsHeading && <MenuHeading>Other actions</MenuHeading>}>
+      {(defaultAction ?? secondaryActions ?? secondaryOverflowMenuItems) && (
+        <MenuList
+          heading={showOtherActionsHeading ? <MenuHeading>Other actions</MenuHeading> : undefined}
+        >
           {defaultAction && renderDefaultAction(defaultAction)}
           {secondaryActions && renderSecondaryActions(secondaryActions)}
           {secondaryOverflowMenuItems &&
@@ -286,7 +288,7 @@ const DrawerHandle = ({
   toggleDisplay,
   isOpen,
 }: DrawerHandleProps): JSX.Element | null => {
-  const showDrawer = defaultAction || secondaryActions || secondaryOverflowMenuItems
+  const showDrawer = defaultAction ?? secondaryActions ?? secondaryOverflowMenuItems
   if (primaryAction) {
     // If the primary action is a menu
     if (isMenuGroupNotButton(primaryAction)) {
@@ -446,9 +448,9 @@ export const MobileActions = ({
           toggleDisplay={toggleDisplay}
           isOpen={isOpen}
         />
-        {(defaultAction ||
-          secondaryActions ||
-          secondaryOverflowMenuItems ||
+        {(defaultAction ??
+          secondaryActions ??
+          secondaryOverflowMenuItems ??
           (primaryAction && isMenuGroupNotButton(primaryAction))) && (
           <div ref={menuContent} className={styles.mobileActionsMenuContainer}>
             <DrawerMenuContent

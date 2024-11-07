@@ -101,7 +101,7 @@ export const FilterDatePickerField = ({
     selectedDate,
     inputValue: transformDateToInputValue(selectedDate, disabledDays, locale) || '',
     startMonth:
-      selectedDate && !isInvalidDate(selectedDate) ? selectedDate : defaultMonth || new Date(),
+      selectedDate && !isInvalidDate(selectedDate) ? selectedDate : (defaultMonth ?? new Date()),
   })
 
   const handleDateChange = (date: Date | undefined): void => {

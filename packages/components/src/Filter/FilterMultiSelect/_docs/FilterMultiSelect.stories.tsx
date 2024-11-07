@@ -198,7 +198,7 @@ export const Async: Story = {
       () =>
         data?.pages
           .flatMap((res) => res.results)
-          .flatMap((person) => ({ label: person.name, value: person.url })) || [],
+          .flatMap((person) => ({ label: person.name, value: person.url })) ?? [],
       [data],
     )
 

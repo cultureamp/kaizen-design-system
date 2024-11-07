@@ -94,8 +94,8 @@ export const FilterDateRangePickerField = ({
     defaultMessage: 'Date to',
     description: "Label for the 'date to' field",
   })
-  const inputStartDateLabel = inputStartDateProps?.labelText || translatedDateFrom
-  const inputEndDateLabel = inputEndDateProps?.labelText || translatedDateTo
+  const inputStartDateLabel = inputStartDateProps?.labelText ?? translatedDateFrom
+  const inputEndDateLabel = inputEndDateProps?.labelText ?? translatedDateTo
 
   const transformDateToInputValue = (date: Date | undefined): string =>
     date ? formatDateAsText(date, disabledDays, locale) : ''
@@ -140,7 +140,7 @@ export const FilterDateRangePickerField = ({
     startMonth:
       selectedRange?.from && !isInvalidDate(selectedRange.from)
         ? selectedRange.from
-        : defaultMonth || new Date(),
+        : (defaultMonth ?? new Date()),
   })
 
   const inputStartDateHandlers = useDateInputHandlers({

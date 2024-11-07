@@ -52,7 +52,7 @@ export const getKaioTagName = (
     const kaioNamedImports = getKaioNamedImports(visitedNode)
 
     if (!kaioNamedImports) {
-      return ts.forEachChild(visitedNode, visitNode) || undefined
+      return ts.forEachChild(visitedNode, visitNode)
     }
 
     kaioNamedImports.namedImports.find((importSpecifier) => {

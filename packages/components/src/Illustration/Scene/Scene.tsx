@@ -30,7 +30,7 @@ export type AnimatedSceneProps = AnimatedProps | NotAnimatedProps
 export const BrandMomentPositiveOutro = ({
   isAnimated,
   enableAspectRatio,
-  alt,
+  alt = '',
   ...otherProps
 }: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
@@ -46,7 +46,7 @@ export const BrandMomentPositiveOutro = ({
   return (
     <Base
       aspectRatio={enableAspectRatio ? 'landscape' : undefined}
-      alt={alt || ''}
+      alt={alt}
       {...otherProps}
       name="illustrations/heart/scene/brand-moments-positive-outro.png"
     />
@@ -57,7 +57,7 @@ BrandMomentPositiveOutro.displayName = 'BrandMomentPositiveOutro'
 export const BrandMomentLogin = ({
   isAnimated,
   enableAspectRatio,
-  alt,
+  alt = '',
   ...otherProps
 }: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
@@ -73,7 +73,7 @@ export const BrandMomentLogin = ({
   return (
     <Base
       aspectRatio={enableAspectRatio ? 'landscape' : undefined}
-      alt={alt || ''}
+      alt={alt}
       {...otherProps}
       name="illustrations/heart/scene/brand-moments-login.png"
     />
@@ -84,7 +84,7 @@ BrandMomentLogin.displayName = 'BrandMomentLogin'
 export const BrandMomentError = ({
   isAnimated,
   enableAspectRatio,
-  alt,
+  alt = '',
   ...otherProps
 }: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
@@ -100,7 +100,7 @@ export const BrandMomentError = ({
   return (
     <Base
       aspectRatio={enableAspectRatio ? 'landscape' : undefined}
-      alt={alt || ''}
+      alt={alt}
       {...otherProps}
       name="illustrations/heart/scene/brand-moments-error.png"
     />
@@ -146,7 +146,7 @@ BrandMomentStarterKit.displayName = 'BrandMomentStarterKit'
 export const EmptyStatesAction = ({
   isAnimated,
   enableAspectRatio,
-  alt,
+  alt = '',
   ...otherProps
 }: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
@@ -162,7 +162,7 @@ export const EmptyStatesAction = ({
   return (
     <Base
       aspectRatio={enableAspectRatio ? 'landscape' : undefined}
-      alt={alt || ''}
+      alt={alt}
       {...otherProps}
       name="illustrations/heart/scene/empty-states-action.svg"
     />
@@ -173,7 +173,7 @@ EmptyStatesAction.displayName = 'EmptyStatesAction'
 export const EmptyStatesInformative = ({
   isAnimated,
   enableAspectRatio,
-  alt,
+  alt = '',
   ...otherProps
 }: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
@@ -189,7 +189,7 @@ export const EmptyStatesInformative = ({
   return (
     <Base
       aspectRatio={enableAspectRatio ? 'landscape' : undefined}
-      alt={alt || ''}
+      alt={alt}
       {...otherProps}
       name="illustrations/heart/scene/empty-states-informative.svg"
     />
@@ -200,7 +200,7 @@ EmptyStatesInformative.displayName = 'EmptyStatesInformative'
 export const EmptyStatesNegative = ({
   isAnimated,
   enableAspectRatio,
-  alt,
+  alt = '',
   ...otherProps
 }: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
@@ -216,7 +216,7 @@ export const EmptyStatesNegative = ({
   return (
     <Base
       aspectRatio={enableAspectRatio ? 'landscape' : undefined}
-      alt={alt || ''}
+      alt={alt}
       {...otherProps}
       name="illustrations/heart/scene/empty-states-negative.svg"
     />
@@ -227,7 +227,7 @@ EmptyStatesNegative.displayName = 'EmptyStatesNegative'
 export const EmptyStatesPositive = ({
   isAnimated,
   enableAspectRatio,
-  alt,
+  alt = '',
   ...otherProps
 }: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
@@ -243,7 +243,7 @@ export const EmptyStatesPositive = ({
   return (
     <Base
       aspectRatio={enableAspectRatio ? 'landscape' : undefined}
-      alt={alt || ''}
+      alt={alt}
       {...otherProps}
       name="illustrations/heart/scene/empty-states-positive.svg"
     />
@@ -254,7 +254,7 @@ EmptyStatesPositive.displayName = 'EmptyStatesPositive'
 export const EmptyStatesNeutral = ({
   isAnimated,
   enableAspectRatio,
-  alt,
+  alt = '',
   ...otherProps
 }: AnimatedSceneProps): JSX.Element => {
   if (isAnimated) {
@@ -270,7 +270,7 @@ export const EmptyStatesNeutral = ({
   return (
     <Base
       aspectRatio={enableAspectRatio ? 'landscape' : undefined}
-      alt={alt || ''}
+      alt={alt}
       {...otherProps}
       name="illustrations/heart/scene/empty-states-neutral.svg"
     />

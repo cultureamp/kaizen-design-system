@@ -7,7 +7,7 @@ import { utilityDescription } from '~tailwind/_docs/utils/utilityDescription'
 import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
 
 const prefix = 'border-'
-const classEntries = flattenEntries(prefix, kaizenTailwindTheme.borderColor || {})
+const classEntries = flattenEntries(prefix, kaizenTailwindTheme.borderColor ?? {})
 
 export default {
   title: 'Guides/Tailwind/Utility Class References/Borders/Border Color',

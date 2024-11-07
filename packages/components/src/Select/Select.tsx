@@ -63,11 +63,9 @@ export const Select = React.forwardRef<any, SelectProps>(
 
     // the default for fullWidth depends on the variant
     const fullWidth =
-      propsFullWidth != null
-        ? propsFullWidth
-        : variant === 'secondary' || variant === 'secondary-small'
-          ? false
-          : true
+      (propsFullWidth ?? Boolean(variant === 'secondary' || variant === 'secondary-small'))
+        ? false
+        : true
 
     const classes = classnames(
       propsClassName,
@@ -94,7 +92,7 @@ export const Select = React.forwardRef<any, SelectProps>(
           {...props}
           ref={ref}
           aria-labelledby={labelId}
-          placeholder={placeholder || ''}
+          placeholder={placeholder}
           components={{
             Control,
             Placeholder,
@@ -130,7 +128,7 @@ export const AsyncSelect = React.forwardRef(
     <Async
       {...props}
       ref={ref}
-      placeholder={placeholder || ''}
+      placeholder={placeholder}
       components={{
         Control,
         Placeholder,
