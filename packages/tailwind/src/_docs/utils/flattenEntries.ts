@@ -24,12 +24,11 @@ export const flattenEntries = (
         cssProperty,
       })
     } else {
-      Object.entries(cssProperty as Record<string, string>).forEach(
-        (classNamePair) =>
-          flattenedEntries.push({
-            utilityClassName: `${prefix}${classModifier}-${classNamePair[0]}`,
-            cssProperty: classNamePair[1],
-          }),
+      Object.entries(cssProperty as Record<string, string>).forEach((classNamePair) =>
+        flattenedEntries.push({
+          utilityClassName: `${prefix}${classModifier}-${classNamePair[0]}`,
+          cssProperty: classNamePair[1],
+        }),
       )
     }
   })

@@ -16,25 +16,14 @@ type ToolbarProps = {
   automationId?: string
 }
 
-export const Toolbar = ({
-  items,
-  noGap = false,
-  automationId,
-}: ToolbarProps): JSX.Element => {
+export const Toolbar = ({ items, noGap = false, automationId }: ToolbarProps): JSX.Element => {
   if (!items || (items && items.length === 0)) {
     return <></>
   }
   return (
-    <div
-      className={styles.toolbar}
-      data-automation-id={automationId}
-      data-testid={automationId}
-    >
+    <div className={styles.toolbar} data-automation-id={automationId} data-testid={automationId}>
       {items.map((item) => (
-        <div
-          className={classnames(styles.toolbarItem, noGap && styles.noGap)}
-          key={item.key}
-        >
+        <div className={classnames(styles.toolbarItem, noGap && styles.noGap)} key={item.key}>
           {item.node}
         </div>
       ))}

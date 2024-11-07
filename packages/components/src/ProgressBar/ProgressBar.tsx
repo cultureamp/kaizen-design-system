@@ -41,8 +41,7 @@ export type ProgressBarBaseProps = {
   isReversed: boolean
 } & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'color'>>
 
-export type ProgressBarProps = ProgressBarBaseProps &
-  (ProgressBarMood | ProgressBarColor)
+export type ProgressBarProps = ProgressBarBaseProps & (ProgressBarMood | ProgressBarColor)
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896891/Progress+Bar Guidance} |
@@ -83,11 +82,7 @@ export const ProgressBar = ({
       </div>
       {subtext && (
         <div className={styles.subtext}>
-          <Heading
-            variant="heading-6"
-            tag="p"
-            color={isReversed ? 'white' : 'dark'}
-          >
+          <Heading variant="heading-6" tag="p" color={isReversed ? 'white' : 'dark'}>
             {subtext}
           </Heading>
         </div>

@@ -36,13 +36,12 @@ export const useRichTextEditor = (
     editable: true,
     ...options,
   }
-  const [editorState, setEditorState] =
-    useState<EditorState>(initialEditorState)
+  const [editorState, setEditorState] = useState<EditorState>(initialEditorState)
   // Refs to hold the methods returned from ProseMirror’s initialization
   const destroyEditorRef = useRef<() => void>()
-  const dispatchTransactionRef = useRef<
-    (commandOrTransaction: CommandOrTransaction) => void
-  >(() => undefined)
+  const dispatchTransactionRef = useRef<(commandOrTransaction: CommandOrTransaction) => void>(
+    () => undefined,
+  )
 
   // Construct a consistent reference to call the dispatchTransactionRef without
   // forcing the consumer to unwind it

@@ -1,15 +1,9 @@
 import React, { TableHTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { Heading } from '~components/Heading'
-import {
-  StickerSheetBody,
-  StickerSheetBodyProps,
-} from './components/StickerSheetBody'
+import { StickerSheetBody, StickerSheetBodyProps } from './components/StickerSheetBody'
 import { StickerSheetCell } from './components/StickerSheetCell'
-import {
-  StickerSheetHeader,
-  StickerSheetHeaderProps,
-} from './components/StickerSheetHeader'
+import { StickerSheetHeader, StickerSheetHeaderProps } from './components/StickerSheetHeader'
 import { StickerSheetRow } from './components/StickerSheetRow'
 import styles from './StickerSheet.module.css'
 
@@ -46,10 +40,7 @@ export const StickerSheet = ({
       </Heading>
     )}
 
-    <table
-      className={classnames(styles.stickerSheetTable, className)}
-      {...restProps}
-    >
+    <table className={classnames(styles.stickerSheetTable, className)} {...restProps}>
       {React.Children.map(children, (child) => {
         if (isReversibleSubcomponent(child)) {
           return React.cloneElement(child, {

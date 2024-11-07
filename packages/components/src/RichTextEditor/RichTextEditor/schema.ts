@@ -22,9 +22,7 @@ export const createSchemaFromControls = (
 export const createSchemaWithAll = (): ProseMirrorModel.Schema<string> =>
   createSchema(TOOLBAR_CONTROLS)
 
-const createSchema = (
-  controls?: ToolbarControlTypes[],
-): ProseMirrorModel.Schema<string> => {
+const createSchema = (controls?: ToolbarControlTypes[]): ProseMirrorModel.Schema<string> => {
   const nodes = getNodes()
   const marks = getMarks()
 

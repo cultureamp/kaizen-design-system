@@ -2,10 +2,7 @@ import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 import isChromatic from 'chromatic'
 import classnames from 'classnames'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { MultiSelect, MultiSelectProps } from '../index'
 
 const IS_CHROMATIC = isChromatic()
@@ -56,10 +53,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           heading="MultiSelect"
           className={classnames('w-full', IS_CHROMATIC && 'pb-160')}
         >
-          <StickerSheet.Header
-            headings={['Closed', 'Open', 'No items']}
-            headingsWidth="30%"
-          />
+          <StickerSheet.Header headings={['Closed', 'Open', 'No items']} headingsWidth="30%" />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <MultiSelect

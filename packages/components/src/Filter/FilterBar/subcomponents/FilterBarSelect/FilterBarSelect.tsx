@@ -9,13 +9,12 @@ import { useFilterBarContext } from '../../context/FilterBarContext'
 import { checkArraysMatch } from '../../utils/checkArraysMatch'
 import { FilterBarButton } from '../FilterBarButton'
 
-export type FilterBarSelectProps<Option extends SelectOption = SelectOption> =
-  Omit<
-    FilterSelectProps<Option>,
-    'isOpen' | 'setIsOpen' | 'renderTrigger' | 'label' | 'selectedKey'
-  > & {
-    id?: string
-  }
+export type FilterBarSelectProps<Option extends SelectOption = SelectOption> = Omit<
+  FilterSelectProps<Option>,
+  'isOpen' | 'setIsOpen' | 'renderTrigger' | 'label' | 'selectedKey'
+> & {
+  id?: string
+}
 
 export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
   id,
@@ -23,8 +22,9 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
   onSelectionChange,
   ...props
 }: FilterBarSelectProps<Option>): JSX.Element => {
-  const { getFilterState, setFilterOpenState, updateValue } =
-    useFilterBarContext<Option['value'] | undefined>()
+  const { getFilterState, setFilterOpenState, updateValue } = useFilterBarContext<
+    Option['value'] | undefined
+  >()
   const [items, setItems] = useState<SelectItem<Option>[]>(propsItems)
 
   if (!id) throw Error('Missing `id` prop in FilterBarSelect')
@@ -35,8 +35,8 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
     if (!checkArraysMatch(items, propsItems)) {
       setItems(propsItems)
     }
-  // One way check to update on external changes
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // One way check to update on external changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsItems])
 
   useEffect(() => {
@@ -55,11 +55,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
       selectedKey={filterState.value ?? null}
       label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element => (
-        <FilterBarButton
-          {...triggerProps}
-          filterId={id}
-          isRemovable={filterState.isRemovable}
-        />
+        <FilterBarButton {...triggerProps} filterId={id} isRemovable={filterState.isRemovable} />
       )}
       onSelectionChange={(key): void => {
         updateValue(id, key)

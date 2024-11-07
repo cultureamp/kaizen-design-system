@@ -11,9 +11,7 @@ const FilterDatePickerFieldWrapper = ({
   selectedDate,
   ...restProps
 }: Partial<FilterDatePickerFieldProps>): JSX.Element => {
-  const [selectedValue, setSelectedValue] = useState<Date | undefined>(
-    selectedDate,
-  )
+  const [selectedValue, setSelectedValue] = useState<Date | undefined>(selectedDate)
 
   return (
     <FilterDatePickerField
@@ -47,9 +45,7 @@ describe('<FilterDatePickerField />', () => {
     })
 
     it('pre-fills the inputs when date is provided', async () => {
-      render(
-        <FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-01')} />,
-      )
+      render(<FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-01')} />)
       await waitForI18nContent()
       const inputDate = screen.getByLabelText('Date')
       expect(inputDate).toHaveValue('1 May 2022')
@@ -107,9 +103,7 @@ describe('<FilterDatePickerField />', () => {
 
     describe('Press Enter key', () => {
       it('updates calendar values and calls submit when the date is valid', async () => {
-        render(
-          <FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-02')} />,
-        )
+        render(<FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-02')} />)
         await waitForI18nContent()
 
         const inputDate = screen.getByLabelText('Date')
@@ -133,9 +127,7 @@ describe('<FilterDatePickerField />', () => {
       })
 
       it('does not call submit when the date is invalid', async () => {
-        render(
-          <FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-02')} />,
-        )
+        render(<FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-02')} />)
         await waitForI18nContent()
 
         const inputDate = screen.getByLabelText('Date')
@@ -151,9 +143,7 @@ describe('<FilterDatePickerField />', () => {
     })
 
     it('updates the calendar month to match the new start date input', async () => {
-      render(
-        <FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-02')} />,
-      )
+      render(<FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-02')} />)
       await waitForI18nContent()
 
       const inputDate = screen.getByLabelText('Date')
@@ -173,18 +163,14 @@ describe('<FilterDatePickerField />', () => {
   })
 
   describe('Calendar', () => {
-    it('shows the default month as the start month when there isn\'t a selected value', async () => {
-      render(
-        <FilterDatePickerFieldWrapper defaultMonth={new Date('2022-05-02')} />,
-      )
+    it("shows the default month as the start month when there isn't a selected value", async () => {
+      render(<FilterDatePickerFieldWrapper defaultMonth={new Date('2022-05-02')} />)
       await waitForI18nContent()
       expect(screen.getByText('May 2022')).toBeVisible()
     })
 
     it('shows the selected start date month as the start month when provided', async () => {
-      render(
-        <FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-01')} />,
-      )
+      render(<FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-01')} />)
       await waitForI18nContent()
       expect(screen.getByText('May 2022')).toBeVisible()
     })
@@ -200,9 +186,7 @@ describe('<FilterDatePickerField />', () => {
     })
 
     it('calls the onDateSubmit when selecting a date', async () => {
-      render(
-        <FilterDatePickerFieldWrapper defaultMonth={new Date('2022-05-01')} />,
-      )
+      render(<FilterDatePickerFieldWrapper defaultMonth={new Date('2022-05-01')} />)
       const targetMonth = screen.getByRole('grid', { name: 'May 2022' })
       const targetDay = within(targetMonth).getByRole('gridcell', {
         name: '15',
@@ -215,9 +199,7 @@ describe('<FilterDatePickerField />', () => {
     })
 
     it('updates the input when changing the date', async () => {
-      render(
-        <FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-15')} />,
-      )
+      render(<FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-15')} />)
       await waitForI18nContent()
 
       const inputDate = screen.getByLabelText('Date')
@@ -237,9 +219,7 @@ describe('<FilterDatePickerField />', () => {
     })
 
     it('clears the inputs when clearing the calendar value', async () => {
-      render(
-        <FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-15')} />,
-      )
+      render(<FilterDatePickerFieldWrapper selectedDate={new Date('2022-05-15')} />)
       await waitForI18nContent()
 
       const inputDate = screen.getByLabelText('Date')
@@ -291,9 +271,7 @@ describe('<FilterDatePickerField />', () => {
 
         await waitFor(() => {
           const dateErrorContainer = container.querySelector(dateErrorId)
-          expect(dateErrorContainer).toHaveTextContent(
-            'potato is an invalid date',
-          )
+          expect(dateErrorContainer).toHaveTextContent('potato is an invalid date')
         })
       })
 
@@ -338,9 +316,7 @@ describe('<FilterDatePickerField />', () => {
       const dateErrorContainer = container.querySelector(dateErrorId)
 
       await waitFor(() => {
-        expect(dateErrorContainer).toHaveTextContent(
-          'Invalid Date is an invalid date',
-        )
+        expect(dateErrorContainer).toHaveTextContent('Invalid Date is an invalid date')
       })
 
       const targetMonth = screen.getByRole('grid', { name: 'May 2022' })

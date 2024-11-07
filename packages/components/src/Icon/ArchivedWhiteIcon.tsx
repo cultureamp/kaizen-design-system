@@ -17,10 +17,7 @@ export const ArchivedWhiteIcon = (props: IconProps): JSX.Element => {
       </defs>
       <g fill="none" fillRule="evenodd">
         <use fill="currentColor" href={`#${uniqueId}`} />
-        <path
-          fill="#FFF"
-          d="m10 14.91-4.09-4.092h2.454V7.545h3.272v3.273h2.455z"
-        />
+        <path fill="#FFF" d="m10 14.91-4.09-4.092h2.454V7.545h3.272v3.273h2.455z" />
       </g>
     </>
   )

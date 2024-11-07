@@ -13,11 +13,9 @@ export const statusCodes = [
 ] as const
 
 export type ErrorStatuses = (typeof statusCodes)[number]
-type TranslationMap = Record<ErrorStatuses, { title: string, message: string }>
+type TranslationMap = Record<ErrorStatuses, { title: string; message: string }>
 
-export const useErrorMessages = (
-  code: ErrorStatuses,
-): TranslationMap[ErrorStatuses] => {
+export const useErrorMessages = (code: ErrorStatuses): TranslationMap[ErrorStatuses] => {
   const { formatMessage } = useIntl()
 
   const translationsMap: TranslationMap = {
@@ -29,28 +27,27 @@ export const useErrorMessages = (
       }),
       message: formatMessage({
         id: 'kzErrorPage.400.message',
-        defaultMessage:
-          'Problem loading page right now. Try again or head home.',
+        defaultMessage: 'Problem loading page right now. Try again or head home.',
         description: 'Call to action instructions for the user',
       }),
     },
     401: {
       title: formatMessage({
         id: 'kzErrorPage.401.title',
-        defaultMessage: 'You can\'t view this page',
+        defaultMessage: "You can't view this page",
         description: 'Main title for page',
       }),
       message: formatMessage({
         id: 'kzErrorPage.401.message',
         defaultMessage:
-          'Sorry but we can\'t verify if you\'re able to view this page. Go back and try again, or head to Home',
+          "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home",
         description: 'Call to action instructions for the user',
       }),
     },
     403: {
       title: formatMessage({
         id: 'kzErrorPage.403.title',
-        defaultMessage: 'You can\'t view this page',
+        defaultMessage: "You can't view this page",
         description: 'Main title for page',
       }),
       message: formatMessage({
@@ -69,85 +66,82 @@ export const useErrorMessages = (
       message: formatMessage({
         id: 'kzErrorPage.404.message',
         defaultMessage:
-          'Sorry but we can\'t find the page you\'re looking for. Go back and try again, or head to Home',
+          "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home",
         description: 'Call to action instructions for the user',
       }),
     },
     413: {
       title: formatMessage({
         id: 'kzErrorPage.413.title',
-        defaultMessage: 'Something\'s gone wrong on our side',
+        defaultMessage: "Something's gone wrong on our side",
         description: 'Main title of page',
       }),
       message: formatMessage({
         id: 'kzErrorPage.413',
         defaultMessage:
-          'Sorry there\'s an issue with our system and this page can\'t be displayed. Go back and try again, or head to Home',
+          "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home",
         description: 'Call to action instructions for the user',
       }),
     },
     422: {
       title: formatMessage({
         id: 'kzErrorPage.422.title',
-        defaultMessage: 'Change couldn\'t be made',
+        defaultMessage: "Change couldn't be made",
         description: 'Main title of page',
       }),
       message: formatMessage({
         id: 'kzErrorPage.422.message',
         defaultMessage:
-          'Sorry but your change couldn\'t be made. Go back and try again, or head to Home',
+          "Sorry but your change couldn't be made. Go back and try again, or head to Home",
         description: 'Call to action instructions for the user',
       }),
     },
     500: {
       title: formatMessage({
         id: 'kzErrorPage.500.title',
-        defaultMessage: 'Something\'s gone wrong on our side',
+        defaultMessage: "Something's gone wrong on our side",
         description: 'Main title of page',
       }),
       message: formatMessage({
         id: 'kzErrorPage.500',
         defaultMessage:
-          'Sorry there\'s an issue with our system and this page can\'t be displayed. Go back and try again, or head to Home',
+          "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home",
         description: 'Call to action instructions for the user',
       }),
     },
     502: {
       title: formatMessage({
         id: 'kzErrorPage.502.title',
-        defaultMessage: 'You can\'t view this page',
+        defaultMessage: "You can't view this page",
         description: 'Main title of page',
       }),
       message: formatMessage({
         id: 'kzErrorPage.502.message',
-        defaultMessage:
-          'Sorry about this. The best thing to do is go back and try again.',
+        defaultMessage: 'Sorry about this. The best thing to do is go back and try again.',
         description: 'Call to action instructions for the user',
       }),
     },
     503: {
       title: formatMessage({
         id: 'kzErrorPage.503.title',
-        defaultMessage: 'You can\'t view this page',
+        defaultMessage: "You can't view this page",
         description: 'Main title of page',
       }),
       message: formatMessage({
         id: 'kzErrorPage.503.message',
-        defaultMessage:
-          'Sorry about this. The best thing to do is go back and try again.',
+        defaultMessage: 'Sorry about this. The best thing to do is go back and try again.',
         description: 'Call to action instructions for the user',
       }),
     },
     504: {
       title: formatMessage({
         id: 'kzErrorPage.504.title',
-        defaultMessage: 'You can\'t view this page',
+        defaultMessage: "You can't view this page",
         description: 'Main title of page',
       }),
       message: formatMessage({
         id: 'kzErrorPage.504.message',
-        defaultMessage:
-          'Sorry about this. The best thing to do is go back and try again.',
+        defaultMessage: 'Sorry about this. The best thing to do is go back and try again.',
         description: 'Call to action instructions for the user',
       }),
     },

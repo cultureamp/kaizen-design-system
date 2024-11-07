@@ -4,10 +4,7 @@ import {
   TooltipTriggerComponentProps,
 } from 'react-aria-components'
 
-export type TooltipTriggerProps = Omit<
-  TooltipTriggerComponentProps,
-  'delay' | 'closeDelay'
-> & {
+export type TooltipTriggerProps = Omit<TooltipTriggerComponentProps, 'delay' | 'closeDelay'> & {
   /**
    * The delay time for the tooltip to show up. [See guidelines](https://spectrum.adobe.com/page/tooltip/#Immediate-or-delayed-appearance).
    * @default 300

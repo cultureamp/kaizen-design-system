@@ -5,10 +5,7 @@ import { Meta } from '@storybook/react'
 import { within, userEvent } from '@storybook/test'
 import isChromatic from 'chromatic'
 import { DateRange } from '~components/Calendar'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { FilterButton } from '../../FilterButton'
 import { FilterDateRangePicker, FilterDateRangePickerProps } from '../index'
 import { FilterDateRangePickerField } from '../subcomponents/FilterDateRangePickerField'
@@ -40,18 +37,12 @@ const StickerSheetTemplate: StickerSheetStory = {
       to: new Date('2022-06-22'),
     })
 
-    const [rangeFieldDefault, setRangeFieldDefault] = useState<
-      DateRange | undefined
-    >()
-    const [rangeFieldExisting, setRangeFieldExisting] = useState<
-      DateRange | undefined
-    >({
+    const [rangeFieldDefault, setRangeFieldDefault] = useState<DateRange | undefined>()
+    const [rangeFieldExisting, setRangeFieldExisting] = useState<DateRange | undefined>({
       from: new Date('2022-05-15'),
       to: new Date('2022-06-22'),
     })
-    const [rangeFieldValidation, setRangeFieldValidation] = useState<
-      DateRange | undefined
-    >({
+    const [rangeFieldValidation, setRangeFieldValidation] = useState<DateRange | undefined>({
       from: new Date('2022-05-15'),
     })
 
@@ -127,8 +118,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 validationMessage={{
                   dateStart: {
                     status: 'error',
-                    message:
-                      '(Start date custom message) Jelly-filled doughnuts are my favourite!',
+                    message: '(Start date custom message) Jelly-filled doughnuts are my favourite!',
                   },
                 }}
                 inputEndDateProps={{
@@ -148,18 +138,15 @@ const StickerSheetTemplate: StickerSheetStory = {
                 validationMessage={{
                   dateStart: {
                     status: 'error',
-                    message:
-                      '(Start date custom message) Jelly-filled doughnuts are my favourite!',
+                    message: '(Start date custom message) Jelly-filled doughnuts are my favourite!',
                   },
                   dateEnd: {
                     status: 'caution',
-                    message:
-                      '(End date custom message) Jelly-filled doughnuts are dangerous!',
+                    message: '(End date custom message) Jelly-filled doughnuts are dangerous!',
                   },
                 }}
                 inputEndDateProps={{
-                  'data-testid':
-                    'test__filter-drp-field--validation-merged--end',
+                  'data-testid': 'test__filter-drp-field--validation-merged--end',
                 }}
               />
             </StickerSheet.Row>
@@ -171,9 +158,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   play: async ({ canvasElement }): Promise<void> => {
     const canvas = within(canvasElement)
 
-    const validationInputEndDate = canvas.getByTestId(
-      'test__filter-drp-field--validation--end',
-    )
+    const validationInputEndDate = canvas.getByTestId('test__filter-drp-field--validation--end')
     await userEvent.click(validationInputEndDate)
     await userEvent.type(validationInputEndDate, 'potato')
     await userEvent.click(document.body)
@@ -204,9 +189,7 @@ export const StickerSheetLocales: StickerSheetStory = {
     const props = {
       isOpen: false,
       setIsOpen: () => undefined,
-      renderTrigger: (triggerButtonProps): JSX.Element => (
-        <FilterButton {...triggerButtonProps} />
-      ),
+      renderTrigger: (triggerButtonProps): JSX.Element => <FilterButton {...triggerButtonProps} />,
       label: 'Dates',
       selectedRange: {
         from: new Date('2022-05-15'),

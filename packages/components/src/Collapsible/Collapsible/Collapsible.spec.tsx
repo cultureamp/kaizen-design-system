@@ -33,9 +33,7 @@ describe('<Collapsible />', () => {
         id="1"
         open
         title="Should not be rendered"
-        renderHeader={(): JSX.Element => (
-          <div>This title should be rendered</div>
-        )}
+        renderHeader={(): JSX.Element => <div>This title should be rendered</div>}
       >
         First panel content
       </Collapsible>,
@@ -44,21 +42,17 @@ describe('<Collapsible />', () => {
     const titleText = getByTestId('collapsible-header-1').querySelector('div')
 
     expect(titleText).toHaveTextContent('This title should be rendered')
-    expect(
-      queryByTestId(container as HTMLElement, 'collapsible-button-title-1'),
-    ).toBeNull()
+    expect(queryByTestId(container as HTMLElement, 'collapsible-button-title-1')).toBeNull()
   })
 
-  it('doesn\'t render section content when lazyLoad is enabled', () => {
+  it("doesn't render section content when lazyLoad is enabled", () => {
     const { container } = render(
       <Collapsible id="1" title="Title" lazyLoad>
         <div data-testid="lazy-load-content">First panel content</div>
       </Collapsible>,
     )
 
-    expect(
-      queryByTestId(container as HTMLElement, 'lazy-load-content'),
-    ).toBeNull()
+    expect(queryByTestId(container as HTMLElement, 'lazy-load-content')).toBeNull()
   })
 
   it('runs the onToggle callback', async () => {

@@ -25,16 +25,11 @@ const PopoverTemplate: Story = {
 
     return (
       <div className="text-center relative">
-        <button
-          type="button"
-          className="inline-block mt-112"
-          ref={referenceElementRef}
-        >
+        <button type="button" className="inline-block mt-112" ref={referenceElementRef}>
           Pop
         </button>
         <Popover {...args}>
-          Popover body that explains something useful.{' '}
-          <a href="/">Optional link</a>
+          Popover body that explains something useful. <a href="/">Optional link</a>
         </Popover>
       </div>
     )

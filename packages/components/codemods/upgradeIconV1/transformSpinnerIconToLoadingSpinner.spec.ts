@@ -5,16 +5,16 @@ import { transformSpinnerIconToLoadingSpinner } from './transformSpinnerIconToLo
 
 export const mockedTransformer =
   (alias?: string) =>
-    (context: ts.TransformationContext) =>
-      (rootNode: ts.Node): ts.Node => {
-        const visit = (node: ts.Node): ts.Node => {
-          if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-            return transformSpinnerIconToLoadingSpinner(node, alias)
-          }
-          return ts.visitEachChild(node, visit, context)
-        }
-        return ts.visitNode(rootNode, visit)
+  (context: ts.TransformationContext) =>
+  (rootNode: ts.Node): ts.Node => {
+    const visit = (node: ts.Node): ts.Node => {
+      if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
+        return transformSpinnerIconToLoadingSpinner(node, alias)
       }
+      return ts.visitEachChild(node, visit, context)
+    }
+    return ts.visitNode(rootNode, visit)
+  }
 
 const transformInput = (sourceFile: ts.SourceFile, alias?: string): string => {
   const result = ts.transform(sourceFile, [mockedTransformer(alias)])
@@ -25,20 +25,14 @@ const transformInput = (sourceFile: ts.SourceFile, alias?: string): string => {
 describe('transformSpinnerIconToLoadingSpinner()', () => {
   it('replaces SpinnerIcon with LoadingSpinner and adds size and accessibilityLabel', () => {
     const inputAst = parseJsx('<SpinnerIcon />')
-    const outputAst = parseJsx(
-      '<LoadingSpinner size="xs" accessibilityLabel="Loading" />',
-    )
+    const outputAst = parseJsx('<LoadingSpinner size="xs" accessibilityLabel="Loading" />')
     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('uses alias if it is defined', () => {
     const inputAst = parseJsx('<SpinnerIcon />')
-    const outputAst = parseJsx(
-      '<KzLoadingSpinner size="xs" accessibilityLabel="Loading" />',
-    )
-    expect(transformInput(inputAst, 'KzLoadingSpinner')).toEqual(
-      printAst(outputAst),
-    )
+    const outputAst = parseJsx('<KzLoadingSpinner size="xs" accessibilityLabel="Loading" />')
+    expect(transformInput(inputAst, 'KzLoadingSpinner')).toEqual(printAst(outputAst))
   })
 
   describe('transform existing props', () => {
@@ -72,9 +66,7 @@ describe('transformSpinnerIconToLoadingSpinner()', () => {
 
     it('removes viewBox', () => {
       const inputAst = parseJsx('<SpinnerIcon viewBox="0 0 100 100" />')
-      const outputAst = parseJsx(
-        '<LoadingSpinner size="xs" accessibilityLabel="Loading" />',
-      )
+      const outputAst = parseJsx('<LoadingSpinner size="xs" accessibilityLabel="Loading" />')
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
   })

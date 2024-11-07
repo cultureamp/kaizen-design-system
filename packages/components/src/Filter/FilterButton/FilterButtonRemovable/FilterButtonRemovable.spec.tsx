@@ -2,11 +2,7 @@ import React, { useRef } from 'react'
 import { screen, waitFor, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import {
-  FilterButtonRemovable,
-  FilterButtonRemovableProps,
-  FilterButtonRemovableRefs,
-} from '.'
+import { FilterButtonRemovable, FilterButtonRemovableProps, FilterButtonRemovableRefs } from '.'
 
 const user = userEvent.setup()
 
@@ -31,9 +27,7 @@ describe('<FilterButtonRemovable />', () => {
   it('should use fallback label for remove button if not specified', async () => {
     render(<FilterButtonRemovableWrapper />)
     await waitFor(() => {
-      expect(
-        screen.getByRole('button', { name: 'Remove filter - Desserts' }),
-      ).toBeVisible()
+      expect(screen.getByRole('button', { name: 'Remove filter - Desserts' })).toBeVisible()
     })
   })
 
@@ -75,10 +69,7 @@ describe('<FilterButtonRemovable />', () => {
       render(<Wrapper />)
 
       await user.click(screen.getByText('Click me'))
-      expect(onClick).toHaveBeenCalledWith(
-        'test__trigger-button',
-        'test__remove-button',
-      )
+      expect(onClick).toHaveBeenCalledWith('test__trigger-button', 'test__remove-button')
     })
   })
 })

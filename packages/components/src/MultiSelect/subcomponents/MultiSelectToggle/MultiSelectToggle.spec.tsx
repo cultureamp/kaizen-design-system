@@ -7,9 +7,7 @@ const user = userEvent.setup()
 
 const onClick = vi.fn()
 
-const MultiSelectToggleWrapper = (
-  customProps?: Partial<MultiSelectToggleProps>,
-): JSX.Element => (
+const MultiSelectToggleWrapper = (customProps?: Partial<MultiSelectToggleProps>): JSX.Element => (
   <>
     <span id="id--label">Waffle</span>
     <MultiSelectToggle
@@ -81,9 +79,7 @@ describe('<MultiSelectToggle />', () => {
   describe('Has selected options', () => {
     it('does not call onClick when clearing a single selected item', async () => {
       const { getByRole } = render(
-        <MultiSelectToggleWrapper
-          selectedOptions={[{ value: 'waffle', label: 'Waffle' }]}
-        />,
+        <MultiSelectToggleWrapper selectedOptions={[{ value: 'waffle', label: 'Waffle' }]} />,
       )
       await user.click(getByRole('button', { name: 'Remove option: Waffle' }))
       await waitFor(() => {
@@ -93,13 +89,9 @@ describe('<MultiSelectToggle />', () => {
 
     it('does not call onClick when clearing all selected items', async () => {
       const { getByRole } = render(
-        <MultiSelectToggleWrapper
-          selectedOptions={[{ value: 'waffle', label: 'Waffle' }]}
-        />,
+        <MultiSelectToggleWrapper selectedOptions={[{ value: 'waffle', label: 'Waffle' }]} />,
       )
-      await user.click(
-        getByRole('button', { name: 'Remove all options from Waffle' }),
-      )
+      await user.click(getByRole('button', { name: 'Remove all options from Waffle' }))
       await waitFor(() => {
         expect(onClick).not.toHaveBeenCalled()
       })

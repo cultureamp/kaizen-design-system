@@ -9,11 +9,7 @@ const migrateToastNotificationTypeToVariant = (): void => {
     process.exit(1)
   }
 
-  transformComponentsInDir(
-    targetDir,
-    transformNotificationTypeToVariant,
-    'ToastNotification',
-  )
+  transformComponentsInDir(targetDir, transformNotificationTypeToVariant, 'ToastNotification')
 }
 
 migrateToastNotificationTypeToVariant()

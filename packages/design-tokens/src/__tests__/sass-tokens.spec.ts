@@ -29,9 +29,7 @@ ${typography.toString()}
   describe('everything', () => {
     it('no tokens start with kz', () => {
       const allTokensStartingWithKz = everything.nodes
-        .filter(
-          (n): n is Declaration => n.type === 'decl' && n.prop.startsWith('$kz'),
-        )
+        .filter((n): n is Declaration => n.type === 'decl' && n.prop.startsWith('$kz'))
         .map((n) => n.prop)
       expect(allTokensStartingWithKz).toHaveLength(0)
     })
@@ -40,8 +38,7 @@ ${typography.toString()}
   describe('colors', () => {
     it('new un-prefixed tokens only contain heart color names', () => {
       const newColors = colors.nodes.filter(
-        (n): n is Declaration =>
-          n.type === 'decl' && n.prop.startsWith('$color'),
+        (n): n is Declaration => n.type === 'decl' && n.prop.startsWith('$color'),
       )
       const newColorsWithHeartNames = newColors.filter(
         (n) =>
@@ -58,10 +55,7 @@ ${typography.toString()}
     it('new un-prefixed layout tokens are not CSS variables', () => {
       expect(
         layout.nodes.filter(
-          (n) =>
-            n.type === 'decl' &&
-            n.prop.startsWith('$layout') &&
-            n.value.startsWith('var('),
+          (n) => n.type === 'decl' && n.prop.startsWith('$layout') && n.value.startsWith('var('),
         ),
       ).toHaveLength(0)
     })

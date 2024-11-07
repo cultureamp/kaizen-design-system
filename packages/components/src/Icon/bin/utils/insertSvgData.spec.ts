@@ -2,9 +2,7 @@ import fs from 'fs'
 import { insertSvgData } from './insertSvgData'
 
 describe('insertSvgData', () => {
-  const reactTemplate = fs
-    .readFileSync(`${__dirname}/../Template.tsx`)
-    .toString()
+  const reactTemplate = fs.readFileSync(`${__dirname}/../Template.tsx`).toString()
 
   it('Returns the template with component title and svg content inserted', () => {
     const componentTitle = 'MyIcon'

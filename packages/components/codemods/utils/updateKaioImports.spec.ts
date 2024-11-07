@@ -5,11 +5,11 @@ import { printAst } from '.'
 
 const transformInput =
   (sourceFile: ts.SourceFile) =>
-    (imports: UpdateKaioImportsArgs): string => {
-      const result = ts.transform(sourceFile, [updateKaioImports(imports)])
-      const transformedSource = result.transformed[0] as ts.SourceFile
-      return printAst(transformedSource)
-    }
+  (imports: UpdateKaioImportsArgs): string => {
+    const result = ts.transform(sourceFile, [updateKaioImports(imports)])
+    const transformedSource = result.transformed[0] as ts.SourceFile
+    return printAst(transformedSource)
+  }
 
 describe('updateKaioImports()', () => {
   describe('remove imports', () => {
@@ -83,10 +83,7 @@ describe('updateKaioImports()', () => {
       expect(
         transformInput(inputAst)({
           importsToAdd: new Map([
-            [
-              '@kaizen/components/future',
-              new Map([['Card', { componentName: 'Card' }]]),
-            ],
+            ['@kaizen/components/future', new Map([['Card', { componentName: 'Card' }]])],
           ]),
         }),
       ).toEqual(printAst(outputAst))
@@ -122,10 +119,7 @@ describe('updateKaioImports()', () => {
       expect(
         transformInput(inputAst)({
           importsToAdd: new Map([
-            [
-              '@kaizen/components/future',
-              new Map([['Icon', { componentName: 'Icon' }]]),
-            ],
+            ['@kaizen/components/future', new Map([['Icon', { componentName: 'Icon' }]])],
           ]),
         }),
       ).toEqual(printAst(outputAst))
@@ -141,10 +135,7 @@ describe('updateKaioImports()', () => {
       expect(
         transformInput(inputAst)({
           importsToAdd: new Map([
-            [
-              '@kaizen/components/future',
-              new Map([['Card', { componentName: 'Card' }]]),
-            ],
+            ['@kaizen/components/future', new Map([['Card', { componentName: 'Card' }]])],
           ]),
         }),
       ).toEqual(printAst(outputAst))
@@ -166,10 +157,7 @@ describe('updateKaioImports()', () => {
         expect(
           transformInput(inputAst)({
             importsToAdd: new Map([
-              [
-                '@kaizen/components/future',
-                new Map([['Card', { componentName: 'Card' }]]),
-              ],
+              ['@kaizen/components/future', new Map([['Card', { componentName: 'Card' }]])],
             ]),
           }),
         ).toEqual(printAst(outputAst))
@@ -190,10 +178,7 @@ describe('updateKaioImports()', () => {
         expect(
           transformInput(inputAst)({
             importsToAdd: new Map([
-              [
-                '@kaizen/components/future',
-                new Map([['Card', { componentName: 'Card' }]]),
-              ],
+              ['@kaizen/components/future', new Map([['Card', { componentName: 'Card' }]])],
             ]),
           }),
         ).toEqual(printAst(outputAst))
@@ -210,10 +195,7 @@ describe('updateKaioImports()', () => {
         expect(
           transformInput(inputAst)({
             importsToAdd: new Map([
-              [
-                '@kaizen/components/future',
-                new Map([['Card', { componentName: 'Card' }]]),
-              ],
+              ['@kaizen/components/future', new Map([['Card', { componentName: 'Card' }]])],
             ]),
           }),
         ).toEqual(printAst(outputAst))

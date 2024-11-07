@@ -1,10 +1,5 @@
 import { parseJsx } from '../__tests__/utils'
-import {
-  transformSource,
-  printAst,
-  TransformConfig,
-  ImportModuleNameTagsMap,
-} from '../utils'
+import { transformSource, printAst, TransformConfig, ImportModuleNameTagsMap } from '../utils'
 import { upgradeIconV1 } from './upgradeIconV1'
 
 const transformIcons = (
@@ -33,12 +28,7 @@ describe('upgradeIconV1()', () => {
       expect(
         transformIcons(
           inputAst,
-          new Map([
-            [
-              '@kaizen/components',
-              new Map([['CaMonogramIcon', 'CaMonogramIcon']]),
-            ],
-          ]),
+          new Map([['@kaizen/components', new Map([['CaMonogramIcon', 'CaMonogramIcon']])]]),
         ),
       ).toEqual(printAst(outputAst))
     })
@@ -55,9 +45,7 @@ describe('upgradeIconV1()', () => {
       expect(
         transformIcons(
           inputAst,
-          new Map([
-            ['@kaizen/components', new Map([['LogoAlias', 'CaMonogramIcon']])],
-          ]),
+          new Map([['@kaizen/components', new Map([['LogoAlias', 'CaMonogramIcon']])]]),
         ),
       ).toEqual(printAst(outputAst))
     })
@@ -114,8 +102,7 @@ describe('upgradeIconV1()', () => {
   })
 
   describe('SpinnerIcon to LoadingSpinner', () => {
-    const transformedLoadingSpinnerProps =
-      'size="xs" accessibilityLabel="Loading"'
+    const transformedLoadingSpinnerProps = 'size="xs" accessibilityLabel="Loading"'
 
     it('updates import from SpinnerIcon to LoadingSpinner', () => {
       const inputAst = parseJsx(`
@@ -129,9 +116,7 @@ describe('upgradeIconV1()', () => {
       expect(
         transformIcons(
           inputAst,
-          new Map([
-            ['@kaizen/components', new Map([['SpinnerIcon', 'SpinnerIcon']])],
-          ]),
+          new Map([['@kaizen/components', new Map([['SpinnerIcon', 'SpinnerIcon']])]]),
         ),
       ).toEqual(printAst(outputAst))
     })
@@ -148,9 +133,7 @@ describe('upgradeIconV1()', () => {
       expect(
         transformIcons(
           inputAst,
-          new Map([
-            ['@kaizen/components', new Map([['LogoAlias', 'SpinnerIcon']])],
-          ]),
+          new Map([['@kaizen/components', new Map([['LogoAlias', 'SpinnerIcon']])]]),
         ),
       ).toEqual(printAst(outputAst))
     })
@@ -218,9 +201,7 @@ describe('upgradeIconV1()', () => {
     expect(
       transformIcons(
         inputAst,
-        new Map([
-          ['@kaizen/components', new Map([['FlagOnIcon', 'FlagOnIcon']])],
-        ]),
+        new Map([['@kaizen/components', new Map([['FlagOnIcon', 'FlagOnIcon']])]]),
       ),
     ).toEqual(printAst(outputAst))
   })
@@ -237,9 +218,7 @@ describe('upgradeIconV1()', () => {
     expect(
       transformIcons(
         inputAst,
-        new Map([
-          ['@kaizen/components', new Map([['IconAlias', 'HamburgerIcon']])],
-        ]),
+        new Map([['@kaizen/components', new Map([['IconAlias', 'HamburgerIcon']])]]),
       ),
     ).toEqual(printAst(outputAst))
   })

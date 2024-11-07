@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Slider } from '../index'
 
 export default {
@@ -18,12 +15,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
       <StickerSheet.Header
-        headings={[
-          'Default',
-          'Default (Disabled)',
-          'Prominant',
-          'Prominant (Disabled)',
-        ]}
+        headings={['Default', 'Default (Disabled)', 'Prominant', 'Prominant (Disabled)']}
         hasVerticalHeadings
       />
       <StickerSheet.Body>
@@ -36,11 +28,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
           <Slider
             labelText="Slider"
-            description={(
-              <span data-sb-a11y-color-contrast-disable>
-                Example Description
-              </span>
-            )}
+            description={<span data-sb-a11y-color-contrast-disable>Example Description</span>}
             minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
             maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             disabled
@@ -55,11 +43,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
           <Slider
             labelText="Slider"
-            description={(
-              <span data-sb-a11y-color-contrast-disable>
-                Example Description
-              </span>
-            )}
+            description={<span data-sb-a11y-color-contrast-disable>Example Description</span>}
             minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
             maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             variant="prominent"
@@ -77,11 +61,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
           <Slider
             labelText="Slider"
-            description={(
-              <span data-sb-a11y-color-contrast-disable>
-                Example Description
-              </span>
-            )}
+            description={<span data-sb-a11y-color-contrast-disable>Example Description</span>}
             minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
             maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             labelPosition="block"
@@ -98,11 +78,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
           <Slider
             labelText="Slider"
-            description={(
-              <span data-sb-a11y-color-contrast-disable>
-                Example Description
-              </span>
-            )}
+            description={<span data-sb-a11y-color-contrast-disable>Example Description</span>}
             minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
             maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             variant="prominent"

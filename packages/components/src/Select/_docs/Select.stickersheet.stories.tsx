@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Select } from '../index'
 
 export default {
@@ -46,10 +43,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
       <StickerSheet isReversed={isReversed} heading="Default Select">
-        <StickerSheet.Header
-          headings={['Base', 'Clearable', 'Disabled']}
-          hasVerticalHeadings
-        />
+        <StickerSheet.Header headings={['Base', 'Clearable', 'Disabled']} hasVerticalHeadings />
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
             <Select options={OPTIONS} reversed={isReversed} label="Select" />
@@ -60,12 +54,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               isClearable
               label="Select"
             />
-            <Select
-              options={OPTIONS}
-              reversed={isReversed}
-              label="Select"
-              isDisabled
-            />
+            <Select options={OPTIONS} reversed={isReversed} label="Select" isDisabled />
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Ellipsis">
             <Select
@@ -114,10 +103,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Body>
       </StickerSheet>
       <StickerSheet isReversed={isReversed} heading="Secondary">
-        <StickerSheet.Header
-          headings={['Base', 'Disabled']}
-          hasVerticalHeadings
-        />
+        <StickerSheet.Header headings={['Base', 'Disabled']} hasVerticalHeadings />
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
             <Select

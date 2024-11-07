@@ -25,10 +25,7 @@ export type SelectToggleProps = {
   isReversed?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLButtonElement>>
 
-export const SelectToggle = React.forwardRef<
-  HTMLButtonElement,
-  SelectToggleProps
->(
+export const SelectToggle = React.forwardRef<HTMLButtonElement, SelectToggleProps>(
   (
     {
       label,

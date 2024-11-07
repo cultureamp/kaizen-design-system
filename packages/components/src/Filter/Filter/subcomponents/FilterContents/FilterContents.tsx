@@ -12,10 +12,7 @@ export const FilterContents = ({
   classNameOverride,
   ...restProps
 }: FilterContentsProps): JSX.Element => (
-  <div
-    className={classnames(styles.filterContents, classNameOverride)}
-    {...restProps}
-  >
+  <div className={classnames(styles.filterContents, classNameOverride)} {...restProps}>
     {children}
   </div>
 )

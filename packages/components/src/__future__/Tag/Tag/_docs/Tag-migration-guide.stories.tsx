@@ -141,10 +141,7 @@ export const StatusMigration: StoryObj = {
 export const ValidationMigration: StoryObj = {
   render: () => (
     <>
-      <Tag
-        color="green"
-        icon={<Icon name="check_circle" isFilled alt="Success," />}
-      >
+      <Tag color="green" icon={<Icon name="check_circle" isFilled alt="Success," />}>
         Tag
       </Tag>
       <Tag color="blue" icon={<Icon name="info" isFilled alt="Note," />}>
@@ -153,10 +150,7 @@ export const ValidationMigration: StoryObj = {
       <Tag color="red" icon={<Icon name="error" isFilled alt="Error," />}>
         Tag
       </Tag>
-      <Tag
-        color="yellow"
-        icon={<Icon name="warning" isFilled alt="Warning," />}
-      >
+      <Tag color="yellow" icon={<Icon name="warning" isFilled alt="Warning," />}>
         Tag
       </Tag>
     </>
@@ -192,10 +186,7 @@ export const SentimentsMigration: StoryObj = {
 
 export const SentimentNone: StoryObj = {
   render: () => (
-    <Tag
-      color="gray"
-      classNameOverride="bg-white border-default-color border-solid border"
-    >
+    <Tag color="gray" classNameOverride="bg-white border-default-color border-solid border">
       Tag
     </Tag>
   ),

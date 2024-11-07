@@ -1,10 +1,4 @@
-import React, {
-  HTMLAttributes,
-  ReactNode,
-  SyntheticEvent,
-  useRef,
-  useState,
-} from 'react'
+import React, { HTMLAttributes, ReactNode, SyntheticEvent, useRef, useState } from 'react'
 import { Tab as ReachTab } from '@reach/tabs'
 import classnames from 'classnames'
 import { useFocusable } from 'react-aria'
@@ -38,14 +32,7 @@ export type TabProps = {
  * A tab button
  */
 export const Tab = (props: TabProps): JSX.Element => {
-  const {
-    isSelected,
-    badge,
-    disabled,
-    children,
-    classNameOverride,
-    ...restProps
-  } = props
+  const { isSelected, badge, disabled, children, classNameOverride, ...restProps } = props
   const ref = useRef<HTMLButtonElement>(null)
   const [isHovered, setIsHovered] = useState<boolean>(false)
   const [isFocused, setIsFocused] = useState<boolean>(false)
@@ -53,11 +40,7 @@ export const Tab = (props: TabProps): JSX.Element => {
 
   const tabProps = {
     disabled,
-    className: classnames(
-      styles.tab,
-      classNameOverride,
-      isSelected && styles.selected,
-    ),
+    className: classnames(styles.tab, classNameOverride, isSelected && styles.selected),
     onFocus: (event: SyntheticEvent): void => {
       setIsFocused(true)
       props.onFocus?.(event)
@@ -81,9 +64,7 @@ export const Tab = (props: TabProps): JSX.Element => {
       {children}
       {badge && (
         <span className={styles.badge}>
-          <Badge variant={showActiveBadge ? 'active' : 'default'}>
-            {badge}
-          </Badge>
+          <Badge variant={showActiveBadge ? 'active' : 'default'}>{badge}</Badge>
         </span>
       )}
     </ReachTab>

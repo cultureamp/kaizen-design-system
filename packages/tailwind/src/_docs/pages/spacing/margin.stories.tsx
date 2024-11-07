@@ -6,13 +6,12 @@ import { utilityDescription } from '~tailwind/_docs/utils/utilityDescription'
 import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
 
 const prefix = 'm-'
-const classEntries: { utilityClassName: string, cssProperty: string }[] =
-  Object.entries(kaizenTailwindTheme.spacing || []).map(
-    ([suffix, cssProperty]) => ({
-      utilityClassName: `${prefix}${suffix}`,
-      cssProperty,
-    }),
-  )
+const classEntries: { utilityClassName: string; cssProperty: string }[] = Object.entries(
+  kaizenTailwindTheme.spacing || [],
+).map(([suffix, cssProperty]) => ({
+  utilityClassName: `${prefix}${suffix}`,
+  cssProperty,
+}))
 
 export default {
   title: 'Guides/Tailwind/Utility Class References/Spacing/Margin',
@@ -35,10 +34,7 @@ export const Margin: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <div className="w-min border rounded">
         <p
-          className={classnames(
-            'p-4 border border-dashed w-min rounded bg-blue-100',
-            utilityClass,
-          )}
+          className={classnames('p-4 border border-dashed w-min rounded bg-blue-100', utilityClass)}
         >
           Margin
         </p>

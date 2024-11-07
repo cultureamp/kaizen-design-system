@@ -29,10 +29,7 @@ export const FilterTriggerButton = ({
       ref={ref}
       {...buttonProps}
       label={label}
-      selectedValue={getTruncatedLabels(
-        selectedOptionLabels,
-        labelCharacterLimitBeforeTruncate,
-      )}
+      selectedValue={getTruncatedLabels(selectedOptionLabels, labelCharacterLimitBeforeTruncate)}
       classNameOverride={classNameOverride}
       isOpen={menuTriggerState.isOpen}
     />

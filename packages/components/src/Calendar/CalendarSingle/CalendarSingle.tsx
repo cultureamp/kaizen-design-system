@@ -31,8 +31,7 @@ export const CalendarSingle = ({
   }, [calendarRef, onMount])
 
   const monthToShow = selected ?? defaultMonth
-  const selectedMonth =
-    monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
+  const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */
   const classNames = {
@@ -48,17 +47,11 @@ export const CalendarSingle = ({
         mode="single"
         selected={selected && isInvalidDate(selected) ? undefined : selected}
         defaultMonth={selectedMonth}
-        weekStartsOn={
-          isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
-        }
+        weekStartsOn={isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined}
         classNames={classNames}
         components={{
-          IconRight: () => (
-            <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
-          ),
-          IconLeft: () => (
-            <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
-          ),
+          IconRight: () => <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
+          IconLeft: () => <Icon name="arrow_back" isPresentational shouldMirrorInRTL />,
         }}
         locale={locale}
         {...restProps}

@@ -13,9 +13,7 @@ export default {
   },
 } satisfies Meta
 
-const PopoverTemplate = (
-  args: Partial<Omit<PopoverProps, 'refs'>>,
-): JSX.Element => {
+const PopoverTemplate = (args: Partial<Omit<PopoverProps, 'refs'>>): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(true)
   const { refs } = useFloating()
 
@@ -115,10 +113,7 @@ const PopoverWithPortal = ({
       ref={portalRef}
       // overflow-hidden is added so we can ensure the last row autoplaces above
       // padding added to allow buffer for box-shadow which gets cut off by overflow-hidden
-      className={classnames(
-        'relative border border-purple-500 overflow-hidden',
-        portalClassName,
-      )}
+      className={classnames('relative border border-purple-500 overflow-hidden', portalClassName)}
     >
       <PopoverTemplate
         portalContainer={portalContainer}

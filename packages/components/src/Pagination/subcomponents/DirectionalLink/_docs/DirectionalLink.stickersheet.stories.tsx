@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { DirectionalLink, DirectionalLinkProps } from '../index'
 
 export default {
@@ -55,21 +52,9 @@ const StickerSheetTemplate: StickerSheetStory = {
         {DIRECTIONAL_LINK_PROPS.map(({ title, props }) => (
           <StickerSheet.Row key={title} rowTitle={title}>
             <DirectionalLink {...props} reversed={isReversed} />
-            <DirectionalLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="hover"
-            />
-            <DirectionalLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="active"
-            />
-            <DirectionalLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="focus"
-            />
+            <DirectionalLink {...props} reversed={isReversed} data-sb-pseudo-styles="hover" />
+            <DirectionalLink {...props} reversed={isReversed} data-sb-pseudo-styles="active" />
+            <DirectionalLink {...props} reversed={isReversed} data-sb-pseudo-styles="focus" />
             <DirectionalLink {...props} reversed={isReversed} disabled />
           </StickerSheet.Row>
         ))}

@@ -7,37 +7,35 @@ import { updateJsxElementWithNewProps } from './updateJsxElementWithNewProps'
 
 export const mockedTransformer =
   (context: ts.TransformationContext) =>
-    (rootNode: ts.Node): ts.Node => {
-      const visit = (node: ts.Node): ts.Node => {
-        if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-          if (node.tagName.getText() === 'Pancakes') {
-            const newAttributes = node.attributes.properties.map((attr) => {
-              if (ts.isJsxAttribute(attr)) {
-                if (attr.name.getText() === 'replaceWithExistingValue') {
-                  return createStyleProp({ width: attr.initializer! })
-                }
-
-                if (attr.name.getText() === 'replaceWithStringValue') {
-                  return createStyleProp({ width: '100px' })
-                }
-
-                if (attr.name.getText() === 'replaceWithNumberValue') {
-                  return createStyleProp({ width: 100 })
-                }
+  (rootNode: ts.Node): ts.Node => {
+    const visit = (node: ts.Node): ts.Node => {
+      if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
+        if (node.tagName.getText() === 'Pancakes') {
+          const newAttributes = node.attributes.properties.map((attr) => {
+            if (ts.isJsxAttribute(attr)) {
+              if (attr.name.getText() === 'replaceWithExistingValue') {
+                return createStyleProp({ width: attr.initializer! })
               }
-              return attr
-            })
-            return updateJsxElementWithNewProps(node, newAttributes)
-          }
-        }
-        return ts.visitEachChild(node, visit, context)
-      }
-      return ts.visitNode(rootNode, visit)
-    }
 
-const testCreateStyleProp = (
-  sourceFile: TransformConfig['sourceFile'],
-): string =>
+              if (attr.name.getText() === 'replaceWithStringValue') {
+                return createStyleProp({ width: '100px' })
+              }
+
+              if (attr.name.getText() === 'replaceWithNumberValue') {
+                return createStyleProp({ width: 100 })
+              }
+            }
+            return attr
+          })
+          return updateJsxElementWithNewProps(node, newAttributes)
+        }
+      }
+      return ts.visitEachChild(node, visit, context)
+    }
+    return ts.visitNode(rootNode, visit)
+  }
+
+const testCreateStyleProp = (sourceFile: TransformConfig['sourceFile']): string =>
   transformSource({
     sourceFile,
     astTransformer: mockedTransformer,

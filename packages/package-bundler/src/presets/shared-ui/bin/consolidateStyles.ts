@@ -13,12 +13,7 @@ const PATH_TAILWIND_JS = `${packagePath}/dist/tailwind.js`
 const PATH_DIST_STYLES = `${packagePath}/dist/styles.css`
 
 const pathsToCombine = [PATH_TAILWIND, PATH_CSS_MODULES_ESM]
-const pathsToDelete = [
-  PATH_CSS_MODULES_CJS,
-  PATH_CSS_MODULES_ESM,
-  PATH_TAILWIND,
-  PATH_TAILWIND_JS,
-]
+const pathsToDelete = [PATH_CSS_MODULES_CJS, PATH_CSS_MODULES_ESM, PATH_TAILWIND, PATH_TAILWIND_JS]
 
 const combineFiles = (): void => {
   pathsToCombine.forEach((filePath) => {

@@ -65,8 +65,7 @@ export const Pagination = ({
     const truncateSize = 1
 
     const showAllPages =
-      1 + 2 * truncateSize + 2 * siblingPagesRange + 2 * boundaryPagesRange >=
-      pageCount
+      1 + 2 * truncateSize + 2 * siblingPagesRange + 2 * boundaryPagesRange >= pageCount
 
     // Simplify generation of pages if number of available items is equal or greater than total pages to show
     if (showAllPages) {
@@ -75,45 +74,33 @@ export const Pagination = ({
       // Calculate group of first pages
       const firstPagesStart = 1
       const firstPagesEnd = boundaryPagesRange
-      const firstPages = createRange(firstPagesStart, firstPagesEnd).map(
-        paginationIndicator,
-      )
+      const firstPages = createRange(firstPagesStart, firstPagesEnd).map(paginationIndicator)
 
       // Calculate group of last pages
       const lastPagesStart = pageCount + 1 - boundaryPagesRange
       const lastPagesEnd = pageCount
-      const lastPages = createRange(lastPagesStart, lastPagesEnd).map(
-        paginationIndicator,
-      )
+      const lastPages = createRange(lastPagesStart, lastPagesEnd).map(paginationIndicator)
 
       // Calculate group of main pages
       const mainPagesStart = Math.min(
-        Math.max(
-          currentPage - siblingPagesRange,
-          firstPagesEnd + truncateSize + 1,
-        ),
+        Math.max(currentPage - siblingPagesRange, firstPagesEnd + truncateSize + 1),
         lastPagesStart - truncateSize - 2 * siblingPagesRange - 1,
       )
       const mainPagesEnd = mainPagesStart + 2 * siblingPagesRange
-      const mainPages = createRange(mainPagesStart, mainPagesEnd).map(
-        paginationIndicator,
-      )
+      const mainPages = createRange(mainPagesStart, mainPagesEnd).map(paginationIndicator)
 
       // Add group of first pages
       items.push(...firstPages)
 
       // Calculate and add truncate before group of main pages
       const firstEllipsisPageNumber = mainPagesStart - 1
-      const showPageInsteadOfFirstEllipsis =
-        firstEllipsisPageNumber === firstPagesEnd + 1
+      const showPageInsteadOfFirstEllipsis = firstEllipsisPageNumber === firstPagesEnd + 1
       items.push(
-        showPageInsteadOfFirstEllipsis
-          ? (
-              paginationIndicator(firstEllipsisPageNumber)
-            )
-          : (
-              <TruncateIndicator key={firstEllipsisPageNumber} />
-            ),
+        showPageInsteadOfFirstEllipsis ? (
+          paginationIndicator(firstEllipsisPageNumber)
+        ) : (
+          <TruncateIndicator key={firstEllipsisPageNumber} />
+        ),
       )
 
       // Add group of main pages
@@ -121,16 +108,13 @@ export const Pagination = ({
 
       // Calculate and add truncate after group of main pages
       const secondEllipsisPageNumber = mainPagesEnd + 1
-      const showPageInsteadOfSecondEllipsis =
-        secondEllipsisPageNumber === lastPagesStart - 1
+      const showPageInsteadOfSecondEllipsis = secondEllipsisPageNumber === lastPagesStart - 1
       items.push(
-        showPageInsteadOfSecondEllipsis
-          ? (
-              paginationIndicator(secondEllipsisPageNumber)
-            )
-          : (
-              <TruncateIndicator key={secondEllipsisPageNumber} />
-            ),
+        showPageInsteadOfSecondEllipsis ? (
+          paginationIndicator(secondEllipsisPageNumber)
+        ) : (
+          <TruncateIndicator key={secondEllipsisPageNumber} />
+        ),
       )
 
       // Add group of last pages
@@ -143,10 +127,7 @@ export const Pagination = ({
   const nextPageDisabled = currentPage >= pageCount
 
   return (
-    <nav
-      className={classnames(styles.container, classNameOverride)}
-      {...restProps}
-    >
+    <nav className={classnames(styles.container, classNameOverride)} {...restProps}>
       <DirectionalLink
         label={ariaLabelPreviousPage}
         direction="prev"

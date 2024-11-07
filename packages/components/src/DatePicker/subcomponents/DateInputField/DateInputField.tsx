@@ -28,10 +28,7 @@ export type DateInputFieldProps = {
   locale?: Locale
 } & DateInputWithIconButtonProps
 
-export const DateInputField = React.forwardRef<
-  DateInputWithIconButtonRefs,
-  DateInputFieldProps
->(
+export const DateInputField = React.forwardRef<DateInputWithIconButtonRefs, DateInputFieldProps>(
   (
     {
       description,
@@ -65,18 +62,12 @@ export const DateInputField = React.forwardRef<
           {...dateInputWithIconButtonProps}
         />
         {shouldShowValidationMessage && (
-          <FieldMessage
-            message={validationMessage}
-            status={status}
-            reversed={isReversed}
-          />
+          <FieldMessage message={validationMessage} status={status} reversed={isReversed} />
         )}
         <div className={classnames(disabled && styles.disabled)}>
           <FieldMessage
             id={descriptionId}
-            message={
-              <DateInputDescription description={description} locale={locale} />
-            }
+            message={<DateInputDescription description={description} locale={locale} />}
             reversed={isReversed}
           />
         </div>

@@ -34,9 +34,7 @@ export const Variants: Story = {
       <Button label="Primary" primary reversed={reversed} />
       <Button label="Destructive" destructive reversed={reversed} />
       <Button label="Secondary" secondary reversed={reversed} />
-      {!reversed && (
-        <Button label="Secondary Destructive" secondary destructive />
-      )}
+      {!reversed && <Button label="Secondary Destructive" secondary destructive />}
     </>
   ),
   decorators: [
@@ -100,12 +98,7 @@ export const Working: Story = {
   render: () => (
     <>
       <Button label="Label" working workingLabel="Submitting" />
-      <Button
-        label="Label"
-        working
-        workingLabel="Submitting"
-        workingLabelHidden
-      />
+      <Button label="Label" working workingLabel="Submitting" workingLabelHidden />
     </>
   ),
   decorators: [
@@ -146,9 +139,7 @@ export const NativeFormButton: Story = {
 
 export const ResolveWorking: Story = {
   render: () => {
-    const [state, setState] = useState<'Ready' | 'Working' | 'Completed'>(
-      'Ready',
-    )
+    const [state, setState] = useState<'Ready' | 'Working' | 'Completed'>('Ready')
     const handleClick = (): void => {
       if (state === 'Ready') {
         setState('Working')

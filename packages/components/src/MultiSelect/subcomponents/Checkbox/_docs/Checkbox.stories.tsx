@@ -35,9 +35,7 @@ export const Playground: Story = {
       setStatus(checkedStatus)
     }, [checkedStatus])
 
-    const props = readOnly
-      ? { ...args, readOnly }
-      : { ...args, onChange: handleChange }
+    const props = readOnly ? { ...args, readOnly } : { ...args, onChange: handleChange }
 
     return <Checkbox {...props} checkedStatus={status} />
   },

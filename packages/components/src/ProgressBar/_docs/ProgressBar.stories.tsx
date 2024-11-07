@@ -62,7 +62,7 @@ const colors = [
     title: 'Yellow',
     props: { color: 'yellow' },
   },
-] satisfies { title: string, props: Partial<ProgressBarProps> }[]
+] satisfies { title: string; props: Partial<ProgressBarProps> }[]
 
 export const Colors: Story = {
   render: () => (

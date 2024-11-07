@@ -11,16 +11,11 @@ export const mergeClassNames = <
   ClassNameTypes extends (ClassNameValue | ((state: any) => string))[],
 >(
   ...classNames: ClassNameTypes
-): (() => string) extends ClassNameTypes[number]
-  ? (state: any) => string
-  : string => {
-  const containsFunction = classNames.some(
-    (className) => typeof className === 'function',
-  )
+): (() => string) extends ClassNameTypes[number] ? (state: any) => string : string => {
+  const containsFunction = classNames.some((className) => typeof className === 'function')
 
   // "as any" is used because TS is not smart enough to know that containsFunction means that ClassNameType doesn't extend Function
-  if (!containsFunction)
-    return classnames(...(classNames as ClassNameValue[])) as any
+  if (!containsFunction) return classnames(...(classNames as ClassNameValue[])) as any
 
   // "as any" is used because TS is not smart enough to know that containsFunction means that ClassNameType doesn't extend Function
   return ((state: any) =>

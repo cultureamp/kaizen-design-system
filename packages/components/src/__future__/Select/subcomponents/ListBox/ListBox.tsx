@@ -20,9 +20,7 @@ export type SingleListBoxProps<Option extends SelectOption> = OverrideClassName<
  * This is used to determine which element from the collection to focus to on open base on the keyboard event
  * ie: UpArrow will set the focusStrategy to "last"
  */
-const getOptionKeyFromCollection = (
-  state: SelectState<SelectItem<any>>,
-): Key | null => {
+const getOptionKeyFromCollection = (state: SelectState<SelectItem<any>>): Key | null => {
   if (state.selectedItem) {
     return state.selectedItem.key
   } else if (state.focusStrategy === 'last') {

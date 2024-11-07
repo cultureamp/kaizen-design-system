@@ -2,9 +2,7 @@ import React, { HTMLAttributes } from 'react'
 import { StickerSheetRowProps } from '../StickerSheetRow'
 
 export type StickerSheetBodyProps = {
-  children:
-    | React.ReactElement<StickerSheetRowProps>
-    | React.ReactElement<StickerSheetRowProps>[]
+  children: React.ReactElement<StickerSheetRowProps> | React.ReactElement<StickerSheetRowProps>[]
   isReversed?: boolean
 } & Omit<HTMLAttributes<HTMLTableSectionElement>, 'children'>
 

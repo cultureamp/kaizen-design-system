@@ -19,15 +19,10 @@ DosAndDonts.displayName = 'DosAndDonts'
 
 const DoOrDontTag = ({ isDont }: { isDont: boolean }): JSX.Element => (
   <Unstyled>
-    <span
-      className={classnames(
-        styles.doOrDontTag,
-        isDont ? 'bg-red-500' : 'bg-green-500',
-      )}
-    >
+    <span className={classnames(styles.doOrDontTag, isDont ? 'bg-red-500' : 'bg-green-500')}>
       <Icon name={isDont ? 'close' : 'check'} isPresentational />
       <Text variant="body" color="white">
-        <strong>{isDont ? 'Don\'t' : 'Do'}</strong>
+        <strong>{isDont ? "Don't" : 'Do'}</strong>
       </Text>
     </span>
   </Unstyled>

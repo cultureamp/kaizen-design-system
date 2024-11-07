@@ -78,9 +78,7 @@ describe('<FilterBarSelect />', () => {
     it('does not show the remove button when isRemovable is false', async () => {
       render(<FilterBarSelectWrapper />)
       await waitFor(() => {
-        expect(
-          screen.getByRole('button', { name: 'Flavour' }),
-        ).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Flavour' })).toBeInTheDocument()
       })
       expect(
         screen.queryByRole('button', { name: 'Remove filter - Flavour' }),
@@ -95,9 +93,7 @@ describe('<FilterBarSelect />', () => {
         />,
       )
       await waitFor(() => {
-        expect(
-          screen.getByRole('button', { name: 'Remove filter - Flavour' }),
-        ).toBeVisible()
+        expect(screen.getByRole('button', { name: 'Remove filter - Flavour' })).toBeVisible()
       })
     })
   })
@@ -147,17 +143,13 @@ describe('<FilterBarSelect />', () => {
 
     await user.click(getByRole('option', { name: 'Honey Milk Tea' }))
     await waitFor(() => {
-      expect(
-        getByRole('button', { name: 'Flavour : Honey Milk Tea' }),
-      ).toBeInTheDocument()
+      expect(getByRole('button', { name: 'Flavour : Honey Milk Tea' })).toBeInTheDocument()
     })
   })
 
   it('allows calling additional functions on selection change', async () => {
     const onChange = vi.fn()
-    const { getByRole } = render(
-      <FilterBarSelectWrapper onSelectionChange={onChange} />,
-    )
+    const { getByRole } = render(<FilterBarSelectWrapper onSelectionChange={onChange} />)
     const triggerButton = getByRole('button', { name: 'Flavour' })
 
     await user.click(triggerButton)
@@ -193,16 +185,13 @@ describe('<FilterBarSelect />', () => {
 
       const [items, setItems] = useState<Item[]>([])
 
-      const { getFilterState } = useFilterBarContext<
-        ValuesDependent['topping'],
-        ValuesDependent
-      >()
+      const { getFilterState } = useFilterBarContext<ValuesDependent['topping'], ValuesDependent>()
       const flavourFilter = getFilterState('flavour')
 
       useEffect(() => {
         setItems(data.filter(({ flavour }) => flavourFilter.value === flavour))
-      // `data` does not change
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+        // `data` does not change
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [flavourFilter.value])
 
       return <FilterBarSelect id="topping" items={items} />

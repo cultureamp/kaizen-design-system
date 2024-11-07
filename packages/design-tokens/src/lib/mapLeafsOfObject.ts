@@ -20,10 +20,7 @@ import { DeepMapObjectLeafs } from '../legacy/types'
  * }
  * ```
  */
-export function mapLeafsOfObject<
-  Obj extends Record<string | number, unknown>,
-  Value,
->(
+export function mapLeafsOfObject<Obj extends Record<string | number, unknown>, Value>(
   object: Obj,
   mapper: (pathToLeaf: string[], value: unknown) => Value,
 ): DeepMapObjectLeafs<Obj, Value> {
@@ -31,15 +28,7 @@ export function mapLeafsOfObject<
     currentPath: string[],
     obj: O,
   ): DeepMapObjectLeafs<O, Value> => {
-    const handleEntry = (
-      key: string,
-      value: unknown,
-    ):
-      | {
-        [x: string]: unknown
-        [x: number]: unknown
-      }
-      | Value => {
+    const handleEntry = (key: string, value: unknown): Record<string | number, unknown> | Value => {
       const pathToKey = [...currentPath, key]
       if (typeof value === 'object' && value !== null && value !== undefined) {
         return recurser(pathToKey, value as Record<string | number, unknown>)

@@ -10,10 +10,7 @@ export const DeltaWhiteIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <defs>
-        <path
-          id={uniqueId}
-          d="M2 10c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8-8 3.58-8 8"
-        />
+        <path id={uniqueId} d="M2 10c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8-8 3.58-8 8" />
       </defs>
       <g fill="none" fillRule="evenodd">
         <use fill="currentColor" href={`#${uniqueId}`} />

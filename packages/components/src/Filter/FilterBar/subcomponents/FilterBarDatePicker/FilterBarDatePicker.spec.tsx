@@ -2,14 +2,8 @@ import React, { useState } from 'react'
 import { screen, waitFor, within, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import {
-  FilterAttributes,
-  FilterBarProvider,
-} from '~components/Filter/FilterBar'
-import {
-  FilterBarDatePicker,
-  FilterBarDatePickerProps,
-} from './FilterBarDatePicker'
+import { FilterAttributes, FilterBarProvider } from '~components/Filter/FilterBar'
+import { FilterBarDatePicker, FilterBarDatePickerProps } from './FilterBarDatePicker'
 
 const user = userEvent.setup()
 
@@ -69,9 +63,7 @@ describe('<FilterBarDatePicker />', () => {
     it('does not show the remove button when isRemovable is false', async () => {
       render(<FilterBarDatePickerWrapper />)
       await waitFor(() => {
-        expect(
-          screen.getByRole('button', { name: 'Drank' }),
-        ).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Drank' })).toBeInTheDocument()
         expect(
           screen.queryByRole('button', { name: 'Remove filter - Drank' }),
         ).not.toBeInTheDocument()
@@ -86,9 +78,7 @@ describe('<FilterBarDatePicker />', () => {
         />,
       )
       await waitFor(() => {
-        expect(
-          screen.getByRole('button', { name: 'Remove filter - Drank' }),
-        ).toBeVisible()
+        expect(screen.getByRole('button', { name: 'Remove filter - Drank' })).toBeVisible()
       })
     })
   })
@@ -112,9 +102,7 @@ describe('<FilterBarDatePicker />', () => {
 
   it('shows a selected value when provided', async () => {
     const { getByRole } = render(
-      <FilterBarDatePickerWrapper
-        defaultValues={{ drank: new Date('2023-06-06') }}
-      />,
+      <FilterBarDatePickerWrapper defaultValues={{ drank: new Date('2023-06-06') }} />,
     )
     await waitFor(() => {
       const triggerButton = getByRole('button', {
@@ -125,11 +113,7 @@ describe('<FilterBarDatePicker />', () => {
   })
 
   it('updates the selected value in the trigger button when selecting a date', async () => {
-    render(
-      <FilterBarDatePickerWrapper
-        defaultValues={{ drank: new Date('2023-06-06') }}
-      />,
-    )
+    render(<FilterBarDatePickerWrapper defaultValues={{ drank: new Date('2023-06-06') }} />)
     const triggerButton = screen.getByRole('button', {
       name: 'Drank : 6 Jun 2023',
     })
@@ -147,9 +131,7 @@ describe('<FilterBarDatePicker />', () => {
     await user.click(targetDay)
 
     await waitFor(() => {
-      expect(
-        screen.getByRole('button', { name: 'Drank : 7 Jun 2023' }),
-      ).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: 'Drank : 7 Jun 2023' })).toBeInTheDocument()
     })
   })
 

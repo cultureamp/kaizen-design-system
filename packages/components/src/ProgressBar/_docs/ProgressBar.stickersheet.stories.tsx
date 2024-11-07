@@ -1,10 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import isChromatic from 'chromatic'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { ProgressBar, ProgressBarProps } from '../index'
 
 export default {
@@ -45,7 +42,7 @@ const moods = [
     title: 'Cautionary',
     props: { mood: 'cautionary' },
   },
-] satisfies { title: string, props: Partial<ProgressBarProps> }[]
+] satisfies { title: string; props: Partial<ProgressBarProps> }[]
 
 const colors = [
   {
@@ -68,7 +65,7 @@ const colors = [
     title: 'Green (Animated)',
     props: { color: 'green', isAnimating: isNotChromatic },
   },
-] satisfies { title: string, props: Partial<ProgressBarProps> }[]
+] satisfies { title: string; props: Partial<ProgressBarProps> }[]
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed = false }) => {
@@ -83,18 +80,10 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet
-          className="w-full"
-          heading="ProgressBar"
-          isReversed={isReversed}
-        >
+        <StickerSheet className="w-full" heading="ProgressBar" isReversed={isReversed}>
           <StickerSheet.Body>
             {colors.map(({ title, props }) => (
-              <StickerSheet.Row
-                key={title}
-                rowTitle={title}
-                rowTitleWidth="100px"
-              >
+              <StickerSheet.Row key={title} rowTitle={title} rowTitleWidth="100px">
                 <ProgressBar {...defaultProps} {...props} />
               </StickerSheet.Row>
             ))}
@@ -107,11 +96,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         >
           <StickerSheet.Body>
             {moods.map(({ title, props }) => (
-              <StickerSheet.Row
-                key={title}
-                rowTitle={title}
-                rowTitleWidth="100px"
-              >
+              <StickerSheet.Row key={title} rowTitle={title} rowTitleWidth="100px">
                 <ProgressBar {...defaultProps} {...props} />
               </StickerSheet.Row>
             ))}

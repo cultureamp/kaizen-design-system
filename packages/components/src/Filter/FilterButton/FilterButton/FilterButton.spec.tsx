@@ -2,9 +2,9 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { FilterButton, FilterButtonProps } from '.'
 
-const FilterButtonWrapper = (
-  props: Partial<FilterButtonProps>,
-): JSX.Element => <FilterButton label="Desserts" isOpen={false} {...props} />
+const FilterButtonWrapper = (props: Partial<FilterButtonProps>): JSX.Element => (
+  <FilterButton label="Desserts" isOpen={false} {...props} />
+)
 
 describe('<FilterButton />', () => {
   it('has the required attributes when not expanded', () => {
@@ -30,9 +30,7 @@ describe('<FilterButton />', () => {
 
   it('should show the label and selected value when defined', () => {
     render(<FilterButtonWrapper selectedValue="Cake" />)
-    expect(
-      screen.getByRole('button', { name: 'Desserts : Cake' }),
-    ).toBeVisible()
+    expect(screen.getByRole('button', { name: 'Desserts : Cake' })).toBeVisible()
   })
 
   it('should only show the label when selected value is an empty string', () => {

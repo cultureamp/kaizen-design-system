@@ -1,10 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { Text } from '~components/Text'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Well, WellProps } from '../index'
 import { borderStyleTypes, wellColors, variantTypes } from '../types'
 
@@ -19,10 +16,9 @@ export default {
 const WellWrapped = (props: WellProps): JSX.Element => (
   <Well {...props}>
     <Text variant="body">
-      Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick
-      fatback cow tongue ground round chicken. Jowl cow short ribs, ham tongue
-      turducken spare ribs pig drumstick chuck meatball. Buffalo turducken
-      pancetta tail salami chicken. Bresaola venison pastrami beef.
+      Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick fatback cow tongue
+      ground round chicken. Jowl cow short ribs, ham tongue turducken spare ribs pig drumstick chuck
+      meatball. Buffalo turducken pancetta tail salami chicken. Bresaola venison pastrami beef.
     </Text>
   </Well>
 )
@@ -39,11 +35,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           {variantTypes.map((variant) => (
             <StickerSheet.Row key={variant} rowTitle={variant}>
               {borderStyleTypes.map((border) => (
-                <WellWrapped
-                  key={border}
-                  variant={variant}
-                  borderStyle={border}
-                />
+                <WellWrapped key={border} variant={variant} borderStyle={border} />
               ))}
             </StickerSheet.Row>
           ))}

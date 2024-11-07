@@ -6,7 +6,7 @@ name: Chromatic (main)
 on:
   push:
     branches:
-      - "main"
+      - 'main'
 
 jobs:
   update-baseline:
@@ -24,5 +24,5 @@ jobs:
         with:
           token: ${{ github.token }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          storybookBuildDir: "./docs/storybook-static"
+          storybookBuildDir: './docs/storybook-static'
           autoAcceptChanges: main # 👈 Auto accept main builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)

@@ -2,11 +2,7 @@ import React from 'react'
 import { Menu, MenuList, Button, IconButton } from '~components/__actions__/v2'
 import { Icon } from '~components/__future__/Icon'
 import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from '../constants'
-import {
-  DefaultActionProps,
-  PrimaryActionProps,
-  TitleBlockMenuItemProps,
-} from '../types'
+import { DefaultActionProps, PrimaryActionProps, TitleBlockMenuItemProps } from '../types'
 import { isMenuGroupNotButton } from '../utils'
 import { TitleBlockMenuItem } from './TitleBlockMenuItem'
 import { Toolbar } from './Toolbar'
@@ -63,14 +59,12 @@ export const MainActions = ({
               node: (
                 <Menu
                   align="right"
-                  button={(
+                  button={
                     <Button
                       label={primaryAction.label}
                       primary
                       reversed={reversed}
-                      icon={
-                        <Icon name="keyboard_arrow_down" isPresentational />
-                      }
+                      icon={<Icon name="keyboard_arrow_down" isPresentational />}
                       iconPosition="end"
                       data-automation-id="title-block-primary-action-button"
                       data-testid="title-block-primary-action-button"
@@ -83,7 +77,7 @@ export const MainActions = ({
                           : undefined
                       }
                     />
-                  )}
+                  }
                 >
                   <MenuList>{menuContent}</MenuList>
                 </Menu>
@@ -147,14 +141,14 @@ export const MainActions = ({
         node: (
           <Menu
             align="right"
-            button={(
+            button={
               <IconButton
                 id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
                 label="Open secondary menu"
                 reversed={reversed}
                 icon={<Icon name="more_horiz" isPresentational />}
               />
-            )}
+            }
           >
             <MenuList>
               {overflowMenuItems.map((menuItem, idx) => (

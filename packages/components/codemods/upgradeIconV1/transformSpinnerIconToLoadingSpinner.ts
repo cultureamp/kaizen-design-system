@@ -1,18 +1,12 @@
 import ts from 'typescript'
-import {
-  createStringProp,
-  getPropValueText,
-  updateJsxElementWithNewProps,
-} from '../utils'
+import { createStringProp, getPropValueText, updateJsxElementWithNewProps } from '../utils'
 
 export const transformSpinnerIconToLoadingSpinner = (
   node: ts.JsxOpeningElement | ts.JsxSelfClosingElement,
   tagName: string = 'LoadingSpinner',
 ): ts.Node => {
   let accessibilityLabel = 'Loading'
-  const newAttributes = node.attributes.properties.reduce<
-    ts.JsxAttributeLike[]
-  >((acc, attr) => {
+  const newAttributes = node.attributes.properties.reduce<ts.JsxAttributeLike[]>((acc, attr) => {
     if (ts.isJsxAttribute(attr)) {
       const propName = attr.name.getText()
 
@@ -32,9 +26,7 @@ export const transformSpinnerIconToLoadingSpinner = (
     return acc
   }, [])
 
-  newAttributes.unshift(
-    createStringProp('accessibilityLabel', accessibilityLabel),
-  )
+  newAttributes.unshift(createStringProp('accessibilityLabel', accessibilityLabel))
   newAttributes.unshift(createStringProp('size', 'xs'))
 
   return updateJsxElementWithNewProps(node, newAttributes, tagName)

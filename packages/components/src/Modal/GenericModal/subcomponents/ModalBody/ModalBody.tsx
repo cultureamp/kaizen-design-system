@@ -7,10 +7,7 @@ export type ModalBodyProps = {
   children: React.ReactNode
 }
 
-export const ModalBody = ({
-  inputEdit = false,
-  children,
-}: ModalBodyProps): JSX.Element => (
+export const ModalBody = ({ inputEdit = false, children }: ModalBodyProps): JSX.Element => (
   <div className={classnames(inputEdit && styles.inputEdit)}>{children}</div>
 )
 

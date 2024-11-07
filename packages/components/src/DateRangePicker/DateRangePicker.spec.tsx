@@ -7,9 +7,7 @@ import { DateRangePicker, DateRangePickerProps } from './index'
 
 const user = userEvent.setup()
 
-const DateRangePickerWrapper = (
-  props: Partial<DateRangePickerProps>,
-): JSX.Element => {
+const DateRangePickerWrapper = (props: Partial<DateRangePickerProps>): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
     from: props.selectedDateRange?.from,
     to: props.selectedDateRange?.to,

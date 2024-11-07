@@ -36,43 +36,24 @@ export const Slider = ({
 
   return (
     <FieldGroup inline>
-      <div
-        className={classnames(
-          styles.wrapper,
-          labelPosition === 'inline' && styles.labelInline,
-        )}
-      >
+      <div className={classnames(styles.wrapper, labelPosition === 'inline' && styles.labelInline)}>
         <div className={styles.labelWrapper}>
           <div className={styles.label}>
-            <Label
-              htmlFor={id}
-              labelText={labelText}
-              variant={variant}
-              disabled={disabled}
-            />
+            <Label htmlFor={id} labelText={labelText} variant={variant} disabled={disabled} />
           </div>
           {description && (
             <Text
               variant="small"
               id={descriptionId}
-              classNameOverride={
-                disabled ? styles.descriptionDisabled : undefined
-              }
+              classNameOverride={disabled ? styles.descriptionDisabled : undefined}
             >
               {description}
             </Text>
           )}
         </div>
         <div className={styles.inputWrapper}>
-          <InputRange
-            id={id}
-            aria-describedby={descriptionId}
-            disabled={disabled}
-            {...restProps}
-          />
-          {readOnlyMessage && (
-            <div className={styles.readOnlyMessage}>{readOnlyMessage}</div>
-          )}
+          <InputRange id={id} aria-describedby={descriptionId} disabled={disabled} {...restProps} />
+          {readOnlyMessage && <div className={styles.readOnlyMessage}>{readOnlyMessage}</div>}
         </div>
       </div>
     </FieldGroup>

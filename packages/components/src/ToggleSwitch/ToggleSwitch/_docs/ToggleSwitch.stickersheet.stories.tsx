@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { ToggleSwitch } from '../index'
 
 export default {
@@ -41,16 +38,8 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="on">
           <ToggleSwitch reversed={isReversed} toggledStatus="on" />
-          <ToggleSwitch
-            reversed={isReversed}
-            toggledStatus="on"
-            data-sb-pseudo-styles="hover"
-          />
-          <ToggleSwitch
-            reversed={isReversed}
-            toggledStatus="on"
-            data-sb-pseudo-styles="focus"
-          />
+          <ToggleSwitch reversed={isReversed} toggledStatus="on" data-sb-pseudo-styles="hover" />
+          <ToggleSwitch reversed={isReversed} toggledStatus="on" data-sb-pseudo-styles="focus" />
           <ToggleSwitch reversed={isReversed} toggledStatus="on" disabled />
         </StickerSheet.Row>
       </StickerSheet.Body>

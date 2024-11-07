@@ -5,7 +5,7 @@ const {
   replaceAttrKeys,
   replaceColor,
   replaceId,
-// eslint-disable-next-line @typescript-eslint/no-require-imports
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
 } = require('./svgoUtils')
 
 type SVGOItem = {
@@ -72,38 +72,38 @@ describe('replaceAttrKeys', () => {
   }
   replaceAttrKeys(dummyItem)
 
-  it('Replaces \'xlink:href\' keys with \'href\'', () => {
+  it("Replaces 'xlink:href' keys with 'href'", () => {
     expect(dummyItem.attributes.href).toEqual(dummyHref)
     expect(dummyItem.attributes).not.toHaveProperty('xlink:href')
   })
-  it('Replaces \'fill-rule\' keys with \'fillRule\'', () => {
+  it("Replaces 'fill-rule' keys with 'fillRule'", () => {
     expect(dummyItem.attributes.fillRule).toEqual(dummyFillRule)
     expect(dummyItem.attributes).not.toHaveProperty('fill-rule')
   })
-  it('Replaces \'stroke-width\' keys with \'strokeWidth\'', () => {
+  it("Replaces 'stroke-width' keys with 'strokeWidth'", () => {
     expect(dummyItem.attributes.strokeWidth).toEqual(dummyStrokeWidth)
     expect(dummyItem.attributes).not.toHaveProperty('stroke-width')
   })
-  it('Replaces \'stroke-linejoin\' keys with \'strokeLinejoin\'', () => {
+  it("Replaces 'stroke-linejoin' keys with 'strokeLinejoin'", () => {
     expect(dummyItem.attributes.strokeLinejoin).toEqual(dummyLinejoin)
     expect(dummyItem.attributes).not.toHaveProperty('stroke-linejoin')
   })
-  it('Replaces \'stroke-linecap\' keys with \'strokeLinecap\'', () => {
+  it("Replaces 'stroke-linecap' keys with 'strokeLinecap'", () => {
     expect(dummyItem.attributes.strokeLinecap).toEqual(dummyLinecap)
     expect(dummyItem.attributes).not.toHaveProperty('stroke-linecap')
   })
-  it('Replaces \'clip-rule\' keys with \'clipRule\'', () => {
+  it("Replaces 'clip-rule' keys with 'clipRule'", () => {
     expect(dummyItem.attributes.clipRule).toEqual(dummyClipRule)
     expect(dummyItem.attributes).not.toHaveProperty('clip-rule')
   })
-  it('Replaces \'class\' keys with \'className\'', () => {
+  it("Replaces 'class' keys with 'className'", () => {
     expect(dummyItem.attributes.className).toEqual(dummyClass)
     expect(dummyItem.attributes).not.toHaveProperty('class')
   })
 })
 
 describe('replaceColor', () => {
-  it('Replaces fill: \'#000\' with fill: \'currentColor\'', () => {
+  it("Replaces fill: '#000' with fill: 'currentColor'", () => {
     const dummyItem: SVGOItem = {
       type: 'element',
       name: 'use',
@@ -117,7 +117,7 @@ describe('replaceColor', () => {
     expect(dummyItem.attributes.fill).toEqual('currentColor')
   })
 
-  it('Replaces fill: \'#000000\' with fill: \'currentColor\'', () => {
+  it("Replaces fill: '#000000' with fill: 'currentColor'", () => {
     const dummyItem: SVGOItem = {
       type: 'element',
       name: 'use',

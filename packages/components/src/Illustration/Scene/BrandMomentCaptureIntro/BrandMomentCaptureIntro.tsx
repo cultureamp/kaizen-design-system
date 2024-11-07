@@ -14,8 +14,7 @@ export const BrandMomentCaptureIntro = ({
   enableAspectRatio,
   ...otherProps
 }: AnimatedSceneProps): JSX.Element => {
-  const [firstAnimationComplete, setFirstAnimationComplete] =
-    useState<boolean>(false)
+  const [firstAnimationComplete, setFirstAnimationComplete] = useState<boolean>(false)
   const aspectRatio = enableAspectRatio ? 'landscape' : undefined
 
   if (!isAnimated) {

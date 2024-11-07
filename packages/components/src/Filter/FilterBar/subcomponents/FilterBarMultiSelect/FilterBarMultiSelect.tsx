@@ -10,10 +10,7 @@ import { useFilterBarContext } from '../../context/FilterBarContext'
 import { checkArraysMatch } from '../../utils/checkArraysMatch'
 import styles from './FilterBarMultiSelect.module.css'
 
-export type FilterBarMultiSelectProps = Omit<
-  FilterMultiSelectProps,
-  'label' | 'trigger'
-> & {
+export type FilterBarMultiSelectProps = Omit<FilterMultiSelectProps, 'label' | 'trigger'> & {
   id?: string
   label?: FilterMultiSelectProps['label']
   trigger?: FilterMultiSelectProps['trigger']
@@ -24,18 +21,15 @@ export type FilterBarMultiSelectProps = Omit<
 // Someone fix please.
 export type ConsumableSelection = string | Key[] | undefined
 
-const convertSelectionToAConsumableFormat = (
-  value: Selection,
-): ConsumableSelection => {
+const convertSelectionToAConsumableFormat = (value: Selection): ConsumableSelection => {
   if (value === 'all') return 'all'
   const arrayOfValues = Array.from(value)
 
   return arrayOfValues.length > 0 ? Array.from(value) : undefined
 }
 
-const convertConsumableFormatIntoSelection = (
-  value: ConsumableSelection,
-): Selection => new Set(value)
+const convertConsumableFormatIntoSelection = (value: ConsumableSelection): Selection =>
+  new Set(value)
 
 export const FilterBarMultiSelect = ({
   id,
@@ -44,14 +38,8 @@ export const FilterBarMultiSelect = ({
   onSelectionChange,
   ...props
 }: FilterBarMultiSelectProps): JSX.Element | null => {
-  const {
-    getFilterState,
-    setFilterOpenState,
-    updateValue,
-    hideFilter,
-    focusId,
-    setFocus,
-  } = useFilterBarContext<ConsumableSelection>()
+  const { getFilterState, setFilterOpenState, updateValue, hideFilter, focusId, setFocus } =
+    useFilterBarContext<ConsumableSelection>()
   const [items, setItems] = useState<ItemType[]>(propsItems)
   const buttonRef = useRef<HTMLButtonElement>(null)
 
@@ -63,16 +51,14 @@ export const FilterBarMultiSelect = ({
     if (!checkArraysMatch(items, propsItems)) {
       setItems(propsItems)
     }
-  // One way check to update on external changes
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // One way check to update on external changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsItems])
 
   useEffect(() => {
     if (Array.isArray(filterState.value)) {
       const itemValues = items.map(({ value }) => value)
-      const filteredValues = filterState.value.filter((value) =>
-        itemValues.includes(value),
-      )
+      const filteredValues = filterState.value.filter((value) => itemValues.includes(value))
 
       if (!checkArraysMatch(filterState.value, filteredValues)) {
         updateValue(id, filteredValues)
@@ -105,27 +91,25 @@ export const FilterBarMultiSelect = ({
         const triggerProps = {
           selectedOptionLabels: filterState.value
             ? getSelectedOptionLabels(
-              convertConsumableFormatIntoSelection(filterState.value),
-              items,
-            )
+                convertConsumableFormatIntoSelection(filterState.value),
+                items,
+              )
             : [],
           label: filterState.name,
         }
 
-        return filterState.isRemovable
-          ? (
-              <FilterMultiSelect.RemovableTrigger
-                {...triggerProps}
-                onRemove={() => hideFilter(id)}
-                classNameOverride={styles.triggerButton}
-              />
-            )
-          : (
-              <FilterMultiSelect.TriggerButton
-                classNameOverride={styles.triggerButton}
-                {...triggerProps}
-              />
-            )
+        return filterState.isRemovable ? (
+          <FilterMultiSelect.RemovableTrigger
+            {...triggerProps}
+            onRemove={() => hideFilter(id)}
+            classNameOverride={styles.triggerButton}
+          />
+        ) : (
+          <FilterMultiSelect.TriggerButton
+            classNameOverride={styles.triggerButton}
+            {...triggerProps}
+          />
+        )
       }}
       triggerRef={buttonRef}
       {...props}

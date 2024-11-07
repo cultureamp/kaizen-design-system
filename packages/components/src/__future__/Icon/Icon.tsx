@@ -18,7 +18,7 @@ type MeaningfulIcon = {
 type BaseIconProps = {
   isFilled?: boolean
 } & HTMLAttributes<HTMLSpanElement> &
-(PresentationalIcon | MeaningfulIcon)
+  (PresentationalIcon | MeaningfulIcon)
 
 type MaterialIconProps = BaseIconProps & {
   children: React.ReactNode
@@ -54,11 +54,7 @@ export type IconProps = BaseIconProps & {
   shouldMirrorInRTL?: boolean
 }
 
-export const Icon = ({
-  name,
-  shouldMirrorInRTL,
-  ...restProps
-}: IconProps): JSX.Element => {
+export const Icon = ({ name, shouldMirrorInRTL, ...restProps }: IconProps): JSX.Element => {
   if (!shouldMirrorInRTL) {
     return <MaterialIcon {...restProps}>{name}</MaterialIcon>
   }

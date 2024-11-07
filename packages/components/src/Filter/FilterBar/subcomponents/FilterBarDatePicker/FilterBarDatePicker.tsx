@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  FilterDatePicker,
-  FilterDatePickerProps,
-} from '~components/Filter/FilterDatePicker'
+import { FilterDatePicker, FilterDatePickerProps } from '~components/Filter/FilterDatePicker'
 import { useFilterBarContext } from '../../context/FilterBarContext'
 import { FilterBarButton } from '../FilterBarButton'
 
@@ -28,8 +25,9 @@ export const FilterBarDatePicker = ({
   locale = 'en-AU',
   ...props
 }: FilterBarDatePickerProps): JSX.Element => {
-  const { getFilterState, setFilterOpenState, updateValue } =
-    useFilterBarContext<Date | undefined>()
+  const { getFilterState, setFilterOpenState, updateValue } = useFilterBarContext<
+    Date | undefined
+  >()
 
   if (!id) throw Error('Missing `id` prop in FilterBarDatePicker')
 
@@ -43,11 +41,7 @@ export const FilterBarDatePicker = ({
       selectedDate={filterState.value}
       label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element => (
-        <FilterBarButton
-          {...triggerProps}
-          filterId={id}
-          isRemovable={filterState.isRemovable}
-        />
+        <FilterBarButton {...triggerProps} filterId={id} isRemovable={filterState.isRemovable} />
       )}
       onDateChange={(key): void => {
         updateValue(id, key)

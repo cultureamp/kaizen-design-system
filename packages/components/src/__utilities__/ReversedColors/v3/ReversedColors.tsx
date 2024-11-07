@@ -7,14 +7,11 @@ export type ReversedColorsProps = {
 
 const ReversedColorsContext = React.createContext<boolean>(false)
 
-export const useReversedColors = (): boolean =>
-  React.useContext(ReversedColorsContext)
+export const useReversedColors = (): boolean => React.useContext(ReversedColorsContext)
 
 export const ReversedColors = ({
   children,
   isReversed = true,
 }: ReversedColorsProps): JSX.Element => (
-  <ReversedColorsContext.Provider value={isReversed}>
-    {children}
-  </ReversedColorsContext.Provider>
+  <ReversedColorsContext.Provider value={isReversed}>{children}</ReversedColorsContext.Provider>
 )

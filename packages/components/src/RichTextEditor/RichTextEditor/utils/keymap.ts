@@ -12,11 +12,9 @@ type KeyBinding = Record<string, ProseMirrorState.Command>
 export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
   const { redo, undo } = ProseMirrorHistory
   const { undoInputRule } = ProseMirrorInputrules
-  const { wrapInList, splitListItem, liftListItem, sinkListItem } =
-    ProseMirrorSchemaList
+  const { wrapInList, splitListItem, liftListItem, sinkListItem } = ProseMirrorSchemaList
 
-  const mac =
-    typeof navigator != 'undefined' ? navigator.platform.includes('Mac') : false
+  const mac = typeof navigator != 'undefined' ? navigator.platform.includes('Mac') : false
 
   const {
     chainCommands,

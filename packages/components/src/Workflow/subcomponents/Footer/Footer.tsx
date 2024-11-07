@@ -14,7 +14,7 @@ export type FooterProps = {
   /** An action to progress to the next step or submit the form */
   nextAction?: JSX.Element
 } & ProgressStepperProps &
-OverrideClassName<Omit<FooterRootProps, 'children'>>
+  OverrideClassName<Omit<FooterRootProps, 'children'>>
 
 export const Footer = ({
   steps,
@@ -26,11 +26,7 @@ export const Footer = ({
 }: FooterProps): JSX.Element => (
   <FooterRoot {...restProps}>
     <FooterAction action={previousAction} actionType="Previous" />
-    <ProgressStepper
-      steps={steps}
-      currentStepId={currentStepId}
-      isComplete={isComplete}
-    />
+    <ProgressStepper steps={steps} currentStepId={currentStepId} isComplete={isComplete} />
     <FooterAction action={nextAction} actionType="Next" />
   </FooterRoot>
 )

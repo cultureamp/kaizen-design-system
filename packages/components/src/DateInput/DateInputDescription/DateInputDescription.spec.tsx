@@ -12,9 +12,7 @@ describe('DateInputDescription', () => {
   })
 
   it('returns template string when description is empty string', async () => {
-    const { container } = render(
-      <DateInputDescription description="" locale={enUS} />,
-    )
+    const { container } = render(<DateInputDescription description="" locale={enUS} />)
     await waitFor(() => {
       expect(container).toHaveTextContent('Input format:mm/dd/yyyy')
     })
@@ -22,29 +20,19 @@ describe('DateInputDescription', () => {
 
   it('returns template string when description is a string', async () => {
     const { container } = render(
-      <DateInputDescription
-        description="Custom description here"
-        locale={enUS}
-      />,
+      <DateInputDescription description="Custom description here" locale={enUS} />,
     )
     await waitFor(() => {
-      expect(container).toHaveTextContent(
-        'Custom description here(Input format:mm/dd/yyyy)',
-      )
+      expect(container).toHaveTextContent('Custom description here(Input format:mm/dd/yyyy)')
     })
   })
 
   it('returns template string when description is an element', async () => {
     const { container } = render(
-      <DateInputDescription
-        description={<span>Custom description span</span>}
-        locale={enUS}
-      />,
+      <DateInputDescription description={<span>Custom description span</span>} locale={enUS} />,
     )
     await waitFor(() => {
-      expect(container).toHaveTextContent(
-        'Custom description span(Input format:mm/dd/yyyy)',
-      )
+      expect(container).toHaveTextContent('Custom description span(Input format:mm/dd/yyyy)')
     })
   })
 })

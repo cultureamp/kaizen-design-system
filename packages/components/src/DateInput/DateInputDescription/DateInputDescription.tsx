@@ -16,13 +16,12 @@ export const DateInputDescription = ({
 }: DateInputDescriptionProps): JSX.Element => {
   const { formatMessage } = useIntl()
   const hasCustomDescription =
-    (typeof description === 'string' && description !== '') ||
-    React.isValidElement(description)
+    (typeof description === 'string' && description !== '') || React.isValidElement(description)
 
   const translatedInputFormatMessage = formatMessage({
     id: 'dateInputDescription.inputFormat',
     defaultMessage: 'Input format',
-    description: 'Label for the \'Input format\' field',
+    description: "Label for the 'Input format' field",
   })
 
   if (hasCustomDescription) {

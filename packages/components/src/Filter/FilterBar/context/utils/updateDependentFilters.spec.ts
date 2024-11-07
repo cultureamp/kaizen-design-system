@@ -58,9 +58,7 @@ describe('updateDependentFilters()', () => {
     const newState = updateDependentFilters<Values>(state)
 
     expect(sugarLevelIsUsableWhen).toBeCalledTimes(1)
-    expect(sugarLevelIsUsableWhen).toHaveReturnedWith(
-      stateFilters.sugarLevel.isUsable,
-    )
+    expect(sugarLevelIsUsableWhen).toHaveReturnedWith(stateFilters.sugarLevel.isUsable)
     expect(newState).toEqual(state)
   })
 
@@ -120,9 +118,7 @@ describe('updateDependentFilters()', () => {
       } satisfies FilterBarState<Values>
 
       const newState = updateDependentFilters<Values>(state)
-      expect(newState.activeFilterIds).toEqual(
-        new Set(['flavour', 'sugarLevel']),
-      )
+      expect(newState.activeFilterIds).toEqual(new Set(['flavour', 'sugarLevel']))
     })
 
     it('activates the filter if it is removable but has a value', () => {
@@ -142,9 +138,7 @@ describe('updateDependentFilters()', () => {
       } satisfies FilterBarState<Values>
 
       const newState = updateDependentFilters<Values>(state)
-      expect(newState.activeFilterIds).toEqual(
-        new Set(['flavour', 'sugarLevel']),
-      )
+      expect(newState.activeFilterIds).toEqual(new Set(['flavour', 'sugarLevel']))
     })
 
     it('does not activate the filter if it is removable without a value', () => {

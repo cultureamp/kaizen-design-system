@@ -9,29 +9,30 @@ type Props = {
 export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
   const [copyIconIsChecked, setCopyIconIsChecked] = useState(false)
   const handleCopy = (utilityClassNameName: string): void => {
-    navigator.clipboard.writeText(text)
-      .then(
-        () => {
-          setCopyIconIsChecked(true)
-          onCopy?.(utilityClassNameName)
-        },
-        () => undefined,
-      )
+    navigator.clipboard.writeText(text).then(
+      () => {
+        setCopyIconIsChecked(true)
+        onCopy?.(utilityClassNameName)
+      },
+      () => undefined,
+    )
   }
 
   return (
     <button
       type="button"
       className="bg-[#00182e] h-min rounded px-12 border-none cursor-pointer w-full"
-      onClick={(): void => handleCopy(text)}
-      onBlur={(): void => setCopyIconIsChecked(false)}
+      onClick={() => handleCopy(text)}
+      onBlur={() => setCopyIconIsChecked(false)}
     >
       <p className="font-family-paragraph text-white flex justify-between items-center">
         <span>{text}</span>
         <span className="text-underline text-white">
-          {copyIconIsChecked
-            ? <Icon name="assignment_turned_in" alt="Copied" isFilled />
-            : <Icon name="assignment" alt="Copy" isFilled />}
+          {copyIconIsChecked ? (
+            <Icon name="assignment_turned_in" alt="Copied" isFilled />
+          ) : (
+            <Icon name="assignment" alt="Copy" isFilled />
+          )}
         </span>
       </p>
     </button>

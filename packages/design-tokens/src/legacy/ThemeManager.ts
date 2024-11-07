@@ -41,8 +41,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     this.rootElement = element
   }
 
-  public setRootElementId = (rootElementId: string): string =>
-    (this.rootElementId = rootElementId)
+  public setRootElementId = (rootElementId: string): string => (this.rootElementId = rootElementId)
 
   public setAndApplyTheme = (theme: Theme, force?: boolean): void => {
     if (!force) {
@@ -57,19 +56,13 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     this.themeChangeListeners.push(listener)
   }
 
-  public removeThemeChangeListener = (
-    listener: (theme: Theme) => void,
-  ): void => {
-    this.themeChangeListeners = this.themeChangeListeners.filter(
-      (l) => l !== listener,
-    )
+  public removeThemeChangeListener = (listener: (theme: Theme) => void): void => {
+    this.themeChangeListeners = this.themeChangeListeners.filter((l) => l !== listener)
   }
 
   public applyCurrentTheme = (): void => {
     if (typeof window !== 'undefined') {
-      this.setRootElement(
-        document.getElementById(this.rootElementId) ?? document.documentElement,
-      )
+      this.setRootElement(document.getElementById(this.rootElementId) ?? document.documentElement)
       const cssVariableDefinitions = makeCssVariableDefinitionsMap(this.theme)
       Object.entries(cssVariableDefinitions).forEach(([key, value]) => {
         this.rootElement?.style.setProperty(key, value)

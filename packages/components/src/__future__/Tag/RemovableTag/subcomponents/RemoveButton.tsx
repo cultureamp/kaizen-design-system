@@ -9,8 +9,7 @@ export type RemoveButtonBaseProps = {
   onClick: () => void
 }
 export type RemoveButtonProps = OverrideClassName<
-  Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'color'> &
-  RemoveButtonBaseProps
+  Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'color'> & RemoveButtonBaseProps
 >
 
 export const RemoveButton = ({

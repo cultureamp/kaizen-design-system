@@ -10,9 +10,7 @@ const defaultToggleSwitchProps = {
   onToggle: vi.fn(),
 }
 
-const renderToggleSwitch = (
-  props?: ToggleSwitchProps,
-): ReturnType<typeof render> => {
+const renderToggleSwitch = (props?: ToggleSwitchProps): ReturnType<typeof render> => {
   const mergedToggleSwitchProps = { ...defaultToggleSwitchProps, ...props }
 
   return render(<ToggleSwitch {...mergedToggleSwitchProps} />)

@@ -1,11 +1,4 @@
-import React, {
-  ReactNode,
-  cloneElement,
-  useEffect,
-  useRef,
-  useState,
-  useId,
-} from 'react'
+import React, { ReactNode, cloneElement, useEffect, useRef, useState, useId } from 'react'
 import ReactDOM from 'react-dom'
 import { Placement } from '@popperjs/core'
 import classnames from 'classnames'
@@ -75,81 +68,67 @@ const TooltipContent = ({
   tooltipId,
   mood = 'default',
 }: TooltipContentProps): JSX.Element | null => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null,
-  )
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
   const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null)
-  const { styles: popperStyles, attributes } = usePopper(
-    referenceElement,
-    popperElement,
-    {
-      modifiers: [
-        {
-          name: 'arrow',
-          options: {
-            element: arrowElement,
-            // Ensures that the arrow doesn't go too far to the left or right
-            // of the tooltip.
-            padding: arrowWidth / 2 + 10,
-          },
+  const { styles: popperStyles, attributes } = usePopper(referenceElement, popperElement, {
+    modifiers: [
+      {
+        name: 'arrow',
+        options: {
+          element: arrowElement,
+          // Ensures that the arrow doesn't go too far to the left or right
+          // of the tooltip.
+          padding: arrowWidth / 2 + 10,
         },
-        {
-          name: 'offset',
-          options: {
-            offset: [0, arrowHeight + 6],
-          },
+      },
+      {
+        name: 'offset',
+        options: {
+          offset: [0, arrowHeight + 6],
         },
-        {
-          name: 'preventOverflow',
-          options: {
-            // Makes sure that the tooltip isn't flush up against the end of the
-            // viewport
-            padding: 8,
-            altAxis: true,
-            altBoundary: true,
-            tetherOffset: 50,
-          },
+      },
+      {
+        name: 'preventOverflow',
+        options: {
+          // Makes sure that the tooltip isn't flush up against the end of the
+          // viewport
+          padding: 8,
+          altAxis: true,
+          altBoundary: true,
+          tetherOffset: 50,
         },
-        {
-          name: 'flip',
-          options: {
-            padding: 8,
-            altBoundary: true,
-            fallbackPlacements: ['left', 'top', 'bottom', 'right'],
-          },
+      },
+      {
+        name: 'flip',
+        options: {
+          padding: 8,
+          altBoundary: true,
+          fallbackPlacements: ['left', 'top', 'bottom', 'right'],
         },
-      ],
-      placement: position ? positionToPlacement.get(position) : undefined,
-    },
-  )
+      },
+    ],
+    placement: position ? positionToPlacement.get(position) : undefined,
+  })
   const { isVisible, isAnimIn, isAnimOut } = useAnimation()
 
-  return isVisible || isAnimOut || isAnimIn
-    ? (
-        <div
-          ref={setPopperElement}
-          className={styles.tooltip}
-          style={popperStyles.popper}
-          {...attributes.popper}
-          role="tooltip"
-          id={tooltipId}
-        >
-          <div className={classnames(styles.tooltipContent, styles[mood])}>
-            {text}
-          </div>
-          <div
-            ref={setArrowElement}
-            className={styles.arrow}
-            style={popperStyles.arrow}
-          >
-            <div className={styles.arrowInner}>
-              <div className={classnames(styles.arrowMain, styles[mood])} />
-              <div className={styles.arrowShadow} />
-            </div>
-          </div>
+  return isVisible || isAnimOut || isAnimIn ? (
+    <div
+      ref={setPopperElement}
+      className={styles.tooltip}
+      style={popperStyles.popper}
+      {...attributes.popper}
+      role="tooltip"
+      id={tooltipId}
+    >
+      <div className={classnames(styles.tooltipContent, styles[mood])}>{text}</div>
+      <div ref={setArrowElement} className={styles.arrow} style={popperStyles.arrow}>
+        <div className={styles.arrowInner}>
+          <div className={classnames(styles.arrowMain, styles[mood])} />
+          <div className={styles.arrowShadow} />
         </div>
-      )
-    : null
+      </div>
+    </div>
+  ) : null
 }
 
 const renderChildren = (
@@ -183,8 +162,7 @@ export const Tooltip = ({
 }: TooltipProps): JSX.Element => {
   const [isHover, setIsHover] = useState(isInitiallyVisible)
   const [isFocus, setIsFocus] = useState(false)
-  const [referenceElement, setReferenceElement] =
-    useState<HTMLDivElement | null>(null)
+  const [referenceElement, setReferenceElement] = useState<HTMLDivElement | null>(null)
   const tooltipId = useId()
   const hasActiveTooltip = isHover || isFocus
 
@@ -209,9 +187,7 @@ export const Tooltip = ({
   useEffect(() => {
     if (portalSelector && !portalSelectorElementRef.current) {
       // eslint-disable-next-line no-console
-      console.warn(
-        'The portal could not be created using the selector: ' + portalSelector,
-      )
+      console.warn('The portal could not be created using the selector: ' + portalSelector)
     }
   }, [portalSelectorElementRef, portalSelector])
 
@@ -233,10 +209,7 @@ export const Tooltip = ({
   }
 
   return (
-    <AnimationProvider
-      isVisible={hasActiveTooltip}
-      animationDuration={animationDuration}
-    >
+    <AnimationProvider isVisible={hasActiveTooltip} animationDuration={animationDuration}>
       <>
         <div
           ref={setReferenceElement}

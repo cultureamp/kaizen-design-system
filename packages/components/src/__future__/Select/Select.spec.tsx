@@ -12,9 +12,7 @@ const SelectWrapper = ({
   onSelectionChange,
   ...props
 }: Partial<SelectProps>): JSX.Element => {
-  const [selected, setSelected] = React.useState<SelectProps['selectedKey']>(
-    selectedKey ?? null,
-  )
+  const [selected, setSelected] = React.useState<SelectProps['selectedKey']>(selectedKey ?? null)
   return (
     <Select
       label="Mock Label"
@@ -89,11 +87,7 @@ describe('<Select />', () => {
       it('fires the onOpenChange callback when the trigger is interacted', async () => {
         const onOpenChange = vi.fn()
         const { getByRole } = render(
-          <SelectWrapper
-            selectedKey="batch-brew"
-            defaultOpen
-            onOpenChange={onOpenChange}
-          />,
+          <SelectWrapper selectedKey="batch-brew" defaultOpen onOpenChange={onOpenChange} />,
         )
         const trigger = getByRole('combobox', {
           name: 'Mock Label',
@@ -109,9 +103,7 @@ describe('<Select />', () => {
     describe('Trigger - Mouse interaction', () => {
       describe('Given the menu is closed', () => {
         it('is opened when user clicks on the trigger', async () => {
-          const { getByRole } = render(
-            <SelectWrapper selectedKey="batch-brew" />,
-          )
+          const { getByRole } = render(<SelectWrapper selectedKey="batch-brew" />)
           const trigger = getByRole('combobox', {
             name: 'Mock Label',
           })
@@ -146,9 +138,7 @@ describe('<Select />', () => {
         })
 
         it('is closed when user clicks on an option', async () => {
-          const { getByRole, queryByRole } = render(
-            <SelectWrapper defaultOpen />,
-          )
+          const { getByRole, queryByRole } = render(<SelectWrapper defaultOpen />)
           const buttonInsideMenu = getByRole('option', {
             name: 'Mocha',
           })
@@ -163,9 +153,7 @@ describe('<Select />', () => {
     describe('Trigger- Keyboard interaction', () => {
       describe('Given the menu is closed', () => {
         it('allows the user to tab to the trigger', async () => {
-          const { getByRole } = render(
-            <SelectWrapper selectedKey="batch-brew" />,
-          )
+          const { getByRole } = render(<SelectWrapper selectedKey="batch-brew" />)
           const trigger = getByRole('combobox', {
             name: 'Mock Label',
           })
@@ -176,9 +164,7 @@ describe('<Select />', () => {
         })
 
         it('opens the menu when hits enter key', async () => {
-          const { getByRole } = render(
-            <SelectWrapper selectedKey="batch-brew" />,
-          )
+          const { getByRole } = render(<SelectWrapper selectedKey="batch-brew" />)
           const trigger = getByRole('combobox', {
             name: 'Mock Label',
           })
@@ -195,9 +181,7 @@ describe('<Select />', () => {
 
       describe('Given the menu is opened', () => {
         it('focuses on the first item', async () => {
-          const { getByRole, getAllByRole } = render(
-            <SelectWrapper defaultOpen />,
-          )
+          const { getByRole, getAllByRole } = render(<SelectWrapper defaultOpen />)
           expect(getByRole('listbox')).toBeVisible()
           await waitFor(() => {
             expect(getAllByRole('option')[0]).toHaveFocus()
@@ -224,15 +208,9 @@ describe('<Select />', () => {
         it('shows all the options unselected', async () => {
           const { getByRole } = render(<SelectWrapper defaultOpen />)
           await waitFor(() => {
-            expect(
-              getByRole('option', { name: 'Short black', selected: false }),
-            ).toBeVisible()
-            expect(
-              getByRole('option', { name: 'Long black', selected: false }),
-            ).toBeVisible()
-            expect(
-              getByRole('option', { name: 'Batch brew', selected: false }),
-            ).toBeVisible()
+            expect(getByRole('option', { name: 'Short black', selected: false })).toBeVisible()
+            expect(getByRole('option', { name: 'Long black', selected: false })).toBeVisible()
+            expect(getByRole('option', { name: 'Batch brew', selected: false })).toBeVisible()
           })
         })
 
@@ -249,19 +227,11 @@ describe('<Select />', () => {
 
       describe('Given selectedKey is [batch-brew]', () => {
         it('shows only option is selected', async () => {
-          const { getByRole } = render(
-            <SelectWrapper selectedKey="batch-brew" defaultOpen />,
-          )
+          const { getByRole } = render(<SelectWrapper selectedKey="batch-brew" defaultOpen />)
           await waitFor(() => {
-            expect(
-              getByRole('option', { name: 'Short black', selected: false }),
-            ).toBeVisible()
-            expect(
-              getByRole('option', { name: 'Long black', selected: false }),
-            ).toBeVisible()
-            expect(
-              getByRole('option', { name: 'Batch brew', selected: true }),
-            ).toBeVisible()
+            expect(getByRole('option', { name: 'Short black', selected: false })).toBeVisible()
+            expect(getByRole('option', { name: 'Long black', selected: false })).toBeVisible()
+            expect(getByRole('option', { name: 'Batch brew', selected: true })).toBeVisible()
           })
         })
       })
@@ -270,9 +240,7 @@ describe('<Select />', () => {
     describe('Selection - Mouse interaction', () => {
       it('fires onSelectionChange when clicks on a option', async () => {
         const spy = vi.fn()
-        const { getByRole } = render(
-          <SelectWrapper defaultOpen onSelectionChange={spy} />,
-        )
+        const { getByRole } = render(<SelectWrapper defaultOpen onSelectionChange={spy} />)
         const option1 = getByRole('option', { name: 'Batch brew' })
 
         await user.click(option1)
@@ -296,9 +264,7 @@ describe('<Select />', () => {
 
       describe('Given selectedKey is batch-brew', () => {
         it('focuses the first selected option when tabs onto the list', async () => {
-          const { getByRole } = render(
-            <SelectWrapper selectedKey="batch-brew" />,
-          )
+          const { getByRole } = render(<SelectWrapper selectedKey="batch-brew" />)
           await user.tab()
           await user.keyboard('{Enter}')
           await waitFor(() => {
@@ -322,17 +288,13 @@ describe('<Select />', () => {
         await user.tab()
         await user.keyboard('{ArrowDown}')
         await waitFor(() => {
-          expect(
-            getByRole('option', { name: 'Short black', selected: false }),
-          ).toBeVisible()
+          expect(getByRole('option', { name: 'Short black', selected: false })).toBeVisible()
         })
         await user.keyboard('{Enter}')
 
         await user.click(getByRole('combobox', { name: 'Mock Label' }))
         await waitFor(() => {
-          expect(
-            getByRole('option', { name: 'Short black', selected: true }),
-          ).toBeVisible()
+          expect(getByRole('option', { name: 'Short black', selected: true })).toBeVisible()
         })
       })
 
@@ -343,9 +305,7 @@ describe('<Select />', () => {
         await user.tab()
         await user.keyboard('{ArrowDown}')
         await waitFor(() => {
-          expect(
-            getByRole('option', { name: 'Short black', selected: false }),
-          ).toBeVisible()
+          expect(getByRole('option', { name: 'Short black', selected: false })).toBeVisible()
         })
 
         await user.keyboard('{Enter}')
@@ -374,15 +334,8 @@ describe('<Select />', () => {
         const portalContainerId = 'id--portal-container'
         return (
           <>
-            <div
-              id={portalContainerId}
-              data-testid="id--portal-container-test"
-            />
-            <SelectWrapper
-              selectedKey="batch-brew"
-              isOpen
-              portalContainerId={portalContainerId}
-            />
+            <div id={portalContainerId} data-testid="id--portal-container-test" />
+            <SelectWrapper selectedKey="batch-brew" isOpen portalContainerId={portalContainerId} />
           </>
         )
       }

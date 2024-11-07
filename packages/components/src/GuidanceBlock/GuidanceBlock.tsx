@@ -62,9 +62,7 @@ type GuidanceBlockPropsWithContent = {
   content: React.ReactElement
 } & BaseGuidanceBlockProps
 
-export type GuidanceBlockProps =
-  | GuidanceBlockWithText
-  | GuidanceBlockPropsWithContent
+export type GuidanceBlockProps = GuidanceBlockWithText | GuidanceBlockPropsWithContent
 
 export type GuidanceBlockState = {
   hidden: boolean
@@ -77,10 +75,7 @@ type WithTooltipProps = {
   tooltipProps?: TooltipProps
 }
 
-const WithTooltip = ({
-  tooltipProps,
-  children,
-}: WithTooltipProps): JSX.Element => {
+const WithTooltip = ({ tooltipProps, children }: WithTooltipProps): JSX.Element => {
   if (tooltipProps) return <Tooltip {...tooltipProps}>{children}</Tooltip>
 
   return <>{children}</>
@@ -189,10 +184,7 @@ export const GuidanceBlock = ({
           {'text' in restProps && (
             <>
               <div className={styles.headingWrapper}>
-                <Heading
-                  tag={restProps?.text?.titleTag ?? 'h3'}
-                  variant="heading-3"
-                >
+                <Heading tag={restProps?.text?.titleTag ?? 'h3'} variant="heading-3">
                   {restProps?.text?.title}
                 </Heading>
               </div>
@@ -208,8 +200,7 @@ export const GuidanceBlock = ({
               <div
                 className={classNames({
                   noRightMargin: isMobile || componentIsMobile,
-                  rightMargin:
-                    !(isMobile || componentIsMobile) && layout === 'default',
+                  rightMargin: !(isMobile || componentIsMobile) && layout === 'default',
                 })}
               >
                 <div
@@ -221,15 +212,9 @@ export const GuidanceBlock = ({
                   <WithTooltip tooltipProps={actions.primary.tooltip}>
                     <Button
                       icon={
-                        withActionButtonArrow
-                          ? (
-                              <Icon
-                                name="arrow_forward"
-                                isPresentational
-                                shouldMirrorInRTL
-                              />
-                            )
-                          : undefined
+                        withActionButtonArrow ? (
+                          <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
+                        ) : undefined
                       }
                       iconPosition="end"
                       {...actions.primary}

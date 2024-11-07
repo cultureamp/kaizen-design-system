@@ -20,23 +20,13 @@ export const exampleDropdownContentEnabled = (
       label="Menu Item 1"
       onClick={action('clicked')}
     />
-    <MenuItem
-      icon={<Icon name="content_copy" isPresentational isFilled />}
-      label="Menu Item 2"
-    />
+    <MenuItem icon={<Icon name="content_copy" isPresentational isFilled />} label="Menu Item 2" />
   </MenuList>
 )
 
 export const exampleDropdownContentOneDisabled = (
   <MenuList>
-    <MenuItem
-      icon={<Icon name="edit" isPresentational isFilled />}
-      label="Menu Item 1"
-      disabled
-    />
-    <MenuItem
-      icon={<Icon name="content_copy" isPresentational isFilled />}
-      label="Menu Item 2"
-    />
+    <MenuItem icon={<Icon name="edit" isPresentational isFilled />} label="Menu Item 1" disabled />
+    <MenuItem icon={<Icon name="content_copy" isPresentational isFilled />} label="Menu Item 2" />
   </MenuList>
 )

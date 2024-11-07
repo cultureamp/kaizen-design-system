@@ -9,7 +9,7 @@ describe('<CalendarRange />', () => {
     expect(screen.getByText('March 2022')).toBeInTheDocument()
   })
 
-  it('displays selected date\'s month when provided', () => {
+  it("displays selected date's month when provided", () => {
     render(
       <CalendarRange
         selected={{

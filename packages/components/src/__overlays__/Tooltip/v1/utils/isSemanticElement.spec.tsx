@@ -42,13 +42,11 @@ describe('isSemanticElement', () => {
       ),
     ).toBe(true)
     expect(
-      isSemanticElement(
-        <div role="textbox" contentEditable="true" aria-multiline="true" />,
-      ),
+      isSemanticElement(<div role="textbox" contentEditable="true" aria-multiline="true" />),
     ).toBe(true)
   })
 
-  it('returns false if provided an element using a role \'presentation\' or \'none\'', () => {
+  it("returns false if provided an element using a role 'presentation' or 'none'", () => {
     expect(isSemanticElement(<Icon name="add" isPresentational />)).toBe(false)
     expect(isSemanticElement(<span role="none">Hello</span>)).toBe(false)
   })

@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "../../../../../styles/utils/button-reset";
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '../../../../../styles/utils/button-reset';
 
 .removeButton {
   @include button-reset;
@@ -18,7 +18,7 @@
       $focus-ring-offset: -3px;
 
       border-color: $color-blue-500;
-      content: "";
+      content: '';
       position: absolute;
       background: transparent;
       border-width: $border-focus-ring-border-width;
@@ -30,7 +30,7 @@
 
   &::before {
     position: absolute;
-    content: "";
+    content: '';
     inset: -5px;
     border-radius: 50%;
   }

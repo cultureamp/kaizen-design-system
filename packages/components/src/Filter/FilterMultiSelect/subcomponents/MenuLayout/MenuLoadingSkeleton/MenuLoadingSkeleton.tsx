@@ -12,10 +12,7 @@ export const MenuLoadingSkeleton = ({
 }: MenuLoadingSkeletonProps): JSX.Element => (
   <>
     <div className={styles.loadingContainer}>
-      <LoadingInput
-        classNameOverride={styles.loadingInput}
-        isAnimated={isAnimated}
-      />
+      <LoadingInput classNameOverride={styles.loadingInput} isAnimated={isAnimated} />
       <LoadingParagraph isAnimated={isAnimated} />
       <LoadingParagraph isAnimated={isAnimated} />
       <LoadingParagraph isAnimated={isAnimated} />

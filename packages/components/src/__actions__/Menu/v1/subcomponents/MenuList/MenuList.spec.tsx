@@ -12,9 +12,7 @@ describe('MenuList', () => {
           <MenuItem label="Item one" />
         </MenuList>,
       )
-      expect(
-        screen.getByRole('list', { name: 'A menu section' }),
-      ).toBeInTheDocument()
+      expect(screen.getByRole('list', { name: 'A menu section' })).toBeInTheDocument()
     })
 
     it('applies custom heading props', () => {
@@ -23,22 +21,16 @@ describe('MenuList', () => {
           <MenuItem label="Item one" />
         </MenuList>,
       )
-      expect(
-        screen.getByRole('heading', { name: 'A menu section', level: 2 }),
-      ).toBeInTheDocument()
+      expect(screen.getByRole('heading', { name: 'A menu section', level: 2 })).toBeInTheDocument()
     })
   })
 
   it('still links ids correctly when a heading id provided', () => {
     render(
-      <MenuList
-        heading={<MenuHeading id="custom-id">A menu section</MenuHeading>}
-      >
+      <MenuList heading={<MenuHeading id="custom-id">A menu section</MenuHeading>}>
         <MenuItem label="Item one" />
       </MenuList>,
     )
-    expect(
-      screen.getByRole('list', { name: 'A menu section' }),
-    ).toBeInTheDocument()
+    expect(screen.getByRole('list', { name: 'A menu section' })).toBeInTheDocument()
   })
 })

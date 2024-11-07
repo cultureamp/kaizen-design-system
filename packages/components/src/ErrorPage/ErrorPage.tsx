@@ -49,7 +49,7 @@ export const ErrorPage = ({
     <div className={classNames(classNameOverride)}>
       <BrandMoment
         header={<></>}
-        body={(
+        body={
           <>
             <div className={styles.paragraphPadding}>
               <Text variant="intro-lede">{message ?? content.message}</Text>
@@ -62,14 +62,12 @@ export const ErrorPage = ({
               />
             </Text>
           </>
-        )}
+        }
         illustration={<BrandMomentError isAnimated loop />}
         variant="warning"
         primaryAction={{
           ...actions.primary,
-          icon: (
-            <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
-          ),
+          icon: <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
           iconPosition: 'end',
           label: formatMessage({
             id: 'kzErrorPage.goToHome',

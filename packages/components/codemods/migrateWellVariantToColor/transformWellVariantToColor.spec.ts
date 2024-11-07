@@ -139,7 +139,7 @@ describe('transformWellVariantToColor', () => {
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it('won\'t add color if color already exists', () => {
+  it("won't add color if color already exists", () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well color="blue">Test</Well></div>
@@ -156,7 +156,7 @@ describe('transformWellVariantToColor', () => {
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it('won\'t modify variants usings variables', () => {
+  it("won't modify variants usings variables", () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well variant={wellVariable}>Test</Well></div>

@@ -2,10 +2,7 @@ import React from 'react'
 import { offset, size, autoPlacement } from '@floating-ui/react-dom'
 import { Meta } from '@storybook/react'
 import { Text } from '~components/Text'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { CalendarRange } from '../../CalendarRange'
 import { CalendarSingle } from '../../CalendarSingle'
 import { CalendarPopover, CalendarPopoverProps } from '../index'
@@ -55,8 +52,7 @@ const CalendarPopoverExample = ({
     strategy?: 'absolute' | 'fixed'
   }
 >): JSX.Element => {
-  const [referenceElement, setReferenceElement] =
-    React.useState<HTMLDivElement | null>(null)
+  const [referenceElement, setReferenceElement] = React.useState<HTMLDivElement | null>(null)
 
   return (
     <>

@@ -12,7 +12,7 @@
 }
 
 .wrapperAutogrow::after {
-  content: attr(data-value) " ";
+  content: attr(data-value) ' ';
   white-space: pre-wrap;
   visibility: hidden;
 }
@@ -20,8 +20,7 @@
 /* these properties need to be set on both for autogrow to work properly */
 .textarea,
 .wrapperAutogrow::after {
-  border: var(--border-solid-border-width) var(--border-solid-border-style)
-    var(--color-gray-500);
+  border: var(--border-solid-border-width) var(--border-solid-border-style) var(--color-gray-500);
   border-radius: var(--border-solid-border-radius);
   padding: var(--spacing-sm);
   box-sizing: border-box;
@@ -36,15 +35,14 @@
 
 .textarea {
   display: block;
-  border: var(--border-solid-border-width) var(--border-solid-border-style)
-    var(--color-gray-500);
+  border: var(--border-solid-border-width) var(--border-solid-border-style) var(--color-gray-500);
   border-radius: var(--border-solid-border-radius);
   padding: var(--spacing-sm);
   resize: vertical;
 
   &:focus {
-    outline: var(--border-focus-ring-border-width)
-      var(--border-focus-ring-border-style) var(--color-blue-500);
+    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+      var(--color-blue-500);
     outline-offset: 1px;
   }
 

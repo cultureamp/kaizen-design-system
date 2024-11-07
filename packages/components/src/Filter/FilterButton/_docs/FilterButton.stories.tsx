@@ -35,11 +35,11 @@ export const SelectedValue: StoryObj<typeof meta> = {
       <FilterButton {...args} selectedValue="Pancakes" />
       <FilterButton
         {...args}
-        selectedValue={(
+        selectedValue={
           <span>
             <span>3 Apr 2023</span> - <span>1 May 2023</span>
           </span>
-        )}
+        }
       />
     </div>
   ),

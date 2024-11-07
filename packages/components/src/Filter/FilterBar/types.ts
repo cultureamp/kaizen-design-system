@@ -12,13 +12,10 @@ export type SourceFiltersState<ValuesMap extends FiltersValues> = {
 }
 
 export type FilterIsUsableWhen<ValuesMap extends FiltersValues> = (
-  state: SourceFiltersState<ValuesMap>
+  state: SourceFiltersState<ValuesMap>,
 ) => boolean
 
-export type FilterAttributes<
-  ValuesMap extends FiltersValues,
-  Id = keyof ValuesMap,
-> = {
+export type FilterAttributes<ValuesMap extends FiltersValues, Id = keyof ValuesMap> = {
   id: Id
   name: string
   Component: React.ReactElement

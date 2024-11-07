@@ -30,26 +30,15 @@ export type InlineNotificationProps = InlineNotificationBase &
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093392/Inline+Notification Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-notifications-inline-notification--docs Storybook}
  */
-export const InlineNotification = forwardRef<
-  HTMLDivElement,
-  InlineNotificationProps
->(
+export const InlineNotification = forwardRef<HTMLDivElement, InlineNotificationProps>(
   (
-    {
-      isSubtle,
-      hideCloseIcon = false,
-      persistent = false,
-      classNameOverride,
-      ...otherProps
-    },
+    { isSubtle, hideCloseIcon = false, persistent = false, classNameOverride, ...otherProps },
     ref,
   ): JSX.Element => (
     <GenericNotification
       style="inline"
       persistent={persistent || hideCloseIcon}
-      classNameOverride={classnames(classNameOverride, [
-        isSubtle && styles.subtle,
-      ])}
+      classNameOverride={classnames(classNameOverride, [isSubtle && styles.subtle])}
       ref={ref}
       {...otherProps}
     />

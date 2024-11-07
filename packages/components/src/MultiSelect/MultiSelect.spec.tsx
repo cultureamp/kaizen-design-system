@@ -44,9 +44,7 @@ const user = userEvent.setup()
 describe('<MultiSelect />', () => {
   describe('accessible name and description', () => {
     it('has an accessible name and description when provided a description', () => {
-      const { getByRole } = render(
-        <MultiSelectWrapper description="A short description" />,
-      )
+      const { getByRole } = render(<MultiSelectWrapper description="A short description" />)
       const toggleButton = getByRole('button', {
         name: 'Jalapeno',
         description: 'A short description',
@@ -80,9 +78,7 @@ describe('<MultiSelect />', () => {
     })
 
     it('creates a fallback id when one is not provided', () => {
-      const { getByTestId } = render(
-        <MultiSelectWrapper data-testid="test-id--waffle" />,
-      )
+      const { getByTestId } = render(<MultiSelectWrapper data-testid="test-id--waffle" />)
       expect(getByTestId('test-id--waffle')).toHaveAttribute('id')
     })
   })
@@ -200,9 +196,7 @@ describe('<MultiSelect />', () => {
       })
     })
     it('does not close the popover when clearing all selected options', async () => {
-      const { getByRole } = render(
-        <MultiSelectWrapper selectedValues={new Set(['pancakes'])} />,
-      )
+      const { getByRole } = render(<MultiSelectWrapper selectedValues={new Set(['pancakes'])} />)
 
       const toggleButton = getByRole('button', { name: 'Jalapeno' })
       await user.click(toggleButton)
@@ -212,9 +206,7 @@ describe('<MultiSelect />', () => {
         expect(popover).toBeVisible()
       })
 
-      await user.click(
-        getByRole('button', { name: 'Remove all options from Jalapeno' }),
-      )
+      await user.click(getByRole('button', { name: 'Remove all options from Jalapeno' }))
 
       await waitFor(() => {
         expect(popover).toBeVisible()
@@ -226,10 +218,7 @@ describe('<MultiSelect />', () => {
     describe('When open', () => {
       it('restricts focusable elements to toggle button and popover contents', async () => {
         const { getByRole } = render(
-          <MultiSelectWrapper
-            items={[{ label: 'Pancakes', value: 'pancakes' }]}
-            isOpen
-          />,
+          <MultiSelectWrapper items={[{ label: 'Pancakes', value: 'pancakes' }]} isOpen />,
         )
         const toggleButton = getByRole('button', { name: 'Jalapeno' })
         const dialog = getByRole('dialog')
@@ -265,9 +254,7 @@ describe('<MultiSelect />', () => {
 
           await user.tab()
           await waitFor(() => {
-            expect(
-              getByRole('button', { name: 'Remove all options from Jalapeno' }),
-            ).toHaveFocus()
+            expect(getByRole('button', { name: 'Remove all options from Jalapeno' })).toHaveFocus()
           })
         })
       })
@@ -276,11 +263,7 @@ describe('<MultiSelect />', () => {
 
   it('shows selected items in the selected order', async () => {
     const { getByRole, getAllByRole } = render(
-      <MultiSelectWrapper
-        id="jalapeno"
-        selectedValues={new Set(['toastie'])}
-        isOpen
-      />,
+      <MultiSelectWrapper id="jalapeno" selectedValues={new Set(['toastie'])} isOpen />,
     )
     const waffleOption = getByRole('checkbox', { name: 'Waffle' })
     await user.click(waffleOption)
@@ -318,7 +301,7 @@ describe('Removing an option', () => {
 })
 
 describe('Removing all options', () => {
-  it('removes all selected options when the \'clear all\' button is clicked', async () => {
+  it("removes all selected options when the 'clear all' button is clicked", async () => {
     const { getByRole, getByText } = render(
       <MultiSelectWrapper selectedValues={new Set(['pancakes', 'waffle'])} />,
     )
@@ -371,7 +354,7 @@ describe('Has validation status', () => {
     ).toBeInTheDocument()
   })
 
-  it('announces the validation message before the Toggle\'s description', () => {
+  it("announces the validation message before the Toggle's description", () => {
     const description = 'Choose your breakfast.'
     // React Testing Library bug: Icon should be showing aria-label "caution message" instead
     const validationMessage = 'warning Only four waffles remain.'

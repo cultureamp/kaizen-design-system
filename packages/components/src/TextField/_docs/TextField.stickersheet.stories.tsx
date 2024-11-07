@@ -1,10 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { InputStatus, InputTypes } from '~components/Input'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { TextField, TextFieldProps } from '../index'
 
 export default {
@@ -19,12 +16,7 @@ const TextFieldExampleGroup = (props: TextFieldProps): JSX.Element => (
   <ul className="grid gap-16 list-none p-0 m-0">
     {InputTypes.map((type) => (
       <li key={type}>
-        <TextField
-          value={type}
-          type={type}
-          {...props}
-          description="A short description"
-        />
+        <TextField value={type} type={type} {...props} description="A short description" />
       </li>
     ))}
   </ul>

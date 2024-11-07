@@ -5,15 +5,11 @@ import styles from '../SelectionControlButton.module.scss'
 
 export const SelectAllButton = (): JSX.Element => {
   const { selectionState } = useSelectionContext()
-  const selectedOptions = Array.from(
-    selectionState.selectionManager.selectedKeys,
+  const selectedOptions = Array.from(selectionState.selectionManager.selectedKeys)
+  const disabledOptions = selectionState.disabledKeys ? Array.from(selectionState.disabledKeys) : []
+  const filteredOptions = Array.from(selectionState.collection.getKeys()).filter(
+    (key) => !disabledOptions.includes(key),
   )
-  const disabledOptions = selectionState.disabledKeys
-    ? Array.from(selectionState.disabledKeys)
-    : []
-  const filteredOptions = Array.from(
-    selectionState.collection.getKeys(),
-  ).filter((key) => !disabledOptions.includes(key))
 
   return (
     <button
@@ -26,10 +22,7 @@ export const SelectAllButton = (): JSX.Element => {
       onClick={
         (): false | void =>
           !selectionState.selectionManager.isSelectAll &&
-          selectionState.selectionManager.setSelectedKeys([
-            ...selectedOptions,
-            ...filteredOptions,
-          ])
+          selectionState.selectionManager.setSelectedKeys([...selectedOptions, ...filteredOptions])
         // TODO: add announcement here to inform all selected
       }
     >

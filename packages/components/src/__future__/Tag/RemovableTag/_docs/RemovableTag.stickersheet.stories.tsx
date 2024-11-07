@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { RemovableTag } from '../index'
 
 export default {
@@ -18,9 +15,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
       <StickerSheet heading="Button Group">
-        <StickerSheet.Header
-          headings={['Default', 'Hover', 'Focus', 'Focus visible']}
-        />
+        <StickerSheet.Header headings={['Default', 'Hover', 'Focus', 'Focus visible']} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <RemovableTag
@@ -65,14 +60,8 @@ const StickerSheetTemplate: StickerSheetStory = {
   ),
   parameters: {
     pseudo: {
-      hover: [
-        '[data-sb-pseudo-styles="hover"]',
-        '[data-sb-pseudo-styles="hover"] > button',
-      ],
-      focus: [
-        '[data-sb-pseudo-styles="focus"]',
-        '[data-sb-pseudo-styles="focus"] > button',
-      ],
+      hover: ['[data-sb-pseudo-styles="hover"]', '[data-sb-pseudo-styles="hover"] > button'],
+      focus: ['[data-sb-pseudo-styles="focus"]', '[data-sb-pseudo-styles="focus"] > button'],
       focusVisible: [
         '[data-sb-pseudo-styles="focus-visible"]',
         '[data-sb-pseudo-styles="focus-visible"] > button',

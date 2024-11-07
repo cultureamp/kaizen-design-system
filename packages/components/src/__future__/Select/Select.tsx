@@ -2,17 +2,11 @@ import React, { useEffect, useId, useState } from 'react'
 import { UseFloatingReturn } from '@floating-ui/react-dom'
 import { useButton } from '@react-aria/button'
 import { HiddenSelect, useSelect } from '@react-aria/select'
-import {
-  useSelectState,
-  SelectProps as AriaSelectProps,
-} from '@react-stately/select'
+import { useSelectState, SelectProps as AriaSelectProps } from '@react-stately/select'
 import { Key } from '@react-types/shared'
 import classnames from 'classnames'
 import { FieldMessage } from '~components/FieldMessage'
-import {
-  Popover,
-  useFloating,
-} from '~components/MultiSelect/subcomponents/Popover'
+import { Popover, useFloating } from '~components/MultiSelect/subcomponents/Popover'
 import { OverrideClassName } from '~components/types/OverrideClassName'
 import { SelectProvider } from './context'
 import {
@@ -44,7 +38,7 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
       ref: UseFloatingReturn<HTMLButtonElement>['refs']['setReference']
     },
     // @deprecated: This arg is unnecessary now, but provided for legacy usages
-    ref: UseFloatingReturn<HTMLButtonElement>['refs']['setReference']
+    ref: UseFloatingReturn<HTMLButtonElement>['refs']['setReference'],
   ) => JSX.Element
   children?: SelectPopoverContentsProps<Option>['children']
   /**
@@ -115,8 +109,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
     items,
     children: transformSelectItemToCollectionElement,
     disabledKeys: disabledValues ?? disabledKeys,
-    selectedKey:
-      typeof selectedKey === 'number' ? selectedKey.toString() : selectedKey,
+    selectedKey: typeof selectedKey === 'number' ? selectedKey.toString() : selectedKey,
     description,
     placeholder,
     isDisabled,
@@ -142,9 +135,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   const reactAriaLabelledBy = reactAriaTriggerProps['aria-labelledby']
   const triggerProps = {
     ...reactAriaTriggerProps,
-    'aria-labelledby': reactAriaLabelledBy?.substring(
-      reactAriaLabelledBy.indexOf(' ') + 1,
-    ),
+    'aria-labelledby': reactAriaLabelledBy?.substring(reactAriaLabelledBy.indexOf(' ') + 1),
   }
 
   const { buttonProps } = useButton(triggerProps, triggerRef)
@@ -172,33 +163,19 @@ export const Select = <Option extends SelectOption = SelectOption>({
   }, [portalContainerId])
 
   return (
-    <div
-      className={classnames(
-        !isFullWidth && styles.notFullWidth,
-        classNameOverride,
-      )}
-    >
-      <HiddenSelect
-        label={label}
-        name={id}
-        state={state}
-        triggerRef={triggerRef}
-      />
+    <div className={classnames(!isFullWidth && styles.notFullWidth, classNameOverride)}>
+      <HiddenSelect label={label} name={id} state={state} triggerRef={triggerRef} />
 
       <div className={styles.container}>
-        {trigger === undefined
-          ? (
-              <SelectToggle {...selectToggleProps} />
-            )
-          : (
-              trigger(selectToggleProps, selectToggleProps.ref)
-            )}
+        {trigger === undefined ? (
+          <SelectToggle {...selectToggleProps} />
+        ) : (
+          trigger(selectToggleProps, selectToggleProps.ref)
+        )}
         {state.isOpen && (
           <Popover id={popoverId} portalContainer={portalContainer} refs={refs}>
             <SelectProvider<Option> state={state}>
-              <SelectPopoverContents menuProps={menuProps}>
-                {children}
-              </SelectPopoverContents>
+              <SelectPopoverContents menuProps={menuProps}>{children}</SelectPopoverContents>
             </SelectProvider>
           </Popover>
         )}

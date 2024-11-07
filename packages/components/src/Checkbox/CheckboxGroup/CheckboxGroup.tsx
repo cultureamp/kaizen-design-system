@@ -41,12 +41,7 @@ export const CheckboxGroup = ({
       {...restProps}
     >
       <div className={styles.checkboxGroupLabel}>
-        <Label
-          id={labelId}
-          labelText={labelText}
-          labelType="text"
-          reversed={reversed}
-        />
+        <Label id={labelId} labelText={labelText} labelType="text" reversed={reversed} />
       </div>
       {children}
     </div>

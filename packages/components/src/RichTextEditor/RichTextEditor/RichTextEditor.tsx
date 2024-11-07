@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  HTMLAttributes,
-  ReactNode,
-  useId,
-} from 'react'
+import React, { useState, useEffect, HTMLAttributes, ReactNode, useId } from 'react'
 import classnames from 'classnames'
 import { FieldMessage } from '~components/FieldMessage'
 import { Label } from '~components/Label'
@@ -50,9 +44,7 @@ type BaseRichTextEditorProps = {
    * A description that provides context
    */
   description?: React.ReactNode
-} & OverrideClassName<
-  Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'>
->
+} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'>>
 
 type WithLabelText = {
   'labelText': ReactNode
@@ -64,8 +56,7 @@ type WithLabelledBy = {
   'aria-labelledby': string
 }
 
-export type RichTextEditorProps = BaseRichTextEditorProps &
-  (WithLabelText | WithLabelledBy)
+export type RichTextEditorProps = BaseRichTextEditorProps & (WithLabelText | WithLabelledBy)
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896752/Rich+Text+Editor Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-richtexteditor--docs Storybook}
@@ -88,26 +79,16 @@ export const RichTextEditor = ({
   ...restProps
 }: RichTextEditorProps): JSX.Element => {
   const generatedId = useId()
-  const [schema] = useState<ProseMirrorModel.Schema>(
-    createSchemaFromControls(controls),
-  )
+  const [schema] = useState<ProseMirrorModel.Schema>(createSchemaFromControls(controls))
 
   const editorId = id ?? generatedId
   const labelId = labelledBy ?? `${editorId}-rte-label`
-  const validationMessageAria = validationMessage
-    ? `${editorId}-rte-validation-message`
-    : ''
+  const validationMessageAria = validationMessage ? `${editorId}-rte-validation-message` : ''
   const descriptionAria = description ? `${editorId}-rte-description` : ''
 
-  const ariaDescribedBy = classnames(
-    validationMessageAria,
-    descriptionAria,
-    describedBy,
-  )
+  const ariaDescribedBy = classnames(validationMessageAria, descriptionAria, describedBy)
 
-  const useRichTextEditorResult = (():
-    | ReturnType<typeof useRichTextEditor>
-    | Error => {
+  const useRichTextEditorResult = ((): ReturnType<typeof useRichTextEditor> | Error => {
     try {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       return useRichTextEditor(
@@ -116,8 +97,7 @@ export const RichTextEditor = ({
             type: 'doc',
             // we're converting empty arrays to the ProseMirror default "empty" state because when
             // given an empty array ProseMirror returns undefined, breaking the type
-            content:
-              defaultValue?.length > 0 ? defaultValue : [{ type: 'paragraph' }],
+            content: defaultValue?.length > 0 ? defaultValue : [{ type: 'paragraph' }],
           }),
           schema,
           plugins: getPlugins(controls, schema),
@@ -156,18 +136,14 @@ export const RichTextEditor = ({
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     onChange(editorState)
-  // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editorState])
 
   return (
     <>
       {!labelledBy && labelText && (
-        <Label
-          classNameOverride={styles.editorLabel}
-          id={labelId}
-          labelText={labelText}
-        />
+        <Label classNameOverride={styles.editorLabel} id={labelId} labelText={labelText} />
       )}
       <div className={classnames(styles.editorWrapper, styles[status])}>
         {controls && (
@@ -185,8 +161,7 @@ export const RichTextEditor = ({
                     disabled={controlConfig.disabled}
                     label={controlConfig.label}
                     isActive={controlConfig.isActive}
-                    onClick={(): void =>
-                      dispatchTransaction(controlConfig.action)}
+                    onClick={(): void => dispatchTransaction(controlConfig.action)}
                   />
                 ))}
               </ToolbarSection>
@@ -207,28 +182,24 @@ export const RichTextEditor = ({
       </div>
 
       {validationMessage && (
-        <FieldMessage
-          id={validationMessageAria}
-          message={validationMessage}
-          status={status}
-        />
+        <FieldMessage id={validationMessageAria} message={validationMessage} status={status} />
       )}
 
-      {description && (
-        <FieldMessage id={descriptionAria} message={description} />
-      )}
+      {description && <FieldMessage id={descriptionAria} message={description} />}
     </>
   )
 }
 
 RichTextEditor.displayName = 'RichTextEditor'
 
-type Plugin = ProseMirrorState.Plugin<unknown> | ProseMirrorState.Plugin<{
-  transform: ProseMirrorState.Transaction
-  from: number
-  to: number
-  text: string
-} | null>
+type Plugin =
+  | ProseMirrorState.Plugin<unknown>
+  | ProseMirrorState.Plugin<{
+      transform: ProseMirrorState.Transaction
+      from: number
+      to: number
+      text: string
+    } | null>
 
 function getPlugins(
   controls: ToolbarItems[] | undefined,

@@ -20,10 +20,7 @@ export const MultiSelectOptionField = ({
   classNameOverride,
   ...restProps
 }: MultiSelectOptionFieldProps): JSX.Element => (
-  <div
-    className={classnames(styles.multiSelectOptionField, classNameOverride)}
-    {...restProps}
-  >
+  <div className={classnames(styles.multiSelectOptionField, classNameOverride)} {...restProps}>
     <Checkbox
       id={id}
       checkedStatus={checkedStatus}

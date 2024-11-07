@@ -19,9 +19,7 @@ type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   render: ({ onClick, selectedStatus, ...props }) => {
-    const [status, setStatus] = React.useState<boolean | undefined>(
-      selectedStatus,
-    )
+    const [status, setStatus] = React.useState<boolean | undefined>(selectedStatus)
 
     const handleClick: React.MouseEventHandler<HTMLInputElement> = (e) => {
       setStatus(!status)
@@ -32,9 +30,7 @@ export const Playground: Story = {
       setStatus(selectedStatus)
     }, [selectedStatus])
 
-    return (
-      <RadioField {...props} selectedStatus={status} onClick={handleClick} />
-    )
+    return <RadioField {...props} selectedStatus={status} onClick={handleClick} />
   },
   parameters: {
     docs: {

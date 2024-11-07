@@ -21,14 +21,14 @@ const renderSecondaryOverflowMenu = (
   return (
     <Menu
       align="right"
-      button={(
+      button={
         <IconButton
           label="Open secondary menu"
           reversed={reversed}
           icon={<Icon name="more_horiz" isPresentational />}
           id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
         />
-      )}
+      }
     >
       <MenuList>
         {secondaryOverflowMenuItems.map((menuItem, i) => (
@@ -52,58 +52,55 @@ export const SecondaryActions = ({
 
   const secondaryActionsAsToolbarItems = secondaryActions
     ? secondaryActions.map((action, i) => {
-      if ('menuItems' in action) {
-        return {
-          key: `${i}`, // We shouldn't use an index here, see note above
-          node: (
-            <Menu
-              align="right"
-              button={(
-                <Button
-                  secondary
-                  label={action.label}
-                  reversed={reversed}
-                  icon={<Icon name="keyboard_arrow_down" isPresentational />}
-                  iconPosition="end"
-                />
-              )}
-            >
-              <MenuList>
-                {action.menuItems.map((menuItem, i2) => (
-                  <TitleBlockMenuItem key={i2} {...menuItem} />
-                ))}
-              </MenuList>
-            </Menu>
-          ),
+        if ('menuItems' in action) {
+          return {
+            key: `${i}`, // We shouldn't use an index here, see note above
+            node: (
+              <Menu
+                align="right"
+                button={
+                  <Button
+                    secondary
+                    label={action.label}
+                    reversed={reversed}
+                    icon={<Icon name="keyboard_arrow_down" isPresentational />}
+                    iconPosition="end"
+                  />
+                }
+              >
+                <MenuList>
+                  {action.menuItems.map((menuItem, i2) => (
+                    <TitleBlockMenuItem key={i2} {...menuItem} />
+                  ))}
+                </MenuList>
+              </Menu>
+            ),
+          }
+        } else {
+          if ('onClick' in action && 'href' in action) {
+            // eslint-disable-next-line no-console
+            console.warn(
+              '\u001b[33m \nTITLE BLOCK WARNING:\nSecondary actions only support ' +
+                'either an href or an onClick, not both simultaneously.\n',
+            )
+          }
+          return {
+            key: `${i}`, // We shouldn't use an index here, see note above
+            node: (
+              <Button
+                secondary
+                reversed={reversed}
+                {...action}
+                data-automation-id="title-block-secondary-actions-button"
+                data-testid="title-block-secondary-actions-button"
+              />
+            ),
+          }
         }
-      } else {
-        if ('onClick' in action && 'href' in action) {
-          // eslint-disable-next-line no-console
-          console.warn(
-            '\u001b[33m \nTITLE BLOCK WARNING:\nSecondary actions only support ' +
-            'either an href or an onClick, not both simultaneously.\n',
-          )
-        }
-        return {
-          key: `${i}`, // We shouldn't use an index here, see note above
-          node: (
-            <Button
-              secondary
-              reversed={reversed}
-              {...action}
-              data-automation-id="title-block-secondary-actions-button"
-              data-testid="title-block-secondary-actions-button"
-            />
-          ),
-        }
-      }
-    })
+      })
     : []
 
-  const overflowMenu = renderSecondaryOverflowMenu(
-    secondaryOverflowMenuItems,
-    reversed,
-  )
+  const overflowMenu = renderSecondaryOverflowMenu(secondaryOverflowMenuItems, reversed)
 
   const toolbarItems = [
     ...secondaryActionsAsToolbarItems,
@@ -119,11 +116,7 @@ export const SecondaryActions = ({
 
   return (
     <div className={styles.secondaryActionsContainer}>
-      <Toolbar
-        items={toolbarItems}
-        noGap
-        automationId="title-block-secondary-actions-toolbar"
-      />
+      <Toolbar items={toolbarItems} noGap automationId="title-block-secondary-actions-toolbar" />
     </div>
   )
 }

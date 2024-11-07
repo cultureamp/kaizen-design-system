@@ -12,11 +12,7 @@ import {
   updateMark,
   validateAndRemoveMarks,
 } from '../../commands'
-import {
-  LinkEditor,
-  LinkEditorAttrs,
-  LinkEditorProps,
-} from './components/LinkEditor'
+import { LinkEditor, LinkEditorAttrs, LinkEditorProps } from './components/LinkEditor'
 import { createReactTooltipWrapper } from './createReactTooltipWrapper'
 import { CAEditorView, SelectionPosition } from './types'
 
@@ -40,10 +36,7 @@ class LinkManager {
   ) {
     this.editorComponent = editorComponent
     this.linkActive = (state) => markIsActive(state, markType)
-    this.validateLinks = validateAndRemoveMarks(
-      markType,
-      linkAttributeValidator,
-    )
+    this.validateLinks = validateAndRemoveMarks(markType, linkAttributeValidator)
     this.markType = markType
     this.tooltipTarget = null
     this.update(view, null)
@@ -57,11 +50,7 @@ class LinkManager {
     const { state } = view
 
     // Don’t do anything if the document/TextSelection didn't change
-    if (
-      lastState &&
-      lastState.doc.eq(state.doc) &&
-      lastState.selection.eq(state.selection)
-    ) {
+    if (lastState && lastState.doc.eq(state.doc) && lastState.selection.eq(state.selection)) {
       return
     }
 
@@ -170,11 +159,6 @@ export const createLinkManager = ({
 }: CreateLinkManagerArgs): Plugin =>
   new Plugin({
     view(editorView) {
-      return new LinkManager(
-        editorView,
-        markType,
-        editorComponent,
-        linkAttributeValidator,
-      )
+      return new LinkManager(editorView, markType, editorComponent, linkAttributeValidator)
     },
   })

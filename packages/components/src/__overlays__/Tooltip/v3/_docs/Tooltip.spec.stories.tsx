@@ -47,10 +47,7 @@ export const OnButton: Story = {
       await userEvent.unhover(button)
       await userEvent.hover(button)
       await waitFor(() => expect(canvas.getByRole('tooltip')).toBeVisible())
-      expect(button).toHaveAttribute(
-        'aria-describedby',
-        canvas.getByRole('tooltip').id,
-      )
+      expect(button).toHaveAttribute('aria-describedby', canvas.getByRole('tooltip').id)
       await userEvent.unhover(button)
     })
 
@@ -147,10 +144,7 @@ export const OnCustomButton: Story = {
   name: 'On Button with custom <button>',
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button
-        label="Button"
-        component={(props) => <button type="button" {...props} />}
-      />
+      <Button label="Button" component={(props) => <button type="button" {...props} />} />
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -177,9 +171,7 @@ export const OnTabs: Story = {
         </TooltipTrigger>
       </TabList>
       <TabPanels>
-        <TabPanel classNameOverride="p-24 font-family-paragraph">
-          Tab content
-        </TabPanel>
+        <TabPanel classNameOverride="p-24 font-family-paragraph">Tab content</TabPanel>
       </TabPanels>
     </Tabs>
   ),

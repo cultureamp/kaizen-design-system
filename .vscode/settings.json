@@ -32,12 +32,7 @@ Happy linting! 💖
   "javascript.suggestionActions.enabled": false,
   "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "tailwindCSS.classAttributes": [
-    "class",
-    "className",
-    "ngClass",
-    "classNameOverride"
-  ],
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "classNameOverride"],
   "tailwindCSS.experimental.classRegex": [
     "classnames\\(([^)]*)\\)",
     "classNames\\(([^)]*)\\)",

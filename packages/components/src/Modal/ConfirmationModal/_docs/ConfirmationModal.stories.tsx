@@ -17,8 +17,8 @@ const meta = {
     variant: 'success',
     children: (
       <Text variant="body">
-        Confirmation modals contain smaller pieces of content and can provide
-        additional information to aide the user.
+        Confirmation modals contain smaller pieces of content and can provide additional information
+        to aide the user.
       </Text>
     ),
     onConfirm: fn(),
@@ -51,11 +51,7 @@ const ConfirmationModalTemplate: Story = {
 
     return (
       <>
-        <button
-          type="button"
-          className="border border-gray-500"
-          onClick={handleOpen}
-        >
+        <button type="button" className="border border-gray-500" onClick={handleOpen}>
           Open Modal
         </button>
         <ConfirmationModal

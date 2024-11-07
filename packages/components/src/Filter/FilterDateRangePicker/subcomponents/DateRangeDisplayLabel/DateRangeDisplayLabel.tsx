@@ -4,7 +4,7 @@ import { formatDateAsText } from '~components/Calendar'
 import styles from './DateRangeDisplayLabel.module.scss'
 
 export type DateRangeDisplayLabelProps = {
-  dateRange: { from: Date, to: Date }
+  dateRange: { from: Date; to: Date }
   locale: Locale
 }
 

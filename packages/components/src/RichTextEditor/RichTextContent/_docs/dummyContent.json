@@ -54,9 +54,7 @@
                         "content": [
                           {
                             "type": "paragraph",
-                            "content": [
-                              { "type": "text", "text": "Sub-sub item" }
-                            ]
+                            "content": [{ "type": "text", "text": "Sub-sub item" }]
                           }
                         ]
                       }

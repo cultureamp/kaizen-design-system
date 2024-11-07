@@ -1,15 +1,9 @@
 import React, { useState } from 'react'
 import { screen, waitFor, within, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import {
-  FilterAttributes,
-  FilterBarProvider,
-} from '~components/Filter/FilterBar'
+import { FilterAttributes, FilterBarProvider } from '~components/Filter/FilterBar'
 import { DateRange } from '~components/index'
-import {
-  FilterBarDateRangePicker,
-  FilterBarDateRangePickerProps,
-} from './FilterBarDateRangePicker'
+import { FilterBarDateRangePicker, FilterBarDateRangePickerProps } from './FilterBarDateRangePicker'
 
 const user = userEvent.setup()
 
@@ -63,9 +57,7 @@ describe('<FilterBarDateRangePicker />', () => {
     it('does not show the remove button when isRemovable is false', async () => {
       render(<FilterBarDateRangePickerWrapper />)
       await waitFor(() => {
-        expect(
-          screen.getByRole('button', { name: 'Dates' }),
-        ).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: 'Dates' })).toBeInTheDocument()
         expect(
           screen.queryByRole('button', { name: 'Remove filter - Dates' }),
         ).not.toBeInTheDocument()
@@ -80,17 +72,13 @@ describe('<FilterBarDateRangePicker />', () => {
         />,
       )
       await waitFor(() => {
-        expect(
-          getByRole('button', { name: 'Remove filter - Dates' }),
-        ).toBeVisible()
+        expect(getByRole('button', { name: 'Remove filter - Dates' })).toBeVisible()
       })
     })
   })
 
   it('can toggle its open state', async () => {
-    const { getByRole, queryByRole } = render(
-      <FilterBarDateRangePickerWrapper />,
-    )
+    const { getByRole, queryByRole } = render(<FilterBarDateRangePickerWrapper />)
     const triggerButton = getByRole('button', { name: 'Dates' })
 
     await user.click(triggerButton)
@@ -151,9 +139,7 @@ describe('<FilterBarDateRangePicker />', () => {
     await user.click(document.body) // Exit the focus lock
 
     await waitFor(() => {
-      expect(
-        getByRole('button', { name: 'Dates : 1 May 2022 - 23 Jun 2022' }),
-      ).toBeInTheDocument()
+      expect(getByRole('button', { name: 'Dates : 1 May 2022 - 23 Jun 2022' })).toBeInTheDocument()
     })
   }, 10000)
 

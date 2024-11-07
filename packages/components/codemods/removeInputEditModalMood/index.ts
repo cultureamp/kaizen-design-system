@@ -9,11 +9,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsInDir(
-    targetDir,
-    removeInputEditModalMood,
-    'InputEditModal',
-  )
+  transformComponentsInDir(targetDir, removeInputEditModalMood, 'InputEditModal')
 }
 
 run()

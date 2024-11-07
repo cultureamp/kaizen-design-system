@@ -1,10 +1,7 @@
 import React from 'react'
 import { waitFor, screen, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import {
-  FilterBarProvider,
-  FilterBarProviderProps,
-} from '../../context/FilterBarContext'
+import { FilterBarProvider, FilterBarProviderProps } from '../../context/FilterBarContext'
 import { Filters } from '../../types'
 import { AddFiltersMenu } from './AddFiltersMenu'
 
@@ -21,11 +18,7 @@ const AddFiltersMenuWrapper = ({
 }: {
   filters: FilterBarProviderProps<Values>['filters']
 }): JSX.Element => (
-  <FilterBarProvider<Values>
-    filters={filters}
-    values={{}}
-    onValuesChange={() => undefined}
-  >
+  <FilterBarProvider<Values> filters={filters} values={{}} onValuesChange={() => undefined}>
     {() => <AddFiltersMenu />}
   </FilterBarProvider>
 )
@@ -64,9 +57,7 @@ describe('<AddFiltersMenu />', () => {
       expect(screen.getByRole('list')).toBeVisible()
     })
     expect(screen.getByRole('button', { name: 'Coffee' })).toBeVisible()
-    expect(
-      screen.queryByRole('button', { name: 'Tea' }),
-    ).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Tea' })).not.toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Milk' })).toBeVisible()
   })
 

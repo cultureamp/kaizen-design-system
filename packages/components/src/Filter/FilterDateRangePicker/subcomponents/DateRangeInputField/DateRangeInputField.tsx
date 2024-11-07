@@ -116,10 +116,7 @@ export const DateRangeInputField = React.forwardRef<
             disabled={disabled}
             status={validationMessage?.dateEnd?.status}
             {...inputEndDateProps}
-            classNameOverride={classnames(
-              styles.inputEndDate,
-              inputEndDateProps.classNameOverride,
-            )}
+            classNameOverride={classnames(styles.inputEndDate, inputEndDateProps.classNameOverride)}
           />
         </fieldset>
 
@@ -134,9 +131,7 @@ export const DateRangeInputField = React.forwardRef<
 
         <FieldMessage
           id={descriptionId}
-          message={
-            <DateInputDescription description={description} locale={locale} />
-          }
+          message={<DateInputDescription description={description} locale={locale} />}
           reversed={isReversed}
           classNameOverride={disabled ? styles.disabled : undefined}
         />

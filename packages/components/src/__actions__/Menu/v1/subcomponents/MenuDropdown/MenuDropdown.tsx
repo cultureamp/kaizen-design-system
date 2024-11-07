@@ -29,31 +29,25 @@ export const MenuDropdown = ({
   align = 'left',
   width = 'default',
 }: MenuDropdownProps): JSX.Element => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null,
-  )
-  const { styles: popperStyles, attributes } = usePopper(
-    referenceElement,
-    popperElement,
-    {
-      modifiers: [
-        {
-          name: 'offset',
-          options: {
-            offset: [0, 6], // value used from the $spacing-xs scss variable,
-          },
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
+  const { styles: popperStyles, attributes } = usePopper(referenceElement, popperElement, {
+    modifiers: [
+      {
+        name: 'offset',
+        options: {
+          offset: [0, 6], // value used from the $spacing-xs scss variable,
         },
-        {
-          name: 'preventOverflow',
-          options: {
-            // Gives some room so the menu shadow doesn't get clipped if near the edge of the viewport.
-            padding: 8,
-          },
+      },
+      {
+        name: 'preventOverflow',
+        options: {
+          // Gives some room so the menu shadow doesn't get clipped if near the edge of the viewport.
+          padding: 8,
         },
-      ],
-      placement: align === 'left' ? 'bottom-start' : 'bottom-end',
-    },
-  )
+      },
+    ],
+    placement: align === 'left' ? 'bottom-start' : 'bottom-end',
+  })
 
   // This callback handler will not run when autoHide === "off"
   const handleDocumentClickForAutoHide = useCallback(
@@ -97,11 +91,7 @@ export const MenuDropdown = ({
 
     return () => {
       if (autoHide !== 'off') {
-        document.removeEventListener(
-          'click',
-          handleDocumentClickForAutoHide,
-          true,
-        )
+        document.removeEventListener('click', handleDocumentClickForAutoHide, true)
       }
     }
   }, [autoHide, handleDocumentClickForAutoHide])
@@ -126,10 +116,7 @@ export const MenuDropdown = ({
         ref={setPopperElement}
         {...attributes.popper}
         style={popperStyles.popper}
-        className={classnames(
-          styles.menuContainer,
-          width == 'default' && styles.defaultWidth,
-        )}
+        className={classnames(styles.menuContainer, width == 'default' && styles.defaultWidth)}
         onClick={handleRootClick}
       >
         {children}

@@ -33,11 +33,7 @@ export const Variants: Story = {
   render: (args) => (
     <>
       <InformationTile {...args} variant="default" title="default" />
-      <InformationTile
-        {...args}
-        variant="expert-advice"
-        title="expert-advice"
-      />
+      <InformationTile {...args} variant="expert-advice" title="expert-advice" />
     </>
   ),
   decorators: [

@@ -7,14 +7,10 @@ import styles from '../SelectionControlButton.module.scss'
 export const ClearButton = (): JSX.Element => {
   const { selectionState } = useSelectionContext()
   const filteredOptions = Array.from(selectionState.collection.getKeys())
-  const selectedOptions = Array.from(
-    selectionState.selectionManager.selectedKeys,
-  )
+  const selectedOptions = Array.from(selectionState.selectionManager.selectedKeys)
   const isDisabled =
     filteredOptions.length === 0 ||
-    !filteredOptions.find((key) =>
-      selectionState.selectionManager.isSelected(key),
-    )
+    !filteredOptions.find((key) => selectionState.selectionManager.isSelected(key))
 
   return (
     <button
@@ -25,9 +21,7 @@ export const ClearButton = (): JSX.Element => {
         (): void => {
           if (!isDisabled) {
             selectionState.selectionManager.setSelectedKeys(
-              selectedOptions.filter(
-                (option) => !filteredOptions.includes(option),
-              ),
+              selectedOptions.filter((option) => !filteredOptions.includes(option)),
             )
           }
         }

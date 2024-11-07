@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { FilterButton } from '../FilterButton'
 import { FilterButtonRemovable } from '../FilterButtonRemovable'
 import { FilterButtonBase } from '../subcomponents/FilterButtonBase'
@@ -20,28 +17,17 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
       <StickerSheet heading="Filter Button Base">
-        <StickerSheet.Header
-          headings={['Default', 'Hover', 'Active', 'Focus']}
-        />
+        <StickerSheet.Header headings={['Default', 'Hover', 'Active', 'Focus']} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterButtonBase>Label</FilterButtonBase>
-            <FilterButtonBase
-              data-sb-pseudo-styles="hover"
-              data-sb-a11y-color-contrast-disable
-            >
+            <FilterButtonBase data-sb-pseudo-styles="hover" data-sb-a11y-color-contrast-disable>
               Label
             </FilterButtonBase>
-            <FilterButtonBase
-              data-sb-pseudo-styles="active"
-              data-sb-a11y-color-contrast-disable
-            >
+            <FilterButtonBase data-sb-pseudo-styles="active" data-sb-a11y-color-contrast-disable>
               Label
             </FilterButtonBase>
-            <FilterButtonBase
-              data-sb-pseudo-styles="focus"
-              data-sb-a11y-color-contrast-disable
-            >
+            <FilterButtonBase data-sb-pseudo-styles="focus" data-sb-a11y-color-contrast-disable>
               Label
             </FilterButtonBase>
           </StickerSheet.Row>
@@ -49,9 +35,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
 
       <StickerSheet heading="Filter Button">
-        <StickerSheet.Header
-          headings={['Closed', 'Open', 'Has selected value']}
-        />
+        <StickerSheet.Header headings={['Closed', 'Open', 'Has selected value']} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterButton label="Desserts" />

@@ -2,9 +2,7 @@ import { parseJsx } from '../__tests__/utils'
 import { transformSource, printAst, TransformConfig } from '../utils'
 import { transformEmptyStateIllustrationTypeToVariant } from './transformEmptyStateIllustrationTypeToVariant'
 
-const transformEmptyState = (
-  sourceFile: TransformConfig['sourceFile'],
-): string =>
+const transformEmptyState = (sourceFile: TransformConfig['sourceFile']): string =>
   transformSource({
     sourceFile,
     astTransformer: transformEmptyStateIllustrationTypeToVariant,
@@ -63,12 +61,8 @@ describe('transformEmptyStateIllustrationTypeToVariant()', () => {
   })
 
   it('does not add variant if illustrationType was not defined', () => {
-    const inputAst = parseJsx(
-      'export const TestComponent = () => <EmptyState>Hello</EmptyState>',
-    )
-    const outputAst = parseJsx(
-      'export const TestComponent = () => <EmptyState>Hello</EmptyState>',
-    )
+    const inputAst = parseJsx('export const TestComponent = () => <EmptyState>Hello</EmptyState>')
+    const outputAst = parseJsx('export const TestComponent = () => <EmptyState>Hello</EmptyState>')
     expect(transformEmptyState(inputAst)).toEqual(printAst(outputAst))
   })
 })

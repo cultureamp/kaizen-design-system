@@ -66,15 +66,11 @@ describe('<MobileActions />', () => {
 
       await user.click(mobileActionsButton)
       await waitFor(() => {
-        expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual(
-          'true',
-        )
+        expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual('true')
       })
       await user.click(mobileActionsButton)
       await waitFor(() => {
-        expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual(
-          'false',
-        )
+        expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual('false')
       })
     })
   })
@@ -100,15 +96,11 @@ describe('<MobileActions />', () => {
 
       await user.click(mobileActionsButton)
       await waitFor(() => {
-        expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual(
-          'true',
-        )
+        expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual('true')
       })
       await user.click(mobileActionsButton)
       await waitFor(() => {
-        expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual(
-          'false',
-        )
+        expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual('false')
       })
     })
   })
@@ -131,15 +123,11 @@ describe('<MobileActions />', () => {
 
       await user.click(mobileActionsButton)
       await waitFor(() => {
-        expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual(
-          'true',
-        )
+        expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual('true')
       })
       await user.click(mobileActionsButton)
       await waitFor(() => {
-        expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual(
-          'false',
-        )
+        expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual('false')
       })
     })
   })
@@ -192,9 +180,7 @@ describe('when autoHide is true', () => {
     await waitFor(() => {
       expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual('true')
     })
-    const btn = screen.getAllByTestId(
-      'title-block-mobile-actions-secondary-action',
-    )
+    const btn = screen.getAllByTestId('title-block-mobile-actions-secondary-action')
     expect(btn.length).toEqual(3)
     await user.click(btn[0])
 
@@ -213,9 +199,7 @@ describe('when autoHide is true', () => {
     await waitFor(() => {
       expect(mobileActionsButton.getAttribute('aria-expanded')).toEqual('true')
     })
-    const btn = screen.getAllByTestId(
-      'title-block-mobile-actions-overflow-menu-item',
-    )
+    const btn = screen.getAllByTestId('title-block-mobile-actions-overflow-menu-item')
     expect(btn.length).toEqual(1)
     await user.click(btn[0])
 

@@ -47,12 +47,7 @@ export const BaseButton = ({
   }
 
   return (
-    <button
-      type="button"
-      className={className}
-      {...restContentProps}
-      {...attributes}
-    >
+    <button type="button" className={className} {...restContentProps} {...attributes}>
       {children}
     </button>
   )

@@ -17,10 +17,7 @@ const getSelectionOfNode = (node: Node): void => {
 }
 
 const TestRTE = (
-  args: Omit<
-    RichTextEditorProps,
-    'defaultValue' | 'onChange' | 'aria-labelledby'
-  > & {
+  args: Omit<RichTextEditorProps, 'defaultValue' | 'onChange' | 'aria-labelledby'> & {
     rteMockData?: RichTextEditorProps['defaultValue']
   },
 ): JSX.Element => {
@@ -46,9 +43,7 @@ const TestRTE = (
 describe('accessible name and description', () => {
   it('has the correct accessible name', () => {
     render(<TestRTE labelText="Some label" />)
-    expect(
-      screen.getByRole('textbox', { name: 'Some label' }),
-    ).toBeInTheDocument()
+    expect(screen.getByRole('textbox', { name: 'Some label' })).toBeInTheDocument()
   })
 
   it('has the correct name and description when added with aria-labelledby and aria-describedby', () => {
@@ -56,10 +51,7 @@ describe('accessible name and description', () => {
       <>
         <div id="external-label">External label</div>
         <div id="external-description">External description</div>
-        <TestRTE
-          aria-labelledby="external-label"
-          aria-describedby="external-description"
-        />
+        <TestRTE aria-labelledby="external-label" aria-describedby="external-description" />
       </>,
     )
     expect(
@@ -184,7 +176,7 @@ describe('RTE receives list controls', () => {
       },
     ]
 
-    it('will render indent buttons as \'disabled\'', () => {
+    it("will render indent buttons as 'disabled'", () => {
       render(<TestRTE />)
 
       const decreaseIndentBtn = screen.getByRole('button', {

@@ -1,10 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { Label } from '~components/Label'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { FieldGroup } from '../index'
 
 export default {

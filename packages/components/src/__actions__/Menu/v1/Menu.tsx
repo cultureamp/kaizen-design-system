@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import { ButtonProps } from '~components/__actions__/v2'
-import {
-  StatelessMenu,
-  StatelessMenuProps,
-} from './subcomponents/StatelessMenu'
+import { StatelessMenu, StatelessMenuProps } from './subcomponents/StatelessMenu'
 
 type ButtonPropsWithOptionalAria = ButtonProps & {
   'aria-haspopup'?: boolean
@@ -30,11 +27,7 @@ export type MenuProps = Omit<
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082059782/Menu Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-menu--docs Storybook}
  */
-export const Menu = ({
-  button,
-  menuVisible = false,
-  ...rest
-}: MenuProps): JSX.Element => {
+export const Menu = ({ button, menuVisible = false, ...rest }: MenuProps): JSX.Element => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(menuVisible)
 
   const toggleMenuDropdown = (): void => {
@@ -68,7 +61,8 @@ export const Menu = ({
             props.onMouseDown(e)
             button.props.onMouseDown?.(e)
           },
-        })}
+        })
+      }
     />
   )
 }

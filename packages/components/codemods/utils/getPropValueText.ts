@@ -1,9 +1,7 @@
 import ts from 'typescript'
 
 /** a helper function to get prop's value text from a JSX attribute */
-export const getPropValueText = (
-  propValue: ts.JsxAttributeValue,
-): string | undefined => {
+export const getPropValueText = (propValue: ts.JsxAttributeValue): string | undefined => {
   if (ts.isStringLiteral(propValue)) {
     return propValue.text
   }

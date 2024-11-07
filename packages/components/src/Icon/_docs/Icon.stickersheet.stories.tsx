@@ -1,10 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import * as ICONS from '~components/Icon'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 
 export default {
   title: 'Illustrations/Icon',
@@ -17,10 +14,7 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet heading="Icons">
-      <StickerSheet.Header
-        headings={['Default', 'Color']}
-        hasVerticalHeadings
-      />
+      <StickerSheet.Header headings={['Default', 'Color']} hasVerticalHeadings />
       <StickerSheet.Body>
         {Object.keys(ICONS).map((iconName) => {
           const icon = ICONS[iconName as keyof typeof ICONS]({
@@ -29,9 +23,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           return (
             <StickerSheet.Row key={iconName} rowTitle={iconName}>
               {icon}
-              <StickerSheet.Cell className="text-green-400">
-                {icon}
-              </StickerSheet.Cell>
+              <StickerSheet.Cell className="text-green-400">{icon}</StickerSheet.Cell>
             </StickerSheet.Row>
           )
         })}

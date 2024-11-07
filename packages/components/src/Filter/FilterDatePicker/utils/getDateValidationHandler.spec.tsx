@@ -73,12 +73,7 @@ describe('getDateValidationHandler()', () => {
         expect(onValidate).not.toBeCalled()
         expect(setInbuiltValidationMessage).toBeCalledWith({
           status: 'error',
-          message: (
-            <LabelledMessage
-              label="Field label"
-              message="Custom error message"
-            />
-          ),
+          message: <LabelledMessage label="Field label" message="Custom error message" />,
         })
       })
     })

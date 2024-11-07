@@ -38,10 +38,7 @@ export const useDateValidation = ({
     inputLabel,
   })
 
-  const validateSingleDate: UseDateValidationValue['validateDate'] = ({
-    date,
-    inputValue,
-  }) =>
+  const validateSingleDate: UseDateValidationValue['validateDate'] = ({ date, inputValue }) =>
     validateDate({
       date,
       inputValue,

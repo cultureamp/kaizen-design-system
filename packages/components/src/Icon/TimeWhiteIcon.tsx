@@ -10,10 +10,7 @@ export const TimeWhiteIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <defs>
-        <path
-          id={uniqueId}
-          d="M10 2c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8"
-        />
+        <path id={uniqueId} d="M10 2c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8" />
       </defs>
       <g fill="none" fillRule="evenodd">
         <use fill="currentColor" href={`#${uniqueId}`} />

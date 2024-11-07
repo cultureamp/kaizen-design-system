@@ -3,10 +3,7 @@ import { Decorator, Meta } from '@storybook/react'
 import isChromatic from 'chromatic/isChromatic'
 import { IconButton } from '~components/__actions__/v2'
 import { Icon } from '~components/__future__/Icon'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Tooltip } from '../index'
 
 const openTooltipInChromatic: Decorator = (Story, { args }) => {
@@ -36,39 +33,22 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row>
             <StickerSheet.Cell style={cellStyle}>
               <Tooltip {...props} position="above" text="Tooltip label">
-                <IconButton
-                  label="Label"
-                  icon={<Icon name="more_horiz" isPresentational />}
-                />
+                <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
               </Tooltip>
             </StickerSheet.Cell>
             <StickerSheet.Cell style={cellStyle}>
               <Tooltip {...props} position="below" text="Tooltip label">
-                <IconButton
-                  label="Label"
-                  icon={<Icon name="more_horiz" isPresentational />}
-                />
+                <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
               </Tooltip>
             </StickerSheet.Cell>
             <StickerSheet.Cell style={cellStyle}>
               <Tooltip {...props} position="left" text="Tooltip label">
-                <IconButton
-                  label="Label"
-                  icon={<Icon name="more_horiz" isPresentational />}
-                />
+                <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
               </Tooltip>
             </StickerSheet.Cell>
             <StickerSheet.Cell style={cellStyle}>
-              <Tooltip
-                {...props}
-                position="right"
-                text="Tooltip label"
-                mood="default"
-              >
-                <IconButton
-                  label="Label"
-                  icon={<Icon name="more_horiz" isPresentational />}
-                />
+              <Tooltip {...props} position="right" text="Tooltip label" mood="default">
+                <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
               </Tooltip>
             </StickerSheet.Cell>
           </StickerSheet.Row>
@@ -76,54 +56,33 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
       <StickerSheet heading="Moods">
         <StickerSheet.Header
-          headings={[
-            'Default',
-            'Informative',
-            'Positive',
-            'Highlight',
-            'Cautionary',
-          ]}
+          headings={['Default', 'Informative', 'Positive', 'Highlight', 'Cautionary']}
         />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <StickerSheet.Cell style={cellStyle}>
               <Tooltip {...props} text="Tooltip label" mood="default">
-                <IconButton
-                  label="Label"
-                  icon={<Icon name="more_horiz" isPresentational />}
-                />
+                <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
               </Tooltip>
             </StickerSheet.Cell>
             <StickerSheet.Cell style={cellStyle}>
               <Tooltip {...props} text="Tooltip label" mood="informative">
-                <IconButton
-                  label="Label"
-                  icon={<Icon name="more_horiz" isPresentational />}
-                />
+                <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
               </Tooltip>
             </StickerSheet.Cell>
             <StickerSheet.Cell style={cellStyle}>
               <Tooltip {...props} text="Tooltip label" mood="positive">
-                <IconButton
-                  label="Label"
-                  icon={<Icon name="more_horiz" isPresentational />}
-                />
+                <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
               </Tooltip>
             </StickerSheet.Cell>
             <StickerSheet.Cell style={cellStyle}>
               <Tooltip {...props} text="Tooltip label" mood="highlight">
-                <IconButton
-                  label="Label"
-                  icon={<Icon name="more_horiz" isPresentational />}
-                />
+                <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
               </Tooltip>
             </StickerSheet.Cell>
             <StickerSheet.Cell style={cellStyle}>
               <Tooltip {...props} text="Tooltip label" mood="cautionary">
-                <IconButton
-                  label="Label"
-                  icon={<Icon name="more_horiz" isPresentational />}
-                />
+                <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
               </Tooltip>
             </StickerSheet.Cell>
           </StickerSheet.Row>

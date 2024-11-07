@@ -1,4 +1,4 @@
-name: "Canary release"
+name: 'Canary release'
 
 on:
   workflow_dispatch:

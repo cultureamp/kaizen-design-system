@@ -24,9 +24,7 @@ export const MultiSelectOptions = ({
 }: MultiSelectOptionsProps): JSX.Element => {
   const optionsCountId = `${id}--options-count`
 
-  const handleOptionChange = (
-    optionValue: MultiSelectOption['value'],
-  ): void => {
+  const handleOptionChange = (optionValue: MultiSelectOption['value']): void => {
     const newValues = new Set(selectedValues.values())
     if (newValues.has(optionValue)) {
       newValues.delete(optionValue)
@@ -46,25 +44,21 @@ export const MultiSelectOptions = ({
       <VisuallyHidden id={optionsCountId} aria-live="polite">
         Options available: {options.length}
       </VisuallyHidden>
-      {options.length === 0
-        ? (
-            <Text tag="span" variant="body">
-              No options available
-            </Text>
-          )
-        : (
-            options.map((option) => (
-              <MultiSelectOptionField
-                key={option.value}
-                id={`${id}--${option.value}`}
-                onChange={() => handleOptionChange(option.value)}
-                checkedStatus={
-                  selectedValues.has(option.value) ? 'checked' : 'unchecked'
-                }
-                option={option}
-              />
-            ))
-          )}
+      {options.length === 0 ? (
+        <Text tag="span" variant="body">
+          No options available
+        </Text>
+      ) : (
+        options.map((option) => (
+          <MultiSelectOptionField
+            key={option.value}
+            id={`${id}--${option.value}`}
+            onChange={() => handleOptionChange(option.value)}
+            checkedStatus={selectedValues.has(option.value) ? 'checked' : 'unchecked'}
+            option={option}
+          />
+        ))
+      )}
     </fieldset>
   )
 }

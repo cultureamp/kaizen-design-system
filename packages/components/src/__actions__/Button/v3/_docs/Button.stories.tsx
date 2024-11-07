@@ -19,15 +19,11 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button {...otherArgs}>{children}</Button>
-  ),
+  render: ({ children, ...otherArgs }) => <Button {...otherArgs}>{children}</Button>,
 }
 
 export const ButtonWithIcon: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button {...otherArgs}>{children}</Button>
-  ),
+  render: ({ children, ...otherArgs }) => <Button {...otherArgs}>{children}</Button>,
   args: {
     children: (
       <>
@@ -39,9 +35,7 @@ export const ButtonWithIcon: Story = {
 }
 
 export const ButtonWithIconStart: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button {...otherArgs}>{children}</Button>
-  ),
+  render: ({ children, ...otherArgs }) => <Button {...otherArgs}>{children}</Button>,
   args: {
     children: (
       <>
@@ -53,9 +47,7 @@ export const ButtonWithIconStart: Story = {
 }
 
 export const IconButton: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button {...otherArgs}>{children}</Button>
-  ),
+  render: ({ children, ...otherArgs }) => <Button {...otherArgs}>{children}</Button>,
   args: {
     children: (
       <>
@@ -67,9 +59,7 @@ export const IconButton: Story = {
 }
 
 export const OnReversed: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button {...otherArgs}>{children}</Button>
-  ),
+  render: ({ children, ...otherArgs }) => <Button {...otherArgs}>{children}</Button>,
   args: {
     children: (
       <>

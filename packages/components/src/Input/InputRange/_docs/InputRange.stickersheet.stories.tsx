@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { InputRange } from '../index'
 
 export default {
@@ -36,12 +33,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Header headings={['Default', 'Disabled']} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <InputRange
-            id="inputRange"
-            minLabel="Minimum"
-            maxLabel="Maximum"
-            value={2}
-          />
+          <InputRange id="inputRange" minLabel="Minimum" maxLabel="Maximum" value={2} />
           <InputRange
             id="inputRangeDisable"
             minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}

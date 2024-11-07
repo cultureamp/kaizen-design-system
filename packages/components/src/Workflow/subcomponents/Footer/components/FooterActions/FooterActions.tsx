@@ -15,10 +15,7 @@ export const FooterAction = ({
   ...restProps
 }: FooterActionsProps): JSX.Element => (
   <div
-    className={classnames([
-      styles.footerAction,
-      styles[`footerAction${actionType}`],
-    ])}
+    className={classnames([styles.footerAction, styles[`footerAction${actionType}`]])}
     {...restProps}
   >
     {action}

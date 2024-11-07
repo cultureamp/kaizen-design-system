@@ -16,13 +16,9 @@ export default {
   },
 } satisfies Meta
 
-export const PseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const PseudoSelectors: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <StickerSheet isReversed={isReversed}>
-    <StickerSheet.Header
-      headings={['Utility Class', 'Compiled CSS', 'Example']}
-    />
+    <StickerSheet.Header headings={['Utility Class', 'Compiled CSS', 'Example']} />
     <StickerSheet.Row rowTitle="hover">
       <p className="font-family-paragraph">hover:bg-blue-200</p>
       <p className="font-family-paragraph">background-color: #bde2f5</p>

@@ -7,10 +7,7 @@ type Props = {
   locale: string
   children: ReactNode
 }
-export const OptionalIntlProvider = ({
-  locale,
-  children,
-}: Props): JSX.Element => {
+export const OptionalIntlProvider = ({ locale, children }: Props): JSX.Element => {
   const parent = useContext(IntlContext)
 
   if (parent) {

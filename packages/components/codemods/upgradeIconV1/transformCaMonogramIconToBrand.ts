@@ -11,17 +11,12 @@ export const transformCaMonogramIconToBrand = (
   tagName: string = 'Brand',
 ): ts.Node => {
   let shouldInheritSize = false
-  const newAttributes = node.attributes.properties.reduce<
-    ts.JsxAttributeLike[]
-  >((acc, attr) => {
+  const newAttributes = node.attributes.properties.reduce<ts.JsxAttributeLike[]>((acc, attr) => {
     if (ts.isJsxAttribute(attr)) {
       const propName = attr.name.getText()
 
       if (propName === 'role') {
-        if (
-          attr.initializer &&
-          getPropValueText(attr.initializer) === 'presentation'
-        ) {
+        if (attr.initializer && getPropValueText(attr.initializer) === 'presentation') {
           acc.push(createStringProp('alt', ''))
         }
         return acc

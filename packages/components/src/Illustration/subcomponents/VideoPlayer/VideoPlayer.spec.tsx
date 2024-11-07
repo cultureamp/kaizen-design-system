@@ -28,9 +28,7 @@ describe('<VideoPlayer />', () => {
     window.HTMLMediaElement.prototype.load = mockLoad
     window.HTMLMediaElement.prototype.play = mockPlay
     window.HTMLMediaElement.prototype.pause = mockPause
-    window.matchMedia = vi
-      .fn()
-      .mockImplementation(() => mockDoesNotPreferReducedMotion)
+    window.matchMedia = vi.fn().mockImplementation(() => mockDoesNotPreferReducedMotion)
     // this will stop throwing the unstable_flushDiscreteUpdates console error cause by react bug
     // https://stackoverflow.com/a/65338472/18285270
     Object.defineProperty(HTMLMediaElement.prototype, 'muted', {
@@ -57,9 +55,7 @@ describe('<VideoPlayer />', () => {
   })
 
   it('respects the use-reduced-motion preferences of the user', () => {
-    window.matchMedia = vi
-      .fn()
-      .mockImplementation(() => mockPrefersReducedMotion)
+    window.matchMedia = vi.fn().mockImplementation(() => mockPrefersReducedMotion)
     render(
       <VideoPlayer
         autoplay
@@ -74,9 +70,7 @@ describe('<VideoPlayer />', () => {
   })
 
   it('defaults to autoplay when user does not set use-reduced-motion preferences', () => {
-    window.matchMedia = vi
-      .fn()
-      .mockImplementation(() => mockDoesNotPreferReducedMotion)
+    window.matchMedia = vi.fn().mockImplementation(() => mockDoesNotPreferReducedMotion)
     render(
       <VideoPlayer
         autoplay

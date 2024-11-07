@@ -13,9 +13,7 @@ export type EditableRichTextContentProps = {
   labelText: string
   isLabelHidden?: boolean
   contentProps?: Omit<RichTextContentProps, 'content'>
-} & OverrideClassName<
-  Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'content'>
->
+} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'content'>>
 
 const handleEditableClick = (
   e: MouseEvent<HTMLElement>,
@@ -37,9 +35,7 @@ export const EditableRichTextContent = ({
   ...restProps
 }: EditableRichTextContentProps): JSX.Element => (
   <>
-    {!isLabelHidden && (
-      <Label classNameOverride={styles.editorLabel} labelText={labelText} />
-    )}
+    {!isLabelHidden && <Label classNameOverride={styles.editorLabel} labelText={labelText} />}
     {/* Disabling these a11y linting errors because there is a <button> that mitigates these concerns. The onClick here is just an additional layer. */}
     {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
     <div
@@ -48,11 +44,7 @@ export const EditableRichTextContent = ({
       {...restProps}
     >
       <VisuallyHidden classNameOverride={styles.hiddenButton}>
-        <button
-          type="button"
-          onClick={onClick}
-          aria-label={`Edit ${labelText}`}
-        />
+        <button type="button" onClick={onClick} aria-label={`Edit ${labelText}`} />
       </VisuallyHidden>
       <RichTextContent content={content} {...contentProps} />
     </div>

@@ -4,12 +4,7 @@ import { AllowedTextTags, Text, TextVariants } from '.'
 
 describe('<Text />', () => {
   describe('changes rendered HTML element when passed tag', () => {
-    const testCases: TextVariants[] = [
-      'intro-lede',
-      'body',
-      'small',
-      'extra-small',
-    ]
+    const testCases: TextVariants[] = ['intro-lede', 'body', 'small', 'extra-small']
 
     testCases.forEach((variant) => {
       it(`renders the correct element for <Text variant={${variant}} />`, () => {
@@ -33,7 +28,7 @@ describe('<Text />', () => {
   })
 
   describe('defaults to the correct HTML element', () => {
-    type TestObject = { variant: TextVariants, el: AllowedTextTags }
+    type TestObject = { variant: TextVariants; el: AllowedTextTags }
     const testCases: TestObject[] = [
       { variant: 'intro-lede', el: 'p' },
       { variant: 'body', el: 'p' },

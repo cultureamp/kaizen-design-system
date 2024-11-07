@@ -46,9 +46,7 @@ export const WorkflowControls: Partial<ArgTypes> = {
     mapping: {
       'Next active': <Button primary label="Next" />,
       'Next disabled': <Button primary disabled label="Next" />,
-      'Next submit': (
-        <Button formTarget="workflow-form-id" primary label="Finish" />
-      ),
+      'Next submit': <Button formTarget="workflow-form-id" primary label="Finish" />,
       'No next action': undefined,
     },
   },
@@ -56,18 +54,11 @@ export const WorkflowControls: Partial<ArgTypes> = {
     control: {
       type: 'radio',
     },
-    options: [
-      'Previous active',
-      'Previous disabled',
-      'Previous submit',
-      'No Previous action',
-    ],
+    options: ['Previous active', 'Previous disabled', 'Previous submit', 'No Previous action'],
     mapping: {
       'Previous active': <Button label="Back" />,
       'Previous disabled': <Button disabled label="Back" />,
-      'Previous submit': (
-        <Button formTarget="workflow-form-id" primary label="Back" />
-      ),
+      'Previous submit': <Button formTarget="workflow-form-id" primary label="Back" />,
       'No Previous action': undefined,
     },
   },
@@ -75,13 +66,7 @@ export const WorkflowControls: Partial<ArgTypes> = {
     control: {
       type: 'select',
     },
-    options: [
-      'settings-step',
-      'questions-step',
-      'preview-step',
-      'employees-step',
-      'schedule-step',
-    ],
+    options: ['settings-step', 'questions-step', 'preview-step', 'employees-step', 'schedule-step'],
     mapping: {
       'settings-step': 'settings-step',
       'questions-step': 'questions-step',

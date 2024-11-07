@@ -17,10 +17,7 @@ export const ImportWhiteIcon = (props: IconProps): JSX.Element => {
       </defs>
       <g fill="none" fillRule="evenodd">
         <use fill="currentColor" href={`#${uniqueId}`} />
-        <path
-          fill="#FFF"
-          d="M11.583 13.958H8.417v-3.166H6.042L10 6.833l3.958 3.959h-2.375z"
-        />
+        <path fill="#FFF" d="M11.583 13.958H8.417v-3.166H6.042L10 6.833l3.958 3.959h-2.375z" />
       </g>
     </>
   )

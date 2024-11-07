@@ -24,9 +24,7 @@ describe('useStartDateValidation()', () => {
 
       const { container } = render(result.current.validationMessage?.message)
       await waitFor(() => {
-        expect(container).toHaveTextContent(
-          'Start date:potato is an invalid date',
-        )
+        expect(container).toHaveTextContent('Start date:potato is an invalid date')
       })
     })
   })

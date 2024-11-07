@@ -39,11 +39,7 @@ export const RichTextContent = (props: RichTextContentProps): JSX.Element => {
   )
 
   return (
-    <div
-      ref={editorRef}
-      className={classnames(styles.content, classNameOverride)}
-      {...restProps}
-    />
+    <div ref={editorRef} className={classnames(styles.content, classNameOverride)} {...restProps} />
   )
 }
 

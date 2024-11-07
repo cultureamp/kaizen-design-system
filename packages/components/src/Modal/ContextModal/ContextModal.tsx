@@ -13,13 +13,13 @@ import styles from './ContextModal.module.scss'
 
 export type ContextModalSecondaryActionProps =
   | {
-    secondaryLabel: string
-    onSecondaryAction: () => void
-  }
+      secondaryLabel: string
+      onSecondaryAction: () => void
+    }
   | {
-    secondaryLabel?: undefined
-    onSecondaryAction?: never
-  }
+      secondaryLabel?: undefined
+      onSecondaryAction?: never
+    }
 
 export type ContextModalProps = Readonly<
   {
@@ -37,7 +37,7 @@ export type ContextModalProps = Readonly<
     /** A callback that is triggered after the modal is closed. */
     onAfterLeave?: () => void
     confirmLabel?: string
-    confirmWorking?: { label: string, labelHidden?: boolean }
+    confirmWorking?: { label: string; labelHidden?: boolean }
     /**
      * @deprecated use data-testid instead
      */
@@ -47,7 +47,7 @@ export type ContextModalProps = Readonly<
     children: React.ReactNode
     contentHeader?: React.ReactNode
   } & ContextModalSecondaryActionProps &
-  HTMLAttributes<HTMLDivElement>
+    HTMLAttributes<HTMLDivElement>
 >
 
 /**
@@ -109,9 +109,7 @@ export const ContextModal = ({
       <div className={styles.modal} data-modal {...props}>
         {renderBackground?.()}
         <ModalHeader onDismiss={onDismiss}>
-          <div
-            className={classnames(styles.header, !unpadded && styles.padded)}
-          >
+          <div className={classnames(styles.header, !unpadded && styles.padded)}>
             <ModalAccessibleLabel>
               <Heading variant="heading-2" tag="h2">
                 {title}
@@ -119,26 +117,15 @@ export const ContextModal = ({
             </ModalAccessibleLabel>
           </div>
         </ModalHeader>
-        {contentHeader && (
-          <div className={styles.contentHeader}>{contentHeader}</div>
-        )}
+        {contentHeader && <div className={styles.contentHeader}>{contentHeader}</div>}
         <ModalBody>
-          <div
-            className={classnames(
-              styles.contentLayout,
-              styles[`${layout}Contentlayout`],
-            )}
-          >
+          <div className={classnames(styles.contentLayout, styles[`${layout}Contentlayout`])}>
             {image && <div className={styles.image}>{image}</div>}
             <div className={styles.content}>
               {children}
               {onConfirm != null && (
                 <div
-                  className={
-                    secondaryLabel
-                      ? styles.footerWithSecondaryAction
-                      : styles.footer
-                  }
+                  className={secondaryLabel ? styles.footerWithSecondaryAction : styles.footer}
                 />
               )}
             </div>

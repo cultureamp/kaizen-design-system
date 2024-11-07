@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { SearchField, SearchFieldProps } from '../index'
 
 export default {
@@ -55,12 +52,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <StickerSheet.Header headings={['Disabled', 'Hover', 'Focus']} />
               <StickerSheet.Body>
                 <StickerSheet.Row>
-                  <SearchField
-                    {...variantProps}
-                    {...COMMON_PROPS}
-                    value=""
-                    disabled
-                  />
+                  <SearchField {...variantProps} {...COMMON_PROPS} value="" disabled />
                   <SearchField
                     {...variantProps}
                     {...COMMON_PROPS}

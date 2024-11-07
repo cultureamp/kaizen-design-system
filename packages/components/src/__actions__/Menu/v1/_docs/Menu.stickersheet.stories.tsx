@@ -2,10 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import { Button } from '~components/__actions__/v2'
 import { Icon } from '~components/__future__/Icon'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Menu } from '../index'
 import { MenuContentExample } from './MenuContentExample'
 
@@ -27,13 +24,13 @@ const StickerSheetTemplate: StickerSheetStory = {
             <Menu
               menuVisible
               autoHide="off"
-              button={(
+              button={
                 <Button
                   label="Menu"
                   icon={<Icon name="keyboard_arrow_down" isPresentational />}
                   iconPosition="end"
                 />
-              )}
+              }
             >
               <MenuContentExample />
             </Menu>
@@ -42,13 +39,13 @@ const StickerSheetTemplate: StickerSheetStory = {
             <Menu
               menuVisible
               autoHide="off"
-              button={(
+              button={
                 <Button
                   label="Menu"
                   icon={<Icon name="keyboard_arrow_down" isPresentational />}
                   iconPosition="end"
                 />
-              )}
+              }
             >
               <MenuContentExample isShortList />
             </Menu>

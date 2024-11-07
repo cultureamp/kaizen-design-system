@@ -17,10 +17,7 @@ export const CommentWhiteIcon = (props: IconProps): JSX.Element => {
       </defs>
       <g fill="none" fillRule="evenodd">
         <use fill="currentColor" href={`#${uniqueId}`} />
-        <path
-          fill="#FFF"
-          d="M12.4 9.2H14V7.6h-1.6zM9.2 9.2h1.6V7.6H9.2zM6 9.2h1.6V7.6H6z"
-        />
+        <path fill="#FFF" d="M12.4 9.2H14V7.6h-1.6zM9.2 9.2h1.6V7.6H9.2zM6 9.2h1.6V7.6H6z" />
       </g>
     </>
   )

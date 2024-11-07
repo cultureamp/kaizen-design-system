@@ -31,10 +31,7 @@ describe('<ConfirmationModal />', () => {
     const handleConfirm = vi.fn()
     const handleDismiss = vi.fn()
     const { getByLabelText } = render(
-      <ConfirmationModalWrapper
-        onConfirm={handleConfirm}
-        onDismiss={handleDismiss}
-      >
+      <ConfirmationModalWrapper onConfirm={handleConfirm} onDismiss={handleDismiss}>
         Example modal body
       </ConfirmationModalWrapper>,
     )
@@ -49,10 +46,7 @@ describe('<ConfirmationModal />', () => {
     const handleConfirm = vi.fn()
     const handleDismiss = vi.fn()
     const { getByText } = render(
-      <ConfirmationModalWrapper
-        onDismiss={handleDismiss}
-        onConfirm={handleConfirm}
-      >
+      <ConfirmationModalWrapper onDismiss={handleDismiss} onConfirm={handleConfirm}>
         Example modal body
       </ConfirmationModalWrapper>,
     )
@@ -67,10 +61,7 @@ describe('<ConfirmationModal />', () => {
     const handleConfirm = vi.fn()
     const handleDismiss = vi.fn()
     const { getByText } = render(
-      <ConfirmationModalWrapper
-        onDismiss={handleDismiss}
-        onConfirm={handleConfirm}
-      >
+      <ConfirmationModalWrapper onDismiss={handleDismiss} onConfirm={handleConfirm}>
         Example modal body
       </ConfirmationModalWrapper>,
     )

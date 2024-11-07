@@ -12,8 +12,7 @@ const Wrapper = ({
   componentProps: LinkEditorProps
   Component: ElementType
 }): JSX.Element => {
-  const [localComponentProps, setLocalComponentProps] =
-    useState<LinkEditorProps>(componentProps)
+  const [localComponentProps, setLocalComponentProps] = useState<LinkEditorProps>(componentProps)
 
   useEffect(() => {
     const onUpdate = (newComponentProps: LinkEditorProps): void => {
@@ -38,21 +37,15 @@ export const createReactTooltipWrapper = (
   Component: ElementType,
   componentProps: LinkEditorProps,
 ): {
-    destroy: () => void
-    update: (props: LinkEditorProps) => void
-  } => {
+  destroy: () => void
+  update: (props: LinkEditorProps) => void
+} => {
   const emitter = new Nanobus()
   const container = document.createElement('div')
   parentNode.appendChild(container)
   const root = createRoot(container)
 
-  root.render(
-    <Wrapper
-      componentProps={componentProps}
-      Component={Component}
-      emitter={emitter}
-    />,
-  )
+  root.render(<Wrapper componentProps={componentProps} Component={Component} emitter={emitter} />)
 
   function destroy(): void {
     root.unmount()

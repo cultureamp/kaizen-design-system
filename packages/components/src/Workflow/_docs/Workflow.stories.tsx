@@ -11,13 +11,8 @@ import { WorkflowControls } from './controls'
 const MockContent = (): JSX.Element => (
   <div className="flex flex-col flex-1 m-24 items-center">
     <div className="max-w-[1392px] w-full">
-      <Text variant="intro-lede">
-        Name and schedule the self-reflection cycle
-      </Text>
-      <form
-        id="workflow-form-id"
-        className="bg-white rounded shadow-sm my-32 p-64"
-      >
+      <Text variant="intro-lede">Name and schedule the self-reflection cycle</Text>
+      <form id="workflow-form-id" className="bg-white rounded shadow-sm my-32 p-64">
         <Heading variant="heading-3" classNameOverride="mb-24">
           Name the cycle
         </Heading>
@@ -131,10 +126,9 @@ export const ComposableWorkflow: Story = {
       <Workflow.Main>
         <h3>Content</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
-          labore dolorum debitis eaque laboriosam qui quidem itaque
-          necessitatibus obcaecati aut earum consectetur excepturi accusamus
-          nulla libero maxime, quibusdam vero?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error labore dolorum
+          debitis eaque laboriosam qui quidem itaque necessitatibus obcaecati aut earum consectetur
+          excepturi accusamus nulla libero maxime, quibusdam vero?
         </p>
       </Workflow.Main>
       <Workflow.Footer

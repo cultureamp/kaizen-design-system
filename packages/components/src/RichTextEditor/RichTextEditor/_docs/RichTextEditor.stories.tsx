@@ -33,13 +33,7 @@ export const Playground: Story = {
     const handleOnChange: RichTextEditorProps['onChange'] = (editorState) =>
       setRTEData(editorState.toJSON().doc.content)
 
-    return (
-      <RichTextEditor
-        {...args}
-        defaultValue={rteData}
-        onChange={handleOnChange}
-      />
-    )
+    return <RichTextEditor {...args} defaultValue={rteData} onChange={handleOnChange} />
   },
   parameters: {
     chromatic: { disable: true },

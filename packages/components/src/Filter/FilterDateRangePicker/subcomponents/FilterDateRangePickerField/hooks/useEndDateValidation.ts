@@ -18,21 +18,15 @@ export type UseEndDateValidationValue = {
     startDate: Date | undefined
     startDateFieldLabel: React.ReactNode
   }) => Date | undefined
-  validateEndDateBeforeStartDate: (
-    args: ValidateEndDateBeforeStartDateArgs
-  ) => Date | undefined
+  validateEndDateBeforeStartDate: (args: ValidateEndDateBeforeStartDateArgs) => Date | undefined
 }
 
-export const useEndDateValidation = (
-  args: UseEndDateValidationArgs,
-): UseEndDateValidationValue => {
-  const { validationMessage, validateDate, updateValidation } =
-    useDateValidation(args)
+export const useEndDateValidation = (args: UseEndDateValidationArgs): UseEndDateValidationValue => {
+  const { validationMessage, validateDate, updateValidation } = useDateValidation(args)
 
   const handleValidateEndDateBeforeStartDate: UseEndDateValidationValue['validateEndDateBeforeStartDate'] =
     (handlerArgs) => {
-      const { validationResponse, newDate } =
-        validateEndDateBeforeStartDate(handlerArgs)
+      const { validationResponse, newDate } = validateEndDateBeforeStartDate(handlerArgs)
       updateValidation(validationResponse)
       return newDate
     }

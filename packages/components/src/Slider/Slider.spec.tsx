@@ -4,14 +4,7 @@ import { Slider } from './index'
 
 describe('<Slider />', () => {
   it('renders the label', async () => {
-    render(
-      <Slider
-        labelText="Work overall"
-        id="unique-1"
-        minLabel="Awful"
-        maxLabel="Fantastic"
-      />,
-    )
+    render(<Slider labelText="Work overall" id="unique-1" minLabel="Awful" maxLabel="Fantastic" />)
     const label = await screen.findByText(/Work overall/i)
 
     expect(label).toBeInTheDocument()

@@ -2,10 +2,7 @@ import React, { useId } from 'react'
 import { Time } from '@internationalized/date'
 import { useTimeField } from '@react-aria/datepicker'
 import { I18nProvider } from '@react-aria/i18n'
-import {
-  useTimeFieldState,
-  TimeFieldStateOptions,
-} from '@react-stately/datepicker'
+import { useTimeFieldState, TimeFieldStateOptions } from '@react-stately/datepicker'
 import classnames from 'classnames'
 import { FieldMessage } from '~components/FieldMessage'
 import { Label } from '~components/Label'
@@ -96,11 +93,7 @@ const TimeFieldComponent = ({
   )
   return (
     <div className={classNameOverride}>
-      <Label
-        disabled={state.isDisabled}
-        {...labelProps}
-        classNameOverride={styles.label}
-      >
+      <Label disabled={state.isDisabled} {...labelProps} classNameOverride={styles.label}>
         {label}
       </Label>
       <div className={styles.wrapper}>
@@ -120,13 +113,7 @@ const TimeFieldComponent = ({
           <div className={styles.focusRing} />
         </div>
       </div>
-      {hasError && (
-        <FieldMessage
-          id={descriptionId}
-          message={validationMessage}
-          status={status}
-        />
-      )}
+      {hasError && <FieldMessage id={descriptionId} message={validationMessage} status={status} />}
     </div>
   )
 }

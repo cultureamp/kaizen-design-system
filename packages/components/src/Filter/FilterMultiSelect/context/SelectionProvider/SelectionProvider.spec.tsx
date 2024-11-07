@@ -7,10 +7,7 @@ import { vi } from 'vitest'
 import { FilterMultiSelect } from '../../FilterMultiSelect'
 import { ListBox } from '../../subcomponents/ListBox'
 import { SearchInput } from '../../subcomponents/SearchInput'
-import {
-  ClearButton,
-  SelectAllButton,
-} from '../../subcomponents/SelectionControlButton'
+import { ClearButton, SelectAllButton } from '../../subcomponents/SelectionControlButton'
 import { ItemType } from '../../types'
 import { SelectionProvider, SelectionProviderProps } from './SelectionProvider'
 
@@ -54,39 +51,21 @@ const SelectionProviderWrapper = ({
       <ListBox>
         {({ selectedItems, unselectedItems, disabledItems }): JSX.Element => (
           <>
-            <FilterMultiSelect.ListBoxSection
-              items={selectedItems}
-              sectionName="selectedItems"
-            >
+            <FilterMultiSelect.ListBoxSection items={selectedItems} sectionName="selectedItems">
               {(selectedItem): JSX.Element => (
-                <FilterMultiSelect.Option
-                  key={selectedItem.key}
-                  item={selectedItem}
-                />
+                <FilterMultiSelect.Option key={selectedItem.key} item={selectedItem} />
               )}
             </FilterMultiSelect.ListBoxSection>
 
-            <FilterMultiSelect.ListBoxSection
-              items={unselectedItems}
-              sectionName="selectedItems"
-            >
+            <FilterMultiSelect.ListBoxSection items={unselectedItems} sectionName="selectedItems">
               {(unselectedItem): JSX.Element => (
-                <FilterMultiSelect.Option
-                  key={unselectedItem.key}
-                  item={unselectedItem}
-                />
+                <FilterMultiSelect.Option key={unselectedItem.key} item={unselectedItem} />
               )}
             </FilterMultiSelect.ListBoxSection>
 
-            <FilterMultiSelect.ListBoxSection
-              items={disabledItems}
-              sectionName="disabledItems"
-            >
+            <FilterMultiSelect.ListBoxSection items={disabledItems} sectionName="disabledItems">
               {(disabledItem): JSX.Element => (
-                <FilterMultiSelect.Option
-                  key={disabledItem.key}
-                  item={disabledItem}
-                />
+                <FilterMultiSelect.Option key={disabledItem.key} item={disabledItem} />
               )}
             </FilterMultiSelect.ListBoxSection>
           </>
@@ -140,11 +119,7 @@ describe('<SelectionProvider>', () => {
 
     describe('Given selectedKeys is [option-2-value-mock]', () => {
       it('shows only option 2 is selected', async () => {
-        render(
-          <SelectionProviderWrapper
-            selectedKeys={new Set(['option-2-value-mock'])}
-          />,
-        )
+        render(<SelectionProviderWrapper selectedKeys={new Set(['option-2-value-mock'])} />)
         await waitFor(() => {
           expect(
             screen.getByRole('option', {
@@ -168,7 +143,7 @@ describe('<SelectionProvider>', () => {
       })
     })
 
-    describe('Given selectedKeys is \'all\'', () => {
+    describe("Given selectedKeys is 'all'", () => {
       it('shows all options are selected', async () => {
         render(<SelectionProviderWrapper selectedKeys="all" />)
         await waitFor(() => {
@@ -275,11 +250,7 @@ describe('<SelectionProvider>', () => {
     })
 
     it('clears all the selection when clicks on Clear button', async () => {
-      render(
-        <SelectionProviderWrapper
-          selectedKeys={new Set(['option-2-value-mock'])}
-        />,
-      )
+      render(<SelectionProviderWrapper selectedKeys={new Set(['option-2-value-mock'])} />)
       const clear = screen.getByRole('button', {
         name: 'Clear selections',
       })
@@ -328,11 +299,7 @@ describe('<SelectionProvider>', () => {
     })
 
     it('de-selects the option when clicks on a selected option', async () => {
-      render(
-        <SelectionProviderWrapper
-          selectedKeys={new Set(['option-2-value-mock'])}
-        />,
-      )
+      render(<SelectionProviderWrapper selectedKeys={new Set(['option-2-value-mock'])} />)
       const option2 = screen.getByRole('option', {
         name: 'option-2-label-mock',
         selected: true,
@@ -358,26 +325,18 @@ describe('<SelectionProvider>', () => {
         await user.tab()
 
         await waitFor(() => {
-          expect(
-            screen.getByRole('option', { name: 'option-1-label-mock' }),
-          ).toHaveFocus()
+          expect(screen.getByRole('option', { name: 'option-1-label-mock' })).toHaveFocus()
         })
       })
     })
 
     describe('Given selectedKeys is [option-2-value-mock, option-3-value-mock]', () => {
       it('focuses the frist selected option when tabs onto the list', async () => {
-        render(
-          <SelectionProviderWrapper
-            selectedKeys={new Set(['option-2-value-mock'])}
-          />,
-        )
+        render(<SelectionProviderWrapper selectedKeys={new Set(['option-2-value-mock'])} />)
         await user.tab()
 
         await waitFor(() => {
-          expect(
-            screen.getByRole('option', { name: 'option-2-label-mock' }),
-          ).toHaveFocus()
+          expect(screen.getByRole('option', { name: 'option-2-label-mock' })).toHaveFocus()
         })
       })
     })
@@ -388,41 +347,27 @@ describe('<SelectionProvider>', () => {
       await user.keyboard('{ArrowDown}')
 
       await waitFor(() => {
-        expect(
-          screen.getByRole('option', { name: 'option-2-label-mock' }),
-        ).toHaveFocus()
+        expect(screen.getByRole('option', { name: 'option-2-label-mock' })).toHaveFocus()
       })
     })
 
     it('keeps the focus at the last element when hits arrow down key on it', async () => {
-      render(
-        <SelectionProviderWrapper
-          selectedKeys={new Set(['option-3-value-mock'])}
-        />,
-      )
+      render(<SelectionProviderWrapper selectedKeys={new Set(['option-3-value-mock'])} />)
       await user.tab()
       await user.keyboard('{ArrowDown}')
 
       await waitFor(() => {
-        expect(
-          screen.getByRole('option', { name: 'option-3-label-mock' }),
-        ).toHaveFocus()
+        expect(screen.getByRole('option', { name: 'option-3-label-mock' })).toHaveFocus()
       })
     })
 
     it('moves the focus up when hits arrow up key', async () => {
-      render(
-        <SelectionProviderWrapper
-          selectedKeys={new Set(['option-3-value-mock'])}
-        />,
-      )
+      render(<SelectionProviderWrapper selectedKeys={new Set(['option-3-value-mock'])} />)
       await user.tab()
       await user.keyboard('{ArrowUp}')
 
       await waitFor(() => {
-        expect(
-          screen.getByRole('option', { name: 'option-2-label-mock' }),
-        ).toHaveFocus()
+        expect(screen.getByRole('option', { name: 'option-2-label-mock' })).toHaveFocus()
       })
     })
 
@@ -432,9 +377,7 @@ describe('<SelectionProvider>', () => {
       await user.keyboard('{ArrowUp}')
 
       await waitFor(() => {
-        expect(
-          screen.getByRole('option', { name: 'option-1-label-mock' }),
-        ).toHaveFocus()
+        expect(screen.getByRole('option', { name: 'option-1-label-mock' })).toHaveFocus()
       })
     })
 
@@ -455,11 +398,7 @@ describe('<SelectionProvider>', () => {
     })
 
     it('de-selects the option when hits enter on a selected option', async () => {
-      render(
-        <SelectionProviderWrapper
-          selectedKeys={new Set(['option-2-value-mock'])}
-        />,
-      )
+      render(<SelectionProviderWrapper selectedKeys={new Set(['option-2-value-mock'])} />)
 
       await user.tab()
       await user.keyboard('{Enter}')
@@ -517,9 +456,7 @@ describe('<SelectionProvider>', () => {
       it('Does not filter the matched options', async () => {
         const onSearchInputChange = vi.fn()
 
-        render(
-          <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />,
-        )
+        render(<SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />)
         const searchInput = screen.getByRole('searchbox')
         const searchString = '1'
         await user.type(searchInput, searchString)
@@ -546,9 +483,7 @@ describe('<SelectionProvider>', () => {
       it('Calls back to the consumer with the search text', async () => {
         const onSearchInputChange = vi.fn()
 
-        render(
-          <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />,
-        )
+        render(<SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />)
         const searchInput = screen.getByRole('searchbox')
         const searchString = '1'
         await user.type(searchInput, searchString)

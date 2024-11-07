@@ -61,9 +61,7 @@ export const InputRange = ({
         aria-valuenow={value}
         aria-valuemin={min}
         aria-valuemax={max}
-        aria-describedby={`${visuallyHiddenHintId} ${
-          ariaDescribedby ? ariaDescribedby : ''
-        }`}
+        aria-describedby={`${visuallyHiddenHintId} ${ariaDescribedby ? ariaDescribedby : ''}`}
         onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
           setStep(1) // Put the stepper to 1 to avoid floating value
           onChange?.(e)
@@ -82,12 +80,7 @@ export const InputRange = ({
       </VisuallyHidden>
       <div className={styles.labelsContainer}>
         {!readOnlyWithNoValue && (
-          <div
-            className={classnames(
-              styles.sliderLabels,
-              disabled && styles.disabled,
-            )}
-          >
+          <div className={classnames(styles.sliderLabels, disabled && styles.disabled)}>
             <Text variant="small" color="dark-reduced-opacity" tag="span">
               {minLabel}
             </Text>

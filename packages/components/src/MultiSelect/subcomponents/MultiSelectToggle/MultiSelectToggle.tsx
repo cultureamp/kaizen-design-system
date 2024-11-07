@@ -18,10 +18,7 @@ export type MultiSelectToggleProps = {
   onRemoveAllOptions: () => void
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
-export const MultiSelectToggle = forwardRef<
-  HTMLButtonElement,
-  MultiSelectToggleProps
->(
+export const MultiSelectToggle = forwardRef<HTMLButtonElement, MultiSelectToggleProps>(
   (
     {
       onClick,
@@ -69,10 +66,7 @@ export const MultiSelectToggle = forwardRef<
               onClick(e)
             }}
           >
-            <Icon
-              name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
-              isPresentational
-            />
+            <Icon name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} isPresentational />
           </button>
 
           <div

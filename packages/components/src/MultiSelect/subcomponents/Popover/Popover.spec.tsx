@@ -30,17 +30,13 @@ describe('<Popover />', () => {
       return (
         <>
           <div ref={portalRef} data-testid="portal-container" />
-          <PopoverWrapper
-            portalContainer={shouldUsePortal ? portalContainer : undefined}
-          />
+          <PopoverWrapper portalContainer={shouldUsePortal ? portalContainer : undefined} />
         </>
       )
     }
 
     it('renders within portal container', async () => {
-      const { getByTestId } = render(
-        <PopoverWrapperWithPortal shouldUsePortal />,
-      )
+      const { getByTestId } = render(<PopoverWrapperWithPortal shouldUsePortal />)
 
       await waitFor(() => {
         expect(getByTestId('portal-container')).toHaveTextContent('Hello')

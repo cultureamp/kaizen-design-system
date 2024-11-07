@@ -78,7 +78,7 @@ describe('transformConfirmationModalMoodsToVariant', () => {
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it('won\'t add variant if variant already exists', () => {
+  it("won't add variant if variant already exists", () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <div><ConfirmationModal variant="success"/></div>
     `)
@@ -93,7 +93,7 @@ describe('transformConfirmationModalMoodsToVariant', () => {
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it('won\'t modify variants usings variables', () => {
+  it("won't modify variants usings variables", () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <div><ConfirmationModal variant={confirmationModalVariable}/></div>
     `)

@@ -54,11 +54,7 @@ export default {
 const TableTemplate: StoryObj<StickerSheetStory> = {
   render: ({ isReversed }) => (
     <>
-      <Text
-        tag="div"
-        variant="intro-lede"
-        color={isReversed ? 'white' : 'dark'}
-      >
+      <Text tag="div" variant="intro-lede" color={isReversed ? 'white' : 'dark'}>
         TableHeaderRowCell with long titles
       </Text>
       <TableContainer>
@@ -106,11 +102,7 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
           </TableRow>
         </TableCard>
       </TableContainer>
-      <Text
-        tag="div"
-        variant="intro-lede"
-        color={isReversed ? 'white' : 'dark'}
-      >
+      <Text tag="div" variant="intro-lede" color={isReversed ? 'white' : 'dark'}>
         TableHeaderRowCell onClick
       </Text>
       <TableContainer>
@@ -162,11 +154,7 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
           </TableRow>
         </TableCard>
       </TableContainer>
-      <Text
-        tag="div"
-        variant="intro-lede"
-        color={isReversed ? 'white' : 'dark'}
-      >
+      <Text tag="div" variant="intro-lede" color={isReversed ? 'white' : 'dark'}>
         TableHeaderRowCell icons with onClick
       </Text>
       <TableContainer>
@@ -220,11 +208,7 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
           </TableRow>
         </TableCard>
       </TableContainer>
-      <Text
-        tag="div"
-        variant="intro-lede"
-        color={isReversed ? 'white' : 'dark'}
-      >
+      <Text tag="div" variant="intro-lede" color={isReversed ? 'white' : 'dark'}>
         TableHeaderRowCell tooltips
       </Text>
       <TableContainer>
@@ -278,11 +262,7 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
           </TableRow>
         </TableCard>
       </TableContainer>
-      <Text
-        tag="div"
-        variant="intro-lede"
-        color={isReversed ? 'white' : 'dark'}
-      >
+      <Text tag="div" variant="intro-lede" color={isReversed ? 'white' : 'dark'}>
         TableHeaderRowCell checkable
       </Text>
       <TableContainer>
@@ -333,31 +313,15 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
           </TableRow>
         </TableCard>
       </TableContainer>
-      <Text
-        tag="div"
-        variant="intro-lede"
-        color={isReversed ? 'white' : 'dark'}
-      >
+      <Text tag="div" variant="intro-lede" color={isReversed ? 'white' : 'dark'}>
         TableCard onClick
       </Text>
       <TableContainer>
         <TableHeader>
           <TableRow>
-            <TableHeaderRowCell
-              reversed={isReversed}
-              labelText="State"
-              width={4 / 12}
-            />
-            <TableHeaderRowCell
-              reversed={isReversed}
-              labelText="Second column"
-              width={4 / 12}
-            />
-            <TableHeaderRowCell
-              reversed={isReversed}
-              labelText="Third column"
-              width={4 / 12}
-            />
+            <TableHeaderRowCell reversed={isReversed} labelText="State" width={4 / 12} />
+            <TableHeaderRowCell reversed={isReversed} labelText="Second column" width={4 / 12} />
+            <TableHeaderRowCell reversed={isReversed} labelText="Third column" width={4 / 12} />
           </TableRow>
         </TableHeader>
         <TableCard onClick={action('TableCard onClick')}>
@@ -379,10 +343,7 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
             </TableRowCell>
           </TableRow>
         </TableCard>
-        <TableCard
-          data-sb-pseudo-styles="hover"
-          onClick={action('TableCard onClick')}
-        >
+        <TableCard data-sb-pseudo-styles="hover" onClick={action('TableCard onClick')}>
           <TableRow>
             <TableRowCell width={4 / 12}>
               <Text tag="div" variant="body">
@@ -401,10 +362,7 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
             </TableRowCell>
           </TableRow>
         </TableCard>
-        <TableCard
-          data-sb-pseudo-styles="focus-visible"
-          onClick={action('TableCard onClick')}
-        >
+        <TableCard data-sb-pseudo-styles="focus-visible" onClick={action('TableCard onClick')}>
           <TableRow>
             <TableRowCell width={4 / 12}>
               <Text tag="div" variant="body">
@@ -424,31 +382,15 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
           </TableRow>
         </TableCard>
       </TableContainer>
-      <Text
-        tag="div"
-        variant="intro-lede"
-        color={isReversed ? 'white' : 'dark'}
-      >
+      <Text tag="div" variant="intro-lede" color={isReversed ? 'white' : 'dark'}>
         TableCard popout
       </Text>
       <TableContainer>
         <TableHeader>
           <TableRow>
-            <TableHeaderRowCell
-              reversed={isReversed}
-              labelText="State"
-              width={4 / 12}
-            />
-            <TableHeaderRowCell
-              reversed={isReversed}
-              labelText="Second Colum"
-              width={4 / 12}
-            />
-            <TableHeaderRowCell
-              reversed={isReversed}
-              labelText="Third column"
-              width={4 / 12}
-            />
+            <TableHeaderRowCell reversed={isReversed} labelText="State" width={4 / 12} />
+            <TableHeaderRowCell reversed={isReversed} labelText="Second Colum" width={4 / 12} />
+            <TableHeaderRowCell reversed={isReversed} labelText="Third column" width={4 / 12} />
           </TableRow>
         </TableHeader>
         <TableCard onClick={action('TableCard onClick')}>
@@ -470,11 +412,7 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
             </TableRowCell>
           </TableRow>
         </TableCard>
-        <TableCard
-          onClick={action('TableCard onClick')}
-          expanded
-          expandedStyle="popout"
-        >
+        <TableCard onClick={action('TableCard onClick')} expanded expandedStyle="popout">
           <TableRow>
             <TableRowCell width={4 / 12}>
               <Text tag="div" variant="body">
@@ -542,31 +480,15 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
           </TableRow>
         </TableCard>
       </TableContainer>
-      <Text
-        tag="div"
-        variant="intro-lede"
-        color={isReversed ? 'white' : 'dark'}
-      >
+      <Text tag="div" variant="intro-lede" color={isReversed ? 'white' : 'dark'}>
         TableCard well
       </Text>
       <TableContainer>
         <TableHeader>
           <TableRow>
-            <TableHeaderRowCell
-              reversed={isReversed}
-              labelText="State"
-              width={4 / 12}
-            />
-            <TableHeaderRowCell
-              reversed={isReversed}
-              labelText="Second Colum"
-              width={4 / 12}
-            />
-            <TableHeaderRowCell
-              reversed={isReversed}
-              labelText="Third column"
-              width={4 / 12}
-            />
+            <TableHeaderRowCell reversed={isReversed} labelText="State" width={4 / 12} />
+            <TableHeaderRowCell reversed={isReversed} labelText="Second Colum" width={4 / 12} />
+            <TableHeaderRowCell reversed={isReversed} labelText="Third column" width={4 / 12} />
           </TableRow>
         </TableHeader>
         <TableCard onClick={action('TableCard onClick')}>

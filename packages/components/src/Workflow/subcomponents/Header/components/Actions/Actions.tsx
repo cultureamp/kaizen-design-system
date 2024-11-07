@@ -10,10 +10,7 @@ export type WorkflowActionsProps = {
 } & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'children'>>
 
 /** A wrapper for an exit trigger (and other) actions of the Header Workflow  */
-export const Actions = ({
-  headerActions,
-  ...restProps
-}: WorkflowActionsProps): JSX.Element => (
+export const Actions = ({ headerActions, ...restProps }: WorkflowActionsProps): JSX.Element => (
   <div className={styles.actions} {...restProps}>
     {headerActions?.map((action, index) => (
       <action.type key={`header-actions ${index}`} {...action.props} />

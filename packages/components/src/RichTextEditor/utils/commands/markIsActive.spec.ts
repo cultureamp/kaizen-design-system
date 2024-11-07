@@ -2,10 +2,7 @@ import { waitFor } from '@testing-library/dom'
 import { EditorState } from 'prosemirror-state'
 import { vi } from 'vitest'
 import { createRichTextEditor } from '../core'
-import {
-  simulateRangeSelection,
-  simulateSelectionByText,
-} from './__fixtures__/helpers'
+import { simulateRangeSelection, simulateSelectionByText } from './__fixtures__/helpers'
 import { testEditorStateWithMarks, testSchema } from './__fixtures__/test-state'
 import { markIsActive } from './markIsActive'
 describe('markIsActive()', () => {
@@ -49,10 +46,7 @@ describe('markIsActive()', () => {
       return true
     })
     dispatchTransaction(
-      simulateRangeSelection(
-        currentState.selection.to,
-        currentState.selection.to,
-      ),
+      simulateRangeSelection(currentState.selection.to, currentState.selection.to),
     )
     dispatchTransaction((editorState: EditorState) => {
       currentState = editorState

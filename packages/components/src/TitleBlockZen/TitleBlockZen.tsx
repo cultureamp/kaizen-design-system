@@ -74,37 +74,31 @@ const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
 
 const isJSXElement = (
   imageElementOrAvatarProps: JSX.Element | TitleBlockAvatarProps,
-): imageElementOrAvatarProps is JSX.Element =>
-  'props' in imageElementOrAvatarProps
+): imageElementOrAvatarProps is JSX.Element => 'props' in imageElementOrAvatarProps
 
 const renderAvatar = (
   imageElementOrAvatarProps: JSX.Element | TitleBlockAvatarProps,
   avatarAutomationId: string,
 ): JSX.Element =>
-  isJSXElement(imageElementOrAvatarProps)
-    ? (
-        <div
-          data-automation-id={avatarAutomationId}
-          data-testid={avatarAutomationId}
-          className={classnames(styles.avatar, styles.withBorder)}
-        >
-          {imageElementOrAvatarProps}
-        </div>
-      )
-    : (
-        <div
-          data-automation-id={avatarAutomationId}
-          data-testid={avatarAutomationId}
-          className={styles.avatar}
-        >
-          <Avatar {...imageElementOrAvatarProps} size="medium" />
-        </div>
-      )
+  isJSXElement(imageElementOrAvatarProps) ? (
+    <div
+      data-automation-id={avatarAutomationId}
+      data-testid={avatarAutomationId}
+      className={classnames(styles.avatar, styles.withBorder)}
+    >
+      {imageElementOrAvatarProps}
+    </div>
+  ) : (
+    <div
+      data-automation-id={avatarAutomationId}
+      data-testid={avatarAutomationId}
+      className={styles.avatar}
+    >
+      <Avatar {...imageElementOrAvatarProps} size="medium" />
+    </div>
+  )
 
-const renderSubtitle = (
-  subtitle: React.ReactNode,
-  subtitleAutomationId: string,
-): JSX.Element => (
+const renderSubtitle = (subtitle: React.ReactNode, subtitleAutomationId: string): JSX.Element => (
   <div className={styles.subtitle}>
     <span
       data-automation-id={subtitleAutomationId}
@@ -141,10 +135,7 @@ const defaultRenderSectionTitle = (
       <div
         data-automation-id={sectionTitleDescriptionAutomationId}
         data-testid={sectionTitleDescriptionAutomationId}
-        className={classnames(
-          styles.sectionTitleDescription,
-          !isReversed(variant) && styles.dark,
-        )}
+        className={classnames(styles.sectionTitleDescription, !isReversed(variant) && styles.dark)}
       >
         {sectionTitleDescription}
       </div>
@@ -271,9 +262,7 @@ export const TitleBlockZen = ({
 }: TitleBlockProps): JSX.Element => {
   const hasNavigationTabs = navigationTabs && navigationTabs.length > 0
   const collapseNavigationArea =
-    collapseNavigationAreaWhenPossible &&
-    !hasNavigationTabs &&
-    secondaryActions === undefined
+    collapseNavigationAreaWhenPossible && !hasNavigationTabs && secondaryActions === undefined
 
   const {
     queries: { isSmall, isMedium },
@@ -289,13 +278,13 @@ export const TitleBlockZen = ({
           Boolean(subtitle) && styles.hasSubtitle,
           Boolean(pageSwitcherSelect) && styles.hasPageSwitcherSelect,
           collapseNavigationArea &&
-          (!sectionTitle || !sectionTitleDescription || !renderSectionTitle) &&
-          styles.collapseNavigationArea,
+            (!sectionTitle || !sectionTitleDescription || !renderSectionTitle) &&
+            styles.collapseNavigationArea,
           title && title.length >= 30 && styles.hasLongTitle,
           subtitle &&
-          typeof subtitle === 'string' &&
-          subtitle.length >= 18 &&
-          styles.hasLongSubtitle,
+            typeof subtitle === 'string' &&
+            subtitle.length >= 18 &&
+            styles.hasLongSubtitle,
           hasNavigationTabs && styles.hasNavigationTabs,
         )}
       >
@@ -338,29 +327,17 @@ export const TitleBlockZen = ({
                           </Heading>
                         </div>
                         {isSmallOrMediumViewport && pageSwitcherSelect && (
-                          <div
-                            className={styles.pageSwitcherSelectUnderneathTitle}
-                          >
-                            <Select
-                              {...pageSwitcherSelect}
-                              variant="secondary-small"
-                              reversed
-                            />
+                          <div className={styles.pageSwitcherSelectUnderneathTitle}>
+                            <Select {...pageSwitcherSelect} variant="secondary-small" reversed />
                           </div>
                         )}
-                        {subtitle &&
-                          renderSubtitle(subtitle, subtitleAutomationId)}
+                        {subtitle && renderSubtitle(subtitle, subtitleAutomationId)}
                       </div>
                     </div>
                     {surveyStatus && renderTag(surveyStatus)}
                     {!isSmallOrMediumViewport && pageSwitcherSelect && (
                       <div className={styles.pageSwitcherSelectNextToTitle}>
-                        <Select
-                          {...pageSwitcherSelect}
-                          variant="secondary"
-                          reversed
-                          fullWidth
-                        />
+                        <Select {...pageSwitcherSelect} variant="secondary" reversed fullWidth />
                       </div>
                     )}
                   </>
@@ -387,33 +364,27 @@ export const TitleBlockZen = ({
         <div className={styles.rowBelowSeparator}>
           <div className={styles.rowBelowSeparatorInner}>
             <div className={styles.rowBelowSeparatorInnerContent}>
-              {(sectionTitle ??
-                sectionTitleDescription ??
-                renderSectionTitle) && (
+              {(sectionTitle ?? sectionTitleDescription ?? renderSectionTitle) && (
                 <div className={styles.sectionTitleContainer}>
                   <div className={styles.sectionTitleInner}>
                     {renderSectionTitle !== undefined
                       ? renderSectionTitle({
-                        sectionTitle,
-                        sectionTitleAutomationId,
-                        sectionTitleDescription,
-                        sectionTitleDescriptionAutomationId,
-                      })
+                          sectionTitle,
+                          sectionTitleAutomationId,
+                          sectionTitleDescription,
+                          sectionTitleDescriptionAutomationId,
+                        })
                       : defaultRenderSectionTitle(
-                        sectionTitle,
-                        sectionTitleDescription,
-                        variant,
-                        sectionTitleAutomationId,
-                        sectionTitleDescriptionAutomationId,
-                      )}
+                          sectionTitle,
+                          sectionTitleDescription,
+                          variant,
+                          sectionTitleAutomationId,
+                          sectionTitleDescriptionAutomationId,
+                        )}
                   </div>
                 </div>
               )}
-              {renderNavigationTabs(
-                navigationTabs,
-                collapseNavigationArea,
-                title,
-              )}
+              {renderNavigationTabs(navigationTabs, collapseNavigationArea, title)}
               {(secondaryActions ?? secondaryOverflowMenuItems) && (
                 <SecondaryActions
                   secondaryActions={secondaryActions}

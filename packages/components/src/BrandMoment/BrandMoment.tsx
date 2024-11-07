@@ -40,7 +40,7 @@ export type BrandMomentProps = {
     footer?: ReactNode
   }
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>> &
-(DeprecatedMoodProps | VariantProps)
+  (DeprecatedMoodProps | VariantProps)
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082061589/Brand+Moment Guidance} |
@@ -79,11 +79,7 @@ export const BrandMoment = ({
             <div className={styles.right}>
               <div className={styles.rightInner}>
                 {text.subtitle && (
-                  <Heading
-                    variant="heading-3"
-                    tag="h1"
-                    classNameOverride={styles.subtitle}
-                  >
+                  <Heading variant="heading-3" tag="h1" classNameOverride={styles.subtitle}>
                     {text.subtitle}
                   </Heading>
                 )}
@@ -95,29 +91,18 @@ export const BrandMoment = ({
                   {text.title}
                 </Heading>
                 {text.body && (
-                  <Text
-                    variant="intro-lede"
-                    classNameOverride={styles.textBody}
-                  >
+                  <Text variant="intro-lede" classNameOverride={styles.textBody}>
                     {text.body}
                   </Text>
                 )}
                 {body && <div className={styles.textBody}>{body}</div>}
                 <div className={styles.actions}>
                   {primaryAction && (
-                    <Button
-                      primary
-                      fullWidth={queries.isSmall}
-                      {...primaryAction}
-                    />
+                    <Button primary fullWidth={queries.isSmall} {...primaryAction} />
                   )}
                   {secondaryAction && (
                     <div className={styles.secondaryAction}>
-                      <Button
-                        secondary
-                        fullWidth={queries.isSmall}
-                        {...secondaryAction}
-                      />
+                      <Button secondary fullWidth={queries.isSmall} {...secondaryAction} />
                     </div>
                   )}
                 </div>
@@ -134,14 +119,8 @@ export const BrandMoment = ({
                 <Text variant="extra-small" color="dark-reduced-opacity">
                   Powered by
                 </Text>
-                <a
-                  href="https://www.cultureamp.com"
-                  className={styles.poweredByLogo}
-                >
-                  <img
-                    src={assetUrl('brand/logo-horizontal-default.svg')}
-                    alt="Culture Amp"
-                  />
+                <a href="https://www.cultureamp.com" className={styles.poweredByLogo}>
+                  <img src={assetUrl('brand/logo-horizontal-default.svg')} alt="Culture Amp" />
                 </a>
               </div>
               <div className={styles.footerTextContainer}>

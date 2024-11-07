@@ -28,9 +28,7 @@ export const CalendarPopover = ({
   classNameOverride,
   ...restProps
 }: CalendarPopoverProps): JSX.Element => {
-  const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>(
-    null,
-  )
+  const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>(null)
 
   const { floatingStyles } = useFloating({
     placement: 'bottom-start',

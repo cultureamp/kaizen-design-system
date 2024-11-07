@@ -5,16 +5,16 @@ import { transformCaMonogramIconToBrand } from './transformCaMonogramIconToBrand
 
 export const mockedTransformer =
   (alias?: string) =>
-    (context: ts.TransformationContext) =>
-      (rootNode: ts.Node): ts.Node => {
-        const visit = (node: ts.Node): ts.Node => {
-          if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-            return transformCaMonogramIconToBrand(node, alias)
-          }
-          return ts.visitEachChild(node, visit, context)
-        }
-        return ts.visitNode(rootNode, visit)
+  (context: ts.TransformationContext) =>
+  (rootNode: ts.Node): ts.Node => {
+    const visit = (node: ts.Node): ts.Node => {
+      if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
+        return transformCaMonogramIconToBrand(node, alias)
       }
+      return ts.visitEachChild(node, visit, context)
+    }
+    return ts.visitNode(rootNode, visit)
+  }
 
 const transformInput = (sourceFile: ts.SourceFile, alias?: string): string => {
   const result = ts.transform(sourceFile, [mockedTransformer(alias)])
@@ -25,17 +25,13 @@ const transformInput = (sourceFile: ts.SourceFile, alias?: string): string => {
 describe('transformCaMonogramIconToBrand()', () => {
   it('replaces CaMonogramIcon with Brand variant enso and adds size', () => {
     const inputAst = parseJsx('<CaMonogramIcon />')
-    const outputAst = parseJsx(
-      '<Brand variant="enso" style={{ width: "20px" }} />',
-    )
+    const outputAst = parseJsx('<Brand variant="enso" style={{ width: "20px" }} />')
     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('uses alias if it is defined', () => {
     const inputAst = parseJsx('<CaMonogramIcon />')
-    const outputAst = parseJsx(
-      '<KzBrand variant="enso" style={{ width: "20px" }} />',
-    )
+    const outputAst = parseJsx('<KzBrand variant="enso" style={{ width: "20px" }} />')
     expect(transformInput(inputAst, 'KzBrand')).toEqual(printAst(outputAst))
   })
 

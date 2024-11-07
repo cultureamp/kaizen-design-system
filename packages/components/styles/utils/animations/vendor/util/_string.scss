@@ -7,22 +7,22 @@
 /// @param {*} $str - String to convert. If not a string, it will be converted to with `quote()`.
 /// @param {String} $delimiter ['-'] - Character to use instead of unsupported characters.
 /// @return {String} - Safe string usable everywhere in CSS.
-@function -mui-string-safe($str, $delimiter: "-") {
+@function -mui-string-safe($str, $delimiter: '-') {
   $str: quote($str);
   $length: str_length($str);
-  $safe-chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+  $safe-chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
 
-  $ret: "";
+  $ret: '';
   $delimited: false;
 
   @for $i from 1 through $length {
     $c: str_slice($str, $i, $i);
 
     @if str_index($safe-chars, $c) != null {
-      $ret: "#{$ret}#{$c}";
+      $ret: '#{$ret}#{$c}';
       $delimited: false;
     } @else if $delimited == false and str_length($ret) > 0 and $i < $length {
-      $ret: "#{$ret}#{$delimiter}";
+      $ret: '#{$ret}#{$delimiter}';
       $delimited: true;
     }
   }

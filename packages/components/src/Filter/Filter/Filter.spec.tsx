@@ -25,9 +25,7 @@ const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => {
 describe('<Filter />', () => {
   it('does not show content initially', () => {
     render(<FilterWrapper />)
-    expect(
-      screen.queryByRole('dialog', { name: 'Label' }),
-    ).not.toBeInTheDocument()
+    expect(screen.queryByRole('dialog', { name: 'Label' })).not.toBeInTheDocument()
   })
 
   it('shows content when isOpen is true', async () => {

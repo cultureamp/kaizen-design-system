@@ -27,16 +27,15 @@ export const Playground: Story = {
 
 export const HelperText: Story = {
   args: {
-    message:
-      'Your email address will be used to send survey notifications and reports',
+    message: 'Your email address will be used to send survey notifications and reports',
   },
 }
 export const DetailedHelperText: Story = {
   args: {
     message: (
       <div>
-        Your email address will be used to send survey notifications and
-        reports. Learn more about <a href="/">how your data will be used</a>
+        Your email address will be used to send survey notifications and reports. Learn more about{' '}
+        <a href="/">how your data will be used</a>
       </div>
     ),
   },

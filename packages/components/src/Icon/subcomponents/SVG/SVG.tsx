@@ -16,7 +16,7 @@ type DecorativeIcon = {
 export type BaseSVGProps = {
   inheritSize?: boolean
 } & OverrideClassName<SVGAttributes<SVGElement>> &
-(MeaningfulIcon | DecorativeIcon)
+  (MeaningfulIcon | DecorativeIcon)
 
 export type SVGProps = BaseSVGProps & {
   children: ReactNode
@@ -33,21 +33,11 @@ export const SVG = ({
   children,
   ...restProps
 }: SVGProps): JSX.Element => {
-  const classes = classnames(
-    styles.icon,
-    classNameOverride,
-    inheritSize && styles.inheritSize,
-  )
+  const classes = classnames(styles.icon, classNameOverride, inheritSize && styles.inheritSize)
 
   if (role === 'presentation') {
     return (
-      <svg
-        className={classes}
-        viewBox={viewBox}
-        role={role}
-        aria-hidden={true}
-        {...restProps}
-      >
+      <svg className={classes} viewBox={viewBox} role={role} aria-hidden={true} {...restProps}>
         {children}
       </svg>
     )

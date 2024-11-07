@@ -9,8 +9,7 @@ type TileProps = InformationTileProps | MultiActionTileProps
 
 export type TileElement = ReactElement<TileProps>
 
-export interface TileGridProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export interface TileGridProps extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: TileElement[] | TileElement
 }
 
@@ -23,11 +22,7 @@ export const TileGrid = ({
   classNameOverride,
   ...restProps
 }: TileGridProps): JSX.Element => (
-  <div
-    className={classnames(styles.grid, classNameOverride)}
-    data-tile-grid
-    {...restProps}
-  >
+  <div className={classnames(styles.grid, classNameOverride)} data-tile-grid {...restProps}>
     {children}
   </div>
 )

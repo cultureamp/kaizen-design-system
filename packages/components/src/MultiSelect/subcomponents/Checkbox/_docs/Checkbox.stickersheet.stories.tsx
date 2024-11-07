@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Checkbox, CheckedStatus } from '../index'
 
 export default {
@@ -18,23 +15,16 @@ const STATUS_ROWS = [
   { title: 'Unchecked', status: 'unchecked' },
   { title: 'Checked', status: 'checked' },
   { title: 'Indeterminate', status: 'indeterminate' },
-] satisfies { title: string, status: CheckedStatus }[]
+] satisfies { title: string; status: CheckedStatus }[]
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
-      <StickerSheet.Header
-        headings={['Default', 'Hover', 'Focus']}
-        hasVerticalHeadings
-      />
+      <StickerSheet.Header headings={['Default', 'Hover', 'Focus']} hasVerticalHeadings />
       <StickerSheet.Body>
         {STATUS_ROWS.map(({ title, status }) => (
           <StickerSheet.Row key={title} rowTitle={title}>
-            <Checkbox
-              aria-label="Read only label"
-              checkedStatus={status}
-              readOnly
-            />
+            <Checkbox aria-label="Read only label" checkedStatus={status} readOnly />
             <Checkbox
               aria-label="Hover label"
               classNameOverride="story__checkbox--hover"

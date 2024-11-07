@@ -80,9 +80,9 @@ describe('createRichTextEditor()', () => {
 
     dispatchTransaction(command)
 
-    expect(
-      getByText(node, 'Prepended content. Example content').outerHTML,
-    ).toBe('<p>Prepended content. Example content</p>')
+    expect(getByText(node, 'Prepended content. Example content').outerHTML).toBe(
+      '<p>Prepended content. Example content</p>',
+    )
   })
 
   it('calls onChange when the editor state changes', async () => {
@@ -228,8 +228,6 @@ describe('createRichTextEditor()', () => {
 
     dispatchTransaction(noopCommand)
 
-    expect(node.children[0]?.getAttribute('aria-labelledby')).toBe(
-      'label-text-123',
-    )
+    expect(node.children[0]?.getAttribute('aria-labelledby')).toBe('label-text-123')
   })
 })

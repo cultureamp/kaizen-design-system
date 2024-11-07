@@ -1,18 +1,13 @@
-import {
-  EditorState,
-  Selection,
-  TextSelection,
-  Transaction,
-} from "prosemirror-state"
-import { findChildrenByType } from "prosemirror-utils"
-import { vi } from "vitest"
-import { ProseMirrorModel } from "../../prosemirror"
+import { EditorState, Selection, TextSelection, Transaction } from 'prosemirror-state'
+import { findChildrenByType } from 'prosemirror-utils'
+import { vi } from 'vitest'
+import { ProseMirrorModel } from '../../prosemirror'
 /*
  ** This is used handle the JSDom type error issue you may encounter in testing
  ** See https://github.com/jsdom/jsdom/issues/3002
  */
 export const mockRangeForBoundingRect = (): void => {
-  vi.spyOn(document, "createRange").mockImplementation(() => {
+  vi.spyOn(document, 'createRange').mockImplementation(() => {
     const range = new Range()
 
     range.getBoundingClientRect = () => ({
@@ -48,10 +43,7 @@ export const simulateRangeSelection =
     const { tr } = state
 
     tr.setSelection(
-      new TextSelection(
-        tr.doc.resolve(anchorPositionStart),
-        tr.doc.resolve(anchorPositionEnd)
-      )
+      new TextSelection(tr.doc.resolve(anchorPositionStart), tr.doc.resolve(anchorPositionEnd)),
     )
     if (dispatch) {
       dispatch(tr)
@@ -60,12 +52,10 @@ export const simulateRangeSelection =
   }
 
 export const getStartNode = (
-  state: EditorState
-): ReturnType<ProseMirrorModel.Node["childAfter"]> => {
+  state: EditorState,
+): ReturnType<ProseMirrorModel.Node['childAfter']> => {
   const currentSelection: Selection = state.tr.selection
-  const startNode = currentSelection.$from.parent.childAfter(
-    currentSelection.$from.parentOffset
-  )
+  const startNode = currentSelection.$from.parent.childAfter(currentSelection.$from.parentOffset)
   return startNode
 }
 
@@ -82,12 +72,7 @@ export const simulateSelectionOfCurrentElement =
       endPos = nodeLength + 1
     }
 
-    tr.setSelection(
-      new TextSelection(
-        tr.doc.resolve(tr.selection.from),
-        tr.doc.resolve(endPos)
-      )
-    )
+    tr.setSelection(new TextSelection(tr.doc.resolve(tr.selection.from), tr.doc.resolve(endPos)))
     if (dispatch) {
       dispatch(tr)
     }
@@ -96,18 +81,14 @@ export const simulateSelectionOfCurrentElement =
 
 const getNodeByText = (
   state: EditorState,
-  selectedText: string
+  selectedText: string,
 ): {
   node: ProseMirrorModel.Node
   pos: number
 } => {
-  let filteredNodes = findChildrenByType(
-    state.doc,
-    state.schema.nodes.text,
-    true
-  )
+  let filteredNodes = findChildrenByType(state.doc, state.schema.nodes.text, true)
 
-  filteredNodes = filteredNodes.filter(textNode => {
+  filteredNodes = filteredNodes.filter((textNode) => {
     if (textNode.node.text && textNode.node.text.indexOf(selectedText) > -1) {
       return textNode
     }
@@ -118,8 +99,7 @@ const getNodeByText = (
 }
 
 export const simulateSelectionByText =
-  (selectedText: string) =>
-  (state: EditorState, dispatch?: (tx: Transaction) => void) => {
+  (selectedText: string) => (state: EditorState, dispatch?: (tx: Transaction) => void) => {
     const { tr } = state
 
     const startNode = getNodeByText(state, selectedText)
@@ -127,9 +107,7 @@ export const simulateSelectionByText =
     const endPos = startPos + selectedText.length
 
     if (startPos !== undefined) {
-      tr.setSelection(
-        new TextSelection(tr.doc.resolve(startPos), tr.doc.resolve(endPos))
-      )
+      tr.setSelection(new TextSelection(tr.doc.resolve(startPos), tr.doc.resolve(endPos)))
     }
 
     if (dispatch) {
@@ -139,8 +117,7 @@ export const simulateSelectionByText =
   }
 
 export const simulateTextInsert =
-  (text: string) =>
-  (state: EditorState, dispatch?: (tx: Transaction) => void) => {
+  (text: string) => (state: EditorState, dispatch?: (tx: Transaction) => void) => {
     if (dispatch) {
       dispatch(state.tr.insertText(text))
     }

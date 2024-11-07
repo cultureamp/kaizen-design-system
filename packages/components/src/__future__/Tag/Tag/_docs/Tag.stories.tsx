@@ -34,11 +34,7 @@ export const Color: StoryObj = {
   render: () => (
     <div className="flex gap-16">
       {TagColorKeys.map((color) => (
-        <Tag
-          color={color}
-          icon={<Icon name="label" isPresentational isFilled />}
-          key={color}
-        >
+        <Tag color={color} icon={<Icon name="label" isPresentational isFilled />} key={color}>
           {color}
         </Tag>
       ))}
@@ -55,9 +51,7 @@ export const IconStory: StoryObj = {
   name: 'Icon',
   render: () => (
     <div className="flex gap-16">
-      <Tag icon={<Icon name="school" isPresentational isFilled />}>
-        AcademyIcon
-      </Tag>
+      <Tag icon={<Icon name="school" isPresentational isFilled />}>AcademyIcon</Tag>
       <Tag color="yellow" icon={<Icon name="flash_on" isPresentational />}>
         ActionOffIcon
       </Tag>

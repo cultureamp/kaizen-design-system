@@ -1,16 +1,8 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 
-import {
-  Avatar,
-  AvatarSizes,
-  CompanyAvatarProps,
-  GenericAvatarProps,
-} from '../index'
+import { Avatar, AvatarSizes, CompanyAvatarProps, GenericAvatarProps } from '../index'
 
 export default {
   title: 'Components/Avatar',
@@ -47,20 +39,18 @@ const PROPS_INITIALS_UNICODE: GenericAvatarProps = {
 }
 
 const PROPS_INITIALS_LONG: GenericAvatarProps = {
-  fullName:
-    'Spicy Jalapeno Taco Bacon Ipsum Pretzel Dolor Amet Nacho Elit Chicken',
+  fullName: 'Spicy Jalapeno Taco Bacon Ipsum Pretzel Dolor Amet Nacho Elit Chicken',
   disableInitials: false,
   isCurrentUser: true,
 }
 
 const PROPS_COMPANY: CompanyAvatarProps = {
   fullName: 'Hooli',
-  avatarSrc:
-    'https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg',
+  avatarSrc: 'https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg',
   isCompany: true,
 }
 
-const ROWS: { title: string, size: AvatarSizes }[] = [
+const ROWS: { title: string; size: AvatarSizes }[] = [
   { title: 'XX-Large', size: 'xxlarge' },
   { title: 'X-Large', size: 'xlarge' },
   { title: 'Large', size: 'large' },
@@ -73,12 +63,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <StickerSheet isReversed={isReversed}>
         <StickerSheet.Header
-          headings={[
-            'Photo Personal',
-            'Initials Personal',
-            'Initials Generic',
-            'Default User',
-          ]}
+          headings={['Photo Personal', 'Initials Personal', 'Initials Generic', 'Default User']}
         />
         <StickerSheet.Body>
           {ROWS.map(({ title, size }) => (
@@ -92,9 +77,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Body>
       </StickerSheet>
       <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Header
-          headings={['Initials Unicode', 'Initials Long', 'Company Avatar']}
-        />
+        <StickerSheet.Header headings={['Initials Unicode', 'Initials Long', 'Company Avatar']} />
         <StickerSheet.Body>
           {ROWS.map(({ title, size }) => (
             <StickerSheet.Row key={title} rowTitle={title}>

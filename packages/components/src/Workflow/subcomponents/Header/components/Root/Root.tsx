@@ -3,9 +3,7 @@ import classnames from 'classnames'
 import { OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Root.module.css'
 
-export type HeaderRootProps = OverrideClassName<
-  HTMLAttributes<HTMLHeadingElement>
->
+export type HeaderRootProps = OverrideClassName<HTMLAttributes<HTMLHeadingElement>>
 
 export const HeaderRoot = ({
   children,

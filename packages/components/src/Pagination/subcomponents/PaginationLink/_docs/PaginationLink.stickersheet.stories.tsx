@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { PaginationLink, PaginationLinkProps } from '../index'
 
 export default {
@@ -47,21 +44,9 @@ const StickerSheetTemplate: StickerSheetStory = {
         {PAGINATION_LINK_PROPS.map(({ title, props }) => (
           <StickerSheet.Row key={title} rowTitle={title}>
             <PaginationLink {...props} reversed={isReversed} />
-            <PaginationLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="hover"
-            />
-            <PaginationLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="active"
-            />
-            <PaginationLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="focus"
-            />
+            <PaginationLink {...props} reversed={isReversed} data-sb-pseudo-styles="hover" />
+            <PaginationLink {...props} reversed={isReversed} data-sb-pseudo-styles="active" />
+            <PaginationLink {...props} reversed={isReversed} data-sb-pseudo-styles="focus" />
           </StickerSheet.Row>
         ))}
       </StickerSheet.Body>

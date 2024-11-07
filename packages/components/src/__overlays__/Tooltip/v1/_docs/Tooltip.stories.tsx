@@ -3,12 +3,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { ButtonGroup } from '~components/ButtonGroup'
 import { CheckboxField } from '~components/Checkbox'
 import { FilterButtonBase } from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
-import {
-  TableContainer,
-  TableHeader,
-  TableHeaderRowCell,
-  TableRow,
-} from '~components/Table'
+import { TableContainer, TableHeader, TableHeaderRowCell, TableRow } from '~components/Table'
 import { Text } from '~components/Text'
 import { Button, IconButton } from '~components/__actions__/v2'
 import { Icon } from '~components/__future__'
@@ -56,9 +51,9 @@ export const OverflowScroll: Story = {
   render: (props) => (
     <>
       <p>
-        Default Placement is &apos;above&apos;. Scroll horizontally or
-        vertically to view the Tooltip &quot;flip&quot; and move according to
-        the space of the viewport. Ensuring the Tooltip does not get cut off.
+        Default Placement is &apos;above&apos;. Scroll horizontally or vertically to view the
+        Tooltip &quot;flip&quot; and move according to the space of the viewport. Ensuring the
+        Tooltip does not get cut off.
       </p>
 
       <div
@@ -126,22 +121,22 @@ export const OverflowScroll: Story = {
             }}
           >
             <Text tag="div" variant="body">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-              nulla quas corporis? Perspiciatis, ratione voluptas{' '}
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nulla quas corporis?
+              Perspiciatis, ratione voluptas{' '}
               <Tooltip {...props} display="inline-block" text="Tooltip label">
                 <Tag>ad veniam sapiente</Tag>
               </Tooltip>{' '}
-              Maxime harum, ducimus maiores itaque pariatur quod vel porro
-              mollitia. Lorem ipsum dolor sit{' '}
+              Maxime harum, ducimus maiores itaque pariatur quod vel porro mollitia. Lorem ipsum
+              dolor sit{' '}
               <Tooltip {...props} display="inline" text="Open in new tab">
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a href="#">
-                  amet consectetur adipisicing elit Itaque obcaecati maxime
-                  molestiae blanditiis pariatur
+                  amet consectetur adipisicing elit Itaque obcaecati maxime molestiae blanditiis
+                  pariatur
                 </a>
               </Tooltip>
-              . Magni perspiciatis assumenda in adipisci, eaque commodi quidem
-              dolore, tempore provident animi{' '}
+              . Magni perspiciatis assumenda in adipisci, eaque commodi quidem dolore, tempore
+              provident animi{' '}
             </Text>
           </div>
         </div>
@@ -159,16 +154,10 @@ export const ButtonsWithTooltip: Story = {
   render: (args) => (
     <>
       <Tooltip {...args} text="Contact customer support.">
-        <Button
-          label="Help"
-          icon={<Icon name="help" isPresentational isFilled />}
-        />
+        <Button label="Help" icon={<Icon name="help" isPresentational isFilled />} />
       </Tooltip>
       <Tooltip {...args} text="Remove the link from current selection.">
-        <IconButton
-          label="Remove link"
-          icon={<Icon name="link_off" isPresentational />}
-        />
+        <IconButton label="Remove link" icon={<Icon name="link_off" isPresentational />} />
       </Tooltip>
     </>
   ),

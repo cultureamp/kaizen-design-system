@@ -3,10 +3,7 @@ import { Meta } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { Button } from '~components/__actions__/v2'
 import { Icon } from '~components/__future__/Icon'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { EmptyState, EmptyStateProps } from '../index'
 
 export default {
@@ -19,10 +16,7 @@ export default {
 
 const IS_CHROMATIC = isChromatic()
 
-const EmptyStateWrapper = ({
-  isAnimated,
-  ...args
-}: EmptyStateProps): JSX.Element => (
+const EmptyStateWrapper = ({ isAnimated, ...args }: EmptyStateProps): JSX.Element => (
   <EmptyState isAnimated={IS_CHROMATIC ? false : isAnimated} {...args} />
 )
 
@@ -69,29 +63,14 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Body>
         </StickerSheet>
 
-        <StickerSheet
-          isReversed={isReversed}
-          heading="Illustration type (deprecated)"
-        >
+        <StickerSheet isReversed={isReversed} heading="Illustration type (deprecated)">
           <StickerSheet.Body>
             {illustrationTypes.map((illustrationType) => (
-              <StickerSheet.Row
-                key={illustrationType}
-                rowTitle={illustrationType}
-              >
-                <EmptyStateWrapper
-                  {...defaultProps}
-                  illustrationType={illustrationType}
-                >
+              <StickerSheet.Row key={illustrationType} rowTitle={illustrationType}>
+                <EmptyStateWrapper {...defaultProps} illustrationType={illustrationType}>
                   <Button
                     label="Label"
-                    icon={(
-                      <Icon
-                        name="chevron_right"
-                        isPresentational
-                        shouldMirrorInRTL
-                      />
-                    )}
+                    icon={<Icon name="chevron_right" isPresentational shouldMirrorInRTL />}
                     iconPosition="end"
                   />
                 </EmptyStateWrapper>

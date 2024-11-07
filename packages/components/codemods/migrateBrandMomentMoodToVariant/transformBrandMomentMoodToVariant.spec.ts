@@ -2,9 +2,7 @@ import { parseJsx } from '../__tests__/utils'
 import { transformSource, printAst, TransformConfig } from '../utils'
 import { transformBrandMomentMoodToVariant } from './transformBrandMomentMoodToVariant'
 
-const transformBrandMoment = (
-  sourceFile: TransformConfig['sourceFile'],
-): string =>
+const transformBrandMoment = (sourceFile: TransformConfig['sourceFile']): string =>
   transformSource({
     sourceFile,
     astTransformer: transformBrandMomentMoodToVariant,
@@ -23,9 +21,7 @@ describe('transformBrandMomentMoodToVariant()', () => {
   })
 
   it('replaces mood="positive" with variant="success"', () => {
-    const inputAst = parseJsx(
-      'export const TestComponent = () => <BrandMoment mood="positive" />',
-    )
+    const inputAst = parseJsx('export const TestComponent = () => <BrandMoment mood="positive" />')
     const outputAst = parseJsx(
       'export const TestComponent = () => <BrandMoment variant="success" />',
     )
@@ -33,9 +29,7 @@ describe('transformBrandMomentMoodToVariant()', () => {
   })
 
   it('replaces mood="negative" with variant="warning"', () => {
-    const inputAst = parseJsx(
-      'export const TestComponent = () => <BrandMoment mood="negative" />',
-    )
+    const inputAst = parseJsx('export const TestComponent = () => <BrandMoment mood="negative" />')
     const outputAst = parseJsx(
       'export const TestComponent = () => <BrandMoment variant="warning" />',
     )

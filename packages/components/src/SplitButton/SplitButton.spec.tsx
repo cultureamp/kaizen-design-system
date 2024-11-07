@@ -7,9 +7,7 @@ import { SplitButton, SplitButtonProps } from './SplitButton'
 
 const user = userEvent.setup()
 
-const SplitButtonWrapper = (
-  customProps?: Partial<SplitButtonProps>,
-): JSX.Element => (
+const SplitButtonWrapper = (customProps?: Partial<SplitButtonProps>): JSX.Element => (
   <SplitButton
     actionButtonProps={{
       label: 'Action Text',
@@ -18,12 +16,12 @@ const SplitButtonWrapper = (
     dropdownButtonProps={{
       'aria-label': 'Dropdown Label',
     }}
-    dropdownContent={(
+    dropdownContent={
       <MenuList>
         <MenuItem label="Menu Item 1" />
         <MenuItem label="Menu Item 2" />
       </MenuList>
-    )}
+    }
     {...customProps}
   />
 )
@@ -50,8 +48,6 @@ describe('<SplitButton />', () => {
     await waitFor(() => {
       expect(screen.getByText('Action Text').closest('button')).toBeDisabled()
     })
-    expect(
-      screen.getByLabelText('Dropdown Label').closest('button'),
-    ).toBeDisabled()
+    expect(screen.getByLabelText('Dropdown Label').closest('button')).toBeDisabled()
   })
 })

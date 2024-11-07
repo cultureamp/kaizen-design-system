@@ -1,15 +1,15 @@
 import js from '@eslint/js'
-import stylistic from '@stylistic/eslint-plugin'
 import vitest from '@vitest/eslint-plugin'
-import eslintConfigPrettier from 'eslint-config-prettier'
 import importPlugin from 'eslint-plugin-import'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import * as mdx from 'eslint-plugin-mdx'
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import reactPlugin from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import storybook from 'eslint-plugin-storybook'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
+import prettierRules from './.prettierrc.js'
 
 export default tseslint.config(
   {
@@ -44,9 +44,12 @@ export default tseslint.config(
       react: reactPlugin,
     },
     rules: {
-      'camelcase': ['error', {
-        allow: ['^UNSAFE_', '^UNSTABLE_'],
-      }],
+      'camelcase': [
+        'error',
+        {
+          allow: ['^UNSAFE_', '^UNSTABLE_'],
+        },
+      ],
       'no-irregular-whitespace': [
         'error',
         {
@@ -57,7 +60,8 @@ export default tseslint.config(
         },
       ],
       'no-template-curly-in-string': 'error',
-      'no-underscore-dangle': ['error',
+      'no-underscore-dangle': [
+        'error',
         {
           allowInArrayDestructuring: true,
           allowInObjectDestructuring: true,
@@ -83,10 +87,7 @@ export default tseslint.config(
     },
   },
   {
-    extends: [
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.stylisticTypeChecked,
-    ],
+    extends: [...tseslint.configs.recommended, ...tseslint.configs.stylisticTypeChecked],
     languageOptions: {
       parserOptions: {
         project: ['./tsconfig.json', './docs/tsconfig.json'],
@@ -98,10 +99,7 @@ export default tseslint.config(
     },
     files: ['**/*.{ts,tsx}'],
     rules: {
-      '@typescript-eslint/explicit-function-return-type': [
-        'error',
-        { allowExpressions: true },
-      ],
+      '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
       '@typescript-eslint/consistent-type-definitions': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-inferrable-types': 'off',
@@ -112,17 +110,12 @@ export default tseslint.config(
           argsIgnorePattern: '^_',
         },
       ],
-      '@typescript-eslint/prefer-nullish-coalescing': [
-        'error',
-        { ignoreBooleanCoercion: true },
-      ],
+      '@typescript-eslint/prefer-nullish-coalescing': ['error', { ignoreBooleanCoercion: true }],
     },
   },
   {
     files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
-    ignores: [
-      '**/*.stories.{ts,tsx}',
-    ],
+    ignores: ['**/*.stories.{ts,tsx}'],
     plugins: {
       'react-hooks': reactHooks,
     },
@@ -150,14 +143,7 @@ export default tseslint.config(
           alphabetize: {
             order: 'asc',
           },
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            'parent',
-            'sibling',
-            'index',
-          ],
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
           pathGroups: [
             {
               pattern: '{react,react-dom}',
@@ -227,14 +213,9 @@ export default tseslint.config(
   mdx.flat,
   mdx.flatCodeBlocks,
   {
-    extends: [stylistic.configs['recommended-flat']],
-    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
+    extends: [eslintPluginPrettierRecommended],
     rules: {
-      '@stylistic/arrow-parens': ['error', 'always'],
-      '@stylistic/brace-style': ['error', '1tbs'],
-      '@stylistic/jsx-one-expression-per-line': 'off',
-      '@stylistic/operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
+      'prettier/prettier': ['error', prettierRules],
     },
   },
-  eslintConfigPrettier,
 )

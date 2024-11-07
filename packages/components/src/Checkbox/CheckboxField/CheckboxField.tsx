@@ -19,7 +19,7 @@ export type CheckboxFieldProps = Omit<CheckboxProps, 'id'> & {
  * {@link https://cultureamp.design/?path=/docs/components-checkobx-controls-checkbox-field--docs Storybook}
  */
 export const CheckboxField = ({
-  id: propsId,
+  'id': propsId,
   labelText,
   checkedStatus,
   disabled = false,

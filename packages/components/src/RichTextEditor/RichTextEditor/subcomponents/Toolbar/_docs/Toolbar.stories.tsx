@@ -14,14 +14,8 @@ const meta = {
     'children': (
       <>
         <ToolbarSection>
-          <ToggleIconButton
-            label="Bold"
-            icon={<Icon name="format_bold" isPresentational />}
-          />
-          <ToggleIconButton
-            label="Italic"
-            icon={<Icon name="format_italic" isPresentational />}
-          />
+          <ToggleIconButton label="Bold" icon={<Icon name="format_bold" isPresentational />} />
+          <ToggleIconButton label="Italic" icon={<Icon name="format_italic" isPresentational />} />
           <ToggleIconButton
             label="Underline"
             icon={<Icon name="format_underlined" isPresentational />}
@@ -30,23 +24,11 @@ const meta = {
         <ToolbarSection>
           <ToggleIconButton
             label="Bullet list"
-            icon={(
-              <Icon
-                name="format_list_bulleted"
-                isPresentational
-                shouldMirrorInRTL
-              />
-            )}
+            icon={<Icon name="format_list_bulleted" isPresentational shouldMirrorInRTL />}
           />
           <ToggleIconButton
             label="Numbered list"
-            icon={(
-              <Icon
-                name="format_list_numbered"
-                isPresentational
-                shouldMirrorInRTL
-              />
-            )}
+            icon={<Icon name="format_list_numbered" isPresentational shouldMirrorInRTL />}
           />
         </ToolbarSection>
       </>

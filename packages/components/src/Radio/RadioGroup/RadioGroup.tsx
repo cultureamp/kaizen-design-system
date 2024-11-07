@@ -4,9 +4,7 @@ import { Label } from '~components/Label'
 import { OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './RadioGroup.module.scss'
 
-export type RadioGroupProps = OverrideClassName<
-  HTMLAttributes<HTMLDivElement>
-> & {
+export type RadioGroupProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> & {
   'children'?: React.ReactNode
   'labelText': string | React.ReactNode
   'labelId'?: string
@@ -17,7 +15,7 @@ export type RadioGroupProps = OverrideClassName<
 
 export const RadioGroup = ({
   children,
-  labelId: propsLabelId,
+  'labelId': propsLabelId,
   labelText,
   noBottomMargin = false,
   reversed = false,

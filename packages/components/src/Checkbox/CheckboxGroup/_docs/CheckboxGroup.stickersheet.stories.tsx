@@ -2,10 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import { CheckboxField } from '~components/Checkbox/CheckboxField'
 import { Text } from '~components/Text'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { CheckboxGroup, CheckboxGroupProps } from '../index'
 
 export default {
@@ -23,16 +20,8 @@ const CheckboxGroupWrapped = ({
 }: CheckboxGroupProps): JSX.Element => (
   <CheckboxGroup labelText={labelText} reversed={reversed} {...props}>
     <CheckboxField labelText="Checkbox one" reversed={reversed} />
-    <CheckboxField
-      labelText="Checkbox two"
-      reversed={reversed}
-      checkedStatus="on"
-    />
-    <CheckboxField
-      labelText="Checkbox three"
-      reversed={reversed}
-      checkedStatus="mixed"
-    />
+    <CheckboxField labelText="Checkbox two" reversed={reversed} checkedStatus="on" />
+    <CheckboxField labelText="Checkbox three" reversed={reversed} checkedStatus="mixed" />
   </CheckboxGroup>
 )
 
@@ -43,20 +32,13 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row>
           <>
-            <CheckboxGroupWrapped
-              reversed={isReversed}
-              labelText="CheckboxGroup"
-            />
+            <CheckboxGroupWrapped reversed={isReversed} labelText="CheckboxGroup" />
             <Text variant="body" color={isReversed ? 'white' : 'dark'}>
               Next line
             </Text>
           </>
           <>
-            <CheckboxGroupWrapped
-              reversed={isReversed}
-              labelText="CheckboxGroup"
-              noBottomMargin
-            />
+            <CheckboxGroupWrapped reversed={isReversed} labelText="CheckboxGroup" noBottomMargin />
             <Text variant="body" color={isReversed ? 'white' : 'dark'}>
               Next line
             </Text>

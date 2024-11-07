@@ -8,11 +8,7 @@ import styles from './NavigationTabs.module.scss'
 const user = userEvent.setup()
 
 const CustomComponent = (props: CustomNavigationTabProps): JSX.Element => (
-  <button
-    type="button"
-    onClick={props.handleClick}
-    className={props.className}
-  >
+  <button type="button" onClick={props.handleClick} className={props.className}>
     {`${props.href} - ${props.text} - ${props.active}`}
   </button>
 )
@@ -54,11 +50,7 @@ describe('NavigationTabs', () => {
       const button = screen.getByRole('button', {
         name: `${href} - ${text} - true`,
       })
-      expect(button).toHaveClass(
-        styles.linkAnchor,
-        styles.active,
-        styles.lightBackground,
-      )
+      expect(button).toHaveClass(styles.linkAnchor, styles.active, styles.lightBackground)
 
       await user.click(button)
       await waitFor(() => {

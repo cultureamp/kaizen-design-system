@@ -1,10 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { Heading } from '~components/Heading'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { TextAreaField, TextAreaFieldProps } from '../index'
 
 export default {
@@ -91,16 +88,8 @@ const StickerSheetTemplate: StickerSheetStory = {
           hasVerticalHeadings
         />
         <StickerSheet.Body>
-          <TAFieldStatusGroup
-            isReversed={isReversed}
-            disabled
-            variant="default"
-          />
-          <TAFieldStatusGroup
-            isReversed={isReversed}
-            disabled
-            variant="prominent"
-          />
+          <TAFieldStatusGroup isReversed={isReversed} disabled variant="default" />
+          <TAFieldStatusGroup isReversed={isReversed} disabled variant="prominent" />
         </StickerSheet.Body>
       </StickerSheet>
     </>

@@ -61,22 +61,20 @@ export const AppearanceAnim = ({
     }
   }
 
-  return isVisible || isAnimOut || isAnimIn
-    ? (
-        <div
-          className={classnames([
-            {
-              [styles.defaultHiddenState]: true,
-              [styles.visibleState]: isVisible && !isAnimIn,
-            },
-            className,
-          ])}
-          {...rest}
-        >
-          {children}
-        </div>
-      )
-    : null
+  return isVisible || isAnimOut || isAnimIn ? (
+    <div
+      className={classnames([
+        {
+          [styles.defaultHiddenState]: true,
+          [styles.visibleState]: isVisible && !isAnimIn,
+        },
+        className,
+      ])}
+      {...rest}
+    >
+      {children}
+    </div>
+  ) : null
 }
 
 AppearanceAnim.displayName = 'AppearanceAnim'

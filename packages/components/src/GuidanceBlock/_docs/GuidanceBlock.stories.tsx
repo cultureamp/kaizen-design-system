@@ -16,8 +16,7 @@ const ContentComponent = (): JSX.Element => (
       This is the Guidance block title
     </Heading>
     <Text variant="body">
-      Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite
-      divinis,
+      Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis,
     </Text>
   </>
 )

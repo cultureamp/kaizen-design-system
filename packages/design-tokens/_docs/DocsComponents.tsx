@@ -63,18 +63,15 @@ const themesBlocks: (React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: 
     name: 'JS',
     language: 'typescript',
     code: JSON.stringify(tokens, null, 2),
-    caption: (
-      <code>
-        import {'{ tokens }'} from &quot;@kaizen/design-tokens/js&quot;
-      </code>
-    ),
+    caption: <code>import {'{ tokens }'} from &quot;@kaizen/design-tokens/js&quot;</code>,
   },
   {
     name: 'CSS Variables',
     language: 'css',
-    code: toCustomMediaQueriesArray(
-      makeCssVariableDefinitionsMap(tokens),
-    ).reduce((acc, item) => acc + `${item.key}: ${item.value}; \n`, ''),
+    code: toCustomMediaQueriesArray(makeCssVariableDefinitionsMap(tokens)).reduce(
+      (acc, item) => acc + `${item.key}: ${item.value}; \n`,
+      '',
+    ),
     caption: (
       <span>
         Generated using the default theme. Exported as CSS in
@@ -84,74 +81,52 @@ const themesBlocks: (React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: 
   },
 ]
 
-export const ThemesCodeBlocks = (): JSX.Element => (
-  <TabbedCodeBlocks blocks={themesBlocks} />
-)
+export const ThemesCodeBlocks = (): JSX.Element => <TabbedCodeBlocks blocks={themesBlocks} />
 const sassBlocks: (React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string })[] = [
   {
     name: 'Color',
     language: 'scss',
     code: colorsSass,
-    caption: (
-      <code>@import &quot;~@kaizen/design-tokens/sass/color.scss&quot;</code>
-    ),
+    caption: <code>@import &quot;~@kaizen/design-tokens/sass/color.scss&quot;</code>,
   },
   {
     name: 'Typography',
     language: 'scss',
     code: typographySass,
-    caption: (
-      <code>
-        @import &quot;~@kaizen/design-tokens/sass/typography.scss&quot;
-      </code>
-    ),
+    caption: <code>@import &quot;~@kaizen/design-tokens/sass/typography.scss&quot;</code>,
   },
   {
     name: 'Spacing',
     language: 'scss',
     code: spacingSass,
-    caption: (
-      <code>@import &quot;~@kaizen/design-tokens/sass/spacing.scss&quot;</code>
-    ),
+    caption: <code>@import &quot;~@kaizen/design-tokens/sass/spacing.scss&quot;</code>,
   },
   {
     name: 'Border',
     language: 'scss',
     code: borderSass,
-    caption: (
-      <code>@import &quot;~@kaizen/design-tokens/sass/border.scss&quot;</code>
-    ),
+    caption: <code>@import &quot;~@kaizen/design-tokens/sass/border.scss&quot;</code>,
   },
   {
     name: 'Layout',
     language: 'scss',
     code: layoutSass,
-    caption: (
-      <code>@import &quot;~@kaizen/design-tokens/sass/layout.scss&quot;</code>
-    ),
+    caption: <code>@import &quot;~@kaizen/design-tokens/sass/layout.scss&quot;</code>,
   },
   {
     name: 'Shadow',
     language: 'scss',
     code: shadowSass,
-    caption: (
-      <code>@import &quot;~@kaizen/design-tokens/sass/shadow.scss&quot;</code>
-    ),
+    caption: <code>@import &quot;~@kaizen/design-tokens/sass/shadow.scss&quot;</code>,
   },
   {
     name: 'Animation',
     language: 'scss',
     code: animationSass,
-    caption: (
-      <code>
-        @import &quot;~@kaizen/design-tokens/sass/animation.scss&quot;
-      </code>
-    ),
+    caption: <code>@import &quot;~@kaizen/design-tokens/sass/animation.scss&quot;</code>,
   },
 ]
 
-export const SassVariablesCodeBlocks = (): JSX.Element => (
-  <TabbedCodeBlocks blocks={sassBlocks} />
-)
+export const SassVariablesCodeBlocks = (): JSX.Element => <TabbedCodeBlocks blocks={sassBlocks} />
 
 export default {}

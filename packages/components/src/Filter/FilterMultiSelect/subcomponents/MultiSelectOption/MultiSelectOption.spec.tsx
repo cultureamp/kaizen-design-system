@@ -31,9 +31,7 @@ const itemMock: MultiSelectOptionProps['item'] & { value: ItemType } = {
 
 const MultiSelectOptionWrapper = ({
   item = itemMock,
-}: Partial<MultiSelectOptionProps>): JSX.Element => (
-  <MultiSelectOption item={item} />
-)
+}: Partial<MultiSelectOptionProps>): JSX.Element => <MultiSelectOption item={item} />
 
 describe('<MultiSelectOptionWrapper /> - Visual content', () => {
   describe('Given item is unselected', () => {

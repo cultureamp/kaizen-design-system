@@ -1,10 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { Icon } from '~components/__future__/Icon'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { ToggleIconButton, ToggleIconButtonProps } from '../index'
 import { moodsList } from '../types'
 
@@ -23,11 +20,7 @@ const ToggleIconButtonGroup = ({
   rowTitle: string
 }): JSX.Element => (
   <StickerSheet.Row rowTitle={rowTitle}>
-    <ToggleIconButton
-      label="bold"
-      icon={<Icon name="format_bold" isPresentational />}
-      {...props}
-    />
+    <ToggleIconButton label="bold" icon={<Icon name="format_bold" isPresentational />} {...props} />
     <ToggleIconButton
       label="bold"
       icon={<Icon name="format_bold" isPresentational />}
@@ -66,14 +59,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
       <StickerSheet.Header
-        headings={[
-          'Default',
-          'Hover',
-          'Active',
-          'Focus',
-          'Disabled',
-          'Disabled (Focus)',
-        ]}
+        headings={['Default', 'Hover', 'Active', 'Focus', 'Disabled', 'Disabled (Focus)']}
         hasVerticalHeadings
       />
       <StickerSheet.Body>

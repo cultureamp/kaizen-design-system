@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { PopoverProps, usePopover } from '../index'
 import { popoverPlacements } from '../types'
 
@@ -32,11 +29,7 @@ const PopoverWrapper = (
 
 const cellStyle = { width: '400px', height: '250px' }
 
-const PopoverRow = ({
-  placement,
-}: {
-  placement?: PopoverProps['placement']
-}): JSX.Element => (
+const PopoverRow = ({ placement }: { placement?: PopoverProps['placement'] }): JSX.Element => (
   <StickerSheet.Row rowTitle={placement}>
     <StickerSheet.Cell style={cellStyle}>
       <PopoverWrapper placement={placement} />
@@ -48,13 +41,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
-        headings={[
-          'Default',
-          'Positive',
-          'Informative',
-          'Negative',
-          'Cautionary',
-        ]}
+        headings={['Default', 'Positive', 'Informative', 'Negative', 'Cautionary']}
         hasVerticalHeadings
       />
       <StickerSheet.Body>

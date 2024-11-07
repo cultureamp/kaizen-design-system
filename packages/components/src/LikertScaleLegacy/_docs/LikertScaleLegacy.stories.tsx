@@ -48,13 +48,7 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: (args) => {
     const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
-    return (
-      <LikertScaleLegacy
-        {...args}
-        selectedItem={selectedItem}
-        onSelect={setSelectedItem}
-      />
-    )
+    return <LikertScaleLegacy {...args} selectedItem={selectedItem} onSelect={setSelectedItem} />
   },
   parameters: {
     docs: {

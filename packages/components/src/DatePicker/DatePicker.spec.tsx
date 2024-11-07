@@ -127,9 +127,7 @@ describe('<DatePicker />', () => {
     await waitFor(() => {
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
       expect(input).toHaveFocus()
-      expect(
-        screen.getByText('05/01/2022 is not available, try another date'),
-      ).toBeVisible()
+      expect(screen.getByText('05/01/2022 is not available, try another date')).toBeVisible()
     })
   })
 })
@@ -357,17 +355,10 @@ describe('<DatePicker /> - Validation', () => {
 
     it('does not show inbuilt validation message when onValidate is set', async () => {
       const onValidate = vi.fn()
-      render(
-        <DatePickerWrapper
-          selectedDay={new Date('potato')}
-          onValidate={onValidate}
-        />,
-      )
+      render(<DatePickerWrapper selectedDay={new Date('potato')} onValidate={onValidate} />)
 
       await waitFor(() => {
-        expect(
-          screen.getByLabelText('Input label', { selector: 'input' }),
-        ).toBeVisible()
+        expect(screen.getByLabelText('Input label', { selector: 'input' })).toBeVisible()
       })
 
       expect(screen.queryByTitle('error message')).not.toBeInTheDocument()
@@ -376,12 +367,7 @@ describe('<DatePicker /> - Validation', () => {
 
     it('triggers validation when initial selected date is invalid', async () => {
       const onValidate = vi.fn()
-      render(
-        <DatePickerWrapper
-          onValidate={onValidate}
-          selectedDay={new Date('potato')}
-        />,
-      )
+      render(<DatePickerWrapper onValidate={onValidate} selectedDay={new Date('potato')} />)
       await waitFor(() => {
         expect(onValidate).toHaveBeenCalledTimes(1)
       })
@@ -403,9 +389,7 @@ describe('<DatePicker /> - Validation', () => {
 
     it('does not trigger validation when initial selected date is empty', async () => {
       const onValidate = vi.fn()
-      render(
-        <DatePickerWrapper onValidate={onValidate} selectedDay={undefined} />,
-      )
+      render(<DatePickerWrapper onValidate={onValidate} selectedDay={undefined} />)
       await waitFor(() => {
         expect(onValidate).not.toHaveBeenCalled()
       })
@@ -413,12 +397,7 @@ describe('<DatePicker /> - Validation', () => {
 
     it('does not trigger validation when initial selected date is valid', async () => {
       const onValidate = vi.fn()
-      render(
-        <DatePickerWrapper
-          onValidate={onValidate}
-          selectedDay={new Date('2022-05-05')}
-        />,
-      )
+      render(<DatePickerWrapper onValidate={onValidate} selectedDay={new Date('2022-05-05')} />)
       await waitFor(() => {
         expect(onValidate).not.toHaveBeenCalled()
       })
@@ -426,12 +405,7 @@ describe('<DatePicker /> - Validation', () => {
 
     it('triggers validation when selected date is updated to invalid', async () => {
       const onValidate = vi.fn()
-      render(
-        <DatePickerWrapper
-          onValidate={onValidate}
-          defaultMonth={new Date('2022-03-01')}
-        />,
-      )
+      render(<DatePickerWrapper onValidate={onValidate} defaultMonth={new Date('2022-03-01')} />)
       const input = screen.getByLabelText('Input label', { selector: 'input' })
       await user.click(input)
       await waitFor(() => {
@@ -467,9 +441,7 @@ describe('<DatePicker /> - Validation', () => {
       )
 
       await waitFor(() => {
-        expect(
-          screen.getByText('05/05/2022 is not available, try another date'),
-        ).toBeVisible()
+        expect(screen.getByText('05/05/2022 is not available, try another date')).toBeVisible()
       })
     })
 
@@ -482,9 +454,7 @@ describe('<DatePicker /> - Validation', () => {
       await user.tab()
 
       await waitFor(() => {
-        expect(
-          screen.getByText('05/05/2022Blah is an invalid date'),
-        ).toBeVisible()
+        expect(screen.getByText('05/05/2022Blah is an invalid date')).toBeVisible()
       })
     })
 
@@ -497,9 +467,7 @@ describe('<DatePicker /> - Validation', () => {
       await user.tab()
 
       await waitFor(() => {
-        expect(
-          screen.getByText('05/05/2022 is not available, try another date'),
-        ).toBeVisible()
+        expect(screen.getByText('05/05/2022 is not available, try another date')).toBeVisible()
       })
     })
   })

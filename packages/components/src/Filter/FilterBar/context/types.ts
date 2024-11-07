@@ -8,10 +8,7 @@ export type FilterStateEditableAttributes = {
   isOpen: boolean
 }
 
-export type InternalFilterState<
-  ValuesMap extends FiltersValues,
-  Id extends keyof ValuesMap,
-> = {
+export type InternalFilterState<ValuesMap extends FiltersValues, Id extends keyof ValuesMap> = {
   id: Id
   name: string
   isRemovable: boolean

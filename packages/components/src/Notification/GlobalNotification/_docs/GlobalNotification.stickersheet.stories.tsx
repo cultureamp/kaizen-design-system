@@ -1,13 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
-import {
-  GlobalNotificationProps,
-  GlobalNotification,
-} from '../GlobalNotification'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { GlobalNotificationProps, GlobalNotification } from '../GlobalNotification'
 
 export default {
   title: 'Components/Notifications/GlobalNotification',
@@ -46,7 +40,7 @@ const variants = [
     title: 'Persistent',
     props: { variant: 'informative', persistent: true },
   },
-] satisfies { title: string, props: Partial<GlobalNotificationProps> }[]
+] satisfies { title: string; props: Partial<GlobalNotificationProps> }[]
 
 const types = [
   {
@@ -69,7 +63,7 @@ const types = [
     title: 'Security',
     props: { type: 'security' },
   },
-] satisfies { title: string, props: Partial<GlobalNotificationProps> }[]
+] satisfies { title: string; props: Partial<GlobalNotificationProps> }[]
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
@@ -77,7 +71,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       persistent: false,
       children: (
         <span>
-          {'This survey status has been changed to \'Archived\'. '}
+          {"This survey status has been changed to 'Archived'. "}
           <a href="/">View all</a>
         </span>
       ),

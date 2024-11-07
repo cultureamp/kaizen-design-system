@@ -4,14 +4,8 @@ import {
   MenuHeading as MenuHeadingV1,
   MenuHeadingProps as MenuHeadingPropsV1,
 } from './subcomponents/MenuHeading'
-import {
-  MenuItem as MenuItemV1,
-  MenuItemProps as MenuItemPropsV1,
-} from './subcomponents/MenuItem'
-import {
-  MenuList as MenuListV1,
-  MenuListProps as MenuListPropsV1,
-} from './subcomponents/MenuList'
+import { MenuItem as MenuItemV1, MenuItemProps as MenuItemPropsV1 } from './subcomponents/MenuItem'
+import { MenuList as MenuListV1, MenuListProps as MenuListPropsV1 } from './subcomponents/MenuList'
 import {
   StatelessMenu as StatelessMenuV1,
   StatelessMenuProps as StatelessMenuPropsV1,

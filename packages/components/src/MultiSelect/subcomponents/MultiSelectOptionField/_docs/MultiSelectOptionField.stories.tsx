@@ -24,9 +24,9 @@ type Story = StoryObj<typeof meta>
 
 const MultiSelectOptionFieldTemplate: Story = {
   render: (args) => {
-    const [checkedStatus, setCheckedStatus] = useState<
-      CheckboxProps['checkedStatus']
-    >(args.checkedStatus)
+    const [checkedStatus, setCheckedStatus] = useState<CheckboxProps['checkedStatus']>(
+      args.checkedStatus,
+    )
 
     const handleChange = (): void => {
       switch (checkedStatus) {
@@ -38,11 +38,7 @@ const MultiSelectOptionFieldTemplate: Story = {
     }
 
     return (
-      <MultiSelectOptionField
-        {...args}
-        checkedStatus={checkedStatus}
-        onChange={handleChange}
-      />
+      <MultiSelectOptionField {...args} checkedStatus={checkedStatus} onChange={handleChange} />
     )
   },
 }

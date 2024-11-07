@@ -17,9 +17,7 @@ const meta = {
   },
   args: {
     children: <FilterContents>Filter Contents</FilterContents>,
-    renderTrigger: (triggerProps): JSX.Element => (
-      <FilterButton label="Label" {...triggerProps} />
-    ),
+    renderTrigger: (triggerProps): JSX.Element => <FilterButton label="Label" {...triggerProps} />,
     isOpen: false,
     setIsOpen: fn(),
   },

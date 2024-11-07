@@ -1,10 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { within } from '@storybook/test'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import styles from '../../baseCalendarClassNames.module.scss'
 import { CalendarSingle, CalendarSingleProps } from '../index'
 
@@ -16,9 +13,7 @@ export default {
   },
 } satisfies Meta
 
-const CalendarSingleExample = (
-  props: Partial<CalendarSingleProps>,
-): JSX.Element => (
+const CalendarSingleExample = (props: Partial<CalendarSingleProps>): JSX.Element => (
   <div data-testid={props.id}>
     <CalendarSingle defaultMonth={new Date('2021-09-05')} {...props} />
   </div>
@@ -34,10 +29,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <CalendarSingleExample id="id--calendar--hover" />
             <CalendarSingleExample id="id--calendar--focus" />
             <CalendarSingleExample
-              disabled={[
-                new Date('2021-09-15'),
-                { after: new Date('2021-09-17') },
-              ]}
+              disabled={[new Date('2021-09-15'), { after: new Date('2021-09-17') }]}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
@@ -109,11 +101,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   const canvas = within(canvasElement)
 
-  const getElementWithinCalendar = (
-    id: string,
-    role: string,
-    name: string,
-  ): HTMLElement => {
+  const getElementWithinCalendar = (id: string, role: string, name: string): HTMLElement => {
     const calendar = canvas.getByTestId(id)
     return within(calendar).getByRole(role, { name })
   }

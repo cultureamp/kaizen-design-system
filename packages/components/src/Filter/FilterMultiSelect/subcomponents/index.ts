@@ -6,7 +6,4 @@ export type { MenuFooterProps, MenuLoadingSkeletonProps } from './MenuLayout'
 export type { MultiSelectOptionProps } from './MultiSelectOption'
 export type { NoResultsProps } from './NoResults'
 export type { SearchInputProps } from './SearchInput'
-export type {
-  FilterTriggerButtonProps,
-  RemovableFilterTriggerProps,
-} from './Trigger'
+export type { FilterTriggerButtonProps, RemovableFilterTriggerProps } from './Trigger'

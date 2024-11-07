@@ -14,10 +14,7 @@ export const LabelledMessage = ({
   classNameOverride,
   ...restProps
 }: LabelledMessageProps): JSX.Element => (
-  <span
-    className={classnames(styles.labelledMessage, classNameOverride)}
-    {...restProps}
-  >
+  <span className={classnames(styles.labelledMessage, classNameOverride)} {...restProps}>
     <span>{label}</span>
     <span className={styles.labelSeparator}>:</span>
     <span>{message}</span>

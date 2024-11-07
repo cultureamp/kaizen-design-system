@@ -8,11 +8,7 @@ const meta = {
   component: ExpertAdviceCollapsible,
   args: {
     title: 'Expert advice collapsible',
-    children: (
-      <Text variant="body">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </Text>
-    ),
+    children: <Text variant="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>,
   },
 } satisfies Meta<typeof ExpertAdviceCollapsible>
 

@@ -20,12 +20,8 @@ type Story = StoryObj<typeof meta>
 
 const CalendarRangeTemplate: Story = {
   render: (args) => {
-    const [selected, setSelected] = useState<DateRange | undefined>(
-      args.selected,
-    )
-    return (
-      <CalendarRange {...args} selected={selected} onSelect={setSelected} />
-    )
+    const [selected, setSelected] = useState<DateRange | undefined>(args.selected)
+    return <CalendarRange {...args} selected={selected} onSelect={setSelected} />
   },
 }
 

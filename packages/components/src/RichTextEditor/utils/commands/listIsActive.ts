@@ -5,12 +5,9 @@ import { findParentNodeOfTypeClosestToPos } from 'prosemirror-utils'
 export const listIsActive = (
   state: EditorState,
   type: NodeType,
-  listNodes: typeof type[],
+  listNodes: (typeof type)[],
 ): boolean => {
-  const listNode = findParentNodeOfTypeClosestToPos(
-    state.selection.$from,
-    listNodes,
-  )
+  const listNode = findParentNodeOfTypeClosestToPos(state.selection.$from, listNodes)
 
   return listNode?.node.type === type
 }

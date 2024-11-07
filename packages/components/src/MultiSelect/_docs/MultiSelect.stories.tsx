@@ -53,9 +53,9 @@ type Story = StoryObj<typeof meta>
 
 const MultiSelectTemplate: Story = {
   render: (args) => {
-    const [selectedValues, setSelectedValues] = useState<
-      MultiSelectProps['selectedValues']
-    >(new Set(args.selectedValues))
+    const [selectedValues, setSelectedValues] = useState<MultiSelectProps['selectedValues']>(
+      new Set(args.selectedValues),
+    )
     const [isOpen, setIsOpen] = useState<boolean>(args.isOpen)
 
     useEffect(() => {

@@ -1,11 +1,11 @@
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/layout";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/animation";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "../../styles/utils/responsive";
-@import "../../styles/utils/button-reset";
+@import '~@kaizen/design-tokens/sass/shadow';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/layout';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/animation';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '../../styles/utils/responsive';
+@import '../../styles/utils/button-reset';
 
 @mixin guidance-block-under-480 {
   @media (max-width: 480px) {
@@ -15,8 +15,8 @@
 
 $bannerPadding: $spacing-lg;
 $ca-banner-fade-out: opacity $animation-duration-slow ease;
-$ca-banner-collapse-height-delayed: margin-top $animation-duration-fast
-  $animation-duration-slow ease;
+$ca-banner-collapse-height-delayed: margin-top $animation-duration-fast $animation-duration-slow
+  ease;
 $illustration-size: 155px;
 $scene-illustration-size: 300px;
 
@@ -120,7 +120,7 @@ $scene-illustration-size: 300px;
     max-width: 100%;
   }
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     @include ca-media-desktop {
       padding: 0 $spacing-sm;
       text-align: right;
@@ -160,7 +160,7 @@ $scene-illustration-size: 300px;
     margin-top: $spacing-xs;
   }
 
-  [dir="rtl"] & svg {
+  [dir='rtl'] & svg {
     transform: rotate(180deg);
   }
 }
@@ -258,7 +258,7 @@ $scene-illustration-size: 300px;
   .illustrationWrapper {
     margin-right: $spacing-sm;
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       margin-left: $spacing-sm;
       margin-right: inherit;
     }
@@ -289,7 +289,7 @@ $scene-illustration-size: 300px;
       margin: 0;
     }
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       text-align: right;
 
       @include ca-media-desktop {
@@ -308,7 +308,7 @@ $scene-illustration-size: 300px;
       flex-direction: row-reverse;
     }
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       padding-left: 0;
       padding-right: $spacing-sm;
     }
@@ -338,7 +338,7 @@ $scene-illustration-size: 300px;
       text-align: center;
       min-width: unset;
 
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         text-align: center;
       }
     }
@@ -355,7 +355,7 @@ $scene-illustration-size: 300px;
     .descriptionContainer {
       text-align: left;
 
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         text-align: right;
       }
     }

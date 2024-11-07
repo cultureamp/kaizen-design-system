@@ -16,9 +16,7 @@ export type ToolbarProps = {
   'aria-label': string
 } & OverrideClassName<React.HTMLAttributes<HTMLElement>>
 
-const determineValidKeypress = (
-  event: React.KeyboardEvent<HTMLElement>,
-): boolean => {
+const determineValidKeypress = (event: React.KeyboardEvent<HTMLElement>): boolean => {
   const validKeys = {
     left: 'ArrowLeft',
     right: 'ArrowRight',
@@ -47,36 +45,23 @@ const handleKeyDown = (
 }
 
 export const Toolbar = (props: ToolbarProps): JSX.Element => {
-  const {
-    children: toolbarChildren,
-    classNameOverride,
-    ...toolbarProps
-  } = props
+  const { children: toolbarChildren, classNameOverride, ...toolbarProps } = props
   const [buttonFocusIndex, setButtonFocusIndex] = React.useState<number>(0)
   const toolbarButtonsRef = React.useRef<React.ReactNode[]>([])
   let buttonCount: number = 0
 
   return (
-    <div
-      className={classnames(styles.toolbar, classNameOverride)}
-      role="toolbar"
-      {...toolbarProps}
-    >
+    <div className={classnames(styles.toolbar, classNameOverride)} role="toolbar" {...toolbarProps}>
       {React.Children.map(toolbarChildren, (toolbarSection, sectionIndex) => {
         if (!React.isValidElement(toolbarSection)) {
           return toolbarChildren
         }
 
-        const {
-          children: sectionChildren,
-          ...toolbarSectionProps
-        }: ToolbarSectionProps = toolbarSection.props
+        const { children: sectionChildren, ...toolbarSectionProps }: ToolbarSectionProps =
+          toolbarSection.props
 
         return (
-          <toolbarSection.type
-            {...toolbarSectionProps}
-            key={`rte-section-${sectionIndex}`}
-          >
+          <toolbarSection.type {...toolbarSectionProps} key={`rte-section-${sectionIndex}`}>
             {React.Children.map(sectionChildren, (toolbarButton) => {
               if (!React.isValidElement(toolbarButton)) {
                 return
@@ -95,9 +80,11 @@ export const Toolbar = (props: ToolbarProps): JSX.Element => {
                       buttonFocusIndex,
                       setButtonFocusIndex,
                       toolbarButtonsRef,
-                    )}
+                    )
+                  }
                   ref={(ref: React.ReactNode | undefined): React.ReactNode =>
-                    (toolbarButtonsRef.current[buttonIndex] = ref)}
+                    (toolbarButtonsRef.current[buttonIndex] = ref)
+                  }
                 />
               )
             })}

@@ -163,9 +163,8 @@ const filters = [
             <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
               {({ allItems }): JSX.Element | JSX.Element[] =>
-                allItems.map((item) => (
-                  <FilterMultiSelect.Option key={item.key} item={item} />
-                ))}
+                allItems.map((item) => <FilterMultiSelect.Option key={item.key} item={item} />)
+              }
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
@@ -224,9 +223,7 @@ export const OnValuesChange: Story = {
           values={activeValues}
           onValuesChange={onActiveValuesChange}
         />
-        <Highlight className="json">
-          {JSON.stringify(activeValues, null, 4)}
-        </Highlight>
+        <Highlight className="json">{JSON.stringify(activeValues, null, 4)}</Highlight>
       </>
     )
   },
@@ -280,18 +277,14 @@ export const DependentFilter: Story = {
           />
         ),
         isRemovable: true,
-        isUsableWhen: (state) =>
-          state.milk.value !== undefined && !state.sugar.isActive,
+        isUsableWhen: (state) => state.milk.value !== undefined && !state.sugar.isActive,
       },
       {
         id: 'sugar',
         name: 'Sugar',
-        Component: (
-          <FilterBar.Select items={[{ value: 'yes', label: 'Yes' }]} />
-        ),
+        Component: <FilterBar.Select items={[{ value: 'yes', label: 'Yes' }]} />,
         isRemovable: true,
-        isUsableWhen: (state) =>
-          state.milk.value !== undefined && !state.syrup.isActive,
+        isUsableWhen: (state) => state.milk.value !== undefined && !state.syrup.isActive,
       },
       {
         id: 'ice',
@@ -320,16 +313,11 @@ export const DependentFilter: Story = {
           onValuesChange={setValues}
         />
         <div className="flex gap-8 my-16">
-          <button
-            type="button"
-            onClick={() => setValues({ ...values, coffee: undefined })}
-          >
+          <button type="button" onClick={() => setValues({ ...values, coffee: undefined })}>
             Clear Coffee
           </button>
         </div>
-        <Highlight className="json">
-          {JSON.stringify(values, null, 4)}
-        </Highlight>
+        <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
       </>
     )
   },
@@ -349,9 +337,7 @@ const ExampleFilterMultiSelect = (
               </FilterMultiSelect.NoResults>
             )
           }
-          return allItems.map((item) => (
-            <FilterMultiSelect.Option key={item.key} item={item} />
-          ))
+          return allItems.map((item) => <FilterMultiSelect.Option key={item.key} item={item} />)
         }}
       </FilterMultiSelect.ListBox>
     )}
@@ -364,8 +350,7 @@ type ValuesSiblingDependent = {
   room: string
 }
 
-const sleep = (ms: number): Promise<unknown> =>
-  new Promise((resolve) => setTimeout(resolve, ms))
+const sleep = (ms: number): Promise<unknown> => new Promise((resolve) => setTimeout(resolve, ms))
 
 const FilterPerson = (props: { id?: string }): JSX.Element => {
   const data = [
@@ -424,9 +409,7 @@ const FilterPerson = (props: { id?: string }): JSX.Element => {
   )
 }
 
-const FilterRoom = (props: {
-  id?: keyof ValuesSiblingDependent
-}): JSX.Element => {
+const FilterRoom = (props: { id?: keyof ValuesSiblingDependent }): JSX.Element => {
   type Item = SelectOption & {
     role: string
   }
@@ -439,9 +422,7 @@ const FilterRoom = (props: {
 
   const [items, setItems] = useState<Item[]>([])
 
-  type Id = typeof props.id extends keyof ValuesSiblingDependent
-    ? typeof props.id
-    : never
+  type Id = typeof props.id extends keyof ValuesSiblingDependent ? typeof props.id : never
 
   const { getFilterState } = useFilterBarContext<
     ValuesSiblingDependent[Id],
@@ -597,9 +578,7 @@ export const SiblingValueDependentFilter: Story = {
           values={values}
           onValuesChange={setValues}
         />
-        <Highlight className="json">
-          {JSON.stringify(values, null, 4)}
-        </Highlight>
+        <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
       </>
     )
   },
@@ -649,30 +628,17 @@ export const ExternalEventValuesUpdate: Story = {
     }
 
     const encodedQueryParams = encodeQueryParams(paramConfigMap, values)
-    const decodedQueryParams = decodeQueryParams(
-      paramConfigMap,
-      encodedQueryParams,
-    )
+    const decodedQueryParams = decodeQueryParams(paramConfigMap, encodedQueryParams)
 
     return (
       <>
-        <FilterBar<Values>
-          filters={filters}
-          values={values}
-          onValuesChange={setValues}
-        />
+        <FilterBar<Values> filters={filters} values={values} onValuesChange={setValues} />
 
         <div className="flex gap-8 my-16">
-          <button
-            type="button"
-            onClick={() => setValues({ ...values, flavour: 'honey-milk-tea' })}
-          >
+          <button type="button" onClick={() => setValues({ ...values, flavour: 'honey-milk-tea' })}>
             Update Flavour to honey-milk-tea
           </button>
-          <button
-            type="button"
-            onClick={() => setValues({ ...values, toppings: ['fruit-jelly'] })}
-          >
+          <button type="button" onClick={() => setValues({ ...values, toppings: ['fruit-jelly'] })}>
             Update Toppings to fruit-jelly
           </button>
           <button type="button" onClick={() => setValues({})}>
@@ -681,21 +647,13 @@ export const ExternalEventValuesUpdate: Story = {
         </div>
 
         <code className="mt-16">Values:</code>
-        <Highlight className="json">
-          {JSON.stringify(values, null, 4)}
-        </Highlight>
+        <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
 
-        <code>
-          queryString.stringify(encodeQueryParams(paramConfigMap, values))
-        </code>
-        <Highlight className="json">
-          {queryString.stringify(encodedQueryParams)}
-        </Highlight>
+        <code>queryString.stringify(encodeQueryParams(paramConfigMap, values))</code>
+        <Highlight className="json">{queryString.stringify(encodedQueryParams)}</Highlight>
 
         <code>decodeQueryParams(paramConfigMap, encodedQueryParams)</code>
-        <Highlight className="json">
-          {JSON.stringify(decodedQueryParams, null, 4)}
-        </Highlight>
+        <Highlight className="json">{JSON.stringify(decodedQueryParams, null, 4)}</Highlight>
       </>
     )
   },
@@ -707,10 +665,7 @@ type CycleFilterValues = {
 }
 
 const CycleFilter = ({ id }: { id?: string }): JSX.Element => {
-  const { openFilter } = useFilterBarContext<
-    CycleFilterValues['cycle'],
-    CycleFilterValues
-  >()
+  const { openFilter } = useFilterBarContext<CycleFilterValues['cycle'], CycleFilterValues>()
 
   return (
     <FilterBar.Select
@@ -754,9 +709,7 @@ export const ExternalEventOpenFilter: Story = {
         />
         <div className="mt-16">
           <code>Values:</code>
-          <Highlight className="json">
-            {JSON.stringify(values, null, 4)}
-          </Highlight>
+          <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
         </div>
       </>
     )
@@ -811,11 +764,7 @@ export const UpdatesLabels: Story = {
 
     return (
       <>
-        <FilterBar<CycleFilterValues>
-          filters={f}
-          values={values}
-          onValuesChange={setValues}
-        />
+        <FilterBar<CycleFilterValues> filters={f} values={values} onValuesChange={setValues} />
         <div className="mt-16">
           <code>Filters:</code>
           <Highlight className="json">
@@ -828,9 +777,7 @@ export const UpdatesLabels: Story = {
         </div>
         <div className="mt-16">
           <code>Values:</code>
-          <Highlight className="json">
-            {JSON.stringify(values, null, 4)}
-          </Highlight>
+          <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
         </div>
       </>
     )
@@ -847,10 +794,9 @@ export const UpdatesLabels: Story = {
     expect(canvas.queryByText('Custom Range')).not.toBeInTheDocument()
 
     await step('Labels have updated', async () => {
-      await waitFor(
-        () => expect(canvas.queryByText('Custom Range')).toBeInTheDocument(),
-        { timeout: 2100 },
-      )
+      await waitFor(() => expect(canvas.queryByText('Custom Range')).toBeInTheDocument(), {
+        timeout: 2100,
+      })
     })
   },
 }

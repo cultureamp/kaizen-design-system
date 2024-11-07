@@ -62,22 +62,20 @@ const ReferenceButton = ({
   return (
     <li key={iconName}>
       <button type="button" className={styles.button} onClick={handleCopy}>
-        {copied
-          ? (
-              <span className={styles.copiedTag}>
-                <Tag color="green" classNameOverride={styles.tag}>
-                  Copied!
-                </Tag>
-              </span>
-            )
-          : (
-              <>
-                <span className={styles.icon}>{icon}</span>
-                <Text variant="small" tag="span">
-                  {iconName}
-                </Text>
-              </>
-            )}
+        {copied ? (
+          <span className={styles.copiedTag}>
+            <Tag color="green" classNameOverride={styles.tag}>
+              Copied!
+            </Tag>
+          </span>
+        ) : (
+          <>
+            <span className={styles.icon}>{icon}</span>
+            <Text variant="small" tag="span">
+              {iconName}
+            </Text>
+          </>
+        )}
       </button>
     </li>
   )
@@ -100,9 +98,7 @@ export const Reference: Story = {
               role: 'presentation',
             })
 
-            return (
-              <ReferenceButton key={iconName} icon={icon} iconName={iconName} />
-            )
+            return <ReferenceButton key={iconName} icon={icon} iconName={iconName} />
           })}
       </ul>
     </div>

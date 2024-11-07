@@ -12,10 +12,7 @@ import {
 import { DateValidationResponse } from '~components/Filter/FilterDatePicker'
 import { renderTriggerControls } from '~components/Filter/_docs/controls/renderTriggerControls'
 import { Text } from '~components/Text'
-import {
-  DateRangeFieldValidationMessage,
-  FilterDateRangePicker,
-} from '../index'
+import { DateRangeFieldValidationMessage, FilterDateRangePicker } from '../index'
 import { FilterDateRangePickerField } from '../subcomponents/FilterDateRangePickerField'
 import { disabledDaysControls } from './controls/disabledDaysControls'
 import { validationControls } from './controls/validationControls'
@@ -26,8 +23,7 @@ const meta = {
   argTypes: {
     classNameOverride: {
       control: false,
-      description:
-        'Add extra classnames to the component. (This doesn\'t work - to be fixed)',
+      description: "Add extra classnames to the component. (This doesn't work - to be fixed)",
     },
     ...defaultMonthControls,
     ...validationControls,
@@ -51,8 +47,7 @@ const meta = {
         labels: {
           'None': 'undefined',
           'Partial Range': '{ from: new Date() }',
-          'Complete Range':
-            '{ from: new Date("2022-05-01"), to: new Date("2022-05-12") }',
+          'Complete Range': '{ from: new Date("2022-05-01"), to: new Date("2022-05-12") }',
         },
       },
       mapping: {
@@ -173,9 +168,7 @@ export const RenderTrigger: Story = {
     const [isOpenButton, setIsOpenButton] = useState<boolean>(false)
     const [rangeButton, setRangeButton] = useState<DateRange | undefined>()
     const [isOpenRemovable, setIsOpenRemovable] = useState<boolean>(false)
-    const [rangeRemovable, setRangeRemovable] = useState<
-      DateRange | undefined
-    >()
+    const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
 
     return (
       <div style={{ display: 'flex', gap: '1rem' }}>
@@ -183,9 +176,9 @@ export const RenderTrigger: Story = {
           id="filterdrp--filter-button"
           label="FilterButton"
           locale="en-AU"
-          renderTrigger={(
-            triggerButtonProps: FilterButtonProps,
-          ): JSX.Element => <FilterButton {...triggerButtonProps} />}
+          renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
+            <FilterButton {...triggerButtonProps} />
+          )}
           isOpen={isOpenButton}
           setIsOpen={setIsOpenButton}
           selectedRange={rangeButton}
@@ -195,9 +188,7 @@ export const RenderTrigger: Story = {
           id="filterdrp--filter-button-removable"
           label="FilterButtonRemovable"
           locale="en-AU"
-          renderTrigger={(
-            triggerButtonProps: FilterButtonProps,
-          ): JSX.Element => (
+          renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
             <FilterButtonRemovable
               triggerButtonProps={{ ...triggerButtonProps }}
               removeButtonProps={{
@@ -223,9 +214,7 @@ export const SelectedRange: Story = {
     const [isOpenNotSelected, setIsOpenNotSelected] = useState<boolean>(false)
     const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
     const [isOpenComplete, setIsOpenComplete] = useState<boolean>(false)
-    const [rangeNotSelected, setRangeNotSelected] = useState<
-      DateRange | undefined
-    >()
+    const [rangeNotSelected, setRangeNotSelected] = useState<DateRange | undefined>()
     const [rangePartial, setRangePartial] = useState<DateRange | undefined>({
       from: new Date(),
     })
@@ -301,46 +290,40 @@ const ValidationHelpText = ({
 }): JSX.Element => (
   <div>
     <Text variant="body">
-      NOTE: This story includes additional custom validation to provide some
-      guidance when dealing with validation other than date isInvalid or
-      isDisabled.
+      NOTE: This story includes additional custom validation to provide some guidance when dealing
+      with validation other than date isInvalid or isDisabled.
     </Text>
     <ul>
       <li>
-        There will be a caution when the selectedDay <strong>is valid</strong>{' '}
-        but <strong>is not within this year</strong>.
+        There will be a caution when the selectedDay <strong>is valid</strong> but{' '}
+        <strong>is not within this year</strong>.
       </li>
       <li>
-        There will be an error when the{' '}
-        <strong>submit button is clicked</strong> and there is a{' '}
+        There will be an error when the <strong>submit button is clicked</strong> and there is a{' '}
         <strong>current error</strong>.
       </li>
     </ul>
     <Text variant="body">
-      The <code>onValidate</code> callback returns a{' '}
-      <code>validationResponse</code> object which provides data such as a
-      default validation message, and can be utilised for custom validation.
+      The <code>onValidate</code> callback returns a <code>validationResponse</code> object which
+      provides data such as a default validation message, and can be utilised for custom validation.
     </Text>
 
-    <Highlight className="json">
-      {JSON.stringify(validationResponse, null, '\t')}
-    </Highlight>
+    <Highlight className="json">{JSON.stringify(validationResponse, null, '\t')}</Highlight>
 
     <ul>
       <li>
-        <code>isInvalid</code>: A date that cannot be parsed. e.g
-        &quot;potato&quot;.
+        <code>isInvalid</code>: A date that cannot be parsed. e.g &quot;potato&quot;.
       </li>
       <li>
-        <code>isDisabled</code>: A date that have been set as disabled through
-        the <code>disabledDates</code> prop.
+        <code>isDisabled</code>: A date that have been set as disabled through the{' '}
+        <code>disabledDates</code> prop.
       </li>
       <li>
         <code>isEmpty</code>: Input is empty.
       </li>
       <li>
-        <code>isValidDate</code>: Date input that is not <code>invalid</code>{' '}
-        nor <code>disabled</code> nor <code>empty</code>.
+        <code>isValidDate</code>: Date input that is not <code>invalid</code> nor{' '}
+        <code>disabled</code> nor <code>empty</code>.
       </li>
     </ul>
   </div>
@@ -352,9 +335,7 @@ const ValidationHelpText = ({
 export const Validation: Story = {
   render: () => {
     const [range, setRange] = useState<DateRange | undefined>()
-    const [response, setResponse] = useState<
-      DateValidationResponse | undefined
-    >()
+    const [response, setResponse] = useState<DateValidationResponse | undefined>()
     const [validationMessage, setValidationMessage] = useState<
       DateRangeFieldValidationMessage | undefined
     >()
@@ -385,13 +366,11 @@ export const Validation: Story = {
       }))
     }
 
-    const handleDateStartValidate = (
-      validationResponse: DateValidationResponse,
-    ): void => handleValidate(validationResponse, 'dateStart')
+    const handleDateStartValidate = (validationResponse: DateValidationResponse): void =>
+      handleValidate(validationResponse, 'dateStart')
 
-    const handleDateEndValidate = (
-      validationResponse: DateValidationResponse,
-    ): void => handleValidate(validationResponse, 'dateEnd')
+    const handleDateEndValidate = (validationResponse: DateValidationResponse): void =>
+      handleValidate(validationResponse, 'dateEnd')
 
     const submitRequest: React.FormEventHandler<HTMLFormElement> = (e) => {
       e.preventDefault()

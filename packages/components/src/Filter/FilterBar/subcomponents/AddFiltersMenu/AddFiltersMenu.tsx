@@ -11,12 +11,10 @@ export const AddFiltersMenu = (): JSX.Element => {
   const menuButtonLabel = formatMessage({
     id: 'filterBar.addFiltersMenu.buttonLabel',
     defaultMessage: 'Add Filters',
-    description:
-      'Menu button label to show additional available filter options',
+    description: 'Menu button label to show additional available filter options',
   })
 
-  const { getInactiveFilters, showFilter, focusId, setFocus } =
-    useFilterBarContext()
+  const { getInactiveFilters, showFilter, focusId, setFocus } = useFilterBarContext()
   const inactiveFilters = getInactiveFilters()
 
   useEffect(() => {
@@ -28,7 +26,7 @@ export const AddFiltersMenu = (): JSX.Element => {
 
   return (
     <Menu
-      button={(
+      button={
         <Button
           ref={buttonRef}
           label={menuButtonLabel}
@@ -36,15 +34,11 @@ export const AddFiltersMenu = (): JSX.Element => {
           disabled={inactiveFilters.length === 0}
           icon={<Icon name="add" isPresentational />}
         />
-      )}
+      }
     >
       <MenuList>
         {inactiveFilters.map(({ id, name }) => (
-          <MenuItem
-            key={id}
-            label={name}
-            onClick={(): void => showFilter(id)}
-          />
+          <MenuItem key={id} label={name} onClick={(): void => showFilter(id)} />
         ))}
       </MenuList>
     </Menu>

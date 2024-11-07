@@ -2,11 +2,7 @@ import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import { Avatar } from '~components/Avatar'
 import { Tag } from '../index'
-import {
-  SentimentTagVariants,
-  StatusTagVariants,
-  ValidationTagVariants,
-} from '../types'
+import { SentimentTagVariants, StatusTagVariants, ValidationTagVariants } from '../types'
 
 const meta = {
   title: 'Components/Tag',

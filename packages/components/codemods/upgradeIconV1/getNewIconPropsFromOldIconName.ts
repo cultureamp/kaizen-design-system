@@ -3,7 +3,7 @@ import { IconNames } from '~components/__future__/Icon/types'
 import { StringSuggestions } from '~components/types/StringSuggestions'
 
 // `undefined` means the icon has no usage, thus is not available in the new icon set
-type NewIconProps = { name: IconNames, isFilled?: boolean } | undefined
+type NewIconProps = { name: IconNames; isFilled?: boolean } | undefined
 
 const iconMap = new Map<keyof typeof OLD_ICONS, NewIconProps>([
   ['AcademyIcon', { name: 'school' }],

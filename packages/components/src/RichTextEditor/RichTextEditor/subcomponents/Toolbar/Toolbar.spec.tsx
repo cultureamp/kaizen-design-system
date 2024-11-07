@@ -11,14 +11,8 @@ const user = userEvent.setup()
 const ExampleToolbar = (): JSX.Element => (
   <Toolbar aria-label="Toolbar" aria-controls="editable-id">
     <ToolbarSection>
-      <ToggleIconButton
-        label="Bold"
-        icon={<Icon name="format_bold" isPresentational />}
-      />
-      <ToggleIconButton
-        label="Italic"
-        icon={<Icon name="format_italic" isPresentational />}
-      />
+      <ToggleIconButton label="Bold" icon={<Icon name="format_bold" isPresentational />} />
+      <ToggleIconButton label="Italic" icon={<Icon name="format_italic" isPresentational />} />
       <ToggleIconButton
         label="Underline"
         icon={<Icon name="format_underlined" isPresentational />}

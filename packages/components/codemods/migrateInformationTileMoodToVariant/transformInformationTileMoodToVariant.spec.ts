@@ -2,9 +2,7 @@ import { parseJsx } from '../__tests__/utils'
 import { transformSource, printAst, TransformConfig } from '../utils'
 import { transformInformationTileMoodToVariant } from './transformInformationTileMoodToVariant'
 
-const transformInformationTile = (
-  sourceFile: TransformConfig['sourceFile'],
-): string =>
+const transformInformationTile = (sourceFile: TransformConfig['sourceFile']): string =>
   transformSource({
     sourceFile,
     astTransformer: transformInformationTileMoodToVariant,

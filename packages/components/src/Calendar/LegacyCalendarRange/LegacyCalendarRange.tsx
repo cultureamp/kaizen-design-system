@@ -35,8 +35,7 @@ export const LegacyCalendarRange = ({
   onDayChange,
 }: LegacyCalendarRangeProps): JSX.Element => {
   const monthToShow = selectedRange?.from ?? defaultMonth
-  const selectedMonth =
-    monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
+  const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */
   const classNames = {
@@ -55,19 +54,13 @@ export const LegacyCalendarRange = ({
         mode="range"
         selected={selectedRange}
         defaultMonth={selectedMonth}
-        weekStartsOn={
-          isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
-        }
+        weekStartsOn={isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined}
         disabled={disabledDays}
         onDayClick={onDayChange}
         classNames={classNames}
         components={{
-          IconRight: () => (
-            <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
-          ),
-          IconLeft: () => (
-            <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
-          ),
+          IconRight: () => <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
+          IconLeft: () => <Icon name="arrow_back" isPresentational shouldMirrorInRTL />,
         }}
         locale={locale}
       />

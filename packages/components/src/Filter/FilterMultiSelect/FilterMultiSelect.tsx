@@ -18,14 +18,8 @@ import { MultiSelectOption } from './subcomponents/MultiSelectOption'
 import { NoResults } from './subcomponents/NoResults'
 import { SearchInput } from './subcomponents/SearchInput'
 import { SectionDivider } from './subcomponents/SectionDivider'
-import {
-  ClearButton,
-  SelectAllButton,
-} from './subcomponents/SelectionControlButton'
-import {
-  FilterTriggerButton,
-  RemovableFilterTrigger,
-} from './subcomponents/Trigger'
+import { ClearButton, SelectAllButton } from './subcomponents/SelectionControlButton'
+import { FilterTriggerButton, RemovableFilterTrigger } from './subcomponents/Trigger'
 import { ItemType } from './types'
 
 type SelectionProps = {
@@ -44,8 +38,8 @@ export type FilterMultiSelectProps = {
   triggerRef?: React.RefObject<HTMLButtonElement>
   className?: string
 } & Omit<MenuPopupProps, 'children'> &
-Omit<MenuTriggerProviderProps, 'children'> &
-SelectionProps
+  Omit<MenuTriggerProviderProps, 'children'> &
+  SelectionProps
 
 export const FilterMultiSelect = ({
   trigger,
@@ -68,9 +62,7 @@ export const FilterMultiSelect = ({
   const menuTriggerProps = { isOpen, defaultOpen, onOpenChange, triggerRef }
   const menuPopupProps = { isLoading, loadingSkeleton }
   const disabledKeys: Selection = new Set(
-    items
-      ?.filter((item) => item.isDisabled === true)
-      .map((disabledItem) => disabledItem.value),
+    items?.filter((item) => item.isDisabled === true).map((disabledItem) => disabledItem.value),
   )
   const selectionProps = {
     label,

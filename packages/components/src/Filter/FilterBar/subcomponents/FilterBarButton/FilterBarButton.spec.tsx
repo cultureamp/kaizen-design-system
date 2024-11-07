@@ -10,9 +10,7 @@ type Values = {
   coffee: string
 }
 
-const FilterBarButtonWrapper = (
-  props: Partial<FilterBarButtonProps>,
-): JSX.Element => (
+const FilterBarButtonWrapper = (props: Partial<FilterBarButtonProps>): JSX.Element => (
   <FilterBarProvider<Values>
     filters={[
       {
@@ -27,13 +25,7 @@ const FilterBarButtonWrapper = (
     {(filters) => (
       <>
         {Object.values(filters).map(({ id, name }) => (
-          <FilterBarButton
-            key={id}
-            filterId={id}
-            label={name}
-            isRemovable={false}
-            {...props}
-          />
+          <FilterBarButton key={id} filterId={id} label={name} isRemovable={false} {...props} />
         ))}
       </>
     )}
@@ -46,9 +38,7 @@ describe('<FilterBarButton />', () => {
     await waitFor(() => {
       expect(getByRole('button', { name: 'Coffee' })).toBeVisible()
     })
-    expect(
-      queryByRole('button', { name: 'Remove filter - Coffee' }),
-    ).not.toBeInTheDocument()
+    expect(queryByRole('button', { name: 'Remove filter - Coffee' })).not.toBeInTheDocument()
   })
 
   it('shows a remove button when it is removable', async () => {

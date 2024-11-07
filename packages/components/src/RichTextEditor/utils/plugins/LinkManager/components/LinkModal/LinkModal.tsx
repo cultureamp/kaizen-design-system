@@ -56,9 +56,7 @@ export const LinkModal = ({
         inputRef={inputRef}
         validationMessage={
           validationStatus?.message && (
-            <div className={styles.validationErrorMessage}>
-              {validationStatus.message}
-            </div>
+            <div className={styles.validationErrorMessage}>{validationStatus.message}</div>
           )
         }
         status={validationStatus.status}

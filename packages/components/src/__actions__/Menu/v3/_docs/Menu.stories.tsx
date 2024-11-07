@@ -30,21 +30,11 @@ export const Playground: Story = {
       </Button>
       <Popover>
         <Menu>
-          <MenuItem icon={<Icon name="bookmark" isPresentational />}>
-            Save
-          </MenuItem>
-          <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>
-            Edit
-          </MenuItem>
-          <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>
-            Move up
-          </MenuItem>
-          <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>
-            Move down
-          </MenuItem>
-          <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>
-            Delete
-          </MenuItem>
+          <MenuItem icon={<Icon name="bookmark" isPresentational />}>Save</MenuItem>
+          <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>Edit</MenuItem>
+          <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>Move up</MenuItem>
+          <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>Move down</MenuItem>
+          <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
         </Menu>
       </Popover>
     </MenuTrigger>

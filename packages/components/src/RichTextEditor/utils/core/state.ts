@@ -24,7 +24,5 @@ export const createDocNode = (schema: Schema, docObject: Doc): Node =>
  * Create a ProseMirror doc node from the combination of a schema and the doc’s
  * content array (rather than the top-level doc node).
  */
-export const createDocNodeFromContent = (
-  schema: Schema,
-  docContent: DocContent,
-): Node => createDocNode(schema, { type: 'doc', content: docContent })
+export const createDocNodeFromContent = (schema: Schema, docContent: DocContent): Node =>
+  createDocNode(schema, { type: 'doc', content: docContent })

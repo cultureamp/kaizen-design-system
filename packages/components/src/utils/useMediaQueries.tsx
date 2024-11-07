@@ -5,29 +5,28 @@ import React, { useEffect, useState, ReactNode, useMemo } from 'react'
 type Props = Record<string, string>
 type GenericChildrenType = { children?: ReactNode }
 
-export const subtractOnePixel = (breakpoint: string): string =>
-  `${parseInt(breakpoint, 10) - 1}px`
+export const subtractOnePixel = (breakpoint: string): string => `${parseInt(breakpoint, 10) - 1}px`
 
 export const useMediaQueries = (
   propQueries: Props = {},
 ): {
-    queries: {
-      [key: string]: boolean
-      isSmall: boolean
-      isMedium: boolean
-      isLarge: boolean
-      isMediumOrSmaller: boolean
-      isMediumOrLarger: boolean
-    }
-    components: {
-      [key: string]: (props: GenericChildrenType) => JSX.Element
-      SmallOnly: (props: GenericChildrenType) => JSX.Element
-      MediumOnly: (props: GenericChildrenType) => JSX.Element
-      LargeOnly: (props: GenericChildrenType) => JSX.Element
-      MediumOrSmaller: (props: GenericChildrenType) => JSX.Element
-      MediumOrLarger: (props: GenericChildrenType) => JSX.Element
-    }
-  } => {
+  queries: {
+    [key: string]: boolean
+    isSmall: boolean
+    isMedium: boolean
+    isLarge: boolean
+    isMediumOrSmaller: boolean
+    isMediumOrLarger: boolean
+  }
+  components: {
+    [key: string]: (props: GenericChildrenType) => JSX.Element
+    SmallOnly: (props: GenericChildrenType) => JSX.Element
+    MediumOnly: (props: GenericChildrenType) => JSX.Element
+    LargeOnly: (props: GenericChildrenType) => JSX.Element
+    MediumOrSmaller: (props: GenericChildrenType) => JSX.Element
+    MediumOrLarger: (props: GenericChildrenType) => JSX.Element
+  }
+} => {
   if (typeof window === 'undefined') {
     return {
       queries: {
@@ -53,15 +52,13 @@ export const useMediaQueries = (
   // The `addEventListener` calls blow up legacy Edge (<= v18/pre chromium),
   // so we disable the functionality of updating after page load.
   const isLegacyEdge = /Edge/.exec(navigator.userAgent)
-  const isUnsupportedSafari =
-    window.matchMedia('').addEventListener === undefined
+  const isUnsupportedSafari = window.matchMedia('').addEventListener === undefined
 
   // ---------------------------------------
   // Create Kaizen breakpoint matches for initial state
   // ---------------------------------------
   const smallMatchMedia = useMemo(
-    () =>
-      window.matchMedia(`(max-width: ${subtractOnePixel(breakpoints.medium)})`),
+    () => window.matchMedia(`(max-width: ${subtractOnePixel(breakpoints.medium)})`),
     [breakpoints.medium],
   )
 
@@ -127,8 +124,8 @@ export const useMediaQueries = (
       smallMatchMedia.removeEventListener('change', updateMatches)
       largeMatchMedia.removeEventListener('change', updateMatches)
     }
-  // This is a legacy function, so keeping it as it was
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // This is a legacy function, so keeping it as it was
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // ---------------------------------------
@@ -144,8 +141,7 @@ export const useMediaQueries = (
     customQueryMatchMedias.set(queryName, matchMedia)
   })
 
-  const [customMatches, setCustomMatches] =
-    useState<Record<string, boolean>>(customQueryMatches)
+  const [customMatches, setCustomMatches] = useState<Record<string, boolean>>(customQueryMatches)
 
   // ---------------------------------------
   // Create an event listener for each custom query
@@ -155,10 +151,7 @@ export const useMediaQueries = (
       return
     }
 
-    const updateCustomMatches = (
-      matchMedia: MediaQueryList,
-      queryName: string,
-    ): void =>
+    const updateCustomMatches = (matchMedia: MediaQueryList, queryName: string): void =>
       setCustomMatches({
         ...customQueryMatches,
         [queryName]: matchMedia.matches || false,
@@ -181,8 +174,8 @@ export const useMediaQueries = (
         matchMedia.removeEventListener('change', eventListener)
       })
     }
-  // This is a legacy function, so keeping it as it was
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // This is a legacy function, so keeping it as it was
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // ---------------------------------------
@@ -193,15 +186,9 @@ export const useMediaQueries = (
   }
 
   const kaizenComponents = {
-    SmallOnly: (props: HelperComponentProps) => (
-      <>{kaizenMatches.isSmall && props.children}</>
-    ),
-    MediumOnly: (props: HelperComponentProps) => (
-      <>{kaizenMatches.isMedium && props.children}</>
-    ),
-    LargeOnly: (props: HelperComponentProps) => (
-      <>{kaizenMatches.isLarge && props.children}</>
-    ),
+    SmallOnly: (props: HelperComponentProps) => <>{kaizenMatches.isSmall && props.children}</>,
+    MediumOnly: (props: HelperComponentProps) => <>{kaizenMatches.isMedium && props.children}</>,
+    LargeOnly: (props: HelperComponentProps) => <>{kaizenMatches.isLarge && props.children}</>,
     MediumOrSmaller: (props: HelperComponentProps) => (
       <>{kaizenMatches.isMediumOrSmaller && props.children}</>
     ),
@@ -213,15 +200,12 @@ export const useMediaQueries = (
   // ---------------------------------------
   // Create custom query helper components
   // ---------------------------------------
-  const customComponents: Record<
-    string,
-    (props: GenericChildrenType) => JSX.Element
-  > = {}
+  const customComponents: Record<string, (props: GenericChildrenType) => JSX.Element> = {}
   Object.keys(propQueries).map((key) => {
     const componentName = key.charAt(0).toUpperCase() + key.slice(1)
-    customComponents[componentName] = (
-      props: HelperComponentProps,
-    ): JSX.Element => <>{customMatches[key] && props.children}</>
+    customComponents[componentName] = (props: HelperComponentProps): JSX.Element => (
+      <>{customMatches[key] && props.children}</>
+    )
   })
 
   return {

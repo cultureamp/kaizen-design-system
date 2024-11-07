@@ -15,11 +15,7 @@ export const FieldGroup = ({
   ...restProps
 }: FieldGroupProps): JSX.Element => (
   <div
-    className={classnames(
-      styles.group,
-      classNameOverride,
-      inline && styles.inline,
-    )}
+    className={classnames(styles.group, classNameOverride, inline && styles.inline)}
     {...restProps}
   >
     {children}

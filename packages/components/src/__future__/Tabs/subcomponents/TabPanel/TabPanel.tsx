@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  TabPanel as RACTabPanel,
-  TabPanelProps as RACTabPanelProps,
-} from 'react-aria-components'
+import { TabPanel as RACTabPanel, TabPanelProps as RACTabPanelProps } from 'react-aria-components'
 import styles from './TabPanel.module.css'
 
 export type TabPanelProps = RACTabPanelProps

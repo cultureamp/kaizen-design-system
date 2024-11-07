@@ -125,9 +125,7 @@ describe('validateDate()', () => {
 
     render(validationMessage?.message)
     await waitFor(() => {
-      expect(
-        screen.getByText('03/01/2022 is not available, try another date'),
-      ).toBeVisible()
+      expect(screen.getByText('03/01/2022 is not available, try another date')).toBeVisible()
     })
   })
 

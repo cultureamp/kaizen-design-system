@@ -11,10 +11,10 @@ const LABEL = 'Launch Time Label'
 
 const pressArrowKey =
   (direction: 'ArrowUp' | 'ArrowDown') =>
-    async (element: HTMLElement): Promise<void> => {
-      await user.click(element)
-      await user.keyboard(`{${direction}}`)
-    }
+  async (element: HTMLElement): Promise<void> => {
+    await user.click(element)
+    await user.keyboard(`{${direction}}`)
+  }
 
 const pressArrowUpKey = pressArrowKey('ArrowUp')
 const pressArrowDownKey = pressArrowKey('ArrowDown')
@@ -144,11 +144,7 @@ describe('spin button functionality', () => {
 describe('onChange', () => {
   it('returns correct time from 12 hour format display', async () => {
     render(
-      <TimeFieldWrapper
-        value={{ hour: 16, minutes: 44 }}
-        onChange={mockOnChange}
-        locale="en-AU"
-      />,
+      <TimeFieldWrapper value={{ hour: 16, minutes: 44 }} onChange={mockOnChange} locale="en-AU" />,
     )
     const hourSpinner = screen.getByRole('spinbutton', {
       name: `hour, ${LABEL}`,
@@ -163,11 +159,7 @@ describe('onChange', () => {
 
   it('returns correct time from 24 hour format display', async () => {
     render(
-      <TimeFieldWrapper
-        value={{ hour: 16, minutes: 44 }}
-        onChange={mockOnChange}
-        locale="en-GB"
-      />,
+      <TimeFieldWrapper value={{ hour: 16, minutes: 44 }} onChange={mockOnChange} locale="en-GB" />,
     )
     const hourSpinner = screen.getByRole('spinbutton', {
       name: `hour, ${LABEL}`,

@@ -3,10 +3,7 @@ import { StaticIntlProvider } from '@cultureamp/i18n-react-intl'
 import { action } from '@storybook/addon-actions'
 import { Meta } from '@storybook/react'
 import isChromatic from 'chromatic'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { FilterButton } from '../../FilterButton'
 import { FilterDatePicker, FilterDatePickerProps } from '../index'
 import { FilterDatePickerField } from '../subcomponents/FilterDatePickerField'
@@ -27,13 +24,11 @@ const StickerSheetTemplate: StickerSheetStory = {
     const [isOpenValue, setIsOpenValue] = useState<boolean>(false)
 
     const [noDateValue, setNoDateValue] = useState<Date | undefined>()
-    const [dateValueValidation, setDateValueValidation] = useState<
-      Date | undefined
-    >(new Date('potato'))
-
-    const [dateValue, setDateValue] = useState<Date | undefined>(
-      new Date('2022-05-15'),
+    const [dateValueValidation, setDateValueValidation] = useState<Date | undefined>(
+      new Date('potato'),
     )
+
+    const [dateValue, setDateValue] = useState<Date | undefined>(new Date('2022-05-15'))
 
     return (
       <StaticIntlProvider locale="en">
@@ -41,9 +36,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           heading="Filter Date Picker"
           style={{ paddingBottom: IS_CHROMATIC ? '33rem' : undefined }}
         >
-          <StickerSheet.Header
-            headings={['No value display', 'Value display']}
-          />
+          <StickerSheet.Header headings={['No value display', 'Value display']} />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <FilterDatePicker
@@ -105,8 +98,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 onValidate={action('Validation story: date start onValidate')}
                 validationMessage={{
                   status: 'error',
-                  message:
-                    '(Date custom message) Jelly-filled doughnuts are my favourite!',
+                  message: '(Date custom message) Jelly-filled doughnuts are my favourite!',
                 }}
               />
             </StickerSheet.Row>
@@ -137,9 +129,7 @@ export const StickerSheetLocales: StickerSheetStory = {
     const props = {
       isOpen: false,
       setIsOpen: () => undefined,
-      renderTrigger: (triggerButtonProps): JSX.Element => (
-        <FilterButton {...triggerButtonProps} />
-      ),
+      renderTrigger: (triggerButtonProps): JSX.Element => <FilterButton {...triggerButtonProps} />,
       label: 'Start day',
       selectedDate: new Date('2022-05-01'),
       onDateChange: () => undefined,

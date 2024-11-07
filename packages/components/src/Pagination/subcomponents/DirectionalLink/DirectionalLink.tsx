@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  GenericButton,
-  GenericProps,
-} from '~components/__actions__/Button/v2/GenericButton'
+import { GenericButton, GenericProps } from '~components/__actions__/Button/v2/GenericButton'
 import { Icon } from '~components/__future__/Icon'
 
 export type DirectionalLinkProps = {
@@ -33,13 +30,7 @@ export const DirectionalLink = ({
     {...otherProps}
     iconButton
     directionalLink
-    icon={(
-      <Icon
-        name={iconNameMap[otherProps.direction]}
-        isPresentational
-        shouldMirrorInRTL
-      />
-    )}
+    icon={<Icon name={iconNameMap[otherProps.direction]} isPresentational shouldMirrorInRTL />}
   />
 )
 

@@ -20,12 +20,7 @@ export const traverseDir = (
       traverseDir(fullPath, transformFile)
     } else if (fullPath.endsWith('.tsx')) {
       const source = fs.readFileSync(fullPath, 'utf8')
-      const sourceFile = ts.createSourceFile(
-        fullPath,
-        source,
-        ts.ScriptTarget.Latest,
-        true,
-      )
+      const sourceFile = ts.createSourceFile(fullPath, source, ts.ScriptTarget.Latest, true)
 
       transformFile(fullPath, sourceFile)
     }
@@ -38,10 +33,7 @@ export const transformComponentsInDir = (
   transformer: TransformConfig['astTransformer'],
   componentName: string,
 ): void => {
-  const transformFile = (
-    componentFilePath: string,
-    sourceFile: ts.SourceFile,
-  ): void => {
+  const transformFile = (componentFilePath: string, sourceFile: ts.SourceFile): void => {
     const tagName = getKaioTagName(sourceFile, componentName)
     if (tagName) {
       const updatedSourceFile = transformSource({

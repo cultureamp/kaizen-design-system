@@ -23,25 +23,23 @@ addons.setConfig({
   theme: KaizenTheme,
   sidebar: {
     renderLabel: (item): JSX.Element =>
-      item.type === 'root'
-        ? (
-            <span
-              style={{
-                color: colors.purple['800'],
-                textTransform: 'capitalize',
-                fontSize: '13px',
-                letterSpacing: 'normal',
-                fontWeight: 600,
-              }}
-            >
-              <span aria-hidden style={{ marginRight: tokens.spacing[6] }}>
-                {CATEGORIES_ICON[item.name]}
-              </span>
-              {item.name}
-            </span>
-          )
-        : (
-            <span style={{ margin: '1px 0' }}>{item.name}</span>
-          ),
+      item.type === 'root' ? (
+        <span
+          style={{
+            color: colors.purple['800'],
+            textTransform: 'capitalize',
+            fontSize: '13px',
+            letterSpacing: 'normal',
+            fontWeight: 600,
+          }}
+        >
+          <span aria-hidden style={{ marginRight: tokens.spacing[6] }}>
+            {CATEGORIES_ICON[item.name]}
+          </span>
+          {item.name}
+        </span>
+      ) : (
+        <span style={{ margin: '1px 0' }}>{item.name}</span>
+      ),
   },
 })

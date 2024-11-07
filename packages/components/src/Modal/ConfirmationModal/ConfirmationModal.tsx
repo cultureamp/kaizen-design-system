@@ -1,13 +1,7 @@
 import React, { HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { Heading } from '~components/Heading'
-import {
-  Assertive,
-  Cautionary,
-  Informative,
-  Negative,
-  Positive,
-} from '~components/Illustration'
+import { Assertive, Cautionary, Informative, Negative, Positive } from '~components/Illustration'
 import {
   GenericModal,
   ModalAccessibleDescription,
@@ -39,7 +33,7 @@ type BaseConfirmationModalProps = {
   onAfterLeave?: () => void
   confirmLabel?: string
   dismissLabel?: string
-  confirmWorking?: { label: string, labelHidden?: boolean }
+  confirmWorking?: { label: string; labelHidden?: boolean }
   /**
    * @deprecated Please use data-testid
    */
@@ -89,10 +83,7 @@ const getIconName = (variantName: Mood | Variant): string => {
   }
 }
 
-const getIcon = (
-  variantName: Mood | Variant,
-  isProminent: boolean,
-): JSX.Element => {
+const getIcon = (variantName: Mood | Variant, isProminent: boolean): JSX.Element => {
   if (isProminent) {
     switch (variantName) {
       case 'cautionary':
@@ -178,15 +169,8 @@ export const ConfirmationModal = ({
               !unpadded && styles.padded,
             )}
           >
-            <div
-              className={classnames(
-                styles.iconContainer,
-                isProminent && styles.prominent,
-              )}
-            >
-              <div className={styles.spotIcon}>
-                {getIcon(variantName, isProminent)}
-              </div>
+            <div className={classnames(styles.iconContainer, isProminent && styles.prominent)}>
+              <div className={styles.spotIcon}>{getIcon(variantName, isProminent)}</div>
             </div>
             <ModalAccessibleLabel isProminent={isProminent}>
               <Heading tag="h2" variant="heading-2">
@@ -196,22 +180,13 @@ export const ConfirmationModal = ({
           </div>
         </ModalHeader>
         <ModalBody>
-          <div
-            className={classnames(
-              isProminent && styles.prominent,
-              !unpadded && styles.padded,
-            )}
-          >
+          <div className={classnames(isProminent && styles.prominent, !unpadded && styles.padded)}>
             <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
           </div>
         </ModalBody>
         <ModalFooter
           actions={footerActions}
-          appearance={
-            mood === 'negative' || variant == 'warning'
-              ? 'destructive'
-              : 'primary'
-          }
+          appearance={mood === 'negative' || variant == 'warning' ? 'destructive' : 'primary'}
           unpadded={unpadded}
         />
       </div>

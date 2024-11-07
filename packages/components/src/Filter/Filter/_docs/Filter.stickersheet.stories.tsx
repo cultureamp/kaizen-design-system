@@ -2,10 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { FilterButton } from '~components/Filter/FilterButton'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Filter, FilterContents } from '../index'
 
 const IS_CHROMATIC = isChromatic()
@@ -34,10 +31,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     const [isOpen, setIsOpen] = React.useState(true)
 
     return (
-      <StickerSheet
-        heading="Filter"
-        style={{ paddingBottom: IS_CHROMATIC ? '6rem' : undefined }}
-      >
+      <StickerSheet heading="Filter" style={{ paddingBottom: IS_CHROMATIC ? '6rem' : undefined }}>
         <StickerSheet.Header headings={['Open']} />
         <StickerSheet.Body>
           <StickerSheet.Row>

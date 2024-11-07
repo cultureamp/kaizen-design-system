@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { LoadingHeading } from '../index'
 
 export default {
@@ -38,12 +35,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet.Body>
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="isLink">
-          <LoadingHeading
-            width={100}
-            variant="heading-1"
-            isLink
-            isReversed={isReversed}
-          />
+          <LoadingHeading width={100} variant="heading-1" isLink isReversed={isReversed} />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>

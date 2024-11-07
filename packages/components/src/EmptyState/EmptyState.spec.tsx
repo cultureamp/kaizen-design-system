@@ -3,18 +3,10 @@ import { cleanup, render } from '@testing-library/react'
 import { EmptyState, EmptyStateProps } from './EmptyState'
 
 vi.mock('~components/Illustration', () => ({
-  EmptyStatesPositive: (): JSX.Element => (
-    <div>EmptyStatesPositive_Component</div>
-  ),
-  EmptyStatesNeutral: (): JSX.Element => (
-    <div>EmptyStatesNeutral_Component</div>
-  ),
-  EmptyStatesNegative: (): JSX.Element => (
-    <div>EmptyStatesNegative_Component</div>
-  ),
-  EmptyStatesInformative: (): JSX.Element => (
-    <div>EmptyStatesInformative_Component</div>
-  ),
+  EmptyStatesPositive: (): JSX.Element => <div>EmptyStatesPositive_Component</div>,
+  EmptyStatesNeutral: (): JSX.Element => <div>EmptyStatesNeutral_Component</div>,
+  EmptyStatesNegative: (): JSX.Element => <div>EmptyStatesNegative_Component</div>,
+  EmptyStatesInformative: (): JSX.Element => <div>EmptyStatesInformative_Component</div>,
   EmptyStatesAction: (): JSX.Element => <div>EmptyStatesAction_Component</div>,
 }))
 

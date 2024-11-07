@@ -42,8 +42,8 @@ export const ToastNotification = ({
       onHide,
       ...restProps,
     })
-  // Only run the callback once (proper fix would likely be a refactor)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Only run the callback once (proper fix would likely be a refactor)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return null

@@ -26,8 +26,7 @@ export type AllowedTextColors =
   | 'positive'
   | 'negative'
 
-export interface TextProps
-  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
+export interface TextProps extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   children: React.ReactNode
   /**
    * HTML elements that are allowed on Text
@@ -53,18 +52,9 @@ export const Text = ({
   classNameOverride,
   ...restProps
 }: TextProps): JSX.Element => {
-  const className = classnames(
-    styles.text,
-    styles[variant],
-    styles[color],
-    classNameOverride,
-  )
+  const className = classnames(styles.text, styles[variant], styles[color], classNameOverride)
 
-  return createElement(
-    tag ?? 'p',
-    { ...restProps, className },
-    children,
-  )
+  return createElement(tag ?? 'p', { ...restProps, className }, children)
 }
 
 Text.displayName = 'Text'

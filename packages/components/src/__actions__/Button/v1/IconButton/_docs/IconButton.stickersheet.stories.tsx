@@ -2,10 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import { ButtonProps } from '~components/__actions__/v2'
 import { Icon } from '~components/__future__/Icon'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { IconButton, IconButtonProps } from '../index'
 
 export default {
@@ -88,21 +85,9 @@ const StickerSheetTemplate: StickerSheetStory = {
           {VARIANTS_PROPS.map(({ title, props }) => (
             <StickerSheet.Row key={title} rowTitle={title}>
               <IconButton reversed={isReversed} {...props} />
-              <IconButton
-                reversed={isReversed}
-                data-sb-pseudo-styles="hover"
-                {...props}
-              />
-              <IconButton
-                reversed={isReversed}
-                data-sb-pseudo-styles="active"
-                {...props}
-              />
-              <IconButton
-                reversed={isReversed}
-                data-sb-pseudo-styles="focus"
-                {...props}
-              />
+              <IconButton reversed={isReversed} data-sb-pseudo-styles="hover" {...props} />
+              <IconButton reversed={isReversed} data-sb-pseudo-styles="active" {...props} />
+              <IconButton reversed={isReversed} data-sb-pseudo-styles="focus" {...props} />
               <IconButton reversed={isReversed} {...props} disabled />
               <IconButton reversed={isReversed} {...props} {...WORKING_PROPS} />
             </StickerSheet.Row>

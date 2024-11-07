@@ -10,10 +10,7 @@ export const ExclamationOctagonWhiteIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <defs>
-        <path
-          id={uniqueId}
-          d="M13.316 2H6.684L2 6.684v6.632L6.684 18h6.632L18 13.316V6.684z"
-        />
+        <path id={uniqueId} d="M13.316 2H6.684L2 6.684v6.632L6.684 18h6.632L18 13.316V6.684z" />
       </defs>
       <g fill="none" fillRule="evenodd">
         <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />

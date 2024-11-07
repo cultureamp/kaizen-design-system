@@ -27,17 +27,13 @@ const imgAvatars = [
 
 describe('<AvatarGroup />', () => {
   it('renders a list of avatars up to the maxVisible value', () => {
-    const { getAllByRole } = render(
-      <AvatarGroup avatars={imgAvatars} maxVisible={4} />,
-    )
+    const { getAllByRole } = render(<AvatarGroup avatars={imgAvatars} maxVisible={4} />)
 
     expect(getAllByRole('img', { name: 'Adirana Aniseed' })).toHaveLength(4)
   })
 
   it('renders a token with a counter of the remaining avatars is maxVisible is exceeded', () => {
-    const { getByText } = render(
-      <AvatarGroup avatars={imgAvatars} maxVisible={2} />,
-    )
+    const { getByText } = render(<AvatarGroup avatars={imgAvatars} maxVisible={2} />)
 
     expect(getByText('+2')).toBeInTheDocument()
   })

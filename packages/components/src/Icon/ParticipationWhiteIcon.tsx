@@ -17,10 +17,7 @@ export const ParticipationWhiteIcon = (props: IconProps): JSX.Element => {
       </defs>
       <g fill="none" fillRule="evenodd">
         <use fill="currentColor" href={`#${uniqueId}`} />
-        <path
-          fill="#FFF"
-          d="m11.16 16.047-2.446-2.44.813-.813 1.633 1.626 2.976-2.982.813.813z"
-        />
+        <path fill="#FFF" d="m11.16 16.047-2.446-2.44.813-.813 1.633 1.626 2.976-2.982.813.813z" />
       </g>
     </>
   )

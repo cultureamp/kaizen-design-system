@@ -1,9 +1,4 @@
-export type PopoverVariant =
-  | 'default'
-  | 'informative'
-  | 'positive'
-  | 'negative'
-  | 'cautionary'
+export type PopoverVariant = 'default' | 'informative' | 'positive' | 'negative' | 'cautionary'
 
 export type PopoverSize = 'small' | 'large'
 

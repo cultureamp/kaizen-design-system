@@ -7,10 +7,7 @@ import { utilityDescription } from '~tailwind/_docs/utils/utilityDescription'
 import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
 
 const prefix = 'border-'
-const classEntries = flattenEntries(
-  prefix,
-  kaizenTailwindTheme.borderColor || {},
-)
+const classEntries = flattenEntries(prefix, kaizenTailwindTheme.borderColor || {})
 
 export default {
   title: 'Guides/Tailwind/Utility Class References/Borders/Border Color',
@@ -26,9 +23,7 @@ export default {
   },
 } satisfies Meta
 
-export const BorderColor: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const BorderColor: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <TailwindStoryTemplate
     compiledCssPropertyName="border-color"
     classKeyValues={classEntries}

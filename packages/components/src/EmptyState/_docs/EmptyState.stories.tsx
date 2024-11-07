@@ -17,9 +17,7 @@ const meta = {
         'Button (chevron right)': (
           <Button
             label="Label"
-            icon={
-              <Icon name="chevron_right" isPresentational shouldMirrorInRTL />
-            }
+            icon={<Icon name="chevron_right" isPresentational shouldMirrorInRTL />}
             iconPosition="end"
           />
         ),

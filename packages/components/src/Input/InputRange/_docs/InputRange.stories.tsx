@@ -55,13 +55,7 @@ export const Labels: Story = {
 export const Range: Story = {
   render: () => (
     <div className="flex flex-col gap-16">
-      <InputRange
-        id="inputRangeRange"
-        minLabel="Minimum"
-        maxLabel="Maximum"
-        min={10}
-        max={100}
-      />
+      <InputRange id="inputRangeRange" minLabel="Minimum" maxLabel="Maximum" min={10} max={100} />
     </div>
   ),
 }

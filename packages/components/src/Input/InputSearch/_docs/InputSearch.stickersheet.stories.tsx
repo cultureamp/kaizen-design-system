@@ -1,9 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from '~storybook/components/StickerSheet'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { InputSearch } from '../index'
 
 export default {
@@ -61,11 +58,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Loading">
-          <InputSearch
-            id="input-search--loading"
-            loading
-            reversed={isReversed}
-          />
+          <InputSearch id="input-search--loading" loading reversed={isReversed} />
           <InputSearch
             id="input-search--loading"
             reversed={isReversed}
@@ -96,11 +89,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Secondary">
-          <InputSearch
-            id="input-search--secondary"
-            secondary
-            reversed={isReversed}
-          />
+          <InputSearch id="input-search--secondary" secondary reversed={isReversed} />
           <InputSearch
             id="input-search--secondary"
             reversed={isReversed}

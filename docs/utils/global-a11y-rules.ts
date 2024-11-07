@@ -28,7 +28,6 @@ export const globalA11yRules = [
   {
     // In some edgecases like Select we want to be able to disable the rule and hide the button from screen readers
     id: 'aria-hidden-focus',
-    selector:
-      '[aria-hidden="true"]:not([data-a11y-ignore="aria-hidden-focus"])',
+    selector: '[aria-hidden="true"]:not([data-a11y-ignore="aria-hidden-focus"])',
   },
 ]

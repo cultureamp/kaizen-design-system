@@ -49,11 +49,9 @@ export const VideoPlayer = ({
   onEnded,
 }: VideoPlayerProps): JSX.Element => {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [prefersReducedMotion, setPrefersReducedMotion] =
-    React.useState<boolean>(true)
+  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState<boolean>(true)
   const [isWebmCompatible, setIsWebmCompatible] = React.useState<boolean>(false)
-  const [windowIsAvailable, setWindowIsAvailable] =
-    React.useState<boolean>(false)
+  const [windowIsAvailable, setWindowIsAvailable] = React.useState<boolean>(false)
 
   useEffect(() => {
     /**
@@ -83,21 +81,16 @@ export const VideoPlayer = ({
   useEffect(() => {
     if (!window) return
 
-    const reducedMotionQuery = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    )
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     setPrefersReducedMotion(reducedMotionQuery.matches)
     const updateMotionPreferences = (): void => {
-      const { matches = false } = window.matchMedia(
-        '(prefers-reduced-motion: reduce)',
-      )
+      const { matches = false } = window.matchMedia('(prefers-reduced-motion: reduce)')
       setPrefersReducedMotion(matches)
     }
 
     const isLegacyEdge = /Edge/.exec(navigator.userAgent)
 
-    const isUnsupportedSafari =
-      window.matchMedia('').addEventListener === undefined
+    const isUnsupportedSafari = window.matchMedia('').addEventListener === undefined
 
     if (isLegacyEdge || isUnsupportedSafari) return
 
@@ -185,9 +178,7 @@ export const VideoPlayer = ({
         playsInline={true}
         tabIndex={-1}
       >
-        {isWebmCompatible && (
-          <source src={assetUrl(`${source}.webm`)} type="video/webm" />
-        )}
+        {isWebmCompatible && <source src={assetUrl(`${source}.webm`)} type="video/webm" />}
         <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
       </video>
       <IconButton

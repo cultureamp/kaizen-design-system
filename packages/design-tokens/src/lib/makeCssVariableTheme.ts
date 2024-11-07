@@ -35,9 +35,7 @@ import { mapLeafsOfObject } from './mapLeafsOfObject'
  *
  * See {@link addExtraThemeEntries} for how these extra entries are added.
  */
-export function makeCSSVariableTheme<
-  ThemeType extends Record<string | number, unknown>,
->(
+export function makeCSSVariableTheme<ThemeType extends Record<string | number, unknown>>(
   theme: ThemeType,
   printValue = objectPathToCssVarFunction,
 ): DeepMapObjectLeafs<ThemeType, string> {
@@ -47,20 +45,15 @@ export function makeCSSVariableTheme<
     const leafKey = leafPath[leafPath.length - 1]
     const pathWithoutLast = leafPath.slice(0, leafPath.length - 1)
     const leafObject = pathWithoutLast.reduce(
-      (child, segment) =>
-        (child[segment] || (child[segment] = {})) as Record<string, unknown>,
+      (child, segment) => (child[segment] || (child[segment] = {})) as Record<string, unknown>,
       augmentedTheme,
     )
     if (!leafKey) {
       throw new Error('leafKey is undefined')
     }
-    const cssVariablesOfToken = addExtraThemeEntries(
-      leafPath,
-      leafKey,
-      value,
-      printValue,
-      { augmentWithId: true },
-    )
+    const cssVariablesOfToken = addExtraThemeEntries(leafPath, leafKey, value, printValue, {
+      augmentWithId: true,
+    })
     Object.assign(leafObject, cssVariablesOfToken)
   }
 

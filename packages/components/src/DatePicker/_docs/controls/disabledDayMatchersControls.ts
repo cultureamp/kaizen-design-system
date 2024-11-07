@@ -38,8 +38,7 @@ export const disabledDayMatchersControls: Partial<ArgTypes> = {
       type: 'select',
       labels: {
         None: 'undefined',
-        May2022:
-          '{ before: new Date("2022-05-30"), after: new Date("2022-05-15") }',
+        May2022: '{ before: new Date("2022-05-30"), after: new Date("2022-05-15") }',
       },
     },
     mapping: {

@@ -11,10 +11,10 @@ const meta = {
   args: {
     children: (
       <Text variant="body">
-        Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick
-        fatback cow tongue ground round chicken. Jowl cow short ribs, ham tongue
-        turducken spare ribs pig drumstick chuck meatball. Buffalo turducken
-        pancetta tail salami chicken. Bresaola venison pastrami beef.
+        Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick fatback cow tongue
+        ground round chicken. Jowl cow short ribs, ham tongue turducken spare ribs pig drumstick
+        chuck meatball. Buffalo turducken pancetta tail salami chicken. Bresaola venison pastrami
+        beef.
       </Text>
     ),
   },

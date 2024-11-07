@@ -6,10 +6,7 @@ export type NoResultsProps = {
   children: React.ReactNode
 } & HTMLAttributes<HTMLDivElement>
 
-export const NoResults = ({
-  children,
-  ...restProps
-}: NoResultsProps): JSX.Element => (
+export const NoResults = ({ children, ...restProps }: NoResultsProps): JSX.Element => (
   <div className={styles.container} {...restProps}>
     <Text variant="extra-small" color="dark-reduced-opacity">
       {children}

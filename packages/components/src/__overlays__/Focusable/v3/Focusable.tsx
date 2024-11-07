@@ -6,13 +6,9 @@ import styles from './Focusable.module.scss'
 export type FocusableProps = {
   children: ReactNode
 } & FocusableOptions &
-HTMLAttributes<HTMLDivElement>
+  HTMLAttributes<HTMLDivElement>
 
-export const Focusable = ({
-  children,
-  className,
-  ...props
-}: FocusableProps): JSX.Element => {
+export const Focusable = ({ children, className, ...props }: FocusableProps): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null)
   const { focusableProps } = useFocusable(props, ref)
 

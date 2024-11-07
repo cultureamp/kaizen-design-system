@@ -15,14 +15,8 @@ export type FilterBarButtonProps = FilterButtonProps & {
   isRemovable: boolean | undefined
 }
 
-export const FilterBarButton = forwardRef<
-  FilterTriggerRef,
-  FilterBarButtonProps
->(
-  (
-    { filterId, isRemovable = false, classNameOverride, ...props },
-    ref,
-  ): JSX.Element => {
+export const FilterBarButton = forwardRef<FilterTriggerRef, FilterBarButtonProps>(
+  ({ filterId, isRemovable = false, classNameOverride, ...props }, ref): JSX.Element => {
     const { hideFilter, focusId, setFocus } = useFilterBarContext()
 
     useEffect(() => {
@@ -32,28 +26,20 @@ export const FilterBarButton = forwardRef<
       }
     }, [filterId, focusId, ref, setFocus])
 
-    return isRemovable
-      ? (
-          <FilterButtonRemovable
-            ref={ref}
-            triggerButtonProps={props}
-            removeButtonProps={{ onClick: () => hideFilter(filterId) }}
-            classNameOverride={classnames(
-              classNameOverride,
-              styles.filterBarButton,
-            )}
-          />
-        )
-      : (
-          <FilterButton
-            ref={ref}
-            classNameOverride={classnames(
-              classNameOverride,
-              styles.filterBarButton,
-            )}
-            {...props}
-          />
-        )
+    return isRemovable ? (
+      <FilterButtonRemovable
+        ref={ref}
+        triggerButtonProps={props}
+        removeButtonProps={{ onClick: () => hideFilter(filterId) }}
+        classNameOverride={classnames(classNameOverride, styles.filterBarButton)}
+      />
+    ) : (
+      <FilterButton
+        ref={ref}
+        classNameOverride={classnames(classNameOverride, styles.filterBarButton)}
+        {...props}
+      />
+    )
   },
 )
 

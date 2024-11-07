@@ -57,15 +57,8 @@ export const Controlled: Story = {
     const [selectedIndex, setSelectedIndex] = useState<number>(0)
     return (
       <>
-        <Tabs
-          {...args}
-          selectedIndex={selectedIndex}
-          onChange={setSelectedIndex}
-        />
-        <Button
-          label="Switch to tab 2"
-          onClick={(): void => setSelectedIndex(1)}
-        />
+        <Tabs {...args} selectedIndex={selectedIndex} onChange={setSelectedIndex} />
+        <Button label="Switch to tab 2" onClick={(): void => setSelectedIndex(1)} />
       </>
     )
   },

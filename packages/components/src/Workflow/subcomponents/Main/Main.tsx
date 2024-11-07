@@ -3,9 +3,7 @@ import classnames from 'classnames'
 import { OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Main.module.css'
 
-export type WorkflowMainProps = OverrideClassName<
-  HTMLAttributes<HTMLDivElement>
-> & {
+export type WorkflowMainProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> & {
   children: ReactNode
 }
 

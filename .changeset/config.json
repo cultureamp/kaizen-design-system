@@ -1,9 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.0.0/schema.json",
-  "changelog": [
-    "@cultureamp/changelog-github",
-    { "repo": "cultureamp/kaizen-design-system" }
-  ],
+  "changelog": ["@cultureamp/changelog-github", { "repo": "cultureamp/kaizen-design-system" }],
   "access": "public",
   "baseBranch": "origin/main",
   "updateInternalDependencies": "patch",

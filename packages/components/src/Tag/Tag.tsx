@@ -29,19 +29,14 @@ export type TagProps = DefaultTagProps | TagWithAvatarProps
 
 const isJSXElement = (
   imageElementOrAvatarProps: JSX.Element | AvatarProps,
-): imageElementOrAvatarProps is JSX.Element =>
-  'props' in imageElementOrAvatarProps
+): imageElementOrAvatarProps is JSX.Element => 'props' in imageElementOrAvatarProps
 
-const renderAvatar = (
-  imageElementOrAvatarProps: JSX.Element | AvatarProps,
-): JSX.Element =>
-  isJSXElement(imageElementOrAvatarProps)
-    ? (
-        <>{imageElementOrAvatarProps}</>
-      )
-    : (
-        <Avatar {...imageElementOrAvatarProps} size="small" />
-      )
+const renderAvatar = (imageElementOrAvatarProps: JSX.Element | AvatarProps): JSX.Element =>
+  isJSXElement(imageElementOrAvatarProps) ? (
+    <>{imageElementOrAvatarProps}</>
+  ) : (
+    <Avatar {...imageElementOrAvatarProps} size="small" />
+  )
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081928978/Tags Guidance} |
@@ -113,10 +108,7 @@ export const Tag = (props: TagProps): JSX.Element => {
               }
             })()}
           <span
-            className={classnames(
-              styles.textContent,
-              isTruncated && styles.truncate,
-            )}
+            className={classnames(styles.textContent, isTruncated && styles.truncate)}
             style={{
               maxWidth: isTruncated ? truncateWidth : undefined,
             }}

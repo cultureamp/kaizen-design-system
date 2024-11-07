@@ -9,11 +9,7 @@ const migrateInlineNotificationTypeToVariant = (): void => {
     process.exit(1)
   }
 
-  transformComponentsInDir(
-    targetDir,
-    transformNotificationTypeToVariant,
-    'InlineNotification',
-  )
+  transformComponentsInDir(targetDir, transformNotificationTypeToVariant, 'InlineNotification')
 }
 
 migrateInlineNotificationTypeToVariant()

@@ -44,22 +44,14 @@ const Stack = ({
 /**
  * A component to show a simple color block with a name
  */
-const ColorDemo = ({
-  color,
-  name,
-}: {
-  color: string
-  name?: string
-}): JSX.Element | null => {
+const ColorDemo = ({ color, name }: { color: string; name?: string }): JSX.Element | null => {
   const parsedColor = colorString.get(color)
 
   if (!parsedColor) return null
 
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <h4 style={{ ...tokens.typography.heading4, writingMode: 'vertical-lr' }}>
-        {name}
-      </h4>
+      <h4 style={{ ...tokens.typography.heading4, writingMode: 'vertical-lr' }}>{name}</h4>
 
       <div
         style={{
@@ -73,16 +65,12 @@ const ColorDemo = ({
         }}
       >
         <Heading variant="heading-5" tag="span">
-          <span
-            style={{ color, filter: 'invert(1) grayscale(1) contrast(100)' }}
-          >
+          <span style={{ color, filter: 'invert(1) grayscale(1) contrast(100)' }}>
             {colorString.to.hex(parsedColor.value)}
           </span>
         </Heading>
         <Heading variant="heading-5" tag="span">
-          <span
-            style={{ color, filter: 'invert(1) grayscale(1) contrast(100)' }}
-          >
+          <span style={{ color, filter: 'invert(1) grayscale(1) contrast(100)' }}>
             {colorString.to.rgb(parsedColor.value)}
           </span>
         </Heading>
@@ -94,11 +82,7 @@ const ColorDemo = ({
 /**
  * A section of components, displayed as a column, with some styles such as a top and left border, a heading/title, and `contain: content` to ensure nothing bleeds out of it such as fixed or absolute positioned elements.
  */
-const ComponentsSection = ({
-  children,
-}: {
-  children: React.ReactNode
-}): JSX.Element => (
+const ComponentsSection = ({ children }: { children: React.ReactNode }): JSX.Element => (
   <div
     style={{
       maxWidth: 'calc(100vw - 4rem)',

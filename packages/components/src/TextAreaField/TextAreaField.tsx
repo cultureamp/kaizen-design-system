@@ -33,9 +33,7 @@ export const TextAreaField = ({
   const fallbackId = useId()
   const id = propsId ?? fallbackId
 
-  const validationMessageAria = validationMessage
-    ? `${id}-field-validation-message`
-    : ''
+  const validationMessageAria = validationMessage ? `${id}-field-validation-message` : ''
   const descriptionAria = description ? `${id}-field-message` : ''
   const ariaDescribedBy = [validationMessageAria, descriptionAria].reduce(
     (prev, curr) => (curr ? [curr, prev].join(' ') : prev),
@@ -43,9 +41,7 @@ export const TextAreaField = ({
   )
 
   const renderDescriptionOnTop = variant === 'prominent'
-  const renderDescription = (
-    position: 'top' | 'bottom',
-  ): JSX.Element | null => {
+  const renderDescription = (position: 'top' | 'bottom'): JSX.Element | null => {
     if (!description) return null
     return (
       <div className={classnames(styles.message, disabled && styles.disabled)}>

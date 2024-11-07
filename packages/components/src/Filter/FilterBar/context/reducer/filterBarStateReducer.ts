@@ -5,17 +5,17 @@ import { updateSingleFilter } from './updateSingleFilter'
 import { updateValues } from './updateValues'
 
 type Actions<ValuesMap extends FiltersValues> =
-  | { type: 'update_values', values: Partial<ValuesMap> }
+  | { type: 'update_values'; values: Partial<ValuesMap> }
   | { type: 'complete_update_values' }
   | {
-    type: 'update_single_filter'
-    id: keyof ValuesMap
-    data: Partial<FilterStateEditableAttributes>
-  }
-  | { type: 'activate_filter', id: keyof ValuesMap }
-  | { type: 'deactivate_filter', id: keyof ValuesMap }
-  | { type: 'update_filter_labels', data: Filters<ValuesMap> }
-  | { type: 'set_focus', id: keyof ValuesMap | undefined }
+      type: 'update_single_filter'
+      id: keyof ValuesMap
+      data: Partial<FilterStateEditableAttributes>
+    }
+  | { type: 'activate_filter'; id: keyof ValuesMap }
+  | { type: 'deactivate_filter'; id: keyof ValuesMap }
+  | { type: 'update_filter_labels'; data: Filters<ValuesMap> }
+  | { type: 'set_focus'; id: keyof ValuesMap | undefined }
 
 export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
   state: FilterBarState<ValuesMap>,
@@ -61,9 +61,7 @@ export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
         filters: Object.values(state.filters).reduce((acc, filter) => {
           acc[filter.id] = {
             ...filter,
-            name:
-              action.data.find(({ id }) => id === filter.id)?.name ??
-              filter.name,
+            name: action.data.find(({ id }) => id === filter.id)?.name ?? filter.name,
           }
           return acc
         }, {}),

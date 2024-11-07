@@ -19,10 +19,7 @@ type Story = StoryObj<typeof meta>
 
 export const ButtonClassModifierWithRenderProps: Story = {
   render: ({ children, ...otherArgs }) => (
-    <Button
-      {...otherArgs}
-      className={({ isPressed }) => (isPressed ? '!bg-gray-300' : '')}
-    >
+    <Button {...otherArgs} className={({ isPressed }) => (isPressed ? '!bg-gray-300' : '')}>
       {children}
     </Button>
   ),
@@ -48,13 +45,11 @@ export const ButtonContentWithRenderProps: Story = {
       {({ isPressed }) => (
         <>
           {children}
-          {isPressed
-            ? (
-                <ChevronDownIcon role="presentation" />
-              )
-            : (
-                <ChevronUpIcon role="presentation" />
-              )}
+          {isPressed ? (
+            <ChevronDownIcon role="presentation" />
+          ) : (
+            <ChevronUpIcon role="presentation" />
+          )}
         </>
       )}
     </Button>

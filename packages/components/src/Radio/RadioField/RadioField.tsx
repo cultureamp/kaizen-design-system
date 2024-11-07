@@ -18,7 +18,7 @@ export type RadioFieldProps = Omit<RadioProps, 'id'> & {
  * {@link https://cultureamp.design/?path=/docs/components-radio-controls-radio-field--docs Storybook}
  */
 export const RadioField = ({
-  id: propsId,
+  'id': propsId,
   labelText,
   selectedStatus = false,
   disabled = false,

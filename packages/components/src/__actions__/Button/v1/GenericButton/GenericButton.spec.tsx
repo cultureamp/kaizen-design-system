@@ -15,7 +15,7 @@ describe('<GenericButton />', () => {
         )}
       />,
     )
-    expect(screen.getByText('I\'m custom')).toBeInTheDocument()
+    expect(screen.getByText("I'm custom")).toBeInTheDocument()
     expect(screen.getByText('button label')).toBeInTheDocument()
   })
 
@@ -29,9 +29,7 @@ describe('<GenericButton />', () => {
       <GenericButton label="My link" href="/to-infinity" disabled={true} />,
     )
 
-    expect(
-      screen.queryByRole('link', { name: 'My link' }),
-    ).not.toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: 'My link' })).not.toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'My link' })).toBeInTheDocument()
 
     rerender(
@@ -43,20 +41,14 @@ describe('<GenericButton />', () => {
       />,
     )
 
-    expect(
-      screen.queryByRole('link', { name: 'My link working' }),
-    ).not.toBeInTheDocument()
-    expect(
-      screen.getByRole('button', { name: 'My link working' }),
-    ).toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: 'My link working' })).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'My link working' })).toBeInTheDocument()
   })
 
   it('renders a button element when not passed a component prop or when not passed an href and a falsy disabled prop and a falsy working prop', () => {
     render(<GenericButton label="My button" />)
 
-    expect(
-      screen.getByRole('button', { name: 'My button' }),
-    ).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'My button' })).toBeInTheDocument()
   })
 
   it('passes custom props to a custom component', () => {
@@ -71,13 +63,7 @@ describe('<GenericButton />', () => {
   })
 
   it('passes custom props to a link', () => {
-    render(
-      <GenericButton
-        label="button label"
-        data-testid="custom-prop"
-        href="/and-beyond"
-      />,
-    )
+    render(<GenericButton label="button label" data-testid="custom-prop" href="/and-beyond" />)
     expect(screen.getByTestId('custom-prop')).toBeInTheDocument()
   })
 
@@ -99,27 +85,20 @@ describe('<GenericButton /> with native HTML `form` attributes', () => {
 
   it('will pass form props into the button', () => {
     render(
-      <GenericButton
-        label="submit button"
-        data-testid="custom-prop"
-        {...buttonFormAttributes}
-      />,
+      <GenericButton label="submit button" data-testid="custom-prop" {...buttonFormAttributes} />,
     )
 
-    expect(
-      screen.getByRole('button', { name: 'submit button' }),
-    ).toHaveAttribute('form', buttonFormAttributes.form)
+    expect(screen.getByRole('button', { name: 'submit button' })).toHaveAttribute(
+      'form',
+      buttonFormAttributes.form,
+    )
   })
 })
 
 describe('<GenericButton /> `working` accessible states', () => {
   it('renders a button without aria-live by default', () => {
     const { getByTestId } = render(
-      <GenericButton
-        data-testid="id--generic-test"
-        id="id--button"
-        label="button label"
-      />,
+      <GenericButton data-testid="id--generic-test" id="id--button" label="button label" />,
     )
 
     const button = getByTestId('id--generic-test')

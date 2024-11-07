@@ -6,13 +6,12 @@ import { utilityDescription } from '~tailwind/_docs/utils/utilityDescription'
 import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
 
 const prefix = 'border-'
-const classEntries: { utilityClassName: string, cssProperty: string }[] =
-  Object.entries(kaizenTailwindTheme.borderWidth || []).map(
-    ([suffix, cssProperty]) => ({
-      utilityClassName: `${prefix}${suffix}`,
-      cssProperty,
-    }),
-  )
+const classEntries: { utilityClassName: string; cssProperty: string }[] = Object.entries(
+  kaizenTailwindTheme.borderWidth || [],
+).map(([suffix, cssProperty]) => ({
+  utilityClassName: `${prefix}${suffix}`,
+  cssProperty,
+}))
 
 export default {
   title: 'Guides/Tailwind/Utility Class References/Borders/Border Width',
@@ -28,9 +27,7 @@ export default {
   },
 } satisfies Meta
 
-export const BorderWidth: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const BorderWidth: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <TailwindStoryTemplate
     compiledCssPropertyName="border-width"
     classKeyValues={classEntries}
