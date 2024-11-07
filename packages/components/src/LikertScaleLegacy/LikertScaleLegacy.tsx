@@ -180,7 +180,7 @@ export const LikertScaleLegacy = ({
               aria-posinset={item.value}
               aria-setsize={5}
               tabIndex={tabIndex}
-              ref={itemRef && itemRef.ref}
+              ref={itemRef?.ref}
             >
               <div
                 className={classnames(

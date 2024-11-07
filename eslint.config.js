@@ -292,6 +292,7 @@ export default tseslint.config(
       '@typescript-eslint/consistent-indexed-object-style': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/consistent-indexed-object-style'],
       '@typescript-eslint/prefer-regexp-exec': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/prefer-regexp-exec'],
       '@typescript-eslint/prefer-includes': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/prefer-includes'],
+      '@typescript-eslint/prefer-optional-chain': tseslint.configs.stylisticTypeChecked[2].rules['@typescript-eslint/prefer-optional-chain'],
       // Custom
       '@typescript-eslint/explicit-function-return-type': [
         'error',

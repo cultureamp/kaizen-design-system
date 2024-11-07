@@ -38,7 +38,7 @@ const chainTransactions =
         command(state, updateStateAndDispatch)
       }
 
-      return lastCommand !== undefined && lastCommand(state, dispatch)
+      return lastCommand?.(state, dispatch) ?? false
     }
 
 /** Dispatches a transaction to create initial p tag required for pm commands */
