@@ -90,15 +90,17 @@ export const EmptyState = ({
       {...props}
     >
       <div className={styles.illustrationSide}>
-        {isAnimated ? (
-          <IllustrationComponent
-            isAnimated
-            loop={loop}
-            classNameOverride={styles.illustration}
-          />
-        ) : (
-          <IllustrationComponent classNameOverride={styles.illustration} />
-        )}
+        {isAnimated
+          ? (
+              <IllustrationComponent
+                isAnimated
+                loop={loop}
+                classNameOverride={styles.illustration}
+              />
+            )
+          : (
+              <IllustrationComponent classNameOverride={styles.illustration} />
+            )}
       </div>
       <div className={styles.textSide}>
         <div className={styles.textSideInner}>

@@ -9,10 +9,12 @@ export const transformSelectItemToCollectionElement = <
 >(
   item: SelectItem<Option>,
 ): CollectionElement<SelectItem<Option>> =>
-  isSelectOptionGroup<Option>(item) ? (
-    <Section<Option> key={item.label} title={item.label} items={item.options}>
-      {(child): JSX.Element => <Item key={child.value}>{child.label}</Item>}
-    </Section>
-  ) : (
-    <Item<Option> key={item.value}>{item.label}</Item>
-  )
+  isSelectOptionGroup<Option>(item)
+    ? (
+        <Section<Option> key={item.label} title={item.label} items={item.options}>
+          {(child): JSX.Element => <Item key={child.value}>{child.label}</Item>}
+        </Section>
+      )
+    : (
+        <Item<Option> key={item.value}>{item.label}</Item>
+      )

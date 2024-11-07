@@ -107,19 +107,21 @@ export const AdditionalProperties: Story = {
     >
       {({ items }): JSX.Element[] =>
         items.map(item =>
-          item.type === 'item' ? (
-            <Select.Option
-              key={item.key}
-              item={{
-                ...item,
-                rendered: item.value?.isFruit
-                  ? `${item.rendered} (Fruit)`
-                  : item.rendered,
-              }}
-            />
-          ) : (
-            <Select.ItemDefaultRender key={item.key} item={item} />
-          ),
+          item.type === 'item'
+            ? (
+                <Select.Option
+                  key={item.key}
+                  item={{
+                    ...item,
+                    rendered: item.value?.isFruit
+                      ? `${item.rendered} (Fruit)`
+                      : item.rendered,
+                  }}
+                />
+              )
+            : (
+                <Select.ItemDefaultRender key={item.key} item={item} />
+              ),
         )
       }
     </Select>

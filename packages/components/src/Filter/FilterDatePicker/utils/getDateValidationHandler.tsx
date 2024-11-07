@@ -29,13 +29,15 @@ export const getDateValidationHandler =
 
       setInbuiltValidationMessage({
         status: validationMessage.status,
-        message: inputLabel ? (
-          <LabelledMessage
-            label={`${getNodeText(inputLabel)}`}
-            message={validationMessage.message}
-          />
-        ) : (
-          validationMessage.message
-        ),
+        message: inputLabel
+          ? (
+              <LabelledMessage
+                label={`${getNodeText(inputLabel)}`}
+                message={validationMessage.message}
+              />
+            )
+          : (
+              validationMessage.message
+            ),
       })
     }

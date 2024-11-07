@@ -35,11 +35,13 @@ const isJSXElement = (
 const renderAvatar = (
   imageElementOrAvatarProps: JSX.Element | AvatarProps,
 ): JSX.Element =>
-  isJSXElement(imageElementOrAvatarProps) ? (
-    <>{imageElementOrAvatarProps}</>
-  ) : (
-    <Avatar {...imageElementOrAvatarProps} size="small" />
-  )
+  isJSXElement(imageElementOrAvatarProps)
+    ? (
+        <>{imageElementOrAvatarProps}</>
+      )
+    : (
+        <Avatar {...imageElementOrAvatarProps} size="small" />
+      )
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081928978/Tags Guidance} |

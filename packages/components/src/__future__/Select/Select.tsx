@@ -186,11 +186,13 @@ export const Select = <Option extends SelectOption = SelectOption>({
       />
 
       <div className={styles.container}>
-        {trigger === undefined ? (
-          <SelectToggle {...selectToggleProps} />
-        ) : (
-          trigger(selectToggleProps, selectToggleProps.ref)
-        )}
+        {trigger === undefined
+          ? (
+              <SelectToggle {...selectToggleProps} />
+            )
+          : (
+              trigger(selectToggleProps, selectToggleProps.ref)
+            )}
         {state.isOpen && (
           <Popover id={popoverId} portalContainer={portalContainer} refs={refs}>
             <SelectProvider<Option> state={state}>

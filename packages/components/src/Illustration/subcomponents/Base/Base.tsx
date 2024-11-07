@@ -32,23 +32,25 @@ export const Base = ({
 }: BaseProps): JSX.Element => {
   const className = classnames(styles.wrapper, classNameOverride)
 
-  return aspectRatio ? (
-    <figure
-      className={classnames(
-        styles.aspectRatioWrapper,
-        aspectRatio && styles[aspectRatio],
-      )}
-    >
-      <img
-        {...restProps}
-        className={className}
-        alt={alt}
-        src={assetUrl(name)}
-      />
-    </figure>
-  ) : (
-    <img {...restProps} className={className} alt={alt} src={assetUrl(name)} />
-  )
+  return aspectRatio
+    ? (
+        <figure
+          className={classnames(
+            styles.aspectRatioWrapper,
+            aspectRatio && styles[aspectRatio],
+          )}
+        >
+          <img
+            {...restProps}
+            className={className}
+            alt={alt}
+            src={assetUrl(name)}
+          />
+        </figure>
+      )
+    : (
+        <img {...restProps} className={className} alt={alt} src={assetUrl(name)} />
+      )
 }
 
 Base.displayName = 'Base'

@@ -56,15 +56,17 @@ export const InputSearch = (props: InputSearchProps): JSX.Element => {
       )}
     >
       <div className={styles.startIconAdornment}>
-        {loading ? (
-          <LoadingSpinner
-            accessibilityLabel=""
-            size="sm"
-            classNameOverride={styles.loadingSpinner}
-          />
-        ) : (
-          <Icon name="search" isPresentational />
-        )}
+        {loading
+          ? (
+              <LoadingSpinner
+                accessibilityLabel=""
+                size="sm"
+                classNameOverride={styles.loadingSpinner}
+              />
+            )
+          : (
+              <Icon name="search" isPresentational />
+            )}
       </div>
 
       <input

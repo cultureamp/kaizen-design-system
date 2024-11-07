@@ -47,31 +47,33 @@ const StickerSheetTemplate: StickerSheetStory = {
                 The quick brown fox jumps over the lazy dog.
               </Text>
             </StickerSheet.Row>
-            {!isReversed ? (
-              <>
-                <StickerSheet.Row rowTitle="Dark Reduced Opacity">
-                  <Text variant="intro-lede" color="dark-reduced-opacity">
-                    The quick brown fox jumps over the lazy dog.
-                  </Text>
-                </StickerSheet.Row>
-                <StickerSheet.Row rowTitle="Positive">
-                  <Text variant="intro-lede" color="positive">
-                    The quick brown fox jumps over the lazy dog.
-                  </Text>
-                </StickerSheet.Row>
-                <StickerSheet.Row rowTitle="Negative">
-                  <Text variant="intro-lede" color="negative">
-                    The quick brown fox jumps over the lazy dog.
-                  </Text>
-                </StickerSheet.Row>
-              </>
-            ) : (
-              <StickerSheet.Row rowTitle="White Reduced Opacity">
-                <Text variant="intro-lede" color="white-reduced-opacity">
-                  The quick brown fox jumps over the lazy dog.
-                </Text>
-              </StickerSheet.Row>
-            )}
+            {!isReversed
+              ? (
+                  <>
+                    <StickerSheet.Row rowTitle="Dark Reduced Opacity">
+                      <Text variant="intro-lede" color="dark-reduced-opacity">
+                        The quick brown fox jumps over the lazy dog.
+                      </Text>
+                    </StickerSheet.Row>
+                    <StickerSheet.Row rowTitle="Positive">
+                      <Text variant="intro-lede" color="positive">
+                        The quick brown fox jumps over the lazy dog.
+                      </Text>
+                    </StickerSheet.Row>
+                    <StickerSheet.Row rowTitle="Negative">
+                      <Text variant="intro-lede" color="negative">
+                        The quick brown fox jumps over the lazy dog.
+                      </Text>
+                    </StickerSheet.Row>
+                  </>
+                )
+              : (
+                  <StickerSheet.Row rowTitle="White Reduced Opacity">
+                    <Text variant="intro-lede" color="white-reduced-opacity">
+                      The quick brown fox jumps over the lazy dog.
+                    </Text>
+                  </StickerSheet.Row>
+                )}
           </StickerSheet.Body>
         </StickerSheet>
       </>

@@ -294,11 +294,13 @@ describe('FilterSelect generic', () => {
       >
         {({ items }): JSX.Element[] =>
           items.map(item =>
-            item.type === 'item' ? (
-              <li key={item.key}>{item.value?.isRubberDuck}</li>
-            ) : (
-              <li key={item.key}>Section</li>
-            ),
+            item.type === 'item'
+              ? (
+                  <li key={item.key}>{item.value?.isRubberDuck}</li>
+                )
+              : (
+                  <li key={item.key}>Section</li>
+                ),
           )
         }
       </FilterSelect>

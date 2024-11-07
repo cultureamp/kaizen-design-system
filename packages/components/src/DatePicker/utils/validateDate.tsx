@@ -49,20 +49,22 @@ export const validateDate = ({
       validationResponse: {
         ...baseResponse,
         status: 'error',
-        validationMessage: inputValue ? (
-          <FormattedMessage
-            id="date.validation.invalidDateWithValue"
-            defaultMessage="{inputValue} is an invalid date"
-            description="Error message when the user enters an invalid date and we know their input value"
-            values={{ inputValue }}
-          />
-        ) : (
-          <FormattedMessage
-            id="date.validation.invalidDate"
-            defaultMessage="Date is invalid"
-            description="Error message when the user enters an invalid date and we do not know their input value"
-          />
-        ),
+        validationMessage: inputValue
+          ? (
+              <FormattedMessage
+                id="date.validation.invalidDateWithValue"
+                defaultMessage="{inputValue} is an invalid date"
+                description="Error message when the user enters an invalid date and we know their input value"
+                values={{ inputValue }}
+              />
+            )
+          : (
+              <FormattedMessage
+                id="date.validation.invalidDate"
+                defaultMessage="Date is invalid"
+                description="Error message when the user enters an invalid date and we do not know their input value"
+              />
+            ),
         isInvalid: true,
       },
       newDate: undefined,

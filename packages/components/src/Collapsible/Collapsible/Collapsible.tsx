@@ -102,18 +102,18 @@ export const Collapsible = ({
         onClick={handleSectionToggle}
         data-testid={`collapsible-header-${id}`}
       >
-        {renderHeader !== undefined ? (
-          renderHeader(title)
-        ) : (
-          <div
-            className={styles.title}
-            data-testid={`collapsible-button-title-${id}`}
-          >
-            <Heading variant="heading-4" tag="span">
-              {title}
-            </Heading>
-          </div>
-        )}
+        {renderHeader !== undefined
+          ? renderHeader(title)
+          : (
+              <div
+                className={styles.title}
+                data-testid={`collapsible-button-title-${id}`}
+              >
+                <Heading variant="heading-4" tag="span">
+                  {title}
+                </Heading>
+              </div>
+            )}
         <div>
           <IconButton
             label={title}

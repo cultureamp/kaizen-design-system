@@ -221,13 +221,15 @@ export const GuidanceBlock = ({
                   <WithTooltip tooltipProps={actions.primary.tooltip}>
                     <Button
                       icon={
-                        withActionButtonArrow ? (
-                          <Icon
-                            name="arrow_forward"
-                            isPresentational
-                            shouldMirrorInRTL
-                          />
-                        ) : undefined
+                        withActionButtonArrow
+                          ? (
+                              <Icon
+                                name="arrow_forward"
+                                isPresentational
+                                shouldMirrorInRTL
+                              />
+                            )
+                          : undefined
                       }
                       iconPosition="end"
                       {...actions.primary}

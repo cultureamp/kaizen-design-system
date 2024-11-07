@@ -53,13 +53,15 @@ const decorators: Preview['decorators'] = [
   RACDecorator,
   KaizenProviderDecorator,
   (Story, context) =>
-    (context.args.isReversed || context.args.reversed) && !IS_CHROMATIC ? (
-      <div className="p-16 m-[-1rem]">
-        <Story />
-      </div>
-    ) : (
-      <Story />
-    ),
+    (context.args.isReversed || context.args.reversed) && !IS_CHROMATIC
+      ? (
+          <div className="p-16 m-[-1rem]">
+            <Story />
+          </div>
+        )
+      : (
+          <Story />
+        ),
   // reverseColor parameter wraps story in ReversedColors context and sets default background to Purple 700
   (Story, context) => {
     if (
@@ -75,13 +77,15 @@ const decorators: Preview['decorators'] = [
 
     return withBackground(
       () =>
-        context.parameters.reverseColors ? (
-          <ReversedColors>
-            <Story />
-          </ReversedColors>
-        ) : (
-          <Story />
-        ),
+        context.parameters.reverseColors
+          ? (
+              <ReversedColors>
+                <Story />
+              </ReversedColors>
+            )
+          : (
+              <Story />
+            ),
       context,
     )
   },

@@ -82,19 +82,21 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
             </>
           )}
         </RACTooltip>
-        {shouldInlineHiddenContent ? (
-          <VisuallyHidden>
-            {typeof children === 'function'
-              ? children({
-                placement: 'center',
-                isEntering: false,
-                isExiting: false,
-                state: contextState,
-                defaultChildren: undefined,
-              })
-              : children}
-          </VisuallyHidden>
-        ) : null}
+        {shouldInlineHiddenContent
+          ? (
+              <VisuallyHidden>
+                {typeof children === 'function'
+                  ? children({
+                    placement: 'center',
+                    isEntering: false,
+                    isExiting: false,
+                    state: contextState,
+                    defaultChildren: undefined,
+                  })
+                  : children}
+              </VisuallyHidden>
+            )
+          : null}
       </>
     )
   },

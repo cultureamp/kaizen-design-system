@@ -81,23 +81,25 @@ const renderAvatar = (
   imageElementOrAvatarProps: JSX.Element | TitleBlockAvatarProps,
   avatarAutomationId: string,
 ): JSX.Element =>
-  isJSXElement(imageElementOrAvatarProps) ? (
-    <div
-      data-automation-id={avatarAutomationId}
-      data-testid={avatarAutomationId}
-      className={classnames(styles.avatar, styles.withBorder)}
-    >
-      {imageElementOrAvatarProps}
-    </div>
-  ) : (
-    <div
-      data-automation-id={avatarAutomationId}
-      data-testid={avatarAutomationId}
-      className={styles.avatar}
-    >
-      <Avatar {...imageElementOrAvatarProps} size="medium" />
-    </div>
-  )
+  isJSXElement(imageElementOrAvatarProps)
+    ? (
+        <div
+          data-automation-id={avatarAutomationId}
+          data-testid={avatarAutomationId}
+          className={classnames(styles.avatar, styles.withBorder)}
+        >
+          {imageElementOrAvatarProps}
+        </div>
+      )
+    : (
+        <div
+          data-automation-id={avatarAutomationId}
+          data-testid={avatarAutomationId}
+          className={styles.avatar}
+        >
+          <Avatar {...imageElementOrAvatarProps} size="medium" />
+        </div>
+      )
 
 const renderSubtitle = (
   subtitle: React.ReactNode,

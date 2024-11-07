@@ -93,52 +93,54 @@ const StickerSheetTemplate: StickerSheetStory = {
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>
-        {!isReversed ? (
-          <StickerSheet isReversed={isReversed}>
-            <StickerSheet.Header
-              hasVerticalHeadings
-              headings={[
-                'Dark',
-                'Dark Reduced Opacity',
-                'Positive',
-                'Negative',
-              ]}
-            />
-            <StickerSheet.Body>
-              <StickerSheet.Row rowTitle="Colours">
-                <Heading variant="heading-6" color="dark">
-                  Discover the power of humanity at work.
-                </Heading>
-                <Heading variant="heading-6" color="dark-reduced-opacity">
-                  Discover the power of humanity at work.
-                </Heading>
-                <Heading variant="heading-6" color="positive">
-                  Discover the power of humanity at work.
-                </Heading>
-                <Heading variant="heading-6" color="negative">
-                  Discover the power of humanity at work.
-                </Heading>
-              </StickerSheet.Row>
-            </StickerSheet.Body>
-          </StickerSheet>
-        ) : (
-          <StickerSheet isReversed={isReversed}>
-            <StickerSheet.Header
-              hasVerticalHeadings
-              headings={['White', 'White Reduced Opacity']}
-            />
-            <StickerSheet.Body>
-              <StickerSheet.Row rowTitle="Colours">
-                <Heading variant="heading-6" color="white">
-                  Discover the power of humanity at work.
-                </Heading>
-                <Heading variant="heading-6" color="white-reduced-opacity">
-                  Discover the power of humanity at work.
-                </Heading>
-              </StickerSheet.Row>
-            </StickerSheet.Body>
-          </StickerSheet>
-        )}
+        {!isReversed
+          ? (
+              <StickerSheet isReversed={isReversed}>
+                <StickerSheet.Header
+                  hasVerticalHeadings
+                  headings={[
+                    'Dark',
+                    'Dark Reduced Opacity',
+                    'Positive',
+                    'Negative',
+                  ]}
+                />
+                <StickerSheet.Body>
+                  <StickerSheet.Row rowTitle="Colours">
+                    <Heading variant="heading-6" color="dark">
+                      Discover the power of humanity at work.
+                    </Heading>
+                    <Heading variant="heading-6" color="dark-reduced-opacity">
+                      Discover the power of humanity at work.
+                    </Heading>
+                    <Heading variant="heading-6" color="positive">
+                      Discover the power of humanity at work.
+                    </Heading>
+                    <Heading variant="heading-6" color="negative">
+                      Discover the power of humanity at work.
+                    </Heading>
+                  </StickerSheet.Row>
+                </StickerSheet.Body>
+              </StickerSheet>
+            )
+          : (
+              <StickerSheet isReversed={isReversed}>
+                <StickerSheet.Header
+                  hasVerticalHeadings
+                  headings={['White', 'White Reduced Opacity']}
+                />
+                <StickerSheet.Body>
+                  <StickerSheet.Row rowTitle="Colours">
+                    <Heading variant="heading-6" color="white">
+                      Discover the power of humanity at work.
+                    </Heading>
+                    <Heading variant="heading-6" color="white-reduced-opacity">
+                      Discover the power of humanity at work.
+                    </Heading>
+                  </StickerSheet.Row>
+                </StickerSheet.Body>
+              </StickerSheet>
+            )}
       </>
     )
   },

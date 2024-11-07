@@ -33,17 +33,19 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
         {...restProps}
       >
         <span className={styles.labelContainer}>
-          {selectedValuesLabel ? (
-            <>
-              <span className={styles.hasSelectedValues}>
-                <span>{label}</span>
-                <span className={styles.labelSeparator}>:</span>
-              </span>
-              <span>{selectedValuesLabel}</span>
-            </>
-          ) : (
-            label
-          )}
+          {selectedValuesLabel
+            ? (
+                <>
+                  <span className={styles.hasSelectedValues}>
+                    <span>{label}</span>
+                    <span className={styles.labelSeparator}>:</span>
+                  </span>
+                  <span>{selectedValuesLabel}</span>
+                </>
+              )
+            : (
+                label
+              )}
         </span>
         <Icon
           name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}

@@ -35,27 +35,29 @@ export const MenuPopup = ({
   // and auto focus on the first focusable item after loading. (disable eslint no-autofocus error for it)
   // In addition, add hidden <DismissButton> components at the start and end of the list
   // to allow screen reader users to dismiss the popup easily.
-  return menuTriggerState.isOpen ? (
-    <div {...overlayProps} ref={overlayRef} className={styles.menuPopup}>
-      {isLoading && loadingSkeleton ? (
-        <>
-          <DismissButton onDismiss={onClose} />
-          {loadingSkeleton}
-          <DismissButton onDismiss={onClose} />
-        </>
-      ) : (
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        <FocusScope contain autoFocus restoreFocus>
-          <DismissButton onDismiss={onClose} />
+  return menuTriggerState.isOpen
+    ? (
+        <div {...overlayProps} ref={overlayRef} className={styles.menuPopup}>
+          {isLoading && loadingSkeleton
+            ? (
+                <>
+                  <DismissButton onDismiss={onClose} />
+                  {loadingSkeleton}
+                  <DismissButton onDismiss={onClose} />
+                </>
+              )
+            : (
+                // eslint-disable-next-line jsx-a11y/no-autofocus
+                <FocusScope contain autoFocus restoreFocus>
+                  <DismissButton onDismiss={onClose} />
 
-          {children}
-          <DismissButton onDismiss={onClose} />
-        </FocusScope>
-      )}
-    </div>
-  ) : (
-    <></>
-  )
+                  {children}
+                  <DismissButton onDismiss={onClose} />
+                </FocusScope>
+              )}
+        </div>
+      )
+    : (<></>)
 }
 
 MenuPopup.displayName = 'FilterMultiSelect.MenuPopup'

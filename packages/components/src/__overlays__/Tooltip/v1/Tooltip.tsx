@@ -124,30 +124,32 @@ const TooltipContent = ({
   )
   const { isVisible, isAnimIn, isAnimOut } = useAnimation()
 
-  return isVisible || isAnimOut || isAnimIn ? (
-    <div
-      ref={setPopperElement}
-      className={styles.tooltip}
-      style={popperStyles.popper}
-      {...attributes.popper}
-      role="tooltip"
-      id={tooltipId}
-    >
-      <div className={classnames(styles.tooltipContent, styles[mood])}>
-        {text}
-      </div>
-      <div
-        ref={setArrowElement}
-        className={styles.arrow}
-        style={popperStyles.arrow}
-      >
-        <div className={styles.arrowInner}>
-          <div className={classnames(styles.arrowMain, styles[mood])} />
-          <div className={styles.arrowShadow} />
+  return isVisible || isAnimOut || isAnimIn
+    ? (
+        <div
+          ref={setPopperElement}
+          className={styles.tooltip}
+          style={popperStyles.popper}
+          {...attributes.popper}
+          role="tooltip"
+          id={tooltipId}
+        >
+          <div className={classnames(styles.tooltipContent, styles[mood])}>
+            {text}
+          </div>
+          <div
+            ref={setArrowElement}
+            className={styles.arrow}
+            style={popperStyles.arrow}
+          >
+            <div className={styles.arrowInner}>
+              <div className={classnames(styles.arrowMain, styles[mood])} />
+              <div className={styles.arrowShadow} />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  ) : null
+      )
+    : null
 }
 
 const renderChildren = (

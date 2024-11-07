@@ -121,11 +121,13 @@ export const ButtonWithRACRenderPropsAsChildren: Story = {
       {({ isFocused }) => (
         <>
           Label
-          {isFocused ? (
-            <ThumbsUpOnIcon role="img" aria-label=" is focused" />
-          ) : (
-            <ThumbsUpOffIcon role="img" aria-label=" is unfocused" />
-          )}
+          {isFocused
+            ? (
+                <ThumbsUpOnIcon role="img" aria-label=" is focused" />
+              )
+            : (
+                <ThumbsUpOffIcon role="img" aria-label=" is unfocused" />
+              )}
         </>
       )}
     </Button>

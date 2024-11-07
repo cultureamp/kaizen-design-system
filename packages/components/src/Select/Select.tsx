@@ -89,11 +89,13 @@ export const Select = React.forwardRef<any, SelectProps>(
 
     return (
       <>
-        {label ? (
-          <Label reversed={reversed} id={labelId}>
-            {label}
-          </Label>
-        ) : null}
+        {label
+          ? (
+              <Label reversed={reversed} id={labelId}>
+                {label}
+              </Label>
+            )
+          : null}
         <ReactSelect
           {...props}
           ref={ref}
@@ -117,9 +119,11 @@ export const Select = React.forwardRef<any, SelectProps>(
           }}
           className={classes}
         />
-        {validationMessage ? (
-          <FieldMessage message={validationMessage} status={status} />
-        ) : null}
+        {validationMessage
+          ? (
+              <FieldMessage message={validationMessage} status={status} />
+            )
+          : null}
         {description ? <FieldMessage message={description} /> : null}
       </>
     )

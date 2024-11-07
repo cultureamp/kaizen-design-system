@@ -38,12 +38,14 @@ export const FilterDateRangePicker = ({
         renderTrigger({
           selectedValue:
             isCompleteDateRange(selectedRange) &&
-            isValidRange(selectedRange.from, selectedRange.to) ? (
+            isValidRange(selectedRange.from, selectedRange.to)
+              ? (
                   <DateRangeDisplayLabel
                     dateRange={selectedRange}
                     locale={getLocale(locale)}
                   />
-                ) : undefined,
+                )
+              : undefined,
           label,
           ...triggerProps,
         })

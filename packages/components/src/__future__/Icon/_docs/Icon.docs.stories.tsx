@@ -170,18 +170,20 @@ const IconSetButton = ({
           'bg-gray-100 hover:bg-gray-200',
         )}
       >
-        {copied ? (
-          <Tag color="green" classNameOverride="border-1 border-green-500">
-            Copied!
-          </Tag>
-        ) : (
-          <>
-            <Icon name={iconName} isPresentational isFilled={isFilled} />
-            <Text variant="small" tag="span">
-              {iconName}
-            </Text>
-          </>
-        )}
+        {copied
+          ? (
+              <Tag color="green" classNameOverride="border-1 border-green-500">
+                Copied!
+              </Tag>
+            )
+          : (
+              <>
+                <Icon name={iconName} isPresentational isFilled={isFilled} />
+                <Text variant="small" tag="span">
+                  {iconName}
+                </Text>
+              </>
+            )}
       </button>
     </li>
   )

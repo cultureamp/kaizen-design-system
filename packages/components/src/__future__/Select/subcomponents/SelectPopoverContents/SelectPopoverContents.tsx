@@ -30,11 +30,13 @@ export const SelectPopoverContents = <Option extends SelectOption>({
     <div className={styles.selectPopoverContents}>
       <Overlay<Option>>
         <ListBox<Option> menuProps={menuProps}>
-          {children ? (
-            children({ items: itemNodes })
-          ) : (
-            <ListItems<Option> items={itemNodes} />
-          )}
+          {children
+            ? (
+                children({ items: itemNodes })
+              )
+            : (
+                <ListItems<Option> items={itemNodes} />
+              )}
         </ListBox>
       </Overlay>
     </div>

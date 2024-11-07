@@ -207,9 +207,11 @@ export const usePopover = (): [
   const PopoverWithRef = useMemo(
     // eslint-disable-next-line react/display-name
     () => (props: PopoverPropsWithoutRef) =>
-      referenceElement ? (
-        <Popover {...props} referenceElement={referenceElement} />
-      ) : null,
+      referenceElement
+        ? (
+            <Popover {...props} referenceElement={referenceElement} />
+          )
+        : null,
     [referenceElement],
   )
 

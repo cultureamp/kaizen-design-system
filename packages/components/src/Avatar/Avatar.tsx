@@ -103,23 +103,24 @@ const renderInitials = (
   const isLongName = initials.length > 2 && size !== 'small'
   const renderFallback = disableInitials || initials === ''
 
-  return renderFallback ? (
-    <FallbackIcon alt={alt} />
-  ) : (
-    <abbr
-      className={classnames(styles.initials, isLongName && styles.longName)}
-      title={alt}
-    >
-      {isLongName ? (
-        // Only called if 3 or more initials, fits text width for long names
-        <Textfit mode="single" max={getMaxFontSizePixels(size)}>
-          {initials}
-        </Textfit>
-      ) : (
-        getInitials(fullName, size === 'small')
-      )}
-    </abbr>
-  )
+  return renderFallback
+    ? <FallbackIcon alt={alt} />
+    : (
+        <abbr
+          className={classnames(styles.initials, isLongName && styles.longName)}
+          title={alt}
+        >
+          {isLongName
+            ? (
+                // Only called if 3 or more initials, fits text width for long names
+                <Textfit mode="single" max={getMaxFontSizePixels(size)}>
+                  {initials}
+                </Textfit>
+              )
+            : getInitials(fullName, size === 'small')
+          }
+        </abbr>
+      )
 }
 
 /**

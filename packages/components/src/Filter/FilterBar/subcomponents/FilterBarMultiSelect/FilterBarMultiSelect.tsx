@@ -112,18 +112,20 @@ export const FilterBarMultiSelect = ({
           label: filterState.name,
         }
 
-        return filterState.isRemovable ? (
-          <FilterMultiSelect.RemovableTrigger
-            {...triggerProps}
-            onRemove={() => hideFilter(id)}
-            classNameOverride={styles.triggerButton}
-          />
-        ) : (
-          <FilterMultiSelect.TriggerButton
-            classNameOverride={styles.triggerButton}
-            {...triggerProps}
-          />
-        )
+        return filterState.isRemovable
+          ? (
+              <FilterMultiSelect.RemovableTrigger
+                {...triggerProps}
+                onRemove={() => hideFilter(id)}
+                classNameOverride={styles.triggerButton}
+              />
+            )
+          : (
+              <FilterMultiSelect.TriggerButton
+                classNameOverride={styles.triggerButton}
+                {...triggerProps}
+              />
+            )
       }}
       triggerRef={buttonRef}
       {...props}

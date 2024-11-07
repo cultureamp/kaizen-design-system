@@ -48,11 +48,13 @@ export const ButtonContentWithRenderProps: Story = {
       {({ isPressed }) => (
         <>
           {children}
-          {isPressed ? (
-            <ChevronDownIcon role="presentation" />
-          ) : (
-            <ChevronUpIcon role="presentation" />
-          )}
+          {isPressed
+            ? (
+                <ChevronDownIcon role="presentation" />
+              )
+            : (
+                <ChevronUpIcon role="presentation" />
+              )}
         </>
       )}
     </Button>

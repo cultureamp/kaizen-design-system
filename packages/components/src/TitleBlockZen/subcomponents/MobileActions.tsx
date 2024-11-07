@@ -371,30 +371,32 @@ const DrawerHandle = ({
         )}
         data-testid="title-block-mobile-actions-drawer-handle"
       >
-        {'component' in primaryAction ? (
-          <primaryAction.component
-            className={classnames(
-              styles.mobileActionsPrimaryLabel,
-              styles.mobileActionsPrimaryButton,
+        {'component' in primaryAction
+          ? (
+              <primaryAction.component
+                className={classnames(
+                  styles.mobileActionsPrimaryLabel,
+                  styles.mobileActionsPrimaryButton,
+                )}
+                {...primaryAction}
+              >
+                {primaryAction.label &&
+                  renderDrawerHandleLabel(
+                    primaryAction.label,
+                    primaryAction.icon,
+                    drawerHandleLabelIconPosition,
+                  )}
+              </primaryAction.component>
+            )
+          : (
+              <ButtonOrLink action={getAction(primaryAction)}>
+                {renderDrawerHandleLabel(
+                  primaryAction.label,
+                  primaryAction.icon,
+                  drawerHandleLabelIconPosition,
+                )}
+              </ButtonOrLink>
             )}
-            {...primaryAction}
-          >
-            {primaryAction.label &&
-              renderDrawerHandleLabel(
-                primaryAction.label,
-                primaryAction.icon,
-                drawerHandleLabelIconPosition,
-              )}
-          </primaryAction.component>
-        ) : (
-          <ButtonOrLink action={getAction(primaryAction)}>
-            {renderDrawerHandleLabel(
-              primaryAction.label,
-              primaryAction.icon,
-              drawerHandleLabelIconPosition,
-            )}
-          </ButtonOrLink>
-        )}
 
         {/* If there are no secondary etc. actions, just show the button without drawer */}
         {showDrawer && (

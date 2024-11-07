@@ -107,11 +107,13 @@ export const Pagination = ({
       const showPageInsteadOfFirstEllipsis =
         firstEllipsisPageNumber === firstPagesEnd + 1
       items.push(
-        showPageInsteadOfFirstEllipsis ? (
-          paginationIndicator(firstEllipsisPageNumber)
-        ) : (
-          <TruncateIndicator key={firstEllipsisPageNumber} />
-        ),
+        showPageInsteadOfFirstEllipsis
+          ? (
+              paginationIndicator(firstEllipsisPageNumber)
+            )
+          : (
+              <TruncateIndicator key={firstEllipsisPageNumber} />
+            ),
       )
 
       // Add group of main pages
@@ -122,11 +124,13 @@ export const Pagination = ({
       const showPageInsteadOfSecondEllipsis =
         secondEllipsisPageNumber === lastPagesStart - 1
       items.push(
-        showPageInsteadOfSecondEllipsis ? (
-          paginationIndicator(secondEllipsisPageNumber)
-        ) : (
-          <TruncateIndicator key={secondEllipsisPageNumber} />
-        ),
+        showPageInsteadOfSecondEllipsis
+          ? (
+              paginationIndicator(secondEllipsisPageNumber)
+            )
+          : (
+              <TruncateIndicator key={secondEllipsisPageNumber} />
+            ),
       )
 
       // Add group of last pages
