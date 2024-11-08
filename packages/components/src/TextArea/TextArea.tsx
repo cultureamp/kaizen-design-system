@@ -42,7 +42,7 @@ export const TextArea = ({
   const textAreaRef = propsTextAreaRef ?? fallbackRef
 
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    propsOnChange && propsOnChange(event)
+    propsOnChange?.(event)
     setInternalValue(event.target.value)
   }
 

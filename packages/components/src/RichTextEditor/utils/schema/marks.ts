@@ -1,4 +1,4 @@
-import { MarkSpec, Node } from 'prosemirror-model'
+import type { MarkSpec, Node } from 'prosemirror-model'
 import { marks as proseMarks } from 'prosemirror-schema-basic'
 import { validateLink } from '../plugins/LinkManager/validation'
 

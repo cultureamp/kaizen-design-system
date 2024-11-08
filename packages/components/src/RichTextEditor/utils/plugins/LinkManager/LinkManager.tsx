@@ -1,7 +1,7 @@
 import { ComponentType } from 'react'
 import debounce from 'lodash.debounce'
 import { MarkType } from 'prosemirror-model'
-import { Command, EditorState, Plugin } from 'prosemirror-state'
+import { type Command, type EditorState, Plugin } from 'prosemirror-state'
 import {
   AttrsValidator,
   getMarkAttrs,

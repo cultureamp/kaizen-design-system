@@ -16,3 +16,5 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
     <RACMenu className={mergeClassNames(styles.menu, className)} ref={ref} {...props} />
   ),
 )
+
+Menu.displayName = 'Menu'

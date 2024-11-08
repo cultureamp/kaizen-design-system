@@ -30,7 +30,7 @@ export const CalendarSingle = ({
     if (calendarRef.current) onMount?.(calendarRef.current)
   }, [calendarRef])
 
-  const monthToShow = selected || defaultMonth
+  const monthToShow = selected ?? defaultMonth
   const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */

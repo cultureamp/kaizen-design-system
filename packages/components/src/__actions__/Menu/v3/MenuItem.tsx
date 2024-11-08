@@ -23,3 +23,5 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
     </RACMenuItem>
   ),
 )
+
+MenuItem.displayName = 'Menu.MenuItem'

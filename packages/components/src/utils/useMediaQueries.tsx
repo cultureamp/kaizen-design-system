@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState, ReactNode, useMemo } from 'react'
 
 type Props = Record<string, string>

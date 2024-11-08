@@ -1,7 +1,11 @@
 import React, { useId, useState } from 'react'
 import classnames from 'classnames'
-import ReactSelect, { components, Props as ReactSelectProps, NoticeProps } from 'react-select'
-import Async, { AsyncProps as ReactAsyncSelectProps } from 'react-select/async'
+import ReactSelect, {
+  components,
+  type Props as ReactSelectProps,
+  type NoticeProps,
+} from 'react-select'
+import Async, { type AsyncProps as ReactAsyncSelectProps } from 'react-select/async'
 import { FieldMessage } from '~components/FieldMessage'
 import { Label } from '~components/Label'
 import { Tag } from '~components/Tag'

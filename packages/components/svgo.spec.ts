@@ -1,5 +1,6 @@
 import { describe } from 'vitest'
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const { removeRootSVGElement, replaceAttrKeys, replaceColor, replaceId } = require('./svgoUtils')
 
 type SVGOItem = {

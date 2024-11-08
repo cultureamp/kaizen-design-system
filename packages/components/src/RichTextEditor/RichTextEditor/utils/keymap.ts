@@ -14,9 +14,7 @@ export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
   const { undoInputRule } = ProseMirrorInputrules
   const { wrapInList, splitListItem, liftListItem, sinkListItem } = ProseMirrorSchemaList
 
-  const mac =
-    // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
-    typeof navigator != 'undefined' ? navigator.platform.includes('Mac') : false
+  const mac = typeof navigator != 'undefined' ? navigator.platform.includes('Mac') : false
 
   const {
     chainCommands,
@@ -64,7 +62,7 @@ export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
   if (schema.nodes.hardBreak) {
     const br = schema.nodes.hardBreak
     const cmd = chainCommands(exitCode, (state, dispatch) => {
-      dispatch && dispatch(state.tr.replaceSelectionWith(br.create()).scrollIntoView())
+      dispatch?.(state.tr.replaceSelectionWith(br.create()).scrollIntoView())
       return true
     })
     keys['Mod-Enter'] = cmd

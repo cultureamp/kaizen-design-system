@@ -67,7 +67,7 @@ export const simulateSelectionOfCurrentElement =
     let endPos = tr.selection.from + 1
 
     const startNode = getStartNode(state)
-    const nodeLength = startNode.node?.nodeSize || 0
+    const nodeLength = startNode.node?.nodeSize ?? 0
 
     if (selectEntireElement) {
       endPos = nodeLength + 1

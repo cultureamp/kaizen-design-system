@@ -62,4 +62,4 @@ fs.writeFile(`${outputDir}/index.ts`, indexFileContents, (err) => {
   if (err) throw err
 })
 
-deleteSourceDir && fs.rmdirSync(sourceDir, { recursive: true })
+if (deleteSourceDir) fs.rmdirSync(sourceDir, { recursive: true })

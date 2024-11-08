@@ -33,10 +33,10 @@ export const createRichTextEditor = ({
 
   // Handle transactions eminating from the EditorView instance
   const dispatch = (tx: Transaction): void => {
-    const newEditorState = editorView && editorView.state.apply(tx)
+    const newEditorState = editorView?.state.apply(tx)
     if (newEditorState) {
       onChange(newEditorState)
-      editorView && editorView.updateState(newEditorState)
+      editorView?.updateState(newEditorState)
     }
   }
 
@@ -59,7 +59,7 @@ export const createRichTextEditor = ({
 
   return {
     destroy: () => {
-      editorView && editorView.destroy()
+      editorView?.destroy()
     },
     dispatchTransaction: dispatchCommandOrTransaction,
   }

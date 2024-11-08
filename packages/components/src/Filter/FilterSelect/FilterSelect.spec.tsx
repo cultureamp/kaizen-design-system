@@ -267,13 +267,13 @@ const defaultProps: FilterSelectProps = {
 /* eslint-disable vitest/expect-expect */
 describe('FilterSelect generic', () => {
   it('should prevent adding `options` attribute to option', () => {
-    /* @ts-expect-error */
+    /* @ts-expect-error Testing generic */
     ;<FilterSelect<SelectOption & { options: string[] }> {...defaultProps} />
   })
 
   describe('Extended option', () => {
     it('should error when new required attribute is missing from items', () => {
-      /* @ts-expect-error */
+      /* @ts-expect-error Testing generic */
       ;<FilterSelect<SelectOption & { isRubberDuck: boolean }> {...defaultProps} />
     })
 
