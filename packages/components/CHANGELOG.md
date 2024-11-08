@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.67.10
+
+### Patch Changes
+
+- [#5241](https://github.com/cultureamp/kaizen-design-system/pull/5241) [`8393cc823a2295514c8af699f94185730a9e9e91`](https://github.com/cultureamp/kaizen-design-system/commit/8393cc823a2295514c8af699f94185730a9e9e91) - Update future Icon to only use internal styles as opposed to global styles from the CDN.
+
 ## 1.67.9
 
 ### Patch Changes
