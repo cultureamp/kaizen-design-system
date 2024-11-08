@@ -19,8 +19,8 @@ importers:
         specifier: ^2.27.9
         version: 2.27.9
       '@cultureamp/changelog-github':
-        specifier: ^0.1.0
-        version: 0.1.0(encoding@0.1.13)
+        specifier: ^0.1.1
+        version: 0.1.1(encoding@0.1.13)
       '@storybook/addon-a11y':
         specifier: ^8.3.6
         version: 8.3.6(storybook@8.3.6)
@@ -877,6 +877,9 @@ packages:
   '@changesets/changelog-git@0.2.0':
     resolution: {integrity: sha512-bHOx97iFI4OClIT35Lok3sJAwM31VbUM++gnMBV16fdbtBhgYu4dxsphBF/0AZZsyAHMrnM0yFcj5gZM1py6uQ==}
 
+  '@changesets/changelog-github@0.5.0':
+    resolution: {integrity: sha512-zoeq2LJJVcPJcIotHRJEEA2qCqX0AQIeFE+L21L8sRLPVqDhSXY8ZWAt2sohtBpFZkBwu+LUwMSKRr2lMy3LJA==}
+
   '@changesets/cli@2.27.9':
     resolution: {integrity: sha512-q42a/ZbDnxPpCb5Wkm6tMVIxgeI9C/bexntzTeCFBrQEdpisQqk8kCHllYZMDjYtEc1ZzumbMJAG8H0Z4rdvjg==}
     hasBin: true
@@ -890,8 +893,8 @@ packages:
   '@changesets/get-dependents-graph@2.1.2':
     resolution: {integrity: sha512-sgcHRkiBY9i4zWYBwlVyAjEM9sAzs4wYVwJUdnbDLnVG3QwAaia1Mk5P8M7kraTOZN+vBET7n8KyB0YXCbFRLQ==}
 
-  '@changesets/get-github-info@0.5.2':
-    resolution: {integrity: sha512-JppheLu7S114aEs157fOZDjFqUDpm7eHdq5E8SSR0gUBTEK0cNSHsrSR5a66xs0z3RWuo46QvA3vawp8BxDHvg==}
+  '@changesets/get-github-info@0.6.0':
+    resolution: {integrity: sha512-v/TSnFVXI8vzX9/w3DU2Ol+UlTZcu3m0kXTjTT4KlAdwSvwutcByYwyYn9hwerPWfPkT2JfpoX0KgvCEi8Q/SA==}
 
   '@changesets/get-release-plan@4.0.4':
     resolution: {integrity: sha512-SicG/S67JmPTrdcc9Vpu0wSQt7IiuN0dc8iR5VScnnTVPfIaLvKmEGRvIaF0kcn8u5ZqLbormZNTO77bCEvyWw==}
@@ -1183,8 +1186,8 @@ packages:
     peerDependencies:
       postcss: ^8.4
 
-  '@cultureamp/changelog-github@0.1.0':
-    resolution: {integrity: sha512-zaTBVXnv1MhyEClIFtG4TOeddBF+ufGnw8JF2ABip0l/IOLjpJs0lcIDix+UwOkClPdVCBzzvxT78M46rpgWxg==, tarball: https://npm.pkg.github.com/download/@cultureamp/changelog-github/0.1.0/1243c6a9e702bfa0e9fb28997f94c99af489ae93}
+  '@cultureamp/changelog-github@0.1.1':
+    resolution: {integrity: sha512-ltEtiffLwLoqNs23vylsKPPVtBy4j+4lzHtigXrC3VMoUQNKf2uLFE0O5a2DUKK64VGdGA3pIn6dUtT+SQGDQQ==, tarball: https://npm.pkg.github.com/download/@cultureamp/changelog-github/0.1.1/932fbf1df1d9841f3551100b75483f24b3ad2117}
 
   '@cultureamp/frontend-apis@11.0.0':
     resolution: {integrity: sha512-m3AG9x0ptOlBWAzMB7Ixk8DPp5j+Rs9DYVNTDHOUNSqTIqrXs1EgsBgZg4FoVmWnb0pvJx5CDX+jgKIlFxEZ1g==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-apis/11.0.0/8a8afb5646e72a59dd96cd6c0e6c82d5e21b0706}
@@ -4815,6 +4818,10 @@ packages:
 
   dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
+
+  dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+    engines: {node: '>=12'}
 
   dotenv@8.6.0:
     resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}
@@ -10071,6 +10078,14 @@ snapshots:
     dependencies:
       '@changesets/types': 6.0.0
 
+  '@changesets/changelog-github@0.5.0(encoding@0.1.13)':
+    dependencies:
+      '@changesets/get-github-info': 0.6.0(encoding@0.1.13)
+      '@changesets/types': 6.0.0
+      dotenv: 8.6.0
+    transitivePeerDependencies:
+      - encoding
+
   '@changesets/cli@2.27.9':
     dependencies:
       '@changesets/apply-release-plan': 7.0.5
@@ -10123,7 +10138,7 @@ snapshots:
       picocolors: 1.1.0
       semver: 7.6.3
 
-  '@changesets/get-github-info@0.5.2(encoding@0.1.13)':
+  '@changesets/get-github-info@0.6.0(encoding@0.1.13)':
     dependencies:
       dataloader: 1.4.0
       node-fetch: 2.7.0(encoding@0.1.13)
@@ -10443,11 +10458,12 @@ snapshots:
     dependencies:
       postcss: 8.4.47
 
-  '@cultureamp/changelog-github@0.1.0(encoding@0.1.13)':
+  '@cultureamp/changelog-github@0.1.1(encoding@0.1.13)':
     dependencies:
-      '@changesets/get-github-info': 0.5.2(encoding@0.1.13)
-      '@changesets/types': 4.1.0
-      dotenv: 8.6.0
+      '@changesets/changelog-github': 0.5.0(encoding@0.1.13)
+      '@changesets/get-github-info': 0.6.0(encoding@0.1.13)
+      '@changesets/types': 6.0.0
+      dotenv: 16.4.5
     transitivePeerDependencies:
       - encoding
 
@@ -14916,6 +14932,8 @@ snapshots:
     dependencies:
       no-case: 3.0.4
       tslib: 2.8.0
+
+  dotenv@16.4.5: {}
 
   dotenv@8.6.0: {}
 
