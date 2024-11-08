@@ -1,3 +1,21 @@
+/*
+ * This is taken from the Material Symbols CDN
+ * font-weight & font-size removed as overridden in .icon
+ */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
 .icon {
   font-size: calc(1px * var(--icon-size, 20));
   font-weight: var(--icon-font-weight, 400);
