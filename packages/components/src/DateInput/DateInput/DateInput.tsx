@@ -1,11 +1,11 @@
-import React from "react"
-import classnames from "classnames"
-import { Input, InputProps } from "~components/Input"
-import { Label } from "~components/Label"
-import { isRefObject } from "~components/utils/isRefObject"
-import styles from "./DateInput.module.scss"
+import React from 'react'
+import classnames from 'classnames'
+import { Input, InputProps } from '~components/Input'
+import { Label } from '~components/Label'
+import { isRefObject } from '~components/utils/isRefObject'
+import styles from './DateInput.module.scss'
 
-type OmittedInputProps = "reversed" | "type" | "inputRef"
+type OmittedInputProps = 'reversed' | 'type' | 'inputRef'
 
 export type DateInputProps = {
   labelText: React.ReactNode
@@ -13,17 +13,7 @@ export type DateInputProps = {
 } & Omit<InputProps, OmittedInputProps>
 
 export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
-  (
-    {
-      id,
-      labelText,
-      disabled,
-      isReversed = false,
-      classNameOverride,
-      ...inputProps
-    },
-    ref
-  ) => (
+  ({ id, labelText, disabled, isReversed = false, classNameOverride, ...inputProps }, ref) => (
     <div className={classnames(styles.dateInput, classNameOverride)}>
       <Label
         htmlFor={id}
@@ -43,7 +33,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
         {...inputProps}
       />
     </div>
-  )
+  ),
 )
 
-DateInput.displayName = "DateInput"
+DateInput.displayName = 'DateInput'

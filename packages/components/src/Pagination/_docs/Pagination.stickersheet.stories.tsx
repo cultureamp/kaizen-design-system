@@ -1,13 +1,10 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Pagination } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Pagination } from '../index'
 
 export default {
-  title: "Components/Pagination",
+  title: 'Components/Pagination',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -26,7 +23,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             ariaLabelPreviousPage="Previous Page"
             ariaLabelPage="Page"
             onPageChange={() => {
-              alert("Page Change")
+              alert('Page Change')
             }}
           />
         </StickerSheet.Row>
@@ -38,7 +35,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             ariaLabelPreviousPage="Previous Page"
             ariaLabelPage="Page"
             onPageChange={() => {
-              alert("Page Change")
+              alert('Page Change')
             }}
           />
         </StickerSheet.Row>
@@ -50,7 +47,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             ariaLabelPreviousPage="Previous Page"
             ariaLabelPage="Page"
             onPageChange={() => {
-              alert("Page Change")
+              alert('Page Change')
             }}
           />
         </StickerSheet.Row>
@@ -62,7 +59,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             ariaLabelPreviousPage="Previous Page"
             ariaLabelPage="Page"
             onPageChange={() => {
-              alert("Page Change")
+              alert('Page Change')
             }}
           />
         </StickerSheet.Row>
@@ -74,7 +71,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             ariaLabelPreviousPage="Previous Page"
             ariaLabelPage="Page"
             onPageChange={() => {
-              alert("Page Change")
+              alert('Page Change')
             }}
           />
         </StickerSheet.Row>
@@ -86,7 +83,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             ariaLabelPreviousPage="Previous Page"
             ariaLabelPage="Page"
             onPageChange={() => {
-              alert("Page Change")
+              alert('Page Change')
             }}
           />
         </StickerSheet.Row>
@@ -97,13 +94,13 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

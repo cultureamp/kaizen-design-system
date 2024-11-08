@@ -1,6 +1,6 @@
-import { MarkSpec, Node } from "prosemirror-model"
-import { marks as proseMarks } from "prosemirror-schema-basic"
-import { validateLink } from "../plugins/LinkManager/validation"
+import { MarkSpec, Node } from 'prosemirror-model'
+import { marks as proseMarks } from 'prosemirror-schema-basic'
+import { validateLink } from '../plugins/LinkManager/validation'
 
 export const getMarks = (): MarkSpec => ({
   ...proseMarks,
@@ -8,9 +8,9 @@ export const getMarks = (): MarkSpec => ({
   // An underline mark. Rendered as a `<u>` element. Has parse rules that also
   // matches `font-style: underline`.
   underline: {
-    parseDOM: [{ tag: "u" }, { style: "font-style=underline" }],
+    parseDOM: [{ tag: 'u' }, { style: 'font-style=underline' }],
     toDOM() {
-      return ["u", 0]
+      return ['u', 0]
     },
   },
 
@@ -19,18 +19,18 @@ export const getMarks = (): MarkSpec => ({
     attrs: {
       href: { default: null },
       _metadata: { default: { added: true } },
-      target: { default: "_blank" },
-      rel: { default: "noreferrer" },
+      target: { default: '_blank' },
+      rel: { default: 'noreferrer' },
     },
     inclusive: false,
     parseDOM: [
       {
-        tag: "a[href]",
+        tag: 'a[href]',
         getAttrs(dom: HTMLAnchorElement) {
           return {
-            href: getAttributeWithDefault(dom, "href"),
-            target: getAttributeWithDefault(dom, "target"),
-            rel: getAttributeWithDefault(dom, "rel"),
+            href: getAttributeWithDefault(dom, 'href'),
+            target: getAttributeWithDefault(dom, 'target'),
+            rel: getAttributeWithDefault(dom, 'rel'),
             _metadata: null,
           }
         },
@@ -40,19 +40,16 @@ export const getMarks = (): MarkSpec => ({
       const { href, target, rel } = node.attrs
       const validationStatus = validateLink(href)
 
-      if (validationStatus.status === "error") {
-        return ["span", 0]
+      if (validationStatus.status === 'error') {
+        return ['span', 0]
       }
 
-      return ["a", { href, target, rel }, 0]
+      return ['a', { href, target, rel }, 0]
     },
   },
 })
 
-const getAttributeWithDefault = (
-  node: HTMLElement,
-  attributeName: string
-): string | null => {
+const getAttributeWithDefault = (node: HTMLElement, attributeName: string): string | null => {
   const value = node.getAttribute(attributeName)
-  return value && value !== "" ? value : null
+  return value && value !== '' ? value : null
 }

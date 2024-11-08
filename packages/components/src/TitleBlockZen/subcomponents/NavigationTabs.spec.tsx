@@ -1,9 +1,9 @@
-import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
-import { NavigationTab, CustomNavigationTabProps } from "./NavigationTabs"
-import styles from "./NavigationTabs.module.scss"
+import React from 'react'
+import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
+import { NavigationTab, CustomNavigationTabProps } from './NavigationTabs'
+import styles from './NavigationTabs.module.scss'
 
 const user = userEvent.setup()
 
@@ -15,29 +15,29 @@ const CustomComponent = (props: CustomNavigationTabProps): JSX.Element => (
   >{`${props.href} - ${props.text} - ${props.active}`}</button>
 )
 
-describe("NavigationTabs", () => {
-  it("renders a link", () => {
-    const text = "I am navigation tabs"
-    const href = "www.cultureamp.com"
+describe('NavigationTabs', () => {
+  it('renders a link', () => {
+    const text = 'I am navigation tabs'
+    const href = 'www.cultureamp.com'
     render(<NavigationTab text={text} href={href} />)
 
     expect(
-      screen.getByRole("link", {
+      screen.getByRole('link', {
         name: text,
-      })
+      }),
     ).toBeInTheDocument()
     expect(
-      screen.getByRole("link", {
+      screen.getByRole('link', {
         name: text,
-      })
-    ).toHaveAttribute("href", href)
+      }),
+    ).toHaveAttribute('href', href)
   })
 
-  describe("with a render prop", () => {
-    it("renders the component passed with the navigation tab props", async () => {
+  describe('with a render prop', () => {
+    it('renders the component passed with the navigation tab props', async () => {
       const handleClick = vi.fn()
-      const text = "I am also navigation tabs"
-      const href = "www.cultureamp.com"
+      const text = 'I am also navigation tabs'
+      const href = 'www.cultureamp.com'
       render(
         <NavigationTab
           text={text}
@@ -46,17 +46,13 @@ describe("NavigationTabs", () => {
           active
           render={CustomComponent}
           variant="education"
-        />
+        />,
       )
 
-      const button = screen.getByRole("button", {
+      const button = screen.getByRole('button', {
         name: `${href} - ${text} - true`,
       })
-      expect(button).toHaveClass(
-        styles.linkAnchor,
-        styles.active,
-        styles.lightBackground
-      )
+      expect(button).toHaveClass(styles.linkAnchor, styles.active, styles.lightBackground)
 
       await user.click(button)
       await waitFor(() => {

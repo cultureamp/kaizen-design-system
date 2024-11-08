@@ -1,17 +1,17 @@
-import React from "react"
-import { Base, BaseProps } from "../subcomponents/Base"
+import React from 'react'
+import { Base, BaseProps } from '../subcomponents/Base'
 
-export type SpotProps = Pick<BaseProps, "alt" | "classNameOverride"> & {
+export type SpotProps = Pick<BaseProps, 'alt' | 'classNameOverride'> & {
   enableAspectRatio?: boolean
 }
 
-const SPOT_ILLUSTRATION_BASE_PATH = "illustrations/heart/spot/"
+const SPOT_ILLUSTRATION_BASE_PATH = 'illustrations/heart/spot/'
 const createSpotIllustration =
   (fileName: string) =>
   // eslint-disable-next-line react/display-name
   ({ enableAspectRatio, ...restProps }: SpotProps): JSX.Element => (
     <Base
-      aspectRatio={enableAspectRatio ? "square" : undefined}
+      aspectRatio={enableAspectRatio ? 'square' : undefined}
       {...restProps}
       name={`${SPOT_ILLUSTRATION_BASE_PATH}${fileName}`}
     />

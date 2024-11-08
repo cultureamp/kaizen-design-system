@@ -1,17 +1,14 @@
-import React from "react"
-import { offset, size, autoPlacement } from "@floating-ui/react-dom"
-import { Meta } from "@storybook/react"
-import { Text } from "~components/Text"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { CalendarRange } from "../../CalendarRange"
-import { CalendarSingle } from "../../CalendarSingle"
-import { CalendarPopover, CalendarPopoverProps } from "../index"
+import React from 'react'
+import { offset, size, autoPlacement } from '@floating-ui/react-dom'
+import { Meta } from '@storybook/react'
+import { Text } from '~components/Text'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { CalendarRange } from '../../CalendarRange'
+import { CalendarSingle } from '../../CalendarSingle'
+import { CalendarPopover, CalendarPopoverProps } from '../index'
 
 export default {
-  title: "Components/Date controls/Calendars/CalendarPopover",
+  title: 'Components/Date controls/Calendars/CalendarPopover',
   parameters: {
     chromatic: {
       disable: false,
@@ -22,7 +19,7 @@ export default {
         rules: [
           {
             // Built with no label on purpose, to be used within Date(Range)Picker where label is present
-            id: "aria-dialog-name",
+            id: 'aria-dialog-name',
             enabled: false,
           },
         ],
@@ -31,14 +28,14 @@ export default {
     viewport: {
       viewports: {
         ViewportFull: {
-          name: "Viewport full size",
+          name: 'Viewport full size',
           styles: {
-            width: "1024px",
-            height: "1500px",
+            width: '1024px',
+            height: '1500px',
           },
         },
       },
-      defaultViewport: "ViewportFull",
+      defaultViewport: 'ViewportFull',
     },
   },
 } satisfies Meta
@@ -47,16 +44,15 @@ const CalendarPopoverExample = ({
   children,
   rowHeight = 300,
   /** this is here as a convenient way to test overlap */
-  strategy = "fixed",
+  strategy = 'fixed',
 }: Partial<
   CalendarPopoverProps & {
     rowHeight: number
     /** this is here as a convenient way to test overlap */
-    strategy?: "absolute" | "fixed"
+    strategy?: 'absolute' | 'fixed'
   }
 >): JSX.Element => {
-  const [referenceElement, setReferenceElement] =
-    React.useState<HTMLDivElement | null>(null)
+  const [referenceElement, setReferenceElement] = React.useState<HTMLDivElement | null>(null)
 
   return (
     <>
@@ -84,7 +80,7 @@ const CalendarPopoverExample = ({
             autoPlacement({
               // This needs to be here for testing purposes as the default behaviour
               // will cause overlapping calendars in the table
-              allowedPlacements: ["bottom-start"],
+              allowedPlacements: ['bottom-start'],
             }),
           ],
         }}
@@ -109,7 +105,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
         <StickerSheet.Row rowTitle="CalendarSingle">
           <CalendarPopoverExample rowHeight={350}>
-            <CalendarSingle selected={new Date("2022-02-19")} />
+            <CalendarSingle selected={new Date('2022-02-19')} />
           </CalendarPopoverExample>
         </StickerSheet.Row>
 
@@ -117,8 +113,8 @@ const StickerSheetTemplate: StickerSheetStory = {
           <CalendarPopoverExample rowHeight={350}>
             <CalendarRange
               selected={{
-                from: new Date("2022-02-19"),
-                to: new Date("2022-03-04"),
+                from: new Date('2022-02-19'),
+                to: new Date('2022-03-04'),
               }}
             />
           </CalendarPopoverExample>
@@ -129,8 +125,8 @@ const StickerSheetTemplate: StickerSheetStory = {
             <CalendarRange
               data-testid="sb-final-calendar"
               selected={{
-                from: new Date("2022-02-19"),
-                to: new Date("2022-03-04"),
+                from: new Date('2022-02-19'),
+                to: new Date('2022-03-04'),
               }}
               hasDivider
             />
@@ -143,20 +139,20 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }
 
 export const StickerSheetResponsive: StickerSheetStory = {
-  name: "Sticker Sheet (Responsive)",
+  name: 'Sticker Sheet (Responsive)',
   render: () => (
     <>
       <Text variant="intro-lede" classNameOverride="mb-12 ">
@@ -164,7 +160,7 @@ export const StickerSheetResponsive: StickerSheetStory = {
       </Text>
       <div className="h-[250px] p-12 bg-purple-100 overflow-hidden relative">
         <CalendarPopoverExample strategy="absolute">
-          <CalendarSingle selected={new Date("2022-02-19")} />
+          <CalendarSingle selected={new Date('2022-02-19')} />
         </CalendarPopoverExample>
       </div>
       <Text variant="intro-lede" classNameOverride="mb-12 ">
@@ -174,8 +170,8 @@ export const StickerSheetResponsive: StickerSheetStory = {
         <CalendarPopoverExample strategy="absolute">
           <CalendarRange
             selected={{
-              from: new Date("2022-02-19"),
-              to: new Date("2022-03-04"),
+              from: new Date('2022-02-19'),
+              to: new Date('2022-03-04'),
             }}
             hasDivider
           />
@@ -186,7 +182,7 @@ export const StickerSheetResponsive: StickerSheetStory = {
       </Text>
       <div className="h-[250px] p-12 bg-purple-100 overflow-hidden relative w-[250px]">
         <CalendarPopoverExample strategy="absolute">
-          <CalendarSingle selected={new Date("2022-03-19")} />
+          <CalendarSingle selected={new Date('2022-03-19')} />
         </CalendarPopoverExample>
       </div>
       <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
@@ -197,8 +193,8 @@ export const StickerSheetResponsive: StickerSheetStory = {
           <CalendarRange
             data-testid="sb-final-calendar"
             selected={{
-              from: new Date("2022-02-19"),
-              to: new Date("2022-03-04"),
+              from: new Date('2022-02-19'),
+              to: new Date('2022-03-04'),
             }}
             hasDivider
           />

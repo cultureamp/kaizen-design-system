@@ -1,1 +1,1 @@
-export * from "./MultiActionTile"
+export * from './MultiActionTile'

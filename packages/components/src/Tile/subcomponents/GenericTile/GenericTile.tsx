@@ -1,12 +1,12 @@
-import React, { HTMLAttributes, useState } from "react"
-import classnames from "classnames"
-import { AllowedHeadingTags, Heading } from "~components/Heading"
-import { Text } from "~components/Text"
-import { GenericButtonProps } from "~components/__actions__/Button/v1/GenericButton"
-import { IconButton, Button } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./GenericTile.module.scss"
+import React, { HTMLAttributes, useState } from 'react'
+import classnames from 'classnames'
+import { AllowedHeadingTags, Heading } from '~components/Heading'
+import { Text } from '~components/Text'
+import { GenericButtonProps } from '~components/__actions__/Button/v1/GenericButton'
+import { IconButton, Button } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './GenericTile.module.scss'
 
 export type TileAction = GenericButtonProps
 
@@ -23,31 +23,25 @@ export type GenericTileProps = {
   metadata?: string
   information?: TileInformation | React.ReactNode
   /** @deprecated Use `variant` instead */
-  mood?:
-    | "positive"
-    | "informative"
-    | "cautionary"
-    | "assertive"
-    | "negative"
-    | "prominent"
+  mood?: 'positive' | 'informative' | 'cautionary' | 'assertive' | 'negative' | 'prominent'
   /**
    * If you are transitioning from `mood`:
    * - `prominent` should be `expert-advice`
    * - all else should be `default`
    * @default default
    */
-  variant?: "default" | "expert-advice"
+  variant?: 'default' | 'expert-advice'
   footer: React.ReactNode
-} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "title">>
+} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'title'>>
 
 export const GenericTile = ({
   children,
   title,
-  titleTag = "h3",
+  titleTag = 'h3',
   metadata,
   information,
   mood,
-  variant = "default",
+  variant = 'default',
   footer,
   classNameOverride,
   ...restProps
@@ -71,11 +65,7 @@ export const GenericTile = ({
 
   const renderFront = (): JSX.Element => (
     <div
-      className={classnames(
-        styles.face,
-        styles.faceFront,
-        mood ? styles[mood] : styles[variant]
-      )}
+      className={classnames(styles.face, styles.faceFront, mood ? styles[mood] : styles[variant])}
     >
       {information && (
         <div className={styles.informationBtn}>
@@ -95,32 +85,20 @@ export const GenericTile = ({
   )
 
   const renderInformation = (
-    informationProp: GenericTileProps["information"] | undefined
+    informationProp: GenericTileProps['information'] | undefined,
   ): JSX.Element | React.ReactNode => {
-    if (
-      informationProp &&
-      typeof informationProp === "object" &&
-      "text" in informationProp
-    ) {
+    if (informationProp && typeof informationProp === 'object' && 'text' in informationProp) {
       return (
         <>
           <Text variant="body">{informationProp.text}</Text>
-          {(informationProp.primaryAction ||
-            informationProp.secondaryAction) && (
+          {(informationProp.primaryAction || informationProp.secondaryAction) && (
             <div className={styles.footer}>
               <div className={styles.actions}>
                 {informationProp.secondaryAction && (
-                  <Button
-                    secondary
-                    disabled={!isFlipped}
-                    {...informationProp.secondaryAction}
-                  />
+                  <Button secondary disabled={!isFlipped} {...informationProp.secondaryAction} />
                 )}
                 {informationProp.primaryAction && (
-                  <Button
-                    disabled={!isFlipped}
-                    {...informationProp.primaryAction}
-                  />
+                  <Button disabled={!isFlipped} {...informationProp.primaryAction} />
                 )}
               </div>
             </div>
@@ -146,9 +124,7 @@ export const GenericTile = ({
             aria-hidden={!isFlipped}
           />
         </div>
-        <div className={styles.information}>
-          {renderInformation(information)}
-        </div>
+        <div className={styles.information}>{renderInformation(information)}</div>
       </div>
     )
   }
@@ -165,4 +141,4 @@ export const GenericTile = ({
   )
 }
 
-GenericTile.displayName = "GenericTile"
+GenericTile.displayName = 'GenericTile'

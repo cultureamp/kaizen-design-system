@@ -1,14 +1,14 @@
-import React, { FunctionComponent } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import isChromatic from "chromatic"
-import { Popover } from "react-aria-components"
-import { Button } from "~components/__actions__/v3"
-import { Icon } from "~components/__future__/Icon"
-import { Menu, MenuTrigger, MenuItem } from "../index"
-import * as testStories from "./Menu.spec.stories"
+import React, { FunctionComponent } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import isChromatic from 'chromatic'
+import { Popover } from 'react-aria-components'
+import { Button } from '~components/__actions__/v3'
+import { Icon } from '~components/__future__/Icon'
+import { Menu, MenuTrigger, MenuItem } from '../index'
+import * as testStories from './Menu.spec.stories'
 
 const meta = {
-  title: "Actions/Menu/v3",
+  title: 'Actions/Menu/v3',
   component: MenuTrigger,
   args: {
     defaultOpen: isChromatic(),
@@ -30,21 +30,11 @@ export const Playground: Story = {
       </Button>
       <Popover>
         <Menu>
-          <MenuItem icon={<Icon name="bookmark" isPresentational />}>
-            Save
-          </MenuItem>
-          <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>
-            Edit
-          </MenuItem>
-          <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>
-            Move up
-          </MenuItem>
-          <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>
-            Move down
-          </MenuItem>
-          <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>
-            Delete
-          </MenuItem>
+          <MenuItem icon={<Icon name="bookmark" isPresentational />}>Save</MenuItem>
+          <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>Edit</MenuItem>
+          <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>Move up</MenuItem>
+          <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>Move down</MenuItem>
+          <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
         </Menu>
       </Popover>
     </MenuTrigger>

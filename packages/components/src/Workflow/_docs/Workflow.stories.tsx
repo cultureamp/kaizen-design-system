@@ -1,23 +1,18 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Heading } from "~components/Heading"
-import { Text } from "~components/Text"
-import { TextField } from "~components/TextField"
-import { Button } from "~components/__actions__/v2"
-import { Icon, Tag } from "~components/__future__"
-import { Workflow } from "../"
-import { WorkflowControls } from "./controls"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Heading } from '~components/Heading'
+import { Text } from '~components/Text'
+import { TextField } from '~components/TextField'
+import { Button } from '~components/__actions__/v2'
+import { Icon, Tag } from '~components/__future__'
+import { Workflow } from '../'
+import { WorkflowControls } from './controls'
 
 const MockContent = (): JSX.Element => (
   <div className="flex flex-col flex-1 m-24 items-center">
     <div className="max-w-[1392px] w-full">
-      <Text variant="intro-lede">
-        Name and schedule the self-reflection cycle
-      </Text>
-      <form
-        id="workflow-form-id"
-        className="bg-white rounded shadow-sm my-32 p-64"
-      >
+      <Text variant="intro-lede">Name and schedule the self-reflection cycle</Text>
+      <form id="workflow-form-id" className="bg-white rounded shadow-sm my-32 p-64">
         <Heading variant="heading-3" classNameOverride="mb-24">
           Name the cycle
         </Heading>
@@ -33,18 +28,18 @@ const MockContent = (): JSX.Element => (
 )
 
 const meta = {
-  title: "Layout/Workflow",
+  title: 'Layout/Workflow',
   component: Workflow,
   argTypes: WorkflowControls,
   args: {
-    workflowName: "Create a self-reflection cycle",
-    currentStepId: "settings-step",
+    workflowName: 'Create a self-reflection cycle',
+    currentStepId: 'settings-step',
     steps: [
-      { label: "Settings", id: "settings-step" },
-      { label: "Questions", id: "questions-step" },
-      { label: "Preview", id: "preview-step" },
-      { label: "Employees", id: "employees-step" },
-      { label: "Schedule", id: "schedule-step" },
+      { label: 'Settings', id: 'settings-step' },
+      { label: 'Questions', id: 'questions-step' },
+      { label: 'Preview', id: 'preview-step' },
+      { label: 'Employees', id: 'employees-step' },
+      { label: 'Schedule', id: 'schedule-step' },
     ],
     isComplete: false,
     statusTag: <Tag color="purple">Draft</Tag>,
@@ -71,7 +66,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
     chromatic: { disable: false },
@@ -94,14 +89,14 @@ export const MultipleActions: Story = {
         icon={<Icon name="close" isPresentational />}
         secondary
         iconPosition="end"
-        onClick={(): void => alert("mock example of a save action")}
+        onClick={(): void => alert('mock example of a save action')}
       />,
     ],
   },
 }
 
 export const FinalStep: Story = {
-  args: { currentStepId: "schedule-step" },
+  args: { currentStepId: 'schedule-step' },
 }
 
 export const CompletedWorkflow: Story = {
@@ -124,17 +119,16 @@ export const ComposableWorkflow: Story = {
     <Workflow.Wrapper {...restProps}>
       <Workflow.Header
         workflowName={workflowName}
-        stepName={steps.find(step => step.id === currentStepId)!.label}
+        stepName={steps.find((step) => step.id === currentStepId)!.label}
         statusTag={statusTag}
         headerActions={headerActions}
       />
       <Workflow.Main>
         <h3>Content</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
-          labore dolorum debitis eaque laboriosam qui quidem itaque
-          necessitatibus obcaecati aut earum consectetur excepturi accusamus
-          nulla libero maxime, quibusdam vero?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error labore dolorum
+          debitis eaque laboriosam qui quidem itaque necessitatibus obcaecati aut earum consectetur
+          excepturi accusamus nulla libero maxime, quibusdam vero?
         </p>
       </Workflow.Main>
       <Workflow.Footer
@@ -153,21 +147,21 @@ export const ResponsiveWorkflow: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "hidden",
+        sourceState: 'hidden',
       },
     },
     viewport: {
       viewports: {
         vieportZoomed: {
-          name: "Simulate 400% zoom",
+          name: 'Simulate 400% zoom',
           styles: {
-            width: "500px",
-            height: "800px",
+            width: '500px',
+            height: '800px',
           },
-          type: "mobile",
+          type: 'mobile',
         },
       },
-      defaultViewport: "vieportZoomed",
+      defaultViewport: 'vieportZoomed',
     },
     chromatic: {
       disable: false,

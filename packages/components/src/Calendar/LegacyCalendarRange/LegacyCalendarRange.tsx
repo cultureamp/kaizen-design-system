@@ -1,17 +1,17 @@
-import React from "react"
-import type { Locale } from "date-fns"
+import React from 'react'
+import type { Locale } from 'date-fns'
 import {
   DayPicker,
   DateRange,
   DayClickEventHandler,
   Matcher,
   DayPickerRangeProps,
-} from "react-day-picker"
-import { Icon } from "~components/__future__/Icon"
-import { baseCalendarClassNames } from "../baseCalendarClassNames"
-import { DayOfWeek } from "../enums"
-import { isInvalidDate, isValidWeekStartsOn } from "../utils"
-import styles from "./LegacyCalendarRange.module.scss"
+} from 'react-day-picker'
+import { Icon } from '~components/__future__/Icon'
+import { baseCalendarClassNames } from '../baseCalendarClassNames'
+import { DayOfWeek } from '../enums'
+import { isInvalidDate, isValidWeekStartsOn } from '../utils'
+import styles from './LegacyCalendarRange.module.scss'
 
 export type LegacyCalendarRangeElement = HTMLDivElement
 
@@ -35,8 +35,7 @@ export const LegacyCalendarRange = ({
   onDayChange,
 }: LegacyCalendarRangeProps): JSX.Element => {
   const monthToShow = selectedRange?.from || defaultMonth
-  const selectedMonth =
-    monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
+  const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */
   const classNames = {
@@ -46,7 +45,7 @@ export const LegacyCalendarRange = ({
     day_range_start: styles.dayRangeStart,
     day_range_end: styles.dayRangeEnd,
     day_range_middle: styles.dayRangeMiddle,
-  } satisfies DayPickerRangeProps["classNames"]
+  } satisfies DayPickerRangeProps['classNames']
   /* eslint-enable camelcase */
 
   return (
@@ -55,19 +54,13 @@ export const LegacyCalendarRange = ({
         mode="range"
         selected={selectedRange}
         defaultMonth={selectedMonth}
-        weekStartsOn={
-          isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
-        }
+        weekStartsOn={isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined}
         disabled={disabledDays}
         onDayClick={onDayChange}
         classNames={classNames}
         components={{
-          IconRight: () => (
-            <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
-          ),
-          IconLeft: () => (
-            <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
-          ),
+          IconRight: () => <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
+          IconLeft: () => <Icon name="arrow_back" isPresentational shouldMirrorInRTL />,
         }}
         locale={locale}
       />
@@ -75,4 +68,4 @@ export const LegacyCalendarRange = ({
   )
 }
 
-LegacyCalendarRange.displayName = "LegacyCalendarRange"
+LegacyCalendarRange.displayName = 'LegacyCalendarRange'

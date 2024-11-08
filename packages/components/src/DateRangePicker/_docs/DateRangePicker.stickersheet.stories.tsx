@@ -1,37 +1,28 @@
-import React, { useEffect, useState } from "react"
-import { Meta } from "@storybook/react"
-import { enAU } from "date-fns/locale"
-import { DateRange } from "react-day-picker"
+import React, { useEffect, useState } from 'react'
+import { Meta } from '@storybook/react'
+import { enAU } from 'date-fns/locale'
+import { DateRange } from 'react-day-picker'
 import {
   LegacyCalendarRange,
   LegacyCalendarRangeProps,
-} from "~components/Calendar/LegacyCalendarRange"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import {
-  DateRangePicker,
-  DateRangePickerProps,
-  formatDateRangeValue,
-} from "../index"
+} from '~components/Calendar/LegacyCalendarRange'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { DateRangePicker, DateRangePickerProps, formatDateRangeValue } from '../index'
 
 export default {
-  title: "Components/Date controls/DateRangePicker",
+  title: 'Components/Date controls/DateRangePicker',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
 } satisfies Meta
 
-const DateRangePickerTemplate = (
-  props: Partial<DateRangePickerProps>
-): JSX.Element => {
+const DateRangePickerTemplate = (props: Partial<DateRangePickerProps>): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
     from: undefined,
     to: undefined,
   })
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState('')
 
   const onDateRangeChange = (dateRange: DateRange): void => {
     setSelectedDateRange(dateRange)
@@ -55,9 +46,7 @@ const DateRangePickerTemplate = (
   )
 }
 
-const LegacyCalendarRangeTemplate = (
-  props: Partial<LegacyCalendarRangeProps>
-): JSX.Element => {
+const LegacyCalendarRangeTemplate = (props: Partial<LegacyCalendarRangeProps>): JSX.Element => {
   const selectedDateRange = {
     from: undefined,
     to: undefined,
@@ -85,7 +74,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <StickerSheet>
         <StickerSheet.Header
-          headings={["Default", "Selected Value", "Disabled"]}
+          headings={['Default', 'Selected Value', 'Disabled']}
           hasVerticalHeadings
           headingsWidth={250}
         />
@@ -101,16 +90,13 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <StickerSheet>
         <StickerSheet.Header
-          headings={["Selected Range Dates", "Disabled Dates"]}
+          headings={['Selected Range Dates', 'Disabled Dates']}
           hasVerticalHeadings
         />
         <StickerSheet.Row rowTitle="Date Range Calendar (Legacy)">
           <LegacyCalendarRangeTemplate selectedRange={selectedDateRange} />
           <LegacyCalendarRangeTemplate
-            disabledDays={[
-              new Date(2022, 1, 15),
-              { after: new Date(2022, 1, 17) },
-            ]}
+            disabledDays={[new Date(2022, 1, 15), { after: new Date(2022, 1, 17) }]}
           />
         </StickerSheet.Row>
       </StickerSheet>
@@ -120,11 +106,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

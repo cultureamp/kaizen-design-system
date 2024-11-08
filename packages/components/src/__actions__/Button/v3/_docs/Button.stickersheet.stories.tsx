@@ -1,15 +1,12 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { ArrowForwardIcon, AddIcon, TrashIcon } from "~components/Icon"
-import { LoadingSpinner } from "~components/Loading"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Button } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { ArrowForwardIcon, AddIcon, TrashIcon } from '~components/Icon'
+import { LoadingSpinner } from '~components/Loading'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Button } from '../index'
 
 export default {
-  title: "Actions/Button/Button (v3)/Tests",
+  title: 'Actions/Button/Button (v3)/Tests',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -21,7 +18,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <StickerSheet heading="Button" isReversed={isReversed}>
         <StickerSheet.Header
-          headings={["Base", "Disabled", "working"]}
+          headings={['Base', 'Disabled', 'working']}
           headingsWidth="10rem"
           hasVerticalHeadings
           verticalHeadingsWidth="12rem"
@@ -112,20 +109,20 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     reverseColors: true,
   },

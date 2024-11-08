@@ -1,15 +1,10 @@
-import { parseJsx } from "../__tests__/utils"
-import {
-  transformSource,
-  printAst,
-  TransformConfig,
-  ImportModuleNameTagsMap,
-} from "../utils"
-import { upgradeIconV1 } from "./upgradeIconV1"
+import { parseJsx } from '../__tests__/utils'
+import { transformSource, printAst, TransformConfig, ImportModuleNameTagsMap } from '../utils'
+import { upgradeIconV1 } from './upgradeIconV1'
 
 const transformIcons = (
-  sourceFile: TransformConfig["sourceFile"],
-  tagNames: ImportModuleNameTagsMap
+  sourceFile: TransformConfig['sourceFile'],
+  tagNames: ImportModuleNameTagsMap,
 ): string =>
   transformSource({
     sourceFile,
@@ -17,11 +12,11 @@ const transformIcons = (
     tagName: tagNames,
   })
 
-describe("upgradeIconV1()", () => {
-  describe("CaMonogramIcon to Brand", () => {
+describe('upgradeIconV1()', () => {
+  describe('CaMonogramIcon to Brand', () => {
     const transformedBrandProps = 'variant="enso" style={{ width: "20px" }}'
 
-    it("updates import from CaMonogramIcon to Brand", () => {
+    it('updates import from CaMonogramIcon to Brand', () => {
       const inputAst = parseJsx(`
         import { CaMonogramIcon } from "@kaizen/components"
         export const TestComponent = () => <CaMonogramIcon />
@@ -33,17 +28,12 @@ describe("upgradeIconV1()", () => {
       expect(
         transformIcons(
           inputAst,
-          new Map([
-            [
-              "@kaizen/components",
-              new Map([["CaMonogramIcon", "CaMonogramIcon"]]),
-            ],
-          ])
-        )
+          new Map([['@kaizen/components', new Map([['CaMonogramIcon', 'CaMonogramIcon']])]]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
-    it("updates import from CaMonogramIcon using alias to Brand", () => {
+    it('updates import from CaMonogramIcon using alias to Brand', () => {
       const inputAst = parseJsx(`
         import { CaMonogramIcon as LogoAlias } from "@kaizen/components"
         export const TestComponent = () => <LogoAlias />
@@ -55,14 +45,12 @@ describe("upgradeIconV1()", () => {
       expect(
         transformIcons(
           inputAst,
-          new Map([
-            ["@kaizen/components", new Map([["LogoAlias", "CaMonogramIcon"]])],
-          ])
-        )
+          new Map([['@kaizen/components', new Map([['LogoAlias', 'CaMonogramIcon']])]]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
-    it("does not add another Brand import if it is already imported", () => {
+    it('does not add another Brand import if it is already imported', () => {
       const inputAst = parseJsx(`
         import { Brand, CaMonogramIcon } from "@kaizen/components"
         export const TestComponent = () => <CaMonogramIcon />
@@ -76,18 +64,18 @@ describe("upgradeIconV1()", () => {
           inputAst,
           new Map([
             [
-              "@kaizen/components",
+              '@kaizen/components',
               new Map([
-                ["Brand", "Brand"],
-                ["CaMonogramIcon", "CaMonogramIcon"],
+                ['Brand', 'Brand'],
+                ['CaMonogramIcon', 'CaMonogramIcon'],
               ]),
             ],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
-    it("uses Brand alias for an existing import", () => {
+    it('uses Brand alias for an existing import', () => {
       const inputAst = parseJsx(`
         import { Brand as KzBrand, CaMonogramIcon } from "@kaizen/components"
         export const TestComponent = () => <CaMonogramIcon />
@@ -101,23 +89,22 @@ describe("upgradeIconV1()", () => {
           inputAst,
           new Map([
             [
-              "@kaizen/components",
+              '@kaizen/components',
               new Map([
-                ["KzBrand", "Brand"],
-                ["CaMonogramIcon", "CaMonogramIcon"],
+                ['KzBrand', 'Brand'],
+                ['CaMonogramIcon', 'CaMonogramIcon'],
               ]),
             ],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
   })
 
-  describe("SpinnerIcon to LoadingSpinner", () => {
-    const transformedLoadingSpinnerProps =
-      'size="xs" accessibilityLabel="Loading"'
+  describe('SpinnerIcon to LoadingSpinner', () => {
+    const transformedLoadingSpinnerProps = 'size="xs" accessibilityLabel="Loading"'
 
-    it("updates import from SpinnerIcon to LoadingSpinner", () => {
+    it('updates import from SpinnerIcon to LoadingSpinner', () => {
       const inputAst = parseJsx(`
         import { SpinnerIcon } from "@kaizen/components"
         export const TestComponent = () => <SpinnerIcon />
@@ -129,14 +116,12 @@ describe("upgradeIconV1()", () => {
       expect(
         transformIcons(
           inputAst,
-          new Map([
-            ["@kaizen/components", new Map([["SpinnerIcon", "SpinnerIcon"]])],
-          ])
-        )
+          new Map([['@kaizen/components', new Map([['SpinnerIcon', 'SpinnerIcon']])]]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
-    it("updates import from SpinnerIcon using alias to LoadingSpinner", () => {
+    it('updates import from SpinnerIcon using alias to LoadingSpinner', () => {
       const inputAst = parseJsx(`
         import { SpinnerIcon as LogoAlias } from "@kaizen/components"
         export const TestComponent = () => <LogoAlias />
@@ -148,14 +133,12 @@ describe("upgradeIconV1()", () => {
       expect(
         transformIcons(
           inputAst,
-          new Map([
-            ["@kaizen/components", new Map([["LogoAlias", "SpinnerIcon"]])],
-          ])
-        )
+          new Map([['@kaizen/components', new Map([['LogoAlias', 'SpinnerIcon']])]]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
-    it("does not add another LoadingSpinner import if it is already imported", () => {
+    it('does not add another LoadingSpinner import if it is already imported', () => {
       const inputAst = parseJsx(`
         import { LoadingSpinner, SpinnerIcon } from "@kaizen/components"
         export const TestComponent = () => <SpinnerIcon />
@@ -169,18 +152,18 @@ describe("upgradeIconV1()", () => {
           inputAst,
           new Map([
             [
-              "@kaizen/components",
+              '@kaizen/components',
               new Map([
-                ["LoadingSpinner", "LoadingSpinner"],
-                ["SpinnerIcon", "SpinnerIcon"],
+                ['LoadingSpinner', 'LoadingSpinner'],
+                ['SpinnerIcon', 'SpinnerIcon'],
               ]),
             ],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
-    it("uses LoadingSpinner alias for an existing import", () => {
+    it('uses LoadingSpinner alias for an existing import', () => {
       const inputAst = parseJsx(`
         import { LoadingSpinner as KzLoadingSpinner, SpinnerIcon } from "@kaizen/components"
         export const TestComponent = () => <SpinnerIcon />
@@ -194,19 +177,19 @@ describe("upgradeIconV1()", () => {
           inputAst,
           new Map([
             [
-              "@kaizen/components",
+              '@kaizen/components',
               new Map([
-                ["KzLoadingSpinner", "LoadingSpinner"],
-                ["SpinnerIcon", "SpinnerIcon"],
+                ['KzLoadingSpinner', 'LoadingSpinner'],
+                ['SpinnerIcon', 'SpinnerIcon'],
               ]),
             ],
-          ])
-        )
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
   })
 
-  it("transforms old Icon", () => {
+  it('transforms old Icon', () => {
     const inputAst = parseJsx(`
       import { FlagOnIcon } from "@kaizen/components"
       export const TestComponent = () => <FlagOnIcon />
@@ -218,14 +201,12 @@ describe("upgradeIconV1()", () => {
     expect(
       transformIcons(
         inputAst,
-        new Map([
-          ["@kaizen/components", new Map([["FlagOnIcon", "FlagOnIcon"]])],
-        ])
-      )
+        new Map([['@kaizen/components', new Map([['FlagOnIcon', 'FlagOnIcon']])]]),
+      ),
     ).toEqual(printAst(outputAst))
   })
 
-  it("transforms aliased old Icon", () => {
+  it('transforms aliased old Icon', () => {
     const inputAst = parseJsx(`
       import { HamburgerIcon as IconAlias } from "@kaizen/components"
       export const TestComponent = () => <IconAlias />
@@ -237,15 +218,13 @@ describe("upgradeIconV1()", () => {
     expect(
       transformIcons(
         inputAst,
-        new Map([
-          ["@kaizen/components", new Map([["IconAlias", "HamburgerIcon"]])],
-        ])
-      )
+        new Map([['@kaizen/components', new Map([['IconAlias', 'HamburgerIcon']])]]),
+      ),
     ).toEqual(printAst(outputAst))
   })
 
-  describe("import statements", () => {
-    it("does not update import of components which are not Icons", () => {
+  describe('import statements', () => {
+    it('does not update import of components which are not Icons', () => {
       const inputAst = parseJsx(`
         import { AddIcon, Card } from "@kaizen/components"
         export const TestComponent = () => <Card><AddIcon /></Card>
@@ -258,12 +237,12 @@ describe("upgradeIconV1()", () => {
       expect(
         transformIcons(
           inputAst,
-          new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
-        )
+          new Map([['@kaizen/components', new Map([['AddIcon', 'AddIcon']])]]),
+        ),
       ).toEqual(printAst(outputAst))
     })
 
-    it("does not update import of components which are not from KAIO", () => {
+    it('does not update import of components which are not from KAIO', () => {
       const inputAst = parseJsx(`
         import { AddIcon, HamburgerIcon as IconAlias } from "@kaizen/components"
         import { HamburgerIcon as HamHam } from "somewhere-else"
@@ -291,15 +270,15 @@ describe("upgradeIconV1()", () => {
           inputAst,
           new Map([
             [
-              "@kaizen/components",
+              '@kaizen/components',
               new Map([
-                ["AddIcon", "AddIcon"],
-                ["IconAlias", "HamburgerIcon"],
+                ['AddIcon', 'AddIcon'],
+                ['IconAlias', 'HamburgerIcon'],
               ]),
             ],
-            ["somewhere-else", new Map([["HamHam", "HamburgerIcon"]])],
-          ])
-        )
+            ['somewhere-else', new Map([['HamHam', 'HamburgerIcon']])],
+          ]),
+        ),
       ).toEqual(printAst(outputAst))
     })
   })

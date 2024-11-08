@@ -1,16 +1,10 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import {
-  InlineNotificationProps,
-  InlineNotification,
-} from "../InlineNotification"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { InlineNotificationProps, InlineNotification } from '../InlineNotification'
 
 export default {
-  title: "Components/Notifications/InlineNotification",
+  title: 'Components/Notifications/InlineNotification',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -24,173 +18,172 @@ export default {
 const DEFAULT_PROPS = {
   children: (
     <span>
-      New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
+      New user data, imported by mackenzie@hooli.com has successfully uploaded.{' '}
       <a href="/">Manage users is now available</a>
     </span>
   ),
 } satisfies Partial<InlineNotificationProps>
 
-const VARIANTS_PROPS: Array<{
+const VARIANTS_PROPS: {
   title: string
   props: InlineNotificationProps
-}> = [
+}[] = [
   {
-    title: "Informative",
+    title: 'Informative',
     props: {
-      variant: "informative",
+      variant: 'informative',
       headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Informative title",
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Informative title',
       },
     },
   },
   {
-    title: "Success",
+    title: 'Success',
     props: {
-      variant: "success",
+      variant: 'success',
       headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Success title",
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Success title',
       },
     },
   },
   {
-    title: "Cautionary",
+    title: 'Cautionary',
     props: {
-      variant: "cautionary",
+      variant: 'cautionary',
       headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Cautionary title",
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Cautionary title',
       },
     },
   },
   {
-    title: "Warning",
+    title: 'Warning',
     props: {
-      variant: "warning",
+      variant: 'warning',
       headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Warning title",
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Warning title',
       },
     },
   },
   {
-    title: "Persistent",
+    title: 'Persistent',
     props: {
-      variant: "informative",
+      variant: 'informative',
       persistent: true,
       headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Persistent title",
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Persistent title',
       },
     },
   },
   {
-    title: "Subtle",
+    title: 'Subtle',
     props: {
-      variant: "informative",
+      variant: 'informative',
       isSubtle: true,
       persistent: true,
       headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Subtle title",
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Subtle title',
       },
-      children: "All notification types can have a subtle variant",
+      children: 'All notification types can have a subtle variant',
     },
   },
   {
-    title: "Multiline",
+    title: 'Multiline',
     props: {
       children:
-        "Content longer that the width of the container will break onto a new line. Lorem ipsum dolor, sit amet consectetur adipisicing elit. In aperiam voluptatem molestias saepe quia vitae quod ex illum, unde nihil impedit possimus officia labore atque quidem necessitatibus sint, maiores velit.",
-      variant: "success",
+        'Content longer that the width of the container will break onto a new line. Lorem ipsum dolor, sit amet consectetur adipisicing elit. In aperiam voluptatem molestias saepe quia vitae quod ex illum, unde nihil impedit possimus officia labore atque quidem necessitatibus sint, maiores velit.',
+      variant: 'success',
       headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Content enforced multiline",
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Content enforced multiline',
       },
     },
   },
   {
-    title: "Forced multiline",
+    title: 'Forced multiline',
     props: {
-      children:
-        "forceMultiline will break children onto a new line regardless of width",
-      variant: "cautionary",
+      children: 'forceMultiline will break children onto a new line regardless of width',
+      variant: 'cautionary',
       headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Prop enforced multiline",
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Prop enforced multiline',
       },
       forceMultiline: true,
     },
   },
   {
-    title: "Focus",
+    title: 'Focus',
     props: {
       // @ts-ignore
-      "data-sb-pseudo-styles": "focus",
-      variant: "informative",
-      headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Focused title",
+      'data-sb-pseudo-styles': 'focus',
+      'variant': 'informative',
+      'headingProps': {
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Focused title',
       },
     },
   },
 ]
 
-const TYPE_PROPS: Array<{
+const TYPE_PROPS: {
   title: string
   props: InlineNotificationProps
-}> = [
+}[] = [
   {
-    title: "Informative",
+    title: 'Informative',
     props: {
-      type: "informative",
+      type: 'informative',
       headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Informative title",
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Informative title',
       },
     },
   },
   {
-    title: "Positive",
+    title: 'Positive',
     props: {
-      type: "positive",
+      type: 'positive',
       headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Positive title",
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Positive title',
       },
     },
   },
   {
-    title: "Cautionary",
+    title: 'Cautionary',
     props: {
-      type: "cautionary",
+      type: 'cautionary',
       headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Cautionary title",
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Cautionary title',
       },
     },
   },
   {
-    title: "Negative",
+    title: 'Negative',
     props: {
-      type: "negative",
+      type: 'negative',
       headingProps: {
-        variant: "heading-6",
-        tag: "span",
-        children: "Negative title",
+        variant: 'heading-6',
+        tag: 'span',
+        children: 'Negative title',
       },
     },
   },
@@ -228,11 +221,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

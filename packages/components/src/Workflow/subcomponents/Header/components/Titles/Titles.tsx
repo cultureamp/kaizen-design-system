@@ -1,8 +1,8 @@
-import React, { HTMLAttributes, ReactNode } from "react"
-import { Heading } from "~components/Heading"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Titles.module.css"
+import React, { HTMLAttributes, ReactNode } from 'react'
+import { Heading } from '~components/Heading'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Titles.module.css'
 
 export type WorkflowTitlesProps = {
   workflowName: string
@@ -41,4 +41,4 @@ export const Titles = ({
   </div>
 )
 
-Titles.displayName = "Workflow.Titles"
+Titles.displayName = 'Workflow.Titles'

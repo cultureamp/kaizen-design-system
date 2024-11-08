@@ -1,1 +1,1 @@
-export * from "./FooterActions"
+export * from './FooterActions'

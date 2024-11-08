@@ -1,14 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react"
-import classnames from "classnames"
-import { FocusOn } from "react-focus-on"
-import {
-  MenuItem,
-  MenuList,
-  MenuHeading,
-  ButtonProps,
-} from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
-import { TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID } from "../constants"
+import React, { useCallback, useEffect, useState } from 'react'
+import classnames from 'classnames'
+import { FocusOn } from 'react-focus-on'
+import { MenuItem, MenuList, MenuHeading, ButtonProps } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
+import { TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID } from '../constants'
 import {
   DefaultActionProps,
   PrimaryActionProps,
@@ -16,45 +11,38 @@ import {
   TitleBlockButtonProps,
   TitleBlockMenuGroup,
   TitleBlockMenuItemProps,
-} from "../types"
-import {
-  convertSecondaryActionsToMenuItems,
-  isMenuGroupNotButton,
-} from "../utils"
-import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
+} from '../types'
+import { convertSecondaryActionsToMenuItems, isMenuGroupNotButton } from '../utils'
+import { TitleBlockMenuItem } from './TitleBlockMenuItem'
 
-import styles from "./MobileActions.module.scss"
+import styles from './MobileActions.module.scss'
 
-const menuItemIsLink: (item: TitleBlockMenuItemProps) => boolean = item =>
-  "href" in item
+const menuItemIsLink: (item: TitleBlockMenuItemProps) => boolean = (item) => 'href' in item
 
-const defaultActionIsLink: (action: DefaultActionProps) => boolean = action =>
-  "href" in action
+const defaultActionIsLink: (action: DefaultActionProps) => boolean = (action) => 'href' in action
 
-const defaultActionIsButton: (action: DefaultActionProps) => boolean = action =>
-  (!("href" in action) && "onClick" in action) || "component" in action
+const defaultActionIsButton: (action: DefaultActionProps) => boolean = (action) =>
+  (!('href' in action) && 'onClick' in action) || 'component' in action
 
 const filterActions = (
   menuItems: TitleBlockMenuItemProps[],
-  filterType: "link" | "action"
+  filterType: 'link' | 'action',
 ): TitleBlockMenuItemProps[] =>
-  menuItems.filter(item =>
-    filterType === "link" ? menuItemIsLink(item) : !menuItemIsLink(item)
-  )
+  menuItems.filter((item) => (filterType === 'link' ? menuItemIsLink(item) : !menuItemIsLink(item)))
 
 /** Returns a filtered array of TitleBlockMenuItem based on actionType
  * This is use to sort a selectively render the action into a specifc order
  */
 const renderPrimaryActionDrawerContent = (
   primaryAction: PrimaryActionProps,
-  actionType: "link" | "action"
+  actionType: 'link' | 'action',
 ): JSX.Element[] | null => {
   if (!primaryAction) return null
 
   if (isMenuGroupNotButton(primaryAction)) {
     const filteredActions = filterActions(primaryAction.menuItems, actionType)
     return filteredActions.map((item, idx) => {
-      const itemType = menuItemIsLink(item) ? "link" : "action"
+      const itemType = menuItemIsLink(item) ? 'link' : 'action'
 
       return (
         <TitleBlockMenuItem
@@ -70,11 +58,9 @@ const renderPrimaryActionDrawerContent = (
   return null
 }
 
-const renderDefaultLink = (
-  defaultAction: DefaultActionProps
-): JSX.Element | undefined => {
+const renderDefaultLink = (defaultAction: DefaultActionProps): JSX.Element | undefined => {
   if (!defaultActionIsLink(defaultAction)) return
-  if ("component" in defaultAction) {
+  if ('component' in defaultAction) {
     return (
       <TitleBlockMenuItem
         {...defaultAction}
@@ -98,9 +84,7 @@ const renderDefaultLink = (
   )
 }
 
-const renderDefaultAction = (
-  defaultAction: DefaultActionProps
-): JSX.Element | null => {
+const renderDefaultAction = (defaultAction: DefaultActionProps): JSX.Element | null => {
   if (!defaultActionIsLink(defaultAction)) {
     return (
       <TitleBlockMenuItem
@@ -116,7 +100,7 @@ const renderDefaultAction = (
 }
 
 const renderSecondaryActions = (
-  secondaryActions: SecondaryActionsProps | undefined
+  secondaryActions: SecondaryActionsProps | undefined,
 ): JSX.Element[] | null => {
   if (!secondaryActions) return null
   const secondaryActionMenuItems: TitleBlockMenuItemProps[] =
@@ -132,7 +116,7 @@ const renderSecondaryActions = (
 }
 
 const renderSecondaryOverflowMenuItems = (
-  secondaryOverflowMenuItems: TitleBlockMenuItemProps[]
+  secondaryOverflowMenuItems: TitleBlockMenuItemProps[],
 ): JSX.Element[] =>
   secondaryOverflowMenuItems.map((item, idx) => (
     <TitleBlockMenuItem
@@ -163,18 +147,12 @@ const DrawerMenuContent = ({
   return (
     <>
       <MenuList>
-        {primaryAction &&
-          renderPrimaryActionDrawerContent(primaryAction, "link")}
+        {primaryAction && renderPrimaryActionDrawerContent(primaryAction, 'link')}
         {defaultAction && renderDefaultLink(defaultAction)}
-        {primaryAction &&
-          renderPrimaryActionDrawerContent(primaryAction, "action")}
+        {primaryAction && renderPrimaryActionDrawerContent(primaryAction, 'action')}
       </MenuList>
       {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
-        <MenuList
-          heading={
-            showOtherActionsHeading && <MenuHeading>Other actions</MenuHeading>
-          }
-        >
+        <MenuList heading={showOtherActionsHeading && <MenuHeading>Other actions</MenuHeading>}>
           {defaultAction && renderDefaultAction(defaultAction)}
           {secondaryActions && renderSecondaryActions(secondaryActions)}
           {secondaryOverflowMenuItems &&
@@ -188,15 +166,12 @@ const DrawerMenuContent = ({
 const renderDrawerHandleLabel = (
   label: string,
   icon?: JSX.Element,
-  drawerHandleLabelIconPosition?: ButtonProps["iconPosition"]
+  drawerHandleLabelIconPosition?: ButtonProps['iconPosition'],
 ): JSX.Element => {
-  if (drawerHandleLabelIconPosition === "end") {
+  if (drawerHandleLabelIconPosition === 'end') {
     return (
       <>
-        <span
-          className={styles.drawerHandleLabelText}
-          data-testid="drawer-handle-lable-text"
-        >
+        <span className={styles.drawerHandleLabelText} data-testid="drawer-handle-lable-text">
           {label}
         </span>
         <>{icon && <span className={styles.drawerHandleIcon}>{icon}</span>}</>
@@ -206,10 +181,7 @@ const renderDrawerHandleLabel = (
     return (
       <>
         <>{icon && <span className={styles.drawerHandleIcon}>{icon}</span>}</>
-        <span
-          className={styles.drawerHandleLabelText}
-          data-testid="drawer-handle-lable-text"
-        >
+        <span className={styles.drawerHandleLabelText} data-testid="drawer-handle-lable-text">
           {label}
         </span>
       </>
@@ -217,55 +189,46 @@ const renderDrawerHandleLabel = (
   }
 }
 
-type HrefAndOnClick = Pick<TitleBlockButtonProps, "href" | "onClick">
+type HrefAndOnClick = Pick<TitleBlockButtonProps, 'href' | 'onClick'>
 type ButtonOrLinkActionProps =
   | HrefAndOnClick
-  | TitleBlockButtonProps["href"]
-  | TitleBlockButtonProps["onClick"]
+  | TitleBlockButtonProps['href']
+  | TitleBlockButtonProps['onClick']
 type ButtonOrLinkProps = {
   action?: ButtonOrLinkActionProps
   children: React.ReactNode
 }
 
 const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
-  if (typeof action === "object" && "onClick" in action && "href" in action) {
+  if (typeof action === 'object' && 'onClick' in action && 'href' in action) {
     return (
       <a
         onClick={action.onClick}
         href={action.href}
-        className={classnames(
-          styles.mobileActionsPrimaryLabel,
-          styles.mobileActionsPrimaryButton
-        )}
+        className={classnames(styles.mobileActionsPrimaryLabel, styles.mobileActionsPrimaryButton)}
         data-testid="title-block-mobile-actions-primary-button"
       >
         {children}
       </a>
     )
   }
-  if (typeof action === "function") {
+  if (typeof action === 'function') {
     return (
       <button
         type="button"
         onClick={action}
-        className={classnames(
-          styles.mobileActionsPrimaryLabel,
-          styles.mobileActionsPrimaryButton
-        )}
+        className={classnames(styles.mobileActionsPrimaryLabel, styles.mobileActionsPrimaryButton)}
         data-testid="title-block-mobile-actions-primary-button"
       >
         {children}
       </button>
     )
   }
-  if (typeof action === "string") {
+  if (typeof action === 'string') {
     return (
       <a
         href={action}
-        className={classnames(
-          styles.mobileActionsPrimaryLabel,
-          styles.mobileActionsPrimaryButton
-        )}
+        className={classnames(styles.mobileActionsPrimaryLabel, styles.mobileActionsPrimaryButton)}
         data-testid="title-block-mobile-actions-primary-button"
       >
         {children}
@@ -277,10 +240,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
   return (
     <button
       type="button"
-      className={classnames(
-        styles.mobileActionsPrimaryLabel,
-        styles.mobileActionsPrimaryButton
-      )}
+      className={classnames(styles.mobileActionsPrimaryLabel, styles.mobileActionsPrimaryButton)}
       data-testid="title-block-mobile-actions-primary-button"
     >
       {children}
@@ -288,9 +248,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
   )
 }
 
-const getAction = (
-  primaryAction: TitleBlockButtonProps
-): ButtonOrLinkActionProps => {
+const getAction = (primaryAction: TitleBlockButtonProps): ButtonOrLinkActionProps => {
   if (primaryAction && !primaryAction.disabled) {
     if (primaryAction.onClick && primaryAction.href) {
       return {
@@ -314,7 +272,7 @@ type DrawerHandleProps = {
   secondaryActions: SecondaryActionsProps | undefined
   defaultAction?: DefaultActionProps | TitleBlockMenuGroup
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
-  drawerHandleLabelIconPosition?: ButtonProps["iconPosition"]
+  drawerHandleLabelIconPosition?: ButtonProps['iconPosition']
   toggleDisplay: () => void
   isOpen: boolean
 }
@@ -328,34 +286,27 @@ const DrawerHandle = ({
   toggleDisplay,
   isOpen,
 }: DrawerHandleProps): JSX.Element | null => {
-  const showDrawer =
-    defaultAction || secondaryActions || secondaryOverflowMenuItems
+  const showDrawer = defaultAction || secondaryActions || secondaryOverflowMenuItems
   if (primaryAction) {
     // If the primary action is a menu
     if (isMenuGroupNotButton(primaryAction)) {
       return (
         <div
-          className={classnames(
-            styles.mobileActionsTopRow,
-            styles.mobileActionsTopRowSingleButton
-          )}
+          className={classnames(styles.mobileActionsTopRow, styles.mobileActionsTopRowSingleButton)}
           data-testid="title-block-mobile-actions-drawer-handle"
         >
           <button
             type="button"
             className={classnames(
               styles.mobileActionsExpandButton,
-              styles.mobileActionsPrimaryLabel
+              styles.mobileActionsPrimaryLabel,
             )}
             onClick={toggleDisplay}
             aria-expanded={isOpen}
           >
             {primaryAction.label}
             <span className={styles.mobileActionsChevronSquare}>
-              <Icon
-                name={isOpen ? "keyboard_arrow_down" : "keyboard_arrow_up"}
-                isPresentational
-              />
+              <Icon name={isOpen ? 'keyboard_arrow_down' : 'keyboard_arrow_up'} isPresentational />
             </span>
           </button>
         </div>
@@ -367,15 +318,15 @@ const DrawerHandle = ({
       <div
         className={classnames(
           styles.mobileActionsTopRow,
-          !showDrawer && styles.mobileActionsTopRowSingleButton
+          !showDrawer && styles.mobileActionsTopRowSingleButton,
         )}
         data-testid="title-block-mobile-actions-drawer-handle"
       >
-        {"component" in primaryAction ? (
+        {'component' in primaryAction ? (
           <primaryAction.component
             className={classnames(
               styles.mobileActionsPrimaryLabel,
-              styles.mobileActionsPrimaryButton
+              styles.mobileActionsPrimaryButton,
             )}
             {...primaryAction}
           >
@@ -383,7 +334,7 @@ const DrawerHandle = ({
               renderDrawerHandleLabel(
                 primaryAction.label,
                 primaryAction.icon,
-                drawerHandleLabelIconPosition
+                drawerHandleLabelIconPosition,
               )}
           </primaryAction.component>
         ) : (
@@ -391,7 +342,7 @@ const DrawerHandle = ({
             {renderDrawerHandleLabel(
               primaryAction.label,
               primaryAction.icon,
-              drawerHandleLabelIconPosition
+              drawerHandleLabelIconPosition,
             )}
           </ButtonOrLink>
         )}
@@ -406,10 +357,7 @@ const DrawerHandle = ({
             id={TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID}
             aria-label="Other actions"
           >
-            <Icon
-              name={isOpen ? "keyboard_arrow_down" : "keyboard_arrow_up"}
-              isPresentational
-            />
+            <Icon name={isOpen ? 'keyboard_arrow_down' : 'keyboard_arrow_up'} isPresentational />
           </button>
         )}
       </div>
@@ -420,28 +368,19 @@ const DrawerHandle = ({
   if (showDrawer) {
     return (
       <div
-        className={classnames(
-          styles.mobileActionsTopRow,
-          styles.mobileActionsTopRowSingleButton
-        )}
+        className={classnames(styles.mobileActionsTopRow, styles.mobileActionsTopRowSingleButton)}
         data-testid="title-block-mobile-actions-drawer-handle"
       >
         <button
           type="button"
-          className={classnames(
-            styles.mobileActionsExpandButton,
-            styles.mobileActionsPrimaryLabel
-          )}
+          className={classnames(styles.mobileActionsExpandButton, styles.mobileActionsPrimaryLabel)}
           onClick={toggleDisplay}
           aria-expanded={isOpen}
           id={TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID}
         >
-          {renderDrawerHandleLabel("Other actions")}
+          {renderDrawerHandleLabel('Other actions')}
           <span className={styles.mobileActionsChevronSquare}>
-            <Icon
-              name={isOpen ? "keyboard_arrow_down" : "keyboard_arrow_up"}
-              isPresentational
-            />
+            <Icon name={isOpen ? 'keyboard_arrow_down' : 'keyboard_arrow_up'} isPresentational />
           </span>
         </button>
       </div>
@@ -455,7 +394,7 @@ export type MobileActionsProps = {
   defaultAction?: DefaultActionProps
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
-  drawerHandleLabelIconPosition?: ButtonProps["iconPosition"]
+  drawerHandleLabelIconPosition?: ButtonProps['iconPosition']
   autoHide?: boolean
 }
 
@@ -476,40 +415,27 @@ export const MobileActions = ({
   // This callback handler will not run when autoHide === "off"
   const handleDocumentClickForAutoHide = useCallback(
     (e: MouseEvent) => {
-      if (
-        isOpen &&
-        e.target instanceof Node &&
-        menuContent.current?.contains(e.target)
-      ) {
+      if (isOpen && e.target instanceof Node && menuContent.current?.contains(e.target)) {
         setIsOpen(false)
       }
     },
-    [menuContent]
+    [menuContent],
   )
 
   useEffect(() => {
     if (autoHide) {
-      document.addEventListener("click", handleDocumentClickForAutoHide, true)
+      document.addEventListener('click', handleDocumentClickForAutoHide, true)
     }
 
     return () => {
       if (autoHide) {
-        document.removeEventListener(
-          "click",
-          handleDocumentClickForAutoHide,
-          true
-        )
+        document.removeEventListener('click', handleDocumentClickForAutoHide, true)
       }
     }
   }, [autoHide, handleDocumentClickForAutoHide])
 
   return (
-    <div
-      className={classnames(
-        styles.mobileActionsContainer,
-        isOpen && styles.isOpen
-      )}
-    >
+    <div className={classnames(styles.mobileActionsContainer, isOpen && styles.isOpen)}>
       <FocusOn enabled={isOpen} scrollLock={false}>
         <DrawerHandle
           primaryAction={primaryAction}
@@ -538,4 +464,4 @@ export const MobileActions = ({
   )
 }
 
-MobileActions.displayName = "MobileActions"
+MobileActions.displayName = 'MobileActions'

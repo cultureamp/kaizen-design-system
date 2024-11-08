@@ -1,23 +1,20 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import isChromatic from "chromatic"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Select } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import isChromatic from 'chromatic'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Select } from '../index'
 import {
   groupedMockItems,
   mixedMockItemsDisabled,
   mixedMockItemsUngroupedFirst,
   mixedMockItemsUnordered,
   singleMockItems,
-} from "./mockData"
+} from './mockData'
 
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: "Components/Select/Future",
+  title: 'Components/Select/Future',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -28,17 +25,13 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
       <StickerSheet isReversed={isReversed} heading="Select">
-        <StickerSheet.Header headings={["Base", "Selected", "Description"]} />
+        <StickerSheet.Header headings={['Base', 'Selected', 'Description']} />
         <StickerSheet.Body>
           <StickerSheet.Row>
-            <StickerSheet.Cell style={{ verticalAlign: "top" }}>
-              <Select
-                label="Label"
-                items={singleMockItems}
-                isReversed={isReversed}
-              />
+            <StickerSheet.Cell style={{ verticalAlign: 'top' }}>
+              <Select label="Label" items={singleMockItems} isReversed={isReversed} />
             </StickerSheet.Cell>
-            <StickerSheet.Cell style={{ verticalAlign: "top" }}>
+            <StickerSheet.Cell style={{ verticalAlign: 'top' }}>
               <Select
                 label="Label"
                 items={singleMockItems}
@@ -46,7 +39,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 isReversed={isReversed}
               />
             </StickerSheet.Cell>
-            <StickerSheet.Cell style={{ verticalAlign: "top" }}>
+            <StickerSheet.Cell style={{ verticalAlign: 'top' }}>
               <Select
                 label="Label"
                 items={singleMockItems}
@@ -60,9 +53,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
 
       <StickerSheet isReversed={isReversed} heading="Pseudo states">
-        <StickerSheet.Header
-          headings={["Hover", "Active", "Focus", "Disabled"]}
-        />
+        <StickerSheet.Header headings={['Hover', 'Active', 'Focus', 'Disabled']} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <Select
@@ -83,12 +74,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               isReversed={isReversed}
               data-sb-pseudo-styles="focus"
             />
-            <Select
-              label="Label"
-              items={singleMockItems}
-              isDisabled
-              isReversed={isReversed}
-            />
+            <Select label="Label" items={singleMockItems} isDisabled isReversed={isReversed} />
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
@@ -104,7 +90,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             />
           </StickerSheet.Row>
           <StickerSheet.Row>
-            <div style={{ width: "50%" }}>
+            <div style={{ width: '50%' }}>
               <Select
                 label="Custom Width (50%)"
                 items={singleMockItems}
@@ -145,16 +131,16 @@ const StickerSheetTemplate: StickerSheetStory = {
             <Select
               label="Label"
               items={[
-                { label: "Dev-ops", value: "id-devops" },
-                { label: "Others", value: "id-others" },
+                { label: 'Dev-ops', value: 'id-devops' },
+                { label: 'Others', value: 'id-others' },
                 {
                   label:
-                    "Super long option where the container is fixed width and the selected option goes multiline",
-                  value: "id-long",
+                    'Super long option where the container is fixed width and the selected option goes multiline',
+                  value: 'id-long',
                 },
                 {
-                  label: "Metallblasinstrumentenbauermeisterbrief",
-                  value: "id-long-word",
+                  label: 'Metallblasinstrumentenbauermeisterbrief',
+                  value: 'id-long-word',
                 },
               ]}
               selectedKey="id-long"
@@ -176,25 +162,25 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }
 
@@ -203,28 +189,18 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
     <>
       <StickerSheet
         heading="Default options"
-        style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
+        style={{ paddingBottom: IS_CHROMATIC ? '26rem' : undefined }}
       >
-        <StickerSheet.Header
-          headings={["Single items", "Groups", "Existing value", "Disabled"]}
-        />
+        <StickerSheet.Header headings={['Single items', 'Groups', 'Existing value', 'Disabled']} />
         <StickerSheet.Body>
           <StickerSheet.Row>
-            <StickerSheet.Cell style={{ width: "250px" }}>
-              <Select
-                label="Label"
-                defaultOpen={IS_CHROMATIC}
-                items={singleMockItems}
-              />
+            <StickerSheet.Cell style={{ width: '250px' }}>
+              <Select label="Label" defaultOpen={IS_CHROMATIC} items={singleMockItems} />
             </StickerSheet.Cell>
-            <StickerSheet.Cell style={{ width: "250px" }}>
-              <Select
-                label="Label"
-                defaultOpen={IS_CHROMATIC}
-                items={groupedMockItems}
-              />
+            <StickerSheet.Cell style={{ width: '250px' }}>
+              <Select label="Label" defaultOpen={IS_CHROMATIC} items={groupedMockItems} />
             </StickerSheet.Cell>
-            <StickerSheet.Cell style={{ width: "250px" }}>
+            <StickerSheet.Cell style={{ width: '250px' }}>
               <Select
                 label="Label"
                 defaultOpen={IS_CHROMATIC}
@@ -232,12 +208,8 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                 selectedKey="mocha"
               />
             </StickerSheet.Cell>
-            <StickerSheet.Cell style={{ width: "250px" }}>
-              <Select
-                label="Label"
-                defaultOpen={IS_CHROMATIC}
-                items={mixedMockItemsDisabled}
-              />
+            <StickerSheet.Cell style={{ width: '250px' }}>
+              <Select label="Label" defaultOpen={IS_CHROMATIC} items={mixedMockItemsDisabled} />
             </StickerSheet.Cell>
           </StickerSheet.Row>
         </StickerSheet.Body>
@@ -245,27 +217,23 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
 
       <StickerSheet
         heading="Customised options"
-        style={{ paddingTop: IS_CHROMATIC ? "26rem" : undefined }}
+        style={{ paddingTop: IS_CHROMATIC ? '26rem' : undefined }}
       >
         <StickerSheet.Header
           headings={[
-            "All options",
-            "Partial customisation",
-            "Section dividers",
-            "Specific item divider",
+            'All options',
+            'Partial customisation',
+            'Section dividers',
+            'Specific item divider',
           ]}
         />
         <StickerSheet.Body>
           <StickerSheet.Row>
-            <StickerSheet.Cell style={{ width: "250px" }}>
-              <Select
-                label="Label"
-                defaultOpen={IS_CHROMATIC}
-                items={singleMockItems}
-              >
+            <StickerSheet.Cell style={{ width: '250px' }}>
+              <Select label="Label" defaultOpen={IS_CHROMATIC} items={singleMockItems}>
                 {({ items }): JSX.Element[] =>
-                  items.map(item => {
-                    if (item.type === "item") {
+                  items.map((item) => {
+                    if (item.type === 'item') {
                       return (
                         <Select.Option
                           key={item.key}
@@ -275,8 +243,8 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                               <div>
                                 <div
                                   style={{
-                                    fontSize: "0.75rem",
-                                    color: "gray",
+                                    fontSize: '0.75rem',
+                                    color: 'gray',
                                   }}
                                 >
                                   Customised in list!
@@ -289,23 +257,17 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                       )
                     }
 
-                    return (
-                      <Select.ItemDefaultRender key={item.key} item={item} />
-                    )
+                    return <Select.ItemDefaultRender key={item.key} item={item} />
                   })
                 }
               </Select>
             </StickerSheet.Cell>
 
-            <StickerSheet.Cell style={{ width: "250px" }}>
-              <Select
-                label="Label"
-                defaultOpen={IS_CHROMATIC}
-                items={mixedMockItemsUngroupedFirst}
-              >
+            <StickerSheet.Cell style={{ width: '250px' }}>
+              <Select label="Label" defaultOpen={IS_CHROMATIC} items={mixedMockItemsUngroupedFirst}>
                 {({ items }): JSX.Element[] =>
-                  items.map(item => {
-                    if (item.type === "item" && item.key === "batch-brew") {
+                  items.map((item) => {
+                    if (item.type === 'item' && item.key === 'batch-brew') {
                       return (
                         <Select.Option
                           key={item.key}
@@ -317,61 +279,50 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                       )
                     }
 
-                    if (item.type === "section" && item.key === "Syrup") {
+                    if (item.type === 'section' && item.key === 'Syrup') {
                       return (
                         <Select.Section
                           key={item.key}
                           section={{
                             ...item,
-                            childNodes: Array.from(item.childNodes).map(
-                              child => ({
-                                ...child,
-                                rendered: <div>-- {child.rendered}</div>,
-                              })
-                            ),
+                            childNodes: Array.from(item.childNodes).map((child) => ({
+                              ...child,
+                              rendered: <div>-- {child.rendered}</div>,
+                            })),
                           }}
                         />
                       )
                     }
 
-                    return (
-                      <Select.ItemDefaultRender key={item.key} item={item} />
-                    )
+                    return <Select.ItemDefaultRender key={item.key} item={item} />
                   })
                 }
               </Select>
             </StickerSheet.Cell>
 
-            <StickerSheet.Cell style={{ width: "250px" }}>
-              <Select
-                label="Label"
-                defaultOpen={IS_CHROMATIC}
-                items={mixedMockItemsUnordered}
-              >
+            <StickerSheet.Cell style={{ width: '250px' }}>
+              <Select label="Label" defaultOpen={IS_CHROMATIC} items={mixedMockItemsUnordered}>
                 {({ items }): JSX.Element[] =>
-                  items.map(item => (
+                  items.map((item) => (
                     <React.Fragment key={item.key}>
-                      {item.type === "section" && <Select.SectionDivider />}
+                      {item.type === 'section' && <Select.SectionDivider />}
                       <Select.ItemDefaultRender item={item} />
-                      {item.type === "section" && <Select.SectionDivider />}
+                      {item.type === 'section' && <Select.SectionDivider />}
                     </React.Fragment>
                   ))
                 }
               </Select>
             </StickerSheet.Cell>
 
-            <StickerSheet.Cell style={{ width: "250px" }}>
+            <StickerSheet.Cell style={{ width: '250px' }}>
               <Select
                 label="Label"
                 defaultOpen={IS_CHROMATIC}
-                items={[
-                  { label: "Customise...", value: "custom" },
-                  ...singleMockItems,
-                ]}
+                items={[{ label: 'Customise...', value: 'custom' }, ...singleMockItems]}
               >
                 {({ items }): JSX.Element[] =>
-                  items.map(item => {
-                    if (item.type === "item" && item.key === "custom") {
+                  items.map((item) => {
+                    if (item.type === 'item' && item.key === 'custom') {
                       return (
                         <React.Fragment key={item.key}>
                           <Select.Option item={item} />
@@ -380,9 +331,7 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                       )
                     }
 
-                    return (
-                      <Select.ItemDefaultRender key={item.key} item={item} />
-                    )
+                    return <Select.ItemDefaultRender key={item.key} item={item} />
                   })
                 }
               </Select>
@@ -391,18 +340,15 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
         </StickerSheet.Body>
       </StickerSheet>
 
-      <StickerSheet
-        heading="Min/Max"
-        style={{ paddingTop: IS_CHROMATIC ? "26rem" : undefined }}
-      >
-        <StickerSheet.Header headings={["Min size", "Max size"]} />
+      <StickerSheet heading="Min/Max" style={{ paddingTop: IS_CHROMATIC ? '26rem' : undefined }}>
+        <StickerSheet.Header headings={['Min size', 'Max size']} />
         <StickerSheet.Body>
           <StickerSheet.Row>
-            <StickerSheet.Cell style={{ width: "250px" }}>
+            <StickerSheet.Cell style={{ width: '250px' }}>
               <Select
                 label="Label"
                 defaultOpen={IS_CHROMATIC}
-                items={[{ value: "a", label: "A" }]}
+                items={[{ value: 'a', label: 'A' }]}
               />
             </StickerSheet.Cell>
             <StickerSheet.Cell>
@@ -411,14 +357,14 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                 defaultOpen={IS_CHROMATIC}
                 items={[
                   {
-                    value: "long-1",
+                    value: 'long-1',
                     label:
-                      "Super long option where the container is fixed width and the selected option goes multiline",
+                      'Super long option where the container is fixed width and the selected option goes multiline',
                   },
                   {
-                    value: "long-2",
+                    value: 'long-2',
                     label:
-                      "Another super long option where the container is fixed width and the selected option goes multiline",
+                      'Another super long option where the container is fixed width and the selected option goes multiline',
                   },
                   ...singleMockItems,
                 ]}
@@ -433,11 +379,11 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
 
 export const StickerSheetOptionsDefault: StickerSheetStory = {
   ...StickerSheetOptionsTemplate,
-  name: "Sticker Sheet - Options (Default)",
+  name: 'Sticker Sheet - Options (Default)',
 }
 
 export const StickerSheetOptionsRTL: StickerSheetStory = {
   ...StickerSheetOptionsTemplate,
-  name: "Sticker Sheet - Options (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet - Options (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

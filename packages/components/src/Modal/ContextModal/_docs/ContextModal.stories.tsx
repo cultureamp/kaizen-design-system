@@ -1,21 +1,21 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
-import isChromatic from "chromatic"
-import { AddImage } from "~components/Illustration"
-import { ModalAccessibleDescription } from "~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription"
-import { Text } from "~components/Text"
-import { chromaticModalSettings } from "../../_docs/controls"
-import { ContextModal } from "../index"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import isChromatic from 'chromatic'
+import { AddImage } from '~components/Illustration'
+import { ModalAccessibleDescription } from '~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription'
+import { Text } from '~components/Text'
+import { chromaticModalSettings } from '../../_docs/controls'
+import { ContextModal } from '../index'
 
 const IS_CHROMATIC = isChromatic()
 
 const meta = {
-  title: "Components/Modals/Context Modal",
+  title: 'Components/Modals/Context Modal',
   component: ContextModal,
   args: {
     isOpen: false,
-    title: "Context modal title",
+    title: 'Context modal title',
     children: undefined,
     onDismiss: fn(),
   },
@@ -33,7 +33,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const ContextModalTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
 
     const handleOpen = (): void => setIsOpen(true)
@@ -41,11 +41,7 @@ const ContextModalTemplate: Story = {
 
     return (
       <>
-        <button
-          type="button"
-          className="border border-gray-500"
-          onClick={handleOpen}
-        >
+        <button type="button" className="border border-gray-500" onClick={handleOpen}>
           Open Modal
         </button>
         <ContextModal
@@ -55,39 +51,31 @@ const ContextModalTemplate: Story = {
           onDismiss={handleClose}
           image={
             <AddImage
-              classNameOverride={
-                args.layout === "landscape" ? "!w-auto h-200" : undefined
-              }
+              classNameOverride={args.layout === 'landscape' ? '!w-auto h-200' : undefined}
               alt="placeholder"
             />
           }
         >
           <ModalAccessibleDescription>
             <Text variant="body">
-              Intro defining what the modal is trying to explain or depict.
-              Intro defining what the modal is trying to explain or depict.
+              Intro defining what the modal is trying to explain or depict. Intro defining what the
+              modal is trying to explain or depict.
             </Text>
           </ModalAccessibleDescription>
           <ul>
             <li>
-              <Text variant="body">
-                Key point to the benefits of the feature
-              </Text>
+              <Text variant="body">Key point to the benefits of the feature</Text>
             </li>
             <li>
-              <Text variant="body">
-                Key point to the benefits of the feature
-              </Text>
+              <Text variant="body">Key point to the benefits of the feature</Text>
             </li>
             <li>
-              <Text variant="body">
-                Key point to the benefits of the feature
-              </Text>
+              <Text variant="body">Key point to the benefits of the feature</Text>
             </li>
           </ul>
           <Text variant="body">
-            More information to conclude can go here. More information to
-            conclude can go here. More information to conclude can go here.
+            More information to conclude can go here. More information to conclude can go here. More
+            information to conclude can go here.
           </Text>
         </ContextModal>
       </>
@@ -100,7 +88,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -108,13 +96,13 @@ export const Playground: Story = {
 
 export const Portrait: Story = {
   ...ContextModalTemplate,
-  args: { layout: "portrait" },
+  args: { layout: 'portrait' },
   ...chromaticModalSettings,
 }
 
 export const Landscape: Story = {
   ...ContextModalTemplate,
-  args: { layout: "landscape" },
+  args: { layout: 'landscape' },
   ...chromaticModalSettings,
 }
 

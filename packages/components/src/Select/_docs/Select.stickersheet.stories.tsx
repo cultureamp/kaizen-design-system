@@ -1,13 +1,10 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Select } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Select } from '../index'
 
 export default {
-  title: "Components/Select",
+  title: 'Components/Select',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -16,7 +13,7 @@ export default {
         rules: [
           {
             // React-select's list structure missing when there are no options (third-party a11y issue)
-            id: "aria-required-children",
+            id: 'aria-required-children',
             enabled: false,
           },
         ],
@@ -26,19 +23,19 @@ export default {
 } satisfies Meta
 
 const OPTIONS = [
-  { value: "Mindy", label: "Mindy" },
-  { value: "Jaime", label: "Jaime", isDisabled: true },
-  { value: "Rafa", label: "Rafa" },
-  { value: "Elaine", label: "Elaine" },
-  { value: "Julio", label: "Julio" },
-  { value: "Priyanka", label: "Priyanka" },
-  { value: "Prince", label: "Prince" },
-  { value: "Charith", label: "Charith" },
-  { value: "Nick", label: "Nick" },
+  { value: 'Mindy', label: 'Mindy' },
+  { value: 'Jaime', label: 'Jaime', isDisabled: true },
+  { value: 'Rafa', label: 'Rafa' },
+  { value: 'Elaine', label: 'Elaine' },
+  { value: 'Julio', label: 'Julio' },
+  { value: 'Priyanka', label: 'Priyanka' },
+  { value: 'Prince', label: 'Prince' },
+  { value: 'Charith', label: 'Charith' },
+  { value: 'Nick', label: 'Nick' },
   {
-    value: "Long option",
+    value: 'Long option',
     label:
-      "Long option where the container is fixed width and the selected option should ellipsize",
+      'Long option where the container is fixed width and the selected option should ellipsize',
   },
 ]
 
@@ -46,10 +43,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
       <StickerSheet isReversed={isReversed} heading="Default Select">
-        <StickerSheet.Header
-          headings={["Base", "Clearable", "Disabled"]}
-          hasVerticalHeadings
-        />
+        <StickerSheet.Header headings={['Base', 'Clearable', 'Disabled']} hasVerticalHeadings />
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
             <Select options={OPTIONS} reversed={isReversed} label="Select" />
@@ -60,12 +54,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               isClearable
               label="Select"
             />
-            <Select
-              options={OPTIONS}
-              reversed={isReversed}
-              label="Select"
-              isDisabled
-            />
+            <Select options={OPTIONS} reversed={isReversed} label="Select" isDisabled />
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Ellipsis">
             <Select
@@ -92,7 +81,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Body>
       </StickerSheet>
       <StickerSheet isReversed={isReversed} heading="Multi Select">
-        <StickerSheet.Header headings={["Base", "Disabled"]} />
+        <StickerSheet.Header headings={['Base', 'Disabled']} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <Select
@@ -114,10 +103,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Body>
       </StickerSheet>
       <StickerSheet isReversed={isReversed} heading="Secondary">
-        <StickerSheet.Header
-          headings={["Base", "Disabled"]}
-          hasVerticalHeadings
-        />
+        <StickerSheet.Header headings={['Base', 'Disabled']} hasVerticalHeadings />
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
             <Select
@@ -156,7 +142,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Body>
       </StickerSheet>
       <StickerSheet isReversed={isReversed} heading="Menu">
-        <StickerSheet.Header headings={["Base", "Disabled"]} />
+        <StickerSheet.Header headings={['Base', 'Disabled']} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <Select
@@ -182,14 +168,14 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }

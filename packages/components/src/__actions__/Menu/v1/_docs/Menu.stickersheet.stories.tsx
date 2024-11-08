@@ -1,16 +1,13 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { Button } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Menu } from "../index"
-import { MenuContentExample } from "./MenuContentExample"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { Button } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Menu } from '../index'
+import { MenuContentExample } from './MenuContentExample'
 
 export default {
-  title: "Actions/Menu/v1",
+  title: 'Actions/Menu/v1',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -19,8 +16,8 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed} style={{ margin: "0 auto" }}>
-      <StickerSheet.Header headings={["Long list", "Short List"]} />
+    <StickerSheet isReversed={isReversed} style={{ margin: '0 auto' }}>
+      <StickerSheet.Header headings={['Long list', 'Short List']} />
       <StickerSheet.Body>
         <StickerSheet.Row>
           <StickerSheet.Cell width={250}>
@@ -58,8 +55,8 @@ const StickerSheetTemplate: StickerSheetStory = {
     </StickerSheet>
   ),
   decorators: [
-    Story => (
-      <div style={{ minHeight: "500px" }}>
+    (Story) => (
+      <div style={{ minHeight: '500px' }}>
         <Story />
       </div>
     ),
@@ -68,13 +65,13 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

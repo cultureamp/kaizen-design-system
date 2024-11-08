@@ -1,1 +1,1 @@
-export * from "./NotificationHeading"
+export * from './NotificationHeading'

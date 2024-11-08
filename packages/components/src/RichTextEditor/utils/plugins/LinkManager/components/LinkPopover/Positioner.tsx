@@ -1,7 +1,7 @@
-import React, { forwardRef, useEffect, useRef, useState } from "react"
-import { createPortal } from "react-dom"
-import debounce from "lodash.debounce"
-import { SelectionPosition } from "../../types"
+import React, { forwardRef, useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
+import debounce from 'lodash.debounce'
+import { SelectionPosition } from '../../types'
 
 export const Positioner = forwardRef<HTMLElement, SelectionPosition>(
   ({ top, left, height, width }, ref) => {
@@ -13,15 +13,13 @@ export const Positioner = forwardRef<HTMLElement, SelectionPosition>(
       setPortalContainer(document.body)
     }, [])
 
-    const onResize = useRef(
-      debounce(() => setWindowScroll([window.scrollX, window.scrollY]), 15)
-    )
+    const onResize = useRef(debounce(() => setWindowScroll([window.scrollX, window.scrollY]), 15))
 
     useEffect(() => {
       const resizeCurrent = onResize.current
-      window.addEventListener("resize", resizeCurrent)
+      window.addEventListener('resize', resizeCurrent)
       return () => {
-        window.removeEventListener("resize", resizeCurrent)
+        window.removeEventListener('resize', resizeCurrent)
       }
     }, [setWindowScroll, onResize])
 
@@ -35,15 +33,15 @@ export const Positioner = forwardRef<HTMLElement, SelectionPosition>(
         style={{
           height: `${height}px`,
           left: `${left + x}px`,
-          pointerEvents: "none",
-          position: "absolute",
+          pointerEvents: 'none',
+          position: 'absolute',
           top: `${top + y}px`,
           width: `${width}px`,
         }}
       />,
-      portalContainer
+      portalContainer,
     )
-  }
+  },
 )
 
-Positioner.displayName = "Positioner"
+Positioner.displayName = 'Positioner'

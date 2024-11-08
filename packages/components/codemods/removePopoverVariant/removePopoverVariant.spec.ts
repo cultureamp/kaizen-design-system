@@ -1,9 +1,9 @@
-import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst } from "../utils"
-import { removePopoverVariant } from "./removePopoverVariant"
+import { parseJsx } from '../__tests__/utils'
+import { transformSource, printAst } from '../utils'
+import { removePopoverVariant } from './removePopoverVariant'
 
-describe("removePopoverVariant()", () => {
-  it("removes variant", () => {
+describe('removePopoverVariant()', () => {
+  it('removes variant', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <Popover variant="positive" />
     `)
@@ -13,12 +13,12 @@ describe("removePopoverVariant()", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: removePopoverVariant,
-      tagName: "Popover",
+      tagName: 'Popover',
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
 
-  it("removes customIcon", () => {
+  it('removes customIcon', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <Popover variant="positive" customIcon={<Icon />} />
     `)
@@ -28,12 +28,12 @@ describe("removePopoverVariant()", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: removePopoverVariant,
-      tagName: "Popover",
+      tagName: 'Popover',
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
 
-  it("handles multiple attributes and remove only variant", () => {
+  it('handles multiple attributes and remove only variant', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <Popover variant="negative" id="123"/>
     `)
@@ -43,12 +43,12 @@ describe("removePopoverVariant()", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: removePopoverVariant,
-      tagName: "Popover",
+      tagName: 'Popover',
     })
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it("transforms multiple Popovers", () => {
+  it('transforms multiple Popovers', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <div><Popover variant="positive"/><Popover variant="negative" customIcon={<Icon />}/></div>
     `)
@@ -58,7 +58,7 @@ describe("removePopoverVariant()", () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: removePopoverVariant,
-      tagName: "Popover",
+      tagName: 'Popover',
     })
     expect(transformed).toBe(printAst(outputAst))
   })

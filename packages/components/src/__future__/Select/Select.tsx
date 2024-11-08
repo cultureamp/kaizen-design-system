@@ -1,20 +1,14 @@
-import React, { useEffect, useId, useState } from "react"
-import { UseFloatingReturn } from "@floating-ui/react-dom"
-import { useButton } from "@react-aria/button"
-import { HiddenSelect, useSelect } from "@react-aria/select"
-import {
-  useSelectState,
-  SelectProps as AriaSelectProps,
-} from "@react-stately/select"
-import { Key } from "@react-types/shared"
-import classnames from "classnames"
-import { FieldMessage } from "~components/FieldMessage"
-import {
-  Popover,
-  useFloating,
-} from "~components/MultiSelect/subcomponents/Popover"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { SelectProvider } from "./context"
+import React, { useEffect, useId, useState } from 'react'
+import { UseFloatingReturn } from '@floating-ui/react-dom'
+import { useButton } from '@react-aria/button'
+import { HiddenSelect, useSelect } from '@react-aria/select'
+import { useSelectState, SelectProps as AriaSelectProps } from '@react-stately/select'
+import { Key } from '@react-types/shared'
+import classnames from 'classnames'
+import { FieldMessage } from '~components/FieldMessage'
+import { Popover, useFloating } from '~components/MultiSelect/subcomponents/Popover'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { SelectProvider } from './context'
 import {
   ListBox,
   ListBoxSection,
@@ -25,32 +19,32 @@ import {
   SelectPopoverContentsProps,
   SelectToggle,
   SelectToggleProps,
-} from "./subcomponents"
-import { SelectItem, SelectOption } from "./types"
-import { getDisabledKeysFromItems } from "./utils/getDisabledKeysFromItems"
-import { transformSelectItemToCollectionElement } from "./utils/transformSelectItemToCollectionElement"
-import styles from "./Select.module.scss"
+} from './subcomponents'
+import { SelectItem, SelectOption } from './types'
+import { getDisabledKeysFromItems } from './utils/getDisabledKeysFromItems'
+import { transformSelectItemToCollectionElement } from './utils/transformSelectItemToCollectionElement'
+import styles from './Select.module.scss'
 
-type OmittedAriaSelectProps = "children" | "items"
+type OmittedAriaSelectProps = 'children' | 'items'
 
 export type SelectProps<Option extends SelectOption = SelectOption> = {
   /**
    * Item objects in the collection.
    */
-  items: Array<SelectItem<Option>>
+  items: SelectItem<Option>[]
   id?: string
   trigger?: (
     selectToggleProps: SelectToggleProps & {
-      ref: UseFloatingReturn<HTMLButtonElement>["refs"]["setReference"]
+      ref: UseFloatingReturn<HTMLButtonElement>['refs']['setReference']
     },
     // @deprecated: This arg is unnecessary now, but provided for legacy usages
-    ref: UseFloatingReturn<HTMLButtonElement>["refs"]["setReference"]
+    ref: UseFloatingReturn<HTMLButtonElement>['refs']['setReference'],
   ) => JSX.Element
-  children?: SelectPopoverContentsProps<Option>["children"]
+  children?: SelectPopoverContentsProps<Option>['children']
   /**
    * Updates the styling of the validation FieldMessage.
    */
-  status?: "error" | "caution"
+  status?: 'error' | 'caution'
   /**
    * A descriptive message for the 'status' states.
    */
@@ -96,7 +90,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   classNameOverride,
   selectedKey,
   description,
-  placeholder = "",
+  placeholder = '',
   isDisabled,
   portalContainerId,
   ...restProps
@@ -114,8 +108,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
     items,
     children: transformSelectItemToCollectionElement,
     disabledKeys: disabledValues ?? disabledKeys,
-    selectedKey:
-      typeof selectedKey === "number" ? selectedKey.toString() : selectedKey,
+    selectedKey: typeof selectedKey === 'number' ? selectedKey.toString() : selectedKey,
     description,
     placeholder,
     isDisabled,
@@ -138,12 +131,10 @@ export const Select = <Option extends SelectOption = SelectOption>({
   // We use role=combobox, meaning screen readers will read the value.
   // So we're modifying the `aria-labelledby` property to remove the value element id.
   // Issue: https://github.com/adobe/react-spectrum/issues/4091
-  const reactAriaLabelledBy = reactAriaTriggerProps["aria-labelledby"]
+  const reactAriaLabelledBy = reactAriaTriggerProps['aria-labelledby']
   const triggerProps = {
     ...reactAriaTriggerProps,
-    "aria-labelledby": reactAriaLabelledBy?.substring(
-      reactAriaLabelledBy.indexOf(" ") + 1
-    ),
+    'aria-labelledby': reactAriaLabelledBy?.substring(reactAriaLabelledBy.indexOf(' ') + 1),
   }
 
   const { buttonProps } = useButton(triggerProps, triggerRef)
@@ -171,18 +162,8 @@ export const Select = <Option extends SelectOption = SelectOption>({
   }, [])
 
   return (
-    <div
-      className={classnames(
-        !isFullWidth && styles.notFullWidth,
-        classNameOverride
-      )}
-    >
-      <HiddenSelect
-        label={label}
-        name={id}
-        state={state}
-        triggerRef={triggerRef}
-      />
+    <div className={classnames(!isFullWidth && styles.notFullWidth, classNameOverride)}>
+      <HiddenSelect label={label} name={id} state={state} triggerRef={triggerRef} />
 
       <div className={styles.container}>
         {trigger === undefined ? (
@@ -193,9 +174,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
         {state.isOpen && (
           <Popover id={popoverId} portalContainer={portalContainer} refs={refs}>
             <SelectProvider<Option> state={state}>
-              <SelectPopoverContents menuProps={menuProps}>
-                {children}
-              </SelectPopoverContents>
+              <SelectPopoverContents menuProps={menuProps}>{children}</SelectPopoverContents>
             </SelectProvider>
           </Popover>
         )}
@@ -222,7 +201,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   )
 }
 
-Select.displayName = "Select"
+Select.displayName = 'Select'
 
 Select.Section = ListBoxSection
 Select.SectionDivider = SectionDivider

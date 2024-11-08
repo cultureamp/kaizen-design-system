@@ -1,24 +1,21 @@
-import React, { useState } from "react"
-import { Meta } from "@storybook/react"
-import isChromatic from "chromatic"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { FilterButton } from "../../FilterButton"
-import { FilterSelect } from "../FilterSelect"
+import React, { useState } from 'react'
+import { Meta } from '@storybook/react'
+import isChromatic from 'chromatic'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { FilterButton } from '../../FilterButton'
+import { FilterSelect } from '../FilterSelect'
 import {
   groupedMockItems,
   mixedMockItemsDisabled,
   mixedMockItemsUngroupedFirst,
   mixedMockItemsUnordered,
   singleMockItems,
-} from "./mockData"
+} from './mockData'
 
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: "Components/Filter Select",
+  title: 'Components/Filter Select',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -29,21 +26,14 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => {
     // Only open the dropdowns in Chromatic as the focus locks clash with
     // each other in Storybook.
-    const [isOpenDefaultSingle, setIsOpenDefaultSingle] =
-      useState<boolean>(IS_CHROMATIC)
-    const [isOpenDefaultGroup, setIsOpenDefaultGroup] =
-      useState<boolean>(IS_CHROMATIC)
-    const [isOpenDefaultExisting, setIsOpenDefaultExisting] =
-      useState<boolean>(IS_CHROMATIC)
-    const [isOpenDefaultDisabled, setIsOpenDefaultDisabled] =
-      useState<boolean>(IS_CHROMATIC)
+    const [isOpenDefaultSingle, setIsOpenDefaultSingle] = useState<boolean>(IS_CHROMATIC)
+    const [isOpenDefaultGroup, setIsOpenDefaultGroup] = useState<boolean>(IS_CHROMATIC)
+    const [isOpenDefaultExisting, setIsOpenDefaultExisting] = useState<boolean>(IS_CHROMATIC)
+    const [isOpenDefaultDisabled, setIsOpenDefaultDisabled] = useState<boolean>(IS_CHROMATIC)
 
-    const [isOpenCustomSingle, setIsOpenCustomSingle] =
-      useState<boolean>(IS_CHROMATIC)
-    const [isOpenCustomPartial, setIsOpenCustomPartial] =
-      useState<boolean>(IS_CHROMATIC)
-    const [isOpenCustomDividerMixed, setIsOpenCustomDividerMixed] =
-      useState<boolean>(IS_CHROMATIC)
+    const [isOpenCustomSingle, setIsOpenCustomSingle] = useState<boolean>(IS_CHROMATIC)
+    const [isOpenCustomPartial, setIsOpenCustomPartial] = useState<boolean>(IS_CHROMATIC)
+    const [isOpenCustomDividerMixed, setIsOpenCustomDividerMixed] = useState<boolean>(IS_CHROMATIC)
     const [isOpenCustomDividerSpecific, setIsOpenCustomDividerSpecific] =
       useState<boolean>(IS_CHROMATIC)
 
@@ -54,55 +44,47 @@ const StickerSheetTemplate: StickerSheetStory = {
       <>
         <StickerSheet
           heading="Default options"
-          style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
+          style={{ paddingBottom: IS_CHROMATIC ? '26rem' : undefined }}
         >
           <StickerSheet.Header
-            headings={["Single items", "Groups", "Existing value", "Disabled"]}
+            headings={['Single items', 'Groups', 'Existing value', 'Disabled']}
           />
           <StickerSheet.Body>
             <StickerSheet.Row>
-              <div style={{ width: "250px" }}>
+              <div style={{ width: '250px' }}>
                 <FilterSelect
                   label="Label"
                   isOpen={isOpenDefaultSingle}
                   setIsOpen={setIsOpenDefaultSingle}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
+                  renderTrigger={(triggerProps) => <FilterButton {...triggerProps} />}
                   items={singleMockItems}
                 />
               </div>
-              <div style={{ width: "250px" }}>
+              <div style={{ width: '250px' }}>
                 <FilterSelect
                   label="Label"
                   isOpen={isOpenDefaultGroup}
                   setIsOpen={setIsOpenDefaultGroup}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
+                  renderTrigger={(triggerProps) => <FilterButton {...triggerProps} />}
                   items={groupedMockItems}
                 />
               </div>
-              <div style={{ width: "250px" }}>
+              <div style={{ width: '250px' }}>
                 <FilterSelect
                   label="Label"
                   isOpen={isOpenDefaultExisting}
                   setIsOpen={setIsOpenDefaultExisting}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
+                  renderTrigger={(triggerProps) => <FilterButton {...triggerProps} />}
                   items={singleMockItems}
                   selectedKey="mocha"
                 />
               </div>
-              <div style={{ width: "250px" }}>
+              <div style={{ width: '250px' }}>
                 <FilterSelect
                   label="Label"
                   isOpen={isOpenDefaultDisabled}
                   setIsOpen={setIsOpenDefaultDisabled}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
+                  renderTrigger={(triggerProps) => <FilterButton {...triggerProps} />}
                   items={mixedMockItemsDisabled}
                 />
               </div>
@@ -112,31 +94,29 @@ const StickerSheetTemplate: StickerSheetStory = {
 
         <StickerSheet
           heading="Customised options"
-          style={{ paddingTop: IS_CHROMATIC ? "26rem" : undefined }}
+          style={{ paddingTop: IS_CHROMATIC ? '26rem' : undefined }}
         >
           <StickerSheet.Header
             headings={[
-              "All options",
-              "Partial customisation",
-              "Section dividers",
-              "Specific item divider",
+              'All options',
+              'Partial customisation',
+              'Section dividers',
+              'Specific item divider',
             ]}
           />
           <StickerSheet.Body>
             <StickerSheet.Row>
-              <div style={{ width: "250px" }}>
+              <div style={{ width: '250px' }}>
                 <FilterSelect
                   label="Label"
                   isOpen={isOpenCustomSingle}
                   setIsOpen={setIsOpenCustomSingle}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
+                  renderTrigger={(triggerProps) => <FilterButton {...triggerProps} />}
                   items={singleMockItems}
                 >
                   {({ items }): JSX.Element[] =>
-                    items.map(item => {
-                      if (item.type === "item") {
+                    items.map((item) => {
+                      if (item.type === 'item') {
                         return (
                           <FilterSelect.Option
                             key={item.key}
@@ -146,8 +126,8 @@ const StickerSheetTemplate: StickerSheetStory = {
                                 <div>
                                   <div
                                     style={{
-                                      fontSize: "0.75rem",
-                                      color: "gray",
+                                      fontSize: '0.75rem',
+                                      color: 'gray',
                                     }}
                                   >
                                     Customised in list!
@@ -160,30 +140,23 @@ const StickerSheetTemplate: StickerSheetStory = {
                         )
                       }
 
-                      return (
-                        <FilterSelect.ItemDefaultRender
-                          key={item.key}
-                          item={item}
-                        />
-                      )
+                      return <FilterSelect.ItemDefaultRender key={item.key} item={item} />
                     })
                   }
                 </FilterSelect>
               </div>
 
-              <div style={{ width: "250px" }}>
+              <div style={{ width: '250px' }}>
                 <FilterSelect
                   label="Label"
                   isOpen={isOpenCustomPartial}
                   setIsOpen={setIsOpenCustomPartial}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
+                  renderTrigger={(triggerProps) => <FilterButton {...triggerProps} />}
                   items={mixedMockItemsUngroupedFirst}
                 >
                   {({ items }): JSX.Element[] =>
-                    items.map(item => {
-                      if (item.type === "item" && item.key === "batch-brew") {
+                    items.map((item) => {
+                      if (item.type === 'item' && item.key === 'batch-brew') {
                         return (
                           <FilterSelect.Option
                             key={item.key}
@@ -195,76 +168,58 @@ const StickerSheetTemplate: StickerSheetStory = {
                         )
                       }
 
-                      if (item.type === "section" && item.key === "Syrup") {
+                      if (item.type === 'section' && item.key === 'Syrup') {
                         return (
                           <FilterSelect.Section
                             key={item.key}
                             section={{
                               ...item,
-                              childNodes: Array.from(item.childNodes).map(
-                                child => ({
-                                  ...child,
-                                  rendered: <div>-- {child.rendered}</div>,
-                                })
-                              ),
+                              childNodes: Array.from(item.childNodes).map((child) => ({
+                                ...child,
+                                rendered: <div>-- {child.rendered}</div>,
+                              })),
                             }}
                           />
                         )
                       }
 
-                      return (
-                        <FilterSelect.ItemDefaultRender
-                          key={item.key}
-                          item={item}
-                        />
-                      )
+                      return <FilterSelect.ItemDefaultRender key={item.key} item={item} />
                     })
                   }
                 </FilterSelect>
               </div>
 
-              <div style={{ width: "250px" }}>
+              <div style={{ width: '250px' }}>
                 <FilterSelect
                   label="Label"
                   isOpen={isOpenCustomDividerMixed}
                   setIsOpen={setIsOpenCustomDividerMixed}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
+                  renderTrigger={(triggerProps) => <FilterButton {...triggerProps} />}
                   items={mixedMockItemsUnordered}
                 >
                   {({ items }): JSX.Element[] =>
-                    items.map(item => (
+                    items.map((item) => (
                       <React.Fragment key={item.key}>
-                        {item.type === "section" && (
-                          <FilterSelect.SectionDivider />
-                        )}
+                        {item.type === 'section' && <FilterSelect.SectionDivider />}
                         <FilterSelect.ItemDefaultRender item={item} />
-                        {item.type === "section" && (
-                          <FilterSelect.SectionDivider />
-                        )}
+                        {item.type === 'section' && <FilterSelect.SectionDivider />}
                       </React.Fragment>
                     ))
                   }
                 </FilterSelect>
               </div>
 
-              <div style={{ width: "250px" }}>
+              <div style={{ width: '250px' }}>
                 <FilterSelect
                   label="Label"
                   isOpen={isOpenCustomDividerSpecific}
                   setIsOpen={setIsOpenCustomDividerSpecific}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
-                  items={[
-                    { label: "Customise...", value: "custom" },
-                    ...singleMockItems,
-                  ]}
+                  renderTrigger={(triggerProps) => <FilterButton {...triggerProps} />}
+                  items={[{ label: 'Customise...', value: 'custom' }, ...singleMockItems]}
                 >
                   {({ items }): JSX.Element[] =>
-                    items.map(item => {
-                      if (item.type === "item" && item.key === "custom") {
+                    items.map((item) => {
+                      if (item.type === 'item' && item.key === 'custom') {
                         return (
                           <React.Fragment key={item.key}>
                             <FilterSelect.Option item={item} />
@@ -273,12 +228,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                         )
                       }
 
-                      return (
-                        <FilterSelect.ItemDefaultRender
-                          key={item.key}
-                          item={item}
-                        />
-                      )
+                      return <FilterSelect.ItemDefaultRender key={item.key} item={item} />
                     })
                   }
                 </FilterSelect>
@@ -287,22 +237,17 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Body>
         </StickerSheet>
 
-        <StickerSheet
-          heading="Min/Max"
-          style={{ paddingTop: IS_CHROMATIC ? "26rem" : undefined }}
-        >
-          <StickerSheet.Header headings={["Min size", "Max size"]} />
+        <StickerSheet heading="Min/Max" style={{ paddingTop: IS_CHROMATIC ? '26rem' : undefined }}>
+          <StickerSheet.Header headings={['Min size', 'Max size']} />
           <StickerSheet.Body>
             <StickerSheet.Row>
-              <div style={{ width: "250px" }}>
+              <div style={{ width: '250px' }}>
                 <FilterSelect
                   label="Label"
                   isOpen={isOpenMin}
                   setIsOpen={setIsOpenMin}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
-                  items={[{ value: "a", label: "A" }]}
+                  renderTrigger={(triggerProps) => <FilterButton {...triggerProps} />}
+                  items={[{ value: 'a', label: 'A' }]}
                 />
               </div>
               <div>
@@ -310,19 +255,17 @@ const StickerSheetTemplate: StickerSheetStory = {
                   label="Label"
                   isOpen={isOpenMax}
                   setIsOpen={setIsOpenMax}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
+                  renderTrigger={(triggerProps) => <FilterButton {...triggerProps} />}
                   items={[
                     {
-                      value: "long-1",
+                      value: 'long-1',
                       label:
-                        "Super long option where the container is fixed width and the selected option goes multiline",
+                        'Super long option where the container is fixed width and the selected option goes multiline',
                     },
                     {
-                      value: "long-2",
+                      value: 'long-2',
                       label:
-                        "Another super long option where the container is fixed width and the selected option goes multiline",
+                        'Another super long option where the container is fixed width and the selected option goes multiline',
                     },
                     ...singleMockItems,
                   ]}
@@ -338,11 +281,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

@@ -1,11 +1,11 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { DirectionalLink } from "./subcomponents/DirectionalLink"
-import { PaginationLink } from "./subcomponents/PaginationLink"
-import { TruncateIndicator } from "./subcomponents/TruncateIndicator"
-import { createRange } from "./utils/createRange"
-import styles from "./Pagination.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { DirectionalLink } from './subcomponents/DirectionalLink'
+import { PaginationLink } from './subcomponents/PaginationLink'
+import { TruncateIndicator } from './subcomponents/TruncateIndicator'
+import { createRange } from './utils/createRange'
+import styles from './Pagination.module.scss'
 
 export type PaginationProps = {
   currentPage: number
@@ -16,7 +16,7 @@ export type PaginationProps = {
   onPageChange: (newPage: number) => void
 } & OverrideClassName<HTMLAttributes<HTMLElement>>
 
-type PageAction = "prev" | "next"
+type PageAction = 'prev' | 'next'
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082092975/Pagination Guidance} |
@@ -34,11 +34,11 @@ export const Pagination = ({
 }: PaginationProps): JSX.Element => {
   // Click event for all pagination buttons (next, prev, and the actual numbers)
   const handleButtonClick = (newPage: number | PageAction): void => {
-    if (newPage === "prev") {
+    if (newPage === 'prev') {
       onPageChange(currentPage - 1)
       return
     }
-    if (newPage === "next") {
+    if (newPage === 'next') {
       onPageChange(currentPage + 1)
       return
     }
@@ -65,8 +65,7 @@ export const Pagination = ({
     const truncateSize = 1
 
     const showAllPages =
-      1 + 2 * truncateSize + 2 * siblingPagesRange + 2 * boundaryPagesRange >=
-      pageCount
+      1 + 2 * truncateSize + 2 * siblingPagesRange + 2 * boundaryPagesRange >= pageCount
 
     // Simplify generation of pages if number of available items is equal or greater than total pages to show
     if (showAllPages) {
@@ -75,43 +74,33 @@ export const Pagination = ({
       // Calculate group of first pages
       const firstPagesStart = 1
       const firstPagesEnd = boundaryPagesRange
-      const firstPages = createRange(firstPagesStart, firstPagesEnd).map(
-        paginationIndicator
-      )
+      const firstPages = createRange(firstPagesStart, firstPagesEnd).map(paginationIndicator)
 
       // Calculate group of last pages
       const lastPagesStart = pageCount + 1 - boundaryPagesRange
       const lastPagesEnd = pageCount
-      const lastPages = createRange(lastPagesStart, lastPagesEnd).map(
-        paginationIndicator
-      )
+      const lastPages = createRange(lastPagesStart, lastPagesEnd).map(paginationIndicator)
 
       // Calculate group of main pages
       const mainPagesStart = Math.min(
-        Math.max(
-          currentPage - siblingPagesRange,
-          firstPagesEnd + truncateSize + 1
-        ),
-        lastPagesStart - truncateSize - 2 * siblingPagesRange - 1
+        Math.max(currentPage - siblingPagesRange, firstPagesEnd + truncateSize + 1),
+        lastPagesStart - truncateSize - 2 * siblingPagesRange - 1,
       )
       const mainPagesEnd = mainPagesStart + 2 * siblingPagesRange
-      const mainPages = createRange(mainPagesStart, mainPagesEnd).map(
-        paginationIndicator
-      )
+      const mainPages = createRange(mainPagesStart, mainPagesEnd).map(paginationIndicator)
 
       // Add group of first pages
       items.push(...firstPages)
 
       // Calculate and add truncate before group of main pages
       const firstEllipsisPageNumber = mainPagesStart - 1
-      const showPageInsteadOfFirstEllipsis =
-        firstEllipsisPageNumber === firstPagesEnd + 1
+      const showPageInsteadOfFirstEllipsis = firstEllipsisPageNumber === firstPagesEnd + 1
       items.push(
         showPageInsteadOfFirstEllipsis ? (
           paginationIndicator(firstEllipsisPageNumber)
         ) : (
           <TruncateIndicator key={firstEllipsisPageNumber} />
-        )
+        ),
       )
 
       // Add group of main pages
@@ -119,14 +108,13 @@ export const Pagination = ({
 
       // Calculate and add truncate after group of main pages
       const secondEllipsisPageNumber = mainPagesEnd + 1
-      const showPageInsteadOfSecondEllipsis =
-        secondEllipsisPageNumber === lastPagesStart - 1
+      const showPageInsteadOfSecondEllipsis = secondEllipsisPageNumber === lastPagesStart - 1
       items.push(
         showPageInsteadOfSecondEllipsis ? (
           paginationIndicator(secondEllipsisPageNumber)
         ) : (
           <TruncateIndicator key={secondEllipsisPageNumber} />
-        )
+        ),
       )
 
       // Add group of last pages
@@ -139,15 +127,12 @@ export const Pagination = ({
   const nextPageDisabled = currentPage >= pageCount
 
   return (
-    <nav
-      className={classnames(styles.container, classNameOverride)}
-      {...restProps}
-    >
+    <nav className={classnames(styles.container, classNameOverride)} {...restProps}>
       <DirectionalLink
         label={ariaLabelPreviousPage}
         direction="prev"
         disabled={previousPageDisabled}
-        onClick={(): void => handleButtonClick("prev")}
+        onClick={(): void => handleButtonClick('prev')}
       />
 
       <div className={styles.pagesIndicatorWrapper}>{pagination()}</div>
@@ -156,7 +141,7 @@ export const Pagination = ({
         label={ariaLabelNextPage}
         direction="next"
         disabled={nextPageDisabled}
-        onClick={(): void => handleButtonClick("next")}
+        onClick={(): void => handleButtonClick('next')}
       />
     </nav>
   )

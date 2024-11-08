@@ -1,9 +1,9 @@
-import React, { HTMLAttributes } from "react"
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Unstyled } from "@storybook/blocks"
-import classNames from "classnames"
-import { Text } from "~components/Text"
-import { Icon } from "~components/__future__/Icon"
+import React, { HTMLAttributes } from 'react'
+
+import { Unstyled } from '@storybook/blocks'
+import classNames from 'classnames'
+import { Text } from '~components/Text'
+import { Icon } from '~components/__future__/Icon'
 
 type ResourceLinkProps = {
   href: string
@@ -44,21 +44,14 @@ export const ResourceLinks = ({
   <Unstyled>
     <ul
       {...attributes}
-      className={classNames(
-        "flex flex-wrap mt-16 mb-40 list-none m-0 p-0 gap-8",
-        className
-      )}
+      className={classNames('flex flex-wrap mt-16 mb-40 list-none m-0 p-0 gap-8', className)}
     >
       <ResourceLink href={sourceCode} text="Source Code" />
       {figma && <ResourceLink href={figma} text="Figma" />}
-      {designGuidelines && (
-        <ResourceLink href={designGuidelines} text="Usage Guidelines" />
-      )}
-      {apiSpecification && (
-        <ResourceLink href={apiSpecification} text="API specification" />
-      )}
+      {designGuidelines && <ResourceLink href={designGuidelines} text="Usage Guidelines" />}
+      {apiSpecification && <ResourceLink href={apiSpecification} text="API specification" />}
     </ul>
   </Unstyled>
 )
 
-ResourceLinks.displayName = "ResourceLinks"
+ResourceLinks.displayName = 'ResourceLinks'

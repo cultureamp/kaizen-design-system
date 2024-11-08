@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import classnames from "classnames"
-import { InlineNotification } from "~components/Notification"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import classnames from 'classnames'
+import { InlineNotification } from '~components/Notification'
 import {
   TableCard,
   TableContainer,
@@ -9,29 +9,29 @@ import {
   TableHeaderRowCell,
   TableRow,
   TableRowCell,
-} from "~components/Table"
-import { Text } from "~components/Text"
-import { ToggleSwitchField } from "~components/ToggleSwitch"
-import { Button } from "~components/__actions__/v3"
-import { Tag } from "~components/__future__/Tag"
-import { StickerSheet } from "~storybook/components/StickerSheet"
-import { iconDefaultSet } from "../constants"
-import { Icon } from "../index"
-import imgInterfaceDont from "./assets/interface-dont.png"
-import imgTooltipDont from "./assets/tooltip-dont.png"
-import styles from "./Icon.docs.module.css"
+} from '~components/Table'
+import { Text } from '~components/Text'
+import { ToggleSwitchField } from '~components/ToggleSwitch'
+import { Button } from '~components/__actions__/v3'
+import { Tag } from '~components/__future__/Tag'
+import { StickerSheet } from '~storybook/components/StickerSheet'
+import { iconDefaultSet } from '../constants'
+import { Icon } from '../index'
+import imgInterfaceDont from './assets/interface-dont.png'
+import imgTooltipDont from './assets/tooltip-dont.png'
+import styles from './Icon.docs.module.css'
 
 const meta = {
-  title: "Illustrations/Icon/Icon (Future)",
+  title: 'Illustrations/Icon/Icon (Future)',
   component: Icon,
   args: {
-    name: "star",
+    name: 'star',
     isPresentational: true,
   },
   argTypes: {
-    name: { type: "string" },
+    name: { type: 'string' },
     alt: {
-      description: "Set this value when `isPresentational={false}`",
+      description: 'Set this value when `isPresentational={false}`',
     },
   },
 } satisfies Meta<typeof Icon>
@@ -41,9 +41,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  render: args => {
+  render: (args) => {
     if (args.isPresentational) return <Icon {...args} alt={undefined} />
-    return <Icon {...args} alt={args.alt ?? "Fallback string"} />
+    return <Icon {...args} alt={args.alt ?? 'Fallback string'} />
   },
 }
 
@@ -52,12 +52,9 @@ export const Filled: Story = {
 }
 
 export const MirrorInRTL: Story = {
-  render: args => (
+  render: (args) => (
     <StickerSheet>
-      <StickerSheet.Header
-        headings={['dir=["ltr"]', 'dir=["rtl"]']}
-        hasVerticalHeadings
-      />
+      <StickerSheet.Header headings={['dir=["ltr"]', 'dir=["rtl"]']} hasVerticalHeadings />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="arrow_forward">
           <div dir="ltr" className="text-center">
@@ -101,7 +98,7 @@ export const MirrorInRTL: Story = {
 }
 
 export const Color: Story = {
-  render: args => (
+  render: (args) => (
     <div className="flex gap-16">
       <div className="text-green-500">
         <Icon {...args} />
@@ -112,7 +109,7 @@ export const Color: Story = {
 }
 
 export const Size: Story = {
-  render: args => (
+  render: (args) => (
     <div className="flex gap-16">
       <Icon {...args} className="[--icon-size:48]" />
       <div className="text-[48px]">
@@ -123,16 +120,16 @@ export const Size: Story = {
 }
 
 export const MeaningfulIcon: Story = {
-  render: args => (
+  render: (args) => (
     <Button>
       <Icon {...args} />
     </Button>
   ),
-  args: { isPresentational: false, alt: "Favourite" },
+  args: { isPresentational: false, alt: 'Favourite' },
 }
 
 export const PresentationalIcon: Story = {
-  render: args => (
+  render: (args) => (
     <Button>
       <Icon {...args} /> Favourite
     </Button>
@@ -165,9 +162,9 @@ const IconSetButton = ({
         type="button"
         onClick={handleCopy}
         className={classnames(
-          "flex flex-col justify-center items-center gap-16",
-          "cursor-pointer h-full w-full p-16 rounded",
-          "bg-gray-100 hover:bg-gray-200"
+          'flex flex-col justify-center items-center gap-16',
+          'cursor-pointer h-full w-full p-16 rounded',
+          'bg-gray-100 hover:bg-gray-200',
         )}
       >
         {copied ? (
@@ -195,19 +192,15 @@ export const DefaultIconSet: Story = {
       <div className="flex flex-col gap-8">
         <ToggleSwitchField
           labelText="Filled"
-          toggledStatus={isFilled ? "on" : "off"}
+          toggledStatus={isFilled ? 'on' : 'off'}
           onToggle={() => setIsFilled(!isFilled)}
         />
         <ul
           className="grid list-none gap-16 m-0 p-0"
-          style={{ gridTemplateColumns: "repeat(auto-fit, minmax(11em, 1fr))" }}
+          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(11em, 1fr))' }}
         >
-          {iconDefaultSet.map(iconName => (
-            <IconSetButton
-              key={iconName}
-              iconName={iconName}
-              isFilled={isFilled}
-            />
+          {iconDefaultSet.map((iconName) => (
+            <IconSetButton key={iconName} iconName={iconName} isFilled={isFilled} />
           ))}
         </ul>
       </div>
@@ -243,35 +236,19 @@ export const OpticalSizeDo: Story = {
     <div className="flex gap-16">
       <div className="flex items-center gap-4">
         <Text variant="body">20/20</Text>
-        <Icon
-          name="star"
-          isPresentational
-          className="text-[20px] [--icon-optical-size:20]"
-        />
+        <Icon name="star" isPresentational className="text-[20px] [--icon-optical-size:20]" />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">24/24</Text>
-        <Icon
-          name="star"
-          isPresentational
-          className="text-[24px] [--icon-optical-size:24]"
-        />
+        <Icon name="star" isPresentational className="text-[24px] [--icon-optical-size:24]" />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">40/40</Text>
-        <Icon
-          name="star"
-          isPresentational
-          className="text-[40px] [--icon-optical-size:40]"
-        />
+        <Icon name="star" isPresentational className="text-[40px] [--icon-optical-size:40]" />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">48/48</Text>
-        <Icon
-          name="star"
-          isPresentational
-          className="text-[48px] [--icon-optical-size:48]"
-        />
+        <Icon name="star" isPresentational className="text-[48px] [--icon-optical-size:48]" />
       </div>
     </div>
   ),
@@ -282,35 +259,19 @@ export const OpticalSizeDont: Story = {
     <div className="flex gap-16">
       <div className="flex items-center gap-4">
         <Text variant="body">20/48</Text>
-        <Icon
-          name="star"
-          isPresentational
-          className="text-[20px] [--icon-optical-size:48]"
-        />
+        <Icon name="star" isPresentational className="text-[20px] [--icon-optical-size:48]" />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">24/40</Text>
-        <Icon
-          name="star"
-          isPresentational
-          className="text-[24px] [--icon-optical-size:40]"
-        />
+        <Icon name="star" isPresentational className="text-[24px] [--icon-optical-size:40]" />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">40/24</Text>
-        <Icon
-          name="star"
-          isPresentational
-          className="text-[40px] [--icon-optical-size:24]"
-        />
+        <Icon name="star" isPresentational className="text-[40px] [--icon-optical-size:24]" />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">48/20</Text>
-        <Icon
-          name="star"
-          isPresentational
-          className="text-[48px] [--icon-optical-size:20]"
-        />
+        <Icon name="star" isPresentational className="text-[48px] [--icon-optical-size:20]" />
       </div>
     </div>
   ),
@@ -408,11 +369,7 @@ export const ImportantInformationDo: Story = {
     <TableContainer>
       <TableHeader>
         <TableRow>
-          <TableHeaderRowCell
-            labelText="Flag for review"
-            sorting="ascending"
-            width={4 / 12}
-          />
+          <TableHeaderRowCell labelText="Flag for review" sorting="ascending" width={4 / 12} />
           <TableHeaderRowCell labelText="Employee" sorting="ascending" />
         </TableRow>
       </TableHeader>

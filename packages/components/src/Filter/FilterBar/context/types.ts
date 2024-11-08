@@ -1,4 +1,4 @@
-import { FilterAttributes, FilterIsUsableWhen, FiltersValues } from "../types"
+import { FilterAttributes, FilterIsUsableWhen, FiltersValues } from '../types'
 
 export type MappedFilters<ValuesMap extends FiltersValues> = {
   [K in keyof ValuesMap]: FilterAttributes<ValuesMap, K>
@@ -8,10 +8,7 @@ export type FilterStateEditableAttributes = {
   isOpen: boolean
 }
 
-export type InternalFilterState<
-  ValuesMap extends FiltersValues,
-  Id extends keyof ValuesMap,
-> = {
+export type InternalFilterState<ValuesMap extends FiltersValues, Id extends keyof ValuesMap> = {
   id: Id
   name: string
   isRemovable: boolean
@@ -35,6 +32,4 @@ export type FilterBarState<ValuesMap extends FiltersValues> = {
   focusId?: keyof ValuesMap
 }
 
-export type ActiveFiltersArray<ValuesMap extends FiltersValues> = Array<
-  FilterAttributes<ValuesMap>
->
+export type ActiveFiltersArray<ValuesMap extends FiltersValues> = FilterAttributes<ValuesMap>[]

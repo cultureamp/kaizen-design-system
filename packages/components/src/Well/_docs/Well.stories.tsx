@@ -1,20 +1,20 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Heading } from "~components/Heading"
-import { Text } from "~components/Text"
-import { Well } from "../index"
-import { borderStyleTypes } from "../types"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Heading } from '~components/Heading'
+import { Text } from '~components/Text'
+import { Well } from '../index'
+import { borderStyleTypes } from '../types'
 
 const meta = {
-  title: "Components/Well",
+  title: 'Components/Well',
   component: Well,
   args: {
     children: (
       <Text variant="body">
-        Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick
-        fatback cow tongue ground round chicken. Jowl cow short ribs, ham tongue
-        turducken spare ribs pig drumstick chuck meatball. Buffalo turducken
-        pancetta tail salami chicken. Bresaola venison pastrami beef.
+        Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick fatback cow tongue
+        ground round chicken. Jowl cow short ribs, ham tongue turducken spare ribs pig drumstick
+        chuck meatball. Buffalo turducken pancetta tail salami chicken. Bresaola venison pastrami
+        beef.
       </Text>
     ),
   },
@@ -34,14 +34,14 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
 }
 
 export const Colors: Story = {
-  render: args => (
+  render: (args) => (
     <>
       <Heading tag="h4" variant="heading-6" classNameOverride="mb-12">
         `white` is the new default when no color/variant is defined
@@ -80,9 +80,9 @@ export const Colors: Story = {
 }
 
 export const BorderStyles: Story = {
-  render: args => (
+  render: (args) => (
     <>
-      {borderStyleTypes.map(border => (
+      {borderStyleTypes.map((border) => (
         <>
           <Heading tag="h4" variant="heading-6">
             {border}
@@ -95,7 +95,7 @@ export const BorderStyles: Story = {
 }
 
 export const NoMargin: Story = {
-  render: args => (
+  render: (args) => (
     <div className="flex gap-16">
       <div>
         <Heading tag="h4" variant="heading-6">

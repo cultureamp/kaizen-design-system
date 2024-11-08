@@ -1,11 +1,11 @@
-import { Meta, StoryObj } from "@storybook/react"
-import { ToggleSwitchField } from "../ToggleSwitchField"
+import { Meta, StoryObj } from '@storybook/react'
+import { ToggleSwitchField } from '../ToggleSwitchField'
 
 const meta = {
-  title: "Components/Toggle Switch controls/ToggleSwitchField",
+  title: 'Components/Toggle Switch controls/ToggleSwitchField',
   component: ToggleSwitchField,
   args: {
-    labelText: "Toggle me",
+    labelText: 'Toggle me',
   },
 } satisfies Meta<typeof ToggleSwitchField>
 
@@ -17,13 +17,13 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
 }
 
 export const Reversed: Story = {
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: { backgrounds: { default: 'Purple 700' } },
   args: { reversed: true },
 }

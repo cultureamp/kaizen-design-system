@@ -1,1 +1,1 @@
-export * from "./ModalAccessibleLabel"
+export * from './ModalAccessibleLabel'

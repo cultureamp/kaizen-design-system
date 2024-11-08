@@ -1,1 +1,1 @@
-export * from "./ResourceLinks"
+export * from './ResourceLinks'

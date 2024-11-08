@@ -1,7 +1,7 @@
-import React from "react"
-import { LoadingInput, LoadingParagraph } from "~components/Loading"
-import { MenuFooter } from "../MenuFooter"
-import styles from "./MenuLoadingSkeleton.module.scss"
+import React from 'react'
+import { LoadingInput, LoadingParagraph } from '~components/Loading'
+import { MenuFooter } from '../MenuFooter'
+import styles from './MenuLoadingSkeleton.module.scss'
 
 export type MenuLoadingSkeletonProps = {
   isAnimated?: boolean
@@ -12,10 +12,7 @@ export const MenuLoadingSkeleton = ({
 }: MenuLoadingSkeletonProps): JSX.Element => (
   <>
     <div className={styles.loadingContainer}>
-      <LoadingInput
-        classNameOverride={styles.loadingInput}
-        isAnimated={isAnimated}
-      />
+      <LoadingInput classNameOverride={styles.loadingInput} isAnimated={isAnimated} />
       <LoadingParagraph isAnimated={isAnimated} />
       <LoadingParagraph isAnimated={isAnimated} />
       <LoadingParagraph isAnimated={isAnimated} />
@@ -29,4 +26,4 @@ export const MenuLoadingSkeleton = ({
   </>
 )
 
-MenuLoadingSkeleton.displayName = "FilterMultiSelect.MenuLoadingSkeleton"
+MenuLoadingSkeleton.displayName = 'FilterMultiSelect.MenuLoadingSkeleton'

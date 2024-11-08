@@ -1,17 +1,14 @@
-import React from "react"
-import { StoryFn } from "@storybook/react"
-import { Card } from "~components/Card"
-import { Heading } from "~components/Heading"
-import {
-  CustomSurvey,
-  CustomUnattributedSurvey,
-} from "~components/Illustration"
-import { Skirt } from "~components/Skirt"
-import { Button } from "~components/__actions__/v2"
-import { TailwindStoryTemplate } from "../utils/TailwindStoryTemplate"
+import React from 'react'
+import { StoryFn } from '@storybook/react'
+import { Card } from '~components/Card'
+import { Heading } from '~components/Heading'
+import { CustomSurvey, CustomUnattributedSurvey } from '~components/Illustration'
+import { Skirt } from '~components/Skirt'
+import { Button } from '~components/__actions__/v2'
+import { TailwindStoryTemplate } from '../utils/TailwindStoryTemplate'
 
 export default {
-  title: "Guides/Tailwind/Working with Tailwind",
+  title: 'Guides/Tailwind/Working with Tailwind',
 }
 
 export const TailwindExampleSpacingAndLayouts: StoryFn = () => (
@@ -47,12 +44,8 @@ export const TailwindExampleSpacingAndLayoutsComplex: StoryFn = () => (
         </p>
         {/* Adds margin-top, flex, and a height of 200px */}
         <div className="mt-64 flex h-[200px]">
-          {[0, 1, 2, 3].map(index => (
-            <Card
-              key={index}
-              variant="informative"
-              classNameOverride="mr-24 last:mr-0 w-full"
-            >
+          {[0, 1, 2, 3].map((index) => (
+            <Card key={index} variant="informative" classNameOverride="mr-24 last:mr-0 w-full">
               {/* Adds height and width of 100% */}
               <div className="w-full h-100" />
             </Card>
@@ -75,9 +68,7 @@ export const TailwindExampleClassNameOverrideMargin: StoryFn = () => (
     <Card>
       <TailwindStoryTemplate.CardContent
         title="Card 2"
-        illustration={
-          <CustomUnattributedSurvey alt="custom-unattributed-survey" />
-        }
+        illustration={<CustomUnattributedSurvey alt="custom-unattributed-survey" />}
       />
     </Card>
   </div>

@@ -1,10 +1,10 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { InformationTile } from "~components/Tile"
-import { TileGrid } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { InformationTile } from '~components/Tile'
+import { TileGrid } from '../index'
 
 const meta = {
-  title: "Components/Tiles/TileGrid",
+  title: 'Components/Tiles/TileGrid',
   component: TileGrid,
   args: {
     children: (
@@ -40,7 +40,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

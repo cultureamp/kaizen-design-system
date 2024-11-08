@@ -1,7 +1,7 @@
-import React, { ReactNode, useId } from "react"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { MultiSelectItem } from "../../types"
-import styles from "./ListBoxSection.module.scss"
+import React, { ReactNode, useId } from 'react'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { MultiSelectItem } from '../../types'
+import styles from './ListBoxSection.module.scss'
 
 type SectionNameProps = {
   /**
@@ -36,7 +36,7 @@ export const ListBoxSection = ({
   ...restProps
 }: ListBoxSectionProps): JSX.Element => {
   const listSectionId = useId()
-  const hasSectionHeader = "sectionHeader" in restProps
+  const hasSectionHeader = 'sectionHeader' in restProps
   return (
     <li role="presentation">
       <ul
@@ -46,11 +46,7 @@ export const ListBoxSection = ({
         role="group"
       >
         {hasSectionHeader && (
-          <li
-            className={styles.listBoxSectionHeader}
-            id={listSectionId}
-            role="presentation"
-          >
+          <li className={styles.listBoxSectionHeader} id={listSectionId} role="presentation">
             {sectionName && <VisuallyHidden>{sectionName}. </VisuallyHidden>}
             {restProps.sectionHeader}
           </li>
@@ -61,9 +57,9 @@ export const ListBoxSection = ({
          * the role="presentation" will throw an error a11y warning "Element has children which are not allowed".
          This is expected and is an accepted issue / potential limitation with axe
          */}
-        {Array.from(items).map(node => node != undefined && children(node))}
+        {Array.from(items).map((node) => node != undefined && children(node))}
       </ul>
     </li>
   )
 }
-ListBoxSection.displayName = "ListBoxSection"
+ListBoxSection.displayName = 'ListBoxSection'

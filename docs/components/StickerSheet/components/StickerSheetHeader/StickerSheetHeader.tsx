@@ -1,5 +1,5 @@
-import React, { HTMLAttributes } from "react"
-import { StickerSheetTableHeading } from "../StickerSheetTableHeading"
+import React, { HTMLAttributes } from 'react'
+import { StickerSheetTableHeading } from '../StickerSheetTableHeading'
 
 export type StickerSheetHeaderProps = {
   headings: string[]
@@ -14,13 +14,13 @@ export const StickerSheetHeader = ({
   headingsWidth,
   isReversed = false,
   hasVerticalHeadings = false,
-  verticalHeadingsWidth = "7rem",
+  verticalHeadingsWidth = '7rem',
   ...restProps
 }: StickerSheetHeaderProps): JSX.Element => (
   <thead {...restProps}>
     <tr>
       {hasVerticalHeadings && <td style={{ width: verticalHeadingsWidth }} />}
-      {headings.map(heading => (
+      {headings.map((heading) => (
         <StickerSheetTableHeading
           key={heading}
           scope="col"
@@ -34,4 +34,4 @@ export const StickerSheetHeader = ({
   </thead>
 )
 
-StickerSheetHeader.displayName = "StickerSheet.Header"
+StickerSheetHeader.displayName = 'StickerSheet.Header'

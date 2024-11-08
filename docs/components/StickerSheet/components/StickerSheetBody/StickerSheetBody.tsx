@@ -1,12 +1,10 @@
-import React, { HTMLAttributes } from "react"
-import { StickerSheetRowProps } from "../StickerSheetRow"
+import React, { HTMLAttributes } from 'react'
+import { StickerSheetRowProps } from '../StickerSheetRow'
 
 export type StickerSheetBodyProps = {
-  children:
-    | React.ReactElement<StickerSheetRowProps>
-    | Array<React.ReactElement<StickerSheetRowProps>>
+  children: React.ReactElement<StickerSheetRowProps> | React.ReactElement<StickerSheetRowProps>[]
   isReversed?: boolean
-} & Omit<HTMLAttributes<HTMLTableSectionElement>, "children">
+} & Omit<HTMLAttributes<HTMLTableSectionElement>, 'children'>
 
 export const StickerSheetBody = ({
   children,
@@ -14,13 +12,13 @@ export const StickerSheetBody = ({
   ...restProps
 }: StickerSheetBodyProps): JSX.Element => (
   <tbody {...restProps}>
-    {React.Children.map(children, child =>
+    {React.Children.map(children, (child) =>
       React.cloneElement(child, {
         isReversed,
         ...child.props,
-      })
+      }),
     )}
   </tbody>
 )
 
-StickerSheetBody.displayName = "StickerSheet.Body"
+StickerSheetBody.displayName = 'StickerSheet.Body'

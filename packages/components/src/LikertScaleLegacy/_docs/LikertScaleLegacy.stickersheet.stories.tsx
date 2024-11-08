@@ -1,14 +1,11 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { LikertScaleLegacy } from "../index"
-import { Scale } from "../types"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { LikertScaleLegacy } from '../index'
+import { Scale } from '../types'
 
 export default {
-  title: "Components/LikertScaleLegacy",
+  title: 'Components/LikertScaleLegacy',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -18,27 +15,27 @@ export default {
 const scale: Scale = [
   {
     value: -1,
-    label: "Not rated",
+    label: 'Not rated',
   },
   {
     value: 1,
-    label: "Strong Disagree",
+    label: 'Strong Disagree',
   },
   {
     value: 2,
-    label: "Disagree",
+    label: 'Disagree',
   },
   {
     value: 3,
-    label: "Neither agree or disagree",
+    label: 'Neither agree or disagree',
   },
   {
     value: 4,
-    label: "Agree",
+    label: 'Agree',
   },
   {
     value: 5,
-    label: "Strongly agree",
+    label: 'Strongly agree',
   },
 ]
 
@@ -125,37 +122,37 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default - Classical)",
+  name: 'Sticker Sheet (Default - Classical)',
 }
 
 export const StickerBlueSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Blue)",
-  args: { colorSchema: "blue" },
+  name: 'Sticker Sheet (Blue)',
+  args: { colorSchema: 'blue' },
 }
 
 export const StickerSheetClassicalReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Classical Reversed)",
+  name: 'Sticker Sheet (Classical Reversed)',
   parameters: {
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetBlueReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Blue Reversed)",
+  name: 'Sticker Sheet (Blue Reversed)',
   parameters: {
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
-  args: { isReversed: true, colorSchema: "blue" },
+  args: { isReversed: true, colorSchema: 'blue' },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

@@ -1,5 +1,5 @@
-import { Command, Transaction } from "prosemirror-state"
-import { EditorView as ProseMirrorEditorView } from "prosemirror-view"
+import { Command, Transaction } from 'prosemirror-state'
+import { EditorView as ProseMirrorEditorView } from 'prosemirror-view'
 
 /**
  * Dispatch receives a transaction from ProseMirror to effect changes to the
@@ -24,7 +24,7 @@ export type Doc = {
   content: DocContent
 }
 
-export type DocContent = Array<Record<string, any>>
+export type DocContent = Record<string, any>[]
 
 /**
  * Overload the EditorView` from ProseMirror to allow for the dispatch

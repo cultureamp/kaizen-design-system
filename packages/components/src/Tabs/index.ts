@@ -1,2 +1,2 @@
-export * from "./Tabs"
-export * from "./subcomponents"
+export * from './Tabs'
+export * from './subcomponents'

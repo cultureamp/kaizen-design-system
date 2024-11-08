@@ -1,33 +1,27 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { within } from "@storybook/test"
-import { Heading } from "~components/Heading"
-import { Text } from "~components/Text"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Collapsible, CollapsibleProps } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { within } from '@storybook/test'
+import { Heading } from '~components/Heading'
+import { Text } from '~components/Text'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Collapsible, CollapsibleProps } from '../index'
 
 export default {
-  title: "Components/Collapsibles/Collapsible",
+  title: 'Components/Collapsibles/Collapsible',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
 } satisfies Meta
 
-const CollapsibleWrapped = (
-  args: Omit<CollapsibleProps, "children">
-): JSX.Element => (
+const CollapsibleWrapped = (args: Omit<CollapsibleProps, 'children'>): JSX.Element => (
   <Collapsible open {...args}>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac
-    scelerisque sem, vel ultricies justo. Donec eu porttitor ante, nec gravida
-    orci. Nulla facilisi. Cras varius erat id fermentum mattis. Mauris bibendum
-    vestibulum erat, quis blandit metus viverra sit amet. Vivamus pretium vitae
-    turpis ut condimentum. Sed vulputate magna nisl, in cursus urna hendrerit
-    et. Aenean semper, est non feugiat sodales, nisl ligula aliquet lorem, sit
-    amet scelerisque arcu quam a sapien. Donec in viverra urna.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac scelerisque sem, vel
+    ultricies justo. Donec eu porttitor ante, nec gravida orci. Nulla facilisi. Cras varius erat id
+    fermentum mattis. Mauris bibendum vestibulum erat, quis blandit metus viverra sit amet. Vivamus
+    pretium vitae turpis ut condimentum. Sed vulputate magna nisl, in cursus urna hendrerit et.
+    Aenean semper, est non feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque arcu
+    quam a sapien. Donec in viverra urna.
   </Collapsible>
 )
 
@@ -53,7 +47,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Row rowTitle="custom heading">
           <CollapsibleWrapped
             title="Custom header"
-            renderHeader={title => (
+            renderHeader={(title) => (
               <Heading variant="heading-4" tag="span">
                 {title}
               </Heading>
@@ -67,13 +61,13 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }
 
 export const Sticky: StickerSheetStory = {
@@ -81,33 +75,24 @@ export const Sticky: StickerSheetStory = {
     <StickerSheet>
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Sticky header">
-          <div style={{ height: "300px", overflow: "auto" }}>
-            <Collapsible
-              open
-              title="Sticky"
-              sticky={{ top: "-1px" }}
-              style={{ maxWidth: "300px" }}
-            >
+          <div style={{ height: '300px', overflow: 'auto' }}>
+            <Collapsible open title="Sticky" sticky={{ top: '-1px' }} style={{ maxWidth: '300px' }}>
               <Text variant="body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus ac scelerisque sem, vel ultricies justo. Donec eu
-                porttitor ante, nec gravida orci. Nulla facilisi. Cras varius
-                erat id fermentum mattis. Mauris bibendum vestibulum erat, quis
-                blandit metus viverra sit amet. Vivamus pretium vitae turpis ut
-                condimentum. Sed vulputate magna nisl, in cursus urna hendrerit
-                et. Aenean semper, est non feugiat sodales, nisl ligula aliquet
-                lorem, sit amet scelerisque arcu quam a sapien. Donec in viverra
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac scelerisque
+                sem, vel ultricies justo. Donec eu porttitor ante, nec gravida orci. Nulla facilisi.
+                Cras varius erat id fermentum mattis. Mauris bibendum vestibulum erat, quis blandit
+                metus viverra sit amet. Vivamus pretium vitae turpis ut condimentum. Sed vulputate
+                magna nisl, in cursus urna hendrerit et. Aenean semper, est non feugiat sodales,
+                nisl ligula aliquet lorem, sit amet scelerisque arcu quam a sapien. Donec in viverra
                 urna.
               </Text>
               <Text variant="body" data-testid="bottom-content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus ac scelerisque sem, vel ultricies justo. Donec eu
-                porttitor ante, nec gravida orci. Nulla facilisi. Cras varius
-                erat id fermentum mattis. Mauris bibendum vestibulum erat, quis
-                blandit metus viverra sit amet. Vivamus pretium vitae turpis ut
-                condimentum. Sed vulputate magna nisl, in cursus urna hendrerit
-                et. Aenean semper, est non feugiat sodales, nisl ligula aliquet
-                lorem, sit amet scelerisque arcu quam a sapien. Donec in viverra
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac scelerisque
+                sem, vel ultricies justo. Donec eu porttitor ante, nec gravida orci. Nulla facilisi.
+                Cras varius erat id fermentum mattis. Mauris bibendum vestibulum erat, quis blandit
+                metus viverra sit amet. Vivamus pretium vitae turpis ut condimentum. Sed vulputate
+                magna nisl, in cursus urna hendrerit et. Aenean semper, est non feugiat sodales,
+                nisl ligula aliquet lorem, sit amet scelerisque arcu quam a sapien. Donec in viverra
                 urna.
               </Text>
             </Collapsible>
@@ -118,7 +103,7 @@ export const Sticky: StickerSheetStory = {
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const element = canvas.getByTestId("bottom-content")
-    element.scrollIntoView({ behavior: "instant", block: "end" })
+    const element = canvas.getByTestId('bottom-content')
+    element.scrollIntoView({ behavior: 'instant', block: 'end' })
   },
 }

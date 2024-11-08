@@ -1,10 +1,10 @@
-import React from "react"
-import { Meta, StoryFn, StoryObj } from "@storybook/react"
-import { Button } from "~components/__actions__/v2"
-import { tokens } from "~design-tokens/js"
+import React from 'react'
+import { Meta, StoryFn, StoryObj } from '@storybook/react'
+import { Button } from '~components/__actions__/v2'
+import { tokens } from '~design-tokens/js'
 
 const meta = {
-  title: "Guides/Layout and spacing",
+  title: 'Guides/Layout and spacing',
 } satisfies Meta
 
 export default meta
@@ -30,10 +30,7 @@ export const SpacingTokens: StoryFn = () => {
               <td className="font-family-data">{tokenName}</td>
               <td className="font-family-data">{tokenValue}</td>
               <td className="font-family-data">
-                <div
-                  className="h-[20px] bg-blue-400"
-                  style={{ width: tokenValue }}
-                />
+                <div className="h-[20px] bg-blue-400" style={{ width: tokenValue }} />
               </td>
             </tr>
           ))}
@@ -65,7 +62,7 @@ export const MarginExample: Story = {
     docs: {
       source: { code: marginExampleSource },
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

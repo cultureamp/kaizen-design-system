@@ -1,27 +1,27 @@
-import ts from "typescript"
-import { parseJsx } from "../__tests__/utils/parseJsx"
-import { createStyleProp } from "./createProp"
-import { printAst } from "./printAst"
-import { TransformConfig, transformSource } from "./transformSource"
-import { updateJsxElementWithNewProps } from "./updateJsxElementWithNewProps"
+import ts from 'typescript'
+import { parseJsx } from '../__tests__/utils/parseJsx'
+import { createStyleProp } from './createProp'
+import { printAst } from './printAst'
+import { TransformConfig, transformSource } from './transformSource'
+import { updateJsxElementWithNewProps } from './updateJsxElementWithNewProps'
 
 export const mockedTransformer =
   (context: ts.TransformationContext) =>
   (rootNode: ts.Node): ts.Node => {
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-        if (node.tagName.getText() === "Pancakes") {
-          const newAttributes = node.attributes.properties.map(attr => {
+        if (node.tagName.getText() === 'Pancakes') {
+          const newAttributes = node.attributes.properties.map((attr) => {
             if (ts.isJsxAttribute(attr)) {
-              if (attr.name.getText() === "replaceWithExistingValue") {
+              if (attr.name.getText() === 'replaceWithExistingValue') {
                 return createStyleProp({ width: attr.initializer! })
               }
 
-              if (attr.name.getText() === "replaceWithStringValue") {
-                return createStyleProp({ width: "100px" })
+              if (attr.name.getText() === 'replaceWithStringValue') {
+                return createStyleProp({ width: '100px' })
               }
 
-              if (attr.name.getText() === "replaceWithNumberValue") {
+              if (attr.name.getText() === 'replaceWithNumberValue') {
                 return createStyleProp({ width: 100 })
               }
             }
@@ -35,29 +35,27 @@ export const mockedTransformer =
     return ts.visitNode(rootNode, visit)
   }
 
-const testCreateStyleProp = (
-  sourceFile: TransformConfig["sourceFile"]
-): string =>
+const testCreateStyleProp = (sourceFile: TransformConfig['sourceFile']): string =>
   transformSource({
     sourceFile,
     astTransformer: mockedTransformer,
-    tagName: "Pancakes",
+    tagName: 'Pancakes',
   })
 
-describe("createStyleProp()", () => {
-  it("creates a style prop with a string value", () => {
-    const inputAst = parseJsx("<Pancakes replaceWithStringValue />")
+describe('createStyleProp()', () => {
+  it('creates a style prop with a string value', () => {
+    const inputAst = parseJsx('<Pancakes replaceWithStringValue />')
     const outputAst = parseJsx('<Pancakes style={{ width: "100px" }} />')
     expect(testCreateStyleProp(inputAst)).toEqual(printAst(outputAst))
   })
 
-  it("creates a style prop with a number value", () => {
-    const inputAst = parseJsx("<Pancakes replaceWithNumberValue />")
-    const outputAst = parseJsx("<Pancakes style={{ width: 100 }} />")
+  it('creates a style prop with a number value', () => {
+    const inputAst = parseJsx('<Pancakes replaceWithNumberValue />')
+    const outputAst = parseJsx('<Pancakes style={{ width: 100 }} />')
     expect(testCreateStyleProp(inputAst)).toEqual(printAst(outputAst))
   })
 
-  it("creates a style prop with a pre-existing value", () => {
+  it('creates a style prop with a pre-existing value', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => (
         <>

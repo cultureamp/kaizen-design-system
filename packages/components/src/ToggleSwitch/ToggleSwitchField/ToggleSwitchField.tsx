@@ -1,17 +1,13 @@
-import React, { useId } from "react"
-import classnames from "classnames"
-import { FieldGroup } from "~components/FieldGroup"
-import { Label } from "~components/Label"
-import {
-  ToggledStatus,
-  ToggleSwitch,
-  ToggleSwitchProps,
-} from "../ToggleSwitch/ToggleSwitch"
-import styles from "./ToggleSwitchField.module.scss"
+import React, { useId } from 'react'
+import classnames from 'classnames'
+import { FieldGroup } from '~components/FieldGroup'
+import { Label } from '~components/Label'
+import { ToggledStatus, ToggleSwitch, ToggleSwitchProps } from '../ToggleSwitch/ToggleSwitch'
+import styles from './ToggleSwitchField.module.scss'
 
 export type ToggleSwitchFieldProps = {
   labelText: React.ReactNode
-  labelPosition?: "start" | "end"
+  labelPosition?: 'start' | 'end'
   toggledStatus?: ToggledStatus
   disabled?: boolean
   reversed?: boolean
@@ -26,7 +22,7 @@ export type ToggleSwitchFieldProps = {
 export const ToggleSwitchField = ({
   id: propsId,
   labelText,
-  labelPosition = "start",
+  labelPosition = 'start',
   toggledStatus,
   disabled,
   reversed,
@@ -44,7 +40,7 @@ export const ToggleSwitchField = ({
       classNameOverride={classnames(
         styles.container,
         fullWidth && styles.fullWidth,
-        toggledStatus === "on" && styles.on
+        toggledStatus === 'on' && styles.on,
       )}
     >
       <div className={styles.inner}>
@@ -70,4 +66,4 @@ export const ToggleSwitchField = ({
   )
 }
 
-ToggleSwitchField.displayName = "ToggleSwitchField"
+ToggleSwitchField.displayName = 'ToggleSwitchField'

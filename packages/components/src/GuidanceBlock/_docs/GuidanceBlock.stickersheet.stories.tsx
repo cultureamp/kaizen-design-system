@@ -1,18 +1,15 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { Heading } from "~components/Heading"
-import { EmptyStatesPositive, Informative } from "~components/Illustration"
-import { Tag } from "~components/Tag"
-import { Text } from "~components/Text"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { GuidanceBlock, GuidanceBlockProps } from "../index"
-import { variantsMap } from "../types"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { Heading } from '~components/Heading'
+import { EmptyStatesPositive, Informative } from '~components/Illustration'
+import { Tag } from '~components/Tag'
+import { Text } from '~components/Text'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { GuidanceBlock, GuidanceBlockProps } from '../index'
+import { variantsMap } from '../types'
 
 export default {
-  title: "Containers/GuidanceBlock",
+  title: 'Containers/GuidanceBlock',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -24,15 +21,15 @@ const GENERIC_PROPS = {
   illustration: <Informative alt="" />,
   actions: {
     primary: {
-      label: "Action",
+      label: 'Action',
       onClick: () => {
-        alert("tada: 🎉")
+        alert('tada: 🎉')
       },
     },
     secondary: {
-      label: "Pass",
+      label: 'Pass',
       onClick: () => {
-        alert("tada: 🎉")
+        alert('tada: 🎉')
       },
     },
   },
@@ -41,10 +38,10 @@ const GENERIC_PROPS = {
 const TEXT_PROPS: GuidanceBlockProps = {
   ...GENERIC_PROPS,
   text: {
-    title: "This is the Guidance block title",
+    title: 'This is the Guidance block title',
     description:
-      "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, " +
-      "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
+      'Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, ' +
+      'qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.',
   },
 }
 
@@ -64,7 +61,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
         <>
-          {variantsMap.map(variant => (
+          {variantsMap.map((variant) => (
             <StickerSheet.Row key={variant} rowTitle={variant}>
               <GuidanceBlock variant={variant} {...TEXT_PROPS} />
             </StickerSheet.Row>
@@ -83,8 +80,8 @@ const StickerSheetTemplate: StickerSheetStory = {
               primary: {
                 ...GENERIC_PROPS.actions.primary,
                 tooltip: {
-                  text: "Opens in a new tab",
-                  mood: "cautionary",
+                  text: 'Opens in a new tab',
+                  mood: 'cautionary',
                   isInitiallyVisible: true,
                 },
               },
@@ -108,13 +105,13 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

@@ -1,49 +1,46 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { DirectionalLink, DirectionalLinkProps } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { DirectionalLink, DirectionalLinkProps } from '../index'
 
 export default {
-  title: "Components/Pagination/DirectionalLink",
+  title: 'Components/Pagination/DirectionalLink',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
 } satisfies Meta
 
-const DIRECTIONAL_LINK_PROPS: Array<{
+const DIRECTIONAL_LINK_PROPS: {
   title: string
   props: DirectionalLinkProps
-}> = [
+}[] = [
   {
-    title: "Prev",
+    title: 'Prev',
     props: {
-      direction: "prev",
-      label: "Previous page",
+      direction: 'prev',
+      label: 'Previous page',
     },
   },
   {
-    title: "Next",
+    title: 'Next',
     props: {
-      direction: "next",
-      label: "Next page",
+      direction: 'next',
+      label: 'Next page',
     },
   },
   {
-    title: "Start",
+    title: 'Start',
     props: {
-      direction: "start",
-      label: "First page",
+      direction: 'start',
+      label: 'First page',
     },
   },
   {
-    title: "End",
+    title: 'End',
     props: {
-      direction: "end",
-      label: "Last page",
+      direction: 'end',
+      label: 'Last page',
     },
   },
 ]
@@ -55,21 +52,9 @@ const StickerSheetTemplate: StickerSheetStory = {
         {DIRECTIONAL_LINK_PROPS.map(({ title, props }) => (
           <StickerSheet.Row key={title} rowTitle={title}>
             <DirectionalLink {...props} reversed={isReversed} />
-            <DirectionalLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="hover"
-            />
-            <DirectionalLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="active"
-            />
-            <DirectionalLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="focus"
-            />
+            <DirectionalLink {...props} reversed={isReversed} data-sb-pseudo-styles="hover" />
+            <DirectionalLink {...props} reversed={isReversed} data-sb-pseudo-styles="active" />
+            <DirectionalLink {...props} reversed={isReversed} data-sb-pseudo-styles="focus" />
             <DirectionalLink {...props} reversed={isReversed} disabled />
           </StickerSheet.Row>
         ))}
@@ -88,24 +73,24 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

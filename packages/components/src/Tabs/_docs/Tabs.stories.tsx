@@ -1,12 +1,12 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Card } from "~components/Card"
-import { Text } from "~components/Text"
-import { Button } from "~components/__actions__/v2"
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "../index"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Card } from '~components/Card'
+import { Text } from '~components/Text'
+import { Button } from '~components/__actions__/v2'
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from '../index'
 
 const meta = {
-  title: "Components/Tabs",
+  title: 'Components/Tabs',
   component: Tabs,
   args: {
     children: (
@@ -42,31 +42,24 @@ export const Playground: Story = {
     chromatic: { disable: false },
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
   args: {
     defaultIndex: 1,
-    // eslint-disable-next-line no-console
-    onChange: (index): void => console.log("Tab changed to ", index),
+
+    onChange: (index): void => console.log('Tab changed to ', index),
   },
 }
 
 export const Controlled: Story = {
-  render: args => {
+  render: (args) => {
     const [selectedIndex, setSelectedIndex] = useState<number>(0)
     return (
       <>
-        <Tabs
-          {...args}
-          selectedIndex={selectedIndex}
-          onChange={setSelectedIndex}
-        />
-        <Button
-          label="Switch to tab 2"
-          onClick={(): void => setSelectedIndex(1)}
-        />
+        <Tabs {...args} selectedIndex={selectedIndex} onChange={setSelectedIndex} />
+        <Button label="Switch to tab 2" onClick={(): void => setSelectedIndex(1)} />
       </>
     )
   },
@@ -74,9 +67,9 @@ export const Controlled: Story = {
 
 export const UsageInCard: Story = {
   parameters: {
-    backgrounds: { default: "Gray 100" },
+    backgrounds: { default: 'Gray 100' },
   },
-  render: args => (
+  render: (args) => (
     <Card>
       <Tabs {...args} />
     </Card>

@@ -1,5 +1,5 @@
-import { MessageDescriptor } from "@cultureamp/i18n-react-intl"
-import { vi } from "vitest"
+import { MessageDescriptor } from '@cultureamp/i18n-react-intl'
+import { vi } from 'vitest'
 
 const replaceInputValue = (str: string, value: string): string => {
   const regex = /{([^}]+)}/g
@@ -23,9 +23,8 @@ export const reactIntlMock = (): any => {
     FormattedMessage: vi.fn(),
   }))
 
-  vi.mock("@cultureamp/i18n-react-intl", () => ({
-    StaticIntlProvider: ({ children }: { children: React.ReactNode }) =>
-      children,
+  vi.mock('@cultureamp/i18n-react-intl', () => ({
+    StaticIntlProvider: ({ children }: { children: React.ReactNode }) => children,
     useIntl: () => ({
       formatMessage: (message: MessageDescriptor, values: any) =>
         values

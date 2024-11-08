@@ -1,1 +1,1 @@
-export * from "./TruncateIndicator"
+export * from './TruncateIndicator'
