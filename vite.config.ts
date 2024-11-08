@@ -13,7 +13,7 @@ export default {
         },
         {
           // monorepo workspace aliases
-          find: /^\@kaizen(.*)$/,
+          find: /^@kaizen(.*)$/,
           replacement: path.resolve(__dirname, './packages$1'),
         },
       ],
