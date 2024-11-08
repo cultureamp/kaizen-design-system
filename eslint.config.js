@@ -182,6 +182,12 @@ export default tseslint.config(
           pathGroupsExcludedImportTypes: [],
         },
       ],
+      'import/no-unresolved': [
+        'error',
+        {
+          ignore: ['^@kaizen/', '/preview.css$'],
+        },
+      ],
     },
   },
   {
