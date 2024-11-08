@@ -1,1 +1,1 @@
-export * from './ModalAccessibleDescription'
+export * from "./ModalAccessibleDescription"

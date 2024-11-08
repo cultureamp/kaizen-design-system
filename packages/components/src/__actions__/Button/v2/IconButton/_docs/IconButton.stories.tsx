@@ -1,15 +1,15 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Icon } from '~components/__future__/Icon'
-import { IconButton } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Icon } from "~components/__future__/Icon"
+import { IconButton } from "../index"
 
 const meta = {
-  title: 'Actions/IconButton/IconButton (v2)',
+  title: "Actions/IconButton/IconButton (v2)",
   component: IconButton,
   argTypes: {
     icon: {
-      options: ['MeatballsIcon', 'AddIcon'],
-      control: { type: 'radio' },
+      options: ["MeatballsIcon", "AddIcon"],
+      control: { type: "radio" },
       mapping: {
         MeatballsIcon: <Icon name="more_horiz" isPresentational />,
         AddIcon: <Icon name="add" isPresentational />,
@@ -17,7 +17,7 @@ const meta = {
     },
   },
   args: {
-    label: 'icon button',
+    label: "icon button",
     icon: <Icon name="more_horiz" isPresentational />,
   },
 } satisfies Meta<typeof IconButton>
@@ -30,7 +30,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

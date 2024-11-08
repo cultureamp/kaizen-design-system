@@ -1,40 +1,40 @@
-import { createElement, HTMLAttributes } from 'react'
-import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './Heading.module.scss'
+import { createElement, HTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import styles from "./Heading.module.scss"
 
-const VARIANTS_24PX_OR_GREATER = ['display-0', 'heading-1', 'heading-2']
+const VARIANTS_24PX_OR_GREATER = ["display-0", "heading-1", "heading-2"]
 
 export type HeadingVariants =
-  | 'display-0'
-  | 'composable-header-title'
-  | 'heading-1'
-  | 'heading-2'
-  | 'heading-3'
-  | 'heading-4'
-  | 'heading-5'
-  | 'heading-6'
+  | "display-0"
+  | "composable-header-title"
+  | "heading-1"
+  | "heading-2"
+  | "heading-3"
+  | "heading-4"
+  | "heading-5"
+  | "heading-6"
 
 export type AllowedHeadingTags =
-  | 'pre'
-  | 'p'
-  | 'div'
-  | 'span'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'label'
+  | "pre"
+  | "p"
+  | "div"
+  | "span"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "label"
 
 export type AllowedHeadingColors =
-  | 'dark'
-  | 'dark-reduced-opacity'
-  | 'white'
-  | 'white-reduced-opacity'
-  | 'positive'
-  | 'negative'
+  | "dark"
+  | "dark-reduced-opacity"
+  | "white"
+  | "white-reduced-opacity"
+  | "positive"
+  | "negative"
 
 export type HeadingProps = {
   children: React.ReactNode
@@ -58,7 +58,7 @@ export const Heading = ({
   children,
   tag,
   variant,
-  color = 'dark',
+  color = "dark",
   classNameOverride,
   ...restProps
 }: HeadingProps): JSX.Element => {
@@ -75,7 +75,7 @@ export const Heading = ({
   return createElement(inferredTag, { ...restProps, className }, children)
 }
 
-Heading.displayName = 'Heading'
+Heading.displayName = "Heading"
 
 /**
  * A helper to infer the tag when not explicitly passed as a prop
@@ -83,20 +83,20 @@ Heading.displayName = 'Heading'
  */
 const translateHeadingLevelToTag = (headingLevel: HeadingVariants): string => {
   switch (headingLevel) {
-    case 'display-0':
-    case 'composable-header-title':
-    case 'heading-1':
-      return 'h1'
-    case 'heading-2':
-      return 'h2'
-    case 'heading-3':
-      return 'h3'
-    case 'heading-4':
-      return 'h4'
-    case 'heading-5':
-      return 'h5'
-    case 'heading-6':
+    case "display-0":
+    case "composable-header-title":
+    case "heading-1":
+      return "h1"
+    case "heading-2":
+      return "h2"
+    case "heading-3":
+      return "h3"
+    case "heading-4":
+      return "h4"
+    case "heading-5":
+      return "h5"
+    case "heading-6":
     default:
-      return 'h6'
+      return "h6"
   }
 }

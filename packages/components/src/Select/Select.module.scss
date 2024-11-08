@@ -1,7 +1,7 @@
-@import '~@kaizen/design-tokens/sass/typography';
-@import '~@kaizen/design-tokens/sass/shadow';
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
 
 // Should match the values for the Input component
 $input-height: 48px;
@@ -12,7 +12,7 @@ $focus-border-color: $color-blue-500;
 %focus-border {
   $focus-ring-offset: calc((#{$border-focus-ring-border-width} * -2) - 1px);
 
-  content: '';
+  content: "";
   position: absolute;
   background: transparent;
   border-radius: $border-focus-ring-border-radius;

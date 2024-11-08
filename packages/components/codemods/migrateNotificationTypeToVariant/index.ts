@@ -1,1 +1,1 @@
-export * from './migrateNotificationTypeToVariant'
+export * from "./migrateNotificationTypeToVariant"

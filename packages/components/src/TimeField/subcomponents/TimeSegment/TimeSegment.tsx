@@ -1,9 +1,9 @@
-import React from 'react'
-import { useDateSegment } from '@react-aria/datepicker'
-import { DateSegment, DateFieldState } from '@react-stately/datepicker'
-import classnames from 'classnames'
-import { generateSegmentDisplayText } from './utils/generateSegmentDisplayText'
-import styles from './TimeSegment.module.scss'
+import React from "react"
+import { useDateSegment } from "@react-aria/datepicker"
+import { DateSegment, DateFieldState } from "@react-stately/datepicker"
+import classnames from "classnames"
+import { generateSegmentDisplayText } from "./utils/generateSegmentDisplayText"
+import styles from "./TimeSegment.module.scss"
 
 export type TimeSegmentProps = {
   segment: DateSegment
@@ -26,9 +26,9 @@ export const TimeSegment = ({ segment, state }: TimeSegmentProps): JSX.Element =
         ref={ref}
         className={classnames(
           styles.timeSegment,
-          segment.type === 'literal' && styles.literal,
+          segment.type === "literal" && styles.literal,
           segment.isPlaceholder && styles.placeholder,
-          segment.type === 'dayPeriod' && styles.dayPeriod,
+          segment.type === "dayPeriod" && styles.dayPeriod,
         )}
       >
         {generateSegmentDisplayText(segment)}
@@ -38,4 +38,4 @@ export const TimeSegment = ({ segment, state }: TimeSegmentProps): JSX.Element =
   )
 }
 
-TimeSegment.displayName = 'TimeSegment'
+TimeSegment.displayName = "TimeSegment"

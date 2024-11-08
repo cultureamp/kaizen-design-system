@@ -1,5 +1,5 @@
-import colorString from 'color-string'
-import { objectPathToCssVarIdentifier } from './cssVariables'
+import colorString from "color-string"
+import { objectPathToCssVarIdentifier } from "./cssVariables"
 
 /**
  * Use this to generate an object containing `${key}: value`, `${key}-rgb: r, g, b`, and/or `${key}-id: --color-blah-XXX`.
@@ -31,7 +31,7 @@ export const addExtraThemeEntries = (
     augmentWithId: boolean
   },
 ): Record<string, string> => {
-  const colorRgb = typeof value === 'string' ? colorString.get.rgb(value) : null
+  const colorRgb = typeof value === "string" ? colorString.get.rgb(value) : null
   const result = {
     [key]: printValue(path, value),
   }
@@ -41,8 +41,8 @@ export const addExtraThemeEntries = (
     // If the value is a color, always convert to lowercase
     result[key] = printValue(path, value).toLowerCase()
 
-    const rgbPath = [...path, 'rgb']
-    const rgbTriple = printValue(rgbPath, colorRgb.slice(0, 3).join(', '))
+    const rgbPath = [...path, "rgb"]
+    const rgbTriple = printValue(rgbPath, colorRgb.slice(0, 3).join(", "))
     result[`${key}-rgb`] = rgbTriple
     if (augmentWithId) {
       result[`${key}-rgb-id`] = objectPathToCssVarIdentifier(rgbPath)

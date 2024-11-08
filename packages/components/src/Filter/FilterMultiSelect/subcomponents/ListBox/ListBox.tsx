@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { Collection, Key } from '@react-types/shared'
-import classnames from 'classnames'
-import { useSelectionContext } from '../../context/SelectionProvider'
-import { MultiSelectItem } from '../../types'
-import styles from './ListBox.module.scss'
+import React, { useState, useEffect } from "react"
+import { Collection, Key } from "@react-types/shared"
+import classnames from "classnames"
+import { useSelectionContext } from "../../context/SelectionProvider"
+import { MultiSelectItem } from "../../types"
+import styles from "./ListBox.module.scss"
 
 export type ListBoxItems = {
   selectedItems: MultiSelectItem[]
@@ -95,4 +95,4 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
   )
 }
 
-ListBox.displayName = 'FilterMultiSelect.ListBox'
+ListBox.displayName = "FilterMultiSelect.ListBox"

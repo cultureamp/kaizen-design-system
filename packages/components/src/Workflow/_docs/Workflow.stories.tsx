@@ -1,12 +1,12 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Heading } from '~components/Heading'
-import { Text } from '~components/Text'
-import { TextField } from '~components/TextField'
-import { Button } from '~components/__actions__/v2'
-import { Icon, Tag } from '~components/__future__'
-import { Workflow } from '../'
-import { WorkflowControls } from './controls'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Heading } from "~components/Heading"
+import { Text } from "~components/Text"
+import { TextField } from "~components/TextField"
+import { Button } from "~components/__actions__/v2"
+import { Icon, Tag } from "~components/__future__"
+import { Workflow } from "../"
+import { WorkflowControls } from "./controls"
 
 const MockContent = (): JSX.Element => (
   <div className="flex flex-col flex-1 m-24 items-center">
@@ -28,18 +28,18 @@ const MockContent = (): JSX.Element => (
 )
 
 const meta = {
-  title: 'Layout/Workflow',
+  title: "Layout/Workflow",
   component: Workflow,
   argTypes: WorkflowControls,
   args: {
-    workflowName: 'Create a self-reflection cycle',
-    currentStepId: 'settings-step',
+    workflowName: "Create a self-reflection cycle",
+    currentStepId: "settings-step",
     steps: [
-      { label: 'Settings', id: 'settings-step' },
-      { label: 'Questions', id: 'questions-step' },
-      { label: 'Preview', id: 'preview-step' },
-      { label: 'Employees', id: 'employees-step' },
-      { label: 'Schedule', id: 'schedule-step' },
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
+      { label: "Employees", id: "employees-step" },
+      { label: "Schedule", id: "schedule-step" },
     ],
     isComplete: false,
     statusTag: <Tag color="purple">Draft</Tag>,
@@ -66,7 +66,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
     chromatic: { disable: false },
@@ -89,14 +89,14 @@ export const MultipleActions: Story = {
         icon={<Icon name="close" isPresentational />}
         secondary
         iconPosition="end"
-        onClick={(): void => alert('mock example of a save action')}
+        onClick={(): void => alert("mock example of a save action")}
       />,
     ],
   },
 }
 
 export const FinalStep: Story = {
-  args: { currentStepId: 'schedule-step' },
+  args: { currentStepId: "schedule-step" },
 }
 
 export const CompletedWorkflow: Story = {
@@ -147,21 +147,21 @@ export const ResponsiveWorkflow: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'hidden',
+        sourceState: "hidden",
       },
     },
     viewport: {
       viewports: {
         vieportZoomed: {
-          name: 'Simulate 400% zoom',
+          name: "Simulate 400% zoom",
           styles: {
-            width: '500px',
-            height: '800px',
+            width: "500px",
+            height: "800px",
           },
-          type: 'mobile',
+          type: "mobile",
         },
       },
-      defaultViewport: 'vieportZoomed',
+      defaultViewport: "vieportZoomed",
     },
     chromatic: {
       disable: false,

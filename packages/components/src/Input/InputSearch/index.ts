@@ -1,1 +1,1 @@
-export * from './InputSearch'
+export * from "./InputSearch"

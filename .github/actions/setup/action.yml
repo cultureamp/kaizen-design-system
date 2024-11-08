@@ -16,7 +16,7 @@ runs:
       with:
         node-version-file: package.json
         registry-url: https://npm.pkg.github.com/
-        cache: 'pnpm'
+        cache: "pnpm"
 
     - name: Install dependencies
       shell: bash

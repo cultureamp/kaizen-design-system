@@ -1,8 +1,8 @@
-import React from 'react'
-import classnames from 'classnames'
-import { VisuallyHidden } from '~components/VisuallyHidden'
-import { Icon } from '~components/__future__/Icon'
-import styles from './ProgressStepper.module.css'
+import React from "react"
+import classnames from "classnames"
+import { VisuallyHidden } from "~components/VisuallyHidden"
+import { Icon } from "~components/__future__/Icon"
+import styles from "./ProgressStepper.module.css"
 
 export type Step = {
   id: string
@@ -13,7 +13,7 @@ export type Steps = [Step, ...Step[]]
 
 export type ProgressStepperProps = {
   /** The id reference to within a Step object */
-  currentStepId: Step['id']
+  currentStepId: Step["id"]
   /** A non-empty array of Steps */
   steps: Steps
   isComplete?: boolean
@@ -110,4 +110,4 @@ export const ProgressStepper = ({
   )
 }
 
-ProgressStepper.displayName = 'Workflow.ProgressStepper'
+ProgressStepper.displayName = "Workflow.ProgressStepper"

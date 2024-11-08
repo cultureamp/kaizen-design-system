@@ -1,16 +1,16 @@
-import React from 'react'
-import { ArgTypes } from '@storybook/react'
-import { Button } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__/Icon'
+import React from "react"
+import { ArgTypes } from "@storybook/react"
+import { Button } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
 
 export const WorkflowControls: Partial<ArgTypes> = {
   headerActions: {
     control: {
-      type: 'radio',
+      type: "radio",
     },
-    options: ['Single action', 'Multiple actions', 'No actions'],
+    options: ["Single action", "Multiple actions", "No actions"],
     mapping: {
-      'Single action': [
+      "Single action": [
         <Button
           key="would-use-uui-1"
           label="Close"
@@ -19,7 +19,7 @@ export const WorkflowControls: Partial<ArgTypes> = {
           iconPosition="end"
         />,
       ],
-      'Multiple actions': [
+      "Multiple actions": [
         <Button
           key="would-use-uui-1"
           label="Close"
@@ -35,44 +35,44 @@ export const WorkflowControls: Partial<ArgTypes> = {
           iconPosition="start"
         />,
       ],
-      'No actions': [],
+      "No actions": [],
     },
   },
   nextAction: {
     control: {
-      type: 'radio',
+      type: "radio",
     },
-    options: ['Next active', 'Next disabled', 'Next submit', 'No next action'],
+    options: ["Next active", "Next disabled", "Next submit", "No next action"],
     mapping: {
-      'Next active': <Button primary label="Next" />,
-      'Next disabled': <Button primary disabled label="Next" />,
-      'Next submit': <Button formTarget="workflow-form-id" primary label="Finish" />,
-      'No next action': undefined,
+      "Next active": <Button primary label="Next" />,
+      "Next disabled": <Button primary disabled label="Next" />,
+      "Next submit": <Button formTarget="workflow-form-id" primary label="Finish" />,
+      "No next action": undefined,
     },
   },
   previousAction: {
     control: {
-      type: 'radio',
+      type: "radio",
     },
-    options: ['Previous active', 'Previous disabled', 'Previous submit', 'No Previous action'],
+    options: ["Previous active", "Previous disabled", "Previous submit", "No Previous action"],
     mapping: {
-      'Previous active': <Button label="Back" />,
-      'Previous disabled': <Button disabled label="Back" />,
-      'Previous submit': <Button formTarget="workflow-form-id" primary label="Back" />,
-      'No Previous action': undefined,
+      "Previous active": <Button label="Back" />,
+      "Previous disabled": <Button disabled label="Back" />,
+      "Previous submit": <Button formTarget="workflow-form-id" primary label="Back" />,
+      "No Previous action": undefined,
     },
   },
   currentStepId: {
     control: {
-      type: 'select',
+      type: "select",
     },
-    options: ['settings-step', 'questions-step', 'preview-step', 'employees-step', 'schedule-step'],
+    options: ["settings-step", "questions-step", "preview-step", "employees-step", "schedule-step"],
     mapping: {
-      'settings-step': 'settings-step',
-      'questions-step': 'questions-step',
-      'preview-step': 'preview-step',
-      'employees-step': 'employees-step',
-      'schedule-step': 'schedule-step',
+      "settings-step": "settings-step",
+      "questions-step": "questions-step",
+      "preview-step": "preview-step",
+      "employees-step": "employees-step",
+      "schedule-step": "schedule-step",
     },
   },
 }

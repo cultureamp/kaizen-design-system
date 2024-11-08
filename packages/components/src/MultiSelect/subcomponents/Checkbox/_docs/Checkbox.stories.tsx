@@ -1,14 +1,14 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Checkbox, CheckedStatus } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Checkbox, CheckedStatus } from "../index"
 
 const meta = {
-  title: 'Components/MultiSelect/Checkbox',
+  title: "Components/MultiSelect/Checkbox",
   component: Checkbox,
   args: {
-    'checkedStatus': 'unchecked',
-    'readOnly': false,
-    'aria-label': 'Checkbox label',
+    "checkedStatus": "unchecked",
+    "readOnly": false,
+    "aria-label": "Checkbox label",
   },
 } satisfies Meta<typeof Checkbox>
 
@@ -21,12 +21,12 @@ export const Playground: Story = {
     const [status, setStatus] = React.useState<CheckedStatus>(checkedStatus)
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-      if (status === 'unchecked') {
-        setStatus('indeterminate')
-      } else if (status === 'indeterminate') {
-        setStatus('checked')
-      } else if (status === 'checked') {
-        setStatus('unchecked')
+      if (status === "unchecked") {
+        setStatus("indeterminate")
+      } else if (status === "indeterminate") {
+        setStatus("checked")
+      } else if (status === "checked") {
+        setStatus("unchecked")
       }
       onChange?.(e)
     }
@@ -42,7 +42,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

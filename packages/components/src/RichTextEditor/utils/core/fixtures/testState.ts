@@ -1,39 +1,39 @@
-import { Schema } from 'prosemirror-model'
-import { createDocNode, createEditorState } from '../state'
+import { Schema } from "prosemirror-model"
+import { createDocNode, createEditorState } from "../state"
 
 export const testSchema = new Schema({
   nodes: {
     doc: {
-      content: 'block+',
+      content: "block+",
     },
     paragraph: {
-      content: 'inline*',
-      group: 'block',
-      parseDOM: [{ tag: 'p' }],
+      content: "inline*",
+      group: "block",
+      parseDOM: [{ tag: "p" }],
       toDOM() {
-        return ['p', 0]
+        return ["p", 0]
       },
     },
     text: {
-      group: 'inline',
+      group: "inline",
     },
   },
 })
 
 export const testDocNodeContentJSON = [
   {
-    type: 'paragraph',
+    type: "paragraph",
     content: [
       {
-        type: 'text',
-        text: 'Example content',
+        type: "text",
+        text: "Example content",
       },
     ],
   },
 ]
 
 export const testDocNodeJSON = {
-  type: 'doc',
+  type: "doc",
   content: testDocNodeContentJSON,
 }
 

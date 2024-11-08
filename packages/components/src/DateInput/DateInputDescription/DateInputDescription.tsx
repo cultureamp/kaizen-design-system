@@ -1,9 +1,9 @@
-import React from 'react'
-import { useIntl } from '@cultureamp/i18n-react-intl'
-import type { Locale } from 'date-fns'
-import { LabelledMessage } from '~components/LabelledMessage'
-import { formatDescriptionInputFormat } from './utils/formatDescriptionInputFormat'
-import styles from './DateInputDescription.module.scss'
+import React from "react"
+import { useIntl } from "@cultureamp/i18n-react-intl"
+import type { Locale } from "date-fns"
+import { LabelledMessage } from "~components/LabelledMessage"
+import { formatDescriptionInputFormat } from "./utils/formatDescriptionInputFormat"
+import styles from "./DateInputDescription.module.scss"
 
 export type DateInputDescriptionProps = {
   description?: string | JSX.Element
@@ -16,11 +16,11 @@ export const DateInputDescription = ({
 }: DateInputDescriptionProps): JSX.Element => {
   const { formatMessage } = useIntl()
   const hasCustomDescription =
-    (typeof description === 'string' && description !== '') || React.isValidElement(description)
+    (typeof description === "string" && description !== "") || React.isValidElement(description)
 
   const translatedInputFormatMessage = formatMessage({
-    id: 'dateInputDescription.inputFormat',
-    defaultMessage: 'Input format',
+    id: "dateInputDescription.inputFormat",
+    defaultMessage: "Input format",
     description: "Label for the 'Input format' field",
   })
 
@@ -48,4 +48,4 @@ export const DateInputDescription = ({
   )
 }
 
-DateInputDescription.displayName = 'DateInputDescription'
+DateInputDescription.displayName = "DateInputDescription"

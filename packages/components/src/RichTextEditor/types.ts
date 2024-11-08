@@ -1,10 +1,10 @@
 export type ToolbarControlTypes =
-  | 'bold'
-  | 'italic'
-  | 'underline'
-  | 'orderedList'
-  | 'bulletList'
-  | 'link'
+  | "bold"
+  | "italic"
+  | "underline"
+  | "orderedList"
+  | "bulletList"
+  | "link"
 
 export type ToolbarItems = {
   name: ToolbarControlTypes

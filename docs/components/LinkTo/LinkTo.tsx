@@ -1,6 +1,6 @@
-import React, { HTMLAttributes } from 'react'
-import { linkTo } from '@storybook/addon-links'
-import classnames from 'classnames'
+import React, { HTMLAttributes } from "react"
+import { linkTo } from "@storybook/addon-links"
+import classnames from "classnames"
 
 export type LinkToProps = {
   pageId: string
@@ -18,7 +18,7 @@ export const LinkTo = ({
     type="button"
     onClick={linkTo(pageId, sectionName)}
     className={classnames(
-      'bg-transparent border-none text-blue-400 hover:underline cursor-pointer p-0',
+      "bg-transparent border-none text-blue-400 hover:underline cursor-pointer p-0",
       className,
     )}
     {...restButtonAttributes}
@@ -27,4 +27,4 @@ export const LinkTo = ({
   </button>
 )
 
-LinkTo.displayName = 'LinkTo'
+LinkTo.displayName = "LinkTo"

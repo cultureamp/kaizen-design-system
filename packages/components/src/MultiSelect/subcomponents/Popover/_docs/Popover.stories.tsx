@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Popover, useFloating } from '../index'
+import React, { useState } from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Popover, useFloating } from "../index"
 
 const meta = {
-  title: 'Components/MultiSelect/Popover',
+  title: "Components/MultiSelect/Popover",
   component: Popover,
   args: {
     refs: undefined,
@@ -49,7 +49,7 @@ const PopoverTemplate: Story = {
         {isOpen && (
           <Popover
             {...args}
-            portalContainer={document.getElementById('testing-ground') ?? undefined}
+            portalContainer={document.getElementById("testing-ground") ?? undefined}
             refs={refs}
             focusOnProps={{
               onClickOutside: handleClose,
@@ -68,7 +68,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

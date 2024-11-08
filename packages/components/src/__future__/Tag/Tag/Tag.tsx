@@ -1,8 +1,8 @@
-import React, { ReactNode, HTMLAttributes } from 'react'
-import classNames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { TagColors } from './types'
-import styles from './Tag.module.scss'
+import React, { ReactNode, HTMLAttributes } from "react"
+import classNames from "classnames"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import { TagColors } from "./types"
+import styles from "./Tag.module.scss"
 
 export type TagProps = {
   children: ReactNode
@@ -14,7 +14,7 @@ export const Tag = ({
   children,
   classNameOverride,
   icon,
-  color = 'gray',
+  color = "gray",
   ...restProps
 }: TagProps): JSX.Element => (
   <span className={classNames(styles.tag, styles[color], classNameOverride)} {...restProps}>
@@ -23,4 +23,4 @@ export const Tag = ({
   </span>
 )
 
-Tag.displayName = 'Tag'
+Tag.displayName = "Tag"

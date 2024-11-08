@@ -1,14 +1,14 @@
-declare module '*.css' {
+declare module "*.css" {
   const classes: { [key: string]: string }
   export default classes
 }
 
-declare module '*.scss' {
+declare module "*.scss" {
   const classes: { [key: string]: string }
   export default classes
 }
 
-declare module '*?raw' {
+declare module "*?raw" {
   const content: string
   export default content
 }

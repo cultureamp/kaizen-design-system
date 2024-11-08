@@ -2,11 +2,11 @@ import {
   useDateValidation,
   UseDateValidationArgs,
   ValidationMessage,
-} from '~components/Filter/FilterDatePicker'
+} from "~components/Filter/FilterDatePicker"
 import {
   validateEndDateBeforeStartDate,
   ValidateEndDateBeforeStartDateArgs,
-} from '../utils/validateEndDateBeforeStartDate'
+} from "../utils/validateEndDateBeforeStartDate"
 
 export type UseEndDateValidationArgs = UseDateValidationArgs
 
@@ -24,14 +24,14 @@ export type UseEndDateValidationValue = {
 export const useEndDateValidation = (args: UseEndDateValidationArgs): UseEndDateValidationValue => {
   const { validationMessage, validateDate, updateValidation } = useDateValidation(args)
 
-  const handleValidateEndDateBeforeStartDate: UseEndDateValidationValue['validateEndDateBeforeStartDate'] =
+  const handleValidateEndDateBeforeStartDate: UseEndDateValidationValue["validateEndDateBeforeStartDate"] =
     (handlerArgs) => {
       const { validationResponse, newDate } = validateEndDateBeforeStartDate(handlerArgs)
       updateValidation(validationResponse)
       return newDate
     }
 
-  const validateEndDate: UseEndDateValidationValue['validateDate'] = ({
+  const validateEndDate: UseEndDateValidationValue["validateDate"] = ({
     endDate,
     endDateInputValue,
     startDate,

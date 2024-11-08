@@ -1,2 +1,2 @@
-export * from './ToggleSwitch'
-export * from './ToggleSwitchField'
+export * from "./ToggleSwitch"
+export * from "./ToggleSwitchField"

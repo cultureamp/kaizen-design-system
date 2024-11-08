@@ -1,30 +1,30 @@
-import React, { useState } from 'react'
-import { StaticIntlProvider } from '@cultureamp/i18n-react-intl'
-import { Selection } from '@react-types/shared'
-import { screen, waitFor, render } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { vi } from 'vitest'
-import { FilterMultiSelect } from '../../FilterMultiSelect'
-import { ListBox } from '../../subcomponents/ListBox'
-import { SearchInput } from '../../subcomponents/SearchInput'
-import { ClearButton, SelectAllButton } from '../../subcomponents/SelectionControlButton'
-import { ItemType } from '../../types'
-import { SelectionProvider, SelectionProviderProps } from './SelectionProvider'
+import React, { useState } from "react"
+import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
+import { Selection } from "@react-types/shared"
+import { screen, waitFor, render } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
+import { FilterMultiSelect } from "../../FilterMultiSelect"
+import { ListBox } from "../../subcomponents/ListBox"
+import { SearchInput } from "../../subcomponents/SearchInput"
+import { ClearButton, SelectAllButton } from "../../subcomponents/SelectionControlButton"
+import { ItemType } from "../../types"
+import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
 
 const user = userEvent.setup()
 
 const itemsMock: ItemType[] = [
   {
-    label: 'option-1-label-mock',
-    value: 'option-1-value-mock',
+    label: "option-1-label-mock",
+    value: "option-1-value-mock",
   },
   {
-    label: 'option-2-label-mock',
-    value: 'option-2-value-mock',
+    label: "option-2-label-mock",
+    value: "option-2-value-mock",
   },
   {
-    label: 'option-3-label-mock',
-    value: 'option-3-value-mock',
+    label: "option-3-label-mock",
+    value: "option-3-value-mock",
   },
 ]
 
@@ -79,63 +79,63 @@ const SelectionProviderWrapper = ({
   )
 }
 
-describe('<SelectionProvider>', () => {
-  describe('<SelectionProviderWrapper /> - Visual content', () => {
-    describe('Given no selectedKeys', () => {
-      it('shows all the options unselected', async () => {
+describe("<SelectionProvider>", () => {
+  describe("<SelectionProviderWrapper /> - Visual content", () => {
+    describe("Given no selectedKeys", () => {
+      it("shows all the options unselected", async () => {
         render(<SelectionProviderWrapper />)
         await waitFor(() => {
           expect(
-            screen.getByRole('option', {
-              name: 'option-1-label-mock',
+            screen.getByRole("option", {
+              name: "option-1-label-mock",
               selected: false,
             }),
           ).toBeVisible()
           expect(
-            screen.getByRole('option', {
-              name: 'option-2-label-mock',
+            screen.getByRole("option", {
+              name: "option-2-label-mock",
               selected: false,
             }),
           ).toBeVisible()
           expect(
-            screen.getByRole('option', {
-              name: 'option-3-label-mock',
+            screen.getByRole("option", {
+              name: "option-3-label-mock",
               selected: false,
             }),
           ).toBeVisible()
         })
       })
 
-      it('labels the listbox with the provided label', async () => {
+      it("labels the listbox with the provided label", async () => {
         render(<SelectionProviderWrapper />)
         await waitFor(() => {
-          const listBox = screen.getByLabelText('selection-label-mock', {
-            selector: 'ul',
+          const listBox = screen.getByLabelText("selection-label-mock", {
+            selector: "ul",
           })
           expect(listBox).toBeInTheDocument()
         })
       })
     })
 
-    describe('Given selectedKeys is [option-2-value-mock]', () => {
-      it('shows only option 2 is selected', async () => {
-        render(<SelectionProviderWrapper selectedKeys={new Set(['option-2-value-mock'])} />)
+    describe("Given selectedKeys is [option-2-value-mock]", () => {
+      it("shows only option 2 is selected", async () => {
+        render(<SelectionProviderWrapper selectedKeys={new Set(["option-2-value-mock"])} />)
         await waitFor(() => {
           expect(
-            screen.getByRole('option', {
-              name: 'option-1-label-mock',
+            screen.getByRole("option", {
+              name: "option-1-label-mock",
               selected: false,
             }),
           ).toBeVisible()
           expect(
-            screen.getByRole('option', {
-              name: 'option-2-label-mock',
+            screen.getByRole("option", {
+              name: "option-2-label-mock",
               selected: true,
             }),
           ).toBeVisible()
           expect(
-            screen.getByRole('option', {
-              name: 'option-3-label-mock',
+            screen.getByRole("option", {
+              name: "option-3-label-mock",
               selected: false,
             }),
           ).toBeVisible()
@@ -144,24 +144,24 @@ describe('<SelectionProvider>', () => {
     })
 
     describe("Given selectedKeys is 'all'", () => {
-      it('shows all options are selected', async () => {
+      it("shows all options are selected", async () => {
         render(<SelectionProviderWrapper selectedKeys="all" />)
         await waitFor(() => {
           expect(
-            screen.getByRole('option', {
-              name: 'option-1-label-mock',
+            screen.getByRole("option", {
+              name: "option-1-label-mock",
               selected: true,
             }),
           ).toBeVisible()
           expect(
-            screen.getByRole('option', {
-              name: 'option-2-label-mock',
+            screen.getByRole("option", {
+              name: "option-2-label-mock",
               selected: true,
             }),
           ).toBeVisible()
           expect(
-            screen.getByRole('option', {
-              name: 'option-3-label-mock',
+            screen.getByRole("option", {
+              name: "option-3-label-mock",
               selected: true,
             }),
           ).toBeVisible()
@@ -170,30 +170,30 @@ describe('<SelectionProvider>', () => {
     })
   })
 
-  describe('<SelectionProviderWrapper /> - Mouse interaction', () => {
-    it('selects the option when clicks on a non-selected option', async () => {
+  describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
+    it("selects the option when clicks on a non-selected option", async () => {
       render(<SelectionProviderWrapper />)
-      const option1 = screen.getByRole('option', {
-        name: 'option-1-label-mock',
+      const option1 = screen.getByRole("option", {
+        name: "option-1-label-mock",
       })
 
       await user.click(option1)
 
       await waitFor(() => {
         expect(
-          screen.getByRole('option', {
-            name: 'option-1-label-mock',
+          screen.getByRole("option", {
+            name: "option-1-label-mock",
             selected: true,
           }),
         ).toBeVisible()
       })
     })
 
-    it('fires onSelectionChange when clicks on a option', async () => {
+    it("fires onSelectionChange when clicks on a option", async () => {
       const spy = vi.fn()
       render(<SelectionProviderWrapper onSelectionChange={spy} />)
-      const option1 = screen.getByRole('option', {
-        name: 'option-1-label-mock',
+      const option1 = screen.getByRole("option", {
+        name: "option-1-label-mock",
       })
 
       await user.click(option1)
@@ -203,43 +203,43 @@ describe('<SelectionProvider>', () => {
       })
     })
 
-    it('selects all options when clicks on Select all button', async () => {
+    it("selects all options when clicks on Select all button", async () => {
       render(<SelectionProviderWrapper />)
-      const selectAll = screen.getByRole('button', {
-        name: 'Select all',
+      const selectAll = screen.getByRole("button", {
+        name: "Select all",
       })
 
       await user.click(selectAll)
 
       await waitFor(() => {
         expect(
-          screen.getByRole('option', {
-            name: 'option-1-label-mock',
+          screen.getByRole("option", {
+            name: "option-1-label-mock",
             selected: true,
           }),
         ).toBeVisible()
 
         expect(
-          screen.getByRole('option', {
-            name: 'option-2-label-mock',
+          screen.getByRole("option", {
+            name: "option-2-label-mock",
             selected: true,
           }),
         ).toBeVisible()
 
         expect(
-          screen.getByRole('option', {
-            name: 'option-3-label-mock',
+          screen.getByRole("option", {
+            name: "option-3-label-mock",
             selected: true,
           }),
         ).toBeVisible()
       })
     })
 
-    it('fires onSelectionChange when clicks on Select all button', async () => {
+    it("fires onSelectionChange when clicks on Select all button", async () => {
       const spy = vi.fn()
       render(<SelectionProviderWrapper onSelectionChange={spy} />)
-      const selectAll = screen.getByRole('button', {
-        name: 'Select all',
+      const selectAll = screen.getByRole("button", {
+        name: "Select all",
       })
 
       await user.click(selectAll)
@@ -249,46 +249,46 @@ describe('<SelectionProvider>', () => {
       })
     })
 
-    it('clears all the selection when clicks on Clear button', async () => {
-      render(<SelectionProviderWrapper selectedKeys={new Set(['option-2-value-mock'])} />)
-      const clear = screen.getByRole('button', {
-        name: 'Clear selections',
+    it("clears all the selection when clicks on Clear button", async () => {
+      render(<SelectionProviderWrapper selectedKeys={new Set(["option-2-value-mock"])} />)
+      const clear = screen.getByRole("button", {
+        name: "Clear selections",
       })
 
       await user.click(clear)
 
       await waitFor(() => {
         expect(
-          screen.getByRole('option', {
-            name: 'option-1-label-mock',
+          screen.getByRole("option", {
+            name: "option-1-label-mock",
             selected: false,
           }),
         ).toBeVisible()
         expect(
-          screen.getByRole('option', {
-            name: 'option-2-label-mock',
+          screen.getByRole("option", {
+            name: "option-2-label-mock",
             selected: false,
           }),
         ).toBeVisible()
         expect(
-          screen.getByRole('option', {
-            name: 'option-3-label-mock',
+          screen.getByRole("option", {
+            name: "option-3-label-mock",
             selected: false,
           }),
         ).toBeVisible()
       })
     })
 
-    it('fires onSelectionChange when clicks on Clear all button', async () => {
+    it("fires onSelectionChange when clicks on Clear all button", async () => {
       const spy = vi.fn()
       render(
         <SelectionProviderWrapper
           onSelectionChange={spy}
-          selectedKeys={new Set(['option-2-value-mock'])}
+          selectedKeys={new Set(["option-2-value-mock"])}
         />,
       )
-      const clear = screen.getByRole('button', {
-        name: 'Clear selections',
+      const clear = screen.getByRole("button", {
+        name: "Clear selections",
       })
 
       await user.click(clear)
@@ -298,10 +298,10 @@ describe('<SelectionProvider>', () => {
       })
     })
 
-    it('de-selects the option when clicks on a selected option', async () => {
-      render(<SelectionProviderWrapper selectedKeys={new Set(['option-2-value-mock'])} />)
-      const option2 = screen.getByRole('option', {
-        name: 'option-2-label-mock',
+    it("de-selects the option when clicks on a selected option", async () => {
+      render(<SelectionProviderWrapper selectedKeys={new Set(["option-2-value-mock"])} />)
+      const option2 = screen.getByRole("option", {
+        name: "option-2-label-mock",
         selected: true,
       })
 
@@ -309,8 +309,8 @@ describe('<SelectionProvider>', () => {
 
       await waitFor(() => {
         expect(
-          screen.getByRole('option', {
-            name: 'option-2-label-mock',
+          screen.getByRole("option", {
+            name: "option-2-label-mock",
             selected: false,
           }),
         ).toBeVisible()
@@ -318,107 +318,107 @@ describe('<SelectionProvider>', () => {
     })
   })
 
-  describe('<SelectionProviderWrapper /> - Keyboard interaction', () => {
-    describe('Given no selectedKeys', () => {
-      it('focuses on the frist option when tabs onto the list', async () => {
+  describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
+    describe("Given no selectedKeys", () => {
+      it("focuses on the frist option when tabs onto the list", async () => {
         render(<SelectionProviderWrapper />)
         await user.tab()
 
         await waitFor(() => {
-          expect(screen.getByRole('option', { name: 'option-1-label-mock' })).toHaveFocus()
+          expect(screen.getByRole("option", { name: "option-1-label-mock" })).toHaveFocus()
         })
       })
     })
 
-    describe('Given selectedKeys is [option-2-value-mock, option-3-value-mock]', () => {
-      it('focuses the frist selected option when tabs onto the list', async () => {
-        render(<SelectionProviderWrapper selectedKeys={new Set(['option-2-value-mock'])} />)
+    describe("Given selectedKeys is [option-2-value-mock, option-3-value-mock]", () => {
+      it("focuses the frist selected option when tabs onto the list", async () => {
+        render(<SelectionProviderWrapper selectedKeys={new Set(["option-2-value-mock"])} />)
         await user.tab()
 
         await waitFor(() => {
-          expect(screen.getByRole('option', { name: 'option-2-label-mock' })).toHaveFocus()
+          expect(screen.getByRole("option", { name: "option-2-label-mock" })).toHaveFocus()
         })
       })
     })
 
-    it('moves the focus down when hits arrow down key', async () => {
+    it("moves the focus down when hits arrow down key", async () => {
       render(<SelectionProviderWrapper />)
       await user.tab()
-      await user.keyboard('{ArrowDown}')
+      await user.keyboard("{ArrowDown}")
 
       await waitFor(() => {
-        expect(screen.getByRole('option', { name: 'option-2-label-mock' })).toHaveFocus()
+        expect(screen.getByRole("option", { name: "option-2-label-mock" })).toHaveFocus()
       })
     })
 
-    it('keeps the focus at the last element when hits arrow down key on it', async () => {
-      render(<SelectionProviderWrapper selectedKeys={new Set(['option-3-value-mock'])} />)
+    it("keeps the focus at the last element when hits arrow down key on it", async () => {
+      render(<SelectionProviderWrapper selectedKeys={new Set(["option-3-value-mock"])} />)
       await user.tab()
-      await user.keyboard('{ArrowDown}')
+      await user.keyboard("{ArrowDown}")
 
       await waitFor(() => {
-        expect(screen.getByRole('option', { name: 'option-3-label-mock' })).toHaveFocus()
+        expect(screen.getByRole("option", { name: "option-3-label-mock" })).toHaveFocus()
       })
     })
 
-    it('moves the focus up when hits arrow up key', async () => {
-      render(<SelectionProviderWrapper selectedKeys={new Set(['option-3-value-mock'])} />)
+    it("moves the focus up when hits arrow up key", async () => {
+      render(<SelectionProviderWrapper selectedKeys={new Set(["option-3-value-mock"])} />)
       await user.tab()
-      await user.keyboard('{ArrowUp}')
+      await user.keyboard("{ArrowUp}")
 
       await waitFor(() => {
-        expect(screen.getByRole('option', { name: 'option-2-label-mock' })).toHaveFocus()
+        expect(screen.getByRole("option", { name: "option-2-label-mock" })).toHaveFocus()
       })
     })
 
-    it('keeps the focus ring at the first element when hits arrow up key on it', async () => {
+    it("keeps the focus ring at the first element when hits arrow up key on it", async () => {
       render(<SelectionProviderWrapper />)
       await user.tab()
-      await user.keyboard('{ArrowUp}')
+      await user.keyboard("{ArrowUp}")
 
       await waitFor(() => {
-        expect(screen.getByRole('option', { name: 'option-1-label-mock' })).toHaveFocus()
+        expect(screen.getByRole("option", { name: "option-1-label-mock" })).toHaveFocus()
       })
     })
 
-    it('selects the option when hits enter on a non-selected option', async () => {
+    it("selects the option when hits enter on a non-selected option", async () => {
       render(<SelectionProviderWrapper />)
 
       await user.tab()
-      await user.keyboard('{Enter}')
+      await user.keyboard("{Enter}")
 
       await waitFor(() => {
         expect(
-          screen.getByRole('option', {
-            name: 'option-1-label-mock',
+          screen.getByRole("option", {
+            name: "option-1-label-mock",
             selected: true,
           }),
         ).toBeVisible()
       })
     })
 
-    it('de-selects the option when hits enter on a selected option', async () => {
-      render(<SelectionProviderWrapper selectedKeys={new Set(['option-2-value-mock'])} />)
+    it("de-selects the option when hits enter on a selected option", async () => {
+      render(<SelectionProviderWrapper selectedKeys={new Set(["option-2-value-mock"])} />)
 
       await user.tab()
-      await user.keyboard('{Enter}')
+      await user.keyboard("{Enter}")
 
       await waitFor(() => {
         expect(
-          screen.getByRole('option', {
-            name: 'option-2-label-mock',
+          screen.getByRole("option", {
+            name: "option-2-label-mock",
             selected: false,
           }),
         ).toBeVisible()
       })
     })
 
-    it('fires onSelectionChange when hits enter on a option', async () => {
+    it("fires onSelectionChange when hits enter on a option", async () => {
       const spy = vi.fn()
       render(<SelectionProviderWrapper onSelectionChange={spy} />)
 
       await user.tab()
-      await user.keyboard('{Enter}')
+      await user.keyboard("{Enter}")
 
       await waitFor(() => {
         expect(spy).toHaveBeenCalledTimes(1)
@@ -426,66 +426,66 @@ describe('<SelectionProvider>', () => {
     })
   })
 
-  describe('<SelectionProviderWrapper /> - Search Filtering', () => {
-    describe('With no onSearchInputChange callback', () => {
-      it('shows only the matched options', async () => {
+  describe("<SelectionProviderWrapper /> - Search Filtering", () => {
+    describe("With no onSearchInputChange callback", () => {
+      it("shows only the matched options", async () => {
         render(<SelectionProviderWrapper />)
-        const searchInput = screen.getByRole('searchbox')
-        await user.type(searchInput, '1')
+        const searchInput = screen.getByRole("searchbox")
+        await user.type(searchInput, "1")
 
         await waitFor(() => {
           expect(
-            screen.getByRole('option', {
-              name: 'option-1-label-mock',
+            screen.getByRole("option", {
+              name: "option-1-label-mock",
             }),
           ).toBeVisible()
           expect(
-            screen.queryByRole('option', {
-              name: 'option-2-label-mock',
+            screen.queryByRole("option", {
+              name: "option-2-label-mock",
             }),
           ).not.toBeInTheDocument()
           expect(
-            screen.queryByRole('option', {
-              name: 'option-3-label-mock',
+            screen.queryByRole("option", {
+              name: "option-3-label-mock",
             }),
           ).not.toBeInTheDocument()
         })
       })
     })
-    describe('With a onSearchInputChange callback', () => {
-      it('Does not filter the matched options', async () => {
+    describe("With a onSearchInputChange callback", () => {
+      it("Does not filter the matched options", async () => {
         const onSearchInputChange = vi.fn()
 
         render(<SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />)
-        const searchInput = screen.getByRole('searchbox')
-        const searchString = '1'
+        const searchInput = screen.getByRole("searchbox")
+        const searchString = "1"
         await user.type(searchInput, searchString)
 
         await waitFor(() => {
           expect(
-            screen.getByRole('option', {
-              name: 'option-1-label-mock',
+            screen.getByRole("option", {
+              name: "option-1-label-mock",
             }),
           ).toBeVisible()
           expect(
-            screen.getByRole('option', {
-              name: 'option-2-label-mock',
+            screen.getByRole("option", {
+              name: "option-2-label-mock",
             }),
           ).toBeVisible()
           expect(
-            screen.getByRole('option', {
-              name: 'option-3-label-mock',
+            screen.getByRole("option", {
+              name: "option-3-label-mock",
             }),
           ).toBeVisible()
         })
       })
 
-      it('Calls back to the consumer with the search text', async () => {
+      it("Calls back to the consumer with the search text", async () => {
         const onSearchInputChange = vi.fn()
 
         render(<SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />)
-        const searchInput = screen.getByRole('searchbox')
-        const searchString = '1'
+        const searchInput = screen.getByRole("searchbox")
+        const searchString = "1"
         await user.type(searchInput, searchString)
 
         await waitFor(() => {
@@ -496,23 +496,23 @@ describe('<SelectionProvider>', () => {
     })
   })
 
-  describe('<SelectionProviderWrapper /> - controlling items from the consumer', () => {
-    it('renders only items passed', async () => {
+  describe("<SelectionProviderWrapper /> - controlling items from the consumer", () => {
+    it("renders only items passed", async () => {
       const { rerender } = render(<SelectionProviderWrapper />)
       await waitFor(() => {
         expect(
-          screen.getByRole('option', {
-            name: 'option-1-label-mock',
+          screen.getByRole("option", {
+            name: "option-1-label-mock",
           }),
         ).toBeVisible()
         expect(
-          screen.getByRole('option', {
-            name: 'option-2-label-mock',
+          screen.getByRole("option", {
+            name: "option-2-label-mock",
           }),
         ).toBeVisible()
         expect(
-          screen.getByRole('option', {
-            name: 'option-3-label-mock',
+          screen.getByRole("option", {
+            name: "option-3-label-mock",
           }),
         ).toBeVisible()
       })
@@ -524,18 +524,18 @@ describe('<SelectionProvider>', () => {
       )
       await waitFor(() => {
         expect(
-          screen.queryByRole('option', {
-            name: 'option-1-label-mock',
+          screen.queryByRole("option", {
+            name: "option-1-label-mock",
           }),
         ).not.toBeInTheDocument()
         expect(
-          screen.queryByRole('option', {
-            name: 'option-2-label-mock',
+          screen.queryByRole("option", {
+            name: "option-2-label-mock",
           }),
         ).not.toBeInTheDocument()
         expect(
-          screen.getByRole('option', {
-            name: 'option-3-label-mock',
+          screen.getByRole("option", {
+            name: "option-3-label-mock",
           }),
         ).toBeVisible()
       })

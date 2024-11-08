@@ -1,10 +1,10 @@
-import React from 'react'
-import { render, screen } from '@testing-library/react'
-import { vi } from 'vitest'
-import { VideoPlayer } from './VideoPlayer'
+import React from "react"
+import { render, screen } from "@testing-library/react"
+import { vi } from "vitest"
+import { VideoPlayer } from "./VideoPlayer"
 
 const matchMedia = {
-  media: '',
+  media: "",
   onchange: null,
   addListener: vi.fn(),
   removeListener: vi.fn(),
@@ -23,7 +23,7 @@ const mockPlay = vi.fn().mockResolvedValue(undefined)
 const mockLoad = vi.fn()
 const mockPause = vi.fn()
 
-describe('<VideoPlayer />', () => {
+describe("<VideoPlayer />", () => {
   beforeEach(() => {
     window.HTMLMediaElement.prototype.load = mockLoad
     window.HTMLMediaElement.prototype.play = mockPlay
@@ -31,7 +31,7 @@ describe('<VideoPlayer />', () => {
     window.matchMedia = vi.fn().mockImplementation(() => mockDoesNotPreferReducedMotion)
     // this will stop throwing the unstable_flushDiscreteUpdates console error cause by react bug
     // https://stackoverflow.com/a/65338472/18285270
-    Object.defineProperty(HTMLMediaElement.prototype, 'muted', {
+    Object.defineProperty(HTMLMediaElement.prototype, "muted", {
       set: vi.fn(),
     })
   })
@@ -40,7 +40,7 @@ describe('<VideoPlayer />', () => {
     vi.clearAllMocks()
   })
 
-  it('renders a video player in the document and autoplay', () => {
+  it("renders a video player in the document and autoplay", () => {
     render(
       <VideoPlayer
         autoplay
@@ -49,12 +49,12 @@ describe('<VideoPlayer />', () => {
         data-testid="kz-video-player"
       />,
     )
-    const videoPlayer = screen.getByTestId('kz-video-player')
+    const videoPlayer = screen.getByTestId("kz-video-player")
     expect(videoPlayer).toBeInTheDocument()
     expect(mockPlay).toHaveBeenCalled()
   })
 
-  it('respects the use-reduced-motion preferences of the user', () => {
+  it("respects the use-reduced-motion preferences of the user", () => {
     window.matchMedia = vi.fn().mockImplementation(() => mockPrefersReducedMotion)
     render(
       <VideoPlayer
@@ -64,12 +64,12 @@ describe('<VideoPlayer />', () => {
         data-testid="kz-video-player"
       />,
     )
-    const videoPlayer = screen.getByTestId('kz-video-player')
-    expect(videoPlayer).not.toHaveAttribute('autoplay')
+    const videoPlayer = screen.getByTestId("kz-video-player")
+    expect(videoPlayer).not.toHaveAttribute("autoplay")
     expect(mockPause).toHaveBeenCalled()
   })
 
-  it('defaults to autoplay when user does not set use-reduced-motion preferences', () => {
+  it("defaults to autoplay when user does not set use-reduced-motion preferences", () => {
     window.matchMedia = vi.fn().mockImplementation(() => mockDoesNotPreferReducedMotion)
     render(
       <VideoPlayer
@@ -79,8 +79,8 @@ describe('<VideoPlayer />', () => {
         data-testid="kz-video-player"
       />,
     )
-    const videoPlayer = screen.getByTestId('kz-video-player')
-    expect(videoPlayer).toHaveAttribute('autoplay')
+    const videoPlayer = screen.getByTestId("kz-video-player")
+    expect(videoPlayer).toHaveAttribute("autoplay")
     expect(mockPlay).toHaveBeenCalled()
   })
 })

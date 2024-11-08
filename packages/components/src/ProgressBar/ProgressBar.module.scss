@@ -1,5 +1,5 @@
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/spacing';
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 $height: 10px;
 
@@ -83,7 +83,7 @@ $height: 10px;
   &::after {
     background: linear-gradient(90deg, transparent, var(--color-white) 75%, transparent);
     opacity: 25%;
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     bottom: 0;

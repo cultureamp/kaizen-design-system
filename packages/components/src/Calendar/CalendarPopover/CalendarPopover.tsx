@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useState } from 'react'
+import React, { HTMLAttributes, useState } from "react"
 import {
   autoUpdate,
   offset,
@@ -6,10 +6,10 @@ import {
   UseFloatingOptions,
   size,
   autoPlacement,
-} from '@floating-ui/react-dom'
-import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './CalendarPopover.module.scss'
+} from "@floating-ui/react-dom"
+import classnames from "classnames"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import styles from "./CalendarPopover.module.scss"
 
 export type CalendarPopoverProps = {
   children: React.ReactNode
@@ -31,12 +31,12 @@ export const CalendarPopover = ({
   const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>(null)
 
   const { floatingStyles } = useFloating({
-    placement: 'bottom-start',
+    placement: "bottom-start",
     elements: {
       reference: referenceElement,
       floating: floatingElement,
     },
-    strategy: 'fixed',
+    strategy: "fixed",
     middleware: [
       size({
         apply({ availableHeight, availableWidth, elements }) {
@@ -50,7 +50,7 @@ export const CalendarPopover = ({
       }),
       offset(15),
       autoPlacement({
-        allowedPlacements: ['bottom-start', 'bottom', 'top-start', 'top'],
+        allowedPlacements: ["bottom-start", "bottom", "top-start", "top"],
       }),
     ],
     whileElementsMounted: autoUpdate,
@@ -71,4 +71,4 @@ export const CalendarPopover = ({
   )
 }
 
-CalendarPopover.displayName = 'CalendarPopover'
+CalendarPopover.displayName = "CalendarPopover"

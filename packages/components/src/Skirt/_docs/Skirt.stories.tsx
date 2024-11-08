@@ -1,11 +1,11 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Text } from '~components/Text'
-import { Skirt } from '../index'
-import { SkirtCard } from '../subcomponents/SkirtCard'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Text } from "~components/Text"
+import { Skirt } from "../index"
+import { SkirtCard } from "../subcomponents/SkirtCard"
 
 const meta = {
-  title: 'Components/Skirt',
+  title: "Components/Skirt",
   component: Skirt,
   args: {
     children: (
@@ -41,7 +41,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

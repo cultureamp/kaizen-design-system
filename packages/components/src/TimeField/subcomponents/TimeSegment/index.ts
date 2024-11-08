@@ -1,1 +1,1 @@
-export * from './TimeSegment'
+export * from "./TimeSegment"

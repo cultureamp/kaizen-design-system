@@ -1,8 +1,8 @@
-import React from 'react'
-import { screen, waitFor, render } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { FilterBarProvider } from '../../context/FilterBarContext'
-import { FilterBarButton, FilterBarButtonProps } from './FilterBarButton'
+import React from "react"
+import { screen, waitFor, render } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { FilterBarProvider } from "../../context/FilterBarContext"
+import { FilterBarButton, FilterBarButtonProps } from "./FilterBarButton"
 
 const user = userEvent.setup()
 
@@ -14,8 +14,8 @@ const FilterBarButtonWrapper = (props: Partial<FilterBarButtonProps>): JSX.Eleme
   <FilterBarProvider<Values>
     filters={[
       {
-        id: 'coffee',
-        name: 'Coffee',
+        id: "coffee",
+        name: "Coffee",
         Component: <div />,
       },
     ]}
@@ -32,24 +32,24 @@ const FilterBarButtonWrapper = (props: Partial<FilterBarButtonProps>): JSX.Eleme
   </FilterBarProvider>
 )
 
-describe('<FilterBarButton />', () => {
-  it('does not show a remove button when it is not removable', async () => {
+describe("<FilterBarButton />", () => {
+  it("does not show a remove button when it is not removable", async () => {
     const { getByRole, queryByRole } = render(<FilterBarButtonWrapper />)
     await waitFor(() => {
-      expect(getByRole('button', { name: 'Coffee' })).toBeVisible()
+      expect(getByRole("button", { name: "Coffee" })).toBeVisible()
     })
-    expect(queryByRole('button', { name: 'Remove filter - Coffee' })).not.toBeInTheDocument()
+    expect(queryByRole("button", { name: "Remove filter - Coffee" })).not.toBeInTheDocument()
   })
 
-  it('shows a remove button when it is removable', async () => {
+  it("shows a remove button when it is removable", async () => {
     render(<FilterBarButtonWrapper isRemovable />)
-    const filterButton = await screen.findByRole('button', { name: 'Coffee' })
+    const filterButton = await screen.findByRole("button", { name: "Coffee" })
     await waitFor(() => {
       expect(filterButton).toBeVisible()
     })
 
-    const removeButton = screen.getByRole('button', {
-      name: 'Remove filter - Coffee',
+    const removeButton = screen.getByRole("button", {
+      name: "Remove filter - Coffee",
     })
     expect(removeButton).toBeVisible()
 

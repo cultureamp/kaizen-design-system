@@ -3,32 +3,32 @@
 // it can be added here.
 const attrKeysToReplace = [
   {
-    original: 'xlink:href',
-    replacement: 'href',
+    original: "xlink:href",
+    replacement: "href",
   },
   {
-    original: 'fill-rule',
-    replacement: 'fillRule',
+    original: "fill-rule",
+    replacement: "fillRule",
   },
   {
-    original: 'stroke-width',
-    replacement: 'strokeWidth',
+    original: "stroke-width",
+    replacement: "strokeWidth",
   },
   {
-    original: 'stroke-linejoin',
-    replacement: 'strokeLinejoin',
+    original: "stroke-linejoin",
+    replacement: "strokeLinejoin",
   },
   {
-    original: 'stroke-linecap',
-    replacement: 'strokeLinecap',
+    original: "stroke-linecap",
+    replacement: "strokeLinecap",
   },
   {
-    original: 'clip-rule',
-    replacement: 'clipRule',
+    original: "clip-rule",
+    replacement: "clipRule",
   },
   {
-    original: 'class',
-    replacement: 'className',
+    original: "class",
+    replacement: "className",
   },
 ]
 
@@ -45,17 +45,17 @@ const replaceAttrKeys = (child) => {
 // We have a convention to export the color as #000 or #0000000, then change it here.
 const replaceColor = (child) => {
   const hexCodesToReplace = [
-    '#000',
-    '#000000',
-    '#2F2438', // Purple-800 from Figma export
+    "#000",
+    "#000000",
+    "#2F2438", // Purple-800 from Figma export
   ]
 
   if (hexCodesToReplace.includes(child.attributes.fill)) {
-    child.attributes.fill = 'currentColor'
+    child.attributes.fill = "currentColor"
   }
 
   if (hexCodesToReplace.includes(child.attributes.stroke)) {
-    child.attributes.stroke = 'currentColor'
+    child.attributes.stroke = "currentColor"
   }
 }
 
@@ -64,19 +64,19 @@ const replaceColor = (child) => {
 // with duplicate ids. This function allows us to set unique ids.
 const replaceId = (child) => {
   if (child.attributes.id) {
-    child.attributes.id = 'UNIQUE_ID'
+    child.attributes.id = "UNIQUE_ID"
   }
   if (child.attributes.href) {
-    child.attributes.href = '#UNIQUE_ID'
+    child.attributes.href = "#UNIQUE_ID"
   }
 }
 
 // We remove the outermost <svg> element here, because we wrap its children in
 // our custom SVG component later
 const removeRootSVGElement = (item) => {
-  if (item.type !== 'root') return
+  if (item.type !== "root") return
 
-  const hasSingleSVGChild = item.children.length === 1 && item.children[0].name === 'svg'
+  const hasSingleSVGChild = item.children.length === 1 && item.children[0].name === "svg"
   if (hasSingleSVGChild) {
     const SVGChildren = item.children[0].children
     item.children = SVGChildren

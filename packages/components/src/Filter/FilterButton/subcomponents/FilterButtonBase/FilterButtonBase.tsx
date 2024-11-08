@@ -1,7 +1,7 @@
-import React, { ButtonHTMLAttributes, forwardRef } from 'react'
-import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './FilterButtonBase.module.scss'
+import React, { ButtonHTMLAttributes, forwardRef } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import styles from "./FilterButtonBase.module.scss"
 
 export type FilterButtonBaseProps = {
   children: React.ReactNode
@@ -20,4 +20,4 @@ export const FilterButtonBase = forwardRef<HTMLButtonElement, FilterButtonBasePr
   ),
 )
 
-FilterButtonBase.displayName = 'FilterButtonBase'
+FilterButtonBase.displayName = "FilterButtonBase"

@@ -1,23 +1,23 @@
-import ts from 'typescript'
+import ts from "typescript"
 import {
   createProp,
   createStringProp,
   createStyleProp,
   getPropValueText,
   updateJsxElementWithNewProps,
-} from '../utils'
+} from "../utils"
 
 const propsToStyleMap = new Map<string, string>([
-  ['color', 'color'],
-  ['height', 'height'],
-  ['width', 'width'],
+  ["color", "color"],
+  ["height", "height"],
+  ["width", "width"],
 ])
 
 const transformPropRole = (oldValue: string): ts.JsxAttribute | null | undefined => {
   switch (oldValue) {
-    case 'presentation':
-      return createProp('isPresentational')
-    case 'img':
+    case "presentation":
+      return createProp("isPresentational")
+    case "img":
       // `role` is removed and `aria-label` transforms to `alt`
       return null
     default:
@@ -36,19 +36,19 @@ const transformIconProp = (
   propValue: ts.JsxAttributeValue | undefined,
 ): ts.JsxAttribute | null | undefined => {
   switch (propName) {
-    case 'role': {
+    case "role": {
       const oldValue = propValue && getPropValueText(propValue)
       return oldValue ? transformPropRole(oldValue) : undefined
     }
-    case 'aria-label':
-      return createProp('alt', propValue)
-    case 'classNameOverride':
-      return createProp('className', propValue)
-    case 'aria-hidden':
+    case "aria-label":
+      return createProp("alt", propValue)
+    case "classNameOverride":
+      return createProp("className", propValue)
+    case "aria-hidden":
     // (falls through) `aria-hidden` is not necessary as `role` will cater for presentational icons
-    case 'fontSize':
+    case "fontSize":
     // (falls through) `fontSize` did nothing for svg icons
-    case 'viewBox':
+    case "viewBox":
       // `viewBox` no longer relevant
       return null
     default:
@@ -67,7 +67,7 @@ export const transformIcon = (
     if (ts.isJsxAttribute(attr)) {
       const propName = attr.name.getText()
 
-      if (propName === 'inheritSize') {
+      if (propName === "inheritSize") {
         ts.addSyntheticLeadingComment(
           attr,
           ts.SyntaxKind.SingleLineCommentTrivia,
@@ -104,9 +104,9 @@ export const transformIcon = (
   }
 
   if (isFilled) {
-    newAttributes.unshift(createProp('isFilled'))
+    newAttributes.unshift(createProp("isFilled"))
   }
-  newAttributes.unshift(createStringProp('name', name))
+  newAttributes.unshift(createStringProp("name", name))
 
-  return updateJsxElementWithNewProps(node, newAttributes, 'Icon')
+  return updateJsxElementWithNewProps(node, newAttributes, "Icon")
 }

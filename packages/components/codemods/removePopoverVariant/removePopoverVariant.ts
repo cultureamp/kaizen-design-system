@@ -1,3 +1,3 @@
-import { removeProps } from '../utils/removeProps'
+import { removeProps } from "../utils/removeProps"
 
-export const removePopoverVariant = removeProps(['variant', 'customIcon'])
+export const removePopoverVariant = removeProps(["variant", "customIcon"])

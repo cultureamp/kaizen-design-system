@@ -1,5 +1,5 @@
-const yellow = '\u001b[33m '
-const reset = '\u001b[0m '
+const yellow = "\u001b[33m "
+const reset = "\u001b[0m "
 
 /**
  * @deprecated Do not use ever again
@@ -10,4 +10,4 @@ export const warn = (message: string): void => {
 }
 
 export const singleLine = (message: string): string =>
-  message.replace(/^ +/gm, ' ').replace(/\n|\r/gm, '').trim()
+  message.replace(/^ +/gm, " ").replace(/\n|\r/gm, "").trim()

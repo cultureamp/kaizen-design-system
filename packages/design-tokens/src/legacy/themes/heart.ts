@@ -1,5 +1,5 @@
-import { tokens } from '../../js/tokens'
-import { Theme } from '../types'
+import { tokens } from "../../js/tokens"
+import { Theme } from "../types"
 
 /**
  * @deprecated
@@ -7,6 +7,6 @@ import { Theme } from '../types'
  * - If you require direct usage of these tokens in js you can `import { tokens } from "@kaizen/design-tokens/js"`
  */
 export const heartTheme: Theme = {
-  themeKey: 'heart',
+  themeKey: "heart",
   ...tokens,
 }

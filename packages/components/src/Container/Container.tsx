@@ -1,7 +1,7 @@
-import React from 'react'
-import classnames from 'classnames'
-import { ContentProps } from '~components/Content'
-import styles from './Container.module.scss'
+import React from "react"
+import classnames from "classnames"
+import { ContentProps } from "~components/Content"
+import styles from "./Container.module.scss"
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3086156812/Layout Guidance} |
@@ -20,4 +20,4 @@ export const Container = React.forwardRef<HTMLDivElement, ContentProps>(
   ),
 )
 
-Container.displayName = 'Container'
+Container.displayName = "Container"

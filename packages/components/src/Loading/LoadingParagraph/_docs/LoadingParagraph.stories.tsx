@@ -1,10 +1,10 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Text } from '~components/Text'
-import { LoadingParagraph } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Text } from "~components/Text"
+import { LoadingParagraph } from "../index"
 
 const meta = {
-  title: 'Components/Loading states/LoadingParagraph',
+  title: "Components/Loading states/LoadingParagraph",
   component: LoadingParagraph,
 } satisfies Meta<typeof LoadingParagraph>
 
@@ -16,7 +16,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },
@@ -58,7 +58,7 @@ export const MultiColumnExample: Story = {
         <LoadingParagraph isInline width={30} />
         <LoadingParagraph isInline width={30} />
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
         <Text variant="body">Kaizen is Culture Amp’s design system.</Text>
         <Text variant="body">Kaizen is Culture Amp’s design system.</Text>
         <Text variant="body">Kaizen is Culture Amp’s design system.</Text>

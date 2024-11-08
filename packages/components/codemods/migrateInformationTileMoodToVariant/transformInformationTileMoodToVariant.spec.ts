@@ -1,15 +1,15 @@
-import { parseJsx } from '../__tests__/utils'
-import { transformSource, printAst, TransformConfig } from '../utils'
-import { transformInformationTileMoodToVariant } from './transformInformationTileMoodToVariant'
+import { parseJsx } from "../__tests__/utils"
+import { transformSource, printAst, TransformConfig } from "../utils"
+import { transformInformationTileMoodToVariant } from "./transformInformationTileMoodToVariant"
 
-const transformInformationTile = (sourceFile: TransformConfig['sourceFile']): string =>
+const transformInformationTile = (sourceFile: TransformConfig["sourceFile"]): string =>
   transformSource({
     sourceFile,
     astTransformer: transformInformationTileMoodToVariant,
-    tagName: 'InformationTile',
+    tagName: "InformationTile",
   })
 
-describe('transformInformationTileMoodToVariant()', () => {
+describe("transformInformationTileMoodToVariant()", () => {
   it('replaces mood="positive" with variant="default"', () => {
     const inputAst = parseJsx(
       'export const TestComponent = () => <InformationTile mood="positive">Hello</InformationTile>',
@@ -70,12 +70,12 @@ describe('transformInformationTileMoodToVariant()', () => {
     expect(transformInformationTile(inputAst)).toEqual(printAst(outputAst))
   })
 
-  it('does not add variant if mood was not defined', () => {
+  it("does not add variant if mood was not defined", () => {
     const inputAst = parseJsx(
-      'export const TestComponent = () => <InformationTile>Hello</InformationTile>',
+      "export const TestComponent = () => <InformationTile>Hello</InformationTile>",
     )
     const outputAst = parseJsx(
-      'export const TestComponent = () => <InformationTile>Hello</InformationTile>',
+      "export const TestComponent = () => <InformationTile>Hello</InformationTile>",
     )
     expect(transformInformationTile(inputAst)).toEqual(printAst(outputAst))
   })

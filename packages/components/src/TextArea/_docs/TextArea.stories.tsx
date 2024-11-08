@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { TextArea } from '../index'
+import { Meta, StoryObj } from "@storybook/react"
+import { TextArea } from "../index"
 
 const meta = {
-  title: 'Components/Text Input controls/Text Area',
+  title: "Components/Text Input controls/Text Area",
   component: TextArea,
   parameters: {
     a11y: {
@@ -10,7 +10,7 @@ const meta = {
         rules: [
           {
             // Built with no label on purpose, to be used within `TextAreaField` where label is present
-            id: 'label',
+            id: "label",
             enabled: false,
           },
         ],
@@ -27,7 +27,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

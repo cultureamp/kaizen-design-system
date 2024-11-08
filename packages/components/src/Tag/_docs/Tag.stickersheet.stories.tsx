@@ -1,12 +1,12 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import { Avatar } from '~components/Avatar'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { Tag } from '../index'
-import { TagVariants } from '../types'
+import React from "react"
+import { Meta } from "@storybook/react"
+import { Avatar } from "~components/Avatar"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import { Tag } from "../index"
+import { TagVariants } from "../types"
 
 export default {
-  title: 'Components/Tag',
+  title: "Components/Tag",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -16,7 +16,7 @@ export default {
           {
             // Known issue as we do not have a "presentational" Avatar yet
             // But the use case in this stickersheet is valid.
-            id: 'image-redundant-alt',
+            id: "image-redundant-alt",
             enabled: false,
           },
         ],
@@ -28,7 +28,7 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={['Default', 'Dismissable']} hasVerticalHeadings />
+      <StickerSheet.Header headings={["Default", "Dismissable"]} hasVerticalHeadings />
       <StickerSheet.Body>
         {TagVariants.map((variant) => (
           <StickerSheet.Row key={variant} rowTitle={variant}>
@@ -39,10 +39,10 @@ const StickerSheetTemplate: StickerSheetStory = {
               </Tag>
             </>
             <>
-              <Tag variant={variant} dismissible={variant !== 'statusLive'}>
+              <Tag variant={variant} dismissible={variant !== "statusLive"}>
                 Tag
               </Tag>
-              <Tag variant={variant} size="small" dismissible={variant !== 'statusLive'}>
+              <Tag variant={variant} size="small" dismissible={variant !== "statusLive"}>
                 Small
               </Tag>
             </>
@@ -84,22 +84,22 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Reversed)',
+  name: "Sticker Sheet (Reversed)",
   parameters: {
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: "Purple 700" },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (RTL)',
+  name: "Sticker Sheet (RTL)",
   parameters: {
-    textDirection: 'rtl',
+    textDirection: "rtl",
   },
 }

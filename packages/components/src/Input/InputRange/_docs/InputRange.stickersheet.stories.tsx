@@ -1,10 +1,10 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { InputRange } from '../index'
+import React from "react"
+import { Meta } from "@storybook/react"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import { InputRange } from "../index"
 
 export default {
-  title: 'Components/Inputs/InputRange',
+  title: "Components/Inputs/InputRange",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -13,12 +13,12 @@ export default {
         rules: [
           {
             // Built with no label on purpose, to be used within `Slider` where label is present
-            id: 'label',
+            id: "label",
             enabled: false,
           },
           {
             // Built with no label on purpose, to be used within `Slider` where label is present
-            id: 'label-title-only',
+            id: "label-title-only",
             enabled: false,
           },
         ],
@@ -30,7 +30,7 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
-      <StickerSheet.Header headings={['Default', 'Disabled']} />
+      <StickerSheet.Header headings={["Default", "Disabled"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
           <InputRange id="inputRange" minLabel="Minimum" maxLabel="Maximum" value={2} />
@@ -50,11 +50,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (RTL)',
-  parameters: { textDirection: 'rtl' },
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
 }

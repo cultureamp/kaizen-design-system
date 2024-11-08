@@ -1,21 +1,21 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { Workflow } from '../'
-import { WorkflowControls } from './controls'
+import { Meta, StoryObj } from "@storybook/react"
+import { Workflow } from "../"
+import { WorkflowControls } from "./controls"
 
 const meta = {
-  title: 'Layout/Workflow/Components/Progress Stepper',
+  title: "Layout/Workflow/Components/Progress Stepper",
   component: Workflow.ProgressStepper,
   argTypes: {
     currentStepId: WorkflowControls.currentStepId,
   },
   args: {
-    currentStepId: 'preview-step',
+    currentStepId: "preview-step",
     steps: [
-      { label: 'Settings', id: 'settings-step' },
-      { label: 'Questions', id: 'questions-step' },
-      { label: 'Preview', id: 'preview-step' },
-      { label: 'Employees', id: 'employees-step' },
-      { label: 'Schedule', id: 'schedule-step' },
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
+      { label: "Employees", id: "employees-step" },
+      { label: "Schedule", id: "schedule-step" },
     ],
     isComplete: false,
   },
@@ -33,7 +33,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },
@@ -44,7 +44,7 @@ export const Playground: Story = {
  */
 export const ProgressStates: Story = {
   args: {
-    currentStepId: 'questions-step',
+    currentStepId: "questions-step",
   },
 }
 
@@ -53,18 +53,18 @@ export const ProgressStates: Story = {
  */
 export const AllStepsComplete: Story = {
   args: {
-    currentStepId: 'schedule-step',
+    currentStepId: "schedule-step",
     isComplete: true,
   },
 }
 
 export const FewerSteps: Story = {
   args: {
-    currentStepId: 'questions-step',
+    currentStepId: "questions-step",
     steps: [
-      { label: 'Settings', id: 'settings-step' },
-      { label: 'Questions', id: 'questions-step' },
-      { label: 'Preview', id: 'preview-step' },
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
     ],
   },
 }
@@ -75,12 +75,12 @@ export const FewerSteps: Story = {
  */
 export const EightSteps: Story = {
   args: {
-    currentStepId: 'questions-step',
+    currentStepId: "questions-step",
     steps: [
       ...meta.args.steps,
-      { label: 'Plan', id: 'plan-step' },
-      { label: 'Provision', id: 'provision-step' },
-      { label: 'Procure', id: 'procure-step' },
+      { label: "Plan", id: "plan-step" },
+      { label: "Provision", id: "provision-step" },
+      { label: "Procure", id: "procure-step" },
     ],
   },
 }

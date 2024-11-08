@@ -1,26 +1,26 @@
-import React, { HTMLAttributes, useId } from 'react'
-import classnames from 'classnames'
-import { Label } from '~components/Label'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './RadioGroup.module.scss'
+import React, { HTMLAttributes, useId } from "react"
+import classnames from "classnames"
+import { Label } from "~components/Label"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import styles from "./RadioGroup.module.scss"
 
 export type RadioGroupProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> & {
-  'children'?: React.ReactNode
-  'labelText': string | React.ReactNode
-  'labelId'?: string
-  'noBottomMargin'?: boolean
-  'reversed'?: boolean
-  'data-testid'?: string
+  "children"?: React.ReactNode
+  "labelText": string | React.ReactNode
+  "labelId"?: string
+  "noBottomMargin"?: boolean
+  "reversed"?: boolean
+  "data-testid"?: string
 }
 
 export const RadioGroup = ({
   children,
-  'labelId': propsLabelId,
+  "labelId": propsLabelId,
   labelText,
   noBottomMargin = false,
   reversed = false,
   classNameOverride,
-  'data-testid': dataTestId,
+  "data-testid": dataTestId,
   ...restProps
 }: RadioGroupProps): JSX.Element => {
   const fallbackId = useId()
@@ -53,4 +53,4 @@ export const RadioGroup = ({
   )
 }
 
-RadioGroup.displayName = 'RadioGroup'
+RadioGroup.displayName = "RadioGroup"

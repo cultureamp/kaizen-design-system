@@ -1,23 +1,23 @@
-import React, { cloneElement, HTMLAttributes, ReactElement } from 'react'
-import classnames from 'classnames'
-import { Checkbox, CheckedStatus } from '~components/Checkbox'
-import { Heading } from '~components/Heading'
-import { Icon } from '~components/__future__/Icon'
-import { Tooltip } from '~components/__overlays__/Tooltip/v1'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './Table.module.scss'
+import React, { cloneElement, HTMLAttributes, ReactElement } from "react"
+import classnames from "classnames"
+import { Checkbox, CheckedStatus } from "~components/Checkbox"
+import { Heading } from "~components/Heading"
+import { Icon } from "~components/__future__/Icon"
+import { Tooltip } from "~components/__overlays__/Tooltip/v1"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import styles from "./Table.module.scss"
 
 export type TableContainerProps = {
   children?: React.ReactNode
   /** @default "compact" */
-  variant?: 'compact' | 'default' | 'data'
+  variant?: "compact" | "default" | "data"
 }
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081929256/Table Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-table--docs Storybook}
  */
 export const TableContainer = ({
-  variant = 'compact',
+  variant = "compact",
   children,
   ...otherProps
 }: TableContainerProps): JSX.Element => (
@@ -25,8 +25,8 @@ export const TableContainer = ({
     role="table"
     className={classnames(
       styles.container,
-      variant === 'default' && styles.defaultSpacing,
-      variant === 'data' && styles.dataVariant,
+      variant === "default" && styles.defaultSpacing,
+      variant === "data" && styles.dataVariant,
     )}
     {...otherProps}
   >
@@ -77,9 +77,9 @@ export type TableHeaderRowCellProps = {
   /**
    * Shows an up or down arrow, to show that the column is sorted.
    */
-  sorting?: 'ascending' | 'descending'
-  wrapping?: 'nowrap' | 'wrap'
-  align?: 'start' | 'center' | 'end'
+  sorting?: "ascending" | "descending"
+  wrapping?: "nowrap" | "wrap"
+  align?: "start" | "center" | "end"
   tooltipInfo?: string
   /** If set, this will hide the tooltip exclamation icon. Useful in situations where
    the table header does not have enough space. This should be done with caution as tooltips
@@ -91,7 +91,7 @@ export type TableHeaderRowCellProps = {
   tooltipPortalSelector?: string | undefined
   /** If set, this will show the arrow in the direction provided
   when the header cell is hovered over. */
-  sortingArrowsOnHover?: 'ascending' | 'descending' | undefined
+  sortingArrowsOnHover?: "ascending" | "descending" | undefined
 } & TableHeaderRowCellCheckboxProps &
   OverrideClassName<HTMLAttributes<HTMLElement>>
 
@@ -114,8 +114,8 @@ export const TableHeaderRowCell = ({
   // cell with a word longer than the column width would push the columns out of
   // alignment? I'm not sure.
   // Anyway, we can override this default behaviour by setting wrapping to "wrap".
-  wrapping = 'nowrap',
-  align = 'start',
+  wrapping = "nowrap",
+  align = "start",
   tooltipInfo,
   isTooltipIconHidden = false,
   tooltipPortalSelector,
@@ -132,8 +132,8 @@ export const TableHeaderRowCell = ({
     if (sortingArrowsOnHover && hoverState != isHovered) setIsHovered(hoverState)
   }
 
-  const headerColor = reversed ? 'white-reduced-opacity' : 'dark-reduced-opacity'
-  const hoveredHeaderColor = reversed ? 'white' : 'dark'
+  const headerColor = reversed ? "white-reduced-opacity" : "dark-reduced-opacity"
+  const hoveredHeaderColor = reversed ? "white" : "dark"
 
   // For this "cellContents" variable, we start at the inner most child, and
   // wrap it elements, depending on what the props dictate.
@@ -143,8 +143,8 @@ export const TableHeaderRowCell = ({
         <span className={styles.headerRowCellIcon}>
           {cloneElement(icon, {
             title: labelText,
-            ['aria-label']: labelText, // title is unreliable so this is a sensible fallback for tables with icons as headers without aria-labels
-            role: 'img',
+            ["aria-label"]: labelText, // title is unreliable so this is a sensible fallback for tables with icons as headers without aria-labels
+            role: "img",
           })}
         </span>
       )}
@@ -172,12 +172,12 @@ export const TableHeaderRowCell = ({
       {(sorting ?? (isHovered && sortingArrowsOnHover)) && (
         <div
           className={classnames(
-            align === 'center' && styles.headerRowCellIconAlignCenter,
-            align === 'end' && styles.headerRowCellIconAlignEnd,
+            align === "center" && styles.headerRowCellIconAlignCenter,
+            align === "end" && styles.headerRowCellIconAlignEnd,
             reversed && styles.whiteText,
           )}
         >
-          {sorting === 'ascending' || sortingArrowsOnHover === 'ascending' ? (
+          {sorting === "ascending" || sortingArrowsOnHover === "ascending" ? (
             <Icon name="arrow_drop_up" isPresentational />
           ) : (
             <Icon name="arrow_drop_down" isPresentational />
@@ -244,9 +244,9 @@ export const TableHeaderRowCell = ({
     <div
       className={classnames(
         styles.headerRowCell,
-        wrapping === 'nowrap' && styles.headerRowCellNoWrap,
-        align === 'center' && styles.headerRowCellAlignCenter,
-        align === 'end' && styles.headerRowCellAlignEnd,
+        wrapping === "nowrap" && styles.headerRowCellNoWrap,
+        align === "center" && styles.headerRowCellAlignCenter,
+        align === "end" && styles.headerRowCellAlignEnd,
         sorting && styles.headerRowCellActive,
         classNameOverride,
       )}
@@ -282,7 +282,7 @@ type AnchorClickEvent = (e: React.MouseEvent<HTMLAnchorElement>) => void
 export type TableCardProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
   onClick?: ButtonClickEvent | AnchorClickEvent
   expanded?: boolean
-  expandedStyle?: 'well' | 'popout'
+  expandedStyle?: "well" | "popout"
   href?: string
   // Despite there being no onClick or href, still show a hover state on the
   // rows. An example use case is when you might want to handle click events
@@ -294,7 +294,7 @@ export type TableCardProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
 export const TableCard = ({
   children,
   expanded,
-  expandedStyle = 'well',
+  expandedStyle = "well",
   onClick,
   href,
   forceHoverState = false,

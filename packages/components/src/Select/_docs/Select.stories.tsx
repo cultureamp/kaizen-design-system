@@ -1,45 +1,45 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Label } from '~components/Label'
-import { AsyncSelect, Select } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Label } from "~components/Label"
+import { AsyncSelect, Select } from "../index"
 
 const OPTIONS = [
-  { value: 'Mindy', label: 'Mindy' },
-  { value: 'Jaime', label: 'Jaime' },
-  { value: 'Rafa', label: 'Rafa' },
+  { value: "Mindy", label: "Mindy" },
+  { value: "Jaime", label: "Jaime" },
+  { value: "Rafa", label: "Rafa" },
 ]
 
 const DISABLED_OPTIONS = [
-  { value: 'Mindy', label: 'Mindy' },
-  { value: 'Jaime', label: 'Jaime', isDisabled: true },
-  { value: 'Rafa', label: 'Rafa' },
+  { value: "Mindy", label: "Mindy" },
+  { value: "Jaime", label: "Jaime", isDisabled: true },
+  { value: "Rafa", label: "Rafa" },
 ]
 
 const GROUPED_OPTIONS = [
   {
-    label: 'Colours',
+    label: "Colours",
     options: [
-      { value: 'blue', label: 'blue' },
-      { value: 'red', label: 'red' },
-      { value: 'green', label: 'green' },
+      { value: "blue", label: "blue" },
+      { value: "red", label: "red" },
+      { value: "green", label: "green" },
     ],
   },
   {
-    label: 'Flavours',
+    label: "Flavours",
     options: [
-      { value: 'vanilla', label: 'Vanilla' },
-      { value: 'chocolate', label: 'Chocolate' },
-      { value: 'strawberry', label: 'Strawberry' },
+      { value: "vanilla", label: "Vanilla" },
+      { value: "chocolate", label: "Chocolate" },
+      { value: "strawberry", label: "Strawberry" },
     ],
   },
 ]
 
 const meta = {
-  title: 'Components/Select',
+  title: "Components/Select",
   component: Select,
   args: {
     options: OPTIONS,
-    label: 'Select',
+    label: "Select",
   },
 } satisfies Meta<typeof Select>
 
@@ -51,7 +51,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

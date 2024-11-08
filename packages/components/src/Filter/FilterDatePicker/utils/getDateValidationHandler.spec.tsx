@@ -1,26 +1,26 @@
-import React from 'react'
-import { LabelledMessage } from '~components/LabelledMessage'
-import { getDateValidationHandler } from './getDateValidationHandler'
+import React from "react"
+import { LabelledMessage } from "~components/LabelledMessage"
+import { getDateValidationHandler } from "./getDateValidationHandler"
 
 const onValidate = vi.fn()
 const setInbuiltValidationMessage = vi.fn()
 
-describe('getDateValidationHandler()', () => {
+describe("getDateValidationHandler()", () => {
   afterEach(() => {
     onValidate.mockClear()
     setInbuiltValidationMessage.mockClear()
   })
 
-  it('uses onValidate if defined', () => {
+  it("uses onValidate if defined", () => {
     const handleValidate = getDateValidationHandler({
       onValidate,
       setInbuiltValidationMessage,
-      inputLabel: 'Field label',
+      inputLabel: "Field label",
     })
 
     const validationResponse = {
-      date: new Date('2022-05-01'),
-      inputValue: '01/05/2022',
+      date: new Date("2022-05-01"),
+      inputValue: "01/05/2022",
       validationMessage: undefined,
       isInvalid: false,
       isDisabled: false,
@@ -33,18 +33,18 @@ describe('getDateValidationHandler()', () => {
     expect(setInbuiltValidationMessage).not.toBeCalled()
   })
 
-  describe('when onValidate is not defined', () => {
+  describe("when onValidate is not defined", () => {
     const handleValidate = getDateValidationHandler({
       onValidate: undefined,
       setInbuiltValidationMessage,
-      inputLabel: 'Field label',
+      inputLabel: "Field label",
     })
 
-    describe('without a passed in validation message', () => {
-      it('calls the inbuilt validation without a message or status', () => {
+    describe("without a passed in validation message", () => {
+      it("calls the inbuilt validation without a message or status", () => {
         handleValidate({
-          date: new Date('2022-05-01'),
-          inputValue: '01/05/2022',
+          date: new Date("2022-05-01"),
+          inputValue: "01/05/2022",
           validationMessage: undefined,
           isInvalid: false,
           isDisabled: false,
@@ -56,14 +56,14 @@ describe('getDateValidationHandler()', () => {
       })
     })
 
-    describe('with passed in validation message', () => {
-      it('calls the inbuilt validation with the message and status', () => {
+    describe("with passed in validation message", () => {
+      it("calls the inbuilt validation with the message and status", () => {
         handleValidate({
-          date: new Date('2022-05-01'),
-          inputValue: '01/05/2022',
+          date: new Date("2022-05-01"),
+          inputValue: "01/05/2022",
           validationMessage: {
-            status: 'error',
-            message: 'Custom error message',
+            status: "error",
+            message: "Custom error message",
           },
           isInvalid: false,
           isDisabled: false,
@@ -72,7 +72,7 @@ describe('getDateValidationHandler()', () => {
         })
         expect(onValidate).not.toBeCalled()
         expect(setInbuiltValidationMessage).toBeCalledWith({
-          status: 'error',
+          status: "error",
           message: <LabelledMessage label="Field label" message="Custom error message" />,
         })
       })

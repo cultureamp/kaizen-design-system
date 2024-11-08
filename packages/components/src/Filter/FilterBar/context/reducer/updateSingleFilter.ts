@@ -1,5 +1,5 @@
-import { FiltersValues } from '../../types'
-import { FilterBarState, FilterBarStateFilters, FilterStateEditableAttributes } from '../types'
+import { FiltersValues } from "../../types"
+import { FilterBarState, FilterBarStateFilters, FilterStateEditableAttributes } from "../types"
 
 export const updateSingleFilter = <ValuesMap extends FiltersValues>(
   state: FilterBarState<ValuesMap>,

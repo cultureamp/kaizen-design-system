@@ -1,7 +1,7 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/typography';
-@import '~@kaizen/design-tokens/sass/spacing';
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 $iconAndBadgeHeight: $spacing-md;
 
@@ -57,7 +57,7 @@ $iconAndBadgeHeight: $spacing-md;
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
 
-      content: '';
+      content: "";
       position: absolute;
       background: transparent;
       border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;

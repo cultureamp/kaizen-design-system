@@ -1,4 +1,4 @@
-import type { CSSProperties as ReactCSSProperties } from 'react'
+import type { CSSProperties as ReactCSSProperties } from "react"
 
 /**
  * Use a custom type for CSS properties becauase we should eventually write a more strongly typed version using template literal types.
@@ -22,15 +22,15 @@ type Hex = string
 // type Hex = Lowercase<string>
 
 export type TypographyFont = {
-  fontFamily: KaizenCSSProperties['fontFamily']
-  fontWeight: KaizenCSSProperties['fontWeight']
-  fontSize: KaizenCSSProperties['fontSize']
-  lineHeight: KaizenCSSProperties['lineHeight']
-  letterSpacing: KaizenCSSProperties['letterSpacing']
-  maxWidth?: KaizenCSSProperties['maxWidth']
+  fontFamily: KaizenCSSProperties["fontFamily"]
+  fontWeight: KaizenCSSProperties["fontWeight"]
+  fontSize: KaizenCSSProperties["fontSize"]
+  lineHeight: KaizenCSSProperties["lineHeight"]
+  letterSpacing: KaizenCSSProperties["letterSpacing"]
+  maxWidth?: KaizenCSSProperties["maxWidth"]
 }
 
-export type ThemeKey = 'heart' | 'custom'
+export type ThemeKey = "heart" | "custom"
 
 /**
  * @deprecated
@@ -41,26 +41,26 @@ export type Theme = {
   themeKey: ThemeKey
   border: {
     solid: {
-      borderWidth: KaizenCSSProperties['borderWidth']
-      borderRadius: KaizenCSSProperties['borderRadius']
-      borderStyle: KaizenCSSProperties['borderStyle']
-      borderColor: KaizenCSSProperties['borderColor']
+      borderWidth: KaizenCSSProperties["borderWidth"]
+      borderRadius: KaizenCSSProperties["borderRadius"]
+      borderStyle: KaizenCSSProperties["borderStyle"]
+      borderColor: KaizenCSSProperties["borderColor"]
     }
     dashed: {
-      borderWidth: KaizenCSSProperties['borderWidth']
-      borderRadius: KaizenCSSProperties['borderRadius']
-      borderStyle: KaizenCSSProperties['borderStyle']
+      borderWidth: KaizenCSSProperties["borderWidth"]
+      borderRadius: KaizenCSSProperties["borderRadius"]
+      borderStyle: KaizenCSSProperties["borderStyle"]
     }
     borderless: {
-      borderWidth: KaizenCSSProperties['borderWidth']
-      borderRadius: KaizenCSSProperties['borderRadius']
-      borderStyle: KaizenCSSProperties['borderStyle']
-      borderColor: KaizenCSSProperties['borderColor']
+      borderWidth: KaizenCSSProperties["borderWidth"]
+      borderRadius: KaizenCSSProperties["borderRadius"]
+      borderStyle: KaizenCSSProperties["borderStyle"]
+      borderColor: KaizenCSSProperties["borderColor"]
     }
     focusRing: {
-      borderWidth: KaizenCSSProperties['borderWidth']
-      borderRadius: KaizenCSSProperties['borderRadius']
-      borderStyle: KaizenCSSProperties['borderStyle']
+      borderWidth: KaizenCSSProperties["borderWidth"]
+      borderRadius: KaizenCSSProperties["borderRadius"]
+      borderStyle: KaizenCSSProperties["borderStyle"]
     }
   }
   animation: {
@@ -225,7 +225,7 @@ export type Theme = {
     paragraphSmall: TypographyFont
     paragraphExtraSmall: TypographyFont
     paragraphBold: {
-      fontWeight: KaizenCSSProperties['fontWeight']
+      fontWeight: KaizenCSSProperties["fontWeight"]
     }
     buttonPrimary: TypographyFont
     buttonSecondary: TypographyFont

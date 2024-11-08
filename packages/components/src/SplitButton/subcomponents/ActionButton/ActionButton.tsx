@@ -1,9 +1,9 @@
-import React from 'react'
-import classnames from 'classnames'
-import { BaseButton, BaseButtonProps } from '../BaseButton'
-import styles from './ActionButton.module.scss'
+import React from "react"
+import classnames from "classnames"
+import { BaseButton, BaseButtonProps } from "../BaseButton"
+import styles from "./ActionButton.module.scss"
 
-export type ActionButtonProps = Omit<BaseButtonProps, 'icon'>
+export type ActionButtonProps = Omit<BaseButtonProps, "icon">
 
 export const ActionButton = ({
   classNameOverride,
@@ -15,4 +15,4 @@ export const ActionButton = ({
   />
 )
 
-ActionButton.displayName = 'ActionButton'
+ActionButton.displayName = "ActionButton"

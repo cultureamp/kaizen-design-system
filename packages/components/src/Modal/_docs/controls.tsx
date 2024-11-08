@@ -1,6 +1,6 @@
-import React from 'react'
-import { Decorator } from '@storybook/react'
-import isChromatic from 'chromatic'
+import React from "react"
+import { Decorator } from "@storybook/react"
+import isChromatic from "chromatic"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -11,7 +11,7 @@ const IS_CHROMATIC = isChromatic()
 const heightDecorator: Decorator = (Story) => {
   if (IS_CHROMATIC) {
     return (
-      <div style={{ minHeight: '100vh' }}>
+      <div style={{ minHeight: "100vh" }}>
         <Story />
       </div>
     )

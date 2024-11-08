@@ -1,16 +1,16 @@
-import React, { useId, useState } from 'react'
-import classnames from 'classnames'
+import React, { useId, useState } from "react"
+import classnames from "classnames"
 import ReactSelect, {
   components,
   type Props as ReactSelectProps,
   type NoticeProps,
-} from 'react-select'
-import Async, { type AsyncProps as ReactAsyncSelectProps } from 'react-select/async'
-import { FieldMessage } from '~components/FieldMessage'
-import { Label } from '~components/Label'
-import { Tag } from '~components/Tag'
-import { Icon } from '~components/__future__/Icon'
-import styles from './Select.module.scss'
+} from "react-select"
+import Async, { type AsyncProps as ReactAsyncSelectProps } from "react-select/async"
+import { FieldMessage } from "~components/FieldMessage"
+import { Label } from "~components/Label"
+import { Tag } from "~components/Tag"
+import { Icon } from "~components/__future__/Icon"
+import styles from "./Select.module.scss"
 
 export type SelectProps = {
   /**
@@ -18,8 +18,8 @@ export type SelectProps = {
    * `variant="secondary" reversed="false" is not implemented and will throw a "not implemented" error
    * @default "default"
    */
-  variant?: 'default' | 'secondary' | 'secondary-small'
-  status?: 'default' | 'error'
+  variant?: "default" | "secondary" | "secondary-small"
+  status?: "default" | "error"
   label?: React.ReactNode
   validationMessage?: React.ReactNode
   description?: React.ReactNode
@@ -49,8 +49,8 @@ export type SelectProps = {
 export const Select = React.forwardRef<any, SelectProps>(
   (
     {
-      variant = 'default',
-      status = 'default',
+      variant = "default",
+      status = "default",
       reversed = false,
       label,
       validationMessage,
@@ -67,20 +67,20 @@ export const Select = React.forwardRef<any, SelectProps>(
 
     // the default for fullWidth depends on the variant
     const fullWidth =
-      (propsFullWidth ?? Boolean(variant === 'secondary' || variant === 'secondary-small'))
+      (propsFullWidth ?? Boolean(variant === "secondary" || variant === "secondary-small"))
         ? false
         : true
 
     const classes = classnames(
       propsClassName,
       styles.specificityIncreaser,
-      (!reversed || variant === 'default') && styles.default,
+      (!reversed || variant === "default") && styles.default,
       reversed && styles.reversed,
-      variant === 'secondary' && styles.secondary,
-      variant === 'secondary-small' && styles.secondarySmall,
+      variant === "secondary" && styles.secondary,
+      variant === "secondary-small" && styles.secondarySmall,
       !fullWidth && styles.notFullWidth,
       isDisabled && styles.disabled,
-      status === 'error' && styles.error,
+      status === "error" && styles.error,
     )
 
     const [labelId] = useState<string | undefined>(label ? reactId : undefined)
@@ -121,7 +121,7 @@ export const Select = React.forwardRef<any, SelectProps>(
     )
   },
 )
-Select.displayName = 'Select'
+Select.displayName = "Select"
 
 interface AsyncProps
   extends ReactAsyncSelectProps<any, boolean, any>,
@@ -153,7 +153,7 @@ export const AsyncSelect = React.forwardRef(
     />
   ),
 )
-AsyncSelect.displayName = 'AsyncSelect'
+AsyncSelect.displayName = "AsyncSelect"
 
 const Control: typeof components.Control = (props) => (
   <div data-automation-id="Select__Control">
@@ -177,7 +177,7 @@ const Placeholder: typeof components.Placeholder = (props) => (
 const DropdownIndicator: typeof components.DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
     <Icon
-      name={props.selectProps.menuIsOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
+      name={props.selectProps.menuIsOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
       isPresentational
     />
   </components.DropdownIndicator>

@@ -1,8 +1,8 @@
-@import '~@kaizen/design-tokens/sass/typography';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '~@kaizen/design-tokens/sass/border';
-@import '../../styles/utils/button-reset';
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+@import "../../styles/utils/button-reset";
 
 $button-border-radius: 3px;
 $rdp-cell-size: 40px;
@@ -21,7 +21,7 @@ $rdp-cell-size: 40px;
       $focus-ring-offset: calc(-1 * calc((#{$border-focus-ring-border-width} * 2) + 1px));
 
       z-index: 2;
-      content: '';
+      content: "";
       position: absolute;
       inset: $focus-ring-offset;
       border-radius: $button-border-radius;

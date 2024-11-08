@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { StoryObj } from '@storybook/react'
-import { expect, userEvent, within } from '@storybook/test'
-import { FilterButton, FilterButtonProps } from '~components/Filter/FilterButton'
-import { FilterDatePicker } from './FilterDatePicker'
+import React, { useState } from "react"
+import { StoryObj } from "@storybook/react"
+import { expect, userEvent, within } from "@storybook/test"
+import { FilterButton, FilterButtonProps } from "~components/Filter/FilterButton"
+import { FilterDatePicker } from "./FilterDatePicker"
 
 export default {
-  title: 'Components/Filter Date Picker/Tests',
+  title: "Components/Filter Date Picker/Tests",
   component: FilterDatePicker,
   parameters: {
     a11y: {
@@ -14,7 +14,7 @@ export default {
           {
             // Pseudo states of FilterButton do not meet contrast ratios, however
             // given this test is functional, we can ignore this rule.
-            id: 'color-contrast',
+            id: "color-contrast",
             enabled: false,
           },
         ],
@@ -57,19 +57,19 @@ export const SubmitInputViaEnterKey: Story = {
   play: async ({ canvasElement, step }) => {
     const { getByRole, getByLabelText, queryByRole } = within(canvasElement)
 
-    await step('Open popover', async () => {
-      await userEvent.click(getByRole('button', { name: 'Date' }))
+    await step("Open popover", async () => {
+      await userEvent.click(getByRole("button", { name: "Date" }))
     })
 
-    await step('Type value and press Enter key', async () => {
-      const inputDate = getByLabelText('Date', { selector: 'input' })
+    await step("Type value and press Enter key", async () => {
+      const inputDate = getByLabelText("Date", { selector: "input" })
       await userEvent.click(inputDate)
-      await userEvent.type(inputDate, '03/05/2022')
-      await userEvent.keyboard('{Enter}')
+      await userEvent.type(inputDate, "03/05/2022")
+      await userEvent.keyboard("{Enter}")
     })
 
     await step("Ensure the popover didn't re-open", async () => {
-      expect(queryByRole('dialog')).not.toBeInTheDocument()
+      expect(queryByRole("dialog")).not.toBeInTheDocument()
     })
   },
 }

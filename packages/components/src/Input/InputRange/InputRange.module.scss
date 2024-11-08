@@ -1,5 +1,5 @@
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '~@kaizen/design-tokens/sass/color';
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
 
 $thumb-color: $color-blue-500;
 $thumb-color-hover: $color-blue-600;
@@ -51,7 +51,7 @@ $track-radius: 4px;
 }
 
 // extra input[type="range"] is required to override materialize.css in performance-ui
-input[type='range'].ratingScaleRange {
+input[type="range"].ratingScaleRange {
   all: unset;
   appearance: none;
   width: 100%;

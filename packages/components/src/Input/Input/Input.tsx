@@ -1,8 +1,8 @@
-import React, { InputHTMLAttributes } from 'react'
-import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { InputStatus, InputTypes } from './types'
-import styles from './Input.module.scss'
+import React, { InputHTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import { InputStatus, InputTypes } from "./types"
+import styles from "./Input.module.scss"
 
 export type InputType = (typeof InputTypes)[number]
 export type InputStatusType = (typeof InputStatus)[number]
@@ -23,11 +23,11 @@ export type InputProps = {
 
 export const Input = ({
   inputRef,
-  status = 'default',
+  status = "default",
   startIconAdornment,
   endIconAdornment,
   reversed = false,
-  type = 'text',
+  type = "text",
   value,
   defaultValue,
   classNameOverride,
@@ -41,7 +41,7 @@ export const Input = ({
       disabled && styles.withDisabled,
       startIconAdornment && styles.withStartIconAdornment,
       endIconAdornment && styles.withEndIconAdornment,
-      status != 'default' && styles.hasStatus,
+      status != "default" && styles.hasStatus,
     )}
   >
     {startIconAdornment && <div className={styles.startIconAdornment}>{startIconAdornment}</div>}
@@ -70,4 +70,4 @@ export const Input = ({
   </div>
 )
 
-Input.displayName = 'Input'
+Input.displayName = "Input"

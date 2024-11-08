@@ -1,1 +1,1 @@
-export * from './CollapsibleGroup'
+export * from "./CollapsibleGroup"

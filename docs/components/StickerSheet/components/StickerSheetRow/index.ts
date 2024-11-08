@@ -1,1 +1,1 @@
-export * from './StickerSheetRow'
+export * from "./StickerSheetRow"

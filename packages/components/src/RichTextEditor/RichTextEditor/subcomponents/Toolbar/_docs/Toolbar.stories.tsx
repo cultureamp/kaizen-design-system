@@ -1,17 +1,17 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Icon } from '~components/__future__/Icon'
-import { ToggleIconButton } from '../../ToggleIconButton'
-import { ToolbarSection } from '../../ToolbarSection'
-import { Toolbar } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Icon } from "~components/__future__/Icon"
+import { ToggleIconButton } from "../../ToggleIconButton"
+import { ToolbarSection } from "../../ToolbarSection"
+import { Toolbar } from "../index"
 
 const meta = {
-  title: 'Components/RichTextEditor/Subcomponents/Toolbar',
+  title: "Components/RichTextEditor/Subcomponents/Toolbar",
   component: Toolbar,
   args: {
-    'aria-controls': 'my-rich-text-editor-id',
-    'aria-label': 'Custom Super Toolbar',
-    'children': (
+    "aria-controls": "my-rich-text-editor-id",
+    "aria-label": "Custom Super Toolbar",
+    "children": (
       <>
         <ToolbarSection>
           <ToggleIconButton label="Bold" icon={<Icon name="format_bold" isPresentational />} />
@@ -57,7 +57,7 @@ export const Playground: Story = {
     chromatic: { disable: false },
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

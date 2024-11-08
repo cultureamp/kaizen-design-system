@@ -1,10 +1,10 @@
-import React, { HTMLAttributes, ReactNode, SyntheticEvent, useRef, useState } from 'react'
-import { Tab as ReachTab } from '@reach/tabs'
-import classnames from 'classnames'
-import { useFocusable } from 'react-aria'
-import { Badge } from '~components/Badge'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './Tab.module.scss'
+import React, { HTMLAttributes, ReactNode, SyntheticEvent, useRef, useState } from "react"
+import { Tab as ReachTab } from "@reach/tabs"
+import classnames from "classnames"
+import { useFocusable } from "react-aria"
+import { Badge } from "~components/Badge"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import styles from "./Tab.module.scss"
 
 export type TabProps = {
   /**
@@ -24,7 +24,7 @@ export type TabProps = {
   Omit<
     HTMLAttributes<HTMLButtonElement>,
     // These props are used in the component internals, but could be extended if needed
-    'onFocus' | 'onBlur' | 'onMouseEnter' | 'onMouseLeave'
+    "onFocus" | "onBlur" | "onMouseEnter" | "onMouseLeave"
   >
 >
 
@@ -64,7 +64,7 @@ export const Tab = (props: TabProps): JSX.Element => {
       {children}
       {badge && (
         <span className={styles.badge}>
-          <Badge variant={showActiveBadge ? 'active' : 'default'}>{badge}</Badge>
+          <Badge variant={showActiveBadge ? "active" : "default"}>{badge}</Badge>
         </span>
       )}
     </ReachTab>

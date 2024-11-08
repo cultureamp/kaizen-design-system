@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
-import { Button } from '~components/__actions__/v2'
-import { EditorContentArray, RichTextEditor, RichTextEditorProps } from '../../index'
-import { EditableRichTextContent } from '../index'
-import defaultContent from './defaultContent.json'
+import React, { useState } from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
+import { Button } from "~components/__actions__/v2"
+import { EditorContentArray, RichTextEditor, RichTextEditorProps } from "../../index"
+import { EditableRichTextContent } from "../index"
+import defaultContent from "./defaultContent.json"
 
 const meta = {
-  title: 'Components/RichTextEditor/EditableRichTextContent',
+  title: "Components/RichTextEditor/EditableRichTextContent",
   component: EditableRichTextContent,
   args: {
     content: [],
-    labelText: 'Label',
+    labelText: "Label",
     onClick: fn(),
   },
   argTypes: {
     content: { control: false },
-    onClick: { action: 'onClick' },
+    onClick: { action: "onClick" },
   },
 } satisfies Meta<typeof EditableRichTextContent>
 
@@ -30,7 +30,7 @@ const EditableRichTextContentTemplate: Story = {
     const [readRteData, setReadRTEData] = useState<EditorContentArray>(props.content)
     const [editRteData, setEditRTEData] = useState<EditorContentArray>([])
 
-    const handleOnChange: RichTextEditorProps['onChange'] = (editorState) =>
+    const handleOnChange: RichTextEditorProps["onChange"] = (editorState) =>
       setEditRTEData(editorState.toJSON().doc.content)
 
     const handleContentClick = (): void => {
@@ -49,12 +49,12 @@ const EditableRichTextContentTemplate: Story = {
           <RichTextEditor
             labelText={props.labelText}
             controls={[
-              { name: 'bold', group: 'inline' },
-              { name: 'italic', group: 'inline' },
-              { name: 'underline', group: 'inline' },
-              { name: 'orderedList', group: 'list' },
-              { name: 'bulletList', group: 'list' },
-              { name: 'link', group: 'link' },
+              { name: "bold", group: "inline" },
+              { name: "italic", group: "inline" },
+              { name: "underline", group: "inline" },
+              { name: "orderedList", group: "list" },
+              { name: "bulletList", group: "list" },
+              { name: "link", group: "link" },
             ]}
             defaultValue={editRteData}
             onChange={handleOnChange}

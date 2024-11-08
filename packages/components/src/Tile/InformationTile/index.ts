@@ -1,1 +1,1 @@
-export * from './InformationTile'
+export * from "./InformationTile"

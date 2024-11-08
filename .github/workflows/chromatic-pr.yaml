@@ -20,7 +20,7 @@ on:
     branches:
       - main # the target branch of the PR
     paths:
-      - '**/CHANGELOG.md' # only changesets releases touch changelogs
+      - "**/CHANGELOG.md" # only changesets releases touch changelogs
 
 jobs:
   run-check:
@@ -50,9 +50,9 @@ jobs:
         with:
           token: ${{ github.token }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          storybookBuildDir: './docs/storybook-static'
-          storybookBaseDir: './docs'
-          onlyChanged: '!(main)'
+          storybookBuildDir: "./docs/storybook-static"
+          storybookBaseDir: "./docs"
+          onlyChanged: "!(main)"
           externals: |
             **/!(*.module).scss
             packages/components/**/*.css

@@ -1,21 +1,21 @@
-import React from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { Mock, vi } from 'vitest'
-import { useSelectionContext } from '../../../context'
-import { ClearButton } from '.'
+import React from "react"
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { Mock, vi } from "vitest"
+import { useSelectionContext } from "../../../context"
+import { ClearButton } from "."
 const user = userEvent.setup()
 
-vi.mock('../../../context', () => ({
+vi.mock("../../../context", () => ({
   useSelectionContext: vi.fn(),
 }))
 
-describe('<ClearButton /> - interaction', () => {
-  describe('Given selection is not empty', () => {
-    it('triggers selectionManager.selSelectedKeys() with focused keys filtered out when button is clicked', async () => {
+describe("<ClearButton /> - interaction", () => {
+  describe("Given selection is not empty", () => {
+    it("triggers selectionManager.selSelectedKeys() with focused keys filtered out when button is clicked", async () => {
       const spy = vi.fn()
-      const selectedAndFocused = 'selectedAndFocused'
-      const selectedButNotFocused = 'selectedButNotFocused'
+      const selectedAndFocused = "selectedAndFocused"
+      const selectedButNotFocused = "selectedButNotFocused"
       const selectedKeys: string[] = [selectedAndFocused, selectedButNotFocused]
       const filteredKeys: string[] = [selectedAndFocused]
       ;(useSelectionContext as Mock).mockReturnValue({
@@ -32,7 +32,7 @@ describe('<ClearButton /> - interaction', () => {
         },
       })
       render(<ClearButton />)
-      await user.click(screen.getByRole('button'))
+      await user.click(screen.getByRole("button"))
 
       await waitFor(() => {
         expect(spy).toHaveBeenCalledTimes(1)
@@ -41,8 +41,8 @@ describe('<ClearButton /> - interaction', () => {
     })
   })
 
-  describe('Given selection is empty', () => {
-    it('does not trigger selectionManager.setSelectedKeys() when clicks on the button', async () => {
+  describe("Given selection is empty", () => {
+    it("does not trigger selectionManager.setSelectedKeys() when clicks on the button", async () => {
       const spy = vi.fn()
       const filteredKeys: string[] = []
       const selectedKeys: string[] = []
@@ -59,7 +59,7 @@ describe('<ClearButton /> - interaction', () => {
         },
       })
       render(<ClearButton />)
-      await user.click(screen.getByRole('button'))
+      await user.click(screen.getByRole("button"))
 
       await waitFor(() => {
         expect(spy).toHaveBeenCalledTimes(0)

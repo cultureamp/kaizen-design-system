@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
-import Highlight from 'react-highlight'
-import { defaultMonthControls } from '~components/Calendar/_docs/controls/defaultMonthControls'
+import React, { useEffect, useState } from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
+import Highlight from "react-highlight"
+import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
 import {
   FilterButton,
   FilterButtonProps,
   FilterButtonRemovable,
-} from '~components/Filter/FilterButton'
-import { renderTriggerControls } from '~components/Filter/_docs/controls/renderTriggerControls'
-import { Text } from '~components/Text'
-import { DateValidationResponse, FilterDatePicker, ValidationMessage } from '../index'
-import { FilterDatePickerField } from '../subcomponents/FilterDatePickerField'
-import { disabledDaysControls } from './controls/disabledDaysControls'
-import { validationControls } from './controls/validationControls'
+} from "~components/Filter/FilterButton"
+import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
+import { Text } from "~components/Text"
+import { DateValidationResponse, FilterDatePicker, ValidationMessage } from "../index"
+import { FilterDatePickerField } from "../subcomponents/FilterDatePickerField"
+import { disabledDaysControls } from "./controls/disabledDaysControls"
+import { validationControls } from "./controls/validationControls"
 
 const meta = {
-  title: 'Components/Filter Date Picker',
+  title: "Components/Filter Date Picker",
   component: FilterDatePicker,
   argTypes: {
     ...defaultMonthControls,
@@ -24,16 +24,16 @@ const meta = {
     ...disabledDaysControls,
     ...renderTriggerControls,
     locale: {
-      options: ['en-US', 'en-AU'],
-      control: { type: 'radio' },
+      options: ["en-US", "en-AU"],
+      control: { type: "radio" },
     },
     isOpen: { control: false },
     selectedDate: {
-      options: ['None', 'Date'],
+      options: ["None", "Date"],
       control: {
-        type: 'select',
+        type: "select",
         labels: {
-          None: 'undefined',
+          None: "undefined",
         },
       },
       mapping: {
@@ -42,12 +42,12 @@ const meta = {
       },
     },
     description: {
-      control: 'text',
+      control: "text",
     },
   },
   args: {
-    label: 'Date',
-    locale: 'en-AU',
+    label: "Date",
+    locale: "en-AU",
     renderTrigger: (triggerButtonProps: FilterButtonProps): JSX.Element => (
       <FilterButton {...triggerButtonProps} />
     ),
@@ -124,12 +124,12 @@ return (
 export const Playground: Story = {
   ...FilterDatePickerTemplate,
   args: {
-    id: 'filter-dp--default',
+    id: "filter-dp--default",
   },
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
       source: {
         code: sampleCode,
@@ -151,7 +151,7 @@ export const RenderTrigger: Story = {
     const [rangeRemovable, setRangeRemovable] = useState<Date | undefined>()
 
     return (
-      <div style={{ display: 'flex', gap: '1rem' }}>
+      <div style={{ display: "flex", gap: "1rem" }}>
         <FilterDatePicker
           id="filterdp--filter-button"
           label="FilterButton"
@@ -193,9 +193,9 @@ export const Description: Story = {
   ...FilterDatePickerTemplate,
   args: {
     ...FilterDatePickerTemplate.args,
-    id: 'filterdp--description',
-    label: 'Open to see description',
-    description: 'This is a custom description',
+    id: "filterdp--description",
+    label: "Open to see description",
+    description: "This is a custom description",
   },
 }
 
@@ -206,10 +206,10 @@ export const ExtendInputProps: Story = {
   ...FilterDatePickerTemplate,
   args: {
     ...FilterDatePickerTemplate.args,
-    'id': 'filterdp--extend-input-props',
-    'label': 'Check the DOM for the inputs',
+    "id": "filterdp--extend-input-props",
+    "label": "Check the DOM for the inputs",
     // @ts-expect-error: Data-attributes are exempt when directly injected into a JSX.Element
-    'data-testid': 'filterdp--input-testid',
+    "data-testid": "filterdp--input-testid",
   },
 }
 
@@ -225,11 +225,11 @@ const ValidationHelpText = ({
     </Text>
     <ul>
       <li>
-        There will be a caution when the selectedDay <strong>is valid</strong> but{' '}
+        There will be a caution when the selectedDay <strong>is valid</strong> but{" "}
         <strong>is not within this year</strong>.
       </li>
       <li>
-        There will be an error when the <strong>submit button is clicked</strong> and there is a{' '}
+        There will be an error when the <strong>submit button is clicked</strong> and there is a{" "}
         <strong>current error</strong>.
       </li>
     </ul>
@@ -238,21 +238,21 @@ const ValidationHelpText = ({
       provides data such as a default validation message, and can be utilised for custom validation.
     </Text>
 
-    <Highlight className="json">{JSON.stringify(validationResponse, null, '\t')}</Highlight>
+    <Highlight className="json">{JSON.stringify(validationResponse, null, "\t")}</Highlight>
 
     <ul>
       <li>
         <code>isInvalid</code>: A date that cannot be parsed. e.g &quot;potato&quot;.
       </li>
       <li>
-        <code>isDisabled</code>: A date that have been set as disabled through the{' '}
+        <code>isDisabled</code>: A date that have been set as disabled through the{" "}
         <code>disabledDates</code> prop.
       </li>
       <li>
         <code>isEmpty</code>: Input is empty.
       </li>
       <li>
-        <code>isValidDate</code>: Date input that is not <code>invalid</code> nor{' '}
+        <code>isValidDate</code>: Date input that is not <code>invalid</code> nor{" "}
         <code>disabled</code> nor <code>empty</code>.
       </li>
     </ul>
@@ -276,8 +276,8 @@ export const Validation: Story = {
         validationResponse.date?.getFullYear() !== new Date().getFullYear()
       ) {
         setValidationMessage({
-          status: 'caution',
-          message: 'Date is not this year',
+          status: "caution",
+          message: "Date is not this year",
         })
         return
       }
@@ -289,12 +289,12 @@ export const Validation: Story = {
       e.preventDefault()
 
       const status = validationMessage?.status
-      if (status === 'error' || status === 'caution') {
-        setValidationMessage({ status: 'error', message: 'There is an error' })
-        return alert('Error')
+      if (status === "error" || status === "caution") {
+        setValidationMessage({ status: "error", message: "There is an error" })
+        return alert("Error")
       }
 
-      alert('Success')
+      alert("Success")
     }
 
     return (
@@ -302,7 +302,7 @@ export const Validation: Story = {
         <form onSubmit={submitRequest}>
           <FilterDatePickerField
             id="datepicker-default"
-            inputProps={{ labelText: 'Label' }}
+            inputProps={{ labelText: "Label" }}
             selectedDate={value}
             onDateChange={setValue}
             onValidate={handleValidate}
@@ -310,7 +310,7 @@ export const Validation: Story = {
             disabledDays={new Date()}
             locale="en-AU"
           />
-          <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
+          <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
             <button type="submit">Submit</button>
           </div>
         </form>
@@ -320,7 +320,7 @@ export const Validation: Story = {
     )
   },
   parameters: {
-    docs: { source: { type: 'code' } },
+    docs: { source: { type: "code" } },
     controls: { disable: true },
   },
 }

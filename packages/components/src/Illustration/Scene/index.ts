@@ -1,2 +1,2 @@
-export * from './BrandMomentCaptureIntro'
-export * from './Scene'
+export * from "./BrandMomentCaptureIntro"
+export * from "./Scene"

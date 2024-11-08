@@ -1,18 +1,18 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { InlineNotification } from '../InlineNotification'
+import { Meta, StoryObj } from "@storybook/react"
+import { InlineNotification } from "../InlineNotification"
 
 const meta = {
-  title: 'Components/Notifications/InlineNotification',
+  title: "Components/Notifications/InlineNotification",
   component: InlineNotification,
   args: {
     headingProps: {
-      children: 'Informative',
-      tag: 'span',
-      variant: 'heading-6',
+      children: "Informative",
+      tag: "span",
+      variant: "heading-6",
     },
-    variant: 'informative',
+    variant: "informative",
     children:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quibusdam natus doloremque',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quibusdam natus doloremque",
   },
   argTypes: {
     type: {
@@ -35,7 +35,7 @@ export const Playground: StoryObj<typeof meta> = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },
@@ -47,12 +47,12 @@ export const Playground: StoryObj<typeof meta> = {
 export const Persistent: StoryObj<typeof meta> = {
   args: {
     persistent: true,
-    variant: 'warning',
-    children: 'Please fill in all required fields before submitting',
+    variant: "warning",
+    children: "Please fill in all required fields before submitting",
     headingProps: {
-      children: 'Form error',
-      variant: 'heading-6',
-      tag: 'span',
+      children: "Form error",
+      variant: "heading-6",
+      tag: "span",
     },
   },
 }
@@ -62,7 +62,7 @@ export const Persistent: StoryObj<typeof meta> = {
 export const ForceMultilineDemo: StoryObj<typeof meta> = {
   args: {
     forceMultiline: true,
-    children: 'Even with a small amount of text',
+    children: "Even with a small amount of text",
   },
 }
 
@@ -72,6 +72,6 @@ export const ContentMultilineDemo: StoryObj<typeof meta> = {
   args: {
     forceMultiline: true,
     children:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis esse, iste, obcaecati laborum dolorum eius, similique fugit itaque illum ipsam sapiente facilis cum? Accusamus eos possimus quae voluptates laboriosam necessitatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis esse, iste, obcaecati laborum dolorum eius, similique fugit itaque illum ipsam sapiente facilis cum? Accusamus eos possimus quae voluptates laboriosam necessitatibus.',
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis esse, iste, obcaecati laborum dolorum eius, similique fugit itaque illum ipsam sapiente facilis cum? Accusamus eos possimus quae voluptates laboriosam necessitatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis esse, iste, obcaecati laborum dolorum eius, similique fugit itaque illum ipsam sapiente facilis cum? Accusamus eos possimus quae voluptates laboriosam necessitatibus.",
   },
 }

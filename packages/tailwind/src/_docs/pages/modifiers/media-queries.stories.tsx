@@ -1,16 +1,16 @@
-import React from 'react'
-import { Meta, StoryFn } from '@storybook/react'
-import { Heading } from '~components/Heading'
-import { Text } from '~components/Text'
+import React from "react"
+import { Meta, StoryFn } from "@storybook/react"
+import { Heading } from "~components/Heading"
+import { Text } from "~components/Text"
 
 export default {
-  title: 'Guides/Tailwind/Utility Class References/Modifiers/Media Queries',
+  title: "Guides/Tailwind/Utility Class References/Modifiers/Media Queries",
   parameters: {
-    docsLayout: 'fullPage',
+    docsLayout: "fullPage",
     docs: {
       a11y: { disable: true },
       description: {
-        component: 'Require @kaizen/tailwind and add it into your tailwind config',
+        component: "Require @kaizen/tailwind and add it into your tailwind config",
       },
     },
   },
@@ -49,8 +49,8 @@ export const MediaQueries: StoryFn = () => (
 export const ArbitraryMediaQueries: StoryFn = () => (
   <div className="py-32">
     <Heading tag="p" variant="heading-4" classNameOverride="text-center">
-      Bespoke, one-off media queries can be created with arbitrary values. See the{' '}
-      <a href="https://tailwindcss.com/docs/responsive-design#arbitrary-values">Tailwind docs</a>{' '}
+      Bespoke, one-off media queries can be created with arbitrary values. See the{" "}
+      <a href="https://tailwindcss.com/docs/responsive-design#arbitrary-values">Tailwind docs</a>{" "}
       for more info.
     </Heading>
 

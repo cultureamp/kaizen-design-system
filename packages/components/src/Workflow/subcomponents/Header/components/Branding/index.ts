@@ -1,1 +1,1 @@
-export * from './Branding'
+export * from "./Branding"

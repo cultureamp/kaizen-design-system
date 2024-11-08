@@ -1,9 +1,9 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Collapsible, CollapsibleProps } from '~components/Collapsible/Collapsible'
-import { CollapsibleGroup, CollapsibleGroupProps } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Collapsible, CollapsibleProps } from "~components/Collapsible/Collapsible"
+import { CollapsibleGroup, CollapsibleGroupProps } from "../index"
 
-const CollapsibleWrapped = (args: Omit<CollapsibleProps, 'children' | 'title'>): JSX.Element => (
+const CollapsibleWrapped = (args: Omit<CollapsibleProps, "children" | "title">): JSX.Element => (
   <Collapsible title="Title" {...args}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac scelerisque sem, vel
     ultricies justo. Donec eu porttitor ante, nec gravida orci. Nulla facilisi. Cras varius erat id
@@ -14,7 +14,7 @@ const CollapsibleWrapped = (args: Omit<CollapsibleProps, 'children' | 'title'>):
   </Collapsible>
 )
 
-const CollapsibleGroupWrapped = (args: Omit<CollapsibleGroupProps, 'children'>): JSX.Element => (
+const CollapsibleGroupWrapped = (args: Omit<CollapsibleGroupProps, "children">): JSX.Element => (
   <CollapsibleGroup {...args}>
     <CollapsibleWrapped key="collapsible-1" />
     <CollapsibleWrapped key="collapsible-2" />
@@ -23,9 +23,9 @@ const CollapsibleGroupWrapped = (args: Omit<CollapsibleGroupProps, 'children'>):
 )
 
 const meta = {
-  title: 'Components/Collapsibles/CollapsibleGroup',
+  title: "Components/Collapsibles/CollapsibleGroup",
   component: CollapsibleGroup,
-  parameters: { backgrounds: { default: 'Gray 100' } },
+  parameters: { backgrounds: { default: "Gray 100" } },
   args: {
     children: [
       <Collapsible title="Title 1" key="Title 1">
@@ -49,7 +49,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

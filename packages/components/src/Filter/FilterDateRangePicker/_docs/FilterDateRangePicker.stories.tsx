@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
-import Highlight from 'react-highlight'
-import { DateRange } from '~components/Calendar'
-import { defaultMonthControls } from '~components/Calendar/_docs/controls/defaultMonthControls'
+import React, { useEffect, useState } from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
+import Highlight from "react-highlight"
+import { DateRange } from "~components/Calendar"
+import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
 import {
   FilterButton,
   FilterButtonProps,
   FilterButtonRemovable,
-} from '~components/Filter/FilterButton'
-import { DateValidationResponse } from '~components/Filter/FilterDatePicker'
-import { renderTriggerControls } from '~components/Filter/_docs/controls/renderTriggerControls'
-import { Text } from '~components/Text'
-import { DateRangeFieldValidationMessage, FilterDateRangePicker } from '../index'
-import { FilterDateRangePickerField } from '../subcomponents/FilterDateRangePickerField'
-import { disabledDaysControls } from './controls/disabledDaysControls'
-import { validationControls } from './controls/validationControls'
+} from "~components/Filter/FilterButton"
+import { DateValidationResponse } from "~components/Filter/FilterDatePicker"
+import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
+import { Text } from "~components/Text"
+import { DateRangeFieldValidationMessage, FilterDateRangePicker } from "../index"
+import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
+import { disabledDaysControls } from "./controls/disabledDaysControls"
+import { validationControls } from "./controls/validationControls"
 
 const meta = {
-  title: 'Components/Filter Date Range Picker',
+  title: "Components/Filter Date Range Picker",
   component: FilterDateRangePicker,
   argTypes: {
     classNameOverride: {
@@ -30,8 +30,8 @@ const meta = {
     ...renderTriggerControls,
     disabledDays: disabledDaysControls,
     locale: {
-      options: ['en-US', 'en-AU'],
-      control: { type: 'radio' },
+      options: ["en-US", "en-AU"],
+      control: { type: "radio" },
     },
     inputStartDateProps: {
       table: { type: { summary: 'Omit<DateInputProps, "id">' } },
@@ -41,31 +41,31 @@ const meta = {
     },
     isOpen: { control: false },
     selectedRange: {
-      options: ['None', 'Partial Range', 'Complete Range'],
+      options: ["None", "Partial Range", "Complete Range"],
       control: {
-        type: 'select',
+        type: "select",
         labels: {
-          'None': 'undefined',
-          'Partial Range': '{ from: new Date() }',
-          'Complete Range': '{ from: new Date("2022-05-01"), to: new Date("2022-05-12") }',
+          "None": "undefined",
+          "Partial Range": "{ from: new Date() }",
+          "Complete Range": '{ from: new Date("2022-05-01"), to: new Date("2022-05-12") }',
         },
       },
       mapping: {
-        'None': undefined,
-        'Partial Range': { from: new Date() },
-        'Complete Range': {
-          from: new Date('2022-05-01'),
-          to: new Date('2022-05-12'),
+        "None": undefined,
+        "Partial Range": { from: new Date() },
+        "Complete Range": {
+          from: new Date("2022-05-01"),
+          to: new Date("2022-05-12"),
         },
       },
     },
     description: {
-      control: 'text',
+      control: "text",
     },
   },
   args: {
-    label: 'Dates',
-    locale: 'en-AU',
+    label: "Dates",
+    locale: "en-AU",
     isOpen: false,
     selectedRange: undefined,
     renderTrigger: (triggerButtonProps: FilterButtonProps): JSX.Element => (
@@ -142,14 +142,14 @@ return (
 export const Playground: Story = {
   ...FilterDateRangePickerTemplate,
   args: {
-    id: 'filter-drp--default',
+    id: "filter-drp--default",
     /* @ts-expect-error: Storybook controls key; see argTypes in default export */
-    renderTrigger: 'Filter Button',
+    renderTrigger: "Filter Button",
   },
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
       source: {
         code: sampleCode,
@@ -171,7 +171,7 @@ export const RenderTrigger: Story = {
     const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
 
     return (
-      <div style={{ display: 'flex', gap: '1rem' }}>
+      <div style={{ display: "flex", gap: "1rem" }}>
         <FilterDateRangePicker
           id="filterdrp--filter-button"
           label="FilterButton"
@@ -219,12 +219,12 @@ export const SelectedRange: Story = {
       from: new Date(),
     })
     const [rangeComplete, setRangeComplete] = useState<DateRange | undefined>({
-      from: new Date('2022-05-01'),
-      to: new Date('2022-05-12'),
+      from: new Date("2022-05-01"),
+      to: new Date("2022-05-12"),
     })
 
     return (
-      <div style={{ display: 'flex', gap: '1rem' }}>
+      <div style={{ display: "flex", gap: "1rem" }}>
         <FilterDateRangePicker
           {...args}
           id="filterdrp--not-selected"
@@ -263,9 +263,9 @@ export const SelectedRange: Story = {
 export const Description: Story = {
   ...FilterDateRangePickerTemplate,
   args: {
-    id: 'filterdrp--description',
-    label: 'Open to see description',
-    description: 'This is a custom description',
+    id: "filterdrp--description",
+    label: "Open to see description",
+    description: "This is a custom description",
   },
 }
 
@@ -276,10 +276,10 @@ export const Description: Story = {
 export const ExtendInputProps: Story = {
   ...FilterDateRangePickerTemplate,
   args: {
-    id: 'filterdrp--extend-input-props',
-    label: 'Check the DOM for the inputs',
-    inputStartDateProps: { 'data-testid': 'filterdrp--input-start-testid' },
-    inputEndDateProps: { 'data-testid': 'filterdrp--input-end-testid' },
+    id: "filterdrp--extend-input-props",
+    label: "Check the DOM for the inputs",
+    inputStartDateProps: { "data-testid": "filterdrp--input-start-testid" },
+    inputEndDateProps: { "data-testid": "filterdrp--input-end-testid" },
   },
 }
 
@@ -295,11 +295,11 @@ const ValidationHelpText = ({
     </Text>
     <ul>
       <li>
-        There will be a caution when the selectedDay <strong>is valid</strong> but{' '}
+        There will be a caution when the selectedDay <strong>is valid</strong> but{" "}
         <strong>is not within this year</strong>.
       </li>
       <li>
-        There will be an error when the <strong>submit button is clicked</strong> and there is a{' '}
+        There will be an error when the <strong>submit button is clicked</strong> and there is a{" "}
         <strong>current error</strong>.
       </li>
     </ul>
@@ -308,21 +308,21 @@ const ValidationHelpText = ({
       provides data such as a default validation message, and can be utilised for custom validation.
     </Text>
 
-    <Highlight className="json">{JSON.stringify(validationResponse, null, '\t')}</Highlight>
+    <Highlight className="json">{JSON.stringify(validationResponse, null, "\t")}</Highlight>
 
     <ul>
       <li>
         <code>isInvalid</code>: A date that cannot be parsed. e.g &quot;potato&quot;.
       </li>
       <li>
-        <code>isDisabled</code>: A date that have been set as disabled through the{' '}
+        <code>isDisabled</code>: A date that have been set as disabled through the{" "}
         <code>disabledDates</code> prop.
       </li>
       <li>
         <code>isEmpty</code>: Input is empty.
       </li>
       <li>
-        <code>isValidDate</code>: Date input that is not <code>invalid</code> nor{' '}
+        <code>isValidDate</code>: Date input that is not <code>invalid</code> nor{" "}
         <code>disabled</code> nor <code>empty</code>.
       </li>
     </ul>
@@ -342,7 +342,7 @@ export const Validation: Story = {
 
     const handleValidate = (
       validationResponse: DateValidationResponse,
-      input: 'dateStart' | 'dateEnd',
+      input: "dateStart" | "dateEnd",
     ): void => {
       setResponse(validationResponse)
       // An example of additional validation
@@ -353,7 +353,7 @@ export const Validation: Story = {
         setValidationMessage((currentValue) => ({
           ...currentValue,
           [input]: {
-            status: 'caution',
+            status: "caution",
             message: `(${input}) Date is not this year`,
           },
         }))
@@ -367,10 +367,10 @@ export const Validation: Story = {
     }
 
     const handleDateStartValidate = (validationResponse: DateValidationResponse): void =>
-      handleValidate(validationResponse, 'dateStart')
+      handleValidate(validationResponse, "dateStart")
 
     const handleDateEndValidate = (validationResponse: DateValidationResponse): void =>
-      handleValidate(validationResponse, 'dateEnd')
+      handleValidate(validationResponse, "dateEnd")
 
     const submitRequest: React.FormEventHandler<HTMLFormElement> = (e) => {
       e.preventDefault()
@@ -379,23 +379,23 @@ export const Validation: Story = {
 
       if (validationMessage?.dateStart) {
         errors = {
-          dateStart: { status: 'error', message: 'Error for start date' },
+          dateStart: { status: "error", message: "Error for start date" },
         }
       }
 
       if (validationMessage?.dateEnd) {
         errors = {
           ...errors,
-          dateEnd: { status: 'error', message: 'Error for end date' },
+          dateEnd: { status: "error", message: "Error for end date" },
         }
       }
 
       if (errors) {
         setValidationMessage(errors)
-        return alert('Error')
+        return alert("Error")
       }
 
-      alert('Success')
+      alert("Success")
     }
 
     return (
@@ -414,7 +414,7 @@ export const Validation: Story = {
             disabledDays={new Date()}
             locale="en-AU"
           />
-          <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
+          <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
             <button type="submit">Submit</button>
           </div>
         </form>
@@ -424,7 +424,7 @@ export const Validation: Story = {
     )
   },
   parameters: {
-    docs: { source: { type: 'code' } },
+    docs: { source: { type: "code" } },
     controls: { disable: true },
   },
 }

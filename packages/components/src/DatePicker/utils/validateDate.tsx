@@ -1,7 +1,7 @@
-import React from 'react'
-import { FormattedMessage } from '@cultureamp/i18n-react-intl'
-import { DisabledDays, isDisabledDate, isInvalidDate } from '~components/Calendar'
-import { ValidationResponse } from '../types'
+import React from "react"
+import { FormattedMessage } from "@cultureamp/i18n-react-intl"
+import { DisabledDays, isDisabledDate, isInvalidDate } from "~components/Calendar"
+import { ValidationResponse } from "../types"
 
 export type ValidateDateArgs = {
   date: Date | undefined
@@ -44,7 +44,7 @@ export const validateDate = ({
     return {
       validationResponse: {
         ...baseResponse,
-        status: 'error',
+        status: "error",
         validationMessage: inputValue ? (
           <FormattedMessage
             id="date.validation.invalidDateWithValue"
@@ -69,7 +69,7 @@ export const validateDate = ({
     return {
       validationResponse: {
         ...baseResponse,
-        status: 'error',
+        status: "error",
         validationMessage: (
           <FormattedMessage
             id="date.validation.unavailableDate"

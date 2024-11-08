@@ -1,14 +1,14 @@
-import React, { useId } from 'react'
-import { useFocusRing } from '@react-aria/focus'
-import { useOption } from '@react-aria/listbox'
-import { mergeProps } from '@react-aria/utils'
-import classnames from 'classnames'
-import { Badge } from '~components/Badge'
-import { VisuallyHidden } from '~components/VisuallyHidden'
-import { Icon } from '~components/__future__/Icon'
-import { useSelectionContext } from '../../context'
-import { MultiSelectItem } from '../../types'
-import styles from './MultiSelectOption.module.scss'
+import React, { useId } from "react"
+import { useFocusRing } from "@react-aria/focus"
+import { useOption } from "@react-aria/listbox"
+import { mergeProps } from "@react-aria/utils"
+import classnames from "classnames"
+import { Badge } from "~components/Badge"
+import { VisuallyHidden } from "~components/VisuallyHidden"
+import { Icon } from "~components/__future__/Icon"
+import { useSelectionContext } from "../../context"
+import { MultiSelectItem } from "../../types"
+import styles from "./MultiSelectOption.module.scss"
 
 export interface MultiSelectOptionProps {
   classNameOverride?: string
@@ -58,4 +58,4 @@ export const MultiSelectOption = ({
   )
 }
 
-MultiSelectOption.displayName = 'FilterMultiSelect.Option'
+MultiSelectOption.displayName = "FilterMultiSelect.Option"

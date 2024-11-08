@@ -1,12 +1,12 @@
-import React from 'react'
-import { action } from '@storybook/addon-actions'
-import { Meta, StoryObj } from '@storybook/react'
-import { expect, userEvent, within, waitFor } from '@storybook/test'
+import React from "react"
+import { action } from "@storybook/addon-actions"
+import { Meta, StoryObj } from "@storybook/react"
+import { expect, userEvent, within, waitFor } from "@storybook/test"
 
-import { GenericModal, ModalAccessibleLabel, ModalBody, ModalHeader } from '../index'
+import { GenericModal, ModalAccessibleLabel, ModalBody, ModalHeader } from "../index"
 
 const meta: Meta<typeof GenericModal> = {
-  title: 'Components/Modals/Generic Modal/Tests',
+  title: "Components/Modals/Generic Modal/Tests",
   component: GenericModal,
 }
 
@@ -47,16 +47,16 @@ export const TestBase: Story = {
   play: async ({ canvasElement, step }) => {
     const { getByRole } = within(canvasElement)
 
-    const openModalButton = getByRole('button', { name: 'Open Modal' })
+    const openModalButton = getByRole("button", { name: "Open Modal" })
 
-    await step('Open modal', async () => {
+    await step("Open modal", async () => {
       await userEvent.click(openModalButton)
     })
 
-    await step('Default focus is shifted to the Accessible title', async () => {
+    await step("Default focus is shifted to the Accessible title", async () => {
       await waitFor(() => {
         // document has to be use as Modal will append to document body
-        expect(document.activeElement).toHaveTextContent('Test Modal')
+        expect(document.activeElement).toHaveTextContent("Test Modal")
       })
     })
   },
@@ -64,22 +64,22 @@ export const TestBase: Story = {
 
 export const ModalAccessibleLabelRetainsFocus: Story = {
   ...TestBase,
-  name: 'ModalAccessibleLabel retains focus if onAfterEnter is called',
+  name: "ModalAccessibleLabel retains focus if onAfterEnter is called",
   args: {
-    onAfterEnter: () => action('openCallBack'),
+    onAfterEnter: () => action("openCallBack"),
   },
   play: async ({ canvasElement, step }) => {
     const { getByRole } = within(canvasElement)
 
-    const openModalButton = getByRole('button', { name: 'Open Modal' })
+    const openModalButton = getByRole("button", { name: "Open Modal" })
 
-    await step('Open modal', async () => {
+    await step("Open modal", async () => {
       await userEvent.click(openModalButton)
     })
 
-    await step('Accessible title still has focus', async () => {
+    await step("Accessible title still has focus", async () => {
       await waitFor(() => {
-        expect(document.activeElement).toHaveTextContent('Test Modal')
+        expect(document.activeElement).toHaveTextContent("Test Modal")
       })
     })
   },
@@ -88,25 +88,25 @@ export const ModalAccessibleLabelRetainsFocus: Story = {
 export const TriggerOnAfterEnterFocus: Story = {
   ...TestBase,
   args: {
-    onAfterEnter: () => document.getElementById('modal-input-play-test')?.focus(),
+    onAfterEnter: () => document.getElementById("modal-input-play-test")?.focus(),
   },
-  name: 'onAfterEnter can shift focus to internal elements of the modal',
+  name: "onAfterEnter can shift focus to internal elements of the modal",
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const openModalButton = canvas.getByRole('button', { name: 'Open Modal' })
+    const openModalButton = canvas.getByRole("button", { name: "Open Modal" })
 
-    await step('Open modal', async () => {
+    await step("Open modal", async () => {
       await userEvent.click(openModalButton)
     })
 
-    await step('Expect activeElement to be the Input', async () => {
+    await step("Expect activeElement to be the Input", async () => {
       await waitFor(() => {
-        expect(document.activeElement).toHaveAccessibleName('Add link')
+        expect(document.activeElement).toHaveAccessibleName("Add link")
       })
     })
 
-    await step('Expect to be able to type without shifting focus', async () => {
-      await userEvent.keyboard('All lorem and no ipsum make dolar a dull boy...')
+    await step("Expect to be able to type without shifting focus", async () => {
+      await userEvent.keyboard("All lorem and no ipsum make dolar a dull boy...")
     })
   },
 }

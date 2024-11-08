@@ -1,16 +1,16 @@
-import React, { useRef, useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { userEvent, within, expect, waitFor } from '@storybook/test'
-import { GenericNotification } from './index'
+import React, { useRef, useState } from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { userEvent, within, expect, waitFor } from "@storybook/test"
+import { GenericNotification } from "./index"
 
 const meta = {
-  title: 'Components/Notifications/GenericNotification',
+  title: "Components/Notifications/GenericNotification",
   component: GenericNotification,
   args: {
-    variant: 'success',
-    style: 'inline',
-    title: 'Success',
-    children: 'This is my positive notification',
+    variant: "success",
+    style: "inline",
+    title: "Success",
+    children: "This is my positive notification",
   },
 } satisfies Meta<typeof GenericNotification>
 
@@ -24,7 +24,7 @@ export const GenericNotificationTest: Story = {
 
     return (
       <div>
-        <span data-testid="hidden-state">{isHidden ? 'Hidden' : 'Shown'}</span>
+        <span data-testid="hidden-state">{isHidden ? "Hidden" : "Shown"}</span>
         <GenericNotification
           variant="success"
           style="inline"
@@ -37,22 +37,22 @@ export const GenericNotificationTest: Story = {
       </div>
     )
   },
-  name: 'Test: Closes when close button is clicked and onHide is called',
+  name: "Test: Closes when close button is clicked and onHide is called",
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const element = canvas.getByTestId('generic-notification')
-    const hiddenState = canvas.getByTestId('hidden-state')
+    const element = canvas.getByTestId("generic-notification")
+    const hiddenState = canvas.getByTestId("hidden-state")
 
     await waitFor(() => {
       expect(element).toBeInTheDocument()
-      expect(hiddenState).toHaveTextContent('Shown')
+      expect(hiddenState).toHaveTextContent("Shown")
     })
 
-    await userEvent.click(canvas.getByTestId('close-button'))
+    await userEvent.click(canvas.getByTestId("close-button"))
 
     await waitFor(() => {
       setTimeout(() => {
-        expect(hiddenState).toHaveTextContent('Hidden')
+        expect(hiddenState).toHaveTextContent("Hidden")
         expect(element).not.toBeInTheDocument()
       }, 1000)
     })
@@ -66,7 +66,7 @@ export const RefTest: Story = {
 
     return (
       <div>
-        <span data-testid="hidden-state">{isHidden ? 'Hidden' : 'Shown'}</span>
+        <span data-testid="hidden-state">{isHidden ? "Hidden" : "Shown"}</span>
         <GenericNotification
           ref={customRef}
           variant="success"
@@ -80,22 +80,22 @@ export const RefTest: Story = {
       </div>
     )
   },
-  name: 'Test: still renders and closes properly when custom ref passed in',
+  name: "Test: still renders and closes properly when custom ref passed in",
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const element = canvas.getByTestId('generic-notification')
-    const hiddenState = canvas.getByTestId('hidden-state')
+    const element = canvas.getByTestId("generic-notification")
+    const hiddenState = canvas.getByTestId("hidden-state")
 
     await waitFor(() => {
       expect(element).toBeInTheDocument()
-      expect(hiddenState).toHaveTextContent('Shown')
+      expect(hiddenState).toHaveTextContent("Shown")
     })
 
-    await userEvent.click(canvas.getByTestId('close-button'))
+    await userEvent.click(canvas.getByTestId("close-button"))
 
     await waitFor(() => {
       setTimeout(() => {
-        expect(hiddenState).toHaveTextContent('Hidden')
+        expect(hiddenState).toHaveTextContent("Hidden")
         expect(element).not.toBeInTheDocument()
       }, 1000)
     })

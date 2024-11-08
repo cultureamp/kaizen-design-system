@@ -1,4 +1,4 @@
-import ts from 'typescript'
+import ts from "typescript"
 
 export const createProp = (
   name: string,
@@ -15,11 +15,11 @@ export const createStyleProp = (
 ): ts.JsxAttribute => {
   const styles = Object.keys(attributes).map((name) => {
     const value = attributes[name]
-    if (typeof value === 'string') {
+    if (typeof value === "string") {
       return ts.factory.createPropertyAssignment(name, ts.factory.createStringLiteral(value))
     }
 
-    if (typeof value === 'number') {
+    if (typeof value === "number") {
       return ts.factory.createPropertyAssignment(name, ts.factory.createNumericLiteral(value))
     }
 
@@ -33,7 +33,7 @@ export const createStyleProp = (
   })
 
   return createProp(
-    'style',
+    "style",
     ts.factory.createJsxExpression(undefined, ts.factory.createObjectLiteralExpression(styles)),
   )
 }

@@ -1,1 +1,1 @@
-export * from './GlobalNotification'
+export * from "./GlobalNotification"

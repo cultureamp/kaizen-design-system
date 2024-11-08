@@ -1,17 +1,17 @@
-import React, { useId } from 'react'
-import classnames from 'classnames'
-import { Label } from '~components/Label'
-import { Checkbox, CheckboxProps, CheckedStatus } from '../Checkbox/Checkbox'
-import styles from './CheckboxField.module.scss'
+import React, { useId } from "react"
+import classnames from "classnames"
+import { Label } from "~components/Label"
+import { Checkbox, CheckboxProps, CheckedStatus } from "../Checkbox/Checkbox"
+import styles from "./CheckboxField.module.scss"
 
-export type CheckboxFieldProps = Omit<CheckboxProps, 'id'> & {
-  'id'?: string
-  'labelText': string | React.ReactNode
-  'checkedStatus'?: CheckedStatus
-  'disabled'?: boolean
-  'reversed'?: boolean
-  'noBottomMargin'?: boolean
-  'data-testid'?: string
+export type CheckboxFieldProps = Omit<CheckboxProps, "id"> & {
+  "id"?: string
+  "labelText": string | React.ReactNode
+  "checkedStatus"?: CheckedStatus
+  "disabled"?: boolean
+  "reversed"?: boolean
+  "noBottomMargin"?: boolean
+  "data-testid"?: string
 }
 
 /**
@@ -19,13 +19,13 @@ export type CheckboxFieldProps = Omit<CheckboxProps, 'id'> & {
  * {@link https://cultureamp.design/?path=/docs/components-checkobx-controls-checkbox-field--docs Storybook}
  */
 export const CheckboxField = ({
-  'id': propsId,
+  "id": propsId,
   labelText,
   checkedStatus,
   disabled = false,
   reversed = false,
   noBottomMargin = false,
-  'data-testid': dataTestId,
+  "data-testid": dataTestId,
   classNameOverride,
   ...restProps
 }: CheckboxFieldProps): JSX.Element => {
@@ -38,8 +38,8 @@ export const CheckboxField = ({
       className={classnames(
         styles.container,
         classNameOverride,
-        checkedStatus === 'on' && styles.checked,
-        checkedStatus === 'mixed' && styles.mixed,
+        checkedStatus === "on" && styles.checked,
+        checkedStatus === "mixed" && styles.mixed,
         reversed && styles.reversed,
         noBottomMargin && styles.noBottomMargin,
       )}
@@ -67,4 +67,4 @@ export const CheckboxField = ({
   )
 }
 
-CheckboxField.displayName = 'CheckboxField'
+CheckboxField.displayName = "CheckboxField"

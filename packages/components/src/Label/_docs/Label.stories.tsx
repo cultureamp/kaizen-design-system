@@ -1,13 +1,13 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Label } from '../index'
-import { LabelTypes } from '../types'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Label } from "../index"
+import { LabelTypes } from "../types"
 
 const meta = {
-  title: 'Components/Label',
+  title: "Components/Label",
   component: Label,
   args: {
-    children: 'I am Label',
+    children: "I am Label",
   },
 } satisfies Meta<typeof Label>
 
@@ -19,7 +19,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },
@@ -32,8 +32,8 @@ const BlockFormControl = (): JSX.Element => <span className="block w-200 h-16 bg
 
 export const InlineControls: Story = {
   args: {
-    labelText: 'Inline controls',
-    labelType: 'checkbox',
+    labelText: "Inline controls",
+    labelType: "checkbox",
     children: <InlineFormControl />,
   },
 }
@@ -51,7 +51,7 @@ export const Position: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: 'dynamic' },
+      source: { type: "dynamic" },
     },
   },
 }
@@ -65,7 +65,7 @@ export const BlockControls: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: 'dynamic' },
+      source: { type: "dynamic" },
     },
   },
 }
@@ -82,15 +82,15 @@ export const Types: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: 'dynamic' },
+      source: { type: "dynamic" },
     },
   },
 }
 
 export const LabelText: Story = {
   args: {
-    labelText: 'Label text',
-    labelType: 'checkbox',
+    labelText: "Label text",
+    labelType: "checkbox",
     children: <InlineFormControl />,
   },
 }
@@ -104,7 +104,7 @@ export const Variant: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: 'dynamic' },
+      source: { type: "dynamic" },
     },
   },
 }

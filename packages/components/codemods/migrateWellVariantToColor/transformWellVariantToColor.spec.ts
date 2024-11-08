@@ -1,8 +1,8 @@
-import { parseJsx } from '../__tests__/utils'
-import { transformSource, printAst } from '../utils'
-import { transformWellVariantToColor } from './transformWellVariantToColor'
+import { parseJsx } from "../__tests__/utils"
+import { transformSource, printAst } from "../utils"
+import { transformWellVariantToColor } from "./transformWellVariantToColor"
 
-describe('transformWellVariantToColor', () => {
+describe("transformWellVariantToColor", () => {
   it('replaces variant="default" with color="gray"', () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
@@ -15,7 +15,7 @@ describe('transformWellVariantToColor', () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      tagName: 'Well',
+      tagName: "Well",
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
@@ -32,7 +32,7 @@ describe('transformWellVariantToColor', () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      tagName: 'Well',
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -49,12 +49,12 @@ describe('transformWellVariantToColor', () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      tagName: 'Well',
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it('handles multiple attributes and replace only variant', () => {
+  it("handles multiple attributes and replace only variant", () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well variant="informative" id="123">Test</Well>
@@ -66,12 +66,12 @@ describe('transformWellVariantToColor', () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      tagName: 'Well',
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it('handles multiple attributes and add color if variant is not specified', () => {
+  it("handles multiple attributes and add color if variant is not specified", () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well id="123">Test</Well>
@@ -83,12 +83,12 @@ describe('transformWellVariantToColor', () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      tagName: 'Well',
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it('handles nested Well components', () => {
+  it("handles nested Well components", () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well id="123">Test</Well></div>
@@ -100,12 +100,12 @@ describe('transformWellVariantToColor', () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      tagName: 'Well',
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it('transforms multiple Wells', () => {
+  it("transforms multiple Wells", () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well variant="informative">Test</Well><Well>Test 2</Well></div>
@@ -117,12 +117,12 @@ describe('transformWellVariantToColor', () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      tagName: 'Well',
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it('transforms Well with arbitrary braces', () => {
+  it("transforms Well with arbitrary braces", () => {
     const inputAst = parseJsx(`
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well variant={"informative"}>Test</Well><Well variant={'assertive'}>Test</Well><Well variant={\`positive\`}>Test</Well></div>
@@ -134,7 +134,7 @@ describe('transformWellVariantToColor', () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      tagName: 'Well',
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -151,7 +151,7 @@ describe('transformWellVariantToColor', () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      tagName: 'Well',
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -168,12 +168,12 @@ describe('transformWellVariantToColor', () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      tagName: 'Well',
+      tagName: "Well",
     })
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it('transforms aliased Well components', () => {
+  it("transforms aliased Well components", () => {
     const inputAst = parseJsx(`
       import {Well as KaizenWell} from "@kaizen/components"
       export const TestComponent = () => <div><KaizenWell variant="informative">Test</KaizenWell></div>
@@ -185,7 +185,7 @@ describe('transformWellVariantToColor', () => {
     const transformed = transformSource({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
-      tagName: 'KaizenWell',
+      tagName: "KaizenWell",
     })
     expect(transformed).toBe(printAst(outputAst))
   })

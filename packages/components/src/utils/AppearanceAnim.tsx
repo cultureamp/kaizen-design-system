@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import classnames from 'classnames'
-import { useDebouncedCallback } from 'use-debounce'
-import styles from './AppearanceAnim.module.scss'
+import React, { useState } from "react"
+import classnames from "classnames"
+import { useDebouncedCallback } from "use-debounce"
+import styles from "./AppearanceAnim.module.scss"
 
 type AppearanceAnimProps = {
   children: React.ReactNode
@@ -77,4 +77,4 @@ export const AppearanceAnim = ({
   ) : null
 }
 
-AppearanceAnim.displayName = 'AppearanceAnim'
+AppearanceAnim.displayName = "AppearanceAnim"

@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from 'react'
-import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { WellBorderStyleType, WellVariantType, WellColors } from './types'
-import styles from './Well.module.scss'
+import React, { HTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import { WellBorderStyleType, WellVariantType, WellColors } from "./types"
+import styles from "./Well.module.scss"
 
 export type WellProps = {
   children?: React.ReactNode
@@ -22,8 +22,8 @@ export type WellProps = {
 export const Well = ({
   children,
   variant,
-  color = 'white',
-  borderStyle = 'solid',
+  color = "white",
+  borderStyle = "solid",
   noMargin = false,
   classNameOverride,
   ...restProps
@@ -43,4 +43,4 @@ export const Well = ({
   </div>
 )
 
-Well.displayName = 'Well'
+Well.displayName = "Well"

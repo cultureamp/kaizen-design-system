@@ -1,10 +1,10 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import * as ICONS from '~components/Icon'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import React from "react"
+import { Meta } from "@storybook/react"
+import * as ICONS from "~components/Icon"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
 
 export default {
-  title: 'Illustrations/Icon',
+  title: "Illustrations/Icon",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -14,11 +14,11 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet heading="Icons">
-      <StickerSheet.Header headings={['Default', 'Color']} hasVerticalHeadings />
+      <StickerSheet.Header headings={["Default", "Color"]} hasVerticalHeadings />
       <StickerSheet.Body>
         {Object.keys(ICONS).map((iconName) => {
           const icon = ICONS[iconName as keyof typeof ICONS]({
-            role: 'presentation',
+            role: "presentation",
           })
           return (
             <StickerSheet.Row key={iconName} rowTitle={iconName}>
@@ -34,5 +34,5 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }

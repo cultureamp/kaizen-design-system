@@ -1,6 +1,6 @@
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/typography';
-@import '../mixins';
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "../mixins";
 
 .loadingHeading {
   @extend %loadingBase;

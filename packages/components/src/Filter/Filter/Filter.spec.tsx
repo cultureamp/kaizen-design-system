@@ -1,8 +1,8 @@
-import React from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { FilterButton } from '../FilterButton'
-import { Filter, FilterProps } from './Filter'
+import React from "react"
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { FilterButton } from "../FilterButton"
+import { Filter, FilterProps } from "./Filter"
 
 const user = userEvent.setup()
 
@@ -22,40 +22,40 @@ const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => {
   )
 }
 
-describe('<Filter />', () => {
-  it('does not show content initially', () => {
+describe("<Filter />", () => {
+  it("does not show content initially", () => {
     render(<FilterWrapper />)
-    expect(screen.queryByRole('dialog', { name: 'Label' })).not.toBeInTheDocument()
+    expect(screen.queryByRole("dialog", { name: "Label" })).not.toBeInTheDocument()
   })
 
-  it('shows content when isOpen is true', async () => {
+  it("shows content when isOpen is true", async () => {
     render(<FilterWrapper isOpen />)
     await waitFor(() => {
-      expect(screen.getByRole('dialog', { name: 'Label' })).toBeVisible()
-      expect(screen.getByText('Filter Contents')).toBeVisible()
+      expect(screen.getByRole("dialog", { name: "Label" })).toBeVisible()
+      expect(screen.getByText("Filter Contents")).toBeVisible()
     })
   })
 
-  it('shows content when trigger button is clicked', async () => {
+  it("shows content when trigger button is clicked", async () => {
     render(<FilterWrapper />)
-    const filterButton = screen.getByRole('button', { name: 'Label' })
+    const filterButton = screen.getByRole("button", { name: "Label" })
     await user.click(filterButton)
     await waitFor(() => {
-      expect(screen.getByRole('dialog', { name: 'Label' })).toBeVisible()
-      expect(screen.getByText('Filter Contents')).toBeVisible()
+      expect(screen.getByRole("dialog", { name: "Label" })).toBeVisible()
+      expect(screen.getByText("Filter Contents")).toBeVisible()
     })
   })
 
-  it('shows content when trigger button on keydown enter', async () => {
+  it("shows content when trigger button on keydown enter", async () => {
     render(<FilterWrapper />)
-    const filterButton = screen.getByRole('button', { name: 'Label' })
+    const filterButton = screen.getByRole("button", { name: "Label" })
     await user.tab()
     expect(filterButton).toHaveFocus()
-    await user.keyboard('{Enter}')
+    await user.keyboard("{Enter}")
 
     await waitFor(() => {
-      expect(screen.getByRole('dialog', { name: 'Label' })).toBeVisible()
-      expect(screen.getByText('Filter Contents')).toBeVisible()
+      expect(screen.getByRole("dialog", { name: "Label" })).toBeVisible()
+      expect(screen.getByText("Filter Contents")).toBeVisible()
     })
   })
 })

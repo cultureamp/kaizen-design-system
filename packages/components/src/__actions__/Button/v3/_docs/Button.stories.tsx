@@ -1,16 +1,16 @@
-import React from 'react'
-import { action } from '@storybook/addon-actions'
-import { Meta, StoryObj } from '@storybook/react'
-import { AddIcon, TrashIcon, ChevronUpIcon } from '~components/Icon'
-import { VisuallyHidden } from '~components/VisuallyHidden'
-import { Button } from '../index'
+import React from "react"
+import { action } from "@storybook/addon-actions"
+import { Meta, StoryObj } from "@storybook/react"
+import { AddIcon, TrashIcon, ChevronUpIcon } from "~components/Icon"
+import { VisuallyHidden } from "~components/VisuallyHidden"
+import { Button } from "../index"
 
 const meta = {
-  title: 'Actions/Button/Button (v3)',
+  title: "Actions/Button/Button (v3)",
   component: Button,
   args: {
-    children: 'Label',
-    onPress: action('Button onPress event'),
+    children: "Label",
+    onPress: action("Button onPress event"),
   },
 } satisfies Meta<typeof Button>
 

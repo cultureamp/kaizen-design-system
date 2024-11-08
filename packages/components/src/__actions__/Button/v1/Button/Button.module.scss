@@ -1,10 +1,10 @@
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/typography';
-@import '../../../../../styles/utils/button-reset';
-@import '../utils/mixins';
-@import '../utils/variables';
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "../../../../../styles/utils/button-reset";
+@import "../utils/mixins";
+@import "../utils/variables";
 
 %button {
   @include button-reset;
@@ -47,7 +47,7 @@
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
 
-      content: '';
+      content: "";
       position: absolute;
       background: transparent;
       border-color: $color-blue-500;

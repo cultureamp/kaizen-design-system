@@ -1,11 +1,11 @@
-import React from 'react'
-import { action } from '@storybook/addon-actions'
-import { ArgTypes } from '@storybook/react'
+import React from "react"
+import { action } from "@storybook/addon-actions"
+import { ArgTypes } from "@storybook/react"
 import {
   FilterButton,
   FilterButtonProps,
   FilterButtonRemovable,
-} from '~components/Filter/FilterButton'
+} from "~components/Filter/FilterButton"
 
 /*
  * This helper is for consumers of Filter, not for Filter itself
@@ -13,19 +13,19 @@ import {
  */
 export const renderTriggerControls: Partial<ArgTypes> = {
   renderTrigger: {
-    description: 'Element is a variation of a FilterButton',
-    options: ['Filter Button', 'Filter Button Removable'],
+    description: "Element is a variation of a FilterButton",
+    options: ["Filter Button", "Filter Button Removable"],
     control: {
-      type: 'radio',
+      type: "radio",
     },
     mapping: {
-      'Filter Button': (triggerButtonProps: FilterButtonProps): JSX.Element => (
+      "Filter Button": (triggerButtonProps: FilterButtonProps): JSX.Element => (
         <FilterButton {...triggerButtonProps} />
       ),
-      'Filter Button Removable': (triggerButtonProps: FilterButtonProps): JSX.Element => (
+      "Filter Button Removable": (triggerButtonProps: FilterButtonProps): JSX.Element => (
         <FilterButtonRemovable
           triggerButtonProps={{ ...triggerButtonProps }}
-          removeButtonProps={{ onClick: action('remove button onClick') }}
+          removeButtonProps={{ onClick: action("remove button onClick") }}
         />
       ),
     },

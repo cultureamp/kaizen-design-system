@@ -1,1 +1,1 @@
-export * from './LinkModal'
+export * from "./LinkModal"

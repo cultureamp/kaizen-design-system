@@ -1,9 +1,9 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '~@kaizen/design-tokens/sass/layout';
-@import '../../../styles/utils/animation';
-@import '../GenericModal/GenericModal.module';
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/layout";
+@import "../../../styles/utils/animation";
+@import "../GenericModal/GenericModal.module";
 
 .modal {
   @extend %genericModal;

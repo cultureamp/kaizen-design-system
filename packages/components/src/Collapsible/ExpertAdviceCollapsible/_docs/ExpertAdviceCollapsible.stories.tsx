@@ -1,13 +1,13 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Text } from '~components/Text'
-import { ExpertAdviceCollapsible } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Text } from "~components/Text"
+import { ExpertAdviceCollapsible } from "../index"
 
 const meta = {
-  title: 'Components/Collapsibles/ExpertAdviceCollapsible',
+  title: "Components/Collapsibles/ExpertAdviceCollapsible",
   component: ExpertAdviceCollapsible,
   args: {
-    title: 'Expert advice collapsible',
+    title: "Expert advice collapsible",
     children: <Text variant="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>,
   },
 } satisfies Meta<typeof ExpertAdviceCollapsible>
@@ -20,7 +20,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

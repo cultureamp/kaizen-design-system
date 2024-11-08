@@ -1,8 +1,8 @@
-import React from 'react'
-import { createPortal } from 'react-dom'
-import { useToastNotificationContext } from '../context/ToastNotificationContext'
-import { ToastNotificationsMap } from './subcomponents/ToastNotificationsMap'
-import styles from './ToastNotificationsList.module.scss'
+import React from "react"
+import { createPortal } from "react-dom"
+import { useToastNotificationContext } from "../context/ToastNotificationContext"
+import { ToastNotificationsMap } from "./subcomponents/ToastNotificationsMap"
+import styles from "./ToastNotificationsList.module.scss"
 
 export const ToastNotificationsList = (): JSX.Element => {
   const { notifications, removeToastNotification } = useToastNotificationContext()
@@ -34,4 +34,4 @@ export const ToastNotificationsList = (): JSX.Element => {
   )
 }
 
-ToastNotificationsList.displayName = 'ToastNotificationsList'
+ToastNotificationsList.displayName = "ToastNotificationsList"

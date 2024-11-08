@@ -1,16 +1,16 @@
-import React, { HTMLAttributes } from 'react'
-import { FocusableElement } from '@react-types/shared'
-import classnames from 'classnames'
-import { mergeProps, useFocusRing, useOption } from 'react-aria'
-import { Icon } from '~components/__future__/Icon'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { useSelectContext } from '../../context'
-import { SelectOption, SelectOptionNode } from '../../types'
-import styles from './Option.module.scss'
+import React, { HTMLAttributes } from "react"
+import { FocusableElement } from "@react-types/shared"
+import classnames from "classnames"
+import { mergeProps, useFocusRing, useOption } from "react-aria"
+import { Icon } from "~components/__future__/Icon"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import { useSelectContext } from "../../context"
+import { SelectOption, SelectOptionNode } from "../../types"
+import styles from "./Option.module.scss"
 
 export type OptionProps<Option extends SelectOption = SelectOption> = {
   item: SelectOptionNode<Option>
-} & OverrideClassName<Omit<HTMLAttributes<HTMLLIElement>, 'children'>>
+} & OverrideClassName<Omit<HTMLAttributes<HTMLLIElement>, "children">>
 
 export const Option = <Option extends SelectOption = SelectOption>({
   item,
@@ -29,7 +29,7 @@ export const Option = <Option extends SelectOption = SelectOption>({
     <li
       {...mergeProps(restOptionProps, focusProps, props, {
         onPointerUp: (e: React.PointerEvent<FocusableElement>) => {
-          if (e.pointerType === 'touch') {
+          if (e.pointerType === "touch") {
             // On touch devices, the listbox closes too quickly so below elements will trigger their pointer events.
             // Slow it down a bit to prevent the appearance of propagation.
             setTimeout(() => state.setSelectedKey(item.key), 250)
@@ -56,4 +56,4 @@ export const Option = <Option extends SelectOption = SelectOption>({
   )
 }
 
-Option.displayName = 'Option'
+Option.displayName = "Option"

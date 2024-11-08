@@ -1,13 +1,13 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Icon } from '~components/__future__/Icon'
-import { TextField } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Icon } from "~components/__future__/Icon"
+import { TextField } from "../index"
 
 const meta = {
-  title: 'Components/Text Input controls/Text Field',
+  title: "Components/Text Input controls/Text Field",
   component: TextField,
   args: {
-    labelText: 'Label',
+    labelText: "Label",
   },
 } satisfies Meta<typeof TextField>
 
@@ -19,7 +19,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },
@@ -35,18 +35,18 @@ export const Types: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: 'dynamic' },
+      source: { type: "dynamic" },
     },
   },
 }
 
 export const IconStory: Story = {
-  name: 'Icon',
+  name: "Icon",
   args: { icon: <Icon name="edit" isPresentational isFilled /> },
 }
 
 export const Description: Story = {
-  args: { description: 'A short description' },
+  args: { description: "A short description" },
 }
 
 export const Validation: Story = {
@@ -77,7 +77,7 @@ export const Validation: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: 'dynamic' },
+      source: { type: "dynamic" },
     },
   },
 }

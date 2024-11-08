@@ -1,10 +1,10 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { TextArea } from '../index'
+import React from "react"
+import { Meta } from "@storybook/react"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import { TextArea } from "../index"
 
 export default {
-  title: 'Components/Text Input controls/Text Area',
+  title: "Components/Text Input controls/Text Area",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -13,7 +13,7 @@ export default {
         rules: [
           {
             // Built with no label on purpose, to be used within `TextField` where label is present
-            id: 'label',
+            id: "label",
             enabled: false,
           },
         ],
@@ -25,7 +25,7 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={['Default', 'Hover', 'Active', 'Focus']} hasVerticalHeadings />
+      <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} hasVerticalHeadings />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Enabled">
           <TextArea reversed={isReversed} />
@@ -54,15 +54,15 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Reversed)',
+  name: "Sticker Sheet (Reversed)",
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: "Purple 700" },
   },
   args: { isReversed: true },
 }

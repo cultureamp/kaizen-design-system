@@ -1,5 +1,5 @@
-import React from 'react'
-import { GenericTile, GenericTileProps } from '../subcomponents/GenericTile'
+import React from "react"
+import { GenericTile, GenericTileProps } from "../subcomponents/GenericTile"
 
 export type InformationTileProps = GenericTileProps
 
@@ -11,4 +11,4 @@ export const InformationTile = (props: InformationTileProps): JSX.Element => (
   <GenericTile {...props} />
 )
 
-InformationTile.displayName = 'InformationTile'
+InformationTile.displayName = "InformationTile"

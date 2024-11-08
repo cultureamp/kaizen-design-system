@@ -1,1 +1,1 @@
-export * from './SkirtCard'
+export * from "./SkirtCard"

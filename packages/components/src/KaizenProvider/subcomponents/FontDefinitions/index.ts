@@ -1,1 +1,1 @@
-export * from './FontDefinitions'
+export * from "./FontDefinitions"

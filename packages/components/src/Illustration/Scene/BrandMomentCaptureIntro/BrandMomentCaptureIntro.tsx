@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { AnimatedSceneProps } from '~components/Illustration/Scene/Scene'
-import { Base } from '~components/Illustration/subcomponents/Base/Base'
-import { VideoPlayer } from '~components/Illustration/subcomponents/VideoPlayer'
+import React, { useState } from "react"
+import { AnimatedSceneProps } from "~components/Illustration/Scene/Scene"
+import { Base } from "~components/Illustration/subcomponents/Base/Base"
+import { VideoPlayer } from "~components/Illustration/subcomponents/VideoPlayer"
 
 /**
  * This component is a snowflake. It plays two assets one after the other:
@@ -10,12 +10,12 @@ import { VideoPlayer } from '~components/Illustration/subcomponents/VideoPlayer'
  */
 export const BrandMomentCaptureIntro = ({
   isAnimated,
-  alt = '',
+  alt = "",
   enableAspectRatio,
   ...otherProps
 }: AnimatedSceneProps): JSX.Element => {
   const [firstAnimationComplete, setFirstAnimationComplete] = useState<boolean>(false)
-  const aspectRatio = enableAspectRatio ? 'landscape' : undefined
+  const aspectRatio = enableAspectRatio ? "landscape" : undefined
 
   if (!isAnimated) {
     return (
@@ -52,4 +52,4 @@ export const BrandMomentCaptureIntro = ({
   )
 }
 
-BrandMomentCaptureIntro.displayName = 'BrandMomentCaptureIntro'
+BrandMomentCaptureIntro.displayName = "BrandMomentCaptureIntro"

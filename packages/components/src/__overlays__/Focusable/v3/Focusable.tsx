@@ -1,7 +1,7 @@
-import React, { HTMLAttributes, ReactNode, useRef } from 'react'
-import classnames from 'classnames'
-import { FocusableOptions, useFocusable } from 'react-aria'
-import styles from './Focusable.module.scss'
+import React, { HTMLAttributes, ReactNode, useRef } from "react"
+import classnames from "classnames"
+import { FocusableOptions, useFocusable } from "react-aria"
+import styles from "./Focusable.module.scss"
 
 export type FocusableProps = {
   children: ReactNode

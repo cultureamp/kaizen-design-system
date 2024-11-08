@@ -1,14 +1,14 @@
-import React, { ReactNode, cloneElement, useEffect, useRef, useState, useId } from 'react'
-import ReactDOM from 'react-dom'
-import { Placement } from '@popperjs/core'
-import classnames from 'classnames'
-import { usePopper } from 'react-popper'
-import { AnimationProvider, useAnimation } from './subcomponents/AppearanceAnim'
-import { isSemanticElement } from './utils/isSemanticElement'
-import styles from './Tooltip.module.scss'
+import React, { ReactNode, cloneElement, useEffect, useRef, useState, useId } from "react"
+import ReactDOM from "react-dom"
+import { Placement } from "@popperjs/core"
+import classnames from "classnames"
+import { usePopper } from "react-popper"
+import { AnimationProvider, useAnimation } from "./subcomponents/AppearanceAnim"
+import { isSemanticElement } from "./utils/isSemanticElement"
+import styles from "./Tooltip.module.scss"
 
-type Position = 'above' | 'below' | 'left' | 'right'
-type Mood = 'default' | 'informative' | 'positive' | 'cautionary' | 'highlight'
+type Position = "above" | "below" | "left" | "right"
+type Mood = "default" | "informative" | "positive" | "cautionary" | "highlight"
 
 export type TooltipProps = {
   /**
@@ -17,7 +17,7 @@ export type TooltipProps = {
    * display value directly. If you need to need to modify more values, feel free
    * to use the `classNameOverride` prop, but avoid it if you can.
    */
-  display?: 'block' | 'inline' | 'inline-block' | 'flex' | 'inline-flex'
+  display?: "block" | "inline" | "inline-block" | "flex" | "inline-flex"
   /**
    * This is more a "desired position". The tooltip will automatically change
    * its position, if there's not enough room to show it in the one specified.
@@ -46,17 +46,17 @@ export type TooltipProps = {
 }
 
 const positionToPlacement = new Map<Position, Placement>([
-  ['above', 'top'],
-  ['below', 'bottom'],
-  ['left', 'left'],
-  ['right', 'right'],
+  ["above", "top"],
+  ["below", "bottom"],
+  ["left", "left"],
+  ["right", "right"],
 ])
 
 // Sync with Tooltip.scss
 const arrowHeight = 7
 const arrowWidth = 14
 
-type TooltipContentProps = Pick<TooltipProps, 'position' | 'text' | 'mood'> & {
+type TooltipContentProps = Pick<TooltipProps, "position" | "text" | "mood"> & {
   tooltipId: string
   referenceElement: HTMLDivElement | null
 }
@@ -66,14 +66,14 @@ const TooltipContent = ({
   text,
   referenceElement,
   tooltipId,
-  mood = 'default',
+  mood = "default",
 }: TooltipContentProps): JSX.Element | null => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
   const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null)
   const { styles: popperStyles, attributes } = usePopper(referenceElement, popperElement, {
     modifiers: [
       {
-        name: 'arrow',
+        name: "arrow",
         options: {
           element: arrowElement,
           // Ensures that the arrow doesn't go too far to the left or right
@@ -82,13 +82,13 @@ const TooltipContent = ({
         },
       },
       {
-        name: 'offset',
+        name: "offset",
         options: {
           offset: [0, arrowHeight + 6],
         },
       },
       {
-        name: 'preventOverflow',
+        name: "preventOverflow",
         options: {
           // Makes sure that the tooltip isn't flush up against the end of the
           // viewport
@@ -99,11 +99,11 @@ const TooltipContent = ({
         },
       },
       {
-        name: 'flip',
+        name: "flip",
         options: {
           padding: 8,
           altBoundary: true,
-          fallbackPlacements: ['left', 'top', 'bottom', 'right'],
+          fallbackPlacements: ["left", "top", "bottom", "right"],
         },
       },
     ],
@@ -138,13 +138,13 @@ const renderChildren = (
 ): ReactNode => {
   if (isSemanticElement(content)) {
     return cloneElement(content, {
-      'aria-describedby': hasActiveTooltip ? tooltipId : undefined,
+      "aria-describedby": hasActiveTooltip ? tooltipId : undefined,
     })
   }
   // We don't want to block them from this but just provide context for better a11y guidance
   // eslint-disable-next-line no-console
   console.warn(
-    '<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info. To ensure accessibility, Tooltip should be wrapping a semantic and focusable element directly.',
+    "<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info. To ensure accessibility, Tooltip should be wrapping a semantic and focusable element directly.",
   )
   return content
 }
@@ -152,13 +152,13 @@ const renderChildren = (
 export const Tooltip = ({
   children,
   text,
-  display = 'block',
-  position = 'above',
+  display = "block",
+  position = "above",
   classNameOverride,
   portalSelector,
   animationDuration,
   isInitiallyVisible = false,
-  mood = 'default',
+  mood = "default",
 }: TooltipProps): JSX.Element => {
   const [isHover, setIsHover] = useState(isInitiallyVisible)
   const [isFocus, setIsFocus] = useState(false)
@@ -187,21 +187,21 @@ export const Tooltip = ({
   useEffect(() => {
     if (portalSelector && !portalSelectorElementRef.current) {
       // eslint-disable-next-line no-console
-      console.warn('The portal could not be created using the selector: ' + portalSelector)
+      console.warn("The portal could not be created using the selector: " + portalSelector)
     }
   }, [portalSelectorElementRef, portalSelector])
 
   const getDisplayClassName = (): string | undefined => {
     switch (display) {
-      case 'inline':
+      case "inline":
         return styles.displayInline
-      case 'block':
+      case "block":
         return styles.displayBlock
-      case 'inline-block':
+      case "inline-block":
         return styles.displayInlineBlock
-      case 'flex':
+      case "flex":
         return styles.displayFlex
-      case 'inline-flex':
+      case "inline-flex":
         return styles.displayInlineFlex
       default:
         return undefined
@@ -230,4 +230,4 @@ export const Tooltip = ({
   )
 }
 
-Tooltip.displayName = 'Tooltip'
+Tooltip.displayName = "Tooltip"

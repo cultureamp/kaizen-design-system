@@ -1,5 +1,5 @@
-@import './durations';
-@import './easings';
+@import "./durations";
+@import "./easings";
 
 @mixin ca-transition-fade($state: in, $duration: $ca-duration-slow, $delay: 0) {
   @include ca-fade($state, $duration: $duration, $delay: $delay);

@@ -1,8 +1,8 @@
-@import '~@kaizen/design-tokens/sass/animation';
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '~@kaizen/design-tokens/sass/typography';
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
 
 .editorLabel {
   margin-bottom: $spacing-6;
@@ -32,7 +32,7 @@
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
 
     pointer-events: none;
-    content: '';
+    content: "";
     position: absolute;
     background: transparent;
     border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;

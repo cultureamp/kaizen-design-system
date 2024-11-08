@@ -1,5 +1,5 @@
-@import './args';
-@import './function';
+@import "./args";
+@import "./function";
 
 // Internal counter for creating unique keyframe names
 $-mui-custom: 0;
@@ -31,15 +31,15 @@ $-mui-custom: 0;
 @function -mui-keyframe-pct($input) {
   $output: ();
 
-  @if type-of($input) == 'number' {
+  @if type-of($input) == "number" {
     $output: ($input * 1%);
-  } @else if type-of($input) == 'list' {
+  } @else if type-of($input) == "list" {
     @each $i in $input {
       $output: append($output, ($i * 1%), comma);
     }
   }
 
-  @return '#{$output}';
+  @return "#{$output}";
 }
 
 /// Prints the CSS properties from a specific key in a keyframes map. Used to borrow CSS from keyframe functions for use in transitions.
@@ -51,7 +51,7 @@ $-mui-custom: 0;
 
   @each $prop, $value in $map or () {
     // Some keyframe maps store transforms as quoted strings
-    @if type-of($value) == 'string' {
+    @if type-of($value) == "string" {
       /* stylelint-disable-next-line scss/function-unquote-no-unquoted-strings-inside */
       $value: unquote($value);
     }
@@ -71,14 +71,14 @@ $-mui-custom: 0;
   @each $key, $item in $map {
     $key-type: type-of($key);
 
-    @if $key-type == 'number' {
+    @if $key-type == "number" {
       $new-map: map-merge(
         $new-map,
         (
           $key: $item,
         )
       );
-    } @else if $key-type == 'list' {
+    } @else if $key-type == "list" {
       @each $k in $key {
         $new-map: map-merge(
           $new-map,
@@ -134,7 +134,7 @@ $-mui-custom: 0;
 
   // Make a name for the keyframes
   $-mui-custom: $-mui-custom + 1 !global;
-  $custom-name: 'custom-#{$-mui-custom}';
+  $custom-name: "custom-#{$-mui-custom}";
   $map-name: (
     name: $custom-name,
   );

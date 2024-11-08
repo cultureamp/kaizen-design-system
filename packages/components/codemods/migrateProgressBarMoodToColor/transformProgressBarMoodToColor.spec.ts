@@ -1,15 +1,15 @@
-import { parseJsx } from '../__tests__/utils'
-import { transformSource, printAst, TransformConfig } from '../utils'
-import { transformProgressBarMoodToColor } from './transformProgressBarMoodToColor'
+import { parseJsx } from "../__tests__/utils"
+import { transformSource, printAst, TransformConfig } from "../utils"
+import { transformProgressBarMoodToColor } from "./transformProgressBarMoodToColor"
 
-const transformProgressBar = (sourceFile: TransformConfig['sourceFile']): string =>
+const transformProgressBar = (sourceFile: TransformConfig["sourceFile"]): string =>
   transformSource({
     sourceFile,
     astTransformer: transformProgressBarMoodToColor,
-    tagName: 'ProgressBar',
+    tagName: "ProgressBar",
   })
 
-describe('transformProgressBarMoodToColor()', () => {
+describe("transformProgressBarMoodToColor()", () => {
   it('replaces mood="cautionary" with color="yellow"', () => {
     const inputAst = parseJsx(
       'export const TestComponent = () => <ProgressBar mood="cautionary" />',

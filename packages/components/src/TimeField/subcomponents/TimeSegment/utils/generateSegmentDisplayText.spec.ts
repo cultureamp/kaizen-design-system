@@ -1,36 +1,36 @@
-import { generateSegmentDisplayText } from './generateSegmentDisplayText'
+import { generateSegmentDisplayText } from "./generateSegmentDisplayText"
 
-describe('generateSegmentDisplayText()', () => {
-  it('displays dashes if is placeholder but not a day period', () =>
+describe("generateSegmentDisplayText()", () => {
+  it("displays dashes if is placeholder but not a day period", () =>
     expect(
       generateSegmentDisplayText({
         isPlaceholder: true,
-        type: 'hour',
-        text: '2',
+        type: "hour",
+        text: "2",
         isEditable: true,
-        placeholder: '--',
+        placeholder: "--",
       }),
-    ).toBe('--'))
+    ).toBe("--"))
 
-  it('displays the time when it is not a placeholder', () =>
+  it("displays the time when it is not a placeholder", () =>
     expect(
       generateSegmentDisplayText({
         isPlaceholder: false,
-        type: 'hour',
-        text: '2',
+        type: "hour",
+        text: "2",
         isEditable: true,
-        placeholder: '--',
+        placeholder: "--",
       }),
-    ).toBe('2'))
+    ).toBe("2"))
 
-  it('displays the day period text when it is a placeholder', () =>
+  it("displays the day period text when it is a placeholder", () =>
     expect(
       generateSegmentDisplayText({
         isPlaceholder: true,
-        type: 'dayPeriod',
-        text: 'AM',
+        type: "dayPeriod",
+        text: "AM",
         isEditable: true,
-        placeholder: 'AM',
+        placeholder: "AM",
       }),
-    ).toBe('AM'))
+    ).toBe("AM"))
 })

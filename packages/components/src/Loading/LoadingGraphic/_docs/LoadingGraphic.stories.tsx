@@ -1,16 +1,16 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Avatar } from '~components/Avatar'
-import { BrandMomentPositiveOutro, Informative } from '~components/Illustration'
-import { Icon } from '~components/__future__/Icon'
-import { StickerSheet } from '~storybook/components/StickerSheet'
-import { LoadingGraphic } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Avatar } from "~components/Avatar"
+import { BrandMomentPositiveOutro, Informative } from "~components/Illustration"
+import { Icon } from "~components/__future__/Icon"
+import { StickerSheet } from "~storybook/components/StickerSheet"
+import { LoadingGraphic } from "../index"
 
 const meta = {
-  title: 'Components/Loading states/LoadingGraphic',
+  title: "Components/Loading states/LoadingGraphic",
   component: LoadingGraphic,
   args: {
-    size: 'xlarge',
+    size: "xlarge",
   },
 } satisfies Meta<typeof LoadingGraphic>
 
@@ -22,7 +22,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },
@@ -35,14 +35,14 @@ export const Animated: Story = {
 export const Reversed: Story = {
   args: { isReversed: true },
   parameters: {
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: "Purple 700" },
   },
 }
 
 export const Size: Story = {
   render: () => (
     <StickerSheet>
-      <StickerSheet.Header headings={['Loading Skeleton', 'Example']} hasVerticalHeadings />
+      <StickerSheet.Header headings={["Loading Skeleton", "Example"]} hasVerticalHeadings />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Icon (small)">
           <LoadingGraphic size="small" />

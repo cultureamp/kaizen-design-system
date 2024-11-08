@@ -1,1 +1,1 @@
-export * from './LabelledMessage'
+export * from "./LabelledMessage"

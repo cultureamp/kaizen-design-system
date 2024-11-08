@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react"
 
 export type ValidationResponse = {
-  status: 'success' | 'error' | 'default'
+  status: "success" | "error" | "default"
   message?: React.ReactNode
 }
 
@@ -10,7 +10,7 @@ export const validateLink = (href: string): ValidationResponse => {
 
   if (!isValidLink) {
     return {
-      status: 'error',
+      status: "error",
       message: (
         <>
           Empty or invalid link. Links must start with http or https, e.g:
@@ -24,6 +24,6 @@ export const validateLink = (href: string): ValidationResponse => {
   }
 
   return {
-    status: 'success',
+    status: "success",
   }
 }

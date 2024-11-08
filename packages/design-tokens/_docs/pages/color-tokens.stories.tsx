@@ -1,17 +1,17 @@
-import React, { HTMLAttributes } from 'react'
-import { Meta, StoryFn } from '@storybook/react'
-import colorString from 'color-string'
-import { Heading } from '~components/Heading'
-import { tokens } from '~design-tokens/js'
+import React, { HTMLAttributes } from "react"
+import { Meta, StoryFn } from "@storybook/react"
+import colorString from "color-string"
+import { Heading } from "~components/Heading"
+import { tokens } from "~design-tokens/js"
 
 export default {
-  title: 'Guides/Tokens/Color Tokens',
+  title: "Guides/Tokens/Color Tokens",
   parameters: {
     chromatic: {
       disable: false,
       diffThreshold: 0,
     },
-    docsLayout: 'fullPage',
+    docsLayout: "fullPage",
   },
 } satisfies Meta
 
@@ -30,8 +30,8 @@ const Stack = ({
 }): JSX.Element => (
   <div
     style={{
-      display: 'flex',
-      flexDirection: horizontal ? 'row' : 'column',
+      display: "flex",
+      flexDirection: horizontal ? "row" : "column",
       gap: gapSize && tokens.spacing[gapSize],
       ...style,
     }}
@@ -50,27 +50,27 @@ const ColorDemo = ({ color, name }: { color: string; name?: string }): JSX.Eleme
   if (!parsedColor) return null
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <h4 style={{ ...tokens.typography.heading4, writingMode: 'vertical-lr' }}>{name}</h4>
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <h4 style={{ ...tokens.typography.heading4, writingMode: "vertical-lr" }}>{name}</h4>
 
       <div
         style={{
-          width: '20rem',
-          height: '10rem',
+          width: "20rem",
+          height: "10rem",
           backgroundColor: color,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <Heading variant="heading-5" tag="span">
-          <span style={{ color, filter: 'invert(1) grayscale(1) contrast(100)' }}>
+          <span style={{ color, filter: "invert(1) grayscale(1) contrast(100)" }}>
             {colorString.to.hex(parsedColor.value)}
           </span>
         </Heading>
         <Heading variant="heading-5" tag="span">
-          <span style={{ color, filter: 'invert(1) grayscale(1) contrast(100)' }}>
+          <span style={{ color, filter: "invert(1) grayscale(1) contrast(100)" }}>
             {colorString.to.rgb(parsedColor.value)}
           </span>
         </Heading>
@@ -85,11 +85,11 @@ const ColorDemo = ({ color, name }: { color: string; name?: string }): JSX.Eleme
 const ComponentsSection = ({ children }: { children: React.ReactNode }): JSX.Element => (
   <div
     style={{
-      maxWidth: 'calc(100vw - 4rem)',
-      contain: 'content',
-      display: 'grid',
-      gap: '2rem',
-      gridTemplateColumns: 'repeat(auto-fill, 400px)',
+      maxWidth: "calc(100vw - 4rem)",
+      contain: "content",
+      display: "grid",
+      gap: "2rem",
+      gridTemplateColumns: "repeat(auto-fill, 400px)",
     }}
   >
     {children}

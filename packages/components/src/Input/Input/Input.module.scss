@@ -1,8 +1,8 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '../../../styles/utils/form-variables';
-@import '../../../styles/utils/forms';
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../../../styles/utils/form-variables";
+@import "../../../styles/utils/forms";
 
 $input-height: 48px;
 $input-base-padding-horizontal: $spacing-sm;
@@ -99,8 +99,8 @@ $input-with-icon-padding: calc(#{$input-icon-size} + calc(#{$spacing-md} * 0.75)
     right: auto;
     left: $spacing-sm;
 
-    &[dir='rtl'],
-    [dir='rtl'] & {
+    &[dir="rtl"],
+    [dir="rtl"] & {
       right: $spacing-sm;
       left: auto;
     }
@@ -116,8 +116,8 @@ $input-with-icon-padding: calc(#{$input-icon-size} + calc(#{$spacing-md} * 0.75)
     padding-right: $input-base-padding-horizontal;
     padding-left: $input-with-icon-padding;
 
-    &[dir='rtl'],
-    [dir='rtl'] & {
+    &[dir="rtl"],
+    [dir="rtl"] & {
       padding-right: $input-with-icon-padding;
       padding-left: $input-base-padding-horizontal;
     }
@@ -131,8 +131,8 @@ $input-with-icon-padding: calc(#{$input-icon-size} + calc(#{$spacing-md} * 0.75)
     right: $spacing-sm;
     left: auto;
 
-    &[dir='rtl'],
-    [dir='rtl'] & {
+    &[dir="rtl"],
+    [dir="rtl"] & {
       right: auto;
       left: $spacing-sm;
     }
@@ -148,8 +148,8 @@ $input-with-icon-padding: calc(#{$input-icon-size} + calc(#{$spacing-md} * 0.75)
     padding-right: $input-with-icon-padding;
     padding-left: $input-base-padding-horizontal;
 
-    &[dir='rtl'],
-    [dir='rtl'] & {
+    &[dir="rtl"],
+    [dir="rtl"] & {
       padding-right: $input-base-padding-horizontal;
       padding-left: $input-with-icon-padding;
     }
@@ -161,8 +161,8 @@ $input-with-icon-padding: calc(#{$input-icon-size} + calc(#{$spacing-md} * 0.75)
     padding-right: $input-with-icon-padding;
     padding-left: $input-with-icon-padding;
 
-    &[dir='rtl'],
-    [dir='rtl'] & {
+    &[dir="rtl"],
+    [dir="rtl"] & {
       padding-right: $input-with-icon-padding;
       padding-left: $input-with-icon-padding;
     }

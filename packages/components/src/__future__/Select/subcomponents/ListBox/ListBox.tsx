@@ -1,12 +1,12 @@
-import React, { HTMLAttributes, Key, useEffect, useRef, ReactNode } from 'react'
-import { AriaListBoxOptions, useListBox } from '@react-aria/listbox'
-import { SelectState } from '@react-stately/select'
-import classnames from 'classnames'
-import { useIsClientReady } from '~components/__utilities__/useIsClientReady'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { useSelectContext } from '../../context'
-import { SelectOption, SelectItem } from '../../types'
-import styles from './ListBox.module.scss'
+import React, { HTMLAttributes, Key, useEffect, useRef, ReactNode } from "react"
+import { AriaListBoxOptions, useListBox } from "@react-aria/listbox"
+import { SelectState } from "@react-stately/select"
+import classnames from "classnames"
+import { useIsClientReady } from "~components/__utilities__/useIsClientReady"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import { useSelectContext } from "../../context"
+import { SelectOption, SelectItem } from "../../types"
+import styles from "./ListBox.module.scss"
 
 export type SingleListBoxProps<Option extends SelectOption> = OverrideClassName<
   HTMLAttributes<HTMLUListElement>
@@ -23,7 +23,7 @@ export type SingleListBoxProps<Option extends SelectOption> = OverrideClassName<
 const getOptionKeyFromCollection = (state: SelectState<SelectItem<any>>): Key | null => {
   if (state.selectedItem) {
     return state.selectedItem.key
-  } else if (state.focusStrategy === 'last') {
+  } else if (state.focusStrategy === "last") {
     return state.collection.getLastKey()
   }
   return state.collection.getFirstKey()
@@ -36,7 +36,7 @@ const safeQuerySelector = (selector: string): HTMLElement | null => {
     return document.querySelector(selector)
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error('Kaizen querySelector failed:', error)
+    console.error("Kaizen querySelector failed:", error)
     return null
   }
 }
@@ -90,4 +90,4 @@ export const ListBox = <Option extends SelectOption>({
   )
 }
 
-ListBox.displayName = 'ListBox'
+ListBox.displayName = "ListBox"

@@ -1,20 +1,20 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { expect, userEvent, waitFor, within } from '@storybook/test'
-import isChromatic from 'chromatic'
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from '~components/Tabs'
-import { Text } from '~components/Text'
-import { Button, IconButton } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__/Icon'
-import { Tag } from '~components/__future__/Tag'
-import { Focusable } from '~components/__overlays__/v3'
-import { Tooltip, TooltipTrigger } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { expect, userEvent, waitFor, within } from "@storybook/test"
+import isChromatic from "chromatic"
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
+import { Text } from "~components/Text"
+import { Button, IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
+import { Tag } from "~components/__future__/Tag"
+import { Focusable } from "~components/__overlays__/v3"
+import { Tooltip, TooltipTrigger } from "../index"
 
 const meta = {
-  title: 'Overlays/Tooltip/v3/Tests',
+  title: "Overlays/Tooltip/v3/Tests",
   component: Tooltip,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
   args: {
     defaultOpen: isChromatic(),
@@ -41,27 +41,27 @@ export const OnButton: Story = {
   ),
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.queryByRole('button') ?? canvas.getByRole('link')
+    const button = canvas.queryByRole("button") ?? canvas.getByRole("link")
 
-    await step('Hover shows', async () => {
+    await step("Hover shows", async () => {
       await userEvent.unhover(button)
       await userEvent.hover(button)
-      await waitFor(() => expect(canvas.getByRole('tooltip')).toBeVisible())
-      expect(button).toHaveAttribute('aria-describedby', canvas.getByRole('tooltip').id)
+      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
+      expect(button).toHaveAttribute("aria-describedby", canvas.getByRole("tooltip").id)
       await userEvent.unhover(button)
     })
 
-    await step('Focus shows', async () => {
+    await step("Focus shows", async () => {
       await userEvent.tab() // focus
-      await waitFor(() => expect(canvas.getByRole('tooltip')).toBeVisible())
+      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
       await userEvent.tab() // unfocus
-      await waitFor(() => expect(canvas.queryByRole('tooltip')).toBeNull())
+      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
     })
 
-    await step('Escape closes', async () => {
+    await step("Escape closes", async () => {
       await userEvent.tab() // focus
-      await userEvent.keyboard('{Escape}')
-      await waitFor(() => expect(canvas.queryByRole('tooltip')).toBeNull())
+      await userEvent.keyboard("{Escape}")
+      await waitFor(() => expect(canvas.queryByRole("tooltip")).toBeNull())
       await userEvent.tab() // unfocus
     })
   },
@@ -122,14 +122,14 @@ export const OnDisabledButton: Story = {
 }
 
 export const OnCustomButtonAnchor: Story = {
-  name: 'On Button with custom <a>',
+  name: "On Button with custom <a>",
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button
         label="Button"
         component={(props) => (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
-          <a {...props} href="#" style={{ padding: '0 1rem' }}>
+          <a {...props} href="#" style={{ padding: "0 1rem" }}>
             Custom Link
           </a>
         )}
@@ -141,7 +141,7 @@ export const OnCustomButtonAnchor: Story = {
 
 export const OnCustomButton: Story = {
   ...OnButton,
-  name: 'On Button with custom <button>',
+  name: "On Button with custom <button>",
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
       <Button label="Button" component={(props) => <button type="button" {...props} />} />

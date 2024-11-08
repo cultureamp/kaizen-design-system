@@ -1,5 +1,5 @@
-@import url('./foundation/_layers.css');
-@import url('@kaizen/design-tokens/css/variables.css') layer(tokens);
-@import url('./foundation/_normalize.css') layer(normalize);
-@import url('./foundation/_fonts.css') layer(reset);
-@import url('./foundation/_reset.css') layer(reset);
+@import url("./foundation/_layers.css");
+@import url("@kaizen/design-tokens/css/variables.css") layer(tokens);
+@import url("./foundation/_normalize.css") layer(normalize);
+@import url("./foundation/_fonts.css") layer(reset);
+@import url("./foundation/_reset.css") layer(reset);

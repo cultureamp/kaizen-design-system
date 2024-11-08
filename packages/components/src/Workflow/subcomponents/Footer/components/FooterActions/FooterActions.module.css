@@ -5,11 +5,11 @@
 }
 
 .footerActionPrevious {
-  grid-area: 'prev';
+  grid-area: "prev";
   justify-content: start;
 }
 
 .footerActionNext {
-  grid-area: 'next';
+  grid-area: "next";
   justify-content: end;
 }

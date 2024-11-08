@@ -1,11 +1,11 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Button } from '~components/__actions__/v2'
-import { Workflow } from '../'
-import { WorkflowControls } from './controls'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Button } from "~components/__actions__/v2"
+import { Workflow } from "../"
+import { WorkflowControls } from "./controls"
 
 const meta = {
-  title: 'Layout/Workflow/Components/Footer',
+  title: "Layout/Workflow/Components/Footer",
   component: Workflow.Footer,
   argTypes: {
     ...WorkflowControls.nextAction,
@@ -13,13 +13,13 @@ const meta = {
     ...WorkflowControls.currentStepId,
   },
   args: {
-    currentStepId: 'preview-step',
+    currentStepId: "preview-step",
     steps: [
-      { label: 'Settings', id: 'settings-step' },
-      { label: 'Questions', id: 'questions-step' },
-      { label: 'Preview', id: 'preview-step' },
-      { label: 'Employees', id: 'employees-step' },
-      { label: 'Schedule', id: 'schedule-step' },
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
+      { label: "Employees", id: "employees-step" },
+      { label: "Schedule", id: "schedule-step" },
     ],
     isComplete: false,
     previousAction: <Button label="Back" />,
@@ -35,7 +35,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },
@@ -43,7 +43,7 @@ export const Playground: Story = {
 
 /** <p>Next and previous button are passed in by the consumer to allow for page routing method to be determined by the user</p> */
 export const FirstStep: Story = {
-  args: { currentStepId: 'settings-step' },
+  args: { currentStepId: "settings-step" },
 }
 
 export const NextStepDisabled: Story = {
@@ -52,37 +52,37 @@ export const NextStepDisabled: Story = {
 
 export const LastStep: Story = {
   args: {
-    currentStepId: 'schedule-step',
+    currentStepId: "schedule-step",
     nextAction: <Button primary disabled form="worflow-form-id-for-submit" label="Finish" />,
   },
 }
 
 export const AllStepsComplete: Story = {
   args: {
-    currentStepId: 'schedule-step',
+    currentStepId: "schedule-step",
     isComplete: true,
   },
 }
 
 export const FewerSteps: Story = {
   args: {
-    currentStepId: 'questions-step',
+    currentStepId: "questions-step",
     steps: [
-      { label: 'Settings', id: 'settings-step' },
-      { label: 'Questions', id: 'questions-step' },
-      { label: 'Preview', id: 'preview-step' },
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
     ],
   },
 }
 
 export const EightSteps: Story = {
   args: {
-    currentStepId: 'questions-step',
+    currentStepId: "questions-step",
     steps: [
       ...meta.args.steps,
-      { label: 'Plan', id: 'plan-step' },
-      { label: 'Provision', id: 'provision-step' },
-      { label: 'Procure', id: 'procure-step' },
+      { label: "Plan", id: "plan-step" },
+      { label: "Provision", id: "provision-step" },
+      { label: "Procure", id: "procure-step" },
     ],
   },
 }

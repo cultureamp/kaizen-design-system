@@ -1,20 +1,20 @@
-import React, { forwardRef, useContext, useLayoutEffect, useState } from 'react'
-import { VisuallyHidden } from 'react-aria'
+import React, { forwardRef, useContext, useLayoutEffect, useState } from "react"
+import { VisuallyHidden } from "react-aria"
 import {
   Tooltip as RACTooltip,
   TooltipContext,
   TooltipProps as RACTooltipProps,
   TooltipTriggerStateContext,
   useContextProps,
-} from 'react-aria-components'
-import { useReversedColors } from '~components/__utilities__/v3'
-import { mergeClassNames } from '~components/utils/mergeClassNames'
-import { OverlayArrow } from './OverlayArrow'
-import styles from './Tooltip.module.scss'
+} from "react-aria-components"
+import { useReversedColors } from "~components/__utilities__/v3"
+import { mergeClassNames } from "~components/utils/mergeClassNames"
+import { OverlayArrow } from "./OverlayArrow"
+import styles from "./Tooltip.module.scss"
 
 export { TooltipContext }
 
-export type TooltipProps = Omit<RACTooltipProps, 'offset'> & {
+export type TooltipProps = Omit<RACTooltipProps, "offset"> & {
   /**
    * The additional offset applied along the main axis between the element and its
    * anchor element.
@@ -26,18 +26,18 @@ export type TooltipProps = Omit<RACTooltipProps, 'offset'> & {
    * + we're intentionally limiting the placement options to rtl friendly ones (start, end, top, bottom)
    */
   placement?:
-    | 'bottom'
-    | 'bottom start'
-    | 'bottom end'
-    | 'top'
-    | 'top start'
-    | 'top end'
-    | 'start'
-    | 'start top'
-    | 'start bottom'
-    | 'end'
-    | 'end top'
-    | 'end bottom'
+    | "bottom"
+    | "bottom start"
+    | "bottom end"
+    | "top"
+    | "top start"
+    | "top end"
+    | "start"
+    | "start top"
+    | "start bottom"
+    | "end"
+    | "end top"
+    | "end bottom"
 }
 
 /**
@@ -52,7 +52,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
 
     useLayoutEffect(() => {
       setShouldInlineHiddenContent(
-        !!triggerRef?.current?.getAttribute('data-inline-hidden-content'),
+        !!triggerRef?.current?.getAttribute("data-inline-hidden-content"),
       )
     }, [triggerRef])
 
@@ -67,15 +67,15 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           {(renderProps) => (
             <>
               <OverlayArrow />
-              {typeof children === 'function' ? children(renderProps) : children}
+              {typeof children === "function" ? children(renderProps) : children}
             </>
           )}
         </RACTooltip>
         {shouldInlineHiddenContent ? (
           <VisuallyHidden>
-            {typeof children === 'function'
+            {typeof children === "function"
               ? children({
-                  placement: 'center',
+                  placement: "center",
                   isEntering: false,
                   isExiting: false,
                   state: contextState,
@@ -89,4 +89,4 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   },
 )
 
-Tooltip.displayName = 'Tooltip'
+Tooltip.displayName = "Tooltip"

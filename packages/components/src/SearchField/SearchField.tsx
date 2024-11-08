@@ -1,9 +1,9 @@
-import React, { useId } from 'react'
-import { InputSearch, InputSearchProps } from '~components/Input/InputSearch'
-import { Label } from '~components/Label'
-import styles from './SearchField.module.scss'
+import React, { useId } from "react"
+import { InputSearch, InputSearchProps } from "~components/Input/InputSearch"
+import { Label } from "~components/Label"
+import styles from "./SearchField.module.scss"
 
-export type SearchFieldProps = Omit<InputSearchProps, 'id'> & {
+export type SearchFieldProps = Omit<InputSearchProps, "id"> & {
   id?: string
   labelText: string
   disabled?: boolean
@@ -51,4 +51,4 @@ export const SearchField = ({
   )
 }
 
-SearchField.displayName = 'SearchField'
+SearchField.displayName = "SearchField"

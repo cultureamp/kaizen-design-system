@@ -1,7 +1,7 @@
-import React, { forwardRef, Ref } from 'react'
-import { GenericButton, BaseButtonProps, WorkingButtonProps, ButtonRef } from '../GenericButton'
+import React, { forwardRef, Ref } from "react"
+import { GenericButton, BaseButtonProps, WorkingButtonProps, ButtonRef } from "../GenericButton"
 
-export type IconButtonProps = Omit<BaseButtonProps, 'iconPosition'> & WorkingButtonProps
+export type IconButtonProps = Omit<BaseButtonProps, "iconPosition"> & WorkingButtonProps
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3062890984/Button Guidance} |
@@ -13,4 +13,4 @@ export const IconButton = forwardRef(
   ),
 )
 
-IconButton.displayName = 'IconButton'
+IconButton.displayName = "IconButton"

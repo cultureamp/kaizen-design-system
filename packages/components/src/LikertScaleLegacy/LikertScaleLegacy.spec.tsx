@@ -1,32 +1,32 @@
-import React, { act } from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
-import { LikertScaleLegacy, LikertScaleProps } from './LikertScaleLegacy'
-import { Scale } from './types'
+import React, { act } from "react"
+import { render, screen, waitFor } from "@testing-library/react"
+import { LikertScaleLegacy, LikertScaleProps } from "./LikertScaleLegacy"
+import { Scale } from "./types"
 
 const scale: Scale = [
   {
     value: -1,
-    label: 'Not rated',
+    label: "Not rated",
   },
   {
     value: 1,
-    label: 'Strong Disagree',
+    label: "Strong Disagree",
   },
   {
     value: 2,
-    label: 'Disagree',
+    label: "Disagree",
   },
   {
     value: 3,
-    label: 'Neither agree or disagree',
+    label: "Neither agree or disagree",
   },
   {
     value: 4,
-    label: 'Agree',
+    label: "Agree",
   },
   {
     value: 5,
-    label: 'Strongly agree',
+    label: "Strongly agree",
   },
 ]
 
@@ -40,21 +40,21 @@ const LikertScaleLegacyWrapper = (props: Partial<LikertScaleProps>): JSX.Element
   />
 )
 
-describe('<LikertScaleLegacy />', () => {
-  describe('Keyboard navigation', () => {
-    it('shows the correct legend when using tab to go through the scale', async () => {
+describe("<LikertScaleLegacy />", () => {
+  describe("Keyboard navigation", () => {
+    it("shows the correct legend when using tab to go through the scale", async () => {
       render(<LikertScaleLegacyWrapper data-testid="ID" />)
-      const scaleSteps = screen.getAllByRole('radio')
-      const legend = screen.getByTestId('ID-legend')
+      const scaleSteps = screen.getAllByRole("radio")
+      const legend = screen.getByTestId("ID-legend")
 
-      expect(legend).toHaveTextContent('Not rated')
+      expect(legend).toHaveTextContent("Not rated")
 
       act(() => {
         scaleSteps[2].focus()
       })
 
       await waitFor(() => {
-        expect(legend).toHaveTextContent('Neither agree or disagree')
+        expect(legend).toHaveTextContent("Neither agree or disagree")
       })
     })
   })

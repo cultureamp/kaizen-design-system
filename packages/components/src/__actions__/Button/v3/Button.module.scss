@@ -33,7 +33,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   &[data-focus-visible]::after {
-    content: '';
+    content: "";
     position: absolute;
     background: transparent;
     border-color: var(--color-blue-500);

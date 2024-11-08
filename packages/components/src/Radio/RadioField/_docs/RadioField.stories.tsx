@@ -1,14 +1,14 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { RadioField } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { RadioField } from "../index"
 
 const meta = {
-  title: 'Components/Radio controls/RadioField',
+  title: "Components/Radio controls/RadioField",
   component: RadioField,
   args: {
-    labelText: 'Radio label',
-    name: 'radio-group',
-    value: 'radio-value',
+    labelText: "Radio label",
+    name: "radio-group",
+    value: "radio-value",
     selectedStatus: false,
   },
 } satisfies Meta<typeof RadioField>
@@ -35,7 +35,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

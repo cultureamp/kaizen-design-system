@@ -1,5 +1,5 @@
-import React, { useState, RefObject } from 'react'
-import { Icon } from '~components/__future__/Icon'
+import React, { useState, RefObject } from "react"
+import { Icon } from "~components/__future__/Icon"
 
 export type usePausePlayHook = {
   toggle: () => void
@@ -22,7 +22,7 @@ export const usePausePlay = (videoRef: RefObject<HTMLVideoElement>): usePausePla
         videoRef.current.pause()
       }
     },
-    icon: <Icon name={isPaused ? 'play_circle' : 'pause'} isPresentational isFilled />,
-    label: isPaused ? 'Play animation' : 'Pause animation',
+    icon: <Icon name={isPaused ? "play_circle" : "pause"} isPresentational isFilled />,
+    label: isPaused ? "Play animation" : "Pause animation",
   }
 }

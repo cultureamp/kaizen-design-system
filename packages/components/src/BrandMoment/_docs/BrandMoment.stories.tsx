@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import isChromatic from 'chromatic'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import isChromatic from "chromatic"
 import {
   BrandMomentCaptureIntro,
   BrandMomentPositiveOutro,
   BrandMomentError,
   AnimatedSceneProps,
-} from '~components/Illustration'
-import { Text } from '~components/Text'
-import { Icon } from '~components/__future__/Icon'
-import { BrandMoment } from '../index'
-import { MinimalBasic, MinimalCustomerFocused, FakeNavBar } from './ExampleHeaders'
+} from "~components/Illustration"
+import { Text } from "~components/Text"
+import { Icon } from "~components/__future__/Icon"
+import { BrandMoment } from "../index"
+import { MinimalBasic, MinimalCustomerFocused, FakeNavBar } from "./ExampleHeaders"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -20,7 +20,7 @@ const illustrationProps = (
 ) satisfies AnimatedSceneProps
 
 const meta = {
-  title: 'Components/BrandMoment',
+  title: "Components/BrandMoment",
   component: BrandMoment,
   argTypes: {
     mood: { control: false },
@@ -35,11 +35,11 @@ type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   args: {
-    variant: 'informative',
+    variant: "informative",
     illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
     header: <MinimalBasic />,
     text: {
-      subtitle: 'Welcome to Culture Amp',
+      subtitle: "Welcome to Culture Amp",
       title: "Let's dive in and see how it works",
     },
   },
@@ -47,33 +47,33 @@ export const Playground: Story = {
 
 export const Informative: Story = {
   args: {
-    variant: 'informative',
+    variant: "informative",
     illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
     header: <MinimalBasic />,
     text: {
-      subtitle: 'Welcome to Culture Amp',
+      subtitle: "Welcome to Culture Amp",
       title: "Let's dive in and see how it works",
     },
     primaryAction: {
-      label: 'Get started',
-      href: '#',
+      label: "Get started",
+      href: "#",
       icon: <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
-      iconPosition: 'end',
+      iconPosition: "end",
     },
   },
 }
 
 export const Success: Story = {
   args: {
-    variant: 'success',
+    variant: "success",
     illustration: <BrandMomentPositiveOutro {...illustrationProps} />,
     header: <MinimalCustomerFocused />,
     text: {
-      subtitle: 'Manager Effectiveness Survey',
+      subtitle: "Manager Effectiveness Survey",
       title: "That's it — thank you",
       body: (
         <>
-          Your responses have been securely recorded. If you need to, you can{' '}
+          Your responses have been securely recorded. If you need to, you can{" "}
           <a href="#">retake the survey</a>.
         </>
       ),
@@ -87,13 +87,13 @@ export const Success: Story = {
       ),
     },
     primaryAction: {
-      label: 'Go to Home',
-      href: '#',
+      label: "Go to Home",
+      href: "#",
       icon: <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
-      iconPosition: 'end',
+      iconPosition: "end",
     },
     secondaryAction: {
-      label: 'Rate this survey',
+      label: "Rate this survey",
       icon: <Icon name="reviews" isPresentational isFilled />,
     },
   },
@@ -101,11 +101,11 @@ export const Success: Story = {
 
 export const Warning: Story = {
   args: {
-    variant: 'warning',
+    variant: "warning",
     illustration: <BrandMomentError {...illustrationProps} />,
     header: <FakeNavBar />,
     text: {
-      title: 'Page not found',
+      title: "Page not found",
     },
     body: (
       <>
@@ -121,13 +121,13 @@ export const Warning: Story = {
       </>
     ),
     primaryAction: {
-      label: 'Go to Home',
-      href: '#',
+      label: "Go to Home",
+      href: "#",
       icon: <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
-      iconPosition: 'end',
+      iconPosition: "end",
     },
     secondaryAction: {
-      label: 'Contact support',
+      label: "Contact support",
       icon: <Icon name="mail" isPresentational isFilled />,
     },
   },

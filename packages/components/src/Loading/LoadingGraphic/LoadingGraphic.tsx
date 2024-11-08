@@ -1,17 +1,17 @@
-import React, { HTMLAttributes } from 'react'
-import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './LoadingGraphic.module.scss'
+import React, { HTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import styles from "./LoadingGraphic.module.scss"
 
-export type LoadingGraphicSize = 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge' | 'scene'
+export type LoadingGraphicSize = "small" | "medium" | "large" | "xlarge" | "xxlarge" | "scene"
 
 const loadingGraphicSizeMap = new Map<LoadingGraphicSize, number>([
-  ['small', 1.25],
-  ['medium', 3],
-  ['large', 4.5],
-  ['xlarge', 6],
-  ['xxlarge', 7.5],
-  ['scene', 18.75],
+  ["small", 1.25],
+  ["medium", 3],
+  ["large", 4.5],
+  ["xlarge", 6],
+  ["xxlarge", 7.5],
+  ["scene", 18.75],
 ])
 
 export type LoadingGraphicProps = {
@@ -47,4 +47,4 @@ export const LoadingGraphic = ({
   )
 }
 
-LoadingGraphic.displayName = 'LoadingGraphic'
+LoadingGraphic.displayName = "LoadingGraphic"

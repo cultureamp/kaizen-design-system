@@ -1,9 +1,9 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Popover as PopoverComponent, usePopover } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Popover as PopoverComponent, usePopover } from "../index"
 
 const meta = {
-  title: 'Components/Popover',
+  title: "Components/Popover",
   component: PopoverComponent,
   args: {
     children: undefined,

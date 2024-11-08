@@ -1,11 +1,11 @@
-import React, { TextareaHTMLAttributes, useRef, useState } from 'react'
-import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './TextArea.module.css'
+import React, { TextareaHTMLAttributes, useRef, useState } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import styles from "./TextArea.module.css"
 
 export type TextAreaProps = {
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
-  status?: 'default' | 'error' | 'caution'
+  status?: "default" | "error" | "caution"
   /**
    * Grows the input height as more content is added
    * Replace with CSS field-sizing once it's supported by all major browsers
@@ -21,7 +21,7 @@ export type TextAreaProps = {
 
 export const TextArea = ({
   textAreaRef: propsTextAreaRef,
-  status = 'default',
+  status = "default",
   autogrow = false,
   reversed = false,
   rows = 3,
@@ -76,4 +76,4 @@ export const TextArea = ({
   )
 }
 
-TextArea.displayName = 'TextArea'
+TextArea.displayName = "TextArea"

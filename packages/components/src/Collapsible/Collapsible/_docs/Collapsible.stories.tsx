@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Heading } from '~components/Heading'
-import { Text } from '~components/Text'
-import { Icon } from '~components/__future__/Icon'
-import { Collapsible } from '../index'
+import React, { useState } from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Heading } from "~components/Heading"
+import { Text } from "~components/Text"
+import { Icon } from "~components/__future__/Icon"
+import { Collapsible } from "../index"
 
 const meta = {
-  title: 'Components/Collapsibles/Collapsible',
+  title: "Components/Collapsibles/Collapsible",
   component: Collapsible,
   args: {
     children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
@@ -19,7 +19,7 @@ const meta = {
     arcu quam a sapien. Donec in viverra urna.`,
   },
   parameters: {
-    backgrounds: { default: 'Gray 100' },
+    backgrounds: { default: "Gray 100" },
   },
 } satisfies Meta<typeof Collapsible>
 
@@ -29,13 +29,13 @@ type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   args: {
-    title: 'Single Collapsible',
+    title: "Single Collapsible",
   },
   parameters: {
-    backgrounds: { default: 'Gray 100' },
+    backgrounds: { default: "Gray 100" },
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },
@@ -43,7 +43,7 @@ export const Playground: Story = {
 
 export const NoPadding: Story = {
   args: {
-    title: 'No padding',
+    title: "No padding",
   },
   render: ({ title }) => (
     <Collapsible open noSectionPadding title={title}>
@@ -54,7 +54,7 @@ export const NoPadding: Story = {
 
 export const Clear: Story = {
   args: {
-    title: 'Clear',
+    title: "Clear",
   },
   render: ({ title }) => (
     <Collapsible open variant="clear" title={title}>
@@ -65,7 +65,7 @@ export const Clear: Story = {
 
 export const CustomHeader: Story = {
   args: {
-    title: 'Custom header',
+    title: "Custom header",
   },
   render: ({ title: standardTitle }) => (
     <Collapsible
@@ -91,7 +91,7 @@ return (<Collapsible {...args} open={isOpen} onToggle={setIsOpen} />)
 
 export const Controlled: Story = {
   args: {
-    title: 'Controlled',
+    title: "Controlled",
     controlled: true,
   },
   render: (args) => {

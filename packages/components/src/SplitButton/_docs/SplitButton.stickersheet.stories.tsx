@@ -1,15 +1,15 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
+import React from "react"
+import { Meta } from "@storybook/react"
 import {
   exampleActionButtonPropsAnchor,
   exampleActionButtonPropsButton,
   exampleDropdownContentEnabled,
-} from '~components/__actions__/Menu/v1/_docs/examples'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { SplitButton, SplitButtonProps } from '../index'
+} from "~components/__actions__/Menu/v1/_docs/examples"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import { SplitButton, SplitButtonProps } from "../index"
 
 export default {
-  title: 'Components/Buttons/SplitButton',
+  title: "Components/Buttons/SplitButton",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -18,12 +18,12 @@ export default {
 
 const ROWS_MAP = [
   {
-    rowTitle: 'Default',
+    rowTitle: "Default",
     actionButtonProps: exampleActionButtonPropsButton,
     dropdownContent: exampleDropdownContentEnabled,
   },
   {
-    rowTitle: 'Anchor Link',
+    rowTitle: "Anchor Link",
     actionButtonProps: exampleActionButtonPropsAnchor,
     dropdownContent: exampleDropdownContentEnabled,
   },
@@ -34,7 +34,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <StickerSheet isReversed={isReversed} heading="Split Button">
         <StickerSheet.Header
-          headings={['Base', 'Disabled']}
+          headings={["Base", "Disabled"]}
           hasVerticalHeadings
           verticalHeadingsWidth="10rem"
         />
@@ -50,7 +50,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <StickerSheet isReversed={isReversed} heading="Pseudo states">
         <StickerSheet.Header
-          headings={['Hover', 'Active', 'Focus']}
+          headings={["Hover", "Active", "Focus"]}
           hasVerticalHeadings
           verticalHeadingsWidth="10rem"
         />
@@ -60,7 +60,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               isReversed={isReversed}
               actionButtonProps={{
                 ...exampleActionButtonPropsButton,
-                'data-sb-pseudo-styles': 'hover',
+                "data-sb-pseudo-styles": "hover",
               }}
               dropdownContent={exampleDropdownContentEnabled}
             />
@@ -68,7 +68,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               isReversed={isReversed}
               actionButtonProps={{
                 ...exampleActionButtonPropsButton,
-                'data-sb-pseudo-styles': 'active',
+                "data-sb-pseudo-styles": "active",
               }}
               dropdownContent={exampleDropdownContentEnabled}
             />
@@ -76,7 +76,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               isReversed={isReversed}
               actionButtonProps={{
                 ...exampleActionButtonPropsButton,
-                'data-sb-pseudo-styles': 'focus',
+                "data-sb-pseudo-styles": "focus",
               }}
               dropdownContent={exampleDropdownContentEnabled}
             />
@@ -86,19 +86,19 @@ const StickerSheetTemplate: StickerSheetStory = {
               isReversed={isReversed}
               actionButtonProps={exampleActionButtonPropsButton}
               dropdownContent={exampleDropdownContentEnabled}
-              dropdownButtonProps={{ 'data-sb-pseudo-styles': 'hover' }}
+              dropdownButtonProps={{ "data-sb-pseudo-styles": "hover" }}
             />
             <SplitButton
               isReversed={isReversed}
               actionButtonProps={exampleActionButtonPropsButton}
               dropdownContent={exampleDropdownContentEnabled}
-              dropdownButtonProps={{ 'data-sb-pseudo-styles': 'active' }}
+              dropdownButtonProps={{ "data-sb-pseudo-styles": "active" }}
             />
             <SplitButton
               isReversed={isReversed}
               actionButtonProps={exampleActionButtonPropsButton}
               dropdownContent={exampleDropdownContentEnabled}
-              dropdownButtonProps={{ 'data-sb-pseudo-styles': 'focus' }}
+              dropdownButtonProps={{ "data-sb-pseudo-styles": "focus" }}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
@@ -117,24 +117,24 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Reversed)',
+  name: "Sticker Sheet (Reversed)",
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: "Purple 700" },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (RTL)',
+  name: "Sticker Sheet (RTL)",
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: 'rtl',
+    textDirection: "rtl",
   },
 }

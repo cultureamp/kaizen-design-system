@@ -1,11 +1,11 @@
-import React, { TableHTMLAttributes } from 'react'
-import classnames from 'classnames'
-import { Heading } from '~components/Heading'
-import { StickerSheetBody, StickerSheetBodyProps } from './components/StickerSheetBody'
-import { StickerSheetCell } from './components/StickerSheetCell'
-import { StickerSheetHeader, StickerSheetHeaderProps } from './components/StickerSheetHeader'
-import { StickerSheetRow } from './components/StickerSheetRow'
-import styles from './StickerSheet.module.css'
+import React, { TableHTMLAttributes } from "react"
+import classnames from "classnames"
+import { Heading } from "~components/Heading"
+import { StickerSheetBody, StickerSheetBodyProps } from "./components/StickerSheetBody"
+import { StickerSheetCell } from "./components/StickerSheetCell"
+import { StickerSheetHeader, StickerSheetHeaderProps } from "./components/StickerSheetHeader"
+import { StickerSheetRow } from "./components/StickerSheetRow"
+import styles from "./StickerSheet.module.css"
 
 type ReversibleSubcomponents = StickerSheetBodyProps | StickerSheetHeaderProps
 
@@ -33,7 +33,7 @@ export const StickerSheet = ({
       <Heading
         variant="heading-3"
         tag="h1"
-        color={isReversed ? 'white' : 'dark'}
+        color={isReversed ? "white" : "dark"}
         classNameOverride={styles.stickerSheetSectionHeading}
       >
         {heading}
@@ -59,4 +59,4 @@ StickerSheet.Body = StickerSheetBody
 StickerSheet.Row = StickerSheetRow
 StickerSheet.Cell = StickerSheetCell
 
-StickerSheet.displayName = 'StickerSheet'
+StickerSheet.displayName = "StickerSheet"

@@ -1,8 +1,8 @@
-import React from 'react'
-import { FormattedMessage } from '@cultureamp/i18n-react-intl'
-import { DateValidationResponse } from '~components/Filter/FilterDatePicker'
-import { getNodeText } from '~components/utils/getNodeText'
-import { isValidRange } from './isValidRange'
+import React from "react"
+import { FormattedMessage } from "@cultureamp/i18n-react-intl"
+import { DateValidationResponse } from "~components/Filter/FilterDatePicker"
+import { getNodeText } from "~components/utils/getNodeText"
+import { isValidRange } from "./isValidRange"
 
 export type ValidateEndDateBeforeStartDateArgs = {
   startDate: Date
@@ -37,7 +37,7 @@ export const validateEndDateBeforeStartDate = ({
       validationResponse: {
         ...baseResponse,
         validationMessage: {
-          status: 'error',
+          status: "error",
           message: (
             <FormattedMessage
               id="date.validation.rangeEndBeforeRangeStart"

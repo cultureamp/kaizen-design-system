@@ -1,13 +1,13 @@
-import { EditorState, Selection, TextSelection, Transaction } from 'prosemirror-state'
-import { findChildrenByType } from 'prosemirror-utils'
-import { vi } from 'vitest'
-import { ProseMirrorModel } from '../../prosemirror'
+import { EditorState, Selection, TextSelection, Transaction } from "prosemirror-state"
+import { findChildrenByType } from "prosemirror-utils"
+import { vi } from "vitest"
+import { ProseMirrorModel } from "../../prosemirror"
 /*
  ** This is used handle the JSDom type error issue you may encounter in testing
  ** See https://github.com/jsdom/jsdom/issues/3002
  */
 export const mockRangeForBoundingRect = (): void => {
-  vi.spyOn(document, 'createRange').mockImplementation(() => {
+  vi.spyOn(document, "createRange").mockImplementation(() => {
     const range = new Range()
 
     range.getBoundingClientRect = () => ({
@@ -53,7 +53,7 @@ export const simulateRangeSelection =
 
 export const getStartNode = (
   state: EditorState,
-): ReturnType<ProseMirrorModel.Node['childAfter']> => {
+): ReturnType<ProseMirrorModel.Node["childAfter"]> => {
   const currentSelection: Selection = state.tr.selection
   const startNode = currentSelection.$from.parent.childAfter(currentSelection.$from.parentOffset)
   return startNode

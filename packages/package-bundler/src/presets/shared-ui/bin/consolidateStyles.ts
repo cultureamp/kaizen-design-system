@@ -1,6 +1,6 @@
-import fs from 'fs'
-import path from 'path'
-import { getArgs } from './getArgs.js'
+import fs from "fs"
+import path from "path"
+import { getArgs } from "./getArgs.js"
 
 const args = getArgs()
 const { packagePath } = args

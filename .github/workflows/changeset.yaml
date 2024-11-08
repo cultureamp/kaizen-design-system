@@ -3,7 +3,7 @@ name: Changeset
 on:
   push:
     branches:
-      - 'main'
+      - "main"
 
 jobs:
   version:
@@ -24,8 +24,8 @@ jobs:
       - uses: changesets/action@v1
         id: changesets
         with:
-          title: 'Changeset: Version packages'
-          commit: 'version packages'
+          title: "Changeset: Version packages"
+          commit: "version packages"
           version: pnpm ci:version
           publish: pnpm ci:publish
   # deployment:
@@ -56,7 +56,7 @@ jobs:
       - name: Send
         uses: slackapi/slack-github-action@v1.24.0
         with:
-          channel-id: 'C02NUQ27G56'
+          channel-id: "C02NUQ27G56"
           slack-message: ${{ env.PUBLISHED == 'true' && 'Packages have been published' || 'Publishing failed' }}
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

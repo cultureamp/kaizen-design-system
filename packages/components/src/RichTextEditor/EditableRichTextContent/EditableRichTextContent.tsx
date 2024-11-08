@@ -1,25 +1,25 @@
-import React, { MouseEvent, HTMLAttributes } from 'react'
-import classnames from 'classnames'
-import { Label } from '~components/Label'
-import { VisuallyHidden } from '~components/VisuallyHidden'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { RichTextContent, RichTextContentProps } from '../RichTextContent'
-import { EditorContentArray } from '../types'
-import styles from './EditableRichTextContent.module.scss'
+import React, { MouseEvent, HTMLAttributes } from "react"
+import classnames from "classnames"
+import { Label } from "~components/Label"
+import { VisuallyHidden } from "~components/VisuallyHidden"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import { RichTextContent, RichTextContentProps } from "../RichTextContent"
+import { EditorContentArray } from "../types"
+import styles from "./EditableRichTextContent.module.scss"
 
 export type EditableRichTextContentProps = {
   onClick: (event: MouseEvent<HTMLElement>) => void
   content: EditorContentArray
   labelText: string
   isLabelHidden?: boolean
-  contentProps?: Omit<RichTextContentProps, 'content'>
-} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'content'>>
+  contentProps?: Omit<RichTextContentProps, "content">
+} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onClick" | "content">>
 
 const handleEditableClick = (
   e: MouseEvent<HTMLElement>,
   onClick: (event: MouseEvent<HTMLElement>) => void,
 ): void => {
-  if ((e.target as HTMLElement).hasAttribute('href')) {
+  if ((e.target as HTMLElement).hasAttribute("href")) {
     return
   }
   return onClick(e)
@@ -51,4 +51,4 @@ export const EditableRichTextContent = ({
   </>
 )
 
-EditableRichTextContent.displayName = 'EditableRichTextContent'
+EditableRichTextContent.displayName = "EditableRichTextContent"

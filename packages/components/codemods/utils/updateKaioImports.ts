@@ -1,4 +1,4 @@
-import ts from 'typescript'
+import ts from "typescript"
 
 type ImportsToRemove = Set<string>
 
@@ -164,7 +164,7 @@ export const updateKaioImports =
           const fallbackKaioImportIdx = statements.findIndex(
             (s) =>
               ts.isImportDeclaration(s) &&
-              (s.moduleSpecifier as ts.StringLiteral).text.includes('@kaizen/components'),
+              (s.moduleSpecifier as ts.StringLiteral).text.includes("@kaizen/components"),
           )
 
           const newImport = createImportDeclaration(

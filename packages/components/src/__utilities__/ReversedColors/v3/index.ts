@@ -1,1 +1,1 @@
-export * from './ReversedColors'
+export * from "./ReversedColors"

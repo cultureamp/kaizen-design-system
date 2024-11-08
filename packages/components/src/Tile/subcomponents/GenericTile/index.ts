@@ -1,1 +1,1 @@
-export * from './GenericTile'
+export * from "./GenericTile"

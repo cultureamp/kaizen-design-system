@@ -1,10 +1,10 @@
-import React, { HTMLAttributes } from 'react'
-import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './Divider.module.scss'
+import React, { HTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import styles from "./Divider.module.scss"
 
 export type DividerProps = {
-  variant: 'content' | 'canvas' | 'menuSeparator'
+  variant: "content" | "canvas" | "menuSeparator"
   isReversed?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
@@ -30,4 +30,4 @@ export const Divider = ({
   />
 )
 
-Divider.displayName = 'Divider'
+Divider.displayName = "Divider"

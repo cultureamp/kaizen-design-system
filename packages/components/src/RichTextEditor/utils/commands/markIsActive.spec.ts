@@ -1,16 +1,16 @@
-import { waitFor } from '@testing-library/dom'
-import { EditorState } from 'prosemirror-state'
-import { vi } from 'vitest'
-import { createRichTextEditor } from '../core'
-import { simulateRangeSelection, simulateSelectionByText } from './__fixtures__/helpers'
-import { testEditorStateWithMarks, testSchema } from './__fixtures__/test-state'
-import { markIsActive } from './markIsActive'
-describe('markIsActive()', () => {
+import { waitFor } from "@testing-library/dom"
+import { EditorState } from "prosemirror-state"
+import { vi } from "vitest"
+import { createRichTextEditor } from "../core"
+import { simulateRangeSelection, simulateSelectionByText } from "./__fixtures__/helpers"
+import { testEditorStateWithMarks, testSchema } from "./__fixtures__/test-state"
+import { markIsActive } from "./markIsActive"
+describe("markIsActive()", () => {
   const onChange = vi.fn()
-  const attributes = { 'aria-labelledby': 'label-text-123' }
+  const attributes = { "aria-labelledby": "label-text-123" }
 
-  it('returns true if the provided Mark Type matches the current selection', async () => {
-    const node = document.createElement('div')
+  it("returns true if the provided Mark Type matches the current selection", async () => {
+    const node = document.createElement("div")
     const { dispatchTransaction } = createRichTextEditor({
       node,
       onChange,
@@ -19,7 +19,7 @@ describe('markIsActive()', () => {
     })
     let currentState = testEditorStateWithMarks
 
-    dispatchTransaction(simulateSelectionByText('Example Italic Mark'))
+    dispatchTransaction(simulateSelectionByText("Example Italic Mark"))
     dispatchTransaction((editorState: EditorState) => {
       currentState = editorState
       return true
@@ -30,8 +30,8 @@ describe('markIsActive()', () => {
     })
   })
 
-  it('returns true if cursor is resting within a mark (ie: Example Ital|ic Mark)', async () => {
-    const node = document.createElement('div')
+  it("returns true if cursor is resting within a mark (ie: Example Ital|ic Mark)", async () => {
+    const node = document.createElement("div")
     const { dispatchTransaction } = createRichTextEditor({
       node,
       onChange,
@@ -40,7 +40,7 @@ describe('markIsActive()', () => {
     })
     let currentState = testEditorStateWithMarks
 
-    dispatchTransaction(simulateSelectionByText('Example Ital'))
+    dispatchTransaction(simulateSelectionByText("Example Ital"))
     dispatchTransaction((editorState: EditorState) => {
       currentState = editorState
       return true
@@ -58,8 +58,8 @@ describe('markIsActive()', () => {
     })
   })
 
-  it('returns false if the provided Mark Type does not match the current selection', async () => {
-    const node = document.createElement('div')
+  it("returns false if the provided Mark Type does not match the current selection", async () => {
+    const node = document.createElement("div")
     const { dispatchTransaction } = createRichTextEditor({
       node,
       onChange,
@@ -68,7 +68,7 @@ describe('markIsActive()', () => {
     })
     let currentState = testEditorStateWithMarks
 
-    dispatchTransaction(simulateSelectionByText('Example Strong Mark'))
+    dispatchTransaction(simulateSelectionByText("Example Strong Mark"))
     dispatchTransaction((editorState: EditorState) => {
       currentState = editorState
       return true

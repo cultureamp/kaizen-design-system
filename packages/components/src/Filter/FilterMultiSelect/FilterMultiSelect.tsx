@@ -1,5 +1,5 @@
-import React from 'react'
-import { SelectionMode, Selection } from '@react-types/shared'
+import React from "react"
+import { SelectionMode, Selection } from "@react-types/shared"
 import {
   MenuTriggerConsumer,
   MenuTriggerProvider,
@@ -8,19 +8,19 @@ import {
   SelectionConsumer,
   SelectionProvider,
   SelectionProviderContextType,
-} from './context'
-import { ListBox } from './subcomponents/ListBox'
-import { ListBoxSection } from './subcomponents/ListBoxSection'
-import { LoadMoreButton } from './subcomponents/LoadMoreButton'
-import { MenuFooter, MenuLoadingSkeleton } from './subcomponents/MenuLayout'
-import { MenuPopup, MenuPopupProps } from './subcomponents/MenuPopup'
-import { MultiSelectOption } from './subcomponents/MultiSelectOption'
-import { NoResults } from './subcomponents/NoResults'
-import { SearchInput } from './subcomponents/SearchInput'
-import { SectionDivider } from './subcomponents/SectionDivider'
-import { ClearButton, SelectAllButton } from './subcomponents/SelectionControlButton'
-import { FilterTriggerButton, RemovableFilterTrigger } from './subcomponents/Trigger'
-import { ItemType } from './types'
+} from "./context"
+import { ListBox } from "./subcomponents/ListBox"
+import { ListBoxSection } from "./subcomponents/ListBoxSection"
+import { LoadMoreButton } from "./subcomponents/LoadMoreButton"
+import { MenuFooter, MenuLoadingSkeleton } from "./subcomponents/MenuLayout"
+import { MenuPopup, MenuPopupProps } from "./subcomponents/MenuPopup"
+import { MultiSelectOption } from "./subcomponents/MultiSelectOption"
+import { NoResults } from "./subcomponents/NoResults"
+import { SearchInput } from "./subcomponents/SearchInput"
+import { SectionDivider } from "./subcomponents/SectionDivider"
+import { ClearButton, SelectAllButton } from "./subcomponents/SelectionControlButton"
+import { FilterTriggerButton, RemovableFilterTrigger } from "./subcomponents/Trigger"
+import { ItemType } from "./types"
 
 type SelectionProps = {
   label: string // provide A11y context for listbox
@@ -37,8 +37,8 @@ export type FilterMultiSelectProps = {
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
   triggerRef?: React.RefObject<HTMLButtonElement>
   className?: string
-} & Omit<MenuPopupProps, 'children'> &
-  Omit<MenuTriggerProviderProps, 'children'> &
+} & Omit<MenuPopupProps, "children"> &
+  Omit<MenuTriggerProviderProps, "children"> &
   SelectionProps
 
 export const FilterMultiSelect = ({
@@ -54,7 +54,7 @@ export const FilterMultiSelect = ({
   selectedKeys,
   defaultSelectedKeys,
   onSelectionChange,
-  selectionMode = 'multiple',
+  selectionMode = "multiple",
   onSearchInputChange,
   triggerRef,
   className,
@@ -89,7 +89,7 @@ export const FilterMultiSelect = ({
   )
 }
 
-FilterMultiSelect.displayName = 'FilterMultiSelect'
+FilterMultiSelect.displayName = "FilterMultiSelect"
 
 FilterMultiSelect.TriggerButton = FilterTriggerButton
 FilterMultiSelect.RemovableTrigger = RemovableFilterTrigger

@@ -1,7 +1,7 @@
-import React, { ReactNode, useContext } from 'react'
-import { StaticIntlProvider } from '@cultureamp/i18n-react-intl'
-import { I18nProvider } from 'react-aria'
-import { IntlContext } from 'react-intl'
+import React, { ReactNode, useContext } from "react"
+import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
+import { I18nProvider } from "react-aria"
+import { IntlContext } from "react-intl"
 
 type Props = {
   locale: string
@@ -23,4 +23,4 @@ export const OptionalIntlProvider = ({ locale, children }: Props): JSX.Element =
   )
 }
 
-OptionalIntlProvider.displayName = 'OptionalIntlProvider'
+OptionalIntlProvider.displayName = "OptionalIntlProvider"

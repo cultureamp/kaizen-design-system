@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { RemovableTag } from '../RemovableTag'
+import { Meta, StoryObj } from "@storybook/react"
+import { RemovableTag } from "../RemovableTag"
 
 const meta = {
-  title: 'Components/Tag/Future/RemovableTag',
+  title: "Components/Tag/Future/RemovableTag",
   component: RemovableTag,
   args: {
-    children: 'My tag',
+    children: "My tag",
     removeButtonProps: {
-      onClick: () => alert('Clicked'),
-      ariaLabel: 'Remove tag icon',
+      onClick: () => alert("Clicked"),
+      ariaLabel: "Remove tag icon",
     },
   },
 } satisfies Meta<typeof RemovableTag>
@@ -21,18 +21,18 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },
 }
 
 export const Children: Story = {
-  args: { children: 'This text is the children' },
+  args: { children: "This text is the children" },
 }
 
 export const ClassNameOverride: Story = {
   args: {
-    classNameOverride: 'border-red-500 border-solid border-',
+    classNameOverride: "border-red-500 border-solid border-",
   },
 }

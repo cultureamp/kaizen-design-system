@@ -1,1 +1,1 @@
-export * from './ExpertAdviceCollapsible'
+export * from "./ExpertAdviceCollapsible"

@@ -1,5 +1,5 @@
-import type { Command, Transaction } from 'prosemirror-state'
-import { EditorView as ProseMirrorEditorView } from 'prosemirror-view'
+import type { Command, Transaction } from "prosemirror-state"
+import { EditorView as ProseMirrorEditorView } from "prosemirror-view"
 
 /**
  * Dispatch receives a transaction from ProseMirror to effect changes to the

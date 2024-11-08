@@ -1,15 +1,15 @@
-import React from 'react'
-import classnames from 'classnames'
-import { Avatar } from '~components/Avatar'
-import { Heading } from '~components/Heading'
-import { Select } from '~components/Select'
-import { Tag } from '~components/Tag'
-import { IconButton } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__/Icon'
-import { useMediaQueries } from '~components/utils/useMediaQueries'
-import { MainActions } from './subcomponents/MainActions'
-import { MobileActions } from './subcomponents/MobileActions'
-import { SecondaryActions } from './subcomponents/SecondaryActions'
+import React from "react"
+import classnames from "classnames"
+import { Avatar } from "~components/Avatar"
+import { Heading } from "~components/Heading"
+import { Select } from "~components/Select"
+import { Tag } from "~components/Tag"
+import { IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
+import { useMediaQueries } from "~components/utils/useMediaQueries"
+import { MainActions } from "./subcomponents/MainActions"
+import { MobileActions } from "./subcomponents/MobileActions"
+import { SecondaryActions } from "./subcomponents/SecondaryActions"
 import {
   TitleBlockBreadcrumbProps,
   NavigationTabs,
@@ -17,19 +17,19 @@ import {
   TitleBlockAvatarProps,
   TitleBlockProps,
   TitleBlockVariant,
-} from './types'
-import { createTabletOverflowMenuItems, isReversed } from './utils'
-import styles from './TitleBlockZen.module.scss'
+} from "./types"
+import { createTabletOverflowMenuItems, isReversed } from "./utils"
+import styles from "./TitleBlockZen.module.scss"
 
 const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
-  let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>['variant']
+  let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>["variant"]
 
-  if (tagVariant === 'profile') {
+  if (tagVariant === "profile") {
     return
   }
 
-  if (surveyStatus.status === 'draft') {
-    tagVariant = 'statusDraft'
+  if (surveyStatus.status === "draft") {
+    tagVariant = "statusDraft"
   }
 
   /*
@@ -39,24 +39,24 @@ const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
 
     we have similar behaviour on programs index page's table
   */
-  if (surveyStatus.status === 'scheduled') {
-    tagVariant = 'statusClosed'
+  if (surveyStatus.status === "scheduled") {
+    tagVariant = "statusClosed"
   }
 
-  if (surveyStatus.status === 'live') {
-    tagVariant = 'statusLive'
+  if (surveyStatus.status === "live") {
+    tagVariant = "statusLive"
   }
 
-  if (surveyStatus.status === 'closed') {
-    tagVariant = 'statusClosed'
+  if (surveyStatus.status === "closed") {
+    tagVariant = "statusClosed"
   }
 
-  if (surveyStatus.status === 'sentimentPositive') {
-    tagVariant = 'sentimentPositive'
+  if (surveyStatus.status === "sentimentPositive") {
+    tagVariant = "sentimentPositive"
   }
 
-  if (surveyStatus.status === 'default') {
-    tagVariant = 'default'
+  if (surveyStatus.status === "default") {
+    tagVariant = "default"
   }
 
   return (
@@ -74,7 +74,7 @@ const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
 
 const isJSXElement = (
   imageElementOrAvatarProps: JSX.Element | TitleBlockAvatarProps,
-): imageElementOrAvatarProps is JSX.Element => 'props' in imageElementOrAvatarProps
+): imageElementOrAvatarProps is JSX.Element => "props" in imageElementOrAvatarProps
 
 const renderAvatar = (
   imageElementOrAvatarProps: JSX.Element | TitleBlockAvatarProps,
@@ -122,7 +122,7 @@ const defaultRenderSectionTitle = (
       <div className={styles.sectionTitle}>
         <Heading
           variant="heading-2"
-          color={isReversed(variant) ? 'white' : 'dark'}
+          color={isReversed(variant) ? "white" : "dark"}
           classNameOverride={styles.sectionTitleOverride}
           data-automation-id={sectionTitleAutomationId}
           data-testid={sectionTitleAutomationId}
@@ -181,7 +181,7 @@ const Breadcrumb = ({
     )
   }
 
-  const TagName = path ? 'a' : 'button'
+  const TagName = path ? "a" : "button"
 
   return (
     <TagName
@@ -251,13 +251,13 @@ export const TitleBlockZen = ({
   textDirection,
   surveyStatus,
   id,
-  titleAutomationId = 'TitleBlock__Title',
-  avatarAutomationId = 'TitleBlock__Avatar',
-  subtitleAutomationId = 'TitleBlock__Subtitle',
-  sectionTitleAutomationId = 'TitleBlock__SectionTitle',
-  sectionTitleDescriptionAutomationId = 'TitleBlock__SectionTitleDescription',
-  breadcrumbAutomationId = 'TitleBlock__Breadcrumb',
-  breadcrumbTextAutomationId = 'TitleBlock__BreadcrumbText',
+  titleAutomationId = "TitleBlock__Title",
+  avatarAutomationId = "TitleBlock__Avatar",
+  subtitleAutomationId = "TitleBlock__Subtitle",
+  sectionTitleAutomationId = "TitleBlock__SectionTitle",
+  sectionTitleDescriptionAutomationId = "TitleBlock__SectionTitleDescription",
+  breadcrumbAutomationId = "TitleBlock__Breadcrumb",
+  breadcrumbTextAutomationId = "TitleBlock__BreadcrumbText",
   autoHideMobileActionsMenu = false,
 }: TitleBlockProps): JSX.Element => {
   const hasNavigationTabs = navigationTabs && navigationTabs.length > 0
@@ -282,7 +282,7 @@ export const TitleBlockZen = ({
             styles.collapseNavigationArea,
           title && title.length >= 30 && styles.hasLongTitle,
           subtitle &&
-            typeof subtitle === 'string' &&
+            typeof subtitle === "string" &&
             subtitle.length >= 18 &&
             styles.hasLongSubtitle,
           hasNavigationTabs && styles.hasNavigationTabs,
@@ -318,7 +318,7 @@ export const TitleBlockZen = ({
                         <div className={styles.title}>
                           <Heading
                             variant="composable-header-title"
-                            color={isReversed(variant) ? 'white' : 'dark'}
+                            color={isReversed(variant) ? "white" : "dark"}
                             classNameOverride={styles.titleTextOverride}
                             data-automation-id={titleAutomationId}
                             data-testid={titleAutomationId}
@@ -401,7 +401,7 @@ export const TitleBlockZen = ({
           secondaryActions={secondaryActions}
           secondaryOverflowMenuItems={secondaryOverflowMenuItems}
           drawerHandleLabelIconPosition={
-            primaryAction && 'iconPosition' in primaryAction
+            primaryAction && "iconPosition" in primaryAction
               ? primaryAction.iconPosition
               : undefined
           }
@@ -412,4 +412,4 @@ export const TitleBlockZen = ({
   )
 }
 
-TitleBlockZen.displayName = 'TitleBlockZen'
+TitleBlockZen.displayName = "TitleBlockZen"

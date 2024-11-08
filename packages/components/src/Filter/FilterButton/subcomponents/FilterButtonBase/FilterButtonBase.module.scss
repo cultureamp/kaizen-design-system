@@ -1,9 +1,9 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/typography';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '../../../../../styles/utils/button-reset';
-@import './variables';
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../../../../../styles/utils/button-reset";
+@import "./variables";
 
 .filterButtonBase {
   @include button-reset;
@@ -45,7 +45,7 @@
     outline: none;
 
     &::after {
-      content: '';
+      content: "";
       z-index: 3;
       position: absolute;
       inset: $focus-ring-offset-outer;

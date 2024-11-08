@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from 'react'
-import { createPortal } from 'react-dom'
-import { GenericNotification } from '~components/Notification/subcomponents/GenericNotification'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { ToastNotificationObj } from '../../../types'
+import React, { HTMLAttributes } from "react"
+import { createPortal } from "react-dom"
+import { GenericNotification } from "~components/Notification/subcomponents/GenericNotification"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import { ToastNotificationObj } from "../../../types"
 
 export type ToastNotificationsMapProps = {
   notifications: ToastNotificationObj[]
@@ -28,7 +28,7 @@ export const ToastNotificationsMap = ({
           title={title}
           persistent={persistent}
           onHide={(): void => {
-            if (typeof onHide !== 'undefined') {
+            if (typeof onHide !== "undefined") {
               onHide()
             }
             defaultOnHide(id)
@@ -43,4 +43,4 @@ export const ToastNotificationsMap = ({
   )
 }
 
-ToastNotificationsMap.displayName = 'ToastNotificationsMap'
+ToastNotificationsMap.displayName = "ToastNotificationsMap"

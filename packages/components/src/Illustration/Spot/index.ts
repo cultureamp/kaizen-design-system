@@ -1,1 +1,1 @@
-export * from './Spot'
+export * from "./Spot"

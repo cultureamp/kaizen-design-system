@@ -1,18 +1,18 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { userEvent, waitFor, within, expect, fn } from '@storybook/test'
-import { VisuallyHidden } from 'react-aria'
-import { AddIcon, TrashIcon, ThumbsUpOffIcon, ThumbsUpOnIcon } from '~components/Icon'
-import { Tooltip, TooltipTrigger } from '~components/__overlays__/v3'
-import { Button } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { userEvent, waitFor, within, expect, fn } from "@storybook/test"
+import { VisuallyHidden } from "react-aria"
+import { AddIcon, TrashIcon, ThumbsUpOffIcon, ThumbsUpOnIcon } from "~components/Icon"
+import { Tooltip, TooltipTrigger } from "~components/__overlays__/v3"
+import { Button } from "../index"
 
 const onPressEvent = fn()
 
 const meta = {
-  title: 'Actions/Button/Button (v3)/Tests',
+  title: "Actions/Button/Button (v3)/Tests",
   component: Button,
   args: {
-    children: 'Label',
+    children: "Label",
     onPress: onPressEvent,
   },
 } satisfies Meta<typeof Button>
@@ -36,11 +36,11 @@ export const IsHovered: Story = {
   ...ButtonDefault,
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole('button')
+    const button = canvas.getByRole("button")
 
-    await step('Hover shows', async () => {
+    await step("Hover shows", async () => {
       await userEvent.hover(button)
-      await expect(button).toHaveAttribute('data-hovered', 'true')
+      await expect(button).toHaveAttribute("data-hovered", "true")
     })
   },
 }
@@ -55,13 +55,13 @@ export const IsFocused: Story = {
   ...ButtonDefault,
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole('button')
+    const button = canvas.getByRole("button")
 
-    await step('Focus shows', async () => {
+    await step("Focus shows", async () => {
       await userEvent.tab()
 
       await waitFor(() => expect(document.activeElement).toBe(button))
-      await expect(button).toHaveAttribute('data-focused', 'true')
+      await expect(button).toHaveAttribute("data-focused", "true")
     })
   },
 }
@@ -77,9 +77,9 @@ export const IsPressed: Story = {
   ...ButtonDefault,
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole('button')
+    const button = canvas.getByRole("button")
 
-    await step('onPress is called', async () => {
+    await step("onPress is called", async () => {
       await userEvent.click(button)
 
       await expect(onPressEvent).toHaveBeenCalledTimes(1)
@@ -98,12 +98,12 @@ export const IconButtonWithAccessibleLabel: Story = {
   ),
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole('button')
+    const button = canvas.getByRole("button")
 
-    await step('has accessible labels', async () => {
+    await step("has accessible labels", async () => {
       await userEvent.tab()
 
-      await expect(button).toHaveAccessibleName('Remove Highlight: 18, June, 2024')
+      await expect(button).toHaveAccessibleName("Remove Highlight: 18, June, 2024")
     })
   },
 }
@@ -125,15 +125,15 @@ export const ButtonWithRACRenderPropsAsChildren: Story = {
   ),
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole('button')
+    const button = canvas.getByRole("button")
 
-    await step('button icon reflects unfocused state', async () => {
-      await waitFor(() => expect(button).toHaveAccessibleName('Label is unfocused'))
+    await step("button icon reflects unfocused state", async () => {
+      await waitFor(() => expect(button).toHaveAccessibleName("Label is unfocused"))
     })
 
-    await step('focus on button and update icon', async () => {
+    await step("focus on button and update icon", async () => {
       await userEvent.tab()
-      await waitFor(() => expect(button).toHaveAccessibleName('Label is focused'))
+      await waitFor(() => expect(button).toHaveAccessibleName("Label is focused"))
     })
   },
 }
@@ -143,7 +143,7 @@ export const ButtonWithRACRenderPropsAsClassname: Story = {
   render: ({ children: _, ...otherArgs }) => (
     <Button
       className={({ isFocused }) =>
-        isFocused ? '!bg-blue-500 !text-white !border-transparent' : ''
+        isFocused ? "!bg-blue-500 !text-white !border-transparent" : ""
       }
       {...otherArgs}
     >
@@ -152,7 +152,7 @@ export const ButtonWithRACRenderPropsAsClassname: Story = {
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole('button')
+    const button = canvas.getByRole("button")
     await button.focus()
   },
 }
@@ -167,16 +167,16 @@ export const ButtonWithTooltip: Story = {
   ),
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole('button')
+    const button = canvas.getByRole("button")
 
-    await step('Focus shows', async () => {
+    await step("Focus shows", async () => {
       await userEvent.tab()
 
       await waitFor(() => expect(document.activeElement).toBe(button))
     })
 
-    await step('Tooltip content show', async () => {
-      await waitFor(() => expect(canvas.getByRole('tooltip')).toBeVisible())
+    await step("Tooltip content show", async () => {
+      await waitFor(() => expect(canvas.getByRole("tooltip")).toBeVisible())
     })
   },
 }

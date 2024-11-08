@@ -1,3 +1,3 @@
-export * from './Collapsible'
-export * from './CollapsibleGroup'
-export * from './ExpertAdviceCollapsible'
+export * from "./Collapsible"
+export * from "./CollapsibleGroup"
+export * from "./ExpertAdviceCollapsible"

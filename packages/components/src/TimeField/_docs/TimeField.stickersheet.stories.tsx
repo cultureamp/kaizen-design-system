@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { TimeField } from '../index'
-import { ValueType } from '../types'
+import React, { useState } from "react"
+import { Meta } from "@storybook/react"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import { TimeField } from "../index"
+import { ValueType } from "../types"
 
 export default {
-  title: 'Components/TimeField',
+  title: "Components/TimeField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -26,7 +26,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <>
         <StickerSheet heading="TimeField" className="w-full">
-          <StickerSheet.Header headings={['Default', 'Disabled', 'Error']} headingsWidth="30%" />
+          <StickerSheet.Header headings={["Default", "Disabled", "Error"]} headingsWidth="30%" />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <StickerSheet.Cell className="align-top">
@@ -61,7 +61,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet>
 
         <StickerSheet heading="Pseudo states" className="w-full">
-          <StickerSheet.Header headings={['Hover', 'Focus']} />
+          <StickerSheet.Header headings={["Hover", "Focus"]} />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <TimeField
@@ -83,7 +83,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet>
 
         <StickerSheet heading="Localisation" className="w-full">
-          <StickerSheet.Header headings={['en-US', 'en-GB', 'zh-HANS-SG']} headingsWidth="30%" />
+          <StickerSheet.Header headings={["en-US", "en-GB", "zh-HANS-SG"]} headingsWidth="30%" />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <TimeField label="Label" locale="en-US" value={valueEnUS} onChange={setValueEnUS} />
@@ -109,14 +109,14 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (RTL)',
+  name: "Sticker Sheet (RTL)",
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: 'rtl',
+    textDirection: "rtl",
   },
 }

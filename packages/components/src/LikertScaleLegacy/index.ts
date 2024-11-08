@@ -1,2 +1,2 @@
-export * from './LikertScaleLegacy'
-export * from './types'
+export * from "./LikertScaleLegacy"
+export * from "./types"

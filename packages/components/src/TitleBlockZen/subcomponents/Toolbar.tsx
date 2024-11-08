@@ -2,10 +2,10 @@
 // into its own component since it's a generic
 // grouping component for buttons/dropdowns/etc
 
-import React from 'react'
-import classnames from 'classnames'
-import { MenuProps, ButtonProps } from '~components/__actions__/v2'
-import styles from './Toolbar.module.scss'
+import React from "react"
+import classnames from "classnames"
+import { MenuProps, ButtonProps } from "~components/__actions__/v2"
+import styles from "./Toolbar.module.scss"
 
 type ToolbarProps = {
   items?: {
@@ -31,4 +31,4 @@ export const Toolbar = ({ items, noGap = false, automationId }: ToolbarProps): J
   )
 }
 
-Toolbar.displayName = 'Toolbar'
+Toolbar.displayName = "Toolbar"

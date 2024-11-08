@@ -1,9 +1,9 @@
-@import '~@kaizen/design-tokens/sass/typography';
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '../../../__actions__/Button/v1/utils/mixins';
-@import '../../../__actions__/Button/v1/utils/variables';
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../../../__actions__/Button/v1/utils/mixins";
+@import "../../../__actions__/Button/v1/utils/variables";
 
 %circle-button {
   width: 40px;

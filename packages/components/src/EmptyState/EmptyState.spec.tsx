@@ -1,8 +1,8 @@
-import React from 'react'
-import { cleanup, render } from '@testing-library/react'
-import { EmptyState, EmptyStateProps } from './EmptyState'
+import React from "react"
+import { cleanup, render } from "@testing-library/react"
+import { EmptyState, EmptyStateProps } from "./EmptyState"
 
-vi.mock('~components/Illustration', () => ({
+vi.mock("~components/Illustration", () => ({
   EmptyStatesPositive: (): JSX.Element => <div>EmptyStatesPositive_Component</div>,
   EmptyStatesNeutral: (): JSX.Element => <div>EmptyStatesNeutral_Component</div>,
   EmptyStatesNegative: (): JSX.Element => <div>EmptyStatesNegative_Component</div>,
@@ -10,31 +10,31 @@ vi.mock('~components/Illustration', () => ({
   EmptyStatesAction: (): JSX.Element => <div>EmptyStatesAction_Component</div>,
 }))
 
-describe('<EmptyState />', () => {
+describe("<EmptyState />", () => {
   afterEach(cleanup)
 
   const defaultProps: EmptyStateProps = {
-    id: 'someId',
+    id: "someId",
     headingProps: {
-      children: 'Some heading',
-      variant: 'heading-1',
+      children: "Some heading",
+      variant: "heading-1",
     },
-    bodyText: 'Lorem ipsum dolor...',
+    bodyText: "Lorem ipsum dolor...",
   }
 
-  it('renders an `id` attribute', () => {
+  it("renders an `id` attribute", () => {
     const { container } = render(<EmptyState {...defaultProps} />)
 
-    expect(container.querySelector('#someId')).toBeTruthy()
+    expect(container.querySelector("#someId")).toBeTruthy()
   })
 
-  it('renders given children', () => {
+  it("renders given children", () => {
     const { getByText } = render(
       <EmptyState {...defaultProps}>
         <h1>Child Heading</h1>
       </EmptyState>,
     )
 
-    expect(getByText('Child Heading')).toBeTruthy()
+    expect(getByText("Child Heading")).toBeTruthy()
   })
 })

@@ -1,10 +1,10 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheetStory } from '~storybook/components/StickerSheet'
-import { ToastNotification } from '../ToastNotification'
+import React from "react"
+import { Meta } from "@storybook/react"
+import { StickerSheetStory } from "~storybook/components/StickerSheet"
+import { ToastNotification } from "../ToastNotification"
 
 export default {
-  title: 'Components/Notifications/ToastNotification',
+  title: "Components/Notifications/ToastNotification",
   parameters: {
     chromatic: { disable: false, delay: 600 },
     controls: { disable: true },
@@ -15,11 +15,11 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
       <ToastNotification variant="success" title="Success">
-        New user data, imported by mackenzie@hooli.com has successfully uploaded.{' '}
+        New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
         <a href="/">Manage users is now available</a>
       </ToastNotification>
       <ToastNotification type="positive" title="Positive (Deprecated)">
-        New user data, imported by mackenzie@hooli.com has successfully uploaded.{' '}
+        New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
         <a href="/">Manage users is now available</a>
       </ToastNotification>
       <ToastNotification variant="informative" title="Informative">
@@ -27,15 +27,15 @@ const StickerSheetTemplate: StickerSheetStory = {
         completed. <a href="/">Manage users</a>
       </ToastNotification>
       <ToastNotification variant="cautionary" title="Cautionary">
-        New user data, imported by mackenzie@hooli.com has uploaded with some minor issues.{' '}
+        New user data, imported by mackenzie@hooli.com has uploaded with some minor issues.{" "}
         <a href="/">View issues</a>
       </ToastNotification>
       <ToastNotification variant="warning" title="Warning">
-        Results hidden to protect confidentiality of individuals and small groups.{' '}
+        Results hidden to protect confidentiality of individuals and small groups.{" "}
         <a href="/">Learn more</a>
       </ToastNotification>
       <ToastNotification type="negative" title="Negative (Deprecated)">
-        New user data, imported by mackenzie@hooli.com has successfully uploaded.{' '}
+        New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
         <a href="/">Manage users is now available</a>
       </ToastNotification>
       <ToastNotification
@@ -52,14 +52,14 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (RTL)',
+  name: "Sticker Sheet (RTL)",
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: 'rtl',
+    textDirection: "rtl",
   },
 }

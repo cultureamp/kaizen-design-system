@@ -1,15 +1,15 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Card } from '~components/Card'
-import { Heading } from '~components/Heading'
-import { Text } from '~components/Text'
-import { Divider } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Card } from "~components/Card"
+import { Heading } from "~components/Heading"
+import { Text } from "~components/Text"
+import { Divider } from "../index"
 
 const meta = {
-  title: 'Components/Divider',
+  title: "Components/Divider",
   component: Divider,
   args: {
-    variant: 'content',
+    variant: "content",
   },
 } satisfies Meta<typeof Divider>
 
@@ -21,7 +21,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

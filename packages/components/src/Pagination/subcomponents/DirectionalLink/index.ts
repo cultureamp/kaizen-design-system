@@ -1,1 +1,1 @@
-export * from './DirectionalLink'
+export * from "./DirectionalLink"

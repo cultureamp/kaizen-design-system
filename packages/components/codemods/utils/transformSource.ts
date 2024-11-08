@@ -1,6 +1,6 @@
-import ts from 'typescript'
-import { ImportModuleNameTagsMap } from './getKaioTagName'
-import { printAst } from './printAst'
+import ts from "typescript"
+import { ImportModuleNameTagsMap } from "./getKaioTagName"
+import { printAst } from "./printAst"
 
 export type TransformConfig<TagName extends string | ImportModuleNameTagsMap = string> = {
   sourceFile: ts.SourceFile

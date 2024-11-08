@@ -1,15 +1,15 @@
-import { parseJsx } from '../__tests__/utils'
-import { transformSource, printAst, TransformConfig } from '../utils'
-import { transformBrandMomentMoodToVariant } from './transformBrandMomentMoodToVariant'
+import { parseJsx } from "../__tests__/utils"
+import { transformSource, printAst, TransformConfig } from "../utils"
+import { transformBrandMomentMoodToVariant } from "./transformBrandMomentMoodToVariant"
 
-const transformBrandMoment = (sourceFile: TransformConfig['sourceFile']): string =>
+const transformBrandMoment = (sourceFile: TransformConfig["sourceFile"]): string =>
   transformSource({
     sourceFile,
     astTransformer: transformBrandMomentMoodToVariant,
-    tagName: 'BrandMoment',
+    tagName: "BrandMoment",
   })
 
-describe('transformBrandMomentMoodToVariant()', () => {
+describe("transformBrandMomentMoodToVariant()", () => {
   it('replaces mood="informative" with variant="informative"', () => {
     const inputAst = parseJsx(
       'export const TestComponent = () => <BrandMoment mood="informative" />',

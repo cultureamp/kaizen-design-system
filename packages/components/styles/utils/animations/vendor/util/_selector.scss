@@ -4,19 +4,19 @@
 /// @return {String} A selector that can be interpolated into your Sass code.
 /// @access private
 @function -mui-build-selector($states, $active: false) {
-  $return: '';
+  $return: "";
   $chain: map-get($motion-ui-classes, chain);
   $prefix: map-get($motion-ui-classes, prefix);
   $suffix: map-get($motion-ui-classes, active);
 
   @each $sel in $states {
-    $return: $return + if($chain, '&.', '#{&}-') + $prefix + $sel;
+    $return: $return + if($chain, "&.", "#{&}-") + $prefix + $sel;
 
     @if $active {
-      $return: $return + if($chain, '.', '#{&}-') + $prefix + $sel + $suffix;
+      $return: $return + if($chain, ".", "#{&}-") + $prefix + $sel + $suffix;
     }
 
-    $return: $return + ', ';
+    $return: $return + ", ";
   }
 
   @return str-slice($return, 1, -3);

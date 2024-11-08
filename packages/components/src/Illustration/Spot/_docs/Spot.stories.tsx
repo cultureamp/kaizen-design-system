@@ -1,10 +1,10 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Text } from '~components/Text'
-import { CompanyDetails } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Text } from "~components/Text"
+import { CompanyDetails } from "../index"
 
 const meta = {
-  title: 'Components/Illustrations/Spot',
+  title: "Components/Illustrations/Spot",
   component: CompanyDetails,
 } satisfies Meta<typeof CompanyDetails>
 
@@ -16,7 +16,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

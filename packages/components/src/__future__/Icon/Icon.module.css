@@ -5,9 +5,9 @@
 
   /* Must use vars otherwise whole attribute must be set again */
   font-variation-settings:
-    'FILL' var(--icon-fill, 0),
-    'GRAD' var(--icon-grade, 0),
-    'opsz' var(--icon-optical-size, var(--icon-size, 20));
+    "FILL" var(--icon-fill, 0),
+    "GRAD" var(--icon-grade, 0),
+    "opsz" var(--icon-optical-size, var(--icon-size, 20));
 }
 
 .filled {
@@ -15,13 +15,13 @@
 }
 
 .shouldMirrorInRTL {
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     transform: scale(-1, 1);
   }
 }
 
 .iconLTR {
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     display: none;
   }
 }
@@ -29,7 +29,7 @@
 .iconRTL {
   display: none;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     display: inherit;
   }
 }

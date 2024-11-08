@@ -1,9 +1,9 @@
-import React, { InputHTMLAttributes, ReactNode, useState } from 'react'
-import classnames from 'classnames'
-import { Text } from '~components/Text'
-import { VisuallyHidden } from '~components/VisuallyHidden'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './InputRange.module.scss'
+import React, { InputHTMLAttributes, ReactNode, useState } from "react"
+import classnames from "classnames"
+import { Text } from "~components/Text"
+import { VisuallyHidden } from "~components/VisuallyHidden"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import styles from "./InputRange.module.scss"
 
 export type InputRangeProps = {
   id: string
@@ -27,7 +27,7 @@ export const InputRange = ({
   min = 1,
   max = 10,
   onChange,
-  'aria-describedby': ariaDescribedby,
+  "aria-describedby": ariaDescribedby,
   classNameOverride,
   disabled,
   readOnly,
@@ -61,7 +61,7 @@ export const InputRange = ({
         aria-valuenow={value}
         aria-valuemin={min}
         aria-valuemax={max}
-        aria-describedby={`${visuallyHiddenHintId} ${ariaDescribedby ? ariaDescribedby : ''}`}
+        aria-describedby={`${visuallyHiddenHintId} ${ariaDescribedby ? ariaDescribedby : ""}`}
         onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
           setStep(1) // Put the stepper to 1 to avoid floating value
           onChange?.(e)
@@ -94,4 +94,4 @@ export const InputRange = ({
   )
 }
 
-InputRange.displayName = 'InputRange'
+InputRange.displayName = "InputRange"

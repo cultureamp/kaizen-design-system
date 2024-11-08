@@ -1,10 +1,10 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { Checkbox, CheckboxProps } from '../index'
+import React from "react"
+import { Meta } from "@storybook/react"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import { Checkbox, CheckboxProps } from "../index"
 
 export default {
-  title: 'Components/Checkbox controls/Checkbox',
+  title: "Components/Checkbox controls/Checkbox",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -13,7 +13,7 @@ export default {
         rules: [
           {
             // Built with no label on purpose, to be used within `CheckboxField` where label is present
-            id: 'label',
+            id: "label",
             enabled: false,
           },
         ],
@@ -30,18 +30,18 @@ const StickerSheetTemplate: StickerSheetStory = {
     } satisfies Partial<CheckboxProps>
 
     const rows = [
-      { title: 'Off', checkedStatus: 'off' },
-      { title: 'On', checkedStatus: 'on' },
-      { title: 'Mixed', checkedStatus: 'mixed' },
+      { title: "Off", checkedStatus: "off" },
+      { title: "On", checkedStatus: "on" },
+      { title: "Mixed", checkedStatus: "mixed" },
     ] satisfies {
       title: string
-      checkedStatus: CheckboxProps['checkedStatus']
+      checkedStatus: CheckboxProps["checkedStatus"]
     }[]
 
     return (
       <StickerSheet isReversed={isReversed}>
         <StickerSheet.Header
-          headings={['Default', 'Hover', 'Focus', 'Disabled']}
+          headings={["Default", "Hover", "Focus", "Disabled"]}
           hasVerticalHeadings
         />
         <StickerSheet.Body>
@@ -76,15 +76,15 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Reversed)',
+  name: "Sticker Sheet (Reversed)",
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: "Purple 700" },
   },
   args: { isReversed: true },
 }

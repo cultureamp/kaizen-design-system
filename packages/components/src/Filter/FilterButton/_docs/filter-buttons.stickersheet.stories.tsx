@@ -1,12 +1,12 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { FilterButton } from '../FilterButton'
-import { FilterButtonRemovable } from '../FilterButtonRemovable'
-import { FilterButtonBase } from '../subcomponents/FilterButtonBase'
+import React from "react"
+import { Meta } from "@storybook/react"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import { FilterButton } from "../FilterButton"
+import { FilterButtonRemovable } from "../FilterButtonRemovable"
+import { FilterButtonBase } from "../subcomponents/FilterButtonBase"
 
 export default {
-  title: 'Components/Filter Base/Filter Buttons',
+  title: "Components/Filter Base/Filter Buttons",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -17,7 +17,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
       <StickerSheet heading="Filter Button Base">
-        <StickerSheet.Header headings={['Default', 'Hover', 'Active', 'Focus']} />
+        <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterButtonBase>Label</FilterButtonBase>
@@ -35,7 +35,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
 
       <StickerSheet heading="Filter Button">
-        <StickerSheet.Header headings={['Closed', 'Open', 'Has selected value']} />
+        <StickerSheet.Header headings={["Closed", "Open", "Has selected value"]} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterButton label="Desserts" />
@@ -50,7 +50,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row rowTitleWidth={70}>
             <FilterButtonRemovable
               triggerButtonProps={{
-                label: 'Desserts',
+                label: "Desserts",
               }}
               removeButtonProps={{
                 onClick: () => undefined,
@@ -73,14 +73,14 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (RTL)',
+  name: "Sticker Sheet (RTL)",
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: 'rtl',
+    textDirection: "rtl",
   },
 }

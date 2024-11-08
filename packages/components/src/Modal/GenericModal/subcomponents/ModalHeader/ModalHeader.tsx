@@ -1,8 +1,8 @@
-import React from 'react'
-import { IconButton } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__/Icon'
-import { ModalBody } from '../ModalBody'
-import styles from './ModalHeader.module.scss'
+import React from "react"
+import { IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
+import { ModalBody } from "../ModalBody"
+import styles from "./ModalHeader.module.scss"
 
 export type ModalHeaderProps = {
   unpadded?: boolean
@@ -26,4 +26,4 @@ export const ModalHeader = ({ reversed, onDismiss, children }: ModalHeaderProps)
   </ModalBody>
 )
 
-ModalHeader.displayName = 'ModalHeader'
+ModalHeader.displayName = "ModalHeader"

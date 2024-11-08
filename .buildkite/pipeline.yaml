@@ -5,12 +5,12 @@ env:
   GITHUB_REGISTRY_TOKEN: ${GITHUB_REGISTRY_TOKEN}
 
 steps:
-  - name: ':package: Build (storybook)'
-    branches: 'main'
-    command: '.buildkite/scripts/build-storybook.sh'
+  - name: ":package: Build (storybook)"
+    branches: "main"
+    command: ".buildkite/scripts/build-storybook.sh"
     timeout_in_minutes: 15
-    artifact_paths: './storybook.tar.gz'
-    agent_query_rules: ['queue=build-unrestricted-large']
+    artifact_paths: "./storybook.tar.gz"
+    agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
       - docker#v5.9.0:
           image: node:22-bullseye
@@ -18,27 +18,27 @@ steps:
           propagate-aws-auth-tokens: true
   - wait
 
-  - name: ':seedling: Publish: ${KAIZEN_DOMAIN_NAME}'
-    branches: 'main'
-    key: 'publish-step'
-    command: '.buildkite/scripts/publish.sh'
+  - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}"
+    branches: "main"
+    key: "publish-step"
+    command: ".buildkite/scripts/publish.sh"
     timeout_in_minutes: 15
     env:
       KAIZEN_EXTRACT_ARTIFACTS: true
-    agent_query_rules: ['queue=build-unrestricted']
+    agent_query_rules: ["queue=build-unrestricted"]
     concurrency_group: kaizen-design-system-publish
     concurrency: 1
     plugins:
       - cultureamp/aws-assume-role#v0.2.0:
-          role: '${KAIZEN_ROLE_ARN}'
+          role: "${KAIZEN_ROLE_ARN}"
       - docker#v5.9.0:
           image: amazon/aws-cli
-          entrypoint: '/bin/bash'
+          entrypoint: "/bin/bash"
           propagate-environment: true
           propagate-aws-auth-tokens: true
 
-  - name: 'LinearB: Record deployment time'
+  - name: "LinearB: Record deployment time"
     command: bin/ci_noop
-    branches: 'main'
+    branches: "main"
     plugins:
       - cultureamp/linearb-cycle-time#v1.1.3: ~

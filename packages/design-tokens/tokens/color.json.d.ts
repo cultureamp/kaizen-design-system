@@ -1,5 +1,5 @@
-import { DeepMapObjectLeafs, Theme } from '../src/types'
+import { DeepMapObjectLeafs, Theme } from "../src/types"
 
-export const color: DeepMapObjectLeafs<Theme['color'], string>
+export const color: DeepMapObjectLeafs<Theme["color"], string>
 
 export default { color }

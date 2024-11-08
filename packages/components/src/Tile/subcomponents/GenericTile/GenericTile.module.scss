@@ -1,10 +1,10 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/shadow';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '../../../../styles/utils/animation';
-@import '../../../../styles/utils/responsive';
-@import './variables';
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../../../../styles/utils/animation";
+@import "../../../../styles/utils/responsive";
+@import "./variables";
 
 $tilePaddingTop: $spacing-xl;
 

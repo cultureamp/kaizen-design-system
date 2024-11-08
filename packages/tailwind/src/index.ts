@@ -1,1 +1,1 @@
-export * from './tailwind-presets'
+export * from "./tailwind-presets"

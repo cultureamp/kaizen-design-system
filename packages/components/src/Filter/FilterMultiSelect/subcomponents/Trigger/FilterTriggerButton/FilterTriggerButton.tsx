@@ -1,8 +1,8 @@
-import React, { useRef } from 'react'
-import { FilterTriggerRef } from '~components/Filter/Filter'
-import { FilterButton } from '~components/Filter/FilterButton'
-import { useMenuTriggerContext } from '../../../context'
-import { getTruncatedLabels } from '../../../utils'
+import React, { useRef } from "react"
+import { FilterTriggerRef } from "~components/Filter/Filter"
+import { FilterButton } from "~components/Filter/FilterButton"
+import { useMenuTriggerContext } from "../../../context"
+import { getTruncatedLabels } from "../../../utils"
 
 export type FilterTriggerButtonProps = {
   label: string
@@ -36,4 +36,4 @@ export const FilterTriggerButton = ({
   )
 }
 
-FilterTriggerButton.displayName = 'FilterMultiSelect.TriggerButton'
+FilterTriggerButton.displayName = "FilterMultiSelect.TriggerButton"

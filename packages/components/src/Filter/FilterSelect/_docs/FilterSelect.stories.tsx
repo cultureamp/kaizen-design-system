@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
-import { renderTriggerControls } from '~components/Filter/_docs/controls/renderTriggerControls'
-import { FilterButton } from '../../FilterButton'
-import { FilterSelect } from '../FilterSelect'
-import { SelectOption } from '../types'
-import { groupedMockItems, singleMockItems } from './mockData'
+import React, { useState } from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
+import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
+import { FilterButton } from "../../FilterButton"
+import { FilterSelect } from "../FilterSelect"
+import { SelectOption } from "../types"
+import { groupedMockItems, singleMockItems } from "./mockData"
 
 const meta = {
-  title: 'Components/Filter Select',
+  title: "Components/Filter Select",
   component: FilterSelect,
   argTypes: {
     ...renderTriggerControls,
     isOpen: { control: false },
     setIsOpen: { control: false },
     items: {
-      options: ['Single', 'Grouped'],
-      control: { type: 'radio' },
+      options: ["Single", "Grouped"],
+      control: { type: "radio" },
       mapping: {
         Single: singleMockItems,
         Grouped: groupedMockItems,
@@ -24,7 +24,7 @@ const meta = {
     },
   },
   args: {
-    label: 'Label',
+    label: "Label",
     isOpen: false,
     items: singleMockItems,
     renderTrigger: (triggerProps): JSX.Element => <FilterButton {...triggerProps} />,
@@ -32,7 +32,7 @@ const meta = {
   },
   parameters: {
     actions: {
-      argTypesRegex: '^on.*',
+      argTypesRegex: "^on.*",
     },
   },
 } satisfies Meta<typeof FilterSelect>
@@ -51,11 +51,11 @@ const FilterSelectTemplate: Story = {
 export const Playground: Story = {
   ...FilterSelectTemplate,
   args: {
-    label: 'Coffee',
+    label: "Coffee",
     /* @ts-expect-error: Storybook controls key; see argTypes in default export */
-    items: 'Single',
+    items: "Single",
     /* @ts-expect-error: Storybook controls key; see argTypes in default export */
-    renderTrigger: 'Filter Button',
+    renderTrigger: "Filter Button",
   },
 }
 
@@ -73,16 +73,16 @@ export const AdditionalProperties: Story = {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         items={[
-          { label: 'Bubblegum', value: 'bubblegum', isFruit: false },
-          { label: 'Strawberry', value: 'strawberry', isFruit: true },
-          { label: 'Chocolate', value: 'chocolate', isFruit: false },
-          { label: 'Apple', value: 'apple', isFruit: true },
-          { label: 'Lemon', value: 'lemon', isFruit: true },
+          { label: "Bubblegum", value: "bubblegum", isFruit: false },
+          { label: "Strawberry", value: "strawberry", isFruit: true },
+          { label: "Chocolate", value: "chocolate", isFruit: false },
+          { label: "Apple", value: "apple", isFruit: true },
+          { label: "Lemon", value: "lemon", isFruit: true },
         ]}
       >
         {({ items }): JSX.Element[] =>
           items.map((item) =>
-            item.type === 'item' ? (
+            item.type === "item" ? (
               <FilterSelect.Option
                 key={item.key}
                 item={{
@@ -98,5 +98,5 @@ export const AdditionalProperties: Story = {
       </FilterSelect>
     )
   },
-  name: 'Additional option properties',
+  name: "Additional option properties",
 }

@@ -1,6 +1,6 @@
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/border';
-@import '../../styles/utils/button-reset';
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "../../styles/utils/button-reset";
 
 // Sync with PopoverModern.tsx
 $arrow-width: 14px;
@@ -15,7 +15,7 @@ $large-width: 450px;
 @mixin arrow($background-color, $border-color) {
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     border-left: calc(#{$arrow-width} / 2) solid transparent;
     border-right: calc(#{$arrow-width} / 2) solid transparent;
@@ -203,7 +203,7 @@ $cautionary-box-border-color: var(--color-yellow-700);
  * Hence, the confusion below.
  */
 
-[data-popper-placement^='bottom'] .arrowWrapper {
+[data-popper-placement^="bottom"] .arrowWrapper {
   bottom: 100%;
   left: 50%;
   margin-top: -9px;
@@ -213,7 +213,7 @@ $cautionary-box-border-color: var(--color-yellow-700);
   }
 }
 
-[data-popper-placement^='left'] .arrowWrapper {
+[data-popper-placement^="left"] .arrowWrapper {
   right: 0;
   margin-right: -10px;
 
@@ -222,7 +222,7 @@ $cautionary-box-border-color: var(--color-yellow-700);
   }
 }
 
-[data-popper-placement^='right'] .arrowWrapper {
+[data-popper-placement^="right"] .arrowWrapper {
   left: 0;
   margin-left: -10px;
 
@@ -231,7 +231,7 @@ $cautionary-box-border-color: var(--color-yellow-700);
   }
 }
 
-[data-popper-placement^='top'] .arrowWrapper {
+[data-popper-placement^="top"] .arrowWrapper {
   top: 100%;
   left: 50%;
 }

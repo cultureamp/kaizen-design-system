@@ -1,9 +1,9 @@
-import { Schema } from 'prosemirror-model'
-import { createDocNode, createEditorState } from '../../core/state'
-import { getMarks } from '../../schema/marks'
-import { getNodes } from '../../schema/nodes'
+import { Schema } from "prosemirror-model"
+import { createDocNode, createEditorState } from "../../core/state"
+import { getMarks } from "../../schema/marks"
+import { getNodes } from "../../schema/nodes"
 
-import data from './data.json'
+import data from "./data.json"
 
 export const testSchema = new Schema({
   nodes: getNodes(),
@@ -11,17 +11,17 @@ export const testSchema = new Schema({
 })
 
 export const testDocNodeBasic = {
-  type: 'doc',
+  type: "doc",
   content: data.testDocNodeContentJSON,
 }
 
 export const testDocNodeMarks = {
-  type: 'doc',
+  type: "doc",
   content: data.testDocNodeContentWithMarksJSON,
 }
 
 export const testDocNodeLists = {
-  type: 'doc',
+  type: "doc",
   content: data.testDocNodeContentWithListsJSON,
 }
 

@@ -1,1 +1,1 @@
-export * from './StickerSheetTableHeading'
+export * from "./StickerSheetTableHeading"

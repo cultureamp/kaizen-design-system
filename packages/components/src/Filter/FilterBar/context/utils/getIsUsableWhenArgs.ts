@@ -1,5 +1,5 @@
-import { SourceFiltersState, FiltersValues } from '../../types'
-import { FilterBarState, InternalFilterState } from '../types'
+import { SourceFiltersState, FiltersValues } from "../../types"
+import { FilterBarState, InternalFilterState } from "../types"
 
 export const getIsUsableWhenArgs = <ValuesMap extends FiltersValues>({
   filters,

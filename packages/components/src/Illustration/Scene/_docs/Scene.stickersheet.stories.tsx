@@ -1,6 +1,6 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import React from "react"
+import { Meta } from "@storybook/react"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
 
 import {
   EmptyStatesAction,
@@ -48,10 +48,10 @@ import {
   SkillsCoachStrategy,
   SurveyGetStarted,
   SurveyOverviewClosed,
-} from '../index'
+} from "../index"
 
 export default {
-  title: 'Components/Illustrations/Scene',
+  title: "Components/Illustrations/Scene",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -251,5 +251,5 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }

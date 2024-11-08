@@ -1,6 +1,6 @@
 /* This is a legacy function, so keeping it as it was */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect, useState, ReactNode, useMemo } from 'react'
+import React, { useEffect, useState, ReactNode, useMemo } from "react"
 
 type Props = Record<string, string>
 type GenericChildrenType = { children?: ReactNode }
@@ -27,7 +27,7 @@ export const useMediaQueries = (
     MediumOrLarger: (props: GenericChildrenType) => JSX.Element
   }
 } => {
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     return {
       queries: {
         isSmall: false,
@@ -47,12 +47,12 @@ export const useMediaQueries = (
   }
 
   // Ensure these match the tokens in @kaizen/design-tokens
-  const breakpoints = { medium: '768px', large: '1080px' }
+  const breakpoints = { medium: "768px", large: "1080px" }
 
   // The `addEventListener` calls blow up legacy Edge (<= v18/pre chromium),
   // so we disable the functionality of updating after page load.
   const isLegacyEdge = /Edge/.exec(navigator.userAgent)
-  const isUnsupportedSafari = window.matchMedia('').addEventListener === undefined
+  const isUnsupportedSafari = window.matchMedia("").addEventListener === undefined
 
   // ---------------------------------------
   // Create Kaizen breakpoint matches for initial state
@@ -117,12 +117,12 @@ export const useMediaQueries = (
       })
     }
 
-    smallMatchMedia.addEventListener('change', updateMatches, true)
-    largeMatchMedia.addEventListener('change', updateMatches, true)
+    smallMatchMedia.addEventListener("change", updateMatches, true)
+    largeMatchMedia.addEventListener("change", updateMatches, true)
 
     return () => {
-      smallMatchMedia.removeEventListener('change', updateMatches)
-      largeMatchMedia.removeEventListener('change', updateMatches)
+      smallMatchMedia.removeEventListener("change", updateMatches)
+      largeMatchMedia.removeEventListener("change", updateMatches)
     }
     // This is a legacy function, so keeping it as it was
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -166,12 +166,12 @@ export const useMediaQueries = (
       allEventListeners.set(matchMedia, updateCustomMatchesForQuery)
 
       // Add the event listener
-      matchMedia.addEventListener('change', updateCustomMatchesForQuery, true)
+      matchMedia.addEventListener("change", updateCustomMatchesForQuery, true)
     })
 
     return () => {
       allEventListeners.forEach((eventListener, matchMedia) => {
-        matchMedia.removeEventListener('change', eventListener)
+        matchMedia.removeEventListener("change", eventListener)
       })
     }
     // This is a legacy function, so keeping it as it was

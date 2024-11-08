@@ -1,23 +1,23 @@
-import React, { useState } from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { vi } from 'vitest'
-import { TimeField, TimeFieldProps } from './TimeField'
-import { ValueType } from './types'
+import React, { useState } from "react"
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
+import { TimeField, TimeFieldProps } from "./TimeField"
+import { ValueType } from "./types"
 const user = userEvent.setup()
 
 const mockOnChange = vi.fn()
-const LABEL = 'Launch Time Label'
+const LABEL = "Launch Time Label"
 
 const pressArrowKey =
-  (direction: 'ArrowUp' | 'ArrowDown') =>
+  (direction: "ArrowUp" | "ArrowDown") =>
   async (element: HTMLElement): Promise<void> => {
     await user.click(element)
     await user.keyboard(`{${direction}}`)
   }
 
-const pressArrowUpKey = pressArrowKey('ArrowUp')
-const pressArrowDownKey = pressArrowKey('ArrowDown')
+const pressArrowUpKey = pressArrowKey("ArrowUp")
+const pressArrowDownKey = pressArrowKey("ArrowDown")
 
 const TimeFieldWrapper = ({
   value: propsValue = null,
@@ -37,29 +37,29 @@ const TimeFieldWrapper = ({
   )
 }
 
-describe('component formats time appropriate to locale', () => {
-  it('shows time in a h:mm a format for en-AU locale', () => {
+describe("component formats time appropriate to locale", () => {
+  it("shows time in a h:mm a format for en-AU locale", () => {
     render(<TimeFieldWrapper locale="en-AU" />)
     // There should be 3 spin buttons - hour, minutes, and period
-    expect(screen.getAllByRole('spinbutton')).toHaveLength(3)
+    expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
   })
 
-  it('shows time in a h:mm A format for en-US', () => {
+  it("shows time in a h:mm A format for en-US", () => {
     render(<TimeFieldWrapper locale="en-US" />)
-    expect(screen.getAllByRole('spinbutton')).toHaveLength(3)
+    expect(screen.getAllByRole("spinbutton")).toHaveLength(3)
   })
 
-  it('shows time in a HH:MM format for en-GB', () => {
+  it("shows time in a HH:MM format for en-GB", () => {
     render(<TimeFieldWrapper locale="en-GB" />)
     // There should be 2 spin buttons - hour and minutes
-    expect(screen.getAllByRole('spinbutton')).toHaveLength(2)
+    expect(screen.getAllByRole("spinbutton")).toHaveLength(2)
   })
 })
 
-describe('spin button functionality', () => {
-  it('changes hour on key press', async () => {
+describe("spin button functionality", () => {
+  it("changes hour on key press", async () => {
     render(<TimeFieldWrapper />)
-    const hourSpinner = screen.getByRole('spinbutton', {
+    const hourSpinner = screen.getByRole("spinbutton", {
       name: `hour, ${LABEL}`,
     })
     await pressArrowUpKey(hourSpinner)
@@ -83,9 +83,9 @@ describe('spin button functionality', () => {
     })
   })
 
-  it('changes minutes on key press', async () => {
+  it("changes minutes on key press", async () => {
     render(<TimeFieldWrapper />)
-    const minuteSpinner = screen.getByRole('spinbutton', {
+    const minuteSpinner = screen.getByRole("spinbutton", {
       name: `minute, ${LABEL}`,
     })
     await pressArrowUpKey(minuteSpinner)
@@ -105,13 +105,13 @@ describe('spin button functionality', () => {
     })
   })
 
-  it('changes segments orthogonally', async () => {
+  it("changes segments orthogonally", async () => {
     // tests whether changing minute changes hour
     render(<TimeFieldWrapper value={{ hour: 4, minutes: 44 }} />)
-    const hourSpinner = screen.getByRole('spinbutton', {
+    const hourSpinner = screen.getByRole("spinbutton", {
       name: `hour, ${LABEL}`,
     })
-    const minuteSpinner = screen.getByRole('spinbutton', {
+    const minuteSpinner = screen.getByRole("spinbutton", {
       name: `minute, ${LABEL}`,
     })
     await pressArrowUpKey(hourSpinner)
@@ -122,18 +122,18 @@ describe('spin button functionality', () => {
     })
   })
 
-  it('allows uers to backspace to remove values', async () => {
+  it("allows uers to backspace to remove values", async () => {
     render(<TimeFieldWrapper value={{ hour: 4, minutes: 44 }} />)
-    const hourSpinner = screen.getByRole('spinbutton', {
+    const hourSpinner = screen.getByRole("spinbutton", {
       name: `hour, ${LABEL}`,
     })
-    const minuteSpinner = screen.getByRole('spinbutton', {
+    const minuteSpinner = screen.getByRole("spinbutton", {
       name: `minute, ${LABEL}`,
     })
     await user.click(minuteSpinner)
-    await user.keyboard('{Backspace}')
+    await user.keyboard("{Backspace}")
 
-    await user.keyboard('{Backspace}')
+    await user.keyboard("{Backspace}")
     await waitFor(() => {
       expect(minuteSpinner).toHaveTextContent(/^--$/)
       expect(hourSpinner).toHaveTextContent(/^4$/)
@@ -141,15 +141,15 @@ describe('spin button functionality', () => {
   })
 })
 
-describe('onChange', () => {
-  it('returns correct time from 12 hour format display', async () => {
+describe("onChange", () => {
+  it("returns correct time from 12 hour format display", async () => {
     render(
       <TimeFieldWrapper value={{ hour: 16, minutes: 44 }} onChange={mockOnChange} locale="en-AU" />,
     )
-    const hourSpinner = screen.getByRole('spinbutton', {
+    const hourSpinner = screen.getByRole("spinbutton", {
       name: `hour, ${LABEL}`,
     })
-    expect(hourSpinner).toHaveTextContent('4')
+    expect(hourSpinner).toHaveTextContent("4")
 
     await pressArrowUpKey(hourSpinner)
     await waitFor(() => {
@@ -157,14 +157,14 @@ describe('onChange', () => {
     })
   })
 
-  it('returns correct time from 24 hour format display', async () => {
+  it("returns correct time from 24 hour format display", async () => {
     render(
       <TimeFieldWrapper value={{ hour: 16, minutes: 44 }} onChange={mockOnChange} locale="en-GB" />,
     )
-    const hourSpinner = screen.getByRole('spinbutton', {
+    const hourSpinner = screen.getByRole("spinbutton", {
       name: `hour, ${LABEL}`,
     })
-    expect(hourSpinner).toHaveTextContent('16')
+    expect(hourSpinner).toHaveTextContent("16")
 
     await pressArrowUpKey(hourSpinner)
     await waitFor(() => {

@@ -1,1 +1,1 @@
-export * from '../v1/Tooltip'
+export * from "../v1/Tooltip"

@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from '../LoadingSpinner.module.css'
+import React from "react"
+import styles from "../LoadingSpinner.module.css"
 
 const SmallSpinnerIcon = (): JSX.Element => (
   <svg
@@ -56,11 +56,11 @@ const ExtraSmallSpinnerIcon = (): JSX.Element => (
 )
 
 type SpinnerIconProps = {
-  size: 'xs' | 'sm' | 'md'
+  size: "xs" | "sm" | "md"
 }
 
 export const SpinnerIcon = ({ size }: SpinnerIconProps): JSX.Element => {
-  if (size === 'xs') return <ExtraSmallSpinnerIcon />
-  if (size === 'sm') return <SmallSpinnerIcon />
+  if (size === "xs") return <ExtraSmallSpinnerIcon />
+  if (size === "sm") return <SmallSpinnerIcon />
   return <MediumSpinnerIcon />
 }

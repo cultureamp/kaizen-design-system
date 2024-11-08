@@ -1,5 +1,5 @@
-import React from 'react'
-import { BrandSVGProps } from '../Brand'
+import React from "react"
+import { BrandSVGProps } from "../Brand"
 
 export type BrandCollectiveIntelligenceProps = BrandSVGProps
 
@@ -10,8 +10,8 @@ export const BrandCollectiveIntelligence = ({
 }: BrandCollectiveIntelligenceProps): JSX.Element => {
   const props = {
     role,
-    'aria-hidden': role === 'presentation' ? true : undefined,
-    'className': classNameOverride,
+    "aria-hidden": role === "presentation" ? true : undefined,
+    "className": classNameOverride,
     ...restProps,
   }
 
@@ -57,4 +57,4 @@ export const BrandCollectiveIntelligence = ({
   )
 }
 
-BrandCollectiveIntelligence.displayName = 'Brand.CollectiveIntelligence'
+BrandCollectiveIntelligence.displayName = "Brand.CollectiveIntelligence"

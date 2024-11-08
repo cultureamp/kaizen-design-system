@@ -1,5 +1,5 @@
-import { isMatch } from 'react-day-picker'
-import { DisabledDays } from '../types'
+import { isMatch } from "react-day-picker"
+import { DisabledDays } from "../types"
 
 export const isDisabledDate = (date: Date, disabledDays: DisabledDays): boolean =>
   disabledDays === undefined

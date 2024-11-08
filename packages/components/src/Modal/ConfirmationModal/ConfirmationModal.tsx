@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from 'react'
-import classnames from 'classnames'
-import { Heading } from '~components/Heading'
-import { Assertive, Cautionary, Informative, Negative, Positive } from '~components/Illustration'
+import React, { HTMLAttributes } from "react"
+import classnames from "classnames"
+import { Heading } from "~components/Heading"
+import { Assertive, Cautionary, Informative, Negative, Positive } from "~components/Illustration"
 import {
   GenericModal,
   ModalAccessibleDescription,
@@ -9,13 +9,13 @@ import {
   ModalHeader,
   ModalAccessibleLabel,
   ModalBody,
-} from '~components/Modal/GenericModal'
-import { ButtonProps } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__/Icon'
-import styles from './ConfirmationModal.module.scss'
+} from "~components/Modal/GenericModal"
+import { ButtonProps } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
+import styles from "./ConfirmationModal.module.scss"
 
-type Mood = 'positive' | 'informative' | 'negative' | 'cautionary' | 'assertive'
-type Variant = 'success' | 'informative' | 'warning' | 'cautionary'
+type Mood = "positive" | "informative" | "negative" | "cautionary" | "assertive"
+type Variant = "success" | "informative" | "warning" | "cautionary"
 
 type BaseConfirmationModalProps = {
   isOpen: boolean
@@ -68,35 +68,35 @@ export type ConfirmationModalProps = BaseConfirmationModalProps &
 
 const getIconName = (variantName: Mood | Variant): string => {
   switch (variantName) {
-    case 'cautionary':
-      return 'warning'
-    case 'informative':
-      return 'info'
-    case 'negative':
-    case 'warning':
-      return 'error'
-    case 'positive':
-    case 'success':
-      return 'check_circle'
-    case 'assertive':
-      return 'error'
+    case "cautionary":
+      return "warning"
+    case "informative":
+      return "info"
+    case "negative":
+    case "warning":
+      return "error"
+    case "positive":
+    case "success":
+      return "check_circle"
+    case "assertive":
+      return "error"
   }
 }
 
 const getIcon = (variantName: Mood | Variant, isProminent: boolean): JSX.Element => {
   if (isProminent) {
     switch (variantName) {
-      case 'cautionary':
+      case "cautionary":
         return <Cautionary />
-      case 'informative':
+      case "informative":
         return <Informative />
-      case 'negative':
-      case 'warning':
+      case "negative":
+      case "warning":
         return <Negative />
-      case 'positive':
-      case 'success':
+      case "positive":
+      case "success":
         return <Positive />
-      case 'assertive':
+      case "assertive":
         return <Assertive />
     }
   }
@@ -119,8 +119,8 @@ export const ConfirmationModal = ({
   onConfirm,
   onAfterLeave,
   onAfterEnter,
-  confirmLabel = 'Confirm',
-  dismissLabel = 'Cancel',
+  confirmLabel = "Confirm",
+  dismissLabel = "Cancel",
   confirmWorking,
   onDismiss: propsOnDismiss,
   children,
@@ -186,7 +186,7 @@ export const ConfirmationModal = ({
         </ModalBody>
         <ModalFooter
           actions={footerActions}
-          appearance={mood === 'negative' || variant == 'warning' ? 'destructive' : 'primary'}
+          appearance={mood === "negative" || variant == "warning" ? "destructive" : "primary"}
           unpadded={unpadded}
         />
       </div>
@@ -194,4 +194,4 @@ export const ConfirmationModal = ({
   )
 }
 
-ConfirmationModal.displayName = 'ConfirmationModal'
+ConfirmationModal.displayName = "ConfirmationModal"

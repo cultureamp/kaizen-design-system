@@ -1,7 +1,7 @@
-import React, { ElementType, useEffect, useState } from 'react'
-import Nanobus from 'nanobus'
-import { createRoot } from 'react-dom/client'
-import { LinkEditorProps } from './components'
+import React, { ElementType, useEffect, useState } from "react"
+import Nanobus from "nanobus"
+import { createRoot } from "react-dom/client"
+import { LinkEditorProps } from "./components"
 
 const Wrapper = ({
   emitter,
@@ -18,10 +18,10 @@ const Wrapper = ({
     const onUpdate = (newComponentProps: LinkEditorProps): void => {
       setLocalComponentProps(newComponentProps)
     }
-    emitter.addListener('update', onUpdate)
+    emitter.addListener("update", onUpdate)
 
     return () => {
-      emitter.removeListener('update', onUpdate)
+      emitter.removeListener("update", onUpdate)
     }
   }, [emitter])
 
@@ -41,7 +41,7 @@ export const createReactTooltipWrapper = (
   update: (props: LinkEditorProps) => void
 } => {
   const emitter = new Nanobus()
-  const container = document.createElement('div')
+  const container = document.createElement("div")
   parentNode.appendChild(container)
   const root = createRoot(container)
 
@@ -49,11 +49,11 @@ export const createReactTooltipWrapper = (
 
   function destroy(): void {
     root.unmount()
-    emitter.removeAllListeners('*')
+    emitter.removeAllListeners("*")
   }
 
   function update(props: LinkEditorProps): void {
-    emitter.emit('update', props)
+    emitter.emit("update", props)
   }
 
   return { destroy, update }

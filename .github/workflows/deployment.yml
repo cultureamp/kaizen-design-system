@@ -1,10 +1,10 @@
-name: 'Deployment'
+name: "Deployment"
 
 on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Environment to deploy to'
+        description: "Environment to deploy to"
         type: environment
         required: true
 

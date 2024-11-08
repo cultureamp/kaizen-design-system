@@ -1,12 +1,12 @@
 // ts-check
 /** @type {import('tailwindcss').Config} */
 
-import { Preset } from './src'
+import { Preset } from "./src"
 
 export default {
-  content: ['./src/_docs/**/*.{tsx,mdx}'],
+  content: ["./src/_docs/**/*.{tsx,mdx}"],
   presets: [Preset],
-  important: 'body',
+  important: "body",
   corePlugins: {
     preflight: false,
   },

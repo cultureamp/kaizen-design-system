@@ -1,11 +1,11 @@
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Content } from '~components/Content'
-import { Text } from '~components/Text'
-import { Container } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Content } from "~components/Content"
+import { Text } from "~components/Text"
+import { Container } from "../index"
 
 const meta = {
-  title: 'Pages/Container',
+  title: "Pages/Container",
   component: Container,
   args: {
     children: (
@@ -29,7 +29,7 @@ const meta = {
     ),
   },
   argTypes: {
-    children: { controls: 'disabled' },
+    children: { controls: "disabled" },
   },
 } satisfies Meta<typeof Container>
 
@@ -41,7 +41,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },
@@ -56,7 +56,7 @@ export const Example: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

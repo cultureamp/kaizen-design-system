@@ -1,7 +1,7 @@
-import React from 'react'
-import { Tabs as RACTabs, TabsProps as RACTabsProps, Key as RACKey } from 'react-aria-components'
+import React from "react"
+import { Tabs as RACTabs, TabsProps as RACTabsProps, Key as RACKey } from "react-aria-components"
 
-export type TabsProps = Omit<RACTabsProps, 'orientation'>
+export type TabsProps = Omit<RACTabsProps, "orientation">
 export type Key = RACKey
 
 /**

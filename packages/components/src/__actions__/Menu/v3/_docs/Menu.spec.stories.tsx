@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { expect, userEvent, waitFor, within, fn } from '@storybook/test'
-import isChromatic from 'chromatic'
-import { Popover, Header, Section } from 'react-aria-components'
-import { Button } from '~components/__actions__/v3'
-import { Icon } from '~components/__future__/Icon'
-import { Menu, MenuItem, MenuTrigger } from '../index'
+import React, { useState } from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { expect, userEvent, waitFor, within, fn } from "@storybook/test"
+import isChromatic from "chromatic"
+import { Popover, Header, Section } from "react-aria-components"
+import { Button } from "~components/__actions__/v3"
+import { Icon } from "~components/__future__/Icon"
+import { Menu, MenuItem, MenuTrigger } from "../index"
 
 const meta = {
-  title: 'Actions/Menu/v3/Tests',
+  title: "Actions/Menu/v3/Tests",
   component: MenuTrigger,
   args: {
     defaultOpen: isChromatic(),
@@ -29,7 +29,7 @@ export const KitchenSink: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ height: '500px' }}>
+      <div style={{ height: "500px" }}>
         <Story />
       </div>
     ),
@@ -82,7 +82,7 @@ export const Basic: Story = {
         <Menu>
           <MenuItem
             icon={<Icon name="warning" isPresentational isFilled />}
-            onAction={() => alert('Menu item pressed')}
+            onAction={() => alert("Menu item pressed")}
           >
             Trigger an alert
           </MenuItem>
@@ -102,42 +102,42 @@ export const Basic: Story = {
   ),
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const menuButton = canvas.getByRole('button')
+    const menuButton = canvas.getByRole("button")
 
-    await step('Menu opens on click', async () => {
+    await step("Menu opens on click", async () => {
       await userEvent.click(menuButton)
-      await waitFor(() => expect(canvas.getByRole('menu')).toBeVisible())
+      await waitFor(() => expect(canvas.getByRole("menu")).toBeVisible())
     })
 
-    await step('Arrow keys adjust focus', async () => {
-      await userEvent.keyboard('[ArrowDown]')
+    await step("Arrow keys adjust focus", async () => {
+      await userEvent.keyboard("[ArrowDown]")
       await waitFor(() =>
-        expect(canvas.getByRole('menuitem', { name: 'Go to cultureamp.com' })).toHaveFocus(),
+        expect(canvas.getByRole("menuitem", { name: "Go to cultureamp.com" })).toHaveFocus(),
       )
     })
 
-    await step('Esc closes menu', async () => {
-      await userEvent.keyboard('[Escape]')
-      await waitFor(() => expect(canvas.queryByRole('menu')).not.toBeInTheDocument())
+    await step("Esc closes menu", async () => {
+      await userEvent.keyboard("[Escape]")
+      await waitFor(() => expect(canvas.queryByRole("menu")).not.toBeInTheDocument())
     })
 
-    await step('Menu opens on enter press', async () => {
-      await userEvent.keyboard('[Enter]')
+    await step("Menu opens on enter press", async () => {
+      await userEvent.keyboard("[Enter]")
       await waitFor(() =>
-        expect(canvas.getByRole('menuitem', { name: 'Trigger an alert' })).toHaveFocus(),
+        expect(canvas.getByRole("menuitem", { name: "Trigger an alert" })).toHaveFocus(),
       )
-      await userEvent.keyboard('[Escape]')
+      await userEvent.keyboard("[Escape]")
     })
 
-    await step('Menu opens on arrow up/down', async () => {
-      await userEvent.keyboard('[ArrowDown]')
+    await step("Menu opens on arrow up/down", async () => {
+      await userEvent.keyboard("[ArrowDown]")
       await waitFor(() =>
-        expect(canvas.getByRole('menuitem', { name: 'Trigger an alert' })).toHaveFocus(),
+        expect(canvas.getByRole("menuitem", { name: "Trigger an alert" })).toHaveFocus(),
       )
-      await userEvent.keyboard('[Escape]')
+      await userEvent.keyboard("[Escape]")
 
-      await userEvent.keyboard('[ArrowUp]')
-      await waitFor(() => expect(canvas.getByRole('menuitem', { name: 'Item 5' })).toHaveFocus())
+      await userEvent.keyboard("[ArrowUp]")
+      await waitFor(() => expect(canvas.getByRole("menuitem", { name: "Item 5" })).toHaveFocus())
     })
   },
 }
@@ -164,20 +164,20 @@ export const DisabledItems: Story = {
   ),
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const menuButton = canvas.getByRole('button')
+    const menuButton = canvas.getByRole("button")
 
-    await step('Disabled items are unable to be focused', async () => {
+    await step("Disabled items are unable to be focused", async () => {
       await userEvent.click(menuButton)
-      expect(canvas.getByRole('menuitem', { name: 'Item 2' })).toHaveFocus()
-      await userEvent.keyboard('[ArrowDown]')
-      await userEvent.keyboard('[ArrowDown]')
-      expect(canvas.getByRole('menuitem', { name: 'Item 5' })).toHaveFocus()
-      await userEvent.keyboard('[Escape]')
+      expect(canvas.getByRole("menuitem", { name: "Item 2" })).toHaveFocus()
+      await userEvent.keyboard("[ArrowDown]")
+      await userEvent.keyboard("[ArrowDown]")
+      expect(canvas.getByRole("menuitem", { name: "Item 5" })).toHaveFocus()
+      await userEvent.keyboard("[Escape]")
     })
 
     await step("Clicking a disabled item doesn't trigger onClick", async () => {
       await userEvent.click(menuButton)
-      await userEvent.click(canvas.getByRole('menuitem', { name: 'Item 1' }))
+      await userEvent.click(canvas.getByRole("menuitem", { name: "Item 1" }))
       await waitFor(() => expect(mockOnClick).not.toBeCalled())
     })
   },
@@ -236,13 +236,13 @@ export const Controlled: Story = {
   },
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const externalButton = await canvas.findByRole('button', {
-      name: 'Toggle open',
+    const externalButton = await canvas.findByRole("button", {
+      name: "Toggle open",
     })
 
-    await step('Menu opens on external button click', async () => {
+    await step("Menu opens on external button click", async () => {
       await userEvent.click(externalButton)
-      await waitFor(() => expect(canvas.getByRole('menu')).toBeVisible())
+      await waitFor(() => expect(canvas.getByRole("menu")).toBeVisible())
     })
   },
 }

@@ -1,4 +1,4 @@
-import { createContext } from 'react'
+import { createContext } from "react"
 
 export type ModalContextType = {
   labelledByID: string
@@ -6,6 +6,6 @@ export type ModalContextType = {
 }
 
 export const ModalContext = createContext<ModalContextType>({
-  labelledByID: 'modal-labelledby',
-  describedByID: 'modal-describedby',
+  labelledByID: "modal-labelledby",
+  describedByID: "modal-describedby",
 })

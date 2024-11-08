@@ -1,19 +1,19 @@
-import { RollupOptions } from 'rollup'
-import postcss from 'rollup-plugin-postcss'
+import { RollupOptions } from "rollup"
+import postcss from "rollup-plugin-postcss"
 
 export const rollupTailwindConfig = (): RollupOptions[] => {
   const config = {
-    input: './src/tailwind.css',
+    input: "./src/tailwind.css",
     plugins: [
       postcss({
         modules: false,
         inject: false,
-        extract: 'tailwind.css',
-        extensions: ['.css'],
+        extract: "tailwind.css",
+        extensions: [".css"],
       }),
     ],
     output: {
-      dir: 'dist',
+      dir: "dist",
     },
   }
 

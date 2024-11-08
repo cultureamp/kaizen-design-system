@@ -1,19 +1,19 @@
-import { findByText, waitFor } from '@testing-library/dom'
-import { vi } from 'vitest'
-import { createRichTextEditor } from '../core'
+import { findByText, waitFor } from "@testing-library/dom"
+import { vi } from "vitest"
+import { createRichTextEditor } from "../core"
 import {
   mockRangeForBoundingRect,
   simulateSelectionByText,
   simulateTextInsert,
-} from './__fixtures__/helpers'
-import { testEditorState, testSchema } from './__fixtures__/test-state'
-import { addMark } from './addMark'
-describe('addMark()', () => {
+} from "./__fixtures__/helpers"
+import { testEditorState, testSchema } from "./__fixtures__/test-state"
+import { addMark } from "./addMark"
+describe("addMark()", () => {
   const onChange = vi.fn()
-  const attributes = { 'aria-labelledby': 'label-text-123' }
+  const attributes = { "aria-labelledby": "label-text-123" }
 
-  it('creates an empty wrapper of the given Mark type if no selection is provided', async () => {
-    const node = document.createElement('div')
+  it("creates an empty wrapper of the given Mark type if no selection is provided", async () => {
+    const node = document.createElement("div")
     const { dispatchTransaction } = createRichTextEditor({
       node,
       onChange,
@@ -21,21 +21,21 @@ describe('addMark()', () => {
       initialEditorState: testEditorState,
     })
 
-    expect(node.querySelectorAll('strong').length).toBe(0)
+    expect(node.querySelectorAll("strong").length).toBe(0)
     // adds the empty strong wrapper
     dispatchTransaction(addMark(testSchema.marks.strong))
     // inserts text into the strong wrapper
-    dispatchTransaction(simulateTextInsert('I will be strong'))
-    await findByText(node, 'I will be strong')
+    dispatchTransaction(simulateTextInsert("I will be strong"))
+    await findByText(node, "I will be strong")
 
     await waitFor(() => {
-      expect(node.querySelectorAll('strong').length).toBe(1)
+      expect(node.querySelectorAll("strong").length).toBe(1)
     })
   })
 
-  it('wraps the current selection in the given mark type', async () => {
+  it("wraps the current selection in the given mark type", async () => {
     mockRangeForBoundingRect()
-    const node = document.createElement('div')
+    const node = document.createElement("div")
     const { dispatchTransaction } = createRichTextEditor({
       node,
       onChange,
@@ -43,16 +43,16 @@ describe('addMark()', () => {
       initialEditorState: testEditorState,
     })
 
-    expect(node.querySelectorAll('strong').length).toBe(0)
+    expect(node.querySelectorAll("strong").length).toBe(0)
 
-    dispatchTransaction(simulateTextInsert('Selected '))
-    await findByText(node, 'Selected Example content')
+    dispatchTransaction(simulateTextInsert("Selected "))
+    await findByText(node, "Selected Example content")
 
-    dispatchTransaction(simulateSelectionByText('Selected'))
+    dispatchTransaction(simulateSelectionByText("Selected"))
     dispatchTransaction(addMark(testSchema.marks.strong))
 
     await waitFor(() => {
-      expect(node.querySelectorAll('strong').length).toBe(1)
+      expect(node.querySelectorAll("strong").length).toBe(1)
     })
   })
 })

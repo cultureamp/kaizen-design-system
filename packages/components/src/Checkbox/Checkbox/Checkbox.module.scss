@@ -1,7 +1,7 @@
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/border';
-@import '../../../styles/utils/forms';
-@import '../../../styles/utils/form-variables';
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "../../../styles/utils/forms";
+@import "../../../styles/utils/form-variables";
 
 $checkbox-size: 24px;
 $focus-ring-offset: 2px;
@@ -72,7 +72,7 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
   }
 
   .checkbox:focus + &::after {
-    content: '';
+    content: "";
     box-sizing: border-box;
     position: absolute;
     background: transparent;

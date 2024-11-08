@@ -1,2 +1,2 @@
-export * from './StickerSheet'
-export * from './types'
+export * from "./StickerSheet"
+export * from "./types"

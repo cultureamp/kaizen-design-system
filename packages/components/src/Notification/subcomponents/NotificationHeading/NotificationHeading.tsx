@@ -1,9 +1,9 @@
-import React from 'react'
-import { Heading, HeadingProps } from '~components/Heading'
-import styles from '../GenericNotification/GenericNotification.module.scss'
+import React from "react"
+import { Heading, HeadingProps } from "~components/Heading"
+import styles from "../GenericNotification/GenericNotification.module.scss"
 
 type NotificationHeadingProps = {
-  titleProp?: HeadingProps['children']
+  titleProp?: HeadingProps["children"]
   headingProps?: HeadingProps
 }
 
@@ -14,9 +14,9 @@ export const NotificationHeading = ({
   if (headingProps) {
     return (
       <Heading
-        variant={headingProps.variant || 'heading-6'}
-        tag={headingProps.tag ?? 'div'}
-        color={headingProps.color ?? 'dark'}
+        variant={headingProps.variant || "heading-6"}
+        tag={headingProps.tag ?? "div"}
+        color={headingProps.color ?? "dark"}
         classNameOverride={styles.notificationTitle}
       >
         {headingProps.children}
@@ -40,4 +40,4 @@ export const NotificationHeading = ({
   return null
 }
 
-NotificationHeading.displayName = 'NotificationHeading'
+NotificationHeading.displayName = "NotificationHeading"

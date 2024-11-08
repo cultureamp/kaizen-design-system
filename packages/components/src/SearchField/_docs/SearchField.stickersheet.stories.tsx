@@ -1,10 +1,10 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { SearchField, SearchFieldProps } from '../index'
+import React from "react"
+import { Meta } from "@storybook/react"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import { SearchField, SearchFieldProps } from "../index"
 
 export default {
-  title: 'Components/SearchField',
+  title: "Components/SearchField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -18,19 +18,19 @@ const StickerSheetTemplate: StickerSheetStory = {
       variantProps?: Partial<SearchFieldProps>
     }[] = [
       {
-        heading: 'Default',
+        heading: "Default",
       },
       {
-        heading: 'Secondary',
+        heading: "Secondary",
         variantProps: { secondary: true },
       },
     ]
 
     const COMMON_PROPS = {
-      placeholder: 'Search…',
+      placeholder: "Search…",
       reversed: isReversed,
-      labelText: 'Label',
-      value: 'Some value',
+      labelText: "Label",
+      value: "Some value",
     }
 
     return (
@@ -38,7 +38,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         {variants.map(({ heading, variantProps }) => (
           <React.Fragment key={heading}>
             <StickerSheet isReversed={isReversed} heading={heading}>
-              <StickerSheet.Header headings={['Base', 'Filled', 'Loading']} />
+              <StickerSheet.Header headings={["Base", "Filled", "Loading"]} />
               <StickerSheet.Body>
                 <StickerSheet.Row>
                   <SearchField {...variantProps} {...COMMON_PROPS} value="" />
@@ -49,7 +49,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             </StickerSheet>
 
             <StickerSheet isReversed={isReversed}>
-              <StickerSheet.Header headings={['Disabled', 'Hover', 'Focus']} />
+              <StickerSheet.Header headings={["Disabled", "Hover", "Focus"]} />
               <StickerSheet.Body>
                 <StickerSheet.Row>
                   <SearchField {...variantProps} {...COMMON_PROPS} value="" disabled />
@@ -73,29 +73,29 @@ const StickerSheetTemplate: StickerSheetStory = {
   },
   parameters: {
     pseudo: {
-      hover: '.story__input-search-hover > div',
-      focus: '.story__input-search-focus > div > input',
+      hover: ".story__input-search-hover > div",
+      focus: ".story__input-search-focus > div > input",
     },
   },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Reversed)',
+  name: "Sticker Sheet (Reversed)",
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: "Purple 700" },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (RTL)',
-  parameters: { textDirection: 'rtl' },
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
 }

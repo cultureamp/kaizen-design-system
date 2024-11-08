@@ -1,11 +1,11 @@
-import React, { HTMLAttributes, useMemo, useState } from 'react'
-import classnames from 'classnames'
-import { usePopper } from 'react-popper'
-import { Heading } from '~components/Heading'
-import { Text } from '~components/Text'
-import { Icon } from '~components/__future__/Icon'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { Placement, PopoverSize, PopoverVariant } from './types'
+import React, { HTMLAttributes, useMemo, useState } from "react"
+import classnames from "classnames"
+import { usePopper } from "react-popper"
+import { Heading } from "~components/Heading"
+import { Text } from "~components/Text"
+import { Icon } from "~components/__future__/Icon"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import { Placement, PopoverSize, PopoverVariant } from "./types"
 import {
   mapArrowVariantToClass,
   mapLineVariant,
@@ -13,8 +13,8 @@ import {
   mapVariantToBoxClass,
   mapVariantToIcon,
   mapVariantToIconClass,
-} from './utils/classMappers'
-import styles from './Popover.module.scss'
+} from "./utils/classMappers"
+import styles from "./Popover.module.scss"
 
 export type PopoverProps = {
   children: React.ReactNode
@@ -45,9 +45,9 @@ const arrowHeight = 7
  */
 export const Popover = ({
   children,
-  variant = 'default',
-  placement = 'top',
-  size = 'small',
+  variant = "default",
+  placement = "top",
+  size = "small",
   heading,
   dismissible = false,
   onClose,
@@ -62,7 +62,7 @@ export const Popover = ({
   const { styles: popperStyles, attributes } = usePopper(referenceElement, popperElement, {
     modifiers: [
       {
-        name: 'arrow',
+        name: "arrow",
         options: {
           element: arrowElement,
           // Ensures that the arrow doesn't go too far to the left or right
@@ -71,13 +71,13 @@ export const Popover = ({
         },
       },
       {
-        name: 'offset',
+        name: "offset",
         options: {
           offset: [0, arrowHeight + 6],
         },
       },
       {
-        name: 'preventOverflow',
+        name: "preventOverflow",
         options: {
           // Makes sure that the popover isn't flush up against the end of the
           // viewport
@@ -88,11 +88,11 @@ export const Popover = ({
         },
       },
       {
-        name: 'flip',
+        name: "flip",
         options: {
           padding: 8,
           altBoundary: true,
-          fallbackPlacements: ['left', 'top', 'bottom', 'right'],
+          fallbackPlacements: ["left", "top", "bottom", "right"],
         },
       },
     ],
@@ -110,7 +110,7 @@ export const Popover = ({
       <div className={mapVariantToBoxClass(variant)}>
         {heading && (
           <div className={styles.header}>
-            {variant !== 'default' && (
+            {variant !== "default" && (
               <span className={classnames(styles.icon, mapVariantToIconClass(variant))}>
                 {customIcon ?? mapVariantToIcon(variant)}
               </span>
@@ -140,9 +140,9 @@ export const Popover = ({
   )
 }
 
-Popover.displayName = 'Popover'
+Popover.displayName = "Popover"
 
-type PopoverPropsWithoutRef = Omit<PopoverProps, 'referenceElement'>
+type PopoverPropsWithoutRef = Omit<PopoverProps, "referenceElement">
 
 /**
  * How to use:

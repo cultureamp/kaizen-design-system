@@ -1,5 +1,5 @@
-import { makeCssVariableDefinitionsMap } from '../lib/makeCssVariableDefinitionsMap'
-import { Theme as BaseTheme } from './types'
+import { makeCssVariableDefinitionsMap } from "../lib/makeCssVariableDefinitionsMap"
+import { Theme as BaseTheme } from "./types"
 /**
  * Use this class to set and apply themes, and to access or subscribe to the currently active one.
  * This class fulfills the idea of theming and runtime theme switching by relying on CSS variables,
@@ -20,7 +20,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
 
   constructor(
     theme: Theme,
-    rootElementId: string = '',
+    rootElementId: string = "",
     /* This allows you to stop the  class from applying the theme automatically during construction. Defaults to true */
     apply: boolean = true,
   ) {
@@ -61,7 +61,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   }
 
   public applyCurrentTheme = (): void => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       this.setRootElement(document.getElementById(this.rootElementId) ?? document.documentElement)
       const cssVariableDefinitions = makeCssVariableDefinitionsMap(this.theme)
       Object.entries(cssVariableDefinitions).forEach(([key, value]) => {

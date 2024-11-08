@@ -1,6 +1,6 @@
-import React, { ThHTMLAttributes } from 'react'
-import classnames from 'classnames'
-import styles from './StickerSheetTableHeading.module.scss'
+import React, { ThHTMLAttributes } from "react"
+import classnames from "classnames"
+import styles from "./StickerSheetTableHeading.module.scss"
 
 export type StickerSheetTableHeadingProps = {
   children: React.ReactNode
@@ -25,4 +25,4 @@ export const StickerSheetTableHeading = ({
   </th>
 )
 
-StickerSheetTableHeading.displayName = 'StickerSheetTableHeading'
+StickerSheetTableHeading.displayName = "StickerSheetTableHeading"

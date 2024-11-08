@@ -1,6 +1,6 @@
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '~@kaizen/design-tokens/sass/typography';
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
 
 .menuListItem {
   display: flex;
@@ -58,7 +58,7 @@
     border-color: $color-blue-500;
   }
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     text-align: right;
   }
 }

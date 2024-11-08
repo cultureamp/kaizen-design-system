@@ -1,1 +1,1 @@
-export * from './BrandMoment'
+export * from "./BrandMoment"

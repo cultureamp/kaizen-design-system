@@ -1,5 +1,5 @@
-import React, { Ref, useCallback, useEffect, useRef, useState } from 'react'
-import ResizeObserver from 'resize-observer-polyfill'
+import React, { Ref, useCallback, useEffect, useRef, useState } from "react"
+import ResizeObserver from "resize-observer-polyfill"
 
 const defaultCallback = (entry: ResizeObserverEntry): ResizeObserverEntry => entry
 

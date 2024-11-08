@@ -1,10 +1,10 @@
-import React from 'react'
-import classnames from 'classnames'
-import { TitleBlockVariant } from '../types'
-import { NON_REVERSED_VARIANTS } from '../utils'
-import styles from './NavigationTabs.module.scss'
+import React from "react"
+import classnames from "classnames"
+import { TitleBlockVariant } from "../types"
+import { NON_REVERSED_VARIANTS } from "../utils"
+import styles from "./NavigationTabs.module.scss"
 
-export type CustomNavigationTabProps = Omit<NavigationTabProps, 'render'> & {
+export type CustomNavigationTabProps = Omit<NavigationTabProps, "render"> & {
   className: string
 }
 
@@ -47,11 +47,11 @@ export const NavigationTab = (props: NavigationTabProps): JSX.Element => {
       id={props.id}
       data-automation-id={props.automationId}
       data-testid={props.automationId}
-      aria-current={props.active ? 'page' : undefined}
+      aria-current={props.active ? "page" : undefined}
     >
       {props.text}
     </a>
   )
 }
 
-NavigationTab.displayName = 'NavigationTab'
+NavigationTab.displayName = "NavigationTab"

@@ -1,10 +1,10 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { MultiSelectOptions, MultiSelectOptionsProps } from '../index'
+import React from "react"
+import { Meta } from "@storybook/react"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import { MultiSelectOptions, MultiSelectOptionsProps } from "../index"
 
 export default {
-  title: 'Components/MultiSelect/MultiSelectOptions',
+  title: "Components/MultiSelect/MultiSelectOptions",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -13,23 +13,23 @@ export default {
 
 const options = [
   {
-    label: 'Pancakes',
-    value: 'pancakes',
+    label: "Pancakes",
+    value: "pancakes",
   },
   {
-    label: 'Waffle',
-    value: 'waffle',
+    label: "Waffle",
+    value: "waffle",
   },
   {
-    label: 'Toastie',
-    value: 'toastie',
+    label: "Toastie",
+    value: "toastie",
   },
-] satisfies MultiSelectOptionsProps['options']
+] satisfies MultiSelectOptionsProps["options"]
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
-      <StickerSheet.Header headings={['Default', 'Focus + Hover', 'Empty state']} />
+      <StickerSheet.Header headings={["Default", "Focus + Hover", "Empty state"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
           <MultiSelectOptions
@@ -41,7 +41,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           <MultiSelectOptions
             id="id--multi-select-options--pseudo"
             options={options}
-            selectedValues={new Set(['pancakes'])}
+            selectedValues={new Set(["pancakes"])}
             onChange={() => undefined}
           />
           <StickerSheet.Cell className="align-top">
@@ -58,13 +58,13 @@ const StickerSheetTemplate: StickerSheetStory = {
   ),
   parameters: {
     pseudo: {
-      focusWithin: '#id--multi-select-options--pseudo > div:nth-of-type(1)',
-      hover: '#id--multi-select-options--pseudo > div:nth-of-type(2)',
+      focusWithin: "#id--multi-select-options--pseudo > div:nth-of-type(1)",
+      hover: "#id--multi-select-options--pseudo > div:nth-of-type(2)",
     },
   },
 }
 
 export const StickerSheetDefault = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }

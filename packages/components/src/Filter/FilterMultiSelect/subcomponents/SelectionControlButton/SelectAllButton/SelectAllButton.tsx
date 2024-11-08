@@ -1,7 +1,7 @@
-import React from 'react'
-import classnames from 'classnames'
-import { useSelectionContext } from '../../../context'
-import styles from '../SelectionControlButton.module.scss'
+import React from "react"
+import classnames from "classnames"
+import { useSelectionContext } from "../../../context"
+import styles from "../SelectionControlButton.module.scss"
 
 export const SelectAllButton = (): JSX.Element => {
   const { selectionState } = useSelectionContext()
@@ -31,4 +31,4 @@ export const SelectAllButton = (): JSX.Element => {
   )
 }
 
-SelectAllButton.displayName = 'FilterMultiSelect.SelectAllButton'
+SelectAllButton.displayName = "FilterMultiSelect.SelectAllButton"

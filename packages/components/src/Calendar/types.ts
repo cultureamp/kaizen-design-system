@@ -1,9 +1,9 @@
-import { DateInterval, DateRange, DayPickerProps } from 'react-day-picker'
-import { DayOfWeek } from './enums'
+import { DateInterval, DateRange, DayPickerProps } from "react-day-picker"
+import { DayOfWeek } from "./enums"
 
 export type { DateInterval, DateRange }
 
-export type DisabledDays = DayPickerProps['disabled']
+export type DisabledDays = DayPickerProps["disabled"]
 
 export type DisabledDayMatchers = {
   /**

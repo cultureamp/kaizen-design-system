@@ -1,4 +1,4 @@
-@import '~@kaizen/design-tokens/sass/border';
+@import "~@kaizen/design-tokens/sass/border";
 
 .menuSection {
   list-style: none;
@@ -10,7 +10,7 @@
       width: 100%;
       height: 1px;
       background-color: $border-solid-border-color;
-      content: '';
+      content: "";
       display: block;
       margin: 5px 0;
     }

@@ -1,12 +1,12 @@
-import React, { HTMLAttributes, useId, useState } from 'react'
-import classnames from 'classnames'
-import AnimateHeight from 'react-animate-height'
-import { Heading } from '~components/Heading'
-import { IconButton } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__/Icon'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { Sticky } from '../types'
-import styles from './Collapsible.module.scss'
+import React, { HTMLAttributes, useId, useState } from "react"
+import classnames from "classnames"
+import AnimateHeight from "react-animate-height"
+import { Heading } from "~components/Heading"
+import { IconButton } from "~components/__actions__/v2"
+import { Icon } from "~components/__future__/Icon"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import { Sticky } from "../types"
+import styles from "./Collapsible.module.scss"
 
 export type CollapsibleProps = {
   children: JSX.Element | JSX.Element[] | string
@@ -23,7 +23,7 @@ export type CollapsibleProps = {
    * is set to 'clear', it will not have a background but a border-bottom will appear
    * to separate the heading from the content.
    */
-  variant?: 'default' | 'clear'
+  variant?: "default" | "clear"
   /**
    * Will avoid rendering the content until required (especially important when you
    * have queries inside sections).
@@ -46,7 +46,7 @@ export const Collapsible = ({
   sticky,
   noSectionPadding,
   onToggle,
-  variant = 'default',
+  variant = "default",
   lazyLoad,
   controlled,
   classNameOverride,
@@ -95,8 +95,8 @@ export const Collapsible = ({
           styles.header,
           isOpen && styles.open,
           sticky && styles.sticky,
-          isOpen && variant === 'default' && styles.defaultVariant,
-          isOpen && variant === 'clear' && styles.clearVariant,
+          isOpen && variant === "default" && styles.defaultVariant,
+          isOpen && variant === "clear" && styles.clearVariant,
         )}
         style={sticky && { top: sticky.top }}
         onClick={handleSectionToggle}
@@ -115,7 +115,7 @@ export const Collapsible = ({
           <IconButton
             label={title}
             icon={
-              <Icon name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} isPresentational />
+              <Icon name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"} isPresentational />
             }
             type="button"
             aria-expanded={isOpen}
@@ -128,7 +128,7 @@ export const Collapsible = ({
         </div>
       </div>
       {(!lazyLoad || isOpen) && (
-        <AnimateHeight height={isOpen ? 'auto' : 0} data-testid={`collapsible-section-${id}`}>
+        <AnimateHeight height={isOpen ? "auto" : 0} data-testid={`collapsible-section-${id}`}>
           <div
             id={sectionId}
             className={classnames(styles.section, noSectionPadding && styles.noPadding)}
@@ -143,4 +143,4 @@ export const Collapsible = ({
   )
 }
 
-Collapsible.displayName = 'Collapsible'
+Collapsible.displayName = "Collapsible"

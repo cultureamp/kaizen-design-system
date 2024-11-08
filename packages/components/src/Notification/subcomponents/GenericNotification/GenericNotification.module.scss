@@ -1,8 +1,8 @@
-@import '~@kaizen/design-tokens/sass/typography';
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import './mixins';
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "./mixins";
 
 .notification {
   @extend %ca-notification;
@@ -43,7 +43,7 @@
   &:focus-visible::after {
     $focus-ring-offset: var(--spacing-2);
 
-    content: '';
+    content: "";
     pointer-events: none;
     position: absolute;
     background: transparent;

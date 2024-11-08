@@ -1,8 +1,8 @@
-import React, { useRef } from 'react'
-import { screen, waitFor, render } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { vi } from 'vitest'
-import { FilterButtonRemovable, FilterButtonRemovableProps, FilterButtonRemovableRefs } from '.'
+import React, { useRef } from "react"
+import { screen, waitFor, render } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { vi } from "vitest"
+import { FilterButtonRemovable, FilterButtonRemovableProps, FilterButtonRemovableRefs } from "."
 
 const user = userEvent.setup()
 
@@ -14,7 +14,7 @@ const FilterButtonRemovableWrapper = ({
   <FilterButtonRemovable
     triggerButtonProps={{
       ...triggerButtonProps,
-      label: 'Desserts',
+      label: "Desserts",
     }}
     removeButtonProps={{
       ...removeButtonProps,
@@ -23,16 +23,16 @@ const FilterButtonRemovableWrapper = ({
   />
 )
 
-describe('<FilterButtonRemovable />', () => {
-  it('should use fallback label for remove button if not specified', async () => {
+describe("<FilterButtonRemovable />", () => {
+  it("should use fallback label for remove button if not specified", async () => {
     render(<FilterButtonRemovableWrapper />)
     await waitFor(() => {
-      expect(screen.getByRole('button', { name: 'Remove filter - Desserts' })).toBeVisible()
+      expect(screen.getByRole("button", { name: "Remove filter - Desserts" })).toBeVisible()
     })
   })
 
-  describe('Refs', () => {
-    it('correctly passes through both button refs', async () => {
+  describe("Refs", () => {
+    it("correctly passes through both button refs", async () => {
       const onClick = vi.fn()
 
       const Wrapper = (): JSX.Element => {
@@ -52,11 +52,11 @@ describe('<FilterButtonRemovable />', () => {
               ref={ref}
               id="test__date-input-field--ref"
               triggerButtonProps={{
-                label: 'Desserts',
-                id: 'test__trigger-button',
+                label: "Desserts",
+                id: "test__trigger-button",
               }}
               removeButtonProps={{
-                id: 'test__remove-button',
+                id: "test__remove-button",
               }}
             />
             <button type="button" onClick={handleClick}>
@@ -68,8 +68,8 @@ describe('<FilterButtonRemovable />', () => {
 
       render(<Wrapper />)
 
-      await user.click(screen.getByText('Click me'))
-      expect(onClick).toHaveBeenCalledWith('test__trigger-button', 'test__remove-button')
+      await user.click(screen.getByText("Click me"))
+      expect(onClick).toHaveBeenCalledWith("test__trigger-button", "test__remove-button")
     })
   })
 })

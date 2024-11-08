@@ -1,9 +1,9 @@
-@import '~@kaizen/design-tokens/sass/animation';
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '~@kaizen/design-tokens/sass/typography';
-@import '../mixins';
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "../mixins";
 
 .editor > :global(.ProseMirror) {
   border-radius: $border-solid-border-radius;
@@ -28,7 +28,7 @@
   &:focus-visible::after {
     $focus-ring-offset: 5px;
 
-    content: '';
+    content: "";
     pointer-events: none;
     position: absolute;
     background: transparent;

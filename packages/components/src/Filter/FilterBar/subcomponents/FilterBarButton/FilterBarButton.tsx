@@ -1,14 +1,14 @@
-import React, { forwardRef, useEffect } from 'react'
-import classnames from 'classnames'
-import { FilterTriggerRef } from '~components/Filter/Filter'
-import { useFilterBarContext } from '~components/Filter/FilterBar/context/FilterBarContext'
+import React, { forwardRef, useEffect } from "react"
+import classnames from "classnames"
+import { FilterTriggerRef } from "~components/Filter/Filter"
+import { useFilterBarContext } from "~components/Filter/FilterBar/context/FilterBarContext"
 import {
   FilterButton,
   FilterButtonProps,
   FilterButtonRemovable,
-} from '~components/Filter/FilterButton'
-import { isRefObject } from '~components/utils/isRefObject'
-import styles from './FilterBarButton.module.css'
+} from "~components/Filter/FilterButton"
+import { isRefObject } from "~components/utils/isRefObject"
+import styles from "./FilterBarButton.module.css"
 
 export type FilterBarButtonProps = FilterButtonProps & {
   filterId: string
@@ -43,4 +43,4 @@ export const FilterBarButton = forwardRef<FilterTriggerRef, FilterBarButtonProps
   },
 )
 
-FilterBarButton.displayName = 'FilterBar.Button'
+FilterBarButton.displayName = "FilterBar.Button"

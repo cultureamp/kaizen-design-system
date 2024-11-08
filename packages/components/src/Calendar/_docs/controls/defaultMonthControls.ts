@@ -1,18 +1,18 @@
-import { ArgTypes } from '@storybook/react'
+import { ArgTypes } from "@storybook/react"
 
 export const defaultMonthControls: Partial<ArgTypes> = {
   defaultMonth: {
-    options: ['Default', 'May2022'],
+    options: ["Default", "May2022"],
     control: {
-      type: 'select',
+      type: "select",
       labels: {
-        Default: 'Default (undefined)',
-        May2022: 'May 2022',
+        Default: "Default (undefined)",
+        May2022: "May 2022",
       },
     },
     mapping: {
       Default: undefined,
-      May2022: new Date('2022-05-01'),
+      May2022: new Date("2022-05-01"),
     },
   },
 }

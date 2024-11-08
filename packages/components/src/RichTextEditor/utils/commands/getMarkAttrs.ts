@@ -1,5 +1,5 @@
-import type { Attrs, Mark, MarkType } from 'prosemirror-model'
-import { EditorState } from 'prosemirror-state'
+import type { Attrs, Mark, MarkType } from "prosemirror-model"
+import { EditorState } from "prosemirror-state"
 
 /*
  ** Filters through the states Marks and returns the attributes

@@ -1,16 +1,16 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
+import React from "react"
+import { Meta } from "@storybook/react"
 import {
   BrandMomentCaptureIntro,
   BrandMomentError,
   BrandMomentPositiveOutro,
-} from '~components/Illustration'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { BrandMoment } from '../BrandMoment'
-import { Informative, Success, Warning } from './BrandMoment.stories'
+} from "~components/Illustration"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import { BrandMoment } from "../BrandMoment"
+import { Informative, Success, Warning } from "./BrandMoment.stories"
 
 export default {
-  title: 'Components/BrandMoment',
+  title: "Components/BrandMoment",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -19,17 +19,17 @@ export default {
         rules: [
           {
             // There's gonna be duplicate landmarks here because it's a stickersheet
-            id: 'landmark-no-duplicate-banner',
+            id: "landmark-no-duplicate-banner",
             enabled: false,
           },
           {
             // There's gonna be duplicate landmarks here because it's a stickersheet
-            id: 'landmark-no-duplicate-contentinfo',
+            id: "landmark-no-duplicate-contentinfo",
             enabled: false,
           },
           {
             // There's gonna be duplicate landmarks here because it's a stickersheet
-            id: 'landmark-no-duplicate-main',
+            id: "landmark-no-duplicate-main",
             enabled: false,
           },
         ],
@@ -89,11 +89,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (RTL)',
-  parameters: { textDirection: 'rtl' },
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
 }

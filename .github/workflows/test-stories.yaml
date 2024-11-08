@@ -18,7 +18,7 @@ on:
     branches:
       - main # the target branch of the PR
     paths:
-      - '**/CHANGELOG.md' # only changesets releases touch changelogs
+      - "**/CHANGELOG.md" # only changesets releases touch changelogs
 
 env:
   ARTIFACT_NAME: artifact--storybook-build
@@ -36,11 +36,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ARTIFACT_NAME }}
-          path: './docs/storybook-static'
+          path: "./docs/storybook-static"
           retention-days: 1
 
   storybook-tests-1:
-    name: 'test-storybook'
+    name: "test-storybook"
     needs: build-test-storybook
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -56,7 +56,7 @@ jobs:
         run: pnpm turbo @docs/storybook#test:storybook -- --shard 1/3
 
   storybook-tests-2:
-    name: 'test-storybook'
+    name: "test-storybook"
     needs: build-test-storybook
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -72,7 +72,7 @@ jobs:
         run: pnpm turbo @docs/storybook#test:storybook -- --shard 2/3
 
   storybook-tests-3:
-    name: 'test-storybook'
+    name: "test-storybook"
     needs: build-test-storybook
     runs-on: ubuntu-latest
     timeout-minutes: 10

@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { DirectionalLink } from '../index'
+import { Meta, StoryObj } from "@storybook/react"
+import { DirectionalLink } from "../index"
 
 const meta = {
-  title: 'Components/Pagination/DirectionalLink',
+  title: "Components/Pagination/DirectionalLink",
   component: DirectionalLink,
   args: {
-    label: 'Back',
-    direction: 'prev',
+    label: "Back",
+    direction: "prev",
   },
 } satisfies Meta<typeof DirectionalLink>
 
@@ -18,7 +18,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

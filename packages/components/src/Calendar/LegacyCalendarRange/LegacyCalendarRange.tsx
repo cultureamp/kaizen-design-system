@@ -1,17 +1,17 @@
-import React from 'react'
-import type { Locale } from 'date-fns'
+import React from "react"
+import type { Locale } from "date-fns"
 import {
   DayPicker,
   DateRange,
   DayClickEventHandler,
   Matcher,
   DayPickerRangeProps,
-} from 'react-day-picker'
-import { Icon } from '~components/__future__/Icon'
-import { baseCalendarClassNames } from '../baseCalendarClassNames'
-import { DayOfWeek } from '../enums'
-import { isInvalidDate, isValidWeekStartsOn } from '../utils'
-import styles from './LegacyCalendarRange.module.scss'
+} from "react-day-picker"
+import { Icon } from "~components/__future__/Icon"
+import { baseCalendarClassNames } from "../baseCalendarClassNames"
+import { DayOfWeek } from "../enums"
+import { isInvalidDate, isValidWeekStartsOn } from "../utils"
+import styles from "./LegacyCalendarRange.module.scss"
 
 export type LegacyCalendarRangeElement = HTMLDivElement
 
@@ -45,7 +45,7 @@ export const LegacyCalendarRange = ({
     day_range_start: styles.dayRangeStart,
     day_range_end: styles.dayRangeEnd,
     day_range_middle: styles.dayRangeMiddle,
-  } satisfies DayPickerRangeProps['classNames']
+  } satisfies DayPickerRangeProps["classNames"]
   /* eslint-enable camelcase */
 
   return (
@@ -68,4 +68,4 @@ export const LegacyCalendarRange = ({
   )
 }
 
-LegacyCalendarRange.displayName = 'LegacyCalendarRange'
+LegacyCalendarRange.displayName = "LegacyCalendarRange"

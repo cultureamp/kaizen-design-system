@@ -1,6 +1,6 @@
-@import '~@kaizen/design-tokens/sass/animation';
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
 
 .button {
   border: none;
@@ -21,7 +21,7 @@
   &:focus-visible::after {
     $focus-ring-offset: 3px;
 
-    content: '';
+    content: "";
     position: absolute;
     background: transparent;
     border-radius: $border-focus-ring-border-radius;

@@ -1,10 +1,10 @@
-import React, { InputHTMLAttributes } from 'react'
-import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './Radio.module.scss'
+import React, { InputHTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import styles from "./Radio.module.scss"
 
 export type RadioProps = OverrideClassName<
-  Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'name' | 'value' | 'checked' | 'type'>
+  Omit<InputHTMLAttributes<HTMLInputElement>, "id" | "name" | "value" | "checked" | "type">
 > & {
   /** Required to ensure the Radio always gets an ID to match a label when composed. */
   id: string
@@ -50,4 +50,4 @@ export const Radio = ({
   </span>
 )
 
-Radio.displayName = 'Radio'
+Radio.displayName = "Radio"

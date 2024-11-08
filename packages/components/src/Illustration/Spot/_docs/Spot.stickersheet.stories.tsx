@@ -1,8 +1,8 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import { Heading } from '~components/Heading'
-import { Text } from '~components/Text'
-import { StickerSheetStory } from '~storybook/components/StickerSheet'
+import React from "react"
+import { Meta } from "@storybook/react"
+import { Heading } from "~components/Heading"
+import { Text } from "~components/Text"
+import { StickerSheetStory } from "~storybook/components/StickerSheet"
 
 import {
   AccountBasics,
@@ -132,10 +132,10 @@ import {
   Templates,
   CalendarSync,
   SpotProps,
-} from '../'
+} from "../"
 
 export default {
-  title: 'Components/Illustrations/Spot',
+  title: "Components/Illustrations/Spot",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -145,531 +145,531 @@ export default {
 const engagementSpots = [
   {
     Component: BenefitsSurvey,
-    name: 'BenefitsSurvey',
+    name: "BenefitsSurvey",
   },
   {
     Component: CustomSurvey,
-    name: 'CustomSurvey',
+    name: "CustomSurvey",
   },
   {
     Component: CustomUnattributedSurvey,
-    name: 'CustomUnattributedSurvey',
+    name: "CustomUnattributedSurvey",
   },
   {
     Component: EngagementSurvey,
-    name: 'EngagementSurvey',
+    name: "EngagementSurvey",
   },
   {
     Component: InclusionSurvey,
-    name: 'InclusionSurvey',
+    name: "InclusionSurvey",
   },
   {
     Component: QuickEngagementSurvey,
-    name: 'QuickEngagementSurvey',
+    name: "QuickEngagementSurvey",
   },
   {
     Component: ValuesSurvey1,
-    name: 'ValuesSurvey1',
+    name: "ValuesSurvey1",
   },
   {
     Component: ValuesSurvey2,
-    name: 'ValuesSurvey2',
+    name: "ValuesSurvey2",
   },
   {
     Component: WellbeingSurvey1,
-    name: 'WellbeingSurvey1',
+    name: "WellbeingSurvey1",
   },
   {
     Component: WellbeingSurvey2,
-    name: 'WellbeingSurvey2',
+    name: "WellbeingSurvey2",
   },
   {
     Component: WellbeingSurvey3,
-    name: 'WellbeingSurvey3',
+    name: "WellbeingSurvey3",
   },
   {
     Component: ChangeReadiness,
-    name: 'ChangeReadiness',
+    name: "ChangeReadiness",
   },
   {
     Component: ChangeSuccess,
-    name: 'ChangeSuccess',
+    name: "ChangeSuccess",
   },
   {
     Component: PerformanceDiagnostics,
-    name: 'PerformanceDiagnostics',
+    name: "PerformanceDiagnostics",
   },
   {
     Component: LeadingThroughCrisis,
-    name: 'LeadingThroughCrisis',
+    name: "LeadingThroughCrisis",
   },
   {
     Component: EmergencyResponse,
-    name: 'EmergencyResponse',
+    name: "EmergencyResponse",
   },
 ]
 
 const experienceSpots = [
   {
     Component: PhasedWeek1OnboardSurvey,
-    name: 'PhasedWeek1OnboardSurvey',
+    name: "PhasedWeek1OnboardSurvey",
   },
   {
     Component: PhasedWeek5OnboardSurvey,
-    name: 'PhasedWeek5OnboardSurvey',
+    name: "PhasedWeek5OnboardSurvey",
   },
   {
     Component: RemoteOnboardSurvey,
-    name: 'RemoteOnboardSurvey',
+    name: "RemoteOnboardSurvey",
   },
   {
     Component: GeneralOnboardSurvey,
-    name: 'GeneralOnboardSurvey',
+    name: "GeneralOnboardSurvey",
   },
   {
     Component: CustomOnboardSurvey,
-    name: 'CustomOnboardSurvey',
+    name: "CustomOnboardSurvey",
   },
   {
     Component: CandidateSurvey,
-    name: 'CandidateSurvey',
+    name: "CandidateSurvey",
   },
   {
     Component: ExitSurvey,
-    name: 'ExitSurvey',
+    name: "ExitSurvey",
   },
   {
     Component: InternSurvey,
-    name: 'InternSurvey',
+    name: "InternSurvey",
   },
   {
     Component: SinglePointOnboardSurvey,
-    name: 'SinglePointOnboardSurvey',
+    name: "SinglePointOnboardSurvey",
   },
   {
     Component: HealthAndSafety,
-    name: 'HealthAndSafety',
+    name: "HealthAndSafety",
   },
   {
     Component: EndOfProbation,
-    name: 'EndOfProbation',
+    name: "EndOfProbation",
   },
   {
     Component: NewWaysOfWorking,
-    name: 'NewWaysOfWorking',
+    name: "NewWaysOfWorking",
   },
   {
     Component: ReOnboarding,
-    name: 'ReOnboarding',
+    name: "ReOnboarding",
   },
 ]
 
 const performanceSpots = [
   {
     Component: Individual360,
-    name: 'Individual360',
+    name: "Individual360",
   },
   {
     Component: Leadership360,
-    name: 'Leadership360',
+    name: "Leadership360",
   },
   {
     Component: Manager360,
-    name: 'Manager360',
+    name: "Manager360",
   },
   {
     Component: Individual180,
-    name: 'Individual180',
+    name: "Individual180",
   },
   {
     Component: Leadership180,
-    name: 'Leadership180',
+    name: "Leadership180",
   },
   {
     Component: Manager180,
-    name: 'Manager180',
+    name: "Manager180",
   },
   {
     Component: TeamEffectiveness1,
-    name: 'TeamEffectiveness1',
+    name: "TeamEffectiveness1",
   },
   {
     Component: TeamEffectiveness2,
-    name: 'TeamEffectiveness2',
+    name: "TeamEffectiveness2",
   },
 ]
 
 const covidSpots = [
   {
     Component: Response,
-    name: 'Response',
+    name: "Response",
   },
   {
     Component: WellbeingSurvey,
-    name: 'WellbeingSurvey',
+    name: "WellbeingSurvey",
   },
   {
     Component: RemoteWorkQSet,
-    name: 'RemoteWorkQSet',
+    name: "RemoteWorkQSet",
   },
   {
     Component: ReturnToWorkplace,
-    name: 'ReturnToWorkplace',
+    name: "ReturnToWorkplace",
   },
   {
     Component: PulseSurvey,
-    name: 'PulseSurvey',
+    name: "PulseSurvey",
   },
 ]
 
 const newAccountSpots = [
   {
     Component: AccountBasics,
-    name: 'AccountBasics',
+    name: "AccountBasics",
   },
   {
     Component: CompanyDetails,
-    name: 'CompanyDetails',
+    name: "CompanyDetails",
   },
   {
     Component: EmployeeData,
-    name: 'EmployeeData',
+    name: "EmployeeData",
   },
   {
     Component: Gdpr,
-    name: 'Gdpr',
+    name: "Gdpr",
   },
   {
     Component: Timezone,
-    name: 'Timezone',
+    name: "Timezone",
   },
   {
     Component: AddUser,
-    name: 'AddUser',
+    name: "AddUser",
   },
 ]
 
 const officeSpots = [
   {
     Component: London,
-    name: 'London',
+    name: "London",
   },
   {
     Component: Melbourne,
-    name: 'Melbourne',
+    name: "Melbourne",
   },
   {
     Component: NewYork,
-    name: 'NewYork',
+    name: "NewYork",
   },
   {
     Component: SanFrancisco,
-    name: 'SanFrancisco',
+    name: "SanFrancisco",
   },
 ]
 
 const moodSpots = [
   {
     Component: Cautionary,
-    name: 'Cautionary',
+    name: "Cautionary",
   },
   {
     Component: Informative,
-    name: 'Informative',
+    name: "Informative",
   },
   {
     Component: Negative,
-    name: 'Negative',
+    name: "Negative",
   },
   {
     Component: Assertive,
-    name: 'Assertive',
+    name: "Assertive",
   },
   {
     Component: Positive,
-    name: 'Positive',
+    name: "Positive",
   },
 ]
 
 const managerLearningSpots = [
   {
     Component: OneOnOne,
-    name: 'OneOnOne',
+    name: "OneOnOne",
   },
   {
     Component: Productivity,
-    name: 'Productivity',
+    name: "Productivity",
   },
   {
     Component: Strategy,
-    name: 'Strategy',
+    name: "Strategy",
   },
   {
     Component: Resilience,
-    name: 'Resilience',
+    name: "Resilience",
   },
   {
     Component: Coaching,
-    name: 'Coaching',
+    name: "Coaching",
   },
   {
     Component: Feedback,
-    name: 'Feedback',
+    name: "Feedback",
   },
   {
     Component: RemoteManager,
-    name: 'RemoteManager',
+    name: "RemoteManager",
   },
   {
     Component: ManagerLearning,
-    name: 'ManagerLearning',
+    name: "ManagerLearning",
   },
   {
     Component: EssentialProductivity,
-    name: 'EssentialProductivity',
+    name: "EssentialProductivity",
   },
   {
     Component: EssentialResilience,
-    name: 'EssentialResilience',
+    name: "EssentialResilience",
   },
   {
     Component: LeadingChange,
-    name: 'LeadingChange',
+    name: "LeadingChange",
   },
   {
     Component: InfluentialCommunication,
-    name: 'InfluentialCommunication',
+    name: "InfluentialCommunication",
   },
 ]
 
 const miscellaneousSpots = [
   {
     Component: ViewReports,
-    name: 'ViewReports',
+    name: "ViewReports",
   },
   {
     Component: ReadArticle,
-    name: 'ReadArticle',
+    name: "ReadArticle",
   },
   {
     Component: FastAction,
-    name: 'FastAction',
+    name: "FastAction",
   },
   {
     Component: BaselineSurvey,
-    name: 'BaselineSurvey',
+    name: "BaselineSurvey",
   },
   {
     Component: Team1,
-    name: 'Team1',
+    name: "Team1",
   },
   {
     Component: Team2,
-    name: 'Team2',
+    name: "Team2",
   },
   {
     Component: Recommendation,
-    name: 'Recommendation',
+    name: "Recommendation",
   },
   {
     Component: AddImage,
-    name: 'AddImage',
+    name: "AddImage",
   },
   {
     Component: MeetingVoices,
-    name: 'MeetingVoices',
+    name: "MeetingVoices",
   },
   {
     Component: Workshop,
-    name: 'Workshop',
+    name: "Workshop",
   },
   {
     Component: Video,
-    name: 'Video',
+    name: "Video",
   },
   {
     Component: ReportSharing,
-    name: 'ReportSharing',
+    name: "ReportSharing",
   },
   {
     Component: BlankSurvey,
-    name: 'BlankSurvey',
+    name: "BlankSurvey",
   },
   {
     Component: TakeAim,
-    name: 'TakeAim',
+    name: "TakeAim",
   },
   {
     Component: Action,
-    name: 'Action',
+    name: "Action",
   },
   {
     Component: Training1,
-    name: 'Training1',
+    name: "Training1",
   },
   {
     Component: Training2,
-    name: 'Training2',
+    name: "Training2",
   },
   {
     Component: Training3,
-    name: 'Training3',
+    name: "Training3",
   },
   {
     Component: ShareReport,
-    name: 'ShareReport',
+    name: "ShareReport",
   },
   {
     Component: ExecutiveReportSharing,
-    name: 'ExecutiveReportSharing',
+    name: "ExecutiveReportSharing",
   },
   {
     Component: ManagerReportSharing,
-    name: 'ManagerReportSharing',
+    name: "ManagerReportSharing",
   },
   {
     Component: LeaderReportSharing,
-    name: 'LeaderReportSharing',
+    name: "LeaderReportSharing",
   },
   {
     Component: SpreadsheetTemplate,
-    name: 'SpreadsheetTemplate',
+    name: "SpreadsheetTemplate",
   },
   {
     Component: FullImport,
-    name: 'FullImport',
+    name: "FullImport",
   },
   {
     Component: PartialImport,
-    name: 'PartialImport',
+    name: "PartialImport",
   },
   {
     Component: HrisImport,
-    name: 'HrisImport',
+    name: "HrisImport",
   },
   {
     Component: Alarm,
-    name: 'Alarm',
+    name: "Alarm",
   },
   {
     Component: Fire,
-    name: 'Fire',
+    name: "Fire",
   },
   {
     Component: UnderConstruction,
-    name: 'UnderConstruction',
+    name: "UnderConstruction",
   },
   {
     Component: Stop,
-    name: 'Stop',
+    name: "Stop",
   },
   {
     Component: Trophy,
-    name: 'Trophy',
+    name: "Trophy",
   },
   {
     Component: TrafficCone,
-    name: 'TrafficCone',
+    name: "TrafficCone",
   },
   {
     Component: ValueAdd,
-    name: 'ValueAdd',
+    name: "ValueAdd",
   },
   {
     Component: Starburst,
-    name: 'Starburst',
+    name: "Starburst",
   },
   {
     Component: Fireworks,
-    name: 'Fireworks',
+    name: "Fireworks",
   },
   {
     Component: Objective,
-    name: 'Objective',
+    name: "Objective",
   },
   {
     Component: PaperPen,
-    name: 'PaperPen',
+    name: "PaperPen",
   },
   {
     Component: DataVisualization,
-    name: 'DataVisualization',
+    name: "DataVisualization",
   },
   {
     Component: Community,
-    name: 'Community',
+    name: "Community",
   },
   {
     Component: BCorp,
-    name: 'BCorp',
+    name: "BCorp",
   },
   {
     Component: Resources,
-    name: 'Resources',
+    name: "Resources",
   },
   {
     Component: Goals,
-    name: 'Goals',
+    name: "Goals",
   },
   {
     Component: Communications,
-    name: 'Communications',
+    name: "Communications",
   },
   {
     Component: ScienceBackedTools,
-    name: 'ScienceBackedTools',
+    name: "ScienceBackedTools",
   },
   {
     Component: Microphone,
-    name: 'Microphone',
+    name: "Microphone",
   },
   {
     Component: Company,
-    name: 'Company',
+    name: "Company",
   },
   {
     Component: Insights,
-    name: 'Insights',
+    name: "Insights",
   },
   {
     Component: Behaviour,
-    name: 'Behaviour',
+    name: "Behaviour",
   },
   {
     Component: Learn,
-    name: 'Learn',
+    name: "Learn",
   },
   {
     Component: Templates,
-    name: 'Templates',
+    name: "Templates",
   },
   {
     Component: PowerfulInsights,
-    name: 'PowerfulInsights',
+    name: "PowerfulInsights",
   },
   {
     Component: ActionPlans,
-    name: 'ActionPlans',
+    name: "ActionPlans",
   },
   {
     Component: Conversations,
-    name: 'Conversations',
+    name: "Conversations",
   },
   {
     Component: Process,
-    name: 'Process',
+    name: "Process",
   },
   {
     Component: SkillsDevelopment,
-    name: 'SkillsDevelopment',
+    name: "SkillsDevelopment",
   },
   {
     Component: ChangeAgents,
-    name: 'ChangeAgents',
+    name: "ChangeAgents",
   },
   {
     Component: CalendarSync,
-    name: 'CalendarSync',
+    name: "CalendarSync",
   },
 ]
 
@@ -777,5 +777,5 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }

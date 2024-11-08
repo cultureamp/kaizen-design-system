@@ -1,10 +1,10 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { Slider } from '../index'
+import React from "react"
+import { Meta } from "@storybook/react"
+import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import { Slider } from "../index"
 
 export default {
-  title: 'Components/Slider',
+  title: "Components/Slider",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -15,7 +15,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
       <StickerSheet.Header
-        headings={['Default', 'Default (Disabled)', 'Prominant', 'Prominant (Disabled)']}
+        headings={["Default", "Default (Disabled)", "Prominant", "Prominant (Disabled)"]}
         hasVerticalHeadings
       />
       <StickerSheet.Body>
@@ -94,11 +94,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
+  name: "Sticker Sheet (Default)",
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (RTL)',
-  parameters: { textDirection: 'rtl' },
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
 }

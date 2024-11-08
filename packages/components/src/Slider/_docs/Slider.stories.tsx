@@ -1,15 +1,15 @@
 // import React from "react"
-import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Slider } from '../index'
+import React from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { Slider } from "../index"
 
 const meta = {
-  title: 'Components/Slider',
+  title: "Components/Slider",
   component: Slider,
   args: {
     labelText: <>Slider</>,
-    minLabel: 'Min',
-    maxLabel: 'Max',
+    minLabel: "Min",
+    maxLabel: "Max",
   },
 } satisfies Meta<typeof Slider>
 
@@ -21,7 +21,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },

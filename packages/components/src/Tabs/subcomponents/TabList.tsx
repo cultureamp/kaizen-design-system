@@ -1,19 +1,19 @@
-import React, { HTMLAttributes, ReactNode } from 'react'
-import { TabList as ReachTabList } from '@reach/tabs'
-import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './TabList.module.scss'
+import React, { HTMLAttributes, ReactNode } from "react"
+import { TabList as ReachTabList } from "@reach/tabs"
+import classnames from "classnames"
+import { OverrideClassName } from "~components/types/OverrideClassName"
+import styles from "./TabList.module.scss"
 
 export type TabListProps = {
   /**
    * Accessible name for the set of tabs
    */
-  'aria-label': string
+  "aria-label": string
   /**
    * Removes the built in padding
    */
-  'noPadding'?: boolean
-  'children': ReactNode
+  "noPadding"?: boolean
+  "children": ReactNode
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 /**
@@ -21,7 +21,7 @@ export type TabListProps = {
  */
 export const TabList = (props: TabListProps): JSX.Element => {
   const {
-    'aria-label': ariaLabel,
+    "aria-label": ariaLabel,
     noPadding = false,
     children,
     classNameOverride,

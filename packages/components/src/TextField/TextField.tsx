@@ -1,13 +1,13 @@
-import React, { useId } from 'react'
-import classnames from 'classnames'
-import { FieldGroup } from '~components/FieldGroup'
-import { FieldMessage } from '~components/FieldMessage'
-import { Input, InputProps } from '~components/Input'
-import { Label } from '~components/Label'
-import { Icon } from '~components/__future__/Icon'
-import styles from './TextField.module.scss'
+import React, { useId } from "react"
+import classnames from "classnames"
+import { FieldGroup } from "~components/FieldGroup"
+import { FieldMessage } from "~components/FieldMessage"
+import { Input, InputProps } from "~components/Input"
+import { Label } from "~components/Label"
+import { Icon } from "~components/__future__/Icon"
+import styles from "./TextField.module.scss"
 
-type OmittedInputProps = 'startIconAdornment' | 'endIconAdornment' | 'ariaDescribedBy' | 'ariaLabel'
+type OmittedInputProps = "startIconAdornment" | "endIconAdornment" | "ariaDescribedBy" | "ariaLabel"
 
 export type TextFieldProps = {
   /**
@@ -44,12 +44,12 @@ export const TextField = ({
 }: TextFieldProps): JSX.Element => {
   const fallbackId = useId()
   const id = propsId ?? fallbackId
-  const validationMessageAria = validationMessage ? `${id}-field-validation-message` : ''
-  const descriptionAria = description ? `${id}-field-description` : ''
+  const validationMessageAria = validationMessage ? `${id}-field-validation-message` : ""
+  const descriptionAria = description ? `${id}-field-description` : ""
 
   const ariaDescribedBy = [validationMessageAria, descriptionAria].reduce(
-    (prev, curr) => (curr ? [curr, prev].join(' ') : prev),
-    '',
+    (prev, curr) => (curr ? [curr, prev].join(" ") : prev),
+    "",
   )
 
   return (
@@ -77,7 +77,7 @@ export const TextField = ({
         status={status}
         startIconAdornment={icon}
         endIconAdornment={
-          status === 'success' && (
+          status === "success" && (
             <div className={classnames(styles.icon, styles.success, disabled && styles.disabled)}>
               <Icon name="check_circle" isPresentational isFilled />
             </div>
@@ -106,4 +106,4 @@ export const TextField = ({
   )
 }
 
-TextField.displayName = 'TextField'
+TextField.displayName = "TextField"

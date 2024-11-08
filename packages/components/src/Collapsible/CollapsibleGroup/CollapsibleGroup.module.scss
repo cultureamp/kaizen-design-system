@@ -1,5 +1,5 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/shadow';
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
 
 // We need a full border radius on this container element, then have classes
 // beneath to toggle nested borders off and on for different use cases.

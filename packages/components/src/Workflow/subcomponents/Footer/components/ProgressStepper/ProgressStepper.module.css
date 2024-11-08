@@ -85,7 +85,7 @@
   top: calc(100% - calc(var(--progress-stepper-indicator-size) / 2));
   transform: translateX(-50%);
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     left: unset;
     right: 100%;
     transform: translateX(50%);
