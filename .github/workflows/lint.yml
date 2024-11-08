@@ -15,7 +15,7 @@ on:
     branches:
       - main # the target branch of the PR
     paths:
-      - "**/CHANGELOG.md" # only changesets releases touch changelogs
+      - '**/CHANGELOG.md' # only changesets releases touch changelogs
 
 jobs:
   typescript:

@@ -1,12 +1,12 @@
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/layout";
-@import "~@kaizen/design-tokens/sass/border";
-@import "../../../styles/utils/legacy/layout";
-@import "../../../styles/utils/legacy/grid";
-@import "../../../styles/utils/layers";
-@import "../mixins";
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/layout';
+@import '~@kaizen/design-tokens/sass/border';
+@import '../../../styles/utils/legacy/layout';
+@import '../../../styles/utils/legacy/grid';
+@import '../../../styles/utils/layers';
+@import '../mixins';
 
 $expand-button-width: 3.75rem;
 $focus-spacing: 2px;
@@ -112,7 +112,7 @@ $slide-up-duration: 0.4s;
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2));
 
-      content: "";
+      content: '';
       position: absolute;
       background: transparent;
       border-width: $focus-ring-border-width;

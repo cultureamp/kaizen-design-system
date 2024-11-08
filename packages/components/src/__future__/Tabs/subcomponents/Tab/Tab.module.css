@@ -46,7 +46,7 @@
   color: var(--color-blue-500);
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -71,7 +71,7 @@
     border: 2px solid transparent;
 
     &:focus-visible::after {
-      content: "";
+      content: '';
       position: absolute;
       background: transparent;
       border-radius: var(--border-focus-ring-border-radius);
@@ -84,7 +84,7 @@
 
   .tab[data-selected]::before {
     /* High contrast also doesn't see the pseudo element created to show the active tab. */
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     right: 0;

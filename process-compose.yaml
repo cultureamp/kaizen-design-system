@@ -1,6 +1,6 @@
 processes:
   README:
-    command: "./bin/readme.sh; tail -f /dev/null"
+    command: './bin/readme.sh; tail -f /dev/null'
 
   setup:
     command: devbox run setup

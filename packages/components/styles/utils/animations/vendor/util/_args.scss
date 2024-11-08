@@ -1,4 +1,4 @@
-@import "./function";
+@import './function';
 
 /// Processes a series of keyframe function arguments.
 /// @access private
@@ -8,7 +8,7 @@
 
     @if -mui-is-function($arg) {
       @return -mui-safe-call($arg);
-    } @else if type-of($arg) == "map" {
+    } @else if type-of($arg) == 'map' {
       @return $arg;
     }
   }

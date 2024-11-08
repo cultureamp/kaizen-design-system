@@ -172,7 +172,6 @@ export const useMediaQueries = (
         matchMedia.removeEventListener('change', eventListener)
       })
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // ---------------------------------------

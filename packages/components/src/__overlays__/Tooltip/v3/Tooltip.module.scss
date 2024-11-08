@@ -1,9 +1,9 @@
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/animation";
-@import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/spacing";
+@import '~@kaizen/design-tokens/sass/shadow';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/animation';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/spacing';
 
 .tooltip {
   max-width: 200px;
@@ -28,19 +28,19 @@
     color: $color-purple-800;
   }
 
-  &[data-placement="top"] {
+  &[data-placement='top'] {
     --origin: translateY(4px);
   }
 
-  &[data-placement="bottom"] {
+  &[data-placement='bottom'] {
     --origin: translateY(-4px);
   }
 
-  &[data-placement="right"] {
+  &[data-placement='right'] {
     --origin: translateX(-4px);
   }
 
-  &[data-placement="left"] {
+  &[data-placement='left'] {
     --origin: translateX(4px);
   }
 
@@ -49,8 +49,7 @@
   }
 
   &[data-exiting] {
-    animation: slide $animation-duration-fast reverse
-      $animation-easing-function-ease-in;
+    animation: slide $animation-duration-fast reverse $animation-easing-function-ease-in;
   }
 }
 

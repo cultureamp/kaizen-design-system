@@ -1,18 +1,18 @@
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/layout";
-@import "../../styles/utils/legacy/grid";
-@import "../../styles/utils/legacy/layout";
-@import "../../styles/utils/button-reset";
-@import "../../styles/utils/layers";
-@import "./mixins";
-@import "./variables";
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/layout';
+@import '../../styles/utils/legacy/grid';
+@import '../../styles/utils/legacy/layout';
+@import '../../styles/utils/button-reset';
+@import '../../styles/utils/layers';
+@import './mixins';
+@import './variables';
 
 $title-block-margin-width-on-medium-and-small: 12px;
 $breadcrumb-circle-width: 48px;
-$breadcrumb-breakpoint-width: $layout-content-max-width +
-  $layout-content-side-margin * 2 + $breadcrumb-circle-width * 2.25;
+$breadcrumb-breakpoint-width: $layout-content-max-width + $layout-content-side-margin * 2 +
+  $breadcrumb-circle-width * 2.25;
 $title-block-separator-height: 0.1875rem;
 $tab-container-height-default: $ca-grid * 3;
 $tab-container-height-small: $ca-grid * 2.5;
@@ -433,31 +433,19 @@ $tab-container-height-medium-and-small-collapsed: 0;
     top: $tab-container-height-small - $title-block-separator-height;
     width: $tab-container-height-small;
     height: $tab-container-height-small;
-    background: linear-gradient(
-      0deg,
-      $color-purple-600,
-      rgba($color-purple-600-rgb, 0)
-    );
+    background: linear-gradient(0deg, $color-purple-600, rgba($color-purple-600-rgb, 0));
     z-index: $ca-z-index-sticky;
   }
 
   .adminVariant & {
     @include title-block-small {
-      background: linear-gradient(
-        0deg,
-        $color-gray-100,
-        rgba($color-gray-100-rgb, 0)
-      );
+      background: linear-gradient(0deg, $color-gray-100, rgba($color-gray-100-rgb, 0));
     }
   }
 
   .educationVariant & {
     @include title-block-small {
-      background: linear-gradient(
-        0deg,
-        $color-blue-200,
-        rgba($color-blue-200-rgb, 0)
-      );
+      background: linear-gradient(0deg, $color-blue-200, rgba($color-blue-200-rgb, 0));
     }
   }
 }
@@ -521,9 +509,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   transform: translateY(-50%);
   text-decoration: none;
 
-  @include ca-position(
-    $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid})
-  );
+  @include ca-position($start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid}));
 
   align-self: normal;
 
@@ -539,7 +525,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
         (-2 * #{$border-focus-ring-border-width}) - #{$border-focus-ring-border-width}
       );
 
-      content: "";
+      content: '';
       position: absolute;
       background: transparent;
       border-color: $color-blue-200;
@@ -599,9 +585,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   }
 
   @media only screen and (min-width: $breadcrumb-breakpoint-width) {
-    @include ca-position(
-      $start: calc(#{$breadcrumb-circle-width} - #{$ca-grid})
-    );
+    @include ca-position($start: calc(#{$breadcrumb-circle-width} - #{$ca-grid}));
   }
 
   &:hover,
@@ -615,7 +599,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
     display: block;
     animation: slide-fade 0.4s;
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       animation: reverse-slide-fade 0.4s;
     }
   }

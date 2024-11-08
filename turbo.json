@@ -52,18 +52,12 @@
       "cache": false
     },
     "@kaizen/components#build": {
-      "dependsOn": [
-        "@kaizen/design-tokens#build",
-        "@kaizen/package-bundler#build"
-      ],
+      "dependsOn": ["@kaizen/design-tokens#build", "@kaizen/package-bundler#build"],
       "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json"],
       "outputs": ["dist/**"]
     },
     "@kaizen/tailwind#build": {
-      "dependsOn": [
-        "@kaizen/design-tokens#build",
-        "@kaizen/package-bundler#build"
-      ],
+      "dependsOn": ["@kaizen/design-tokens#build", "@kaizen/package-bundler#build"],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
