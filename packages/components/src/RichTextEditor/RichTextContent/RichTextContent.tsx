@@ -20,7 +20,7 @@ export const RichTextContent = (props: RichTextContentProps): JSX.Element => {
     // prosemirror only allows us to set this to false (which has caused a strange bug in the platform)
     // so we have to hack a bit to remove the attribute completely
     document.getElementById(editorId)?.removeAttribute('contenteditable')
-  }, [])
+  }, [editorId])
 
   const [editorRef] = useRichTextEditor(
     ProseMirrorState.EditorState.create({

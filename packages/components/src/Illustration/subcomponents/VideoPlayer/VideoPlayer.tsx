@@ -143,7 +143,7 @@ export const VideoPlayer = ({
     return function cleanup() {
       videoElement.removeEventListener('ended', onEnded)
     }
-  }, [videoRef])
+  }, [onEnded, videoRef])
 
   useEffect(() => {
     // SSR does not have a window, which is required for canPlayWebm.

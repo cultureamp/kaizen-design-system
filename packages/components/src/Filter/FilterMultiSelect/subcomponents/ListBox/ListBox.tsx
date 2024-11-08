@@ -71,6 +71,7 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
       allItems,
       hasNoItems,
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectionState.collection.size])
 
   if (hasNoItems) {

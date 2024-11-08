@@ -256,6 +256,8 @@ export const FilterDateRangePickerField = ({
     }
 
     handleDateRangeChange({ from: newStartDate, to: newEndDate })
+    // Initial load only with translations as exceptions
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputStartDateLabel, inputEndDateLabel])
 
   return (

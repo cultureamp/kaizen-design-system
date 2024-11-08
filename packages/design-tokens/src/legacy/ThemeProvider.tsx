@@ -34,6 +34,7 @@ export const ThemeProvider = ({
       cancelled = true
       themeManagerInstance.removeThemeChangeListener(listener)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

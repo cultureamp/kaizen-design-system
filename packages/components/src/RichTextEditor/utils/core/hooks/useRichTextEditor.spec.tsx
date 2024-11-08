@@ -31,7 +31,7 @@ const Scenario = ({
   useEffect(() => {
     // Propagate changes to the editorState
     onChange(editorState)
-  }, [editorState])
+  }, [editorState, onChange])
 
   return (
     <div>

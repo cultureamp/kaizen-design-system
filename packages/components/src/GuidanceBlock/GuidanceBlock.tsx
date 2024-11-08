@@ -104,6 +104,7 @@ export const GuidanceBlock = ({
     if (layout === 'inline' || layout === 'stacked') {
       containerQuery()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleDismissBanner = (): void => {

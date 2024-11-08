@@ -61,6 +61,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   onValuesChange,
 }: FilterBarProviderProps<ValuesMap>): JSX.Element => {
   const filtersHash = useRef<string>(createFiltersHash(filters))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const mappedFilters = useMemo(() => getMappedFilters(filters), [filtersHash.current])
 
   const [state, dispatch] = useReducer(
@@ -114,6 +115,8 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   useEffect(() => {
     const shouldUpdate = checkShouldUpdateValues<ValuesMap>(state, values)
     if (shouldUpdate) dispatch({ type: 'update_values', values: { ...values } })
+    // Only run when values changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values])
 
   useEffect(() => {
@@ -121,6 +124,8 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       onValuesChange({ ...state.values })
       dispatch({ type: 'complete_update_values' })
     }
+    // Only run when state changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state])
 
   useEffect(() => {

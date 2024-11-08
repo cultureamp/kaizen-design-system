@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState, ReactNode, useMemo } from 'react'
 
@@ -68,7 +69,7 @@ export const useMediaQueries = (
           breakpoints.large,
         )})`,
       ),
-    [breakpoints.large],
+    [breakpoints.large, breakpoints.medium],
   )
   const largeMatchMedia = useMemo(
     () => window.matchMedia(`(min-width: ${breakpoints.large})`),
@@ -171,6 +172,7 @@ export const useMediaQueries = (
         matchMedia.removeEventListener('change', eventListener)
       })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // ---------------------------------------

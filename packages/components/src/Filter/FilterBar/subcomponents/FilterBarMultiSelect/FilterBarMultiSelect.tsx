@@ -51,6 +51,7 @@ export const FilterBarMultiSelect = ({
     if (!checkArraysMatch(items, propsItems)) {
       setItems(propsItems)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsItems])
 
   useEffect(() => {
@@ -62,6 +63,7 @@ export const FilterBarMultiSelect = ({
         updateValue(id, filteredValues)
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items])
 
   useEffect(() => {
@@ -69,7 +71,7 @@ export const FilterBarMultiSelect = ({
       buttonRef.current?.focus()
       setFocus(undefined)
     }
-  }, [focusId])
+  }, [focusId, id, setFocus])
 
   return (
     <FilterMultiSelect

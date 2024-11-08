@@ -259,6 +259,7 @@ export const DatePicker = ({
         handleValidation(validationResponse)
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedDay])
 
   const calendarId = `${id}-calendar-dialog`

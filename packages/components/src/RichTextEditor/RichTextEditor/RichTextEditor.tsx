@@ -137,6 +137,7 @@ export const RichTextEditor = ({
   useEffect(() => {
     onChange(editorState)
     // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editorState])
 
   return (

@@ -35,6 +35,8 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
     if (!checkArraysMatch(items, propsItems)) {
       setItems(propsItems)
     }
+    // One way check
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsItems])
 
   useEffect(() => {
@@ -44,6 +46,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
         updateValue(id, undefined)
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items])
 
   return (
