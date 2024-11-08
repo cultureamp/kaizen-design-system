@@ -5,7 +5,7 @@ import { Icon } from "~components/__future__/Icon"
 import { EmptyState } from "../index"
 
 const meta = {
-  title: "Components/EmptyState",
+  title: "Layout/EmptyState",
   component: EmptyState,
   argTypes: {
     children: {

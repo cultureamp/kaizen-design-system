@@ -4,10 +4,10 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { VideoPlayer } from "./index"
+import { VideoPlayer } from "../index"
 
 export default {
-  title: "Components/Illustrations/VideoPlayer",
+  title: "Illustrations/VideoPlayer",
   parameters: {
     controls: { disable: true },
     chromatic: { disable: false },

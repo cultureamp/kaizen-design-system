@@ -2,19 +2,11 @@ import "../../packages/components/styles/global.css"
 import "highlight.js/styles/a11y-light.css"
 import "./preview.css"
 
-import React, { useEffect } from "react"
-import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
 import { Preview } from "@storybook/react"
-import isChromatic from "chromatic"
-import { KaizenProvider } from "~components/KaizenProvider"
-import { I18nProvider } from "~components/__react-aria-components__"
-import { ReversedColors } from "~components/__utilities__/v3"
 import { DefaultDocsContainer } from "../components/DocsContainer"
 import { backgrounds } from "../utils/backgrounds"
 import { globalA11yRules } from "../utils/global-a11y-rules"
-
-const [, withBackground] = bgDecorators
-const IS_CHROMATIC = isChromatic()
+import { decorators } from "./decorators"
 
 const globalTypes: Preview["globalTypes"] = {
   textDirection: {
@@ -27,66 +19,6 @@ const globalTypes: Preview["globalTypes"] = {
     },
   },
 }
-
-const RACDecorator = (Story, context): JSX.Element => {
-  const dir = context.parameters.textDirection ?? context.globals.textDirection
-
-  useEffect(() => {
-    if (document.body.getAttribute("dir") !== dir)
-      document.body.setAttribute("dir", dir)
-  }, [dir])
-
-  return (
-    <I18nProvider locale={dir === "rtl" ? "ar" : "en"}>
-      <Story />
-    </I18nProvider>
-  )
-}
-
-const KaizenProviderDecorator = (Story): JSX.Element => (
-  <KaizenProvider>
-    <Story />
-  </KaizenProvider>
-)
-
-const decorators: Preview["decorators"] = [
-  RACDecorator,
-  KaizenProviderDecorator,
-  (Story, context) =>
-    (context.args.isReversed || context.args.reversed) && !IS_CHROMATIC ? (
-      <div className="p-16 m-[-1rem]">
-        <Story />
-      </div>
-    ) : (
-      <Story />
-    ),
-  // reverseColor parameter wraps story in ReversedColors context and sets default background to Purple 700
-  // @ts-ignore
-  (Story, context) => {
-    if (
-      // set in top toolbar
-      !context.globals.backgrounds &&
-      // set on story
-      !context.moduleExport?.parameters?.backgrounds
-    ) {
-      context.parameters.backgrounds.default = context.parameters.reverseColors
-        ? "Purple 700"
-        : "White"
-    }
-
-    return withBackground(
-      () =>
-        context.parameters.reverseColors ? (
-          <ReversedColors>
-            <Story />
-          </ReversedColors>
-        ) : (
-          <Story />
-        ),
-      context
-    )
-  },
-]
 
 const preview = {
   parameters: {
@@ -177,11 +109,15 @@ const preview = {
           "Guides",
           "Actions",
           "Containers",
+          "Content",
+          "Forms",
           "Illustrations",
           "Layout",
+          "Loading",
+          "Notifications",
           "Overlays",
-          "Components",
-          "Pages",
+          "Pickers",
+          "Utilities",
         ]
         const groupDifference = groups.indexOf(groupA) - groups.indexOf(groupB)
         if (groupDifference !== 0) {
@@ -189,19 +125,18 @@ const preview = {
           return groupDifference
         }
 
-        // Sort Kaizen Provider to top
-        if (a.title.includes("Kaizen Provider")) {
-          // If both are Kaizen Provider, do not sort
-          if (b.title.includes("Kaizen Provider")) return 0
-          return -1
-        }
-        if (b.title.includes("Kaizen Provider")) return 1
-
         const titleDifference = titleA.localeCompare(titleB, undefined, {
           numeric: true,
         })
 
         if (titleDifference !== 0) {
+          // Sort components containing the same name part alphabetically
+          // eg. Avatar and AvatarGroup
+          const titleAWithoutB = a.title.replace(b.title, "")
+          if (titleAWithoutB && !titleAWithoutB.includes("/")) return 1
+          const titleBWithoutA = b.title.replace(a.title, "")
+          if (titleBWithoutA && !titleBWithoutA.includes("/")) return -1
+
           // Sort nested stories to top
           if (a.title.includes(b.title)) return -1
           if (b.title.includes(a.title)) return 1

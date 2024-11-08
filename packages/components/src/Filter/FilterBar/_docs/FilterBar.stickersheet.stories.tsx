@@ -7,7 +7,7 @@ import {
 import { FilterBar, Filters } from "../index"
 
 export default {
-  title: "Components/Filter Bar",
+  title: "Pickers/FilterBar",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

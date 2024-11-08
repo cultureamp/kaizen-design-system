@@ -7,7 +7,7 @@ import {
 import { LoadingSpinner } from "../index"
 
 export default {
-  title: "Components/Loading states/LoadingSpinner",
+  title: "Loading/LoadingSpinner",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

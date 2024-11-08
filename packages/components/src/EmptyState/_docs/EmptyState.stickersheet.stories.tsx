@@ -10,7 +10,7 @@ import {
 import { EmptyState, EmptyStateProps } from "../index"
 
 export default {
-  title: "Components/EmptyState",
+  title: "Layout/EmptyState",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

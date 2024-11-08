@@ -7,7 +7,7 @@ import {
 import { Text } from "../index"
 
 export default {
-  title: "Components/Text",
+  title: "Content/Text",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

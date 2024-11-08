@@ -4,7 +4,7 @@ import { Icon } from "~components/__future__/Icon"
 import { ToggleIconButton } from "../ToggleIconButton"
 
 const meta = {
-  title: "Components/RichTextEditor/Subcomponents/ToggleIconButton",
+  title: "Forms/RichTextEditor/Subcomponents/ToggleIconButton",
   component: ToggleIconButton,
   args: {
     icon: <Icon name="format_bold" isPresentational />,

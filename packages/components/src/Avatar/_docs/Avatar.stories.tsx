@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Avatar } from "../index"
 
 const meta = {
-  title: "Components/Avatar",
+  title: "Content/Avatar/Avatar (Tier 1)",
   component: Avatar,
   args: {
     avatarSrc:

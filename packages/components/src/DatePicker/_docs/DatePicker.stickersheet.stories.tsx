@@ -10,7 +10,7 @@ import {
 import { DatePicker } from "../index"
 
 export default {
-  title: "Components/Date controls/DatePicker",
+  title: "Pickers/DatePicker",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

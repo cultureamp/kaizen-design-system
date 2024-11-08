@@ -8,7 +8,7 @@ import {
 import { CalendarRange, CalendarRangeProps } from "../../index"
 
 export default {
-  title: "Components/Date controls/Calendars/CalendarRange",
+  title: "Pickers/Calendar/CalendarRange",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

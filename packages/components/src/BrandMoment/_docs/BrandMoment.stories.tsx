@@ -24,7 +24,7 @@ const illustrationProps = (
 ) satisfies AnimatedSceneProps
 
 const meta = {
-  title: "Components/BrandMoment",
+  title: "Illustrations/BrandMoment",
   component: BrandMoment,
   argTypes: {
     mood: { control: false },

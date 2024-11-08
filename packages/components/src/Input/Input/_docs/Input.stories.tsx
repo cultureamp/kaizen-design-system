@@ -4,7 +4,7 @@ import { Icon } from "~components/__future__/Icon"
 import { Input } from "../index"
 
 const meta = {
-  title: "Components/Inputs/Input",
+  title: "Forms/Input",
   component: Input,
   parameters: {
     a11y: {

@@ -8,7 +8,7 @@ import { PopoverProps, usePopover } from "../index"
 import { popoverPlacements } from "../types"
 
 export default {
-  title: "Components/Popover",
+  title: "Overlays/Popover",
   parameters: {
     chromatic: { disable: false, diffThreshold: 1 },
     controls: { disable: true },
