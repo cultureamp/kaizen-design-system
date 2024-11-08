@@ -56,7 +56,7 @@
         "@kaizen/design-tokens#build",
         "@kaizen/package-bundler#build"
       ],
-      "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json"],
+      "inputs": ["src/**", "styles/**", "rollup.config.mjs", "tsconfig*.json"],
       "outputs": ["dist/**"]
     },
     "@kaizen/tailwind#build": {

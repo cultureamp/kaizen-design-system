@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block');
 @import url("./foundation/_layers.css");
 @import url("@kaizen/design-tokens/css/variables.css") layer(tokens);
 @import url("./foundation/_normalize.css") layer(normalize);
