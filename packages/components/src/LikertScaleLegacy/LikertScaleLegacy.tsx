@@ -74,7 +74,11 @@ export const LikertScaleLegacy = ({
     event: React.KeyboardEvent<HTMLDivElement>,
     focusedItem: ScaleItem,
   ): void => {
-    const newPosition = determineSelectionFromKeyPress(event.keyCode, selectedItem, focusedItem)
+    const newPosition = determineSelectionFromKeyPress(
+      event.keyCode,
+      selectedItem,
+      focusedItem,
+    )
     if (newPosition) {
       event.preventDefault()
 
@@ -88,7 +92,8 @@ export const LikertScaleLegacy = ({
 
   const legend = hoveredItem?.label ?? selectedItem?.label ?? "Not rated"
 
-  const shouldDisplayValidationMessage = status !== "default" && validationMessage !== undefined
+  const shouldDisplayValidationMessage =
+    status !== "default" && validationMessage !== undefined
 
   const validationMessageId = shouldDisplayValidationMessage
     ? `${labelId}-field-validation-message`
@@ -110,7 +115,10 @@ export const LikertScaleLegacy = ({
       aria-describedby={validationMessageId}
       data-testid={dataTestId}
     >
-      <div className={styles.legend} data-testid={dataTestId && `${dataTestId}-legend`}>
+      <div
+        className={styles.legend}
+        data-testid={dataTestId && `${dataTestId}-legend`}
+      >
         <Text variant="small" color={reversed ? "white" : "dark"}>
           {legend}
         </Text>
@@ -133,11 +141,16 @@ export const LikertScaleLegacy = ({
           // Make control tabbable
           let tabIndex = 0
           // Unless.. there's an item selected and it's not this one
-          if (selectedItem && selectedItem.value > 0 && selectedItem.value !== item.value) {
+          if (
+            selectedItem &&
+            selectedItem.value > 0 &&
+            selectedItem.value !== item.value
+          ) {
             tabIndex = -1
           }
 
-          const isSelected = selectedItem && item.value <= selectedItem?.value && !hoveredItem
+          const isSelected =
+            selectedItem && item.value <= selectedItem?.value && !hoveredItem
           const isSuggested = hoveredItem && hoveredItem.value >= item.value
           const isUnselected = selectedItem && selectedItem.value < item.value
 
@@ -145,7 +158,9 @@ export const LikertScaleLegacy = ({
             <div
               className={classnames(
                 styles.likertItem,
-                colorSchema == "blue" ? styles.blueColorSchema : styles.classicalColorSchema,
+                colorSchema == "blue"
+                  ? styles.blueColorSchema
+                  : styles.classicalColorSchema,
                 styles[`likertItem${item.value}`],
                 isSelected && styles.selected,
                 isSuggested && styles.suggested,

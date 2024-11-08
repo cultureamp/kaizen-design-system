@@ -6,7 +6,11 @@ import { BrandCollectiveIntelligence } from "./BrandCollectiveIntelligence"
 import styles from "./Brand.module.scss"
 
 type MeaningfulSVG = { "role": "img"; "aria-label": string; "alt"?: never }
-type DecorativeSVG = { "role": "presentation"; "aria-label"?: never; "alt"?: never }
+type DecorativeSVG = {
+  "role": "presentation"
+  "aria-label"?: never
+  "alt"?: never
+}
 export type BrandSVGProps = OverrideClassName<SVGAttributes<SVGElement>> &
   (MeaningfulSVG | DecorativeSVG)
 
@@ -33,7 +37,11 @@ const isSVG = (
   restProps: SVGProps | PictureProps,
 ): restProps is SVGProps => variant === "collective-intelligence"
 
-export const Brand = ({ reversed = false, variant, ...restProps }: BrandProps): JSX.Element => {
+export const Brand = ({
+  reversed = false,
+  variant,
+  ...restProps
+}: BrandProps): JSX.Element => {
   if (isSVG(variant, restProps)) {
     const { role, alt, "aria-label": ariaLabel, ...props } = restProps
 
@@ -41,10 +49,18 @@ export const Brand = ({ reversed = false, variant, ...restProps }: BrandProps): 
       return <BrandCollectiveIntelligence role={role} {...props} />
     }
     if (role === "img") {
-      return <BrandCollectiveIntelligence role={role} aria-label={ariaLabel} {...props} />
+      return (
+        <BrandCollectiveIntelligence
+          role={role}
+          aria-label={ariaLabel}
+          {...props}
+        />
+      )
     }
 
-    return <BrandCollectiveIntelligence role="img" aria-label={alt} {...props} />
+    return (
+      <BrandCollectiveIntelligence role="img" aria-label={alt} {...props} />
+    )
   }
 
   const { alt, classNameOverride, style, ...otherProps } = restProps

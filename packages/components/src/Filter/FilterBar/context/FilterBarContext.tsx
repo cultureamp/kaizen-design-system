@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useMemo, useReducer, useRef } from "react"
+import React, {
+  useContext,
+  useEffect,
+  useMemo,
+  useReducer,
+  useRef,
+} from "react"
 import { FilterAttributes, FilterState, Filters, FiltersValues } from "../types"
 import { filterBarStateReducer } from "./reducer/filterBarStateReducer"
 import { setupFilterBarState } from "./reducer/setupFilterBarState"
@@ -20,10 +26,19 @@ export type FilterBarContextValue<
   /**
    * @deprecated Use `setFilterOpenState` instead.
    */
-  toggleOpenFilter: <Id extends keyof ValuesMap>(id: Id, isOpen: boolean) => void
-  setFilterOpenState: <Id extends keyof ValuesMap>(id: Id, isOpen: boolean) => void
+  toggleOpenFilter: <Id extends keyof ValuesMap>(
+    id: Id,
+    isOpen: boolean,
+  ) => void
+  setFilterOpenState: <Id extends keyof ValuesMap>(
+    id: Id,
+    isOpen: boolean,
+  ) => void
   openFilter: <Id extends keyof ValuesMap>(id: Id) => void
-  updateValue: <Id extends keyof ValuesMap>(id: Id, value: ValuesMap[Id]) => void
+  updateValue: <Id extends keyof ValuesMap>(
+    id: Id,
+    value: ValuesMap[Id],
+  ) => void
   showFilter: <Id extends keyof ValuesMap>(id: Id) => void
   hideFilter: <Id extends keyof ValuesMap>(id: Id) => void
   getInactiveFilters: () => FilterAttributes<ValuesMap>[]
@@ -32,7 +47,9 @@ export type FilterBarContextValue<
   focusId?: keyof ValuesMap
 }
 
-const FilterBarContext = React.createContext<FilterBarContextValue<any> | null>(null)
+const FilterBarContext = React.createContext<FilterBarContextValue<any> | null>(
+  null,
+)
 
 export const useFilterBarContext = <
   Value,
@@ -41,7 +58,9 @@ export const useFilterBarContext = <
   const context = useContext(FilterBarContext)
 
   if (!context) {
-    throw new Error("useFilterBarContext must be used within the FilterBarContext.Provider")
+    throw new Error(
+      "useFilterBarContext must be used within the FilterBarContext.Provider",
+    )
   }
 
   return context as FilterBarContextValue<Value, Values>
@@ -79,16 +98,25 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       value: values[id],
     }),
     getActiveFilterValues: () => values,
-    toggleOpenFilter: <Id extends keyof ValuesMap>(id: Id, isOpen: boolean): void => {
+    toggleOpenFilter: <Id extends keyof ValuesMap>(
+      id: Id,
+      isOpen: boolean,
+    ): void => {
       dispatch({ type: "update_single_filter", id, data: { isOpen } })
     },
-    setFilterOpenState: <Id extends keyof ValuesMap>(id: Id, isOpen: boolean): void => {
+    setFilterOpenState: <Id extends keyof ValuesMap>(
+      id: Id,
+      isOpen: boolean,
+    ): void => {
       dispatch({ type: "update_single_filter", id, data: { isOpen } })
     },
     openFilter: <Id extends keyof ValuesMap>(id: Id): void => {
       dispatch({ type: "update_single_filter", id, data: { isOpen: true } })
     },
-    updateValue: <Id extends keyof ValuesMap>(id: Id, newValue: ValuesMap[Id]): void => {
+    updateValue: <Id extends keyof ValuesMap>(
+      id: Id,
+      newValue: ValuesMap[Id],
+    ): void => {
       dispatch({
         type: "update_values",
         values: { ...values, [id]: getValidValue(newValue) },
@@ -105,7 +133,8 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
     clearAllFilters: () => {
       state.activeFilterIds.forEach((id) => {
-        if (mappedFilters[id].isRemovable) dispatch({ type: "deactivate_filter", id })
+        if (mappedFilters[id].isRemovable)
+          dispatch({ type: "deactivate_filter", id })
       })
       dispatch({ type: "update_values", values: {} })
     },
@@ -139,7 +168,10 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     }
   }, [filters])
 
-  const activeFilters = Array.from(state.activeFilterIds, (id) => mappedFilters[id])
+  const activeFilters = Array.from(
+    state.activeFilterIds,
+    (id) => mappedFilters[id],
+  )
 
   return (
     <FilterBarContext.Provider

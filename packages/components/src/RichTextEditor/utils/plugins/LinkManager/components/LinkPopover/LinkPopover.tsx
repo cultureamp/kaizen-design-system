@@ -28,7 +28,11 @@ export const LinkPopover = ({
         <div className={styles.popoverContent}>
           <Icon name="open_in_new" isPresentational />
           <div className={styles.popoverLinkContainer}>
-            <Text variant="body" tag="div" classNameOverride={styles.paragraphFlex}>
+            <Text
+              variant="body"
+              tag="div"
+              classNameOverride={styles.paragraphFlex}
+            >
               <a
                 className={styles.popoverLink}
                 href={href}

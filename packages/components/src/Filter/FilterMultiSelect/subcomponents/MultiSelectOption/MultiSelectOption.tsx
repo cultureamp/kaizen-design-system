@@ -22,7 +22,11 @@ export const MultiSelectOption = ({
   const { selectionState: state } = useSelectionContext()
   // Get props for the option element
   const ref = React.createRef<HTMLLIElement>()
-  const { optionProps, isSelected, isDisabled } = useOption({ key: item.key }, state, ref)
+  const { optionProps, isSelected, isDisabled } = useOption(
+    { key: item.key },
+    state,
+    ref,
+  )
 
   // Determine whether we should show a keyboard
   // focus ring for accessibility
@@ -43,7 +47,9 @@ export const MultiSelectOption = ({
       aria-label={item.value?.label}
       aria-describedby={item.value?.count ? countElementId : undefined}
     >
-      <span className={classnames(styles.icon, isSelected && styles.isSelected)}>
+      <span
+        className={classnames(styles.icon, isSelected && styles.isSelected)}
+      >
         {isSelected && <Icon name="check" isPresentational />}
       </span>
       {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider */}

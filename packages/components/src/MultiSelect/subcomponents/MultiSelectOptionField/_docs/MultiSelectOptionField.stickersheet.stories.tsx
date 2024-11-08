@@ -29,7 +29,10 @@ const StickerSheetTemplate: Story = {
   render: () => (
     <>
       <StickerSheet heading="MultiSelectOptionField">
-        <StickerSheet.Header headings={["Default", "Hover", "Focus"]} hasVerticalHeadings />
+        <StickerSheet.Header
+          headings={["Default", "Hover", "Focus"]}
+          hasVerticalHeadings
+        />
         <StickerSheet.Body>
           {STATUS_ROWS.map(({ title, status }) => (
             <StickerSheet.Row key={title} rowTitle={title}>

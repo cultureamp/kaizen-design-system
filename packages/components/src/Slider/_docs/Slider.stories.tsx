@@ -41,8 +41,16 @@ export const MinMaxLabels: Story = {}
 export const LabelPosition: Story = {
   render: (args) => (
     <div className="flex flex-col gap-16">
-      <Slider {...args} labelText="Inline Label Position" labelPosition="inline" />
-      <Slider {...args} labelText="Block Label Position" labelPosition="block" />
+      <Slider
+        {...args}
+        labelText="Inline Label Position"
+        labelPosition="inline"
+      />
+      <Slider
+        {...args}
+        labelText="Block Label Position"
+        labelPosition="block"
+      />
     </div>
   ),
 }

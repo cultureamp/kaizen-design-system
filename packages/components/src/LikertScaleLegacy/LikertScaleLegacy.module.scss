@@ -138,7 +138,8 @@ $blue-fifth: $color-blue-500;
 
 .likertItem:focus-visible .likertItemFill {
   outline-offset: 1px;
-  outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
+  outline: $color-blue-500 $border-focus-ring-border-style
+    $border-focus-ring-border-width;
 }
 
 .reversed .likertItem:focus-visible .likertItemFill {

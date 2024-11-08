@@ -58,8 +58,15 @@ export const Controlled: Story = {
     const [selectedKey, setSelectedKey] = useState<Key>(0)
     return (
       <>
-        <Tabs {...args} selectedKey={selectedKey} onSelectionChange={setSelectedKey} />
-        <Button label="Switch to tab 2" onClick={(): void => setSelectedKey("two")} />
+        <Tabs
+          {...args}
+          selectedKey={selectedKey}
+          onSelectionChange={setSelectedKey}
+        />
+        <Button
+          label="Switch to tab 2"
+          onClick={(): void => setSelectedKey("two")}
+        />
       </>
     )
   },

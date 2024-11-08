@@ -47,7 +47,9 @@ export const NoPadding: Story = {
   },
   render: ({ title }) => (
     <Collapsible open noSectionPadding title={title}>
-      <Text variant="body">In that case you should use the &apos;noSectionPadding&apos; prop.</Text>
+      <Text variant="body">
+        In that case you should use the &apos;noSectionPadding&apos; prop.
+      </Text>
     </Collapsible>
   ),
 }
@@ -79,7 +81,9 @@ export const CustomHeader: Story = {
         </Heading>
       )}
     >
-      <Text variant="body">You can create a custom header using the renderHeader prop.</Text>
+      <Text variant="body">
+        You can create a custom header using the renderHeader prop.
+      </Text>
     </Collapsible>
   ),
 }

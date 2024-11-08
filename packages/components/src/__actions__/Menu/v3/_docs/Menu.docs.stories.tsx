@@ -23,10 +23,18 @@ type Story = StoryObj<typeof meta>
 const DefaultMenuItems = (): ReactNode => (
   <>
     <MenuItem icon={<Icon name="bookmark" isPresentational />}>Save</MenuItem>
-    <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>Edit</MenuItem>
-    <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>Move up</MenuItem>
-    <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>Move down</MenuItem>
-    <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
+    <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>
+      Edit
+    </MenuItem>
+    <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>
+      Move up
+    </MenuItem>
+    <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>
+      Move down
+    </MenuItem>
+    <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>
+      Delete
+    </MenuItem>
   </>
 )
 
@@ -38,7 +46,9 @@ export const Actions: Story = {
       </Button>
       <Popover>
         <Menu>
-          <MenuItem href="https://cultureamp.com">Action that navigates</MenuItem>
+          <MenuItem href="https://cultureamp.com">
+            Action that navigates
+          </MenuItem>
           <MenuItem onAction={() => null}>Non-navigation action</MenuItem>
         </Menu>
       </Popover>
@@ -69,7 +79,9 @@ export const ItemsDont: Story = {
       </Button>
       <Popover>
         <Menu>
-          <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
+          <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>
+            Delete
+          </MenuItem>
         </Menu>
       </Popover>
     </MenuTrigger>
@@ -85,7 +97,9 @@ export const SelectionDont: Story = {
       </Button>
       <Popover>
         <Menu>
-          <MenuItem icon={<Icon name="check" isPresentational />}>Recommended</MenuItem>
+          <MenuItem icon={<Icon name="check" isPresentational />}>
+            Recommended
+          </MenuItem>
           <MenuItem>Most recent</MenuItem>
         </Menu>
       </Popover>

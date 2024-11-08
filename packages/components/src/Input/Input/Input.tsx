@@ -44,7 +44,9 @@ export const Input = ({
       status != "default" && styles.hasStatus,
     )}
   >
-    {startIconAdornment && <div className={styles.startIconAdornment}>{startIconAdornment}</div>}
+    {startIconAdornment && (
+      <div className={styles.startIconAdornment}>{startIconAdornment}</div>
+    )}
 
     <input
       ref={inputRef}
@@ -66,7 +68,9 @@ export const Input = ({
           so we have to create an element ourselves for the focus ring */}
     <div className={styles.focusRing} />
 
-    {endIconAdornment && <div className={styles.endIconAdornment}>{endIconAdornment}</div>}
+    {endIconAdornment && (
+      <div className={styles.endIconAdornment}>{endIconAdornment}</div>
+    )}
   </div>
 )
 

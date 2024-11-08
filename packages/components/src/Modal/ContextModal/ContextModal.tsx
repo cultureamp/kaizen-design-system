@@ -109,7 +109,9 @@ export const ContextModal = ({
       <div className={styles.modal} data-modal {...props}>
         {renderBackground?.()}
         <ModalHeader onDismiss={onDismiss}>
-          <div className={classnames(styles.header, !unpadded && styles.padded)}>
+          <div
+            className={classnames(styles.header, !unpadded && styles.padded)}
+          >
             <ModalAccessibleLabel>
               <Heading variant="heading-2" tag="h2">
                 {title}
@@ -117,15 +119,26 @@ export const ContextModal = ({
             </ModalAccessibleLabel>
           </div>
         </ModalHeader>
-        {contentHeader && <div className={styles.contentHeader}>{contentHeader}</div>}
+        {contentHeader && (
+          <div className={styles.contentHeader}>{contentHeader}</div>
+        )}
         <ModalBody>
-          <div className={classnames(styles.contentLayout, styles[`${layout}Contentlayout`])}>
+          <div
+            className={classnames(
+              styles.contentLayout,
+              styles[`${layout}Contentlayout`],
+            )}
+          >
             {image && <div className={styles.image}>{image}</div>}
             <div className={styles.content}>
               {children}
               {onConfirm != null && (
                 <div
-                  className={secondaryLabel ? styles.footerWithSecondaryAction : styles.footer}
+                  className={
+                    secondaryLabel
+                      ? styles.footerWithSecondaryAction
+                      : styles.footer
+                  }
                 />
               )}
             </div>

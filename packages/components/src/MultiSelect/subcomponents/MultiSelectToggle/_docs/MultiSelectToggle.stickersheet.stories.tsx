@@ -1,6 +1,9 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { MultiSelectToggle, MultiSelectToggleProps } from "../index"
 
 export default {
@@ -40,7 +43,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet isReversed={isReversed} heading="MultiSelectToggle" className="w-full">
+        <StickerSheet
+          isReversed={isReversed}
+          heading="MultiSelectToggle"
+          className="w-full"
+        >
           <StickerSheet.Body>
             <StickerSheet.Row rowTitle="Default" rowTitleWidth="10rem">
               <MultiSelectToggle {...defaultProps} />
@@ -51,7 +58,11 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Body>
         </StickerSheet>
 
-        <StickerSheet isReversed={isReversed} heading="Pseudo states" className="w-full">
+        <StickerSheet
+          isReversed={isReversed}
+          heading="Pseudo states"
+          className="w-full"
+        >
           <StickerSheet.Header
             headings={["Hover", "Focus"]}
             hasVerticalHeadings
@@ -59,18 +70,37 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
           <StickerSheet.Body>
             <StickerSheet.Row rowTitle="Toggle">
-              <MultiSelectToggle {...defaultProps} data-sb-pseudo-styles="hover" />
-              <MultiSelectToggle {...defaultProps} data-sb-pseudo-styles="focus" />
+              <MultiSelectToggle
+                {...defaultProps}
+                data-sb-pseudo-styles="hover"
+              />
+              <MultiSelectToggle
+                {...defaultProps}
+                data-sb-pseudo-styles="focus"
+              />
             </StickerSheet.Row>
             <StickerSheet.Row rowTitle="Toggle Button">
-              <MultiSelectToggle {...defaultProps} data-sb-pseudo-styles="hover--button" />
-              <MultiSelectToggle {...defaultProps} data-sb-pseudo-styles="focus--button" />
+              <MultiSelectToggle
+                {...defaultProps}
+                data-sb-pseudo-styles="hover--button"
+              />
+              <MultiSelectToggle
+                {...defaultProps}
+                data-sb-pseudo-styles="focus--button"
+              />
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>
 
-        <StickerSheet isReversed={isReversed} heading="Validation states" className="w-full">
-          <StickerSheet.Header headings={["Error", "Caution"]} verticalHeadingsWidth="10rem" />
+        <StickerSheet
+          isReversed={isReversed}
+          heading="Validation states"
+          className="w-full"
+        >
+          <StickerSheet.Header
+            headings={["Error", "Caution"]}
+            verticalHeadingsWidth="10rem"
+          />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <MultiSelectToggle status="error" {...defaultProps} />
@@ -79,8 +109,15 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Body>
         </StickerSheet>
 
-        <StickerSheet isReversed={isReversed} heading="Has selected values" className="w-full">
-          <StickerSheet.Header headings={["Default", "Hover", "Multi-line"]} headingsWidth="30%" />
+        <StickerSheet
+          isReversed={isReversed}
+          heading="Has selected values"
+          className="w-full"
+        >
+          <StickerSheet.Header
+            headings={["Default", "Hover", "Multi-line"]}
+            headingsWidth="30%"
+          />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <StickerSheet.Cell className="align-top">
@@ -128,7 +165,10 @@ const StickerSheetTemplate: StickerSheetStory = {
         '[data-sb-pseudo-styles="hover--button"]',
         '[data-sb-pseudo-styles="hover--button"] > button',
       ],
-      focusWithin: ['[data-sb-pseudo-styles="focus"]', '[data-sb-pseudo-styles="focus--button"]'],
+      focusWithin: [
+        '[data-sb-pseudo-styles="focus"]',
+        '[data-sb-pseudo-styles="focus--button"]',
+      ],
       focus: [
         '[data-sb-pseudo-styles="focus"] > button',
         '[data-sb-pseudo-styles="focus--button"] > button',

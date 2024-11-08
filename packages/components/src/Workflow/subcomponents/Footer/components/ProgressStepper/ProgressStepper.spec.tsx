@@ -20,7 +20,9 @@ describe("<ProgressStepperr />", () => {
   it("tracks the correct position of the active step", () => {
     render(<ProgressStepper currentStepId="settings-step" {...defaultArgs} />)
     screen.getByText("Current: Settings")
-    expect(screen.getByText(`Step 1 of ${defaultArgs.steps.length}`)).toBeInTheDocument()
+    expect(
+      screen.getByText(`Step 1 of ${defaultArgs.steps.length}`),
+    ).toBeInTheDocument()
   })
   it("renders the correct number of completed steps with an accessible name", () => {
     render(<ProgressStepper currentStepId="preview-step" {...defaultArgs} />)
@@ -31,7 +33,13 @@ describe("<ProgressStepperr />", () => {
     expect(screen.getAllByText("Not started:", { exact: false }).length).toBe(2)
   })
   it("renders all steps as complete if the provided the `isComplete` prop", () => {
-    render(<ProgressStepper currentStepId="preview-step" {...defaultArgs} isComplete />)
+    render(
+      <ProgressStepper
+        currentStepId="preview-step"
+        {...defaultArgs}
+        isComplete
+      />,
+    )
     expect(screen.getAllByText("Completed:", { exact: false }).length).toBe(5)
   })
 })

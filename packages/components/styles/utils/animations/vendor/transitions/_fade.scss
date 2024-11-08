@@ -5,7 +5,14 @@
 /// @param {Keyword} $duration [null] - Length (speed) of the transition.
 /// @param {Keyword|Function} $timing [null] - Easing of the transition.
 /// @param {Duration} $delay [null] - Delay in seconds or milliseconds before the transition starts.
-@mixin mui-fade($state: in, $from: null, $to: null, $duration: null, $timing: null, $delay: null) {
+@mixin mui-fade(
+  $state: in,
+  $from: null,
+  $to: null,
+  $duration: null,
+  $timing: null,
+  $delay: null
+) {
   $from: if($from != null, $from, if($state == in, 0, 1));
   $to: if($to != null, $to, if($state == in, 1, 0));
   $fade: fade($from, $to);

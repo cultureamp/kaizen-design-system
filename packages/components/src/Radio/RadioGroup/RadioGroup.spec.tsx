@@ -15,12 +15,18 @@ describe("<RadioGroup />", () => {
   describe("accessibilty", () => {
     it("has an accessible name when not provided a labelId", () => {
       const { getByRole } = render(<RadioGroup labelText="Label title" />)
-      expect(getByRole("radiogroup", { name: "Label title" })).toBeInTheDocument()
+      expect(
+        getByRole("radiogroup", { name: "Label title" }),
+      ).toBeInTheDocument()
     })
 
     it("has an accessible name when provided a labelId", () => {
-      const { getByRole } = render(<RadioGroup labelText="Label title" labelId="some-custom-id" />)
-      expect(getByRole("radiogroup", { name: "Label title" })).toBeInTheDocument()
+      const { getByRole } = render(
+        <RadioGroup labelText="Label title" labelId="some-custom-id" />,
+      )
+      expect(
+        getByRole("radiogroup", { name: "Label title" }),
+      ).toBeInTheDocument()
     })
   })
 })

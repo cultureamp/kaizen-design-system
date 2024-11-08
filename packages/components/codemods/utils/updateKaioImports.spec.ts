@@ -83,7 +83,10 @@ describe("updateKaioImports()", () => {
       expect(
         transformInput(inputAst)({
           importsToAdd: new Map([
-            ["@kaizen/components/future", new Map([["Card", { componentName: "Card" }]])],
+            [
+              "@kaizen/components/future",
+              new Map([["Card", { componentName: "Card" }]]),
+            ],
           ]),
         }),
       ).toEqual(printAst(outputAst))
@@ -119,7 +122,10 @@ describe("updateKaioImports()", () => {
       expect(
         transformInput(inputAst)({
           importsToAdd: new Map([
-            ["@kaizen/components/future", new Map([["Icon", { componentName: "Icon" }]])],
+            [
+              "@kaizen/components/future",
+              new Map([["Icon", { componentName: "Icon" }]]),
+            ],
           ]),
         }),
       ).toEqual(printAst(outputAst))
@@ -135,7 +141,10 @@ describe("updateKaioImports()", () => {
       expect(
         transformInput(inputAst)({
           importsToAdd: new Map([
-            ["@kaizen/components/future", new Map([["Card", { componentName: "Card" }]])],
+            [
+              "@kaizen/components/future",
+              new Map([["Card", { componentName: "Card" }]]),
+            ],
           ]),
         }),
       ).toEqual(printAst(outputAst))
@@ -157,7 +166,10 @@ describe("updateKaioImports()", () => {
         expect(
           transformInput(inputAst)({
             importsToAdd: new Map([
-              ["@kaizen/components/future", new Map([["Card", { componentName: "Card" }]])],
+              [
+                "@kaizen/components/future",
+                new Map([["Card", { componentName: "Card" }]]),
+              ],
             ]),
           }),
         ).toEqual(printAst(outputAst))
@@ -178,7 +190,10 @@ describe("updateKaioImports()", () => {
         expect(
           transformInput(inputAst)({
             importsToAdd: new Map([
-              ["@kaizen/components/future", new Map([["Card", { componentName: "Card" }]])],
+              [
+                "@kaizen/components/future",
+                new Map([["Card", { componentName: "Card" }]]),
+              ],
             ]),
           }),
         ).toEqual(printAst(outputAst))
@@ -195,7 +210,10 @@ describe("updateKaioImports()", () => {
         expect(
           transformInput(inputAst)({
             importsToAdd: new Map([
-              ["@kaizen/components/future", new Map([["Card", { componentName: "Card" }]])],
+              [
+                "@kaizen/components/future",
+                new Map([["Card", { componentName: "Card" }]]),
+              ],
             ]),
           }),
         ).toEqual(printAst(outputAst))

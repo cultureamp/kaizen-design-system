@@ -1,6 +1,9 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { MultiSelectOptions, MultiSelectOptionsProps } from "../index"
 
 export default {
@@ -29,7 +32,9 @@ const options = [
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
-      <StickerSheet.Header headings={["Default", "Focus + Hover", "Empty state"]} />
+      <StickerSheet.Header
+        headings={["Default", "Focus + Hover", "Empty state"]}
+      />
       <StickerSheet.Body>
         <StickerSheet.Row>
           <MultiSelectOptions

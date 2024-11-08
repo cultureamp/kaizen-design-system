@@ -1,7 +1,10 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { Icon } from "~components/__future__/Icon"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Button, ButtonProps } from "../index"
 
 export default {
@@ -103,16 +106,31 @@ const StickerSheetTemplate: StickerSheetStory = {
             {VARIANTS_PROPS.map(({ title, props }) => (
               <StickerSheet.Row key={title} rowTitle={title}>
                 <Button reversed={isReversed} {...props} />
-                <Button reversed={isReversed} data-sb-pseudo-styles="hover" {...props} />
-                <Button reversed={isReversed} data-sb-pseudo-styles="active" {...props} />
-                <Button reversed={isReversed} data-sb-pseudo-styles="focus" {...props} />
+                <Button
+                  reversed={isReversed}
+                  data-sb-pseudo-styles="hover"
+                  {...props}
+                />
+                <Button
+                  reversed={isReversed}
+                  data-sb-pseudo-styles="active"
+                  {...props}
+                />
+                <Button
+                  reversed={isReversed}
+                  data-sb-pseudo-styles="focus"
+                  {...props}
+                />
                 <Button reversed={isReversed} {...props} disabled />
               </StickerSheet.Row>
             ))}
           </StickerSheet.Body>
         </StickerSheet>
 
-        <StickerSheet isReversed={isReversed} heading="Size small (formerly form)">
+        <StickerSheet
+          isReversed={isReversed}
+          heading="Size small (formerly form)"
+        >
           <StickerSheet.Header
             headings={["Base", "Hover", "Active", "Focus", "Disabled"]}
             hasVerticalHeadings
@@ -139,7 +157,12 @@ const StickerSheetTemplate: StickerSheetStory = {
                   {...props}
                   size="small"
                 />
-                <Button reversed={isReversed} {...props} disabled size="small" />
+                <Button
+                  reversed={isReversed}
+                  {...props}
+                  disabled
+                  size="small"
+                />
               </StickerSheet.Row>
             ))}
           </StickerSheet.Body>
@@ -162,9 +185,21 @@ const StickerSheetTemplate: StickerSheetStory = {
             {VARIANTS_PROPS.map(({ title, props }) => (
               <StickerSheet.Row key={title} rowTitle={title}>
                 <Button reversed={isReversed} {...props} {...ICON_LEFT_PROPS} />
-                <Button reversed={isReversed} {...props} {...ICON_RIGHT_PROPS} />
-                <Button reversed={isReversed} {...props} {...BADGE_LEFT_PROPS} />
-                <Button reversed={isReversed} {...props} {...BADGE_RIGHT_PROPS} />
+                <Button
+                  reversed={isReversed}
+                  {...props}
+                  {...ICON_RIGHT_PROPS}
+                />
+                <Button
+                  reversed={isReversed}
+                  {...props}
+                  {...BADGE_LEFT_PROPS}
+                />
+                <Button
+                  reversed={isReversed}
+                  {...props}
+                  {...BADGE_RIGHT_PROPS}
+                />
                 <Button reversed={isReversed} {...props} {...BADGE_PROPS} />
               </StickerSheet.Row>
             ))}
@@ -266,12 +301,23 @@ const WorkingStickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Body>
         </StickerSheet>
 
-        <StickerSheet isReversed={isReversed} heading="Size small (formerly form)">
-          <StickerSheet.Header headings={["Working", "Working Focus"]} hasVerticalHeadings />
+        <StickerSheet
+          isReversed={isReversed}
+          heading="Size small (formerly form)"
+        >
+          <StickerSheet.Header
+            headings={["Working", "Working Focus"]}
+            hasVerticalHeadings
+          />
           <StickerSheet.Body>
             {VARIANTS_PROPS.map(({ title, props }) => (
               <StickerSheet.Row key={title} rowTitle={title}>
-                <Button reversed={isReversed} {...props} size="small" {...WORKING_PROPS} />
+                <Button
+                  reversed={isReversed}
+                  {...props}
+                  size="small"
+                  {...WORKING_PROPS}
+                />
                 <Button
                   reversed={isReversed}
                   {...props}

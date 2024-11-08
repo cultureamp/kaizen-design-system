@@ -32,7 +32,8 @@ const RACDecorator: Decorator = (Story, context) => {
   const dir = context.parameters.textDirection ?? context.globals.textDirection
 
   useEffect(() => {
-    if (document.body.getAttribute("dir") !== dir) document.body.setAttribute("dir", dir)
+    if (document.body.getAttribute("dir") !== dir)
+      document.body.setAttribute("dir", dir)
   }, [dir])
 
   return (
@@ -128,11 +129,17 @@ const preview = {
           if (a.title.includes("References")) return 1
 
           if (a.type === "docs" && b.type === "docs") {
-            const docs = ["Overview", "Getting Started", "Configuration", "Working with Tailwind"]
+            const docs = [
+              "Overview",
+              "Getting Started",
+              "Configuration",
+              "Working with Tailwind",
+            ]
             const docsNameA = a.title.split("/").pop()
             const docsNameB = b.title.split("/").pop()
             if (docs.includes(docsNameA) && docs.includes(docsNameB)) {
-              const docsDifference = docs.indexOf(docsNameA) - docs.indexOf(docsNameB)
+              const docsDifference =
+                docs.indexOf(docsNameA) - docs.indexOf(docsNameB)
               if (docsDifference !== 0) {
                 // Sort docs by listed order
                 return docsDifference
@@ -207,7 +214,8 @@ const preview = {
           const docsNameA = a.title.split("/").pop()
           const docsNameB = b.title.split("/").pop()
 
-          const docsDifference = docs.indexOf(docsNameA) - docs.indexOf(docsNameB)
+          const docsDifference =
+            docs.indexOf(docsNameA) - docs.indexOf(docsNameB)
           if (docsDifference !== 0) {
             // Sort stories of different groups manually by the groups array
             return docsDifference

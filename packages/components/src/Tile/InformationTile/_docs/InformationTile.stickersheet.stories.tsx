@@ -1,6 +1,9 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { InformationTile, InformationTileProps } from "../index"
 
 export default {
@@ -20,7 +23,10 @@ const StickerSheetTemplate: StickerSheetStory = {
       footer: <>Footer</>,
     } satisfies InformationTileProps
 
-    const variants = ["default", "expert-advice"] satisfies InformationTileProps["variant"][]
+    const variants = [
+      "default",
+      "expert-advice",
+    ] satisfies InformationTileProps["variant"][]
 
     const moods = [
       "positive",

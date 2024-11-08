@@ -13,7 +13,9 @@ const defaultInputProps = {
   onChange: vi.fn(),
 }
 
-const renderInput = (props?: Omit<InputSearchProps, "id">): ReturnType<typeof render> => {
+const renderInput = (
+  props?: Omit<InputSearchProps, "id">,
+): ReturnType<typeof render> => {
   const mergedInputProps = { ...defaultInputProps, ...props }
 
   return render(<InputSearch {...mergedInputProps} data-testid="someInputId" />)
@@ -23,7 +25,9 @@ describe("<InputSearch />", () => {
   it("should render a value inside of input", async () => {
     const { container } = renderInput()
     await waitFor(() => {
-      expect(container.querySelector(`[value="${defaultInputProps.value}"]`)).toBeTruthy()
+      expect(
+        container.querySelector(`[value="${defaultInputProps.value}"]`),
+      ).toBeTruthy()
     })
   })
 

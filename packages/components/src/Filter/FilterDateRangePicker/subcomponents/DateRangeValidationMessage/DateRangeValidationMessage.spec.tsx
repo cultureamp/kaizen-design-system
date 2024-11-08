@@ -15,12 +15,15 @@ describe("<DateRangeValidationMessage />", () => {
           },
           dateEnd: {
             status: "error",
-            message: '"Date to" cannot be earlier than the "Date from" selection.',
+            message:
+              '"Date to" cannot be earlier than the "Date from" selection.',
           },
         }}
       />,
     )
-    expect(container.querySelector("#date-start-error-message-id")).toBeVisible()
+    expect(
+      container.querySelector("#date-start-error-message-id"),
+    ).toBeVisible()
     expect(container.querySelector("#date-end-error-message-id")).toBeVisible()
   })
 })

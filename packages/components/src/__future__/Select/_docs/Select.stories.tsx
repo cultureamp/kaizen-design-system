@@ -4,7 +4,11 @@ import { ContextModal } from "~components/Modal"
 import { RadioField, RadioGroup } from "~components/Radio"
 import { Select } from "../Select"
 import { SelectOption } from "../types"
-import { groupedMockItems, mixedMockItemsDisabled, singleMockItems } from "./mockData"
+import {
+  groupedMockItems,
+  mixedMockItemsDisabled,
+  singleMockItems,
+} from "./mockData"
 
 const meta = {
   title: "Components/Select/Future",
@@ -108,7 +112,9 @@ export const AdditionalProperties: Story = {
               key={item.key}
               item={{
                 ...item,
-                rendered: item.value?.isFruit ? `${item.rendered} (Fruit)` : item.rendered,
+                rendered: item.value?.isFruit
+                  ? `${item.rendered} (Fruit)`
+                  : item.rendered,
               }}
             />
           ) : (
@@ -128,7 +134,9 @@ const sourceCodeCustomiseTrigger = `
 `
 export const CustomiseTrigger: Story = {
   args: {
-    trigger: (props) => <Select.TriggerButton {...props} id="select--custom-trigger" />,
+    trigger: (props) => (
+      <Select.TriggerButton {...props} id="select--custom-trigger" />
+    ),
   },
   parameters: {
     docs: {
@@ -142,8 +150,16 @@ export const CustomiseTrigger: Story = {
 export const Validation: Story = {
   render: (args) => (
     <div className="flex gap-16">
-      <Select {...args} status="error" validationMessage="This is an error message" />
-      <Select {...args} status="caution" validationMessage="This is a cautionary message" />
+      <Select
+        {...args}
+        status="error"
+        validationMessage="This is an error message"
+      />
+      <Select
+        {...args}
+        status="caution"
+        validationMessage="This is a cautionary message"
+      />
     </div>
   ),
 }
@@ -164,7 +180,11 @@ export const PortalContainer: Story = {
       <>
         <div className=" h-[500px] mb-24 block bg-gray-100 flex flex-col gap-16 justify-center items-center">
           Page content
-          <button type="button" className="border border-gray-500" onClick={handleOpen}>
+          <button
+            type="button"
+            className="border border-gray-500"
+            onClick={handleOpen}
+          >
             Open Modal
           </button>
           <ContextModal
@@ -173,7 +193,10 @@ export const PortalContainer: Story = {
             onDismiss={handleClose}
             title="Select test"
           >
-            <div className="flex gap-24 bg-gray-200 p-12" id={portalContainerId}>
+            <div
+              className="flex gap-24 bg-gray-200 p-12"
+              id={portalContainerId}
+            >
               <Select
                 {...args}
                 label="Select within a modal"
@@ -196,10 +219,11 @@ export const TouchDeviceTest: Story = {
     return (
       <div>
         <p>
-          On touch devices, the radios below were changing when selecting an option sitting above
-          it.
+          On touch devices, the radios below were changing when selecting an
+          option sitting above it.
           <br />
-          At this time, we could not automate this test, so this story exists for manual testing.
+          At this time, we could not automate this test, so this story exists
+          for manual testing.
         </p>
         <Select {...args} />
         <RadioGroup labelText="Radio group">

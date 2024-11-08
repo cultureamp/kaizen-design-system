@@ -17,7 +17,8 @@ type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   render: ({ onCheck, checkedStatus, ...props }) => {
-    const [status, setStatus] = useState<CheckboxFieldProps["checkedStatus"]>(checkedStatus)
+    const [status, setStatus] =
+      useState<CheckboxFieldProps["checkedStatus"]>(checkedStatus)
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       if (status === "off") {
@@ -34,7 +35,9 @@ export const Playground: Story = {
       setStatus(checkedStatus)
     }, [checkedStatus])
 
-    return <CheckboxField {...props} checkedStatus={status} onCheck={handleChange} />
+    return (
+      <CheckboxField {...props} checkedStatus={status} onCheck={handleChange} />
+    )
   },
   parameters: {
     docs: {

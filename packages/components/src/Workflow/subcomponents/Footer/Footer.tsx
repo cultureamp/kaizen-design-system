@@ -26,7 +26,11 @@ export const Footer = ({
 }: FooterProps): JSX.Element => (
   <FooterRoot {...restProps}>
     <FooterAction action={previousAction} actionType="Previous" />
-    <ProgressStepper steps={steps} currentStepId={currentStepId} isComplete={isComplete} />
+    <ProgressStepper
+      steps={steps}
+      currentStepId={currentStepId}
+      isComplete={isComplete}
+    />
     <FooterAction action={nextAction} actionType="Next" />
   </FooterRoot>
 )

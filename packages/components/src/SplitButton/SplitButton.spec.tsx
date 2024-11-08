@@ -7,7 +7,9 @@ import { SplitButton, SplitButtonProps } from "./SplitButton"
 
 const user = userEvent.setup()
 
-const SplitButtonWrapper = (customProps?: Partial<SplitButtonProps>): JSX.Element => (
+const SplitButtonWrapper = (
+  customProps?: Partial<SplitButtonProps>,
+): JSX.Element => (
   <SplitButton
     actionButtonProps={{
       label: "Action Text",
@@ -48,6 +50,8 @@ describe("<SplitButton />", () => {
     await waitFor(() => {
       expect(screen.getByText("Action Text").closest("button")).toBeDisabled()
     })
-    expect(screen.getByLabelText("Dropdown Label").closest("button")).toBeDisabled()
+    expect(
+      screen.getByLabelText("Dropdown Label").closest("button"),
+    ).toBeDisabled()
   })
 })

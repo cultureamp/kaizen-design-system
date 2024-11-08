@@ -62,10 +62,10 @@ const createToggleMarkCommand =
     const docIsEmpty = state.doc.content.size === 0
 
     if (docIsEmpty) {
-      return chainTransactions(createInitialParagraph, ProseMirrorCommands.toggleMark(mark))(
-        state,
-        dispatch,
-      )
+      return chainTransactions(
+        createInitialParagraph,
+        ProseMirrorCommands.toggleMark(mark),
+      )(state, dispatch)
     }
     return ProseMirrorCommands.toggleMark(mark)(state, dispatch)
   }
@@ -77,29 +77,31 @@ const createToggleListCommand =
     const docIsEmpty = state.doc.content.size === 0
 
     if (docIsEmpty) {
-      return chainTransactions(createInitialParagraph, ProseMirrorSchemaList.wrapInList(node))(
-        state,
-        dispatch,
-      )
+      return chainTransactions(
+        createInitialParagraph,
+        ProseMirrorSchemaList.wrapInList(node),
+      )(state, dispatch)
     }
     return ProseMirrorSchemaList.wrapInList(node)(state, dispatch)
   }
 
 /** Create command for reducing indents in a List */
-const createLiftListCommand = (): ProseMirrorState.Command => (state, dispatch) => {
-  const { $from } = state.selection
-  // calculate the parent node from the current tag selected
-  const listItemNode = $from.node($from.depth - 1)?.type
-  return ProseMirrorSchemaList.liftListItem(listItemNode)(state, dispatch)
-}
+const createLiftListCommand =
+  (): ProseMirrorState.Command => (state, dispatch) => {
+    const { $from } = state.selection
+    // calculate the parent node from the current tag selected
+    const listItemNode = $from.node($from.depth - 1)?.type
+    return ProseMirrorSchemaList.liftListItem(listItemNode)(state, dispatch)
+  }
 
 /** Create command for indenting in a List */
-const createIndentListCommand = (): ProseMirrorState.Command => (state, dispatch) => {
-  const { $from } = state.selection
-  const listItemNode = $from.node($from.depth - 1)?.type
+const createIndentListCommand =
+  (): ProseMirrorState.Command => (state, dispatch) => {
+    const { $from } = state.selection
+    const listItemNode = $from.node($from.depth - 1)?.type
 
-  return ProseMirrorSchemaList.sinkListItem(listItemNode)(state, dispatch)
-}
+    return ProseMirrorSchemaList.sinkListItem(listItemNode)(state, dispatch)
+  }
 
 /** handler lift list disabled state */
 const liftListIsDisabled = (state: ProseMirrorState.EditorState): boolean => {
@@ -139,19 +141,21 @@ const createControlGroupIndex = (controls: ToolbarItems[]): ControlGroupTypes =>
   }, {})
 
 /** Creates an initial object used to map button configuration into its respective groups */
-const createInitialControls = (controlGroupIndex: ControlGroupTypes): GroupedToolbarControls => {
-  const uniqueGroups: string[] = Array.from(new Set(Object.values(controlGroupIndex)))
+const createInitialControls = (
+  controlGroupIndex: ControlGroupTypes,
+): GroupedToolbarControls => {
+  const uniqueGroups: string[] = Array.from(
+    new Set(Object.values(controlGroupIndex)),
+  )
 
-  const initialControlObject: Record<string, ToolbarControl[]> = uniqueGroups.reduce(
-    (controlObject, controlKey) => {
+  const initialControlObject: Record<string, ToolbarControl[]> =
+    uniqueGroups.reduce((controlObject, controlKey) => {
       if (controlKey === "ungrouped") return controlObject
       return {
         ...controlObject,
         [controlKey]: [],
       }
-    },
-    {},
-  )
+    }, {})
   // This ensure that ungrouped controls are always last
   initialControlObject.ungrouped = []
   return initialControlObject
@@ -169,7 +173,9 @@ const getGroupIndex = (
 }
 
 /** Filters out empty control groups and returns a multi dimensional array  */
-const filterToolbarControls = (groupedControls: GroupedToolbarControls): ToolbarControl[][] =>
+const filterToolbarControls = (
+  groupedControls: GroupedToolbarControls,
+): ToolbarControl[][] =>
   Object.values(groupedControls).filter((controls) => controls.length > 0)
 
 /** Builds an array of object used to map control configuration to rte toolbar buttons */
@@ -180,7 +186,8 @@ export const buildControlMap = (
 ): ToolbarControl[][] => {
   if (!controls) return []
   const controlGroupIndex: ControlGroupTypes = createControlGroupIndex(controls)
-  const toolbarControls: GroupedToolbarControls = createInitialControls(controlGroupIndex)
+  const toolbarControls: GroupedToolbarControls =
+    createInitialControls(controlGroupIndex)
   const listNodes = [schema.nodes.bulletList, schema.nodes.orderedList]
 
   if (schema.marks.strong) {
@@ -223,7 +230,9 @@ export const buildControlMap = (
       action: createToggleListCommand(type),
       isActive: listIsActive(editorState, type, listNodes),
       label: "Bullet List",
-      icon: <Icon name="format_list_bulleted" isPresentational shouldMirrorInRTL />,
+      icon: (
+        <Icon name="format_list_bulleted" isPresentational shouldMirrorInRTL />
+      ),
     })
   }
 
@@ -234,12 +243,17 @@ export const buildControlMap = (
       action: createToggleListCommand(type),
       isActive: listIsActive(editorState, type, listNodes),
       label: "Numbered List",
-      icon: <Icon name="format_list_numbered" isPresentational shouldMirrorInRTL />,
+      icon: (
+        <Icon name="format_list_numbered" isPresentational shouldMirrorInRTL />
+      ),
     })
   }
 
   if (schema.nodes.orderedList || schema.nodes.bulletList) {
-    const groupIndex = controlGroupIndex.orderedList ?? controlGroupIndex.bulletList ?? "ungrouped"
+    const groupIndex =
+      controlGroupIndex.orderedList ??
+      controlGroupIndex.bulletList ??
+      "ungrouped"
 
     toolbarControls[groupIndex].push(
       {
@@ -247,14 +261,26 @@ export const buildControlMap = (
         disabled: liftListIsDisabled(editorState),
         isActive: false,
         label: "Decrease indent",
-        icon: <Icon name="format_indent_decrease" isPresentational shouldMirrorInRTL />,
+        icon: (
+          <Icon
+            name="format_indent_decrease"
+            isPresentational
+            shouldMirrorInRTL
+          />
+        ),
       },
       {
         action: createIndentListCommand(),
         disabled: indentListIsDisabled(editorState),
         isActive: false,
         label: "Increase indent",
-        icon: <Icon name="format_indent_increase" isPresentational shouldMirrorInRTL />,
+        icon: (
+          <Icon
+            name="format_indent_increase"
+            isPresentational
+            shouldMirrorInRTL
+          />
+        ),
       },
     )
   }

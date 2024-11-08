@@ -1,6 +1,9 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Pagination } from "../index"
 
 export default {

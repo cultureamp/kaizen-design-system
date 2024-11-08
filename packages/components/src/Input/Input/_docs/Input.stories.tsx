@@ -87,7 +87,9 @@ export const Icons: Story = {
         <Input
           type="text"
           value="Start Icon"
-          startIconAdornment={<Icon name="person_add" isPresentational isFilled />}
+          startIconAdornment={
+            <Icon name="person_add" isPresentational isFilled />
+          }
         />
       </li>
       <li>

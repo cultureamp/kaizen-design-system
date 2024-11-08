@@ -5,7 +5,9 @@ import ReactSelect, {
   type Props as ReactSelectProps,
   type NoticeProps,
 } from "react-select"
-import Async, { type AsyncProps as ReactAsyncSelectProps } from "react-select/async"
+import Async, {
+  type AsyncProps as ReactAsyncSelectProps,
+} from "react-select/async"
 import { FieldMessage } from "~components/FieldMessage"
 import { Label } from "~components/Label"
 import { Tag } from "~components/Tag"
@@ -67,7 +69,8 @@ export const Select = React.forwardRef<any, SelectProps>(
 
     // the default for fullWidth depends on the variant
     const fullWidth =
-      (propsFullWidth ?? Boolean(variant === "secondary" || variant === "secondary-small"))
+      (propsFullWidth ??
+      Boolean(variant === "secondary" || variant === "secondary-small"))
         ? false
         : true
 
@@ -115,7 +118,9 @@ export const Select = React.forwardRef<any, SelectProps>(
           }}
           className={classes}
         />
-        {validationMessage ? <FieldMessage message={validationMessage} status={status} /> : null}
+        {validationMessage ? (
+          <FieldMessage message={validationMessage} status={status} />
+        ) : null}
         {description ? <FieldMessage message={description} /> : null}
       </>
     )
@@ -128,7 +133,10 @@ interface AsyncProps
     ReactSelectProps<any, boolean, any> {}
 
 export const AsyncSelect = React.forwardRef(
-  ({ className: propsClassName, placeholder, ...props }: AsyncProps, ref: React.Ref<any>) => (
+  (
+    { className: propsClassName, placeholder, ...props }: AsyncProps,
+    ref: React.Ref<any>,
+  ) => (
     <Async
       {...props}
       ref={ref}
@@ -177,7 +185,11 @@ const Placeholder: typeof components.Placeholder = (props) => (
 const DropdownIndicator: typeof components.DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
     <Icon
-      name={props.selectProps.menuIsOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+      name={
+        props.selectProps.menuIsOpen
+          ? "keyboard_arrow_up"
+          : "keyboard_arrow_down"
+      }
       isPresentational
     />
   </components.DropdownIndicator>
@@ -223,14 +235,22 @@ const SingleValue: typeof components.SingleValue = (props) => (
 
 const MultiValue: typeof components.MultiValue = (props) => (
   <div className={styles.multiValue}>
-    <Tag variant="default" dismissible inline onDismiss={props.removeProps.onClick}>
+    <Tag
+      variant="default"
+      dismissible
+      inline
+      onDismiss={props.removeProps.onClick}
+    >
       {props.children}
     </Tag>
   </div>
 )
 
 const IndicatorsContainer: typeof components.IndicatorsContainer = (props) => (
-  <components.IndicatorsContainer {...props} className={styles.indicatorsContainer} />
+  <components.IndicatorsContainer
+    {...props}
+    className={styles.indicatorsContainer}
+  />
 )
 
 const Input: typeof components.Input = (props) => (

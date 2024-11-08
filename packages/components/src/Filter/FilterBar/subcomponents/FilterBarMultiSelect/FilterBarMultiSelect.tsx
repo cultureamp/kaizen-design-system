@@ -10,7 +10,10 @@ import { useFilterBarContext } from "../../context/FilterBarContext"
 import { checkArraysMatch } from "../../utils/checkArraysMatch"
 import styles from "./FilterBarMultiSelect.module.css"
 
-export type FilterBarMultiSelectProps = Omit<FilterMultiSelectProps, "label" | "trigger"> & {
+export type FilterBarMultiSelectProps = Omit<
+  FilterMultiSelectProps,
+  "label" | "trigger"
+> & {
   id?: string
   label?: FilterMultiSelectProps["label"]
   trigger?: FilterMultiSelectProps["trigger"]
@@ -21,15 +24,18 @@ export type FilterBarMultiSelectProps = Omit<FilterMultiSelectProps, "label" | "
 // Someone fix please.
 export type ConsumableSelection = string | Key[] | undefined
 
-const convertSelectionToAConsumableFormat = (value: Selection): ConsumableSelection => {
+const convertSelectionToAConsumableFormat = (
+  value: Selection,
+): ConsumableSelection => {
   if (value === "all") return "all"
   const arrayOfValues = Array.from(value)
 
   return arrayOfValues.length > 0 ? Array.from(value) : undefined
 }
 
-const convertConsumableFormatIntoSelection = (value: ConsumableSelection): Selection =>
-  new Set(value)
+const convertConsumableFormatIntoSelection = (
+  value: ConsumableSelection,
+): Selection => new Set(value)
 
 export const FilterBarMultiSelect = ({
   id,
@@ -38,8 +44,14 @@ export const FilterBarMultiSelect = ({
   onSelectionChange,
   ...props
 }: FilterBarMultiSelectProps): JSX.Element | null => {
-  const { getFilterState, setFilterOpenState, updateValue, hideFilter, focusId, setFocus } =
-    useFilterBarContext<ConsumableSelection>()
+  const {
+    getFilterState,
+    setFilterOpenState,
+    updateValue,
+    hideFilter,
+    focusId,
+    setFocus,
+  } = useFilterBarContext<ConsumableSelection>()
   const [items, setItems] = useState<ItemType[]>(propsItems)
   const buttonRef = useRef<HTMLButtonElement>(null)
 
@@ -58,7 +70,9 @@ export const FilterBarMultiSelect = ({
   useEffect(() => {
     if (Array.isArray(filterState.value)) {
       const itemValues = items.map(({ value }) => value)
-      const filteredValues = filterState.value.filter((value) => itemValues.includes(value))
+      const filteredValues = filterState.value.filter((value) =>
+        itemValues.includes(value),
+      )
 
       if (!checkArraysMatch(filterState.value, filteredValues)) {
         updateValue(id, filteredValues)

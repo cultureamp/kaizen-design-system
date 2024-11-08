@@ -6,7 +6,11 @@ import {
   testDocNodeJSON,
   testSchema,
 } from "./fixtures/testState"
-import { createDocNode, createDocNodeFromContent, createEditorState } from "./state"
+import {
+  createDocNode,
+  createDocNodeFromContent,
+  createEditorState,
+} from "./state"
 
 describe("createDoc()", () => {
   it("creates a Node from a document definition", () => {

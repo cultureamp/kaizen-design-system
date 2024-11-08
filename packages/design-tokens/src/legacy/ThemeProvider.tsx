@@ -21,9 +21,13 @@ export const ThemeProvider = ({
   themeManager?: ThemeManager
   children: React.ReactNode
 }): JSX.Element => {
-  const [themeManagerInstance] = useState(() => themeManager ?? new ThemeManager(defaultTheme))
+  const [themeManagerInstance] = useState(
+    () => themeManager ?? new ThemeManager(defaultTheme),
+  )
 
-  const [theme, setTheme] = React.useState<Theme>(themeManagerInstance.getCurrentTheme())
+  const [theme, setTheme] = React.useState<Theme>(
+    themeManagerInstance.getCurrentTheme(),
+  )
   React.useEffect(() => {
     let cancelled = false
     const listener = (newTheme: Theme): void => {
@@ -40,7 +44,9 @@ export const ThemeProvider = ({
 
   return (
     <>
-      <ThemeContext.Provider value={theme}>{props.children}</ThemeContext.Provider>
+      <ThemeContext.Provider value={theme}>
+        {props.children}
+      </ThemeContext.Provider>
       <link
         rel="preload"
         href="https://d1e7r7b0lb8p4d.cloudfront.net/fonts/inter/inter-bold.woff2"

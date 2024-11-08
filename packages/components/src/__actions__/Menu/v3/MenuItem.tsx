@@ -1,5 +1,8 @@
 import React, { forwardRef, ReactNode } from "react"
-import { MenuItem as RACMenuItem, MenuItemProps as RACMenuItemProps } from "react-aria-components"
+import {
+  MenuItem as RACMenuItem,
+  MenuItemProps as RACMenuItemProps,
+} from "react-aria-components"
 import { mergeClassNames } from "~components/utils/mergeClassNames"
 import styles from "./MenuItem.module.scss"
 
@@ -15,7 +18,11 @@ export type MenuItemProps = RACMenuItemProps & {
  */
 export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   ({ className, icon, children, ...props }, ref): JSX.Element => (
-    <RACMenuItem ref={ref} className={mergeClassNames(styles.item, className)} {...props}>
+    <RACMenuItem
+      ref={ref}
+      className={mergeClassNames(styles.item, className)}
+      {...props}
+    >
       <>
         {icon && <span className={styles.iconWrapper}>{icon}</span>}
         {children}

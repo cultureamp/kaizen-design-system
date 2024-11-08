@@ -18,7 +18,10 @@ import {
 } from "~components/Calendar"
 import { CalendarPopover } from "~components/Calendar/CalendarPopover"
 import { VisuallyHidden } from "~components/VisuallyHidden"
-import { DateInputField, DateInputFieldProps } from "./subcomponents/DateInputField"
+import {
+  DateInputField,
+  DateInputFieldProps,
+} from "./subcomponents/DateInputField"
 import type { ValidationResponse } from "./types"
 import { DatePickerSupportedLocales, getLocale } from "./utils/getLocale"
 import { validateDate } from "./utils/validateDate"
@@ -124,8 +127,12 @@ export const DatePicker = ({
   })
   const [inputValue, setInputValue] = useState<string>("")
   const [isOpen, setIsOpen] = useState(false)
-  const [lastTrigger, setLastTrigger] = useState<"inputFocus" | "inputKeydown" | "calendarButton">()
-  const [inbuiltStatus, setInbuiltStatus] = useState<DateInputFieldProps["status"] | undefined>()
+  const [lastTrigger, setLastTrigger] = useState<
+    "inputFocus" | "inputKeydown" | "calendarButton"
+  >()
+  const [inbuiltStatus, setInbuiltStatus] = useState<
+    DateInputFieldProps["status"] | undefined
+  >()
   const [inbuiltValidationMessage, setInbuiltValidationMessage] =
     useState<ValidationResponse["validationMessage"]>()
 
@@ -151,7 +158,10 @@ export const DatePicker = ({
     }
   }
 
-  const handleDayChange = (date: Date | undefined, newInputValue?: string): void => {
+  const handleDayChange = (
+    date: Date | undefined,
+    newInputValue?: string,
+  ): void => {
     const { validationResponse, newDate } = validateDate({
       date,
       inputValue: newInputValue,
@@ -232,7 +242,9 @@ export const DatePicker = ({
     onButtonClick?.(e)
   }
 
-  const handleCalendarMount = (calendarElement: CalendarSingleElement): void => {
+  const handleCalendarMount = (
+    calendarElement: CalendarSingleElement,
+  ): void => {
     if (lastTrigger === "inputFocus") return
     setFocusInCalendar(calendarElement, selectedDay)
   }
@@ -289,7 +301,11 @@ export const DatePicker = ({
           onChange={handleInputChange}
           onBlur={handleInputBlur}
           onKeyDown={handleKeyDown}
-          status={status !== undefined || !shouldUseInbuiltValidation ? status : inbuiltStatus}
+          status={
+            status !== undefined || !shouldUseInbuiltValidation
+              ? status
+              : inbuiltStatus
+          }
           validationMessage={
             validationMessage !== undefined || !shouldUseInbuiltValidation
               ? validationMessage
@@ -305,7 +321,9 @@ export const DatePicker = ({
           aria-labelledby={`${id}-calendar-label ${id}-input-label`}
         >
           <>
-            <VisuallyHidden id={`${id}-calendar-label`}>{calendarLabelDesc}</VisuallyHidden>
+            <VisuallyHidden id={`${id}-calendar-label`}>
+              {calendarLabelDesc}
+            </VisuallyHidden>
             <CalendarSingle
               id={calendarId}
               selected={selectedDay}

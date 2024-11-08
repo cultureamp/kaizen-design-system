@@ -1,7 +1,10 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { within } from "@storybook/test"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { CalendarRange, CalendarRangeProps } from "../../index"
 
 export default {
@@ -15,7 +18,8 @@ export default {
           {
             // Pseudo states of Calendar days do not meet contrast ratios
             id: "color-contrast",
-            selector: ':not([data-sb-pseudo-styles="hover"], [data-sb-pseudo-styles="focus"])',
+            selector:
+              ':not([data-sb-pseudo-styles="hover"], [data-sb-pseudo-styles="focus"])',
           },
         ],
       },
@@ -23,7 +27,9 @@ export default {
   },
 } satisfies Meta
 
-const CalendarRangeWrapper = (props: Partial<CalendarRangeProps>): JSX.Element => (
+const CalendarRangeWrapper = (
+  props: Partial<CalendarRangeProps>,
+): JSX.Element => (
   <div data-testid={props.id}>
     <CalendarRange
       selected={{
@@ -53,7 +59,10 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
 
       <StickerSheet heading="Pseudo states">
-        <StickerSheet.Header headings={["Hover", "Focus"]} hasVerticalHeadings />
+        <StickerSheet.Header
+          headings={["Hover", "Focus"]}
+          hasVerticalHeadings
+        />
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Selected (Start)">
             <CalendarRangeWrapper id="id__calendar-range__start--hover" />

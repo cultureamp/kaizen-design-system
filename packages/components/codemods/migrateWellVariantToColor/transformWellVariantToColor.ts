@@ -14,7 +14,8 @@ export const transformWellVariantToColor =
           let newAttributes = node.attributes.properties.map((attr) => {
             if (ts.isJsxAttribute(attr) && attr.name.getText() === "variant") {
               hasVariant = true
-              const valueName = attr.initializer && getPropValueText(attr.initializer)
+              const valueName =
+                attr.initializer && getPropValueText(attr.initializer)
 
               if (valueName) {
                 let colorValue: string = "gray"

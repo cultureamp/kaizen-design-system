@@ -40,7 +40,8 @@ $notification-slide-right: transform 300ms ease-out;
     width: auto;
     min-height: 46px;
     padding: $notification-vertical-padding $spacing-12;
-    transition: $notification-fade-out, $notification-pop-up, $notification-collapse-height;
+    transition: $notification-fade-out, $notification-pop-up,
+      $notification-collapse-height;
   }
 
   &%ca-notification---toast {

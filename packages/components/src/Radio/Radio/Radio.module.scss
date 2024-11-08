@@ -46,7 +46,8 @@ $dt-color-radio-border-color-focus-reversed: $color-blue-300;
   height: $radio-size;
   width: $radio-size;
   top: 0;
-  border: $border-solid-border-width $border-solid-border-style $dt-color-form-border-color;
+  border: $border-solid-border-width $border-solid-border-style
+    $dt-color-form-border-color;
   box-sizing: border-box;
   border-radius: 50%;
 
@@ -66,8 +67,12 @@ $dt-color-radio-border-color-focus-reversed: $color-blue-300;
     border-color: $dt-color-radio-border-color-focus;
     top: calc(-#{$focus-ring-offset} - calc(#{$radio-size} / 8));
     left: calc(-#{$focus-ring-offset} - calc(#{$radio-size} / 8));
-    width: calc(#{$radio-size} + #{$focus-ring-offset} + #{$border-solid-border-width} * 2);
-    height: calc(#{$radio-size} + #{$focus-ring-offset} + #{$border-solid-border-width} * 2);
+    width: calc(
+      #{$radio-size} + #{$focus-ring-offset} + #{$border-solid-border-width} * 2
+    );
+    height: calc(
+      #{$radio-size} + #{$focus-ring-offset} + #{$border-solid-border-width} * 2
+    );
   }
 
   .radioInput:not([disabled]) + &:hover {
@@ -76,7 +81,8 @@ $dt-color-radio-border-color-focus-reversed: $color-blue-300;
   }
 
   &.reversed {
-    border: $border-solid-border-width $border-solid-border-style rgba($color-white-rgb, 0.65);
+    border: $border-solid-border-width $border-solid-border-style
+      rgba($color-white-rgb, 0.65);
     background: transparent;
 
     .radioInput:focus:not([disabled]) + & {

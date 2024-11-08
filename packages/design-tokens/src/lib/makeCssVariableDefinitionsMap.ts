@@ -39,9 +39,15 @@ export function makeCssVariableDefinitionsMap(
   mapLeafsOfObject(theme, (path, value) => {
     // Key will be `--color-blah`
     const key = objectPathToCssVarIdentifier(path)
-    const nextCssVariables = addExtraThemeEntries(path, key, value, (_, v) => `${v}`, {
-      augmentWithId: false,
-    })
+    const nextCssVariables = addExtraThemeEntries(
+      path,
+      key,
+      value,
+      (_, v) => `${v}`,
+      {
+        augmentWithId: false,
+      },
+    )
     accumulatedCssVariables = {
       ...accumulatedCssVariables,
       ...nextCssVariables,

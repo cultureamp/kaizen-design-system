@@ -35,7 +35,8 @@
     content: "";
     position: absolute;
     background: transparent;
-    border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
+    border: $border-focus-ring-border-width $border-focus-ring-border-style
+      $color-blue-500;
     border-radius: 10px;
     inset: calc(-1 * #{$focus-ring-offset});
     z-index: 1;

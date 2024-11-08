@@ -1,6 +1,9 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Heading } from "../index"
 
 export default {
@@ -34,7 +37,8 @@ const StickerSheetTemplate: StickerSheetStory = {
                   Have the courage to be vulnerable.
                 </Heading>
                 <Heading variant="heading-1" color={fontColour}>
-                  Be authentic, ask for help, be willing to fail, create open environments.
+                  Be authentic, ask for help, be willing to fail, create open
+                  environments.
                 </Heading>
               </div>
             </StickerSheet.Row>
@@ -44,8 +48,8 @@ const StickerSheetTemplate: StickerSheetStory = {
                   Learn faster through feedback.
                 </Heading>
                 <Heading variant="heading-2" color={fontColour}>
-                  Seek feedback, give feedback responsibly, respond constructively, learn
-                  continuously.
+                  Seek feedback, give feedback responsibly, respond
+                  constructively, learn continuously.
                 </Heading>
               </div>
             </StickerSheet.Row>
@@ -55,8 +59,8 @@ const StickerSheetTemplate: StickerSheetStory = {
                   Trust people to make decisions.
                 </Heading>
                 <Heading variant="heading-3" color={fontColour}>
-                  Provide constructive feedback, support decisions, be accountable, delegate
-                  decisions.
+                  Provide constructive feedback, support decisions, be
+                  accountable, delegate decisions.
                 </Heading>
               </div>
             </StickerSheet.Row>
@@ -66,7 +70,8 @@ const StickerSheetTemplate: StickerSheetStory = {
                   Amplify others.
                 </Heading>
                 <Heading variant="heading-4" color={fontColour}>
-                  Recognise others, succeed together, grow others, create opportunities.
+                  Recognise others, succeed together, grow others, create
+                  opportunities.
                 </Heading>
               </div>
             </StickerSheet.Row>
@@ -76,8 +81,8 @@ const StickerSheetTemplate: StickerSheetStory = {
                   An employee experience that people love.
                 </Heading>
                 <Heading variant="heading-5" color={fontColour}>
-                  Get the employee engagement, performance and development tools and insights you
-                  need to build a category-defining culture.
+                  Get the employee engagement, performance and development tools
+                  and insights you need to build a category-defining culture.
                 </Heading>
               </div>
             </StickerSheet.Row>
@@ -92,7 +97,12 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet isReversed={isReversed}>
             <StickerSheet.Header
               hasVerticalHeadings
-              headings={["Dark", "Dark Reduced Opacity", "Positive", "Negative"]}
+              headings={[
+                "Dark",
+                "Dark Reduced Opacity",
+                "Positive",
+                "Negative",
+              ]}
             />
             <StickerSheet.Body>
               <StickerSheet.Row rowTitle="Colours">

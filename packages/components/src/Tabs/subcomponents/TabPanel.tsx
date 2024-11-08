@@ -13,7 +13,10 @@ export type TabPanelProps = {
 export const TabPanel = (props: TabPanelProps): JSX.Element => {
   const { classNameOverride, children, ...restProps } = props
   return (
-    <ReachTabPanel className={(styles.tabPanel, classNameOverride)} {...restProps}>
+    <ReachTabPanel
+      className={(styles.tabPanel, classNameOverride)}
+      {...restProps}
+    >
       {children}
     </ReachTabPanel>
   )

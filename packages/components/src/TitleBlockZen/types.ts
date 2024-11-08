@@ -1,6 +1,10 @@
 import { CompanyAvatarProps, GenericAvatarProps } from "~components/Avatar"
 import { Select } from "~components/Select"
-import { ButtonProps, CustomButtonProps, MenuItemProps } from "~components/__actions__/v2"
+import {
+  ButtonProps,
+  CustomButtonProps,
+  MenuItemProps,
+} from "~components/__actions__/v2"
 import { NavigationTabProps } from "./subcomponents/NavigationTabs"
 
 /**
@@ -99,7 +103,11 @@ export type SecondaryActionsProps = SecondaryActionItemProps[]
 
 export type SecondaryActionItemProps =
   | TitleBlockMenuGroup
-  | (ButtonWithHrefNotOnClick | ButtonWithOnClickNotHref | TitleBlockCustomButtonProps)
+  | (
+      | ButtonWithHrefNotOnClick
+      | ButtonWithOnClickNotHref
+      | TitleBlockCustomButtonProps
+    )
 
 export type TitleBlockBadgeProps = {
   text: string
@@ -121,10 +129,18 @@ export type TitleBlockCustomButtonProps = TitleBlockDistributiveOmit<
   component: (props: CustomButtonProps) => JSX.Element
 }
 
-export type TitleBlockMenuItemProps = MenuItemProps | TitleBlockCustomButtonProps
+export type TitleBlockMenuItemProps =
+  | MenuItemProps
+  | TitleBlockCustomButtonProps
 
-export type ButtonWithHrefNotOnClick = TitleBlockDistributiveOmit<ButtonProps, "onClick">
-export type ButtonWithOnClickNotHref = TitleBlockDistributiveOmit<TitleBlockButtonProps, "href">
+export type ButtonWithHrefNotOnClick = TitleBlockDistributiveOmit<
+  ButtonProps,
+  "onClick"
+>
+export type ButtonWithOnClickNotHref = TitleBlockDistributiveOmit<
+  TitleBlockButtonProps,
+  "href"
+>
 
 export type TitleBlockMenuGroup = {
   label: string
@@ -140,13 +156,17 @@ export type TitleBlockSelectProps = React.ComponentProps<typeof Select>
   So, if T is something like `{foo: string} | {bar: string}`, it becomes `Omit<{foo: string}, K> | Omit<{bar: string}, K>
   https://davidgomes.com/pick-omit-over-union-types-in-typescript/
 */
-export type TitleBlockDistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never
+export type TitleBlockDistributiveOmit<T, K extends keyof any> = T extends any
+  ? Omit<T, K>
+  : never
 
 export type TitleBlockAvatarProps =
   | Omit<GenericAvatarProps, "size">
   | Omit<CompanyAvatarProps, "size">
 
-export type DefaultActionProps = TitleBlockButtonProps | TitleBlockCustomButtonProps
+export type DefaultActionProps =
+  | TitleBlockButtonProps
+  | TitleBlockCustomButtonProps
 
 export type SectionTitleRenderProps = Pick<
   TitleBlockProps,
@@ -164,7 +184,13 @@ export type TextDirection = "ltr" | "rtl"
 
 export type SurveyStatus = {
   text: string
-  status: "draft" | "live" | "scheduled" | "closed" | "sentimentPositive" | "default"
+  status:
+    | "draft"
+    | "live"
+    | "scheduled"
+    | "closed"
+    | "sentimentPositive"
+    | "default"
 }
 
 export type TitleBlockBreadcrumbType = {

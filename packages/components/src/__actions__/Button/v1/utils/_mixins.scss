@@ -1,4 +1,7 @@
-@mixin enabled-pseudo-states-variant($background-color: undefined, $border-color: undefined) {
+@mixin enabled-pseudo-states-variant(
+  $background-color: undefined,
+  $border-color: undefined
+) {
   &:not(.disabled, .working) {
     &:hover,
     &:active,

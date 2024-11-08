@@ -22,7 +22,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-300;
+  border: $border-focus-ring-border-width $border-focus-ring-border-style
+    $color-blue-300;
   margin: 0 5px;
   background-color: transparent;
   color: $color-blue-500;
@@ -45,7 +46,8 @@
     }
 
     .pageIndicatorFocusRing {
-      border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
     }
   }
 }

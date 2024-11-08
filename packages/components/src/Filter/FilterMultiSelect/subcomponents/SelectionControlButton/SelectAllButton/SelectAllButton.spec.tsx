@@ -101,8 +101,12 @@ describe("<SelectAllButton /> - interaction", () => {
 
       await waitFor(() => {
         expect(spy).toHaveBeenCalledTimes(1)
-        expect(spy).toHaveBeenCalledWith(expect.arrayContaining([filtered, filteredAndSelected]))
-        expect(spy).not.toHaveBeenCalledWith(expect.arrayContaining(disabledKeys))
+        expect(spy).toHaveBeenCalledWith(
+          expect.arrayContaining([filtered, filteredAndSelected]),
+        )
+        expect(spy).not.toHaveBeenCalledWith(
+          expect.arrayContaining(disabledKeys),
+        )
       })
     })
   })

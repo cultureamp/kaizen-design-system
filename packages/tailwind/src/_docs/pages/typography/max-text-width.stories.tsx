@@ -5,12 +5,12 @@ import { utilityDescription } from "~tailwind/_docs/utils/utilityDescription"
 import { kaizenTailwindTheme } from "~tailwind/tailwind-presets"
 
 const prefix = "max-w-"
-const classEntries = Object.entries(kaizenTailwindTheme.extend.maxWidth ?? []).map(
-  ([suffix, cssPropertyArr]) => ({
-    utilityClassName: `${prefix}${suffix}`,
-    cssProperty: cssPropertyArr,
-  }),
-)
+const classEntries = Object.entries(
+  kaizenTailwindTheme.extend.maxWidth ?? [],
+).map(([suffix, cssPropertyArr]) => ({
+  utilityClassName: `${prefix}${suffix}`,
+  cssProperty: cssPropertyArr,
+}))
 
 export default {
   title: "Guides/Tailwind/Utility Class References/Typography/Max Text Width",
@@ -36,16 +36,19 @@ const fontClasses = {
 const getFontClass = (utilityClass: string): string =>
   fontClasses[utilityClass as keyof typeof fontClasses] || ""
 
-export const MaxTextWidth: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+export const MaxTextWidth: StoryFn<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
   <TailwindStoryTemplate
     compiledCssPropertyName="max-width"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <>
         <p className={[utilityClass, getFontClass(utilityClass)].join(" ")}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, optio incidunt explicabo
-          facilis ipsam, porro magni vero libero itaque rerum deserunt quo molestiae expedita dolor?
-          Alias iusto ad maiores odit! ({[utilityClass, getFontClass(utilityClass)].join(" ")})
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, optio
+          incidunt explicabo facilis ipsam, porro magni vero libero itaque rerum
+          deserunt quo molestiae expedita dolor? Alias iusto ad maiores odit! (
+          {[utilityClass, getFontClass(utilityClass)].join(" ")})
         </p>
         <code className="text-paragraph-sm bg-gray-300 py-4 px-8">
           {[utilityClass, getFontClass(utilityClass)].join(" ")}

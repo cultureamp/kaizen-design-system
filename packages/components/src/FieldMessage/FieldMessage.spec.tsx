@@ -7,7 +7,9 @@ const defaultFieldMessageProps = {
   message: "Some FieldMessage.",
 }
 
-const FieldMessageWrapper = (props: Partial<FieldMessageProps>): JSX.Element => (
+const FieldMessageWrapper = (
+  props: Partial<FieldMessageProps>,
+): JSX.Element => (
   <FieldMessage
     id={defaultFieldMessageProps.id}
     message={defaultFieldMessageProps.message}
@@ -17,7 +19,9 @@ const FieldMessageWrapper = (props: Partial<FieldMessageProps>): JSX.Element => 
 
 describe("<FieldMessage />", () => {
   it("renders a message within a <p> tag when given a string", () => {
-    const { getByText } = render(<FieldMessageWrapper message="Hello I am a message" />)
+    const { getByText } = render(
+      <FieldMessageWrapper message="Hello I am a message" />,
+    )
     const labelContainer = getByText("Hello I am a message")
 
     expect(labelContainer).toBeInTheDocument()
@@ -26,7 +30,9 @@ describe("<FieldMessage />", () => {
 
   it("renders a message within a <div> tag when not given node other than string", () => {
     const { getByText } = render(
-      <FieldMessageWrapper message={<span>Hello I am a message within a span</span>} />,
+      <FieldMessageWrapper
+        message={<span>Hello I am a message within a span</span>}
+      />,
     )
 
     const labelContainer = getByText("Hello I am a message within a span")

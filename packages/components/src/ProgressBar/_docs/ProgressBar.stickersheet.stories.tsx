@@ -1,7 +1,10 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import isChromatic from "chromatic"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { ProgressBar, ProgressBarProps } from "../index"
 
 export default {
@@ -80,10 +83,18 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet className="w-full" heading="ProgressBar" isReversed={isReversed}>
+        <StickerSheet
+          className="w-full"
+          heading="ProgressBar"
+          isReversed={isReversed}
+        >
           <StickerSheet.Body>
             {colors.map(({ title, props }) => (
-              <StickerSheet.Row key={title} rowTitle={title} rowTitleWidth="100px">
+              <StickerSheet.Row
+                key={title}
+                rowTitle={title}
+                rowTitleWidth="100px"
+              >
                 <ProgressBar {...defaultProps} {...props} />
               </StickerSheet.Row>
             ))}
@@ -96,7 +107,11 @@ const StickerSheetTemplate: StickerSheetStory = {
         >
           <StickerSheet.Body>
             {moods.map(({ title, props }) => (
-              <StickerSheet.Row key={title} rowTitle={title} rowTitleWidth="100px">
+              <StickerSheet.Row
+                key={title}
+                rowTitle={title}
+                rowTitleWidth="100px"
+              >
                 <ProgressBar {...defaultProps} {...props} />
               </StickerSheet.Row>
             ))}

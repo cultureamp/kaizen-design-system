@@ -42,7 +42,9 @@ describe("isSemanticElement", () => {
       ),
     ).toBe(true)
     expect(
-      isSemanticElement(<div role="textbox" contentEditable="true" aria-multiline="true" />),
+      isSemanticElement(
+        <div role="textbox" contentEditable="true" aria-multiline="true" />,
+      ),
     ).toBe(true)
   })
 

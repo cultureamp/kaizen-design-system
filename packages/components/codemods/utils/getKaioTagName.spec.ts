@@ -9,7 +9,9 @@ describe("getKaioTagName", () => {
   })
 
   it("returns the import alias if it matches the target specifier", () => {
-    const input = parseJsx('import { Well as KaizenWell } from "@kaizen/components"')
+    const input = parseJsx(
+      'import { Well as KaizenWell } from "@kaizen/components"',
+    )
     const tagName = getKaioTagName(input, "Well")
     expect(tagName).toBe("KaizenWell")
   })
@@ -23,7 +25,9 @@ describe("getKaioTagName", () => {
 
 describe("getKaioTagNamesByRegex", () => {
   it("returns the import names if it matches the regex target specifier", () => {
-    const input = parseJsx('import { AddIcon, ArrowDownIcon, Well } from "@kaizen/components"')
+    const input = parseJsx(
+      'import { AddIcon, ArrowDownIcon, Well } from "@kaizen/components"',
+    )
     const tagNames = getKaioTagNamesByRegex(input, "Icon")
     expect(tagNames).toEqual(
       new Map([

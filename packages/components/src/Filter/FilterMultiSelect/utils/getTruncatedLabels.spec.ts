@@ -20,7 +20,9 @@ describe("getTruncatedLabels", () => {
       const limit = 5
       const longLabel = "My super long label with a lot of characters"
       const withLongFirstLabel = [longLabel, secondLabel]
-      expect(getTruncatedLabels(withLongFirstLabel, limit)).toEqual(`${longLabel} + 1 more`)
+      expect(getTruncatedLabels(withLongFirstLabel, limit)).toEqual(
+        `${longLabel} + 1 more`,
+      )
     })
   })
   describe("With all labels combined less than character limit", () => {
@@ -34,13 +36,17 @@ describe("getTruncatedLabels", () => {
   describe("With last label exceeding character limit", () => {
     it("Replaces last item with '+1 more'", () => {
       const limit = 25
-      expect(getTruncatedLabels(labels, limit)).toEqual(`${firstLabel}, ${secondLabel} + 1 more`)
+      expect(getTruncatedLabels(labels, limit)).toEqual(
+        `${firstLabel}, ${secondLabel} + 1 more`,
+      )
     })
   })
   describe("With last two labels exceeding character limit", () => {
     it("Replaces last two items with '+2 more'", () => {
       const limit = 20
-      expect(getTruncatedLabels(labels, limit)).toEqual(`${firstLabel} + 2 more`)
+      expect(getTruncatedLabels(labels, limit)).toEqual(
+        `${firstLabel} + 2 more`,
+      )
     })
   })
 })

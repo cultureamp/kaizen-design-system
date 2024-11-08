@@ -10,7 +10,10 @@ export const DeltaBareIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <defs>
-        <path id={uniqueId} d="m10.482 3.37 8 12.8h-16zm4.7 10.829-4.7-7.523-4.699 7.523z" />
+        <path
+          id={uniqueId}
+          d="m10.482 3.37 8 12.8h-16zm4.7 10.829-4.7-7.523-4.699 7.523z"
+        />
       </defs>
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
     </>

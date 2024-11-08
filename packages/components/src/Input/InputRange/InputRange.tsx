@@ -80,7 +80,12 @@ export const InputRange = ({
       </VisuallyHidden>
       <div className={styles.labelsContainer}>
         {!readOnlyWithNoValue && (
-          <div className={classnames(styles.sliderLabels, disabled && styles.disabled)}>
+          <div
+            className={classnames(
+              styles.sliderLabels,
+              disabled && styles.disabled,
+            )}
+          >
             <Text variant="small" color="dark-reduced-opacity" tag="span">
               {minLabel}
             </Text>

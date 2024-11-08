@@ -7,7 +7,10 @@ import {
   isInvalidDate,
 } from "~components/Calendar"
 import { DateInputDescriptionProps } from "~components/DateInput"
-import { DatePickerSupportedLocales, getLocale } from "~components/DatePicker/utils/getLocale"
+import {
+  DatePickerSupportedLocales,
+  getLocale,
+} from "~components/DatePicker/utils/getLocale"
 import { FilterProps } from "~components/Filter/Filter"
 import { useDateValidation } from "~components/Filter/FilterDatePicker/hooks/useDateValidation"
 import { transformDateToInputValue } from "~components/Filter/FilterDatePicker/utils/transformDateToInputValue"
@@ -19,7 +22,8 @@ import { DateInputField, DateInputFieldProps } from "../DateInputField"
 import { filterDatePickerFieldReducer } from "./filterDatePickerFieldReducer"
 import styles from "./FilterDatePickerField.module.scss"
 
-type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> & DataAttributes
+type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
+  DataAttributes
 
 export type FilterDatePickerFieldProps = {
   id?: string
@@ -87,7 +91,10 @@ export const FilterDatePickerField = ({
     onValidate,
   })
 
-  const validateDate = (date: Date | undefined, inputValue: string): Date | undefined => {
+  const validateDate = (
+    date: Date | undefined,
+    inputValue: string,
+  ): Date | undefined => {
     const { validationResponse, newDate } = dateValidation.validateDate({
       date,
       inputValue,
@@ -99,9 +106,12 @@ export const FilterDatePickerField = ({
 
   const [state, dispatch] = useReducer(filterDatePickerFieldReducer, {
     selectedDate,
-    inputValue: transformDateToInputValue(selectedDate, disabledDays, locale) ?? "",
+    inputValue:
+      transformDateToInputValue(selectedDate, disabledDays, locale) ?? "",
     startMonth:
-      selectedDate && !isInvalidDate(selectedDate) ? selectedDate : (defaultMonth ?? new Date()),
+      selectedDate && !isInvalidDate(selectedDate)
+        ? selectedDate
+        : (defaultMonth ?? new Date()),
   })
 
   const handleDateChange = (date: Date | undefined): void => {
@@ -170,7 +180,10 @@ export const FilterDatePickerField = ({
   }, [])
 
   return (
-    <div className={classnames(styles.filterDatePickerField, classNameOverride)} {...restProps}>
+    <div
+      className={classnames(styles.filterDatePickerField, classNameOverride)}
+      {...restProps}
+    >
       <DateInputField
         id={`${id}--input`}
         locale={locale}
@@ -186,7 +199,9 @@ export const FilterDatePickerField = ({
         selected={state.selectedDate}
         onSelect={handleCalendarSelect}
         month={state.startMonth}
-        onMonthChange={(value: Date) => dispatch({ type: "navigate_months", date: value })}
+        onMonthChange={(value: Date) =>
+          dispatch({ type: "navigate_months", date: value })
+        }
       />
     </div>
   )

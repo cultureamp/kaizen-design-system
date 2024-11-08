@@ -54,7 +54,10 @@ export const Filled: Story = {
 export const MirrorInRTL: Story = {
   render: (args) => (
     <StickerSheet>
-      <StickerSheet.Header headings={['dir=["ltr"]', 'dir=["rtl"]']} hasVerticalHeadings />
+      <StickerSheet.Header
+        headings={['dir=["ltr"]', 'dir=["rtl"]']}
+        hasVerticalHeadings
+      />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="arrow_forward">
           <div dir="ltr" className="text-center">
@@ -200,7 +203,11 @@ export const DefaultIconSet: Story = {
           style={{ gridTemplateColumns: "repeat(auto-fit, minmax(11em, 1fr))" }}
         >
           {iconDefaultSet.map((iconName) => (
-            <IconSetButton key={iconName} iconName={iconName} isFilled={isFilled} />
+            <IconSetButton
+              key={iconName}
+              iconName={iconName}
+              isFilled={isFilled}
+            />
           ))}
         </ul>
       </div>
@@ -236,19 +243,35 @@ export const OpticalSizeDo: Story = {
     <div className="flex gap-16">
       <div className="flex items-center gap-4">
         <Text variant="body">20/20</Text>
-        <Icon name="star" isPresentational className="text-[20px] [--icon-optical-size:20]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[20px] [--icon-optical-size:20]"
+        />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">24/24</Text>
-        <Icon name="star" isPresentational className="text-[24px] [--icon-optical-size:24]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[24px] [--icon-optical-size:24]"
+        />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">40/40</Text>
-        <Icon name="star" isPresentational className="text-[40px] [--icon-optical-size:40]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[40px] [--icon-optical-size:40]"
+        />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">48/48</Text>
-        <Icon name="star" isPresentational className="text-[48px] [--icon-optical-size:48]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[48px] [--icon-optical-size:48]"
+        />
       </div>
     </div>
   ),
@@ -259,19 +282,35 @@ export const OpticalSizeDont: Story = {
     <div className="flex gap-16">
       <div className="flex items-center gap-4">
         <Text variant="body">20/48</Text>
-        <Icon name="star" isPresentational className="text-[20px] [--icon-optical-size:48]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[20px] [--icon-optical-size:48]"
+        />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">24/40</Text>
-        <Icon name="star" isPresentational className="text-[24px] [--icon-optical-size:40]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[24px] [--icon-optical-size:40]"
+        />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">40/24</Text>
-        <Icon name="star" isPresentational className="text-[40px] [--icon-optical-size:24]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[40px] [--icon-optical-size:24]"
+        />
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">48/20</Text>
-        <Icon name="star" isPresentational className="text-[48px] [--icon-optical-size:20]" />
+        <Icon
+          name="star"
+          isPresentational
+          className="text-[48px] [--icon-optical-size:20]"
+        />
       </div>
     </div>
   ),
@@ -369,7 +408,11 @@ export const ImportantInformationDo: Story = {
     <TableContainer>
       <TableHeader>
         <TableRow>
-          <TableHeaderRowCell labelText="Flag for review" sorting="ascending" width={4 / 12} />
+          <TableHeaderRowCell
+            labelText="Flag for review"
+            sorting="ascending"
+            width={4 / 12}
+          />
           <TableHeaderRowCell labelText="Employee" sorting="ascending" />
         </TableRow>
       </TableHeader>

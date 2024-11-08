@@ -22,11 +22,12 @@ const Scenario = ({
     return true
   }
 
-  const [ref, editorState, dispatchTransaction, setEditableStatus] = useRichTextEditor(
-    testEditorState,
-    { "aria-labelledby": "label-ref-id", "data-testid": "12345678" },
-    { editable },
-  )
+  const [ref, editorState, dispatchTransaction, setEditableStatus] =
+    useRichTextEditor(
+      testEditorState,
+      { "aria-labelledby": "label-ref-id", "data-testid": "12345678" },
+      { editable },
+    )
 
   useEffect(() => {
     // Propagate changes to the editorState
@@ -68,7 +69,9 @@ describe("useRichTextEditor()", () => {
     await user.click(screen.getByText("Prepend button"))
 
     await waitFor(() => {
-      expect(screen.getByText("Prepended content. Example content")).toBeInTheDocument()
+      expect(
+        screen.getByText("Prepended content. Example content"),
+      ).toBeInTheDocument()
     })
   })
 

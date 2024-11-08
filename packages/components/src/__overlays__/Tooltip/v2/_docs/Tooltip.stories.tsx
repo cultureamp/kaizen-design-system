@@ -33,9 +33,11 @@ export const ButtonsWithTooltip: Story = TooltipV1Stories.ButtonsWithTooltip
 
 export const ButtonGroupWithTooltip: Story = TooltipV1Stories.ButtonsWithTooltip
 
-export const TableHeadersWithTooltips: Story = TooltipV1Stories.TableHeadersWithTooltips
+export const TableHeadersWithTooltips: Story =
+  TooltipV1Stories.TableHeadersWithTooltips
 
-export const TagWithHoverOnlyTooltip: Story = TooltipV1Stories.TagWithHoverOnlyTooltip
+export const TagWithHoverOnlyTooltip: Story =
+  TooltipV1Stories.TagWithHoverOnlyTooltip
 
 export const TagWithTooltip: Story = TooltipV1Stories.TagWithTooltip
 

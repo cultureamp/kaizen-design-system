@@ -16,16 +16,18 @@ const FilterSelectWrapper = ({
   ...restProps
 }: Partial<FilterSelectProps>): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(propsIsOpen)
-  const [selected, setSelected] = React.useState<FilterSelectProps["selectedKey"]>(
-    selectedKey ?? null,
-  )
+  const [selected, setSelected] = React.useState<
+    FilterSelectProps["selectedKey"]
+  >(selectedKey ?? null)
 
   return (
     <FilterSelect
       label="Coffee"
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      renderTrigger={(triggerButtonProps): JSX.Element => <FilterButton {...triggerButtonProps} />}
+      renderTrigger={(triggerButtonProps): JSX.Element => (
+        <FilterButton {...triggerButtonProps} />
+      )}
       items={items}
       selectedKey={selected}
       onSelectionChange={(key): void => {
@@ -213,7 +215,9 @@ describe("<FilterSelect>", () => {
       await user.click(option)
 
       await waitFor(() => {
-        expect(screen.getByRole("button", { name: "Coffee : Magic" })).toBeVisible()
+        expect(
+          screen.getByRole("button", { name: "Coffee : Magic" }),
+        ).toBeVisible()
       })
     })
   })
@@ -252,7 +256,9 @@ describe("Stringified object values", () => {
         selectedKey='{"sortBy":"creator_name","sortOrder":"asc"}'
       />,
     )
-    expect(getByRole("button", { name: "Coffee : Created by A-Z" })).toBeInTheDocument()
+    expect(
+      getByRole("button", { name: "Coffee : Created by A-Z" }),
+    ).toBeInTheDocument()
   })
 })
 
@@ -260,7 +266,9 @@ const defaultProps: FilterSelectProps = {
   label: "Coffee",
   isOpen: false,
   setIsOpen: () => undefined,
-  renderTrigger: (triggerButtonProps): JSX.Element => <FilterButton {...triggerButtonProps} />,
+  renderTrigger: (triggerButtonProps): JSX.Element => (
+    <FilterButton {...triggerButtonProps} />
+  ),
   items: singleMockItems,
 }
 
@@ -274,7 +282,9 @@ describe("FilterSelect generic", () => {
   describe("Extended option", () => {
     it("should error when new required attribute is missing from items", () => {
       /* @ts-expect-error TS error expected */
-      ;<FilterSelect<SelectOption & { isRubberDuck: boolean }> {...defaultProps} />
+      ;<FilterSelect<SelectOption & { isRubberDuck: boolean }>
+        {...defaultProps}
+      />
     })
 
     it("should allow consumer to access custom attributes in children", () => {

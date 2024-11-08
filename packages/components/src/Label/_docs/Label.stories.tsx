@@ -28,7 +28,9 @@ export const Playground: Story = {
 const InlineFormControl = (): JSX.Element => (
   <span className="inline-block w-16 h-16 bg-gray-500"></span>
 )
-const BlockFormControl = (): JSX.Element => <span className="block w-200 h-16 bg-gray-500"></span>
+const BlockFormControl = (): JSX.Element => (
+  <span className="block w-200 h-16 bg-gray-500"></span>
+)
 
 export const InlineControls: Story = {
   args: {
@@ -44,7 +46,11 @@ export const Position: Story = {
       <Label labelText="Checkbox (default position: end)" labelType="checkbox">
         <InlineFormControl />
       </Label>
-      <Label labelText="Checkbox (position: start)" labelType="checkbox" labelPosition="start">
+      <Label
+        labelText="Checkbox (position: start)"
+        labelType="checkbox"
+        labelPosition="start"
+      >
         <InlineFormControl />
       </Label>
     </span>

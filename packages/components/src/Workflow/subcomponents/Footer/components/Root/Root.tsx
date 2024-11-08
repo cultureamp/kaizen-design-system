@@ -3,14 +3,19 @@ import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./FooterRoot.module.css"
 
-export type FooterRootProps = OverrideClassName<HTMLAttributes<HTMLHeadingElement>>
+export type FooterRootProps = OverrideClassName<
+  HTMLAttributes<HTMLHeadingElement>
+>
 
 export const FooterRoot = ({
   children,
   classNameOverride,
   ...restProps
 }: FooterRootProps): JSX.Element => (
-  <footer className={classnames(styles.footerRoot, classNameOverride)} {...restProps}>
+  <footer
+    className={classnames(styles.footerRoot, classNameOverride)}
+    {...restProps}
+  >
     {children}
   </footer>
 )

@@ -57,7 +57,10 @@ export type CompanyAvatarProps = BaseAvatarProps & {
 
 export type AvatarProps = GenericAvatarProps | CompanyAvatarProps
 
-const getInitials = (fullName?: string, max2Characters: boolean = false): string =>
+const getInitials = (
+  fullName?: string,
+  max2Characters: boolean = false,
+): string =>
   fullName == null
     ? ""
     : fullName
@@ -75,10 +78,19 @@ const getMaxFontSizePixels: (size: AvatarSizes) => number = (size) => {
 
 const FallbackIcon = ({ alt }: { alt: string }): JSX.Element => {
   if (alt) {
-    return <Icon name="person" alt={alt} isFilled className={styles.fallbackIcon} />
+    return (
+      <Icon name="person" alt={alt} isFilled className={styles.fallbackIcon} />
+    )
   }
 
-  return <Icon name="person" isPresentational isFilled className={styles.fallbackIcon} />
+  return (
+    <Icon
+      name="person"
+      isPresentational
+      isFilled
+      className={styles.fallbackIcon}
+    />
+  )
 }
 
 const renderInitials = (
@@ -94,7 +106,10 @@ const renderInitials = (
   return renderFallback ? (
     <FallbackIcon alt={alt} />
   ) : (
-    <abbr className={classnames(styles.initials, isLongName && styles.longName)} title={alt}>
+    <abbr
+      className={classnames(styles.initials, isLongName && styles.longName)}
+      title={alt}
+    >
       {isLongName ? (
         // Only called if 3 or more initials, fits text width for long names
         <Textfit mode="single" max={getMaxFontSizePixels(size)}>
@@ -122,11 +137,12 @@ export const Avatar = ({
   classNameOverride,
   ...restProps
 }: AvatarProps): JSX.Element => {
-  const [avatarState, setAvatarState] = useState<"none" | "error" | "loading" | "success">(
-    avatarSrc ? "loading" : "none",
-  )
+  const [avatarState, setAvatarState] = useState<
+    "none" | "error" | "loading" | "success"
+  >(avatarSrc ? "loading" : "none")
   const image = useRef<HTMLImageElement>(null)
-  const renderInitialAvatar = !isCompany && (avatarState === "none" || avatarState === "error")
+  const renderInitialAvatar =
+    !isCompany && (avatarState === "none" || avatarState === "error")
 
   useEffect(() => {
     setAvatarState(avatarSrc ? "loading" : "none")
@@ -153,21 +169,26 @@ export const Avatar = ({
         isCompany && styles.company,
         isPersonal && styles.personal,
         isOtherUser && styles.otherUser,
-        (avatarState === "loading" || avatarState === "error") && styles.loading,
+        (avatarState === "loading" || avatarState === "error") &&
+          styles.loading,
       )}
       {...restProps}
     >
       {avatarState !== "none" && (
         <img
           ref={image}
-          className={classnames(styles.avatarImage, isCompany && styles.companyAvatarImage)}
+          className={classnames(
+            styles.avatarImage,
+            isCompany && styles.companyAvatarImage,
+          )}
           src={avatarSrc}
           onError={onImageFailure}
           onLoad={onImageSuccess}
           alt={alt}
         />
       )}
-      {renderInitialAvatar && renderInitials(fullName, alt, size, disableInitials)}
+      {renderInitialAvatar &&
+        renderInitials(fullName, alt, size, disableInitials)}
     </span>
   )
 }

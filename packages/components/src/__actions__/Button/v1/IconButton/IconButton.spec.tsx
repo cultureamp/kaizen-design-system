@@ -9,14 +9,21 @@ describe("<IconButton />", () => {
       <IconButton href="#" label="Accessible label on the link version" />,
     )
 
-    expect(getByLabelText("Accessible label on the link version")).toBeInTheDocument()
+    expect(
+      getByLabelText("Accessible label on the link version"),
+    ).toBeInTheDocument()
   })
 
   it("renders an accessible label when it's a button", () => {
     const { getByLabelText } = render(
-      <IconButton onClick={(): void => undefined} label="Accessible label on the button version" />,
+      <IconButton
+        onClick={(): void => undefined}
+        label="Accessible label on the button version"
+      />,
     )
-    expect(getByLabelText("Accessible label on the button version")).toBeInTheDocument()
+    expect(
+      getByLabelText("Accessible label on the button version"),
+    ).toBeInTheDocument()
   })
 
   it("renders an accessible label when it's a custom component", () => {
@@ -31,6 +38,8 @@ describe("<IconButton />", () => {
       />,
     )
 
-    expect(getByLabelText("Accessible label on the custom component version")).toBeInTheDocument()
+    expect(
+      getByLabelText("Accessible label on the custom component version"),
+    ).toBeInTheDocument()
   })
 })

@@ -8,7 +8,10 @@ import { Tooltip } from "~components/__overlays__/Tooltip/v1"
 import { DataAttributes } from "~components/types/DataAttributes"
 import { isRefObject } from "~components/utils/isRefObject"
 import { FilterButton, FilterButtonProps } from "../FilterButton"
-import { FilterButtonBase, FilterButtonBaseProps } from "../subcomponents/FilterButtonBase"
+import {
+  FilterButtonBase,
+  FilterButtonBaseProps,
+} from "../subcomponents/FilterButtonBase"
 import styles from "./FilterButtonRemovable.module.css"
 
 export type FilterButtonRemovableProps = {
@@ -41,7 +44,8 @@ export const FilterButtonRemovable = forwardRef<
   const customRefObject = isRefObject(ref) ? ref.current : null
   const removeButtonRef = customRefObject?.removeButtonRef
 
-  const removeButtonLabel = removeButtonProps?.tooltipText ?? removeButtonLabelFallback
+  const removeButtonLabel =
+    removeButtonProps?.tooltipText ?? removeButtonLabelFallback
 
   return (
     <ButtonGroup {...restProps}>
@@ -49,7 +53,10 @@ export const FilterButtonRemovable = forwardRef<
       <Tooltip text={removeButtonLabel} display="inline-block" position="below">
         <FilterButtonBase
           ref={removeButtonRef}
-          classNameOverride={classnames(styles.filterButtonBase, restProps.classNameOverride)}
+          classNameOverride={classnames(
+            styles.filterButtonBase,
+            restProps.classNameOverride,
+          )}
           {...removeButtonProps}
         >
           <Icon name="cancel" alt={removeButtonLabel} isFilled />

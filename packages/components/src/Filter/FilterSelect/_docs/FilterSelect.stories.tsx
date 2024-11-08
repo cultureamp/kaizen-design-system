@@ -27,7 +27,9 @@ const meta = {
     label: "Label",
     isOpen: false,
     items: singleMockItems,
-    renderTrigger: (triggerProps): JSX.Element => <FilterButton {...triggerProps} />,
+    renderTrigger: (triggerProps): JSX.Element => (
+      <FilterButton {...triggerProps} />
+    ),
     setIsOpen: fn(),
   },
   parameters: {
@@ -87,7 +89,9 @@ export const AdditionalProperties: Story = {
                 key={item.key}
                 item={{
                   ...item,
-                  rendered: item.value?.isFruit ? `${item.rendered} (Fruit)` : item.rendered,
+                  rendered: item.value?.isFruit
+                    ? `${item.rendered} (Fruit)`
+                    : item.rendered,
                 }}
               />
             ) : (

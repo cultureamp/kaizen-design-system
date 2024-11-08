@@ -14,7 +14,9 @@ export type InputSearchProps = {
   loading?: boolean
   secondary?: boolean
   onClear?: () => void
-} & OverrideClassName<Omit<InputHTMLAttributes<HTMLInputElement>, "defaultValue">>
+} & OverrideClassName<
+  Omit<InputHTMLAttributes<HTMLInputElement>, "defaultValue">
+>
 
 export const InputSearch = (props: InputSearchProps): JSX.Element => {
   const {

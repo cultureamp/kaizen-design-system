@@ -4,7 +4,10 @@ import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
 import { FieldMessage, FieldMessageProps } from "~components/FieldMessage"
 import { Heading } from "~components/Heading"
 import { OverrideClassName } from "~components/types/OverrideClassName"
-import { MultiSelectOptions, MultiSelectOptionsProps } from "./subcomponents/MultiSelectOptions"
+import {
+  MultiSelectOptions,
+  MultiSelectOptionsProps,
+} from "./subcomponents/MultiSelectOptions"
 import { MultiSelectToggle } from "./subcomponents/MultiSelectToggle"
 import { Popover, useFloating } from "./subcomponents/Popover"
 import { MultiSelectOption, ValidationMessage } from "./types"
@@ -66,7 +69,9 @@ export const MultiSelect = ({
     {} as Record<MultiSelectOption["value"], MultiSelectOption>,
   )
 
-  const handleOnRemoveOption = (optionValue: MultiSelectOption["value"]): void => {
+  const handleOnRemoveOption = (
+    optionValue: MultiSelectOption["value"],
+  ): void => {
     const newValues = new Set(selectedValues.values())
     newValues.delete(optionValue)
     onSelectedValuesChange(newValues)
@@ -92,14 +97,18 @@ export const MultiSelect = ({
           aria-controls={`${id}--popover`}
           onClick={handleToggleClick}
           isOpen={isOpen}
-          selectedOptions={Array.from(selectedValues).map((value) => itemsMap[value])}
+          selectedOptions={Array.from(selectedValues).map(
+            (value) => itemsMap[value],
+          )}
           status={validationMessage?.status}
           onRemoveOption={handleOnRemoveOption}
           onRemoveAllOptions={handleRemoveAllOptions}
         />
       </div>
 
-      {validationMessage && <FieldMessage id={validationId} {...validationMessage} />}
+      {validationMessage && (
+        <FieldMessage id={validationId} {...validationMessage} />
+      )}
       {description && <FieldMessage id={descriptionId} message={description} />}
 
       {isOpen && (

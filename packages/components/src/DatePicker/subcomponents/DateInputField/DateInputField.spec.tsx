@@ -16,9 +16,9 @@ const defaultProps: DateInputFieldProps = {
   locale: enUS,
 }
 
-const DateInputFieldWrapper = (props: Partial<DateInputFieldProps>): JSX.Element => (
-  <DateInputField {...defaultProps} {...props} />
-)
+const DateInputFieldWrapper = (
+  props: Partial<DateInputFieldProps>,
+): JSX.Element => <DateInputField {...defaultProps} {...props} />
 
 describe("<DateInputField />", () => {
   describe("Input", () => {
@@ -39,14 +39,23 @@ describe("<DateInputField />", () => {
     it("has helpful label", async () => {
       render(<DateInputFieldWrapper />)
       await waitFor(() => {
-        expect(screen.getByRole("button", { name: "Choose date" })).toBeInTheDocument()
+        expect(
+          screen.getByRole("button", { name: "Choose date" }),
+        ).toBeInTheDocument()
       })
     })
 
     it("has helpful label showing the current date when one is selected", async () => {
-      render(<DateInputFieldWrapper value="Mar 1, 2022" onChange={(): void => undefined} />)
+      render(
+        <DateInputFieldWrapper
+          value="Mar 1, 2022"
+          onChange={(): void => undefined}
+        />,
+      )
       await waitFor(() => {
-        expect(screen.getByRole("button", { name: "Change date, Mar 1, 2022" })).toBeInTheDocument()
+        expect(
+          screen.getByRole("button", { name: "Change date, Mar 1, 2022" }),
+        ).toBeInTheDocument()
       })
     })
   })
@@ -65,7 +74,12 @@ describe("<DateInputField />", () => {
 
   describe("Validation", () => {
     it("shows validation message", async () => {
-      render(<DateInputFieldWrapper status="error" validationMessage="There is an error" />)
+      render(
+        <DateInputFieldWrapper
+          status="error"
+          validationMessage="There is an error"
+        />,
+      )
       const errorMessage = screen.getByText("There is an error")
       await waitFor(() => {
         expect(errorMessage).toBeInTheDocument()
@@ -74,10 +88,16 @@ describe("<DateInputField />", () => {
 
     it("does not show validation message when field is disabled", async () => {
       render(
-        <DateInputFieldWrapper status="error" validationMessage="There is an error" disabled />,
+        <DateInputFieldWrapper
+          status="error"
+          validationMessage="There is an error"
+          disabled
+        />,
       )
       await waitFor(() => {
-        expect(screen.getByRole("textbox", { name: "Bacon expiry" })).toBeVisible()
+        expect(
+          screen.getByRole("textbox", { name: "Bacon expiry" }),
+        ).toBeVisible()
       })
       const errorMessage = screen.queryByText("There is an error")
       expect(errorMessage).not.toBeInTheDocument()
@@ -94,7 +114,10 @@ describe("<DateInputField />", () => {
         const ref = useRef({ inputRef, buttonRef })
 
         const handleClick = (): void =>
-          onButtonClick(inputRef.current?.id, buttonRef.current?.getAttribute("aria-label"))
+          onButtonClick(
+            inputRef.current?.id,
+            buttonRef.current?.getAttribute("aria-label"),
+          )
 
         return (
           <>
@@ -115,7 +138,10 @@ describe("<DateInputField />", () => {
       render(<Wrapper />)
 
       await user.click(screen.getByText("Click me"))
-      expect(onButtonClick).toHaveBeenCalledWith("test__date-input-field--ref", "Choose date")
+      expect(onButtonClick).toHaveBeenCalledWith(
+        "test__date-input-field--ref",
+        "Choose date",
+      )
     })
   })
 })

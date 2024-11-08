@@ -49,7 +49,10 @@ export const rollupConfig = (
   // ESModules
   const esmConfig = {
     ...userConfig,
-    plugins: [...userConfig.plugins, typescript({ tsconfig: "./tsconfig.dist.json" })],
+    plugins: [
+      ...userConfig.plugins,
+      typescript({ tsconfig: "./tsconfig.dist.json" }),
+    ],
     output: {
       dir: "dist/esm",
       format: "esm",
@@ -58,7 +61,11 @@ export const rollupConfig = (
     },
   } satisfies RollupOptions
 
-  const hasTailwind = fs.existsSync(path.resolve(process.cwd(), "./tailwind.config.js"))
+  const hasTailwind = fs.existsSync(
+    path.resolve(process.cwd(), "./tailwind.config.js"),
+  )
 
-  return hasTailwind ? [cjsConfig, esmConfig, ...rollupTailwindConfig()] : [cjsConfig, esmConfig]
+  return hasTailwind
+    ? [cjsConfig, esmConfig, ...rollupTailwindConfig()]
+    : [cjsConfig, esmConfig]
 }

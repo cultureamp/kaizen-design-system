@@ -18,7 +18,9 @@ export const mapVariantToBoxClass = (variant: PopoverVariant): string => {
   }
 }
 
-export const mapVariantToIconClass = (variant: PopoverVariant): string | undefined => {
+export const mapVariantToIconClass = (
+  variant: PopoverVariant,
+): string | undefined => {
   switch (variant) {
     case "informative":
       return styles.informativeIcon
@@ -72,4 +74,5 @@ export const mapSizeToClass = (size: PopoverSize): string => {
   }
 }
 
-export const mapLineVariant = (singleLine: boolean): string => (singleLine ? styles.singleLine : "")
+export const mapLineVariant = (singleLine: boolean): string =>
+  singleLine ? styles.singleLine : ""

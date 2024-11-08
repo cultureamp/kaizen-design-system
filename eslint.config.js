@@ -87,7 +87,10 @@ export default tseslint.config(
     },
   },
   {
-    extends: [...tseslint.configs.recommended, ...tseslint.configs.stylisticTypeChecked],
+    extends: [
+      ...tseslint.configs.recommended,
+      ...tseslint.configs.stylisticTypeChecked,
+    ],
     languageOptions: {
       parserOptions: {
         project: ["./tsconfig.json", "./docs/tsconfig.json"],
@@ -99,7 +102,10 @@ export default tseslint.config(
     },
     files: ["**/*.{ts,tsx}"],
     rules: {
-      "@typescript-eslint/explicit-function-return-type": ["error", { allowExpressions: true }],
+      "@typescript-eslint/explicit-function-return-type": [
+        "error",
+        { allowExpressions: true },
+      ],
       "@typescript-eslint/consistent-type-definitions": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-inferrable-types": "off",
@@ -110,7 +116,10 @@ export default tseslint.config(
           argsIgnorePattern: "^_",
         },
       ],
-      "@typescript-eslint/prefer-nullish-coalescing": ["error", { ignoreBooleanCoercion: true }],
+      "@typescript-eslint/prefer-nullish-coalescing": [
+        "error",
+        { ignoreBooleanCoercion: true },
+      ],
     },
   },
   {
@@ -143,7 +152,14 @@ export default tseslint.config(
           alphabetize: {
             order: "asc",
           },
-          groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+          ],
           pathGroups: [
             {
               pattern: "{react,react-dom}",

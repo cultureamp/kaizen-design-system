@@ -15,7 +15,8 @@ export const KAIOInstallation = ({
   version,
   family,
 }: KAIOInstallationProps): JSX.Element => {
-  const csvComponentNames = typeof exportNames === "string" ? exportNames : exportNames.join(", ")
+  const csvComponentNames =
+    typeof exportNames === "string" ? exportNames : exportNames.join(", ")
 
   const importStatement = isFuture
     ? `import { ${csvComponentNames} } from "@kaizen/components/future"`

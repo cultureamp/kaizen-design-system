@@ -8,14 +8,17 @@ import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
 const JSON_OUTPUT_DIR = `${process.cwd()}/tokens`
 const CSS_OUTPUT_DIR = `${process.cwd()}/css`
 
-const formatJson = (jsonString: string): Promise<string> => format(jsonString, { parser: "json" })
+const formatJson = (jsonString: string): Promise<string> =>
+  format(jsonString, { parser: "json" })
 
 const run = async (): Promise<void> => {
   fs.mkdirSync(JSON_OUTPUT_DIR, { recursive: true })
   fs.mkdirSync(CSS_OUTPUT_DIR, { recursive: true })
 
   // Write CSS vars tokens to CSS format
-  const cssVars = toCustomPropertiesString(makeCssVariableDefinitionsMap(defaultTheme))
+  const cssVars = toCustomPropertiesString(
+    makeCssVariableDefinitionsMap(defaultTheme),
+  )
 
   fs.writeFileSync(
     path.resolve(CSS_OUTPUT_DIR, "variables.css"),
@@ -53,7 +56,8 @@ const run = async (): Promise<void> => {
    * }
    * ```
    */
-  const augmentedThemeWithCSSVariableValuesVersion = makeCSSVariableTheme(defaultTheme)
+  const augmentedThemeWithCSSVariableValuesVersion =
+    makeCSSVariableTheme(defaultTheme)
 
   /* Write JSON tokens */
   fs.writeFileSync(

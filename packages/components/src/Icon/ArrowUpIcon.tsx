@@ -10,7 +10,10 @@ export const ArrowUpIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <defs>
-        <path id={uniqueId} d="m4 10 1.058 1.057L9.25 6.873V16h1.5V6.872l4.185 4.193L16 10l-6-6z" />
+        <path
+          id={uniqueId}
+          d="m4 10 1.058 1.057L9.25 6.873V16h1.5V6.872l4.185 4.193L16 10l-6-6z"
+        />
       </defs>
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
     </>

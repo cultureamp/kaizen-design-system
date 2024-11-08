@@ -21,7 +21,12 @@ export const TailwindStoryTemplate = ({
 
   return (
     <div className="w-full">
-      <StickerSheet className="border-none w-full" isReversed={isReversed} border={1} rules="rows">
+      <StickerSheet
+        className="border-none w-full"
+        isReversed={isReversed}
+        border={1}
+        rules="rows"
+      >
         <StickerSheet.Header
           className="text-left border-b border-gray-400"
           headings={["Utility Class", "Compiled CSS", "Example"]}
@@ -30,7 +35,11 @@ export const TailwindStoryTemplate = ({
           {classKeyValues.map((presetData, _index) => {
             const { utilityClassName, cssProperty } = presetData
             return (
-              <StickerSheet.Row key={_index} rowTitle="" className="border-b-1 border-gray-400">
+              <StickerSheet.Row
+                key={_index}
+                rowTitle=""
+                className="border-b-1 border-gray-400"
+              >
                 <div className="mr-32 min-w-max max-w-[300px]">
                   <CodeSnippet
                     text={utilityClassName.replace("-DEFAULT", "")}

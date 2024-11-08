@@ -8,7 +8,9 @@ const user = userEvent.setup()
 describe("<Checkbox />", () => {
   describe("unchecked", () => {
     it("has correct unchecked attributes", () => {
-      const { getByRole } = render(<Checkbox checkedStatus="unchecked" readOnly />)
+      const { getByRole } = render(
+        <Checkbox checkedStatus="unchecked" readOnly />,
+      )
       const checkbox = getByRole("checkbox") as HTMLInputElement
       expect(checkbox.checked).toBe(false)
       expect(checkbox.indeterminate).toBe(false)
@@ -17,7 +19,9 @@ describe("<Checkbox />", () => {
 
   describe("checked", () => {
     it("has correct checked attributes", () => {
-      const { getByRole } = render(<Checkbox checkedStatus="checked" readOnly />)
+      const { getByRole } = render(
+        <Checkbox checkedStatus="checked" readOnly />,
+      )
       const checkbox = getByRole("checkbox") as HTMLInputElement
       expect(checkbox.checked).toBe(true)
       expect(checkbox.indeterminate).toBe(false)
@@ -26,7 +30,9 @@ describe("<Checkbox />", () => {
 
   describe("indeterminate", () => {
     it("has correct indeterminate attributes", () => {
-      const { getByRole } = render(<Checkbox checkedStatus="indeterminate" readOnly />)
+      const { getByRole } = render(
+        <Checkbox checkedStatus="indeterminate" readOnly />,
+      )
       const checkbox = getByRole("checkbox") as HTMLInputElement
       expect(checkbox.checked).toBe(false)
       expect(checkbox.indeterminate).toBe(true)

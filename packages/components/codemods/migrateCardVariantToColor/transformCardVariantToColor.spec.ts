@@ -44,7 +44,9 @@ describe("transformCardVariantToColor()", () => {
     const inputAst = parseJsx(
       'export const TestComponent = () => <Card variant="destructive">Hello</Card>',
     )
-    const outputAst = parseJsx('export const TestComponent = () => <Card color="red">Hello</Card>')
+    const outputAst = parseJsx(
+      'export const TestComponent = () => <Card color="red">Hello</Card>',
+    )
     expect(transformCard(inputAst)).toEqual(printAst(outputAst))
   })
 
@@ -62,7 +64,9 @@ describe("transformCardVariantToColor()", () => {
     const inputAst = parseJsx(
       'export const TestComponent = () => <Card variant="informative">Hello</Card>',
     )
-    const outputAst = parseJsx('export const TestComponent = () => <Card color="blue">Hello</Card>')
+    const outputAst = parseJsx(
+      'export const TestComponent = () => <Card color="blue">Hello</Card>',
+    )
     expect(transformCard(inputAst)).toEqual(printAst(outputAst))
   })
 
@@ -76,8 +80,12 @@ describe("transformCardVariantToColor()", () => {
     expect(transformCard(inputAst)).toEqual(printAst(outputAst))
   })
   it("If no variant exists, it does not add one", () => {
-    const inputAst = parseJsx("export const TestComponent = () => <Card>Hello</Card>")
-    const outputAst = parseJsx("export const TestComponent = () => <Card>Hello</Card>")
+    const inputAst = parseJsx(
+      "export const TestComponent = () => <Card>Hello</Card>",
+    )
+    const outputAst = parseJsx(
+      "export const TestComponent = () => <Card>Hello</Card>",
+    )
     expect(transformCard(inputAst)).toEqual(printAst(outputAst))
   })
 })

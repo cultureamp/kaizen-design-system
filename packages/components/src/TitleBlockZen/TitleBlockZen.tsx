@@ -74,7 +74,8 @@ const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
 
 const isJSXElement = (
   imageElementOrAvatarProps: JSX.Element | TitleBlockAvatarProps,
-): imageElementOrAvatarProps is JSX.Element => "props" in imageElementOrAvatarProps
+): imageElementOrAvatarProps is JSX.Element =>
+  "props" in imageElementOrAvatarProps
 
 const renderAvatar = (
   imageElementOrAvatarProps: JSX.Element | TitleBlockAvatarProps,
@@ -98,7 +99,10 @@ const renderAvatar = (
     </div>
   )
 
-const renderSubtitle = (subtitle: React.ReactNode, subtitleAutomationId: string): JSX.Element => (
+const renderSubtitle = (
+  subtitle: React.ReactNode,
+  subtitleAutomationId: string,
+): JSX.Element => (
   <div className={styles.subtitle}>
     <span
       data-automation-id={subtitleAutomationId}
@@ -135,7 +139,10 @@ const defaultRenderSectionTitle = (
       <div
         data-automation-id={sectionTitleDescriptionAutomationId}
         data-testid={sectionTitleDescriptionAutomationId}
-        className={classnames(styles.sectionTitleDescription, !isReversed(variant) && styles.dark)}
+        className={classnames(
+          styles.sectionTitleDescription,
+          !isReversed(variant) && styles.dark,
+        )}
       >
         {sectionTitleDescription}
       </div>
@@ -262,7 +269,9 @@ export const TitleBlockZen = ({
 }: TitleBlockProps): JSX.Element => {
   const hasNavigationTabs = navigationTabs && navigationTabs.length > 0
   const collapseNavigationArea =
-    collapseNavigationAreaWhenPossible && !hasNavigationTabs && secondaryActions === undefined
+    collapseNavigationAreaWhenPossible &&
+    !hasNavigationTabs &&
+    secondaryActions === undefined
 
   const {
     queries: { isSmall, isMedium },
@@ -278,7 +287,9 @@ export const TitleBlockZen = ({
           Boolean(subtitle) && styles.hasSubtitle,
           Boolean(pageSwitcherSelect) && styles.hasPageSwitcherSelect,
           collapseNavigationArea &&
-            (!sectionTitle || !sectionTitleDescription || !renderSectionTitle) &&
+            (!sectionTitle ||
+              !sectionTitleDescription ||
+              !renderSectionTitle) &&
             styles.collapseNavigationArea,
           title && title.length >= 30 && styles.hasLongTitle,
           subtitle &&
@@ -327,17 +338,29 @@ export const TitleBlockZen = ({
                           </Heading>
                         </div>
                         {isSmallOrMediumViewport && pageSwitcherSelect && (
-                          <div className={styles.pageSwitcherSelectUnderneathTitle}>
-                            <Select {...pageSwitcherSelect} variant="secondary-small" reversed />
+                          <div
+                            className={styles.pageSwitcherSelectUnderneathTitle}
+                          >
+                            <Select
+                              {...pageSwitcherSelect}
+                              variant="secondary-small"
+                              reversed
+                            />
                           </div>
                         )}
-                        {subtitle && renderSubtitle(subtitle, subtitleAutomationId)}
+                        {subtitle &&
+                          renderSubtitle(subtitle, subtitleAutomationId)}
                       </div>
                     </div>
                     {surveyStatus && renderTag(surveyStatus)}
                     {!isSmallOrMediumViewport && pageSwitcherSelect && (
                       <div className={styles.pageSwitcherSelectNextToTitle}>
-                        <Select {...pageSwitcherSelect} variant="secondary" reversed fullWidth />
+                        <Select
+                          {...pageSwitcherSelect}
+                          variant="secondary"
+                          reversed
+                          fullWidth
+                        />
                       </div>
                     )}
                   </>
@@ -364,7 +387,9 @@ export const TitleBlockZen = ({
         <div className={styles.rowBelowSeparator}>
           <div className={styles.rowBelowSeparatorInner}>
             <div className={styles.rowBelowSeparatorInnerContent}>
-              {(sectionTitle ?? sectionTitleDescription ?? renderSectionTitle) && (
+              {(sectionTitle ??
+                sectionTitleDescription ??
+                renderSectionTitle) && (
                 <div className={styles.sectionTitleContainer}>
                   <div className={styles.sectionTitleInner}>
                     {renderSectionTitle !== undefined
@@ -384,7 +409,11 @@ export const TitleBlockZen = ({
                   </div>
                 </div>
               )}
-              {renderNavigationTabs(navigationTabs, collapseNavigationArea, title)}
+              {renderNavigationTabs(
+                navigationTabs,
+                collapseNavigationArea,
+                title,
+              )}
               {(secondaryActions ?? secondaryOverflowMenuItems) && (
                 <SecondaryActions
                   secondaryActions={secondaryActions}

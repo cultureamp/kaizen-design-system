@@ -61,7 +61,9 @@ export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
         filters: Object.values(state.filters).reduce((acc, filter) => {
           acc[filter.id] = {
             ...filter,
-            name: action.data.find(({ id }) => id === filter.id)?.name ?? filter.name,
+            name:
+              action.data.find(({ id }) => id === filter.id)?.name ??
+              filter.name,
           }
           return acc
         }, {}),

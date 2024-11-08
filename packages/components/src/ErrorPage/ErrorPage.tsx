@@ -67,7 +67,9 @@ export const ErrorPage = ({
         variant="warning"
         primaryAction={{
           ...actions.primary,
-          icon: <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
+          icon: (
+            <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
+          ),
           iconPosition: "end",
           label: formatMessage({
             id: "kzErrorPage.goToHome",

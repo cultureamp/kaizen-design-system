@@ -2,7 +2,10 @@ import React, { useState } from "react"
 import { render, waitFor, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { vi } from "vitest"
-import { MultiSelectOptions, MultiSelectOptionsProps } from "./MultiSelectOptions"
+import {
+  MultiSelectOptions,
+  MultiSelectOptionsProps,
+} from "./MultiSelectOptions"
 const user = userEvent.setup()
 
 const onChange = vi.fn()
@@ -21,10 +24,12 @@ const testOptions = [
   },
 ]
 
-const MultiSelectOptionsWrapper = (customProps?: Partial<MultiSelectOptionsProps>): JSX.Element => {
-  const [selectedValues, setSelectedValues] = useState<MultiSelectOptionsProps["selectedValues"]>(
-    customProps?.selectedValues ?? new Set(),
-  )
+const MultiSelectOptionsWrapper = (
+  customProps?: Partial<MultiSelectOptionsProps>,
+): JSX.Element => {
+  const [selectedValues, setSelectedValues] = useState<
+    MultiSelectOptionsProps["selectedValues"]
+  >(customProps?.selectedValues ?? new Set())
   return (
     <MultiSelectOptions
       id="id--options"
@@ -91,13 +96,17 @@ describe("<MultiSelectOptions />", () => {
       await waitFor(() => {
         expect(onChange).toBeCalledWith(new Set(["pancakes", "waffle"]))
         expect(waffleOption).toBeChecked()
-        expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(2)
+        expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(
+          2,
+        )
       })
     })
 
     it("returns updated selected values when unselecting an option", async () => {
       const { getByRole } = render(
-        <MultiSelectOptionsWrapper selectedValues={new Set(["pancakes", "waffle"])} />,
+        <MultiSelectOptionsWrapper
+          selectedValues={new Set(["pancakes", "waffle"])}
+        />,
       )
       expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(2)
 
@@ -109,7 +118,9 @@ describe("<MultiSelectOptions />", () => {
       await waitFor(() => {
         expect(onChange).toBeCalledWith(new Set(["pancakes"]))
         expect(waffleOption).not.toBeChecked()
-        expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(1)
+        expect(screen.getAllByRole("checkbox", { checked: true }).length).toBe(
+          1,
+        )
       })
     })
   })

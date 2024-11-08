@@ -19,7 +19,10 @@ type Story = StoryObj<typeof meta>
 
 export const ButtonClassModifierWithRenderProps: Story = {
   render: ({ children, ...otherArgs }) => (
-    <Button {...otherArgs} className={({ isPressed }) => (isPressed ? "!bg-gray-300" : "")}>
+    <Button
+      {...otherArgs}
+      className={({ isPressed }) => (isPressed ? "!bg-gray-300" : "")}
+    >
       {children}
     </Button>
   ),

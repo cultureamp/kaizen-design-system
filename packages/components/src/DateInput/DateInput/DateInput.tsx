@@ -13,7 +13,17 @@ export type DateInputProps = {
 } & Omit<InputProps, OmittedInputProps>
 
 export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
-  ({ id, labelText, disabled, isReversed = false, classNameOverride, ...inputProps }, ref) => (
+  (
+    {
+      id,
+      labelText,
+      disabled,
+      isReversed = false,
+      classNameOverride,
+      ...inputProps
+    },
+    ref,
+  ) => (
     <div className={classnames(styles.dateInput, classNameOverride)}>
       <Label
         htmlFor={id}

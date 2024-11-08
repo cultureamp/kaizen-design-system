@@ -1,6 +1,9 @@
 import React, { ChangeEventHandler, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { CheckboxField, CheckboxFieldProps } from "~components/Checkbox/CheckboxField"
+import {
+  CheckboxField,
+  CheckboxFieldProps,
+} from "~components/Checkbox/CheckboxField"
 import { CheckboxGroup } from "../index"
 
 const meta = {

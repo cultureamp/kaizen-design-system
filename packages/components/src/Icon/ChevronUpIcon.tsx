@@ -10,7 +10,10 @@ export const ChevronUpIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <defs>
-        <path id={uniqueId} d="M6.179 13.155 10 9.253l3.821 3.902 1.18-1.204L10 6.845l-5 5.106z" />
+        <path
+          id={uniqueId}
+          d="M6.179 13.155 10 9.253l3.821 3.902 1.18-1.204L10 6.845l-5 5.106z"
+        />
       </defs>
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
     </>

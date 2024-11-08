@@ -8,7 +8,11 @@ export type FocusableProps = {
 } & FocusableOptions &
   HTMLAttributes<HTMLDivElement>
 
-export const Focusable = ({ children, className, ...props }: FocusableProps): JSX.Element => {
+export const Focusable = ({
+  children,
+  className,
+  ...props
+}: FocusableProps): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null)
   const { focusableProps } = useFocusable(props, ref)
 

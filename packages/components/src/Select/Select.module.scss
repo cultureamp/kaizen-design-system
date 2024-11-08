@@ -48,7 +48,8 @@ $focus-border-color: $color-blue-500;
 
   .control {
     min-height: $input-height;
-    border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+    border: $border-solid-border-width $border-solid-border-style
+      $color-gray-500;
     border-radius: $border-solid-border-radius;
 
     &.disabled {
@@ -184,7 +185,8 @@ $focus-border-color: $color-blue-500;
 
   &.error {
     .control {
-      border: $border-solid-border-width $border-solid-border-style $color-red-500;
+      border: $border-solid-border-width $border-solid-border-style
+        $color-red-500;
     }
   }
 
@@ -216,7 +218,8 @@ $focus-border-color: $color-blue-500;
 
       &.error {
         .control {
-          border: $border-solid-border-width $border-solid-border-style $color-red-300;
+          border: $border-solid-border-width $border-solid-border-style
+            $color-red-300;
         }
       }
     }

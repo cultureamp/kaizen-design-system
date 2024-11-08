@@ -41,7 +41,11 @@ const PopoverTemplate: Story = {
 
     return (
       <div>
-        <button ref={refs.setReference} type="button" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          ref={refs.setReference}
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           Pancakes!
         </button>
         <button type="button">Flapjacks</button>
@@ -49,7 +53,9 @@ const PopoverTemplate: Story = {
         {isOpen && (
           <Popover
             {...args}
-            portalContainer={document.getElementById("testing-ground") ?? undefined}
+            portalContainer={
+              document.getElementById("testing-ground") ?? undefined
+            }
             refs={refs}
             focusOnProps={{
               onClickOutside: handleClose,

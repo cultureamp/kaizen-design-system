@@ -1,7 +1,11 @@
 .button {
   --button-min-height-width: var(--spacing-48);
-  --button-padding-x: calc(#{var(--spacing-12)} - #{var(--border-solid-border-width)});
-  --button-padding-y: calc(#{var(--spacing-8)} - #{var(--border-solid-border-width)});
+  --button-padding-x: calc(
+    #{var(--spacing-12)} - #{var(--border-solid-border-width)}
+  );
+  --button-padding-y: calc(
+    #{var(--spacing-8)} - #{var(--border-solid-border-width)}
+  );
   --button-icon-size: var(--spacing-24);
 
   // RESET
@@ -88,8 +92,12 @@
 .small {
   // spacing-40 does not currently exist. Holding on adding this until the button rfc has been signed off
   --button-min-height-width: 2.5rem;
-  --button-padding-x: calc(#{var(--spacing-8)} - #{var(--border-solid-border-width)});
-  --button-padding-y: calc(#{var(--spacing-8)} - #{var(--border-solid-border-width)});
+  --button-padding-x: calc(
+    #{var(--spacing-8)} - #{var(--border-solid-border-width)}
+  );
+  --button-padding-y: calc(
+    #{var(--spacing-8)} - #{var(--border-solid-border-width)}
+  );
   --button-icon-size: var(--spacing-16);
 
   gap: var(--spacing-8);

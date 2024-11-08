@@ -18,7 +18,10 @@ describe("updateJsxElementWithNewProps()", () => {
         ts.factory.createStringLiteral("butter"),
       ),
     ]
-    const updatedNode = updateJsxElementWithNewProps(jsxElement.expression, newAttributes)
+    const updatedNode = updateJsxElementWithNewProps(
+      jsxElement.expression,
+      newAttributes,
+    )
 
     const result = printNode(updatedNode, source)
     expect(result).toBe('<Pancakes topping="butter"/>')

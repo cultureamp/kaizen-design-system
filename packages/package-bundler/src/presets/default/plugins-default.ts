@@ -52,7 +52,10 @@ export const pluginsDefault = [
   ]),
   babel({ babelHelpers: "bundled" }),
   getBabelOutputPlugin({
-    plugins: ["@babel/plugin-transform-react-pure-annotations", "babel-plugin-pure-static-props"],
+    plugins: [
+      "@babel/plugin-transform-react-pure-annotations",
+      "babel-plugin-pure-static-props",
+    ],
   }),
   // https://rollupjs.org/tools/#rollup-plugin-commonjs
   commonjs(),

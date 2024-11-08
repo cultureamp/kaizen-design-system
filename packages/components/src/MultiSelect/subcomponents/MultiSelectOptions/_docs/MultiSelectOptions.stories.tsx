@@ -33,11 +33,15 @@ type Story = StoryObj<typeof meta>
 
 const MultiSelectOptionsTemplate: Story = {
   render: (args) => {
-    const [selectedValues, setSelectedValues] = useState<MultiSelectOptionsProps["selectedValues"]>(
-      args.selectedValues,
-    )
+    const [selectedValues, setSelectedValues] = useState<
+      MultiSelectOptionsProps["selectedValues"]
+    >(args.selectedValues)
     return (
-      <MultiSelectOptions {...args} selectedValues={selectedValues} onChange={setSelectedValues} />
+      <MultiSelectOptions
+        {...args}
+        selectedValues={selectedValues}
+        onChange={setSelectedValues}
+      />
     )
   },
 }

@@ -54,7 +54,11 @@ export type IconProps = BaseIconProps & {
   shouldMirrorInRTL?: boolean
 }
 
-export const Icon = ({ name, shouldMirrorInRTL, ...restProps }: IconProps): JSX.Element => {
+export const Icon = ({
+  name,
+  shouldMirrorInRTL,
+  ...restProps
+}: IconProps): JSX.Element => {
   if (!shouldMirrorInRTL) {
     return <MaterialIcon {...restProps}>{name}</MaterialIcon>
   }

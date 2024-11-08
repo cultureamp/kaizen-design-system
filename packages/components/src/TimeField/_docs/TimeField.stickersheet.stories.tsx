@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { TimeField } from "../index"
 import { ValueType } from "../types"
 
@@ -26,7 +29,10 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <>
         <StickerSheet heading="TimeField" className="w-full">
-          <StickerSheet.Header headings={["Default", "Disabled", "Error"]} headingsWidth="30%" />
+          <StickerSheet.Header
+            headings={["Default", "Disabled", "Error"]}
+            headingsWidth="30%"
+          />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <StickerSheet.Cell className="align-top">
@@ -83,12 +89,30 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet>
 
         <StickerSheet heading="Localisation" className="w-full">
-          <StickerSheet.Header headings={["en-US", "en-GB", "zh-HANS-SG"]} headingsWidth="30%" />
+          <StickerSheet.Header
+            headings={["en-US", "en-GB", "zh-HANS-SG"]}
+            headingsWidth="30%"
+          />
           <StickerSheet.Body>
             <StickerSheet.Row>
-              <TimeField label="Label" locale="en-US" value={valueEnUS} onChange={setValueEnUS} />
-              <TimeField label="Label" locale="en-GB" value={valueEnGB} onChange={setValueEnGB} />
-              <TimeField label="Label" locale="zh-HANS-SG" value={valueZh} onChange={setValueZh} />
+              <TimeField
+                label="Label"
+                locale="en-US"
+                value={valueEnUS}
+                onChange={setValueEnUS}
+              />
+              <TimeField
+                label="Label"
+                locale="en-GB"
+                value={valueEnGB}
+                onChange={setValueEnGB}
+              />
+              <TimeField
+                label="Label"
+                locale="zh-HANS-SG"
+                value={valueZh}
+                onChange={setValueZh}
+              />
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>
@@ -101,7 +125,8 @@ const StickerSheetTemplate: StickerSheetStory = {
         '[data-sb-pseudo-styles="hover--segment"]',
         '[data-sb-pseudo-styles="hover--segment"] [aria-label*="hour"]',
       ],
-      focusVisible: '[data-sb-pseudo-styles="focus--segment"] [aria-label*="hour"]',
+      focusVisible:
+        '[data-sb-pseudo-styles="focus--segment"] [aria-label*="hour"]',
       focusWithin: '[data-sb-pseudo-styles="focus--segment"]',
     },
   },

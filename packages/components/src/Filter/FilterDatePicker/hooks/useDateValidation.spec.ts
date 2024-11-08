@@ -24,7 +24,9 @@ describe("useDateValidation()", () => {
 
   describe("with an invalid date", () => {
     it("returns a validation message and no date", async () => {
-      const { result } = renderHook(() => useDateValidation({ inputLabel: "Date" }))
+      const { result } = renderHook(() =>
+        useDateValidation({ inputLabel: "Date" }),
+      )
       const { validateDate, updateValidation } = result.current
       const { validationResponse, newDate } = validateDate({
         date: new Date("potato"),

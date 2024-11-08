@@ -30,7 +30,10 @@ export const SpacingTokens: StoryFn = () => {
               <td className="font-family-data">{tokenName}</td>
               <td className="font-family-data">{tokenValue}</td>
               <td className="font-family-data">
-                <div className="h-[20px] bg-blue-400" style={{ width: tokenValue }} />
+                <div
+                  className="h-[20px] bg-blue-400"
+                  style={{ width: tokenValue }}
+                />
               </td>
             </tr>
           ))}

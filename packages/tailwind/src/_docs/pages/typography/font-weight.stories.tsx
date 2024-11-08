@@ -5,12 +5,13 @@ import { utilityDescription } from "~tailwind/_docs/utils/utilityDescription"
 import { kaizenTailwindTheme } from "~tailwind/tailwind-presets"
 
 const prefix = "font-"
-const classEntries: { utilityClassName: string; cssProperty: string }[] = Object.entries(
-  kaizenTailwindTheme.fontWeight || [],
-).map(([suffix, cssProperty]) => ({
-  utilityClassName: `${prefix}${suffix}`,
-  cssProperty,
-}))
+const classEntries: { utilityClassName: string; cssProperty: string }[] =
+  Object.entries(kaizenTailwindTheme.fontWeight || []).map(
+    ([suffix, cssProperty]) => ({
+      utilityClassName: `${prefix}${suffix}`,
+      cssProperty,
+    }),
+  )
 
 export default {
   title: "Guides/Tailwind/Utility Class References/Typography/Font Weight",
@@ -26,7 +27,9 @@ export default {
   },
 } satisfies Meta
 
-export const FontWeight: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+export const FontWeight: StoryFn<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
   <TailwindStoryTemplate
     compiledCssPropertyName="font-weight"
     classKeyValues={classEntries}

@@ -37,7 +37,10 @@
   font-size: $typography-button-secondary-font-size;
   border-color: $border-borderless-border-color;
 
-  @include enabled-pseudo-states-variant($color-blue-100, $border-borderless-border-color);
+  @include enabled-pseudo-states-variant(
+    $color-blue-100,
+    $border-borderless-border-color
+  );
 
   #{$className--content} {
     justify-content: center;
@@ -48,7 +51,9 @@
   &.reversed {
     border-color: $border-borderless-border-color;
 
-    @include enabled-pseudo-states-variant($border-color: $border-borderless-border-color);
+    @include enabled-pseudo-states-variant(
+      $border-color: $border-borderless-border-color
+    );
   }
 }
 
@@ -57,7 +62,10 @@
   border-color: $border-borderless-border-color;
   cursor: initial;
 
-  @include enabled-pseudo-states-variant($color-blue-500, $border-borderless-border-color);
+  @include enabled-pseudo-states-variant(
+    $color-blue-500,
+    $border-borderless-border-color
+  );
 
   &:not(:disabled) {
     &:active {

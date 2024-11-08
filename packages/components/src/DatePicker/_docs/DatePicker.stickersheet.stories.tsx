@@ -3,7 +3,10 @@ import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { Meta } from "@storybook/react"
 import { expect, userEvent, within } from "@storybook/test"
 import { Text } from "~components/Text"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { DatePicker } from "../index"
 
 export default {
@@ -21,7 +24,12 @@ const StickerSheetTemplate: StickerSheetStory = {
       <>
         <StickerSheet isReversed={isReversed} heading="DatePicker">
           <StickerSheet.Header
-            headings={["Default", "Selected Value", "Custom Description", "Disabled"]}
+            headings={[
+              "Default",
+              "Selected Value",
+              "Custom Description",
+              "Disabled",
+            ]}
           />
           <StickerSheet.Body>
             <StickerSheet.Row style={{ verticalAlign: "top" }}>
@@ -44,7 +52,11 @@ const StickerSheetTemplate: StickerSheetStory = {
                 isReversed={isReversed}
                 description={
                   <>
-                    <Text tag="span" variant="small" color={isReversed ? "white" : "dark"}>
+                    <Text
+                      tag="span"
+                      variant="small"
+                      color={isReversed ? "white" : "dark"}
+                    >
                       My <strong>Custom</strong> Description
                     </Text>
                   </>
@@ -62,7 +74,10 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet>
 
         <StickerSheet isReversed={isReversed} heading="Pseudo states">
-          <StickerSheet.Header headings={["Hover", "Focus"]} hasVerticalHeadings />
+          <StickerSheet.Header
+            headings={["Hover", "Focus"]}
+            hasVerticalHeadings
+          />
           <StickerSheet.Body>
             <StickerSheet.Row rowTitle="Container">
               <DatePicker
@@ -126,8 +141,14 @@ const StickerSheetTemplate: StickerSheetStory = {
   },
   parameters: {
     pseudo: {
-      hover: ['[data-sb-pseudo-styles="hover"]', ".story__date-input-single-field--hover button"],
-      focus: ['[data-sb-pseudo-styles="focus"]', ".story__date-input-single-field--focus button"],
+      hover: [
+        '[data-sb-pseudo-styles="hover"]',
+        ".story__date-input-single-field--hover button",
+      ],
+      focus: [
+        '[data-sb-pseudo-styles="focus"]',
+        ".story__date-input-single-field--focus button",
+      ],
       focusVisible: [
         '[data-sb-pseudo-styles="focus"]',
         ".story__date-input-single-field--focus button",

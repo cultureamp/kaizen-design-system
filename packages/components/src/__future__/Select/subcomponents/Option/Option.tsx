@@ -19,7 +19,11 @@ export const Option = <Option extends SelectOption = SelectOption>({
 }: OptionProps<Option>): JSX.Element => {
   const { state } = useSelectContext<Option>()
   const ref = React.useRef<HTMLLIElement>(null)
-  const { optionProps, isSelected, isDisabled } = useOption({ key: item.key }, state, ref)
+  const { optionProps, isSelected, isDisabled } = useOption(
+    { key: item.key },
+    state,
+    ref,
+  )
 
   const { onPointerUp, ...restOptionProps } = optionProps
 
@@ -49,7 +53,9 @@ export const Option = <Option extends SelectOption = SelectOption>({
       aria-label={item.textValue}
     >
       {item.rendered}
-      <span className={classnames(styles.icon, isSelected && styles.isSelected)}>
+      <span
+        className={classnames(styles.icon, isSelected && styles.isSelected)}
+      >
         {isSelected && <Icon name="check" isPresentational />}
       </span>
     </li>

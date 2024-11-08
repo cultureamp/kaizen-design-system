@@ -15,7 +15,9 @@ export const statusCodes = [
 export type ErrorStatuses = (typeof statusCodes)[number]
 type TranslationMap = Record<ErrorStatuses, { title: string; message: string }>
 
-export const useErrorMessages = (code: ErrorStatuses): TranslationMap[ErrorStatuses] => {
+export const useErrorMessages = (
+  code: ErrorStatuses,
+): TranslationMap[ErrorStatuses] => {
   const { formatMessage } = useIntl()
 
   const translationsMap: TranslationMap = {
@@ -27,7 +29,8 @@ export const useErrorMessages = (code: ErrorStatuses): TranslationMap[ErrorStatu
       }),
       message: formatMessage({
         id: "kzErrorPage.400.message",
-        defaultMessage: "Problem loading page right now. Try again or head home.",
+        defaultMessage:
+          "Problem loading page right now. Try again or head home.",
         description: "Call to action instructions for the user",
       }),
     },
@@ -117,7 +120,8 @@ export const useErrorMessages = (code: ErrorStatuses): TranslationMap[ErrorStatu
       }),
       message: formatMessage({
         id: "kzErrorPage.502.message",
-        defaultMessage: "Sorry about this. The best thing to do is go back and try again.",
+        defaultMessage:
+          "Sorry about this. The best thing to do is go back and try again.",
         description: "Call to action instructions for the user",
       }),
     },
@@ -129,7 +133,8 @@ export const useErrorMessages = (code: ErrorStatuses): TranslationMap[ErrorStatu
       }),
       message: formatMessage({
         id: "kzErrorPage.503.message",
-        defaultMessage: "Sorry about this. The best thing to do is go back and try again.",
+        defaultMessage:
+          "Sorry about this. The best thing to do is go back and try again.",
         description: "Call to action instructions for the user",
       }),
     },
@@ -141,7 +146,8 @@ export const useErrorMessages = (code: ErrorStatuses): TranslationMap[ErrorStatu
       }),
       message: formatMessage({
         id: "kzErrorPage.504.message",
-        defaultMessage: "Sorry about this. The best thing to do is go back and try again.",
+        defaultMessage:
+          "Sorry about this. The best thing to do is go back and try again.",
         description: "Call to action instructions for the user",
       }),
     },

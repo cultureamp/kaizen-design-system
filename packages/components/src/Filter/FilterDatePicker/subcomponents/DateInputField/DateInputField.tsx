@@ -24,7 +24,10 @@ export type DateInputFieldProps = {
   labelText?: DateInputProps["labelText"]
 } & Omit<DateInputProps, "id" | "labelText">
 
-export const DateInputField = React.forwardRef<HTMLInputElement, DateInputFieldProps>(
+export const DateInputField = React.forwardRef<
+  HTMLInputElement,
+  DateInputFieldProps
+>(
   (
     {
       id,
@@ -49,9 +52,13 @@ export const DateInputField = React.forwardRef<HTMLInputElement, DateInputFieldP
 
     const descriptionId = `${id}--field-message`
 
-    const errorMessageId = validationMessage ? `${id}--date-error-message` : undefined
+    const errorMessageId = validationMessage
+      ? `${id}--date-error-message`
+      : undefined
 
-    const inputDescribedBy = errorMessageId ? `${errorMessageId} ${descriptionId}` : descriptionId
+    const inputDescribedBy = errorMessageId
+      ? `${errorMessageId} ${descriptionId}`
+      : descriptionId
 
     const dateIsInvalid = errorMessageId !== undefined
 
@@ -82,7 +89,9 @@ export const DateInputField = React.forwardRef<HTMLInputElement, DateInputFieldP
 
         <FieldMessage
           id={descriptionId}
-          message={<DateInputDescription description={description} locale={locale} />}
+          message={
+            <DateInputDescription description={description} locale={locale} />
+          }
           reversed={isReversed}
           classNameOverride={disabled ? styles.disabled : undefined}
         />

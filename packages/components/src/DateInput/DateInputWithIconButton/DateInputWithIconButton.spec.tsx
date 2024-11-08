@@ -2,7 +2,10 @@ import React, { useRef } from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { vi } from "vitest"
-import { DateInputWithIconButton, DateInputWithIconButtonProps } from "./DateInputWithIconButton"
+import {
+  DateInputWithIconButton,
+  DateInputWithIconButtonProps,
+} from "./DateInputWithIconButton"
 
 const user = userEvent.setup()
 
@@ -20,14 +23,21 @@ describe("<DateInputWithIconButton />", () => {
   describe("Icon button", () => {
     it("has helpful label", () => {
       render(<DateInputWithIconButtonWrapper />)
-      expect(screen.getByRole("button", { name: "Choose date" })).toBeInTheDocument()
+      expect(
+        screen.getByRole("button", { name: "Choose date" }),
+      ).toBeInTheDocument()
     })
 
     it("has helpful label showing the current date when one is selected", () => {
       render(
-        <DateInputWithIconButtonWrapper value="Mar 1, 2022" onChange={(): void => undefined} />,
+        <DateInputWithIconButtonWrapper
+          value="Mar 1, 2022"
+          onChange={(): void => undefined}
+        />,
       )
-      expect(screen.getByRole("button", { name: "Change date, Mar 1, 2022" })).toBeInTheDocument()
+      expect(
+        screen.getByRole("button", { name: "Change date, Mar 1, 2022" }),
+      ).toBeInTheDocument()
     })
   })
 
@@ -51,7 +61,10 @@ describe("<DateInputWithIconButton />", () => {
         const ref = useRef({ inputRef, buttonRef })
 
         const handleClick = (): void =>
-          onButtonClick(inputRef.current?.id, buttonRef.current?.getAttribute("aria-label"))
+          onButtonClick(
+            inputRef.current?.id,
+            buttonRef.current?.getAttribute("aria-label"),
+          )
 
         return (
           <>
@@ -71,7 +84,10 @@ describe("<DateInputWithIconButton />", () => {
       render(<Wrapper />)
 
       await user.click(screen.getByText("Click me"))
-      expect(onButtonClick).toBeCalledWith("test__date-input-field--ref", "Choose date")
+      expect(onButtonClick).toBeCalledWith(
+        "test__date-input-field--ref",
+        "Choose date",
+      )
     })
   })
 })

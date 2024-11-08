@@ -24,7 +24,11 @@ export const LoadingSpinner = ({
   ...props
 }: LoadingSpinnerProps): JSX.Element => (
   <div
-    className={classnames(styles.loadingSpinner, styles[size], classNameOverride)}
+    className={classnames(
+      styles.loadingSpinner,
+      styles[size],
+      classNameOverride,
+    )}
     role="status"
     {...props}
   >

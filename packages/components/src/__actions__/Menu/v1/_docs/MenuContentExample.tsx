@@ -11,7 +11,9 @@ type MenuContentExampleProps = {
 /**
  * This is an mocked example of a Menu's children using all of the subcomponents.
  */
-export const MenuContentExample = ({ isShortList }: MenuContentExampleProps): JSX.Element => (
+export const MenuContentExample = ({
+  isShortList,
+}: MenuContentExampleProps): JSX.Element => (
   <>
     <MenuList heading={<MenuHeading>Links</MenuHeading>}>
       <MenuItem href="https://www.cultureamp.com/" label="Menu link" />
@@ -24,7 +26,10 @@ export const MenuContentExample = ({ isShortList }: MenuContentExampleProps): JS
         <MenuList heading={<MenuHeading>Buttons</MenuHeading>}>
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >,
             ): void => {
               alert("Hello")
               e.preventDefault()
@@ -34,7 +39,10 @@ export const MenuContentExample = ({ isShortList }: MenuContentExampleProps): JS
           />
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >,
             ): void => {
               e.preventDefault()
             }}
@@ -43,7 +51,10 @@ export const MenuContentExample = ({ isShortList }: MenuContentExampleProps): JS
           />
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >,
             ): void => {
               e.preventDefault()
             }}
@@ -53,7 +64,10 @@ export const MenuContentExample = ({ isShortList }: MenuContentExampleProps): JS
           />
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >,
             ): void => {
               e.preventDefault()
             }}
@@ -63,7 +77,10 @@ export const MenuContentExample = ({ isShortList }: MenuContentExampleProps): JS
           />
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >,
             ): void => {
               e.preventDefault()
             }}
@@ -76,7 +93,10 @@ export const MenuContentExample = ({ isShortList }: MenuContentExampleProps): JS
         <MenuList heading={<MenuHeading>Buttons (no icons)</MenuHeading>}>
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >,
             ): void => {
               e.preventDefault()
             }}
@@ -84,7 +104,10 @@ export const MenuContentExample = ({ isShortList }: MenuContentExampleProps): JS
           />
           <MenuItem
             onClick={(
-              e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
+              e: React.MouseEvent<
+                HTMLButtonElement | HTMLAnchorElement,
+                MouseEvent
+              >,
             ): void => {
               e.preventDefault()
             }}

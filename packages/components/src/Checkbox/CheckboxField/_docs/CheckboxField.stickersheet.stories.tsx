@@ -1,6 +1,9 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { CheckboxField, CheckboxFieldProps } from "../index"
 
 export default {
@@ -36,7 +39,11 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           {rows.map(({ title, checkedStatus }) => (
             <StickerSheet.Row key={title} rowTitle={title}>
-              <CheckboxField {...defaultProps} labelText="Checkbox" checkedStatus={checkedStatus} />
+              <CheckboxField
+                {...defaultProps}
+                labelText="Checkbox"
+                checkedStatus={checkedStatus}
+              />
               <CheckboxField
                 {...defaultProps}
                 labelText="Hover"

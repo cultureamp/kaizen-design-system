@@ -2,8 +2,12 @@ import ts from "typescript"
 import { parseJsx } from "../__tests__/utils"
 import { getPropValueText } from "./getPropValueText"
 
-export const getJsxAttributeValue = (node: ts.Node): ts.JsxAttributeValue | undefined => {
-  const visitNode = (visitedNode: ts.Node): ts.JsxAttributeValue | undefined => {
+export const getJsxAttributeValue = (
+  node: ts.Node,
+): ts.JsxAttributeValue | undefined => {
+  const visitNode = (
+    visitedNode: ts.Node,
+  ): ts.JsxAttributeValue | undefined => {
     if (ts.isJsxAttribute(visitedNode)) {
       return visitedNode.initializer
     }

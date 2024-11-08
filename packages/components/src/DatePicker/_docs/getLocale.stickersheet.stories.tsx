@@ -2,7 +2,10 @@ import React from "react"
 import { LOCALE_REGIONS } from "@cultureamp/i18n-react-intl"
 import { Meta } from "@storybook/react"
 import { CalendarSingle } from "~components/Calendar"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { getLocale } from "../utils/getLocale"
 
 export default {
@@ -33,7 +36,10 @@ export const UtilGetLocale: StickerSheetStory = {
         <StickerSheet.Body>
           {locales.map((locale) => (
             <StickerSheet.Row key={locale} rowTitle={locale}>
-              <CalendarSingle defaultMonth={new Date("2021-09-05")} locale={getLocale(locale)} />
+              <CalendarSingle
+                defaultMonth={new Date("2021-09-05")}
+                locale={getLocale(locale)}
+              />
             </StickerSheet.Row>
           ))}
         </StickerSheet.Body>

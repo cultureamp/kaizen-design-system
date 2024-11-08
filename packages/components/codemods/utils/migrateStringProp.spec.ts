@@ -11,10 +11,16 @@ const transformTopping = (oldValue: string): string => {
   }
 }
 
-const testMigrateStringProp = (sourceFile: TransformConfig["sourceFile"]): string =>
+const testMigrateStringProp = (
+  sourceFile: TransformConfig["sourceFile"],
+): string =>
   transformSource({
     sourceFile,
-    astTransformer: migrateStringProp("toppingOld", "toppingNew", transformTopping),
+    astTransformer: migrateStringProp(
+      "toppingOld",
+      "toppingNew",
+      transformTopping,
+    ),
     tagName: "Pancakes",
   })
 
@@ -24,7 +30,9 @@ describe("migrateStringProp()", () => {
       const inputAst = parseJsx(
         'export const TestComponent = () => <Pancakes toppingOld="butter" />',
       )
-      const outputAst = parseJsx('export const TestComponent = () => <Pancakes toppingNew="jam" />')
+      const outputAst = parseJsx(
+        'export const TestComponent = () => <Pancakes toppingNew="jam" />',
+      )
       expect(testMigrateStringProp(inputAst)).toEqual(printAst(outputAst))
     })
 
@@ -93,19 +101,29 @@ describe("migrateStringProp()", () => {
 
   it("does not add new prop if old prop is not defined", () => {
     const inputAst = parseJsx("export const TestComponent = () => <Pancakes />")
-    const outputAst = parseJsx("export const TestComponent = () => <Pancakes />")
+    const outputAst = parseJsx(
+      "export const TestComponent = () => <Pancakes />",
+    )
     expect(testMigrateStringProp(inputAst)).toEqual(printAst(outputAst))
   })
 
   it("does not add new prop if new prop already exists", () => {
-    const inputAst = parseJsx('export const TestComponent = () => <Pancakes toppingNew="jam" />')
-    const outputAst = parseJsx('export const TestComponent = () => <Pancakes toppingNew="jam" />')
+    const inputAst = parseJsx(
+      'export const TestComponent = () => <Pancakes toppingNew="jam" />',
+    )
+    const outputAst = parseJsx(
+      'export const TestComponent = () => <Pancakes toppingNew="jam" />',
+    )
     expect(testMigrateStringProp(inputAst)).toEqual(printAst(outputAst))
   })
 
   it("does not modify old prop using variables", () => {
-    const inputAst = parseJsx("export const TestComponent = () => <Pancakes toppingOld={var} />")
-    const outputAst = parseJsx("export const TestComponent = () => <Pancakes toppingOld={var} />")
+    const inputAst = parseJsx(
+      "export const TestComponent = () => <Pancakes toppingOld={var} />",
+    )
+    const outputAst = parseJsx(
+      "export const TestComponent = () => <Pancakes toppingOld={var} />",
+    )
     expect(testMigrateStringProp(inputAst)).toEqual(printAst(outputAst))
   })
 })

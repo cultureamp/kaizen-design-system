@@ -10,12 +10,18 @@ import {
   isInvalidDate,
   parseDateFromTextFormatValue,
 } from "~components/Calendar"
-import { DatePickerSupportedLocales, getLocale } from "~components/DatePicker/utils/getLocale"
+import {
+  DatePickerSupportedLocales,
+  getLocale,
+} from "~components/DatePicker/utils/getLocale"
 import { DateValidationResponse } from "~components/Filter/FilterDatePicker"
 import { useDateInputHandlers } from "~components/Filter/FilterDatePicker/hooks/useDateInputHandlers"
 import { DataAttributes } from "~components/types/DataAttributes"
 import { OverrideClassName } from "~components/types/OverrideClassName"
-import { DateRangeInputField, DateRangeInputFieldProps } from "../DateRangeInputField"
+import {
+  DateRangeInputField,
+  DateRangeInputFieldProps,
+} from "../DateRangeInputField"
 import { filterDatePickerFieldReducer } from "./filterDateRangePickerFieldReducer"
 import { useEndDateValidation } from "./hooks/useEndDateValidation"
 import { useStartDateValidation } from "./hooks/useStartDateValidation"
@@ -26,7 +32,8 @@ import styles from "./FilterDateRangePickerField.module.scss"
 type InputStartDateProps = DateRangeInputFieldProps["inputStartDateProps"]
 type InputEndDateProps = DateRangeInputFieldProps["inputEndDateProps"]
 
-type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> & DataAttributes
+type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
+  DataAttributes
 
 export type FilterDateRangePickerFieldProps = {
   id: string
@@ -94,7 +101,8 @@ export const FilterDateRangePickerField = ({
     defaultMessage: "Date to",
     description: "Label for the 'date to' field",
   })
-  const inputStartDateLabel = inputStartDateProps?.labelText ?? translatedDateFrom
+  const inputStartDateLabel =
+    inputStartDateProps?.labelText ?? translatedDateFrom
   const inputEndDateLabel = inputEndDateProps?.labelText ?? translatedDateTo
 
   const transformDateToInputValue = (date: Date | undefined): string =>
@@ -118,13 +126,19 @@ export const FilterDateRangePickerField = ({
     onValidate: onValidate?.dateEnd,
   })
 
-  const validateStartDate = (date: Date | undefined, inputValue: string): Date | undefined =>
+  const validateStartDate = (
+    date: Date | undefined,
+    inputValue: string,
+  ): Date | undefined =>
     dateStartValidation.validateDate({
       date,
       inputValue,
     })
 
-  const validateEndDate = (date: Date | undefined, inputValue: string): Date | undefined =>
+  const validateEndDate = (
+    date: Date | undefined,
+    inputValue: string,
+  ): Date | undefined =>
     dateEndValidation.validateDate({
       endDate: date,
       endDateInputValue: inputValue,
@@ -245,7 +259,10 @@ export const FilterDateRangePickerField = ({
       return
     }
 
-    const newStartDate = validateStartDate(selectedRange?.from, state.inputStartValue)
+    const newStartDate = validateStartDate(
+      selectedRange?.from,
+      state.inputStartValue,
+    )
     const newEndDate = validateEndDate(selectedRange?.to, state.inputEndValue)
 
     if (newStartDate && !isValidRange(newStartDate, newEndDate)) {
@@ -262,7 +279,10 @@ export const FilterDateRangePickerField = ({
 
   return (
     <div
-      className={classnames(styles.filterDateRangePickerField, classNameOverride)}
+      className={classnames(
+        styles.filterDateRangePickerField,
+        classNameOverride,
+      )}
       {...restProps}
     >
       <DateRangeInputField
@@ -299,7 +319,9 @@ export const FilterDateRangePickerField = ({
         }}
         onSelect={handleCalendarSelectRange}
         month={state.startMonth}
-        onMonthChange={(value: Date) => dispatch({ type: "navigate_months", date: value })}
+        onMonthChange={(value: Date) =>
+          dispatch({ type: "navigate_months", date: value })
+        }
       />
     </div>
   )

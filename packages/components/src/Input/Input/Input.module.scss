@@ -11,7 +11,9 @@ $input-placeholder-opacity: 0.5;
 $input-disabled-background: $color-gray-300;
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
-$input-with-icon-padding: calc(#{$input-icon-size} + calc(#{$spacing-md} * 0.75));
+$input-with-icon-padding: calc(
+  #{$input-icon-size} + calc(#{$spacing-md} * 0.75)
+);
 
 .wrapper {
   position: relative;

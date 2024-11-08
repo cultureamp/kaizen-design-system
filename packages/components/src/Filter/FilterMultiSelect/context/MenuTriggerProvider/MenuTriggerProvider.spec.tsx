@@ -4,11 +4,16 @@ import userEvent from "@testing-library/user-event"
 import { vi } from "vitest"
 import { FilterTriggerButton } from "~components/Filter/FilterMultiSelect/subcomponents/Trigger"
 import { MenuPopup } from "../../subcomponents/MenuPopup"
-import { MenuTriggerProvider, MenuTriggerProviderProps } from "./MenuTriggerProvider"
+import {
+  MenuTriggerProvider,
+  MenuTriggerProviderProps,
+} from "./MenuTriggerProvider"
 
 const user = userEvent.setup()
 
-const MenuTriggerProviderWrapper = (props: Partial<MenuTriggerProviderProps>): JSX.Element => (
+const MenuTriggerProviderWrapper = (
+  props: Partial<MenuTriggerProviderProps>,
+): JSX.Element => (
   <MenuTriggerProvider {...props}>
     <FilterTriggerButton
       label="trigger-display-label-mock"
@@ -151,13 +156,17 @@ describe("<MenuTriggerProvider /> - Keyboard interaction", () => {
       render(<MenuTriggerProviderWrapper defaultOpen />)
       expect(screen.queryByText("menu-content-mock")).toBeVisible()
 
-      expect(screen.queryByRole("button", { name: "menu-content-button-mock" })).toHaveFocus()
+      expect(
+        screen.queryByRole("button", { name: "menu-content-button-mock" }),
+      ).toHaveFocus()
     })
 
     it("is closed when hits the escape key", async () => {
       render(<MenuTriggerProviderWrapper defaultOpen />)
 
-      expect(screen.queryByRole("button", { name: "menu-content-button-mock" })).toHaveFocus()
+      expect(
+        screen.queryByRole("button", { name: "menu-content-button-mock" }),
+      ).toHaveFocus()
 
       await user.keyboard("{Escape}")
       await waitFor(() => {
@@ -168,7 +177,9 @@ describe("<MenuTriggerProvider /> - Keyboard interaction", () => {
     it("is closed when the focus is moved outside of the menu", async () => {
       render(<MenuTriggerProviderWrapper defaultOpen />)
 
-      expect(screen.queryByRole("button", { name: "menu-content-button-mock" })).toHaveFocus()
+      expect(
+        screen.queryByRole("button", { name: "menu-content-button-mock" }),
+      ).toHaveFocus()
 
       await user.click(document.body)
       await waitFor(() => {

@@ -13,7 +13,9 @@ export const Positioner = forwardRef<HTMLElement, SelectionPosition>(
       setPortalContainer(document.body)
     }, [])
 
-    const onResize = useRef(debounce(() => setWindowScroll([window.scrollX, window.scrollY]), 15))
+    const onResize = useRef(
+      debounce(() => setWindowScroll([window.scrollX, window.scrollY]), 15),
+    )
 
     useEffect(() => {
       const resizeCurrent = onResize.current

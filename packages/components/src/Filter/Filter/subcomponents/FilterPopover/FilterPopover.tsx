@@ -18,7 +18,9 @@ export const FilterPopover = ({
   classNameOverride,
   ...restProps
 }: FilterPopoverProps): JSX.Element => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null,
+  )
 
   const { styles: popperStyles, attributes: popperAttributes } = usePopper(
     referenceElement,

@@ -28,12 +28,18 @@ export const getMarkRange = (
   let endIndex = startIndex + 1
   let endPos = startPos + start.node.nodeSize
 
-  while (startIndex > 0 && mark.isInSet($pos.parent.child(startIndex - 1).marks)) {
+  while (
+    startIndex > 0 &&
+    mark.isInSet($pos.parent.child(startIndex - 1).marks)
+  ) {
     startIndex -= 1
     startPos -= $pos.parent.child(startIndex).nodeSize
   }
 
-  while (endIndex < $pos.parent.childCount && mark.isInSet($pos.parent.child(endIndex).marks)) {
+  while (
+    endIndex < $pos.parent.childCount &&
+    mark.isInSet($pos.parent.child(endIndex).marks)
+  ) {
     endPos += $pos.parent.child(endIndex).nodeSize
     endIndex += 1
   }

@@ -105,7 +105,10 @@ export const Collapsible = ({
         {renderHeader !== undefined ? (
           renderHeader(title)
         ) : (
-          <div className={styles.title} data-testid={`collapsible-button-title-${id}`}>
+          <div
+            className={styles.title}
+            data-testid={`collapsible-button-title-${id}`}
+          >
             <Heading variant="heading-4" tag="span">
               {title}
             </Heading>
@@ -115,7 +118,10 @@ export const Collapsible = ({
           <IconButton
             label={title}
             icon={
-              <Icon name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"} isPresentational />
+              <Icon
+                name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+                isPresentational
+              />
             }
             type="button"
             aria-expanded={isOpen}
@@ -128,10 +134,16 @@ export const Collapsible = ({
         </div>
       </div>
       {(!lazyLoad || isOpen) && (
-        <AnimateHeight height={isOpen ? "auto" : 0} data-testid={`collapsible-section-${id}`}>
+        <AnimateHeight
+          height={isOpen ? "auto" : 0}
+          data-testid={`collapsible-section-${id}`}
+        >
           <div
             id={sectionId}
-            className={classnames(styles.section, noSectionPadding && styles.noPadding)}
+            className={classnames(
+              styles.section,
+              noSectionPadding && styles.noPadding,
+            )}
             role="region"
             aria-labelledby={buttonId}
           >

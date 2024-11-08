@@ -5,9 +5,12 @@ import { ToastNotificationsMap } from "./subcomponents/ToastNotificationsMap"
 import styles from "./ToastNotificationsList.module.scss"
 
 export const ToastNotificationsList = (): JSX.Element => {
-  const { notifications, removeToastNotification } = useToastNotificationContext()
+  const { notifications, removeToastNotification } =
+    useToastNotificationContext()
 
-  const containers = document.querySelectorAll('[data-testid="toast-notifications-list"')
+  const containers = document.querySelectorAll(
+    '[data-testid="toast-notifications-list"',
+  )
 
   if (containers) {
     // Remove any duplicate instances

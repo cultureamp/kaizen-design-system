@@ -64,7 +64,8 @@
       content: "";
       position: absolute;
       background: transparent;
-      border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
       border-radius: $border-focus-ring-border-radius;
       inset: calc(-1 * #{$focus-ring-offset});
     }
@@ -80,7 +81,8 @@
 }
 
 .caution {
-  border: $border-solid-border-width $border-solid-border-style $color-yellow-600;
+  border: $border-solid-border-width $border-solid-border-style
+    $color-yellow-600;
 }
 
 .disabled {
@@ -91,7 +93,8 @@
 }
 
 .reversed {
-  border: $border-solid-border-width $border-solid-border-style rgba($color-white-rgb, 0.8);
+  border: $border-solid-border-width $border-solid-border-style
+    rgba($color-white-rgb, 0.8);
   background-color: transparent;
   color: $color-white;
 

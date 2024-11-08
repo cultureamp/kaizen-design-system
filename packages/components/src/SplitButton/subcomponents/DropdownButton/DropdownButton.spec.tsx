@@ -2,9 +2,9 @@ import React from "react"
 import { screen, waitFor, render } from "@testing-library/react"
 import { DropdownButton, DropdownButtonProps } from "./DropdownButton"
 
-const DropdownButtonWrapper = (props?: Partial<DropdownButtonProps>): JSX.Element => (
-  <DropdownButton {...props} />
-)
+const DropdownButtonWrapper = (
+  props?: Partial<DropdownButtonProps>,
+): JSX.Element => <DropdownButton {...props} />
 
 describe("<DropdownButton />", () => {
   it("has default accessible name", async () => {

@@ -16,7 +16,9 @@ const defaultProps = {
 
 describe("<Checkbox />", () => {
   it("calls the `onCheck` event when clicked", async () => {
-    const { getByTestId } = render(<Checkbox {...defaultProps} data-testid="checkbox" />)
+    const { getByTestId } = render(
+      <Checkbox {...defaultProps} data-testid="checkbox" />,
+    )
     const checkbox = getByTestId("checkbox")
 
     await user.click(checkbox)

@@ -1,7 +1,10 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { EditableRichTextContent } from "../index"
 import defaultContent from "./defaultContent.json"
 
@@ -76,7 +79,9 @@ const StickerSheetTemplate: StickerSheetStory = {
   parameters: {
     pseudo: {
       hover: ['[data-sb-pseudo-styles="hover"]'],
-      focusWithin: ['[data-sb-pseudo-styles="focusWithin"] > [class^="VisuallyHidden"]'],
+      focusWithin: [
+        '[data-sb-pseudo-styles="focusWithin"] > [class^="VisuallyHidden"]',
+      ],
     },
   },
 }

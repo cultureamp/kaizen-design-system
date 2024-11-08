@@ -2,7 +2,12 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, waitFor, within, expect, fn } from "@storybook/test"
 import { VisuallyHidden } from "react-aria"
-import { AddIcon, TrashIcon, ThumbsUpOffIcon, ThumbsUpOnIcon } from "~components/Icon"
+import {
+  AddIcon,
+  TrashIcon,
+  ThumbsUpOffIcon,
+  ThumbsUpOnIcon,
+} from "~components/Icon"
 import { Tooltip, TooltipTrigger } from "~components/__overlays__/v3"
 import { Button } from "../index"
 
@@ -103,7 +108,9 @@ export const IconButtonWithAccessibleLabel: Story = {
     await step("has accessible labels", async () => {
       await userEvent.tab()
 
-      await expect(button).toHaveAccessibleName("Remove Highlight: 18, June, 2024")
+      await expect(button).toHaveAccessibleName(
+        "Remove Highlight: 18, June, 2024",
+      )
     })
   },
 }
@@ -128,12 +135,16 @@ export const ButtonWithRACRenderPropsAsChildren: Story = {
     const button = canvas.getByRole("button")
 
     await step("button icon reflects unfocused state", async () => {
-      await waitFor(() => expect(button).toHaveAccessibleName("Label is unfocused"))
+      await waitFor(() =>
+        expect(button).toHaveAccessibleName("Label is unfocused"),
+      )
     })
 
     await step("focus on button and update icon", async () => {
       await userEvent.tab()
-      await waitFor(() => expect(button).toHaveAccessibleName("Label is focused"))
+      await waitFor(() =>
+        expect(button).toHaveAccessibleName("Label is focused"),
+      )
     })
   },
 }

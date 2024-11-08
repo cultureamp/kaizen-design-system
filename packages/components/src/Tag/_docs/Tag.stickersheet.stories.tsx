@@ -1,7 +1,10 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { Avatar } from "~components/Avatar"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Tag } from "../index"
 import { TagVariants } from "../types"
 
@@ -28,7 +31,10 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Dismissable"]} hasVerticalHeadings />
+      <StickerSheet.Header
+        headings={["Default", "Dismissable"]}
+        hasVerticalHeadings
+      />
       <StickerSheet.Body>
         {TagVariants.map((variant) => (
           <StickerSheet.Row key={variant} rowTitle={variant}>
@@ -42,7 +48,11 @@ const StickerSheetTemplate: StickerSheetStory = {
               <Tag variant={variant} dismissible={variant !== "statusLive"}>
                 Tag
               </Tag>
-              <Tag variant={variant} size="small" dismissible={variant !== "statusLive"}>
+              <Tag
+                variant={variant}
+                size="small"
+                dismissible={variant !== "statusLive"}
+              >
                 Small
               </Tag>
             </>

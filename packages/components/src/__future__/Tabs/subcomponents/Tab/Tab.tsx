@@ -13,7 +13,13 @@ export type TabProps = {
 } & Omit<
   RACTabProps,
   // omitting link functionality because it goes against WAI ARIA standards https://www.w3.org/WAI/ARIA/apg/patterns/tabs/
-  "href" | "hrefLang" | "target" | "rel" | "download" | "ping" | "referrerPolicy"
+  | "href"
+  | "hrefLang"
+  | "target"
+  | "rel"
+  | "download"
+  | "ping"
+  | "referrerPolicy"
 >
 
 /**
@@ -34,7 +40,13 @@ export const Tab = (props: TabProps): JSX.Element => {
           {children}
           {badge && (
             <span className={styles.badge}>
-              <Badge variant={isSelected || isFocusVisible || isHovered ? "active" : "default"}>
+              <Badge
+                variant={
+                  isSelected || isFocusVisible || isHovered
+                    ? "active"
+                    : "default"
+                }
+              >
                 {badge}
               </Badge>
             </span>

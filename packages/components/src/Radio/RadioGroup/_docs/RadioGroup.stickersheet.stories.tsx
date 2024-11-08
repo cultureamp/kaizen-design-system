@@ -2,7 +2,10 @@ import React from "react"
 import { Meta } from "@storybook/react"
 import { RadioField } from "~components/Radio/RadioField"
 import { Text } from "~components/Text"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { RadioGroup } from "../index"
 
 export default {
@@ -16,14 +19,32 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Base", "Disabled"]} hasVerticalHeadings />
+      <StickerSheet.Header
+        headings={["Base", "Disabled"]}
+        hasVerticalHeadings
+      />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Default">
           <>
             <RadioGroup labelText="Radio group label" reversed={isReversed}>
-              <RadioField labelText="Label" name="radio" value="radio-1" reversed={isReversed} />
-              <RadioField labelText="Label" name="radio" value="radio-2" reversed={isReversed} />
-              <RadioField labelText="Label" name="radio" value="radio-3" reversed={isReversed} />
+              <RadioField
+                labelText="Label"
+                name="radio"
+                value="radio-1"
+                reversed={isReversed}
+              />
+              <RadioField
+                labelText="Label"
+                name="radio"
+                value="radio-2"
+                reversed={isReversed}
+              />
+              <RadioField
+                labelText="Label"
+                name="radio"
+                value="radio-3"
+                reversed={isReversed}
+              />
             </RadioGroup>
             <Text variant="body" color={isReversed ? "white" : "dark"}>
               Next line
@@ -60,9 +81,23 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="No Bottom Margin">
           <div>
-            <RadioGroup labelText="Radio group label" reversed={isReversed} noBottomMargin>
-              <RadioField labelText="Label" name="radio" value="radio-1" reversed={isReversed} />
-              <RadioField labelText="Label" name="radio" value="radio-2" reversed={isReversed} />
+            <RadioGroup
+              labelText="Radio group label"
+              reversed={isReversed}
+              noBottomMargin
+            >
+              <RadioField
+                labelText="Label"
+                name="radio"
+                value="radio-1"
+                reversed={isReversed}
+              />
+              <RadioField
+                labelText="Label"
+                name="radio"
+                value="radio-2"
+                reversed={isReversed}
+              />
             </RadioGroup>
             <Text variant="body" color={isReversed ? "white" : "dark"}>
               Next line

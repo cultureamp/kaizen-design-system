@@ -10,7 +10,11 @@ export type SearchInputProps = {
   isLoading?: boolean
 }
 
-export const SearchInput = ({ label, id, isLoading }: SearchInputProps): JSX.Element => {
+export const SearchInput = ({
+  label,
+  id,
+  isLoading,
+}: SearchInputProps): JSX.Element => {
   const { formatMessage } = useIntl()
   const { setSearchQuery, searchQuery } = useSelectionContext()
 

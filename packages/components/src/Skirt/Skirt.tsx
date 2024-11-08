@@ -24,12 +24,14 @@ export const Skirt = ({
   classNameOverride,
   ...restProps
 }: SkirtProps): JSX.Element => {
-  const [ref, skirtHeight] = useResizeObserver<number, HTMLDivElement>((entry) => {
-    if (entry.contentRect) {
-      return deriveSkirtHeight(entry.contentRect, titleBlockHasNavigation)
-    }
-    return undefined
-  })
+  const [ref, skirtHeight] = useResizeObserver<number, HTMLDivElement>(
+    (entry) => {
+      if (entry.contentRect) {
+        return deriveSkirtHeight(entry.contentRect, titleBlockHasNavigation)
+      }
+      return undefined
+    },
+  )
 
   return (
     <Container
@@ -48,7 +50,10 @@ export const Skirt = ({
 
 Skirt.displayName = "Skirt"
 
-const deriveSkirtHeight = (rect: DOMRectReadOnly, titleBlockHasNavigation: boolean): number => {
+const deriveSkirtHeight = (
+  rect: DOMRectReadOnly,
+  titleBlockHasNavigation: boolean,
+): number => {
   const { height, width } = rect
   let responsiveOffset: number = 0
   if (width > 768) {
@@ -57,11 +62,15 @@ const deriveSkirtHeight = (rect: DOMRectReadOnly, titleBlockHasNavigation: boole
 
   // This ensures the maximum height of the skirt is consistent between pages
   // where the title block has/doesn’t have navigation
-  const derivedMaxHeight = titleBlockHasNavigation ? maxHeight : maxHeight + responsiveOffset
+  const derivedMaxHeight = titleBlockHasNavigation
+    ? maxHeight
+    : maxHeight + responsiveOffset
   const maxHeightWithSpacing = derivedMaxHeight + spacing
 
   return Math.max(
     spacing,
-    height > maxHeightWithSpacing ? derivedMaxHeight : height * fallbackPercentage - spacing,
+    height > maxHeightWithSpacing
+      ? derivedMaxHeight
+      : height * fallbackPercentage - spacing,
   )
 }

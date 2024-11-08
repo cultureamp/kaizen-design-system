@@ -27,7 +27,9 @@ describe("removeMark()", () => {
     await findByText(node, "Example Strong Mark")
 
     await waitFor(() => {
-      expect(node.querySelectorAll("strong").length).toEqual(currentStrongTags - 1)
+      expect(node.querySelectorAll("strong").length).toEqual(
+        currentStrongTags - 1,
+      )
     })
   })
 
@@ -78,7 +80,9 @@ describe("removeMark()", () => {
 
     await waitFor(() => {
       // Check that the text no longer exists
-      expect(node.querySelectorAll("strong").length).toEqual(currentStrongTags - 1)
+      expect(node.querySelectorAll("strong").length).toEqual(
+        currentStrongTags - 1,
+      )
     })
   })
 })

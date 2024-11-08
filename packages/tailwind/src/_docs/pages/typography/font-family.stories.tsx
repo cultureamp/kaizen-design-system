@@ -5,12 +5,13 @@ import { utilityDescription } from "~tailwind/_docs/utils/utilityDescription"
 import { kaizenTailwindTheme } from "~tailwind/tailwind-presets"
 
 const prefix = "font-"
-const classEntries: { utilityClassName: string; cssProperty: string }[] = Object.entries(
-  kaizenTailwindTheme.fontFamily || [],
-).map(([suffix, cssPropertyArr]) => ({
-  utilityClassName: `${prefix}${suffix}`,
-  cssProperty: cssPropertyArr[0],
-}))
+const classEntries: { utilityClassName: string; cssProperty: string }[] =
+  Object.entries(kaizenTailwindTheme.fontFamily || []).map(
+    ([suffix, cssPropertyArr]) => ({
+      utilityClassName: `${prefix}${suffix}`,
+      cssProperty: cssPropertyArr[0],
+    }),
+  )
 
 export default {
   title: "Guides/Tailwind/Utility Class References/Typography/Font Family",
@@ -26,7 +27,9 @@ export default {
   },
 } satisfies Meta
 
-export const FontFamily: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+export const FontFamily: StoryFn<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
   <TailwindStoryTemplate
     compiledCssPropertyName="font-family"
     classKeyValues={classEntries}

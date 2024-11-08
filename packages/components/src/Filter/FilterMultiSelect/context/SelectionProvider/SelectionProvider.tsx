@@ -34,7 +34,9 @@ const SelectionContext = React.createContext<SelectionProviderContextType>(
   {} as SelectionProviderContextType,
 )
 
-export const SelectionProvider = (props: SelectionProviderProps): JSX.Element => {
+export const SelectionProvider = (
+  props: SelectionProviderProps,
+): JSX.Element => {
   const { onSearchInputChange, ...otherProps } = props
   const [searchQuery, setSearchQuery] = useState<string>("")
   const { menuProps } = useMenuTriggerContext()
@@ -96,7 +98,8 @@ export const SelectionProvider = (props: SelectionProviderProps): JSX.Element =>
   )
 }
 
-export const useSelectionContext = (): SelectionProviderContextType => useContext(SelectionContext)
+export const useSelectionContext = (): SelectionProviderContextType =>
+  useContext(SelectionContext)
 
 export const SelectionConsumer = ({
   children,

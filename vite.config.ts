@@ -21,7 +21,10 @@ export default {
         "~storybook": path.resolve(__dirname, "./docs"),
         "~components": path.resolve(__dirname, "./packages/components/src"),
         "~tests": path.resolve(__dirname, "./packages/components/__tests__"),
-        "~design-tokens": path.resolve(__dirname, "./packages/design-tokens/src"),
+        "~design-tokens": path.resolve(
+          __dirname,
+          "./packages/design-tokens/src",
+        ),
         "~tailwind": path.resolve(__dirname, "./packages/tailwind/src"),
         // i18n-react-intl package attempts to import locales from this path.
         // When rollup attempts to import from the 'find' path, it will be

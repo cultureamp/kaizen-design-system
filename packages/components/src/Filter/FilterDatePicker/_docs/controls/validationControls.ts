@@ -23,7 +23,12 @@ export const validationControls: Partial<ArgTypes> = {
     },
   },
   validationMessage: {
-    options: ["dateStartError", "dateEndError", "dateRangeError", "dateRangeCautionError"],
+    options: [
+      "dateStartError",
+      "dateEndError",
+      "dateRangeError",
+      "dateRangeCautionError",
+    ],
     control: {
       type: "select",
       labels: {
@@ -47,7 +52,8 @@ export const validationControls: Partial<ArgTypes> = {
       dateEndError: {
         dateEnd: {
           status: "error",
-          message: '"Date to" cannot be earlier than the "Date from" selection.',
+          message:
+            '"Date to" cannot be earlier than the "Date from" selection.',
         },
       },
       dateRangeError: {
@@ -57,7 +63,8 @@ export const validationControls: Partial<ArgTypes> = {
         },
         dateEnd: {
           status: "error",
-          message: '"Date to" cannot be earlier than the "Date from" selection.',
+          message:
+            '"Date to" cannot be earlier than the "Date from" selection.',
         },
       },
       dateRangeCautionError: {
@@ -67,7 +74,8 @@ export const validationControls: Partial<ArgTypes> = {
         },
         dateEnd: {
           status: "error",
-          message: '"Date to" cannot be earlier than the "Date from" selection.',
+          message:
+            '"Date to" cannot be earlier than the "Date from" selection.',
         },
       },
     },

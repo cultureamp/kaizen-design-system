@@ -12,14 +12,18 @@ const FilterDatePickerWrapper = ({
   ...restProps
 }: Partial<FilterDatePickerProps>): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [selectedValue, setSelectedValue] = useState<Date | undefined>(selectedDate)
+  const [selectedValue, setSelectedValue] = useState<Date | undefined>(
+    selectedDate,
+  )
 
   return (
     <FilterDatePicker
       id="test__filter-date-picker"
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      renderTrigger={(triggerProps): JSX.Element => <FilterButton {...triggerProps} />}
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButton {...triggerProps} />
+      )}
       label="Drank"
       selectedDate={selectedValue}
       onDateChange={setSelectedValue}
@@ -84,7 +88,9 @@ describe("<FilterDatePicker />", () => {
 
   describe("Text input", () => {
     it("validates the date on blur", async () => {
-      const { getByRole, getByLabelText, getByText } = render(<FilterDatePickerWrapper />)
+      const { getByRole, getByLabelText, getByText } = render(
+        <FilterDatePickerWrapper />,
+      )
       const triggerButton = getByRole("button", {
         name: "Drank",
       })
@@ -108,7 +114,9 @@ describe("<FilterDatePicker />", () => {
 
     describe("Pressing Enter in the text input", () => {
       it("closes the popover when a valid date has been submitted via the text input field", async () => {
-        const { getByRole, getByLabelText } = render(<FilterDatePickerWrapper />)
+        const { getByRole, getByLabelText } = render(
+          <FilterDatePickerWrapper />,
+        )
         const triggerButton = getByRole("button", {
           name: "Drank",
         })
@@ -131,7 +139,9 @@ describe("<FilterDatePicker />", () => {
       })
 
       it("does not close the popover when an invalid date has been submitted via the text input field", async () => {
-        const { getByRole, getByLabelText, getByText } = render(<FilterDatePickerWrapper />)
+        const { getByRole, getByLabelText, getByText } = render(
+          <FilterDatePickerWrapper />,
+        )
         const triggerButton = getByRole("button", {
           name: "Drank",
         })
@@ -176,14 +186,18 @@ describe("<FilterDatePicker />", () => {
     await user.tab()
 
     await waitFor(() => {
-      expect(queryByText("Invalid Date is an invalid date")).not.toBeInTheDocument()
+      expect(
+        queryByText("Invalid Date is an invalid date"),
+      ).not.toBeInTheDocument()
       // We are double checking that the popover has not closed
       expect(dialog).toBeInTheDocument()
     })
   })
 
   it("does not close the popover when there is a selected date and the user navigates months", async () => {
-    const { getByRole } = render(<FilterDatePickerWrapper selectedDate={new Date("01/01/2022")} />)
+    const { getByRole } = render(
+      <FilterDatePickerWrapper selectedDate={new Date("01/01/2022")} />,
+    )
     const triggerButton = getByRole("button", {
       name: "Drank : 1 Jan 2022",
     })
@@ -229,7 +243,9 @@ describe("<FilterDatePicker />", () => {
     await user.click(document.body)
 
     await waitFor(() => {
-      expect(getByRole("button", { name: "Drank : 7 Jun 2022" })).toBeInTheDocument()
+      expect(
+        getByRole("button", { name: "Drank : 7 Jun 2022" }),
+      ).toBeInTheDocument()
     })
   })
 })

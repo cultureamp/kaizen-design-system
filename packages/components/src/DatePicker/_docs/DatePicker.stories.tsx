@@ -70,13 +70,21 @@ type Story = StoryObj<typeof meta>
 
 const DatePickerTemplate: Story = {
   render: (args) => {
-    const [selectedDate, setValueDate] = useState<Date | undefined>(args.selectedDay)
+    const [selectedDate, setValueDate] = useState<Date | undefined>(
+      args.selectedDay,
+    )
 
     useEffect(() => {
       setValueDate(args.selectedDay)
     }, [args.selectedDay])
 
-    return <DatePicker {...args} selectedDay={selectedDate} onDayChange={setValueDate} />
+    return (
+      <DatePicker
+        {...args}
+        selectedDay={selectedDate}
+        onDayChange={setValueDate}
+      />
+    )
   },
 }
 
@@ -130,7 +138,9 @@ export const Description: Story = {
 
 export const Validation: Story = {
   render: () => {
-    const [selectedDate, setValueDate] = useState<Date | undefined>(new Date("2022-05-05"))
+    const [selectedDate, setValueDate] = useState<Date | undefined>(
+      new Date("2022-05-05"),
+    )
     const [status, setStatus] = useState<FieldMessageStatus | undefined>()
     const [response, setResponse] = useState<ValidationResponse | undefined>()
     const [validationMessage, setValidationMessage] =
@@ -183,39 +193,47 @@ export const Validation: Story = {
 
         <div>
           <Text variant="body">
-            NOTE: This story includes additional custom validation to provide some guidance when
-            dealing with validation other than date isInvalid or isDisabled.
+            NOTE: This story includes additional custom validation to provide
+            some guidance when dealing with validation other than date isInvalid
+            or isDisabled.
           </Text>
           <ul>
             <li>
-              There will be a caution when the selectedDay <strong>is valid</strong> but{" "}
+              There will be a caution when the selectedDay{" "}
+              <strong>is valid</strong> but{" "}
               <strong>is not within this year</strong>.
             </li>
             <li>
-              There will be an error when the <strong>submit button is clicked</strong> and there is
-              a <strong>current error</strong> within the DatePicker.
+              There will be an error when the{" "}
+              <strong>submit button is clicked</strong> and there is a{" "}
+              <strong>current error</strong> within the DatePicker.
             </li>
           </ul>
           <Text variant="body">
-            The <code>onValidate</code> callback returns a <code>validationResponse</code> object
-            which provides data such as a default validation message, and can be utilised for custom
+            The <code>onValidate</code> callback returns a{" "}
+            <code>validationResponse</code> object which provides data such as a
+            default validation message, and can be utilised for custom
             validation.
           </Text>
-          <Highlight className="json">{JSON.stringify(response, null, 4)}</Highlight>
+          <Highlight className="json">
+            {JSON.stringify(response, null, 4)}
+          </Highlight>
           <ul>
             <li>
-              <code>isInvalid</code>: A date that cannot be parsed. e.g &quot;potato&quot;.
+              <code>isInvalid</code>: A date that cannot be parsed. e.g
+              &quot;potato&quot;.
             </li>
             <li>
-              <code>isDisabled</code>: A date that have been set as disabled through the{" "}
-              <code>disabledDates</code> prop.
+              <code>isDisabled</code>: A date that have been set as disabled
+              through the <code>disabledDates</code> prop.
             </li>
             <li>
               <code>isEmpty</code>: Input is empty.
             </li>
             <li>
-              <code>isValidDate</code>: Date input that is not <code>invalid</code> nor{" "}
-              <code>disabled</code> nor <code>empty</code>.
+              <code>isValidDate</code>: Date input that is not{" "}
+              <code>invalid</code> nor <code>disabled</code> nor{" "}
+              <code>empty</code>.
             </li>
           </ul>
         </div>

@@ -12,14 +12,18 @@ const FilterDateRangePickerWrapper = ({
   ...restProps
 }: Partial<FilterDateRangePickerProps>): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [selectedDateRange, setSelectedDateRange] = useState<DateRange | undefined>(selectedRange)
+  const [selectedDateRange, setSelectedDateRange] = useState<
+    DateRange | undefined
+  >(selectedRange)
 
   return (
     <FilterDateRangePicker
       id="test__filter-date-range-picker"
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      renderTrigger={(triggerProps): JSX.Element => <FilterButton {...triggerProps} />}
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButton {...triggerProps} />
+      )}
       label="Dates"
       selectedRange={selectedDateRange}
       onRangeChange={setSelectedDateRange}
@@ -92,7 +96,9 @@ describe("<FilterDateRangePicker />", () => {
 
     it("should not show a date range in the button if the selected range is not valid", async () => {
       const { getByRole, getByLabelText } = render(
-        <FilterDateRangePickerWrapper selectedRange={{ from: new Date("2022-05-01") }} />,
+        <FilterDateRangePickerWrapper
+          selectedRange={{ from: new Date("2022-05-01") }}
+        />,
       )
 
       const filterButton = getByRole("button", { name: "Dates" })

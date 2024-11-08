@@ -49,7 +49,8 @@
   }
 
   &[data-exiting] {
-    animation: slide $animation-duration-fast reverse $animation-easing-function-ease-in;
+    animation: slide $animation-duration-fast reverse
+      $animation-easing-function-ease-in;
   }
 }
 

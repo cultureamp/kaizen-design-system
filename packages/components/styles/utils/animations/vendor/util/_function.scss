@@ -30,7 +30,8 @@
 /// @return {Boolean}
 ///
 @function -mui-is-callable($value) {
-  @return type-of($value) == "function" or (type-of($value) == "string" and function-exists($value));
+  @return type-of($value) == "function" or
+    (type-of($value) == "string" and function-exists($value));
 }
 
 ///
@@ -45,9 +46,19 @@
 @function -mui-assert-function($value) {
   @if -mui-is-callable($value) {
     @return true;
-  } @else if type-of($value) == "string" and function-exists("get-function") == true {
+  } @else if
+    type-of($value) ==
+    "string" and
+    function-exists("get-function") ==
+    true
+  {
     @error "Assertion Error: function name string "#{$value}" cannot be found. You may need to use `get-function()` and first-class functions instead. See http://oddbird.net/2017/03/30/safe-get";
-  } @else if type-of($value) == "string" and function-exists("get-function") == false {
+  } @else if
+    type-of($value) ==
+    "string" and
+    function-exists("get-function") ==
+    false
+  {
     @error "Assertion Error: function name string "#{$value}" cannot be found.";
   } @else {
     @error "Assertion Error: #{$value} (#{type-of($value)}) is not a function.";

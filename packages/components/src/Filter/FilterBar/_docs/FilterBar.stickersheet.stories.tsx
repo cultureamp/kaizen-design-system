@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { FilterBar, Filters } from "../index"
 
 export default {
@@ -105,16 +108,17 @@ const StickerSheetTemplate: StickerSheetStory = {
     const [activeValues, setActiveValues] = useState<Partial<Values>>({
       flavour: "jasmine-milk-tea",
     })
-    const [activeValuesOverflow, setActiveValuesOverflow] = useState<Partial<Values>>({
+    const [activeValuesOverflow, setActiveValuesOverflow] = useState<
+      Partial<Values>
+    >({
       flavour: "jasmine-milk-tea",
       sugarLevel: 50,
     })
     const [valuesRemovableAllActive, setValuesRemovableAllActive] = useState<
       Partial<ValuesRemovable>
     >({ topping: "pearls" })
-    const [valuesRemovablePartialActive, setValuesRemovablePartialActive] = useState<
-      Partial<ValuesRemovable>
-    >({})
+    const [valuesRemovablePartialActive, setValuesRemovablePartialActive] =
+      useState<Partial<ValuesRemovable>>({})
 
     return (
       <>
@@ -130,7 +134,10 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Body>
         </StickerSheet>
 
-        <StickerSheet heading="Overflow (container 500px)" style={{ width: "100%" }}>
+        <StickerSheet
+          heading="Overflow (container 500px)"
+          style={{ width: "100%" }}
+        >
           <StickerSheet.Body>
             <StickerSheet.Row>
               <div style={{ maxWidth: "500px" }}>
@@ -156,7 +163,10 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Body>
         </StickerSheet>
 
-        <StickerSheet heading="Removable; Partial active" style={{ width: "100%" }}>
+        <StickerSheet
+          heading="Removable; Partial active"
+          style={{ width: "100%" }}
+        >
           <StickerSheet.Body>
             <StickerSheet.Row>
               <FilterBar<ValuesRemovable>

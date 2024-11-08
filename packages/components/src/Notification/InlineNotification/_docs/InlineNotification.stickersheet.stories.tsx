@@ -1,7 +1,13 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
-import { InlineNotificationProps, InlineNotification } from "../InlineNotification"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
+import {
+  InlineNotificationProps,
+  InlineNotification,
+} from "../InlineNotification"
 
 export default {
   title: "Components/Notifications/InlineNotification",
@@ -114,7 +120,8 @@ const VARIANTS_PROPS: {
   {
     title: "Forced multiline",
     props: {
-      children: "forceMultiline will break children onto a new line regardless of width",
+      children:
+        "forceMultiline will break children onto a new line regardless of width",
       variant: "cautionary",
       headingProps: {
         variant: "heading-6",

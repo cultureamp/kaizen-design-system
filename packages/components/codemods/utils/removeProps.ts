@@ -8,16 +8,18 @@ export const removeProps =
     function visit(node: ts.Node): ts.Node {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         if (node.tagName.getText() === tagName) {
-          const newAttributes = node.attributes.properties.reduce<ts.JsxAttributeLike[]>(
-            (acc, attr) => {
-              if (ts.isJsxAttribute(attr) && propsToRemove.includes(attr.name.getText())) {
-                return acc
-              }
+          const newAttributes = node.attributes.properties.reduce<
+            ts.JsxAttributeLike[]
+          >((acc, attr) => {
+            if (
+              ts.isJsxAttribute(attr) &&
+              propsToRemove.includes(attr.name.getText())
+            ) {
+              return acc
+            }
 
-              return [...acc, attr]
-            },
-            [],
-          )
+            return [...acc, attr]
+          }, [])
 
           return updateJsxElementWithNewProps(node, newAttributes)
         }

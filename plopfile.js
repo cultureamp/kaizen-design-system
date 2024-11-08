@@ -31,12 +31,18 @@ export default (
         default: false,
       },
     ],
-    actions: ({ isSubcomponent, isFuture, componentName, parentComponentName }) => {
+    actions: ({
+      isSubcomponent,
+      isFuture,
+      componentName,
+      parentComponentName,
+    }) => {
       const src = isFuture ? "src/__future__" : "src"
       const componentNamePascal = plop.getHelper("pascalCase")(componentName)
 
       if (isSubcomponent) {
-        const parentComponentNamePascal = plop.getHelper("pascalCase")(parentComponentName)
+        const parentComponentNamePascal =
+          plop.getHelper("pascalCase")(parentComponentName)
 
         return [
           {
@@ -49,7 +55,8 @@ export default (
             type: "addMany",
             destination: `packages/components/${src}/{{pascalCase parentComponentName}}/subcomponents/{{pascalCase componentName}}/_docs`,
             base: "plop-templates/basic-component/docs",
-            templateFiles: "plop-templates/basic-component/docs/**/!(*.mdx.hbs)",
+            templateFiles:
+              "plop-templates/basic-component/docs/**/!(*.mdx.hbs)",
             data: {
               storyTitle: `Components/${parentComponentNamePascal}/${componentNamePascal}`,
             },

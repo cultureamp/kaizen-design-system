@@ -5,7 +5,10 @@ import {
   exampleActionButtonPropsButton,
   exampleDropdownContentEnabled,
 } from "~components/__actions__/Menu/v1/_docs/examples"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { SplitButton, SplitButtonProps } from "../index"
 
 export default {

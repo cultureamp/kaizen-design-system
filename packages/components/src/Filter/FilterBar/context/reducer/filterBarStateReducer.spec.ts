@@ -57,7 +57,9 @@ describe("filterBarStateReducer", () => {
         id: "sugarLevel",
       })
 
-      expect(newState.activeFilterIds).toEqual(new Set(["flavour", "sugarLevel"]))
+      expect(newState.activeFilterIds).toEqual(
+        new Set(["flavour", "sugarLevel"]),
+      )
     })
   })
 

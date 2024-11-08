@@ -82,7 +82,10 @@ describe("updateMark()", () => {
       ),
     )
     await waitFor(() => {
-      const linkExample: HTMLAnchorElement = getByText(node, "Example Link Mark")
+      const linkExample: HTMLAnchorElement = getByText(
+        node,
+        "Example Link Mark",
+      )
       expect(linkExample.href).toEqual("https://google.com/")
     })
   })

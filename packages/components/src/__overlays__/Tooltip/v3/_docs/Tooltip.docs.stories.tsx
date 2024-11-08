@@ -84,7 +84,13 @@ export const DontFieldTooltip: Story = {
       <TooltipTrigger>
         <Focusable>
           <Label>
-            Password <Icon name="help" isPresentational isFilled className="text-paragraph" />
+            Password{" "}
+            <Icon
+              name="help"
+              isPresentational
+              isFilled
+              className="text-paragraph"
+            />
           </Label>
         </Focusable>
         <Tooltip>Password must be at least 8 characters</Tooltip>
@@ -137,8 +143,8 @@ export const DontConcise: Story = {
           aria-describedby={null}
         />
         <Tooltip>
-          Add Topic to agenda. This will create a new topic where you can discuss recent work with
-          your manager.{" "}
+          Add Topic to agenda. This will create a new topic where you can
+          discuss recent work with your manager.{" "}
         </Tooltip>
       </TooltipTrigger>
     </div>

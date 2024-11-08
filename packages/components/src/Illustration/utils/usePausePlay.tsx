@@ -7,7 +7,9 @@ export type usePausePlayHook = {
   label: string
 }
 
-export const usePausePlay = (videoRef: RefObject<HTMLVideoElement>): usePausePlayHook => {
+export const usePausePlay = (
+  videoRef: RefObject<HTMLVideoElement>,
+): usePausePlayHook => {
   const [isPaused, setPaused] = useState(false)
 
   return {
@@ -22,7 +24,13 @@ export const usePausePlay = (videoRef: RefObject<HTMLVideoElement>): usePausePla
         videoRef.current.pause()
       }
     },
-    icon: <Icon name={isPaused ? "play_circle" : "pause"} isPresentational isFilled />,
+    icon: (
+      <Icon
+        name={isPaused ? "play_circle" : "pause"}
+        isPresentational
+        isFilled
+      />
+    ),
     label: isPaused ? "Play animation" : "Pause animation",
   }
 }

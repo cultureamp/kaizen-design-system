@@ -26,7 +26,9 @@ describe("useEndDateValidation()", () => {
 
       const { container } = render(result.current.validationMessage?.message)
       await waitFor(() => {
-        expect(container).toHaveTextContent("End date:potato is an invalid date")
+        expect(container).toHaveTextContent(
+          "End date:potato is an invalid date",
+        )
       })
     })
   })
@@ -54,7 +56,9 @@ describe("useEndDateValidation()", () => {
 
       const { container } = render(result.current.validationMessage?.message)
       await waitFor(() => {
-        expect(container).toHaveTextContent('Cannot be earlier than the selection in "Start date"')
+        expect(container).toHaveTextContent(
+          'Cannot be earlier than the selection in "Start date"',
+        )
       })
     })
   })

@@ -13,7 +13,9 @@ const IS_CHROMATIC = isChromatic()
 const ExampleForm = (): JSX.Element => (
   <>
     <ModalAccessibleDescription>
-      <Text variant="body">Instructive text to drive user selection goes here.</Text>
+      <Text variant="body">
+        Instructive text to drive user selection goes here.
+      </Text>
     </ModalAccessibleDescription>
     <form>
       <TextField labelText="Opinion" />
@@ -59,10 +61,19 @@ const InputModalTemplate: Story = {
 
     return (
       <>
-        <button type="button" className="border border-gray-500" onClick={handleOpen}>
+        <button
+          type="button"
+          className="border border-gray-500"
+          onClick={handleOpen}
+        >
           Open Modal
         </button>
-        <InputEditModal {...args} isOpen={isOpen} onSubmit={handleClose} onDismiss={handleClose} />
+        <InputEditModal
+          {...args}
+          isOpen={isOpen}
+          onSubmit={handleClose}
+          onDismiss={handleClose}
+        />
       </>
     )
   },
@@ -104,7 +115,11 @@ export const OnAfterEnter: Story = {
 
     return (
       <>
-        <button type="button" className="border border-gray-500" onClick={handleOpen}>
+        <button
+          type="button"
+          className="border border-gray-500"
+          onClick={handleOpen}
+        >
           Create a link
         </button>
         <InputEditModal

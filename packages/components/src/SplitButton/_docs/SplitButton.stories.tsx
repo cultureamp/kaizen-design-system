@@ -26,7 +26,10 @@ const meta = {
       },
     },
     dropdownContent: {
-      options: ["MenuList - MenuItems enabled", "MenuList - one MenuItem disabled"],
+      options: [
+        "MenuList - MenuItems enabled",
+        "MenuList - one MenuItem disabled",
+      ],
       control: { type: "select" },
       mapping: {
         "MenuList - MenuItems enabled": exampleDropdownContentEnabled,

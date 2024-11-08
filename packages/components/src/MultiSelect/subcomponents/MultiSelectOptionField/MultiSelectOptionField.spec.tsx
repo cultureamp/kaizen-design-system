@@ -3,7 +3,10 @@ import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { vi } from "vitest"
 import { CheckboxProps } from "../Checkbox"
-import { MultiSelectOptionField, MultiSelectOptionFieldProps } from "./MultiSelectOptionField"
+import {
+  MultiSelectOptionField,
+  MultiSelectOptionFieldProps,
+} from "./MultiSelectOptionField"
 const user = userEvent.setup()
 
 const onChange = vi.fn()
@@ -11,7 +14,8 @@ const onChange = vi.fn()
 const MultiSelectOptionFieldWrapper = (
   customProps?: Partial<MultiSelectOptionFieldProps>,
 ): JSX.Element => {
-  const [checkedStatus, setCheckedStatus] = useState<CheckboxProps["checkedStatus"]>("unchecked")
+  const [checkedStatus, setCheckedStatus] =
+    useState<CheckboxProps["checkedStatus"]>("unchecked")
 
   const handleChange = (): void => {
     switch (checkedStatus) {

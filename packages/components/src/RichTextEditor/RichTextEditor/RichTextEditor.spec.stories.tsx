@@ -14,8 +14,9 @@ type Story = StoryObj<typeof RichTextEditor>
 const TestBase: Story = {
   render: () => {
     const [rteData, setRTEData] = useState<EditorContentArray>([])
-    const handleOnChange: RichTextEditorProps["onChange"] = (editorState): void =>
-      setRTEData(editorState.toJSON().doc.content)
+    const handleOnChange: RichTextEditorProps["onChange"] = (
+      editorState,
+    ): void => setRTEData(editorState.toJSON().doc.content)
     return (
       <RichTextEditor
         labelText="Label"
@@ -131,11 +132,14 @@ export const IncreaseIndent: Story = {
       },
     )
 
-    await step("Add second list item; expect increase indent button to be enabled", async () => {
-      await userEvent.keyboard("By the pricking of my thumbs{Enter}")
-      expect(canvasElement.querySelectorAll("ul li")).toHaveLength(2)
-      expect(increaseIndentButton).toHaveAttribute("aria-disabled", "false")
-    })
+    await step(
+      "Add second list item; expect increase indent button to be enabled",
+      async () => {
+        await userEvent.keyboard("By the pricking of my thumbs{Enter}")
+        expect(canvasElement.querySelectorAll("ul li")).toHaveLength(2)
+        expect(increaseIndentButton).toHaveAttribute("aria-disabled", "false")
+      },
+    )
 
     await step("Increase indent of second list item", async () => {
       await userEvent.click(increaseIndentButton)

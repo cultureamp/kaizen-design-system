@@ -66,7 +66,12 @@ export const Checkbox = ({
         classNameOverride,
       )}
     >
-      <input ref={checkboxRef} type="checkbox" className={styles.nativeCheckbox} {...restProps} />
+      <input
+        ref={checkboxRef}
+        type="checkbox"
+        className={styles.nativeCheckbox}
+        {...restProps}
+      />
       <span className={styles.iconContainer}>{renderIcon(checkedStatus)}</span>
     </span>
   )

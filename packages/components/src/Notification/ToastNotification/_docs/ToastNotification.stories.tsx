@@ -13,8 +13,8 @@ const meta = {
     title: "Success",
     children: (
       <div>
-        New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
-        <a href="/">Manage users is now available</a>
+        New user data, imported by mackenzie@hooli.com has successfully
+        uploaded. <a href="/">Manage users is now available</a>
       </div>
     ),
   },
@@ -79,7 +79,8 @@ export const CreateNotification: Story = {
 
 export const UpdateNotification: Story = {
   render: () => {
-    const { addToastNotification, updateToastNotification } = useToastNotification()
+    const { addToastNotification, updateToastNotification } =
+      useToastNotification()
     return (
       <>
         <Button
@@ -112,7 +113,8 @@ export const UpdateNotification: Story = {
 
 export const RemoveNotification: Story = {
   render: () => {
-    const { addToastNotification, removeToastNotification } = useToastNotification()
+    const { addToastNotification, removeToastNotification } =
+      useToastNotification()
     return (
       <>
         <Button
@@ -138,7 +140,8 @@ export const RemoveNotification: Story = {
 
 export const ClearNotifications: Story = {
   render: () => {
-    const { addToastNotification, clearToastNotifications } = useToastNotification()
+    const { addToastNotification, clearToastNotifications } =
+      useToastNotification()
     return (
       <>
         <Button
@@ -165,7 +168,10 @@ export const ClearNotifications: Story = {
             })
           }}
         />
-        <Button label="Clear notifications" onClick={() => clearToastNotifications()} />
+        <Button
+          label="Clear notifications"
+          onClick={() => clearToastNotifications()}
+        />
       </>
     )
   },
@@ -196,7 +202,9 @@ export const NoDuplicatesWithSameId: Story = {
     const { canvasElement } = context
     const { findAllByText } = within(canvasElement.parentElement!)
 
-    const notifications = await findAllByText("There should only be one notification")
+    const notifications = await findAllByText(
+      "There should only be one notification",
+    )
     expect(notifications).toHaveLength(1)
   },
 }

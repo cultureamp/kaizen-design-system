@@ -5,7 +5,8 @@ import React, { useEffect, useState, ReactNode, useMemo } from "react"
 type Props = Record<string, string>
 type GenericChildrenType = { children?: ReactNode }
 
-export const subtractOnePixel = (breakpoint: string): string => `${parseInt(breakpoint, 10) - 1}px`
+export const subtractOnePixel = (breakpoint: string): string =>
+  `${parseInt(breakpoint, 10) - 1}px`
 
 export const useMediaQueries = (
   propQueries: Props = {},
@@ -52,13 +53,15 @@ export const useMediaQueries = (
   // The `addEventListener` calls blow up legacy Edge (<= v18/pre chromium),
   // so we disable the functionality of updating after page load.
   const isLegacyEdge = /Edge/.exec(navigator.userAgent)
-  const isUnsupportedSafari = window.matchMedia("").addEventListener === undefined
+  const isUnsupportedSafari =
+    window.matchMedia("").addEventListener === undefined
 
   // ---------------------------------------
   // Create Kaizen breakpoint matches for initial state
   // ---------------------------------------
   const smallMatchMedia = useMemo(
-    () => window.matchMedia(`(max-width: ${subtractOnePixel(breakpoints.medium)})`),
+    () =>
+      window.matchMedia(`(max-width: ${subtractOnePixel(breakpoints.medium)})`),
     [breakpoints.medium],
   )
 
@@ -141,7 +144,8 @@ export const useMediaQueries = (
     customQueryMatchMedias.set(queryName, matchMedia)
   })
 
-  const [customMatches, setCustomMatches] = useState<Record<string, boolean>>(customQueryMatches)
+  const [customMatches, setCustomMatches] =
+    useState<Record<string, boolean>>(customQueryMatches)
 
   // ---------------------------------------
   // Create an event listener for each custom query
@@ -151,7 +155,10 @@ export const useMediaQueries = (
       return
     }
 
-    const updateCustomMatches = (matchMedia: MediaQueryList, queryName: string): void =>
+    const updateCustomMatches = (
+      matchMedia: MediaQueryList,
+      queryName: string,
+    ): void =>
       setCustomMatches({
         ...customQueryMatches,
         [queryName]: matchMedia.matches || false,
@@ -186,9 +193,15 @@ export const useMediaQueries = (
   }
 
   const kaizenComponents = {
-    SmallOnly: (props: HelperComponentProps) => <>{kaizenMatches.isSmall && props.children}</>,
-    MediumOnly: (props: HelperComponentProps) => <>{kaizenMatches.isMedium && props.children}</>,
-    LargeOnly: (props: HelperComponentProps) => <>{kaizenMatches.isLarge && props.children}</>,
+    SmallOnly: (props: HelperComponentProps) => (
+      <>{kaizenMatches.isSmall && props.children}</>
+    ),
+    MediumOnly: (props: HelperComponentProps) => (
+      <>{kaizenMatches.isMedium && props.children}</>
+    ),
+    LargeOnly: (props: HelperComponentProps) => (
+      <>{kaizenMatches.isLarge && props.children}</>
+    ),
     MediumOrSmaller: (props: HelperComponentProps) => (
       <>{kaizenMatches.isMediumOrSmaller && props.children}</>
     ),
@@ -200,12 +213,15 @@ export const useMediaQueries = (
   // ---------------------------------------
   // Create custom query helper components
   // ---------------------------------------
-  const customComponents: Record<string, (props: GenericChildrenType) => JSX.Element> = {}
+  const customComponents: Record<
+    string,
+    (props: GenericChildrenType) => JSX.Element
+  > = {}
   Object.keys(propQueries).map((key) => {
     const componentName = key.charAt(0).toUpperCase() + key.slice(1)
-    customComponents[componentName] = (props: HelperComponentProps): JSX.Element => (
-      <>{customMatches[key] && props.children}</>
-    )
+    customComponents[componentName] = (
+      props: HelperComponentProps,
+    ): JSX.Element => <>{customMatches[key] && props.children}</>
   })
 
   return {

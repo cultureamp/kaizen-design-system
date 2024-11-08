@@ -52,11 +52,17 @@ export const ProgressStepper = ({
   isComplete = false,
   ...restprops
 }: ProgressStepperProps): JSX.Element => {
-  const currentStepIndex = steps.findIndex((stepItem) => stepItem.id === currentStepId)
+  const currentStepIndex = steps.findIndex(
+    (stepItem) => stepItem.id === currentStepId,
+  )
 
   return (
     <div className={styles.stepsContainer}>
-      <ol className={styles.stepList} {...restprops} aria-labelledby="stepper-description">
+      <ol
+        className={styles.stepList}
+        {...restprops}
+        aria-labelledby="stepper-description"
+      >
         {steps.map((step, index: number) => {
           const isCurrentStep = currentStepIndex === index
           const isCompletedStep = index < currentStepIndex || isComplete
@@ -67,7 +73,11 @@ export const ProgressStepper = ({
             index,
           )
           return (
-            <li className={styles.step} key={`${step.id}`} aria-current={isCurrentStep}>
+            <li
+              className={styles.step}
+              key={`${step.id}`}
+              aria-current={isCurrentStep}
+            >
               <div className={styles.stepContent}>
                 <VisuallyHidden>
                   {/* will need to be translated */}

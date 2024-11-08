@@ -23,7 +23,13 @@ export type GenericTileProps = {
   metadata?: string
   information?: TileInformation | React.ReactNode
   /** @deprecated Use `variant` instead */
-  mood?: "positive" | "informative" | "cautionary" | "assertive" | "negative" | "prominent"
+  mood?:
+    | "positive"
+    | "informative"
+    | "cautionary"
+    | "assertive"
+    | "negative"
+    | "prominent"
   /**
    * If you are transitioning from `mood`:
    * - `prominent` should be `expert-advice`
@@ -65,7 +71,11 @@ export const GenericTile = ({
 
   const renderFront = (): JSX.Element => (
     <div
-      className={classnames(styles.face, styles.faceFront, mood ? styles[mood] : styles[variant])}
+      className={classnames(
+        styles.face,
+        styles.faceFront,
+        mood ? styles[mood] : styles[variant],
+      )}
     >
       {information && (
         <div className={styles.informationBtn}>
@@ -87,18 +97,30 @@ export const GenericTile = ({
   const renderInformation = (
     informationProp: GenericTileProps["information"] | undefined,
   ): JSX.Element | React.ReactNode => {
-    if (informationProp && typeof informationProp === "object" && "text" in informationProp) {
+    if (
+      informationProp &&
+      typeof informationProp === "object" &&
+      "text" in informationProp
+    ) {
       return (
         <>
           <Text variant="body">{informationProp.text}</Text>
-          {(informationProp.primaryAction ?? informationProp.secondaryAction) && (
+          {(informationProp.primaryAction ??
+            informationProp.secondaryAction) && (
             <div className={styles.footer}>
               <div className={styles.actions}>
                 {informationProp.secondaryAction && (
-                  <Button secondary disabled={!isFlipped} {...informationProp.secondaryAction} />
+                  <Button
+                    secondary
+                    disabled={!isFlipped}
+                    {...informationProp.secondaryAction}
+                  />
                 )}
                 {informationProp.primaryAction && (
-                  <Button disabled={!isFlipped} {...informationProp.primaryAction} />
+                  <Button
+                    disabled={!isFlipped}
+                    {...informationProp.primaryAction}
+                  />
                 )}
               </div>
             </div>
@@ -124,7 +146,9 @@ export const GenericTile = ({
             aria-hidden={!isFlipped}
           />
         </div>
-        <div className={styles.information}>{renderInformation(information)}</div>
+        <div className={styles.information}>
+          {renderInformation(information)}
+        </div>
       </div>
     )
   }

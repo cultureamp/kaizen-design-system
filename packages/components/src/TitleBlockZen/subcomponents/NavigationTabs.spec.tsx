@@ -50,7 +50,11 @@ describe("NavigationTabs", () => {
       const button = screen.getByRole("button", {
         name: `${href} - ${text} - true`,
       })
-      expect(button).toHaveClass(styles.linkAnchor, styles.active, styles.lightBackground)
+      expect(button).toHaveClass(
+        styles.linkAnchor,
+        styles.active,
+        styles.lightBackground,
+      )
 
       await user.click(button)
       await waitFor(() => {

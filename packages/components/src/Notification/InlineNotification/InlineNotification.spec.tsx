@@ -11,7 +11,11 @@ describe("<InlineNotification />", () => {
       children: "Custom",
     }
     render(
-      <InlineNotification type="positive" headingProps={customHeadingProps} persistent>
+      <InlineNotification
+        type="positive"
+        headingProps={customHeadingProps}
+        persistent
+      >
         Something has gone wrong
       </InlineNotification>,
     )

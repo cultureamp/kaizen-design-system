@@ -35,7 +35,9 @@ export const mockedTransformer =
     return ts.visitNode(rootNode, visit)
   }
 
-const testCreateStyleProp = (sourceFile: TransformConfig["sourceFile"]): string =>
+const testCreateStyleProp = (
+  sourceFile: TransformConfig["sourceFile"],
+): string =>
   transformSource({
     sourceFile,
     astTransformer: mockedTransformer,

@@ -7,7 +7,10 @@ type LabelProps = {
   isReversed: boolean
 }
 
-export const Label = ({ content, isReversed = false }: LabelProps): JSX.Element => (
+export const Label = ({
+  content,
+  isReversed = false,
+}: LabelProps): JSX.Element => (
   <div className={styles.label}>
     <Heading variant="heading-4" tag="p" color={isReversed ? "white" : "dark"}>
       {content}

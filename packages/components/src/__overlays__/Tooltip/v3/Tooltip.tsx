@@ -45,10 +45,15 @@ export type TooltipProps = Omit<RACTooltipProps, "offset"> & {
  */
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   ({ children, className, ...props }, ref): JSX.Element => {
-    const [{ triggerRef }] = useContextProps({ children, className, ...props }, ref, TooltipContext)
+    const [{ triggerRef }] = useContextProps(
+      { children, className, ...props },
+      ref,
+      TooltipContext,
+    )
     const contextState = useContext(TooltipTriggerStateContext)
     const reverseColors = useReversedColors()
-    const [shouldInlineHiddenContent, setShouldInlineHiddenContent] = useState(false)
+    const [shouldInlineHiddenContent, setShouldInlineHiddenContent] =
+      useState(false)
 
     useLayoutEffect(() => {
       setShouldInlineHiddenContent(
@@ -62,12 +67,18 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           ref={ref}
           offset={8}
           {...props}
-          className={mergeClassNames(styles.tooltip, className, reverseColors && styles.reversed)}
+          className={mergeClassNames(
+            styles.tooltip,
+            className,
+            reverseColors && styles.reversed,
+          )}
         >
           {(renderProps) => (
             <>
               <OverlayArrow />
-              {typeof children === "function" ? children(renderProps) : children}
+              {typeof children === "function"
+                ? children(renderProps)
+                : children}
             </>
           )}
         </RACTooltip>

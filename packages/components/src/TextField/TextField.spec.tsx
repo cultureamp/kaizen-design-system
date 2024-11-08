@@ -10,7 +10,9 @@ const defaultProps = {
 
 describe("<TextField />", () => {
   it("renders correct aria-describedby when only description provided", () => {
-    const { getByRole } = render(<TextField {...defaultProps} description="Description text" />)
+    const { getByRole } = render(
+      <TextField {...defaultProps} description="Description text" />,
+    )
 
     const input = getByRole("textbox", {
       description: "Description text",
@@ -54,7 +56,11 @@ describe("<TextField />", () => {
   })
   it("renders empty aria-describedby when no description or validation message provided", () => {
     const { getByRole } = render(
-      <TextField {...defaultProps} description={undefined} validationMessage={undefined} />,
+      <TextField
+        {...defaultProps}
+        description={undefined}
+        validationMessage={undefined}
+      />,
     )
     const input = getByRole("textbox", {
       description: "",
@@ -65,14 +71,20 @@ describe("<TextField />", () => {
 
   it("renders a TextField with the correct input type", () => {
     const { getByLabelText } = render(
-      <TextField {...defaultProps} labelText="Password input" type="password" />,
+      <TextField
+        {...defaultProps}
+        labelText="Password input"
+        type="password"
+      />,
     )
     const input = getByLabelText("Password input")
     expect(input).toHaveAttribute("type", "password")
   })
 
   it("will fall back to the `type` default value If deprecated inputType is undefined", () => {
-    const { getByRole } = render(<TextField {...defaultProps} labelText="Default" />)
+    const { getByRole } = render(
+      <TextField {...defaultProps} labelText="Default" />,
+    )
     expect(getByRole("textbox", { name: "Default" })).toBeInTheDocument()
   })
 })

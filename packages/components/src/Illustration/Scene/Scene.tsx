@@ -132,7 +132,10 @@ export const BrandMomentUploadEmployeeData = ({
 )
 BrandMomentUploadEmployeeData.displayName = "BrandMomentUploadEmployeeData"
 
-export const BrandMomentStarterKit = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const BrandMomentStarterKit = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -280,7 +283,10 @@ EmptyStatesNeutral.displayName = "EmptyStatesNeutral"
 
 // Information Modals
 
-export const Information360Upgrade = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const Information360Upgrade = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -375,7 +381,10 @@ InformationReportOwnerByRule.displayName = "InformationReportOwnerByRule"
 
 // Miscellaneous
 
-export const Collaboration = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const Collaboration = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -384,7 +393,10 @@ export const Collaboration = ({ enableAspectRatio, ...props }: SceneProps): JSX.
 )
 Collaboration.displayName = "Collaboration"
 
-export const Communication = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const Communication = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -393,7 +405,10 @@ export const Communication = ({ enableAspectRatio, ...props }: SceneProps): JSX.
 )
 Communication.displayName = "Communication"
 
-export const CompanyValues = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const CompanyValues = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -402,7 +417,10 @@ export const CompanyValues = ({ enableAspectRatio, ...props }: SceneProps): JSX.
 )
 CompanyValues.displayName = "CompanyValues"
 
-export const ConnectTheDots = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const ConnectTheDots = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -411,7 +429,10 @@ export const ConnectTheDots = ({ enableAspectRatio, ...props }: SceneProps): JSX
 )
 ConnectTheDots.displayName = "ConnectTheDots"
 
-export const CultureLab = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const CultureLab = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -420,7 +441,10 @@ export const CultureLab = ({ enableAspectRatio, ...props }: SceneProps): JSX.Ele
 )
 CultureLab.displayName = "CultureLab"
 
-export const TermsAgreement = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const TermsAgreement = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -443,7 +467,10 @@ export const SkillsCoach1On1Meetings = ({
 )
 SkillsCoach1On1Meetings.displayName = "SkillsCoach1On1Meetings"
 
-export const SkillsCoachCoaching = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const SkillsCoachCoaching = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -486,7 +513,8 @@ export const SkillsCoachEssentialProductivity = ({
     name="illustrations/heart/scene/skills-coach-essential-productivity.svg"
   />
 )
-SkillsCoachEssentialProductivity.displayName = "SkillsCoachEssentialProductivity"
+SkillsCoachEssentialProductivity.displayName =
+  "SkillsCoachEssentialProductivity"
 
 export const SkillsCoachEssentialResilience = ({
   enableAspectRatio,
@@ -510,7 +538,8 @@ export const SkillsCoachInfluentialCommunication = ({
     name="illustrations/heart/scene/skills-coach-influential-communication.svg"
   />
 )
-SkillsCoachInfluentialCommunication.displayName = "SkillsCoachInfluentialCommunication"
+SkillsCoachInfluentialCommunication.displayName =
+  "SkillsCoachInfluentialCommunication"
 
 export const SkillsCoachLeadingChange = ({
   enableAspectRatio,
@@ -524,7 +553,10 @@ export const SkillsCoachLeadingChange = ({
 )
 SkillsCoachLeadingChange.displayName = "SkillsCoachLeadingChange"
 
-export const SkillsCoachFeedback = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const SkillsCoachFeedback = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -533,7 +565,10 @@ export const SkillsCoachFeedback = ({ enableAspectRatio, ...props }: SceneProps)
 )
 SkillsCoachFeedback.displayName = "SkillsCoachFeedback"
 
-export const SkillsCoachManagerHub = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const SkillsCoachManagerHub = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -566,7 +601,10 @@ export const SkillsCoachRemoteManager = ({
 )
 SkillsCoachRemoteManager.displayName = "SkillsCoachRemoteManager"
 
-export const SkillsCoachResilience = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const SkillsCoachResilience = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -575,7 +613,10 @@ export const SkillsCoachResilience = ({ enableAspectRatio, ...props }: SceneProp
 )
 SkillsCoachResilience.displayName = "SkillsCoachResilience"
 
-export const SkillsCoachStrategy = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const SkillsCoachStrategy = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
@@ -586,7 +627,10 @@ SkillsCoachStrategy.displayName = "SkillsCoachStrategy"
 
 // Engagement
 
-export const Programs = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const Programs = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "landscape" : undefined}
     {...props}
@@ -619,7 +663,10 @@ export const EngagementSurveySummaryMale = ({
 )
 EngagementSurveySummaryMale.displayName = "EngagementSurveySummaryMale"
 
-export const SurveyOverviewClosed = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const SurveyOverviewClosed = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}
@@ -628,7 +675,10 @@ export const SurveyOverviewClosed = ({ enableAspectRatio, ...props }: SceneProps
 )
 SurveyOverviewClosed.displayName = "SurveyOverviewClosed"
 
-export const SurveyGetStarted = ({ enableAspectRatio, ...props }: SceneProps): JSX.Element => (
+export const SurveyGetStarted = ({
+  enableAspectRatio,
+  ...props
+}: SceneProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "portrait" : undefined}
     {...props}

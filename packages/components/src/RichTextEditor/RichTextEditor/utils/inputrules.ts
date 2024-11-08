@@ -1,5 +1,8 @@
 import { bulletListRule, orderedListRule } from "../../utils/core"
-import { ProseMirrorInputrules, ProseMirrorModel } from "../../utils/prosemirror"
+import {
+  ProseMirrorInputrules,
+  ProseMirrorModel,
+} from "../../utils/prosemirror"
 
 export const buildInputRules = (
   schema: ProseMirrorModel.Schema,

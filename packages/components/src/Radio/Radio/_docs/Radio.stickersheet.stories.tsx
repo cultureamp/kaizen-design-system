@@ -1,6 +1,9 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Radio } from "../index"
 
 export default {
@@ -25,10 +28,18 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Focus", "Hover"]} hasVerticalHeadings />
+      <StickerSheet.Header
+        headings={["Default", "Focus", "Hover"]}
+        hasVerticalHeadings
+      />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Off">
-          <Radio id="radio1" name="radio1" value="radio1" reversed={isReversed} />
+          <Radio
+            id="radio1"
+            name="radio1"
+            value="radio1"
+            reversed={isReversed}
+          />
           <Radio
             id="radio2"
             name="radio2"
@@ -45,7 +56,13 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="On">
-          <Radio id="radio11" name="radio11" value="radio11" reversed={isReversed} selectedStatus />
+          <Radio
+            id="radio11"
+            name="radio11"
+            value="radio11"
+            reversed={isReversed}
+            selectedStatus
+          />
           <Radio
             id="radio22"
             name="radio22"

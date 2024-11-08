@@ -98,7 +98,9 @@ export const Reference: Story = {
               role: "presentation",
             })
 
-            return <ReferenceButton key={iconName} icon={icon} iconName={iconName} />
+            return (
+              <ReferenceButton key={iconName} icon={icon} iconName={iconName} />
+            )
           })}
       </ul>
     </div>

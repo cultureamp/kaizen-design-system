@@ -1,7 +1,10 @@
 import React from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
-import { FilterBarProvider, FilterBarProviderProps } from "./context/FilterBarContext"
+import {
+  FilterBarProvider,
+  FilterBarProviderProps,
+} from "./context/FilterBarContext"
 import {
   FilterBarDatePicker,
   FilterBarDateRangePicker,

@@ -1,6 +1,9 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { TextArea } from "../index"
 
 export default {
@@ -25,7 +28,10 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} hasVerticalHeadings />
+      <StickerSheet.Header
+        headings={["Default", "Hover", "Active", "Focus"]}
+        hasVerticalHeadings
+      />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Enabled">
           <TextArea reversed={isReversed} />
@@ -35,9 +41,21 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Disabled">
           <TextArea reversed={isReversed} disabled />
-          <TextArea reversed={isReversed} disabled data-sb-pseudo-styles="hover" />
-          <TextArea reversed={isReversed} disabled data-sb-pseudo-styles="active" />
-          <TextArea reversed={isReversed} disabled data-sb-pseudo-styles="focus" />
+          <TextArea
+            reversed={isReversed}
+            disabled
+            data-sb-pseudo-styles="hover"
+          />
+          <TextArea
+            reversed={isReversed}
+            disabled
+            data-sb-pseudo-styles="active"
+          />
+          <TextArea
+            reversed={isReversed}
+            disabled
+            data-sb-pseudo-styles="focus"
+          />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>

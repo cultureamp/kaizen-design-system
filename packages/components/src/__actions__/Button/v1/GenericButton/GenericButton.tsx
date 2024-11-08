@@ -30,7 +30,12 @@ export type CustomButtonProps = {
 
 export type ButtonFormAttributes = Pick<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
-  "form" | "formAction" | "formMethod" | "formEncType" | "formTarget" | "formNoValidate"
+  | "form"
+  | "formAction"
+  | "formMethod"
+  | "formEncType"
+  | "formTarget"
+  | "formNoValidate"
 >
 
 export type GenericProps = {
@@ -160,7 +165,10 @@ export const GenericButton = forwardRef(
     return (
       <span
         ref={wrapperRef}
-        className={classnames(styles.container, props.fullWidth && styles.fullWidth)}
+        className={classnames(
+          styles.container,
+          props.fullWidth && styles.fullWidth,
+        )}
         aria-live={"workingLabel" in props ? "polite" : undefined}
       >
         {props.href && !props.disabled && !props.working
@@ -207,14 +215,19 @@ const renderCustomComponent = (
   return (
     <span
       ref={contextRef}
-      className={classnames(styles.container, props.fullWidth && styles.fullWidth)}
+      className={classnames(
+        styles.container,
+        props.fullWidth && styles.fullWidth,
+      )}
       aria-live={"workingLabel" in props ? "polite" : undefined}
     >
       <CustomComponent
         {...contextProps}
         {...linkProps}
         aria-describedby={
-          props["aria-describedby"] === null ? undefined : linkProps["aria-describedby"]
+          props["aria-describedby"] === null
+            ? undefined
+            : linkProps["aria-describedby"]
         }
       >
         {renderContent(props)}
@@ -223,7 +236,10 @@ const renderCustomComponent = (
   )
 }
 
-const renderButton = (props: RenderProps, ref: Ref<HTMLButtonElement>): JSX.Element => {
+const renderButton = (
+  props: RenderProps,
+  ref: Ref<HTMLButtonElement>,
+): JSX.Element => {
   const disableActions = props.disabled ?? props.working
   const passedInProps: React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -245,7 +261,9 @@ const renderButton = (props: RenderProps, ref: Ref<HTMLButtonElement>): JSX.Elem
     "className": buttonClass(props),
     "aria-label": generateAriaLabel(props),
     "aria-disabled": props.disabled || props.working ? true : undefined,
-    "tabIndex": props.disableTabFocusAndIUnderstandTheAccessibilityImplications ? -1 : undefined,
+    "tabIndex": props.disableTabFocusAndIUnderstandTheAccessibilityImplications
+      ? -1
+      : undefined,
     ...getCustomProps(props),
   }
 
@@ -273,8 +291,13 @@ const renderButton = (props: RenderProps, ref: Ref<HTMLButtonElement>): JSX.Elem
   )
 }
 
-const renderLink = (props: RenderProps, ref: Ref<HTMLAnchorElement>): JSX.Element => {
-  const target = props.newTabAndIUnderstandTheAccessibilityImplications ? "_blank" : "_self"
+const renderLink = (
+  props: RenderProps,
+  ref: Ref<HTMLAnchorElement>,
+): JSX.Element => {
+  const target = props.newTabAndIUnderstandTheAccessibilityImplications
+    ? "_blank"
+    : "_self"
 
   const passedInProps: React.DetailedHTMLProps<
     React.AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -329,7 +352,8 @@ const buttonClass = (props: RenderProps): string => {
     props.reversed && styles.reversed,
     props.iconButton && styles.iconButton,
     props.working && styles.working,
-    Boolean(props.directionalLink || props.paginationLink) && styles.circleButton,
+    Boolean(props.directionalLink || props.paginationLink) &&
+      styles.circleButton,
     props.directionalLink && styles.directionalLink,
     props.paginationLink && styles.paginationLink,
     props.isActive && styles.isPaginationLinkActive,
@@ -343,7 +367,9 @@ const renderLoadingSpinner = (): JSX.Element => (
   </div>
 )
 
-const renderWorkingContent = (props: Extract<RenderProps, { working: true }>): JSX.Element => {
+const renderWorkingContent = (
+  props: Extract<RenderProps, { working: true }>,
+): JSX.Element => {
   if (props.workingLabelHidden) {
     return (
       <>
@@ -351,7 +377,9 @@ const renderWorkingContent = (props: Extract<RenderProps, { working: true }>): J
         <span className={styles.hidden} aria-hidden="true">
           {renderDefaultContent(props)}
         </span>
-        <span className={styles.centeredLoadingSpinner}>{renderLoadingSpinner()}</span>
+        <span className={styles.centeredLoadingSpinner}>
+          {renderLoadingSpinner()}
+        </span>
       </>
     )
   }
@@ -361,7 +389,9 @@ const renderWorkingContent = (props: Extract<RenderProps, { working: true }>): J
       {props.iconPosition !== "end" && renderLoadingSpinner()}
       <span className={styles.label}>{props.workingLabel}</span>
       {props.additionalContent && (
-        <span className={styles.additionalContentWrapper}>{props.additionalContent}</span>
+        <span className={styles.additionalContentWrapper}>
+          {props.additionalContent}
+        </span>
       )}
       {props.iconPosition === "end" && renderLoadingSpinner()}
     </>
@@ -371,9 +401,13 @@ const renderWorkingContent = (props: Extract<RenderProps, { working: true }>): J
 const renderDefaultContent = (props: RenderProps): JSX.Element => (
   <>
     {props.icon && props.iconPosition !== "end" && renderIcon(props.icon)}
-    {(!props.icon || !props.iconButton) && <span className={styles.label}>{props.label}</span>}
+    {(!props.icon || !props.iconButton) && (
+      <span className={styles.label}>{props.label}</span>
+    )}
     {props.additionalContent && (
-      <span className={styles.additionalContentWrapper}>{props.additionalContent}</span>
+      <span className={styles.additionalContentWrapper}>
+        {props.additionalContent}
+      </span>
     )}
     {renderBadge(props)}
     {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}

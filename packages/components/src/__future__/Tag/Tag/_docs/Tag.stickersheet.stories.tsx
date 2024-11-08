@@ -1,7 +1,10 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { Icon } from "~components/__future__/Icon"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Tag } from "../Tag"
 import { TagColorKeys } from "../types"
 
@@ -20,8 +23,13 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         {TagColorKeys.map((color) => (
           <StickerSheet.Row key={color}>
-            <Tag color={color}>{color.charAt(0).toUpperCase() + color.slice(1)}</Tag>
-            <Tag icon={<Icon name="label" isPresentational isFilled />} color={color}>
+            <Tag color={color}>
+              {color.charAt(0).toUpperCase() + color.slice(1)}
+            </Tag>
+            <Tag
+              icon={<Icon name="label" isPresentational isFilled />}
+              color={color}
+            >
               {color.charAt(0).toUpperCase() + color.slice(1)}
             </Tag>
           </StickerSheet.Row>

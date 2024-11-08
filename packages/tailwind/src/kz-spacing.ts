@@ -24,7 +24,8 @@ const tokenDenyList: string[] = [
 /**
  * checks if a key from design tokens should be filtered from tailwind
  */
-const isValidToken = (key: string | number): boolean => tokenDenyList.includes(`${key}`)
+const isValidToken = (key: string | number): boolean =>
+  tokenDenyList.includes(`${key}`)
 
 // Filters out non-pixel-based spacing tokens, such as shirt sizes
 export const filterDenyListValues = (

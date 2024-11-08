@@ -16,7 +16,9 @@ export const useSelectContext = <
   const context = useContext(SelectContext)
 
   if (!context) {
-    throw new Error("useSelectContext must be used within the SelectContext.Provider")
+    throw new Error(
+      "useSelectContext must be used within the SelectContext.Provider",
+    )
   }
 
   return context

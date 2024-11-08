@@ -11,9 +11,14 @@ export type CheckboxProps = {
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
   reversed?: boolean
   value?: string
-} & OverrideClassName<Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "onChange" | "checked">>
+} & OverrideClassName<
+  Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "onChange" | "checked">
+>
 
-const renderCheckOrMixedIcon = (status: CheckedStatus, reversed: boolean): React.ReactNode => {
+const renderCheckOrMixedIcon = (
+  status: CheckedStatus,
+  reversed: boolean,
+): React.ReactNode => {
   if (status === "off") return
 
   return (
@@ -25,7 +30,8 @@ const renderCheckOrMixedIcon = (status: CheckedStatus, reversed: boolean): React
   )
 }
 
-const getCheckedFromStatus = (checkedStatus: CheckedStatus): boolean => checkedStatus === "on"
+const getCheckedFromStatus = (checkedStatus: CheckedStatus): boolean =>
+  checkedStatus === "on"
 
 export const Checkbox = ({
   checkedStatus = "off",
@@ -45,7 +51,11 @@ export const Checkbox = ({
       // This is only used as a handle for unit testing
       data-indeterminate={checkedStatus === "mixed"}
       type="checkbox"
-      className={classnames(styles.checkbox, classNameOverride, reversed && styles.reversed)}
+      className={classnames(
+        styles.checkbox,
+        classNameOverride,
+        reversed && styles.reversed,
+      )}
       checked={getCheckedFromStatus(checkedStatus)}
       onChange={onCheck}
       value={value ?? checkedStatus}

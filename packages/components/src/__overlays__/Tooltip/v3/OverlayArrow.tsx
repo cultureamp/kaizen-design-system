@@ -1,5 +1,8 @@
 import React from "react"
-import { OverlayArrow as RACOverlayArrow, type OverlayArrowProps } from "react-aria-components"
+import {
+  OverlayArrow as RACOverlayArrow,
+  type OverlayArrowProps,
+} from "react-aria-components"
 import { useReversedColors } from "~components/__utilities__/v3"
 import { mergeClassNames } from "~components/utils/mergeClassNames"
 

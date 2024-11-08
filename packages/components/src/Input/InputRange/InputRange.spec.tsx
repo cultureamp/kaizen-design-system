@@ -5,7 +5,14 @@ import { InputRange } from "./index"
 describe("<InputRange />", () => {
   it("fires onChange after interaction", async () => {
     const onChange = vi.fn()
-    render(<InputRange id="unique-3" onChange={onChange} minLabel="Awful" maxLabel="Fantastic" />)
+    render(
+      <InputRange
+        id="unique-3"
+        onChange={onChange}
+        minLabel="Awful"
+        maxLabel="Fantastic"
+      />,
+    )
 
     const slider = await screen.findByRole("slider")
 
@@ -16,7 +23,15 @@ describe("<InputRange />", () => {
   })
 
   it("renders the screenreader help text", async () => {
-    render(<InputRange id="unique-6" min={1} max={10} minLabel="bad" maxLabel="good" />)
+    render(
+      <InputRange
+        id="unique-6"
+        min={1}
+        max={10}
+        minLabel="bad"
+        maxLabel="good"
+      />,
+    )
     const helpText = await screen.findByText(/1 is bad, 10 is good/i)
 
     expect(helpText).toBeInTheDocument()

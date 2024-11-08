@@ -96,7 +96,11 @@
   transition-duration: $ca-duration-rapid;
 
   .backdropLayer {
-    @include ca-animation-fade($duration: $ca-duration-rapid, $from: 0.5, $to: 0);
+    @include ca-animation-fade(
+      $duration: $ca-duration-rapid,
+      $from: 0.5,
+      $to: 0
+    );
   }
 
   [data-modal] {

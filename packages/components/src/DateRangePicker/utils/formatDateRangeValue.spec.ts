@@ -17,7 +17,9 @@ describe("formatDateRangeValue", () => {
       to: new Date(2022, 2, 2),
     }
 
-    expect(formatDateRangeValue(dateRangeBothValues)).toEqual("Feb 1 – Mar 2, 2022")
+    expect(formatDateRangeValue(dateRangeBothValues)).toEqual(
+      "Feb 1 – Mar 2, 2022",
+    )
   })
 
   it("displays the year for both dates when they are not the same", () => {
@@ -26,6 +28,8 @@ describe("formatDateRangeValue", () => {
       to: new Date(2023, 1, 1),
     }
 
-    expect(formatDateRangeValue(dateRangeOvertoNewYear)).toEqual("Feb 1, 2022 – Feb 1, 2023")
+    expect(formatDateRangeValue(dateRangeOvertoNewYear)).toEqual(
+      "Feb 1, 2022 – Feb 1, 2023",
+    )
   })
 })

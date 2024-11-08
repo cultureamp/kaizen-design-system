@@ -2,7 +2,10 @@ import React from "react"
 import { Meta } from "@storybook/react"
 import { ArrowForwardIcon, AddIcon, TrashIcon } from "~components/Icon"
 import { LoadingSpinner } from "~components/Loading"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Button } from "../index"
 
 export default {

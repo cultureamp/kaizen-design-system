@@ -76,7 +76,8 @@ const replaceId = (child) => {
 const removeRootSVGElement = (item) => {
   if (item.type !== "root") return
 
-  const hasSingleSVGChild = item.children.length === 1 && item.children[0].name === "svg"
+  const hasSingleSVGChild =
+    item.children.length === 1 && item.children[0].name === "svg"
   if (hasSingleSVGChild) {
     const SVGChildren = item.children[0].children
     item.children = SVGChildren

@@ -1,7 +1,10 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { Icon } from "~components/__future__/Icon"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Input, InputProps } from "../index"
 import { InputStatus, InputTypes } from "../types"
 
@@ -35,14 +38,18 @@ const InputExampleGroup = (props: InputProps): JSX.Element => (
             <Icon
               name="edit"
               isPresentational
-              data-sb-a11y-color-contrast-disable={props.disabled ? "true" : "false"}
+              data-sb-a11y-color-contrast-disable={
+                props.disabled ? "true" : "false"
+              }
             />
           }
           endIconAdornment={
             <Icon
               name="close"
               isPresentational
-              data-sb-a11y-color-contrast-disable={props.disabled ? "true" : "false"}
+              data-sb-a11y-color-contrast-disable={
+                props.disabled ? "true" : "false"
+              }
             />
           }
           {...props}

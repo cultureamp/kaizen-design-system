@@ -1,7 +1,10 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import isChromatic from "chromatic"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Select } from "../index"
 import {
   groupedMockItems,
@@ -29,7 +32,11 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           <StickerSheet.Row>
             <StickerSheet.Cell style={{ verticalAlign: "top" }}>
-              <Select label="Label" items={singleMockItems} isReversed={isReversed} />
+              <Select
+                label="Label"
+                items={singleMockItems}
+                isReversed={isReversed}
+              />
             </StickerSheet.Cell>
             <StickerSheet.Cell style={{ verticalAlign: "top" }}>
               <Select
@@ -53,7 +60,9 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
 
       <StickerSheet isReversed={isReversed} heading="Pseudo states">
-        <StickerSheet.Header headings={["Hover", "Active", "Focus", "Disabled"]} />
+        <StickerSheet.Header
+          headings={["Hover", "Active", "Focus", "Disabled"]}
+        />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <Select
@@ -74,7 +83,12 @@ const StickerSheetTemplate: StickerSheetStory = {
               isReversed={isReversed}
               data-sb-pseudo-styles="focus"
             />
-            <Select label="Label" items={singleMockItems} isDisabled isReversed={isReversed} />
+            <Select
+              label="Label"
+              items={singleMockItems}
+              isDisabled
+              isReversed={isReversed}
+            />
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
@@ -191,14 +205,24 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
         heading="Default options"
         style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
       >
-        <StickerSheet.Header headings={["Single items", "Groups", "Existing value", "Disabled"]} />
+        <StickerSheet.Header
+          headings={["Single items", "Groups", "Existing value", "Disabled"]}
+        />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <StickerSheet.Cell style={{ width: "250px" }}>
-              <Select label="Label" defaultOpen={IS_CHROMATIC} items={singleMockItems} />
+              <Select
+                label="Label"
+                defaultOpen={IS_CHROMATIC}
+                items={singleMockItems}
+              />
             </StickerSheet.Cell>
             <StickerSheet.Cell style={{ width: "250px" }}>
-              <Select label="Label" defaultOpen={IS_CHROMATIC} items={groupedMockItems} />
+              <Select
+                label="Label"
+                defaultOpen={IS_CHROMATIC}
+                items={groupedMockItems}
+              />
             </StickerSheet.Cell>
             <StickerSheet.Cell style={{ width: "250px" }}>
               <Select
@@ -209,7 +233,11 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
               />
             </StickerSheet.Cell>
             <StickerSheet.Cell style={{ width: "250px" }}>
-              <Select label="Label" defaultOpen={IS_CHROMATIC} items={mixedMockItemsDisabled} />
+              <Select
+                label="Label"
+                defaultOpen={IS_CHROMATIC}
+                items={mixedMockItemsDisabled}
+              />
             </StickerSheet.Cell>
           </StickerSheet.Row>
         </StickerSheet.Body>
@@ -230,7 +258,11 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           <StickerSheet.Row>
             <StickerSheet.Cell style={{ width: "250px" }}>
-              <Select label="Label" defaultOpen={IS_CHROMATIC} items={singleMockItems}>
+              <Select
+                label="Label"
+                defaultOpen={IS_CHROMATIC}
+                items={singleMockItems}
+              >
                 {({ items }): JSX.Element[] =>
                   items.map((item) => {
                     if (item.type === "item") {
@@ -257,14 +289,20 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                       )
                     }
 
-                    return <Select.ItemDefaultRender key={item.key} item={item} />
+                    return (
+                      <Select.ItemDefaultRender key={item.key} item={item} />
+                    )
                   })
                 }
               </Select>
             </StickerSheet.Cell>
 
             <StickerSheet.Cell style={{ width: "250px" }}>
-              <Select label="Label" defaultOpen={IS_CHROMATIC} items={mixedMockItemsUngroupedFirst}>
+              <Select
+                label="Label"
+                defaultOpen={IS_CHROMATIC}
+                items={mixedMockItemsUngroupedFirst}
+              >
                 {({ items }): JSX.Element[] =>
                   items.map((item) => {
                     if (item.type === "item" && item.key === "batch-brew") {
@@ -285,23 +323,31 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                           key={item.key}
                           section={{
                             ...item,
-                            childNodes: Array.from(item.childNodes).map((child) => ({
-                              ...child,
-                              rendered: <div>-- {child.rendered}</div>,
-                            })),
+                            childNodes: Array.from(item.childNodes).map(
+                              (child) => ({
+                                ...child,
+                                rendered: <div>-- {child.rendered}</div>,
+                              }),
+                            ),
                           }}
                         />
                       )
                     }
 
-                    return <Select.ItemDefaultRender key={item.key} item={item} />
+                    return (
+                      <Select.ItemDefaultRender key={item.key} item={item} />
+                    )
                   })
                 }
               </Select>
             </StickerSheet.Cell>
 
             <StickerSheet.Cell style={{ width: "250px" }}>
-              <Select label="Label" defaultOpen={IS_CHROMATIC} items={mixedMockItemsUnordered}>
+              <Select
+                label="Label"
+                defaultOpen={IS_CHROMATIC}
+                items={mixedMockItemsUnordered}
+              >
                 {({ items }): JSX.Element[] =>
                   items.map((item) => (
                     <React.Fragment key={item.key}>
@@ -318,7 +364,10 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
               <Select
                 label="Label"
                 defaultOpen={IS_CHROMATIC}
-                items={[{ label: "Customise...", value: "custom" }, ...singleMockItems]}
+                items={[
+                  { label: "Customise...", value: "custom" },
+                  ...singleMockItems,
+                ]}
               >
                 {({ items }): JSX.Element[] =>
                   items.map((item) => {
@@ -331,7 +380,9 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                       )
                     }
 
-                    return <Select.ItemDefaultRender key={item.key} item={item} />
+                    return (
+                      <Select.ItemDefaultRender key={item.key} item={item} />
+                    )
                   })
                 }
               </Select>
@@ -340,7 +391,10 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
         </StickerSheet.Body>
       </StickerSheet>
 
-      <StickerSheet heading="Min/Max" style={{ paddingTop: IS_CHROMATIC ? "26rem" : undefined }}>
+      <StickerSheet
+        heading="Min/Max"
+        style={{ paddingTop: IS_CHROMATIC ? "26rem" : undefined }}
+      >
         <StickerSheet.Header headings={["Min size", "Max size"]} />
         <StickerSheet.Body>
           <StickerSheet.Row>

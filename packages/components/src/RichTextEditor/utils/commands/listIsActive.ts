@@ -7,7 +7,10 @@ export const listIsActive = (
   type: NodeType,
   listNodes: (typeof type)[],
 ): boolean => {
-  const listNode = findParentNodeOfTypeClosestToPos(state.selection.$from, listNodes)
+  const listNode = findParentNodeOfTypeClosestToPos(
+    state.selection.$from,
+    listNodes,
+  )
 
   return listNode?.node.type === type
 }

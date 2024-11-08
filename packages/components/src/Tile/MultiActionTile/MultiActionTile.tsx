@@ -1,6 +1,10 @@
 import React from "react"
 import { Button } from "~components/__actions__/v2"
-import { GenericTile, GenericTileProps, TileAction } from "../subcomponents/GenericTile"
+import {
+  GenericTile,
+  GenericTileProps,
+  TileAction,
+} from "../subcomponents/GenericTile"
 import styles from "./MultiActionTile.module.scss"
 
 export type MultiActionTileProps = {
@@ -8,7 +12,10 @@ export type MultiActionTileProps = {
   secondaryAction?: TileAction
 } & Omit<GenericTileProps, "footer">
 
-const renderActions = (primaryAction: TileAction, secondaryAction?: TileAction): JSX.Element => (
+const renderActions = (
+  primaryAction: TileAction,
+  secondaryAction?: TileAction,
+): JSX.Element => (
   <div className={styles.actions}>
     {secondaryAction && (
       <div className={styles.secondaryAction}>
@@ -29,7 +36,10 @@ export const MultiActionTile = ({
   secondaryAction,
   ...restProps
 }: MultiActionTileProps): JSX.Element => (
-  <GenericTile footer={renderActions(primaryAction, secondaryAction)} {...restProps}>
+  <GenericTile
+    footer={renderActions(primaryAction, secondaryAction)}
+    {...restProps}
+  >
     {children}
   </GenericTile>
 )

@@ -1,6 +1,9 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Label, LabelProps } from "../index"
 import { BlockLabelTypes, InlineLabelTypes } from "../types"
 
@@ -16,12 +19,19 @@ type WrapperProps = LabelProps & {
   "data-sb-a11y-color-contrast-disable"?: boolean
 }
 
-const DefaultLabelWrapper = ({ labelText, ...props }: WrapperProps): JSX.Element => (
+const DefaultLabelWrapper = ({
+  labelText,
+  ...props
+}: WrapperProps): JSX.Element => (
   <Label
     // Need this so we can add a data attrib to the labelText
     // since none of the props apply to the internal labelText wrapper
     labelText={
-      <span data-sb-a11y-color-contrast-disable={props["data-sb-a11y-color-contrast-disable"]}>
+      <span
+        data-sb-a11y-color-contrast-disable={
+          props["data-sb-a11y-color-contrast-disable"]
+        }
+      >
         {labelText}
       </span>
     }
@@ -33,11 +43,17 @@ const InlineControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
   <Label
     {...props}
     labelText={
-      <span data-sb-a11y-color-contrast-disable={props["data-sb-a11y-color-contrast-disable"]}>
+      <span
+        data-sb-a11y-color-contrast-disable={
+          props["data-sb-a11y-color-contrast-disable"]
+        }
+      >
         {labelText}{" "}
         <a
           href="/"
-          data-sb-a11y-color-contrast-disable={props["data-sb-a11y-color-contrast-disable"]}
+          data-sb-a11y-color-contrast-disable={
+            props["data-sb-a11y-color-contrast-disable"]
+          }
         >
           a
         </a>
@@ -53,11 +69,17 @@ const BlockControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
     <Label
       {...props}
       labelText={
-        <span data-sb-a11y-color-contrast-disable={props["data-sb-a11y-color-contrast-disable"]}>
+        <span
+          data-sb-a11y-color-contrast-disable={
+            props["data-sb-a11y-color-contrast-disable"]
+          }
+        >
           {labelText}{" "}
           <a
             href="/"
-            data-sb-a11y-color-contrast-disable={props["data-sb-a11y-color-contrast-disable"]}
+            data-sb-a11y-color-contrast-disable={
+              props["data-sb-a11y-color-contrast-disable"]
+            }
           >
             anchor
           </a>
@@ -72,7 +94,12 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
-        headings={["Default", "Default (disabled)", "Prominent", "Prominent (disabled)"]}
+        headings={[
+          "Default",
+          "Default (disabled)",
+          "Prominent",
+          "Prominent (disabled)",
+        ]}
         hasVerticalHeadings
       />
       <StickerSheet.Body>
@@ -84,7 +111,11 @@ const StickerSheetTemplate: StickerSheetStory = {
             disabled
             data-sb-a11y-color-contrast-disable
           />
-          <DefaultLabelWrapper reversed={isReversed} labelText="Label" variant="prominent" />
+          <DefaultLabelWrapper
+            reversed={isReversed}
+            labelText="Label"
+            variant="prominent"
+          />
           <DefaultLabelWrapper
             reversed={isReversed}
             labelText="Label"
@@ -98,7 +129,11 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         {InlineLabelTypes.map((type) => (
           <StickerSheet.Row key={type} rowTitle={type}>
-            <InlineControl reversed={isReversed} labelText={type} labelType={type} />
+            <InlineControl
+              reversed={isReversed}
+              labelText={type}
+              labelType={type}
+            />
             <InlineControl
               reversed={isReversed}
               labelText={type}
@@ -127,7 +162,11 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         {BlockLabelTypes.map((type) => (
           <StickerSheet.Row key={type} rowTitle={type}>
-            <BlockControl reversed={isReversed} labelText={type} labelType={type} />
+            <BlockControl
+              reversed={isReversed}
+              labelText={type}
+              labelType={type}
+            />
             <BlockControl
               reversed={isReversed}
               labelText={type}

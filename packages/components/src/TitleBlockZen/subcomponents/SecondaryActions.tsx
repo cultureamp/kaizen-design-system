@@ -100,7 +100,10 @@ export const SecondaryActions = ({
       })
     : []
 
-  const overflowMenu = renderSecondaryOverflowMenu(secondaryOverflowMenuItems, reversed)
+  const overflowMenu = renderSecondaryOverflowMenu(
+    secondaryOverflowMenuItems,
+    reversed,
+  )
 
   const toolbarItems = [
     ...secondaryActionsAsToolbarItems,
@@ -116,7 +119,11 @@ export const SecondaryActions = ({
 
   return (
     <div className={styles.secondaryActionsContainer}>
-      <Toolbar items={toolbarItems} noGap automationId="title-block-secondary-actions-toolbar" />
+      <Toolbar
+        items={toolbarItems}
+        noGap
+        automationId="title-block-secondary-actions-toolbar"
+      />
     </div>
   )
 }

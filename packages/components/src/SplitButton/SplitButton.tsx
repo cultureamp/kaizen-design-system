@@ -4,7 +4,10 @@ import { Menu } from "~components/__actions__/v2"
 import { DataAttributes } from "~components/types/DataAttributes"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { ActionButton, ActionButtonProps } from "./subcomponents/ActionButton"
-import { DropdownButton, DropdownButtonProps } from "./subcomponents/DropdownButton"
+import {
+  DropdownButton,
+  DropdownButtonProps,
+} from "./subcomponents/DropdownButton"
 import styles from "./SplitButton.module.scss"
 
 export type SplitButtonProps = {
@@ -55,13 +58,25 @@ export const SplitButton = ({
   classNameOverride,
   ...restProps
 }: SplitButtonProps): JSX.Element => (
-  <div dir={dir} className={classnames(styles.splitButton, classNameOverride)} {...restProps}>
-    <ActionButton disabled={disabled} isReversed={isReversed} {...actionButtonProps} />
+  <div
+    dir={dir}
+    className={classnames(styles.splitButton, classNameOverride)}
+    {...restProps}
+  >
+    <ActionButton
+      disabled={disabled}
+      isReversed={isReversed}
+      {...actionButtonProps}
+    />
     <Menu
       align={dir === "rtl" ? "left" : "right"}
       dropdownWidth="contain"
       button={
-        <DropdownButton disabled={disabled} isReversed={isReversed} {...dropdownButtonProps} />
+        <DropdownButton
+          disabled={disabled}
+          isReversed={isReversed}
+          {...dropdownButtonProps}
+        />
       }
       menuVisible={isDropdownInitOpen}
     >

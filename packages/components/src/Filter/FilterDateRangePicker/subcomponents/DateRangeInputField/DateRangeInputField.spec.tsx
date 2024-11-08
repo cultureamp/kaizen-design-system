@@ -3,11 +3,16 @@ import { screen, waitFor, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { enAU } from "date-fns/locale"
 import { vi } from "vitest"
-import { DateRangeInputField, DateRangeInputFieldProps } from "./DateRangeInputField"
+import {
+  DateRangeInputField,
+  DateRangeInputFieldProps,
+} from "./DateRangeInputField"
 
 const user = userEvent.setup()
 
-const DateRangeInputFieldWrapper = (props: Partial<DateRangeInputFieldProps>): JSX.Element => (
+const DateRangeInputFieldWrapper = (
+  props: Partial<DateRangeInputFieldProps>,
+): JSX.Element => (
   <DateRangeInputField
     id="test__date-range-input-field"
     legend="Dates"
@@ -41,7 +46,9 @@ describe("<DateRangeInputField />", () => {
     const inputStart = screen.getByRole("textbox", { name: "Date from" })
     const inputEnd = screen.getByRole("textbox", { name: "Date to" })
     await waitFor(() => {
-      expect(inputStart).toHaveAccessibleDescription("Input format : dd/mm/yyyy")
+      expect(inputStart).toHaveAccessibleDescription(
+        "Input format : dd/mm/yyyy",
+      )
       expect(inputEnd).toHaveAccessibleDescription("Input format : dd/mm/yyyy")
     })
   })
@@ -89,7 +96,10 @@ describe("<DateRangeInputField />", () => {
         const ref = useRef({ inputStartDateRef, inputEndDateRef })
 
         const handleClick = (): void =>
-          onButtonClick(inputStartDateRef.current?.id, inputEndDateRef.current?.id)
+          onButtonClick(
+            inputStartDateRef.current?.id,
+            inputEndDateRef.current?.id,
+          )
 
         return (
           <>
@@ -111,7 +121,10 @@ describe("<DateRangeInputField />", () => {
       render(<Wrapper />)
 
       await user.click(screen.getByText("Click me"))
-      expect(onButtonClick).toHaveBeenCalledWith("test__id--from", "test__id--to")
+      expect(onButtonClick).toHaveBeenCalledWith(
+        "test__id--from",
+        "test__id--to",
+      )
     })
   })
 })

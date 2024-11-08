@@ -9,7 +9,11 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsInDir(targetDir, transformConfirmationModalMoodsToVariant, "ConfirmationModal")
+  transformComponentsInDir(
+    targetDir,
+    transformConfirmationModalMoodsToVariant,
+    "ConfirmationModal",
+  )
 }
 
 run()

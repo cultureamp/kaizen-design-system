@@ -13,17 +13,23 @@ const dateWithoutYearFormatOptions: Intl.DateTimeFormatOptions = {
 
 export const formatDateRangeValue = (dateRange: DateRange): string => {
   if (dateRange.to) {
-    const isSameYear = dateRange.from?.getFullYear() === dateRange?.to?.getFullYear()
+    const isSameYear =
+      dateRange.from?.getFullYear() === dateRange?.to?.getFullYear()
 
     const from = isSameYear
-      ? dateRange.from?.toLocaleDateString("en-US", dateWithoutYearFormatOptions)
+      ? dateRange.from?.toLocaleDateString(
+          "en-US",
+          dateWithoutYearFormatOptions,
+        )
       : dateRange.from?.toLocaleDateString("en-US", dateFormatOptions)
 
     const to = dateRange.to.toLocaleDateString("en-US", dateFormatOptions)
 
     return `${from} – ${to}`
   } else {
-    const from = dateRange.from ? dateRange.from.toLocaleDateString("en-US", dateFormatOptions) : ""
+    const from = dateRange.from
+      ? dateRange.from.toLocaleDateString("en-US", dateFormatOptions)
+      : ""
 
     return from
   }

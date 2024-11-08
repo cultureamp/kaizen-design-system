@@ -11,7 +11,11 @@ export type ModalHeaderProps = {
   children: React.ReactNode
 }
 
-export const ModalHeader = ({ reversed, onDismiss, children }: ModalHeaderProps): JSX.Element => (
+export const ModalHeader = ({
+  reversed,
+  onDismiss,
+  children,
+}: ModalHeaderProps): JSX.Element => (
   <ModalBody>
     <div className={styles.dismissButton}>
       <IconButton

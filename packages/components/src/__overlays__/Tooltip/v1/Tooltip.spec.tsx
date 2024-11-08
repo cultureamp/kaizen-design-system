@@ -18,7 +18,9 @@ describe("<Tooltip />", () => {
       )
 
       await waitFor(() => {
-        expect(screen.getByRole("button", { name: "More info" })).toHaveAccessibleDescription(
+        expect(
+          screen.getByRole("button", { name: "More info" }),
+        ).toHaveAccessibleDescription(
           "Tooltip popup description for Kaizen Button",
         )
       })
@@ -26,16 +28,20 @@ describe("<Tooltip />", () => {
 
     it("doesn't add an accessible description if the tooltip is inactive", async () => {
       render(
-        <Tooltip text="Tooltip popup description for button" display="inline" position="below">
+        <Tooltip
+          text="Tooltip popup description for button"
+          display="inline"
+          position="below"
+        >
           <Button label="More info" />
         </Tooltip>,
       )
 
       await waitFor(() => {
         expect(screen.queryByRole("tooltip")).toBe(null)
-        expect(screen.getByRole("button", { name: "More info" })).not.toHaveAttribute(
-          "aria-describedby",
-        )
+        expect(
+          screen.getByRole("button", { name: "More info" }),
+        ).not.toHaveAttribute("aria-describedby")
       })
     })
 
@@ -55,7 +61,9 @@ describe("<Tooltip />", () => {
         </Tooltip>,
       )
       await waitFor(() => {
-        expect(screen.getByText("Non semantic element")).not.toHaveAttribute("aria-describedby")
+        expect(screen.getByText("Non semantic element")).not.toHaveAttribute(
+          "aria-describedby",
+        )
         expect(warn).toHaveBeenCalledWith(
           "<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info. To ensure accessibility, Tooltip should be wrapping a semantic and focusable element directly.",
         )

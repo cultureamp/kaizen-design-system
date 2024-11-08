@@ -32,7 +32,8 @@
     pointer-events: none;
     position: absolute;
     background: transparent;
-    border-radius: 2px 2px $border-focus-ring-border-radius $border-focus-ring-border-radius;
+    border-radius: 2px 2px $border-focus-ring-border-radius
+      $border-focus-ring-border-radius;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $color-blue-500;
@@ -100,7 +101,8 @@
 @for $i from 1 through 20 {
   .editor.rows#{$i} > :global(.ProseMirror) {
     min-height: calc(
-      ((#{$typography-paragraph-body-line-height} + #{$spacing-16}) * #{$i}) - #{$spacing-16}
+      ((#{$typography-paragraph-body-line-height} + #{$spacing-16}) * #{$i}) -
+        #{$spacing-16}
     );
   }
 }

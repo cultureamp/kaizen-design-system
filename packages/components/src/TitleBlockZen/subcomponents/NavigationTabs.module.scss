@@ -80,7 +80,8 @@
       @include title-block-medium-and-small {
         top: auto;
         bottom: 0;
-        border-radius: $border-solid-border-radius $border-solid-border-radius 0 0;
+        border-radius: $border-solid-border-radius $border-solid-border-radius 0
+          0;
       }
     }
   }
@@ -99,13 +100,15 @@
       position: absolute;
       background: transparent;
       border-color: $color-blue-200;
-      border-radius: 0 0 $border-focus-ring-border-radius $border-focus-ring-border-radius;
+      border-radius: 0 0 $border-focus-ring-border-radius
+        $border-focus-ring-border-radius;
       border-width: $border-focus-ring-border-width;
       border-style: $border-focus-ring-border-style;
       inset: 0 $focus-ring-offset $active-tab-marker-height;
 
       @include title-block-medium-and-small {
-        border-radius: $border-focus-ring-border-radius $border-focus-ring-border-radius 0 0;
+        border-radius: $border-focus-ring-border-radius
+          $border-focus-ring-border-radius 0 0;
         inset: $active-tab-marker-height $focus-ring-offset 0 $focus-ring-offset;
       }
     }
@@ -141,7 +144,8 @@
       @include title-block-medium-and-small {
         top: auto;
         bottom: 0;
-        border-radius: $border-solid-border-radius $border-solid-border-radius 0 0;
+        border-radius: $border-solid-border-radius $border-solid-border-radius 0
+          0;
       }
     }
   }

@@ -6,12 +6,13 @@ import { utilityDescription } from "~tailwind/_docs/utils/utilityDescription"
 import { kaizenTailwindTheme } from "~tailwind/tailwind-presets"
 
 const prefix = "rounded-"
-const classEntries: { utilityClassName: string; cssProperty: string }[] = Object.entries(
-  kaizenTailwindTheme.borderRadius || [],
-).map(([suffix, cssProperty]) => ({
-  utilityClassName: `${prefix}${suffix}`,
-  cssProperty,
-}))
+const classEntries: { utilityClassName: string; cssProperty: string }[] =
+  Object.entries(kaizenTailwindTheme.borderRadius || []).map(
+    ([suffix, cssProperty]) => ({
+      utilityClassName: `${prefix}${suffix}`,
+      cssProperty,
+    }),
+  )
 
 export default {
   title: "Guides/Tailwind/Utility Class References/Borders/Border Radius",
@@ -27,7 +28,9 @@ export default {
   },
 } satisfies Meta
 
-export const BorderRadius: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+export const BorderRadius: StoryFn<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
   <TailwindStoryTemplate
     compiledCssPropertyName="border-radius"
     classKeyValues={classEntries}

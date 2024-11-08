@@ -25,13 +25,17 @@ const transformInput = (sourceFile: ts.SourceFile, alias?: string): string => {
 describe("transformCaMonogramIconToBrand()", () => {
   it("replaces CaMonogramIcon with Brand variant enso and adds size", () => {
     const inputAst = parseJsx("<CaMonogramIcon />")
-    const outputAst = parseJsx('<Brand variant="enso" style={{ width: "20px" }} />')
+    const outputAst = parseJsx(
+      '<Brand variant="enso" style={{ width: "20px" }} />',
+    )
     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
   })
 
   it("uses alias if it is defined", () => {
     const inputAst = parseJsx("<CaMonogramIcon />")
-    const outputAst = parseJsx('<KzBrand variant="enso" style={{ width: "20px" }} />')
+    const outputAst = parseJsx(
+      '<KzBrand variant="enso" style={{ width: "20px" }} />',
+    )
     expect(transformInput(inputAst, "KzBrand")).toEqual(printAst(outputAst))
   })
 

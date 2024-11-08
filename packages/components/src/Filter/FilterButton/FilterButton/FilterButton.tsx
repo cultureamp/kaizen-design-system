@@ -3,7 +3,10 @@ import classnames from "classnames"
 import { Icon } from "~components/__future__/Icon"
 import { isRefObject } from "~components/utils/isRefObject"
 import { FilterTriggerRef } from "../../Filter/types"
-import { FilterButtonBase, FilterButtonBaseProps } from "../subcomponents/FilterButtonBase"
+import {
+  FilterButtonBase,
+  FilterButtonBaseProps,
+} from "../subcomponents/FilterButtonBase"
 import styles from "./FilterButton.module.css"
 
 export type FilterButtonProps = {
@@ -13,7 +16,10 @@ export type FilterButtonProps = {
 } & Omit<FilterButtonBaseProps, "children">
 
 export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
-  ({ label, selectedValue, isOpen = false, classNameOverride, ...restProps }, ref) => {
+  (
+    { label, selectedValue, isOpen = false, classNameOverride, ...restProps },
+    ref,
+  ) => {
     const customRefObject = isRefObject(ref) ? ref.current : null
     const triggerRef = customRefObject?.triggerRef
     const selectedValuesLabel = selectedValue
@@ -39,7 +45,10 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
             label
           )}
         </span>
-        <Icon name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"} isPresentational />
+        <Icon
+          name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+          isPresentational
+        />
       </FilterButtonBase>
     )
   },

@@ -81,7 +81,10 @@ export const useDateInputHandlers = ({
   const handleKeyDown: DateInputProps["onKeyDown"] = (e) => {
     if (e.key === "Enter") {
       e.preventDefault()
-      const date = parseDateFromNumeralFormatValue(e.currentTarget.value, locale)
+      const date = parseDateFromNumeralFormatValue(
+        e.currentTarget.value,
+        locale,
+      )
       onDateChange(date)
       onDateSubmit?.(date)
     }

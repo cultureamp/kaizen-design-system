@@ -3,7 +3,13 @@ import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./LoadingGraphic.module.scss"
 
-export type LoadingGraphicSize = "small" | "medium" | "large" | "xlarge" | "xxlarge" | "scene"
+export type LoadingGraphicSize =
+  | "small"
+  | "medium"
+  | "large"
+  | "xlarge"
+  | "xxlarge"
+  | "scene"
 
 const loadingGraphicSizeMap = new Map<LoadingGraphicSize, number>([
   ["small", 1.25],

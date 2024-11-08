@@ -1,6 +1,9 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Brand } from "../index"
 
 export default {
@@ -16,10 +19,18 @@ const StickerSheetTemplate: StickerSheetStory = {
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Logo Horizontal">
-          <Brand alt="Culture Amp" variant="logo-horizontal" reversed={isReversed} />
+          <Brand
+            alt="Culture Amp"
+            variant="logo-horizontal"
+            reversed={isReversed}
+          />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Logo Vertical">
-          <Brand alt="Culture Amp" variant="logo-vertical" reversed={isReversed} />
+          <Brand
+            alt="Culture Amp"
+            variant="logo-vertical"
+            reversed={isReversed}
+          />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Enso">
           <Brand alt="Culture Amp" variant="enso" reversed={isReversed} />

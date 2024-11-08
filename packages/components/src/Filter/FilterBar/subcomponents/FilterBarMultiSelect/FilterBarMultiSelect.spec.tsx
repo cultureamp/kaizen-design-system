@@ -9,8 +9,14 @@ import {
   FiltersValues,
   useFilterBarContext,
 } from "~components/Filter/FilterBar"
-import { FilterMultiSelect, ItemType } from "~components/Filter/FilterMultiSelect"
-import { FilterBarMultiSelect, FilterBarMultiSelectProps } from "./FilterBarMultiSelect"
+import {
+  FilterMultiSelect,
+  ItemType,
+} from "~components/Filter/FilterMultiSelect"
+import {
+  FilterBarMultiSelect,
+  FilterBarMultiSelectProps,
+} from "./FilterBarMultiSelect"
 
 const user = userEvent.setup()
 
@@ -22,7 +28,9 @@ const SelectContents = (): JSX.Element => (
   <>
     <FilterMultiSelect.ListBox>
       {({ allItems }): JSX.Element | JSX.Element[] =>
-        allItems.map((item) => <FilterMultiSelect.Option key={item.key} item={item} />)
+        allItems.map((item) => (
+          <FilterMultiSelect.Option key={item.key} item={item} />
+        ))
       }
     </FilterMultiSelect.ListBox>
     <FilterMultiSelect.MenuFooter>
@@ -96,7 +104,9 @@ describe("<FilterBarMultiSelect />", () => {
       await waitFor(() => {
         expect(screen.getByRole("button", { name: "Toppings" })).toBeVisible()
       })
-      expect(queryByRole("button", { name: "Remove filter - Toppings" })).not.toBeInTheDocument()
+      expect(
+        queryByRole("button", { name: "Remove filter - Toppings" }),
+      ).not.toBeInTheDocument()
     })
 
     it("shows the remove button when isRemovable is true", async () => {
@@ -107,7 +117,9 @@ describe("<FilterBarMultiSelect />", () => {
         />,
       )
       await waitFor(() => {
-        expect(getByRole("button", { name: "Remove filter - Toppings" })).toBeVisible()
+        expect(
+          getByRole("button", { name: "Remove filter - Toppings" }),
+        ).toBeVisible()
       })
     })
 
@@ -155,7 +167,9 @@ describe("<FilterBarMultiSelect />", () => {
 
   it("shows a selected value when provided", async () => {
     const { getByRole } = render(
-      <FilterBarMultiSelectWrapper defaultValues={{ toppings: ["pearls", "fruit-jelly"] }} />,
+      <FilterBarMultiSelectWrapper
+        defaultValues={{ toppings: ["pearls", "fruit-jelly"] }}
+      />,
     )
     await waitFor(() => {
       const triggerButton = getByRole("button", {
@@ -181,13 +195,17 @@ describe("<FilterBarMultiSelect />", () => {
 
     await user.click(getByRole("option", { name: "Fruit Jelly" }))
     await waitFor(() => {
-      expect(getByRole("button", { name: "Toppings : Pearls, Fruit Jelly" })).toBeInTheDocument()
+      expect(
+        getByRole("button", { name: "Toppings : Pearls, Fruit Jelly" }),
+      ).toBeInTheDocument()
     })
   })
 
   it("allows calling additional functions on selection change", async () => {
     const onChange = vi.fn()
-    const { getByRole } = render(<FilterBarMultiSelectWrapper onSelectionChange={onChange} />)
+    const { getByRole } = render(
+      <FilterBarMultiSelectWrapper onSelectionChange={onChange} />,
+    )
     const triggerButton = getByRole("button", { name: "Toppings" })
 
     await user.click(triggerButton)
@@ -218,11 +236,16 @@ describe("<FilterBarMultiSelect />", () => {
 
       const [allItems, setAllItems] = useState<ItemType[]>([])
 
-      const { getFilterState } = useFilterBarContext<ValuesDependent["flavour"], ValuesDependent>()
+      const { getFilterState } = useFilterBarContext<
+        ValuesDependent["flavour"],
+        ValuesDependent
+      >()
       const toppingsFilter = getFilterState("toppings")
 
       useEffect(() => {
-        setAllItems(data.filter(({ topping }) => toppingsFilter.value?.includes(topping)))
+        setAllItems(
+          data.filter(({ topping }) => toppingsFilter.value?.includes(topping)),
+        )
         // `data` does not change
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [toppingsFilter.value])

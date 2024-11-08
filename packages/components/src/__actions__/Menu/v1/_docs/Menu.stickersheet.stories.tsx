@@ -2,7 +2,10 @@ import React from "react"
 import { Meta } from "@storybook/react"
 import { Button } from "~components/__actions__/v2"
 import { Icon } from "~components/__future__/Icon"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Menu } from "../index"
 import { MenuContentExample } from "./MenuContentExample"
 

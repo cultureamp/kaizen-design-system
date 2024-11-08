@@ -6,7 +6,9 @@ import { ErrorPage } from "./ErrorPage"
 describe("<ErrorPage />", () => {
   beforeAll(() => {
     window.HTMLMediaElement.prototype.load = vi.fn()
-    window.HTMLMediaElement.prototype.play = vi.fn().mockResolvedValue(undefined)
+    window.HTMLMediaElement.prototype.play = vi
+      .fn()
+      .mockResolvedValue(undefined)
     window.HTMLMediaElement.prototype.pause = vi.fn()
     window.matchMedia = vi.fn().mockImplementation(() => ({
       media: "",
@@ -24,7 +26,9 @@ describe("<ErrorPage />", () => {
     await waitFor(() => {
       expect(screen.getByText("Problem loading page")).toBeVisible()
       expect(
-        screen.getByText("Problem loading page right now. Try again or head home."),
+        screen.getByText(
+          "Problem loading page right now. Try again or head home.",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 400")).toBeVisible()
     })
@@ -85,7 +89,9 @@ describe("<ErrorPage />", () => {
   it("shows the correct content for error 500", async () => {
     render(<ErrorPage code="500" />)
     await waitFor(() => {
-      expect(screen.getByText("Something's gone wrong on our side")).toBeVisible()
+      expect(
+        screen.getByText("Something's gone wrong on our side"),
+      ).toBeVisible()
       expect(
         screen.getByText(
           "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home",
@@ -100,7 +106,9 @@ describe("<ErrorPage />", () => {
     await waitFor(() => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(
-        screen.getByText("Sorry about this. The best thing to do is go back and try again."),
+        screen.getByText(
+          "Sorry about this. The best thing to do is go back and try again.",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 502")).toBeVisible()
     })
@@ -111,7 +119,9 @@ describe("<ErrorPage />", () => {
     await waitFor(() => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(
-        screen.getByText("Sorry about this. The best thing to do is go back and try again."),
+        screen.getByText(
+          "Sorry about this. The best thing to do is go back and try again.",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 503")).toBeVisible()
     })
@@ -122,7 +132,9 @@ describe("<ErrorPage />", () => {
     await waitFor(() => {
       expect(screen.getByText("You can't view this page")).toBeVisible()
       expect(
-        screen.getByText("Sorry about this. The best thing to do is go back and try again."),
+        screen.getByText(
+          "Sorry about this. The best thing to do is go back and try again.",
+        ),
       ).toBeVisible()
       expect(screen.getByText("Error code 504")).toBeVisible()
     })

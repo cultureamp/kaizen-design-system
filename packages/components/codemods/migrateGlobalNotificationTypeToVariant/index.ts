@@ -9,7 +9,11 @@ const migrateGlobalNotificationTypeToVariant = (): void => {
     process.exit(1)
   }
 
-  transformComponentsInDir(targetDir, transformNotificationTypeToVariant, "GlobalNotification")
+  transformComponentsInDir(
+    targetDir,
+    transformNotificationTypeToVariant,
+    "GlobalNotification",
+  )
 }
 
 migrateGlobalNotificationTypeToVariant()

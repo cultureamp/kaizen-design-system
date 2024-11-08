@@ -5,4 +5,6 @@ export const getInactiveFilters = <ValuesMap extends FiltersValues>({
   filters,
   activeFilterIds,
 }: FilterBarState<ValuesMap>): FilterAttributes<ValuesMap>[] =>
-  Object.values(filters).filter(({ id, isUsable }) => isUsable && !activeFilterIds.has(id))
+  Object.values(filters).filter(
+    ({ id, isUsable }) => isUsable && !activeFilterIds.has(id),
+  )

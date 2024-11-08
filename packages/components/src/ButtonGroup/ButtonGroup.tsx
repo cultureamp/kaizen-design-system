@@ -8,7 +8,9 @@ import { Tooltip, TooltipProps } from "~components/__overlays__/Tooltip/v1"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import styles from "./ButtonGroup.module.scss"
 
-const isFilterButton = (node: React.ReactNode): node is React.ReactElement<FilterButtonBaseProps> =>
+const isFilterButton = (
+  node: React.ReactNode,
+): node is React.ReactElement<FilterButtonBaseProps> =>
   React.isValidElement(node) && node.type === FilterButtonBase
 
 export type ButtonGroupProps = {
@@ -48,7 +50,10 @@ export const ButtonGroup = ({
           if (isFilterButton(button)) {
             return React.cloneElement(child, {
               children: React.cloneElement(button, {
-                classNameOverride: classnames(button.props.classNameOverride, buttonClassNames),
+                classNameOverride: classnames(
+                  button.props.classNameOverride,
+                  buttonClassNames,
+                ),
               }),
             })
           }

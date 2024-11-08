@@ -1,4 +1,10 @@
-import React, { HTMLAttributes, useEffect, useId, useRef, useState } from "react"
+import React, {
+  HTMLAttributes,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from "react"
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "~components/types/OverrideClassName"
@@ -50,7 +56,10 @@ export const Filter = ({
   }, [filterButtonRef, onMount])
 
   return (
-    <div className={classnames(styles.filter, classNameOverride)} {...restProps}>
+    <div
+      className={classnames(styles.filter, classNameOverride)}
+      {...restProps}
+    >
       {React.cloneElement(trigger, {
         ref: filterButtonRef,
       })}
@@ -61,7 +70,9 @@ export const Filter = ({
           onEscapeKey={(): void => setIsOpen(false)}
         >
           <FilterPopover
-            referenceElement={filterButtonRef.current?.triggerRef?.current ?? null}
+            referenceElement={
+              filterButtonRef.current?.triggerRef?.current ?? null
+            }
             aria-labelledby={trigger.props.id}
           >
             {children}

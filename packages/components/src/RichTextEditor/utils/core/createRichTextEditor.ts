@@ -42,7 +42,9 @@ export const createRichTextEditor = ({
 
   // Allow the dispatcher to handle either a Command or a Transaction so we can
   // change the state more ergonomically upstream
-  const dispatchCommandOrTransaction = (commandOrTransaction: CommandOrTransaction): void => {
+  const dispatchCommandOrTransaction = (
+    commandOrTransaction: CommandOrTransaction,
+  ): void => {
     if (commandOrTransaction instanceof Transaction) {
       dispatch(commandOrTransaction)
     } else if (editorView) {

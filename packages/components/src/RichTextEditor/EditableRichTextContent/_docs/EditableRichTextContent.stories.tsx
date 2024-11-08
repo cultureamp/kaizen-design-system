@@ -2,7 +2,11 @@ import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 import { Button } from "~components/__actions__/v2"
-import { EditorContentArray, RichTextEditor, RichTextEditorProps } from "../../index"
+import {
+  EditorContentArray,
+  RichTextEditor,
+  RichTextEditorProps,
+} from "../../index"
 import { EditableRichTextContent } from "../index"
 import defaultContent from "./defaultContent.json"
 
@@ -27,7 +31,9 @@ type Story = StoryObj<typeof meta>
 const EditableRichTextContentTemplate: Story = {
   render: (props) => {
     const [editMode, setEditMode] = useState<boolean>(false)
-    const [readRteData, setReadRTEData] = useState<EditorContentArray>(props.content)
+    const [readRteData, setReadRTEData] = useState<EditorContentArray>(
+      props.content,
+    )
     const [editRteData, setEditRTEData] = useState<EditorContentArray>([])
 
     const handleOnChange: RichTextEditorProps["onChange"] = (editorState) =>

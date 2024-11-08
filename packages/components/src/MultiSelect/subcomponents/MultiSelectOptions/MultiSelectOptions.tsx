@@ -24,7 +24,9 @@ export const MultiSelectOptions = ({
 }: MultiSelectOptionsProps): JSX.Element => {
   const optionsCountId = `${id}--options-count`
 
-  const handleOptionChange = (optionValue: MultiSelectOption["value"]): void => {
+  const handleOptionChange = (
+    optionValue: MultiSelectOption["value"],
+  ): void => {
     const newValues = new Set(selectedValues.values())
     if (newValues.has(optionValue)) {
       newValues.delete(optionValue)
@@ -54,7 +56,9 @@ export const MultiSelectOptions = ({
             key={option.value}
             id={`${id}--${option.value}`}
             onChange={() => handleOptionChange(option.value)}
-            checkedStatus={selectedValues.has(option.value) ? "checked" : "unchecked"}
+            checkedStatus={
+              selectedValues.has(option.value) ? "checked" : "unchecked"
+            }
             option={option}
           />
         ))

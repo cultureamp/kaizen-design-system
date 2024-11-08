@@ -1,4 +1,9 @@
-import { EditorState, Selection, TextSelection, Transaction } from "prosemirror-state"
+import {
+  EditorState,
+  Selection,
+  TextSelection,
+  Transaction,
+} from "prosemirror-state"
 import { findChildrenByType } from "prosemirror-utils"
 import { vi } from "vitest"
 import { ProseMirrorModel } from "../../prosemirror"
@@ -43,7 +48,10 @@ export const simulateRangeSelection =
     const { tr } = state
 
     tr.setSelection(
-      new TextSelection(tr.doc.resolve(anchorPositionStart), tr.doc.resolve(anchorPositionEnd)),
+      new TextSelection(
+        tr.doc.resolve(anchorPositionStart),
+        tr.doc.resolve(anchorPositionEnd),
+      ),
     )
     if (dispatch) {
       dispatch(tr)
@@ -55,7 +63,9 @@ export const getStartNode = (
   state: EditorState,
 ): ReturnType<ProseMirrorModel.Node["childAfter"]> => {
   const currentSelection: Selection = state.tr.selection
-  const startNode = currentSelection.$from.parent.childAfter(currentSelection.$from.parentOffset)
+  const startNode = currentSelection.$from.parent.childAfter(
+    currentSelection.$from.parentOffset,
+  )
   return startNode
 }
 
@@ -72,7 +82,12 @@ export const simulateSelectionOfCurrentElement =
       endPos = nodeLength + 1
     }
 
-    tr.setSelection(new TextSelection(tr.doc.resolve(tr.selection.from), tr.doc.resolve(endPos)))
+    tr.setSelection(
+      new TextSelection(
+        tr.doc.resolve(tr.selection.from),
+        tr.doc.resolve(endPos),
+      ),
+    )
     if (dispatch) {
       dispatch(tr)
     }
@@ -86,7 +101,11 @@ const getNodeByText = (
   node: ProseMirrorModel.Node
   pos: number
 } => {
-  let filteredNodes = findChildrenByType(state.doc, state.schema.nodes.text, true)
+  let filteredNodes = findChildrenByType(
+    state.doc,
+    state.schema.nodes.text,
+    true,
+  )
 
   filteredNodes = filteredNodes.filter((textNode) => {
     if (textNode.node.text && textNode.node.text.indexOf(selectedText) > -1) {
@@ -99,7 +118,8 @@ const getNodeByText = (
 }
 
 export const simulateSelectionByText =
-  (selectedText: string) => (state: EditorState, dispatch?: (tx: Transaction) => void) => {
+  (selectedText: string) =>
+  (state: EditorState, dispatch?: (tx: Transaction) => void) => {
     const { tr } = state
 
     const startNode = getNodeByText(state, selectedText)
@@ -107,7 +127,9 @@ export const simulateSelectionByText =
     const endPos = startPos + selectedText.length
 
     if (startPos !== undefined) {
-      tr.setSelection(new TextSelection(tr.doc.resolve(startPos), tr.doc.resolve(endPos)))
+      tr.setSelection(
+        new TextSelection(tr.doc.resolve(startPos), tr.doc.resolve(endPos)),
+      )
     }
 
     if (dispatch) {
@@ -117,7 +139,8 @@ export const simulateSelectionByText =
   }
 
 export const simulateTextInsert =
-  (text: string) => (state: EditorState, dispatch?: (tx: Transaction) => void) => {
+  (text: string) =>
+  (state: EditorState, dispatch?: (tx: Transaction) => void) => {
     if (dispatch) {
       dispatch(state.tr.insertText(text))
     }

@@ -37,7 +37,9 @@ export const mockedTransformer =
 
 describe("transformSource", () => {
   it("updates the value of Pancakes topping to jam", () => {
-    const filePath = path.resolve(path.join(__dirname, "./__fixtures__/KaioComponent.tsx"))
+    const filePath = path.resolve(
+      path.join(__dirname, "./__fixtures__/KaioComponent.tsx"),
+    )
     const fileContent = fs.readFileSync(filePath, "utf8")
     const sourceFile = parseJsx(fileContent)
 

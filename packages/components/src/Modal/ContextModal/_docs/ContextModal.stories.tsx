@@ -41,7 +41,11 @@ const ContextModalTemplate: Story = {
 
     return (
       <>
-        <button type="button" className="border border-gray-500" onClick={handleOpen}>
+        <button
+          type="button"
+          className="border border-gray-500"
+          onClick={handleOpen}
+        >
           Open Modal
         </button>
         <ContextModal
@@ -51,31 +55,39 @@ const ContextModalTemplate: Story = {
           onDismiss={handleClose}
           image={
             <AddImage
-              classNameOverride={args.layout === "landscape" ? "!w-auto h-200" : undefined}
+              classNameOverride={
+                args.layout === "landscape" ? "!w-auto h-200" : undefined
+              }
               alt="placeholder"
             />
           }
         >
           <ModalAccessibleDescription>
             <Text variant="body">
-              Intro defining what the modal is trying to explain or depict. Intro defining what the
-              modal is trying to explain or depict.
+              Intro defining what the modal is trying to explain or depict.
+              Intro defining what the modal is trying to explain or depict.
             </Text>
           </ModalAccessibleDescription>
           <ul>
             <li>
-              <Text variant="body">Key point to the benefits of the feature</Text>
+              <Text variant="body">
+                Key point to the benefits of the feature
+              </Text>
             </li>
             <li>
-              <Text variant="body">Key point to the benefits of the feature</Text>
+              <Text variant="body">
+                Key point to the benefits of the feature
+              </Text>
             </li>
             <li>
-              <Text variant="body">Key point to the benefits of the feature</Text>
+              <Text variant="body">
+                Key point to the benefits of the feature
+              </Text>
             </li>
           </ul>
           <Text variant="body">
-            More information to conclude can go here. More information to conclude can go here. More
-            information to conclude can go here.
+            More information to conclude can go here. More information to
+            conclude can go here. More information to conclude can go here.
           </Text>
         </ContextModal>
       </>

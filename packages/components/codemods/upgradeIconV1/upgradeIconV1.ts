@@ -28,8 +28,10 @@ export const upgradeIconV1 =
     if (!kaioTagNames) return rootNode
 
     const componentToAliasMap = reverseStringMap(kaioTagNames)
-    const importsToRemove = new Map() satisfies UpdateKaioImportsArgs["importsToRemove"]
-    const importsToAdd = new Map() satisfies UpdateKaioImportsArgs["importsToAdd"]
+    const importsToRemove =
+      new Map() satisfies UpdateKaioImportsArgs["importsToRemove"]
+    const importsToAdd =
+      new Map() satisfies UpdateKaioImportsArgs["importsToAdd"]
 
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
@@ -66,7 +68,10 @@ export const upgradeIconV1 =
           const newIconProps = getNewIconPropsFromOldIconName(kaioComponentName)
           if (newIconProps === undefined) {
             // eslint-disable-next-line no-console
-            console.info("SKIPPED - No new icon equivalent found for", node.tagName.getText())
+            console.info(
+              "SKIPPED - No new icon equivalent found for",
+              node.tagName.getText(),
+            )
             return node
           }
 

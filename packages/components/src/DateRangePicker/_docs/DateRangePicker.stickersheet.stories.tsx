@@ -6,8 +6,15 @@ import {
   LegacyCalendarRange,
   LegacyCalendarRangeProps,
 } from "~components/Calendar/LegacyCalendarRange"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
-import { DateRangePicker, DateRangePickerProps, formatDateRangeValue } from "../index"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
+import {
+  DateRangePicker,
+  DateRangePickerProps,
+  formatDateRangeValue,
+} from "../index"
 
 export default {
   title: "Components/Date controls/DateRangePicker",
@@ -17,7 +24,9 @@ export default {
   },
 } satisfies Meta
 
-const DateRangePickerTemplate = (props: Partial<DateRangePickerProps>): JSX.Element => {
+const DateRangePickerTemplate = (
+  props: Partial<DateRangePickerProps>,
+): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
     from: undefined,
     to: undefined,
@@ -46,7 +55,9 @@ const DateRangePickerTemplate = (props: Partial<DateRangePickerProps>): JSX.Elem
   )
 }
 
-const LegacyCalendarRangeTemplate = (props: Partial<LegacyCalendarRangeProps>): JSX.Element => {
+const LegacyCalendarRangeTemplate = (
+  props: Partial<LegacyCalendarRangeProps>,
+): JSX.Element => {
   const selectedDateRange = {
     from: undefined,
     to: undefined,
@@ -96,7 +107,10 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Row rowTitle="Date Range Calendar (Legacy)">
           <LegacyCalendarRangeTemplate selectedRange={selectedDateRange} />
           <LegacyCalendarRangeTemplate
-            disabledDays={[new Date(2022, 1, 15), { after: new Date(2022, 1, 17) }]}
+            disabledDays={[
+              new Date(2022, 1, 15),
+              { after: new Date(2022, 1, 17) },
+            ]}
           />
         </StickerSheet.Row>
       </StickerSheet>

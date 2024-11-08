@@ -3,7 +3,12 @@ import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, within, waitFor } from "@storybook/test"
 
-import { GenericModal, ModalAccessibleLabel, ModalBody, ModalHeader } from "../index"
+import {
+  GenericModal,
+  ModalAccessibleLabel,
+  ModalBody,
+  ModalHeader,
+} from "../index"
 
 const meta: Meta<typeof GenericModal> = {
   title: "Components/Modals/Generic Modal/Tests",
@@ -21,7 +26,11 @@ export const TestBase: Story = {
 
     return (
       <>
-        <button type="button" className="border border-gray-500" onClick={() => setIsOpen(true)}>
+        <button
+          type="button"
+          className="border border-gray-500"
+          onClick={() => setIsOpen(true)}
+        >
           Open Modal
         </button>
         <GenericModal
@@ -88,7 +97,8 @@ export const ModalAccessibleLabelRetainsFocus: Story = {
 export const TriggerOnAfterEnterFocus: Story = {
   ...TestBase,
   args: {
-    onAfterEnter: () => document.getElementById("modal-input-play-test")?.focus(),
+    onAfterEnter: () =>
+      document.getElementById("modal-input-play-test")?.focus(),
   },
   name: "onAfterEnter can shift focus to internal elements of the modal",
   play: async ({ canvasElement, step }) => {
@@ -106,7 +116,9 @@ export const TriggerOnAfterEnterFocus: Story = {
     })
 
     await step("Expect to be able to type without shifting focus", async () => {
-      await userEvent.keyboard("All lorem and no ipsum make dolar a dull boy...")
+      await userEvent.keyboard(
+        "All lorem and no ipsum make dolar a dull boy...",
+      )
     })
   },
 }

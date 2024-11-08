@@ -32,7 +32,9 @@ describe("<Avatar />", () => {
       })
 
       it("uses alt prop over full name when using fallback img", () => {
-        render(<Avatar fullName="Jane Doe" alt="alt override" disableInitials />)
+        render(
+          <Avatar fullName="Jane Doe" alt="alt override" disableInitials />,
+        )
         expect(screen.getByRole("img")).toHaveAccessibleName("alt override")
       })
 

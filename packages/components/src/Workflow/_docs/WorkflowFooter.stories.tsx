@@ -53,7 +53,14 @@ export const NextStepDisabled: Story = {
 export const LastStep: Story = {
   args: {
     currentStepId: "schedule-step",
-    nextAction: <Button primary disabled form="worflow-form-id-for-submit" label="Finish" />,
+    nextAction: (
+      <Button
+        primary
+        disabled
+        form="worflow-form-id-for-submit"
+        label="Finish"
+      />
+    ),
   },
 }
 

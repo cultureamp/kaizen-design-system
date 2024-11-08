@@ -43,12 +43,19 @@ export const ResourceLinks = ({
   <Unstyled>
     <ul
       {...attributes}
-      className={classNames("flex flex-wrap mt-16 mb-40 list-none m-0 p-0 gap-8", className)}
+      className={classNames(
+        "flex flex-wrap mt-16 mb-40 list-none m-0 p-0 gap-8",
+        className,
+      )}
     >
       <ResourceLink href={sourceCode} text="Source Code" />
       {figma && <ResourceLink href={figma} text="Figma" />}
-      {designGuidelines && <ResourceLink href={designGuidelines} text="Usage Guidelines" />}
-      {apiSpecification && <ResourceLink href={apiSpecification} text="API specification" />}
+      {designGuidelines && (
+        <ResourceLink href={designGuidelines} text="Usage Guidelines" />
+      )}
+      {apiSpecification && (
+        <ResourceLink href={apiSpecification} text="API specification" />
+      )}
     </ul>
   </Unstyled>
 )

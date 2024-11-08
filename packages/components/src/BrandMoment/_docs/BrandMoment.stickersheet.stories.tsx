@@ -5,7 +5,10 @@ import {
   BrandMomentError,
   BrandMomentPositiveOutro,
 } from "~components/Illustration"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { BrandMoment } from "../BrandMoment"
 import { Informative, Success, Warning } from "./BrandMoment.stories"
 

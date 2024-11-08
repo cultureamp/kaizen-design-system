@@ -4,7 +4,9 @@ import { CollectionElement } from "@react-types/shared"
 import { SelectItem, SelectOption } from "../types"
 import { isSelectOptionGroup } from "./isSelectOptionGroup"
 
-export const transformSelectItemToCollectionElement = <Option extends SelectOption>(
+export const transformSelectItemToCollectionElement = <
+  Option extends SelectOption,
+>(
   item: SelectItem<Option>,
 ): CollectionElement<SelectItem<Option>> =>
   isSelectOptionGroup<Option>(item) ? (

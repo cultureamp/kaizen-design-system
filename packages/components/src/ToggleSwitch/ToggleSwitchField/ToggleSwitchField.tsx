@@ -2,7 +2,11 @@ import React, { useId } from "react"
 import classnames from "classnames"
 import { FieldGroup } from "~components/FieldGroup"
 import { Label } from "~components/Label"
-import { ToggledStatus, ToggleSwitch, ToggleSwitchProps } from "../ToggleSwitch/ToggleSwitch"
+import {
+  ToggledStatus,
+  ToggleSwitch,
+  ToggleSwitchProps,
+} from "../ToggleSwitch/ToggleSwitch"
 import styles from "./ToggleSwitchField.module.scss"
 
 export type ToggleSwitchFieldProps = {

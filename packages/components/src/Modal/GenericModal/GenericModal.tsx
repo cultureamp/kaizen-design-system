@@ -60,7 +60,8 @@ export const GenericModal = ({
       return
     }
 
-    const labelElement: HTMLElement | null = document.getElementById(labelledByID)
+    const labelElement: HTMLElement | null =
+      document.getElementById(labelledByID)
 
     labelElement?.focus()
   }
@@ -77,7 +78,8 @@ export const GenericModal = ({
   }
 
   const preventBodyScroll = (): void => {
-    const hasScrollbar = window.innerWidth > document.documentElement.clientWidth
+    const hasScrollbar =
+      window.innerWidth > document.documentElement.clientWidth
     const scrollStyles = [styles.unscrollable]
 
     if (hasScrollbar) {
@@ -109,7 +111,10 @@ export const GenericModal = ({
   }
 
   const cleanUpAfterClose = useCallback((): void => {
-    document.documentElement.classList.remove(styles.unscrollable, styles.pseudoScrollbar)
+    document.documentElement.classList.remove(
+      styles.unscrollable,
+      styles.pseudoScrollbar,
+    )
 
     if (onEscapeKeyup) {
       document.removeEventListener("keyup", onEscapeKeyup)

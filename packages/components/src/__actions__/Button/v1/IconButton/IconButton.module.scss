@@ -7,7 +7,9 @@
   width: $button-height;
   border-color: $border-borderless-border-color;
 
-  @include enabled-pseudo-states-variant($border-color: $border-borderless-border-color);
+  @include enabled-pseudo-states-variant(
+    $border-color: $border-borderless-border-color
+  );
 
   & #{$className--content} {
     justify-content: center;
@@ -20,13 +22,17 @@
       background-color: transparent;
       color: inherit;
 
-      @include enabled-pseudo-states-variant($background-color: $color-gray-200);
+      @include enabled-pseudo-states-variant(
+        $background-color: $color-gray-200
+      );
     }
   }
 
   &.reversed {
     border-color: $border-borderless-border-color;
 
-    @include enabled-pseudo-states-variant($border-color: $border-borderless-border-color);
+    @include enabled-pseudo-states-variant(
+      $border-color: $border-borderless-border-color
+    );
   }
 }

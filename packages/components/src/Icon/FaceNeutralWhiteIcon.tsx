@@ -10,7 +10,10 @@ export const FaceNeutralWhiteIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <defs>
-        <path id={uniqueId} d="M12.8 6.8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4" />
+        <path
+          id={uniqueId}
+          d="M12.8 6.8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4"
+        />
       </defs>
       <g fill="none" fillRule="evenodd">
         <path
@@ -21,7 +24,10 @@ export const FaceNeutralWhiteIcon = (props: IconProps): JSX.Element => {
           fill="#FFF"
           d="M10 16.4A6.4 6.4 0 0 1 3.6 10c0-3.536 2.864-6.4 6.4-6.4s6.4 2.864 6.4 6.4-2.864 6.4-6.4 6.4"
         />
-        <path fill="currentColor" d="M8.4 8A1.2 1.2 0 1 0 6 8a1.2 1.2 0 0 0 2.4 0" />
+        <path
+          fill="currentColor"
+          d="M8.4 8A1.2 1.2 0 1 0 6 8a1.2 1.2 0 0 0 2.4 0"
+        />
         <use fill="currentColor" href={`#${uniqueId}`} />
         <path fill="currentColor" d="M7.6 12.8h4.8v-1.2H7.6z" />
       </g>

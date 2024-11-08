@@ -50,7 +50,10 @@ const headingVariants = [
 export const Variant: Story = {
   render: () => (
     <StickerSheet>
-      <StickerSheet.Header headings={["<LoadingHeading />", "<Heading />"]} hasVerticalHeadings />
+      <StickerSheet.Header
+        headings={["<LoadingHeading />", "<Heading />"]}
+        hasVerticalHeadings
+      />
       <StickerSheet.Body>
         {headingVariants.map((variant) => (
           <StickerSheet.Row key={variant} rowTitle={variant}>

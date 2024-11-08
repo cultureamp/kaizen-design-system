@@ -1,5 +1,10 @@
 {
   "extends": ["./tsconfig.json", "@kaizen/package-bundler/tsconfig.dist.json"],
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx", "**/*.stories.tsx"]
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.stories.tsx"
+  ]
 }

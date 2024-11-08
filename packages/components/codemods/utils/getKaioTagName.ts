@@ -9,7 +9,8 @@ const getKaioNamedImports = (
     }
   | undefined => {
   if (ts.isImportDeclaration(visitedNode)) {
-    const moduleSpecifier = (visitedNode.moduleSpecifier as ts.StringLiteral).text
+    const moduleSpecifier = (visitedNode.moduleSpecifier as ts.StringLiteral)
+      .text
     if (moduleSpecifier.includes("@kaizen/components")) {
       const namedBindings = visitedNode.importClause?.namedBindings
       if (namedBindings && ts.isNamedImports(namedBindings)) {
@@ -26,7 +27,9 @@ const getKaioNamedImports = (
 
 type ImportSpecifierNames = { tagName: string; originalName: string }
 
-const getNamesFromSpecifier = (importSpecifier: ts.ImportSpecifier): ImportSpecifierNames => {
+const getNamesFromSpecifier = (
+  importSpecifier: ts.ImportSpecifier,
+): ImportSpecifierNames => {
   const tagName = importSpecifier.name.getText()
   const originalName = importSpecifier.propertyName
     ? importSpecifier.propertyName.getText()
@@ -111,7 +114,10 @@ export const getKaioTagNamesByRegex = (
     })
 
     if (tags.size > 0) {
-      tagsByImportModuleName.set(kaioNamedImports.importModuleName, new Map(tags))
+      tagsByImportModuleName.set(
+        kaioNamedImports.importModuleName,
+        new Map(tags),
+      )
     }
 
     return ts.forEachChild(visitedNode, visitNode)

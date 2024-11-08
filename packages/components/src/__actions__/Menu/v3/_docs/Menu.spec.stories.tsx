@@ -49,17 +49,26 @@ export const KitchenSink: Story = {
             >
               Save
             </MenuItem>
-            <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>Edit</MenuItem>
+            <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>
+              Edit
+            </MenuItem>
           </Section>
           <Section>
-            <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>Move Up</MenuItem>
+            <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>
+              Move Up
+            </MenuItem>
             <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>
               Menu item with a longer label
             </MenuItem>
           </Section>
           <Section>
-            <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
-            <MenuItem icon={<Icon name="delete" isPresentational isFilled />} isDisabled>
+            <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>
+              Delete
+            </MenuItem>
+            <MenuItem
+              icon={<Icon name="delete" isPresentational isFilled />}
+              isDisabled
+            >
               Delete but disabled
             </MenuItem>
             <MenuItem>Other action</MenuItem>
@@ -112,19 +121,25 @@ export const Basic: Story = {
     await step("Arrow keys adjust focus", async () => {
       await userEvent.keyboard("[ArrowDown]")
       await waitFor(() =>
-        expect(canvas.getByRole("menuitem", { name: "Go to cultureamp.com" })).toHaveFocus(),
+        expect(
+          canvas.getByRole("menuitem", { name: "Go to cultureamp.com" }),
+        ).toHaveFocus(),
       )
     })
 
     await step("Esc closes menu", async () => {
       await userEvent.keyboard("[Escape]")
-      await waitFor(() => expect(canvas.queryByRole("menu")).not.toBeInTheDocument())
+      await waitFor(() =>
+        expect(canvas.queryByRole("menu")).not.toBeInTheDocument(),
+      )
     })
 
     await step("Menu opens on enter press", async () => {
       await userEvent.keyboard("[Enter]")
       await waitFor(() =>
-        expect(canvas.getByRole("menuitem", { name: "Trigger an alert" })).toHaveFocus(),
+        expect(
+          canvas.getByRole("menuitem", { name: "Trigger an alert" }),
+        ).toHaveFocus(),
       )
       await userEvent.keyboard("[Escape]")
     })
@@ -132,12 +147,16 @@ export const Basic: Story = {
     await step("Menu opens on arrow up/down", async () => {
       await userEvent.keyboard("[ArrowDown]")
       await waitFor(() =>
-        expect(canvas.getByRole("menuitem", { name: "Trigger an alert" })).toHaveFocus(),
+        expect(
+          canvas.getByRole("menuitem", { name: "Trigger an alert" }),
+        ).toHaveFocus(),
       )
       await userEvent.keyboard("[Escape]")
 
       await userEvent.keyboard("[ArrowUp]")
-      await waitFor(() => expect(canvas.getByRole("menuitem", { name: "Item 5" })).toHaveFocus())
+      await waitFor(() =>
+        expect(canvas.getByRole("menuitem", { name: "Item 5" })).toHaveFocus(),
+      )
     })
   },
 }

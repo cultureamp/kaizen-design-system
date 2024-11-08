@@ -5,12 +5,13 @@ import { utilityDescription } from "~tailwind/_docs/utils/utilityDescription"
 import { kaizenTailwindTheme } from "~tailwind/tailwind-presets"
 
 const prefix = "border-spacing-"
-const classEntries: { utilityClassName: string; cssProperty: string }[] = Object.entries(
-  kaizenTailwindTheme.spacing || [],
-).map(([suffix, cssProperty]) => ({
-  utilityClassName: `${prefix}${suffix}`,
-  cssProperty,
-}))
+const classEntries: { utilityClassName: string; cssProperty: string }[] =
+  Object.entries(kaizenTailwindTheme.spacing || []).map(
+    ([suffix, cssProperty]) => ({
+      utilityClassName: `${prefix}${suffix}`,
+      cssProperty,
+    }),
+  )
 
 export default {
   title: "Guides/Tailwind/Utility Class References/Borders/Border Spacing",
@@ -26,7 +27,9 @@ export default {
   },
 } satisfies Meta
 
-export const BorderSpacing: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+export const BorderSpacing: StoryFn<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
   <TailwindStoryTemplate
     compiledCssPropertyName="border-spacing"
     classKeyValues={classEntries}

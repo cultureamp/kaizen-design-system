@@ -27,7 +27,9 @@ describe("listIsActive()", () => {
     })
 
     await waitFor(() => {
-      expect(listIsActive(currentState, testSchema.nodes.bulletList, listNodes)).toBe(true)
+      expect(
+        listIsActive(currentState, testSchema.nodes.bulletList, listNodes),
+      ).toBe(true)
     })
   })
   it("will return false if the current selection is a different list Node type", async () => {
@@ -47,7 +49,9 @@ describe("listIsActive()", () => {
     })
 
     await waitFor(() => {
-      expect(listIsActive(currentState, testSchema.nodes.orderedList, listNodes)).toBe(false)
+      expect(
+        listIsActive(currentState, testSchema.nodes.orderedList, listNodes),
+      ).toBe(false)
     })
   })
 })

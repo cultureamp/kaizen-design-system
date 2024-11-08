@@ -7,7 +7,9 @@ export type MenuItemProps = {
   "href"?: string
   // Only applicable if href is supplied above
   "target"?: string
-  "onClick"?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
+  "onClick"?: (
+    e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+  ) => void
   "icon"?: JSX.Element
   "destructive"?: boolean
   "disabled"?: boolean

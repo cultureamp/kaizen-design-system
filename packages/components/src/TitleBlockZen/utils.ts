@@ -8,7 +8,9 @@ import {
 } from "./types"
 
 export const isMenuGroupNotButton = (
-  value: (TitleBlockButtonProps | TitleBlockCustomButtonProps) | TitleBlockMenuGroup,
+  value:
+    | (TitleBlockButtonProps | TitleBlockCustomButtonProps)
+    | TitleBlockMenuGroup,
 ): value is TitleBlockMenuGroup => "menuItems" in value
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]

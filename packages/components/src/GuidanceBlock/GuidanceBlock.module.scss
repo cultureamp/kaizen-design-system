@@ -15,8 +15,8 @@
 
 $bannerPadding: $spacing-lg;
 $ca-banner-fade-out: opacity $animation-duration-slow ease;
-$ca-banner-collapse-height-delayed: margin-top $animation-duration-fast $animation-duration-slow
-  ease;
+$ca-banner-collapse-height-delayed: margin-top $animation-duration-fast
+  $animation-duration-slow ease;
 $illustration-size: 155px;
 $scene-illustration-size: 300px;
 

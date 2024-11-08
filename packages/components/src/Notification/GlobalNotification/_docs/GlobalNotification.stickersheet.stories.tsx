@@ -1,7 +1,13 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
-import { GlobalNotificationProps, GlobalNotification } from "../GlobalNotification"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
+import {
+  GlobalNotificationProps,
+  GlobalNotification,
+} from "../GlobalNotification"
 
 export default {
   title: "Components/Notifications/GlobalNotification",

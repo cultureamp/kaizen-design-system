@@ -72,9 +72,13 @@ export const Disabled: Story = {
 export const Async: Story = {
   render: (args) => {
     const filterNames = (inputValue: string): typeof OPTIONS =>
-      OPTIONS.filter(({ label }) => label.toLowerCase().includes(inputValue.toLowerCase()))
+      OPTIONS.filter(({ label }) =>
+        label.toLowerCase().includes(inputValue.toLowerCase()),
+      )
 
-    const promiseOptions = (inputValue: string): Promise<{ value: string; label: string }[]> =>
+    const promiseOptions = (
+      inputValue: string,
+    ): Promise<{ value: string; label: string }[]> =>
       new Promise((resolve) => {
         setTimeout(() => {
           resolve(filterNames(inputValue))
@@ -84,7 +88,11 @@ export const Async: Story = {
     return (
       <>
         <Label id="asyncSelectLabel" labelText="Type to see options" />
-        <AsyncSelect aria-labelledby="asyncSelectLabel" loadOptions={promiseOptions} {...args} />
+        <AsyncSelect
+          aria-labelledby="asyncSelectLabel"
+          loadOptions={promiseOptions}
+          {...args}
+        />
       </>
     )
   },

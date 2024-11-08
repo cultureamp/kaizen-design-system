@@ -16,7 +16,13 @@
   @include ca-animation(pulsate());
 }
 
-@mixin ca-animation-fade($state: in, $duration: $ca-duration-slow, $delay: null, $from: 0, $to: 1) {
+@mixin ca-animation-fade(
+  $state: in,
+  $duration: $ca-duration-slow,
+  $delay: null,
+  $from: 0,
+  $to: 1
+) {
   animation-duration: $duration;
   animation-delay: $delay;
   animation-fill-mode: forwards;
@@ -29,7 +35,11 @@
   @include ca-animation(fade($from: $from, $to: $to));
 }
 
-@mixin ca-animation-slide-fade($state: in, $duration: $ca-duration-slow, $delay: null) {
+@mixin ca-animation-slide-fade(
+  $state: in,
+  $duration: $ca-duration-slow,
+  $delay: null
+) {
   $direction: up;
   $from: 0;
   $to: 1;
@@ -47,11 +57,18 @@
   animation-fill-mode: forwards;
   animation-timing-function: $timing;
 
-  @include ca-animation(fade($from: $from, $to: $to), slide($state: out, $direction: $direction));
+  @include ca-animation(
+    fade($from: $from, $to: $to),
+    slide($state: out, $direction: $direction)
+  );
   @include mui-animation(fade(in));
 }
 
-@mixin ca-animation-scale-fade($state: in, $duration: $ca-duration-slow, $delay: null) {
+@mixin ca-animation-scale-fade(
+  $state: in,
+  $duration: $ca-duration-slow,
+  $delay: null
+) {
   $from: 0;
   $to: 1;
   $timing: $ca-bounce-in;
@@ -67,5 +84,8 @@
   animation-fill-mode: forwards;
   animation-timing-function: $timing;
 
-  @include ca-animation(fade($from: $from, $to: $to), zoom($from: $from, $to: $to));
+  @include ca-animation(
+    fade($from: $from, $to: $to),
+    zoom($from: $from, $to: $to)
+  );
 }

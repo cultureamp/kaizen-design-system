@@ -18,7 +18,8 @@ export default {
   },
   safelist: [
     {
-      pattern: /(bg|border|rounded|shadow|h|w|m|p|font-family|font-weight|text|leading|list)-.*/,
+      pattern:
+        /(bg|border|rounded|shadow|h|w|m|p|font-family|font-weight|text|leading|list)-.*/,
     },
   ],
 }

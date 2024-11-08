@@ -66,7 +66,8 @@ export const StatelessMenu = ({
   renderButton,
   onClick,
 }: StatelessMenuProps): JSX.Element => {
-  const [referenceElement, setReferenceElement] = useState<HTMLSpanElement | null>(null)
+  const [referenceElement, setReferenceElement] =
+    useState<HTMLSpanElement | null>(null)
   const portalSelectorElementRef = useRef<Element | null>(null)
 
   const menuButton = renderButton({
@@ -75,7 +76,8 @@ export const StatelessMenu = ({
       e.stopPropagation()
       toggleMenuDropdown()
     },
-    "onMouseDown": (e: React.MouseEvent<Element, MouseEvent>) => e.preventDefault(),
+    "onMouseDown": (e: React.MouseEvent<Element, MouseEvent>) =>
+      e.preventDefault(),
     "aria-haspopup": true,
     "aria-expanded": isMenuVisible,
   })
@@ -89,7 +91,9 @@ export const StatelessMenu = ({
   useEffect(() => {
     if (portalSelector && !portalSelectorElementRef.current) {
       // eslint-disable-next-line no-console
-      console.warn("The portal could not be created using the selector: " + portalSelector)
+      console.warn(
+        "The portal could not be created using the selector: " + portalSelector,
+      )
     }
   }, [portalSelectorElementRef, portalSelector])
 

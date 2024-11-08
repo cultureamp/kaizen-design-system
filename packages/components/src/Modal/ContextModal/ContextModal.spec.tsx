@@ -6,7 +6,10 @@ import { mockMatchMedia } from "~components/utils/useMediaQueries.spec"
 import { ContextModal, ContextModalProps } from "./ContextModal"
 const user = userEvent.setup()
 
-const ContextModalWrapper = ({ children, ...props }: Partial<ContextModalProps>): JSX.Element => (
+const ContextModalWrapper = ({
+  children,
+  ...props
+}: Partial<ContextModalProps>): JSX.Element => (
   <ContextModal
     isOpen={true}
     title="Example modal title"

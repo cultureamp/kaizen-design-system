@@ -78,7 +78,9 @@ describe("<FilterBarSelect />", () => {
     it("does not show the remove button when isRemovable is false", async () => {
       render(<FilterBarSelectWrapper />)
       await waitFor(() => {
-        expect(screen.getByRole("button", { name: "Flavour" })).toBeInTheDocument()
+        expect(
+          screen.getByRole("button", { name: "Flavour" }),
+        ).toBeInTheDocument()
       })
       expect(
         screen.queryByRole("button", { name: "Remove filter - Flavour" }),
@@ -93,7 +95,9 @@ describe("<FilterBarSelect />", () => {
         />,
       )
       await waitFor(() => {
-        expect(screen.getByRole("button", { name: "Remove filter - Flavour" })).toBeVisible()
+        expect(
+          screen.getByRole("button", { name: "Remove filter - Flavour" }),
+        ).toBeVisible()
       })
     })
   })
@@ -117,7 +121,9 @@ describe("<FilterBarSelect />", () => {
 
   it("shows a selected value when provided", async () => {
     const { getByRole } = render(
-      <FilterBarSelectWrapper defaultValues={{ flavour: "jasmine-milk-tea" }} />,
+      <FilterBarSelectWrapper
+        defaultValues={{ flavour: "jasmine-milk-tea" }}
+      />,
     )
     await waitFor(() => {
       const triggerButton = getByRole("button", {
@@ -129,7 +135,9 @@ describe("<FilterBarSelect />", () => {
 
   it("updates the selected value in the trigger button", async () => {
     const { getByRole } = render(
-      <FilterBarSelectWrapper defaultValues={{ flavour: "jasmine-milk-tea" }} />,
+      <FilterBarSelectWrapper
+        defaultValues={{ flavour: "jasmine-milk-tea" }}
+      />,
     )
     const triggerButton = getByRole("button", {
       name: "Flavour : Jasmine Milk Tea",
@@ -143,13 +151,17 @@ describe("<FilterBarSelect />", () => {
 
     await user.click(getByRole("option", { name: "Honey Milk Tea" }))
     await waitFor(() => {
-      expect(getByRole("button", { name: "Flavour : Honey Milk Tea" })).toBeInTheDocument()
+      expect(
+        getByRole("button", { name: "Flavour : Honey Milk Tea" }),
+      ).toBeInTheDocument()
     })
   })
 
   it("allows calling additional functions on selection change", async () => {
     const onChange = vi.fn()
-    const { getByRole } = render(<FilterBarSelectWrapper onSelectionChange={onChange} />)
+    const { getByRole } = render(
+      <FilterBarSelectWrapper onSelectionChange={onChange} />,
+    )
     const triggerButton = getByRole("button", { name: "Flavour" })
 
     await user.click(triggerButton)
@@ -185,7 +197,10 @@ describe("<FilterBarSelect />", () => {
 
       const [items, setItems] = useState<Item[]>([])
 
-      const { getFilterState } = useFilterBarContext<ValuesDependent["topping"], ValuesDependent>()
+      const { getFilterState } = useFilterBarContext<
+        ValuesDependent["topping"],
+        ValuesDependent
+      >()
       const flavourFilter = getFilterState("flavour")
 
       useEffect(() => {

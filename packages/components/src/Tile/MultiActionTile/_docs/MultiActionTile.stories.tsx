@@ -35,7 +35,11 @@ export const Variants: Story = {
   render: (args) => (
     <>
       <MultiActionTile {...args} variant="default" title="default" />
-      <MultiActionTile {...args} variant="expert-advice" title="expert-advice" />
+      <MultiActionTile
+        {...args}
+        variant="expert-advice"
+        title="expert-advice"
+      />
     </>
   ),
   decorators: [

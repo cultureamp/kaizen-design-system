@@ -1,6 +1,9 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { StickerSheet, StickerSheetStory } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { GenericTile, GenericTileProps } from "../index"
 
 export default {
@@ -20,7 +23,10 @@ const StickerSheetTemplate: StickerSheetStory = {
       footer: <>Footer</>,
     } satisfies GenericTileProps
 
-    const variants = ["default", "expert-advice"] satisfies GenericTileProps["variant"][]
+    const variants = [
+      "default",
+      "expert-advice",
+    ] satisfies GenericTileProps["variant"][]
 
     const moods = [
       "positive",

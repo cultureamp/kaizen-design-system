@@ -13,7 +13,8 @@ $container-border-width: var(--border-width-1);
 .container {
   background-color: $color-white;
   box-shadow: $shadow-small-box-shadow;
-  border: $container-border-width var(--border-solid-border-style) var(--color-gray-500);
+  border: $container-border-width var(--border-solid-border-style)
+    var(--color-gray-500);
   border-radius: $border-borderless-border-radius;
 }
 

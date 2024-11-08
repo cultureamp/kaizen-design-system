@@ -9,7 +9,10 @@ export type KaizenProviderProps = {
   locale?: string
 }
 
-export const KaizenProvider = ({ children, locale = "en" }: KaizenProviderProps): JSX.Element => {
+export const KaizenProvider = ({
+  children,
+  locale = "en",
+}: KaizenProviderProps): JSX.Element => {
   const [documentIsAvailable, setDocumentIsAvailable] = useState<boolean>(false)
   const [notificationsList, setNotificationsList] = useState<JSX.Element>()
 

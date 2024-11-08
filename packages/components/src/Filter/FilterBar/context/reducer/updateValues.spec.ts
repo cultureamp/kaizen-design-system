@@ -42,7 +42,9 @@ describe("filterBarStateReducer: update_values", () => {
         values: { sugarLevel: 50 },
       })
 
-      expect(newState.activeFilterIds).toEqual(new Set(["flavour", "sugarLevel"]))
+      expect(newState.activeFilterIds).toEqual(
+        new Set(["flavour", "sugarLevel"]),
+      )
       expect(newState.values).toEqual({ sugarLevel: 50 })
       expect(newState.hasUpdatedValues).toBe(true)
     })
@@ -99,7 +101,9 @@ describe("filterBarStateReducer: update_values", () => {
         })
 
         expect(newState.filters.sugarLevel.isUsable).toBe(true)
-        expect(newState.activeFilterIds).toEqual(new Set(["flavour", "sugarLevel"]))
+        expect(newState.activeFilterIds).toEqual(
+          new Set(["flavour", "sugarLevel"]),
+        )
         expect(newState.values).toEqual({ flavour: "jasmine", sugarLevel: 50 })
         expect(newState.hasUpdatedValues).toBe(true)
       })
@@ -153,7 +157,9 @@ describe("filterBarStateReducer: update_values", () => {
         })
 
         expect(newState.filters.sugarLevel.isUsable).toBe(true)
-        expect(newState.activeFilterIds).toEqual(new Set(["flavour", "sugarLevel"]))
+        expect(newState.activeFilterIds).toEqual(
+          new Set(["flavour", "sugarLevel"]),
+        )
         expect(newState.values).toEqual({ flavour: "jasmine", sugarLevel: 50 })
         expect(newState.hasUpdatedValues).toBe(true)
       })

@@ -13,7 +13,9 @@ const propsToStyleMap = new Map<string, string>([
   ["width", "width"],
 ])
 
-const transformPropRole = (oldValue: string): ts.JsxAttribute | null | undefined => {
+const transformPropRole = (
+  oldValue: string,
+): ts.JsxAttribute | null | undefined => {
   switch (oldValue) {
     case "presentation":
       return createProp("isPresentational")
@@ -63,7 +65,9 @@ export const transformIcon = (
 ): ts.Node => {
   const styles = new Map<string, ts.JsxAttributeValue>()
 
-  const newAttributes = node.attributes.properties.reduce<ts.JsxAttributeLike[]>((acc, attr) => {
+  const newAttributes = node.attributes.properties.reduce<
+    ts.JsxAttributeLike[]
+  >((acc, attr) => {
     if (ts.isJsxAttribute(attr)) {
       const propName = attr.name.getText()
 

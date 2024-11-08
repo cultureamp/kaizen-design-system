@@ -6,12 +6,13 @@ import { utilityDescription } from "~tailwind/_docs/utils/utilityDescription"
 import { kaizenTailwindTheme } from "~tailwind/tailwind-presets"
 
 const prefix = "p-"
-const classEntries: { utilityClassName: string; cssProperty: string }[] = Object.entries(
-  kaizenTailwindTheme.spacing || [],
-).map(([suffix, cssProperty]) => ({
-  utilityClassName: `${prefix}${suffix}`,
-  cssProperty,
-}))
+const classEntries: { utilityClassName: string; cssProperty: string }[] =
+  Object.entries(kaizenTailwindTheme.spacing || []).map(
+    ([suffix, cssProperty]) => ({
+      utilityClassName: `${prefix}${suffix}`,
+      cssProperty,
+    }),
+  )
 
 export default {
   title: "Guides/Tailwind/Utility Class References/Spacing/Padding",
@@ -32,7 +33,12 @@ export const Padding: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
     compiledCssPropertyName="padding"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <p className={classnames("border border-purple-100 w-min rounded bg-blue-100", utilityClass)}>
+      <p
+        className={classnames(
+          "border border-purple-100 w-min rounded bg-blue-100",
+          utilityClass,
+        )}
+      >
         Padding
       </p>
     )}
