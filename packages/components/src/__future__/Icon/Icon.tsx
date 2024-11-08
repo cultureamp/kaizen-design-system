@@ -34,7 +34,7 @@ const MaterialIcon = ({
 }: MaterialIconProps): JSX.Element => (
   <span
     className={classNames(
-      "material-symbols-outlined",
+      styles["material-symbols-outlined"],
       styles.icon,
       isFilled && styles.filled,
       className,

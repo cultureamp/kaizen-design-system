@@ -1,5 +1,11 @@
 # @kaizen/package-bundler
 
+## 1.1.10
+
+### Patch Changes
+
+- [#5243](https://github.com/cultureamp/kaizen-design-system/pull/5243) [`879139b5fe56f48dccdc0b4616e432e754b5b925`](https://github.com/cultureamp/kaizen-design-system/commit/879139b5fe56f48dccdc0b4616e432e754b5b925) - Update dep `typescript-transform-paths` to `^3.5.2` and loosen `typescript` peerDep version.
+
 ## 1.1.9
 
 ### Patch Changes
