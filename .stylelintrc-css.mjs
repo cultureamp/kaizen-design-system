@@ -5,5 +5,11 @@ export default {
   rules: {
     "selector-class-pattern": null,
     "color-function-notation": ["modern", { ignore: ["with-var-inside"] }],
+    "font-family-no-missing-generic-family-keyword": [
+      true,
+      {
+        ignoreFontFamilies: ["Material Symbols Outlined"],
+      },
+    ],
   },
 }
