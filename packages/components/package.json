@@ -27,9 +27,7 @@
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
-  "sideEffects": [
-    "styles.css"
-  ],
+  "sideEffects": ["styles.css"],
   "bin": {
     "kaizen-codemod": "./bin/codemod.sh"
   },
@@ -126,7 +124,7 @@
     "react-dom": "^18.3.1",
     "react-highlight": "^0.15.0",
     "react-intl": "^6.8.7",
-    "rollup": "^4.24.4",
+    "rollup": "^4.25.0",
     "sass": "1.79.6",
     "serialize-query-params": "^2.0.2",
     "svgo": "^3.3.2",
