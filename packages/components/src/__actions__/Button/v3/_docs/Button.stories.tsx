@@ -21,10 +21,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {}
-  render: ({ children, ...otherProps }) => (
-    <Button {...otherProps}>{children}</Button>
-  ),
-}
 
 export const ButtonWithIcon: Story = {
   args: {
