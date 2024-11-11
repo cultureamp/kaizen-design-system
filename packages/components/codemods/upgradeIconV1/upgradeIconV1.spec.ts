@@ -1,20 +1,19 @@
 import { parseJsx } from "../__tests__/utils"
 import {
-  transformSource,
   printAst,
-  TransformConfig,
-  ImportModuleNameTagsMap,
+  type ImportModuleNameTagsMap,
+  transformSource,
+  type TransformSourceArgs,
 } from "../utils"
 import { upgradeIconV1 } from "./upgradeIconV1"
 
 const transformIcons = (
-  sourceFile: TransformConfig["sourceFile"],
+  sourceFile: TransformSourceArgs["sourceFile"],
   tagNames: ImportModuleNameTagsMap
 ): string =>
   transformSource({
     sourceFile,
-    astTransformer: upgradeIconV1,
-    tagName: tagNames,
+    transformers: [upgradeIconV1(tagNames)],
   })
 
 describe("upgradeIconV1()", () => {

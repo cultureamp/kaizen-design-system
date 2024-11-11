@@ -4,7 +4,6 @@ import { getKaioTagNamesByRegex, transformSource, traverseDir } from "../utils"
 import { upgradeIconV1 } from "./upgradeIconV1"
 
 const run = (): void => {
-  // eslint-disable-next-line no-console
   console.log("~(-_- ~) Running Icon v1 to Future upgrade (~ -_-)~")
   const targetDir = process.argv[2]
   if (!targetDir) {
@@ -19,8 +18,7 @@ const run = (): void => {
     if (tagNames) {
       const updatedSourceFile = transformSource({
         sourceFile,
-        astTransformer: upgradeIconV1,
-        tagName: tagNames,
+        transformers: [upgradeIconV1(tagNames)],
       })
 
       fs.writeFileSync(componentFilePath, updatedSourceFile, "utf8")

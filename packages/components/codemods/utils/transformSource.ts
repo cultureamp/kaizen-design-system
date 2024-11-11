@@ -1,30 +1,42 @@
 import ts from "typescript"
-import { ImportModuleNameTagsMap } from "./getKaioTagName"
 import { printAst } from "./printAst"
 
-export type TransformConfig<
-  TagName extends string | ImportModuleNameTagsMap = string,
-> = {
+export type TransformSourceArgs = {
+  sourceFile: ts.SourceFile
+  transformers: Array<ts.TransformerFactory<ts.SourceFile>>
+}
+
+export const transformSource = ({
+  sourceFile,
+  transformers,
+}: TransformSourceArgs): string => {
+  const result = ts.transform(sourceFile, transformers)
+  const transformedSource = result.transformed[0]
+  return printAst(transformedSource)
+}
+
+/**
+ * @deprecated - use transformSource instead of transformSourceForTagName
+ */
+export type TransformSourceForTagNameArgs = {
   sourceFile: ts.SourceFile
   astTransformer: (
     context: ts.TransformationContext,
-    tagName: TagName
-  ) => (rootNode: ts.Node) => ts.Node
-  tagName: TagName
+    tagName: string
+  ) => (rootNode: ts.SourceFile) => ts.SourceFile
+  tagName: string
 }
 
-/** Transforms the source file with the transformer and target import alias provided */
-export const transformSource = <
-  TagName extends string | ImportModuleNameTagsMap,
->({
+/**
+ * @deprecated - use transformSource instead
+ * Transforms the source file with the transformer and target import alias provided
+ */
+export const transformSourceForTagName = ({
   sourceFile,
   astTransformer,
   tagName,
-}: TransformConfig<TagName>): string => {
-  const result = ts.transform(sourceFile, [
-    context => astTransformer(context, tagName),
-  ])
-  const transformedSource = result.transformed[0] as ts.SourceFile
-
-  return printAst(transformedSource)
-}
+}: TransformSourceForTagNameArgs): string =>
+  transformSource({
+    sourceFile,
+    transformers: [context => astTransformer(context, tagName)],
+  })

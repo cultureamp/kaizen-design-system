@@ -2,54 +2,83 @@ import fs from "fs"
 import path from "path"
 import ts from "typescript"
 import { parseJsx } from "../__tests__/utils"
-import { TransformConfig, transformSource } from "./transformSource"
+import {
+  TransformSourceForTagNameArgs,
+  transformSource,
+  transformSourceForTagName,
+} from "./transformSource"
 
-export const mockedTransformer =
-  (context: ts.TransformationContext) =>
-  (rootNode: ts.Node): ts.Node => {
-    function visit(node: ts.Node): ts.Node {
-      if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-        if (node.tagName.getText() === "Pancakes") {
-          const newAttributes = node.attributes.properties.map(attr => {
-            if (ts.isJsxAttribute(attr) && attr.name.getText() === "topping") {
-              return ts.factory.updateJsxAttribute(
-                attr,
-                attr.name,
-                ts.factory.createStringLiteral("jam")
-              )
-            }
-            return attr
-          })
-          if (ts.isJsxSelfClosingElement(node)) {
-            return ts.factory.updateJsxSelfClosingElement(
-              node,
-              node.tagName,
-              node.typeArguments,
-              ts.factory.createJsxAttributes(newAttributes)
+const visit =
+  (context: ts.TransformationContext, tagName: string) =>
+  (node: ts.Node): ts.Node => {
+    if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
+      if (node.tagName.getText() === tagName) {
+        const newAttributes = node.attributes.properties.map(attr => {
+          if (ts.isJsxAttribute(attr) && attr.name.getText() === "topping") {
+            return ts.factory.updateJsxAttribute(
+              attr,
+              attr.name,
+              ts.factory.createStringLiteral("jam")
             )
           }
+          return attr
+        })
+        if (ts.isJsxSelfClosingElement(node)) {
+          return ts.factory.updateJsxSelfClosingElement(
+            node,
+            node.tagName,
+            node.typeArguments,
+            ts.factory.createJsxAttributes(newAttributes)
+          )
         }
       }
-      return ts.visitEachChild(node, visit, context)
     }
-    return ts.visitNode(rootNode, visit)
+    return ts.visitEachChild(node, visit(context, tagName), context)
   }
 
-describe("transformSource", () => {
+describe("transformSource()", () => {
   it("updates the value of Pancakes topping to jam", () => {
     const filePath = path.resolve(
       path.join(__dirname, "./__fixtures__/KaioComponent.tsx")
     )
     const fileContent = fs.readFileSync(filePath, "utf8")
     const sourceFile = parseJsx(fileContent)
+    const mockTransformer =
+      (tagName: string): ts.TransformerFactory<ts.SourceFile> =>
+      context =>
+      rootNode =>
+        ts.visitNode(rootNode, visit(context, tagName)) as ts.SourceFile
 
-    const mockTransformConfig = {
+    const transformed = transformSource({
       sourceFile,
-      astTransformer: mockedTransformer,
-      tagName: "mockAlias",
-    } satisfies TransformConfig
+      transformers: [mockTransformer("Pancakes")],
+    })
 
-    const transformed = transformSource(mockTransformConfig)
+    expect(transformed).toMatchSnapshot()
+  })
+})
+
+describe("transformSourceForTagName", () => {
+  it("updates the value of Pancakes topping to jam", () => {
+    const filePath = path.resolve(
+      path.join(__dirname, "./__fixtures__/KaioComponent.tsx")
+    )
+    const fileContent = fs.readFileSync(filePath, "utf8")
+    const sourceFile = parseJsx(fileContent)
+    const mockTransformer =
+      (context: ts.TransformationContext, tagName: string) =>
+      (rootNode: ts.SourceFile): ts.SourceFile =>
+        ts.visitNode(rootNode, visit(context, tagName)) as ts.SourceFile
+
+    const mockTransformSourceForTagNameArgs = {
+      sourceFile,
+      astTransformer: mockTransformer,
+      tagName: "Pancakes",
+    } satisfies TransformSourceForTagNameArgs
+
+    const transformed = transformSourceForTagName(
+      mockTransformSourceForTagNameArgs
+    )
 
     expect(transformed).toMatchSnapshot()
   })

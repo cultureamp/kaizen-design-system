@@ -1,7 +1,11 @@
 import fs from "fs"
 import path from "path"
 import ts from "typescript"
-import { transformSource, getKaioTagName, TransformConfig } from "."
+import { getKaioTagName } from "./getKaioTagName"
+import {
+  transformSourceForTagName,
+  type TransformSourceForTagNameArgs,
+} from "./transformSource"
 
 export const traverseDir = (
   dir: string,
@@ -35,7 +39,7 @@ export const traverseDir = (
 /** Walks the directory and runs the AST transformer on the given component name */
 export const transformComponentsInDir = (
   dir: string,
-  transformer: TransformConfig["astTransformer"],
+  transformer: TransformSourceForTagNameArgs["astTransformer"],
   componentName: string
 ): void => {
   const transformFile = (
@@ -44,7 +48,7 @@ export const transformComponentsInDir = (
   ): void => {
     const tagName = getKaioTagName(sourceFile, componentName)
     if (tagName) {
-      const updatedSourceFile = transformSource({
+      const updatedSourceFile = transformSourceForTagName({
         sourceFile,
         astTransformer: transformer,
         tagName,
