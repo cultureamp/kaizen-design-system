@@ -71,11 +71,20 @@ import * as exampleStories from "./Menu.stories"
 
 ## Actions and Next.js routing
 
-Use the `href` prop when an action navigates to a new page. Wrapping your app in `FrontendServices` from `@cultureamp/next-services` will automatically turn these into Next.js links.
+Use the `href` prop when an action navigates to a new page.
+[Work in progress] Eventually, wrapping your app in `FrontendServices` from `@cultureamp/next-services` will automatically turn these into Next.js links.
 
 Otherwise, use the `onAction` prop to trigger an action within the page.
 
 <Canvas className="mb-24" of={docsStories.Actions}  />
+
+## Typeahead
+
+Typeahead (the ability to quickly skip to an item by typing a few characters after opening) will automatically work when `MenuItem` `children` is a `string`.
+
+If you're passing `ReactNode` into `MenuItem` `children`, you'll need to specify the `textValue` prop manually on `MenuItem` in order for typeahead to work.
+
+<Canvas className="mb-24" of={exampleStories.RichContent}  />
 
 ## Sections
 
