@@ -31,7 +31,7 @@ export const ButtonContent = ({
         )}
         aria-hidden={buttonIsPending}
       >
-        {icon && iconPosition !== "end" && (
+        {icon && iconPosition === "start" && (
           <span className={styles.buttonIcon}>{icon}</span>
         )}
         {children}
