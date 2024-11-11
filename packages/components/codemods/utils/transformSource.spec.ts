@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import ts from "typescript"
-import { parseJsx } from "../__tests__/utils"
+import { createEncodedSourceFile } from "./createEncodedSourceFile"
 import {
   TransformSourceForTagNameArgs,
   transformSource,
@@ -42,7 +42,7 @@ describe("transformSource()", () => {
       path.join(__dirname, "./__fixtures__/KaioComponent.tsx")
     )
     const fileContent = fs.readFileSync(filePath, "utf8")
-    const sourceFile = parseJsx(fileContent)
+    const sourceFile = createEncodedSourceFile(filePath, fileContent)
     const mockTransformer =
       (tagName: string): ts.TransformerFactory<ts.SourceFile> =>
       context =>
@@ -64,7 +64,7 @@ describe("transformSourceForTagName", () => {
       path.join(__dirname, "./__fixtures__/KaioComponent.tsx")
     )
     const fileContent = fs.readFileSync(filePath, "utf8")
-    const sourceFile = parseJsx(fileContent)
+    const sourceFile = createEncodedSourceFile(filePath, fileContent)
     const mockTransformer =
       (context: ts.TransformationContext, tagName: string) =>
       (rootNode: ts.SourceFile): ts.SourceFile =>

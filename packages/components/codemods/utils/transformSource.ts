@@ -1,4 +1,5 @@
 import ts from "typescript"
+import { decodeEmptyLines } from "./emptyLineEncoder"
 import { printAst } from "./printAst"
 
 export type TransformSourceArgs = {
@@ -11,8 +12,8 @@ export const transformSource = ({
   transformers,
 }: TransformSourceArgs): string => {
   const result = ts.transform(sourceFile, transformers)
-  const transformedSource = result.transformed[0]
-  return printAst(transformedSource)
+  const transformedSource = printAst(result.transformed[0])
+  return decodeEmptyLines(transformedSource)
 }
 
 /**

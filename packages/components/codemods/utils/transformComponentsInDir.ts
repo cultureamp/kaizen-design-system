@@ -1,6 +1,6 @@
 import fs from "fs"
 import path from "path"
-import ts from "typescript"
+import { createEncodedSourceFile } from "./createEncodedSourceFile"
 import { getKaioTagName } from "./getKaioTagName"
 import {
   transformSourceForTagName,
@@ -9,7 +9,7 @@ import {
 
 export const traverseDir = (
   dir: string,
-  transformFile: (componentFilePath: string, sourceFile: ts.SourceFile) => void
+  transformFile: (componentFilePath: string, sourceCode: string) => void
 ): void => {
   if (dir.includes("node_modules")) {
     return
@@ -23,15 +23,8 @@ export const traverseDir = (
     if (fs.statSync(fullPath).isDirectory()) {
       traverseDir(fullPath, transformFile)
     } else if (fullPath.endsWith(".tsx")) {
-      const source = fs.readFileSync(fullPath, "utf8")
-      const sourceFile = ts.createSourceFile(
-        fullPath,
-        source,
-        ts.ScriptTarget.Latest,
-        true
-      )
-
-      transformFile(fullPath, sourceFile)
+      const sourceCode = fs.readFileSync(fullPath, "utf8")
+      transformFile(fullPath, sourceCode)
     }
   })
 }
@@ -44,8 +37,10 @@ export const transformComponentsInDir = (
 ): void => {
   const transformFile = (
     componentFilePath: string,
-    sourceFile: ts.SourceFile
+    sourceCode: string
   ): void => {
+    const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
+
     const tagName = getKaioTagName(sourceFile, componentName)
     if (tagName) {
       const updatedSourceFile = transformSourceForTagName({
