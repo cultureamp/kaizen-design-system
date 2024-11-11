@@ -29,7 +29,7 @@ const RowTemplate = ({
     {variants.map(variant =>
       sizes.map(size => (
         <StickerSheet.Row
-          key={size + variants}
+          key={size + variant}
           isReversed={isReversed}
           rowTitle={`${variant} (${size})`}
         >
