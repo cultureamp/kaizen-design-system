@@ -130,14 +130,9 @@ export const RACRenderPropsWithChildren: Story = {
 }
 
 export const RACRenderPropsWithClassName: Story = {
-  render: ({ children, ...otherArgs }) => (
-    <Button
-      {...otherArgs}
-      className={({ isFocusVisible }) => (isFocusVisible ? "!bg-gray-300" : "")}
-    >
-      {children}
-    </Button>
-  ),
+  args: {
+    className: ({ isFocusVisible }) => (isFocusVisible ? "!bg-gray-300" : ""),
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.parentElement!)
     const button = canvas.getByRole("button")
