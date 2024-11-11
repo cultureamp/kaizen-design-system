@@ -110,7 +110,6 @@ export const SelectionDont: Story = {
 export const LabelChevronDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
       <Button className="[--icon-size:24]">
         Edit item
         <Icon name="keyboard_arrow_down" isPresentational />
@@ -211,7 +210,6 @@ export const MenuItemLabelsDont: Story = {
 export const SentenceCaseDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
       <Button className="[--icon-size:24]">
         <Icon name="more_horiz" alt="Additional actions" />
       </Button>
@@ -229,7 +227,6 @@ export const SentenceCaseDo: Story = {
 export const SentenceCaseDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
       <Button className="[--icon-size:24]">
         <Icon name="more_horiz" alt="Additional actions" />
       </Button>
@@ -247,7 +244,6 @@ export const SentenceCaseDont: Story = {
 export const ElipsesDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
       <Button className="[--icon-size:24]">
         <Icon name="more_horiz" alt="Additional actions" />
       </Button>
@@ -265,7 +261,6 @@ export const ElipsesDo: Story = {
 export const ElipsesDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
       <Button className="[--icon-size:24]">
         <Icon name="more_horiz" alt="Additional actions" />
       </Button>

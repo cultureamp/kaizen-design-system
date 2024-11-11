@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.67.11
+
+### Patch Changes
+
+- [#5263](https://github.com/cultureamp/kaizen-design-system/pull/5263) [`f4a00f663c09baae9d5f5ed02d0f04e2ecf4e5d0`](https://github.com/cultureamp/kaizen-design-system/commit/f4a00f663c09baae9d5f5ed02d0f04e2ecf4e5d0) - Menu v3 fixes and documentation for typeahead functionality
+
+  - Insert `textValue` into RAC's MenuItem when typeof children === string
+  - Add documentation for how to get typeahead working when passing ReactNode
+  - Adjust MenuItem to only add flex when children is string and there's an icon
+
 ## 1.67.10
 
 ### Patch Changes
