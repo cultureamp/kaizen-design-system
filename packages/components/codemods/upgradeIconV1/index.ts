@@ -1,11 +1,11 @@
 import fs from "fs"
-import ts from "typescript"
+import { createEncodedSourceFile } from "codemods/utils/createEncodedSourceFile"
 import { getKaioTagNamesByRegex, transformSource, traverseDir } from "../utils"
 import { upgradeIconV1 } from "./upgradeIconV1"
 
 const run = (): void => {
-  // eslint-disable-next-line no-console
   console.log("~(-_- ~) Running Icon v1 to Future upgrade (~ -_-)~")
+
   const targetDir = process.argv[2]
   if (!targetDir) {
     process.exit(1)
@@ -13,14 +13,14 @@ const run = (): void => {
 
   const transformFile = (
     componentFilePath: string,
-    sourceFile: ts.SourceFile
+    sourceCode: string
   ): void => {
+    const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
     const tagNames = getKaioTagNamesByRegex(sourceFile, "Icon$")
     if (tagNames) {
       const updatedSourceFile = transformSource({
         sourceFile,
-        astTransformer: upgradeIconV1,
-        tagName: tagNames,
+        transformers: [upgradeIconV1(tagNames)],
       })
 
       fs.writeFileSync(componentFilePath, updatedSourceFile, "utf8")

@@ -1,5 +1,9 @@
 import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst, TransformConfig } from "../utils"
+import {
+  transformSourceForTagName,
+  printAst,
+  TransformSourceForTagNameArgs,
+} from "../utils"
 import { migrateStringProp } from "./migrateStringProp"
 
 const transformTopping = (oldValue: string): string => {
@@ -12,9 +16,9 @@ const transformTopping = (oldValue: string): string => {
 }
 
 const testMigrateStringProp = (
-  sourceFile: TransformConfig["sourceFile"]
+  sourceFile: TransformSourceForTagNameArgs["sourceFile"]
 ): string =>
-  transformSource({
+  transformSourceForTagName({
     sourceFile,
     astTransformer: migrateStringProp(
       "toppingOld",
