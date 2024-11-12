@@ -1,5 +1,13 @@
 # @kaizen/package-bundler
 
+## 1.1.11
+
+### Patch Changes
+
+- [#5266](https://github.com/cultureamp/kaizen-design-system/pull/5266) [`94ac62d79ce431adc1ad2b4dc76e39d72fb56373`](https://github.com/cultureamp/kaizen-design-system/commit/94ac62d79ce431adc1ad2b4dc76e39d72fb56373) - Revert typescript-transform-paths back to ^3.5.1.
+
+  This is due to the aliases no longer transforming with the update to 3.5.2
+
 ## 1.1.10
 
 ### Patch Changes
