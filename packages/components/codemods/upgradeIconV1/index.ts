@@ -1,6 +1,6 @@
 import fs from "fs"
-import { createEncodedSourceFile } from "codemods/utils/createEncodedSourceFile"
 import { getKaioTagNamesByRegex, transformSource, traverseDir } from "../utils"
+import { createEncodedSourceFile } from "../utils/createEncodedSourceFile"
 import { upgradeIconV1 } from "./upgradeIconV1"
 
 const run = (): void => {
