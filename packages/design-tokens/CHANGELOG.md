@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.8.2
+
+### Patch Changes
+
+- [#5266](https://github.com/cultureamp/kaizen-design-system/pull/5266) [`94ac62d79ce431adc1ad2b4dc76e39d72fb56373`](https://github.com/cultureamp/kaizen-design-system/commit/94ac62d79ce431adc1ad2b4dc76e39d72fb56373) - Re-release with @kaizen/package-bundler update.
+
 ## 10.8.1
 
 ### Patch Changes

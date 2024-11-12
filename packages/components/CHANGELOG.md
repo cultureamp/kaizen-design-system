@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.67.12
+
+### Patch Changes
+
+- [#5266](https://github.com/cultureamp/kaizen-design-system/pull/5266) [`94ac62d79ce431adc1ad2b4dc76e39d72fb56373`](https://github.com/cultureamp/kaizen-design-system/commit/94ac62d79ce431adc1ad2b4dc76e39d72fb56373) - Re-release with @kaizen/package-bundler update.
+
+- [#5265](https://github.com/cultureamp/kaizen-design-system/pull/5265) [`034fbf2e829564999d4795c123304c17fe87c054`](https://github.com/cultureamp/kaizen-design-system/commit/034fbf2e829564999d4795c123304c17fe87c054) - Update codemods to retain empty lines.
+
 ## 1.67.11
 
 ### Patch Changes
