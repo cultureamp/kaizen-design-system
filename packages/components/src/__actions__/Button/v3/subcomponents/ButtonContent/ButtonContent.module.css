@@ -2,6 +2,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--button-icon-gap);
+  padding: 0 var(--spacing-4);
 }
 
 .buttonContentPending {
@@ -18,4 +19,5 @@
 
 .buttonIcon {
   display: inline-flex;
+  margin: 0 calc(-1 * var(--spacing-4));
 }

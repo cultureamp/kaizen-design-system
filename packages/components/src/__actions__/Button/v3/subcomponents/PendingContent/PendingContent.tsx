@@ -14,7 +14,7 @@ export const PendingContent = ({
     {isPendingLabelHidden ? (
       <VisuallyHidden>{pendingLabel}</VisuallyHidden>
     ) : (
-      pendingLabel
+      <span className={styles.pendingContentLabel}>{pendingLabel}</span>
     )}
     <LoadingSpinner
       size={size === "small" ? "xs" : "sm"}

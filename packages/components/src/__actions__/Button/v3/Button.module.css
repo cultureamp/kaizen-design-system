@@ -9,7 +9,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   --button-min-x-y: var(--spacing-40);
-  --button-icon-gap: var(--spacing-4);
+  --button-icon-gap: var(--spacing-8);
   --button-border-width: var(--border-solid-border-width);
 
   background-color: var(--button-bg-color, var(--color-blue-500));
@@ -84,7 +84,7 @@
   --button-min-x-y: var(--spacing-48);
   --button-padding: calc(var(--spacing-12) - var(--button-border-width));
   --icon-size: 24;
-  --button-icon-gap: var(--spacing-8);
+  --button-icon-gap: var(--spacing-12);
 }
 
 .secondary {

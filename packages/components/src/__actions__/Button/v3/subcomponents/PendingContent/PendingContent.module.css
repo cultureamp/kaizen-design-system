@@ -4,6 +4,10 @@
   gap: var(--button-pending-content-gap, var(--spacing-4));
 }
 
+.pendingContentLabel {
+  padding: 0 var(--spacing-4);
+}
+
 .large {
   --button-pending-content-gap: var(--spacing-8);
 }

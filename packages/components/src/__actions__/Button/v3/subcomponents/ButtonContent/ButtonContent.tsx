@@ -32,11 +32,17 @@ export const ButtonContent = ({
         aria-hidden={buttonIsPending}
       >
         {icon && iconPosition === "start" && (
-          <span className={styles.buttonIcon}>{icon}</span>
+          <span
+            className={classNames(styles.buttonIcon, styles.buttonIconStart)}
+          >
+            {icon}
+          </span>
         )}
         {children}
         {icon && iconPosition === "end" && (
-          <span className={styles.buttonIcon}>{icon}</span>
+          <span className={classNames(styles.buttonIcon, styles.buttonIconEnd)}>
+            {icon}
+          </span>
         )}
       </span>
       <span aria-live="polite">
