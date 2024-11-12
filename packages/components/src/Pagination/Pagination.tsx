@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
+import { useMediaQueries } from "~components/utils"
 import { DirectionalLink } from "./subcomponents/DirectionalLink"
 import { PaginationLink } from "./subcomponents/PaginationLink"
 import { TruncateIndicator } from "./subcomponents/TruncateIndicator"
@@ -32,6 +33,8 @@ export const Pagination = ({
   classNameOverride,
   ...restProps
 }: PaginationProps): JSX.Element => {
+  const { queries } = useMediaQueries()
+
   // Click event for all pagination buttons (next, prev, and the actual numbers)
   const handleButtonClick = (newPage: number | PageAction): void => {
     if (newPage === "prev") {
@@ -55,11 +58,11 @@ export const Pagination = ({
     />
   )
 
-  const pagination = (): JSX.Element[] => {
+  const pagination = (
+    boundaryPagesRange: number,
+    siblingPagesRange: number
+  ): JSX.Element[] => {
     const items: JSX.Element[] = []
-
-    const boundaryPagesRange = 1
-    const siblingPagesRange = 1
 
     // truncateSize is 1 now but could be 0 if we add the ability to hide it.
     const truncateSize = 1
@@ -150,7 +153,9 @@ export const Pagination = ({
         onClick={(): void => handleButtonClick("prev")}
       />
 
-      <div className={styles.pagesIndicatorWrapper}>{pagination()}</div>
+      <div className={styles.pagesIndicatorWrapper}>
+        {pagination(1, queries.isSmall ? 0 : 1)}
+      </div>
 
       <DirectionalLink
         label={ariaLabelNextPage}
