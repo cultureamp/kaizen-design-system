@@ -2,7 +2,6 @@ import ts from "typescript"
 import { getPropValueText } from "./getPropValueText"
 import { updateJsxElementWithNewProps } from "./updateJsxElementWithNewProps"
 
-/** Recurses through AST to find and update any jsx element that matched the tagName */
 export const migrateStringProp =
   <OldValue extends string, NewValue extends string>(
     oldPropName: string,
@@ -10,7 +9,7 @@ export const migrateStringProp =
     valueTransformer: (value: OldValue) => NewValue
   ) =>
   (context: ts.TransformationContext, tagName: string) =>
-  (rootNode: ts.Node): ts.Node => {
+  (rootNode: ts.SourceFile): ts.SourceFile => {
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         if (node.tagName.getText() === tagName) {
@@ -39,5 +38,5 @@ export const migrateStringProp =
       }
       return ts.visitEachChild(node, visit, context)
     }
-    return ts.visitNode(rootNode, visit)
+    return ts.visitNode(rootNode, visit) as ts.SourceFile
   }

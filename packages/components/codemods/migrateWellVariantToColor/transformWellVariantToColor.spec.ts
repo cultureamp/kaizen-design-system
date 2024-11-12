@@ -1,5 +1,5 @@
 import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst } from "../utils"
+import { transformSourceForTagName, printAst } from "../utils"
 import { transformWellVariantToColor } from "./transformWellVariantToColor"
 
 describe("transformWellVariantToColor", () => {
@@ -12,7 +12,7 @@ describe("transformWellVariantToColor", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="gray">Test</Well>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
       tagName: "Well",
@@ -29,7 +29,7 @@ describe("transformWellVariantToColor", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="blue">Test</Well>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
       tagName: "Well",
@@ -46,7 +46,7 @@ describe("transformWellVariantToColor", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="gray">Test</Well>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
       tagName: "Well",
@@ -63,7 +63,7 @@ describe("transformWellVariantToColor", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well color="blue" id="123">Test</Well>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
       tagName: "Well",
@@ -80,7 +80,7 @@ describe("transformWellVariantToColor", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <Well id="123" color="gray">Test</Well>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
       tagName: "Well",
@@ -97,7 +97,7 @@ describe("transformWellVariantToColor", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well id="123" color="gray">Test</Well></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
       tagName: "Well",
@@ -114,7 +114,7 @@ describe("transformWellVariantToColor", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well color="blue">Test</Well><Well color="gray">Test 2</Well></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
       tagName: "Well",
@@ -131,7 +131,7 @@ describe("transformWellVariantToColor", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well color="blue">Test</Well><Well color="orange">Test</Well><Well color="green">Test</Well></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
       tagName: "Well",
@@ -148,7 +148,7 @@ describe("transformWellVariantToColor", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well color="blue">Test</Well></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
       tagName: "Well",
@@ -165,7 +165,7 @@ describe("transformWellVariantToColor", () => {
       import {Well} from "@kaizen/components"
       export const TestComponent = () => <div><Well variant={wellVariable}>Test</Well></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
       tagName: "Well",
@@ -182,7 +182,7 @@ describe("transformWellVariantToColor", () => {
       import {Well as KaizenWell} from "@kaizen/components"
       export const TestComponent = () => <div><KaizenWell color="blue">Test</KaizenWell></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformWellVariantToColor,
       tagName: "KaizenWell",

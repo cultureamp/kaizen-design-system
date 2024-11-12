@@ -2,10 +2,9 @@ import ts from "typescript"
 import { updateJsxElementWithNewProps } from "../utils"
 import { getPropValueText } from "../utils/getPropValueText"
 
-/** Recurses through AST to find and update any jsx element that matched the tagName */
 export const transformWellVariantToColor =
   (context: ts.TransformationContext, tagName: string) =>
-  (rootNode: ts.Node): ts.Node => {
+  (rootNode: ts.SourceFile): ts.SourceFile => {
     function visit(node: ts.Node): ts.Node {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         if (node.tagName.getText() === tagName) {
@@ -71,5 +70,5 @@ export const transformWellVariantToColor =
       }
       return ts.visitEachChild(node, visit, context)
     }
-    return ts.visitNode(rootNode, visit)
+    return ts.visitNode(rootNode, visit) as ts.SourceFile
   }
