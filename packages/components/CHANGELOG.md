@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.67.13
+
+### Patch Changes
+
+- [#5269](https://github.com/cultureamp/kaizen-design-system/pull/5269) [`e4358c8289c789b7140affb4207d3e72cdd94f86`](https://github.com/cultureamp/kaizen-design-system/commit/e4358c8289c789b7140affb4207d3e72cdd94f86) - Pagination responsiveness
+
+  - Margins and padding tightened up
+  - Sibling pages shown drops from 1 to 0 on small viewports
+
 ## 1.67.12
 
 ### Patch Changes
