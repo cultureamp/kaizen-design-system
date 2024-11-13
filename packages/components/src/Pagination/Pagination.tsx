@@ -154,7 +154,7 @@ export const Pagination = ({
       />
 
       <div className={styles.pagesIndicatorWrapper}>
-        {pagination(1, queries.isSmall ? 0 : 1)}
+        {pagination(queries.isMediumOrSmaller ? 0 : 1, queries.isSmall ? 0 : 1)}
       </div>
 
       <DirectionalLink
