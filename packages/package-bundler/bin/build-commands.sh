@@ -15,14 +15,16 @@ clean() {
 bundle() {
     echo -e "${GREEN}Compile and bundle source code...${NC}"
     rollup -c
+    mv dist/esm/_tmp/types dist/types
+    rm -rf dist/esm/_tmp
     echo -e "${GREEN}------${NC}"
 }
 
-compile_types() {
-    echo -e "${GREEN}Compile typescript types...${NC}"
-    tsc --project tsconfig.types.json --declarationDir dist/types
-    echo -e "${GREEN}------${NC}"
-}
+# compile_types() {
+#     echo -e "${GREEN}Compile typescript types...${NC}"
+#     tsc --project tsconfig.types.json --declarationDir dist/types
+#     echo -e "${GREEN}------${NC}"
+# }
 
 consolidate_styles() {
     echo -e "${GREEN}Consolidate styles...${NC}"
@@ -37,7 +39,7 @@ elapsed_time() {
 build() {
     clean
     bundle
-    compile_types
+    # compile_types
 }
 
 case "$1" in

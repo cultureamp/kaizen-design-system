@@ -54,7 +54,21 @@ export const rollupConfig = (
     ...userConfig,
     plugins: [
       ...userConfig.plugins,
-      typescript({ tsconfig: "./tsconfig.dist.json" }),
+      typescript({
+        tsconfig: "./tsconfig.dist.json",
+        compilerOptions: {
+          declaration: true,
+          declarationDir: "dist/esm/_tmp/types",
+          noEmit: false,
+          plugins: [
+            { transform: "typescript-transform-paths" },
+            {
+              transform: "typescript-transform-paths",
+              afterDeclarations: true,
+            },
+          ],
+        },
+      }),
     ],
     output: {
       dir: "dist/esm",
