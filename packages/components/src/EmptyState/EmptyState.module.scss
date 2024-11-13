@@ -16,7 +16,6 @@
   border: var(--empty-state-border-width) solid var(--empty-state-border-color);
   border-radius: var(--border-solid-border-radius);
   background-color: var(--empty-state-background-color);
-  overflow: hidden;
   flex-wrap: wrap;
 
   @include small {
