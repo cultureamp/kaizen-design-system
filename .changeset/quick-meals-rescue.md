@@ -9,3 +9,5 @@ BREAKING CHANGES:
   - Remove this from `extends` within your `tsconfig.dist.json`
 - `@kaizen/package-bundler/tsconfig.types.json`
   - Delete your `tsconfig.types.json` (no longer required)
+- `rollupConfig` no longer accepts the `alias` arg as aliases are now automatically resolved based on your `tsconfig.json` paths
+  - Remove `alias` defined within your `rollup.config.mjs`

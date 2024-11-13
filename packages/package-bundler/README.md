@@ -143,7 +143,7 @@ module.exports = {
 
 ### Alias
 
-If you are using aliases, ensure you have them listed in your `tsconfig.json` (the `tsconfig.dist` and `tsconfig.types` should extend this) and in `rollup.config`.
+If you are using aliases, ensure you have them listed in your `tsconfig.json` (the `tsconfig.dist` should extend this).
 
 Example:
 ```json
@@ -160,15 +160,4 @@ Example:
 {
   "extends": "./tsconfig.json",
 }
-```
-
-```ts
-// rollup.config.mjs
-export default rollupConfig({
-  alias: {
-    entries: [
-      { find: "~components", replacement: "src" },
-    ],
-  },
-})
 ```

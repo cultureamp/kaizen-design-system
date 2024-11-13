@@ -1,6 +1,5 @@
 import fs from "fs"
 import path from "path"
-import alias, { RollupAliasOptions } from "@rollup/plugin-alias"
 import typescript from "@rollup/plugin-typescript"
 import { InputPluginOption, RollupOptions } from "rollup"
 import { pluginsDefault } from "./presets/index.js"
@@ -9,7 +8,6 @@ import { rollupTailwindConfig } from "./presets/shared-ui/rollup-tailwind.js"
 type Config = {
   input?: RollupOptions["input"]
   plugins?: InputPluginOption[]
-  alias?: RollupAliasOptions
 }
 
 export const rollupConfig = (
@@ -22,7 +20,6 @@ export const rollupConfig = (
   const userConfig = {
     input: config.input,
     plugins: [
-      alias(config.alias),
       ...((config?.plugins as InputPluginOption[]) || pluginsDefault),
     ],
   } satisfies RollupOptions
