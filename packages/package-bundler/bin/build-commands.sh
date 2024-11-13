@@ -20,12 +20,6 @@ bundle() {
     echo -e "${GREEN}------${NC}"
 }
 
-# compile_types() {
-#     echo -e "${GREEN}Compile typescript types...${NC}"
-#     tsc --project tsconfig.types.json --declarationDir dist/types
-#     echo -e "${GREEN}------${NC}"
-# }
-
 consolidate_styles() {
     echo -e "${GREEN}Consolidate styles...${NC}"
     npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/consolidateStyles.js --packagePath="$PWD"
@@ -39,7 +33,6 @@ elapsed_time() {
 build() {
     clean
     bundle
-    # compile_types
 }
 
 case "$1" in
