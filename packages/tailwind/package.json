@@ -31,7 +31,6 @@
     "@kaizen/design-tokens": "workspace:*"
   },
   "devDependencies": {
-    "@kaizen/components": "workspace:*",
     "@kaizen/package-bundler": "workspace:*",
     "classnames": "^2.5.1",
     "rollup": "^4.24.2",
