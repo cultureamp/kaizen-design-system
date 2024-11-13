@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.67.14
+
+### Patch Changes
+
+- [#5273](https://github.com/cultureamp/kaizen-design-system/pull/5273) [`6fcc6088f8b6107694ce6ab22c4c2a78560332e9`](https://github.com/cultureamp/kaizen-design-system/commit/6fcc6088f8b6107694ce6ab22c4c2a78560332e9) - Pagination responsive adjustments
+
+  - Margins partially restored to have 8px between buttons
+  - Boundary pages will now only show on large viewports and up
+  - Sibling pages will continue to show on medium viewports and up
+
 ## 1.67.13
 
 ### Patch Changes
