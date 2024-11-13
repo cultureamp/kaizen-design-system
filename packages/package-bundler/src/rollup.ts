@@ -19,7 +19,7 @@ export const rollupConfig = (
   // Shared config
   const userConfig = {
     input: config.input,
-    plugins: [...((config?.plugins as InputPluginOption[]) || pluginsDefault)],
+    plugins: config?.plugins ?? pluginsDefault,
   } satisfies RollupOptions
 
   // CommonJS
