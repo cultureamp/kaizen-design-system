@@ -7,14 +7,16 @@
   --empty-state-border-width: var(--border-width-1);
 
   display: flex;
-  justify-content: space-around;
   width: 100%;
+  max-width: 100%;
+  justify-content: space-around;
   padding: calc(2% - var(--empty-state-border-width))
     calc(var(--spacing-24) - var(--empty-state-border-width));
   color: $color-purple-800;
   border: var(--empty-state-border-width) solid var(--empty-state-border-color);
   border-radius: var(--border-solid-border-radius);
   background-color: var(--empty-state-background-color);
+  overflow: hidden;
 
   @include small {
     flex-direction: column;
@@ -86,7 +88,9 @@
 }
 
 .illustrationSide {
-  min-width: 224px;
+  display: inline-block;
+  width: 224px;
+  min-width: 0;
   flex-grow: 0;
   flex-shrink: 1;
   margin-bottom: $spacing-md;
@@ -101,7 +105,7 @@
     justify-content: center;
     align-items: flex-end;
     margin-bottom: 0;
-    min-width: 40%;
+    width: 40%;
     max-width: 50%;
     flex-grow: 1;
     box-sizing: border-box;
@@ -128,6 +132,7 @@
   max-width: 100%;
   max-height: 366px;
   width: auto;
+  height: auto;
 
   // Fixes for IE11 Flexbox issues
   min-height: 196px;
@@ -139,21 +144,23 @@
 
 .textSide {
   display: flex;
-  flex-grow: 1;
-  flex-shrink: 1;
+  flex: 1;
+  min-width: 0;
   align-items: center;
   -webkit-font-smoothing: antialiased;
 
   @include medium {
-    flex-basis: 50%;
-    flex-grow: 0;
+    flex: 0 1 50%;
   }
 }
 
 .textSideInner {
-  flex-grow: 0;
+  flex: 0 1 auto;
   height: auto;
   margin: 0 $spacing-sm;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 
   @include small {
     margin-bottom: 0;
@@ -166,6 +173,7 @@
 
 .heading {
   margin-bottom: $spacing-md;
+  max-width: 100%;
 
   @media (max-width: (375px)) {
     @include typography-heading-3-sm;
@@ -174,4 +182,5 @@
 
 .description {
   margin-bottom: $spacing-md;
+  max-width: 100%;
 }
