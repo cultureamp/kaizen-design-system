@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.67.15
+
+### Patch Changes
+
+- [#5275](https://github.com/cultureamp/kaizen-design-system/pull/5275) [`3b1ceb02c2865d42cba6b13a5f4e4aa932e6897b`](https://github.com/cultureamp/kaizen-design-system/commit/3b1ceb02c2865d42cba6b13a5f4e4aa932e6897b) - fix(FilterBar): Remove container property from FilterBar wrapper
+
 ## 1.67.14
 
 ### Patch Changes
