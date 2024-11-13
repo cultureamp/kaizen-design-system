@@ -17,9 +17,7 @@
   "files": [
     "dist",
     "bin",
-    "tsconfig.base.json",
-    "tsconfig.dist.json",
-    "tsconfig.types.json"
+    "tsconfig.base.json"
   ],
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
