@@ -6,6 +6,6 @@ Move TypeScript types generation to rollup as the separate step using `tsc` was 
 
 BREAKING CHANGES:
 - `@kaizen/package-bundler/tsconfig.dist.json` has been removed
-  - Remove from `extends` within your `tsconfig.dist.json`
+  - Remove this from `extends` within your `tsconfig.dist.json`
 - `@kaizen/package-bundler/tsconfig.types.json`
   - Delete your `tsconfig.types.json` (no longer required)
