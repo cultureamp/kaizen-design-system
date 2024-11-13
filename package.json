@@ -95,7 +95,6 @@
     "@storybook/*": "Required for Storybook stories across all packages",
     "chromatic": "Required for Storybook stories across all packages",
     "playwright": "Required for github actions setup",
-    "typescript": "Version locked for package-bundler",
     "vite-plugin-node-polyfills": "Adds the node `assert` polyfill to Vite for prosemirror to run in storybook"
   },
   "pnpm": {
