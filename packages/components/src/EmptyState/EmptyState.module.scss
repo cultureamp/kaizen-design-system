@@ -7,19 +7,21 @@
   --empty-state-border-width: var(--border-width-1);
 
   display: flex;
-  justify-content: space-around;
   width: 100%;
+  box-sizing: border-box;
+  justify-content: space-around;
   padding: calc(2% - var(--empty-state-border-width))
     calc(var(--spacing-24) - var(--empty-state-border-width));
   color: $color-purple-800;
   border: var(--empty-state-border-width) solid var(--empty-state-border-color);
   border-radius: var(--border-solid-border-radius);
   background-color: var(--empty-state-background-color);
+  flex-wrap: wrap;
 
   @include small {
     flex-direction: column;
     align-items: center;
-    padding-block: calc(var(--spacing-24) - var(--empty-state-border-width));
+    padding: calc(var(--spacing-24) - var(--empty-state-border-width));
   }
 
   &.straightCorners {
@@ -82,29 +84,30 @@
 
 .illustrationSide,
 .textSide {
-  display: inline-block;
+  display: flex;
+  box-sizing: border-box;
 }
 
 .illustrationSide {
-  min-width: 224px;
-  flex-grow: 0;
-  flex-shrink: 1;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
   margin-bottom: $spacing-md;
 
   @include small {
-    width: 224px;
+    width: 100%;
+    max-width: 224px;
   }
 
   @include medium {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
     margin-bottom: 0;
-    min-width: 40%;
-    max-width: 50%;
-    flex-grow: 1;
-    box-sizing: border-box;
+    width: auto;
+    max-width: 40%;
     padding-inline-end: $spacing-md;
   }
 
@@ -128,32 +131,36 @@
   max-width: 100%;
   max-height: 366px;
   width: auto;
+  height: auto;
 
   // Fixes for IE11 Flexbox issues
   min-height: 196px;
 
   @include small {
     max-height: 196px;
+    width: 100%;
   }
 }
 
 .textSide {
-  display: flex;
-  flex-grow: 1;
-  flex-shrink: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 100%;
   align-items: center;
   -webkit-font-smoothing: antialiased;
 
   @include medium {
-    flex-basis: 50%;
-    flex-grow: 0;
+    flex: 0 1 50%;
   }
 }
 
 .textSideInner {
-  flex-grow: 0;
-  height: auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   margin: 0 $spacing-sm;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 
   @include small {
     margin-bottom: 0;
@@ -166,6 +173,7 @@
 
 .heading {
   margin-bottom: $spacing-md;
+  max-width: 100%;
 
   @media (max-width: (375px)) {
     @include typography-heading-3-sm;
@@ -174,4 +182,5 @@
 
 .description {
   margin-bottom: $spacing-md;
+  max-width: 100%;
 }
