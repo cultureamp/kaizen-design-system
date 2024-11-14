@@ -1,6 +1,5 @@
 import fs from "fs"
 import path from "path"
-import alias, { RollupAliasOptions } from "@rollup/plugin-alias"
 import typescript from "@rollup/plugin-typescript"
 import { InputPluginOption, RollupOptions } from "rollup"
 import { pluginsDefault } from "./presets/index.js"
@@ -9,7 +8,6 @@ import { rollupTailwindConfig } from "./presets/shared-ui/rollup-tailwind.js"
 type Config = {
   input?: RollupOptions["input"]
   plugins?: InputPluginOption[]
-  alias?: RollupAliasOptions
 }
 
 export const rollupConfig = (
@@ -21,10 +19,7 @@ export const rollupConfig = (
   // Shared config
   const userConfig = {
     input: config.input,
-    plugins: [
-      alias(config.alias),
-      ...((config?.plugins as InputPluginOption[]) || pluginsDefault),
-    ],
+    plugins: config?.plugins ?? pluginsDefault,
   } satisfies RollupOptions
 
   // CommonJS
@@ -54,7 +49,21 @@ export const rollupConfig = (
     ...userConfig,
     plugins: [
       ...userConfig.plugins,
-      typescript({ tsconfig: "./tsconfig.dist.json" }),
+      typescript({
+        tsconfig: "./tsconfig.dist.json",
+        compilerOptions: {
+          declaration: true,
+          declarationDir: "dist/esm/_tmp/types",
+          noEmit: false,
+          plugins: [
+            { transform: "typescript-transform-paths" },
+            {
+              transform: "typescript-transform-paths",
+              afterDeclarations: true,
+            },
+          ],
+        },
+      }),
     ],
     output: {
       dir: "dist/esm",

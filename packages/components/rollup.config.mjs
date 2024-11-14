@@ -15,7 +15,4 @@ export default rollupConfig({
     reactAriaComponentsV3: "./src/__react-aria-components__/index.ts",
   },
   plugins: pluginsSharedUi,
-  alias: {
-    entries: [{ find: "~components", replacement: "src" }],
-  },
 })
