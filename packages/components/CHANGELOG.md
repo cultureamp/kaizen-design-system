@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.67.16
+
+### Patch Changes
+
+- [#5270](https://github.com/cultureamp/kaizen-design-system/pull/5270) [`573097f5767533255a1f9ce207d3b1a0ee7bcdfc`](https://github.com/cultureamp/kaizen-design-system/commit/573097f5767533255a1f9ce207d3b1a0ee7bcdfc) - Update @kaizen/package-bundler
+
 ## 1.67.15
 
 ### Patch Changes
