@@ -18,14 +18,14 @@ _Note: If your package extends another shared UI package, you will need to list 
 
 Add the following to your `package.json`:
 ```json
-"main": "dist/cjs/index.cjs",
-"module": "dist/esm/index.mjs",
-"types": "dist/types/index.d.ts",
+"main": "dist/cjs/index.cjs", // CommonJS entrypoint
+"module": "dist/esm/index.mjs", // ES modules entrypoint
+"types": "dist/types/index.d.ts", // TypeScript types entrypoint
 "files": [
-  "dist"
+  "dist" // Ensure dist dir is included in package
 ],
 "sideEffects": [
-  "styles.css"
+  "styles.css" // Ensure styles do not get tree-shaken
 ],
 "scripts": {
   "build": "pnpm package-bundler build-shared-ui",
@@ -44,7 +44,7 @@ pnpm add -D postcss postcss-preset-env rollup tslib
 - `rollup`
 - `tslib` (peerDep of `rollup`)
 - If using Tailwind:
-  - `tailwind`
+  - `tailwindcss`
 
 ### Required files
 
@@ -52,7 +52,6 @@ pnpm add -D postcss postcss-preset-env rollup tslib
 - `rollup.config.mjs`
 - `tsconfig.json`
 - `tsconfig.dist.json`
-- `tsconfig.types.json`
 - If using Tailwind:
   - `tailwind.config.js`
   - `src/tailwind.css`
@@ -104,18 +103,7 @@ export default rollupConfig({
 
 // tsconfig.dist.json
 {
-  "extends": [
-    "./tsconfig.json",
-    "@kaizen/package-bundler/tsconfig.dist.json"
-  ]
-}
-
-// tsconfig.types.json
-{
-  "extends": [
-    "./tsconfig.dist.json",
-    "@kaizen/package-bundler/tsconfig.types.json"
-  ]
+  "extends": "./tsconfig.json"
 }
 ```
 
@@ -155,7 +143,7 @@ module.exports = {
 
 ### Alias
 
-If you are using aliases, ensure you have them listed in your `tsconfig.json` (the `tsconfig.dist` and `tsconfig.types` should extend this) and in `rollup.config`.
+If you are using aliases, ensure you have them listed in your `tsconfig.json` (the `tsconfig.dist` should extend this).
 
 Example:
 ```json
@@ -170,17 +158,6 @@ Example:
 
 // tsconfig.dist.json
 {
-  "extends": ["./tsconfig.json", "@kaizen/package-bundler/tsconfig.dist.json"],
+  "extends": "./tsconfig.json",
 }
-```
-
-```ts
-// rollup.config.mjs
-export default rollupConfig({
-  alias: {
-    entries: [
-      { find: "~components", replacement: "src" },
-    ],
-  },
-})
 ```
