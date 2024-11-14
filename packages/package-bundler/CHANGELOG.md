@@ -1,5 +1,24 @@
 # @kaizen/package-bundler
 
+## 2.0.0
+
+### Major Changes
+
+- [#5270](https://github.com/cultureamp/kaizen-design-system/pull/5270) [`573097f5767533255a1f9ce207d3b1a0ee7bcdfc`](https://github.com/cultureamp/kaizen-design-system/commit/573097f5767533255a1f9ce207d3b1a0ee7bcdfc) - Move TypeScript types generation to rollup as the separate step using `tsc` was not resolving aliases with `typescript-transform-paths@3.5.2`.
+
+  BREAKING CHANGES:
+
+  - `@kaizen/package-bundler/tsconfig.dist.json` has been removed
+    - Remove this from `extends` within your `tsconfig.dist.json`
+  - `@kaizen/package-bundler/tsconfig.types.json`
+    - Delete your `tsconfig.types.json` (no longer required)
+  - `rollupConfig` no longer accepts the `alias` arg as aliases are now automatically resolved based on your `tsconfig.json` paths
+    - Remove `alias` defined within your `rollup.config.mjs`
+
+### Patch Changes
+
+- [#5270](https://github.com/cultureamp/kaizen-design-system/pull/5270) [`573097f5767533255a1f9ce207d3b1a0ee7bcdfc`](https://github.com/cultureamp/kaizen-design-system/commit/573097f5767533255a1f9ce207d3b1a0ee7bcdfc) - Update dep `typescript-transform-paths` to `^3.5.2` and loosen `typescript` peerDep version.
+
 ## 1.1.11
 
 ### Patch Changes

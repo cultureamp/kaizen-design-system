@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.3.9
+
+### Patch Changes
+
+- [#5270](https://github.com/cultureamp/kaizen-design-system/pull/5270) [`573097f5767533255a1f9ce207d3b1a0ee7bcdfc`](https://github.com/cultureamp/kaizen-design-system/commit/573097f5767533255a1f9ce207d3b1a0ee7bcdfc) - Update @kaizen/package-bundler
+
+- Updated dependencies [[`573097f5767533255a1f9ce207d3b1a0ee7bcdfc`](https://github.com/cultureamp/kaizen-design-system/commit/573097f5767533255a1f9ce207d3b1a0ee7bcdfc)]:
+  - @kaizen/design-tokens@10.8.3
+
 ## 1.3.8
 
 ### Patch Changes
