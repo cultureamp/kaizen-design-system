@@ -3,6 +3,7 @@ import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
 import { Badge } from "~components/Badge"
 import { Icon } from "~components/__future__"
+import { ReversedColors } from "~components/__utilities__/v3"
 import { Button } from "../index"
 
 const meta = {
@@ -20,6 +21,60 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {}
+
+export const ButtonVariants: Story = {
+  render: args => (
+    <>
+      <Button {...args} variant="primary" />
+      <Button {...args} variant="secondary" />
+      <Button {...args} variant="tertiary" />
+    </>
+  ),
+  decorators: [
+    Story => (
+      <div className="flex gap-8">
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+export const ButtonVariantsReversed: Story = {
+  render: args => (
+    <ReversedColors isReversed={true}>
+      <Button {...args} variant="primary" />
+      <Button {...args} variant="secondary" />
+      <Button {...args} variant="tertiary" />
+    </ReversedColors>
+  ),
+  parameters: {
+    reverseColors: true,
+  },
+  decorators: [
+    Story => (
+      <div className="flex gap-8 bg-purple-700 p-16">
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+export const ButtonSizes: Story = {
+  render: args => (
+    <>
+      <Button {...args} size="small" />
+      <Button {...args} size="medium" />
+      <Button {...args} size="large" />
+    </>
+  ),
+  decorators: [
+    Story => (
+      <div className="[&>*]:ms-8">
+        <Story />
+      </div>
+    ),
+  ],
+}
 
 export const ButtonWithIcon: Story = {
   args: {

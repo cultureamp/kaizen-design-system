@@ -37,6 +37,22 @@ A `LinkButton` component will be provided in the future to handle routing and na
 
 This is built on top [React Aria's Button component](https://react-spectrum.adobe.com/react-aria/Button.html#props) and seeks to provide a flexible API with convenient abstractions that handle variants, sizes, pending states and icons.
 
+### Variants
+
+`Button` supports the following variants: `primary`, `secondary` and `tertiary`. If the `variant` prop is not specified, the default will be `primary`.
+
+<Canvas of={exampleStories.ButtonVariants} />
+
+Reversed variants are handled via the `ReversedColors` Provider - read more on this in the [reversed colors section](#reversed-colors).
+
+<Canvas of={exampleStories.ButtonVariantsReversed} />
+
+### Sizes
+
+Button supports the following sizes: `small`, `medium` and `large`. If the `size` prop is not specified, the default will be `medium`.
+
+<Canvas of={exampleStories.ButtonSizes} />
+
 ### `onPress` vs `onClick`
 
 One key change to the `Button`&apos;s API is the shift from `onClick` to React Aria's implementation of `onPress`. This approach has been adopted as it provides better support for consistent touch events across device types, such mobile, desktop and tablet. You can read more about the development and reason behind this pattern [here](https://react-spectrum.adobe.com/blog/building-a-button-part-1.html#touch-interactions).

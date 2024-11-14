@@ -10,6 +10,10 @@ import { ButtonSizes, ButtonVariants, PendingButtonProps } from "./types"
 import styles from "./Button.module.css"
 
 type ButtonBaseProps = Omit<RACButtonProps, "children"> & {
+  /** Used as the label for the button. */
+  children: RACButtonProps["children"]
+  /** Visually hides the Button's child content used as the label and the `pendingLabel`. Use for icon-only `Button`. @default "false" */
+  hasHiddenLabel?: boolean
   /** The visual style of the button.
    *  @default "default" */
   variant?: ButtonVariants
@@ -22,10 +26,6 @@ type ButtonBaseProps = Omit<RACButtonProps, "children"> & {
   iconPosition?: "start" | "end"
   /** Controls if the button inherits width from its parent. @default "false" */
   isFullWidth?: boolean
-  /** Used as the label for the button. */
-  children: RACButtonProps["children"]
-  /** Visually hides the Button's child content used as the label and the `pendingLabel`. Use for icon-only `Button`. @default "false" */
-  hasHiddenLabel?: boolean
 }
 
 export type ButtonProps = ButtonBaseProps & PendingButtonProps
