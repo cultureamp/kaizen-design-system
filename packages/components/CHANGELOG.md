@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.67.18
+
+### Patch Changes
+
+- [#5277](https://github.com/cultureamp/kaizen-design-system/pull/5277) [`0b641cfc39be9eaf9d77cb8aef32e845f02ecbd0`](https://github.com/cultureamp/kaizen-design-system/commit/0b641cfc39be9eaf9d77cb8aef32e845f02ecbd0) - Fix EmptyState horizontal overflow
+
 ## 1.67.17
 
 ### Patch Changes
