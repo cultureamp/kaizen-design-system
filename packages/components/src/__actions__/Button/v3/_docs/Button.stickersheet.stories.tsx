@@ -1,7 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { within } from "@storybook/test"
-import { VisuallyHidden } from "~components/VisuallyHidden"
 import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
@@ -98,20 +97,21 @@ const IconButtonRowTemplate = ({
           <span className="flex gap-8" key={variant}>
             <Button
               icon={<Icon name="delete" isPresentational />}
+              hasHiddenLabel
               size={size}
               variant={variant}
             >
-              <VisuallyHidden>Label</VisuallyHidden>
+              Label
             </Button>
             <Button
               icon={<Icon name="delete" isPresentational />}
               size={size}
               isPending
-              isPendingLabelHidden
+              hasHiddenLabel
               pendingLabel="Submitting"
               variant={variant}
             >
-              <VisuallyHidden>Label</VisuallyHidden>
+              Label
             </Button>
           </span>
         ))}

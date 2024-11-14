@@ -2,7 +2,6 @@ import React from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
 import { Badge } from "~components/Badge"
-import { VisuallyHidden } from "~components/VisuallyHidden"
 import { Icon } from "~components/__future__"
 import { Button } from "../index"
 
@@ -37,10 +36,9 @@ export const ButtonWithIconEnd: Story = {
 
 export const IconButton: Story = {
   args: {
-    children: (
-      <VisuallyHidden>Remove highlights from: May 8, 2024</VisuallyHidden>
-    ),
+    children: "Remove highlights from: May 8, 2024",
     icon: <Icon isPresentational name="delete" />,
+    hasHiddenLabel: true,
   },
 }
 
@@ -68,7 +66,10 @@ export const ButtonWithBadge: Story = {
   args: {
     children: (
       <>
-        Label <Badge size="small">3</Badge>
+        Label
+        <Badge classNameOverride="ms-4" size="small">
+          3
+        </Badge>
       </>
     ),
   },

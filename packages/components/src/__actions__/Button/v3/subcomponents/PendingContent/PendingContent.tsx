@@ -7,11 +7,11 @@ import styles from "./PendingContent.module.css"
 
 export const PendingContent = ({
   pendingLabel,
-  isPendingLabelHidden = false,
+  hasHiddenPendingLabel = false,
   size = "medium",
 }: PendingProps & { size?: ButtonSizes }): JSX.Element => (
   <span className={classNames(styles.pendingContent, styles[size])}>
-    {isPendingLabelHidden ? (
+    {hasHiddenPendingLabel ? (
       <VisuallyHidden>{pendingLabel}</VisuallyHidden>
     ) : (
       <span className={styles.pendingContentLabel}>{pendingLabel}</span>
@@ -20,7 +20,7 @@ export const PendingContent = ({
       size={size === "small" ? "xs" : "sm"}
       accessibilityLabel=""
       classNameOverride={
-        isPendingLabelHidden ? styles.spinnerHidden : undefined
+        hasHiddenPendingLabel ? styles.spinnerHidden : undefined
       }
     />
   </span>

@@ -22,7 +22,10 @@ type ButtonBaseProps = Omit<RACButtonProps, "children"> & {
   iconPosition?: "start" | "end"
   /** Controls if the button inherits width from its parent. @default "false" */
   isFullWidth?: boolean
+  /** Used as the label for the button. */
   children: RACButtonProps["children"]
+  /** Visually hides the Button's child content used as the label and the `pendingLabel`. Use for icon-only `Button`. @default "false" */
+  hasHiddenLabel?: boolean
 }
 
 export type ButtonProps = ButtonBaseProps & PendingButtonProps
@@ -38,8 +41,9 @@ export const Button = forwardRef(
       isFullWidth = false,
       icon,
       iconPosition,
+      hasHiddenLabel = false,
       isPending,
-      isPendingLabelHidden,
+      hasHiddenPendingLabel = false,
       pendingLabel,
       ...otherProps
     }: ButtonProps,
@@ -49,7 +53,7 @@ export const Button = forwardRef(
     const pendingProps = isPending
       ? {
           isPending,
-          isPendingLabelHidden,
+          hasHiddenPendingLabel,
           pendingLabel,
         }
       : {}
@@ -77,6 +81,7 @@ export const Button = forwardRef(
               size={size}
               icon={icon}
               iconPosition={iconPosition}
+              hasHiddenLabel={hasHiddenLabel}
               {...pendingProps}
             >
               {childIsFunction ? children(racStateProps) : children}

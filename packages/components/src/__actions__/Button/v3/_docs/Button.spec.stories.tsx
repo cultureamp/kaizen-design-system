@@ -26,6 +26,8 @@ export const PendingButton: Story = {
       React.useState<boolean>(isPending)
     const [isIconPendingStatus, setIsIconPendingStatus] =
       React.useState<boolean>(isPending)
+    const [isIconOnlyPendingStatus, setIsIconOnlyPendingStatus] =
+      React.useState<boolean>(isPending)
 
     return (
       <>
@@ -47,7 +49,7 @@ export const PendingButton: Story = {
           isPending={isIconPendingStatus}
           icon={<Icon name="add" isPresentational />}
           pendingLabel="Loading"
-          isPendingLabelHidden
+          hasHiddenPendingLabel
           onPress={() => {
             setIsIconPendingStatus(true)
             setTimeout(() => {
@@ -55,7 +57,22 @@ export const PendingButton: Story = {
             }, 1000)
           }}
         >
-          <VisuallyHidden>Icon label</VisuallyHidden>
+          Icon label
+        </Button>
+        <Button
+          {...otherProps}
+          isPending={isIconOnlyPendingStatus}
+          icon={<Icon name="add" isPresentational />}
+          pendingLabel="Loading"
+          hasHiddenLabel
+          onPress={() => {
+            setIsIconOnlyPendingStatus(true)
+            setTimeout(() => {
+              setIsIconOnlyPendingStatus(false)
+            }, 1000)
+          }}
+        >
+          Icon label
         </Button>
       </>
     )

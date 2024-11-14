@@ -9,7 +9,7 @@ export type PendingPropsUndefined = {
   /** Visually Hides the `pendingLabel` rendering only the loading spinner. This will maintain the width of the Button's `children` to avoid layout shifts.
    * @default false
    */
-  isPendingLabelHidden?: never
+  hasHiddenPendingLabel?: never
 }
 
 export type PendingProps = {
@@ -19,7 +19,7 @@ export type PendingProps = {
   /** Visually Hides the `pendingLabel` rendering only the loading spinner. This will maintain the width of the Button's `children` to avoid layout shifts.
    * @default false
    */
-  isPendingLabelHidden?: boolean
+  hasHiddenPendingLabel?: boolean
 }
 
 export type PendingButtonProps = PendingProps | PendingPropsUndefined
