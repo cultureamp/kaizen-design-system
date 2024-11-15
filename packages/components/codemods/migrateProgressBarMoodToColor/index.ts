@@ -2,7 +2,6 @@ import { transformComponentsInDir } from "../utils"
 import { transformProgressBarMoodToColor } from "./transformProgressBarMoodToColor"
 
 const migrateProgressBarMoodToColor = (): void => {
-  // eslint-disable-next-line no-console
   console.log(
     " ~(-_- ~) Running ProgressBar mood to color transformer (~ -_-)~"
   )

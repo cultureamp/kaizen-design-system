@@ -1,0 +1,19 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!**/README.md",
+        "!**/*.stories.*",
+        "!**/*.spec.*",
+        "!__tests__/**/*",
+        "!CHANGELOG.md",
+        "!svgo.config.js",
+        "!svgo.spec.ts",
+        "!svgoUtils.js"
+      ],
+      "outputs": ["dist/**"]
+    }
+  }
+}
