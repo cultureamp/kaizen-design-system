@@ -3,15 +3,10 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["packages/**"],
       "outputs": ["dist/**"]
     },
     "dev": {
       "dependsOn": ["^build"]
-    },
-    "@docs/storybook#dev": {
-      "dependsOn": ["^build", "build:tailwind"],
-      "cache": false
     },
     "lint:ts": {
       "dependsOn": ["^build"]
@@ -22,59 +17,6 @@
     },
     "clean": {
       "cache": false
-    },
-    "@docs/storybook#build:tailwind": {
-      "dependsOn": ["^build"],
-      "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/.storybook/preview.css"],
-      "cache": false
-    },
-    "@docs/storybook#build:docs": {
-      "dependsOn": ["^build", "build:tailwind"],
-      "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/storybook-static/**"],
-      "cache": false
-    },
-    "@docs/storybook#build:test": {
-      "dependsOn": ["^build", "build:tailwind"],
-      "inputs": ["packages/**", "docs/**"],
-      "outputs": ["docs/storybook-static/**"],
-      "cache": false
-    },
-    "@docs/storybook#build:chromatic": {
-      "dependsOn": ["^build", "build:tailwind"],
-      "outputs": ["docs/storybook-static/**"],
-      "cache": false
-    },
-    "@docs/storybook#test:storybook": {
-      "dependsOn": ["^build", "build:tailwind"],
-      "outputs": ["docs/storybook-static/**"],
-      "cache": false
-    },
-    "@kaizen/components#build": {
-      "dependsOn": [
-        "@kaizen/design-tokens#build",
-        "@kaizen/package-bundler#build"
-      ],
-      "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json"],
-      "outputs": ["dist/**"]
-    },
-    "@kaizen/tailwind#build": {
-      "dependsOn": [
-        "@kaizen/design-tokens#build",
-        "@kaizen/package-bundler#build"
-      ],
-      "inputs": ["src/**"],
-      "outputs": ["dist/**"]
-    },
-    "@kaizen/design-tokens#build": {
-      "dependsOn": ["@kaizen/package-bundler#build"],
-      "inputs": ["css/**", "less/**", "sass/**", "src/**"],
-      "outputs": ["dist/**"]
-    },
-    "@kaizen/package-bundler#build": {
-      "inputs": ["bin/*", "src/**", "tsconfig*.json"],
-      "outputs": ["dist/**"]
     }
   }
 }

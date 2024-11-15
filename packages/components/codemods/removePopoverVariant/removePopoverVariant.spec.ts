@@ -1,5 +1,5 @@
 import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst } from "../utils"
+import { transformSourceForTagName, printAst } from "../utils"
 import { removePopoverVariant } from "./removePopoverVariant"
 
 describe("removePopoverVariant()", () => {
@@ -10,7 +10,7 @@ describe("removePopoverVariant()", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <Popover />
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removePopoverVariant,
       tagName: "Popover",
@@ -25,7 +25,7 @@ describe("removePopoverVariant()", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <Popover />
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removePopoverVariant,
       tagName: "Popover",
@@ -40,7 +40,7 @@ describe("removePopoverVariant()", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <Popover id="123"/>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removePopoverVariant,
       tagName: "Popover",
@@ -55,7 +55,7 @@ describe("removePopoverVariant()", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <div><Popover /><Popover /></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removePopoverVariant,
       tagName: "Popover",

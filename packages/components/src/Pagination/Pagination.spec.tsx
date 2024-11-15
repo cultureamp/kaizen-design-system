@@ -1,6 +1,7 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { mockMatchMedia } from "~components/utils/useMediaQueries.spec"
 import { Pagination } from "./Pagination"
 
 const user = userEvent.setup()
@@ -15,6 +16,10 @@ const defaultProps = {
 }
 
 describe("<Pagination />", () => {
+  beforeEach(() => {
+    mockMatchMedia()
+  })
+
   it("calls onPageChange when clicking page number", async () => {
     const onPageChange = vi.fn()
 
