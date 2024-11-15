@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Popover } from "react-aria-components"
+import { Text } from "~components/Text"
 import { Button } from "~components/__actions__/v3"
 import { Icon } from "~components/__future__/Icon"
 import { Menu, MenuTrigger, MenuItem } from "../index"
@@ -24,7 +25,6 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: ({ defaultOpen: _, ...args }) => (
     <MenuTrigger {...args}>
-      {/* Replace with Kaizen Button once we have v3 or backwards compatibility */}
       <Button className="[--icon-size:24]">
         <Icon name="more_horiz" alt="Additional actions" />
       </Button>
@@ -63,4 +63,36 @@ export const WithSections: Story = {
 export const Controlled: Story = {
   ...testStories.Controlled,
   play: undefined,
+}
+
+export const RichContent: Story = {
+  render: ({ defaultOpen: _, ...args }) => (
+    <MenuTrigger {...args}>
+      <Button className="[--icon-size:24]">
+        <Icon name="more_horiz" alt="Additional actions" />
+      </Button>
+      <Popover>
+        <Menu>
+          <MenuItem textValue="Save">
+            <div>Save</div>
+            <Text tag="div" variant="extra-small">
+              Saves all data
+            </Text>
+          </MenuItem>
+          <MenuItem textValue="Edit">
+            <div>Edit</div>
+            <Text tag="div" variant="extra-small">
+              Adjust the name and description
+            </Text>
+          </MenuItem>
+          <MenuItem textValue="Delete">
+            Delete
+            <Text tag="div" variant="extra-small">
+              Completely remove, cannot be undone
+            </Text>
+          </MenuItem>
+        </Menu>
+      </Popover>
+    </MenuTrigger>
+  ),
 }

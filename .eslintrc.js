@@ -320,7 +320,7 @@ module.exports = {
       },
     },
     {
-      files: ["**/bin/**", "vitest.setup.ts"],
+      files: ["**/bin/**", "**/codemods/**", "vitest.setup.ts"],
       rules: {
         "no-console": "off",
       },

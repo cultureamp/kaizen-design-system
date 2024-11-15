@@ -1,7 +1,3 @@
-.wrapper {
-  container: filter-bar-wrapper / inline-size;
-}
-
 .filterBar {
   display: flex;
   padding: var(--spacing-8);

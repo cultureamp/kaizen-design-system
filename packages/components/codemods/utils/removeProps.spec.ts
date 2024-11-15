@@ -1,5 +1,5 @@
 import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst } from "../utils"
+import { transformSourceForTagName, printAst } from "../utils"
 import { removeProps } from "./removeProps"
 
 describe("removeProps()", () => {
@@ -10,7 +10,7 @@ describe("removeProps()", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <Pancakes />
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removeProps(["topping"]),
       tagName: "Pancakes",
@@ -25,7 +25,7 @@ describe("removeProps()", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <Pancakes />
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removeProps(["topping", "fruit"]),
       tagName: "Pancakes",
@@ -40,7 +40,7 @@ describe("removeProps()", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <Pancakes id="123"/>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removeProps(["topping"]),
       tagName: "Pancakes",
@@ -55,7 +55,7 @@ describe("removeProps()", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <div><Pancakes /><Pancakes /></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removeProps(["topping"]),
       tagName: "Pancakes",

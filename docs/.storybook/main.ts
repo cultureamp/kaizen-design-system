@@ -15,7 +15,6 @@ const config: StorybookConfig = {
     "../../packages/**/*.mdx",
     "../../packages/**/*.stories.tsx",
     "../pages/**/*.mdx",
-    "../pages/**/*.stories.tsx",
   ],
   addons: [
     getAbsolutePath("@storybook/addon-a11y"),
