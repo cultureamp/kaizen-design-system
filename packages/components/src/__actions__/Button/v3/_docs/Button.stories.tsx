@@ -11,7 +11,6 @@ const meta = {
   component: Button,
   args: {
     children: "Label",
-    pendingLabel: "Submitting",
     onPress: action("Button onPress event"),
   },
 } satisfies Meta<typeof Button>

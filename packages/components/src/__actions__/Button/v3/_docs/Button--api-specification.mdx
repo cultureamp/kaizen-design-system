@@ -109,7 +109,16 @@ This pattern ensures that the `Button`'s accessible name is determined by its ch
 
 <Canvas of={specStories.PendingButton} />
 
-For an icon only `Button`, this can be paired with the `hasHiddenPendingLabel` prop to visibly hide the `pendingLabel` to avoid layout shifts. The `pendingLabel` should be short and declarative as this will be announced to a screen reader regardless of its visibility.
+This can be paired with the `hasHiddenPendingLabel` prop to visually hide the `pendingLabel` and maintain the content width. This is ideal for avoid layout shifts when space is a commodity.
+
+The `pendingLabel` should be short and declarative as this will be announced to a screen reader regardless of its visibility.
+
+<Canvas of={specStories.PendingButtonWithHiddenPendingLabel} />
+
+As mentioned in the [previous section](#icon-only-button-and-hashiddenlabel), an icon only `Button` uses `hasHiddenLabel` to visually hide both the `pendingLabel` and child content, so `hasHiddenPendingLabel` is not needed.
+
+<Canvas of={specStories.PendingIconButton} />
+
 
 ### Full width Buttons
 

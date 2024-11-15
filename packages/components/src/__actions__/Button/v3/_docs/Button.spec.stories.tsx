@@ -14,6 +14,9 @@ const meta = {
     children: "Label",
     onPress: onPressEvent,
   },
+  parameters: {
+    chromatic: { disable: false },
+  },
 } satisfies Meta<typeof Button>
 
 export default meta
@@ -21,69 +24,24 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const PendingButton: Story = {
-  render: ({ isPending = false, ...otherProps }) => {
+  render: ({ isPending = false, pendingLabel = "Loading", ...otherProps }) => {
     const [isPendingStatus, setIsPendingStatus] =
-      React.useState<boolean>(isPending)
-    const [isIconPendingStatus, setIsIconPendingStatus] =
-      React.useState<boolean>(isPending)
-    const [isIconOnlyPendingStatus, setIsIconOnlyPendingStatus] =
       React.useState<boolean>(isPending)
 
     return (
-      <>
-        <Button
-          {...otherProps}
-          isPending={isPendingStatus}
-          pendingLabel="Loading"
-          onPress={() => {
-            setIsPendingStatus(true)
-            setTimeout(() => {
-              setIsPendingStatus(false)
-            }, 1000)
-          }}
-        >
-          Label
-        </Button>
-        <Button
-          {...otherProps}
-          isPending={isIconPendingStatus}
-          icon={<Icon name="add" isPresentational />}
-          pendingLabel="Loading"
-          hasHiddenPendingLabel
-          onPress={() => {
-            setIsIconPendingStatus(true)
-            setTimeout(() => {
-              setIsIconPendingStatus(false)
-            }, 1000)
-          }}
-        >
-          Icon label
-        </Button>
-        <Button
-          {...otherProps}
-          isPending={isIconOnlyPendingStatus}
-          icon={<Icon name="add" isPresentational />}
-          pendingLabel="Loading"
-          hasHiddenLabel
-          onPress={() => {
-            setIsIconOnlyPendingStatus(true)
-            setTimeout(() => {
-              setIsIconOnlyPendingStatus(false)
-            }, 1000)
-          }}
-        >
-          Icon label
-        </Button>
-      </>
+      <Button
+        {...otherProps}
+        isPending={isPendingStatus}
+        pendingLabel={pendingLabel}
+        onPress={() => {
+          setIsPendingStatus(true)
+          setTimeout(() => {
+            setIsPendingStatus(false)
+          }, 900)
+        }}
+      />
     )
   },
-  decorators: [
-    Story => (
-      <div className="flex gap-8">
-        <Story />
-      </div>
-    ),
-  ],
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
     const button = canvas.getByRole("button", { name: "Label" })
@@ -105,6 +63,25 @@ export const PendingButton: Story = {
         }, timeToWait)
       )
     })
+  },
+}
+
+export const PendingButtonWithHiddenPendingLabel: Story = {
+  ...PendingButton,
+  args: {
+    hasHiddenPendingLabel: true,
+    isPending: false,
+    pendingLabel: "Loading",
+  },
+}
+
+export const PendingIconButton: Story = {
+  ...PendingButton,
+  args: {
+    hasHiddenLabel: true,
+    isPending: false,
+    pendingLabel: "Loading",
+    icon: <Icon name="add" isPresentational />,
   },
 }
 
