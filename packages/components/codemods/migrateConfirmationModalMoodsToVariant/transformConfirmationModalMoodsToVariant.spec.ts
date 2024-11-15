@@ -1,5 +1,5 @@
 import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst } from "../utils"
+import { transformSourceForTagName, printAst } from "../utils"
 import { transformConfirmationModalMoodsToVariant } from "./transformConfirmationModalMoodsToVariant"
 
 describe("transformConfirmationModalMoodsToVariant", () => {
@@ -10,7 +10,7 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <ConfirmationModal variant="success"/>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
       tagName: "ConfirmationModal",
@@ -25,7 +25,7 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <ConfirmationModal variant="warning"/>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
       tagName: "ConfirmationModal",
@@ -40,7 +40,7 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <ConfirmationModal variant="warning" id="123"/>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
       tagName: "ConfirmationModal",
@@ -55,7 +55,7 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <div><ConfirmationModal variant="success"/><ConfirmationModal variant="warning"/></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
       tagName: "ConfirmationModal",
@@ -70,7 +70,7 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <div><ConfirmationModal variant="success"/><ConfirmationModal variant="cautionary"/><ConfirmationModal variant="success"/></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
       tagName: "ConfirmationModal",
@@ -85,7 +85,7 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <div><ConfirmationModal variant="success"/></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
       tagName: "ConfirmationModal",
@@ -100,7 +100,7 @@ describe("transformConfirmationModalMoodsToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <div><ConfirmationModal variant={confirmationModalVariable}/></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformConfirmationModalMoodsToVariant,
       tagName: "ConfirmationModal",

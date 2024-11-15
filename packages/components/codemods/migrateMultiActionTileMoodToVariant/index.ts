@@ -2,7 +2,6 @@ import { transformComponentsInDir } from "../utils"
 import { transformMultiActionTileMoodToVariant } from "./transformMultiActionTileMoodToVariant"
 
 const migrateMultiActionTileMoodToVariant = (): void => {
-  // eslint-disable-next-line no-console
   console.log(
     " ~(-_- ~) Running MultiActionTile mood to variant transformer (~ -_-)~"
   )
