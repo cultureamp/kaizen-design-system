@@ -10,7 +10,7 @@ import {
 } from "~components/Illustration"
 import { Text } from "~components/Text"
 import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./EmptyState.module.scss"
+import styles from "./EmptyState.module.css"
 
 const ILLUSTRATIONS: Record<
   string,
