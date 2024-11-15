@@ -1,11 +1,15 @@
 import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst, TransformConfig } from "../utils"
+import {
+  printAst,
+  transformSourceForTagName,
+  type TransformSourceForTagNameArgs,
+} from "../utils"
 import { transformBrandMomentMoodToVariant } from "./transformBrandMomentMoodToVariant"
 
 const transformBrandMoment = (
-  sourceFile: TransformConfig["sourceFile"]
+  sourceFile: TransformSourceForTagNameArgs["sourceFile"]
 ): string =>
-  transformSource({
+  transformSourceForTagName({
     sourceFile,
     astTransformer: transformBrandMomentMoodToVariant,
     tagName: "BrandMoment",

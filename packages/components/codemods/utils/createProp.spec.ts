@@ -2,12 +2,11 @@ import ts from "typescript"
 import { parseJsx } from "../__tests__/utils/parseJsx"
 import { createStyleProp } from "./createProp"
 import { printAst } from "./printAst"
-import { TransformConfig, transformSource } from "./transformSource"
+import { TransformSourceArgs, transformSource } from "./transformSource"
 import { updateJsxElementWithNewProps } from "./updateJsxElementWithNewProps"
 
-export const mockedTransformer =
-  (context: ts.TransformationContext) =>
-  (rootNode: ts.Node): ts.Node => {
+export const mockedTransformer: ts.TransformerFactory<ts.SourceFile> =
+  context => rootNode => {
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         if (node.tagName.getText() === "Pancakes") {
@@ -32,16 +31,15 @@ export const mockedTransformer =
       }
       return ts.visitEachChild(node, visit, context)
     }
-    return ts.visitNode(rootNode, visit)
+    return ts.visitNode(rootNode, visit) as ts.SourceFile
   }
 
 const testCreateStyleProp = (
-  sourceFile: TransformConfig["sourceFile"]
+  sourceFile: TransformSourceArgs["sourceFile"]
 ): string =>
   transformSource({
     sourceFile,
-    astTransformer: mockedTransformer,
-    tagName: "Pancakes",
+    transformers: [mockedTransformer],
   })
 
 describe("createStyleProp()", () => {

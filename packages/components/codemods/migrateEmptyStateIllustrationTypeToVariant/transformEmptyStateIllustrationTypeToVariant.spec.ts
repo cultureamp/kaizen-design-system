@@ -1,11 +1,15 @@
 import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst, TransformConfig } from "../utils"
+import {
+  printAst,
+  transformSourceForTagName,
+  type TransformSourceForTagNameArgs,
+} from "../utils"
 import { transformEmptyStateIllustrationTypeToVariant } from "./transformEmptyStateIllustrationTypeToVariant"
 
 const transformEmptyState = (
-  sourceFile: TransformConfig["sourceFile"]
+  sourceFile: TransformSourceForTagNameArgs["sourceFile"]
 ): string =>
-  transformSource({
+  transformSourceForTagName({
     sourceFile,
     astTransformer: transformEmptyStateIllustrationTypeToVariant,
     tagName: "EmptyState",

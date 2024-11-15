@@ -625,9 +625,6 @@ importers:
         specifier: workspace:*
         version: link:../design-tokens
     devDependencies:
-      '@kaizen/components':
-        specifier: workspace:*
-        version: link:../components
       '@kaizen/package-bundler':
         specifier: workspace:*
         version: link:../package-bundler

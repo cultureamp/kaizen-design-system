@@ -4,7 +4,7 @@ import {
   MenuProps as RACMenuProps,
 } from "react-aria-components"
 import { mergeClassNames } from "~components/utils/mergeClassNames"
-import styles from "./Menu.module.scss"
+import styles from "./Menu.module.css"
 
 export type MenuProps = Omit<
   RACMenuProps<HTMLDivElement>,
