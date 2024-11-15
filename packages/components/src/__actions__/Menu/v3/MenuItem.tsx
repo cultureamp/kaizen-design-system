@@ -4,7 +4,7 @@ import {
   MenuItemProps as RACMenuItemProps,
 } from "react-aria-components"
 import { mergeClassNames } from "~components/utils/mergeClassNames"
-import styles from "./MenuItem.module.scss"
+import styles from "./MenuItem.module.css"
 
 export type MenuItemProps = RACMenuItemProps & {
   /**
@@ -17,16 +17,27 @@ export type MenuItemProps = RACMenuItemProps & {
  * A MenuItem represents an individual action in a Menu.
  */
 export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
-  ({ className, icon, children, ...props }, ref): JSX.Element => (
-    <RACMenuItem
-      ref={ref}
-      className={mergeClassNames(styles.item, className)}
-      {...props}
-    >
-      <>
-        {icon && <span className={styles.iconWrapper}>{icon}</span>}
-        {children}
-      </>
-    </RACMenuItem>
-  )
+  ({ className, icon, children, textValue, ...props }, ref): JSX.Element => {
+    const determinedTextValue =
+      textValue || (typeof children === "string" ? children : undefined)
+    return (
+      <RACMenuItem
+        ref={ref}
+        className={mergeClassNames(styles.item, className)}
+        textValue={determinedTextValue}
+        {...props}
+      >
+        <>
+          {typeof children === "string" && icon ? (
+            <div className={styles.flexWrapper}>
+              <span className={styles.iconWrapper}>{icon}</span>
+              {children}
+            </div>
+          ) : (
+            <>{children}</>
+          )}
+        </>
+      </RACMenuItem>
+    )
+  }
 )

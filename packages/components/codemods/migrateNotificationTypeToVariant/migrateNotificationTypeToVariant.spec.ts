@@ -1,5 +1,5 @@
 import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst } from "../utils"
+import { transformSourceForTagName, printAst } from "../utils"
 import { transformNotificationTypeToVariant } from "./migrateNotificationTypeToVariant"
 
 describe("transformNotificationTypeToVariant", () => {
@@ -10,7 +10,7 @@ describe("transformNotificationTypeToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <InlineNotification variant="success">Test</InlineNotification>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
       tagName: "InlineNotification",
@@ -25,7 +25,7 @@ describe("transformNotificationTypeToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <GlobalNotification variant="success">Test</GlobalNotification>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
       tagName: "GlobalNotification",
@@ -40,7 +40,7 @@ describe("transformNotificationTypeToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <ToastNotification variant="success">Test</ToastNotification>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
       tagName: "ToastNotification",
@@ -55,7 +55,7 @@ describe("transformNotificationTypeToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <InlineNotification variant="informative">Test</InlineNotification>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
       tagName: "InlineNotification",
@@ -69,7 +69,7 @@ describe("transformNotificationTypeToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <InlineNotification variant="cautionary">Test</InlineNotification>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
       tagName: "InlineNotification",
@@ -83,7 +83,7 @@ describe("transformNotificationTypeToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <InlineNotification variant="security">Test</InlineNotification>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
       tagName: "InlineNotification",
@@ -97,7 +97,7 @@ describe("transformNotificationTypeToVariant", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <InlineNotification variant="warning">Test</InlineNotification>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
       tagName: "InlineNotification",
