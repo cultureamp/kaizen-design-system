@@ -15,12 +15,8 @@ clean() {
 bundle() {
     echo -e "${GREEN}Compile and bundle source code...${NC}"
     rollup -c
-    echo -e "${GREEN}------${NC}"
-}
-
-compile_types() {
-    echo -e "${GREEN}Compile typescript types...${NC}"
-    tsc --project tsconfig.types.json --declarationDir dist/types
+    mv dist/esm/_tmp/types dist/types
+    rm -rf dist/esm/_tmp
     echo -e "${GREEN}------${NC}"
 }
 
@@ -37,7 +33,6 @@ elapsed_time() {
 build() {
     clean
     bundle
-    compile_types
 }
 
 case "$1" in

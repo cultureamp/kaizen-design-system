@@ -1,0 +1,37 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build:tailwind": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", "../packages/**/*"],
+      "outputs": ["docs/.storybook/preview.css"],
+      "cache": false
+    },
+    "build:docs": {
+      "dependsOn": ["^build", "build:tailwind"],
+      "inputs": ["$TURBO_DEFAULT$", "../packages/**/*"],
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
+    },
+    "build:test": {
+      "dependsOn": ["^build", "build:tailwind"],
+      "inputs": ["$TURBO_DEFAULT$", "../packages/**/*"],
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
+    },
+    "build:chromatic": {
+      "dependsOn": ["^build", "build:tailwind"],
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
+    },
+    "dev": {
+      "dependsOn": ["^build", "build:tailwind"],
+      "cache": false
+    },
+    "test:storybook": {
+      "dependsOn": ["^build", "build:tailwind"],
+      "outputs": ["docs/storybook-static/**"],
+      "cache": false
+    }
+  }
+}
