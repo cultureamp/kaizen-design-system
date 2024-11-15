@@ -11,5 +11,11 @@ export default {
         ignoreFontFamilies: ["Material Symbols Outlined"],
       },
     ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        ignorePseudoClasses: ["global"],
+      },
+    ],
   },
 }

@@ -1,4 +1,5 @@
 .item {
+  display: block;
   font-family: var(--typography-paragraph-body-font-family);
   font-size: var(--typography-paragraph-body-font-size);
   letter-spacing: var(--typography-paragraph-body-letter-spacing);
@@ -9,12 +10,15 @@
   border: var(--border-focus-ring-border-width)
     var(--border-focus-ring-border-style) transparent;
   border-radius: 4px;
-  display: flex;
-  gap: 0 var(--spacing-8);
-  align-items: center;
   margin-inline: var(--spacing-6);
   text-decoration: none;
   cursor: pointer;
+}
+
+.flexWrapper {
+  display: flex;
+  gap: 0 var(--spacing-8);
+  align-items: center;
 }
 
 .iconWrapper {

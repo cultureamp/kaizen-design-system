@@ -6,5 +6,5 @@ set -e
 
 corepack enable
 pnpm install --frozen-lockfile
-pnpm turbo @docs/storybook#build:docs
+pnpm turbo build:docs --filter=@docs/storybook
 tar -czf ./storybook.tar.gz ./docs/storybook-static

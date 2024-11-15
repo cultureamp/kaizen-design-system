@@ -4,7 +4,7 @@ import { updateJsxElementWithNewProps } from "./updateJsxElementWithNewProps"
 export const removeProps =
   (propsToRemove: string[]) =>
   (context: ts.TransformationContext, tagName: string) =>
-  (rootNode: ts.Node): ts.Node => {
+  (rootNode: ts.SourceFile): ts.SourceFile => {
     function visit(node: ts.Node): ts.Node {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         if (node.tagName.getText() === tagName) {
@@ -26,5 +26,5 @@ export const removeProps =
       }
       return ts.visitEachChild(node, visit, context)
     }
-    return ts.visitNode(rootNode, visit)
+    return ts.visitNode(rootNode, visit) as ts.SourceFile
   }

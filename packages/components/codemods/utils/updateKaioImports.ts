@@ -118,9 +118,12 @@ export type UpdateKaioImportsArgs = {
 }
 
 export const updateKaioImports =
-  ({ importsToRemove, importsToAdd }: UpdateKaioImportsArgs) =>
-  (context: ts.TransformationContext) =>
-  (rootNode: ts.Node): ts.Node => {
+  ({
+    importsToRemove,
+    importsToAdd,
+  }: UpdateKaioImportsArgs): ts.TransformerFactory<ts.SourceFile> =>
+  context =>
+  rootNode => {
     if (!ts.isSourceFile(rootNode)) return rootNode
 
     if (!importsToRemove && !importsToAdd) return rootNode

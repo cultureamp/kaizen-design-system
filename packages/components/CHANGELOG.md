@@ -1,5 +1,66 @@
 # Change Log
 
+## 1.67.18
+
+### Patch Changes
+
+- [#5277](https://github.com/cultureamp/kaizen-design-system/pull/5277) [`0b641cfc39be9eaf9d77cb8aef32e845f02ecbd0`](https://github.com/cultureamp/kaizen-design-system/commit/0b641cfc39be9eaf9d77cb8aef32e845f02ecbd0) - Fix EmptyState horizontal overflow
+
+## 1.67.17
+
+### Patch Changes
+
+- [#5279](https://github.com/cultureamp/kaizen-design-system/pull/5279) [`718cbdd2dd00ddd688a9272cd0c271adf085fc42`](https://github.com/cultureamp/kaizen-design-system/commit/718cbdd2dd00ddd688a9272cd0c271adf085fc42) - Actually release @kaizen/package-bundler (2.0.0 already exists from an accidental prior release)
+
+## 1.67.16
+
+### Patch Changes
+
+- [#5270](https://github.com/cultureamp/kaizen-design-system/pull/5270) [`573097f5767533255a1f9ce207d3b1a0ee7bcdfc`](https://github.com/cultureamp/kaizen-design-system/commit/573097f5767533255a1f9ce207d3b1a0ee7bcdfc) - Update @kaizen/package-bundler
+
+## 1.67.15
+
+### Patch Changes
+
+- [#5275](https://github.com/cultureamp/kaizen-design-system/pull/5275) [`3b1ceb02c2865d42cba6b13a5f4e4aa932e6897b`](https://github.com/cultureamp/kaizen-design-system/commit/3b1ceb02c2865d42cba6b13a5f4e4aa932e6897b) - fix(FilterBar): Remove container property from FilterBar wrapper
+
+## 1.67.14
+
+### Patch Changes
+
+- [#5273](https://github.com/cultureamp/kaizen-design-system/pull/5273) [`6fcc6088f8b6107694ce6ab22c4c2a78560332e9`](https://github.com/cultureamp/kaizen-design-system/commit/6fcc6088f8b6107694ce6ab22c4c2a78560332e9) - Pagination responsive adjustments
+
+  - Margins partially restored to have 8px between buttons
+  - Boundary pages will now only show on large viewports and up
+  - Sibling pages will continue to show on medium viewports and up
+
+## 1.67.13
+
+### Patch Changes
+
+- [#5269](https://github.com/cultureamp/kaizen-design-system/pull/5269) [`e4358c8289c789b7140affb4207d3e72cdd94f86`](https://github.com/cultureamp/kaizen-design-system/commit/e4358c8289c789b7140affb4207d3e72cdd94f86) - Pagination responsiveness
+
+  - Margins and padding tightened up
+  - Sibling pages shown drops from 1 to 0 on small viewports
+
+## 1.67.12
+
+### Patch Changes
+
+- [#5266](https://github.com/cultureamp/kaizen-design-system/pull/5266) [`94ac62d79ce431adc1ad2b4dc76e39d72fb56373`](https://github.com/cultureamp/kaizen-design-system/commit/94ac62d79ce431adc1ad2b4dc76e39d72fb56373) - Re-release with @kaizen/package-bundler update.
+
+- [#5265](https://github.com/cultureamp/kaizen-design-system/pull/5265) [`034fbf2e829564999d4795c123304c17fe87c054`](https://github.com/cultureamp/kaizen-design-system/commit/034fbf2e829564999d4795c123304c17fe87c054) - Update codemods to retain empty lines.
+
+## 1.67.11
+
+### Patch Changes
+
+- [#5263](https://github.com/cultureamp/kaizen-design-system/pull/5263) [`f4a00f663c09baae9d5f5ed02d0f04e2ecf4e5d0`](https://github.com/cultureamp/kaizen-design-system/commit/f4a00f663c09baae9d5f5ed02d0f04e2ecf4e5d0) - Menu v3 fixes and documentation for typeahead functionality
+
+  - Insert `textValue` into RAC's MenuItem when typeof children === string
+  - Add documentation for how to get typeahead working when passing ReactNode
+  - Adjust MenuItem to only add flex when children is string and there's an icon
+
 ## 1.67.10
 
 ### Patch Changes

@@ -1,9 +1,15 @@
 import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst, TransformConfig } from "../utils"
+import {
+  printAst,
+  transformSourceForTagName,
+  type TransformSourceForTagNameArgs,
+} from "../utils"
 import { transformCardVariantToColor } from "./transformCardVariantToColor"
 
-const transformCard = (sourceFile: TransformConfig["sourceFile"]): string =>
-  transformSource({
+const transformCard = (
+  sourceFile: TransformSourceForTagNameArgs["sourceFile"]
+): string =>
+  transformSourceForTagName({
     sourceFile,
     astTransformer: transformCardVariantToColor,
     tagName: "Card",
