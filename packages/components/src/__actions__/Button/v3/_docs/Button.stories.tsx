@@ -121,7 +121,7 @@ export const ButtonWithBadge: Story = {
     children: (
       <>
         Label
-        <Badge classNameOverride="ms-4" size="small">
+        <Badge classNameOverride="ms-8" size="small">
           3
         </Badge>
       </>

@@ -8,7 +8,7 @@ import { Button } from "../index"
 const onPressEvent = fn()
 
 const meta = {
-  title: "Actions/Button/Button (v3)",
+  title: "Actions/Button/Button (v3)/Button (v3) tests",
   component: Button,
   args: {
     children: "Label",
@@ -22,6 +22,25 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
+
+// stress testing the accessible name being derive from the nested children
+export const IconButtonWithHiddenLabel: Story = {
+  args: {
+    hasHiddenLabel: true,
+    icon: <Icon name="add" isPresentational />,
+    children: (
+      <span>
+        Hidden label <span>is</span> <span>accessible</span>
+      </span>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const button = canvas.getByRole("button")
+
+    expect(button).toHaveAccessibleName("Hidden label is accessible")
+  },
+}
 
 export const PendingButton: Story = {
   render: ({ isPending = false, pendingLabel = "Loading", ...otherProps }) => {
@@ -48,7 +67,9 @@ export const PendingButton: Story = {
     // Simulates a delay that may occur when a button must wait for a response
     const timeToWait = 1000
 
-    expect(button).toHaveAccessibleName("Label")
+    await step("Button has accessible label", async () =>
+      expect(button).toHaveAccessibleName("Label")
+    )
 
     await step("Accessible label updates on press", async () => {
       await button.focus()
@@ -98,7 +119,7 @@ export const RACRenderPropsWithChildren: Story = {
             name={isFocusVisible ? "thumb_up" : "thumb_down"}
             isPresentational
             isFilled={true}
-            className=" [--icon-size:16]"
+            className="ms-8 [--icon-size:16]"
           />
         </>
       )}
