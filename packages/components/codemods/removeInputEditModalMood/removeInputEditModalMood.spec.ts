@@ -1,5 +1,5 @@
 import { parseJsx } from "../__tests__/utils"
-import { transformSource, printAst } from "../utils"
+import { transformSourceForTagName, printAst } from "../utils"
 import { removeInputEditModalMood } from "./removeInputEditModalMood"
 
 describe("removeInputEditModalMood", () => {
@@ -10,7 +10,7 @@ describe("removeInputEditModalMood", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <InputEditModal />
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removeInputEditModalMood,
       tagName: "InputEditModal",
@@ -25,7 +25,7 @@ describe("removeInputEditModalMood", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <InputEditModal id="123"/>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removeInputEditModalMood,
       tagName: "InputEditModal",
@@ -40,7 +40,7 @@ describe("removeInputEditModalMood", () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <div><InputEditModal /><InputEditModal /></div>
     `)
-    const transformed = transformSource({
+    const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removeInputEditModalMood,
       tagName: "InputEditModal",
