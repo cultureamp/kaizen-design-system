@@ -26,8 +26,12 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: ({ defaultOpen: _, ...args }) => (
     <MenuTrigger {...args}>
-      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
-        <VisuallyHidden>Additional actions</VisuallyHidden>
+      <Button
+        size="large"
+        icon={<Icon name="more_horiz" isPresentational />}
+        hasHiddenLabel
+      >
+        Additional actions
       </Button>
       <Popover>
         <Menu>
@@ -69,8 +73,12 @@ export const Controlled: Story = {
 export const RichContent: Story = {
   render: ({ defaultOpen: _, ...args }) => (
     <MenuTrigger {...args}>
-      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
-        <VisuallyHidden>Additional actions</VisuallyHidden>
+      <Button
+        size="large"
+        icon={<Icon name="more_horiz" isPresentational />}
+        hasHiddenLabel
+      >
+        Additional actions
       </Button>
       <Popover>
         <Menu>

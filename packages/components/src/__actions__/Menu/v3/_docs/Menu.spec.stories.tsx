@@ -37,8 +37,13 @@ export const KitchenSink: Story = {
   ],
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
-        <VisuallyHidden>Additional actions</VisuallyHidden>
+      <Button
+        size="large"
+        icon={<Icon name="more_horiz" isPresentational />}
+        hasHiddenLabel
+        hasHiddenLabel
+      >
+        Additional actions
       </Button>
       <Popover>
         <Menu>
@@ -85,8 +90,12 @@ export const KitchenSink: Story = {
 export const Basic: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
-        <VisuallyHidden>Additional actions</VisuallyHidden>
+      <Button
+        size="large"
+        icon={<Icon name="more_horiz" isPresentational />}
+        hasHiddenLabel
+      >
+        Additional actions
       </Button>
 
       <Popover>
@@ -167,8 +176,12 @@ const mockOnClick = fn()
 export const DisabledItems: Story = {
   render: () => (
     <MenuTrigger>
-      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
-        <VisuallyHidden>Additional actions</VisuallyHidden>
+      <Button
+        size="large"
+        icon={<Icon name="more_horiz" isPresentational />}
+        hasHiddenLabel
+      >
+        Additional actions
       </Button>
       <Popover>
         <Menu>
@@ -207,8 +220,12 @@ export const DisabledItems: Story = {
 export const WithSections: Story = {
   render: () => (
     <MenuTrigger>
-      <Button size="large" icon={<Icon name="more_horiz" isPresentational />}>
-        <VisuallyHidden>Additional actions</VisuallyHidden>
+      <Button
+        size="large"
+        icon={<Icon name="more_horiz" isPresentational />}
+        hasHiddenLabel
+      >
+        Additional actions
       </Button>
       <Popover>
         <Menu>
@@ -239,8 +256,11 @@ export const Controlled: Story = {
           Toggle open
         </button>
         <MenuTrigger isOpen={isOpen} onOpenChange={setOpen}>
-          <Button>
-            <Icon name="more_horiz" alt="Additional actions" />
+          <Button
+            icon={<Icon name="more_horiz" isPresentational />}
+            hasHiddenLabel
+          >
+            Additional actions
           </Button>
           <Popover>
             <Menu>
