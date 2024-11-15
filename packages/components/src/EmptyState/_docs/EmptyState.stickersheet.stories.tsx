@@ -23,7 +23,9 @@ const EmptyStateWrapper = ({
   isAnimated,
   ...args
 }: EmptyStateProps): JSX.Element => (
-  <EmptyState isAnimated={IS_CHROMATIC ? false : isAnimated} {...args} />
+  <div>
+    <EmptyState isAnimated={IS_CHROMATIC ? false : isAnimated} {...args} />
+  </div>
 )
 
 const StickerSheetTemplate: StickerSheetStory = {

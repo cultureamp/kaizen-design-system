@@ -50,6 +50,7 @@ export type EmptyStateProps = {
    * @default informative
    */
   variant?: "success" | "warning" | "informative" | "expert-advice"
+  // @deprecated - This prop no longer has any effect
   layoutContext?: "sidebarAndContent" | "contentOnly"
   bodyText: string | React.ReactNode
   straightCorners?: boolean
@@ -66,6 +67,7 @@ export const EmptyState = ({
   id,
   illustrationType,
   variant = "informative",
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   layoutContext = "sidebarAndContent",
   headingProps,
   bodyText,
@@ -82,33 +84,30 @@ export const EmptyState = ({
       className={classnames(
         styles.container,
         illustrationType ? styles[illustrationType] : styles[variant],
-        styles[layoutContext],
         straightCorners && styles.straightCorners,
         classNameOverride
       )}
       id={id}
       {...props}
     >
-      <div className={styles.illustrationSide}>
-        {isAnimated ? (
-          <IllustrationComponent
-            isAnimated
-            loop={loop}
-            classNameOverride={styles.illustration}
-          />
-        ) : (
-          <IllustrationComponent classNameOverride={styles.illustration} />
-        )}
-      </div>
-      <div className={styles.textSide}>
-        <div className={styles.textSideInner}>
+      <div className={styles.content}>
+        <div className={styles.illustrationContainer}>
+          {isAnimated ? (
+            <IllustrationComponent
+              isAnimated
+              loop={loop}
+              classNameOverride={styles.illustration}
+            />
+          ) : (
+            <IllustrationComponent classNameOverride={styles.illustration} />
+          )}
+        </div>
+        <div className={styles.textContainer}>
           {headingProps && (
             <Heading classNameOverride={styles.heading} {...headingProps} />
           )}
-          <Text variant="body" classNameOverride={styles.description}>
-            {bodyText}
-          </Text>
-          {children}
+          <Text variant="body">{bodyText}</Text>
+          {children && <span>{children}</span>}
         </div>
       </div>
     </div>
