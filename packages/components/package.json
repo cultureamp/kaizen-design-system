@@ -93,7 +93,7 @@
     "react-textfit": "^1.1.1",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^10.0.4",
-    "uuid": "^10.0.0"
+    "uuid": "^11.0.3"
   },
   "dependenciesComments": {
     "react-day-picker": "Version locked until a11y gets fixed (https://github.com/gpbl/react-day-picker/pull/1708)"
