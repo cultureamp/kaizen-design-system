@@ -89,7 +89,7 @@
     "react-focus-on": "^3.9.4",
     "react-media": "^1.10.0",
     "react-popper": "^2.3.0",
-    "react-select": "^5.8.2",
+    "react-select": "^5.8.3",
     "react-textfit": "^1.1.1",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^10.0.4",
