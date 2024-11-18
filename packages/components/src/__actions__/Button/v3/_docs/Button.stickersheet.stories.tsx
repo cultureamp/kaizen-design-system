@@ -70,6 +70,19 @@ const RowTemplate = ({
             }
             iconPosition="end"
             variant={variant}
+            isPending
+            pendingLabel="Submitting"
+            hasHiddenPendingLabel
+            size={size}
+          >
+            Label
+          </Button>
+          <Button
+            icon={
+              <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
+            }
+            iconPosition="end"
+            variant={variant}
             size={size}
             isDisabled
           >
@@ -130,6 +143,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             "Icon start",
             "Icon end",
             "isPending",
+            "hasHiddenPendingLabel",
             "isDisabled",
           ]}
           headingsWidth="10rem"

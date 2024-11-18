@@ -5,6 +5,7 @@ import { VisuallyHidden } from "~components/VisuallyHidden"
 import { ButtonSizes, PendingProps } from "../../types"
 import styles from "./PendingContent.module.css"
 
+/** Renders the pending content of the button, handling pending label visibility and spinner positioning */
 export const PendingContent = ({
   pendingLabel,
   hasHiddenPendingLabel = false,
@@ -20,7 +21,7 @@ export const PendingContent = ({
       size={size === "small" ? "xs" : "sm"}
       accessibilityLabel=""
       classNameOverride={
-        hasHiddenPendingLabel ? styles.spinnerHidden : undefined
+        hasHiddenPendingLabel ? styles.hiddenLabelSpinner : undefined
       }
     />
   </span>
