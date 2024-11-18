@@ -50,7 +50,7 @@ export type EmptyStateProps = {
    * @default informative
    */
   variant?: "success" | "warning" | "informative" | "expert-advice"
-  // @deprecated - This prop no longer has any effect
+  /** @deprecated - This prop no longer has any effect */
   layoutContext?: "sidebarAndContent" | "contentOnly"
   bodyText: string | React.ReactNode
   straightCorners?: boolean

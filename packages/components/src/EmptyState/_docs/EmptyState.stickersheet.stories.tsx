@@ -67,7 +67,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Row>
         </StickerSheet>
 
-        <StickerSheet isReversed={isReversed} title="Responsive">
+        <StickerSheet isReversed={isReversed} title="Responsive breakpoints">
           <StickerSheet.Row header="Above 1024px">
             <StickerSheet.Cell style={{ width: 1025 }}>
               <EmptyStateWrapper {...defaultProps} />

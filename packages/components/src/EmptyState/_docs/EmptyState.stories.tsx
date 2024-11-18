@@ -50,29 +50,3 @@ export const Playground: Story = {
     },
   },
 }
-
-export const Viewports: Story = {
-  parameters: {
-    viewport: {
-      viewports: {
-        large: {
-          name: "Above 1024px",
-          styles: { width: "1025px", height: "800px" },
-        },
-        medium: {
-          name: "Above 560px and below or equal to 1024px",
-          styles: { width: "800px", height: "800px" },
-        },
-        small: {
-          name: "Below or equal to 560px",
-          styles: { width: "560px", height: "800px" },
-        },
-      },
-      defaultViewport: "large",
-    },
-    chromatic: {
-      disable: false,
-      viewports: [1025, 1024, 560, 559],
-    },
-  },
-}
