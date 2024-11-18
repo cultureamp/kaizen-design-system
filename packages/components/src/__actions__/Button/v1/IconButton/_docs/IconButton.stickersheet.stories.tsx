@@ -79,35 +79,32 @@ const StickerSheetTemplate: StickerSheetStory = {
           },
         ]
     return (
-      <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Header
-          headings={["Base", "Hover", "Active", "Focus", "Disabled", "Working"]}
-          hasVerticalHeadings
-        />
-        <StickerSheet.Body>
-          {VARIANTS_PROPS.map(({ title, props }) => (
-            <StickerSheet.Row key={title} rowTitle={title}>
-              <IconButton reversed={isReversed} {...props} />
-              <IconButton
-                reversed={isReversed}
-                data-sb-pseudo-styles="hover"
-                {...props}
-              />
-              <IconButton
-                reversed={isReversed}
-                data-sb-pseudo-styles="active"
-                {...props}
-              />
-              <IconButton
-                reversed={isReversed}
-                data-sb-pseudo-styles="focus"
-                {...props}
-              />
-              <IconButton reversed={isReversed} {...props} disabled />
-              <IconButton reversed={isReversed} {...props} {...WORKING_PROPS} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
+      <StickerSheet
+        isReversed={isReversed}
+        headers={["Base", "Hover", "Active", "Focus", "Disabled", "Working"]}
+      >
+        {VARIANTS_PROPS.map(({ title, props }) => (
+          <StickerSheet.Row key={title} header={title}>
+            <IconButton reversed={isReversed} {...props} />
+            <IconButton
+              reversed={isReversed}
+              data-sb-pseudo-styles="hover"
+              {...props}
+            />
+            <IconButton
+              reversed={isReversed}
+              data-sb-pseudo-styles="active"
+              {...props}
+            />
+            <IconButton
+              reversed={isReversed}
+              data-sb-pseudo-styles="focus"
+              {...props}
+            />
+            <IconButton reversed={isReversed} {...props} disabled />
+            <IconButton reversed={isReversed} {...props} {...WORKING_PROPS} />
+          </StickerSheet.Row>
+        ))}
       </StickerSheet>
     )
   },
