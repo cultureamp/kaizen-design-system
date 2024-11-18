@@ -85,17 +85,16 @@
   --button-padding-y: calc(var(--spacing-12) - var(--button-border-width));
   --button-min-x-y: var(--spacing-48);
 
-  /* --button-padding: calc(var(--spacing-12) - var(--button-border-width)); */
   --icon-size: 24;
 }
 
-.smallHiddenLabel,
-.mediumHiddenLabel {
+.smallIconButton,
+.mediumIconButton {
   --button-padding-x: calc(var(--spacing-8) - var(--button-border-width));
   --button-padding-y: calc(var(--spacing-8) - var(--button-border-width));
 }
 
-.largeHiddenLabel {
+.largeIconButton {
   --button-padding-x: calc(var(--spacing-12) - var(--button-border-width));
   --button-padding-y: calc(var(--spacing-12) - var(--button-border-width));
 }
@@ -222,4 +221,16 @@
     --button-bg-color: var(--color-gray-400);
     --button-border-color: var(--color-gray-400);
   }
+}
+
+.buttonContentPending {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+.buttonContentHidden {
+  visibility: hidden;
 }

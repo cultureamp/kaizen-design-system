@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react"
+import classNames from "classnames"
 import {
   Button as RACButton,
   ButtonProps as RACButtonProps,
@@ -45,7 +46,7 @@ export const Button = forwardRef(
       isPending,
       hasHiddenPendingLabel = false,
       pendingLabel,
-      ...otherProps
+      ...restProps
     }: ButtonProps,
     ref: React.ForwardedRef<HTMLButtonElement>
   ) => {
@@ -63,7 +64,7 @@ export const Button = forwardRef(
         className={mergeClassNames(
           styles.button,
           styles[size],
-          hasHiddenLabel && styles[`${size}HiddenLabel`],
+          hasHiddenLabel && styles[`${size}IconButton`],
           isDisabled && styles.isDisabled,
           isReversed ? styles[`${variant}Reversed`] : styles[variant],
           isFullWidth && styles.fullWidth,
@@ -71,7 +72,7 @@ export const Button = forwardRef(
         )}
         isDisabled={isDisabled}
         isPending={isPending}
-        {...otherProps}
+        {...restProps}
       >
         {racStateProps => {
           const childIsFunction = typeof children === "function"
@@ -83,8 +84,11 @@ export const Button = forwardRef(
                 icon={icon}
                 iconPosition={iconPosition}
                 hasHiddenLabel={hasHiddenLabel}
-                isPending={pendingProps.isPending}
-                hasHiddenPendingLabel={pendingProps.hasHiddenPendingLabel}
+                className={classNames(
+                  isPending && hasHiddenPendingLabel
+                    ? styles.buttonContentHidden
+                    : isPending && styles.buttonContentPending
+                )}
               >
                 {childIsFunction ? children(racStateProps) : children}
               </ButtonContent>
