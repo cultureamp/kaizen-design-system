@@ -39,7 +39,7 @@
     align-items: center;
   }
 
-  @media (width >= 767px) {
+  @media (width <= 767px) {
     min-width: unset;
   }
 }
