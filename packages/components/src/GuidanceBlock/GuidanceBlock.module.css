@@ -16,7 +16,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-12);
   min-width: 320px;
   max-width: var(--layout-breakpoints-large);
   border: var(--border-width) var(--border-solid-border-style);
@@ -34,7 +34,7 @@
   @media (width >= 1024px) {
     min-height: calc(12rem - calc(var(--banner-padding) * 2));
     flex-direction: row;
-    gap: var(--spacing-md);
+    gap: var(--spacing-24);
     width: auto;
     align-items: center;
   }
@@ -51,7 +51,7 @@
     text-align: center;
     justify-content: center;
     align-self: center;
-    padding: var(--spacing-sm);
+    padding: var(--spacing-12);
   }
 
   @media (width <= 767px) {
@@ -96,18 +96,18 @@
   max-width: 780px;
 
   @media (width >= 1024px) {
-    padding: 0 var(--spacing-sm);
+    padding: 0 var(--spacing-12);
     text-align: left;
   }
 
   @media (width <= 767px) {
-    margin: var(--spacing-sm);
+    margin: var(--spacing-12);
     max-width: 100%;
   }
 
   [dir="rtl"] & {
     @media (width >= 1024px) {
-      padding: 0 var(--spacing-sm);
+      padding: 0 var(--spacing-12);
       text-align: right;
     }
   }
@@ -118,7 +118,7 @@
   flex: 1;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-md);
+  gap: var(--spacing-24);
 
   @media (width <= 1023px) {
     flex-direction: column;
@@ -132,7 +132,7 @@
   flex: 1 0 auto;
   justify-content: center;
   flex-direction: row-reverse;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-12);
   min-width: max-content;
 
   @media (width >= 768px) {
@@ -142,7 +142,7 @@
   @media (width <= 767px) {
     flex-direction: column;
     width: 100%;
-    margin-top: var(--spacing-xs);
+    margin-top: var(--spacing-6);
   }
 
   [dir="rtl"] & svg {
@@ -156,7 +156,7 @@
 }
 
 .headingWrapper {
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-24);
 }
 
 .default {
@@ -194,7 +194,7 @@
 .stacked {
   flex-flow: row wrap;
   align-items: unset;
-  gap: var(--spacing-md);
+  gap: var(--spacing-24);
   min-width: unset;
 
   @media (width <= 1023px) {
@@ -202,10 +202,10 @@
   }
 
   .illustrationWrapper {
-    margin-right: var(--spacing-sm);
+    margin-right: var(--spacing-12);
 
     [dir="rtl"] & {
-      margin-left: var(--spacing-sm);
+      margin-left: var(--spacing-12);
       margin-right: inherit;
     }
 
@@ -245,7 +245,7 @@
   }
 
   .buttonContainer {
-    padding-left: var(--spacing-sm);
+    padding-left: var(--spacing-12);
     justify-content: flex-start;
     width: unset;
     min-width: unset;
@@ -256,7 +256,7 @@
 
     [dir="rtl"] & {
       padding-left: 0;
-      padding-right: var(--spacing-sm);
+      padding-right: var(--spacing-12);
     }
 
     > * {
