@@ -128,3 +128,14 @@ export const ButtonWithBadge: Story = {
     ),
   },
 }
+
+export const ButtonClassNameTest: Story = {
+  args: {
+    children: (
+      <>
+        <Icon name="10k" alt="Thing" />
+      </>
+    ),
+    className: "p-8",
+  },
+}

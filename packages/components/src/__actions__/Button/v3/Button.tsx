@@ -5,7 +5,7 @@ import {
 } from "react-aria-components"
 import { useReversedColors } from "~components/__utilities__/v3"
 import { mergeClassNames } from "~components/utils/mergeClassNames"
-import { ButtonContent } from "./subcomponents"
+import { ButtonContent, PendingContent } from "./subcomponents"
 import { ButtonSizes, ButtonVariants, PendingButtonProps } from "./types"
 import styles from "./Button.module.css"
 
@@ -50,20 +50,20 @@ export const Button = forwardRef(
     ref: React.ForwardedRef<HTMLButtonElement>
   ) => {
     const isReversed = useReversedColors()
-    const pendingProps = isPending
+    const pendingProps: PendingButtonProps = isPending
       ? {
           isPending,
-          hasHiddenPendingLabel,
+          hasHiddenPendingLabel: hasHiddenLabel || hasHiddenPendingLabel,
           pendingLabel,
         }
       : {}
-
     return (
       <RACButton
         ref={ref}
         className={mergeClassNames(
           styles.button,
           styles[size],
+          hasHiddenLabel && styles[`${size}HiddenLabel`],
           isDisabled && styles.isDisabled,
           isReversed ? styles[`${variant}Reversed`] : styles[variant],
           isFullWidth && styles.fullWidth,
@@ -77,15 +77,23 @@ export const Button = forwardRef(
           const childIsFunction = typeof children === "function"
 
           return (
-            <ButtonContent
-              size={size}
-              icon={icon}
-              iconPosition={iconPosition}
-              hasHiddenLabel={hasHiddenLabel}
-              {...pendingProps}
-            >
-              {childIsFunction ? children(racStateProps) : children}
-            </ButtonContent>
+            <>
+              <ButtonContent
+                size={size}
+                icon={icon}
+                iconPosition={iconPosition}
+                hasHiddenLabel={hasHiddenLabel}
+                isPending={pendingProps.isPending}
+                hasHiddenPendingLabel={pendingProps.hasHiddenPendingLabel}
+              >
+                {childIsFunction ? children(racStateProps) : children}
+              </ButtonContent>
+              <span aria-live="polite">
+                {pendingProps.isPending && (
+                  <PendingContent {...pendingProps} size={size} />
+                )}
+              </span>
+            </>
           )
         }}
       </RACButton>

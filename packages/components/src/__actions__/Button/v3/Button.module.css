@@ -10,6 +10,8 @@
 
   --button-min-x-y: var(--spacing-40);
   --button-border-width: var(--border-solid-border-width);
+  --button-padding-y: calc(var(--spacing-8) - var(--button-border-width));
+  --button-padding-x: calc(var(--spacing-16) - var(--button-border-width));
 
   background-color: var(--button-bg-color, var(--color-blue-500));
   border: var(--button-border-width) solid;
@@ -31,10 +33,7 @@
   min-height: var(--button-min-x-y);
   min-width: var(--button-min-x-y);
   position: relative;
-  padding: var(
-    --button-padding,
-    calc(var(--spacing-8) - var(--button-border-width))
-  );
+  padding: var(--button-padding-y) var(--button-padding-x);
 
   &[data-hovered] {
     --button-bg-color: var(--color-blue-600);
@@ -75,14 +74,30 @@
 }
 
 .medium {
+  --button-padding-x: calc(var(--spacing-20) - var(--button-border-width));
+  --button-padding-y: calc(var(--spacing-8) - var(--button-border-width));
   --button-min-x-y: var(--spacing-40);
   --icon-size: 24;
 }
 
 .large {
+  --button-padding-x: calc(var(--spacing-24) - var(--button-border-width));
+  --button-padding-y: calc(var(--spacing-12) - var(--button-border-width));
   --button-min-x-y: var(--spacing-48);
-  --button-padding: calc(var(--spacing-12) - var(--button-border-width));
+
+  /* --button-padding: calc(var(--spacing-12) - var(--button-border-width)); */
   --icon-size: 24;
+}
+
+.smallHiddenLabel,
+.mediumHiddenLabel {
+  --button-padding-x: calc(var(--spacing-8) - var(--button-border-width));
+  --button-padding-y: calc(var(--spacing-8) - var(--button-border-width));
+}
+
+.largeHiddenLabel {
+  --button-padding-x: calc(var(--spacing-12) - var(--button-border-width));
+  --button-padding-y: calc(var(--spacing-12) - var(--button-border-width));
 }
 
 .secondary {

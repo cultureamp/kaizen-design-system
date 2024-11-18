@@ -1,11 +1,7 @@
 .pendingContent {
   display: inline-flex;
   align-items: center;
-  gap: var(--button-pending-content-gap, var(--spacing-4));
-}
-
-.pendingContentLabel {
-  padding: 0 var(--spacing-4);
+  gap: var(--button-pending-content-gap, var(--spacing-6));
 }
 
 .large {

@@ -3,7 +3,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { expect, userEvent, waitFor, within, fn } from "@storybook/test"
 import isChromatic from "chromatic"
 import { Popover, Header, Section } from "react-aria-components"
-import { VisuallyHidden } from "~components/VisuallyHidden"
 import { Button } from "~components/__actions__/v3"
 import { Icon } from "~components/__future__/Icon"
 import { Menu, MenuItem, MenuTrigger } from "../index"
@@ -40,7 +39,6 @@ export const KitchenSink: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
-        hasHiddenLabel
         hasHiddenLabel
       >
         Additional actions
