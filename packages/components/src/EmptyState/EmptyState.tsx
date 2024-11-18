@@ -67,8 +67,7 @@ export const EmptyState = ({
   id,
   illustrationType,
   variant = "informative",
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  layoutContext = "sidebarAndContent",
+  layoutContext: _,
   headingProps,
   bodyText,
   straightCorners,
