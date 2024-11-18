@@ -73,14 +73,14 @@ export const StickerSheet = ({
         {...restProps}
       >
         {headers && (
-          <StickerSheetRow>
+          <div className={styles.stickerSheetHeaders}>
             {hasVerticalHeaders && <div />}
             {headers.map(heading => (
               <StickerSheetHeader key={heading} isReversed={isReversed}>
                 {heading}
               </StickerSheetHeader>
             ))}
-          </StickerSheetRow>
+          </div>
         )}
         {React.Children.map(children, child => {
           if (isReversibleSubcomponent(child)) {

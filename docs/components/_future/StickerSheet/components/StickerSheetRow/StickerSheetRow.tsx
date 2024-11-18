@@ -20,7 +20,9 @@ export const StickerSheetRow = ({
 }: StickerSheetRowProps): JSX.Element => (
   <div className={classnames(styles.stickerSheetRow, className)} {...restProps}>
     {header && (
-      <StickerSheetHeader isReversed={isReversed}>{header}</StickerSheetHeader>
+      <StickerSheetHeader className={styles.header} isReversed={isReversed}>
+        {header}
+      </StickerSheetHeader>
     )}
     {React.Children.map(children, child => {
       if (React.isValidElement(child) && child.type === StickerSheetCell) {
