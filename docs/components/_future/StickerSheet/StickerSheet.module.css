@@ -1,0 +1,12 @@
+.stickerSheetSectionHeading {
+  margin-bottom: var(--spacing-12);
+
+  .stickerSheetContainer + .stickerSheetContainer & {
+    margin-top: var(--spacing-lg);
+  }
+}
+
+.stickerSheet {
+  display: grid;
+  gap: var(--spacing-16);
+}
