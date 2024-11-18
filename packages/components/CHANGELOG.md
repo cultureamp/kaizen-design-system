@@ -1,5 +1,23 @@
 # Change Log
 
+## 1.67.21
+
+### Patch Changes
+
+- [#5247](https://github.com/cultureamp/kaizen-design-system/pull/5247) [`3cbf445`](https://github.com/cultureamp/kaizen-design-system/commit/3cbf4459199afac845d2d639f7232a8235d65277) - Dep update, react-select from 5.8.2 to 5.8.3
+
+## 1.67.20
+
+### Patch Changes
+
+- [#5289](https://github.com/cultureamp/kaizen-design-system/pull/5289) [`18dc21c58ebd0329b08a25050074037e7700fc74`](https://github.com/cultureamp/kaizen-design-system/commit/18dc21c58ebd0329b08a25050074037e7700fc74) - Fix for mistake made in last point release (Internal refactor from Sass to CSS for GuidanceBlock)
+
+## 1.67.19
+
+### Patch Changes
+
+- [#5286](https://github.com/cultureamp/kaizen-design-system/pull/5286) [`513ad9ff48b564069d4c585f27ed9737a26968b2`](https://github.com/cultureamp/kaizen-design-system/commit/513ad9ff48b564069d4c585f27ed9737a26968b2) - Internal refactor from Sass to CSS for GuidanceBlock
+
 ## 1.67.18
 
 ### Patch Changes
