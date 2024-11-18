@@ -62,46 +62,44 @@ const CONTENT_PROPS: GuidanceBlockProps = {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Body>
-        <>
-          {variantsMap.map(variant => (
-            <StickerSheet.Row key={variant} rowTitle={variant}>
-              <GuidanceBlock variant={variant} {...TEXT_PROPS} />
-            </StickerSheet.Row>
-          ))}
-        </>
-        <StickerSheet.Row rowTitle="No arrow">
-          <GuidanceBlock withActionButtonArrow={false} {...TEXT_PROPS} />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Custom Content">
-          <GuidanceBlock {...CONTENT_PROPS} />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Tooltip">
-          <GuidanceBlock
-            {...TEXT_PROPS}
-            actions={{
-              primary: {
-                ...GENERIC_PROPS.actions.primary,
-                tooltip: {
-                  text: "Opens in a new tab",
-                  mood: "cautionary",
-                  isInitiallyVisible: true,
-                },
+      <>
+        {variantsMap.map(variant => (
+          <StickerSheet.Row key={variant} header={variant}>
+            <GuidanceBlock variant={variant} {...TEXT_PROPS} />
+          </StickerSheet.Row>
+        ))}
+      </>
+      <StickerSheet.Row header="No arrow">
+        <GuidanceBlock withActionButtonArrow={false} {...TEXT_PROPS} />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Custom Content">
+        <GuidanceBlock {...CONTENT_PROPS} />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Tooltip">
+        <GuidanceBlock
+          {...TEXT_PROPS}
+          actions={{
+            primary: {
+              ...GENERIC_PROPS.actions.primary,
+              tooltip: {
+                text: "Opens in a new tab",
+                mood: "cautionary",
+                isInitiallyVisible: true,
               },
-            }}
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Scene Illustration">
-          <GuidanceBlock
-            {...TEXT_PROPS}
-            illustration={<EmptyStatesPositive alt="" />}
-            illustrationType="scene"
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="No Max Width">
-          <GuidanceBlock {...TEXT_PROPS} noMaxWidth />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+            },
+          }}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Scene Illustration">
+        <GuidanceBlock
+          {...TEXT_PROPS}
+          illustration={<EmptyStatesPositive alt="" />}
+          illustrationType="scene"
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="No Max Width">
+        <GuidanceBlock {...TEXT_PROPS} noMaxWidth />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }
