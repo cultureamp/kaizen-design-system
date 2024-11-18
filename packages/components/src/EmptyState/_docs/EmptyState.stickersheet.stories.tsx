@@ -6,7 +6,7 @@ import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/StickerSheet"
+} from "~storybook/components/_future/StickerSheet"
 import { EmptyState, EmptyStateProps } from "../index"
 
 export default {
@@ -56,50 +56,64 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet isReversed={isReversed} heading="EmptyState">
-          <StickerSheet.Body>
-            {variants.map(variant => (
-              <StickerSheet.Row key={variant} rowTitle={variant}>
-                <EmptyStateWrapper {...defaultProps} variant={variant} />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
-          <StickerSheet.Body>
-            <StickerSheet.Row rowTitle="straightCorners">
-              <EmptyStateWrapper {...defaultProps} straightCorners />
+        <StickerSheet isReversed={isReversed} title="EmptyState">
+          {variants.map(variant => (
+            <StickerSheet.Row key={variant} header={variant}>
+              <EmptyStateWrapper {...defaultProps} variant={variant} />
             </StickerSheet.Row>
-          </StickerSheet.Body>
+          ))}
+          <StickerSheet.Row header="straightCorners">
+            <EmptyStateWrapper {...defaultProps} straightCorners />
+          </StickerSheet.Row>
+        </StickerSheet>
+
+        <StickerSheet isReversed={isReversed} title="Responsive">
+          <StickerSheet.Row header="Above 1024px">
+            <StickerSheet.Cell style={{ width: 1025 }}>
+              <EmptyStateWrapper {...defaultProps} />
+            </StickerSheet.Cell>
+          </StickerSheet.Row>
+          <StickerSheet.Row header="Above 560px and below or equal to 1024px (max)">
+            <StickerSheet.Cell style={{ width: 1024 }}>
+              <EmptyStateWrapper {...defaultProps} />
+            </StickerSheet.Cell>
+          </StickerSheet.Row>
+          <StickerSheet.Row header="Above 560px and below or equal to 1024px (min)">
+            <StickerSheet.Cell style={{ width: 561 }}>
+              <EmptyStateWrapper {...defaultProps} />
+            </StickerSheet.Cell>
+          </StickerSheet.Row>
+          <StickerSheet.Row header="Below or equal to 560px">
+            <StickerSheet.Cell style={{ width: 560 }}>
+              <EmptyStateWrapper {...defaultProps} />
+            </StickerSheet.Cell>
+          </StickerSheet.Row>
         </StickerSheet>
 
         <StickerSheet
           isReversed={isReversed}
-          heading="Illustration type (deprecated)"
+          title="Illustration type (deprecated)"
         >
-          <StickerSheet.Body>
-            {illustrationTypes.map(illustrationType => (
-              <StickerSheet.Row
-                key={illustrationType}
-                rowTitle={illustrationType}
+          {illustrationTypes.map(illustrationType => (
+            <StickerSheet.Row key={illustrationType} header={illustrationType}>
+              <EmptyStateWrapper
+                {...defaultProps}
+                illustrationType={illustrationType}
               >
-                <EmptyStateWrapper
-                  {...defaultProps}
-                  illustrationType={illustrationType}
-                >
-                  <Button
-                    label="Label"
-                    icon={
-                      <Icon
-                        name="chevron_right"
-                        isPresentational
-                        shouldMirrorInRTL
-                      />
-                    }
-                    iconPosition="end"
-                  />
-                </EmptyStateWrapper>
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+                <Button
+                  label="Label"
+                  icon={
+                    <Icon
+                      name="chevron_right"
+                      isPresentational
+                      shouldMirrorInRTL
+                    />
+                  }
+                  iconPosition="end"
+                />
+              </EmptyStateWrapper>
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
       </>
     )
