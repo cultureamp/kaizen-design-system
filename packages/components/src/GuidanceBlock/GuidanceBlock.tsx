@@ -8,7 +8,7 @@ import { Button, ButtonProps } from "~components/__actions__/v2"
 import { Icon } from "~components/__future__/Icon"
 import { Tooltip, TooltipProps } from "~components/__overlays__/Tooltip/v1"
 import { VariantType } from "./types"
-import styles from "./GuidanceBlock.module.scss"
+import styles from "./GuidanceBlock.module.css"
 
 export type ActionProps = ButtonProps & {
   tooltip?: TooltipProps
