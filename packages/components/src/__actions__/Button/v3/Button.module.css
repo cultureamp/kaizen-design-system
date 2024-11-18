@@ -84,7 +84,6 @@
   --button-padding-x: calc(var(--spacing-24) - var(--button-border-width));
   --button-padding-y: calc(var(--spacing-12) - var(--button-border-width));
   --button-min-x-y: var(--spacing-48);
-
   --icon-size: 24;
 }
 
