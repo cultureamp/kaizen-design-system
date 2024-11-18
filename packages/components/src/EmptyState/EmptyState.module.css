@@ -1,7 +1,7 @@
 .container {
   --empty-state-border-width: var(--border-width-1);
   --empty-state-illustration-max-height: 366px;
-  --empty-state-illustration-min-width: 224px;
+  --empty-state-illustration-min-width: 100px;
   --empty-state-text-container-max-width: 426px;
 
   container-type: inline-size;
