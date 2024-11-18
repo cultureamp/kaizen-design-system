@@ -1,27 +1,5 @@
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/layout";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/animation";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "../../styles/utils/responsive";
-@import "../../styles/utils/button-reset";
-
-@mixin guidance-block-under-480 {
-  @media (max-width: 480px) {
-    @content;
-  }
-}
-
-$bannerPadding: $spacing-lg;
-$ca-banner-fade-out: opacity $animation-duration-slow ease;
-$ca-banner-collapse-height-delayed: margin-top $animation-duration-fast
-  $animation-duration-slow ease;
-$illustration-size: 155px;
-$scene-illustration-size: 300px;
-
 .rightMargin {
-  margin-right: $spacing-8;
+  margin-right: var(--spacing-8);
 }
 
 .noRightMargin {
@@ -34,30 +12,34 @@ $scene-illustration-size: 300px;
 
 .banner {
   --border-width: var(--border-width-1);
+  --banner-padding: var(--spacing-lg);
 
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
+  gap: var(--spacing-12);
   min-width: 320px;
-  max-width: $layout-breakpoints-large;
+  max-width: var(--layout-breakpoints-large);
   border: var(--border-width) var(--border-solid-border-style);
-  border-radius: $border-solid-border-radius;
-  padding: calc(#{$bannerPadding} - var(--border-width));
-  box-shadow: $shadow-small-box-shadow;
+  border-radius: var(--border-solid-border-radius);
+  padding: calc(var(--banner-padding) - var(--border-width));
+  box-shadow: var(--shadow-small-box-shadow);
   position: relative;
   top: -1px;
-  transition: $ca-banner-fade-out, $ca-banner-collapse-height-delayed;
-  color: $color-purple-800;
+  transition:
+    opacity var(--animation-duration-slow) ease,
+    margin-top var(--animation-duration-fast) var(--animation-duration-slow)
+      ease;
+  color: var(--color-purple-800);
 
-  @include ca-media-desktop {
-    min-height: calc(12rem - calc(#{$bannerPadding} * 2));
+  @media (width >= 1024px) {
+    min-height: calc(12rem - calc(var(--banner-padding) * 2));
     flex-direction: row;
-    gap: $spacing-md;
+    gap: var(--spacing-24);
     width: auto;
     align-items: center;
   }
 
-  @include ca-media-mobile {
+  @media (width >= 767px) {
     min-width: unset;
   }
 }
@@ -65,29 +47,32 @@ $scene-illustration-size: 300px;
 .illustrationWrapper {
   display: flex;
 
-  @include ca-media-tablet {
+  @media (768px <= width <= 1023px) {
     text-align: center;
     justify-content: center;
     align-self: center;
-    padding: $spacing-sm;
+    padding: var(--spacing-12);
   }
 
-  @include ca-media-mobile {
+  @media (width <= 767px) {
     display: none;
   }
 }
 
 .illustration {
-  width: $illustration-size;
-  height: $illustration-size;
+  --illustration-size: 155px;
+  --scene-illustration-size: 300px;
 
-  // This has been created to handle scene illustrations consistently until the tile component is created
+  width: var(--illustration-size);
+  height: var(--illustration-size);
+
+  /* This has been created to handle scene illustrations consistently until the tile component is created */
   .hasSceneIllustration & {
     display: flex;
     justify-content: center;
-    max-width: $scene-illustration-size;
-    max-height: $scene-illustration-size;
-    width: $scene-illustration-size;
+    max-width: var(--scene-illustration-size);
+    max-height: var(--scene-illustration-size);
+    width: var(--scene-illustration-size);
     height: auto;
 
     figure {
@@ -110,19 +95,19 @@ $scene-illustration-size: 300px;
   align-self: center;
   max-width: 780px;
 
-  @include ca-media-desktop {
-    padding: 0 $spacing-sm;
+  @media (width >= 1024px) {
+    padding: 0 var(--spacing-12);
     text-align: left;
   }
 
-  @include ca-media-mobile {
-    margin: $spacing-sm;
+  @media (width <= 767px) {
+    margin: var(--spacing-12);
     max-width: 100%;
   }
 
   [dir="rtl"] & {
-    @include ca-media-desktop {
-      padding: 0 $spacing-sm;
+    @media (width >= 1024px) {
+      padding: 0 var(--spacing-12);
       text-align: right;
     }
   }
@@ -133,9 +118,9 @@ $scene-illustration-size: 300px;
   flex: 1;
   align-items: center;
   justify-content: space-between;
-  gap: $spacing-md;
+  gap: var(--spacing-24);
 
-  @include ca-media-tablet-and-under {
+  @media (width <= 1023px) {
     flex-direction: column;
     width: 100%;
     align-items: unset;
@@ -147,17 +132,17 @@ $scene-illustration-size: 300px;
   flex: 1 0 auto;
   justify-content: center;
   flex-direction: row-reverse;
-  gap: $spacing-sm;
+  gap: var(--spacing-12);
   min-width: max-content;
 
-  @include ca-media-tablet-and-up {
+  @media (width >= 768px) {
     text-align: center;
   }
 
-  @include ca-media-mobile {
+  @media (width <= 767px) {
     flex-direction: column;
     width: 100%;
-    margin-top: $spacing-xs;
+    margin-top: var(--spacing-6);
   }
 
   [dir="rtl"] & svg {
@@ -166,51 +151,12 @@ $scene-illustration-size: 300px;
 }
 
 .hidden {
-  opacity: 0%;
+  opacity: 0;
   margin-bottom: 0;
 }
 
 .headingWrapper {
-  margin-bottom: $spacing-md;
-}
-
-.cancel {
-  @include button-reset;
-
-  cursor: pointer;
-  position: absolute;
-  top: $spacing-sm;
-  right: $spacing-sm;
-  color: $color-purple-800;
-
-  .icon {
-    opacity: 70%;
-    transition: $animation-duration-fast opacity;
-  }
-
-  &:disabled,
-  &.disabled {
-    .icon {
-      opacity: 30%;
-    }
-  }
-
-  &:not(:disabled, .disabled) {
-    &:hover,
-    &:focus,
-    &.hover {
-      .icon {
-        opacity: 100%;
-      }
-    }
-
-    &:active,
-    &.active {
-      .icon {
-        opacity: 100%;
-      }
-    }
-  }
+  margin-bottom: var(--spacing-24);
 }
 
 .default {
@@ -220,54 +166,54 @@ $scene-illustration-size: 300px;
 
 .positive {
   border-color: var(--color-green-500);
-  background: $color-green-100;
+  background: var(--color-green-100);
 }
 
 .negative,
 .assertive {
   border-color: var(--color-red-500);
-  background: $color-red-100;
+  background: var(--color-red-100);
 }
 
 .informative {
   border-color: var(--color-blue-400);
-  background: $color-blue-100;
+  background: var(--color-blue-100);
 }
 
 .cautionary {
   border-color: var(--color-yellow-700);
-  background: $color-yellow-100;
+  background: var(--color-yellow-100);
 }
 
 .prominent {
   border-color: var(--color-purple-400);
-  background: $color-purple-100;
+  background: var(--color-purple-100);
 }
 
 .inline,
 .stacked {
   flex-flow: row wrap;
   align-items: unset;
-  gap: $spacing-md;
+  gap: var(--spacing-24);
   min-width: unset;
 
-  @include ca-media-tablet-and-under {
+  @media (width <= 1023px) {
     flex-direction: unset;
   }
 
   .illustrationWrapper {
-    margin-right: $spacing-sm;
+    margin-right: var(--spacing-12);
 
     [dir="rtl"] & {
-      margin-left: $spacing-sm;
+      margin-left: var(--spacing-12);
       margin-right: inherit;
     }
 
-    @include ca-media-tablet {
+    @media (768px <= width <= 1023px) {
       padding: 0;
     }
 
-    @include ca-media-mobile {
+    @media (width <= 767px) {
       display: flex;
     }
   }
@@ -281,36 +227,36 @@ $scene-illustration-size: 300px;
     max-width: unset;
     min-width: 320px;
 
-    @include ca-media-desktop {
+    @media (width >= 1024px) {
       padding: 0;
     }
 
-    @include ca-media-mobile {
+    @media (width <= 767px) {
       margin: 0;
     }
 
     [dir="rtl"] & {
       text-align: right;
 
-      @include ca-media-desktop {
+      @media (width >= 1024px) {
         padding: 0;
       }
     }
   }
 
   .buttonContainer {
-    padding-left: $spacing-sm;
+    padding-left: var(--spacing-12);
     justify-content: flex-start;
     width: unset;
     min-width: unset;
 
-    @include ca-media-mobile {
+    @media (width <= 767px) {
       flex-direction: row-reverse;
     }
 
     [dir="rtl"] & {
       padding-left: 0;
-      padding-right: $spacing-sm;
+      padding-right: var(--spacing-12);
     }
 
     > * {
