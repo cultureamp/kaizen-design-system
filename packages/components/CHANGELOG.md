@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.67.21
+
+### Patch Changes
+
+- [#5247](https://github.com/cultureamp/kaizen-design-system/pull/5247) [`3cbf445`](https://github.com/cultureamp/kaizen-design-system/commit/3cbf4459199afac845d2d639f7232a8235d65277) - Dep update, react-select from 5.8.2 to 5.8.3
+
 ## 1.67.20
 
 ### Patch Changes
