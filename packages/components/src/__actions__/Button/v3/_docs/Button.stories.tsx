@@ -48,10 +48,11 @@ export const ButtonVariantsReversed: Story = {
   ),
   parameters: {
     reverseColors: true,
+    backgrounds: { default: "Purple 700" },
   },
   decorators: [
     Story => (
-      <div className="flex gap-8 bg-purple-700 p-16">
+      <div className="flex gap-8">
         <Story />
       </div>
     ),
@@ -68,14 +69,14 @@ export const ButtonSizes: Story = {
   ),
   decorators: [
     Story => (
-      <div className="[&>*]:ms-8">
+      <div className="flex gap-8 items-center">
         <Story />
       </div>
     ),
   ],
 }
 
-export const ButtonWithIcon: Story = {
+export const ButtonWithIconStart: Story = {
   args: {
     icon: <Icon isPresentational name="delete" />,
   },
@@ -97,16 +98,13 @@ export const IconButton: Story = {
 }
 
 export const ReversedButton: Story = {
+  render: args => (
+    <ReversedColors isReversed={true}>
+      <Button {...args} />
+    </ReversedColors>
+  ),
   parameters: {
-    reverseColors: true,
-    docs: {
-      source: {
-        code: `<ReversedColors isReversed={true}>
-          <Button>Label</Button>
-        </ReversedColors>
-      `,
-      },
-    },
+    backgrounds: { default: "Purple 700" },
   },
 }
 
@@ -126,16 +124,5 @@ export const ButtonWithBadge: Story = {
         </Badge>
       </>
     ),
-  },
-}
-
-export const ButtonClassNameTest: Story = {
-  args: {
-    children: (
-      <>
-        <Icon name="10k" alt="Thing" />
-      </>
-    ),
-    className: "p-8",
   },
 }

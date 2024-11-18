@@ -14,9 +14,6 @@ const meta = {
     children: "Label",
     onPress: onPressEvent,
   },
-  parameters: {
-    chromatic: { disable: false },
-  },
 } satisfies Meta<typeof Button>
 
 export default meta

@@ -1,4 +1,4 @@
-import { Canvas, Meta, Controls, ArgTypes } from "@storybook/blocks"
+import { Canvas, Meta, Controls, ArgTypes, DocsStory } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as specStories from "./Button.spec.stories"
 import * as exampleStories from "./Button.stories"
@@ -45,7 +45,7 @@ This is built on top [React Aria's Button component](https://react-spectrum.adob
 
 Reversed variants are handled via the `ReversedColors` Provider - read more on this in the [reversed colors section](#reversed-colors).
 
-<Canvas of={exampleStories.ButtonVariantsReversed} />
+<DocsStory of={exampleStories.ButtonVariantsReversed} expanded={false} />
 
 ### Sizes
 
@@ -87,7 +87,7 @@ While in most cases, `children` will be a `ReactNode`, `Button` also accepts a r
 
 The `icon` property abstracts the need to handle positioning and sizing logic for icons within the `Button`. When paired with the [Icon component](/docs/illustrations-icon-icon-future-api-specification--docs), this will scale optical size and stroke width `size` prop.
 
-<Canvas of={exampleStories.ButtonWithIcon} />
+<Canvas of={exampleStories.ButtonWithIconStart} />
 
 Set the position of the icon using the `iconPosition` prop. This will ensure content is flipped in `RTL` layouts.
 
@@ -132,7 +132,7 @@ For resizing on on smaller screens, consider using the `className` to leverage C
 
 The `Button` uses the `useReversedColors` hook and `ReversedColors` provider to control the dark and light theme.
 
-<Canvas className="bg-purple-600 mb-24" of={exampleStories.ReversedButton} />
+<DocsStory of={exampleStories.ReversedButton} expanded={false} />
 
 To enable the reversed theme, you will need to wrap the component or application in the `ReversedColors` provider, ie:
 
