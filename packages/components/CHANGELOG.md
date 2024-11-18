@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.67.20
+
+### Patch Changes
+
+- [#5289](https://github.com/cultureamp/kaizen-design-system/pull/5289) [`18dc21c58ebd0329b08a25050074037e7700fc74`](https://github.com/cultureamp/kaizen-design-system/commit/18dc21c58ebd0329b08a25050074037e7700fc74) - Fix for mistake made in last point release (Internal refactor from Sass to CSS for GuidanceBlock)
+
 ## 1.67.19
 
 ### Patch Changes
