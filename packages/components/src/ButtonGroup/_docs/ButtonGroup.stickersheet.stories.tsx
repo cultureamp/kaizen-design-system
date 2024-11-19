@@ -19,132 +19,127 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
-      <StickerSheet heading="Button Group">
-        <StickerSheet.Header
-          headings={["Group of 2", "Group of 3", "With tooltip"]}
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <ButtonGroup>
-              <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase>Last</FilterButtonBase>
-            </ButtonGroup>
-            <ButtonGroup>
-              <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase>Middle</FilterButtonBase>
-              <FilterButtonBase>Last</FilterButtonBase>
-            </ButtonGroup>
-            <ButtonGroup>
-              <Tooltip text="Hello!">
-                <FilterButtonBase>Tooltips here</FilterButtonBase>
-              </Tooltip>
-              <Tooltip text="Pancakes!">
-                <FilterButtonBase>Styles should still work</FilterButtonBase>
-              </Tooltip>
-            </ButtonGroup>
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet
+        title="Button Group"
+        headings={["Group of 2", "Group of 3", "With tooltip"]}
+      >
+        <StickerSheet.Row>
+          <ButtonGroup>
+            <FilterButtonBase>First</FilterButtonBase>
+            <FilterButtonBase>Last</FilterButtonBase>
+          </ButtonGroup>
+          <ButtonGroup>
+            <FilterButtonBase>First</FilterButtonBase>
+            <FilterButtonBase>Middle</FilterButtonBase>
+            <FilterButtonBase>Last</FilterButtonBase>
+          </ButtonGroup>
+          <ButtonGroup>
+            <Tooltip text="Hello!">
+              <FilterButtonBase>Tooltips here</FilterButtonBase>
+            </Tooltip>
+            <Tooltip text="Pancakes!">
+              <FilterButtonBase>Styles should still work</FilterButtonBase>
+            </Tooltip>
+          </ButtonGroup>
+        </StickerSheet.Row>
       </StickerSheet>
 
-      <StickerSheet heading="Pseudo states">
-        <StickerSheet.Header
-          headings={["Hover", "Active", "Focus"]}
-          hasVerticalHeadings
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="First">
-            <ButtonGroup>
-              <FilterButtonBase
-                data-sb-pseudo-styles="hover"
-                data-sb-a11y-color-contrast-disable
-              >
-                First
-              </FilterButtonBase>
-              <FilterButtonBase>Last</FilterButtonBase>
-            </ButtonGroup>
-            <ButtonGroup>
-              <FilterButtonBase
-                data-sb-pseudo-styles="active"
-                data-sb-a11y-color-contrast-disable
-              >
-                First
-              </FilterButtonBase>
-              <FilterButtonBase>Last</FilterButtonBase>
-            </ButtonGroup>
-            <ButtonGroup>
-              <FilterButtonBase
-                data-sb-pseudo-styles="focus"
-                data-sb-a11y-color-contrast-disable
-              >
-                First
-              </FilterButtonBase>
-              <FilterButtonBase>Last</FilterButtonBase>
-            </ButtonGroup>
-          </StickerSheet.Row>
+      <StickerSheet
+        title="Pseudo states"
+        headers={["Hover", "Active", "Focus"]}
+      >
+        <StickerSheet.Row header="First">
+          <ButtonGroup>
+            <FilterButtonBase
+              data-sb-pseudo-styles="hover"
+              data-sb-a11y-color-contrast-disable
+            >
+              First
+            </FilterButtonBase>
+            <FilterButtonBase>Last</FilterButtonBase>
+          </ButtonGroup>
+          <ButtonGroup>
+            <FilterButtonBase
+              data-sb-pseudo-styles="active"
+              data-sb-a11y-color-contrast-disable
+            >
+              First
+            </FilterButtonBase>
+            <FilterButtonBase>Last</FilterButtonBase>
+          </ButtonGroup>
+          <ButtonGroup>
+            <FilterButtonBase
+              data-sb-pseudo-styles="focus"
+              data-sb-a11y-color-contrast-disable
+            >
+              First
+            </FilterButtonBase>
+            <FilterButtonBase>Last</FilterButtonBase>
+          </ButtonGroup>
+        </StickerSheet.Row>
 
-          <StickerSheet.Row rowTitle="Last">
-            <ButtonGroup>
-              <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase
-                data-sb-pseudo-styles="hover"
-                data-sb-a11y-color-contrast-disable
-              >
-                Last
-              </FilterButtonBase>
-            </ButtonGroup>
-            <ButtonGroup>
-              <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase
-                data-sb-pseudo-styles="active"
-                data-sb-a11y-color-contrast-disable
-              >
-                Last
-              </FilterButtonBase>
-            </ButtonGroup>
-            <ButtonGroup>
-              <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase
-                data-sb-pseudo-styles="focus"
-                data-sb-a11y-color-contrast-disable
-              >
-                Last
-              </FilterButtonBase>
-            </ButtonGroup>
-          </StickerSheet.Row>
+        <StickerSheet.Row header="Last">
+          <ButtonGroup>
+            <FilterButtonBase>First</FilterButtonBase>
+            <FilterButtonBase
+              data-sb-pseudo-styles="hover"
+              data-sb-a11y-color-contrast-disable
+            >
+              Last
+            </FilterButtonBase>
+          </ButtonGroup>
+          <ButtonGroup>
+            <FilterButtonBase>First</FilterButtonBase>
+            <FilterButtonBase
+              data-sb-pseudo-styles="active"
+              data-sb-a11y-color-contrast-disable
+            >
+              Last
+            </FilterButtonBase>
+          </ButtonGroup>
+          <ButtonGroup>
+            <FilterButtonBase>First</FilterButtonBase>
+            <FilterButtonBase
+              data-sb-pseudo-styles="focus"
+              data-sb-a11y-color-contrast-disable
+            >
+              Last
+            </FilterButtonBase>
+          </ButtonGroup>
+        </StickerSheet.Row>
 
-          <StickerSheet.Row rowTitle="Middle">
-            <ButtonGroup>
-              <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase
-                data-sb-pseudo-styles="hover"
-                data-sb-a11y-color-contrast-disable
-              >
-                Middle
-              </FilterButtonBase>
-              <FilterButtonBase>Last</FilterButtonBase>
-            </ButtonGroup>
-            <ButtonGroup>
-              <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase
-                data-sb-pseudo-styles="active"
-                data-sb-a11y-color-contrast-disable
-              >
-                Middle
-              </FilterButtonBase>
-              <FilterButtonBase>Last</FilterButtonBase>
-            </ButtonGroup>
-            <ButtonGroup>
-              <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase
-                data-sb-pseudo-styles="focus"
-                data-sb-a11y-color-contrast-disable
-              >
-                Middle
-              </FilterButtonBase>
-              <FilterButtonBase>Last</FilterButtonBase>
-            </ButtonGroup>
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+        <StickerSheet.Row header="Middle">
+          <ButtonGroup>
+            <FilterButtonBase>First</FilterButtonBase>
+            <FilterButtonBase
+              data-sb-pseudo-styles="hover"
+              data-sb-a11y-color-contrast-disable
+            >
+              Middle
+            </FilterButtonBase>
+            <FilterButtonBase>Last</FilterButtonBase>
+          </ButtonGroup>
+          <ButtonGroup>
+            <FilterButtonBase>First</FilterButtonBase>
+            <FilterButtonBase
+              data-sb-pseudo-styles="active"
+              data-sb-a11y-color-contrast-disable
+            >
+              Middle
+            </FilterButtonBase>
+            <FilterButtonBase>Last</FilterButtonBase>
+          </ButtonGroup>
+          <ButtonGroup>
+            <FilterButtonBase>First</FilterButtonBase>
+            <FilterButtonBase
+              data-sb-pseudo-styles="focus"
+              data-sb-a11y-color-contrast-disable
+            >
+              Middle
+            </FilterButtonBase>
+            <FilterButtonBase>Last</FilterButtonBase>
+          </ButtonGroup>
+        </StickerSheet.Row>
       </StickerSheet>
     </>
   ),
