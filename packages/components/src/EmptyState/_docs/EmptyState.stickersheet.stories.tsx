@@ -6,7 +6,7 @@ import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
-} from "~storybook/components/_future/StickerSheet"
+} from "~storybook/components/StickerSheet"
 import { EmptyState, EmptyStateProps } from "../index"
 
 export default {
@@ -56,7 +56,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet isReversed={isReversed} title="EmptyState">
+        <StickerSheet
+          isReversed={isReversed}
+          title="EmptyState"
+          layout="stretch"
+        >
           {variants.map(variant => (
             <StickerSheet.Row key={variant} header={variant}>
               <EmptyStateWrapper {...defaultProps} variant={variant} />
@@ -93,6 +97,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet
           isReversed={isReversed}
           title="Illustration type (deprecated)"
+          layout="stretch"
         >
           {illustrationTypes.map(illustrationType => (
             <StickerSheet.Row key={illustrationType} header={illustrationType}>
