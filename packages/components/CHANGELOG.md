@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.67.22
+
+### Patch Changes
+
+- [#5287](https://github.com/cultureamp/kaizen-design-system/pull/5287) [`e4b189b`](https://github.com/cultureamp/kaizen-design-system/commit/e4b189b21e34d5fe6ffe0678d46d1d52ddbab13a) - Fix EmptyState responsive styles using container queries.
+
 ## 1.67.21
 
 ### Patch Changes
