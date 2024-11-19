@@ -17,32 +17,30 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Logo Horizontal">
-          <Brand
-            alt="Culture Amp"
-            variant="logo-horizontal"
-            reversed={isReversed}
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Logo Vertical">
-          <Brand
-            alt="Culture Amp"
-            variant="logo-vertical"
-            reversed={isReversed}
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Enso">
-          <Brand alt="Culture Amp" variant="enso" reversed={isReversed} />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Collective Intelligence">
-          <Brand
-            alt="Collective Intelligence"
-            variant="collective-intelligence"
-            reversed={isReversed}
-          />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+      <StickerSheet.Row header="Logo Horizontal">
+        <Brand
+          alt="Culture Amp"
+          variant="logo-horizontal"
+          reversed={isReversed}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Logo Vertical">
+        <Brand
+          alt="Culture Amp"
+          variant="logo-vertical"
+          reversed={isReversed}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Enso">
+        <Brand alt="Culture Amp" variant="enso" reversed={isReversed} />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Collective Intelligence">
+        <Brand
+          alt="Collective Intelligence"
+          variant="collective-intelligence"
+          reversed={isReversed}
+        />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }
