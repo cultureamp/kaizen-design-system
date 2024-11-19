@@ -1,5 +1,18 @@
 # Change Log
 
+## 1.68.0
+
+### Minor Changes
+
+- [#5218](https://github.com/cultureamp/kaizen-design-system/pull/5218) [`b9fef3e`](https://github.com/cultureamp/kaizen-design-system/commit/b9fef3ee672095349662f6cdd7cb51b6c6876e8b) - Add variants, sizes, pending state, icons, and ref support for Button (v3).
+
+  - Add support for Icons that scales to the size prop and positioning in RTL layouts
+  - Add support for pending state and labels
+  - Add all variants and set default to `primary`
+  - Add reversed styles
+  - Add all sizes
+  - Add ref forwarding to enable React Refs
+
 ## 1.67.22
 
 ### Patch Changes
