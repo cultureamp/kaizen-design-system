@@ -23,22 +23,20 @@ const ROWS: Array<{ title: string; size: AvatarGroupSize }> = [
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Size", "With counter", "Without counter"]}
-      />
-      <StickerSheet.Body>
-        {ROWS.map(({ title, size }) => (
-          <StickerSheet.Row key={title} rowTitle={title}>
-            <AvatarGroup maxVisible={2} avatars={AVATARS} size={size} />
-            <AvatarGroup
-              maxVisible={2}
-              avatars={[EXAMPLE_USER_1, EXAMPLE_USER_2]}
-              size={size}
-            />
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["With counter", "Without counter"]}
+    >
+      {ROWS.map(({ title, size }) => (
+        <StickerSheet.Row key={title} header={title}>
+          <AvatarGroup maxVisible={2} avatars={AVATARS} size={size} />
+          <AvatarGroup
+            maxVisible={2}
+            avatars={[EXAMPLE_USER_1, EXAMPLE_USER_2]}
+            size={size}
+          />
+        </StickerSheet.Row>
+      ))}
     </StickerSheet>
   ),
 }
