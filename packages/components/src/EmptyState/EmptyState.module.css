@@ -1,7 +1,7 @@
 .container {
   --empty-state-border-width: var(--border-width-1);
   --empty-state-illustration-max-height: 366px;
-  --empty-state-illustration-min-width: 100px;
+  --empty-state-illustration-max-width: 420px;
   --empty-state-text-container-max-width: 426px;
 
   container-type: inline-size;
@@ -57,7 +57,7 @@
 .content {
   justify-content: center;
   display: grid;
-  grid-template-columns: minmax(var(--empty-state-illustration-min-width), auto) minmax(
+  grid-template-columns: minmax(auto, var(--empty-state-illustration-max-width)) minmax(
       auto,
       var(--empty-state-text-container-max-width)
     );
