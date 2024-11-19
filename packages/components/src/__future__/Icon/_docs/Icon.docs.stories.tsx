@@ -124,20 +124,20 @@ export const Size: Story = {
 
 export const MeaningfulIcon: Story = {
   render: args => (
-    <Button>
-      <Icon {...args} />
-    </Button>
+    <Tag color="blue" icon={<Icon {...args} />}>
+      Meaningful icons can be helpful
+    </Tag>
   ),
-  args: { isPresentational: false, alt: "Favourite" },
+  args: { isPresentational: false, alt: "Info:", name: "info", isFilled: true },
 }
 
 export const PresentationalIcon: Story = {
   render: args => (
-    <Button>
-      <Icon {...args} /> Favourite
+    <Button icon={<Icon {...args} />} hasHiddenLabel>
+      Label
     </Button>
   ),
-  args: { isPresentational: true },
+  args: { isPresentational: true, name: "add" },
 }
 
 const IconSetButton = ({

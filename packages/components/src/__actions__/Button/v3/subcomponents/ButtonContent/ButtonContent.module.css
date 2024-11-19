@@ -1,0 +1,19 @@
+.buttonContent {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--button-icon-gap, var(--spacing-6));
+}
+
+.large {
+  --button-icon-gap: var(--spacing-8);
+}
+
+.buttonLabel {
+  display: inline-flex;
+  align-items: center;
+}
+
+.buttonIcon {
+  display: inline-flex;
+  align-items: center;
+}

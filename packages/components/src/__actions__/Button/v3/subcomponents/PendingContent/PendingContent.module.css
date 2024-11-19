@@ -1,0 +1,16 @@
+.pendingContent {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--button-pending-content-gap, var(--spacing-6));
+}
+
+.large {
+  --button-pending-content-gap: var(--spacing-8);
+}
+
+.centerSpinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

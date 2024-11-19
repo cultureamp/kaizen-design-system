@@ -1,112 +1,214 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { ArrowForwardIcon, AddIcon, TrashIcon } from "~components/Icon"
-import { LoadingSpinner } from "~components/Loading"
+import { within } from "@storybook/test"
+import { Icon } from "~components/__future__/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Button } from "../index"
+import { Button, ButtonSizes, ButtonVariants } from "../index"
 
 export default {
-  title: "Actions/Button/Button (v3)/Tests",
+  title: "Actions/Button/Button (v3)",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
 } satisfies Meta
 
+const variants = ["primary", "secondary", "tertiary"] satisfies ButtonVariants[]
+const sizes = ["small", "medium", "large"] satisfies ButtonSizes[]
+
+const RowTemplate = ({
+  isReversed = false,
+}: {
+  isReversed?: boolean
+}): JSX.Element => (
+  <>
+    {variants.map(variant =>
+      sizes.map(size => (
+        <StickerSheet.Row
+          key={size + variant}
+          isReversed={isReversed}
+          rowTitle={`${variant} (${size})`}
+        >
+          <Button variant={variant} size={size}>
+            Label
+          </Button>
+          <Button
+            icon={<Icon name="add" isPresentational />}
+            variant={variant}
+            size={size}
+          >
+            Label
+          </Button>
+          <Button
+            icon={
+              <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
+            }
+            iconPosition="end"
+            variant={variant}
+            size={size}
+          >
+            Label
+          </Button>
+          <Button
+            icon={
+              <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
+            }
+            iconPosition="end"
+            variant={variant}
+            isPending
+            pendingLabel="Submitting"
+            size={size}
+          >
+            Label
+          </Button>
+          <Button
+            icon={
+              <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
+            }
+            iconPosition="end"
+            variant={variant}
+            isPending
+            pendingLabel="Submitting"
+            hasHiddenPendingLabel
+            size={size}
+          >
+            Label
+          </Button>
+          <Button
+            icon={
+              <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
+            }
+            iconPosition="end"
+            variant={variant}
+            size={size}
+            isDisabled
+          >
+            Label
+          </Button>
+        </StickerSheet.Row>
+      ))
+    )}
+  </>
+)
+
+const IconButtonRowTemplate = ({
+  isReversed = false,
+}: {
+  isReversed?: boolean
+}): JSX.Element => (
+  <>
+    {sizes.map(size => (
+      <StickerSheet.Row
+        isReversed={isReversed}
+        rowTitle={size}
+        key={size + variants}
+      >
+        {variants.map(variant => (
+          <span className="flex gap-8" key={variant}>
+            <Button
+              icon={<Icon name="delete" isPresentational />}
+              hasHiddenLabel
+              size={size}
+              variant={variant}
+            >
+              Label
+            </Button>
+            <Button
+              icon={<Icon name="delete" isPresentational />}
+              size={size}
+              isPending
+              hasHiddenLabel
+              pendingLabel="Submitting"
+              variant={variant}
+            >
+              Label
+            </Button>
+          </span>
+        ))}
+      </StickerSheet.Row>
+    ))}
+  </>
+)
+
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
       <StickerSheet heading="Button" isReversed={isReversed}>
         <StickerSheet.Header
-          headings={["Base", "Disabled", "working"]}
+          headings={[
+            "Base",
+            "Icon start",
+            "Icon end",
+            "isPending",
+            "hasHiddenPendingLabel",
+            "isDisabled",
+          ]}
           headingsWidth="10rem"
           hasVerticalHeadings
           verticalHeadingsWidth="12rem"
         />
         <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Default">
-            <Button>Label</Button>
-
-            <Button isDisabled>Label</Button>
-            <Button isDisabled>
-              <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Icon start">
-            <Button>
-              <AddIcon role="presentation" />
-              Label
-            </Button>
-            <Button isDisabled>
-              <AddIcon role="presentation" />
-              Label
-            </Button>
-            <Button isDisabled>
-              <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Icon end">
-            <Button>
-              Label
-              <ArrowForwardIcon role="presentation" />
-            </Button>
-            <Button isDisabled>
-              Label
-              <ArrowForwardIcon role="presentation" />
-            </Button>
-            <Button isDisabled>
-              <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Icon only">
-            <Button aria-label="Label">
-              <TrashIcon role="presentation" />
-            </Button>
-            <Button aria-label="Label" isDisabled>
-              <TrashIcon role="presentation" />
-            </Button>
-            <Button aria-label="Label" isDisabled>
-              <LoadingSpinner size="sm" accessibilityLabel="submitting label" />
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Small">
-            <Button size="small">
-              Label
-              <ArrowForwardIcon role="presentation" />
-            </Button>
-            <Button size="small" isDisabled>
-              Label
-              <ArrowForwardIcon role="presentation" />
-            </Button>
-            <Button size="small" isDisabled>
-              <LoadingSpinner size="xs" accessibilityLabel="submitting label" />
-            </Button>
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Icon only small">
-            <Button size="small">
-              <TrashIcon role="img" aria-label="Remove label" />
-            </Button>
-            <Button size="small" isDisabled>
-              <TrashIcon role="img" aria-label="Remove label" />
-            </Button>
-            <Button size="small" isDisabled>
-              <LoadingSpinner size="xs" accessibilityLabel="Removing label" />
-            </Button>
-          </StickerSheet.Row>
+          <RowTemplate isReversed={isReversed} />
+        </StickerSheet.Body>
+      </StickerSheet>
+      <StickerSheet heading="Icon only button" isReversed={isReversed}>
+        <StickerSheet.Header
+          headings={["primary", "secondary", "tertiary"]}
+          headingsWidth="10rem"
+          hasVerticalHeadings
+          verticalHeadingsWidth="12rem"
+        />
+        <StickerSheet.Body>
+          <IconButtonRowTemplate isReversed={isReversed} />
+        </StickerSheet.Body>
+      </StickerSheet>
+      <StickerSheet heading="Pseudo states" isReversed={isReversed}>
+        <StickerSheet.Header
+          headings={["isHovered", "isFocusVisible", "isPressed"]}
+          headingsWidth="10rem"
+          hasVerticalHeadings
+          verticalHeadingsWidth="12rem"
+        />
+        <StickerSheet.Body>
+          {variants.map(variant => (
+            <StickerSheet.Row
+              key={variant}
+              isReversed={isReversed}
+              rowTitle={variant}
+            >
+              <Button data-testid="testid__button-hover" variant={variant}>
+                Label
+              </Button>
+              <Button data-testid="testid__button-focus" variant={variant}>
+                Label
+              </Button>
+              <Button data-testid="testid__button-pressed" variant={variant}>
+                Label
+              </Button>
+            </StickerSheet.Row>
+          ))}
         </StickerSheet.Body>
       </StickerSheet>
     </>
   ),
-  parameters: {
-    pseudo: {
-      hover: '[data-hovered="true"]',
-      active: '[data-pressed="true"]',
-      focus: '[data-focused="true"]',
-      focusVisible: '[data-focus-visible="true"]',
-    },
+  play: ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const focusButtons = canvas.getAllByTestId("testid__button-focus")
+    const hoverButtons = canvas.getAllByTestId("testid__button-hover")
+    const pressedButton = canvas.getAllByTestId("testid__button-pressed")
+
+    focusButtons.forEach(button => {
+      button.setAttribute("data-focus-visible", "true")
+    })
+    hoverButtons.forEach(button => {
+      button.setAttribute("data-hovered", "true")
+    })
+    pressedButton.forEach(button => {
+      button.setAttribute("data-pressed", "true")
+    })
   },
 }
 
