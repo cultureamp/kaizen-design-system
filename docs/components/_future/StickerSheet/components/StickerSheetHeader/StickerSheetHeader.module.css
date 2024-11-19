@@ -1,0 +1,13 @@
+.stickerSheetHeader {
+  text-align: start;
+  font-family: var(--typography-heading-5-font-family);
+  font-weight: var(--typography-heading-5-font-weight);
+  font-size: var(--typography-heading-5-font-size);
+  line-height: var(--typography-heading-5-line-height);
+  letter-spacing: var(--typography-heading-5-letter-spacing);
+  color: var(--stickersheet-header-color, var(--color-purple-800));
+}
+
+.isReversed {
+  --stickersheet-header-color: var(--color-white);
+}

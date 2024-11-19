@@ -1,0 +1,10 @@
+.stickerSheetRow {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
