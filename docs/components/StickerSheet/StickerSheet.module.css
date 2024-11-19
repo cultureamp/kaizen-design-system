@@ -1,5 +1,5 @@
 .stickerSheetSectionHeading {
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--spacing-20);
 
   .stickerSheetContainer + .stickerSheetContainer & {
     margin-top: var(--spacing-40);
