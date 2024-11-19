@@ -29,13 +29,15 @@ export type StickerSheetProps = {
   children: React.ReactNode
   title?: string
   headers?: string[]
+  layout?: "fit-content" | "stretch"
   isReversed?: boolean
-} & HTMLAttributes<HTMLDivElement>
+} & Omit<HTMLAttributes<HTMLDivElement>, "layout">
 
 export const StickerSheet = ({
   children,
   title,
   headers,
+  layout = "fit-content",
   isReversed = false,
   className,
   style,
@@ -51,8 +53,8 @@ export const StickerSheet = ({
   const colCount = headers?.length ?? countMaxColumns(children)
 
   const gridTemplateColumns = hasVerticalHeaders
-    ? `fit-content(100%) repeat(${colCount}, 1fr)`
-    : `repeat(${colCount}, 1fr)`
+    ? `fit-content(100%) repeat(${colCount}, auto)`
+    : `repeat(${colCount}, auto)`
 
   return (
     <div className={styles.stickerSheetContainer}>
@@ -68,7 +70,11 @@ export const StickerSheet = ({
       )}
 
       <div
-        className={classnames(styles.stickerSheet, className)}
+        className={classnames(
+          styles.stickerSheet,
+          layout === "stretch" && styles.stretch,
+          className
+        )}
         style={{ gridTemplateColumns, ...style }}
         {...restProps}
       >
