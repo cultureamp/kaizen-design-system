@@ -85,9 +85,8 @@ export const Button = forwardRef(
                 iconPosition={iconPosition}
                 hasHiddenLabel={hasHiddenLabel}
                 className={classNames(
-                  isPending && hasHiddenPendingLabel
-                    ? styles.buttonContentHidden
-                    : isPending && styles.buttonContentPending
+                  isPending && styles.buttonContentPending,
+                  hasHiddenLabel && isPending && styles.buttonContentHidden
                 )}
               >
                 {childIsFunction ? children(racStateProps) : children}
