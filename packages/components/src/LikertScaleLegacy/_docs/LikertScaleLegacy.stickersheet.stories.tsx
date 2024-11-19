@@ -4,7 +4,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { LikertScaleLegacy } from "../index"
+import { LikertScaleLegacy, LikertScaleProps } from "../index"
 import { Scale } from "../types"
 
 export default {
@@ -42,99 +42,99 @@ const scale: Scale = [
   },
 ]
 
-const StickerSheetTemplate: StickerSheetStory = {
+type Story = StickerSheetStory<{ colorSchema: LikertScaleProps["colorSchema"] }>
+
+const StickerSheetTemplate: Story = {
   render: ({ isReversed, colorSchema }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Not rated">
-          <LikertScaleLegacy
-            scale={scale}
-            labelId=""
-            selectedItem={scale[0]}
-            onSelect={(): void => undefined}
-            reversed={isReversed}
-            colorSchema={colorSchema}
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Strongly disagree">
-          <LikertScaleLegacy
-            scale={scale}
-            labelId=""
-            selectedItem={scale[1]}
-            onSelect={(): void => undefined}
-            reversed={isReversed}
-            colorSchema={colorSchema}
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Disagree">
-          <LikertScaleLegacy
-            scale={scale}
-            labelId=""
-            selectedItem={scale[2]}
-            onSelect={(): void => undefined}
-            reversed={isReversed}
-            colorSchema={colorSchema}
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Neither agree or disagree">
-          <LikertScaleLegacy
-            scale={scale}
-            labelId=""
-            selectedItem={scale[3]}
-            onSelect={(): void => undefined}
-            reversed={isReversed}
-            colorSchema={colorSchema}
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Agree">
-          <LikertScaleLegacy
-            scale={scale}
-            labelId=""
-            selectedItem={scale[4]}
-            onSelect={(): void => undefined}
-            reversed={isReversed}
-            colorSchema={colorSchema}
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Strongly agree">
-          <LikertScaleLegacy
-            scale={scale}
-            labelId=""
-            selectedItem={scale[5]}
-            onSelect={(): void => undefined}
-            reversed={isReversed}
-            colorSchema={colorSchema}
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Validation">
-          <LikertScaleLegacy
-            scale={scale}
-            labelId=""
-            selectedItem={scale[0]}
-            onSelect={(): void => undefined}
-            reversed={isReversed}
-            colorSchema={colorSchema}
-            validationMessage="Error message here"
-            status="error"
-          />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet title="LikertScaleLegacy" isReversed={isReversed}>
+      <StickerSheet.Row header="Not rated">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId=""
+          selectedItem={scale[0]}
+          onSelect={(): void => undefined}
+          reversed={isReversed}
+          colorSchema={colorSchema}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Strongly disagree">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId=""
+          selectedItem={scale[1]}
+          onSelect={(): void => undefined}
+          reversed={isReversed}
+          colorSchema={colorSchema}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Disagree">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId=""
+          selectedItem={scale[2]}
+          onSelect={(): void => undefined}
+          reversed={isReversed}
+          colorSchema={colorSchema}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Neither agree or disagree">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId=""
+          selectedItem={scale[3]}
+          onSelect={(): void => undefined}
+          reversed={isReversed}
+          colorSchema={colorSchema}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Agree">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId=""
+          selectedItem={scale[4]}
+          onSelect={(): void => undefined}
+          reversed={isReversed}
+          colorSchema={colorSchema}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Strongly agree">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId=""
+          selectedItem={scale[5]}
+          onSelect={(): void => undefined}
+          reversed={isReversed}
+          colorSchema={colorSchema}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Validation">
+        <LikertScaleLegacy
+          scale={scale}
+          labelId=""
+          selectedItem={scale[0]}
+          onSelect={(): void => undefined}
+          reversed={isReversed}
+          colorSchema={colorSchema}
+          validationMessage="Error message here"
+          status="error"
+        />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }
 
-export const StickerSheetDefault: StickerSheetStory = {
+export const StickerSheetDefault: Story = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Default - Classical)",
 }
 
-export const StickerBlueSheetDefault: StickerSheetStory = {
+export const StickerBlueSheetDefault: Story = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Blue)",
   args: { colorSchema: "blue" },
 }
 
-export const StickerSheetClassicalReversed: StickerSheetStory = {
+export const StickerSheetClassicalReversed: Story = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Classical Reversed)",
   parameters: {
@@ -143,7 +143,7 @@ export const StickerSheetClassicalReversed: StickerSheetStory = {
   args: { isReversed: true },
 }
 
-export const StickerSheetBlueReversed: StickerSheetStory = {
+export const StickerSheetBlueReversed: Story = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Blue Reversed)",
   parameters: {
@@ -152,7 +152,7 @@ export const StickerSheetBlueReversed: StickerSheetStory = {
   args: { isReversed: true, colorSchema: "blue" },
 }
 
-export const StickerSheetRTL: StickerSheetStory = {
+export const StickerSheetRTL: Story = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
   parameters: {
