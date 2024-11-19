@@ -35,7 +35,7 @@ A `LinkButton` component will be provided in the future to handle routing and na
 
 ## API
 
-This is built on top [React Aria's Button component](https://react-spectrum.adobe.com/react-aria/Button.html#props) and seeks to provide a flexible API with convenient abstractions that handle variants, sizes, pending states and icons.
+This is built on top of [React Aria's Button component](https://react-spectrum.adobe.com/react-aria/Button.html#props) and seeks to provide a flexible API with convenient abstractions that handles variants, sizes, pending states and icons.
 
 ### Variants
 
@@ -46,6 +46,20 @@ This is built on top [React Aria's Button component](https://react-spectrum.adob
 Reversed variants are handled via the `ReversedColors` Provider - read more on this in the [reversed colors section](#reversed-colors).
 
 <DocsStory of={exampleStories.ButtonVariantsReversed} expanded={false} />
+
+To enable the reversed theme, you will need to wrap the component or application in the `ReversedColors` provider, ie:
+
+```tsx
+import { Button } from "@kaizen/components/v3/actions"
+import { ReversedColors } from "@kaizen/components/v3/utilities"
+// application code
+
+return (
+  <ReversedColors isReversed={true}>
+    <Button {...buttonProps} />
+  </ReversedColors>
+)
+```
 
 ### Sizes
 
@@ -85,19 +99,18 @@ While in most cases, `children` will be a `ReactNode`, `Button` also accepts a r
 
 ### Icons and positioning
 
-The `icon` property abstracts the need to handle positioning and sizing logic for icons within the `Button`. When paired with the [Icon component](/docs/illustrations-icon-icon-future-api-specification--docs), this will scale optical size and stroke width `size` prop.
+The `icon` property abstracts the need to handle positioning and sizing logic for icons within the `Button`. When paired with the [Icon component](/docs/illustrations-icon-icon-future-api-specification--docs), this will scale the icon to the `Button`'s `size` prop.
 
 <Canvas of={exampleStories.ButtonWithIconStart} />
 
-Set the position of the icon using the `iconPosition` prop. This will ensure content is flipped in `RTL` layouts.
+Set the position of the icon using the `iconPosition` prop. This will ensure content is flipped in `RTL` layouts. Note that icons will need the [shouldMirrorInRTL](/docs/illustrations-icon-icon-future-api-specification--docs#mirror-in-rtl) prop set to `true` when mirroring is required.
 
 <Canvas of={exampleStories.ButtonWithIconEnd} />
 
-Note that icons will need the [shouldMirrorInRTL](/docs/illustrations-icon-icon-future-api-specification--docs#mirror-in-rtl) prop set to `true` when mirroring is required.
 
-### Icon only `Button` and `hasHiddenLabel`
+### Icon-only `Button` and `hasHiddenLabel`
 
-To achieve an icon only `Button` (previously: `IconButton`) use the `icon` prop and set `hasHiddenLabel` to `true`. This will visually hide the button's `children` and `pendingLabel`, while still announcing the content to screen readers.
+To achieve an icon-only `Button` (previously: `IconButton`) use the `icon` prop and set `hasHiddenLabel` to `true`. This will visually hide the button's `children` and `pendingLabel`, while still announcing the content to screen readers.
 
 <Canvas of={exampleStories.IconButton} className="mb-32"  />
 
@@ -115,38 +128,18 @@ The `pendingLabel` should be short and declarative as this will be announced to 
 
 <Canvas of={specStories.PendingButtonWithHiddenPendingLabel} />
 
-As mentioned in the [previous section](#icon-only-button-and-hashiddenlabel), an icon only `Button` uses `hasHiddenLabel` to visually hide both the `pendingLabel` and child content, so `hasHiddenPendingLabel` is not needed.
+As mentioned in the [previous section](#icon-only-button-and-hashiddenlabel), an icon-only `Button` uses `hasHiddenLabel` to visually hide both the `pendingLabel` and child content, so `hasHiddenPendingLabel` is not needed.
 
 <Canvas of={specStories.PendingIconButton} />
 
 
 ### Full width Buttons
 
-If a button is statically the full width of a container you can use `isFullWidth` property.
+If a button is statically the full width of a container you can use the `isFullWidth` property.
 
 <Canvas of={exampleStories.ButtonFullWidth} />
 
-For resizing on on smaller screens, consider using the `className` to leverage CSS media or container queries, ie: `<Button className="w-full md:w-[initial]">Label</Button>`.
-
-### Reversed Colors
-
-The `Button` uses the `useReversedColors` hook and `ReversedColors` provider to control the dark and light theme.
-
-<DocsStory of={exampleStories.ReversedButton} expanded={false} />
-
-To enable the reversed theme, you will need to wrap the component or application in the `ReversedColors` provider, ie:
-
-```tsx
-import { Button } from "@kaizen/components/v3/actions"
-import { ReversedColors } from "@kaizen/components/v3/utilities"
-// application code
-
-return (
-  <ReversedColors isReversed={true}>
-    <Button {...buttonProps} />
-  </ReversedColors>
-)
-```
+For resizing on smaller screens, consider using the `className` prop to leverage CSS media or container queries, ie: `<Button className="w-full md:w-[initial]">Label</Button>`.
 
 ## Additional API options
 
