@@ -1,5 +1,4 @@
 import React, { forwardRef } from "react"
-import classNames from "classnames"
 import {
   Button as RACButton,
   ButtonProps as RACButtonProps,
@@ -44,7 +43,7 @@ export const Button = forwardRef(
       iconPosition,
       hasHiddenLabel = false,
       isPending,
-      hasHiddenPendingLabel = false,
+      hasHiddenPendingLabel: propsHasHiddenPendingLabel = false,
       pendingLabel,
       ...restProps
     }: ButtonProps,
@@ -54,10 +53,16 @@ export const Button = forwardRef(
     const pendingProps: PendingButtonProps = isPending
       ? {
           isPending,
-          hasHiddenPendingLabel: hasHiddenLabel || hasHiddenPendingLabel,
+          hasHiddenPendingLabel: hasHiddenLabel || propsHasHiddenPendingLabel,
           pendingLabel,
         }
       : {}
+    const buttonContentClass = isPending
+      ? !hasHiddenLabel && propsHasHiddenPendingLabel
+        ? styles.retainContentWidth
+        : styles.hideContentWidth
+      : undefined
+
     return (
       <RACButton
         ref={ref}
@@ -84,10 +89,7 @@ export const Button = forwardRef(
                 icon={icon}
                 iconPosition={iconPosition}
                 hasHiddenLabel={hasHiddenLabel}
-                className={classNames(
-                  isPending && styles.buttonContentPending,
-                  hasHiddenLabel && isPending && styles.buttonContentHidden
-                )}
+                className={buttonContentClass}
               >
                 {childIsFunction ? children(racStateProps) : children}
               </ButtonContent>

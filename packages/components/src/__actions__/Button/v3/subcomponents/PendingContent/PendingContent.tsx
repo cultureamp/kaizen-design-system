@@ -21,7 +21,7 @@ export const PendingContent = ({
       size={size === "small" ? "xs" : "sm"}
       accessibilityLabel=""
       classNameOverride={
-        hasHiddenPendingLabel ? styles.hiddenLabelSpinner : undefined
+        hasHiddenPendingLabel ? styles.centerSpinner : undefined
       }
     />
   </span>

@@ -20,7 +20,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-// stress testing the accessible name being derive from the nested children
+// stress testing the accessible name being derived from the nested children
 export const IconButtonWithHiddenLabel: Story = {
   args: {
     hasHiddenLabel: true,
