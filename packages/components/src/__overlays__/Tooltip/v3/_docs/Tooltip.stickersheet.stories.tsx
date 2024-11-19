@@ -1,8 +1,7 @@
 import React from "react"
-import { Meta, composeStories } from "@storybook/react"
+import { type Meta, type StoryObj, composeStories } from "@storybook/react"
 import { ReversedColors } from "~components/__utilities__/v3"
 import { mergeClassNames } from "~components/utils/mergeClassNames"
-import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import * as testStories from "./Tooltip.spec.stories"
 
 export default {
@@ -15,7 +14,7 @@ export default {
 
 const Stories = composeStories(testStories)
 
-export const Standard: StickerSheetStory = {
+export const Standard: StoryObj = {
   name: "Sticker Sheet (Default)",
   render: args => (
     <div className="grid gap-x-128 gap-y-128 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -36,7 +35,7 @@ export const Standard: StickerSheetStory = {
   ),
 }
 
-export const StickerSheetRTL: StickerSheetStory = {
+export const StickerSheetRTL: StoryObj = {
   ...Standard,
   name: "Sticker Sheet (RTL)",
   parameters: {
