@@ -38,31 +38,31 @@ const CheckboxGroupWrapped = ({
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "No Bottom Margin"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <>
-            <CheckboxGroupWrapped
-              reversed={isReversed}
-              labelText="CheckboxGroup"
-            />
-            <Text variant="body" color={isReversed ? "white" : "dark"}>
-              Next line
-            </Text>
-          </>
-          <>
-            <CheckboxGroupWrapped
-              reversed={isReversed}
-              labelText="CheckboxGroup"
-              noBottomMargin
-            />
-            <Text variant="body" color={isReversed ? "white" : "dark"}>
-              Next line
-            </Text>
-          </>
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Default", "No Bottom Margin"]}
+    >
+      <StickerSheet.Row>
+        <>
+          <CheckboxGroupWrapped
+            reversed={isReversed}
+            labelText="CheckboxGroup"
+          />
+          <Text variant="body" color={isReversed ? "white" : "dark"}>
+            Next line
+          </Text>
+        </>
+        <>
+          <CheckboxGroupWrapped
+            reversed={isReversed}
+            labelText="CheckboxGroup"
+            noBottomMargin
+          />
+          <Text variant="body" color={isReversed ? "white" : "dark"}>
+            Next line
+          </Text>
+        </>
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }
@@ -76,8 +76,6 @@ export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
   parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
-    ...StickerSheetTemplate.parameters,
     backgrounds: { default: "Purple 700" },
   },
   args: { isReversed: true },
@@ -87,8 +85,6 @@ export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
   parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
-    ...StickerSheetTemplate.parameters,
     textDirection: "rtl",
   },
 }
