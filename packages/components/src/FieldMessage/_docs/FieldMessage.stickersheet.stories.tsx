@@ -20,26 +20,16 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed, ...otherProps }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Default", "Success", "Error", "Caution"]}
-      />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <FieldMessage {...otherProps} reversed={isReversed} />
-          <FieldMessage
-            {...otherProps}
-            reversed={isReversed}
-            status="success"
-          />
-          <FieldMessage {...otherProps} reversed={isReversed} status="error" />
-          <FieldMessage
-            {...otherProps}
-            reversed={isReversed}
-            status="caution"
-          />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Default", "Success", "Error", "Caution"]}
+    >
+      <StickerSheet.Row>
+        <FieldMessage {...otherProps} reversed={isReversed} />
+        <FieldMessage {...otherProps} reversed={isReversed} status="success" />
+        <FieldMessage {...otherProps} reversed={isReversed} status="error" />
+        <FieldMessage {...otherProps} reversed={isReversed} status="caution" />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }
