@@ -16,19 +16,16 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Variant", "Example"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Content">
-          <Divider variant="content" isReversed={isReversed} />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Canvas">
-          <Divider variant="canvas" isReversed={isReversed} />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Menu Separator">
-          <Divider variant="menuSeparator" isReversed={isReversed} />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet isReversed={isReversed} title="Divider" layout="stretch">
+      <StickerSheet.Row header="Content">
+        <Divider variant="content" isReversed={isReversed} />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Canvas">
+        <Divider variant="canvas" isReversed={isReversed} />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Menu Separator">
+        <Divider variant="menuSeparator" isReversed={isReversed} />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }
