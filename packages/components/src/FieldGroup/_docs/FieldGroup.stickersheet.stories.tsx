@@ -36,14 +36,11 @@ const FieldGroupTemplate = ({
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Inline"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <FieldGroupTemplate id="1" />
-          <FieldGroupTemplate id="2" inline={true} />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet isReversed={isReversed} headers={["Default", "Inline"]}>
+      <StickerSheet.Row>
+        <FieldGroupTemplate id="1" />
+        <FieldGroupTemplate id="2" inline={true} />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }
