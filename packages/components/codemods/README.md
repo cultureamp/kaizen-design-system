@@ -37,7 +37,22 @@ pnpm kaizen-codemod src migrateWellVariantToColor
 - `removeInputEditModalMood`: Removes `InputEditModal` component prop `mood`
 - `removePopoverVariant`: Removes `Popover` component props `variant` and `customIcon`
 - `upgradeIconV1`: Migrates `*Icon` components to a new equivalent
-  - `CaMonogramIcon` becomes `Brand`
+  - `CaMonogramIcon` becomes `Brand` variant `enso`
+    - `inheritSize` will be removed if set, if not set then `style` will be added to make it 20px (manually adjust to a `className` if you can)
   - `SpinnerIcon` becomes `LoadingSpinner`
+    - `aria-label` will be replaced with `accessibilityLabel` (with a fallback value of `"Loading"`)
+    - `role` will be removed
+    - `viewBox` will be removed
   - All other Icons become future `Icon`
     - **Note:** See [Icon API Specification (Future)](https://cultureamp.design/?path=/docs/illustrations-icon-icon-future-api-specification--docs) for setup instructions
+    - Icons previously filled may become unfilled. This is intentional as filled icons should only be for active states or selection (see [Icon Usage Guidelines (Future)](https://cultureamp.design/?path=/docs/illustrations-icon-icon-future-usage-guidelines--docs#do-use-the-appropriate-fill-for-the-icon-context-and-state))
+    - `role="presentational"` becomes `isPresentational`
+    - `role="img"` will be removed (as `aria-label` should exist)
+    - `aria-label` becomes `alt`
+    - `classNameOverride` becomes `className`
+    - `inheritSize` will remain - however is no longer a valid prop, therefore will have a TypeScript error and will be prefixed with a comment to manually fix the usage
+    - `aria-hidden` becomes `isPresentational`
+    - `color` becomes an inline `style` (manually adjust to a `className` if you can)
+    - `fontSize` will be removed
+    - `height` and `width` become an inline `style` (manually adjust to a `className` if you can, ideally setting `--icon-size`)
+    - `viewBox` will be removed
