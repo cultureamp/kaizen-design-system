@@ -31,14 +31,12 @@ const ExpertAdviceCollapsibleWrapped = (
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Default">
-          <ExpertAdviceCollapsibleWrapped title="Collapsible" />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="lazyLoad">
-          <ExpertAdviceCollapsibleWrapped title="Lazy load" lazyLoad />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+      <StickerSheet.Row header="Default">
+        <ExpertAdviceCollapsibleWrapped title="Collapsible" />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="lazyLoad">
+        <ExpertAdviceCollapsibleWrapped title="Lazy load" lazyLoad />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }

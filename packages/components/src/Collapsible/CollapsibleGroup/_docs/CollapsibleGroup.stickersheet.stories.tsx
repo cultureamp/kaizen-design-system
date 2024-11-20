@@ -45,27 +45,25 @@ const CollapsibleGroupWrapped = (
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Open">
-          <CollapsibleGroupWrapped />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Closed">
-          <CollapsibleGroup>
-            <CollapsibleWrapped open={false} />
-            <CollapsibleWrapped open={false} />
-            <CollapsibleWrapped open={false} />
-          </CollapsibleGroup>
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="noSectionPadding">
-          <CollapsibleGroupWrapped noSectionPadding />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="lazyLoad">
-          <CollapsibleGroupWrapped lazyLoad />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="separated">
-          <CollapsibleGroupWrapped separated />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+      <StickerSheet.Row header="Open">
+        <CollapsibleGroupWrapped />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Closed">
+        <CollapsibleGroup>
+          <CollapsibleWrapped open={false} />
+          <CollapsibleWrapped open={false} />
+          <CollapsibleWrapped open={false} />
+        </CollapsibleGroup>
+      </StickerSheet.Row>
+      <StickerSheet.Row header="noSectionPadding">
+        <CollapsibleGroupWrapped noSectionPadding />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="lazyLoad">
+        <CollapsibleGroupWrapped lazyLoad />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="separated">
+        <CollapsibleGroupWrapped separated />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }
