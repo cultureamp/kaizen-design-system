@@ -19,61 +19,55 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
-      <StickerSheet heading="Filter Button Base">
-        <StickerSheet.Header
-          headings={["Default", "Hover", "Active", "Focus"]}
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <FilterButtonBase>Label</FilterButtonBase>
-            <FilterButtonBase
-              data-sb-pseudo-styles="hover"
-              data-sb-a11y-color-contrast-disable
-            >
-              Label
-            </FilterButtonBase>
-            <FilterButtonBase
-              data-sb-pseudo-styles="active"
-              data-sb-a11y-color-contrast-disable
-            >
-              Label
-            </FilterButtonBase>
-            <FilterButtonBase
-              data-sb-pseudo-styles="focus"
-              data-sb-a11y-color-contrast-disable
-            >
-              Label
-            </FilterButtonBase>
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet
+        title="Filter Button Base"
+        headers={["Default", "Hover", "Active", "Focus"]}
+      >
+        <StickerSheet.Row>
+          <FilterButtonBase>Label</FilterButtonBase>
+          <FilterButtonBase
+            data-sb-pseudo-styles="hover"
+            data-sb-a11y-color-contrast-disable
+          >
+            Label
+          </FilterButtonBase>
+          <FilterButtonBase
+            data-sb-pseudo-styles="active"
+            data-sb-a11y-color-contrast-disable
+          >
+            Label
+          </FilterButtonBase>
+          <FilterButtonBase
+            data-sb-pseudo-styles="focus"
+            data-sb-a11y-color-contrast-disable
+          >
+            Label
+          </FilterButtonBase>
+        </StickerSheet.Row>
       </StickerSheet>
 
-      <StickerSheet heading="Filter Button">
-        <StickerSheet.Header
-          headings={["Closed", "Open", "Has selected value"]}
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <FilterButton label="Desserts" />
-            <FilterButton label="Desserts" isOpen />
-            <FilterButton label="Desserts" selectedValue="Cake" />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet
+        title="Filter Button"
+        headers={["Closed", "Open", "Has selected value"]}
+      >
+        <StickerSheet.Row>
+          <FilterButton label="Desserts" />
+          <FilterButton label="Desserts" isOpen />
+          <FilterButton label="Desserts" selectedValue="Cake" />
+        </StickerSheet.Row>
       </StickerSheet>
 
-      <StickerSheet heading="Filter Button Removable">
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitleWidth={70}>
-            <FilterButtonRemovable
-              triggerButtonProps={{
-                label: "Desserts",
-              }}
-              removeButtonProps={{
-                onClick: () => undefined,
-              }}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet title="Filter Button Removable">
+        <StickerSheet.Row>
+          <FilterButtonRemovable
+            triggerButtonProps={{
+              label: "Desserts",
+            }}
+            removeButtonProps={{
+              onClick: () => undefined,
+            }}
+          />
+        </StickerSheet.Row>
       </StickerSheet>
     </>
   ),

@@ -35,23 +35,21 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <StickerSheet
-        heading="Filter"
+        title="Filter"
         style={{ paddingBottom: IS_CHROMATIC ? "6rem" : undefined }}
+        headers={["Open"]}
       >
-        <StickerSheet.Header headings={["Open"]} />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <Filter
-              isOpen={isOpen}
-              setIsOpen={setIsOpen}
-              renderTrigger={(triggerProps): JSX.Element => (
-                <FilterButton label="Label" {...triggerProps} />
-              )}
-            >
-              <FilterContents>Filter Contents</FilterContents>
-            </Filter>
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+        <StickerSheet.Row>
+          <Filter
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            renderTrigger={(triggerProps): JSX.Element => (
+              <FilterButton label="Label" {...triggerProps} />
+            )}
+          >
+            <FilterContents>Filter Contents</FilterContents>
+          </Filter>
+        </StickerSheet.Row>
       </StickerSheet>
     )
   },
