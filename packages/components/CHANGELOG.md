@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.68.1
+
+### Patch Changes
+
+- [#5294](https://github.com/cultureamp/kaizen-design-system/pull/5294) [`3646ef2`](https://github.com/cultureamp/kaizen-design-system/commit/3646ef2720db73c29f94524de3ce1fd442790427) - Update codemod `upgradeIconV1` to default the following icons to be filled:
+  - `check_circle`
+  - `info`
+  - `error`
+  - `help`
+  - `privacy_tip`
+
 ## 1.68.0
 
 ### Minor Changes
