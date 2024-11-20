@@ -43,15 +43,13 @@ const DateRangePickerTemplate = (
   }, [selectedDateRange])
 
   return (
-    <>
-      <DateRangePicker
-        labelText="Label"
-        onChange={onDateRangeChange}
-        value={value}
-        selectedDateRange={selectedDateRange}
-        {...props}
-      />
-    </>
+    <DateRangePicker
+      labelText="Label"
+      onChange={onDateRangeChange}
+      value={value}
+      selectedDateRange={selectedDateRange}
+      {...props}
+    />
   )
 }
 
@@ -83,28 +81,28 @@ const selectedDateRange = {
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
-      <StickerSheet>
-        <StickerSheet.Header
-          headings={["Default", "Selected Value", "Disabled"]}
-          hasVerticalHeadings
-          headingsWidth={250}
-        />
-        <StickerSheet.Row rowTitle="Date Range Picker Input">
-          <DateRangePickerTemplate />
-          <DateRangePickerTemplate
-            selectedDateRange={selectedDateRange}
-            value="Mar 6 – Mar 2, 2022"
-          />
-          <DateRangePickerTemplate isDisabled />
+      <StickerSheet headers={["Default", "Selected Value", "Disabled"]}>
+        <StickerSheet.Row header="Date Range Picker Input">
+          <StickerSheet.Cell className="w-[250px]">
+            <DateRangePickerTemplate />
+          </StickerSheet.Cell>
+          <StickerSheet.Cell className="w-[250px]">
+            <DateRangePickerTemplate
+              selectedDateRange={selectedDateRange}
+              value="Mar 6 – Mar 2, 2022"
+            />
+          </StickerSheet.Cell>
+          <StickerSheet.Cell className="w-[250px]">
+            <DateRangePickerTemplate isDisabled />
+          </StickerSheet.Cell>
         </StickerSheet.Row>
       </StickerSheet>
 
-      <StickerSheet>
-        <StickerSheet.Header
-          headings={["Selected Range Dates", "Disabled Dates"]}
-          hasVerticalHeadings
-        />
-        <StickerSheet.Row rowTitle="Date Range Calendar (Legacy)">
+      <StickerSheet
+        headers={["Selected Range Dates", "Disabled Dates"]}
+        className="mt-32"
+      >
+        <StickerSheet.Row header="Date Range Calendar (Legacy)">
           <LegacyCalendarRangeTemplate selectedRange={selectedDateRange} />
           <LegacyCalendarRangeTemplate
             disabledDays={[
