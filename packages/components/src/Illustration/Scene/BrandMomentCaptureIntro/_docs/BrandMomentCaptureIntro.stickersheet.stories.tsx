@@ -16,14 +16,14 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Autoplay (hover)"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <BrandMomentCaptureIntro />
-          <BrandMomentCaptureIntro isAnimated autoplay={false} />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Default", "Autoplay (hover)"]}
+    >
+      <StickerSheet.Row>
+        <BrandMomentCaptureIntro />
+        <BrandMomentCaptureIntro isAnimated autoplay={false} />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
   parameters: {
