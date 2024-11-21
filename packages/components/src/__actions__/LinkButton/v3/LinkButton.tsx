@@ -49,6 +49,7 @@ export const LinkButton = forwardRef(
           isFullWidth && buttonStyles.fullWidth,
           className
         )}
+        isDisabled={isDisabled}
         {...otherProps}
       >
         {racStateProps => {
