@@ -124,11 +124,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         headers={["primary", "secondary", "tertiary"]}
       >
         {sizes.map(size => (
-          <StickerSheet.Row
-            isReversed={isReversed}
-            header={size}
-            key={size}
-          >
+          <StickerSheet.Row isReversed={isReversed} header={size} key={size}>
             {variants.map(variant => (
               <span className="flex gap-8" key={variant}>
                 <Button
