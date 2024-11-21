@@ -38,7 +38,8 @@
 }
 
 .item[data-focus-visible] {
-  border-color: var(--color-blue-500);
+  outline: var(--border-focus-ring-border-width)
+    var(--border-focus-ring-border-style) var(--color-blue-500);
 }
 
 .item[data-disabled] {
