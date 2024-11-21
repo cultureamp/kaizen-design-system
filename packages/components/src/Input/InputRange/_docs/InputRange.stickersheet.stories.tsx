@@ -32,26 +32,27 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
-    <StickerSheet>
-      <StickerSheet.Header headings={["Default", "Disabled"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <InputRange
-            id="inputRange"
-            minLabel="Minimum"
-            maxLabel="Maximum"
-            value={2}
-          />
-          <InputRange
-            id="inputRangeDisable"
-            minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
-            maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
-            value={2}
-            disabled
-            data-sb-a11y-color-contrast-disable
-          />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet
+      title="InputRange"
+      headers={["Default", "Disabled"]}
+      layout="stretch"
+    >
+      <StickerSheet.Row>
+        <InputRange
+          id="inputRange"
+          minLabel="Minimum"
+          maxLabel="Maximum"
+          value={2}
+        />
+        <InputRange
+          id="inputRangeDisable"
+          minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
+          maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
+          value={2}
+          disabled
+          data-sb-a11y-color-contrast-disable
+        />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }

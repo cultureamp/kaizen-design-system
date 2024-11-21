@@ -15,82 +15,136 @@ export default {
   },
 } satisfies Meta
 
-const TAFieldStatus = ["default", "error", "caution"] as const
-
-const TAFieldStatusGroup = ({
-  isReversed,
-  ...props
-}: Omit<TextAreaFieldProps, "labelText"> & {
-  isReversed?: boolean
-}): JSX.Element => (
-  <>
-    {TAFieldStatus.map(status => (
-      <StickerSheet.Row key={status} rowTitle={status} isReversed={isReversed}>
-        <TextAreaField
-          labelText={`Variant: ${props.variant}`}
-          reversed={isReversed}
-          status={status}
-          validationMessage="A valid question"
-          description="A short description"
-          {...props}
-        />
-        <TextAreaField
-          labelText={`Variant: ${props.variant}`}
-          reversed={isReversed}
-          status={status}
-          validationMessage="A valid question"
-          description="A short description"
-          data-sb-pseudo-styles="hover"
-          {...props}
-        />
-        <TextAreaField
-          labelText={`Variant: ${props.variant}`}
-          reversed={isReversed}
-          status={status}
-          validationMessage="A valid question"
-          description="A short description"
-          data-sb-pseudo-styles="active"
-          {...props}
-        />
-        <TextAreaField
-          labelText={`Variant: ${props.variant}`}
-          reversed={isReversed}
-          status={status}
-          validationMessage="A valid question"
-          description="A short description"
-          data-sb-pseudo-styles="focus"
-          {...props}
-        />
-      </StickerSheet.Row>
-    ))}
-  </>
-)
+// const TAFieldStatusGroup = ({
+//   isReversed,
+//   ...props
+// }: Omit<TextAreaFieldProps, "labelText"> & {
+//   isReversed?: boolean
+// }): JSX.Element => (
+//   <>
+//     {TAFieldStatus.map(status => (
+//       <React.Fragment key={status}>
+//         <TextAreaField
+//           labelText={`Variant: ${props.variant}`}
+//           reversed={isReversed}
+//           status={status}
+//           validationMessage="A valid question"
+//           description="A short description"
+//           {...props}
+//         />
+//         <TextAreaField
+//           labelText={`Variant: ${props.variant}`}
+//           reversed={isReversed}
+//           status={status}
+//           validationMessage="A valid question"
+//           description="A short description"
+//           data-sb-pseudo-styles="hover"
+//           {...props}
+//         />
+//         <TextAreaField
+//           labelText={`Variant: ${props.variant}`}
+//           reversed={isReversed}
+//           status={status}
+//           validationMessage="A valid question"
+//           description="A short description"
+//           data-sb-pseudo-styles="active"
+//           {...props}
+//         />
+//         <TextAreaField
+//           labelText={`Variant: ${props.variant}`}
+//           reversed={isReversed}
+//           status={status}
+//           validationMessage="A valid question"
+//           description="A short description"
+//           data-sb-pseudo-styles="focus"
+//           {...props}
+//         />
+//       </React.Fragment>
+//     ))}
+//   </>
+// )
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    <>
-      <Heading variant="heading-2" color={isReversed ? "white" : "dark"}>
-        Enabled
-      </Heading>
-      <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Header
-          headings={["Default", "Hover", "Active", "Focus"]}
-          hasVerticalHeadings
-        />
-        <StickerSheet.Body>
-          <TAFieldStatusGroup isReversed={isReversed} variant="default" />
-          <TAFieldStatusGroup isReversed={isReversed} variant="prominent" />
-        </StickerSheet.Body>
-      </StickerSheet>
-      <Heading variant="heading-2" color={isReversed ? "white" : "dark"}>
-        Disabled
-      </Heading>
-      <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Header
-          headings={["Default", "Hover", "Active", "Focus"]}
-          hasVerticalHeadings
-        />
-        <StickerSheet.Body>
+  render: ({ isReversed }) => {
+    const defaultProps = {
+      labelText: "Label",
+      description: "A short description",
+      reversed: isReversed,
+    } satisfies TextAreaFieldProps
+
+    const variants = ["default", "prominent"] as const
+    const statuses = ["default", "error", "caution"] as const
+
+    return (
+      <>
+        <StickerSheet
+          title="TextAreaField"
+          isReversed={isReversed}
+          headers={["Default", "Hover", "Active", "Focus", "Disabled"]}
+        >
+          {variants.map(variant => (
+            <StickerSheet.Row
+              key={variant}
+              header={variant}
+              isReversed={isReversed}
+            >
+              <TextAreaField {...defaultProps} variant={variant} />
+              <TextAreaField
+                {...defaultProps}
+                variant={variant}
+                data-sb-pseudo-styles="hover"
+              />
+              <TextAreaField
+                {...defaultProps}
+                variant={variant}
+                data-sb-pseudo-styles="active"
+              />
+              <TextAreaField
+                {...defaultProps}
+                variant={variant}
+                data-sb-pseudo-styles="focus"
+              />
+              <TextAreaField {...defaultProps} variant={variant} disabled />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet>
+
+        <StickerSheet
+          title="Validation"
+          isReversed={isReversed}
+          headers={["Error", "Caution"]}
+        >
+          {/* {statuses.map(status => (
+            <StickerSheet.Row key={status} header={status} isReversed={isReversed}>
+                <TextAreaField {...defaultProps} variant="default" status={status} />
+                <TextAreaField {...defaultProps} variant="prominent" status={status} />
+            </StickerSheet.Row>
+          ))} */}
+          {variants.map(variant => (
+            <StickerSheet.Row
+              key={variant}
+              header={variant}
+              isReversed={isReversed}
+            >
+              <TextAreaField
+                {...defaultProps}
+                variant={variant}
+                status="error"
+                validationMessage="A valid question"
+              />
+              <TextAreaField
+                {...defaultProps}
+                variant={variant}
+                status="caution"
+                validationMessage="A valid question"
+              />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet>
+
+        {/* <StickerSheet title="Disabled" isReversed={isReversed}
+          headers={["Default", "Hover", "Active", "Focus"]}
+        >
           <TAFieldStatusGroup
             isReversed={isReversed}
             disabled
@@ -101,10 +155,10 @@ const StickerSheetTemplate: StickerSheetStory = {
             disabled
             variant="prominent"
           />
-        </StickerSheet.Body>
-      </StickerSheet>
-    </>
-  ),
+      </StickerSheet> */}
+      </>
+    )
+  },
   parameters: {
     pseudo: {
       hover: '[data-sb-pseudo-styles="hover"]',

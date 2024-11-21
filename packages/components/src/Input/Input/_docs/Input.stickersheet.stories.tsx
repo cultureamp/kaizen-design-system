@@ -61,39 +61,36 @@ const InputExampleGroup = (props: InputProps): JSX.Element => (
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Default", "Hover", "Active", "Focus", "Disabled"]}
-        hasVerticalHeadings
-      />
-      <StickerSheet.Body>
-        {InputStatus.map(status => (
-          <StickerSheet.Row key={status} rowTitle={status}>
-            <InputExampleGroup reversed={isReversed} />
-            <InputExampleGroup
-              status={status}
-              reversed={isReversed}
-              data-sb-pseudo-styles="hover"
-            />
-            <InputExampleGroup
-              status={status}
-              reversed={isReversed}
-              data-sb-pseudo-styles="active"
-            />
-            <InputExampleGroup
-              status={status}
-              reversed={isReversed}
-              data-sb-pseudo-styles="focus"
-            />
-            <InputExampleGroup
-              status={status}
-              reversed={isReversed}
-              disabled
-              data-sb-a11y-color-contrast-disable
-            />
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Default", "Hover", "Active", "Focus", "Disabled"]}
+    >
+      {InputStatus.map(status => (
+        <StickerSheet.Row key={status} header={status}>
+          <InputExampleGroup reversed={isReversed} />
+          <InputExampleGroup
+            status={status}
+            reversed={isReversed}
+            data-sb-pseudo-styles="hover"
+          />
+          <InputExampleGroup
+            status={status}
+            reversed={isReversed}
+            data-sb-pseudo-styles="active"
+          />
+          <InputExampleGroup
+            status={status}
+            reversed={isReversed}
+            data-sb-pseudo-styles="focus"
+          />
+          <InputExampleGroup
+            status={status}
+            reversed={isReversed}
+            disabled
+            data-sb-a11y-color-contrast-disable
+          />
+        </StickerSheet.Row>
+      ))}
     </StickerSheet>
   ),
   parameters: {
