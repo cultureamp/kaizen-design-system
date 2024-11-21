@@ -39,6 +39,7 @@ export const KitchenSink: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -91,6 +92,7 @@ export const Basic: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -177,6 +179,7 @@ export const DisabledItems: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -221,6 +224,7 @@ export const WithSections: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -256,6 +260,7 @@ export const Controlled: Story = {
         <MenuTrigger isOpen={isOpen} onOpenChange={setOpen}>
           <Button
             icon={<Icon name="more_horiz" isPresentational />}
+            variant="secondary"
             hasHiddenLabel
           >
             Additional actions
