@@ -45,115 +45,97 @@ const StickerSheetTemplate: StickerSheetStory = {
       <>
         <StickerSheet
           isReversed={isReversed}
-          heading="MultiSelectToggle"
-          className="w-full"
+          title="MultiSelectToggle"
+          layout="stretch"
         >
-          <StickerSheet.Body>
-            <StickerSheet.Row rowTitle="Default" rowTitleWidth="10rem">
-              <MultiSelectToggle {...defaultProps} />
-            </StickerSheet.Row>
-            <StickerSheet.Row rowTitle="Open">
-              <MultiSelectToggle {...defaultProps} isOpen />
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+          <StickerSheet.Row header="Default">
+            <MultiSelectToggle {...defaultProps} />
+          </StickerSheet.Row>
+          <StickerSheet.Row header="Open">
+            <MultiSelectToggle {...defaultProps} isOpen />
+          </StickerSheet.Row>
         </StickerSheet>
 
         <StickerSheet
           isReversed={isReversed}
-          heading="Pseudo states"
-          className="w-full"
+          title="Pseudo states"
+          layout="stretch"
+          headers={["Hover", "Focus"]}
         >
-          <StickerSheet.Header
-            headings={["Hover", "Focus"]}
-            hasVerticalHeadings
-            verticalHeadingsWidth="10rem"
-          />
-          <StickerSheet.Body>
-            <StickerSheet.Row rowTitle="Toggle">
+          <StickerSheet.Row header="Toggle">
+            <MultiSelectToggle
+              {...defaultProps}
+              data-sb-pseudo-styles="hover"
+            />
+            <MultiSelectToggle
+              {...defaultProps}
+              data-sb-pseudo-styles="focus"
+            />
+          </StickerSheet.Row>
+          <StickerSheet.Row header="Toggle Button">
+            <MultiSelectToggle
+              {...defaultProps}
+              data-sb-pseudo-styles="hover--button"
+            />
+            <MultiSelectToggle
+              {...defaultProps}
+              data-sb-pseudo-styles="focus--button"
+            />
+          </StickerSheet.Row>
+        </StickerSheet>
+
+        <StickerSheet
+          isReversed={isReversed}
+          title="Validation states"
+          layout="stretch"
+          headers={["Error", "Caution"]}
+        >
+          <StickerSheet.Row>
+            <MultiSelectToggle status="error" {...defaultProps} />
+            <MultiSelectToggle status="caution" {...defaultProps} />
+          </StickerSheet.Row>
+        </StickerSheet>
+
+        <StickerSheet
+          isReversed={isReversed}
+          title="Has selected values"
+          layout="stretch"
+          headers={["Default", "Hover", "Multi-line"]}
+        >
+          <StickerSheet.Row>
+            <StickerSheet.Cell className="align-top">
               <MultiSelectToggle
                 {...defaultProps}
+                selectedOptions={[
+                  { value: "pancakes", label: "Pancakes" },
+                  { value: "waffles", label: "Waffles" },
+                ]}
+              />
+            </StickerSheet.Cell>
+            <StickerSheet.Cell className="align-top">
+              <MultiSelectToggle
+                {...defaultProps}
+                selectedOptions={[
+                  { value: "pancakes", label: "Pancakes" },
+                  { value: "waffles", label: "Waffles" },
+                ]}
                 data-sb-pseudo-styles="hover"
               />
+            </StickerSheet.Cell>
+            <StickerSheet.Cell className="align-top">
               <MultiSelectToggle
                 {...defaultProps}
-                data-sb-pseudo-styles="focus"
+                selectedOptions={[
+                  { value: "pancakes", label: "Pancakes" },
+                  { value: "toastie", label: "Toastie" },
+                  { value: "jaffle", label: "Jaffle" },
+                  { value: "pikelets", label: "Pikelets" },
+                  { value: "crumpets", label: "Crumpets" },
+                  { value: "waffles", label: "Waffles" },
+                ]}
               />
-            </StickerSheet.Row>
-            <StickerSheet.Row rowTitle="Toggle Button">
-              <MultiSelectToggle
-                {...defaultProps}
-                data-sb-pseudo-styles="hover--button"
-              />
-              <MultiSelectToggle
-                {...defaultProps}
-                data-sb-pseudo-styles="focus--button"
-              />
-            </StickerSheet.Row>
-          </StickerSheet.Body>
-        </StickerSheet>
-
-        <StickerSheet
-          isReversed={isReversed}
-          heading="Validation states"
-          className="w-full"
-        >
-          <StickerSheet.Header
-            headings={["Error", "Caution"]}
-            verticalHeadingsWidth="10rem"
-          />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <MultiSelectToggle status="error" {...defaultProps} />
-              <MultiSelectToggle status="caution" {...defaultProps} />
-            </StickerSheet.Row>
-          </StickerSheet.Body>
-        </StickerSheet>
-
-        <StickerSheet
-          isReversed={isReversed}
-          heading="Has selected values"
-          className="w-full"
-        >
-          <StickerSheet.Header
-            headings={["Default", "Hover", "Multi-line"]}
-            headingsWidth="30%"
-          />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <StickerSheet.Cell className="align-top">
-                <MultiSelectToggle
-                  {...defaultProps}
-                  selectedOptions={[
-                    { value: "pancakes", label: "Pancakes" },
-                    { value: "waffles", label: "Waffles" },
-                  ]}
-                />
-              </StickerSheet.Cell>
-              <StickerSheet.Cell className="align-top">
-                <MultiSelectToggle
-                  {...defaultProps}
-                  selectedOptions={[
-                    { value: "pancakes", label: "Pancakes" },
-                    { value: "waffles", label: "Waffles" },
-                  ]}
-                  data-sb-pseudo-styles="hover"
-                />
-              </StickerSheet.Cell>
-              <StickerSheet.Cell className="align-top">
-                <MultiSelectToggle
-                  {...defaultProps}
-                  selectedOptions={[
-                    { value: "pancakes", label: "Pancakes" },
-                    { value: "toastie", label: "Toastie" },
-                    { value: "jaffle", label: "Jaffle" },
-                    { value: "pikelets", label: "Pikelets" },
-                    { value: "crumpets", label: "Crumpets" },
-                    { value: "waffles", label: "Waffles" },
-                  ]}
-                />
-              </StickerSheet.Cell>
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+            </StickerSheet.Cell>
+          </StickerSheet.Row>
         </StickerSheet>
       </>
     )

@@ -31,34 +31,29 @@ const options = [
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
-    <StickerSheet>
-      <StickerSheet.Header
-        headings={["Default", "Focus + Hover", "Empty state"]}
-      />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
+    <StickerSheet headers={["Default", "Focus + Hover", "Empty state"]}>
+      <StickerSheet.Row>
+        <MultiSelectOptions
+          id="id--multi-select-options--default"
+          options={options}
+          selectedValues={new Set()}
+          onChange={() => undefined}
+        />
+        <MultiSelectOptions
+          id="id--multi-select-options--pseudo"
+          options={options}
+          selectedValues={new Set(["pancakes"])}
+          onChange={() => undefined}
+        />
+        <StickerSheet.Cell className="align-top">
           <MultiSelectOptions
-            id="id--multi-select-options--default"
-            options={options}
+            id="id--multi-select-options--empty-state"
+            options={[]}
             selectedValues={new Set()}
             onChange={() => undefined}
           />
-          <MultiSelectOptions
-            id="id--multi-select-options--pseudo"
-            options={options}
-            selectedValues={new Set(["pancakes"])}
-            onChange={() => undefined}
-          />
-          <StickerSheet.Cell className="align-top">
-            <MultiSelectOptions
-              id="id--multi-select-options--empty-state"
-              options={[]}
-              selectedValues={new Set()}
-              onChange={() => undefined}
-            />
-          </StickerSheet.Cell>
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+        </StickerSheet.Cell>
+      </StickerSheet.Row>
     </StickerSheet>
   ),
   parameters: {
