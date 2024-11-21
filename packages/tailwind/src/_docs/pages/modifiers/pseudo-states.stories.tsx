@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { StickerSheet } from "~storybook/components/StickerSheet"
@@ -17,14 +16,9 @@ export default {
   },
 } satisfies Meta
 
-export const PseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
-  <StickerSheet isReversed={isReversed}>
-    <StickerSheet.Header
-      headings={["Utility Class", "Compiled CSS", "Example"]}
-    />
-    <StickerSheet.Row rowTitle="hover">
+export const PseudoSelectors: StoryFn = () => (
+  <StickerSheet headers={["Utility Class", "Compiled CSS", "Example"]}>
+    <StickerSheet.Row header="hover">
       <p className="font-family-paragraph">hover:bg-blue-200</p>
       <p className="font-family-paragraph">background-color: #bde2f5</p>
       <button
@@ -34,7 +28,7 @@ export const PseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
         Hover me
       </button>
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="focus">
+    <StickerSheet.Row header="focus">
       <p className="font-family-paragraph">focus:bg-blue-200</p>
       <p className="font-family-paragraph">background-color: #bde2f5</p>
       <button

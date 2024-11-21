@@ -36,9 +36,7 @@ const fontClasses = {
 const getFontClass = (utilityClass: string): string =>
   fontClasses[utilityClass as keyof typeof fontClasses] || ""
 
-export const MaxTextWidth: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const MaxTextWidth: StoryFn = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="max-width"
     classKeyValues={classEntries}
@@ -55,6 +53,5 @@ export const MaxTextWidth: StoryFn<{ isReversed: boolean }> = ({
         </code>
       </>
     )}
-    isReversed={isReversed}
   />
 )

@@ -27,15 +27,12 @@ export default {
   },
 } satisfies Meta
 
-export const FontWeight: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const FontWeight: StoryFn = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="font-weight"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <p className={utilityClass}>Aa</p>
     )}
-    isReversed={isReversed}
   />
 )

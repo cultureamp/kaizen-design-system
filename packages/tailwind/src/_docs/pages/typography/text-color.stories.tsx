@@ -23,7 +23,7 @@ export default {
   },
 }
 
-export const TextColor: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+export const TextColor: StoryFn = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="color"
     classKeyValues={classEntries}
@@ -47,6 +47,5 @@ export const TextColor: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
         </p>
       </div>
     )}
-    isReversed={isReversed}
   />
 )

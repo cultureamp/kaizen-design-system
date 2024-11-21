@@ -26,13 +26,12 @@ export default {
   },
 }
 
-export const FontSize: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+export const FontSize: StoryFn = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="font-size"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <p className={utilityClass}>Aa</p>
     )}
-    isReversed={isReversed}
   />
 )

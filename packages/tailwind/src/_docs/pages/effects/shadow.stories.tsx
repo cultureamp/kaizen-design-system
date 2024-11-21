@@ -28,13 +28,12 @@ export default {
   },
 } satisfies Meta
 
-export const BoxShadow: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+export const BoxShadow: StoryFn = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="box-shadow"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <div className={classnames("w-[100px] h-[100px]", utilityClass)} />
     )}
-    isReversed={isReversed}
   />
 )
