@@ -38,29 +38,23 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet heading="GenericTile">
-          <StickerSheet.Body>
-            {variants.map(variant => (
-              <StickerSheet.Row key={variant} rowTitle={variant}>
-                <GenericTile {...defaultProps} variant={variant} />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+        <StickerSheet title="GenericTile">
+          {variants.map(variant => (
+            <StickerSheet.Row key={variant} header={variant}>
+              <GenericTile {...defaultProps} variant={variant} />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
 
-        <StickerSheet heading="Mood (deprecated)">
-          <StickerSheet.Body>
-            <>
-              <StickerSheet.Row rowTitle="default">
-                <GenericTile {...defaultProps} />
-              </StickerSheet.Row>
-              {moods.map(mood => (
-                <StickerSheet.Row key={mood} rowTitle={mood}>
-                  <GenericTile {...defaultProps} mood={mood} />
-                </StickerSheet.Row>
-              ))}
-            </>
-          </StickerSheet.Body>
+        <StickerSheet title="Mood (deprecated)">
+          <StickerSheet.Row header="default">
+            <GenericTile {...defaultProps} />
+          </StickerSheet.Row>
+          {moods.map(mood => (
+            <StickerSheet.Row key={mood} header={mood}>
+              <GenericTile {...defaultProps} mood={mood} />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
       </>
     )
