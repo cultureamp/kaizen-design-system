@@ -111,6 +111,15 @@ export const IconLinkButton: Story = {
   },
 }
 
+export const DownloadIconButton: Story = {
+  args: {
+    children: "Download report for May 8, 2024",
+    href: "#download-report.pdf",
+    icon: <Icon isPresentational name="download" />,
+    hasHiddenLabel: true,
+  },
+}
+
 export const ReversedLinkButton: Story = {
   parameters: {
     reverseColors: true,
