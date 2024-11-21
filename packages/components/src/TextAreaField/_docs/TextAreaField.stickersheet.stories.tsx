@@ -1,6 +1,5 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { Heading } from "~components/Heading"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -15,55 +14,6 @@ export default {
   },
 } satisfies Meta
 
-// const TAFieldStatusGroup = ({
-//   isReversed,
-//   ...props
-// }: Omit<TextAreaFieldProps, "labelText"> & {
-//   isReversed?: boolean
-// }): JSX.Element => (
-//   <>
-//     {TAFieldStatus.map(status => (
-//       <React.Fragment key={status}>
-//         <TextAreaField
-//           labelText={`Variant: ${props.variant}`}
-//           reversed={isReversed}
-//           status={status}
-//           validationMessage="A valid question"
-//           description="A short description"
-//           {...props}
-//         />
-//         <TextAreaField
-//           labelText={`Variant: ${props.variant}`}
-//           reversed={isReversed}
-//           status={status}
-//           validationMessage="A valid question"
-//           description="A short description"
-//           data-sb-pseudo-styles="hover"
-//           {...props}
-//         />
-//         <TextAreaField
-//           labelText={`Variant: ${props.variant}`}
-//           reversed={isReversed}
-//           status={status}
-//           validationMessage="A valid question"
-//           description="A short description"
-//           data-sb-pseudo-styles="active"
-//           {...props}
-//         />
-//         <TextAreaField
-//           labelText={`Variant: ${props.variant}`}
-//           reversed={isReversed}
-//           status={status}
-//           validationMessage="A valid question"
-//           description="A short description"
-//           data-sb-pseudo-styles="focus"
-//           {...props}
-//         />
-//       </React.Fragment>
-//     ))}
-//   </>
-// )
-
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
     const defaultProps = {
@@ -73,7 +23,6 @@ const StickerSheetTemplate: StickerSheetStory = {
     } satisfies TextAreaFieldProps
 
     const variants = ["default", "prominent"] as const
-    const statuses = ["default", "error", "caution"] as const
 
     return (
       <>
@@ -114,12 +63,6 @@ const StickerSheetTemplate: StickerSheetStory = {
           isReversed={isReversed}
           headers={["Error", "Caution"]}
         >
-          {/* {statuses.map(status => (
-            <StickerSheet.Row key={status} header={status} isReversed={isReversed}>
-                <TextAreaField {...defaultProps} variant="default" status={status} />
-                <TextAreaField {...defaultProps} variant="prominent" status={status} />
-            </StickerSheet.Row>
-          ))} */}
           {variants.map(variant => (
             <StickerSheet.Row
               key={variant}
@@ -141,21 +84,6 @@ const StickerSheetTemplate: StickerSheetStory = {
             </StickerSheet.Row>
           ))}
         </StickerSheet>
-
-        {/* <StickerSheet title="Disabled" isReversed={isReversed}
-          headers={["Default", "Hover", "Active", "Focus"]}
-        >
-          <TAFieldStatusGroup
-            isReversed={isReversed}
-            disabled
-            variant="default"
-          />
-          <TAFieldStatusGroup
-            isReversed={isReversed}
-            disabled
-            variant="prominent"
-          />
-      </StickerSheet> */}
       </>
     )
   },

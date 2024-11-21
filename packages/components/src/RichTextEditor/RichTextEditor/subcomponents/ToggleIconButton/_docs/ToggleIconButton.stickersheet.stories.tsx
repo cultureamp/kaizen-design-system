@@ -35,7 +35,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         ]}
       >
         {moodsList.map(mood => (
-          <StickerSheet.Row header={mood}>
+          <StickerSheet.Row key={mood} header={mood}>
             <ToggleIconButton {...defaultProps} mood={mood} />
             <ToggleIconButton
               {...defaultProps}

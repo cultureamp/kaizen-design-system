@@ -56,7 +56,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Cell>
       </StickerSheet.Row>
       {popoverPlacements.map(placement => (
-        <StickerSheet.Row header={placement}>
+        <StickerSheet.Row key={placement} header={placement}>
           <StickerSheet.Cell style={cellStyle}>
             <PopoverWrapper placement={placement} />
           </StickerSheet.Cell>
