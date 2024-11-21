@@ -146,6 +146,7 @@ export const HasLongTitle: Story = {
 }
 
 export const StickerSheetBreadcrumbs: Story = {
+  name: "Sticker Sheet (Breadcrumb)",
   parameters: {
     docs: {
       canvas: {
@@ -179,103 +180,100 @@ export const StickerSheetBreadcrumbs: Story = {
   },
   render: args => (
     <StickerSheet>
-      <StickerSheet.Row rowTitle="Tab hover">
+      <StickerSheet.Row header="Tab hover">
         <div className="px-12 bg-purple-600">
           <TitleBlockZen {...args} id="tab-hover-example" />
         </div>
       </StickerSheet.Row>
-      <StickerSheet.Row rowTitle="Tab focus">
+      <StickerSheet.Row header="Tab focus">
         <div className="px-12 bg-purple-600">
           <TitleBlockZen {...args} id="tab-focus-example" />
         </div>
       </StickerSheet.Row>
-      <StickerSheet.Row rowTitle="Breadcrumbs hover">
+      <StickerSheet.Row header="Breadcrumbs hover">
         <div className="px-12 bg-purple-600">
           <TitleBlockZen {...args} id="Breadcrumbs-hover-example" />
         </div>
       </StickerSheet.Row>
-      <StickerSheet.Row rowTitle="Breadcrumbs focus">
+      <StickerSheet.Row header="Breadcrumbs focus">
         <div className="px-12 bg-purple-600">
           <TitleBlockZen {...args} id="Breadcrumbs-focus-example" />
         </div>
       </StickerSheet.Row>
     </StickerSheet>
   ),
-  name: "Sticker Sheet (Breadcrumb)",
 }
 
-export const StickerSheetDefault: Story = {
+export const StickerSheetSurveyStatus: Story = {
+  name: "Sticker Sheet (Survey Status)",
   render: () => (
     <StickerSheet title="Survey Status">
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Draft">
-          <TitleBlockZen
-            title="Draft Title"
-            surveyStatus={{
-              text: "draft text",
-              status: "draft",
-            }}
-          >
-            Draft
-          </TitleBlockZen>
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Default">
-          <TitleBlockZen
-            title="Default Title"
-            surveyStatus={{
-              text: "default text",
-              status: "default",
-            }}
-          >
-            Default
-          </TitleBlockZen>
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Scheduled">
-          <TitleBlockZen
-            title="Scheduled Title"
-            surveyStatus={{
-              text: "scheduled text",
-              status: "scheduled",
-            }}
-          >
-            Due
-          </TitleBlockZen>
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Live">
-          <TitleBlockZen
-            title="Live Title"
-            surveyStatus={{
-              text: "live text",
-              status: "live",
-            }}
-          >
-            Overdue
-          </TitleBlockZen>
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Closed">
-          <TitleBlockZen
-            title="Closed Title"
-            surveyStatus={{
-              text: "closed text",
-              status: "closed",
-            }}
-          >
-            Completed
-          </TitleBlockZen>
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Sentiment Positive">
-          <TitleBlockZen
-            title="Sentiment Positive Title"
-            surveyStatus={{
-              text: "sentimentPositive text",
-              status: "sentimentPositive",
-            }}
-          >
-            Completed
-          </TitleBlockZen>
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+      <StickerSheet.Row header="Draft">
+        <TitleBlockZen
+          title="Draft Title"
+          surveyStatus={{
+            text: "draft text",
+            status: "draft",
+          }}
+        >
+          Draft
+        </TitleBlockZen>
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Default">
+        <TitleBlockZen
+          title="Default Title"
+          surveyStatus={{
+            text: "default text",
+            status: "default",
+          }}
+        >
+          Default
+        </TitleBlockZen>
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Scheduled">
+        <TitleBlockZen
+          title="Scheduled Title"
+          surveyStatus={{
+            text: "scheduled text",
+            status: "scheduled",
+          }}
+        >
+          Due
+        </TitleBlockZen>
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Live">
+        <TitleBlockZen
+          title="Live Title"
+          surveyStatus={{
+            text: "live text",
+            status: "live",
+          }}
+        >
+          Overdue
+        </TitleBlockZen>
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Closed">
+        <TitleBlockZen
+          title="Closed Title"
+          surveyStatus={{
+            text: "closed text",
+            status: "closed",
+          }}
+        >
+          Completed
+        </TitleBlockZen>
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Sentiment Positive">
+        <TitleBlockZen
+          title="Sentiment Positive Title"
+          surveyStatus={{
+            text: "sentimentPositive text",
+            status: "sentimentPositive",
+          }}
+        >
+          Completed
+        </TitleBlockZen>
+      </StickerSheet.Row>
     </StickerSheet>
   ),
-  name: "Sticker Sheet (Survey Status)",
 }
