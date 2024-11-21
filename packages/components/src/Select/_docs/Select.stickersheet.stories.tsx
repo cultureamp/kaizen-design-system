@@ -45,136 +45,137 @@ const OPTIONS = [
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
-      <StickerSheet isReversed={isReversed} heading="Default Select">
-        <StickerSheet.Header
-          headings={["Base", "Clearable", "Disabled"]}
-          hasVerticalHeadings
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Default">
-            <Select options={OPTIONS} reversed={isReversed} label="Select" />
-            <Select
-              options={OPTIONS}
-              reversed={isReversed}
-              defaultValue={OPTIONS[0]}
-              isClearable
-              label="Select"
-            />
-            <Select
-              options={OPTIONS}
-              reversed={isReversed}
-              label="Select"
-              isDisabled
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Ellipsis">
-            <Select
-              options={OPTIONS}
-              reversed={isReversed}
-              defaultValue={OPTIONS[9]}
-              label="Select"
-            />
-            <Select
-              options={OPTIONS}
-              reversed={isReversed}
-              defaultValue={OPTIONS[9]}
-              label="Select"
-              isClearable
-            />
-            <Select
-              options={OPTIONS}
-              reversed={isReversed}
-              defaultValue={OPTIONS[9]}
-              label="Select"
-              isDisabled
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet
+        isReversed={isReversed}
+        title="Default Select"
+        headers={["Base", "Clearable", "Disabled"]}
+      >
+        <StickerSheet.Row header="Default">
+          <Select options={OPTIONS} reversed={isReversed} label="Select" />
+          <Select
+            options={OPTIONS}
+            reversed={isReversed}
+            defaultValue={OPTIONS[0]}
+            isClearable
+            label="Select"
+          />
+          <Select
+            options={OPTIONS}
+            reversed={isReversed}
+            label="Select"
+            isDisabled
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row header="Ellipsis">
+          <Select
+            options={OPTIONS}
+            reversed={isReversed}
+            defaultValue={OPTIONS[9]}
+            label="Select"
+          />
+          <Select
+            options={OPTIONS}
+            reversed={isReversed}
+            defaultValue={OPTIONS[9]}
+            label="Select"
+            isClearable
+          />
+          <Select
+            options={OPTIONS}
+            reversed={isReversed}
+            defaultValue={OPTIONS[9]}
+            label="Select"
+            isDisabled
+          />
+        </StickerSheet.Row>
       </StickerSheet>
-      <StickerSheet isReversed={isReversed} heading="Multi Select">
-        <StickerSheet.Header headings={["Base", "Disabled"]} />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <Select
-              options={OPTIONS}
-              reversed={isReversed}
-              isMulti={true}
-              defaultValue={OPTIONS[0]}
-              label="Select"
-            />
-            <Select
-              options={OPTIONS}
-              reversed={isReversed}
-              defaultValue={OPTIONS[0]}
-              isDisabled
-              isMulti
-              label="Select"
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+
+      <StickerSheet
+        isReversed={isReversed}
+        title="Multi Select"
+        headers={["Base", "Disabled"]}
+      >
+        <StickerSheet.Row>
+          <Select
+            options={OPTIONS}
+            reversed={isReversed}
+            isMulti={true}
+            defaultValue={OPTIONS[0]}
+            label="Select"
+          />
+          <Select
+            options={OPTIONS}
+            reversed={isReversed}
+            defaultValue={OPTIONS[0]}
+            isDisabled
+            isMulti
+            label="Select"
+          />
+        </StickerSheet.Row>
       </StickerSheet>
-      <StickerSheet isReversed={isReversed} heading="Secondary">
-        <StickerSheet.Header
-          headings={["Base", "Disabled"]}
-          hasVerticalHeadings
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Default">
-            <Select
-              reversed={isReversed}
-              variant="secondary"
-              options={OPTIONS}
-              defaultValue={OPTIONS[0]}
-              label="Select"
-            />
-            <Select
-              reversed={isReversed}
-              variant="secondary"
-              options={OPTIONS}
-              defaultValue={OPTIONS[0]}
-              isDisabled
-              label="Select"
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Small">
-            <Select
-              reversed={isReversed}
-              variant="secondary-small"
-              options={OPTIONS}
-              defaultValue={OPTIONS[0]}
-              label="Select"
-            />
-            <Select
-              reversed={isReversed}
-              variant="secondary-small"
-              options={OPTIONS}
-              defaultValue={OPTIONS[0]}
-              isDisabled
-              label="Select"
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+
+      <StickerSheet
+        isReversed={isReversed}
+        title="Secondary"
+        headers={["Base", "Disabled"]}
+      >
+        <StickerSheet.Row header="Default">
+          <Select
+            reversed={isReversed}
+            variant="secondary"
+            options={OPTIONS}
+            defaultValue={OPTIONS[0]}
+            label="Select"
+          />
+          <Select
+            reversed={isReversed}
+            variant="secondary"
+            options={OPTIONS}
+            defaultValue={OPTIONS[0]}
+            isDisabled
+            label="Select"
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row header="Small">
+          <Select
+            reversed={isReversed}
+            variant="secondary-small"
+            options={OPTIONS}
+            defaultValue={OPTIONS[0]}
+            label="Select"
+          />
+          <Select
+            reversed={isReversed}
+            variant="secondary-small"
+            options={OPTIONS}
+            defaultValue={OPTIONS[0]}
+            isDisabled
+            label="Select"
+          />
+        </StickerSheet.Row>
       </StickerSheet>
-      <StickerSheet isReversed={isReversed} heading="Menu">
-        <StickerSheet.Header headings={["Base", "Disabled"]} />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <Select
-              reversed={isReversed}
-              variant="secondary"
-              options={OPTIONS}
-              menuIsOpen
-              label="Select"
-            />
-            <Select
-              reversed={isReversed}
-              variant="secondary"
-              options={[]}
-              menuIsOpen
-              label="Select"
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+
+      <StickerSheet
+        isReversed={isReversed}
+        title="Menu"
+        headers={["Base", "Disabled"]}
+      >
+        <StickerSheet.Row>
+          <Select
+            reversed={isReversed}
+            variant="secondary"
+            options={OPTIONS}
+            menuIsOpen
+            label="Select"
+          />
+          <Select
+            reversed={isReversed}
+            variant="secondary"
+            options={[]}
+            menuIsOpen
+            label="Select"
+          />
+        </StickerSheet.Row>
       </StickerSheet>
     </>
   ),
