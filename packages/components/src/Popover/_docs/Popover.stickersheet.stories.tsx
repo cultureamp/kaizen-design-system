@@ -32,55 +32,36 @@ const PopoverWrapper = (
 
 const cellStyle = { width: "400px", height: "250px" }
 
-const PopoverRow = ({
-  placement,
-}: {
-  placement?: PopoverProps["placement"]
-}): JSX.Element => (
-  <StickerSheet.Row rowTitle={placement}>
-    <StickerSheet.Cell style={cellStyle}>
-      <PopoverWrapper placement={placement} />
-    </StickerSheet.Cell>
-  </StickerSheet.Row>
-)
-
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={[
-          "Default",
-          "Positive",
-          "Informative",
-          "Negative",
-          "Cautionary",
-        ]}
-        hasVerticalHeadings
-      />
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Variants (deprecated)">
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Default", "Positive", "Informative", "Negative", "Cautionary"]}
+    >
+      <StickerSheet.Row header="Variants (deprecated)">
+        <StickerSheet.Cell style={cellStyle}>
+          <PopoverWrapper />
+        </StickerSheet.Cell>
+        <StickerSheet.Cell style={cellStyle}>
+          <PopoverWrapper variant="positive" heading="Positive" />
+        </StickerSheet.Cell>
+        <StickerSheet.Cell style={cellStyle}>
+          <PopoverWrapper variant="informative" heading="Informative" />
+        </StickerSheet.Cell>
+        <StickerSheet.Cell style={cellStyle}>
+          <PopoverWrapper variant="negative" heading="Negative" />
+        </StickerSheet.Cell>
+        <StickerSheet.Cell style={cellStyle}>
+          <PopoverWrapper variant="cautionary" heading="Cautionary" />
+        </StickerSheet.Cell>
+      </StickerSheet.Row>
+      {popoverPlacements.map(placement => (
+        <StickerSheet.Row header={placement}>
           <StickerSheet.Cell style={cellStyle}>
-            <PopoverWrapper />
-          </StickerSheet.Cell>
-          <StickerSheet.Cell style={cellStyle}>
-            <PopoverWrapper variant="positive" heading="Positive" />
-          </StickerSheet.Cell>
-          <StickerSheet.Cell style={cellStyle}>
-            <PopoverWrapper variant="informative" heading="Informative" />
-          </StickerSheet.Cell>
-          <StickerSheet.Cell style={cellStyle}>
-            <PopoverWrapper variant="negative" heading="Negative" />
-          </StickerSheet.Cell>
-          <StickerSheet.Cell style={cellStyle}>
-            <PopoverWrapper variant="cautionary" heading="Cautionary" />
+            <PopoverWrapper placement={placement} />
           </StickerSheet.Cell>
         </StickerSheet.Row>
-        <>
-          {popoverPlacements.map(placement => (
-            <PopoverRow key={placement} placement={placement} />
-          ))}
-        </>
-      </StickerSheet.Body>
+      ))}
     </StickerSheet>
   ),
 }
