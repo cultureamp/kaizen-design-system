@@ -18,23 +18,20 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
-    <StickerSheet heading="Tag">
-      <StickerSheet.Header headings={["Label Only", "Icon"]} />
-      <StickerSheet.Body>
-        {TagColorKeys.map(color => (
-          <StickerSheet.Row key={color}>
-            <Tag color={color}>
-              {color.charAt(0).toUpperCase() + color.slice(1)}
-            </Tag>
-            <Tag
-              icon={<Icon name="label" isPresentational isFilled />}
-              color={color}
-            >
-              {color.charAt(0).toUpperCase() + color.slice(1)}
-            </Tag>
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
+    <StickerSheet title="Tag" headers={["Label Only", "Icon"]}>
+      {TagColorKeys.map(color => (
+        <StickerSheet.Row key={color}>
+          <Tag color={color}>
+            {color.charAt(0).toUpperCase() + color.slice(1)}
+          </Tag>
+          <Tag
+            icon={<Icon name="label" isPresentational isFilled />}
+            color={color}
+          >
+            {color.charAt(0).toUpperCase() + color.slice(1)}
+          </Tag>
+        </StickerSheet.Row>
+      ))}
     </StickerSheet>
   ),
 }

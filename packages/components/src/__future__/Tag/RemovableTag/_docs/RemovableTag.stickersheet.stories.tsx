@@ -16,52 +16,48 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
-    <>
-      <StickerSheet heading="Button Group">
-        <StickerSheet.Header
-          headings={["Default", "Hover", "Focus", "Focus visible"]}
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <RemovableTag
-              removeButtonProps={{
-                ariaLabel: "Remove tag",
-                onClick: () => alert("clicked"),
-              }}
-            >
-              My tag
-            </RemovableTag>
-            <RemovableTag
-              data-sb-pseudo-styles="hover"
-              removeButtonProps={{
-                ariaLabel: "Remove tag",
-                onClick: () => alert("clicked"),
-              }}
-            >
-              My tag
-            </RemovableTag>
-            <RemovableTag
-              data-sb-pseudo-styles="focus"
-              removeButtonProps={{
-                ariaLabel: "Remove tag",
-                onClick: () => alert("clicked"),
-              }}
-            >
-              My tag
-            </RemovableTag>
-            <RemovableTag
-              data-sb-pseudo-styles="focus-visible"
-              removeButtonProps={{
-                ariaLabel: "Remove tag",
-                onClick: () => alert("clicked"),
-              }}
-            >
-              My tag
-            </RemovableTag>
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-    </>
+    <StickerSheet
+      title="Button Group"
+      headers={["Default", "Hover", "Focus", "Focus visible"]}
+    >
+      <StickerSheet.Row>
+        <RemovableTag
+          removeButtonProps={{
+            ariaLabel: "Remove tag",
+            onClick: () => alert("clicked"),
+          }}
+        >
+          My tag
+        </RemovableTag>
+        <RemovableTag
+          data-sb-pseudo-styles="hover"
+          removeButtonProps={{
+            ariaLabel: "Remove tag",
+            onClick: () => alert("clicked"),
+          }}
+        >
+          My tag
+        </RemovableTag>
+        <RemovableTag
+          data-sb-pseudo-styles="focus"
+          removeButtonProps={{
+            ariaLabel: "Remove tag",
+            onClick: () => alert("clicked"),
+          }}
+        >
+          My tag
+        </RemovableTag>
+        <RemovableTag
+          data-sb-pseudo-styles="focus-visible"
+          removeButtonProps={{
+            ariaLabel: "Remove tag",
+            onClick: () => alert("clicked"),
+          }}
+        >
+          My tag
+        </RemovableTag>
+      </StickerSheet.Row>
+    </StickerSheet>
   ),
   parameters: {
     pseudo: {
