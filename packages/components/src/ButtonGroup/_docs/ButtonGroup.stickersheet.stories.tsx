@@ -21,7 +21,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <StickerSheet
         title="Button Group"
-        headings={["Group of 2", "Group of 3", "With tooltip"]}
+        headers={["Group of 2", "Group of 3", "With tooltip"]}
       >
         <StickerSheet.Row>
           <ButtonGroup>
