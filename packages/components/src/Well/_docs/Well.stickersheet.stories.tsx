@@ -30,48 +30,38 @@ const WellWrapped = (props: WellProps): JSX.Element => (
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
-      <StickerSheet>
-        <StickerSheet.Header
-          headings={["Solid Border", "Dashed Border", "None"]}
-          hasVerticalHeadings
-        />
-        <StickerSheet.Body>
-          {variantTypes.map(variant => (
-            <StickerSheet.Row key={variant} rowTitle={variant}>
-              {borderStyleTypes.map(border => (
-                <WellWrapped
-                  key={border}
-                  variant={variant}
-                  borderStyle={border}
-                />
-              ))}
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
-        <StickerSheet.Body>
-          {wellColors.map(color => (
-            <StickerSheet.Row key={color} rowTitle={color}>
-              {borderStyleTypes.map(border => (
-                <WellWrapped key={border} color={color} borderStyle={border} />
-              ))}
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
-      </StickerSheet>
-      <StickerSheet>
-        <StickerSheet.Header headings={["Margin", "No Margin"]} />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <StickerSheet.Cell>
-              <WellWrapped />
-              <WellWrapped />
-            </StickerSheet.Cell>
-            <StickerSheet.Cell>
-              <WellWrapped noMargin />
-              <WellWrapped />
-            </StickerSheet.Cell>
+      <StickerSheet headers={["Solid Border", "Dashed Border", "None"]}>
+        {variantTypes.map(variant => (
+          <StickerSheet.Row key={variant} header={variant}>
+            {borderStyleTypes.map(border => (
+              <WellWrapped
+                key={border}
+                variant={variant}
+                borderStyle={border}
+              />
+            ))}
           </StickerSheet.Row>
-        </StickerSheet.Body>
+        ))}
+        {wellColors.map(color => (
+          <StickerSheet.Row key={color} header={color}>
+            {borderStyleTypes.map(border => (
+              <WellWrapped key={border} color={color} borderStyle={border} />
+            ))}
+          </StickerSheet.Row>
+        ))}
+      </StickerSheet>
+
+      <StickerSheet headers={["Margin", "No Margin"]}>
+        <StickerSheet.Row>
+          <StickerSheet.Cell>
+            <WellWrapped />
+            <WellWrapped />
+          </StickerSheet.Cell>
+          <StickerSheet.Cell>
+            <WellWrapped noMargin />
+            <WellWrapped />
+          </StickerSheet.Cell>
+        </StickerSheet.Row>
       </StickerSheet>
     </>
   ),
