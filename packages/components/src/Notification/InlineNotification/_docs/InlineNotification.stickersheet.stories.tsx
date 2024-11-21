@@ -199,23 +199,20 @@ const TYPE_PROPS: Array<{
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
-      <StickerSheet heading="InlineNotification" isReversed={isReversed}>
-        <StickerSheet.Body>
-          {VARIANTS_PROPS.map(({ title, props }) => (
-            <StickerSheet.Row key={title} rowTitle={title}>
-              <InlineNotification {...DEFAULT_PROPS} {...props} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
+      <StickerSheet title="InlineNotification" isReversed={isReversed}>
+        {VARIANTS_PROPS.map(({ title, props }) => (
+          <StickerSheet.Row key={title} header={title}>
+            <InlineNotification {...DEFAULT_PROPS} {...props} />
+          </StickerSheet.Row>
+        ))}
       </StickerSheet>
-      <StickerSheet heading="Type (deprecated)" isReversed={isReversed}>
-        <StickerSheet.Body>
-          {TYPE_PROPS.map(({ title, props }) => (
-            <StickerSheet.Row key={title} rowTitle={title}>
-              <InlineNotification {...DEFAULT_PROPS} {...props} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
+
+      <StickerSheet title="Type (deprecated)" isReversed={isReversed}>
+        {TYPE_PROPS.map(({ title, props }) => (
+          <StickerSheet.Row key={title} header={title}>
+            <InlineNotification {...DEFAULT_PROPS} {...props} />
+          </StickerSheet.Row>
+        ))}
       </StickerSheet>
     </>
   ),
