@@ -103,6 +103,16 @@ function ReactRouterApp() {
 
 Additional notes can be found in the React Aria's documentation on the using the `RouterProvider` with [React Router](https://react-spectrum.adobe.com/react-aria/routing.html#react-router).
 
+### Target `_blank` and opening in a new tab
+
+The general recommendation is to limit the number of links that open in a new tab or window on a page. While there are valid scenarios that help avoid loss of data and or progress on a page, opening a new tab or window can be disorienting for users, especially those who have difficulty perceiving visual content.
+
+In order to provide advance warning to all users, it is recommended that `LinkButton`'s that use `target="_blank"` be accompanied by a visual indicator and audible warning, as in the example below.
+
+<Canvas of={exampleStories.LinkButtonOpensInNewTab} />
+
+You can get more context on this recommendation via the [W3C page on the G200 success criteria](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
+
 ### Variants
 
 `LinkButton` supports the following variants: `primary`, `secondary` and `tertiary`. If the `variant` prop is not specified, the default will be `primary`.

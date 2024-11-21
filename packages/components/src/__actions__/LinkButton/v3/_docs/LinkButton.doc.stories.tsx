@@ -1,7 +1,6 @@
 import React from "react"
-// import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
-import { Badge } from "~components/Badge"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import { Icon } from "~components/__future__"
 import { ReversedColors } from "~components/__utilities__/v3"
 import { LinkButton } from "../index"
@@ -21,6 +20,21 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {}
+
+export const LinkButtonOpensInNewTab: Story = {
+  args: {
+    children: (
+      <>
+        Label
+        <VisuallyHidden> opens a new tab</VisuallyHidden>
+      </>
+    ),
+    href: "https://www.google.com",
+    target: "_blank",
+    icon: <Icon isPresentational name="open_in_new" shouldMirrorInRTL />,
+    iconPosition: "end",
+  },
+}
 
 export const LinkButtonVariants: Story = {
   render: args => (
@@ -114,18 +128,5 @@ export const ReversedLinkButton: Story = {
 export const LinkButtonFullWidth: Story = {
   args: {
     isFullWidth: true,
-  },
-}
-
-export const LinkButtonWithBadge: Story = {
-  args: {
-    children: (
-      <>
-        Label
-        <Badge classNameOverride="ms-8" size="small">
-          3
-        </Badge>
-      </>
-    ),
   },
 }
