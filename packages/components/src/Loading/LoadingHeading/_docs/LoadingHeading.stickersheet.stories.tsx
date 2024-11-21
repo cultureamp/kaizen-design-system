@@ -27,25 +27,21 @@ const headingVariants = [
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Body>
-        {headingVariants.map(variant => (
-          <StickerSheet.Row key={variant} rowTitle={variant}>
-            <StickerSheet.Cell className="w-320">
-              <LoadingHeading variant={variant} />
-            </StickerSheet.Cell>
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="isLink">
-          <LoadingHeading
-            width={100}
-            variant="heading-1"
-            isLink
-            isReversed={isReversed}
-          />
+      {headingVariants.map(variant => (
+        <StickerSheet.Row key={variant} header={variant}>
+          <StickerSheet.Cell className="w-320">
+            <LoadingHeading variant={variant} />
+          </StickerSheet.Cell>
         </StickerSheet.Row>
-      </StickerSheet.Body>
+      ))}
+      <StickerSheet.Row header="isLink">
+        <LoadingHeading
+          width={100}
+          variant="heading-1"
+          isLink
+          isReversed={isReversed}
+        />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }
