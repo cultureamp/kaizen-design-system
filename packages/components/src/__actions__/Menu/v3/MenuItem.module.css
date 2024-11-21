@@ -27,10 +27,17 @@
   align-items: center;
 }
 
-.item[data-focused] {
+.item:focus {
+  outline: none;
+}
+
+.item[data-hovered],
+.item[data-focus-visible] {
   background-color: var(--color-blue-100);
   color: var(--color-blue-500);
-  outline: none;
+}
+
+.item[data-focus-visible] {
   border-color: var(--color-blue-500);
 }
 
