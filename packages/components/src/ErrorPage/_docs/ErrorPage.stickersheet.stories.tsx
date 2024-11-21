@@ -33,28 +33,24 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
-      <StickerSheet heading="ErrorPage" isReversed={isReversed}>
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <ErrorPage code="400" />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet title="ErrorPage" isReversed={isReversed}>
+        <StickerSheet.Row>
+          <ErrorPage code="400" />
+        </StickerSheet.Row>
       </StickerSheet>
 
-      <StickerSheet heading="Custom error" isReversed={isReversed}>
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <ErrorPage
-              code="400"
-              title="This is a 400 custom title"
-              message="This is a custom 400 message"
-              callToAction={{
-                onContactSupport: () => alert("Custom handler"),
-                homeHref: "/anewhome",
-              }}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet title="Custom error" isReversed={isReversed}>
+        <StickerSheet.Row>
+          <ErrorPage
+            code="400"
+            title="This is a 400 custom title"
+            message="This is a custom 400 message"
+            callToAction={{
+              onContactSupport: () => alert("Custom handler"),
+              homeHref: "/anewhome",
+            }}
+          />
+        </StickerSheet.Row>
       </StickerSheet>
     </>
   ),
