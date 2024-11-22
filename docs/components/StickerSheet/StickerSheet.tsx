@@ -1,4 +1,6 @@
 import React, { HTMLAttributes } from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import isChromatic from "chromatic"
 import classnames from "classnames"
 import { Heading } from "~components/Heading"
 import { StickerSheetCell } from "./components/StickerSheetCell"
@@ -8,6 +10,8 @@ import {
   StickerSheetRowProps,
 } from "./components/StickerSheetRow"
 import styles from "./StickerSheet.module.css"
+
+const IS_CHROMATIC = isChromatic()
 
 const countMaxColumns = (children: React.ReactNode): number =>
   React.Children.toArray(children).reduce<number>((acc, child) => {
@@ -57,7 +61,12 @@ export const StickerSheet = ({
     : `repeat(${colCount}, auto)`
 
   return (
-    <div className={styles.stickerSheetContainer}>
+    <div
+      className={classnames(
+        styles.stickerSheetContainer,
+        IS_CHROMATIC && "p-12"
+      )}
+    >
       {title && (
         <Heading
           variant="heading-3"
