@@ -33,7 +33,7 @@ const PopoverWrapper = (
 const cellStyle = {
   display: "grid",
   placeContent: "center",
-  width: "250px",
+  width: "220px",
   height: "200px",
 }
 
@@ -42,6 +42,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <StickerSheet
       isReversed={isReversed}
       headers={["Default", "Positive", "Informative", "Negative", "Cautionary"]}
+      layout="stretch"
     >
       <StickerSheet.Row header="Variants (deprecated)">
         <StickerSheet.Cell style={cellStyle}>
