@@ -98,7 +98,9 @@ const StickerSheetTemplate: StickerSheetStory = {
         />
       </StickerSheet.Row>
       <StickerSheet.Row header="No Max Width">
-        <GuidanceBlock {...TEXT_PROPS} noMaxWidth />
+        <StickerSheet.Cell className="w-[1200px]">
+          <GuidanceBlock {...TEXT_PROPS} noMaxWidth />
+        </StickerSheet.Cell>
       </StickerSheet.Row>
     </StickerSheet>
   ),
