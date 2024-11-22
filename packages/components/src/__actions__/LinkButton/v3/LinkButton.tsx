@@ -4,10 +4,10 @@ import {
   LinkProps as RACLinkProps,
 } from "react-aria-components"
 import { ButtonBaseProps } from "~components/__actions__/Button/v3"
-import buttonStyles from "~components/__actions__/Button/v3/Button.module.css"
 import { ButtonContent } from "~components/__actions__/Button/v3/subcomponents"
 import { useReversedColors } from "~components/__utilities__/v3"
 import { mergeClassNames } from "~components/utils/mergeClassNames"
+import buttonStyles from "../../Button/v3/Button.module.css"
 import styles from "./LinkButton.module.css"
 
 export type LinkButtonProps = ButtonBaseProps &
