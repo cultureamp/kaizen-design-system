@@ -11,7 +11,6 @@ const meta = {
   args: {
     children: "Label",
     href: "#link-button-clicked",
-    target: "_blank",
   },
 } satisfies Meta<typeof LinkButton>
 
@@ -113,10 +112,11 @@ export const IconLinkButton: Story = {
 
 export const DownloadIconButton: Story = {
   args: {
-    children: "Download report for May 8, 2024",
-    href: "#download-report.pdf",
+    children: "Download the kaizen design system badge",
+    href: "./static/media/kaizen-badge.svg",
     icon: <Icon isPresentational name="download" />,
     hasHiddenLabel: true,
+    download: true,
   },
 }
 
