@@ -33,7 +33,7 @@ const PopoverWrapper = (
 const cellStyle = {
   display: "grid",
   placeContent: "center",
-  width: "220px",
+  width: "250px",
   height: "200px",
 }
 
@@ -63,7 +63,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       {popoverPlacements.map(placement => (
         <StickerSheet.Row key={placement} header={placement}>
-          <StickerSheet.Cell style={cellStyle}>
+          <StickerSheet.Cell style={{ ...cellStyle, height: "150px" }}>
             <PopoverWrapper placement={placement} />
           </StickerSheet.Cell>
         </StickerSheet.Row>
