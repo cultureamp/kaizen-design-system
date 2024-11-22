@@ -122,7 +122,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet title="Filter Bar">
+        <StickerSheet title="Filter Bar" layout="stretch">
           <StickerSheet.Row>
             <FilterBar<Values>
               filters={filters}
@@ -132,7 +132,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Row>
         </StickerSheet>
 
-        <StickerSheet title="Overflow (container 500px)">
+        <StickerSheet title="Overflow (container 500px)" layout="stretch">
           <StickerSheet.Row>
             <div style={{ maxWidth: "500px" }}>
               <FilterBar<Values>
@@ -144,7 +144,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Row>
         </StickerSheet>
 
-        <StickerSheet title="Removable; All active">
+        <StickerSheet title="Removable; All active" layout="stretch">
           <StickerSheet.Row>
             <FilterBar<ValuesRemovable>
               filters={removableFilters}
@@ -154,7 +154,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Row>
         </StickerSheet>
 
-        <StickerSheet title="Removable; Partial active">
+        <StickerSheet title="Removable; Partial active" layout="stretch">
           <StickerSheet.Row>
             <FilterBar<ValuesRemovable>
               filters={removableFilters}
