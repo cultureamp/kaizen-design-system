@@ -24,17 +24,17 @@ export const TailwindStoryTemplate = ({
         <thead className="text-left">
           <tr className="border-b border-gray-400">
             <th className="p-12">
-              <Heading variant="heading-6" tag="span">
+              <Heading variant="heading-5" tag="span">
                 Utility Class
               </Heading>
             </th>
             <th className="p-12">
-              <Heading variant="heading-6" tag="span">
+              <Heading variant="heading-5" tag="span">
                 Compiled CSS
               </Heading>
             </th>
             <th className="p-12">
-              <Heading variant="heading-6" tag="span">
+              <Heading variant="heading-5" tag="span">
                 Example
               </Heading>
             </th>
