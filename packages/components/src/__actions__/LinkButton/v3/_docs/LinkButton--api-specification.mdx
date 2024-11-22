@@ -5,7 +5,7 @@ import * as exampleStories from "./LinkButton.doc.stories"
 
 <Meta title="Actions/LinkButton/LinkButton (v3)/API Specification" />
 
-# Button API Specification (v3)
+# LinkButton API Specification (v3)
 
 Updated Nov 21, 2024
 
@@ -31,64 +31,87 @@ The following example and table showcases the essential props that enable the co
 
 This is built on top of [React Aria's Link component](https://react-spectrum.adobe.com/react-aria/Link.html) and is the counterpart to the <LinkTo pageId="actions-button-button-v3-api-specification--docs">Kaizen Button</LinkTo>, handling icons, variants and sizes in the same way. It provides a semantic wrapper for navigational buttons and allows for native `href` navigation and client side routing with [additional configuration](#client-side-routing).
 
-### Native navigation and functionality
+### Navigation and native anchor attributes
 
-{/* // TODO: basic docs on href usage */}
-
-Out of the box, the `LinkButton` offer majority of the native anchor tag's behavior and functionality. `href` will trigger new page loads, `download` will download the reference document in `href`, and `target` can be used to open new tabs and windows.
+Out of the box, the `LinkButton` offers majority of the native behavior and functionality on the `anchor` tag. `href` will trigger new page loads, `download` will download the referenced document, and `target` can be used to open links in new tabs or windows.
 
 <Canvas of={exampleStories.DownloadIconButton} />
 
-While additional config can be created to support client side routing, this may impact how it interprets `href` passed to the component - TODO: [more here].(#client-side-routing).
+While client side routing is possible, the `LinkButton` is agnostic to the routing technology chosen. Refer to our [general set up guide here](#client-side-routing) to get started with client side routing.
 
+#### Opening new tabs and accessibility considerations
 
-### New tabs and accessibility consideration
+The general recommendation is to limit the number of links that open a new tab or window on a single page. While there are valid scenarios that can help avoid loss of data and or progress, as with links in forms, opening new tabs can be disorienting for users - especially for those who have difficulty perceiving visual content.
 
-The general recommendation is to limit the number of links that open a new tab or window on a single page. While there are valid scenarios that can help avoid loss of data and or progress, as with links in forms, opening a new tab can be disorienting for users, especially for those who have difficulty perceiving visual content.
-
-In order to provide advance warning to all users, it is recommended that any link that uses `target="_blank"` be accompanied by a visual indicator and audible warning, as in the example below.
+In order to provide advance warning to all users, it is recommended that links using `target="_blank"` be accompanied by a visual indicator and audible warning. As shown in the following example, additional context can be provided via a visually hidden element within the `children` of the component.
 
 <Canvas of={exampleStories.LinkButtonOpensInNewTab} />
 
-You can find more context on this recommendation via the [W3C page on the G200 success criteria](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
-
+For more context on this recommendation, we recommend taking a look at the [W3C page on the G200 success criteria](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
 
 ### Client side routing
 
-While the `LinkButton` supports native `href` navigation out of the box, it is agnostic to the routing technology chosen. Additional set up is required to support client side routing from `React Router` or `Next.js`.
-
-In order to achieve this, you can use the [RouterProvider](https://react-spectrum.adobe.com/react-aria/routing.html#routerprovider) from the `react-aria-components` library, along with the additional configuration for each routing solution.
+To enable client side routing with the `LinkButton`, you will need to wrap your application in a [RouterProvider](https://react-spectrum.adobe.com/react-aria/routing.html#routerprovider) from the `react-aria-components` library. The allows you to set the `navigation` method that performs the client side routing in the `LinkButton` component. Refer to the framework specific guidance below for [Next.js](#nextjs-config-example) or [React Router](#react-router-config-example).
 
 #### Next.js config example
 
-The following example demonstrates how to use the `RouterProvider` with `Next.js`'s Pages router. This will allow the `LinkButton` to navigate using the `router.push` method.
+The following example demonstrates how you might use the React Aria's `RouterProvider` with `Next.js`'s Pages router. This will allow the `LinkButton` to navigate using the `router.push` method.
 
 ```tsx
+// ...imports
 import type {AppProps} from "next/app"
-import {type NextRouter, useRouter} from "next/router"
-import { RouterProvider } from "react-aria-components"
+import { type NextRouter } from "next/router"
+import { RouterProvider as RacRouterProvider } from "react-aria-components"
 
-// This provides the necessary typings for the routerOptions to uses of LinkButton across the app
+// This provides the typings for the routerOptions in `LinkButton`. As the component agnostic to routing technology this must defined here
 declare module "react-aria-components" {
   interface RouterConfig {
+    // index 2 is the types for the pages routerOptions
     routerOptions: NonNullable<Parameters<NextRouter["push"]>[2]>;
   }
 }
 
-export default function NextPageRouterApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps, router }: AppProps) {
+  return (
+    <FrontendServices {...config}>
+      {/* application code */}
+        <RacRouterProvider navigate={(href, opts) => router.push(href, undefined, opts)}>
+          <Component {...pageProps} />
+        </RacRouterProvider>
+      {/* application code */}
+    </FrontendServices>
+  )
+}
+
+export default App
+```
+
+The implementation in your application would then look something like this:
+
+```tsx
+import { useRouter } from "next/router"
+import { LinkButton } from "@kaizen/components/v3/actions"
+
+const Component = () => {
   const router = useRouter()
 
   return (
-    <RouterProvider
-      navigate={(href, opts) => router.push(href, undefined, opts)}
-    >
-      {/* ...application code */}
-    </RouterProvider>
+    <>
+      <LinkButton href="http://google.com">
+        External link
+      </LinkButton>
+      <LinkButton href={`${router.pathname}/path-1`}>
+        Internal link
+      </LinkButton>
+      <LinkButton href={`${router.pathname}/path-2`} routerOptions={{scroll: false}}>
+        Link with routerOptions
+      </LinkButton>
+    </>
   )
 }
 ```
 
-Additional notes on Next.js config can be found in the React Aria's documentation on the [RouterProvider](https://react-spectrum.adobe.com/react-aria/routing.html#routerprovider), including the alternative setup for the [App router](https://react-spectrum.adobe.com/react-aria/routing.html##app-router).
+Additional config options for Next.js can be found in the React Aria's documentation on the [RouterProvider](https://react-spectrum.adobe.com/react-aria/routing.html#nextjs), including the alternative setup for the [App router](https://react-spectrum.adobe.com/react-aria/routing.html##app-router).
 
 #### React Router config example
 The following example demonstrates how to use the `RouterProvider` with `React Router`'s. This will allow the `LinkButton` to navigate using the `useNavigate` hook.
@@ -116,7 +139,11 @@ function ReactRouterApp() {
     </RouterProvider>
   )
 }
+
+export default App
 ```
+
+If your application is on a version below 5.3.x, you will have to use the `useHistory` hook instead. See our example [here](https://cultureamp.atlassian.net/wiki/spaces/TV/pages/4235920479/RFC+Kaizen+Link+component#Routing-with-RAC-Link-🧭).
 
 Additional notes can be found in the React Aria's documentation on the using the `RouterProvider` with [React Router](https://react-spectrum.adobe.com/react-aria/routing.html#react-router).
 
