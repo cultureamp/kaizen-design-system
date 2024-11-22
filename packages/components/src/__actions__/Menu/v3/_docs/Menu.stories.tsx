@@ -28,6 +28,7 @@ export const Playground: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -75,6 +76,7 @@ export const RichContent: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
