@@ -27,11 +27,19 @@
   align-items: center;
 }
 
-.item[data-focused] {
+.item:focus {
+  outline: none;
+}
+
+.item[data-hovered],
+.item[data-focus-visible] {
   background-color: var(--color-blue-100);
   color: var(--color-blue-500);
-  outline: none;
-  border-color: var(--color-blue-500);
+}
+
+.item[data-focus-visible] {
+  outline: var(--border-focus-ring-border-width)
+    var(--border-focus-ring-border-style) var(--color-blue-500);
 }
 
 .item[data-disabled] {

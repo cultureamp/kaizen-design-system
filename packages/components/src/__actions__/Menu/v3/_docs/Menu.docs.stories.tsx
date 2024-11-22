@@ -44,6 +44,7 @@ export const Actions: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -66,6 +67,7 @@ export const ItemsDo: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -85,6 +87,7 @@ export const ItemsDont: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -103,7 +106,7 @@ export const ItemsDont: Story = {
 export const SelectionDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      <Button className="[--icon-size:24]">
+      <Button variant="secondary" className="[--icon-size:24]">
         Sort by
         <Icon name="keyboard_arrow_down" isPresentational />
       </Button>
@@ -122,7 +125,7 @@ export const SelectionDont: Story = {
 export const LabelChevronDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      <Button className="[--icon-size:24]">
+      <Button variant="secondary" className="[--icon-size:24]">
         Edit item
         <Icon name="keyboard_arrow_down" isPresentational />
       </Button>
@@ -138,7 +141,7 @@ export const LabelChevronDo: Story = {
 export const LabelChevronDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
-      <Button>Edit item</Button>
+      <Button variant="secondary">Edit item</Button>
       <Popover>
         <Menu>
           <DefaultMenuItems />
@@ -151,7 +154,7 @@ export const LabelChevronDont: Story = {
 export const LabelDo: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      <Button className="[--icon-size:24]">
+      <Button variant="secondary" className="[--icon-size:24]">
         Actions [visually hidden], conversation with Harper[/visually hidden]
         <Icon name="keyboard_arrow_down" isPresentational />
       </Button>
@@ -167,7 +170,7 @@ export const LabelDo: Story = {
 export const LabelDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen}>
-      <Button className="[--icon-size:24]">
+      <Button variant="secondary" className="[--icon-size:24]">
         Open menu
         <Icon name="keyboard_arrow_down" isPresentational />
       </Button>
@@ -186,6 +189,7 @@ export const IconsDont: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -212,6 +216,7 @@ export const MenuItemLabelsDont: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -233,6 +238,7 @@ export const SentenceCaseDo: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -254,6 +260,7 @@ export const SentenceCaseDont: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -275,6 +282,7 @@ export const ElipsesDo: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
@@ -296,6 +304,7 @@ export const ElipsesDont: Story = {
       <Button
         size="large"
         icon={<Icon name="more_horiz" isPresentational />}
+        variant="secondary"
         hasHiddenLabel
       >
         Additional actions
