@@ -57,8 +57,8 @@ export const StickerSheet = ({
   const colCount = headers?.length ?? countMaxColumns(children)
 
   const gridTemplateColumns = hasVerticalHeaders
-    ? `fit-content(100%) repeat(${colCount}, auto)`
-    : `repeat(${colCount}, auto)`
+    ? `fit-content(100%) repeat(${colCount}, 1fr)`
+    : `repeat(${colCount}, 1fr)`
 
   return (
     <div
