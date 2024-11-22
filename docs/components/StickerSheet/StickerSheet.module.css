@@ -9,7 +9,7 @@
 .stickerSheet {
   max-width: fit-content;
   display: grid;
-  gap: var(--spacing-32);
+  gap: var(--spacing-24);
 }
 
 .stretch {
