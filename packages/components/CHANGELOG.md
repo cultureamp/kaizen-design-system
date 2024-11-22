@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.68.2
+
+### Patch Changes
+
+- [#5297](https://github.com/cultureamp/kaizen-design-system/pull/5297) [`ce1c62a`](https://github.com/cultureamp/kaizen-design-system/commit/ce1c62a4d7bf94a0ca373e76cc7dfceba81656f2) - Menu v3: only show MenuItem outline/border on focus-visible, not focus/hover
+
 ## 1.68.1
 
 ### Patch Changes
