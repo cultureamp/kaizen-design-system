@@ -61,7 +61,7 @@ const CONTENT_PROPS: GuidanceBlockProps = {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
+    <StickerSheet isReversed={isReversed} className="min-w-max">
       <>
         {variantsMap.map(variant => (
           <StickerSheet.Row key={variant} header={variant}>
@@ -98,9 +98,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         />
       </StickerSheet.Row>
       <StickerSheet.Row header="No Max Width">
-        <StickerSheet.Cell className="w-[1200px]">
-          <GuidanceBlock {...TEXT_PROPS} noMaxWidth />
-        </StickerSheet.Cell>
+        <GuidanceBlock {...TEXT_PROPS} noMaxWidth />
       </StickerSheet.Row>
     </StickerSheet>
   ),

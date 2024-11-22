@@ -56,7 +56,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     })
 
     return (
-      <>
+      <div>
         <StickerSheet
           title="Filter Date Range Picker"
           style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
@@ -160,7 +160,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             />
           </StickerSheet.Row>
         </StickerSheet>
-      </>
+      </div>
     )
   },
   play: async ({ canvasElement }): Promise<void> => {
@@ -220,7 +220,7 @@ export const StickerSheetLocales: StickerSheetStory = {
           </StickerSheet.Row>
         </StickerSheet>
 
-        <StickerSheet headers={["fr-CA"]} className="mt-32">
+        <StickerSheet headers={["fr-CA"]} className="mt-32 pb-[520px]">
           <StickerSheet.Row>
             <StaticIntlProvider locale="fr-CA">
               <FilterDateRangePicker {...props} locale="fr-CA" isOpen />
@@ -230,11 +230,4 @@ export const StickerSheetLocales: StickerSheetStory = {
       </>
     )
   },
-  decorators: [
-    Story => (
-      <div className="mb-[520px]">
-        <Story />
-      </div>
-    ),
-  ],
 }

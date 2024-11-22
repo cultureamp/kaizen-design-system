@@ -149,7 +149,7 @@ export const StickerSheetLocales: StickerSheetStory = {
           </StickerSheet.Row>
         </StickerSheet>
 
-        <StickerSheet headers={["fr-CA"]} className="mt-32">
+        <StickerSheet headers={["fr-CA"]} className="mt-32 pb-[500px]">
           <StickerSheet.Row>
             <StaticIntlProvider locale="fr-CA">
               <FilterDatePicker {...props} locale="fr-CA" isOpen />
@@ -159,13 +159,6 @@ export const StickerSheetLocales: StickerSheetStory = {
       </>
     )
   },
-  decorators: [
-    Story => (
-      <div className="mb-[500px]">
-        <Story />
-      </div>
-    ),
-  ],
   parameters: {
     a11y: {
       // Wait for translations to load

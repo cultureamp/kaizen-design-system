@@ -120,7 +120,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               selectedValues={selectedValuesNoItems}
               items={options}
               validationMessage={{
-                status: "error",
+                status: "caution",
                 message: "There are only four pancakes left.",
               }}
             />

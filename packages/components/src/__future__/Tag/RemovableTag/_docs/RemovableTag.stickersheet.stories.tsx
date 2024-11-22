@@ -17,7 +17,7 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet
-      title="Button Group"
+      title="RemovableTag"
       headers={["Default", "Hover", "Focus", "Focus visible"]}
     >
       <StickerSheet.Row>

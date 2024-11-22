@@ -199,7 +199,7 @@ export const StickerSheetLocales: StickerSheetStory = {
         </StickerSheet.Row>
       </StickerSheet>
 
-      <StickerSheet headers={["fr-CA"]}>
+      <StickerSheet headers={["fr-CA"]} className="mt-32 pb-[400px]">
         <StickerSheet.Row>
           <StaticIntlProvider locale="fr-CA">
             <DatePicker
@@ -214,13 +214,6 @@ export const StickerSheetLocales: StickerSheetStory = {
       </StickerSheet>
     </>
   ),
-  decorators: [
-    Story => (
-      <div className="mb-[400px]">
-        <Story />
-      </div>
-    ),
-  ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await userEvent.click(canvas.getByTestId("id--dp-fr-ca"))

@@ -30,7 +30,12 @@ const PopoverWrapper = (
   )
 }
 
-const cellStyle = { width: "400px", height: "250px" }
+const cellStyle = {
+  display: "grid",
+  placeContent: "center",
+  width: "220px",
+  height: "200px",
+}
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
@@ -55,6 +60,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           <PopoverWrapper variant="cautionary" heading="Cautionary" />
         </StickerSheet.Cell>
       </StickerSheet.Row>
+
       {popoverPlacements.map(placement => (
         <StickerSheet.Row key={placement} header={placement}>
           <StickerSheet.Cell style={cellStyle}>
