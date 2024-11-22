@@ -45,14 +45,12 @@ const StickerSheetTemplate: StickerSheetStory = {
           selectedValues={new Set(["pancakes"])}
           onChange={() => undefined}
         />
-        <StickerSheet.Cell className="align-top">
-          <MultiSelectOptions
-            id="id--multi-select-options--empty-state"
-            options={[]}
-            selectedValues={new Set()}
-            onChange={() => undefined}
-          />
-        </StickerSheet.Cell>
+        <MultiSelectOptions
+          id="id--multi-select-options--empty-state"
+          options={[]}
+          selectedValues={new Set()}
+          onChange={() => undefined}
+        />
       </StickerSheet.Row>
     </StickerSheet>
   ),

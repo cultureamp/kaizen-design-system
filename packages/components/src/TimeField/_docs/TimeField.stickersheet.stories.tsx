@@ -34,33 +34,27 @@ const StickerSheetTemplate: StickerSheetStory = {
           headers={["Default", "Disabled", "Error"]}
         >
           <StickerSheet.Row>
-            <StickerSheet.Cell className="align-top">
-              <TimeField
-                label="Label (en-AU)"
-                locale="en-AU"
-                value={valueDefault}
-                onChange={setValueDefault}
-              />
-            </StickerSheet.Cell>
-            <StickerSheet.Cell className="align-top">
-              <TimeField
-                label="Label (en-AU)"
-                locale="en-AU"
-                value={{ hour: 1, minutes: 30 }}
-                onChange={(): void => undefined}
-                isDisabled
-              />
-            </StickerSheet.Cell>
-            <StickerSheet.Cell className="align-top">
-              <TimeField
-                label="Label (en-AU)"
-                locale="en-AU"
-                value={valueError}
-                onChange={setValueError}
-                status="error"
-                validationMessage="Date is invalid"
-              />
-            </StickerSheet.Cell>
+            <TimeField
+              label="Label (en-AU)"
+              locale="en-AU"
+              value={valueDefault}
+              onChange={setValueDefault}
+            />
+            <TimeField
+              label="Label (en-AU)"
+              locale="en-AU"
+              value={{ hour: 1, minutes: 30 }}
+              onChange={(): void => undefined}
+              isDisabled
+            />
+            <TimeField
+              label="Label (en-AU)"
+              locale="en-AU"
+              value={valueError}
+              onChange={setValueError}
+              status="error"
+              validationMessage="Date is invalid"
+            />
           </StickerSheet.Row>
         </StickerSheet>
 

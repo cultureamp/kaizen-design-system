@@ -103,38 +103,32 @@ const StickerSheetTemplate: StickerSheetStory = {
           headers={["Default", "Hover", "Multi-line"]}
         >
           <StickerSheet.Row>
-            <StickerSheet.Cell className="align-top">
-              <MultiSelectToggle
-                {...defaultProps}
-                selectedOptions={[
-                  { value: "pancakes", label: "Pancakes" },
-                  { value: "waffles", label: "Waffles" },
-                ]}
-              />
-            </StickerSheet.Cell>
-            <StickerSheet.Cell className="align-top">
-              <MultiSelectToggle
-                {...defaultProps}
-                selectedOptions={[
-                  { value: "pancakes", label: "Pancakes" },
-                  { value: "waffles", label: "Waffles" },
-                ]}
-                data-sb-pseudo-styles="hover"
-              />
-            </StickerSheet.Cell>
-            <StickerSheet.Cell className="align-top">
-              <MultiSelectToggle
-                {...defaultProps}
-                selectedOptions={[
-                  { value: "pancakes", label: "Pancakes" },
-                  { value: "toastie", label: "Toastie" },
-                  { value: "jaffle", label: "Jaffle" },
-                  { value: "pikelets", label: "Pikelets" },
-                  { value: "crumpets", label: "Crumpets" },
-                  { value: "waffles", label: "Waffles" },
-                ]}
-              />
-            </StickerSheet.Cell>
+            <MultiSelectToggle
+              {...defaultProps}
+              selectedOptions={[
+                { value: "pancakes", label: "Pancakes" },
+                { value: "waffles", label: "Waffles" },
+              ]}
+            />
+            <MultiSelectToggle
+              {...defaultProps}
+              selectedOptions={[
+                { value: "pancakes", label: "Pancakes" },
+                { value: "waffles", label: "Waffles" },
+              ]}
+              data-sb-pseudo-styles="hover"
+            />
+            <MultiSelectToggle
+              {...defaultProps}
+              selectedOptions={[
+                { value: "pancakes", label: "Pancakes" },
+                { value: "toastie", label: "Toastie" },
+                { value: "jaffle", label: "Jaffle" },
+                { value: "pikelets", label: "Pikelets" },
+                { value: "crumpets", label: "Crumpets" },
+                { value: "waffles", label: "Waffles" },
+              ]}
+            />
           </StickerSheet.Row>
         </StickerSheet>
       </>
