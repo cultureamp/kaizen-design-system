@@ -33,7 +33,7 @@
   "devDependencies": {
     "@kaizen/package-bundler": "workspace:*",
     "classnames": "^2.5.1",
-    "rollup": "^4.27.3",
+    "rollup": "^4.27.4",
     "tailwindcss": "^3.4.14",
     "tslib": "^2.8.0"
   },
