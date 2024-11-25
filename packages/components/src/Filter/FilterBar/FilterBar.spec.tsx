@@ -748,41 +748,54 @@ describe("<FilterBar />", () => {
       expect(sugarLevelButton).toHaveAccessibleName("Sugar Level : 50%")
       expect(iceLevelButton).toHaveAccessibleName("Ice Level : 100%")
 
-      await user.click(getByRole("button", { name: "Clear all filters" }))
+      const clearAllButton = getByRole("button", { name: "Clear all filters" })
+      await user.click(clearAllButton)
 
       await waitFor(() => {
         expect(flavourButton).toHaveAccessibleName("Flavour")
         expect(sugarLevelButton).toHaveAccessibleName("Sugar Level")
         expect(iceLevelButton).toHaveAccessibleName("Ice Level")
+        expect(clearAllButton).toBeDisabled()
       })
     })
 
     it("removes all removable filters", async () => {
       const { getByRole } = render(
-        <FilterBarWrapper<ValuesRemovable>
-          filters={filtersRemovable}
-          defaultValues={{
-            flavour: "jasmine-milk-tea",
-            topping: "pearls",
-          }}
-        />
+        <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
       )
       await waitForI18nContent()
 
+      const addFiltersButton = getByRole("button", { name: "Add Filters" })
+      await user.click(addFiltersButton)
+
+      const list = getByRole("list")
+      const menuOption = within(list).getByRole("button", { name: "Flavour" })
+      await user.click(menuOption)
+
       const flavourButton = getByRole("button", {
-        name: "Flavour : Jasmine Milk Tea",
+        name: "Flavour",
       })
-      const toppingButton = getByRole("button", { name: "Topping : Pearls" })
 
       expect(flavourButton).toBeVisible()
-      expect(toppingButton).toBeVisible()
 
-      await user.click(getByRole("button", { name: "Clear all filters" }))
+      const clearAllButton = getByRole("button", { name: "Clear all filters" })
+      await user.click(clearAllButton)
 
       await waitFor(() => {
         expect(flavourButton).not.toBeInTheDocument()
-        expect(toppingButton).not.toBeInTheDocument()
+        expect(clearAllButton).toBeDisabled()
       })
+    })
+
+    it("disables the button when no value and no removable filters", async () => {
+      const { getByRole } = render(
+        <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
+      )
+      await waitForI18nContent()
+
+      await expect(
+        getByRole("button", { name: "Clear all filters" })
+      ).toBeDisabled()
     })
   })
 
