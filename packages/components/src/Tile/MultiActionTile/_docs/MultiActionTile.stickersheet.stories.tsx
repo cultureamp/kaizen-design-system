@@ -43,29 +43,23 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet heading="MultiActionTile">
-          <StickerSheet.Body>
-            {variants.map(variant => (
-              <StickerSheet.Row key={variant} rowTitle={variant}>
-                <MultiActionTile {...defaultProps} variant={variant} />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+        <StickerSheet title="MultiActionTile">
+          {variants.map(variant => (
+            <StickerSheet.Row key={variant} header={variant}>
+              <MultiActionTile {...defaultProps} variant={variant} />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
 
-        <StickerSheet heading="Mood (deprecated)">
-          <StickerSheet.Body>
-            <>
-              <StickerSheet.Row rowTitle="default">
-                <MultiActionTile {...defaultProps} />
-              </StickerSheet.Row>
-              {moods.map(mood => (
-                <StickerSheet.Row key={mood} rowTitle={mood}>
-                  <MultiActionTile {...defaultProps} mood={mood} />
-                </StickerSheet.Row>
-              ))}
-            </>
-          </StickerSheet.Body>
+        <StickerSheet title="Mood (deprecated)">
+          <StickerSheet.Row header="default">
+            <MultiActionTile {...defaultProps} />
+          </StickerSheet.Row>
+          {moods.map(mood => (
+            <StickerSheet.Row key={mood} header={mood}>
+              <MultiActionTile {...defaultProps} mood={mood} />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
       </>
     )

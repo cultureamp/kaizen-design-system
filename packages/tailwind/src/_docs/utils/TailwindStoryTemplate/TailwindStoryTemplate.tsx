@@ -1,6 +1,6 @@
 import React, { useState } from "react"
+import { Heading } from "~components/Heading"
 import { InlineNotification } from "~components/Notification"
-import { StickerSheet } from "~storybook/components/StickerSheet"
 import { CardContent } from "./components/CardContent"
 import { CodeSnippet } from "./components/CodeSnippet"
 
@@ -15,48 +15,58 @@ export const TailwindStoryTemplate = ({
   compiledCssPropertyName,
   classKeyValues,
   renderExampleComponent,
-  isReversed = false,
 }: Props): React.ReactElement => {
   const [copiedText, setCopiedText] = useState<null | string>(null)
 
   return (
     <div className="w-full">
-      <StickerSheet
-        className="border-none w-full"
-        isReversed={isReversed}
-        border={1}
-        rules="rows"
-      >
-        <StickerSheet.Header
-          className="text-left border-b border-gray-400"
-          headings={["Utility Class", "Compiled CSS", "Example"]}
-        />
-        <StickerSheet.Body>
-          {classKeyValues.map((presetData, _index) => {
+      <table className="border-collapse w-full font-family-paragraph">
+        <thead className="text-left">
+          <tr className="border-b border-gray-400">
+            <th className="p-12">
+              <Heading variant="heading-5" tag="span">
+                Utility Class
+              </Heading>
+            </th>
+            <th className="p-12">
+              <Heading variant="heading-5" tag="span">
+                Compiled CSS
+              </Heading>
+            </th>
+            <th className="p-12">
+              <Heading variant="heading-5" tag="span">
+                Example
+              </Heading>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {classKeyValues.map((presetData, index) => {
             const { utilityClassName, cssProperty } = presetData
             return (
-              <StickerSheet.Row
-                key={_index}
-                rowTitle=""
-                className="border-b-1 border-gray-400"
-              >
-                <div className="mr-32 min-w-max max-w-[300px]">
-                  <CodeSnippet
-                    text={utilityClassName.replace("-DEFAULT", "")}
-                    onCopy={(text: string): void => setCopiedText(text)}
-                  />
-                </div>
-                <p className="mr-32 w-max font-family-paragraph">
-                  {compiledCssPropertyName}: {cssProperty}
-                </p>
-                <div className="font-family-paragraph">
-                  {renderExampleComponent(utilityClassName)}
-                </div>
-              </StickerSheet.Row>
+              <tr key={index} className="border-b-1 border-gray-400">
+                <td className="p-12">
+                  <div className="mr-32 min-w-max max-w-[300px]">
+                    <CodeSnippet
+                      text={utilityClassName.replace("-DEFAULT", "")}
+                      onCopy={(text: string): void => setCopiedText(text)}
+                    />
+                  </div>
+                </td>
+                <td className="p-12">
+                  <p className="mr-32 w-max">
+                    {compiledCssPropertyName}: {cssProperty}
+                  </p>
+                </td>
+                <td className="p-12">
+                  <div>{renderExampleComponent(utilityClassName)}</div>
+                </td>
+              </tr>
             )
           })}
-        </StickerSheet.Body>
-      </StickerSheet>
+        </tbody>
+      </table>
+
       <div className="fixed top-[10px] left-[10px]">
         {copiedText && (
           <InlineNotification

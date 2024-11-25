@@ -16,32 +16,32 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <{{pascalCase componentName}}
-            isReversed={isReversed}
-            exampleRequiredString="{{pascalCase componentName}}"
-          />
-          <{{pascalCase componentName}}
-            isReversed={isReversed}
-            exampleRequiredString="{{pascalCase componentName}}"
-            data-sb-pseudo-styles="hover"
-          />
-          <{{pascalCase componentName}}
-            isReversed={isReversed}
-            exampleRequiredString="{{pascalCase componentName}}"
-            data-sb-pseudo-styles="active"
-          />
-          <{{pascalCase componentName}}
-            isReversed={isReversed}
-            exampleRequiredString="{{pascalCase componentName}}"
-            data-sb-pseudo-styles="focus"
-          />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      title="{{pascalCase componentName}}"
+      headers={["Default", "Hover", "Active", "Focus"]}
+    >
+      <StickerSheet.Row>
+        <{{pascalCase componentName}}
+          isReversed={isReversed}
+          exampleRequiredString="{{pascalCase componentName}}"
+        />
+        <{{pascalCase componentName}}
+          isReversed={isReversed}
+          exampleRequiredString="{{pascalCase componentName}}"
+          data-sb-pseudo-styles="hover"
+        />
+        <{{pascalCase componentName}}
+          isReversed={isReversed}
+          exampleRequiredString="{{pascalCase componentName}}"
+          data-sb-pseudo-styles="active"
+        />
+        <{{pascalCase componentName}}
+          isReversed={isReversed}
+          exampleRequiredString="{{pascalCase componentName}}"
+          data-sb-pseudo-styles="focus"
+        />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
   /** @note: Only required if you have pseudo states, otherwise this can be removed */

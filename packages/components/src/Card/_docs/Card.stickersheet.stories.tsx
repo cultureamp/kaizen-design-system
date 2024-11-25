@@ -41,23 +41,19 @@ const variants = [
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed, ...args }) => (
     <>
-      <StickerSheet isReversed={isReversed} heading="Colors">
-        <StickerSheet.Body>
-          {colors.map(color => (
-            <StickerSheet.Row key={color} rowTitle={color}>
-              <Card {...args} color={color} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
+      <StickerSheet isReversed={isReversed} title="Colors">
+        {colors.map(color => (
+          <StickerSheet.Row key={color} header={color}>
+            <Card {...args} color={color} />
+          </StickerSheet.Row>
+        ))}
       </StickerSheet>
-      <StickerSheet isReversed={isReversed} heading="Variants (deprecated)">
-        <StickerSheet.Body>
-          {variants.map(variant => (
-            <StickerSheet.Row key={variant} rowTitle={variant}>
-              <Card {...args} variant={variant} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
+      <StickerSheet isReversed={isReversed} title="Variants (deprecated)">
+        {variants.map(variant => (
+          <StickerSheet.Row key={variant} header={variant}>
+            <Card {...args} variant={variant} />
+          </StickerSheet.Row>
+        ))}
       </StickerSheet>
     </>
   ),

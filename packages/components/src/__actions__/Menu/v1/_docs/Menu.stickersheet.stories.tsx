@@ -19,42 +19,39 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed} style={{ margin: "0 auto" }}>
-      <StickerSheet.Header headings={["Long list", "Short List"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <StickerSheet.Cell width={250}>
-            <Menu
-              menuVisible
-              autoHide="off"
-              button={
-                <Button
-                  label="Menu"
-                  icon={<Icon name="keyboard_arrow_down" isPresentational />}
-                  iconPosition="end"
-                />
-              }
-            >
-              <MenuContentExample />
-            </Menu>
-          </StickerSheet.Cell>
-          <StickerSheet.Cell width={250}>
-            <Menu
-              menuVisible
-              autoHide="off"
-              button={
-                <Button
-                  label="Menu"
-                  icon={<Icon name="keyboard_arrow_down" isPresentational />}
-                  iconPosition="end"
-                />
-              }
-            >
-              <MenuContentExample isShortList />
-            </Menu>
-          </StickerSheet.Cell>
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet isReversed={isReversed} headers={["Long list", "Short List"]}>
+      <StickerSheet.Row>
+        <StickerSheet.Cell style={{ width: 250 }}>
+          <Menu
+            menuVisible
+            autoHide="off"
+            button={
+              <Button
+                label="Menu"
+                icon={<Icon name="keyboard_arrow_down" isPresentational />}
+                iconPosition="end"
+              />
+            }
+          >
+            <MenuContentExample />
+          </Menu>
+        </StickerSheet.Cell>
+        <StickerSheet.Cell style={{ width: 250 }}>
+          <Menu
+            menuVisible
+            autoHide="off"
+            button={
+              <Button
+                label="Menu"
+                icon={<Icon name="keyboard_arrow_down" isPresentational />}
+                iconPosition="end"
+              />
+            }
+          >
+            <MenuContentExample isShortList />
+          </Menu>
+        </StickerSheet.Cell>
+      </StickerSheet.Row>
     </StickerSheet>
   ),
   decorators: [

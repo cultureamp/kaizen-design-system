@@ -84,38 +84,27 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <>
         <StickerSheet
-          className="w-full"
-          heading="ProgressBar"
           isReversed={isReversed}
+          title="ProgressBar"
+          layout="stretch"
         >
-          <StickerSheet.Body>
-            {colors.map(({ title, props }) => (
-              <StickerSheet.Row
-                key={title}
-                rowTitle={title}
-                rowTitleWidth="100px"
-              >
-                <ProgressBar {...defaultProps} {...props} />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+          {colors.map(({ title, props }) => (
+            <StickerSheet.Row key={title} header={title}>
+              <ProgressBar {...defaultProps} {...props} />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
+
         <StickerSheet
-          className="w-full"
-          heading="ProgressBar Moods (deprecated)"
           isReversed={isReversed}
+          title="ProgressBar Moods (deprecated)"
+          layout="stretch"
         >
-          <StickerSheet.Body>
-            {moods.map(({ title, props }) => (
-              <StickerSheet.Row
-                key={title}
-                rowTitle={title}
-                rowTitleWidth="100px"
-              >
-                <ProgressBar {...defaultProps} {...props} />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+          {moods.map(({ title, props }) => (
+            <StickerSheet.Row key={title} header={title}>
+              <ProgressBar {...defaultProps} {...props} />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
       </>
     )

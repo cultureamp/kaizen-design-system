@@ -1,37 +1,28 @@
 import React, { HTMLAttributes } from "react"
-import { StickerSheetTableHeading } from "../StickerSheetTableHeading"
+import classnames from "classnames"
+import styles from "./StickerSheetHeader.module.css"
 
 export type StickerSheetHeaderProps = {
-  headings: string[]
-  headingsWidth?: number | string
+  children: React.ReactNode
   isReversed?: boolean
-  hasVerticalHeadings?: boolean
-  verticalHeadingsWidth?: number | string
-} & HTMLAttributes<HTMLTableSectionElement>
+} & HTMLAttributes<HTMLDivElement>
 
 export const StickerSheetHeader = ({
-  headings,
-  headingsWidth,
+  children,
   isReversed = false,
-  hasVerticalHeadings = false,
-  verticalHeadingsWidth = "7rem",
+  className,
   ...restProps
 }: StickerSheetHeaderProps): JSX.Element => (
-  <thead {...restProps}>
-    <tr>
-      {hasVerticalHeadings && <td style={{ width: verticalHeadingsWidth }} />}
-      {headings.map(heading => (
-        <StickerSheetTableHeading
-          key={heading}
-          scope="col"
-          isReversed={isReversed}
-          style={{ width: headingsWidth }}
-        >
-          {heading}
-        </StickerSheetTableHeading>
-      ))}
-    </tr>
-  </thead>
+  <div
+    className={classnames(
+      styles.stickerSheetHeader,
+      isReversed && styles.isReversed,
+      className
+    )}
+    {...restProps}
+  >
+    {children}
+  </div>
 )
 
 StickerSheetHeader.displayName = "StickerSheet.Header"

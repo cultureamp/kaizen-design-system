@@ -1,11 +1,23 @@
 .stickerSheetSectionHeading {
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--spacing-20);
 
-  .stickerSheet + .stickerSheet & {
-    margin-top: var(--spacing-lg);
+  .stickerSheetContainer + .stickerSheetContainer & {
+    margin-top: var(--spacing-40);
   }
 }
 
-.stickerSheetTable {
-  margin-left: calc(-1 * var(--spacing-12));
+.stickerSheet {
+  max-width: fit-content;
+  display: grid;
+  gap: var(--spacing-24);
+}
+
+.stretch {
+  max-width: unset;
+}
+
+.stickerSheetHeaders {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
 }

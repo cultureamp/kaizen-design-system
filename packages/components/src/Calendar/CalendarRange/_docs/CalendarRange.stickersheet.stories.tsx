@@ -44,41 +44,33 @@ const CalendarRangeWrapper = (
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
-      <StickerSheet heading="Calendar Range">
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Default">
-            <CalendarRangeWrapper />
-          </StickerSheet.Row>
+      <StickerSheet title="Calendar Range">
+        <StickerSheet.Row header="Default">
+          <CalendarRangeWrapper />
+        </StickerSheet.Row>
 
-          <StickerSheet.Row rowTitle="With divider">
-            <div style={{ padding: "1.5rem 0" }}>
-              <CalendarRangeWrapper hasDivider />
-            </div>
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+        <StickerSheet.Row header="With divider">
+          <div style={{ padding: "1.5rem 0" }}>
+            <CalendarRangeWrapper hasDivider />
+          </div>
+        </StickerSheet.Row>
       </StickerSheet>
 
-      <StickerSheet heading="Pseudo states">
-        <StickerSheet.Header
-          headings={["Hover", "Focus"]}
-          hasVerticalHeadings
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Selected (Start)">
-            <CalendarRangeWrapper id="id__calendar-range__start--hover" />
-            <CalendarRangeWrapper id="id__calendar-range__start--focus" />
-          </StickerSheet.Row>
+      <StickerSheet title="Pseudo states" headers={["Hover", "Focus"]}>
+        <StickerSheet.Row header="Selected (Start)">
+          <CalendarRangeWrapper id="id__calendar-range__start--hover" />
+          <CalendarRangeWrapper id="id__calendar-range__start--focus" />
+        </StickerSheet.Row>
 
-          <StickerSheet.Row rowTitle="Selected (Middle)">
-            <CalendarRangeWrapper id="id__calendar-range__middle--hover" />
-            <CalendarRangeWrapper id="id__calendar-range__middle--focus" />
-          </StickerSheet.Row>
+        <StickerSheet.Row header="Selected (Middle)">
+          <CalendarRangeWrapper id="id__calendar-range__middle--hover" />
+          <CalendarRangeWrapper id="id__calendar-range__middle--focus" />
+        </StickerSheet.Row>
 
-          <StickerSheet.Row rowTitle="Selected (End)">
-            <CalendarRangeWrapper id="id__calendar-range__end--hover" />
-            <CalendarRangeWrapper id="id__calendar-range__end--focus" />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+        <StickerSheet.Row header="Selected (End)">
+          <CalendarRangeWrapper id="id__calendar-range__end--hover" />
+          <CalendarRangeWrapper id="id__calendar-range__end--focus" />
+        </StickerSheet.Row>
       </StickerSheet>
     </>
   ),

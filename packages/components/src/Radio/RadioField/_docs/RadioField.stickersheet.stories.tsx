@@ -16,60 +16,57 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Base", "Disabled", "Hover"]}
-        hasVerticalHeadings
-      />
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="On">
-          <RadioField
-            name="radio"
-            labelText="Label"
-            selectedStatus
-            value="radio-1"
-            reversed={isReversed}
-          />
-          <RadioField
-            name="radio"
-            labelText="Label"
-            selectedStatus
-            disabled
-            value="radio-2"
-            reversed={isReversed}
-          />
-          <RadioField
-            name="radio"
-            labelText="Label"
-            selectedStatus
-            value="radio-3"
-            reversed={isReversed}
-            classNameOverride="story__radio-field--hover"
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Off">
-          <RadioField
-            name="radio"
-            labelText="Label"
-            value="radio-1"
-            reversed={isReversed}
-          />
-          <RadioField
-            name="radio"
-            labelText="Label"
-            disabled
-            value="radio-2"
-            reversed={isReversed}
-          />
-          <RadioField
-            name="radio"
-            labelText="Label"
-            value="radio-3"
-            reversed={isReversed}
-            classNameOverride="story__radio-field--hover"
-          />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Base", "Disabled", "Hover"]}
+    >
+      <StickerSheet.Row header="On">
+        <RadioField
+          name="radio"
+          labelText="Label"
+          selectedStatus
+          value="radio-1"
+          reversed={isReversed}
+        />
+        <RadioField
+          name="radio"
+          labelText="Label"
+          selectedStatus
+          disabled
+          value="radio-2"
+          reversed={isReversed}
+        />
+        <RadioField
+          name="radio"
+          labelText="Label"
+          selectedStatus
+          value="radio-3"
+          reversed={isReversed}
+          classNameOverride="story__radio-field--hover"
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Off">
+        <RadioField
+          name="radio"
+          labelText="Label"
+          value="radio-1"
+          reversed={isReversed}
+        />
+        <RadioField
+          name="radio"
+          labelText="Label"
+          disabled
+          value="radio-2"
+          reversed={isReversed}
+        />
+        <RadioField
+          name="radio"
+          labelText="Label"
+          value="radio-3"
+          reversed={isReversed}
+          classNameOverride="story__radio-field--hover"
+        />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
   parameters: {

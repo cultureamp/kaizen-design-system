@@ -27,9 +27,7 @@ export default {
   },
 } satisfies Meta
 
-export const BorderSpacing: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const BorderSpacing: StoryFn = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="border-spacing"
     classKeyValues={classEntries}
@@ -47,6 +45,5 @@ export const BorderSpacing: StoryFn<{ isReversed: boolean }> = ({
         </tbody>
       </table>
     )}
-    isReversed={isReversed}
   />
 )

@@ -63,191 +63,145 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          EmptyStatesAction
-          <StickerSheet.Cell width={400}>
-            <EmptyStatesAction />
-          </StickerSheet.Cell>
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          EmptyStatesInformative
-          <EmptyStatesInformative />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          EmptyStatesNegative
-          <EmptyStatesNegative />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          EmptyStatesNeutral
-          <EmptyStatesNeutral />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          EmptyStatesPositive
-          <EmptyStatesPositive />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          Information360Upgrade
-          <Information360Upgrade />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          InformationDemographicFocus
-          <InformationDemographicFocus />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          InformationEmergingTrends
-          <InformationEmergingTrends />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          InformationEmployeeLifecycle
-          <InformationEmployeeLifecycle />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          InformationReportOwner
-          <InformationReportOwner />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          InformationReportOwnerByRule
-          <InformationReportOwnerByRule />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          InformationTurnoverCalculator
-          <InformationTurnoverCalculator />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          InformationTurnoverForecast
-          <InformationTurnoverForecast />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          Collaboration
-          <Collaboration />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          Communication
-          <Communication />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          CompanyValues
-          <CompanyValues />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          ConnectTheDots
-          <ConnectTheDots />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          CultureLab
-          <CultureLab />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          TermsAgreement
-          <TermsAgreement />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          Programs
-          <Programs />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          PerformanceCompanySettings
-          <PerformanceCompanySettings />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          EngagementSurveySummaryFemale
-          <EngagementSurveySummaryFemale />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          EngagementSurveySummaryMale
-          <EngagementSurveySummaryMale />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          BrandMomentNewAccountOnboarding
-          <BrandMomentNewAccountOnboarding />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          BrandMomentUploadEmployeeData
-          <BrandMomentUploadEmployeeData />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          BrandMomentPositiveOutro
-          <BrandMomentPositiveOutro />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          BrandMomentLogin
-          <BrandMomentLogin />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          BrandMomentError
-          <BrandMomentError />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          BrandMomentStarterKit
-          <BrandMomentStarterKit />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoach1On1Meetings
-          <SkillsCoach1On1Meetings />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachCoaching
-          <SkillsCoachCoaching />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachEmployeeDevelopment
-          <SkillsCoachEmployeeDevelopment />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachEssentialFeedback
-          <SkillsCoachEssentialFeedback />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachEssentialProductivity
-          <SkillsCoachEssentialProductivity />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachEssentialResilience
-          <SkillsCoachEssentialResilience />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachInfluentialCommunication
-          <SkillsCoachInfluentialCommunication />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachLeadingChange
-          <SkillsCoachLeadingChange />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachFeedback
-          <SkillsCoachFeedback />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachManagerHub
-          <SkillsCoachManagerHub />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachProductivity
-          <SkillsCoachProductivity />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachRemoteManager
-          <SkillsCoachRemoteManager />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachResilience
-          <SkillsCoachResilience />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SkillsCoachStrategy
-          <SkillsCoachStrategy />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SurveyGetStarted
-          <SurveyGetStarted />
-        </StickerSheet.Row>
-        <StickerSheet.Row>
-          SurveyOverviewClosed
-          <SurveyOverviewClosed />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      style={{ gridTemplateColumns: "fit-content(100%) 400px" }}
+    >
+      <StickerSheet.Row header="EmptyStatesAction">
+        <EmptyStatesAction />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="EmptyStatesInformative">
+        <EmptyStatesInformative />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="EmptyStatesNegative">
+        <EmptyStatesNegative />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="EmptyStatesNeutral">
+        <EmptyStatesNeutral />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="EmptyStatesPositive">
+        <EmptyStatesPositive />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Information360Upgrade">
+        <Information360Upgrade />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="InformationDemographicFocus">
+        <InformationDemographicFocus />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="InformationEmergingTrends">
+        <InformationEmergingTrends />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="InformationEmployeeLifecycle">
+        <InformationEmployeeLifecycle />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="InformationReportOwner">
+        <InformationReportOwner />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="InformationReportOwnerByRule">
+        <InformationReportOwnerByRule />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="InformationTurnoverCalculator">
+        <InformationTurnoverCalculator />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="InformationTurnoverForecast">
+        <InformationTurnoverForecast />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Collaboration">
+        <Collaboration />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Communication">
+        <Communication />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="CompanyValues">
+        <CompanyValues />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="ConnectTheDots">
+        <ConnectTheDots />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="CultureLab">
+        <CultureLab />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="TermsAgreement">
+        <TermsAgreement />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Programs">
+        <Programs />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="PerformanceCompanySettings">
+        <PerformanceCompanySettings />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="EngagementSurveySummaryFemale">
+        <EngagementSurveySummaryFemale />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="EngagementSurveySummaryMale">
+        <EngagementSurveySummaryMale />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="BrandMomentNewAccountOnboarding">
+        <BrandMomentNewAccountOnboarding />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="BrandMomentUploadEmployeeData">
+        <BrandMomentUploadEmployeeData />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="BrandMomentPositiveOutro">
+        <BrandMomentPositiveOutro />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="BrandMomentLogin">
+        <BrandMomentLogin />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="BrandMomentError">
+        <BrandMomentError />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="BrandMomentStarterKit">
+        <BrandMomentStarterKit />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoach1On1Meetings">
+        <SkillsCoach1On1Meetings />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachCoaching">
+        <SkillsCoachCoaching />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachEmployeeDevelopment">
+        <SkillsCoachEmployeeDevelopment />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachEssentialFeedback">
+        <SkillsCoachEssentialFeedback />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachEssentialProductivity">
+        <SkillsCoachEssentialProductivity />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachEssentialResilience">
+        <SkillsCoachEssentialResilience />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachInfluentialCommunication">
+        <SkillsCoachInfluentialCommunication />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachLeadingChange">
+        <SkillsCoachLeadingChange />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachFeedback">
+        <SkillsCoachFeedback />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachManagerHub">
+        <SkillsCoachManagerHub />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachProductivity">
+        <SkillsCoachProductivity />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachRemoteManager">
+        <SkillsCoachRemoteManager />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachResilience">
+        <SkillsCoachResilience />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SkillsCoachStrategy">
+        <SkillsCoachStrategy />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SurveyGetStarted">
+        <SurveyGetStarted />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="SurveyOverviewClosed">
+        <SurveyOverviewClosed />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }

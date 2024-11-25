@@ -28,93 +28,84 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet heading="TimeField" className="w-full">
-          <StickerSheet.Header
-            headings={["Default", "Disabled", "Error"]}
-            headingsWidth="30%"
-          />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <StickerSheet.Cell className="align-top">
-                <TimeField
-                  label="Label (en-AU)"
-                  locale="en-AU"
-                  value={valueDefault}
-                  onChange={setValueDefault}
-                />
-              </StickerSheet.Cell>
-              <StickerSheet.Cell className="align-top">
-                <TimeField
-                  label="Label (en-AU)"
-                  locale="en-AU"
-                  value={{ hour: 1, minutes: 30 }}
-                  onChange={(): void => undefined}
-                  isDisabled
-                />
-              </StickerSheet.Cell>
-              <StickerSheet.Cell className="align-top">
-                <TimeField
-                  label="Label (en-AU)"
-                  locale="en-AU"
-                  value={valueError}
-                  onChange={setValueError}
-                  status="error"
-                  validationMessage="Date is invalid"
-                />
-              </StickerSheet.Cell>
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+        <StickerSheet
+          title="TimeField"
+          layout="stretch"
+          headers={["Default", "Disabled", "Error"]}
+        >
+          <StickerSheet.Row>
+            <TimeField
+              label="Label (en-AU)"
+              locale="en-AU"
+              value={valueDefault}
+              onChange={setValueDefault}
+            />
+            <TimeField
+              label="Label (en-AU)"
+              locale="en-AU"
+              value={{ hour: 1, minutes: 30 }}
+              onChange={(): void => undefined}
+              isDisabled
+            />
+            <TimeField
+              label="Label (en-AU)"
+              locale="en-AU"
+              value={valueError}
+              onChange={setValueError}
+              status="error"
+              validationMessage="Date is invalid"
+            />
+          </StickerSheet.Row>
         </StickerSheet>
 
-        <StickerSheet heading="Pseudo states" className="w-full">
-          <StickerSheet.Header headings={["Hover", "Focus"]} />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <TimeField
-                label="Label (hover on hour)"
-                locale="en-AU"
-                value={{ hour: 22, minutes: 30 }}
-                onChange={(): void => undefined}
-                data-sb-pseudo-styles="hover--segment"
-              />
-              <TimeField
-                label="Label (focus on hour)"
-                locale="en-AU"
-                value={{ hour: 22, minutes: 30 }}
-                onChange={(): void => undefined}
-                data-sb-pseudo-styles="focus--segment"
-              />
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+        <StickerSheet
+          title="Pseudo states"
+          layout="stretch"
+          headers={["Hover", "Focus"]}
+        >
+          <StickerSheet.Row>
+            <TimeField
+              label="Label (hover on hour)"
+              locale="en-AU"
+              value={{ hour: 22, minutes: 30 }}
+              onChange={(): void => undefined}
+              data-sb-pseudo-styles="hover--segment"
+            />
+            <TimeField
+              label="Label (focus on hour)"
+              locale="en-AU"
+              value={{ hour: 22, minutes: 30 }}
+              onChange={(): void => undefined}
+              data-sb-pseudo-styles="focus--segment"
+            />
+          </StickerSheet.Row>
         </StickerSheet>
 
-        <StickerSheet heading="Localisation" className="w-full">
-          <StickerSheet.Header
-            headings={["en-US", "en-GB", "zh-HANS-SG"]}
-            headingsWidth="30%"
-          />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <TimeField
-                label="Label"
-                locale="en-US"
-                value={valueEnUS}
-                onChange={setValueEnUS}
-              />
-              <TimeField
-                label="Label"
-                locale="en-GB"
-                value={valueEnGB}
-                onChange={setValueEnGB}
-              />
-              <TimeField
-                label="Label"
-                locale="zh-HANS-SG"
-                value={valueZh}
-                onChange={setValueZh}
-              />
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+        <StickerSheet
+          title="Localisation"
+          layout="stretch"
+          headers={["en-US", "en-GB", "zh-HANS-SG"]}
+        >
+          <StickerSheet.Row>
+            <TimeField
+              label="Label"
+              locale="en-US"
+              value={valueEnUS}
+              onChange={setValueEnUS}
+            />
+            <TimeField
+              label="Label"
+              locale="en-GB"
+              value={valueEnGB}
+              onChange={setValueEnGB}
+            />
+            <TimeField
+              label="Label"
+              locale="zh-HANS-SG"
+              value={valueZh}
+              onChange={setValueZh}
+            />
+          </StickerSheet.Row>
         </StickerSheet>
       </>
     )

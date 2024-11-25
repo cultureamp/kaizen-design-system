@@ -28,7 +28,7 @@ export default {
   },
 } satisfies Meta
 
-export const Padding: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+export const Padding: StoryFn = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="padding"
     classKeyValues={classEntries}
@@ -42,6 +42,5 @@ export const Padding: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
         Padding
       </p>
     )}
-    isReversed={isReversed}
   />
 )

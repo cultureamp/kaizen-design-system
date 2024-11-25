@@ -27,70 +27,70 @@ const CalendarSingleExample = (
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
-      <StickerSheet heading="Calendars - Day">
-        <StickerSheet.Header headings={["Hover", "Focus", "Disabled"]} />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <CalendarSingleExample id="id--calendar--hover" />
-            <CalendarSingleExample id="id--calendar--focus" />
-            <CalendarSingleExample
-              disabled={[
-                new Date("2021-09-15"),
-                { after: new Date("2021-09-17") },
-              ]}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet
+        title="Calendars - Day"
+        headers={["Hover", "Focus", "Disabled"]}
+      >
+        <StickerSheet.Row>
+          <CalendarSingleExample id="id--calendar--hover" />
+          <CalendarSingleExample id="id--calendar--focus" />
+          <CalendarSingleExample
+            disabled={[
+              new Date("2021-09-15"),
+              { after: new Date("2021-09-17") },
+            ]}
+          />
+        </StickerSheet.Row>
       </StickerSheet>
 
-      <StickerSheet heading="Calendars - Selected Day">
-        <StickerSheet.Header headings={["Default", "Hover", "Focus"]} />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <CalendarSingleExample selected={new Date("2021-09-05")} />
-            <CalendarSingleExample
-              selected={new Date("2021-09-05")}
-              id="id--calendar-selected--hover"
-            />
-            <CalendarSingleExample
-              selected={new Date("2021-09-05")}
-              id="id--calendar-selected--focus"
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet
+        title="Calendars - Selected Day"
+        headers={["Default", "Hover", "Focus"]}
+      >
+        <StickerSheet.Row>
+          <CalendarSingleExample selected={new Date("2021-09-05")} />
+          <CalendarSingleExample
+            selected={new Date("2021-09-05")}
+            id="id--calendar-selected--hover"
+          />
+          <CalendarSingleExample
+            selected={new Date("2021-09-05")}
+            id="id--calendar-selected--focus"
+          />
+        </StickerSheet.Row>
       </StickerSheet>
 
-      <StickerSheet heading="Calendars - Today">
-        <StickerSheet.Header headings={["Default", "Selected", "Disabled"]} />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <CalendarSingleExample
-              defaultMonth={new Date("2022-05-01")}
-              id="id--calendar-today--default"
-            />
-            <CalendarSingleExample
-              defaultMonth={new Date("2022-05-01")}
-              id="id--calendar-today--selected"
-              selected={new Date("2022-05-01")}
-            />
-            <CalendarSingleExample
-              defaultMonth={new Date("2022-05-01")}
-              id="id--calendar-today--disabled"
-              selected={new Date("2022-05-01")}
-              disabled={[new Date("2022-05-01")]}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet
+        title="Calendars - Today"
+        headers={["Default", "Selected", "Disabled"]}
+      >
+        <StickerSheet.Row>
+          <CalendarSingleExample
+            defaultMonth={new Date("2022-05-01")}
+            id="id--calendar-today--default"
+          />
+          <CalendarSingleExample
+            defaultMonth={new Date("2022-05-01")}
+            id="id--calendar-today--selected"
+            selected={new Date("2022-05-01")}
+          />
+          <CalendarSingleExample
+            defaultMonth={new Date("2022-05-01")}
+            id="id--calendar-today--disabled"
+            selected={new Date("2022-05-01")}
+            disabled={[new Date("2022-05-01")]}
+          />
+        </StickerSheet.Row>
       </StickerSheet>
 
-      <StickerSheet heading="Calendars - Navigation Buttons">
-        <StickerSheet.Header headings={["Hover", "Focus"]} />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <CalendarSingleExample id="id--calendar-navigation--hover" />
-            <CalendarSingleExample id="id--calendar-navigation--focus" />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet
+        title="Calendars - Navigation Buttons"
+        headers={["Hover", "Focus"]}
+      >
+        <StickerSheet.Row>
+          <CalendarSingleExample id="id--calendar-navigation--hover" />
+          <CalendarSingleExample id="id--calendar-navigation--focus" />
+        </StickerSheet.Row>
       </StickerSheet>
     </>
   ),

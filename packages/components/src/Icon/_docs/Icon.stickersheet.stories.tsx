@@ -16,26 +16,20 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
-    <StickerSheet heading="Icons">
-      <StickerSheet.Header
-        headings={["Default", "Color"]}
-        hasVerticalHeadings
-      />
-      <StickerSheet.Body>
-        {Object.keys(ICONS).map(iconName => {
-          const icon = ICONS[iconName as keyof typeof ICONS]({
-            role: "presentation",
-          })
-          return (
-            <StickerSheet.Row key={iconName} rowTitle={iconName}>
+    <StickerSheet title="Icons" headers={["Default", "Color"]}>
+      {Object.keys(ICONS).map(iconName => {
+        const icon = ICONS[iconName as keyof typeof ICONS]({
+          role: "presentation",
+        })
+        return (
+          <StickerSheet.Row key={iconName} header={iconName}>
+            {icon}
+            <StickerSheet.Cell className="text-green-400">
               {icon}
-              <StickerSheet.Cell className="text-green-400">
-                {icon}
-              </StickerSheet.Cell>
-            </StickerSheet.Row>
-          )
-        })}
-      </StickerSheet.Body>
+            </StickerSheet.Cell>
+          </StickerSheet.Row>
+        )
+      })}
     </StickerSheet>
   ),
 }

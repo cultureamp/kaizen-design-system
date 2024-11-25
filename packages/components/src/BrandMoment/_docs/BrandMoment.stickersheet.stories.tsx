@@ -44,47 +44,43 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
-      <StickerSheet isReversed={isReversed} heading="Variant">
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Informative">
-            <BrandMoment {...Informative.args} />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Success">
-            <BrandMoment {...Success.args} />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Warning">
-            <BrandMoment {...Warning.args} />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet isReversed={isReversed} title="Variant">
+        <StickerSheet.Row header="Informative">
+          <BrandMoment {...Informative.args} />
+        </StickerSheet.Row>
+        <StickerSheet.Row header="Success">
+          <BrandMoment {...Success.args} />
+        </StickerSheet.Row>
+        <StickerSheet.Row header="Warning">
+          <BrandMoment {...Warning.args} />
+        </StickerSheet.Row>
       </StickerSheet>
 
-      <StickerSheet isReversed={isReversed} heading="Mood (deprecated)">
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Informative">
-            <BrandMoment
-              {...Informative.args}
-              illustration={<BrandMomentCaptureIntro />}
-              variant={undefined}
-              mood="informative"
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Positive">
-            <BrandMoment
-              {...Success.args}
-              illustration={<BrandMomentPositiveOutro />}
-              variant={undefined}
-              mood="positive"
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Negative">
-            <BrandMoment
-              {...Warning.args}
-              illustration={<BrandMomentError />}
-              variant={undefined}
-              mood="negative"
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
+      <StickerSheet isReversed={isReversed} title="Mood (deprecated)">
+        <StickerSheet.Row header="Informative">
+          <BrandMoment
+            {...Informative.args}
+            illustration={<BrandMomentCaptureIntro />}
+            variant={undefined}
+            mood="informative"
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row header="Positive">
+          <BrandMoment
+            {...Success.args}
+            illustration={<BrandMomentPositiveOutro />}
+            variant={undefined}
+            mood="positive"
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row header="Negative">
+          <BrandMoment
+            {...Warning.args}
+            illustration={<BrandMomentError />}
+            variant={undefined}
+            mood="negative"
+          />
+        </StickerSheet.Row>
       </StickerSheet>
     </>
   ),

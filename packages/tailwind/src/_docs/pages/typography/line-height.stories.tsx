@@ -28,9 +28,7 @@ export default {
   },
 } satisfies Meta
 
-export const LineHeight: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const LineHeight: StoryFn = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="line-height"
     classKeyValues={classEntries}
@@ -39,6 +37,5 @@ export const LineHeight: StoryFn<{ isReversed: boolean }> = ({
         Tutant Meenage Neetle Teetles
       </p>
     )}
-    isReversed={isReversed}
   />
 )

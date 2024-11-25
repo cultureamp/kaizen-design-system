@@ -1,46 +1,37 @@
 import React, { HTMLAttributes } from "react"
+import classnames from "classnames"
 import { StickerSheetCell } from "../StickerSheetCell"
-import { StickerSheetTableHeading } from "../StickerSheetTableHeading"
+import { StickerSheetHeader } from "../StickerSheetHeader"
+import styles from "./StickerSheetRow.module.css"
 
 export type StickerSheetRowProps = {
   children: React.ReactNode
-  rowTitle?: string
-  rowTitleWidth?: number | string
+  header?: string
   isReversed?: boolean
-} & HTMLAttributes<HTMLTableRowElement>
+} & HTMLAttributes<HTMLDivElement>
 
 export const StickerSheetRow = ({
   children,
-  rowTitle,
-  rowTitleWidth,
+  header,
   isReversed = false,
   dir,
+  className,
   ...restProps
-}: StickerSheetRowProps): JSX.Element => {
-  const headingPaddingX = "1.5rem" // $spacing-sm * 2
-  const rowTitleWidthString =
-    typeof rowTitleWidth === "number" ? `${rowTitleWidth}px` : rowTitleWidth
+}: StickerSheetRowProps): JSX.Element => (
+  <div className={classnames(styles.stickerSheetRow, className)} {...restProps}>
+    {header && (
+      <StickerSheetHeader className={styles.header} isReversed={isReversed}>
+        {header}
+      </StickerSheetHeader>
+    )}
+    {React.Children.map(children, child => {
+      if (React.isValidElement(child) && child.type === StickerSheetCell) {
+        return child
+      }
 
-  return (
-    <tr {...restProps}>
-      {rowTitle && (
-        <StickerSheetTableHeading
-          scope="row"
-          isReversed={isReversed}
-          style={{ width: `calc(${rowTitleWidthString} - ${headingPaddingX})` }}
-        >
-          {rowTitle}
-        </StickerSheetTableHeading>
-      )}
-      {React.Children.map(children, child => {
-        if (React.isValidElement(child) && child.type === StickerSheetCell) {
-          return child
-        }
-
-        return <StickerSheetCell dir={dir}>{child}</StickerSheetCell>
-      })}
-    </tr>
-  )
-}
+      return <StickerSheetCell dir={dir}>{child}</StickerSheetCell>
+    })}
+  </div>
+)
 
 StickerSheetRow.displayName = "StickerSheet.Row"

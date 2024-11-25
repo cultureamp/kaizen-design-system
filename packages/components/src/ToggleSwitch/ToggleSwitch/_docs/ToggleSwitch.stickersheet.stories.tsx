@@ -27,33 +27,30 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Default", "Hover", "Focus", "Disabled"]}
-        hasVerticalHeadings
-      />
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="off">
-          <ToggleSwitch reversed={isReversed} />
-          <ToggleSwitch reversed={isReversed} data-sb-pseudo-styles="hover" />
-          <ToggleSwitch reversed={isReversed} data-sb-pseudo-styles="focus" />
-          <ToggleSwitch reversed={isReversed} disabled />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="on">
-          <ToggleSwitch reversed={isReversed} toggledStatus="on" />
-          <ToggleSwitch
-            reversed={isReversed}
-            toggledStatus="on"
-            data-sb-pseudo-styles="hover"
-          />
-          <ToggleSwitch
-            reversed={isReversed}
-            toggledStatus="on"
-            data-sb-pseudo-styles="focus"
-          />
-          <ToggleSwitch reversed={isReversed} toggledStatus="on" disabled />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Default", "Hover", "Focus", "Disabled"]}
+    >
+      <StickerSheet.Row header="off">
+        <ToggleSwitch reversed={isReversed} />
+        <ToggleSwitch reversed={isReversed} data-sb-pseudo-styles="hover" />
+        <ToggleSwitch reversed={isReversed} data-sb-pseudo-styles="focus" />
+        <ToggleSwitch reversed={isReversed} disabled />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="on">
+        <ToggleSwitch reversed={isReversed} toggledStatus="on" />
+        <ToggleSwitch
+          reversed={isReversed}
+          toggledStatus="on"
+          data-sb-pseudo-styles="hover"
+        />
+        <ToggleSwitch
+          reversed={isReversed}
+          toggledStatus="on"
+          data-sb-pseudo-styles="focus"
+        />
+        <ToggleSwitch reversed={isReversed} toggledStatus="on" disabled />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
   parameters: {

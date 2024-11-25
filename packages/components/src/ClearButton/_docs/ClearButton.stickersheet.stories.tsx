@@ -16,15 +16,15 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Hover", "Focus"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <ClearButton isReversed={isReversed} />
-          <ClearButton isReversed={isReversed} data-sb-pseudo-styles="hover" />
-          <ClearButton isReversed={isReversed} data-sb-pseudo-styles="focus" />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Default", "Hover", "Focus"]}
+    >
+      <StickerSheet.Row>
+        <ClearButton isReversed={isReversed} />
+        <ClearButton isReversed={isReversed} data-sb-pseudo-styles="hover" />
+        <ClearButton isReversed={isReversed} data-sb-pseudo-styles="focus" />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
   parameters: {

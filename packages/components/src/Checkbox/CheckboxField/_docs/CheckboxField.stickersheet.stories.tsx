@@ -31,40 +31,37 @@ const StickerSheetTemplate: StickerSheetStory = {
     }>
 
     return (
-      <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Header
-          headings={["Default", "Hover", "Focus", "Disabled"]}
-          hasVerticalHeadings
-        />
-        <StickerSheet.Body>
-          {rows.map(({ title, checkedStatus }) => (
-            <StickerSheet.Row key={title} rowTitle={title}>
-              <CheckboxField
-                {...defaultProps}
-                labelText="Checkbox"
-                checkedStatus={checkedStatus}
-              />
-              <CheckboxField
-                {...defaultProps}
-                labelText="Hover"
-                checkedStatus={checkedStatus}
-                data-sb-pseudo-styles="hover"
-              />
-              <CheckboxField
-                {...defaultProps}
-                labelText="Focus"
-                checkedStatus={checkedStatus}
-                data-sb-pseudo-styles="focus"
-              />
-              <CheckboxField
-                {...defaultProps}
-                labelText="Disabled"
-                checkedStatus={checkedStatus}
-                disabled
-              />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
+      <StickerSheet
+        isReversed={isReversed}
+        headers={["Default", "Hover", "Focus", "Disabled"]}
+      >
+        {rows.map(({ title, checkedStatus }) => (
+          <StickerSheet.Row key={title} header={title}>
+            <CheckboxField
+              {...defaultProps}
+              labelText="Checkbox"
+              checkedStatus={checkedStatus}
+            />
+            <CheckboxField
+              {...defaultProps}
+              labelText="Hover"
+              checkedStatus={checkedStatus}
+              data-sb-pseudo-styles="hover"
+            />
+            <CheckboxField
+              {...defaultProps}
+              labelText="Focus"
+              checkedStatus={checkedStatus}
+              data-sb-pseudo-styles="focus"
+            />
+            <CheckboxField
+              {...defaultProps}
+              labelText="Disabled"
+              checkedStatus={checkedStatus}
+              disabled
+            />
+          </StickerSheet.Row>
+        ))}
       </StickerSheet>
     )
   },

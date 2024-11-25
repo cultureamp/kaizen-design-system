@@ -38,79 +38,73 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <StaticIntlProvider locale="en">
         <StickerSheet
-          heading="Filter Date Picker"
+          title="Filter Date Picker"
           style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
+          headers={["No value display", "Value display"]}
         >
-          <StickerSheet.Header
-            headings={["No value display", "Value display"]}
-          />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <FilterDatePicker
-                isOpen={isOpenNoValue}
-                setIsOpen={setIsOpenNoValue}
-                renderTrigger={(triggerButtonProps): JSX.Element => (
-                  <FilterButton {...triggerButtonProps} />
-                )}
-                label="Start day"
-                locale="en-AU"
-                defaultMonth={new Date("2022-05-01")}
-                selectedDate={noDateValue}
-                onDateChange={setNoDateValue}
-              />
-              <FilterDatePicker
-                isOpen={isOpenValue}
-                setIsOpen={setIsOpenValue}
-                renderTrigger={(triggerButtonProps): JSX.Element => (
-                  <FilterButton {...triggerButtonProps} />
-                )}
-                label="Start day"
-                locale="en-AU"
-                selectedDate={dateValue}
-                onDateChange={setDateValue}
-              />
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+          <StickerSheet.Row>
+            <FilterDatePicker
+              isOpen={isOpenNoValue}
+              setIsOpen={setIsOpenNoValue}
+              renderTrigger={(triggerButtonProps): JSX.Element => (
+                <FilterButton {...triggerButtonProps} />
+              )}
+              label="Start day"
+              locale="en-AU"
+              defaultMonth={new Date("2022-05-01")}
+              selectedDate={noDateValue}
+              onDateChange={setNoDateValue}
+            />
+            <FilterDatePicker
+              isOpen={isOpenValue}
+              setIsOpen={setIsOpenValue}
+              renderTrigger={(triggerButtonProps): JSX.Element => (
+                <FilterButton {...triggerButtonProps} />
+              )}
+              label="Start day"
+              locale="en-AU"
+              selectedDate={dateValue}
+              onDateChange={setDateValue}
+            />
+          </StickerSheet.Row>
         </StickerSheet>
 
-        <StickerSheet heading="Filter Date Picker Field">
-          <StickerSheet.Body>
-            <StickerSheet.Row rowTitle="Default">
-              <FilterDatePickerField
-                id="stickersheet--filter-dp-field--default"
-                inputProps={{ labelText: "Date" }}
-                locale="en-AU"
-                defaultMonth={new Date("2022-05-01")}
-                selectedDate={noDateValue}
-                onDateChange={setNoDateValue}
-              />
-            </StickerSheet.Row>
-            <StickerSheet.Row rowTitle="Existing value">
-              <FilterDatePickerField
-                id="stickersheet--filter-dp-field--existing"
-                inputProps={{ labelText: "Date" }}
-                locale="en-AU"
-                selectedDate={dateValue}
-                onDateChange={setDateValue}
-              />
-            </StickerSheet.Row>
-            <StickerSheet.Row rowTitle="Validation">
-              <FilterDatePickerField
-                id="stickersheet--filter-dp-field--validation"
-                inputProps={{ labelText: "Date" }}
-                locale="en-AU"
-                selectedDate={dateValueValidation}
-                defaultMonth={new Date("01-01-2022")}
-                onDateChange={setDateValueValidation}
-                onValidate={action("Validation story: date start onValidate")}
-                validationMessage={{
-                  status: "error",
-                  message:
-                    "(Date custom message) Jelly-filled doughnuts are my favourite!",
-                }}
-              />
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+        <StickerSheet title="Filter Date Picker Field">
+          <StickerSheet.Row header="Default">
+            <FilterDatePickerField
+              id="stickersheet--filter-dp-field--default"
+              inputProps={{ labelText: "Date" }}
+              locale="en-AU"
+              defaultMonth={new Date("2022-05-01")}
+              selectedDate={noDateValue}
+              onDateChange={setNoDateValue}
+            />
+          </StickerSheet.Row>
+          <StickerSheet.Row header="Existing value">
+            <FilterDatePickerField
+              id="stickersheet--filter-dp-field--existing"
+              inputProps={{ labelText: "Date" }}
+              locale="en-AU"
+              selectedDate={dateValue}
+              onDateChange={setDateValue}
+            />
+          </StickerSheet.Row>
+          <StickerSheet.Row header="Validation">
+            <FilterDatePickerField
+              id="stickersheet--filter-dp-field--validation"
+              inputProps={{ labelText: "Date" }}
+              locale="en-AU"
+              selectedDate={dateValueValidation}
+              defaultMonth={new Date("01-01-2022")}
+              onDateChange={setDateValueValidation}
+              onValidate={action("Validation story: date start onValidate")}
+              validationMessage={{
+                status: "error",
+                message:
+                  "(Date custom message) Jelly-filled doughnuts are my favourite!",
+              }}
+            />
+          </StickerSheet.Row>
         </StickerSheet>
       </StaticIntlProvider>
     )
@@ -148,36 +142,23 @@ export const StickerSheetLocales: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet heading="Localisation">
-          <StickerSheet.Header headings={["en-AU", "en-US"]} />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <FilterDatePicker {...props} locale="en-AU" />
-              <FilterDatePicker {...props} locale="en-US" />
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+        <StickerSheet title="Localisation" headers={["en-AU", "en-US"]}>
+          <StickerSheet.Row>
+            <FilterDatePicker {...props} locale="en-AU" />
+            <FilterDatePicker {...props} locale="en-US" />
+          </StickerSheet.Row>
         </StickerSheet>
 
-        <StickerSheet>
-          <StickerSheet.Header headings={["fr-CA"]} />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <StaticIntlProvider locale="fr-CA">
-                <FilterDatePicker {...props} locale="fr-CA" isOpen />
-              </StaticIntlProvider>
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+        <StickerSheet headers={["fr-CA"]} className="mt-32 pb-[500px]">
+          <StickerSheet.Row>
+            <StaticIntlProvider locale="fr-CA">
+              <FilterDatePicker {...props} locale="fr-CA" isOpen />
+            </StaticIntlProvider>
+          </StickerSheet.Row>
         </StickerSheet>
       </>
     )
   },
-  decorators: [
-    Story => (
-      <div className="mb-[500px]">
-        <Story />
-      </div>
-    ),
-  ],
   parameters: {
     a11y: {
       // Wait for translations to load

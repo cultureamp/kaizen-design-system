@@ -37,34 +37,30 @@ const PAGINATION_LINK_PROPS: Array<{
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Base", "Hover", "Active", "Focus"]}
-        hasVerticalHeadings
-        verticalHeadingsWidth="10rem"
-      />
-      <StickerSheet.Body>
-        {PAGINATION_LINK_PROPS.map(({ title, props }) => (
-          <StickerSheet.Row key={title} rowTitle={title}>
-            <PaginationLink {...props} reversed={isReversed} />
-            <PaginationLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="hover"
-            />
-            <PaginationLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="active"
-            />
-            <PaginationLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="focus"
-            />
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Base", "Hover", "Active", "Focus"]}
+    >
+      {PAGINATION_LINK_PROPS.map(({ title, props }) => (
+        <StickerSheet.Row key={title} header={title}>
+          <PaginationLink {...props} reversed={isReversed} />
+          <PaginationLink
+            {...props}
+            reversed={isReversed}
+            data-sb-pseudo-styles="hover"
+          />
+          <PaginationLink
+            {...props}
+            reversed={isReversed}
+            data-sb-pseudo-styles="active"
+          />
+          <PaginationLink
+            {...props}
+            reversed={isReversed}
+            data-sb-pseudo-styles="focus"
+          />
+        </StickerSheet.Row>
+      ))}
     </StickerSheet>
   ),
   parameters: {

@@ -27,60 +27,52 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Default", "Focus", "Hover"]}
-        hasVerticalHeadings
-      />
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Off">
-          <Radio
-            id="radio1"
-            name="radio1"
-            value="radio1"
-            reversed={isReversed}
-          />
-          <Radio
-            id="radio2"
-            name="radio2"
-            value="radio2"
-            reversed={isReversed}
-            data-sb-pseudo-styles="focus"
-          />
-          <Radio
-            id="radio3"
-            name="radio3"
-            value="radio3"
-            reversed={isReversed}
-            data-sb-pseudo-styles="hover"
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="On">
-          <Radio
-            id="radio11"
-            name="radio11"
-            value="radio11"
-            reversed={isReversed}
-            selectedStatus
-          />
-          <Radio
-            id="radio22"
-            name="radio22"
-            value="radio22"
-            reversed={isReversed}
-            selectedStatus
-            data-sb-pseudo-styles="focus"
-          />
-          <Radio
-            id="radio33"
-            name="radio33"
-            value="radio33"
-            reversed={isReversed}
-            selectedStatus
-            data-sb-pseudo-styles="hover"
-          />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Default", "Focus", "Hover"]}
+    >
+      <StickerSheet.Row header="Off">
+        <Radio id="radio1" name="radio1" value="radio1" reversed={isReversed} />
+        <Radio
+          id="radio2"
+          name="radio2"
+          value="radio2"
+          reversed={isReversed}
+          data-sb-pseudo-styles="focus"
+        />
+        <Radio
+          id="radio3"
+          name="radio3"
+          value="radio3"
+          reversed={isReversed}
+          data-sb-pseudo-styles="hover"
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="On">
+        <Radio
+          id="radio11"
+          name="radio11"
+          value="radio11"
+          reversed={isReversed}
+          selectedStatus
+        />
+        <Radio
+          id="radio22"
+          name="radio22"
+          value="radio22"
+          reversed={isReversed}
+          selectedStatus
+          data-sb-pseudo-styles="focus"
+        />
+        <Radio
+          id="radio33"
+          name="radio33"
+          value="radio33"
+          reversed={isReversed}
+          selectedStatus
+          data-sb-pseudo-styles="hover"
+        />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
   parameters: {

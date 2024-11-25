@@ -4,8 +4,7 @@ import "./preview.css"
 
 import React, { useEffect } from "react"
 import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
-import { Preview } from "@storybook/react"
-import isChromatic from "chromatic"
+import { Decorator, Preview } from "@storybook/react"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { I18nProvider } from "~components/__react-aria-components__"
 import { ReversedColors } from "~components/__utilities__/v3"
@@ -14,7 +13,6 @@ import { backgrounds } from "../utils/backgrounds"
 import { globalA11yRules } from "../utils/global-a11y-rules"
 
 const [, withBackground] = bgDecorators
-const IS_CHROMATIC = isChromatic()
 
 const globalTypes: Preview["globalTypes"] = {
   textDirection: {
@@ -28,7 +26,7 @@ const globalTypes: Preview["globalTypes"] = {
   },
 }
 
-const RACDecorator = (Story, context): JSX.Element => {
+const RACDecorator: Decorator = (Story, context) => {
   const dir = context.parameters.textDirection ?? context.globals.textDirection
 
   useEffect(() => {
@@ -43,7 +41,7 @@ const RACDecorator = (Story, context): JSX.Element => {
   )
 }
 
-const KaizenProviderDecorator = (Story): JSX.Element => (
+const KaizenProviderDecorator: Decorator = Story => (
   <KaizenProvider>
     <Story />
   </KaizenProvider>
@@ -52,14 +50,6 @@ const KaizenProviderDecorator = (Story): JSX.Element => (
 const decorators: Preview["decorators"] = [
   RACDecorator,
   KaizenProviderDecorator,
-  (Story, context) =>
-    (context.args.isReversed || context.args.reversed) && !IS_CHROMATIC ? (
-      <div className="p-16 m-[-1rem]">
-        <Story />
-      </div>
-    ) : (
-      <Story />
-    ),
   // reverseColor parameter wraps story in ReversedColors context and sets default background to Purple 700
   // @ts-ignore
   (Story, context) => {

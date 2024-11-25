@@ -51,29 +51,27 @@ const DIRECTIONAL_LINK_PROPS: Array<{
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Body>
-        {DIRECTIONAL_LINK_PROPS.map(({ title, props }) => (
-          <StickerSheet.Row key={title} rowTitle={title}>
-            <DirectionalLink {...props} reversed={isReversed} />
-            <DirectionalLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="hover"
-            />
-            <DirectionalLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="active"
-            />
-            <DirectionalLink
-              {...props}
-              reversed={isReversed}
-              data-sb-pseudo-styles="focus"
-            />
-            <DirectionalLink {...props} reversed={isReversed} disabled />
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
+      {DIRECTIONAL_LINK_PROPS.map(({ title, props }) => (
+        <StickerSheet.Row key={title} header={title}>
+          <DirectionalLink {...props} reversed={isReversed} />
+          <DirectionalLink
+            {...props}
+            reversed={isReversed}
+            data-sb-pseudo-styles="hover"
+          />
+          <DirectionalLink
+            {...props}
+            reversed={isReversed}
+            data-sb-pseudo-styles="active"
+          />
+          <DirectionalLink
+            {...props}
+            reversed={isReversed}
+            data-sb-pseudo-styles="focus"
+          />
+          <DirectionalLink {...props} reversed={isReversed} disabled />
+        </StickerSheet.Row>
+      ))}
     </StickerSheet>
   ),
   parameters: {

@@ -1,19 +1,12 @@
-import React, { TdHTMLAttributes } from "react"
-import classnames from "classnames"
-import styles from "./StickerSheetCell.module.scss"
+import React, { HTMLAttributes } from "react"
 
 export type StickerSheetCellProps = {
   children: React.ReactNode
-} & TdHTMLAttributes<HTMLTableCellElement>
+} & HTMLAttributes<HTMLDivElement>
 
 export const StickerSheetCell = ({
   children,
-  className,
   ...restProps
-}: StickerSheetCellProps): JSX.Element => (
-  <td className={classnames(styles.stickerSheetCell, className)} {...restProps}>
-    {children}
-  </td>
-)
+}: StickerSheetCellProps): JSX.Element => <div {...restProps}>{children}</div>
 
 StickerSheetCell.displayName = "StickerSheet.Cell"

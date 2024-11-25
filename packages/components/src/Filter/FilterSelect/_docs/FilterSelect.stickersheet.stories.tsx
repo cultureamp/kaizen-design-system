@@ -53,283 +53,273 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <>
         <StickerSheet
-          heading="Default options"
+          title="Default options"
           style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
+          headers={["Single items", "Groups", "Existing value", "Disabled"]}
         >
-          <StickerSheet.Header
-            headings={["Single items", "Groups", "Existing value", "Disabled"]}
-          />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <div style={{ width: "250px" }}>
-                <FilterSelect
-                  label="Label"
-                  isOpen={isOpenDefaultSingle}
-                  setIsOpen={setIsOpenDefaultSingle}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
-                  items={singleMockItems}
-                />
-              </div>
-              <div style={{ width: "250px" }}>
-                <FilterSelect
-                  label="Label"
-                  isOpen={isOpenDefaultGroup}
-                  setIsOpen={setIsOpenDefaultGroup}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
-                  items={groupedMockItems}
-                />
-              </div>
-              <div style={{ width: "250px" }}>
-                <FilterSelect
-                  label="Label"
-                  isOpen={isOpenDefaultExisting}
-                  setIsOpen={setIsOpenDefaultExisting}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
-                  items={singleMockItems}
-                  selectedKey="mocha"
-                />
-              </div>
-              <div style={{ width: "250px" }}>
-                <FilterSelect
-                  label="Label"
-                  isOpen={isOpenDefaultDisabled}
-                  setIsOpen={setIsOpenDefaultDisabled}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
-                  items={mixedMockItemsDisabled}
-                />
-              </div>
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+          <StickerSheet.Row>
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenDefaultSingle}
+                setIsOpen={setIsOpenDefaultSingle}
+                renderTrigger={triggerProps => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={singleMockItems}
+              />
+            </div>
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenDefaultGroup}
+                setIsOpen={setIsOpenDefaultGroup}
+                renderTrigger={triggerProps => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={groupedMockItems}
+              />
+            </div>
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenDefaultExisting}
+                setIsOpen={setIsOpenDefaultExisting}
+                renderTrigger={triggerProps => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={singleMockItems}
+                selectedKey="mocha"
+              />
+            </div>
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenDefaultDisabled}
+                setIsOpen={setIsOpenDefaultDisabled}
+                renderTrigger={triggerProps => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={mixedMockItemsDisabled}
+              />
+            </div>
+          </StickerSheet.Row>
         </StickerSheet>
 
         <StickerSheet
-          heading="Customised options"
+          title="Customised options"
           style={{ paddingTop: IS_CHROMATIC ? "26rem" : undefined }}
+          headers={[
+            "All options",
+            "Partial customisation",
+            "Section dividers",
+            "Specific item divider",
+          ]}
         >
-          <StickerSheet.Header
-            headings={[
-              "All options",
-              "Partial customisation",
-              "Section dividers",
-              "Specific item divider",
-            ]}
-          />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <div style={{ width: "250px" }}>
-                <FilterSelect
-                  label="Label"
-                  isOpen={isOpenCustomSingle}
-                  setIsOpen={setIsOpenCustomSingle}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
-                  items={singleMockItems}
-                >
-                  {({ items }): JSX.Element[] =>
-                    items.map(item => {
-                      if (item.type === "item") {
-                        return (
-                          <FilterSelect.Option
-                            key={item.key}
-                            item={{
-                              ...item,
-                              rendered: (
-                                <div>
-                                  <div
-                                    style={{
-                                      fontSize: "0.75rem",
-                                      color: "gray",
-                                    }}
-                                  >
-                                    Customised in list!
-                                  </div>
-                                  <div>{item.rendered}</div>
+          <StickerSheet.Row>
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenCustomSingle}
+                setIsOpen={setIsOpenCustomSingle}
+                renderTrigger={triggerProps => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={singleMockItems}
+              >
+                {({ items }): JSX.Element[] =>
+                  items.map(item => {
+                    if (item.type === "item") {
+                      return (
+                        <FilterSelect.Option
+                          key={item.key}
+                          item={{
+                            ...item,
+                            rendered: (
+                              <div>
+                                <div
+                                  style={{
+                                    fontSize: "0.75rem",
+                                    color: "gray",
+                                  }}
+                                >
+                                  Customised in list!
                                 </div>
-                              ),
-                            }}
-                          />
-                        )
-                      }
-
-                      return (
-                        <FilterSelect.ItemDefaultRender
-                          key={item.key}
-                          item={item}
+                                <div>{item.rendered}</div>
+                              </div>
+                            ),
+                          }}
                         />
                       )
-                    })
-                  }
-                </FilterSelect>
-              </div>
+                    }
 
-              <div style={{ width: "250px" }}>
-                <FilterSelect
-                  label="Label"
-                  isOpen={isOpenCustomPartial}
-                  setIsOpen={setIsOpenCustomPartial}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
-                  items={mixedMockItemsUngroupedFirst}
-                >
-                  {({ items }): JSX.Element[] =>
-                    items.map(item => {
-                      if (item.type === "item" && item.key === "batch-brew") {
-                        return (
-                          <FilterSelect.Option
-                            key={item.key}
-                            item={{
-                              ...item,
-                              rendered: <div>++ {item.rendered}</div>,
-                            }}
-                          />
-                        )
-                      }
+                    return (
+                      <FilterSelect.ItemDefaultRender
+                        key={item.key}
+                        item={item}
+                      />
+                    )
+                  })
+                }
+              </FilterSelect>
+            </div>
 
-                      if (item.type === "section" && item.key === "Syrup") {
-                        return (
-                          <FilterSelect.Section
-                            key={item.key}
-                            section={{
-                              ...item,
-                              childNodes: Array.from(item.childNodes).map(
-                                child => ({
-                                  ...child,
-                                  rendered: <div>-- {child.rendered}</div>,
-                                })
-                              ),
-                            }}
-                          />
-                        )
-                      }
-
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenCustomPartial}
+                setIsOpen={setIsOpenCustomPartial}
+                renderTrigger={triggerProps => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={mixedMockItemsUngroupedFirst}
+              >
+                {({ items }): JSX.Element[] =>
+                  items.map(item => {
+                    if (item.type === "item" && item.key === "batch-brew") {
                       return (
-                        <FilterSelect.ItemDefaultRender
+                        <FilterSelect.Option
                           key={item.key}
-                          item={item}
+                          item={{
+                            ...item,
+                            rendered: <div>++ {item.rendered}</div>,
+                          }}
                         />
                       )
-                    })
-                  }
-                </FilterSelect>
-              </div>
+                    }
 
-              <div style={{ width: "250px" }}>
-                <FilterSelect
-                  label="Label"
-                  isOpen={isOpenCustomDividerMixed}
-                  setIsOpen={setIsOpenCustomDividerMixed}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
-                  items={mixedMockItemsUnordered}
-                >
-                  {({ items }): JSX.Element[] =>
-                    items.map(item => (
-                      <React.Fragment key={item.key}>
-                        {item.type === "section" && (
+                    if (item.type === "section" && item.key === "Syrup") {
+                      return (
+                        <FilterSelect.Section
+                          key={item.key}
+                          section={{
+                            ...item,
+                            childNodes: Array.from(item.childNodes).map(
+                              child => ({
+                                ...child,
+                                rendered: <div>-- {child.rendered}</div>,
+                              })
+                            ),
+                          }}
+                        />
+                      )
+                    }
+
+                    return (
+                      <FilterSelect.ItemDefaultRender
+                        key={item.key}
+                        item={item}
+                      />
+                    )
+                  })
+                }
+              </FilterSelect>
+            </div>
+
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenCustomDividerMixed}
+                setIsOpen={setIsOpenCustomDividerMixed}
+                renderTrigger={triggerProps => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={mixedMockItemsUnordered}
+              >
+                {({ items }): JSX.Element[] =>
+                  items.map(item => (
+                    <React.Fragment key={item.key}>
+                      {item.type === "section" && (
+                        <FilterSelect.SectionDivider />
+                      )}
+                      <FilterSelect.ItemDefaultRender item={item} />
+                      {item.type === "section" && (
+                        <FilterSelect.SectionDivider />
+                      )}
+                    </React.Fragment>
+                  ))
+                }
+              </FilterSelect>
+            </div>
+
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenCustomDividerSpecific}
+                setIsOpen={setIsOpenCustomDividerSpecific}
+                renderTrigger={triggerProps => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={[
+                  { label: "Customise...", value: "custom" },
+                  ...singleMockItems,
+                ]}
+              >
+                {({ items }): JSX.Element[] =>
+                  items.map(item => {
+                    if (item.type === "item" && item.key === "custom") {
+                      return (
+                        <React.Fragment key={item.key}>
+                          <FilterSelect.Option item={item} />
                           <FilterSelect.SectionDivider />
-                        )}
-                        <FilterSelect.ItemDefaultRender item={item} />
-                        {item.type === "section" && (
-                          <FilterSelect.SectionDivider />
-                        )}
-                      </React.Fragment>
-                    ))
-                  }
-                </FilterSelect>
-              </div>
-
-              <div style={{ width: "250px" }}>
-                <FilterSelect
-                  label="Label"
-                  isOpen={isOpenCustomDividerSpecific}
-                  setIsOpen={setIsOpenCustomDividerSpecific}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
-                  items={[
-                    { label: "Customise...", value: "custom" },
-                    ...singleMockItems,
-                  ]}
-                >
-                  {({ items }): JSX.Element[] =>
-                    items.map(item => {
-                      if (item.type === "item" && item.key === "custom") {
-                        return (
-                          <React.Fragment key={item.key}>
-                            <FilterSelect.Option item={item} />
-                            <FilterSelect.SectionDivider />
-                          </React.Fragment>
-                        )
-                      }
-
-                      return (
-                        <FilterSelect.ItemDefaultRender
-                          key={item.key}
-                          item={item}
-                        />
+                        </React.Fragment>
                       )
-                    })
-                  }
-                </FilterSelect>
-              </div>
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+                    }
+
+                    return (
+                      <FilterSelect.ItemDefaultRender
+                        key={item.key}
+                        item={item}
+                      />
+                    )
+                  })
+                }
+              </FilterSelect>
+            </div>
+          </StickerSheet.Row>
         </StickerSheet>
 
         <StickerSheet
-          heading="Min/Max"
+          title="Min/Max"
           style={{ paddingTop: IS_CHROMATIC ? "26rem" : undefined }}
+          headers={["Min size", "Max size"]}
         >
-          <StickerSheet.Header headings={["Min size", "Max size"]} />
-          <StickerSheet.Body>
-            <StickerSheet.Row>
-              <div style={{ width: "250px" }}>
-                <FilterSelect
-                  label="Label"
-                  isOpen={isOpenMin}
-                  setIsOpen={setIsOpenMin}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
-                  items={[{ value: "a", label: "A" }]}
-                />
-              </div>
-              <div>
-                <FilterSelect
-                  label="Label"
-                  isOpen={isOpenMax}
-                  setIsOpen={setIsOpenMax}
-                  renderTrigger={triggerProps => (
-                    <FilterButton {...triggerProps} />
-                  )}
-                  items={[
-                    {
-                      value: "long-1",
-                      label:
-                        "Super long option where the container is fixed width and the selected option goes multiline",
-                    },
-                    {
-                      value: "long-2",
-                      label:
-                        "Another super long option where the container is fixed width and the selected option goes multiline",
-                    },
-                    ...singleMockItems,
-                  ]}
-                />
-              </div>
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+          <StickerSheet.Row>
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenMin}
+                setIsOpen={setIsOpenMin}
+                renderTrigger={triggerProps => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={[{ value: "a", label: "A" }]}
+              />
+            </div>
+            <div>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenMax}
+                setIsOpen={setIsOpenMax}
+                renderTrigger={triggerProps => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={[
+                  {
+                    value: "long-1",
+                    label:
+                      "Super long option where the container is fixed width and the selected option goes multiline",
+                  },
+                  {
+                    value: "long-2",
+                    label:
+                      "Another super long option where the container is fixed width and the selected option goes multiline",
+                  },
+                  ...singleMockItems,
+                ]}
+              />
+            </div>
+          </StickerSheet.Row>
         </StickerSheet>
       </>
     )

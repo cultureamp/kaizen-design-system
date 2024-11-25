@@ -42,33 +42,30 @@ const StickerSheetTemplate: StickerSheetStory = {
     }>
 
     return (
-      <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Header
-          headings={["Default", "Hover", "Focus", "Disabled"]}
-          hasVerticalHeadings
-        />
-        <StickerSheet.Body>
-          {rows.map(({ title, checkedStatus }) => (
-            <StickerSheet.Row key={title} rowTitle={title}>
-              <Checkbox {...defaultProps} checkedStatus={checkedStatus} />
-              <Checkbox
-                {...defaultProps}
-                checkedStatus={checkedStatus}
-                data-sb-pseudo-styles="hover"
-              />
-              <Checkbox
-                {...defaultProps}
-                checkedStatus={checkedStatus}
-                data-sb-pseudo-styles="focus"
-              />
-              <Checkbox
-                {...defaultProps}
-                checkedStatus={checkedStatus}
-                disabled
-              />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
+      <StickerSheet
+        isReversed={isReversed}
+        headers={["Default", "Hover", "Focus", "Disabled"]}
+      >
+        {rows.map(({ title, checkedStatus }) => (
+          <StickerSheet.Row key={title} header={title}>
+            <Checkbox {...defaultProps} checkedStatus={checkedStatus} />
+            <Checkbox
+              {...defaultProps}
+              checkedStatus={checkedStatus}
+              data-sb-pseudo-styles="hover"
+            />
+            <Checkbox
+              {...defaultProps}
+              checkedStatus={checkedStatus}
+              data-sb-pseudo-styles="focus"
+            />
+            <Checkbox
+              {...defaultProps}
+              checkedStatus={checkedStatus}
+              disabled
+            />
+          </StickerSheet.Row>
+        ))}
       </StickerSheet>
     )
   },

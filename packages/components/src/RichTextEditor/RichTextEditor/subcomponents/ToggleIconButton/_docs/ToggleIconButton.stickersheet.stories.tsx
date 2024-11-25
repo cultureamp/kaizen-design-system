@@ -16,57 +16,16 @@ export default {
   },
 } satisfies Meta
 
-const ToggleIconButtonGroup = ({
-  rowTitle,
-  ...props
-}: Omit<ToggleIconButtonProps, "label" | "icon"> & {
-  rowTitle: string
-}): JSX.Element => (
-  <StickerSheet.Row rowTitle={rowTitle}>
-    <ToggleIconButton
-      label="bold"
-      icon={<Icon name="format_bold" isPresentational />}
-      {...props}
-    />
-    <ToggleIconButton
-      label="bold"
-      icon={<Icon name="format_bold" isPresentational />}
-      {...props}
-      data-sb-pseudo-styles="hover"
-    />
-    <ToggleIconButton
-      label="bold"
-      icon={<Icon name="format_bold" isPresentational />}
-      {...props}
-      isActive
-    />
-    <ToggleIconButton
-      label="bold"
-      icon={<Icon name="format_bold" isPresentational />}
-      {...props}
-      data-sb-pseudo-styles="focus"
-    />
-    <ToggleIconButton
-      label="bold"
-      icon={<Icon name="format_bold" isPresentational />}
-      {...props}
-      disabled
-    />
-    <ToggleIconButton
-      label="bold"
-      icon={<Icon name="format_bold" isPresentational />}
-      {...props}
-      disabled
-      data-sb-pseudo-styles="focus"
-    />
-  </StickerSheet.Row>
-)
-
 const StickerSheetTemplate: StickerSheetStory = {
-  render: () => (
-    <StickerSheet>
-      <StickerSheet.Header
-        headings={[
+  render: () => {
+    const defaultProps = {
+      label: "bold",
+      icon: <Icon name="format_bold" isPresentational />,
+    } satisfies ToggleIconButtonProps
+
+    return (
+      <StickerSheet
+        headers={[
           "Default",
           "Hover",
           "Active",
@@ -74,15 +33,33 @@ const StickerSheetTemplate: StickerSheetStory = {
           "Disabled",
           "Disabled (Focus)",
         ]}
-        hasVerticalHeadings
-      />
-      <StickerSheet.Body>
+      >
         {moodsList.map(mood => (
-          <ToggleIconButtonGroup key={mood} rowTitle={mood} mood={mood} />
+          <StickerSheet.Row key={mood} header={mood}>
+            <ToggleIconButton {...defaultProps} mood={mood} />
+            <ToggleIconButton
+              {...defaultProps}
+              mood={mood}
+              data-sb-pseudo-styles="hover"
+            />
+            <ToggleIconButton {...defaultProps} mood={mood} isActive />
+            <ToggleIconButton
+              {...defaultProps}
+              mood={mood}
+              data-sb-pseudo-styles="focus"
+            />
+            <ToggleIconButton {...defaultProps} mood={mood} disabled />
+            <ToggleIconButton
+              {...defaultProps}
+              mood={mood}
+              disabled
+              data-sb-pseudo-styles="focus"
+            />
+          </StickerSheet.Row>
         ))}
-      </StickerSheet.Body>
-    </StickerSheet>
-  ),
+      </StickerSheet>
+    )
+  },
   parameters: {
     pseudo: {
       hover: '[data-sb-pseudo-styles="hover"]',

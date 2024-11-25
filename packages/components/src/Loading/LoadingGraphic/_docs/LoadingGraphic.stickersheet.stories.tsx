@@ -17,26 +17,24 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Small">
-          <LoadingGraphic isReversed={isReversed} size="small" />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Medium">
-          <LoadingGraphic isReversed={isReversed} size="medium" />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Large">
-          <LoadingGraphic isReversed={isReversed} size="large" />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="X-large">
-          <LoadingGraphic isReversed={isReversed} size="xlarge" />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Xx-large">
-          <LoadingGraphic isReversed={isReversed} size="xxlarge" />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Scene">
-          <LoadingGraphic isReversed={isReversed} size="scene" />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+      <StickerSheet.Row header="Small">
+        <LoadingGraphic isReversed={isReversed} size="small" />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Medium">
+        <LoadingGraphic isReversed={isReversed} size="medium" />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Large">
+        <LoadingGraphic isReversed={isReversed} size="large" />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="X-large">
+        <LoadingGraphic isReversed={isReversed} size="xlarge" />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Xx-large">
+        <LoadingGraphic isReversed={isReversed} size="xxlarge" />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Scene">
+        <LoadingGraphic isReversed={isReversed} size="scene" />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }
