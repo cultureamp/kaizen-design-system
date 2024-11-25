@@ -89,8 +89,7 @@ export const upgradeIconV1 =
 
     const node = ts.visitNode(rootNode, visit)
 
-    return updateKaioImports({
-      importsToRemove: importsToRemove.size > 0 ? importsToRemove : undefined,
-      importsToAdd: importsToAdd.size > 0 ? importsToAdd : undefined,
-    })(context)(node as ts.SourceFile)
+    return updateKaioImports({ importsToRemove, importsToAdd })(context)(
+      node as ts.SourceFile
+    )
   }
