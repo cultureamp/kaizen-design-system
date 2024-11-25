@@ -112,9 +112,11 @@ describe("upgradeIconButtonToButton()", () => {
     it("updates IconButton from @kaizen/components", () => {
       const inputAst = parseJsx(`
         import { IconButton } from "@kaizen/components"
+        export const TestComponent = () => <IconButton />
       `)
       const outputAst = parseJsx(`
         import { Button } from "@kaizen/components/v3/actions"
+        export const TestComponent = () => <Button />
       `)
       expect(
         transformIcons(
@@ -127,9 +129,11 @@ describe("upgradeIconButtonToButton()", () => {
     it("updates IconButton from @kaizen/components/v1/actions", () => {
       const inputAst = parseJsx(`
         import { IconButton } from "@kaizen/components/v1/actions"
+        export const TestComponent = () => <IconButton />
       `)
       const outputAst = parseJsx(`
         import { Button } from "@kaizen/components/v3/actions"
+        export const TestComponent = () => <Button />
       `)
       expect(
         transformIcons(
@@ -142,9 +146,11 @@ describe("upgradeIconButtonToButton()", () => {
     it("updates IconButton from @kaizen/components/v2/actions", () => {
       const inputAst = parseJsx(`
         import { IconButton } from "@kaizen/components/v2/actions"
+        export const TestComponent = () => <IconButton />
       `)
       const outputAst = parseJsx(`
         import { Button } from "@kaizen/components/v3/actions"
+        export const TestComponent = () => <Button />
       `)
       expect(
         transformIcons(
@@ -157,9 +163,11 @@ describe("upgradeIconButtonToButton()", () => {
     it("updates aliased IconButton to Button", () => {
       const inputAst = parseJsx(`
         import { IconButton as Aliased } from "@kaizen/components"
+        export const TestComponent = () => <Aliased />
       `)
       const outputAst = parseJsx(`
         import { Button } from "@kaizen/components/v3/actions"
+        export const TestComponent = () => <Button />
       `)
       expect(
         transformIcons(
@@ -173,9 +181,21 @@ describe("upgradeIconButtonToButton()", () => {
       const inputAst = parseJsx(`
         import { IconButton } from "@kaizen/components"
         import { Button } from "@kaizen/components/v3/actions"
+        export const TestComponent = () => (
+          <>
+            <IconButton />
+            <Button />
+          </>
+        )
       `)
       const outputAst = parseJsx(`
         import { Button } from "@kaizen/components/v3/actions"
+        export const TestComponent = () => (
+          <>
+            <Button />
+            <Button />
+          </>
+        )
       `)
       expect(
         transformIcons(
@@ -189,9 +209,21 @@ describe("upgradeIconButtonToButton()", () => {
       const inputAst = parseJsx(`
         import { IconButton } from "@kaizen/components"
         import { Button as ButtonAlias } from "@kaizen/components/v3/actions"
+        export const TestComponent = () => (
+          <>
+            <IconButton />
+            <ButtonAlias />
+          </>
+        )
       `)
       const outputAst = parseJsx(`
         import { Button as ButtonAlias } from "@kaizen/components/v3/actions"
+        export const TestComponent = () => (
+          <>
+            <ButtonAlias />
+            <ButtonAlias />
+          </>
+        )
       `)
       expect(
         transformIcons(
@@ -204,10 +236,20 @@ describe("upgradeIconButtonToButton()", () => {
     it("does not update import of irrelevant KAIO components", () => {
       const inputAst = parseJsx(`
         import { IconButton, Card } from "@kaizen/components"
+        export const TestComponent = () => (
+          <Card>
+            <IconButton />
+          </Card>
+        )
       `)
       const outputAst = parseJsx(`
         import { Card } from "@kaizen/components"
         import { Button } from "@kaizen/components/v3/actions"
+        export const TestComponent = () => (
+          <Card>
+            <Button />
+          </Card>
+        )
       `)
       expect(
         transformIcons(
@@ -220,9 +262,11 @@ describe("upgradeIconButtonToButton()", () => {
     it("does not update import of IconButton not from KAIO", () => {
       const inputAst = parseJsx(`
         import { IconButton } from "somewhere-else"
+        export const TestComponent = () => <IconButton />
       `)
       const outputAst = parseJsx(`
         import { IconButton } from "somewhere-else"
+        export const TestComponent = () => <IconButton />
       `)
       expect(
         transformIcons(

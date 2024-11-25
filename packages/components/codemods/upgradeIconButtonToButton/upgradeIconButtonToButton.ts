@@ -5,6 +5,7 @@ import {
   updateKaioImports,
   type UpdateKaioImportsArgs,
   setImportToAdd,
+  updateJsxElementWithNewProps,
 } from "../utils"
 
 const reverseStringMap = <Key extends string, Value extends string>(
@@ -17,6 +18,7 @@ const reverseStringMap = <Key extends string, Value extends string>(
 
 export const upgradeIconButtonToButton =
   // (tagNames: ImportModuleNameTagsMap): ts.TransformerFactory<ts.SourceFile> =>
+
 
     (tagName: string): ts.TransformerFactory<ts.SourceFile> =>
     context =>
@@ -43,7 +45,11 @@ export const upgradeIconButtonToButton =
             componentName: "Button",
           })
 
-          // return transformIcon(node, newIconProps.name, newIconProps.isFilled)
+          return updateJsxElementWithNewProps(
+            node,
+            [...node.attributes.properties],
+            "Button"
+          )
           // }
         }
         return ts.visitEachChild(node, visit, context)
