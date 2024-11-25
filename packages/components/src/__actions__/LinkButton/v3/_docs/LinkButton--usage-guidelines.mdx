@@ -1,0 +1,29 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
+import { LinkTo } from "../../../../../../../docs/components/LinkTo"
+import * as LinkButton from "./LinkButton.doc.stories"
+
+<Meta title="Actions/LinkButton/LinkButton (v3)/Usage Guidelines" />
+
+# LinkButton (v3)
+
+Updated Nov 26, 2024
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__actions__/Button/v3"
+  figma="https://www.figma.com/design/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-Heart-UI-Kit?node-id=1929-17364"
+  apiSpecification="/?path=/docs/actions-linkbutton-linkbutton-v3-api-specification--docs"
+/>
+
+<KAIOInstallation exportNames={["LinkButton" ]} family="actions" version="3" />
+
+
+## Overview
+
+`LinkButton` allows users to navigate to another page or resource within a web page or application. It shares the same visual styles and interaction states as the <LinkTo pageId="actions-button-button-v3-usage-guidelines--docs">Button</LinkTo> component, but is intended for navigation purposes or downloading documents.
+
+<Canvas of={LinkButton.Playground} />
+
+<Controls of={LinkButton.Playground} include={["href", "variant", "size", "isDisabled", "icon", "iconPosition"]} className="mb-64" />
+
+
