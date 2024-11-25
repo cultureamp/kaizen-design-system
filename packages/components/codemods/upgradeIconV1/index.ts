@@ -1,6 +1,4 @@
-import fs from "fs"
-import { getKaioTagNamesByRegex, transformSource, traverseDir } from "../utils"
-import { createEncodedSourceFile } from "../utils/createEncodedSourceFile"
+import { transformComponentsInDirByRegex } from "../utils"
 import { upgradeIconV1 } from "./upgradeIconV1"
 
 const run = (): void => {
@@ -11,23 +9,9 @@ const run = (): void => {
     process.exit(1)
   }
 
-  const transformFile = (
-    componentFilePath: string,
-    sourceCode: string
-  ): void => {
-    const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
-    const tagNames = getKaioTagNamesByRegex(sourceFile, "Icon$")
-    if (tagNames) {
-      const updatedSourceFile = transformSource({
-        sourceFile,
-        transformers: [upgradeIconV1(tagNames)],
-      })
-
-      fs.writeFileSync(componentFilePath, updatedSourceFile, "utf8")
-    }
-  }
-
-  traverseDir(targetDir, transformFile)
+  transformComponentsInDirByRegex(targetDir, "Icon$", tagNames => [
+    upgradeIconV1(tagNames),
+  ])
 }
 
 run()

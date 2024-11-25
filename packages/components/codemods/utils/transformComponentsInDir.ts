@@ -1,8 +1,14 @@
 import fs from "fs"
 import path from "path"
 import { createEncodedSourceFile } from "./createEncodedSourceFile"
-import { getKaioTagName } from "./getKaioTagName"
 import {
+  getKaioTagName,
+  getKaioTagNamesByRegex,
+  ImportModuleNameTagsMap,
+} from "./getKaioTagName"
+import {
+  transformSource,
+  TransformSourceArgs,
   transformSourceForTagName,
   type TransformSourceForTagNameArgs,
 } from "./transformSource"
@@ -29,7 +35,67 @@ export const traverseDir = (
   })
 }
 
-/** Walks the directory and runs the AST transformer on the given component name */
+/**
+ * Walks the directory and runs the AST transformers on the given component name
+ */
+export const transformComponentInDir = (
+  dir: string,
+  componentName: string,
+  transformers: (tagName: string) => TransformSourceArgs["transformers"]
+): void => {
+  const transformFile = (
+    componentFilePath: string,
+    sourceCode: string
+  ): void => {
+    const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
+    const tagName = getKaioTagName(sourceFile, componentName)
+    if (tagName) {
+      const updatedSourceFile = transformSource({
+        sourceFile,
+        transformers: transformers(tagName),
+      })
+
+      fs.writeFileSync(componentFilePath, updatedSourceFile, "utf8")
+    }
+  }
+
+  traverseDir(dir, transformFile)
+}
+
+/**
+ * Walks the directory and runs the AST transformers on the given component name regex pattern
+ * eg. "Icon$" will match all components that end with `Icon`
+ */
+export const transformComponentsInDirByRegex = (
+  dir: string,
+  componentNamePattern: RegExp | string,
+  transformers: (
+    tagNames: ImportModuleNameTagsMap
+  ) => TransformSourceArgs["transformers"]
+): void => {
+  const transformFile = (
+    componentFilePath: string,
+    sourceCode: string
+  ): void => {
+    const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
+    const tagNames = getKaioTagNamesByRegex(sourceFile, componentNamePattern)
+    if (tagNames) {
+      const updatedSourceFile = transformSource({
+        sourceFile,
+        transformers: transformers(tagNames),
+      })
+
+      fs.writeFileSync(componentFilePath, updatedSourceFile, "utf8")
+    }
+  }
+
+  traverseDir(dir, transformFile)
+}
+
+/**
+ * @deprecated Use `transformComponentInDir` or `transformComponentsInDirByRegex` instead
+ * Walks the directory and runs the AST transformer on the given component name
+ */
 export const transformComponentsInDir = (
   dir: string,
   transformer: TransformSourceForTagNameArgs["astTransformer"],
