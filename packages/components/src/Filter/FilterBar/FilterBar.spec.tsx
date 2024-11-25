@@ -755,7 +755,7 @@ describe("<FilterBar />", () => {
         expect(flavourButton).toHaveAccessibleName("Flavour")
         expect(sugarLevelButton).toHaveAccessibleName("Sugar Level")
         expect(iceLevelButton).toHaveAccessibleName("Ice Level")
-        expect(clearAllButton).toBeDisabled()
+        expect(clearAllButton).not.toBeVisible()
       })
     })
 
@@ -783,7 +783,7 @@ describe("<FilterBar />", () => {
 
       await waitFor(() => {
         expect(flavourButton).not.toBeInTheDocument()
-        expect(clearAllButton).toBeDisabled()
+        expect(clearAllButton).not.toBeVisible()
       })
     })
 
@@ -795,7 +795,7 @@ describe("<FilterBar />", () => {
 
       await expect(
         getByRole("button", { name: "Clear all filters" })
-      ).toBeDisabled()
+      ).not.toBeVisible()
     })
   })
 
