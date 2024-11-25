@@ -19,17 +19,14 @@ export const ClearAllButton = (): JSX.Element => {
     description: "Button aria-label to clear all values within the filter bar",
   })
 
-  const { clearAllFilters, getActiveFilters } = useFilterBarContext()
-
-  const activeFilters = getActiveFilters()
-  const hasRemovableFilter = activeFilters.some(filter => filter.isRemovable)
+  const { clearAllFilters, isClearable } = useFilterBarContext()
 
   return (
     <Button
       label={clearButtonLabel}
       aria-label={clearButtonAriaLabel}
       classNameOverride={styles.clearAllButton}
-      disabled={!hasRemovableFilter}
+      disabled={!isClearable}
       secondary
       onClick={clearAllFilters}
     />

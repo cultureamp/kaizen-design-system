@@ -22,10 +22,7 @@ export type FilterBarContextValue<
   getFilterState: <Id extends keyof ValuesMap>(
     id: Id
   ) => FilterState<keyof ValuesMap, ValuesMap[Id]>
-  getActiveFilters: () => Array<{
-    id: keyof ValuesMap
-    isRemovable: boolean
-  }>
+  isClearable: boolean
   getActiveFilterValues: () => Partial<ValuesMap>
   /**
    * @deprecated Use `setFilterOpenState` instead.
@@ -93,6 +90,15 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     filterBarStateReducer<ValuesMap>,
     setupFilterBarState<ValuesMap>(filters, values)
   )
+  const activeFiltersData = Array.from(state.activeFilterIds).map(filter => ({
+    id: filter as keyof ValuesMap,
+    values: values[filter] as Partial<ValuesMap>,
+    isRemovable: Boolean(mappedFilters[filter].isRemovable),
+  }))
+
+  const isClearable = activeFiltersData.some(
+    filter => filter.isRemovable || filter.values
+  )
 
   const value = {
     getFilterState: <Id extends keyof ValuesMap>(id: Id) => ({
@@ -100,11 +106,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       isActive: state.activeFilterIds.has(id),
       value: values[id],
     }),
-    getActiveFilters: () =>
-      Array.from(state.activeFilterIds).map(filter => ({
-        id: filter as keyof ValuesMap,
-        isRemovable: Boolean(mappedFilters[filter].isRemovable),
-      })),
+    isClearable,
     getActiveFilterValues: () => values,
     toggleOpenFilter: <Id extends keyof ValuesMap>(
       id: Id,
