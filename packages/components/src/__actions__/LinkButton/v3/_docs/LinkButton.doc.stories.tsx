@@ -12,6 +12,16 @@ const meta = {
     children: "Label",
     href: "#link-button-clicked",
   },
+  argTypes: {
+    icon: {
+      options: ["delete", "arrow", "plus"],
+      mapping: {
+        delete: <Icon isPresentational name="delete" />,
+        arrow: <Icon isPresentational name="arrow_forward" />,
+        add: <Icon isPresentational name="add" />,
+      },
+    },
+  },
 } satisfies Meta<typeof LinkButton>
 
 export default meta
