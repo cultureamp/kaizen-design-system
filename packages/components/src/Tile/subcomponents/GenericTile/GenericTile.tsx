@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, useState } from "react"
-import { FormattedMessage, useIntl } from "@cultureamp/i18n-react-intl"
+import { useIntl } from "@cultureamp/i18n-react-intl"
 import classnames from "classnames"
 import { AllowedHeadingTags, Heading } from "~components/Heading"
 import { Text } from "~components/Text"
@@ -23,6 +23,7 @@ export type GenericTileProps = {
   titleTag?: AllowedHeadingTags
   metadata?: string
   information?: TileInformation | React.ReactNode
+  /** @default Information */
   infoButtonLabel?: string
   /** @deprecated Use `variant` instead */
   mood?:
