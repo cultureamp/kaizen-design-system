@@ -90,15 +90,15 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     filterBarStateReducer<ValuesMap>,
     setupFilterBarState<ValuesMap>(filters, values)
   )
-  const activeFiltersData = Array.from(state.activeFilterIds).map(filter => ({
-    id: filter as keyof ValuesMap,
-    values: values[filter] as Partial<ValuesMap>,
-    isRemovable: Boolean(mappedFilters[filter].isRemovable),
-  }))
 
-  const isClearable = activeFiltersData.some(
-    filter => filter.isRemovable || filter.values
+  const activeFilters = Array.from(
+    state.activeFilterIds,
+    id => mappedFilters[id]
   )
+
+  const isClearable =
+    Object.keys(values).length > 0 ||
+    (state.hasRemovableFilter && activeFilters.some(f => f.isRemovable))
 
   const value = {
     getFilterState: <Id extends keyof ValuesMap>(id: Id) => ({
@@ -173,11 +173,6 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       dispatch({ type: "update_filter_labels", data: filters })
     }
   }, [filters])
-
-  const activeFilters = Array.from(
-    state.activeFilterIds,
-    id => mappedFilters[id]
-  )
 
   return (
     <FilterBarContext.Provider
