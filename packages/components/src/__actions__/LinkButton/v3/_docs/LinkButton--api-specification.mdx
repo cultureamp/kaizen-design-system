@@ -63,7 +63,7 @@ import type {AppProps} from "next/app"
 import { type NextRouter } from "next/router"
 import { RouterProvider as RacRouterProvider } from "react-aria-components"
 
-// This provides the typings for the routerOptions in `LinkButton`. As the component agnostic to routing technology this must defined here
+// This provides the correct types for `routerOptions` based on the routing solution. As the component agnostic to routing technology this must defined here
 declare module "react-aria-components" {
   interface RouterConfig {
     // index 2 is the types for the pages routerOptions
