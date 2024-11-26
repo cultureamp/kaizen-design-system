@@ -32,7 +32,7 @@ export const Playground: Story = {
 
 export const InfoLabelTest: Story = {
   args: {
-    infoButtonLabel: "Super Testy test"
+    infoButtonLabel: "Test"
   }
 }
 

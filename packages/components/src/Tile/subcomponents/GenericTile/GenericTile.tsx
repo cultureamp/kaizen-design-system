@@ -60,7 +60,7 @@ export const GenericTile = ({
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
   const { formatMessage } = useIntl()
 
-  infoButtonLabel = infoButtonLabel ? formatMessage({id: "kzGenericTile.infoButtonLabel", defaultMessage: "Information", description: "Info Buttn Label"}) : "Information"
+  infoButtonLabel = infoButtonLabel ? formatMessage({id: "kzGenericTile.infoButtonLabel", defaultMessage: infoButtonLabel, description: "Info Button Label"}) : "Information"
 
   const renderTitle = (): JSX.Element => (
     <div className={styles.title}>
@@ -147,7 +147,7 @@ export const GenericTile = ({
       <div className={classnames(styles.face, styles.faceBack)}>
         <div className={styles.informationBtn}>
           <IconButton
-            label="Information"
+            label={`Return to ${title}`}
             icon={<Icon name="arrow_back" isPresentational />}
             onClick={(): void => setIsFlipped(false)}
             disabled={!isFlipped}
