@@ -31,17 +31,9 @@ export const Playground: Story = {
 }
 
 export const InfoLabelTest: Story = {
-  render: args => (
-    <>
-      <InformationTile
-        {...args}
-        variant="default"
-        title="default"
-        footer="default"
-        infoButtonLabel="Testy test"
-      />
-    </>
-  ),
+  args: {
+    infoButtonLabel: "Super Testy test"
+  }
 }
 
 export const Variants: Story = {
