@@ -83,18 +83,3 @@ export const RACRenderPropsWithClassName: Story = {
     await linkButton.focus()
   },
 }
-
-// Test cases:
-
-/**
- * Can route to a new page when clicked
- *
- * has accepts routing options from a client side router (will have to mock this)
- *
- * can have href and onPress at the same item
- *
- * can have href, onPress and download
- *
- * ping will send a post request with body ping to URL
- *
- */
