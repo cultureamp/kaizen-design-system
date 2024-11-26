@@ -17,6 +17,16 @@ const filters = [
   },
 ] satisfies Filters<Values>
 
+const filtersNoRemovable = [
+  { id: "flavour", name: "Flavour", Component: <div /> },
+  {
+    id: "sugarLevel",
+    name: "Sugar Level",
+    Component: <div />,
+    isRemovable: false,
+  },
+] satisfies Filters<Values>
+
 describe("setupFilterBarState()", () => {
   it("sets up the base state correctly", () => {
     const values = { flavour: "jasmine", sugarLevel: 50 }
@@ -41,6 +51,7 @@ describe("setupFilterBarState()", () => {
       values,
       dependentFilterIds: new Set<keyof Values>(),
       hasUpdatedValues: false,
+      hasRemovableFilter: false,
     })
   })
 
@@ -63,6 +74,37 @@ describe("setupFilterBarState()", () => {
       expect(state.filters.sugarLevel.isUsable).toBe(false)
       expect(state.values).toEqual({})
       expect(state.hasUpdatedValues).toBe(true)
+    })
+  })
+
+  describe("Removable filters", () => {
+    it("hasRemovableFilter as false when there's no removable filters", () => {
+      const values = {}
+      expect(setupFilterBarState<Values>(filtersNoRemovable, values)).toEqual({
+        filters: {
+          flavour: {
+            id: "flavour",
+            name: "Flavour",
+            isRemovable: false,
+            isOpen: false,
+            isUsable: true,
+            isUsableWhen: undefined,
+          },
+          sugarLevel: {
+            id: "sugarLevel",
+            name: "Sugar Level",
+            isRemovable: false,
+            isOpen: false,
+            isUsable: true,
+            isUsableWhen: undefined,
+          },
+        },
+        activeFilterIds: new Set(["flavour", "sugarLevel"]),
+        values,
+        dependentFilterIds: new Set<keyof Values>(),
+        hasUpdatedValues: false,
+        hasRemovableFilter: false,
+      })
     })
   })
 })
