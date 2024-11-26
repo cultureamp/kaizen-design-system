@@ -1,4 +1,5 @@
 import React, { HTMLAttributes, useState } from "react"
+import { FormattedMessage, useIntl } from "@cultureamp/i18n-react-intl"
 import classnames from "classnames"
 import { AllowedHeadingTags, Heading } from "~components/Heading"
 import { Text } from "~components/Text"
@@ -41,13 +42,15 @@ export type GenericTileProps = {
   footer: React.ReactNode
 } & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "title">>
 
+const { formatMessage } = useIntl()
+
 export const GenericTile = ({
   children,
   title,
   titleTag = "h3",
   metadata,
   information,
-  infoButtonLabel = "Information",
+  infoButtonLabel = formatMessage({id: "kzGenericTile.infoButtonLabel", defaultMessage: "Information", description: "Info Buttn Label"}),
   mood,
   variant = "default",
   footer,
