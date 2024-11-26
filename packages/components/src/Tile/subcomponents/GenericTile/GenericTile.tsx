@@ -22,6 +22,7 @@ export type GenericTileProps = {
   titleTag?: AllowedHeadingTags
   metadata?: string
   information?: TileInformation | React.ReactNode
+  infoButtonLabel?: string
   /** @deprecated Use `variant` instead */
   mood?:
     | "positive"
@@ -46,6 +47,7 @@ export const GenericTile = ({
   titleTag = "h3",
   metadata,
   information,
+  infoButtonLabel = "Information",
   mood,
   variant = "default",
   footer,
@@ -80,7 +82,7 @@ export const GenericTile = ({
       {information && (
         <div className={styles.informationBtn}>
           <IconButton
-            label="Information"
+            label={infoButtonLabel}
             icon={<Icon name="info" isPresentational isFilled />}
             onClick={(): void => setIsFlipped(true)}
             disabled={isFlipped}

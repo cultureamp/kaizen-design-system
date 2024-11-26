@@ -9,6 +9,7 @@ const meta = {
     title: "Title",
     metadata: "Side A",
     footer: <>Example Footer</>,
+    information: "Side B",
   },
   argTypes: {
     mood: { control: false },
@@ -27,6 +28,20 @@ export const Playground: Story = {
       },
     },
   },
+}
+
+export const InfoLabelTest: Story = {
+  render: args => (
+    <>
+      <InformationTile
+        {...args}
+        variant="default"
+        title="default"
+        footer="default"
+        infoButtonLabel="Testy test"
+      />
+    </>
+  ),
 }
 
 export const Variants: Story = {
