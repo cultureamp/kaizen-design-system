@@ -60,7 +60,7 @@ export const GenericTile = ({
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
   const { formatMessage } = useIntl()
 
-  information =  information ? information : formatMessage({id: "kzGenericTile.infoButtonLabel", defaultMessage: "Information", description: "Info Buttn Label"})
+  infoButtonLabel = infoButtonLabel ? formatMessage({id: "kzGenericTile.infoButtonLabel", defaultMessage: "Information", description: "Info Buttn Label"}) : "Information"
 
   const renderTitle = (): JSX.Element => (
     <div className={styles.title}>
