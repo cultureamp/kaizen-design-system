@@ -65,7 +65,7 @@ export const GenericTile = ({
         defaultMessage: infoButtonLabel,
         description: "Info Button Label",
       })
-    : "Information"
+    : "See more about {$title}"
 
   const renderTitle = (): JSX.Element => (
     <div className={styles.title}>
