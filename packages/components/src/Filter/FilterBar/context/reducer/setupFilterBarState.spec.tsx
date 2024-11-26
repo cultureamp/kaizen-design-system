@@ -51,7 +51,7 @@ describe("setupFilterBarState()", () => {
       values,
       dependentFilterIds: new Set<keyof Values>(),
       hasUpdatedValues: false,
-      hasRemovableFilter: false,
+      hasRemovableFilter: true,
     })
   })
 
@@ -88,7 +88,6 @@ describe("setupFilterBarState()", () => {
             isRemovable: false,
             isOpen: false,
             isUsable: true,
-            isUsableWhen: undefined,
           },
           sugarLevel: {
             id: "sugarLevel",
@@ -96,7 +95,6 @@ describe("setupFilterBarState()", () => {
             isRemovable: false,
             isOpen: false,
             isUsable: true,
-            isUsableWhen: undefined,
           },
         },
         activeFilterIds: new Set(["flavour", "sugarLevel"]),
