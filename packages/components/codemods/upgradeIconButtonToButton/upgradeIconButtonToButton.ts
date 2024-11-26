@@ -3,11 +3,11 @@ import {
   getKaioTagName,
   setImportToRemove,
   setImportToAdd,
-  updateJsxElementWithNewProps,
   updateKaioImports,
   type TagImportAttributesMap,
   type UpdateKaioImportsArgs,
 } from "../utils"
+import { transformIconButtonToButton } from "./transformIconButtonToButton"
 
 export const upgradeIconButtonToButton =
   (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
@@ -36,11 +36,7 @@ export const upgradeIconButtonToButton =
             })
           }
 
-          return updateJsxElementWithNewProps(
-            node,
-            [...node.attributes.properties],
-            importedButtonTagName ?? "Button"
-          )
+          return transformIconButtonToButton(node)
         }
       }
       return ts.visitEachChild(node, visit, context)
