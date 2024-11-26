@@ -32,8 +32,8 @@ export const Playground: Story = {
 
 export const InfoLabelTest: Story = {
   args: {
-    infoButtonLabel: "Test"
-  }
+    infoButtonLabel: "Test",
+  },
 }
 
 export const Variants: Story = {

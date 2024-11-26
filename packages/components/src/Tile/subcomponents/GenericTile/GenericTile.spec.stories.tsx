@@ -29,16 +29,20 @@ export const Flip: Story = {
 }
 
 export const InfoButtonLabel: Story = {
-  args: {infoButtonLabel: "Test Label",
+  args: {
+    infoButtonLabel: "Test Label",
     title: "Title",
     metadata: "Side A",
     information: "Side B",
-    footer: <>Example Footer</>,},
+    footer: <>Example Footer</>,
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
 
-    const buttonWithInfoLabel = canvas.getByRole("button", {name: "Test Label"})
+    const buttonWithInfoLabel = canvas.getByRole("button", {
+      name: "Test Label",
+    })
     buttonWithInfoLabel.focus()
-    await expect(buttonWithInfoLabel).toHaveFocus();
+    await expect(buttonWithInfoLabel).toHaveFocus()
   },
 }

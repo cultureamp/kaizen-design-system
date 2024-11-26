@@ -43,7 +43,6 @@ export type GenericTileProps = {
   footer: React.ReactNode
 } & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "title">>
 
-
 export const GenericTile = ({
   children,
   title,
@@ -60,7 +59,13 @@ export const GenericTile = ({
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
   const { formatMessage } = useIntl()
 
-  infoButtonLabel = infoButtonLabel ? formatMessage({id: "kzGenericTile.infoButtonLabel", defaultMessage: infoButtonLabel, description: "Info Button Label"}) : "Information"
+  infoButtonLabel = infoButtonLabel
+    ? formatMessage({
+        id: "kzGenericTile.infoButtonLabel",
+        defaultMessage: infoButtonLabel,
+        description: "Info Button Label",
+      })
+    : "Information"
 
   const renderTitle = (): JSX.Element => (
     <div className={styles.title}>
