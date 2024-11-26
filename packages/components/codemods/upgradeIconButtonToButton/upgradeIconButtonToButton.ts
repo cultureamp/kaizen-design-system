@@ -1,63 +1,54 @@
 import ts from "typescript"
 import {
+  getKaioTagName,
   setImportToRemove,
-  type ImportModuleNameTagsMap,
-  updateKaioImports,
-  type UpdateKaioImportsArgs,
   setImportToAdd,
   updateJsxElementWithNewProps,
+  updateKaioImports,
+  type TagImportAttributesMap,
+  type UpdateKaioImportsArgs,
 } from "../utils"
 
-const reverseStringMap = <Key extends string, Value extends string>(
-  map: Map<Key, Value>
-): Map<Value, Key> => {
-  const reverseMap = new Map<Value, Key>()
-  map.forEach((value, key) => reverseMap.set(value, key))
-  return reverseMap
-}
-
 export const upgradeIconButtonToButton =
-  // (tagNames: ImportModuleNameTagsMap): ts.TransformerFactory<ts.SourceFile> =>
+  (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
+  context =>
+  rootNode => {
+    const importsToRemove: UpdateKaioImportsArgs["importsToRemove"] = new Map()
+    const importsToAdd: UpdateKaioImportsArgs["importsToAdd"] = new Map()
 
+    const importedButtonTagName = getKaioTagName(rootNode, "Button")
 
-    (tagName: string): ts.TransformerFactory<ts.SourceFile> =>
-    context =>
-    rootNode => {
-      const oldImportSource = "@kaizen/components"
+    const visit = (node: ts.Node): ts.Node => {
+      if (ts.isJsxSelfClosingElement(node)) {
+        const tagName = node.tagName.getText()
+        const tagImportAttributes = tagsMap.get(tagName)
 
-      // const kaioTagNames = tagNames.get(oldImportSource)
-      // if (!kaioTagNames) return rootNode
+        if (tagImportAttributes) {
+          setImportToRemove(
+            importsToRemove,
+            tagImportAttributes.importModuleName,
+            tagImportAttributes.originalName
+          )
 
-      // const componentToAliasMap = reverseStringMap(kaioTagNames)
-      const importsToRemove =
-        new Map() satisfies UpdateKaioImportsArgs["importsToRemove"]
-      const importsToAdd =
-        new Map() satisfies UpdateKaioImportsArgs["importsToAdd"]
-
-      const visit = (node: ts.Node): ts.Node => {
-        if (ts.isJsxSelfClosingElement(node)) {
-          // const tagName = node.tagName.getText()
-          // const kaioComponentName = kaioTagNames.get(tagName)
-
-          // if (kaioComponentName) {
-          setImportToRemove(importsToRemove, oldImportSource, tagName)
-          setImportToAdd(importsToAdd, "@kaizen/components/v3/actions", {
-            componentName: "Button",
-          })
+          if (!importedButtonTagName) {
+            setImportToAdd(importsToAdd, "@kaizen/components/v3/actions", {
+              componentName: "Button",
+            })
+          }
 
           return updateJsxElementWithNewProps(
             node,
             [...node.attributes.properties],
-            "Button"
+            importedButtonTagName ?? "Button"
           )
-          // }
         }
-        return ts.visitEachChild(node, visit, context)
       }
-
-      const node = ts.visitNode(rootNode, visit)
-
-      return updateKaioImports({ importsToRemove, importsToAdd })(context)(
-        node as ts.SourceFile
-      )
+      return ts.visitEachChild(node, visit, context)
     }
+
+    const node = ts.visitNode(rootNode, visit)
+
+    return updateKaioImports({ importsToRemove, importsToAdd })(context)(
+      node as ts.SourceFile
+    )
+  }

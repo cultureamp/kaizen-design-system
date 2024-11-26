@@ -5,7 +5,7 @@ import {
   getKaioTagName,
   getKaioTagNamesMapByRegex,
   getKaioTagNamesMapByString,
-  type ImportModuleTagNamesMap,
+  type TagImportAttributesMap,
   type ImportModuleRegexTagNamesMap,
 } from "./getKaioTagName"
 import {
@@ -44,7 +44,7 @@ export const transformComponentsAndImportsInDir = (
   dir: string,
   componentName: string,
   transformers: (
-    tagNames: ImportModuleTagNamesMap
+    kaioTagNamesMap: TagImportAttributesMap
   ) => TransformSourceArgs["transformers"]
 ): void => {
   const transformFile = (
@@ -52,11 +52,14 @@ export const transformComponentsAndImportsInDir = (
     sourceCode: string
   ): void => {
     const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
-    const tagNames = getKaioTagNamesMapByString(sourceFile, componentName)
-    if (tagNames) {
+    const kaioTagNamesMap = getKaioTagNamesMapByString(
+      sourceFile,
+      componentName
+    )
+    if (kaioTagNamesMap) {
       const updatedSourceFile = transformSource({
         sourceFile,
-        transformers: transformers(tagNames),
+        transformers: transformers(kaioTagNamesMap),
       })
 
       fs.writeFileSync(componentFilePath, updatedSourceFile, "utf8")
@@ -74,7 +77,7 @@ export const transformComponentsAndImportsInDirByRegex = (
   dir: string,
   componentNamePattern: RegExp | string,
   transformers: (
-    tagNames: ImportModuleRegexTagNamesMap
+    kaioTagNamesMap: ImportModuleRegexTagNamesMap
   ) => TransformSourceArgs["transformers"]
 ): void => {
   const transformFile = (
@@ -82,11 +85,14 @@ export const transformComponentsAndImportsInDirByRegex = (
     sourceCode: string
   ): void => {
     const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
-    const tagNames = getKaioTagNamesMapByRegex(sourceFile, componentNamePattern)
-    if (tagNames) {
+    const kaioTagNamesMap = getKaioTagNamesMapByRegex(
+      sourceFile,
+      componentNamePattern
+    )
+    if (kaioTagNamesMap) {
       const updatedSourceFile = transformSource({
         sourceFile,
-        transformers: transformers(tagNames),
+        transformers: transformers(kaioTagNamesMap),
       })
 
       fs.writeFileSync(componentFilePath, updatedSourceFile, "utf8")

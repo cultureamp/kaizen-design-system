@@ -33,7 +33,14 @@ describe("getKaioTagNamesMapByString()", () => {
     const tagNames = getKaioTagNamesMapByString(input, "Button")
     expect(tagNames).toEqual(
       new Map([
-        ["@kaizen/components", { tagName: "Button", originalName: "Button" }],
+        [
+          "Button",
+          {
+            importModuleName: "@kaizen/components",
+            tagName: "Button",
+            originalName: "Button",
+          },
+        ],
       ])
     )
   })
@@ -45,7 +52,14 @@ describe("getKaioTagNamesMapByString()", () => {
     const tagNames = getKaioTagNamesMapByString(input, "Button")
     expect(tagNames).toEqual(
       new Map([
-        ["@kaizen/components", { tagName: "KzButton", originalName: "Button" }],
+        [
+          "KzButton",
+          {
+            importModuleName: "@kaizen/components",
+            tagName: "KzButton",
+            originalName: "Button",
+          },
+        ],
       ])
     )
   })
@@ -58,10 +72,21 @@ describe("getKaioTagNamesMapByString()", () => {
     const tagNames = getKaioTagNamesMapByString(input, "Button")
     expect(tagNames).toEqual(
       new Map([
-        ["@kaizen/components", { tagName: "KzButton", originalName: "Button" }],
         [
-          "@kaizen/components/future",
-          { tagName: "FutureButton", originalName: "Button" },
+          "KzButton",
+          {
+            importModuleName: "@kaizen/components",
+            tagName: "KzButton",
+            originalName: "Button",
+          },
+        ],
+        [
+          "FutureButton",
+          {
+            importModuleName: "@kaizen/components/future",
+            tagName: "FutureButton",
+            originalName: "Button",
+          },
         ],
       ])
     )

@@ -1,14 +1,19 @@
 import { parseJsx } from "../__tests__/utils"
-import { printAst, transformSource, type TransformSourceArgs } from "../utils"
+import {
+  type TagImportAttributesMap,
+  printAst,
+  transformSource,
+  type TransformSourceArgs,
+} from "../utils"
 import { upgradeIconButtonToButton } from "./upgradeIconButtonToButton"
 
 const transformIcons = (
-  sourceFile: TransformSourceArgs["sourceFile"]
-  // tagNames: ImportModuleNameTagsMap
+  sourceFile: TransformSourceArgs["sourceFile"],
+  tagNames: TagImportAttributesMap
 ): string =>
   transformSource({
     sourceFile,
-    transformers: [upgradeIconButtonToButton("IconButton")],
+    transformers: [upgradeIconButtonToButton(tagNames)],
   })
 
 describe("upgradeIconButtonToButton()", () => {
@@ -21,12 +26,20 @@ describe("upgradeIconButtonToButton()", () => {
       import { Button } from "@kaizen/components/v3/actions"
       export const TestComponent = () => <Button icon={<Icon isPresentational name="more_horiz"/>} onPress={handleClick} hasHiddenLabel>More pls</Button>
     `)
+
     expect(
       transformIcons(
-        inputAst
-        // new Map([
-        //   ["@kaizen/components", new Map([["FlagOnIcon", "FlagOnIcon"]])],
-        // ])
+        inputAst,
+        new Map([
+          [
+            "IconButton",
+            {
+              importModuleName: "@kaizen/components",
+              tagName: "IconButton",
+              originalName: "IconButton",
+            },
+          ],
+        ])
       )
     ).toEqual(printAst(outputAst))
   })
@@ -42,10 +55,17 @@ describe("upgradeIconButtonToButton()", () => {
     `)
     expect(
       transformIcons(
-        inputAst
-        // new Map([
-        //   ["@kaizen/components", new Map([["IconAlias", "HamburgerIcon"]])],
-        // ])
+        inputAst,
+        new Map([
+          [
+            "Aliased",
+            {
+              importModuleName: "@kaizen/components",
+              tagName: "Aliased",
+              originalName: "IconButton",
+            },
+          ],
+        ])
       )
     ).toEqual(printAst(outputAst))
   })
@@ -62,10 +82,17 @@ describe("upgradeIconButtonToButton()", () => {
     `)
     expect(
       transformIcons(
-        inputAst
-        // new Map([
-        //   ["@kaizen/components", new Map([["FlagOnIcon", "FlagOnIcon"]])],
-        // ])
+        inputAst,
+        new Map([
+          [
+            "IconButton",
+            {
+              importModuleName: "@kaizen/components",
+              tagName: "IconButton",
+              originalName: "IconButton",
+            },
+          ],
+        ])
       )
     ).toEqual(printAst(outputAst))
   })
@@ -81,10 +108,17 @@ describe("upgradeIconButtonToButton()", () => {
     `)
     expect(
       transformIcons(
-        inputAst
-        // new Map([
-        //   ["@kaizen/components", new Map([["IconAlias", "HamburgerIcon"]])],
-        // ])
+        inputAst,
+        new Map([
+          [
+            "IconButton",
+            {
+              importModuleName: "@kaizen/components",
+              tagName: "IconButton",
+              originalName: "IconButton",
+            },
+          ],
+        ])
       )
     ).toEqual(printAst(outputAst))
   })
@@ -100,10 +134,17 @@ describe("upgradeIconButtonToButton()", () => {
     `)
     expect(
       transformIcons(
-        inputAst
-        // new Map([
-        //   ["@kaizen/components", new Map([["IconAlias", "HamburgerIcon"]])],
-        // ])
+        inputAst,
+        new Map([
+          [
+            "IconButton",
+            {
+              importModuleName: "@kaizen/components",
+              tagName: "IconButton",
+              originalName: "IconButton",
+            },
+          ],
+        ])
       )
     ).toEqual(printAst(outputAst))
   })
@@ -120,8 +161,17 @@ describe("upgradeIconButtonToButton()", () => {
       `)
       expect(
         transformIcons(
-          inputAst
-          // new Map([["@kaizen/components", {}]])
+          inputAst,
+          new Map([
+            [
+              "IconButton",
+              {
+                importModuleName: "@kaizen/components",
+                tagName: "IconButton",
+                originalName: "IconButton",
+              },
+            ],
+          ])
         )
       ).toEqual(printAst(outputAst))
     })
@@ -137,8 +187,17 @@ describe("upgradeIconButtonToButton()", () => {
       `)
       expect(
         transformIcons(
-          inputAst
-          // new Map([["@kaizen/components", {}]])
+          inputAst,
+          new Map([
+            [
+              "IconButton",
+              {
+                importModuleName: "@kaizen/components/v1/actions",
+                tagName: "IconButton",
+                originalName: "IconButton",
+              },
+            ],
+          ])
         )
       ).toEqual(printAst(outputAst))
     })
@@ -154,8 +213,17 @@ describe("upgradeIconButtonToButton()", () => {
       `)
       expect(
         transformIcons(
-          inputAst
-          // new Map([["@kaizen/components", {}]])
+          inputAst,
+          new Map([
+            [
+              "IconButton",
+              {
+                importModuleName: "@kaizen/components/v2/actions",
+                tagName: "IconButton",
+                originalName: "IconButton",
+              },
+            ],
+          ])
         )
       ).toEqual(printAst(outputAst))
     })
@@ -171,8 +239,62 @@ describe("upgradeIconButtonToButton()", () => {
       `)
       expect(
         transformIcons(
-          inputAst
-          // new Map([["@kaizen/components", {}]])
+          inputAst,
+          new Map([
+            [
+              "Aliased",
+              {
+                importModuleName: "@kaizen/components",
+                tagName: "Aliased",
+                originalName: "IconButton",
+              },
+            ],
+          ])
+        )
+      ).toEqual(printAst(outputAst))
+    })
+
+    it("updates imports of multiple IconButtons from different KAIO imports", () => {
+      const inputAst = parseJsx(`
+        import { IconButton as KzIconButton } from "@kaizen/components"
+        import { IconButton as IconButtonV1 } from "@kaizen/components/v1/actions"
+        export const TestComponent = () => (
+          <>
+            <KzIconButton />
+            <IconButtonV1 />
+          </>
+        )
+      `)
+      const outputAst = parseJsx(`
+        import { Button } from "@kaizen/components/v3/actions"
+        export const TestComponent = () => (
+          <>
+            <Button />
+            <Button />
+          </>
+        )
+      `)
+      expect(
+        transformIcons(
+          inputAst,
+          new Map([
+            [
+              "KzIconButton",
+              {
+                importModuleName: "@kaizen/components",
+                tagName: "KzIconButton",
+                originalName: "IconButton",
+              },
+            ],
+            [
+              "IconButtonV1",
+              {
+                importModuleName: "@kaizen/components/v1/actions",
+                tagName: "IconButtonV1",
+                originalName: "IconButton",
+              },
+            ],
+          ])
         )
       ).toEqual(printAst(outputAst))
     })
@@ -199,8 +321,17 @@ describe("upgradeIconButtonToButton()", () => {
       `)
       expect(
         transformIcons(
-          inputAst
-          // new Map([["@kaizen/components", {}]])
+          inputAst,
+          new Map([
+            [
+              "IconButton",
+              {
+                importModuleName: "@kaizen/components",
+                tagName: "IconButton",
+                originalName: "IconButton",
+              },
+            ],
+          ])
         )
       ).toEqual(printAst(outputAst))
     })
@@ -227,8 +358,17 @@ describe("upgradeIconButtonToButton()", () => {
       `)
       expect(
         transformIcons(
-          inputAst
-          // new Map([["@kaizen/components", {}]])
+          inputAst,
+          new Map([
+            [
+              "IconButton",
+              {
+                importModuleName: "@kaizen/components",
+                tagName: "IconButton",
+                originalName: "IconButton",
+              },
+            ],
+          ])
         )
       ).toEqual(printAst(outputAst))
     })
@@ -253,34 +393,17 @@ describe("upgradeIconButtonToButton()", () => {
       `)
       expect(
         transformIcons(
-          inputAst
-          // new Map([["@kaizen/components", new Map([["AddIcon", "AddIcon"]])]])
-        )
-      ).toEqual(printAst(outputAst))
-    })
-
-    it("does not update import of IconButton not from KAIO", () => {
-      const inputAst = parseJsx(`
-        import { IconButton } from "somewhere-else"
-        export const TestComponent = () => <IconButton />
-      `)
-      const outputAst = parseJsx(`
-        import { IconButton } from "somewhere-else"
-        export const TestComponent = () => <IconButton />
-      `)
-      expect(
-        transformIcons(
-          inputAst
-          // new Map([
-          //   [
-          //     "@kaizen/components",
-          //     new Map([
-          //       ["AddIcon", "AddIcon"],
-          //       ["IconAlias", "HamburgerIcon"],
-          //     ]),
-          //   ],
-          //   ["somewhere-else", new Map([["HamHam", "HamburgerIcon"]])],
-          // ])
+          inputAst,
+          new Map([
+            [
+              "IconButton",
+              {
+                importModuleName: "@kaizen/components",
+                tagName: "IconButton",
+                originalName: "IconButton",
+              },
+            ],
+          ])
         )
       ).toEqual(printAst(outputAst))
     })
