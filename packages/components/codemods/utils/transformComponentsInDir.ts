@@ -3,12 +3,14 @@ import path from "path"
 import { createEncodedSourceFile } from "./createEncodedSourceFile"
 import {
   getKaioTagName,
-  getKaioTagNamesByRegex,
-  ImportModuleNameTagsMap,
+  getKaioTagNamesMapByRegex,
+  getKaioTagNamesMapByString,
+  type ImportModuleTagNamesMap,
+  type ImportModuleRegexTagNamesMap,
 } from "./getKaioTagName"
 import {
   transformSource,
-  TransformSourceArgs,
+  type TransformSourceArgs,
   transformSourceForTagName,
   type TransformSourceForTagNameArgs,
 } from "./transformSource"
@@ -38,21 +40,23 @@ export const traverseDir = (
 /**
  * Walks the directory and runs the AST transformers on the given component name
  */
-export const transformComponentInDir = (
+export const transformComponentsAndImportsInDir = (
   dir: string,
   componentName: string,
-  transformers: (tagName: string) => TransformSourceArgs["transformers"]
+  transformers: (
+    tagNames: ImportModuleTagNamesMap
+  ) => TransformSourceArgs["transformers"]
 ): void => {
   const transformFile = (
     componentFilePath: string,
     sourceCode: string
   ): void => {
     const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
-    const tagName = getKaioTagName(sourceFile, componentName)
-    if (tagName) {
+    const tagNames = getKaioTagNamesMapByString(sourceFile, componentName)
+    if (tagNames) {
       const updatedSourceFile = transformSource({
         sourceFile,
-        transformers: transformers(tagName),
+        transformers: transformers(tagNames),
       })
 
       fs.writeFileSync(componentFilePath, updatedSourceFile, "utf8")
@@ -66,11 +70,11 @@ export const transformComponentInDir = (
  * Walks the directory and runs the AST transformers on the given component name regex pattern
  * eg. "Icon$" will match all components that end with `Icon`
  */
-export const transformComponentsInDirByRegex = (
+export const transformComponentsAndImportsInDirByRegex = (
   dir: string,
   componentNamePattern: RegExp | string,
   transformers: (
-    tagNames: ImportModuleNameTagsMap
+    tagNames: ImportModuleRegexTagNamesMap
   ) => TransformSourceArgs["transformers"]
 ): void => {
   const transformFile = (
@@ -78,7 +82,7 @@ export const transformComponentsInDirByRegex = (
     sourceCode: string
   ): void => {
     const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
-    const tagNames = getKaioTagNamesByRegex(sourceFile, componentNamePattern)
+    const tagNames = getKaioTagNamesMapByRegex(sourceFile, componentNamePattern)
     if (tagNames) {
       const updatedSourceFile = transformSource({
         sourceFile,

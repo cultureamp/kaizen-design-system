@@ -1,4 +1,4 @@
-import { transformComponentsInDirByRegex } from "../utils"
+import { transformComponentsAndImportsInDirByRegex } from "../utils"
 import { upgradeIconV1 } from "./upgradeIconV1"
 
 const run = (): void => {
@@ -9,7 +9,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsInDirByRegex(targetDir, "Icon$", tagNames => [
+  transformComponentsAndImportsInDirByRegex(targetDir, "Icon$", tagNames => [
     upgradeIconV1(tagNames),
   ])
 }

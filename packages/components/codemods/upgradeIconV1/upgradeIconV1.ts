@@ -1,7 +1,7 @@
 import ts from "typescript"
 import {
   setImportToRemove,
-  type ImportModuleNameTagsMap,
+  type ImportModuleRegexTagNamesMap,
   updateKaioImports,
   type UpdateKaioImportsArgs,
   setImportToAdd,
@@ -20,7 +20,9 @@ const reverseStringMap = <Key extends string, Value extends string>(
 }
 
 export const upgradeIconV1 =
-  (tagNames: ImportModuleNameTagsMap): ts.TransformerFactory<ts.SourceFile> =>
+  (
+    tagNames: ImportModuleRegexTagNamesMap
+  ): ts.TransformerFactory<ts.SourceFile> =>
   context =>
   rootNode => {
     const oldImportSource = "@kaizen/components"

@@ -1,7 +1,7 @@
 import { parseJsx } from "../__tests__/utils"
 import {
   printAst,
-  type ImportModuleNameTagsMap,
+  type ImportModuleRegexTagNamesMap,
   transformSource,
   type TransformSourceArgs,
 } from "../utils"
@@ -9,7 +9,7 @@ import { upgradeIconV1 } from "./upgradeIconV1"
 
 const transformIcons = (
   sourceFile: TransformSourceArgs["sourceFile"],
-  tagNames: ImportModuleNameTagsMap
+  tagNames: ImportModuleRegexTagNamesMap
 ): string =>
   transformSource({
     sourceFile,

@@ -1,13 +1,13 @@
 import ts from "typescript"
 
+type ImportModuleNamedImports = {
+  importModuleName: string
+  namedImports: ts.NodeArray<ts.ImportSpecifier>
+}
+
 const getKaioNamedImports = (
   visitedNode: ts.Node
-):
-  | {
-      importModuleName: string
-      namedImports: ts.NodeArray<ts.ImportSpecifier>
-    }
-  | undefined => {
+): ImportModuleNamedImports | undefined => {
   if (ts.isImportDeclaration(visitedNode)) {
     const moduleSpecifier = (visitedNode.moduleSpecifier as ts.StringLiteral)
       .text
@@ -40,6 +40,7 @@ const getNamesFromSpecifier = (
 
 /**
  * Recurses through AST to find the import name or alias in KAIO that matches the provided component name.
+ * Use this when you will only be modifying the component and not the import statement.
  *
  * @returns string | undefined
  * - `string` the import name or alias found
@@ -75,14 +76,16 @@ export const getKaioTagName = (
   return visitNode(node)
 }
 
-// Key is the tag name (component name or alias)
-// Value is the original component name
+/**
+ * Key is the tag name (component name or alias)
+ * Value is the original component name
+ */
 type TagNamesMap = Map<string, string>
-// Key is the import module name (eg. `@kaizen/components/future`)
-export type ImportModuleNameTagsMap = Map<string, TagNamesMap>
+/** Key is the import module name (eg. `@kaizen/components/future`) */
+export type ImportModuleRegexTagNamesMap = Map<string, TagNamesMap>
 
 /**
- * Recurses through AST to find all the import names or aliases in KAIO that match the provided regex.
+ * Recurses through AST to find all the import names or aliases in KAIO that match the provided regex pattern.
  *
  * @returns Map<string, Map<string, string>> | undefined
  * - `Map<string, Map<string, string>>` = Map<importModuleName, Map<tagName, originalName>>
@@ -91,11 +94,11 @@ export type ImportModuleNameTagsMap = Map<string, TagNamesMap>
  *   - `originalName` = the original component name (eg. `Well`)
  * - `undefined` no imports that match the target
  */
-export const getKaioTagNamesByRegex = (
+export const getKaioTagNamesMapByRegex = (
   node: ts.Node,
   importSpecifierPattern: RegExp | string
-): ImportModuleNameTagsMap | undefined => {
-  const tagsByImportModuleName = new Map() as ImportModuleNameTagsMap
+): ImportModuleRegexTagNamesMap | undefined => {
+  const tagsByImportModuleName = new Map() as ImportModuleRegexTagNamesMap
 
   const visitNode = (visitedNode: ts.Node): ts.Node | undefined => {
     const kaioNamedImports = getKaioNamedImports(visitedNode)
@@ -105,8 +108,8 @@ export const getKaioTagNamesByRegex = (
     }
 
     const tags = new Map() as TagNamesMap
-    kaioNamedImports.namedImports.forEach(importSpecifier => {
-      const { tagName, originalName } = getNamesFromSpecifier(importSpecifier)
+    kaioNamedImports.namedImports.forEach(namedImport => {
+      const { tagName, originalName } = getNamesFromSpecifier(namedImport)
 
       if (new RegExp(importSpecifierPattern).test(originalName)) {
         tags.set(tagName, originalName)
@@ -119,6 +122,44 @@ export const getKaioTagNamesByRegex = (
         new Map(tags)
       )
     }
+
+    return ts.forEachChild(visitedNode, visitNode)
+  }
+
+  visitNode(node)
+
+  return tagsByImportModuleName.size === 0 ? undefined : tagsByImportModuleName
+}
+
+/** Key is the import module name (eg. `@kaizen/components/future`) */
+export type ImportModuleTagNamesMap = Map<string, ImportSpecifierNames>
+
+/**
+ * Recurses through AST to find all the import names or aliases in KAIO that exactly match the provided string.
+ */
+export const getKaioTagNamesMapByString = (
+  node: ts.Node,
+  importSpecifier: string
+): ImportModuleTagNamesMap | undefined => {
+  const tagsByImportModuleName = new Map() as ImportModuleTagNamesMap
+
+  const visitNode = (visitedNode: ts.Node): ts.Node | undefined => {
+    const kaioNamedImports = getKaioNamedImports(visitedNode)
+
+    if (!kaioNamedImports) {
+      return ts.forEachChild(visitedNode, visitNode)
+    }
+
+    kaioNamedImports.namedImports.find(namedImport => {
+      const tagNames = getNamesFromSpecifier(namedImport)
+
+      if (importSpecifier === tagNames.originalName) {
+        tagsByImportModuleName.set(kaioNamedImports.importModuleName, tagNames)
+        return true
+      }
+
+      return false
+    })
 
     return ts.forEachChild(visitedNode, visitNode)
   }
