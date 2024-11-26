@@ -1,7 +1,6 @@
-import { Canvas, Meta, Controls } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import { LinkTo } from "../../../../../../../docs/components/LinkTo"
-import * as LinkButton from "./LinkButton.doc.stories"
+import { Canvas, Meta, Controls } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation, LinkTo } from '~storybook/components'
+import * as LinkButton from './LinkButton.doc.stories'
 
 <Meta title="Actions/LinkButton/LinkButton (v3)/Usage Guidelines" />
 
@@ -15,8 +14,7 @@ Updated Nov 26, 2024
   apiSpecification="/?path=/docs/actions-linkbutton-linkbutton-v3-api-specification--docs"
 />
 
-<KAIOInstallation exportNames={["LinkButton" ]} family="actions" version="3" />
-
+<KAIOInstallation exportNames={['LinkButton']} family="actions" version="3" />
 
 ## Overview
 
@@ -24,6 +22,8 @@ Updated Nov 26, 2024
 
 <Canvas of={LinkButton.Playground} />
 
-<Controls of={LinkButton.Playground} include={["href", "variant", "size", "isDisabled", "icon", "iconPosition"]} className="mb-64" />
-
-
+<Controls
+  of={LinkButton.Playground}
+  include={['href', 'variant', 'size', 'isDisabled', 'icon', 'iconPosition']}
+  className="mb-64"
+/>

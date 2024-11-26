@@ -23,113 +23,100 @@ const sizes = ["small", "medium", "large"] satisfies Array<
   LinkButtonProps["size"]
 >
 
-const RowTemplate = ({
-  isReversed = false,
-}: {
-  isReversed?: boolean
-}): JSX.Element => (
-  <>
-    {variants.map(variant =>
-      sizes.map(size => (
-        <StickerSheet.Row
-          key={size + variant}
-          isReversed={isReversed}
-          rowTitle={`${variant} (${size})`}
-        >
-          <LinkButton variant={variant} size={size}>
-            Label
-          </LinkButton>
-          <LinkButton
-            icon={<Icon name="add" isPresentational />}
-            variant={variant}
-            size={size}
-          >
-            Label
-          </LinkButton>
-          <LinkButton
-            icon={
-              <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
-            }
-            iconPosition="end"
-            variant={variant}
-            size={size}
-          >
-            Label
-          </LinkButton>
-          <LinkButton
-            icon={<Icon name="delete" isPresentational />}
-            variant={variant}
-            hasHiddenLabel
-            size={size}
-          >
-            Label
-          </LinkButton>
-          <LinkButton
-            icon={
-              <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />
-            }
-            iconPosition="end"
-            variant={variant}
-            size={size}
-            isDisabled
-          >
-            Label
-          </LinkButton>
-        </StickerSheet.Row>
-      ))
-    )}
-  </>
-)
-
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
-      <StickerSheet heading="Button" isReversed={isReversed}>
-        <StickerSheet.Header
-          headings={[
-            "Base",
-            "Icon start",
-            "Icon end",
-            "hasHiddenLabel",
-            "isDisabled",
-          ]}
-          headingsWidth="10rem"
-          hasVerticalHeadings
-          verticalHeadingsWidth="12rem"
-        />
-        <StickerSheet.Body>
-          <RowTemplate isReversed={isReversed} />
-        </StickerSheet.Body>
-      </StickerSheet>
-      <StickerSheet heading="Pseudo states" isReversed={isReversed}>
-        <StickerSheet.Header
-          headings={["isHovered", "isFocusVisible", "isPressed"]}
-          headingsWidth="10rem"
-          hasVerticalHeadings
-          verticalHeadingsWidth="12rem"
-        />
-        <StickerSheet.Body>
-          {variants.map(variant => (
+      <StickerSheet
+        title="Button"
+        headers={[
+          "Base",
+          "Icon start",
+          "Icon end",
+          "hasHiddenLabel",
+          "isDisabled",
+        ]}
+        isReversed={isReversed}
+      >
+        {variants.map(variant =>
+          sizes.map(size => (
             <StickerSheet.Row
-              key={variant}
+              key={size + variant}
               isReversed={isReversed}
-              rowTitle={variant}
+              header={`${variant} (${size})`}
             >
-              <LinkButton data-testid="testid__button-hover" variant={variant}>
-                Label
-              </LinkButton>
-              <LinkButton data-testid="testid__button-focus" variant={variant}>
+              <LinkButton variant={variant} size={size}>
                 Label
               </LinkButton>
               <LinkButton
-                data-testid="testid__button-pressed"
+                icon={<Icon name="add" isPresentational />}
                 variant={variant}
+                size={size}
+              >
+                Label
+              </LinkButton>
+              <LinkButton
+                icon={
+                  <Icon
+                    name="arrow_forward"
+                    shouldMirrorInRTL
+                    isPresentational
+                  />
+                }
+                iconPosition="end"
+                variant={variant}
+                size={size}
+              >
+                Label
+              </LinkButton>
+              <LinkButton
+                icon={<Icon name="delete" isPresentational />}
+                variant={variant}
+                hasHiddenLabel
+                size={size}
+              >
+                Label
+              </LinkButton>
+              <LinkButton
+                icon={
+                  <Icon
+                    name="arrow_forward"
+                    shouldMirrorInRTL
+                    isPresentational
+                  />
+                }
+                iconPosition="end"
+                variant={variant}
+                size={size}
+                isDisabled
               >
                 Label
               </LinkButton>
             </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
+          ))
+        )}
+      </StickerSheet>
+      <StickerSheet
+        title="Pseudo states"
+        headers={["isHovered", "isFocusVisible", "isPressed"]}
+        isReversed={isReversed}
+      >
+        {variants.map(variant => (
+          <StickerSheet.Row
+            key={variant}
+            isReversed={isReversed}
+            header={variant}
+          >
+            <LinkButton data-testid="testid__button-hover" variant={variant}>
+              Label
+            </LinkButton>
+            <LinkButton data-testid="testid__button-focus" variant={variant}>
+              Label
+            </LinkButton>
+            <LinkButton data-testid="testid__button-pressed" variant={variant}>
+              Label
+            </LinkButton>
+          </StickerSheet.Row>
+        ))}
       </StickerSheet>
     </>
   ),
