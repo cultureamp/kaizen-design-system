@@ -259,6 +259,10 @@ export const FilterDateRangePickerField = ({
       return
     }
 
+    if (state.inputStartValue === "" && state.inputEndValue === "") {
+      return
+    }
+
     const newStartDate = validateStartDate(
       selectedRange?.from,
       state.inputStartValue
