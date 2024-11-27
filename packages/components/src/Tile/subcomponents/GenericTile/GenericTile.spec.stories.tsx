@@ -22,7 +22,9 @@ export const Flip: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
 
-    await userEvent.click(canvas.getByRole("button", { name: "Information" }))
+    await userEvent.click(
+      canvas.getByRole("button", { name: "View more information: Title" })
+    )
 
     await expect(canvas.getByText("Side B")).toBeInTheDocument()
   },

@@ -9,7 +9,6 @@ const meta = {
     title: "Title",
     metadata: "Side A",
     footer: <>Example Footer</>,
-    information: "Side B",
   },
   argTypes: {
     mood: { control: false },
@@ -27,12 +26,6 @@ export const Playground: Story = {
         sourceState: "shown",
       },
     },
-  },
-}
-
-export const InfoLabelTest: Story = {
-  args: {
-    infoButtonLabel: "Test",
   },
 }
 
@@ -58,6 +51,13 @@ export const Variants: Story = {
 
 export const Information: Story = {
   args: {
+    information: "Side B",
+  },
+}
+
+export const TileWithCustomInfoLabel: Story = {
+  args: {
+    infoButtonLabel: "Test",
     information: "Side B",
   },
 }
