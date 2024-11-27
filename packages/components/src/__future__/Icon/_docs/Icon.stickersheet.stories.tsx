@@ -35,85 +35,76 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet heading="Icon" isReversed={isReversed}>
-          <StickerSheet.Header
-            headings={["Outlined", "Filled", "Color"]}
-            hasVerticalHeadings
-          />
-          <StickerSheet.Body>
-            {iconDefaultSet.map(name => (
-              <StickerSheet.Row key={name} rowTitle={name}>
-                <Icon {...defaultProps} name={name} />
-                <Icon {...defaultProps} name={name} isFilled />
-                <Icon {...defaultProps} name={name} className="text-blue-500" />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
-        </StickerSheet>
-
-        <StickerSheet heading="shouldMirrorInRTL" isReversed={isReversed}>
-          <StickerSheet.Header
-            headings={[
-              'true; dir=["ltr"]',
-              'true; dir=["rtl"]',
-              'false; dir=["rtl"]',
-            ]}
-            hasVerticalHeadings
-          />
-          <StickerSheet.Body>
-            {mirrorInRTL.map(name => (
-              <StickerSheet.Row key={name} rowTitle={name}>
-                <div dir="ltr" className="text-center">
-                  <Icon {...defaultProps} name={name} shouldMirrorInRTL />
-                </div>
-                <div dir="rtl" className="text-center">
-                  <Icon {...defaultProps} name={name} shouldMirrorInRTL />
-                </div>
-                <div dir="rtl" className="text-center">
-                  <Icon {...defaultProps} name={name} />
-                </div>
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+        <StickerSheet
+          title="Icon"
+          headers={["Outlined", "Filled", "Color"]}
+          isReversed={isReversed}
+        >
+          {iconDefaultSet.map(name => (
+            <StickerSheet.Row key={name} header={name}>
+              <Icon {...defaultProps} name={name} />
+              <Icon {...defaultProps} name={name} isFilled />
+              <Icon {...defaultProps} name={name} className="text-blue-500" />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
 
         <StickerSheet
-          heading="Alignment as children within other components"
+          title="shouldMirrorInRTL"
+          isReversed={isReversed}
+          headers={[
+            'true; dir=["ltr"]',
+            'true; dir=["rtl"]',
+            'false; dir=["rtl"]',
+          ]}
+        >
+          {mirrorInRTL.map(name => (
+            <StickerSheet.Row key={name} header={name}>
+              <div dir="ltr" className="text-center">
+                <Icon {...defaultProps} name={name} shouldMirrorInRTL />
+              </div>
+              <div dir="rtl" className="text-center">
+                <Icon {...defaultProps} name={name} shouldMirrorInRTL />
+              </div>
+              <div dir="rtl" className="text-center">
+                <Icon {...defaultProps} name={name} />
+              </div>
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet>
+
+        <StickerSheet
+          title="Alignment as children within other components"
           isReversed={isReversed}
         >
-          <StickerSheet.Body>
-            <StickerSheet.Row rowTitle="Text">
-              <Text variant="body">
-                Showcase alignment of an icon <Icon {...defaultProps} /> within
-                a sentence
-              </Text>
-            </StickerSheet.Row>
-            <StickerSheet.Row rowTitle="Label">
-              <Label>
-                Field label <Icon {...defaultProps} />
-              </Label>
-            </StickerSheet.Row>
-            <StickerSheet.Row rowTitle="CheckboxField">
-              <CheckboxField
-                labelText={
-                  <>
-                    Checkbox label <Icon {...defaultProps} />
-                  </>
-                }
-              />
-            </StickerSheet.Row>
-            <StickerSheet.Row rowTitle="Button (v2)">
-              <ButtonV2
-                label="Button label"
-                icon={<Icon {...defaultProps} />}
-              />
-            </StickerSheet.Row>
-            <StickerSheet.Row rowTitle="Button (v3)">
-              <ButtonV3>
-                <Icon {...defaultProps} /> Button label
-              </ButtonV3>
-            </StickerSheet.Row>
-          </StickerSheet.Body>
+          <StickerSheet.Row header="Text">
+            <Text variant="body">
+              Showcase alignment of an icon <Icon {...defaultProps} /> within a
+              sentence
+            </Text>
+          </StickerSheet.Row>
+          <StickerSheet.Row header="Label">
+            <Label>
+              Field label <Icon {...defaultProps} />
+            </Label>
+          </StickerSheet.Row>
+          <StickerSheet.Row header="CheckboxField">
+            <CheckboxField
+              labelText={
+                <>
+                  Checkbox label <Icon {...defaultProps} />
+                </>
+              }
+            />
+          </StickerSheet.Row>
+          <StickerSheet.Row header="Button (v2)">
+            <ButtonV2 label="Button label" icon={<Icon {...defaultProps} />} />
+          </StickerSheet.Row>
+          <StickerSheet.Row header="Button (v3)">
+            <ButtonV3>
+              <Icon {...defaultProps} /> Button label
+            </ButtonV3>
+          </StickerSheet.Row>
         </StickerSheet>
       </>
     )

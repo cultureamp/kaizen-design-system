@@ -95,115 +95,85 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet heading="Button" isReversed={isReversed}>
-          <StickerSheet.Header
-            headings={["Base", "Hover", "Active", "Focus", "Disabled"]}
-            headingsWidth="10rem"
-            hasVerticalHeadings
-            verticalHeadingsWidth="12rem"
-          />
-          <StickerSheet.Body>
-            {VARIANTS_PROPS.map(({ title, props }) => (
-              <StickerSheet.Row key={title} rowTitle={title}>
-                <Button reversed={isReversed} {...props} />
-                <Button
-                  reversed={isReversed}
-                  data-sb-pseudo-styles="hover"
-                  {...props}
-                />
-                <Button
-                  reversed={isReversed}
-                  data-sb-pseudo-styles="active"
-                  {...props}
-                />
-                <Button
-                  reversed={isReversed}
-                  data-sb-pseudo-styles="focus"
-                  {...props}
-                />
-                <Button reversed={isReversed} {...props} disabled />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+        <StickerSheet
+          isReversed={isReversed}
+          title="Button"
+          headers={["Base", "Hover", "Active", "Focus", "Disabled"]}
+        >
+          {VARIANTS_PROPS.map(({ title, props }) => (
+            <StickerSheet.Row key={title} header={title}>
+              <Button reversed={isReversed} {...props} />
+              <Button
+                reversed={isReversed}
+                data-sb-pseudo-styles="hover"
+                {...props}
+              />
+              <Button
+                reversed={isReversed}
+                data-sb-pseudo-styles="active"
+                {...props}
+              />
+              <Button
+                reversed={isReversed}
+                data-sb-pseudo-styles="focus"
+                {...props}
+              />
+              <Button reversed={isReversed} {...props} disabled />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
 
         <StickerSheet
           isReversed={isReversed}
-          heading="Size small (formerly form)"
+          title="Size small (formerly form)"
+          headers={["Base", "Hover", "Active", "Focus", "Disabled"]}
         >
-          <StickerSheet.Header
-            headings={["Base", "Hover", "Active", "Focus", "Disabled"]}
-            hasVerticalHeadings
-          />
-          <StickerSheet.Body>
-            {VARIANTS_PROPS.map(({ title, props }) => (
-              <StickerSheet.Row key={title} rowTitle={title}>
-                <Button reversed={isReversed} {...props} size="small" />
-                <Button
-                  reversed={isReversed}
-                  data-sb-pseudo-styles="hover"
-                  {...props}
-                  size="small"
-                />
-                <Button
-                  reversed={isReversed}
-                  data-sb-pseudo-styles="active"
-                  {...props}
-                  size="small"
-                />
-                <Button
-                  reversed={isReversed}
-                  data-sb-pseudo-styles="focus"
-                  {...props}
-                  size="small"
-                />
-                <Button
-                  reversed={isReversed}
-                  {...props}
-                  disabled
-                  size="small"
-                />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+          {VARIANTS_PROPS.map(({ title, props }) => (
+            <StickerSheet.Row key={title} header={title}>
+              <Button reversed={isReversed} {...props} size="small" />
+              <Button
+                reversed={isReversed}
+                data-sb-pseudo-styles="hover"
+                {...props}
+                size="small"
+              />
+              <Button
+                reversed={isReversed}
+                data-sb-pseudo-styles="active"
+                {...props}
+                size="small"
+              />
+              <Button
+                reversed={isReversed}
+                data-sb-pseudo-styles="focus"
+                {...props}
+                size="small"
+              />
+              <Button reversed={isReversed} {...props} disabled size="small" />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
 
-        <StickerSheet isReversed={isReversed} heading="With Icon / Badge">
-          <StickerSheet.Header
-            headings={[
-              "Icon Left",
-              "Icon Right",
-              "Icon Left with Badge",
-              "Icon Right with Badge",
-              "Badge Only",
-            ]}
-            headingsWidth="10rem"
-            hasVerticalHeadings
-            verticalHeadingsWidth="12rem"
-          />
-          <StickerSheet.Body>
-            {VARIANTS_PROPS.map(({ title, props }) => (
-              <StickerSheet.Row key={title} rowTitle={title}>
-                <Button reversed={isReversed} {...props} {...ICON_LEFT_PROPS} />
-                <Button
-                  reversed={isReversed}
-                  {...props}
-                  {...ICON_RIGHT_PROPS}
-                />
-                <Button
-                  reversed={isReversed}
-                  {...props}
-                  {...BADGE_LEFT_PROPS}
-                />
-                <Button
-                  reversed={isReversed}
-                  {...props}
-                  {...BADGE_RIGHT_PROPS}
-                />
-                <Button reversed={isReversed} {...props} {...BADGE_PROPS} />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+        <StickerSheet
+          isReversed={isReversed}
+          title="With Icon / Badge"
+          headers={[
+            "Icon Left",
+            "Icon Right",
+            "Icon Left with Badge",
+            "Icon Right with Badge",
+            "Badge Only",
+          ]}
+        >
+          {VARIANTS_PROPS.map(({ title, props }) => (
+            <StickerSheet.Row key={title} header={title}>
+              <Button reversed={isReversed} {...props} {...ICON_LEFT_PROPS} />
+              <Button reversed={isReversed} {...props} {...ICON_RIGHT_PROPS} />
+              <Button reversed={isReversed} {...props} {...BADGE_LEFT_PROPS} />
+              <Button reversed={isReversed} {...props} {...BADGE_RIGHT_PROPS} />
+              <Button reversed={isReversed} {...props} {...BADGE_PROPS} />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
       </>
     )
@@ -279,55 +249,46 @@ const WorkingStickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet heading="Button" isReversed={isReversed}>
-          <StickerSheet.Header
-            headings={["Working", "Working (Focus)"]}
-            headingsWidth="10rem"
-            hasVerticalHeadings
-            verticalHeadingsWidth="12rem"
-          />
-          <StickerSheet.Body>
-            {VARIANTS_PROPS.map(({ title, props }) => (
-              <StickerSheet.Row key={title} rowTitle={title}>
-                <Button reversed={isReversed} {...props} {...WORKING_PROPS} />
-                <Button
-                  reversed={isReversed}
-                  data-sb-pseudo-styles="focus"
-                  {...props}
-                  {...WORKING_PROPS}
-                />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+        <StickerSheet
+          isReversed={isReversed}
+          title="Button"
+          headers={["Working", "Working (Focus)"]}
+        >
+          {VARIANTS_PROPS.map(({ title, props }) => (
+            <StickerSheet.Row key={title} header={title}>
+              <Button reversed={isReversed} {...props} {...WORKING_PROPS} />
+              <Button
+                reversed={isReversed}
+                data-sb-pseudo-styles="focus"
+                {...props}
+                {...WORKING_PROPS}
+              />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
 
         <StickerSheet
           isReversed={isReversed}
-          heading="Size small (formerly form)"
+          title="Size small (formerly form)"
+          headers={["Working", "Working Focus"]}
         >
-          <StickerSheet.Header
-            headings={["Working", "Working Focus"]}
-            hasVerticalHeadings
-          />
-          <StickerSheet.Body>
-            {VARIANTS_PROPS.map(({ title, props }) => (
-              <StickerSheet.Row key={title} rowTitle={title}>
-                <Button
-                  reversed={isReversed}
-                  {...props}
-                  size="small"
-                  {...WORKING_PROPS}
-                />
-                <Button
-                  reversed={isReversed}
-                  {...props}
-                  size="small"
-                  data-sb-pseudo-styles="focus"
-                  {...WORKING_PROPS}
-                />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+          {VARIANTS_PROPS.map(({ title, props }) => (
+            <StickerSheet.Row key={title} header={title}>
+              <Button
+                reversed={isReversed}
+                {...props}
+                size="small"
+                {...WORKING_PROPS}
+              />
+              <Button
+                reversed={isReversed}
+                {...props}
+                size="small"
+                data-sb-pseudo-styles="focus"
+                {...WORKING_PROPS}
+              />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
       </>
     )

@@ -28,9 +28,7 @@ export default {
   },
 } satisfies Meta
 
-export const BorderWidth: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const BorderWidth: StoryFn = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="border-width"
     classKeyValues={classEntries}
@@ -42,6 +40,5 @@ export const BorderWidth: StoryFn<{ isReversed: boolean }> = ({
         )}
       />
     )}
-    isReversed={isReversed}
   />
 )

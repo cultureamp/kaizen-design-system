@@ -32,17 +32,15 @@ export const UtilGetLocale: StickerSheetStory = {
     ]
 
     return (
-      <StickerSheet heading="Util - getLocale">
-        <StickerSheet.Body>
-          {locales.map(locale => (
-            <StickerSheet.Row key={locale} rowTitle={locale}>
-              <CalendarSingle
-                defaultMonth={new Date("2021-09-05")}
-                locale={getLocale(locale)}
-              />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
+      <StickerSheet title="Util - getLocale">
+        {locales.map(locale => (
+          <StickerSheet.Row key={locale} header={locale}>
+            <CalendarSingle
+              defaultMonth={new Date("2021-09-05")}
+              locale={getLocale(locale)}
+            />
+          </StickerSheet.Row>
+        ))}
       </StickerSheet>
     )
   },

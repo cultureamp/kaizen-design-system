@@ -17,64 +17,48 @@ export default meta
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
-    <div>
-      <StickerSheet className="" heading="Pseudo states">
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Default">
-            <StickerSheet.Cell className=" w-1/2">
-              <EditableRichTextContent
-                onClick={action("Toggle RTE")}
-                content={[]}
-                labelText="Label"
-              />
-            </StickerSheet.Cell>
-            <StickerSheet.Cell className=" w-1/2">
-              <EditableRichTextContent
-                onClick={action("Toggle RTE")}
-                content={defaultContent}
-                labelText="Label"
-              />
-            </StickerSheet.Cell>
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Hover">
-            <StickerSheet.Cell className=" w-1/2">
-              <EditableRichTextContent
-                onClick={action("Toggle RTE")}
-                data-sb-pseudo-styles="hover"
-                content={[]}
-                labelText="Label"
-              />
-            </StickerSheet.Cell>
-            <StickerSheet.Cell className=" w-1/2">
-              <EditableRichTextContent
-                onClick={action("Toggle RTE")}
-                data-sb-pseudo-styles="hover"
-                content={defaultContent}
-                labelText="Label"
-              />
-            </StickerSheet.Cell>
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Focus">
-            <StickerSheet.Cell className=" w-1/2">
-              <EditableRichTextContent
-                onClick={action("Toggle RTE")}
-                data-sb-pseudo-styles="focusWithin"
-                content={[]}
-                labelText="Label"
-              />
-            </StickerSheet.Cell>
-            <StickerSheet.Cell className=" w-1/2">
-              <EditableRichTextContent
-                onClick={action("Toggle RTE")}
-                data-sb-pseudo-styles="focusWithin"
-                content={defaultContent}
-                labelText="Label"
-              />
-            </StickerSheet.Cell>
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-    </div>
+    <StickerSheet title="EditableRichTextContent" layout="stretch">
+      <StickerSheet.Row header="Default">
+        <EditableRichTextContent
+          onClick={action("Toggle RTE")}
+          content={[]}
+          labelText="Label"
+        />
+        <EditableRichTextContent
+          onClick={action("Toggle RTE")}
+          content={defaultContent}
+          labelText="Label"
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Hover">
+        <EditableRichTextContent
+          onClick={action("Toggle RTE")}
+          data-sb-pseudo-styles="hover"
+          content={[]}
+          labelText="Label"
+        />
+        <EditableRichTextContent
+          onClick={action("Toggle RTE")}
+          data-sb-pseudo-styles="hover"
+          content={defaultContent}
+          labelText="Label"
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Focus">
+        <EditableRichTextContent
+          onClick={action("Toggle RTE")}
+          data-sb-pseudo-styles="focusWithin"
+          content={[]}
+          labelText="Label"
+        />
+        <EditableRichTextContent
+          onClick={action("Toggle RTE")}
+          data-sb-pseudo-styles="focusWithin"
+          content={defaultContent}
+          labelText="Label"
+        />
+      </StickerSheet.Row>
+    </StickerSheet>
   ),
   parameters: {
     pseudo: {

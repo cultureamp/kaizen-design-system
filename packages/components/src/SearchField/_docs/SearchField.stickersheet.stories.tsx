@@ -40,39 +40,40 @@ const StickerSheetTemplate: StickerSheetStory = {
       <>
         {variants.map(({ heading, variantProps }) => (
           <React.Fragment key={heading}>
-            <StickerSheet isReversed={isReversed} heading={heading}>
-              <StickerSheet.Header headings={["Base", "Filled", "Loading"]} />
-              <StickerSheet.Body>
-                <StickerSheet.Row>
-                  <SearchField {...variantProps} {...COMMON_PROPS} value="" />
-                  <SearchField {...variantProps} {...COMMON_PROPS} />
-                  <SearchField {...variantProps} {...COMMON_PROPS} loading />
-                </StickerSheet.Row>
-              </StickerSheet.Body>
+            <StickerSheet
+              isReversed={isReversed}
+              title={heading}
+              headers={["Base", "Filled", "Loading"]}
+            >
+              <StickerSheet.Row>
+                <SearchField {...variantProps} {...COMMON_PROPS} value="" />
+                <SearchField {...variantProps} {...COMMON_PROPS} />
+                <SearchField {...variantProps} {...COMMON_PROPS} loading />
+              </StickerSheet.Row>
             </StickerSheet>
 
-            <StickerSheet isReversed={isReversed}>
-              <StickerSheet.Header headings={["Disabled", "Hover", "Focus"]} />
-              <StickerSheet.Body>
-                <StickerSheet.Row>
-                  <SearchField
-                    {...variantProps}
-                    {...COMMON_PROPS}
-                    value=""
-                    disabled
-                  />
-                  <SearchField
-                    {...variantProps}
-                    {...COMMON_PROPS}
-                    classNameOverride="story__input-search-hover"
-                  />
-                  <SearchField
-                    {...variantProps}
-                    {...COMMON_PROPS}
-                    classNameOverride="story__input-search-focus"
-                  />
-                </StickerSheet.Row>
-              </StickerSheet.Body>
+            <StickerSheet
+              isReversed={isReversed}
+              headers={["Disabled", "Hover", "Focus"]}
+            >
+              <StickerSheet.Row>
+                <SearchField
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  value=""
+                  disabled
+                />
+                <SearchField
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  classNameOverride="story__input-search-hover"
+                />
+                <SearchField
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  classNameOverride="story__input-search-focus"
+                />
+              </StickerSheet.Row>
             </StickerSheet>
           </React.Fragment>
         ))}

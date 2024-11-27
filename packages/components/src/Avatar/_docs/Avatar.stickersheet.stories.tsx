@@ -71,39 +71,37 @@ const ROWS: Array<{ title: string; size: AvatarSizes }> = [
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
-      <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Header
-          headings={[
-            "Photo Personal",
-            "Initials Personal",
-            "Initials Generic",
-            "Default User",
-          ]}
-        />
-        <StickerSheet.Body>
-          {ROWS.map(({ title, size }) => (
-            <StickerSheet.Row key={title} rowTitle={title}>
-              <Avatar {...PROPS_PHOTO_PERSONAL} size={size} />
-              <Avatar {...PROPS_INITIALS_PERSONAL} size={size} />
-              <Avatar {...PROPS_INITIALS_GENERIC} size={size} />
-              <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size={size} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
+      <StickerSheet
+        isReversed={isReversed}
+        headers={[
+          "Photo Personal",
+          "Initials Personal",
+          "Initials Generic",
+          "Default User",
+        ]}
+      >
+        {ROWS.map(({ title, size }) => (
+          <StickerSheet.Row key={title} header={title}>
+            <Avatar {...PROPS_PHOTO_PERSONAL} size={size} />
+            <Avatar {...PROPS_INITIALS_PERSONAL} size={size} />
+            <Avatar {...PROPS_INITIALS_GENERIC} size={size} />
+            <Avatar {...PROPS_INITIALS_GENERIC} disableInitials size={size} />
+          </StickerSheet.Row>
+        ))}
       </StickerSheet>
-      <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Header
-          headings={["Initials Unicode", "Initials Long", "Company Avatar"]}
-        />
-        <StickerSheet.Body>
-          {ROWS.map(({ title, size }) => (
-            <StickerSheet.Row key={title} rowTitle={title}>
-              <Avatar {...PROPS_INITIALS_UNICODE} size={size} />
-              <Avatar {...PROPS_INITIALS_LONG} size={size} />
-              <Avatar {...PROPS_COMPANY} size={size} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
+
+      <StickerSheet
+        isReversed={isReversed}
+        headers={["Initials Unicode", "Initials Long", "Company Avatar"]}
+        className="mt-64"
+      >
+        {ROWS.map(({ title, size }) => (
+          <StickerSheet.Row key={title} header={title}>
+            <Avatar {...PROPS_INITIALS_UNICODE} size={size} />
+            <Avatar {...PROPS_INITIALS_LONG} size={size} />
+            <Avatar {...PROPS_COMPANY} size={size} />
+          </StickerSheet.Row>
+        ))}
       </StickerSheet>
     </>
   ),

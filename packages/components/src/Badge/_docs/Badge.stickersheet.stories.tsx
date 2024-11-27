@@ -16,28 +16,28 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Size", "Default", "Active", "Dot"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Small">
-          <Badge size="small" variant="default" reversed={isReversed}>
-            3
-          </Badge>
-          <Badge size="small" variant="active" reversed={isReversed}>
-            3
-          </Badge>
-          <Badge size="small" variant="dot" reversed={isReversed} />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Large">
-          <Badge size="large" variant="default" reversed={isReversed}>
-            3
-          </Badge>
-          <Badge size="large" variant="active" reversed={isReversed}>
-            3
-          </Badge>
-          <Badge size="large" variant="dot" reversed={isReversed} />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Default", "Active", "Dot"]}
+    >
+      <StickerSheet.Row header="Small">
+        <Badge size="small" variant="default" reversed={isReversed}>
+          3
+        </Badge>
+        <Badge size="small" variant="active" reversed={isReversed}>
+          3
+        </Badge>
+        <Badge size="small" variant="dot" reversed={isReversed} />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Large">
+        <Badge size="large" variant="default" reversed={isReversed}>
+          3
+        </Badge>
+        <Badge size="large" variant="active" reversed={isReversed}>
+          3
+        </Badge>
+        <Badge size="large" variant="dot" reversed={isReversed} />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }

@@ -53,29 +53,23 @@ export const Filled: Story = {
 
 export const MirrorInRTL: Story = {
   render: args => (
-    <StickerSheet>
-      <StickerSheet.Header
-        headings={['dir=["ltr"]', 'dir=["rtl"]']}
-        hasVerticalHeadings
-      />
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="arrow_forward">
-          <div dir="ltr" className="text-center">
-            <Icon {...args} name="arrow_forward" shouldMirrorInRTL />
-          </div>
-          <div dir="rtl" className="text-center">
-            <Icon {...args} name="arrow_forward" shouldMirrorInRTL />
-          </div>
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="format_list_numbered">
-          <div dir="ltr" className="text-center">
-            <Icon {...args} name="format_list_numbered" shouldMirrorInRTL />
-          </div>
-          <div dir="rtl" className="text-center">
-            <Icon {...args} name="format_list_numbered" shouldMirrorInRTL />
-          </div>
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet headers={['dir=["ltr"]', 'dir=["rtl"]']}>
+      <StickerSheet.Row header="arrow_forward">
+        <div dir="ltr" className="text-center">
+          <Icon {...args} name="arrow_forward" shouldMirrorInRTL />
+        </div>
+        <div dir="rtl" className="text-center">
+          <Icon {...args} name="arrow_forward" shouldMirrorInRTL />
+        </div>
+      </StickerSheet.Row>
+      <StickerSheet.Row header="format_list_numbered">
+        <div dir="ltr" className="text-center">
+          <Icon {...args} name="format_list_numbered" shouldMirrorInRTL />
+        </div>
+        <div dir="rtl" className="text-center">
+          <Icon {...args} name="format_list_numbered" shouldMirrorInRTL />
+        </div>
+      </StickerSheet.Row>
     </StickerSheet>
   ),
   parameters: {

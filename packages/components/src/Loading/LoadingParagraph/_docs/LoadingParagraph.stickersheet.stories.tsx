@@ -17,22 +17,20 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Default">
-          <StickerSheet.Cell className="w-320">
-            <LoadingParagraph isReversed={isReversed} />
-          </StickerSheet.Cell>
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="isLink">
-          <LoadingParagraph isLink isReversed={isReversed} />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="isInline + isInline">
-          <StickerSheet.Cell>
-            <LoadingParagraph isInline width={40} isReversed={isReversed} />
-            <LoadingParagraph isInline width={40} isReversed={isReversed} />
-          </StickerSheet.Cell>
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+      <StickerSheet.Row header="Default">
+        <StickerSheet.Cell className="w-320">
+          <LoadingParagraph isReversed={isReversed} />
+        </StickerSheet.Cell>
+      </StickerSheet.Row>
+      <StickerSheet.Row header="isLink">
+        <LoadingParagraph isLink isReversed={isReversed} />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="isInline + isInline">
+        <StickerSheet.Cell>
+          <LoadingParagraph isInline width={40} isReversed={isReversed} />
+          <LoadingParagraph isInline width={40} isReversed={isReversed} />
+        </StickerSheet.Cell>
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }

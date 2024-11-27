@@ -32,56 +32,53 @@ const TextFieldExampleGroup = (props: TextFieldProps): JSX.Element => (
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Default", "Hover", "Active", "Focus", "Disabled"]}
-        hasVerticalHeadings
-      />
-      <StickerSheet.Body>
-        {InputStatus.map(status => (
-          <StickerSheet.Row key={status} rowTitle={status}>
-            <TextFieldExampleGroup
-              reversed={isReversed}
-              labelText="TextField"
-              description="A short description"
-              status={status}
-              validationMessage="A valid question"
-            />
-            <TextFieldExampleGroup
-              reversed={isReversed}
-              labelText="TextField"
-              description="A short description"
-              status={status}
-              validationMessage="A valid question"
-              data-sb-pseudo-styles="hover"
-            />
-            <TextFieldExampleGroup
-              reversed={isReversed}
-              labelText="TextField"
-              description="A short description"
-              status={status}
-              validationMessage="A valid question"
-              data-sb-pseudo-styles="active"
-            />
-            <TextFieldExampleGroup
-              reversed={isReversed}
-              labelText="TextField"
-              description="A short description"
-              status={status}
-              validationMessage="A valid question"
-              data-sb-pseudo-styles="focus"
-            />
-            <TextFieldExampleGroup
-              reversed={isReversed}
-              labelText="TextField"
-              description="A short description"
-              status={status}
-              validationMessage="A valid question"
-              disabled
-            />
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Default", "Hover", "Active", "Focus", "Disabled"]}
+    >
+      {InputStatus.map(status => (
+        <StickerSheet.Row key={status} header={status}>
+          <TextFieldExampleGroup
+            reversed={isReversed}
+            labelText="TextField"
+            description="A short description"
+            status={status}
+            validationMessage="A valid question"
+          />
+          <TextFieldExampleGroup
+            reversed={isReversed}
+            labelText="TextField"
+            description="A short description"
+            status={status}
+            validationMessage="A valid question"
+            data-sb-pseudo-styles="hover"
+          />
+          <TextFieldExampleGroup
+            reversed={isReversed}
+            labelText="TextField"
+            description="A short description"
+            status={status}
+            validationMessage="A valid question"
+            data-sb-pseudo-styles="active"
+          />
+          <TextFieldExampleGroup
+            reversed={isReversed}
+            labelText="TextField"
+            description="A short description"
+            status={status}
+            validationMessage="A valid question"
+            data-sb-pseudo-styles="focus"
+          />
+          <TextFieldExampleGroup
+            reversed={isReversed}
+            labelText="TextField"
+            description="A short description"
+            status={status}
+            validationMessage="A valid question"
+            disabled
+          />
+        </StickerSheet.Row>
+      ))}
     </StickerSheet>
   ),
   parameters: {

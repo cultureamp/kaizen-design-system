@@ -1,70 +1,115 @@
-import React, { TableHTMLAttributes } from "react"
+import React, { HTMLAttributes } from "react"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import isChromatic from "chromatic"
 import classnames from "classnames"
 import { Heading } from "~components/Heading"
-import {
-  StickerSheetBody,
-  StickerSheetBodyProps,
-} from "./components/StickerSheetBody"
 import { StickerSheetCell } from "./components/StickerSheetCell"
+import { StickerSheetHeader } from "./components/StickerSheetHeader"
 import {
-  StickerSheetHeader,
-  StickerSheetHeaderProps,
-} from "./components/StickerSheetHeader"
-import { StickerSheetRow } from "./components/StickerSheetRow"
+  StickerSheetRow,
+  StickerSheetRowProps,
+} from "./components/StickerSheetRow"
 import styles from "./StickerSheet.module.css"
 
-type ReversibleSubcomponents = StickerSheetBodyProps | StickerSheetHeaderProps
+const IS_CHROMATIC = isChromatic()
+
+const countMaxColumns = (children: React.ReactNode): number =>
+  React.Children.toArray(children).reduce<number>((acc, child) => {
+    if (React.isValidElement(child) && child.type === StickerSheetRow) {
+      return Math.max(acc, React.Children.count(child.props.children))
+    }
+    return acc
+  }, 0)
+
+type ReversibleSubcomponents = StickerSheetRowProps
 
 const isReversibleSubcomponent = (
   child: React.ReactNode
 ): child is React.ReactElement<ReversibleSubcomponents> =>
   React.isValidElement<ReversibleSubcomponents>(child) &&
-  (child.type === StickerSheetHeader || child.type === StickerSheetBody)
+  child.type === StickerSheetRow
 
 export type StickerSheetProps = {
   children: React.ReactNode
-  heading?: string
+  title?: string
+  headers?: string[]
+  layout?: "fit-content" | "stretch"
   isReversed?: boolean
-} & TableHTMLAttributes<HTMLTableElement>
+} & Omit<HTMLAttributes<HTMLDivElement>, "layout">
 
 export const StickerSheet = ({
   children,
-  heading,
+  title,
+  headers,
+  layout = "fit-content",
   isReversed = false,
   className,
+  style,
   ...restProps
-}: StickerSheetProps): JSX.Element => (
-  <div className={styles.stickerSheet}>
-    {heading && (
-      <Heading
-        variant="heading-3"
-        tag="h1"
-        color={isReversed ? "white" : "dark"}
-        classNameOverride={styles.stickerSheetSectionHeading}
-      >
-        {heading}
-      </Heading>
-    )}
+}: StickerSheetProps): JSX.Element => {
+  const hasVerticalHeaders = React.Children.toArray(children).some(
+    child =>
+      React.isValidElement(child) &&
+      child.type === StickerSheetRow &&
+      child.props.header !== undefined
+  )
 
-    <table
-      className={classnames(styles.stickerSheetTable, className)}
-      {...restProps}
+  const colCount = headers?.length ?? countMaxColumns(children)
+
+  const gridTemplateColumns = hasVerticalHeaders
+    ? `fit-content(100%) repeat(${colCount}, 1fr)`
+    : `repeat(${colCount}, 1fr)`
+
+  return (
+    <div
+      className={classnames(
+        styles.stickerSheetContainer,
+        IS_CHROMATIC && "p-12"
+      )}
     >
-      {React.Children.map(children, child => {
-        if (isReversibleSubcomponent(child)) {
-          return React.cloneElement(child, {
-            ...child.props,
-            isReversed,
-          })
-        }
-        return child
-      })}
-    </table>
-  </div>
-)
+      {title && (
+        <Heading
+          variant="heading-3"
+          tag="h1"
+          color={isReversed ? "white" : "dark"}
+          classNameOverride={styles.stickerSheetSectionHeading}
+        >
+          {title}
+        </Heading>
+      )}
 
-StickerSheet.Header = StickerSheetHeader
-StickerSheet.Body = StickerSheetBody
+      <div
+        className={classnames(
+          styles.stickerSheet,
+          layout === "stretch" && styles.stretch,
+          className
+        )}
+        style={{ gridTemplateColumns, ...style }}
+        {...restProps}
+      >
+        {headers && (
+          <div className={styles.stickerSheetHeaders}>
+            {hasVerticalHeaders && <div />}
+            {headers.map(heading => (
+              <StickerSheetHeader key={heading} isReversed={isReversed}>
+                {heading}
+              </StickerSheetHeader>
+            ))}
+          </div>
+        )}
+        {React.Children.map(children, child => {
+          if (isReversibleSubcomponent(child)) {
+            return React.cloneElement(child, {
+              isReversed,
+            })
+          }
+          return child
+        })}
+      </div>
+    </div>
+  )
+}
+
 StickerSheet.Row = StickerSheetRow
 StickerSheet.Cell = StickerSheetCell
 

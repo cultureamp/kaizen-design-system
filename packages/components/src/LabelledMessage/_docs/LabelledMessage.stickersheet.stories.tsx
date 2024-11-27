@@ -17,11 +17,9 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <LabelledMessage label="Label" message="Custom message here" />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+      <StickerSheet.Row>
+        <LabelledMessage label="Label" message="Custom message here" />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }

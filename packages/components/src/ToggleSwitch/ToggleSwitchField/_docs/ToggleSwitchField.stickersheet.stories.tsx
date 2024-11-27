@@ -16,56 +16,53 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Default", "Hover", "Focus", "Disabled"]}
-        hasVerticalHeadings
-      />
-      <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="off">
-          <ToggleSwitchField labelText="Toggle me" reversed={isReversed} />
-          <ToggleSwitchField
-            labelText="Toggle me"
-            reversed={isReversed}
-            data-sb-pseudo-styles="hover"
-          />
-          <ToggleSwitchField
-            labelText="Toggle me"
-            reversed={isReversed}
-            data-sb-pseudo-styles="focus"
-          />
-          <ToggleSwitchField
-            labelText="Toggle me"
-            reversed={isReversed}
-            disabled
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="on">
-          <ToggleSwitchField
-            labelText="Toggle me"
-            toggledStatus="on"
-            reversed={isReversed}
-          />
-          <ToggleSwitchField
-            labelText="Toggle me"
-            toggledStatus="on"
-            reversed={isReversed}
-            data-sb-pseudo-styles="hover"
-          />
-          <ToggleSwitchField
-            labelText="Toggle me"
-            toggledStatus="on"
-            reversed={isReversed}
-            data-sb-pseudo-styles="focus"
-          />
-          <ToggleSwitchField
-            labelText="Toggle me"
-            toggledStatus="on"
-            reversed={isReversed}
-            disabled
-          />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+    <StickerSheet
+      isReversed={isReversed}
+      headers={["Default", "Hover", "Focus", "Disabled"]}
+    >
+      <StickerSheet.Row header="off">
+        <ToggleSwitchField labelText="Toggle me" reversed={isReversed} />
+        <ToggleSwitchField
+          labelText="Toggle me"
+          reversed={isReversed}
+          data-sb-pseudo-styles="hover"
+        />
+        <ToggleSwitchField
+          labelText="Toggle me"
+          reversed={isReversed}
+          data-sb-pseudo-styles="focus"
+        />
+        <ToggleSwitchField
+          labelText="Toggle me"
+          reversed={isReversed}
+          disabled
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="on">
+        <ToggleSwitchField
+          labelText="Toggle me"
+          toggledStatus="on"
+          reversed={isReversed}
+        />
+        <ToggleSwitchField
+          labelText="Toggle me"
+          toggledStatus="on"
+          reversed={isReversed}
+          data-sb-pseudo-styles="hover"
+        />
+        <ToggleSwitchField
+          labelText="Toggle me"
+          toggledStatus="on"
+          reversed={isReversed}
+          data-sb-pseudo-styles="focus"
+        />
+        <ToggleSwitchField
+          labelText="Toggle me"
+          toggledStatus="on"
+          reversed={isReversed}
+          disabled
+        />
+      </StickerSheet.Row>
     </StickerSheet>
   ),
   parameters: {

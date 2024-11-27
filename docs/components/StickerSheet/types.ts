@@ -1,10 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { StoryObj } from "@storybook/react"
-import type { ColorSchema } from "~components/LikertScaleLegacy"
 
-export type StickerSheetArgs = {
+export type StickerSheetArgs<T extends Record<string, any>> = {
   isReversed?: boolean
-  colorSchema?: ColorSchema
-}
+} & T
 
-export type StickerSheetStory = StoryObj<StickerSheetArgs>
+export type StickerSheetStory<T extends Record<string, any> = object> =
+  StoryObj<StickerSheetArgs<T>>

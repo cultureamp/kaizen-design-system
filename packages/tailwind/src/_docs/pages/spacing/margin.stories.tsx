@@ -28,7 +28,7 @@ export default {
   },
 } satisfies Meta
 
-export const Margin: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+export const Margin: StoryFn = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="margin"
     classKeyValues={classEntries}
@@ -44,6 +44,5 @@ export const Margin: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
         </p>
       </div>
     )}
-    isReversed={isReversed}
   />
 )

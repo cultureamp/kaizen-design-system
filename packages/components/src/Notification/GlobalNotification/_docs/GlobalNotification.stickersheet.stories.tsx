@@ -85,23 +85,20 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet heading="GlobalNotification" isReversed={isReversed}>
-          <StickerSheet.Body>
-            {variants.map(({ title, props }) => (
-              <StickerSheet.Row key={title} rowTitle={title}>
-                <GlobalNotification {...defaultProps} {...props} />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+        <StickerSheet title="GlobalNotification" isReversed={isReversed}>
+          {variants.map(({ title, props }) => (
+            <StickerSheet.Row key={title} header={title}>
+              <GlobalNotification {...defaultProps} {...props} />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
-        <StickerSheet heading="Type (deprecated)" isReversed={isReversed}>
-          <StickerSheet.Body>
-            {types.map(({ title, props }) => (
-              <StickerSheet.Row key={title} rowTitle={title}>
-                <GlobalNotification {...defaultProps} {...props} />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
+
+        <StickerSheet title="Type (deprecated)" isReversed={isReversed}>
+          {types.map(({ title, props }) => (
+            <StickerSheet.Row key={title} header={title}>
+              <GlobalNotification {...defaultProps} {...props} />
+            </StickerSheet.Row>
+          ))}
         </StickerSheet>
       </>
     )

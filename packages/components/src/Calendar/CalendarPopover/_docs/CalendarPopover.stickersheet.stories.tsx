@@ -99,7 +99,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
       <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Row rowTitle="Default">
+        <StickerSheet.Row header="Default">
           <CalendarPopoverExample rowHeight={102}>
             CalendarPopover
             <br />
@@ -107,13 +107,13 @@ const StickerSheetTemplate: StickerSheetStory = {
           </CalendarPopoverExample>
         </StickerSheet.Row>
 
-        <StickerSheet.Row rowTitle="CalendarSingle">
+        <StickerSheet.Row header="CalendarSingle">
           <CalendarPopoverExample rowHeight={350}>
             <CalendarSingle selected={new Date("2022-02-19")} />
           </CalendarPopoverExample>
         </StickerSheet.Row>
 
-        <StickerSheet.Row rowTitle="CalendarRange">
+        <StickerSheet.Row header="CalendarRange">
           <CalendarPopoverExample rowHeight={350}>
             <CalendarRange
               selected={{
@@ -124,7 +124,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           </CalendarPopoverExample>
         </StickerSheet.Row>
 
-        <StickerSheet.Row rowTitle="CalendarRange with divider">
+        <StickerSheet.Row header="CalendarRange with divider">
           <CalendarPopoverExample rowHeight={350}>
             <CalendarRange
               data-testid="sb-final-calendar"

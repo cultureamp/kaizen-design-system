@@ -49,19 +49,13 @@ const headingVariants = [
 
 export const Variant: Story = {
   render: () => (
-    <StickerSheet>
-      <StickerSheet.Header
-        headings={["<LoadingHeading />", "<Heading />"]}
-        hasVerticalHeadings
-      />
-      <StickerSheet.Body>
-        {headingVariants.map(variant => (
-          <StickerSheet.Row key={variant} rowTitle={variant}>
-            <LoadingHeading variant={variant} />
-            <Heading variant={variant}>Heading</Heading>
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
+    <StickerSheet headers={["<LoadingHeading />", "<Heading />"]}>
+      {headingVariants.map(variant => (
+        <StickerSheet.Row key={variant} header={variant}>
+          <LoadingHeading variant={variant} />
+          <Heading variant={variant}>Heading</Heading>
+        </StickerSheet.Row>
+      ))}
     </StickerSheet>
   ),
 }

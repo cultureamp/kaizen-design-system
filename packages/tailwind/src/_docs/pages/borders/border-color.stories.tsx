@@ -26,9 +26,7 @@ export default {
   },
 } satisfies Meta
 
-export const BorderColor: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const BorderColor: StoryFn = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="border-color"
     classKeyValues={classEntries}
@@ -40,6 +38,5 @@ export const BorderColor: StoryFn<{ isReversed: boolean }> = ({
         )}
       />
     )}
-    isReversed={isReversed}
   />
 )
