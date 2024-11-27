@@ -66,7 +66,7 @@ export const GenericTile = ({
         defaultMessage: "View more information: ",
         description:
           "Prompts user to interact with button to reveal more information",
-      })
+      }) + title
 
   const renderTitle = (): JSX.Element => (
     <div className={styles.title}>
@@ -94,7 +94,7 @@ export const GenericTile = ({
       {information && (
         <div className={styles.informationBtn}>
           <IconButton
-            label={`${translatedInfoLabel} ${title}`}
+            label={translatedInfoLabel}
             icon={<Icon name="info" isPresentational isFilled />}
             onClick={(): void => setIsFlipped(true)}
             disabled={isFlipped}
