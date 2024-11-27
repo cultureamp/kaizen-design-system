@@ -181,5 +181,28 @@ export const ClearAll: Story = {
         ).toBe(null)
       )
     })
+
+    await step("removable filter is added with no value", async () => {
+      await userEvent.click(canvas.getByRole("button", { name: "Add Filters" }))
+      await userEvent.click(canvas.getByRole("button", { name: "Drank" }))
+      expect(canvas.getByRole("button", { name: "Drank" })).toBeInTheDocument()
+    })
+
+    await step(
+      "Clear all button hides by itself after removing filter",
+      async () => {
+        await userEvent.click(
+          canvas.getByRole("button", { name: "Remove filter - Drank" })
+        )
+      }
+    )
+
+    waitFor(() =>
+      expect(
+        canvas.queryByRole("button", {
+          name: "Clear all filters",
+        })
+      ).toBe(null)
+    )
   },
 }
