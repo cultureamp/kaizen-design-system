@@ -23,7 +23,7 @@ export type GenericTileProps = {
   titleTag?: AllowedHeadingTags
   metadata?: string
   information?: TileInformation | React.ReactNode
-  /** @default Information */
+  /** Provides accessible label for the title's info button @default "View more information: [title]" */
   infoButtonLabel?: string
   /** @deprecated Use `variant` instead */
   mood?:
@@ -59,13 +59,14 @@ export const GenericTile = ({
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
   const { formatMessage } = useIntl()
 
-  infoButtonLabel = infoButtonLabel
-    ? formatMessage({
+  const translatedInfoLabel = infoButtonLabel
+    ? infoButtonLabel
+    : formatMessage({
         id: "kzGenericTile.infoButtonLabel",
-        defaultMessage: infoButtonLabel,
-        description: "Info Button Label",
+        defaultMessage: "View more information: ",
+        description:
+          "Prompts user to interact with button to reveal more information",
       })
-    : "See more about {$title}"
 
   const renderTitle = (): JSX.Element => (
     <div className={styles.title}>
@@ -93,7 +94,7 @@ export const GenericTile = ({
       {information && (
         <div className={styles.informationBtn}>
           <IconButton
-            label={infoButtonLabel}
+            label={`${translatedInfoLabel} ${title}`}
             icon={<Icon name="info" isPresentational isFilled />}
             onClick={(): void => setIsFlipped(true)}
             disabled={isFlipped}
@@ -148,11 +149,17 @@ export const GenericTile = ({
   const renderBack = (): JSX.Element | void => {
     if (!information) return
 
+    const returnButtonLabel = formatMessage({
+      id: "kzGenericTile.infoButtonReturnLabel",
+      defaultMessage: "Hide information: ",
+      description: "Prompts user to interact with button to hide information",
+    })
+
     return (
       <div className={classnames(styles.face, styles.faceBack)}>
         <div className={styles.informationBtn}>
           <IconButton
-            label={`Return to ${title}`}
+            label={`${returnButtonLabel} ${title}`}
             icon={<Icon name="arrow_back" isPresentational />}
             onClick={(): void => setIsFlipped(false)}
             disabled={!isFlipped}

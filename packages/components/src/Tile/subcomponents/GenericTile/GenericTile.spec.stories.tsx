@@ -40,7 +40,7 @@ export const InfoButtonLabel: Story = {
     const canvas = within(canvasElement)
 
     const buttonWithInfoLabel = canvas.getByRole("button", {
-      name: "Test Label",
+      name: "Test Label Title",
     })
     buttonWithInfoLabel.focus()
     await expect(buttonWithInfoLabel).toHaveFocus()
