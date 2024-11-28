@@ -50,6 +50,24 @@ describe("transformIconButtonToButton()", () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
+    it("changes reversed to isReversed", () => {
+      const inputAst = parseJsx(`
+        <>
+          <IconButton icon={icon} label="Pancakes" reversed />
+          <IconButton icon={icon} label="Pancakes" reversed={true} />
+          <IconButton icon={icon} label="Pancakes" reversed={false} />
+        </>
+      `)
+      const outputAst = parseJsx(`
+        <>
+          <Button icon={icon} isReversed hasHiddenLabel>Pancakes</Button>
+          <Button icon={icon} isReversed hasHiddenLabel>Pancakes</Button>
+          <Button icon={icon} isReversed={false} hasHiddenLabel>Pancakes</Button>
+        </>
+      `)
+      expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    })
+
     // @todo: Update when we know what to change variants to
     describe("transform variant", () => {
       it("changes default (undefined) to TBC", () => {

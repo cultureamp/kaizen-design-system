@@ -1,6 +1,23 @@
 import ts from "typescript"
 import { createJsxElementWithChildren, createProp } from "../utils"
 
+// @todo: Move to utils
+const transformBooleanProp = (
+  newName: string,
+  propValue: ts.JsxAttributeValue | undefined
+): ts.JsxAttribute => {
+  if (!propValue) return createProp(newName)
+
+  if (
+    ts.isJsxExpression(propValue) &&
+    propValue.expression?.kind === ts.SyntaxKind.TrueKeyword
+  ) {
+    return createProp(newName)
+  }
+
+  return createProp(newName, propValue)
+}
+
 /**
  * @returns
  * - `ts.JsxAttribute` if the prop should be transformed
@@ -14,6 +31,8 @@ const transformProp = (
   switch (propName) {
     case "onClick":
       return createProp("onPress", propValue)
+    case "reversed":
+      return transformBooleanProp("isReversed", propValue)
     default:
       return undefined
   }

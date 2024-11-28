@@ -108,10 +108,11 @@ Released in `TBC`
 
 Migrates `IconButton` component to `Button` V3.
 
+- `hasHiddenLabel` will be added
 - `label` becomes `children`
   - eg. `<IconButton label="Hello" />` becomes `<Button>Hello</Button>`
 - `onClick` becomes `onPress`
-- `hasHiddenLabel` will be added
+- `reversed` becomes `isReversed`
 - Imports are updated
 
 ### `upgradeIconV1`
