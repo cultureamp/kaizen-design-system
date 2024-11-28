@@ -146,4 +146,14 @@ describe("createJsxElementWithChildren()", () => {
       printAst(outputAst)
     )
   })
+
+  it("adds a comment if no value for children has been passed in", () => {
+    const inputAst = parseJsx('<Button variant="primary" />')
+    const outputAst = parseJsx(`<Button variant="primary">
+/* @todo Children required but a value was not found during the codemod */
+</Button>`)
+    expect(testCreateJsxElementWithChildren(inputAst)).toEqual(
+      printAst(outputAst)
+    )
+  })
 })
