@@ -22,7 +22,7 @@ export const updateDependentFilters = <ValuesMap extends FiltersValues>(
 
     if (!isUsable) {
       state.activeFilterIds.delete(id)
-      state.values[id] = undefined
+      delete state.values[id]
       state.hasUpdatedValues = true
       return
     }
