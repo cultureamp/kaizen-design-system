@@ -164,6 +164,14 @@
     "description" : "Home button label",
     "message" : "Pergi kepada Laman Utama"
   },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "Lihat maklumat lanjut:"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "Sembunyikan maklumat:"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "Tindakan tambahan"
