@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
-import { Menu, MenuList, MenuItem, Button } from "~components/__actions__/v2"
+import { Popover } from "react-aria-components"
+import { MenuTrigger, Menu, MenuItem, Button } from "~components/__actions__/v3"
 import { Icon } from "~components/__future__/Icon"
 import { useFilterBarContext } from "../../context/FilterBarContext"
 
@@ -27,27 +28,26 @@ export const AddFiltersMenu = (): JSX.Element => {
   }, [focusId])
 
   return (
-    <Menu
-      button={
-        <Button
-          ref={buttonRef}
-          label={menuButtonLabel}
-          secondary
-          disabled={inactiveFilters.length === 0}
-          icon={<Icon name="add" isPresentational />}
-        />
-      }
-    >
-      <MenuList>
-        {inactiveFilters.map(({ id, name }) => (
-          <MenuItem
-            key={id}
-            label={name}
-            onClick={(): void => showFilter(id)}
-          />
-        ))}
-      </MenuList>
-    </Menu>
+    <MenuTrigger>
+      <Button
+        ref={buttonRef}
+        size="large"
+        icon={<Icon name="add" isPresentational />}
+        variant="tertiary"
+        isDisabled={inactiveFilters.length === 0}
+      >
+        {menuButtonLabel}
+      </Button>
+      <Popover>
+        <Menu>
+          {inactiveFilters.map(({ id, name }) => (
+            <MenuItem key={id} onAction={(): void => showFilter(id)}>
+              {name}
+            </MenuItem>
+          ))}
+        </Menu>
+      </Popover>
+    </MenuTrigger>
   )
 }
 
