@@ -38,12 +38,6 @@ export const Flip: Story = {
 }
 
 export const InfoButtonLabelDefault: Story = {
-  args: {
-    title: "Title",
-    metadata: "Side A",
-    information: "Side B",
-    footer: <>Example Footer</>,
-  },
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
 
@@ -70,10 +64,6 @@ export const InfoButtonLabelDefault: Story = {
 export const InfoButtonLabel: Story = {
   args: {
     infoButtonLabel: "Test Label",
-    title: "Title",
-    metadata: "Side A",
-    information: "Side B",
-    footer: <>Example Footer</>,
   },
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
