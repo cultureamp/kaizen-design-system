@@ -62,7 +62,6 @@ export const GenericTile = ({
   const { formatMessage } = useIntl()
   const infoButtonRef = useRef<HTMLButtonElement>(null)
   const infoButtonReturnRef = useRef<HTMLButtonElement>(null)
-
   useEffect(() => {
     setIsMounted(true)
   }, [])
