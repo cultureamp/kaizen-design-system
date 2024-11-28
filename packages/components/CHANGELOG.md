@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.68.3
+
+### Patch Changes
+
+- [#5323](https://github.com/cultureamp/kaizen-design-system/pull/5323) [`0aa9923`](https://github.com/cultureamp/kaizen-design-system/commit/0aa9923aac781577ece76858bc48c7c217e428cb) - Add infoButtonLabel prop to GenericTile and internationalise default label.
+
 ## 1.68.2
 
 ### Patch Changes

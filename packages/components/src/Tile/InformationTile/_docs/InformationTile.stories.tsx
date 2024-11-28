@@ -54,3 +54,10 @@ export const Information: Story = {
     information: "Side B",
   },
 }
+
+export const TileWithCustomInfoLabel: Story = {
+  args: {
+    infoButtonLabel: "Test",
+    information: "Side B",
+  },
+}
