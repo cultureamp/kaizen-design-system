@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useState } from "react"
+import React, { HTMLAttributes, useState, useRef, useEffect } from "react"
 import classnames from "classnames"
 import { AllowedHeadingTags, Heading } from "~components/Heading"
 import { Text } from "~components/Text"
@@ -53,6 +53,7 @@ export const GenericTile = ({
   ...restProps
 }: GenericTileProps): JSX.Element => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
+  const tileRef = useRef(null)
 
   const renderTitle = (): JSX.Element => (
     <div className={styles.title}>
@@ -82,7 +83,12 @@ export const GenericTile = ({
           <IconButton
             label="Information"
             icon={<Icon name="info" isPresentational isFilled />}
-            onClick={(): void => setIsFlipped(true)}
+            onClick={(): void => {
+              setIsFlipped(true)
+              useEffect(() => {
+                tileRef.current!.focus()
+              }, [])
+            }}
             disabled={isFlipped}
             aria-hidden={isFlipped}
           />
@@ -155,7 +161,10 @@ export const GenericTile = ({
 
   return (
     <div className={classnames(styles.root, classNameOverride)} {...restProps}>
-      <div className={classnames(styles.tile, isFlipped && styles.isFlipped)}>
+      <div
+        className={classnames(styles.tile, isFlipped && styles.isFlipped)}
+        ref={tileRef}
+      >
         <>
           {renderFront()}
           {renderBack()}
