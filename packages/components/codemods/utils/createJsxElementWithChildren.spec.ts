@@ -44,10 +44,19 @@ describe("createJsxElementWithChildren()", () => {
   })
 
   it("transforms a string in brackets", () => {
-    const inputAst = parseJsx(
-      '<Button toChildren={"Hello"} variant="primary" />'
-    )
-    const outputAst = parseJsx('<Button variant="primary">Hello</Button>')
+    const inputAst = parseJsx(`
+      <>
+        <Button toChildren={"Double quotes"} variant="primary" />
+        <Button toChildren={'Single quotes'} variant="primary" />
+      </>
+    `)
+    const outputAst = parseJsx(`
+      <>
+        <Button variant="primary">Double quotes</Button>
+        <Button variant="primary">Single quotes</Button>
+      </>
+    `)
+    // const outputAst = parseJsx('<Button variant="primary">Hello</Button>')
     expect(testCreateJsxElementWithChildren(inputAst)).toEqual(
       printAst(outputAst)
     )
@@ -101,6 +110,38 @@ describe("createJsxElementWithChildren()", () => {
     const outputAst = parseJsx(
       '<Button variant="primary">{isPancake ? "Pancake" : "Waffle"}</Button>'
     )
+    expect(testCreateJsxElementWithChildren(inputAst)).toEqual(
+      printAst(outputAst)
+    )
+  })
+
+  it("transforms a JSX element", () => {
+    const inputAst = parseJsx(
+      '<Button toChildren={<span>Hello</span>} variant="primary" />'
+    )
+    const outputAst = parseJsx(
+      '<Button variant="primary"><span>Hello</span></Button>'
+    )
+    expect(testCreateJsxElementWithChildren(inputAst)).toEqual(
+      printAst(outputAst)
+    )
+  })
+
+  it("transforms a JSX self-closing element", () => {
+    const inputAst = parseJsx(
+      '<Button toChildren={<Icon />} variant="primary" />'
+    )
+    const outputAst = parseJsx('<Button variant="primary"><Icon /></Button>')
+    expect(testCreateJsxElementWithChildren(inputAst)).toEqual(
+      printAst(outputAst)
+    )
+  })
+
+  it("transforms a JSX fragment", () => {
+    const inputAst = parseJsx(
+      '<Button toChildren={<>Hello</>} variant="primary" />'
+    )
+    const outputAst = parseJsx('<Button variant="primary"><>Hello</></Button>')
     expect(testCreateJsxElementWithChildren(inputAst)).toEqual(
       printAst(outputAst)
     )

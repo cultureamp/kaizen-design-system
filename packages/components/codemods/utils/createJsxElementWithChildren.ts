@@ -3,16 +3,37 @@ import ts from "typescript"
 const createJsxChildren = (
   childrenValue: ts.JsxAttributeValue
 ): ts.JsxChild => {
-  // if (ts.isJsxText(childrenValue)) {
-  //   return ts.factory.createJsxText(childrenValue)
-  // }
-
   if (ts.isStringLiteral(childrenValue)) {
     return ts.factory.createJsxText(childrenValue.text)
   }
 
   if (ts.isJsxExpression(childrenValue)) {
-    return ts.factory.createJsxExpression(undefined, childrenValue)
+    const value = childrenValue.expression
+
+    if (value) {
+      if (ts.isStringLiteral(value)) {
+        // Tests for {"string"}, {'string'}
+        const regexExpContainsOnlyQuotedString = new RegExp(
+          /^\{(["']).*(\1)\}$/g
+        )
+
+        if (
+          regexExpContainsOnlyQuotedString.test(childrenValue.getFullText())
+        ) {
+          return ts.factory.createJsxText(value.text)
+        }
+      }
+
+      if (
+        ts.isJsxElement(value) ||
+        ts.isJsxSelfClosingElement(value) ||
+        ts.isJsxFragment(value)
+      ) {
+        return value
+      }
+    }
+
+    return childrenValue
   }
 
   return childrenValue
