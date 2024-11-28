@@ -115,7 +115,12 @@ export const GenericTile = ({
           <IconButton
             label={infoButtonLabel || `${translatedInfoLabel} ${title}`}
             icon={<Icon name="info" isPresentational isFilled />}
-            onClick={(): void => setIsFlipped(true)}
+            onClick={(): void => {
+              setIsFlipped(true)
+              useEffect(() => {
+                tileRef.current!.focus()
+              }, [])
+            }}
             disabled={isFlipped}
             aria-hidden={isFlipped}
             ref={infoButtonRef}
@@ -196,7 +201,10 @@ export const GenericTile = ({
 
   return (
     <div className={classnames(styles.root, classNameOverride)} {...restProps}>
-      <div className={classnames(styles.tile, isFlipped && styles.isFlipped)}>
+      <div
+        className={classnames(styles.tile, isFlipped && styles.isFlipped)}
+        ref={tileRef}
+      >
         <>
           {renderFront()}
           {renderBack()}
