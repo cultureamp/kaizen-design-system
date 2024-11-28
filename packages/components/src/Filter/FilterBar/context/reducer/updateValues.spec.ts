@@ -35,6 +35,7 @@ describe("filterBarStateReducer: update_values", () => {
         values: {},
         dependentFilterIds: new Set(),
         hasUpdatedValues: false,
+        hasRemovableFilter: false,
       } satisfies FilterBarState<Values>
 
       const newState = filterBarStateReducer<Values>(state, {
@@ -65,6 +66,7 @@ describe("filterBarStateReducer: update_values", () => {
           values: { sugarLevel: 50 },
           dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
           hasUpdatedValues: false,
+          hasRemovableFilter: false,
         } satisfies FilterBarState<Values>
 
         const newState = filterBarStateReducer<Values>(state, {
@@ -93,6 +95,7 @@ describe("filterBarStateReducer: update_values", () => {
           values: {},
           dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
           hasUpdatedValues: false,
+          hasRemovableFilter: false,
         } satisfies FilterBarState<Values>
 
         const newState = filterBarStateReducer<Values>(state, {
@@ -122,6 +125,7 @@ describe("filterBarStateReducer: update_values", () => {
           values: {},
           dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
           hasUpdatedValues: false,
+          hasRemovableFilter: false,
         } satisfies FilterBarState<Values>
 
         const newState = filterBarStateReducer<Values>(state, {
@@ -149,6 +153,7 @@ describe("filterBarStateReducer: update_values", () => {
           values: {},
           dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
           hasUpdatedValues: false,
+          hasRemovableFilter: false,
         } satisfies FilterBarState<Values>
 
         const newState = filterBarStateReducer<Values>(state, {
