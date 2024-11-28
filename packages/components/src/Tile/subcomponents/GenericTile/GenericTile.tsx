@@ -60,11 +60,11 @@ export const GenericTile = ({
   const { formatMessage } = useIntl()
 
   const translatedInfoLabel = formatMessage({
-        id: "kzGenericTile.infoButtonLabel",
-        defaultMessage: "View more information:",
-        description:
-          "Prompts user to interact with button to reveal more information",
-      })
+    id: "kzGenericTile.infoButtonLabel",
+    defaultMessage: "View more information:",
+    description:
+      "Prompts user to interact with button to reveal more information",
+  })
 
   const renderTitle = (): JSX.Element => (
     <div className={styles.title}>
