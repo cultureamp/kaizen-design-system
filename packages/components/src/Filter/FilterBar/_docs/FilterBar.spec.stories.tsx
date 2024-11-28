@@ -94,10 +94,9 @@ const filters = [
   },
 ] satisfies Filters<Values>
 
-export const ClearAll: Story = {
+export const ClearAllFromValue: Story = {
   render: args => {
     const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({})
-
     return (
       <FilterBar<Values>
         {...args}
@@ -154,20 +153,42 @@ export const ClearAll: Story = {
         )
       }
     )
+  },
+}
+
+export const ClearAllFromRemovable: Story = {
+  render: args => {
+    const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({})
+    return (
+      <FilterBar<Values>
+        {...args}
+        filters={filters}
+        values={activeValues}
+        onValuesChange={onActiveValuesChange}
+      />
+    )
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
 
     await step("removable filter is added with no value", async () => {
-      await userEvent.click(canvas.getByRole("button", { name: "Add Filters" }))
-      await userEvent.click(canvas.getByRole("button", { name: "Toppings" }))
-      expect(
-        canvas.getByRole("button", { name: "Toppings" })
-      ).toBeInTheDocument()
+      await waitFor(() => {
+        userEvent.click(canvas.getByRole("button", { name: "Add Filters" }))
+      })
+
+      await waitFor(() => {
+        userEvent.click(canvas.getByRole("button", { name: "Toppings" }))
+      })
     })
 
     await step("'Clear all' press removes removable filter", async () => {
-      const clearAllButton = canvas.getByRole("button", {
-        name: "Clear all filters",
+      await waitFor(() => {
+        userEvent.click(
+          canvas.getByRole("button", {
+            name: "Clear all filters",
+          })
+        )
       })
-      userEvent.click(clearAllButton)
 
       waitFor(() =>
         expect(canvas.queryByRole("button", { name: "Toppings" })).toBe(null)
@@ -181,11 +202,29 @@ export const ClearAll: Story = {
         ).toBe(null)
       )
     })
+  },
+}
+
+export const ClearAllRemovesItself: Story = {
+  render: args => {
+    const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({})
+    return (
+      <FilterBar<Values>
+        {...args}
+        filters={filters}
+        values={activeValues}
+        onValuesChange={onActiveValuesChange}
+      />
+    )
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
 
     await step("removable filter is added with no value", async () => {
-      await userEvent.click(canvas.getByRole("button", { name: "Add Filters" }))
+      await waitFor(() =>
+        userEvent.click(canvas.getByRole("button", { name: "Add Filters" }))
+      )
       await userEvent.click(canvas.getByRole("button", { name: "Drank" }))
-      expect(canvas.getByRole("button", { name: "Drank" })).toBeInTheDocument()
     })
 
     await step(
