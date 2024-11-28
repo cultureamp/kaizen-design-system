@@ -116,7 +116,7 @@ export const ClearAllFromValue: Story = {
           canvas.queryByRole("button", {
             name: "Clear all filters",
           })
-        ).toBeNull()
+        ).not.toBeInTheDocument()
       }
     )
 
@@ -149,7 +149,7 @@ export const ClearAllFromValue: Story = {
             canvas.queryByRole("button", {
               name: "Clear all filters",
             })
-          ).toBeNull()
+          ).not.toBeInTheDocument()
         )
       }
     )
@@ -191,7 +191,9 @@ export const ClearAllFromRemovable: Story = {
       })
 
       waitFor(() =>
-        expect(canvas.queryByRole("button", { name: "Toppings" })).toBeNull()
+        expect(
+          canvas.queryByRole("button", { name: "Toppings" })
+        ).not.toBeInTheDocument()
       )
 
       waitFor(() =>
@@ -199,7 +201,7 @@ export const ClearAllFromRemovable: Story = {
           canvas.queryByRole("button", {
             name: "Clear all filters",
           })
-        ).toBeNull()
+        ).not.toBeInTheDocument()
       )
     })
   },
@@ -241,7 +243,7 @@ export const ClearAllRemovesItself: Story = {
         canvas.queryByRole("button", {
           name: "Clear all filters",
         })
-      ).toBeNull()
+      ).not.toBeInTheDocument()
     )
   },
 }
