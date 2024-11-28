@@ -153,11 +153,11 @@ describe("upgradeIconButton()", () => {
     it("updates IconButton from @kaizen/components", () => {
       const inputAst = parseJsx(`
         import { IconButton } from "@kaizen/components"
-        export const TestComponent = () => <IconButton />
+        export const TestComponent = () => <IconButton label="Pancakes" />
       `)
       const outputAst = parseJsx(`
         import { Button } from "@kaizen/components/v3/actions"
-        export const TestComponent = () => <Button />
+        export const TestComponent = () => <Button hasHiddenLabel>Pancakes</Button>
       `)
       expect(
         transformIcons(
@@ -179,11 +179,11 @@ describe("upgradeIconButton()", () => {
     it("updates IconButton from @kaizen/components/v1/actions", () => {
       const inputAst = parseJsx(`
         import { IconButton } from "@kaizen/components/v1/actions"
-        export const TestComponent = () => <IconButton />
+        export const TestComponent = () => <IconButton label="Pancakes" />
       `)
       const outputAst = parseJsx(`
         import { Button } from "@kaizen/components/v3/actions"
-        export const TestComponent = () => <Button />
+        export const TestComponent = () => <Button hasHiddenLabel>Pancakes</Button>
       `)
       expect(
         transformIcons(
@@ -205,11 +205,11 @@ describe("upgradeIconButton()", () => {
     it("updates IconButton from @kaizen/components/v2/actions", () => {
       const inputAst = parseJsx(`
         import { IconButton } from "@kaizen/components/v2/actions"
-        export const TestComponent = () => <IconButton />
+        export const TestComponent = () => <IconButton label="Pancakes" />
       `)
       const outputAst = parseJsx(`
         import { Button } from "@kaizen/components/v3/actions"
-        export const TestComponent = () => <Button />
+        export const TestComponent = () => <Button hasHiddenLabel>Pancakes</Button>
       `)
       expect(
         transformIcons(
@@ -231,11 +231,11 @@ describe("upgradeIconButton()", () => {
     it("updates aliased IconButton to Button", () => {
       const inputAst = parseJsx(`
         import { IconButton as Aliased } from "@kaizen/components"
-        export const TestComponent = () => <Aliased />
+        export const TestComponent = () => <Aliased label="Pancakes" />
       `)
       const outputAst = parseJsx(`
         import { Button } from "@kaizen/components/v3/actions"
-        export const TestComponent = () => <Button />
+        export const TestComponent = () => <Button hasHiddenLabel>Pancakes</Button>
       `)
       expect(
         transformIcons(
@@ -260,8 +260,8 @@ describe("upgradeIconButton()", () => {
         import { IconButton as IconButtonV1 } from "@kaizen/components/v1/actions"
         export const TestComponent = () => (
           <>
-            <KzIconButton />
-            <IconButtonV1 />
+            <KzIconButton label="Pancakes" />
+            <IconButtonV1 label="Waffles" />
           </>
         )
       `)
@@ -269,8 +269,8 @@ describe("upgradeIconButton()", () => {
         import { Button } from "@kaizen/components/v3/actions"
         export const TestComponent = () => (
           <>
-            <Button />
-            <Button />
+            <Button hasHiddenLabel>Pancakes</Button>
+            <Button hasHiddenLabel>Waffles</Button>
           </>
         )
       `)
@@ -305,8 +305,8 @@ describe("upgradeIconButton()", () => {
         import { Button } from "@kaizen/components/v3/actions"
         export const TestComponent = () => (
           <>
-            <IconButton />
-            <Button />
+            <IconButton label="Pancakes" />
+            <Button>Waffles</Button>
           </>
         )
       `)
@@ -314,8 +314,8 @@ describe("upgradeIconButton()", () => {
         import { Button } from "@kaizen/components/v3/actions"
         export const TestComponent = () => (
           <>
-            <Button />
-            <Button />
+            <Button hasHiddenLabel>Pancakes</Button>
+            <Button>Waffles</Button>
           </>
         )
       `)
@@ -342,8 +342,8 @@ describe("upgradeIconButton()", () => {
         import { Button as ButtonAlias } from "@kaizen/components/v3/actions"
         export const TestComponent = () => (
           <>
-            <IconButton />
-            <ButtonAlias />
+            <IconButton label="Pancakes" />
+            <ButtonAlias>Waffles</ButtonAlias>
           </>
         )
       `)
@@ -351,8 +351,8 @@ describe("upgradeIconButton()", () => {
         import { Button as ButtonAlias } from "@kaizen/components/v3/actions"
         export const TestComponent = () => (
           <>
-            <ButtonAlias />
-            <ButtonAlias />
+            <ButtonAlias hasHiddenLabel>Pancakes</ButtonAlias>
+            <ButtonAlias>Waffles</ButtonAlias>
           </>
         )
       `)
@@ -378,7 +378,7 @@ describe("upgradeIconButton()", () => {
         import { IconButton, Card } from "@kaizen/components"
         export const TestComponent = () => (
           <Card>
-            <IconButton />
+            <IconButton label="Pancakes" />
           </Card>
         )
       `)
@@ -387,7 +387,7 @@ describe("upgradeIconButton()", () => {
         import { Button } from "@kaizen/components/v3/actions"
         export const TestComponent = () => (
           <Card>
-            <Button />
+            <Button hasHiddenLabel>Pancakes</Button>
           </Card>
         )
       `)
