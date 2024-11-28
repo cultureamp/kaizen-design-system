@@ -53,7 +53,16 @@ export const GenericTile = ({
   ...restProps
 }: GenericTileProps): JSX.Element => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
-  const tileRef = useRef(null)
+  const infoButtonRef = useRef<HTMLButtonElement>(null)
+  const infoButtonReturnRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (isFlipped) {
+      infoButtonReturnRef.current!.focus()
+    } else {
+      infoButtonRef.current!.focus()
+    }
+  }, [isFlipped])
 
   const renderTitle = (): JSX.Element => (
     <div className={styles.title}>
@@ -83,14 +92,10 @@ export const GenericTile = ({
           <IconButton
             label="Information"
             icon={<Icon name="info" isPresentational isFilled />}
-            onClick={(): void => {
-              setIsFlipped(true)
-              useEffect(() => {
-                tileRef.current!.focus()
-              }, [])
-            }}
+            onClick={(): void => setIsFlipped(true)}
             disabled={isFlipped}
             aria-hidden={isFlipped}
+            ref={infoButtonRef}
           />
         </div>
       )}
@@ -147,9 +152,13 @@ export const GenericTile = ({
           <IconButton
             label="Information"
             icon={<Icon name="arrow_back" isPresentational />}
-            onClick={(): void => setIsFlipped(false)}
+            onClick={(): void => {
+              setIsFlipped(false)
+              infoButtonRef.current!.focus()
+            }}
             disabled={!isFlipped}
             aria-hidden={!isFlipped}
+            ref={infoButtonReturnRef}
           />
         </div>
         <div className={styles.information}>
@@ -161,10 +170,7 @@ export const GenericTile = ({
 
   return (
     <div className={classnames(styles.root, classNameOverride)} {...restProps}>
-      <div
-        className={classnames(styles.tile, isFlipped && styles.isFlipped)}
-        ref={tileRef}
-      >
+      <div className={classnames(styles.tile, isFlipped && styles.isFlipped)}>
         <>
           {renderFront()}
           {renderBack()}
