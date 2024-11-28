@@ -99,7 +99,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   // Workaround for DateRangePicker populating the values object before the value is valid
   // (it purposefully persists a state with a 'from' date but no 'to' date, but hides it on the filter button)
   const isDraftDateRange = (v: ValuesMap): boolean =>
-    v.from !== undefined && v.to === undefined
+    v && v.from !== undefined && v.to === undefined
   const hasDraftDateRangeOnly = Object.values(values).every(isDraftDateRange)
 
   const isClearable =
