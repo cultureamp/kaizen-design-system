@@ -66,6 +66,10 @@ export const GenericTile = ({
   }, [])
 
   useEffect(() => {
+    isMountingRef.current = true
+  }, [])
+
+  useEffect(() => {
     if (!isMountingRef.current) {
       if (isFlipped) {
         infoButtonReturnRef.current!.focus()
