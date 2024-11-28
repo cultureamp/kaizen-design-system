@@ -61,7 +61,7 @@ export const GenericTile = ({
 
   const translatedInfoLabel = formatMessage({
         id: "kzGenericTile.infoButtonLabel",
-        defaultMessage: "View more information: ",
+        defaultMessage: "View more information:",
         description:
           "Prompts user to interact with button to reveal more information",
       })
@@ -92,7 +92,7 @@ export const GenericTile = ({
       {information && (
         <div className={styles.informationBtn}>
           <IconButton
-            label={infoButtonLabel || translatedInfoLabel + title}
+            label={infoButtonLabel || `${translatedInfoLabel} ${title}`}
             icon={<Icon name="info" isPresentational isFilled />}
             onClick={(): void => setIsFlipped(true)}
             disabled={isFlipped}
@@ -149,7 +149,7 @@ export const GenericTile = ({
 
     const returnButtonLabel = formatMessage({
       id: "kzGenericTile.infoButtonReturnLabel",
-      defaultMessage: "Hide information: ",
+      defaultMessage: "Hide information:",
       description: "Prompts user to interact with button to hide information",
     })
 
