@@ -112,12 +112,7 @@ export const GenericTile = ({
           <IconButton
             label={infoButtonLabel || `${translatedInfoLabel} ${title}`}
             icon={<Icon name="info" isPresentational isFilled />}
-            onClick={(): void => {
-              setIsFlipped(true)
-              useEffect(() => {
-                tileRef.current!.focus()
-              }, [])
-            }}
+            onClick={(): void => setIsFlipped(true)}
             disabled={isFlipped}
             aria-hidden={isFlipped}
             ref={infoButtonRef}
