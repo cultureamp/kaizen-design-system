@@ -53,14 +53,24 @@ export const GenericTile = ({
   ...restProps
 }: GenericTileProps): JSX.Element => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
+
+  const isMountingRef = useRef(false)
   const infoButtonRef = useRef<HTMLButtonElement>(null)
   const infoButtonReturnRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    if (isFlipped) {
-      infoButtonReturnRef.current!.focus()
+    isMountingRef.current = true
+  }, [])
+
+  useEffect(() => {
+    if (!isMountingRef.current) {
+      if (isFlipped) {
+        infoButtonReturnRef.current!.focus()
+      } else {
+        infoButtonRef.current!.focus()
+      }
     } else {
-      infoButtonRef.current!.focus()
+      isMountingRef.current = false
     }
   }, [isFlipped])
 
