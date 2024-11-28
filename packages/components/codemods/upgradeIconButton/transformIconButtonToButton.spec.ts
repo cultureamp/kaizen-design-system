@@ -49,5 +49,87 @@ describe("transformIconButtonToButton()", () => {
       )
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
+
+    // @todo: Update when we know what to change variants to
+    describe("transform variant", () => {
+      it("changes default (undefined) to TBC", () => {
+        const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" />')
+        const outputAst = parseJsx(
+          '<Button icon={icon} variant="TBC" hasHiddenLabel>Pancakes</Button>'
+        )
+        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+      })
+
+      it("changes primary to TBC", () => {
+        const inputAst = parseJsx(
+          '<IconButton icon={icon} label="Pancakes" primary />'
+        )
+        const outputAst = parseJsx(
+          '<Button icon={icon} variant="TBC" hasHiddenLabel>Pancakes</Button>'
+        )
+        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+      })
+
+      it("changes secondary to TBC", () => {
+        const inputAst = parseJsx(
+          '<IconButton icon={icon} label="Pancakes" secondary />'
+        )
+        const outputAst = parseJsx(
+          '<Button icon={icon} variant="TBC" hasHiddenLabel>Pancakes</Button>'
+        )
+        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+      })
+
+      it("changes destructive to TBC", () => {
+        const inputAst = parseJsx(
+          '<IconButton icon={icon} label="Pancakes" destructive />'
+        )
+        const outputAst = parseJsx(
+          '<Button icon={icon} variant="TBC" hasHiddenLabel>Pancakes</Button>'
+        )
+        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+      })
+
+      it("changes secondary destructive to TBC", () => {
+        const inputAst = parseJsx(
+          '<IconButton icon={icon} label="Pancakes" secondary destructive />'
+        )
+        const outputAst = parseJsx(
+          '<Button icon={icon} variant="TBC" hasHiddenLabel>Pancakes</Button>'
+        )
+        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+      })
+    })
+
+    // @todo: Update when we know what to change sizes to
+    describe("transform size", () => {
+      it("changes default (undefined) to TBC", () => {
+        const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" />')
+        const outputAst = parseJsx(
+          '<Button icon={icon} size="TBC" hasHiddenLabel>Pancakes</Button>'
+        )
+        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+      })
+
+      it("changes small to TBC", () => {
+        const inputAst = parseJsx(
+          '<IconButton icon={icon} label="Pancakes" size="small" />'
+        )
+        const outputAst = parseJsx(
+          '<Button icon={icon} size="TBC" hasHiddenLabel>Pancakes</Button>'
+        )
+        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+      })
+
+      it("changes regular to TBC", () => {
+        const inputAst = parseJsx(
+          '<IconButton icon={icon} label="Pancakes" size="regular" />'
+        )
+        const outputAst = parseJsx(
+          '<Button icon={icon} size="TBC" hasHiddenLabel>Pancakes</Button>'
+        )
+        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+      })
+    })
   })
 })
