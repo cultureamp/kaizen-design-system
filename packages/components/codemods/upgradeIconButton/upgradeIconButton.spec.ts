@@ -5,7 +5,7 @@ import {
   transformSource,
   type TransformSourceArgs,
 } from "../utils"
-import { upgradeIconButtonToButton } from "./upgradeIconButtonToButton"
+import { upgradeIconButton } from "./upgradeIconButton"
 
 const transformIcons = (
   sourceFile: TransformSourceArgs["sourceFile"],
@@ -13,10 +13,10 @@ const transformIcons = (
 ): string =>
   transformSource({
     sourceFile,
-    transformers: [upgradeIconButtonToButton(tagNames)],
+    transformers: [upgradeIconButton(tagNames)],
   })
 
-describe("upgradeIconButtonToButton()", () => {
+describe("upgradeIconButton()", () => {
   it("transforms IconButton to Button when href and component prop are not set", () => {
     const inputAst = parseJsx(`
       import { IconButton } from "@kaizen/components"

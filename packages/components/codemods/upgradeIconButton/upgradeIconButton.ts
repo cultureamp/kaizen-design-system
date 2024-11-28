@@ -9,7 +9,7 @@ import {
 } from "../utils"
 import { transformIconButtonToButton } from "./transformIconButtonToButton"
 
-export const upgradeIconButtonToButton =
+export const upgradeIconButton =
   (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
   context =>
   rootNode => {
