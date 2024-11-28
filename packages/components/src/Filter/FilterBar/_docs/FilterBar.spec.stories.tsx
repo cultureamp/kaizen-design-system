@@ -6,7 +6,7 @@ import { DateRange } from "~components/index"
 import { FilterBar, Filters } from "../index"
 
 const meta = {
-  title: "Components/Filter Bar/Tests",
+  title: "Components/FilterBar/FilterBar Tests",
   component: FilterBar,
   argTypes: {
     filters: { control: false },
