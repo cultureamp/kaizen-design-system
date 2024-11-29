@@ -1,0 +1,12 @@
+name: Renovate - Trigger on issue edits
+on:
+  issues:
+    types: [edited]
+
+jobs:
+  call-issue-edit-triggers-renovate:
+    uses: cultureamp/renovate-for-cultureamp/.github/workflows/issue-edit-triggers-renovate.yaml@v1
+    secrets:
+      RENOVATE_TRIGGER_APP_PRIVATE_KEY: ${{ secrets.RENOVATE_TRIGGER_APP_PRIVATE_KEY }}
+    with:
+      repository: ${{ github.repository }}
