@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { screen, waitFor, within, render } from "@testing-library/react"
+import { screen, waitFor, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { vi } from "vitest"
 import { FilterMultiSelect } from "../index"
@@ -215,8 +215,7 @@ describe("<FilterBar />", () => {
       const addFiltersButton = getByRole("button", { name: "Add Filters" })
       await user.click(addFiltersButton)
 
-      const list = getByRole("list")
-      const menuOption = within(list).getByRole("button", { name: "Topping" })
+      const menuOption = getByRole("menuitem", { name: "Topping" })
 
       await waitFor(() => {
         expect(menuOption).toBeVisible()
@@ -238,7 +237,7 @@ describe("<FilterBar />", () => {
     })
 
     it("does not show active removable filters in the Add Filters menu", async () => {
-      const { getByRole } = render(
+      const { getByRole, queryByRole } = render(
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{ topping: "pearls" }}
@@ -249,15 +248,14 @@ describe("<FilterBar />", () => {
       const addFiltersButton = getByRole("button", { name: "Add Filters" })
       await user.click(addFiltersButton)
 
-      const list = getByRole("list")
-      const menuOption = within(list).queryByRole("button", { name: "Topping" })
+      const menuOption = queryByRole("menuitem", { name: "Topping" })
       await waitFor(() => {
         expect(menuOption).not.toBeInTheDocument()
       })
     })
 
     it("clears the value of a filter if it is removed", async () => {
-      const { getByRole } = render(
+      const { getByRole, queryByRole } = render(
         <FilterBarWrapper<ValuesRemovable>
           filters={filtersRemovable}
           defaultValues={{ topping: "pearls" }}
@@ -276,15 +274,14 @@ describe("<FilterBar />", () => {
       const addFiltersButton = getByRole("button", { name: "Add Filters" })
       await user.click(addFiltersButton)
 
-      const list = getByRole("list")
-      const menuOption = within(list).getByRole("button", { name: "Topping" })
+      const menuOption = getByRole("menuitem", { name: "Topping" })
       await waitFor(() => {
         expect(menuOption).toBeVisible()
       })
 
       await user.click(menuOption)
       await waitFor(() => {
-        expect(list).not.toBeInTheDocument()
+        expect(queryByRole("menu")).not.toBeInTheDocument()
       })
       expect(getByRole("button", { name: "Topping" })).toBeVisible()
     })
@@ -303,15 +300,17 @@ describe("<FilterBar />", () => {
       const addFiltersButton = getByRole("button", { name: "Add Filters" })
       await user.click(addFiltersButton)
 
-      const menuOptionIceLevel = getByRole("button", { name: "Ice Level" })
+      const menuOptionIceLevel = getByRole("menuitem", { name: "Ice Level" })
       await user.click(menuOptionIceLevel)
       await user.click(addFiltersButton)
 
-      const menuOptionFlavour = getByRole("button", { name: "Flavour" })
+      const menuOptionFlavour = getByRole("menuitem", { name: "Flavour" })
       await user.click(menuOptionFlavour)
       await user.click(addFiltersButton)
 
-      const menuOptionSugarLevel = getByRole("button", { name: "Sugar Level" })
+      const menuOptionSugarLevel = getByRole("menuitem", {
+        name: "Sugar Level",
+      })
       await user.click(menuOptionSugarLevel)
 
       const filters = getAllByTestId(TEST_ID__FILTER)
@@ -335,7 +334,7 @@ describe("<FilterBar />", () => {
       const addFiltersButton = getByRole("button", { name: "Add Filters" })
       await user.click(addFiltersButton)
 
-      const menuOptionIceLevel = getByRole("button", { name: "Ice Level" })
+      const menuOptionIceLevel = getByRole("menuitem", { name: "Ice Level" })
       await user.click(menuOptionIceLevel)
 
       expect(getByRole("button", { name: "Ice Level" })).toHaveFocus()
@@ -350,7 +349,7 @@ describe("<FilterBar />", () => {
       const addFiltersButton = getByRole("button", { name: "Add Filters" })
       await user.click(addFiltersButton)
 
-      const menuOptionOthers = getByRole("button", { name: "Others" })
+      const menuOptionOthers = getByRole("menuitem", { name: "Others" })
       await user.click(menuOptionOthers)
 
       expect(getByRole("button", { name: "Others" })).toHaveFocus()
@@ -476,8 +475,7 @@ describe("<FilterBar />", () => {
 
         await user.click(addFiltersButton)
 
-        const list = getByRole("list")
-        const menuOption = within(list).getByRole("button", { name: "Topping" })
+        const menuOption = getByRole("menuitem", { name: "Topping" })
 
         await waitFor(() => {
           expect(menuOption).toBeVisible()
@@ -693,11 +691,10 @@ describe("<FilterBar />", () => {
 
         await user.click(addFiltersButton)
 
-        const list = getByRole("list")
-        const menuOptionSugar = within(list).getByRole("button", {
+        const menuOptionSugar = getByRole("menuitem", {
           name: "Sugar",
         })
-        const menuOptionSyrup = within(list).getByRole("button", {
+        const menuOptionSyrup = getByRole("menuitem", {
           name: "Syrup",
         })
         expect(menuOptionSugar).toBeVisible()
@@ -706,7 +703,7 @@ describe("<FilterBar />", () => {
         await user.click(menuOptionSugar)
 
         await waitFor(() => {
-          expect(list).not.toBeInTheDocument()
+          expect(queryByRole("menu")).not.toBeInTheDocument()
         })
         const sugarButton = getByRole("button", { name: "Sugar" })
         expect(sugarButton).toBeVisible()

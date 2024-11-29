@@ -177,7 +177,7 @@ export const ClearAllFromRemovable: Story = {
       })
 
       await waitFor(() => {
-        userEvent.click(canvas.getByRole("button", { name: "Toppings" }))
+        userEvent.click(canvas.getByRole("menuitem", { name: "Toppings" }))
       })
     })
 
@@ -226,7 +226,7 @@ export const ClearAllRemovesItself: Story = {
       await waitFor(() =>
         userEvent.click(canvas.getByRole("button", { name: "Add Filters" }))
       )
-      await userEvent.click(canvas.getByRole("button", { name: "Drank" }))
+      await userEvent.click(canvas.getByRole("menuitem", { name: "Drank" }))
     })
 
     await step(

@@ -61,13 +61,13 @@ describe("<AddFiltersMenu />", () => {
     await user.click(addFiltersButton)
 
     await waitFor(() => {
-      expect(screen.getByRole("list")).toBeVisible()
+      expect(screen.getByRole("menu")).toBeVisible()
     })
-    expect(screen.getByRole("button", { name: "Coffee" })).toBeVisible()
+    expect(screen.getByRole("menuitem", { name: "Coffee" })).toBeVisible()
     expect(
-      screen.queryByRole("button", { name: "Tea" })
+      screen.queryByRole("menuitem", { name: "Tea" })
     ).not.toBeInTheDocument()
-    expect(screen.getByRole("button", { name: "Milk" })).toBeVisible()
+    expect(screen.getByRole("menuitem", { name: "Milk" })).toBeVisible()
   })
 
   it("disables the Add Filters button when there are no inactive filters", async () => {

@@ -838,7 +838,7 @@ export const UpdatesLabels: Story = {
     )
   },
   play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement)
+    const canvas = within(canvasElement.parentElement!)
 
     await step("Initial render complete", async () => {
       await waitFor(() => canvas.getByRole("button", { name: "Add Filters" }))
