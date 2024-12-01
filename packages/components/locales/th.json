@@ -166,11 +166,11 @@
   },
   "kzGenericTile.infoButtonLabel" : {
     "description" : "Prompts user to interact with button to reveal more information",
-    "message" : "View more information:"
+    "message" : "ดูข้อมูลเพิ่มเติม:"
   },
   "kzGenericTile.infoButtonReturnLabel" : {
     "description" : "Prompts user to interact with button to hide information",
-    "message" : "Hide information:"
+    "message" : "ซ่อนข้อมูล:"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",

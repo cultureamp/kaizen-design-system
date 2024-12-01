@@ -166,11 +166,11 @@
   },
   "kzGenericTile.infoButtonLabel" : {
     "description" : "Prompts user to interact with button to reveal more information",
-    "message" : "View more information:"
+    "message" : "ज़्यादा जानकारी देखें:"
   },
   "kzGenericTile.infoButtonReturnLabel" : {
     "description" : "Prompts user to interact with button to hide information",
-    "message" : "Hide information:"
+    "message" : "जानकारी छिपाएं:"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",

@@ -166,11 +166,11 @@
   },
   "kzGenericTile.infoButtonLabel" : {
     "description" : "Prompts user to interact with button to reveal more information",
-    "message" : "View more information:"
+    "message" : "වැඩි විස්තර බලන්න:"
   },
   "kzGenericTile.infoButtonReturnLabel" : {
     "description" : "Prompts user to interact with button to hide information",
-    "message" : "Hide information:"
+    "message" : "තොරතුරු සඟවන්න:"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
