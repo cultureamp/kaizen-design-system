@@ -31,6 +31,7 @@ describe("getInactiveFilters()", () => {
       values: {},
       dependentFilterIds: new Set(),
       hasUpdatedValues: false,
+      hasRemovableFilter: false,
     } satisfies FilterBarState<Values>
 
     expect(getInactiveFilters<Values>(state)).toEqual([
@@ -61,6 +62,7 @@ describe("getInactiveFilters()", () => {
       values: {},
       dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
       hasUpdatedValues: false,
+      hasRemovableFilter: false,
     } satisfies FilterBarState<Values>
 
     expect(getInactiveFilters<Values>(state)).toEqual([stateFilters.flavour])

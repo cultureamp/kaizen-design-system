@@ -27,6 +27,7 @@ const state = {
   values: {},
   dependentFilterIds: new Set(),
   hasUpdatedValues: false,
+  hasRemovableFilter: false,
 } satisfies FilterBarState<Values>
 
 describe("checkShouldUpdateValues()", () => {

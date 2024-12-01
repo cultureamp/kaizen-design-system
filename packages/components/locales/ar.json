@@ -164,6 +164,14 @@
     "description" : "Home button label",
     "message" : "الانتقال إلى الصفحة الرئيسية"
   },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "عرض المزيد من المعلومات:"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "إخفاء المعلومات:"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "إجراءات إضافية"

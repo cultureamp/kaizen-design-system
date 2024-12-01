@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.68.4
+
+### Patch Changes
+
+- [#5322](https://github.com/cultureamp/kaizen-design-system/pull/5322) [`7903e38`](https://github.com/cultureamp/kaizen-design-system/commit/7903e38930fb442780f19285a9cc99e7aa167c55) - FilterBar: hide 'Clear all' button when there's nothing to clear
+
+## 1.68.3
+
+### Patch Changes
+
+- [#5323](https://github.com/cultureamp/kaizen-design-system/pull/5323) [`0aa9923`](https://github.com/cultureamp/kaizen-design-system/commit/0aa9923aac781577ece76858bc48c7c217e428cb) - Add infoButtonLabel prop to GenericTile and internationalise default label.
+
 ## 1.68.2
 
 ### Patch Changes

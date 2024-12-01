@@ -164,6 +164,14 @@
     "description" : "Home button label",
     "message" : "Eiti į pagrindinį puslapį"
   },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "Žiūrėti daugiau informacijos:"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "Paslėpti informaciją:"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "Papildomi veiksmai"
