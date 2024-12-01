@@ -110,3 +110,39 @@ export const NoFocus: Story = {
     })
   },
 }
+
+export const FocusOnFlip: Story = {
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+    const buttonWithInfoLabel = await canvas.findByRole("button", {
+      name: "View more information: Title",
+    })
+
+    await step("initial render complete", async () => {
+      await waitFor(() => {
+        canvas.getByRole("button", {
+          name: "View more information: Title",
+        })
+      })
+    })
+
+    await step("Can focus to button", async () => {
+      await waitFor(() => {
+        buttonWithInfoLabel.click()
+      })
+    })
+
+    const returnButton = canvas.getByRole("button", {
+      name: "Hide information: Title",
+    })
+
+    expect(returnButton).toHaveFocus()
+
+    await step("Can focus to info button again", async () => {
+      await waitFor(() => {
+        returnButton.click()
+        expect(buttonWithInfoLabel).toHaveFocus()
+      })
+    })
+  },
+}

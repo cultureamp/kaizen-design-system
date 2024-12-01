@@ -57,27 +57,26 @@ export const GenericTile = ({
   ...restProps
 }: GenericTileProps): JSX.Element => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
+  const [isMounted, setIsMounted] = useState<boolean>(false)
+
   const { formatMessage } = useIntl()
-  const isMountingRef = useRef(false)
   const infoButtonRef = useRef<HTMLButtonElement>(null)
   const infoButtonReturnRef = useRef<HTMLButtonElement>(null)
+
   useEffect(() => {
-    isMountingRef.current = true
+    setIsMounted(true)
   }, [])
 
   useEffect(() => {
-    isMountingRef.current = true
-  }, [])
+    if (!isMounted) {
+      setIsMounted(true)
+      return
+    }
 
-  useEffect(() => {
-    if (!isMountingRef.current) {
-      if (isFlipped) {
-        infoButtonReturnRef.current!.focus()
-      } else {
-        infoButtonRef.current!.focus()
-      }
+    if (isFlipped) {
+      infoButtonReturnRef.current!.focus()
     } else {
-      isMountingRef.current = false
+      infoButtonRef.current!.focus()
     }
   }, [isFlipped])
 
@@ -182,10 +181,7 @@ export const GenericTile = ({
           <IconButton
             label={`${returnButtonLabel} ${title}`}
             icon={<Icon name="arrow_back" isPresentational />}
-            onClick={(): void => {
-              setIsFlipped(false)
-              infoButtonRef.current!.focus()
-            }}
+            onClick={(): void => setIsFlipped(false)}
             disabled={!isFlipped}
             aria-hidden={!isFlipped}
             ref={infoButtonReturnRef}
