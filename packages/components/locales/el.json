@@ -164,6 +164,14 @@
     "description" : "Home button label",
     "message" : "Επιστροφή στην αρχή σελίδα"
   },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "Δείτε περισσότερες πληροφορίες:"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "Κρύψτε πληροφορίες:"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "Περαιτέρω ενέργειες"
