@@ -62,6 +62,7 @@ export const GenericTile = ({
   const { formatMessage } = useIntl()
   const infoButtonRef = useRef<HTMLButtonElement>(null)
   const infoButtonReturnRef = useRef<HTMLButtonElement>(null)
+
   useEffect(() => {
     setIsMounted(true)
   }, [])
@@ -180,10 +181,7 @@ export const GenericTile = ({
           <IconButton
             label={`${returnButtonLabel} ${title}`}
             icon={<Icon name="arrow_back" isPresentational />}
-            onClick={(): void => {
-              setIsFlipped(false)
-              infoButtonRef.current!.focus()
-            }}
+            onClick={(): void => setIsFlipped(false)}
             disabled={!isFlipped}
             aria-hidden={!isFlipped}
             ref={infoButtonReturnRef}
