@@ -5,6 +5,7 @@
     "node": ">=v20.15.1"
   },
   "packageManager": "pnpm@9.8.0",
+  "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "storybook": "pnpm dev",

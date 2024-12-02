@@ -50,10 +50,5 @@
   },
   "peerDependencies": {
     "vite": ">=5.4.2"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
   }
 }
