@@ -1,4 +1,4 @@
-import { Command, Transaction } from 'prosemirror-state'
+import type { Command, Transaction } from 'prosemirror-state'
 import { EditorView as ProseMirrorEditorView } from 'prosemirror-view'
 
 /**

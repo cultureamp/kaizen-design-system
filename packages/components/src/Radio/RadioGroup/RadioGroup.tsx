@@ -23,7 +23,8 @@ export const RadioGroup = ({
   'data-testid': dataTestId,
   ...restProps
 }: RadioGroupProps): JSX.Element => {
-  const labelId = propsLabelId ?? useId()
+  const fallbackId = useId()
+  const labelId = propsLabelId ?? fallbackId
 
   return (
     <div

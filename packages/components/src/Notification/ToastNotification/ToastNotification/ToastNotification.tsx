@@ -28,8 +28,8 @@ export const ToastNotification = ({
   children,
   ...restProps
 }: ToastNotificationProps): null => {
-  const reactId = useId()
-  const id = propsId || reactId
+  const fallbackId = useId()
+  const id = propsId ?? fallbackId
   const { addToastNotification } = useToastNotificationContext()
   const persistent = hideCloseIcon
 

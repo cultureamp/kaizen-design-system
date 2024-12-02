@@ -81,8 +81,8 @@ export const RichTextEditor = ({
   const generatedId = useId()
   const [schema] = useState<ProseMirrorModel.Schema>(createSchemaFromControls(controls))
 
-  const editorId = id || generatedId
-  const labelId = labelledBy || `${editorId}-rte-label`
+  const editorId = id ?? generatedId
+  const labelId = labelledBy ?? `${editorId}-rte-label`
   const validationMessageAria = validationMessage ? `${editorId}-rte-validation-message` : ''
   const descriptionAria = description ? `${editorId}-rte-description` : ''
 
@@ -113,7 +113,7 @@ export const RichTextEditor = ({
   })()
 
   if (useRichTextEditorResult instanceof Error) {
-    onDataError && onDataError()
+    onDataError?.()
     return (
       <InlineNotification
         headingProps={{
@@ -123,7 +123,7 @@ export const RichTextEditor = ({
         type="negative"
         persistent
       >
-        {dataError || 'Something went wrong'}
+        {dataError ?? 'Something went wrong'}
       </InlineNotification>
     )
   }

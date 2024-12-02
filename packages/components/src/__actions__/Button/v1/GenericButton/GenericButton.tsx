@@ -1,3 +1,5 @@
+// Not fixing react-hooks/rules-of-hooks errors as a new Button component exists
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, {
   ComponentType,
   FocusEvent,
@@ -194,7 +196,7 @@ const renderCustomComponent = (
     // @ts-expect-error we're using span ref on link context, but that's ok because we need only sizing
     LinkContext,
   )
-  // @ts-expect-error
+  // @ts-expect-error Not fixing as a new Button component exists
   // @todo: Make a wrapper and take it out of Button
   const { linkProps } = useLink(contextProps, contextRef)
 
@@ -222,7 +224,7 @@ const renderCustomComponent = (
 }
 
 const renderButton = (props: RenderProps, ref: Ref<HTMLButtonElement>): JSX.Element => {
-  const disableActions = props.disabled || props.working
+  const disableActions = props.disabled ?? props.working
   const passedInProps: React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
@@ -247,9 +249,8 @@ const renderButton = (props: RenderProps, ref: Ref<HTMLButtonElement>): JSX.Elem
     ...getCustomProps(props),
   }
 
-  // we're using useFocusable instead of useButton because at this stage we want to hook only to focusable.
+  // @ts-expect-error we're using useFocusable instead of useButton because at this stage we want to hook only to focusable.
   // Not standardize button behavior as we're currently relying on some weird native behaviours (like onClick firing on enter key press) see https://react-spectrum.adobe.com/blog/building-a-button-part-1.html
-  // @ts-ignore
   const { focusableProps } = useFocusable(passedInProps, ref)
 
   return (
@@ -260,7 +261,7 @@ const renderButton = (props: RenderProps, ref: Ref<HTMLButtonElement>): JSX.Elem
       aria-describedby={
         props['aria-describedby'] === null
           ? undefined
-          : props['aria-describedby'] || focusableProps['aria-describedby']
+          : (props['aria-describedby'] ?? focusableProps['aria-describedby'])
       }
       // Unset this because the one defined in buttonProps shows
       // focus-visible styles on click
@@ -291,9 +292,8 @@ const renderLink = (props: RenderProps, ref: Ref<HTMLAnchorElement>): JSX.Elemen
     ...getCustomProps(props),
   }
 
-  // we're using useFocusable instead of useLink because at this stage we want to hook only to focusable.
+  // @ts-expect-error we're using useFocusable instead of useLink because at this stage we want to hook only to focusable.
   // Not standardize button behavior as we're currently relying on some weird native behaviours (like onClick firing on enter key press) see https://react-spectrum.adobe.com/blog/building-a-button-part-1.html
-  // @ts-ignore
   const { focusableProps } = useFocusable(passedInProps, ref)
 
   return (
@@ -303,7 +303,7 @@ const renderLink = (props: RenderProps, ref: Ref<HTMLAnchorElement>): JSX.Elemen
       aria-describedby={
         props['aria-describedby'] === null
           ? undefined
-          : props['aria-describedby'] || focusableProps['aria-describedby']
+          : (props['aria-describedby'] ?? focusableProps['aria-describedby'])
       }
       // Unset this because the one defined in linkProps shows
       // focus-visible styles on click
@@ -320,8 +320,8 @@ const buttonClass = (props: RenderProps): string => {
   return classnames(
     styles.button,
     isDefault && styles.default,
-    // @ts-ignore
-    (props.disabled || props['aria-disabled']) && styles.disabled,
+    // @ts-expect-error aria-disabled exists in props
+    (props.disabled ?? props['aria-disabled']) && styles.disabled,
     props.primary && styles.primary,
     props.destructive && styles.destructive,
     props.secondary && styles.secondary,
@@ -329,7 +329,7 @@ const buttonClass = (props: RenderProps): string => {
     props.reversed && styles.reversed,
     props.iconButton && styles.iconButton,
     props.working && styles.working,
-    (props.directionalLink || props.paginationLink) && styles.circleButton,
+    (props.directionalLink ?? props.paginationLink) && styles.circleButton,
     props.directionalLink && styles.directionalLink,
     props.paginationLink && styles.paginationLink,
     props.isActive && styles.isPaginationLinkActive,

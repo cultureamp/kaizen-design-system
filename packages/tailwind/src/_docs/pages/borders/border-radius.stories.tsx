@@ -7,7 +7,7 @@ import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
 
 const prefix = 'rounded-'
 const classEntries: { utilityClassName: string; cssProperty: string }[] = Object.entries(
-  kaizenTailwindTheme.borderRadius || [],
+  kaizenTailwindTheme.borderRadius ?? [],
 ).map(([suffix, cssProperty]) => ({
   utilityClassName: `${prefix}${suffix}`,
   cssProperty,

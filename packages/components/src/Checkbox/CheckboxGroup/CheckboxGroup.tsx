@@ -25,7 +25,8 @@ export const CheckboxGroup = ({
   classNameOverride,
   ...restProps
 }: CheckboxGroupProps): JSX.Element => {
-  const labelId = propsLabelId ?? useId()
+  const fallbackId = useId()
+  const labelId = propsLabelId ?? fallbackId
 
   return (
     <div

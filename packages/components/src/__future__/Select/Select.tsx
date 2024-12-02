@@ -97,7 +97,8 @@ export const Select = <Option extends SelectOption = SelectOption>({
 }: SelectProps<Option>): JSX.Element => {
   const { refs } = useFloating<HTMLButtonElement>()
   const triggerRef = refs.reference
-  const id = propsId ?? useId()
+  const fallbackId = useId()
+  const id = propsId ?? fallbackId
   const descriptionId = `${id}--description`
   const popoverId = `${id}--popover`
 
@@ -157,7 +158,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   useEffect(() => {
     if (portalContainerId) {
       const portalElement = document.getElementById(portalContainerId)
-      portalElement && setPortalContainer(portalElement)
+      if (portalElement) setPortalContainer(portalElement)
     }
   }, [])
 

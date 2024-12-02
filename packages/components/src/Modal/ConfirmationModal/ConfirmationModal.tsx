@@ -126,7 +126,7 @@ export const ConfirmationModal = ({
   children,
   ...props
 }: ConfirmationModalProps): JSX.Element => {
-  const variantName = variant || mood
+  const variantName = variant ?? mood
 
   const onDismiss = confirmWorking ? undefined : propsOnDismiss
 

@@ -1,4 +1,4 @@
-import { Attrs, Mark, MarkType } from 'prosemirror-model'
+import type { Attrs, Mark, MarkType } from 'prosemirror-model'
 import { EditorState } from 'prosemirror-state'
 
 /*

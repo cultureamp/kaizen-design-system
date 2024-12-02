@@ -19,10 +19,11 @@ export const ClearButton = (): JSX.Element => {
       aria-disabled={isDisabled}
       onClick={
         (): void => {
-          !isDisabled &&
+          if (!isDisabled) {
             selectionState.selectionManager.setSelectedKeys(
               selectedOptions.filter((option) => !filteredOptions.includes(option)),
             )
+          }
         }
         // TODO: add announcement here to inform selection cleared
       }

@@ -1,4 +1,4 @@
-import { Transaction, Command } from 'prosemirror-state'
+import type { Transaction, Command } from 'prosemirror-state'
 import { EditorView } from 'prosemirror-view'
 
 export type MaybeCommand = Command | Transaction

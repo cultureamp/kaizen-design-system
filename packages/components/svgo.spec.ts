@@ -1,5 +1,7 @@
 import { describe } from 'vitest'
 
+// Svgo only works in CommonJS so we need to use require here.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const { removeRootSVGElement, replaceAttrKeys, replaceColor, replaceId } = require('./svgoUtils')
 
 type SVGOItem = {

@@ -43,7 +43,7 @@ export const OnButton: Story = {
   ),
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.queryByRole('button') || canvas.getByRole('link')
+    const button = canvas.queryByRole('button') ?? canvas.getByRole('link')
 
     await step('Hover shows', async () => {
       await userEvent.unhover(button)
