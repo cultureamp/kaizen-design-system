@@ -90,7 +90,7 @@ const getNodeByText = (
   let filteredNodes = findChildrenByType(state.doc, state.schema.nodes.text, true)
 
   filteredNodes = filteredNodes.filter((textNode) => {
-    if (textNode.node.text && textNode.node.text.indexOf(selectedText) > -1) {
+    if (textNode.node.text?.includes(selectedText)) {
       return textNode
     }
     return false

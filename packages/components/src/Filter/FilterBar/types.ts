@@ -23,7 +23,7 @@ export type FilterAttributes<ValuesMap extends FiltersValues, Id = keyof ValuesM
   isUsableWhen?: FilterIsUsableWhen<ValuesMap>
 }
 
-export type Filters<ValuesMap extends FiltersValues> = Array<FilterAttributes<ValuesMap>>
+export type Filters<ValuesMap extends FiltersValues> = FilterAttributes<ValuesMap>[]
 
 export type FilterState<Id, Value> = {
   id: Id

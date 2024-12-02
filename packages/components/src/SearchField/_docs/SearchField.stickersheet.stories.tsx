@@ -13,10 +13,10 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
-    const variants: Array<{
+    const variants: {
       heading: string
       variantProps?: Partial<SearchFieldProps>
-    }> = [
+    }[] = [
       {
         heading: 'Default',
       },

@@ -5,7 +5,7 @@ import { LinkPopover } from '../LinkPopover'
 
 export type LinkEditorAttrs = {
   href: string | null
-  _metadata: { [key: string]: unknown } | null
+  _metadata: Record<string, unknown> | null
 }
 
 export type LinkEditorProps = {
@@ -24,10 +24,7 @@ export const LinkEditor = ({
   focusEditor,
 }: LinkEditorProps): JSX.Element => {
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(attrs.href != null)
-  const [modalOpen, setModalOpen] = useState<boolean>(
-    // eslint-disable-next-line no-underscore-dangle
-    attrs._metadata?.added === true,
-  )
+  const [modalOpen, setModalOpen] = useState<boolean>(attrs._metadata?.added === true)
 
   const [href, setHref] = useState<string | undefined>(attrs.href ? attrs.href : undefined)
 

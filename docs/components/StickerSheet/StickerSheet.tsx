@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from 'react'
-// eslint-disable-next-line import/no-extraneous-dependencies
+
 import isChromatic from 'chromatic'
 import classnames from 'classnames'
 import { Heading } from '~components/Heading'

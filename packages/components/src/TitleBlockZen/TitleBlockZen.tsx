@@ -367,7 +367,7 @@ export const TitleBlockZen = ({
               {(sectionTitle || sectionTitleDescription || renderSectionTitle) && (
                 <div className={styles.sectionTitleContainer}>
                   <div className={styles.sectionTitleInner}>
-                    {!!renderSectionTitle
+                    {renderSectionTitle
                       ? renderSectionTitle({
                           sectionTitle,
                           sectionTitleAutomationId,

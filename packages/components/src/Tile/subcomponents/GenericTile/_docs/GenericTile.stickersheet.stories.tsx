@@ -20,7 +20,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       footer: <>Footer</>,
     } satisfies GenericTileProps
 
-    const variants = ['default', 'expert-advice'] satisfies Array<GenericTileProps['variant']>
+    const variants = ['default', 'expert-advice'] satisfies GenericTileProps['variant'][]
 
     const moods = [
       'positive',
@@ -29,7 +29,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       'assertive',
       'negative',
       'prominent',
-    ] satisfies Array<GenericTileProps['mood']>
+    ] satisfies GenericTileProps['mood'][]
 
     return (
       <>

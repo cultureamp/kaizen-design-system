@@ -9,7 +9,7 @@ export const DayOfWeek = {
 } as const
 
 // Intentionally naming the type the same as the const for tree-shaking
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek]
 
 export const DateFormat = {
@@ -18,5 +18,5 @@ export const DateFormat = {
 } as const
 
 // Intentionally naming the type the same as the const for tree-shaking
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+
 export type DateFormat = (typeof DateFormat)[keyof typeof DateFormat]

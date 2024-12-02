@@ -43,29 +43,29 @@ const createSchema = (controls?: ToolbarControlTypes[]): ProseMirrorModel.Schema
   const newMarks: MarkSpec = {}
 
   if (controls.includes('bold')) {
-    newMarks['strong'] = marks.strong
+    newMarks.strong = marks.strong
   }
 
   if (controls.includes('italic')) {
-    newMarks['em'] = marks.em
+    newMarks.em = marks.em
   }
 
   if (controls.includes('underline')) {
-    newMarks['underline'] = marks.underline
+    newMarks.underline = marks.underline
   }
 
   if (controls.includes('bulletList')) {
-    newNodes['bulletList'] = nodes.bulletList
-    newNodes['listItem'] = nodes.listItem
+    newNodes.bulletList = nodes.bulletList
+    newNodes.listItem = nodes.listItem
   }
 
   if (controls.includes('orderedList')) {
-    newNodes['orderedList'] = nodes.orderedList
-    newNodes['listItem'] = nodes.listItem
+    newNodes.orderedList = nodes.orderedList
+    newNodes.listItem = nodes.listItem
   }
 
   if (controls.includes('link')) {
-    newMarks['link'] = marks.link
+    newMarks.link = marks.link
   }
 
   return new ProseMirrorModel.Schema({

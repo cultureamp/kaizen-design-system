@@ -770,7 +770,7 @@ describe('<FilterBar />', () => {
 
   describe('Context use cases', () => {
     describe('getActiveFilterValues()', () => {
-      type Items = Array<{ value: string; label: string }>
+      type Items = { value: string; label: string }[]
 
       type AsyncValues = {
         city: string[]

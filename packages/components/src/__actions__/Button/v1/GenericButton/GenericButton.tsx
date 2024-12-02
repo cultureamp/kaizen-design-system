@@ -111,7 +111,7 @@ export type GenericButtonProps = BaseButtonProps & WorkingButtonProps
 // We're treating custom props as anything that is kebab cased.
 // This is so we can support properties like aria-* or data-*
 const getCustomProps = (props: Record<string, any>): Record<string, string> => {
-  const keys = Object.keys(props).filter((k) => k.indexOf('-') !== -1)
+  const keys = Object.keys(props).filter((k) => k.includes('-'))
   return keys.reduce<Record<string, any>>((acc, val) => {
     acc[val] = props[val]
     return acc

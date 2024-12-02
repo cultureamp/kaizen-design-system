@@ -7,7 +7,7 @@ type KnownAttrs = {
   href?: string
 }
 
-export type AttrsValidator = (attrs: KnownAttrs & { [key: string]: unknown }) => boolean | unknown
+export type AttrsValidator = (attrs: KnownAttrs & Record<string, unknown>) => boolean | unknown
 
 type MatchedMark = {
   style: Mark

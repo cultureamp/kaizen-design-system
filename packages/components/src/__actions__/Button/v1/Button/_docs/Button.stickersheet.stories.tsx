@@ -14,10 +14,10 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
-    const REVERSED__VARIANT_PROPS: Array<{
+    const REVERSED__VARIANT_PROPS: {
       title: string
       props: ButtonProps
-    }> = [
+    }[] = [
       {
         title: 'Default',
         props: {
@@ -47,10 +47,10 @@ const StickerSheetTemplate: StickerSheetStory = {
       },
     ]
 
-    const VARIANTS_PROPS: Array<{
+    const VARIANTS_PROPS: {
       title: string
       props: ButtonProps
-    }> = isReversed
+    }[] = isReversed
       ? REVERSED__VARIANT_PROPS
       : [
           ...REVERSED__VARIANT_PROPS,
@@ -165,10 +165,10 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 const WorkingStickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
-    const REVERSED__VARIANT_PROPS: Array<{
+    const REVERSED__VARIANT_PROPS: {
       title: string
       props: ButtonProps
-    }> = [
+    }[] = [
       {
         title: 'Default',
         props: {
@@ -198,10 +198,10 @@ const WorkingStickerSheetTemplate: StickerSheetStory = {
       },
     ]
 
-    const VARIANTS_PROPS: Array<{
+    const VARIANTS_PROPS: {
       title: string
       props: ButtonProps
-    }> = isReversed
+    }[] = isReversed
       ? REVERSED__VARIANT_PROPS
       : [
           ...REVERSED__VARIANT_PROPS,

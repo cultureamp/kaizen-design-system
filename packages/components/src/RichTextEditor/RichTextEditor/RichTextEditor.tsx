@@ -192,7 +192,7 @@ RichTextEditor.displayName = 'RichTextEditor'
 function getPlugins(
   controls: ToolbarItems[] | undefined,
   schema: ProseMirrorModel.Schema,
-): Array<
+): (
   | ProseMirrorState.Plugin<unknown>
   | ProseMirrorState.Plugin<{
       transform: ProseMirrorState.Transaction
@@ -200,7 +200,7 @@ function getPlugins(
       to: number
       text: string
     } | null>
-> {
+)[] {
   const allControlNames: string[] = controls
     ? controls.reduce((acc: string[], c: ToolbarItems) => [...acc, c.name], [])
     : []

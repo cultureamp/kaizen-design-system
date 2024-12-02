@@ -8,10 +8,10 @@ import { MenuProps, ButtonProps } from '~components/__actions__/v2'
 import styles from './Toolbar.module.scss'
 
 type ToolbarProps = {
-  items?: Array<{
+  items?: {
     key: string
     node: React.ReactElement<ButtonProps> | React.ReactElement<MenuProps>
-  }>
+  }[]
   noGap?: boolean
   automationId?: string
 }

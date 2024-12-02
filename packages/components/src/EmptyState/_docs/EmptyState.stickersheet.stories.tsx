@@ -33,9 +33,12 @@ const StickerSheetTemplate: StickerSheetStory = {
         'If providing further actions, include a link to an action or use a Default or Primary action.',
     } satisfies EmptyStateProps
 
-    const variants = ['success', 'warning', 'informative', 'expert-advice'] satisfies Array<
-      EmptyStateProps['variant']
-    >
+    const variants = [
+      'success',
+      'warning',
+      'informative',
+      'expert-advice',
+    ] satisfies EmptyStateProps['variant'][]
 
     const illustrationTypes = [
       'positive',
@@ -43,7 +46,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       'negative',
       'informative',
       'action',
-    ] satisfies Array<EmptyStateProps['illustrationType']>
+    ] satisfies EmptyStateProps['illustrationType'][]
 
     return (
       <>

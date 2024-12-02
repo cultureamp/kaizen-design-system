@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import React from 'react'
 import { Unstyled } from '@storybook/blocks'
 import { toCustomMediaQueriesArray } from 'object-to-css-variables'
@@ -42,7 +40,7 @@ export const CodeBlock = (props: {
 const TabbedCodeBlocks = ({
   blocks,
 }: {
-  blocks: Array<React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }>
+  blocks: (React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string })[]
 }): JSX.Element => (
   <Tabs>
     <TabList aria-label="Tabs">
@@ -60,7 +58,7 @@ const TabbedCodeBlocks = ({
   </Tabs>
 )
 
-const themesBlocks: Array<React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }> = [
+const themesBlocks: (React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string })[] = [
   {
     name: 'JS',
     language: 'typescript',
@@ -84,7 +82,7 @@ const themesBlocks: Array<React.ComponentPropsWithoutRef<typeof CodeBlock> & { n
 ]
 
 export const ThemesCodeBlocks = (): JSX.Element => <TabbedCodeBlocks blocks={themesBlocks} />
-const sassBlocks: Array<React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }> = [
+const sassBlocks: (React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string })[] = [
   {
     name: 'Color',
     language: 'scss',

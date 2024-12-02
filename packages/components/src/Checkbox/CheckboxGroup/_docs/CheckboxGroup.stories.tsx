@@ -57,17 +57,17 @@ export const Playground: Story = {
       <CheckboxGroup {...args}>
         <CheckboxField
           labelText="Checkbox one"
-          checkedStatus={checkedStatus['one']}
+          checkedStatus={checkedStatus.one}
           onCheck={onCheckHandler('one')}
         />
         <CheckboxField
           labelText="Checkbox two"
-          checkedStatus={checkedStatus['two']}
+          checkedStatus={checkedStatus.two}
           onCheck={onCheckHandler('two')}
         />
         <CheckboxField
           labelText="Checkbox three"
-          checkedStatus={checkedStatus['three']}
+          checkedStatus={checkedStatus.three}
           onCheck={onCheckHandler('three')}
         />
       </CheckboxGroup>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, ReactNode, useMemo } from 'react'
 
-type Props = { [key: string]: string }
+type Props = Record<string, string>
 type GenericChildrenType = { children?: ReactNode }
 
 export const subtractOnePixel = (breakpoint: string): string => `${parseInt(breakpoint, 10) - 1}px`
@@ -49,7 +49,7 @@ export const useMediaQueries = (
 
   // The `addEventListener` calls blow up legacy Edge (<= v18/pre chromium),
   // so we disable the functionality of updating after page load.
-  const isLegacyEdge = navigator.userAgent.match(/Edge/)
+  const isLegacyEdge = /Edge/.exec(navigator.userAgent)
   const isUnsupportedSafari = window.matchMedia('').addEventListener === undefined
 
   // ---------------------------------------

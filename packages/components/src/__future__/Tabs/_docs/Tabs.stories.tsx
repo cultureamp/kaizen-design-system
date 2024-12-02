@@ -49,7 +49,7 @@ export const Playground: Story = {
   },
   args: {
     defaultSelectedKey: 'one',
-    // eslint-disable-next-line no-console
+
     onSelectionChange: (key): void => console.log('Tab changed to ', key),
   },
 }

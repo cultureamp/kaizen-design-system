@@ -57,7 +57,7 @@ export const convertSecondaryActionsToMenuItems = (
       ]
     }
     return acc
-  }, new Array())
+  }, [])
 
 export const createTabletOverflowMenuItems = (
   secondaryActions?: SecondaryActionsProps,

@@ -74,7 +74,7 @@ export const Async: Story = {
     const filterNames = (inputValue: string): typeof OPTIONS =>
       OPTIONS.filter(({ label }) => label.toLowerCase().includes(inputValue.toLowerCase()))
 
-    const promiseOptions = (inputValue: string): Promise<Array<{ value: string; label: string }>> =>
+    const promiseOptions = (inputValue: string): Promise<{ value: string; label: string }[]> =>
       new Promise((resolve) => {
         setTimeout(() => {
           resolve(filterNames(inputValue))

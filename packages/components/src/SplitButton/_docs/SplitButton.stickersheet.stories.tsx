@@ -27,7 +27,7 @@ const ROWS_MAP = [
     actionButtonProps: exampleActionButtonPropsAnchor,
     dropdownContent: exampleDropdownContentEnabled,
   },
-] satisfies Array<{ rowTitle: string } & SplitButtonProps>
+] satisfies ({ rowTitle: string } & SplitButtonProps)[]
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (

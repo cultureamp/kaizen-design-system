@@ -4,7 +4,7 @@ import { printAst } from './printAst'
 
 export type TransformSourceArgs = {
   sourceFile: ts.SourceFile
-  transformers: Array<ts.TransformerFactory<ts.SourceFile>>
+  transformers: ts.TransformerFactory<ts.SourceFile>[]
 }
 
 export const transformSource = ({ sourceFile, transformers }: TransformSourceArgs): string => {

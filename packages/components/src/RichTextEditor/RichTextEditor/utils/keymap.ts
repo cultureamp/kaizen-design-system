@@ -7,9 +7,7 @@ import {
   ProseMirrorState,
 } from '../../utils/prosemirror'
 
-type KeyBinding = {
-  [key: string]: ProseMirrorState.Command
-}
+type KeyBinding = Record<string, ProseMirrorState.Command>
 
 export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
   const { redo, undo } = ProseMirrorHistory
@@ -18,7 +16,7 @@ export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
 
   const mac =
     // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
-    typeof navigator != 'undefined' ? /Mac/.test(navigator.platform) : false
+    typeof navigator != 'undefined' ? navigator.platform.includes('Mac') : false
 
   const {
     chainCommands,
@@ -90,7 +88,7 @@ export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
 
   if (schema.nodes.listItem) {
     const type = schema.nodes.listItem
-    keys['Enter'] = splitListItem(type)
+    keys.Enter = splitListItem(type)
     keys['Mod-['] = liftListItem(type)
     keys['Mod-]'] = sinkListItem(type)
   }

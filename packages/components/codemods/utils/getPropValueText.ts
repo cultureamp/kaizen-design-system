@@ -11,7 +11,7 @@ export const getPropValueText = (propValue: ts.JsxAttributeValue): string | unde
   if (expression) {
     const expressionText = expression.getText()
 
-    if (expressionText.match(/^['"`]/)) {
+    if (/^['"`]/.exec(expressionText)) {
       return expressionText.replace(/^['"`]|['"`]$/g, '')
     }
   }

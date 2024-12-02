@@ -15,8 +15,7 @@ import {
   QueryParamConfig,
   decodeQueryParams,
 } from 'serialize-query-params'
-import { DateRange, ItemType, SelectOption } from '~components/index'
-import { FilterMultiSelect } from '../../../index'
+import { DateRange, ItemType, SelectOption, FilterMultiSelect } from '~components/index'
 import { FilterBar, Filters, useFilterBarContext } from '../index'
 import { FilterBarMultiSelectProps } from '../subcomponents'
 

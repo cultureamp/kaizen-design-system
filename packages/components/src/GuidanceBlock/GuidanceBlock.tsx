@@ -76,7 +76,7 @@ type WithTooltipProps = {
 }
 
 const WithTooltip = ({ tooltipProps, children }: WithTooltipProps): JSX.Element =>
-  !!tooltipProps ? <Tooltip {...tooltipProps}>{children}</Tooltip> : <>{children}</>
+  tooltipProps ? <Tooltip {...tooltipProps}>{children}</Tooltip> : <>{children}</>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093807/Guidance+Block Guidance} |

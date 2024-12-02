@@ -19,10 +19,10 @@ const WORKING_PROPS: ButtonProps = {
   workingLabel: 'Submitting',
   workingLabelHidden: true,
 }
-const REVERSED__VARIANT_PROPS: Array<{
+const REVERSED__VARIANT_PROPS: {
   title: string
   props: IconButtonProps
-}> = [
+}[] = [
   {
     title: 'Default',
     props: {
@@ -58,10 +58,10 @@ const REVERSED__VARIANT_PROPS: Array<{
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
-    const VARIANTS_PROPS: Array<{
+    const VARIANTS_PROPS: {
       title: string
       props: ButtonProps
-    }> = isReversed
+    }[] = isReversed
       ? REVERSED__VARIANT_PROPS
       : [
           ...REVERSED__VARIANT_PROPS,

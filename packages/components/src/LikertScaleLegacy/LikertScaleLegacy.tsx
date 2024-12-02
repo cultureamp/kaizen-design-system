@@ -7,10 +7,10 @@ import { ScaleValue, Scale, ScaleItem, ColorSchema } from './types'
 import determineSelectionFromKeyPress from './utils/determineSelectionFromKeyPress'
 import styles from './LikertScaleLegacy.module.scss'
 
-type ItemRefs = Array<{
+type ItemRefs = {
   value: ScaleValue
   ref: { current: null | HTMLDivElement }
-}>
+}[]
 
 export type LikertScaleProps = {
   'labelId': string
@@ -82,7 +82,7 @@ export const LikertScaleLegacy = ({
 
       // Update focus
       const itemRef = itemRefs.find((item) => item.value === newPosition)
-      itemRef && itemRef.ref.current && itemRef.ref.current.focus()
+      itemRef?.ref.current && itemRef.ref.current.focus()
     }
   }
 
@@ -165,7 +165,7 @@ export const LikertScaleLegacy = ({
               aria-posinset={item.value}
               aria-setsize={5}
               tabIndex={tabIndex}
-              ref={itemRef && itemRef.ref}
+              ref={itemRef?.ref}
             >
               <div
                 className={classnames(

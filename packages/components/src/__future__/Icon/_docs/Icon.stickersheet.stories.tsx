@@ -28,7 +28,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       'arrow_forward',
       'arrow_back',
       ...Object.keys(handledRtlIcons),
-    ] satisfies Array<IconProps['name']>
+    ] satisfies IconProps['name'][]
 
     return (
       <>

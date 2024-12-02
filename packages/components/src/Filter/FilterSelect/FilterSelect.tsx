@@ -33,7 +33,7 @@ export type FilterSelectProps<Option extends SelectOption = SelectOption> = {
   renderTrigger: (triggerButtonProps: FilterButtonProps) => JSX.Element
   label: string
   children?: SelectPopoverContentsProps<Option>['children']
-  items: Array<SelectItem<Option>>
+  items: SelectItem<Option>[]
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
 export const FilterSelect = <Option extends SelectOption = SelectOption>({

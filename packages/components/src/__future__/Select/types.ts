@@ -27,7 +27,7 @@ export type SelectOptionGroupNode<Option extends SelectOption = SelectOption> = 
 > & {
   type: 'section'
   hasChildNodes: true
-  childNodes: Array<SelectOptionNode<Option>>
+  childNodes: SelectOptionNode<Option>[]
 }
 
 export type SelectItemNode<Option extends SelectOption = SelectOption> =

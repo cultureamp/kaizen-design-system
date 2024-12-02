@@ -107,7 +107,7 @@ export const ContextModal = ({
       onAfterEnter={onAfterEnter}
     >
       <div className={styles.modal} data-modal {...props}>
-        {renderBackground && renderBackground()}
+        {renderBackground?.()}
         <ModalHeader onDismiss={onDismiss}>
           <div className={classnames(styles.header, !unpadded && styles.padded)}>
             <ModalAccessibleLabel>

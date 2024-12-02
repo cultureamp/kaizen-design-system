@@ -25,7 +25,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
   const { getFilterState, setFilterOpenState, updateValue } = useFilterBarContext<
     Option['value'] | undefined
   >()
-  const [items, setItems] = useState<Array<SelectItem<Option>>>(propsItems)
+  const [items, setItems] = useState<SelectItem<Option>[]>(propsItems)
 
   if (!id) throw Error('Missing `id` prop in FilterBarSelect')
 

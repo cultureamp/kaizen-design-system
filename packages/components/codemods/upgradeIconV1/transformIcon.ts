@@ -60,7 +60,7 @@ export const transformIcon = (
   name: string,
   isFilled?: boolean,
 ): ts.Node => {
-  const styles: Map<string, ts.JsxAttributeValue> = new Map()
+  const styles = new Map<string, ts.JsxAttributeValue>()
 
   const newAttributes = node.attributes.properties.reduce<ts.JsxAttributeLike[]>((acc, attr) => {
     if (ts.isJsxAttribute(attr)) {
@@ -79,7 +79,7 @@ export const transformIcon = (
 
       if (propsToStyleMap.has(propName)) {
         if (attr.initializer) {
-          styles.set(propsToStyleMap.get(propName) as string, attr.initializer)
+          styles.set(propsToStyleMap.get(propName)!, attr.initializer)
         }
         return acc
       }
