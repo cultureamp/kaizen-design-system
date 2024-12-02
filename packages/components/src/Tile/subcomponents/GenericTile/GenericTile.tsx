@@ -57,19 +57,19 @@ export const GenericTile = ({
   ...restProps
 }: GenericTileProps): JSX.Element => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
-  const [isMounted, setIsMounted] = useState<boolean>(false)
+  const [isDocumentReady, setIsDocumentReady] = useState<boolean>(false)
 
   const { formatMessage } = useIntl()
   const infoButtonRef = useRef<HTMLButtonElement>(null)
   const infoButtonReturnRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    setIsMounted(true)
+    setIsDocumentReady(true)
   }, [])
 
   useEffect(() => {
-    if (!isMounted) {
-      setIsMounted(true)
+    if (!isDocumentReady) {
+      setIsDocumentReady(true)
       return
     }
 
