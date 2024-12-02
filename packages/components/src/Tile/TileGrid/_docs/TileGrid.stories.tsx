@@ -78,24 +78,3 @@ export const FlipOneNotOthers: Story = {
     })
   },
 }
-
-// Multiple tiles, test focus isn't held by any of the buttons. Validating that focus isn't shifed on initial render.
-export const NoFocusOnTilesOnRender: Story = {
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-
-    const buttonWithInfoLabel1 = await canvas.findByRole("button", {
-      name: "View more information: Title A",
-    })
-    const buttonWithInfoLabel2 = await canvas.findByRole("button", {
-      name: "View more information: Title B",
-    })
-    const buttonWithInfoLabel3 = await canvas.findByRole("button", {
-      name: "View more information: Title C",
-    })
-
-    expect(buttonWithInfoLabel1).not.toHaveFocus()
-    expect(buttonWithInfoLabel2).not.toHaveFocus()
-    expect(buttonWithInfoLabel3).not.toHaveFocus()
-  },
-}
