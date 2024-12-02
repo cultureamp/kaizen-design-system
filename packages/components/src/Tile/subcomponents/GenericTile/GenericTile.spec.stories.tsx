@@ -88,7 +88,7 @@ export const InfoButtonLabel: Story = {
   },
 }
 
-export const NoFocus: Story = {
+export const DoesNotStealFocusOnInitialRender: Story = {
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
 
