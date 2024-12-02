@@ -121,8 +121,12 @@ export default tseslint.config(
     plugins: {
       'react-hooks': reactHooks,
     },
+    rules: reactHooks.configs.recommended.rules,
+  },
+  {
+    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
+    ignores: ['packages/components/codemods/**/*', '**/*.stories.{ts,tsx}'],
     rules: {
-      ...reactHooks.configs.recommended.rules,
       'no-console': 'error',
     },
   },
