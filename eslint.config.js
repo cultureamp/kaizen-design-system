@@ -20,7 +20,6 @@ export default tseslint.config(
       'docs/storybook-static',
       'packages/components/src/Icon/bin/Template.tsx',
       'packages/components/svgo.config.js',
-      'packages/components/svgo.spec.js',
       'packages/components/svgoUtils.js',
     ],
   },
