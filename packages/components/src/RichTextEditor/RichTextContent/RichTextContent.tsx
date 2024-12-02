@@ -20,6 +20,8 @@ export const RichTextContent = (props: RichTextContentProps): JSX.Element => {
     // prosemirror only allows us to set this to false (which has caused a strange bug in the platform)
     // so we have to hack a bit to remove the attribute completely
     document.getElementById(editorId)?.removeAttribute('contenteditable')
+    // @todo: Fix if possible - avoiding breaking in eslint upgrade
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const [editorRef] = useRichTextEditor(

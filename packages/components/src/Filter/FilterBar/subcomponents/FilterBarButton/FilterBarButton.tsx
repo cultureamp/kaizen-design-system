@@ -24,7 +24,7 @@ export const FilterBarButton = forwardRef<FilterTriggerRef, FilterBarButtonProps
         ref?.current?.triggerRef?.current?.focus()
         setFocus(undefined)
       }
-    }, [focusId])
+    }, [filterId, focusId, ref, setFocus])
 
     return isRemovable ? (
       <FilterButtonRemovable

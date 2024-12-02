@@ -47,7 +47,7 @@ export const Filter = ({
       setIsRefLoaded(true)
       onMount?.(filterButtonRef.current.triggerRef)
     }
-  }, [filterButtonRef.current?.triggerRef?.current, onMount])
+  }, [filterButtonRef, onMount])
 
   return (
     <div className={classnames(styles.filter, classNameOverride)} {...restProps}>

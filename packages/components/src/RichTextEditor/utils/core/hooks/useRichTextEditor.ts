@@ -64,6 +64,8 @@ export const useRichTextEditor = (
         return true
       })
     },
+    // @todo: Fix if possible - avoiding breaking in eslint upgrade
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [editableStatusRef],
   )
 
@@ -84,6 +86,8 @@ export const useRichTextEditor = (
 
     // Including editorState in the dependencies here will cause an endless
     // loop as the initialization changes its value
+    // @todo: Fix if possible - avoiding breaking in eslint upgrade
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [setEditorState, editableStatusRef],
   )
 

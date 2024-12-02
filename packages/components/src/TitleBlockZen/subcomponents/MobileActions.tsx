@@ -421,6 +421,8 @@ export const MobileActions = ({
         setIsOpen(false)
       }
     },
+    // @todo: Fix if possible - avoiding breaking in eslint upgrade
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [menuContent],
   )
 

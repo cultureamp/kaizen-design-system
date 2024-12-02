@@ -42,6 +42,8 @@ export const ToastNotification = ({
       onHide,
       ...restProps,
     })
+    // Only run on first render
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return null

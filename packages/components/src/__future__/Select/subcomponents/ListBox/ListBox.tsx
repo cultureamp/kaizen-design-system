@@ -76,6 +76,8 @@ export const ListBox = <Option extends SelectOption>({
         ref.current?.focus()
       }
     }
+    // Only run this effect for checking the first successful render
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isClientReady])
 
   return (

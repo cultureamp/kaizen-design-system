@@ -117,6 +117,8 @@ export const GenericModal = ({
   }
 
   /* Ensure sure add-on styles (e.g. unscrollable) and key event is cleaned up when the modal is unmounted*/
+  // @todo: Fix if possible - avoiding breaking in eslint upgrade
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => () => cleanUpAfterClose(), [])
 
   const onAfterLeaveHandler = (): void => {

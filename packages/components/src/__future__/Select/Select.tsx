@@ -160,7 +160,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
       const portalElement = document.getElementById(portalContainerId)
       if (portalElement) setPortalContainer(portalElement)
     }
-  }, [])
+  }, [portalContainerId])
 
   return (
     <div className={classnames(!isFullWidth && styles.notFullWidth, classNameOverride)}>
