@@ -1,4 +1,5 @@
 export * from "./Icon"
+export * from "./Modal"
 export * from "./Select"
 export * from "./Tag"
 export * from "./Tabs"

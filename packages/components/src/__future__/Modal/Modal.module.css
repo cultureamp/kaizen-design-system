@@ -1,0 +1,24 @@
+:global(.react-aria-ModalOverlay) {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  min-height: 100%;
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.modal {
+  width: 100%;
+  max-width: 620px;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #fff;
+  text-align: start;
+  vertical-align: middle;
+  z-index: 100;
+  box-shadow: var(--shadow-large-box-shadow);
+}

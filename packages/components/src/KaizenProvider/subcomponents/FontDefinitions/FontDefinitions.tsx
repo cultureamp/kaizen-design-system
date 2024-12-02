@@ -37,5 +37,9 @@ export const FontDefinitions = (): JSX.Element => (
       type="font/woff2"
       crossOrigin="anonymous"
     />
+    <link
+      href="https://fonts.cdnfonts.com/css/open-dyslexic"
+      rel="stylesheet"
+    />
   </>
 )
