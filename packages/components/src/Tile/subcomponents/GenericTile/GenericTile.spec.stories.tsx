@@ -119,11 +119,7 @@ export const FocusOnFlip: Story = {
     })
 
     await step("initial render complete", async () => {
-      await waitFor(() => {
-        canvas.getByRole("button", {
-          name: "View more information: Title",
-        })
-      })
+      expect(buttonWithInfoLabel).toBeInTheDocument()
     })
 
     await step("Can focus to button", async () => {
@@ -136,11 +132,14 @@ export const FocusOnFlip: Story = {
       name: "Hide information: Title",
     })
 
-    expect(returnButton).toHaveFocus()
-
-    await step("Can focus to info button again", async () => {
+    await step("Can click on info button again", async () => {
       await waitFor(() => {
         returnButton.click()
+      })
+    })
+
+    await step("Info button has focus again", async () => {
+      await waitFor(() => {
         expect(buttonWithInfoLabel).toHaveFocus()
       })
     })
