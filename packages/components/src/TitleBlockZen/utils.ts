@@ -5,15 +5,13 @@ import {
   TitleBlockVariant,
   SecondaryActionsProps,
   TitleBlockMenuItemProps,
-} from "./types"
+} from './types'
 
 export const isMenuGroupNotButton = (
-  value:
-    | (TitleBlockButtonProps | TitleBlockCustomButtonProps)
-    | TitleBlockMenuGroup
-): value is TitleBlockMenuGroup => "menuItems" in value
+  value: (TitleBlockButtonProps | TitleBlockCustomButtonProps) | TitleBlockMenuGroup,
+): value is TitleBlockMenuGroup => 'menuItems' in value
 
-export const NON_REVERSED_VARIANTS = ["education", "admin"]
+export const NON_REVERSED_VARIANTS = ['education', 'admin']
 
 export const isReversed = (variant: TitleBlockVariant | undefined): boolean => {
   // The default variant (no variant prop) is reversed (dark background)
@@ -22,14 +20,14 @@ export const isReversed = (variant: TitleBlockVariant | undefined): boolean => {
 }
 
 export const convertSecondaryActionsToMenuItems = (
-  secondaryActions: SecondaryActionsProps
+  secondaryActions: SecondaryActionsProps,
 ): TitleBlockMenuItemProps[] =>
   secondaryActions.reduce((acc, cur) => {
-    if ("menuItems" in cur) {
+    if ('menuItems' in cur) {
       return [...acc, ...cur.menuItems]
     }
 
-    if ("component" in cur) {
+    if ('component' in cur) {
       return [...acc, cur]
     }
 
@@ -40,7 +38,7 @@ export const convertSecondaryActionsToMenuItems = (
       disabled: cur.disabled,
     }
 
-    if ("onClick" in cur) {
+    if ('onClick' in cur) {
       return [
         ...acc,
         {
@@ -49,7 +47,7 @@ export const convertSecondaryActionsToMenuItems = (
         },
       ]
     }
-    if ("href" in cur) {
+    if ('href' in cur) {
       return [
         ...acc,
         {
@@ -63,7 +61,7 @@ export const convertSecondaryActionsToMenuItems = (
 
 export const createTabletOverflowMenuItems = (
   secondaryActions?: SecondaryActionsProps,
-  secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
+  secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
 ): TitleBlockMenuItemProps[] => {
   let secondaryActionsList: TitleBlockMenuItemProps[]
   if (secondaryActions) {

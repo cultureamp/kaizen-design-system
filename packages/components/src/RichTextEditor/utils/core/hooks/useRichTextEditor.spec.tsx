@@ -1,10 +1,10 @@
-import React, { useEffect } from "react"
-import { render, screen, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { Command, EditorState } from "prosemirror-state"
-import { vi } from "vitest"
-import { testEditorState } from "../fixtures/testState"
-import { useRichTextEditor } from "./useRichTextEditor"
+import React, { useEffect } from 'react'
+import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { Command, EditorState } from 'prosemirror-state'
+import { vi } from 'vitest'
+import { testEditorState } from '../fixtures/testState'
+import { useRichTextEditor } from './useRichTextEditor'
 const user = userEvent.setup()
 
 const Scenario = ({
@@ -18,16 +18,15 @@ const Scenario = ({
     // Insert text at the current selection point, which is the start because
     // we don’t have a selection yet.
     if (!dispatch) return false
-    dispatch(state.tr.insertText("Prepended content. "))
+    dispatch(state.tr.insertText('Prepended content. '))
     return true
   }
 
-  const [ref, editorState, dispatchTransaction, setEditableStatus] =
-    useRichTextEditor(
-      testEditorState,
-      { "aria-labelledby": "label-ref-id", "data-testid": "12345678" },
-      { editable }
-    )
+  const [ref, editorState, dispatchTransaction, setEditableStatus] = useRichTextEditor(
+    testEditorState,
+    { 'aria-labelledby': 'label-ref-id', 'data-testid': '12345678' },
+    { editable },
+  )
 
   useEffect(() => {
     // Propagate changes to the editorState
@@ -50,40 +49,38 @@ const Scenario = ({
   )
 }
 
-describe("useRichTextEditor()", () => {
-  it("binds the editor to the DOM", async () => {
+describe('useRichTextEditor()', () => {
+  it('binds the editor to the DOM', async () => {
     render(<Scenario />)
 
     await waitFor(() => {
-      expect(screen.getByText("Example content")).toBeInTheDocument()
+      expect(screen.getByText('Example content')).toBeInTheDocument()
     })
   })
 
-  it("updates the DOM when commands are dispatched", async () => {
+  it('updates the DOM when commands are dispatched', async () => {
     render(<Scenario />)
 
     await waitFor(() => {
-      expect(screen.getByText("Example content")).toBeInTheDocument()
+      expect(screen.getByText('Example content')).toBeInTheDocument()
     })
 
-    await user.click(screen.getByText("Prepend button"))
+    await user.click(screen.getByText('Prepend button'))
 
     await waitFor(() => {
-      expect(
-        screen.getByText("Prepended content. Example content")
-      ).toBeInTheDocument()
+      expect(screen.getByText('Prepended content. Example content')).toBeInTheDocument()
     })
   })
 
-  it("updates the editorState when commands are dispatched", async () => {
+  it('updates the editorState when commands are dispatched', async () => {
     const onChange = vi.fn()
     render(<Scenario onChange={onChange} />)
 
     await waitFor(() => {
-      expect(screen.getByText("Example content")).toBeInTheDocument()
+      expect(screen.getByText('Example content')).toBeInTheDocument()
     })
 
-    await user.click(screen.getByText("Prepend button"))
+    await user.click(screen.getByText('Prepend button'))
 
     const updatedEditorState = onChange.mock.calls[1][0] as EditorState
 
@@ -93,64 +90,64 @@ describe("useRichTextEditor()", () => {
           {
             content: [
               {
-                text: "Prepended content. Example content",
-                type: "text",
+                text: 'Prepended content. Example content',
+                type: 'text',
               },
             ],
-            type: "paragraph",
+            type: 'paragraph',
           },
         ],
-        type: "doc",
+        type: 'doc',
       },
       selection: {
         anchor: 20,
         head: 20,
-        type: "text",
+        type: 'text',
       },
     }
 
     expect(updatedEditorState.toJSON()).toStrictEqual(expected)
   })
 
-  it("defaults to editable", async () => {
+  it('defaults to editable', async () => {
     render(<Scenario />)
 
     await waitFor(() => {
-      const editor = screen.getByTestId("testid--editor")
-      expect(editor.children[0]).toHaveAttribute("contenteditable", "true")
+      const editor = screen.getByTestId('testid--editor')
+      expect(editor.children[0]).toHaveAttribute('contenteditable', 'true')
     })
   })
 
-  it("respects initial editable status", async () => {
+  it('respects initial editable status', async () => {
     render(<Scenario editable={false} />)
 
     await waitFor(() => {
-      const editor = screen.getByTestId("testid--editor")
-      expect(editor.children[0]).toHaveAttribute("contenteditable", "false")
+      const editor = screen.getByTestId('testid--editor')
+      expect(editor.children[0]).toHaveAttribute('contenteditable', 'false')
     })
   })
 
-  it("updates editable status", async () => {
+  it('updates editable status', async () => {
     render(<Scenario />)
 
-    const editor = screen.getByTestId("testid--editor")
+    const editor = screen.getByTestId('testid--editor')
 
     await waitFor(() => {
-      expect(editor.children[0]).toHaveAttribute("contenteditable", "true")
+      expect(editor.children[0]).toHaveAttribute('contenteditable', 'true')
     })
 
-    const disableEditButton = screen.getByText("Editable: false")
+    const disableEditButton = screen.getByText('Editable: false')
     await user.click(disableEditButton)
 
     await waitFor(() => {
-      expect(editor.children[0]).toHaveAttribute("contenteditable", "false")
+      expect(editor.children[0]).toHaveAttribute('contenteditable', 'false')
     })
 
-    const enableEditButton = screen.getByText("Editable: true")
+    const enableEditButton = screen.getByText('Editable: true')
     await user.click(enableEditButton)
 
     await waitFor(() => {
-      expect(editor.children[0]).toHaveAttribute("contenteditable", "true")
+      expect(editor.children[0]).toHaveAttribute('contenteditable', 'true')
     })
   })
 })

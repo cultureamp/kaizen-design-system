@@ -1,70 +1,70 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Icon } from "~components/__future__/Icon"
-import { assetUrl } from "~components/utils/hostedAssets"
-import { StickerSheet } from "~storybook/components/StickerSheet"
-import { NavigationTab, TitleBlockZen } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Icon } from '~components/__future__/Icon'
+import { assetUrl } from '~components/utils/hostedAssets'
+import { StickerSheet } from '~storybook/components/StickerSheet'
+import { NavigationTab, TitleBlockZen } from '../index'
 
 const SECONDARY_ACTIONS = [
   {
-    label: "Secondary menu",
+    label: 'Secondary menu',
     menuItems: [
       {
-        onClick: (): void => alert("test"),
-        label: "Secondary menu action 1",
+        onClick: (): void => alert('test'),
+        label: 'Secondary menu action 1',
       },
       {
-        onClick: (): void => alert("test"),
-        label: "Secondary menu action 2",
+        onClick: (): void => alert('test'),
+        label: 'Secondary menu action 2',
         icon: <Icon name="star" isPresentational isFilled />,
       },
     ],
   },
   {
-    onClick: (): void => alert("test"),
-    label: "Secondary action",
+    onClick: (): void => alert('test'),
+    label: 'Secondary action',
   },
 ]
 
 const meta = {
-  title: "Components/TitleBlockZen",
+  title: 'Components/TitleBlockZen',
   component: TitleBlockZen,
   parameters: {
     chromatic: { disable: false },
   },
   args: {
-    title: "Page title",
-    surveyStatus: { text: "Due July 8, 2030", status: "default" },
+    title: 'Page title',
+    surveyStatus: { text: 'Due July 8, 2030', status: 'default' },
     avatar: {
-      avatarSrc: assetUrl("site/empty-state.png"),
-      fullName: "Blanca Wheeler",
+      avatarSrc: assetUrl('site/empty-state.png'),
+      fullName: 'Blanca Wheeler',
     },
     primaryAction: {
-      label: "Primary link",
+      label: 'Primary link',
       icon: <Icon name="add" isPresentational />,
       disabled: true,
-      href: "#",
+      href: '#',
     },
     defaultAction: {
-      label: "Default link",
-      href: "#",
+      label: 'Default link',
+      href: '#',
     },
     secondaryActions: SECONDARY_ACTIONS,
     secondaryOverflowMenuItems: [
       {
-        label: "Overflow action 1",
+        label: 'Overflow action 1',
         icon: <Icon name="star" isPresentational isFilled />,
       },
       {
-        label: "Overflow link 1",
+        label: 'Overflow link 1',
         icon: <Icon name="star" isPresentational isFilled />,
       },
     ],
-    handleHamburgerClick: (): void => alert("Hamburger clicked"),
+    handleHamburgerClick: (): void => alert('Hamburger clicked'),
     breadcrumb: {
-      path: "#",
-      text: "Back to home",
-      handleClick: (): void => alert("breadcrumb clicked!"),
+      path: '#',
+      text: 'Back to home',
+      handleClick: (): void => alert('breadcrumb clicked!'),
     },
     navigationTabs: [
       <NavigationTab key="1" text="Label" href="#" active />,
@@ -85,7 +85,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -96,22 +96,22 @@ export const Viewports: Story = {
     viewport: {
       viewports: {
         default: {
-          name: "Above or equal to 1366",
-          styles: { width: "1366px", height: "800px" },
-          type: "desktop",
+          name: 'Above or equal to 1366',
+          styles: { width: '1366px', height: '800px' },
+          type: 'desktop',
         },
         under1366: {
-          name: "Under 1366",
-          styles: { width: "1365px", height: "800px" },
-          type: "desktop",
+          name: 'Under 1366',
+          styles: { width: '1365px', height: '800px' },
+          type: 'desktop',
         },
         mediumSmall: {
-          name: "Medium and small",
-          styles: { width: "1079px", height: "800px" },
-          type: "desktop",
+          name: 'Medium and small',
+          styles: { width: '1079px', height: '800px' },
+          type: 'desktop',
         },
       },
-      defaultViewport: "default",
+      defaultViewport: 'default',
     },
     chromatic: {
       disable: false,
@@ -125,32 +125,32 @@ export const HasLongTitle: Story = {
     viewport: {
       viewports: {
         default: {
-          name: "Above or equal to 1366",
-          styles: { width: "1366px", height: "800px" },
-          type: "desktop",
+          name: 'Above or equal to 1366',
+          styles: { width: '1366px', height: '800px' },
+          type: 'desktop',
         },
         under1366: {
-          name: "Under 1366",
-          styles: { width: "1365px", height: "800px" },
-          type: "desktop",
+          name: 'Under 1366',
+          styles: { width: '1365px', height: '800px' },
+          type: 'desktop',
         },
       },
-      defaultViewport: "default",
+      defaultViewport: 'default',
     },
     chromatic: {
       disable: false,
       viewports: [1365, 1366],
     },
   },
-  args: { title: "A long title with over thirty characters" },
+  args: { title: 'A long title with over thirty characters' },
 }
 
 export const StickerSheetBreadcrumbs: Story = {
-  name: "Sticker Sheet (Breadcrumb)",
+  name: 'Sticker Sheet (Breadcrumb)',
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
     pseudo: {
@@ -167,18 +167,18 @@ export const StickerSheetBreadcrumbs: Story = {
       config: {
         rules: [
           {
-            id: "color-contrast", // false positive from animate in on the breadcrumbs
+            id: 'color-contrast', // false positive from animate in on the breadcrumbs
             enabled: false,
           },
           {
-            id: "landmark-unique", // false positive from having multiple TitleBlocks on a page
+            id: 'landmark-unique', // false positive from having multiple TitleBlocks on a page
             enabled: false,
           },
         ],
       },
     },
   },
-  render: args => (
+  render: (args) => (
     <StickerSheet>
       <StickerSheet.Row header="Tab hover">
         <div className="px-12 bg-purple-600">
@@ -205,15 +205,15 @@ export const StickerSheetBreadcrumbs: Story = {
 }
 
 export const StickerSheetSurveyStatus: Story = {
-  name: "Sticker Sheet (Survey Status)",
+  name: 'Sticker Sheet (Survey Status)',
   render: () => (
     <StickerSheet title="Survey Status">
       <StickerSheet.Row header="Draft">
         <TitleBlockZen
           title="Draft Title"
           surveyStatus={{
-            text: "draft text",
-            status: "draft",
+            text: 'draft text',
+            status: 'draft',
           }}
         >
           Draft
@@ -223,8 +223,8 @@ export const StickerSheetSurveyStatus: Story = {
         <TitleBlockZen
           title="Default Title"
           surveyStatus={{
-            text: "default text",
-            status: "default",
+            text: 'default text',
+            status: 'default',
           }}
         >
           Default
@@ -234,8 +234,8 @@ export const StickerSheetSurveyStatus: Story = {
         <TitleBlockZen
           title="Scheduled Title"
           surveyStatus={{
-            text: "scheduled text",
-            status: "scheduled",
+            text: 'scheduled text',
+            status: 'scheduled',
           }}
         >
           Due
@@ -245,8 +245,8 @@ export const StickerSheetSurveyStatus: Story = {
         <TitleBlockZen
           title="Live Title"
           surveyStatus={{
-            text: "live text",
-            status: "live",
+            text: 'live text',
+            status: 'live',
           }}
         >
           Overdue
@@ -256,8 +256,8 @@ export const StickerSheetSurveyStatus: Story = {
         <TitleBlockZen
           title="Closed Title"
           surveyStatus={{
-            text: "closed text",
-            status: "closed",
+            text: 'closed text',
+            status: 'closed',
           }}
         >
           Completed
@@ -267,8 +267,8 @@ export const StickerSheetSurveyStatus: Story = {
         <TitleBlockZen
           title="Sentiment Positive Title"
           surveyStatus={{
-            text: "sentimentPositive text",
-            status: "sentimentPositive",
+            text: 'sentimentPositive text',
+            status: 'sentimentPositive',
           }}
         >
           Completed

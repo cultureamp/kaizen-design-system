@@ -1,15 +1,13 @@
-import { Mark, MarkType } from "prosemirror-model"
-import { EditorState, Transaction } from "prosemirror-state"
-import { RemoveMarkStep } from "prosemirror-transform"
+import { Mark, MarkType } from 'prosemirror-model'
+import { EditorState, Transaction } from 'prosemirror-state'
+import { RemoveMarkStep } from 'prosemirror-transform'
 
 type KnownAttrs = {
   varibleHref?: string
   href?: string
 }
 
-export type AttrsValidator = (
-  attrs: KnownAttrs & { [key: string]: unknown }
-) => boolean | unknown
+export type AttrsValidator = (attrs: KnownAttrs & { [key: string]: unknown }) => boolean | unknown
 
 type MatchedMark = {
   style: Mark
@@ -49,7 +47,7 @@ export const validateAndRemoveMarks =
       }
     })
 
-    matched.forEach(m => tr.step(new RemoveMarkStep(m.from, m.to, m.style)))
+    matched.forEach((m) => tr.step(new RemoveMarkStep(m.from, m.to, m.style)))
     dispatch(tr)
     return true
   }

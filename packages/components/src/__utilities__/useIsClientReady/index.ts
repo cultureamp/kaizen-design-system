@@ -1,1 +1,1 @@
-export * from "./useIsClientReady"
+export * from './useIsClientReady'

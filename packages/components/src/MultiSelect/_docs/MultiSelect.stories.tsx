@@ -1,45 +1,45 @@
-import React, { useEffect, useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
-import { MultiSelect, MultiSelectProps } from "../index"
+import React, { useEffect, useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import { MultiSelect, MultiSelectProps } from '../index'
 
 const meta = {
-  title: "Components/MultiSelect",
+  title: 'Components/MultiSelect',
   component: MultiSelect,
   argTypes: {
     selectedValues: {
-      options: ["None", "Single", "Multiple"],
+      options: ['None', 'Single', 'Multiple'],
       control: {
-        type: "select",
+        type: 'select',
         labels: {
-          None: "new Set()",
+          None: 'new Set()',
           Single: 'new Set(["waffle"])',
           Multiple: 'new Set(["waffle", "pancakes"])',
         },
       },
       mapping: {
         None: new Set(),
-        Single: new Set(["waffle"]),
-        Multiple: new Set(["waffle", "pancakes"]),
+        Single: new Set(['waffle']),
+        Multiple: new Set(['waffle', 'pancakes']),
       },
     },
   },
   args: {
-    label: "Breakfast order",
+    label: 'Breakfast order',
     selectedValues: new Set(),
     isOpen: false,
     items: [
       {
-        label: "Pancakes",
-        value: "pancakes",
+        label: 'Pancakes',
+        value: 'pancakes',
       },
       {
-        label: "Waffle",
-        value: "waffle",
+        label: 'Waffle',
+        value: 'waffle',
       },
       {
-        label: "Toastie",
-        value: "toastie",
+        label: 'Toastie',
+        value: 'toastie',
       },
     ],
     onSelectedValuesChange: fn(),
@@ -52,10 +52,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const MultiSelectTemplate: Story = {
-  render: args => {
-    const [selectedValues, setSelectedValues] = useState<
-      MultiSelectProps["selectedValues"]
-    >(new Set(args.selectedValues))
+  render: (args) => {
+    const [selectedValues, setSelectedValues] = useState<MultiSelectProps['selectedValues']>(
+      new Set(args.selectedValues),
+    )
     const [isOpen, setIsOpen] = useState<boolean>(args.isOpen)
 
     useEffect(() => {
@@ -83,7 +83,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -125,7 +125,7 @@ return (
 export const SelectedValues: Story = {
   ...MultiSelectTemplate,
   args: {
-    selectedValues: new Set(["waffle"]),
+    selectedValues: new Set(['waffle']),
   },
   parameters: { docs: { source: { code: sourceCodeSelectedValues } } },
 }
@@ -150,7 +150,7 @@ export const OpenState: Story = {
 export const Description: Story = {
   ...MultiSelectTemplate,
   args: {
-    description: "Breakfast will be delivered directly to your house",
+    description: 'Breakfast will be delivered directly to your house',
   },
 }
 
@@ -158,8 +158,8 @@ export const ValidationMessage: Story = {
   ...MultiSelectTemplate,
   args: {
     validationMessage: {
-      status: "error",
-      message: "There are no more waffles",
+      status: 'error',
+      message: 'There are no more waffles',
     },
   },
 }
@@ -167,10 +167,10 @@ export const ValidationMessage: Story = {
 export const ValidationMessageWithDescription: Story = {
   ...MultiSelectTemplate,
   args: {
-    description: "Breakfast will be delivered to your house.",
+    description: 'Breakfast will be delivered to your house.',
     validationMessage: {
-      status: "caution",
-      message: "Only five more waffles remain.",
+      status: 'caution',
+      message: 'Only five more waffles remain.',
     },
   },
 }

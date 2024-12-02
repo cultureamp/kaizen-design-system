@@ -1,4 +1,4 @@
-import { FieldMessageStatus } from "~components/FieldMessage"
+import { FieldMessageStatus } from '~components/FieldMessage'
 
 export type MultiSelectOption = {
   label: string
@@ -7,6 +7,6 @@ export type MultiSelectOption = {
 }
 
 export type ValidationMessage = {
-  status?: Extract<FieldMessageStatus, "error" | "caution">
+  status?: Extract<FieldMessageStatus, 'error' | 'caution'>
   message: string | React.ReactElement
 }

@@ -1,12 +1,12 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Card, CardProps } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Card, CardProps } from '../index'
 
 const meta = {
-  title: "Components/Card",
+  title: 'Components/Card',
   component: Card,
   args: {
-    children: "This is a default container",
+    children: 'This is a default container',
   },
   argTypes: {
     variant: {
@@ -23,27 +23,27 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
 }
 
 const colors = [
-  "blue",
-  "green",
-  "gray",
-  "orange",
-  "purple",
-  "red",
-  "white",
-  "yellow",
-] satisfies Array<CardProps["color"]>
+  'blue',
+  'green',
+  'gray',
+  'orange',
+  'purple',
+  'red',
+  'white',
+  'yellow',
+] satisfies Array<CardProps['color']>
 
 export const Colors: Story = {
   render: () => (
     <ul className="flex list-none gap-16">
-      {colors.map(color => (
+      {colors.map((color) => (
         <li key={color}>
           <Card color={color}>This is a default container</Card>
         </li>

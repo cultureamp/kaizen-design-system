@@ -1,14 +1,14 @@
-import React, { useEffect, useId } from "react"
+import React, { useEffect, useId } from 'react'
 import {
   GenericNotificationType,
   GenericNotificationVariant,
-} from "~components/Notification/subcomponents/GenericNotification"
-import { useToastNotificationContext } from "../context/ToastNotificationContext"
-import { ToastNotificationObjBase } from "../types"
+} from '~components/Notification/subcomponents/GenericNotification'
+import { useToastNotificationContext } from '../context/ToastNotificationContext'
+import { ToastNotificationObjBase } from '../types'
 
 export type ToastNotificationProps = Omit<
   ToastNotificationObjBase,
-  "id" | "message" | "persistent"
+  'id' | 'message' | 'persistent'
 > & {
   children: React.ReactNode
   id?: string
@@ -47,4 +47,4 @@ export const ToastNotification = ({
   return null
 }
 
-ToastNotification.displayName = "ToastNotification"
+ToastNotification.displayName = 'ToastNotification'

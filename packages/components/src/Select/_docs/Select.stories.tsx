@@ -1,45 +1,45 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Label } from "~components/Label"
-import { AsyncSelect, Select } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Label } from '~components/Label'
+import { AsyncSelect, Select } from '../index'
 
 const OPTIONS = [
-  { value: "Mindy", label: "Mindy" },
-  { value: "Jaime", label: "Jaime" },
-  { value: "Rafa", label: "Rafa" },
+  { value: 'Mindy', label: 'Mindy' },
+  { value: 'Jaime', label: 'Jaime' },
+  { value: 'Rafa', label: 'Rafa' },
 ]
 
 const DISABLED_OPTIONS = [
-  { value: "Mindy", label: "Mindy" },
-  { value: "Jaime", label: "Jaime", isDisabled: true },
-  { value: "Rafa", label: "Rafa" },
+  { value: 'Mindy', label: 'Mindy' },
+  { value: 'Jaime', label: 'Jaime', isDisabled: true },
+  { value: 'Rafa', label: 'Rafa' },
 ]
 
 const GROUPED_OPTIONS = [
   {
-    label: "Colours",
+    label: 'Colours',
     options: [
-      { value: "blue", label: "blue" },
-      { value: "red", label: "red" },
-      { value: "green", label: "green" },
+      { value: 'blue', label: 'blue' },
+      { value: 'red', label: 'red' },
+      { value: 'green', label: 'green' },
     ],
   },
   {
-    label: "Flavours",
+    label: 'Flavours',
     options: [
-      { value: "vanilla", label: "Vanilla" },
-      { value: "chocolate", label: "Chocolate" },
-      { value: "strawberry", label: "Strawberry" },
+      { value: 'vanilla', label: 'Vanilla' },
+      { value: 'chocolate', label: 'Chocolate' },
+      { value: 'strawberry', label: 'Strawberry' },
     ],
   },
 ]
 
 const meta = {
-  title: "Components/Select",
+  title: 'Components/Select',
   component: Select,
   args: {
     options: OPTIONS,
-    label: "Select",
+    label: 'Select',
   },
 } satisfies Meta<typeof Select>
 
@@ -51,7 +51,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -70,16 +70,12 @@ export const Disabled: Story = {
 }
 
 export const Async: Story = {
-  render: args => {
+  render: (args) => {
     const filterNames = (inputValue: string): typeof OPTIONS =>
-      OPTIONS.filter(({ label }) =>
-        label.toLowerCase().includes(inputValue.toLowerCase())
-      )
+      OPTIONS.filter(({ label }) => label.toLowerCase().includes(inputValue.toLowerCase()))
 
-    const promiseOptions = (
-      inputValue: string
-    ): Promise<Array<{ value: string; label: string }>> =>
-      new Promise(resolve => {
+    const promiseOptions = (inputValue: string): Promise<Array<{ value: string; label: string }>> =>
+      new Promise((resolve) => {
         setTimeout(() => {
           resolve(filterNames(inputValue))
         }, 1000)
@@ -88,11 +84,7 @@ export const Async: Story = {
     return (
       <>
         <Label id="asyncSelectLabel" labelText="Type to see options" />
-        <AsyncSelect
-          aria-labelledby="asyncSelectLabel"
-          loadOptions={promiseOptions}
-          {...args}
-        />
+        <AsyncSelect aria-labelledby="asyncSelectLabel" loadOptions={promiseOptions} {...args} />
       </>
     )
   },

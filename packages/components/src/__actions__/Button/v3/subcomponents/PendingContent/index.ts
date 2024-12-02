@@ -1,1 +1,1 @@
-export * from "./PendingContent"
+export * from './PendingContent'

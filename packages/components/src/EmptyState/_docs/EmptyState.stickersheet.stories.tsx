@@ -1,16 +1,13 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import isChromatic from "chromatic"
-import { Button } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { EmptyState, EmptyStateProps } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import isChromatic from 'chromatic'
+import { Button } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { EmptyState, EmptyStateProps } from '../index'
 
 export default {
-  title: "Components/EmptyState",
+  title: 'Components/EmptyState',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -19,10 +16,7 @@ export default {
 
 const IS_CHROMATIC = isChromatic()
 
-const EmptyStateWrapper = ({
-  isAnimated,
-  ...args
-}: EmptyStateProps): JSX.Element => (
+const EmptyStateWrapper = ({ isAnimated, ...args }: EmptyStateProps): JSX.Element => (
   <div>
     <EmptyState isAnimated={IS_CHROMATIC ? false : isAnimated} {...args} />
   </div>
@@ -32,36 +26,29 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
     const defaultProps = {
       headingProps: {
-        variant: "heading-3",
-        children: "Empty state",
+        variant: 'heading-3',
+        children: 'Empty state',
       },
       bodyText:
-        "If providing further actions, include a link to an action or use a Default or Primary action.",
+        'If providing further actions, include a link to an action or use a Default or Primary action.',
     } satisfies EmptyStateProps
 
-    const variants = [
-      "success",
-      "warning",
-      "informative",
-      "expert-advice",
-    ] satisfies Array<EmptyStateProps["variant"]>
+    const variants = ['success', 'warning', 'informative', 'expert-advice'] satisfies Array<
+      EmptyStateProps['variant']
+    >
 
     const illustrationTypes = [
-      "positive",
-      "neutral",
-      "negative",
-      "informative",
-      "action",
-    ] satisfies Array<EmptyStateProps["illustrationType"]>
+      'positive',
+      'neutral',
+      'negative',
+      'informative',
+      'action',
+    ] satisfies Array<EmptyStateProps['illustrationType']>
 
     return (
       <>
-        <StickerSheet
-          isReversed={isReversed}
-          title="EmptyState"
-          layout="stretch"
-        >
-          {variants.map(variant => (
+        <StickerSheet isReversed={isReversed} title="EmptyState" layout="stretch">
+          {variants.map((variant) => (
             <StickerSheet.Row key={variant} header={variant}>
               <EmptyStateWrapper {...defaultProps} variant={variant} />
             </StickerSheet.Row>
@@ -99,21 +86,12 @@ const StickerSheetTemplate: StickerSheetStory = {
           title="Illustration type (deprecated)"
           layout="stretch"
         >
-          {illustrationTypes.map(illustrationType => (
+          {illustrationTypes.map((illustrationType) => (
             <StickerSheet.Row key={illustrationType} header={illustrationType}>
-              <EmptyStateWrapper
-                {...defaultProps}
-                illustrationType={illustrationType}
-              >
+              <EmptyStateWrapper {...defaultProps} illustrationType={illustrationType}>
                 <Button
                   label="Label"
-                  icon={
-                    <Icon
-                      name="chevron_right"
-                      isPresentational
-                      shouldMirrorInRTL
-                    />
-                  }
+                  icon={<Icon name="chevron_right" isPresentational shouldMirrorInRTL />}
                   iconPosition="end"
                 />
               </EmptyStateWrapper>
@@ -127,11 +105,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

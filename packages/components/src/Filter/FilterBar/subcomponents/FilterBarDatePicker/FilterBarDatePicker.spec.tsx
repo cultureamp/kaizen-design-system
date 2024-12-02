@@ -1,15 +1,9 @@
-import React, { useState } from "react"
-import { screen, waitFor, within, render } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
-import {
-  FilterAttributes,
-  FilterBarProvider,
-} from "~components/Filter/FilterBar"
-import {
-  FilterBarDatePicker,
-  FilterBarDatePickerProps,
-} from "./FilterBarDatePicker"
+import React, { useState } from 'react'
+import { screen, waitFor, within, render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
+import { FilterAttributes, FilterBarProvider } from '~components/Filter/FilterBar'
+import { FilterBarDatePicker, FilterBarDatePickerProps } from './FilterBarDatePicker'
 
 const user = userEvent.setup()
 
@@ -30,12 +24,12 @@ const FilterBarDatePickerWrapper = ({
     <FilterBarProvider<Values>
       filters={[
         {
-          id: "drank",
-          name: "Drank",
+          id: 'drank',
+          name: 'Drank',
           Component: (
             <FilterBarDatePicker
               id="drank"
-              defaultMonth={new Date("2023-06-06")}
+              defaultMonth={new Date('2023-06-06')}
               {...customProps}
             />
           ),
@@ -45,7 +39,7 @@ const FilterBarDatePickerWrapper = ({
       values={values}
       onValuesChange={setValues}
     >
-      {filters => (
+      {(filters) => (
         <>
           {Object.values(filters).map(({ id, Component }) => (
             <React.Fragment key={id}>{Component}</React.Fragment>
@@ -56,120 +50,108 @@ const FilterBarDatePickerWrapper = ({
   )
 }
 
-describe("<FilterBarDatePicker />", () => {
-  it("shows the name in the trigger button", async () => {
+describe('<FilterBarDatePicker />', () => {
+  it('shows the name in the trigger button', async () => {
     render(<FilterBarDatePickerWrapper />)
     await waitFor(() => {
-      const triggerButton = screen.getByRole("button", { name: "Drank" })
+      const triggerButton = screen.getByRole('button', { name: 'Drank' })
       expect(triggerButton).toBeInTheDocument()
     })
   })
 
-  describe("Removable", () => {
-    it("does not show the remove button when isRemovable is false", async () => {
+  describe('Removable', () => {
+    it('does not show the remove button when isRemovable is false', async () => {
       render(<FilterBarDatePickerWrapper />)
       await waitFor(() => {
+        expect(screen.getByRole('button', { name: 'Drank' })).toBeInTheDocument()
         expect(
-          screen.getByRole("button", { name: "Drank" })
-        ).toBeInTheDocument()
-        expect(
-          screen.queryByRole("button", { name: "Remove filter - Drank" })
+          screen.queryByRole('button', { name: 'Remove filter - Drank' }),
         ).not.toBeInTheDocument()
       })
     })
 
-    it("shows the remove button when isRemovable is true", async () => {
+    it('shows the remove button when isRemovable is true', async () => {
       render(
         <FilterBarDatePickerWrapper
           filterAttributes={{ isRemovable: true }}
-          defaultValues={{ drank: new Date("2023-05-01") }}
-        />
+          defaultValues={{ drank: new Date('2023-05-01') }}
+        />,
       )
       await waitFor(() => {
-        expect(
-          screen.getByRole("button", { name: "Remove filter - Drank" })
-        ).toBeVisible()
+        expect(screen.getByRole('button', { name: 'Remove filter - Drank' })).toBeVisible()
       })
     })
   })
 
-  it("can toggle its open state", async () => {
+  it('can toggle its open state', async () => {
     const { getByRole, queryByRole } = render(<FilterBarDatePickerWrapper />)
-    const triggerButton = getByRole("button", { name: "Drank" })
+    const triggerButton = getByRole('button', { name: 'Drank' })
 
     await user.click(triggerButton)
     await waitFor(() => {
-      const dialog = getByRole("dialog")
+      const dialog = getByRole('dialog')
       expect(dialog).toBeInTheDocument()
     })
 
     await user.click(document.body)
     await waitFor(() => {
-      const dialog = queryByRole("dialog")
+      const dialog = queryByRole('dialog')
       expect(dialog).not.toBeInTheDocument()
     })
   })
 
-  it("shows a selected value when provided", async () => {
+  it('shows a selected value when provided', async () => {
     const { getByRole } = render(
-      <FilterBarDatePickerWrapper
-        defaultValues={{ drank: new Date("2023-06-06") }}
-      />
+      <FilterBarDatePickerWrapper defaultValues={{ drank: new Date('2023-06-06') }} />,
     )
     await waitFor(() => {
-      const triggerButton = getByRole("button", {
-        name: "Drank : 6 Jun 2023",
+      const triggerButton = getByRole('button', {
+        name: 'Drank : 6 Jun 2023',
       })
       expect(triggerButton).toBeInTheDocument()
     })
   })
 
-  it("updates the selected value in the trigger button when selecting a date", async () => {
-    render(
-      <FilterBarDatePickerWrapper
-        defaultValues={{ drank: new Date("2023-06-06") }}
-      />
-    )
-    const triggerButton = screen.getByRole("button", {
-      name: "Drank : 6 Jun 2023",
+  it('updates the selected value in the trigger button when selecting a date', async () => {
+    render(<FilterBarDatePickerWrapper defaultValues={{ drank: new Date('2023-06-06') }} />)
+    const triggerButton = screen.getByRole('button', {
+      name: 'Drank : 6 Jun 2023',
     })
 
     await user.click(triggerButton)
 
     await waitFor(() => {
-      const dialog = screen.getByRole("dialog")
+      const dialog = screen.getByRole('dialog')
       expect(dialog).toBeInTheDocument()
     })
 
-    const targetMonth = screen.getByRole("grid", { name: "June 2023" })
-    const targetDay = within(targetMonth).getByRole("gridcell", { name: "7" })
+    const targetMonth = screen.getByRole('grid', { name: 'June 2023' })
+    const targetDay = within(targetMonth).getByRole('gridcell', { name: '7' })
 
     await user.click(targetDay)
 
     await waitFor(() => {
-      expect(
-        screen.getByRole("button", { name: "Drank : 7 Jun 2023" })
-      ).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: 'Drank : 7 Jun 2023' })).toBeInTheDocument()
     })
   })
 
-  it("allows calling additional functions on selection change", async () => {
+  it('allows calling additional functions on selection change', async () => {
     const onChange = vi.fn()
     render(<FilterBarDatePickerWrapper onDateChange={onChange} />)
 
-    const triggerButton = screen.getByRole("button", { name: "Drank" })
+    const triggerButton = screen.getByRole('button', { name: 'Drank' })
     await user.click(triggerButton)
 
     await waitFor(() => {
-      expect(screen.getByRole("dialog")).toBeInTheDocument()
+      expect(screen.getByRole('dialog')).toBeInTheDocument()
     })
 
-    const targetMonth = screen.getByRole("grid", { name: "June 2023" })
-    const targetDay = within(targetMonth).getByRole("gridcell", { name: "7" })
+    const targetMonth = screen.getByRole('grid', { name: 'June 2023' })
+    const targetDay = within(targetMonth).getByRole('gridcell', { name: '7' })
     await user.click(targetDay)
 
     await waitFor(() => {
-      expect(onChange.mock.calls).toEqual([[new Date("2023-06-07")]])
+      expect(onChange.mock.calls).toEqual([[new Date('2023-06-07')]])
     })
   })
 })

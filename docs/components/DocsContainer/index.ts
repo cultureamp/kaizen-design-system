@@ -1,1 +1,1 @@
-export * from "./DefaultDocsContainer"
+export * from './DefaultDocsContainer'

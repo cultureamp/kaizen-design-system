@@ -1,24 +1,21 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import isChromatic from "chromatic"
-import { FilterButton } from "~components/Filter/FilterButton"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Filter, FilterContents } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import isChromatic from 'chromatic'
+import { FilterButton } from '~components/Filter/FilterButton'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Filter, FilterContents } from '../index'
 
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: "Components/Filter Base",
+  title: 'Components/Filter Base',
   parameters: {
     a11y: {
       config: {
         rules: [
           {
             // FIXME: dialog element should have an accessible name
-            id: "aria-dialog-name",
+            id: 'aria-dialog-name',
             enabled: false,
           },
         ],
@@ -36,8 +33,8 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <StickerSheet
         title="Filter"
-        style={{ paddingBottom: IS_CHROMATIC ? "6rem" : undefined }}
-        headers={["Open"]}
+        style={{ paddingBottom: IS_CHROMATIC ? '6rem' : undefined }}
+        headers={['Open']}
       >
         <StickerSheet.Row>
           <Filter
@@ -57,11 +54,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

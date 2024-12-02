@@ -1,1 +1,1 @@
-export * from "./KaizenProvider"
+export * from './KaizenProvider'

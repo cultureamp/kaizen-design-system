@@ -1,19 +1,16 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { CheckboxField } from "~components/Checkbox"
-import { Label } from "~components/Label"
-import { Text } from "~components/Text"
-import { Button as ButtonV2 } from "~components/__actions__/v2"
-import { Button as ButtonV3 } from "~components/__actions__/v3"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { handledRtlIcons, iconDefaultSet } from "../constants"
-import { Icon, IconProps } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { CheckboxField } from '~components/Checkbox'
+import { Label } from '~components/Label'
+import { Text } from '~components/Text'
+import { Button as ButtonV2 } from '~components/__actions__/v2'
+import { Button as ButtonV3 } from '~components/__actions__/v3'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { handledRtlIcons, iconDefaultSet } from '../constants'
+import { Icon, IconProps } from '../index'
 
 export default {
-  title: "Illustrations/Icon/Icon (Future)",
+  title: 'Illustrations/Icon/Icon (Future)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -23,24 +20,24 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
     const defaultProps = {
-      name: "star",
+      name: 'star',
       isPresentational: true,
     } satisfies IconProps
 
     const mirrorInRTL = [
-      "arrow_forward",
-      "arrow_back",
+      'arrow_forward',
+      'arrow_back',
       ...Object.keys(handledRtlIcons),
-    ] satisfies Array<IconProps["name"]>
+    ] satisfies Array<IconProps['name']>
 
     return (
       <>
         <StickerSheet
           title="Icon"
-          headers={["Outlined", "Filled", "Color"]}
+          headers={['Outlined', 'Filled', 'Color']}
           isReversed={isReversed}
         >
-          {iconDefaultSet.map(name => (
+          {iconDefaultSet.map((name) => (
             <StickerSheet.Row key={name} header={name}>
               <Icon {...defaultProps} name={name} />
               <Icon {...defaultProps} name={name} isFilled />
@@ -52,13 +49,9 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet
           title="shouldMirrorInRTL"
           isReversed={isReversed}
-          headers={[
-            'true; dir=["ltr"]',
-            'true; dir=["rtl"]',
-            'false; dir=["rtl"]',
-          ]}
+          headers={['true; dir=["ltr"]', 'true; dir=["rtl"]', 'false; dir=["rtl"]']}
         >
-          {mirrorInRTL.map(name => (
+          {mirrorInRTL.map((name) => (
             <StickerSheet.Row key={name} header={name}>
               <div dir="ltr" className="text-center">
                 <Icon {...defaultProps} name={name} shouldMirrorInRTL />
@@ -73,14 +66,10 @@ const StickerSheetTemplate: StickerSheetStory = {
           ))}
         </StickerSheet>
 
-        <StickerSheet
-          title="Alignment as children within other components"
-          isReversed={isReversed}
-        >
+        <StickerSheet title="Alignment as children within other components" isReversed={isReversed}>
           <StickerSheet.Row header="Text">
             <Text variant="body">
-              Showcase alignment of an icon <Icon {...defaultProps} /> within a
-              sentence
+              Showcase alignment of an icon <Icon {...defaultProps} /> within a sentence
             </Text>
           </StickerSheet.Row>
           <StickerSheet.Row header="Label">
@@ -113,5 +102,5 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }

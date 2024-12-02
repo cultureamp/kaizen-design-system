@@ -1,1 +1,1 @@
-export * from "./LoadingParagraph"
+export * from './LoadingParagraph'

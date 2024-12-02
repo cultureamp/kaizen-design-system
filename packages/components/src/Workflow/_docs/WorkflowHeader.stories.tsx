@@ -1,19 +1,19 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Button } from "~components/__actions__/v2"
-import { Icon, Tag } from "~components/__future__"
-import { Workflow } from "../"
-import { WorkflowControls } from "./controls"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Button } from '~components/__actions__/v2'
+import { Icon, Tag } from '~components/__future__'
+import { Workflow } from '../'
+import { WorkflowControls } from './controls'
 
 const meta = {
-  title: "Layout/Workflow/Components/Header",
+  title: 'Layout/Workflow/Components/Header',
   component: Workflow.Header,
   argTypes: {
     ...WorkflowControls.headerActions,
   },
   args: {
-    workflowName: "Create a self-reflection cycle",
-    stepName: "Settings",
+    workflowName: 'Create a self-reflection cycle',
+    stepName: 'Settings',
     statusTag: <Tag color="purple">Draft</Tag>,
     headerActions: [
       <Button
@@ -22,7 +22,7 @@ const meta = {
         icon={<Icon name="close" isPresentational />}
         secondary
         iconPosition="end"
-        onClick={(): void => alert("mock example of a save action")}
+        onClick={(): void => alert('mock example of a save action')}
       />,
     ],
   },
@@ -36,7 +36,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -60,7 +60,7 @@ export const MultipleActions: Story = {
         icon={<Icon name="close" isPresentational />}
         secondary
         iconPosition="end"
-        onClick={(): void => alert("mock example of a save action")}
+        onClick={(): void => alert('mock example of a save action')}
       />,
     ],
   },

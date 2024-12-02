@@ -1,11 +1,11 @@
-import React, { HTMLAttributes, useMemo, useState } from "react"
-import classnames from "classnames"
-import { usePopper } from "react-popper"
-import { Heading } from "~components/Heading"
-import { Text } from "~components/Text"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { Placement, PopoverSize, PopoverVariant } from "./types"
+import React, { HTMLAttributes, useMemo, useState } from 'react'
+import classnames from 'classnames'
+import { usePopper } from 'react-popper'
+import { Heading } from '~components/Heading'
+import { Text } from '~components/Text'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { Placement, PopoverSize, PopoverVariant } from './types'
 import {
   mapArrowVariantToClass,
   mapLineVariant,
@@ -13,8 +13,8 @@ import {
   mapVariantToBoxClass,
   mapVariantToIcon,
   mapVariantToIconClass,
-} from "./utils/classMappers"
-import styles from "./Popover.module.scss"
+} from './utils/classMappers'
+import styles from './Popover.module.scss'
 
 export type PopoverProps = {
   children: React.ReactNode
@@ -45,9 +45,9 @@ const arrowHeight = 7
  */
 export const Popover = ({
   children,
-  variant = "default",
-  placement = "top",
-  size = "small",
+  variant = 'default',
+  placement = 'top',
+  size = 'small',
   heading,
   dismissible = false,
   onClose,
@@ -57,76 +57,61 @@ export const Popover = ({
   classNameOverride,
   ...restProps
 }: PopoverProps): JSX.Element => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
-  )
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
   const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null)
-  const { styles: popperStyles, attributes } = usePopper(
-    referenceElement,
-    popperElement,
-    {
-      modifiers: [
-        {
-          name: "arrow",
-          options: {
-            element: arrowElement,
-            // Ensures that the arrow doesn't go too far to the left or right
-            // of the tooltip.
-            padding: arrowWidth / 2 + 10,
-          },
+  const { styles: popperStyles, attributes } = usePopper(referenceElement, popperElement, {
+    modifiers: [
+      {
+        name: 'arrow',
+        options: {
+          element: arrowElement,
+          // Ensures that the arrow doesn't go too far to the left or right
+          // of the tooltip.
+          padding: arrowWidth / 2 + 10,
         },
-        {
-          name: "offset",
-          options: {
-            offset: [0, arrowHeight + 6],
-          },
+      },
+      {
+        name: 'offset',
+        options: {
+          offset: [0, arrowHeight + 6],
         },
-        {
-          name: "preventOverflow",
-          options: {
-            // Makes sure that the popover isn't flush up against the end of the
-            // viewport
-            padding: 8,
-            altAxis: true,
-            altBoundary: true,
-            tetherOffset: 50,
-          },
+      },
+      {
+        name: 'preventOverflow',
+        options: {
+          // Makes sure that the popover isn't flush up against the end of the
+          // viewport
+          padding: 8,
+          altAxis: true,
+          altBoundary: true,
+          tetherOffset: 50,
         },
-        {
-          name: "flip",
-          options: {
-            padding: 8,
-            altBoundary: true,
-            fallbackPlacements: ["left", "top", "bottom", "right"],
-          },
+      },
+      {
+        name: 'flip',
+        options: {
+          padding: 8,
+          altBoundary: true,
+          fallbackPlacements: ['left', 'top', 'bottom', 'right'],
         },
-      ],
-      placement,
-    }
-  )
+      },
+    ],
+    placement,
+  })
 
   return (
     <div
       ref={setPopperElement}
       style={popperStyles.popper}
       {...attributes.popper}
-      className={classnames(
-        styles.root,
-        mapSizeToClass(size),
-        classNameOverride
-      )}
+      className={classnames(styles.root, mapSizeToClass(size), classNameOverride)}
       {...restProps}
     >
       <div className={mapVariantToBoxClass(variant)}>
         {heading && (
           <div className={styles.header}>
-            {variant !== "default" && (
-              <span
-                className={classnames(
-                  styles.icon,
-                  mapVariantToIconClass(variant)
-                )}
-              >
+            {variant !== 'default' && (
+              <span className={classnames(styles.icon, mapVariantToIconClass(variant))}>
                 {customIcon ?? mapVariantToIcon(variant)}
               </span>
             )}
@@ -134,12 +119,7 @@ export const Popover = ({
               {heading}
             </Heading>
             {dismissible && (
-              <button
-                className={styles.close}
-                onClick={onClose}
-                type="button"
-                aria-label="close"
-              >
+              <button className={styles.close} onClick={onClose} type="button" aria-label="close">
                 <Icon name="close" isPresentational isFilled />
               </button>
             )}
@@ -148,30 +128,21 @@ export const Popover = ({
         <Text
           tag="div"
           variant="small"
-          classNameOverride={classnames(
-            styles.container,
-            mapLineVariant(singleLine)
-          )}
+          classNameOverride={classnames(styles.container, mapLineVariant(singleLine))}
         >
           {children}
         </Text>
       </div>
-      <div
-        ref={setArrowElement}
-        style={popperStyles.arrow}
-        className={styles.arrowWrapper}
-      >
-        <div
-          className={classnames(styles.arrow, mapArrowVariantToClass(variant))}
-        />
+      <div ref={setArrowElement} style={popperStyles.arrow} className={styles.arrowWrapper}>
+        <div className={classnames(styles.arrow, mapArrowVariantToClass(variant))} />
       </div>
     </div>
   )
 }
 
-Popover.displayName = "Popover"
+Popover.displayName = 'Popover'
 
-type PopoverPropsWithoutRef = Omit<PopoverProps, "referenceElement">
+type PopoverPropsWithoutRef = Omit<PopoverProps, 'referenceElement'>
 
 /**
  * How to use:
@@ -196,9 +167,7 @@ export const usePopover = (): [
   (element: HTMLElement | null) => void,
   (props: PopoverPropsWithoutRef) => JSX.Element | null,
 ] => {
-  const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
-    null
-  )
+  const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(null)
 
   // I guess the problem with this pattern, is that every time referenceElement
   // changes, a brand new component is generated, which would be bad for memoization.
@@ -207,10 +176,8 @@ export const usePopover = (): [
   const PopoverWithRef = useMemo(
     // eslint-disable-next-line react/display-name
     () => (props: PopoverPropsWithoutRef) =>
-      referenceElement ? (
-        <Popover {...props} referenceElement={referenceElement} />
-      ) : null,
-    [referenceElement]
+      referenceElement ? <Popover {...props} referenceElement={referenceElement} /> : null,
+    [referenceElement],
   )
 
   return [setReferenceElement, PopoverWithRef]

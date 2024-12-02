@@ -1,8 +1,8 @@
-import { useState } from "react"
-import { DisabledDays } from "~components/Calendar"
-import { ValidationMessage, DateValidationResponse } from "../types"
-import { getDateValidationHandler } from "../utils/getDateValidationHandler"
-import { validateDate } from "../utils/validateDate"
+import { useState } from 'react'
+import { DisabledDays } from '~components/Calendar'
+import { ValidationMessage, DateValidationResponse } from '../types'
+import { getDateValidationHandler } from '../utils/getDateValidationHandler'
+import { validateDate } from '../utils/validateDate'
 
 export type UseDateValidationArgs = {
   inputLabel?: React.ReactNode
@@ -38,10 +38,7 @@ export const useDateValidation = ({
     inputLabel,
   })
 
-  const validateSingleDate: UseDateValidationValue["validateDate"] = ({
-    date,
-    inputValue,
-  }) =>
+  const validateSingleDate: UseDateValidationValue['validateDate'] = ({ date, inputValue }) =>
     validateDate({
       date,
       inputValue,

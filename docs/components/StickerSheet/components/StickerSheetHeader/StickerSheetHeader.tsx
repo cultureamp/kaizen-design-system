@@ -1,6 +1,6 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import styles from "./StickerSheetHeader.module.css"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import styles from './StickerSheetHeader.module.css'
 
 export type StickerSheetHeaderProps = {
   children: React.ReactNode
@@ -14,15 +14,11 @@ export const StickerSheetHeader = ({
   ...restProps
 }: StickerSheetHeaderProps): JSX.Element => (
   <div
-    className={classnames(
-      styles.stickerSheetHeader,
-      isReversed && styles.isReversed,
-      className
-    )}
+    className={classnames(styles.stickerSheetHeader, isReversed && styles.isReversed, className)}
     {...restProps}
   >
     {children}
   </div>
 )
 
-StickerSheetHeader.displayName = "StickerSheet.Header"
+StickerSheetHeader.displayName = 'StickerSheet.Header'

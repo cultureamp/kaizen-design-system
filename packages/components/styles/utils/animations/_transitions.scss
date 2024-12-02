@@ -1,15 +1,11 @@
-@import "./durations";
-@import "./easings";
+@import './durations';
+@import './easings';
 
 @mixin ca-transition-fade($state: in, $duration: $ca-duration-slow, $delay: 0) {
   @include ca-fade($state, $duration: $duration, $delay: $delay);
 }
 
-@mixin ca-transition-slide-fade(
-  $state: in,
-  $duration: $ca-duration-slow,
-  $delay: null
-) {
+@mixin ca-transition-slide-fade($state: in, $duration: $ca-duration-slow, $delay: null) {
   $direction: up;
   $timing: $ca-bounce-in;
 
@@ -27,23 +23,14 @@
   );
 }
 
-@mixin ca-transition-scale-fade(
-  $state: in,
-  $duration: $ca-duration-slow,
-  $delay: null
-) {
+@mixin ca-transition-scale-fade($state: in, $duration: $ca-duration-slow, $delay: null) {
   $timing: $ca-bounce-in;
 
   @if ($state == out) {
     $timing: $ca-bounce-out;
   }
 
-  @include ca-zoom(
-    $state,
-    $timing: $timing,
-    $duration: $duration,
-    $delay: $delay
-  );
+  @include ca-zoom($state, $timing: $timing, $duration: $duration, $delay: $delay);
 }
 
 /* stylelint-disable function-name-case, scss/at-function-pattern */
@@ -82,11 +69,7 @@
   $unfoldedTransitions: ();
 
   @each $transition in $transitions {
-    $unfoldedTransitions: append(
-      $unfoldedTransitions,
-      unfoldTransition($transition),
-      comma
-    );
+    $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
   }
 
   transition: $unfoldedTransitions;

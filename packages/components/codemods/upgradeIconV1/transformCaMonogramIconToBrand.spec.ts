@@ -1,7 +1,7 @@
-import ts from "typescript"
-import { parseJsx } from "../__tests__/utils"
-import { printAst } from "../utils"
-import { transformCaMonogramIconToBrand } from "./transformCaMonogramIconToBrand"
+import ts from 'typescript'
+import { parseJsx } from '../__tests__/utils'
+import { printAst } from '../utils'
+import { transformCaMonogramIconToBrand } from './transformCaMonogramIconToBrand'
 
 export const mockedTransformer =
   (alias?: string) =>
@@ -22,25 +22,21 @@ const transformInput = (sourceFile: ts.SourceFile, alias?: string): string => {
   return printAst(transformedSource)
 }
 
-describe("transformCaMonogramIconToBrand()", () => {
-  it("replaces CaMonogramIcon with Brand variant enso and adds size", () => {
-    const inputAst = parseJsx("<CaMonogramIcon />")
-    const outputAst = parseJsx(
-      '<Brand variant="enso" style={{ width: "20px" }} />'
-    )
+describe('transformCaMonogramIconToBrand()', () => {
+  it('replaces CaMonogramIcon with Brand variant enso and adds size', () => {
+    const inputAst = parseJsx('<CaMonogramIcon />')
+    const outputAst = parseJsx('<Brand variant="enso" style={{ width: "20px" }} />')
     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
   })
 
-  it("uses alias if it is defined", () => {
-    const inputAst = parseJsx("<CaMonogramIcon />")
-    const outputAst = parseJsx(
-      '<KzBrand variant="enso" style={{ width: "20px" }} />'
-    )
-    expect(transformInput(inputAst, "KzBrand")).toEqual(printAst(outputAst))
+  it('uses alias if it is defined', () => {
+    const inputAst = parseJsx('<CaMonogramIcon />')
+    const outputAst = parseJsx('<KzBrand variant="enso" style={{ width: "20px" }} />')
+    expect(transformInput(inputAst, 'KzBrand')).toEqual(printAst(outputAst))
   })
 
-  describe("transform existing props", () => {
-    it("removes role and changes aria-label to alt", () => {
+  describe('transform existing props', () => {
+    it('removes role and changes aria-label to alt', () => {
       const inputAst = parseJsx(`
           export const TestComponent = () => (
             <>
@@ -60,7 +56,7 @@ describe("transformCaMonogramIconToBrand()", () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
-    it("leaves classNameOverride as is", () => {
+    it('leaves classNameOverride as is', () => {
       const inputAst = parseJsx(`
           export const TestComponent = () => <CaMonogramIcon classNameOverride="mt-16" />
         `)
@@ -70,7 +66,7 @@ describe("transformCaMonogramIconToBrand()", () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
-    it("removes inheritSize and does not add size", () => {
+    it('removes inheritSize and does not add size', () => {
       const inputAst = parseJsx(`
           export const TestComponent = () => <CaMonogramIcon inheritSize />
         `)

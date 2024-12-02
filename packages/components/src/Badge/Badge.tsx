@@ -1,14 +1,14 @@
-import React, { HTMLAttributes, useLayoutEffect, useState } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Badge.module.scss"
+import React, { HTMLAttributes, useLayoutEffect, useState } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Badge.module.scss'
 
 type BadgeCommonProps = {
   children?: string
   /**
    * The "dark" variant is no longer in the UI kit
    */
-  variant?: "default" | "active" | "dark"
+  variant?: 'default' | 'active' | 'dark'
   /**
    * renders reversed colors. Use on purple background
    */
@@ -16,12 +16,12 @@ type BadgeCommonProps = {
   /**
    * Supports "small" and "large" sizes - defaults to "small"
    */
-  size?: "small" | "large"
+  size?: 'small' | 'large'
 } & OverrideClassName<HTMLAttributes<HTMLSpanElement>>
 
-type DotProps = Omit<BadgeCommonProps, "variant"> & {
+type DotProps = Omit<BadgeCommonProps, 'variant'> & {
   children?: never
-  variant: "dot"
+  variant: 'dot'
 }
 
 export type BadgeProps = BadgeCommonProps | DotProps
@@ -32,9 +32,9 @@ export type BadgeProps = BadgeCommonProps | DotProps
  */
 export const Badge = ({
   children,
-  variant = "default",
+  variant = 'default',
   reversed = false,
-  size = "small",
+  size = 'small',
   classNameOverride,
   ...restProps
 }: BadgeProps): JSX.Element => (
@@ -44,11 +44,11 @@ export const Badge = ({
       styles[variant],
       classNameOverride,
       reversed && styles.reversed,
-      size === "large" && styles.large
+      size === 'large' && styles.large,
     )}
     {...restProps}
   >
-    {variant !== "dot" && children}
+    {variant !== 'dot' && children}
   </span>
 )
 
@@ -63,12 +63,10 @@ export const BadgeAnimated = (props: BadgeProps): JSX.Element => {
   }, [props.children])
 
   return (
-    <span
-      className={classnames(styles.animation, isFocused && styles.animationOn)}
-    >
+    <span className={classnames(styles.animation, isFocused && styles.animationOn)}>
       <Badge {...props} />
     </span>
   )
 }
 
-Badge.displayName = "Badge"
+Badge.displayName = 'Badge'

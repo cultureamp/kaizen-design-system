@@ -1,8 +1,8 @@
-import { parseJsx } from "../__tests__/utils"
-import { transformSourceForTagName, printAst } from "../utils"
-import { transformNotificationTypeToVariant } from "./migrateNotificationTypeToVariant"
+import { parseJsx } from '../__tests__/utils'
+import { transformSourceForTagName, printAst } from '../utils'
+import { transformNotificationTypeToVariant } from './migrateNotificationTypeToVariant'
 
-describe("transformNotificationTypeToVariant", () => {
+describe('transformNotificationTypeToVariant', () => {
   it('replaces InlineNotifications type="positive" with variant="success"', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <InlineNotification type="positive">Test</InlineNotification>
@@ -13,7 +13,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      tagName: "InlineNotification",
+      tagName: 'InlineNotification',
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
@@ -28,7 +28,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      tagName: "GlobalNotification",
+      tagName: 'GlobalNotification',
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
@@ -43,7 +43,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      tagName: "ToastNotification",
+      tagName: 'ToastNotification',
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
@@ -58,7 +58,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      tagName: "InlineNotification",
+      tagName: 'InlineNotification',
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -72,7 +72,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      tagName: "InlineNotification",
+      tagName: 'InlineNotification',
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -86,7 +86,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      tagName: "InlineNotification",
+      tagName: 'InlineNotification',
     })
     expect(transformed).toBe(printAst(outputAst))
   })
@@ -100,7 +100,7 @@ describe("transformNotificationTypeToVariant", () => {
     const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: transformNotificationTypeToVariant,
-      tagName: "InlineNotification",
+      tagName: 'InlineNotification',
     })
     expect(transformed).toBe(printAst(outputAst))
   })

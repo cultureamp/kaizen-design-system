@@ -1,1 +1,1 @@
-export * from "./DateRangeDisplayLabel"
+export * from './DateRangeDisplayLabel'

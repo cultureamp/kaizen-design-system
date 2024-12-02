@@ -1,45 +1,37 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { HeadingProps, Heading } from "~components/Heading"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { HeadingProps, Heading } from '~components/Heading'
 import {
   AnimatedSceneProps,
   EmptyStatesInformative,
   EmptyStatesNegative,
   EmptyStatesNeutral,
   EmptyStatesPositive,
-} from "~components/Illustration"
-import { Text } from "~components/Text"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./EmptyState.module.css"
+} from '~components/Illustration'
+import { Text } from '~components/Text'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './EmptyState.module.css'
 
-const ILLUSTRATIONS: Record<
-  string,
-  (props: AnimatedSceneProps) => JSX.Element
-> = {
-  success: EmptyStatesPositive,
-  warning: EmptyStatesNegative,
-  informative: EmptyStatesInformative,
-  "expert-advice": EmptyStatesNeutral,
+const ILLUSTRATIONS: Record<string, (props: AnimatedSceneProps) => JSX.Element> = {
+  'success': EmptyStatesPositive,
+  'warning': EmptyStatesNegative,
+  'informative': EmptyStatesInformative,
+  'expert-advice': EmptyStatesNeutral,
   /** @deprecated Replaced by success */
-  positive: EmptyStatesPositive,
+  'positive': EmptyStatesPositive,
   /** @deprecated Replaced by expert-advice */
-  neutral: EmptyStatesNeutral,
+  'neutral': EmptyStatesNeutral,
   /** @deprecated Replaced by warning */
-  negative: EmptyStatesNegative,
+  'negative': EmptyStatesNegative,
   /** @deprecated Replaced by warning */
-  action: EmptyStatesNegative,
+  'action': EmptyStatesNegative,
 }
 
 export type EmptyStateProps = {
   children?: React.ReactNode
   id?: string
   /** @deprecated Use `variant` instead */
-  illustrationType?:
-    | "positive"
-    | "informative"
-    | "negative"
-    | "action"
-    | "neutral"
+  illustrationType?: 'positive' | 'informative' | 'negative' | 'action' | 'neutral'
   /**
    * If you are transitioning from `illustrationType`:
    * - `positive` should be `success`
@@ -49,14 +41,14 @@ export type EmptyStateProps = {
    * - `neutral` should be `expert-advice`
    * @default informative
    */
-  variant?: "success" | "warning" | "informative" | "expert-advice"
+  variant?: 'success' | 'warning' | 'informative' | 'expert-advice'
   /** @deprecated - This prop no longer has any effect */
-  layoutContext?: "sidebarAndContent" | "contentOnly"
+  layoutContext?: 'sidebarAndContent' | 'contentOnly'
   bodyText: string | React.ReactNode
   straightCorners?: boolean
   headingProps?: HeadingProps
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>> &
-  Pick<AnimatedSceneProps, "isAnimated" | "loop">
+  Pick<AnimatedSceneProps, 'isAnimated' | 'loop'>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094098/Empty+State Guidance} |
@@ -66,7 +58,7 @@ export const EmptyState = ({
   children,
   id,
   illustrationType,
-  variant = "informative",
+  variant = 'informative',
   layoutContext: _,
   headingProps,
   bodyText,
@@ -84,7 +76,7 @@ export const EmptyState = ({
         styles.container,
         illustrationType ? styles[illustrationType] : styles[variant],
         straightCorners && styles.straightCorners,
-        classNameOverride
+        classNameOverride,
       )}
       id={id}
       {...props}
@@ -92,19 +84,13 @@ export const EmptyState = ({
       <div className={styles.content}>
         <div className={styles.illustrationContainer}>
           {isAnimated ? (
-            <IllustrationComponent
-              isAnimated
-              loop={loop}
-              classNameOverride={styles.illustration}
-            />
+            <IllustrationComponent isAnimated loop={loop} classNameOverride={styles.illustration} />
           ) : (
             <IllustrationComponent classNameOverride={styles.illustration} />
           )}
         </div>
         <div className={styles.textContainer}>
-          {headingProps && (
-            <Heading classNameOverride={styles.heading} {...headingProps} />
-          )}
+          {headingProps && <Heading classNameOverride={styles.heading} {...headingProps} />}
           <Text variant="body">{bodyText}</Text>
           {children && <span>{children}</span>}
         </div>
@@ -113,4 +99,4 @@ export const EmptyState = ({
   )
 }
 
-EmptyState.displayName = "EmptyState"
+EmptyState.displayName = 'EmptyState'

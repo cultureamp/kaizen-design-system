@@ -1,1 +1,1 @@
-export * from "./BrandMomentCaptureIntro"
+export * from './BrandMomentCaptureIntro'

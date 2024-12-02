@@ -1,15 +1,12 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { Icon } from "~components/__future__/Icon"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Input, InputProps } from "../index"
-import { InputStatus, InputTypes } from "../types"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { Icon } from '~components/__future__/Icon'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Input, InputProps } from '../index'
+import { InputStatus, InputTypes } from '../types'
 
 export default {
-  title: "Components/Inputs/Input",
+  title: 'Components/Inputs/Input',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -18,7 +15,7 @@ export default {
         rules: [
           {
             // Built with no label on purpose, to be used within `TextField` where label is present
-            id: "label",
+            id: 'label',
             enabled: false,
           },
         ],
@@ -29,7 +26,7 @@ export default {
 
 const InputExampleGroup = (props: InputProps): JSX.Element => (
   <ul className="grid gap-16 list-none p-0 m-0">
-    {InputTypes.map(type => (
+    {InputTypes.map((type) => (
       <li key={type}>
         <Input
           value={type}
@@ -38,18 +35,14 @@ const InputExampleGroup = (props: InputProps): JSX.Element => (
             <Icon
               name="edit"
               isPresentational
-              data-sb-a11y-color-contrast-disable={
-                props.disabled ? "true" : "false"
-              }
+              data-sb-a11y-color-contrast-disable={props.disabled ? 'true' : 'false'}
             />
           }
           endIconAdornment={
             <Icon
               name="close"
               isPresentational
-              data-sb-a11y-color-contrast-disable={
-                props.disabled ? "true" : "false"
-              }
+              data-sb-a11y-color-contrast-disable={props.disabled ? 'true' : 'false'}
             />
           }
           {...props}
@@ -63,26 +56,14 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet
       isReversed={isReversed}
-      headers={["Default", "Hover", "Active", "Focus", "Disabled"]}
+      headers={['Default', 'Hover', 'Active', 'Focus', 'Disabled']}
     >
-      {InputStatus.map(status => (
+      {InputStatus.map((status) => (
         <StickerSheet.Row key={status} header={status}>
           <InputExampleGroup reversed={isReversed} />
-          <InputExampleGroup
-            status={status}
-            reversed={isReversed}
-            data-sb-pseudo-styles="hover"
-          />
-          <InputExampleGroup
-            status={status}
-            reversed={isReversed}
-            data-sb-pseudo-styles="active"
-          />
-          <InputExampleGroup
-            status={status}
-            reversed={isReversed}
-            data-sb-pseudo-styles="focus"
-          />
+          <InputExampleGroup status={status} reversed={isReversed} data-sb-pseudo-styles="hover" />
+          <InputExampleGroup status={status} reversed={isReversed} data-sb-pseudo-styles="active" />
+          <InputExampleGroup status={status} reversed={isReversed} data-sb-pseudo-styles="focus" />
           <InputExampleGroup
             status={status}
             reversed={isReversed}
@@ -105,21 +86,21 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  name: 'Sticker Sheet (Reversed)',
+  parameters: { backgrounds: { default: 'Purple 700' } },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

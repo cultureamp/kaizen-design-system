@@ -1,5 +1,5 @@
-import { FiltersValues } from "../../types"
-import { FilterBarState } from "../types"
+import { FiltersValues } from '../../types'
+import { FilterBarState } from '../types'
 
 const checkArraysMatch = (a1: any[], a2: any[]): boolean => {
   if (a1.length !== a2.length) return false
@@ -8,7 +8,7 @@ const checkArraysMatch = (a1: any[], a2: any[]): boolean => {
 
 export const checkShouldUpdateValues = <ValuesMap extends FiltersValues>(
   state: FilterBarState<ValuesMap>,
-  values: Partial<ValuesMap>
+  values: Partial<ValuesMap>,
 ): boolean =>
   Object.values(state.filters).some(({ id }) => {
     const stateValue = state.values[id]

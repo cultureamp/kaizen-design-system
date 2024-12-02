@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from "react"
-import { EditorState } from "prosemirror-state"
-import { createRichTextEditor } from "../createRichTextEditor"
-import { CommandOrTransaction } from "../types"
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { EditorState } from 'prosemirror-state'
+import { createRichTextEditor } from '../createRichTextEditor'
+import { CommandOrTransaction } from '../types'
 
 type RTEOptions = {
   editable: boolean
@@ -30,19 +30,18 @@ export const useRichTextEditor = (
    * Pass in HTML attributes into the parent RTE node
    */
   attributes?: Record<string, string>,
-  options?: RTEOptions
+  options?: RTEOptions,
 ): UseRichTextEditorReturnValue => {
   options = {
     editable: true,
     ...options,
   }
-  const [editorState, setEditorState] =
-    useState<EditorState>(initialEditorState)
+  const [editorState, setEditorState] = useState<EditorState>(initialEditorState)
   // Refs to hold the methods returned from ProseMirror’s initialization
   const destroyEditorRef = useRef<() => void>()
-  const dispatchTransactionRef = useRef<
-    (commandOrTransaction: CommandOrTransaction) => void
-  >(() => undefined)
+  const dispatchTransactionRef = useRef<(commandOrTransaction: CommandOrTransaction) => void>(
+    () => undefined,
+  )
 
   // Construct a consistent reference to call the dispatchTransactionRef without
   // forcing the consumer to unwind it
@@ -50,13 +49,13 @@ export const useRichTextEditor = (
     (commandOrTransaction: CommandOrTransaction) => {
       dispatchTransactionRef.current(commandOrTransaction)
     },
-    [dispatchTransactionRef]
+    [dispatchTransactionRef],
   )
 
   // Hold editableStatus as a ref so we can toggle its status
   const editableStatusRef = useRef<boolean>(options.editable)
   const setEditableStatus = useCallback<SetEditableStatus>(
-    status => {
+    (status) => {
       editableStatusRef.current = status
       // Trigger an update within ProseMirror by issuing a noop transaction
       dispatchTransaction((state, dispatch) => {
@@ -65,7 +64,7 @@ export const useRichTextEditor = (
         return true
       })
     },
-    [editableStatusRef]
+    [editableStatusRef],
   )
 
   const editorRef = useCallback(
@@ -85,7 +84,7 @@ export const useRichTextEditor = (
 
     // Including editorState in the dependencies here will cause an endless
     // loop as the initialization changes its value
-    [setEditorState, editableStatusRef]
+    [setEditorState, editableStatusRef],
   )
 
   // Tear down ProseMirror when the consuming component is unmounted
@@ -95,7 +94,7 @@ export const useRichTextEditor = (
         destroyEditorRef.current()
       }
     },
-    [destroyEditorRef]
+    [destroyEditorRef],
   )
 
   return [editorRef, editorState, dispatchTransaction, setEditableStatus]

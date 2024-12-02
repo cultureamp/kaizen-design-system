@@ -1,6 +1,6 @@
-import { EditorState, Transaction } from "prosemirror-state"
-import { EditorView as ProseMirrorEditorView } from "prosemirror-view"
-import { CommandOrTransaction } from "./types"
+import { EditorState, Transaction } from 'prosemirror-state'
+import { EditorView as ProseMirrorEditorView } from 'prosemirror-view'
+import { CommandOrTransaction } from './types'
 
 type EditorAPI = {
   destroy: () => void
@@ -44,9 +44,7 @@ export const createRichTextEditor = ({
 
   // Allow the dispatcher to handle either a Command or a Transaction so we can
   // change the state more ergonomically upstream
-  const dispatchCommandOrTransaction = (
-    commandOrTransaction: CommandOrTransaction
-  ): void => {
+  const dispatchCommandOrTransaction = (commandOrTransaction: CommandOrTransaction): void => {
     if (commandOrTransaction instanceof Transaction) {
       dispatch(commandOrTransaction)
     } else if (editorView) {

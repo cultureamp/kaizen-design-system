@@ -1,6 +1,6 @@
-import React from "react"
-import { Icon } from "~components/__future__/Icon"
-import styles from "../GenericNotification/GenericNotification.module.scss"
+import React from 'react'
+import { Icon } from '~components/__future__/Icon'
+import styles from '../GenericNotification/GenericNotification.module.scss'
 
 type CancelButtonProps = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
@@ -18,4 +18,4 @@ export const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
   </button>
 )
 
-CancelButton.displayName = "CancelButton"
+CancelButton.displayName = 'CancelButton'

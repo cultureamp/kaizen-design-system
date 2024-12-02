@@ -6,7 +6,7 @@ type ResolvableTo<T> = T | ((utils: any) => T)
 
 export const flattenEntries = (
   prefix: string,
-  themeObj: ResolvableTo<RecursiveKeyValuePair<string, string>>
+  themeObj: ResolvableTo<RecursiveKeyValuePair<string, string>>,
 ): Array<{
   utilityClassName: string
   cssProperty: string
@@ -16,20 +16,19 @@ export const flattenEntries = (
     utilityClassName: string
     cssProperty: string
   }> = []
-  classKeyVal.forEach(colorGroup => {
+  classKeyVal.forEach((colorGroup) => {
     const [classModifier, cssProperty] = colorGroup
-    if (typeof cssProperty === "string") {
+    if (typeof cssProperty === 'string') {
       flattenedEntries.push({
         utilityClassName: `${prefix}${classModifier}`,
         cssProperty,
       })
     } else {
-      Object.entries(cssProperty as Record<string, string>).forEach(
-        classNamePair =>
-          flattenedEntries.push({
-            utilityClassName: `${prefix}${classModifier}-${classNamePair[0]}`,
-            cssProperty: classNamePair[1],
-          })
+      Object.entries(cssProperty as Record<string, string>).forEach((classNamePair) =>
+        flattenedEntries.push({
+          utilityClassName: `${prefix}${classModifier}-${classNamePair[0]}`,
+          cssProperty: classNamePair[1],
+        }),
       )
     }
   })

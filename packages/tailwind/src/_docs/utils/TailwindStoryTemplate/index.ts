@@ -1,1 +1,1 @@
-export * from "./TailwindStoryTemplate"
+export * from './TailwindStoryTemplate'

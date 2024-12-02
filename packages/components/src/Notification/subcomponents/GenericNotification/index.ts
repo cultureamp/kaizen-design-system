@@ -1,1 +1,1 @@
-export * from "./GenericNotification"
+export * from './GenericNotification'

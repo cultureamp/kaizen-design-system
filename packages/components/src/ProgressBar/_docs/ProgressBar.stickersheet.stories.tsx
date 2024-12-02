@@ -1,14 +1,11 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import isChromatic from "chromatic"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { ProgressBar, ProgressBarProps } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import isChromatic from 'chromatic'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { ProgressBar, ProgressBarProps } from '../index'
 
 export default {
-  title: "Components/ProgressBar",
+  title: 'Components/ProgressBar',
   parameters: {
     chromatic: { disable: false, pauseAnimationAtEnd: true },
     controls: { disable: true },
@@ -17,7 +14,7 @@ export default {
         rules: [
           {
             // `label` is an optional prop so this has no accessible by default. consumers can pass in `aria-labelledby` or `aria-label` which can provide an accessible description pending a refactor.
-            id: "aria-progressbar-name",
+            id: 'aria-progressbar-name',
             enabled: false,
           },
         ],
@@ -30,64 +27,60 @@ const isNotChromatic = !isChromatic()
 
 const moods = [
   {
-    title: "Positive",
-    props: { mood: "positive" },
+    title: 'Positive',
+    props: { mood: 'positive' },
   },
   {
-    title: "Informative",
-    props: { mood: "informative" },
+    title: 'Informative',
+    props: { mood: 'informative' },
   },
   {
-    title: "Negative",
-    props: { mood: "negative" },
+    title: 'Negative',
+    props: { mood: 'negative' },
   },
   {
-    title: "Cautionary",
-    props: { mood: "cautionary" },
+    title: 'Cautionary',
+    props: { mood: 'cautionary' },
   },
 ] satisfies Array<{ title: string; props: Partial<ProgressBarProps> }>
 
 const colors = [
   {
-    title: "Blue",
-    props: { color: "blue" },
+    title: 'Blue',
+    props: { color: 'blue' },
   },
   {
-    title: "Green",
-    props: { color: "green" },
+    title: 'Green',
+    props: { color: 'green' },
   },
   {
-    title: "Red",
-    props: { color: "red" },
+    title: 'Red',
+    props: { color: 'red' },
   },
   {
-    title: "Yellow",
-    props: { color: "yellow" },
+    title: 'Yellow',
+    props: { color: 'yellow' },
   },
   {
-    title: "Green (Animated)",
-    props: { color: "green", isAnimating: isNotChromatic },
+    title: 'Green (Animated)',
+    props: { color: 'green', isAnimating: isNotChromatic },
   },
 ] satisfies Array<{ title: string; props: Partial<ProgressBarProps> }>
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed = false }) => {
     const defaultProps = {
-      label: "25%",
+      label: '25%',
       value: 25,
       max: 100,
       isAnimating: false,
       isReversed,
-      subtext: "Subtext",
+      subtext: 'Subtext',
     }
 
     return (
       <>
-        <StickerSheet
-          isReversed={isReversed}
-          title="ProgressBar"
-          layout="stretch"
-        >
+        <StickerSheet isReversed={isReversed} title="ProgressBar" layout="stretch">
           {colors.map(({ title, props }) => (
             <StickerSheet.Row key={title} header={title}>
               <ProgressBar {...defaultProps} {...props} />
@@ -113,22 +106,22 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

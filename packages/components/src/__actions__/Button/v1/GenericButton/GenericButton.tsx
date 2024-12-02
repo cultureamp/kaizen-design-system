@@ -6,34 +6,29 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useRef,
-} from "react"
-import classnames from "classnames"
-import { useFocusable, useLink } from "react-aria"
-import { LinkContext, useContextProps } from "react-aria-components"
-import { Badge, BadgeAnimated } from "~components/Badge"
-import { LoadingSpinner } from "~components/Loading"
-import styles from "./GenericButton.module.scss"
+} from 'react'
+import classnames from 'classnames'
+import { useFocusable, useLink } from 'react-aria'
+import { LinkContext, useContextProps } from 'react-aria-components'
+import { Badge, BadgeAnimated } from '~components/Badge'
+import { LoadingSpinner } from '~components/Loading'
+import styles from './GenericButton.module.scss'
 
 export type CustomButtonProps = {
-  id?: string
-  className: string
-  href?: string
-  disabled?: boolean
-  onClick?: (e: MouseEvent<any>) => void
-  onFocus?: (e: FocusEvent<HTMLElement>) => void
-  onBlur?: (e: FocusEvent<HTMLElement>) => void
-  children?: React.ReactNode
-  "data-testid"?: string
+  'id'?: string
+  'className': string
+  'href'?: string
+  'disabled'?: boolean
+  'onClick'?: (e: MouseEvent<any>) => void
+  'onFocus'?: (e: FocusEvent<HTMLElement>) => void
+  'onBlur'?: (e: FocusEvent<HTMLElement>) => void
+  'children'?: React.ReactNode
+  'data-testid'?: string
 }
 
 export type ButtonFormAttributes = Pick<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
-  | "form"
-  | "formAction"
-  | "formMethod"
-  | "formEncType"
-  | "formTarget"
-  | "formNoValidate"
+  'form' | 'formAction' | 'formMethod' | 'formEncType' | 'formTarget' | 'formNoValidate'
 >
 
 export type GenericProps = {
@@ -63,17 +58,17 @@ export type WorkingUndefinedProps = {
 export type ButtonBadgeProps = {
   text: string
   animateChange?: boolean
-  variant?: "default" | "dark" | "active"
+  variant?: 'default' | 'dark' | 'active'
   reversed?: boolean
 }
 
 export type RenderProps = GenericButtonProps & {
-  additionalContent?: React.ReactNode
-  iconButton?: boolean
-  directionalLink?: boolean
-  paginationLink?: boolean
-  isActive?: boolean
-  "aria-describedby"?: string
+  'additionalContent'?: React.ReactNode
+  'iconButton'?: boolean
+  'directionalLink'?: boolean
+  'paginationLink'?: boolean
+  'isActive'?: boolean
+  'aria-describedby'?: string
 }
 
 export type ButtonRef = { focus: () => void }
@@ -84,11 +79,11 @@ export type SharedButtonProps = {
   destructive?: boolean
   secondary?: boolean
   /** @default "regular" */
-  size?: "small" | "regular"
+  size?: 'small' | 'regular'
   badge?: ButtonBadgeProps
-  type?: "submit" | "reset" | "button"
+  type?: 'submit' | 'reset' | 'button'
   fullWidth?: boolean
-  iconPosition?: "start" | "end"
+  iconPosition?: 'start' | 'end'
   icon?: JSX.Element
   disabled?: boolean
 }
@@ -102,11 +97,11 @@ export type BaseButtonProps = GenericProps &
     destructive?: boolean
     secondary?: boolean
     /** @default "regular" */
-    size?: "small" | "regular"
+    size?: 'small' | 'regular'
     badge?: ButtonBadgeProps
-    type?: "submit" | "reset" | "button"
+    type?: 'submit' | 'reset' | 'button'
     fullWidth?: boolean
-    iconPosition?: "start" | "end"
+    iconPosition?: 'start' | 'end'
     icon?: JSX.Element
     disabled?: boolean
   }
@@ -116,7 +111,7 @@ export type GenericButtonProps = BaseButtonProps & WorkingButtonProps
 // We're treating custom props as anything that is kebab cased.
 // This is so we can support properties like aria-* or data-*
 const getCustomProps = (props: Record<string, any>): Record<string, string> => {
-  const keys = Object.keys(props).filter(k => k.indexOf("-") !== -1)
+  const keys = Object.keys(props).filter((k) => k.indexOf('-') !== -1)
   return keys.reduce<Record<string, any>>((acc, val) => {
     acc[val] = props[val]
     return acc
@@ -126,16 +121,16 @@ const getCustomProps = (props: Record<string, any>): Record<string, string> => {
 export const GenericButton = forwardRef(
   (
     {
-      iconPosition = "start",
+      iconPosition = 'start',
       iconButton = false,
       primary = false,
       secondary = false,
       newTabAndIUnderstandTheAccessibilityImplications = false,
       disableTabFocusAndIUnderstandTheAccessibilityImplications = false,
-      type = "button",
+      type = 'button',
       ...otherProps
     }: RenderProps,
-    ref: Ref<ButtonRef | undefined>
+    ref: Ref<ButtonRef | undefined>,
   ) => {
     const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
     const wrapperRef = useRef<HTMLSpanElement>(null)
@@ -163,36 +158,33 @@ export const GenericButton = forwardRef(
     return (
       <span
         ref={wrapperRef}
-        className={classnames(
-          styles.container,
-          props.fullWidth && styles.fullWidth
-        )}
-        aria-live={"workingLabel" in props ? "polite" : undefined}
+        className={classnames(styles.container, props.fullWidth && styles.fullWidth)}
+        aria-live={'workingLabel' in props ? 'polite' : undefined}
       >
         {props.href && !props.disabled && !props.working
           ? renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
           : renderButton(props, buttonRef as Ref<HTMLButtonElement>)}
       </span>
     )
-  }
+  },
 )
 
-GenericButton.displayName = "GenericButton"
+GenericButton.displayName = 'GenericButton'
 
 const renderCustomComponent = (
   CustomComponent: ComponentType<CustomButtonProps>,
   props: RenderProps,
-  ref: Ref<HTMLSpanElement>
+  ref: Ref<HTMLSpanElement>,
 ): JSX.Element => {
   const passedInProps = {
-    id: props.id,
-    className: buttonClass(props),
-    disabled: props.disabled,
-    href: props.href,
-    onClick: props.onClick,
-    onFocus: props.onFocus,
-    onBlur: props.onBlur,
-    "aria-label": generateAriaLabel(props),
+    'id': props.id,
+    'className': buttonClass(props),
+    'disabled': props.disabled,
+    'href': props.href,
+    'onClick': props.onClick,
+    'onFocus': props.onFocus,
+    'onBlur': props.onBlur,
+    'aria-label': generateAriaLabel(props),
     ...getCustomProps(props),
   }
 
@@ -200,7 +192,7 @@ const renderCustomComponent = (
     passedInProps,
     ref,
     // @ts-expect-error we're using span ref on link context, but that's ok because we need only sizing
-    LinkContext
+    LinkContext,
   )
   // @ts-expect-error
   // @todo: Make a wrapper and take it out of Button
@@ -213,19 +205,14 @@ const renderCustomComponent = (
   return (
     <span
       ref={contextRef}
-      className={classnames(
-        styles.container,
-        props.fullWidth && styles.fullWidth
-      )}
-      aria-live={"workingLabel" in props ? "polite" : undefined}
+      className={classnames(styles.container, props.fullWidth && styles.fullWidth)}
+      aria-live={'workingLabel' in props ? 'polite' : undefined}
     >
       <CustomComponent
         {...contextProps}
         {...linkProps}
         aria-describedby={
-          props["aria-describedby"] === null
-            ? undefined
-            : linkProps["aria-describedby"]
+          props['aria-describedby'] === null ? undefined : linkProps['aria-describedby']
         }
       >
         {renderContent(props)}
@@ -234,34 +221,29 @@ const renderCustomComponent = (
   )
 }
 
-const renderButton = (
-  props: RenderProps,
-  ref: Ref<HTMLButtonElement>
-): JSX.Element => {
+const renderButton = (props: RenderProps, ref: Ref<HTMLButtonElement>): JSX.Element => {
   const disableActions = props.disabled || props.working
   const passedInProps: React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > = {
-    id: props.id,
-    disabled: props.disabled,
-    onClick: !disableActions ? props.onClick : undefined,
-    onMouseDown: !disableActions ? props.onMouseDown : undefined,
-    type: props.type,
-    onFocus: props.onFocus,
-    onBlur: props.onBlur,
-    form: props.form,
-    formAction: props.formAction,
-    formMethod: props.formMethod,
-    formEncType: props.formEncType,
-    formTarget: props.formTarget,
-    formNoValidate: props.formNoValidate,
-    className: buttonClass(props),
-    "aria-label": generateAriaLabel(props),
-    "aria-disabled": props.disabled || props.working ? true : undefined,
-    tabIndex: props.disableTabFocusAndIUnderstandTheAccessibilityImplications
-      ? -1
-      : undefined,
+    'id': props.id,
+    'disabled': props.disabled,
+    'onClick': !disableActions ? props.onClick : undefined,
+    'onMouseDown': !disableActions ? props.onMouseDown : undefined,
+    'type': props.type,
+    'onFocus': props.onFocus,
+    'onBlur': props.onBlur,
+    'form': props.form,
+    'formAction': props.formAction,
+    'formMethod': props.formMethod,
+    'formEncType': props.formEncType,
+    'formTarget': props.formTarget,
+    'formNoValidate': props.formNoValidate,
+    'className': buttonClass(props),
+    'aria-label': generateAriaLabel(props),
+    'aria-disabled': props.disabled || props.working ? true : undefined,
+    'tabIndex': props.disableTabFocusAndIUnderstandTheAccessibilityImplications ? -1 : undefined,
     ...getCustomProps(props),
   }
 
@@ -276,9 +258,9 @@ const renderButton = (
       {...passedInProps}
       {...focusableProps}
       aria-describedby={
-        props["aria-describedby"] === null
+        props['aria-describedby'] === null
           ? undefined
-          : props["aria-describedby"] || focusableProps["aria-describedby"]
+          : props['aria-describedby'] || focusableProps['aria-describedby']
       }
       // Unset this because the one defined in buttonProps shows
       // focus-visible styles on click
@@ -290,27 +272,22 @@ const renderButton = (
   )
 }
 
-const renderLink = (
-  props: RenderProps,
-  ref: Ref<HTMLAnchorElement>
-): JSX.Element => {
-  const target = props.newTabAndIUnderstandTheAccessibilityImplications
-    ? "_blank"
-    : "_self"
+const renderLink = (props: RenderProps, ref: Ref<HTMLAnchorElement>): JSX.Element => {
+  const target = props.newTabAndIUnderstandTheAccessibilityImplications ? '_blank' : '_self'
 
   const passedInProps: React.DetailedHTMLProps<
     React.AnchorHTMLAttributes<HTMLAnchorElement>,
     HTMLAnchorElement
   > = {
-    id: props.id,
-    href: props.href,
+    'id': props.id,
+    'href': props.href,
     target,
-    rel: target === "_blank" ? "noopener noreferrer" : undefined,
-    className: buttonClass(props),
-    onClick: props.onClick,
-    onFocus: props.onFocus,
-    onBlur: props.onBlur,
-    "aria-label": generateAriaLabel(props),
+    'rel': target === '_blank' ? 'noopener noreferrer' : undefined,
+    'className': buttonClass(props),
+    'onClick': props.onClick,
+    'onFocus': props.onFocus,
+    'onBlur': props.onBlur,
+    'aria-label': generateAriaLabel(props),
     ...getCustomProps(props),
   }
 
@@ -324,9 +301,9 @@ const renderLink = (
       {...passedInProps}
       {...focusableProps}
       aria-describedby={
-        props["aria-describedby"] === null
+        props['aria-describedby'] === null
           ? undefined
-          : props["aria-describedby"] || focusableProps["aria-describedby"]
+          : props['aria-describedby'] || focusableProps['aria-describedby']
       }
       // Unset this because the one defined in linkProps shows
       // focus-visible styles on click
@@ -344,7 +321,7 @@ const buttonClass = (props: RenderProps): string => {
     styles.button,
     isDefault && styles.default,
     // @ts-ignore
-    (props.disabled || props["aria-disabled"]) && styles.disabled,
+    (props.disabled || props['aria-disabled']) && styles.disabled,
     props.primary && styles.primary,
     props.destructive && styles.destructive,
     props.secondary && styles.secondary,
@@ -356,7 +333,7 @@ const buttonClass = (props: RenderProps): string => {
     props.directionalLink && styles.directionalLink,
     props.paginationLink && styles.paginationLink,
     props.isActive && styles.isPaginationLinkActive,
-    props.classNameOverride
+    props.classNameOverride,
   )
 }
 
@@ -366,9 +343,7 @@ const renderLoadingSpinner = (): JSX.Element => (
   </div>
 )
 
-const renderWorkingContent = (
-  props: Extract<RenderProps, { working: true }>
-): JSX.Element => {
+const renderWorkingContent = (props: Extract<RenderProps, { working: true }>): JSX.Element => {
   if (props.workingLabelHidden) {
     return (
       <>
@@ -376,40 +351,32 @@ const renderWorkingContent = (
         <span className={styles.hidden} aria-hidden="true">
           {renderDefaultContent(props)}
         </span>
-        <span className={styles.centeredLoadingSpinner}>
-          {renderLoadingSpinner()}
-        </span>
+        <span className={styles.centeredLoadingSpinner}>{renderLoadingSpinner()}</span>
       </>
     )
   }
 
   return (
     <>
-      {props.iconPosition !== "end" && renderLoadingSpinner()}
+      {props.iconPosition !== 'end' && renderLoadingSpinner()}
       <span className={styles.label}>{props.workingLabel}</span>
       {props.additionalContent && (
-        <span className={styles.additionalContentWrapper}>
-          {props.additionalContent}
-        </span>
+        <span className={styles.additionalContentWrapper}>{props.additionalContent}</span>
       )}
-      {props.iconPosition === "end" && renderLoadingSpinner()}
+      {props.iconPosition === 'end' && renderLoadingSpinner()}
     </>
   )
 }
 
 const renderDefaultContent = (props: RenderProps): JSX.Element => (
   <>
-    {props.icon && props.iconPosition !== "end" && renderIcon(props.icon)}
-    {(!props.icon || !props.iconButton) && (
-      <span className={styles.label}>{props.label}</span>
-    )}
+    {props.icon && props.iconPosition !== 'end' && renderIcon(props.icon)}
+    {(!props.icon || !props.iconButton) && <span className={styles.label}>{props.label}</span>}
     {props.additionalContent && (
-      <span className={styles.additionalContentWrapper}>
-        {props.additionalContent}
-      </span>
+      <span className={styles.additionalContentWrapper}>{props.additionalContent}</span>
     )}
     {renderBadge(props)}
-    {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}
+    {props.icon && props.iconPosition === 'end' && renderIcon(props.icon)}
   </>
 )
 

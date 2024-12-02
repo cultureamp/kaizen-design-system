@@ -1,7 +1,7 @@
-import { ComponentType } from "react"
-import debounce from "lodash.debounce"
-import { MarkType } from "prosemirror-model"
-import { Command, EditorState, Plugin } from "prosemirror-state"
+import { ComponentType } from 'react'
+import debounce from 'lodash.debounce'
+import { MarkType } from 'prosemirror-model'
+import { Command, EditorState, Plugin } from 'prosemirror-state'
 import {
   AttrsValidator,
   getMarkAttrs,
@@ -11,14 +11,10 @@ import {
   removeMark,
   updateMark,
   validateAndRemoveMarks,
-} from "../../commands"
-import {
-  LinkEditor,
-  LinkEditorAttrs,
-  LinkEditorProps,
-} from "./components/LinkEditor"
-import { createReactTooltipWrapper } from "./createReactTooltipWrapper"
-import { CAEditorView, SelectionPosition } from "./types"
+} from '../../commands'
+import { LinkEditor, LinkEditorAttrs, LinkEditorProps } from './components/LinkEditor'
+import { createReactTooltipWrapper } from './createReactTooltipWrapper'
+import { CAEditorView, SelectionPosition } from './types'
 
 class LinkManager {
   editorComponent: ComponentType<LinkEditorProps>
@@ -35,14 +31,11 @@ class LinkManager {
     view: CAEditorView,
     markType: MarkType,
     editorComponent: ComponentType<LinkEditorProps>,
-    linkAttributeValidator: AttrsValidator
+    linkAttributeValidator: AttrsValidator,
   ) {
     this.editorComponent = editorComponent
-    this.linkActive = state => markIsActive(state, markType)
-    this.validateLinks = validateAndRemoveMarks(
-      markType,
-      linkAttributeValidator
-    )
+    this.linkActive = (state) => markIsActive(state, markType)
+    this.validateLinks = validateAndRemoveMarks(markType, linkAttributeValidator)
     this.markType = markType
     this.tooltipTarget = null
     this.update(view, null)
@@ -56,11 +49,7 @@ class LinkManager {
     const { state } = view
 
     // Don’t do anything if the document/TextSelection didn't change
-    if (
-      lastState &&
-      lastState.doc.eq(state.doc) &&
-      lastState.selection.eq(state.selection)
-    ) {
+    if (lastState && lastState.doc.eq(state.doc) && lastState.selection.eq(state.selection)) {
       return
     }
 
@@ -83,7 +72,7 @@ class LinkManager {
 
   destroy(): void {
     this.tooltipTarget?.destroy()
-    window.removeEventListener("resize", this.onResize)
+    window.removeEventListener('resize', this.onResize)
   }
 
   createElement(view: CAEditorView): void {
@@ -91,9 +80,9 @@ class LinkManager {
     this.tooltipTarget = createReactTooltipWrapper(
       view.dom.parentElement,
       this.editorComponent,
-      this.getEditorProps(view)
+      this.getEditorProps(view),
     )
-    window.addEventListener("resize", this.onResize)
+    window.addEventListener('resize', this.onResize)
   }
 
   updateElement(view: CAEditorView): void {
@@ -155,11 +144,11 @@ type CreateLinkManagerArgs = {
   editorComponent?: ComponentType<LinkEditorProps>
 }
 
-const defaultLinkAttributeValidator: AttrsValidator = attrs => {
+const defaultLinkAttributeValidator: AttrsValidator = (attrs) => {
   if (attrs == null) {
     return false
   }
-  return attrs.href && attrs.href !== ""
+  return attrs.href && attrs.href !== ''
 }
 
 export const createLinkManager = ({
@@ -169,11 +158,6 @@ export const createLinkManager = ({
 }: CreateLinkManagerArgs): Plugin =>
   new Plugin({
     view(editorView) {
-      return new LinkManager(
-        editorView,
-        markType,
-        editorComponent,
-        linkAttributeValidator
-      )
+      return new LinkManager(editorView, markType, editorComponent, linkAttributeValidator)
     },
   })

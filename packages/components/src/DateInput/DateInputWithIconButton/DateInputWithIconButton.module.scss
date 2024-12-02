@@ -1,8 +1,8 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/border";
-@import "../../../styles/utils/animation";
-@import "../../../styles/utils/button-reset";
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/border';
+@import '../../../styles/utils/animation';
+@import '../../../styles/utils/button-reset';
 
 $input-disabled-opacity: 0.3;
 
@@ -23,8 +23,7 @@ $input-disabled-opacity: 0.3;
 
   &:focus-visible {
     outline-offset: -2px;
-    outline: $color-blue-500 $border-focus-ring-border-style
-      $border-focus-ring-border-width;
+    outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
   }
 
   &:hover:not([disabled]) {

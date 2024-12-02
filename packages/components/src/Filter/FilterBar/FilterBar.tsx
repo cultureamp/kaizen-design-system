@@ -1,23 +1,20 @@
-import React from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import {
-  FilterBarProvider,
-  FilterBarProviderProps,
-} from "./context/FilterBarContext"
+import React from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { FilterBarProvider, FilterBarProviderProps } from './context/FilterBarContext'
 import {
   FilterBarDatePicker,
   FilterBarDateRangePicker,
   FilterBarMultiSelect,
   FilterBarSelect,
-} from "./subcomponents"
-import { AddFiltersMenu } from "./subcomponents/AddFiltersMenu"
-import { ClearAllButton } from "./subcomponents/ClearAllButton"
-import { FiltersValues } from "./types"
-import styles from "./FilterBar.module.css"
+} from './subcomponents'
+import { AddFiltersMenu } from './subcomponents/AddFiltersMenu'
+import { ClearAllButton } from './subcomponents/ClearAllButton'
+import { FiltersValues } from './types'
+import styles from './FilterBar.module.css'
 
 export type FilterBarProps<ValuesMap extends FiltersValues> = OverrideClassName<
-  Omit<FilterBarProviderProps<ValuesMap>, "children">
+  Omit<FilterBarProviderProps<ValuesMap>, 'children'>
 >
 
 export const FilterBar = <ValuesMap extends FiltersValues>({
@@ -46,7 +43,7 @@ export const FilterBar = <ValuesMap extends FiltersValues>({
   </FilterBarProvider>
 )
 
-FilterBar.displayName = "FilterBar"
+FilterBar.displayName = 'FilterBar'
 
 FilterBar.DatePicker = FilterBarDatePicker
 FilterBar.DateRangePicker = FilterBarDateRangePicker

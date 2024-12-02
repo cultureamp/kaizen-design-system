@@ -1,9 +1,9 @@
-import React from "react"
-import { render, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
-import { mockMatchMedia } from "~components/utils/useMediaQueries.spec"
-import { ConfirmationModal, ConfirmationModalProps } from "./ConfirmationModal"
+import React from 'react'
+import { render, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
+import { mockMatchMedia } from '~components/utils/useMediaQueries.spec'
+import { ConfirmationModal, ConfirmationModalProps } from './ConfirmationModal'
 const user = userEvent.setup()
 
 const ConfirmationModalWrapper = ({
@@ -22,21 +22,18 @@ const ConfirmationModalWrapper = ({
   </ConfirmationModal>
 )
 
-describe("<ConfirmationModal />", () => {
+describe('<ConfirmationModal />', () => {
   beforeEach(() => {
     mockMatchMedia()
   })
 
-  it("supports a dismiss action when dismiss button is pressed", async () => {
+  it('supports a dismiss action when dismiss button is pressed', async () => {
     const handleConfirm = vi.fn()
     const handleDismiss = vi.fn()
     const { getByLabelText } = render(
-      <ConfirmationModalWrapper
-        onConfirm={handleConfirm}
-        onDismiss={handleDismiss}
-      >
+      <ConfirmationModalWrapper onConfirm={handleConfirm} onDismiss={handleDismiss}>
         Example modal body
-      </ConfirmationModalWrapper>
+      </ConfirmationModalWrapper>,
     )
     await user.click(getByLabelText(/Dismiss/i))
     await waitFor(() => {
@@ -45,16 +42,13 @@ describe("<ConfirmationModal />", () => {
     })
   })
 
-  it("supports a dismiss action when cancel button is pressed", async () => {
+  it('supports a dismiss action when cancel button is pressed', async () => {
     const handleConfirm = vi.fn()
     const handleDismiss = vi.fn()
     const { getByText } = render(
-      <ConfirmationModalWrapper
-        onDismiss={handleDismiss}
-        onConfirm={handleConfirm}
-      >
+      <ConfirmationModalWrapper onDismiss={handleDismiss} onConfirm={handleConfirm}>
         Example modal body
-      </ConfirmationModalWrapper>
+      </ConfirmationModalWrapper>,
     )
     await user.click(getByText(/Cancel/i))
     await waitFor(() => {
@@ -63,16 +57,13 @@ describe("<ConfirmationModal />", () => {
     })
   })
 
-  it("supports a confirm action when confirm button is pressed", async () => {
+  it('supports a confirm action when confirm button is pressed', async () => {
     const handleConfirm = vi.fn()
     const handleDismiss = vi.fn()
     const { getByText } = render(
-      <ConfirmationModalWrapper
-        onDismiss={handleDismiss}
-        onConfirm={handleConfirm}
-      >
+      <ConfirmationModalWrapper onDismiss={handleDismiss} onConfirm={handleConfirm}>
         Example modal body
-      </ConfirmationModalWrapper>
+      </ConfirmationModalWrapper>,
     )
     await user.click(getByText(/Confirm/i))
     await waitFor(() => {

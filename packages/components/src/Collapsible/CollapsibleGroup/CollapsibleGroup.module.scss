@@ -1,12 +1,11 @@
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/shadow";
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/shadow';
 
 // We need a full border radius on this container element, then have classes
 // beneath to toggle nested borders off and on for different use cases.
 .container {
   background-color: white;
   box-shadow: $shadow-small-box-shadow;
-  border: var(--border-width-1) var(--border-solid-border-style)
-    var(--color-gray-500);
+  border: var(--border-width-1) var(--border-solid-border-style) var(--color-gray-500);
   border-radius: $border-borderless-border-radius;
 }
