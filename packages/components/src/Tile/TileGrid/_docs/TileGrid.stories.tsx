@@ -13,19 +13,19 @@ const meta = {
         <InformationTile
           title="Title A"
           metadata="Side A"
-          information="Side B"
+          information="Side A - Back"
           footer={<>Footer</>}
         />
         <InformationTile
           title="Title B"
-          metadata="Side A"
-          information="Side B"
+          metadata="Side B"
+          information="Side B - Back"
           footer={<>Footer</>}
         />
         <InformationTile
           title="Title C"
-          metadata="Side A"
-          information="Side B"
+          metadata="Side C"
+          information="Side C - Back"
           footer={<>Footer</>}
         />
       </>
@@ -71,6 +71,7 @@ export const FlipOneNotOthers: Story = {
 
     await step("Check other tiles", async () => {
       await waitFor(() => {
+        expect(canvas.getByText("Side A - Back")).toBeInTheDocument()
         expect(canvas.getByText("Title B")).toBeInTheDocument()
         expect(canvas.getByText("Title C")).toBeInTheDocument()
       })
