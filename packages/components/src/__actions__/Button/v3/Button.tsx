@@ -56,8 +56,7 @@ export const Button = forwardRef(
     ref: React.ForwardedRef<HTMLButtonElement>
   ) => {
     const shouldUseReverse = useReversedColors()
-    const isReversedVariant =
-      isReversed !== undefined ? isReversed : shouldUseReverse
+    const isReversedVariant = isReversed ?? shouldUseReverse
     const pendingProps: PendingButtonProps = isPending
       ? {
           isPending,
