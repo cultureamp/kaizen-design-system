@@ -1,5 +1,4 @@
 import React from "react"
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Unstyled } from "@storybook/blocks"
 import classnames from "classnames"
 import Highlight from "react-highlight"
