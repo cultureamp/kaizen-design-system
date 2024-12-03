@@ -27,6 +27,10 @@ export const setupFilterBarState = <ValuesMap extends FiltersValues>(
         baseState.activeFilterIds.add(id)
       }
 
+      if (isRemovable) {
+        baseState.hasRemovableFilter = true
+      }
+
       return baseState
     },
     {
@@ -35,6 +39,7 @@ export const setupFilterBarState = <ValuesMap extends FiltersValues>(
       values,
       dependentFilterIds: new Set(),
       hasUpdatedValues: false,
+      hasRemovableFilter: false,
       focusId: undefined,
     } as FilterBarState<ValuesMap>
   )

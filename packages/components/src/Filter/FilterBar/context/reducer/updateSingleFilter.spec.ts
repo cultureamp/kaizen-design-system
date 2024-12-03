@@ -31,6 +31,7 @@ describe("filterBarStateReducer: update_single_filter", () => {
       values: {},
       dependentFilterIds: new Set(),
       hasUpdatedValues: false,
+      hasRemovableFilter: false,
     } satisfies FilterBarState<Values>
 
     const newState = filterBarStateReducer<Values>(state, {
@@ -49,6 +50,7 @@ describe("filterBarStateReducer: update_single_filter", () => {
       values: {},
       dependentFilterIds: new Set(),
       hasUpdatedValues: false,
+      hasRemovableFilter: false,
     } satisfies FilterBarState<Values>
 
     expect(state.filters.flavour.isOpen).toBe(false)

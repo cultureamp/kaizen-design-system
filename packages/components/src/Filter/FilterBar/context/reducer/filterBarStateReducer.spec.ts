@@ -32,6 +32,7 @@ describe("filterBarStateReducer", () => {
         values: {},
         dependentFilterIds: new Set(),
         hasUpdatedValues: true,
+        hasRemovableFilter: false,
       } satisfies FilterBarState<Values>
 
       const newState = filterBarStateReducer<Values>(state, {
@@ -50,6 +51,7 @@ describe("filterBarStateReducer", () => {
         values: {},
         dependentFilterIds: new Set(),
         hasUpdatedValues: false,
+        hasRemovableFilter: false,
       } satisfies FilterBarState<Values>
 
       const newState = filterBarStateReducer<Values>(state, {
@@ -71,6 +73,7 @@ describe("filterBarStateReducer", () => {
         values: { flavour: "jasmine" },
         dependentFilterIds: new Set(),
         hasUpdatedValues: false,
+        hasRemovableFilter: false,
       } satisfies FilterBarState<Values>
 
       const newState = filterBarStateReducer<Values>(state, {

@@ -27,12 +27,14 @@ jobs:
     name: Check if we should run Chromatic tests
     if: github.head_ref != 'changeset-release/main' && github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    timeout-minutes: 3
     steps:
       - run: echo "Run the Chromatic tests"
 
   chromatic:
     needs: run-check
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     outputs:
       storybookUrl: ${{ steps.publishChromatic.outputs.storybookUrl }}
     steps:

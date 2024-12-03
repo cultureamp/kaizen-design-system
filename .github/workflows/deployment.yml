@@ -11,6 +11,7 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       deployments: write
     steps:

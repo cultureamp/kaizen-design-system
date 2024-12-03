@@ -164,6 +164,14 @@
     "description" : "Home button label",
     "message" : "Pumunta sa Home"
   },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "Tingnan ang iba pang impormasyon"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "Itago ang impormasyon:"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "Karagdagang mga aksiyon"

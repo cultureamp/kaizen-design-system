@@ -31,6 +31,7 @@ describe("getIsUsableWhenArgs()", () => {
       values: { flavour: "jasmine" },
       dependentFilterIds: new Set(),
       hasUpdatedValues: false,
+      hasRemovableFilter: false,
     } satisfies FilterBarState<Values>
 
     const usableArgs = getIsUsableWhenArgs<Values>(state)

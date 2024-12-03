@@ -164,6 +164,14 @@
     "description" : "Home button label",
     "message" : "Ewch i'r Hafan"
   },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "Gweld mwy o wybodaeth:"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "Cuddio gwybodaeth:"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "Gweithredoedd ychwanegol"

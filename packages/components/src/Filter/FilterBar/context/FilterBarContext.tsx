@@ -22,6 +22,7 @@ export type FilterBarContextValue<
   getFilterState: <Id extends keyof ValuesMap>(
     id: Id
   ) => FilterState<keyof ValuesMap, ValuesMap[Id]>
+  isClearable: boolean
   getActiveFilterValues: () => Partial<ValuesMap>
   /**
    * @deprecated Use `setFilterOpenState` instead.
@@ -90,12 +91,28 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     setupFilterBarState<ValuesMap>(filters, values)
   )
 
+  const activeFilters = Array.from(
+    state.activeFilterIds,
+    id => mappedFilters[id]
+  )
+
+  // Workaround for DateRangePicker populating the values object before the value is valid
+  // (it purposefully persists a state with a 'from' date but no 'to' date, but hides it on the filter button)
+  const isDraftDateRange = (v: ValuesMap): boolean =>
+    v && v.from !== undefined && v.to === undefined
+  const hasDraftDateRangeOnly = Object.values(values).every(isDraftDateRange)
+
+  const isClearable =
+    (Object.keys(values).length > 0 && !hasDraftDateRangeOnly) ||
+    (state.hasRemovableFilter && activeFilters.some(f => f.isRemovable))
+
   const value = {
     getFilterState: <Id extends keyof ValuesMap>(id: Id) => ({
       ...state.filters[id],
       isActive: state.activeFilterIds.has(id),
       value: values[id],
     }),
+    isClearable,
     getActiveFilterValues: () => values,
     toggleOpenFilter: <Id extends keyof ValuesMap>(
       id: Id,
@@ -162,11 +179,6 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       dispatch({ type: "update_filter_labels", data: filters })
     }
   }, [filters])
-
-  const activeFilters = Array.from(
-    state.activeFilterIds,
-    id => mappedFilters[id]
-  )
 
   return (
     <FilterBarContext.Provider

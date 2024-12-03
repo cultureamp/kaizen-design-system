@@ -164,6 +164,14 @@
     "description" : "Home button label",
     "message" : "ទៅកាន់ទំព័រដើម"
   },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "មើលព័ត៌មានបន្ថែម៖"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "លាក់ព័ត៌មាន៖"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "សកម្មភាពបន្ថែម"
