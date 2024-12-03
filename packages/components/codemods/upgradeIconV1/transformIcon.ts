@@ -44,7 +44,6 @@ const transformIconProp = (
       return createProp('alt', propValue)
     case 'classNameOverride':
       return createProp('className', propValue)
-    // `aria-hidden` is not necessary as `role` will cater for presentational icons
     case 'aria-hidden':
     // (falls through) `aria-hidden` is not necessary as `role` will cater for presentational icons
     case 'fontSize':

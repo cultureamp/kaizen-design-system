@@ -66,10 +66,7 @@ export const Select = React.forwardRef<any, SelectProps>(
     const reactId = useId()
 
     // the default for fullWidth depends on the variant
-    const fullWidth =
-      (propsFullWidth ?? Boolean(variant === 'secondary' || variant === 'secondary-small'))
-        ? false
-        : true
+    const fullWidth = propsFullWidth ?? !['secondary', 'secondary-small'].includes(variant)
 
     const classes = classnames(
       propsClassName,

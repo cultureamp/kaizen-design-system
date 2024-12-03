@@ -224,7 +224,7 @@ const renderCustomComponent = (
 }
 
 const renderButton = (props: RenderProps, ref: Ref<HTMLButtonElement>): JSX.Element => {
-  const disableActions = props.disabled ?? props.working
+  const disableActions = Boolean(props.disabled || props.working)
   const passedInProps: React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
@@ -321,7 +321,7 @@ const buttonClass = (props: RenderProps): string => {
     styles.button,
     isDefault && styles.default,
     // @ts-expect-error aria-disabled exists in props
-    (props.disabled ?? props['aria-disabled']) && styles.disabled,
+    Boolean(props.disabled || props['aria-disabled']) && styles.disabled,
     props.primary && styles.primary,
     props.destructive && styles.destructive,
     props.secondary && styles.secondary,
@@ -329,7 +329,7 @@ const buttonClass = (props: RenderProps): string => {
     props.reversed && styles.reversed,
     props.iconButton && styles.iconButton,
     props.working && styles.working,
-    (props.directionalLink ?? props.paginationLink) && styles.circleButton,
+    Boolean(props.directionalLink || props.paginationLink) && styles.circleButton,
     props.directionalLink && styles.directionalLink,
     props.paginationLink && styles.paginationLink,
     props.isActive && styles.isPaginationLinkActive,
