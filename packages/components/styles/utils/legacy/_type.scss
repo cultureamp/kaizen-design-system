@@ -657,23 +657,9 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin ca-type-align-start() {
-  text-align: left; // fallback for IE and Edge
   text-align: start;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    text-align: right; // fallback for IE and Edge
-    text-align: start;
-  }
 }
 
 @mixin ca-type-align-end() {
-  text-align: right; // fallback for IE and Edge
   text-align: end;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    text-align: left; // fallback for IE and Edge
-    text-align: end;
-  }
 }
