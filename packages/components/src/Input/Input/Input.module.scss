@@ -98,14 +98,7 @@ $input-with-icon-padding: calc(
   .startIconAdornment {
     @include vertically-center-icon;
 
-    right: auto;
-    left: $spacing-sm;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      right: $spacing-sm;
-      left: auto;
-    }
+    inset-inline: $spacing-sm auto;
   }
 
   &.withDisabled {
@@ -115,14 +108,7 @@ $input-with-icon-padding: calc(
   }
 
   .input {
-    padding-right: $input-base-padding-horizontal;
-    padding-left: $input-with-icon-padding;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      padding-right: $input-with-icon-padding;
-      padding-left: $input-base-padding-horizontal;
-    }
+    padding-inline: $input-with-icon-padding $input-base-padding-horizontal;
   }
 }
 
@@ -130,14 +116,7 @@ $input-with-icon-padding: calc(
   .endIconAdornment {
     @include vertically-center-icon;
 
-    right: $spacing-sm;
-    left: auto;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      right: auto;
-      left: $spacing-sm;
-    }
+    inset-inline: auto $spacing-sm;
   }
 
   &.withDisabled {
@@ -147,27 +126,13 @@ $input-with-icon-padding: calc(
   }
 
   .input {
-    padding-right: $input-with-icon-padding;
-    padding-left: $input-base-padding-horizontal;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      padding-right: $input-base-padding-horizontal;
-      padding-left: $input-with-icon-padding;
-    }
+    padding-inline: $input-base-padding-horizontal $input-with-icon-padding;
   }
 }
 
 .withStartIconAdornment.withEndIconAdornment {
   .input {
-    padding-right: $input-with-icon-padding;
-    padding-left: $input-with-icon-padding;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      padding-right: $input-with-icon-padding;
-      padding-left: $input-with-icon-padding;
-    }
+    padding-inline: $input-with-icon-padding $input-with-icon-padding;
   }
 }
 

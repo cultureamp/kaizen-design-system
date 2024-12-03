@@ -78,13 +78,7 @@ $focus-ring-offset: 1px;
   .thumb {
     position: relative;
     right: auto;
-    left: calc(#{$spacing-md} * 1.1);
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      right: calc(#{$spacing-md} * 1.1);
-      left: auto;
-    }
+    inset-inline-start: calc(#{$spacing-md} * 1.1);
   }
 
   .checkIcon {
@@ -103,13 +97,7 @@ $focus-ring-offset: 1px;
   .thumb {
     position: relative;
     right: auto;
-    left: calc(#{$spacing-md} * -0.05);
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      right: calc(#{$spacing-md} * -0.05);
-      left: auto;
-    }
+    inset-inline-start: calc(#{$spacing-md} * -0.05);
   }
 }
 
