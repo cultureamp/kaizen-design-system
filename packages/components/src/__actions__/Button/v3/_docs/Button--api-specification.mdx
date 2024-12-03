@@ -25,7 +25,7 @@ The following example and table showcases the essential props that enable the co
 
 <Canvas of={exampleStories.Playground} />
 
-<Controls of={exampleStories.Playground} className="mb-64" include={["children", "hasHiddenLabel", "className",  "size", "variant", "onPress", "icon", "iconPosition", "isFullWidth", "isDisabled", "isPending","pendingLabel", "hasHiddenPendingLabel" ]} />
+<Controls of={exampleStories.Playground} className="mb-64" include={["children", "hasHiddenLabel", "className",  "size", "variant", "isReversed", "onPress", "icon", "iconPosition", "isFullWidth", "isDisabled", "isPending","pendingLabel", "hasHiddenPendingLabel" ]} />
 
 ## Buttons and links
 
@@ -43,7 +43,7 @@ This is built on top of [React Aria's Button component](https://react-spectrum.a
 
 <Canvas of={exampleStories.ButtonVariants} />
 
-Reversed variants are handled via the `ReversedColors` Provider - read more on this in the [reversed colors section](#reversed-colors).
+Reversed variants are handled via the `ReversedColors` Provider.
 
 <DocsStory of={exampleStories.ButtonVariantsReversed} expanded={false} />
 
