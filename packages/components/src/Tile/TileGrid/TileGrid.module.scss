@@ -21,3 +21,14 @@
     grid-template-columns: repeat(1, 100%);
   }
 }
+
+.li {
+  list-style: none;
+}
+
+.ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}

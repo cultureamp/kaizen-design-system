@@ -1,4 +1,9 @@
-import React, { HTMLAttributes, ReactElement } from "react"
+import React, {
+  Children,
+  HTMLAttributes,
+  isValidElement,
+  ReactElement,
+} from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { InformationTileProps } from "../InformationTile"
@@ -10,7 +15,7 @@ type TileProps = InformationTileProps | MultiActionTileProps
 export type TileElement = ReactElement<TileProps>
 
 export interface TileGridProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  extends OverrideClassName<HTMLAttributes<HTMLUListElement>> {
   children: TileElement[] | TileElement
 }
 
@@ -22,14 +27,25 @@ export const TileGrid = ({
   children,
   classNameOverride,
   ...restProps
-}: TileGridProps): JSX.Element => (
-  <div
-    className={classnames(styles.grid, classNameOverride)}
-    data-tile-grid
-    {...restProps}
-  >
-    {children}
-  </div>
-)
+}: TileGridProps): JSX.Element => {
+  const tiles = Children.map(children, child => {
+    if (isValidElement(child.props.children)) {
+      return child.props.children!.map(tile => (
+        <li className={classnames(styles.li, classNameOverride)}>{tile}</li>
+      ))
+    }
+  })
 
+  const test = Array.isArray(children) && ?  children[0].props.children!.map()
+
+  return (
+    <ul
+      className={classnames(styles.grid, classNameOverride)}
+      data-tile-grid
+      {...restProps}
+    >
+      {tiles}
+    </ul>
+  )
+}
 TileGrid.displayName = "TileGrid"
