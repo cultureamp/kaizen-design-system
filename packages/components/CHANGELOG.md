@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.68.6
+
+### Patch Changes
+
+- [#5325](https://github.com/cultureamp/kaizen-design-system/pull/5325) [`92c228f`](https://github.com/cultureamp/kaizen-design-system/commit/92c228f3cd72dce92905e27e91099c1621ad24e1) - Add a deprecated isReversed prop to Button v3 to allow for safe migration path to the ReversedColors Provider.
+
+  - `isReversed` to allow users to toggle the reversed variants with a `boolean`.
+  - Adds `@deprecated` flag to prompt user to use the `ReverseColors` Provider instead.
+
+- [#5345](https://github.com/cultureamp/kaizen-design-system/pull/5345) [`2760617`](https://github.com/cultureamp/kaizen-design-system/commit/2760617418ed997a9e0036d327327c78a0bc8ef5) - Refactor styles to not use `[dir="rtl"] &`.
+
 ## 1.68.5
 
 ### Patch Changes
