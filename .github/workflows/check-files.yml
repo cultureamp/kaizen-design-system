@@ -21,7 +21,7 @@ jobs:
   changesets-exists:
     if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,6 +32,7 @@ jobs:
   verify-build:
     if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
