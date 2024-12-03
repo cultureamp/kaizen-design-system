@@ -27,6 +27,7 @@ jobs:
   build-test-storybook:
     if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
