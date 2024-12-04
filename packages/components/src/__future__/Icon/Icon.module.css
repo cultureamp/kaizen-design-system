@@ -32,22 +32,18 @@
   --icon-fill: 1;
 }
 
-.shouldMirrorInRTL {
-  [dir="rtl"] & {
-    transform: scale(-1, 1);
-  }
+[dir="rtl"] .shouldMirrorInRTL {
+  transform: scale(-1, 1);
 }
 
-.iconLTR {
-  [dir="rtl"] & {
-    display: none;
-  }
+[dir="rtl"] .iconLTR {
+  display: none;
 }
 
 .iconRTL {
   display: none;
+}
 
-  [dir="rtl"] & {
-    display: inherit;
-  }
+[dir="rtl"] .iconRTL {
+  display: inherit;
 }

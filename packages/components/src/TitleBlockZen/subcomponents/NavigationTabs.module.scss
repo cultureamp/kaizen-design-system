@@ -24,13 +24,7 @@
   letter-spacing: $typography-heading-4-letter-spacing;
   text-decoration: none;
   white-space: nowrap;
-  margin-right: $spacing-md;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    margin-left: $spacing-md;
-    margin-right: 0;
-  }
+  margin-inline-end: $spacing-md;
 
   &:hover {
     color: $color-white;
@@ -46,13 +40,7 @@
   }
 
   @include title-block-under-1440 {
-    margin-right: $spacing-xs;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      margin-left: $spacing-xs;
-      margin-right: 0;
-    }
+    margin-inline-end: $spacing-xs;
   }
 
   @media (max-width: 1189px) {

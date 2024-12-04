@@ -17,10 +17,6 @@ $menu-container-max-height: 312px;
   box-shadow: $shadow-large-box-shadow;
   padding: $spacing-sm 0;
   margin-top: $spacing-xs;
-  text-align: left;
+  text-align: start;
   width: $menu-container-width;
-
-  [dir="rtl"] & {
-    text-align: right;
-  }
 }
