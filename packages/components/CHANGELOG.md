@@ -1,5 +1,26 @@
 # Change Log
 
+## 1.68.6
+
+### Patch Changes
+
+- [#5325](https://github.com/cultureamp/kaizen-design-system/pull/5325) [`92c228f`](https://github.com/cultureamp/kaizen-design-system/commit/92c228f3cd72dce92905e27e91099c1621ad24e1) - Add a deprecated isReversed prop to Button v3 to allow for safe migration path to the ReversedColors Provider.
+
+  - `isReversed` to allow users to toggle the reversed variants with a `boolean`.
+  - Adds `@deprecated` flag to prompt user to use the `ReverseColors` Provider instead.
+
+- [#5345](https://github.com/cultureamp/kaizen-design-system/pull/5345) [`2760617`](https://github.com/cultureamp/kaizen-design-system/commit/2760617418ed997a9e0036d327327c78a0bc8ef5) - Refactor styles to not use `[dir="rtl"] &`.
+
+## 1.68.5
+
+### Patch Changes
+
+- [#5328](https://github.com/cultureamp/kaizen-design-system/pull/5328) [`c27c883`](https://github.com/cultureamp/kaizen-design-system/commit/c27c883813e90a97f9b7c9536a72f89a64114d51) - Add localisations for GenericTile's default infoButtonLabel text.
+
+- [#5342](https://github.com/cultureamp/kaizen-design-system/pull/5342) [`23eca3f`](https://github.com/cultureamp/kaizen-design-system/commit/23eca3fa796ee6c70c24e2f1dcee04461f1bb8d1) - Update translations
+
+- [#5336](https://github.com/cultureamp/kaizen-design-system/pull/5336) [`8bf1435`](https://github.com/cultureamp/kaizen-design-system/commit/8bf1435857b3817fee83a219a1c88b58c8b6f2f6) - Add infoButtonLabel prop to GenericTile and internationalise default label.
+
 ## 1.68.4
 
 ### Patch Changes

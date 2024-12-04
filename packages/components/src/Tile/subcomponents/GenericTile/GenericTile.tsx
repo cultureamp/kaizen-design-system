@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useState } from "react"
+import React, { HTMLAttributes, useState, useRef, useEffect } from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
 import classnames from "classnames"
 import { AllowedHeadingTags, Heading } from "~components/Heading"
@@ -57,7 +57,28 @@ export const GenericTile = ({
   ...restProps
 }: GenericTileProps): JSX.Element => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
+  const [isDocumentReady, setIsDocumentReady] = useState<boolean>(false)
+
   const { formatMessage } = useIntl()
+  const infoButtonRef = useRef<HTMLButtonElement>(null)
+  const infoButtonReturnRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    setIsDocumentReady(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isDocumentReady) {
+      setIsDocumentReady(true)
+      return
+    }
+
+    if (isFlipped) {
+      infoButtonReturnRef.current!.focus()
+    } else {
+      infoButtonRef.current!.focus()
+    }
+  }, [isFlipped])
 
   const translatedInfoLabel = formatMessage({
     id: "kzGenericTile.infoButtonLabel",
@@ -97,6 +118,7 @@ export const GenericTile = ({
             onClick={(): void => setIsFlipped(true)}
             disabled={isFlipped}
             aria-hidden={isFlipped}
+            ref={infoButtonRef}
           />
         </div>
       )}
@@ -162,6 +184,7 @@ export const GenericTile = ({
             onClick={(): void => setIsFlipped(false)}
             disabled={!isFlipped}
             aria-hidden={!isFlipped}
+            ref={infoButtonReturnRef}
           />
         </div>
         <div className={styles.information}>

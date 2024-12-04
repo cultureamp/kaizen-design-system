@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/blocks"
-import Highlight from "react-highlight"
+import { Diff } from "~storybook/components"
 import migrationBonus from "./code-diffs/migration-bonus.diff?raw"
 import migrationFETBonus from "./code-diffs/migration-fe-template-bonus.diff?raw"
 import migrationFETToV1 from "./code-diffs/migration-fe-template-to-v1.diff?raw"
@@ -30,20 +30,18 @@ import { KaizenProvider } from "@kaizen/components";
 
 `KaizenProvider` our new root level wrapping component.
 
-
-<Highlight className="diff shadow-sm">{migrationToV1}</Highlight>
-
+<Diff>{migrationToV1}</Diff>
 
 If you're using the [frontend-template](https://github.com/cultureamp/frontend-template), you can replace it like this:
 
 Note: `defaultPreset` comes from the `frontend-template`.
 
-<Highlight className="diff shadow-sm">{migrationFETToV1}</Highlight>
+<Diff>{migrationFETToV1}</Diff>
 
 ### Bonus
 
 If you're using the `defaultTheme`, this is already setup within the provider, so depending on your team's setup you might be able to remove config that sets this up for you.
 
-<Highlight className="diff shadow-sm mb-16">{migrationBonus}</Highlight>
+<Diff className="mb-16">{migrationBonus}</Diff>
 
-<Highlight className="diff shadow-sm">{migrationFETBonus}</Highlight>
+<Diff>{migrationFETBonus}</Diff>

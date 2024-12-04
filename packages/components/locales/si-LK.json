@@ -164,6 +164,14 @@
     "description" : "Home button label",
     "message" : "ගෙදර යන්න"
   },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "වැඩි විස්තර බලන්න:"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "තොරතුරු සඟවන්න:"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "අතිරේක ක්‍රියාමාර්ග"

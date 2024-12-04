@@ -26,17 +26,13 @@ $placeholder-opacity: 0.7;
   font-weight: $typography-paragraph-body-font-weight;
   line-height: 1.5;
   letter-spacing: $typography-paragraph-body-letter-spacing;
-  text-align: left;
+  text-align: start;
   background-color: $color-white;
   background-clip: padding-box;
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
   border-radius: $border-solid-border-radius;
   margin-top: $spacing-6;
   padding: 0 $button-base-padding-horizontal;
-
-  [dir="rtl"] & {
-    text-align: right;
-  }
 
   &:focus-visible:not([disabled]),
   &:hover:not([disabled]) {
@@ -63,14 +59,7 @@ $placeholder-opacity: 0.7;
   }
 
   .value {
-    padding-right: $button-base-padding-horizontal;
-    padding-left: 1.75rem;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      padding-right: 1.75rem;
-      padding-left: $button-base-padding-horizontal;
-    }
+    padding-inline: 1.75rem $button-base-padding-horizontal;
   }
 }
 
@@ -93,14 +82,7 @@ $placeholder-opacity: 0.7;
 
     color: $color-purple-800;
     opacity: $disabled-opacity;
-    right: auto;
-    left: $spacing-sm;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      right: $spacing-sm;
-      left: auto;
-    }
+    inset-inline: $spacing-sm auto;
   }
 
   &:focus-within:not(.disabled),
@@ -111,14 +93,8 @@ $placeholder-opacity: 0.7;
   }
 
   .button {
-    padding-right: $button-base-padding-horizontal;
-    padding-left: calc(#{$spacing-md} + #{$button-icon-size});
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      padding-right: calc(#{$spacing-md} + #{$button-icon-size});
-      padding-left: $button-base-padding-horizontal;
-    }
+    padding-inline: calc(#{$spacing-md} + #{$button-icon-size})
+      $button-base-padding-horizontal;
   }
 }
 /* stylelint-enable no-descending-specificity */

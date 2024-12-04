@@ -164,6 +164,14 @@
     "description" : "Home button label",
     "message" : "Go to Home"
   },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "Tirohia etahi atu korero:"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "Huna mōhiohio:"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "Ngā mahi tāpiri"

@@ -164,6 +164,14 @@
     "description" : "Home button label",
     "message" : "Naar startpagina"
   },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "Bekijk meer informatie:"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "Informatie verbergen:"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "Meer acties"

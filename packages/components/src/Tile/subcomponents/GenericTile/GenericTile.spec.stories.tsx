@@ -87,3 +87,61 @@ export const InfoButtonLabel: Story = {
     })
   },
 }
+
+export const DoesNotStealFocusOnInitialRender: Story = {
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+
+    await step("initial render complete", async () => {
+      await waitFor(() => {
+        canvas.getByRole("button", {
+          name: "View more information: Title",
+        })
+      })
+    })
+
+    await step("Can focus to button", async () => {
+      await waitFor(() => {
+        const buttonWithInfoLabel = canvas.getByRole("button", {
+          name: "View more information: Title",
+        })
+        expect(buttonWithInfoLabel).not.toHaveFocus()
+      })
+    })
+  },
+}
+
+export const FocusOnFlip: Story = {
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+    const buttonWithInfoLabel = await canvas.findByRole("button", {
+      name: "View more information: Title",
+    })
+
+    await step("initial render complete", async () => {
+      expect(buttonWithInfoLabel).toBeInTheDocument()
+    })
+
+    await step("Can focus to button", async () => {
+      await waitFor(() => {
+        buttonWithInfoLabel.click()
+      })
+    })
+
+    const returnButton = canvas.getByRole("button", {
+      name: "Hide information: Title",
+    })
+
+    await step("Can click on info button again", async () => {
+      await waitFor(() => {
+        returnButton.click()
+      })
+    })
+
+    await step("Info button has focus again", async () => {
+      await waitFor(() => {
+        expect(buttonWithInfoLabel).toHaveFocus()
+      })
+    })
+  },
+}

@@ -97,19 +97,12 @@
 
   @media (width >= 1024px) {
     padding: 0 var(--spacing-12);
-    text-align: left;
+    text-align: start;
   }
 
   @media (width <= 767px) {
     margin: var(--spacing-12);
     max-width: 100%;
-  }
-
-  [dir="rtl"] & {
-    @media (width >= 1024px) {
-      padding: 0 var(--spacing-12);
-      text-align: right;
-    }
   }
 }
 
@@ -143,10 +136,6 @@
     flex-direction: column;
     width: 100%;
     margin-top: var(--spacing-6);
-  }
-
-  [dir="rtl"] & svg {
-    transform: rotate(180deg);
   }
 }
 
@@ -202,12 +191,7 @@
   }
 
   .illustrationWrapper {
-    margin-right: var(--spacing-12);
-
-    [dir="rtl"] & {
-      margin-left: var(--spacing-12);
-      margin-right: inherit;
-    }
+    margin-inline-end: var(--spacing-12);
 
     @media (768px <= width <= 1023px) {
       padding: 0;
@@ -223,7 +207,7 @@
   }
 
   .descriptionContainer {
-    text-align: left;
+    text-align: start;
     max-width: unset;
     min-width: 320px;
 
@@ -234,29 +218,16 @@
     @media (width <= 767px) {
       margin: 0;
     }
-
-    [dir="rtl"] & {
-      text-align: right;
-
-      @media (width >= 1024px) {
-        padding: 0;
-      }
-    }
   }
 
   .buttonContainer {
-    padding-left: var(--spacing-12);
+    padding-inline-start: var(--spacing-12);
     justify-content: flex-start;
     width: unset;
     min-width: unset;
 
     @media (width <= 767px) {
       flex-direction: row-reverse;
-    }
-
-    [dir="rtl"] & {
-      padding-left: 0;
-      padding-right: var(--spacing-12);
     }
 
     > * {
@@ -283,10 +254,6 @@
     .descriptionContainer {
       text-align: center;
       min-width: unset;
-
-      [dir="rtl"] & {
-        text-align: center;
-      }
     }
 
     .buttonContainer {
@@ -299,11 +266,7 @@
 
   &.centerContent.smallScreenTextAlignment {
     .descriptionContainer {
-      text-align: left;
-
-      [dir="rtl"] & {
-        text-align: right;
-      }
+      text-align: start;
     }
   }
 }

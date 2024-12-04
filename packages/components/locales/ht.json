@@ -164,6 +164,14 @@
     "description" : "Home button label",
     "message" : "Ale nan paj akèy la"
   },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "Gade plis enfòmasyon:"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "Kache Enfòmasyon:"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "Desizyon adisyonèl"
