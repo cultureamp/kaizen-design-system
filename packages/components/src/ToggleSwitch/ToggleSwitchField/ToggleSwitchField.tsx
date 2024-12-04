@@ -30,8 +30,8 @@ export const ToggleSwitchField = ({
   fullWidth,
   ...restProps
 }: ToggleSwitchFieldProps): JSX.Element => {
-  const reactId = useId()
-  const id = propsId ?? reactId
+  const fallbackId = useId()
+  const id = propsId ?? fallbackId
 
   return (
     <FieldGroup
