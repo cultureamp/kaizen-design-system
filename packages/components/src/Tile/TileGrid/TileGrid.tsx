@@ -1,4 +1,4 @@
-import React, { Children, HTMLAttributes, ReactElement } from "react"
+import React, { Children, HTMLAttributes, ReactElement, useId } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { InformationTileProps } from "../InformationTile"
@@ -23,21 +23,27 @@ export const TileGrid = ({
   classNameOverride,
   ...restProps
 }: TileGridProps): JSX.Element => {
+  const tileGridBaseId = useId()
+
   const tiles = Children.map(children, child => {
     /* Is child always going to be an array? What does Children look like with only one Tile
-    *  Are we able to type tile to make sure its not anything else?
-    */
+     *  Are we able to type tile to make sure its not anything else?
+     */
     if (Array.isArray(child.props.children)) {
-      return child.props.children!.map(tile => (
-        <li
-          className={classnames(styles.li, classNameOverride)}
-          key={tile.title}
-        >
-          {tile}
-        </li>
-      ))
+      return child.props.children!.map(
+        (tile: TileElement, index) => (
+          <li
+            className={classnames(styles.li, classNameOverride)}
+            key={`${tileGridBaseId}-${index}`}
+          >
+            {tile}
+          </li>
+        )
+      )
     } else {
-      return <li className={classnames(styles.li, classNameOverride)}>{child}</li>
+      return (
+        <li className={classnames(styles.li, classNameOverride)}>{child}</li>
+      )
     }
   })
 
