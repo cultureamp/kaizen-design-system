@@ -1,0 +1,12 @@
+name: Renovate - Trigger on PR description edits
+on:
+  pull_request_target:
+    types: [edited]
+
+jobs:
+  call-pr-edit-triggers-renovate:
+    uses: cultureamp/renovate-for-cultureamp/.github/workflows/pr-edit-triggers-renovate.yaml@v1
+    secrets:
+      RENOVATE_TRIGGER_APP_PRIVATE_KEY: ${{ secrets.RENOVATE_TRIGGER_APP_PRIVATE_KEY }}
+    with:
+      repository: ${{ github.repository }}
