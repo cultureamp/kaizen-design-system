@@ -1,33 +1,30 @@
-import React, { HTMLAttributes, forwardRef, useId } from "react"
-import classnames from "classnames"
-import { ClearButton } from "~components/ClearButton"
-import { FieldMessageProps } from "~components/FieldMessage"
-import { Icon, RemovableTag } from "~components/__future__"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { MultiSelectOption } from "../../types"
-import styles from "./MultiSelectToggle.module.scss"
+import React, { HTMLAttributes, forwardRef, useId } from 'react'
+import classnames from 'classnames'
+import { ClearButton } from '~components/ClearButton'
+import { FieldMessageProps } from '~components/FieldMessage'
+import { Icon, RemovableTag } from '~components/__future__'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { MultiSelectOption } from '../../types'
+import styles from './MultiSelectToggle.module.scss'
 
 export type MultiSelectToggleProps = {
   onClick: React.MouseEventHandler
-  ["aria-labelledby"]: string
-  ["aria-controls"]: string
+  ['aria-labelledby']: string
+  ['aria-controls']: string
   selectedOptions: MultiSelectOption[]
   isOpen?: boolean
-  status?: FieldMessageProps["status"]
-  onRemoveOption: (optionValue: MultiSelectOption["value"]) => void
+  status?: FieldMessageProps['status']
+  onRemoveOption: (optionValue: MultiSelectOption['value']) => void
   onRemoveAllOptions: () => void
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
-export const MultiSelectToggle = forwardRef<
-  HTMLButtonElement,
-  MultiSelectToggleProps
->(
+export const MultiSelectToggle = forwardRef<HTMLButtonElement, MultiSelectToggleProps>(
   (
     {
       onClick,
-      "aria-labelledby": ariaLabelledBy,
-      "aria-describedby": ariaDescribedBy,
-      "aria-controls": ariaControls,
+      'aria-labelledby': ariaLabelledBy,
+      'aria-describedby': ariaDescribedBy,
+      'aria-controls': ariaControls,
       isOpen = false,
       classNameOverride,
       selectedOptions,
@@ -36,7 +33,7 @@ export const MultiSelectToggle = forwardRef<
       status,
       ...restProps
     },
-    ref
+    ref,
   ): JSX.Element => {
     const clearAllId = useId()
     return (
@@ -50,7 +47,7 @@ export const MultiSelectToggle = forwardRef<
           className={classnames(
             styles.multiSelectToggle,
             classNameOverride,
-            status && styles[status]
+            status && styles[status],
           )}
           onClick={onClick}
           {...restProps}
@@ -64,21 +61,18 @@ export const MultiSelectToggle = forwardRef<
             aria-expanded={isOpen}
             aria-haspopup="dialog"
             type="button"
-            onClick={e => {
+            onClick={(e) => {
               e.stopPropagation()
               onClick(e)
             }}
           >
-            <Icon
-              name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
-              isPresentational
-            />
+            <Icon name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} isPresentational />
           </button>
 
           <div
             className={classnames(
               styles.selectedItemsContainer,
-              selectedOptions.length && styles.hasSelectedItems
+              selectedOptions.length && styles.hasSelectedItems,
             )}
           >
             {selectedOptions.length > 0 && (
@@ -89,7 +83,7 @@ export const MultiSelectToggle = forwardRef<
                   {selectedOptions.map(({ label, value }) => (
                     // This stops the underlying toggle collapsing the popover when interactive with Tags
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
-                    <li key={value} onClick={e => e.stopPropagation()}>
+                    <li key={value} onClick={(e) => e.stopPropagation()}>
                       <RemovableTag
                         removeButtonProps={{
                           ariaLabel: `Remove option: ${label}`,
@@ -107,7 +101,7 @@ export const MultiSelectToggle = forwardRef<
                   aria-label="Remove all options from "
                   aria-labelledby={`${clearAllId} ${ariaLabelledBy}`}
                   classNameOverride={styles.clearAllButton}
-                  onClick={e => {
+                  onClick={(e) => {
                     e.stopPropagation()
                     onRemoveAllOptions()
                   }}
@@ -118,7 +112,7 @@ export const MultiSelectToggle = forwardRef<
         </div>
       </>
     )
-  }
+  },
 )
 
-MultiSelectToggle.displayName = "MultiSelectToggle"
+MultiSelectToggle.displayName = 'MultiSelectToggle'

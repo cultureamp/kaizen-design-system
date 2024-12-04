@@ -1,9 +1,9 @@
-import { Meta, StoryObj } from "@storybook/react"
-import { statusCodes } from "../hooks"
-import { ErrorPage } from "../index"
+import { Meta, StoryObj } from '@storybook/react'
+import { statusCodes } from '../hooks'
+import { ErrorPage } from '../index'
 
 const meta = {
-  title: "Pages/Error Page",
+  title: 'Pages/Error Page',
   component: ErrorPage,
 } satisfies Meta<typeof ErrorPage>
 
@@ -11,18 +11,18 @@ export default meta
 
 export const Playground: StoryObj<typeof meta> = {
   args: {
-    code: "400",
+    code: '400',
   },
   argTypes: {
     code: {
       options: [...statusCodes],
-      control: { type: "select" },
+      control: { type: 'select' },
     },
   },
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

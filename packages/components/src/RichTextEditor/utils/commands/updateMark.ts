@@ -1,6 +1,6 @@
-import { EditorState, Transaction } from "prosemirror-state"
-import { CommandFactory } from "../core/types"
-import { getMarkRange } from "./getMarkRange"
+import { EditorState, Transaction } from 'prosemirror-state'
+import { CommandFactory } from '../core/types'
+import { getMarkRange } from './getMarkRange'
 
 /** Update Mark attributes, create nested Marks or split Marks of the same type   */
 export const updateMark: CommandFactory =

@@ -1,31 +1,31 @@
-import React, { createRef, useState } from "react"
-import classnames from "classnames"
-import { FieldMessage } from "~components/FieldMessage"
-import { Text } from "~components/Text"
-import { Icon } from "~components/__future__/Icon"
-import { ScaleValue, Scale, ScaleItem, ColorSchema } from "./types"
-import determineSelectionFromKeyPress from "./utils/determineSelectionFromKeyPress"
-import styles from "./LikertScaleLegacy.module.scss"
+import React, { createRef, useState } from 'react'
+import classnames from 'classnames'
+import { FieldMessage } from '~components/FieldMessage'
+import { Text } from '~components/Text'
+import { Icon } from '~components/__future__/Icon'
+import { ScaleValue, Scale, ScaleItem, ColorSchema } from './types'
+import determineSelectionFromKeyPress from './utils/determineSelectionFromKeyPress'
+import styles from './LikertScaleLegacy.module.scss'
 
-type ItemRefs = Array<{
+type ItemRefs = {
   value: ScaleValue
   ref: { current: null | HTMLDivElement }
-}>
+}[]
 
 export type LikertScaleProps = {
-  labelId: string
-  scale: Scale
-  selectedItem: ScaleItem | null
+  'labelId': string
+  'scale': Scale
+  'selectedItem': ScaleItem | null
   /**
    * @deprecated Please use data-testid instead
    */
-  automationId?: string
-  "data-testid"?: string
-  reversed?: boolean
-  colorSchema?: ColorSchema | "classical"
-  validationMessage?: string
-  status?: "default" | "error"
-  onSelect: (value: ScaleItem | null) => void
+  'automationId'?: string
+  'data-testid'?: string
+  'reversed'?: boolean
+  'colorSchema'?: ColorSchema | 'classical'
+  'validationMessage'?: string
+  'status'?: 'default' | 'error'
+  'onSelect': (value: ScaleItem | null) => void
 }
 
 const SelectedItemIcon = (): JSX.Element => (
@@ -40,15 +40,15 @@ export const LikertScaleLegacy = ({
   scale,
   selectedItem,
   reversed,
-  colorSchema = "classical",
-  "data-testid": dataTestId,
+  colorSchema = 'classical',
+  'data-testid': dataTestId,
   onSelect,
   validationMessage,
   status,
   labelId,
 }: LikertScaleProps): JSX.Element => {
   const [hoveredItem, setHoveredItem] = useState<ScaleItem | null>(null)
-  const itemRefs: ItemRefs = scale.map(s => ({
+  const itemRefs: ItemRefs = scale.map((s) => ({
     value: s.value,
     ref: createRef<HTMLDivElement>(),
   }))
@@ -58,7 +58,7 @@ export const LikertScaleLegacy = ({
     const isClickOnSelectedItem = selectedItem?.value === item.value
 
     // Grab "Not rated" state item from the scale, its value is -1
-    const notYetRated = scale.find(s => s.value === -1) || null
+    const notYetRated = scale.find((s) => s.value === -1) || null
 
     // Clear or set new selection
     const newItem = isClickOnSelectedItem ? notYetRated : item
@@ -72,28 +72,23 @@ export const LikertScaleLegacy = ({
    */
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLDivElement>,
-    focusedItem: ScaleItem
+    focusedItem: ScaleItem,
   ): void => {
-    const newPosition = determineSelectionFromKeyPress(
-      event.keyCode,
-      selectedItem,
-      focusedItem
-    )
+    const newPosition = determineSelectionFromKeyPress(event.keyCode, selectedItem, focusedItem)
     if (newPosition) {
       event.preventDefault()
 
-      onSelect(scale.find(s => s.value === newPosition) || null)
+      onSelect(scale.find((s) => s.value === newPosition) || null)
 
       // Update focus
-      const itemRef = itemRefs.find(item => item.value === newPosition)
-      itemRef && itemRef.ref.current && itemRef.ref.current.focus()
+      const itemRef = itemRefs.find((item) => item.value === newPosition)
+      itemRef?.ref.current && itemRef.ref.current.focus()
     }
   }
 
-  const legend = hoveredItem?.label || selectedItem?.label || "Not rated"
+  const legend = hoveredItem?.label || selectedItem?.label || 'Not rated'
 
-  const shouldDisplayValidationMessage =
-    status !== "default" && validationMessage !== undefined
+  const shouldDisplayValidationMessage = status !== 'default' && validationMessage !== undefined
 
   const validationMessageId = shouldDisplayValidationMessage
     ? `${labelId}-field-validation-message`
@@ -107,7 +102,7 @@ export const LikertScaleLegacy = ({
         styles.container,
         isRated && styles.rated,
         reversed && [styles.reversed],
-        hoveredItem !== null && styles.hovered
+        hoveredItem !== null && styles.hovered,
       )}
       aria-labelledby={labelId}
       role="radiogroup"
@@ -115,11 +110,8 @@ export const LikertScaleLegacy = ({
       aria-describedby={validationMessageId}
       data-testid={dataTestId}
     >
-      <div
-        className={styles.legend}
-        data-testid={dataTestId && `${dataTestId}-legend`}
-      >
-        <Text variant="small" color={reversed ? "white" : "dark"}>
+      <div className={styles.legend} data-testid={dataTestId && `${dataTestId}-legend`}>
+        <Text variant="small" color={reversed ? 'white' : 'dark'}>
           {legend}
         </Text>
       </div>
@@ -127,7 +119,7 @@ export const LikertScaleLegacy = ({
         className={classnames(
           styles.itemContainer,
           isRated && styles.rated,
-          reversed && styles.reversed
+          reversed && styles.reversed,
         )}
       >
         {scale.map((item: ScaleItem) => {
@@ -136,21 +128,16 @@ export const LikertScaleLegacy = ({
           }
 
           const isSelectedItem = selectedItem?.value === item.value
-          const itemRef = itemRefs.find(i => item.value === i.value)
+          const itemRef = itemRefs.find((i) => item.value === i.value)
 
           // Make control tabbable
           let tabIndex = 0
           // Unless.. there's an item selected and it's not this one
-          if (
-            selectedItem &&
-            selectedItem.value > 0 &&
-            selectedItem.value !== item.value
-          ) {
+          if (selectedItem && selectedItem.value > 0 && selectedItem.value !== item.value) {
             tabIndex = -1
           }
 
-          const isSelected =
-            selectedItem && item.value <= selectedItem?.value && !hoveredItem
+          const isSelected = selectedItem && item.value <= selectedItem?.value && !hoveredItem
           const isSuggested = hoveredItem && hoveredItem.value >= item.value
           const isUnselected = selectedItem && selectedItem.value < item.value
 
@@ -158,13 +145,11 @@ export const LikertScaleLegacy = ({
             <div
               className={classnames(
                 styles.likertItem,
-                colorSchema == "blue"
-                  ? styles.blueColorSchema
-                  : styles.classicalColorSchema,
+                colorSchema == 'blue' ? styles.blueColorSchema : styles.classicalColorSchema,
                 styles[`likertItem${item.value}`],
                 isSelected && styles.selected,
                 isSuggested && styles.suggested,
-                isUnselected && styles.unselected
+                isUnselected && styles.unselected,
               )}
               key={item.value}
               data-testid={dataTestId && `${dataTestId}-item-${item.value}`}
@@ -180,13 +165,13 @@ export const LikertScaleLegacy = ({
               aria-posinset={item.value}
               aria-setsize={5}
               tabIndex={tabIndex}
-              ref={itemRef && itemRef.ref}
+              ref={itemRef?.ref}
             >
               <div
                 className={classnames(
                   styles.likertItemFill,
                   styles[`field${item.value}`],
-                  isSelectedItem && styles.pop
+                  isSelectedItem && styles.pop,
                 )}
               />
               {isSelectedItem ? <SelectedItemIcon /> : null}

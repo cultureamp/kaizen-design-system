@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { useDebouncedCallback } from "use-debounce"
+import React, { useState } from 'react'
+import { useDebouncedCallback } from 'use-debounce'
 
 type AnimationProps = {
   isAnimIn?: boolean
@@ -37,7 +37,7 @@ export const AnimationProvider = ({
       setIsAnimOut(false)
     },
     animationDuration,
-    { leading: false }
+    { leading: false },
   )
 
   // Allows us to flash the component in an "invisible" state, for one frame.
@@ -48,7 +48,7 @@ export const AnimationProvider = ({
       setIsAnimIn(false)
     },
     0,
-    { leading: false }
+    { leading: false },
   )
 
   if (isVisible !== prevIsOpen) {
@@ -79,7 +79,7 @@ export const AnimationProvider = ({
 export const useAnimation = (): AnimationProps => {
   const context = React.useContext(AnimationContext)
   if (!context) {
-    throw new Error("useAnimation must be used within a AnimationProvider")
+    throw new Error('useAnimation must be used within a AnimationProvider')
   }
   return context
 }

@@ -1,4 +1,4 @@
-import { ScaleValue, ScaleItem } from "../types"
+import { ScaleValue, ScaleItem } from '../types'
 
 /**
  * Takes a keypress on a div that's imitating a radio and determines where the selection should go.
@@ -18,10 +18,10 @@ const SCALE_VALUE_RESPONSE = new Map<number, ScaleValue>([
 const determineSelectionFromKeyPress = (
   keyCode: number,
   currentSelection: ScaleItem | null,
-  focusedItem: ScaleItem
+  focusedItem: ScaleItem,
 ): null | ScaleValue => {
   const supportedKeyCodes = [32, 37, 38, 39, 40]
-  if (supportedKeyCodes.indexOf(keyCode) === -1) {
+  if (!supportedKeyCodes.includes(keyCode)) {
     return null
   }
 

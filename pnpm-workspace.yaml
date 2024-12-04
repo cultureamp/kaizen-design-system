@@ -1,9 +1,9 @@
 packages:
-  - "packages/**"
-  - "docs"
-  - "!packages/components/future"
-  - "!packages/utilities/v3"
-  - "!packages/components/v1"
-  - "!packages/components/v2"
-  - "!packages/components/v3"
-  - "!packages/design-tokens/js"
+  - 'packages/**'
+  - 'docs'
+  - '!packages/components/future'
+  - '!packages/utilities/v3'
+  - '!packages/components/v1'
+  - '!packages/components/v2'
+  - '!packages/components/v3'
+  - '!packages/design-tokens/js'

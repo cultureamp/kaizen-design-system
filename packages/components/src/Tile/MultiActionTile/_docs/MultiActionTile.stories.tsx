@@ -1,15 +1,15 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { MultiActionTile } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { MultiActionTile } from '../index'
 
 const meta = {
-  title: "Components/Tiles/MultiActionTile",
+  title: 'Components/Tiles/MultiActionTile',
   component: MultiActionTile,
   args: {
-    title: "Title",
-    metadata: "Side A",
+    title: 'Title',
+    metadata: 'Side A',
     primaryAction: {
-      label: "Take Action!",
+      label: 'Take Action!',
     },
   },
   argTypes: {
@@ -25,25 +25,21 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
 }
 
 export const Variants: Story = {
-  render: args => (
+  render: (args) => (
     <>
       <MultiActionTile {...args} variant="default" title="default" />
-      <MultiActionTile
-        {...args}
-        variant="expert-advice"
-        title="expert-advice"
-      />
+      <MultiActionTile {...args} variant="expert-advice" title="expert-advice" />
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-16 flex-wrap">
         <Story />
       </div>
@@ -53,14 +49,14 @@ export const Variants: Story = {
 
 export const Information: Story = {
   args: {
-    information: "Side B",
+    information: 'Side B',
   },
 }
 
 export const SecondaryAction: Story = {
   args: {
     secondaryAction: {
-      label: "Nevermind",
+      label: 'Nevermind',
     },
   },
 }

@@ -1,13 +1,13 @@
-import React from "react"
-import classnames from "classnames"
-import { Avatar, AvatarProps } from "~components/Avatar"
-import { LiveIcon } from "~components/Icon"
-import { Icon } from "~components/__future__/Icon"
-import { TagVariants } from "./types"
-import styles from "./Tag.module.scss"
+import React from 'react'
+import classnames from 'classnames'
+import { Avatar, AvatarProps } from '~components/Avatar'
+import { LiveIcon } from '~components/Icon'
+import { Icon } from '~components/__future__/Icon'
+import { TagVariants } from './types'
+import styles from './Tag.module.scss'
 
-export type TagWithAvatarProps = Omit<DefaultTagProps, "variant"> & {
-  variant: "profile"
+export type TagWithAvatarProps = Omit<DefaultTagProps, 'variant'> & {
+  variant: 'profile'
   avatar: JSX.Element | AvatarProps
 }
 
@@ -16,7 +16,7 @@ type Variant = (typeof TagVariants)[number]
 export interface DefaultTagProps {
   variant?: Variant
   children: React.ReactNode
-  size?: "medium" | "small"
+  size?: 'medium' | 'small'
   inline?: boolean
   dismissible?: boolean
   onDismiss?: React.MouseEventHandler<HTMLSpanElement>
@@ -28,13 +28,10 @@ export interface DefaultTagProps {
 export type TagProps = DefaultTagProps | TagWithAvatarProps
 
 const isJSXElement = (
-  imageElementOrAvatarProps: JSX.Element | AvatarProps
-): imageElementOrAvatarProps is JSX.Element =>
-  "props" in imageElementOrAvatarProps
+  imageElementOrAvatarProps: JSX.Element | AvatarProps,
+): imageElementOrAvatarProps is JSX.Element => 'props' in imageElementOrAvatarProps
 
-const renderAvatar = (
-  imageElementOrAvatarProps: JSX.Element | AvatarProps
-): JSX.Element =>
+const renderAvatar = (imageElementOrAvatarProps: JSX.Element | AvatarProps): JSX.Element =>
   isJSXElement(imageElementOrAvatarProps) ? (
     <>{imageElementOrAvatarProps}</>
   ) : (
@@ -48,8 +45,8 @@ const renderAvatar = (
 export const Tag = (props: TagProps): JSX.Element => {
   const {
     children,
-    variant = "default",
-    size = "medium",
+    variant = 'default',
+    size = 'medium',
     inline = false,
     dismissible = false,
     onDismiss,
@@ -59,16 +56,16 @@ export const Tag = (props: TagProps): JSX.Element => {
   } = props
 
   const isTruncated = truncateWidth && truncateWidth > 0
-  const canShowIcon = size === "medium"
+  const canShowIcon = size === 'medium'
   return (
     <div
       className={classnames(
         styles.root,
         styles[variant],
-        variant === "profile" && styles.default,
+        variant === 'profile' && styles.default,
         styles[size],
         inline && styles.inline,
-        dismissible && styles.dismissible
+        dismissible && styles.dismissible,
       )}
     >
       <div className={styles.layoutContainer}>
@@ -76,31 +73,31 @@ export const Tag = (props: TagProps): JSX.Element => {
           {canShowIcon &&
             ((): JSX.Element | void => {
               switch (props.variant) {
-                case "validationPositive":
+                case 'validationPositive':
                   return (
                     <span className={styles.validationIcon}>
                       <Icon name="check_circle" isPresentational isFilled />
                     </span>
                   )
-                case "validationNegative":
+                case 'validationNegative':
                   return (
                     <span className={styles.validationIcon}>
                       <Icon name="error" isPresentational isFilled />
                     </span>
                   )
-                case "validationCautionary":
+                case 'validationCautionary':
                   return (
                     <span className={styles.validationIcon}>
                       <Icon name="warning" isPresentational isFilled />
                     </span>
                   )
-                case "validationInformative":
+                case 'validationInformative':
                   return (
                     <span className={styles.validationIcon}>
                       <Icon name="info" isPresentational isFilled />
                     </span>
                   )
-                case "profile":
+                case 'profile':
                   return (
                     <span className={styles.profile}>
                       {props.avatar && renderAvatar(props.avatar)}
@@ -111,10 +108,7 @@ export const Tag = (props: TagProps): JSX.Element => {
               }
             })()}
           <span
-            className={classnames(
-              styles.textContent,
-              isTruncated && styles.truncate
-            )}
+            className={classnames(styles.textContent, isTruncated && styles.truncate)}
             style={{
               maxWidth: isTruncated ? truncateWidth : undefined,
             }}
@@ -136,7 +130,7 @@ export const Tag = (props: TagProps): JSX.Element => {
               </button>
             </>
           )}
-          {variant === "statusLive" && (
+          {variant === 'statusLive' && (
             <span className={styles.liveIcon}>
               <LiveIcon
                 role="presentation"
@@ -178,4 +172,4 @@ export const Tag = (props: TagProps): JSX.Element => {
   )
 }
 
-Tag.displayName = "Tag"
+Tag.displayName = 'Tag'

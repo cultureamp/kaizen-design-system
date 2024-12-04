@@ -1,10 +1,10 @@
-import React from "react"
-import { OverrideClassName } from "~components/types/OverrideClassName"
+import React from 'react'
+import { OverrideClassName } from '~components/types/OverrideClassName'
 import {
   GenericNotification,
   GenericNotificationType,
   GenericNotificationVariant,
-} from "../subcomponents/GenericNotification"
+} from '../subcomponents/GenericNotification'
 
 export type GlobalNotificationBase = OverrideClassName<{
   children: React.ReactNode
@@ -26,4 +26,4 @@ export const GlobalNotification = ({
   <GenericNotification persistent={persistent} style="global" {...props} />
 )
 
-GlobalNotification.displayName = "GlobalNotification"
+GlobalNotification.displayName = 'GlobalNotification'

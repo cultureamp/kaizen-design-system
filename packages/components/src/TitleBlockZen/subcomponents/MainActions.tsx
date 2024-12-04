@@ -1,16 +1,12 @@
-import React from "react"
-import { Menu, MenuList, Button, IconButton } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
-import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from "../constants"
-import {
-  DefaultActionProps,
-  PrimaryActionProps,
-  TitleBlockMenuItemProps,
-} from "../types"
-import { isMenuGroupNotButton } from "../utils"
-import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
-import { Toolbar } from "./Toolbar"
-import styles from "./MainActions.module.scss"
+import React from 'react'
+import { Menu, MenuList, Button, IconButton } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
+import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from '../constants'
+import { DefaultActionProps, PrimaryActionProps, TitleBlockMenuItemProps } from '../types'
+import { isMenuGroupNotButton } from '../utils'
+import { TitleBlockMenuItem } from './TitleBlockMenuItem'
+import { Toolbar } from './Toolbar'
+import styles from './MainActions.module.scss'
 
 type MainActionsProps = {
   primaryAction?: PrimaryActionProps
@@ -42,15 +38,13 @@ export const MainActions = ({
       ...(defaultAction
         ? [
             {
-              key: "defaultAction",
+              key: 'defaultAction',
               node: (
                 <Button
                   {...{
                     ...defaultAction,
                     reversed:
-                      defaultAction.reversed !== undefined
-                        ? defaultAction.reversed
-                        : reversed,
+                      defaultAction.reversed !== undefined ? defaultAction.reversed : reversed,
                   }}
                   data-automation-id="title-block-default-action-button"
                   data-testid="title-block-default-action-button"
@@ -62,7 +56,7 @@ export const MainActions = ({
       ...(primaryAction
         ? [
             {
-              key: "primaryAction",
+              key: 'primaryAction',
               node: (
                 <Menu
                   align="right"
@@ -71,9 +65,7 @@ export const MainActions = ({
                       label={primaryAction.label}
                       primary
                       reversed={reversed}
-                      icon={
-                        <Icon name="keyboard_arrow_down" isPresentational />
-                      }
+                      icon={<Icon name="keyboard_arrow_down" isPresentational />}
                       iconPosition="end"
                       data-automation-id="title-block-primary-action-button"
                       data-testid="title-block-primary-action-button"
@@ -81,7 +73,7 @@ export const MainActions = ({
                         primaryAction.badge
                           ? {
                               ...primaryAction.badge,
-                              variant: "dark",
+                              variant: 'dark',
                             }
                           : undefined
                       }
@@ -100,15 +92,13 @@ export const MainActions = ({
       ...(defaultAction
         ? [
             {
-              key: "defaultAction",
+              key: 'defaultAction',
               node: (
                 <Button
                   {...{
                     ...defaultAction,
                     reversed:
-                      defaultAction.reversed !== undefined
-                        ? defaultAction.reversed
-                        : reversed,
+                      defaultAction.reversed !== undefined ? defaultAction.reversed : reversed,
                   }}
                   data-automation-id="title-block-default-action-button"
                   data-testid="title-block-default-action-button"
@@ -120,19 +110,14 @@ export const MainActions = ({
       ...(primaryAction
         ? [
             {
-              key: "primaryAction",
+              key: 'primaryAction',
               node: (
                 <Button
                   {...{
                     ...primaryAction,
-                    primary:
-                      primaryAction.primary !== undefined
-                        ? primaryAction.primary
-                        : true,
+                    primary: primaryAction.primary !== undefined ? primaryAction.primary : true,
                     reversed:
-                      primaryAction.reversed !== undefined
-                        ? primaryAction.reversed
-                        : reversed,
+                      primaryAction.reversed !== undefined ? primaryAction.reversed : reversed,
                   }}
                   data-automation-id="title-block-primary-action-button"
                   data-testid="title-block-primary-action-button"
@@ -140,7 +125,7 @@ export const MainActions = ({
                     primaryAction.badge
                       ? {
                           ...primaryAction.badge,
-                          variant: "dark",
+                          variant: 'dark',
                         }
                       : undefined
                   }
@@ -155,7 +140,7 @@ export const MainActions = ({
   if (overflowMenuItems && showOverflowMenu && overflowMenuItems.length > 0) {
     items = [
       {
-        key: "overflowMenu",
+        key: 'overflowMenu',
         node: (
           <Menu
             align="right"
@@ -194,4 +179,4 @@ export const MainActions = ({
   )
 }
 
-MainActions.displayName = "MainActions"
+MainActions.displayName = 'MainActions'

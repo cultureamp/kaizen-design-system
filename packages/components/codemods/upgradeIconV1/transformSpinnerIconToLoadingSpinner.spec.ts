@@ -1,7 +1,7 @@
-import ts from "typescript"
-import { parseJsx } from "../__tests__/utils"
-import { printAst } from "../utils"
-import { transformSpinnerIconToLoadingSpinner } from "./transformSpinnerIconToLoadingSpinner"
+import ts from 'typescript'
+import { parseJsx } from '../__tests__/utils'
+import { printAst } from '../utils'
+import { transformSpinnerIconToLoadingSpinner } from './transformSpinnerIconToLoadingSpinner'
 
 export const mockedTransformer =
   (alias?: string) =>
@@ -22,27 +22,21 @@ const transformInput = (sourceFile: ts.SourceFile, alias?: string): string => {
   return printAst(transformedSource)
 }
 
-describe("transformSpinnerIconToLoadingSpinner()", () => {
-  it("replaces SpinnerIcon with LoadingSpinner and adds size and accessibilityLabel", () => {
-    const inputAst = parseJsx("<SpinnerIcon />")
-    const outputAst = parseJsx(
-      '<LoadingSpinner size="xs" accessibilityLabel="Loading" />'
-    )
+describe('transformSpinnerIconToLoadingSpinner()', () => {
+  it('replaces SpinnerIcon with LoadingSpinner and adds size and accessibilityLabel', () => {
+    const inputAst = parseJsx('<SpinnerIcon />')
+    const outputAst = parseJsx('<LoadingSpinner size="xs" accessibilityLabel="Loading" />')
     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
   })
 
-  it("uses alias if it is defined", () => {
-    const inputAst = parseJsx("<SpinnerIcon />")
-    const outputAst = parseJsx(
-      '<KzLoadingSpinner size="xs" accessibilityLabel="Loading" />'
-    )
-    expect(transformInput(inputAst, "KzLoadingSpinner")).toEqual(
-      printAst(outputAst)
-    )
+  it('uses alias if it is defined', () => {
+    const inputAst = parseJsx('<SpinnerIcon />')
+    const outputAst = parseJsx('<KzLoadingSpinner size="xs" accessibilityLabel="Loading" />')
+    expect(transformInput(inputAst, 'KzLoadingSpinner')).toEqual(printAst(outputAst))
   })
 
-  describe("transform existing props", () => {
-    it("removes role and changes aria-label to accessibilityLabel or fallback", () => {
+  describe('transform existing props', () => {
+    it('removes role and changes aria-label to accessibilityLabel or fallback', () => {
       const inputAst = parseJsx(`
           export const TestComponent = () => (
             <>
@@ -62,19 +56,17 @@ describe("transformSpinnerIconToLoadingSpinner()", () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
-    it("leaves classNameOverride as is", () => {
+    it('leaves classNameOverride as is', () => {
       const inputAst = parseJsx('<SpinnerIcon classNameOverride="mt-16" />')
       const outputAst = parseJsx(
-        '<LoadingSpinner size="xs" accessibilityLabel="Loading" classNameOverride="mt-16" />'
+        '<LoadingSpinner size="xs" accessibilityLabel="Loading" classNameOverride="mt-16" />',
       )
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
-    it("removes viewBox", () => {
+    it('removes viewBox', () => {
       const inputAst = parseJsx('<SpinnerIcon viewBox="0 0 100 100" />')
-      const outputAst = parseJsx(
-        '<LoadingSpinner size="xs" accessibilityLabel="Loading" />'
-      )
+      const outputAst = parseJsx('<LoadingSpinner size="xs" accessibilityLabel="Loading" />')
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
   })

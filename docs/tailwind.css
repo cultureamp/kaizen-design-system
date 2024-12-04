@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 pre code {
-  font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono",
-    "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New",
-    monospace !important;
+  font-family: ui-monospace, Menlo, Monaco, 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace',
+    'Source Code Pro', 'Droid Sans Mono', 'Courier New', monospace !important;
   font-size: 13px !important;
   line-height: 19px;
   border: 1px solid hsla(203, 50%, 30%, 0.15);

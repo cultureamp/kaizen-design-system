@@ -1,5 +1,5 @@
-import { DayOfWeek } from "../enums"
-import { calculateDisabledDays } from "./calculateDisabledDays"
+import { DayOfWeek } from '../enums'
+import { calculateDisabledDays } from './calculateDisabledDays'
 
 const DISABLED_DATE__1 = new Date(2022, 3, 24)
 const DISABLED_DATE__2 = new Date(2022, 3, 25)
@@ -17,16 +17,16 @@ const DISABLED_BEFORE_AFTER = {
   before: new Date(2022, 2, 16),
 }
 
-describe("calculateDisabledDays", () => {
-  it("only contains selected disabled dates", () => {
+describe('calculateDisabledDays', () => {
+  it('only contains selected disabled dates', () => {
     expect(
       calculateDisabledDays({
         disabledDates: [DISABLED_DATE__1, DISABLED_DATE__2],
-      })
+      }),
     ).toEqual([DISABLED_DATE__1, DISABLED_DATE__2])
   })
 
-  it("correctly combines multiple disabled days", () => {
+  it('correctly combines multiple disabled days', () => {
     const disabledDays = calculateDisabledDays({
       disabledDates: [DISABLED_DATE__1, DISABLED_DATE__2],
       disabledDaysOfWeek: [DayOfWeek.Mon, DayOfWeek.Fri],
@@ -49,7 +49,7 @@ describe("calculateDisabledDays", () => {
     expect(disabledDays).toEqual(expectedResult)
   })
 
-  it("calculates only days of the week", () => {
+  it('calculates only days of the week', () => {
     const disabledDays = calculateDisabledDays({
       disabledDaysOfWeek: [
         DayOfWeek.Mon,
@@ -67,7 +67,7 @@ describe("calculateDisabledDays", () => {
     expect(disabledDays).toEqual(expectedResult)
   })
 
-  it("calculates only a date range", () => {
+  it('calculates only a date range', () => {
     const disabledDays = calculateDisabledDays({
       disabledRange: DISABLED_RANGE,
     })
@@ -77,7 +77,7 @@ describe("calculateDisabledDays", () => {
     expect(disabledDays).toEqual(expectedResult)
   })
 
-  it("calculates only a before and after dates", () => {
+  it('calculates only a before and after dates', () => {
     const disabledDays = calculateDisabledDays({
       disabledBeforeAfter: DISABLED_BEFORE_AFTER,
     })
@@ -87,7 +87,7 @@ describe("calculateDisabledDays", () => {
     expect(disabledDays).toEqual(expectedResult)
   })
 
-  it("calculates only a before dates", () => {
+  it('calculates only a before dates', () => {
     const disabledDays = calculateDisabledDays({
       disabledBefore: DISABLED_BEFORE,
     })
@@ -97,7 +97,7 @@ describe("calculateDisabledDays", () => {
     expect(disabledDays).toEqual(expectedResult)
   })
 
-  it("calculates only a after dates", () => {
+  it('calculates only a after dates', () => {
     const disabledDays = calculateDisabledDays({
       disabledAfter: DISABLED_AFTER,
     })

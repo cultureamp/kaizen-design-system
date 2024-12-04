@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from "react"
-import { Unstyled } from "@storybook/blocks"
-import classNames from "classnames"
-import styles from "./SbContent.module.scss"
+import React, { HTMLAttributes } from 'react'
+import { Unstyled } from '@storybook/blocks'
+import classNames from 'classnames'
+import styles from './SbContent.module.scss'
 
 /** A sensible default and convenience wrapper for Storybook text so we don't have to wrap it in an unstyled all the time */
 export const SbContent = ({
@@ -13,4 +13,4 @@ export const SbContent = ({
   </Unstyled>
 )
 
-SbContent.displayName = "SbContent"
+SbContent.displayName = 'SbContent'

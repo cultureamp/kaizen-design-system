@@ -1,8 +1,8 @@
-import React, { HTMLAttributes, useId } from "react"
-import classnames from "classnames"
-import { Label } from "~components/Label"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./CheckboxGroup.module.scss"
+import React, { HTMLAttributes, useId } from 'react'
+import classnames from 'classnames'
+import { Label } from '~components/Label'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './CheckboxGroup.module.scss'
 
 export type CheckboxGroupProps = {
   children?: React.ReactNode
@@ -33,23 +33,18 @@ export const CheckboxGroup = ({
         styles.checkboxGroupContainer,
         classNameOverride,
         noBottomMargin && styles.noBottomMargin,
-        reversed && styles.reversed
+        reversed && styles.reversed,
       )}
       role="group"
       aria-labelledby={labelId}
       {...restProps}
     >
       <div className={styles.checkboxGroupLabel}>
-        <Label
-          id={labelId}
-          labelText={labelText}
-          labelType="text"
-          reversed={reversed}
-        />
+        <Label id={labelId} labelText={labelText} labelType="text" reversed={reversed} />
       </div>
       {children}
     </div>
   )
 }
 
-CheckboxGroup.displayName = "CheckboxGroup"
+CheckboxGroup.displayName = 'CheckboxGroup'

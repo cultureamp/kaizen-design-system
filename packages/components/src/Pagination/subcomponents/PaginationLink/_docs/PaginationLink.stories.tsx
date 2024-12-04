@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from "@storybook/react"
-import { PaginationLink } from "../index"
+import { Meta, StoryObj } from '@storybook/react'
+import { PaginationLink } from '../index'
 
 const meta = {
-  title: "Components/Pagination/PaginationLink",
+  title: 'Components/Pagination/PaginationLink',
   component: PaginationLink,
   args: {
-    pageNumber: 1,
-    "aria-label": "Page 1",
+    'pageNumber': 1,
+    'aria-label': 'Page 1',
   },
 } satisfies Meta<typeof PaginationLink>
 
@@ -18,7 +18,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

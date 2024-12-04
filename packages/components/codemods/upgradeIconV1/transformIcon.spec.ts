@@ -1,8 +1,8 @@
-import ts from "typescript"
-import { parseJsx } from "../__tests__/utils"
-import { printAst } from "../utils"
-import { getNewIconPropsFromOldIconName } from "./getNewIconPropsFromOldIconName"
-import { transformIcon } from "./transformIcon"
+import ts from 'typescript'
+import { parseJsx } from '../__tests__/utils'
+import { printAst } from '../utils'
+import { getNewIconPropsFromOldIconName } from './getNewIconPropsFromOldIconName'
+import { transformIcon } from './transformIcon'
 
 export const mockedTransformer =
   (context: ts.TransformationContext) =>
@@ -24,8 +24,8 @@ const transformInput = (sourceFile: ts.SourceFile): string => {
   return printAst(transformedSource)
 }
 
-describe("transformIcon()", () => {
-  it("renames component and adds equivalent props", () => {
+describe('transformIcon()', () => {
+  it('renames component and adds equivalent props', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => (
         <>
@@ -51,8 +51,8 @@ describe("transformIcon()", () => {
     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
   })
 
-  describe("transform existing props", () => {
-    it("replaces role and aria-label with equivalent prop", () => {
+  describe('transform existing props', () => {
+    it('replaces role and aria-label with equivalent prop', () => {
       const inputAst = parseJsx(`
         export const TestComponent = () => (
           <>
@@ -74,7 +74,7 @@ describe("transformIcon()", () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
-    it("replaces classNameOverride with className prop", () => {
+    it('replaces classNameOverride with className prop', () => {
       const inputAst = parseJsx(`
         export const TestComponent = () => <AddIcon role="presentation" classNameOverride="mt-16" />
       `)
@@ -84,7 +84,7 @@ describe("transformIcon()", () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
-    it("leaves inheritSize - this should throw a TS error for the consumer", () => {
+    it('leaves inheritSize - this should throw a TS error for the consumer', () => {
       const inputAst = parseJsx(`
         export const TestComponent = () => <AddIcon role="presentation" inheritSize />
       `)
@@ -96,7 +96,7 @@ describe("transformIcon()", () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
-    it("removes aria-hidden", () => {
+    it('removes aria-hidden', () => {
       const inputAst = parseJsx(`
         export const TestComponent = () => <AddIcon role="presentation" aria-hidden={true} />
       `)
@@ -106,7 +106,7 @@ describe("transformIcon()", () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
-    it("removes fontSize", () => {
+    it('removes fontSize', () => {
       const inputAst = parseJsx(`
         export const TestComponent = () => <AddIcon role="presentation" fontSize={20} />
       `)
@@ -116,7 +116,7 @@ describe("transformIcon()", () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
-    it("removes viewBox", () => {
+    it('removes viewBox', () => {
       const inputAst = parseJsx(`
         export const TestComponent = () => <AddIcon role="presentation" viewBox="0 0 24 24" />
       `)
@@ -126,8 +126,8 @@ describe("transformIcon()", () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
-    describe("color prop to style", () => {
-      it("transforms a string value", () => {
+    describe('color prop to style', () => {
+      it('transforms a string value', () => {
         const inputAst = parseJsx(`
           export const TestComponent = () => (
             <>
@@ -147,7 +147,7 @@ describe("transformIcon()", () => {
         expect(transformInput(inputAst)).toEqual(printAst(outputAst))
       })
 
-      it("transforms a variable", () => {
+      it('transforms a variable', () => {
         const inputAst = parseJsx(`
           export const TestComponent = () => (
             <>
@@ -168,7 +168,7 @@ describe("transformIcon()", () => {
       })
     })
 
-    it("transforms height and width to style", () => {
+    it('transforms height and width to style', () => {
       const inputAst = parseJsx(`
         export const TestComponent = () => <AddIcon height={24} width={24} />
       `)

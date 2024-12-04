@@ -1,33 +1,27 @@
-import React, {
-  useState,
-  useEffect,
-  HTMLAttributes,
-  ReactNode,
-  useId,
-} from "react"
-import classnames from "classnames"
-import { FieldMessage } from "~components/FieldMessage"
-import { Label } from "~components/Label"
-import { InlineNotification } from "~components/Notification"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { ToolbarItems, EditorContentArray, EditorRows } from "../types"
-import { useRichTextEditor } from "../utils/core"
-import { createLinkManager } from "../utils/plugins"
+import React, { useState, useEffect, HTMLAttributes, ReactNode, useId } from 'react'
+import classnames from 'classnames'
+import { FieldMessage } from '~components/FieldMessage'
+import { Label } from '~components/Label'
+import { InlineNotification } from '~components/Notification'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { ToolbarItems, EditorContentArray, EditorRows } from '../types'
+import { useRichTextEditor } from '../utils/core'
+import { createLinkManager } from '../utils/plugins'
 import {
   ProseMirrorCommands,
   ProseMirrorHistory,
   ProseMirrorKeymap,
   ProseMirrorModel,
   ProseMirrorState,
-} from "../utils/prosemirror"
-import { createSchemaFromControls } from "./schema"
-import { ToggleIconButton } from "./subcomponents/ToggleIconButton"
-import { Toolbar } from "./subcomponents/Toolbar"
-import { ToolbarSection } from "./subcomponents/ToolbarSection"
-import { buildControlMap } from "./utils/controlmap"
-import { buildInputRules } from "./utils/inputrules"
-import { buildKeymap } from "./utils/keymap"
-import styles from "./RichTextEditor.module.scss"
+} from '../utils/prosemirror'
+import { createSchemaFromControls } from './schema'
+import { ToggleIconButton } from './subcomponents/ToggleIconButton'
+import { Toolbar } from './subcomponents/Toolbar'
+import { ToolbarSection } from './subcomponents/ToolbarSection'
+import { buildControlMap } from './utils/controlmap'
+import { buildInputRules } from './utils/inputrules'
+import { buildKeymap } from './utils/keymap'
+import styles from './RichTextEditor.module.scss'
 
 type BaseRichTextEditorProps = {
   id?: string
@@ -41,7 +35,7 @@ type BaseRichTextEditorProps = {
   rows?: EditorRows
   dataError?: React.ReactElement
   onDataError?: () => void
-  status?: "default" | "error" | "caution"
+  status?: 'default' | 'error' | 'caution'
   /**
    * A descriptive message for `error` or `caution` states
    */
@@ -50,22 +44,19 @@ type BaseRichTextEditorProps = {
    * A description that provides context
    */
   description?: React.ReactNode
-} & OverrideClassName<
-  Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue">
->
+} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'>>
 
 type WithLabelText = {
-  labelText: ReactNode
-  "aria-labelledby"?: never
+  'labelText': ReactNode
+  'aria-labelledby'?: never
 }
 
 type WithLabelledBy = {
-  labelText?: never
-  "aria-labelledby": string
+  'labelText'?: never
+  'aria-labelledby': string
 }
 
-export type RichTextEditorProps = BaseRichTextEditorProps &
-  (WithLabelText | WithLabelledBy)
+export type RichTextEditorProps = BaseRichTextEditorProps & (WithLabelText | WithLabelledBy)
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896752/Rich+Text+Editor Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-richtexteditor--docs Storybook}
@@ -75,8 +66,8 @@ export const RichTextEditor = ({
   onChange,
   defaultValue,
   labelText,
-  "aria-labelledby": labelledBy,
-  "aria-describedby": describedBy,
+  'aria-labelledby': labelledBy,
+  'aria-describedby': describedBy,
   classNameOverride,
   controls,
   rows = 3,
@@ -84,51 +75,40 @@ export const RichTextEditor = ({
   onDataError,
   validationMessage,
   description,
-  status = "default",
+  status = 'default',
   ...restProps
 }: RichTextEditorProps): JSX.Element => {
   const generatedId = useId()
-  const [schema] = useState<ProseMirrorModel.Schema>(
-    createSchemaFromControls(controls)
-  )
+  const [schema] = useState<ProseMirrorModel.Schema>(createSchemaFromControls(controls))
 
   const editorId = id || generatedId
   const labelId = labelledBy || `${editorId}-rte-label`
-  const validationMessageAria = validationMessage
-    ? `${editorId}-rte-validation-message`
-    : ""
-  const descriptionAria = description ? `${editorId}-rte-description` : ""
+  const validationMessageAria = validationMessage ? `${editorId}-rte-validation-message` : ''
+  const descriptionAria = description ? `${editorId}-rte-description` : ''
 
-  const ariaDescribedBy = classnames(
-    validationMessageAria,
-    descriptionAria,
-    describedBy
-  )
+  const ariaDescribedBy = classnames(validationMessageAria, descriptionAria, describedBy)
 
-  const useRichTextEditorResult = (():
-    | ReturnType<typeof useRichTextEditor>
-    | Error => {
+  const useRichTextEditorResult = ((): ReturnType<typeof useRichTextEditor> | Error => {
     try {
       return useRichTextEditor(
         ProseMirrorState.EditorState.create({
           doc: ProseMirrorModel.Node.fromJSON(schema, {
-            type: "doc",
+            type: 'doc',
             // we're converting empty arrays to the ProseMirror default "empty" state because when
             // given an empty array ProseMirror returns undefined, breaking the type
-            content:
-              defaultValue?.length > 0 ? defaultValue : [{ type: "paragraph" }],
+            content: defaultValue?.length > 0 ? defaultValue : [{ type: 'paragraph' }],
           }),
           schema,
           plugins: getPlugins(controls, schema),
         }),
         {
-          "aria-labelledby": labelId,
-          role: "textbox",
-          "aria-describedby": ariaDescribedBy,
-        }
+          'aria-labelledby': labelId,
+          'role': 'textbox',
+          'aria-describedby': ariaDescribedBy,
+        },
       )
     } catch {
-      return new Error("Bad data error")
+      return new Error('Bad data error')
     }
   })()
 
@@ -137,13 +117,13 @@ export const RichTextEditor = ({
     return (
       <InlineNotification
         headingProps={{
-          children: "Error",
-          variant: "heading-6",
+          children: 'Error',
+          variant: 'heading-6',
         }}
         type="negative"
         persistent
       >
-        {dataError || "Something went wrong"}
+        {dataError || 'Something went wrong'}
       </InlineNotification>
     )
   }
@@ -160,11 +140,7 @@ export const RichTextEditor = ({
   return (
     <>
       {!labelledBy && labelText && (
-        <Label
-          classNameOverride={styles.editorLabel}
-          id={labelId}
-          labelText={labelText}
-        />
+        <Label classNameOverride={styles.editorLabel} id={labelId} labelText={labelText} />
       )}
       <div className={classnames(styles.editorWrapper, styles[status])}>
         {controls && (
@@ -182,9 +158,7 @@ export const RichTextEditor = ({
                     disabled={controlConfig.disabled}
                     label={controlConfig.label}
                     isActive={controlConfig.isActive}
-                    onClick={(): void =>
-                      dispatchTransaction(controlConfig.action)
-                    }
+                    onClick={(): void => dispatchTransaction(controlConfig.action)}
                   />
                 ))}
               </ToolbarSection>
@@ -198,33 +172,27 @@ export const RichTextEditor = ({
             styles.editor,
             styles[`rows${rows}`],
             classNameOverride,
-            controls != null && controls.length > 0 && styles.hasToolbar
+            controls != null && controls.length > 0 && styles.hasToolbar,
           )}
           {...restProps}
         />
       </div>
 
       {validationMessage && (
-        <FieldMessage
-          id={validationMessageAria}
-          message={validationMessage}
-          status={status}
-        />
+        <FieldMessage id={validationMessageAria} message={validationMessage} status={status} />
       )}
 
-      {description && (
-        <FieldMessage id={descriptionAria} message={description} />
-      )}
+      {description && <FieldMessage id={descriptionAria} message={description} />}
     </>
   )
 }
 
-RichTextEditor.displayName = "RichTextEditor"
+RichTextEditor.displayName = 'RichTextEditor'
 
 function getPlugins(
   controls: ToolbarItems[] | undefined,
-  schema: ProseMirrorModel.Schema
-): Array<
+  schema: ProseMirrorModel.Schema,
+): (
   | ProseMirrorState.Plugin<unknown>
   | ProseMirrorState.Plugin<{
       transform: ProseMirrorState.Transaction
@@ -232,7 +200,7 @@ function getPlugins(
       to: number
       text: string
     } | null>
-> {
+)[] {
   const allControlNames: string[] = controls
     ? controls.reduce((acc: string[], c: ToolbarItems) => [...acc, c.name], [])
     : []
@@ -243,11 +211,11 @@ function getPlugins(
     buildInputRules(schema),
   ]
 
-  if (allControlNames.includes("link")) {
+  if (allControlNames.includes('link')) {
     plugins.push(
       createLinkManager({
         markType: schema.marks.link,
-      })
+      }),
     )
   }
 

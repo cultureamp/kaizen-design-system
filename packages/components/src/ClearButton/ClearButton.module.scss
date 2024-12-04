@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "../../styles/utils/button-reset";
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '../../styles/utils/button-reset';
 
 .clearButton {
   @include button-reset;
@@ -20,7 +20,7 @@
     &::after {
       $focus-ring-offset: -1px;
 
-      content: "";
+      content: '';
       position: absolute;
       background: transparent;
       border-width: $border-focus-ring-border-width;

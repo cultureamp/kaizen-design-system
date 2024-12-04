@@ -1,10 +1,10 @@
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/animation";
-@import "~@kaizen/design-tokens/sass/typography";
-@import "../../../../styles/utils/layers";
-@import "./variables";
+@import '~@kaizen/design-tokens/sass/shadow';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/animation';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '../../../../styles/utils/layers';
+@import './variables';
 
 .tooltip {
   position: relative; // Make this a positioned element so z-index works. (Note: Popper overrides this to absolute.)
@@ -63,11 +63,11 @@
   // https://github.com/popperjs/react-popper/issues/354#issuecomment-616540651
   position: absolute;
 
-  [data-popper-placement^="top"] & {
+  [data-popper-placement^='top'] & {
     bottom: 0;
   }
 
-  [data-popper-placement^="bottom"] & {
+  [data-popper-placement^='bottom'] & {
     top: 0;
 
     // There is a conflict with the popper arrow styling, which also
@@ -78,7 +78,7 @@
     }
   }
 
-  [data-popper-placement^="left"] & {
+  [data-popper-placement^='left'] & {
     right: 0;
 
     .arrowInner {
@@ -86,7 +86,7 @@
     }
   }
 
-  [data-popper-placement^="right"] & {
+  [data-popper-placement^='right'] & {
     left: 0;
 
     .arrowInner {
@@ -97,7 +97,7 @@
 
 .arrowMain::before,
 .arrowMain::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 50%;
   border-left: calc(#{$arrow-width} / 2) solid transparent;

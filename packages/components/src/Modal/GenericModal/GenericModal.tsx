@@ -1,10 +1,10 @@
-import React, { useEffect, useId, useState } from "react"
-import { createPortal } from "react-dom"
-import { Transition } from "@headlessui/react"
-import FocusLock from "react-focus-lock"
-import { warn } from "../util/console"
-import { ModalContext } from "./context/ModalContext"
-import styles from "./GenericModal.module.scss"
+import React, { useEffect, useId, useState } from 'react'
+import { createPortal } from 'react-dom'
+import { Transition } from '@headlessui/react'
+import FocusLock from 'react-focus-lock'
+import { warn } from '../util/console'
+import { ModalContext } from './context/ModalContext'
+import styles from './GenericModal.module.scss'
 
 export type GenericModalProps = {
   id?: string
@@ -60,8 +60,7 @@ export const GenericModal = ({
       return
     }
 
-    const labelElement: HTMLElement | null =
-      document.getElementById(labelledByID)
+    const labelElement: HTMLElement | null = document.getElementById(labelledByID)
 
     labelElement?.focus()
   }
@@ -72,14 +71,13 @@ export const GenericModal = ({
     if (!document.getElementById(labelledByID)) {
       warn(
         `When using the Modal component, you must provide a label for the modal.
-        Make sure you have a <ModalAccessibleLabel /> component with content that labels the modal.`
+        Make sure you have a <ModalAccessibleLabel /> component with content that labels the modal.`,
       )
     }
   }
 
   const preventBodyScroll = (): void => {
-    const hasScrollbar =
-      window.innerWidth > document.documentElement.clientWidth
+    const hasScrollbar = window.innerWidth > document.documentElement.clientWidth
     const scrollStyles = [styles.unscrollable]
 
     if (hasScrollbar) {
@@ -102,8 +100,8 @@ export const GenericModal = ({
     preventBodyScroll()
 
     if (onEscapeKeyup) {
-      document.addEventListener("keyup", event => {
-        if (event.key === "Escape") {
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'Escape') {
           onEscapeKeyup?.(event)
         }
       })
@@ -111,13 +109,10 @@ export const GenericModal = ({
   }
 
   const cleanUpAfterClose = (): void => {
-    document.documentElement.classList.remove(
-      styles.unscrollable,
-      styles.pseudoScrollbar
-    )
+    document.documentElement.classList.remove(styles.unscrollable, styles.pseudoScrollbar)
 
     if (onEscapeKeyup) {
-      document.removeEventListener("keyup", onEscapeKeyup)
+      document.removeEventListener('keyup', onEscapeKeyup)
     }
   }
 
@@ -180,8 +175,8 @@ export const GenericModal = ({
         </div>
       </FocusLock>
     </Transition>,
-    document.body
+    document.body,
   )
 }
 
-GenericModal.displayName = "GenericModal"
+GenericModal.displayName = 'GenericModal'

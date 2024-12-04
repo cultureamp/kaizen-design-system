@@ -1,8 +1,8 @@
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "../../styles/utils/button-reset";
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '../../styles/utils/button-reset';
 
 $medium: calc(#{$spacing-md} * 1.25);
 $small: $spacing-md;
@@ -96,7 +96,7 @@ $small: $spacing-md;
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width}));
 
-      content: "";
+      content: '';
       position: absolute;
       background: transparent;
       border-radius: 50%;

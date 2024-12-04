@@ -1,22 +1,18 @@
-import React, { RefObject, useId, useRef, useState } from "react"
-import cx from "classnames"
-import { enUS } from "date-fns/locale"
-import { DateRange, isMatch } from "react-day-picker"
-import { FocusOn } from "react-focus-on"
-import {
-  DisabledDayMatchers,
-  calculateDisabledDays,
-  isDisabledDate,
-} from "~components/Calendar"
-import { CalendarPopover } from "~components/Calendar/CalendarPopover"
+import React, { RefObject, useId, useRef, useState } from 'react'
+import cx from 'classnames'
+import { enUS } from 'date-fns/locale'
+import { DateRange, isMatch } from 'react-day-picker'
+import { FocusOn } from 'react-focus-on'
+import { DisabledDayMatchers, calculateDisabledDays, isDisabledDate } from '~components/Calendar'
+import { CalendarPopover } from '~components/Calendar/CalendarPopover'
 import {
   LegacyCalendarRange,
   LegacyCalendarRangeProps,
-} from "~components/Calendar/LegacyCalendarRange"
-import { Label } from "~components/Label"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { Icon } from "~components/__future__/Icon"
-import styles from "./DateRangePicker.module.scss"
+} from '~components/Calendar/LegacyCalendarRange'
+import { Label } from '~components/Label'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { Icon } from '~components/__future__/Icon'
+import styles from './DateRangePicker.module.scss'
 
 export type DateRangePickerProps = {
   id?: string
@@ -40,11 +36,11 @@ export type DateRangePickerProps = {
    * Accepts a DayOfWeek value to start the week on that day.
    * By default it adapts to the provided locale.
    */
-  weekStartsOn?: LegacyCalendarRangeProps["weekStartsOn"]
+  weekStartsOn?: LegacyCalendarRangeProps['weekStartsOn']
   /**
    * Accepts a date to display that month on first render.
    */
-  defaultMonth?: LegacyCalendarRangeProps["defaultMonth"]
+  defaultMonth?: LegacyCalendarRangeProps['defaultMonth']
   /**
    * Event passed from consumer to handle the date on change.
    */
@@ -147,12 +143,7 @@ export const DateRangePicker = ({
   return (
     <div>
       <div ref={containerRef} className={classNameOverride}>
-        <Label
-          id={`${id}-input-label`}
-          disabled={isDisabled}
-          htmlFor={id}
-          labelText={labelText}
-        />
+        <Label id={`${id}-input-label`} disabled={isDisabled} htmlFor={id} labelText={labelText} />
         <button
           type="button"
           id={id}
@@ -162,17 +153,13 @@ export const DateRangePicker = ({
           disabled={isDisabled}
           ref={buttonRef}
           onClick={handleOpenClose}
-          aria-label={
-            selectedDateRange?.from ? `Change date: ${value}` : "Choose date"
-          }
+          aria-label={selectedDateRange?.from ? `Change date: ${value}` : 'Choose date'}
           {...inputProps}
         >
           <div className={styles.startIconAdornment}>
             <Icon name="today" isPresentational isFilled />
           </div>
-          <span className={styles.value}>
-            {selectedDateRange?.from ? value : undefined}
-          </span>
+          <span className={styles.value}>{selectedDateRange?.from ? value : undefined}</span>
         </button>
       </div>
 
@@ -206,4 +193,4 @@ export const DateRangePicker = ({
   )
 }
 
-DateRangePicker.displayName = "DateRangePicker"
+DateRangePicker.displayName = 'DateRangePicker'

@@ -1,17 +1,17 @@
-@import "./durations";
-@import "./easings";
-@import "~@kaizen/design-tokens/sass/animation";
+@import './durations';
+@import './easings';
+@import '~@kaizen/design-tokens/sass/animation';
 
 // CLASSES
 $motion-ui-classes: (
   chain: true,
-  prefix: "ca-",
-  active: "-active",
+  prefix: 'ca-',
+  active: '-active',
 );
 
 $motion-ui-states: (
-  in: "enter",
-  out: "exit",
+  in: 'enter',
+  out: 'exit',
 );
 
 // TIMING FUNCTIONS
@@ -45,6 +45,6 @@ $motion-ui-settings: (
   hinge-and-fade: true,
   scale-and-fade: true,
   spin-and-fade: true,
-  pause-queue-class: "is-paused",
-  activate-queue-class: "is-animating",
+  pause-queue-class: 'is-paused',
+  activate-queue-class: 'is-animating',
 ) !default;

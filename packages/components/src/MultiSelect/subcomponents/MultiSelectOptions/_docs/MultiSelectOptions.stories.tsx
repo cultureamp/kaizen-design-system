@@ -1,26 +1,26 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
-import { MultiSelectOptions, MultiSelectOptionsProps } from "../index"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import { MultiSelectOptions, MultiSelectOptionsProps } from '../index'
 
 const meta = {
-  title: "Components/MultiSelect/MultiSelectOptions",
+  title: 'Components/MultiSelect/MultiSelectOptions',
   component: MultiSelectOptions,
   args: {
-    id: "id--multi-select-options",
-    selectedValues: new Set(["pancakes"]),
+    id: 'id--multi-select-options',
+    selectedValues: new Set(['pancakes']),
     options: [
       {
-        label: "Pancakes",
-        value: "pancakes",
+        label: 'Pancakes',
+        value: 'pancakes',
       },
       {
-        label: "Waffle",
-        value: "waffle",
+        label: 'Waffle',
+        value: 'waffle',
       },
       {
-        label: "Toastie",
-        value: "toastie",
+        label: 'Toastie',
+        value: 'toastie',
       },
     ],
     onChange: fn(),
@@ -32,16 +32,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const MultiSelectOptionsTemplate: Story = {
-  render: args => {
-    const [selectedValues, setSelectedValues] = useState<
-      MultiSelectOptionsProps["selectedValues"]
-    >(args.selectedValues)
+  render: (args) => {
+    const [selectedValues, setSelectedValues] = useState<MultiSelectOptionsProps['selectedValues']>(
+      args.selectedValues,
+    )
     return (
-      <MultiSelectOptions
-        {...args}
-        selectedValues={selectedValues}
-        onChange={setSelectedValues}
-      />
+      <MultiSelectOptions {...args} selectedValues={selectedValues} onChange={setSelectedValues} />
     )
   },
 }
@@ -49,12 +45,12 @@ const MultiSelectOptionsTemplate: Story = {
 export const Playground: Story = {
   ...MultiSelectOptionsTemplate,
   args: {
-    id: "id--jaffle",
+    id: 'id--jaffle',
   },
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

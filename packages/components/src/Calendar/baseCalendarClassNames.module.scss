@@ -1,8 +1,8 @@
-@import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/border";
-@import "../../styles/utils/button-reset";
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/border';
+@import '../../styles/utils/button-reset';
 
 $button-border-radius: 3px;
 $rdp-cell-size: 40px;
@@ -18,12 +18,10 @@ $rdp-cell-size: 40px;
     outline: none;
 
     &::after {
-      $focus-ring-offset: calc(
-        -1 * calc((#{$border-focus-ring-border-width} * 2) + 1px)
-      );
+      $focus-ring-offset: calc(-1 * calc((#{$border-focus-ring-border-width} * 2) + 1px));
 
       z-index: 2;
-      content: "";
+      content: '';
       position: absolute;
       inset: $focus-ring-offset;
       border-radius: $button-border-radius;
@@ -36,8 +34,7 @@ $rdp-cell-size: 40px;
 
   &:focus-visible {
     &::after {
-      border: $border-focus-ring-border-width $border-focus-ring-border-style
-        $color-blue-500;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
     }
   }
 }

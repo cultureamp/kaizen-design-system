@@ -1,11 +1,7 @@
-import React, { useContext } from "react"
-import {
-  DocsContainer,
-  DocsContainerProps,
-  DocsContext,
-} from "@storybook/blocks"
-import { BackToTop } from "./BackToTop"
-import { Content, Main, DocsWrapper } from "./Layout"
+import React, { useContext } from 'react'
+import { DocsContainer, DocsContainerProps, DocsContext } from '@storybook/blocks'
+import { BackToTop } from './BackToTop'
+import { Content, Main, DocsWrapper } from './Layout'
 
 type LayoutProps = { children: React.ReactNode }
 
@@ -32,7 +28,7 @@ const DocsLayout = ({ children }: LayoutProps): JSX.Element => {
   // @ts-expect-error
   const csf = context.storyIdToCSFFile.values().next().value
 
-  if (csf?.meta.parameters.docsLayout === "fullPage") {
+  if (csf?.meta.parameters.docsLayout === 'fullPage') {
     return <FullPage>{children}</FullPage>
   }
 

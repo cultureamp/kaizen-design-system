@@ -1,1 +1,1 @@
-export * from "./RemovableTag"
+export * from './RemovableTag'

@@ -1,13 +1,10 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { LoadingSpinner } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { LoadingSpinner } from '../index'
 
 export default {
-  title: "Components/Loading states/LoadingSpinner",
+  title: 'Components/Loading states/LoadingSpinner',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -18,16 +15,13 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet
       isReversed={isReversed}
-      headers={['Size "xs"', 'Size "sm"', 'Size "md"', "Custom color"]}
+      headers={['Size "xs"', 'Size "sm"', 'Size "md"', 'Custom color']}
     >
       <StickerSheet.Row>
         <LoadingSpinner accessibilityLabel="Loading" size="xs" />
         <LoadingSpinner accessibilityLabel="Loading" size="sm" />
         <LoadingSpinner accessibilityLabel="Loading" size="md" />
-        <LoadingSpinner
-          accessibilityLabel="Loading"
-          classNameOverride="text-purple-400"
-        />
+        <LoadingSpinner accessibilityLabel="Loading" classNameOverride="text-purple-400" />
       </StickerSheet.Row>
     </StickerSheet>
   ),
@@ -35,5 +29,5 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
