@@ -395,9 +395,6 @@ importers:
       '@kaizen/package-bundler':
         specifier: workspace:*
         version: link:../package-bundler
-      '@tanstack/react-query':
-        specifier: ^5.60.5
-        version: 5.60.5(react@18.3.1)
       '@testing-library/dom':
         specifier: ^10.4.0
         version: 10.4.0
