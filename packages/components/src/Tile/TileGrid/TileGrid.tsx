@@ -1,9 +1,4 @@
-import React, {
-  Children,
-  HTMLAttributes,
-  isValidElement,
-  ReactElement,
-} from "react"
+import React, { Children, HTMLAttributes, ReactElement } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~components/types/OverrideClassName"
 import { InformationTileProps } from "../InformationTile"
@@ -29,14 +24,22 @@ export const TileGrid = ({
   ...restProps
 }: TileGridProps): JSX.Element => {
   const tiles = Children.map(children, child => {
-    if (isValidElement(child.props.children)) {
+    /* Is child always going to be an array? What does Children look like with only one Tile
+    *  Are we able to type tile to make sure its not anything else?
+    */
+    if (Array.isArray(child.props.children)) {
       return child.props.children!.map(tile => (
-        <li className={classnames(styles.li, classNameOverride)}>{tile}</li>
+        <li
+          className={classnames(styles.li, classNameOverride)}
+          key={tile.title}
+        >
+          {tile}
+        </li>
       ))
+    } else {
+      return <li className={classnames(styles.li, classNameOverride)}>{child}</li>
     }
   })
-
-  const test = Array.isArray(children) && ?  children[0].props.children!.map()
 
   return (
     <ul
