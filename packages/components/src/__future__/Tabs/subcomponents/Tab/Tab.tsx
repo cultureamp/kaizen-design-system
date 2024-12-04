@@ -28,7 +28,7 @@ export const Tab = (props: TabProps): JSX.Element => {
   }
 
   return (
-    <RACTab {...tabProps}>
+    <RACTab data-kz-tab {...tabProps}>
       {({ isSelected, isFocusVisible, isHovered }) => (
         <>
           {children}
