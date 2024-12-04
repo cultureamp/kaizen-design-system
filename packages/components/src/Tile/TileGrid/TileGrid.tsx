@@ -27,14 +27,16 @@ export const TileGrid = ({
 
   const tiles = Children.map(children, child => {
     if (Array.isArray(child.props.children)) {
-      return child.props.children!.map((tile: TileElement, index) => (
-        <li
-          className={classnames(styles.li, classNameOverride)}
-          key={`${tileGridBaseId}-${index}`}
-        >
-          {tile}
-        </li>
-      ))
+      return child.props.children!.map(
+        (tile: TileElement, index) => (
+          <li
+            className={classnames(styles.li, classNameOverride)}
+            key={`${tileGridBaseId}-${index}`}
+          >
+            {tile}
+          </li>
+        )
+      )
     } else {
       return (
         <li className={classnames(styles.li, classNameOverride)}>{child}</li>
