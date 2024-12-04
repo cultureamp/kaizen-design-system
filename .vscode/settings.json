@@ -15,9 +15,7 @@ Happy linting! 💖
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "eslint.options": {
-    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
-  },
+  "eslint.useFlatConfig": true,
   "eslint.validate": [
     "markdown",
     "mdx",
@@ -28,7 +26,6 @@ Happy linting! 💖
   ],
   "editor.formatOnSave": true,
   "javascript.suggestionActions.enabled": false,
-  "tslint.alwaysShowRuleFailuresAsWarnings": true,
   "typescript.tsdk": "node_modules/typescript/lib",
   "tailwindCSS.classAttributes": [
     "class",
