@@ -50,28 +50,15 @@ export const GenericTile = ({
   classNameOverride,
   ...restProps
 }: GenericTileProps): JSX.Element => {
-  const [isFlipped, setIsFlipped] = useState<boolean>(false)
-  const [isDocumentReady, setIsDocumentReady] = useState<boolean>(false)
+  const [isFlipped, setIsFlipped] = useState<boolean | undefined>()
 
   const { formatMessage } = useIntl()
   const infoButtonRef = useRef<HTMLButtonElement>(null)
   const infoButtonReturnRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    setIsDocumentReady(true)
-  }, [])
-
-  useEffect(() => {
-    if (!isDocumentReady) {
-      setIsDocumentReady(true)
-      return
-    }
-
-    if (isFlipped) {
-      infoButtonReturnRef.current!.focus()
-    } else {
-      infoButtonRef.current!.focus()
-    }
+    if (isFlipped === true) return infoButtonReturnRef.current!.focus()
+    if (isFlipped === false) return infoButtonRef.current!.focus()
   }, [isFlipped])
 
   const translatedInfoLabel = formatMessage({
