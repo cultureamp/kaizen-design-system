@@ -45,7 +45,8 @@
     "vite-plugin-node-polyfills": "^0.22.0"
   },
   "devDependenciesComments": {
-    "sass": "Prevent deprecation warnings introduced in 1.80 as we plan to move away from sass in KAIO"
+    "sass": "Prevent deprecation warnings introduced in 1.80 as we plan to move away from sass in KAIO",
+    "vite-plugin-node-polyfills": "Adds the node `assert` polyfill to Vite for prosemirror to run in storybook"
   },
   "peerDependencies": {
     "vite": ">=5.4.2"

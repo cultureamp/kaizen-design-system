@@ -94,8 +94,7 @@
   "devDependenciesComments": {
     "@storybook/*": "Required for Storybook stories across all packages",
     "chromatic": "Required for Storybook stories across all packages",
-    "playwright": "Required for github actions setup",
-    "vite-plugin-node-polyfills": "Adds the node `assert` polyfill to Vite for prosemirror to run in storybook"
+    "playwright": "Required for github actions setup"
   },
   "pnpm": {
     "peerDependencyRules": {
