@@ -22,7 +22,7 @@ export const isReversed = (variant: TitleBlockVariant | undefined): boolean => {
 export const convertSecondaryActionsToMenuItems = (
   secondaryActions: SecondaryActionsProps,
 ): TitleBlockMenuItemProps[] =>
-  secondaryActions.reduce((acc, cur) => {
+  secondaryActions.reduce<TitleBlockMenuItemProps[]>((acc, cur) => {
     if ('menuItems' in cur) {
       return [...acc, ...cur.menuItems]
     }
@@ -71,6 +71,6 @@ export const createTabletOverflowMenuItems = (
   } else {
     secondaryActionsList = []
   }
-  const flatSecondaryOverflowItemsList = secondaryOverflowMenuItems || []
+  const flatSecondaryOverflowItemsList = secondaryOverflowMenuItems ?? []
   return secondaryActionsList.concat(flatSecondaryOverflowItemsList)
 }

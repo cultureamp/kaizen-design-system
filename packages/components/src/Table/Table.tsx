@@ -169,7 +169,7 @@ export const TableHeaderRowCell = ({
           {labelText}
         </Heading>
       ) : null}
-      {(sorting || (isHovered && sortingArrowsOnHover)) && (
+      {(sorting ?? (isHovered && sortingArrowsOnHover)) && (
         <div
           className={classnames(
             align === 'center' && styles.headerRowCellIconAlignCenter,

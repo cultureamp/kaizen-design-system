@@ -21,7 +21,7 @@ export const ThemeProvider = ({
   themeManager?: ThemeManager
   children: React.ReactNode
 }): JSX.Element => {
-  const [themeManagerInstance] = useState(() => themeManager || new ThemeManager(defaultTheme))
+  const [themeManagerInstance] = useState(() => themeManager ?? new ThemeManager(defaultTheme))
 
   const [theme, setTheme] = React.useState<Theme>(themeManagerInstance.getCurrentTheme())
   React.useEffect(() => {
@@ -34,6 +34,7 @@ export const ThemeProvider = ({
       cancelled = true
       themeManagerInstance.removeThemeChangeListener(listener)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

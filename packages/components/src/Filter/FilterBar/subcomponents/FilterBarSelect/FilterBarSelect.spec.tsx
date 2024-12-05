@@ -190,6 +190,8 @@ describe('<FilterBarSelect />', () => {
 
       useEffect(() => {
         setItems(data.filter(({ flavour }) => flavourFilter.value === flavour))
+        // `data` is a constant and this is a test, so this is safe to ignore
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [flavourFilter.value])
 
       return <FilterBarSelect id="topping" items={items} />

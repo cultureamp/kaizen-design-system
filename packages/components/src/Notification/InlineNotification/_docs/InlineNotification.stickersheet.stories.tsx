@@ -127,7 +127,7 @@ const VARIANTS_PROPS: {
   {
     title: 'Focus',
     props: {
-      // @ts-ignore
+      // @ts-expect-error Data attributes are valid props
       'data-sb-pseudo-styles': 'focus',
       'variant': 'informative',
       'headingProps': {

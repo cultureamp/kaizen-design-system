@@ -31,7 +31,7 @@ export const LinkPopover = ({
             <Text variant="body" tag="div" classNameOverride={styles.paragraphFlex}>
               <a
                 className={styles.popoverLink}
-                href={href != null ? href : undefined}
+                href={href}
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -50,7 +50,6 @@ const decorators: Preview['decorators'] = [
   RACDecorator,
   KaizenProviderDecorator,
   // reverseColor parameter wraps story in ReversedColors context and sets default background to Purple 700
-  // @ts-ignore
   (Story, context) => {
     if (
       // set in top toolbar
@@ -142,6 +141,7 @@ const preview = {
 
         const customDocNames = ['Usage Guidelines', 'API Specification']
         // Don't type the param - we can't use TypeScript within storySort
+        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         const removeCustomDocNames = (title) => {
           return customDocNames.reduce((acc, docName) => {
             const regex = new RegExp(`/${docName}$`)

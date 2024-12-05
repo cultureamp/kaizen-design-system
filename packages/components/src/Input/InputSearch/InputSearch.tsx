@@ -33,7 +33,7 @@ export const InputSearch = (props: InputSearchProps): JSX.Element => {
 
   const handleOnClear = (): void => {
     inputRef.current?.focus()
-    onClear && onClear()
+    onClear?.()
   }
 
   const clearButtonLabel = formatMessage({

@@ -4,7 +4,7 @@ import React, { ReactNode } from 'react'
 const allowedDisplayNames = ['Button', 'IconButton', 'FilterButtonBase']
 
 export function extractDisplayName(type: React.FunctionComponent): string {
-  return type.displayName || type.name || 'Unknown'
+  return type.displayName ?? type.name ?? 'Unknown'
 }
 
 /**

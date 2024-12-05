@@ -47,7 +47,7 @@ export const Filter = ({
       setIsRefLoaded(true)
       onMount?.(filterButtonRef.current.triggerRef)
     }
-  }, [filterButtonRef.current?.triggerRef?.current, onMount])
+  }, [filterButtonRef, onMount])
 
   return (
     <div className={classnames(styles.filter, classNameOverride)} {...restProps}>
@@ -61,7 +61,7 @@ export const Filter = ({
           onEscapeKey={(): void => setIsOpen(false)}
         >
           <FilterPopover
-            referenceElement={filterButtonRef.current?.triggerRef?.current || null}
+            referenceElement={filterButtonRef.current?.triggerRef?.current ?? null}
             aria-labelledby={trigger.props.id}
           >
             {children}

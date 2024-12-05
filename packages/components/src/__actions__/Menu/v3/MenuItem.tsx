@@ -15,7 +15,7 @@ export type MenuItemProps = RACMenuItemProps & {
  */
 export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   ({ className, icon, children, textValue, ...props }, ref): JSX.Element => {
-    const determinedTextValue = textValue || (typeof children === 'string' ? children : undefined)
+    const determinedTextValue = textValue ?? (typeof children === 'string' ? children : undefined)
     return (
       <RACMenuItem
         ref={ref}
@@ -37,3 +37,5 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
     )
   },
 )
+
+MenuItem.displayName = 'MenuItem'

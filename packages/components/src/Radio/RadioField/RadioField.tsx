@@ -27,7 +27,9 @@ export const RadioField = ({
   'data-testid': dataTestId,
   ...restProps
 }: RadioFieldProps): JSX.Element => {
-  const id = propsId ?? useId()
+  const fallbackId = useId()
+  const id = propsId ?? fallbackId
+
   // @todo: Move restProps to the wrapping div?
   return (
     <div

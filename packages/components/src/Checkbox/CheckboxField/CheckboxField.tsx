@@ -29,7 +29,8 @@ export const CheckboxField = ({
   classNameOverride,
   ...restProps
 }: CheckboxFieldProps): JSX.Element => {
-  const id = propsId ?? useId()
+  const fallbackId = useId()
+  const id = propsId ?? fallbackId
 
   return (
     <div

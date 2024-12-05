@@ -36,7 +36,7 @@ export const Tab = (props: TabProps): JSX.Element => {
   const ref = useRef<HTMLButtonElement>(null)
   const [isHovered, setIsHovered] = useState<boolean>(false)
   const [isFocused, setIsFocused] = useState<boolean>(false)
-  const showActiveBadge = isSelected || isHovered || isFocused
+  const showActiveBadge = Boolean(isSelected || isHovered || isFocused)
 
   const tabProps = {
     disabled,

@@ -16,7 +16,7 @@ export const DropdownButton = ({
   return (
     <BaseButton
       label={
-        ariaLabel ||
+        ariaLabel ??
         formatMessage({
           id: 'splitButton.dropdownButton.label',
           defaultMessage: 'Additional actions',

@@ -21,7 +21,7 @@ export const BrandMomentCaptureIntro = ({
     return (
       <Base
         aspectRatio={aspectRatio}
-        alt={alt || ''}
+        alt={alt ?? ''}
         {...otherProps}
         name="illustrations/heart/scene/brand-moments-capture-intro-loop.png"
       />

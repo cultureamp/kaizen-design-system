@@ -223,6 +223,8 @@ describe('<FilterBarMultiSelect />', () => {
 
       useEffect(() => {
         setAllItems(data.filter(({ topping }) => toppingsFilter.value?.includes(topping)))
+        // `data` is a constant and this is a test, so this is safe to ignore
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [toppingsFilter.value])
 
       return (

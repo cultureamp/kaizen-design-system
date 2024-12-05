@@ -6,7 +6,6 @@ import { Informative } from '~components/Illustration'
 import { GuidanceBlock } from './GuidanceBlock'
 const user = userEvent.setup()
 
-// eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
 window.matchMedia = vi.fn().mockImplementation(() => ({
   matches: false,
   media: '',
@@ -34,7 +33,7 @@ describe('GuidanceBlock', () => {
       />,
     )
     const actionButton = container.querySelector('button')
-    actionButton && (await user.click(actionButton))
+    if (actionButton) await user.click(actionButton)
 
     await waitFor(() => {
       expect(onAction).toHaveBeenCalledTimes(1)

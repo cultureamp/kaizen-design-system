@@ -4,7 +4,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import { InputPluginOption } from 'rollup'
 import ignore from 'rollup-plugin-ignore'
-import nodeExternals from 'rollup-plugin-node-externals'
+import { nodeExternals } from 'rollup-plugin-node-externals'
 
 export const pluginsDefault = [
   nodeExternals({

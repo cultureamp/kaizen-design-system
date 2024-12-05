@@ -51,6 +51,8 @@ export const FilterBarMultiSelect = ({
     if (!checkArraysMatch(items, propsItems)) {
       setItems(propsItems)
     }
+    // We only want to run this effect when propsItems changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsItems])
 
   useEffect(() => {
@@ -62,6 +64,8 @@ export const FilterBarMultiSelect = ({
         updateValue(id, filteredValues)
       }
     }
+    // We only want to run this effect when items changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items])
 
   useEffect(() => {
@@ -69,13 +73,13 @@ export const FilterBarMultiSelect = ({
       buttonRef.current?.focus()
       setFocus(undefined)
     }
-  }, [focusId])
+  }, [focusId, id, setFocus])
 
   return (
     <FilterMultiSelect
       label={filterState.name}
       // Convert the incoming FilterBar state to a Set (internal FilterMultiSelect state)
-      selectedKeys={new Set(filterState.value || null)}
+      selectedKeys={new Set(filterState.value ?? null)}
       onSelectionChange={(keys): void => {
         // Convert the internal FilterMultiSelect state (Set) to an Array for FilterBar state
         updateValue(id, convertSelectionToAConsumableFormat(keys))

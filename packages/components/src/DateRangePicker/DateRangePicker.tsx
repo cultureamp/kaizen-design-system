@@ -53,7 +53,7 @@ export type DateRangePickerProps = {
  */
 export const DateRangePicker = ({
   id: propsId,
-  buttonRef = useRef<HTMLButtonElement>(null),
+  buttonRef,
   description: _description, // not used
   labelText,
   isDisabled = false,
@@ -71,6 +71,8 @@ export const DateRangePicker = ({
   onChange,
   ...inputProps
 }: DateRangePickerProps): JSX.Element => {
+  const fallbackRef = useRef<HTMLButtonElement>(null)
+  const ref = buttonRef ?? fallbackRef
   const reactId = useId()
   const id = propsId ?? reactId
 
@@ -91,8 +93,8 @@ export const DateRangePicker = ({
   }
 
   const handleReturnFocus = (): void => {
-    if (buttonRef.current) {
-      buttonRef.current.focus()
+    if (ref.current) {
+      ref.current.focus()
     }
   }
 
@@ -151,7 +153,7 @@ export const DateRangePicker = ({
             [styles.disabled]: isDisabled,
           })}
           disabled={isDisabled}
-          ref={buttonRef}
+          ref={ref}
           onClick={handleOpenClose}
           aria-label={selectedDateRange?.from ? `Change date: ${value}` : 'Choose date'}
           {...inputProps}

@@ -54,7 +54,7 @@ export const Text = ({
 }: TextProps): JSX.Element => {
   const className = classnames(styles.text, styles[variant], styles[color], classNameOverride)
 
-  return createElement(tag === undefined ? 'p' : tag, { ...restProps, className }, children)
+  return createElement(tag ?? 'p', { ...restProps, className }, children)
 }
 
 Text.displayName = 'Text'

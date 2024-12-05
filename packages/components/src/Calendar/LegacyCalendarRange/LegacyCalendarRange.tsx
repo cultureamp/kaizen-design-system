@@ -34,7 +34,7 @@ export const LegacyCalendarRange = ({
   locale,
   onDayChange,
 }: LegacyCalendarRangeProps): JSX.Element => {
-  const monthToShow = selectedRange?.from || defaultMonth
+  const monthToShow = selectedRange?.from ?? defaultMonth
   const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */

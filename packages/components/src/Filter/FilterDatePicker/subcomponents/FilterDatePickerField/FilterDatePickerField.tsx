@@ -101,7 +101,7 @@ export const FilterDatePickerField = ({
     selectedDate,
     inputValue: transformDateToInputValue(selectedDate, disabledDays, locale) || '',
     startMonth:
-      selectedDate && !isInvalidDate(selectedDate) ? selectedDate : defaultMonth || new Date(),
+      selectedDate && !isInvalidDate(selectedDate) ? selectedDate : (defaultMonth ?? new Date()),
   })
 
   const handleDateChange = (date: Date | undefined): void => {
@@ -165,6 +165,8 @@ export const FilterDatePickerField = ({
 
   useEffect(() => {
     validateDate(selectedDate, state.inputValue)
+    // We only want to validate on first render - subsequent validations are handled by the input handlers
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

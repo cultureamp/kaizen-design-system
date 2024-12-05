@@ -278,7 +278,7 @@ export const TitleBlockZen = ({
           Boolean(subtitle) && styles.hasSubtitle,
           Boolean(pageSwitcherSelect) && styles.hasPageSwitcherSelect,
           collapseNavigationArea &&
-            !(sectionTitle || sectionTitleDescription || renderSectionTitle) &&
+            !(sectionTitle ?? sectionTitleDescription ?? renderSectionTitle) &&
             styles.collapseNavigationArea,
           title && title.length >= 30 && styles.hasLongTitle,
           subtitle &&
@@ -343,9 +343,9 @@ export const TitleBlockZen = ({
                   </>
                 </div>
               </div>
-              {(primaryAction ||
-                defaultAction ||
-                secondaryActions ||
+              {(primaryAction ??
+                defaultAction ??
+                secondaryActions ??
                 secondaryOverflowMenuItems) && (
                 <MainActions
                   primaryAction={primaryAction}
@@ -364,7 +364,7 @@ export const TitleBlockZen = ({
         <div className={styles.rowBelowSeparator}>
           <div className={styles.rowBelowSeparatorInner}>
             <div className={styles.rowBelowSeparatorInnerContent}>
-              {(sectionTitle || sectionTitleDescription || renderSectionTitle) && (
+              {(sectionTitle ?? sectionTitleDescription ?? renderSectionTitle) && (
                 <div className={styles.sectionTitleContainer}>
                   <div className={styles.sectionTitleInner}>
                     {renderSectionTitle
@@ -385,7 +385,7 @@ export const TitleBlockZen = ({
                 </div>
               )}
               {renderNavigationTabs(navigationTabs, collapseNavigationArea, title)}
-              {(secondaryActions || secondaryOverflowMenuItems) && (
+              {(secondaryActions ?? secondaryOverflowMenuItems) && (
                 <SecondaryActions
                   secondaryActions={secondaryActions}
                   secondaryOverflowMenuItems={secondaryOverflowMenuItems}

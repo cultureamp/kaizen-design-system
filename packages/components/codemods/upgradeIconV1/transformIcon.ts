@@ -36,19 +36,20 @@ const transformIconProp = (
   propValue: ts.JsxAttributeValue | undefined,
 ): ts.JsxAttribute | null | undefined => {
   switch (propName) {
-    case 'role':
+    case 'role': {
       const oldValue = propValue && getPropValueText(propValue)
       return oldValue ? transformPropRole(oldValue) : undefined
+    }
     case 'aria-label':
       return createProp('alt', propValue)
     case 'classNameOverride':
       return createProp('className', propValue)
-    // `aria-hidden` is not necessary as `role` will cater for presentational icons
     case 'aria-hidden':
-    // `fontSize` did nothing for svg icons
+    // (falls through) `aria-hidden` is not necessary as `role` will cater for presentational icons
     case 'fontSize':
-    // `viewBox` no longer relevant
+    // (falls through) `fontSize` did nothing for svg icons
     case 'viewBox':
+      // `viewBox` no longer relevant
       return null
     default:
       return undefined

@@ -1,3 +1,6 @@
+// Not fixing react-hooks errors as it would require a complete refactor
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState, ReactNode, useMemo } from 'react'
 
 type Props = Record<string, string>
