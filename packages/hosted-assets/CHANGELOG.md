@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.1.1
+
+### Patch Changes
+
+- [#5339](https://github.com/cultureamp/kaizen-design-system/pull/5339) [`55330ea`](https://github.com/cultureamp/kaizen-design-system/commit/55330ea18746ae80bd234a07251573107b6f61cd) - Upgrade dep eslint to v9.
+
+  This should not have any impact on consumers, but releasing a patch as source code has been updated with linting fixes.
+
 ## 2.1.0
 
 ### Minor Changes
@@ -87,20 +95,16 @@ Updates the package API to export the asset URL functions from the root of the m
 ```js
 // TS/JS
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assetUrl } from "@kaizen/hosted-assets"
-;<SomeComponent
-  image={assetUrl("illustrations/plant-based-ham-substitute.png")}
-/>
+import { assetUrl } from '@kaizen/hosted-assets'
+;<SomeComponent image={assetUrl('illustrations/plant-based-ham-substitute.png')} />
 ```
 
 ```scss
 // SCSS
-@import "~@kaizen/hosted-assets";
+@import '~@kaizen/hosted-assets';
 
 .coolpic {
-  background-image: url(asset-url(
-    "illustrations/plant-based-ham-substitute.png"
-  ));
+  background-image: url(asset-url('illustrations/plant-based-ham-substitute.png'));
 }
 ```
 
