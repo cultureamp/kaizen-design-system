@@ -49,6 +49,6 @@
     "vite-plugin-node-polyfills": "Adds the node `assert` polyfill to Vite for prosemirror to run in storybook"
   },
   "peerDependencies": {
-    "vite": ">=5.4.2"
+    "vite": "^6.0.2"
   }
 }
