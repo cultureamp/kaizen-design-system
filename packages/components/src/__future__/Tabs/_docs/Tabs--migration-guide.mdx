@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/blocks"
+import { Meta } from '@storybook/blocks'
 
 <Meta title="Components/Tabs/Tabs (Future)/Migration Guide" />
 
@@ -17,6 +17,7 @@ The Reach UI and React Aria APIs are fairly similar so there's not too much to a
 The biggest adjustment is that you now need to provide an `id` for each `<Tab>` and match it with the one on `<TabPanel>`
 
 Additionally:
+
 - `<TabPanel>`s no longer needs to be wrapped in a `<TabPanels>` component
 - `classNameOverride` changes to `className`
 - `<Tabs defaultIndex={}>` changes to `<Tabs defaultSelectedKey={}>`
@@ -52,9 +53,13 @@ Additionally:
   <TabList>
     <Tab id="one">Tab 1</Tab>
     <Tab id="two">Tab 2</Tab>
-    <Tab id="three" isDisabled>Disabled tab</Tab>
+    <Tab id="three" isDisabled>
+      Disabled tab
+    </Tab>
   </TabList>
-  <TabPanel id="one" className="p-4">Content 1</TabPanel>
+  <TabPanel id="one" className="p-4">
+    Content 1
+  </TabPanel>
   <TabPanel id="two">Content 2</TabPanel>
 </Tabs>
 ```
@@ -85,7 +90,9 @@ Additionally:
   <TabList>
     <Tab id="one">Tab 1</Tab>
     <Tab id="two">Tab 2</Tab>
-    <Tab id="three" isDisabled>Disabled tab</Tab>
+    <Tab id="three" isDisabled>
+      Disabled tab
+    </Tab>
   </TabList>
   <TabPanel id="one">Content 1</TabPanel>
   <TabPanel id="two">Content 2</TabPanel>

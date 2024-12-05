@@ -1,14 +1,15 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { KAIOInstallation, ResourceLinks,  SbContent } from "~storybook/components"
-import * as docsStories from "./Tooltip.docs.stories"
-import * as exampleStories from "./Tooltip.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { KAIOInstallation, ResourceLinks, SbContent } from '~storybook/components'
+import * as docsStories from './Tooltip.docs.stories'
+import * as exampleStories from './Tooltip.stories'
 
-<Meta title="Overlays/Tooltip/v3/API Specification"/>
+<Meta title="Overlays/Tooltip/v3/API Specification" />
 
 <SbContent>
   # Tooltip API Specification (v3)
 
-  Updated June 25, 2024
+Updated June 25, 2024
+
 </SbContent>
 
 <ResourceLinks
@@ -20,70 +21,79 @@ import * as exampleStories from "./Tooltip.stories"
 
 <SbContent className="mb-24">
 
-  <KAIOInstallation exportNames={["Tooltip", "TooltipTrigger" ]} family="overlays" version="3" />
+{' '}
+<KAIOInstallation exportNames={['Tooltip', 'TooltipTrigger']} family="overlays" version="3" />
 
-  ## Overview
+## Overview
 
-  Tooltips are brief floating labels used to add additional contextual information when users hover, click or focus on an interactive element.
+Tooltips are brief floating labels used to add additional contextual information when users hover, click or focus on an interactive element.
+
 </SbContent>
 
 <Canvas
   className="mb-64"
   of={exampleStories.OnButton}
-  source={{code: `
+  source={{
+    code: `
 <TooltipTrigger>
   <Button label="Button" />
   <Tooltip>Tooltip content</Tooltip>
 </TooltipTrigger>
-  `}}
+  `,
+  }}
 />
 
 <SbContent className="mb-64">
   ### React Aria
 
-  This component is built using the `react-aria-components` library and extends the [Tooltip component](https://react-spectrum.adobe.com/react-aria/Tooltip.html).
+This component is built using the `react-aria-components` library and extends the [Tooltip component](https://react-spectrum.adobe.com/react-aria/Tooltip.html).
 
-  As this shares the same core [anatomy](https://react-spectrum.adobe.com/react-aria/Tooltip.html#anatomy), [props types](https://react-spectrum.adobe.com/react-aria/Tooltip.html#tooltip-1) and [functionality](https://react-spectrum.adobe.com/react-aria/Tooltip.html#features), the guidance below is tailored to our implementation and should cover known use cases of the Tooltip.
+As this shares the same core [anatomy](https://react-spectrum.adobe.com/react-aria/Tooltip.html#anatomy), [props types](https://react-spectrum.adobe.com/react-aria/Tooltip.html#tooltip-1) and [functionality](https://react-spectrum.adobe.com/react-aria/Tooltip.html#features), the guidance below is tailored to our implementation and should cover known use cases of the Tooltip.
 
-  More on the React Aria API and a deep dive into other examples can be found via the [React Aria docs page](https://react-spectrum.adobe.com/react-aria/Tooltip.html) if not present below.
+More on the React Aria API and a deep dive into other examples can be found via the [React Aria docs page](https://react-spectrum.adobe.com/react-aria/Tooltip.html) if not present below.
+
 </SbContent>
 
-<SbContent className="mb-12">
-  ## API
-</SbContent>
+<SbContent className="mb-12">## API</SbContent>
 
-<Controls of={exampleStories.OnButton}  />
+<Controls of={exampleStories.OnButton} />
 
 <SbContent className=" mt-64">
   ### Placement
 
-  Placement controls where the `Tooltip` will float, relative to its reference element defined by the `triggerRef`. By default, this will float to the `bottom`.
+Placement controls where the `Tooltip` will float, relative to its reference element defined by the `triggerRef`. By default, this will float to the `bottom`.
+
 </SbContent>
 
-<Canvas className="mb-24" of={exampleStories.Placement}  />
+<Canvas className="mb-24" of={exampleStories.Placement} />
 
 <SbContent>
-  The option, `shouldFlip`, will control whether the `Tooltip` inverts its orientation when insufficient room is available in the viewport. You can see the below example with a constrained [viewport here](?path=/story/overlays-tooltip-v3--should-flip&globals=viewport:small).
+  The option, `shouldFlip`, will control whether the `Tooltip` inverts its orientation when
+  insufficient room is available in the viewport. You can see the below example with a constrained
+  [viewport here](?path=/story/overlays-tooltip-v3--should-flip&globals=viewport:small).
 </SbContent>
 
-<Canvas className="mb-64" of={docsStories.ShouldFlip}  />
+<Canvas className="mb-64" of={docsStories.ShouldFlip} />
 
 <SbContent>
   ### Controlled state
 
-  By default, the `Tooltip` state is controlled, so all interactive states do not need to be defined. There may be instances where a users may want want to toggle a `Tooltip` on or off. In this case we have exposed the `isOpen` prop.
+By default, the `Tooltip` state is controlled, so all interactive states do not need to be defined. There may be instances where a users may want want to toggle a `Tooltip` on or off. In this case we have exposed the `isOpen` prop.
+
 </SbContent>
 
-<Canvas className="mb-24" of={docsStories.UncontrolledState}  />
+<Canvas className="mb-24" of={docsStories.UncontrolledState} />
 
 <SbContent className="mb-64">
-  `isOpen` prop will negate the default state and relinquish control of `Tooltip` open and close to the user.
+  `isOpen` prop will negate the default state and relinquish control of `Tooltip` open and close to
+  the user.
 </SbContent>
 
 <SbContent>
   ### TooltipTrigger
 
-  The `TooltipTrigger` wraps both the `Tooltip` and its trigger element, controlling the open and close interactions.
+The `TooltipTrigger` wraps both the `Tooltip` and its trigger element, controlling the open and close interactions.
+
 </SbContent>
 
 ```JSX
@@ -105,13 +115,15 @@ import * as exampleStories from "./Tooltip.stories"
 <SbContent>
   ### Reversed
 
-  The `Tooltip` uses the `useReversedColors` hook and `ReversedColors` provider to control the dark and light theme.
+The `Tooltip` uses the `useReversedColors` hook and `ReversedColors` provider to control the dark and light theme.
+
 </SbContent>
 
 <Canvas className="bg-purple-600 mb-24" of={exampleStories.OnReversed} />
 
 <SbContent>
-  To enable the reversed theme, you will need to the component or application in the `ReversedColors` provider.
+  To enable the reversed theme, you will need to the component or application in the
+  `ReversedColors` provider.
 </SbContent>
 
 ```JSX
@@ -121,42 +133,33 @@ import * as exampleStories from "./Tooltip.stories"
 ```
 
 <SbContent className="mb-64">
-  These utilities can be imported from `@kaizen/components/v3/utilities`. This is an emerging pattern so more documentation will come.
+  These utilities can be imported from `@kaizen/components/v3/utilities`. This is an emerging
+  pattern so more documentation will come.
 </SbContent>
 
 <SbContent className="mb-32">
   ## Examples
 
-  Here are examples of how to use the `Tooltip` with compatible Kaizen components.
+Here are examples of how to use the `Tooltip` with compatible Kaizen components.
+
 </SbContent>
 
-<SbContent>
-  ### On Button
-</SbContent>
+<SbContent>### On Button</SbContent>
 
 <Canvas of={exampleStories.OnButton} />
 
-<SbContent>
-  ### On Link
-</SbContent>
+<SbContent>### On Link</SbContent>
 
 <Canvas of={exampleStories.OnLink} />
 
-<SbContent>
-  ### On IconButton
-</SbContent>
+<SbContent>### On IconButton</SbContent>
 
 <Canvas of={exampleStories.OnIconButton} />
 
-<SbContent>
-  ### On Tabs
-</SbContent>
+<SbContent>### On Tabs</SbContent>
 
 <Canvas of={exampleStories.OnTabs} />
 
-<SbContent>
-  ### On Tag
-</SbContent>
+<SbContent>### On Tag</SbContent>
 
 <Canvas of={exampleStories.OnCustomFocusableElement} />
-

@@ -1,14 +1,15 @@
-import { Canvas, Controls, Meta, Source } from "@storybook/blocks"
-import { KAIOInstallation, ResourceLinks,  SbContent } from "~storybook/components"
-import * as docsStories from "./Menu.docs.stories"
-import * as exampleStories from "./Menu.stories"
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks'
+import { KAIOInstallation, ResourceLinks, SbContent } from '~storybook/components'
+import * as docsStories from './Menu.docs.stories'
+import * as exampleStories from './Menu.stories'
 
-<Meta title="Actions/Menu/v3/API Specification"/>
+<Meta title="Actions/Menu/v3/API Specification" />
 
 <SbContent>
   # Menu API Specification (v3)
 
-  Updated July 4, 2024
+Updated July 4, 2024
+
 </SbContent>
 
 <ResourceLinks
@@ -23,24 +24,32 @@ import * as exampleStories from "./Menu.stories"
     ### Disclaimer
 
     The `Menu` `v3` component is not backwards compatible with Kaizen `Button` `v1` and `v2`. For this reason, usage of this component is not recommended until a `Button` `v3` is released.
+
   </div>
 </SbContent>
 
 <SbContent className="mb-24">
 
-  <KAIOInstallation exportNames={["Menu", "MenuTrigger", "MenuItem"]} family="actions" version="3" />
+{' '}
+<KAIOInstallation exportNames={['Menu', 'MenuTrigger', 'MenuItem']} family="actions" version="3" />
 
-  <Source code={"import { Popover, Section, Header } from \"@kaizen/components/v3/react-aria-components\""} language="tsx" />
+{' '}
+<Source
+  code={'import { Popover, Section, Header } from "@kaizen/components/v3/react-aria-components"'}
+  language="tsx"
+/>
 
-  ## Overview
+## Overview
 
-  A menu displays a list of actions in a popover, toggled opened with a button.
+A menu displays a list of actions in a popover, toggled opened with a button.
+
 </SbContent>
 
 <Canvas
   className="mb-64"
   of={exampleStories.Basic}
-  source={{code: `
+  source={{
+    code: `
 <MenuTrigger>
   <Button><Icon name="more_horiz" alt="Actions" /></Button>
   <Popover>
@@ -50,24 +59,24 @@ import * as exampleStories from "./Menu.stories"
     </Menu>
   </Popover>
 </MenuTrigger>
-  `}}
+  `,
+  }}
 />
 
 <SbContent className="mb-64">
   ### React Aria
 
-  This component is built using the `react-aria-components` library and extends the [Menu component](https://react-spectrum.adobe.com/react-aria/Menu.html).
+This component is built using the `react-aria-components` library and extends the [Menu component](https://react-spectrum.adobe.com/react-aria/Menu.html).
 
-  As this shares the same core [anatomy](https://react-spectrum.adobe.com/react-aria/Menu.html#anatomy), [props types](https://react-spectrum.adobe.com/react-aria/Menu.html#menu-1) and [functionality](https://react-spectrum.adobe.com/react-aria/Menu.html#features), the guidance below is tailored to our implementation and should cover known use cases of the Menu.
+As this shares the same core [anatomy](https://react-spectrum.adobe.com/react-aria/Menu.html#anatomy), [props types](https://react-spectrum.adobe.com/react-aria/Menu.html#menu-1) and [functionality](https://react-spectrum.adobe.com/react-aria/Menu.html#features), the guidance below is tailored to our implementation and should cover known use cases of the Menu.
 
-  More on the React Aria API and a deep dive into other examples can be found via the [React Aria docs page](https://react-spectrum.adobe.com/react-aria/Menu.html) if not present below.
+More on the React Aria API and a deep dive into other examples can be found via the [React Aria docs page](https://react-spectrum.adobe.com/react-aria/Menu.html) if not present below.
+
 </SbContent>
 
-<SbContent className="mb-12">
-  ## API
-</SbContent>
+<SbContent className="mb-12">## API</SbContent>
 
-<Controls of={exampleStories.Basic}  />
+<Controls of={exampleStories.Basic} />
 
 ## Actions and Next.js routing
 
@@ -76,7 +85,7 @@ Use the `href` prop when an action navigates to a new page.
 
 Otherwise, use the `onAction` prop to trigger an action within the page.
 
-<Canvas className="mb-24" of={docsStories.Actions}  />
+<Canvas className="mb-24" of={docsStories.Actions} />
 
 ## Typeahead
 
@@ -84,22 +93,22 @@ Typeahead (the ability to quickly skip to an item by typing a few characters aft
 
 If you're passing `ReactNode` into `MenuItem` `children`, you'll need to specify the `textValue` prop manually on `MenuItem` in order for typeahead to work.
 
-<Canvas className="mb-24" of={exampleStories.RichContent}  />
+<Canvas className="mb-24" of={exampleStories.RichContent} />
 
 ## Sections
 
 Sections can be added with the `Section` and `Header` component from `react-aria-components`.
 
-<Canvas className="mb-24" of={exampleStories.WithSections}  />
+<Canvas className="mb-24" of={exampleStories.WithSections} />
 
 ## Disabling items
 
 Menu items can be disabled with the `isDisabled` prop.
 
-<Canvas className="mb-24" of={exampleStories.DisabledItems}  />
+<Canvas className="mb-24" of={exampleStories.DisabledItems} />
 
 ## Controlled
 
 By default, the open/closed state of the menu is handled under the hood. In cases where you need control over the open state, use the `isOpen` and `onOpenChange` props on the `MenuTrigger` component (both props must be used for this to work).
 
-<Canvas className="mb-24" of={exampleStories.Controlled}  />
+<Canvas className="mb-24" of={exampleStories.Controlled} />

@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as VisuallyHiddenStories from "./VisuallyHidden.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as VisuallyHiddenStories from './VisuallyHidden.stories'
 
 <Meta of={VisuallyHiddenStories} />
 
@@ -31,5 +31,7 @@ Visual users can see the name of the survey to the left of the link, but screen 
 The context can be added like so:
 
 ```jsx
-<a href="/path">View report<VisuallyHidden> for Camper Check-in 2023</VisuallyHidden></a>
+<a href="/path">
+  View report<VisuallyHidden> for Camper Check-in 2023</VisuallyHidden>
+</a>
 ```

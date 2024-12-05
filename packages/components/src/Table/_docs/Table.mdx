@@ -1,6 +1,6 @@
-import { Canvas, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as TableStories from "./Table.stories"
+import { Canvas, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as TableStories from './Table.stories'
 
 <Meta of={TableStories} />
 
@@ -14,7 +14,15 @@ import * as TableStories from "./Table.stories"
 />
 
 <KAIOInstallation
-  exportNames={["TableCard", "TableContainer", "TableHeader", "TableHeaderRow", "TableHeaderRowCell", "TableRow", "TableRowCell"]}
+  exportNames={[
+    'TableCard',
+    'TableContainer',
+    'TableHeader',
+    'TableHeaderRow',
+    'TableHeaderRowCell',
+    'TableRow',
+    'TableRowCell',
+  ]}
 />
 
 ## Overview
@@ -30,17 +38,21 @@ A table displays rows of data, including all data in a set, making it efficient 
 Controls the spacing in each cell within the table. Options available are `compact`, `default` and `data`.
 
 #### Compact
+
 <Canvas of={TableStories.Data} />
 
 #### Default
+
 <Canvas of={TableStories.Default} />
 
 #### Data
+
 <Canvas of={TableStories.Data} />
 
 ## TableHeaderRowCell API
 
 ### Sorting
+
 <Canvas of={TableStories.Sorting} />
 
 ### Checkbox
@@ -56,6 +68,7 @@ When using providing `icon` to `TableHeaderRowCell` the `labelText` will be pass
 <Canvas of={TableStories.IconVariant} />
 
 ### Align and wrapping
+
 <Canvas of={TableStories.HeaderAlignmentAndWrapping} />
 
 ### Tooltips
@@ -67,11 +80,13 @@ While Tooltip content can be passed to any table header via the `tooltipInfo` pr
 You can read more about the Tooltip component and accessibility limitation [here](https://cultureamp.design/?path=/docs/components-tooltip--docs#screen-reader-accessibility).
 
 ### Reversed
+
 <Canvas of={TableStories.Reversed} />
 
 ## TableCard API
 
 ### Link
+
 <Canvas of={TableStories.LinkVariant} />
 
 ### Expandable
@@ -79,5 +94,3 @@ You can read more about the Tooltip component and accessibility limitation [here
 The `expandable` prop introduces known accessibility issues with nesting interactive elements as children of a `button` or `anchor` tag. We recommend avoiding this pattern if possible, or creating a tier 3 component that adheres to correct WCAG hierarchy.
 
 <Canvas of={TableStories.Expandable} />
-
-

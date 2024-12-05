@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as BrandMomentCaptureIntroStories from "./BrandMomentCaptureIntro.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as BrandMomentCaptureIntroStories from './BrandMomentCaptureIntro.stories'
 
 <Meta of={BrandMomentCaptureIntroStories} />
 
@@ -18,6 +18,7 @@ import * as BrandMomentCaptureIntroStories from "./BrandMomentCaptureIntro.stori
 ## Overview
 
 Functionally similar to an animation Scene illustration but has 3 different states based on the properties passed in:
+
 - An initial animation that is only ever played once, never looping.
 - An ambient animation that can be looped.
 - A static image that is not animated.
@@ -28,13 +29,19 @@ Functionally similar to an animation Scene illustration but has 3 different stat
 ## API
 
 ### Single animation
+
 Will trigger the animation once.
+
 <Canvas of={BrandMomentCaptureIntroStories.Animated} />
 
 ### Looped animation
+
 Will render the a looped animation. Should be used with `isAnimated` to render the "initial" intro animation.
+
 <Canvas of={BrandMomentCaptureIntroStories.Looped} />
 
 ### Autoplay disabled
+
 If false will render the animation paused. This can be re-enabled clicking the pause sign on hover.
+
 <Canvas of={BrandMomentCaptureIntroStories.Autoplay} />
