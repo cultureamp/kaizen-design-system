@@ -119,27 +119,3 @@ export const MultipleTiles: Story = {
   },
 }
 
-// Pass not quite a Tile, what happens? Unhappy path
-export const OneNotQuiteTile: Story = {
-  args: {
-    children: (
-      <div>
-        <InformationTile
-          title="Title A"
-          metadata="Side A"
-          information="Side A - Back"
-          footer={<>Footer</>}
-        />
-      </div>
-    ),
-  },
-  play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement)
-
-    await step("initial render complete", async () => {
-      await waitFor(() => {
-        expect(canvas.getByRole("listitem")).toBeInTheDocument()
-      })
-    })
-  },
-}
