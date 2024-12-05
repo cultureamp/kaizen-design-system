@@ -151,7 +151,7 @@ const iconMap = new Map<keyof typeof OLD_ICONS, NewIconProps>([
   ['LaunchWhiteIcon', undefined],
   ['LeaderboardIcon', undefined],
   ['ListViewIcon', { name: 'list' }],
-  ['LiveIcon', { name: 'sensors' }],
+  //['LiveIcon', { name: 'sensors' }],
   ['LockIcon', { name: 'lock' }],
   ['LockWhiteIcon', undefined],
   ['LogOutIcon', { name: 'logout' }],
