@@ -1,5 +1,11 @@
 # @kaizen/package-bundler
 
+## 2.0.3
+
+### Patch Changes
+
+- [#5305](https://github.com/cultureamp/kaizen-design-system/pull/5305) [`b2044e3`](https://github.com/cultureamp/kaizen-design-system/commit/b2044e381f101629e60c478ccf979af04af17082) - Update deps for package-bundler.
+
 ## 2.0.2
 
 ### Patch Changes
