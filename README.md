@@ -34,9 +34,11 @@ To learn more, see the designer section of the [Contributing guidelines](./CONTR
 ## Getting started
 
 ### Setup
+
 Set up access to private Culture Amp packages on your laptop. You will need to update `~/.npmrc` with a Github token linked to your account. Refer to the [instructions here](https://cultureamp.atlassian.net/wiki/spaces/TV/pages/2776629375/Working+with+our+private+GitHub+package+registry).
 
 ### Local development
+
 Ensure devbox is setup as per [https://cultureamp.atlassian.net/wiki/spaces/DE/pages/3342434338/Devbox+setup](https://cultureamp.atlassian.net/wiki/spaces/DE/pages/3342434338/Devbox+setup)
 
 Install and start processes (this start an interactive UI in your terminal) `devbox services up`
@@ -56,17 +58,17 @@ While the main site is located at <https://cultureamp.design>, all branches in t
 
 It's dangerous to go alone! Take these:
 
-Command | Summary
-:- | :-
-`pnpm storybook` | Develop components locally using Storybook
-`STORIES=path/to/package pnpm storybook` | Develop just one package at a time using Storybook (builds faster!)
-`pnpm compile` | Run all typechecks
-`pnpm lint` | Run all linters
-`pnpm lint:fix` | Run all linters, fixing violations
-`pnpm plop` | Add a new component/subcomponent
-`pnpm test` | Run all [Jest](https://jestjs.io/) tests
-`pnpm storybook:test` | Run tests on all Storybook stories
-`pnpm reset` | Reinstall all dependencies
+| Command                                  | Summary                                                             |
+| :--------------------------------------- | :------------------------------------------------------------------ |
+| `pnpm storybook`                         | Develop components locally using Storybook                          |
+| `STORIES=path/to/package pnpm storybook` | Develop just one package at a time using Storybook (builds faster!) |
+| `pnpm compile`                           | Run all typechecks                                                  |
+| `pnpm lint`                              | Run all linters                                                     |
+| `pnpm lint:fix`                          | Run all linters, fixing violations                                  |
+| `pnpm plop`                              | Add a new component/subcomponent                                    |
+| `pnpm test`                              | Run all [Jest](https://jestjs.io/) tests                            |
+| `pnpm storybook:test`                    | Run tests on all Storybook stories                                  |
+| `pnpm reset`                             | Reinstall all dependencies                                          |
 
 ## Bugs and discussions
 

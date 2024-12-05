@@ -1,13 +1,14 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { KAIOInstallation, ResourceLinks,  SbContent } from "~storybook/components"
-import * as exampleStories from "./Focusable.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { KAIOInstallation, ResourceLinks, SbContent } from '~storybook/components'
+import * as exampleStories from './Focusable.stories'
 
-<Meta title="Overlays/Focusable/v3/API Specification"/>
+<Meta title="Overlays/Focusable/v3/API Specification" />
 
 <SbContent>
   # Focusable API Specification (v3)
 
-  Updated June 25, 2024
+Updated June 25, 2024
+
 </SbContent>
 
 <ResourceLinks
@@ -18,21 +19,21 @@ import * as exampleStories from "./Focusable.stories"
 <SbContent className="mb-24">
   <KAIOInstallation exportNames={["Focusable"]} family="overlays" version="3" />
 
-  ## Overview
+## Overview
 
-  Focusable is a utility wrapper to allow users to add focus to a non-focusable element.
+Focusable is a utility wrapper to allow users to add focus to a non-focusable element.
 
-  The main use case is for non semantic components like `Tag` that need a [Tooltip](/docs/overlays-tooltip-v3-usage-guidelines--docs).
+The main use case is for non semantic components like `Tag` that need a [Tooltip](/docs/overlays-tooltip-v3-usage-guidelines--docs).
+
 </SbContent>
 
 <Canvas className="mb-24" of={exampleStories.Playground} />
 
 <SbContent className="mb-64">
-  Be aware that this does not negate the need to meet A11Y standards and best practices. Use this utility wrapper with caution.
+  Be aware that this does not negate the need to meet A11Y standards and best practices. Use this
+  utility wrapper with caution.
 </SbContent>
 
-<SbContent className="mb-12">
-  ## API
-</SbContent>
+<SbContent className="mb-12">## API</SbContent>
 
-<Controls of={exampleStories.Playground}  />
+<Controls of={exampleStories.Playground} />

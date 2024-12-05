@@ -1,7 +1,7 @@
-import { Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation, NoClipCanvas } from "~storybook/components"
-import { LinkTo } from "~storybook/components/LinkTo"
-import * as FilterBarStories from "./FilterBar.stories"
+import { Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation, NoClipCanvas } from '~storybook/components'
+import { LinkTo } from '~storybook/components/LinkTo'
+import * as FilterBarStories from './FilterBar.stories'
 
 <Meta of={FilterBarStories} />
 
@@ -37,7 +37,7 @@ We also provide a `Filters` type which can accept the same generic to provide im
 `ValuesMap` should be in the shape of `{ [filterId]: filterValueType }`.
 
 ```tsx
-import { FilterBar, Filters } from "@kaizen/components"
+import { FilterBar, Filters } from '@kaizen/components'
 
 type ValuesMap = {
   filterId1: string
@@ -45,21 +45,15 @@ type ValuesMap = {
 }
 
 const [values, setValues] = useState<Partial<ValuesMap>>({
-  filterId1: "default-value"
+  filterId1: 'default-value',
 })
 
 const filters = [
-  { id: "filterId1", ...rest },
-  { id: "filterId2", ...rest },
+  { id: 'filterId1', ...rest },
+  { id: 'filterId2', ...rest },
 ] satisfies Filters<ValuesMap>
 
-return (
-  <FilterBar<ValuesMap>
-    filters={filters}
-    values={values}
-    onValuesChange={setValues}
-  />
-)
+return <FilterBar<ValuesMap> filters={filters} values={values} onValuesChange={setValues} />
 ```
 
 ### `filters`
@@ -71,7 +65,7 @@ The `filters` prop is an array of attributes used to create the list of filters.
 We provide a `Filters<ValuesMap>` type you can use for improved type safety.
 
 ```tsx
-import { FilterBar, Filters, DateRange, FilterMultiSelect } from "@kaizen/components"
+import { FilterBar, Filters, DateRange, FilterMultiSelect } from '@kaizen/components'
 
 type ValuesMap = {
   filterId1: string
@@ -81,13 +75,13 @@ type ValuesMap = {
 
 const filters = [
   {
-    id: "filterId1",
-    name: "Filter 1",
+    id: 'filterId1',
+    name: 'Filter 1',
     Component: <FilterBar.Select {...props} />,
   },
   {
-    id: "filterId2",
-    name: "Filter 2",
+    id: 'filterId2',
+    name: 'Filter 2',
     Component: (
       <FilterBar.MultiSelect {...props}>
         {/* Compose your structure using subcomponents of FilterMultiSelect */}
@@ -96,11 +90,11 @@ const filters = [
     ),
   },
   {
-    id: "filterId3",
-    name: "Filter 3",
+    id: 'filterId3',
+    name: 'Filter 3',
     Component: <FilterBar.DateRangePicker {...props} />,
     isRemovable: true,
-    isUsableWhen: state => state.filterId1.value !== undefined
+    isUsableWhen: (state) => state.filterId1.value !== undefined,
   },
 ] satisfies Filters<ValuesMap>
 ```
@@ -133,6 +127,7 @@ Provided Filter components are built on top of their base component, and have th
 If the component comes with an `onChange` (or similar) prop, it will be made optional and it can be used for additional actions (eg. adding analytics).
 
 Available Filter components:
+
 - `<FilterBar.DatePicker>` - extends <LinkTo pageId="components-filter-date-picker">FilterDatePicker</LinkTo>
   - `selectedDate` is omitted
   - `onDateChange` is now optional
@@ -176,23 +171,28 @@ type ValuesMap = {
 
 const filters = [
   {
-    id: "coffee",
-    name: "Coffee",
-    Component: <FilterBar.Select items={[
-      { value: "long-black", label: "Long Black" },
-      { value: "latte", label: "Latte" },
-    ]} />,
+    id: 'coffee',
+    name: 'Coffee',
+    Component: (
+      <FilterBar.Select
+        items={[
+          { value: 'long-black', label: 'Long Black' },
+          { value: 'latte', label: 'Latte' },
+        ]}
+      />
+    ),
   },
   {
-    id: "milk",
-    name: "Milk",
+    id: 'milk',
+    name: 'Milk',
     Component: <FilterBar.Select {...props} />,
-    isUsableWhen: state => state.coffee.value === "latte",
+    isUsableWhen: (state) => state.coffee.value === 'latte',
   },
 ] satisfies Filters<ValuesMap>
 ```
 
 The `state` arg will provide you with the following attributes for all the filters (mapped to the keys of the `ValuesMap`):
+
 ```
 id: keyof ValuesMap
 name: string
@@ -201,6 +201,7 @@ isActive: boolean
 ```
 
 When a dependent filter has not met its condition (not _Usable_):
+
 - it will be removed from the FilterBar
 - if it has a value, the value will be cleared
 
@@ -223,12 +224,10 @@ type ValuesMap = {
 // @note: Unless you are providing a default value for all the filters,
 // you will want to wrap it in Partial.
 const [values, setValues] = useState<Partial<ValuesMap>>({
-  filterId1: "default-value"
+  filterId1: 'default-value',
 })
 
-return (
-  <FilterBar<ValuesMap> values={values} {...rest} />
-)
+return <FilterBar<ValuesMap> values={values} {...rest} />
 ```
 
 ### `onValuesChange`
@@ -247,6 +246,7 @@ Filters that do not meet their condition will not be shown amongst the Active Fi
 See [filter attribute `isUsableWhen`](#isusablewhen-state-filtersstatevaluesmap--boolean) for api.
 
 This example shows the following dependencies:
+
 - **Milk** is only usable when **Coffee** _is Latte_
   - `isUsableWhen: state => state.coffee.value === "latte"`
   - An initial value of _Full Cream_ is passed in, but immediately cleared
@@ -283,10 +283,10 @@ type Values = {
  * Using `getFilterState` as dependency source is known
  */
 const ExampleDependentFilter = () => {
-  const { getFilterState } = useFilterBarContext<Values["dependent"], Values>()
-  const sourceFilter = getFilterState("source")
+  const { getFilterState } = useFilterBarContext<Values['dependent'], Values>()
+  const sourceFilter = getFilterState('source')
   const items = retrieveItems(sourceFilter.value)
-  return (<FilterBar.Select<Option> id="dependent" items={items} />)
+  return <FilterBar.Select<Option> id="dependent" items={items} />
 }
 
 /**
@@ -301,13 +301,13 @@ const ExampleDependentFilter = (props: {
   const { getActiveFilterValues } = useFilterBarContext<Values[Id], Values>()
   const activeValues = getActiveFilterValues()
   const items = props.retrieveItemsCallback(activeValues)
-  return (<FilterBar.Select<Option> id={props.id} items={items} />)
+  return <FilterBar.Select<Option> id={props.id} items={items} />
 }
 
 const CustomFilterBar = () => {
   const filters = [
-    { id: "source", ...rest },
-    { id: "dependent", Component: <ExampleDependentFilter />, ...rest },
+    { id: 'source', ...rest },
+    { id: 'dependent', Component: <ExampleDependentFilter />, ...rest },
   ] satisfies Filters<Values>
 
   return <FilterBar<Values> filters={filters} {...rest} />
@@ -331,6 +331,7 @@ Out of the box, we do not make assumptions about your state management tool, so 
 the types to match the expected format of your chosen query param library.
 
 The following example uses the
+
 <a href="https://www.npmjs.com/package/serialize-query-params">serialize-query-params</a>
 and <a href="https://www.npmjs.com/package/query-string">query-string</a>
 packages.
@@ -357,14 +358,14 @@ type Values = {
 }
 
 const CycleFilter = () => {
-  const { openFilter } = useFilterBarContext<Values["cycle"], Values>()
+  const { openFilter } = useFilterBarContext<Values['cycle'], Values>()
 
   return (
     <FilterBar.Select
       id="cycle"
-      items={[{ value: "custom", label: "Custom Range" }]}
-      onSelectionChange={key => {
-        if (key === "custom") openFilter("customRange")
+      items={[{ value: 'custom', label: 'Custom Range' }]}
+      onSelectionChange={(key) => {
+        if (key === 'custom') openFilter('customRange')
       }}
     />
   )
@@ -372,8 +373,8 @@ const CycleFilter = () => {
 
 const CustomFilterBar = () => {
   const filters = [
-    { id: "cycle", Component: <CycleFilter />, ...rest },
-    { id: "customRange", isUsableWhen: state => state.cycle.value === "custom", ...rest },
+    { id: 'cycle', Component: <CycleFilter />, ...rest },
+    { id: 'customRange', isUsableWhen: (state) => state.cycle.value === 'custom', ...rest },
   ] satisfies Filters<Values>
 
   return <FilterBar<Values> filters={filters} {...rest} />

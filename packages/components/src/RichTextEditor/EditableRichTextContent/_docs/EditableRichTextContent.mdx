@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as EditableRichTextContentStories from "./EditableRichTextContent.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as EditableRichTextContentStories from './EditableRichTextContent.stories'
 
 <Meta of={EditableRichTextContentStories} />
 
@@ -26,12 +26,11 @@ The `EditableRichTextContent` indicates interactivity similar to a `text` or `te
 
 This differs from the [RichTextContent](/docs/components-richtexteditor-richtextcontent--docs) component, which is used to render `RichTextEditor` content as read-only text.
 
-
 ```tsx
-const [editMode, setEditMode] = useState<boolean>(false);
-const [rteData, setRTEData] = useState<EditorContentArray>([]);
+const [editMode, setEditMode] = useState<boolean>(false)
+const [rteData, setRTEData] = useState<EditorContentArray>([])
 
-const handleOnChange: RichTextEditorProps["onChange"] = editorState =>
+const handleOnChange: RichTextEditorProps['onChange'] = (editorState) =>
   setRTEData(editorState.toJSON().doc.content)
 
 if (editMode) {
@@ -43,9 +42,7 @@ if (editMode) {
   )
 }
 
-return (
-  <EditableRichTextContent content={rteData} onClick={() => setEditMode(true)} />
-)
+return <EditableRichTextContent content={rteData} onClick={() => setEditMode(true)} />
 ```
 
 <Canvas of={EditableRichTextContentStories.UsageExample} />

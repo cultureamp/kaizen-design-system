@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as TooltipStories from "./Tooltip.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as TooltipStories from './Tooltip.stories'
 
 <Meta of={TooltipStories} />
 
@@ -25,6 +25,7 @@ Adds a popover that will show on hover or focus of the child element, with simpl
 This component wasn't built with accessibility in mind, as a result it's quite easy to implement a tooltip in a non-accessible way. A rethink and rewrite is likely for the future.
 
 There's two major accessibility concerns here:
+
 - Keyboard only users
 - Screen reader (or similar assistive tech) users
 
@@ -59,7 +60,6 @@ Again, try to keep the contents of your children as simple as possible, ideally 
 
 When your direct child is not semantic, you will get a console warning like this:
 `<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info.`
-
 
 ### Tooltips, Kaizen components and avoiding common pitfalls
 
@@ -109,7 +109,7 @@ Without either of these, the `Tooltip` content will not be readable to keyboard 
 
 Seen in the example below simple `Tag`s with plain text as `children` will not accessible to keyboard users or assistive technologies as it's direct descendant is a `div` with no semantic `role`.
 
-<Canvas of={TooltipStories.TagWithHoverOnlyTooltip}  />
+<Canvas of={TooltipStories.TagWithHoverOnlyTooltip} />
 
 While `Tooltip` should be avoided if there are no interactive states within the `Tag`, internal elements like buttons or links can be wrapped in a `Tooltip` component to add necessary context.
 
@@ -128,4 +128,3 @@ In the example above, the `Tooltip` content `"Select all users"` is accessible t
 <Canvas of={TooltipStories.CheckboxFieldWithDescriptionTooltip} />
 
 In these instances, `aria-describedby` can be leveraged to provide a description to the input.
-

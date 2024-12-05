@@ -1,7 +1,7 @@
-import { Canvas, Controls , Meta, Unstyled } from "@storybook/blocks"
-import { InlineNotification } from "~components/Notification"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as TagStories from "./Tag.stories"
+import { Canvas, Controls, Meta, Unstyled } from '@storybook/blocks'
+import { InlineNotification } from '~components/Notification'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as TagStories from './Tag.stories'
 
 <Meta of={TagStories} />
 
@@ -17,7 +17,7 @@ import * as TagStories from "./Tag.stories"
 <Unstyled>
   <InlineNotification type="cautionary" persistent>
     {`This version of the Tag will soon be deprecated and will be removed in the next major release.
-    Import Tag from "@kaizen/components/future" for the latest version and veiw our migration guide in the Future folder` }
+    Import Tag from "@kaizen/components/future" for the latest version and veiw our migration guide in the Future folder`}
   </InlineNotification>
 </Unstyled>
 
@@ -33,48 +33,59 @@ Tags help users quickly recognize important information about items that organiz
 ## API
 
 ### Variants
+
 We have 3 different sets of combinations for various uses.
 
 #### Status
+
 Use status tags to show the status of surveys, reports, action plans, and performance feedback.
 
 <Canvas of={TagStories.Status} />
 
 #### Validation
+
 Use validation tags for indicating the validation state such as the Cautionary style for cautioning users that the item has a validation warning that could be addressed.
 
 <Canvas of={TagStories.Validation} />
 
 #### Sentiments
+
 Use sentiment tags only for sentiment or other employee feedback data.
 
 <Canvas of={TagStories.Sentiments} />
 
 ### Sizes
+
 **Note:** Icons and Avatars are not supported in `small` sizes.
 
 <Canvas of={TagStories.Sizes} />
 
 ### Avatar
+
 An Avatar can be added in two ways, either by importing the `<Avatar />` component and passing it in, or you can use the Avatar's props.
 
 **Note:** Avatar are not supported in `small` sizes.
 
 #### Import Avatar
+
 <Canvas of={TagStories.ProfileWithAvatarImport} />
 
 #### Avatar props
+
 <Canvas of={TagStories.ProfileWithAvatarProps} />
 
 ### Dismissable
+
 <Canvas of={TagStories.Dismissible} />
 
 ### TruncateWidth
+
 A pixel width which sets a limit for when the text starts to truncate.
 
 <Canvas of={TagStories.Truncate} />
 
 ### Inline
+
 Removes the default right-hand margin.
 
 <Canvas of={TagStories.Inline} />

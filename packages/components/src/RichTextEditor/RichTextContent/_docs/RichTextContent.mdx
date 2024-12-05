@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as RichTextContentStories from "./RichTextContent.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as RichTextContentStories from './RichTextContent.stories'
 
 <Meta of={RichTextContentStories} />
 
@@ -20,7 +20,6 @@ To render rich content as it appears in the [RichTextEditor](/docs/components-ri
 <Canvas of={RichTextContentStories.Playground} />
 <Controls of={RichTextContentStories.Playground} />
 
-
 ## Usage
 
 A common use case of `RichTextContent` is to display user generated output as read-only text.
@@ -28,4 +27,3 @@ A common use case of `RichTextContent` is to display user generated output as re
 <Canvas of={RichTextContentStories.ReadOnly} />
 
 This should not be used out of the box to toggle between active and inactive states of the `RichTextEditor`. Instead we recommend using the [EditableRichTextContent](/docs/components-richtexteditor-editablerichtextcontent--docs#usage) pattern, which indicates interactivity to the user and ensures compliance with WCAG guidelines.
-

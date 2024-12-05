@@ -1,6 +1,6 @@
-import { Canvas, Meta } from "@storybook/blocks"
-import * as LegacyTagStories from "../../../../Tag/_docs/Tag.stories"
-import * as TagMigrationStories from "./Tag-migration-guide.stories"
+import { Canvas, Meta } from '@storybook/blocks'
+import * as LegacyTagStories from '../../../../Tag/_docs/Tag.stories'
+import * as TagMigrationStories from './Tag-migration-guide.stories'
 
 <Meta of={TagMigrationStories} />
 
@@ -27,14 +27,13 @@ There were a number key changes between current and future `Tag` to achieve the 
 - `Avatar` and all child content must now be composed by the consumer.
   - This offers a greater degree of flexibility to ensure that the right accessible context can be provided to the end user.
 
-
 ## Migration examples
 
 The following are example of migrating from previously available props to the composable solution.
 
 ### Status
 
-With the `variant` prop there are four values associated with statuses:  `statusLive`, `statusDraft`, `statusClosed`, `statusAction`.
+With the `variant` prop there are four values associated with statuses: `statusLive`, `statusDraft`, `statusClosed`, `statusAction`.
 
 For the most part these can all be replaced with the use of the `color` prop, with exception to the `live` status.
 
@@ -42,14 +41,13 @@ For the most part these can all be replaced with the use of the `color` prop, wi
 
 <Canvas of={LegacyTagStories.Status} />
 
-
 #### After
 
-<Canvas of={TagMigrationStories.StatusMigration} sourceState="shown"/>
+<Canvas of={TagMigrationStories.StatusMigration} sourceState="shown" />
 
 While the `LiveIcon` is exported from `@kaizen/components` the current `Tag` uses an animated implementation, which is not exported directly from Kaizen. As an interim solution, you can use the following Story's code snippet to create a `LiveIconComponent`. This can then be passed into the future `Tag` as `Children`.
 
-<Canvas of={TagMigrationStories.LiveIconComponentStory} sourceState="hidden"/>
+<Canvas of={TagMigrationStories.LiveIconComponentStory} sourceState="hidden" />
 
 ### Validation
 
@@ -63,8 +61,7 @@ Note: because the icons convey meaning, they should have an accessible label tha
 
 #### After
 
-<Canvas of={TagMigrationStories.ValidationMigration} sourceState="shown"/>
-
+<Canvas of={TagMigrationStories.ValidationMigration} sourceState="shown" />
 
 Note: When using the `icon` prop, the icon's color will be determined by the `color` value that has been set. This is to ensure that an accessible contrast ratio is achieved.
 
@@ -80,14 +77,13 @@ While migration of any `Tag` using, `sentimentPositive`, `sentimentNeutral` or `
 
 #### After
 
-<Canvas of={TagMigrationStories.SentimentsMigration} sourceState="shown"/>
+<Canvas of={TagMigrationStories.SentimentsMigration} sourceState="shown" />
 
 If required, you could use `classNameOverride` to implement the same UI. It is important that any override of the default styles still meets minimum contrast ratios to ensure the component is accessible.
 
 <Canvas of={TagMigrationStories.SentimentNone} />
 
 This is also a good time to stop and check if this change is necessary. If there is an opportunity remove older styles that are no longer available, this can help to reduce inconsistencies across the platform. As always, check in with your designer to see if any new option can be used in its place.
-
 
 ### Dismissible
 
@@ -101,10 +97,9 @@ This increases the hit box for the dismiss button and makes the `ariaLabel` in t
 
 #### After
 
-<Canvas of={TagMigrationStories.DismissibleMigration} sourceState="shown"/>
+<Canvas of={TagMigrationStories.DismissibleMigration} sourceState="shown" />
 
 Remember that when handling dismiss (or any destructive action), a user's focus should not be lost on the page.
-
 
 ### Avatars
 
@@ -116,8 +111,7 @@ Avatars are no longer provided directly to the `Tag` as a prop. Instead they wil
 
 #### After
 
-<Canvas of={TagMigrationStories.AvatarMigration} sourceState="shown"/>
-
+<Canvas of={TagMigrationStories.AvatarMigration} sourceState="shown" />
 
 Note: The use of `ps-4` (or `padding-inline-start`) in the `classNameOverride` is to override the default spacing at start of the `Tag`. This will ensure the Avatar can contour the border radius of the `Tag`.
 
@@ -139,10 +133,9 @@ In future `Tag` this has been removed so consumers can now control spacing with 
 
 #### After
 
-<Canvas of={TagMigrationStories.InlineMigration} sourceState="shown"/>
+<Canvas of={TagMigrationStories.InlineMigration} sourceState="shown" />
 
 To simplify this example we have avoided DOM elements such as `ul` and `li`. In production, lists should be used if you are rendering a group of `Tag`s.
-
 
 ### truncationWidth
 
@@ -162,11 +155,10 @@ The two sizes for tag have been remove in favour of a default size in between `m
 
 `classNameOverride` can be leveraged to add padding and modify properties but should be done with caution to reduce inconsistencies in the platform and reduce the risk of accessibility violations.
 
-
 #### Before
 
 <Canvas of={LegacyTagStories.Sizes} />
 
 #### After
 
-<Canvas of={TagMigrationStories.SizesMigration} sourceState="shown"/>
+<Canvas of={TagMigrationStories.SizesMigration} sourceState="shown" />
