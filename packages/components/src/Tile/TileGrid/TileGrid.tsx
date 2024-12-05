@@ -25,22 +25,7 @@ export const TileGrid = ({
 }: TileGridProps): JSX.Element => {
   const tileGridBaseId = useId()
 
-  const tiles = Children.map(children, child => {
-    if (Array.isArray(child.props.children)) {
-      return child.props.children!.map((tile: TileElement, index) => (
-        <li
-          className={classnames(styles.li, classNameOverride)}
-          key={`${tileGridBaseId}-${index}`}
-        >
-          {tile}
-        </li>
-      ))
-    } else {
-      return (
-        <li className={classnames(styles.li, classNameOverride)}>{child}</li>
-      )
-    }
-  })
+  const tiles = getTiles(children, tileGridBaseId)
 
   return (
     <ul
@@ -53,3 +38,20 @@ export const TileGrid = ({
   )
 }
 TileGrid.displayName = "TileGrid"
+
+const getTiles = (
+  children: TileElement | TileElement[],
+  tileGridBaseId: String
+) => {
+  const child = Children.only(children)
+
+  if (Array.isArray(child.props.children)) {
+    return child.props.children!.map((tile: TileElement, index) => (
+      <li className={classnames(styles.li)} key={`${tileGridBaseId}-${index}`}>
+        {tile}
+      </li>
+    ))
+  }
+
+  return <li className={classnames(styles.li)}>{child}</li>
+}
