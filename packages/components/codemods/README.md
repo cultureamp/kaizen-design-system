@@ -1,5 +1,5 @@
-
 # Kaizen codemods
+
 This directory is a collection of codemods that can be executed via CLI with the `kaizen-codemod` command.
 
 ## Prerequisites
@@ -18,6 +18,7 @@ DIR - the directory to run the codemod for. Note that node_modules are excluded.
 CODEMOD_NAME - the name of the codemod (refer to list below).
 
 Example:
+
 ```
 pnpm kaizen-codemod src migrateWellVariantToColor
 ```

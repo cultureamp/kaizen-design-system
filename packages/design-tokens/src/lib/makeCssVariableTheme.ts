@@ -1,7 +1,7 @@
-import { DeepMapObjectLeafs } from "../legacy/types"
-import { addExtraThemeEntries } from "./addExtraThemeEntries"
-import { objectPathToCssVarFunction } from "./cssVariables"
-import { mapLeafsOfObject } from "./mapLeafsOfObject"
+import { DeepMapObjectLeafs } from '../legacy/types'
+import { addExtraThemeEntries } from './addExtraThemeEntries'
+import { objectPathToCssVarFunction } from './cssVariables'
+import { mapLeafsOfObject } from './mapLeafsOfObject'
 
 /**
  * This function could use a new name during a breaking change
@@ -35,11 +35,9 @@ import { mapLeafsOfObject } from "./mapLeafsOfObject"
  *
  * See {@link addExtraThemeEntries} for how these extra entries are added.
  */
-export function makeCSSVariableTheme<
-  ThemeType extends Record<string | number, unknown>,
->(
+export function makeCSSVariableTheme<ThemeType extends Record<string | number, unknown>>(
   theme: ThemeType,
-  printValue = objectPathToCssVarFunction
+  printValue = objectPathToCssVarFunction,
 ): DeepMapObjectLeafs<ThemeType, string> {
   const augmentedTheme: Record<string, unknown> = {}
 
@@ -47,20 +45,15 @@ export function makeCSSVariableTheme<
     const leafKey = leafPath[leafPath.length - 1]
     const pathWithoutLast = leafPath.slice(0, leafPath.length - 1)
     const leafObject = pathWithoutLast.reduce(
-      (child, segment) =>
-        (child[segment] || (child[segment] = {})) as Record<string, unknown>,
-      augmentedTheme as Record<string, unknown>
+      (child, segment) => (child[segment] || (child[segment] = {})) as Record<string, unknown>,
+      augmentedTheme as Record<string, unknown>,
     )
     if (!leafKey) {
-      throw new Error("leafKey is undefined")
+      throw new Error('leafKey is undefined')
     }
-    const cssVariablesOfToken = addExtraThemeEntries(
-      leafPath,
-      leafKey,
-      value,
-      printValue,
-      { augmentWithId: true }
-    )
+    const cssVariablesOfToken = addExtraThemeEntries(leafPath, leafKey, value, printValue, {
+      augmentWithId: true,
+    })
     Object.assign(leafObject, cssVariablesOfToken)
   }
 

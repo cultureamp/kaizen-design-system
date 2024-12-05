@@ -1,11 +1,11 @@
-import React, { HTMLAttributes, useCallback, useContext, useState } from "react"
-import { useListBox } from "@react-aria/listbox"
-import { Item } from "@react-stately/collections"
-import { ListState, useListState } from "@react-stately/list"
-import { SelectionMode, Selection } from "@react-types/shared"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { ItemType, MultiSelectItem } from "../../types"
-import { useMenuTriggerContext } from "../MenuTriggerProvider"
+import React, { HTMLAttributes, useCallback, useContext, useState } from 'react'
+import { useListBox } from '@react-aria/listbox'
+import { Item } from '@react-stately/collections'
+import { ListState, useListState } from '@react-stately/list'
+import { SelectionMode, Selection } from '@react-types/shared'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { ItemType, MultiSelectItem } from '../../types'
+import { useMenuTriggerContext } from '../MenuTriggerProvider'
 
 export type SelectionProviderProps = {
   selectionMode: SelectionMode
@@ -31,14 +31,12 @@ export type SelectionProviderContextType = {
 }
 
 const SelectionContext = React.createContext<SelectionProviderContextType>(
-  {} as SelectionProviderContextType
+  {} as SelectionProviderContextType,
 )
 
-export const SelectionProvider = (
-  props: SelectionProviderProps
-): JSX.Element => {
+export const SelectionProvider = (props: SelectionProviderProps): JSX.Element => {
   const { onSearchInputChange, ...otherProps } = props
-  const [searchQuery, setSearchQuery] = useState<string>("")
+  const [searchQuery, setSearchQuery] = useState<string>('')
   const { menuProps } = useMenuTriggerContext()
   /**
    * While the onSearchInputChange  is a side-effect, this useEffect should be fine.
@@ -55,17 +53,17 @@ export const SelectionProvider = (
   const searchFilter = useCallback(
     (nodes: Iterable<MultiSelectItem>): Iterable<MultiSelectItem> =>
       searchQuery
-        ? Array.from(nodes).filter(f =>
-            f.textValue.toLowerCase().includes(searchQuery.toLowerCase())
+        ? Array.from(nodes).filter((f) =>
+            f.textValue.toLowerCase().includes(searchQuery.toLowerCase()),
           )
         : nodes,
-    [searchQuery]
+    [searchQuery],
   )
 
   // Create state based on the incoming props to manage the selection
   const state = useListState({
     ...otherProps,
-    children: item => <Item key={item.value}>{item.label}</Item>, // For initialising selection and determined item.renderer, can be only Item or Section
+    children: (item) => <Item key={item.value}>{item.label}</Item>, // For initialising selection and determined item.renderer, can be only Item or Section
     filter: onSearchInputChange ? undefined : searchFilter, // If the user has passed an `onSearchInputChange` we opt them out of the default filtering
   })
 
@@ -78,7 +76,7 @@ export const SelectionProvider = (
       disallowEmptySelection: true, // stop escape key from clearing selection
     },
     state,
-    ref
+    ref,
   )
 
   return (
@@ -98,8 +96,7 @@ export const SelectionProvider = (
   )
 }
 
-export const useSelectionContext = (): SelectionProviderContextType =>
-  useContext(SelectionContext)
+export const useSelectionContext = (): SelectionProviderContextType => useContext(SelectionContext)
 
 export const SelectionConsumer = ({
   children,

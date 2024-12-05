@@ -1,1 +1,1 @@
-export * from "./OptionalIntlProvider"
+export * from './OptionalIntlProvider'

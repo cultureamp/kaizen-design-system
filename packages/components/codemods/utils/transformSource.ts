@@ -1,16 +1,13 @@
-import ts from "typescript"
-import { decodeEmptyLines } from "./emptyLineEncoder"
-import { printAst } from "./printAst"
+import ts from 'typescript'
+import { decodeEmptyLines } from './emptyLineEncoder'
+import { printAst } from './printAst'
 
 export type TransformSourceArgs = {
   sourceFile: ts.SourceFile
-  transformers: Array<ts.TransformerFactory<ts.SourceFile>>
+  transformers: ts.TransformerFactory<ts.SourceFile>[]
 }
 
-export const transformSource = ({
-  sourceFile,
-  transformers,
-}: TransformSourceArgs): string => {
+export const transformSource = ({ sourceFile, transformers }: TransformSourceArgs): string => {
   const result = ts.transform(sourceFile, transformers)
   const transformedSource = printAst(result.transformed[0])
   return decodeEmptyLines(transformedSource)
@@ -23,7 +20,7 @@ export type TransformSourceForTagNameArgs = {
   sourceFile: ts.SourceFile
   astTransformer: (
     context: ts.TransformationContext,
-    tagName: string
+    tagName: string,
   ) => (rootNode: ts.SourceFile) => ts.SourceFile
   tagName: string
 }
@@ -39,5 +36,5 @@ export const transformSourceForTagName = ({
 }: TransformSourceForTagNameArgs): string =>
   transformSource({
     sourceFile,
-    transformers: [context => astTransformer(context, tagName)],
+    transformers: [(context) => astTransformer(context, tagName)],
   })

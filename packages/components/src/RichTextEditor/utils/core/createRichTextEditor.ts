@@ -1,6 +1,6 @@
-import { EditorState, Transaction } from "prosemirror-state"
-import { EditorView as ProseMirrorEditorView } from "prosemirror-view"
-import { CommandOrTransaction } from "./types"
+import { EditorState, Transaction } from 'prosemirror-state'
+import { EditorView as ProseMirrorEditorView } from 'prosemirror-view'
+import { CommandOrTransaction } from './types'
 
 type EditorAPI = {
   destroy: () => void
@@ -14,9 +14,7 @@ type EditorArgs = {
   /*
    * Pass in HTML attributes into the parent RTE node
    */
-  attributes?: {
-    [name: string]: string
-  }
+  attributes?: Record<string, string>
   isEditable?: () => boolean
 }
 
@@ -35,18 +33,16 @@ export const createRichTextEditor = ({
 
   // Handle transactions eminating from the EditorView instance
   const dispatch = (tx: Transaction): void => {
-    const newEditorState = editorView && editorView.state.apply(tx)
+    const newEditorState = editorView?.state.apply(tx)
     if (newEditorState) {
       onChange(newEditorState)
-      editorView && editorView.updateState(newEditorState)
+      editorView?.updateState(newEditorState)
     }
   }
 
   // Allow the dispatcher to handle either a Command or a Transaction so we can
   // change the state more ergonomically upstream
-  const dispatchCommandOrTransaction = (
-    commandOrTransaction: CommandOrTransaction
-  ): void => {
+  const dispatchCommandOrTransaction = (commandOrTransaction: CommandOrTransaction): void => {
     if (commandOrTransaction instanceof Transaction) {
       dispatch(commandOrTransaction)
     } else if (editorView) {
@@ -62,9 +58,7 @@ export const createRichTextEditor = ({
   })
 
   return {
-    destroy: () => {
-      editorView && editorView.destroy()
-    },
+    destroy: () => editorView.destroy(),
     dispatchTransaction: dispatchCommandOrTransaction,
   }
 }

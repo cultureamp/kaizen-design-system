@@ -17,6 +17,7 @@ _Note: If your package extends another shared UI package, you will need to list 
 ### `package.json`
 
 Add the following to your `package.json`:
+
 ```json
 "main": "dist/cjs/index.cjs", // CommonJS entrypoint
 "module": "dist/esm/index.mjs", // ES modules entrypoint
@@ -39,6 +40,7 @@ pnpm add -D postcss postcss-preset-env rollup tslib
 ```
 
 `devDependencies`:
+
 - `postcss`
 - `postcss-preset-env`
 - `rollup`
@@ -59,24 +61,26 @@ pnpm add -D postcss postcss-preset-env rollup tslib
 ### PostCSS
 
 In `postcss.config.js`:
+
 ```js
 module.exports = {
   plugins: {
-    "postcss-import": {},
-    cssnano: {},
+    'postcss-import': {},
+    'cssnano': {},
   },
 }
 ```
 
 If using Tailwind:
+
 ```js
 module.exports = {
   plugins: {
-    "postcss-import": {},
-    "tailwindcss/nesting": "postcss-nesting",
-    tailwindcss: {},
-    autoprefixer: {},
-    cssnano: {},
+    'postcss-import': {},
+    'tailwindcss/nesting': 'postcss-nesting',
+    'tailwindcss': {},
+    'autoprefixer': {},
+    'cssnano': {},
   },
 }
 ```
@@ -84,17 +88,19 @@ module.exports = {
 ### Rollup
 
 In `rollup.config.mjs`:
+
 ```ts
-import { pluginsSharedUi, rollupConfig } from "@kaizen/package-bundler";
+import { pluginsSharedUi, rollupConfig } from '@kaizen/package-bundler'
 
 export default rollupConfig({
   // Add extra entrypoints as required
-  input: { index: "./src/index.ts" },
+  input: { index: './src/index.ts' },
   plugins: pluginsSharedUi,
 })
 ```
 
 ### tsconfig
+
 ```json
 // tsconfig.json
 {
@@ -114,20 +120,22 @@ pnpm add -D tailwind @kaizen/tailwind
 ```
 
 Required files:
+
 - `tailwind.config.js`
 - `src/tailwind.css`
 
 Follow the [set up guide](../../docs/Tailwind/getting-started.mdx).
 
 As we use PostCSS, ensure your `postcss.config.js` has the following plugins installed:
+
 ```js
 module.exports = {
   plugins: {
-    "postcss-import": {},
-    "tailwindcss/nesting": "postcss-nesting",
-    tailwindcss: {},
-    autoprefixer: {},
-    cssnano: {},
+    'postcss-import': {},
+    'tailwindcss/nesting': 'postcss-nesting',
+    'tailwindcss': {},
+    'autoprefixer': {},
+    'cssnano': {},
   },
 }
 ```
@@ -137,7 +145,7 @@ If you are creating a UI library to share with others, ensure you set a unique p
 ```js
 // tailwind.config.js
 module.exports = {
-  prefix: "{uniquePrefix}-"
+  prefix: '{uniquePrefix}-',
 }
 ```
 
@@ -146,6 +154,7 @@ module.exports = {
 If you are using aliases, ensure you have them listed in your `tsconfig.json` (the `tsconfig.dist` should extend this).
 
 Example:
+
 ```json
 // tsconfig.json
 {

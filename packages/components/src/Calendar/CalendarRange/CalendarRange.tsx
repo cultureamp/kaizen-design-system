@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react"
-import { enAU } from "date-fns/locale"
-import { DayPicker, DayPickerRangeProps } from "react-day-picker"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { baseCalendarClassNames } from "../baseCalendarClassNames"
-import { isInvalidDate } from "../utils"
-import styles from "./CalendarRange.module.scss"
+import React, { useEffect, useRef } from 'react'
+import { enAU } from 'date-fns/locale'
+import { DayPicker, DayPickerRangeProps } from 'react-day-picker'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { baseCalendarClassNames } from '../baseCalendarClassNames'
+import { isInvalidDate } from '../utils'
+import styles from './CalendarRange.module.scss'
 
 export type CalendarRangeElement = HTMLDivElement
 
@@ -13,7 +13,7 @@ export type CalendarRangeProps = {
   id?: string
   onMount?: (calendarElement: CalendarRangeElement) => void
   hasDivider?: boolean
-} & OverrideClassName<Omit<DayPickerRangeProps, "mode">>
+} & OverrideClassName<Omit<DayPickerRangeProps, 'mode'>>
 
 export const CalendarRange = ({
   id,
@@ -28,12 +28,11 @@ export const CalendarRange = ({
   const calendarRef = useRef<CalendarRangeElement>(null)
 
   useEffect(() => {
-    if (calendarRef.current) onMount && onMount(calendarRef.current)
-  }, [calendarRef])
+    if (calendarRef.current) onMount?.(calendarRef.current)
+  }, [calendarRef, onMount])
 
-  const monthToShow = selected?.from || defaultMonth
-  const selectedMonth =
-    monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
+  const monthToShow = selected?.from ?? defaultMonth
+  const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */
   const classNames = {
@@ -44,7 +43,7 @@ export const CalendarRange = ({
     day_range_start: styles.dayRangeStart,
     day_range_end: styles.dayRangeEnd,
     day_range_middle: styles.dayRangeMiddle,
-  } satisfies DayPickerRangeProps["classNames"]
+  } satisfies DayPickerRangeProps['classNames']
   /* eslint-enable camelcase */
 
   return (
@@ -55,12 +54,8 @@ export const CalendarRange = ({
         defaultMonth={selectedMonth}
         classNames={classNames}
         components={{
-          IconRight: () => (
-            <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
-          ),
-          IconLeft: () => (
-            <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
-          ),
+          IconRight: () => <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
+          IconLeft: () => <Icon name="arrow_back" isPresentational shouldMirrorInRTL />,
         }}
         numberOfMonths={2}
         locale={locale}
@@ -70,4 +65,4 @@ export const CalendarRange = ({
   )
 }
 
-CalendarRange.displayName = "CalendarRange"
+CalendarRange.displayName = 'CalendarRange'

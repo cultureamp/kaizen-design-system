@@ -1,14 +1,11 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { PopoverProps, usePopover } from "../index"
-import { popoverPlacements } from "../types"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { PopoverProps, usePopover } from '../index'
+import { popoverPlacements } from '../types'
 
 export default {
-  title: "Components/Popover",
+  title: 'Components/Popover',
   parameters: {
     chromatic: { disable: false, diffThreshold: 1 },
     controls: { disable: true },
@@ -16,7 +13,7 @@ export default {
 } satisfies Meta
 
 const PopoverWrapper = (
-  props: Omit<PopoverProps, "children" | "referenceElement">
+  props: Omit<PopoverProps, 'children' | 'referenceElement'>,
 ): JSX.Element => {
   const [referenceElementRef, Popover] = usePopover()
 
@@ -31,17 +28,17 @@ const PopoverWrapper = (
 }
 
 const cellStyle = {
-  display: "grid",
-  placeContent: "center",
-  width: "220px",
-  height: "250px",
+  display: 'grid',
+  placeContent: 'center',
+  width: '220px',
+  height: '250px',
 }
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet
       isReversed={isReversed}
-      headers={["Default", "Positive", "Informative", "Negative", "Cautionary"]}
+      headers={['Default', 'Positive', 'Informative', 'Negative', 'Cautionary']}
       className="min-w-fit"
     >
       <StickerSheet.Row header="Variants (deprecated)">
@@ -62,7 +59,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Cell>
       </StickerSheet.Row>
 
-      {popoverPlacements.map(placement => (
+      {popoverPlacements.map((placement) => (
         <StickerSheet.Row key={placement} header={placement}>
           <StickerSheet.Cell style={cellStyle}>
             <PopoverWrapper placement={placement} />
@@ -75,13 +72,13 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

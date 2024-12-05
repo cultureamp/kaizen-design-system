@@ -1,8 +1,8 @@
-import React from "react"
-import { FocusScope } from "@react-aria/focus"
-import { useOverlay, DismissButton } from "@react-aria/overlays"
-import { useMenuTriggerContext } from "../../context"
-import styles from "./MenuPopup.module.scss"
+import React from 'react'
+import { FocusScope } from '@react-aria/focus'
+import { useOverlay, DismissButton } from '@react-aria/overlays'
+import { useMenuTriggerContext } from '../../context'
+import styles from './MenuPopup.module.scss'
 
 export type MenuPopupProps = {
   isLoading?: boolean
@@ -28,7 +28,7 @@ export const MenuPopup = ({
       isOpen: menuTriggerState.isOpen,
       isDismissable: true,
     },
-    overlayRef
+    overlayRef,
   )
 
   // Wrap in <FocusScope> so that focus is restored back to the trigger when the menu is closed
@@ -58,4 +58,4 @@ export const MenuPopup = ({
   )
 }
 
-MenuPopup.displayName = "FilterMultiSelect.MenuPopup"
+MenuPopup.displayName = 'FilterMultiSelect.MenuPopup'

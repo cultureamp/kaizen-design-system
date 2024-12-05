@@ -1,5 +1,5 @@
-import { Meta } from "@storybook/blocks"
-import { LinkTo } from "~storybook/components/LinkTo"
+import { Meta } from '@storybook/blocks'
+import { LinkTo } from '~storybook/components/LinkTo'
 
 <Meta title="Components/Kaizen Provider/Internationalization in Kaizen" />
 
@@ -38,13 +38,13 @@ There is a slight difference in the implementation of the `KaizenProvider`, depe
 For more information on `@cultureamp/i18n-react-intl`, see their docs here.
 
 Note: This will work with StaticIntlProvider or DynamicIntlProvider.
-```tsx
-import { DynamicIntlProvider } from "@cultureamp/i18n-react-intl"
-import { KaizenProvider } from "@kaizen/components"
 
-<DynamicIntlProvider>
+```tsx
+import { DynamicIntlProvider } from '@cultureamp/i18n-react-intl'
+import { KaizenProvider } from '@kaizen/components'
+;<DynamicIntlProvider>
   <KaizenProvider>
-     <YourApp/>
+    <YourApp />
   </KaizenProvider>
 </DynamicIntlProvider>
 ```
@@ -54,9 +54,8 @@ import { KaizenProvider } from "@kaizen/components"
 In these cases, you'll need to pass the current locale as a prop to the `KaizenProvider`, so it knows which language is currently active.
 
 ```tsx
-import { KaizenProvider } from "@kaizen/components"
-
-<KaizenProvider locale={locale}>
-  <YourApp/>
+import { KaizenProvider } from '@kaizen/components'
+;<KaizenProvider locale={locale}>
+  <YourApp />
 </KaizenProvider>
 ```

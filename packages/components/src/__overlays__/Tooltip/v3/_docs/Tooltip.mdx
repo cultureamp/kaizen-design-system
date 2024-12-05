@@ -1,19 +1,25 @@
-import { Canvas, Meta, Controls } from "@storybook/blocks"
-import { ResourceLinks, SbContent, Installation, DosAndDonts, DoOrDont } from "~storybook/components"
-import * as TooltipStories from "./Tooltip.docs.stories"
-import AnatomyPng from "./assets/tooltip_anatomy.png"
-import PlacementPng from "./assets/tooltip_placement.png"
-import DesignSpecPng from "./assets/tooltip_spec.png"
-import WhenToUsePng from "./assets/tooltip_variant.png"
+import { Canvas, Meta, Controls } from '@storybook/blocks'
+import {
+  ResourceLinks,
+  SbContent,
+  Installation,
+  DosAndDonts,
+  DoOrDont,
+} from '~storybook/components'
+import * as TooltipStories from './Tooltip.docs.stories'
+import AnatomyPng from './assets/tooltip_anatomy.png'
+import PlacementPng from './assets/tooltip_placement.png'
+import DesignSpecPng from './assets/tooltip_spec.png'
+import WhenToUsePng from './assets/tooltip_variant.png'
 
 <Meta title="Overlays/Tooltip/v3/Usage Guidelines" />
 
 <SbContent>
   # Tooltip (v3)
 
-  Updated June 25, 2024
-</SbContent>
+Updated June 25, 2024
 
+</SbContent>
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tooltip"
@@ -29,50 +35,57 @@ import WhenToUsePng from "./assets/tooltip_variant.png"
     importStatement='import { Tooltip, TooltipTrigger } from "@kaizen/components/v3/overlays"'
   />
 
-  ## Overview
+## Overview
 
-  Tooltips are brief floating labels used to add additional contextual information when users hover, click or focus on an interactive element. These should offer concise explanations,  elaborating on the element they are associated with.
+Tooltips are brief floating labels used to add additional contextual information when users hover, click or focus on an interactive element. These should offer concise explanations, elaborating on the element they are associated with.
+
 </SbContent>
-
 
 <Canvas
   of={TooltipStories.Playground}
-  source={{code: `
+  source={{
+    code: `
 <TooltipTrigger>
   <Button label="Button" />
   <Tooltip>Tooltip content</Tooltip>
 </TooltipTrigger>
-  `}}
- />
-<Controls of={TooltipStories.Playground} include={["placement", "isOpen"]} className="mb-64" />
-
+  `,
+  }}
+/>
+<Controls of={TooltipStories.Playground} include={['placement', 'isOpen']} className="mb-64" />
 
 <SbContent className="mb-64">
   ### Anatomy
 
-  - The anatomy of a tooltip is made up of a container, description and arrow.
-    - **They do not include a title or heading**. If you need to include a title, use a Popover
-  - A tooltip is connected to a trigger element, such as a button or icon, that shows the tooltip when the interactive trigger element is hovered or focused. (More details below.)
+- The anatomy of a tooltip is made up of a container, description and arrow.
+  - **They do not include a title or heading**. If you need to include a title, use a Popover
+- A tooltip is connected to a trigger element, such as a button or icon, that shows the tooltip when the interactive trigger element is hovered or focused. (More details below.)
 
-  <img src={AnatomyPng} alt="Indicates the anatomy of the Tooltip component, the Container, Label, Arrow and Trigger" className="mt-24" />
+<img
+  src={AnatomyPng}
+  alt="Indicates the anatomy of the Tooltip component, the Container, Label, Arrow and Trigger"
+  className="mt-24"
+/>
+
 </ SbContent>
 
 <SbContent className="mb-64">
   ### When to use
 
-  - Tooltips are used to provide additional information when space is tight.
-  - Tooltips must be concise with one or more lines of text.
-  - Tooltips must be accessible via hover and focus only.
-  - Trigger tooltips from Interactive elements (Buttons, Links, Icon buttons) or Non-interactive elements (Icons, Abbreviations Truncated text)—be mindful of keyboard accessibility
-  - **Never include any kind of error messages** in a tooltip
+- Tooltips are used to provide additional information when space is tight.
+- Tooltips must be concise with one or more lines of text.
+- Tooltips must be accessible via hover and focus only.
+- Trigger tooltips from Interactive elements (Buttons, Links, Icon buttons) or Non-interactive elements (Icons, Abbreviations Truncated text)—be mindful of keyboard accessibility
+- **Never include any kind of error messages** in a tooltip
 
-  <img src={WhenToUsePng} className="mt-32" alt="Illustration of when to use the Tooltip component" />
+<img src={WhenToUsePng} className="mt-32" alt="Illustration of when to use the Tooltip component" />
+
 </ SbContent>
 
 <SbContent className="mb-64">
   ### Specs
   <img src={DesignSpecPng} alt="" />
-</ SbContent>
+</SbContent>
 
 <div className="flex flex-col mt-16 gap-40 mb-64">
   <div className="flex flex-col m-0 gap-16">
@@ -95,6 +108,7 @@ import WhenToUsePng from "./assets/tooltip_variant.png"
       <DoOrDont story={TooltipStories.DoFieldTooltip} />
       <DoOrDont story={TooltipStories.DontFieldTooltip} isDont />
     </DosAndDonts>
+
   </div>
 
   <div className="flex flex-col m-0 gap-16">
@@ -107,42 +121,44 @@ import WhenToUsePng from "./assets/tooltip_variant.png"
       <DoOrDont story={TooltipStories.DoConcise}/>
       <DoOrDont story={TooltipStories.DontConcise}  isDont />
     </DosAndDonts>
+
   </div>
 </div>
 
 <SbContent className="mb-64">
   ### Placements
 
-  <img src={PlacementPng} alt="" className="mb-24" />
+{' '}
 
-  - Type: Dropdown to choose from Default (dark tooltip) and Reverse (light tooltip)
-  - Direction: Dropdown to choose where the arrow points
-  - Tooltip label: Input field allows you to type in the label from the properties panel
-  - Use strong signifiers for trigger elements to ensure the tooltip is discoverable.
-  - The proximity of tooltips is always paired to the element with which they are associated.
+<img src={PlacementPng} alt="" className="mb-24" />
+
+- Type: Dropdown to choose from Default (dark tooltip) and Reverse (light tooltip)
+- Direction: Dropdown to choose where the arrow points
+- Tooltip label: Input field allows you to type in the label from the properties panel
+- Use strong signifiers for trigger elements to ensure the tooltip is discoverable.
+- The proximity of tooltips is always paired to the element with which they are associated.
+
 </SbContent>
 
 <SbContent className="mb-24">
   ### Trigger
 
-  - A tooltip trigger needs to be discoverable:
-    - E.g. something like an icon to suggest there’s a tooltip.
-    - Avoid triggering tooltips from text that excludes a visual indicator (e.g. underline)
-  - A tooltip should be shown and accessible on hover, click or on focus events.
+- A tooltip trigger needs to be discoverable:
+  - E.g. something like an icon to suggest there’s a tooltip.
+  - Avoid triggering tooltips from text that excludes a visual indicator (e.g. underline)
+- A tooltip should be shown and accessible on hover, click or on focus events.
+
 </SbContent>
 
 <div className="mb-32">
   <DosAndDonts>
     <DoOrDont story={TooltipStories.TriggerDo} />
-    <DoOrDont story={TooltipStories.TriggerDont} isDont/>
+    <DoOrDont story={TooltipStories.TriggerDont} isDont />
   </DosAndDonts>
 </div>
 
 <SbContent className="mb-24">
-  - Only trigger tooltips from interactive elements, such as:
-    - Buttons
-    - Links
-    - Icon buttons
+  - Only trigger tooltips from interactive elements, such as: - Buttons - Links - Icon buttons
 </SbContent>
 
 <div className="mb-32">
@@ -153,9 +169,8 @@ import WhenToUsePng from "./assets/tooltip_variant.png"
 </div>
 
 <SbContent>
-  - Non-interactive elements (be mindful of keyboard accessibility):
-    - Icons
-    - Abbreviations (e.g. dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)
-    - Truncated text
-  - For interactive elements that trigger tooltips, only have optional information in the tooltip because it could be missed when the user clicks
+  - Non-interactive elements (be mindful of keyboard accessibility): - Icons - Abbreviations (e.g.
+  dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)
+  - Truncated text - For interactive elements that trigger tooltips, only have optional information
+  in the tooltip because it could be missed when the user clicks
 </SbContent>

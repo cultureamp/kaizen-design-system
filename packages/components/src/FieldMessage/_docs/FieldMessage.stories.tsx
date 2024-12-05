@@ -1,13 +1,13 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { FieldMessage } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { FieldMessage } from '../index'
 
 const meta = {
-  title: "Components/FieldMessage",
+  title: 'Components/FieldMessage',
   component: FieldMessage,
   args: {
     message:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullasemper odio vitae sem gravida rutrum.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullasemper odio vitae sem gravida rutrum.',
   },
 } satisfies Meta<typeof FieldMessage>
 
@@ -19,7 +19,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -27,45 +27,44 @@ export const Playground: Story = {
 
 export const HelperText: Story = {
   args: {
-    message:
-      "Your email address will be used to send survey notifications and reports",
+    message: 'Your email address will be used to send survey notifications and reports',
   },
 }
 export const DetailedHelperText: Story = {
   args: {
     message: (
       <div>
-        Your email address will be used to send survey notifications and
-        reports. Learn more about <a href="/">how your data will be used</a>
+        Your email address will be used to send survey notifications and reports. Learn more about{' '}
+        <a href="/">how your data will be used</a>
       </div>
     ),
   },
 }
 
 export const Error: Story = {
-  args: { status: "error", message: "Invalid email provided." },
+  args: { status: 'error', message: 'Invalid email provided.' },
 }
 
 export const Cautionary: Story = {
   args: {
-    status: "caution",
-    message: "Do not share your password or account details.",
+    status: 'caution',
+    message: 'Do not share your password or account details.',
   },
 }
 
 export const Success: Story = {
-  args: { status: "success", message: "Your account has been created" },
+  args: { status: 'success', message: 'Your account has been created' },
 }
 
 export const Reversed: Story = {
-  args: { reversed: true, status: "error" },
-  parameters: { backgrounds: { default: "Purple 700" } },
-  name: "reversed",
+  args: { reversed: true, status: 'error' },
+  parameters: { backgrounds: { default: 'Purple 700' } },
+  name: 'reversed',
 }
 
 export const Position: Story = {
-  args: { position: "bottom" },
-  render: args => (
+  args: { position: 'bottom' },
+  render: (args) => (
     <div className="flex gap-6">
       <FieldMessage
         {...args}

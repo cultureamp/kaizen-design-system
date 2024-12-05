@@ -1,2 +1,2 @@
-export * from "./PendingContent"
-export * from "./ButtonContent"
+export * from './PendingContent'
+export * from './ButtonContent'

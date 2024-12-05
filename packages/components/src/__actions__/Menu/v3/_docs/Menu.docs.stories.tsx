@@ -1,13 +1,13 @@
-import React, { FunctionComponent, ReactNode } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import isChromatic from "chromatic"
-import { Popover } from "react-aria-components"
-import { Button } from "~components/__actions__/v3"
-import { Icon } from "~components/__future__/Icon"
-import { Menu, MenuItem, MenuTrigger } from "../index"
+import React, { FunctionComponent, ReactNode } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import isChromatic from 'chromatic'
+import { Popover } from 'react-aria-components'
+import { Button } from '~components/__actions__/v3'
+import { Icon } from '~components/__future__/Icon'
+import { Menu, MenuItem, MenuTrigger } from '../index'
 
 const meta = {
-  title: "Actions/Menu/v3/Docs Assets",
+  title: 'Actions/Menu/v3/Docs Assets',
   component: MenuTrigger,
   args: {
     defaultOpen: isChromatic(),
@@ -23,18 +23,10 @@ type Story = StoryObj<typeof meta>
 const DefaultMenuItems = (): ReactNode => (
   <>
     <MenuItem icon={<Icon name="bookmark" isPresentational />}>Save</MenuItem>
-    <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>
-      Edit
-    </MenuItem>
-    <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>
-      Move up
-    </MenuItem>
-    <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>
-      Move down
-    </MenuItem>
-    <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>
-      Delete
-    </MenuItem>
+    <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>Edit</MenuItem>
+    <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>Move up</MenuItem>
+    <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>Move down</MenuItem>
+    <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
   </>
 )
 
@@ -51,9 +43,7 @@ export const Actions: Story = {
       </Button>
       <Popover>
         <Menu>
-          <MenuItem href="https://cultureamp.com">
-            Action that navigates
-          </MenuItem>
+          <MenuItem href="https://cultureamp.com">Action that navigates</MenuItem>
           <MenuItem onAction={() => null}>Non-navigation action</MenuItem>
         </Menu>
       </Popover>
@@ -94,9 +84,7 @@ export const ItemsDont: Story = {
       </Button>
       <Popover>
         <Menu>
-          <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>
-            Delete
-          </MenuItem>
+          <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
         </Menu>
       </Popover>
     </MenuTrigger>
@@ -112,9 +100,7 @@ export const SelectionDont: Story = {
       </Button>
       <Popover>
         <Menu>
-          <MenuItem icon={<Icon name="check" isPresentational />}>
-            Recommended
-          </MenuItem>
+          <MenuItem icon={<Icon name="check" isPresentational />}>Recommended</MenuItem>
           <MenuItem>Most recent</MenuItem>
         </Menu>
       </Popover>

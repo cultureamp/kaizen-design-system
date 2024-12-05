@@ -1,8 +1,8 @@
-import { ArgTypes, Canvas, Meta } from "@storybook/blocks"
-import { Installation, ResourceLinks } from "~storybook/components"
-import * as Workflow from "./Workflow.stories"
-import * as WorkflowFooter from "./WorkflowFooter.stories"
-import * as WorkflowHeader from "./WorkflowHeader.stories"
+import { ArgTypes, Canvas, Meta } from '@storybook/blocks'
+import { Installation, ResourceLinks } from '~storybook/components'
+import * as Workflow from './Workflow.stories'
+import * as WorkflowFooter from './WorkflowFooter.stories'
+import * as WorkflowHeader from './WorkflowHeader.stories'
 
 <Meta of={Workflow} />
 
@@ -30,14 +30,15 @@ To ensure at readability at 400% zoom (See WCAG's [Reflow criteria](https://www.
 
 ## Header actions
 
-The `headerActions` prop  takes array of JSX elements that will render in the top right of the `Header` component.
+The `headerActions` prop takes array of JSX elements that will render in the top right of the `Header` component.
 
 While the number of JSX elements is not limited, is important to consider the real estate in the `Header` and how larger strings or components may be rendered on smaller screen sizes.
 
 <Canvas
   layout="fullscreen"
   of={WorkflowHeader.MultipleActions}
-  source={{code: `<Workflow
+  source={{
+    code: `<Workflow
     headerActions={[
       <Button
         key="would-use-uui-1"
@@ -57,9 +58,9 @@ While the number of JSX elements is not limited, is important to consider the re
     {...otherProps}
   >
     <MockContent />
-  </Workflow>`}}
+  </Workflow>`,
+  }}
 />
-
 
 ## Handling a Workflow exit
 
@@ -68,7 +69,8 @@ A common pattern identified is a Workflow Exit button. An implementation of this
 <Canvas
   layout="fullscreen"
   of={WorkflowHeader.Playground}
-  source={{code: `
+  source={{
+    code: `
   const [showModal, setShowModal] = useState<boolean>(false)
   ...
   return (
@@ -97,7 +99,7 @@ A common pattern identified is a Workflow Exit button. An implementation of this
         </div>
       </ConfirmationModal>
     </>
-  )`
+  )`,
   }}
 />
 
@@ -108,7 +110,8 @@ The Footer tracks the progress of the form by using finding the index of the `cu
 <Canvas
   layout="fullscreen"
   of={WorkflowFooter.FirstStep}
-  source={{code: `<Workflow
+  source={{
+    code: `<Workflow
     currentStepId="settings-step"
     steps={[
       { label: "Settings", id: "settings-step" },
@@ -120,24 +123,26 @@ The Footer tracks the progress of the form by using finding the index of the `cu
     {...otherProps}
   >
     <MockContent />
-  </Workflow>`}}
+  </Workflow>`,
+  }}
 />
 
 The Footer is agnostic to the JSX elements that are used in the `previousAction` and `nextAction`. While we recommend using the Kaizen Button, a button-like component can be used in its place to satisfy project-specific requirements.
-
 
 To hide, disable or change the appearance of the Footer buttons you can leverage the props available for the `@kaizen/button` or pass in undefined to not render the component.
 
 <Canvas
   layout="fullscreen"
   of={WorkflowFooter.LastStep}
-  source={{code: `<Workflow
+  source={{
+    code: `<Workflow
     nextAction={<Button disabled label="Finish" primary />}
     previousAction={<Button label="Back" />}
     {...otherProps}
   >
     <MockContent />
-  </Workflow>`}}
+  </Workflow>`,
+  }}
 />
 
 In Instances where users are returning to a completed workflow you can pass the `isComplete` prop to set the indicators to their "complete" status. This will also be reflected in their Aria title.
@@ -145,12 +150,14 @@ In Instances where users are returning to a completed workflow you can pass the 
 <Canvas
   layout="fullscreen"
   of={WorkflowFooter.AllStepsComplete}
-  source={{code: `<Workflow
+  source={{
+    code: `<Workflow
     isComplete
     {...otherProps}
   >
     <MockContent />
-  </Workflow>`}}
+  </Workflow>`,
+  }}
 />
 
 ## Composable Worflow
@@ -158,7 +165,6 @@ In Instances where users are returning to a completed workflow you can pass the 
 While we do not advise this path, a composable Workflow may be created if required. Refer to the component's stories on how to consume each subcomponent.
 
 <Canvas layout="fullscreen" of={Workflow.ComposableWorkflow} />
-
 
 ## Worflow API at a glance
 

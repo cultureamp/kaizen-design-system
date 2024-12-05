@@ -1,6 +1,6 @@
-import React, { useContext } from "react"
-import { SelectState } from "@react-stately/select"
-import { SelectItem, SelectOption } from "../types"
+import React, { useContext } from 'react'
+import { SelectState } from '@react-stately/select'
+import { SelectItem, SelectOption } from '../types'
 
 // We set the generic default value to `any` as SelectContext
 // is instantiated as a constant which does not accept generics.
@@ -16,9 +16,7 @@ export const useSelectContext = <
   const context = useContext(SelectContext)
 
   if (!context) {
-    throw new Error(
-      "useSelectContext must be used within the SelectContext.Provider"
-    )
+    throw new Error('useSelectContext must be used within the SelectContext.Provider')
   }
 
   return context

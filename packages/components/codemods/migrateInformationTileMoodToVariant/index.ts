@@ -1,20 +1,14 @@
-import { transformComponentsInDir } from "../utils"
-import { transformInformationTileMoodToVariant } from "./transformInformationTileMoodToVariant"
+import { transformComponentsInDir } from '../utils'
+import { transformInformationTileMoodToVariant } from './transformInformationTileMoodToVariant'
 
 const migrateInformationTileMoodToVariant = (): void => {
-  console.log(
-    "~(-_- ~) Running InformationTile mood to variant transformer (~ -_-)~"
-  )
+  console.log('~(-_- ~) Running InformationTile mood to variant transformer (~ -_-)~')
   const targetDir = process.argv[2]
   if (!targetDir) {
     process.exit(1)
   }
 
-  transformComponentsInDir(
-    targetDir,
-    transformInformationTileMoodToVariant,
-    "InformationTile"
-  )
+  transformComponentsInDir(targetDir, transformInformationTileMoodToVariant, 'InformationTile')
 }
 
 migrateInformationTileMoodToVariant()

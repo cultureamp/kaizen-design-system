@@ -1,8 +1,8 @@
 import {
   validateDate as dpValidateDate,
   ValidateDateArgs,
-} from "~components/DatePicker/utils/validateDate"
-import { DateValidationResponse } from "../types"
+} from '~components/DatePicker/utils/validateDate'
+import { DateValidationResponse } from '../types'
 
 export type ValidateDateResponse = {
   validationResponse: DateValidationResponse
@@ -19,9 +19,7 @@ export const validateDate = (args: ValidateDateArgs): ValidateDateResponse => {
     validationResponse: {
       ...rest,
       validationMessage:
-        status && validationMessage
-          ? { status, message: validationMessage }
-          : undefined,
+        status && validationMessage ? { status, message: validationMessage } : undefined,
     },
   }
 }

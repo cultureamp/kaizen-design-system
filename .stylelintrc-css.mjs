@@ -1,20 +1,20 @@
 /** @type {import('stylelint').Config} */
 // For CSS linting only, SCSS linting is handled in the root .stylelintrc.json
 export default {
-  extends: "stylelint-config-standard",
+  extends: 'stylelint-config-standard',
   rules: {
-    "selector-class-pattern": null,
-    "color-function-notation": ["modern", { ignore: ["with-var-inside"] }],
-    "font-family-no-missing-generic-family-keyword": [
+    'selector-class-pattern': null,
+    'color-function-notation': ['modern', { ignore: ['with-var-inside'] }],
+    'font-family-no-missing-generic-family-keyword': [
       true,
       {
-        ignoreFontFamilies: ["Material Symbols Outlined"],
+        ignoreFontFamilies: ['Material Symbols Outlined'],
       },
     ],
-    "selector-pseudo-class-no-unknown": [
+    'selector-pseudo-class-no-unknown': [
       true,
       {
-        ignorePseudoClasses: ["global"],
+        ignorePseudoClasses: ['global'],
       },
     ],
   },

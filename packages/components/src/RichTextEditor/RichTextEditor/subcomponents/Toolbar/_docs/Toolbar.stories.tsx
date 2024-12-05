@@ -1,27 +1,21 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Icon } from "~components/__future__/Icon"
-import { ToggleIconButton } from "../../ToggleIconButton"
-import { ToolbarSection } from "../../ToolbarSection"
-import { Toolbar } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Icon } from '~components/__future__/Icon'
+import { ToggleIconButton } from '../../ToggleIconButton'
+import { ToolbarSection } from '../../ToolbarSection'
+import { Toolbar } from '../index'
 
 const meta = {
-  title: "Components/RichTextEditor/Subcomponents/Toolbar",
+  title: 'Components/RichTextEditor/Subcomponents/Toolbar',
   component: Toolbar,
   args: {
-    "aria-controls": "my-rich-text-editor-id",
-    "aria-label": "Custom Super Toolbar",
-    children: (
+    'aria-controls': 'my-rich-text-editor-id',
+    'aria-label': 'Custom Super Toolbar',
+    'children': (
       <>
         <ToolbarSection>
-          <ToggleIconButton
-            label="Bold"
-            icon={<Icon name="format_bold" isPresentational />}
-          />
-          <ToggleIconButton
-            label="Italic"
-            icon={<Icon name="format_italic" isPresentational />}
-          />
+          <ToggleIconButton label="Bold" icon={<Icon name="format_bold" isPresentational />} />
+          <ToggleIconButton label="Italic" icon={<Icon name="format_italic" isPresentational />} />
           <ToggleIconButton
             label="Underline"
             icon={<Icon name="format_underlined" isPresentational />}
@@ -30,23 +24,11 @@ const meta = {
         <ToolbarSection>
           <ToggleIconButton
             label="Bullet list"
-            icon={
-              <Icon
-                name="format_list_bulleted"
-                isPresentational
-                shouldMirrorInRTL
-              />
-            }
+            icon={<Icon name="format_list_bulleted" isPresentational shouldMirrorInRTL />}
           />
           <ToggleIconButton
             label="Numbered list"
-            icon={
-              <Icon
-                name="format_list_numbered"
-                isPresentational
-                shouldMirrorInRTL
-              />
-            }
+            icon={<Icon name="format_list_numbered" isPresentational shouldMirrorInRTL />}
           />
         </ToolbarSection>
       </>
@@ -56,7 +38,7 @@ const meta = {
     children: { control: false },
   },
   decorators: [
-    Story => (
+    (Story) => (
       <>
         {/* Must give the toolbar something to control */}
         <Story />
@@ -75,7 +57,7 @@ export const Playground: Story = {
     chromatic: { disable: false },
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

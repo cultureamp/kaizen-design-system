@@ -1,8 +1,8 @@
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/color";
-@import "../mixins";
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/color';
+@import '../mixins';
 
 .container {
   display: flex;
@@ -54,7 +54,7 @@
     color: $color-white;
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       height: $active-tab-marker-height;
       position: absolute;
@@ -68,8 +68,7 @@
       @include title-block-medium-and-small {
         top: auto;
         bottom: 0;
-        border-radius: $border-solid-border-radius $border-solid-border-radius 0
-          0;
+        border-radius: $border-solid-border-radius $border-solid-border-radius 0 0;
       }
     }
   }
@@ -84,19 +83,17 @@
     &::after {
       $focus-ring-offset: calc((-1 * #{$border-focus-ring-border-width}));
 
-      content: "";
+      content: '';
       position: absolute;
       background: transparent;
       border-color: $color-blue-200;
-      border-radius: 0 0 $border-focus-ring-border-radius
-        $border-focus-ring-border-radius;
+      border-radius: 0 0 $border-focus-ring-border-radius $border-focus-ring-border-radius;
       border-width: $border-focus-ring-border-width;
       border-style: $border-focus-ring-border-style;
       inset: 0 $focus-ring-offset $active-tab-marker-height;
 
       @include title-block-medium-and-small {
-        border-radius: $border-focus-ring-border-radius
-          $border-focus-ring-border-radius 0 0;
+        border-radius: $border-focus-ring-border-radius $border-focus-ring-border-radius 0 0;
         inset: $active-tab-marker-height $focus-ring-offset 0 $focus-ring-offset;
       }
     }
@@ -132,8 +129,7 @@
       @include title-block-medium-and-small {
         top: auto;
         bottom: 0;
-        border-radius: $border-solid-border-radius $border-solid-border-radius 0
-          0;
+        border-radius: $border-solid-border-radius $border-solid-border-radius 0 0;
       }
     }
   }

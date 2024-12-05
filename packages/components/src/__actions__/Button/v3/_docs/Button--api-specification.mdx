@@ -1,7 +1,7 @@
-import { Canvas, Meta, Controls, ArgTypes, DocsStory } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as exampleStories from "./Button.docs.stories"
-import * as specStories from "./Button.spec.stories"
+import { Canvas, Meta, Controls, ArgTypes, DocsStory } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as exampleStories from './Button.docs.stories'
+import * as specStories from './Button.spec.stories'
 
 <Meta title="Actions/Button/Button (v3)/API Specification" />
 
@@ -15,7 +15,7 @@ Updated Nov 19, 2024
   designGuidelines="/?path=/docs/actions-button-button-v3-usage-guidelines--docs"
 />
 
-<KAIOInstallation exportNames={["Button" ]} family="actions" version="3" />
+<KAIOInstallation exportNames={['Button']} family="actions" version="3" />
 
 ## Overview
 
@@ -25,7 +25,26 @@ The following example and table showcases the essential props that enable the co
 
 <Canvas of={exampleStories.Playground} />
 
-<Controls of={exampleStories.Playground} className="mb-64" include={["children", "hasHiddenLabel", "className",  "size", "variant", "isReversed", "onPress", "icon", "iconPosition", "isFullWidth", "isDisabled", "isPending","pendingLabel", "hasHiddenPendingLabel" ]} />
+<Controls
+  of={exampleStories.Playground}
+  className="mb-64"
+  include={[
+    'children',
+    'hasHiddenLabel',
+    'className',
+    'size',
+    'variant',
+    'isReversed',
+    'onPress',
+    'icon',
+    'iconPosition',
+    'isFullWidth',
+    'isDisabled',
+    'isPending',
+    'pendingLabel',
+    'hasHiddenPendingLabel',
+  ]}
+/>
 
 ## Buttons and links
 
@@ -50,8 +69,8 @@ Reversed variants are handled via the `ReversedColors` Provider.
 To enable the reversed theme, you will need to wrap the component or application in the `ReversedColors` provider, ie:
 
 ```tsx
-import { Button } from "@kaizen/components/v3/actions"
-import { ReversedColors } from "@kaizen/components/v3/utilities"
+import { Button } from '@kaizen/components/v3/actions'
+import { ReversedColors } from '@kaizen/components/v3/utilities'
 // application code
 
 return (
@@ -74,15 +93,13 @@ One key change to the `Button`&apos;s API is the shift from `onClick` to React A
 Functionally this does not change the way we pass actions into `Button`. Consumers can safely replace `onClick` with `onPress` without any additional changes, ie:
 
 ```tsx
-<Button label="Submit" onClick={e => sumbit(e)}/>
+<Button label="Submit" onClick={(e) => sumbit(e)} />
 ```
 
 Can safely be replaced with the following:
 
 ```tsx
-<Button onPress={e => submit(e)}>
-  Submit
-</Button>
+<Button onPress={(e) => submit(e)}>Submit</Button>
 ```
 
 ### Button content and children
@@ -90,7 +107,7 @@ Can safely be replaced with the following:
 Labels and any button content can be passed into the `Button` as `children`. Content wrapped by the `Button` will be spaced evenly relative to the `size` prop.
 
 ```tsx
-<Button variant="secondary" onPress={e => submit(e)}>
+<Button variant="secondary" onPress={(e) => submit(e)}>
   Label
 </Button>
 ```
@@ -107,12 +124,11 @@ Set the position of the icon using the `iconPosition` prop. This will ensure con
 
 <Canvas of={exampleStories.ButtonWithIconEnd} />
 
-
 ### Icon-only `Button` and `hasHiddenLabel`
 
 To achieve an icon-only `Button` (previously: `IconButton`) use the `icon` prop and set `hasHiddenLabel` to `true`. This will visually hide the button's `children` and `pendingLabel`, while still announcing the content to screen readers.
 
-<Canvas of={exampleStories.IconButton} className="mb-32"  />
+<Canvas of={exampleStories.IconButton} className="mb-32" />
 
 This pattern ensures that the `Button`'s accessible name is determined by its children, which helps to announce relevant content to the screen readers, as with the [pending state](#pending-state). You can learn more about this [accessible pattern here](https://cultureamp.atlassian.net/wiki/spaces/PA/pages/3833331831/Accessible+button+and+link+labels).
 
@@ -132,7 +148,6 @@ As mentioned in the [previous section](#icon-only-button-and-hashiddenlabel), an
 
 <Canvas of={specStories.PendingIconButton} />
 
-
 ### Full width Buttons
 
 If a button is statically the full width of a container you can use the `isFullWidth` property.
@@ -147,4 +162,21 @@ The following table is a collection of additional React Aria and native HTML pro
 
 You can learn more about React Aria's Button API and advance configuration options [here](https://react-spectrum.adobe.com/react-aria/Button.html#props).
 
-<ArgTypes of={exampleStories.Playground} exclude={["children", "hasHiddenLabel", "className",  "size", "variant", "onPress", "icon", "iconPosition", "isFullWidth", "isDisabled", "isPending", "pendingLabel", "hasHiddenPendingLabel" ]} />
+<ArgTypes
+  of={exampleStories.Playground}
+  exclude={[
+    'children',
+    'hasHiddenLabel',
+    'className',
+    'size',
+    'variant',
+    'onPress',
+    'icon',
+    'iconPosition',
+    'isFullWidth',
+    'isDisabled',
+    'isPending',
+    'pendingLabel',
+    'hasHiddenPendingLabel',
+  ]}
+/>

@@ -15,10 +15,7 @@ $animation-easing-function-ease-out: var(
   cubic-bezier(0.25, 0.46, 0.45, 0.94)
 );
 $animation-easing-function-ease-out-id: --animation-easing-function-ease-out;
-$animation-easing-function-linear: var(
-  --animation-easing-function-linear,
-  linear
-);
+$animation-easing-function-linear: var(--animation-easing-function-linear, linear);
 $animation-easing-function-linear-id: --animation-easing-function-linear;
 $animation-easing-function-bounce-in: var(
   --animation-easing-function-bounce-in,

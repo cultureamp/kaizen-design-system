@@ -1,16 +1,16 @@
-import React from "react"
-import classnames from "classnames"
-import { Icon } from "~components/__future__/Icon"
-import { isRefObject } from "~components/utils/isRefObject"
-import { DateInput, DateInputProps } from "../DateInput"
-import styles from "./DateInputWithIconButton.module.scss"
+import React from 'react'
+import classnames from 'classnames'
+import { Icon } from '~components/__future__/Icon'
+import { isRefObject } from '~components/utils/isRefObject'
+import { DateInput, DateInputProps } from '../DateInput'
+import styles from './DateInputWithIconButton.module.scss'
 
 export type DateInputWithIconButtonProps = {
   /**
    * Icon button onClick handler
    */
   onButtonClick: React.MouseEventHandler<HTMLButtonElement>
-} & Omit<DateInputProps, "startIconAdornment" | "endIconAdornment">
+} & Omit<DateInputProps, 'startIconAdornment' | 'endIconAdornment'>
 
 export type DateInputWithIconButtonRefs = {
   inputRef?: React.RefObject<HTMLInputElement>
@@ -30,13 +30,13 @@ export const DateInputWithIconButton = React.forwardRef<
       ref={buttonRef}
       type="button"
       onClick={onButtonClick}
-      aria-label={value ? `Change date, ${value}` : "Choose date"}
+      aria-label={value ? `Change date, ${value}` : 'Choose date'}
       aria-disabled={disabled}
       disabled={disabled}
       className={classnames(
         styles.iconButton,
-        restProps["aria-expanded"] && styles.calendarActive,
-        disabled && styles.disabled
+        restProps['aria-expanded'] && styles.calendarActive,
+        disabled && styles.disabled,
       )}
     >
       <Icon name="today" isPresentational isFilled />
@@ -54,4 +54,4 @@ export const DateInputWithIconButton = React.forwardRef<
   )
 })
 
-DateInputWithIconButton.displayName = "DateInputWithIconButton"
+DateInputWithIconButton.displayName = 'DateInputWithIconButton'

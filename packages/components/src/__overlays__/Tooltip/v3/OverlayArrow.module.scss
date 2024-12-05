@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/color";
+@import '~@kaizen/design-tokens/sass/shadow';
+@import '~@kaizen/design-tokens/sass/color';
 
 .overlayArrow {
   display: flex;
@@ -10,13 +10,13 @@
   // and then we remove it from the oposite axis
   padding: 8px;
 
-  &[data-placement="top"],
-  &[data-placement="bottom"] {
+  &[data-placement='top'],
+  &[data-placement='bottom'] {
     padding: 0 8px;
   }
 
-  &[data-placement="left"],
-  &[data-placement="right"] {
+  &[data-placement='left'],
+  &[data-placement='right'] {
     padding: 8px 0;
   }
 
@@ -25,15 +25,15 @@
     box-shadow: $shadow-small-box-shadow;
   }
 
-  &[data-placement="right"] svg {
+  &[data-placement='right'] svg {
     transform: rotate(90deg);
   }
 
-  &[data-placement="bottom"] svg {
+  &[data-placement='bottom'] svg {
     transform: rotate(180deg);
   }
 
-  &[data-placement="left"] svg {
+  &[data-placement='left'] svg {
     transform: rotate(270deg);
   }
 

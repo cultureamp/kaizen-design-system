@@ -1,16 +1,16 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { ProgressBar, ProgressBarProps } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { ProgressBar, ProgressBarProps } from '../index'
 
 const meta = {
-  title: "Components/ProgressBar",
+  title: 'Components/ProgressBar',
   component: ProgressBar,
   args: {
     value: 25,
     max: 100,
-    color: "green",
+    color: 'green',
     isAnimating: false,
-    label: "25%",
+    label: '25%',
     isReversed: false,
   },
   argTypes: {
@@ -22,7 +22,7 @@ const meta = {
         rules: [
           {
             // `label` is an optional prop so this has no accessible by default. consumers can pass in `aria-labelledby` or `aria-label` which can provide an accessible description pending a refactor.
-            id: "aria-progressbar-name",
+            id: 'aria-progressbar-name',
             enabled: false,
           },
         ],
@@ -39,7 +39,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -47,22 +47,22 @@ export const Playground: Story = {
 
 const colors = [
   {
-    title: "Blue",
-    props: { color: "blue" },
+    title: 'Blue',
+    props: { color: 'blue' },
   },
   {
-    title: "Green",
-    props: { color: "green" },
+    title: 'Green',
+    props: { color: 'green' },
   },
   {
-    title: "Red",
-    props: { color: "red" },
+    title: 'Red',
+    props: { color: 'red' },
   },
   {
-    title: "Yellow",
-    props: { color: "yellow" },
+    title: 'Yellow',
+    props: { color: 'yellow' },
   },
-] satisfies Array<{ title: string; props: Partial<ProgressBarProps> }>
+] satisfies { title: string; props: Partial<ProgressBarProps> }[]
 
 export const Colors: Story = {
   render: () => (
@@ -111,11 +111,11 @@ export const ValueAndMax: Story = {
 
 export const Reversed: Story = {
   parameters: {
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const AccessibleName: Story = {
-  args: { "aria-label": "Development goals" },
+  args: { 'aria-label': 'Development goals' },
 }

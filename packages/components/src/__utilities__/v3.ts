@@ -1,1 +1,1 @@
-export * from "./ReversedColors/v3"
+export * from './ReversedColors/v3'

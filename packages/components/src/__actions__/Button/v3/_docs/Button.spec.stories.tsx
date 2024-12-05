@@ -1,17 +1,17 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { userEvent, waitFor, within, expect, fn } from "@storybook/test"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { Icon } from "~components/__future__/Icon"
-import { Button } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { userEvent, waitFor, within, expect, fn } from '@storybook/test'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { Icon } from '~components/__future__/Icon'
+import { Button } from '../index'
 
 const onPressEvent = fn()
 
 const meta = {
-  title: "Actions/Button/Button (v3)/Button (v3) tests",
+  title: 'Actions/Button/Button (v3)/Button (v3) tests',
   component: Button,
   args: {
-    children: "Label",
+    children: 'Label',
     onPress: onPressEvent,
   },
 } satisfies Meta<typeof Button>
@@ -33,16 +33,15 @@ export const IconButtonWithHiddenLabel: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole("button")
+    const button = canvas.getByRole('button')
 
-    expect(button).toHaveAccessibleName("Hidden label is accessible")
+    expect(button).toHaveAccessibleName('Hidden label is accessible')
   },
 }
 
 export const PendingButton: Story = {
-  render: ({ isPending = false, pendingLabel = "Loading", ...otherProps }) => {
-    const [isPendingStatus, setIsPendingStatus] =
-      React.useState<boolean>(isPending)
+  render: ({ isPending = false, pendingLabel = 'Loading', ...otherProps }) => {
+    const [isPendingStatus, setIsPendingStatus] = React.useState<boolean>(isPending)
 
     return (
       <Button
@@ -60,25 +59,25 @@ export const PendingButton: Story = {
   },
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole("button", { name: "Label" })
+    const button = canvas.getByRole('button', { name: 'Label' })
     // Simulates a delay that may occur when a button must wait for a response
     const timeToWait = 1000
 
-    await step("Button has accessible label", async () =>
-      expect(button).toHaveAccessibleName("Label")
+    await step('Button has accessible label', async () =>
+      expect(button).toHaveAccessibleName('Label'),
     )
 
-    await step("Accessible label updates on press", async () => {
+    await step('Accessible label updates on press', async () => {
       await button.focus()
       await userEvent.click(button)
-      await waitFor(() => expect(button).toHaveAccessibleName("Loading"))
+      await waitFor(() => expect(button).toHaveAccessibleName('Loading'))
     })
 
-    await step("Accessible label reverts once isPending is false", async () => {
+    await step('Accessible label reverts once isPending is false', async () => {
       await waitFor(() =>
         setTimeout(() => {
-          expect(button).toHaveAccessibleName("Label")
-        }, timeToWait)
+          expect(button).toHaveAccessibleName('Label')
+        }, timeToWait),
       )
     })
   },
@@ -89,7 +88,7 @@ export const PendingButtonWithHiddenPendingLabel: Story = {
   args: {
     hasHiddenPendingLabel: true,
     isPending: false,
-    pendingLabel: "Loading",
+    pendingLabel: 'Loading',
   },
 }
 
@@ -98,7 +97,7 @@ export const PendingIconButton: Story = {
   args: {
     hasHiddenLabel: true,
     isPending: false,
-    pendingLabel: "Loading",
+    pendingLabel: 'Loading',
     icon: <Icon name="add" isPresentational />,
   },
 }
@@ -109,11 +108,9 @@ export const RACRenderPropsWithChildren: Story = {
       {({ isFocusVisible }) => (
         <>
           Label
-          <VisuallyHidden>
-            {isFocusVisible ? " is focused" : " is unfocused"}
-          </VisuallyHidden>
+          <VisuallyHidden>{isFocusVisible ? ' is focused' : ' is unfocused'}</VisuallyHidden>
           <Icon
-            name={isFocusVisible ? "thumb_up" : "thumb_down"}
+            name={isFocusVisible ? 'thumb_up' : 'thumb_down'}
             isPresentational
             isFilled={true}
             className="ms-8 [--icon-size:16]"
@@ -124,30 +121,26 @@ export const RACRenderPropsWithChildren: Story = {
   ),
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole("button")
+    const button = canvas.getByRole('button')
 
-    await step("button icon reflects unfocused state", async () => {
-      await waitFor(() =>
-        expect(button).toHaveAccessibleName("Label is unfocused")
-      )
+    await step('button icon reflects unfocused state', async () => {
+      await waitFor(() => expect(button).toHaveAccessibleName('Label is unfocused'))
     })
 
-    await step("focus on button and update icon", async () => {
+    await step('focus on button and update icon', async () => {
       await userEvent.tab()
-      await waitFor(() =>
-        expect(button).toHaveAccessibleName("Label is focused")
-      )
+      await waitFor(() => expect(button).toHaveAccessibleName('Label is focused'))
     })
   },
 }
 
 export const RACRenderPropsWithClassName: Story = {
   args: {
-    className: ({ isFocusVisible }) => (isFocusVisible ? "!bg-gray-300" : ""),
+    className: ({ isFocusVisible }) => (isFocusVisible ? '!bg-gray-300' : ''),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.parentElement!)
-    const button = canvas.getByRole("button")
+    const button = canvas.getByRole('button')
     await button.focus()
   },
 }

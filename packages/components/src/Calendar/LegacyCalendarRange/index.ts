@@ -1,1 +1,1 @@
-export * from "./LegacyCalendarRange"
+export * from './LegacyCalendarRange'

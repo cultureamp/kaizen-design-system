@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`transformSource() > updates the value of Pancakes topping to jam 1`] = `
-"import React from "react";
+"import React from 'react';
 // @ts-ignore
-import { Pancakes } from "@kaizen/components";
+import { Pancakes } from '@kaizen/components';
 
 export const KaioComponent = (): JSX.Element => <Pancakes topping="jam"/>;
  
@@ -11,9 +11,9 @@ export const KaioComponent = (): JSX.Element => <Pancakes topping="jam"/>;
 `;
 
 exports[`transformSourceForTagName > updates the value of Pancakes topping to jam 1`] = `
-"import React from "react";
+"import React from 'react';
 // @ts-ignore
-import { Pancakes } from "@kaizen/components";
+import { Pancakes } from '@kaizen/components';
 
 export const KaioComponent = (): JSX.Element => <Pancakes topping="jam"/>;
  

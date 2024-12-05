@@ -1,3 +1,3 @@
-import type { BaseSVGProps } from "./subcomponents/SVG"
+import type { BaseSVGProps } from './subcomponents/SVG'
 
 export type IconProps = BaseSVGProps

@@ -1,18 +1,18 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`decodeEmptyLines() > replaces default line marker with empty line 1`] = `
-"import React from "react"
+"import React from 'react'
 // @ts-ignore
-import { Pancakes } from "@kaizen/components"
+import { Pancakes } from '@kaizen/components'
 
 export const KaioComponent = (): JSX.Element => <Pancakes topping="butter" />
 "
 `;
 
 exports[`encodeEmptyLines() > replaces empty lines with default line marker 1`] = `
-"import React from "react"
+"import React from 'react'
 // @ts-ignore
-import { Pancakes } from "@kaizen/components"
+import { Pancakes } from '@kaizen/components'
 /*!--empty-line--!*/
 export const KaioComponent = (): JSX.Element => <Pancakes topping="butter" />
 /*!--empty-line--!*/"

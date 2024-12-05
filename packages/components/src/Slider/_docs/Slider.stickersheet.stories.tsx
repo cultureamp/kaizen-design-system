@@ -1,13 +1,10 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Slider } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Slider } from '../index'
 
 export default {
-  title: "Components/Slider",
+  title: 'Components/Slider',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -18,12 +15,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet
       title="Slider"
-      headers={[
-        "Default",
-        "Default (Disabled)",
-        "Prominent",
-        "Prominent (Disabled)",
-      ]}
+      headers={['Default', 'Default (Disabled)', 'Prominent', 'Prominent (Disabled)']}
     >
       <StickerSheet.Row header="Label Left">
         <Slider
@@ -34,9 +26,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         />
         <Slider
           labelText="Slider"
-          description={
-            <span data-sb-a11y-color-contrast-disable>Example Description</span>
-          }
+          description={<span data-sb-a11y-color-contrast-disable>Example Description</span>}
           minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
           maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
           disabled
@@ -51,9 +41,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         />
         <Slider
           labelText="Slider"
-          description={
-            <span data-sb-a11y-color-contrast-disable>Example Description</span>
-          }
+          description={<span data-sb-a11y-color-contrast-disable>Example Description</span>}
           minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
           maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
           variant="prominent"
@@ -71,9 +59,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         />
         <Slider
           labelText="Slider"
-          description={
-            <span data-sb-a11y-color-contrast-disable>Example Description</span>
-          }
+          description={<span data-sb-a11y-color-contrast-disable>Example Description</span>}
           minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
           maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
           labelPosition="block"
@@ -90,9 +76,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         />
         <Slider
           labelText="Slider"
-          description={
-            <span data-sb-a11y-color-contrast-disable>Example Description</span>
-          }
+          description={<span data-sb-a11y-color-contrast-disable>Example Description</span>}
           minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
           maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
           variant="prominent"
@@ -107,11 +91,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

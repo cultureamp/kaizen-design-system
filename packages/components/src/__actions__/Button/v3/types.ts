@@ -1,6 +1,6 @@
-export type ButtonVariants = "primary" | "secondary" | "tertiary"
+export type ButtonVariants = 'primary' | 'secondary' | 'tertiary'
 
-export type ButtonSizes = "small" | "medium" | "large"
+export type ButtonSizes = 'small' | 'medium' | 'large'
 
 export type PendingPropsUndefined = {
   isPending?: undefined

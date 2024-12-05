@@ -4,7 +4,6 @@
   "version": "0.0.3",
   "type": "module",
   "scripts": {
-    "lint": "eslint .",
     "lint:ts": "tsc --noEmit",
     "dev": "storybook dev -p 6006",
     "preview": "NODE_ENV=production pnpm dev --docs",
@@ -50,10 +49,5 @@
   },
   "peerDependencies": {
     "vite": ">=5.4.2"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
   }
 }

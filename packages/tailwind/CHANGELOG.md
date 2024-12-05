@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.3.11
+
+### Patch Changes
+
+- [#5339](https://github.com/cultureamp/kaizen-design-system/pull/5339) [`55330ea`](https://github.com/cultureamp/kaizen-design-system/commit/55330ea18746ae80bd234a07251573107b6f61cd) - Upgrade dep eslint to v9.
+
+  This should not have any impact on consumers, but releasing a patch as source code has been updated with linting fixes.
+
+- Updated dependencies [[`55330ea`](https://github.com/cultureamp/kaizen-design-system/commit/55330ea18746ae80bd234a07251573107b6f61cd)]:
+  - @kaizen/design-tokens@10.8.5
+
 ## 1.3.10
 
 ### Patch Changes

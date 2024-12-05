@@ -1,9 +1,8 @@
-import { Schema } from "prosemirror-model"
-import { createDocNode, createEditorState } from "../../core/state"
-import { getMarks } from "../../schema/marks"
-import { getNodes } from "../../schema/nodes"
-
-const data = require("./data.json")
+import { Schema } from 'prosemirror-model'
+import { createDocNode, createEditorState } from '../../core/state'
+import { getMarks } from '../../schema/marks'
+import { getNodes } from '../../schema/nodes'
+import data from './data.json'
 
 export const testSchema = new Schema({
   nodes: getNodes(),
@@ -11,29 +10,29 @@ export const testSchema = new Schema({
 })
 
 export const testDocNodeBasic = {
-  type: "doc",
+  type: 'doc',
   content: data.testDocNodeContentJSON,
 }
 
 export const testDocNodeMarks = {
-  type: "doc",
+  type: 'doc',
   content: data.testDocNodeContentWithMarksJSON,
 }
 
 export const testDocNodeLists = {
-  type: "doc",
+  type: 'doc',
   content: data.testDocNodeContentWithListsJSON,
 }
 
 export const testEditorState = createEditorState(
   testSchema,
-  createDocNode(testSchema, testDocNodeBasic)
+  createDocNode(testSchema, testDocNodeBasic),
 )
 export const testEditorStateWithMarks = createEditorState(
   testSchema,
-  createDocNode(testSchema, testDocNodeMarks)
+  createDocNode(testSchema, testDocNodeMarks),
 )
 export const testEditorStateWitList = createEditorState(
   testSchema,
-  createDocNode(testSchema, testDocNodeLists)
+  createDocNode(testSchema, testDocNodeLists),
 )

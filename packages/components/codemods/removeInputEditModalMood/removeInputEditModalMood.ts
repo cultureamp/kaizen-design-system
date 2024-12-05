@@ -1,3 +1,3 @@
-import { removeProps } from "../utils/removeProps"
+import { removeProps } from '../utils/removeProps'
 
-export const removeInputEditModalMood = removeProps(["mood"])
+export const removeInputEditModalMood = removeProps(['mood'])

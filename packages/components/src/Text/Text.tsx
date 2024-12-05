@@ -1,33 +1,32 @@
-import { createElement, HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Text.module.scss"
+import { createElement, HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Text.module.scss'
 
-export type TextVariants = "intro-lede" | "body" | "small" | "extra-small"
+export type TextVariants = 'intro-lede' | 'body' | 'small' | 'extra-small'
 
 export type AllowedTextTags =
-  | "pre"
-  | "p"
-  | "div"
-  | "span"
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "h6"
-  | "label"
+  | 'pre'
+  | 'p'
+  | 'div'
+  | 'span'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'label'
 
 export type AllowedTextColors =
-  | "dark"
-  | "dark-reduced-opacity"
-  | "white"
-  | "white-reduced-opacity"
-  | "positive"
-  | "negative"
+  | 'dark'
+  | 'dark-reduced-opacity'
+  | 'white'
+  | 'white-reduced-opacity'
+  | 'positive'
+  | 'negative'
 
-export interface TextProps
-  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
+export interface TextProps extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   children: React.ReactNode
   /**
    * HTML elements that are allowed on Text
@@ -49,22 +48,13 @@ export const Text = ({
   children,
   tag,
   variant,
-  color = "dark",
+  color = 'dark',
   classNameOverride,
   ...restProps
 }: TextProps): JSX.Element => {
-  const className = classnames(
-    styles.text,
-    styles[variant],
-    styles[color],
-    classNameOverride
-  )
+  const className = classnames(styles.text, styles[variant], styles[color], classNameOverride)
 
-  return createElement(
-    tag === undefined ? "p" : tag,
-    { ...restProps, className },
-    children
-  )
+  return createElement(tag ?? 'p', { ...restProps, className }, children)
 }
 
-Text.displayName = "Text"
+Text.displayName = 'Text'
