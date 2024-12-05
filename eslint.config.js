@@ -14,6 +14,7 @@ import prettierRules from './.prettierrc.js'
 export default tseslint.config(
   {
     ignores: [
+      '**/CHANGELOG.md',
       '**/*.d.ts',
       '**/dist',
       '**/__fixtures__',
