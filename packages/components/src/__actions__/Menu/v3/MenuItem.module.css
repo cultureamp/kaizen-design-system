@@ -7,8 +7,7 @@
   line-height: var(--typography-paragraph-body-line-height);
   color: rgba(var(--color-purple-800-rgb), 0.7);
   padding: var(--spacing-6) var(--spacing-8);
-  border: var(--border-focus-ring-border-width)
-    var(--border-focus-ring-border-style) transparent;
+  border: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style) transparent;
   border-radius: 4px;
   margin-inline: var(--spacing-6);
   text-decoration: none;
@@ -38,8 +37,8 @@
 }
 
 .item[data-focus-visible] {
-  outline: var(--border-focus-ring-border-width)
-    var(--border-focus-ring-border-style) var(--color-blue-500);
+  outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+    var(--color-blue-500);
 }
 
 .item[data-disabled] {

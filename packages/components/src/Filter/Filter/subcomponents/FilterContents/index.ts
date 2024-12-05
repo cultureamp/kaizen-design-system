@@ -1,1 +1,1 @@
-export * from "./FilterContents"
+export * from './FilterContents'

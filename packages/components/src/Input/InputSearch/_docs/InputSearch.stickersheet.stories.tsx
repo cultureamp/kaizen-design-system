@@ -1,13 +1,10 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { InputSearch } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { InputSearch } from '../index'
 
 export default {
-  title: "Components/Inputs/InputSearch",
+  title: 'Components/Inputs/InputSearch',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -16,7 +13,7 @@ export default {
         rules: [
           {
             // Built with no label on purpose, to be used within `TextField` where label is present
-            id: "label",
+            id: 'label',
             enabled: false,
           },
         ],
@@ -29,7 +26,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet
       isReversed={isReversed}
-      headers={["Default", "Disabled", "Hover", "Focus", "Filled"]}
+      headers={['Default', 'Disabled', 'Hover', 'Focus', 'Filled']}
     >
       <StickerSheet.Row header="Default">
         <InputSearch id="input-search--default" reversed={isReversed} />
@@ -90,11 +87,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         />
       </StickerSheet.Row>
       <StickerSheet.Row header="Secondary">
-        <InputSearch
-          id="input-search--secondary"
-          secondary
-          reversed={isReversed}
-        />
+        <InputSearch id="input-search--secondary" secondary reversed={isReversed} />
         <InputSearch
           id="input-search--secondary"
           reversed={isReversed}
@@ -125,12 +118,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         />
       </StickerSheet.Row>
       <StickerSheet.Row header="Secondary (Loading)">
-        <InputSearch
-          id="input-search--secondary-loading"
-          secondary
-          loading
-          reversed={isReversed}
-        />
+        <InputSearch id="input-search--secondary-loading" secondary loading reversed={isReversed} />
         <InputSearch
           id="input-search--secondary-loading"
           reversed={isReversed}
@@ -171,32 +159,32 @@ const StickerSheetTemplate: StickerSheetStory = {
       focus: '[data-sb-pseudo-styles="focus"]',
       // We need to use `classNameOverride` to target the container div
       // as data-attributes are passed into the input.
-      hover: ".story__input-search--hover",
-      focusWithin: ".story__input-search--focus",
+      hover: '.story__input-search--hover',
+      focusWithin: '.story__input-search--focus',
     },
   },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

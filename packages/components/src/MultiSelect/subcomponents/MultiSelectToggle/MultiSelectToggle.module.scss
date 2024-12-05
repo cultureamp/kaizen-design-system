@@ -1,7 +1,7 @@
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "../../../../styles/utils/button-reset";
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '../../../../styles/utils/button-reset';
 
 .multiSelectToggle {
   position: relative;
@@ -24,8 +24,7 @@
   }
 
   &.caution {
-    border: $border-solid-border-style $border-solid-border-width
-      $color-yellow-600;
+    border: $border-solid-border-style $border-solid-border-width $color-yellow-600;
   }
 }
 
@@ -48,14 +47,12 @@
     &::after {
       position: absolute;
       pointer-events: none;
-      content: "";
+      content: '';
       inset: calc(
-        -1 * calc(#{$border-focus-ring-border-width} + #{$border-solid-border-width} +
-              1px)
+        -1 * calc(#{$border-focus-ring-border-width} + #{$border-solid-border-width} + 1px)
       );
       border-radius: $border-focus-ring-border-radius;
-      border: $border-focus-ring-border-style $border-focus-ring-border-width
-        $color-blue-500;
+      border: $border-focus-ring-border-style $border-focus-ring-border-width $color-blue-500;
     }
   }
 }

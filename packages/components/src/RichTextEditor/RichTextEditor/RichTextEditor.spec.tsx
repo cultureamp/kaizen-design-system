@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import { render, screen, fireEvent, waitFor } from "@testing-library/react"
-import { EditorContentArray } from "../types"
-import { RichTextEditor, RichTextEditorProps } from "."
+import React, { useState } from 'react'
+import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { EditorContentArray } from '../types'
+import { RichTextEditor, RichTextEditorProps } from '.'
 
 // This helper is needed to simulate selection of a component since we
 // cannot userEvent.type with contenteditable
@@ -17,24 +17,21 @@ const getSelectionOfNode = (node: Node): void => {
 }
 
 const TestRTE = (
-  args: Omit<
-    RichTextEditorProps,
-    "defaultValue" | "onChange" | "aria-labelledby"
-  > & {
-    rteMockData?: RichTextEditorProps["defaultValue"]
-  }
+  args: Omit<RichTextEditorProps, 'defaultValue' | 'onChange' | 'aria-labelledby'> & {
+    rteMockData?: RichTextEditorProps['defaultValue']
+  },
 ): JSX.Element => {
   const { rteMockData, ...rest } = args
-  const [rteData, setRTEData] = useState<EditorContentArray>(rteMockData || [])
-  const handleOnChange: RichTextEditorProps["onChange"] = (editorState): void =>
+  const [rteData, setRTEData] = useState<EditorContentArray>(rteMockData ?? [])
+  const handleOnChange: RichTextEditorProps['onChange'] = (editorState): void =>
     setRTEData(editorState.toJSON().doc.content)
   return (
     <RichTextEditor
       labelText="List RTE"
       rows={3}
       controls={[
-        { name: "orderedList", group: "list" },
-        { name: "bulletList", group: "list" },
+        { name: 'orderedList', group: 'list' },
+        { name: 'bulletList', group: 'list' },
       ]}
       defaultValue={rteData}
       onChange={handleOnChange}
@@ -43,34 +40,29 @@ const TestRTE = (
   )
 }
 
-describe("accessible name and description", () => {
-  it("has the correct accessible name", () => {
+describe('accessible name and description', () => {
+  it('has the correct accessible name', () => {
     render(<TestRTE labelText="Some label" />)
-    expect(
-      screen.getByRole("textbox", { name: "Some label" })
-    ).toBeInTheDocument()
+    expect(screen.getByRole('textbox', { name: 'Some label' })).toBeInTheDocument()
   })
 
-  it("has the correct name and description when added with aria-labelledby and aria-describedby", () => {
+  it('has the correct name and description when added with aria-labelledby and aria-describedby', () => {
     render(
       <>
         <div id="external-label">External label</div>
         <div id="external-description">External description</div>
-        <TestRTE
-          aria-labelledby="external-label"
-          aria-describedby="external-description"
-        />
-      </>
+        <TestRTE aria-labelledby="external-label" aria-describedby="external-description" />
+      </>,
     )
     expect(
-      screen.getByRole("textbox", {
-        name: "External label",
-        description: "External description",
-      })
+      screen.getByRole('textbox', {
+        name: 'External label',
+        description: 'External description',
+      }),
     ).toBeInTheDocument()
   })
 
-  it("has the correct description with a description passed in, validation error, and aria-describedby", () => {
+  it('has the correct description with a description passed in, validation error, and aria-describedby', () => {
     render(
       <>
         <div id="external-description">External description</div>
@@ -80,101 +72,101 @@ describe("accessible name and description", () => {
           validationMessage="Some error"
           aria-describedby="external-description"
         />
-      </>
+      </>,
     )
     expect(
-      screen.getByRole("textbox", {
-        name: "Some label",
-        description: "Some error Some help text External description",
-      })
+      screen.getByRole('textbox', {
+        name: 'Some label',
+        description: 'Some error Some help text External description',
+      }),
     ).toBeInTheDocument()
   })
 })
 
-describe("RTE receives list controls", () => {
-  it("renders list buttons when receiving a list controls", () => {
+describe('RTE receives list controls', () => {
+  it('renders list buttons when receiving a list controls', () => {
     render(<TestRTE />)
 
-    const bulletButton = screen.getByRole("button", { name: "Bullet List" })
-    const orderedButton = screen.getByRole("button", { name: "Numbered List" })
+    const bulletButton = screen.getByRole('button', { name: 'Bullet List' })
+    const orderedButton = screen.getByRole('button', { name: 'Numbered List' })
 
     expect(bulletButton && orderedButton).toBeTruthy()
   })
 
-  it("renders indent buttons when receiving a list controls", () => {
+  it('renders indent buttons when receiving a list controls', () => {
     render(<TestRTE />)
 
-    const decreaseIndentBtn = screen.getByRole("button", {
-      name: "Decrease indent",
+    const decreaseIndentBtn = screen.getByRole('button', {
+      name: 'Decrease indent',
     })
-    const increaseIndentBtn = screen.getByRole("button", {
-      name: "Increase indent",
+    const increaseIndentBtn = screen.getByRole('button', {
+      name: 'Increase indent',
     })
 
     expect(decreaseIndentBtn && increaseIndentBtn).toBeTruthy()
   })
 
-  describe("Creating list nodes with buttons", () => {
-    it("will create a <ul> when user clicks the bullet list button", async () => {
+  describe('Creating list nodes with buttons', () => {
+    it('will create a <ul> when user clicks the bullet list button', async () => {
       render(<TestRTE />)
 
       // We would use userEvent.type but contenteditable is not supported
       // see thread: https://github.com/testing-library/user-event/issues/230
-      fireEvent.focus(screen.getByRole("textbox", { name: "List RTE" }), {
-        target: { textContent: "this will be a ul" },
+      fireEvent.focus(screen.getByRole('textbox', { name: 'List RTE' }), {
+        target: { textContent: 'this will be a ul' },
       })
 
       await waitFor(() => {
-        fireEvent.click(screen.getByRole("button", { name: "Bullet List" }))
-        screen.getByRole("list")
+        fireEvent.click(screen.getByRole('button', { name: 'Bullet List' }))
+        screen.getByRole('list')
 
-        expect(document.querySelectorAll("ul").length).toBeGreaterThan(0)
+        expect(document.querySelectorAll('ul').length).toBeGreaterThan(0)
       })
     })
 
-    it("will create a <ol> when user clicks the numbered list button", async () => {
+    it('will create a <ol> when user clicks the numbered list button', async () => {
       render(<TestRTE />)
 
-      fireEvent.focus(screen.getByRole("textbox", { name: "List RTE" }), {
-        target: { textContent: "this will be a ol" },
+      fireEvent.focus(screen.getByRole('textbox', { name: 'List RTE' }), {
+        target: { textContent: 'this will be a ol' },
       })
 
       await waitFor(() => {
-        fireEvent.click(screen.getByRole("button", { name: "Numbered List" }))
+        fireEvent.click(screen.getByRole('button', { name: 'Numbered List' }))
 
-        expect(document.querySelectorAll("ol").length).toBeGreaterThan(0)
+        expect(document.querySelectorAll('ol').length).toBeGreaterThan(0)
       })
     })
   })
 
-  describe("Indent list nodes with buttons", () => {
+  describe('Indent list nodes with buttons', () => {
     const rteListData = [
       {
-        type: "bulletList",
+        type: 'bulletList',
         content: [
           {
-            type: "listItem",
+            type: 'listItem',
             content: [
               {
-                type: "paragraph",
+                type: 'paragraph',
                 content: [
                   {
-                    type: "text",
-                    text: "First list item",
+                    type: 'text',
+                    text: 'First list item',
                   },
                 ],
               },
             ],
           },
           {
-            type: "listItem",
+            type: 'listItem',
             content: [
               {
-                type: "paragraph",
+                type: 'paragraph',
                 content: [
                   {
-                    type: "text",
-                    text: "Second list item",
+                    type: 'text',
+                    text: 'Second list item',
                   },
                 ],
               },
@@ -187,28 +179,28 @@ describe("RTE receives list controls", () => {
     it("will render indent buttons as 'disabled'", () => {
       render(<TestRTE />)
 
-      const decreaseIndentBtn = screen.getByRole("button", {
-        name: "Decrease indent",
+      const decreaseIndentBtn = screen.getByRole('button', {
+        name: 'Decrease indent',
       })
-      const increaseIndentBtn = screen.getByRole("button", {
-        name: "Increase indent",
+      const increaseIndentBtn = screen.getByRole('button', {
+        name: 'Increase indent',
       })
 
-      expect(decreaseIndentBtn).toHaveAttribute("aria-disabled", "true")
-      expect(increaseIndentBtn).toHaveAttribute("aria-disabled", "true")
+      expect(decreaseIndentBtn).toHaveAttribute('aria-disabled', 'true')
+      expect(increaseIndentBtn).toHaveAttribute('aria-disabled', 'true')
     })
 
-    it("will enable increase indent when on a list item", () => {
+    it('will enable increase indent when on a list item', () => {
       render(<TestRTE rteMockData={rteListData} />)
 
-      const firstListNode = document.querySelectorAll("li")[0]
-      const decreaseIndentBtn = screen.getByRole("button", {
-        name: "Decrease indent",
+      const firstListNode = document.querySelectorAll('li')[0]
+      const decreaseIndentBtn = screen.getByRole('button', {
+        name: 'Decrease indent',
       })
 
       getSelectionOfNode(firstListNode)
 
-      expect(decreaseIndentBtn).toHaveAttribute("aria-disabled", "false")
+      expect(decreaseIndentBtn).toHaveAttribute('aria-disabled', 'false')
     })
   })
 })

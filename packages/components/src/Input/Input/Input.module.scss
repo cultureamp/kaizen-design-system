@@ -1,8 +1,8 @@
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "../../../styles/utils/form-variables";
-@import "../../../styles/utils/forms";
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '../../../styles/utils/form-variables';
+@import '../../../styles/utils/forms';
 
 $input-height: 48px;
 $input-base-padding-horizontal: $spacing-sm;
@@ -11,9 +11,7 @@ $input-placeholder-opacity: 0.5;
 $input-disabled-background: $color-gray-300;
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
-$input-with-icon-padding: calc(
-  #{$input-icon-size} + calc(#{$spacing-md} * 0.75)
-);
+$input-with-icon-padding: calc(#{$input-icon-size} + calc(#{$spacing-md} * 0.75));
 
 .wrapper {
   position: relative;

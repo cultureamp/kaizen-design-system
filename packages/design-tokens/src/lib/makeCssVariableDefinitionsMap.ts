@@ -1,6 +1,6 @@
-import { addExtraThemeEntries } from "./addExtraThemeEntries"
-import { objectPathToCssVarIdentifier } from "./cssVariables"
-import { mapLeafsOfObject } from "./mapLeafsOfObject"
+import { addExtraThemeEntries } from './addExtraThemeEntries'
+import { objectPathToCssVarIdentifier } from './cssVariables'
+import { mapLeafsOfObject } from './mapLeafsOfObject'
 
 /**
 
@@ -31,7 +31,7 @@ import { mapLeafsOfObject } from "./mapLeafsOfObject"
  * }
  */
 export function makeCssVariableDefinitionsMap(
-  theme: Record<string | number, unknown>
+  theme: Record<string | number, unknown>,
 ): Record<string, string> {
   let accumulatedCssVariables = {} as Record<string, string>
 
@@ -39,13 +39,9 @@ export function makeCssVariableDefinitionsMap(
   mapLeafsOfObject(theme, (path, value) => {
     // Key will be `--color-blah`
     const key = objectPathToCssVarIdentifier(path)
-    const nextCssVariables = addExtraThemeEntries(
-      path,
-      key,
-      value,
-      (_, v) => `${v}`,
-      { augmentWithId: false }
-    )
+    const nextCssVariables = addExtraThemeEntries(path, key, value, (_, v) => `${v}`, {
+      augmentWithId: false,
+    })
     accumulatedCssVariables = {
       ...accumulatedCssVariables,
       ...nextCssVariables,

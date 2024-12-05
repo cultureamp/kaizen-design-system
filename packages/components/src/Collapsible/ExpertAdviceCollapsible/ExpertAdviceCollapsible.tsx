@@ -1,24 +1,19 @@
-import React from "react"
-import { Brand } from "~components/Brand"
-import {
-  CollapsibleProps,
-  Collapsible,
-} from "~components/Collapsible/Collapsible"
-import { Heading } from "~components/Heading"
-import styles from "./ExpertAdviceCollapsible.module.scss"
+import React from 'react'
+import { Brand } from '~components/Brand'
+import { CollapsibleProps, Collapsible } from '~components/Collapsible/Collapsible'
+import { Heading } from '~components/Heading'
+import styles from './ExpertAdviceCollapsible.module.scss'
 
 export type ExpertAdviceCollapsibleProps = Omit<
   CollapsibleProps,
-  "renderHeader" | "variant" | "group" | "separated"
+  'renderHeader' | 'variant' | 'group' | 'separated'
 >
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094383/Collapsible Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-collapsible--docs Storybook}
  */
-export const ExpertAdviceCollapsible = (
-  props: ExpertAdviceCollapsibleProps
-): JSX.Element => (
+export const ExpertAdviceCollapsible = (props: ExpertAdviceCollapsibleProps): JSX.Element => (
   <Collapsible
     {...props}
     noSectionPadding
@@ -32,11 +27,7 @@ export const ExpertAdviceCollapsible = (
             variant="collective-intelligence"
             reversed
           />
-          <Heading
-            variant="heading-4"
-            tag="span"
-            classNameOverride={styles.expertAdviceHeading}
-          >
+          <Heading variant="heading-4" tag="span" classNameOverride={styles.expertAdviceHeading}>
             {props.title}
           </Heading>
         </div>
@@ -47,4 +38,4 @@ export const ExpertAdviceCollapsible = (
   </Collapsible>
 )
 
-ExpertAdviceCollapsible.displayName = "ExpertAdviceCollapsible"
+ExpertAdviceCollapsible.displayName = 'ExpertAdviceCollapsible'

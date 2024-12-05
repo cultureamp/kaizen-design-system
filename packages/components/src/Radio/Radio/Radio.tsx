@@ -1,13 +1,10 @@
-import React, { InputHTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Radio.module.scss"
+import React, { InputHTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Radio.module.scss'
 
 export type RadioProps = OverrideClassName<
-  Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    "id" | "name" | "value" | "checked" | "type"
-  >
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'name' | 'value' | 'checked' | 'type'>
 > & {
   /** Required to ensure the Radio always gets an ID to match a label when composed. */
   id: string
@@ -19,14 +16,9 @@ export type RadioProps = OverrideClassName<
   reversed?: boolean
 }
 
-const renderSelected = (
-  selectedStatus: boolean,
-  reversed: boolean
-): React.ReactNode => {
+const renderSelected = (selectedStatus: boolean, reversed: boolean): React.ReactNode => {
   if (selectedStatus) {
-    return (
-      <div className={classnames(styles.icon, reversed && styles.reversed)} />
-    )
+    return <div className={classnames(styles.icon, reversed && styles.reversed)} />
   }
   return
 }
@@ -47,11 +39,7 @@ export const Radio = ({
       name={name}
       value={value}
       checked={selectedStatus}
-      className={classnames(
-        styles.radioInput,
-        classNameOverride,
-        reversed && styles.reversed
-      )}
+      className={classnames(styles.radioInput, classNameOverride, reversed && styles.reversed)}
       onChange={onChange}
       readOnly={onChange === undefined}
       {...restProps}
@@ -62,4 +50,4 @@ export const Radio = ({
   </span>
 )
 
-Radio.displayName = "Radio"
+Radio.displayName = 'Radio'

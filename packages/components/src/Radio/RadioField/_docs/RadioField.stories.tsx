@@ -1,14 +1,14 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { RadioField } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { RadioField } from '../index'
 
 const meta = {
-  title: "Components/Radio controls/RadioField",
+  title: 'Components/Radio controls/RadioField',
   component: RadioField,
   args: {
-    labelText: "Radio label",
-    name: "radio-group",
-    value: "radio-value",
+    labelText: 'Radio label',
+    name: 'radio-group',
+    value: 'radio-value',
     selectedStatus: false,
   },
 } satisfies Meta<typeof RadioField>
@@ -19,11 +19,9 @@ type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   render: ({ onClick, selectedStatus, ...props }) => {
-    const [status, setStatus] = React.useState<boolean | undefined>(
-      selectedStatus
-    )
+    const [status, setStatus] = React.useState<boolean | undefined>(selectedStatus)
 
-    const handleClick: React.MouseEventHandler<HTMLInputElement> = e => {
+    const handleClick: React.MouseEventHandler<HTMLInputElement> = (e) => {
       setStatus(!status)
       onClick?.(e)
     }
@@ -32,14 +30,12 @@ export const Playground: Story = {
       setStatus(selectedStatus)
     }, [selectedStatus])
 
-    return (
-      <RadioField {...props} selectedStatus={status} onClick={handleClick} />
-    )
+    return <RadioField {...props} selectedStatus={status} onClick={handleClick} />
   },
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

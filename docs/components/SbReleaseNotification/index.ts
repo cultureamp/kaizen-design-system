@@ -1,1 +1,1 @@
-export * from "./SbReleaseNotification"
+export * from './SbReleaseNotification'

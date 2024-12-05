@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { defaultMonthControls } from "../../_docs/controls/defaultMonthControls"
-import { weekStartsOnControls } from "../../_docs/controls/weekStartsOnControls"
-import { CalendarSingle } from "../index"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { defaultMonthControls } from '../../_docs/controls/defaultMonthControls'
+import { weekStartsOnControls } from '../../_docs/controls/weekStartsOnControls'
+import { CalendarSingle } from '../index'
 
 const meta = {
-  title: "Components/Date controls/Calendars/CalendarSingle",
+  title: 'Components/Date controls/Calendars/CalendarSingle',
   component: CalendarSingle,
   argTypes: {
     ...defaultMonthControls,
@@ -18,11 +18,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const CalendarSingleTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [selected, setSelected] = useState<Date | undefined>(args.selected)
-    return (
-      <CalendarSingle {...args} selected={selected} onSelect={setSelected} />
-    )
+    return <CalendarSingle {...args} selected={selected} onSelect={setSelected} />
   },
 }
 
@@ -31,7 +29,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

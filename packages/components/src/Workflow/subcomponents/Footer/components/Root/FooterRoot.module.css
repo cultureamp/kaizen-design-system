@@ -1,6 +1,6 @@
 .footerRoot {
   display: grid;
-  grid-template-areas: "prev stepper next";
+  grid-template-areas: 'prev stepper next';
   grid-template-columns: 1fr 2fr 1fr;
   flex-grow: 1;
   justify-content: center;

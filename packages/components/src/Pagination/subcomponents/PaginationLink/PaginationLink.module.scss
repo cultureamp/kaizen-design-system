@@ -1,9 +1,9 @@
-@import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "../../../__actions__/Button/v1/utils/mixins";
-@import "../../../__actions__/Button/v1/utils/variables";
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '../../../__actions__/Button/v1/utils/mixins';
+@import '../../../__actions__/Button/v1/utils/variables';
 
 %circle-button {
   width: 40px;
@@ -37,10 +37,7 @@
   font-size: $typography-button-secondary-font-size;
   border-color: $border-borderless-border-color;
 
-  @include enabled-pseudo-states-variant(
-    $color-blue-100,
-    $border-borderless-border-color
-  );
+  @include enabled-pseudo-states-variant($color-blue-100, $border-borderless-border-color);
 
   #{$className--content} {
     justify-content: center;
@@ -51,9 +48,7 @@
   &.reversed {
     border-color: $border-borderless-border-color;
 
-    @include enabled-pseudo-states-variant(
-      $border-color: $border-borderless-border-color
-    );
+    @include enabled-pseudo-states-variant($border-color: $border-borderless-border-color);
   }
 }
 
@@ -62,10 +57,7 @@
   border-color: $border-borderless-border-color;
   cursor: initial;
 
-  @include enabled-pseudo-states-variant(
-    $color-blue-500,
-    $border-borderless-border-color
-  );
+  @include enabled-pseudo-states-variant($color-blue-500, $border-borderless-border-color);
 
   &:not(:disabled) {
     &:active {

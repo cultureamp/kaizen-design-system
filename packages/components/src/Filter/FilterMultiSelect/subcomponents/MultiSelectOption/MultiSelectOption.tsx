@@ -1,14 +1,14 @@
-import React, { useId } from "react"
-import { useFocusRing } from "@react-aria/focus"
-import { useOption } from "@react-aria/listbox"
-import { mergeProps } from "@react-aria/utils"
-import classnames from "classnames"
-import { Badge } from "~components/Badge"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { Icon } from "~components/__future__/Icon"
-import { useSelectionContext } from "../../context"
-import { MultiSelectItem } from "../../types"
-import styles from "./MultiSelectOption.module.scss"
+import React, { useId } from 'react'
+import { useFocusRing } from '@react-aria/focus'
+import { useOption } from '@react-aria/listbox'
+import { mergeProps } from '@react-aria/utils'
+import classnames from 'classnames'
+import { Badge } from '~components/Badge'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { Icon } from '~components/__future__/Icon'
+import { useSelectionContext } from '../../context'
+import { MultiSelectItem } from '../../types'
+import styles from './MultiSelectOption.module.scss'
 
 export interface MultiSelectOptionProps {
   classNameOverride?: string
@@ -22,11 +22,7 @@ export const MultiSelectOption = ({
   const { selectionState: state } = useSelectionContext()
   // Get props for the option element
   const ref = React.createRef<HTMLLIElement>()
-  const { optionProps, isSelected, isDisabled } = useOption(
-    { key: item.key },
-    state,
-    ref
-  )
+  const { optionProps, isSelected, isDisabled } = useOption({ key: item.key }, state, ref)
 
   // Determine whether we should show a keyboard
   // focus ring for accessibility
@@ -42,14 +38,12 @@ export const MultiSelectOption = ({
         classNameOverride,
         isSelected && styles.isSelected,
         isFocusVisible && styles.isFocusVisible,
-        isDisabled && styles.isDisabled
+        isDisabled && styles.isDisabled,
       )}
       aria-label={item.value?.label}
       aria-describedby={item.value?.count ? countElementId : undefined}
     >
-      <span
-        className={classnames(styles.icon, isSelected && styles.isSelected)}
-      >
+      <span className={classnames(styles.icon, isSelected && styles.isSelected)}>
         {isSelected && <Icon name="check" isPresentational />}
       </span>
       {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
@@ -64,4 +58,4 @@ export const MultiSelectOption = ({
   )
 }
 
-MultiSelectOption.displayName = "FilterMultiSelect.Option"
+MultiSelectOption.displayName = 'FilterMultiSelect.Option'

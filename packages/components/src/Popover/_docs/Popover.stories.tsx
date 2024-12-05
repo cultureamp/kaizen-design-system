@@ -1,9 +1,9 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Popover as PopoverComponent, usePopover } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Popover as PopoverComponent, usePopover } from '../index'
 
 const meta = {
-  title: "Components/Popover",
+  title: 'Components/Popover',
   component: PopoverComponent,
   args: {
     children: undefined,
@@ -20,21 +20,16 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const PopoverTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [referenceElementRef, Popover] = usePopover()
 
     return (
       <div className="text-center relative">
-        <button
-          type="button"
-          className="inline-block mt-112"
-          ref={referenceElementRef}
-        >
+        <button type="button" className="inline-block mt-112" ref={referenceElementRef}>
           Pop
         </button>
         <Popover {...args}>
-          Popover body that explains something useful.{" "}
-          <a href="/">Optional link</a>
+          Popover body that explains something useful. <a href="/">Optional link</a>
         </Popover>
       </div>
     )
@@ -44,7 +39,7 @@ const PopoverTemplate: Story = {
 export const Playground: Story = {
   ...PopoverTemplate,
   decorators: [
-    Story => (
+    (Story) => (
       <div className="h-[300px]">
         <Story />
       </div>

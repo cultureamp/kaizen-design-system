@@ -1,12 +1,12 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { InputSearch } from "../index"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { InputSearch } from '../index'
 
 const meta = {
-  title: "Components/Inputs/InputSearch",
+  title: 'Components/Inputs/InputSearch',
   component: InputSearch,
   args: {
-    id: "search",
+    id: 'search',
   },
   parameters: {
     a11y: {
@@ -14,7 +14,7 @@ const meta = {
         rules: [
           {
             // Built with no label on purpose, to be used within `TextField` where label is present
-            id: "label",
+            id: 'label',
             enabled: false,
           },
         ],
@@ -28,14 +28,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  render: args => {
-    const [searchTerm, setSearchTerm] = useState<string>("")
+  render: (args) => {
+    const [searchTerm, setSearchTerm] = useState<string>('')
 
     return (
       <InputSearch
         {...args}
         value={searchTerm}
-        onChange={event => {
+        onChange={(event) => {
           setSearchTerm(event.target.value)
         }}
       />
@@ -44,14 +44,14 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
 }
 
 export const Filled: Story = {
-  args: { value: "Search me" },
+  args: { value: 'Search me' },
 }
 
 export const Secondary: Story = {
@@ -69,7 +69,7 @@ export const Disabled: Story = {
 export const Reversed: Story = {
   args: { reversed: true },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="bg-purple-700 p-16">
         <Story />
       </div>

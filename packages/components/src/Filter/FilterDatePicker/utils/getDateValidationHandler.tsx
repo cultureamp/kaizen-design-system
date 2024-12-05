@@ -1,22 +1,16 @@
-import React from "react"
-import { LabelledMessage } from "~components/LabelledMessage"
-import { getNodeText } from "~components/utils/getNodeText"
-import { DateValidationResponse, ValidationMessage } from "../types"
+import React from 'react'
+import { LabelledMessage } from '~components/LabelledMessage'
+import { getNodeText } from '~components/utils/getNodeText'
+import { DateValidationResponse, ValidationMessage } from '../types'
 
 export type GetDateValidationHandlerArgs = {
   onValidate: ((validationResponse: DateValidationResponse) => void) | undefined
-  setInbuiltValidationMessage: (
-    validationMessage: ValidationMessage | undefined
-  ) => void
+  setInbuiltValidationMessage: (validationMessage: ValidationMessage | undefined) => void
   inputLabel?: React.ReactNode
 }
 
 export const getDateValidationHandler =
-  ({
-    onValidate,
-    setInbuiltValidationMessage,
-    inputLabel,
-  }: GetDateValidationHandlerArgs) =>
+  ({ onValidate, setInbuiltValidationMessage, inputLabel }: GetDateValidationHandlerArgs) =>
   (validationResponse: DateValidationResponse): void => {
     if (onValidate) return onValidate(validationResponse)
 
@@ -30,10 +24,7 @@ export const getDateValidationHandler =
     setInbuiltValidationMessage({
       status: validationMessage.status,
       message: inputLabel ? (
-        <LabelledMessage
-          label={`${getNodeText(inputLabel)}`}
-          message={validationMessage.message}
-        />
+        <LabelledMessage label={`${getNodeText(inputLabel)}`} message={validationMessage.message} />
       ) : (
         validationMessage.message
       ),

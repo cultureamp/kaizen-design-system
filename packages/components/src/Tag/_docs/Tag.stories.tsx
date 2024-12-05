@@ -1,19 +1,15 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Avatar } from "~components/Avatar"
-import { Tag } from "../index"
-import {
-  SentimentTagVariants,
-  StatusTagVariants,
-  ValidationTagVariants,
-} from "../types"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Avatar } from '~components/Avatar'
+import { Tag } from '../index'
+import { SentimentTagVariants, StatusTagVariants, ValidationTagVariants } from '../types'
 
 const meta = {
-  title: "Components/Tag",
+  title: 'Components/Tag',
   component: Tag,
   args: {
-    variant: "default",
-    children: "Tag",
+    variant: 'default',
+    children: 'Tag',
   },
   parameters: {
     a11y: {
@@ -22,7 +18,7 @@ const meta = {
           {
             // Known issue as we do not have a "presentational" Avatar yet
             // But the use case in this stickersheet is valid.
-            id: "image-redundant-alt",
+            id: 'image-redundant-alt',
             enabled: false,
           },
         ],
@@ -39,7 +35,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -48,7 +44,7 @@ export const Playground: Story = {
 export const Status: Story = {
   render: () => (
     <>
-      {StatusTagVariants.map(variant => (
+      {StatusTagVariants.map((variant) => (
         <Tag key={variant} variant={variant}>
           Tag
         </Tag>
@@ -57,7 +53,7 @@ export const Status: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
 }
@@ -65,7 +61,7 @@ export const Status: Story = {
 export const Validation: Story = {
   render: () => (
     <>
-      {ValidationTagVariants.map(variant => (
+      {ValidationTagVariants.map((variant) => (
         <Tag key={variant} variant={variant}>
           Tag
         </Tag>
@@ -74,7 +70,7 @@ export const Validation: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
 }
@@ -82,7 +78,7 @@ export const Validation: Story = {
 export const Sentiments: Story = {
   render: () => (
     <>
-      {SentimentTagVariants.map(variant => (
+      {SentimentTagVariants.map((variant) => (
         <Tag key={variant} variant={variant}>
           Tag
         </Tag>
@@ -91,7 +87,7 @@ export const Sentiments: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
 }
@@ -105,15 +101,15 @@ export const Sizes: Story = {
   ),
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
 }
 
 export const ProfileWithAvatarImport: Story = {
   args: {
-    children: "Jane Doe",
-    variant: "profile",
+    children: 'Jane Doe',
+    variant: 'profile',
     avatar: (
       <Avatar
         size="small"
@@ -126,13 +122,13 @@ export const ProfileWithAvatarImport: Story = {
 
 export const ProfileWithAvatarProps: Story = {
   args: {
-    children: "Jane Doe",
-    variant: "profile",
+    children: 'Jane Doe',
+    variant: 'profile',
     avatar: {
-      size: "small",
+      size: 'small',
       avatarSrc:
-        "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
-      fullName: "Jane Doe",
+        'https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png',
+      fullName: 'Jane Doe',
     },
   },
 }
@@ -140,19 +136,19 @@ export const ProfileWithAvatarProps: Story = {
 export const Dismissible: Story = {
   args: {
     dismissible: true,
-    onDismiss: () => alert("Dismissed"),
+    onDismiss: () => alert('Dismissed'),
   },
 }
 
 export const Truncate: Story = {
   args: {
-    children: "I am a really long tag that needs to be shortened",
+    children: 'I am a really long tag that needs to be shortened',
     truncateWidth: 200,
   },
 }
 
 export const Inline: Story = {
-  render: args => (
+  render: (args) => (
     <>
       <Tag {...args} inline />
       <Tag {...args} inline />

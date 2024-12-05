@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./LoadingInput.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './LoadingInput.module.scss'
 
 export type LoadingInputProps = {
   isAnimated?: boolean
@@ -33,11 +33,11 @@ export const LoadingInput = ({
       styles.loadingInput,
       isAnimated && styles.isAnimated,
       isReversed && styles.isReversed,
-      classNameOverride
+      classNameOverride,
     )}
     style={{ width: `${width}%`, height: `${height}px` }}
     {...props}
   />
 )
 
-LoadingInput.displayName = "LoadingInput"
+LoadingInput.displayName = 'LoadingInput'

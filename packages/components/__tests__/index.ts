@@ -1,1 +1,1 @@
-export * from "./reactIntlMock"
+export * from './reactIntlMock'

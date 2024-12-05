@@ -1,15 +1,12 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { Icon } from "~components/__future__/Icon"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { ToggleIconButton, ToggleIconButtonProps } from "../index"
-import { moodsList } from "../types"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { Icon } from '~components/__future__/Icon'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { ToggleIconButton, ToggleIconButtonProps } from '../index'
+import { moodsList } from '../types'
 
 export default {
-  title: "Components/RichTextEditor/Subcomponents/ToggleIconButton",
+  title: 'Components/RichTextEditor/Subcomponents/ToggleIconButton',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -19,35 +16,20 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => {
     const defaultProps = {
-      label: "bold",
+      label: 'bold',
       icon: <Icon name="format_bold" isPresentational />,
     } satisfies ToggleIconButtonProps
 
     return (
       <StickerSheet
-        headers={[
-          "Default",
-          "Hover",
-          "Active",
-          "Focus",
-          "Disabled",
-          "Disabled (Focus)",
-        ]}
+        headers={['Default', 'Hover', 'Active', 'Focus', 'Disabled', 'Disabled (Focus)']}
       >
-        {moodsList.map(mood => (
+        {moodsList.map((mood) => (
           <StickerSheet.Row key={mood} header={mood}>
             <ToggleIconButton {...defaultProps} mood={mood} />
-            <ToggleIconButton
-              {...defaultProps}
-              mood={mood}
-              data-sb-pseudo-styles="hover"
-            />
+            <ToggleIconButton {...defaultProps} mood={mood} data-sb-pseudo-styles="hover" />
             <ToggleIconButton {...defaultProps} mood={mood} isActive />
-            <ToggleIconButton
-              {...defaultProps}
-              mood={mood}
-              data-sb-pseudo-styles="focus"
-            />
+            <ToggleIconButton {...defaultProps} mood={mood} data-sb-pseudo-styles="focus" />
             <ToggleIconButton {...defaultProps} mood={mood} disabled />
             <ToggleIconButton
               {...defaultProps}
@@ -71,5 +53,5 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }

@@ -1,1 +1,1 @@
-export * from "./Diff"
+export * from './Diff'

@@ -1,8 +1,7 @@
-import React, { Ref, useCallback, useEffect, useRef, useState } from "react"
-import ResizeObserver from "resize-observer-polyfill"
+import React, { Ref, useCallback, useEffect, useRef, useState } from 'react'
+import ResizeObserver from 'resize-observer-polyfill'
 
-const defaultCallback = (entry: ResizeObserverEntry): ResizeObserverEntry =>
-  entry
+const defaultCallback = (entry: ResizeObserverEntry): ResizeObserverEntry => entry
 
 export interface DOMRectReadOnly {
   readonly x: number
@@ -26,36 +25,32 @@ export interface DOMRectReadOnly {
  * @deprecated use native `ResizeObserver` DOM API instead
  */
 export const useResizeObserver = <T, E extends Element = HTMLElement>(
-  resolveEntry: (entry: ResizeObserverEntry) => any = defaultCallback
+  resolveEntry: (entry: ResizeObserverEntry) => any = defaultCallback,
 ): [Ref<E>, T | undefined] => {
-  const destroyResizeObserverRef: React.MutableRefObject<
-    undefined | (() => void)
-  > = useRef(undefined)
+  const destroyResizeObserverRef: React.MutableRefObject<undefined | (() => void)> =
+    useRef(undefined)
   const [dimensions, setDimensions] = useState<T | undefined>(undefined)
-  const resolveEntryRef: React.MutableRefObject<
-    (entry: ResizeObserverEntry) => any
-  > = useRef(resolveEntry)
+  const resolveEntryRef: React.MutableRefObject<(entry: ResizeObserverEntry) => any> =
+    useRef(resolveEntry)
 
   const ref: Ref<E> = useCallback(
     (node: E) => {
       if (node) {
-        const resizeObserver = new ResizeObserver(
-          (entries: ResizeObserverEntry[]) => {
-            for (const entry of entries) {
-              const value = resolveEntryRef.current(entry)
-              if (value) {
-                setDimensions(value)
-              }
+        const resizeObserver = new ResizeObserver((entries: ResizeObserverEntry[]) => {
+          for (const entry of entries) {
+            const value = resolveEntryRef.current(entry)
+            if (value) {
+              setDimensions(value)
             }
           }
-        )
+        })
         resizeObserver.observe(node)
         destroyResizeObserverRef.current = (): void => {
           resizeObserver.disconnect()
         }
       }
     },
-    [destroyResizeObserverRef, setDimensions, resolveEntryRef]
+    [destroyResizeObserverRef, setDimensions, resolveEntryRef],
   )
 
   // Ensure the resolveEntryRef has the latest value
@@ -70,7 +65,7 @@ export const useResizeObserver = <T, E extends Element = HTMLElement>(
         destroyResizeObserverRef.current()
       }
     },
-    []
+    [],
   )
   return [ref, dimensions]
 }

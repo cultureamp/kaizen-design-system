@@ -1,11 +1,11 @@
-import React from "react"
-import { Menu, MenuList, Button, IconButton } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
-import styles from "../TitleBlockZen.module.scss"
-import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from "../constants"
-import { SecondaryActionsProps, TitleBlockMenuItemProps } from "../types"
-import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
-import { Toolbar } from "./Toolbar"
+import React from 'react'
+import { Menu, MenuList, Button, IconButton } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
+import styles from '../TitleBlockZen.module.scss'
+import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from '../constants'
+import { SecondaryActionsProps, TitleBlockMenuItemProps } from '../types'
+import { TitleBlockMenuItem } from './TitleBlockMenuItem'
+import { Toolbar } from './Toolbar'
 
 type Props = {
   secondaryActions?: SecondaryActionsProps
@@ -15,7 +15,7 @@ type Props = {
 
 const renderSecondaryOverflowMenu = (
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
-  reversed?: boolean
+  reversed?: boolean,
 ): JSX.Element | undefined => {
   if (!secondaryOverflowMenuItems) return undefined
   return (
@@ -52,7 +52,7 @@ export const SecondaryActions = ({
 
   const secondaryActionsAsToolbarItems = secondaryActions
     ? secondaryActions.map((action, i) => {
-        if ("menuItems" in action) {
+        if ('menuItems' in action) {
           return {
             key: `${i}`, // We shouldn't use an index here, see note above
             node: (
@@ -77,11 +77,11 @@ export const SecondaryActions = ({
             ),
           }
         } else {
-          if ("onClick" in action && "href" in action) {
+          if ('onClick' in action && 'href' in action) {
             // eslint-disable-next-line no-console
             console.warn(
-              "\u001b[33m \nTITLE BLOCK WARNING:\nSecondary actions only support " +
-                "either an href or an onClick, not both simultaneously.\n"
+              '\u001b[33m \nTITLE BLOCK WARNING:\nSecondary actions only support ' +
+                'either an href or an onClick, not both simultaneously.\n',
             )
           }
           return {
@@ -100,17 +100,14 @@ export const SecondaryActions = ({
       })
     : []
 
-  const overflowMenu = renderSecondaryOverflowMenu(
-    secondaryOverflowMenuItems,
-    reversed
-  )
+  const overflowMenu = renderSecondaryOverflowMenu(secondaryOverflowMenuItems, reversed)
 
   const toolbarItems = [
     ...secondaryActionsAsToolbarItems,
     ...(overflowMenu
       ? [
           {
-            key: "overflowMenu",
+            key: 'overflowMenu',
             node: overflowMenu,
           },
         ]
@@ -119,13 +116,9 @@ export const SecondaryActions = ({
 
   return (
     <div className={styles.secondaryActionsContainer}>
-      <Toolbar
-        items={toolbarItems}
-        noGap
-        automationId="title-block-secondary-actions-toolbar"
-      />
+      <Toolbar items={toolbarItems} noGap automationId="title-block-secondary-actions-toolbar" />
     </div>
   )
 }
 
-SecondaryActions.displayName = "SecondaryActions"
+SecondaryActions.displayName = 'SecondaryActions'

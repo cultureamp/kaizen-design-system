@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react"
-import { Collection, Key } from "@react-types/shared"
-import classnames from "classnames"
-import { useSelectionContext } from "../../context/SelectionProvider"
-import { MultiSelectItem } from "../../types"
-import styles from "./ListBox.module.scss"
+import React, { useState, useEffect } from 'react'
+import { Collection, Key } from '@react-types/shared'
+import classnames from 'classnames'
+import { useSelectionContext } from '../../context/SelectionProvider'
+import { MultiSelectItem } from '../../types'
+import styles from './ListBox.module.scss'
 
 export type ListBoxItems = {
   selectedItems: MultiSelectItem[]
@@ -19,7 +19,7 @@ export type ListBoxProps = {
 
 const getItemsFromKeys = (
   items: Collection<MultiSelectItem>,
-  keys: Set<Key>
+  keys: Set<Key>,
 ): MultiSelectItem[] => {
   const itemKeys = Array.from(keys)
   return itemKeys.reduce<MultiSelectItem[]>((acc, itemKey) => {
@@ -48,7 +48,7 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
   const selectedItems = getItemsFromKeys(items, selectedKeys)
 
   const unselectedItems = Array.from(items).filter(
-    item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key)
+    (item) => !disabledKeys.has(item.key) && !selectedKeys.has(item.key),
   )
   const allItems = Array.from(items)
   const hasNoItems = allItems.length === 0
@@ -71,6 +71,8 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
       allItems,
       hasNoItems,
     })
+    // @todo: Fix if possible - avoiding breaking in eslint upgrade
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectionState.collection.size])
 
   if (hasNoItems) {
@@ -94,4 +96,4 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
   )
 }
 
-ListBox.displayName = "FilterMultiSelect.ListBox"
+ListBox.displayName = 'FilterMultiSelect.ListBox'

@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Content.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Content.module.scss'
 
 export type ContentProps = {
   children?: React.ReactNode
@@ -10,25 +10,25 @@ export type ContentProps = {
    */
   style?: Pick<
     React.CSSProperties,
-    | "bottom"
-    | "left"
-    | "margin"
-    | "marginBottom"
-    | "marginLeft"
-    | "marginRight"
-    | "marginTop"
-    | "padding"
-    | "paddingBottom"
-    | "paddingLeft"
-    | "paddingRight"
-    | "paddingTop"
-    | "position"
-    | "right"
-    | "top"
-    | "transform"
-    | "transformBox"
-    | "transformOrigin"
-    | "transformStyle"
+    | 'bottom'
+    | 'left'
+    | 'margin'
+    | 'marginBottom'
+    | 'marginLeft'
+    | 'marginRight'
+    | 'marginTop'
+    | 'padding'
+    | 'paddingBottom'
+    | 'paddingLeft'
+    | 'paddingRight'
+    | 'paddingTop'
+    | 'position'
+    | 'right'
+    | 'top'
+    | 'transform'
+    | 'transformBox'
+    | 'transformOrigin'
+    | 'transformStyle'
   >
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
@@ -46,7 +46,7 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
     >
       {children}
     </div>
-  )
+  ),
 )
 
-Content.displayName = "Content"
+Content.displayName = 'Content'

@@ -1,8 +1,8 @@
-@import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/border";
-@import "../../styles/utils/button-reset";
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/border';
+@import '../../styles/utils/button-reset';
 
 // Vars
 $button-height: 48px;
@@ -42,8 +42,7 @@ $placeholder-opacity: 0.7;
   }
 
   &:focus-visible:not([disabled]) {
-    outline: $color-blue-500 $border-focus-ring-border-style
-      $border-focus-ring-border-width;
+    outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
     outline-offset: 1px;
   }
 
@@ -93,8 +92,7 @@ $placeholder-opacity: 0.7;
   }
 
   .button {
-    padding-inline: calc(#{$spacing-md} + #{$button-icon-size})
-      $button-base-padding-horizontal;
+    padding-inline: calc(#{$spacing-md} + #{$button-icon-size}) $button-base-padding-horizontal;
   }
 }
 /* stylelint-enable no-descending-specificity */

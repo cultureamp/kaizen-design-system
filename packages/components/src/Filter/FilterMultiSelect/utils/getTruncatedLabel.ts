@@ -1,13 +1,12 @@
-const CONNECTOR = ", "
+const CONNECTOR = ', '
 
 const truncateByCharacterLimit = (
   labels: string[],
   limit: number,
-  labelsTruncatedCount = 0
+  labelsTruncatedCount = 0,
 ): string => {
-  if (labels.length === 1 || labels.join("").replace(/,/g, "").length < limit) {
-    const moreIndicator =
-      labelsTruncatedCount > 0 ? ` + ${labelsTruncatedCount} more` : ""
+  if (labels.length === 1 || labels.join('').replace(/,/g, '').length < limit) {
+    const moreIndicator = labelsTruncatedCount > 0 ? ` + ${labelsTruncatedCount} more` : ''
     return `${labels.join(CONNECTOR)}${moreIndicator}`
   }
 

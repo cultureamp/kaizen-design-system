@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./LoadingParagraph.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './LoadingParagraph.module.scss'
 
 export type LoadingParagraphProps = {
   isAnimated?: boolean
@@ -43,11 +43,11 @@ export const LoadingParagraph = ({
       isLink && styles.isLink,
       inheritBaseline && styles.inheritBaseline,
       isInline && styles.isInline,
-      noBottomMargin && styles.noBottomMargin
+      noBottomMargin && styles.noBottomMargin,
     )}
     style={{ width: `${width}%` }}
     {...restProps}
   />
 )
 
-LoadingParagraph.displayName = "LoadingParagraph"
+LoadingParagraph.displayName = 'LoadingParagraph'

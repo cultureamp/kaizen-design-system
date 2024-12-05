@@ -1,1 +1,1 @@
-export * from "./SbContent"
+export * from './SbContent'

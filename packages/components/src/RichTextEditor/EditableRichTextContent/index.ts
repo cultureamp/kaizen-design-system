@@ -1,1 +1,1 @@
-export * from "./EditableRichTextContent"
+export * from './EditableRichTextContent'

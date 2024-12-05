@@ -1,35 +1,34 @@
-import { heartTheme } from "@kaizen/design-tokens"
+import { heartTheme } from '@kaizen/design-tokens'
 
 const tokenDenyList: string[] = [
-  "xs",
-  "sm",
-  "md",
-  "lg",
-  "xl",
-  "xxl",
-  "xxxl",
-  "xxxxl",
-  "xxxxxl",
-  "xs-id",
-  "sm-id",
-  "md-id",
-  "lg-id",
-  "xl-id",
-  "xxl-id",
-  "xxxl-id",
-  "xxxxl-id",
-  "xxxxxl-id",
+  'xs',
+  'sm',
+  'md',
+  'lg',
+  'xl',
+  'xxl',
+  'xxxl',
+  'xxxxl',
+  'xxxxxl',
+  'xs-id',
+  'sm-id',
+  'md-id',
+  'lg-id',
+  'xl-id',
+  'xxl-id',
+  'xxxl-id',
+  'xxxxl-id',
+  'xxxxxl-id',
 ]
 
 /**
  * checks if a key from design tokens should be filtered from tailwind
  */
-const isValidToken = (key: string | number): boolean =>
-  tokenDenyList.indexOf(`${key}`) < 0
+const isValidToken = (key: string | number): boolean => !tokenDenyList.includes(`${key}`)
 
 // Filters out non-pixel-based spacing tokens, such as shirt sizes
 export const filterDenyListValues = (
-  spacingTokensObject: Record<string, string>
+  spacingTokensObject: Record<string, string>,
 ): Record<string, string> => {
   const keyValuePairs = Object.entries(spacingTokensObject)
 

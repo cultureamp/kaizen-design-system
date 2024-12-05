@@ -1,10 +1,7 @@
-import React, { forwardRef, ReactNode } from "react"
-import {
-  MenuItem as RACMenuItem,
-  MenuItemProps as RACMenuItemProps,
-} from "react-aria-components"
-import { mergeClassNames } from "~components/utils/mergeClassNames"
-import styles from "./MenuItem.module.css"
+import React, { forwardRef, ReactNode } from 'react'
+import { MenuItem as RACMenuItem, MenuItemProps as RACMenuItemProps } from 'react-aria-components'
+import { mergeClassNames } from '~components/utils/mergeClassNames'
+import styles from './MenuItem.module.css'
 
 export type MenuItemProps = RACMenuItemProps & {
   /**
@@ -18,8 +15,7 @@ export type MenuItemProps = RACMenuItemProps & {
  */
 export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   ({ className, icon, children, textValue, ...props }, ref): JSX.Element => {
-    const determinedTextValue =
-      textValue || (typeof children === "string" ? children : undefined)
+    const determinedTextValue = textValue ?? (typeof children === 'string' ? children : undefined)
     return (
       <RACMenuItem
         ref={ref}
@@ -28,7 +24,7 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
         {...props}
       >
         <>
-          {typeof children === "string" && icon ? (
+          {typeof children === 'string' && icon ? (
             <div className={styles.flexWrapper}>
               <span className={styles.iconWrapper}>{icon}</span>
               {children}
@@ -39,5 +35,7 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
         </>
       </RACMenuItem>
     )
-  }
+  },
 )
+
+MenuItem.displayName = 'MenuItem'

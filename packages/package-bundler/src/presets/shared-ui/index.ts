@@ -1,1 +1,1 @@
-export * from "./plugins-shared-ui.js"
+export * from './plugins-shared-ui.js'

@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./LabelledMessage.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './LabelledMessage.module.scss'
 
 export type LabelledMessageProps = {
   label: string | React.ReactElement
@@ -14,14 +14,11 @@ export const LabelledMessage = ({
   classNameOverride,
   ...restProps
 }: LabelledMessageProps): JSX.Element => (
-  <span
-    className={classnames(styles.labelledMessage, classNameOverride)}
-    {...restProps}
-  >
+  <span className={classnames(styles.labelledMessage, classNameOverride)} {...restProps}>
     <span>{label}</span>
     <span className={styles.labelSeparator}>:</span>
     <span>{message}</span>
   </span>
 )
 
-LabelledMessage.displayName = "LabelledMessage"
+LabelledMessage.displayName = 'LabelledMessage'
