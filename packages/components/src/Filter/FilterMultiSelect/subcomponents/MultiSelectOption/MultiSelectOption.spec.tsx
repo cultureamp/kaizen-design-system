@@ -19,6 +19,7 @@ vi.mock('../../context', () => ({
 }))
 
 const itemMock: MultiSelectOptionProps['item'] & { value: ItemType } = {
+  index: 0,
   type: 'type-mock',
   key: 'key-mock',
   value: { label: 'label-mock', value: 'value-mock' },
