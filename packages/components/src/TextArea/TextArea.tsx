@@ -42,7 +42,7 @@ export const TextArea = ({
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     propsOnChange?.(event)
 
-    if (!value) {
+    if (!value && autogrow) {
       setInternalValue(event.target.value)
     }
   }
