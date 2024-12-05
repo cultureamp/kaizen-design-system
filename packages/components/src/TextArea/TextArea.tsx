@@ -33,11 +33,9 @@ export const TextArea = ({
 }: TextAreaProps): JSX.Element => {
   const [internalValue, setInternalValue] = useState<
     string | number | readonly string[] | undefined
-  >(autogrow && !value ? defaultValue : undefined)
-  // ^ holds an internal state of the value so that autogrow can still work with uncontrolled textareas
-  // essentially forces the textarea into an (interally) controlled mode if autogrow is true and mode is uncontrolled
+  >(value ?? defaultValue ?? '')
+  // ^holds an internal state of the value, used for the autogrow feature if uncontrolled (no `value` provided)
 
-  const controlledValue = value ?? internalValue
   const fallbackRef = useRef(null)
   const textAreaRef = propsTextAreaRef ?? fallbackRef
 
@@ -51,7 +49,7 @@ export const TextArea = ({
       className={classnames(styles.wrapper, {
         [styles.wrapperAutogrow]: autogrow,
       })}
-      data-value={autogrow ? controlledValue : undefined}
+      data-value={value ?? internalValue}
     >
       <textarea
         className={classnames(
@@ -65,8 +63,8 @@ export const TextArea = ({
         )}
         rows={rows}
         onChange={onChange}
-        value={controlledValue}
-        defaultValue={controlledValue ? undefined : defaultValue}
+        value={value}
+        defaultValue={value ? undefined : defaultValue}
         // ^ React throws a warning if you specify both a value and a defaultValue
         ref={textAreaRef}
         disabled={disabled}
