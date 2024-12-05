@@ -42,7 +42,6 @@ Note: This will work with StaticIntlProvider or DynamicIntlProvider.
 ```tsx
 import { DynamicIntlProvider } from '@cultureamp/i18n-react-intl'
 import { KaizenProvider } from '@kaizen/components'
-
 ;<DynamicIntlProvider>
   <KaizenProvider>
     <YourApp />
@@ -56,7 +55,6 @@ In these cases, you'll need to pass the current locale as a prop to the `KaizenP
 
 ```tsx
 import { KaizenProvider } from '@kaizen/components'
-
 ;<KaizenProvider locale={locale}>
   <YourApp />
 </KaizenProvider>

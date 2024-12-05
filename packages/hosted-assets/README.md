@@ -29,7 +29,6 @@ asset-url("some/blob.png") // -> "https://<origin>/some/blob.png"
 
 ```js
 import { assetUrl } from '@kaizen/hosted-assets'
-
 ;<SomeComponent image={assetUrl('illustrations/plant-based-ham-substitute.png')} />
 ```
 
