@@ -6,12 +6,15 @@
 !*.ts
 !*.tsx
 !*.js
+!*.cjs
 !*.mjs
+!*.md
+!*.mdx
 !*.json
 !*.yaml
 !*.yml
-!*.scss
 !*.css
+!*.scss
 
 # Explicitly ignore...
 devbox.lock
