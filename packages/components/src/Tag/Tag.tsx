@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { Avatar, AvatarProps } from '~components/Avatar'
-import { LiveIcon } from '~components/Tag/subcomponents/LiveIcon/LiveIcon'
+import { LiveIcon } from './subcomponents/LiveIcon/LiveIcon'
 import { Icon } from '~components/__future__/Icon'
 import { TagVariants } from './types'
 import styles from './Tag.module.scss'
@@ -131,40 +131,7 @@ export const Tag = (props: TagProps): JSX.Element => {
             </>
           )}
           {variant === 'statusLive' && (
-            <span className={styles.liveIcon}>
-              <LiveIcon
-                role="presentation"
-                classNameOverride={styles.liveIcon_base}
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-              />
-              <LiveIcon
-                role="presentation"
-                classNameOverride={styles.liveIcon_1}
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-              />
-              <LiveIcon
-                role="presentation"
-                classNameOverride={styles.liveIcon_2}
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-              />
-              <LiveIcon
-                role="presentation"
-                classNameOverride={styles.liveIcon_3}
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-              />
-            </span>
+            <LiveIcon />
           )}
         </>
       </div>

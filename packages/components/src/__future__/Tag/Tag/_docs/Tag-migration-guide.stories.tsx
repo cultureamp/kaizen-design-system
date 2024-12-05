@@ -2,8 +2,7 @@ import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { Avatar } from '~components/Avatar'
-import styles from '~components/Tag/Tag.module.scss'
-import { LiveIcon } from '~components/Tag/subcomponents/LiveIcon/LiveIcon'
+import { LiveIcon } from '~components/Tag'
 import { Icon } from '~components/__future__/Icon'
 import { Tag, RemovableTag } from '../..'
 
@@ -24,97 +23,8 @@ const meta = {
 
 export default meta
 
-/** * This is a stand-in component for the legacy Tag's bake in LiveIcon - we should consider adding this as an actual component or replacing it */
-const LiveIconComponent = (): JSX.Element => (
-  <span className={styles.liveIcon}>
-    <LiveIcon
-      role="presentation"
-      classNameOverride={styles.liveIcon_base}
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-    />
-    <LiveIcon
-      role="presentation"
-      classNameOverride={styles.liveIcon_1}
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-    />
-    <LiveIcon
-      role="presentation"
-      classNameOverride={styles.liveIcon_2}
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-    />
-    <LiveIcon
-      role="presentation"
-      classNameOverride={styles.liveIcon_3}
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-    />
-  </span>
-)
-
 export const LiveIconComponentStory: StoryObj = {
-  render: () => <LiveIconComponent />,
-  parameters: {
-    docs: {
-      source: {
-        type: 'dynamic',
-        code: `
-  // component with styled with CSS modules
-  const LiveIconComponent = (): JSX.Element => (
-    <span className={styles.liveIcon}>
-      <LiveIcon
-        role="presentation"
-        classNameOverride={styles.liveIcon_base}
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
-      />
-      <LiveIcon
-        role="presentation"
-        classNameOverride={styles.liveIcon_1}
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
-      />
-      <LiveIcon
-        role="presentation"
-        classNameOverride={styles.liveIcon_2}
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
-      />
-      <LiveIcon
-        role="presentation"
-        classNameOverride={styles.liveIcon_3}
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
-      />
-    </span>
-  )
-
-  // Minified SCSS from the stylesheet
-  <style>
-    .liveIcon_2,.liveIcon_3{animation-duration:3s;animation-iteration-count:3;animation-delay:1s}.liveIcon{display:inline-block;position:relative;width:20px;height:20px;color:$color-green-500}.liveIcon_1,.liveIcon_2,.liveIcon_3{display:block;position:absolute;top:0;left:$0;width:100%;height:100%;overflow:hidden}.liveIcon_base{opacity:30%;display:block}.liveIcon_1{clip-path:circle(16%)}.liveIcon_2{clip-path:circle(32%);animation-name:pulse-inner}.liveIcon_3{clip-path:circle(50%);animation-name:pulse-outer}@keyframes pulse-inner{0%,25%{opacity:0%}100%,50%,75%{opacity:100%}}@keyframes pulse-outer{0%,25%,50%{opacity:0%}100%,75%{opacity:100%}}
-  </style>
-        `,
-      },
-    },
-  },
+  render: () => <LiveIcon />,
 }
 
 export const StatusMigration: StoryObj = {
@@ -122,7 +32,7 @@ export const StatusMigration: StoryObj = {
     <>
       <Tag classNameOverride="gap-4" color="green">
         <span>Tag</span>
-        <LiveIconComponent />
+        <LiveIcon />
       </Tag>
       <Tag color="blue">Tag</Tag>
       <Tag color="red">Tag</Tag>

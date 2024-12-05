@@ -4,8 +4,46 @@
 import React from 'react'
 import { SVG } from '~components/Icon/subcomponents/SVG'
 import type { IconProps } from '~components/Icon/types'
+import styles from './LiveIcon.module.css'
 
-export const LiveIcon = (props: IconProps): JSX.Element => {
+export const LiveIcon = (): JSX.Element => (
+  <span className={styles.liveIcon}>
+    <LiveIconContent
+      role="presentation"
+      classNameOverride={styles.liveIcon_base}
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+    />
+    <LiveIconContent
+      role="presentation"
+      classNameOverride={styles.liveIcon_1}
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+    />
+    <LiveIconContent
+      role="presentation"
+      classNameOverride={styles.liveIcon_2}
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+    />
+    <LiveIconContent
+      role="presentation"
+      classNameOverride={styles.liveIcon_3}
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+    />
+  </span>
+)
+
+const LiveIconContent = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <path
