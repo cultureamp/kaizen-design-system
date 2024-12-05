@@ -95,16 +95,20 @@ Updates the package API to export the asset URL functions from the root of the m
 ```js
 // TS/JS
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { assetUrl } from '@kaizen/hosted-assets'
-;<SomeComponent image={assetUrl('illustrations/plant-based-ham-substitute.png')} />
+import { assetUrl } from "@kaizen/hosted-assets"
+;<SomeComponent
+  image={assetUrl("illustrations/plant-based-ham-substitute.png")}
+/>
 ```
 
 ```scss
 // SCSS
-@import '~@kaizen/hosted-assets';
+@import "~@kaizen/hosted-assets";
 
 .coolpic {
-  background-image: url(asset-url('illustrations/plant-based-ham-substitute.png'));
+  background-image: url(asset-url(
+    "illustrations/plant-based-ham-substitute.png"
+  ));
 }
 ```
 
