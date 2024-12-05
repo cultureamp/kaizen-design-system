@@ -33,7 +33,7 @@ export const TextArea = ({
 }: TextAreaProps): JSX.Element => {
   const [internalValue, setInternalValue] = useState<
     string | number | readonly string[] | undefined
-  >(value ?? defaultValue ?? '')
+  >(defaultValue)
   // ^holds an internal state of the value, used for the autogrow feature if uncontrolled (no `value` provided)
 
   const fallbackRef = useRef(null)
@@ -41,7 +41,10 @@ export const TextArea = ({
 
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     propsOnChange?.(event)
-    setInternalValue(event.target.value)
+
+    if (!value) {
+      setInternalValue(event.target.value)
+    }
   }
 
   return (
@@ -49,7 +52,7 @@ export const TextArea = ({
       className={classnames(styles.wrapper, {
         [styles.wrapperAutogrow]: autogrow,
       })}
-      data-value={value ?? internalValue}
+      data-value={autogrow ? (value ?? internalValue) : undefined}
     >
       <textarea
         className={classnames(
