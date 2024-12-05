@@ -99,7 +99,7 @@
     "react-day-picker": "Version locked until a11y gets fixed (https://github.com/gpbl/react-day-picker/pull/1708)"
   },
   "devDependencies": {
-    "@cultureamp/frontend-apis": "^11.0.0",
+    "@cultureamp/frontend-apis": "^11.1.0",
     "@cultureamp/i18n-react-intl": "^2.7.1",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/package-bundler": "workspace:*",
@@ -124,7 +124,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-highlight": "^0.15.0",
-    "react-intl": "^6.8.4",
+    "react-intl": "^6.8.9",
     "rollup": "^4.27.2",
     "sass": "1.79.6",
     "serialize-query-params": "^2.0.2",
