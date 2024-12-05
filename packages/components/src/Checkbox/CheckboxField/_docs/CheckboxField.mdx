@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as CheckboxFieldStories from "./CheckboxField.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as CheckboxFieldStories from './CheckboxField.stories'
 
 <Meta of={CheckboxFieldStories} />
 
@@ -25,7 +25,9 @@ A checkbox field includes a checkable input and its label. Checkbox fields are u
 ## API
 
 ### No Bottom Margin
+
 Removes the margin from below the Checkbox Field.
 
 **Note** This is a bit of an antiquated pattern, we advise you to keep this on by default and use flex containers to apply spacing
+
 <Canvas of={CheckboxFieldStories.NoBottomMargin} />

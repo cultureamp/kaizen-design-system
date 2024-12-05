@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as TextAreaFieldStories from "./TextAreaField.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as TextAreaFieldStories from './TextAreaField.stories'
 
 <Meta of={TextAreaFieldStories} />
 
@@ -25,18 +25,23 @@ A text area includes a label and a longer area you can type multiple lines of te
 ## API
 
 ### Variant
+
 <Canvas of={TextAreaFieldStories.Variant} />
 
 ### Autogrow
-Autogrow expands the textarea as the user's typing exceeds the minimum height of  the text area.
+
+Autogrow expands the textarea as the user's typing exceeds the minimum height of the text area.
 
 <Canvas of={TextAreaFieldStories.Autogrow} />
 
 ### Description
+
 <Canvas of={TextAreaFieldStories.Description} />
 
 ### Validation
+
 <Canvas of={TextAreaFieldStories.Validation} />
 
 ### Reversed
+
 <Canvas of={TextAreaFieldStories.Reversed} />

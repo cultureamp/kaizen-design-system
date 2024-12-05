@@ -19,7 +19,6 @@ As of V3, design tokens are also **themable**; they are intended to be used as i
 to support this feature, so when consuming tokens in SASS/LESS you should assume they will contain values such as `var(--color-...)`, rather than concrete values such as `1.5rem` or `#fff`.
 These values are supplied by the ThemeManager.
 
-
 ## Installation
 
 ```sh
@@ -45,7 +44,7 @@ pnpm add @kaizen/design-tokens
 ### JavaScript
 
 ```js
-import * as tokens from "@kaizen/design-tokens/tokens/[color/depth/layout/spacing/typography]"
+import * as tokens from '@kaizen/design-tokens/tokens/[color/depth/layout/spacing/typography]'
 ```
 
 ## Where possible, we keep things unitless.
@@ -56,9 +55,9 @@ When adding support for another target the transformation should add the appropr
 
 All values in tokens are represented as rem, em or px.
 
-* Use REMs for sizes and spacing (grid).
-* Use EMs for media queries.
-* Use px for borders.
+- Use REMs for sizes and spacing (grid).
+- Use EMs for media queries.
+- Use px for borders.
 
 ## Contributing
 

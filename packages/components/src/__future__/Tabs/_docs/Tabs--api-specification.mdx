@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as TabsStories from "./Tabs.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as TabsStories from './Tabs.stories'
 
 <Meta title="Components/Tabs/Tabs (Future)/API Specification" />
 
@@ -13,10 +13,7 @@ import * as TabsStories from "./Tabs.stories"
 
 />
 
-<KAIOInstallation
-  exportNames={["Tabs", "TabList", "Tab", "TabPanel"]}
-  isFuture
-/>
+<KAIOInstallation exportNames={['Tabs', 'TabList', 'Tab', 'TabPanel']} isFuture />
 
 ## Overview
 
@@ -30,7 +27,6 @@ This component is uncontrolled by default. You can specify a default active tab 
 If you need to control the state of the active tabs on the consuming side, use the `selectedKey` prop instead of `defaultSelectedKey`, and hook into `onSelectionChange`.
 
 <Canvas of={TabsStories.Controlled} />
-
 
 ## `tablist|tab` role vs `nav|link`
 

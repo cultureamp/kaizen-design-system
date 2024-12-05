@@ -6,18 +6,24 @@
 !*.ts
 !*.tsx
 !*.js
+!*.cjs
 !*.mjs
+!*.md
+!*.mdx
 !*.json
 !*.yaml
 !*.yml
-!*.scss
 !*.css
+!*.scss
 
 # Explicitly ignore...
+devbox.lock
 pnpm-lock.yaml
+**/CHANGELOG.md
 **/node_modules/
 /docs/storybook-static/
-/docs/utils/tailwind.css
-/packages/**/dist
-/packages/components/locales
-/packages/design-tokens/css
+/packages/**/dist/
+/packages/components/locales/
+/packages/design-tokens/css/
+/packages/design-tokens/less/
+/packages/design-tokens/sass/

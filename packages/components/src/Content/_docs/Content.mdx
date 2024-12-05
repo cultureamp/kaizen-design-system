@@ -1,7 +1,7 @@
-import { Canvas, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import { LinkTo } from "~storybook/components/LinkTo"
-import * as ContentStories from "./Content.stories"
+import { Canvas, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import { LinkTo } from '~storybook/components/LinkTo'
+import * as ContentStories from './Content.stories'
 
 <Meta of={ContentStories} />
 
@@ -22,5 +22,7 @@ Wraps your content at a **page level** in the standard minimum width and margins
 <Canvas of={ContentStories.Playground} />
 
 ## Use Case
+
 Usually wrapped in a <LinkTo pageId="components-container">Container</LinkTo>
+
 <Canvas of={ContentStories.Example} />
