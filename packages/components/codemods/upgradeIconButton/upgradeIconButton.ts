@@ -1,6 +1,5 @@
 import ts from 'typescript'
 import {
-  getKaioTagName,
   setImportToRemove,
   setImportToAdd,
   updateKaioImports,
@@ -13,10 +12,14 @@ export const upgradeIconButton =
   (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
   (context) =>
   (rootNode) => {
+    const IMPORT_DESTINATION = '@kaizen/components/v3/actions'
     const importsToRemove: UpdateKaioImportsArgs['importsToRemove'] = new Map()
     const importsToAdd: UpdateKaioImportsArgs['importsToAdd'] = new Map()
 
-    const importedButtonTagName = getKaioTagName(rootNode, 'Button')
+    const importedButtonTagName = Array.from(tagsMap.values()).find(
+      ({ originalName, importModuleName }) =>
+        originalName === 'Button' && importModuleName === IMPORT_DESTINATION,
+    )?.tagName
 
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxSelfClosingElement(node)) {
@@ -31,12 +34,16 @@ export const upgradeIconButton =
           )
 
           if (!importedButtonTagName) {
-            setImportToAdd(importsToAdd, '@kaizen/components/v3/actions', {
-              componentName: 'Button',
+            setImportToAdd(importsToAdd, IMPORT_DESTINATION, {
+              componentName: importedButtonTagName ?? 'Button',
             })
           }
 
-          return transformV1ButtonsToV3(node, tagImportAttributes.originalName)
+          return transformV1ButtonsToV3(
+            node,
+            tagImportAttributes.originalName,
+            importedButtonTagName,
+          )
         }
       }
       return ts.visitEachChild(node, visit, context)
