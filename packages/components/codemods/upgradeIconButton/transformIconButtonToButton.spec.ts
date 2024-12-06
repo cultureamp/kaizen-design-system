@@ -96,6 +96,16 @@ describe('transformIconButtonToButton()', () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
+    it('changes newTabAndIUnderstandTheAccessibilityImplications to target="_blank" and rel="noopener noreferrer"', () => {
+      const inputAst = parseJsx(
+        '<IconButton icon={icon} label="Pancakes" newTabAndIUnderstandTheAccessibilityImplications />',
+      )
+      const outputAst = parseJsx(
+        '<Button icon={icon} target="_blank" rel="noopener noreferrer" hasHiddenLabel>Pancakes</Button>',
+      )
+      expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    })
+
     // @todo: Update when we know what to change variants to
     describe('transform variant', () => {
       it('changes default (undefined) to TBC', () => {

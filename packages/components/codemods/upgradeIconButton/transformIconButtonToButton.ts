@@ -1,5 +1,5 @@
 import ts from 'typescript'
-import { createJsxElementWithChildren, createProp } from '../utils'
+import { createJsxElementWithChildren, createProp, createStringProp } from '../utils'
 
 /**
  * @returns
@@ -39,6 +39,12 @@ export const transformIconButtonToButton = (
 
       if (propName === 'label') {
         childrenValue = attr.initializer
+        return acc
+      }
+
+      if (propName === 'newTabAndIUnderstandTheAccessibilityImplications') {
+        acc.push(createStringProp('target', '_blank'))
+        acc.push(createStringProp('rel', 'noopener noreferrer'))
         return acc
       }
 
