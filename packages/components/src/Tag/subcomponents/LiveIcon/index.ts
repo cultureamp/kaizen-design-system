@@ -1,1 +1,1 @@
-export * from "./LiveIcon"
+export * from './LiveIcon'

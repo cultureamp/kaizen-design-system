@@ -1,8 +1,8 @@
 import React from 'react'
 import classnames from 'classnames'
 import { Avatar, AvatarProps } from '~components/Avatar'
-import { LiveIcon } from './subcomponents/LiveIcon/LiveIcon'
 import { Icon } from '~components/__future__/Icon'
+import { LiveIcon } from './subcomponents/LiveIcon/LiveIcon'
 import { TagVariants } from './types'
 import styles from './Tag.module.scss'
 
@@ -130,9 +130,7 @@ export const Tag = (props: TagProps): JSX.Element => {
               </button>
             </>
           )}
-          {variant === 'statusLive' && (
-            <LiveIcon />
-          )}
+          {variant === 'statusLive' && <LiveIcon />}
         </>
       </div>
     </div>
