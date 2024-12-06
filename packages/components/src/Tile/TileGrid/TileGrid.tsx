@@ -41,8 +41,8 @@ TileGrid.displayName = "TileGrid"
 
 const getTiles = (
   children: TileElement | TileElement[],
-  tileGridBaseId: String
-) => {
+  tileGridBaseId: string
+): JSX.Element | JSX.Element[] => {
   const child = Children.only(children)
 
   if (Array.isArray(child.props.children)) {
