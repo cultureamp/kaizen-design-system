@@ -32,7 +32,7 @@
     "@storybook/test-runner": "^0.20.1",
     "@types/jest-axe": "^3.5.9",
     "@types/react-highlight": "^0.12.8",
-    "@vitejs/plugin-react": "^4.3.3",
+    "@vitejs/plugin-react": "^4.3.4",
     "axe-playwright": "^2.0.3",
     "classnames": "^2.5.1",
     "globals": "^15.13.0",
@@ -45,9 +45,10 @@
     "vite-plugin-node-polyfills": "^0.22.0"
   },
   "devDependenciesComments": {
-    "sass": "Prevent deprecation warnings introduced in 1.80 as we plan to move away from sass in KAIO"
+    "sass": "Prevent deprecation warnings introduced in 1.80 as we plan to move away from sass in KAIO",
+    "vite-plugin-node-polyfills": "Adds the node `assert` polyfill to Vite for prosemirror to run in storybook"
   },
   "peerDependencies": {
-    "vite": ">=5.4.2"
+    "vite": "^6.0.2"
   }
 }
