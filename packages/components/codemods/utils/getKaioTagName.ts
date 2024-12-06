@@ -134,11 +134,11 @@ type TagImportAttributes = {
 export type TagImportAttributesMap = Map<string, TagImportAttributes>
 
 /**
- * Recurses through AST to find all the import names or aliases in KAIO that exactly match the provided string.
+ * Recurses through AST to find all the import names or aliases in KAIO that exactly match the provided strings.
  */
 export const getKaioTagNamesMapByString = (
   node: ts.Node,
-  importSpecifier: string,
+  importSpecifiers: string[],
 ): TagImportAttributesMap | undefined => {
   const tagsMap = new Map() as TagImportAttributesMap
 
@@ -149,19 +149,21 @@ export const getKaioTagNamesMapByString = (
       return ts.forEachChild(visitedNode, visitNode)
     }
 
-    kaioNamedImports.namedImports.find((namedImport) => {
-      const { originalName, tagName } = getNamesFromSpecifier(namedImport)
+    importSpecifiers.forEach((importSpecifier) => {
+      kaioNamedImports.namedImports.find((namedImport) => {
+        const { originalName, tagName } = getNamesFromSpecifier(namedImport)
 
-      if (importSpecifier === originalName) {
-        tagsMap.set(tagName, {
-          importModuleName: kaioNamedImports.importModuleName,
-          tagName,
-          originalName,
-        })
-        return true
-      }
+        if (importSpecifier === originalName) {
+          tagsMap.set(tagName, {
+            importModuleName: kaioNamedImports.importModuleName,
+            tagName,
+            originalName,
+          })
+          return true
+        }
 
-      return false
+        return false
+      })
     })
 
     return ts.forEachChild(visitedNode, visitNode)

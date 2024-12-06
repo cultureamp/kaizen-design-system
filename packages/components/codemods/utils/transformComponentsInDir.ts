@@ -42,12 +42,12 @@ export const traverseDir = (
  */
 export const transformComponentsAndImportsInDir = (
   dir: string,
-  componentName: string,
+  componentNames: string[],
   transformers: (kaioTagNamesMap: TagImportAttributesMap) => TransformSourceArgs['transformers'],
 ): void => {
   const transformFile = (componentFilePath: string, sourceCode: string): void => {
     const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
-    const kaioTagNamesMap = getKaioTagNamesMapByString(sourceFile, componentName)
+    const kaioTagNamesMap = getKaioTagNamesMapByString(sourceFile, componentNames)
     if (kaioTagNamesMap) {
       const updatedSourceFile = transformSource({
         sourceFile,

@@ -9,7 +9,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsAndImportsInDir(targetDir, 'IconButton', (tagNames) => [
+  transformComponentsAndImportsInDir(targetDir, ['IconButton', 'Button'], (tagNames) => [
     upgradeIconButton(tagNames),
   ])
 }
