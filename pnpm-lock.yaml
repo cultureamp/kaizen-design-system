@@ -477,7 +477,7 @@ importers:
         specifier: ^7.0.1
         version: 7.0.1(react@18.3.1)(typescript@5.7.2)
       rollup:
-        specifier: ^4.28.0
+        specifier: ^4.28.1
         version: 4.28.1
       sass:
         specifier: 1.79.6
@@ -562,7 +562,7 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0(prop-types@15.8.1)(react@18.3.1)
       rollup:
-        specifier: ^4.28.0
+        specifier: ^4.28.1
         version: 4.28.1
       tslib:
         specifier: ^2.8.1
@@ -628,7 +628,7 @@ importers:
         version: 3.5.2(typescript@5.7.2)
     devDependencies:
       rollup:
-        specifier: ^4.28.0
+        specifier: ^4.28.1
         version: 4.28.1
 
   packages/tailwind:
@@ -644,7 +644,7 @@ importers:
         specifier: ^2.5.1
         version: 2.5.1
       rollup:
-        specifier: ^4.28.0
+        specifier: ^4.28.1
         version: 4.28.1
       tailwindcss:
         specifier: ^3.4.15
