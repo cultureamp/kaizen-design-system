@@ -70,6 +70,16 @@ describe('transformIconButtonToButton()', () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
+    it('changes data-automation-id to data-testid', () => {
+      const inputAst = parseJsx(
+        '<IconButton icon={icon} label="Pancakes" data-automation-id="pancakes" />',
+      )
+      const outputAst = parseJsx(
+        '<Button icon={icon} data-testid="pancakes" hasHiddenLabel>Pancakes</Button>',
+      )
+      expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    })
+
     // @todo: Update when we know what to change variants to
     describe('transform variant', () => {
       it('changes default (undefined) to TBC', () => {

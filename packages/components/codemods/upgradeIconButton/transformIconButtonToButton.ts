@@ -18,6 +18,8 @@ const transformProp = (
       return createProp('isReversed', propValue)
     case 'classNameOverride':
       return createProp('className', propValue)
+    case 'data-automation-id':
+      return createProp('data-testid', propValue)
     default:
       return undefined
   }
