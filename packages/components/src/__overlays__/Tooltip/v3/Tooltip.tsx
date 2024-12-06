@@ -2,7 +2,7 @@ import React, { forwardRef, useContext, useLayoutEffect, useState } from 'react'
 import {
   Tooltip as RACTooltip,
   TooltipContext,
-  TooltipProps as RACTooltipProps,
+  type TooltipProps as RACTooltipProps,
   TooltipTriggerStateContext,
   useContextProps,
 } from 'react-aria-components'
@@ -74,7 +74,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         {shouldInlineHiddenContent ? (
           <VisuallyHidden>
             {typeof children === 'function'
-              ? children({
+              ? contextState &&
+                children({
                   placement: 'center',
                   isEntering: false,
                   isExiting: false,
