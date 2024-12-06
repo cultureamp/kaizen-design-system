@@ -36,7 +36,7 @@ export const upgradeIconButton =
             })
           }
 
-          return transformV1ButtonsToV3(node)
+          return transformV1ButtonsToV3(node, tagImportAttributes.originalName)
         }
       }
       return ts.visitEachChild(node, visit, context)

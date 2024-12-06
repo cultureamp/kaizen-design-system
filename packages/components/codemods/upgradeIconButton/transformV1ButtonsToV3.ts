@@ -29,6 +29,7 @@ const transformProp = (
 
 export const transformV1ButtonsToV3 = (
   node: ts.JsxSelfClosingElement,
+  kaioComponentName: string,
   tagName: string = 'Button',
 ): ts.Node => {
   let childrenValue: ts.JsxAttributeValue | undefined
@@ -62,7 +63,9 @@ export const transformV1ButtonsToV3 = (
     return acc
   }, [])
 
-  newAttributes.push(createProp('hasHiddenLabel'))
+  if (kaioComponentName === 'IconButton') {
+    newAttributes.push(createProp('hasHiddenLabel'))
+  }
 
   return createJsxElementWithChildren(tagName, newAttributes, childrenValue)
 }

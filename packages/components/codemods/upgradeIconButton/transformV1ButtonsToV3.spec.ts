@@ -4,93 +4,93 @@ import { printAst } from '../utils'
 import { transformV1ButtonsToV3 } from './transformV1ButtonsToV3'
 
 export const mockedTransformer =
-  (alias?: string) =>
+  (kaioComponentName: string, alias?: string) =>
   (context: ts.TransformationContext) =>
   (rootNode: ts.Node): ts.Node => {
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxSelfClosingElement(node)) {
-        return transformV1ButtonsToV3(node, alias)
+        return transformV1ButtonsToV3(node, kaioComponentName, alias)
       }
       return ts.visitEachChild(node, visit, context)
     }
     return ts.visitNode(rootNode, visit)
   }
 
-const transformInput = (sourceFile: ts.SourceFile, alias?: string): string => {
-  const result = ts.transform(sourceFile, [mockedTransformer(alias)])
+const transformInput = (
+  sourceFile: ts.SourceFile,
+  kaioComponentName: string = 'Button',
+  alias?: string,
+): string => {
+  const result = ts.transform(sourceFile, [mockedTransformer(kaioComponentName, alias)])
   const transformedSource = result.transformed[0] as ts.SourceFile
   return printAst(transformedSource)
 }
 
 describe('transformV1ButtonsToV3()', () => {
-  it('replaces IconButton with Button and changes label to children and adds hasHiddenLabel', () => {
-    const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" />')
-    const outputAst = parseJsx('<Button icon={icon} hasHiddenLabel>Pancakes</Button>')
+  it('changes label to children', () => {
+    const inputAst = parseJsx('<KzButton label="Pancakes" />')
+    const outputAst = parseJsx('<Button>Pancakes</Button>')
     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
   })
 
+  it('replaces IconButton with Button and changes label to children and adds hasHiddenLabel', () => {
+    const inputAst = parseJsx('<KzIconButton icon={icon} label="Pancakes" />')
+    const outputAst = parseJsx('<Button icon={icon} hasHiddenLabel>Pancakes</Button>')
+    expect(transformInput(inputAst, 'IconButton')).toEqual(printAst(outputAst))
+  })
+
   it('uses alias if it is defined', () => {
-    const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" />')
-    const outputAst = parseJsx('<KzButton icon={icon} hasHiddenLabel>Pancakes</KzButton>')
-    expect(transformInput(inputAst, 'KzButton')).toEqual(printAst(outputAst))
+    const inputAst = parseJsx('<KzButton label="Pancakes" />')
+    const outputAst = parseJsx('<ButtonAlias>Pancakes</ButtonAlias>')
+    expect(transformInput(inputAst, 'Button', 'ButtonAlias')).toEqual(printAst(outputAst))
   })
 
   describe('transform existing props', () => {
     it('changes onClick to onPress', () => {
-      const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" onClick={handleClick} />')
-      const outputAst = parseJsx(
-        '<Button icon={icon} onPress={handleClick} hasHiddenLabel>Pancakes</Button>',
-      )
+      const inputAst = parseJsx('<KzButton label="Pancakes" onClick={handleClick} />')
+      const outputAst = parseJsx('<Button onPress={handleClick}>Pancakes</Button>')
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
     it('changes reversed to isReversed', () => {
       const inputAst = parseJsx(`
         <>
-          <IconButton icon={icon} label="Pancakes" reversed />
-          <IconButton icon={icon} label="Pancakes" reversed={false} />
+          <KzButton label="Pancakes" reversed />
+          <KzButton label="Pancakes" reversed={false} />
         </>
       `)
       const outputAst = parseJsx(`
         <>
-          <Button icon={icon} isReversed hasHiddenLabel>Pancakes</Button>
-          <Button icon={icon} isReversed={false} hasHiddenLabel>Pancakes</Button>
+          <Button isReversed>Pancakes</Button>
+          <Button isReversed={false}>Pancakes</Button>
         </>
       `)
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
     it('changes classNameOverride to className', () => {
-      const inputAst = parseJsx(
-        '<IconButton icon={icon} label="Pancakes" classNameOverride="hello" />',
-      )
-      const outputAst = parseJsx(
-        '<Button icon={icon} className="hello" hasHiddenLabel>Pancakes</Button>',
-      )
+      const inputAst = parseJsx('<KzButton label="Pancakes" classNameOverride="hello" />')
+      const outputAst = parseJsx('<Button className="hello">Pancakes</Button>')
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
     it('changes data-automation-id to data-testid', () => {
-      const inputAst = parseJsx(
-        '<IconButton icon={icon} label="Pancakes" data-automation-id="pancakes" />',
-      )
-      const outputAst = parseJsx(
-        '<Button icon={icon} data-testid="pancakes" hasHiddenLabel>Pancakes</Button>',
-      )
+      const inputAst = parseJsx('<KzButton label="Pancakes" data-automation-id="pancakes" />')
+      const outputAst = parseJsx('<Button data-testid="pancakes">Pancakes</Button>')
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
     it('changes disabled to isDisabled', () => {
       const inputAst = parseJsx(`
         <>
-          <IconButton icon={icon} label="Pancakes" disabled />
-          <IconButton icon={icon} label="Pancakes" disabled={false} />
+          <KzButton label="Pancakes" disabled />
+          <KzButton label="Pancakes" disabled={false} />
         </>
       `)
       const outputAst = parseJsx(`
         <>
-          <Button icon={icon} isDisabled hasHiddenLabel>Pancakes</Button>
-          <Button icon={icon} isDisabled={false} hasHiddenLabel>Pancakes</Button>
+          <Button isDisabled>Pancakes</Button>
+          <Button isDisabled={false}>Pancakes</Button>
         </>
       `)
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
@@ -98,84 +98,66 @@ describe('transformV1ButtonsToV3()', () => {
 
     it('changes newTabAndIUnderstandTheAccessibilityImplications to target="_blank" and rel="noopener noreferrer"', () => {
       const inputAst = parseJsx(
-        '<IconButton icon={icon} label="Pancakes" newTabAndIUnderstandTheAccessibilityImplications />',
+        '<KzButton label="Pancakes" newTabAndIUnderstandTheAccessibilityImplications />',
       )
       const outputAst = parseJsx(
-        '<Button icon={icon} target="_blank" rel="noopener noreferrer" hasHiddenLabel>Pancakes</Button>',
+        '<Button target="_blank" rel="noopener noreferrer">Pancakes</Button>',
       )
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
     // @todo: Update when we know what to change variants to
-    describe('transform variant', () => {
-      it('changes default (undefined) to TBC', () => {
-        const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" />')
-        const outputAst = parseJsx(
-          '<Button icon={icon} variant="TBC" hasHiddenLabel>Pancakes</Button>',
-        )
-        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
-      })
+    // describe('transform variant', () => {
+    //   it('changes default (undefined) to TBC', () => {
+    //     const inputAst = parseJsx('<KzButton label="Pancakes" />')
+    //     const outputAst = parseJsx('<Button variant="TBC">Pancakes</Button>')
+    //     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    //   })
 
-      it('changes primary to TBC', () => {
-        const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" primary />')
-        const outputAst = parseJsx(
-          '<Button icon={icon} variant="TBC" hasHiddenLabel>Pancakes</Button>',
-        )
-        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
-      })
+    //   it('changes primary to TBC', () => {
+    //     const inputAst = parseJsx('<KzButton label="Pancakes" primary />')
+    //     const outputAst = parseJsx('<Button variant="TBC">Pancakes</Button>')
+    //     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    //   })
 
-      it('changes secondary to TBC', () => {
-        const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" secondary />')
-        const outputAst = parseJsx(
-          '<Button icon={icon} variant="TBC" hasHiddenLabel>Pancakes</Button>',
-        )
-        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
-      })
+    //   it('changes secondary to TBC', () => {
+    //     const inputAst = parseJsx('<KzButton label="Pancakes" secondary />')
+    //     const outputAst = parseJsx('<Button variant="TBC">Pancakes</Button>')
+    //     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    //   })
 
-      it('changes destructive to TBC', () => {
-        const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" destructive />')
-        const outputAst = parseJsx(
-          '<Button icon={icon} variant="TBC" hasHiddenLabel>Pancakes</Button>',
-        )
-        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
-      })
+    //   it('changes destructive to TBC', () => {
+    //     const inputAst = parseJsx('<KzButton label="Pancakes" destructive />')
+    //     const outputAst = parseJsx('<Button variant="TBC">Pancakes</Button>')
+    //     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    //   })
 
-      it('changes secondary destructive to TBC', () => {
-        const inputAst = parseJsx(
-          '<IconButton icon={icon} label="Pancakes" secondary destructive />',
-        )
-        const outputAst = parseJsx(
-          '<Button icon={icon} variant="TBC" hasHiddenLabel>Pancakes</Button>',
-        )
-        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
-      })
-    })
+    //   it('changes secondary destructive to TBC', () => {
+    //     const inputAst = parseJsx('<KzButton label="Pancakes" secondary destructive />')
+    //     const outputAst = parseJsx('<Button variant="TBC">Pancakes</Button>')
+    //     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    //   })
+    // })
 
     // @todo: Update when we know what to change sizes to
-    describe('transform size', () => {
-      it('changes default (undefined) to TBC', () => {
-        const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" />')
-        const outputAst = parseJsx(
-          '<Button icon={icon} size="TBC" hasHiddenLabel>Pancakes</Button>',
-        )
-        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
-      })
+    // describe('transform size', () => {
+    //   it('changes default (undefined) to TBC', () => {
+    //     const inputAst = parseJsx('<KzButton label="Pancakes" />')
+    //     const outputAst = parseJsx('<Button size="TBC">Pancakes</Button>')
+    //     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    //   })
 
-      it('changes small to TBC', () => {
-        const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" size="small" />')
-        const outputAst = parseJsx(
-          '<Button icon={icon} size="TBC" hasHiddenLabel>Pancakes</Button>',
-        )
-        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
-      })
+    //   it('changes small to TBC', () => {
+    //     const inputAst = parseJsx('<KzButton label="Pancakes" size="small" />')
+    //     const outputAst = parseJsx('<Button size="TBC">Pancakes</Button>')
+    //     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    //   })
 
-      it('changes regular to TBC', () => {
-        const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" size="regular" />')
-        const outputAst = parseJsx(
-          '<Button icon={icon} size="TBC" hasHiddenLabel>Pancakes</Button>',
-        )
-        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
-      })
-    })
+    //   it('changes regular to TBC', () => {
+    //     const inputAst = parseJsx('<KzButton label="Pancakes" size="regular" />')
+    //     const outputAst = parseJsx('<Button size="TBC">Pancakes</Button>')
+    //     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    //   })
+    // })
   })
 })
