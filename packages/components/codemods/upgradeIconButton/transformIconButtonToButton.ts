@@ -20,6 +20,8 @@ const transformProp = (
       return createProp('className', propValue)
     case 'data-automation-id':
       return createProp('data-testid', propValue)
+    case 'disabled':
+      return createProp('isDisabled', propValue)
     default:
       return undefined
   }

@@ -80,6 +80,22 @@ describe('transformIconButtonToButton()', () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
+    it('changes disabled to isDisabled', () => {
+      const inputAst = parseJsx(`
+        <>
+          <IconButton icon={icon} label="Pancakes" disabled />
+          <IconButton icon={icon} label="Pancakes" disabled={false} />
+        </>
+      `)
+      const outputAst = parseJsx(`
+        <>
+          <Button icon={icon} isDisabled hasHiddenLabel>Pancakes</Button>
+          <Button icon={icon} isDisabled={false} hasHiddenLabel>Pancakes</Button>
+        </>
+      `)
+      expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    })
+
     // @todo: Update when we know what to change variants to
     describe('transform variant', () => {
       it('changes default (undefined) to TBC', () => {
