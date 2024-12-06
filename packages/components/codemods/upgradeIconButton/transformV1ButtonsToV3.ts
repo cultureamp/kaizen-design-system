@@ -27,7 +27,7 @@ const transformProp = (
   }
 }
 
-export const transformIconButtonToButton = (
+export const transformV1ButtonsToV3 = (
   node: ts.JsxSelfClosingElement,
   tagName: string = 'Button',
 ): ts.Node => {

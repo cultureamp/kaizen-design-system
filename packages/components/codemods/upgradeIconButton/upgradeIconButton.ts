@@ -7,7 +7,7 @@ import {
   type TagImportAttributesMap,
   type UpdateKaioImportsArgs,
 } from '../utils'
-import { transformIconButtonToButton } from './transformIconButtonToButton'
+import { transformV1ButtonsToV3 } from './transformV1ButtonsToV3'
 
 export const upgradeIconButton =
   (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
@@ -36,7 +36,7 @@ export const upgradeIconButton =
             })
           }
 
-          return transformIconButtonToButton(node)
+          return transformV1ButtonsToV3(node)
         }
       }
       return ts.visitEachChild(node, visit, context)

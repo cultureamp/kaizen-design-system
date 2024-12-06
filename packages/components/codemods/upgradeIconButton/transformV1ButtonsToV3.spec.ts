@@ -1,7 +1,7 @@
 import ts from 'typescript'
 import { parseJsx } from '../__tests__/utils'
 import { printAst } from '../utils'
-import { transformIconButtonToButton } from './transformIconButtonToButton'
+import { transformV1ButtonsToV3 } from './transformV1ButtonsToV3'
 
 export const mockedTransformer =
   (alias?: string) =>
@@ -9,7 +9,7 @@ export const mockedTransformer =
   (rootNode: ts.Node): ts.Node => {
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxSelfClosingElement(node)) {
-        return transformIconButtonToButton(node, alias)
+        return transformV1ButtonsToV3(node, alias)
       }
       return ts.visitEachChild(node, visit, context)
     }
@@ -22,7 +22,7 @@ const transformInput = (sourceFile: ts.SourceFile, alias?: string): string => {
   return printAst(transformedSource)
 }
 
-describe('transformIconButtonToButton()', () => {
+describe('transformV1ButtonsToV3()', () => {
   it('replaces IconButton with Button and changes label to children and adds hasHiddenLabel', () => {
     const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" />')
     const outputAst = parseJsx('<Button icon={icon} hasHiddenLabel>Pancakes</Button>')
