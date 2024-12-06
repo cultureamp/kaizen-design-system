@@ -474,8 +474,8 @@ importers:
         specifier: ^0.15.0
         version: 0.15.0
       react-intl:
-        specifier: ^6.8.9
-        version: 6.8.9(react@18.3.1)(typescript@5.6.3)
+        specifier: ^7.0.1
+        version: 7.0.1(react@18.3.1)(typescript@5.6.3)
       rollup:
         specifier: ^4.28.0
         version: 4.28.0
@@ -1909,6 +1909,14 @@ packages:
     resolution: {integrity: sha512-i6+xVqT+6KCz7nBfk4ybMXmbKO36tKvbMKtgFz9KV+8idYFyFbfwKooYk8kGjyA5+T5f1kEPQM5IDLXucTAQ9g==}
     peerDependencies:
       typescript: ^4.7 || 5
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
+  '@formatjs/intl@3.0.1':
+    resolution: {integrity: sha512-QzdeMxOnSuGJhF0eWOIXHDtXZgIBwAqBZ4/bgZmPMC+FmYI8X2Akmu/j/ABKKO85GnxPV6KN8hJ8zytLnTJuYQ==}
+    peerDependencies:
+      typescript: '5'
     peerDependenciesMeta:
       typescript:
         optional: true
@@ -8377,6 +8385,15 @@ packages:
       typescript:
         optional: true
 
+  react-intl@7.0.1:
+    resolution: {integrity: sha512-djq5s6d96mw+84vNh7Zz9/dUa2v2A4VNfpZbQdjvVHrvogGfTRp5WUgacwyWjGNAIrzmcpa8blcjQFps/3gwXw==}
+    peerDependencies:
+      react: ^16.6.0 || 17 || 18
+      typescript: '5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -11312,6 +11329,15 @@ snapshots:
       '@formatjs/icu-messageformat-parser': 2.9.4
       '@formatjs/intl-displaynames': 6.8.5
       '@formatjs/intl-listformat': 7.7.5
+      intl-messageformat: 10.7.7
+      tslib: 2.8.1
+    optionalDependencies:
+      typescript: 5.6.3
+
+  '@formatjs/intl@3.0.1(typescript@5.6.3)':
+    dependencies:
+      '@formatjs/fast-memoize': 2.2.3
+      '@formatjs/icu-messageformat-parser': 2.9.4
       intl-messageformat: 10.7.7
       tslib: 2.8.1
     optionalDependencies:
@@ -19768,6 +19794,19 @@ snapshots:
       '@formatjs/intl': 2.10.15(typescript@5.6.3)
       '@formatjs/intl-displaynames': 6.8.5
       '@formatjs/intl-listformat': 7.7.5
+      '@types/hoist-non-react-statics': 3.3.5
+      '@types/react': 18.3.13
+      hoist-non-react-statics: 3.3.2
+      intl-messageformat: 10.7.7
+      react: 18.3.1
+      tslib: 2.8.1
+    optionalDependencies:
+      typescript: 5.6.3
+
+  react-intl@7.0.1(react@18.3.1)(typescript@5.6.3):
+    dependencies:
+      '@formatjs/icu-messageformat-parser': 2.9.4
+      '@formatjs/intl': 3.0.1(typescript@5.6.3)
       '@types/hoist-non-react-statics': 3.3.5
       '@types/react': 18.3.13
       hoist-non-react-statics: 3.3.2
