@@ -1,19 +1,16 @@
-import React, { HTMLAttributes } from "react"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./Actions.module.css"
+import React, { HTMLAttributes } from 'react'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Actions.module.css'
 
 export type WorkflowActionsProps = {
   /**
    * Header actions will render in order of the array.
    */
   headerActions?: JSX.Element[]
-} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "children">>
+} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'children'>>
 
 /** A wrapper for an exit trigger (and other) actions of the Header Workflow  */
-export const Actions = ({
-  headerActions,
-  ...restProps
-}: WorkflowActionsProps): JSX.Element => (
+export const Actions = ({ headerActions, ...restProps }: WorkflowActionsProps): JSX.Element => (
   <div className={styles.actions} {...restProps}>
     {headerActions?.map((action, index) => (
       <action.type key={`header-actions ${index}`} {...action.props} />
@@ -21,4 +18,4 @@ export const Actions = ({
   </div>
 )
 
-Actions.displayName = "Workflow.Actions"
+Actions.displayName = 'Workflow.Actions'

@@ -1,7 +1,7 @@
-import { Meta } from "@storybook/blocks"
-import CssGeneration from "../assets/css-generation.png"
-import InlineFold from "../assets/inline-fold.gif"
-import TailwindPlay from "../assets/tailwind-play.gif"
+import { Meta } from '@storybook/blocks'
+import CssGeneration from '../assets/css-generation.png'
+import InlineFold from '../assets/inline-fold.gif'
+import TailwindPlay from '../assets/tailwind-play.gif'
 
 <Meta title="Guides/Tailwind/Getting Started" />
 
@@ -18,7 +18,7 @@ If your project was created from this template, you should only need to do [Step
 - [3. Add the Tailwind directives](#3-add-the-tailwind-directives)
 - [4. Useful tools](#4-useful-tools)
 
-<br/>
+<br />
 
 ## 1. Install the preset
 
@@ -34,15 +34,15 @@ This will override the default Tailwind preset, and make ours available for use.
 ```js
 // tailwind.config.js
 
-const { Preset } = require("@kaizen/tailwind")
+const { Preset } = require('@kaizen/tailwind')
 
 module.exports = {
   // Glob pattern to match files containing TW classes. May be different for your project.
-  content: ["./**/*.{ts,tsx}"],
+  content: ['./**/*.{ts,tsx}'],
   // Override the default Tailwind preset with the Kaizen one.
   presets: [Preset],
   // This should be a selector that wraps your app. It ensures that your Tailwind classes supersede component styles, by increasing their specificity with the chosen selector.
-  important: "#root",
+  important: '#root',
   // Preflight is a heavy-handed css reset. We recommend disabling it in your project.
   corePlugins: {
     preflight: false,
@@ -109,11 +109,11 @@ Ideally you only add the pattern that is used in your repo.
 Calling out that this is still an experimental feature for the VSCode plugin.
 
 ### Inline fold VSCode extension
+
 Using tailwind often results in long class names, that can even span over multiple lines.
 Inline fold is a great extension that hides/ shows long class strings.
 
 Check it out [here](https://marketplace.visualstudio.com/items?itemName=moalamri.inline-fold):
-
 
 <div className="flex justify-center">
   <img src={InlineFold} alt="Inline fold VSCode extension" />

@@ -3,7 +3,7 @@ name: check files
 on:
   push:
     branches-ignore:
-      - "main"
+      - 'main'
 
   # When Changesets opens a PR it does not trigger GitHub actions,
   # because its token does not have permission to. This is a hack
@@ -15,13 +15,13 @@ on:
     branches:
       - main # the target branch of the PR
     paths:
-      - "**/CHANGELOG.md" # only changesets releases touch changelogs
+      - '**/CHANGELOG.md' # only changesets releases touch changelogs
 
 jobs:
   changesets-exists:
     if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,6 +32,7 @@ jobs:
   verify-build:
     if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup

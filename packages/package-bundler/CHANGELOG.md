@@ -1,5 +1,19 @@
 # @kaizen/package-bundler
 
+## 2.0.3
+
+### Patch Changes
+
+- [#5305](https://github.com/cultureamp/kaizen-design-system/pull/5305) [`b2044e3`](https://github.com/cultureamp/kaizen-design-system/commit/b2044e381f101629e60c478ccf979af04af17082) - Update deps for package-bundler.
+
+## 2.0.2
+
+### Patch Changes
+
+- [#5339](https://github.com/cultureamp/kaizen-design-system/pull/5339) [`55330ea`](https://github.com/cultureamp/kaizen-design-system/commit/55330ea18746ae80bd234a07251573107b6f61cd) - Upgrade dep eslint to v9.
+
+  This should not have any impact on consumers, but releasing a patch as source code has been updated with linting fixes.
+
 ## 2.0.1
 
 ### Patch Changes

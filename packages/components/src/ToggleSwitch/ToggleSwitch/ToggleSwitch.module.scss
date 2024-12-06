@@ -1,11 +1,10 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/animation";
-@import "../../../styles/utils/forms";
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/animation';
+@import '../../../styles/utils/forms';
 
-$animation-timing: $animation-duration-immediate
-  $animation-easing-function-linear;
+$animation-timing: $animation-duration-immediate $animation-easing-function-linear;
 $focus-ring-offset: 1px;
 
 .checkbox {
@@ -78,13 +77,7 @@ $focus-ring-offset: 1px;
   .thumb {
     position: relative;
     right: auto;
-    left: calc(#{$spacing-md} * 1.1);
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      right: calc(#{$spacing-md} * 1.1);
-      left: auto;
-    }
+    inset-inline-start: calc(#{$spacing-md} * 1.1);
   }
 
   .checkIcon {
@@ -103,13 +96,7 @@ $focus-ring-offset: 1px;
   .thumb {
     position: relative;
     right: auto;
-    left: calc(#{$spacing-md} * -0.05);
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      right: calc(#{$spacing-md} * -0.05);
-      left: auto;
-    }
+    inset-inline-start: calc(#{$spacing-md} * -0.05);
   }
 }
 

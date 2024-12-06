@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import {
   HeaderRoot,
   Branding,
@@ -6,7 +6,7 @@ import {
   Actions,
   WorkflowActionsProps,
   WorkflowTitlesProps,
-} from "./components"
+} from './components'
 
 export type HeaderProps = WorkflowTitlesProps & WorkflowActionsProps
 
@@ -19,13 +19,9 @@ export const Header = ({
 }: HeaderProps): JSX.Element => (
   <HeaderRoot {...restProps}>
     <Branding alt="Culture Amp" />
-    <Titles
-      workflowName={workflowName}
-      stepName={stepName}
-      statusTag={statusTag}
-    />
+    <Titles workflowName={workflowName} stepName={stepName} statusTag={statusTag} />
     <Actions headerActions={headerActions} />
   </HeaderRoot>
 )
 
-Header.displayName = "Workflow.Header"
+Header.displayName = 'Workflow.Header'

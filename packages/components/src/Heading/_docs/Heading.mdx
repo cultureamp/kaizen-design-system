@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as HeadingStories from "./Heading.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as HeadingStories from './Heading.stories'
 
 <Meta of={HeadingStories} />
 
@@ -15,6 +15,7 @@ import * as HeadingStories from "./Heading.stories"
 <KAIOInstallation exportNames="Heading" />
 
 ## Overview
+
 Renders a heading element `h1-h6` and applies styling for headings.
 
 <Canvas of={HeadingStories.Playground} />
@@ -38,4 +39,3 @@ Use this variant only for the title within the composable header. [See documenta
 Defaults to `h1` element.
 
 <Canvas of={HeadingStories.ComposableHeaderTitle} />
-

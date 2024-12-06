@@ -1,1 +1,1 @@
-export * from "./GenericButton"
+export * from './GenericButton'

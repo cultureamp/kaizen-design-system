@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react"
-import styles from "./Layout.module.scss"
+import React, { ReactNode } from 'react'
+import styles from './Layout.module.scss'
 
 export const Main = ({ children }: { children: ReactNode }): JSX.Element => (
   <main className={styles.main}>{children}</main>
@@ -13,10 +13,6 @@ export const Content = ({ children }: { children: ReactNode }): JSX.Element => (
   <div className={`${styles.content} tocbot-content`}>{children}</div>
 )
 
-export const DocsWrapper = ({
-  children,
-}: {
-  children: ReactNode
-}): JSX.Element => (
+export const DocsWrapper = ({ children }: { children: ReactNode }): JSX.Element => (
   <div className={`${styles.docsWrapper} tocbot-content`}>{children}</div>
 )

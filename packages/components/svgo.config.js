@@ -1,16 +1,16 @@
-const { recurse, removeRootSVGElement } = require("./svgoUtils")
+const { recurse, removeRootSVGElement } = require('./svgoUtils')
 
 module.exports = {
   plugins: [
-    "preset-default",
+    'preset-default',
     {
-      name: "Remove root SVG element",
+      name: 'Remove root SVG element',
       params: {},
-      type: "SVG",
+      type: 'SVG',
       fn: (ast, _params, _source) => removeRootSVGElement(ast),
     },
     {
-      name: "Recurse",
+      name: 'Recurse',
       params: {},
       fn: (ast, _params, _source) => recurse(ast),
     },

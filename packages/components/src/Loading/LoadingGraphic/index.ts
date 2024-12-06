@@ -1,1 +1,1 @@
-export * from "./LoadingGraphic"
+export * from './LoadingGraphic'

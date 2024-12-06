@@ -1,15 +1,15 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { Heading } from "~components/Heading"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Heading } from '~components/Heading'
 import {
   GenericModal,
   ModalFooter,
   ModalHeader,
   ModalAccessibleLabel,
   ModalBody,
-} from "~components/Modal/GenericModal"
-import { ButtonProps } from "~components/__actions__/v2"
-import styles from "./ContextModal.module.scss"
+} from '~components/Modal/GenericModal'
+import { ButtonProps } from '~components/__actions__/v2'
+import styles from './ContextModal.module.scss'
 
 export type ContextModalSecondaryActionProps =
   | {
@@ -28,7 +28,7 @@ export type ContextModalProps = Readonly<
     /**
      * Defines the orientation layout of the image and content
      */
-    layout?: "portrait" | "landscape"
+    layout?: 'portrait' | 'landscape'
     title: string
     onConfirm?: () => void
     onDismiss: () => void
@@ -57,13 +57,13 @@ export type ContextModalProps = Readonly<
 export const ContextModal = ({
   isOpen,
   unpadded = false,
-  layout = "portrait",
+  layout = 'portrait',
   title,
   onConfirm,
   onDismiss: propsOnDismiss,
   onAfterLeave,
   onAfterEnter,
-  confirmLabel = "Confirm",
+  confirmLabel = 'Confirm',
   confirmWorking,
   renderBackground,
   children,
@@ -107,11 +107,9 @@ export const ContextModal = ({
       onAfterEnter={onAfterEnter}
     >
       <div className={styles.modal} data-modal {...props}>
-        {renderBackground && renderBackground()}
+        {renderBackground?.()}
         <ModalHeader onDismiss={onDismiss}>
-          <div
-            className={classnames(styles.header, !unpadded && styles.padded)}
-          >
+          <div className={classnames(styles.header, !unpadded && styles.padded)}>
             <ModalAccessibleLabel>
               <Heading variant="heading-2" tag="h2">
                 {title}
@@ -119,33 +117,22 @@ export const ContextModal = ({
             </ModalAccessibleLabel>
           </div>
         </ModalHeader>
-        {contentHeader && (
-          <div className={styles.contentHeader}>{contentHeader}</div>
-        )}
+        {contentHeader && <div className={styles.contentHeader}>{contentHeader}</div>}
         <ModalBody>
-          <div
-            className={classnames(
-              styles.contentLayout,
-              styles[`${layout}Contentlayout`]
-            )}
-          >
+          <div className={classnames(styles.contentLayout, styles[`${layout}Contentlayout`])}>
             {image && <div className={styles.image}>{image}</div>}
             <div className={styles.content}>
               {children}
               {onConfirm != null && (
                 <div
-                  className={
-                    secondaryLabel
-                      ? styles.footerWithSecondaryAction
-                      : styles.footer
-                  }
+                  className={secondaryLabel ? styles.footerWithSecondaryAction : styles.footer}
                 ></div>
               )}
             </div>
           </div>
         </ModalBody>
         <ModalFooter
-          variant={image ? "context" : undefined}
+          variant={image ? 'context' : undefined}
           actions={footerActions}
           appearance="primary"
           unpadded={unpadded}
@@ -155,4 +142,4 @@ export const ContextModal = ({
   )
 }
 
-ContextModal.displayName = "ContextModal"
+ContextModal.displayName = 'ContextModal'

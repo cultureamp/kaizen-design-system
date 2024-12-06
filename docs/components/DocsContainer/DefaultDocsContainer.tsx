@@ -1,12 +1,7 @@
-import React, { useContext } from "react"
-// eslint-disable-next-line import/no-extraneous-dependencies
-import {
-  DocsContainer,
-  DocsContainerProps,
-  DocsContext,
-} from "@storybook/blocks"
-import { BackToTop } from "./BackToTop"
-import { Content, Main, DocsWrapper } from "./Layout"
+import React, { useContext } from 'react'
+import { DocsContainer, DocsContainerProps, DocsContext } from '@storybook/blocks'
+import { BackToTop } from './BackToTop'
+import { Content, Main, DocsWrapper } from './Layout'
 
 type LayoutProps = { children: React.ReactNode }
 
@@ -29,11 +24,10 @@ const DefaultLayout = ({ children }: LayoutProps): JSX.Element => (
 const DocsLayout = ({ children }: LayoutProps): JSX.Element => {
   const context = useContext(DocsContext)
 
-  // CSFFile attributes are populated, but unsure where the type definition is
-  // @ts-expect-error
+  // @ts-expect-error CSFFile attributes are populated, but unsure where the type definition is
   const csf = context.storyIdToCSFFile.values().next().value
 
-  if (csf?.meta.parameters.docsLayout === "fullPage") {
+  if (csf?.meta.parameters.docsLayout === 'fullPage') {
     return <FullPage>{children}</FullPage>
   }
 

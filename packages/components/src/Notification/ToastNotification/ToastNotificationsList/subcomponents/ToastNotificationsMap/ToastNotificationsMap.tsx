@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from "react"
-import { createPortal } from "react-dom"
-import { GenericNotification } from "~components/Notification/subcomponents/GenericNotification"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { ToastNotificationObj } from "../../../types"
+import React, { HTMLAttributes } from 'react'
+import { createPortal } from 'react-dom'
+import { GenericNotification } from '~components/Notification/subcomponents/GenericNotification'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { ToastNotificationObj } from '../../../types'
 
 export type ToastNotificationsMapProps = {
   notifications: ToastNotificationObj[]
@@ -21,28 +21,26 @@ export const ToastNotificationsMap = ({
   // this list cannot render with a container (must be portalled into one).
   return createPortal(
     <>
-      {notifications.map(
-        ({ id, title, persistent, onHide, message, ...restProps }) => (
-          <GenericNotification
-            key={id}
-            style="toast"
-            title={title}
-            persistent={persistent}
-            onHide={(): void => {
-              if (typeof onHide !== "undefined") {
-                onHide()
-              }
-              defaultOnHide(id)
-            }}
-            {...restProps}
-          >
-            {message}
-          </GenericNotification>
-        )
-      )}
+      {notifications.map(({ id, title, persistent, onHide, message, ...restProps }) => (
+        <GenericNotification
+          key={id}
+          style="toast"
+          title={title}
+          persistent={persistent}
+          onHide={(): void => {
+            if (typeof onHide !== 'undefined') {
+              onHide()
+            }
+            defaultOnHide(id)
+          }}
+          {...restProps}
+        >
+          {message}
+        </GenericNotification>
+      ))}
     </>,
-    container
+    container,
   )
 }
 
-ToastNotificationsMap.displayName = "ToastNotificationsMap"
+ToastNotificationsMap.displayName = 'ToastNotificationsMap'

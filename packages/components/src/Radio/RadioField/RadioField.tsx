@@ -1,16 +1,16 @@
-import React, { useId } from "react"
-import classnames from "classnames"
-import { Label } from "~components/Label"
-import { Radio, RadioProps } from "../Radio/Radio"
-import styles from "./RadioField.module.scss"
+import React, { useId } from 'react'
+import classnames from 'classnames'
+import { Label } from '~components/Label'
+import { Radio, RadioProps } from '../Radio/Radio'
+import styles from './RadioField.module.scss'
 
-export type RadioFieldProps = Omit<RadioProps, "id"> & {
-  id?: string
-  labelText: string | React.ReactNode
-  selectedStatus?: boolean
-  disabled?: boolean
-  reversed?: boolean
-  "data-testid"?: string
+export type RadioFieldProps = Omit<RadioProps, 'id'> & {
+  'id'?: string
+  'labelText': string | React.ReactNode
+  'selectedStatus'?: boolean
+  'disabled'?: boolean
+  'reversed'?: boolean
+  'data-testid'?: string
 }
 
 /**
@@ -18,16 +18,18 @@ export type RadioFieldProps = Omit<RadioProps, "id"> & {
  * {@link https://cultureamp.design/?path=/docs/components-radio-controls-radio-field--docs Storybook}
  */
 export const RadioField = ({
-  id: propsId,
+  'id': propsId,
   labelText,
   selectedStatus = false,
   disabled = false,
   reversed = false,
   classNameOverride,
-  "data-testid": dataTestId,
+  'data-testid': dataTestId,
   ...restProps
 }: RadioFieldProps): JSX.Element => {
-  const id = propsId ?? useId()
+  const fallbackId = useId()
+  const id = propsId ?? fallbackId
+
   // @todo: Move restProps to the wrapping div?
   return (
     <div
@@ -36,7 +38,7 @@ export const RadioField = ({
         styles.container,
         classNameOverride,
         selectedStatus && styles.selected,
-        reversed && styles.reversed
+        reversed && styles.reversed,
       )}
     >
       <Label
@@ -61,4 +63,4 @@ export const RadioField = ({
   )
 }
 
-RadioField.displayName = "RadioField"
+RadioField.displayName = 'RadioField'

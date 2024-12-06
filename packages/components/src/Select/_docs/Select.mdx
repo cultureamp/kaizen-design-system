@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as SelectStories from "./Select.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as SelectStories from './Select.stories'
 
 <Meta of={SelectStories} />
 
@@ -27,15 +27,19 @@ A select lets you choose options from an option menu. A single-select lets you c
 ## API
 
 ### Multi Select
+
 <Canvas of={SelectStories.MultiSelect} />
 
 ### Grouped options
+
 <Canvas of={SelectStories.Grouped} />
 
 ### Disabling options
+
 Adding the `isDisabled: true` key to your option object will disabled the item and prevent it from being selected.
 
 <Canvas of={SelectStories.Disabled} />
 
 ### Async
+
 <Canvas of={SelectStories.Async} />

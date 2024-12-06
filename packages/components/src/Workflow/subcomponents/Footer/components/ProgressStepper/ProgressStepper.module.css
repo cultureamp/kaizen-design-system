@@ -79,17 +79,11 @@
   border: solid var(--spacing-1) var(--color-gray-300);
   margin: 0;
   border-radius: var(--border-solid-border-radius);
-  left: 100%;
+  inset-inline-start: 100%;
 
   /* sets fron the bottom to the centre of the dot */
   top: calc(100% - calc(var(--progress-stepper-indicator-size) / 2));
   transform: translateX(-50%);
-
-  [dir="rtl"] & {
-    left: unset;
-    right: 100%;
-    transform: translateX(50%);
-  }
 }
 
 .stepperDescription {

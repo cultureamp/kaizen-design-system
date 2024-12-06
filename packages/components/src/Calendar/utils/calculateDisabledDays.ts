@@ -1,5 +1,5 @@
-import { Matcher } from "react-day-picker"
-import { DisabledDayMatchers } from "../types"
+import { Matcher } from 'react-day-picker'
+import { DisabledDayMatchers } from '../types'
 
 export const calculateDisabledDays = ({
   disabledDates = [],
@@ -16,4 +16,4 @@ export const calculateDisabledDays = ({
     disabledBefore !== undefined && { before: disabledBefore },
     disabledAfter !== undefined && { after: disabledAfter },
     disabledBeforeAfter !== undefined && disabledBeforeAfter,
-  ].filter(matcher => matcher !== false)
+  ].filter((matcher) => matcher !== false)

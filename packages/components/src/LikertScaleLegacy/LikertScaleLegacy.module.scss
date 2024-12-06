@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/spacing";
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/spacing';
 
 /* stylelint-disable no-descending-specificity */
 @mixin respond-to($media) {
@@ -39,55 +39,17 @@ $blue-fifth: $color-blue-500;
   -webkit-animation: pop cubic-bezier(0, 0.94, 0.32, 1) 0.7s 1;
 }
 
-@mixin right-likert-item($height) {
-  border-top-right-radius: $height;
-  border-bottom-right-radius: $height;
-}
-
-@mixin left-likert-item($height) {
-  border-top-left-radius: $height;
-  border-bottom-left-radius: $height;
-}
-
 @mixin fill($height) {
-  &:first-child .likertItemFill {
-    @include left-likert-item($height);
-
-    [dir="rtl"] & {
-      border-radius: 0;
-
-      @include right-likert-item($height);
-    }
-
-    &::after {
-      @include left-likert-item($height);
-
-      [dir="rtl"] & {
-        border-radius: 0;
-
-        @include right-likert-item($height);
-      }
-    }
+  &:first-child .likertItemFill,
+  &:first-child .likertItemFill::after {
+    border-start-start-radius: $height;
+    border-end-start-radius: $height;
   }
 
-  &:last-child .likertItemFill {
-    @include right-likert-item($height);
-
-    [dir="rtl"] & {
-      border-radius: 0;
-
-      @include left-likert-item($height);
-    }
-
-    &::after {
-      @include right-likert-item($height);
-
-      [dir="rtl"] & {
-        border-radius: 0;
-
-        @include left-likert-item($height);
-      }
-    }
+  &:last-child .likertItemFill,
+  &:last-child .likertItemFill::after {
+    border-start-end-radius: $height;
+    border-end-end-radius: $height;
   }
 }
 
@@ -138,8 +100,7 @@ $blue-fifth: $color-blue-500;
 
 .likertItem:focus-visible .likertItemFill {
   outline-offset: 1px;
-  outline: $color-blue-500 $border-focus-ring-border-style
-    $border-focus-ring-border-width;
+  outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
 }
 
 .reversed .likertItem:focus-visible .likertItemFill {
@@ -168,8 +129,7 @@ $blue-fifth: $color-blue-500;
 }
 
 .likertItem {
-  margin-right: 2px;
-  margin-left: 2px;
+  margin-inline: 2px;
   font-size: 1px;
   line-height: 1;
   padding: 0;
@@ -178,33 +138,20 @@ $blue-fifth: $color-blue-500;
   width: 18.5%; // 5 columns
   position: relative;
 
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    &:first-child {
-      margin-left: 2px;
-    }
-
-    &:last-child {
-      margin-right: 2px;
-    }
-  }
-
   @include fill($block-height);
 
   &:first-child {
-    margin-right: 2px;
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 
   &:last-child {
-    margin-left: 2px;
-    margin-right: 0;
+    margin-inline-end: 0;
   }
 
   // Hack to bridge the gaps between items so mouse always hovers on something
   &::before,
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     right: 100%;
@@ -318,7 +265,7 @@ $blue-fifth: $color-blue-500;
   }
 
   &::after {
-    content: " ";
+    content: ' ';
     display: block;
     height: 100%;
     width: 100%;
@@ -345,7 +292,7 @@ $blue-fifth: $color-blue-500;
   .likertItem1 & {
     margin-left: -9px;
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       margin-left: -11px;
     }
   }
@@ -353,7 +300,7 @@ $blue-fifth: $color-blue-500;
   .likertItem5 & {
     margin-left: -12px;
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       margin-left: -9px;
     }
   }

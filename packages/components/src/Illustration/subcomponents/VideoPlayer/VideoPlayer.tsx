@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react"
-import classnames from "classnames"
-import { IconButton } from "~components/__actions__/v2"
-import { assetUrl } from "~components/utils/hostedAssets"
-import { canPlayWebm } from "../../utils/canPlayWebm"
-import { usePausePlay } from "../../utils/usePausePlay"
-import styles from "../Base/Base.module.scss"
+import React, { useEffect, useRef } from 'react'
+import classnames from 'classnames'
+import { IconButton } from '~components/__actions__/v2'
+import { assetUrl } from '~components/utils/hostedAssets'
+import { canPlayWebm } from '../../utils/canPlayWebm'
+import { usePausePlay } from '../../utils/usePausePlay'
+import styles from '../Base/Base.module.scss'
 
 export type VideoPlayerProps = {
   /**
@@ -35,7 +35,7 @@ export type VideoPlayerProps = {
    * Aspect ratio that is set on the illustration in Scene/Spot which wraps the
    * component in a container, forcing the aspect ratio.
    */
-  aspectRatio?: "landscape" | "portrait" | "square"
+  aspectRatio?: 'landscape' | 'portrait' | 'square'
 
   onEnded?: () => void
 }
@@ -49,11 +49,9 @@ export const VideoPlayer = ({
   onEnded,
 }: VideoPlayerProps): JSX.Element => {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [prefersReducedMotion, setPrefersReducedMotion] =
-    React.useState<boolean>(true)
+  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState<boolean>(true)
   const [isWebmCompatible, setIsWebmCompatible] = React.useState<boolean>(false)
-  const [windowIsAvailable, setWindowIsAvailable] =
-    React.useState<boolean>(false)
+  const [windowIsAvailable, setWindowIsAvailable] = React.useState<boolean>(false)
 
   useEffect(() => {
     /**
@@ -67,7 +65,7 @@ export const VideoPlayer = ({
      */
     const { current: videoElement } = videoRef
     if (videoElement !== null) {
-      videoElement.setAttribute("muted", "")
+      videoElement.setAttribute('muted', '')
     }
   }, [])
 
@@ -83,28 +81,23 @@ export const VideoPlayer = ({
   useEffect(() => {
     if (!window) return
 
-    const reducedMotionQuery = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    )
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     setPrefersReducedMotion(reducedMotionQuery.matches)
     const updateMotionPreferences = (): void => {
-      const { matches = false } = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      )
+      const { matches = false } = window.matchMedia('(prefers-reduced-motion: reduce)')
       setPrefersReducedMotion(matches)
     }
 
-    const isLegacyEdge = navigator.userAgent.match(/Edge/)
+    const isLegacyEdge = /Edge/.exec(navigator.userAgent)
 
-    const isUnsupportedSafari =
-      window.matchMedia("").addEventListener === undefined
+    const isUnsupportedSafari = window.matchMedia('').addEventListener === undefined
 
     if (isLegacyEdge || isUnsupportedSafari) return
 
-    reducedMotionQuery.addEventListener("change", updateMotionPreferences, true)
+    reducedMotionQuery.addEventListener('change', updateMotionPreferences, true)
 
     return function cleanup() {
-      reducedMotionQuery.removeEventListener("change", updateMotionPreferences)
+      reducedMotionQuery.removeEventListener('change', updateMotionPreferences)
     }
   }, [])
 
@@ -145,12 +138,12 @@ export const VideoPlayer = ({
     const { current: videoElement } = videoRef
     if (!videoElement || !onEnded) return
 
-    videoElement.addEventListener("ended", onEnded)
+    videoElement.addEventListener('ended', onEnded)
 
     return function cleanup() {
-      videoElement.removeEventListener("ended", onEnded)
+      videoElement.removeEventListener('ended', onEnded)
     }
-  }, [videoRef])
+  }, [onEnded, videoRef])
 
   useEffect(() => {
     // SSR does not have a window, which is required for canPlayWebm.
@@ -168,7 +161,7 @@ export const VideoPlayer = ({
       className={classnames(
         styles.figure,
         aspectRatio && styles[aspectRatio],
-        aspectRatio && styles.aspectRatioWrapper
+        aspectRatio && styles.aspectRatioWrapper,
       )}
     >
       <video
@@ -185,9 +178,7 @@ export const VideoPlayer = ({
         playsInline={true}
         tabIndex={-1}
       >
-        {isWebmCompatible && (
-          <source src={assetUrl(`${source}.webm`)} type="video/webm" />
-        )}
+        {isWebmCompatible && <source src={assetUrl(`${source}.webm`)} type="video/webm" />}
         <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
       </video>
       <IconButton

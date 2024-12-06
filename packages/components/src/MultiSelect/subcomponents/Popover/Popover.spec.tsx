@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react"
-import { render, waitFor } from "@testing-library/react"
-import { Popover, PopoverProps, useFloating } from "./"
+import React, { useEffect, useRef, useState } from 'react'
+import { render, waitFor } from '@testing-library/react'
+import { Popover, PopoverProps, useFloating } from './'
 
 const PopoverWrapper = (customProps?: Partial<PopoverProps>): JSX.Element => {
   const { refs } = useFloating()
@@ -11,8 +11,8 @@ const PopoverWrapper = (customProps?: Partial<PopoverProps>): JSX.Element => {
   )
 }
 
-describe("<Popover />", () => {
-  describe("Portals", () => {
+describe('<Popover />', () => {
+  describe('Portals', () => {
     const PopoverWrapperWithPortal = ({
       shouldUsePortal = false,
     }: {
@@ -30,29 +30,25 @@ describe("<Popover />", () => {
       return (
         <>
           <div ref={portalRef} data-testid="portal-container" />
-          <PopoverWrapper
-            portalContainer={shouldUsePortal ? portalContainer : undefined}
-          />
+          <PopoverWrapper portalContainer={shouldUsePortal ? portalContainer : undefined} />
         </>
       )
     }
 
-    it("renders within portal container", async () => {
-      const { getByTestId } = render(
-        <PopoverWrapperWithPortal shouldUsePortal />
-      )
+    it('renders within portal container', async () => {
+      const { getByTestId } = render(<PopoverWrapperWithPortal shouldUsePortal />)
 
       await waitFor(() => {
-        expect(getByTestId("portal-container")).toHaveTextContent("Hello")
+        expect(getByTestId('portal-container')).toHaveTextContent('Hello')
       })
     })
 
-    it("renders in document.body by default", async () => {
+    it('renders in document.body by default', async () => {
       const { getByTestId } = render(<PopoverWrapperWithPortal />)
 
       await waitFor(() => {
-        expect(document.body).toHaveTextContent("Hello")
-        expect(getByTestId("portal-container")).not.toHaveTextContent("Hello")
+        expect(document.body).toHaveTextContent('Hello')
+        expect(getByTestId('portal-container')).not.toHaveTextContent('Hello')
       })
     })
   })

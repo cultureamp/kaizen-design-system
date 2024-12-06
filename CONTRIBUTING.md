@@ -12,9 +12,9 @@ Before creating an issue, search existing [Issues](https://github.com/cultureamp
 To create a new issue for changes to design documentation or missing documentation:
 
 1. Visit [Issues](https://github.com/cultureamp/kaizen-discourse/issues/) and click the "**New issue**" button.
-3. Give the issue a **title** framed as a problem, e.g. "There's no date picker guidance".
-4. Give the issue a **description** that provides enough information that people can act on it without including any sensitive information, e.g. "As a designer, I want to know how to position coach marks because I'm designing an onboarding workflow."
-5. Click **Submit**. Add a "Label" of "content" for design system content and "discussion" if you want feedback.
+2. Give the issue a **title** framed as a problem, e.g. "There's no date picker guidance".
+3. Give the issue a **description** that provides enough information that people can act on it without including any sensitive information, e.g. "As a designer, I want to know how to position coach marks because I'm designing an onboarding workflow."
+4. Click **Submit**. Add a "Label" of "content" for design system content and "discussion" if you want feedback.
 
 ### Editing design documentation
 
@@ -24,15 +24,15 @@ You can edit Kaizen Site documentation using GitHub's interface.
 2. **Edit**: Click the pencil icon to "Edit this file".
 3. **Preview**: Makes your changes to the content and click "Preview changes" to see how they look.
 4. **Commit**:
-    - Under "Commit changes", write a commit message starting with `docs:`, such as `docs: update typography documentation`.
-    - Create a new branch for this commit and start a pull request, e.g. `di/update-typography-guidelines`.
-    - Click the "Commit changes" button. This will start a pull request.
+   - Under "Commit changes", write a commit message starting with `docs:`, such as `docs: update typography documentation`.
+   - Create a new branch for this commit and start a pull request, e.g. `di/update-typography-guidelines`.
+   - Click the "Commit changes" button. This will start a pull request.
 5. **Create PR**: Click the "Create pull request" button. Add someone as a reviewer or let #prod_design_systems know.
 6. **PR description and branch preview**:
-    - Give your PR **a description** to help reviewers quickly understand why you've made the changes you have made and give feedback.
-    - Where it says "No description provided", look for an "**Edit**" action (in the unlabeled icon dropdown).
-    - If there is an **open Issue** for your changes, link to it in the description by writing `#` and writing the number or title of the Issue. You can find the Issue number or title by searching for it in [Issues](https://github.com/cultureamp/kaizen-discourse/issues).
-    - It's convenient for reviewers if you add a link to your "**branch preview**", which shows how your changes will look on the Kaizen Site after it has automatically been built (within a few minutes of opening the PR). The branch preview link will use your branch name like this: <https://dev.cultureamp.design/>(branch-name), which you can find in the "Checks" section of the page (likely under "Show all checks" > Branch preview: "Details").
+   - Give your PR **a description** to help reviewers quickly understand why you've made the changes you have made and give feedback.
+   - Where it says "No description provided", look for an "**Edit**" action (in the unlabeled icon dropdown).
+   - If there is an **open Issue** for your changes, link to it in the description by writing `#` and writing the number or title of the Issue. You can find the Issue number or title by searching for it in [Issues](https://github.com/cultureamp/kaizen-discourse/issues).
+   - It's convenient for reviewers if you add a link to your "**branch preview**", which shows how your changes will look on the Kaizen Site after it has automatically been built (within a few minutes of opening the PR). The branch preview link will use your branch name like this: <https://dev.cultureamp.design/>(branch-name), which you can find in the "Checks" section of the page (likely under "Show all checks" > Branch preview: "Details").
 
 Once it's approved, click "Squash and merge" to publish your changes. Share the link to the updated documentation on #updates_design_systems for awareness.
 
@@ -53,7 +53,7 @@ Every code contribution **should strive to** have:
 
 To update a component in code:
 
-- Ask for a code review from a design systems advocate (an "advocado"), #prod_design_systems, or someone in your team who is experienced with Kaizen*
+- Ask for a code review from a design systems advocate (an "advocado"), #prod_design_systems, or someone in your team who is experienced with Kaizen\*
 - Notify the front-end engineering practice (#pract_front_end_eng) of any possible breaking changes
 - Notify the QA practice of any possible breaking changes
 
@@ -77,7 +77,7 @@ To release a new version of a package, create a pull request that:
 
 - Modifies only the package(s) you wish to release ([see below](#updating-multiple-packages))
 - Has a Changeset file ([see below](#creating-a-changeset))
-    - This step is optional, but recommended. Exceptions are for things like docs or tooling changes.
+  - This step is optional, but recommended. Exceptions are for things like docs or tooling changes.
 
 Once that pull request is merged into main, a Changeset PR will automatically be created with the details of your change, and once the Changeset PR is merged, an automated release process will be triggered and the newly published package version will be available on the npm public registry.
 
@@ -109,7 +109,6 @@ Creating a changeset is straight forward:
 4. Add a short [description](#description).
 
 A changeset `md` file will be added to your branch which you are free to modify the details of if necessary.
-
 
 #### Description
 
@@ -156,6 +155,7 @@ Refer to the [docs folder](docs) for code guidelines and patterns.
 
 To generate a new component and package, new component within an existing package, or a subcomponent,
 run the following command and follow the prompts:
+
 ```
 pnpm plop
 ```

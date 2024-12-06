@@ -1,7 +1,7 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import { LinkTo } from "~storybook/components/LinkTo"
-import * as ContainerStories from "./Container.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import { LinkTo } from '~storybook/components/LinkTo'
+import * as ContainerStories from './Container.stories'
 
 <Meta of={ContainerStories} />
 
@@ -23,5 +23,7 @@ Wraps your entire page.
 <Controls of={ContainerStories.Playground} />
 
 ## Use Case
+
 Usually wraps a <LinkTo pageId="components-content">Content</LinkTo> component.
+
 <Canvas of={ContainerStories.Example} />

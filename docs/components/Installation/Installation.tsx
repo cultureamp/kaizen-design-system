@@ -1,6 +1,5 @@
-import React from "react"
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Source } from "@storybook/blocks"
+import React from 'react'
+import { Source } from '@storybook/blocks'
 
 export type InstallationProps = {
   installCommand: string
@@ -20,4 +19,4 @@ export const Installation = ({
   </div>
 )
 
-Installation.displayName = "Installation"
+Installation.displayName = 'Installation'

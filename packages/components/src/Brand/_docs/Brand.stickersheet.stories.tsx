@@ -1,13 +1,10 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Brand } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Brand } from '../index'
 
 export default {
-  title: "Components/Brand",
+  title: 'Components/Brand',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -18,18 +15,10 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Row header="Logo Horizontal">
-        <Brand
-          alt="Culture Amp"
-          variant="logo-horizontal"
-          reversed={isReversed}
-        />
+        <Brand alt="Culture Amp" variant="logo-horizontal" reversed={isReversed} />
       </StickerSheet.Row>
       <StickerSheet.Row header="Logo Vertical">
-        <Brand
-          alt="Culture Amp"
-          variant="logo-vertical"
-          reversed={isReversed}
-        />
+        <Brand alt="Culture Amp" variant="logo-vertical" reversed={isReversed} />
       </StickerSheet.Row>
       <StickerSheet.Row header="Enso">
         <Brand alt="Culture Amp" variant="enso" reversed={isReversed} />
@@ -47,12 +36,12 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  name: 'Sticker Sheet (Reversed)',
+  parameters: { backgrounds: { default: 'Purple 700' } },
   args: { isReversed: true },
 }

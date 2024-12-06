@@ -1,37 +1,35 @@
-import React from "react"
-import {
-  FilterDatePicker,
-  FilterDatePickerProps,
-} from "~components/Filter/FilterDatePicker"
-import { useFilterBarContext } from "../../context/FilterBarContext"
-import { FilterBarButton } from "../FilterBarButton"
+import React from 'react'
+import { FilterDatePicker, FilterDatePickerProps } from '~components/Filter/FilterDatePicker'
+import { useFilterBarContext } from '../../context/FilterBarContext'
+import { FilterBarButton } from '../FilterBarButton'
 
 export type FilterBarDatePickerProps = Omit<
   FilterDatePickerProps,
-  | "id"
-  | "label"
-  | "renderTrigger"
-  | "isOpen"
-  | "setIsOpen"
-  | "selectedDate"
-  | "onDateChange"
-  | "locale"
+  | 'id'
+  | 'label'
+  | 'renderTrigger'
+  | 'isOpen'
+  | 'setIsOpen'
+  | 'selectedDate'
+  | 'onDateChange'
+  | 'locale'
 > & {
   id?: string
-  locale?: FilterDatePickerProps["locale"]
-  onDateChange?: FilterDatePickerProps["onDateChange"]
+  locale?: FilterDatePickerProps['locale']
+  onDateChange?: FilterDatePickerProps['onDateChange']
 }
 
 export const FilterBarDatePicker = ({
   id,
   onDateChange,
-  locale = "en-AU",
+  locale = 'en-AU',
   ...props
 }: FilterBarDatePickerProps): JSX.Element => {
-  const { getFilterState, setFilterOpenState, updateValue } =
-    useFilterBarContext<Date | undefined>()
+  const { getFilterState, setFilterOpenState, updateValue } = useFilterBarContext<
+    Date | undefined
+  >()
 
-  if (!id) throw Error("Missing `id` prop in FilterBarDatePicker")
+  if (!id) throw Error('Missing `id` prop in FilterBarDatePicker')
 
   const filterState = getFilterState(id)
 
@@ -40,14 +38,10 @@ export const FilterBarDatePicker = ({
       {...props}
       id={id}
       locale={locale}
-      selectedDate={filterState.value || undefined}
+      selectedDate={filterState.value}
       label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element => (
-        <FilterBarButton
-          {...triggerProps}
-          filterId={id}
-          isRemovable={filterState.isRemovable}
-        />
+        <FilterBarButton {...triggerProps} filterId={id} isRemovable={filterState.isRemovable} />
       )}
       onDateChange={(key): void => {
         updateValue(id, key)
@@ -59,4 +53,4 @@ export const FilterBarDatePicker = ({
   )
 }
 
-FilterBarDatePicker.displayName = "FilterBar.DatePicker"
+FilterBarDatePicker.displayName = 'FilterBar.DatePicker'

@@ -1,9 +1,9 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Popover, useFloating } from "../index"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Popover, useFloating } from '../index'
 
 const meta = {
-  title: "Components/MultiSelect/Popover",
+  title: 'Components/MultiSelect/Popover',
   component: Popover,
   args: {
     refs: undefined,
@@ -16,7 +16,7 @@ const meta = {
     ),
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="overflow-scroll max-w-[200px] max-h-[200px] border-solid">
         <div
           id="testing-ground"
@@ -34,18 +34,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const PopoverTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const { refs } = useFloating()
     const handleClose = (): void => setIsOpen(false)
 
     return (
       <div>
-        <button
-          ref={refs.setReference}
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button ref={refs.setReference} type="button" onClick={() => setIsOpen(!isOpen)}>
           Pancakes!
         </button>
         <button type="button">Flapjacks</button>
@@ -53,9 +49,7 @@ const PopoverTemplate: Story = {
         {isOpen && (
           <Popover
             {...args}
-            portalContainer={
-              document.getElementById("testing-ground") ?? undefined
-            }
+            portalContainer={document.getElementById('testing-ground') ?? undefined}
             refs={refs}
             focusOnProps={{
               onClickOutside: handleClose,
@@ -74,7 +68,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

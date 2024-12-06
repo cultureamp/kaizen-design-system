@@ -1,21 +1,19 @@
-import React, { useRef, useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
-import isChromatic from "chromatic"
-import { ModalAccessibleDescription } from "~components/Modal"
-import { Text } from "~components/Text"
-import { TextField } from "~components/TextField"
-import { chromaticModalSettings } from "../../_docs/controls"
-import { InputEditModal } from "../index"
+import React, { useRef, useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import isChromatic from 'chromatic'
+import { ModalAccessibleDescription } from '~components/Modal'
+import { Text } from '~components/Text'
+import { TextField } from '~components/TextField'
+import { chromaticModalSettings } from '../../_docs/controls'
+import { InputEditModal } from '../index'
 
 const IS_CHROMATIC = isChromatic()
 
 const ExampleForm = (): JSX.Element => (
   <>
     <ModalAccessibleDescription>
-      <Text variant="body">
-        Instructive text to drive user selection goes here.
-      </Text>
+      <Text variant="body">Instructive text to drive user selection goes here.</Text>
     </ModalAccessibleDescription>
     <form>
       <TextField labelText="Opinion" />
@@ -24,13 +22,13 @@ const ExampleForm = (): JSX.Element => (
 )
 
 const meta = {
-  title: "Components/Modals/Input Edit Modal",
+  title: 'Components/Modals/Input Edit Modal',
   component: InputEditModal,
   args: {
     isOpen: false,
-    title: "Your input is valuable",
+    title: 'Your input is valuable',
     children: <ExampleForm />,
-    submitLabel: "Submit label",
+    submitLabel: 'Submit label',
     onSubmit: fn(),
     onDismiss: fn(),
   },
@@ -53,7 +51,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const InputModalTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
 
     const handleOpen = (): void => setIsOpen(true)
@@ -61,19 +59,10 @@ const InputModalTemplate: Story = {
 
     return (
       <>
-        <button
-          type="button"
-          className="border border-gray-500"
-          onClick={handleOpen}
-        >
+        <button type="button" className="border border-gray-500" onClick={handleOpen}>
           Open Modal
         </button>
-        <InputEditModal
-          {...args}
-          isOpen={isOpen}
-          onSubmit={handleClose}
-          onDismiss={handleClose}
-        />
+        <InputEditModal {...args} isOpen={isOpen} onSubmit={handleClose} onDismiss={handleClose} />
       </>
     )
   },
@@ -84,7 +73,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -104,10 +93,10 @@ export const Unpadded: Story = {
 export const OnAfterEnter: Story = {
   ...chromaticModalSettings,
   args: {
-    title: "Create new link",
-    submitLabel: "Add link",
+    title: 'Create new link',
+    submitLabel: 'Add link',
   },
-  render: args => {
+  render: (args) => {
     const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
     const inputRef = useRef<HTMLInputElement>(null)
     const handleOpen = (): void => setIsOpen(true)
@@ -115,11 +104,7 @@ export const OnAfterEnter: Story = {
 
     return (
       <>
-        <button
-          type="button"
-          className="border border-gray-500"
-          onClick={handleOpen}
-        >
+        <button type="button" className="border border-gray-500" onClick={handleOpen}>
           Create a link
         </button>
         <InputEditModal

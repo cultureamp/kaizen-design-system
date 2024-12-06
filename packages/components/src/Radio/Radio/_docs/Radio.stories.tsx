@@ -1,13 +1,13 @@
-import { Meta, StoryObj } from "@storybook/react"
-import { Radio } from "../index"
+import { Meta, StoryObj } from '@storybook/react'
+import { Radio } from '../index'
 
 const meta = {
-  title: "Components/Radio controls/Radio",
+  title: 'Components/Radio controls/Radio',
   component: Radio,
   args: {
-    id: "radio",
-    name: "name",
-    value: "value",
+    id: 'radio',
+    name: 'name',
+    value: 'value',
   },
   parameters: {
     a11y: {
@@ -15,7 +15,7 @@ const meta = {
         rules: [
           {
             // Built with no label on purpose, to be used within `RadioField` where label is present
-            id: "label",
+            id: 'label',
             enabled: false,
           },
         ],
@@ -32,7 +32,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

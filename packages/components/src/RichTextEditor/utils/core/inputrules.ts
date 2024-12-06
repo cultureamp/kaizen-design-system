@@ -1,5 +1,5 @@
-import { InputRule, wrappingInputRule } from "prosemirror-inputrules"
-import { NodeType } from "prosemirror-model"
+import { InputRule, wrappingInputRule } from 'prosemirror-inputrules'
+import { NodeType } from 'prosemirror-model'
 
 // Given a list node type, returns an input rule that turns a number
 // followed by a dot at the start of a textblock into an ordered list.
@@ -8,8 +8,8 @@ export const orderedListRule = (nodeType: NodeType): InputRule =>
   wrappingInputRule(
     /^(\d+)\.\s$/,
     nodeType,
-    match => ({ order: +match[1] }),
-    (match, node) => node.childCount + node.attrs.order == +match[1]
+    (match) => ({ order: +match[1] }),
+    (match, node) => node.childCount + node.attrs.order == +match[1],
   )
 
 // Given a list node type, returns an input rule that turns a bullet

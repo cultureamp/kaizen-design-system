@@ -1,27 +1,27 @@
-import "../../packages/components/styles/global.css"
-import "highlight.js/styles/a11y-light.css"
-import "./preview.css"
+import '../../packages/components/styles/global.css'
+import 'highlight.js/styles/a11y-light.css'
+import './preview.css'
 
-import React, { useEffect } from "react"
-import { decorators as bgDecorators } from "@storybook/addon-backgrounds/preview"
-import { Decorator, Preview } from "@storybook/react"
-import { KaizenProvider } from "~components/KaizenProvider"
-import { I18nProvider } from "~components/__react-aria-components__"
-import { ReversedColors } from "~components/__utilities__/v3"
-import { DefaultDocsContainer } from "../components/DocsContainer"
-import { backgrounds } from "../utils/backgrounds"
-import { globalA11yRules } from "../utils/global-a11y-rules"
+import React, { useEffect } from 'react'
+import { decorators as bgDecorators } from '@storybook/addon-backgrounds/preview'
+import { Decorator, Preview } from '@storybook/react'
+import { KaizenProvider } from '~components/KaizenProvider'
+import { I18nProvider } from '~components/__react-aria-components__'
+import { ReversedColors } from '~components/__utilities__/v3'
+import { DefaultDocsContainer } from '../components/DocsContainer'
+import { backgrounds } from '../utils/backgrounds'
+import { globalA11yRules } from '../utils/global-a11y-rules'
 
 const [, withBackground] = bgDecorators
 
-const globalTypes: Preview["globalTypes"] = {
+const globalTypes: Preview['globalTypes'] = {
   textDirection: {
-    name: "Text direction",
-    description: "",
-    defaultValue: "ltr",
+    name: 'Text direction',
+    description: '',
+    defaultValue: 'ltr',
     toolbar: {
-      icon: "globe",
-      items: ["ltr", "rtl"],
+      icon: 'globe',
+      items: ['ltr', 'rtl'],
     },
   },
 }
@@ -30,28 +30,26 @@ const RACDecorator: Decorator = (Story, context) => {
   const dir = context.parameters.textDirection ?? context.globals.textDirection
 
   useEffect(() => {
-    if (document.body.getAttribute("dir") !== dir)
-      document.body.setAttribute("dir", dir)
+    if (document.body.getAttribute('dir') !== dir) document.body.setAttribute('dir', dir)
   }, [dir])
 
   return (
-    <I18nProvider locale={dir === "rtl" ? "ar" : "en"}>
+    <I18nProvider locale={dir === 'rtl' ? 'ar' : 'en'}>
       <Story />
     </I18nProvider>
   )
 }
 
-const KaizenProviderDecorator: Decorator = Story => (
+const KaizenProviderDecorator: Decorator = (Story) => (
   <KaizenProvider>
     <Story />
   </KaizenProvider>
 )
 
-const decorators: Preview["decorators"] = [
+const decorators: Preview['decorators'] = [
   RACDecorator,
   KaizenProviderDecorator,
   // reverseColor parameter wraps story in ReversedColors context and sets default background to Purple 700
-  // @ts-ignore
   (Story, context) => {
     if (
       // set in top toolbar
@@ -60,8 +58,8 @@ const decorators: Preview["decorators"] = [
       !context.moduleExport?.parameters?.backgrounds
     ) {
       context.parameters.backgrounds.default = context.parameters.reverseColors
-        ? "Purple 700"
-        : "White"
+        ? 'Purple 700'
+        : 'White'
     }
 
     return withBackground(
@@ -73,7 +71,7 @@ const decorators: Preview["decorators"] = [
         ) : (
           <Story />
         ),
-      context
+      context,
     )
   },
 ]
@@ -81,18 +79,18 @@ const decorators: Preview["decorators"] = [
 const preview = {
   parameters: {
     backgrounds: {
-      default: "White",
+      default: 'White',
       values: backgrounds,
     },
     docs: {
       toc: {
-        title: "Table of contents",
-        headingSelector: ".tocbot-content > h2, .tocbot-content > h3",
-        ignoreSelector: "#primary",
+        title: 'Table of contents',
+        headingSelector: '.tocbot-content > h2, .tocbot-content > h3',
+        ignoreSelector: '#primary',
       },
       source: {
         excludeDecorators: true,
-        language: "tsx",
+        language: 'tsx',
       },
       container: DefaultDocsContainer,
     },
@@ -104,12 +102,12 @@ const preview = {
         }
 
         // Custom ordering for Tailwind docs
-        if (a.id.includes("tailwind") && b.id.includes("tailwind")) {
-          if (b.title.includes("References")) {
-            if (a.title.includes("References")) {
+        if (a.id.includes('tailwind') && b.id.includes('tailwind')) {
+          if (b.title.includes('References')) {
+            if (a.title.includes('References')) {
               // Overview above all other stories
-              if (a.title.includes("Overview")) return -1
-              if (b.title.includes("Overview")) return 1
+              if (a.title.includes('Overview')) return -1
+              if (b.title.includes('Overview')) return 1
               return 0
             }
             // Put References below other stories
@@ -117,20 +115,14 @@ const preview = {
           }
 
           // Put References below other stories
-          if (a.title.includes("References")) return 1
+          if (a.title.includes('References')) return 1
 
-          if (a.type === "docs" && b.type === "docs") {
-            const docs = [
-              "Overview",
-              "Getting Started",
-              "Configuration",
-              "Working with Tailwind",
-            ]
-            const docsNameA = a.title.split("/").pop()
-            const docsNameB = b.title.split("/").pop()
+          if (a.type === 'docs' && b.type === 'docs') {
+            const docs = ['Overview', 'Getting Started', 'Configuration', 'Working with Tailwind']
+            const docsNameA = a.title.split('/').pop()
+            const docsNameB = b.title.split('/').pop()
             if (docs.includes(docsNameA) && docs.includes(docsNameB)) {
-              const docsDifference =
-                docs.indexOf(docsNameA) - docs.indexOf(docsNameB)
+              const docsDifference = docs.indexOf(docsNameA) - docs.indexOf(docsNameB)
               if (docsDifference !== 0) {
                 // Sort docs by listed order
                 return docsDifference
@@ -147,31 +139,32 @@ const preview = {
           return 0
         }
 
-        const customDocNames = ["Usage Guidelines", "API Specification"]
+        const customDocNames = ['Usage Guidelines', 'API Specification']
         // Don't type the param - we can't use TypeScript within storySort
-        const removeCustomDocNames = title => {
+        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+        const removeCustomDocNames = (title) => {
           return customDocNames.reduce((acc, docName) => {
             const regex = new RegExp(`/${docName}$`)
-            return acc.replace(regex, "")
+            return acc.replace(regex, '')
           }, title)
         }
 
         const titleA = removeCustomDocNames(a.title)
         const titleB = removeCustomDocNames(b.title)
 
-        const groupA = titleA.split("/")[0]
-        const groupB = titleB.split("/")[0]
+        const groupA = titleA.split('/')[0]
+        const groupB = titleB.split('/')[0]
 
         const groups = [
-          "Introduction",
-          "Guides",
-          "Actions",
-          "Containers",
-          "Illustrations",
-          "Layout",
-          "Overlays",
-          "Components",
-          "Pages",
+          'Introduction',
+          'Guides',
+          'Actions',
+          'Containers',
+          'Illustrations',
+          'Layout',
+          'Overlays',
+          'Components',
+          'Pages',
         ]
         const groupDifference = groups.indexOf(groupA) - groups.indexOf(groupB)
         if (groupDifference !== 0) {
@@ -180,12 +173,12 @@ const preview = {
         }
 
         // Sort Kaizen Provider to top
-        if (a.title.includes("Kaizen Provider")) {
+        if (a.title.includes('Kaizen Provider')) {
           // If both are Kaizen Provider, do not sort
-          if (b.title.includes("Kaizen Provider")) return 0
+          if (b.title.includes('Kaizen Provider')) return 0
           return -1
         }
-        if (b.title.includes("Kaizen Provider")) return 1
+        if (b.title.includes('Kaizen Provider')) return 1
 
         const titleDifference = titleA.localeCompare(titleB, undefined, {
           numeric: true,
@@ -199,13 +192,12 @@ const preview = {
           return titleDifference
         }
 
-        if (a.type === "docs" && b.type === "docs") {
-          const docs = ["Usage Guidelines", "API Specification", "Docs"]
-          const docsNameA = a.title.split("/").pop()
-          const docsNameB = b.title.split("/").pop()
+        if (a.type === 'docs' && b.type === 'docs') {
+          const docs = ['Usage Guidelines', 'API Specification', 'Docs']
+          const docsNameA = a.title.split('/').pop()
+          const docsNameB = b.title.split('/').pop()
 
-          const docsDifference =
-            docs.indexOf(docsNameA) - docs.indexOf(docsNameB)
+          const docsDifference = docs.indexOf(docsNameA) - docs.indexOf(docsNameB)
           if (docsDifference !== 0) {
             // Sort stories of different groups manually by the groups array
             return docsDifference

@@ -1,6 +1,6 @@
-import { NodeSpec } from "prosemirror-model"
-import { nodes as proseNodes } from "prosemirror-schema-basic"
-import { bulletList, listItem, orderedList } from "prosemirror-schema-list"
+import { type NodeSpec } from 'prosemirror-model'
+import { nodes as proseNodes } from 'prosemirror-schema-basic'
+import { bulletList, listItem, orderedList } from 'prosemirror-schema-list'
 
 export const getNodes = (): NodeSpec => {
   // We use camel case names instead of ProseMirror's snake case, so we remove any snake case properties here before spreading
@@ -23,17 +23,17 @@ export const getNodes = (): NodeSpec => {
     ...proseNodesWithCamelCase,
     orderedList: {
       ...orderedList,
-      content: "listItem+",
-      group: "block",
+      content: 'listItem+',
+      group: 'block',
     },
     bulletList: {
       ...bulletList,
-      content: "listItem+",
-      group: "block",
+      content: 'listItem+',
+      group: 'block',
     },
     listItem: {
       ...listItem,
-      content: "paragraph block*",
+      content: 'paragraph block*',
     },
   }
 }

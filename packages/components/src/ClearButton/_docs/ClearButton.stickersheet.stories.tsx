@@ -1,13 +1,10 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { ClearButton } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { ClearButton } from '../index'
 
 export default {
-  title: "Components/ClearButton",
+  title: 'Components/ClearButton',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -16,10 +13,7 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet
-      isReversed={isReversed}
-      headers={["Default", "Hover", "Focus"]}
-    >
+    <StickerSheet isReversed={isReversed} headers={['Default', 'Hover', 'Focus']}>
       <StickerSheet.Row>
         <ClearButton isReversed={isReversed} />
         <ClearButton isReversed={isReversed} data-sb-pseudo-styles="hover" />
@@ -38,15 +32,15 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }

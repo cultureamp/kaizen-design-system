@@ -1,6 +1,6 @@
-import fs from "fs"
-import path from "path"
-import { getArgs } from "./getArgs.js"
+import fs from 'fs'
+import path from 'path'
+import { getArgs } from './getArgs.js'
 
 const args = getArgs()
 const { packagePath } = args
@@ -13,15 +13,10 @@ const PATH_TAILWIND_JS = `${packagePath}/dist/tailwind.js`
 const PATH_DIST_STYLES = `${packagePath}/dist/styles.css`
 
 const pathsToCombine = [PATH_TAILWIND, PATH_CSS_MODULES_ESM]
-const pathsToDelete = [
-  PATH_CSS_MODULES_CJS,
-  PATH_CSS_MODULES_ESM,
-  PATH_TAILWIND,
-  PATH_TAILWIND_JS,
-]
+const pathsToDelete = [PATH_CSS_MODULES_CJS, PATH_CSS_MODULES_ESM, PATH_TAILWIND, PATH_TAILWIND_JS]
 
 const combineFiles = (): void => {
-  pathsToCombine.forEach(filePath => {
+  pathsToCombine.forEach((filePath) => {
     const file = path.resolve(filePath)
     if (fs.existsSync(file) && fs.statSync(file).isFile()) {
       const fileContent = fs.readFileSync(file).toString()
@@ -32,7 +27,7 @@ const combineFiles = (): void => {
 }
 
 const deleteFiles = (): void => {
-  pathsToDelete.forEach(filePath => {
+  pathsToDelete.forEach((filePath) => {
     const file = path.resolve(filePath)
     if (fs.existsSync(file)) {
       fs.unlinkSync(file)

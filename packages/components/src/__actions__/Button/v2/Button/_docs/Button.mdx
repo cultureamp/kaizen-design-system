@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
-import * as ButtonStories from "./Button.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation, LinkTo } from '~storybook/components'
+import * as ButtonStories from './Button.stories'
 
 <Meta of={ButtonStories} />
 
@@ -12,7 +12,6 @@ import * as ButtonStories from "./Button.stories"
   designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3062890984/Button"
 
 />
-
 
 <KAIOInstallation exportNames="Button" family="actions" version="2" />
 
@@ -79,6 +78,7 @@ Alternatively use the `workingLabelHidden` prop to hide the button label all tog
 <Canvas of={ButtonStories.Working} />
 
 ### Controlling the working state
+
 Here is an example of controlling whether the button is 'working' or not, using state.
 
 <Canvas of={ButtonStories.ResolveWorking} />

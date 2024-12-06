@@ -1,6 +1,6 @@
-import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as ProgressBarStories from "./ProgressBar.stories"
+import { Canvas, Controls, DocsStory, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as ProgressBarStories from './ProgressBar.stories'
 
 <Meta of={ProgressBarStories} />
 
@@ -45,6 +45,5 @@ While `value` and `max` can be used to represent progress as either a percentage
 ### Accessible context
 
 Due to the optional `label` prop, the progress bar does not have an accessible name. You can provide context for assistive technologies with aria attributes such as `aria-label` or `aria-labelledby`.
-
 
 <Canvas of={ProgressBarStories.AccessibleName} />

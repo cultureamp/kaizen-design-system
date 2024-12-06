@@ -1,1 +1,1 @@
-export * from "./LinkTo"
+export * from './LinkTo'

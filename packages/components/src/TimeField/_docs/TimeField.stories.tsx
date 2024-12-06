@@ -1,23 +1,23 @@
-import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
-import { TimeField } from "../index"
-import { ValueType } from "../types"
+import React, { useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import { TimeField } from '../index'
+import { ValueType } from '../types'
 
 const meta = {
-  title: "Components/TimeField",
+  title: 'Components/TimeField',
   component: TimeField,
   argTypes: {
     locale: {
-      options: ["en-US", "en-AU", "en-GB", "fr-CA", "zh-Hant"],
-      control: { type: "radio" },
+      options: ['en-US', 'en-AU', 'en-GB', 'fr-CA', 'zh-Hant'],
+      control: { type: 'radio' },
     },
-    status: { control: { type: "radio" }, options: ["default", "error"] },
-    validationMessage: { control: "text" },
+    status: { control: { type: 'radio' }, options: ['default', 'error'] },
+    validationMessage: { control: 'text' },
   },
   args: {
-    label: "Time",
-    locale: "en-US",
+    label: 'Time',
+    locale: 'en-US',
     value: null,
     onChange: fn(),
   },
@@ -28,7 +28,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const TimeFieldTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [value, setValue] = useState<ValueType | null>(args.value)
     return <TimeField {...args} value={value} onChange={setValue} />
   },
@@ -39,7 +39,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

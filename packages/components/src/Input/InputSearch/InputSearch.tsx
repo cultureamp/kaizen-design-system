@@ -1,11 +1,11 @@
-import React, { InputHTMLAttributes, useRef } from "react"
-import { useIntl } from "@cultureamp/i18n-react-intl"
-import classnames from "classnames"
-import { ClearButton } from "~components/ClearButton"
-import { LoadingSpinner } from "~components/Loading"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./InputSearch.module.scss"
+import React, { InputHTMLAttributes, useRef } from 'react'
+import { useIntl } from '@cultureamp/i18n-react-intl'
+import classnames from 'classnames'
+import { ClearButton } from '~components/ClearButton'
+import { LoadingSpinner } from '~components/Loading'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './InputSearch.module.scss'
 
 export type InputSearchProps = {
   // id is enforced here as there's no label included in this component
@@ -14,9 +14,7 @@ export type InputSearchProps = {
   loading?: boolean
   secondary?: boolean
   onClear?: () => void
-} & OverrideClassName<
-  Omit<InputHTMLAttributes<HTMLInputElement>, "defaultValue">
->
+} & OverrideClassName<Omit<InputHTMLAttributes<HTMLInputElement>, 'defaultValue'>>
 
 export const InputSearch = (props: InputSearchProps): JSX.Element => {
   const {
@@ -35,13 +33,13 @@ export const InputSearch = (props: InputSearchProps): JSX.Element => {
 
   const handleOnClear = (): void => {
     inputRef.current?.focus()
-    onClear && onClear()
+    onClear?.()
   }
 
   const clearButtonLabel = formatMessage({
-    id: "inputSearch.clear",
-    defaultMessage: "Clear search",
-    description: "Label for the clear search button",
+    id: 'inputSearch.clear',
+    defaultMessage: 'Clear search',
+    description: 'Label for the clear search button',
   })
 
   return (
@@ -52,7 +50,7 @@ export const InputSearch = (props: InputSearchProps): JSX.Element => {
         reversed && styles.reversed,
         disabled && styles.disabled,
         value && styles.hasEndIconAdornment,
-        classNameOverride
+        classNameOverride,
       )}
     >
       <div className={styles.startIconAdornment}>
@@ -94,4 +92,4 @@ export const InputSearch = (props: InputSearchProps): JSX.Element => {
   )
 }
 
-InputSearch.displayName = "InputSearch"
+InputSearch.displayName = 'InputSearch'

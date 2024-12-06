@@ -1,13 +1,8 @@
-import React, {
-  ButtonHTMLAttributes,
-  HTMLAttributes,
-  useContext,
-  useRef,
-} from "react"
-import { useButton } from "@react-aria/button"
-import { AriaMenuOptions, useMenuTrigger } from "@react-aria/menu"
-import { MenuTriggerState, useMenuTriggerState } from "@react-stately/menu"
-import { ItemType } from "../../types"
+import React, { ButtonHTMLAttributes, HTMLAttributes, useContext, useRef } from 'react'
+import { useButton } from '@react-aria/button'
+import { AriaMenuOptions, useMenuTrigger } from '@react-aria/menu'
+import { MenuTriggerState, useMenuTriggerState } from '@react-stately/menu'
+import { ItemType } from '../../types'
 
 export type MenuTriggerProviderProps = {
   isOpen?: boolean
@@ -26,7 +21,7 @@ export type MenuTriggerProviderContextType = {
 }
 
 const MenuTriggerContext = React.createContext<MenuTriggerProviderContextType>(
-  {} as MenuTriggerProviderContextType
+  {} as MenuTriggerProviderContextType,
 )
 export function MenuTriggerProvider({
   isOpen,
@@ -40,12 +35,8 @@ export function MenuTriggerProvider({
 
   // Get A11y attributes and events for the menu trigger and menu elements
   const fallbackRef = useRef<HTMLButtonElement>(null)
-  const ref = triggerRef || fallbackRef
-  const { menuTriggerProps, menuProps } = useMenuTrigger<ItemType>(
-    {},
-    state,
-    ref
-  )
+  const ref = triggerRef ?? fallbackRef
+  const { menuTriggerProps, menuProps } = useMenuTrigger<ItemType>({}, state, ref)
 
   // Get A11y attributes and events for the button based on the trigger props from useMenuTrigger
   const { buttonProps } = useButton(menuTriggerProps, ref)

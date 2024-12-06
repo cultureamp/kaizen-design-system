@@ -1,1 +1,1 @@
-export * from "./GuidanceBlock"
+export * from './GuidanceBlock'

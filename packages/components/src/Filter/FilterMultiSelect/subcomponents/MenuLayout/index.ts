@@ -1,2 +1,2 @@
-export * from "./MenuFooter"
-export * from "./MenuLoadingSkeleton"
+export * from './MenuFooter'
+export * from './MenuLoadingSkeleton'

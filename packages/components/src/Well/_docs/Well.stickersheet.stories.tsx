@@ -1,15 +1,12 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { Text } from "~components/Text"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { Well, WellProps } from "../index"
-import { borderStyleTypes, wellColors, variantTypes } from "../types"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { Text } from '~components/Text'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Well, WellProps } from '../index'
+import { borderStyleTypes, wellColors, variantTypes } from '../types'
 
 export default {
-  title: "Components/Well",
+  title: 'Components/Well',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -19,10 +16,9 @@ export default {
 const WellWrapped = (props: WellProps): JSX.Element => (
   <Well {...props}>
     <Text variant="body">
-      Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick
-      fatback cow tongue ground round chicken. Jowl cow short ribs, ham tongue
-      turducken spare ribs pig drumstick chuck meatball. Buffalo turducken
-      pancetta tail salami chicken. Bresaola venison pastrami beef.
+      Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick fatback cow tongue
+      ground round chicken. Jowl cow short ribs, ham tongue turducken spare ribs pig drumstick chuck
+      meatball. Buffalo turducken pancetta tail salami chicken. Bresaola venison pastrami beef.
     </Text>
   </Well>
 )
@@ -30,28 +26,24 @@ const WellWrapped = (props: WellProps): JSX.Element => (
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
-      <StickerSheet headers={["Solid Border", "Dashed Border", "None"]}>
-        {variantTypes.map(variant => (
+      <StickerSheet headers={['Solid Border', 'Dashed Border', 'None']}>
+        {variantTypes.map((variant) => (
           <StickerSheet.Row key={variant} header={variant}>
-            {borderStyleTypes.map(border => (
-              <WellWrapped
-                key={border}
-                variant={variant}
-                borderStyle={border}
-              />
+            {borderStyleTypes.map((border) => (
+              <WellWrapped key={border} variant={variant} borderStyle={border} />
             ))}
           </StickerSheet.Row>
         ))}
-        {wellColors.map(color => (
+        {wellColors.map((color) => (
           <StickerSheet.Row key={color} header={color}>
-            {borderStyleTypes.map(border => (
+            {borderStyleTypes.map((border) => (
               <WellWrapped key={border} color={color} borderStyle={border} />
             ))}
           </StickerSheet.Row>
         ))}
       </StickerSheet>
 
-      <StickerSheet headers={["Margin", "No Margin"]}>
+      <StickerSheet headers={['Margin', 'No Margin']}>
         <StickerSheet.Row>
           <StickerSheet.Cell>
             <WellWrapped />
@@ -69,5 +61,5 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }

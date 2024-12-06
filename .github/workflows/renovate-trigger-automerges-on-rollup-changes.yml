@@ -1,0 +1,14 @@
+name: Renovate - Rebase PRs on renovate/rollup updates
+
+on:
+  push:
+    branches:
+      - renovate/rollup
+
+jobs:
+  call-rollup-based-automerge:
+    uses: cultureamp/renovate-for-cultureamp/.github/workflows/rollup-based-automerge.yaml@v1
+    secrets:
+      RENOVATE_TRIGGER_APP_PRIVATE_KEY: ${{ secrets.RENOVATE_TRIGGER_APP_PRIVATE_KEY }}
+    with:
+      repository: ${{ github.repository }}

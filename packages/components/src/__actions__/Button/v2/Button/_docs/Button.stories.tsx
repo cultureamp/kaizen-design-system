@@ -1,15 +1,15 @@
-import React, { useState } from "react"
-import { StoryObj, Meta } from "@storybook/react"
-import { LoadingInput } from "~components/Loading"
-import { TextField } from "~components/TextField"
-import { Icon } from "~components/__future__/Icon"
-import { Button } from "../index"
+import React, { useState } from 'react'
+import { StoryObj, Meta } from '@storybook/react'
+import { LoadingInput } from '~components/Loading'
+import { TextField } from '~components/TextField'
+import { Icon } from '~components/__future__/Icon'
+import { Button } from '../index'
 
 const meta = {
-  title: "Actions/Button/Button (v2)",
+  title: 'Actions/Button/Button (v2)',
   component: Button,
   args: {
-    label: "Label",
+    label: 'Label',
   },
 } satisfies Meta<typeof Button>
 
@@ -21,7 +21,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -34,14 +34,12 @@ export const Variants: Story = {
       <Button label="Primary" primary reversed={reversed} />
       <Button label="Destructive" destructive reversed={reversed} />
       <Button label="Secondary" secondary reversed={reversed} />
-      {!reversed && (
-        <Button label="Secondary Destructive" secondary destructive />
-      )}
+      {!reversed && <Button label="Secondary Destructive" secondary destructive />}
     </>
   ),
   decorators: [
-    Story => (
-      <div style={{ display: "flex", gap: "1rem" }}>
+    (Story) => (
+      <div style={{ display: 'flex', gap: '1rem' }}>
         <Story />
       </div>
     ),
@@ -54,7 +52,7 @@ export const Reversed: Story = {
   args: { reversed: true },
   parameters: {
     ...Variants.parameters,
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
 }
 
@@ -69,7 +67,7 @@ import { Button, ArrowForwardIcon } from "@kaizen/components"
 `
 
 export const IconStory: Story = {
-  name: "Icon",
+  name: 'Icon',
   args: {
     icon: <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
   },
@@ -81,13 +79,13 @@ export const IconStory: Story = {
 export const IconPosition: Story = {
   args: {
     icon: <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
-    iconPosition: "end",
+    iconPosition: 'end',
   },
 }
 
 export const Badge: Story = {
   args: {
-    badge: { text: "3", variant: "active" },
+    badge: { text: '3', variant: 'active' },
     secondary: true,
   },
 }
@@ -100,17 +98,12 @@ export const Working: Story = {
   render: () => (
     <>
       <Button label="Label" working workingLabel="Submitting" />
-      <Button
-        label="Label"
-        working
-        workingLabel="Submitting"
-        workingLabelHidden
-      />
+      <Button label="Label" working workingLabel="Submitting" workingLabelHidden />
     </>
   ),
   decorators: [
-    Story => (
-      <div style={{ display: "flex", gap: "1rem" }}>
+    (Story) => (
+      <div style={{ display: 'flex', gap: '1rem' }}>
         <Story />
       </div>
     ),
@@ -146,22 +139,20 @@ export const NativeFormButton: Story = {
 
 export const ResolveWorking: Story = {
   render: () => {
-    const [state, setState] = useState<"Ready" | "Working" | "Completed">(
-      "Ready"
-    )
+    const [state, setState] = useState<'Ready' | 'Working' | 'Completed'>('Ready')
     const handleClick = (): void => {
-      if (state === "Ready") {
-        setState("Working")
-        setTimeout(() => setState("Completed"), 3000)
+      if (state === 'Ready') {
+        setState('Working')
+        setTimeout(() => setState('Completed'), 3000)
       } else {
-        setState("Ready")
+        setState('Ready')
       }
     }
 
     return (
       <Button
         label={state}
-        working={state === "Working"}
+        working={state === 'Working'}
         workingLabel="Button is doing some work"
         workingLabelHidden
         onClick={handleClick}

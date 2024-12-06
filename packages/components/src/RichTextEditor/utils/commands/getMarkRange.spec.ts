@@ -1,16 +1,16 @@
-import { waitFor } from "@testing-library/dom"
-import { EditorState } from "prosemirror-state"
-import { vi } from "vitest"
-import { createRichTextEditor } from "../core"
-import { simulateSelectionByText } from "./fixtures/helpers"
-import { testEditorStateWithMarks } from "./fixtures/test-state"
-import { getMarkRange } from "./getMarkRange"
-describe("getMarkRange()", () => {
+import { waitFor } from '@testing-library/dom'
+import { EditorState } from 'prosemirror-state'
+import { vi } from 'vitest'
+import { createRichTextEditor } from '../core'
+import { simulateSelectionByText } from './fixtures/helpers'
+import { testEditorStateWithMarks } from './fixtures/test-state'
+import { getMarkRange } from './getMarkRange'
+describe('getMarkRange()', () => {
   const onChange = vi.fn()
-  const attributes = { "aria-labelledby": "label-text-123" }
+  const attributes = { 'aria-labelledby': 'label-text-123' }
 
-  it("returns the entire range of the Mark provided from a resolved position", async () => {
-    const node = document.createElement("div")
+  it('returns the entire range of the Mark provided from a resolved position', async () => {
+    const node = document.createElement('div')
     const { dispatchTransaction } = createRichTextEditor({
       node,
       onChange,
@@ -19,7 +19,7 @@ describe("getMarkRange()", () => {
     })
     let currentState = testEditorStateWithMarks
 
-    dispatchTransaction(simulateSelectionByText("Example Italic"))
+    dispatchTransaction(simulateSelectionByText('Example Italic'))
     dispatchTransaction((editorState: EditorState) => {
       currentState = editorState
       return true
@@ -37,8 +37,8 @@ describe("getMarkRange()", () => {
     })
   })
 
-  it("returns null if the Mark is not found from the given position", async () => {
-    const node = document.createElement("div")
+  it('returns null if the Mark is not found from the given position', async () => {
+    const node = document.createElement('div')
     const { dispatchTransaction } = createRichTextEditor({
       node,
       onChange,
@@ -47,7 +47,7 @@ describe("getMarkRange()", () => {
     })
     let currentState = testEditorStateWithMarks
 
-    dispatchTransaction(simulateSelectionByText("Example Strong"))
+    dispatchTransaction(simulateSelectionByText('Example Strong'))
     dispatchTransaction((editorState: EditorState) => {
       currentState = editorState
       return true
@@ -61,8 +61,8 @@ describe("getMarkRange()", () => {
     })
   })
 
-  it("returns null if the position provided cannot be resolved", async () => {
-    const node = document.createElement("div")
+  it('returns null if the position provided cannot be resolved', async () => {
+    const node = document.createElement('div')
     const { dispatchTransaction } = createRichTextEditor({
       node,
       onChange,
@@ -71,7 +71,7 @@ describe("getMarkRange()", () => {
     })
     let currentState = testEditorStateWithMarks
 
-    dispatchTransaction(simulateSelectionByText("Example Strong"))
+    dispatchTransaction(simulateSelectionByText('Example Strong'))
     dispatchTransaction((editorState: EditorState) => {
       currentState = editorState
       return true

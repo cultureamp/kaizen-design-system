@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from "@storybook/react"
-import { LabelledMessage } from "../LabelledMessage"
+import { Meta, StoryObj } from '@storybook/react'
+import { LabelledMessage } from '../LabelledMessage'
 
 const meta = {
-  title: "Components/Utilities/Labelled Message",
+  title: 'Components/Utilities/Labelled Message',
   component: LabelledMessage,
   args: {
-    label: "Label",
-    message: "Custom message here",
+    label: 'Label',
+    message: 'Custom message here',
   },
 } satisfies Meta<typeof LabelledMessage>
 
@@ -16,7 +16,7 @@ export const Playground: StoryObj<typeof meta> = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

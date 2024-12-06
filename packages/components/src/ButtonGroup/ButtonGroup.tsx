@@ -1,23 +1,21 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
-} from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
-import { Tooltip, TooltipProps } from "~components/__overlays__/Tooltip/v1"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./ButtonGroup.module.scss"
+} from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
+import { Tooltip, TooltipProps } from '~components/__overlays__/Tooltip/v1'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './ButtonGroup.module.scss'
 
-const isFilterButton = (
-  node: React.ReactNode
-): node is React.ReactElement<FilterButtonBaseProps> =>
+const isFilterButton = (node: React.ReactNode): node is React.ReactElement<FilterButtonBaseProps> =>
   React.isValidElement(node) && node.type === FilterButtonBase
 
 export type ButtonGroupProps = {
   children:
     | React.ReactElement<FilterButtonBaseProps | TooltipProps>
-    | Array<React.ReactElement<FilterButtonBaseProps | TooltipProps>>
-} & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, "children">
+    | React.ReactElement<FilterButtonBaseProps | TooltipProps>[]
+} & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, 'children'>
 
 export const ButtonGroup = ({
   children,
@@ -27,7 +25,7 @@ export const ButtonGroup = ({
   const childCount = React.Children.count(children)
 
   const containerProps = {
-    role: "group",
+    role: 'group',
     className: classnames(styles.buttonGroup, classNameOverride),
     ...restProps,
   }
@@ -41,7 +39,7 @@ export const ButtonGroup = ({
           styles.child,
           index === 0 && styles.firstChild,
           index === childCount - 1 && styles.lastChild,
-          child.props.classNameOverride
+          child.props.classNameOverride,
         )
 
         if (child.type === Tooltip) {
@@ -50,10 +48,7 @@ export const ButtonGroup = ({
           if (isFilterButton(button)) {
             return React.cloneElement(child, {
               children: React.cloneElement(button, {
-                classNameOverride: classnames(
-                  button.props.classNameOverride,
-                  buttonClassNames
-                ),
+                classNameOverride: classnames(button.props.classNameOverride, buttonClassNames),
               }),
             })
           }
@@ -69,4 +64,4 @@ export const ButtonGroup = ({
   )
 }
 
-ButtonGroup.displayName = "ButtonGroup"
+ButtonGroup.displayName = 'ButtonGroup'

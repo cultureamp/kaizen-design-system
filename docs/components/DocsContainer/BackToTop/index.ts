@@ -1,1 +1,1 @@
-export * from "./BackToTop"
+export * from './BackToTop'

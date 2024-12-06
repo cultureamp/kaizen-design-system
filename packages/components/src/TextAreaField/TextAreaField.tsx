@@ -1,17 +1,17 @@
-import React, { useId } from "react"
-import classnames from "classnames"
-import { FieldGroup } from "~components/FieldGroup"
-import { FieldMessage } from "~components/FieldMessage"
-import { Label } from "~components/Label"
-import { TextArea, TextAreaProps } from "~components/TextArea"
-import styles from "./TextAreaField.module.scss"
+import React, { useId } from 'react'
+import classnames from 'classnames'
+import { FieldGroup } from '~components/FieldGroup'
+import { FieldMessage } from '~components/FieldMessage'
+import { Label } from '~components/Label'
+import { TextArea, TextAreaProps } from '~components/TextArea'
+import styles from './TextAreaField.module.scss'
 
 export type TextAreaFieldProps = {
   labelText: string | React.ReactNode
   inline?: boolean
   validationMessage?: string | React.ReactNode
   description?: string | React.ReactNode
-  variant?: "default" | "prominent"
+  variant?: 'default' | 'prominent'
 } & TextAreaProps
 
 /**
@@ -23,28 +23,25 @@ export const TextAreaField = ({
   inline = false,
   validationMessage,
   description,
-  variant = "default",
+  variant = 'default',
   id: propsId,
   reversed = false,
-  status = "default",
+  status = 'default',
   disabled,
   ...restProps
 }: TextAreaFieldProps): JSX.Element => {
-  const id = propsId ?? useId()
+  const fallbackId = useId()
+  const id = propsId ?? fallbackId
 
-  const validationMessageAria = validationMessage
-    ? `${id}-field-validation-message`
-    : ""
-  const descriptionAria = description ? `${id}-field-message` : ""
+  const validationMessageAria = validationMessage ? `${id}-field-validation-message` : ''
+  const descriptionAria = description ? `${id}-field-message` : ''
   const ariaDescribedBy = [validationMessageAria, descriptionAria].reduce(
-    (prev, curr) => (curr ? [curr, prev].join(" ") : prev),
-    ""
+    (prev, curr) => (curr ? [curr, prev].join(' ') : prev),
+    '',
   )
 
-  const renderDescriptionOnTop = variant === "prominent"
-  const renderDescription = (
-    position: "top" | "bottom"
-  ): JSX.Element | null => {
+  const renderDescriptionOnTop = variant === 'prominent'
+  const renderDescription = (position: 'top' | 'bottom'): JSX.Element | null => {
     if (!description) return null
     return (
       <div className={classnames(styles.message, disabled && styles.disabled)}>
@@ -69,7 +66,7 @@ export const TextAreaField = ({
       <div
         className={classnames(
           styles.textareaLabel,
-          variant === "prominent" && styles.textareaLabelProminent
+          variant === 'prominent' && styles.textareaLabelProminent,
         )}
       >
         <Label
@@ -82,7 +79,7 @@ export const TextAreaField = ({
           disabled={disabled}
         />
       </div>
-      {renderDescriptionOnTop && renderDescription("top")}
+      {renderDescriptionOnTop && renderDescription('top')}
       <TextArea
         id={`${id}-field-textarea`}
         data-testid={`${id}-field-textarea`}
@@ -101,9 +98,9 @@ export const TextAreaField = ({
           reversed={reversed}
         />
       )}
-      {!renderDescriptionOnTop && renderDescription("bottom")}
+      {!renderDescriptionOnTop && renderDescription('bottom')}
     </FieldGroup>
   )
 }
 
-TextAreaField.displayName = "TextAreaField"
+TextAreaField.displayName = 'TextAreaField'
