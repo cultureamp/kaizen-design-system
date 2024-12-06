@@ -60,6 +60,16 @@ describe('transformIconButtonToButton()', () => {
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
+    it('changes classNameOverride to className', () => {
+      const inputAst = parseJsx(
+        '<IconButton icon={icon} label="Pancakes" classNameOverride="hello" />',
+      )
+      const outputAst = parseJsx(
+        '<Button icon={icon} className="hello" hasHiddenLabel>Pancakes</Button>',
+      )
+      expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+    })
+
     // @todo: Update when we know what to change variants to
     describe('transform variant', () => {
       it('changes default (undefined) to TBC', () => {

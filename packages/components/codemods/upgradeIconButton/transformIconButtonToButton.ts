@@ -16,6 +16,8 @@ const transformProp = (
       return createProp('onPress', propValue)
     case 'reversed':
       return createProp('isReversed', propValue)
+    case 'classNameOverride':
+      return createProp('className', propValue)
     default:
       return undefined
   }
