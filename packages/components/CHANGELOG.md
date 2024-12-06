@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.68.10
+
+### Patch Changes
+
+- [#5318](https://github.com/cultureamp/kaizen-design-system/pull/5318) [`8aebe0b`](https://github.com/cultureamp/kaizen-design-system/commit/8aebe0b339e463ffe5a63a69fd60960a3fadd042) - Update dep `react-intl` to `^7.0.1`.
+
 ## 1.68.9
 
 ### Patch Changes
