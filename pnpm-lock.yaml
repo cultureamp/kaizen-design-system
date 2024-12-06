@@ -242,7 +242,7 @@ importers:
         specifier: 8.3.6
         version: 8.3.6
       tailwindcss:
-        specifier: ^3.4.15
+        specifier: ^3.4.16
         version: 3.4.16
       vite-plugin-node-polyfills:
         specifier: ^0.22.0
@@ -647,7 +647,7 @@ importers:
         specifier: ^4.28.1
         version: 4.28.1
       tailwindcss:
-        specifier: ^3.4.15
+        specifier: ^3.4.16
         version: 3.4.16
       tslib:
         specifier: ^2.8.1
