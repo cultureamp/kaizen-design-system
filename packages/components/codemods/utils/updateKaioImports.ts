@@ -121,6 +121,8 @@ export const updateKaioImports =
     if (!ts.isSourceFile(rootNode)) return rootNode
 
     if (!importsToRemove && !importsToAdd) return rootNode
+    if (importsToRemove && importsToRemove.size === 0 && importsToAdd && importsToAdd.size === 0)
+      return rootNode
 
     const { factory } = context
 
