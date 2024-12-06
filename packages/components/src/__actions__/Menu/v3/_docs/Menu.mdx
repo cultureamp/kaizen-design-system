@@ -1,14 +1,21 @@
-import { Canvas, Meta, Controls } from "@storybook/blocks"
-import { ResourceLinks, SbContent, Installation, DosAndDonts, DoOrDont } from "~storybook/components"
-import * as MenuDocsStories from "./Menu.docs.stories"
-import * as MenuStories from "./Menu.stories"
+import { Canvas, Meta, Controls } from '@storybook/blocks'
+import {
+  ResourceLinks,
+  SbContent,
+  Installation,
+  DosAndDonts,
+  DoOrDont,
+} from '~storybook/components'
+import * as MenuDocsStories from './Menu.docs.stories'
+import * as MenuStories from './Menu.stories'
 
 <Meta title="Actions/Menu/v3/Usage Guidelines" />
 
 <SbContent>
   # Menu (v3)
 
-  Updated July 6, 2024
+Updated July 6, 2024
+
 </SbContent>
 
 <ResourceLinks
@@ -24,14 +31,16 @@ import * as MenuStories from "./Menu.stories"
     importStatement='import { MenuTrigger, Menu, MenuItem } from "@kaizen/components/v3/actions"'
   />
 
-  ## Overview
+## Overview
 
-  A menu displays a list of actions in a popover, toggled opened with a button.
+A menu displays a list of actions in a popover, toggled opened with a button.
+
 </SbContent>
 
 <Canvas
   of={MenuStories.Playground}
-  source={{code: `
+  source={{
+    code: `
 <TooltipTrigger>
   <Button>
     <Icon name="more_horiz" alt="Additional actions" />
@@ -44,42 +53,41 @@ import * as MenuStories from "./Menu.stories"
     </Menu>
   </Popover>
 </TooltipTrigger>
-  `}}
- />
-<Controls of={MenuStories.Playground} include={["placement", "isOpen"]} className="mb-64" />
-
+  `,
+  }}
+/>
+<Controls of={MenuStories.Playground} include={['placement', 'isOpen']} className="mb-64" />
 
 <SbContent className="mb-64">
   ### Anatomy
 
-  - A Menu is made up of:
-    - A trigger button
-    - A popover
-    - A list of menu items
-  - Menu items may be organised into sections, with a heading for each section.
-  - The menu trigger button, which may be any variation of a button.
-</SbContent>
+- A Menu is made up of:
+  - A trigger button
+  - A popover
+  - A list of menu items
+- Menu items may be organised into sections, with a heading for each section.
+- The menu trigger button, which may be any variation of a button.
 
+</SbContent>
 
 <SbContent className="mb-64">
   ### When to use
 
-  - When you have a group of related actions for a page or item on the page.
-  - The actions either:
-    - Cause an action on the page (e.g. delete), or
-    - Navigate somewhere
+- When you have a group of related actions for a page or item on the page.
+- The actions either: - Cause an action on the page (e.g. delete), or - Navigate somewhere
+
 </SbContent>
 
 <SbContent className="mb-64">
   ### When not to use
 
-  - When you want to persist a user selection.
-    - Use a Select/Multi-Select or Combobox/Multi-Combobox component instead.
-  - When you want additional elements beyond a list of menu items (e.g. a search input)
-    - Use a Modal, or construct your own pattern with a Popover.
-    - It's recommended that you avoid this because of the complexity it adds for accessibility.
-  - Inside a navigation bar
-    - Different DOM elements and behaviour is required for a dropdown menu in a navigation bar.
+- When you want to persist a user selection.
+  - Use a Select/Multi-Select or Combobox/Multi-Combobox component instead.
+- When you want additional elements beyond a list of menu items (e.g. a search input)
+  - Use a Modal, or construct your own pattern with a Popover.
+  - It's recommended that you avoid this because of the complexity it adds for accessibility.
+- Inside a navigation bar - Different DOM elements and behaviour is required for a dropdown menu in a navigation bar.
+
 </SbContent>
 
 <div className="flex flex-col mt-16 gap-40 mb-64">
@@ -93,6 +101,7 @@ import * as MenuStories from "./Menu.stories"
       <DoOrDont story={MenuDocsStories.ItemsDo} />
       <DoOrDont story={MenuDocsStories.ItemsDont} isDont />
     </DosAndDonts>
+
   </div>
 </div>
 
@@ -107,9 +116,9 @@ import * as MenuStories from "./Menu.stories"
     <DosAndDonts>
       <DoOrDont story={MenuDocsStories.SelectionDont} isDont />
     </DosAndDonts>
+
   </div>
 </div>
-
 
 <div className="flex flex-col mt-16 gap-40 mb-64">
   <div className="flex flex-col m-0 gap-16">
@@ -122,6 +131,7 @@ import * as MenuStories from "./Menu.stories"
       <DoOrDont story={MenuDocsStories.LabelChevronDo} />
       <DoOrDont story={MenuDocsStories.LabelChevronDont} isDont />
     </DosAndDonts>
+
   </div>
 </div>
 
@@ -141,6 +151,7 @@ import * as MenuStories from "./Menu.stories"
       <DoOrDont story={MenuDocsStories.LabelDo} />
       <DoOrDont story={MenuDocsStories.LabelDont} isDont />
     </DosAndDonts>
+
   </div>
 </div>
 
@@ -160,14 +171,15 @@ import * as MenuStories from "./Menu.stories"
       <DoOrDont story={MenuDocsStories.ItemsDo} />
       <DoOrDont story={MenuDocsStories.IconsDont} isDont />
     </DosAndDonts>
+
   </div>
 </div>
 
 <div className="flex flex-col mt-16 gap-40 mb-64">
   <div className="flex flex-col m-0 gap-16">
     <SbContent>
-      #### Don't repeat the same word in the menu item labels
-      Context may be useful in some cases, but avoid adding context if it will be repeated in every menu item label.
+      #### Don't repeat the same word in the menu item labels Context may be useful in some cases,
+      but avoid adding context if it will be repeated in every menu item label.
     </SbContent>
     <DosAndDonts>
       <DoOrDont story={MenuDocsStories.MenuItemLabelsDont} isDont />
@@ -178,11 +190,11 @@ import * as MenuStories from "./Menu.stories"
 <div className="flex flex-col mt-16 gap-40 mb-64">
   <div className="flex flex-col m-0 gap-16">
     <SbContent>
-      #### Do use sentence case for menu items
-      Write menu items in sentence case unless they contain words that are branded terms.
+      #### Do use sentence case for menu items Write menu items in sentence case unless they contain
+      words that are branded terms.
     </SbContent>
     <DosAndDonts>
-      <DoOrDont story={MenuDocsStories.SentenceCaseDo}/>
+      <DoOrDont story={MenuDocsStories.SentenceCaseDo} />
       <DoOrDont story={MenuDocsStories.SentenceCaseDont} isDont />
     </DosAndDonts>
   </div>
@@ -191,11 +203,12 @@ import * as MenuStories from "./Menu.stories"
 <div className="flex flex-col mt-16 gap-40 mb-64">
   <div className="flex flex-col m-0 gap-16">
     <SbContent>
-      #### Don't use elipses in menu items
-      Avoid using ellipses (…) in menu item names within products whenever possible. An ellipsis often implies that the action for a menu item will open in a new view, or that a user will be taken elsewhere.
+      #### Don't use elipses in menu items Avoid using ellipses (…) in menu item names within
+      products whenever possible. An ellipsis often implies that the action for a menu item will
+      open in a new view, or that a user will be taken elsewhere.
     </SbContent>
     <DosAndDonts>
-      <DoOrDont story={MenuDocsStories.ElipsesDo}/>
+      <DoOrDont story={MenuDocsStories.ElipsesDo} />
       <DoOrDont story={MenuDocsStories.ElipsesDont} isDont />
     </DosAndDonts>
   </div>

@@ -1,14 +1,14 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Icon } from "~components/__future__/Icon"
-import { TagColorKeys } from "../types"
-import { Tag } from ".."
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Icon } from '~components/__future__/Icon'
+import { TagColorKeys } from '../types'
+import { Tag } from '..'
 
 const meta = {
-  title: "Components/Tag/Future",
+  title: 'Components/Tag/Future',
   component: Tag,
   args: {
-    children: "My tag",
+    children: 'My tag',
   },
 } satisfies Meta<typeof Tag>
 
@@ -20,25 +20,21 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
 }
 
 export const Children: StoryObj = {
-  args: { children: "This text is the children" },
+  args: { children: 'This text is the children' },
 }
 
 export const Color: StoryObj = {
   render: () => (
     <div className="flex gap-16">
-      {TagColorKeys.map(color => (
-        <Tag
-          color={color}
-          icon={<Icon name="label" isPresentational isFilled />}
-          key={color}
-        >
+      {TagColorKeys.map((color) => (
+        <Tag color={color} icon={<Icon name="label" isPresentational isFilled />} key={color}>
           {color}
         </Tag>
       ))}
@@ -46,18 +42,16 @@ export const Color: StoryObj = {
   ),
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
 }
 
 export const IconStory: StoryObj = {
-  name: "Icon",
+  name: 'Icon',
   render: () => (
     <div className="flex gap-16">
-      <Tag icon={<Icon name="school" isPresentational isFilled />}>
-        AcademyIcon
-      </Tag>
+      <Tag icon={<Icon name="school" isPresentational isFilled />}>AcademyIcon</Tag>
       <Tag color="yellow" icon={<Icon name="flash_on" isPresentational />}>
         ActionOffIcon
       </Tag>
@@ -68,13 +62,13 @@ export const IconStory: StoryObj = {
   ),
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
 }
 
 export const ClassNameOverride: StoryObj = {
   args: {
-    classNameOverride: "border-red-500 border-solid border",
+    classNameOverride: 'border-red-500 border-solid border',
   },
 }

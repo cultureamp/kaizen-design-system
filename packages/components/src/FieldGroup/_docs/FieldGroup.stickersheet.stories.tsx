@@ -1,14 +1,11 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { Label } from "~components/Label"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { FieldGroup } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { Label } from '~components/Label'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { FieldGroup } from '../index'
 
 export default {
-  title: "Components/FieldGroup",
+  title: 'Components/FieldGroup',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -36,7 +33,7 @@ const FieldGroupTemplate = ({
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed} headers={["Default", "Inline"]}>
+    <StickerSheet isReversed={isReversed} headers={['Default', 'Inline']}>
       <StickerSheet.Row>
         <FieldGroupTemplate id="1" />
         <FieldGroupTemplate id="2" inline={true} />
@@ -47,11 +44,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  name: 'Sticker Sheet (RTL)',
+  parameters: { textDirection: 'rtl' },
 }

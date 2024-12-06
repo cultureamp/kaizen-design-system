@@ -1,19 +1,19 @@
-declare module "*.css" {
+declare module '*.css' {
   const classes: { [key: string]: string }
   export default classes
 }
 
-declare module "*.scss" {
+declare module '*.scss' {
   const classes: { [key: string]: string }
   export default classes
 }
 
-declare module "*?raw" {
+declare module '*?raw' {
   const content: string
   export default content
 }
 
-declare module "react-map-interaction" {
+declare module 'react-map-interaction' {
   type InteractionState = {
     scale: number
     translation: { x: number; y: number }
@@ -25,8 +25,8 @@ declare module "react-map-interaction" {
     value?: InteractionState
     onChange?: (state: InteractionState) => void
   }
-  export const MapInteractionCSS: import("react").ComponentType<Props>
-  export const MapInteraction: import("react").ComponentType<
+  export const MapInteractionCSS: import('react').ComponentType<Props>
+  export const MapInteraction: import('react').ComponentType<
     Props & {
       children: (params: InteractionState) => React.ReactNode
     }

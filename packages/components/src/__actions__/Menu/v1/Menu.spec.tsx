@@ -1,62 +1,62 @@
-import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { Button } from "~components/__actions__/v2"
-import { Menu } from "./Menu"
+import React from 'react'
+import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { Button } from '~components/__actions__/v2'
+import { Menu } from './Menu'
 
 const user = userEvent.setup()
 
-describe("Dropdown", () => {
-  it("shows menu when clicking on the button", async () => {
+describe('Dropdown', () => {
+  it('shows menu when clicking on the button', async () => {
     render(
       <Menu button={<Button label="Button"></Button>}>
         <div>Item</div>
-      </Menu>
+      </Menu>,
     )
 
-    expect(screen.queryByText("Item")).toBeFalsy()
-    const button = screen.getByText("Button")
+    expect(screen.queryByText('Item')).toBeFalsy()
+    const button = screen.getByText('Button')
     await user.click(button)
     await waitFor(() => {
-      expect(screen.getByText("Item")).toBeInTheDocument()
+      expect(screen.getByText('Item')).toBeInTheDocument()
     })
   })
 
-  it("shows menu & handles onClick set by the consumer when clicking on the button", async () => {
+  it('shows menu & handles onClick set by the consumer when clicking on the button', async () => {
     const onButtonClick = vi.fn()
 
     render(
       <Menu button={<Button label="Button" onClick={onButtonClick} />}>
         <div>Item</div>
-      </Menu>
+      </Menu>,
     )
 
-    expect(screen.queryByText("Item")).not.toBeInTheDocument()
+    expect(screen.queryByText('Item')).not.toBeInTheDocument()
 
-    const button = screen.getByText("Button")
+    const button = screen.getByText('Button')
     await user.click(button)
 
     await waitFor(() => {
-      expect(screen.getByText("Item")).toBeVisible()
+      expect(screen.getByText('Item')).toBeVisible()
       expect(onButtonClick).toBeCalled()
     })
   })
-  it("shows menu & handles onMouseDown set by the consumer when mousing down on the button", async () => {
+  it('shows menu & handles onMouseDown set by the consumer when mousing down on the button', async () => {
     const onMouseDown = vi.fn()
 
     render(
       <Menu button={<Button label="Button" onMouseDown={onMouseDown} />}>
         <div>Item</div>
-      </Menu>
+      </Menu>,
     )
 
-    expect(screen.queryByText("Item")).not.toBeInTheDocument()
+    expect(screen.queryByText('Item')).not.toBeInTheDocument()
 
-    const button = screen.getByText("Button")
+    const button = screen.getByText('Button')
     await user.click(button)
 
     await waitFor(() => {
-      expect(screen.getByText("Item")).toBeVisible()
+      expect(screen.getByText('Item')).toBeVisible()
       expect(onMouseDown).toBeCalled()
     })
   })

@@ -1,6 +1,6 @@
-import { Meta, Unstyled } from "@storybook/blocks"
-import { InlineNotification } from "~components/Notification"
-import { LinkTo } from "../components/LinkTo"
+import { Meta, Unstyled } from '@storybook/blocks'
+import { InlineNotification } from '~components/Notification'
+import { LinkTo } from '../components/LinkTo'
 
 <Meta title="Guides/App starter" />
 
@@ -11,18 +11,23 @@ This guide is all about how to introduce the Kaizen Design System to your app.
 Whilst the Kaizen Design System mainly focuses on the more atomic components in your app, some of the components have a high level of complexity requiring various global components to be present in order for them to function.
 
 <Unstyled>
-  <InlineNotification persistent type="informative">You won&apos;t need to apply any of the below if you have the latest <a href="https://github.com/cultureamp/next-template">next-template</a>.</InlineNotification>
+  <InlineNotification persistent type="informative">
+    You won&apos;t need to apply any of the below if you have the latest{' '}
+    <a href="https://github.com/cultureamp/next-template">next-template</a>.
+  </InlineNotification>
 </Unstyled>
 
 ## 1. Add the KaizenProvider
 
 The <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo> feeds your entire app with Kaizen defaults so it's important that it goes at the very root of your application.
+
 ```tsx
-import { KaizenProvider } from "@kaizen/components";
-<KaizenProvider>
+import { KaizenProvider } from '@kaizen/components'
+;<KaizenProvider>
   <App />
 </KaizenProvider>
 ```
+
 Be sure to read the <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo> documentation for migration tips and in case your app requires any further config, but generally this should be it!
 
 ## 2. Add unified-home's @culturamp/i18n-react-intl webpack plugin to your webpack config
@@ -45,6 +50,7 @@ Whether or not you are already familiar with Tailwind, you'll want to take a loo
 For the convenience of your app, we've compiled all the necessary styles for our components into a single stylesheet to make it easy to set and forget.
 
 This includes:
+
 - CSS variables (design tokens)
 - [Normalize.css](https://github.com/necolas/normalize.css)
 - Font assets
@@ -56,19 +62,26 @@ Add this stylesheet at the top of your global styles imports of your app.
 Note: If you are using Storybook, you will also need to add it in your `preview.ts`.
 
 ```js
-import "@kaizen/components/dist/styles.css"
-import "tailwind.css"
+import '@kaizen/components/dist/styles.css'
+import 'tailwind.css'
 ```
 
 ## 5. Link to Google Material Symbols CDN
 
-*Note that this step is required as long as you use any Kaizen component that contains an Icon, not just if you use (Future) Icon directly.*
+_Note that this step is required as long as you use any Kaizen component that contains an Icon, not just if you use (Future) Icon directly._
 
 Our <LinkTo pageId="illustrations-icon-icon-future-api-specification">(Future) Icons</LinkTo> (introduced in `@kaizen/components@1.67.0`) are sourced from [Google Material Symbols](https://fonts.google.com/icons).
 You will need to add the following to your Storybook `preview-head.html` and to the `<head>` of your apps.
 
 ```html
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block" />
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block"
+/>
 ```

@@ -1,28 +1,27 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import isChromatic from "chromatic"
-import { FieldMessage } from "~components/FieldMessage"
-import { Input } from "~components/Input"
-import { Label } from "~components/Label"
-import { Text } from "~components/Text"
-import { Button, IconButton } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
-import { Focusable } from "~components/__overlays__/v3"
-import { Tooltip, TooltipTrigger } from "../index"
-import * as TestStories from "./Tooltip.spec.stories"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import isChromatic from 'chromatic'
+import { FieldMessage } from '~components/FieldMessage'
+import { Input } from '~components/Input'
+import { Label } from '~components/Label'
+import { Text } from '~components/Text'
+import { Button, IconButton } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
+import { Focusable } from '~components/__overlays__/v3'
+import { Tooltip, TooltipTrigger } from '../index'
+import * as TestStories from './Tooltip.spec.stories'
 
 const meta = {
-  title: "Overlays/Tooltip/v3/Docs Assets",
+  title: 'Overlays/Tooltip/v3/Docs Assets',
   component: Tooltip,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
     a11y: { disable: true },
   },
   args: {
     defaultOpen: isChromatic(),
   },
   argTypes: {
-    // eslint-disable-next-line camelcase
     UNSTABLE_portalContainer: {
       control: false,
       table: { disable: true },
@@ -77,7 +76,7 @@ export const DoFieldTooltip: Story = {
 export const DontFieldTooltip: Story = {
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
   render: () => (
@@ -85,13 +84,7 @@ export const DontFieldTooltip: Story = {
       <TooltipTrigger>
         <Focusable>
           <Label>
-            Password{" "}
-            <Icon
-              name="help"
-              isPresentational
-              isFilled
-              className="text-paragraph"
-            />
+            Password <Icon name="help" isPresentational isFilled className="text-paragraph" />
           </Label>
         </Focusable>
         <Tooltip>Password must be at least 8 characters</Tooltip>
@@ -106,7 +99,7 @@ export const DontFieldTooltip: Story = {
 export const DoConcise: Story = {
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
   render: () => (
@@ -129,7 +122,7 @@ export const DoConcise: Story = {
 export const DontConcise: Story = {
   parameters: {
     docs: {
-      source: { type: "dynamic" },
+      source: { type: 'dynamic' },
     },
   },
   render: () => (
@@ -144,8 +137,8 @@ export const DontConcise: Story = {
           aria-describedby={null}
         />
         <Tooltip>
-          Add Topic to agenda. This will create a new topic where you can
-          discuss recent work with your manager.{" "}
+          Add Topic to agenda. This will create a new topic where you can discuss recent work with
+          your manager.{' '}
         </Tooltip>
       </TooltipTrigger>
     </div>
@@ -172,21 +165,21 @@ export const ShouldFlip: Story = {
     viewport: {
       viewports: {
         small: {
-          name: "small",
+          name: 'small',
           styles: {
-            width: "300px",
-            height: "300px",
+            width: '300px',
+            height: '300px',
           },
         },
       },
-      defaultViewport: "small",
+      defaultViewport: 'small',
     },
   },
 }
 
 export const UncontrolledState: Story = {
   play: undefined,
-  args: { placement: "end", shouldFlip: false },
+  args: { placement: 'end', shouldFlip: false },
   render: () => {
     const [isOpen, setIsOpen] = React.useState<boolean>(false)
     return (
@@ -205,10 +198,10 @@ export const UncontrolledState: Story = {
 
 export const TriggerDo: Story = {
   play: undefined,
-  args: { placement: "end", shouldFlip: false },
+  args: { placement: 'end', shouldFlip: false },
   render: () => (
     <Text variant="body" classNameOverride="bg-white p-12 rounded">
-      This is an example of an inline{" "}
+      This is an example of an inline{' '}
       <TooltipTrigger>
         <Focusable>
           <a href="#inline-test" className="text-inherit">
@@ -222,10 +215,10 @@ export const TriggerDo: Story = {
 }
 export const TriggerDont: Story = {
   play: undefined,
-  args: { placement: "end", shouldFlip: false },
+  args: { placement: 'end', shouldFlip: false },
   render: () => (
     <Text variant="body" classNameOverride="bg-white p-12 rounded">
-      This is an example of an inline{" "}
+      This is an example of an inline{' '}
       <TooltipTrigger>
         <Focusable>
           <span>tooltip</span>
@@ -237,10 +230,10 @@ export const TriggerDont: Story = {
 }
 export const TriggerLinkDescription: Story = {
   play: undefined,
-  args: { placement: "end", shouldFlip: false },
+  args: { placement: 'end', shouldFlip: false },
   render: () => (
     <Text variant="body" classNameOverride="bg-white p-12 rounded">
-      Use tooltips inline when you want to{" "}
+      Use tooltips inline when you want to{' '}
       <TooltipTrigger>
         <Focusable>
           <a href="#describe-link" className="text-inherit">

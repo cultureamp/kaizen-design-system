@@ -1,16 +1,13 @@
-import React, { ReactNode, useContext } from "react"
-import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
-import { I18nProvider } from "react-aria"
-import { IntlContext } from "react-intl"
+import React, { ReactNode, useContext } from 'react'
+import { StaticIntlProvider } from '@cultureamp/i18n-react-intl'
+import { I18nProvider } from 'react-aria'
+import { IntlContext } from 'react-intl'
 
 type Props = {
   locale: string
   children: ReactNode
 }
-export const OptionalIntlProvider = ({
-  locale,
-  children,
-}: Props): JSX.Element => {
+export const OptionalIntlProvider = ({ locale, children }: Props): JSX.Element => {
   const parent = useContext(IntlContext)
 
   if (parent) {
@@ -26,4 +23,4 @@ export const OptionalIntlProvider = ({
   )
 }
 
-OptionalIntlProvider.displayName = "OptionalIntlProvider"
+OptionalIntlProvider.displayName = 'OptionalIntlProvider'

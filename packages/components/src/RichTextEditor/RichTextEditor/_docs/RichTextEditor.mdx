@@ -1,8 +1,8 @@
-import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as EditableRichTextContentStories from "../../EditableRichTextContent/_docs/EditableRichTextContent.stories"
-import * as RichTextContentStories from "../../RichTextContent/_docs/RichTextContent.stories"
-import * as RichTextEditorStories from "./RichTextEditor.stories"
+import { Canvas, Controls, DocsStory, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as EditableRichTextContentStories from '../../EditableRichTextContent/_docs/EditableRichTextContent.stories'
+import * as RichTextContentStories from '../../RichTextContent/_docs/RichTextContent.stories'
+import * as RichTextEditorStories from './RichTextEditor.stories'
 
 <Meta of={RichTextEditorStories} />
 
@@ -40,7 +40,6 @@ With all controls, the Kaizen `RichTextEditor` can create and render formatted t
 
 <Canvas of={RichTextEditorStories.AllAvailableContent} />
 
-
 ### The EditorContentArray and defaultValue
 
 The `defaultValue` is the initial content of the `RichTextEditor`. It accepts an array of objects in the [ProseMirror's rich text format](https://cultureamp.atlassian.net/wiki/spaces/TV/pages/3380543671/ProseMirror+rich+formatted+text+data+format).
@@ -64,13 +63,14 @@ For example: if your `defaultValue` contains bolded text, you must pass bold int
 ```
 
 ### Data errors and onDataError
+
 When content is passed to the `defaultValue` that does not match to the `RichTextEditor`'s [schema](https://github.com/cultureamp/kaizen-design-system/blob/main/packages/components/src/RichTextEditor/RichTextEditor/schema.ts), the component will throw and render a generic error.
 
 <Canvas of={RichTextEditorStories.MalformedContent} />
 
 This will also throw if you have passed in an `EditorContentArray` that contains data that cannot map to the `controls` provided to the component.
 
-<Canvas of={RichTextEditorStories.IncorrectDataForControls}/>
+<Canvas of={RichTextEditorStories.IncorrectDataForControls} />
 
 The `dataError` React Node and `onDataError` callback also allows you to handle these edge cases without breaking the page.
 
@@ -83,7 +83,6 @@ Sets the minimum height for the editable area of the RichTextEditor.
 <DocsStory of={RichTextEditorStories.Description} />
 
 <DocsStory of={RichTextEditorStories.Validation} />
-
 
 ### Inactive states and read-only text
 
@@ -100,4 +99,3 @@ For rendering editable content that can toggle between an active and inactive st
 For rendering content as read-only text we recommend using the [RichTextContent](/docs/components-richtexteditor-richtextcontent--docs).
 
 <Canvas of={RichTextContentStories.Playground} />
-

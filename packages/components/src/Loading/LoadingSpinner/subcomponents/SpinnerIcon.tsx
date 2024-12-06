@@ -1,5 +1,5 @@
-import React from "react"
-import styles from "../LoadingSpinner.module.css"
+import React from 'react'
+import styles from '../LoadingSpinner.module.css'
 
 const SmallSpinnerIcon = (): JSX.Element => (
   <svg
@@ -9,14 +9,7 @@ const SmallSpinnerIcon = (): JSX.Element => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle
-      cx="12"
-      cy="12"
-      r="9"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeOpacity="0.3"
-    />
+    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" strokeOpacity="0.3" />
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -34,14 +27,7 @@ const MediumSpinnerIcon = (): JSX.Element => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle
-      cx="24"
-      cy="24"
-      r="22.5"
-      stroke="currentColor"
-      strokeWidth="3"
-      strokeOpacity="0.3"
-    />
+    <circle cx="24" cy="24" r="22.5" stroke="currentColor" strokeWidth="3" strokeOpacity="0.3" />
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -58,14 +44,7 @@ const ExtraSmallSpinnerIcon = (): JSX.Element => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle
-      opacity="0.3"
-      cx="8"
-      cy="8"
-      r="6"
-      stroke="currentColor"
-      strokeWidth="2"
-    />
+    <circle opacity="0.3" cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="2" />
     <path
       d="M14 8C14 4.68629 11.3137 2 8 2"
       stroke="currentColor"
@@ -77,11 +56,11 @@ const ExtraSmallSpinnerIcon = (): JSX.Element => (
 )
 
 type SpinnerIconProps = {
-  size: "xs" | "sm" | "md"
+  size: 'xs' | 'sm' | 'md'
 }
 
 export const SpinnerIcon = ({ size }: SpinnerIconProps): JSX.Element => {
-  if (size === "xs") return <ExtraSmallSpinnerIcon />
-  if (size === "sm") return <SmallSpinnerIcon />
+  if (size === 'xs') return <ExtraSmallSpinnerIcon />
+  if (size === 'sm') return <SmallSpinnerIcon />
   return <MediumSpinnerIcon />
 }

@@ -1,7 +1,7 @@
-import React from "react"
-import classnames from "classnames"
-import { Heading, HeadingProps } from "~components/Heading"
-import styles from "./MenuHeading.module.scss"
+import React from 'react'
+import classnames from 'classnames'
+import { Heading, HeadingProps } from '~components/Heading'
+import styles from './MenuHeading.module.scss'
 
 export type MenuHeadingProps = {
   children: React.ReactNode
@@ -21,4 +21,4 @@ export const MenuHeading = ({
   />
 )
 
-MenuHeading.displayName = "MenuHeading"
+MenuHeading.displayName = 'MenuHeading'

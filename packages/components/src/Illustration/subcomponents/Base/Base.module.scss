@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/animation";
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/animation';
 
 .wrapper {
   width: 100%;
@@ -61,12 +61,12 @@
     &::before {
       float: left;
       padding-top: 75%;
-      content: "";
+      content: '';
     }
 
     &::after {
       display: block;
-      content: "";
+      content: '';
       clear: both;
     }
   }
@@ -79,12 +79,12 @@
     &::before {
       float: left;
       padding-top: 133.33%;
-      content: "";
+      content: '';
     }
 
     &::after {
       display: block;
-      content: "";
+      content: '';
       clear: both;
     }
   }
@@ -97,12 +97,12 @@
     &::before {
       float: left;
       padding-top: 100%;
-      content: "";
+      content: '';
     }
 
     &::after {
       display: block;
-      content: "";
+      content: '';
       clear: both;
     }
   }

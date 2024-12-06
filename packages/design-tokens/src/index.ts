@@ -2,11 +2,11 @@
 // design token primitives, rather through our compiled tokens js/scss/less.
 // Remove these on next major
 
-export * from "./legacy/themes"
-export * from "./legacy/types"
-export * from "./legacy/ThemeManager"
-export * from "./legacy/ThemeProvider"
+export * from './legacy/themes'
+export * from './legacy/types'
+export * from './legacy/ThemeManager'
+export * from './legacy/ThemeProvider'
 
-export { makeCssVariableDefinitionsMap } from "./legacy/makeCssVariableDefinitionsMap"
-export { makeCSSVariableTheme } from "./legacy/makeCssVariableTheme"
-export { mapLeafsOfObject } from "./legacy/mapLeafsOfObject"
+export { makeCssVariableDefinitionsMap } from './legacy/makeCssVariableDefinitionsMap'
+export { makeCSSVariableTheme } from './legacy/makeCssVariableTheme'
+export { mapLeafsOfObject } from './legacy/mapLeafsOfObject'

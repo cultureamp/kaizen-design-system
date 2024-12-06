@@ -1,12 +1,12 @@
-import React, { useState } from "react"
-import { Heading } from "~components/Heading"
-import { InlineNotification } from "~components/Notification"
-import { CardContent } from "./components/CardContent"
-import { CodeSnippet } from "./components/CodeSnippet"
+import React, { useState } from 'react'
+import { Heading } from '~components/Heading'
+import { InlineNotification } from '~components/Notification'
+import { CardContent } from './components/CardContent'
+import { CodeSnippet } from './components/CodeSnippet'
 
 type Props = {
   compiledCssPropertyName: string
-  classKeyValues: Array<{ utilityClassName: string; cssProperty: string }>
+  classKeyValues: { utilityClassName: string; cssProperty: string }[]
   renderExampleComponent: (utilityClass: string) => React.ReactElement
   isReversed?: boolean
 }
@@ -48,7 +48,7 @@ export const TailwindStoryTemplate = ({
                 <td className="p-12">
                   <div className="mr-32 min-w-max max-w-[300px]">
                     <CodeSnippet
-                      text={utilityClassName.replace("-DEFAULT", "")}
+                      text={utilityClassName.replace('-DEFAULT', '')}
                       onCopy={(text: string): void => setCopiedText(text)}
                     />
                   </div>
@@ -74,8 +74,8 @@ export const TailwindStoryTemplate = ({
             hideCloseIcon
             onHide={(): void => setCopiedText(null)}
             headingProps={{
-              children: "Copied to clipboard: ",
-              variant: "heading-6",
+              children: 'Copied to clipboard: ',
+              variant: 'heading-6',
             }}
           >
             {copiedText}
@@ -88,4 +88,4 @@ export const TailwindStoryTemplate = ({
 
 TailwindStoryTemplate.CardContent = CardContent
 
-TailwindStoryTemplate.displayName = "TailwindStoryTemplate"
+TailwindStoryTemplate.displayName = 'TailwindStoryTemplate'

@@ -1,10 +1,10 @@
-import React, { HTMLAttributes } from "react"
-import { DOMAttributes, FocusableElement } from "@react-types/shared"
-import classnames from "classnames"
-import { Label } from "~components/Label"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./SelectToggle.module.scss"
+import React, { HTMLAttributes } from 'react'
+import { DOMAttributes, FocusableElement } from '@react-types/shared'
+import classnames from 'classnames'
+import { Label } from '~components/Label'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './SelectToggle.module.scss'
 
 export type SelectToggleProps = {
   label: React.ReactNode
@@ -19,16 +19,13 @@ export type SelectToggleProps = {
    */
   placeholder?: string
   /** Updates the styling of the validation. */
-  status?: "error" | "caution"
+  status?: 'error' | 'caution'
   isDisabled?: boolean
   /** Use the `reversed` styles. */
   isReversed?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLButtonElement>>
 
-export const SelectToggle = React.forwardRef<
-  HTMLButtonElement,
-  SelectToggleProps
->(
+export const SelectToggle = React.forwardRef<HTMLButtonElement, SelectToggleProps>(
   (
     {
       label,
@@ -36,14 +33,14 @@ export const SelectToggle = React.forwardRef<
       value,
       valueProps,
       isOpen,
-      placeholder = "Select",
+      placeholder = 'Select',
       status,
       isDisabled,
       isReversed,
       classNameOverride,
       ...restProps
     },
-    ref
+    ref,
   ) => (
     <div>
       <Label {...labelProps} reversed={isReversed} disabled={isDisabled}>
@@ -59,24 +56,24 @@ export const SelectToggle = React.forwardRef<
         className={classnames(
           styles.selectToggle,
           (value === null || value === undefined) && styles.placeholder,
-          status === "error" && styles.error,
-          status === "caution" && styles.caution,
+          status === 'error' && styles.error,
+          status === 'caution' && styles.caution,
           isDisabled && styles.disabled,
           isReversed && styles.reversed,
-          classNameOverride
+          classNameOverride,
         )}
       >
         <span {...valueProps} className={styles.value}>
           {value ?? placeholder}
         </span>
         <Icon
-          name={isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+          name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
           isPresentational
           className={styles.icon}
         />
       </button>
     </div>
-  )
+  ),
 )
 
-SelectToggle.displayName = "SelectToggle"
+SelectToggle.displayName = 'SelectToggle'

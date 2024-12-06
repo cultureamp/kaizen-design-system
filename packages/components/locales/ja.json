@@ -164,6 +164,14 @@
     "description" : "Home button label",
     "message" : "ホームに移動"
   },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "詳細情報を見る："
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "情報を非表示にする："
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "追加のアクション"

@@ -1,18 +1,17 @@
-import ts from "typescript"
+import ts from 'typescript'
 
 type ImportsToRemove = Set<string>
 
 const removeNamedImports = (
   factory: ts.NodeFactory,
   node: ts.ImportDeclaration,
-  importsToRemove: ImportsToRemove
+  importsToRemove: ImportsToRemove,
 ): ts.ImportDeclaration | null => {
   const namedBindings = node.importClause?.namedBindings
   if (namedBindings && ts.isNamedImports(namedBindings)) {
-    const namedImports = namedBindings.elements.filter(importSpecifier => {
+    const namedImports = namedBindings.elements.filter((importSpecifier) => {
       const componentName =
-        importSpecifier.propertyName?.getText() ??
-        importSpecifier.name.getText()
+        importSpecifier.propertyName?.getText() ?? importSpecifier.name.getText()
       return !importsToRemove.has(componentName)
     })
 
@@ -25,10 +24,10 @@ const removeNamedImports = (
         node.importClause,
         node.importClause.isTypeOnly,
         node.importClause.name,
-        factory.updateNamedImports(namedBindings, namedImports)
+        factory.updateNamedImports(namedBindings, namedImports),
       ),
       node.moduleSpecifier,
-      node.attributes
+      node.attributes,
     )
   }
 
@@ -41,32 +40,27 @@ type ImportsToAdd = Map<string, NewImportAttributes>
 const createImportDeclaration = (
   factory: ts.NodeFactory,
   importsToAdd: ImportsToAdd,
-  moduleSpecifier: string
+  moduleSpecifier: string,
 ): ts.ImportDeclaration => {
-  const namedImports = Array.from(importsToAdd.values()).map(
-    ({ componentName, alias }) =>
-      factory.createImportSpecifier(
-        false,
-        alias ? factory.createIdentifier(componentName) : undefined,
-        factory.createIdentifier(alias ?? componentName)
-      )
+  const namedImports = Array.from(importsToAdd.values()).map(({ componentName, alias }) =>
+    factory.createImportSpecifier(
+      false,
+      alias ? factory.createIdentifier(componentName) : undefined,
+      factory.createIdentifier(alias ?? componentName),
+    ),
   )
 
   return factory.createImportDeclaration(
     undefined,
-    factory.createImportClause(
-      false,
-      undefined,
-      factory.createNamedImports(namedImports)
-    ),
-    factory.createStringLiteral(moduleSpecifier)
+    factory.createImportClause(false, undefined, factory.createNamedImports(namedImports)),
+    factory.createStringLiteral(moduleSpecifier),
   )
 }
 
 const updateNamedImports = (
   factory: ts.NodeFactory,
   node: ts.ImportDeclaration,
-  importsToAdd: ImportsToAdd
+  importsToAdd: ImportsToAdd,
 ): ts.ImportDeclaration => {
   if (!node.importClause) return node
 
@@ -75,7 +69,7 @@ const updateNamedImports = (
 
   const namedBindings = node.importClause.namedBindings
   if (namedBindings && ts.isNamedImports(namedBindings)) {
-    namedBindings.elements.forEach(importSpecifier => {
+    namedBindings.elements.forEach((importSpecifier) => {
       existingNamedImportNames.add(importSpecifier.name.getText())
       importSpecifiers.push(importSpecifier)
     })
@@ -85,7 +79,7 @@ const updateNamedImports = (
     const newImport = factory.createImportSpecifier(
       false,
       alias ? factory.createIdentifier(componentName) : undefined,
-      factory.createIdentifier(alias ?? componentName)
+      factory.createIdentifier(alias ?? componentName),
     )
 
     if (!existingNamedImportNames.has(componentName)) {
@@ -100,10 +94,10 @@ const updateNamedImports = (
       node.importClause,
       node.importClause.isTypeOnly,
       node.importClause.name,
-      factory.createNamedImports(importSpecifiers)
+      factory.createNamedImports(importSpecifiers),
     ),
     node.moduleSpecifier,
-    node.attributes
+    node.attributes,
   )
 }
 
@@ -122,17 +116,12 @@ export const updateKaioImports =
     importsToRemove,
     importsToAdd,
   }: UpdateKaioImportsArgs): ts.TransformerFactory<ts.SourceFile> =>
-  context =>
-  rootNode => {
+  (context) =>
+  (rootNode) => {
     if (!ts.isSourceFile(rootNode)) return rootNode
 
     if (!importsToRemove && !importsToAdd) return rootNode
-    if (
-      importsToRemove &&
-      importsToRemove.size === 0 &&
-      importsToAdd &&
-      importsToAdd.size === 0
-    )
+    if (importsToRemove && importsToRemove.size === 0 && importsToAdd && importsToAdd.size === 0)
       return rootNode
 
     const { factory } = context
@@ -140,23 +129,21 @@ export const updateKaioImports =
     const statements = Array.from(rootNode.statements)
 
     if (importsToRemove) {
-      Array.from(importsToRemove.keys()).forEach(moduleSpecifier => {
+      Array.from(importsToRemove.keys()).forEach((moduleSpecifier) => {
         const importIndex = statements.findIndex(
-          s =>
+          (s) =>
             ts.isImportDeclaration(s) &&
-            (s.moduleSpecifier as ts.StringLiteral).text === moduleSpecifier
+            (s.moduleSpecifier as ts.StringLiteral).text === moduleSpecifier,
         )
 
         if (importIndex === -1) return
 
-        const importDeclaration = statements[
-          importIndex
-        ] as ts.ImportDeclaration
+        const importDeclaration = statements[importIndex] as ts.ImportDeclaration
 
         const updatedImportDeclaration = removeNamedImports(
           factory,
           importDeclaration,
-          importsToRemove.get(moduleSpecifier)!
+          importsToRemove.get(moduleSpecifier)!,
         )
 
         if (updatedImportDeclaration === null) {
@@ -171,39 +158,35 @@ export const updateKaioImports =
     }
 
     if (importsToAdd) {
-      Array.from(importsToAdd.keys()).forEach(newModuleSpecifier => {
+      Array.from(importsToAdd.keys()).forEach((newModuleSpecifier) => {
         const importIndex = statements.findIndex(
-          s =>
+          (s) =>
             ts.isImportDeclaration(s) &&
-            (s.moduleSpecifier as ts.StringLiteral).text === newModuleSpecifier
+            (s.moduleSpecifier as ts.StringLiteral).text === newModuleSpecifier,
         )
 
         if (importIndex === -1) {
           const fallbackKaioImportIdx = statements.findIndex(
-            s =>
+            (s) =>
               ts.isImportDeclaration(s) &&
-              (s.moduleSpecifier as ts.StringLiteral).text.includes(
-                "@kaizen/components"
-              )
+              (s.moduleSpecifier as ts.StringLiteral).text.includes('@kaizen/components'),
           )
 
           const newImport = createImportDeclaration(
             factory,
             importsToAdd.get(newModuleSpecifier)!,
-            newModuleSpecifier
+            newModuleSpecifier,
           )
           statements.splice(fallbackKaioImportIdx + 1, 0, newImport)
           return
         }
 
-        const importDeclaration = statements[
-          importIndex
-        ] as ts.ImportDeclaration
+        const importDeclaration = statements[importIndex] as ts.ImportDeclaration
 
         const updatedImportDeclaration = updateNamedImports(
           factory,
           importDeclaration,
-          importsToAdd.get(newModuleSpecifier)!
+          importsToAdd.get(newModuleSpecifier)!,
         )
 
         // Update import statement
@@ -218,7 +201,7 @@ export const updateKaioImports =
 export const setImportToRemove = (
   map: ImportsToRemoveMap,
   moduleSpecifier: string,
-  componentName: string
+  componentName: string,
 ): void => {
   if (!map.has(moduleSpecifier)) {
     map.set(moduleSpecifier, new Set([componentName]))
@@ -229,15 +212,10 @@ export const setImportToRemove = (
 export const setImportToAdd = (
   map: ImportsToAddMap,
   moduleSpecifier: string,
-  importAttributes: NewImportAttributes
+  importAttributes: NewImportAttributes,
 ): void => {
   if (!map.has(moduleSpecifier)) {
-    map.set(
-      moduleSpecifier,
-      new Map([[importAttributes.componentName, importAttributes]])
-    )
+    map.set(moduleSpecifier, new Map([[importAttributes.componentName, importAttributes]]))
   }
-  map
-    .get(moduleSpecifier)
-    ?.set(importAttributes.componentName, importAttributes)
+  map.get(moduleSpecifier)?.set(importAttributes.componentName, importAttributes)
 }

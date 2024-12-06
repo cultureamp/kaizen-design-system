@@ -1,9 +1,9 @@
-import { parseJsx } from "../__tests__/utils"
-import { transformSourceForTagName, printAst } from "../utils"
-import { removeInputEditModalMood } from "./removeInputEditModalMood"
+import { parseJsx } from '../__tests__/utils'
+import { transformSourceForTagName, printAst } from '../utils'
+import { removeInputEditModalMood } from './removeInputEditModalMood'
 
-describe("removeInputEditModalMood", () => {
-  it("removes mood", () => {
+describe('removeInputEditModalMood', () => {
+  it('removes mood', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <InputEditModal mood="positive"/>
     `)
@@ -13,12 +13,12 @@ describe("removeInputEditModalMood", () => {
     const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removeInputEditModalMood,
-      tagName: "InputEditModal",
+      tagName: 'InputEditModal',
     })
     expect(transformed).toEqual(printAst(outputAst))
   })
 
-  it("handles multiple attributes and remove only mood", () => {
+  it('handles multiple attributes and remove only mood', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <InputEditModal mood="destructive" id="123"/>
     `)
@@ -28,12 +28,12 @@ describe("removeInputEditModalMood", () => {
     const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removeInputEditModalMood,
-      tagName: "InputEditModal",
+      tagName: 'InputEditModal',
     })
     expect(transformed).toBe(printAst(outputAst))
   })
 
-  it("transforms multiple InputEditModals", () => {
+  it('transforms multiple InputEditModals', () => {
     const inputAst = parseJsx(`
       export const TestComponent = () => <div><InputEditModal mood="positive"/><InputEditModal mood="destructive"/></div>
     `)
@@ -43,7 +43,7 @@ describe("removeInputEditModalMood", () => {
     const transformed = transformSourceForTagName({
       sourceFile: inputAst,
       astTransformer: removeInputEditModalMood,
-      tagName: "InputEditModal",
+      tagName: 'InputEditModal',
     })
     expect(transformed).toBe(printAst(outputAst))
   })

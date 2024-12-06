@@ -1,6 +1,6 @@
-import { Node, Schema } from "prosemirror-model"
-import { EditorState, Plugin } from "prosemirror-state"
-import { Doc, DocContent } from "./types"
+import { Node, Schema } from 'prosemirror-model'
+import { EditorState, Plugin } from 'prosemirror-state'
+import { Doc, DocContent } from './types'
 
 /**
  * createEditorState
@@ -10,7 +10,7 @@ import { Doc, DocContent } from "./types"
 export const createEditorState = (
   schema: Schema,
   doc: Node | undefined,
-  plugins: Plugin[] = []
+  plugins: Plugin[] = [],
 ): EditorState => EditorState.create({ doc, schema, plugins })
 
 /**
@@ -24,7 +24,5 @@ export const createDocNode = (schema: Schema, docObject: Doc): Node =>
  * Create a ProseMirror doc node from the combination of a schema and the doc’s
  * content array (rather than the top-level doc node).
  */
-export const createDocNodeFromContent = (
-  schema: Schema,
-  docContent: DocContent
-): Node => createDocNode(schema, { type: "doc", content: docContent })
+export const createDocNodeFromContent = (schema: Schema, docContent: DocContent): Node =>
+  createDocNode(schema, { type: 'doc', content: docContent })

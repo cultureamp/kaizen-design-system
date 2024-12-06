@@ -1,9 +1,9 @@
-import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
-import { LinkModal } from "./LinkModal"
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import { LinkModal } from './LinkModal'
 
 const meta = {
-  title: "Components/RichTextEditor/Subcomponents/LinkModal",
+  title: 'Components/RichTextEditor/Subcomponents/LinkModal',
   component: LinkModal,
   args: {
     onSubmit: fn(),
@@ -28,6 +28,6 @@ export const EditLink: Story = {
     chromatic: { disable: false },
   },
   args: {
-    defaultHref: "http://google.com",
+    defaultHref: 'http://google.com',
   },
 }

@@ -1,1 +1,1 @@
-export * from "./ModalBody"
+export * from './ModalBody'

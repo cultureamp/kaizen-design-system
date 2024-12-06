@@ -1,7 +1,7 @@
-import React from "react"
-import type { Locale } from "date-fns"
-import { formatDateAsText } from "~components/Calendar"
-import styles from "./DateRangeDisplayLabel.module.scss"
+import React from 'react'
+import type { Locale } from 'date-fns'
+import { formatDateAsText } from '~components/Calendar'
+import styles from './DateRangeDisplayLabel.module.scss'
 
 export type DateRangeDisplayLabelProps = {
   dateRange: { from: Date; to: Date }
@@ -24,4 +24,4 @@ export const DateRangeDisplayLabel = ({
   )
 }
 
-DateRangeDisplayLabel.displayName = "DateRangeDisplayLabel"
+DateRangeDisplayLabel.displayName = 'DateRangeDisplayLabel'

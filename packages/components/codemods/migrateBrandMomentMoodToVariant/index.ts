@@ -1,20 +1,14 @@
-import { transformComponentsInDir } from "../utils"
-import { transformBrandMomentMoodToVariant } from "./transformBrandMomentMoodToVariant"
+import { transformComponentsInDir } from '../utils'
+import { transformBrandMomentMoodToVariant } from './transformBrandMomentMoodToVariant'
 
 const migrateBrandMomentMoodToVariant = (): void => {
-  console.log(
-    "~(-_- ~) Running BrandMoment mood to variant transformer (~ -_-)~"
-  )
+  console.log('~(-_- ~) Running BrandMoment mood to variant transformer (~ -_-)~')
   const targetDir = process.argv[2]
   if (!targetDir) {
     process.exit(1)
   }
 
-  transformComponentsInDir(
-    targetDir,
-    transformBrandMomentMoodToVariant,
-    "BrandMoment"
-  )
+  transformComponentsInDir(targetDir, transformBrandMomentMoodToVariant, 'BrandMoment')
 }
 
 migrateBrandMomentMoodToVariant()

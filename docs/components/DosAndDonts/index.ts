@@ -1,1 +1,1 @@
-export * from "./DosAndDonts"
+export * from './DosAndDonts'

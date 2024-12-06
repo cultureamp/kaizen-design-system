@@ -1,5 +1,5 @@
-import React from "react"
-import { render } from "@testing-library/react"
+import React from 'react'
+import { render } from '@testing-library/react'
 import {
   TableCard,
   TableContainer,
@@ -7,17 +7,16 @@ import {
   TableHeaderRowCell,
   TableRow,
   TableRowCell,
-} from "./Table"
+} from './Table'
 
-// eslint-disable-next-line @typescript-eslint/no-shadow
 enum TestId {
-  tableContainer = "table-container",
-  tableHeader = "table-header",
-  tableHeaderRow = "table-header-row",
-  tableHeaderRowCell = "table-header-row-cell",
-  tableCard = "table-card",
-  tableRow = "table-row",
-  tableRowCell = "table-row-cell",
+  tableContainer = 'table-container',
+  tableHeader = 'table-header',
+  tableHeaderRow = 'table-header-row',
+  tableHeaderRowCell = 'table-header-row-cell',
+  tableCard = 'table-card',
+  tableRow = 'table-row',
+  tableRowCell = 'table-row-cell',
 }
 
 /**
@@ -44,10 +43,7 @@ const Wrapper = (): JSX.Element => (
         />
       </TableRow>
     </TableHeader>
-    <TableCard
-      data-testid={TestId.tableCard}
-      onClick={(): void => alert("clicked!")}
-    >
+    <TableCard data-testid={TestId.tableCard} onClick={(): void => alert('clicked!')}>
       <TableRow data-testid={TestId.tableRow}>
         <TableRowCell width={12 / 12} data-testid={TestId.tableRowCell}>
           <div></div>
@@ -57,8 +53,8 @@ const Wrapper = (): JSX.Element => (
   </TableContainer>
 )
 
-describe("<Table />", () => {
-  describe("Custom HTML props", () => {
+describe('<Table />', () => {
+  describe('Custom HTML props', () => {
     for (const [key, value] of Object.entries(TestId)) {
       it(`${key} accepts custom data-* attributes`, () => {
         const { getByTestId } = render(<Wrapper />)

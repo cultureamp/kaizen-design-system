@@ -1,10 +1,10 @@
 // Copied from @kaizen/deprecated-component-library-helpers/styles/utils/type
 // Avoiding making `deprecated-component-library-helpers` a dep
 
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/typography";
-@import "./color";
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/typography';
+@import './color';
 
 $ca-grid: 1.5rem; // 24px @ default root font-size of 16px
 
@@ -15,7 +15,7 @@ $ca-weight-medium: 500;
 $ca-weight-semibold: 500; // Note: in Sketch, semibold is 600. But murmur has an existing value of semibold=500 that is heavily used.
 
 // Combine these into a Sass map ($ca-default-font) once node-sass includes libsass 3.5.0.beta.3 with this bug fix: https://github.com/sass/libsass/issues/2309
-$ca-inter-font-family: "Inter", "Noto Sans", Helvetica, Arial, sans-serif;
+$ca-inter-font-family: 'Inter', 'Noto Sans', Helvetica, Arial, sans-serif;
 $ca-inter-font-base-size: 1rem; /* 16px */
 $ca-inter-font-descender-height: 0.14;
 
@@ -25,8 +25,7 @@ $ca-default-font-base-size: $ca-inter-font-base-size;
 $ca-default-font-descender-height: $ca-inter-font-descender-height;
 
 // Combine these into a Sass map ($ca-default-font) once node-sass includes libsass 3.5.0.beta.3 with this bug fix: https://github.com/sass/libsass/issues/2309
-$ca-ideal-sans-font-family: "Ideal Sans A", "Ideal Sans B",
-  $ca-default-font-family;
+$ca-ideal-sans-font-family: 'Ideal Sans A', 'Ideal Sans B', $ca-default-font-family;
 $ca-ideal-sans-font-base-size: 1rem; /* 16px */
 $ca-ideal-sans-font-descender-height: 0.14;
 
@@ -34,12 +33,10 @@ $ca-greycliff-font-base-size: 1rem; /* 16px */
 $ca-greycliff-font-descender-height: 0.098;
 
 // Locale-specific fonts
-$ca-ideal-locale-ar-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
-  sans-serif;
-$ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
-  sans-serif;
-$ca-inter-locale-ar-font-family: "Inter", Tahoma, sans-serif;
-$ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
+$ca-ideal-locale-ar-font-family: 'Ideal Sans A', 'Ideal Sans B', Tahoma, sans-serif;
+$ca-ideal-locale-he-font-family: 'Ideal Sans A', 'Ideal Sans B', Tahoma, sans-serif;
+$ca-inter-locale-ar-font-family: 'Inter', Tahoma, sans-serif;
+$ca-inter-locale-he-font-family: 'Inter', Tahoma, sans-serif;
 $ca-locale-he-font-family: $ca-inter-locale-ar-font-family;
 $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
@@ -290,21 +287,11 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin ca-type-inter-page-title($size: 32, $args...) {
-  @include ca-type-inter(
-    $size: $size,
-    $line-height-in-grid-units: 1.5,
-    $weight: 700,
-    $args...
-  );
+  @include ca-type-inter($size: $size, $line-height-in-grid-units: 1.5, $weight: 700, $args...);
 }
 
 @mixin ca-type-inter-title($size: 26, $args...) {
-  @include ca-type-inter(
-    $size: $size,
-    $line-height-in-grid-units: 1.5,
-    $weight: 700,
-    $args...
-  );
+  @include ca-type-inter($size: $size, $line-height-in-grid-units: 1.5, $weight: 700, $args...);
 }
 
 @mixin ca-type-inter-display($size: 22, $args...) {
@@ -383,10 +370,10 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   position: relative;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAKUlEQVRIiWN49OjRf1pihlEwCkbBKCACvH379j8t8UD7bxSMglEwJAAAvrOyCTd0/dgAAAAASUVORK5CYII=");
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAKUlEQVRIiWN49OjRf1pihlEwCkbBKCACvH379j8t8UD7bxSMglEwJAAAvrOyCTd0/dgAAAAASUVORK5CYII=');
     pointer-events: none;
     z-index: 10000;
     opacity: 50%;
@@ -427,10 +414,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include ca-type(
     $size-ratio: $size / 16,
-    $family:
-      unquote(
-        "#{$typography-heading-1-font-family}, Helvetica, Arial, sans-serif"
-      ),
+    $family: unquote('#{$typography-heading-1-font-family}, Helvetica, Arial, sans-serif'),
     $base-size: $ca-greycliff-font-base-size,
     $descender-height: $ca-greycliff-font-descender-height,
     $line-height-in-grid-units: $line-height-in-grid-units,
@@ -449,10 +433,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include ca-type(
     $size-ratio: $size / 16,
-    $family:
-      unquote(
-        "#{$typography-paragraph-body-font-family}, Helvetica, Arial, sans-serif"
-      ),
+    $family: unquote('#{$typography-paragraph-body-font-family}, Helvetica, Arial, sans-serif'),
     $base-size: $ca-inter-font-base-size,
     $descender-height: $ca-inter-font-descender-height,
     $line-height-in-grid-units: $line-height-in-grid-units,
@@ -472,10 +453,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-data-large-units(
-  $size: to-unitless-pixels(2.625rem),
-  $args...
-) {
+@mixin kz-typography-data-large-units($size: to-unitless-pixels(2.625rem), $args...) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-large-units-font-weight,
@@ -495,10 +473,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-data-medium-units(
-  $size: to-unitless-pixels(1.5rem),
-  $args...
-) {
+@mixin kz-typography-data-medium-units($size: to-unitless-pixels(1.5rem), $args...) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-medium-units-font-weight,
@@ -518,10 +493,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-data-small-units(
-  $size: to-unitless-pixels(1.125rem),
-  $args...
-) {
+@mixin kz-typography-data-small-units($size: to-unitless-pixels(1.125rem), $args...) {
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-small-units-font-weight,
@@ -611,10 +583,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin kz-typography-paragraph-body-bold(
-  $size: to-unitless-pixels(1rem),
-  $args...
-) {
+@mixin kz-typography-paragraph-body-bold($size: to-unitless-pixels(1rem), $args...) {
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-paragraph-body-font-weight,
@@ -626,10 +595,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   font-weight: $typography-paragraph-bold-font-weight;
 }
 
-@mixin kz-typography-paragraph-small(
-  $size: to-unitless-pixels(0.875rem),
-  $args...
-) {
+@mixin kz-typography-paragraph-small($size: to-unitless-pixels(0.875rem), $args...) {
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-paragraph-small-font-weight,
@@ -640,11 +606,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-type-inter-button-primary($size: 16, $args...) {
-  @include kz-typography-inter(
-    $size: $size,
-    $weight: $ca-weight-book,
-    $args...
-  );
+  @include kz-typography-inter($size: $size, $weight: $ca-weight-book, $args...);
 
   text-decoration: none;
   text-decoration-skip-ink: auto;
@@ -657,23 +619,9 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin ca-type-align-start() {
-  text-align: left; // fallback for IE and Edge
   text-align: start;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    text-align: right; // fallback for IE and Edge
-    text-align: start;
-  }
 }
 
 @mixin ca-type-align-end() {
-  text-align: right; // fallback for IE and Edge
   text-align: end;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    text-align: left; // fallback for IE and Edge
-    text-align: end;
-  }
 }

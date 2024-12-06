@@ -1,12 +1,12 @@
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/layout";
-@import "../../../styles/utils/legacy/layout";
-@import "../../../styles/utils/responsive";
-@import "../../../styles/utils/layers";
-@import "../../../styles/utils/border";
-@import "../../../styles/utils/animation";
+@import '~@kaizen/design-tokens/sass/shadow';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/layout';
+@import '../../../styles/utils/legacy/layout';
+@import '../../../styles/utils/responsive';
+@import '../../../styles/utils/layers';
+@import '../../../styles/utils/border';
+@import '../../../styles/utils/animation';
 
 .defaultModalWidth {
   min-width: 300px;
@@ -58,8 +58,8 @@
   // wrap the modal container with a focus ring when the title has focus
   // don't copy this over on the rebuild
   // rather than putting the focus on the title, put it on the role=dialog element itself
-  &:has(:global([class*="modalLabel"]):focus-visible)::after {
-    content: "";
+  &:has(:global([class*='modalLabel']):focus-visible)::after {
+    content: '';
     position: absolute;
     background: transparent;
     border-radius: $border-focus-ring-border-radius;
@@ -96,11 +96,7 @@
   transition-duration: $ca-duration-rapid;
 
   .backdropLayer {
-    @include ca-animation-fade(
-      $duration: $ca-duration-rapid,
-      $from: 0.5,
-      $to: 0
-    );
+    @include ca-animation-fade($duration: $ca-duration-rapid, $from: 0.5, $to: 0);
   }
 
   [data-modal] {

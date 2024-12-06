@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "../mixins";
+@import '~@kaizen/design-tokens/sass/color';
+@import '../mixins';
 
 .loadingGraphic {
   @extend %loadingBase;

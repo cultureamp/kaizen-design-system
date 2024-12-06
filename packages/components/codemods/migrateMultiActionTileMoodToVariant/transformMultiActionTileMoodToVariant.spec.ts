@@ -1,87 +1,83 @@
-import { parseJsx } from "../__tests__/utils"
-import {
-  printAst,
-  transformSourceForTagName,
-  type TransformSourceForTagNameArgs,
-} from "../utils"
-import { transformMultiActionTileMoodToVariant } from "./transformMultiActionTileMoodToVariant"
+import { parseJsx } from '../__tests__/utils'
+import { printAst, transformSourceForTagName, type TransformSourceForTagNameArgs } from '../utils'
+import { transformMultiActionTileMoodToVariant } from './transformMultiActionTileMoodToVariant'
 
 const transformMultiActionTile = (
-  sourceFile: TransformSourceForTagNameArgs["sourceFile"]
+  sourceFile: TransformSourceForTagNameArgs['sourceFile'],
 ): string =>
   transformSourceForTagName({
     sourceFile,
     astTransformer: transformMultiActionTileMoodToVariant,
-    tagName: "MultiActionTile",
+    tagName: 'MultiActionTile',
   })
 
-describe("transformMultiActionTileMoodToVariant()", () => {
+describe('transformMultiActionTileMoodToVariant()', () => {
   it('replaces mood="positive" with variant="default"', () => {
     const inputAst = parseJsx(
-      'export const TestComponent = () => <MultiActionTile mood="positive">Hello</MultiActionTile>'
+      'export const TestComponent = () => <MultiActionTile mood="positive">Hello</MultiActionTile>',
     )
     const outputAst = parseJsx(
-      'export const TestComponent = () => <MultiActionTile variant="default">Hello</MultiActionTile>'
+      'export const TestComponent = () => <MultiActionTile variant="default">Hello</MultiActionTile>',
     )
     expect(transformMultiActionTile(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('replaces mood="informative" with variant="default"', () => {
     const inputAst = parseJsx(
-      'export const TestComponent = () => <MultiActionTile mood="informative">Hello</MultiActionTile>'
+      'export const TestComponent = () => <MultiActionTile mood="informative">Hello</MultiActionTile>',
     )
     const outputAst = parseJsx(
-      'export const TestComponent = () => <MultiActionTile variant="default">Hello</MultiActionTile>'
+      'export const TestComponent = () => <MultiActionTile variant="default">Hello</MultiActionTile>',
     )
     expect(transformMultiActionTile(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('replaces mood="cautionary" with variant="default"', () => {
     const inputAst = parseJsx(
-      'export const TestComponent = () => <MultiActionTile mood="cautionary">Hello</MultiActionTile>'
+      'export const TestComponent = () => <MultiActionTile mood="cautionary">Hello</MultiActionTile>',
     )
     const outputAst = parseJsx(
-      'export const TestComponent = () => <MultiActionTile variant="default">Hello</MultiActionTile>'
+      'export const TestComponent = () => <MultiActionTile variant="default">Hello</MultiActionTile>',
     )
     expect(transformMultiActionTile(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('replaces mood="assertive" with variant="default"', () => {
     const inputAst = parseJsx(
-      'export const TestComponent = () => <MultiActionTile mood="assertive">Hello</MultiActionTile>'
+      'export const TestComponent = () => <MultiActionTile mood="assertive">Hello</MultiActionTile>',
     )
     const outputAst = parseJsx(
-      'export const TestComponent = () => <MultiActionTile variant="default">Hello</MultiActionTile>'
+      'export const TestComponent = () => <MultiActionTile variant="default">Hello</MultiActionTile>',
     )
     expect(transformMultiActionTile(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('replaces mood="negative" with variant="default"', () => {
     const inputAst = parseJsx(
-      'export const TestComponent = () => <MultiActionTile mood="negative">Hello</MultiActionTile>'
+      'export const TestComponent = () => <MultiActionTile mood="negative">Hello</MultiActionTile>',
     )
     const outputAst = parseJsx(
-      'export const TestComponent = () => <MultiActionTile variant="default">Hello</MultiActionTile>'
+      'export const TestComponent = () => <MultiActionTile variant="default">Hello</MultiActionTile>',
     )
     expect(transformMultiActionTile(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('replaces mood="prominent" with variant="expert-advice"', () => {
     const inputAst = parseJsx(
-      'export const TestComponent = () => <MultiActionTile mood="prominent">Hello</MultiActionTile>'
+      'export const TestComponent = () => <MultiActionTile mood="prominent">Hello</MultiActionTile>',
     )
     const outputAst = parseJsx(
-      'export const TestComponent = () => <MultiActionTile variant="expert-advice">Hello</MultiActionTile>'
+      'export const TestComponent = () => <MultiActionTile variant="expert-advice">Hello</MultiActionTile>',
     )
     expect(transformMultiActionTile(inputAst)).toEqual(printAst(outputAst))
   })
 
-  it("does not add variant if mood was not defined", () => {
+  it('does not add variant if mood was not defined', () => {
     const inputAst = parseJsx(
-      "export const TestComponent = () => <MultiActionTile>Hello</MultiActionTile>"
+      'export const TestComponent = () => <MultiActionTile>Hello</MultiActionTile>',
     )
     const outputAst = parseJsx(
-      "export const TestComponent = () => <MultiActionTile>Hello</MultiActionTile>"
+      'export const TestComponent = () => <MultiActionTile>Hello</MultiActionTile>',
     )
     expect(transformMultiActionTile(inputAst)).toEqual(printAst(outputAst))
   })

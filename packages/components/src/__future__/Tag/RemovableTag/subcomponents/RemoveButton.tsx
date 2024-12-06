@@ -1,16 +1,15 @@
-import React, { ButtonHTMLAttributes } from "react"
-import classnames from "classnames"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./RemoveButton.module.scss"
+import React, { ButtonHTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './RemoveButton.module.scss'
 
 export type RemoveButtonBaseProps = {
   ariaLabel: string
   onClick: () => void
 }
 export type RemoveButtonProps = OverrideClassName<
-  Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "color"> &
-    RemoveButtonBaseProps
+  Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'color'> & RemoveButtonBaseProps
 >
 
 export const RemoveButton = ({
@@ -31,4 +30,4 @@ export const RemoveButton = ({
   </button>
 )
 
-RemoveButton.displayName = "RemoveButton"
+RemoveButton.displayName = 'RemoveButton'

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { userEvent, within, expect, fn } from "@storybook/test"
-import { DateRange } from "react-day-picker"
-import { DateRangePicker, formatDateRangeValue } from "../index"
+import React, { useEffect, useState } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { userEvent, within, expect, fn } from '@storybook/test'
+import { DateRange } from 'react-day-picker'
+import { DateRangePicker, formatDateRangeValue } from '../index'
 
 const meta = {
-  title: "Components/Date controls/DateRangePicker",
+  title: 'Components/Date controls/DateRangePicker',
   component: DateRangePicker,
   args: {
-    labelText: "Label",
+    labelText: 'Label',
     onChange: fn(),
   },
 } satisfies Meta<typeof DateRangePicker>
@@ -18,7 +18,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const DateRangePickerTemplate: Story = {
-  render: args => {
+  render: (args) => {
     const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
       from: args?.selectedDateRange?.from,
       to: args?.selectedDateRange?.to,
@@ -53,7 +53,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -66,27 +66,27 @@ const selectedDateRange = {
 
 export const AboveIfAvailable: Story = {
   ...DateRangePickerTemplate,
-  name: "Limited viewport autoplacement above",
+  name: 'Limited viewport autoplacement above',
   args: {
-    labelText: "Calendar with space above",
+    labelText: 'Calendar with space above',
     selectedDateRange,
   },
   parameters: {
     viewport: {
       viewports: {
         LimitedViewportAutoPlace: {
-          name: "Limited vertical space",
+          name: 'Limited vertical space',
           styles: {
-            width: "1024px",
-            height: "500px",
+            width: '1024px',
+            height: '500px',
           },
         },
       },
-      defaultViewport: "LimitedViewportAutoPlace",
+      defaultViewport: 'LimitedViewportAutoPlace',
     },
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="mt-[350px]">
         <Story />
       </div>
@@ -94,34 +94,34 @@ export const AboveIfAvailable: Story = {
   ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await userEvent.click(canvas.getByRole("button", { name: /Change date:/ }))
-    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+    await userEvent.click(canvas.getByRole('button', { name: /Change date:/ }))
+    await expect(canvas.getByRole('dialog')).toBeInTheDocument()
   },
 }
 
 export const LimitedViewportHeight: Story = {
   ...DateRangePickerTemplate,
-  name: "Limited viewport height",
+  name: 'Limited viewport height',
   args: {
-    labelText: "Calendar with reduced space below",
+    labelText: 'Calendar with reduced space below',
     selectedDateRange,
   },
   parameters: {
     viewport: {
       viewports: {
         LimitedViewportHeight: {
-          name: "Limited vertical space",
+          name: 'Limited vertical space',
           styles: {
-            width: "1024px",
-            height: "300px",
+            width: '1024px',
+            height: '300px',
           },
         },
       },
-      defaultViewport: "LimitedViewportHeight",
+      defaultViewport: 'LimitedViewportHeight',
     },
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="mb-[150px]">
         <Story />
       </div>
@@ -129,20 +129,20 @@ export const LimitedViewportHeight: Story = {
   ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await userEvent.click(canvas.getByRole("button", { name: /Change date:/ }))
-    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+    await userEvent.click(canvas.getByRole('button', { name: /Change date:/ }))
+    await expect(canvas.getByRole('dialog')).toBeInTheDocument()
   },
 }
 
 export const FullViewportHeight: Story = {
   ...DateRangePickerTemplate,
-  name: "Full viewport height",
+  name: 'Full viewport height',
   args: {
-    labelText: "Calendar with full space below",
+    labelText: 'Calendar with full space below',
     selectedDateRange,
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="mb-[350px]">
         <Story />
       </div>
@@ -150,7 +150,7 @@ export const FullViewportHeight: Story = {
   ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await userEvent.click(canvas.getByRole("button", { name: /Change date:/ }))
-    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+    await userEvent.click(canvas.getByRole('button', { name: /Change date:/ }))
+    await expect(canvas.getByRole('dialog')).toBeInTheDocument()
   },
 }

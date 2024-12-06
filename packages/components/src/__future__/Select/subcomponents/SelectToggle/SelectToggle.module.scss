@@ -1,8 +1,8 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/typography";
-@import "../../../../../styles/utils/button-reset";
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '../../../../../styles/utils/button-reset';
 
 .iconWrapper {
   line-height: 1;
@@ -61,11 +61,10 @@
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
 
-      content: "";
+      content: '';
       position: absolute;
       background: transparent;
-      border: $border-focus-ring-border-width $border-focus-ring-border-style
-        $color-blue-500;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
       border-radius: $border-focus-ring-border-radius;
       inset: calc(-1 * #{$focus-ring-offset});
     }
@@ -81,8 +80,7 @@
 }
 
 .caution {
-  border: $border-solid-border-width $border-solid-border-style
-    $color-yellow-600;
+  border: $border-solid-border-width $border-solid-border-style $color-yellow-600;
 }
 
 .disabled {
@@ -93,8 +91,7 @@
 }
 
 .reversed {
-  border: $border-solid-border-width $border-solid-border-style
-    rgba($color-white-rgb, 0.8);
+  border: $border-solid-border-width $border-solid-border-style rgba($color-white-rgb, 0.8);
   background-color: transparent;
   color: $color-white;
 

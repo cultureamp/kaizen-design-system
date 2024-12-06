@@ -1,1 +1,1 @@
-export * from "./MultiSelectOptionField"
+export * from './MultiSelectOptionField'

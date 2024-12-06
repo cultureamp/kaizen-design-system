@@ -1,6 +1,6 @@
-import { Canvas, Meta, Controls, Story } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as IconStories from "./Icon.docs.stories"
+import { Canvas, Meta, Controls, Story } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as IconStories from './Icon.docs.stories'
 
 <Meta title="Illustrations/Icon/Icon (Future)/API Specification" />
 
@@ -20,9 +20,16 @@ Updated September 4, 2024
 Add the following (CDN for the variable icon font) to your Storybook `preview-head.html` and to the `<head>` of your apps.
 
 ```html
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block" />
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block"
+/>
 ```
 
 ## Overview
@@ -80,12 +87,12 @@ The Icon component inherits the color from its parent by default. You may also c
 There are two ways to change the size of the icon:
 
 1. (Recommended) Change the value of the `--icon-size` CSS variable (eg. in Tailwind - `[--icon-size:48]`).
-This option will also scale the [optical size](https://m3.material.io/styles/icons/applying-icons#b41cbc01-9b49-4a44-a525-d153d1ea1425) of the icon.
-Note that the value must be a whole number value without units.
+   This option will also scale the [optical size](https://m3.material.io/styles/icons/applying-icons#b41cbc01-9b49-4a44-a525-d153d1ea1425) of the icon.
+   Note that the value must be a whole number value without units.
 
 2. Override the `font-size` CSS attribute (eg. in Tailwind - `text-[1em]`).
-This option will not scale the optical size of the icon for you, so you will need to combine it with also
-overriding the `--icon-optical-size` CSS variable (eg. in Tailwind - `[--icon-optical-size:48]`).
+   This option will not scale the optical size of the icon for you, so you will need to combine it with also
+   overriding the `--icon-optical-size` CSS variable (eg. in Tailwind - `[--icon-optical-size:48]`).
 
 <Canvas of={IconStories.Size} />
 

@@ -1,9 +1,9 @@
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "../../../../../styles/utils/button-reset";
-@import "./variables";
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '../../../../../styles/utils/button-reset';
+@import './variables';
 
 .filterButtonBase {
   @include button-reset;
@@ -45,13 +45,12 @@
     outline: none;
 
     &::after {
-      content: "";
+      content: '';
       z-index: 3;
       position: absolute;
       inset: $focus-ring-offset-outer;
       border-radius: $border-focus-ring-border-radius;
-      border: $border-focus-ring-border-width $border-focus-ring-border-style
-        $color-blue-500;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
     }
   }
 }

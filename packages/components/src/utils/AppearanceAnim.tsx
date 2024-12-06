@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import classnames from "classnames"
-import { useDebouncedCallback } from "use-debounce"
-import styles from "./AppearanceAnim.module.scss"
+import React, { useState } from 'react'
+import classnames from 'classnames'
+import { useDebouncedCallback } from 'use-debounce'
+import styles from './AppearanceAnim.module.scss'
 
 type AppearanceAnimProps = {
   children: React.ReactNode
@@ -34,7 +34,7 @@ export const AppearanceAnim = ({
       setIsAnimOut(false)
     },
     ANIM_DURATION_MS + ANIM_BUFFER,
-    { leading: false }
+    { leading: false },
   )
 
   // Allows us to flash the component in an "invisible" state, for one frame.
@@ -45,7 +45,7 @@ export const AppearanceAnim = ({
       setIsAnimIn(false)
     },
     0,
-    { leading: false }
+    { leading: false },
   )
 
   if (isVisible !== prevIsOpen) {
@@ -77,4 +77,4 @@ export const AppearanceAnim = ({
   ) : null
 }
 
-AppearanceAnim.displayName = "AppearanceAnim"
+AppearanceAnim.displayName = 'AppearanceAnim'

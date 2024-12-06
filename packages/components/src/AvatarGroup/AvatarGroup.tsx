@@ -1,18 +1,14 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import {
-  Avatar,
-  CompanyAvatarProps,
-  GenericAvatarProps,
-} from "~components/Avatar"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./AvatarGroup.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Avatar, CompanyAvatarProps, GenericAvatarProps } from '~components/Avatar'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './AvatarGroup.module.scss'
 
 export type AvatarGroupAvatarProps =
-  | Omit<GenericAvatarProps, "size">
-  | Omit<CompanyAvatarProps, "size">
+  | Omit<GenericAvatarProps, 'size'>
+  | Omit<CompanyAvatarProps, 'size'>
 
-export type AvatarGroupSize = "small" | "medium" | "large"
+export type AvatarGroupSize = 'small' | 'medium' | 'large'
 export type AvatarList = [AvatarGroupAvatarProps, ...AvatarGroupAvatarProps[]]
 
 export type AvatarGroupProps = {
@@ -54,7 +50,7 @@ const renderCounter = (remainingAvatars: number): JSX.Element | void => {
 const renderAvatars = (
   avatars: AvatarList,
   maxVisible: number,
-  size: AvatarGroupSize
+  size: AvatarGroupSize,
 ): JSX.Element => (
   <>
     {avatars?.map(
@@ -63,7 +59,7 @@ const renderAvatars = (
           <li key={`avatar-${index}`} className={styles.AvatarGroupItem}>
             <Avatar {...avatarProps} size={size} />
           </li>
-        )
+        ),
     )}
     {renderCounter(avatars?.length - maxVisible)}
   </>
@@ -74,7 +70,7 @@ const renderAvatars = (
  * {@link https://cultureamp.design/?path=/docs/components-avatar-avatar-group--docs Storybook}
  */
 export const AvatarGroup = ({
-  size = "medium",
+  size = 'medium',
   maxVisible = 2,
   avatars,
   classNameOverride,

@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as SelectStories from "./Select.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as SelectStories from './Select.stories'
 
 <Meta of={SelectStories} />
 
@@ -25,6 +25,7 @@ import * as SelectStories from "./Select.stories"
 ### Options
 
 Provide options in `items` in the `SelectOption` format to populate the options.
+
 ```ts
 export type SelectOption = {
   label: string
@@ -32,20 +33,21 @@ export type SelectOption = {
   disabled?: boolean
   options?: never
 }
-
 ```
+
 <Canvas of={SelectStories.SingleItems} />
 
 ### Grouped options
 
 Group options by providing your `items` in the `SelectOptionGroup` format.
+
 ```ts
 export type SelectOptionGroup<Option extends SelectOption> = {
   label: string
   options: Iterable<Option>
 }
-
 ```
+
 <Canvas of={SelectStories.GroupedItems} />
 
 ### Disabled options
@@ -87,11 +89,13 @@ Note that the `ref` exists as part of these spread props (there is a second arg 
 ### Validation
 
 Add validation messages using `status` and `validationMessage`.
+
 <Canvas of={SelectStories.Validation} />
 
 ### Full width
 
 Set `isFullWidth` to `true` to have the Select span the full width of its container.
+
 <Canvas of={SelectStories.FullWidth} />
 
 ### Portals

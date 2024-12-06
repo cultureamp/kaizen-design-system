@@ -1,5 +1,5 @@
-import { FilterBarState } from "../types"
-import { getInactiveFilters } from "./getInactiveFilters"
+import { FilterBarState } from '../types'
+import { getInactiveFilters } from './getInactiveFilters'
 
 type Values = {
   flavour: string
@@ -8,35 +8,36 @@ type Values = {
 
 const stateFilters = {
   flavour: {
-    id: "flavour",
-    name: "Flavour",
+    id: 'flavour',
+    name: 'Flavour',
     isRemovable: false,
     isOpen: false,
     isUsable: true,
   },
   sugarLevel: {
-    id: "sugarLevel",
-    name: "Sugar Level",
+    id: 'sugarLevel',
+    name: 'Sugar Level',
     isOpen: false,
     isRemovable: true,
     isUsable: true,
   },
-} satisfies FilterBarState<Values>["filters"]
+} satisfies FilterBarState<Values>['filters']
 
-describe("getInactiveFilters()", () => {
-  it("only fetches inactive filters", () => {
+describe('getInactiveFilters()', () => {
+  it('only fetches inactive filters', () => {
     const state = {
       filters: stateFilters,
-      activeFilterIds: new Set<keyof Values>(["flavour"]),
+      activeFilterIds: new Set<keyof Values>(['flavour']),
       values: {},
       dependentFilterIds: new Set(),
       hasUpdatedValues: false,
+      hasRemovableFilter: false,
     } satisfies FilterBarState<Values>
 
     expect(getInactiveFilters<Values>(state)).toEqual([
       {
-        id: "sugarLevel",
-        name: "Sugar Level",
+        id: 'sugarLevel',
+        name: 'Sugar Level',
         isOpen: false,
         isRemovable: true,
         isUsable: true,
@@ -44,13 +45,13 @@ describe("getInactiveFilters()", () => {
     ])
   })
 
-  it("fetches only usable inactive filters", () => {
+  it('fetches only usable inactive filters', () => {
     const state = {
       filters: {
-        flavour: stateFilters["flavour"],
+        flavour: stateFilters.flavour,
         sugarLevel: {
-          id: "sugarLevel",
-          name: "Sugar Level",
+          id: 'sugarLevel',
+          name: 'Sugar Level',
           isRemovable: false,
           isOpen: false,
           isUsable: false,
@@ -59,8 +60,9 @@ describe("getInactiveFilters()", () => {
       },
       activeFilterIds: new Set<keyof Values>(),
       values: {},
-      dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+      dependentFilterIds: new Set<keyof Values>(['sugarLevel']),
       hasUpdatedValues: false,
+      hasRemovableFilter: false,
     } satisfies FilterBarState<Values>
 
     expect(getInactiveFilters<Values>(state)).toEqual([stateFilters.flavour])

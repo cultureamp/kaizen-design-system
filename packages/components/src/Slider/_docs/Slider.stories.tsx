@@ -1,15 +1,15 @@
 // import React from "react"
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Slider } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Slider } from '../index'
 
 const meta = {
-  title: "Components/Slider",
+  title: 'Components/Slider',
   component: Slider,
   args: {
     labelText: <>Slider</>,
-    minLabel: "Min",
-    maxLabel: "Max",
+    minLabel: 'Min',
+    maxLabel: 'Max',
   },
 } satisfies Meta<typeof Slider>
 
@@ -21,14 +21,14 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
 }
 
 export const Variants: Story = {
-  render: args => (
+  render: (args) => (
     <div className="flex flex-col gap-16">
       <Slider {...args} labelText="Default" variant="default" />
       <Slider {...args} labelText="Prominent" variant="prominent" />
@@ -39,18 +39,10 @@ export const Variants: Story = {
 export const MinMaxLabels: Story = {}
 
 export const LabelPosition: Story = {
-  render: args => (
+  render: (args) => (
     <div className="flex flex-col gap-16">
-      <Slider
-        {...args}
-        labelText="Inline Label Position"
-        labelPosition="inline"
-      />
-      <Slider
-        {...args}
-        labelText="Block Label Position"
-        labelPosition="block"
-      />
+      <Slider {...args} labelText="Inline Label Position" labelPosition="inline" />
+      <Slider {...args} labelText="Block Label Position" labelPosition="block" />
     </div>
   ),
 }

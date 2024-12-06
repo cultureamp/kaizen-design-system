@@ -1,37 +1,33 @@
-import React, { useState } from "react"
-import { render, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { vi } from "vitest"
-import { CheckboxProps } from "../Checkbox"
-import {
-  MultiSelectOptionField,
-  MultiSelectOptionFieldProps,
-} from "./MultiSelectOptionField"
+import React, { useState } from 'react'
+import { render, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
+import { CheckboxProps } from '../Checkbox'
+import { MultiSelectOptionField, MultiSelectOptionFieldProps } from './MultiSelectOptionField'
 const user = userEvent.setup()
 
 const onChange = vi.fn()
 
 const MultiSelectOptionFieldWrapper = (
-  customProps?: Partial<MultiSelectOptionFieldProps>
+  customProps?: Partial<MultiSelectOptionFieldProps>,
 ): JSX.Element => {
-  const [checkedStatus, setCheckedStatus] =
-    useState<CheckboxProps["checkedStatus"]>("unchecked")
+  const [checkedStatus, setCheckedStatus] = useState<CheckboxProps['checkedStatus']>('unchecked')
 
   const handleChange = (): void => {
     switch (checkedStatus) {
-      case "checked":
-        return setCheckedStatus("unchecked")
+      case 'checked':
+        return setCheckedStatus('unchecked')
       default:
-        return setCheckedStatus("checked")
+        return setCheckedStatus('checked')
     }
   }
 
   return (
     <MultiSelectOptionField
       id="id--jaffle"
-      option={{ label: "Jaffle", value: "jaffle" }}
+      option={{ label: 'Jaffle', value: 'jaffle' }}
       checkedStatus={checkedStatus}
-      onChange={e => {
+      onChange={(e) => {
         handleChange()
         onChange(e)
       }}
@@ -40,22 +36,22 @@ const MultiSelectOptionFieldWrapper = (
   )
 }
 
-describe("<MultiSelectOptionField />", () => {
+describe('<MultiSelectOptionField />', () => {
   afterEach(() => {
     vi.clearAllMocks()
   })
 
-  it("has an accessible name", () => {
+  it('has an accessible name', () => {
     const { getByRole } = render(<MultiSelectOptionFieldWrapper />)
 
-    expect(getByRole("checkbox", { name: "Jaffle" })).toBeInTheDocument()
+    expect(getByRole('checkbox', { name: 'Jaffle' })).toBeInTheDocument()
   })
 
-  it("triggers onChange when checkbox is clicked", async () => {
+  it('triggers onChange when checkbox is clicked', async () => {
     const { getByRole } = render(<MultiSelectOptionFieldWrapper />)
 
-    const checkbox = getByRole("checkbox", {
-      name: "Jaffle",
+    const checkbox = getByRole('checkbox', {
+      name: 'Jaffle',
     }) as HTMLInputElement
     expect(checkbox.checked).toBe(false)
 
@@ -67,15 +63,15 @@ describe("<MultiSelectOptionField />", () => {
     })
   })
 
-  it("triggers onChange when label is clicked", async () => {
+  it('triggers onChange when label is clicked', async () => {
     const { getByRole, getByText } = render(<MultiSelectOptionFieldWrapper />)
 
-    const checkbox = getByRole("checkbox", {
-      name: "Jaffle",
+    const checkbox = getByRole('checkbox', {
+      name: 'Jaffle',
     }) as HTMLInputElement
     expect(checkbox.checked).toBe(false)
 
-    const label = getByText("Jaffle")
+    const label = getByText('Jaffle')
     await user.click(label)
 
     await waitFor(() => {

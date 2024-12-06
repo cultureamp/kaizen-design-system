@@ -1,1 +1,1 @@
-export * from "./LinkEditor"
+export * from './LinkEditor'

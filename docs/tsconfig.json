@@ -5,6 +5,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "strictNullChecks": true,
     "paths": {
       "~storybook/*": ["./*"],
       "~components/*": ["../packages/components/src/*"],
@@ -12,6 +13,6 @@
       "~design-tokens/*": ["../packages/design-tokens/src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", ".storybook/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", ".storybook/*.ts", ".storybook/*.tsx"],
   "files": ["./types.d.ts"]
 }

@@ -1,4 +1,4 @@
-import ts from "typescript"
+import ts from 'typescript'
 import {
   getKaioTagName,
   setImportToRemove,
@@ -6,17 +6,17 @@ import {
   updateKaioImports,
   type TagImportAttributesMap,
   type UpdateKaioImportsArgs,
-} from "../utils"
-import { transformIconButtonToButton } from "./transformIconButtonToButton"
+} from '../utils'
+import { transformIconButtonToButton } from './transformIconButtonToButton'
 
 export const upgradeIconButton =
   (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
-  context =>
-  rootNode => {
-    const importsToRemove: UpdateKaioImportsArgs["importsToRemove"] = new Map()
-    const importsToAdd: UpdateKaioImportsArgs["importsToAdd"] = new Map()
+  (context) =>
+  (rootNode) => {
+    const importsToRemove: UpdateKaioImportsArgs['importsToRemove'] = new Map()
+    const importsToAdd: UpdateKaioImportsArgs['importsToAdd'] = new Map()
 
-    const importedButtonTagName = getKaioTagName(rootNode, "Button")
+    const importedButtonTagName = getKaioTagName(rootNode, 'Button')
 
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxSelfClosingElement(node)) {
@@ -27,12 +27,12 @@ export const upgradeIconButton =
           setImportToRemove(
             importsToRemove,
             tagImportAttributes.importModuleName,
-            tagImportAttributes.originalName
+            tagImportAttributes.originalName,
           )
 
           if (!importedButtonTagName) {
-            setImportToAdd(importsToAdd, "@kaizen/components/v3/actions", {
-              componentName: "Button",
+            setImportToAdd(importsToAdd, '@kaizen/components/v3/actions', {
+              componentName: 'Button',
             })
           }
 
@@ -44,7 +44,5 @@ export const upgradeIconButton =
 
     const node = ts.visitNode(rootNode, visit)
 
-    return updateKaioImports({ importsToRemove, importsToAdd })(context)(
-      node as ts.SourceFile
-    )
+    return updateKaioImports({ importsToRemove, importsToAdd })(context)(node as ts.SourceFile)
   }

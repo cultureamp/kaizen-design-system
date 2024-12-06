@@ -1,13 +1,13 @@
-import { Meta, StoryObj } from "@storybook/react"
-import { GlobalNotification } from "../GlobalNotification"
+import { Meta, StoryObj } from '@storybook/react'
+import { GlobalNotification } from '../GlobalNotification'
 
 const meta = {
-  title: "Components/Notifications/GlobalNotification",
+  title: 'Components/Notifications/GlobalNotification',
   component: GlobalNotification,
   args: {
-    variant: "success",
+    variant: 'success',
     children:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quibusdam natus doloremque",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quibusdam natus doloremque',
   },
   argTypes: {
     type: {
@@ -22,7 +22,7 @@ export const Playground: StoryObj<typeof meta> = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
     a11y: {
@@ -38,7 +38,7 @@ export const Playground: StoryObj<typeof meta> = {
 export const Persistent: StoryObj<typeof meta> = {
   args: {
     persistent: true,
-    variant: "warning",
-    children: "Please fill in all required fields before submitting",
+    variant: 'warning',
+    children: 'Please fill in all required fields before submitting',
   },
 }

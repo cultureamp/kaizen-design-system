@@ -1,11 +1,11 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { Button, ButtonProps } from "~components/__actions__/v2"
-import { useMediaQueries } from "~components/utils/useMediaQueries"
-import { ModalBody } from "../ModalBody/ModalBody"
-import styles from "./ModalFooter.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { Button, ButtonProps } from '~components/__actions__/v2'
+import { useMediaQueries } from '~components/utils/useMediaQueries'
+import { ModalBody } from '../ModalBody/ModalBody'
+import styles from './ModalFooter.module.scss'
 
-type ActionsVariantProps = "context" | "inputEdit"
+type ActionsVariantProps = 'context' | 'inputEdit'
 
 export type ModalFooterProps = {
   /**
@@ -21,7 +21,7 @@ export type ModalFooterProps = {
   /**
    * @deprecated we are no longer supporting different appearances for ModalFooter, instead there will only be a single default appearance set by the Button.
    */
-  appearance?: "primary" | "destructive"
+  appearance?: 'primary' | 'destructive'
   /**
    * @deprecated Please use data-testid
    */
@@ -32,7 +32,7 @@ export type ModalFooterProps = {
 export const ModalFooter = ({
   unpadded,
   actions,
-  appearance = "primary",
+  appearance = 'primary',
   alignStart,
   variant,
   ...props
@@ -40,13 +40,13 @@ export const ModalFooter = ({
   const { queries } = useMediaQueries()
 
   return (
-    <ModalBody inputEdit={variant === "inputEdit"}>
+    <ModalBody inputEdit={variant === 'inputEdit'}>
       <div
         className={classnames(
           styles.actions,
           !unpadded && styles.padded,
-          variant === "context" && styles.informationPadded,
-          alignStart && styles.actionsAlignStart
+          variant === 'context' && styles.informationPadded,
+          alignStart && styles.actionsAlignStart,
         )}
         {...props}
       >
@@ -54,8 +54,8 @@ export const ModalFooter = ({
           <div className={styles.actionButton} key={index}>
             <Button
               type="button"
-              primary={index === 0 && appearance === "primary"}
-              destructive={index === 0 && appearance === "destructive"}
+              primary={index === 0 && appearance === 'primary'}
+              destructive={index === 0 && appearance === 'destructive'}
               secondary={index > 0}
               fullWidth={queries.isSmall}
               {...action}
@@ -67,4 +67,4 @@ export const ModalFooter = ({
   )
 }
 
-ModalFooter.displayName = "ModalFooter"
+ModalFooter.displayName = 'ModalFooter'

@@ -20,19 +20,21 @@ on:
     branches:
       - main # the target branch of the PR
     paths:
-      - "**/CHANGELOG.md" # only changesets releases touch changelogs
+      - '**/CHANGELOG.md' # only changesets releases touch changelogs
 
 jobs:
   run-check:
     name: Check if we should run Chromatic tests
     if: github.head_ref != 'changeset-release/main' && github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    timeout-minutes: 3
     steps:
       - run: echo "Run the Chromatic tests"
 
   chromatic:
     needs: run-check
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     outputs:
       storybookUrl: ${{ steps.publishChromatic.outputs.storybookUrl }}
     steps:
@@ -50,9 +52,9 @@ jobs:
         with:
           token: ${{ github.token }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          storybookBuildDir: "./docs/storybook-static"
-          storybookBaseDir: "./docs"
-          onlyChanged: "!(main)"
+          storybookBuildDir: './docs/storybook-static'
+          storybookBaseDir: './docs'
+          onlyChanged: '!(main)'
           externals: |
             **/!(*.module).scss
             packages/components/**/*.css

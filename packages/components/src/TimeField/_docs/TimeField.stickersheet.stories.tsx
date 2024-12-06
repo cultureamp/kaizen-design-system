@@ -1,14 +1,11 @@
-import React, { useState } from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { TimeField } from "../index"
-import { ValueType } from "../types"
+import React, { useState } from 'react'
+import { Meta } from '@storybook/react'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { TimeField } from '../index'
+import { ValueType } from '../types'
 
 export default {
-  title: "Components/TimeField",
+  title: 'Components/TimeField',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -28,11 +25,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet
-          title="TimeField"
-          layout="stretch"
-          headers={["Default", "Disabled", "Error"]}
-        >
+        <StickerSheet title="TimeField" layout="stretch" headers={['Default', 'Disabled', 'Error']}>
           <StickerSheet.Row>
             <TimeField
               label="Label (en-AU)"
@@ -58,11 +51,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Row>
         </StickerSheet>
 
-        <StickerSheet
-          title="Pseudo states"
-          layout="stretch"
-          headers={["Hover", "Focus"]}
-        >
+        <StickerSheet title="Pseudo states" layout="stretch" headers={['Hover', 'Focus']}>
           <StickerSheet.Row>
             <TimeField
               label="Label (hover on hour)"
@@ -84,27 +73,12 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet
           title="Localisation"
           layout="stretch"
-          headers={["en-US", "en-GB", "zh-HANS-SG"]}
+          headers={['en-US', 'en-GB', 'zh-HANS-SG']}
         >
           <StickerSheet.Row>
-            <TimeField
-              label="Label"
-              locale="en-US"
-              value={valueEnUS}
-              onChange={setValueEnUS}
-            />
-            <TimeField
-              label="Label"
-              locale="en-GB"
-              value={valueEnGB}
-              onChange={setValueEnGB}
-            />
-            <TimeField
-              label="Label"
-              locale="zh-HANS-SG"
-              value={valueZh}
-              onChange={setValueZh}
-            />
+            <TimeField label="Label" locale="en-US" value={valueEnUS} onChange={setValueEnUS} />
+            <TimeField label="Label" locale="en-GB" value={valueEnGB} onChange={setValueEnGB} />
+            <TimeField label="Label" locale="zh-HANS-SG" value={valueZh} onChange={setValueZh} />
           </StickerSheet.Row>
         </StickerSheet>
       </>
@@ -116,8 +90,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         '[data-sb-pseudo-styles="hover--segment"]',
         '[data-sb-pseudo-styles="hover--segment"] [aria-label*="hour"]',
       ],
-      focusVisible:
-        '[data-sb-pseudo-styles="focus--segment"] [aria-label*="hour"]',
+      focusVisible: '[data-sb-pseudo-styles="focus--segment"] [aria-label*="hour"]',
       focusWithin: '[data-sb-pseudo-styles="focus--segment"]',
     },
   },
@@ -125,14 +98,14 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

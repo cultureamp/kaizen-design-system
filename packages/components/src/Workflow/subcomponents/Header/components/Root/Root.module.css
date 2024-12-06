@@ -1,7 +1,7 @@
 .root {
   display: grid;
   background-color: var(--color-white);
-  grid-template: "branding" min-content "titles" max-content "actions" min-content / 1fr;
+  grid-template: 'branding' min-content 'titles' max-content 'actions' min-content / 1fr;
   flex-grow: 1;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@
 
   @media (width >= 768px) {
     align-items: start;
-    grid-template: "branding titles actions" min-content / 1fr max-content 1fr;
+    grid-template: 'branding titles actions' min-content / 1fr max-content 1fr;
     position: sticky;
     top: 0;
     z-index: 1;

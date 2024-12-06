@@ -1,25 +1,24 @@
 // ts-check
 /** @type {import('tailwindcss').Config} */
 
-import { Preset } from "@kaizen/tailwind"
+import { Preset } from '@kaizen/tailwind'
 
 module.exports = {
   content: [
-    "../packages/tailwind/src/_docs/**/*.{ts,tsx}",
-    "../packages/**/*.mdx",
-    "../packages/**/*.stories.{ts,tsx}",
-    "./**/*.{ts,tsx,mdx}",
-    "!node_modules",
+    '../packages/tailwind/src/_docs/**/*.{ts,tsx}',
+    '../packages/**/*.mdx',
+    '../packages/**/*.stories.{ts,tsx}',
+    './**/*.{ts,tsx,mdx}',
+    '!node_modules',
   ],
   presets: [Preset],
-  important: "body",
+  important: 'body',
   corePlugins: {
     preflight: false,
   },
   safelist: [
     {
-      pattern:
-        /(bg|border|rounded|shadow|h|w|m|p|font-family|font-weight|text|leading|list)-.*/,
+      pattern: /(bg|border|rounded|shadow|h|w|m|p|font-family|font-weight|text|leading|list)-.*/,
     },
   ],
 }

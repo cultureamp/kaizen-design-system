@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/color";
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/shadow';
+@import '~@kaizen/design-tokens/sass/color';
 
 // Vars
 $avatar-sm: 1.25rem;
@@ -19,6 +19,7 @@ $avatar-lg: 4.5rem;
 }
 
 .AvatarCounter {
+  direction: ltr;
   align-items: center;
   background: $color-gray-300;
   border: 3px solid $color-white;
@@ -28,10 +29,6 @@ $avatar-lg: 4.5rem;
   display: flex;
   justify-content: center;
   overflow: hidden;
-
-  [dir="rtl"] & {
-    direction: ltr;
-  }
 }
 
 .small {

@@ -1,6 +1,6 @@
-import { Canvas, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as TitleBlockZenStories from "./TitleBlockZen.stories"
+import { Canvas, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as TitleBlockZenStories from './TitleBlockZen.stories'
 
 <Meta of={TitleBlockZenStories} />
 
@@ -48,6 +48,7 @@ in the dropdown menu when you click it. (`MenuItemProps` is a type imported from
 ## secondaryActions & secondaryOverflowMenuItems
 
 Secondary Actions sit below the Primary Actions, and consist of
+
 - actions/links (just a button),
 - menus (a menu button), and
 - the overflow menu (a menu button with a "meatballs" icon).
@@ -70,5 +71,6 @@ Each object can be a MenuGroup (see code snippet for `primaryAction` above) or a
 ```
 type SecondaryActionsProps = Array<MenuGroup | TitleBlockButtonProps>;
 ```
+
 The order of elements in the array will determine the visual order on the page, so
 please be aware of the intended order mentioned above.

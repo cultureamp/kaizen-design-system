@@ -1,14 +1,14 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Heading } from "~components/Heading"
-import { StickerSheet } from "~storybook/components/StickerSheet"
-import { LoadingHeading } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Heading } from '~components/Heading'
+import { StickerSheet } from '~storybook/components/StickerSheet'
+import { LoadingHeading } from '../index'
 
 const meta = {
-  title: "Components/Loading states/LoadingHeading",
+  title: 'Components/Loading states/LoadingHeading',
   component: LoadingHeading,
   args: {
-    variant: "heading-1",
+    variant: 'heading-1',
   },
 } satisfies Meta<typeof LoadingHeading>
 
@@ -20,7 +20,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -33,24 +33,24 @@ export const Animated: Story = {
 export const Reversed: Story = {
   args: { isReversed: true },
   parameters: {
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
 }
 
 const headingVariants = [
-  "display-0",
-  "heading-1",
-  "heading-2",
-  "heading-3",
-  "heading-4",
-  "heading-5",
-  "heading-6",
+  'display-0',
+  'heading-1',
+  'heading-2',
+  'heading-3',
+  'heading-4',
+  'heading-5',
+  'heading-6',
 ] as const
 
 export const Variant: Story = {
   render: () => (
-    <StickerSheet headers={["<LoadingHeading />", "<Heading />"]}>
-      {headingVariants.map(variant => (
+    <StickerSheet headers={['<LoadingHeading />', '<Heading />']}>
+      {headingVariants.map((variant) => (
         <StickerSheet.Row key={variant} header={variant}>
           <LoadingHeading variant={variant} />
           <Heading variant={variant}>Heading</Heading>

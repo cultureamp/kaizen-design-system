@@ -1,9 +1,9 @@
-import { FiltersValues } from "../../types"
-import { FilterBarState } from "../types"
-import { getIsUsableWhenArgs } from "./getIsUsableWhenArgs"
+import { FiltersValues } from '../../types'
+import { FilterBarState } from '../types'
+import { getIsUsableWhenArgs } from './getIsUsableWhenArgs'
 
 export const updateDependentFilters = <ValuesMap extends FiltersValues>(
-  state: FilterBarState<ValuesMap>
+  state: FilterBarState<ValuesMap>,
 ): FilterBarState<ValuesMap> => {
   if (state.dependentFilterIds.size === 0) return state
 
@@ -11,7 +11,7 @@ export const updateDependentFilters = <ValuesMap extends FiltersValues>(
 
   const args = getIsUsableWhenArgs(state)
 
-  Array.from(state.dependentFilterIds).forEach(id => {
+  Array.from(state.dependentFilterIds).forEach((id) => {
     const isUsable = state.filters[id].isUsableWhen!(args)
 
     const shouldUpdate = state.filters[id].isUsable !== isUsable
@@ -22,7 +22,7 @@ export const updateDependentFilters = <ValuesMap extends FiltersValues>(
 
     if (!isUsable) {
       state.activeFilterIds.delete(id)
-      state.values[id] = undefined
+      delete state.values[id]
       state.hasUpdatedValues = true
       return
     }

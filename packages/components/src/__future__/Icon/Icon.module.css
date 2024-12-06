@@ -3,7 +3,7 @@
  * font-weight & font-size removed as overridden in .icon
  */
 .material-symbols-outlined {
-  font-family: "Material Symbols Outlined";
+  font-family: 'Material Symbols Outlined';
   font-style: normal;
   line-height: 1;
   letter-spacing: normal;
@@ -12,7 +12,7 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  font-feature-settings: "liga";
+  font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
 
@@ -23,31 +23,27 @@
 
   /* Must use vars otherwise whole attribute must be set again */
   font-variation-settings:
-    "FILL" var(--icon-fill, 0),
-    "GRAD" var(--icon-grade, 0),
-    "opsz" var(--icon-optical-size, var(--icon-size, 20));
+    'FILL' var(--icon-fill, 0),
+    'GRAD' var(--icon-grade, 0),
+    'opsz' var(--icon-optical-size, var(--icon-size, 20));
 }
 
 .filled {
   --icon-fill: 1;
 }
 
-.shouldMirrorInRTL {
-  [dir="rtl"] & {
-    transform: scale(-1, 1);
-  }
+[dir='rtl'] .shouldMirrorInRTL {
+  transform: scale(-1, 1);
 }
 
-.iconLTR {
-  [dir="rtl"] & {
-    display: none;
-  }
+[dir='rtl'] .iconLTR {
+  display: none;
 }
 
 .iconRTL {
   display: none;
+}
 
-  [dir="rtl"] & {
-    display: inherit;
-  }
+[dir='rtl'] .iconRTL {
+  display: inherit;
 }
