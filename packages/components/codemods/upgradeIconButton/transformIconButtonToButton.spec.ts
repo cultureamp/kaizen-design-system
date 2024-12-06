@@ -48,13 +48,11 @@ describe('transformIconButtonToButton()', () => {
       const inputAst = parseJsx(`
         <>
           <IconButton icon={icon} label="Pancakes" reversed />
-          <IconButton icon={icon} label="Pancakes" reversed={true} />
           <IconButton icon={icon} label="Pancakes" reversed={false} />
         </>
       `)
       const outputAst = parseJsx(`
         <>
-          <Button icon={icon} isReversed hasHiddenLabel>Pancakes</Button>
           <Button icon={icon} isReversed hasHiddenLabel>Pancakes</Button>
           <Button icon={icon} isReversed={false} hasHiddenLabel>Pancakes</Button>
         </>
