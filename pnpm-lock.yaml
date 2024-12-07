@@ -215,7 +215,7 @@ importers:
         specifier: ^0.12.8
         version: 0.12.8
       '@vitejs/plugin-react':
-        specifier: ^4.3.3
+        specifier: ^4.3.4
         version: 4.3.4(vite@5.4.11(@types/node@20.17.9)(sass@1.79.6))
       axe-playwright:
         specifier: ^2.0.3
