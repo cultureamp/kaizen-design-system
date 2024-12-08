@@ -78,3 +78,43 @@ export const FlipOneNotOthers: Story = {
     })
   },
 }
+
+// Does it work with one tile
+export const OneTile: Story = {
+  args: {
+    children: (
+      <InformationTile
+        title="Title A"
+        metadata="Side A"
+        information="Side A - Back"
+        footer={<>Footer</>}
+      />
+    ),
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+
+    await step('initial render complete', async () => {
+      await waitFor(() => {
+        expect(canvas.getByRole('listitem')).toBeInTheDocument()
+      })
+    })
+  },
+}
+
+// Multiple tiles
+export const MultipleTiles: Story = {
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+
+    await step('initial render complete', async () => {
+      await waitFor(() => {
+        const listOfTiles = canvas.getByRole('list')
+        const { getAllByRole } = within(listOfTiles)
+        const tiles = getAllByRole('listitem')
+
+        expect(tiles.length).toBe(3)
+      })
+    })
+  },
+}
