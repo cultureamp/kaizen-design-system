@@ -1,8 +1,8 @@
-$kaizen-asset-origin-base-url: "https://d1e7r7b0lb8p4d.cloudfront.net";
+$kaizen-asset-origin-base-url: 'https://d1e7r7b0lb8p4d.cloudfront.net';
 
 // Returns the full URL of the asset at `path` managed by the
 // `kaizen-design-system-assets` service.
 // @return string The full URL of the asset at $path
 @function asset-url($path) {
-  @return $kaizen-asset-origin-base-url + "/" + $path;
+  @return $kaizen-asset-origin-base-url + '/' + $path;
 }

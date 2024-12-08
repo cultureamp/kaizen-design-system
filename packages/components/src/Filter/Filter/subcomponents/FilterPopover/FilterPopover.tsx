@@ -1,9 +1,9 @@
-import React, { HTMLAttributes, useState } from "react"
-import { Options } from "@popperjs/core"
-import classnames from "classnames"
-import { usePopper } from "react-popper"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./FilterPopover.module.scss"
+import React, { HTMLAttributes, useState } from 'react'
+import { Options } from '@popperjs/core'
+import classnames from 'classnames'
+import { usePopper } from 'react-popper'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './FilterPopover.module.scss'
 
 export type FilterPopoverProps = {
   children: React.ReactNode
@@ -18,9 +18,7 @@ export const FilterPopover = ({
   classNameOverride,
   ...restProps
 }: FilterPopoverProps): JSX.Element => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
-  )
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null)
 
   const { styles: popperStyles, attributes: popperAttributes } = usePopper(
     referenceElement,
@@ -28,15 +26,15 @@ export const FilterPopover = ({
     {
       modifiers: [
         {
-          name: "offset",
+          name: 'offset',
           options: {
             offset: [0, 15],
           },
         },
       ],
-      placement: "bottom-start",
+      placement: 'bottom-start',
       ...popperOptions,
-    }
+    },
   )
 
   return (
@@ -54,4 +52,4 @@ export const FilterPopover = ({
   )
 }
 
-FilterPopover.displayName = "FilterPopover"
+FilterPopover.displayName = 'FilterPopover'

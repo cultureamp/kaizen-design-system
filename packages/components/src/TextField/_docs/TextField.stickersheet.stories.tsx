@@ -1,14 +1,11 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { InputStatus, InputTypes } from "~components/Input"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { TextField, TextFieldProps } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { InputStatus, InputTypes } from '~components/Input'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { TextField, TextFieldProps } from '../index'
 
 export default {
-  title: "Components/Text Input controls/Text Field",
+  title: 'Components/Text Input controls/Text Field',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -17,14 +14,9 @@ export default {
 
 const TextFieldExampleGroup = (props: TextFieldProps): JSX.Element => (
   <ul className="grid gap-16 list-none p-0 m-0">
-    {InputTypes.map(type => (
+    {InputTypes.map((type) => (
       <li key={type}>
-        <TextField
-          value={type}
-          type={type}
-          {...props}
-          description="A short description"
-        />
+        <TextField value={type} type={type} {...props} description="A short description" />
       </li>
     ))}
   </ul>
@@ -34,9 +26,9 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet
       isReversed={isReversed}
-      headers={["Default", "Hover", "Active", "Focus", "Disabled"]}
+      headers={['Default', 'Hover', 'Active', 'Focus', 'Disabled']}
     >
-      {InputStatus.map(status => (
+      {InputStatus.map((status) => (
         <StickerSheet.Row key={status} header={status}>
           <TextFieldExampleGroup
             reversed={isReversed}
@@ -93,24 +85,24 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

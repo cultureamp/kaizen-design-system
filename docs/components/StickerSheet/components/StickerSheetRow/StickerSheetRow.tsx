@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { StickerSheetCell } from "../StickerSheetCell"
-import { StickerSheetHeader } from "../StickerSheetHeader"
-import styles from "./StickerSheetRow.module.css"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { StickerSheetCell } from '../StickerSheetCell'
+import { StickerSheetHeader } from '../StickerSheetHeader'
+import styles from './StickerSheetRow.module.css'
 
 export type StickerSheetRowProps = {
   children: React.ReactNode
@@ -24,7 +24,7 @@ export const StickerSheetRow = ({
         {header}
       </StickerSheetHeader>
     )}
-    {React.Children.map(children, child => {
+    {React.Children.map(children, (child) => {
       if (React.isValidElement(child) && child.type === StickerSheetCell) {
         return child
       }
@@ -34,4 +34,4 @@ export const StickerSheetRow = ({
   </div>
 )
 
-StickerSheetRow.displayName = "StickerSheet.Row"
+StickerSheetRow.displayName = 'StickerSheet.Row'

@@ -1,11 +1,11 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { expect, waitFor, within } from "@storybook/test"
-import { InformationTile } from "~components/Tile"
-import { TileGrid } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { expect, waitFor, within } from '@storybook/test'
+import { InformationTile } from '~components/Tile'
+import { TileGrid } from '../index'
 
 const meta = {
-  title: "Components/Tiles/TileGrid",
+  title: 'Components/Tiles/TileGrid',
   component: TileGrid,
   args: {
     children: (
@@ -41,7 +41,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
@@ -52,28 +52,28 @@ export const FlipOneNotOthers: Story = {
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
 
-    await step("initial render complete", async () => {
+    await step('initial render complete', async () => {
       await waitFor(() => {
-        canvas.getByRole("button", {
-          name: "View more information: Title A",
+        canvas.getByRole('button', {
+          name: 'View more information: Title A',
         })
       })
     })
 
-    await step("Can focus to button", async () => {
+    await step('Can focus to button', async () => {
       await waitFor(() => {
-        const buttonWithInfoLabel = canvas.getByRole("button", {
-          name: "View more information: Title A",
+        const buttonWithInfoLabel = canvas.getByRole('button', {
+          name: 'View more information: Title A',
         })
         buttonWithInfoLabel.click()
       })
     })
 
-    await step("Check other tiles", async () => {
+    await step('Check other tiles', async () => {
       await waitFor(() => {
-        expect(canvas.getByText("Side A - Back")).toBeInTheDocument()
-        expect(canvas.getByText("Title B")).toBeInTheDocument()
-        expect(canvas.getByText("Title C")).toBeInTheDocument()
+        expect(canvas.getByText('Side A - Back')).toBeInTheDocument()
+        expect(canvas.getByText('Title B')).toBeInTheDocument()
+        expect(canvas.getByText('Title C')).toBeInTheDocument()
       })
     })
   },

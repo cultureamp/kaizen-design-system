@@ -1,6 +1,6 @@
-import { Controls, Meta, Canvas } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation, NoClipCanvas } from "~storybook/components"
-import * as FilterMultiSelectStories from "./FilterMultiSelect.stories"
+import { Controls, Meta, Canvas } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation, NoClipCanvas } from '~storybook/components'
+import * as FilterMultiSelectStories from './FilterMultiSelect.stories'
 
 <Meta of={FilterMultiSelectStories} />
 
@@ -35,42 +35,63 @@ The FilterMultiSelect is a component relies heavily on consumer implemntation. I
 The following is an example of how you may create an async FilterMultiSelect using `@tanstack/react-query`.
 
 ```tsx
-import { QueryClientProvider, QueryClient, useInfiniteQuery, useQueryClient, keepPreviousData } from "@tanstack/react-query"
+import {
+  QueryClientProvider,
+  QueryClient,
+  useInfiniteQuery,
+  useQueryClient,
+  keepPreviousData,
+} from '@tanstack/react-query'
 
 const AsyncExample = () => {
   const client = new QueryClient()
   const [open, setOpen] = useState(false)
   const [selectedPeople, setSelectedPeople] = useState<string[]>([])
-  const [searchState, setSearchState] = useState("")
+  const [searchState, setSearchState] = useState('')
   const queryClient = useQueryClient()
 
-  const fetchSWAPI = async ({ pageParam }): Promise<{ results: Array<{ name: string; url: string }>; next: string }> => {
+  const fetchSWAPI = async ({
+    pageParam,
+  }): Promise<{ results: Array<{ name: string; url: string }>; next: string }> => {
     const res = await fetch(`https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`)
     return res.json()
   }
 
-  const { data, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage, isRefetching } = useInfiniteQuery({
-    enabled: true,
-    initialPageParam: "1",
-    queryKey: ["startrek-sg1", searchState],
-    queryFn: fetchSWAPI,
-    placeholderData: keepPreviousData,
-    getNextPageParam: lastPage => {
-      if (!lastPage.next) return undefined
-      const url = new URL(lastPage.next)
-      const params = new URLSearchParams(url.searchParams)
-      return params.get("page")
-    },
-  })
+  const { data, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage, isRefetching } =
+    useInfiniteQuery({
+      enabled: true,
+      initialPageParam: '1',
+      queryKey: ['startrek-sg1', searchState],
+      queryFn: fetchSWAPI,
+      placeholderData: keepPreviousData,
+      getNextPageParam: (lastPage) => {
+        if (!lastPage.next) return undefined
+        const url = new URL(lastPage.next)
+        const params = new URLSearchParams(url.searchParams)
+        return params.get('page')
+      },
+    })
 
-  const cachedPeople = queryClient.getQueriesData({ queryKey: ["startrek-sg1"] }).flatMap(([, cachedData]) => cachedData?.pages ?? []).flatMap(page => page.results).map(item => ({ label: item.name, value: item.url }))
-  const currentPeople = React.useMemo(() => data?.pages.flatMap(res => res.results).flatMap(person => ({ label: person.name, value: person.url })) || [], [data])
+  const cachedPeople = queryClient
+    .getQueriesData({ queryKey: ['startrek-sg1'] })
+    .flatMap(([, cachedData]) => cachedData?.pages ?? [])
+    .flatMap((page) => page.results)
+    .map((item) => ({ label: item.name, value: item.url }))
+  const currentPeople = React.useMemo(
+    () =>
+      data?.pages
+        .flatMap((res) => res.results)
+        .flatMap((person) => ({ label: person.name, value: person.url })) || [],
+    [data],
+  )
 
   // Expose the selected items and float them to the top
-  const mergedPeople = [...currentPeople, ...cachedPeople].filter((item, index, a) => a.findIndex(currItem => currItem.value === item.value) === index)
+  const mergedPeople = [...currentPeople, ...cachedPeople].filter(
+    (item, index, a) => a.findIndex((currItem) => currItem.value === item.value) === index,
+  )
 
   // Only show the current filtered people when there is a search query
-  const items = searchState !== "" ? currentPeople : Array.from(mergedPeople)
+  const items = searchState !== '' ? currentPeople : Array.from(mergedPeople)
   const filteredCount = currentPeople.length
   const totalCount = cachedPeople.length
 
@@ -81,11 +102,16 @@ const AsyncExample = () => {
         isLoading={isLoading}
         loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
         items={items}
-        trigger={() => <FilterMultiSelect.TriggerButton label="People" selectedOptionLabels={getSelectedOptionLabels(new Set(selectedPeople), cachedPeople)} />}
+        trigger={() => (
+          <FilterMultiSelect.TriggerButton
+            label="People"
+            selectedOptionLabels={getSelectedOptionLabels(new Set(selectedPeople), cachedPeople)}
+          />
+        )}
         onSearchInputChange={setSearchState}
         onOpenChange={setOpen}
         onSelectionChange={(keys): void => {
-          if (keys === "all") return
+          if (keys === 'all') return
           setSelectedPeople(Array.from(keys) as string[])
         }}
         isOpen={open}
@@ -93,24 +119,49 @@ const AsyncExample = () => {
       >
         {(): JSX.Element => (
           <>
-            <FilterMultiSelect.SearchInput isLoading={isRefetching && searchState !== ""} />
+            <FilterMultiSelect.SearchInput isLoading={isRefetching && searchState !== ''} />
             <FilterMultiSelect.ListBox>
               {({ selectedItems, unselectedItems, hasNoItems }) => (
                 <>
-                  {hasNoItems
-                    ? <FilterMultiSelect.NoResults>No results found for {searchState}.</FilterMultiSelect.NoResults>
-                    : searchState !== ""
-                      ? <Text variant="extra-small" tag="span" color="dark-reduced-opacity">Showing {filteredCount} of {totalCount}</Text>
-                      : hasNextPage && <Text variant="extra-small" tag="span" color="dark-reduced-opacity">There are a lot of options. Narrow them further by searching for a more precise term.</Text>
-                  }
-                  <FilterMultiSelect.ListBoxSection items={selectedItems} sectionName="Selected items">
-                    {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+                  {hasNoItems ? (
+                    <FilterMultiSelect.NoResults>
+                      No results found for {searchState}.
+                    </FilterMultiSelect.NoResults>
+                  ) : searchState !== '' ? (
+                    <Text variant="extra-small" tag="span" color="dark-reduced-opacity">
+                      Showing {filteredCount} of {totalCount}
+                    </Text>
+                  ) : (
+                    hasNextPage && (
+                      <Text variant="extra-small" tag="span" color="dark-reduced-opacity">
+                        There are a lot of options. Narrow them further by searching for a more
+                        precise term.
+                      </Text>
+                    )
+                  )}
+                  <FilterMultiSelect.ListBoxSection
+                    items={selectedItems}
+                    sectionName="Selected items"
+                  >
+                    {(item) => <FilterMultiSelect.Option key={item.key} item={item} />}
                   </FilterMultiSelect.ListBoxSection>
-                  {unselectedItems.length > 0 && selectedItems.length > 0 && <FilterMultiSelect.SectionDivider />}
-                  <FilterMultiSelect.ListBoxSection items={unselectedItems} sectionName="Unselected items">
-                    {item => <FilterMultiSelect.Option key={item.key} item={item} />}
+                  {unselectedItems.length > 0 && selectedItems.length > 0 && (
+                    <FilterMultiSelect.SectionDivider />
+                  )}
+                  <FilterMultiSelect.ListBoxSection
+                    items={unselectedItems}
+                    sectionName="Unselected items"
+                  >
+                    {(item) => <FilterMultiSelect.Option key={item.key} item={item} />}
                   </FilterMultiSelect.ListBoxSection>
-                  {hasNextPage && <FilterMultiSelect.LoadMoreButton label="View more" workingLabel="Loading…" working={isFetchingNextPage} onClick={fetchNextPage} />}
+                  {hasNextPage && (
+                    <FilterMultiSelect.LoadMoreButton
+                      label="View more"
+                      workingLabel="Loading…"
+                      working={isFetchingNextPage}
+                      onClick={fetchNextPage}
+                    />
+                  )}
                 </>
               )}
             </FilterMultiSelect.ListBox>

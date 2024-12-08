@@ -1,18 +1,18 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { CollapsibleProps } from "~components/Collapsible/Collapsible"
-import { Sticky } from "~components/Collapsible/types"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./CollapsibleGroup.module.scss"
+import React, { HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { CollapsibleProps } from '~components/Collapsible/Collapsible'
+import { Sticky } from '~components/Collapsible/types'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './CollapsibleGroup.module.scss'
 
 export type CollapsibleGroupProps = {
-  children: Array<React.ReactElement<CollapsibleProps>>
+  children: React.ReactElement<CollapsibleProps>[]
   separated?: boolean
   sticky?: Sticky
   noSectionPadding?: boolean
   lazyLoad?: boolean
   onToggle?: (open: boolean, id: string) => void
-} & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, "children">
+} & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, 'children'>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094383/Collapsible Guidance} |
@@ -28,11 +28,8 @@ export const CollapsibleGroup = ({
   classNameOverride,
   ...props
 }: CollapsibleGroupProps): JSX.Element => (
-  <div
-    className={classnames(classNameOverride, !separated && styles.container)}
-    {...props}
-  >
-    {React.Children.map(children, collapsible =>
+  <div className={classnames(classNameOverride, !separated && styles.container)} {...props}>
+    {React.Children.map(children, (collapsible) =>
       React.cloneElement(collapsible, {
         group: true,
         separated,
@@ -40,7 +37,7 @@ export const CollapsibleGroup = ({
         noSectionPadding,
         lazyLoad,
         onToggle,
-      })
+      }),
     )}
   </div>
 )

@@ -1,16 +1,15 @@
-import React, { Children, HTMLAttributes, ReactElement, useId } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { InformationTileProps } from "../InformationTile"
-import { MultiActionTileProps } from "../MultiActionTile"
-import styles from "./TileGrid.module.scss"
+import React, { Children, HTMLAttributes, ReactElement, useId } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { InformationTileProps } from '../InformationTile'
+import { MultiActionTileProps } from '../MultiActionTile'
+import styles from './TileGrid.module.scss'
 
 type TileProps = InformationTileProps | MultiActionTileProps
 
 export type TileElement = ReactElement<TileProps>
 
-export interface TileGridProps
-  extends OverrideClassName<HTMLAttributes<HTMLUListElement>> {
+export interface TileGridProps extends OverrideClassName<HTMLAttributes<HTMLUListElement>> {
   children: TileElement[] | TileElement
 }
 
@@ -28,20 +27,16 @@ export const TileGrid = ({
   const tiles = getTiles(children, tileGridBaseId)
 
   return (
-    <ul
-      className={classnames(styles.grid, classNameOverride)}
-      data-tile-grid
-      {...restProps}
-    >
+    <ul className={classnames(styles.grid, classNameOverride)} data-tile-grid {...restProps}>
       {tiles}
     </ul>
   )
 }
-TileGrid.displayName = "TileGrid"
+TileGrid.displayName = 'TileGrid'
 
 const getTiles = (
   children: TileElement | TileElement[],
-  tileGridBaseId: string
+  tileGridBaseId: string,
 ): JSX.Element | JSX.Element[] => {
   const child = Children.only(children)
 

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from "react"
+import React, { HTMLAttributes } from 'react'
 
 export type StickerSheetCellProps = {
   children: React.ReactNode
@@ -9,4 +9,4 @@ export const StickerSheetCell = ({
   ...restProps
 }: StickerSheetCellProps): JSX.Element => <div {...restProps}>{children}</div>
 
-StickerSheetCell.displayName = "StickerSheet.Cell"
+StickerSheetCell.displayName = 'StickerSheet.Cell'

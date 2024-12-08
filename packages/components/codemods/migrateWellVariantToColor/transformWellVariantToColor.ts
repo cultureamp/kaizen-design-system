@@ -1,6 +1,6 @@
-import ts from "typescript"
-import { updateJsxElementWithNewProps } from "../utils"
-import { getPropValueText } from "../utils/getPropValueText"
+import ts from 'typescript'
+import { updateJsxElementWithNewProps } from '../utils'
+import { getPropValueText } from '../utils/getPropValueText'
 
 export const transformWellVariantToColor =
   (context: ts.TransformationContext, tagName: string) =>
@@ -10,46 +10,45 @@ export const transformWellVariantToColor =
         if (node.tagName.getText() === tagName) {
           let hasVariant = false
           let hasColor = false
-          let newAttributes = node.attributes.properties.map(attr => {
-            if (ts.isJsxAttribute(attr) && attr.name.getText() === "variant") {
+          let newAttributes = node.attributes.properties.map((attr) => {
+            if (ts.isJsxAttribute(attr) && attr.name.getText() === 'variant') {
               hasVariant = true
-              const valueName =
-                attr.initializer && getPropValueText(attr.initializer)
+              const valueName = attr.initializer && getPropValueText(attr.initializer)
 
               if (valueName) {
-                let colorValue: string = "gray"
+                let colorValue: string = 'gray'
                 switch (valueName) {
-                  case "default":
-                    colorValue = "gray"
+                  case 'default':
+                    colorValue = 'gray'
                     break
-                  case "informative":
-                    colorValue = "blue"
+                  case 'informative':
+                    colorValue = 'blue'
                     break
-                  case "cautionary":
-                    colorValue = "yellow"
+                  case 'cautionary':
+                    colorValue = 'yellow'
                     break
-                  case "assertive":
-                    colorValue = "orange"
+                  case 'assertive':
+                    colorValue = 'orange'
                     break
-                  case "negative":
-                    colorValue = "red"
+                  case 'negative':
+                    colorValue = 'red'
                     break
-                  case "positive":
-                    colorValue = "green"
+                  case 'positive':
+                    colorValue = 'green'
                     break
-                  case "prominent":
-                    colorValue = "purple"
+                  case 'prominent':
+                    colorValue = 'purple'
                     break
                   default:
-                    colorValue = "gray"
+                    colorValue = 'gray'
                 }
                 return ts.factory.createJsxAttribute(
-                  ts.factory.createIdentifier("color"),
-                  ts.factory.createStringLiteral(colorValue)
+                  ts.factory.createIdentifier('color'),
+                  ts.factory.createStringLiteral(colorValue),
                 )
               }
             }
-            if (ts.isJsxAttribute(attr) && attr.name.getText() === "color") {
+            if (ts.isJsxAttribute(attr) && attr.name.getText() === 'color') {
               hasColor = true
             }
             return attr
@@ -59,8 +58,8 @@ export const transformWellVariantToColor =
             newAttributes = [
               ...newAttributes,
               ts.factory.createJsxAttribute(
-                ts.factory.createIdentifier("color"),
-                ts.factory.createStringLiteral("gray")
+                ts.factory.createIdentifier('color'),
+                ts.factory.createStringLiteral('gray'),
               ),
             ]
           }

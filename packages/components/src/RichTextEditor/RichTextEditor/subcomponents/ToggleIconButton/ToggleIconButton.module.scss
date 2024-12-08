@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/animation";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
+@import '~@kaizen/design-tokens/sass/animation';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
 
 .button {
   border: none;
@@ -21,7 +21,7 @@
   &:focus-visible::after {
     $focus-ring-offset: 3px;
 
-    content: "";
+    content: '';
     position: absolute;
     background: transparent;
     border-radius: $border-focus-ring-border-radius;
@@ -113,7 +113,6 @@
     background-color: transparent;
     border-color: transparent;
     opacity: 100%;
-    outline: $color-purple-800 $border-solid-border-style
-      $border-focus-ring-border-width;
+    outline: $color-purple-800 $border-solid-border-style $border-focus-ring-border-width;
   }
 }

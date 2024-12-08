@@ -1,7 +1,7 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./BaseButton.module.scss"
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './BaseButton.module.scss'
 
 type AnchorAttributes = AnchorHTMLAttributes<HTMLAnchorElement>
 type ButtonAttributes = ButtonHTMLAttributes<HTMLButtonElement>
@@ -26,13 +26,13 @@ export const BaseButton = ({
   const className = classnames(
     styles.baseButton,
     classNameOverride,
-    isReversed ? styles.isReversed : styles.default
+    isReversed ? styles.isReversed : styles.default,
   )
 
   const contentProps = icon
     ? {
-        children: <>{icon}</>,
-        "aria-label": label,
+        'children': <>{icon}</>,
+        'aria-label': label,
       }
     : { children: label }
 
@@ -47,15 +47,10 @@ export const BaseButton = ({
   }
 
   return (
-    <button
-      type="button"
-      className={className}
-      {...restContentProps}
-      {...attributes}
-    >
+    <button type="button" className={className} {...restContentProps} {...attributes}>
       {children}
     </button>
   )
 }
 
-BaseButton.displayName = "BaseButton"
+BaseButton.displayName = 'BaseButton'

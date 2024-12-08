@@ -1,22 +1,22 @@
-import React, { HTMLAttributes } from "react"
-import { FormattedMessage, useIntl } from "@cultureamp/i18n-react-intl"
-import classNames from "classnames"
-import { BrandMoment } from "~components/BrandMoment"
-import { BrandMomentError } from "~components/Illustration"
-import { Text } from "~components/Text"
-import { Icon } from "~components/__future__/Icon"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import { ErrorStatuses, useErrorMessages } from "./hooks"
-import styles from "./ErrorPage.module.scss"
+import React, { HTMLAttributes } from 'react'
+import { FormattedMessage, useIntl } from '@cultureamp/i18n-react-intl'
+import classNames from 'classnames'
+import { BrandMoment } from '~components/BrandMoment'
+import { BrandMomentError } from '~components/Illustration'
+import { Text } from '~components/Text'
+import { Icon } from '~components/__future__/Icon'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import { ErrorStatuses, useErrorMessages } from './hooks'
+import styles from './ErrorPage.module.scss'
 
 const getMailToHref = (code: ErrorStatuses): string => {
-  const supportEmail = "support@cultureamp.com"
-  const subject = "Houston we have a problem"
+  const supportEmail = 'support@cultureamp.com'
+  const subject = 'Houston we have a problem'
   const body = `Hi there,\n\nI received a ${code} error page while I was trying to...`
   return encodeURI(`mailto:${supportEmail}?subject=${subject}&amp;body=${body}`)
 }
 
-const HOME_HREF = "/app/home"
+const HOME_HREF = '/app/home'
 
 export type ErrorPageProps = {
   code: ErrorStatuses
@@ -39,7 +39,7 @@ export const ErrorPage = ({
   const content = useErrorMessages(code)
 
   const actions = {
-    primary: { href: callToAction?.homeHref || HOME_HREF },
+    primary: { href: callToAction?.homeHref ?? HOME_HREF },
     secondary: callToAction?.onContactSupport
       ? { onClick: callToAction.onContactSupport }
       : { href: getMailToHref(code) },
@@ -52,7 +52,7 @@ export const ErrorPage = ({
         body={
           <>
             <div className={styles.paragraphPadding}>
-              <Text variant="intro-lede">{message || content.message}</Text>
+              <Text variant="intro-lede">{message ?? content.message}</Text>
             </div>
             <Text color="dark-reduced-opacity" variant="small">
               <FormattedMessage
@@ -67,31 +67,29 @@ export const ErrorPage = ({
         variant="warning"
         primaryAction={{
           ...actions.primary,
-          icon: (
-            <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
-          ),
-          iconPosition: "end",
+          icon: <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
+          iconPosition: 'end',
           label: formatMessage({
-            id: "kzErrorPage.goToHome",
-            defaultMessage: "Go to Home",
-            description: "Home button label",
+            id: 'kzErrorPage.goToHome',
+            defaultMessage: 'Go to Home',
+            description: 'Home button label',
           }),
         }}
         secondaryAction={{
           ...actions.secondary,
           icon: <Icon name="mail" isPresentational isFilled />,
           label: formatMessage({
-            id: "kzErrorPage",
-            defaultMessage: "Contact support",
-            description: "Label for contact button",
+            id: 'kzErrorPage',
+            defaultMessage: 'Contact support',
+            description: 'Label for contact button',
           }),
         }}
         text={{
-          title: title || content.title,
+          title: title ?? content.title,
         }}
       />
     </div>
   )
 }
 
-ErrorPage.displayName = "ErrorPage"
+ErrorPage.displayName = 'ErrorPage'

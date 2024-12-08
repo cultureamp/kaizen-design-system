@@ -1,6 +1,6 @@
-import React, { HTMLAttributes, cloneElement, useId } from "react"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./MenuList.module.scss"
+import React, { HTMLAttributes, cloneElement, useId } from 'react'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './MenuList.module.scss'
 
 export type MenuListProps = {
   heading?: JSX.Element
@@ -26,4 +26,4 @@ export const MenuList = (props: MenuListProps): JSX.Element => {
   )
 }
 
-MenuList.displayName = "MenuList"
+MenuList.displayName = 'MenuList'

@@ -1,10 +1,10 @@
 export type ToolbarControlTypes =
-  | "bold"
-  | "italic"
-  | "underline"
-  | "orderedList"
-  | "bulletList"
-  | "link"
+  | 'bold'
+  | 'italic'
+  | 'underline'
+  | 'orderedList'
+  | 'bulletList'
+  | 'link'
 
 export type ToolbarItems = {
   name: ToolbarControlTypes
@@ -14,7 +14,7 @@ export type ToolbarItems = {
   group?: string
 }
 
-export type EditorContentArray = Array<{ [key: string]: any }>
+export type EditorContentArray = Record<string, any>[]
 
 export type EditorRows =
   | 1

@@ -1,11 +1,11 @@
-import React, { TextareaHTMLAttributes, useRef, useState } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./TextArea.module.css"
+import React, { TextareaHTMLAttributes, useRef, useState } from 'react'
+import classnames from 'classnames'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './TextArea.module.css'
 
 export type TextAreaProps = {
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
-  status?: "default" | "error" | "caution"
+  status?: 'default' | 'error' | 'caution'
   /**
    * Grows the input height as more content is added
    * Replace with CSS field-sizing once it's supported by all major browsers
@@ -21,7 +21,7 @@ export type TextAreaProps = {
 
 export const TextArea = ({
   textAreaRef: propsTextAreaRef,
-  status = "default",
+  status = 'default',
   autogrow = false,
   reversed = false,
   rows = 3,
@@ -37,11 +37,12 @@ export const TextArea = ({
   // ^ holds an internal state of the value so that autogrow can still work with uncontrolled textareas
   // essentially forces the textarea into an (interally) controlled mode if autogrow is true and mode is uncontrolled
 
-  const controlledValue = value || internalValue
-  const textAreaRef = propsTextAreaRef || useRef(null)
+  const controlledValue = value ?? internalValue
+  const fallbackRef = useRef(null)
+  const textAreaRef = propsTextAreaRef ?? fallbackRef
 
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    propsOnChange && propsOnChange(event)
+    propsOnChange?.(event)
     setInternalValue(event.target.value)
   }
 
@@ -60,7 +61,7 @@ export const TextArea = ({
           {
             [styles.disabled]: disabled,
             [styles.textareaAutogrow]: autogrow,
-          }
+          },
         )}
         rows={rows}
         onChange={onChange}
@@ -75,4 +76,4 @@ export const TextArea = ({
   )
 }
 
-TextArea.displayName = "TextArea"
+TextArea.displayName = 'TextArea'

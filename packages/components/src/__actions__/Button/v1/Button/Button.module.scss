@@ -1,10 +1,10 @@
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/typography";
-@import "../../../../../styles/utils/button-reset";
-@import "../utils/mixins";
-@import "../utils/variables";
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '../../../../../styles/utils/button-reset';
+@import '../utils/mixins';
+@import '../utils/variables';
 
 %button {
   @include button-reset;
@@ -47,7 +47,7 @@
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
 
-      content: "";
+      content: '';
       position: absolute;
       background: transparent;
       border-color: $color-blue-500;
@@ -89,8 +89,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    padding: $button-vertical-padding
-      calc(#{$spacing-md} - #{$border-solid-border-width});
+    padding: $button-vertical-padding calc(#{$spacing-md} - #{$border-solid-border-width});
   }
 }
 
@@ -106,10 +105,7 @@
     border-color: rgba($color-white-rgb, 0.65);
     color: $color-white;
 
-    @include enabled-pseudo-states-variant(
-      rgba($color-white-rgb, 0.1),
-      $color-white
-    );
+    @include enabled-pseudo-states-variant(rgba($color-white-rgb, 0.1), $color-white);
   }
 }
 
@@ -118,20 +114,14 @@
   border-color: $border-borderless-border-color;
   color: $color-white;
 
-  @include enabled-pseudo-states-variant(
-    $color-blue-600,
-    $border-borderless-border-color
-  );
+  @include enabled-pseudo-states-variant($color-blue-600, $border-borderless-border-color);
 
   &.reversed {
     background-color: $color-green-300;
     border-color: $border-borderless-border-color;
     color: $color-purple-800;
 
-    @include enabled-pseudo-states-variant(
-      $color-green-400,
-      $border-borderless-border-color
-    );
+    @include enabled-pseudo-states-variant($color-green-400, $border-borderless-border-color);
   }
 }
 
@@ -140,20 +130,14 @@
   border-color: $border-borderless-border-color;
   color: $color-white;
 
-  @include enabled-pseudo-states-variant(
-    $color-red-600,
-    $border-borderless-border-color
-  );
+  @include enabled-pseudo-states-variant($color-red-600, $border-borderless-border-color);
 
   &.reversed {
     background-color: $color-red-300;
     border-color: $border-borderless-border-color;
     color: $color-purple-800;
 
-    @include enabled-pseudo-states-variant(
-      $color-red-400,
-      $border-borderless-border-color
-    );
+    @include enabled-pseudo-states-variant($color-red-400, $border-borderless-border-color);
   }
 }
 
@@ -167,10 +151,7 @@
   border-color: $border-borderless-border-color;
   color: $color-blue-500;
 
-  @include enabled-pseudo-states-variant(
-    $color-blue-100,
-    $border-borderless-border-color
-  );
+  @include enabled-pseudo-states-variant($color-blue-100, $border-borderless-border-color);
 
   #{$className--content} {
     padding-left: calc(#{$spacing-sm} - #{$border-solid-border-width});
@@ -191,10 +172,7 @@
 %variant-secondary-destructive {
   color: $color-red-600;
 
-  @include enabled-pseudo-states-variant(
-    $color-red-100,
-    $border-borderless-border-color
-  );
+  @include enabled-pseudo-states-variant($color-red-100, $border-borderless-border-color);
 }
 
 %variant-small {

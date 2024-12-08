@@ -1,25 +1,23 @@
-import ts from "typescript"
+import ts from 'typescript'
 import {
   createProp,
   createStringProp,
   createStyleProp,
   getPropValueText,
   updateJsxElementWithNewProps,
-} from "../utils"
+} from '../utils'
 
 const propsToStyleMap = new Map<string, string>([
-  ["color", "color"],
-  ["height", "height"],
-  ["width", "width"],
+  ['color', 'color'],
+  ['height', 'height'],
+  ['width', 'width'],
 ])
 
-const transformPropRole = (
-  oldValue: string
-): ts.JsxAttribute | null | undefined => {
+const transformPropRole = (oldValue: string): ts.JsxAttribute | null | undefined => {
   switch (oldValue) {
-    case "presentation":
-      return createProp("isPresentational")
-    case "img":
+    case 'presentation':
+      return createProp('isPresentational')
+    case 'img':
       // `role` is removed and `aria-label` transforms to `alt`
       return null
     default:
@@ -35,22 +33,23 @@ const transformPropRole = (
  */
 const transformIconProp = (
   propName: string,
-  propValue: ts.JsxAttributeValue | undefined
+  propValue: ts.JsxAttributeValue | undefined,
 ): ts.JsxAttribute | null | undefined => {
   switch (propName) {
-    case "role":
+    case 'role': {
       const oldValue = propValue && getPropValueText(propValue)
       return oldValue ? transformPropRole(oldValue) : undefined
-    case "aria-label":
-      return createProp("alt", propValue)
-    case "classNameOverride":
-      return createProp("className", propValue)
-    // `aria-hidden` is not necessary as `role` will cater for presentational icons
-    case "aria-hidden":
-    // `fontSize` did nothing for svg icons
-    case "fontSize":
-    // `viewBox` no longer relevant
-    case "viewBox":
+    }
+    case 'aria-label':
+      return createProp('alt', propValue)
+    case 'classNameOverride':
+      return createProp('className', propValue)
+    case 'aria-hidden':
+    // (falls through) `aria-hidden` is not necessary as `role` will cater for presentational icons
+    case 'fontSize':
+    // (falls through) `fontSize` did nothing for svg icons
+    case 'viewBox':
+      // `viewBox` no longer relevant
       return null
     default:
       return undefined
@@ -60,22 +59,20 @@ const transformIconProp = (
 export const transformIcon = (
   node: ts.JsxOpeningElement | ts.JsxSelfClosingElement,
   name: string,
-  isFilled?: boolean
+  isFilled?: boolean,
 ): ts.Node => {
-  const styles: Map<string, ts.JsxAttributeValue> = new Map()
+  const styles = new Map<string, ts.JsxAttributeValue>()
 
-  const newAttributes = node.attributes.properties.reduce<
-    ts.JsxAttributeLike[]
-  >((acc, attr) => {
+  const newAttributes = node.attributes.properties.reduce<ts.JsxAttributeLike[]>((acc, attr) => {
     if (ts.isJsxAttribute(attr)) {
       const propName = attr.name.getText()
 
-      if (propName === "inheritSize") {
+      if (propName === 'inheritSize') {
         ts.addSyntheticLeadingComment(
           attr,
           ts.SyntaxKind.SingleLineCommentTrivia,
           ' @todo: Apply the correct --icon-size (eg. in Tailwind: className="[--icon-size:48]")',
-          true
+          true,
         )
         acc.push(attr)
         return acc
@@ -83,7 +80,7 @@ export const transformIcon = (
 
       if (propsToStyleMap.has(propName)) {
         if (attr.initializer) {
-          styles.set(propsToStyleMap.get(propName) as string, attr.initializer)
+          styles.set(propsToStyleMap.get(propName)!, attr.initializer)
         }
         return acc
       }
@@ -107,9 +104,9 @@ export const transformIcon = (
   }
 
   if (isFilled) {
-    newAttributes.unshift(createProp("isFilled"))
+    newAttributes.unshift(createProp('isFilled'))
   }
-  newAttributes.unshift(createStringProp("name", name))
+  newAttributes.unshift(createStringProp('name', name))
 
-  return updateJsxElementWithNewProps(node, newAttributes, "Icon")
+  return updateJsxElementWithNewProps(node, newAttributes, 'Icon')
 }

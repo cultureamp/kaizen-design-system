@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as PopoverStories from "./Popover.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as PopoverStories from './Popover.stories'
 
 <Meta of={PopoverStories} />
 
@@ -30,12 +30,14 @@ User can interact with popover content, including selecting text or clicking lin
 ```jsx
 const [referenceElementRef, Popover] = usePopover()
 
-return (<>
-  <button type="button" ref={referenceElementRef}>
-    Hello world
-  </button>
-  <Popover>Hello world</Popover>
-</>)
+return (
+  <>
+    <button type="button" ref={referenceElementRef}>
+      Hello world
+    </button>
+    <Popover>Hello world</Popover>
+  </>
+)
 ```
 
 The purpose of this hook is to abstract away some of the awkwardness with the
@@ -43,4 +45,4 @@ requirement of passing in refs with popper. We need to use `useState` instead
 of `useRef`, which may not be immediately intuitive.
 
 The popper documentation to help provide more context:
-  https://popper.js.org/react-popper/v2/hook/
+https://popper.js.org/react-popper/v2/hook/

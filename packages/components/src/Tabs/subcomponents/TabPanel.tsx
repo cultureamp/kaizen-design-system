@@ -1,7 +1,7 @@
-import React, { HTMLAttributes, ReactNode } from "react"
-import { TabPanel as ReachTabPanel } from "@reach/tabs"
-import { OverrideClassName } from "~components/types/OverrideClassName"
-import styles from "./TabPanel.module.scss"
+import React, { HTMLAttributes, ReactNode } from 'react'
+import { TabPanel as ReachTabPanel } from '@reach/tabs'
+import { OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './TabPanel.module.scss'
 
 export type TabPanelProps = {
   children: ReactNode
@@ -13,10 +13,7 @@ export type TabPanelProps = {
 export const TabPanel = (props: TabPanelProps): JSX.Element => {
   const { classNameOverride, children, ...restProps } = props
   return (
-    <ReachTabPanel
-      className={(styles.tabPanel, classNameOverride)}
-      {...restProps}
-    >
+    <ReachTabPanel className={(styles.tabPanel, classNameOverride)} {...restProps}>
       {children}
     </ReachTabPanel>
   )

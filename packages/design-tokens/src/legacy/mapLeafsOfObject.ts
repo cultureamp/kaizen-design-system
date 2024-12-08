@@ -1,4 +1,4 @@
-import { DeepMapObjectLeafs } from "../types"
+import { DeepMapObjectLeafs } from '../types'
 
 /**
  * This allows you to map the leaf nodes of an object, and you're provided the path to that leaf as well as the value as parameters to your mapper function.
@@ -23,20 +23,17 @@ import { DeepMapObjectLeafs } from "../types"
 /**
  * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
  */
-export function mapLeafsOfObject<
-  Obj extends Record<string | number, unknown>,
-  Value,
->(
+export function mapLeafsOfObject<Obj extends Record<string | number, unknown>, Value>(
   object: Obj,
-  mapper: (pathToLeaf: string[], value: unknown) => Value
+  mapper: (pathToLeaf: string[], value: unknown) => Value,
 ): DeepMapObjectLeafs<Obj, Value> {
   const recurser = <O extends Record<string | number, unknown>>(
     currentPath: string[],
-    obj: O
+    obj: O,
   ): DeepMapObjectLeafs<O, Value> => {
     const handleEntry = (
       key: string,
-      value: unknown
+      value: unknown,
     ):
       | {
           [x: string]: unknown
@@ -44,7 +41,7 @@ export function mapLeafsOfObject<
         }
       | Value => {
       const pathToKey = [...currentPath, key]
-      if (typeof value === "object" && value !== null && value !== undefined) {
+      if (typeof value === 'object' && value !== null && value !== undefined) {
         return recurser(pathToKey, value as Record<string | number, unknown>)
       }
       return mapper(pathToKey, value)
@@ -55,7 +52,7 @@ export function mapLeafsOfObject<
         ...acc,
         [nextKey]: handleEntry(nextKey, nextValue),
       }),
-      {} as DeepMapObjectLeafs<O, Value>
+      {} as DeepMapObjectLeafs<O, Value>,
     )
   }
   return recurser([], object)

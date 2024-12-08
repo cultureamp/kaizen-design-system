@@ -1,10 +1,10 @@
-import React from "react"
-import { usePopover } from "~components/Popover"
-import { Text } from "~components/Text"
-import { Icon } from "~components/__future__/Icon"
-import { SelectionPosition } from "../../types"
-import { Positioner } from "./Positioner"
-import styles from "./LinkPopover.module.scss"
+import React from 'react'
+import { usePopover } from '~components/Popover'
+import { Text } from '~components/Text'
+import { Icon } from '~components/__future__/Icon'
+import { SelectionPosition } from '../../types'
+import { Positioner } from './Positioner'
+import styles from './LinkPopover.module.scss'
 
 export type LinkPopoverProps = {
   href?: string
@@ -28,14 +28,10 @@ export const LinkPopover = ({
         <div className={styles.popoverContent}>
           <Icon name="open_in_new" isPresentational />
           <div className={styles.popoverLinkContainer}>
-            <Text
-              variant="body"
-              tag="div"
-              classNameOverride={styles.paragraphFlex}
-            >
+            <Text variant="body" tag="div" classNameOverride={styles.paragraphFlex}>
               <a
                 className={styles.popoverLink}
-                href={href != null ? href : undefined}
+                href={href}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -53,4 +49,4 @@ export const LinkPopover = ({
   )
 }
 
-LinkPopover.displayName = "LinkPopover"
+LinkPopover.displayName = 'LinkPopover'

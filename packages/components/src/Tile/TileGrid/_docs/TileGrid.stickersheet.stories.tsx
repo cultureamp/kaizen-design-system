@@ -1,14 +1,11 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { InformationTile } from "~components/Tile"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { TileGrid } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { InformationTile } from '~components/Tile'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { TileGrid } from '../index'
 
 export default {
-  title: "Components/Tiles/TileGrid",
+  title: 'Components/Tiles/TileGrid',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -114,5 +111,5 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }

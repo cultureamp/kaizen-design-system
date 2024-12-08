@@ -1,12 +1,12 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { LoadingSpinner } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { LoadingSpinner } from '../index'
 
 const meta = {
-  title: "Components/Loading states/LoadingSpinner",
+  title: 'Components/Loading states/LoadingSpinner',
   component: LoadingSpinner,
   args: {
-    accessibilityLabel: "Loading",
+    accessibilityLabel: 'Loading',
   },
 } satisfies Meta<typeof LoadingSpinner>
 
@@ -18,18 +18,18 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
 }
 
 export const ClassNameOverride: Story = {
-  args: { classNameOverride: "text-green-400" },
+  args: { classNameOverride: 'text-green-400' },
 }
 
 export const Colors: Story = {
-  render: args => (
+  render: (args) => (
     <>
       <LoadingSpinner {...args} classNameOverride="text-green-400" />
       <LoadingSpinner {...args} classNameOverride="text-purple-800" />
@@ -38,7 +38,7 @@ export const Colors: Story = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-24">
         <Story />
       </div>
@@ -47,7 +47,7 @@ export const Colors: Story = {
 }
 
 export const Size: Story = {
-  render: args => (
+  render: (args) => (
     <>
       <LoadingSpinner {...args} size="xs" />
       <LoadingSpinner {...args} size="sm" />
@@ -55,7 +55,7 @@ export const Size: Story = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-24">
         <Story />
       </div>

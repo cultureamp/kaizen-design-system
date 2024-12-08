@@ -1,1 +1,1 @@
-export * from "./MenuTriggerProvider"
+export * from './MenuTriggerProvider'

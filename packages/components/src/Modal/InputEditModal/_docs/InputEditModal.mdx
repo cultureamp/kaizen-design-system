@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
-import * as InputEditModalStories from "./InputEditModal.stories"
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as InputEditModalStories from './InputEditModal.stories'
 
 <Meta of={InputEditModalStories} />
 
@@ -36,4 +36,3 @@ There are instances, such as single input modals, where shifting focus may not i
 <Canvas of={InputEditModalStories.OnAfterEnter} sourceState="shown" />
 
 As both the button and input label have clear intent and the focus does not skip past crucial content, this should provide enough context for an end user.
-

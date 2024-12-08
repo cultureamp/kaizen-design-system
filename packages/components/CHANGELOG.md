@@ -1,5 +1,29 @@
 # Change Log
 
+## 1.68.9
+
+### Patch Changes
+
+- [#5305](https://github.com/cultureamp/kaizen-design-system/pull/5305) [`b2044e3`](https://github.com/cultureamp/kaizen-design-system/commit/b2044e381f101629e60c478ccf979af04af17082) - Update deps for package-bundler.
+
+## 1.68.8
+
+### Patch Changes
+
+- [#5321](https://github.com/cultureamp/kaizen-design-system/pull/5321) [`d67d3b2`](https://github.com/cultureamp/kaizen-design-system/commit/d67d3b2996c28f86376213472c13895ff744d805) - Update react-aria deps.
+
+- [#5319](https://github.com/cultureamp/kaizen-design-system/pull/5319) [`253e663`](https://github.com/cultureamp/kaizen-design-system/commit/253e66395ebadd6d7159cf1c7f9f40e5b232ab14) - Update dep `uuid` to `^11.0.3`.
+
+- [#5320](https://github.com/cultureamp/kaizen-design-system/pull/5320) [`b4af064`](https://github.com/cultureamp/kaizen-design-system/commit/b4af06472147d3a088cfcb433b083b1ddb5b0c98) - Update prosemirror deps.
+
+## 1.68.7
+
+### Patch Changes
+
+- [#5339](https://github.com/cultureamp/kaizen-design-system/pull/5339) [`55330ea`](https://github.com/cultureamp/kaizen-design-system/commit/55330ea18746ae80bd234a07251573107b6f61cd) - Upgrade dep eslint to v9.
+
+  This should not have any impact on consumers, but releasing a patch as source code has been updated with linting fixes.
+
 ## 1.68.6
 
 ### Patch Changes

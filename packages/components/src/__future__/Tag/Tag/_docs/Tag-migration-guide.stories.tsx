@@ -1,22 +1,22 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { fn } from "@storybook/test"
-import { Avatar } from "~components/Avatar"
-import { LiveIcon } from "~components/Icon"
-import styles from "~components/Tag/Tag.module.scss"
-import { Icon } from "~components/__future__/Icon"
-import { Tag, RemovableTag } from "../.."
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import { Avatar } from '~components/Avatar'
+import { LiveIcon } from '~components/Icon'
+import styles from '~components/Tag/Tag.module.scss'
+import { Icon } from '~components/__future__/Icon'
+import { Tag, RemovableTag } from '../..'
 
 const meta = {
-  title: "Components/Tag/Future Tag Migration Guide",
+  title: 'Components/Tag/Future Tag Migration Guide',
   component: Tag,
   args: {
-    children: "My tag",
+    children: 'My tag',
   },
   parameters: {
     docs: {
       source: {
-        type: "dynamic",
+        type: 'dynamic',
       },
     },
   },
@@ -67,7 +67,7 @@ export const LiveIconComponentStory: StoryObj = {
   parameters: {
     docs: {
       source: {
-        type: "dynamic",
+        type: 'dynamic',
         code: `
   // component with styled with CSS modules
   const LiveIconComponent = (): JSX.Element => (
@@ -130,7 +130,7 @@ export const StatusMigration: StoryObj = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-12">
         <Story />
       </div>
@@ -141,10 +141,7 @@ export const StatusMigration: StoryObj = {
 export const ValidationMigration: StoryObj = {
   render: () => (
     <>
-      <Tag
-        color="green"
-        icon={<Icon name="check_circle" isFilled alt="Success," />}
-      >
+      <Tag color="green" icon={<Icon name="check_circle" isFilled alt="Success," />}>
         Tag
       </Tag>
       <Tag color="blue" icon={<Icon name="info" isFilled alt="Note," />}>
@@ -153,16 +150,13 @@ export const ValidationMigration: StoryObj = {
       <Tag color="red" icon={<Icon name="error" isFilled alt="Error," />}>
         Tag
       </Tag>
-      <Tag
-        color="yellow"
-        icon={<Icon name="warning" isFilled alt="Warning," />}
-      >
+      <Tag color="yellow" icon={<Icon name="warning" isFilled alt="Warning," />}>
         Tag
       </Tag>
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-12">
         <Story />
       </div>
@@ -182,7 +176,7 @@ export const SentimentsMigration: StoryObj = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-12">
         <Story />
       </div>
@@ -192,10 +186,7 @@ export const SentimentsMigration: StoryObj = {
 
 export const SentimentNone: StoryObj = {
   render: () => (
-    <Tag
-      color="gray"
-      classNameOverride="bg-white border-default-color border-solid border"
-    >
+    <Tag color="gray" classNameOverride="bg-white border-default-color border-solid border">
       Tag
     </Tag>
   ),
@@ -205,7 +196,7 @@ export const DismissibleMigration: StoryObj = {
   render: () => (
     <RemovableTag
       removeButtonProps={{
-        ariaLabel: "Remove this tag",
+        ariaLabel: 'Remove this tag',
         onClick: fn(),
       }}
     >
@@ -242,7 +233,7 @@ export const AvatarMigration: StoryObj = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-12">
         <Story />
       </div>
@@ -255,7 +246,7 @@ export const AvatarRemovableMigration: StoryObj = {
     <>
       <RemovableTag
         removeButtonProps={{
-          ariaLabel: "Remove user from *this context*",
+          ariaLabel: 'Remove user from *this context*',
           onClick: fn(),
         }}
         classNameOverride="ps-4"
@@ -267,7 +258,7 @@ export const AvatarRemovableMigration: StoryObj = {
       </RemovableTag>
       <RemovableTag
         removeButtonProps={{
-          ariaLabel: "Remove Reed Richards from *this context*",
+          ariaLabel: 'Remove Reed Richards from *this context*',
           onClick: fn(),
         }}
         classNameOverride="ps-4"
@@ -279,7 +270,7 @@ export const AvatarRemovableMigration: StoryObj = {
       </RemovableTag>
       <RemovableTag
         removeButtonProps={{
-          ariaLabel: "Remove Sue Storm from *this context*",
+          ariaLabel: 'Remove Sue Storm from *this context*',
           onClick: fn(),
         }}
         classNameOverride="ps-4"
@@ -296,7 +287,7 @@ export const AvatarRemovableMigration: StoryObj = {
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-12">
         <Story />
       </div>

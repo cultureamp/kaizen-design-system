@@ -1,8 +1,8 @@
-import React from "react"
-import classnames from "classnames"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { Icon } from "~components/__future__/Icon"
-import styles from "./ProgressStepper.module.css"
+import React from 'react'
+import classnames from 'classnames'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { Icon } from '~components/__future__/Icon'
+import styles from './ProgressStepper.module.css'
 
 export type Step = {
   id: string
@@ -13,7 +13,7 @@ export type Steps = [Step, ...Step[]]
 
 export type ProgressStepperProps = {
   /** The id reference to within a Step object */
-  currentStepId: Step["id"]
+  currentStepId: Step['id']
   /** A non-empty array of Steps */
   steps: Steps
   isComplete?: boolean
@@ -23,7 +23,7 @@ const getStepStatus = (
   isComplete: boolean,
   isCurrentStep: boolean,
   step: Step,
-  index: number
+  index: number,
 ): {
   icon: JSX.Element
   accessibleName: string
@@ -52,17 +52,11 @@ export const ProgressStepper = ({
   isComplete = false,
   ...restprops
 }: ProgressStepperProps): JSX.Element => {
-  const currentStepIndex = steps.findIndex(
-    stepItem => stepItem.id === currentStepId
-  )
+  const currentStepIndex = steps.findIndex((stepItem) => stepItem.id === currentStepId)
 
   return (
     <div className={styles.stepsContainer}>
-      <ol
-        className={styles.stepList}
-        {...restprops}
-        aria-labelledby="stepper-description"
-      >
+      <ol className={styles.stepList} {...restprops} aria-labelledby="stepper-description">
         {steps.map((step, index: number) => {
           const isCurrentStep = currentStepIndex === index
           const isCompletedStep = index < currentStepIndex || isComplete
@@ -70,14 +64,10 @@ export const ProgressStepper = ({
             isCompletedStep,
             isCurrentStep,
             step,
-            index
+            index,
           )
           return (
-            <li
-              className={styles.step}
-              key={`${step.id}`}
-              aria-current={isCurrentStep}
-            >
+            <li className={styles.step} key={`${step.id}`} aria-current={isCurrentStep}>
               <div className={styles.stepContent}>
                 <VisuallyHidden>
                   {/* will need to be translated */}
@@ -120,4 +110,4 @@ export const ProgressStepper = ({
   )
 }
 
-ProgressStepper.displayName = "Workflow.ProgressStepper"
+ProgressStepper.displayName = 'Workflow.ProgressStepper'

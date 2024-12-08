@@ -1,12 +1,12 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { VisuallyHidden } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { VisuallyHidden } from '../index'
 
 const meta = {
-  title: "Components/Visually Hidden",
+  title: 'Components/Visually Hidden',
   component: VisuallyHidden,
   args: {
-    children: "👋 Hello!",
+    children: '👋 Hello!',
   },
 } satisfies Meta<typeof VisuallyHidden>
 
@@ -18,14 +18,14 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },
-  render: args => (
+  render: (args) => (
     <div>
-      There is visually hidden text between the two brackets (click &quot;Show
-      code&quot; to see more): [<VisuallyHidden {...args} />]
+      There is visually hidden text between the two brackets (click &quot;Show code&quot; to see
+      more): [<VisuallyHidden {...args} />]
     </div>
   ),
 }

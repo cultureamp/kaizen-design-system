@@ -27,8 +27,7 @@
   top: -1px;
   transition:
     opacity var(--animation-duration-slow) ease,
-    margin-top var(--animation-duration-fast) var(--animation-duration-slow)
-      ease;
+    margin-top var(--animation-duration-fast) var(--animation-duration-slow) ease;
   color: var(--color-purple-800);
 
   @media (width >= 1024px) {

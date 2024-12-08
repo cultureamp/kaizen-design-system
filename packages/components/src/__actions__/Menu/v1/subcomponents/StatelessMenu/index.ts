@@ -1,1 +1,1 @@
-export * from "./StatelessMenu"
+export * from './StatelessMenu'

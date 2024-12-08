@@ -1,14 +1,14 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { Button } from "~components/__actions__/v2"
-import { Icon } from "~components/__future__/Icon"
-import { Menu } from "../index"
-import { MenuHeading } from "../subcomponents/MenuHeading"
-import { MenuItem } from "../subcomponents/MenuItem"
-import { MenuList } from "../subcomponents/MenuList"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { Button } from '~components/__actions__/v2'
+import { Icon } from '~components/__future__/Icon'
+import { Menu } from '../index'
+import { MenuHeading } from '../subcomponents/MenuHeading'
+import { MenuItem } from '../subcomponents/MenuItem'
+import { MenuList } from '../subcomponents/MenuList'
 
 const meta = {
-  title: "Actions/Menu/v1",
+  title: 'Actions/Menu/v1',
   component: Menu,
   args: {
     button: (
@@ -22,7 +22,7 @@ const meta = {
       <MenuList>
         <MenuItem
           onClick={() => {
-            alert("Duplicated!")
+            alert('Duplicated!')
           }}
           icon={<Icon name="content_copy" isPresentational isFilled />}
           label="Duplicate item"
@@ -50,7 +50,7 @@ export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: 'shown',
       },
     },
   },

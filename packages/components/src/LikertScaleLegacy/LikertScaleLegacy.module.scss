@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/spacing";
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/spacing';
 
 /* stylelint-disable no-descending-specificity */
 @mixin respond-to($media) {
@@ -100,8 +100,7 @@ $blue-fifth: $color-blue-500;
 
 .likertItem:focus-visible .likertItemFill {
   outline-offset: 1px;
-  outline: $color-blue-500 $border-focus-ring-border-style
-    $border-focus-ring-border-width;
+  outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
 }
 
 .reversed .likertItem:focus-visible .likertItemFill {
@@ -152,7 +151,7 @@ $blue-fifth: $color-blue-500;
   // Hack to bridge the gaps between items so mouse always hovers on something
   &::before,
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     right: 100%;
@@ -266,7 +265,7 @@ $blue-fifth: $color-blue-500;
   }
 
   &::after {
-    content: " ";
+    content: ' ';
     display: block;
     height: 100%;
     width: 100%;
@@ -293,7 +292,7 @@ $blue-fifth: $color-blue-500;
   .likertItem1 & {
     margin-left: -9px;
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       margin-left: -11px;
     }
   }
@@ -301,7 +300,7 @@ $blue-fifth: $color-blue-500;
   .likertItem5 & {
     margin-left: -12px;
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       margin-left: -9px;
     }
   }
