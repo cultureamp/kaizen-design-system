@@ -105,6 +105,19 @@ Removes `Popover` component props `variant` and `customIcon`.
 
 ### `upgradeIconV1`
 
+Released in `TBC`
+
+Migrates `IconButton` component to `Button` V3.
+
+- `hasHiddenLabel` will be added
+- `label` becomes `children`
+  - eg. `<IconButton label="Hello" />` becomes `<Button>Hello</Button>`
+- `onClick` becomes `onPress`
+- `reversed` becomes `isReversed`
+- Imports are updated
+
+### `upgradeIconV1`
+
 Released in `1.67.0`; last updated in `1.68.1`
 
 Migrates `*Icon` components to a new equivalent.
