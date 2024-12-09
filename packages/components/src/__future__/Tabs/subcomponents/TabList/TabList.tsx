@@ -1,7 +1,6 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import classnames from 'classnames'
 import { TabList as RACTabList, TabListProps as RACTabListProps } from 'react-aria-components'
-import { Button } from '~components/__actions__/v3'
 import { Icon } from '~components/__future__/Icon'
 import styles from './TabList.module.css'
 
@@ -25,6 +24,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
   const [isDocumentReady, setIsDocumentReady] = useState<boolean>(false)
   const [leftArrowEnabled, setLeftArrowEnabled] = useState<boolean>(false)
   const [rightArrowEnabled, setRightArrowEnabled] = useState<boolean>(false)
+  const tabListRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     if (!isDocumentReady) {
@@ -63,8 +63,6 @@ export const TabList = (props: TabListProps): JSX.Element => {
     lastTabObserver.observe(tabs[tabs.length - 1])
   }, [isDocumentReady])
 
-  const tabListRef = useRef<HTMLDivElement | null>(null)
-
   const handleArrowPress = (direction: 'left' | 'right'): void => {
     if (tabListRef.current) {
       const scrollAmount = 120
@@ -78,16 +76,13 @@ export const TabList = (props: TabListProps): JSX.Element => {
   return (
     <div className={styles.container}>
       {leftArrowEnabled && (
-        <Button
-          hasHiddenLabel
-          icon={<Icon name="chevron_left" isPresentational />}
-          onPress={() => handleArrowPress('left')}
-          variant="tertiary"
-          className={styles.leftArrow}
-          excludeFromTabOrder
-        >
-          Slide tab list left
-        </Button>
+        // making a conscious decision to use <div onClick> over <button> here, because:
+        // - <button> would add pointless noise for a screen reader user
+        // - keyboard only user can toggle through tabs with left/right arrow keys already
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+        <div onClick={() => handleArrowPress('left')} className={styles.leftArrow}>
+          <Icon name="chevron_left" isPresentational />
+        </div>
       )}
       <RACTabList
         aria-label={ariaLabel}
@@ -98,16 +93,10 @@ export const TabList = (props: TabListProps): JSX.Element => {
         {children}
       </RACTabList>
       {rightArrowEnabled && (
-        <Button
-          hasHiddenLabel
-          icon={<Icon name="chevron_right" isPresentational />}
-          onPress={() => handleArrowPress('right')}
-          variant="tertiary"
-          className={styles.rightArrow}
-          excludeFromTabOrder
-        >
-          Slide tab list right
-        </Button>
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+        <div onClick={() => handleArrowPress('right')} className={styles.rightArrow}>
+          <Icon name="chevron_right" isPresentational />
+        </div>
       )}
     </div>
   )
