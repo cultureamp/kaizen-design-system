@@ -22,12 +22,13 @@ const meta = {
 } satisfies Meta<typeof Tag>
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const LiveIconComponentStory: StoryObj = {
+export const LiveIconComponentStory: Story = {
   render: () => <LiveIcon />,
 }
 
-export const StatusMigration: StoryObj = {
+export const StatusMigration: Story = {
   render: () => (
     <>
       <Tag classNameOverride="gap-4" color="green">
@@ -48,7 +49,7 @@ export const StatusMigration: StoryObj = {
   ],
 }
 
-export const ValidationMigration: StoryObj = {
+export const ValidationMigration: Story = {
   render: () => (
     <>
       <Tag color="green" icon={<Icon name="check_circle" isFilled alt="Success," />}>
@@ -74,7 +75,7 @@ export const ValidationMigration: StoryObj = {
   ],
 }
 
-export const SentimentsMigration: StoryObj = {
+export const SentimentsMigration: Story = {
   render: () => (
     <>
       <Tag color="green">Tag</Tag>
@@ -94,7 +95,7 @@ export const SentimentsMigration: StoryObj = {
   ],
 }
 
-export const SentimentNone: StoryObj = {
+export const SentimentNone: Story = {
   render: () => (
     <Tag color="gray" classNameOverride="bg-white border-default-color border-solid border">
       Tag
@@ -102,7 +103,7 @@ export const SentimentNone: StoryObj = {
   ),
 }
 
-export const DismissibleMigration: StoryObj = {
+export const DismissibleMigration: Story = {
   render: () => (
     <RemovableTag
       removeButtonProps={{
@@ -115,7 +116,7 @@ export const DismissibleMigration: StoryObj = {
   ),
 }
 
-export const AvatarMigration: StoryObj = {
+export const AvatarMigration: Story = {
   render: () => (
     <>
       <Tag classNameOverride="ps-4">
@@ -151,7 +152,7 @@ export const AvatarMigration: StoryObj = {
   ],
 }
 
-export const AvatarRemovableMigration: StoryObj = {
+export const AvatarRemovableMigration: Story = {
   render: () => (
     <>
       <RemovableTag
@@ -205,7 +206,7 @@ export const AvatarRemovableMigration: StoryObj = {
   ],
 }
 
-export const InlineMigration: StoryObj = {
+export const InlineMigration: Story = {
   render: () => (
     <div className="flex gap-12">
       <Tag>Tag</Tag>
@@ -215,4 +216,4 @@ export const InlineMigration: StoryObj = {
   ),
 }
 
-export const SizesMigration: StoryObj = {}
+export const SizesMigration: Story = {}
