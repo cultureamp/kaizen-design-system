@@ -30,10 +30,6 @@
   inset-block: 0 1px;
   width: 48px;
   cursor: default;
-
-  &:hover {
-    background: var(--color-blue-100);
-  }
 }
 
 .leftArrow {
@@ -52,4 +48,9 @@
 .rightArrow,
 .rightArrow:hover {
   border-inline-start: 1px solid rgba(var(--color-gray-600-rgb), 0.1);
+}
+
+.leftArrow:hover,
+.rightArrow:hover {
+  background: var(--color-blue-100);
 }
