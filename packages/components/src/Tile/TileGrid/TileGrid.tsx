@@ -1,4 +1,4 @@
-import React, { Children, HTMLAttributes, ReactElement, ReactNode, useId } from 'react'
+import React, { Children, HTMLAttributes, ReactElement } from 'react'
 import classnames from 'classnames'
 import { OverrideClassName } from '~components/types/OverrideClassName'
 import { InformationTileProps } from '../InformationTile'
@@ -22,14 +22,13 @@ export const TileGrid = ({
   classNameOverride,
   ...restProps
 }: TileGridProps): JSX.Element => {
-  const tileGridBaseId = useId()
   const child = Children.only(children)
 
   return (
     <ul className={classnames(styles.grid, classNameOverride)} data-tile-grid {...restProps}>
       {Array.isArray(child.props.children) ? (
         child.props.children.map((tile: TileElement, index) => (
-          <li className={classnames(styles.li)} key={`${tileGridBaseId}-${index}`}>
+          <li className={classnames(styles.li)} key={`${tile.props.title}-${index}`}>
             {tile}
           </li>
         ))
