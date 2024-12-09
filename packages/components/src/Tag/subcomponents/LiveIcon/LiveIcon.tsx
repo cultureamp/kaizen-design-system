@@ -3,13 +3,18 @@
 
 import React from 'react'
 import { SVG } from '~components/Icon/subcomponents/SVG'
-import type { IconProps } from '~components/Icon/types'
 import styles from './LiveIcon.module.css'
 
-const LiveIconSvg = (props: IconProps): JSX.Element => (
+type LiveIconSvgProps = { classNameOverride: string }
+
+const LiveIconSvg = ({ classNameOverride }: LiveIconSvgProps): JSX.Element => (
   <SVG
-    // add the attributes that do not differ between your usages eg. role
-    {...props}
+    role="presentation"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    classNameOverride={classNameOverride}
   >
     <path
       stroke="currentColor"
@@ -31,37 +36,9 @@ const LiveIconSvg = (props: IconProps): JSX.Element => (
 
 export const LiveIcon = (): JSX.Element => (
   <span className={styles.liveIcon}>
-    <LiveIconSvg
-      role="presentation"
-      classNameOverride={styles.liveIcon_base}
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-    />
-    <LiveIconSvg
-      role="presentation"
-      classNameOverride={styles.liveIcon_1}
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-    />
-    <LiveIconSvg
-      role="presentation"
-      classNameOverride={styles.liveIcon_2}
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-    />
-    <LiveIconSvg
-      role="presentation"
-      classNameOverride={styles.liveIcon_3}
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-    />
+    <LiveIconSvg classNameOverride={styles.liveIcon_base} />
+    <LiveIconSvg classNameOverride={styles.liveIcon_1} />
+    <LiveIconSvg classNameOverride={styles.liveIcon_2} />
+    <LiveIconSvg classNameOverride={styles.liveIcon_3} />
   </span>
 )
