@@ -79,6 +79,8 @@ export const FlipOneNotOthers: Story = {
   },
 }
 
+// @Zystix: Add Chromatic flag to tests or add to stickersheet.
+
 // Does it work with one tile
 export const OneTile: Story = {
   args: {

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactElement } from 'react'
+import React, { HTMLAttributes, ReactElement, ReactNode } from 'react'
 import classnames from 'classnames'
 import { OverrideClassName } from '~components/types/OverrideClassName'
 import { InformationTileProps } from '../InformationTile'
@@ -22,42 +22,34 @@ export const TileGrid = ({
   classNameOverride,
   ...restProps
 }: TileGridProps): JSX.Element => {
-  if (Array.isArray(children)) {
-    return (
-      <ul className={classnames(styles.grid, classNameOverride)} data-tile-grid {...restProps}>
-        {children.map((tile: TileElement, index) => (
-          <li className={classnames(styles.li)} key={`${tile.props.title}-${index}`}>
-            {tile}
-          </li>
-        ))}
-      </ul>
-    )
-  }
+  const isFragment = !Array.isArray(children) && children.type === React.Fragment
 
   return (
     <ul className={classnames(styles.grid, classNameOverride)} data-tile-grid {...restProps}>
-      {children.type === React.Fragment ? (
+      {isFragment ? (
         children?.props?.children ? (
-          Array.isArray(children.props.children) ? (
-            children.props.children.map((tile: TileElement, index) => (
-              <li className={classnames(styles.li)} key={`${tile.props.title}-${index}`}>
-                {tile}
-              </li>
-            ))
-          ) : (
-            <li className={classnames(styles.li)}>{children}</li>
-          )
+          <TileListItem tiles={children.props.children} />
         ) : null
       ) : (
-        <li className={classnames(styles.li)}>{children}</li>
+        <TileListItem tiles={children} />
       )}
     </ul>
   )
 }
 TileGrid.displayName = 'TileGrid'
 
-/*
-const TileListItem = () => {
+type TileListItemProps = { tiles: ReactNode }
 
+const TileListItem = ({ tiles }: TileListItemProps): JSX.Element => {
+  if (Array.isArray(tiles)) {
+    return (
+      <>
+        {tiles.map((tile: TileElement, index) => (
+          <li key={`${tile.props.title}-${index}`}>{tile}</li>
+        ))}
+      </>
+    )
+  }
+
+  return <li>{tiles}</li>
 }
-*/

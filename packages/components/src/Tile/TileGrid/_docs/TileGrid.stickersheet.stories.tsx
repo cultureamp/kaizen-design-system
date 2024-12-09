@@ -105,6 +105,46 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
         </TileGrid>
       </StickerSheet.Row>
+      <StickerSheet.Row header="Single Tile">
+        <TileGrid>
+          <InformationTile
+            title="Title"
+            metadata="Side A"
+            information="Side B"
+            footer={<>Footer</>}
+          />
+        </TileGrid>
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Fragment">
+        <TileGrid>
+          <>
+            <InformationTile
+              title="Title"
+              metadata="Side A"
+              information="Side B"
+              footer={<>Footer</>}
+            />
+            <InformationTile
+              title="Title"
+              metadata="Side A"
+              information="Side B"
+              footer={<>Footer</>}
+            />
+            <InformationTile
+              title="Title"
+              metadata="Side A"
+              information="Side B"
+              footer={<>Footer</>}
+            />
+            <InformationTile
+              title="Title"
+              metadata="Side A"
+              information="Side B"
+              footer={<>Footer</>}
+            />
+          </>
+        </TileGrid>
+      </StickerSheet.Row>
     </StickerSheet>
   ),
 }
