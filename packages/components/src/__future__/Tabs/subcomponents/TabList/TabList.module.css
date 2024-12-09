@@ -19,13 +19,21 @@
 
 .leftArrow,
 .rightArrow {
-  --button-bg-color: var(--color-white);
+  --icon-size: 24;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   z-index: 10000;
+  background: var(--color-white);
   inset-block: 0 1px;
-  border-radius: 0;
   width: 48px;
+  cursor: default;
+
+  &:hover {
+    background: var(--color-blue-100);
+  }
 }
 
 .leftArrow {
