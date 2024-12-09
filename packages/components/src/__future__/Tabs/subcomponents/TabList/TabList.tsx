@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react'
+import React, { ReactNode, useEffect, useId, useRef, useState } from 'react'
 import classnames from 'classnames'
 import { TabList as RACTabList, TabListProps as RACTabListProps } from 'react-aria-components'
 import { Icon } from '~components/__future__/Icon'
@@ -25,6 +25,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
   const [leftArrowEnabled, setLeftArrowEnabled] = useState<boolean>(false)
   const [rightArrowEnabled, setRightArrowEnabled] = useState<boolean>(false)
   const tabListRef = useRef<HTMLDivElement | null>(null)
+  const tabListId = useId()
 
   useEffect(() => {
     if (!isDocumentReady) {
@@ -32,7 +33,12 @@ export const TabList = (props: TabListProps): JSX.Element => {
       return
     }
 
-    const tabs = document.querySelectorAll('[data-kz-tab]')
+    const container = document.getElementById(tabListId)
+    const tabs = container?.querySelectorAll('[data-kz-tab]')
+
+    if (!tabs) {
+      return
+    }
 
     const firstTabObserver = new IntersectionObserver(
       (entries) => {
@@ -61,7 +67,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
       },
     )
     lastTabObserver.observe(tabs[tabs.length - 1])
-  }, [isDocumentReady])
+  }, [isDocumentReady, tabListId])
 
   const handleArrowPress = (direction: 'left' | 'right'): void => {
     if (tabListRef.current) {
@@ -74,7 +80,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id={tabListId}>
       {leftArrowEnabled && (
         // making a conscious decision to use <div onClick> over <button> here, because:
         // - <button> would add pointless noise for a screen reader user
