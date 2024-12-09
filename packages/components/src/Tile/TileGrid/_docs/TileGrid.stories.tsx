@@ -104,6 +104,46 @@ export const OneTile: Story = {
 
 // Multiple tiles
 export const MultipleTiles: Story = {
+  render: () => {
+    return (
+      <TileGrid>
+        <InformationTile
+          title="Title A"
+          metadata="Side A"
+          information="Side A - Back"
+          footer={<>Footer</>}
+        />
+        <InformationTile
+          title="Title B"
+          metadata="Side B"
+          information="Side B - Back"
+          footer={<>Footer</>}
+        />
+        <InformationTile
+          title="Title C"
+          metadata="Side C"
+          information="Side C - Back"
+          footer={<>Footer</>}
+        />
+      </TileGrid>
+    )
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+
+    await step('All Tiles marked up as individual <li> elements', async () => {
+      await waitFor(() => {
+        const listOfTiles = canvas.getByRole('list')
+        const { getAllByRole } = within(listOfTiles)
+        const tiles = getAllByRole('listitem')
+
+        expect(tiles.length).toBe(3)
+      })
+    })
+  },
+}
+
+export const Fragment: Story = {
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
 
