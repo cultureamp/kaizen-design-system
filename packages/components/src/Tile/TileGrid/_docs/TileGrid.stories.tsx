@@ -94,7 +94,7 @@ export const OneTile: Story = {
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
 
-    await step('initial render complete', async () => {
+    await step('Tile renders as <li>', async () => {
       await waitFor(() => {
         expect(canvas.getByRole('listitem')).toBeInTheDocument()
       })
@@ -107,7 +107,7 @@ export const MultipleTiles: Story = {
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
 
-    await step('initial render complete', async () => {
+    await step('All Tiles marked up as individual <li> elements', async () => {
       await waitFor(() => {
         const listOfTiles = canvas.getByRole('list')
         const { getAllByRole } = within(listOfTiles)

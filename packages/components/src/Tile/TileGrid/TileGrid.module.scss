@@ -3,6 +3,7 @@
 @import '../subcomponents/GenericTile/variables';
 
 .grid {
+  list-style-type: none;
   display: grid;
   // the more we shave off the width here,
   // the less the tiles will grow when they lose one from the row
