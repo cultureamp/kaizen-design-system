@@ -15,7 +15,7 @@ Updated Nov 19, 2024
   designGuidelines="/?path=/docs/actions-button-button-v3-usage-guidelines--docs"
 />
 
-<KAIOInstallation exportNames={['Button']} family="actions" version="3" />
+<KAIOInstallation exportNames={'Button'} family="actions" version="3" />
 
 ## Overview
 
@@ -50,7 +50,7 @@ The following example and table showcases the essential props that enable the co
 
 The `Button` component does not support the `href` property or have any inbuilt routing support. This component is intended as a semantic button and should only be used to perform actions on a page. We advise against passing in an `anchor` tag as a child of the `Button` as this can lead to accessibility issues.
 
-A separate [LinkButton](?path=/docs/actions-linkbutton-linkbutton-v3-api-specification--docs) component has been created to handle page navigation and client side routing.
+A separate <LinkTo pageId="actions-linkbutton-linkbutton-v3-api-specification--docs">LinkButton</LinkTo> component has been created to handle page navigation and client side routing.
 
 ## API
 
@@ -93,7 +93,7 @@ One key change to the `Button`&apos;s API is the shift from `onClick` to React A
 Functionally this does not change the way we pass actions into `Button`. Consumers can safely replace `onClick` with `onPress` without any additional changes, ie:
 
 ```tsx
-<Button label="Submit" onClick={(e) => sumbit(e)} />
+<Button label="Submit" onClick={(e) => submit(e)} />
 ```
 
 Can safely be replaced with the following:
