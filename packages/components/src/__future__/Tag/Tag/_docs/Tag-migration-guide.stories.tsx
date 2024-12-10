@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { Avatar } from '~components/Avatar'
-import { LiveIcon } from '~components/Tag/subcomponents/LiveIcon'
+import { LiveIcon } from '~components/Tag'
 import { Icon } from '~components/__future__/Icon'
 import { Tag, RemovableTag } from '../..'
 
@@ -26,6 +26,19 @@ type Story = StoryObj<typeof meta>
 
 export const LiveIconComponentStory: Story = {
   render: () => <LiveIcon />,
+  parameters: {
+    docs: {
+      source: {
+        type: 'dynamic',
+        code: `
+          import { LiveIcon } from '@kaizen/components'
+
+// ... Application Code
+return <LiveIcon />
+        `,
+      },
+    },
+  },
 }
 
 export const StatusMigration: Story = {
