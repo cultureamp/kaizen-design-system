@@ -34,6 +34,8 @@ const LiveIconSvg = ({ classNameOverride }: LiveIconSvgProps): JSX.Element => (
   </SVG>
 )
 
+LiveIconSvg.displayName = 'LiveIconSvg'
+
 export const LiveIcon = (): JSX.Element => (
   <span className={styles.liveIcon}>
     <LiveIconSvg classNameOverride={styles.liveIcon_base} />
