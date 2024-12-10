@@ -30,6 +30,7 @@
   inset-block: 0 1px;
   width: 48px;
   cursor: default;
+  user-select: none;
 }
 
 /*
@@ -55,5 +56,5 @@
 
 .leftArrow:hover,
 .rightArrow:hover {
-  background: var(--color-blue-100);
+  background: var(--color-gray-200);
 }
