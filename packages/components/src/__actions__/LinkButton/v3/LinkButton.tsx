@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Link as RACLink, LinkProps as RACLinkProps } from 'react-aria-components'
+import { Link as RACLink, type LinkProps as RACLinkProps } from 'react-aria-components'
 import { ButtonUIProps } from '~components/__actions__/Button/v3'
 import { ButtonContent } from '~components/__actions__/Button/v3/subcomponents'
 import { useReversedColors } from '~components/__utilities__/v3'
@@ -25,11 +25,13 @@ export const LinkButton = forwardRef(
       isFullWidth = false,
       isDisabled,
       className,
+      isReversed,
       ...otherProps
     }: LinkButtonProps,
     ref: React.ForwardedRef<HTMLAnchorElement>,
   ) => {
-    const isReversed = useReversedColors()
+    const shouldUseReverse = useReversedColors()
+    const isReversedVariant = isReversed ?? shouldUseReverse
 
     return (
       <RACLink
@@ -40,7 +42,7 @@ export const LinkButton = forwardRef(
           buttonStyles[size],
           hasHiddenLabel && buttonStyles[`${size}IconButton`],
           isDisabled && buttonStyles.isDisabled,
-          isReversed ? buttonStyles[`${variant}Reversed`] : buttonStyles[variant],
+          isReversedVariant ? buttonStyles[`${variant}Reversed`] : buttonStyles[variant],
           isFullWidth && buttonStyles.fullWidth,
           className,
         )}
@@ -65,3 +67,5 @@ export const LinkButton = forwardRef(
     )
   },
 )
+
+LinkButton.displayName = 'LinkButton'
