@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { Avatar } from '~components/Avatar'
-import { LiveIcon } from '~components/Tag'
+import { LiveIcon } from '~components/Tag/subcomponents'
 import { Icon } from '~components/__future__/Icon'
 import { Tag, RemovableTag } from '../..'
 
@@ -31,7 +31,7 @@ export const LiveIconComponentStory: Story = {
       source: {
         type: 'dynamic',
         code: `
-          import { LiveIcon } from '@kaizen/components'
+          import { LiveIcon } from '@kaizen/components/Tag/subcomponents'
 
 // ... Application Code
 return <LiveIcon />
