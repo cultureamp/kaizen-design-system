@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.68.10
+
+### Patch Changes
+
+- [#5318](https://github.com/cultureamp/kaizen-design-system/pull/5318) [`8aebe0b`](https://github.com/cultureamp/kaizen-design-system/commit/8aebe0b339e463ffe5a63a69fd60960a3fadd042) - Update dep `react-intl` to `^7.0.1`.
+
+- [#5358](https://github.com/cultureamp/kaizen-design-system/pull/5358) [`71e17eb`](https://github.com/cultureamp/kaizen-design-system/commit/71e17eb513106507a5faad584f1349f48edb04ce) - TextArea: no longer forced into controlled mode under the hood, allowing value manipulation via JS if needed
+
 ## 1.68.9
 
 ### Patch Changes
