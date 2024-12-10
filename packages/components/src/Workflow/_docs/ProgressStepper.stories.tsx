@@ -31,6 +31,7 @@ type Story = StoryObj<typeof meta>
  */
 export const Playground: Story = {
   parameters: {
+    chromatic: { disable: false },
     docs: {
       canvas: {
         sourceState: 'shown',
