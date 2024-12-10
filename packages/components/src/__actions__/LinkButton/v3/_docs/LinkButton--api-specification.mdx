@@ -14,7 +14,7 @@ Updated Nov 26, 2024
   designGuidelines="/?path=/docs/actions-linkbutton-linkbutton-v3-usage-guidelines--docs"
 />
 
-<KAIOInstallation exportNames={['LinkButton']} family="actions" version="3" />
+<KAIOInstallation exportNames={'LinkButton'} family="actions" version="3" />
 
 ## Overview
 
@@ -54,7 +54,7 @@ Out of the box, the `LinkButton` offers majority of the native behavior and func
 
 <Canvas of={exampleStories.DownloadIconButton} />
 
-While client side routing is possible, the `LinkButton` is agnostic to the routing technology chosen. Refer to our [general set up guide here](#client-side-routing) to get started with client side routing.
+While client side routing is possible, the `LinkButton` is agnostic to the routing technology chosen. Refer to our general set up guide to get started with [client side routing](#client-side-routing).
 
 #### Opening new tabs and accessibility considerations
 
@@ -211,7 +211,7 @@ Can be replaced with the following:
 <LinkButton
   href="https://cultureamp.com/a-pdf-doc.pdf"
   download
-  onClick={(e) => trackDownloadEvent(e)}
+  onPress={(e) => trackDownloadEvent(e)}
 >
   Download doc
 </LinkButton>
@@ -224,9 +224,7 @@ You can read more about the development and reason behind this pattern [here](ht
 Labels and any `LinkButton` content can be passed to the component via `children`. For icons as content, refer to the [next section](#icons-and-positioning).
 
 ```tsx
-<LinkButton variant="secondary" href="#link">
-  Label
-</LinkButton>
+<LinkButton href="#link">Label</LinkButton>
 ```
 
 While in most cases, `children` will be a `ReactNode`, `LinkButton` also accepts a render function with React Aria's `LinkRenderProps`. This allows for more advanced styling and rendering options by hooking into React Aria's internal Link state. You can read more about this [here](https://react-spectrum.adobe.com/react-aria/Link.html#styling).
