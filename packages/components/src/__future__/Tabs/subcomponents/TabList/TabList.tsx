@@ -96,7 +96,11 @@ export const TabList = (props: TabListProps): JSX.Element => {
         // - <button> would add pointless noise for a screen reader user
         // - keyboard only user can toggle through tabs with left/right arrow keys already
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-        <div onClick={() => handleArrowPress('left')} className={styles.leftArrow}>
+        <div
+          onClick={() => handleArrowPress('left')}
+          className={styles.leftArrow}
+          data-testid="kz-tablist-left-arrow"
+        >
           <Icon name="chevron_left" isPresentational />
         </div>
       )}
@@ -110,7 +114,11 @@ export const TabList = (props: TabListProps): JSX.Element => {
       </RACTabList>
       {rightArrowEnabled && (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-        <div onClick={() => handleArrowPress('right')} className={styles.rightArrow}>
+        <div
+          onClick={() => handleArrowPress('right')}
+          className={styles.rightArrow}
+          data-testid="kz-tablist-right-arrow"
+        >
           <Icon name="chevron_right" isPresentational />
         </div>
       )}
