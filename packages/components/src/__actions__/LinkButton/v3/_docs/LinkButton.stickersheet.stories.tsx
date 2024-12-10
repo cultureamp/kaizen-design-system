@@ -1,44 +1,31 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { within } from "@storybook/test"
-import { Icon } from "~components/__future__/Icon"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { LinkButton, LinkButtonProps } from "../index"
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { within } from '@storybook/test'
+import { Icon } from '~components/__future__/Icon'
+import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { LinkButton, LinkButtonProps } from '../index'
 
 export default {
-  title: "Actions/LinkButton/LinkButton (v3)",
+  title: 'Actions/LinkButton/LinkButton (v3)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
 } satisfies Meta
 
-const variants = ["primary", "secondary", "tertiary"] satisfies Array<
-  LinkButtonProps["variant"]
->
-const sizes = ["small", "medium", "large"] satisfies Array<
-  LinkButtonProps["size"]
->
+const variants = ['primary', 'secondary', 'tertiary'] satisfies LinkButtonProps['variant'][]
+const sizes = ['small', 'medium', 'large'] satisfies LinkButtonProps['size'][]
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
       <StickerSheet
         title="Button"
-        headers={[
-          "Base",
-          "Icon start",
-          "Icon end",
-          "hasHiddenLabel",
-          "isDisabled",
-        ]}
+        headers={['Base', 'Icon start', 'Icon end', 'hasHiddenLabel', 'isDisabled']}
         isReversed={isReversed}
       >
-        {variants.map(variant =>
-          sizes.map(size => (
+        {variants.map((variant) =>
+          sizes.map((size) => (
             <StickerSheet.Row
               key={size + variant}
               isReversed={isReversed}
@@ -47,21 +34,11 @@ const StickerSheetTemplate: StickerSheetStory = {
               <LinkButton variant={variant} size={size}>
                 Label
               </LinkButton>
-              <LinkButton
-                icon={<Icon name="add" isPresentational />}
-                variant={variant}
-                size={size}
-              >
+              <LinkButton icon={<Icon name="add" isPresentational />} variant={variant} size={size}>
                 Label
               </LinkButton>
               <LinkButton
-                icon={
-                  <Icon
-                    name="arrow_forward"
-                    shouldMirrorInRTL
-                    isPresentational
-                  />
-                }
+                icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
                 iconPosition="end"
                 variant={variant}
                 size={size}
@@ -77,13 +54,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 Label
               </LinkButton>
               <LinkButton
-                icon={
-                  <Icon
-                    name="arrow_forward"
-                    shouldMirrorInRTL
-                    isPresentational
-                  />
-                }
+                icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
                 iconPosition="end"
                 variant={variant}
                 size={size}
@@ -92,20 +63,16 @@ const StickerSheetTemplate: StickerSheetStory = {
                 Label
               </LinkButton>
             </StickerSheet.Row>
-          ))
+          )),
         )}
       </StickerSheet>
       <StickerSheet
         title="Pseudo states"
-        headers={["isHovered", "isFocusVisible", "isPressed"]}
+        headers={['isHovered', 'isFocusVisible', 'isPressed']}
         isReversed={isReversed}
       >
-        {variants.map(variant => (
-          <StickerSheet.Row
-            key={variant}
-            isReversed={isReversed}
-            header={variant}
-          >
+        {variants.map((variant) => (
+          <StickerSheet.Row key={variant} isReversed={isReversed} header={variant}>
             <LinkButton data-testid="testid__button-hover" variant={variant}>
               Label
             </LinkButton>
@@ -122,38 +89,38 @@ const StickerSheetTemplate: StickerSheetStory = {
   ),
   play: ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const focusButtons = canvas.getAllByTestId("testid__button-focus")
-    const hoverButtons = canvas.getAllByTestId("testid__button-hover")
-    const pressedButton = canvas.getAllByTestId("testid__button-pressed")
+    const focusButtons = canvas.getAllByTestId('testid__button-focus')
+    const hoverButtons = canvas.getAllByTestId('testid__button-hover')
+    const pressedButton = canvas.getAllByTestId('testid__button-pressed')
 
-    focusButtons.forEach(button => {
-      button.setAttribute("data-focus-visible", "true")
+    focusButtons.forEach((button) => {
+      button.setAttribute('data-focus-visible', 'true')
     })
-    hoverButtons.forEach(button => {
-      button.setAttribute("data-hovered", "true")
+    hoverButtons.forEach((button) => {
+      button.setAttribute('data-hovered', 'true')
     })
-    pressedButton.forEach(button => {
-      button.setAttribute("data-pressed", "true")
+    pressedButton.forEach((button) => {
+      button.setAttribute('data-pressed', 'true')
     })
   },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     reverseColors: true,
   },

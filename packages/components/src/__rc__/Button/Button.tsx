@@ -6,6 +6,7 @@ import { ButtonContent, PendingContent } from './subcomponents'
 import { type ButtonSizes, type ButtonVariants, type PendingButtonProps } from './types'
 import styles from './Button.module.css'
 
+/** Shared UI props between Button and LinkButton */
 export type ButtonUIProps = {
   /** Visually hides the Button's child content used as the label and the `pendingLabel`. Use for icon-only `Button`. @default "false" */
   hasHiddenLabel?: boolean

@@ -1,20 +1,20 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { VisuallyHidden } from "~components/VisuallyHidden"
-import { Icon } from "~components/__future__"
-import { ReversedColors } from "~components/__utilities__/v3"
-import { LinkButton } from "../index"
+import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { Icon } from '~components/__future__'
+import { ReversedColors } from '~components/__utilities__/v3'
+import { LinkButton } from '../index'
 
 const meta = {
-  title: "Actions/LinkButton/LinkButton (v3)",
+  title: 'Actions/LinkButton/LinkButton (v3)',
   component: LinkButton,
   args: {
-    children: "Label",
-    href: "#link-button-clicked",
+    children: 'Label',
+    href: '#link-button-clicked',
   },
   argTypes: {
     icon: {
-      options: ["delete", "arrow", "plus"],
+      options: ['delete', 'arrow', 'plus'],
       mapping: {
         delete: <Icon isPresentational name="delete" />,
         arrow: <Icon isPresentational name="arrow_forward" />,
@@ -38,23 +38,30 @@ export const LinkButtonOpensInNewTab: Story = {
         <VisuallyHidden> opens a new tab</VisuallyHidden>
       </>
     ),
-    href: "https://www.google.com",
-    target: "_blank",
+    href: 'https://www.google.com',
+    target: '_blank',
+    rel: 'noopener noreferrer',
     icon: <Icon isPresentational name="open_in_new" shouldMirrorInRTL />,
-    iconPosition: "end",
+    iconPosition: 'end',
   },
 }
 
 export const LinkButtonVariants: Story = {
-  render: args => (
+  render: ({ children: _, ...otherArgs }) => (
     <>
-      <LinkButton {...args} variant="primary" />
-      <LinkButton {...args} variant="secondary" />
-      <LinkButton {...args} variant="tertiary" />
+      <LinkButton {...otherArgs} variant="primary">
+        Primary
+      </LinkButton>
+      <LinkButton {...otherArgs} variant="secondary">
+        Secondary
+      </LinkButton>
+      <LinkButton {...otherArgs} variant="tertiary">
+        Tertiary
+      </LinkButton>
     </>
   ),
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-8">
         <Story />
       </div>
@@ -63,7 +70,7 @@ export const LinkButtonVariants: Story = {
 }
 
 export const LinkButtonVariantsReversed: Story = {
-  render: args => (
+  render: (args) => (
     <ReversedColors isReversed={true}>
       <LinkButton {...args} variant="primary" />
       <LinkButton {...args} variant="secondary" />
@@ -74,7 +81,7 @@ export const LinkButtonVariantsReversed: Story = {
     reverseColors: true,
   },
   decorators: [
-    Story => (
+    (Story) => (
       <div className="flex gap-8 bg-purple-700 p-16">
         <Story />
       </div>
@@ -83,7 +90,7 @@ export const LinkButtonVariantsReversed: Story = {
 }
 
 export const LinkButtonSizes: Story = {
-  render: args => (
+  render: (args) => (
     <>
       <LinkButton {...args} size="small" />
       <LinkButton {...args} size="medium" />
@@ -91,8 +98,8 @@ export const LinkButtonSizes: Story = {
     </>
   ),
   decorators: [
-    Story => (
-      <div className="[&>*]:ms-8">
+    (Story) => (
+      <div className="flex gap-8 items-center">
         <Story />
       </div>
     ),
@@ -108,13 +115,13 @@ export const LinkButtonWithIconStart: Story = {
 export const LinkButtonWithIconEnd: Story = {
   args: {
     icon: <Icon isPresentational name="arrow_forward" shouldMirrorInRTL />,
-    iconPosition: "end",
+    iconPosition: 'end',
   },
 }
 
 export const IconLinkButton: Story = {
   args: {
-    children: "Remove highlights from: May 8, 2024",
+    children: 'Remove highlights from: May 8, 2024',
     icon: <Icon isPresentational name="delete" />,
     hasHiddenLabel: true,
   },
@@ -122,25 +129,11 @@ export const IconLinkButton: Story = {
 
 export const DownloadIconButton: Story = {
   args: {
-    children: "Download the kaizen design system badge",
-    href: "./static/media/kaizen-badge.svg",
+    children: 'Download the kaizen design system badge',
+    href: './static/media/kaizen-badge.svg',
     icon: <Icon isPresentational name="download" />,
     hasHiddenLabel: true,
     download: true,
-  },
-}
-
-export const ReversedLinkButton: Story = {
-  parameters: {
-    reverseColors: true,
-    docs: {
-      source: {
-        code: `<ReversedColors isReversed={true}>
-          <LinkButton>Label</LinkButton>
-        </ReversedColors>
-      `,
-      },
-    },
   },
 }
 
