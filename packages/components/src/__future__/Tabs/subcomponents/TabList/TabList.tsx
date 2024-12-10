@@ -26,6 +26,8 @@ export const TabList = (props: TabListProps): JSX.Element => {
   const [rightArrowEnabled, setRightArrowEnabled] = useState<boolean>(false)
   const tabListRef = useRef<HTMLDivElement | null>(null)
   const tabListId = useId()
+  const [isRTL, setIsRTL] = useState<boolean>(false)
+  const [containerElement, setContainerElement] = useState<HTMLElement | null>()
 
   useEffect(() => {
     if (!isDocumentReady) {
@@ -34,8 +36,16 @@ export const TabList = (props: TabListProps): JSX.Element => {
     }
 
     const container = document.getElementById(tabListId)
-    const tabs = container?.querySelectorAll('[data-kz-tab]')
+    setContainerElement(container)
+    setIsRTL(!!container?.closest('[dir]')?.matches('[dir="rtl"]'))
+  }, [isDocumentReady, tabListId])
 
+  useEffect(() => {
+    if (!isDocumentReady) {
+      return
+    }
+
+    const tabs = containerElement?.querySelectorAll('[data-kz-tab]')
     if (!tabs) {
       return
     }
@@ -52,7 +62,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
         threshold: 0.75,
       },
     )
-    firstTabObserver.observe(tabs[0])
+    firstTabObserver.observe(isRTL ? tabs[tabs.length - 1] : tabs[0])
 
     const lastTabObserver = new IntersectionObserver(
       (entries) => {
@@ -66,8 +76,8 @@ export const TabList = (props: TabListProps): JSX.Element => {
         threshold: 0.75,
       },
     )
-    lastTabObserver.observe(tabs[tabs.length - 1])
-  }, [isDocumentReady, tabListId])
+    lastTabObserver.observe(isRTL ? tabs[0] : tabs[tabs.length - 1])
+  }, [isDocumentReady, containerElement, isRTL])
 
   const handleArrowPress = (direction: 'left' | 'right'): void => {
     if (tabListRef.current) {
