@@ -47,7 +47,6 @@ export const Playground: Story = {
   },
 }
 
-// Test for multiple tiles, flipping one doesn't flip others
 export const FlipOneNotOthers: Story = {
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
@@ -79,9 +78,6 @@ export const FlipOneNotOthers: Story = {
   },
 }
 
-// @Zystix: Add Chromatic flag to tests or add to stickersheet.
-
-// Does it work with one tile
 export const OneTile: Story = {
   args: {
     children: (
@@ -104,7 +100,6 @@ export const OneTile: Story = {
   },
 }
 
-// Multiple tiles
 export const MultipleTiles: Story = {
   render: () => {
     return (
