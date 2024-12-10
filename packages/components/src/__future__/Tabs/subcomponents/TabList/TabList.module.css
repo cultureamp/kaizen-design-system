@@ -32,22 +32,25 @@
   cursor: default;
 }
 
+/*
+ * Note: we're purposefully using directional properties instead of start/end for positioning and styling related to the carousel arrows
+*/
 .leftArrow {
-  inset-inline-start: 0;
+  left: 0;
 }
 
 .leftArrow,
 .leftArrow:hover {
-  border-inline-end: 1px solid rgba(var(--color-gray-600-rgb), 0.1);
+  border-right: 1px solid rgba(var(--color-gray-600-rgb), 0.1);
 }
 
 .rightArrow {
-  inset-inline-end: 0;
+  right: 0;
 }
 
 .rightArrow,
 .rightArrow:hover {
-  border-inline-start: 1px solid rgba(var(--color-gray-600-rgb), 0.1);
+  border-left: 1px solid rgba(var(--color-gray-600-rgb), 0.1);
 }
 
 .leftArrow:hover,
