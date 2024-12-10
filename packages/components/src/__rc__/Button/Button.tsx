@@ -6,7 +6,7 @@ import { ButtonContent, PendingContent } from './subcomponents'
 import { type ButtonSizes, type ButtonVariants, type PendingButtonProps } from './types'
 import styles from './Button.module.css'
 
-export type ButtonBaseProps = {
+export type ButtonUIProps = {
   /** Visually hides the Button's child content used as the label and the `pendingLabel`. Use for icon-only `Button`. @default "false" */
   hasHiddenLabel?: boolean
   /** The visual style of the button.
@@ -28,7 +28,7 @@ export type ButtonBaseProps = {
   isReversed?: boolean
 }
 
-export type ButtonProps = ButtonBaseProps &
+export type ButtonProps = ButtonUIProps &
   PendingButtonProps &
   Omit<RACButtonProps, 'children'> & {
     /** Used as the label for the button. */

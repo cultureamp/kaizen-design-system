@@ -1,36 +1,33 @@
-import React, { forwardRef } from "react"
-import {
-  Link as RACLink,
-  LinkProps as RACLinkProps,
-} from "react-aria-components"
-import { ButtonBaseProps } from "~components/__actions__/Button/v3"
-import { ButtonContent } from "~components/__actions__/Button/v3/subcomponents"
-import { useReversedColors } from "~components/__utilities__/v3"
-import { mergeClassNames } from "~components/utils/mergeClassNames"
-import buttonStyles from "../../Button/v3/Button.module.css"
-import styles from "./LinkButton.module.css"
+import React, { forwardRef } from 'react'
+import { Link as RACLink, LinkProps as RACLinkProps } from 'react-aria-components'
+import { ButtonUIProps } from '~components/__actions__/Button/v3'
+import { ButtonContent } from '~components/__actions__/Button/v3/subcomponents'
+import { useReversedColors } from '~components/__utilities__/v3'
+import { mergeClassNames } from '~components/utils/mergeClassNames'
+import buttonStyles from '../../Button/v3/Button.module.css'
+import styles from './LinkButton.module.css'
 
-export type LinkButtonProps = ButtonBaseProps &
-  Omit<RACLinkProps, "children"> & {
+export type LinkButtonProps = ButtonUIProps &
+  Omit<RACLinkProps, 'children'> & {
     /** Used as the label for the LinkButton. */
-    children: RACLinkProps["children"]
+    children: RACLinkProps['children']
   }
 
 export const LinkButton = forwardRef(
   (
     {
       children,
-      variant = "primary",
-      size = "medium",
+      variant = 'primary',
+      size = 'medium',
       icon,
-      iconPosition = "start",
+      iconPosition = 'start',
       hasHiddenLabel = false,
       isFullWidth = false,
       isDisabled,
       className,
       ...otherProps
     }: LinkButtonProps,
-    ref: React.ForwardedRef<HTMLAnchorElement>
+    ref: React.ForwardedRef<HTMLAnchorElement>,
   ) => {
     const isReversed = useReversedColors()
 
@@ -43,17 +40,15 @@ export const LinkButton = forwardRef(
           buttonStyles[size],
           hasHiddenLabel && buttonStyles[`${size}IconButton`],
           isDisabled && buttonStyles.isDisabled,
-          isReversed
-            ? buttonStyles[`${variant}Reversed`]
-            : buttonStyles[variant],
+          isReversed ? buttonStyles[`${variant}Reversed`] : buttonStyles[variant],
           isFullWidth && buttonStyles.fullWidth,
-          className
+          className,
         )}
         isDisabled={isDisabled}
         {...otherProps}
       >
-        {racStateProps => {
-          const childIsFunction = typeof children === "function"
+        {(racStateProps) => {
+          const childIsFunction = typeof children === 'function'
 
           return (
             <ButtonContent
@@ -68,5 +63,5 @@ export const LinkButton = forwardRef(
         }}
       </RACLink>
     )
-  }
+  },
 )
