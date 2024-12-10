@@ -43,7 +43,7 @@
     "object-to-css-variables": "^0.2.1",
     "postcss": "^8.4.49",
     "prettier": "*",
-    "react": "^18.3.1",
+    "react": "^19.0.0",
     "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
     "rollup": "^4.28.1",
