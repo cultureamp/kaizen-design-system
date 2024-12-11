@@ -1,6 +1,10 @@
-import React, { ReactNode, useEffect, useId, useRef, useState } from 'react'
+import React, { ReactNode, useContext, useEffect, useId, useRef, useState } from 'react'
 import classnames from 'classnames'
-import { TabList as RACTabList, TabListProps as RACTabListProps } from 'react-aria-components'
+import {
+  TabList as RACTabList,
+  TabListProps as RACTabListProps,
+  TabListStateContext,
+} from 'react-aria-components'
 import { Icon } from '~components/__future__/Icon'
 import styles from './TabList.module.css'
 
@@ -28,6 +32,8 @@ export const TabList = (props: TabListProps): JSX.Element => {
   const tabListId = useId()
   const [isRTL, setIsRTL] = useState<boolean>(false)
   const [containerElement, setContainerElement] = useState<HTMLElement | null>()
+  const tabListContext = useContext(TabListStateContext)
+  const selectedKey = tabListContext?.selectedKey
 
   useEffect(() => {
     if (!isDocumentReady) {
@@ -85,6 +91,17 @@ export const TabList = (props: TabListProps): JSX.Element => {
       lastTabObserver.disconnect()
     }
   }, [isDocumentReady, containerElement, isRTL])
+
+  useEffect(() => {
+    if (!isDocumentReady) {
+      return
+    }
+
+    // Scroll selected tab into view
+    containerElement
+      ?.querySelector('[role="tab"][data-selected=true]')
+      ?.scrollIntoView({ block: 'nearest', inline: 'center' })
+  }, [selectedKey, containerElement, isDocumentReady])
 
   const handleArrowPress = (direction: 'left' | 'right'): void => {
     if (tabListRef.current) {
