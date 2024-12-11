@@ -17,6 +17,8 @@ $slide-up-duration: 0.4s;
 /* stylelint-disable no-descending-specificity */
 .mobileActionsContainer {
   display: none;
+  // This is a bit of a monkey patch that's a potential solution the that may solve the ci issue that may be a issue with Jest-DOM
+  visibility: hidden;
   z-index: $ca-z-index-fixed;
   flex-direction: column;
   position: fixed;
@@ -42,6 +44,7 @@ $slide-up-duration: 0.4s;
 
   @include title-block-small {
     display: flex;
+    visibility: visible;
   }
 }
 
