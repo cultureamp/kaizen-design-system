@@ -60,6 +60,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
       },
       {
         threshold: 0.75,
+        root: containerElement,
       },
     )
     firstTabObserver.observe(isRTL ? tabs[tabs.length - 1] : tabs[0])
@@ -74,6 +75,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
       },
       {
         threshold: 0.75,
+        root: containerElement,
       },
     )
     lastTabObserver.observe(isRTL ? tabs[0] : tabs[tabs.length - 1])
