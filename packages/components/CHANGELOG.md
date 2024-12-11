@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.68.11
+
+### Patch Changes
+
+- [#5371](https://github.com/cultureamp/kaizen-design-system/pull/5371) [`36285e8`](https://github.com/cultureamp/kaizen-design-system/commit/36285e836b950d12e3fa5fca0fcc59796eae2406) - TileGrid renders Tiles in a `<ul>`, wrapping each Tile in an `<li>`
+
+- [#5371](https://github.com/cultureamp/kaizen-design-system/pull/5371) [`36285e8`](https://github.com/cultureamp/kaizen-design-system/commit/36285e836b950d12e3fa5fca0fcc59796eae2406) - Converted LiveIcon into a subcomponent of Tag
+
+- [#5371](https://github.com/cultureamp/kaizen-design-system/pull/5371) [`36285e8`](https://github.com/cultureamp/kaizen-design-system/commit/36285e836b950d12e3fa5fca0fcc59796eae2406) - Fix Workflow Styling breaking in RTL
+
 ## 1.68.10
 
 ### Patch Changes
