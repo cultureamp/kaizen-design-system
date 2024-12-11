@@ -9,7 +9,7 @@ const meta = {
   parameters: {
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies Meta<typeof Tabs>
 
 export default meta
 
