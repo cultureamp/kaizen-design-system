@@ -20,7 +20,7 @@ export const ArrowsShowingAndHiding: Story = {
     return (
       <div style={{ maxWidth: '500px' }}>
         <Tabs>
-          <TabList aria-label="Tabs">
+          <TabList aria-label="Tabs" data-testid="sb-arrows">
             <Tab id="one">Tab 1</Tab>
             <Tab id="two">Tab 2</Tab>
             <Tab id="three" badge="3">
@@ -59,12 +59,12 @@ export const ArrowsShowingAndHiding: Story = {
 
     expect(canvas.queryByTestId('kz-tablist-left-arrow')).not.toBeInTheDocument()
 
-    const rightArrow = await canvas.findByTestId('kz-tablist-right-arrow')
+    const rightArrow = await canvas.findByTestId('sb-arrows-kz-tablist-right-arrow')
 
     await userEvent.click(rightArrow)
     await new Promise((r) => setTimeout(r, 500))
 
-    const leftArrow = await canvas.findByTestId('kz-tablist-left-arrow')
+    const leftArrow = await canvas.findByTestId('sb-arrows-kz-tablist-left-arrow')
 
     expect(leftArrow).toBeInTheDocument()
     expect(rightArrow).toBeInTheDocument()

@@ -18,13 +18,21 @@ export type TabListProps = {
    */
   'noPadding'?: boolean
   'children': ReactNode
+  'data-testid'?: string
 } & RACTabListProps<HTMLElement>
 
 /**
  * Wrapper for the tabs themselves
  */
 export const TabList = (props: TabListProps): JSX.Element => {
-  const { 'aria-label': ariaLabel, noPadding = false, children, className, ...restProps } = props
+  const {
+    'aria-label': ariaLabel,
+    noPadding = false,
+    children,
+    className,
+    'data-testid': testId,
+    ...restProps
+  } = props
   const [isDocumentReady, setIsDocumentReady] = useState<boolean>(false)
   const [leftArrowEnabled, setLeftArrowEnabled] = useState<boolean>(false)
   const [rightArrowEnabled, setRightArrowEnabled] = useState<boolean>(false)
@@ -123,7 +131,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
         <div
           onClick={() => handleArrowPress('left')}
           className={styles.leftArrow}
-          data-testid="kz-tablist-left-arrow"
+          data-testid={testId ? `${testId}-kz-tablist-left-arrow` : undefined}
         >
           <Icon name="chevron_left" isPresentational />
         </div>
@@ -141,7 +149,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
         <div
           onClick={() => handleArrowPress('right')}
           className={styles.rightArrow}
-          data-testid="kz-tablist-right-arrow"
+          data-testid={testId ? `${testId}-kz-tablist-right-arrow` : undefined}
         >
           <Icon name="chevron_right" isPresentational />
         </div>
