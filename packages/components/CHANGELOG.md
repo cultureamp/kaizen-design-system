@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- [#5368](https://github.com/cultureamp/kaizen-design-system/pull/5368) [`d3ae52d`](https://github.com/cultureamp/kaizen-design-system/commit/d3ae52d3a1a7885551ab46f99a400a724561b000) - TileGrid renders Tiles in a <ul>, wrapping each Tile in an <li>
+- [#5368](https://github.com/cultureamp/kaizen-design-system/pull/5368) [`d3ae52d`](https://github.com/cultureamp/kaizen-design-system/commit/d3ae52d3a1a7885551ab46f99a400a724561b000) - TileGrid renders Tiles in a ul, wrapping each Tile in an li
 
 - [#5352](https://github.com/cultureamp/kaizen-design-system/pull/5352) [`5339698`](https://github.com/cultureamp/kaizen-design-system/commit/533969870026253fa4911c51dc34bbe6beade31a) - Converted LiveIcon into a subcomponent of Tag
 
