@@ -4,7 +4,7 @@
 
 .tabList {
   border-bottom: 1px solid rgba(var(--color-gray-600-rgb), 0.1);
-  padding: var(--spacing-xs) 0 0;
+  padding: var(--spacing-6) 0 0;
   width: 100%;
   height: 100%;
   overflow-x: scroll;
