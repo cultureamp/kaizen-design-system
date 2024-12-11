@@ -1,13 +1,12 @@
 import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
-import { within, userEvent } from '@storybook/test'
+import { within, userEvent, expect } from '@storybook/test'
 import { Text } from '~components/Text'
 import { Tab, TabList, TabPanel, Tabs } from '../index'
 
 const meta = {
-  title: 'Components/Tabs/Tabs (Future)/ Tabs (Future) (Tests)',
+  title: 'Components/Tabs/Tabs (Future)/Tests',
   parameters: {
-    chromatic: { disable: false },
     controls: { disable: true },
   },
 } satisfies Meta
@@ -16,7 +15,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const OverflowCarousel: Story = {
+export const ArrowsShowingAndHiding: Story = {
   render: () => {
     return (
       <div style={{ maxWidth: '500px' }}>
@@ -58,16 +57,22 @@ export const OverflowCarousel: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.parentElement!)
 
+    expect(canvas.queryByTestId('kz-tablist-left-arrow')).not.toBeInTheDocument()
+
     const rightArrow = await canvas.findByTestId('kz-tablist-right-arrow')
 
     await userEvent.click(rightArrow)
-    await new Promise((r) => setTimeout(r, 200))
-
-    await userEvent.click(rightArrow)
-    await new Promise((r) => setTimeout(r, 200))
+    await new Promise((r) => setTimeout(r, 500))
 
     const leftArrow = await canvas.findByTestId('kz-tablist-left-arrow')
-    await userEvent.click(leftArrow)
-    await new Promise((r) => setTimeout(r, 200))
+
+    expect(leftArrow).toBeInTheDocument()
+    expect(rightArrow).toBeInTheDocument()
+
+    await userEvent.click(rightArrow)
+    await new Promise((r) => setTimeout(r, 500))
+
+    expect(leftArrow).toBeInTheDocument()
+    expect(rightArrow).not.toBeInTheDocument()
   },
 }
