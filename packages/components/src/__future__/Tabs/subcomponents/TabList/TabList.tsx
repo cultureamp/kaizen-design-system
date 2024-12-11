@@ -77,6 +77,11 @@ export const TabList = (props: TabListProps): JSX.Element => {
       },
     )
     lastTabObserver.observe(isRTL ? tabs[0] : tabs[tabs.length - 1])
+
+    return () => {
+      firstTabObserver.disconnect()
+      lastTabObserver.disconnect()
+    }
   }, [isDocumentReady, containerElement, isRTL])
 
   const handleArrowPress = (direction: 'left' | 'right'): void => {
