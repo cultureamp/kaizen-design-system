@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { Textfit } from 'react-textfit'
 import { Icon } from '~components/__future__/Icon'
 import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './Avatar.module.scss'
+import styles from './Avatar.module.css'
 
 export type AvatarSizes = 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge'
 
