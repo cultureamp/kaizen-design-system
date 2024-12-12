@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { OverrideClassName } from '~components/types/OverrideClassName'
 import { assetUrl } from '~components/utils/hostedAssets'
 import { BrandCollectiveIntelligence } from './BrandCollectiveIntelligence'
-import styles from './Brand.module.scss'
+import styles from './Brand.module.css'
 
 type MeaningfulSVG = { 'role': 'img'; 'aria-label': string; 'alt'?: never }
 type DecorativeSVG = { 'role': 'presentation'; 'aria-label'?: never; 'alt'?: never }
