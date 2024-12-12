@@ -6,6 +6,7 @@ import {
   TabListStateContext,
 } from 'react-aria-components'
 import { Icon } from '~components/__future__/Icon'
+import { isRTL as isRTLCheck } from '~components/__utilities__/isRTL'
 import { SCROLL_AMOUNT } from '../../constants'
 import styles from './TabList.module.css'
 
@@ -52,7 +53,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
 
     const container = document.getElementById(tabListId)
     setContainerElement(container)
-    setIsRTL(!!container?.closest('[dir]')?.matches('[dir="rtl"]'))
+    setIsRTL(container ? isRTLCheck(container) : false)
   }, [isDocumentReady, tabListId])
 
   useEffect(() => {
