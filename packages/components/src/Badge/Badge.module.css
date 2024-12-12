@@ -1,0 +1,106 @@
+.badge {
+  --dt-color-background-default: var(--color-gray-300);
+  --small: var(--spacing-md);
+
+  --badge-duration-timing: (var(--animation-duration-slow) / 2)
+    var(--animation-easing-function-ease-in);
+
+  border-radius: var(--spacing-sm);
+  color: var(--color-purple-800);
+  display: inline-block;
+  position: relative;
+  font-family: var(--typography-paragraph-extra-small-font-family);
+  font-size: var(--typography-paragraph-extra-small-font-size);
+  font-weight: var(--typography-paragraph-bold-font-weight);
+  letter-spacing: var(--typography-paragraph-extra-small-letter-spacing);
+  line-height: var(--typography-paragraph-extra-small-line-height);
+  padding: 1px var(--spacing-xs);
+  min-width: 8px;
+  text-align: center;
+}
+
+.badge.large {
+  display: inline-flex;
+  justify-content: center;
+  border-radius: var(--spacing-xl);
+  font-size: var(--typography-data-medium-font-size);
+  line-height: var(--typography-data-medium-line-height);
+  letter-spacing: var(--typography-data-medium-letter-spacing);
+  padding: 2px 1.875rem;
+  width: 24px;
+}
+
+.default {
+  background-color: var(--dt-color-background-default);
+  color: var(--color-purple-800);
+}
+
+.active {
+  background-color: var(--color-blue-500);
+  color: var(--color-white);
+}
+
+.reversed.active {
+  background-color: var(--color-green-300);
+  color: var(--color-purple-800);
+}
+
+.dark {
+  background-color: rgba(var(--color-purple-700-rgb), 0.1);
+  color: var(--color-purple-800);
+}
+
+.dot {
+  background-color: var(--color-green-300);
+  padding: var(--spacing-xs);
+  min-width: unset;
+}
+
+.dot.large {
+  background-color: var(--color-green-300);
+  padding: 1.875rem;
+  width: unset;
+}
+
+.reversed.dot {
+  background-color: var(--color-green-300);
+}
+
+.reversed.dark {
+  background-color: var(--color-purple-700);
+  color: var(--color-white);
+}
+
+.reversed {
+  background-color: rgba(var(--color-white-rgb), 0.1);
+  color: var(--color-white);
+}
+
+.animation {
+  display: inherit;
+
+  .badge {
+    transition:
+      transform var(--badge-duration-timing),
+      background-color var(--badge-duration-timing);
+    transform-origin: center;
+    transform: scale3d(1, 1, 1);
+  }
+
+  &.animationOn .badge {
+    transform: scale3d(1.35, 1.35, 1.35);
+
+    &.dark {
+      background-color: rgba(var(--color-purple-700-rgb), 0.2);
+    }
+
+    &.active {
+      background-color: var(--color-blue-500);
+      color: var(--color-white);
+    }
+
+    &.dot {
+      background-color: var(--color-green-300);
+    }
+  }
+}
