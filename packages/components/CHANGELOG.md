@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.68.12
+
+### Patch Changes
+
+- [#5355](https://github.com/cultureamp/kaizen-design-system/pull/5355) [`f6bd88c`](https://github.com/cultureamp/kaizen-design-system/commit/f6bd88c01c8a566fe96ec1df06ff06269784a6b8) - Tabs (future): add carousel functionality when tabs overflow container width
+
 ## 1.68.11
 
 ### Patch Changes
