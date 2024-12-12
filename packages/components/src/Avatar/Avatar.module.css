@@ -19,7 +19,7 @@
     border: 3px solid var(--color-white);
   }
 
-  /*Themes*/
+  /* Themes */
   &.personal {
     background: var(--color-orange-100);
   }
@@ -105,23 +105,23 @@
   font-size: var(--avatar-fallback-icon-size);
 
   .xxlarge & {
-    --avatar-fallback-icon-size: calc(#{var(--avatar-xxl)} * 0.8);
+    --avatar-fallback-icon-size: calc(var(--avatar-xxl) * 0.8);
   }
 
   .xlarge & {
-    --avatar-fallback-icon-size: calc(#{var(--avatar-xl)} * 0.8);
+    --avatar-fallback-icon-size: calc(var(--avatar-xl) * 0.8);
   }
 
   .large & {
-    --avatar-fallback-icon-size: calc(#{var(--avatar-lg)} * 0.7);
+    --avatar-fallback-icon-size: calc(var(--avatar-lg) * 0.7);
   }
 
   .medium & {
-    --avatar-fallback-icon-size: calc(#{var(--avatar-md)} * 0.7);
+    --avatar-fallback-icon-size: calc(var(--avatar-md) * 0.7);
   }
 
   .small & {
-    --avatar-fallback-icon-size: calc(#{var(--avatar-sm)} * 0.7);
+    --avatar-fallback-icon-size: calc(var(--avatar-sm) * 0.7);
   }
 }
 
