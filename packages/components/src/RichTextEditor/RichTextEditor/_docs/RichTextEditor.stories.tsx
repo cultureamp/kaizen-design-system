@@ -19,6 +19,7 @@ const meta = {
       { name: 'bold', group: 'inline' },
       { name: 'italic', group: 'inline' },
       { name: 'underline', group: 'inline' },
+      { name: 'variables', group: 'whatever' },
     ],
   },
 } satisfies Meta<typeof RichTextEditor>
@@ -50,11 +51,12 @@ const MyEditor = () => {
       labelText="Rich text"
       defaultValue={rteData}
       onChange={handleOnChange}
-      controls: [
+      controls={[
         { name: "bold", group: "inline" },
         { name: "italic", group: "inline" },
         { name: "underline", group: "inline" },
-      ],
+        { name: "variables", group: "whatever" },
+      ]}
     />
   )
 }

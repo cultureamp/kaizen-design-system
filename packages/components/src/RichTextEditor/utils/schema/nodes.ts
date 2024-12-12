@@ -35,5 +35,19 @@ export const getNodes = (): NodeSpec => {
       ...listItem,
       content: 'paragraph block*',
     },
+    // variables: {
+    //   inline: true,
+    //   group: 'whatever',
+    //   selectable: false,
+    //   parseDOM: [
+    //     {
+    //       tag: 'br',
+    //     },
+    //   ],
+    //   toDOM: function toDOM() {
+    //     return ['br']
+    //   },
+    //   content: 'paragraph',
+    // },
   }
 }

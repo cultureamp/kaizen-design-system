@@ -68,6 +68,13 @@ const createSchema = (controls?: ToolbarControlTypes[]): ProseMirrorModel.Schema
     newMarks.link = marks.link
   }
 
+  if (controls.includes('variables')) {
+    /** @todo */
+    // newNodes.bulletList = nodes.bulletList
+    newNodes.variables = nodes.variables
+    newNodes.listItem = nodes.listItem
+  }
+
   return new ProseMirrorModel.Schema({
     nodes: newNodes,
     marks: newMarks,

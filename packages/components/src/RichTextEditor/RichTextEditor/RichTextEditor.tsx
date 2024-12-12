@@ -224,5 +224,13 @@ function getPlugins(
     )
   }
 
+  if (allControlNames.includes('variables')) {
+    plugins.push(
+      createLinkManager({
+        markType: schema.marks.variables,
+      }),
+    )
+  }
+
   return plugins
 }

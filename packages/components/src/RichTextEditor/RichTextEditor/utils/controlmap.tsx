@@ -271,5 +271,25 @@ export const buildControlMap = (
     })
   }
 
+  if (schema.nodes.variables) {
+    // const type = schema.nodes.variables
+    // const groupIndex = getGroupIndex(controlGroupIndex, 'italic')
+    // toolbarControls[groupIndex].push({
+    //   isActive: false,
+    //   action: createToggleListCommand(type),
+    //   label: 'Insert Variable',
+    //   icon: <Icon name="assist_walker" isPresentational />,
+    // })
+
+    const type = schema.nodes.variables
+    const groupIndex = getGroupIndex(controlGroupIndex, 'variables')
+    toolbarControls[groupIndex].push({
+      action: createToggleListCommand(type),
+      isActive: listIsActive(editorState, type, listNodes),
+      label: 'Insert Variable',
+      icon: <Icon name="data_usage" isPresentational shouldMirrorInRTL />,
+    })
+  }
+
   return filterToolbarControls(toolbarControls)
 }
