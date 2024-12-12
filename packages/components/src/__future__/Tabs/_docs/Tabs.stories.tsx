@@ -16,9 +16,11 @@ const meta = {
           <Tab id="three" badge="3">
             Tab 3
           </Tab>
-          <Tab id="four" isDisabled>
+          <Tab id="disabled" isDisabled>
             Disabled Tab
           </Tab>
+          <Tab id="four">Tab 4</Tab>
+          <Tab id="five">Tab 5</Tab>
         </TabList>
         <TabPanel id="one" className="p-24">
           <Text variant="body">Content 1</Text>
@@ -28,6 +30,15 @@ const meta = {
         </TabPanel>
         <TabPanel id="three" className="p-24">
           <Text variant="body">Content 3</Text>
+        </TabPanel>
+        <TabPanel id="disabled" className="p-24">
+          <Text variant="body">Content 4</Text>
+        </TabPanel>
+        <TabPanel id="four" className="p-24">
+          <Text variant="body">Content 4</Text>
+        </TabPanel>
+        <TabPanel id="five" className="p-24">
+          <Text variant="body">Content 5</Text>
         </TabPanel>
       </>
     ),
