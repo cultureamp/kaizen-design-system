@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, useLayoutEffect, useState } from 'react'
 import classnames from 'classnames'
 import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './Badge.module.scss'
+import styles from './Badge.module.css'
 
 type BadgeCommonProps = {
   children?: string
