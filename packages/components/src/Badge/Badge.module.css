@@ -1,7 +1,6 @@
 .badge {
   --dt-color-background-default: var(--color-gray-300);
   --small: var(--spacing-md);
-
   --badge-duration-timing: (var(--animation-duration-slow) / 2)
     var(--animation-easing-function-ease-in);
 
