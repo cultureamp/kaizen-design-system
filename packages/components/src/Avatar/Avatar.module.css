@@ -1,13 +1,11 @@
-:root {
+/* stylelint-disable no-descending-specificity */
+.wrapper {
   --avatar-sm: 1.25rem;
   --avatar-md: 3rem;
   --avatar-lg: 4.5rem;
   --avatar-xl: 6rem;
   --avatar-xxl: 7.75rem;
-}
 
-/* stylelint-disable no-descending-specificity */
-.wrapper {
   background: var(--color-gray-300);
   border-radius: 100%;
   box-sizing: border-box;
