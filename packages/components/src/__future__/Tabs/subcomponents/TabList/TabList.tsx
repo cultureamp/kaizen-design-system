@@ -6,6 +6,7 @@ import {
   TabListStateContext,
 } from 'react-aria-components'
 import { Icon } from '~components/__future__/Icon'
+import { SCROLL_AMOUNT } from '../../constants'
 import styles from './TabList.module.css'
 
 export type TabListProps = {
@@ -113,10 +114,9 @@ export const TabList = (props: TabListProps): JSX.Element => {
 
   const handleArrowPress = (direction: 'left' | 'right'): void => {
     if (tabListRef.current) {
-      const scrollAmount = 120
       const tabListScrollPos = tabListRef.current.scrollLeft
       const newSpot =
-        direction === 'left' ? tabListScrollPos - scrollAmount : tabListScrollPos + scrollAmount
+        direction === 'left' ? tabListScrollPos - SCROLL_AMOUNT : tabListScrollPos + SCROLL_AMOUNT
       tabListRef.current.scrollLeft = newSpot
     }
   }
