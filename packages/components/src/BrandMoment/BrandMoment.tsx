@@ -7,7 +7,7 @@ import { Button, ButtonProps } from '~components/__actions__/v2'
 import { OverrideClassName } from '~components/types/OverrideClassName'
 import { assetUrl } from '~components/utils/hostedAssets'
 import { useMediaQueries } from '~components/utils/useMediaQueries'
-import styles from './BrandMoment.module.scss'
+import styles from './BrandMoment.module.css'
 
 type DeprecatedMoodProps = {
   /** @deprecated Use `variant` instead */

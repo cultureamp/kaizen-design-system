@@ -1,12 +1,8 @@
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/layout';
-
-$breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and replace this out
-
+/*
 // --------------------------------
 // Body
 // --------------------------------
+*/
 .body {
   width: 100%;
   min-height: 100vh;
@@ -38,67 +34,73 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   --brand-moment-background-color: var(--color-red-100);
 }
 
+/*
 // --------------------------------
 // Reusable container
 // --------------------------------
+*/
 .container {
-  max-width: $layout-content-max-width;
+  max-width: var(--layout-content-max-width);
   margin: 0 auto;
-  padding: 0 $spacing-md;
+  padding: 0, var(--spacing-md);
 }
 
-@media (min-width: $layout-breakpoints-large) {
+@media (min-width: 1080px) {
   .container {
-    padding: 0 $spacing-xxl;
+    padding: 0 var(--spacing-xxl);
   }
 }
 
-@media (min-width: $breakpoint-xl) {
+@media (min-width: 1366px) {
   .container {
-    padding: 0 $spacing-xxxxl;
+    padding: 0 var(--spacing-xxxxl);
   }
 }
 
+/*
 // --------------------------------
 // Header
 // --------------------------------
+*/
 .header {
   inline-size: 100%;
-  margin-block-end: $spacing-md;
+  margin-block-end: var(--spacing-md);
 }
 
+/*
 // --------------------------------
 // Main
 // --------------------------------
+*/
 .main {
   flex: 1 0 auto;
   display: flex;
   align-items: center;
-  margin-block-end: $spacing-xxl;
+  margin-block-end: var(--spacing-xxl);
 }
 
 .mainInner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-xl $spacing-lg;
+  gap: var(--spacing-xl) var(--spacing-lg);
   align-items: center;
 }
 
-@media (min-width: $layout-breakpoints-medium) {
+@media (min-width: 768px) {
   .mainInner {
-    row-gap: $spacing-xxl;
+    row-gap: var(--spacing-xxl);
   }
 }
 
-@media (min-width: $layout-breakpoints-large) {
+@media (min-width: 1080px) {
   .mainInner {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (min-width: $breakpoint-xl) {
+@media (min-width: 1366px) {
   .mainInner {
-    column-gap: $spacing-xxxxl;
+    column-gap: var(--spacing-xxxxl);
   }
 }
 
@@ -124,33 +126,33 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 }
 
 .subtitle {
-  margin-bottom: $spacing-12;
+  margin-bottom: var(--spacing-12);
 }
 
 .title {
-  margin-bottom: $spacing-lg;
+  margin-bottom: var(--spacing-lg);
 }
 
 .textBody {
-  margin-bottom: $spacing-lg;
+  margin-bottom: var(--spacing-lg);
 }
 
 .secondaryAction {
-  margin-block-start: $spacing-sm;
+  margin-block-start: var(--spacing-sm);
 }
 
-@media (min-width: $layout-breakpoints-medium) {
+@media (min-width: 768px) {
   .actions {
     display: flex;
   }
 
   .secondaryAction {
     margin-block-start: 0;
-    margin-inline-start: $spacing-sm;
+    margin-inline-start: var(--spacing-sm);
   }
 }
 
-@media (min-width: $layout-breakpoints-large) {
+@media (min-width: 1080px) {
   .left {
     justify-content: flex-end;
   }
@@ -160,9 +162,11 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   }
 }
 
+/*
 // --------------------------------
 // Footer
 // --------------------------------
+*/
 .footer {
   flex: 0 0 auto;
 }
@@ -170,10 +174,10 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 .footerInner {
   display: flex;
   flex-direction: column;
-  border-block-start: 1px solid $color-purple-800;
-  border-inline-start: 1px solid $color-purple-800;
-  padding: $spacing-sm $spacing-md;
-  margin-block-end: $spacing-lg;
+  border-block-start: 1px solid var(--color-purple-800);
+  border-inline-start: 1px solid var(--color-purple-800);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-block-end: var(--spacing-lg);
 }
 
 .poweredByContainer {
@@ -185,18 +189,18 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 .footerTextContainer {
   flex: 1 1 auto;
   order: 1;
-  margin-block-end: $spacing-md;
+  margin-block-end: var(--spacing-md);
 }
 
 .poweredByLogo {
-  margin-inline-start: $spacing-xs;
+  margin-inline-start: var(--spacing-xs);
 
   > img {
     max-width: 133px;
   }
 }
 
-@media (min-width: $layout-breakpoints-large) {
+@media (min-width: 1080px) {
   .footerInner {
     flex-direction: row;
     align-items: center;
@@ -205,7 +209,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   .footerTextContainer {
     order: initial;
     margin-block-end: 0;
-    margin-inline-start: $spacing-md;
+    margin-inline-start: var(--spacing-md);
   }
 
   .poweredByContainer {

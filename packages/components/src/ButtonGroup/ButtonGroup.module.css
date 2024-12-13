@@ -1,0 +1,49 @@
+.buttonGroup {
+  --focus-ring-offset: 1px;
+  --focus-ring-offset-inner: calc(-1 * var(--focus-ring-offset));
+  display: inline-flex;
+}
+
+.child {
+  border-radius: 0;
+}
+
+.child:focus-visible::after {
+  border-radius: 0;
+}
+
+.child:not(.firstChild) {
+  border-inline-start: 1px solid var(--color-blue-300);
+}
+
+.child:not(.firstChild, .lastChild) {
+  &:focus-visible {
+    &::after {
+      inset-inline: var(--focus-ring-offset-inner) var(--focus-ring-offset-inner);
+    }
+  }
+}
+
+.child.firstChild {
+  border-start-start-radius: var(--border-focus-ring-border-radius);
+  border-end-start-radius: var(--border-focus-ring-border-radius);
+}
+
+.child.firstChild:focus-visible::after {
+  border-start-start-radius: var(--border-focus-ring-border-radius);
+  border-end-start-radius: var(--border-focus-ring-border-radius);
+
+  inset-inline-end: var(--focus-ring-offset-inner);
+}
+
+.child.lastChild {
+  border-start-end-radius: var(--border-focus-ring-border-radius);
+  border-end-end-radius: var(--border-focus-ring-border-radius);
+}
+
+.child.lastChild:focus-visible::after {
+  border-start-end-radius: var(--border-focus-ring-border-radius);
+  border-end-end-radius: var(--border-focus-ring-border-radius);
+
+  inset-inline-start: var(--focus-ring-offset-inner);
+}
