@@ -92,3 +92,7 @@
     border-bottom: 2px solid transparent;
   }
 }
+
+.tab:hover {
+  cursor: pointer;
+}
