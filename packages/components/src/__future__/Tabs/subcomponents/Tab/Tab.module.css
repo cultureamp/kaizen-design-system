@@ -31,6 +31,10 @@
     opacity: 0.3;
   }
 
+  &[data-disabled]:hover {
+    cursor: default;
+  }
+
   &:not(:first-child) {
     margin-inline-start: var(--spacing-xs);
   }
@@ -38,6 +42,7 @@
   &:not([data-disabled]):hover {
     background: var(--color-blue-100);
     color: var(--color-blue-500);
+    cursor: default;
   }
 }
 
@@ -91,8 +96,4 @@
     bottom: 0;
     border-bottom: 2px solid transparent;
   }
-}
-
-.tab:hover {
-  cursor: pointer;
 }
