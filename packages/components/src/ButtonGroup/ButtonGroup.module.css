@@ -1,6 +1,7 @@
 .buttonGroup {
   --focus-ring-offset: 1px;
   --focus-ring-offset-inner: calc(-1 * var(--focus-ring-offset));
+
   display: inline-flex;
 }
 
@@ -32,7 +33,6 @@
 .child.firstChild:focus-visible::after {
   border-start-start-radius: var(--border-focus-ring-border-radius);
   border-end-start-radius: var(--border-focus-ring-border-radius);
-
   inset-inline-end: var(--focus-ring-offset-inner);
 }
 
@@ -44,6 +44,5 @@
 .child.lastChild:focus-visible::after {
   border-start-end-radius: var(--border-focus-ring-border-radius);
   border-end-end-radius: var(--border-focus-ring-border-radius);
-
   inset-inline-start: var(--focus-ring-offset-inner);
 }
