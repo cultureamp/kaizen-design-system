@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.69.0
+
+### Minor Changes
+
+- [#5395](https://github.com/cultureamp/kaizen-design-system/pull/5395) [`9068e68`](https://github.com/cultureamp/kaizen-design-system/commit/9068e68b288cbcfa1561fe03b0875fe62011b67d) - Menu: Create MenuPopover, MenuSection and MenuHeader wrappers over RAC
+
 ## 1.68.13
 
 ### Patch Changes
