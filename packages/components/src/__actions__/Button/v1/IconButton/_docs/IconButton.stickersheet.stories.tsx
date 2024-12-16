@@ -6,7 +6,7 @@ import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSh
 import { IconButton, IconButtonProps } from '../index'
 
 export default {
-  title: 'Actions/IconButton/IconButton (v1)',
+  title: 'Components/IconButton/IconButton (v1)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

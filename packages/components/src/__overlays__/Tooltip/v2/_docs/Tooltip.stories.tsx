@@ -4,7 +4,7 @@ import * as TooltipV1Stories from '../../v1/_docs/Tooltip.stories'
 import { Tooltip } from '../index'
 
 const meta = {
-  title: 'Overlays/Tooltip/v2',
+  title: 'Components/Tooltip/Tooltip (v2)',
   component: Tooltip,
   args: {
     text: 'Example tooltip text.',

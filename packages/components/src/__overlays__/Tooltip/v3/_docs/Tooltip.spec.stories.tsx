@@ -11,7 +11,7 @@ import { Focusable } from '~components/__overlays__/v3'
 import { Tooltip, TooltipTrigger } from '../index'
 
 const meta = {
-  title: 'Overlays/Tooltip/v3/Tests',
+  title: 'Components/Tooltip/Tooltip (v3)/Tests',
   component: Tooltip,
   parameters: {
     layout: 'centered',
