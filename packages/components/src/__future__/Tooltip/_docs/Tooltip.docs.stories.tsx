@@ -2,17 +2,17 @@ import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { FieldMessage } from '~components/FieldMessage'
+import { Focusable } from '~components/Focusable'
 import { Input } from '~components/Input'
 import { Label } from '~components/Label'
 import { Text } from '~components/Text'
 import { Button, IconButton } from '~components/__actions__/v2'
 import { Icon } from '~components/__future__/Icon'
-import { Focusable } from '~components/__overlays__/v3'
 import { Tooltip, TooltipTrigger } from '../index'
 import * as TestStories from './Tooltip.spec.stories'
 
 const meta = {
-  title: 'Overlays/Tooltip/v3/Docs Assets',
+  title: 'Components/Tooltip/Tooltip (Future)/Docs Assets',
   component: Tooltip,
   parameters: {
     layout: 'centered',

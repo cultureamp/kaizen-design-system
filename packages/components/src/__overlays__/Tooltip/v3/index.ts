@@ -1,2 +1,1 @@
-export * from './Tooltip'
-export * from './TooltipTrigger'
+export * from '../../../__future__/Tooltip'

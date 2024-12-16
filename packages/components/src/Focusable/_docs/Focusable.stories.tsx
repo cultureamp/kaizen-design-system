@@ -4,7 +4,7 @@ import { Tag } from '~components/__future__/Tag'
 import { Focusable } from '../index'
 
 const meta = {
-  title: 'Overlays/Focusable/v3',
+  title: 'Components/Focusable',
   component: Focusable,
   parameters: {
     layout: 'centered',

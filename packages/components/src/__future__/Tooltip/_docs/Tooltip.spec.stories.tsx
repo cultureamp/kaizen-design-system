@@ -2,16 +2,16 @@ import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import { expect, userEvent, waitFor, within } from '@storybook/test'
 import isChromatic from 'chromatic'
+import { Focusable } from '~components/Focusable'
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '~components/Tabs'
 import { Text } from '~components/Text'
 import { Button, IconButton } from '~components/__actions__/v2'
 import { Icon } from '~components/__future__/Icon'
 import { Tag } from '~components/__future__/Tag'
-import { Focusable } from '~components/__overlays__/v3'
 import { Tooltip, TooltipTrigger } from '../index'
 
 const meta = {
-  title: 'Overlays/Tooltip/v3/Tests',
+  title: 'Components/Tooltip/Tooltip (Future)/Tests',
   component: Tooltip,
   parameters: {
     layout: 'centered',

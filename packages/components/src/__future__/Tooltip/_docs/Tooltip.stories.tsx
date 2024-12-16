@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
+import { Focusable } from '~components/Focusable'
 import { Button } from '~components/__actions__/v2'
 import { Tag } from '~components/__future__'
-import { Focusable } from '~components/__overlays__/v3'
 import { Tooltip, TooltipTrigger } from '../index'
 import * as testStories from './Tooltip.spec.stories'
 
 const meta = {
-  title: 'Overlays/Tooltip/v3',
+  title: 'Components/Tooltip/Tooltip (Future)',
   component: Tooltip,
   parameters: {
     layout: 'centered',
