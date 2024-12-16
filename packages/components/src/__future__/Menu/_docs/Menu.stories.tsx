@@ -8,7 +8,7 @@ import { Menu, MenuTrigger, MenuItem, MenuPopover, MenuSection, MenuHeader } fro
 import * as testStories from './Menu.spec.stories'
 
 const meta = {
-  title: 'Actions/Menu/v3',
+  title: 'Components/Menu/Menu (Future)',
   component: MenuTrigger,
   args: {
     defaultOpen: isChromatic(),

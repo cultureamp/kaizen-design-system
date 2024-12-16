@@ -1,22 +1,21 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import { ResourceLinks, Installation } from '~storybook/components'
 import * as MenuStories from './Menu.stories'
 
 <Meta of={MenuStories} />
 
-# Menu (v2)
+# Menu
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Menu"
   figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9%3A39909&t=P1w10jr2cpPuaayw-1"
   designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082059782/Menu"
-
+  className="!mb-8"
 />
 
-<KAIOInstallation
-  exportNames={['Menu', 'MenuDropdown', 'MenuList', 'MenuItem']}
-  family="actions"
-  version="2"
+<Installation
+  installCommand="pnpm add @kaizen/components"
+  importStatement='import { Menu, MenuDropdown, MenuList, MenuItem } from "@kaizen/components'
 />
 
 ## Overview
@@ -25,7 +24,3 @@ A menu contains links to places or button actions. It does NOT show a selected i
 
 <Canvas of={MenuStories.Playground} />
 <Controls of={MenuStories.Playground} />
-
-## API
-
-Coming soon.
