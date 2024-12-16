@@ -14,7 +14,10 @@ const meta = {
     defaultOpen: isChromatic(),
     children: <></>,
   },
-  subcomponents: { Menu, MenuItem } as Record<string, FunctionComponent<any>>,
+  subcomponents: { Menu, MenuItem, MenuPopover, MenuSection, MenuHeader } as Record<
+    string,
+    FunctionComponent<any>
+  >,
 } satisfies Meta<typeof MenuTrigger>
 
 export default meta

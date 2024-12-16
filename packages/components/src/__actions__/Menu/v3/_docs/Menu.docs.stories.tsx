@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { Button } from '~components/__actions__/v3'
 import { Icon } from '~components/__future__/Icon'
-import { Menu, MenuItem, MenuTrigger, MenuPopover } from '../index'
+import { Menu, MenuItem, MenuTrigger, MenuPopover, MenuSection, MenuHeader } from '../index'
 
 const meta = {
   title: 'Actions/Menu/v3/Docs Assets',
@@ -12,7 +12,10 @@ const meta = {
     defaultOpen: isChromatic(),
     children: <></>,
   },
-  subcomponents: { Menu, MenuItem } as Record<string, FunctionComponent<any>>,
+  subcomponents: { Menu, MenuItem, MenuPopover, MenuSection, MenuHeader } as Record<
+    string,
+    FunctionComponent<any>
+  >,
 } satisfies Meta<typeof MenuTrigger>
 
 export default meta
