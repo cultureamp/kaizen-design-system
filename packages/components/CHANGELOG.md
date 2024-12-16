@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.68.13
+
+### Patch Changes
+
+- [#5392](https://github.com/cultureamp/kaizen-design-system/pull/5392) [`5ac8212`](https://github.com/cultureamp/kaizen-design-system/commit/5ac821288357fd58f073a4375841e2fc32b16aec) - Made Future Tab hover cursor consistent with current Tab.
+
 ## 1.68.12
 
 ### Patch Changes
