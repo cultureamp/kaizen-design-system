@@ -1,4 +1,4 @@
-# `package-bundler build-shared-ui`
+# Shared UI preset
 
 For shared UI packages. CSS modules and/or Tailwind will be included in the dist in a single stylesheet (`{PACKAGE_NAME}/dist/styles.css`) to be imported by the consumer.
 

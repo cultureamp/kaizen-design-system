@@ -1,4 +1,4 @@
-# `package-bundler build`
+# Default preset
 
 For packages that do not contain any styles.
 
