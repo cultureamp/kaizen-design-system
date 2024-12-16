@@ -1,23 +1,19 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
-import { KAIOInstallation, ResourceLinks, SbContent } from '~storybook/components'
+import { KAIOInstallation, ResourceLinks } from '~storybook/components'
 import * as exampleStories from './Focusable.stories'
 
 <Meta title="Components/Tooltip/Tooltip (v3)/Focusable/API Specification" />
 
-<SbContent>
-  # Focusable API Specification (v3)
+# Focusable API Specification (v3)
 
 Updated June 25, 2024
-
-</SbContent>
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__overlays__/Focusable"
   className="mt-16 !mb-8"
 />
 
-<SbContent className="mb-24">
-  <KAIOInstallation exportNames={["Focusable"]} family="overlays" version="3" />
+<KAIOInstallation exportNames={['Focusable']} family="overlays" version="3" />
 
 ## Overview
 
@@ -25,15 +21,11 @@ Focusable is a utility wrapper to allow users to add focus to a non-focusable el
 
 The main use case is for non semantic components like `Tag` that need a [Tooltip](/docs/overlays-tooltip-v3-usage-guidelines--docs).
 
-</SbContent>
-
 <Canvas className="mb-24" of={exampleStories.Playground} />
 
-<SbContent className="mb-64">
-  Be aware that this does not negate the need to meet A11Y standards and best practices. Use this
-  utility wrapper with caution.
-</SbContent>
+Be aware that this does not negate the need to meet A11Y standards and best practices. Use this
+utility wrapper with caution.
 
-<SbContent className="mb-12">## API</SbContent>
+## API
 
 <Controls of={exampleStories.Playground} />
