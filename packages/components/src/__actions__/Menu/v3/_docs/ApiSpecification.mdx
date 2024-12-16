@@ -20,25 +20,13 @@ Updated July 4, 2024
 />
 
 <SbContent className="mb-24">
-  <div className="bg-yellow-100 border-default border-yellow-400 rounded px-24">
-    ### Disclaimer
-
-    The `Menu` `v3` component is not backwards compatible with Kaizen `Button` `v1` and `v2`. For this reason, usage of this component is not recommended until a `Button` `v3` is released.
-
-  </div>
-</SbContent>
-
-<SbContent className="mb-24">
 
 {' '}
 
-<KAIOInstallation exportNames={['Menu', 'MenuTrigger', 'MenuItem']} family="actions" version="3" />
-
-{' '}
-
-<Source
-  code={'import { Popover, Section, Header } from "@kaizen/components/v3/react-aria-components"'}
-  language="tsx"
+<KAIOInstallation
+  exportNames={['Menu', 'MenuTrigger', 'MenuItem', 'MenuPopover', 'MenuSection', 'MenuHeader']}
+  family="actions"
+  version="3"
 />
 
 ## Overview
@@ -54,12 +42,12 @@ A menu displays a list of actions in a popover, toggled opened with a button.
     code: `
 <MenuTrigger>
   <Button><Icon name="more_horiz" alt="Actions" /></Button>
-  <Popover>
+  <MenuPopover>
     <Menu>
       <MenuItem href="#">Menu Item</MenuItem>
       <MenuItem onAction={handleAction}>Menu Item</MenuItem>
     </Menu>
-  </Popover>
+  </MenuPopover>
 </MenuTrigger>
   `,
   }}
@@ -99,7 +87,7 @@ If you're passing `ReactNode` into `MenuItem` `children`, you'll need to specify
 
 ## Sections
 
-Sections can be added with the `Section` and `Header` component from `react-aria-components`.
+Sections can be added with the `MenuSection` and `MenuHeader` components.
 
 <Canvas className="mb-24" of={exampleStories.WithSections} />
 

@@ -1,10 +1,9 @@
 import React, { FunctionComponent, ReactNode } from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
-import { Popover } from 'react-aria-components'
 import { Button } from '~components/__actions__/v3'
 import { Icon } from '~components/__future__/Icon'
-import { Menu, MenuItem, MenuTrigger } from '../index'
+import { Menu, MenuItem, MenuTrigger, MenuPopover } from '../index'
 
 const meta = {
   title: 'Actions/Menu/v3/Docs Assets',
@@ -41,12 +40,12 @@ export const Actions: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu>
           <MenuItem href="https://cultureamp.com">Action that navigates</MenuItem>
           <MenuItem onAction={() => null}>Non-navigation action</MenuItem>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -62,11 +61,11 @@ export const ItemsDo: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu>
           <DefaultMenuItems />
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -82,11 +81,11 @@ export const ItemsDont: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu>
           <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -98,12 +97,12 @@ export const SelectionDont: Story = {
         Sort by
         <Icon name="keyboard_arrow_down" isPresentational />
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu>
           <MenuItem icon={<Icon name="check" isPresentational />}>Recommended</MenuItem>
           <MenuItem>Most recent</MenuItem>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -115,11 +114,11 @@ export const LabelChevronDo: Story = {
         Edit item
         <Icon name="keyboard_arrow_down" isPresentational />
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu>
           <DefaultMenuItems />
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -128,11 +127,11 @@ export const LabelChevronDont: Story = {
   render: ({ defaultOpen, ...args }) => (
     <MenuTrigger defaultOpen={defaultOpen} {...args}>
       <Button variant="secondary">Edit item</Button>
-      <Popover>
+      <MenuPopover>
         <Menu>
           <DefaultMenuItems />
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -144,11 +143,11 @@ export const LabelDo: Story = {
         Actions [visually hidden], conversation with Harper[/visually hidden]
         <Icon name="keyboard_arrow_down" isPresentational />
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu {...args}>
           <DefaultMenuItems />
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -160,11 +159,11 @@ export const LabelDont: Story = {
         Open menu
         <Icon name="keyboard_arrow_down" isPresentational />
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu {...args}>
           <DefaultMenuItems />
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -180,7 +179,7 @@ export const IconsDont: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu {...args}>
           <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>
             Edit &lsquo;Strengths&rsquo;
@@ -191,7 +190,7 @@ export const IconsDont: Story = {
           <MenuItem>Export PDF</MenuItem>
           <MenuItem>Export Powerpoint</MenuItem>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -207,13 +206,13 @@ export const MenuItemLabelsDont: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu {...args}>
           <MenuItem>Save comment</MenuItem>
           <MenuItem>Edit comment</MenuItem>
           <MenuItem>Delete comment</MenuItem>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -229,13 +228,13 @@ export const SentenceCaseDo: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu {...args}>
           <MenuItem>Quick export</MenuItem>
           <MenuItem>Open a copy</MenuItem>
           <MenuItem>Share a link</MenuItem>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -251,13 +250,13 @@ export const SentenceCaseDont: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu {...args}>
           <MenuItem>Quick Export</MenuItem>
           <MenuItem>Open A Copy</MenuItem>
           <MenuItem>Share A Link</MenuItem>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -273,13 +272,13 @@ export const ElipsesDo: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu {...args}>
           <MenuItem>Quick export</MenuItem>
           <MenuItem>Open a copy</MenuItem>
           <MenuItem>Share a link</MenuItem>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -295,13 +294,13 @@ export const ElipsesDont: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu {...args}>
           <MenuItem>Quick export…</MenuItem>
           <MenuItem>Open a copy…</MenuItem>
           <MenuItem>Share a link…</MenuItem>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
