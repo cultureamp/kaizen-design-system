@@ -20,11 +20,11 @@ Read more about [the different types of package.json entrypoints here](https://n
 
 ### Node 12+
 
-If your consumers are all using Node 12+ (including for their TypeScript [`moduleResolution`](https://www.typescriptlang.org/tsconfig/#moduleResolution)), you should be able to use the [`exports`](https://nodejs.org/api/packages.html#exports) field if you have multiple entrypoints.
+If your consumers are all using Node 12+ (including using TypeScript [`moduleResolution`](https://www.typescriptlang.org/tsconfig/#moduleResolution) `node16`/`nodenext`/`bundler`), you should be able to use the [`exports`](https://nodejs.org/api/packages.html#exports) field if you have multiple entrypoints.
 
 ### Node <=10
 
-If your consumers may be using version 10 or lower, the `exports` field will not be resolved. Your only option will be to utilise `main` (resolves CJS), `module` (resolves ESM), and `types` (resolves TypeScript).
+If your consumers may be using version 10 or lower (or are using TypeScript [`moduleResolution`](https://www.typescriptlang.org/tsconfig/#moduleResolution) `classic`/`node`/`node10`), the `exports` field will not be resolved. Your only option will be to utilise `main` (resolves CJS), `module` (resolves ESM), and `types` (resolves TypeScript).
 
 Should you want multiple entrypoints, you will need to create a directory relative from the root of the package and create a `package.json` within that contains the extra resolutions.
 
