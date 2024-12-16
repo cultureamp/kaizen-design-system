@@ -4,7 +4,7 @@ import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSh
 import { ProgressStepper } from '../subcomponents'
 
 export default {
-  title: 'Components/Workflow/Components/Progress Stepper',
+  title: 'Components/Workflow/Components/ProgressStepper',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

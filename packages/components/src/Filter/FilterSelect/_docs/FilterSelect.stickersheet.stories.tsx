@@ -15,7 +15,7 @@ import {
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: 'Components/Filter Select',
+  title: 'Components/FilterSelect',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

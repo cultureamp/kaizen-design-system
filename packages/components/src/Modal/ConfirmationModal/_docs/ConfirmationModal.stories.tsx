@@ -9,7 +9,7 @@ import { ConfirmationModal } from '../index'
 const IS_CHROMATIC = isChromatic()
 
 const meta = {
-  title: 'Components/Modals/Confirmation Modal',
+  title: 'Components/Modals/ConfirmationModal',
   component: ConfirmationModal,
   args: {
     isOpen: false,
