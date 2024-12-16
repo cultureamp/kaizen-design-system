@@ -16,6 +16,7 @@
   line-height: var(--typography-heading-4-line-height);
   letter-spacing: var(--typography-heading-4-letter-spacing);
   color: var(--color-purple-800);
+  cursor: default;
 
   &:focus {
     outline: none;
