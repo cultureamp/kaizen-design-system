@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import { expect, userEvent, waitFor, within, fn } from '@storybook/test'
 import isChromatic from 'chromatic'
-import { Popover, Header, Section } from 'react-aria-components'
 import { Button } from '~components/__actions__/v3'
 import { Icon } from '~components/__future__/Icon'
-import { Menu, MenuItem, MenuTrigger } from '../index'
+import { Menu, MenuItem, MenuTrigger, MenuPopover, MenuHeader, MenuSection } from '../index'
 
 const meta = {
   title: 'Actions/Menu/v3/Tests',
@@ -44,10 +43,10 @@ export const KitchenSink: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu>
-          <Section>
-            <Header>Section One</Header>
+          <MenuSection>
+            <MenuHeader>Section One</MenuHeader>
             <MenuItem
               icon={<Icon name="bookmark" isPresentational />}
               href="https://cultureamp.com"
@@ -55,14 +54,14 @@ export const KitchenSink: Story = {
               Save
             </MenuItem>
             <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>Edit</MenuItem>
-          </Section>
-          <Section>
+          </MenuSection>
+          <MenuSection>
             <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>Move Up</MenuItem>
             <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>
               Menu item with a longer label
             </MenuItem>
-          </Section>
-          <Section>
+          </MenuSection>
+          <MenuSection>
             <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
             <MenuItem icon={<Icon name="delete" isPresentational isFilled />} isDisabled>
               Delete but disabled
@@ -70,9 +69,9 @@ export const KitchenSink: Story = {
             <MenuItem>Other action</MenuItem>
             <MenuItem>Other action</MenuItem>
             <MenuItem>Other action</MenuItem>
-          </Section>
+          </MenuSection>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -89,7 +88,7 @@ export const Basic: Story = {
         Additional actions
       </Button>
 
-      <Popover>
+      <MenuPopover>
         <Menu>
           <MenuItem
             icon={<Icon name="warning" isPresentational isFilled />}
@@ -108,7 +107,7 @@ export const Basic: Story = {
           <MenuItem>Item 4</MenuItem>
           <MenuItem>Item 5</MenuItem>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
   play: async ({ canvasElement, step }) => {
@@ -165,7 +164,7 @@ export const DisabledItems: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu>
           <MenuItem isDisabled onAction={mockOnClick}>
             Item 1
@@ -175,7 +174,7 @@ export const DisabledItems: Story = {
           <MenuItem>Item 4</MenuItem>
           <MenuItem>Item 5</MenuItem>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
   play: async ({ canvasElement, step }) => {
@@ -210,22 +209,22 @@ export const WithSections: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
+      <MenuPopover>
         <Menu>
-          <Section>
-            <Header>Section One</Header>
+          <MenuSection>
+            <MenuHeader>Section One</MenuHeader>
             <MenuItem>Item 1</MenuItem>
             <MenuItem>Item 2</MenuItem>
-          </Section>
+          </MenuSection>
 
-          <Section>
-            <Header>Section Two</Header>
+          <MenuSection>
+            <MenuHeader>Section Two</MenuHeader>
             <MenuItem>Item 3</MenuItem>
             <MenuItem>Item 4</MenuItem>
             <MenuItem>Item 5</MenuItem>
-          </Section>
+          </MenuSection>
         </Menu>
-      </Popover>
+      </MenuPopover>
     </MenuTrigger>
   ),
 }
@@ -246,7 +245,7 @@ export const Controlled: Story = {
           >
             Additional actions
           </Button>
-          <Popover>
+          <MenuPopover>
             <Menu>
               <MenuItem>Item 1</MenuItem>
               <MenuItem onAction={() => setOpen(true)}>Item 2</MenuItem>
@@ -254,7 +253,7 @@ export const Controlled: Story = {
               <MenuItem>Item 4</MenuItem>
               <MenuItem>Item 5</MenuItem>
             </Menu>
-          </Popover>
+          </MenuPopover>
         </MenuTrigger>
       </>
     )
