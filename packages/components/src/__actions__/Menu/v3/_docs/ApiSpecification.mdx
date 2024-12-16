@@ -37,7 +37,7 @@ Updated July 4, 2024
 {' '}
 
 <Source
-  code={'import { Popover, Section, Header } from "@kaizen/components/v3/react-aria-components"'}
+  code={'import { Section, Header } from "@kaizen/components/v3/react-aria-components"'}
   language="tsx"
 />
 
@@ -54,12 +54,10 @@ A menu displays a list of actions in a popover, toggled opened with a button.
     code: `
 <MenuTrigger>
   <Button><Icon name="more_horiz" alt="Actions" /></Button>
-  <Popover>
-    <Menu>
-      <MenuItem href="#">Menu Item</MenuItem>
-      <MenuItem onAction={handleAction}>Menu Item</MenuItem>
-    </Menu>
-  </Popover>
+  <Menu>
+    <MenuItem href="#">Menu Item</MenuItem>
+    <MenuItem onAction={handleAction}>Menu Item</MenuItem>
+  </Menu>
 </MenuTrigger>
   `,
   }}

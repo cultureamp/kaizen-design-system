@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import { expect, userEvent, waitFor, within, fn } from '@storybook/test'
 import isChromatic from 'chromatic'
-import { Popover, Header, Section } from 'react-aria-components'
+import { Header, Section } from 'react-aria-components'
 import { Button } from '~components/__actions__/v3'
 import { Icon } from '~components/__future__/Icon'
 import { Menu, MenuItem, MenuTrigger } from '../index'
@@ -44,35 +44,30 @@ export const KitchenSink: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
-        <Menu>
-          <Section>
-            <Header>Section One</Header>
-            <MenuItem
-              icon={<Icon name="bookmark" isPresentational />}
-              href="https://cultureamp.com"
-            >
-              Save
-            </MenuItem>
-            <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>Edit</MenuItem>
-          </Section>
-          <Section>
-            <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>Move Up</MenuItem>
-            <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>
-              Menu item with a longer label
-            </MenuItem>
-          </Section>
-          <Section>
-            <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
-            <MenuItem icon={<Icon name="delete" isPresentational isFilled />} isDisabled>
-              Delete but disabled
-            </MenuItem>
-            <MenuItem>Other action</MenuItem>
-            <MenuItem>Other action</MenuItem>
-            <MenuItem>Other action</MenuItem>
-          </Section>
-        </Menu>
-      </Popover>
+      <Menu>
+        <Section>
+          <Header>Section One</Header>
+          <MenuItem icon={<Icon name="bookmark" isPresentational />} href="https://cultureamp.com">
+            Save
+          </MenuItem>
+          <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>Edit</MenuItem>
+        </Section>
+        <Section>
+          <MenuItem icon={<Icon name="arrow_upward" isPresentational />}>Move Up</MenuItem>
+          <MenuItem icon={<Icon name="arrow_downward" isPresentational />}>
+            Menu item with a longer label
+          </MenuItem>
+        </Section>
+        <Section>
+          <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
+          <MenuItem icon={<Icon name="delete" isPresentational isFilled />} isDisabled>
+            Delete but disabled
+          </MenuItem>
+          <MenuItem>Other action</MenuItem>
+          <MenuItem>Other action</MenuItem>
+          <MenuItem>Other action</MenuItem>
+        </Section>
+      </Menu>
     </MenuTrigger>
   ),
 }
@@ -88,27 +83,24 @@ export const Basic: Story = {
       >
         Additional actions
       </Button>
-
-      <Popover>
-        <Menu>
-          <MenuItem
-            icon={<Icon name="warning" isPresentational isFilled />}
-            onAction={() => alert('Menu item pressed')}
-          >
-            Trigger an alert
-          </MenuItem>
-          <MenuItem
-            icon={<Icon name="open_in_new" isPresentational />}
-            href="https://cultureamp.com"
-            target="_blank"
-          >
-            Go to cultureamp.com
-          </MenuItem>
-          <MenuItem>Item 3</MenuItem>
-          <MenuItem>Item 4</MenuItem>
-          <MenuItem>Item 5</MenuItem>
-        </Menu>
-      </Popover>
+      <Menu>
+        <MenuItem
+          icon={<Icon name="warning" isPresentational isFilled />}
+          onAction={() => alert('Menu item pressed')}
+        >
+          Trigger an alert
+        </MenuItem>
+        <MenuItem
+          icon={<Icon name="open_in_new" isPresentational />}
+          href="https://cultureamp.com"
+          target="_blank"
+        >
+          Go to cultureamp.com
+        </MenuItem>
+        <MenuItem>Item 3</MenuItem>
+        <MenuItem>Item 4</MenuItem>
+        <MenuItem>Item 5</MenuItem>
+      </Menu>
     </MenuTrigger>
   ),
   play: async ({ canvasElement, step }) => {
@@ -165,17 +157,15 @@ export const DisabledItems: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
-        <Menu>
-          <MenuItem isDisabled onAction={mockOnClick}>
-            Item 1
-          </MenuItem>
-          <MenuItem>Item 2</MenuItem>
-          <MenuItem isDisabled>Item 3</MenuItem>
-          <MenuItem>Item 4</MenuItem>
-          <MenuItem>Item 5</MenuItem>
-        </Menu>
-      </Popover>
+      <Menu>
+        <MenuItem isDisabled onAction={mockOnClick}>
+          Item 1
+        </MenuItem>
+        <MenuItem>Item 2</MenuItem>
+        <MenuItem isDisabled>Item 3</MenuItem>
+        <MenuItem>Item 4</MenuItem>
+        <MenuItem>Item 5</MenuItem>
+      </Menu>
     </MenuTrigger>
   ),
   play: async ({ canvasElement, step }) => {
@@ -210,22 +200,20 @@ export const WithSections: Story = {
       >
         Additional actions
       </Button>
-      <Popover>
-        <Menu>
-          <Section>
-            <Header>Section One</Header>
-            <MenuItem>Item 1</MenuItem>
-            <MenuItem>Item 2</MenuItem>
-          </Section>
+      <Menu>
+        <Section>
+          <Header>Section One</Header>
+          <MenuItem>Item 1</MenuItem>
+          <MenuItem>Item 2</MenuItem>
+        </Section>
 
-          <Section>
-            <Header>Section Two</Header>
-            <MenuItem>Item 3</MenuItem>
-            <MenuItem>Item 4</MenuItem>
-            <MenuItem>Item 5</MenuItem>
-          </Section>
-        </Menu>
-      </Popover>
+        <Section>
+          <Header>Section Two</Header>
+          <MenuItem>Item 3</MenuItem>
+          <MenuItem>Item 4</MenuItem>
+          <MenuItem>Item 5</MenuItem>
+        </Section>
+      </Menu>
     </MenuTrigger>
   ),
 }
@@ -246,15 +234,13 @@ export const Controlled: Story = {
           >
             Additional actions
           </Button>
-          <Popover>
-            <Menu>
-              <MenuItem>Item 1</MenuItem>
-              <MenuItem onAction={() => setOpen(true)}>Item 2</MenuItem>
-              <MenuItem>Item 3</MenuItem>
-              <MenuItem>Item 4</MenuItem>
-              <MenuItem>Item 5</MenuItem>
-            </Menu>
-          </Popover>
+          <Menu>
+            <MenuItem>Item 1</MenuItem>
+            <MenuItem onAction={() => setOpen(true)}>Item 2</MenuItem>
+            <MenuItem>Item 3</MenuItem>
+            <MenuItem>Item 4</MenuItem>
+            <MenuItem>Item 5</MenuItem>
+          </Menu>
         </MenuTrigger>
       </>
     )

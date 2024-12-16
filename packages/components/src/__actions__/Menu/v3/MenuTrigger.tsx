@@ -7,6 +7,6 @@ import {
 export type MenuTriggerProps = Omit<RACMenuTriggerProps, 'trigger'>
 
 /**
- * A MenuTrigger adds open/close functionality when wrapping a Button and a Popover (with a Menu inside of the Popover)
+ * A MenuTrigger adds open/close functionality when wrapping a <Button> and a <Menu>
  */
 export const MenuTrigger = (props: MenuTriggerProps): JSX.Element => <RACMenuTrigger {...props} />
