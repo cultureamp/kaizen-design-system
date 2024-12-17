@@ -7,7 +7,7 @@ import { Menu } from '../index'
 import { MenuContentExample } from './MenuContentExample'
 
 export default {
-  title: 'Actions/Menu/v1',
+  title: 'Components/Menu/Menu (v1)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

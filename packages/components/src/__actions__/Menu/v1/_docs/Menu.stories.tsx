@@ -8,7 +8,7 @@ import { MenuItem } from '../subcomponents/MenuItem'
 import { MenuList } from '../subcomponents/MenuList'
 
 const meta = {
-  title: 'Actions/Menu/v1',
+  title: 'Components/Menu/Menu (v1)',
   component: Menu,
   args: {
     button: (

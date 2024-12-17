@@ -4,7 +4,7 @@ import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSh
 import { ErrorPage } from '../ErrorPage'
 
 export default {
-  title: 'Pages/Error Page',
+  title: 'Pages/ErrorPage',
   parameters: {
     a11y: {
       config: {

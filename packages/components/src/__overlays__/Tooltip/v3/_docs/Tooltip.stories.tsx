@@ -8,7 +8,7 @@ import { Tooltip, TooltipTrigger } from '../index'
 import * as testStories from './Tooltip.spec.stories'
 
 const meta = {
-  title: 'Overlays/Tooltip/v3',
+  title: 'Components/Tooltip/Tooltip (v3)',
   component: Tooltip,
   parameters: {
     layout: 'centered',

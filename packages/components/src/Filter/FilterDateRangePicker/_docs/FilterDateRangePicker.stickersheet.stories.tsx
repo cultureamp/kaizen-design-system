@@ -13,7 +13,7 @@ import { FilterDateRangePickerField } from '../subcomponents/FilterDateRangePick
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: 'Components/Filter Date Range Picker',
+  title: 'Components/FilterDateRangePicker',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -9,7 +9,7 @@ import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSh
 import { SplitButton, SplitButtonProps } from '../index'
 
 export default {
-  title: 'Components/Buttons/SplitButton',
+  title: 'Components/SplitButton',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
