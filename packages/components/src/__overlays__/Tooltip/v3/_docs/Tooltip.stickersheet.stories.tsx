@@ -5,7 +5,7 @@ import { mergeClassNames } from '~components/utils/mergeClassNames'
 import * as testStories from './Tooltip.spec.stories'
 
 export default {
-  title: 'Overlays/Tooltip/v3/Tests',
+  title: 'Components/Tooltip/Tooltip (v3)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

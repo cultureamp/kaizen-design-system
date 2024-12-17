@@ -22,7 +22,7 @@ const ExampleForm = (): JSX.Element => (
 )
 
 const meta = {
-  title: 'Components/Modals/Input Edit Modal',
+  title: 'Components/Modals/InputEditModal',
   component: InputEditModal,
   args: {
     isOpen: false,

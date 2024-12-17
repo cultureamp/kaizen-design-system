@@ -6,7 +6,7 @@ import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSh
 import { Button, ButtonSizes, ButtonVariants } from '../index'
 
 export default {
-  title: 'Actions/Button/Button (v3)',
+  title: 'Components/Button/Button (v3)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

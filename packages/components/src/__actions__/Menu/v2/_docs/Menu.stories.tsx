@@ -6,7 +6,7 @@ import * as MenuV1Stories from '../../v1/_docs/Menu.stories'
 import { Menu, MenuList, MenuItem, MenuHeading } from '../index'
 
 const meta = {
-  title: 'Actions/Menu/v2',
+  title: 'Components/Menu/Menu (v2)',
   component: Menu,
   args: {
     button: (

@@ -22,7 +22,7 @@ import imgTooltipDont from './assets/tooltip-dont.png'
 import styles from './Icon.docs.module.css'
 
 const meta = {
-  title: 'Illustrations/Icon/Icon (Future)',
+  title: 'Components/Icon/Icon (Future)',
   component: Icon,
   args: {
     name: 'star',

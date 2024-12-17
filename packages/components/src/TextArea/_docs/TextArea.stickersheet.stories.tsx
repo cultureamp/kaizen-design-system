@@ -4,7 +4,7 @@ import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSh
 import { TextArea } from '../index'
 
 export default {
-  title: 'Components/Text Input controls/Text Area',
+  title: 'Components/Text Input controls/TextArea',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

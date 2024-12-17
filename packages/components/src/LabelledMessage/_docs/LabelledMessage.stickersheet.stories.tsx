@@ -4,7 +4,7 @@ import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSh
 import { LabelledMessage } from '../index'
 
 export default {
-  title: 'Components/Utilities/Labelled Message',
+  title: 'Components/LabelledMessage',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
