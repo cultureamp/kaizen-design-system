@@ -218,6 +218,12 @@
     --button-bg-color: rgba(var(--color-white-rgb), 0.1);
     --button-border-color: transparent;
   }
+
+  &:disabled {
+    --button-text-color: rgba(var(--color-white-rgb), 0.2);
+    --button-bg-color: transparent;
+    --button-border-color: transparent;
+  }
 }
 
 .isDisabled {
