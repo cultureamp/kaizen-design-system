@@ -141,12 +141,6 @@
     --button-bg-color: var(--color-blue-100);
     --button-border-color: var(--color-blue-100);
   }
-
-  &:disabled {
-    --button-text-color: var(--color-gray-400);
-    --button-bg-color: transparent;
-    --button-border-color: transparent;
-  }
 }
 
 .primaryReversed,
@@ -216,12 +210,6 @@
 
   &[data-pending] {
     --button-bg-color: rgba(var(--color-white-rgb), 0.1);
-    --button-border-color: transparent;
-  }
-
-  &:disabled {
-    --button-text-color: rgba(var(--color-white-rgb), 0.2);
-    --button-bg-color: transparent;
     --button-border-color: transparent;
   }
 }
