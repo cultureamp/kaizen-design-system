@@ -115,7 +115,7 @@
     --button-border-color: var(--color-black);
   }
 
-  &:disabled {
+  &.isDisabled {
     --button-bg-color: var(--color-white);
     --button-border-color: var(--color-gray-400);
     --button-text-color: var(--color-gray-400);
@@ -142,7 +142,7 @@
     --button-border-color: var(--color-gray-300);
   }
 
-  &:disabled {
+  &.isDisabled {
     --button-bg-color: transparent;
     --button-border-color: transparent;
     --button-text-color: var(--color-gray-400);
@@ -177,7 +177,7 @@
     --button-border-color: var(--color-white);
   }
 
-  &:disabled {
+  &.isDisabled {
     --button-bg-color: rgba(var(--color-white-rgb), 0.2);
     --button-border-color: transparent;
     --button-text-color: rgba(var(--color-purple-800-rgb), 0.7);
@@ -204,7 +204,7 @@
     --button-border-color: var(--color-white);
   }
 
-  &:disabled {
+  &.isDisabled {
     --button-bg-color: transparent;
     --button-border-color: rgba(var(--color-white), 0.2);
     --button-text-color: rgba(var(--color-white-rgb), 0.2);
@@ -231,7 +231,7 @@
     --button-border-color: transparent;
   }
 
-  &:disabled {
+  &.isDisabled {
     --button-bg-color: transparent;
     --button-border-color: transparent;
     --button-text-color: rgba(var(--color-white-rgb), 0.2);
