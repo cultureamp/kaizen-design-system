@@ -5,10 +5,9 @@ import isChromatic from 'chromatic'
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '~components/Tabs'
 import { Text } from '~components/Text'
 import { Button, IconButton } from '~components/__actions__/v2'
-import { Focusable } from '~components/__overlays__/v3'
 import { Icon } from '~components/__rc__/Icon'
 import { Tag } from '~components/__rc__/Tag'
-import { Tooltip, TooltipTrigger } from '../index'
+import { Tooltip, TooltipTrigger, Focusable } from '../index'
 
 const meta = {
   title: 'Components/Tooltip/Tooltip (v3)/Tests',

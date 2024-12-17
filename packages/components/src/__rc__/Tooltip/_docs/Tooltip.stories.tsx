@@ -2,9 +2,8 @@ import React, { FunctionComponent } from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { Button } from '~components/__actions__/v2'
-import { Focusable } from '~components/__overlays__/v3'
 import { Tag } from '~components/__rc__'
-import { Tooltip, TooltipTrigger } from '../index'
+import { Tooltip, TooltipTrigger, Focusable } from '../index'
 import * as testStories from './Tooltip.spec.stories'
 
 const meta = {
