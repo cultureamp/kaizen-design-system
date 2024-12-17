@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
-import * as TooltipV1Stories from '../../v1/_docs/Tooltip.stories'
-import { Tooltip } from '../index'
+import { Tooltip } from '../../index'
+import * as TooltipV1Stories from '../Tooltip.stories'
 
 const meta = {
   title: 'Components/Tooltip/Tooltip (v2)',
