@@ -2,7 +2,6 @@ import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import { VisuallyHidden } from '~components/VisuallyHidden'
 import { Icon } from '~components/__future__'
-import { ReversedColors } from '~components/__utilities__/v3'
 import { LinkButton } from '../index'
 
 const meta = {
@@ -70,23 +69,10 @@ export const LinkButtonVariants: Story = {
 }
 
 export const LinkButtonVariantsReversed: Story = {
-  render: (args) => (
-    <ReversedColors isReversed={true}>
-      <LinkButton {...args} variant="primary" />
-      <LinkButton {...args} variant="secondary" />
-      <LinkButton {...args} variant="tertiary" />
-    </ReversedColors>
-  ),
+  ...LinkButtonVariants,
   parameters: {
     reverseColors: true,
   },
-  decorators: [
-    (Story) => (
-      <div className="flex gap-8 bg-purple-700 p-16">
-        <Story />
-      </div>
-    ),
-  ],
 }
 
 export const LinkButtonSizes: Story = {
