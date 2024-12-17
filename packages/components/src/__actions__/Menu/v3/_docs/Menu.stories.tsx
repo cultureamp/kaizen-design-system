@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { Text } from '~components/Text'
 import { Button } from '~components/__actions__/v3'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { Menu, MenuTrigger, MenuItem, MenuPopover, MenuSection, MenuHeader } from '../index'
 import * as testStories from './Menu.spec.stories'
 

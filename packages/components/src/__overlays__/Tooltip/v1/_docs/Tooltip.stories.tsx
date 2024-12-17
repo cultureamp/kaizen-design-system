@@ -6,8 +6,8 @@ import { FilterButtonBase } from '~components/Filter/FilterButton/subcomponents/
 import { TableContainer, TableHeader, TableHeaderRowCell, TableRow } from '~components/Table'
 import { Text } from '~components/Text'
 import { Button, IconButton } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__'
-import { Tag } from '~components/__future__/Tag'
+import { Icon } from '~components/__rc__'
+import { Tag } from '~components/__rc__/Tag'
 import { Tooltip } from '../index'
 
 const meta = {

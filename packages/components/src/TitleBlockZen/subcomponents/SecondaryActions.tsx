@@ -1,6 +1,6 @@
 import React from 'react'
 import { Menu, MenuList, Button, IconButton } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import styles from '../TitleBlockZen.module.scss'
 import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from '../constants'
 import { SecondaryActionsProps, TitleBlockMenuItemProps } from '../types'

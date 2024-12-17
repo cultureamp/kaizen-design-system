@@ -5,9 +5,9 @@ import isChromatic from 'chromatic'
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '~components/Tabs'
 import { Text } from '~components/Text'
 import { Button, IconButton } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__/Icon'
-import { Tag } from '~components/__future__/Tag'
 import { Focusable } from '~components/__overlays__/v3'
+import { Icon } from '~components/__rc__/Icon'
+import { Tag } from '~components/__rc__/Tag'
 import { Tooltip, TooltipTrigger } from '../index'
 
 const meta = {

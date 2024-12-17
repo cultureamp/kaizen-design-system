@@ -9,7 +9,7 @@ import {
   AnimatedSceneProps,
 } from '~components/Illustration'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { BrandMoment } from '../index'
 import { MinimalBasic, MinimalCustomerFocused, FakeNavBar } from './ExampleHeaders'
 

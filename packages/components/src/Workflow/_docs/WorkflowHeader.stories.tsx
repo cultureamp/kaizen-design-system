@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import { Button } from '~components/__actions__/v2'
-import { Icon, Tag } from '~components/__future__'
+import { Icon, Tag } from '~components/__rc__'
 import { Workflow } from '../'
 import { WorkflowControls } from './controls'
 

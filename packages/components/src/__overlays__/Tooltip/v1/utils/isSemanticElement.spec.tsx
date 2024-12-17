@@ -1,7 +1,7 @@
 import React from 'react'
 import { vi } from 'vitest'
 import { Button, IconButton } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__'
+import { Icon } from '~components/__rc__'
 import { isSemanticElement } from './isSemanticElement'
 
 describe('isSemanticElement', () => {

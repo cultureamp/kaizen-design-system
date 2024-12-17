@@ -2,7 +2,7 @@ import React from 'react'
 import { action } from '@storybook/addon-actions'
 import { Meta, StoryObj } from '@storybook/react'
 import { Badge } from '~components/Badge'
-import { Icon } from '~components/__future__'
+import { Icon } from '~components/__rc__'
 import { ReversedColors } from '~components/__utilities__/v3'
 import { Button } from '../index'
 

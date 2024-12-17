@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { within } from '@storybook/test'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Button, ButtonSizes, ButtonVariants } from '../index'
 

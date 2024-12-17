@@ -1,6 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Input, InputProps } from '../index'
 import { InputStatus, InputTypes } from '../types'

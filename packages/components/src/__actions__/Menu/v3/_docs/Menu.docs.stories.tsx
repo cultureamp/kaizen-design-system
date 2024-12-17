@@ -2,7 +2,7 @@ import React, { FunctionComponent, ReactNode } from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { Button } from '~components/__actions__/v3'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { Menu, MenuItem, MenuTrigger, MenuPopover, MenuSection, MenuHeader } from '../index'
 
 const meta = {

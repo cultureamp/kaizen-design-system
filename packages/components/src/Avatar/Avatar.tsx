@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { Textfit } from 'react-textfit'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Avatar.module.scss'
 

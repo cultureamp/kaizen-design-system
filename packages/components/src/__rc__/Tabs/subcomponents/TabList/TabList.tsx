@@ -5,7 +5,7 @@ import {
   TabListProps as RACTabListProps,
   TabListStateContext,
 } from 'react-aria-components'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { isRTL as isRTLCheck } from '~components/__utilities__/isRTL'
 import { SCROLL_AMOUNT } from '../../constants'
 import styles from './TabList.module.css'

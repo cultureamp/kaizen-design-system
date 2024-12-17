@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import isChromatic from 'chromatic/isChromatic'
 import { IconButton } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Tooltip } from '../index'
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { StoryObj, Meta } from '@storybook/react'
 import { LoadingInput } from '~components/Loading'
 import { TextField } from '~components/TextField'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { Button } from '../index'
 
 const meta = {
