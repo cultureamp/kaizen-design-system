@@ -238,17 +238,6 @@
   }
 }
 
-.isDisabled {
-  --button-bg-color: var(--color-gray-400);
-  --button-border-color: var(--color-gray-400);
-  --button-text-color: var(--color-white);
-
-  &[data-hovered] {
-    --button-bg-color: var(--color-gray-400);
-    --button-border-color: var(--color-gray-400);
-  }
-}
-
 .hideContentWidth {
   position: absolute;
   left: 50%;
