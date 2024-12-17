@@ -9,7 +9,7 @@ import { Tooltip } from '../index'
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: 'Overlays/Tooltip/v1',
+  title: 'Components/Tooltip/Tooltip (v1)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

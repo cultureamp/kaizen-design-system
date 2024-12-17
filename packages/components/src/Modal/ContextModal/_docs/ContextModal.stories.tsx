@@ -11,7 +11,7 @@ import { ContextModal } from '../index'
 const IS_CHROMATIC = isChromatic()
 
 const meta = {
-  title: 'Components/Modals/Context Modal',
+  title: 'Components/Modals/ContextModal',
   component: ContextModal,
   args: {
     isOpen: false,

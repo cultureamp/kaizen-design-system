@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { StoryObj } from '@storybook/react'
 import { expect, userEvent, within } from '@storybook/test'
 import { FilterButton, FilterButtonProps } from '~components/Filter/FilterButton'
-import { FilterDatePicker } from './FilterDatePicker'
+import { FilterDatePicker } from '../FilterDatePicker'
 
 export default {
-  title: 'Components/Filter Date Picker/Tests',
+  title: 'Components/FilterDatePicker/Tests',
   component: FilterDatePicker,
   parameters: {
     a11y: {

@@ -10,7 +10,7 @@ import { mockItems } from './MockData'
 const IS_CHROMATIC = isChromatic()
 
 const meta = {
-  title: 'Components/Filter Multi-Select',
+  title: 'Components/FilterMultiSelect',
   component: FilterMultiSelect,
   parameters: {
     docs: {

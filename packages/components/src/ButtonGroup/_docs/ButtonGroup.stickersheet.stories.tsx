@@ -6,7 +6,7 @@ import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSh
 import { ButtonGroup } from '../index'
 
 export default {
-  title: 'Components/Button Group',
+  title: 'Components/ButtonGroup',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
