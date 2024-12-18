@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { type ReactNode } from 'react'
 import styles from './Layout.module.scss'
 
 export const Main = ({ children }: { children: ReactNode }): JSX.Element => (

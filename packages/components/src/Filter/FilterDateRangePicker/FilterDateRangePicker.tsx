@@ -1,11 +1,11 @@
 import React, { useId } from 'react'
 import { getLocale } from '~components/DatePicker/utils/getLocale'
-import { Filter, FilterContents, FilterProps } from '~components/Filter/Filter'
-import { FilterButtonProps } from '../FilterButton'
+import { Filter, FilterContents, type FilterProps } from '~components/Filter/Filter'
+import { type FilterButtonProps } from '../FilterButton'
 import { DateRangeDisplayLabel } from './subcomponents/DateRangeDisplayLabel'
 import {
   FilterDateRangePickerField,
-  FilterDateRangePickerFieldProps,
+  type FilterDateRangePickerFieldProps,
 } from './subcomponents/FilterDateRangePickerField'
 import { isValidRange } from './subcomponents/FilterDateRangePickerField/utils/isValidRange'
 import { isCompleteDateRange } from './utils/isCompleteDateRange'

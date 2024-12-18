@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { StaticIntlProvider } from '@cultureamp/i18n-react-intl'
-import { Selection } from '@react-types/shared'
-import { screen, waitFor, render } from '@testing-library/react'
+import { type Selection } from '@react-types/shared'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
 import { FilterMultiSelect } from '../../FilterMultiSelect'
 import { ListBox } from '../../subcomponents/ListBox'
 import { SearchInput } from '../../subcomponents/SearchInput'
 import { ClearButton, SelectAllButton } from '../../subcomponents/SelectionControlButton'
-import { ItemType } from '../../types'
-import { SelectionProvider, SelectionProviderProps } from './SelectionProvider'
+import { type ItemType } from '../../types'
+import { SelectionProvider, type SelectionProviderProps } from './SelectionProvider'
 
 const user = userEvent.setup()
 

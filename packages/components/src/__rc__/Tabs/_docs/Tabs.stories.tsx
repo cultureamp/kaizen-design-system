@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { Button } from '~components/Button'
 import { Text } from '~components/Text'
-import { Tab, TabList, TabPanel, Tabs, Key } from '../index'
+import { Tab, TabList, TabPanel, Tabs, type Key } from '../index'
 
 const meta = {
   title: 'Components/Tabs/Tabs (Future)',

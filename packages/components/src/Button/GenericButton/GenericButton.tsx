@@ -1,13 +1,13 @@
 // Not fixing react-hooks/rules-of-hooks errors as a new Button component exists
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, {
-  ComponentType,
-  FocusEvent,
-  MouseEvent,
-  Ref,
   forwardRef,
   useImperativeHandle,
   useRef,
+  type ComponentType,
+  type FocusEvent,
+  type MouseEvent,
+  type Ref,
 } from 'react'
 import classnames from 'classnames'
 import { useFocusable, useLink } from 'react-aria'

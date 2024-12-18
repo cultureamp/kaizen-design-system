@@ -1,9 +1,15 @@
-import React, { HTMLAttributes, ReactNode, SyntheticEvent, useRef, useState } from 'react'
+import React, {
+  useRef,
+  useState,
+  type HTMLAttributes,
+  type ReactNode,
+  type SyntheticEvent,
+} from 'react'
 import { Tab as ReachTab } from '@reach/tabs'
 import classnames from 'classnames'
 import { useFocusable } from 'react-aria'
 import { Badge } from '~components/Badge'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Tab.module.scss'
 
 export type TabProps = {

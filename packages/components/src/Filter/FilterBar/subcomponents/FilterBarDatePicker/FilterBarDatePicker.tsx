@@ -1,5 +1,5 @@
 import React from 'react'
-import { FilterDatePicker, FilterDatePickerProps } from '~components/Filter/FilterDatePicker'
+import { FilterDatePicker, type FilterDatePickerProps } from '~components/Filter/FilterDatePicker'
 import { useFilterBarContext } from '../../context/FilterBarContext'
 import { FilterBarButton } from '../FilterBarButton'
 

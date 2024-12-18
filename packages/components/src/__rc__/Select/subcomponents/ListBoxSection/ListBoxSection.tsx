@@ -1,7 +1,7 @@
 import React from 'react'
 import { useListBoxSection } from '@react-aria/listbox'
 import { Heading } from '~components/Heading'
-import { SelectOption, SelectOptionGroupNode } from '../../types'
+import { type SelectOption, type SelectOptionGroupNode } from '../../types'
 import { Option } from '../Option/Option'
 import styles from './ListBoxSection.module.scss'
 

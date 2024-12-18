@@ -1,5 +1,5 @@
 import { parseJsx } from '../__tests__/utils'
-import { transformSourceForTagName, printAst, TransformSourceForTagNameArgs } from '../utils'
+import { printAst, transformSourceForTagName, type TransformSourceForTagNameArgs } from '../utils'
 import { migrateStringProp } from './migrateStringProp'
 
 const transformTopping = (oldValue: string): string => {

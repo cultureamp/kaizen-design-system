@@ -1,13 +1,13 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import type { ButtonProps } from '~components/Button'
 import { Heading } from '~components/Heading'
 import {
   GenericModal,
-  ModalFooter,
-  ModalHeader,
   ModalAccessibleLabel,
   ModalBody,
+  ModalFooter,
+  ModalHeader,
 } from '~components/Modal/GenericModal'
 import styles from './ContextModal.module.scss'
 

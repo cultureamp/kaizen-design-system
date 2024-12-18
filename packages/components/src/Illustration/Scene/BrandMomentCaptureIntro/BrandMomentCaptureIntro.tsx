@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AnimatedSceneProps } from '~components/Illustration/Scene/Scene'
+import { type AnimatedSceneProps } from '~components/Illustration/Scene/Scene'
 import { Base } from '~components/Illustration/subcomponents/Base/Base'
 import { VideoPlayer } from '~components/Illustration/subcomponents/VideoPlayer'
 

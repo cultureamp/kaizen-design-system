@@ -1,8 +1,8 @@
-import { CompanyAvatarProps, GenericAvatarProps } from '~components/Avatar'
+import { type CompanyAvatarProps, type GenericAvatarProps } from '~components/Avatar'
 import type { ButtonProps, CustomButtonProps } from '~components/Button'
-import { MenuItemProps } from '~components/Menu'
-import { Select } from '~components/Select'
-import { NavigationTabProps } from './subcomponents/NavigationTabs'
+import { type MenuItemProps } from '~components/Menu'
+import { type Select } from '~components/Select'
+import { type NavigationTabProps } from './subcomponents/NavigationTabs'
 
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps

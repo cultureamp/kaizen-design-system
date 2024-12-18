@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { enAU } from 'date-fns/locale'
-import { DateRange } from 'react-day-picker'
+import { type DateRange } from 'react-day-picker'
 import {
   LegacyCalendarRange,
-  LegacyCalendarRangeProps,
+  type LegacyCalendarRangeProps,
 } from '~components/Calendar/LegacyCalendarRange'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { DateRangePicker, DateRangePickerProps, formatDateRangeValue } from '../index'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { DateRangePicker, formatDateRangeValue, type DateRangePickerProps } from '../index'
 
 export default {
   title: 'Components/Date controls/DateRangePicker',

@@ -1,8 +1,8 @@
-import React, { InputHTMLAttributes, ReactNode, useState } from 'react'
+import React, { useState, type InputHTMLAttributes, type ReactNode } from 'react'
 import classnames from 'classnames'
 import { Text } from '~components/Text'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './InputRange.module.scss'
 
 export type InputRangeProps = {

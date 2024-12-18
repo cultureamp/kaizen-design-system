@@ -1,7 +1,7 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Collapsible, CollapsibleProps } from '~components/Collapsible/Collapsible'
-import { CollapsibleGroup, CollapsibleGroupProps } from '../index'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { Collapsible, type CollapsibleProps } from '~components/Collapsible/Collapsible'
+import { CollapsibleGroup, type CollapsibleGroupProps } from '../index'
 
 const CollapsibleWrapped = (args: Omit<CollapsibleProps, 'children' | 'title'>): JSX.Element => (
   <Collapsible title="Title" {...args}>

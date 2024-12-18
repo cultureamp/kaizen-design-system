@@ -1,6 +1,6 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './LoadingGraphic.module.scss'
 
 export type LoadingGraphicSize = 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge' | 'scene'

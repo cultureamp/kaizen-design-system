@@ -3,7 +3,7 @@ import { render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
 import { mockMatchMedia } from '~components/utils/useMediaQueries.spec'
-import { InputEditModal, InputEditModalProps } from './InputEditModal'
+import { InputEditModal, type InputEditModalProps } from './InputEditModal'
 const user = userEvent.setup()
 
 const InputEditModalWrapper = ({

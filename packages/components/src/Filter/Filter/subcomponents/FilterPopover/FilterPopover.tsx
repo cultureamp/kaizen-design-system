@@ -1,8 +1,8 @@
-import React, { HTMLAttributes, useState } from 'react'
-import { Options } from '@popperjs/core'
+import React, { useState, type HTMLAttributes } from 'react'
+import { type Options } from '@popperjs/core'
 import classnames from 'classnames'
 import { usePopper } from 'react-popper'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './FilterPopover.module.scss'
 
 export type FilterPopoverProps = {

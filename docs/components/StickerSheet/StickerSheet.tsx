@@ -1,11 +1,11 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 
 import isChromatic from 'chromatic'
 import classnames from 'classnames'
 import { Heading } from '~components/Heading'
 import { StickerSheetCell } from './components/StickerSheetCell'
 import { StickerSheetHeader } from './components/StickerSheetHeader'
-import { StickerSheetRow, StickerSheetRowProps } from './components/StickerSheetRow'
+import { StickerSheetRow, type StickerSheetRowProps } from './components/StickerSheetRow'
 import styles from './StickerSheet.module.css'
 
 const IS_CHROMATIC = isChromatic()

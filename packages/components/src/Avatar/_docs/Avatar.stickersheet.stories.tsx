@@ -1,8 +1,13 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 
-import { Avatar, AvatarSizes, CompanyAvatarProps, GenericAvatarProps } from '../index'
+import {
+  Avatar,
+  type AvatarSizes,
+  type CompanyAvatarProps,
+  type GenericAvatarProps,
+} from '../index'
 
 export default {
   title: 'Components/Avatar',

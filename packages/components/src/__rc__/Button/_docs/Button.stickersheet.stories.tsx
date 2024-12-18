@@ -1,9 +1,9 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { within } from '@storybook/test'
 import { Icon } from '~components/__rc__/Icon'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { Button, ButtonSizes, ButtonVariants } from '../index'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Button, type ButtonSizes, type ButtonVariants } from '../index'
 
 export default {
   title: 'Components/Button/Button (v3)',

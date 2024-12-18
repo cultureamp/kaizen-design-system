@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { Collection, Key } from '@react-types/shared'
+import React, { useEffect, useState } from 'react'
+import { type Collection, type Key } from '@react-types/shared'
 import classnames from 'classnames'
 import { useSelectionContext } from '../../context/SelectionProvider'
-import { MultiSelectItem } from '../../types'
+import { type MultiSelectItem } from '../../types'
 import styles from './ListBox.module.scss'
 
 export type ListBoxItems = {

@@ -98,12 +98,19 @@ export default tseslint.config(
         ecmaFeatures: {
           jsx: true,
         },
+        jsxPragma: 'React',
       },
     },
     files: ['**/*.{ts,tsx}'],
     rules: {
       '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
       '@typescript-eslint/consistent-type-definitions': 'off',
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          fixStyle: 'inline-type-imports',
+        },
+      ],
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-inferrable-types': 'off',
       '@typescript-eslint/no-unused-vars': [
@@ -147,6 +154,7 @@ export default tseslint.config(
       'import/order': [
         'error',
         {
+          named: { enabled: true, types: 'types-last' },
           alphabetize: {
             order: 'asc',
           },

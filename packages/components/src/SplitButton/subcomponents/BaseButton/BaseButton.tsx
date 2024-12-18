@@ -1,6 +1,6 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
+import React, { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './BaseButton.module.scss'
 
 type AnchorAttributes = AnchorHTMLAttributes<HTMLAnchorElement>

@@ -2,16 +2,16 @@ import React, { useCallback, useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { FocusOn } from 'react-focus-on'
 import type { ButtonProps } from '~components/Button'
-import { MenuItem, MenuList, MenuHeading } from '~components/Menu'
+import { MenuHeading, MenuItem, MenuList } from '~components/Menu'
 import { Icon } from '~components/__rc__/Icon'
 import { TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID } from '../constants'
 import {
-  DefaultActionProps,
-  PrimaryActionProps,
-  SecondaryActionsProps,
-  TitleBlockButtonProps,
-  TitleBlockMenuGroup,
-  TitleBlockMenuItemProps,
+  type DefaultActionProps,
+  type PrimaryActionProps,
+  type SecondaryActionsProps,
+  type TitleBlockButtonProps,
+  type TitleBlockMenuGroup,
+  type TitleBlockMenuItemProps,
 } from '../types'
 import { convertSecondaryActionsToMenuItems, isMenuGroupNotButton } from '../utils'
 import { TitleBlockMenuItem } from './TitleBlockMenuItem'

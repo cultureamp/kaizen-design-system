@@ -1,6 +1,6 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Card, CardProps } from '../index'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { Card, type CardProps } from '../index'
 
 const meta = {
   title: 'Components/Card',

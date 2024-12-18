@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { LikertScaleLegacy } from '../index'
-import { Scale, ScaleItem } from '../types'
+import { type Scale, type ScaleItem } from '../types'
 
 const scale: Scale = [
   {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDateSegment } from '@react-aria/datepicker'
-import { DateSegment, DateFieldState } from '@react-stately/datepicker'
+import { type DateFieldState, type DateSegment } from '@react-stately/datepicker'
 import classnames from 'classnames'
 import { generateSegmentDisplayText } from './utils/generateSegmentDisplayText'
 import styles from './TimeSegment.module.scss'

@@ -1,4 +1,4 @@
-import React, { useState, RefObject } from 'react'
+import React, { useState, type RefObject } from 'react'
 import { Icon } from '~components/__rc__/Icon'
 
 export type usePausePlayHook = {

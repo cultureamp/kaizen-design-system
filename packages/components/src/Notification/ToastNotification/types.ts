@@ -1,7 +1,7 @@
-import { DataAttributes } from '~components/types/DataAttributes'
+import { type DataAttributes } from '~components/types/DataAttributes'
 import {
-  GenericNotificationType,
-  GenericNotificationVariant,
+  type GenericNotificationType,
+  type GenericNotificationVariant,
 } from '../subcomponents/GenericNotification'
 
 export type ToastNotificationObjBase = {

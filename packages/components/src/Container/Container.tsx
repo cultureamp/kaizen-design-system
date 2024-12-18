@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { ContentProps } from '~components/Content'
+import { type ContentProps } from '~components/Content'
 import styles from './Container.module.scss'
 
 /**

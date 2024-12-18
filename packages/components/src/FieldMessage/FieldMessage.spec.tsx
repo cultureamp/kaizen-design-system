@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { FieldMessage, FieldMessageProps } from './FieldMessage'
+import { FieldMessage, type FieldMessageProps } from './FieldMessage'
 
 const defaultFieldMessageProps = {
   id: 'someFieldMessageId',

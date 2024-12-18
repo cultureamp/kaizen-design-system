@@ -1,8 +1,8 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { Button } from '~components/Button'
 import { Icon } from '~components/__rc__/Icon'
-import { Menu, MenuList, MenuItem, MenuHeading } from '../../index'
+import { Menu, MenuHeading, MenuItem, MenuList } from '../../index'
 import * as MenuV1Stories from '../Menu.stories'
 
 const meta = {

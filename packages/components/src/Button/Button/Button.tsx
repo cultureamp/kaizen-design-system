@@ -1,6 +1,6 @@
-import React, { forwardRef, Ref } from 'react'
+import React, { forwardRef, type Ref } from 'react'
 
-import { GenericButton, GenericButtonProps, ButtonRef } from '../GenericButton'
+import { GenericButton, type ButtonRef, type GenericButtonProps } from '../GenericButton'
 
 export type ButtonProps = GenericButtonProps
 

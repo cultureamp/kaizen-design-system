@@ -1,4 +1,4 @@
-import { MessageDescriptor } from '@cultureamp/i18n-react-intl'
+import { type MessageDescriptor } from '@cultureamp/i18n-react-intl'
 import { vi } from 'vitest'
 
 const replaceInputValue = (str: string, value: string): string => {

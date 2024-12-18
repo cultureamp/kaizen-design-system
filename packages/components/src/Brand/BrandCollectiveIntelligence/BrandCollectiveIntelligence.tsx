@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrandSVGProps } from '../Brand'
+import { type BrandSVGProps } from '../Brand'
 
 export type BrandCollectiveIntelligenceProps = BrandSVGProps
 

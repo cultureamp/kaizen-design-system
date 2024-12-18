@@ -1,6 +1,6 @@
-import React, { ReactNode, SVGAttributes } from 'react'
+import React, { type ReactNode, type SVGAttributes } from 'react'
 import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './SVG.module.scss'
 
 type MeaningfulIcon = {

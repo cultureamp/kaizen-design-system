@@ -1,19 +1,19 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import { createPortal } from 'react-dom'
 import {
   autoUpdate,
   flip,
   offset,
-  ReferenceType,
-  useFloating,
-  UseFloatingReturn,
-  UseFloatingOptions,
   size,
+  useFloating,
+  type ReferenceType,
+  type UseFloatingOptions,
+  type UseFloatingReturn,
 } from '@floating-ui/react-dom'
 import classnames from 'classnames'
 import { FocusOn } from 'react-focus-on'
-import { ReactFocusOnProps } from 'react-focus-on/dist/es5/types'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type ReactFocusOnProps } from 'react-focus-on/dist/es5/types'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Popover.module.scss'
 
 export type PopoverProps<RT extends ReferenceType = ReferenceType> = {

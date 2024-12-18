@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { InputEditModal } from '~components/Modal'
 import { TextField } from '~components/TextField'
-import { ValidationResponse, validateLink } from '../../validation'
+import { validateLink, type ValidationResponse } from '../../validation'
 import styles from './LinkModal.module.scss'
 
 type LinkModalProps = {

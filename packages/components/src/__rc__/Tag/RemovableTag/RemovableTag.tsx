@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
-import { Tag, TagProps } from '../Tag'
-import { RemoveButton, RemoveButtonBaseProps } from './subcomponents/RemoveButton'
+import { Tag, type TagProps } from '../Tag'
+import { RemoveButton, type RemoveButtonBaseProps } from './subcomponents/RemoveButton'
 import styles from './RemovableTag.module.scss'
 
 export type RemovableTagProps = {

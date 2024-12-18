@@ -1,9 +1,9 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import { FocusScope } from '@react-aria/focus'
-import { useOverlay, DismissButton } from '@react-aria/overlays'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { DismissButton, useOverlay } from '@react-aria/overlays'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useSelectContext } from '../../context'
-import { SelectOption } from '../../types'
+import { type SelectOption } from '../../types'
 
 export type OverlayProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> & {
   children: React.ReactNode

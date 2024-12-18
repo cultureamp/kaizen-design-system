@@ -1,5 +1,5 @@
-import { DayPickerProps } from 'react-day-picker'
-import { DayOfWeek } from '../enums'
+import { type DayPickerProps } from 'react-day-picker'
+import { type DayOfWeek } from '../enums'
 
 export const isValidWeekStartsOn = (
   day: DayOfWeek | undefined,

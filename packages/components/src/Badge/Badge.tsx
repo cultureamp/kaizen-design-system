@@ -1,6 +1,6 @@
-import React, { HTMLAttributes, useLayoutEffect, useState } from 'react'
+import React, { useLayoutEffect, useState, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Badge.module.scss'
 
 type BadgeCommonProps = {

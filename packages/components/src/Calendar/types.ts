@@ -1,5 +1,5 @@
-import { DateInterval, DateRange, DayPickerProps } from 'react-day-picker'
-import { DayOfWeek } from './enums'
+import { type DateInterval, type DateRange, type DayPickerProps } from 'react-day-picker'
+import { type DayOfWeek } from './enums'
 
 export type { DateInterval, DateRange }
 

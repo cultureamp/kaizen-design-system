@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { Heading } from '~components/Heading'
 import { StickerSheet } from '~storybook/components/StickerSheet'
 import { LoadingHeading } from '../index'

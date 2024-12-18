@@ -1,5 +1,5 @@
-import { Mark, MarkType } from 'prosemirror-model'
-import { EditorState, Transaction } from 'prosemirror-state'
+import { type Mark, type MarkType } from 'prosemirror-model'
+import { type EditorState, type Transaction } from 'prosemirror-state'
 import { RemoveMarkStep } from 'prosemirror-transform'
 
 type KnownAttrs = {

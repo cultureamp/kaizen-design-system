@@ -1,13 +1,13 @@
-import React, { HTMLAttributes } from 'react'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import React, { type HTMLAttributes } from 'react'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import {
   Footer,
-  FooterProps,
   Header,
   Main,
-  HeaderProps,
   ProgressStepper,
   Wrapper,
+  type FooterProps,
+  type HeaderProps,
 } from './subcomponents'
 
 export type WorkflowProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> &

@@ -1,6 +1,6 @@
 import React from 'react'
 import { FieldMessage } from '~components/FieldMessage'
-import { DateRangeFieldValidationMessage } from '../FilterDateRangePickerField/types'
+import { type DateRangeFieldValidationMessage } from '../FilterDateRangePickerField/types'
 import styles from './DateRangeValidationMessage.module.scss'
 
 export type DateRangeValidationMessageProps = {

@@ -1,9 +1,9 @@
-import React, { HTMLAttributes } from 'react'
-import { DOMAttributes, FocusableElement } from '@react-types/shared'
+import React, { type HTMLAttributes } from 'react'
+import { type DOMAttributes, type FocusableElement } from '@react-types/shared'
 import classnames from 'classnames'
 import { Label } from '~components/Label'
 import { Icon } from '~components/__rc__/Icon'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './SelectToggle.module.scss'
 
 export type SelectToggleProps = {

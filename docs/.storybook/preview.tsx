@@ -4,7 +4,7 @@ import './preview.css'
 
 import React, { useEffect } from 'react'
 import { decorators as bgDecorators } from '@storybook/addon-backgrounds/preview'
-import { Decorator, Preview } from '@storybook/react'
+import { type Decorator, type Preview } from '@storybook/react'
 import { KaizenProvider } from '~components/KaizenProvider'
 import { I18nProvider } from '~components/__react-aria-components__'
 import { ReversedColors } from '~components/__utilities__/v3'
