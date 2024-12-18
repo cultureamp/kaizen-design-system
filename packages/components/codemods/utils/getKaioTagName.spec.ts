@@ -1,8 +1,8 @@
 import { parseJsx } from '../__tests__/utils'
 import {
   getKaioTagName,
+  getKaioTagNamesMapByComponentName,
   getKaioTagNamesMapByPattern,
-  getKaioTagNamesMapByString,
 } from './getKaioTagName'
 
 describe('getKaioTagName()', () => {
@@ -25,10 +25,10 @@ describe('getKaioTagName()', () => {
   })
 })
 
-describe('getKaioTagNamesMapByString()', () => {
+describe('getKaioTagNamesMapByComponentName()', () => {
   it('returns the import names if it matches the string target specifier', () => {
     const input = parseJsx('import { Button } from "@kaizen/components"')
-    const tagNames = getKaioTagNamesMapByString(input, ['Button'])
+    const tagNames = getKaioTagNamesMapByComponentName(input, ['Button'])
     expect(tagNames).toEqual(
       new Map([
         [
@@ -45,7 +45,7 @@ describe('getKaioTagNamesMapByString()', () => {
 
   it('returns the import alias if it matches the target specifier', () => {
     const input = parseJsx('import { Button as KzButton } from "@kaizen/components"')
-    const tagNames = getKaioTagNamesMapByString(input, ['Button'])
+    const tagNames = getKaioTagNamesMapByComponentName(input, ['Button'])
     expect(tagNames).toEqual(
       new Map([
         [
@@ -65,7 +65,7 @@ describe('getKaioTagNamesMapByString()', () => {
       import { Button as KzButton } from "@kaizen/components"
       import { Button as FutureButton } from "@kaizen/components/future"
     `)
-    const tagNames = getKaioTagNamesMapByString(input, ['Button'])
+    const tagNames = getKaioTagNamesMapByComponentName(input, ['Button'])
     expect(tagNames).toEqual(
       new Map([
         [
@@ -92,7 +92,7 @@ describe('getKaioTagNamesMapByString()', () => {
     const input = parseJsx(`
       import { Button, IconButton } from "@kaizen/components"
     `)
-    const tagNames = getKaioTagNamesMapByString(input, ['Button', 'IconButton'])
+    const tagNames = getKaioTagNamesMapByComponentName(input, ['Button', 'IconButton'])
     expect(tagNames).toEqual(
       new Map([
         [
@@ -119,7 +119,7 @@ describe('getKaioTagNamesMapByString()', () => {
     const input = parseJsx(`
       import { IconButton } from "@kaizen/components"
     `)
-    const tagNames = getKaioTagNamesMapByString(input, ['Button'])
+    const tagNames = getKaioTagNamesMapByComponentName(input, ['Button'])
     expect(tagNames).toBe(undefined)
   })
 
@@ -128,7 +128,7 @@ describe('getKaioTagNamesMapByString()', () => {
       import { Well } from "@kaizen/components"
       import { Button } from "@kaizen/button"
     `)
-    const tagNames = getKaioTagNamesMapByString(input, ['Button'])
+    const tagNames = getKaioTagNamesMapByComponentName(input, ['Button'])
     expect(tagNames).toBe(undefined)
   })
 })

@@ -136,7 +136,7 @@ export type TagImportAttributesMap = Map<string, TagImportAttributes>
 /**
  * Recurses through AST to find all the import names or aliases in KAIO that exactly match the provided strings.
  */
-export const getKaioTagNamesMapByString = (
+export const getKaioTagNamesMapByComponentName = (
   node: ts.Node,
   importSpecifiers: string[],
 ): TagImportAttributesMap | undefined => {

@@ -1,6 +1,6 @@
 import { parseJsx } from '../__tests__/utils'
 import {
-  getKaioTagNamesMapByString,
+  getKaioTagNamesMapByComponentName,
   printAst,
   transformSource,
   type TransformSourceArgs,
@@ -8,7 +8,7 @@ import {
 import { upgradeV1Buttons } from './upgradeV1Buttons'
 
 const transformIcons = (sourceFile: TransformSourceArgs['sourceFile']): string => {
-  const kaioTagNamesMap = getKaioTagNamesMapByString(sourceFile, ['IconButton', 'Button'])
+  const kaioTagNamesMap = getKaioTagNamesMapByComponentName(sourceFile, ['IconButton', 'Button'])
   return transformSource({
     sourceFile,
     transformers: [upgradeV1Buttons(kaioTagNamesMap!)],
