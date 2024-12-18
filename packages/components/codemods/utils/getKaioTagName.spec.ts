@@ -1,7 +1,7 @@
 import { parseJsx } from '../__tests__/utils'
 import {
   getKaioTagName,
-  getKaioTagNamesMapByRegex,
+  getKaioTagNamesMapByPattern,
   getKaioTagNamesMapByString,
 } from './getKaioTagName'
 
@@ -133,10 +133,10 @@ describe('getKaioTagNamesMapByString()', () => {
   })
 })
 
-describe('getKaioTagNamesMapByRegex()', () => {
+describe('getKaioTagNamesMapByPattern()', () => {
   it('returns the import names if it matches the regex target specifier', () => {
     const input = parseJsx('import { AddIcon, ArrowDownIcon, Well } from "@kaizen/components"')
-    const tagNames = getKaioTagNamesMapByRegex(input, 'Icon')
+    const tagNames = getKaioTagNamesMapByPattern(input, 'Icon')
     expect(tagNames).toEqual(
       new Map([
         [
@@ -154,7 +154,7 @@ describe('getKaioTagNamesMapByRegex()', () => {
     const input = parseJsx(
       'import { AddIcon as KzAddIcon, ArrowDownIcon, Well } from "@kaizen/components"',
     )
-    const tagNames = getKaioTagNamesMapByRegex(input, 'Icon')
+    const tagNames = getKaioTagNamesMapByPattern(input, 'Icon')
     expect(tagNames).toEqual(
       new Map([
         [
@@ -173,7 +173,7 @@ describe('getKaioTagNamesMapByRegex()', () => {
       import { AddIcon, Well } from "@kaizen/components"
       import { Icon } from "@kaizen/components/future"
     `)
-    const tagNames = getKaioTagNamesMapByRegex(input, 'Icon$')
+    const tagNames = getKaioTagNamesMapByPattern(input, 'Icon$')
     expect(tagNames).toEqual(
       new Map([
         ['@kaizen/components', new Map([['AddIcon', 'AddIcon']])],
@@ -187,7 +187,7 @@ describe('getKaioTagNamesMapByRegex()', () => {
       import { Well } from "@kaizen/components"
       import { AddIcon } from "@kaizen/icons"
     `)
-    const tagNames = getKaioTagNamesMapByRegex(input, 'Icon')
+    const tagNames = getKaioTagNamesMapByPattern(input, 'Icon')
     expect(tagNames).toBe(undefined)
   })
 })

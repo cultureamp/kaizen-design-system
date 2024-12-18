@@ -88,7 +88,7 @@ export type ImportModuleRegexTagNamesMap = Map<string, TagNamesMap>
  *   - `originalName` = the original component name (eg. `Well`)
  * - `undefined` no imports that match the target
  */
-export const getKaioTagNamesMapByRegex = (
+export const getKaioTagNamesMapByPattern = (
   node: ts.Node,
   importSpecifierPattern: RegExp | string,
 ): ImportModuleRegexTagNamesMap | undefined => {

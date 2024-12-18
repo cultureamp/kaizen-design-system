@@ -3,7 +3,7 @@ import path from 'path'
 import { createEncodedSourceFile } from './createEncodedSourceFile'
 import {
   getKaioTagName,
-  getKaioTagNamesMapByRegex,
+  getKaioTagNamesMapByPattern,
   getKaioTagNamesMapByString,
   type ImportModuleRegexTagNamesMap,
   type TagImportAttributesMap,
@@ -74,7 +74,7 @@ export const transformComponentsAndImportsInDirByRegex = (
 ): void => {
   const transformFile = (componentFilePath: string, sourceCode: string): void => {
     const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
-    const kaioTagNamesMap = getKaioTagNamesMapByRegex(sourceFile, componentNamePattern)
+    const kaioTagNamesMap = getKaioTagNamesMapByPattern(sourceFile, componentNamePattern)
     if (kaioTagNamesMap) {
       const updatedSourceFile = transformSource({
         sourceFile,
