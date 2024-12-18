@@ -170,7 +170,7 @@
 
   &[data-hovered] {
     --button-bg-color: var(--color-gray-200);
-    --button-border-color: var(--ccolor-gray-200);
+    --button-border-color: var(--color-gray-200);
   }
 
   &[data-pressed] {
