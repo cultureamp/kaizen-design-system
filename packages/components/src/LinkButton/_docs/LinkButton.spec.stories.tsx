@@ -6,7 +6,7 @@ import { Icon } from '~components/__rc__/Icon'
 import { LinkButton } from '../index'
 
 const meta = {
-  title: 'Components/LinkButton/LinkButton (v3)/LinkButton (v3) tests',
+  title: 'Components/LinkButton/LinkButton tests',
   component: LinkButton,
   args: {
     children: 'Label',

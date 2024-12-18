@@ -6,7 +6,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { LinkButton, type LinkButtonProps } from '../index'
 
 export default {
-  title: 'Components/LinkButton/LinkButton (v3)',
+  title: 'Components/LinkButton',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
