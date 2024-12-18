@@ -1,6 +1,6 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Checkbox, CheckedStatus } from '../index'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { Checkbox, type CheckedStatus } from '../index'
 
 const meta = {
   title: 'Components/MultiSelect/Checkbox',

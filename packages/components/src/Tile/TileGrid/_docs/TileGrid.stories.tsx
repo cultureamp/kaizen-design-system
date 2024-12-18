@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, waitFor, within } from '@storybook/test'
 import { InformationTile } from '~components/Tile'
 import { TileGrid } from '../index'

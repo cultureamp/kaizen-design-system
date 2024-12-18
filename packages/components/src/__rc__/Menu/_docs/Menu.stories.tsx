@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import React, { type FunctionComponent } from 'react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { Text } from '~components/Text'
 import { Button } from '~components/__rc__/Button'
 import { Icon } from '~components/__rc__/Icon'
-import { Menu, MenuTrigger, MenuItem, MenuPopover, MenuSection, MenuHeader } from '../index'
+import { Menu, MenuHeader, MenuItem, MenuPopover, MenuSection, MenuTrigger } from '../index'
 import * as testStories from './Menu.spec.stories'
 
 const meta = {

@@ -1,6 +1,6 @@
 import ts from 'typescript'
 import { parseJsx } from '../__tests__/utils'
-import { updateKaioImports, UpdateKaioImportsArgs } from './updateKaioImports'
+import { updateKaioImports, type UpdateKaioImportsArgs } from './updateKaioImports'
 import { printAst } from '.'
 
 const transformInput =

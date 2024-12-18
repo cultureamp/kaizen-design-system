@@ -1,4 +1,4 @@
-import { FilterBarState } from '../types'
+import { type FilterBarState } from '../types'
 import { checkShouldUpdateValues } from './checkShouldUpdateValues'
 
 type Values = {

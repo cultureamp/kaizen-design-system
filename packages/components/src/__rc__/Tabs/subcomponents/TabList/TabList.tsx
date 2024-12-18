@@ -1,9 +1,9 @@
-import React, { ReactNode, useContext, useEffect, useId, useRef, useState } from 'react'
+import React, { useContext, useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import classnames from 'classnames'
 import {
   TabList as RACTabList,
-  TabListProps as RACTabListProps,
   TabListStateContext,
+  type TabListProps as RACTabListProps,
 } from 'react-aria-components'
 import { Icon } from '~components/__rc__/Icon'
 import { isRTL as isRTLCheck } from '~components/__utilities__/isRTL'

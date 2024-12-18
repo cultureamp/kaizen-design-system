@@ -1,13 +1,13 @@
 import React, { useEffect, useId, useState } from 'react'
-import { UseFloatingReturn } from '@floating-ui/react-dom'
+import { type UseFloatingReturn } from '@floating-ui/react-dom'
 import { useButton } from '@react-aria/button'
 import { HiddenSelect, useSelect } from '@react-aria/select'
-import { useSelectState, SelectProps as AriaSelectProps } from '@react-stately/select'
-import { Key } from '@react-types/shared'
+import { useSelectState, type SelectProps as AriaSelectProps } from '@react-stately/select'
+import { type Key } from '@react-types/shared'
 import classnames from 'classnames'
 import { FieldMessage } from '~components/FieldMessage'
 import { Popover, useFloating } from '~components/MultiSelect/subcomponents/Popover'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { SelectProvider } from './context'
 import {
   ListBox,
@@ -16,11 +16,11 @@ import {
   Option,
   SectionDivider,
   SelectPopoverContents,
-  SelectPopoverContentsProps,
   SelectToggle,
-  SelectToggleProps,
+  type SelectPopoverContentsProps,
+  type SelectToggleProps,
 } from './subcomponents'
-import { SelectItem, SelectOption } from './types'
+import { type SelectItem, type SelectOption } from './types'
 import { getDisabledKeysFromItems } from './utils/getDisabledKeysFromItems'
 import { transformSelectItemToCollectionElement } from './utils/transformSelectItemToCollectionElement'
 import styles from './Select.module.scss'

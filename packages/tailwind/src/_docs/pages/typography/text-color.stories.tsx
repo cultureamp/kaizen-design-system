@@ -1,5 +1,5 @@
 import React from 'react'
-import { StoryFn } from '@storybook/react'
+import { type StoryFn } from '@storybook/react'
 import classnames from 'classnames'
 import { TailwindStoryTemplate } from '~tailwind/_docs/utils/TailwindStoryTemplate'
 import { flattenEntries } from '~tailwind/_docs/utils/flattenEntries'

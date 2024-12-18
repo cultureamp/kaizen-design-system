@@ -1,11 +1,11 @@
-import React, { HTMLAttributes, useId, useState } from 'react'
+import React, { useId, useState, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import AnimateHeight from 'react-animate-height'
 import { IconButton } from '~components/Button'
 import { Heading } from '~components/Heading'
 import { Icon } from '~components/__rc__/Icon'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { Sticky } from '../types'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { type Sticky } from '../types'
 import styles from './Collapsible.module.scss'
 
 export type CollapsibleProps = {

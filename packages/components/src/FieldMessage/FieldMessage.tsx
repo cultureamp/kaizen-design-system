@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { Text } from '~components/Text'
 import { Icon } from '~components/__rc__/Icon'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './FieldMessage.module.scss'
 
 export type FieldMessageStatus = 'default' | 'success' | 'error' | 'caution'

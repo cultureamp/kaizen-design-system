@@ -1,10 +1,10 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import { ArgTypes } from '@storybook/react'
+import { type ArgTypes } from '@storybook/react'
 import {
   FilterButton,
-  FilterButtonProps,
   FilterButtonRemovable,
+  type FilterButtonProps,
 } from '~components/Filter/FilterButton'
 
 /*

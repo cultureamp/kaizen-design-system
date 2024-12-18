@@ -1,8 +1,8 @@
-import React, { ButtonHTMLAttributes, HTMLAttributes, useContext, useRef } from 'react'
+import React, { useContext, useRef, type ButtonHTMLAttributes, type HTMLAttributes } from 'react'
 import { useButton } from '@react-aria/button'
-import { AriaMenuOptions, useMenuTrigger } from '@react-aria/menu'
-import { MenuTriggerState, useMenuTriggerState } from '@react-stately/menu'
-import { ItemType } from '../../types'
+import { useMenuTrigger, type AriaMenuOptions } from '@react-aria/menu'
+import { useMenuTriggerState, type MenuTriggerState } from '@react-stately/menu'
+import { type ItemType } from '../../types'
 
 export type MenuTriggerProviderProps = {
   isOpen?: boolean

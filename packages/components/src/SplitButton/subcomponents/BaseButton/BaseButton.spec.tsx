@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { BaseButton, BaseButtonProps } from './BaseButton'
+import { BaseButton, type BaseButtonProps } from './BaseButton'
 
 const BUTTON_LABEL = 'Button text'
 

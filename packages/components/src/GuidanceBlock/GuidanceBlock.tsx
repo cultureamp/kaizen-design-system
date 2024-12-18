@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import classNames from 'classnames'
 import Media from 'react-media'
-import { Button, ButtonProps } from '~components/Button'
-import { Heading, HeadingProps } from '~components/Heading'
-import { SceneProps, SpotProps } from '~components/Illustration'
+import { Button, type ButtonProps } from '~components/Button'
+import { Heading, type HeadingProps } from '~components/Heading'
+import { type SceneProps, type SpotProps } from '~components/Illustration'
 import { Text } from '~components/Text'
-import { Tooltip, TooltipProps } from '~components/Tooltip'
+import { Tooltip, type TooltipProps } from '~components/Tooltip'
 import { Icon } from '~components/__rc__/Icon'
-import { VariantType } from './types'
+import { type VariantType } from './types'
 import styles from './GuidanceBlock.module.css'
 
 export type ActionProps = ButtonProps & {

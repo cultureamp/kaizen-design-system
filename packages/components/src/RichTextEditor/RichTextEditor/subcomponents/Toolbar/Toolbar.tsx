@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { ToolbarSectionProps } from '../ToolbarSection'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { type ToolbarSectionProps } from '../ToolbarSection'
 import styles from './Toolbar.module.scss'
 
 export type ToolbarProps = {

@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   TooltipTrigger as RACTooltipTrigger,
-  TooltipTriggerComponentProps,
+  type TooltipTriggerComponentProps,
 } from 'react-aria-components'
 
 export type TooltipTriggerProps = Omit<TooltipTriggerComponentProps, 'delay' | 'closeDelay'> & {

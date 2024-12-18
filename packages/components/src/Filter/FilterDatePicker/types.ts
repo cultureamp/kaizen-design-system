@@ -1,5 +1,5 @@
-import React from 'react'
-import { FieldMessageStatus } from '~components/FieldMessage'
+import type React from 'react'
+import { type FieldMessageStatus } from '~components/FieldMessage'
 
 export type DateValidationResponse = {
   date: Date | undefined

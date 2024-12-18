@@ -4,12 +4,12 @@ import type { Locale } from 'date-fns'
 import { enAU } from 'date-fns/locale'
 import {
   DateInputDescription,
-  DateInputDescriptionProps,
   DateInputWithIconButton,
-  DateInputWithIconButtonProps,
-  DateInputWithIconButtonRefs,
+  type DateInputDescriptionProps,
+  type DateInputWithIconButtonProps,
+  type DateInputWithIconButtonRefs,
 } from '~components/DateInput'
-import { FieldMessage, FieldMessageStatus } from '~components/FieldMessage'
+import { FieldMessage, type FieldMessageStatus } from '~components/FieldMessage'
 import styles from './DateInputField.module.scss'
 
 export type DateInputFieldProps = {

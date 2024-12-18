@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, userEvent, waitFor, within } from '@storybook/test'
 import isChromatic from 'chromatic'
 import { Button, IconButton } from '~components/Button'
@@ -7,7 +7,7 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from '~components/Tabs'
 import { Text } from '~components/Text'
 import { Icon } from '~components/__rc__/Icon'
 import { Tag } from '~components/__rc__/Tag'
-import { Tooltip, TooltipTrigger, Focusable } from '../index'
+import { Focusable, Tooltip, TooltipTrigger } from '../index'
 
 const meta = {
   title: 'Components/Tooltip/Tooltip (v3)/Tests',

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Brand } from '~components/Brand'
-import { CollapsibleProps, Collapsible } from '~components/Collapsible/Collapsible'
+import { Collapsible, type CollapsibleProps } from '~components/Collapsible/Collapsible'
 import { Heading } from '~components/Heading'
 import styles from './ExpertAdviceCollapsible.module.scss'
 

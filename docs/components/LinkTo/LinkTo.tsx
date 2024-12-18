@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import { linkTo } from '@storybook/addon-links'
 import classnames from 'classnames'
 

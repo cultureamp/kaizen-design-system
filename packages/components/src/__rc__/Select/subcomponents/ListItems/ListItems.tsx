@@ -1,6 +1,6 @@
 import React from 'react'
-import { SelectOption } from '../../types'
-import { ListItem, ListItemProps } from '../ListItem'
+import { type SelectOption } from '../../types'
+import { ListItem, type ListItemProps } from '../ListItem'
 
 export type ListItemsProps<Option extends SelectOption> = {
   items: ListItemProps<Option>['item'][]

@@ -1,10 +1,10 @@
-import React, { MouseEvent, HTMLAttributes } from 'react'
+import React, { type HTMLAttributes, type MouseEvent } from 'react'
 import classnames from 'classnames'
 import { Label } from '~components/Label'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { RichTextContent, RichTextContentProps } from '../RichTextContent'
-import { EditorContentArray } from '../types'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { RichTextContent, type RichTextContentProps } from '../RichTextContent'
+import { type EditorContentArray } from '../types'
 import styles from './EditableRichTextContent.module.scss'
 
 export type EditableRichTextContentProps = {

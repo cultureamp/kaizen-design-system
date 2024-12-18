@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import classnames from 'classnames'
 import { Heading } from '~components/Heading'
-import { StickerSheetStory } from '~storybook/components/StickerSheet'
-import { Popover, PopoverProps, useFloating } from '../index'
+import { type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Popover, useFloating, type PopoverProps } from '../index'
 
 export default {
   title: 'Components/MultiSelect/Popover',

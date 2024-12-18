@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Menu as RACMenu, MenuProps as RACMenuProps } from 'react-aria-components'
+import { Menu as RACMenu, type MenuProps as RACMenuProps } from 'react-aria-components'
 import { mergeClassNames } from '~components/utils/mergeClassNames'
 import styles from './Menu.module.css'
 

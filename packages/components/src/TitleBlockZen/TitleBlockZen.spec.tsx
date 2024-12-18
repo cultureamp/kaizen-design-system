@@ -1,8 +1,8 @@
 import React from 'react'
-import { render, waitFor, screen, within } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { CustomBreadcrumbProps, SectionTitleRenderProps } from './types'
+import { type CustomBreadcrumbProps, type SectionTitleRenderProps } from './types'
 import { TitleBlockZen } from './index'
 
 const user = userEvent.setup()

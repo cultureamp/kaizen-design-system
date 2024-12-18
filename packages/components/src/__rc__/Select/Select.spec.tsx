@@ -1,8 +1,8 @@
 import React from 'react'
-import { render, waitFor, screen, within } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { Select, SelectProps } from './Select'
+import { Select, type SelectProps } from './Select'
 import { singleMockItems } from './_docs/mockData'
 const user = userEvent.setup()
 

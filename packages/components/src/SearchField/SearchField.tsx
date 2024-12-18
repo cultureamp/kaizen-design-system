@@ -1,5 +1,5 @@
 import React, { useId } from 'react'
-import { InputSearch, InputSearchProps } from '~components/Input/InputSearch'
+import { InputSearch, type InputSearchProps } from '~components/Input/InputSearch'
 import { Label } from '~components/Label'
 import styles from './SearchField.module.scss'
 

@@ -1,8 +1,13 @@
-import { EditorState, Selection, TextSelection, Transaction } from 'prosemirror-state'
+import {
+  TextSelection,
+  type EditorState,
+  type Selection,
+  type Transaction,
+} from 'prosemirror-state'
 import { findChildrenByType } from 'prosemirror-utils'
 //  eslint-disable-next-line import/no-extraneous-dependencies
 import { vi } from 'vitest'
-import { ProseMirrorModel } from '../../prosemirror'
+import { type ProseMirrorModel } from '../../prosemirror'
 /*
  ** This is used handle the JSDom type error issue you may encounter in testing
  ** See https://github.com/jsdom/jsdom/issues/3002

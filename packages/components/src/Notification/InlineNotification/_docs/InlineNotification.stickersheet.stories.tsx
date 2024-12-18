@@ -1,7 +1,7 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { InlineNotificationProps, InlineNotification } from '../InlineNotification'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { InlineNotification, type InlineNotificationProps } from '../InlineNotification'
 
 export default {
   title: 'Components/Notifications/InlineNotification',

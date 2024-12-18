@@ -1,4 +1,4 @@
-import { SelectItem } from '../types'
+import { type SelectItem } from '../types'
 
 export const singleMockItems: SelectItem[] = [
   { label: 'Short black', value: 'short-black' },

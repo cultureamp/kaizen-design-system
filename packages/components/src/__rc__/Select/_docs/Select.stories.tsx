@@ -1,9 +1,9 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { ContextModal } from '~components/Modal'
 import { RadioField, RadioGroup } from '~components/Radio'
 import { Select } from '../Select'
-import { SelectOption } from '../types'
+import { type SelectOption } from '../types'
 import { groupedMockItems, mixedMockItemsDisabled, singleMockItems } from './mockData'
 
 const meta = {

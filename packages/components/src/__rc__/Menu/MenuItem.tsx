@@ -1,5 +1,8 @@
-import React, { forwardRef, ReactNode } from 'react'
-import { MenuItem as RACMenuItem, MenuItemProps as RACMenuItemProps } from 'react-aria-components'
+import React, { forwardRef, type ReactNode } from 'react'
+import {
+  MenuItem as RACMenuItem,
+  type MenuItemProps as RACMenuItemProps,
+} from 'react-aria-components'
 import { mergeClassNames } from '~components/utils/mergeClassNames'
 import styles from './MenuItem.module.css'
 

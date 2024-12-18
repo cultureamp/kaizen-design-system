@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import dummyContent from '../../EditableRichTextContent/_docs/dummyContent.json'
-import { EditorContentArray } from '../../index'
-import { RichTextEditor, RichTextEditorProps } from '../index'
+import { type EditorContentArray } from '../../index'
+import { RichTextEditor, type RichTextEditorProps } from '../index'
 
 const meta = {
   title: 'Components/RichTextEditor/RichTextEditor',

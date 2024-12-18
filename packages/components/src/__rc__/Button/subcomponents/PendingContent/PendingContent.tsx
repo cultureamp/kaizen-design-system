@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import { LoadingSpinner } from '~components/Loading'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { ButtonSizes, PendingProps } from '../../types'
+import { type ButtonSizes, type PendingProps } from '../../types'
 import styles from './PendingContent.module.css'
 
 /** Renders the pending content of the button, handling pending label visibility and spinner positioning */

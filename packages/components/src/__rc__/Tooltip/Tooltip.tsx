@@ -2,9 +2,9 @@ import React, { forwardRef, useContext, useLayoutEffect, useState } from 'react'
 import {
   Tooltip as RACTooltip,
   TooltipContext,
-  type TooltipProps as RACTooltipProps,
   TooltipTriggerStateContext,
   useContextProps,
+  type TooltipProps as RACTooltipProps,
 } from 'react-aria-components'
 import { VisuallyHidden } from '~components/VisuallyHidden'
 import { useReversedColors } from '~components/__utilities__/v3'

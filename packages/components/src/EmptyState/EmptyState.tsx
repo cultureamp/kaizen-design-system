@@ -1,15 +1,15 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { HeadingProps, Heading } from '~components/Heading'
+import { Heading, type HeadingProps } from '~components/Heading'
 import {
-  AnimatedSceneProps,
   EmptyStatesInformative,
   EmptyStatesNegative,
   EmptyStatesNeutral,
   EmptyStatesPositive,
+  type AnimatedSceneProps,
 } from '~components/Illustration'
 import { Text } from '~components/Text'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './EmptyState.module.css'
 
 const ILLUSTRATIONS: Record<string, (props: AnimatedSceneProps) => JSX.Element> = {

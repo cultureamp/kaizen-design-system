@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { SelectState } from '@react-stately/select'
-import { SelectItem, SelectOption } from '../types'
+import { type SelectState } from '@react-stately/select'
+import { type SelectItem, type SelectOption } from '../types'
 
 // We set the generic default value to `any` as SelectContext
 // is instantiated as a constant which does not accept generics.

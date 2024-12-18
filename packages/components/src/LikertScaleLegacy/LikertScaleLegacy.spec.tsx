@@ -1,7 +1,7 @@
 import React, { act } from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
-import { LikertScaleLegacy, LikertScaleProps } from './LikertScaleLegacy'
-import { Scale } from './types'
+import { LikertScaleLegacy, type LikertScaleProps } from './LikertScaleLegacy'
+import { type Scale } from './types'
 
 const scale: Scale = [
   {

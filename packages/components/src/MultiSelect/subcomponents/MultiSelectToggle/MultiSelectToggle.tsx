@@ -1,10 +1,10 @@
-import React, { HTMLAttributes, forwardRef, useId } from 'react'
+import React, { forwardRef, useId, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { ClearButton } from '~components/ClearButton'
-import { FieldMessageProps } from '~components/FieldMessage'
+import { type FieldMessageProps } from '~components/FieldMessage'
 import { Icon, RemovableTag } from '~components/__rc__'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { MultiSelectOption } from '../../types'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { type MultiSelectOption } from '../../types'
 import styles from './MultiSelectToggle.module.scss'
 
 export type MultiSelectToggleProps = {

@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Selection, Key } from '@react-types/shared'
+import { type Key, type Selection } from '@react-types/shared'
 import {
   FilterMultiSelect,
-  FilterMultiSelectProps,
-  ItemType,
   getSelectedOptionLabels,
+  type FilterMultiSelectProps,
+  type ItemType,
 } from '~components/Filter/FilterMultiSelect'
 import { useFilterBarContext } from '../../context/FilterBarContext'
 import { checkArraysMatch } from '../../utils/checkArraysMatch'

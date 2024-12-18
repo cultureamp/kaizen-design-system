@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { expect, userEvent, waitFor, within, fn } from '@storybook/test'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
 import isChromatic from 'chromatic'
 import { Button } from '~components/__rc__/Button'
 import { Icon } from '~components/__rc__/Icon'
-import { Menu, MenuItem, MenuTrigger, MenuPopover, MenuHeader, MenuSection } from '../index'
+import { Menu, MenuHeader, MenuItem, MenuPopover, MenuSection, MenuTrigger } from '../index'
 
 const meta = {
   title: 'Components/Menu/Menu (v3)/Tests',

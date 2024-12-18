@@ -1,6 +1,6 @@
 import React from 'react'
-import { screen, waitFor, render } from '@testing-library/react'
-import { DropdownButton, DropdownButtonProps } from './DropdownButton'
+import { render, screen, waitFor } from '@testing-library/react'
+import { DropdownButton, type DropdownButtonProps } from './DropdownButton'
 
 const DropdownButtonWrapper = (props?: Partial<DropdownButtonProps>): JSX.Element => (
   <DropdownButton {...props} />

@@ -1,5 +1,5 @@
-import { CalendarRangeElement } from '../CalendarRange'
-import { CalendarSingleElement } from '../CalendarSingle'
+import { type CalendarRangeElement } from '../CalendarRange'
+import { type CalendarSingleElement } from '../CalendarSingle'
 import calendarStyles from '../baseCalendarClassNames.module.scss'
 import { isInvalidDate } from './isInvalidDate'
 

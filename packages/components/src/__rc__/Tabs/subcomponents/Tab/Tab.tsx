@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { Tab as RACTab, TabProps as RACTabProps } from 'react-aria-components'
+import { Tab as RACTab, type TabProps as RACTabProps } from 'react-aria-components'
 import { Badge } from '~components/Badge'
 import styles from './Tab.module.css'
 

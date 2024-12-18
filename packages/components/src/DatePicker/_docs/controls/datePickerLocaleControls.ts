@@ -1,5 +1,5 @@
 import { LOCALE_REGIONS } from '@cultureamp/i18n-react-intl'
-import { ArgTypes } from '@storybook/react'
+import { type ArgTypes } from '@storybook/react'
 
 const DATE_PICKER_SUPPORTED_LOCALES = [
   ...Object.keys(LOCALE_REGIONS),

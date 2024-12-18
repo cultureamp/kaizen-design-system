@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { EditorState } from 'prosemirror-state'
+import { type EditorState } from 'prosemirror-state'
 import { createRichTextEditor } from '../createRichTextEditor'
-import { CommandOrTransaction } from '../types'
+import { type CommandOrTransaction } from '../types'
 
 type RTEOptions = {
   editable: boolean

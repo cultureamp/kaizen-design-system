@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
 import { FilterTriggerButton } from '~components/Filter/FilterMultiSelect/subcomponents/Trigger'
 import { MenuPopup } from '../../subcomponents/MenuPopup'
-import { MenuTriggerProvider, MenuTriggerProviderProps } from './MenuTriggerProvider'
+import { MenuTriggerProvider, type MenuTriggerProviderProps } from './MenuTriggerProvider'
 
 const user = userEvent.setup()
 

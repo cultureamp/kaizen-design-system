@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
 import {
   BrandMomentCaptureIntro,
-  BrandMomentPositiveOutro,
   BrandMomentError,
-  AnimatedSceneProps,
+  BrandMomentPositiveOutro,
+  type AnimatedSceneProps,
 } from '~components/Illustration'
 import { Text } from '~components/Text'
 import { Icon } from '~components/__rc__/Icon'
 import { BrandMoment } from '../index'
-import { MinimalBasic, MinimalCustomerFocused, FakeNavBar } from './ExampleHeaders'
+import { FakeNavBar, MinimalBasic, MinimalCustomerFocused } from './ExampleHeaders'
 
 const IS_CHROMATIC = isChromatic()
 

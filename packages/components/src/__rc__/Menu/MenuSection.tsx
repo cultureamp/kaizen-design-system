@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import {
   MenuSection as RACMenuSection,
-  MenuSectionProps as RACMenuSectionProps,
+  type MenuSectionProps as RACMenuSectionProps,
 } from 'react-aria-components'
 
 export type MenuSectionProps = RACMenuSectionProps<HTMLDivElement>

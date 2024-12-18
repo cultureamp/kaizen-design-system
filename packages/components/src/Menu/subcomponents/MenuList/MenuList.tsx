@@ -1,5 +1,5 @@
-import React, { HTMLAttributes, cloneElement, useId } from 'react'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import React, { cloneElement, useId, type HTMLAttributes } from 'react'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './MenuList.module.scss'
 
 export type MenuListProps = {

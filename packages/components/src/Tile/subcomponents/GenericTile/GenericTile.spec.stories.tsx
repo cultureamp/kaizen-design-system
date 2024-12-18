@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { expect, within, waitFor } from '@storybook/test'
+import { expect, waitFor, within } from '@storybook/test'
 import { GenericTile } from './GenericTile'
 
 const meta: Meta<typeof GenericTile> = {

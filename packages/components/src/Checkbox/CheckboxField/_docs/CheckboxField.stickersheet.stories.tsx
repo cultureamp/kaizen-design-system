@@ -1,7 +1,7 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { CheckboxField, CheckboxFieldProps } from '../index'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { CheckboxField, type CheckboxFieldProps } from '../index'
 
 export default {
   title: 'Components/Checkbox controls/CheckboxField',

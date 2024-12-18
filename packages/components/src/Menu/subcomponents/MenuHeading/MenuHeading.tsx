@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { Heading, HeadingProps } from '~components/Heading'
+import { Heading, type HeadingProps } from '~components/Heading'
 import styles from './MenuHeading.module.scss'
 
 export type MenuHeadingProps = {

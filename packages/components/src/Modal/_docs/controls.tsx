@@ -1,5 +1,5 @@
 import React from 'react'
-import { Decorator } from '@storybook/react'
+import { type Decorator } from '@storybook/react'
 import isChromatic from 'chromatic'
 
 const IS_CHROMATIC = isChromatic()

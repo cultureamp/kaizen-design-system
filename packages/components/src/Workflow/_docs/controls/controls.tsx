@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArgTypes } from '@storybook/react'
+import { type ArgTypes } from '@storybook/react'
 import { Button } from '~components/Button'
 import { Icon } from '~components/__rc__/Icon'
 
