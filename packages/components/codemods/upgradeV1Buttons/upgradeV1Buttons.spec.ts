@@ -1,9 +1,9 @@
 import { parseJsx } from '../__tests__/utils'
 import {
+  getKaioTagNamesMapByString,
   printAst,
   transformSource,
   type TransformSourceArgs,
-  getKaioTagNamesMapByString,
 } from '../utils'
 import { upgradeV1Buttons } from './upgradeV1Buttons'
 

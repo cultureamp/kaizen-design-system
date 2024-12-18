@@ -1,6 +1,6 @@
-import React, { ReactNode, useId } from 'react'
+import React, { useId, type ReactNode } from 'react'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { MultiSelectItem } from '../../types'
+import { type MultiSelectItem } from '../../types'
 import styles from './ListBoxSection.module.scss'
 
 type SectionNameProps = {

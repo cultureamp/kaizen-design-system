@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import isChromatic from 'chromatic'
 import { AddImage } from '~components/Illustration'
@@ -11,7 +11,7 @@ import { ContextModal } from '../index'
 const IS_CHROMATIC = isChromatic()
 
 const meta = {
-  title: 'Components/Modals/Context Modal',
+  title: 'Components/Modals/ContextModal',
   component: ContextModal,
   args: {
     isOpen: false,

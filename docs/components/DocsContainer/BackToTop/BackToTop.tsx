@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useLayoutEffect } from 'react'
+import React, { useLayoutEffect, type HTMLAttributes } from 'react'
 
 export const BackToTop = ({
   children,

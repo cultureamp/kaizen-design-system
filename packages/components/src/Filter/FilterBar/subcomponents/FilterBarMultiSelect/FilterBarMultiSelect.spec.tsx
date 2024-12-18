@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { screen, waitFor, render } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
 import {
-  FilterAttributes,
   FilterBarProvider,
-  Filters,
-  FiltersValues,
   useFilterBarContext,
+  type FilterAttributes,
+  type Filters,
+  type FiltersValues,
 } from '~components/Filter/FilterBar'
-import { FilterMultiSelect, ItemType } from '~components/Filter/FilterMultiSelect'
-import { FilterBarMultiSelect, FilterBarMultiSelectProps } from './FilterBarMultiSelect'
+import { FilterMultiSelect, type ItemType } from '~components/Filter/FilterMultiSelect'
+import { FilterBarMultiSelect, type FilterBarMultiSelectProps } from './FilterBarMultiSelect'
 
 const user = userEvent.setup()
 

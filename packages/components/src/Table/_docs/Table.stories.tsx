@@ -1,22 +1,22 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { Checkbox } from '~components/Checkbox'
 import { Divider } from '~components/Divider'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import {
   TableCard,
-  TableCardProps,
   TableContainer,
-  TableContainerProps,
   TableHeader,
   TableHeaderRowCell,
-  TableHeaderRowCellProps,
   TableRow,
   TableRowCell,
-  TableRowCellProps,
-  TableRowProps,
+  type TableCardProps,
+  type TableContainerProps,
+  type TableHeaderRowCellProps,
+  type TableRowCellProps,
+  type TableRowProps,
 } from '../index'
 
 export type TableStoryProps = {

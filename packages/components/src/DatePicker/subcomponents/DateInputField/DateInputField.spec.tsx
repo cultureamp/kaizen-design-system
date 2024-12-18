@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
-import { screen, waitFor, render } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { enUS } from 'date-fns/locale'
 import { vi } from 'vitest'
-import { DateInputField, DateInputFieldProps } from './DateInputField'
+import { DateInputField, type DateInputFieldProps } from './DateInputField'
 
 const user = userEvent.setup()
 

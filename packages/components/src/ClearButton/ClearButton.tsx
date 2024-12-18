@@ -1,7 +1,7 @@
-import React, { ButtonHTMLAttributes } from 'react'
+import React, { type ButtonHTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { Icon } from '~components/__future__/Icon'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { Icon } from '~components/__rc__/Icon'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './ClearButton.module.scss'
 
 export type ClearButtonProps = {

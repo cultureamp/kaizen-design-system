@@ -1,9 +1,9 @@
 import React from 'react'
 import classnames from 'classnames'
-import { Avatar, AvatarProps } from '~components/Avatar'
-import { LiveIcon } from '~components/Icon'
-import { Icon } from '~components/__future__/Icon'
-import { TagVariants } from './types'
+import { Avatar, type AvatarProps } from '~components/Avatar'
+import { Icon } from '~components/__rc__/Icon'
+import { LiveIcon } from './subcomponents/LiveIcon/LiveIcon'
+import { type TagVariants } from './types'
 import styles from './Tag.module.scss'
 
 export type TagWithAvatarProps = Omit<DefaultTagProps, 'variant'> & {
@@ -130,42 +130,7 @@ export const Tag = (props: TagProps): JSX.Element => {
               </button>
             </>
           )}
-          {variant === 'statusLive' && (
-            <span className={styles.liveIcon}>
-              <LiveIcon
-                role="presentation"
-                classNameOverride={styles.liveIcon_base}
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-              />
-              <LiveIcon
-                role="presentation"
-                classNameOverride={styles.liveIcon_1}
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-              />
-              <LiveIcon
-                role="presentation"
-                classNameOverride={styles.liveIcon_2}
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-              />
-              <LiveIcon
-                role="presentation"
-                classNameOverride={styles.liveIcon_3}
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-              />
-            </span>
-          )}
+          {variant === 'statusLive' && <LiveIcon />}
         </>
       </div>
     </div>

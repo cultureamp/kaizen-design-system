@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { StickerSheetCell } from '../StickerSheetCell'
 import { StickerSheetHeader } from '../StickerSheetHeader'

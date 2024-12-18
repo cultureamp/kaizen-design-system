@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { FieldGroup } from '~components/FieldGroup'
 import { FieldMessage } from '~components/FieldMessage'
 import { Label } from '~components/Label'
-import { TextArea, TextAreaProps } from '~components/TextArea'
+import { TextArea, type TextAreaProps } from '~components/TextArea'
 import styles from './TextAreaField.module.scss'
 
 export type TextAreaFieldProps = {

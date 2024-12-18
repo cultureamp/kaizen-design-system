@@ -1,10 +1,10 @@
 import ts from 'typescript'
 import {
-  setImportToRemove,
-  type ImportModuleRegexTagNamesMap,
-  updateKaioImports,
-  type UpdateKaioImportsArgs,
   setImportToAdd,
+  setImportToRemove,
+  updateKaioImports,
+  type ImportModuleRegexTagNamesMap,
+  type UpdateKaioImportsArgs,
 } from '../utils'
 import { getNewIconPropsFromOldIconName } from './getNewIconPropsFromOldIconName'
 import { transformCaMonogramIconToBrand } from './transformCaMonogramIconToBrand'

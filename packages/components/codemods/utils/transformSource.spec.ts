@@ -3,9 +3,9 @@ import path from 'path'
 import ts from 'typescript'
 import { createEncodedSourceFile } from './createEncodedSourceFile'
 import {
-  TransformSourceForTagNameArgs,
   transformSource,
   transformSourceForTagName,
+  type TransformSourceForTagNameArgs,
 } from './transformSource'
 
 const visit =

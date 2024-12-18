@@ -1,5 +1,5 @@
-import { ChangeEvent, FocusEvent, KeyboardEvent } from 'react'
-import { renderHook, act } from '@testing-library/react'
+import { type ChangeEvent, type FocusEvent, type KeyboardEvent } from 'react'
+import { act, renderHook } from '@testing-library/react'
 import { enAU } from 'date-fns/locale'
 import { vi } from 'vitest'
 import * as isSelectingDayInCalendar from '~components/Calendar/utils/isSelectingDayInCalendar'

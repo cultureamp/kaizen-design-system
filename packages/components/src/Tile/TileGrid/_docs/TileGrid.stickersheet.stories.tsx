@@ -1,7 +1,7 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { InformationTile } from '~components/Tile'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { TileGrid } from '../index'
 
 export default {
@@ -103,6 +103,46 @@ const StickerSheetTemplate: StickerSheetStory = {
             information="Side B"
             footer={<>Footer</>}
           />
+        </TileGrid>
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Single Tile">
+        <TileGrid>
+          <InformationTile
+            title="Title"
+            metadata="Side A"
+            information="Side B"
+            footer={<>Footer</>}
+          />
+        </TileGrid>
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Fragment">
+        <TileGrid>
+          <>
+            <InformationTile
+              title="Title"
+              metadata="Side A"
+              information="Side B"
+              footer={<>Footer</>}
+            />
+            <InformationTile
+              title="Title"
+              metadata="Side A"
+              information="Side B"
+              footer={<>Footer</>}
+            />
+            <InformationTile
+              title="Title"
+              metadata="Side A"
+              information="Side B"
+              footer={<>Footer</>}
+            />
+            <InformationTile
+              title="Title"
+              metadata="Side A"
+              information="Side B"
+              footer={<>Footer</>}
+            />
+          </>
         </TileGrid>
       </StickerSheet.Row>
     </StickerSheet>

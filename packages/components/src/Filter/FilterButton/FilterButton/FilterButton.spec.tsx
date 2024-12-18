@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { FilterButton, FilterButtonProps } from '.'
+import { FilterButton, type FilterButtonProps } from '.'
 
 const FilterButtonWrapper = (props: Partial<FilterButtonProps>): JSX.Element => (
   <FilterButton label="Desserts" isOpen={false} {...props} />

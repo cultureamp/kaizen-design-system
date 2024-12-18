@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { ToggleIconButton } from '../ToggleIconButton'
 import { ToolbarSection } from '../ToolbarSection'
 import { Toolbar } from '.'

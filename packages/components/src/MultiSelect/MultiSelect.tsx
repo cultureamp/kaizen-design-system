@@ -1,13 +1,16 @@
-import React, { HTMLAttributes, useRef, useId } from 'react'
+import React, { useId, useRef, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { ReactFocusOnProps } from 'react-focus-on/dist/es5/types'
-import { FieldMessage, FieldMessageProps } from '~components/FieldMessage'
+import { type ReactFocusOnProps } from 'react-focus-on/dist/es5/types'
+import { FieldMessage, type FieldMessageProps } from '~components/FieldMessage'
 import { Heading } from '~components/Heading'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { MultiSelectOptions, MultiSelectOptionsProps } from './subcomponents/MultiSelectOptions'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import {
+  MultiSelectOptions,
+  type MultiSelectOptionsProps,
+} from './subcomponents/MultiSelectOptions'
 import { MultiSelectToggle } from './subcomponents/MultiSelectToggle'
 import { Popover, useFloating } from './subcomponents/Popover'
-import { MultiSelectOption, ValidationMessage } from './types'
+import { type MultiSelectOption, type ValidationMessage } from './types'
 import styles from './MultiSelect.module.scss'
 
 export type MultiSelectProps = {

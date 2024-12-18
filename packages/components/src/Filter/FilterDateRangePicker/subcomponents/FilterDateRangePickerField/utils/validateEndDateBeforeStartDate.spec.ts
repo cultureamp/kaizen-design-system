@@ -1,4 +1,4 @@
-import { screen, waitFor, render } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { validateEndDateBeforeStartDate } from './validateEndDateBeforeStartDate'
 
 describe('validateEndDateBeforeStartDate()', () => {

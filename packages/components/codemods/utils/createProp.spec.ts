@@ -2,7 +2,7 @@ import ts from 'typescript'
 import { parseJsx } from '../__tests__/utils/parseJsx'
 import { createProp, createStyleProp } from './createProp'
 import { printAst } from './printAst'
-import { TransformSourceArgs, transformSource } from './transformSource'
+import { transformSource, type TransformSourceArgs } from './transformSource'
 import { updateJsxElementWithNewProps } from './updateJsxElementWithNewProps'
 
 export const mockTransformer: ts.TransformerFactory<ts.SourceFile> = (context) => (rootNode) => {

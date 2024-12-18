@@ -1,11 +1,11 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import {
   BrandMomentCaptureIntro,
   BrandMomentError,
   BrandMomentPositiveOutro,
 } from '~components/Illustration'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { BrandMoment } from '../BrandMoment'
 import { Informative, Success, Warning } from './BrandMoment.stories'
 

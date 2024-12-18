@@ -1,8 +1,8 @@
 import { parseJsx } from '../__tests__/utils'
 import {
   printAst,
-  type ImportModuleRegexTagNamesMap,
   transformSource,
+  type ImportModuleRegexTagNamesMap,
   type TransformSourceArgs,
 } from '../utils'
 import { upgradeIconV1 } from './upgradeIconV1'

@@ -1,5 +1,41 @@
 # Change Log
 
+## 1.69.0
+
+### Minor Changes
+
+- [#5395](https://github.com/cultureamp/kaizen-design-system/pull/5395) [`9068e68`](https://github.com/cultureamp/kaizen-design-system/commit/9068e68b288cbcfa1561fe03b0875fe62011b67d) - Menu: Create MenuPopover, MenuSection and MenuHeader wrappers over RAC
+
+## 1.68.13
+
+### Patch Changes
+
+- [#5392](https://github.com/cultureamp/kaizen-design-system/pull/5392) [`5ac8212`](https://github.com/cultureamp/kaizen-design-system/commit/5ac821288357fd58f073a4375841e2fc32b16aec) - Made Future Tab hover cursor consistent with current Tab.
+
+## 1.68.12
+
+### Patch Changes
+
+- [#5355](https://github.com/cultureamp/kaizen-design-system/pull/5355) [`f6bd88c`](https://github.com/cultureamp/kaizen-design-system/commit/f6bd88c01c8a566fe96ec1df06ff06269784a6b8) - Tabs (future): add carousel functionality when tabs overflow container width
+
+## 1.68.11
+
+### Patch Changes
+
+- [#5371](https://github.com/cultureamp/kaizen-design-system/pull/5371) [`36285e8`](https://github.com/cultureamp/kaizen-design-system/commit/36285e836b950d12e3fa5fca0fcc59796eae2406) - TileGrid renders Tiles in a `<ul>`, wrapping each Tile in an `<li>`
+
+- [#5371](https://github.com/cultureamp/kaizen-design-system/pull/5371) [`36285e8`](https://github.com/cultureamp/kaizen-design-system/commit/36285e836b950d12e3fa5fca0fcc59796eae2406) - Converted LiveIcon into a subcomponent of Tag
+
+- [#5371](https://github.com/cultureamp/kaizen-design-system/pull/5371) [`36285e8`](https://github.com/cultureamp/kaizen-design-system/commit/36285e836b950d12e3fa5fca0fcc59796eae2406) - Fix Workflow Styling breaking in RTL
+
+## 1.68.10
+
+### Patch Changes
+
+- [#5318](https://github.com/cultureamp/kaizen-design-system/pull/5318) [`8aebe0b`](https://github.com/cultureamp/kaizen-design-system/commit/8aebe0b339e463ffe5a63a69fd60960a3fadd042) - Update dep `react-intl` to `^7.0.1`.
+
+- [#5358](https://github.com/cultureamp/kaizen-design-system/pull/5358) [`71e17eb`](https://github.com/cultureamp/kaizen-design-system/commit/71e17eb513106507a5faad584f1349f48edb04ce) - TextArea: no longer forced into controlled mode under the hood, allowing value manipulation via JS if needed
+
 ## 1.68.9
 
 ### Patch Changes

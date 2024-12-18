@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import { Text } from '~components/Text'
 import styles from './NoResults.module.scss'
 

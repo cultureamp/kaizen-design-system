@@ -1,11 +1,11 @@
 import React, { forwardRef, useEffect } from 'react'
 import classnames from 'classnames'
-import { FilterTriggerRef } from '~components/Filter/Filter'
+import { type FilterTriggerRef } from '~components/Filter/Filter'
 import { useFilterBarContext } from '~components/Filter/FilterBar/context/FilterBarContext'
 import {
   FilterButton,
-  FilterButtonProps,
   FilterButtonRemovable,
+  type FilterButtonProps,
 } from '~components/Filter/FilterButton'
 import { isRefObject } from '~components/utils/isRefObject'
 import styles from './FilterBarButton.module.css'

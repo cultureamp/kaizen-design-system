@@ -1,6 +1,6 @@
-import { EditorState, Transaction } from 'prosemirror-state'
+import { Transaction, type EditorState } from 'prosemirror-state'
 import { EditorView as ProseMirrorEditorView } from 'prosemirror-view'
-import { CommandOrTransaction } from './types'
+import { type CommandOrTransaction } from './types'
 
 type EditorAPI = {
   destroy: () => void

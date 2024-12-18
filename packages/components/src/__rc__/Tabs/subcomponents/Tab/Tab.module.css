@@ -1,0 +1,95 @@
+.tab {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid transparent;
+  border-bottom: 0;
+  border-top-left-radius: var(--border-borderless-border-radius);
+  border-top-right-radius: var(--border-borderless-border-radius);
+  background: var(--color-white);
+  white-space: nowrap;
+  text-decoration: none;
+  padding: var(--spacing-md) var(--spacing-md);
+  margin: 0;
+  font-family: var(--typography-heading-4-font-family);
+  font-size: var(--typography-heading-4-font-size);
+  font-weight: var(--typography-heading-4-font-weight);
+  line-height: var(--typography-heading-4-line-height);
+  letter-spacing: var(--typography-heading-4-letter-spacing);
+  color: var(--color-purple-800);
+  cursor: default;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    background: var(--color-blue-100);
+    color: var(--color-blue-500);
+    border-color: var(--color-blue-500);
+  }
+
+  &[data-disabled] {
+    opacity: 0.3;
+  }
+
+  &:not(:first-child) {
+    margin-inline-start: var(--spacing-xs);
+  }
+
+  &:not([data-disabled]):hover {
+    background: var(--color-blue-100);
+    color: var(--color-blue-500);
+  }
+}
+
+.tab[data-selected] {
+  position: relative;
+  color: var(--color-blue-500);
+
+  &::before {
+    content: '';
+    display: block;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: currentcolor;
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.badge {
+  margin-inline-start: var(--spacing-sm);
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (forced-colors: active) {
+  .tab {
+    border: 2px solid transparent;
+
+    &:focus-visible::after {
+      content: '';
+      position: absolute;
+      background: transparent;
+      border-radius: var(--border-focus-ring-border-radius);
+      border-width: var(--border-focus-ring-border-width);
+      border-style: var(--border-focus-ring-border-style);
+      border-color: transparent;
+      inset: -2px;
+    }
+  }
+
+  .tab[data-selected]::before {
+    /* High contrast also doesn't see the pseudo element created to show the active tab. */
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom: 2px solid transparent;
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { vi } from 'vitest'
-import { KaizenProvider, KaizenProviderProps } from './KaizenProvider'
+import { KaizenProvider, type KaizenProviderProps } from './KaizenProvider'
 const KaizenProviderWrapper = ({ children, ...restProps }: KaizenProviderProps): JSX.Element => (
   <KaizenProvider {...restProps}>{children}</KaizenProvider>
 )

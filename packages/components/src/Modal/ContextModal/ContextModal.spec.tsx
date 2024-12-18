@@ -3,7 +3,7 @@ import { render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
 import { mockMatchMedia } from '~components/utils/useMediaQueries.spec'
-import { ContextModal, ContextModalProps } from './ContextModal'
+import { ContextModal, type ContextModalProps } from './ContextModal'
 const user = userEvent.setup()
 
 const ContextModalWrapper = ({ children, ...props }: Partial<ContextModalProps>): JSX.Element => (

@@ -1,4 +1,4 @@
-import { ArgTypes } from '@storybook/react'
+import { type ArgTypes } from '@storybook/react'
 
 export const disabledDaysControls: Partial<ArgTypes> = {
   disabledDays: {

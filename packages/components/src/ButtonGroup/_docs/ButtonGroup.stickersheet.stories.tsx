@@ -1,12 +1,12 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { FilterButtonBase } from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
-import { Tooltip } from '~components/__overlays__/Tooltip/v1'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Tooltip } from '~components/Tooltip'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { ButtonGroup } from '../index'
 
 export default {
-  title: 'Components/Button Group',
+  title: 'Components/ButtonGroup',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

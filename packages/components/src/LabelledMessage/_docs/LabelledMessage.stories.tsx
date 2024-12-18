@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { LabelledMessage } from '../LabelledMessage'
 
 const meta = {
-  title: 'Components/Utilities/Labelled Message',
+  title: 'Components/LabelledMessage',
   component: LabelledMessage,
   args: {
     label: 'Label',

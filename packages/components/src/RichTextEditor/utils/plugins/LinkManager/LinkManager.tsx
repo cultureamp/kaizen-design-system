@@ -1,9 +1,8 @@
-import { ComponentType } from 'react'
+import { type ComponentType } from 'react'
 import debounce from 'lodash.debounce'
-import { MarkType } from 'prosemirror-model'
-import { type Command, type EditorState, Plugin } from 'prosemirror-state'
+import { type MarkType } from 'prosemirror-model'
+import { Plugin, type Command, type EditorState } from 'prosemirror-state'
 import {
-  AttrsValidator,
   getMarkAttrs,
   getMarkRange,
   markContainsSelection,
@@ -11,10 +10,11 @@ import {
   removeMark,
   updateMark,
   validateAndRemoveMarks,
+  type AttrsValidator,
 } from '../../commands'
-import { LinkEditor, LinkEditorAttrs, LinkEditorProps } from './components/LinkEditor'
+import { LinkEditor, type LinkEditorAttrs, type LinkEditorProps } from './components/LinkEditor'
 import { createReactTooltipWrapper } from './createReactTooltipWrapper'
-import { CAEditorView, SelectionPosition } from './types'
+import { type CAEditorView, type SelectionPosition } from './types'
 
 class LinkManager {
   editorComponent: ComponentType<LinkEditorProps>

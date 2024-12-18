@@ -1,22 +1,22 @@
 import React from 'react'
 import classnames from 'classnames'
 import { Avatar } from '~components/Avatar'
+import { IconButton } from '~components/Button'
 import { Heading } from '~components/Heading'
 import { Select } from '~components/Select'
 import { Tag } from '~components/Tag'
-import { IconButton } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { useMediaQueries } from '~components/utils/useMediaQueries'
 import { MainActions } from './subcomponents/MainActions'
 import { MobileActions } from './subcomponents/MobileActions'
 import { SecondaryActions } from './subcomponents/SecondaryActions'
 import {
-  TitleBlockBreadcrumbProps,
-  NavigationTabs,
-  SurveyStatus,
-  TitleBlockAvatarProps,
-  TitleBlockProps,
-  TitleBlockVariant,
+  type NavigationTabs,
+  type SurveyStatus,
+  type TitleBlockAvatarProps,
+  type TitleBlockBreadcrumbProps,
+  type TitleBlockProps,
+  type TitleBlockVariant,
 } from './types'
 import { createTabletOverflowMenuItems, isReversed } from './utils'
 import styles from './TitleBlockZen.module.scss'

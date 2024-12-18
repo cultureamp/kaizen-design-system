@@ -1,6 +1,6 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { userEvent, within, expect, waitFor } from '@storybook/test'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { expect, userEvent, waitFor, within } from '@storybook/test'
 import { VideoPlayer } from './index'
 
 const meta = {

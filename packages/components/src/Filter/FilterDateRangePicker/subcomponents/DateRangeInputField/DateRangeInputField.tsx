@@ -1,19 +1,19 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import type { Locale } from 'date-fns'
 import {
   DateInput,
   DateInputDescription,
-  DateInputDescriptionProps,
-  DateInputProps,
+  type DateInputDescriptionProps,
+  type DateInputProps,
 } from '~components/DateInput'
 import { FieldMessage } from '~components/FieldMessage'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { isRefObject } from '~components/utils/isRefObject'
 import {
   DateRangeValidationMessage,
-  DateRangeValidationMessageProps,
+  type DateRangeValidationMessageProps,
 } from '../DateRangeValidationMessage'
 import styles from './DateRangeInputField.module.scss'
 

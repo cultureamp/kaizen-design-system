@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { StaticIntlProvider } from '@cultureamp/i18n-react-intl'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { expect, userEvent, within } from '@storybook/test'
 import { Text } from '~components/Text'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { DatePicker } from '../index'
 
 export default {

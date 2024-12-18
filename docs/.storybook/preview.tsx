@@ -4,7 +4,7 @@ import './preview.css'
 
 import React, { useEffect } from 'react'
 import { decorators as bgDecorators } from '@storybook/addon-backgrounds/preview'
-import { Decorator, Preview } from '@storybook/react'
+import { type Decorator, type Preview } from '@storybook/react'
 import { KaizenProvider } from '~components/KaizenProvider'
 import { I18nProvider } from '~components/__react-aria-components__'
 import { ReversedColors } from '~components/__utilities__/v3'
@@ -155,17 +155,7 @@ const preview = {
         const groupA = titleA.split('/')[0]
         const groupB = titleB.split('/')[0]
 
-        const groups = [
-          'Introduction',
-          'Guides',
-          'Actions',
-          'Containers',
-          'Illustrations',
-          'Layout',
-          'Overlays',
-          'Components',
-          'Pages',
-        ]
+        const groups = ['Introduction', 'Guides', 'Components', 'Pages']
         const groupDifference = groups.indexOf(groupA) - groups.indexOf(groupB)
         if (groupDifference !== 0) {
           // Sort stories of different groups manually by the groups array
@@ -173,12 +163,12 @@ const preview = {
         }
 
         // Sort Kaizen Provider to top
-        if (a.title.includes('Kaizen Provider')) {
+        if (a.title.includes('KaizenProvider')) {
           // If both are Kaizen Provider, do not sort
-          if (b.title.includes('Kaizen Provider')) return 0
+          if (b.title.includes('KaizenProvider')) return 0
           return -1
         }
-        if (b.title.includes('Kaizen Provider')) return 1
+        if (b.title.includes('KaizenProvider')) return 1
 
         const titleDifference = titleA.localeCompare(titleB, undefined, {
           numeric: true,

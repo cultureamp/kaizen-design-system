@@ -1,12 +1,9 @@
-import React, { RefObject, useEffect, useId, useRef, useState } from 'react'
+import React, { useEffect, useId, useRef, useState, type RefObject } from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
-import { DayClickEventHandler } from 'react-day-picker'
+import { type DayClickEventHandler } from 'react-day-picker'
 import { FocusOn } from 'react-focus-on'
 import {
   CalendarSingle,
-  CalendarSingleElement,
-  CalendarSingleProps,
-  DisabledDayMatchers,
   calculateDisabledDays,
   formatDateAsNumeral,
   formatDateAsText,
@@ -15,12 +12,15 @@ import {
   isSelectingDayInCalendar,
   parseDateAsTextOrNumeral,
   setFocusInCalendar,
+  type CalendarSingleElement,
+  type CalendarSingleProps,
+  type DisabledDayMatchers,
 } from '~components/Calendar'
 import { CalendarPopover } from '~components/Calendar/CalendarPopover'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { DateInputField, DateInputFieldProps } from './subcomponents/DateInputField'
+import { DateInputField, type DateInputFieldProps } from './subcomponents/DateInputField'
 import type { ValidationResponse } from './types'
-import { DatePickerSupportedLocales, getLocale } from './utils/getLocale'
+import { getLocale, type DatePickerSupportedLocales } from './utils/getLocale'
 import { validateDate } from './utils/validateDate'
 
 type OmittedDateInputFieldProps =

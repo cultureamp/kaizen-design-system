@@ -1,8 +1,8 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { StickerSheet } from '~storybook/components/StickerSheet'
-import { MultiSelectOptionField, MultiSelectOptionFieldProps } from '../index'
+import { MultiSelectOptionField, type MultiSelectOptionFieldProps } from '../index'
 
 const meta = {
   title: 'Components/MultiSelect/MultiSelectOptionField',

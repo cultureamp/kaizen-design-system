@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import isChromatic from 'chromatic'
 import { ModalAccessibleDescription } from '~components/Modal'
@@ -22,7 +22,7 @@ const ExampleForm = (): JSX.Element => (
 )
 
 const meta = {
-  title: 'Components/Modals/Input Edit Modal',
+  title: 'Components/Modals/InputEditModal',
   component: InputEditModal,
   args: {
     isOpen: false,

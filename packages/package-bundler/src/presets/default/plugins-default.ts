@@ -2,7 +2,7 @@ import alias from '@rollup/plugin-alias'
 import { babel, getBabelOutputPlugin } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
-import { InputPluginOption } from 'rollup'
+import { type InputPluginOption } from 'rollup'
 import ignore from 'rollup-plugin-ignore'
 import { nodeExternals } from 'rollup-plugin-node-externals'
 

@@ -1,4 +1,4 @@
-import { ItemType } from '../types'
+import { type ItemType } from '../types'
 import { getSelectedOptionKeys } from './getSelectedOptionKeys'
 
 const itemsMock: ItemType[] = [

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Icon } from '~components/__future__/Icon'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { Icon } from '~components/__rc__/Icon'
 import { Input } from '../index'
 
 const meta = {

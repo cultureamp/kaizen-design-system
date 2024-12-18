@@ -1,5 +1,5 @@
 import React from 'react'
-import { waitFor, render } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 import { enUS } from 'date-fns/locale'
 import { DateInputDescription } from './DateInputDescription'
 

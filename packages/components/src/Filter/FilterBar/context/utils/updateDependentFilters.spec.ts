@@ -1,5 +1,5 @@
 import { vi } from 'vitest'
-import { FilterBarState } from '../types'
+import { type FilterBarState } from '../types'
 import { updateDependentFilters } from './updateDependentFilters'
 const sugarLevelIsUsableWhen = vi.fn((state) => state.flavour.value !== undefined)
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { render, waitFor, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { MultiSelect, MultiSelectProps } from './MultiSelect'
+import { MultiSelect, type MultiSelectProps } from './MultiSelect'
 
 const defaultOptions = [
   {

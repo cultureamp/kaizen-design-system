@@ -5,13 +5,13 @@ import {
   getKaioTagName,
   getKaioTagNamesMapByRegex,
   getKaioTagNamesMapByString,
-  type TagImportAttributesMap,
   type ImportModuleRegexTagNamesMap,
+  type TagImportAttributesMap,
 } from './getKaioTagName'
 import {
   transformSource,
-  type TransformSourceArgs,
   transformSourceForTagName,
+  type TransformSourceArgs,
   type TransformSourceForTagNameArgs,
 } from './transformSource'
 

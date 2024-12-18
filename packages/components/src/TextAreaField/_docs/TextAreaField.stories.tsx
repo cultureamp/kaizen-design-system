@@ -1,9 +1,9 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { TextAreaField } from '../index'
 
 const meta = {
-  title: 'Components/Text Input controls/Text Area Field',
+  title: 'Components/Text Input controls/TextAreaField',
   component: TextAreaField,
   args: {
     labelText: 'Label',

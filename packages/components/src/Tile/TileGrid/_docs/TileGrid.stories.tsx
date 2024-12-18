@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, waitFor, within } from '@storybook/test'
 import { InformationTile } from '~components/Tile'
 import { TileGrid } from '../index'
@@ -47,7 +47,6 @@ export const Playground: Story = {
   },
 }
 
-// Test for multiple tiles, flipping one doesn't flip others
 export const FlipOneNotOthers: Story = {
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
@@ -74,6 +73,84 @@ export const FlipOneNotOthers: Story = {
         expect(canvas.getByText('Side A - Back')).toBeInTheDocument()
         expect(canvas.getByText('Title B')).toBeInTheDocument()
         expect(canvas.getByText('Title C')).toBeInTheDocument()
+      })
+    })
+  },
+}
+
+export const OneTile: Story = {
+  args: {
+    children: (
+      <InformationTile
+        title="Title A"
+        metadata="Side A"
+        information="Side A - Back"
+        footer={<>Footer</>}
+      />
+    ),
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+
+    await step('Tile renders as <li>', async () => {
+      await waitFor(() => {
+        expect(canvas.getByRole('listitem')).toBeInTheDocument()
+      })
+    })
+  },
+}
+
+export const MultipleTiles: Story = {
+  render: () => {
+    return (
+      <TileGrid>
+        <InformationTile
+          title="Title A"
+          metadata="Side A"
+          information="Side A - Back"
+          footer={<>Footer</>}
+        />
+        <InformationTile
+          title="Title B"
+          metadata="Side B"
+          information="Side B - Back"
+          footer={<>Footer</>}
+        />
+        <InformationTile
+          title="Title C"
+          metadata="Side C"
+          information="Side C - Back"
+          footer={<>Footer</>}
+        />
+      </TileGrid>
+    )
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+
+    await step('All Tiles marked up as individual <li> elements', async () => {
+      await waitFor(() => {
+        const listOfTiles = canvas.getByRole('list')
+        const { getAllByRole } = within(listOfTiles)
+        const tiles = getAllByRole('listitem')
+
+        expect(tiles.length).toBe(3)
+      })
+    })
+  },
+}
+
+export const Fragment: Story = {
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+
+    await step('All Tiles marked up as individual <li> elements', async () => {
+      await waitFor(() => {
+        const listOfTiles = canvas.getByRole('list')
+        const { getAllByRole } = within(listOfTiles)
+        const tiles = getAllByRole('listitem')
+
+        expect(tiles.length).toBe(3)
       })
     })
   },

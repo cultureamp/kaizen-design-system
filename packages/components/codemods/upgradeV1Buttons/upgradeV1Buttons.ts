@@ -1,7 +1,7 @@
 import ts from 'typescript'
 import {
-  setImportToRemove,
   setImportToAdd,
+  setImportToRemove,
   updateKaioImports,
   type TagImportAttributesMap,
   type UpdateKaioImportsArgs,

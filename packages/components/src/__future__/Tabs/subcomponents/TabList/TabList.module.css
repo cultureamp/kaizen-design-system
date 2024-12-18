@@ -1,8 +1,0 @@
-.tabList {
-  border-bottom: 1px solid rgba(var(--color-gray-600-rgb), 0.1);
-  padding: var(--spacing-xs) var(--spacing-md) 0;
-}
-
-.noPadding {
-  padding: 0;
-}

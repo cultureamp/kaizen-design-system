@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormattedMessage } from '@cultureamp/i18n-react-intl'
-import { DisabledDays, isDisabledDate, isInvalidDate } from '~components/Calendar'
-import { ValidationResponse } from '../types'
+import { isDisabledDate, isInvalidDate, type DisabledDays } from '~components/Calendar'
+import { type ValidationResponse } from '../types'
 
 export type ValidateDateArgs = {
   date: Date | undefined

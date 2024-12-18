@@ -1,4 +1,4 @@
-import { Key, Node } from '@react-types/shared'
+import { type Key, type Node } from '@react-types/shared'
 
 export type ItemType = {
   label: string

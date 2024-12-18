@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import { EditorContentArray } from '../types'
-import { RichTextEditor, RichTextEditorProps } from '.'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { type EditorContentArray } from '../types'
+import { RichTextEditor, type RichTextEditorProps } from '.'
 
 // This helper is needed to simulate selection of a component since we
 // cannot userEvent.type with contenteditable

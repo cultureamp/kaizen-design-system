@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import { Unstyled } from '@storybook/blocks'
 import classNames from 'classnames'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 
 type ResourceLinkProps = {
   href: string

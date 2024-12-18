@@ -5,9 +5,9 @@ import { mergeProps } from '@react-aria/utils'
 import classnames from 'classnames'
 import { Badge } from '~components/Badge'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { useSelectionContext } from '../../context'
-import { MultiSelectItem } from '../../types'
+import { type MultiSelectItem } from '../../types'
 import styles from './MultiSelectOption.module.scss'
 
 export interface MultiSelectOptionProps {

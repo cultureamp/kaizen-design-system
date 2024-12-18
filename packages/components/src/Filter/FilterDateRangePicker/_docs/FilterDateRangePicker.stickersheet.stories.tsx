@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
 import { StaticIntlProvider } from '@cultureamp/i18n-react-intl'
 import { action } from '@storybook/addon-actions'
-import { Meta } from '@storybook/react'
-import { within, userEvent } from '@storybook/test'
+import { type Meta } from '@storybook/react'
+import { userEvent, within } from '@storybook/test'
 import isChromatic from 'chromatic'
-import { DateRange } from '~components/Calendar'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { type DateRange } from '~components/Calendar'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { FilterButton } from '../../FilterButton'
-import { FilterDateRangePicker, FilterDateRangePickerProps } from '../index'
+import { FilterDateRangePicker, type FilterDateRangePickerProps } from '../index'
 import { FilterDateRangePickerField } from '../subcomponents/FilterDateRangePickerField'
 
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: 'Components/Filter Date Range Picker',
+  title: 'Components/FilterDateRangePicker',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
