@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import { expect, userEvent, waitFor, within, fn } from '@storybook/test'
 import isChromatic from 'chromatic'
-import { Button } from '~components/__actions__/v3'
+import { Button } from '~components/__rc__/Button'
 import { Icon } from '~components/__rc__/Icon'
 import { Menu, MenuItem, MenuTrigger, MenuPopover, MenuHeader, MenuSection } from '../index'
 

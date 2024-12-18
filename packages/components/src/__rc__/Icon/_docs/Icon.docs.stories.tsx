@@ -12,7 +12,7 @@ import {
 } from '~components/Table'
 import { Text } from '~components/Text'
 import { ToggleSwitchField } from '~components/ToggleSwitch'
-import { Button } from '~components/__actions__/v3'
+import { Button } from '~components/__rc__/Button'
 import { Tag } from '~components/__rc__/Tag'
 import { StickerSheet } from '~storybook/components/StickerSheet'
 import { iconDefaultSet } from '../constants'
