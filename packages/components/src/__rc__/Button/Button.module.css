@@ -127,19 +127,25 @@
   --button-border-color: transparent;
   --button-text-color: var(--color-purple-800);
 
+  &[data-hovered],
+  &[data-pressed],
+  &[data-pending] {
+    --button-text-color: var(--color-blue-500);
+  }
+
   &[data-hovered] {
-    --button-bg-color: var(--color-gray-200);
-    --button-border-color: var(--color-gray-200);
+    --button-bg-color: var(--color-blue-200);
+    --button-border-color: var(--color-blue-200);
   }
 
   &[data-pressed] {
-    --button-bg-color: var(--color-gray-300);
-    --button-border-color: var(--color-gray-300);
+    --button-bg-color: var(--color-blue-100);
+    --button-border-color: var(--color-blue-100);
   }
 
   &[data-pending] {
-    --button-bg-color: var(--color-gray-300);
-    --button-border-color: var(--color-gray-300);
+    --button-bg-color: var(--color-blue-100);
+    --button-border-color: var(--color-blue-100);
   }
 
   &.isDisabled {
@@ -163,13 +169,13 @@
   --button-text-color: var(--color-purple-800);
 
   &[data-hovered] {
-    --button-bg-color: var(--color-white);
-    --button-border-color: var(--color-white);
+    --button-bg-color: var(--color-gray-200);
+    --button-border-color: var(--color-gray-200);
   }
 
   &[data-pressed] {
-    --button-bg-color: var(--color-white);
-    --button-border-color: var(--color-white);
+    --button-bg-color: var(--color-gray-300);
+    --button-border-color: var(--color-gray-300);
   }
 
   &[data-pending] {
