@@ -1,5 +1,5 @@
 import React from 'react'
-import { GenericButton, GenericProps } from '~components/__actions__/Button/v2/GenericButton'
+import { GenericButton, type GenericProps } from '~components/Button/GenericButton'
 import { Icon } from '~components/__rc__/Icon'
 
 export type DirectionalLinkProps = {

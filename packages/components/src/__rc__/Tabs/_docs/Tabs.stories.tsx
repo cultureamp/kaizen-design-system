@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Meta, StoryObj } from '@storybook/react'
+import { Button } from '~components/Button'
 import { Text } from '~components/Text'
-import { Button } from '~components/__actions__/v2'
 import { Tab, TabList, TabPanel, Tabs, Key } from '../index'
 
 const meta = {

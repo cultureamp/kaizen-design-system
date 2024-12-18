@@ -3,7 +3,7 @@ import { StoryObj, Meta } from '@storybook/react'
 import { LoadingInput } from '~components/Loading'
 import { TextField } from '~components/TextField'
 import { Icon } from '~components/__rc__/Icon'
-import { Button } from '../index'
+import { Button } from '../../index'
 
 const meta = {
   title: 'Components/Button/Button (v2)',

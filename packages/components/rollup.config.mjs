@@ -4,8 +4,8 @@ export default rollupConfig({
   input: {
     index: './src/index.ts',
     future: './src/__rc__/index.ts',
-    actionsV1: './src/__actions__/v1.ts',
-    actionsV2: './src/__actions__/v2.ts',
+    actionsV1: './src/v1-actions.ts',
+    actionsV2: './src/v2-actions.ts',
     actionsV3: './src/__actions__/v3.ts',
     overlaysV1: './src/v1-overlays.ts',
     overlaysV2: './src/v2-overlays.ts',

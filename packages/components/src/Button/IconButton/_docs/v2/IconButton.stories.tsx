@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import { Icon } from '~components/__rc__/Icon'
-import { IconButton } from '../index'
+import { IconButton } from '../../index'
 
 const meta = {
   title: 'Components/IconButton/IconButton (v2)',

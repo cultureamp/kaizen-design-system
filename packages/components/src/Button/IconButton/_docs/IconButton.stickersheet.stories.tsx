@@ -1,6 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { ButtonProps } from '~components/__actions__/v2'
+import type { ButtonProps } from '~components/Button'
 import { Icon } from '~components/__rc__/Icon'
 import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
 import { IconButton, IconButtonProps } from '../index'
