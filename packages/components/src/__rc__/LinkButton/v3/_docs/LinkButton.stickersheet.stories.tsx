@@ -1,12 +1,12 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { within } from '@storybook/test'
-import { Icon } from '~components/__future__/Icon'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { LinkButton, LinkButtonProps } from '../index'
+import { Icon } from '~components/__rc__/Icon'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { LinkButton, type LinkButtonProps } from '../index'
 
 export default {
-  title: 'Actions/LinkButton/LinkButton (v3)',
+  title: 'Components/LinkButton/LinkButton (v3)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -1,12 +1,12 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { userEvent, waitFor, within, expect } from '@storybook/test'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { expect, userEvent, waitFor, within } from '@storybook/test'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { LinkButton } from '../index'
 
 const meta = {
-  title: 'Actions/LinkButton/LinkButton (v3)/LinkButton (v3) tests',
+  title: 'Components/LinkButton/LinkButton (v3)/LinkButton (v3) tests',
   component: LinkButton,
   args: {
     children: 'Label',

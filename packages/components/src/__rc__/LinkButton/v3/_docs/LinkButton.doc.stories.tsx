@@ -1,11 +1,11 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { Icon } from '~components/__future__'
+import { Icon } from '~components/__rc__/Icon'
 import { LinkButton } from '../index'
 
 const meta = {
-  title: 'Actions/LinkButton/LinkButton (v3)',
+  title: 'Components/LinkButton/LinkButton (v3)',
   component: LinkButton,
   args: {
     children: 'Label',
