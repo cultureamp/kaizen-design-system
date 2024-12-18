@@ -140,11 +140,20 @@ describe('getKaioTagNamesMapByPattern()', () => {
     expect(tagNames).toEqual(
       new Map([
         [
-          '@kaizen/components',
-          new Map([
-            ['AddIcon', 'AddIcon'],
-            ['ArrowDownIcon', 'ArrowDownIcon'],
-          ]),
+          'AddIcon',
+          {
+            importModuleName: '@kaizen/components',
+            tagName: 'AddIcon',
+            originalName: 'AddIcon',
+          },
+        ],
+        [
+          'ArrowDownIcon',
+          {
+            importModuleName: '@kaizen/components',
+            tagName: 'ArrowDownIcon',
+            originalName: 'ArrowDownIcon',
+          },
         ],
       ]),
     )
@@ -158,11 +167,20 @@ describe('getKaioTagNamesMapByPattern()', () => {
     expect(tagNames).toEqual(
       new Map([
         [
-          '@kaizen/components',
-          new Map([
-            ['KzAddIcon', 'AddIcon'],
-            ['ArrowDownIcon', 'ArrowDownIcon'],
-          ]),
+          'KzAddIcon',
+          {
+            importModuleName: '@kaizen/components',
+            tagName: 'KzAddIcon',
+            originalName: 'AddIcon',
+          },
+        ],
+        [
+          'ArrowDownIcon',
+          {
+            importModuleName: '@kaizen/components',
+            tagName: 'ArrowDownIcon',
+            originalName: 'ArrowDownIcon',
+          },
         ],
       ]),
     )
@@ -176,8 +194,22 @@ describe('getKaioTagNamesMapByPattern()', () => {
     const tagNames = getKaioTagNamesMapByPattern(input, 'Icon$')
     expect(tagNames).toEqual(
       new Map([
-        ['@kaizen/components', new Map([['AddIcon', 'AddIcon']])],
-        ['@kaizen/components/future', new Map([['Icon', 'Icon']])],
+        [
+          'AddIcon',
+          {
+            importModuleName: '@kaizen/components',
+            tagName: 'AddIcon',
+            originalName: 'AddIcon',
+          },
+        ],
+        [
+          'Icon',
+          {
+            importModuleName: '@kaizen/components/future',
+            tagName: 'Icon',
+            originalName: 'Icon',
+          },
+        ],
       ]),
     )
   })

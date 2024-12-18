@@ -70,58 +70,6 @@ export const getKaioTagName = (
   return visitNode(node)
 }
 
-/**
- * Key is the tag name (component name or alias)
- * Value is the original component name
- */
-type TagNamesMap = Map<string, string>
-/** Key is the import module name (eg. `@kaizen/components/future`) */
-export type ImportModuleRegexTagNamesMap = Map<string, TagNamesMap>
-
-/**
- * Recurses through AST to find all the import names or aliases in KAIO that match the provided regex pattern.
- *
- * @returns Map<string, Map<string, string>> | undefined
- * - `Map<string, Map<string, string>>` = Map<importModuleName, Map<tagName, originalName>>
- *   - `importModuleName` = the module name of the KAIO import (eg. `@kaizen/components/future`)
- *   - `tagName` = the component name or alias (eg. `KaizenWell`)
- *   - `originalName` = the original component name (eg. `Well`)
- * - `undefined` no imports that match the target
- */
-export const getKaioTagNamesMapByPattern = (
-  node: ts.Node,
-  importSpecifierPattern: RegExp | string,
-): ImportModuleRegexTagNamesMap | undefined => {
-  const tagsByImportModuleName = new Map() as ImportModuleRegexTagNamesMap
-
-  const visitNode = (visitedNode: ts.Node): ts.Node | undefined => {
-    const kaioNamedImports = getKaioNamedImports(visitedNode)
-
-    if (!kaioNamedImports) {
-      return ts.forEachChild(visitedNode, visitNode)
-    }
-
-    const tags = new Map() as TagNamesMap
-    kaioNamedImports.namedImports.forEach((namedImport) => {
-      const { tagName, originalName } = getNamesFromSpecifier(namedImport)
-
-      if (new RegExp(importSpecifierPattern).test(originalName)) {
-        tags.set(tagName, originalName)
-      }
-    })
-
-    if (tags.size > 0) {
-      tagsByImportModuleName.set(kaioNamedImports.importModuleName, new Map(tags))
-    }
-
-    return ts.forEachChild(visitedNode, visitNode)
-  }
-
-  visitNode(node)
-
-  return tagsByImportModuleName.size === 0 ? undefined : tagsByImportModuleName
-}
-
 type TagImportAttributes = {
   // Import module name (eg. `@kaizen/components/future`)
   importModuleName: string
@@ -164,6 +112,52 @@ export const getKaioTagNamesMapByComponentName = (
 
         return false
       })
+    })
+
+    return ts.forEachChild(visitedNode, visitNode)
+  }
+
+  visitNode(node)
+
+  return tagsMap.size === 0 ? undefined : tagsMap
+}
+
+/**
+ * Recurses through AST to find all the import names or aliases in KAIO that match the provided regex pattern.
+ *
+ * @returns Map<string, Map<string, string>> | undefined
+ * - `Map<string, Map<string, string>>` = Map<importModuleName, Map<tagName, originalName>>
+ *   - `importModuleName` = the module name of the KAIO import (eg. `@kaizen/components/future`)
+ *   - `tagName` = the component name or alias (eg. `KaizenWell`)
+ *   - `originalName` = the original component name (eg. `Well`)
+ * - `undefined` no imports that match the target
+ */
+export const getKaioTagNamesMapByPattern = (
+  node: ts.Node,
+  importSpecifierPattern: RegExp | string,
+): TagImportAttributesMap | undefined => {
+  const tagsMap = new Map() as TagImportAttributesMap
+
+  const visitNode = (visitedNode: ts.Node): ts.Node | undefined => {
+    const kaioNamedImports = getKaioNamedImports(visitedNode)
+
+    if (!kaioNamedImports) {
+      return ts.forEachChild(visitedNode, visitNode)
+    }
+
+    kaioNamedImports.namedImports.forEach((namedImport) => {
+      const { originalName, tagName } = getNamesFromSpecifier(namedImport)
+
+      if (new RegExp(importSpecifierPattern).test(originalName)) {
+        tagsMap.set(tagName, {
+          importModuleName: kaioNamedImports.importModuleName,
+          tagName,
+          originalName,
+        })
+        return true
+      }
+
+      return false
     })
 
     return ts.forEachChild(visitedNode, visitNode)

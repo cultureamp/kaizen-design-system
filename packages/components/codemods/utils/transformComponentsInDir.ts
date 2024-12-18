@@ -5,7 +5,6 @@ import {
   getKaioTagName,
   getKaioTagNamesMapByComponentName,
   getKaioTagNamesMapByPattern,
-  type ImportModuleRegexTagNamesMap,
   type TagImportAttributesMap,
 } from './getKaioTagName'
 import {
@@ -19,9 +18,7 @@ export const traverseDir = (
   dir: string,
   transformFile: (componentFilePath: string, sourceCode: string) => void,
 ): void => {
-  if (dir.includes('node_modules')) {
-    return
-  }
+  if (dir.includes('node_modules')) return
 
   const files = fs.readdirSync(dir)
 
@@ -68,9 +65,7 @@ export const transformComponentsAndImportsInDir = (
 export const transformComponentsAndImportsInDirByPattern = (
   dir: string,
   componentNamePattern: RegExp | string,
-  transformers: (
-    kaioTagNamesMap: ImportModuleRegexTagNamesMap,
-  ) => TransformSourceArgs['transformers'],
+  transformers: (kaioTagNamesMap: TagImportAttributesMap) => TransformSourceArgs['transformers'],
 ): void => {
   const transformFile = (componentFilePath: string, sourceCode: string): void => {
     const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
