@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { FilterBar, Filters } from '../index'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { FilterBar, type Filters } from '../index'
 
 export default {
   title: 'Components/FilterBar',

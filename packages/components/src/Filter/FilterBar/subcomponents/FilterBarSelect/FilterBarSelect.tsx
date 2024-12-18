@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import {
   FilterSelect,
-  FilterSelectProps,
-  SelectItem,
-  SelectOption,
+  type FilterSelectProps,
+  type SelectItem,
+  type SelectOption,
 } from '~components/Filter/FilterSelect'
 import { useFilterBarContext } from '../../context/FilterBarContext'
 import { checkArraysMatch } from '../../utils/checkArraysMatch'

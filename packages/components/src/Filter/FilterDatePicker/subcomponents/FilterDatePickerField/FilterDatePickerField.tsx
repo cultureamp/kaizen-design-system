@@ -1,21 +1,21 @@
-import React, { HTMLAttributes, useEffect, useId, useReducer } from 'react'
+import React, { useEffect, useId, useReducer, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import {
   CalendarSingle,
-  CalendarSingleProps,
-  DisabledDays,
   isInvalidDate,
+  type CalendarSingleProps,
+  type DisabledDays,
 } from '~components/Calendar'
-import { DateInputDescriptionProps } from '~components/DateInput'
-import { DatePickerSupportedLocales, getLocale } from '~components/DatePicker/utils/getLocale'
-import { FilterProps } from '~components/Filter/Filter'
+import { type DateInputDescriptionProps } from '~components/DateInput'
+import { getLocale, type DatePickerSupportedLocales } from '~components/DatePicker/utils/getLocale'
+import { type FilterProps } from '~components/Filter/Filter'
 import { useDateValidation } from '~components/Filter/FilterDatePicker/hooks/useDateValidation'
 import { transformDateToInputValue } from '~components/Filter/FilterDatePicker/utils/transformDateToInputValue'
-import { DataAttributes } from '~components/types/DataAttributes'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type DataAttributes } from '~components/types/DataAttributes'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useDateInputHandlers } from '../../hooks/useDateInputHandlers'
-import { DateValidationResponse, ValidationMessage } from '../../types'
-import { DateInputField, DateInputFieldProps } from '../DateInputField'
+import { type DateValidationResponse, type ValidationMessage } from '../../types'
+import { DateInputField, type DateInputFieldProps } from '../DateInputField'
 import { filterDatePickerFieldReducer } from './filterDatePickerFieldReducer'
 import styles from './FilterDatePickerField.module.scss'
 

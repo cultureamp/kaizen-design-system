@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
-import { AllowedTextTags, Text, TextVariants } from '.'
+import { Text, type AllowedTextTags, type TextVariants } from '.'
 
 describe('<Text />', () => {
   describe('changes rendered HTML element when passed tag', () => {

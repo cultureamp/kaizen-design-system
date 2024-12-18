@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { expect, userEvent, waitFor, within, fn } from '@storybook/test'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
 import { FilterMultiSelect } from '~components/Filter/FilterMultiSelect'
-import { DateRange } from '~components/index'
-import { FilterBar, Filters } from '../index'
+import { type DateRange } from '~components/index'
+import { FilterBar, type Filters } from '../index'
 
 const meta = {
   title: 'Components/FilterBar/FilterBar Tests',

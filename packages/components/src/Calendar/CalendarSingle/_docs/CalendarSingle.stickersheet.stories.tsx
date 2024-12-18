@@ -1,9 +1,9 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { within } from '@storybook/test'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import styles from '../../baseCalendarClassNames.module.scss'
-import { CalendarSingle, CalendarSingleProps } from '../index'
+import { CalendarSingle, type CalendarSingleProps } from '../index'
 
 export default {
   title: 'Components/Date controls/Calendars/CalendarSingle',

@@ -1,10 +1,10 @@
 import {
-  TitleBlockButtonProps,
-  TitleBlockCustomButtonProps,
-  TitleBlockMenuGroup,
-  TitleBlockVariant,
-  SecondaryActionsProps,
-  TitleBlockMenuItemProps,
+  type SecondaryActionsProps,
+  type TitleBlockButtonProps,
+  type TitleBlockCustomButtonProps,
+  type TitleBlockMenuGroup,
+  type TitleBlockMenuItemProps,
+  type TitleBlockVariant,
 } from './types'
 
 export const isMenuGroupNotButton = (

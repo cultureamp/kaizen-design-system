@@ -1,6 +1,6 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { userEvent, waitFor, within, expect, fn } from '@storybook/test'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
 import { VisuallyHidden } from '~components/VisuallyHidden'
 import { Icon } from '~components/__rc__/Icon'
 import { Button } from '../index'

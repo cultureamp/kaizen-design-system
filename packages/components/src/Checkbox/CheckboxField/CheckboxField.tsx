@@ -1,7 +1,7 @@
 import React, { useId } from 'react'
 import classnames from 'classnames'
 import { Label } from '~components/Label'
-import { Checkbox, CheckboxProps, CheckedStatus } from '../Checkbox/Checkbox'
+import { Checkbox, type CheckboxProps, type CheckedStatus } from '../Checkbox/Checkbox'
 import styles from './CheckboxField.module.scss'
 
 export type CheckboxFieldProps = Omit<CheckboxProps, 'id'> & {

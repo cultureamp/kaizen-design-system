@@ -1,10 +1,10 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { Menu } from '~components/Menu'
-import { DataAttributes } from '~components/types/DataAttributes'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { ActionButton, ActionButtonProps } from './subcomponents/ActionButton'
-import { DropdownButton, DropdownButtonProps } from './subcomponents/DropdownButton'
+import { type DataAttributes } from '~components/types/DataAttributes'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { ActionButton, type ActionButtonProps } from './subcomponents/ActionButton'
+import { DropdownButton, type DropdownButtonProps } from './subcomponents/DropdownButton'
 import styles from './SplitButton.module.scss'
 
 export type SplitButtonProps = {

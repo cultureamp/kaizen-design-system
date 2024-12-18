@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import debounce from 'lodash.debounce'
-import { SelectionPosition } from '../../types'
+import { type SelectionPosition } from '../../types'
 
 export const Positioner = forwardRef<HTMLElement, SelectionPosition>(
   ({ top, left, height, width }, ref) => {

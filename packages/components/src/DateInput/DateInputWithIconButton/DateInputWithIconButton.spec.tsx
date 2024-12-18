@@ -2,7 +2,10 @@ import React, { useRef } from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { DateInputWithIconButton, DateInputWithIconButtonProps } from './DateInputWithIconButton'
+import {
+  DateInputWithIconButton,
+  type DateInputWithIconButtonProps,
+} from './DateInputWithIconButton'
 
 const user = userEvent.setup()
 

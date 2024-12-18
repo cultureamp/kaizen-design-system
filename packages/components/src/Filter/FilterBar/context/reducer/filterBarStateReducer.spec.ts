@@ -1,4 +1,4 @@
-import { FilterBarState } from '../types'
+import { type FilterBarState } from '../types'
 import { filterBarStateReducer } from './filterBarStateReducer'
 
 type Values = {

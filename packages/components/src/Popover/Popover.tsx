@@ -1,11 +1,11 @@
-import React, { HTMLAttributes, useMemo, useState } from 'react'
+import React, { useMemo, useState, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { usePopper } from 'react-popper'
 import { Heading } from '~components/Heading'
 import { Text } from '~components/Text'
 import { Icon } from '~components/__rc__/Icon'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { Placement, PopoverSize, PopoverVariant } from './types'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { type Placement, type PopoverSize, type PopoverVariant } from './types'
 import {
   mapArrowVariantToClass,
   mapLineVariant,

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { type ReactNode } from 'react'
 
 // Noting that this is contingent on our displayName for our components -  this something we control
 const allowedDisplayNames = ['Button', 'IconButton', 'FilterButtonBase']

@@ -1,7 +1,7 @@
-import React, { ReactNode, HTMLAttributes } from 'react'
+import React, { type HTMLAttributes, type ReactNode } from 'react'
 import classNames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { TagColors } from './types'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { type TagColors } from './types'
 import styles from './Tag.module.scss'
 
 export type TagProps = {

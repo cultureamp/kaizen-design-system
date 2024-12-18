@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { FieldMessage } from '~components/FieldMessage'
 import { Text } from '~components/Text'
 import { Icon } from '~components/__rc__/Icon'
-import { ScaleValue, Scale, ScaleItem, ColorSchema } from './types'
+import { type ColorSchema, type Scale, type ScaleItem, type ScaleValue } from './types'
 import determineSelectionFromKeyPress from './utils/determineSelectionFromKeyPress'
 import styles from './LikertScaleLegacy.module.scss'
 

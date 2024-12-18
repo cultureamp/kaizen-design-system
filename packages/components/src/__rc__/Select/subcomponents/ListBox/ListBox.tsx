@@ -1,11 +1,11 @@
-import React, { HTMLAttributes, Key, useEffect, useRef, ReactNode } from 'react'
-import { AriaListBoxOptions, useListBox } from '@react-aria/listbox'
-import { SelectState } from '@react-stately/select'
+import React, { useEffect, useRef, type HTMLAttributes, type Key, type ReactNode } from 'react'
+import { useListBox, type AriaListBoxOptions } from '@react-aria/listbox'
+import { type SelectState } from '@react-stately/select'
 import classnames from 'classnames'
 import { useIsClientReady } from '~components/__utilities__/useIsClientReady'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useSelectContext } from '../../context'
-import { SelectOption, SelectItem } from '../../types'
+import { type SelectItem, type SelectOption } from '../../types'
 import styles from './ListBox.module.scss'
 
 export type SingleListBoxProps<Option extends SelectOption> = OverrideClassName<

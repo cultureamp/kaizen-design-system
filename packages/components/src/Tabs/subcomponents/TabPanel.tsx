@@ -1,6 +1,6 @@
-import React, { HTMLAttributes, ReactNode } from 'react'
+import React, { type HTMLAttributes, type ReactNode } from 'react'
 import { TabPanel as ReachTabPanel } from '@reach/tabs'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './TabPanel.module.scss'
 
 export type TabPanelProps = {

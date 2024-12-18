@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { expect, fn, userEvent, within, waitFor } from '@storybook/test'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
 import queryString from 'query-string'
 import Highlight from 'react-highlight'
 import {
-  encodeQueryParams,
-  StringParam,
   ArrayParam,
   DateParam,
-  encodeDate,
-  encodeObject,
+  StringParam,
   decodeDate,
   decodeObject,
-  QueryParamConfig,
   decodeQueryParams,
+  encodeDate,
+  encodeObject,
+  encodeQueryParams,
+  type QueryParamConfig,
 } from 'serialize-query-params'
-import { DateRange, ItemType, SelectOption, FilterMultiSelect } from '~components/index'
-import { FilterBar, Filters, useFilterBarContext } from '../index'
-import { FilterBarMultiSelectProps } from '../subcomponents'
+import {
+  FilterMultiSelect,
+  type DateRange,
+  type ItemType,
+  type SelectOption,
+} from '~components/index'
+import { FilterBar, useFilterBarContext, type Filters } from '../index'
+import { type FilterBarMultiSelectProps } from '../subcomponents'
 
 const meta = {
   title: 'Components/FilterBar',

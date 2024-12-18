@@ -1,26 +1,26 @@
 import React from 'react'
-import { SelectionMode, Selection } from '@react-types/shared'
+import { type Selection, type SelectionMode } from '@react-types/shared'
 import {
   MenuTriggerConsumer,
   MenuTriggerProvider,
-  MenuTriggerProviderContextType,
-  MenuTriggerProviderProps,
   SelectionConsumer,
   SelectionProvider,
-  SelectionProviderContextType,
+  type MenuTriggerProviderContextType,
+  type MenuTriggerProviderProps,
+  type SelectionProviderContextType,
 } from './context'
 import { ListBox } from './subcomponents/ListBox'
 import { ListBoxSection } from './subcomponents/ListBoxSection'
 import { LoadMoreButton } from './subcomponents/LoadMoreButton'
 import { MenuFooter, MenuLoadingSkeleton } from './subcomponents/MenuLayout'
-import { MenuPopup, MenuPopupProps } from './subcomponents/MenuPopup'
+import { MenuPopup, type MenuPopupProps } from './subcomponents/MenuPopup'
 import { MultiSelectOption } from './subcomponents/MultiSelectOption'
 import { NoResults } from './subcomponents/NoResults'
 import { SearchInput } from './subcomponents/SearchInput'
 import { SectionDivider } from './subcomponents/SectionDivider'
 import { ClearButton, SelectAllButton } from './subcomponents/SelectionControlButton'
 import { FilterTriggerButton, RemovableFilterTrigger } from './subcomponents/Trigger'
-import { ItemType } from './types'
+import { type ItemType } from './types'
 
 type SelectionProps = {
   label: string // provide A11y context for listbox

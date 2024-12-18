@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { Avatar, CompanyAvatarProps, GenericAvatarProps } from '~components/Avatar'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { Avatar, type CompanyAvatarProps, type GenericAvatarProps } from '~components/Avatar'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './AvatarGroup.module.scss'
 
 export type AvatarGroupAvatarProps =

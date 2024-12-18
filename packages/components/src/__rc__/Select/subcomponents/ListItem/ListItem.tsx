@@ -1,5 +1,5 @@
 import React from 'react'
-import { SelectItemNode, SelectOption } from '../../types'
+import { type SelectItemNode, type SelectOption } from '../../types'
 import { ListBoxSection } from '../ListBoxSection'
 import { Option } from '../Option'
 

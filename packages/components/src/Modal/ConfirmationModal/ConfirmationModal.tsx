@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import type { ButtonProps } from '~components/Button'
 import { Heading } from '~components/Heading'
@@ -6,10 +6,10 @@ import { Assertive, Cautionary, Informative, Negative, Positive } from '~compone
 import {
   GenericModal,
   ModalAccessibleDescription,
-  ModalFooter,
-  ModalHeader,
   ModalAccessibleLabel,
   ModalBody,
+  ModalFooter,
+  ModalHeader,
 } from '~components/Modal/GenericModal'
 import { Icon } from '~components/__rc__/Icon'
 import styles from './ConfirmationModal.module.scss'

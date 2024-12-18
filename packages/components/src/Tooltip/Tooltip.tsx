@@ -1,6 +1,6 @@
-import React, { ReactNode, cloneElement, useEffect, useRef, useState, useId } from 'react'
+import React, { cloneElement, useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import ReactDOM from 'react-dom'
-import { Placement } from '@popperjs/core'
+import { type Placement } from '@popperjs/core'
 import classnames from 'classnames'
 import { usePopper } from 'react-popper'
 import { AnimationProvider, useAnimation } from './subcomponents/AppearanceAnim'

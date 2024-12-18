@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { userEvent, waitFor, fn, expect } from '@storybook/test'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { expect, fn, userEvent, waitFor } from '@storybook/test'
 import { LinkModal } from './LinkModal'
 
 const meta = {

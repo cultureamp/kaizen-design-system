@@ -1,8 +1,12 @@
 import React, { useRef } from 'react'
-import { screen, waitFor, render } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { FilterButtonRemovable, FilterButtonRemovableProps, FilterButtonRemovableRefs } from '.'
+import {
+  FilterButtonRemovable,
+  type FilterButtonRemovableProps,
+  type FilterButtonRemovableRefs,
+} from '.'
 
 const user = userEvent.setup()
 

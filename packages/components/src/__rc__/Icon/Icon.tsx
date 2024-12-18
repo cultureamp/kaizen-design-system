@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classNames from 'classnames'
-import { StringSuggestions } from '~components/types/StringSuggestions'
+import { type StringSuggestions } from '~components/types/StringSuggestions'
 import { handledRtlIcons } from './constants'
-import { IconNames } from './types'
+import { type IconNames } from './types'
 import styles from './Icon.module.css'
 
 type PresentationalIcon = {

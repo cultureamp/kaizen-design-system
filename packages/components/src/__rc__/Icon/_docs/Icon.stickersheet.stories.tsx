@@ -1,13 +1,13 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { Button } from '~components/Button'
 import { CheckboxField } from '~components/Checkbox'
 import { Label } from '~components/Label'
 import { Text } from '~components/Text'
 import { Button as ButtonRC } from '~components/__rc__/Button'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { handledRtlIcons, iconDefaultSet } from '../constants'
-import { Icon, IconProps } from '../index'
+import { Icon, type IconProps } from '../index'
 
 export default {
   title: 'Components/Icon/Icon (Future)',

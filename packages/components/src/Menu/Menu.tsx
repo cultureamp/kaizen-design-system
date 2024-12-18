@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import type { ButtonProps } from '~components/Button'
-import { StatelessMenu, StatelessMenuProps } from './subcomponents/StatelessMenu'
+import { StatelessMenu, type StatelessMenuProps } from './subcomponents/StatelessMenu'
 
 type ButtonPropsWithOptionalAria = ButtonProps & {
   'aria-haspopup'?: boolean

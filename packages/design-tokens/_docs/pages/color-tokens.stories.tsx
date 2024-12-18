@@ -1,5 +1,5 @@
-import React, { HTMLAttributes } from 'react'
-import { Meta, StoryFn } from '@storybook/react'
+import React, { type HTMLAttributes } from 'react'
+import { type Meta, type StoryFn } from '@storybook/react'
 import colorString from 'color-string'
 import { Heading } from '~components/Heading'
 import { tokens } from '~design-tokens/js'

@@ -2,9 +2,9 @@ import {
   ProseMirrorCommands,
   ProseMirrorHistory,
   ProseMirrorInputrules,
-  ProseMirrorModel,
   ProseMirrorSchemaList,
-  ProseMirrorState,
+  type ProseMirrorModel,
+  type ProseMirrorState,
 } from '../../utils/prosemirror'
 
 type KeyBinding = Record<string, ProseMirrorState.Command>

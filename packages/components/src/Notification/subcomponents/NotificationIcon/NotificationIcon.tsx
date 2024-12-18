@@ -1,5 +1,5 @@
 import React from 'react'
-import { NotificationType, NotificationVariant } from '~components/Notification/types'
+import { type NotificationType, type NotificationVariant } from '~components/Notification/types'
 import { Icon } from '~components/__rc__'
 import styles from './NotificationIcon.module.css'
 

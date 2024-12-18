@@ -2,7 +2,7 @@ import React from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import { Icon } from '~components/__rc__/Icon'
-import { BaseButton, BaseButtonProps } from '../BaseButton'
+import { BaseButton, type BaseButtonProps } from '../BaseButton'
 import styles from './DropdownButton.module.scss'
 
 export type DropdownButtonProps = Omit<BaseButtonProps, 'label' | 'icon'>

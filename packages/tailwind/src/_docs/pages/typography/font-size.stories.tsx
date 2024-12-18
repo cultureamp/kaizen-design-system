@@ -1,5 +1,5 @@
 import React from 'react'
-import { StoryFn } from '@storybook/react'
+import { type StoryFn } from '@storybook/react'
 import { TailwindStoryTemplate } from '~tailwind/_docs/utils/TailwindStoryTemplate'
 import { utilityDescription } from '~tailwind/_docs/utils/utilityDescription'
 import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'

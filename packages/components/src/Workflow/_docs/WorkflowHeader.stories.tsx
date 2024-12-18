@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { Button } from '~components/Button'
 import { Icon, Tag } from '~components/__rc__'
 import { Workflow } from '../'

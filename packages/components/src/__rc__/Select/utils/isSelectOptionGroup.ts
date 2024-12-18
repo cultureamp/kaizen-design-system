@@ -1,4 +1,4 @@
-import { SelectItem, SelectOption, SelectOptionGroup } from '../types'
+import { type SelectItem, type SelectOption, type SelectOptionGroup } from '../types'
 
 export const isSelectOptionGroup = <Option extends SelectOption>(
   item: SelectItem,

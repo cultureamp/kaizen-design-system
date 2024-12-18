@@ -1,5 +1,5 @@
 import { waitFor } from '@testing-library/dom'
-import { EditorState } from 'prosemirror-state'
+import { type EditorState } from 'prosemirror-state'
 import { vi } from 'vitest'
 import { createRichTextEditor } from '../core'
 import { simulateRangeSelection, simulateSelectionByText } from './fixtures/helpers'

@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { FilterButton } from '~components/Filter/FilterButton'
-import { FilterSelect, FilterSelectProps } from './FilterSelect'
+import { FilterSelect, type FilterSelectProps } from './FilterSelect'
 import { mixedMockItemsUnordered, singleMockItems } from './_docs/mockData'
-import { SelectOption } from './types'
+import { type SelectOption } from './types'
 
 const user = userEvent.setup()
 

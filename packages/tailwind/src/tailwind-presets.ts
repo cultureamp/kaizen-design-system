@@ -1,4 +1,4 @@
-import { CustomThemeConfig } from 'tailwindcss/types/config'
+import { type CustomThemeConfig } from 'tailwindcss/types/config'
 import { tokens } from '@kaizen/design-tokens/js'
 import { kzSpacing } from './kz-spacing'
 

@@ -3,7 +3,7 @@ import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
 import { DatePicker } from './DatePicker'
-import { DatePickerProps } from '.'
+import { type DatePickerProps } from '.'
 
 const user = userEvent.setup()
 

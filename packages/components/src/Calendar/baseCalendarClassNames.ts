@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { ClassNames } from 'react-day-picker'
+import { type ClassNames } from 'react-day-picker'
 import styles from './baseCalendarClassNames.module.scss'
 
 export const baseCalendarClassNames: ClassNames = {

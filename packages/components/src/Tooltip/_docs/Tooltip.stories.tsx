@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { Button, IconButton } from '~components/Button'
 import { ButtonGroup } from '~components/ButtonGroup'
 import { CheckboxField } from '~components/Checkbox'

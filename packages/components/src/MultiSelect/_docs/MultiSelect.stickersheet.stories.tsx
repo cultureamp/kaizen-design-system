@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import isChromatic from 'chromatic'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { MultiSelect, MultiSelectProps } from '../index'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { MultiSelect, type MultiSelectProps } from '../index'
 
 const IS_CHROMATIC = isChromatic()
 

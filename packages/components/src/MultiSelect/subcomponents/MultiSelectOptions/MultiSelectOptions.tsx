@@ -1,9 +1,9 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { Text } from '~components/Text'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { MultiSelectOption } from '../../types'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { type MultiSelectOption } from '../../types'
 import { MultiSelectOptionField } from '../MultiSelectOptionField'
 import styles from './MultiSelectOptions.module.scss'
 

@@ -1,13 +1,17 @@
-import React, { RefObject, useId, useRef, useState } from 'react'
+import React, { useId, useRef, useState, type RefObject } from 'react'
 import cx from 'classnames'
 import { enUS } from 'date-fns/locale'
-import { DateRange, isMatch } from 'react-day-picker'
+import { isMatch, type DateRange } from 'react-day-picker'
 import { FocusOn } from 'react-focus-on'
-import { DisabledDayMatchers, calculateDisabledDays, isDisabledDate } from '~components/Calendar'
+import {
+  calculateDisabledDays,
+  isDisabledDate,
+  type DisabledDayMatchers,
+} from '~components/Calendar'
 import { CalendarPopover } from '~components/Calendar/CalendarPopover'
 import {
   LegacyCalendarRange,
-  LegacyCalendarRangeProps,
+  type LegacyCalendarRangeProps,
 } from '~components/Calendar/LegacyCalendarRange'
 import { Label } from '~components/Label'
 import { VisuallyHidden } from '~components/VisuallyHidden'

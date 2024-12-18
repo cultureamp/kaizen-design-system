@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { render, waitFor, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { MultiSelectOptions, MultiSelectOptionsProps } from './MultiSelectOptions'
+import { MultiSelectOptions, type MultiSelectOptionsProps } from './MultiSelectOptions'
 const user = userEvent.setup()
 
 const onChange = vi.fn()

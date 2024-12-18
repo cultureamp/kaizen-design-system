@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { MenuItem } from '~components/Menu'
-import { TitleBlockMenuItemProps } from '../types'
+import { type TitleBlockMenuItemProps } from '../types'
 import styles from './TitleBlockMenuItem.module.scss'
 
 export const TitleBlockMenuItem = (props: TitleBlockMenuItemProps): JSX.Element => {

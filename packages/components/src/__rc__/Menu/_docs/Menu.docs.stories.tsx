@@ -1,9 +1,9 @@
-import React, { FunctionComponent, ReactNode } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import React, { type FunctionComponent, type ReactNode } from 'react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { Button } from '~components/__rc__/Button'
 import { Icon } from '~components/__rc__/Icon'
-import { Menu, MenuItem, MenuTrigger, MenuPopover, MenuSection, MenuHeader } from '../index'
+import { Menu, MenuHeader, MenuItem, MenuPopover, MenuSection, MenuTrigger } from '../index'
 
 const meta = {
   title: 'Components/Menu/Menu (v3)/Docs Assets',

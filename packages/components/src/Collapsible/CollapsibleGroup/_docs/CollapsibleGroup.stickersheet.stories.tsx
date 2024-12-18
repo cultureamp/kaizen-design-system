@@ -1,8 +1,8 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { Collapsible, CollapsibleProps } from '~components/Collapsible/Collapsible'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { CollapsibleGroup, CollapsibleGroupProps } from '../index'
+import { type Meta } from '@storybook/react'
+import { Collapsible, type CollapsibleProps } from '~components/Collapsible/Collapsible'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { CollapsibleGroup, type CollapsibleGroupProps } from '../index'
 
 export default {
   title: 'Components/Collapsibles/CollapsibleGroup',

@@ -1,4 +1,4 @@
-import path, { join, dirname } from 'path'
+import path, { dirname, join } from 'path'
 import type { StorybookConfig } from '@storybook/react-vite'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 

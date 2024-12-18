@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { TimeField, TimeFieldProps } from './TimeField'
-import { ValueType } from './types'
+import { TimeField, type TimeFieldProps } from './TimeField'
+import { type ValueType } from './types'
 const user = userEvent.setup()
 
 const mockOnChange = vi.fn()

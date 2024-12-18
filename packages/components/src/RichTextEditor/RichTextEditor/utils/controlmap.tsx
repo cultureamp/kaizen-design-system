@@ -1,12 +1,12 @@
 import React from 'react'
 import { Icon } from '~components/__rc__/Icon'
-import { ToolbarItems, ToolbarControlTypes } from '../../types'
+import { type ToolbarControlTypes, type ToolbarItems } from '../../types'
 import { listIsActive, markIsActive } from '../../utils/commands'
 import {
   ProseMirrorCommands,
-  ProseMirrorModel,
   ProseMirrorSchemaList,
-  ProseMirrorState,
+  type ProseMirrorModel,
+  type ProseMirrorState,
 } from '../../utils/prosemirror'
 
 /** Configuration for individual controls */

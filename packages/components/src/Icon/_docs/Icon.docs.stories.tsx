@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import * as ICONS from '~components/Icon'
 import { Text } from '~components/Text'
 import { Tag } from '~components/__rc__/Tag'

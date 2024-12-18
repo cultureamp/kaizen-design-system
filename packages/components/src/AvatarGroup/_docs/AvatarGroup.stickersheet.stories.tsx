@@ -1,7 +1,7 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { AvatarGroup, AvatarGroupSize } from '../index'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { AvatarGroup, type AvatarGroupSize } from '../index'
 import { AVATARS, EXAMPLE_USER_1, EXAMPLE_USER_2 } from './example-data'
 
 export default {

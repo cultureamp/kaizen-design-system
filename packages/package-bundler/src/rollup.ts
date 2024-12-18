@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import typescript from '@rollup/plugin-typescript'
-import { InputPluginOption, RollupOptions } from 'rollup'
+import { type InputPluginOption, type RollupOptions } from 'rollup'
 import { pluginsDefault } from './presets/index.js'
 import { rollupTailwindConfig } from './presets/shared-ui/rollup-tailwind.js'
 

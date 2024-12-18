@@ -1,5 +1,5 @@
 /* eslint import/no-extraneous-dependencies: 0 */
-import { ThemeVars, create } from '@storybook/theming'
+import { create, type ThemeVars } from '@storybook/theming'
 import { defaultTheme } from '@kaizen/design-tokens'
 const colors = defaultTheme.color
 

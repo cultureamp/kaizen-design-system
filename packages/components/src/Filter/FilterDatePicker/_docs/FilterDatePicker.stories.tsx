@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import Highlight from 'react-highlight'
 import { defaultMonthControls } from '~components/Calendar/_docs/controls/defaultMonthControls'
 import {
   FilterButton,
-  FilterButtonProps,
   FilterButtonRemovable,
+  type FilterButtonProps,
 } from '~components/Filter/FilterButton'
 import { renderTriggerControls } from '~components/Filter/_docs/controls/renderTriggerControls'
 import { Text } from '~components/Text'
-import { DateValidationResponse, FilterDatePicker, ValidationMessage } from '../index'
+import { FilterDatePicker, type DateValidationResponse, type ValidationMessage } from '../index'
 import { FilterDatePickerField } from '../subcomponents/FilterDatePickerField'
 import { disabledDaysControls } from './controls/disabledDaysControls'
 import { validationControls } from './controls/validationControls'
