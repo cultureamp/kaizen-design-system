@@ -2,7 +2,7 @@ import React from 'react'
 import { action } from '@storybook/addon-actions'
 import { Meta, StoryObj } from '@storybook/react'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { StickerSheetStory } from '~storybook/components/StickerSheet'
 import {
   TableCard,

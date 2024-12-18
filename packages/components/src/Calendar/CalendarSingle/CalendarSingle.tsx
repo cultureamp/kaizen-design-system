@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { enAU } from 'date-fns/locale'
 import { DayPicker, DayPickerSingleProps } from 'react-day-picker'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { OverrideClassName } from '~components/types/OverrideClassName'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
 import { isInvalidDate, isValidWeekStartsOn } from '../utils'

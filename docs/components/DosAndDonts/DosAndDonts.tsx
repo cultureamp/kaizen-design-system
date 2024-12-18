@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from 'react'
 import { Canvas, Unstyled } from '@storybook/blocks'
 import classnames from 'classnames'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import styles from './DosAndDonts.module.css'
 
 export const DosAndDonts = ({
