@@ -78,9 +78,15 @@ export const LinkButtonVariantsReversed: Story = {
 export const LinkButtonSizes: Story = {
   render: (args) => (
     <>
-      <LinkButton {...args} size="small" />
-      <LinkButton {...args} size="medium" />
-      <LinkButton {...args} size="large" />
+      <LinkButton {...args} size="small">
+        Small
+      </LinkButton>
+      <LinkButton {...args} size="medium">
+        Medium
+      </LinkButton>
+      <LinkButton {...args} size="large">
+        Large
+      </LinkButton>
     </>
   ),
   decorators: [
