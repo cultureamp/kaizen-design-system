@@ -39,14 +39,14 @@
   &.small {
     width: var(--avatar-sm);
     height: var(--avatar-sm);
+  }
 
-    .initials {
-      margin-bottom: -1px;
-    }
+  &.small .initials {
+    margin-bottom: -1px;
+  }
 
-    &.company {
-      padding: 0;
-    }
+  &.small &.company {
+    padding: 0;
   }
 
   &.medium {
