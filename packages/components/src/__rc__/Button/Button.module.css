@@ -157,13 +157,13 @@
   --button-text-color: var(--color-purple-800);
 
   &[data-hovered] {
-    --button-bg-color: var(--color-white);
-    --button-border-color: var(--color-white);
+    --button-bg-color: var(--color-gray-200);
+    --button-border-color: var(--ccolor-gray-200);
   }
 
   &[data-pressed] {
-    --button-bg-color: var(--color-white);
-    --button-border-color: var(--color-white);
+    --button-bg-color: var(--color-gray-300);
+    --button-border-color: var(--color-gray-300);
   }
 
   &[data-pending] {
