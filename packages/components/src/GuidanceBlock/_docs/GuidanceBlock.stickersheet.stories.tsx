@@ -1,11 +1,11 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { Heading } from '~components/Heading'
 import { EmptyStatesPositive, Informative } from '~components/Illustration'
 import { Tag } from '~components/Tag'
 import { Text } from '~components/Text'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { GuidanceBlock, GuidanceBlockProps } from '../index'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { GuidanceBlock, type GuidanceBlockProps } from '../index'
 import { variantsMap } from '../types'
 
 export default {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { vi } from 'vitest'
-import { useMediaQueries, subtractOnePixel } from './useMediaQueries'
+import { subtractOnePixel, useMediaQueries } from './useMediaQueries'
 const ExampleComponent = (): JSX.Element => {
   const { queries, components } = useMediaQueries({
     prefersReducedMotion: '(prefers-reduced-motion: reduce)',

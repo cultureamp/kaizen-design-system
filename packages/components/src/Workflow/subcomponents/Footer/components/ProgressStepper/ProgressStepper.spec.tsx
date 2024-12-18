@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { ProgressStepper, ProgressStepperProps } from './'
+import { ProgressStepper, type ProgressStepperProps } from './'
 
 const defaultArgs = {
   steps: [

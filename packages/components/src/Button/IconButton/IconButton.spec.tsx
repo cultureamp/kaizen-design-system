@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { CustomButtonProps } from '..'
+import { type CustomButtonProps } from '..'
 import { IconButton } from './IconButton'
 
 describe('<IconButton />', () => {

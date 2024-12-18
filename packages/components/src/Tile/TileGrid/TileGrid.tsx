@@ -1,8 +1,8 @@
-import React, { HTMLAttributes, ReactElement, ReactNode } from 'react'
+import React, { type HTMLAttributes, type ReactElement, type ReactNode } from 'react'
 import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { InformationTileProps } from '../InformationTile'
-import { MultiActionTileProps } from '../MultiActionTile'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { type InformationTileProps } from '../InformationTile'
+import { type MultiActionTileProps } from '../MultiActionTile'
 import styles from './TileGrid.module.scss'
 
 type TileProps = InformationTileProps | MultiActionTileProps

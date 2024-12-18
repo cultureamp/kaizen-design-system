@@ -1,8 +1,8 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { Icon } from '~components/__rc__/Icon'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { Input, InputProps } from '../index'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Input, type InputProps } from '../index'
 import { InputStatus, InputTypes } from '../types'
 
 export default {

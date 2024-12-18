@@ -5,7 +5,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import type { ButtonProps } from '~components/Button'
-import { MenuProps } from '~components/Menu'
+import { type MenuProps } from '~components/Menu'
 import styles from './Toolbar.module.scss'
 
 type ToolbarProps = {

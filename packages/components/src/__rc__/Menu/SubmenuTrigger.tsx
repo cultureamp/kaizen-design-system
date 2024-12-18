@@ -1,7 +1,7 @@
 import React, { createContext } from 'react'
 import {
   SubmenuTrigger as RACSubmenuTrigger,
-  SubmenuTriggerProps as RACSubmenuTriggerProps,
+  type SubmenuTriggerProps as RACSubmenuTriggerProps,
 } from 'react-aria-components'
 
 export type SubmenuTriggerProps = RACSubmenuTriggerProps

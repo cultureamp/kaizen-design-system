@@ -1,14 +1,20 @@
 // Since we can't add a deprecation flag on a * export
-import { Menu as MenuV1, MenuProps as MenuPropsV1 } from './Menu'
+import { Menu as MenuV1, type MenuProps as MenuPropsV1 } from './Menu'
 import {
   MenuHeading as MenuHeadingV1,
-  MenuHeadingProps as MenuHeadingPropsV1,
+  type MenuHeadingProps as MenuHeadingPropsV1,
 } from './subcomponents/MenuHeading'
-import { MenuItem as MenuItemV1, MenuItemProps as MenuItemPropsV1 } from './subcomponents/MenuItem'
-import { MenuList as MenuListV1, MenuListProps as MenuListPropsV1 } from './subcomponents/MenuList'
+import {
+  MenuItem as MenuItemV1,
+  type MenuItemProps as MenuItemPropsV1,
+} from './subcomponents/MenuItem'
+import {
+  MenuList as MenuListV1,
+  type MenuListProps as MenuListPropsV1,
+} from './subcomponents/MenuList'
 import {
   StatelessMenu as StatelessMenuV1,
-  StatelessMenuProps as StatelessMenuPropsV1,
+  type StatelessMenuProps as StatelessMenuPropsV1,
 } from './subcomponents/StatelessMenu'
 
 // Note: deprecate all of these once we have Button v3

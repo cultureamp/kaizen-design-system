@@ -1,7 +1,7 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { DirectionalLink, DirectionalLinkProps } from '../index'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { DirectionalLink, type DirectionalLinkProps } from '../index'
 
 export default {
   title: 'Components/Pagination/DirectionalLink',

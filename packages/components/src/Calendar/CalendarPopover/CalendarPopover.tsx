@@ -1,14 +1,14 @@
-import React, { HTMLAttributes, useState } from 'react'
+import React, { useState, type HTMLAttributes } from 'react'
 import {
+  autoPlacement,
   autoUpdate,
   offset,
-  useFloating,
-  UseFloatingOptions,
   size,
-  autoPlacement,
+  useFloating,
+  type UseFloatingOptions,
 } from '@floating-ui/react-dom'
 import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './CalendarPopover.module.scss'
 
 export type CalendarPopoverProps = {

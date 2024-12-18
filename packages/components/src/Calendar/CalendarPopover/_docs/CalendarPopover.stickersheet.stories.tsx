@@ -1,11 +1,11 @@
 import React from 'react'
-import { offset, size, autoPlacement } from '@floating-ui/react-dom'
-import { Meta } from '@storybook/react'
+import { autoPlacement, offset, size } from '@floating-ui/react-dom'
+import { type Meta } from '@storybook/react'
 import { Text } from '~components/Text'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { CalendarRange } from '../../CalendarRange'
 import { CalendarSingle } from '../../CalendarSingle'
-import { CalendarPopover, CalendarPopoverProps } from '../index'
+import { CalendarPopover, type CalendarPopoverProps } from '../index'
 
 export default {
   title: 'Components/Date controls/Calendars/CalendarPopover',

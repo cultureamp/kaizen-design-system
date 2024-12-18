@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { Card, CardProps } from '~components/Card'
+import { Card, type CardProps } from '~components/Card'
 import styles from './SkirtCard.module.scss'
 
 export type SkirtCardProps = CardProps

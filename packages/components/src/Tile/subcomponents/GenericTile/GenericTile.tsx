@@ -1,12 +1,12 @@
-import React, { HTMLAttributes, useState, useRef, useEffect } from 'react'
+import React, { useEffect, useRef, useState, type HTMLAttributes } from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
-import { IconButton, Button } from '~components/Button'
+import { Button, IconButton } from '~components/Button'
 import type { GenericButtonProps } from '~components/Button/GenericButton'
-import { AllowedHeadingTags, Heading } from '~components/Heading'
+import { Heading, type AllowedHeadingTags } from '~components/Heading'
 import { Text } from '~components/Text'
 import { Icon } from '~components/__rc__/Icon'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './GenericTile.module.scss'
 
 export type TileAction = GenericButtonProps

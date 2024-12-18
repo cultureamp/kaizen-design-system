@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { TimeField } from '../index'
-import { ValueType } from '../types'
+import { type ValueType } from '../types'
 
 export default {
   title: 'Components/TimeField',

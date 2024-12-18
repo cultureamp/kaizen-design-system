@@ -1,6 +1,6 @@
-import React, { TextareaHTMLAttributes, useRef, useState } from 'react'
+import React, { useRef, useState, type TextareaHTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './TextArea.module.css'
 
 export type TextAreaProps = {

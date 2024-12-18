@@ -11,12 +11,12 @@ import { MainActions } from './subcomponents/MainActions'
 import { MobileActions } from './subcomponents/MobileActions'
 import { SecondaryActions } from './subcomponents/SecondaryActions'
 import {
-  TitleBlockBreadcrumbProps,
-  NavigationTabs,
-  SurveyStatus,
-  TitleBlockAvatarProps,
-  TitleBlockProps,
-  TitleBlockVariant,
+  type NavigationTabs,
+  type SurveyStatus,
+  type TitleBlockAvatarProps,
+  type TitleBlockBreadcrumbProps,
+  type TitleBlockProps,
+  type TitleBlockVariant,
 } from './types'
 import { createTabletOverflowMenuItems, isReversed } from './utils'
 import styles from './TitleBlockZen.module.scss'

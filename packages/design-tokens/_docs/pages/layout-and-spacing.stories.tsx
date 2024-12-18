@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta, StoryFn, StoryObj } from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 import { Button } from '~components/Button'
 import { tokens } from '~design-tokens/js'
 

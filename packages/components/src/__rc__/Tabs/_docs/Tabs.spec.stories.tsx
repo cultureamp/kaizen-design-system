@@ -1,6 +1,6 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { within, userEvent, expect } from '@storybook/test'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { expect, userEvent, within } from '@storybook/test'
 import { Text } from '~components/Text'
 import { Tab, TabList, TabPanel, Tabs } from '../index'
 

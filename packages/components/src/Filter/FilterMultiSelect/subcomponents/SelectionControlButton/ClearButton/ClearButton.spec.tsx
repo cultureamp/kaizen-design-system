@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Mock, vi } from 'vitest'
+import { vi, type Mock } from 'vitest'
 import { useSelectionContext } from '../../../context'
 import { ClearButton } from '.'
 const user = userEvent.setup()

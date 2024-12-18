@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { SpinnerIcon } from './subcomponents'
 import styles from './LoadingSpinner.module.css'
 

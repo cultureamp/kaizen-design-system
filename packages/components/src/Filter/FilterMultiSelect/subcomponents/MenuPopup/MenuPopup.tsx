@@ -1,6 +1,6 @@
 import React from 'react'
 import { FocusScope } from '@react-aria/focus'
-import { useOverlay, DismissButton } from '@react-aria/overlays'
+import { DismissButton, useOverlay } from '@react-aria/overlays'
 import { useMenuTriggerContext } from '../../context'
 import styles from './MenuPopup.module.scss'
 

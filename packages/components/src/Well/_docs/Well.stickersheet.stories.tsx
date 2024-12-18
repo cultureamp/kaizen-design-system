@@ -1,9 +1,9 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { Text } from '~components/Text'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { Well, WellProps } from '../index'
-import { borderStyleTypes, wellColors, variantTypes } from '../types'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Well, type WellProps } from '../index'
+import { borderStyleTypes, variantTypes, wellColors } from '../types'
 
 export default {
   title: 'Components/Well',

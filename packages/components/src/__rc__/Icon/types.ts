@@ -1,4 +1,4 @@
-import iconsMetadata from './material-symbols-metadata.json'
+import type iconsMetadata from './material-symbols-metadata.json'
 
 // Icon names are from https://github.com/marella/material-symbols/blob/main/metadata/versions.json
 // Update `material-symbols-metadata.json` for new icons.

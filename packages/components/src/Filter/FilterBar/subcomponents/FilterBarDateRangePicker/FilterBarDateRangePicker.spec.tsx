@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import { screen, waitFor, within, render } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { FilterAttributes, FilterBarProvider } from '~components/Filter/FilterBar'
-import { DateRange } from '~components/index'
-import { FilterBarDateRangePicker, FilterBarDateRangePickerProps } from './FilterBarDateRangePicker'
+import { FilterBarProvider, type FilterAttributes } from '~components/Filter/FilterBar'
+import { type DateRange } from '~components/index'
+import {
+  FilterBarDateRangePicker,
+  type FilterBarDateRangePickerProps,
+} from './FilterBarDateRangePicker'
 
 const user = userEvent.setup()
 

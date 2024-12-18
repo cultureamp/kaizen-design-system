@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { DateRange } from 'react-day-picker'
+import { type DateRange } from 'react-day-picker'
 import { formatDateRangeValue } from './utils/formatDateRangeValue'
-import { DateRangePicker, DateRangePickerProps } from './index'
+import { DateRangePicker, type DateRangePickerProps } from './index'
 
 const user = userEvent.setup()
 

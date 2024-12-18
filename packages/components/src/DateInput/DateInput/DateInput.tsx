@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { Input, InputProps } from '~components/Input'
+import { Input, type InputProps } from '~components/Input'
 import { Label } from '~components/Label'
 import { isRefObject } from '~components/utils/isRefObject'
 import styles from './DateInput.module.scss'

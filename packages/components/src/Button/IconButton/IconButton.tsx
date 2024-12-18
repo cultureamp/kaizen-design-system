@@ -1,5 +1,10 @@
-import React, { forwardRef, Ref } from 'react'
-import { GenericButton, BaseButtonProps, WorkingButtonProps, ButtonRef } from '../GenericButton'
+import React, { forwardRef, type Ref } from 'react'
+import {
+  GenericButton,
+  type BaseButtonProps,
+  type ButtonRef,
+  type WorkingButtonProps,
+} from '../GenericButton'
 
 export type IconButtonProps = Omit<BaseButtonProps, 'iconPosition'> & WorkingButtonProps
 

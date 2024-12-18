@@ -1,6 +1,5 @@
 import type { Locale } from 'date-fns'
 import {
-  DisabledDays,
   formatDateAsNumeral,
   formatDateAsText,
   isDisabledDate,
@@ -8,8 +7,9 @@ import {
   isSelectingDayInCalendar,
   parseDateFromNumeralFormatValue,
   parseDateFromTextFormatValue,
+  type DisabledDays,
 } from '~components/Calendar'
-import { DateInputProps } from '~components/DateInput'
+import { type DateInputProps } from '~components/DateInput'
 
 type UseDateInputHandlersArgs = {
   locale: Locale

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import { ArgTypes } from '@storybook/react'
+import { type ArgTypes } from '@storybook/react'
 
 export const validationControls: Partial<ArgTypes> = {
   onValidate: {

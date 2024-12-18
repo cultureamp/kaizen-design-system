@@ -1,6 +1,6 @@
-import { Locale, format } from 'date-fns'
+import { format, type Locale } from 'date-fns'
 import { DateFormat } from '../enums'
-import { DisabledDays } from '../types'
+import { type DisabledDays } from '../types'
 import { isDisabledDate } from './isDisabledDate'
 import { isInvalidDate } from './isInvalidDate'
 

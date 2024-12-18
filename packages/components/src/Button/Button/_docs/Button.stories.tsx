@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StoryObj, Meta } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { LoadingInput } from '~components/Loading'
 import { TextField } from '~components/TextField'
 import { Icon } from '~components/__rc__/Icon'

@@ -1,4 +1,4 @@
-import { ArgTypes } from '@storybook/react'
+import { type ArgTypes } from '@storybook/react'
 import { DayOfWeek } from '~components/Calendar'
 
 export const weekStartsOnControls: Partial<ArgTypes> = {

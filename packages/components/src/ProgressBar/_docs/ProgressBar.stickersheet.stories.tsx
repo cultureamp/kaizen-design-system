@@ -1,8 +1,8 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import isChromatic from 'chromatic'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { ProgressBar, ProgressBarProps } from '../index'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { ProgressBar, type ProgressBarProps } from '../index'
 
 export default {
   title: 'Components/ProgressBar',

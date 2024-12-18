@@ -1,11 +1,11 @@
-import React, { HTMLAttributes } from 'react'
-import { FocusableElement } from '@react-types/shared'
+import React, { type HTMLAttributes } from 'react'
+import { type FocusableElement } from '@react-types/shared'
 import classnames from 'classnames'
 import { mergeProps, useFocusRing, useOption } from 'react-aria'
 import { Icon } from '~components/__rc__/Icon'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useSelectContext } from '../../context'
-import { SelectOption, SelectOptionNode } from '../../types'
+import { type SelectOption, type SelectOptionNode } from '../../types'
 import styles from './Option.module.scss'
 
 export type OptionProps<Option extends SelectOption = SelectOption> = {

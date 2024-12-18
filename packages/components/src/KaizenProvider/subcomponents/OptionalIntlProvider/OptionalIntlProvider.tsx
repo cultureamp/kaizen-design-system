@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from 'react'
+import React, { useContext, type ReactNode } from 'react'
 import { StaticIntlProvider } from '@cultureamp/i18n-react-intl'
 import { I18nProvider } from 'react-aria'
 import { IntlContext } from 'react-intl'

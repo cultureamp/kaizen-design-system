@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { Button, IconButton } from '~components/Button'
 import { FieldMessage } from '~components/FieldMessage'
@@ -7,7 +7,7 @@ import { Input } from '~components/Input'
 import { Label } from '~components/Label'
 import { Text } from '~components/Text'
 import { Icon } from '~components/__rc__/Icon'
-import { Tooltip, TooltipTrigger, Focusable } from '../index'
+import { Focusable, Tooltip, TooltipTrigger } from '../index'
 import * as TestStories from './Tooltip.spec.stories'
 
 const meta = {

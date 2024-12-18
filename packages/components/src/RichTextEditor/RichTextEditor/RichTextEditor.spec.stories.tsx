@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { StoryObj } from '@storybook/react'
+import { type StoryObj } from '@storybook/react'
 import { expect, userEvent, within } from '@storybook/test'
-import { EditorContentArray } from '../types'
-import { RichTextEditor, RichTextEditorProps } from './RichTextEditor'
+import { type EditorContentArray } from '../types'
+import { RichTextEditor, type RichTextEditorProps } from './RichTextEditor'
 
 export default {
   title: 'Components/RichTextEditor/Tests',

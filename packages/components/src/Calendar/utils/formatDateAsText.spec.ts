@@ -1,4 +1,4 @@
-import { enUS, enAU } from 'date-fns/locale'
+import { enAU, enUS } from 'date-fns/locale'
 import { formatDateAsText } from './formatDateAsText'
 
 describe('formatDateAsText', () => {

@@ -1,5 +1,5 @@
-import { MarkType } from 'prosemirror-model'
-import { EditorState } from 'prosemirror-state'
+import { type MarkType } from 'prosemirror-model'
+import { type EditorState } from 'prosemirror-state'
 import { getMarkRange } from './getMarkRange'
 import { markIsActive } from './markIsActive'
 

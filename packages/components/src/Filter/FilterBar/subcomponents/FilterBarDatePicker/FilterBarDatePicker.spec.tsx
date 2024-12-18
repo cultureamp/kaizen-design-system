@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { screen, waitFor, within, render } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { FilterAttributes, FilterBarProvider } from '~components/Filter/FilterBar'
-import { FilterBarDatePicker, FilterBarDatePickerProps } from './FilterBarDatePicker'
+import { FilterBarProvider, type FilterAttributes } from '~components/Filter/FilterBar'
+import { FilterBarDatePicker, type FilterBarDatePickerProps } from './FilterBarDatePicker'
 
 const user = userEvent.setup()
 

@@ -1,4 +1,4 @@
-import { ToolbarControlTypes } from './types'
+import { type ToolbarControlTypes } from './types'
 
 export const TOOLBAR_CONTROLS: ToolbarControlTypes[] = [
   'bold',

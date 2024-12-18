@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   MenuTrigger as RACMenuTrigger,
-  MenuTriggerProps as RACMenuTriggerProps,
+  type MenuTriggerProps as RACMenuTriggerProps,
 } from 'react-aria-components'
 
 export type MenuTriggerProps = Omit<RACMenuTriggerProps, 'trigger'>

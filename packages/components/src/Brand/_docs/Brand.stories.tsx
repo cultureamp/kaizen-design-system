@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { StickerSheetStory } from '~storybook/components/StickerSheet'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Brand } from '../index'
 import { StickerSheetDefault } from './Brand.stickersheet.stories'
 

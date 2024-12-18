@@ -1,4 +1,4 @@
-import { Locale, parse } from 'date-fns'
+import { parse, type Locale } from 'date-fns'
 import { DateFormat } from '../enums'
 
 export const parseDateFromNumeralFormatValue = (value: string, locale: Locale): Date =>

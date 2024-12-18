@@ -2,8 +2,8 @@ import React, { useId, useState } from 'react'
 import classnames from 'classnames'
 import ReactSelect, {
   components,
-  type Props as ReactSelectProps,
   type NoticeProps,
+  type Props as ReactSelectProps,
 } from 'react-select'
 import Async, { type AsyncProps as ReactAsyncSelectProps } from 'react-select/async'
 import { FieldMessage } from '~components/FieldMessage'

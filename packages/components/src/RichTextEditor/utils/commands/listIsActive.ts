@@ -1,5 +1,5 @@
-import { NodeType } from 'prosemirror-model'
-import { EditorState } from 'prosemirror-state'
+import { type NodeType } from 'prosemirror-model'
+import { type EditorState } from 'prosemirror-state'
 import { findParentNodeOfTypeClosestToPos } from 'prosemirror-utils'
 
 export const listIsActive = (

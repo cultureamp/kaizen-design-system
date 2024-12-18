@@ -1,4 +1,4 @@
-import { FilterAttributes, FilterIsUsableWhen, FiltersValues } from '../types'
+import { type FilterAttributes, type FilterIsUsableWhen, type FiltersValues } from '../types'
 
 export type MappedFilters<ValuesMap extends FiltersValues> = {
   [K in keyof ValuesMap]: FilterAttributes<ValuesMap, K>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Selection } from '@react-types/shared'
-import { waitFor, render } from '@testing-library/react'
+import { type Selection } from '@react-types/shared'
+import { render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { FilterMultiSelect, FilterMultiSelectProps } from './FilterMultiSelect'
-import { ItemType } from './types'
+import { FilterMultiSelect, type FilterMultiSelectProps } from './FilterMultiSelect'
+import { type ItemType } from './types'
 import { getSelectedOptionLabels } from './utils'
 
 const user = userEvent.setup()

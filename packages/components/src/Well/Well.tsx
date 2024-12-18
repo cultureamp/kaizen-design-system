@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { WellBorderStyleType, WellVariantType, WellColors } from './types'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { type WellBorderStyleType, type WellColors, type WellVariantType } from './types'
 import styles from './Well.module.scss'
 
 export type WellProps = {

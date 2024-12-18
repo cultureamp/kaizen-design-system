@@ -4,7 +4,7 @@ import { Menu, MenuList } from '~components/Menu'
 import { Icon } from '~components/__rc__/Icon'
 import styles from '../TitleBlockZen.module.scss'
 import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from '../constants'
-import { SecondaryActionsProps, TitleBlockMenuItemProps } from '../types'
+import { type SecondaryActionsProps, type TitleBlockMenuItemProps } from '../types'
 import { TitleBlockMenuItem } from './TitleBlockMenuItem'
 import { Toolbar } from './Toolbar'
 

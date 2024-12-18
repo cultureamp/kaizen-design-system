@@ -1,6 +1,6 @@
 import React from 'react'
 import { FormattedMessage } from '@cultureamp/i18n-react-intl'
-import { DateValidationResponse } from '~components/Filter/FilterDatePicker'
+import { type DateValidationResponse } from '~components/Filter/FilterDatePicker'
 import { getNodeText } from '~components/utils/getNodeText'
 import { isValidRange } from './isValidRange'
 

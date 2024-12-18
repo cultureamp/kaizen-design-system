@@ -1,10 +1,10 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { Button } from '~components/Button'
 import { Icon } from '~components/__rc__/Icon'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { EmptyState, EmptyStateProps } from '../index'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { EmptyState, type EmptyStateProps } from '../index'
 
 export default {
   title: 'Components/EmptyState',

@@ -1,8 +1,8 @@
 import React from 'react'
-import { DateRange } from '~components/Calendar'
+import { type DateRange } from '~components/Calendar'
 import {
   FilterDateRangePicker,
-  FilterDateRangePickerProps,
+  type FilterDateRangePickerProps,
 } from '~components/Filter/FilterDateRangePicker'
 import { useFilterBarContext } from '../../context/FilterBarContext'
 import { FilterBarButton } from '../FilterBarButton'

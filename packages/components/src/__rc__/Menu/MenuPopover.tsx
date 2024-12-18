@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Popover, PopoverProps } from 'react-aria-components'
+import { Popover, type PopoverProps } from 'react-aria-components'
 
 export type MenuPopoverProps = PopoverProps
 
