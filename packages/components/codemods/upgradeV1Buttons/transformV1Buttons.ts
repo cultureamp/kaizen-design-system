@@ -27,7 +27,7 @@ const transformProp = (
   }
 }
 
-export const transformV1ButtonsToV3 = (
+export const transformV1Buttons = (
   node: ts.JsxSelfClosingElement,
   kaioComponentName: string,
   tagName: string = 'Button',

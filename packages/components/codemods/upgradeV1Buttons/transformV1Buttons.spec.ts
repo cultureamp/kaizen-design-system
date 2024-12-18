@@ -1,7 +1,7 @@
 import ts from 'typescript'
 import { parseJsx } from '../__tests__/utils'
 import { printAst } from '../utils'
-import { transformV1ButtonsToV3 } from './transformV1ButtonsToV3'
+import { transformV1Buttons } from './transformV1Buttons'
 
 export const mockedTransformer =
   (kaioComponentName: string, alias?: string) =>
@@ -9,7 +9,7 @@ export const mockedTransformer =
   (rootNode: ts.Node): ts.Node => {
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxSelfClosingElement(node)) {
-        return transformV1ButtonsToV3(node, kaioComponentName, alias)
+        return transformV1Buttons(node, kaioComponentName, alias)
       }
       return ts.visitEachChild(node, visit, context)
     }
@@ -26,7 +26,7 @@ const transformInput = (
   return printAst(transformedSource)
 }
 
-describe('transformV1ButtonsToV3()', () => {
+describe('transformV1Buttons()', () => {
   it('changes label to children', () => {
     const inputAst = parseJsx('<KzButton label="Pancakes" />')
     const outputAst = parseJsx('<Button>Pancakes</Button>')

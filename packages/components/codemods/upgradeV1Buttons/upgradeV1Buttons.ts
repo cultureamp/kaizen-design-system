@@ -6,7 +6,7 @@ import {
   type TagImportAttributesMap,
   type UpdateKaioImportsArgs,
 } from '../utils'
-import { transformV1ButtonsToV3 } from './transformV1ButtonsToV3'
+import { transformV1Buttons } from './transformV1Buttons'
 
 export const upgradeV1Buttons =
   (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
@@ -39,11 +39,7 @@ export const upgradeV1Buttons =
             })
           }
 
-          return transformV1ButtonsToV3(
-            node,
-            tagImportAttributes.originalName,
-            importedButtonTagName,
-          )
+          return transformV1Buttons(node, tagImportAttributes.originalName, importedButtonTagName)
         }
       }
       return ts.visitEachChild(node, visit, context)
