@@ -65,7 +65,7 @@ export const transformComponentsAndImportsInDir = (
  * Walks the directory and runs the AST transformers on the given component name regex pattern
  * eg. "Icon$" will match all components that end with `Icon`
  */
-export const transformComponentsAndImportsInDirByRegex = (
+export const transformComponentsAndImportsInDirByPattern = (
   dir: string,
   componentNamePattern: RegExp | string,
   transformers: (
@@ -89,7 +89,7 @@ export const transformComponentsAndImportsInDirByRegex = (
 }
 
 /**
- * @deprecated Use `transformComponentInDir` or `transformComponentsInDirByRegex` instead
+ * @deprecated Use `transformComponentsAndImportsInDir` or `transformComponentsAndImportsInDirByPattern` instead
  * Walks the directory and runs the AST transformer on the given component name
  */
 export const transformComponentsInDir = (
