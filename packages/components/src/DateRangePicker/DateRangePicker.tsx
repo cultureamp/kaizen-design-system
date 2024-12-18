@@ -11,7 +11,7 @@ import {
 } from '~components/Calendar/LegacyCalendarRange'
 import { Label } from '~components/Label'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import styles from './DateRangePicker.module.scss'
 
 export type DateRangePickerProps = {

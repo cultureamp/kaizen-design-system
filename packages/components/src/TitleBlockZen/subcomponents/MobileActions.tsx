@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { FocusOn } from 'react-focus-on'
-import { MenuItem, MenuList, MenuHeading, ButtonProps } from '~components/__actions__/v2'
-import { Icon } from '~components/__future__/Icon'
+import type { ButtonProps } from '~components/Button'
+import { MenuItem, MenuList, MenuHeading } from '~components/Menu'
+import { Icon } from '~components/__rc__/Icon'
 import { TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID } from '../constants'
 import {
   DefaultActionProps,

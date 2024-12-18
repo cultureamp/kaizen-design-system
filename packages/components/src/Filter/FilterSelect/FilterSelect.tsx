@@ -4,7 +4,7 @@ import { HiddenSelect, useSelect } from '@react-aria/select'
 import { useSelectState, SelectProps as AriaSelectProps } from '@react-stately/select'
 import { Filter, FilterContents } from '~components/Filter/Filter'
 import { FilterButtonProps } from '~components/Filter/FilterButton'
-import { SelectProvider } from '~components/__future__/Select/context'
+import { SelectProvider } from '~components/__rc__/Select/context'
 import {
   ListBoxSection,
   ListItem,
@@ -12,9 +12,9 @@ import {
   SectionDivider,
   SelectPopoverContents,
   SelectPopoverContentsProps,
-} from '~components/__future__/Select/subcomponents'
-import { getDisabledKeysFromItems } from '~components/__future__/Select/utils/getDisabledKeysFromItems'
-import { transformSelectItemToCollectionElement } from '~components/__future__/Select/utils/transformSelectItemToCollectionElement'
+} from '~components/__rc__/Select/subcomponents'
+import { getDisabledKeysFromItems } from '~components/__rc__/Select/utils/getDisabledKeysFromItems'
+import { transformSelectItemToCollectionElement } from '~components/__rc__/Select/utils/transformSelectItemToCollectionElement'
 import { OverrideClassName } from '~components/types/OverrideClassName'
 import { SelectItem, SelectOption } from './types'
 import styles from './FilterSelect.module.scss'

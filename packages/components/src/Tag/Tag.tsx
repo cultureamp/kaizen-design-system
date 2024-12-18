@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { Avatar, AvatarProps } from '~components/Avatar'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { LiveIcon } from './subcomponents/LiveIcon/LiveIcon'
 import { TagVariants } from './types'
 import styles from './Tag.module.scss'
