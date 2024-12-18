@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.69.1
+
+### Patch Changes
+
+- [#5404](https://github.com/cultureamp/kaizen-design-system/pull/5404) [`76eec54`](https://github.com/cultureamp/kaizen-design-system/commit/76eec54aa04c13bc744ac182556a5b02c6d2854e) - Internal architecture restructure. Should not impact consumers.
+
 ## 1.69.0
 
 ### Minor Changes
