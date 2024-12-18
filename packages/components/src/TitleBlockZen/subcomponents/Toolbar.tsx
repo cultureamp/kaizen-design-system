@@ -4,7 +4,8 @@
 
 import React from 'react'
 import classnames from 'classnames'
-import { MenuProps, ButtonProps } from '~components/__actions__/v2'
+import type { ButtonProps } from '~components/Button'
+import { MenuProps } from '~components/Menu'
 import styles from './Toolbar.module.scss'
 
 type ToolbarProps = {

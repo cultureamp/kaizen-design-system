@@ -6,7 +6,7 @@ More details: [https://github.com/theKashey/multiple-entry-points-example](https
 
 ## Contribution
 
-All "future" components are to be added to the `src/__future__` directory.
+All "future" components are to be added to the `src/__rc__` directory.
 
 ### What is a "future" component?
 

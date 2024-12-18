@@ -1,7 +1,7 @@
 import React from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
-import { Button } from '~components/__actions__/v2'
+import { Button } from '~components/Button'
 import { useFilterBarContext } from '../../context/FilterBarContext'
 import styles from './ClearAllButton.module.scss'
 

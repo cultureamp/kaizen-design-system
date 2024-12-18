@@ -4,7 +4,7 @@ import {
   FilterButtonBase,
   FilterButtonBaseProps,
 } from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
-import { Tooltip, TooltipProps } from '~components/__overlays__/Tooltip/v1'
+import { Tooltip, TooltipProps } from '~components/Tooltip'
 import { OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './ButtonGroup.module.scss'
 

@@ -1,5 +1,5 @@
 import React, { useState, RefObject } from 'react'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 
 export type usePausePlayHook = {
   toggle: () => void

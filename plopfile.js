@@ -32,7 +32,7 @@ module.exports = (
       },
     ],
     actions: ({ isSubcomponent, isFuture, componentName, parentComponentName }) => {
-      const src = isFuture ? 'src/__future__' : 'src'
+      const src = isFuture ? 'src/__rc__' : 'src'
       const componentNamePascal = plop.getHelper('pascalCase')(componentName)
 
       if (isSubcomponent) {
