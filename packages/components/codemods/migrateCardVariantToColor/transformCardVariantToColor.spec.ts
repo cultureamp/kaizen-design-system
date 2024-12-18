@@ -1,13 +1,24 @@
 import { parseJsx } from '../__tests__/utils'
-import { printAst, transformSourceForTagName, type TransformSourceForTagNameArgs } from '../utils'
+import { printAst, transformSource, type TransformSourceArgs } from '../utils'
 import { transformCardVariantToColor } from './transformCardVariantToColor'
 
-const transformCard = (sourceFile: TransformSourceForTagNameArgs['sourceFile']): string =>
-  transformSourceForTagName({
+const transformCard = (sourceFile: TransformSourceArgs['sourceFile']): string => {
+  const tagsMap = new Map([
+    [
+      'Card',
+      {
+        importModuleName: '@kaizen/components',
+        tagName: 'Card',
+        originalName: 'Card',
+      },
+    ],
+  ])
+
+  return transformSource({
     sourceFile,
-    astTransformer: transformCardVariantToColor,
-    tagName: 'Card',
+    transformers: [transformCardVariantToColor(tagsMap)],
   })
+}
 
 describe('transformCardVariantToColor()', () => {
   it('replaces variant="assertive" with color="orange"', () => {

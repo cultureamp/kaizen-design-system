@@ -1,14 +1,16 @@
 import { transformNotificationTypeToVariant } from '../migrateNotificationTypeToVariant'
-import { transformComponentsInDir } from '../utils'
+import { transformComponentsAndImportsInDir } from '../utils'
 
-const migrateGlobalNotificationTypeToVariant = (): void => {
+const run = (): void => {
   console.log('~(-_- ~) Running GlobalNotification transformer (~ -_-)~')
   const targetDir = process.argv[2]
   if (!targetDir) {
     process.exit(1)
   }
 
-  transformComponentsInDir(targetDir, transformNotificationTypeToVariant, 'GlobalNotification')
+  transformComponentsAndImportsInDir(targetDir, ['GlobalNotification'], (tagNames) => [
+    transformNotificationTypeToVariant(tagNames),
+  ])
 }
 
-migrateGlobalNotificationTypeToVariant()
+run()

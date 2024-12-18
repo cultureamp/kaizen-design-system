@@ -1,14 +1,16 @@
 import { transformNotificationTypeToVariant } from '../migrateNotificationTypeToVariant'
-import { transformComponentsInDir } from '../utils'
+import { transformComponentsAndImportsInDir } from '../utils'
 
-const migrateInlineNotificationTypeToVariant = (): void => {
+const run = (): void => {
   console.log('~(-_- ~) Running InlineNotification transformer (~ -_-)~')
   const targetDir = process.argv[2]
   if (!targetDir) {
     process.exit(1)
   }
 
-  transformComponentsInDir(targetDir, transformNotificationTypeToVariant, 'InlineNotification')
+  transformComponentsAndImportsInDir(targetDir, ['InlineNotification'], (tagNames) => [
+    transformNotificationTypeToVariant(tagNames),
+  ])
 }
 
-migrateInlineNotificationTypeToVariant()
+run()

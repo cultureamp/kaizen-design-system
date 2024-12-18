@@ -1,13 +1,24 @@
 import { parseJsx } from '../__tests__/utils'
-import { printAst, transformSourceForTagName, type TransformSourceForTagNameArgs } from '../utils'
+import { printAst, transformSource, type TransformSourceArgs } from '../utils'
 import { transformBrandMomentMoodToVariant } from './transformBrandMomentMoodToVariant'
 
-const transformBrandMoment = (sourceFile: TransformSourceForTagNameArgs['sourceFile']): string =>
-  transformSourceForTagName({
+const transformBrandMoment = (sourceFile: TransformSourceArgs['sourceFile']): string => {
+  const tagsMap = new Map([
+    [
+      'BrandMoment',
+      {
+        importModuleName: '@kaizen/components',
+        tagName: 'BrandMoment',
+        originalName: 'BrandMoment',
+      },
+    ],
+  ])
+
+  return transformSource({
     sourceFile,
-    astTransformer: transformBrandMomentMoodToVariant,
-    tagName: 'BrandMoment',
+    transformers: [transformBrandMomentMoodToVariant(tagsMap)],
   })
+}
 
 describe('transformBrandMomentMoodToVariant()', () => {
   it('replaces mood="informative" with variant="informative"', () => {
