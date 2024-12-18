@@ -5,17 +5,17 @@ import {
   type TransformSourceArgs,
   getKaioTagNamesMapByString,
 } from '../utils'
-import { upgradeIconButton } from './upgradeIconButton'
+import { upgradeV1Buttons } from './upgradeV1Buttons'
 
 const transformIcons = (sourceFile: TransformSourceArgs['sourceFile']): string => {
   const kaioTagNamesMap = getKaioTagNamesMapByString(sourceFile, ['IconButton', 'Button'])
   return transformSource({
     sourceFile,
-    transformers: [upgradeIconButton(kaioTagNamesMap!)],
+    transformers: [upgradeV1Buttons(kaioTagNamesMap!)],
   })
 }
 
-describe('upgradeIconButton()', () => {
+describe('upgradeV1Buttons()', () => {
   it('transforms both IconButton and Button v1 to Button v3 in the same iteration', () => {
     const inputAst = parseJsx(`
       import { Button, IconButton } from "@kaizen/components"

@@ -1,5 +1,5 @@
 import { transformComponentsAndImportsInDir } from '../utils'
-import { upgradeIconButton } from './upgradeIconButton'
+import { upgradeV1Buttons } from './upgradeV1Buttons'
 
 const run = (): void => {
   console.log('~(-_- ~) Running IconButton to Button upgrade (~ -_-)~')
@@ -10,7 +10,7 @@ const run = (): void => {
   }
 
   transformComponentsAndImportsInDir(targetDir, ['IconButton', 'Button'], (tagNames) => [
-    upgradeIconButton(tagNames),
+    upgradeV1Buttons(tagNames),
   ])
 }
 

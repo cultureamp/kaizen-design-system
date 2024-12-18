@@ -8,7 +8,7 @@ import {
 } from '../utils'
 import { transformV1ButtonsToV3 } from './transformV1ButtonsToV3'
 
-export const upgradeIconButton =
+export const upgradeV1Buttons =
   (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
   (context) =>
   (rootNode) => {

@@ -103,7 +103,7 @@ Released in `1.60.0`
 
 Removes `Popover` component props `variant` and `customIcon`.
 
-### `upgradeIconV1`
+### `upgradeV1Buttons`
 
 Released in `TBC`
 
