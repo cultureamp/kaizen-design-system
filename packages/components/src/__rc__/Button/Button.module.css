@@ -114,6 +114,12 @@
     --button-bg-color: var(--color-gray-300);
     --button-border-color: var(--color-black);
   }
+
+  &.isDisabled {
+    --button-bg-color: var(--color-white);
+    --button-border-color: var(--color-gray-400);
+    --button-text-color: var(--color-gray-400);
+  }
 }
 
 .tertiary {
@@ -134,6 +140,12 @@
   &[data-pending] {
     --button-bg-color: var(--color-gray-300);
     --button-border-color: var(--color-gray-300);
+  }
+
+  &.isDisabled {
+    --button-bg-color: transparent;
+    --button-border-color: transparent;
+    --button-text-color: var(--color-gray-400);
   }
 }
 
@@ -164,6 +176,12 @@
     --button-bg-color: var(--color-white);
     --button-border-color: var(--color-white);
   }
+
+  &.isDisabled {
+    --button-bg-color: rgba(var(--color-white-rgb), 0.2);
+    --button-border-color: transparent;
+    --button-text-color: rgba(var(--color-purple-800-rgb), 0.7);
+  }
 }
 
 .secondaryReversed {
@@ -184,6 +202,12 @@
   &[data-pending] {
     --button-bg-color: rgba(var(--color-white-rgb), 0.1);
     --button-border-color: var(--color-white);
+  }
+
+  &.isDisabled {
+    --button-bg-color: transparent;
+    --button-border-color: rgba(var(--color-white), 0.2);
+    --button-text-color: rgba(var(--color-white-rgb), 0.2);
   }
 }
 
@@ -206,16 +230,11 @@
     --button-bg-color: rgba(var(--color-white-rgb), 0.1);
     --button-border-color: transparent;
   }
-}
 
-.isDisabled {
-  --button-bg-color: var(--color-gray-400);
-  --button-border-color: var(--color-gray-400);
-  --button-text-color: var(--color-white);
-
-  &[data-hovered] {
-    --button-bg-color: var(--color-gray-400);
-    --button-border-color: var(--color-gray-400);
+  &.isDisabled {
+    --button-bg-color: transparent;
+    --button-border-color: transparent;
+    --button-text-color: rgba(var(--color-white-rgb), 0.2);
   }
 }
 
