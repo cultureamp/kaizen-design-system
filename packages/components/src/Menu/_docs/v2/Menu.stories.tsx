@@ -2,8 +2,8 @@ import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import { Button } from '~components/Button'
 import { Icon } from '~components/__rc__/Icon'
-import * as MenuV1Stories from '../../v1/_docs/Menu.stories'
-import { Menu, MenuList, MenuItem, MenuHeading } from '../index'
+import { Menu, MenuList, MenuItem, MenuHeading } from '../../index'
+import * as MenuV1Stories from '../Menu.stories'
 
 const meta = {
   title: 'Components/Menu/Menu (v2)',
