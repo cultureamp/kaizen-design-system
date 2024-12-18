@@ -84,9 +84,15 @@ export type TagImportAttributesMap = Map<string, TagImportAttributes>
 /**
  * Recurses through AST to find all the import names or aliases in KAIO that exactly match the provided strings.
  */
-export const getKaioTagNamesMapByComponentName = (
+const getKaioTagNamesMap = (
   node: ts.Node,
-  importSpecifiers: string[],
+  onFilterAndUpdateTagsMap: (
+    kaioNamedImports: ImportModuleNamedImports,
+    checkAndUpdateTagsMap: (
+      namedImport: ts.ImportSpecifier,
+      checkToAddToMap: (originalName: string) => boolean,
+    ) => void,
+  ) => void,
 ): TagImportAttributesMap | undefined => {
   const tagsMap = new Map() as TagImportAttributesMap
 
@@ -97,58 +103,10 @@ export const getKaioTagNamesMapByComponentName = (
       return ts.forEachChild(visitedNode, visitNode)
     }
 
-    importSpecifiers.forEach((importSpecifier) => {
-      kaioNamedImports.namedImports.find((namedImport) => {
-        const { originalName, tagName } = getNamesFromSpecifier(namedImport)
-
-        if (importSpecifier === originalName) {
-          tagsMap.set(tagName, {
-            importModuleName: kaioNamedImports.importModuleName,
-            tagName,
-            originalName,
-          })
-          return true
-        }
-
-        return false
-      })
-    })
-
-    return ts.forEachChild(visitedNode, visitNode)
-  }
-
-  visitNode(node)
-
-  return tagsMap.size === 0 ? undefined : tagsMap
-}
-
-/**
- * Recurses through AST to find all the import names or aliases in KAIO that match the provided regex pattern.
- *
- * @returns Map<string, Map<string, string>> | undefined
- * - `Map<string, Map<string, string>>` = Map<importModuleName, Map<tagName, originalName>>
- *   - `importModuleName` = the module name of the KAIO import (eg. `@kaizen/components/future`)
- *   - `tagName` = the component name or alias (eg. `KaizenWell`)
- *   - `originalName` = the original component name (eg. `Well`)
- * - `undefined` no imports that match the target
- */
-export const getKaioTagNamesMapByPattern = (
-  node: ts.Node,
-  importSpecifierPattern: RegExp | string,
-): TagImportAttributesMap | undefined => {
-  const tagsMap = new Map() as TagImportAttributesMap
-
-  const visitNode = (visitedNode: ts.Node): ts.Node | undefined => {
-    const kaioNamedImports = getKaioNamedImports(visitedNode)
-
-    if (!kaioNamedImports) {
-      return ts.forEachChild(visitedNode, visitNode)
-    }
-
-    kaioNamedImports.namedImports.forEach((namedImport) => {
+    onFilterAndUpdateTagsMap(kaioNamedImports, (namedImport, checkToAddToMap) => {
       const { originalName, tagName } = getNamesFromSpecifier(namedImport)
 
-      if (new RegExp(importSpecifierPattern).test(originalName)) {
+      if (checkToAddToMap(originalName)) {
         tagsMap.set(tagName, {
           importModuleName: kaioNamedImports.importModuleName,
           tagName,
@@ -166,4 +124,36 @@ export const getKaioTagNamesMapByPattern = (
   visitNode(node)
 
   return tagsMap.size === 0 ? undefined : tagsMap
+}
+
+/**
+ * Recurses through AST to find all the import names or aliases in KAIO that exactly match the provided strings.
+ */
+export const getKaioTagNamesMapByComponentName = (
+  node: ts.Node,
+  importSpecifiers: string[],
+): TagImportAttributesMap | undefined => {
+  return getKaioTagNamesMap(node, (kaioNamedImports, checkAndUpdateTagsMap) => {
+    importSpecifiers.forEach((importSpecifier) => {
+      kaioNamedImports.namedImports.find((namedImport) => {
+        checkAndUpdateTagsMap(namedImport, (originalName) => originalName === importSpecifier)
+      })
+    })
+  })
+}
+
+/**
+ * Recurses through AST to find all the import names or aliases in KAIO that match the provided regex pattern.
+ */
+export const getKaioTagNamesMapByPattern = (
+  node: ts.Node,
+  importSpecifierPattern: RegExp | string,
+): TagImportAttributesMap | undefined => {
+  return getKaioTagNamesMap(node, (kaioNamedImports, checkAndUpdateTagsMap) => {
+    kaioNamedImports.namedImports.forEach((namedImport) => {
+      checkAndUpdateTagsMap(namedImport, (originalName) =>
+        new RegExp(importSpecifierPattern).test(originalName),
+      )
+    })
+  })
 }
