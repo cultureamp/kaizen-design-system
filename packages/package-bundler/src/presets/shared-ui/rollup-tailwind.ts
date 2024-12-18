@@ -1,4 +1,4 @@
-import { RollupOptions } from 'rollup'
+import { type RollupOptions } from 'rollup'
 import postcss from 'rollup-plugin-postcss'
 
 export const rollupTailwindConfig = (): RollupOptions[] => {

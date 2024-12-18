@@ -1,5 +1,29 @@
 # Change Log
 
+## 1.69.1
+
+### Patch Changes
+
+- [#5404](https://github.com/cultureamp/kaizen-design-system/pull/5404) [`76eec54`](https://github.com/cultureamp/kaizen-design-system/commit/76eec54aa04c13bc744ac182556a5b02c6d2854e) - Internal architecture restructure. Should not impact consumers.
+
+## 1.69.0
+
+### Minor Changes
+
+- [#5395](https://github.com/cultureamp/kaizen-design-system/pull/5395) [`9068e68`](https://github.com/cultureamp/kaizen-design-system/commit/9068e68b288cbcfa1561fe03b0875fe62011b67d) - Menu: Create MenuPopover, MenuSection and MenuHeader wrappers over RAC
+
+## 1.68.13
+
+### Patch Changes
+
+- [#5392](https://github.com/cultureamp/kaizen-design-system/pull/5392) [`5ac8212`](https://github.com/cultureamp/kaizen-design-system/commit/5ac821288357fd58f073a4375841e2fc32b16aec) - Made Future Tab hover cursor consistent with current Tab.
+
+## 1.68.12
+
+### Patch Changes
+
+- [#5355](https://github.com/cultureamp/kaizen-design-system/pull/5355) [`f6bd88c`](https://github.com/cultureamp/kaizen-design-system/commit/f6bd88c01c8a566fe96ec1df06ff06269784a6b8) - Tabs (future): add carousel functionality when tabs overflow container width
+
 ## 1.68.11
 
 ### Patch Changes

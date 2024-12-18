@@ -1,7 +1,7 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { EditableRichTextContent } from '../index'
 import defaultContent from './defaultContent.json'
 

@@ -1,5 +1,5 @@
-import React, { HTMLAttributes } from 'react'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import React, { type HTMLAttributes } from 'react'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Actions.module.css'
 
 export type WorkflowActionsProps = {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { TimeField } from '../index'
-import { ValueType } from '../types'
+import { type ValueType } from '../types'
 
 const meta = {
   title: 'Components/TimeField',

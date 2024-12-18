@@ -1,4 +1,4 @@
-import { ValidationMessage } from '~components/Filter/FilterDatePicker'
+import { type ValidationMessage } from '~components/Filter/FilterDatePicker'
 
 export type DateRangeFieldValidationMessage = {
   dateStart?: ValidationMessage

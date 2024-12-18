@@ -1,10 +1,10 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { TextAreaField, TextAreaFieldProps } from '../index'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { TextAreaField, type TextAreaFieldProps } from '../index'
 
 export default {
-  title: 'Components/Text Input controls/Text Area Field',
+  title: 'Components/Text Input controls/TextAreaField',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

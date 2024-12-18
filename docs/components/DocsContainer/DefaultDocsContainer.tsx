@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import { DocsContainer, DocsContainerProps, DocsContext } from '@storybook/blocks'
+import { DocsContainer, DocsContext, type DocsContainerProps } from '@storybook/blocks'
 import { BackToTop } from './BackToTop'
-import { Content, Main, DocsWrapper } from './Layout'
+import { Content, DocsWrapper, Main } from './Layout'
 
 type LayoutProps = { children: React.ReactNode }
 

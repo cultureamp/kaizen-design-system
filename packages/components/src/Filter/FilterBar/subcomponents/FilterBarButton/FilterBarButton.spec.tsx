@@ -1,8 +1,8 @@
 import React from 'react'
-import { screen, waitFor, render } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { FilterBarProvider } from '../../context/FilterBarContext'
-import { FilterBarButton, FilterBarButtonProps } from './FilterBarButton'
+import { FilterBarButton, type FilterBarButtonProps } from './FilterBarButton'
 
 const user = userEvent.setup()
 

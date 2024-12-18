@@ -1,4 +1,4 @@
-import { DateRange } from '~components/Calendar'
+import { type DateRange } from '~components/Calendar'
 
 const dateFormatOptions: Intl.DateTimeFormatOptions = {
   month: 'short',

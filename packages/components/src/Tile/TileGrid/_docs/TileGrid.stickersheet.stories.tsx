@@ -1,7 +1,7 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { InformationTile } from '~components/Tile'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { TileGrid } from '../index'
 
 export default {

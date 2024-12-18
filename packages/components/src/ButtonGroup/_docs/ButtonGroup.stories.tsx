@@ -1,12 +1,10 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { FilterButtonBase } from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
 import { ButtonGroup } from '..'
 
 const meta = {
-  // Not to be nested until full KAIO migration
-  // title: "Components/Button/Button Group",
-  title: 'Components/Button Group',
+  title: 'Components/ButtonGroup',
   component: ButtonGroup,
   args: { children: undefined },
 } satisfies Meta<typeof ButtonGroup>

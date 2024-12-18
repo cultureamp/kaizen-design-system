@@ -1,6 +1,6 @@
-import React, { HTMLAttributes } from 'react'
-import { Brand, BrandProps } from '~components/Brand'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import React, { type HTMLAttributes } from 'react'
+import { Brand, type BrandProps } from '~components/Brand'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Branding.module.css'
 
 export type WorflowBrandingProps = {

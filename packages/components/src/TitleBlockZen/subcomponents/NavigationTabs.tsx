@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { TitleBlockVariant } from '../types'
+import { type TitleBlockVariant } from '../types'
 import { NON_REVERSED_VARIANTS } from '../utils'
 import styles from './NavigationTabs.module.scss'
 

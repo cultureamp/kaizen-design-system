@@ -1,7 +1,7 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { InformationTile, InformationTileProps } from '../index'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { InformationTile, type InformationTileProps } from '../index'
 
 export default {
   title: 'Components/Tiles/InformationTile',

@@ -1,5 +1,5 @@
 import { act } from 'react'
-import { waitFor, renderHook, render } from '@testing-library/react'
+import { render, renderHook, waitFor } from '@testing-library/react'
 
 import { useDateValidation } from './useDateValidation'
 

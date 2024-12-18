@@ -1,10 +1,10 @@
 import React from 'react'
-import { StoryFn } from '@storybook/react'
+import { type StoryFn } from '@storybook/react'
+import { Button } from '~components/Button'
 import { Card } from '~components/Card'
 import { Heading } from '~components/Heading'
 import { CustomSurvey, CustomUnattributedSurvey } from '~components/Illustration'
 import { Skirt } from '~components/Skirt'
-import { Button } from '~components/__actions__/v2'
 import { TailwindStoryTemplate } from '../utils/TailwindStoryTemplate'
 
 export default {

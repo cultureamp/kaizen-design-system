@@ -1,9 +1,9 @@
 import React from 'react'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import {
   GenericNotification,
-  GenericNotificationType,
-  GenericNotificationVariant,
+  type GenericNotificationType,
+  type GenericNotificationVariant,
 } from '../subcomponents/GenericNotification'
 
 export type GlobalNotificationBase = OverrideClassName<{

@@ -1,10 +1,10 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { ProgressStepper } from '../subcomponents'
 
 export default {
-  title: 'Layout/Workflow/Components/Progress Stepper',
+  title: 'Components/Workflow/Components/ProgressStepper',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

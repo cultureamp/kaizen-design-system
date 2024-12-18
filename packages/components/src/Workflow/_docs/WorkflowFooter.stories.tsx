@@ -1,11 +1,11 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Button } from '~components/__actions__/v2'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { Button } from '~components/Button'
 import { Workflow } from '../'
 import { WorkflowControls } from './controls'
 
 const meta = {
-  title: 'Layout/Workflow/Components/Footer',
+  title: 'Components/Workflow/Components/Footer',
   component: Workflow.Footer,
   argTypes: {
     ...WorkflowControls.nextAction,

@@ -1,7 +1,7 @@
 import {
   useDateValidation,
-  UseDateValidationArgs,
-  ValidationMessage,
+  type UseDateValidationArgs,
+  type ValidationMessage,
 } from '~components/Filter/FilterDatePicker'
 
 export type UseStartDateValidationArgs = UseDateValidationArgs

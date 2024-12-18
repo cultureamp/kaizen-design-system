@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
-import { AllowedHeadingTags, Heading, HeadingVariants } from '.'
+import { Heading, type AllowedHeadingTags, type HeadingVariants } from '.'
 
 describe('<Heading />', () => {
   it('changes rendered HTML element when passed tag', () => {

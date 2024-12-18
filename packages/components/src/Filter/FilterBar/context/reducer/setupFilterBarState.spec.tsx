@@ -1,5 +1,5 @@
 import React from 'react'
-import { Filters } from '../../types'
+import { type Filters } from '../../types'
 import { setupFilterBarState } from './setupFilterBarState'
 
 type Values = {

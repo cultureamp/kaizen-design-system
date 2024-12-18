@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { screen, waitFor, within, render } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { DateRange } from '~components/Calendar'
-import { FilterDateRangePickerField, FilterDateRangePickerFieldProps } from '.'
+import { type DateRange } from '~components/Calendar'
+import { FilterDateRangePickerField, type FilterDateRangePickerFieldProps } from '.'
 
 const user = userEvent.setup()
 

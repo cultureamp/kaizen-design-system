@@ -1,0 +1,60 @@
+.container {
+  position: relative;
+}
+
+.tabList {
+  border-bottom: 1px solid rgba(var(--color-gray-600-rgb), 0.1);
+  padding: var(--spacing-6) 0 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.noPadding {
+  padding: 0;
+}
+
+.leftArrow,
+.rightArrow {
+  --icon-size: 24;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 10000;
+  background: var(--color-white);
+  inset-block: 0 1px;
+  width: 48px;
+  cursor: default;
+  user-select: none;
+}
+
+/*
+ * Note: we're purposefully using directional properties instead of start/end for positioning and styling related to the carousel arrows
+*/
+.leftArrow {
+  left: 0;
+}
+
+.leftArrow,
+.leftArrow:hover {
+  border-right: 1px solid rgba(var(--color-gray-600-rgb), 0.1);
+}
+
+.rightArrow {
+  right: 0;
+}
+
+.rightArrow,
+.rightArrow:hover {
+  border-left: 1px solid rgba(var(--color-gray-600-rgb), 0.1);
+}
+
+.leftArrow:hover,
+.rightArrow:hover {
+  background: var(--color-gray-200);
+}

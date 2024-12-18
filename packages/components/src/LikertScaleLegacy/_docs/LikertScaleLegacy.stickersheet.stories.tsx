@@ -1,8 +1,8 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { LikertScaleLegacy, LikertScaleProps } from '../index'
-import { Scale } from '../types'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { LikertScaleLegacy, type LikertScaleProps } from '../index'
+import { type Scale } from '../types'
 
 export default {
   title: 'Components/LikertScaleLegacy',

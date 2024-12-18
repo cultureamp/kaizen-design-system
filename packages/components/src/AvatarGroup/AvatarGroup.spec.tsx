@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { AvatarGroup, AvatarList } from './AvatarGroup'
+import { AvatarGroup, type AvatarList } from './AvatarGroup'
 
 const imgAvatars = [
   {

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactNode } from 'react'
+import React, { type HTMLAttributes, type ReactNode } from 'react'
 import { Tabs as ReachTabs } from '@reach/tabs'
 
 export type TabsProps = {

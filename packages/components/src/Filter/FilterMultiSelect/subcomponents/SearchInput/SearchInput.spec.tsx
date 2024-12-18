@@ -1,7 +1,7 @@
 import React from 'react'
-import { screen, waitFor, render } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { vi, Mock } from 'vitest'
+import { vi, type Mock } from 'vitest'
 import { useSelectionContext } from '../../context'
 import { SearchInput } from '.'
 

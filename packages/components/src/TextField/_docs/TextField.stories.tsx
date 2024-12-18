@@ -1,10 +1,10 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { Icon } from '~components/__future__/Icon'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { Icon } from '~components/__rc__/Icon'
 import { TextField } from '../index'
 
 const meta = {
-  title: 'Components/Text Input controls/Text Field',
+  title: 'Components/Text Input controls/TextField',
   component: TextField,
   args: {
     labelText: 'Label',

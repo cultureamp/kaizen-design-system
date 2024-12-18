@@ -1,8 +1,8 @@
 import React from 'react'
-import { waitFor, screen, render } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { FilterBarProvider, FilterBarProviderProps } from '../../context/FilterBarContext'
-import { Filters } from '../../types'
+import { FilterBarProvider, type FilterBarProviderProps } from '../../context/FilterBarContext'
+import { type Filters } from '../../types'
 import { AddFiltersMenu } from './AddFiltersMenu'
 
 const user = userEvent.setup()

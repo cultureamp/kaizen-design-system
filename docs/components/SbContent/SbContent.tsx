@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import { Unstyled } from '@storybook/blocks'
 import classNames from 'classnames'
 import styles from './SbContent.module.scss'

@@ -1,11 +1,11 @@
 import React from 'react'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import {
-  FooterRoot,
   FooterAction,
+  FooterRoot,
   ProgressStepper,
-  ProgressStepperProps,
-  FooterRootProps,
+  type FooterRootProps,
+  type ProgressStepperProps,
 } from './components'
 
 export type FooterProps = {

@@ -1,11 +1,11 @@
-import React, { forwardRef, HTMLAttributes } from 'react'
+import React, { forwardRef, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { HeadingProps } from '~components/Heading'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type HeadingProps } from '~components/Heading'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import {
   GenericNotification,
-  GenericNotificationType,
-  GenericNotificationVariant,
+  type GenericNotificationType,
+  type GenericNotificationVariant,
 } from '../subcomponents/GenericNotification'
 import styles from '../subcomponents/GenericNotification/GenericNotification.module.scss'
 

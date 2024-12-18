@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { vi } from 'vitest'
-import { RichTextContentProps } from '../RichTextContent'
+import { type RichTextContentProps } from '../RichTextContent'
 import { EditableRichTextContent } from './EditableRichTextContent'
 const mockFn = vi.fn()
 

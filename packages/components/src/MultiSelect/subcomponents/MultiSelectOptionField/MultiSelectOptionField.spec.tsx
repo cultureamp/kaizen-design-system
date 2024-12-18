@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { CheckboxProps } from '../Checkbox'
-import { MultiSelectOptionField, MultiSelectOptionFieldProps } from './MultiSelectOptionField'
+import { type CheckboxProps } from '../Checkbox'
+import { MultiSelectOptionField, type MultiSelectOptionFieldProps } from './MultiSelectOptionField'
 const user = userEvent.setup()
 
 const onChange = vi.fn()

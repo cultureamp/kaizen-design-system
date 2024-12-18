@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { DisabledDays } from '~components/Calendar'
-import { ValidationMessage, DateValidationResponse } from '../types'
+import { type DisabledDays } from '~components/Calendar'
+import { type DateValidationResponse, type ValidationMessage } from '../types'
 import { getDateValidationHandler } from '../utils/getDateValidationHandler'
 import { validateDate } from '../utils/validateDate'
 

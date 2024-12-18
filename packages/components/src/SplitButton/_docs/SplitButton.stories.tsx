@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import {
   exampleActionButtonPropsAnchor,
   exampleActionButtonPropsButton,
   exampleDropdownContentEnabled,
   exampleDropdownContentOneDisabled,
-} from '~components/__actions__/Menu/v1/_docs/examples'
+} from '~components/Menu/_docs/examples'
 import { SplitButton } from '../index'
 
 const meta = {
-  title: 'Components/Buttons/SplitButton',
+  title: 'Components/SplitButton',
   component: SplitButton,
   argTypes: {
     actionButtonProps: {

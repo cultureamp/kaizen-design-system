@@ -1,8 +1,8 @@
 import React from 'react'
 import { usePopover } from '~components/Popover'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__future__/Icon'
-import { SelectionPosition } from '../../types'
+import { Icon } from '~components/__rc__/Icon'
+import { type SelectionPosition } from '../../types'
 import { Positioner } from './Positioner'
 import styles from './LinkPopover.module.scss'
 

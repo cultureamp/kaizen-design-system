@@ -1,4 +1,4 @@
-import { DeepMapObjectLeafs } from '../legacy/types'
+import { type DeepMapObjectLeafs } from '../legacy/types'
 
 /**
  * This allows you to map the leaf nodes of an object, and you're provided the path to that leaf as well as the value as parameters to your mapper function.

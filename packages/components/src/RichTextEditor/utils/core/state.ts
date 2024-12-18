@@ -1,6 +1,6 @@
-import { Node, Schema } from 'prosemirror-model'
-import { EditorState, Plugin } from 'prosemirror-state'
-import { Doc, DocContent } from './types'
+import { Node, type Schema } from 'prosemirror-model'
+import { EditorState, type Plugin } from 'prosemirror-state'
+import { type Doc, type DocContent } from './types'
 
 /**
  * createEditorState

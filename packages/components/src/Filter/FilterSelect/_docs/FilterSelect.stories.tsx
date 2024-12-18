@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { renderTriggerControls } from '~components/Filter/_docs/controls/renderTriggerControls'
 import { FilterButton } from '../../FilterButton'
 import { FilterSelect } from '../FilterSelect'
-import { SelectOption } from '../types'
+import { type SelectOption } from '../types'
 import { groupedMockItems, singleMockItems } from './mockData'
 
 const meta = {
-  title: 'Components/Filter Select',
+  title: 'Components/FilterSelect',
   component: FilterSelect,
   argTypes: {
     ...renderTriggerControls,

@@ -1,7 +1,7 @@
-import React, { ElementType, useEffect, useState } from 'react'
+import React, { useEffect, useState, type ElementType } from 'react'
 import Nanobus from 'nanobus'
 import { createRoot } from 'react-dom/client'
-import { LinkEditorProps } from './components'
+import { type LinkEditorProps } from './components'
 
 const Wrapper = ({
   emitter,

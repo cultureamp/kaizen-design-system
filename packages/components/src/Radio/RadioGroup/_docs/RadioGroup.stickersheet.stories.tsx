@@ -1,8 +1,8 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { RadioField } from '~components/Radio/RadioField'
 import { Text } from '~components/Text'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { RadioGroup } from '../index'
 
 export default {

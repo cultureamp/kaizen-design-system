@@ -1,10 +1,10 @@
-import React, { InputHTMLAttributes, useRef } from 'react'
+import React, { useRef, type InputHTMLAttributes } from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import { ClearButton } from '~components/ClearButton'
 import { LoadingSpinner } from '~components/Loading'
-import { Icon } from '~components/__future__/Icon'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { Icon } from '~components/__rc__/Icon'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './InputSearch.module.scss'
 
 export type InputSearchProps = {

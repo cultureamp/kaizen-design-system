@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { TextArea } from '../index'
 
 const meta = {
-  title: 'Components/Text Input controls/Text Area',
+  title: 'Components/Text Input controls/TextArea',
   component: TextArea,
   parameters: {
     a11y: {

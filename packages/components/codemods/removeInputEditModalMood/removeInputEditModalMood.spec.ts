@@ -1,5 +1,5 @@
 import { parseJsx } from '../__tests__/utils'
-import { transformSourceForTagName, printAst } from '../utils'
+import { printAst, transformSourceForTagName } from '../utils'
 import { removeInputEditModalMood } from './removeInputEditModalMood'
 
 describe('removeInputEditModalMood', () => {

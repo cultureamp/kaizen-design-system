@@ -1,6 +1,6 @@
-import React, { HTMLAttributes, SVGAttributes } from 'react'
+import React, { type HTMLAttributes, type SVGAttributes } from 'react'
 import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { assetUrl } from '~components/utils/hostedAssets'
 import { BrandCollectiveIntelligence } from './BrandCollectiveIntelligence'
 import styles from './Brand.module.css'

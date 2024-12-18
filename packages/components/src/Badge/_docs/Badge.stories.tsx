@@ -1,6 +1,6 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
-import { BadgeAnimated, Badge } from '~components/Badge'
+import { type Meta, type StoryObj } from '@storybook/react'
+import { Badge, BadgeAnimated } from '~components/Badge'
 
 const meta = {
   title: 'Components/Badge',

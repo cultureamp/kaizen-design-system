@@ -1,8 +1,8 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { Avatar } from '~components/Avatar'
 import { BrandMomentPositiveOutro, Informative } from '~components/Illustration'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { StickerSheet } from '~storybook/components/StickerSheet'
 import { LoadingGraphic } from '../index'
 

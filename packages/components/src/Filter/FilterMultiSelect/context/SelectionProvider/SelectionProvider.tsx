@@ -1,10 +1,10 @@
-import React, { HTMLAttributes, useCallback, useContext, useState } from 'react'
+import React, { useCallback, useContext, useState, type HTMLAttributes } from 'react'
 import { useListBox } from '@react-aria/listbox'
 import { Item } from '@react-stately/collections'
-import { ListState, useListState } from '@react-stately/list'
-import { SelectionMode, Selection } from '@react-types/shared'
+import { useListState, type ListState } from '@react-stately/list'
+import { type Selection, type SelectionMode } from '@react-types/shared'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { ItemType, MultiSelectItem } from '../../types'
+import { type ItemType, type MultiSelectItem } from '../../types'
 import { useMenuTriggerContext } from '../MenuTriggerProvider'
 
 export type SelectionProviderProps = {

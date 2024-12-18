@@ -1,10 +1,10 @@
-import React, { useState, useEffect, HTMLAttributes, ReactNode, useId } from 'react'
+import React, { useEffect, useId, useState, type HTMLAttributes, type ReactNode } from 'react'
 import classnames from 'classnames'
 import { FieldMessage } from '~components/FieldMessage'
 import { Label } from '~components/Label'
 import { InlineNotification } from '~components/Notification'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { ToolbarItems, EditorContentArray, EditorRows } from '../types'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { type EditorContentArray, type EditorRows, type ToolbarItems } from '../types'
 import { useRichTextEditor } from '../utils/core'
 import { createLinkManager } from '../utils/plugins'
 import {

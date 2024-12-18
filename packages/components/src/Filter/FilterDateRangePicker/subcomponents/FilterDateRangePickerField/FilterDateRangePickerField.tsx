@@ -1,25 +1,25 @@
-import React, { useEffect, HTMLAttributes, useReducer } from 'react'
+import React, { useEffect, useReducer, type HTMLAttributes } from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import {
   CalendarRange,
-  CalendarRangeProps,
-  DateRange,
-  DisabledDays,
   formatDateAsText,
   isInvalidDate,
   parseDateFromTextFormatValue,
+  type CalendarRangeProps,
+  type DateRange,
+  type DisabledDays,
 } from '~components/Calendar'
-import { DatePickerSupportedLocales, getLocale } from '~components/DatePicker/utils/getLocale'
-import { DateValidationResponse } from '~components/Filter/FilterDatePicker'
+import { getLocale, type DatePickerSupportedLocales } from '~components/DatePicker/utils/getLocale'
+import { type DateValidationResponse } from '~components/Filter/FilterDatePicker'
 import { useDateInputHandlers } from '~components/Filter/FilterDatePicker/hooks/useDateInputHandlers'
-import { DataAttributes } from '~components/types/DataAttributes'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { DateRangeInputField, DateRangeInputFieldProps } from '../DateRangeInputField'
+import { type DataAttributes } from '~components/types/DataAttributes'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { DateRangeInputField, type DateRangeInputFieldProps } from '../DateRangeInputField'
 import { filterDatePickerFieldReducer } from './filterDateRangePickerFieldReducer'
 import { useEndDateValidation } from './hooks/useEndDateValidation'
 import { useStartDateValidation } from './hooks/useStartDateValidation'
-import { DateRangeFieldValidationMessage } from './types'
+import { type DateRangeFieldValidationMessage } from './types'
 import { isValidRange } from './utils/isValidRange'
 import styles from './FilterDateRangePickerField.module.scss'
 

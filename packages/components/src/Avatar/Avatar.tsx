@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef, HTMLAttributes } from 'react'
+import React, { useEffect, useRef, useState, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { Textfit } from 'react-textfit'
-import { Icon } from '~components/__future__/Icon'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './Avatar.module.css'
+import { Icon } from '~components/__rc__/Icon'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import styles from './Avatar.module.scss'
 
 export type AvatarSizes = 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge'
 

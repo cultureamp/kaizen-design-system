@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { SearchField } from '../index'
 
 const meta = {
