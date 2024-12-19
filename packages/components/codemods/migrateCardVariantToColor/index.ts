@@ -1,4 +1,4 @@
-import { transformComponentsAndImportsInDir } from '../utils'
+import { transformComponentsInDir } from '../utils'
 import { transformCardVariantToColor } from './transformCardVariantToColor'
 
 const run = (): void => {
@@ -8,7 +8,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsAndImportsInDir(targetDir, ['Card'], (tagNames) => [
+  transformComponentsInDir(targetDir, ['Card'], (tagNames) => [
     transformCardVariantToColor(tagNames),
   ])
 }

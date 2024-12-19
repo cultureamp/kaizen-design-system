@@ -31,7 +31,7 @@ export const traverseDir = (
 /**
  * Walks the directory and runs the AST transformers on the given component name
  */
-export const transformComponentsAndImportsInDir = (
+export const transformComponentsInDir = (
   dir: string,
   componentNames: string[],
   transformers: (kaioTagNamesMap: TagImportAttributesMap) => TransformSourceArgs['transformers'],
@@ -56,7 +56,7 @@ export const transformComponentsAndImportsInDir = (
  * Walks the directory and runs the AST transformers on the given component name regex pattern
  * eg. "Icon$" will match all components that end with `Icon`
  */
-export const transformComponentsAndImportsInDirByPattern = (
+export const transformComponentsInDirByPattern = (
   dir: string,
   componentNamePattern: RegExp | string,
   transformers: (kaioTagNamesMap: TagImportAttributesMap) => TransformSourceArgs['transformers'],

@@ -1,4 +1,4 @@
-import { transformComponentsAndImportsInDir } from '../utils'
+import { transformComponentsInDir } from '../utils'
 import { transformBrandMomentMoodToVariant } from './transformBrandMomentMoodToVariant'
 
 const run = (): void => {
@@ -8,7 +8,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsAndImportsInDir(targetDir, ['BrandMoment'], (tagNames) => [
+  transformComponentsInDir(targetDir, ['BrandMoment'], (tagNames) => [
     transformBrandMomentMoodToVariant(tagNames),
   ])
 }

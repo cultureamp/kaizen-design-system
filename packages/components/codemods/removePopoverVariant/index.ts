@@ -1,4 +1,4 @@
-import { transformComponentsAndImportsInDir } from '../utils'
+import { transformComponentsInDir } from '../utils'
 import { removePopoverVariant } from './removePopoverVariant'
 
 const run = (): void => {
@@ -8,9 +8,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsAndImportsInDir(targetDir, ['Popover'], (tagNames) => [
-    removePopoverVariant(tagNames),
-  ])
+  transformComponentsInDir(targetDir, ['Popover'], (tagNames) => [removePopoverVariant(tagNames)])
 }
 
 run()

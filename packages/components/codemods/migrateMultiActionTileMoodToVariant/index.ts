@@ -1,4 +1,4 @@
-import { transformComponentsAndImportsInDir } from '../utils'
+import { transformComponentsInDir } from '../utils'
 import { transformMultiActionTileMoodToVariant } from './transformMultiActionTileMoodToVariant'
 
 const run = (): void => {
@@ -8,7 +8,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsAndImportsInDir(targetDir, ['MultiActionTile'], (tagNames) => [
+  transformComponentsInDir(targetDir, ['MultiActionTile'], (tagNames) => [
     transformMultiActionTileMoodToVariant(tagNames),
   ])
 }

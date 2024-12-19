@@ -1,5 +1,5 @@
 import { transformNotificationTypeToVariant } from '../migrateNotificationTypeToVariant'
-import { transformComponentsAndImportsInDir } from '../utils'
+import { transformComponentsInDir } from '../utils'
 
 const run = (): void => {
   console.log('~(-_- ~) Running ToastNotification transformer (~ -_-)~')
@@ -8,7 +8,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsAndImportsInDir(targetDir, ['ToastNotification'], (tagNames) => [
+  transformComponentsInDir(targetDir, ['ToastNotification'], (tagNames) => [
     transformNotificationTypeToVariant(tagNames),
   ])
 }

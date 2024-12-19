@@ -1,4 +1,4 @@
-import { transformComponentsAndImportsInDir } from '../utils'
+import { transformComponentsInDir } from '../utils'
 import { transformConfirmationModalMoodsToVariant } from './transformConfirmationModalMoodsToVariant'
 
 const run = (): void => {
@@ -8,7 +8,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsAndImportsInDir(targetDir, ['ConfirmationModal'], (tagNames) => [
+  transformComponentsInDir(targetDir, ['ConfirmationModal'], (tagNames) => [
     transformConfirmationModalMoodsToVariant(tagNames),
   ])
 }

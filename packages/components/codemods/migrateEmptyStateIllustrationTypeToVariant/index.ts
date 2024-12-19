@@ -1,4 +1,4 @@
-import { transformComponentsAndImportsInDir } from '../utils'
+import { transformComponentsInDir } from '../utils'
 import { transformEmptyStateIllustrationTypeToVariant } from './transformEmptyStateIllustrationTypeToVariant'
 
 const run = (): void => {
@@ -8,7 +8,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsAndImportsInDir(targetDir, ['EmptyState'], (tagNames) => [
+  transformComponentsInDir(targetDir, ['EmptyState'], (tagNames) => [
     transformEmptyStateIllustrationTypeToVariant(tagNames),
   ])
 }

@@ -1,4 +1,4 @@
-import { transformComponentsAndImportsInDir } from '../utils'
+import { transformComponentsInDir } from '../utils'
 import { transformInformationTileMoodToVariant } from './transformInformationTileMoodToVariant'
 
 const run = (): void => {
@@ -8,7 +8,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsAndImportsInDir(targetDir, ['InformationTile'], (tagNames) => [
+  transformComponentsInDir(targetDir, ['InformationTile'], (tagNames) => [
     transformInformationTileMoodToVariant(tagNames),
   ])
 }

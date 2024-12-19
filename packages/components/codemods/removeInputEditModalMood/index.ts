@@ -1,4 +1,4 @@
-import { transformComponentsAndImportsInDir } from '../utils'
+import { transformComponentsInDir } from '../utils'
 import { removeInputEditModalMood } from './removeInputEditModalMood'
 
 const run = (): void => {
@@ -8,7 +8,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsAndImportsInDir(targetDir, ['InputEditModal'], (tagNames) => [
+  transformComponentsInDir(targetDir, ['InputEditModal'], (tagNames) => [
     removeInputEditModalMood(tagNames),
   ])
 }
