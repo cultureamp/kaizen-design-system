@@ -1,3 +1,4 @@
+export * from './createJsxElementWithChildren'
 export * from './createProp'
 export * from './getPropValueText'
 export * from './getKaioTagName'
