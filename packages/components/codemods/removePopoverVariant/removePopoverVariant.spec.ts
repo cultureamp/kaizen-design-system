@@ -1,6 +1,24 @@
 import { parseJsx } from '../__tests__/utils'
-import { printAst, transformSourceForTagName } from '../utils'
+import { printAst, transformSource, type TransformSourceArgs } from '../utils'
 import { removePopoverVariant } from './removePopoverVariant'
+
+const transformPopover = (sourceFile: TransformSourceArgs['sourceFile']): string => {
+  const tagsMap = new Map([
+    [
+      'Popover',
+      {
+        importModuleName: '@kaizen/components',
+        tagName: 'Popover',
+        originalName: 'Popover',
+      },
+    ],
+  ])
+
+  return transformSource({
+    sourceFile,
+    transformers: [removePopoverVariant(tagsMap)],
+  })
+}
 
 describe('removePopoverVariant()', () => {
   it('removes variant', () => {
@@ -10,12 +28,7 @@ describe('removePopoverVariant()', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <Popover />
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: removePopoverVariant,
-      tagName: 'Popover',
-    })
-    expect(transformed).toEqual(printAst(outputAst))
+    expect(transformPopover(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('removes customIcon', () => {
@@ -25,12 +38,7 @@ describe('removePopoverVariant()', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <Popover />
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: removePopoverVariant,
-      tagName: 'Popover',
-    })
-    expect(transformed).toEqual(printAst(outputAst))
+    expect(transformPopover(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('handles multiple attributes and remove only variant', () => {
@@ -40,12 +48,7 @@ describe('removePopoverVariant()', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <Popover id="123"/>
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: removePopoverVariant,
-      tagName: 'Popover',
-    })
-    expect(transformed).toBe(printAst(outputAst))
+    expect(transformPopover(inputAst)).toBe(printAst(outputAst))
   })
 
   it('transforms multiple Popovers', () => {
@@ -55,11 +58,6 @@ describe('removePopoverVariant()', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <div><Popover /><Popover /></div>
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: removePopoverVariant,
-      tagName: 'Popover',
-    })
-    expect(transformed).toBe(printAst(outputAst))
+    expect(transformPopover(inputAst)).toBe(printAst(outputAst))
   })
 })

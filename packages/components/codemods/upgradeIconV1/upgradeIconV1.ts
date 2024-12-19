@@ -1,9 +1,10 @@
 import ts from 'typescript'
 import {
+  getKaioTagName,
   setImportToAdd,
   setImportToRemove,
   updateKaioImports,
-  type ImportModuleNameTagsMap,
+  type TagImportAttributesMap,
   type UpdateKaioImportsArgs,
 } from '../utils'
 import { getNewIconPropsFromOldIconName } from './getNewIconPropsFromOldIconName'
@@ -11,56 +12,51 @@ import { transformCaMonogramIconToBrand } from './transformCaMonogramIconToBrand
 import { transformIcon } from './transformIcon'
 import { transformSpinnerIconToLoadingSpinner } from './transformSpinnerIconToLoadingSpinner'
 
-const reverseStringMap = <Key extends string, Value extends string>(
-  map: Map<Key, Value>,
-): Map<Value, Key> => {
-  const reverseMap = new Map<Value, Key>()
-  map.forEach((value, key) => reverseMap.set(value, key))
-  return reverseMap
-}
-
 export const upgradeIconV1 =
-  (tagNames: ImportModuleNameTagsMap): ts.TransformerFactory<ts.SourceFile> =>
+  (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
   (context) =>
   (rootNode) => {
-    const oldImportSource = '@kaizen/components'
+    const importedBrandTagName = getKaioTagName(rootNode, 'Brand')
+    const importedLoadingSpinnerTagName = getKaioTagName(rootNode, 'LoadingSpinner')
 
-    const kaioTagNames = tagNames.get(oldImportSource)
-    if (!kaioTagNames) return rootNode
-
-    const componentToAliasMap = reverseStringMap(kaioTagNames)
     const importsToRemove = new Map() satisfies UpdateKaioImportsArgs['importsToRemove']
     const importsToAdd = new Map() satisfies UpdateKaioImportsArgs['importsToAdd']
 
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
         const tagName = node.tagName.getText()
-        const kaioComponentName = kaioTagNames.get(tagName)
+        const tagImportAttributes = tagsMap.get(tagName)
+
+        if (!tagImportAttributes) return node
+
+        const kaioComponentName = tagImportAttributes.originalName
+        const oldImportSource = tagImportAttributes.importModuleName
 
         if (kaioComponentName === 'CaMonogramIcon') {
           setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
-          const alias = componentToAliasMap.get('Brand')!
 
-          if (!kaioTagNames.has(alias)) {
+          if (!importedBrandTagName) {
             setImportToAdd(importsToAdd, '@kaizen/components', {
               componentName: 'Brand',
-              alias: alias !== 'Brand' ? alias : undefined,
+              alias: importedBrandTagName !== 'Brand' ? importedBrandTagName : undefined,
             })
           }
-          return transformCaMonogramIconToBrand(node, alias)
+          return transformCaMonogramIconToBrand(node, importedBrandTagName)
         }
 
         if (kaioComponentName === 'SpinnerIcon') {
           setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
-          const alias = componentToAliasMap.get('LoadingSpinner')!
 
-          if (!kaioTagNames.has(alias)) {
+          if (!importedLoadingSpinnerTagName) {
             setImportToAdd(importsToAdd, '@kaizen/components', {
               componentName: 'LoadingSpinner',
-              alias: alias !== 'LoadingSpinner' ? alias : undefined,
+              alias:
+                importedLoadingSpinnerTagName !== 'LoadingSpinner'
+                  ? importedLoadingSpinnerTagName
+                  : undefined,
             })
           }
-          return transformSpinnerIconToLoadingSpinner(node, alias)
+          return transformSpinnerIconToLoadingSpinner(node, importedLoadingSpinnerTagName)
         }
 
         if (kaioComponentName) {
@@ -83,8 +79,5 @@ export const upgradeIconV1 =
 
     const node = ts.visitNode(rootNode, visit)
 
-    return updateKaioImports({
-      importsToRemove: importsToRemove.size > 0 ? importsToRemove : undefined,
-      importsToAdd: importsToAdd.size > 0 ? importsToAdd : undefined,
-    })(context)(node as ts.SourceFile)
+    return updateKaioImports({ importsToRemove, importsToAdd })(context)(node as ts.SourceFile)
   }

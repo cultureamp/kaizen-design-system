@@ -8,7 +8,7 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsInDir(targetDir, removePopoverVariant, 'Popover')
+  transformComponentsInDir(targetDir, ['Popover'], (tagNames) => [removePopoverVariant(tagNames)])
 }
 
 run()

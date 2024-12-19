@@ -1,5 +1,5 @@
 import { parseJsx } from '../__tests__/utils'
-import { printAst, transformSourceForTagName, type TransformSourceForTagNameArgs } from '../utils'
+import { printAst, transformSource, type TransformSourceArgs } from '../utils'
 import { migrateStringProp } from './migrateStringProp'
 
 const transformTopping = (oldValue: string): string => {
@@ -11,12 +11,23 @@ const transformTopping = (oldValue: string): string => {
   }
 }
 
-const testMigrateStringProp = (sourceFile: TransformSourceForTagNameArgs['sourceFile']): string =>
-  transformSourceForTagName({
+const testMigrateStringProp = (sourceFile: TransformSourceArgs['sourceFile']): string => {
+  const tagsMap = new Map([
+    [
+      'Pancakes',
+      {
+        importModuleName: '@kaizen/components',
+        tagName: 'Pancakes',
+        originalName: 'Pancakes',
+      },
+    ],
+  ])
+
+  return transformSource({
     sourceFile,
-    astTransformer: migrateStringProp('toppingOld', 'toppingNew', transformTopping),
-    tagName: 'Pancakes',
+    transformers: [migrateStringProp('toppingOld', 'toppingNew', transformTopping)(tagsMap)],
   })
+}
 
 describe('migrateStringProp()', () => {
   describe('replaces old prop name and value with new prop name and value', () => {
