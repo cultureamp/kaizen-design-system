@@ -120,9 +120,8 @@ Migrates `Button` and `IconButton` component to `Button` V3 or `LinkButton`.
 - `classNameOverride` becomes `className`
 - `data-automation-id` becomes `data-testid`
 - `disabled` becomes `isDisabled`
-- (TO DO) Only when `href` exists:
-  - `newTabAndIUnderstandTheAccessibilityImplications` becomes `target="_blank"`
-    - `rel="noopener noreferrer"` is also added
+- `newTabAndIUnderstandTheAccessibilityImplications` becomes `target="_blank"`
+  - `rel="noopener noreferrer"` is also added
 - `component` will not be removed by the codemod, but will throw a TypeScript error as the prop itself no longer exists
   - (TO DO) A `@todo` comment will be prepended to the prop
 - For `IconButton` only:
