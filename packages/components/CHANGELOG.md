@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.70.0
+
+### Minor Changes
+
+- [#5298](https://github.com/cultureamp/kaizen-design-system/pull/5298) [`1f9edc2`](https://github.com/cultureamp/kaizen-design-system/commit/1f9edc2f1e06f8db921889ce61dad8bddb577849) - Add LinkButton component
+
+  - Adds LinkButton component, stories and documentation to actions group
+
+### Patch Changes
+
+- [#5407](https://github.com/cultureamp/kaizen-design-system/pull/5407) [`32b6ae8`](https://github.com/cultureamp/kaizen-design-system/commit/32b6ae828abfdf2fbdd4af3a6fce340da6749173) - Refactor codemods to use consistent patterns. Should not affect consumers.
+
 ## 1.69.2
 
 ### Patch Changes
