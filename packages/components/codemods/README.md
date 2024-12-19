@@ -115,7 +115,10 @@ Migrates `Button` and `IconButton` component to `Button` V3 or `LinkButton`.
   - eg. `<IconButton label="Hello" />` becomes `<Button>Hello</Button>`
 - `onClick` becomes `onPress`
 - (TO DO) Variants
-- (TO DO) Sizes
+- Sizes:
+  - Default (undefined) becomes `large`
+  - `small` becomes `medium`
+  - `regular` becomes `large`
 - `reversed` becomes `isReversed`
 - `classNameOverride` becomes `className`
 - `data-automation-id` becomes `data-testid`

@@ -24,7 +24,7 @@ describe('upgradeV1Buttons()', () => {
       `)
       const outputAst = parseJsx(`
         import { Button } from "@kaizen/components/v3/actions"
-        export const TestComponent = () => <Button onPress={handleClick}>Hello</Button>
+        export const TestComponent = () => <Button onPress={handleClick} size="large">Hello</Button>
       `)
 
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
@@ -37,7 +37,7 @@ describe('upgradeV1Buttons()', () => {
       `)
       const outputAst = parseJsx(`
         import { Button } from "@kaizen/components/v3/actions"
-        export const TestComponent = () => <Button icon={<Icon isPresentational name="more_horiz"/>} onPress={handleClick} hasHiddenLabel>More pls</Button>
+        export const TestComponent = () => <Button icon={<Icon isPresentational name="more_horiz"/>} onPress={handleClick} size="large" hasHiddenLabel>More pls</Button>
       `)
 
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
@@ -57,8 +57,8 @@ describe('upgradeV1Buttons()', () => {
         import { Button } from "@kaizen/components/v3/actions"
         export const TestComponent = () => (
           <>
-            <Button>Hello</Button>
-            <Button icon={<Icon isPresentational name="more_horiz"/>} hasHiddenLabel>More pls</Button>
+            <Button size="large">Hello</Button>
+            <Button icon={<Icon isPresentational name="more_horiz"/>} size="large" hasHiddenLabel>More pls</Button>
           </>
         )
       `)
@@ -70,13 +70,19 @@ describe('upgradeV1Buttons()', () => {
       const inputAst = parseJsx(`
         import { IconButton as KzIconButton, Button as KzButton } from "@kaizen/components"
         export const TestComponent = () => (
-          <><KzButton label="Waffle" /><KzIconButton label="Pancake" /></>
+          <>
+            <KzButton label="Waffle" />
+            <KzIconButton label="Pancake" />
+          </>
         )
       `)
       const outputAst = parseJsx(`
         import { Button } from "@kaizen/components/v3/actions"
         export const TestComponent = () => (
-          <><Button>Waffle</Button><Button hasHiddenLabel>Pancake</Button></>
+          <>
+            <Button size="large">Waffle</Button>
+            <Button size="large" hasHiddenLabel>Pancake</Button>
+          </>
         )
       `)
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
@@ -87,13 +93,19 @@ describe('upgradeV1Buttons()', () => {
         import { IconButton, Button } from "@kaizen/components"
         import { Button as ButtonAlias } from "@kaizen/components/v3/actions"
         export const TestComponent = () => (
-          <><Button label="Waffle" /><IconButton label="Pancake" /></>
+          <>
+            <Button label="Waffle" />
+            <IconButton label="Pancake" />
+          </>
         )
       `)
       const outputAst = parseJsx(`
         import { Button as ButtonAlias } from "@kaizen/components/v3/actions"
         export const TestComponent = () => (
-          <><ButtonAlias>Waffle</ButtonAlias><ButtonAlias hasHiddenLabel>Pancake</ButtonAlias></>
+          <>
+            <ButtonAlias size="large">Waffle</ButtonAlias>
+            <ButtonAlias size="large" hasHiddenLabel>Pancake</ButtonAlias>
+          </>
         )
       `)
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
@@ -104,13 +116,19 @@ describe('upgradeV1Buttons()', () => {
         const inputAst = parseJsx(`
           import { Button, IconButton } from "@kaizen/components"
           export const TestComponent = () => (
-            <><Button label="Pancakes" /><IconButton label="Waffles" /></>
+            <>
+              <Button label="Pancakes" />
+              <IconButton label="Waffles" />
+            </>
           )
         `)
         const outputAst = parseJsx(`
           import { Button } from "@kaizen/components/v3/actions"
           export const TestComponent = () => (
-            <><Button>Pancakes</Button><Button hasHiddenLabel>Waffles</Button></>
+            <>
+              <Button size="large">Pancakes</Button>
+              <Button size="large" hasHiddenLabel>Waffles</Button>
+            </>
           )
         `)
         expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
@@ -120,13 +138,19 @@ describe('upgradeV1Buttons()', () => {
         const inputAst = parseJsx(`
           import { Button, IconButton } from "@kaizen/components/v1/actions"
           export const TestComponent = () => (
-            <><Button label="Pancakes" /><IconButton label="Waffles" /></>
+            <>
+              <Button label="Pancakes" />
+              <IconButton label="Waffles" />
+            </>
           )
         `)
         const outputAst = parseJsx(`
           import { Button } from "@kaizen/components/v3/actions"
           export const TestComponent = () => (
-            <><Button>Pancakes</Button><Button hasHiddenLabel>Waffles</Button></>
+            <>
+              <Button size="large">Pancakes</Button>
+              <Button size="large" hasHiddenLabel>Waffles</Button>
+            </>
           )
         `)
         expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
@@ -136,13 +160,19 @@ describe('upgradeV1Buttons()', () => {
         const inputAst = parseJsx(`
           import { Button, IconButton } from "@kaizen/components/v2/actions"
           export const TestComponent = () => (
-            <><Button label="Pancakes" /><IconButton label="Waffles" /></>
+            <>
+              <Button label="Pancakes" />
+              <IconButton label="Waffles" />
+            </>
           )
         `)
         const outputAst = parseJsx(`
           import { Button } from "@kaizen/components/v3/actions"
           export const TestComponent = () => (
-            <><Button>Pancakes</Button><Button hasHiddenLabel>Waffles</Button></>
+            <>
+              <Button size="large">Pancakes</Button>
+              <Button size="large" hasHiddenLabel>Waffles</Button>
+            </>
           )
         `)
         expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
@@ -152,13 +182,19 @@ describe('upgradeV1Buttons()', () => {
         const inputAst = parseJsx(`
           import { Button as KzButton, IconButton as KzIconButton } from "@kaizen/components"
           export const TestComponent = () => (
-            <><KzButton label="Pancakes" /><KzIconButton label="Waffles" /></>
+            <>
+              <KzButton label="Pancakes" />
+              <KzIconButton label="Waffles" />
+            </>
           )
         `)
         const outputAst = parseJsx(`
           import { Button } from "@kaizen/components/v3/actions"
           export const TestComponent = () => (
-            <><Button>Pancakes</Button><Button hasHiddenLabel>Waffles</Button></>
+            <>
+              <Button size="large">Pancakes</Button>
+              <Button size="large" hasHiddenLabel>Waffles</Button>
+            </>
           )
         `)
         expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
@@ -181,10 +217,10 @@ describe('upgradeV1Buttons()', () => {
           import { Button } from "@kaizen/components/v3/actions"
           export const TestComponent = () => (
             <>
-              <Button>Pancakes</Button>
-              <Button>Waffles</Button>
-              <Button hasHiddenLabel>Toasties</Button>
-              <Button hasHiddenLabel>Scones</Button>
+              <Button size="large">Pancakes</Button>
+              <Button size="large">Waffles</Button>
+              <Button size="large" hasHiddenLabel>Toasties</Button>
+              <Button size="large" hasHiddenLabel>Scones</Button>
             </>
           )
         `)
@@ -207,8 +243,8 @@ describe('upgradeV1Buttons()', () => {
           import { Button } from "@kaizen/components/v3/actions"
           export const TestComponent = () => (
             <>
-              <Button hasHiddenLabel>Pancakes</Button>
-              <Button>Scones</Button>
+              <Button size="large" hasHiddenLabel>Pancakes</Button>
+              <Button size="large">Scones</Button>
               <Button>Waffles</Button>
             </>
           )
@@ -232,8 +268,8 @@ describe('upgradeV1Buttons()', () => {
           import { Button as ButtonAlias } from "@kaizen/components/v3/actions"
           export const TestComponent = () => (
             <>
-              <ButtonAlias>Pancakes</ButtonAlias>
-              <ButtonAlias hasHiddenLabel>Scones</ButtonAlias>
+              <ButtonAlias size="large">Pancakes</ButtonAlias>
+              <ButtonAlias size="large" hasHiddenLabel>Scones</ButtonAlias>
               <ButtonAlias>Waffles</ButtonAlias>
             </>
           )
@@ -256,7 +292,7 @@ describe('upgradeV1Buttons()', () => {
           import { Button } from "@kaizen/components/v3/actions"
           export const TestComponent = () => (
             <>
-              <Button hasHiddenLabel>Pancakes</Button>
+              <Button size="large" hasHiddenLabel>Pancakes</Button>
               <FilterButton />
             </>
           )
@@ -281,8 +317,8 @@ describe('upgradeV1Buttons()', () => {
         import { LinkButton } from "@kaizen/components"
         export const TestComponent = () => (
           <>
-            <LinkButton href="#">Pancakes</LinkButton>
-            <LinkButton href="#">Waffles</LinkButton>
+            <LinkButton href="#" size="large">Pancakes</LinkButton>
+            <LinkButton href="#" size="large" hasHiddenLabel>Waffles</LinkButton>
           </>
         )
       `)
@@ -303,8 +339,8 @@ describe('upgradeV1Buttons()', () => {
         import { LinkButton } from "@kaizen/components"
         export const TestComponent = () => (
           <>
-            <LinkButton component={Component}>Pancakes</LinkButton>
-            <LinkButton component={Component}>Waffles</LinkButton>
+            <LinkButton component={Component} size="large">Pancakes</LinkButton>
+            <LinkButton component={Component} size="large" hasHiddenLabel>Waffles</LinkButton>
           </>
         )
       `)
@@ -327,10 +363,10 @@ describe('upgradeV1Buttons()', () => {
         import { LinkButton } from "@kaizen/components"
         export const TestComponent = () => (
           <>
-            <LinkButton href="#">Summer</LinkButton>
-            <LinkButton component={Component}>Autumn</LinkButton>
-            <LinkButton href="#" hasHiddenLabel>Winter</LinkButton>
-            <LinkButton component={Component} hasHiddenLabel>Spring</LinkButton>
+            <LinkButton href="#" size="large">Summer</LinkButton>
+            <LinkButton component={Component} size="large">Autumn</LinkButton>
+            <LinkButton href="#" size="large" hasHiddenLabel>Winter</LinkButton>
+            <LinkButton component={Component} size="large" hasHiddenLabel>Spring</LinkButton>
           </>
         )
       `)
@@ -353,10 +389,10 @@ describe('upgradeV1Buttons()', () => {
         import { LinkButton } from "@kaizen/components"
         export const TestComponent = () => (
           <>
-            <LinkButton href="#">Summer</LinkButton>
-            <LinkButton component={Component}>Autumn</LinkButton>
-            <LinkButton href="#" hasHiddenLabel>Winter</LinkButton>
-            <LinkButton component={Component} hasHiddenLabel>Spring</LinkButton>
+            <LinkButton href="#" size="large">Summer</LinkButton>
+            <LinkButton component={Component} size="large">Autumn</LinkButton>
+            <LinkButton href="#" size="large" hasHiddenLabel>Winter</LinkButton>
+            <LinkButton component={Component} size="large" hasHiddenLabel>Spring</LinkButton>
           </>
         )
       `)
@@ -380,10 +416,10 @@ describe('upgradeV1Buttons()', () => {
         import { LinkButton as LinkButtonAlias } from "@kaizen/components/v3/actions"
         export const TestComponent = () => (
           <>
-            <LinkButtonAlias href="#">Summer</LinkButtonAlias>
-            <LinkButtonAlias component={Component}>Autumn</LinkButtonAlias>
-            <LinkButtonAlias href="#" hasHiddenLabel>Winter</LinkButtonAlias>
-            <LinkButtonAlias component={Component} hasHiddenLabel>Spring</LinkButtonAlias>
+            <LinkButtonAlias href="#" size="large">Summer</LinkButtonAlias>
+            <LinkButtonAlias component={Component} size="large">Autumn</LinkButtonAlias>
+            <LinkButtonAlias href="#" size="large" hasHiddenLabel>Winter</LinkButtonAlias>
+            <LinkButtonAlias component={Component} size="large" hasHiddenLabel>Spring</LinkButtonAlias>
           </>
         )
       `)
@@ -407,10 +443,10 @@ describe('upgradeV1Buttons()', () => {
           import { LinkButton } from "@kaizen/components"
           export const TestComponent = () => (
             <>
-              <LinkButton href="#">Summer</LinkButton>
-              <LinkButton component={Component}>Autumn</LinkButton>
-              <LinkButton href="#" hasHiddenLabel>Winter</LinkButton>
-              <LinkButton component={Component} hasHiddenLabel>Spring</LinkButton>
+              <LinkButton href="#" size="large">Summer</LinkButton>
+              <LinkButton component={Component} size="large">Autumn</LinkButton>
+              <LinkButton href="#" size="large" hasHiddenLabel>Winter</LinkButton>
+              <LinkButton component={Component} size="large" hasHiddenLabel>Spring</LinkButton>
             </>
           )
         `)
@@ -433,10 +469,10 @@ describe('upgradeV1Buttons()', () => {
           import { LinkButton } from "@kaizen/components"
           export const TestComponent = () => (
             <>
-              <LinkButton href="#">Summer</LinkButton>
-              <LinkButton component={Component}>Autumn</LinkButton>
-              <LinkButton href="#" hasHiddenLabel>Winter</LinkButton>
-              <LinkButton component={Component} hasHiddenLabel>Spring</LinkButton>
+              <LinkButton href="#" size="large">Summer</LinkButton>
+              <LinkButton component={Component} size="large">Autumn</LinkButton>
+              <LinkButton href="#" size="large" hasHiddenLabel>Winter</LinkButton>
+              <LinkButton component={Component} size="large" hasHiddenLabel>Spring</LinkButton>
             </>
           )
         `)
@@ -459,10 +495,10 @@ describe('upgradeV1Buttons()', () => {
           import { LinkButton } from "@kaizen/components"
           export const TestComponent = () => (
             <>
-              <LinkButton href="#">Summer</LinkButton>
-              <LinkButton component={Component}>Autumn</LinkButton>
-              <LinkButton href="#" hasHiddenLabel>Winter</LinkButton>
-              <LinkButton component={Component} hasHiddenLabel>Spring</LinkButton>
+              <LinkButton href="#" size="large">Summer</LinkButton>
+              <LinkButton component={Component} size="large">Autumn</LinkButton>
+              <LinkButton href="#" size="large" hasHiddenLabel>Winter</LinkButton>
+              <LinkButton component={Component} size="large" hasHiddenLabel>Spring</LinkButton>
             </>
           )
         `)
@@ -485,10 +521,10 @@ describe('upgradeV1Buttons()', () => {
           import { LinkButton } from "@kaizen/components"
           export const TestComponent = () => (
             <>
-              <LinkButton href="#">Summer</LinkButton>
-              <LinkButton component={Component}>Autumn</LinkButton>
-              <LinkButton href="#" hasHiddenLabel>Winter</LinkButton>
-              <LinkButton component={Component} hasHiddenLabel>Spring</LinkButton>
+              <LinkButton href="#" size="large">Summer</LinkButton>
+              <LinkButton component={Component} size="large">Autumn</LinkButton>
+              <LinkButton href="#" size="large" hasHiddenLabel>Winter</LinkButton>
+              <LinkButton component={Component} size="large" hasHiddenLabel>Spring</LinkButton>
             </>
           )
         `)
@@ -517,15 +553,15 @@ describe('upgradeV1Buttons()', () => {
           import { LinkButton } from "@kaizen/components"
           export const TestComponent = () => (
             <>
-              <LinkButton href="#">Summer</LinkButton>
-              <LinkButton component={Component}>Autumn</LinkButton>
-              <LinkButton href="#" hasHiddenLabel>Winter</LinkButton>
-              <LinkButton component={Component} hasHiddenLabel>Spring</LinkButton>
+              <LinkButton href="#" size="large">Summer</LinkButton>
+              <LinkButton component={Component} size="large">Autumn</LinkButton>
+              <LinkButton href="#" size="large" hasHiddenLabel>Winter</LinkButton>
+              <LinkButton component={Component} size="large" hasHiddenLabel>Spring</LinkButton>
 
-              <LinkButton href="#">Summer</LinkButton>
-              <LinkButton component={Component}>Autumn</LinkButton>
-              <LinkButton href="#" hasHiddenLabel>Winter</LinkButton>
-              <LinkButton component={Component} hasHiddenLabel>Spring</LinkButton>
+              <LinkButton href="#" size="large">Summer</LinkButton>
+              <LinkButton component={Component} size="large">Autumn</LinkButton>
+              <LinkButton href="#" size="large" hasHiddenLabel>Winter</LinkButton>
+              <LinkButton component={Component} size="large" hasHiddenLabel>Spring</LinkButton>
             </>
           )
         `)
@@ -534,7 +570,7 @@ describe('upgradeV1Buttons()', () => {
 
       it('does not duplicate LinkButton import if it already exists', () => {
         const inputAst = parseJsx(`
-          import { IconButton, Button as KzButton, LinkButton } from "@kaizen/components"
+          import { IconButton, Button, LinkButton } from "@kaizen/components"
           export const TestComponent = () => (
             <>
               <Button label="Summer" href="#" />
@@ -549,10 +585,10 @@ describe('upgradeV1Buttons()', () => {
           import { LinkButton } from "@kaizen/components"
           export const TestComponent = () => (
             <>
-              <LinkButton href="#">Summer</LinkButton>
-              <LinkButton component={Component}>Autumn</LinkButton>
-              <LinkButton href="#" hasHiddenLabel>Winter</LinkButton>
-              <LinkButton component={Component} hasHiddenLabel>Spring</LinkButton>
+              <LinkButton href="#" size="large">Summer</LinkButton>
+              <LinkButton component={Component} size="large">Autumn</LinkButton>
+              <LinkButton href="#" size="large" hasHiddenLabel>Winter</LinkButton>
+              <LinkButton component={Component} size="large" hasHiddenLabel>Spring</LinkButton>
               <LinkButton>Waffles</LinkButton>
             </>
           )
@@ -577,10 +613,10 @@ describe('upgradeV1Buttons()', () => {
           import { LinkButtonAlias } from "@kaizen/components"
           export const TestComponent = () => (
             <>
-              <LinkButtonAlias href="#">Summer</LinkButtonAlias>
-              <LinkButtonAlias component={Component}>Autumn</LinkButtonAlias>
-              <LinkButtonAlias href="#" hasHiddenLabel>Winter</LinkButtonAlias>
-              <LinkButtonAlias component={Component} hasHiddenLabel>Spring</LinkButtonAlias>
+              <LinkButtonAlias href="#" size="large">Summer</LinkButtonAlias>
+              <LinkButtonAlias component={Component} size="large">Autumn</LinkButtonAlias>
+              <LinkButtonAlias href="#" size="large" hasHiddenLabel>Winter</LinkButtonAlias>
+              <LinkButtonAlias component={Component} size="large" hasHiddenLabel>Spring</LinkButtonAlias>
               <LinkButtonAlias>Waffles</LinkButtonAlias>
             </>
           )
@@ -605,10 +641,10 @@ describe('upgradeV1Buttons()', () => {
           import { FilterButton, LinkButton } from "@kaizen/components"
           export const TestComponent = () => (
             <>
-              <LinkButton href="#">Summer</LinkButton>
-              <LinkButton component={Component}>Autumn</LinkButton>
-              <LinkButton href="#" hasHiddenLabel>Winter</LinkButton>
-              <LinkButton component={Component} hasHiddenLabel>Spring</LinkButton>
+              <LinkButton href="#" size="large">Summer</LinkButton>
+              <LinkButton component={Component} size="large">Autumn</LinkButton>
+              <LinkButton href="#" size="large" hasHiddenLabel>Winter</LinkButton>
+              <LinkButton component={Component} size="large" hasHiddenLabel>Spring</LinkButton>
               <FilterButton />
             </>
           )
