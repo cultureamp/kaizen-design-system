@@ -30,7 +30,7 @@
   &.company {
     border: 0;
     background: var(--color-white);
-    padding: 6px;
+    padding: var(--spacing-6);
     border-radius: var(--border-solid-border-radius);
   }
 
@@ -73,7 +73,7 @@
 .companyAvatarImage {
   object-fit: contain;
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: var(--spacing-4);
 }
 
 .fallbackIcon {

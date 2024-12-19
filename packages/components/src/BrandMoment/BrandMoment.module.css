@@ -42,18 +42,18 @@
 .container {
   max-width: var(--layout-content-max-width);
   margin: 0 auto;
-  padding: 0, var(--spacing-md);
+  padding: 0, var(--spacing-24);
 }
 
 @media (width >= 1080px) {
   .container {
-    padding: 0 var(--spacing-xxl);
+    padding: 0 3.75rem;
   }
 }
 
 @media (width >= 1366px) {
   .container {
-    padding: 0 var(--spacing-xxxxl);
+    padding: 0 5.25rem;
   }
 }
 
@@ -64,7 +64,7 @@
 */
 .header {
   inline-size: 100%;
-  margin-block-end: var(--spacing-md);
+  margin-block-end: var(--spacing-24);
 }
 
 /*
@@ -76,19 +76,19 @@
   flex: 1 0 auto;
   display: flex;
   align-items: center;
-  margin-block-end: var(--spacing-xxl);
+  margin-block-end: 3.75rem;
 }
 
 .mainInner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-xl) var(--spacing-lg);
+  gap: var(--spacing-48) 2.25rem;
   align-items: center;
 }
 
 @media (width >= 768px) {
   .mainInner {
-    row-gap: var(--spacing-xxl);
+    row-gap: 3.75rem;
   }
 }
 
@@ -100,7 +100,7 @@
 
 @media (width >= 1366px) {
   .mainInner {
-    column-gap: var(--spacing-xxxxl);
+    column-gap: 5.25rem;
   }
 }
 
@@ -130,15 +130,15 @@
 }
 
 .title {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: 2.25rem;
 }
 
 .textBody {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: 2.25rem;
 }
 
 .secondaryAction {
-  margin-block-start: var(--spacing-sm);
+  margin-block-start: var(--spacing-12);
 }
 
 @media (width >= 768px) {
@@ -148,7 +148,7 @@
 
   .secondaryAction {
     margin-block-start: 0;
-    margin-inline-start: var(--spacing-sm);
+    margin-inline-start: var(--spacing-12);
   }
 }
 
@@ -176,8 +176,8 @@
   flex-direction: column;
   border-block-start: 1px solid var(--color-purple-800);
   border-inline-start: 1px solid var(--color-purple-800);
-  padding: var(--spacing-sm) var(--spacing-md);
-  margin-block-end: var(--spacing-lg);
+  padding: var(--spacing-12) var(--spacing-24);
+  margin-block-end: 2.25rem;
 }
 
 .poweredByContainer {
@@ -189,11 +189,11 @@
 .footerTextContainer {
   flex: 1 1 auto;
   order: 1;
-  margin-block-end: var(--spacing-md);
+  margin-block-end: var(--spacing-24);
 }
 
 .poweredByLogo {
-  margin-inline-start: var(--spacing-xs);
+  margin-inline-start: var(--spacing-6);
 
   > img {
     max-width: 133px;
@@ -209,7 +209,7 @@
   .footerTextContainer {
     order: initial;
     margin-block-end: 0;
-    margin-inline-start: var(--spacing-md);
+    margin-inline-start: var(--spacing-24);
   }
 
   .poweredByContainer {

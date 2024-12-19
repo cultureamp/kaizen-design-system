@@ -1,10 +1,10 @@
 .badge {
   --dt-color-background-default: var(--color-gray-300);
-  --small: var(--spacing-md);
+  --small: var(--spacing-24);
   --badge-duration-timing: (var(--animation-duration-slow) / 2)
     var(--animation-easing-function-ease-in);
 
-  border-radius: var(--spacing-sm);
+  border-radius: var(--spacing-12);
   color: var(--color-purple-800);
   display: inline-block;
   position: relative;
@@ -13,7 +13,7 @@
   font-weight: var(--typography-paragraph-bold-font-weight);
   letter-spacing: var(--typography-paragraph-extra-small-letter-spacing);
   line-height: var(--typography-paragraph-extra-small-line-height);
-  padding: 1px var(--spacing-xs);
+  padding: 1px var(--spacing-6);
   min-width: 8px;
   text-align: center;
 }
@@ -21,7 +21,7 @@
 .badge.large {
   display: inline-flex;
   justify-content: center;
-  border-radius: var(--spacing-xl);
+  border-radius: var(--spacing-48);
   font-size: var(--typography-data-medium-font-size);
   line-height: var(--typography-data-medium-line-height);
   letter-spacing: var(--typography-data-medium-letter-spacing);
@@ -51,7 +51,7 @@
 
 .dot {
   background-color: var(--color-green-300);
-  padding: var(--spacing-xs);
+  padding: var(--spacing-6);
   min-width: unset;
 }
 
