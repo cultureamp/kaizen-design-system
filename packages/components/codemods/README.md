@@ -144,7 +144,10 @@ Migrates `Button` and `IconButton` component to `Button` V3 or `LinkButton`.
 
 #### Imports
 
-All imports of V1 Buttons will now point to `@kaizen/components/v3/actions`.
+All imports of V1 Buttons will now point to either:
+
+- `@kaizen/components/v3/actions` for `Button`
+- `@kaizen/components` for `LinkButton`
 
 ### `upgradeIconV1`
 
