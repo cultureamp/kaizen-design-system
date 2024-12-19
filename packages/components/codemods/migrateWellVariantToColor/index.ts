@@ -1,14 +1,16 @@
-import { transformComponentsInDir } from '../utils'
+import { transformComponentsAndImportsInDir } from '../utils'
 import { transformWellVariantToColor } from './transformWellVariantToColor'
 
-const migrateWellVariantToColor = (): void => {
+const run = (): void => {
   console.log(' ~(-_- ~) Running Well transformer (~ -_-)~')
   const targetDir = process.argv[2]
   if (!targetDir) {
     process.exit(1)
   }
 
-  transformComponentsInDir(targetDir, transformWellVariantToColor, 'Well')
+  transformComponentsAndImportsInDir(targetDir, ['Well'], (tagNames) => [
+    transformWellVariantToColor(tagNames),
+  ])
 }
 
-migrateWellVariantToColor()
+run()
