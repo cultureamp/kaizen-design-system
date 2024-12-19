@@ -404,7 +404,7 @@ describe('upgradeV1Buttons()', () => {
     it('transforms V1 Buttons to aliased LinkButton', () => {
       const inputAst = parseJsx(`
         import { IconButton, Button } from "@kaizen/components"
-        import { Button as ButtonAlias } from "@kaizen/components/v3/actions"
+        import { LinkButton as LinkButtonAlias } from "@kaizen/components"
         export const TestComponent = () => (
           <>
             <Button label="Summer" href="#" />
@@ -415,7 +415,7 @@ describe('upgradeV1Buttons()', () => {
         )
       `)
       const outputAst = parseJsx(`
-        import { LinkButton as LinkButtonAlias } from "@kaizen/components/v3/actions"
+        import { LinkButton as LinkButtonAlias } from "@kaizen/components"
         export const TestComponent = () => (
           <>
             <LinkButtonAlias href="#" variant="secondary" size="large">Summer</LinkButtonAlias>
@@ -612,7 +612,7 @@ describe('upgradeV1Buttons()', () => {
           )
         `)
         const outputAst = parseJsx(`
-          import { LinkButtonAlias } from "@kaizen/components"
+          import { LinkButton as LinkButtonAlias } from "@kaizen/components"
           export const TestComponent = () => (
             <>
               <LinkButtonAlias href="#" variant="secondary" size="large">Summer</LinkButtonAlias>

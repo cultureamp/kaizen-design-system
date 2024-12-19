@@ -1,7 +1,7 @@
 import ts from 'typescript'
 import { parseJsx } from '../__tests__/utils'
 import { printAst } from '../utils'
-import { transformV1Buttons } from './transformV1Buttons'
+import { transformV1Buttons } from './transformV1ButtonAttributes'
 
 export const mockedTransformer =
   (kaioComponentName: string, alias?: string) =>

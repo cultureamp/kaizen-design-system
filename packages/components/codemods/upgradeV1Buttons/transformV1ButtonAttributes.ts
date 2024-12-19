@@ -59,14 +59,21 @@ const transformProp = (
   }
 }
 
-export const transformV1Buttons = (
+type TransformedButtonAttributes = {
+  targetComponentName: string
+  newAttributes: ts.JsxAttributeLike[]
+  childrenValue: ts.JsxAttributeValue | undefined
+}
+
+export const transformV1ButtonAttributes = (
   node: ts.JsxSelfClosingElement,
   kaioComponentName: string,
-  tagName: string = 'Button',
-): ts.Node => {
+  // tagName: string = 'Button',
+): TransformedButtonAttributes => {
   let childrenValue: ts.JsxAttributeValue | undefined
   let hasSizeProp = false
   let hasVariant = false
+  let hasLinkAttr = false
 
   const newAttributes = node.attributes.properties.reduce<ts.JsxAttributeLike[]>((acc, attr) => {
     if (ts.isJsxAttribute(attr)) {
@@ -83,12 +90,16 @@ export const transformV1Buttons = (
         return acc
       }
 
+      if (propName === 'primary' || propName === 'secondary') {
+        hasVariant = true
+      }
+
       if (propName === 'size') {
         hasSizeProp = true
       }
 
-      if (propName === 'primary' || propName === 'secondary') {
-        hasVariant = true
+      if (propName === 'href' || propName === 'component') {
+        hasLinkAttr = true
       }
 
       const newProp = transformProp(propName, attr.initializer)
@@ -119,5 +130,10 @@ export const transformV1Buttons = (
     newAttributes.push(createProp('hasHiddenLabel'))
   }
 
-  return createJsxElementWithChildren(tagName, newAttributes, childrenValue)
+  return {
+    targetComponentName: hasLinkAttr ? 'LinkButton' : 'Button',
+    newAttributes,
+    childrenValue,
+  }
+  // return createJsxElementWithChildren(tagName, newAttributes, childrenValue)
 }
