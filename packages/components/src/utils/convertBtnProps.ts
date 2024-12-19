@@ -36,4 +36,3 @@ export const convertBtnProps = (oldProps: GenericButtonProps): ButtonProps => {
     isReversed: reversed,
   }
 }
->>>>>>> 158018f8a (initial commit)
