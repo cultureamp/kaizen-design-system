@@ -2,4 +2,4 @@
 '@kaizen/components': patch
 ---
 
-Update Button v3 styles
+Update Button v3 tertiary styles
