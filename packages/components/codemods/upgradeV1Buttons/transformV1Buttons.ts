@@ -1,5 +1,23 @@
 import ts from 'typescript'
-import { createJsxElementWithChildren, createProp, createStringProp } from '../utils'
+import { type ButtonProps as V1ButtonProps } from '~components/Button'
+import { type ButtonProps as RCButtonProps } from '~components/__rc__/Button'
+import {
+  createJsxElementWithChildren,
+  createProp,
+  createStringProp,
+  getPropValueText,
+} from '../utils'
+
+const getNewSizeValue = (
+  oldValue: Exclude<V1ButtonProps['size'], undefined>,
+): Exclude<RCButtonProps['size'], undefined> => {
+  switch (oldValue) {
+    case 'small':
+      return 'medium'
+    case 'regular':
+      return 'large'
+  }
+}
 
 /**
  * @returns
@@ -22,6 +40,14 @@ const transformProp = (
       return createProp('data-testid', propValue)
     case 'disabled':
       return createProp('isDisabled', propValue)
+    case 'size': {
+      if (!propValue) return createStringProp('size', 'large')
+
+      const sizeValue = getPropValueText(propValue) as Exclude<V1ButtonProps['size'], undefined>
+      return sizeValue
+        ? createStringProp('size', getNewSizeValue(sizeValue))
+        : createProp('size', propValue)
+    }
     default:
       return undefined
   }
@@ -33,6 +59,7 @@ export const transformV1Buttons = (
   tagName: string = 'Button',
 ): ts.Node => {
   let childrenValue: ts.JsxAttributeValue | undefined
+  let hasSizeProp = false
 
   const newAttributes = node.attributes.properties.reduce<ts.JsxAttributeLike[]>((acc, attr) => {
     if (ts.isJsxAttribute(attr)) {
@@ -47,6 +74,10 @@ export const transformV1Buttons = (
         acc.push(createStringProp('target', '_blank'))
         acc.push(createStringProp('rel', 'noopener noreferrer'))
         return acc
+      }
+
+      if (propName === 'size') {
+        hasSizeProp = true
       }
 
       const newProp = transformProp(propName, attr.initializer)
@@ -65,6 +96,10 @@ export const transformV1Buttons = (
 
   if (kaioComponentName === 'IconButton') {
     newAttributes.push(createProp('hasHiddenLabel'))
+  }
+
+  if (!hasSizeProp) {
+    newAttributes.push(createStringProp('size', 'large'))
   }
 
   return createJsxElementWithChildren(tagName, newAttributes, childrenValue)
