@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.69.2
+
+### Patch Changes
+
+- [#5399](https://github.com/cultureamp/kaizen-design-system/pull/5399) [`52c1bdd`](https://github.com/cultureamp/kaizen-design-system/commit/52c1bddc910d3639dd315deaafb87fdc2e52dcc1) - Update Button v3 tertiary styles
+
+- [#5402](https://github.com/cultureamp/kaizen-design-system/pull/5402) [`805d63e`](https://github.com/cultureamp/kaizen-design-system/commit/805d63e277828f36b3d1de46bb165b015a068192) - Updated button v3 disabled styles
+
 ## 1.69.1
 
 ### Patch Changes
