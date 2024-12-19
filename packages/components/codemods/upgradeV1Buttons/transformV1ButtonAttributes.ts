@@ -1,12 +1,7 @@
 import ts from 'typescript'
 import { type ButtonProps as V1ButtonProps } from '~components/Button'
 import { type ButtonProps as RCButtonProps } from '~components/__rc__/Button'
-import {
-  createJsxElementWithChildren,
-  createProp,
-  createStringProp,
-  getPropValueText,
-} from '../utils'
+import { createProp, createStringProp, getPropValueText } from '../utils'
 
 const getNewSizeValue = (
   oldValue: Exclude<V1ButtonProps['size'], undefined>,
@@ -68,7 +63,6 @@ type TransformedButtonAttributes = {
 export const transformV1ButtonAttributes = (
   node: ts.JsxSelfClosingElement,
   kaioComponentName: string,
-  // tagName: string = 'Button',
 ): TransformedButtonAttributes => {
   let childrenValue: ts.JsxAttributeValue | undefined
   let hasSizeProp = false
@@ -135,5 +129,4 @@ export const transformV1ButtonAttributes = (
     newAttributes,
     childrenValue,
   }
-  // return createJsxElementWithChildren(tagName, newAttributes, childrenValue)
 }
