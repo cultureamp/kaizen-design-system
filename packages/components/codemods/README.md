@@ -114,7 +114,13 @@ Migrates `Button` and `IconButton` component to `Button` V3 or `LinkButton`.
 - `label` becomes `children`
   - eg. `<IconButton label="Hello" />` becomes `<Button>Hello</Button>`
 - `onClick` becomes `onPress`
-- (TO DO) Variants
+- Variants:
+  - Default (undefined):
+    - For `Button` becomes `variant="secondary"`
+    - For `IconButton` becomes `variant="tertiary"`
+  - `primary` becomes `variant="primary"`
+  - `secondary` becomes `variant="tertiary"`
+  - `destructive` will be removed (no longer available as a variant)
 - Sizes:
   - Default (undefined) becomes `large`
   - `small` becomes `medium`
