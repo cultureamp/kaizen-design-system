@@ -1,6 +1,6 @@
 import '../../packages/components/styles/global.css'
 import 'highlight.js/styles/a11y-light.css'
-import './preview.css'
+import './tailwind-build.css'
 
 import React, { useEffect } from 'react'
 import { decorators as bgDecorators } from '@storybook/addon-backgrounds/preview'

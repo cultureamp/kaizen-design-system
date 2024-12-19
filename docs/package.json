@@ -10,7 +10,7 @@
     "build:docs": "storybook build --docs",
     "build:test": "storybook build --test",
     "build:chromatic": "storybook build --webpack-stats-json",
-    "build:tailwind": "npx tailwindcss -i ./tailwind.css -o ./.storybook/preview.css",
+    "build:tailwind": "npx tailwindcss -i ./tailwind.css -o ./.storybook/tailwind-build.css",
     "test:storybook": "test-storybook --skipTags='skip-test' --url http://127.0.0.1:6006",
     "clean": "rimraf './storybook-static' './node_modules' '.turbo'"
   },

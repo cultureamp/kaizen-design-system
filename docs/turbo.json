@@ -4,7 +4,7 @@
     "build:tailwind": {
       "dependsOn": ["@kaizen/tailwind#build"],
       "inputs": ["$TURBO_DEFAULT$", "../packages/**/*"],
-      "outputs": ["docs/.storybook/preview.css"],
+      "outputs": ["docs/.storybook/tailwind-build.css"],
       "cache": false
     },
     "build:docs": {
