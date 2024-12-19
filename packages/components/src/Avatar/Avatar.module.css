@@ -108,7 +108,7 @@
   padding-right: 5px;
   text-align: center;
   width: 100%;
-  font-size: 22px;
+  font-size: var(--typography-heading-3-font-size);
   font-family: var(--typography-heading-1-font-family);
   font-weight: var(--typography-heading-1-font-weight);
   letter-spacing: var(--typography-heading-3-letter-spacing);
@@ -122,18 +122,18 @@
 
   .xlarge &,
   .xxlarge & {
-    font-size: 34px;
+    font-size: var(--typography-heading-1-font-size);
     letter-spacing: var(--typography-heading-1-letter-spacing);
   }
 
   .medium & {
-    font-size: 16px;
+    font-size: var(--typography-heading-5-font-size);
     font-weight: var(--typography-heading-5-font-weight);
     letter-spacing: var(--typography-heading-5-letter-spacing);
   }
 
   .small & {
-    font-size: 8px;
+    font-size: 0.5rem;
     font-weight: var(--typography-heading-5-font-weight);
     letter-spacing: var(--typography-heading-5-letter-spacing);
   }
