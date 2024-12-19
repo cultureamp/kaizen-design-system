@@ -156,7 +156,7 @@ const preview = {
         const groupA = titleA.split('/')[0]
         const groupB = titleB.split('/')[0]
 
-        const groups = ['Introduction', 'Guides', 'Components', 'Pages']
+        const groups = ['Introduction', 'Releases', 'Guides', 'Components', 'Pages']
         const groupDifference = groups.indexOf(groupA) - groups.indexOf(groupB)
         if (groupDifference !== 0) {
           // Sort stories of different groups manually by the groups array
