@@ -103,6 +103,41 @@ Released in `1.60.0`
 
 Removes `Popover` component props `variant` and `customIcon`.
 
+### `upgradeV1Buttons`
+
+Released in `TBC`
+
+Migrates `Button` and `IconButton` component to `Button` V3 or `LinkButton`.
+
+#### Props
+
+- `label` becomes `children`
+  - eg. `<IconButton label="Hello" />` becomes `<Button>Hello</Button>`
+- `onClick` becomes `onPress`
+- (TO DO) Variants
+- (TO DO) Sizes
+- `reversed` becomes `isReversed`
+- `classNameOverride` becomes `className`
+- `data-automation-id` becomes `data-testid`
+- `disabled` becomes `isDisabled`
+- (TO DO) Only when `href` exists:
+  - `newTabAndIUnderstandTheAccessibilityImplications` becomes `target="_blank"`
+    - `rel="noopener noreferrer"` is also added
+- `component` will not be removed by the codemod, but will throw a TypeScript error as the prop itself no longer exists
+  - (TO DO) A `@todo` comment will be prepended to the prop
+- For `IconButton` only:
+  - `hasHiddenLabel` will be added
+
+#### Component transformation
+
+- `Button`/`IconButton` without the `href` or `component` prop will become `Button` V3
+- `Button`/`IconButton` with the `href` prop will become `LinkButton`
+- `Button`/`IconButton` with the `component` prop will become `LinkButton`
+
+#### Imports
+
+All imports of V1 Buttons will now point to `@kaizen/components/v3/actions`.
+
 ### `upgradeIconV1`
 
 Released in `1.67.0`; last updated in `1.68.1`
