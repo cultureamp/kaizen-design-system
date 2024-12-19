@@ -2,7 +2,7 @@ import { transformComponentsInDir } from '../utils'
 import { upgradeV1Buttons } from './upgradeV1Buttons'
 
 const run = (): void => {
-  console.log('~(-_- ~) Running IconButton to Button upgrade (~ -_-)~')
+  console.log('~(-_- ~) Running V1 Buttons upgrade (~ -_-)~')
 
   const targetDir = process.argv[2]
   if (!targetDir) {
