@@ -114,9 +114,11 @@ describe('transformV1Buttons()', () => {
       })
 
       it('changes default (undefined) for IconButton to variant tertiary', () => {
-        const inputAst = parseJsx('<Button label="Pancakes" />')
-        const outputAst = parseJsx('<Button variant="tertiary" size="large">Pancakes</Button>')
-        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+        const inputAst = parseJsx('<IconButton label="Pancakes" />')
+        const outputAst = parseJsx(
+          '<Button variant="tertiary" size="large" hasHiddenLabel>Pancakes</Button>',
+        )
+        expect(transformInput(inputAst, 'IconButton')).toEqual(printAst(outputAst))
       })
 
       it('changes primary to variant primary', () => {
@@ -143,7 +145,7 @@ describe('transformV1Buttons()', () => {
           <>
             <Button variant="secondary" size="large">Pancakes</Button>
             <Button variant="primary" size="large">Pancakes</Button>
-            <Button variant="secondary" size="large">Pancakes</Button>
+            <Button variant="tertiary" size="large">Pancakes</Button>
           </>
         `)
         expect(transformInput(inputAst)).toEqual(printAst(outputAst))

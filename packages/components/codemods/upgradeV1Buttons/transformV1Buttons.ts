@@ -48,6 +48,12 @@ const transformProp = (
         ? createStringProp('size', getNewSizeValue(sizeValue))
         : createProp('size', propValue)
     }
+    case 'primary':
+      return createStringProp('variant', 'primary')
+    case 'secondary':
+      return createStringProp('variant', 'tertiary')
+    case 'destructive':
+      return null
     default:
       return undefined
   }
@@ -60,6 +66,7 @@ export const transformV1Buttons = (
 ): ts.Node => {
   let childrenValue: ts.JsxAttributeValue | undefined
   let hasSizeProp = false
+  let hasVariant = false
 
   const newAttributes = node.attributes.properties.reduce<ts.JsxAttributeLike[]>((acc, attr) => {
     if (ts.isJsxAttribute(attr)) {
@@ -80,6 +87,10 @@ export const transformV1Buttons = (
         hasSizeProp = true
       }
 
+      if (propName === 'primary' || propName === 'secondary') {
+        hasVariant = true
+      }
+
       const newProp = transformProp(propName, attr.initializer)
 
       if (newProp === null) return acc
@@ -94,12 +105,18 @@ export const transformV1Buttons = (
     return acc
   }, [])
 
-  if (kaioComponentName === 'IconButton') {
-    newAttributes.push(createProp('hasHiddenLabel'))
+  if (!hasVariant) {
+    newAttributes.push(
+      createStringProp('variant', kaioComponentName === 'IconButton' ? 'tertiary' : 'secondary'),
+    )
   }
 
   if (!hasSizeProp) {
     newAttributes.push(createStringProp('size', 'large'))
+  }
+
+  if (kaioComponentName === 'IconButton') {
+    newAttributes.push(createProp('hasHiddenLabel'))
   }
 
   return createJsxElementWithChildren(tagName, newAttributes, childrenValue)
