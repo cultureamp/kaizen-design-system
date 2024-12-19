@@ -29,26 +29,26 @@ const transformInput = (
 describe('transformV1Buttons()', () => {
   it('changes label to children', () => {
     const inputAst = parseJsx('<Button label="Pancakes" />')
-    const outputAst = parseJsx('<Button>Pancakes</Button>')
+    const outputAst = parseJsx('<Button size="large">Pancakes</Button>')
     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('replaces IconButton with Button and changes label to children and adds hasHiddenLabel', () => {
     const inputAst = parseJsx('<IconButton icon={icon} label="Pancakes" />')
-    const outputAst = parseJsx('<Button icon={icon} hasHiddenLabel>Pancakes</Button>')
+    const outputAst = parseJsx('<Button icon={icon} size="large" hasHiddenLabel>Pancakes</Button>')
     expect(transformInput(inputAst, 'IconButton')).toEqual(printAst(outputAst))
   })
 
   it('uses alias if it is defined', () => {
     const inputAst = parseJsx('<Button label="Pancakes" />')
-    const outputAst = parseJsx('<ButtonAlias>Pancakes</ButtonAlias>')
+    const outputAst = parseJsx('<ButtonAlias size="large">Pancakes</ButtonAlias>')
     expect(transformInput(inputAst, 'Button', 'ButtonAlias')).toEqual(printAst(outputAst))
   })
 
   describe('transform existing props', () => {
     it('changes onClick to onPress', () => {
       const inputAst = parseJsx('<Button label="Pancakes" onClick={handleClick} />')
-      const outputAst = parseJsx('<Button onPress={handleClick}>Pancakes</Button>')
+      const outputAst = parseJsx('<Button onPress={handleClick} size="large">Pancakes</Button>')
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
@@ -61,8 +61,8 @@ describe('transformV1Buttons()', () => {
       `)
       const outputAst = parseJsx(`
         <>
-          <Button isReversed>Pancakes</Button>
-          <Button isReversed={false}>Pancakes</Button>
+          <Button isReversed size="large">Pancakes</Button>
+          <Button isReversed={false} size="large">Pancakes</Button>
         </>
       `)
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
@@ -70,13 +70,13 @@ describe('transformV1Buttons()', () => {
 
     it('changes classNameOverride to className', () => {
       const inputAst = parseJsx('<Button label="Pancakes" classNameOverride="hello" />')
-      const outputAst = parseJsx('<Button className="hello">Pancakes</Button>')
+      const outputAst = parseJsx('<Button className="hello" size="large">Pancakes</Button>')
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
     it('changes data-automation-id to data-testid', () => {
       const inputAst = parseJsx('<Button label="Pancakes" data-automation-id="pancakes" />')
-      const outputAst = parseJsx('<Button data-testid="pancakes">Pancakes</Button>')
+      const outputAst = parseJsx('<Button data-testid="pancakes" size="large">Pancakes</Button>')
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
 
@@ -89,8 +89,8 @@ describe('transformV1Buttons()', () => {
       `)
       const outputAst = parseJsx(`
         <>
-          <Button isDisabled>Pancakes</Button>
-          <Button isDisabled={false}>Pancakes</Button>
+          <Button isDisabled size="large">Pancakes</Button>
+          <Button isDisabled={false} size="large">Pancakes</Button>
         </>
       `)
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
@@ -101,7 +101,7 @@ describe('transformV1Buttons()', () => {
         '<Button label="Pancakes" newTabAndIUnderstandTheAccessibilityImplications />',
       )
       const outputAst = parseJsx(
-        '<Button target="_blank" rel="noopener noreferrer">Pancakes</Button>',
+        '<Button target="_blank" rel="noopener noreferrer" size="large">Pancakes</Button>',
       )
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
@@ -109,25 +109,25 @@ describe('transformV1Buttons()', () => {
     describe('transform variant', () => {
       it('changes default (undefined) for Button to variant secondary', () => {
         const inputAst = parseJsx('<Button label="Pancakes" />')
-        const outputAst = parseJsx('<Button variant="secondary">Pancakes</Button>')
+        const outputAst = parseJsx('<Button variant="secondary" size="large">Pancakes</Button>')
         expect(transformInput(inputAst)).toEqual(printAst(outputAst))
       })
 
       it('changes default (undefined) for IconButton to variant tertiary', () => {
         const inputAst = parseJsx('<Button label="Pancakes" />')
-        const outputAst = parseJsx('<Button variant="tertiary">Pancakes</Button>')
+        const outputAst = parseJsx('<Button variant="tertiary" size="large">Pancakes</Button>')
         expect(transformInput(inputAst)).toEqual(printAst(outputAst))
       })
 
       it('changes primary to variant primary', () => {
         const inputAst = parseJsx('<Button label="Pancakes" primary />')
-        const outputAst = parseJsx('<Button variant="primary">Pancakes</Button>')
+        const outputAst = parseJsx('<Button variant="primary" size="large">Pancakes</Button>')
         expect(transformInput(inputAst)).toEqual(printAst(outputAst))
       })
 
       it('changes secondary to variant tertiary', () => {
         const inputAst = parseJsx('<Button label="Pancakes" secondary />')
-        const outputAst = parseJsx('<Button variant="tertiary">Pancakes</Button>')
+        const outputAst = parseJsx('<Button variant="tertiary" size="large">Pancakes</Button>')
         expect(transformInput(inputAst)).toEqual(printAst(outputAst))
       })
 
@@ -141,9 +141,9 @@ describe('transformV1Buttons()', () => {
         `)
         const outputAst = parseJsx(`
           <>
-            <Button variant="secondary">Pancakes</Button>
-            <Button variant="primary">Pancakes</Button>
-            <Button variant="secondary">Pancakes</Button>
+            <Button variant="secondary" size="large">Pancakes</Button>
+            <Button variant="primary" size="large">Pancakes</Button>
+            <Button variant="secondary" size="large">Pancakes</Button>
           </>
         `)
         expect(transformInput(inputAst)).toEqual(printAst(outputAst))
@@ -166,6 +166,12 @@ describe('transformV1Buttons()', () => {
       it('changes regular to large', () => {
         const inputAst = parseJsx('<Button label="Pancakes" size="regular" />')
         const outputAst = parseJsx('<Button size="large">Pancakes</Button>')
+        expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+      })
+
+      it('does not change a non-string value', () => {
+        const inputAst = parseJsx('<Button label="Pancakes" size={size} />')
+        const outputAst = parseJsx('<Button size={size}>Pancakes</Button>')
         expect(transformInput(inputAst)).toEqual(printAst(outputAst))
       })
     })
