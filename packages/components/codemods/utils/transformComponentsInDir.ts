@@ -2,17 +2,11 @@ import fs from 'fs'
 import path from 'path'
 import { createEncodedSourceFile } from './createEncodedSourceFile'
 import {
-  getKaioTagName,
   getKaioTagNamesMapByComponentName,
   getKaioTagNamesMapByPattern,
   type TagImportAttributesMap,
 } from './getKaioTagName'
-import {
-  transformSource,
-  transformSourceForTagName,
-  type TransformSourceArgs,
-  type TransformSourceForTagNameArgs,
-} from './transformSource'
+import { transformSource, type TransformSourceArgs } from './transformSource'
 
 export const traverseDir = (
   dir: string,
@@ -74,33 +68,6 @@ export const transformComponentsAndImportsInDirByPattern = (
       const updatedSourceFile = transformSource({
         sourceFile,
         transformers: transformers(kaioTagNamesMap),
-      })
-
-      fs.writeFileSync(componentFilePath, updatedSourceFile, 'utf8')
-    }
-  }
-
-  traverseDir(dir, transformFile)
-}
-
-/**
- * @deprecated Use `transformComponentsAndImportsInDir` or `transformComponentsAndImportsInDirByPattern` instead
- * Walks the directory and runs the AST transformer on the given component name
- */
-export const transformComponentsInDir = (
-  dir: string,
-  transformer: TransformSourceForTagNameArgs['astTransformer'],
-  componentName: string,
-): void => {
-  const transformFile = (componentFilePath: string, sourceCode: string): void => {
-    const sourceFile = createEncodedSourceFile(componentFilePath, sourceCode)
-
-    const tagName = getKaioTagName(sourceFile, componentName)
-    if (tagName) {
-      const updatedSourceFile = transformSourceForTagName({
-        sourceFile,
-        astTransformer: transformer,
-        tagName,
       })
 
       fs.writeFileSync(componentFilePath, updatedSourceFile, 'utf8')
