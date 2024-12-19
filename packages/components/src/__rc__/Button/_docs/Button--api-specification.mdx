@@ -1,5 +1,5 @@
 import { Canvas, Meta, Controls, ArgTypes, DocsStory } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import { ResourceLinks, KAIOInstallation, LinkTo } from '~storybook/components'
 import * as exampleStories from './Button.docs.stories'
 import * as specStories from './Button.spec.stories'
 
@@ -15,11 +15,11 @@ Updated Nov 19, 2024
   designGuidelines="/?path=/docs/actions-button-button-v3-usage-guidelines--docs"
 />
 
-<KAIOInstallation exportNames={['Button']} family="actions" version="3" />
+<KAIOInstallation exportNames={'Button'} family="actions" version="3" />
 
 ## Overview
 
-`Button` allows users to perform an action. If the component needs to navigate somewhere and can be opened in a new tab, use a [link instead](#buttons-and-links).
+`Button` allows users to perform an action. If the component needs to navigate somewhere and can be opened in a new tab, use a <LinkTo pageId="components-linkbutton-api-specification--docs">LinkButton</LinkTo> instead.
 
 The following example and table showcases the essential props that enable the core functionality of `Button`. For the remaining suite of API options refer to [this section](#additional-api-options).
 
@@ -50,7 +50,7 @@ The following example and table showcases the essential props that enable the co
 
 The `Button` component does not support the `href` property or have any inbuilt routing support. This component is intended as a semantic button and should only be used to perform actions on a page. We advise against passing in an `anchor` tag as a child of the `Button` as this can lead to accessibility issues.
 
-A `LinkButton` component will be provided in the future to handle routing and navigation use cases. In the meantime, we recommend staying on [Button V1](/docs/actions-button-button-v1--docs) if an `href` is needed.
+A separate <LinkTo pageId="components-linkbutton-api-specification--docs">LinkButton</LinkTo> component has been created to handle page navigation and client side routing.
 
 ## API
 
@@ -93,7 +93,7 @@ One key change to the `Button`&apos;s API is the shift from `onClick` to React A
 Functionally this does not change the way we pass actions into `Button`. Consumers can safely replace `onClick` with `onPress` without any additional changes, ie:
 
 ```tsx
-<Button label="Submit" onClick={(e) => sumbit(e)} />
+<Button label="Submit" onClick={(e) => submit(e)} />
 ```
 
 Can safely be replaced with the following:

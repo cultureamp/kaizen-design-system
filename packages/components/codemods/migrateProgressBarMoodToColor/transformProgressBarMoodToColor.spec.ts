@@ -1,13 +1,24 @@
 import { parseJsx } from '../__tests__/utils'
-import { printAst, transformSourceForTagName, type TransformSourceForTagNameArgs } from '../utils'
+import { printAst, transformSource, type TransformSourceArgs } from '../utils'
 import { transformProgressBarMoodToColor } from './transformProgressBarMoodToColor'
 
-const transformProgressBar = (sourceFile: TransformSourceForTagNameArgs['sourceFile']): string =>
-  transformSourceForTagName({
+const transformProgressBar = (sourceFile: TransformSourceArgs['sourceFile']): string => {
+  const tagsMap = new Map([
+    [
+      'ProgressBar',
+      {
+        importModuleName: '@kaizen/components',
+        tagName: 'ProgressBar',
+        originalName: 'ProgressBar',
+      },
+    ],
+  ])
+
+  return transformSource({
     sourceFile,
-    astTransformer: transformProgressBarMoodToColor,
-    tagName: 'ProgressBar',
+    transformers: [transformProgressBarMoodToColor(tagsMap)],
   })
+}
 
 describe('transformProgressBarMoodToColor()', () => {
   it('replaces mood="cautionary" with color="yellow"', () => {

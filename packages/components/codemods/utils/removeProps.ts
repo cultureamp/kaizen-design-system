@@ -1,13 +1,20 @@
 import ts from 'typescript'
+import { type TagImportAttributesMap } from './getKaioTagName'
 import { updateJsxElementWithNewProps } from './updateJsxElementWithNewProps'
 
 export const removeProps =
   (propsToRemove: string[]) =>
-  (context: ts.TransformationContext, tagName: string) =>
-  (rootNode: ts.SourceFile): ts.SourceFile => {
+  (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
+  (context) =>
+  (rootNode) => {
     function visit(node: ts.Node): ts.Node {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-        if (node.tagName.getText() === tagName) {
+        const tagName = node.tagName.getText()
+        const tagImportAttributes = tagsMap.get(tagName)
+
+        if (!tagImportAttributes) return node
+
+        if (tagName === tagImportAttributes.tagName) {
           const newAttributes = node.attributes.properties.reduce<ts.JsxAttributeLike[]>(
             (acc, attr) => {
               if (ts.isJsxAttribute(attr) && propsToRemove.includes(attr.name.getText())) {
