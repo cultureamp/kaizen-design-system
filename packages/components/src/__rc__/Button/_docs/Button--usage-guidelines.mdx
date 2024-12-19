@@ -1,5 +1,5 @@
 import { Canvas, Meta, Controls } from '@storybook/blocks'
-import { ResourceLinks, Installation } from '~storybook/components'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
 import * as Button from './Button.docs.stories'
 
 <Meta title="Components/Button/Button (v3)/Usage Guidelines" />
@@ -14,10 +14,7 @@ Updated July 12, 2024
   apiSpecification="/?path=/docs/actions-button-button-v3-api-specification--docs"
 />
 
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { Button } from "@kaizen/components/v3/actions"'
-/>
+<KAIOInstallation exportNames={['Button']} family="actions" version="3" />
 
 ## Overview
 

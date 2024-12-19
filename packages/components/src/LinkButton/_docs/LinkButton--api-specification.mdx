@@ -1,0 +1,281 @@
+import { Canvas, Meta, Controls, ArgTypes, DocsStory } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation, LinkTo } from '~storybook/components'
+import * as exampleStories from './LinkButton.doc.stories'
+
+<Meta title="Components/LinkButton/API Specification" />
+
+# LinkButton API Specification
+
+Updated Dec 18, 2024
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__actions__/LinkButton/v3"
+  figma="https://www.figma.com/design/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-Heart-UI-Kit?node-id=1929-17364"
+  designGuidelines="/?path=/docs/actions-linkbutton-linkbutton-v3-usage-guidelines--docs"
+/>
+
+<KAIOInstallation exportNames={'LinkButton'} />
+
+## Overview
+
+`LinkButton` allows users to navigate to another page or resource. It shares the same visual styles and interaction states as the <LinkTo pageId="actions-button-button-v3-usage-guidelines--docs">Button</LinkTo> component, but is intended for navigational purposes and downloading documents.
+
+The following example and table showcases the essential props that enable the core functionality of `LinkButton`. For the remaining suite of API options refer to [this section](#additional-api-options).
+
+<Canvas of={exampleStories.Playground} />
+
+<Controls
+  of={exampleStories.Playground}
+  include={[
+    'className',
+    'children',
+    'href',
+    'target',
+    'download',
+    'onPress',
+    'routerOptions',
+    'hasHiddenLabel',
+    'size',
+    'variant',
+    'icon',
+    'iconPosition',
+    'isReversed',
+    'isFullWidth',
+    'isDisabled',
+  ]}
+/>
+
+## API
+
+This is built on top of [React Aria's Link component](https://react-spectrum.adobe.com/react-aria/Link.html) and is the counterpart to the <LinkTo pageId="actions-button-button-v3-api-specification--docs">Kaizen Button</LinkTo>, handling icons, variants and sizes in the same way. It provides a semantic wrapper for navigational buttons and allows for native `href` navigation and client side routing with [additional configuration](#client-side-routing).
+
+### Navigation and native anchor attributes
+
+Out of the box, the `LinkButton` offers majority of the native behavior and functionality on the `anchor` tag. `href` will trigger new page loads, `download` will download the referenced document, and `target` can be used to open links in new tabs or windows.
+
+<Canvas of={exampleStories.DownloadIconButton} />
+
+While client side routing is possible, the `LinkButton` is agnostic to the routing technology chosen. Refer to our general set up guide to get started with [client side routing](#client-side-routing).
+
+#### Opening new tabs and accessibility considerations
+
+The general recommendation is to limit the number of links that open a new tab or window on a single page. While there are valid scenarios that can help avoid loss of data and or progress, as with links in forms, opening new tabs can be disorienting for users - especially for those who have difficulty perceiving visual content.
+
+In order to provide advance warning to all users, it is recommended that links using `target="_blank"` be accompanied by a visual indicator and audible warning. As shown in the following example, additional context can be provided via a visually hidden element within the `children` of the component.
+
+<Canvas of={exampleStories.LinkButtonOpensInNewTab} />
+
+For more context on this recommendation, we recommend taking a look at the [W3C page on the G200 success criteria](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
+
+### Variants
+
+`LinkButton` supports the following variants: `primary`, `secondary` and `tertiary`. If the `variant` prop is not specified, the default will be `primary`.
+
+<Canvas of={exampleStories.LinkButtonVariants} />
+
+Reversed variants are handled via the `ReversedColors` Provider.
+
+<DocsStory of={exampleStories.LinkButtonVariantsReversed} expanded={false} />
+
+To enable the reversed theme, you will need to wrap the component or application in the `ReversedColors` provider, ie:
+
+```tsx
+import { RouterProvider } from 'react-aria-components'
+import { Button } from '@kaizen/components/v3/actions'
+import { ReversedColors } from '@kaizen/components/v3/utilities'
+// application code
+
+return (
+  <ReversedColors isReversed={true}>
+    <LinkButton {...LinkbuttonProps} />
+  </ReversedColors>
+)
+```
+
+### Sizes
+
+LinkButton supports the following sizes: `small`, `medium` and `large`. If the `size` prop is not specified, the default will be `medium`.
+
+<Canvas of={exampleStories.LinkButtonSizes} />
+
+### `onPress`
+
+As with <LinkTo pageId="actions-button-button-v3-usage-guidelines--docs">Button</LinkTo>, `LinkButton`'s API uses React Aria's `onPress` instead of `onClick`. Functionally this does not change the way we pass click events to a `LinkButton`. Consumers can safely replace `onClick` with `onPress` without any additional changes, ie:
+
+```tsx
+<Button
+  label="Download doc"
+  href="https://cultureamp.com/a-pdf-doc.pdf"
+  download
+  onClick={(e) => trackDownloadEvent(e)}
+/>
+```
+
+Can be replaced with the following:
+
+```tsx
+<LinkButton
+  href="https://cultureamp.com/a-pdf-doc.pdf"
+  download
+  onPress={(e) => trackDownloadEvent(e)}
+>
+  Download doc
+</LinkButton>
+```
+
+You can read more about the development and reason behind this pattern [here](https://react-spectrum.adobe.com/blog/building-a-button-part-1.html#touch-interactions).
+
+### LinkButton content and children
+
+Labels and any `LinkButton` content can be passed to the component via `children`. For icons as content, refer to the [next section](#icons-and-positioning).
+
+```tsx
+<LinkButton href="#link">Label</LinkButton>
+```
+
+While in most cases, `children` will be a `ReactNode`, `LinkButton` also accepts a render function with React Aria's `LinkRenderProps`. This allows for more advanced styling and rendering options by hooking into React Aria's internal Link state. You can read more about this [here](https://react-spectrum.adobe.com/react-aria/Link.html#styling).
+
+### Icons and positioning
+
+The `icon` property abstracts the need to handle positioning and sizing logic for icons within the `LinkButton`. When paired with the [Icon component](/docs/illustrations-icon-icon-future-api-specification--docs), this will scale the icon to the `LinkButton`'s `size` prop.
+
+<Canvas of={exampleStories.LinkButtonWithIconStart} />
+
+Set the position of the icon using the `iconPosition` prop. This will ensure content is flipped in `RTL` layouts. Note that icons will need the [shouldMirrorInRTL](/docs/illustrations-icon-icon-future-api-specification--docs#mirror-in-rtl) prop set to `true` when mirroring is required.
+
+<Canvas of={exampleStories.LinkButtonWithIconEnd} />
+
+### Icon-only `LinkButton` and `hasHiddenLabel`
+
+To achieve an icon-only `LinkButton` (previously: `IconButton`) use the `icon` prop and set `hasHiddenLabel` to `true`. This will visually hide the button's `children`, while still announcing the content to screen readers.
+
+<Canvas of={exampleStories.IconLinkButton} />
+
+This pattern ensures that the `LinkButton`'s accessible name is determined by its children, which helps to announce relevant content to the screen readers. You can learn more about this [accessible pattern here](https://cultureamp.atlassian.net/wiki/spaces/PA/pages/3833331831/Accessible+button+and+link+labels).
+
+### Full width LinkButtons
+
+If a `LinkButton` is statically the full width of a container you can use the `isFullWidth` property.
+
+<Canvas of={exampleStories.LinkButtonFullWidth} />
+
+For resizing on smaller screens, consider using the `className` prop to leverage CSS media or container queries, ie: `<LinkButton className="w-full md:w-[initial]">Label</LinkButton>`.
+
+## Client side routing
+
+To enable client side routing with the `LinkButton`, you will need to wrap your application in a [RouterProvider](https://react-spectrum.adobe.com/react-aria/routing.html#routerprovider) from the `react-aria-components` library. The allows you to set the `navigation` method that performs the client side routing in the `LinkButton` component. Refer to the framework specific guidance below for [Next.js](#nextjs-config-example) or [React Router](#react-router-config-example).
+
+### Next.js config example
+
+The following example demonstrates how you might use the React Aria's `RouterProvider` with `Next.js`'s Pages router. This will allow the `LinkButton` to navigate using the `router.push` method.
+
+```tsx
+// ...imports
+import type { AppProps } from 'next/app'
+import { type NextRouter } from 'next/router'
+import { RouterProvider as RacRouterProvider } from 'react-aria-components'
+
+// This provides the correct types for `routerOptions` based on the routing solution. As the component agnostic to routing technology this must defined here
+declare module 'react-aria-components' {
+  interface RouterConfig {
+    // index 2 is the types for the pages routerOptions
+    routerOptions: NonNullable<Parameters<NextRouter['push']>[2]>
+  }
+}
+
+function App({ Component, pageProps, router }: AppProps) {
+  return (
+    <FrontendServices {...config}>
+      {/* application code */}
+      <RacRouterProvider navigate={(href, opts) => router.push(href, undefined, opts)}>
+        <Component {...pageProps} />
+      </RacRouterProvider>
+      {/* application code */}
+    </FrontendServices>
+  )
+}
+
+export default App
+```
+
+The implementation in your application would then look something like this:
+
+```tsx
+import { useRouter } from 'next/router'
+import { LinkButton } from '@kaizen/components/v3/actions'
+
+const Component = () => {
+  const router = useRouter()
+
+  return (
+    <>
+      <LinkButton href="http://google.com">External link</LinkButton>
+      <LinkButton href={`${router.pathname}/path-1`}>Internal link</LinkButton>
+      <LinkButton href={`${router.pathname}/path-2`} routerOptions={{ scroll: false }}>
+        Link with routerOptions
+      </LinkButton>
+    </>
+  )
+}
+```
+
+Additional config options for Next.js can be found in the React Aria's documentation on the [RouterProvider](https://react-spectrum.adobe.com/react-aria/routing.html#nextjs), including the alternative setup for the [App router](https://react-spectrum.adobe.com/react-aria/routing.html##app-router).
+
+### React Router config example
+
+The following example demonstrates how to use the `RouterProvider` with `React Router`'s. This will allow the `LinkButton` to navigate using the `useNavigate` hook.
+
+```tsx
+import { RouterProvider } from 'react-aria-components'
+import { BrowserRouter, NavigateOptions, useHref, useNavigate } from 'react-router-dom'
+
+declare module 'react-aria-components' {
+  interface RouterConfig {
+    routerOptions: NavigateOptions
+  }
+}
+
+function ReactRouterApp() {
+  const navigate = useNavigate()
+
+  return (
+    <RouterProvider navigate={navigate} useHref={useHref}>
+      {/* ...application code */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        {/* ...routes */}
+      </Routes>
+    </RouterProvider>
+  )
+}
+
+export default App
+```
+
+If your application is on a version below 5.3.x, you will have to use the `useHistory` hook instead. See our example [here](https://cultureamp.atlassian.net/wiki/spaces/TV/pages/4235920479/RFC+Kaizen+Link+component#Routing-with-RAC-Link-🧭).
+
+Additional notes can be found in the React Aria's documentation on the using the `RouterProvider` with [React Router](https://react-spectrum.adobe.com/react-aria/routing.html#react-router).
+
+## Additional API options
+
+The following table is a collection of additional React Aria and native HTML props that are exposed from the [React Aria Link API](https://react-spectrum.adobe.com/react-aria/Link.html). These are not required for the implementation of `LinkButton` but can be used to extend its functionality. Refer back to the [overview section](#overview) for the core props that enable most use cases.
+
+<ArgTypes
+  of={exampleStories.Playground}
+  exclude={[
+    'className',
+    'children',
+    'href',
+    'target',
+    'download',
+    'routerOptions',
+    'hasHiddenLabel',
+    'size',
+    'variant',
+    'onPress',
+    'icon',
+    'iconPosition',
+    'isFullWidth',
+    'isDisabled',
+  ]}
+/>

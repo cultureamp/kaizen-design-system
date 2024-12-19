@@ -6,9 +6,8 @@ import { ButtonContent, PendingContent } from './subcomponents'
 import { type ButtonSizes, type ButtonVariants, type PendingButtonProps } from './types'
 import styles from './Button.module.css'
 
-type ButtonBaseProps = Omit<RACButtonProps, 'children'> & {
-  /** Used as the label for the button. */
-  children: RACButtonProps['children']
+/** Shared UI props between Button and LinkButton */
+export type ButtonUIProps = {
   /** Visually hides the Button's child content used as the label and the `pendingLabel`. Use for icon-only `Button`. @default "false" */
   hasHiddenLabel?: boolean
   /** The visual style of the button.
@@ -30,7 +29,12 @@ type ButtonBaseProps = Omit<RACButtonProps, 'children'> & {
   isReversed?: boolean
 }
 
-export type ButtonProps = ButtonBaseProps & PendingButtonProps
+export type ButtonProps = ButtonUIProps &
+  PendingButtonProps &
+  Omit<RACButtonProps, 'children'> & {
+    /** Used as the label for the button. */
+    children: RACButtonProps['children']
+  }
 
 export const Button = forwardRef(
   (
