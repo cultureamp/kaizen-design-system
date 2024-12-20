@@ -1,0 +1,109 @@
+pre code {
+  font-family: ui-monospace, Menlo, Monaco, 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace',
+    'Source Code Pro', 'Droid Sans Mono', 'Courier New', monospace !important;
+  font-size: 13px !important;
+  line-height: 19px;
+  border: 1px solid hsla(203, 50%, 30%, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
+  border-radius: 4px;
+  padding: 20px !important;
+  font-weight: 300 !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sbdocs-wrapper {
+  padding: 2.5rem;
+}
+
+.sbdocs.sbdocs-content {
+  max-width: unset;
+
+  :where(:not(.sb-anchor, .sb-unstyled, .sb-unstyled *)) {
+    color: var(--color-purple-800);
+  }
+
+  :where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)) {
+    font-family: var(--typography-display-0-font-family);
+    font-weight: var(--typography-heading-1-font-weight);
+    font-size: var(--typography-heading-1-font-size);
+    line-height: var(--typography-heading-1-line-height);
+    letter-spacing: var(--typography-heading-1-letter-spacing);
+  }
+
+  :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)) {
+    font-family: var(--typography-heading-2-font-family);
+    font-weight: var(--typography-heading-2-font-weight);
+    font-size: var(--typography-heading-2-font-size);
+    line-height: var(--typography-heading-2-line-height);
+    letter-spacing: var(--typography-heading-2-letter-spacing);
+    border-bottom: 0;
+    text-decoration: none;
+  }
+
+  :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)) {
+    font-family: var(--typography-heading-3-font-family);
+    font-weight: var(--typography-heading-3-font-weight);
+    font-size: var(--typography-heading-3-font-size);
+    line-height: var(--typography-heading-3-line-height);
+    letter-spacing: var(--typography-heading-3-letter-spacing);
+  }
+
+  :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)) {
+    font-family: var(--typography-heading-4-font-family);
+    font-weight: var(--typography-heading-4-font-weight);
+    font-size: var(--typography-heading-4-font-size);
+    line-height: var(--typography-heading-4-line-height);
+    letter-spacing: var(--typography-heading-4-letter-spacing);
+  }
+
+  :where(h5:not(.sb-anchor, .sb-unstyled, .sb-unstyled h5)) {
+    font-family: var(--typography-heading-5-font-family);
+    font-weight: var(--typography-heading-5-font-weight);
+    font-size: var(--typography-heading-5-font-size);
+    line-height: var(--typography-heading-5-line-height);
+    letter-spacing: var(--typography-heading-5-letter-spacing);
+  }
+
+  :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) {
+    margin: 0 0 var(--spacing-16);
+    font-family: var(--typography-paragraph-body-font-family);
+    font-weight: var(--typography-paragraph-body-font-weight);
+    font-size: var(--typography-paragraph-body-font-size);
+    line-height: var(--typography-paragraph-body-line-height);
+    letter-spacing: var(--typography-paragraph-body-letter-spacing);
+
+    code {
+      font-size: 0.9em;
+      margin: var(--spacing-2);
+      padding: var(--spacing-4) var(--spacing-6);
+    }
+  }
+
+  :where(a:not(.sb-anchor, .sb-unstyled, .sb-unstyled a)) {
+    font-family: var(--typography-paragraph-body-font-family);
+    font-weight: var(--typography-paragraph-body-font-weight);
+    font-size: var(--typography-paragraph-body-font-size);
+    line-height: var(--typography-paragraph-body-line-height);
+    letter-spacing: var(--typography-paragraph-body-letter-spacing);
+    color: var(--color-blue-500);
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    code {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+
+  :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+    margin: 0;
+    padding: 0;
+    font-family: var(--typography-paragraph-body-font-family);
+    font-weight: var(--typography-paragraph-body-font-weight);
+    font-size: var(--typography-paragraph-body-font-size);
+    line-height: var(--typography-paragraph-body-line-height);
+    letter-spacing: var(--typography-paragraph-body-letter-spacing);
+  }
+}

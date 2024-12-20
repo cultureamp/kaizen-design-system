@@ -1,5 +1,5 @@
 import { Canvas, Meta, Controls } from '@storybook/blocks'
-import { ResourceLinks, Installation, DosAndDonts, DoOrDont } from '~storybook/components'
+import { ResourceLinks, KAIOInstallation, DosAndDonts, DoOrDont } from '~storybook/components'
 import * as MenuDocsStories from './Menu.docs.stories'
 import * as MenuStories from './Menu.stories'
 
@@ -16,9 +16,10 @@ Updated July 6, 2024
   apiSpecification="/?path=/docs/actions-menu-v3-api-specification--docs"
 />
 
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { MenuTrigger, Menu, MenuItem, MenuPopover, MenuSection, MenuHeader } from "@kaizen/components/v3/actions"'
+<KAIOInstallation
+  exportNames={['Menu', 'MenuTrigger', 'MenuItem', 'MenuPopover', 'MenuSection', 'MenuHeader']}
+  family="actions"
+  version="3"
 />
 
 ## Overview
@@ -55,12 +56,12 @@ A menu displays a list of actions in a popover, toggled opened with a button.
 - Menu items may be organised into sections, with a heading for each section.
 - The menu trigger button, which may be any variation of a button.
 
-  ### When to use
+### When to use
 
 - When you have a group of related actions for a page or item on the page.
 - The actions either: - Cause an action on the page (e.g. delete), or - Navigate somewhere
 
-  ### When not to use
+### When not to use
 
 - When you want to persist a user selection.
   - Use a Select/Multi-Select or Combobox/Multi-Combobox component instead.
@@ -68,6 +69,8 @@ A menu displays a list of actions in a popover, toggled opened with a button.
   - Use a Modal, or construct your own pattern with a Popover.
   - It's recommended that you avoid this because of the complexity it adds for accessibility.
 - Inside a navigation bar - Different DOM elements and behaviour is required for a dropdown menu in a navigation bar.
+
+### Specs
 
 #### Do use a menu for an overflow of actions
 
