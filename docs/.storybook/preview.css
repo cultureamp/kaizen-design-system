@@ -97,6 +97,10 @@ pre code {
     }
   }
 
+  .sbdocs-a {
+    font: inherit;
+  }
+
   :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
     margin: 0;
     padding: 0;
