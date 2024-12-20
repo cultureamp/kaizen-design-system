@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/blocks'
+import { Meta, Unstyled } from '@storybook/blocks'
 import { InlineNotification } from '~components/Notification'
 
 <Meta title="Guides/Tailwind/Configuration" />
@@ -58,17 +58,24 @@ If this is changed or you are not using the [Frontend Template](https://github.c
 <div id="#root">{/* Application code */}</div>
 ```
 
-<InlineNotification persistent type="cautionary" style="inline" title="Changing the selector">
-  We advise using an <code>id</code> with <code>&quot;#root&quot;</code> as the default selector.
-  Using different id&apos;s, classes or HTML elements like <code>body</code> as the selector could
-  result in:
-  <ul>
-    <li>
-      Utility classes not superseding Kaizen defaults when using <code>classNameOverride</code>
-    </li>
-    <li>
-      Duplication of utillity classes in your CSS bundle caused by consuming components with
-      different <code>important</code> selectors
-    </li>
-  </ul>
-</InlineNotification>
+<Unstyled>
+  <InlineNotification persistent type="cautionary" style="inline" title="Changing the selector">
+    {
+      <>
+        We advise using an <code>id</code> with <code>&quot;#root&quot;</code> as the default
+        selector. Using different id&apos;s, classes or HTML elements like <code>body</code> as the
+        selector could result in:
+        <ul>
+          <li>
+            Utility classes not superseding Kaizen defaults when using{' '}
+            <code>classNameOverride</code>
+          </li>
+          <li>
+            Duplication of utillity classes in your CSS bundle caused by consuming components with
+            different <code>important</code> selectors
+          </li>
+        </ul>
+      </>
+    }
+  </InlineNotification>
+</Unstyled>
