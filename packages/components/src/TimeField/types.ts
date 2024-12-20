@@ -1,4 +1,4 @@
-import { CalendarDateTime, Time, ZonedDateTime } from '@internationalized/date'
+import { type CalendarDateTime, type Time, type ZonedDateTime } from '@internationalized/date'
 
 export type TimeValue = Time | CalendarDateTime | ZonedDateTime
 export type TimeOption = {

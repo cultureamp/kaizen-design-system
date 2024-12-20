@@ -1,6 +1,40 @@
 import { parseJsx } from '../__tests__/utils'
-import { transformSourceForTagName, printAst } from '../utils'
+import { printAst, transformSource, type TransformSourceArgs } from '../utils'
 import { transformNotificationTypeToVariant } from './migrateNotificationTypeToVariant'
+
+const transformNotifications = (sourceFile: TransformSourceArgs['sourceFile']): string => {
+  const tagsMap = new Map([
+    [
+      'GlobalNotification',
+      {
+        importModuleName: '@kaizen/components',
+        tagName: 'GlobalNotification',
+        originalName: 'GlobalNotification',
+      },
+    ],
+    [
+      'InlineNotification',
+      {
+        importModuleName: '@kaizen/components',
+        tagName: 'InlineNotification',
+        originalName: 'InlineNotification',
+      },
+    ],
+    [
+      'ToastNotification',
+      {
+        importModuleName: '@kaizen/components',
+        tagName: 'ToastNotification',
+        originalName: 'ToastNotification',
+      },
+    ],
+  ])
+
+  return transformSource({
+    sourceFile,
+    transformers: [transformNotificationTypeToVariant(tagsMap)],
+  })
+}
 
 describe('transformNotificationTypeToVariant', () => {
   it('replaces InlineNotifications type="positive" with variant="success"', () => {
@@ -10,12 +44,7 @@ describe('transformNotificationTypeToVariant', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <InlineNotification variant="success">Test</InlineNotification>
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: transformNotificationTypeToVariant,
-      tagName: 'InlineNotification',
-    })
-    expect(transformed).toEqual(printAst(outputAst))
+    expect(transformNotifications(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('replaces GlobalNotification type="positive" with variant="success"', () => {
@@ -25,12 +54,7 @@ describe('transformNotificationTypeToVariant', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <GlobalNotification variant="success">Test</GlobalNotification>
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: transformNotificationTypeToVariant,
-      tagName: 'GlobalNotification',
-    })
-    expect(transformed).toEqual(printAst(outputAst))
+    expect(transformNotifications(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('replaces ToastNotification type="positive" with variant="success"', () => {
@@ -40,12 +64,7 @@ describe('transformNotificationTypeToVariant', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <ToastNotification variant="success">Test</ToastNotification>
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: transformNotificationTypeToVariant,
-      tagName: 'ToastNotification',
-    })
-    expect(transformed).toEqual(printAst(outputAst))
+    expect(transformNotifications(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('replaces type="informative" with variant="informative"', () => {
@@ -55,12 +74,7 @@ describe('transformNotificationTypeToVariant', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <InlineNotification variant="informative">Test</InlineNotification>
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: transformNotificationTypeToVariant,
-      tagName: 'InlineNotification',
-    })
-    expect(transformed).toBe(printAst(outputAst))
+    expect(transformNotifications(inputAst)).toBe(printAst(outputAst))
   })
   it('replaces type="cautionary" with variant="cautionary"', () => {
     const inputAst = parseJsx(`
@@ -69,12 +83,7 @@ describe('transformNotificationTypeToVariant', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <InlineNotification variant="cautionary">Test</InlineNotification>
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: transformNotificationTypeToVariant,
-      tagName: 'InlineNotification',
-    })
-    expect(transformed).toBe(printAst(outputAst))
+    expect(transformNotifications(inputAst)).toBe(printAst(outputAst))
   })
   it('replaces type="security" with variant="security"', () => {
     const inputAst = parseJsx(`
@@ -83,12 +92,7 @@ describe('transformNotificationTypeToVariant', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <InlineNotification variant="security">Test</InlineNotification>
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: transformNotificationTypeToVariant,
-      tagName: 'InlineNotification',
-    })
-    expect(transformed).toBe(printAst(outputAst))
+    expect(transformNotifications(inputAst)).toBe(printAst(outputAst))
   })
   it('replaces type="negative" with variant="warning"', () => {
     const inputAst = parseJsx(`
@@ -97,11 +101,6 @@ describe('transformNotificationTypeToVariant', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <InlineNotification variant="warning">Test</InlineNotification>
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: transformNotificationTypeToVariant,
-      tagName: 'InlineNotification',
-    })
-    expect(transformed).toBe(printAst(outputAst))
+    expect(transformNotifications(inputAst)).toBe(printAst(outputAst))
   })
 })

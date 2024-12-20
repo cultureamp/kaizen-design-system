@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import PostCSS, { Declaration } from 'postcss'
+import PostCSS, { type Declaration } from 'postcss'
 
 import { heartColorNamePattern } from '../lib/patterns'
 

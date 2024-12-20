@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { render, waitFor } from '@testing-library/react'
-import { Popover, PopoverProps, useFloating } from './'
+import { Popover, useFloating, type PopoverProps } from './'
 
 const PopoverWrapper = (customProps?: Partial<PopoverProps>): JSX.Element => {
   const { refs } = useFloating()

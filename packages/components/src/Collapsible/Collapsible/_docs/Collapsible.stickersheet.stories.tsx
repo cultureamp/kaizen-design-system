@@ -1,10 +1,10 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { within } from '@storybook/test'
 import { Heading } from '~components/Heading'
 import { Text } from '~components/Text'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { Collapsible, CollapsibleProps } from '../index'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { Collapsible, type CollapsibleProps } from '../index'
 
 export default {
   title: 'Components/Collapsibles/Collapsible',

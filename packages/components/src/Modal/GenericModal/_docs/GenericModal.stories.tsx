@@ -1,9 +1,9 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { GenericModal } from '../index'
 
 const meta = {
-  title: 'Components/Modals/Generic Modal',
+  title: 'Components/Modals/GenericModal',
   component: GenericModal,
   args: {
     children: 'Example content',

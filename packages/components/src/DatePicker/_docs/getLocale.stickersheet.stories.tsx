@@ -1,8 +1,8 @@
 import React from 'react'
 import { LOCALE_REGIONS } from '@cultureamp/i18n-react-intl'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { CalendarSingle } from '~components/Calendar'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { getLocale } from '../utils/getLocale'
 
 export default {

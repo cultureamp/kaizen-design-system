@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { RadioField } from '~components/Radio/RadioField'
 import { RadioGroup } from '../index'
 

@@ -1,4 +1,4 @@
-import { DeepMapObjectLeafs } from '../legacy/types'
+import { type DeepMapObjectLeafs } from '../legacy/types'
 import { addExtraThemeEntries } from './addExtraThemeEntries'
 import { objectPathToCssVarFunction } from './cssVariables'
 import { mapLeafsOfObject } from './mapLeafsOfObject'

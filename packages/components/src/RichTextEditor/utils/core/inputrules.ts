@@ -1,5 +1,5 @@
-import { InputRule, wrappingInputRule } from 'prosemirror-inputrules'
-import { NodeType } from 'prosemirror-model'
+import { wrappingInputRule, type InputRule } from 'prosemirror-inputrules'
+import { type NodeType } from 'prosemirror-model'
 
 // Given a list node type, returns an input rule that turns a number
 // followed by a dot at the start of a textblock into an ordered list.

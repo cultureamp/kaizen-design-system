@@ -1,15 +1,24 @@
 import { parseJsx } from '../__tests__/utils'
-import { printAst, transformSourceForTagName, type TransformSourceForTagNameArgs } from '../utils'
+import { printAst, transformSource, type TransformSourceArgs } from '../utils'
 import { transformMultiActionTileMoodToVariant } from './transformMultiActionTileMoodToVariant'
 
-const transformMultiActionTile = (
-  sourceFile: TransformSourceForTagNameArgs['sourceFile'],
-): string =>
-  transformSourceForTagName({
+const transformMultiActionTile = (sourceFile: TransformSourceArgs['sourceFile']): string => {
+  const tagsMap = new Map([
+    [
+      'MultiActionTile',
+      {
+        importModuleName: '@kaizen/components',
+        tagName: 'MultiActionTile',
+        originalName: 'MultiActionTile',
+      },
+    ],
+  ])
+
+  return transformSource({
     sourceFile,
-    astTransformer: transformMultiActionTileMoodToVariant,
-    tagName: 'MultiActionTile',
+    transformers: [transformMultiActionTileMoodToVariant(tagsMap)],
   })
+}
 
 describe('transformMultiActionTileMoodToVariant()', () => {
   it('replaces mood="positive" with variant="default"', () => {

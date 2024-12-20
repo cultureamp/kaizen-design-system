@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import { Unstyled } from '@storybook/blocks'
 import classNames from 'classnames'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 
 type ResourceLinkProps = {
   href: string
@@ -15,7 +15,7 @@ const ResourceLink = ({ href, text }: ResourceLinkProps): JSX.Element => (
       href={href}
       target="_blank"
       rel="noopener noreferrer nofollow"
-      className="border rounded inline-flex gap-4 items-center p-8 text-blue-400 no-underline"
+      className="border rounded inline-flex gap-4 items-center p-8 text-blue-500 no-underline"
     >
       <Text variant="small" tag="span" classNameOverride="text-inherit">
         {text}

@@ -3,12 +3,12 @@ import { useIntl } from '@cultureamp/i18n-react-intl'
 import type { Locale } from 'date-fns'
 import {
   DateInput,
-  DateInputProps,
   DateInputDescription,
-  DateInputDescriptionProps,
+  type DateInputDescriptionProps,
+  type DateInputProps,
 } from '~components/DateInput'
 import { FieldMessage } from '~components/FieldMessage'
-import { ValidationMessage } from '../../types'
+import { type ValidationMessage } from '../../types'
 import styles from './DateInputField.module.scss'
 
 export type DateInputFieldProps = {

@@ -1,11 +1,11 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import {
   FilterButtonBase,
-  FilterButtonBaseProps,
+  type FilterButtonBaseProps,
 } from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
-import { Tooltip, TooltipProps } from '~components/__overlays__/Tooltip/v1'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { Tooltip, type TooltipProps } from '~components/Tooltip'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './ButtonGroup.module.scss'
 
 const isFilterButton = (node: React.ReactNode): node is React.ReactElement<FilterButtonBaseProps> =>

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { FilterButton } from '~components/Filter/FilterButton'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Filter, FilterContents } from '../index'
 
 const IS_CHROMATIC = isChromatic()

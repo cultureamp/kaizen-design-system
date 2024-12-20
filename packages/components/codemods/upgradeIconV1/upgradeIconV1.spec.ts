@@ -1,20 +1,19 @@
 import { parseJsx } from '../__tests__/utils'
 import {
+  getKaioTagNamesMapByPattern,
   printAst,
-  type ImportModuleNameTagsMap,
   transformSource,
   type TransformSourceArgs,
 } from '../utils'
 import { upgradeIconV1 } from './upgradeIconV1'
 
-const transformIcons = (
-  sourceFile: TransformSourceArgs['sourceFile'],
-  tagNames: ImportModuleNameTagsMap,
-): string =>
-  transformSource({
+const transformIcons = (sourceFile: TransformSourceArgs['sourceFile']): string => {
+  const kaioTagNamesMap = getKaioTagNamesMapByPattern(sourceFile, 'Icon$')
+  return transformSource({
     sourceFile,
-    transformers: [upgradeIconV1(tagNames)],
+    transformers: [upgradeIconV1(kaioTagNamesMap!)],
   })
+}
 
 describe('upgradeIconV1()', () => {
   describe('CaMonogramIcon to Brand', () => {
@@ -29,12 +28,7 @@ describe('upgradeIconV1()', () => {
         import { Brand } from "@kaizen/components"
         export const TestComponent = () => <Brand ${transformedBrandProps} />
       `)
-      expect(
-        transformIcons(
-          inputAst,
-          new Map([['@kaizen/components', new Map([['CaMonogramIcon', 'CaMonogramIcon']])]]),
-        ),
-      ).toEqual(printAst(outputAst))
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
 
     it('updates import from CaMonogramIcon using alias to Brand', () => {
@@ -46,12 +40,7 @@ describe('upgradeIconV1()', () => {
         import { Brand } from "@kaizen/components"
         export const TestComponent = () => <Brand ${transformedBrandProps} />
       `)
-      expect(
-        transformIcons(
-          inputAst,
-          new Map([['@kaizen/components', new Map([['LogoAlias', 'CaMonogramIcon']])]]),
-        ),
-      ).toEqual(printAst(outputAst))
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
 
     it('does not add another Brand import if it is already imported', () => {
@@ -63,20 +52,7 @@ describe('upgradeIconV1()', () => {
         import { Brand } from "@kaizen/components"
         export const TestComponent = () => <Brand ${transformedBrandProps} />
       `)
-      expect(
-        transformIcons(
-          inputAst,
-          new Map([
-            [
-              '@kaizen/components',
-              new Map([
-                ['Brand', 'Brand'],
-                ['CaMonogramIcon', 'CaMonogramIcon'],
-              ]),
-            ],
-          ]),
-        ),
-      ).toEqual(printAst(outputAst))
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
 
     it('uses Brand alias for an existing import', () => {
@@ -88,20 +64,7 @@ describe('upgradeIconV1()', () => {
         import { Brand as KzBrand } from "@kaizen/components"
         export const TestComponent = () => <KzBrand ${transformedBrandProps} />
       `)
-      expect(
-        transformIcons(
-          inputAst,
-          new Map([
-            [
-              '@kaizen/components',
-              new Map([
-                ['KzBrand', 'Brand'],
-                ['CaMonogramIcon', 'CaMonogramIcon'],
-              ]),
-            ],
-          ]),
-        ),
-      ).toEqual(printAst(outputAst))
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
   })
 
@@ -117,12 +80,7 @@ describe('upgradeIconV1()', () => {
         import { LoadingSpinner } from "@kaizen/components"
         export const TestComponent = () => <LoadingSpinner ${transformedLoadingSpinnerProps} />
       `)
-      expect(
-        transformIcons(
-          inputAst,
-          new Map([['@kaizen/components', new Map([['SpinnerIcon', 'SpinnerIcon']])]]),
-        ),
-      ).toEqual(printAst(outputAst))
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
 
     it('updates import from SpinnerIcon using alias to LoadingSpinner', () => {
@@ -134,12 +92,7 @@ describe('upgradeIconV1()', () => {
         import { LoadingSpinner } from "@kaizen/components"
         export const TestComponent = () => <LoadingSpinner ${transformedLoadingSpinnerProps} />
       `)
-      expect(
-        transformIcons(
-          inputAst,
-          new Map([['@kaizen/components', new Map([['LogoAlias', 'SpinnerIcon']])]]),
-        ),
-      ).toEqual(printAst(outputAst))
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
 
     it('does not add another LoadingSpinner import if it is already imported', () => {
@@ -151,20 +104,7 @@ describe('upgradeIconV1()', () => {
         import { LoadingSpinner } from "@kaizen/components"
         export const TestComponent = () => <LoadingSpinner ${transformedLoadingSpinnerProps} />
       `)
-      expect(
-        transformIcons(
-          inputAst,
-          new Map([
-            [
-              '@kaizen/components',
-              new Map([
-                ['LoadingSpinner', 'LoadingSpinner'],
-                ['SpinnerIcon', 'SpinnerIcon'],
-              ]),
-            ],
-          ]),
-        ),
-      ).toEqual(printAst(outputAst))
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
 
     it('uses LoadingSpinner alias for an existing import', () => {
@@ -176,20 +116,7 @@ describe('upgradeIconV1()', () => {
         import { LoadingSpinner as KzLoadingSpinner } from "@kaizen/components"
         export const TestComponent = () => <KzLoadingSpinner ${transformedLoadingSpinnerProps} />
       `)
-      expect(
-        transformIcons(
-          inputAst,
-          new Map([
-            [
-              '@kaizen/components',
-              new Map([
-                ['KzLoadingSpinner', 'LoadingSpinner'],
-                ['SpinnerIcon', 'SpinnerIcon'],
-              ]),
-            ],
-          ]),
-        ),
-      ).toEqual(printAst(outputAst))
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
   })
 
@@ -202,12 +129,7 @@ describe('upgradeIconV1()', () => {
       import { Icon } from "@kaizen/components/future"
       export const TestComponent = () => <Icon name="flag" isFilled />
     `)
-    expect(
-      transformIcons(
-        inputAst,
-        new Map([['@kaizen/components', new Map([['FlagOnIcon', 'FlagOnIcon']])]]),
-      ),
-    ).toEqual(printAst(outputAst))
+    expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('transforms aliased old Icon', () => {
@@ -219,12 +141,7 @@ describe('upgradeIconV1()', () => {
       import { Icon } from "@kaizen/components/future"
       export const TestComponent = () => <Icon name="menu" />
     `)
-    expect(
-      transformIcons(
-        inputAst,
-        new Map([['@kaizen/components', new Map([['IconAlias', 'HamburgerIcon']])]]),
-      ),
-    ).toEqual(printAst(outputAst))
+    expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
   })
 
   describe('import statements', () => {
@@ -238,12 +155,7 @@ describe('upgradeIconV1()', () => {
         import { Icon } from "@kaizen/components/future"
         export const TestComponent = () => <Card><Icon name="add" /></Card>
       `)
-      expect(
-        transformIcons(
-          inputAst,
-          new Map([['@kaizen/components', new Map([['AddIcon', 'AddIcon']])]]),
-        ),
-      ).toEqual(printAst(outputAst))
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
 
     it('does not update import of components which are not from KAIO', () => {
@@ -269,21 +181,7 @@ describe('upgradeIconV1()', () => {
           </>
         )
       `)
-      expect(
-        transformIcons(
-          inputAst,
-          new Map([
-            [
-              '@kaizen/components',
-              new Map([
-                ['AddIcon', 'AddIcon'],
-                ['IconAlias', 'HamburgerIcon'],
-              ]),
-            ],
-            ['somewhere-else', new Map([['HamHam', 'HamburgerIcon']])],
-          ]),
-        ),
-      ).toEqual(printAst(outputAst))
+      expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
   })
 })

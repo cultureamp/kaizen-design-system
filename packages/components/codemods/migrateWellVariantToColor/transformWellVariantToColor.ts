@@ -1,13 +1,19 @@
 import ts from 'typescript'
-import { updateJsxElementWithNewProps } from '../utils'
+import { updateJsxElementWithNewProps, type TagImportAttributesMap } from '../utils'
 import { getPropValueText } from '../utils/getPropValueText'
 
 export const transformWellVariantToColor =
-  (context: ts.TransformationContext, tagName: string) =>
-  (rootNode: ts.SourceFile): ts.SourceFile => {
+  (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
+  (context) =>
+  (rootNode) => {
     function visit(node: ts.Node): ts.Node {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-        if (node.tagName.getText() === tagName) {
+        const tagName = node.tagName.getText()
+        const tagImportAttributes = tagsMap.get(tagName)
+
+        if (!tagImportAttributes) return node
+
+        if (node.tagName.getText() === tagImportAttributes.tagName) {
           let hasVariant = false
           let hasColor = false
           let newAttributes = node.attributes.properties.map((attr) => {

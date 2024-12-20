@@ -2,7 +2,7 @@ import React from 'react'
 import { render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { MultiSelectToggle, MultiSelectToggleProps } from './MultiSelectToggle'
+import { MultiSelectToggle, type MultiSelectToggleProps } from './MultiSelectToggle'
 const user = userEvent.setup()
 
 const onClick = vi.fn()

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { Card } from '~components/Card'
 import { Heading } from '~components/Heading'
 import { Text } from '~components/Text'

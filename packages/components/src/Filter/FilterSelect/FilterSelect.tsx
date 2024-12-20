@@ -1,22 +1,22 @@
 import React, { useState } from 'react'
 import { useButton } from '@react-aria/button'
 import { HiddenSelect, useSelect } from '@react-aria/select'
-import { useSelectState, SelectProps as AriaSelectProps } from '@react-stately/select'
+import { useSelectState, type SelectProps as AriaSelectProps } from '@react-stately/select'
 import { Filter, FilterContents } from '~components/Filter/Filter'
-import { FilterButtonProps } from '~components/Filter/FilterButton'
-import { SelectProvider } from '~components/__future__/Select/context'
+import { type FilterButtonProps } from '~components/Filter/FilterButton'
+import { SelectProvider } from '~components/__rc__/Select/context'
 import {
   ListBoxSection,
   ListItem,
   Option,
   SectionDivider,
   SelectPopoverContents,
-  SelectPopoverContentsProps,
-} from '~components/__future__/Select/subcomponents'
-import { getDisabledKeysFromItems } from '~components/__future__/Select/utils/getDisabledKeysFromItems'
-import { transformSelectItemToCollectionElement } from '~components/__future__/Select/utils/transformSelectItemToCollectionElement'
-import { OverrideClassName } from '~components/types/OverrideClassName'
-import { SelectItem, SelectOption } from './types'
+  type SelectPopoverContentsProps,
+} from '~components/__rc__/Select/subcomponents'
+import { getDisabledKeysFromItems } from '~components/__rc__/Select/utils/getDisabledKeysFromItems'
+import { transformSelectItemToCollectionElement } from '~components/__rc__/Select/utils/transformSelectItemToCollectionElement'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { type SelectItem, type SelectOption } from './types'
 import styles from './FilterSelect.module.scss'
 
 type OmittedAriaSelectProps =

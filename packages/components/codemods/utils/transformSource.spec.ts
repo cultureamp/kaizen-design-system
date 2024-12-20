@@ -2,11 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import ts from 'typescript'
 import { createEncodedSourceFile } from './createEncodedSourceFile'
-import {
-  TransformSourceForTagNameArgs,
-  transformSource,
-  transformSourceForTagName,
-} from './transformSource'
+import { transformSource } from './transformSource'
 
 const visit =
   (context: ts.TransformationContext, tagName: string) =>
@@ -51,28 +47,6 @@ describe('transformSource()', () => {
       sourceFile,
       transformers: [mockTransformer('Pancakes')],
     })
-
-    expect(transformed).toMatchSnapshot()
-  })
-})
-
-describe('transformSourceForTagName', () => {
-  it('updates the value of Pancakes topping to jam', () => {
-    const filePath = path.resolve(path.join(__dirname, './__fixtures__/KaioComponent.tsx'))
-    const fileContent = fs.readFileSync(filePath, 'utf8')
-    const sourceFile = createEncodedSourceFile(filePath, fileContent)
-    const mockTransformer =
-      (context: ts.TransformationContext, tagName: string) =>
-      (rootNode: ts.SourceFile): ts.SourceFile =>
-        ts.visitNode(rootNode, visit(context, tagName)) as ts.SourceFile
-
-    const mockTransformSourceForTagNameArgs = {
-      sourceFile,
-      astTransformer: mockTransformer,
-      tagName: 'Pancakes',
-    } satisfies TransformSourceForTagNameArgs
-
-    const transformed = transformSourceForTagName(mockTransformSourceForTagNameArgs)
 
     expect(transformed).toMatchSnapshot()
   })

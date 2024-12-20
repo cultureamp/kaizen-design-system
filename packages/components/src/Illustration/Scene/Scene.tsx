@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Base, BaseProps } from '../subcomponents/Base'
-import { VideoPlayer, VideoPlayerProps } from '../subcomponents/VideoPlayer'
+import { Base, type BaseProps } from '../subcomponents/Base'
+import { VideoPlayer, type VideoPlayerProps } from '../subcomponents/VideoPlayer'
 
 export type SceneProps = {
   enableAspectRatio?: boolean

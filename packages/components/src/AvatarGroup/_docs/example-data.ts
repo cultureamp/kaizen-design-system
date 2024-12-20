@@ -1,4 +1,4 @@
-import { AvatarGroupAvatarProps, AvatarList } from '../AvatarGroup'
+import { type AvatarGroupAvatarProps, type AvatarList } from '../AvatarGroup'
 
 export const EXAMPLE_USER_1: AvatarGroupAvatarProps = {
   fullName: 'Adirana Appleseed',

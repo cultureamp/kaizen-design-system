@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
-import { MultiSelectOptions, MultiSelectOptionsProps } from '../index'
+import { MultiSelectOptions, type MultiSelectOptionsProps } from '../index'
 
 const meta = {
   title: 'Components/MultiSelect/MultiSelectOptions',

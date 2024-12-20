@@ -1,4 +1,4 @@
-import { DateRange } from '~components/Calendar'
+import { type DateRange } from '~components/Calendar'
 
 export const isCompleteDateRange = (
   dateRange: DateRange | undefined,

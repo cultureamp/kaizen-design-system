@@ -1,5 +1,5 @@
-import { FiltersValues } from '../../types'
-import { FilterBarState } from '../types'
+import { type FiltersValues } from '../../types'
+import { type FilterBarState } from '../types'
 
 const checkArraysMatch = (a1: any[], a2: any[]): boolean => {
   if (a1.length !== a2.length) return false

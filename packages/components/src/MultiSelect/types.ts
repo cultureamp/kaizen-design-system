@@ -1,4 +1,4 @@
-import { FieldMessageStatus } from '~components/FieldMessage'
+import { type FieldMessageStatus } from '~components/FieldMessage'
 
 export type MultiSelectOption = {
   label: string

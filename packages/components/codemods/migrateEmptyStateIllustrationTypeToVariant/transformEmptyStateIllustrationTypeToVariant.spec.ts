@@ -1,13 +1,24 @@
 import { parseJsx } from '../__tests__/utils'
-import { printAst, transformSourceForTagName, type TransformSourceForTagNameArgs } from '../utils'
+import { printAst, transformSource, type TransformSourceArgs } from '../utils'
 import { transformEmptyStateIllustrationTypeToVariant } from './transformEmptyStateIllustrationTypeToVariant'
 
-const transformEmptyState = (sourceFile: TransformSourceForTagNameArgs['sourceFile']): string =>
-  transformSourceForTagName({
+const transformEmptyState = (sourceFile: TransformSourceArgs['sourceFile']): string => {
+  const tagsMap = new Map([
+    [
+      'EmptyState',
+      {
+        importModuleName: '@kaizen/components',
+        tagName: 'EmptyState',
+        originalName: 'EmptyState',
+      },
+    ],
+  ])
+
+  return transformSource({
     sourceFile,
-    astTransformer: transformEmptyStateIllustrationTypeToVariant,
-    tagName: 'EmptyState',
+    transformers: [transformEmptyStateIllustrationTypeToVariant(tagsMap)],
   })
+}
 
 describe('transformEmptyStateIllustrationTypeToVariant()', () => {
   it('replaces illustrationType="positive" with variant="success"', () => {

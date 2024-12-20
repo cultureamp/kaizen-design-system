@@ -1,4 +1,5 @@
 import ts from 'typescript'
+import { type TagImportAttributesMap } from './getKaioTagName'
 import { getPropValueText } from './getPropValueText'
 import { updateJsxElementWithNewProps } from './updateJsxElementWithNewProps'
 
@@ -8,11 +9,17 @@ export const migrateStringProp =
     newPropName: string,
     valueTransformer: (value: OldValue) => NewValue,
   ) =>
-  (context: ts.TransformationContext, tagName: string) =>
-  (rootNode: ts.SourceFile): ts.SourceFile => {
+  (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
+  (context) =>
+  (rootNode) => {
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
-        if (node.tagName.getText() === tagName) {
+        const tagName = node.tagName.getText()
+        const tagImportAttributes = tagsMap.get(tagName)
+
+        if (!tagImportAttributes) return node
+
+        if (tagName === tagImportAttributes.tagName) {
           const newAttributes = node.attributes.properties.map((attr) => {
             if (ts.isJsxAttribute(attr) && attr.name.getText() === oldPropName) {
               const oldValue = attr.initializer && getPropValueText(attr.initializer)

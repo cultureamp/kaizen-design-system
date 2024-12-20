@@ -1,6 +1,27 @@
 import { parseJsx } from '../__tests__/utils'
-import { transformSourceForTagName, printAst } from '../utils'
+import { printAst, transformSource, type TransformSourceArgs } from '../utils'
 import { removeProps } from './removeProps'
+
+const testRemoveProps = (
+  sourceFile: TransformSourceArgs['sourceFile'],
+  propsToRemove: string[] = ['topping'],
+): string => {
+  const tagsMap = new Map([
+    [
+      'Pancakes',
+      {
+        importModuleName: '@kaizen/components',
+        tagName: 'Pancakes',
+        originalName: 'Pancakes',
+      },
+    ],
+  ])
+
+  return transformSource({
+    sourceFile,
+    transformers: [removeProps(propsToRemove)(tagsMap)],
+  })
+}
 
 describe('removeProps()', () => {
   it('removes single specified prop', () => {
@@ -10,12 +31,7 @@ describe('removeProps()', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <Pancakes />
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: removeProps(['topping']),
-      tagName: 'Pancakes',
-    })
-    expect(transformed).toEqual(printAst(outputAst))
+    expect(testRemoveProps(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('removes multiple specified props', () => {
@@ -25,12 +41,7 @@ describe('removeProps()', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <Pancakes />
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: removeProps(['topping', 'fruit']),
-      tagName: 'Pancakes',
-    })
-    expect(transformed).toEqual(printAst(outputAst))
+    expect(testRemoveProps(inputAst, ['topping', 'fruit'])).toEqual(printAst(outputAst))
   })
 
   it('handles multiple attributes and removes only specified props', () => {
@@ -40,12 +51,7 @@ describe('removeProps()', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <Pancakes id="123"/>
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: removeProps(['topping']),
-      tagName: 'Pancakes',
-    })
-    expect(transformed).toBe(printAst(outputAst))
+    expect(testRemoveProps(inputAst)).toEqual(printAst(outputAst))
   })
 
   it('transforms multiple Pancakess', () => {
@@ -55,11 +61,6 @@ describe('removeProps()', () => {
     const outputAst = parseJsx(`
       export const TestComponent = () => <div><Pancakes /><Pancakes /></div>
     `)
-    const transformed = transformSourceForTagName({
-      sourceFile: inputAst,
-      astTransformer: removeProps(['topping']),
-      tagName: 'Pancakes',
-    })
-    expect(transformed).toBe(printAst(outputAst))
+    expect(testRemoveProps(inputAst)).toEqual(printAst(outputAst))
   })
 })

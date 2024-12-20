@@ -1,10 +1,10 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { TextArea } from '../index'
 
 export default {
-  title: 'Components/Text Input controls/Text Area',
+  title: 'Components/Text Input controls/TextArea',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

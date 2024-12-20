@@ -1,5 +1,5 @@
 import React from 'react'
-import { GenericTile, GenericTileProps } from '../subcomponents/GenericTile'
+import { GenericTile, type GenericTileProps } from '../subcomponents/GenericTile'
 
 export type InformationTileProps = GenericTileProps
 

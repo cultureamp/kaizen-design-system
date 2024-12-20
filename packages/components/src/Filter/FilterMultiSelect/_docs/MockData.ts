@@ -1,4 +1,4 @@
-import { ItemType } from '../types'
+import { type ItemType } from '../types'
 
 export const mockItems: ItemType[] = [
   { label: 'Front-End', value: 'id-fe', count: '1245' },

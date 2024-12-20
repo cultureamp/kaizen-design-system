@@ -3,9 +3,9 @@
 import React from 'react'
 import { useOption } from '@react-aria/listbox'
 import { render, screen } from '@testing-library/react'
-import { vi, beforeEach, Mock } from 'vitest'
-import { ItemType } from '../../types'
-import { MultiSelectOption, MultiSelectOptionProps } from './MultiSelectOption'
+import { beforeEach, vi, type Mock } from 'vitest'
+import { type ItemType } from '../../types'
+import { MultiSelectOption, type MultiSelectOptionProps } from './MultiSelectOption'
 import styles from './MultiSelectOption.module.scss'
 
 vi.mock('@react-aria/listbox', () => ({

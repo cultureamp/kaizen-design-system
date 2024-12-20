@@ -1,6 +1,6 @@
 import {
-  ToastNotificationContextValue,
   useToastNotificationContext,
+  type ToastNotificationContextValue,
 } from '../context/ToastNotificationContext'
 
 export const useToastNotification = (): ToastNotificationContextValue => {

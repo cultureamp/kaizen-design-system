@@ -1,15 +1,24 @@
 import { parseJsx } from '../__tests__/utils'
-import { printAst, transformSourceForTagName, type TransformSourceForTagNameArgs } from '../utils'
+import { printAst, transformSource, type TransformSourceArgs } from '../utils'
 import { transformInformationTileMoodToVariant } from './transformInformationTileMoodToVariant'
 
-const transformInformationTile = (
-  sourceFile: TransformSourceForTagNameArgs['sourceFile'],
-): string =>
-  transformSourceForTagName({
+const transformInformationTile = (sourceFile: TransformSourceArgs['sourceFile']): string => {
+  const tagsMap = new Map([
+    [
+      'InformationTile',
+      {
+        importModuleName: '@kaizen/components',
+        tagName: 'InformationTile',
+        originalName: 'InformationTile',
+      },
+    ],
+  ])
+
+  return transformSource({
     sourceFile,
-    astTransformer: transformInformationTileMoodToVariant,
-    tagName: 'InformationTile',
+    transformers: [transformInformationTileMoodToVariant(tagsMap)],
   })
+}
 
 describe('transformInformationTileMoodToVariant()', () => {
   it('replaces mood="positive" with variant="default"', () => {

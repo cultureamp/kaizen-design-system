@@ -1,6 +1,6 @@
 node_modules
 docs/storybook-static
-docs/.storybook/preview.css
+docs/.storybook/tailwind-build.css
 .DS_Store
 dist
 .turbo

@@ -1,5 +1,5 @@
 import { tokens } from '../../js/tokens'
-import { Theme } from '../types'
+import { type Theme } from '../types'
 
 /**
  * @deprecated

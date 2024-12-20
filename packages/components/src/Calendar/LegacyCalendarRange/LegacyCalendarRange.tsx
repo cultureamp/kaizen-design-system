@@ -2,12 +2,12 @@ import React from 'react'
 import type { Locale } from 'date-fns'
 import {
   DayPicker,
-  DateRange,
-  DayClickEventHandler,
-  Matcher,
-  DayPickerRangeProps,
+  type DateRange,
+  type DayClickEventHandler,
+  type DayPickerRangeProps,
+  type Matcher,
 } from 'react-day-picker'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
 import { DayOfWeek } from '../enums'
 import { isInvalidDate, isValidWeekStartsOn } from '../utils'

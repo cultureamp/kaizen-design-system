@@ -2,7 +2,7 @@ import React from 'react'
 import { render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { InputSearchProps } from './InputSearch'
+import { type InputSearchProps } from './InputSearch'
 import { InputSearch } from '.'
 
 const user = userEvent.setup()

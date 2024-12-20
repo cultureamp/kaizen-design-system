@@ -1,5 +1,43 @@
 # Change Log
 
+## 1.70.0
+
+### Minor Changes
+
+- [#5298](https://github.com/cultureamp/kaizen-design-system/pull/5298) [`1f9edc2`](https://github.com/cultureamp/kaizen-design-system/commit/1f9edc2f1e06f8db921889ce61dad8bddb577849) - Add LinkButton component
+
+  - Adds LinkButton component, stories and documentation to actions group
+
+### Patch Changes
+
+- [#5407](https://github.com/cultureamp/kaizen-design-system/pull/5407) [`32b6ae8`](https://github.com/cultureamp/kaizen-design-system/commit/32b6ae828abfdf2fbdd4af3a6fce340da6749173) - Refactor codemods to use consistent patterns. Should not affect consumers.
+
+## 1.69.2
+
+### Patch Changes
+
+- [#5399](https://github.com/cultureamp/kaizen-design-system/pull/5399) [`52c1bdd`](https://github.com/cultureamp/kaizen-design-system/commit/52c1bddc910d3639dd315deaafb87fdc2e52dcc1) - Update Button v3 tertiary styles
+
+- [#5402](https://github.com/cultureamp/kaizen-design-system/pull/5402) [`805d63e`](https://github.com/cultureamp/kaizen-design-system/commit/805d63e277828f36b3d1de46bb165b015a068192) - Updated button v3 disabled styles
+
+## 1.69.1
+
+### Patch Changes
+
+- [#5404](https://github.com/cultureamp/kaizen-design-system/pull/5404) [`76eec54`](https://github.com/cultureamp/kaizen-design-system/commit/76eec54aa04c13bc744ac182556a5b02c6d2854e) - Internal architecture restructure. Should not impact consumers.
+
+## 1.69.0
+
+### Minor Changes
+
+- [#5395](https://github.com/cultureamp/kaizen-design-system/pull/5395) [`9068e68`](https://github.com/cultureamp/kaizen-design-system/commit/9068e68b288cbcfa1561fe03b0875fe62011b67d) - Menu: Create MenuPopover, MenuSection and MenuHeader wrappers over RAC
+
+## 1.68.13
+
+### Patch Changes
+
+- [#5392](https://github.com/cultureamp/kaizen-design-system/pull/5392) [`5ac8212`](https://github.com/cultureamp/kaizen-design-system/commit/5ac821288357fd58f073a4375841e2fc32b16aec) - Made Future Tab hover cursor consistent with current Tab.
+
 ## 1.68.12
 
 ### Patch Changes

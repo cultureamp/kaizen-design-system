@@ -1,8 +1,8 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import { within } from '@storybook/test'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { CalendarRange, CalendarRangeProps } from '../../index'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { CalendarRange, type CalendarRangeProps } from '../../index'
 
 export default {
   title: 'Components/Date controls/Calendars/CalendarRange',

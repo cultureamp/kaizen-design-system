@@ -1,9 +1,9 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { Workflow } from '../'
 import { WorkflowControls } from './controls'
 
 const meta = {
-  title: 'Layout/Workflow/Components/Progress Stepper',
+  title: 'Components/Workflow/Components/ProgressStepper',
   component: Workflow.ProgressStepper,
   argTypes: {
     currentStepId: WorkflowControls.currentStepId,

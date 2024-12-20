@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import isChromatic from 'chromatic'
 import { Text } from '~components/Text'
@@ -9,7 +9,7 @@ import { ConfirmationModal } from '../index'
 const IS_CHROMATIC = isChromatic()
 
 const meta = {
-  title: 'Components/Modals/Confirmation Modal',
+  title: 'Components/Modals/ConfirmationModal',
   component: ConfirmationModal,
   args: {
     isOpen: false,

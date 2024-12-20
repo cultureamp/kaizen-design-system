@@ -1,7 +1,7 @@
 import React from 'react'
-import { Icon } from '~components/__future__/Icon'
+import { Icon } from '~components/__rc__/Icon'
 import styles from '../Popover.module.scss'
-import { PopoverVariant, PopoverSize } from '../types'
+import { type PopoverSize, type PopoverVariant } from '../types'
 
 export const mapVariantToBoxClass = (variant: PopoverVariant): string => {
   switch (variant) {

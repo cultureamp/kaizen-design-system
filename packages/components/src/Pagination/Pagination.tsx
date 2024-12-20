@@ -1,6 +1,6 @@
-import React, { HTMLAttributes } from 'react'
+import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { OverrideClassName } from '~components/types/OverrideClassName'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useMediaQueries } from '~components/utils'
 import { DirectionalLink } from './subcomponents/DirectionalLink'
 import { PaginationLink } from './subcomponents/PaginationLink'

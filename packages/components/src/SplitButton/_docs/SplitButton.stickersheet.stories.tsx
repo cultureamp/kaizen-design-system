@@ -1,15 +1,15 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { type Meta } from '@storybook/react'
 import {
   exampleActionButtonPropsAnchor,
   exampleActionButtonPropsButton,
   exampleDropdownContentEnabled,
-} from '~components/__actions__/Menu/v1/_docs/examples'
-import { StickerSheet, StickerSheetStory } from '~storybook/components/StickerSheet'
-import { SplitButton, SplitButtonProps } from '../index'
+} from '~components/Menu/_docs/examples'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { SplitButton, type SplitButtonProps } from '../index'
 
 export default {
-  title: 'Components/Buttons/SplitButton',
+  title: 'Components/SplitButton',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
