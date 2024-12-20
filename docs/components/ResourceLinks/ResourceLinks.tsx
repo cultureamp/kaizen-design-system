@@ -15,7 +15,7 @@ const ResourceLink = ({ href, text }: ResourceLinkProps): JSX.Element => (
       href={href}
       target="_blank"
       rel="noopener noreferrer nofollow"
-      className="border rounded inline-flex gap-4 items-center p-8 text-blue-400 no-underline"
+      className="border rounded inline-flex gap-4 items-center p-8 text-blue-500 no-underline"
     >
       <Text variant="small" tag="span" classNameOverride="text-inherit">
         {text}

@@ -4,4 +4,3 @@ packages/components/dist/*
 packages/components/locales/*
 docs/storybook-static/*
 docs/tailwind.css
-docs/preview.css
