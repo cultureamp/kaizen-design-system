@@ -154,8 +154,8 @@ importers:
         specifier: ^8.17.0
         version: 8.17.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.6.3)
       vite:
-        specifier: ^5.4.10
-        version: 5.4.10(@types/node@20.17.9)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)
+        specifier: ^6.0.5
+        version: 6.0.5(@types/node@20.17.9)(jiti@1.21.6)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.19.2)(yaml@2.5.0)
       vitest:
         specifier: ^2.1.8
         version: 2.1.8(@types/node@20.17.9)(jsdom@20.0.3)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)
@@ -9743,6 +9743,46 @@ packages:
       sugarss:
         optional: true
       terser:
+        optional: true
+
+  vite@6.0.5:
+    resolution: {integrity: sha512-akD5IAH/ID5imgue2DYhzsEwCi0/4VKY31uhMLEYJwPP4TiUp8pL5PIK+Wo7H8qT8JY9i+pVfPydcFPYD1EL7g==}
+    engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || ^20.0.0 || >=22.0.0
+      jiti: '>=1.21.0'
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      sass-embedded: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.16.0
+      tsx: ^4.8.1
+      yaml: ^2.4.2
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      jiti:
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+      tsx:
+        optional: true
+      yaml:
         optional: true
 
   vitest-axe@0.1.0:
@@ -21436,6 +21476,22 @@ snapshots:
       sass: 1.79.6
       stylus: 0.62.0
       terser: 5.31.5
+
+  vite@6.0.5(@types/node@20.17.9)(jiti@1.21.6)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.19.2)(yaml@2.5.0):
+    dependencies:
+      esbuild: 0.24.0
+      postcss: 8.4.49
+      rollup: 4.28.1
+    optionalDependencies:
+      '@types/node': 20.17.9
+      fsevents: 2.3.3
+      jiti: 1.21.6
+      less: 4.2.0
+      sass: 1.79.6
+      stylus: 0.62.0
+      terser: 5.31.5
+      tsx: 4.19.2
+      yaml: 2.5.0
 
   vitest-axe@0.1.0(vitest@2.1.8(@types/node@20.17.9)(jsdom@20.0.3)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)):
     dependencies:
