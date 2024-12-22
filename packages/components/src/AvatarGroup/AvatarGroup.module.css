@@ -20,18 +20,20 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
+  width: var(--avatar-x-y, 1.25rem);
+  height: var(--avatar-x-y, 1.25rem);
+}
+
+.AvatarGroupItem + .AvatarGroupItem {
+  margin-inline-start: calc((var(--avatar-x-y)) / -2);
 }
 
 .small {
-  .AvatarGroupItem + .AvatarGroupItem {
-    margin-inline-start: calc((var(--avatar-sm)) / -2);
-  }
+  --avatar-x-y: 1.25rem;
 
   .AvatarCounter {
     box-shadow: none;
     border: none;
-    width: var(--avatar-sm);
-    height: var(--avatar-sm);
     font-family: var(--typography-heading-5-font-family);
     font-size: 0.5rem;
     font-weight: var(--typography-heading-5-font-weight);
@@ -40,13 +42,9 @@
 }
 
 .medium {
-  .AvatarGroupItem + .AvatarGroupItem {
-    margin-inline-start: calc((var(--avatar-md)) / -2);
-  }
+  --avatar-x-y: 3rem;
 
   .AvatarCounter {
-    width: var(--avatar-md);
-    height: var(--avatar-md);
     font-family: var(--typography-heading-5-font-family);
     font-size: var(--typography-heading-5-font-size);
     font-weight: var(--typography-heading-5-font-weight);
@@ -55,13 +53,11 @@
 }
 
 .large {
-  .AvatarGroupItem + .AvatarGroupItem {
-    margin-inline-start: calc((var(--avatar-lg)) / -2);
-  }
+  --avatar-x-y: 4.5rem;
 
   .AvatarCounter {
-    width: var(--avatar-lg);
-    height: var(--avatar-lg);
+    width: var(--avatar-x-y);
+    height: var(--avatar-x-y);
     font-family: var(--typography-heading-3-font-family);
     font-size: var(--typography-heading-3-font-size);
     font-weight: var(--typography-heading-3-font-weight);

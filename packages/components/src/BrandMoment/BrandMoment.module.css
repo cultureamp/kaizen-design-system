@@ -42,7 +42,7 @@
 .container {
   max-width: var(--layout-content-max-width);
   margin: 0 auto;
-  padding: 0, var(--spacing-24);
+  padding: 0 var(--spacing-24);
 }
 
 @media (width >= 1080px) {

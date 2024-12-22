@@ -1,6 +1,4 @@
 .badge {
-  --dt-color-background-default: var(--color-gray-300);
-  --small: var(--spacing-24);
   --badge-duration-timing: (var(--animation-duration-slow) / 2)
     var(--animation-easing-function-ease-in);
 
@@ -16,6 +14,7 @@
   padding: 1px var(--spacing-6);
   min-width: 8px;
   text-align: center;
+  background-color: var(--badge-background-color, var(--color-gray-300));
 }
 
 .badge.large {
@@ -30,7 +29,6 @@
 }
 
 .default {
-  background-color: var(--dt-color-background-default);
   color: var(--color-purple-800);
 }
 
