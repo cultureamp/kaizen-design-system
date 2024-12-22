@@ -197,7 +197,7 @@ export default tseslint.config(
       'import/no-unresolved': [
         'error',
         {
-          ignore: ['^@kaizen/', '/preview.css$'],
+          ignore: ['^@kaizen/', '/tailwind-build.css$'],
         },
       ],
     },
