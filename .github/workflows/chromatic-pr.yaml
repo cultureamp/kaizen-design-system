@@ -57,8 +57,7 @@ jobs:
           onlyChanged: '!(main)'
           externals: |
             **/!(*.module).scss
-            packages/components/**/*.css
-            packages/components/**/*.module.css
+            **/!(*.module).css
 
   update-branch-preview:
     runs-on: ubuntu-latest
