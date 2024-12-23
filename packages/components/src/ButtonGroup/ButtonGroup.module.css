@@ -20,7 +20,7 @@
 .child:not(.firstChild, .lastChild) {
   &:focus-visible {
     &::after {
-      inset-inline: var(--focus-ring-offset-inner) var(--focus-ring-offset-inner);
+      inset-inline: var(--focus-ring-offset-inner);
     }
   }
 }

@@ -1,8 +1,3 @@
-/*
-// --------------------------------
-// Body
-// --------------------------------
-*/
 .body {
   width: 100%;
   min-height: 100vh;
@@ -34,11 +29,6 @@
   --brand-moment-background-color: var(--color-red-100);
 }
 
-/*
-// --------------------------------
-// Reusable container
-// --------------------------------
-*/
 .container {
   max-width: var(--layout-content-max-width);
   margin: 0 auto;
@@ -47,48 +37,38 @@
 
 @media (width >= 1080px) {
   .container {
-    padding: 0 3.75rem;
+    padding: 0 var(--spacing-64);
   }
 }
 
 @media (width >= 1366px) {
   .container {
-    padding: 0 5.25rem;
+    padding: 0 var(--spacing-80);
   }
 }
 
-/*
-// --------------------------------
-// Header
-// --------------------------------
-*/
 .header {
   inline-size: 100%;
   margin-block-end: var(--spacing-24);
 }
 
-/*
-// --------------------------------
-// Main
-// --------------------------------
-*/
 .main {
   flex: 1 0 auto;
   display: flex;
   align-items: center;
-  margin-block-end: 3.75rem;
+  margin-block-end: var(--spacing-64);
 }
 
 .mainInner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-48) 2.25rem;
+  gap: var(--spacing-48) var(--spacing-32);
   align-items: center;
 }
 
 @media (width >= 768px) {
   .mainInner {
-    row-gap: 3.75rem;
+    row-gap: var(--spacing-64);
   }
 }
 
@@ -100,7 +80,7 @@
 
 @media (width >= 1366px) {
   .mainInner {
-    column-gap: 5.25rem;
+    column-gap: var(--spacing-80);
   }
 }
 
@@ -130,11 +110,11 @@
 }
 
 .title {
-  margin-bottom: 2.25rem;
+  margin-bottom: var(--spacing-32);
 }
 
 .textBody {
-  margin-bottom: 2.25rem;
+  margin-bottom: var(--spacing-32);
 }
 
 .secondaryAction {
@@ -162,11 +142,6 @@
   }
 }
 
-/*
-// --------------------------------
-// Footer
-// --------------------------------
-*/
 .footer {
   flex: 0 0 auto;
 }
@@ -177,7 +152,7 @@
   border-block-start: 1px solid var(--color-purple-800);
   border-inline-start: 1px solid var(--color-purple-800);
   padding: var(--spacing-12) var(--spacing-24);
-  margin-block-end: 2.25rem;
+  margin-block-end: var(--spacing-32);
 }
 
 .poweredByContainer {

@@ -1,8 +1,4 @@
 .AvatarGroup {
-  --avatar-sm: 1.25rem;
-  --avatar-md: 3rem;
-  --avatar-lg: 4.5rem;
-
   display: inline-flex;
   list-style: none;
   margin: 0;
@@ -56,8 +52,6 @@
   --avatar-x-y: 4.5rem;
 
   .AvatarCounter {
-    width: var(--avatar-x-y);
-    height: var(--avatar-x-y);
     font-family: var(--typography-heading-3-font-family);
     font-size: var(--typography-heading-3-font-size);
     font-weight: var(--typography-heading-3-font-weight);
