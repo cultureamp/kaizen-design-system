@@ -2,4 +2,4 @@
 '@kaizen/components': patch
 ---
 
-Update AddFiltersMenu's default label to match guidelines
+FilterBar: 'Add Filters' button label changed to 'Add filters' to follow guidelines
