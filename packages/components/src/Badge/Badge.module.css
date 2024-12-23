@@ -15,16 +15,19 @@
 
   .reversed {
     --badge-background-color: rgba(var(--color-white-rgb), 0.1);
+
     color: var(--color-white);
   }
 
   .reversed.active {
     --badge-background-color: var(--color-green-300);
+
     color: var(--color-purple-800);
   }
-  
+
   .reversed.dark {
     --badge-background-color: var(--color-purple-700);
+
     color: var(--color-white);
   }
 }
@@ -46,16 +49,19 @@
 
 .active {
   --badge-background-color: var(--color-blue-500);
+
   color: var(--color-white);
 }
 
 .dark {
   --badge-background-color: rgba(var(--color-purple-700-rgb), 0.1);
+
   color: var(--color-purple-800);
 }
 
 .dot {
   --badge-background-color: var(--color-green-300);
+
   padding: var(--spacing-6);
   min-width: unset;
 }
@@ -64,6 +70,7 @@
   padding: 1.875rem;
   width: unset;
 }
+
 .animation {
   display: inherit;
 }
@@ -71,6 +78,7 @@
 .animation .badge {
   --badge-duration-timing: (var(--animation-duration-slow) / 2)
     var(--animation-easing-function-ease-in);
+
   transition:
     transform var(--badge-duration-timing),
     background-color var(--badge-duration-timing);
@@ -88,5 +96,6 @@
 
 .animation.animationOn .badge.active {
   --badge-background-color: var(--color-blue-500);
+
   color: var(--color-white);
 }

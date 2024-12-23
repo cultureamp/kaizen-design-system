@@ -10,7 +10,6 @@
   justify-content: center;
   width: var(--avatar-x-y);
   height: var(--avatar-x-y);
-
   box-shadow: var(--shadow-small-box-shadow);
   border: 3px solid var(--color-white);
 }
@@ -18,6 +17,7 @@
 .wrapper.small {
   box-shadow: none;
   border: none;
+
   --avatar-x-y: 1.25rem;
 }
 
@@ -88,6 +88,7 @@
     --avatar-fallback-icon-size: calc(var(--avatar-x-y) * 0.7);
   }
 }
+
 .initials {
   box-sizing: border-box;
   color: var(--color-purple-800);
@@ -100,6 +101,7 @@
   font-weight: var(--typography-heading-1-font-weight);
   letter-spacing: var(--typography-heading-3-letter-spacing);
 }
+
 .initials.longName::before {
   content: none;
 }
@@ -108,6 +110,16 @@
   content: '';
   display: block;
   margin-top: -0.001em;
+}
+
+.wrapper .initials {
+  text-decoration: none;
+  speak-as: spell-out;
+
+  /* to override materialize.css global styling in performance-ui,
+  * which sets a border-bottom on abbr tags
+  */
+  border-bottom: none;
 }
 
 .wrapper .xlarge .initials,
@@ -126,16 +138,6 @@
   font-size: 0.5rem;
   font-weight: var(--typography-heading-5-font-weight);
   letter-spacing: var(--typography-heading-5-letter-spacing);
-}
-
-.wrapper .initials {
-  text-decoration: none;
-  speak-as: spell-out;
-
-  /* to override materialize.css global styling in performance-ui,
-  * which sets a border-bottom on abbr tags
-  */
-  border-bottom: none;
 }
 
 .wrapper.small,
