@@ -28,6 +28,11 @@ pre code {
     font-size: var(--typography-heading-1-font-size);
     line-height: var(--typography-heading-1-line-height);
     letter-spacing: var(--typography-heading-1-letter-spacing);
+    margin-bottom: var(--spacing-20);
+
+    > a {
+      float: unset;
+    }
   }
 
   :where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)) {
@@ -38,6 +43,15 @@ pre code {
     letter-spacing: var(--typography-heading-2-letter-spacing);
     border-bottom: 0;
     text-decoration: none;
+    margin-top: var(--spacing-32);
+
+    &:first-of-type {
+      margin-top: var(--spacing-32);
+    }
+
+    > a {
+      float: unset;
+    }
   }
 
   :where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)) {
@@ -46,6 +60,16 @@ pre code {
     font-size: var(--typography-heading-3-font-size);
     line-height: var(--typography-heading-3-line-height);
     letter-spacing: var(--typography-heading-3-letter-spacing);
+    margin-top: var(--spacing-24);
+    margin-bottom: var(--spacing-12);
+
+    &:first-of-type {
+      margin-top: var(--spacing-24);
+    }
+
+    > a {
+      float: unset;
+    }
   }
 
   :where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)) {
@@ -54,6 +78,16 @@ pre code {
     font-size: var(--typography-heading-4-font-size);
     line-height: var(--typography-heading-4-line-height);
     letter-spacing: var(--typography-heading-4-letter-spacing);
+    margin-top: var(--spacing-24);
+    margin-bottom: var(--spacing-12);
+
+    &:first-of-type {
+      margin-top: var(--spacing-24);
+    }
+
+    > a {
+      float: unset;
+    }
   }
 
   :where(h5:not(.sb-anchor, .sb-unstyled, .sb-unstyled h5)) {
@@ -62,6 +96,15 @@ pre code {
     font-size: var(--typography-heading-5-font-size);
     line-height: var(--typography-heading-5-line-height);
     letter-spacing: var(--typography-heading-5-letter-spacing);
+    margin-top: var(--spacing-20);
+
+    &:first-of-type {
+      margin-top: var(--spacing-20);
+    }
+
+    > a {
+      float: unset;
+    }
   }
 
   :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) {
