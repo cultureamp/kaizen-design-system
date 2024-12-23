@@ -196,7 +196,7 @@ describe('<FilterBar />', () => {
 
       expect(queryByText('Topping')).not.toBeInTheDocument()
 
-      const addFiltersButton = getByRole('button', { name: 'Add Filters' })
+      const addFiltersButton = getByRole('button', { name: 'Add filters' })
       await user.click(addFiltersButton)
 
       const list = getByRole('list')
@@ -228,7 +228,7 @@ describe('<FilterBar />', () => {
       )
       await waitForI18nContent()
 
-      const addFiltersButton = getByRole('button', { name: 'Add Filters' })
+      const addFiltersButton = getByRole('button', { name: 'Add filters' })
       await user.click(addFiltersButton)
 
       const list = getByRole('list')
@@ -255,7 +255,7 @@ describe('<FilterBar />', () => {
         expect(filterButton).not.toBeInTheDocument()
       })
 
-      const addFiltersButton = getByRole('button', { name: 'Add Filters' })
+      const addFiltersButton = getByRole('button', { name: 'Add filters' })
       await user.click(addFiltersButton)
 
       const list = getByRole('list')
@@ -282,7 +282,7 @@ describe('<FilterBar />', () => {
       )
       await waitForI18nContent()
 
-      const addFiltersButton = getByRole('button', { name: 'Add Filters' })
+      const addFiltersButton = getByRole('button', { name: 'Add filters' })
       await user.click(addFiltersButton)
 
       const menuOptionIceLevel = getByRole('button', { name: 'Ice Level' })
@@ -314,7 +314,7 @@ describe('<FilterBar />', () => {
       )
       await waitForI18nContent()
 
-      const addFiltersButton = getByRole('button', { name: 'Add Filters' })
+      const addFiltersButton = getByRole('button', { name: 'Add filters' })
       await user.click(addFiltersButton)
 
       const menuOptionIceLevel = getByRole('button', { name: 'Ice Level' })
@@ -327,7 +327,7 @@ describe('<FilterBar />', () => {
       const { getByRole } = render(<FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />)
       await waitForI18nContent()
 
-      const addFiltersButton = getByRole('button', { name: 'Add Filters' })
+      const addFiltersButton = getByRole('button', { name: 'Add filters' })
       await user.click(addFiltersButton)
 
       const menuOptionOthers = getByRole('button', { name: 'Others' })
@@ -353,7 +353,7 @@ describe('<FilterBar />', () => {
         expect(filterButton).not.toBeInTheDocument()
       })
 
-      expect(getByRole('button', { name: 'Add Filters' })).toHaveFocus()
+      expect(getByRole('button', { name: 'Add filters' })).toHaveFocus()
     })
   })
 
@@ -363,7 +363,7 @@ describe('<FilterBar />', () => {
         const { queryByRole, getByRole } = render(<FilterBarWrapper filters={filtersDependent} />)
         await waitForI18nContent()
         expect(queryByRole('button', { name: 'Topping' })).not.toBeInTheDocument()
-        expect(getByRole('button', { name: 'Add Filters' })).toBeDisabled()
+        expect(getByRole('button', { name: 'Add filters' })).toBeDisabled()
       })
 
       it('clears the value if the filter is not usable', async () => {
@@ -426,7 +426,7 @@ describe('<FilterBar />', () => {
         )
         await waitForI18nContent()
 
-        const addFiltersButton = getByRole('button', { name: 'Add Filters' })
+        const addFiltersButton = getByRole('button', { name: 'Add filters' })
         expect(addFiltersButton).toBeDisabled()
 
         const flavourButton = getByRole('button', { name: 'Flavour' })
@@ -612,7 +612,7 @@ describe('<FilterBar />', () => {
         expect(queryByRole('button', { name: 'Sugar' })).not.toBeInTheDocument()
         expect(queryByRole('button', { name: 'Ice' })).not.toBeInTheDocument()
 
-        const addFiltersButton = getByRole('button', { name: 'Add Filters' })
+        const addFiltersButton = getByRole('button', { name: 'Add filters' })
         expect(addFiltersButton).toBeDisabled()
 
         await user.click(coffeeButton)
