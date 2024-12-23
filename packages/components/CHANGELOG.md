@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.1
+
+### Patch Changes
+
+- [#5423](https://github.com/cultureamp/kaizen-design-system/pull/5423) [`2fcf1cc`](https://github.com/cultureamp/kaizen-design-system/commit/2fcf1ccee78c0808630e19bafbd8330897277843) - Update inline notification icon colour to blue-500
+
 ## 1.70.0
 
 ### Minor Changes
