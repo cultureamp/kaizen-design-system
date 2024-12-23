@@ -1,0 +1,76 @@
+import { Meta, Markdown } from '@storybook/blocks'
+
+<Meta title="Introduction/Release schedule (alt)" />
+
+# Release schedule
+
+Upcoming releases for the Kaizen Design System.
+
+## Glossary
+
+- **Current**: The version of the component that is exported in the main package entrypoint (`@kaizen/components`).
+- **RC (Release Candidate)**: The version of the component that will supersede the **Current** version.
+- **Component migrations**: A list of components that will have their **RC** version replace the **Current** version in the release.
+  - The **Current** version will be deprecated, then deleted in the next major release.
+  - _(^ OR)_ The **Current** version will be deleted.
+  - **Codemod**: A script that can be run to migrate component usages to from the **Current** API to the **RC** API.
+
+## @kaizen/components v2.0
+
+July 1, 2025
+
+### Component migrations
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Codemod</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Icon</td>
+      <td>`upgradeIconV1`</td>
+    </tr>
+    <tr>
+      <td>Tag</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>Tabs</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>Tooltip</td>
+      <td>N/A</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## @kaizen/components v3.0
+
+Dec 1, 2025
+
+### Component Migrations
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Codemod</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Button</td>
+      <td>WIP</td>
+    </tr>
+    <tr>
+      <td>Menu</td>
+      <td>N/A</td>
+    </tr>
+  </tbody>
+</table>
