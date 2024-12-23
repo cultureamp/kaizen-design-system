@@ -1,0 +1,343 @@
+import { Meta, Markdown } from '@storybook/blocks'
+
+<Meta title="Introduction/Upcoming major releases" />
+
+# Upcoming major releases
+
+## `@kaizen/components@v2`
+
+September 1, 2025
+
+### `next` components replacing `current` components
+
+Components from the `@kaizen/components/next` entry point taking the place of components from the regular `@kaizen/components` entry point.
+
+`current` components will be removed in the release.
+
+<table>
+  <thead>
+    <tr>
+      <th>`current` component/s</th>
+      <th>`next` component/s</th>
+      <th>Codemod</th>
+      <th>Migration guide</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        [`Button`](?path=/docs/components-button-button-deprecated--docs),
+        [`IconButton`](?path=/docs/components-button-iconbutton-deprecated--docs)
+      </td>
+      <td>[`Button`](?path=/docs/components-button-button-next-api-specification--docs)</td>
+      <td>`upgradeV1Buttons`</td>
+      <td>[Migration guide](?path=/docs/components-button-migration-guide--docs)</td>
+    </tr>
+    <tr>
+      <td>[All *Icon components](?path=/docs/components-icon-icon-components-deprecated--docs) (e.g. `<ArrowRightIcon>`</td>
+      <td>[`Icon`](?path=/docs/components-icon-icon-future-api-specification--docs)</td>
+      <td>`upgradeIconV1`</td>
+      <td>[Migration guide](?path=/docs/components-icon-migration-guide--docs)</td>
+    </tr>
+    <tr>
+      <td>[`Menu`](?path=/docs/components-menu-menu-deprecated--docs)</td>
+      <td>[`Menu`](?path=/docs/components-menu-menu-next-api-specification--docs)</td>
+      <td>Feasibility TBD</td>
+      <td>Coming soon</td>
+    </tr>
+    <tr>
+      <td>[`Tag`](?path=/docs/components-tag-migration-guide--docs)</td>
+      <td>
+        [`Tag`](?path=/docs/components-tag-tag-next--docs)
+        [`RemovableTag`](?path=/docs/components-tag-tag-next-removabletag--docs)
+      </td>
+      <td>Feasibility TBD</td>
+      <td>[Migration guide](?path=/docs/components-tag-future-tag-migration-guide--docs)</td>
+    </tr>
+    <tr>
+      <td>[`Tabs`](?path=/docs/components-tabs-tabs-deprecated--docs)</td>
+      <td>[`Tabs`](?path=/docs/components-tabs-tabs-next-api-specification--docs)</td>
+      <td>Manual change required</td>
+      <td>[Migration guide](?path=/docs/components-tabs-migration-guide--docs)</td>
+    </tr>
+    <tr>
+      <td>[`Tooltip`](?path=/docs/components-tooltip-tooltip-deprecated--docs)</td>
+      <td>[`Tooltip`](?path=/docs/components-tooltip-tooltip-next-api-specification--docs)</td>
+      <td>Feasibility TBD</td>
+      <td>Coming soon</td>
+    </tr>
+  </tbody>
+</table>
+
+### Other components being removed
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Recommendation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`Skirt`</td>
+      <td>Remove any usages</td>
+    </tr>
+    <tr>
+      <td>`SkirtCard`</td>
+      <td>Use a regular `Card` component</td>
+    </tr>
+    <tr>
+      <td>`SplitButton`</td>
+      <td>Use a `Button` and a `Menu` component (story to come)</td>
+    </tr>
+  </tbody>
+</table>
+
+### Renamed components
+
+Imports from the new names will be allowed shortly, and support for the old name will be removed in v2.
+
+<table>
+  <thead>
+    <tr>
+      <th>Old name</th>
+      <th>New name</th>
+      <th>Codemod</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`future/Select`</td>
+      <td>`SingleSelect`</td>
+      <td>Coming soon</td>
+    </tr>
+    <tr>
+      <td>`LikertScaleLegacy`</td>
+      <td>`LikertScale`</td>
+      <td>Coming soon</td>
+    </tr>
+    <tr>
+      <td>`TitleBlockZen`</td>
+      <td>`TitleBlock`</td>
+      <td>Coming soon</td>
+    </tr>
+  </tbody>
+</table>
+
+### Deprecated props being removed
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Prop</th>
+      <th>Codemod</th>
+      <th>Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colSpan={4}>`mood` and `variant`</td>
+    </tr>
+    <tr>
+      <td>`BrandMoment`</td>
+      <td>`mood`</td>
+      <td>`migrateBrandMomentMoodToVariant`</td>
+      <td>Use `variant` instead</td>
+    </tr>
+    <tr>
+      <td>`Card`</td>
+      <td>`variant`</td>
+      <td>`migrateCardVariantToColor`</td>
+      <td>Use `color` instead</td>
+    </tr>
+    <tr>
+      <td>`ConfirmationModal`</td>
+      <td>`mood`</td>
+      <td>`migrateConfirmationModalMoodsToVariant`</td>
+      <td>Use `variant` instead</td>
+    </tr>
+    <tr>
+      <td>`EmptyState`</td>
+      <td>`illustrationType`</td>
+      <td>`migrateEmptyStateIllustrationTypeToVariant`</td>
+      <td>Use `variant` instead</td>
+    </tr>
+    <tr>
+      <td>`InputEditModal`</td>
+      <td>`mood`</td>
+      <td>`removeInputEditModalMood`</td>
+      <td>
+        We are no longer supporting different moods for InputModal, instead there will only be a
+        single default variant set by the component.
+      </td>
+    </tr>
+    <tr>
+      <td>`Popover`</td>
+      <td>`variant`</td>
+      <td>`removePopoverVariant`</td>
+      <td>
+        We are no longer supporting different variants for Popover, instead there will only be a
+        single default variant.
+      </td>
+    </tr>
+    <tr>
+      <td>`Popover`</td>
+      <td>`customIcon`</td>
+      <td>-</td>
+      <td>This was for customising the icon provided with variants.</td>
+    </tr>
+    <tr>
+      <td>`ProgressBar`</td>
+      <td>`mood`</td>
+      <td>`migrateProgressBarMoodToColor`</td>
+      <td>Use `color` prop instead</td>
+    </tr>
+    <tr>
+      <td>`InformationTile`</td>
+      <td>`mood`</td>
+      <td>`migrateInformationTileMoodToVariant`</td>
+      <td>Use `variant` instead</td>
+    </tr>
+    <tr>
+      <td>`MultiActionTile`</td>
+      <td>`mood`</td>
+      <td>`migrateMultiActionTileMoodToVariant`</td>
+      <td>Use `variant` instead</td>
+    </tr>
+    <tr>
+      <td>`Well`</td>
+      <td>`variant`</td>
+      <td>`migrateWellVariantToColor`</td>
+      <td>
+        This will not fallback to default variant. default can be used but must be explicitly passed
+        to the Well component. It is recommended to use color prop and gray value if you need a gray
+        background.
+      </td>
+    </tr>
+    <tr>
+      <td colSpan={4}>automationId</td>
+    </tr>
+    <tr>
+      <td>`LikertScaleLegacy`</td>
+      <td>`automationId`</td>
+      <td>-</td>
+      <td>Use data-testid instead</td>
+    </tr>
+    <tr>
+      <td>`ConfirmationModal`</td>
+      <td>☝️</td>
+      <td>-</td>
+      <td>☝️</td>
+    </tr>
+    <tr>
+      <td>`ConfirmationModal`</td>
+      <td>☝️</td>
+      <td>-</td>
+      <td>☝️</td>
+    </tr>
+    <tr>
+      <td>`ContextModal`</td>
+      <td>☝️</td>
+      <td>-</td>
+      <td>☝️</td>
+    </tr>
+    <tr>
+      <td>`InputEditModal`</td>
+      <td>☝️</td>
+      <td>-</td>
+      <td>☝️</td>
+    </tr>
+    <tr>
+      <td>`ModalFooter`</td>
+      <td>☝️</td>
+      <td>-</td>
+      <td>☝️</td>
+    </tr>
+    <tr>
+      <td colSpan={4}>Others</td>
+    </tr>
+  </tbody>
+</table>
+
+### Other changes
+
+Support for old import paths will be dropped. This includes imports from `@kaizen/components/future`, or any versioned entry point (e.g. `@kaizen/components/v3/actions`)
+
+A codemod will be provided to make the migration off these.
+
+## `@kaizen/design-tokens@v11`
+
+September 1, 2025
+
+### Utils being removed
+
+<table>
+  <thead>
+    <tr>
+      <th>Util/Component</th>
+      <th>Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`ThemeManager`</td>
+      <td>
+        Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset`
+        from next-services.
+      </td>
+    </tr>
+    <tr>
+      <td>`ThemeProvider`</td>
+      <td>
+        Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset`
+        from next-services.
+      </td>
+    </tr>
+    <tr>
+      <td>`Theme`</td>
+      <td>
+        <ul>
+          <li>
+            Not needed if you are using `KaizenProvider` from `@kaizen/components` or
+            `defaultPreset` from next-services.
+          </li>
+          <li>If necessary, import from `@kaizen/design-tokens/js`</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>`heartTheme`</td>
+      <td>
+        <ul>
+          <li>
+            Not needed if you are using `KaizenProvider` from `@kaizen/components` or
+            `defaultPreset` from next-services.
+          </li>
+          <li>If necessary, import from `@kaizen/design-tokens/js`</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>`defaultTheme`</td>
+      <td>
+        Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset`
+        from next-services.
+      </td>
+    </tr>
+    <tr>
+      <td>`makeCssVariableDefinitionsMap`</td>
+      <td>
+        Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset`
+        from next-services.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## `@kaizen/hosted-assets` EOL
+
+September 1, 2025
+
+This package exports a single `assetUrl` function which can now be imported from `@kaizen/components` instead.
