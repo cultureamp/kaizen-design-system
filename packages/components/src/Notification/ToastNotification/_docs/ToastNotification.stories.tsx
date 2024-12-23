@@ -1,6 +1,6 @@
 import React, { useEffect, useId } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, userEvent, within } from '@storybook/test'
+import { expect, within } from '@storybook/test'
 import { Button } from '~components/Button'
 import { ToastNotification, useToastNotification } from '../index'
 
@@ -175,27 +175,26 @@ export const NoDuplicatesWithSameId: Story = {
   render: () => {
     const { addToastNotification } = useToastNotification()
 
-    return (
-      <Button
-        label="Create notification"
-        onClick={() =>
-          addToastNotification({
-            id: 'id--clear-example-1',
-            title: 'First',
-            type: 'positive',
-            message: 'There should only be one notification',
-          })
-        }
-      />
-    )
+    useEffect(() => {
+      addToastNotification({
+        id: 'id--clear-example-1',
+        title: 'First',
+        type: 'positive',
+        message: 'There should only be one notification',
+      })
+      addToastNotification({
+        id: 'id--clear-example-1',
+        title: 'First',
+        type: 'positive',
+        message: 'There should only be one notification',
+      })
+    }, [addToastNotification])
+
+    return <div>Irrelevant content</div>
   },
   play: async (context) => {
     const { canvasElement } = context
-    const { findAllByText, findByRole } = within(canvasElement.parentElement!)
-
-    const createNotificationButton = await findByRole('button', { name: 'Create notification' })
-    await userEvent.click(createNotificationButton)
-    await userEvent.click(createNotificationButton)
+    const { findAllByText } = within(canvasElement.parentElement!)
 
     const notifications = await findAllByText('There should only be one notification')
     expect(notifications).toHaveLength(1)
