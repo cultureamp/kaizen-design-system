@@ -14,47 +14,46 @@
   border: 3px solid var(--color-white);
 }
 
-.wrapper.small {
+.small {
   box-shadow: none;
   border: none;
 
   --avatar-x-y: 1.25rem;
 }
 
+.medium {
+  --avatar-x-y: 3rem;
+}
+
+.large {
+  --avatar-x-y: 4.5rem;
+}
+
+.xlarge {
+  --avatar-x-y: 6rem;
+}
+
+.xxlarge {
+  --avatar-x-y: 7.75rem;
+}
 /* Themes */
-.wrapper .personal {
+.personal {
   background: var(--color-orange-100);
 }
 
-.wrapper .otherUser {
+.otherUser {
   background: var(--color-gray-300);
 }
 
-.wrapper .company {
+.company {
   border: 0;
   background: var(--color-white);
   padding: var(--spacing-6);
   border-radius: var(--border-solid-border-radius);
 }
 
-.wrapper .small .company {
+.small .company {
   padding: 0;
-}
-
-.wrapper .medium {
-  --avatar-x-y: 3rem;
-}
-
-.wrapper .large {
-  --avatar-x-y: 4.5rem;
-}
-
-.wrapper .xlarge {
-  --avatar-x-y: 6rem;
-}
-
-.wrapper .xxlarge {
-  --avatar-x-y: 7.75rem;
 }
 
 .avatarImage {
@@ -75,18 +74,12 @@
 
 .fallbackIcon {
   color: rgba(var(--color-purple-800-rgb), 0.7);
-  font-size: var(--avatar-fallback-icon-size);
+  font-size: calc(var(--avatar-x-y) * 0.7);
+}
 
-  .xlarge &,
-  .xxlarge & {
-    --avatar-fallback-icon-size: calc(var(--avatar-x-y) * 0.8);
-  }
-
-  .small &,
-  .medium &,
-  .large & {
-    --avatar-fallback-icon-size: calc(var(--avatar-x-y) * 0.7);
-  }
+.xlarge .fallbackIcon,
+.xxlarge .fallbackIcon {
+  font-size: calc(var(--avatar-x-y) * 0.8);
 }
 
 .initials {
@@ -122,25 +115,23 @@
   border-bottom: none;
 }
 
-.wrapper .xlarge .initials,
-.wrapper .xxlarge .initials {
+.xlarge .initials,
+.xxlarge .initials {
   font-size: var(--typography-heading-1-font-size);
   letter-spacing: var(--typography-heading-1-letter-spacing);
 }
 
-.wrapper .medium .initials {
+.medium .initials {
   font-size: var(--typography-heading-5-font-size);
-  font-weight: var(--typography-heading-5-font-weight);
-  letter-spacing: var(--typography-heading-5-letter-spacing);
 }
 
-.wrapper .small .initials {
+.small .initials {
   font-size: 0.5rem;
-  font-weight: var(--typography-heading-5-font-weight);
-  letter-spacing: var(--typography-heading-5-letter-spacing);
 }
 
-.wrapper.small,
-.wrapper.medium .initials {
+.small,
+.medium .initials {
   margin-bottom: -1px;
+  font-weight: var(--typography-heading-5-font-weight);
+  letter-spacing: var(--typography-heading-5-letter-spacing);
 }

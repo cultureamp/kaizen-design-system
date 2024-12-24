@@ -26,35 +26,38 @@
 
 .small {
   --avatar-x-y: 1.25rem;
+}
 
-  .AvatarCounter {
-    box-shadow: none;
-    border: none;
-    font-family: var(--typography-heading-5-font-family);
-    font-size: 0.5rem;
-    font-weight: var(--typography-heading-5-font-weight);
-    letter-spacing: var(--typography-heading-5-letter-spacing);
-  }
+.small .AvatarCounter {
+  box-shadow: none;
+  border: none;
+  font-size: 0.5rem;
+  font-weight: var(--typography-heading-5-font-weight);
+  letter-spacing: var(--typography-heading-5-letter-spacing);
 }
 
 .medium {
   --avatar-x-y: 3rem;
+}
 
-  .AvatarCounter {
-    font-family: var(--typography-heading-5-font-family);
-    font-size: var(--typography-heading-5-font-size);
-    font-weight: var(--typography-heading-5-font-weight);
-    letter-spacing: var(--typography-heading-5-letter-spacing);
-  }
+.medium .AvatarCounter {
+  font-size: var(--typography-heading-5-font-size);
+}
+
+.small,
+.medium .AvatarCounter {
+  font-family: var(--typography-heading-5-font-family);
+  font-weight: var(--typography-heading-5-font-weight);
+  letter-spacing: var(--typography-heading-5-letter-spacing);
 }
 
 .large {
   --avatar-x-y: 4.5rem;
+}
 
-  .AvatarCounter {
-    font-family: var(--typography-heading-3-font-family);
-    font-size: var(--typography-heading-3-font-size);
-    font-weight: var(--typography-heading-3-font-weight);
-    letter-spacing: var(--typography-heading-3-letter-spacing);
-  }
+.large .AvatarCounter {
+  font-family: var(--typography-heading-3-font-family);
+  font-size: var(--typography-heading-3-font-size);
+  font-weight: var(--typography-heading-3-font-weight);
+  letter-spacing: var(--typography-heading-3-letter-spacing);
 }

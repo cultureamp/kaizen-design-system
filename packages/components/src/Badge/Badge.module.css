@@ -32,7 +32,7 @@
   }
 }
 
-.badge.large {
+.large {
   display: inline-flex;
   justify-content: center;
   border-radius: var(--spacing-48);
@@ -66,7 +66,7 @@
   min-width: unset;
 }
 
-.dot.large {
+.dot .large {
   padding: 1.875rem;
   width: unset;
 }
@@ -86,15 +86,15 @@
   transform: scale3d(1, 1, 1);
 }
 
-.animation.animationOn .badge {
+.animationOn .badge {
   transform: scale3d(1.35, 1.35, 1.35);
 }
 
-.animation.animationOn .badge.dark {
+.animationOn .badge .dark {
   --badge-background-color: rgba(var(--color-purple-700-rgb), 0.2);
 }
 
-.animation.animationOn .badge.active {
+.animationOn .badge .active {
   --badge-background-color: var(--color-blue-500);
 
   color: var(--color-white);
