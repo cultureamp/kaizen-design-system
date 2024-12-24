@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.2
+
+### Patch Changes
+
+- [#5425](https://github.com/cultureamp/kaizen-design-system/pull/5425) [`3c296b1`](https://github.com/cultureamp/kaizen-design-system/commit/3c296b1cea076d8ecbd92f4ebd61d002e797009e) - FilterBar: 'Add Filters' button label changed to 'Add filters' to follow guidelines
+
 ## 1.70.1
 
 ### Patch Changes
