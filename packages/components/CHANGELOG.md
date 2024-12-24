@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.3
+
+### Patch Changes
+
+- [#5430](https://github.com/cultureamp/kaizen-design-system/pull/5430) [`fbedd22`](https://github.com/cultureamp/kaizen-design-system/commit/fbedd223447aa569aa2de13482d896465494bf29) - FilterBar: Update localisation to follow guidelines
+
 ## 1.70.2
 
 ### Patch Changes
