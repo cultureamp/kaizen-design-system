@@ -791,10 +791,10 @@ export const UpdatesLabels: Story = {
     const canvas = within(canvasElement)
 
     await step('Initial render complete', async () => {
-      await waitFor(() => canvas.getByRole('button', { name: 'Add Filters' }))
+      await waitFor(() => canvas.getByRole('button', { name: 'Add filters' }))
     })
 
-    await userEvent.click(canvas.getByRole('button', { name: 'Add Filters' }))
+    await userEvent.click(canvas.getByRole('button', { name: 'Add filters' }))
 
     expect(canvas.queryByText('Custom Range')).not.toBeInTheDocument()
 
