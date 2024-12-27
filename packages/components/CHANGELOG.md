@@ -1,5 +1,23 @@
 # Change Log
 
+## 1.70.3
+
+### Patch Changes
+
+- [#5430](https://github.com/cultureamp/kaizen-design-system/pull/5430) [`fbedd22`](https://github.com/cultureamp/kaizen-design-system/commit/fbedd223447aa569aa2de13482d896465494bf29) - FilterBar: Update localisation to follow guidelines
+
+## 1.70.2
+
+### Patch Changes
+
+- [#5425](https://github.com/cultureamp/kaizen-design-system/pull/5425) [`3c296b1`](https://github.com/cultureamp/kaizen-design-system/commit/3c296b1cea076d8ecbd92f4ebd61d002e797009e) - FilterBar: 'Add Filters' button label changed to 'Add filters' to follow guidelines
+
+## 1.70.1
+
+### Patch Changes
+
+- [#5423](https://github.com/cultureamp/kaizen-design-system/pull/5423) [`2fcf1cc`](https://github.com/cultureamp/kaizen-design-system/commit/2fcf1ccee78c0808630e19bafbd8330897277843) - Update inline notification icon colour to blue-500
+
 ## 1.70.0
 
 ### Minor Changes
