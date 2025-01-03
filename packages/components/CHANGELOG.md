@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.4
+
+### Patch Changes
+
+- [#5435](https://github.com/cultureamp/kaizen-design-system/pull/5435) [`4bfcd3e`](https://github.com/cultureamp/kaizen-design-system/commit/4bfcd3eb617e144293efad2b845c1434c95c38ff) - update LinkButton's import of the Button stylesheet to a relative path to resolve file resolution error
+
 ## 1.70.3
 
 ### Patch Changes
