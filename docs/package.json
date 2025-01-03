@@ -36,7 +36,7 @@
     "axe-playwright": "^2.0.3",
     "classnames": "^2.5.1",
     "globals": "^15.13.0",
-    "highlight.js": "^11.10.0",
+    "highlight.js": "^11.11.1",
     "jest-axe": "^9.0.0",
     "react-highlight": "^0.15.0",
     "sass": "1.79.6",
