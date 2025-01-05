@@ -3,11 +3,12 @@ import { Badge, BadgeAnimated } from '~components/Badge'
 import {
   type ButtonBadgeProps,
   type GenericButtonProps,
+  type WorkingButtonProps,
   type WorkingProps,
 } from '../Button/GenericButton'
 import { type ButtonProps } from '../__rc__/Button/Button'
 
-const isWorkingProps = (props: GenericButtonProps): props is WorkingProps => {
+const isWorkingProps = (props: WorkingButtonProps): props is WorkingProps => {
   return 'workingLabel' in props
 }
 
@@ -46,7 +47,7 @@ export const convertBtnProps = (oldProps: GenericButtonProps): ButtonProps => {
     ;({ workingLabel, workingLabelHidden } = oldProps)
   }
 
-  return {
+  const newButtonProps: ButtonProps = {
     variant: primary || destructive ? 'primary' : secondary ? 'tertiary' : 'primary',
     size: size === 'regular' ? 'large' : size === 'small' ? 'medium' : size,
     className: undefined,
@@ -60,10 +61,16 @@ export const convertBtnProps = (oldProps: GenericButtonProps): ButtonProps => {
     icon: undefined,
     iconPosition: undefined,
     hasHiddenLabel: false,
-    isPending: working ?? false,
-    hasHiddenPendingLabel: workingLabelHidden ?? undefined,
-    pendingLabel: workingLabel ?? undefined,
     isReversed: reversed,
     type: type,
+    isPending: working,
   }
+
+  if (working !== undefined) {
+    newButtonProps.isPending = working
+    newButtonProps.pendingLabel = workingLabel
+    newButtonProps.hasHiddenPendingLabel = workingLabelHidden
+  }
+
+  return newButtonProps
 }
