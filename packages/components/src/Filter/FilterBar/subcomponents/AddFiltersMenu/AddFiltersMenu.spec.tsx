@@ -48,9 +48,9 @@ describe('<AddFiltersMenu />', () => {
     render(<AddFiltersMenuWrapper filters={filters} />)
 
     await waitFor(() => {
-      expect(screen.getByRole('button', { name: 'Add Filters' })).toBeVisible()
+      expect(screen.getByRole('button', { name: 'Add filters' })).toBeVisible()
     })
-    const addFiltersButton = screen.getByRole('button', { name: 'Add Filters' })
+    const addFiltersButton = screen.getByRole('button', { name: 'Add filters' })
     await user.click(addFiltersButton)
 
     await waitFor(() => {
@@ -74,7 +74,7 @@ describe('<AddFiltersMenu />', () => {
 
     await waitFor(() => {
       const addFiltersButton = screen.getByRole('button', {
-        name: 'Add Filters',
+        name: 'Add filters',
       })
       expect(addFiltersButton).toBeDisabled()
     })

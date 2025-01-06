@@ -11,7 +11,7 @@ export const AddFiltersMenu = (): JSX.Element => {
 
   const menuButtonLabel = formatMessage({
     id: 'filterBar.addFiltersMenu.buttonLabel',
-    defaultMessage: 'Add Filters',
+    defaultMessage: 'Add filters',
     description: 'Menu button label to show additional available filter options',
   })
 

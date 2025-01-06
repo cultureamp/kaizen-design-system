@@ -157,7 +157,7 @@ export const ClearAllFromRemovable: Story = {
 
     await step('removable filter is added with no value', async () => {
       await waitFor(() => {
-        userEvent.click(canvas.getByRole('button', { name: 'Add Filters' }))
+        userEvent.click(canvas.getByRole('button', { name: 'Add filters' }))
       })
 
       await waitFor(() => {
@@ -205,7 +205,7 @@ export const ClearAllRemovesItself: Story = {
     const canvas = within(canvasElement.parentElement!)
 
     await step('removable filter is added with no value', async () => {
-      await waitFor(() => userEvent.click(canvas.getByRole('button', { name: 'Add Filters' })))
+      await waitFor(() => userEvent.click(canvas.getByRole('button', { name: 'Add filters' })))
       await userEvent.click(canvas.getByRole('button', { name: 'Drank' }))
     })
 
