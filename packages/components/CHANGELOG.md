@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.5
+
+### Patch Changes
+
+- [#5438](https://github.com/cultureamp/kaizen-design-system/pull/5438) [`4ce10a0`](https://github.com/cultureamp/kaizen-design-system/commit/4ce10a0f7a815e672caa90b52e576089051f9ec9) - Menu v3: Changed MenuItem colour from purple-800 70% to purple-800
+
 ## 1.70.4
 
 ### Patch Changes
