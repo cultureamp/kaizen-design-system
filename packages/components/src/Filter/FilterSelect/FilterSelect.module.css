@@ -1,7 +1,8 @@
-.filterContents {
+/*  This a temporary fix to increase specificity, until we figure out why this CSS is being compiled later than the padding in the FilterContents sub-component */
+.filterContents.filterContents {
   box-sizing: border-box;
   min-width: 12.25rem; /* 196px */
   max-width: 25rem; /* 400px */
   overflow: auto;
-  padding: unset; /* Padding is added by <SelectPopoverContents> #note: this !important is a temporary fix while we figure out why this CSS is being compiled later than the padding in SelectPopoverContents */
+  padding: unset; /* Padding is added by <SelectPopoverContents> */
 }

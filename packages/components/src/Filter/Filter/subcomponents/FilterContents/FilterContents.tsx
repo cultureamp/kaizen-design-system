@@ -12,7 +12,6 @@ export const FilterContents = ({
   classNameOverride,
   ...restProps
 }: FilterContentsProps): JSX.Element => (
-  // TODO: this initially has 24px of padding by default, but classNameOverride SHOULD supersede this (it doesn't because it gets compile later in the cascade)
   <div className={classnames(styles.filterContents, classNameOverride)} {...restProps}>
     {children}
   </div>
