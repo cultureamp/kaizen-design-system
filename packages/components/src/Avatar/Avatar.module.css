@@ -36,6 +36,7 @@
 .xxlarge {
   --avatar-x-y: 7.75rem;
 }
+
 /* Themes */
 .personal {
   background: var(--color-orange-100);
