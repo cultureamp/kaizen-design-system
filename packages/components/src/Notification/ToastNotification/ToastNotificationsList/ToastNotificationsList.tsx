@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { createPortal } from 'react-dom'
 import { useToastNotificationContext } from '../context/ToastNotificationContext'
 import { ToastNotificationsMap } from './subcomponents/ToastNotificationsMap'
 import styles from './ToastNotificationsList.module.scss'
@@ -9,37 +8,25 @@ export const ToastNotificationsList = (): JSX.Element => {
   const [toastContainer, setToastContainer] = useState<Element | null>(null)
 
   useEffect(() => {
-    const containers = document.querySelectorAll('[data-testid="toast-notifications-list"')
-    if (toastContainer && containers.length === 1) {
-      return
+    let container = document.querySelector('[data-testid="toast-notifications-list"]')
+    if (!container) {
+      container = document.createElement('div')
+      container.setAttribute('data-testid', 'toast-notifications-list')
+      container.setAttribute('role', 'status')
+      container.className = styles.toastNotificationsList
+      document.body.appendChild(container)
     }
+    setToastContainer(container)
+  }, [])
 
-    if (containers) {
-      // Remove any duplicate instances
-      // (eg. Storybook docs page has multiple stories each with their own context)
-      containers.forEach((c, i) => {
-        if (i === 0) {
-          setToastContainer(c)
-          return
-        }
-        c.remove()
-      })
-    }
-  }, [toastContainer])
-
-  return createPortal(
-    <div
-      data-testid="toast-notifications-list"
-      role="status"
-      className={styles.toastNotificationsList}
-    >
-      <ToastNotificationsMap
-        notifications={notifications}
-        onHide={removeToastNotification}
-        container={toastContainer}
-      />
-    </div>,
-    document.body,
+  return toastContainer ? (
+    <ToastNotificationsMap
+      notifications={notifications}
+      onHide={removeToastNotification}
+      container={toastContainer}
+    />
+  ) : (
+    <></>
   )
 }
 
