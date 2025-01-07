@@ -2,7 +2,6 @@ import React, { useEffect, useId } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, within } from '@storybook/test'
 import { Button } from '~components/Button'
-import { KaizenProvider } from '~components/KaizenProvider'
 import { ToastNotification, useToastNotification } from '../index'
 
 const meta = {
@@ -24,13 +23,6 @@ const meta = {
       control: false,
     },
   },
-  decorators: [
-    (Story) => (
-      <KaizenProvider>
-        <Story />
-      </KaizenProvider>
-    ),
-  ],
 } satisfies Meta<typeof ToastNotification>
 
 export default meta
