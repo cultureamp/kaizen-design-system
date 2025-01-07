@@ -3,15 +3,18 @@ import { useToastNotificationContext } from '../context/ToastNotificationContext
 import { ToastNotificationsMap } from './subcomponents/ToastNotificationsMap'
 import styles from './ToastNotificationsList.module.scss'
 
+const toastNotificationListId = 'toast-notifications-list'
+
 export const ToastNotificationsList = (): JSX.Element => {
   const { notifications, removeToastNotification } = useToastNotificationContext()
   const [toastContainer, setToastContainer] = useState<Element | null>(null)
 
   useEffect(() => {
-    let container = document.querySelector('[data-testid="toast-notifications-list"]')
+    // this is to ensure that the container is created only once. Regardless of how many KaizenProvider is set up, they will also reuse the same container.
+    let container = document.querySelector(`[id="${toastNotificationListId}"]`)
     if (!container) {
       container = document.createElement('div')
-      container.setAttribute('data-testid', 'toast-notifications-list')
+      container.setAttribute('id', toastNotificationListId)
       container.setAttribute('role', 'status')
       container.className = styles.toastNotificationsList
       document.body.appendChild(container)
