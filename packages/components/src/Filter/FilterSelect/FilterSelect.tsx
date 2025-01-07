@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useButton } from '@react-aria/button'
 import { HiddenSelect, useSelect } from '@react-aria/select'
 import { useSelectState, type SelectProps as AriaSelectProps } from '@react-stately/select'
+import classnames from 'classnames'
 import { Filter, FilterContents } from '~components/Filter/Filter'
 import { type FilterButtonProps } from '~components/Filter/FilterButton'
 import { SelectProvider } from '~components/__rc__/Select/context'
@@ -17,7 +18,7 @@ import { getDisabledKeysFromItems } from '~components/__rc__/Select/utils/getDis
 import { transformSelectItemToCollectionElement } from '~components/__rc__/Select/utils/transformSelectItemToCollectionElement'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { type SelectItem, type SelectOption } from './types'
-import styles from './FilterSelect.module.scss'
+import styles from './FilterSelect.module.css'
 
 type OmittedAriaSelectProps =
   | 'label'
@@ -93,7 +94,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
           })
         }
         onMount={setTriggerRef}
-        classNameOverride={classNameOverride}
+        classNameOverride={classnames(styles.filterSelect, classNameOverride)}
       >
         <FilterContents classNameOverride={styles.filterContents}>
           <SelectProvider<Option> state={state}>
