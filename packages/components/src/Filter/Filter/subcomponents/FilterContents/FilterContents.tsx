@@ -1,7 +1,7 @@
 import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './FilterContents.module.scss'
+import styles from './FilterContents.module.css'
 
 export type FilterContentsProps = {
   children: React.ReactNode

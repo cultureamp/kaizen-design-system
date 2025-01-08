@@ -3,7 +3,7 @@ import { type Options } from '@popperjs/core'
 import classnames from 'classnames'
 import { usePopper } from 'react-popper'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './FilterPopover.module.scss'
+import styles from './FilterPopover.module.css'
 
 export type FilterPopoverProps = {
   children: React.ReactNode

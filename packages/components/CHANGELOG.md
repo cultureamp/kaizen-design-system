@@ -1,5 +1,19 @@
 # Change Log
 
+## 1.70.7
+
+### Patch Changes
+
+- [#5440](https://github.com/cultureamp/kaizen-design-system/pull/5440) [`2f03f04`](https://github.com/cultureamp/kaizen-design-system/commit/2f03f044eaa7ca5082555a14a00e6b7e6032c6fc) - Increase FilterSelect's CSS specificity to counteract CSS compile order issue and convert SCSS to CSS.
+
+## 1.70.6
+
+### Patch Changes
+
+- [#5426](https://github.com/cultureamp/kaizen-design-system/pull/5426) [`7303979`](https://github.com/cultureamp/kaizen-design-system/commit/7303979b102047ec73c8e29f9bafebd032768b7f) - Support having multiple KaizenProvider on the same page.
+
+  This is helpful when publishing a package which relies toast notification - setting up its own KaizenProvider (which also set up ToastNofitification) will ensure that we won't run into `useToastNotificationContext must be used within the ToastNotificationContext.Provider` as this relies on the consumers' applications having the exact `@kaizen/components` version and depends on how package manager resolves peer deps. Especially for [pnpm](https://pnpm.io/how-peers-are-resolved), it might end up with 2 copies of the exact same version of kaizen/components therefore won't be able to find the `ToastNotificationContext.Provider` set up by the application.
+
 ## 1.70.5
 
 ### Patch Changes
