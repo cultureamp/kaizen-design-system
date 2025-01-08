@@ -17,7 +17,7 @@ import { getDisabledKeysFromItems } from '~components/__rc__/Select/utils/getDis
 import { transformSelectItemToCollectionElement } from '~components/__rc__/Select/utils/transformSelectItemToCollectionElement'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { type SelectItem, type SelectOption } from './types'
-import styles from './FilterSelect.module.scss'
+import styles from './FilterSelect.module.css'
 
 type OmittedAriaSelectProps =
   | 'label'

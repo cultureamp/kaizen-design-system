@@ -1,0 +1,7 @@
+.filterPopover {
+  background-color: var(--color-white);
+  z-index: 1010;
+  box-shadow: var(--shadow-large-box-shadow);
+  border-radius: var(--border-borderless-border-radius);
+  display: inline-flex;
+}
