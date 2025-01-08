@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.7
+
+### Patch Changes
+
+- [#5440](https://github.com/cultureamp/kaizen-design-system/pull/5440) [`2f03f04`](https://github.com/cultureamp/kaizen-design-system/commit/2f03f044eaa7ca5082555a14a00e6b7e6032c6fc) - Increase FilterSelect's CSS specificity to counteract CSS compile order issue and convert SCSS to CSS.
+
 ## 1.70.6
 
 ### Patch Changes
