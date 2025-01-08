@@ -130,8 +130,8 @@
   font-size: 0.5rem;
 }
 
-.small .initials,
-.medium .initials {
+.small.initials,
+.medium.initials {
   margin-bottom: -1px;
   font-weight: var(--typography-heading-5-font-weight);
   letter-spacing: var(--typography-heading-5-letter-spacing);
