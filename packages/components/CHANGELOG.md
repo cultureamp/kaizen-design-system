@@ -1,5 +1,25 @@
 # Change Log
 
+## 1.70.6
+
+### Patch Changes
+
+- [#5426](https://github.com/cultureamp/kaizen-design-system/pull/5426) [`7303979`](https://github.com/cultureamp/kaizen-design-system/commit/7303979b102047ec73c8e29f9bafebd032768b7f) - Support having multiple KaizenProvider on the same page.
+
+  This is helpful when publishing a package which relies toast notification - setting up its own KaizenProvider (which also set up ToastNofitification) will ensure that we won't run into `useToastNotificationContext must be used within the ToastNotificationContext.Provider` as this relies on the consumers' applications having the exact `@kaizen/components` version and depends on how package manager resolves peer deps. Especially for [pnpm](https://pnpm.io/how-peers-are-resolved), it might end up with 2 copies of the exact same version of kaizen/components therefore won't be able to find the `ToastNotificationContext.Provider` set up by the application.
+
+## 1.70.5
+
+### Patch Changes
+
+- [#5438](https://github.com/cultureamp/kaizen-design-system/pull/5438) [`4ce10a0`](https://github.com/cultureamp/kaizen-design-system/commit/4ce10a0f7a815e672caa90b52e576089051f9ec9) - Menu v3: Changed MenuItem colour from purple-800 70% to purple-800
+
+## 1.70.4
+
+### Patch Changes
+
+- [#5435](https://github.com/cultureamp/kaizen-design-system/pull/5435) [`4bfcd3e`](https://github.com/cultureamp/kaizen-design-system/commit/4bfcd3eb617e144293efad2b845c1434c95c38ff) - update LinkButton's import of the Button stylesheet to a relative path to resolve file resolution error
+
 ## 1.70.3
 
 ### Patch Changes

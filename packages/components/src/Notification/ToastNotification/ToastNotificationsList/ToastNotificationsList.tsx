@@ -1,36 +1,35 @@
-import React from 'react'
-import { createPortal } from 'react-dom'
+import React, { useEffect, useState } from 'react'
 import { useToastNotificationContext } from '../context/ToastNotificationContext'
 import { ToastNotificationsMap } from './subcomponents/ToastNotificationsMap'
 import styles from './ToastNotificationsList.module.scss'
 
+const toastNotificationListId = 'toast-notifications-list'
+
 export const ToastNotificationsList = (): JSX.Element => {
   const { notifications, removeToastNotification } = useToastNotificationContext()
+  const [toastContainer, setToastContainer] = useState<Element | null>(null)
 
-  const containers = document.querySelectorAll('[data-testid="toast-notifications-list"')
+  useEffect(() => {
+    // this is to ensure that the container is created only once. Regardless of how many KaizenProvider is set up, they will also reuse the same container.
+    let container = document.querySelector(`[id="${toastNotificationListId}"]`)
+    if (!container) {
+      container = document.createElement('div')
+      container.setAttribute('id', toastNotificationListId)
+      container.setAttribute('role', 'status')
+      container.className = styles.toastNotificationsList
+      document.body.appendChild(container)
+    }
+    setToastContainer(container)
+  }, [])
 
-  if (containers) {
-    // Remove any duplicate instances
-    // (eg. Storybook docs page has multiple stories each with their own context)
-    containers.forEach((c, i) => {
-      if (i === 0) return
-      c.remove()
-    })
-  }
-
-  return createPortal(
-    <div
-      data-testid="toast-notifications-list"
-      role="status"
-      className={styles.toastNotificationsList}
-    >
-      <ToastNotificationsMap
-        notifications={notifications}
-        onHide={removeToastNotification}
-        container={containers[0]}
-      />
-    </div>,
-    document.body,
+  return toastContainer ? (
+    <ToastNotificationsMap
+      notifications={notifications}
+      onHide={removeToastNotification}
+      container={toastContainer}
+    />
+  ) : (
+    <></>
   )
 }
 
