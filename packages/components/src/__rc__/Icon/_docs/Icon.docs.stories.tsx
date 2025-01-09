@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import classnames from 'classnames'
+import { Collapsible } from '~components/Collapsible'
 import { InlineNotification } from '~components/Notification'
 import {
   TableCard,
@@ -15,6 +16,7 @@ import { ToggleSwitchField } from '~components/ToggleSwitch'
 import { Button } from '~components/__rc__/Button'
 import { Tag } from '~components/__rc__/Tag'
 import { StickerSheet } from '~storybook/components/StickerSheet'
+import { iconMap } from '../../../../codemods/upgradeIconV1/getNewIconPropsFromOldIconName'
 import { iconDefaultSet } from '../constants'
 import { Icon } from '../index'
 import imgInterfaceDont from './assets/interface-dont.png'
@@ -475,4 +477,43 @@ export const TooltipDont: Story = {
       className="block m-auto max-w-[600px]"
     />
   ),
+}
+
+export const IconTableComparison: Story = {
+  render: () => {
+    return (
+      <Collapsible title="Icon name comparison table">
+        <TableContainer>
+          <TableHeader>
+            <TableRow>
+              <TableHeaderRowCell width={4 / 12} labelText="Old name" />
+              <TableHeaderRowCell width={4 / 12} labelText="New name" />
+              <TableHeaderRowCell width={4 / 12} labelText="isFilled" />
+            </TableRow>
+          </TableHeader>
+          {Array.from(iconMap).map(([key, value]) => (
+            <TableCard key={key}>
+              <TableRow>
+                <TableRowCell width={4 / 12}>
+                  <Text tag="div" variant="body">
+                    {key}
+                  </Text>
+                </TableRowCell>
+                <TableRowCell width={4 / 12}>
+                  <Text tag="div" variant="body">
+                    {value?.name ?? 'N/A'}
+                  </Text>
+                </TableRowCell>
+                <TableRowCell width={4 / 12}>
+                  <Text tag="div" variant="body">
+                    {value?.isFilled ? 'true' : 'false'}
+                  </Text>
+                </TableRowCell>
+              </TableRow>
+            </TableCard>
+          ))}
+        </TableContainer>
+      </Collapsible>
+    )
+  },
 }
