@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import classnames from 'classnames'
-import { Collapsible } from '~components/Collapsible'
 import { InlineNotification } from '~components/Notification'
 import {
   TableCard,
@@ -482,38 +481,36 @@ export const TooltipDont: Story = {
 export const IconTableComparison: Story = {
   render: () => {
     return (
-      <Collapsible title="Icon name comparison table">
-        <TableContainer>
-          <TableHeader>
+      <TableContainer>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderRowCell width={4 / 12} labelText="Old name" />
+            <TableHeaderRowCell width={4 / 12} labelText="New name" />
+            <TableHeaderRowCell width={4 / 12} labelText="isFilled" />
+          </TableRow>
+        </TableHeader>
+        {Array.from(iconMap).map(([key, value]) => (
+          <TableCard key={key}>
             <TableRow>
-              <TableHeaderRowCell width={4 / 12} labelText="Old name" />
-              <TableHeaderRowCell width={4 / 12} labelText="New name" />
-              <TableHeaderRowCell width={4 / 12} labelText="isFilled" />
+              <TableRowCell width={4 / 12}>
+                <Text tag="div" variant="body">
+                  {key}
+                </Text>
+              </TableRowCell>
+              <TableRowCell width={4 / 12}>
+                <Text tag="div" variant="body">
+                  {value?.name ?? 'N/A'}
+                </Text>
+              </TableRowCell>
+              <TableRowCell width={4 / 12}>
+                <Text tag="div" variant="body">
+                  {value?.isFilled ? 'true' : value?.name ? 'false' : 'N/A'}
+                </Text>
+              </TableRowCell>
             </TableRow>
-          </TableHeader>
-          {Array.from(iconMap).map(([key, value]) => (
-            <TableCard key={key}>
-              <TableRow>
-                <TableRowCell width={4 / 12}>
-                  <Text tag="div" variant="body">
-                    {key}
-                  </Text>
-                </TableRowCell>
-                <TableRowCell width={4 / 12}>
-                  <Text tag="div" variant="body">
-                    {value?.name ?? 'N/A'}
-                  </Text>
-                </TableRowCell>
-                <TableRowCell width={4 / 12}>
-                  <Text tag="div" variant="body">
-                    {value?.isFilled ? 'true' : 'false'}
-                  </Text>
-                </TableRowCell>
-              </TableRow>
-            </TableCard>
-          ))}
-        </TableContainer>
-      </Collapsible>
+          </TableCard>
+        ))}
+      </TableContainer>
     )
   },
 }
