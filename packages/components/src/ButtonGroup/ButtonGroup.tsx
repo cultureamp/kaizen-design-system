@@ -6,7 +6,7 @@ import {
 } from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
 import { Tooltip, type TooltipProps } from '~components/Tooltip'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './ButtonGroup.module.scss'
+import styles from './ButtonGroup.module.css'
 
 const isFilterButton = (node: React.ReactNode): node is React.ReactElement<FilterButtonBaseProps> =>
   React.isValidElement(node) && node.type === FilterButtonBase

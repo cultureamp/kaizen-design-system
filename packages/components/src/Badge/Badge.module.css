@@ -12,26 +12,25 @@
   min-width: 8px;
   text-align: center;
   background-color: var(--badge-background-color, var(--color-gray-300));
-
-  .reversed {
-    --badge-background-color: rgba(var(--color-white-rgb), 0.1);
-
-    color: var(--color-white);
-  }
-
-  .reversed.active {
-    --badge-background-color: var(--color-green-300);
-
-    color: var(--color-purple-800);
-  }
-
-  .reversed.dark {
-    --badge-background-color: var(--color-purple-700);
-
-    color: var(--color-white);
-  }
 }
 
+.reversed {
+  --badge-background-color: rgba(var(--color-white-rgb), 0.1);
+
+  color: var(--color-white);
+}
+
+.reversed.active {
+  --badge-background-color: var(--color-green-300);
+
+  color: var(--color-purple-800);
+}
+
+.reversed.dark {
+  --badge-background-color: var(--color-purple-700);
+
+  color: var(--color-white);
+}
 .large {
   display: inline-flex;
   justify-content: center;
