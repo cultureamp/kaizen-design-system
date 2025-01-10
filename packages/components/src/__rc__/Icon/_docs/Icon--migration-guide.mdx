@@ -1,0 +1,28 @@
+import { Canvas, Meta, Controls, Story } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation, LinkTo } from '~storybook/components'
+import * as IconStories from './Icon.docs.stories'
+
+<Meta title="Components/Icon/Icon (Future)/Migration Guide" />
+
+# Icon Migration Guide
+
+This is a short guide to assist in migration from the old to new Icon component.
+
+## Codemod
+
+To assist in migration we have created the `upgradeiconv1` codemod. This will loop through the given directory and update all instances of Icon to the latest implementation. You can refer to this [README](https://github.com/cultureamp/kaizen-design-system/blob/main/packages/components/codemods/README.md#upgradeiconv1) on how to run this within your repository.
+
+For more information on the changes to the API, we recommend referring the <LinkTo pageId="components-icon-icon-future-api-specification--docs">API Specification</LinkTo>.
+
+## Changes to Icon exportNames
+
+The following table outlines the changes to the Icons names and whether the new `isFilled` prop is required. This can be used if you are manually migrating components.
+
+Where `N/A` is shown, this indicates that an equivalent icon does not exist or has been made redundant by the new API, ie:
+
+- `ActionOffIcon` is not needed as the new `ActionOnIcon` (`flash_on`) can be used with the `isFilled` to handle the toggled states.
+- `ActionOffIconActionOffWhiteIcon` is not needed as the API allows for color to be set via `className` or inherited via it's parent element.
+
+You will need to discuss alternative with your design team or reach out in the #help_design_system channel if an equivalent icon does not exist.
+
+<Story of={IconStories.IconTableComparison} />
