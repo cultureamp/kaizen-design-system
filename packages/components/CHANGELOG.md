@@ -1,5 +1,37 @@
 # Change Log
 
+## 1.70.9
+
+### Patch Changes
+
+- [#5446](https://github.com/cultureamp/kaizen-design-system/pull/5446) [`d132fc5`](https://github.com/cultureamp/kaizen-design-system/commit/d132fc5e188322b43f2780d45541a77aaa1581d5) - Override browser stylesheet for ul element used in TileGrid
+
+## 1.70.8
+
+### Patch Changes
+
+- [#5444](https://github.com/cultureamp/kaizen-design-system/pull/5444) [`8160df5`](https://github.com/cultureamp/kaizen-design-system/commit/8160df51c57a4fe645a38ce17bf17991612ba874) - Content: use padding instead of margin for inline spacing
+
+## 1.70.7
+
+### Patch Changes
+
+- [#5440](https://github.com/cultureamp/kaizen-design-system/pull/5440) [`2f03f04`](https://github.com/cultureamp/kaizen-design-system/commit/2f03f044eaa7ca5082555a14a00e6b7e6032c6fc) - Increase FilterSelect's CSS specificity to counteract CSS compile order issue and convert SCSS to CSS.
+
+## 1.70.6
+
+### Patch Changes
+
+- [#5426](https://github.com/cultureamp/kaizen-design-system/pull/5426) [`7303979`](https://github.com/cultureamp/kaizen-design-system/commit/7303979b102047ec73c8e29f9bafebd032768b7f) - Support having multiple KaizenProvider on the same page.
+
+  This is helpful when publishing a package which relies toast notification - setting up its own KaizenProvider (which also set up ToastNofitification) will ensure that we won't run into `useToastNotificationContext must be used within the ToastNotificationContext.Provider` as this relies on the consumers' applications having the exact `@kaizen/components` version and depends on how package manager resolves peer deps. Especially for [pnpm](https://pnpm.io/how-peers-are-resolved), it might end up with 2 copies of the exact same version of kaizen/components therefore won't be able to find the `ToastNotificationContext.Provider` set up by the application.
+
+## 1.70.5
+
+### Patch Changes
+
+- [#5438](https://github.com/cultureamp/kaizen-design-system/pull/5438) [`4ce10a0`](https://github.com/cultureamp/kaizen-design-system/commit/4ce10a0f7a815e672caa90b52e576089051f9ec9) - Menu v3: Changed MenuItem colour from purple-800 70% to purple-800
+
 ## 1.70.4
 
 ### Patch Changes
