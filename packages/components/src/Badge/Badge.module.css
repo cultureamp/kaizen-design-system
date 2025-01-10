@@ -31,6 +31,7 @@
 
   color: var(--color-white);
 }
+
 .large {
   display: inline-flex;
   justify-content: center;
