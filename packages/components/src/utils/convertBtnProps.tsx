@@ -8,11 +8,11 @@ import {
 } from '../Button/GenericButton'
 import { type ButtonProps } from '../__rc__/Button/Button'
 
-const isWorkingProps = (props: WorkingButtonProps): props is WorkingProps => {
-  return 'workingLabel' in props
+export const isWorkingProps = (props: WorkingButtonProps): props is WorkingProps => {
+  return props.working === true
 }
 
-const badgeComponent = (badge: ButtonBadgeProps): JSX.Element => {
+export const badgeComponent = (badge: ButtonBadgeProps): JSX.Element => {
   const { text, animateChange, reversed, variant } = badge
 
   return animateChange ? (
@@ -29,6 +29,7 @@ const badgeComponent = (badge: ButtonBadgeProps): JSX.Element => {
 export const convertBtnProps = (oldProps: GenericButtonProps): ButtonProps => {
   const {
     label,
+    id,
     primary,
     destructive,
     secondary,
@@ -39,6 +40,13 @@ export const convertBtnProps = (oldProps: GenericButtonProps): ButtonProps => {
     reversed,
     fullWidth,
     working,
+    icon,
+    iconPosition,
+    classNameOverride,
+    href,
+    newTabAndIUnderstandTheAccessibilityImplications,
+    disableTabFocusAndIUnderstandTheAccessibilityImplications,
+    component,
   } = oldProps
 
   let workingLabel, workingLabelHidden
@@ -47,10 +55,10 @@ export const convertBtnProps = (oldProps: GenericButtonProps): ButtonProps => {
     ;({ workingLabel, workingLabelHidden } = oldProps)
   }
 
-  const newButtonProps: ButtonProps = {
+  const newButtonProps = {
     variant: primary || destructive ? 'primary' : secondary ? 'tertiary' : 'primary',
     size: size === 'regular' ? 'large' : size === 'small' ? 'medium' : size,
-    className: undefined,
+    className: classNameOverride,
     children: (
       <>
         {label} {badge && badgeComponent(badge)}
@@ -58,19 +66,27 @@ export const convertBtnProps = (oldProps: GenericButtonProps): ButtonProps => {
     ),
     isDisabled: disabled,
     isFullWidth: fullWidth,
-    icon: undefined,
-    iconPosition: undefined,
+    icon: icon,
+    iconPosition: iconPosition,
     hasHiddenLabel: false,
     isReversed: reversed,
     type: type,
-    isPending: working,
+    ...(working !== undefined && {
+      isPending: working,
+      pendingLabel: workingLabel,
+      hasHiddenPendingLabel: workingLabelHidden,
+    }),
+    id: id,
+    href: href,
+    newTabAndIUnderstandTheAccessibilityImplications:
+      newTabAndIUnderstandTheAccessibilityImplications,
+    disableTabFocusAndIUnderstandTheAccessibilityImplications:
+      disableTabFocusAndIUnderstandTheAccessibilityImplications,
+    component: component,
   }
 
-  if (working !== undefined) {
-    newButtonProps.isPending = working
-    newButtonProps.pendingLabel = workingLabel
-    newButtonProps.hasHiddenPendingLabel = workingLabelHidden
-  }
-
-  return newButtonProps
+  return newButtonProps as ButtonProps
 }
+
+// Test with isWorking and not isWorking. Check accessible label for button while pending.
+// use getbyaccessbile name.
