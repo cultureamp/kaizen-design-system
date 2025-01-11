@@ -227,8 +227,8 @@ importers:
         specifier: ^15.13.0
         version: 15.13.0
       highlight.js:
-        specifier: ^11.10.0
-        version: 11.10.0
+        specifier: ^11.11.1
+        version: 11.11.1
       jest-axe:
         specifier: ^9.0.0
         version: 9.0.0
@@ -5892,8 +5892,8 @@ packages:
   highlight.js@10.7.3:
     resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==}
 
-  highlight.js@11.10.0:
-    resolution: {integrity: sha512-SYVnVFswQER+zu1laSya563s+F8VDGt7o35d4utbamowvUNLLMovFqwCLSocpZTz3MgaSRA1IbqRWZv97dtErQ==}
+  highlight.js@11.11.1:
+    resolution: {integrity: sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==}
     engines: {node: '>=12.0.0'}
 
   hmac-drbg@1.0.1:
@@ -16477,7 +16477,7 @@ snapshots:
 
   highlight.js@10.7.3: {}
 
-  highlight.js@11.10.0: {}
+  highlight.js@11.11.1: {}
 
   hmac-drbg@1.0.1:
     dependencies:
