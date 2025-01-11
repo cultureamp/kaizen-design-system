@@ -74,7 +74,7 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-storybook": "^0.11.1",
-    "globals": "^15.13.0",
+    "globals": "^15.14.0",
     "node-fetch": "^3.3.2",
     "playwright": "^1.49.0",
     "plop": "^4.0.1",
