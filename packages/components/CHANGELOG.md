@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.70.9
+
+### Patch Changes
+
+- [#5446](https://github.com/cultureamp/kaizen-design-system/pull/5446) [`d132fc5`](https://github.com/cultureamp/kaizen-design-system/commit/d132fc5e188322b43f2780d45541a77aaa1581d5) - Override browser stylesheet for ul element used in TileGrid
+
+## 1.70.8
+
+### Patch Changes
+
+- [#5444](https://github.com/cultureamp/kaizen-design-system/pull/5444) [`8160df5`](https://github.com/cultureamp/kaizen-design-system/commit/8160df51c57a4fe645a38ce17bf17991612ba874) - Content: use padding instead of margin for inline spacing
+
 ## 1.70.7
 
 ### Patch Changes
