@@ -18,6 +18,9 @@
   overflow: hidden;
   width: var(--avatar-x-y, 1.25rem);
   height: var(--avatar-x-y, 1.25rem);
+  font-family: var(--typography-heading-5-font-family);
+  font-weight: var(--typography-heading-5-font-weight);
+  letter-spacing: var(--typography-heading-5-letter-spacing);
 }
 
 .AvatarGroupItem + .AvatarGroupItem {
@@ -40,13 +43,6 @@
 
 .medium .AvatarCounter {
   font-size: var(--typography-heading-5-font-size);
-}
-
-.small .AvatarCounter,
-.medium .AvatarCounter {
-  font-family: var(--typography-heading-5-font-family);
-  font-weight: var(--typography-heading-5-font-weight);
-  letter-spacing: var(--typography-heading-5-letter-spacing);
 }
 
 .large {

@@ -90,11 +90,11 @@
   transform: scale3d(1.35, 1.35, 1.35);
 }
 
-.animationOn .badge .dark {
+.animationOn .badge.dark {
   --badge-background-color: rgba(var(--color-purple-700-rgb), 0.2);
 }
 
-.animationOn .badge .active {
+.animationOn .badge.active {
   --badge-background-color: var(--color-blue-500);
 
   color: var(--color-white);
