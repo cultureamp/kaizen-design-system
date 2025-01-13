@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.10
+
+### Patch Changes
+
+- [#5375](https://github.com/cultureamp/kaizen-design-system/pull/5375) [`a04085a`](https://github.com/cultureamp/kaizen-design-system/commit/a04085a0b9b1466c7fabb6b9f758b014df1377aa) - Initial conversion of SCSS to CSS
+
 ## 1.70.9
 
 ### Patch Changes
