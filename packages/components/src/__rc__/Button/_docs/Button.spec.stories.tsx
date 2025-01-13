@@ -134,6 +134,25 @@ export const RACRenderPropsWithChildren: Story = {
   },
 }
 
+export const RACRenderPropsWithChildrenTest: Story = {
+  render: ({ children: _, ...otherArgs }) => (
+    <Button {...otherArgs}>{({ label = 'Default' }) => <>{label}</>}</Button>
+  ),
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const button = canvas.getByRole('button')
+
+    await step('button icon reflects unfocused state', async () => {
+      await waitFor(() => expect(button).toHaveAccessibleName('Label is unfocused'))
+    })
+
+    await step('focus on button and update icon', async () => {
+      await userEvent.tab()
+      await waitFor(() => expect(button).toHaveAccessibleName('Label is focused'))
+    })
+  },
+}
+
 export const RACRenderPropsWithClassName: Story = {
   args: {
     className: ({ isFocusVisible }) => (isFocusVisible ? '!bg-gray-300' : ''),

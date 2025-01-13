@@ -22,11 +22,12 @@ export const ConvertPropsTestPending: Story = {
 */
 
 import React from 'react'
+import { render } from '@testing-library/react'
 import { Badge, BadgeAnimated } from '~components/Badge'
 import { type ButtonProps } from '~components/Button'
-import { type ButtonBadgeProps } from '~components/Button/GenericButton'
-import { type ButtonProps as NewButtonProps } from '../__rc__/Button/Button'
-import { badgeComponent, convertBtnProps, isWorkingProps } from './convertBtnProps'
+import { type ButtonBadgeProps, type CustomButtonProps } from '~components/Button/GenericButton'
+import { Button, type ButtonProps as NewButtonProps } from '../__rc__/Button/Button'
+import { convertV1ToRcButtonProps, isWorkingProps, renderBadge } from './convertV1ToRcButtonProps'
 
 const oldButtonProps = {
   label: 'Label',
@@ -53,7 +54,7 @@ const oldButtonProps = {
   iconPosition: 'start',
   icon: <div> p </div>,
   disabled: false,
-  working: false,
+  working: undefined,
 } satisfies ButtonProps
 
 const workingOldButtonProps = {
@@ -79,15 +80,10 @@ const expectedNewButtonProps: NewButtonProps = {
   isFullWidth: undefined,
   hasHiddenLabel: false,
   isReversed: false,
-  isPending: false,
   type: undefined,
   icon: <div> p </div>,
   iconPosition: 'start',
-  component: undefined,
-  href: undefined,
   id: '1',
-  newTabAndIUnderstandTheAccessibilityImplications: false,
-  disableTabFocusAndIUnderstandTheAccessibilityImplications: false,
 }
 
 const expectedPendingNewButtonProps: NewButtonProps = {
@@ -97,7 +93,7 @@ const expectedPendingNewButtonProps: NewButtonProps = {
   hasHiddenPendingLabel: false,
 }
 
-describe('convertBtnProps()', () => {
+describe('Test Convert Button Utils', () => {
   describe('isWorkingProps()', () => {
     it('should return true if workingLabel is in props', () => {
       expect(isWorkingProps(workingOldButtonProps)).toBe(true)
@@ -108,9 +104,9 @@ describe('convertBtnProps()', () => {
     })
   })
 
-  describe('badgeComponent()', () => {
+  describe('renderBadge()', () => {
     it('should return a Badge component', () => {
-      const badge = badgeComponent(oldButtonProps.badge)
+      const badge = renderBadge(oldButtonProps.badge)
       expect(badge).toEqual(
         <Badge variant="default" reversed={false}>
           Badge
@@ -119,7 +115,7 @@ describe('convertBtnProps()', () => {
     })
 
     it('should return an animated Badge component', () => {
-      const badge = badgeComponent({
+      const badge = renderBadge({
         text: 'Badge',
         animateChange: true,
         reversed: false,
@@ -133,15 +129,68 @@ describe('convertBtnProps()', () => {
     })
   })
 
-  describe('convertBtnProps()', () => {
-    it('should convert old button props to new button props', () => {
-      const newButtonProps = convertBtnProps(oldButtonProps)
+  describe('convertV1ToRcButtonProps()', () => {
+    it('should convert v1 button props to rc button props', () => {
+      const newButtonProps = convertV1ToRcButtonProps(oldButtonProps)
       expect(newButtonProps).toEqual(expectedNewButtonProps)
     })
 
-    it('should convert working old button props to new button props', () => {
-      const newButtonProps = convertBtnProps(workingOldButtonProps)
+    it('should convert working v1 button props to rc pending button props', () => {
+      const newButtonProps = convertV1ToRcButtonProps(workingOldButtonProps)
       expect(newButtonProps).toEqual(expectedPendingNewButtonProps)
     })
+
+    it('Should take button render props and pass it into the children', () => {
+      const oldButtonPropsWithComponent = {
+        ...oldButtonProps,
+        component: (props: CustomButtonProps) => <div>{props.children}</div>,
+      } satisfies ButtonProps
+
+      const newButtonProps = convertV1ToRcButtonProps(oldButtonPropsWithComponent)
+      expect(newButtonProps.children).toBeTypeOf('function')
+    })
+  })
+})
+
+// Simple button test, one with a working label, and one with a component render.
+
+describe('Rendering buttons after converting v1 props to rc.', () => {
+  it('should render a button that is reversed and primary', () => {
+    const oldButton = { label: 'Default', reversed: true, primary: true } satisfies ButtonProps
+    const newButton = convertV1ToRcButtonProps(oldButton)
+
+    const { getByRole } = render(<Button {...newButton} />)
+    expect(getByRole('button')).toBeInTheDocument()
+  })
+
+  it('should render a button with a working label', () => {
+    const oldButton = {
+      label: 'Default',
+      working: true,
+      workingLabel: 'Working...',
+      workingLabelHidden: false,
+    } satisfies ButtonProps
+    const newButton = convertV1ToRcButtonProps(oldButton)
+
+    const { getByText } = render(<Button {...newButton} />)
+    expect(getByText('Working...')).toBeInTheDocument()
+  })
+
+  /** Component props is still an unknown, showcased in this test. Button rc may need to be updated
+   * to accept more than racProps
+   */
+  it('should render a button with a a component property', () => {
+    const CustomComponent = (buttonProps: CustomButtonProps): JSX.Element => (
+      <div {...buttonProps}>{buttonProps.href}</div>
+    )
+    const oldButton = {
+      label: 'Default',
+      href: 'https://www.google.com',
+      component: CustomComponent,
+    } satisfies ButtonProps
+    const newButton = convertV1ToRcButtonProps(oldButton)
+
+    const { getByText } = render(<Button {...newButton} />)
+    expect(getByText('https://www.google.com')).toBeInTheDocument()
   })
 })

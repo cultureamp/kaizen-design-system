@@ -12,7 +12,8 @@ export const isWorkingProps = (props: WorkingButtonProps): props is WorkingProps
   return props.working === true
 }
 
-export const badgeComponent = (badge: ButtonBadgeProps): JSX.Element => {
+/** Renders a badge with the given props. Determines if its a regular Badge or AnimatedBadge and renders accordingly. */
+export const renderBadge = (badge: ButtonBadgeProps): JSX.Element => {
   const { text, animateChange, reversed, variant } = badge
 
   return animateChange ? (
@@ -26,7 +27,7 @@ export const badgeComponent = (badge: ButtonBadgeProps): JSX.Element => {
   )
 }
 
-export const convertBtnProps = (oldProps: GenericButtonProps): ButtonProps => {
+export const convertV1ToRcButtonProps = (oldProps: GenericButtonProps): ButtonProps => {
   const {
     label,
     id,
@@ -43,9 +44,6 @@ export const convertBtnProps = (oldProps: GenericButtonProps): ButtonProps => {
     icon,
     iconPosition,
     classNameOverride,
-    href,
-    newTabAndIUnderstandTheAccessibilityImplications,
-    disableTabFocusAndIUnderstandTheAccessibilityImplications,
     component,
   } = oldProps
 
@@ -55,13 +53,18 @@ export const convertBtnProps = (oldProps: GenericButtonProps): ButtonProps => {
     ;({ workingLabel, workingLabelHidden } = oldProps)
   }
 
+  console.log('Look here')
+  console.log(typeof component === 'function')
+
   const newButtonProps = {
     variant: primary || destructive ? 'primary' : secondary ? 'tertiary' : 'primary',
     size: size === 'regular' ? 'large' : size === 'small' ? 'medium' : size,
     className: classNameOverride,
-    children: (
+    children: component ? (
+      component
+    ) : (
       <>
-        {label} {badge && badgeComponent(badge)}
+        {label} {badge && renderBadge(badge)}
       </>
     ),
     isDisabled: disabled,
@@ -77,16 +80,7 @@ export const convertBtnProps = (oldProps: GenericButtonProps): ButtonProps => {
       hasHiddenPendingLabel: workingLabelHidden,
     }),
     id: id,
-    href: href,
-    newTabAndIUnderstandTheAccessibilityImplications:
-      newTabAndIUnderstandTheAccessibilityImplications,
-    disableTabFocusAndIUnderstandTheAccessibilityImplications:
-      disableTabFocusAndIUnderstandTheAccessibilityImplications,
-    component: component,
   }
 
   return newButtonProps as ButtonProps
 }
-
-// Test with isWorking and not isWorking. Check accessible label for button while pending.
-// use getbyaccessbile name.
