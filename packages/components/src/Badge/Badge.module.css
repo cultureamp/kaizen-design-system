@@ -1,0 +1,101 @@
+.badge {
+  border-radius: var(--spacing-12);
+  color: var(--color-purple-800);
+  display: inline-block;
+  position: relative;
+  font-family: var(--typography-paragraph-extra-small-font-family);
+  font-size: var(--typography-paragraph-extra-small-font-size);
+  font-weight: var(--typography-paragraph-bold-font-weight);
+  letter-spacing: var(--typography-paragraph-extra-small-letter-spacing);
+  line-height: var(--typography-paragraph-extra-small-line-height);
+  padding: 1px var(--spacing-6);
+  min-width: 8px;
+  text-align: center;
+  background-color: var(--badge-background-color, var(--color-gray-300));
+}
+
+.reversed {
+  --badge-background-color: rgba(var(--color-white-rgb), 0.1);
+
+  color: var(--color-white);
+}
+
+.reversed.active {
+  --badge-background-color: var(--color-green-300);
+
+  color: var(--color-purple-800);
+}
+
+.reversed.dark {
+  --badge-background-color: var(--color-purple-700);
+
+  color: var(--color-white);
+}
+
+.large {
+  display: inline-flex;
+  justify-content: center;
+  border-radius: var(--spacing-48);
+  font-size: var(--typography-data-medium-font-size);
+  line-height: var(--typography-data-medium-line-height);
+  letter-spacing: var(--typography-data-medium-letter-spacing);
+  padding: 2px 1.875rem;
+  width: 24px;
+}
+
+.default {
+  color: var(--color-purple-800);
+}
+
+.active {
+  --badge-background-color: var(--color-blue-500);
+
+  color: var(--color-white);
+}
+
+.dark {
+  --badge-background-color: rgba(var(--color-purple-700-rgb), 0.1);
+
+  color: var(--color-purple-800);
+}
+
+.dot {
+  --badge-background-color: var(--color-green-300);
+
+  padding: var(--spacing-6);
+  min-width: unset;
+}
+
+.dot.large {
+  padding: 1.875rem;
+  width: unset;
+}
+
+.animation {
+  display: inherit;
+}
+
+.animation .badge {
+  --badge-duration-timing: (var(--animation-duration-slow) / 2)
+    var(--animation-easing-function-ease-in);
+
+  transition:
+    transform var(--badge-duration-timing),
+    background-color var(--badge-duration-timing);
+  transform-origin: center;
+  transform: scale3d(1, 1, 1);
+}
+
+.animationOn .badge {
+  transform: scale3d(1.35, 1.35, 1.35);
+}
+
+.animationOn .badge.dark {
+  --badge-background-color: rgba(var(--color-purple-700-rgb), 0.2);
+}
+
+.animationOn .badge.active {
+  --badge-background-color: var(--color-blue-500);
+
+  color: var(--color-white);
+}

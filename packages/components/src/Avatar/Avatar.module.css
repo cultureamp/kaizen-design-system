@@ -1,0 +1,138 @@
+.wrapper {
+  --avatar-x-y: 1.5rem;
+
+  background: var(--color-gray-300);
+  border-radius: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: var(--avatar-x-y);
+  height: var(--avatar-x-y);
+  box-shadow: var(--shadow-small-box-shadow);
+  border: 3px solid var(--color-white);
+}
+
+.small {
+  box-shadow: none;
+  border: none;
+
+  --avatar-x-y: 1.25rem;
+}
+
+.medium {
+  --avatar-x-y: 3rem;
+}
+
+.large {
+  --avatar-x-y: 4.5rem;
+}
+
+.xlarge {
+  --avatar-x-y: 6rem;
+}
+
+.xxlarge {
+  --avatar-x-y: 7.75rem;
+}
+
+/* Themes */
+.personal {
+  background: var(--color-orange-100);
+}
+
+.otherUser {
+  background: var(--color-gray-300);
+}
+
+.company {
+  border: 0;
+  background: var(--color-white);
+  padding: var(--spacing-6);
+  border-radius: var(--border-solid-border-radius);
+}
+
+.small.company {
+  padding: 0;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarImage.loading {
+  display: none;
+}
+
+.companyAvatarImage {
+  object-fit: contain;
+  box-sizing: border-box;
+  border-radius: var(--spacing-4);
+}
+
+.fallbackIcon {
+  color: rgba(var(--color-purple-800-rgb), 0.7);
+  font-size: calc(var(--avatar-x-y) * 0.7);
+}
+
+.xlarge .fallbackIcon,
+.xxlarge .fallbackIcon {
+  font-size: calc(var(--avatar-x-y) * 0.8);
+}
+
+.initials {
+  box-sizing: border-box;
+  color: var(--color-purple-800);
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  width: 100%;
+  font-size: var(--typography-heading-3-font-size);
+  font-family: var(--typography-heading-1-font-family);
+  font-weight: var(--typography-heading-1-font-weight);
+  letter-spacing: var(--typography-heading-3-letter-spacing);
+}
+
+.initials.longName::before {
+  content: none;
+}
+
+.initials::before {
+  content: '';
+  display: block;
+  margin-top: -0.001em;
+}
+
+.wrapper .initials {
+  text-decoration: none;
+  speak-as: spell-out;
+
+  /* to override materialize.css global styling in performance-ui,
+  * which sets a border-bottom on abbr tags
+  */
+  border-bottom: none;
+}
+
+.xlarge .initials,
+.xxlarge .initials {
+  font-size: var(--typography-heading-1-font-size);
+  letter-spacing: var(--typography-heading-1-letter-spacing);
+}
+
+.medium .initials {
+  font-size: var(--typography-heading-5-font-size);
+}
+
+.small .initials {
+  font-size: 0.5rem;
+}
+
+.small .initials,
+.medium .initials {
+  margin-bottom: -1px;
+  font-weight: var(--typography-heading-5-font-weight);
+  letter-spacing: var(--typography-heading-5-letter-spacing);
+}
