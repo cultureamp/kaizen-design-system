@@ -1,26 +1,3 @@
-/*
-export const ConvertPropsTestPending: Story = {
-  render: () => {
-    const [state, setState] = useState<'Ready' | 'Working' | 'Completed'>('Ready')
-    const handleClick = (): void => {
-      if (state === 'Ready') {
-        setState('Working')
-        setTimeout(() => setState('Completed'), 3000)
-      } else {
-        setState('Ready')
-      }
-    }
-    const props = convertBtnProps({
-      label: 'Label',
-      working: state === 'Working',
-      workingLabel: 'Button is doing some work',
-      workingLabelHidden: true,
-    })
-    return <Button {...props} onPress={handleClick} />
-  },
-}
-*/
-
 import React from 'react'
 import { render } from '@testing-library/react'
 import { Badge, BadgeAnimated } from '~components/Badge'
