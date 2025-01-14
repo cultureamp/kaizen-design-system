@@ -40,4 +40,12 @@ export default {
     globals: true,
     setupFiles: path.resolve(__dirname, './vitest.setup.ts'),
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // This surpresses the warning on dart-sass. As we are sunsetting our use of scss in Kaizen, this will not be a required dep update and just creates noise
+        silenceDeprecations: ['legacy-js-api'],
+      },
+    },
+  },
 }
