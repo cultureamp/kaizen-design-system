@@ -1,0 +1,33 @@
+.link {
+  color: var(--link-text-color, var(--color-purple-500));
+}
+
+.primary {
+}
+
+.primary[data-hovered] {
+  --link-text-color: var(--color-blue-600);
+}
+
+.primary[active] {
+  --link-text-color: var(--color-blue-700);
+}
+
+.secondary {
+  --link-text-color: var(--color-purple-800);
+}
+
+.secondary[data-hovered] {
+  --link-text-color: var(--color-gray-600);
+}
+
+.secondary[active] {
+  --link-text-color: var(--color-black);
+}
+
+.underline {
+}
+
+.isDisabled {
+  --link-text-color: var(--color-gray-400);
+}
