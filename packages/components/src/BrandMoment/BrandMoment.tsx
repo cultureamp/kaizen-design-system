@@ -7,7 +7,7 @@ import { Text } from '~components/Text'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { assetUrl } from '~components/utils/hostedAssets'
 import { useMediaQueries } from '~components/utils/useMediaQueries'
-import styles from './BrandMoment.module.scss'
+import styles from './BrandMoment.module.css'
 
 type DeprecatedMoodProps = {
   /** @deprecated Use `variant` instead */

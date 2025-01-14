@@ -1,0 +1,57 @@
+.AvatarGroup {
+  display: inline-flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.AvatarCounter {
+  direction: ltr;
+  align-items: center;
+  background: var(--color-gray-300);
+  border: 3px solid var(--color-white);
+  border-radius: 100%;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-small-box-shadow);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: var(--avatar-x-y, 1.25rem);
+  height: var(--avatar-x-y, 1.25rem);
+  font-family: var(--typography-heading-5-font-family);
+  font-weight: var(--typography-heading-5-font-weight);
+  letter-spacing: var(--typography-heading-5-letter-spacing);
+}
+
+.AvatarGroupItem + .AvatarGroupItem {
+  margin-inline-start: calc((var(--avatar-x-y)) / -2);
+}
+
+.small {
+  --avatar-x-y: 1.25rem;
+}
+
+.small .AvatarCounter {
+  box-shadow: none;
+  border: none;
+  font-size: 0.5rem;
+}
+
+.medium {
+  --avatar-x-y: 3rem;
+}
+
+.medium .AvatarCounter {
+  font-size: var(--typography-heading-5-font-size);
+}
+
+.large {
+  --avatar-x-y: 4.5rem;
+}
+
+.large .AvatarCounter {
+  font-family: var(--typography-heading-3-font-family);
+  font-size: var(--typography-heading-3-font-size);
+  font-weight: var(--typography-heading-3-font-weight);
+  letter-spacing: var(--typography-heading-3-letter-spacing);
+}

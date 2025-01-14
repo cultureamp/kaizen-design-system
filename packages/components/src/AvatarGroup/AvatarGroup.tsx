@@ -2,7 +2,7 @@ import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { Avatar, type CompanyAvatarProps, type GenericAvatarProps } from '~components/Avatar'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './AvatarGroup.module.scss'
+import styles from './AvatarGroup.module.css'
 
 export type AvatarGroupAvatarProps =
   | Omit<GenericAvatarProps, 'size'>
