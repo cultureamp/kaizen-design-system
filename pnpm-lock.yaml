@@ -624,8 +624,8 @@ importers:
         specifier: 5.x
         version: 5.6.3
       typescript-transform-paths:
-        specifier: ^3.5.2
-        version: 3.5.2(typescript@5.6.3)
+        specifier: ^3.5.3
+        version: 3.5.3(typescript@5.6.3)
     devDependencies:
       rollup:
         specifier: ^4.30.1
@@ -9704,8 +9704,8 @@ packages:
       typescript:
         optional: true
 
-  typescript-transform-paths@3.5.2:
-    resolution: {integrity: sha512-IRDVXfU7oscLwTvLabXprFrFCMUdBJbdUDtxbHFEsau9FlqrrdgS8PfwUltKDAh75vJFkQ8QdXAt/nzIWWp+fA==}
+  typescript-transform-paths@3.5.3:
+    resolution: {integrity: sha512-5y2l2iPKNHKOj08/1i+02+ljBVUhWcXQLXomiOXCmNpiTuSxIkj0dM1LUE7OOAt53+/6KidY+sFTCP781J64Eg==}
     peerDependencies:
       typescript: '>=3.6.5'
 
@@ -21884,7 +21884,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  typescript-transform-paths@3.5.2(typescript@5.6.3):
+  typescript-transform-paths@3.5.3(typescript@5.6.3):
     dependencies:
       minimatch: 9.0.5
       typescript: 5.6.3
