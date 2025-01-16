@@ -1,7 +1,7 @@
 import React, { type HTMLAttributes } from 'react'
 import classNames from 'classnames'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { type ButtonProps } from '../../Button'
+import { type ButtonProps } from '../../types'
 import styles from './ButtonContent.module.css'
 
 type ButtonContentProps = {
