@@ -1,53 +1,70 @@
 import React, { forwardRef } from 'react'
-import { Icon, type IconProps } from '~components/__rc__/Icon/Icon'
+import { Link as RACLink, type LinkProps as RACLinkProps } from 'react-aria-components'
+import { useReversedColors } from '~components/__utilities__/v3'
+import { mergeClassNames } from '~components/utils/mergeClassNames'
+import { LinkContent } from './subcomponents/LinkContent'
+import styles from './Link.module.css'
 
-export type LinkProps = UnderlinedLink | IconLink
+export type LinkProps = UnderlinedLink
 
 export type UnderlinedLink = {
   variant: 'primary' | 'secondary'
   size: 'extra-small' | 'small' | 'medium' | 'large'
-  state: 'base' | 'hover' | 'active'
-  icon?: 'none' | 'start' | 'end'
-  iconVariant: 'none' | 'add'
-  href: string
-  underlined: true
-  label: string
-  className: string
-  isDisabled: boolean
-  isFocuses: boolean
-}
-
+  iconPosition?: 'start' | 'end'
+  underlined: boolean
+  isReversed: boolean
+  icon: JSX.Element
+} & Omit<RACLinkProps, 'children'> & {
+    /** Used as the label for the Link. */
+    children: RACLinkProps['children']
+  }
+/*
 export type IconLink = UnderlinedLink & {
   underlined: false
-  icon: JSX.Element
-}
+  iconName: IconProps['name']
+} */
 
-export const Link = forwardRef((props: LinkProps, ref: React.ForwardedRef<HTMLAnchorElement>) => {
-  const iconProps: IconProps = {
-    name: props.iconVariant,
-    isPresentational: true,
-  }
+export const Link = forwardRef(
+  (
+    {
+      children,
+      variant = 'primary',
+      size = 'medium',
+      icon,
+      iconPosition = 'start',
+      isDisabled,
+      className,
+      isReversed,
+      underlined,
+      ...otherProps
+    }: LinkProps,
+    ref: React.ForwardedRef<HTMLAnchorElement>,
+  ) => {
+    const shouldUseReverse = useReversedColors()
+    const isReversedVariant = isReversed ?? shouldUseReverse
+    const childIsFunction = typeof children === 'function'
 
-  return (
-    <div>
-      <a href={props.href} className={props.className} ref={ref}>
-        {props.icon == 'start' ? (
-          <>
-            {' '}
-            <Icon {...iconProps} /> label{' '}
-          </>
-        ) : props.icon == 'end' ? (
-          <>
-            {' '}
-            label <Icon {...iconProps} />{' '}
-          </>
-        ) : (
-          props.label
+    return (
+      <RACLink
+        ref={ref}
+        className={mergeClassNames(
+          styles.link,
+          isDisabled && styles.isDisabled,
+          styles[size],
+          isReversedVariant ? styles[`${variant}Reversed`] : styles[variant],
+          className,
         )}
-        {props.label}
-      </a>
-    </div>
-  )
-})
+        isDisabled={isDisabled}
+        {...otherProps}
+      >
+        {(racStateProps) => (
+          <LinkContent icon={icon} iconPosition={iconPosition} underlined={underlined} size={size}>
+            {childIsFunction ? children(racStateProps) : children}
+          </LinkContent>
+        )}
+      </RACLink>
+    )
+  },
+)
 
 Link.displayName = 'Link'
