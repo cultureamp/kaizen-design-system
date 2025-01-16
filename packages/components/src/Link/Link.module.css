@@ -1,5 +1,18 @@
 .link {
-  color: var(--link-text-color, var(--color-purple-500));
+  color: var(--link-text-color, var(--color-blue-500));
+  font-size: var(--link-font-size, 1rem);
+  line-height: var(--link-line-height, 1.5rem);
+  font-weight: var(--link-font-weight, 400);
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.isUnderlined {
+  border-bottom: var(--spacing-1) solid var(--link-text-color, var(--color-blue-500));
 }
 
 .primary {
@@ -25,9 +38,39 @@
   --link-text-color: var(--color-black);
 }
 
-.underline {
+.icon {
+  align-items: center;
+  display: inline-flex;
+  margin-right: 0.25rem;
+  margin-bottom: 0rem;
+  padding-bottom: 0rem;
+  vertical-align: middle;
 }
 
-.isDisabled {
+[data-disabled] {
   --link-text-color: var(--color-gray-400);
+}
+
+.extra-small {
+  --link-font-size: var(--spacing-12);
+  --link-line-height: 18px;
+}
+
+.small {
+  --link-font-size: var(--spacing-14);
+  --link-line-height: 18px;
+}
+
+.medium {
+  --link-font-size: var(--spacing-16);
+  --link-line-height: var(--spacing-24);
+}
+
+.large {
+  --link-font-size: var(--spacing-20);
+  --link-line-height: 30px;
+}
+
+.Reversed {
+  --link-text-color: var(--color-white);
 }
