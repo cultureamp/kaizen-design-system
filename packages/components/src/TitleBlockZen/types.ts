@@ -2,7 +2,6 @@ import { type CompanyAvatarProps, type GenericAvatarProps } from '~components/Av
 import type { ButtonProps, CustomButtonProps } from '~components/Button'
 import { type MenuItemProps } from '~components/Menu'
 import { type Select } from '~components/Select'
-import { type NavigationTabProps } from './subcomponents/NavigationTabs'
 
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
@@ -190,4 +189,24 @@ export type TitleBlockBreadcrumbProps = {
 export type CustomBreadcrumbProps = TitleBlockBreadcrumbProps & {
   className: string
   children: React.ReactNode
+}
+
+export type CustomNavigationTabProps = Omit<NavigationTabProps, 'render'> & {
+  className: string
+}
+
+export type NavigationTabProps = {
+  text: string
+  href: string
+  active?: boolean
+  handleClick?: (event: React.MouseEvent) => void
+  variant?: TitleBlockVariant
+  id?: string
+  automationId?: string
+  /**
+   * Custom render for the tab. Commonly used to replace the link with a router link component.
+   * Props given to the NavigationTab component will be passed back, along with a decorated className.
+   * It is up to you to reapply them to your custom component.
+   */
+  render?: (props: CustomNavigationTabProps) => JSX.Element
 }
