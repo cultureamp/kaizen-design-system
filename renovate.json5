@@ -1,54 +1,49 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "updatePinnedDependencies": false,
-  "ignoreDeps": [
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  updatePinnedDependencies: false,
+  ignoreDeps: [
     // We can't always stick to latest due to infra and compatibility with other plugins
     "node"
   ],
-  "packageRules": [
+  packageRules: [
     {
-      "depTypeList": ["peerDependencies"],
-      "enabled": false
+      matchDepTypes: ["peerDependencies"],
+      enabled: false,
     },
     {
       // Any peerDep or dep within the publishable packages triggers a
       // patch release as a _sensible default_. Merger should use their
       // discretion to determine whether a major change is more appropriate
-      "matchPaths": ["packages/**", "draft-packages/**"],
-      "semanticCommitType": "fix",
-      "matchDepTypes": ["peerDependencies", "dependencies"]
+      matchFileNames: ["packages/**", "draft-packages/**"],
+      semanticCommitType: "fix",
+      matchDepTypes: ["peerDependencies", "dependencies"],
     },
     {
-      "groupName": "react-aria",
-      "matchPackagePrefixes": [
-        "@react-aria/",
-        "@react-stately/",
-        "@internationalized/",
-        "@react-types/shared",
-        "react-aria",
-        "react-aria-components",
-      ]
+      groupName: "react-aria",
+      matchPackageNames: [
+        "@react-aria/{/,}**",
+        "@react-stately/{/,}**",
+        "@internationalized/{/,}**",
+        "@react-types/shared{/,}**",
+        "react-aria{/,}**",
+        "react-aria-components{/,}**",
+      ],
     },
     {
-      "groupName": "prosemirror",
-      "matchPackagePrefixes": [
-        "prosemirror"
-      ]
+      groupName: "prosemirror",
+      matchPackageNames: ["prosemirror{/,}**"],
     },
     {
-      "groupName": "rollup",
-      "matchPackagePatterns": [
-        "@rollup",
-        "rollup"
-      ]
+      groupName: "rollup",
+      matchPackageNames: ["/@rollup/", "/rollup/"],
     },
     {
-      "groupName": "cultureamp/i18n",
-      "matchPackageNames": [
+      groupName: "cultureamp/i18n",
+      matchPackageNames: [
         "@cultureamp/i18n-react-intl",
         // Peer dependency of i18n-react-intl
-        "@cultureamp/frontend-apis"
-      ]
-    }
-  ]
+        "@cultureamp/frontend-apis",
+      ],
+    },
+  ],
 }
