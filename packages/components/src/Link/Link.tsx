@@ -5,24 +5,28 @@ import { mergeClassNames } from '~components/utils/mergeClassNames'
 import { LinkContent } from './subcomponents/LinkContent'
 import styles from './Link.module.css'
 
-export type LinkProps = UnderlinedLink
+export type LinkProps = UnderlinedLink | IconLink
 
-export type UnderlinedLink = {
+type BaseLinkProps = {
   variant: 'primary' | 'secondary'
   size: 'extra-small' | 'small' | 'medium' | 'large'
   iconPosition?: 'start' | 'end'
-  underlined: boolean
   isReversed: boolean
-  icon: JSX.Element
+  isInline: boolean
 } & Omit<RACLinkProps, 'children'> & {
     /** Used as the label for the Link. */
     children: RACLinkProps['children']
   }
-/*
-export type IconLink = UnderlinedLink & {
+
+export type UnderlinedLink = BaseLinkProps & {
+  underlined: true
+  icon?: JSX.Element
+}
+
+export type IconLink = BaseLinkProps & {
   underlined: false
-  iconName: IconProps['name']
-} */
+  icon: JSX.Element
+}
 
 export const Link = forwardRef(
   (
@@ -32,6 +36,7 @@ export const Link = forwardRef(
       size = 'medium',
       icon,
       iconPosition = 'start',
+      isInline = true,
       isDisabled,
       className,
       isReversed,
@@ -51,14 +56,21 @@ export const Link = forwardRef(
           styles.link,
           isDisabled && styles.isDisabled,
           styles[size],
-          isReversedVariant ? styles[`${variant}Reversed`] : styles[variant],
+          isReversedVariant ? styles.reversed : styles[variant],
           className,
+          isInline && styles.isInline,
         )}
         isDisabled={isDisabled}
         {...otherProps}
       >
         {(racStateProps) => (
-          <LinkContent icon={icon} iconPosition={iconPosition} underlined={underlined} size={size}>
+          <LinkContent
+            icon={icon}
+            iconPosition={iconPosition}
+            underlined={underlined}
+            size={size}
+            isInline={isInline}
+          >
             {childIsFunction ? children(racStateProps) : children}
           </LinkContent>
         )}

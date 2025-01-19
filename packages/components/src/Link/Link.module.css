@@ -15,6 +15,10 @@
   border-bottom: var(--spacing-1) solid var(--link-text-color, var(--color-blue-500));
 }
 
+.isInline {
+  line-height: inherit;
+}
+
 .primary {
 }
 
