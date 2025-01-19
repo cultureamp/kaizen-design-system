@@ -4,9 +4,10 @@ import styles from '../Link.module.css'
 
 export type LinkContentProps = {
   children: ReactNode
-  icon: JSX.Element
+  icon?: JSX.Element
   iconPosition?: string
   underlined: boolean
+  isInline: boolean
   size: string
 }
 
@@ -16,9 +17,17 @@ export const LinkContent = ({
   iconPosition,
   underlined,
   size,
+  isInline,
 }: LinkContentProps): JSX.Element => {
   return (
-    <span className={mergeClassNames(styles.link, underlined && styles.isUnderlined, styles[size])}>
+    <span
+      className={mergeClassNames(
+        styles.link,
+        underlined && styles.isUnderlined,
+        styles[size],
+        isInline && styles.isInline,
+      )}
+    >
       {icon && iconPosition === 'start' && (
         <span className={mergeClassNames(styles.icon, styles[size])}>{icon}</span>
       )}
