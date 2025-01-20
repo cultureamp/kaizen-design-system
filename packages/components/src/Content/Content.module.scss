@@ -3,10 +3,10 @@
 
 .content {
   max-width: $layout-content-max-width;
-  padding: 0 $layout-content-side-margin;
+  margin: 0 $layout-content-side-margin;
   width: 100%;
 
   @media (max-width: calc(#{$layout-breakpoints-large} - 1px)) {
-    padding: 0 $content-margin-width-on-medium-and-small;
+    margin: 0 $content-margin-width-on-medium-and-small;
   }
 }
