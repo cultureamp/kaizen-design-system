@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.12
+
+### Patch Changes
+
+- [#5476](https://github.com/cultureamp/kaizen-design-system/pull/5476) [`bb3b1c3`](https://github.com/cultureamp/kaizen-design-system/commit/bb3b1c30d7f3fc81837b774ba3b2c2ccf5648157) - [Revert] Content: use padding instead of margin for inline spacing
+
 ## 1.70.11
 
 ### Patch Changes
