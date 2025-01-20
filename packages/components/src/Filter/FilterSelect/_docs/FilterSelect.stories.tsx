@@ -100,3 +100,48 @@ export const AdditionalProperties: Story = {
   },
   name: 'Additional option properties',
 }
+
+/**
+ * Extend the option type to have additional properties to use for rendering.
+ */
+export const TestPageWithFilterSelect: Story = {
+  render: (args) => {
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+
+    return (
+      <div>
+        <div style={{ color: 'coral', display: 'block', height: '1500px' }}>Content</div>
+        <FilterSelect<SelectOption & { isFruit: boolean }>
+          {...args}
+          label="Custom"
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          items={[
+            { label: 'Bubblegum', value: 'bubblegum', isFruit: false },
+            { label: 'Strawberry', value: 'strawberry', isFruit: true },
+            { label: 'Chocolate', value: 'chocolate', isFruit: false },
+            { label: 'Apple', value: 'apple', isFruit: true },
+            { label: 'Lemon', value: 'lemon', isFruit: true },
+          ]}
+        >
+          {({ items }): JSX.Element[] =>
+            items.map((item) =>
+              item.type === 'item' ? (
+                <FilterSelect.Option
+                  key={item.key}
+                  item={{
+                    ...item,
+                    rendered: item.value?.isFruit ? `${item.rendered} (Fruit)` : item.rendered,
+                  }}
+                />
+              ) : (
+                <FilterSelect.ItemDefaultRender key={item.key} item={item} />
+              ),
+            )
+          }
+        </FilterSelect>
+      </div>
+    )
+  },
+  name: 'Additional option properties',
+}

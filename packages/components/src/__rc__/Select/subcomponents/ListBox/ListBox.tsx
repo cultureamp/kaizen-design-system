@@ -2,9 +2,9 @@ import React, { useEffect, useRef, type HTMLAttributes, type Key, type ReactNode
 import { useListBox, type AriaListBoxOptions } from '@react-aria/listbox'
 import { type SelectState } from '@react-stately/select'
 import classnames from 'classnames'
-import { useIsClientReady } from '~components/__utilities__/useIsClientReady'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useSelectContext } from '../../context'
+import { useHasStableYPosition } from '../../hooks/useHasStableYPosition'
 import { type SelectItem, type SelectOption } from '../../types'
 import styles from './ListBox.module.scss'
 
@@ -47,9 +47,9 @@ export const ListBox = <Option extends SelectOption>({
   classNameOverride,
   ...restProps
 }: SingleListBoxProps<Option>): JSX.Element => {
-  const isClientReady = useIsClientReady()
   const { state } = useSelectContext<Option>()
   const ref = useRef<HTMLUListElement>(null)
+  const hasStableYPosition = useHasStableYPosition(ref)
   const { listBoxProps } = useListBox(
     {
       ...menuProps,
@@ -62,23 +62,22 @@ export const ListBox = <Option extends SelectOption>({
   )
 
   /**
-   * This uses the new useIsClientReady to ensure document exists before trying to querySelector and give the time to focus to the correct element
+   * This uses the hasStableYPosition to determine if the position is stable within the window
    */
   useEffect(() => {
-    if (isClientReady) {
+    if (hasStableYPosition) {
       const optionKey = getOptionKeyFromCollection(state)
       const focusToElement = safeQuerySelector(`[data-key='${optionKey}']`)
 
       if (focusToElement) {
         focusToElement.focus()
       } else {
-        // If an element is not found, focus on the listbox. This ensures the list can still be navigated to via keyboard if the keys do not align to the data attributes of the list items.
         ref.current?.focus()
       }
     }
     // Only run this effect for checking the first successful render
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isClientReady])
+  }, [hasStableYPosition])
 
   return (
     <ul
