@@ -15,7 +15,7 @@ const meta = {
     icon: <Icon name="add" isPresentational />,
     underlined: true,
     isReversed: false,
-    isInline: false,
+    isInline: true,
   },
 } satisfies Meta<typeof Link>
 
@@ -29,10 +29,10 @@ export const WithText: Story = {
   render: (props) => (
     <Text variant="body">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
-      repellendus eligendi totam. <Link {...props} size="large" /> Mollitia vero asperiores
-      assumenda, odit ratione id perspiciatis suscipit molestias quas facere, commodi saepe!
-      Quisquam, quidem quas a quos quae quia quidem, quod, voluptates, dolorum quibusdam. Quisquam,
-      quidem quas a quos quae
+      repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
+      <Link {...props} size="extra-small" /> Mollitia vero asperiores assumenda, odit ratione id
+      perspiciatis suscipit molestias quas facere, commodi saepe! Quisquam, quidem quas a quos quae
+      quia quidem, quod, voluptates, dolorum quibusdam. Quisquam, quidem quas a quos quae
     </Text>
   ),
 }
