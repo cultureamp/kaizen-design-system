@@ -1,22 +1,22 @@
 .link {
   color: var(--link-text-color, var(--color-blue-500));
-  font-size: var(--link-font-size, 1rem);
-  line-height: var(--link-line-height, 1.5rem);
-  font-weight: var(--link-font-weight, 400);
-  display: inline-flex;
-  align-items: center;
+  font-size: var(--link-font-size);
+  line-height: var(--link-line-height);
+  font-weight: var(--link-font-weight);
   text-decoration: none;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+}
+
+.negativeVerticalMargin {
+  margin-bottom: -0.2rem;
 }
 
 .isUnderlined {
   border-bottom: var(--spacing-1) solid var(--link-text-color, var(--color-blue-500));
 }
 
-.isInline {
-  line-height: inherit;
+.icon {
+  margin-right: 0.25rem;
+  vertical-align: -0.1em;
 }
 
 .primary {
@@ -40,15 +40,6 @@
 
 .secondary[active] {
   --link-text-color: var(--color-black);
-}
-
-.icon {
-  align-items: center;
-  display: inline-flex;
-  margin-right: 0.25rem;
-  margin-bottom: 0rem;
-  padding-bottom: 0rem;
-  vertical-align: middle;
 }
 
 [data-disabled] {
@@ -77,4 +68,10 @@
 
 .Reversed {
   --link-text-color: var(--color-white);
+}
+
+.isInline {
+  --link-line-height: inherit;
+  --link-font-size: inherit;
+  --link-font-weight: inherit;
 }

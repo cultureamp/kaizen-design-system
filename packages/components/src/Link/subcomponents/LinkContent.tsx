@@ -29,11 +29,37 @@ export const LinkContent = ({
       )}
     >
       {icon && iconPosition === 'start' && (
-        <span className={mergeClassNames(styles.icon, styles[size])}>{icon}</span>
+        <span
+          className={mergeClassNames(
+            styles.icon,
+            styles[size],
+            isInline && styles.isInline,
+            styles.negativeVerticalMargin,
+          )}
+        >
+          {icon}
+        </span>
       )}
-      <span className={mergeClassNames(styles[size])}> {children} </span>
+      <span
+        className={mergeClassNames(
+          styles[size],
+          isInline && styles.isInline,
+          styles.negativeVerticalMargin,
+        )}
+      >
+        {children}
+      </span>
       {icon && iconPosition === 'end' && (
-        <span className={mergeClassNames(styles.icon, styles[size])}>{icon}</span>
+        <span
+          className={mergeClassNames(
+            styles.icon,
+            styles[size],
+            isInline && styles.isInline,
+            styles.negativeVerticalMargin,
+          )}
+        >
+          {icon}
+        </span>
       )}
     </span>
   )
