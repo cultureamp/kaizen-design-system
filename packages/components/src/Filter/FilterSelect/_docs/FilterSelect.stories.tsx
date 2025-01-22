@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { renderTriggerControls } from '~components/Filter/_docs/controls/renderTriggerControls'
+import { Well } from '~components/Well'
 import { FilterButton } from '../../FilterButton'
 import { FilterSelect } from '../FilterSelect'
 import { type SelectOption } from '../types'
@@ -104,44 +105,40 @@ export const AdditionalProperties: Story = {
 /**
  * Extend the option type to have additional properties to use for rendering.
  */
-export const TestPageWithFilterSelect: Story = {
-  render: (args) => {
+export const FilterSelectBelowPageContent: Story = {
+  render: () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     return (
       <div>
-        <div style={{ color: 'coral', display: 'block', height: '1500px' }}>Content</div>
-        <FilterSelect<SelectOption & { isFruit: boolean }>
-          {...args}
-          label="Custom"
+        <Well color="gray" style={{ height: '1500px' }}>
+          Page content above the FilterSelect
+        </Well>
+        <FilterSelect
+          label="Label"
           isOpen={isOpen}
           setIsOpen={setIsOpen}
-          items={[
-            { label: 'Bubblegum', value: 'bubblegum', isFruit: false },
-            { label: 'Strawberry', value: 'strawberry', isFruit: true },
-            { label: 'Chocolate', value: 'chocolate', isFruit: false },
-            { label: 'Apple', value: 'apple', isFruit: true },
-            { label: 'Lemon', value: 'lemon', isFruit: true },
-          ]}
+          renderTrigger={(triggerProps) => <FilterButton {...triggerProps} />}
+          items={groupedMockItems}
         >
           {({ items }): JSX.Element[] =>
-            items.map((item) =>
-              item.type === 'item' ? (
-                <FilterSelect.Option
-                  key={item.key}
-                  item={{
-                    ...item,
-                    rendered: item.value?.isFruit ? `${item.rendered} (Fruit)` : item.rendered,
-                  }}
-                />
-              ) : (
-                <FilterSelect.ItemDefaultRender key={item.key} item={item} />
-              ),
-            )
+            items.map((item) => {
+              if (item.type === 'item') {
+                return (
+                  <FilterSelect.Option
+                    key={item.key}
+                    item={{
+                      ...item,
+                    }}
+                  />
+                )
+              }
+              return <FilterSelect.ItemDefaultRender key={item.key} item={item} />
+            })
           }
         </FilterSelect>
       </div>
     )
   },
-  name: 'Additional option properties',
+  name: 'FilterSelect below page content',
 }
