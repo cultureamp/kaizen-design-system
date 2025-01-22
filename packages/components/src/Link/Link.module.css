@@ -4,6 +4,19 @@
   line-height: var(--link-line-height);
   font-weight: var(--link-font-weight);
   text-decoration: none;
+  position: relative;
+  outline: 0;
+}
+
+.link[data-focus-visible]::after {
+  content: '';
+  position: absolute;
+  background: transparent;
+  border-color: var(--color-blue-500);
+  border-radius: var(--border-focus-ring-border-radius);
+  border-width: var(--border-focus-ring-border-width);
+  border-style: var(--border-focus-ring-border-style);
+  inset: calc(-1 * (var(--border-focus-ring-border-width) * 2) - 1px);
 }
 
 .negativeVerticalMargin {
@@ -12,11 +25,21 @@
 
 .isUnderlined {
   border-bottom: var(--spacing-1) solid var(--link-text-color, var(--color-blue-500));
+  /* text-decoration: underline; */
 }
 
 .icon {
   margin-right: 0.25rem;
   vertical-align: 0.01em;
+}
+
+/* Body parent text size has perfect icon size. Icon is too small on larger text, and too large on smaller text */
+.icon > * {
+  vertical-align: middle;
+  margin-bottom: 3px;
+  --link-line-height: inherit;
+  --link-font-size: inherit;
+  --link-font-weight: inherit;
 }
 
 .primary {
@@ -26,7 +49,7 @@
   --link-text-color: var(--color-blue-600);
 }
 
-.primary[active] {
+.primary[data-pressed] {
   --link-text-color: var(--color-blue-700);
 }
 
@@ -38,12 +61,8 @@
   --link-text-color: var(--color-gray-600);
 }
 
-.secondary[active] {
+.secondary[data-pressed] {
   --link-text-color: var(--color-black);
-}
-
-[data-disabled] {
-  --link-text-color: var(--color-gray-400);
 }
 
 .extra-small {
@@ -66,8 +85,20 @@
   --link-line-height: 30px;
 }
 
-.Reversed {
+.reversed {
   --link-text-color: var(--color-white);
+
+  &[data-focus-visible]::after {
+    border-color: var(--color-blue-300);
+  }
+}
+
+.link.isDisabled {
+  --link-text-color: var(--color-gray-400);
+}
+
+.reversed.isDisabled {
+  --link-text-color: rgba(var(--color-white-rgb), 0.2);
 }
 
 .isInline {
