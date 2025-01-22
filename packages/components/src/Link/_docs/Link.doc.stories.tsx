@@ -27,7 +27,7 @@ export const Playground: Story = {}
 
 export const WithText: Story = {
   render: (props) => (
-    <Text variant="body">
+    <Text variant="extra-small">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
       repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
       <Link {...props} size="extra-small" /> Mollitia vero asperiores assumenda, odit ratione id

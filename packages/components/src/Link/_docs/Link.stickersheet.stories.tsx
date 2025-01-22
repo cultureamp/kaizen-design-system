@@ -1,5 +1,6 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
+import { within } from '@storybook/test'
 import { Icon } from '~components/__rc__/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Link, type LinkProps } from '../Link'
@@ -77,8 +78,67 @@ const StickerSheetTemplate: StickerSheetStory = {
           )),
         )}
       </StickerSheet>
+      <StickerSheet
+        title="Pseudo states"
+        headers={['isHovered', 'isFocusVisible', 'isPressed']}
+        isReversed={isReversed}
+      >
+        {variants.map((variant) => (
+          <StickerSheet.Row key={variant} isReversed={isReversed} header={variant}>
+            <Link
+              variant={variant}
+              size={'small'}
+              href={href}
+              underlined={true}
+              isReversed={isReversed ? isReversed : false}
+              isInline={false}
+              data-testid="testid__link-hover"
+            >
+              Label
+            </Link>
+            <Link
+              variant={variant}
+              size={'small'}
+              href={href}
+              underlined={true}
+              isReversed={isReversed ? isReversed : false}
+              isInline={false}
+              data-testid="testid__link-focus"
+            >
+              Label
+            </Link>
+            <Link
+              variant={variant}
+              size={'small'}
+              href={href}
+              underlined={true}
+              isReversed={isReversed ? isReversed : false}
+              isInline={false}
+              data-testid="testid__link-pressed"
+            >
+              Label
+            </Link>
+          </StickerSheet.Row>
+        ))}
+      </StickerSheet>
     </>
   ),
+  play: ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const focusLinks = canvas.getAllByTestId('testid__link-focus')
+    const hoverLinks = canvas.getAllByTestId('testid__link-hover')
+    const pressedLinks = canvas.getAllByTestId('testid__link-pressed')
+
+    focusLinks.forEach((Link) => {
+      Link.setAttribute('data-focus-visible', 'true')
+    })
+    hoverLinks.forEach((Link) => {
+      Link.setAttribute('data-hovered', 'true')
+    })
+    pressedLinks.forEach((Link) => {
+      Link.setAttribute('data-pressed', 'true')
+    })
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
