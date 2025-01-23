@@ -428,3 +428,9 @@ export const Validation: Story = {
     controls: { disable: true },
   },
 }
+/*
+export const OnMobile: Story = {
+  parameters: { viewport: { defaultViewport: 'mobile1' } },
+  ...FilterDateRangePickerTemplate,
+}
+*/

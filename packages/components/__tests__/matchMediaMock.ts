@@ -1,4 +1,6 @@
-export const mockMatchMedia = (): any => {
+import { vi } from 'vitest'
+
+export const matchMediaMock = (): any => {
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
     value: vi.fn().mockImplementation((query) => ({

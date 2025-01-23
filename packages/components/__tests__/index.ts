@@ -1,2 +1,2 @@
-export * from './mockMatchMedia'
+export * from './matchMediaMock'
 export * from './reactIntlMock'
