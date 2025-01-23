@@ -37,9 +37,8 @@
 .icon > * {
   vertical-align: middle;
   margin-bottom: 3px;
-  --link-line-height: inherit;
-  --link-font-size: inherit;
-  --link-font-weight: inherit;
+  font-size: var(--link-line-height, 1em);
+  line-height: var(--link-font-size, 1em);
 }
 
 .primary {

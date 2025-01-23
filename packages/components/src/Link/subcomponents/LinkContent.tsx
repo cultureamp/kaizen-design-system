@@ -8,30 +8,6 @@ export type LinkContentProps = {
   iconPosition?: string
   underlined: boolean
   isInline: boolean
-  size: string
-}
-
-const LinkIcon = ({
-  size,
-  isInline,
-  icon,
-}: {
-  size: string
-  isInline: boolean
-  icon: JSX.Element
-}): JSX.Element => {
-  return (
-    <span
-      className={mergeClassNames(
-        styles.icon,
-        styles[size],
-        isInline && styles.isInline,
-        styles.negativeVerticalMargin,
-      )}
-    >
-      {icon}
-    </span>
-  )
 }
 
 export const LinkContent = ({
@@ -39,29 +15,19 @@ export const LinkContent = ({
   icon,
   iconPosition,
   underlined,
-  size,
   isInline,
 }: LinkContentProps): JSX.Element => {
   return (
-    <span
-      className={mergeClassNames(
-        styles.link,
-        underlined && styles.isUnderlined,
-        styles[size],
-        isInline && styles.isInline,
+    <span className={mergeClassNames(styles.link, underlined && styles.isUnderlined)}>
+      {icon && iconPosition === 'start' && (
+        <span className={mergeClassNames(styles.icon)}>{icon}</span>
       )}
-    >
-      {icon && iconPosition === 'start' && <LinkIcon size={size} isInline={isInline} icon={icon} />}
-      <span
-        className={mergeClassNames(
-          styles[size],
-          isInline && styles.isInline,
-          styles.negativeVerticalMargin,
-        )}
-      >
+      <span className={mergeClassNames(isInline && styles.isInline, styles.negativeVerticalMargin)}>
         {children}
       </span>
-      {icon && iconPosition === 'end' && <LinkIcon size={size} isInline={isInline} icon={icon} />}
+      {icon && iconPosition === 'end' && (
+        <span className={mergeClassNames(styles.icon)}>{icon}</span>
+      )}
     </span>
   )
 }

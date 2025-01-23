@@ -11,7 +11,6 @@ const meta = {
     children: 'Label',
     href: 'https://www.google.com',
     variant: 'primary',
-    size: 'large',
     icon: <Icon name="add" isPresentational />,
     underlined: true,
     isReversed: false,
@@ -30,9 +29,9 @@ export const WithText: Story = {
     <Text variant="extra-small">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
       repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
-      <Link {...props} size="extra-small" /> Mollitia vero asperiores assumenda, odit ratione id
-      perspiciatis suscipit molestias quas facere, commodi saepe! Quisquam, quidem quas a quos quae
-      quia quidem, quod, voluptates, dolorum quibusdam. Quisquam, quidem quas a quos quae
+      <Link {...props} /> Mollitia vero asperiores assumenda, odit ratione id perspiciatis suscipit
+      molestias quas facere, commodi saepe! Quisquam, quidem quas a quos quae quia quidem, quod,
+      voluptates, dolorum quibusdam. Quisquam, quidem quas a quos quae
     </Text>
   ),
 }
@@ -49,11 +48,11 @@ export const Sizes: Story = {
         Small
       </Link>
       <br />
-      <Link {...otherArgs} size="medium">
+      <Link {...otherArgs} size="body">
         Medium
       </Link>
       <br />
-      <Link {...otherArgs} size="large">
+      <Link {...otherArgs} size="intro-lede">
         Large
       </Link>
     </>

@@ -9,7 +9,7 @@ export type LinkProps = UnderlinedLink | IconLink
 
 type BaseLinkProps = {
   variant: 'primary' | 'secondary'
-  size: 'extra-small' | 'small' | 'medium' | 'large'
+  size?: 'extra-small' | 'small' | 'body' | 'intro-lede'
   iconPosition?: 'start' | 'end'
   isReversed: boolean
   isInline: boolean
@@ -33,10 +33,10 @@ export const Link = forwardRef(
     {
       children,
       variant = 'primary',
-      size = 'medium',
+      size = 'body',
       icon,
       iconPosition = 'start',
-      isInline = true,
+      isInline = false,
       isDisabled,
       className,
       isReversed,
@@ -55,10 +55,9 @@ export const Link = forwardRef(
         className={mergeClassNames(
           styles.link,
           isDisabled && styles.isDisabled,
-          styles[size],
+          isInline ? styles.isInline : styles[size],
           isReversedVariant ? styles.reversed : styles[variant],
           className,
-          isInline && styles.isInline,
         )}
         isDisabled={isDisabled}
         {...otherProps}
@@ -68,7 +67,6 @@ export const Link = forwardRef(
             icon={icon}
             iconPosition={iconPosition}
             underlined={underlined}
-            size={size}
             isInline={isInline}
           >
             {childIsFunction ? children(racStateProps) : children}
