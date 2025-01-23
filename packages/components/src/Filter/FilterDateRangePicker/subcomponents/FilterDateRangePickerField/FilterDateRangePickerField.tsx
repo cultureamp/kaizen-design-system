@@ -85,6 +85,8 @@ export const FilterDateRangePickerField = ({
   const { formatMessage } = useIntl()
   const locale = getLocale(propsLocale)
 
+  const { queries } = useMediaQueries()
+
   const translatedDateFrom = formatMessage({
     id: 'filterDateRangePicker.dateFrom',
     defaultMessage: 'Date from',
@@ -240,10 +242,6 @@ export const FilterDateRangePickerField = ({
     handleDateRangeChange({ from: newStartDate, to: newEndDate })
   }
 
-  const {
-    queries: { isSmall },
-  } = useMediaQueries()
-
   useEffect(() => {
     if (inputStartDateLabel === ' ' || inputEndDateLabel === ' ') {
       // Translations are loading
@@ -297,7 +295,10 @@ export const FilterDateRangePickerField = ({
           dateStart: dateStartValidation.validationMessage,
           dateEnd: dateEndValidation.validationMessage,
         }}
-        classNameOverride={styles.dateRangeInputField}
+        classNameOverride={classnames(
+          styles.dateRangeInputField,
+          queries.isSmall && styles.isSmall,
+        )}
       />
       <CalendarRange
         disabled={disabledDays}
@@ -308,7 +309,7 @@ export const FilterDateRangePickerField = ({
         }}
         onSelect={handleCalendarSelectRange}
         month={state.startMonth}
-        numberOfMonths={isSmall ? 1 : 2}
+        numberOfMonths={queries.isSmall ? 1 : 2}
         onMonthChange={(value: Date) => dispatch({ type: 'navigate_months', date: value })}
       />
     </div>
