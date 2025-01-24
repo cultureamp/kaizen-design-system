@@ -5,14 +5,12 @@ import { mergeClassNames } from '~components/utils/mergeClassNames'
 import { LinkContent } from './subcomponents/LinkContent'
 import styles from './Link.module.css'
 
-export type LinkProps = UnderlinedLink | IconLink
+export type LinkProps = (UnderlinedLink | IconLink) & (InlineLink | NonInlineLink)
 
 type BaseLinkProps = {
   variant: 'primary' | 'secondary'
-  size?: 'extra-small' | 'small' | 'body' | 'intro-lede'
   iconPosition?: 'start' | 'end'
   isReversed: boolean
-  isInline: boolean
 } & Omit<RACLinkProps, 'children'> & {
     /** Used as the label for the Link. */
     children: RACLinkProps['children']
@@ -26,6 +24,16 @@ export type UnderlinedLink = BaseLinkProps & {
 export type IconLink = BaseLinkProps & {
   underlined: false
   icon: JSX.Element
+}
+
+export type InlineLink = BaseLinkProps & {
+  isInline: true
+  size?: 'extra-small' | 'small' | 'body' | 'intro-lede'
+}
+
+export type NonInlineLink = BaseLinkProps & {
+  isInline?: false
+  size: 'extra-small' | 'small' | 'body' | 'intro-lede'
 }
 
 export const Link = forwardRef(

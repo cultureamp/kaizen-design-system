@@ -13,7 +13,7 @@
   position: absolute;
   background: transparent;
   border-color: var(--color-blue-500);
-  border-radius: var(--border-focus-ring-border-radius);
+  border-radius: 0; /* var(--border-focus-ring-border-radius); */
   border-width: var(--border-focus-ring-border-width);
   border-style: var(--border-focus-ring-border-style);
   inset: calc(-1 * (var(--border-focus-ring-border-width) * 2) - 1px);
@@ -39,9 +39,6 @@
   margin-bottom: 3px;
   font-size: var(--link-line-height, 1em);
   line-height: var(--link-font-size, 1em);
-}
-
-.primary {
 }
 
 .primary[data-hovered] {
@@ -74,22 +71,22 @@
   --link-line-height: 18px;
 }
 
-.medium {
+.body {
   --link-font-size: var(--spacing-16);
   --link-line-height: var(--spacing-24);
 }
 
-.large {
+.intro-lede {
   --link-font-size: var(--spacing-20);
   --link-line-height: 30px;
 }
 
 .reversed {
   --link-text-color: var(--color-white);
+}
 
-  &[data-focus-visible]::after {
-    border-color: var(--color-blue-300);
-  }
+.reversed[data-focus-visible]::after {
+  border-color: var(--color-blue-300);
 }
 
 .link.isDisabled {
