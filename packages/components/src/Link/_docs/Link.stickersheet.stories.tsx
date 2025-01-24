@@ -15,7 +15,7 @@ export default {
 } satisfies Meta
 
 const variants = ['primary', 'secondary'] satisfies LinkProps['variant'][]
-const sizes = ['extra-small', 'small', 'medium', 'large'] satisfies LinkProps['size'][]
+const sizes = ['extra-small', 'small', 'body', 'intro-lede'] satisfies LinkProps['size'][]
 const href = 'https://www.google.com' satisfies LinkProps['href']
 
 const StickerSheetTemplate: StickerSheetStory = {
