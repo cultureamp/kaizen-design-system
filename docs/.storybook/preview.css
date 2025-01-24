@@ -15,6 +15,12 @@ pre code {
   padding: 2.5rem;
 }
 
+@media screen and (min-width >= 1069px) {
+  .sbdocs-wrapper {
+    margin-left: auto;
+  }
+}
+
 .sbdocs.sbdocs-content {
   max-width: unset;
 
