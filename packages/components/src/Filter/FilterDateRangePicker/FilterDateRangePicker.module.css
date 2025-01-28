@@ -1,3 +1,7 @@
-.filterDateRangePickerContents {
-  padding: var(--spacing-16);
+@media (max-width: 320px) {
+  .filterDateRangePickerContents {
+    padding: var(--spacing-16);
+    max-width: 320px;
+    box-sizing: border-box;
+  }
 }

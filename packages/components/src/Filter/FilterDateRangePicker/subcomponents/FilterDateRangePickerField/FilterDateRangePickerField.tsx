@@ -295,10 +295,7 @@ export const FilterDateRangePickerField = ({
           dateStart: dateStartValidation.validationMessage,
           dateEnd: dateEndValidation.validationMessage,
         }}
-        classNameOverride={classnames(
-          styles.dateRangeInputField,
-          queries.isSmall && styles.isSmall,
-        )}
+        classNameOverride={classnames(styles.dateRangeInputField)}
       />
       <CalendarRange
         disabled={disabledDays}
