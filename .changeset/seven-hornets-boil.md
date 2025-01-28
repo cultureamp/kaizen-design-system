@@ -2,4 +2,4 @@
 '@kaizen/components': patch
 ---
 
-Fixed FilterDateRangePicker on small viewports
+FilterDateRangePicker responsive support: now shrinks from two months showing to 1 on small viewports
