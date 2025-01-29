@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
  * This now polls to check if the element's position is stable by comparing the first and last position.
  */
 export const useHasCalculatedListboxPosition = (ref: React.RefObject<HTMLElement>): boolean => {
-  const [isStable, setIsStable] = useState(false)
+  const [hasStablePosition, setHasStablePosition] = useState(false)
   const [lastYPosition, setLastYPosition] = useState<number | null>(null)
 
   useEffect(() => {
@@ -15,17 +15,23 @@ export const useHasCalculatedListboxPosition = (ref: React.RefObject<HTMLElement
         if (lastYPosition === null) {
           setLastYPosition(y)
         } else if (y === lastYPosition && y >= 0) {
-          setIsStable(true)
+          setHasStablePosition(true)
         } else {
           setLastYPosition(y)
         }
       }
     }
 
-    const intervalId = setInterval(checkPosition, 1)
+    const intervalId = setInterval(() => {
+      if (hasStablePosition) {
+        clearInterval(intervalId)
+        return
+      }
+      checkPosition()
+    }, 1)
 
     return () => clearInterval(intervalId)
-  }, [ref, lastYPosition])
+  }, [ref, lastYPosition, hasStablePosition])
 
-  return isStable
+  return hasStablePosition
 }
