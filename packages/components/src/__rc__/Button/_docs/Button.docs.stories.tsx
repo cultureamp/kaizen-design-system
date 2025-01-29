@@ -2,7 +2,17 @@ import React from 'react'
 import { action } from '@storybook/addon-actions'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Badge } from '~components/Badge'
-import { Icon } from '~components/__rc__'
+import { EmptyState } from '~components/EmptyState'
+import {
+  Icon,
+  Menu,
+  MenuItem,
+  MenuPopover,
+  MenuTrigger,
+  Select,
+  Tooltip,
+  TooltipTrigger,
+} from '~components/__rc__'
 import { ReversedColors } from '~components/__utilities__/v3'
 import { Button } from '../index'
 
@@ -60,13 +70,6 @@ export const ButtonVariantsReversed: Story = {
     reverseColors: true,
     backgrounds: { default: 'Purple 700' },
   },
-  decorators: [
-    (Story) => (
-      <div className="flex gap-8">
-        <Story />
-      </div>
-    ),
-  ],
 }
 
 export const ButtonSizes: Story = {
@@ -134,5 +137,192 @@ export const ButtonWithBadge: Story = {
         </Badge>
       </>
     ),
+  },
+}
+
+// Dos and Donts
+
+export const DoExamplePrimaryAndSecondary: Story = {
+  render: () => {
+    return (
+      <>
+        <Button variant="primary" className="me-8">
+          Submit
+        </Button>
+        <Button variant="secondary">Cancel</Button>
+      </>
+    )
+  },
+}
+
+export const DontExamplePrimaryAndSecondary: Story = {
+  render: () => {
+    return (
+      <>
+        <Button variant="primary" className="me-8">
+          Submit
+        </Button>
+        <Button variant="primary">Cancel</Button>
+      </>
+    )
+  },
+}
+
+export const DoExampleCta: Story = {
+  render: () => {
+    return (
+      <>
+        <EmptyState
+          headingProps={{ children: 'Lorem', variant: 'heading-2', tag: 'span' }}
+          bodyText="Ipsum dolor sit amet consectetur adipisicing elit."
+        >
+          <Button size="large">Action</Button>
+        </EmptyState>
+      </>
+    )
+  },
+}
+
+export const DoExampleDefaultToMediumSize: Story = {
+  render: () => {
+    return (
+      <>
+        <Select items={[]} label="Choose country"></Select>
+        <Button className="mt-8">Save</Button>
+      </>
+    )
+  },
+}
+
+export const DontExampleDefaultToMediumSize: Story = {
+  render: () => {
+    return (
+      <>
+        <Select items={[]} label="Choose country"></Select>
+        <Button className="mt-8" variant="primary" size="small">
+          Save
+        </Button>
+      </>
+    )
+  },
+}
+
+export const DoExampleUseIconsSparingly: Story = {
+  args: {
+    children: 'Add user',
+    icon: <Icon isPresentational name="add" />,
+    iconPosition: 'end',
+  },
+}
+
+export const DontExampleUseIconsSparingly: Story = {
+  args: {
+    children: 'Add user',
+    icon: <Icon isPresentational name="star" />,
+    iconPosition: 'end',
+  },
+}
+
+export const DoExampleUseTooltips: Story = {
+  args: {
+    children: 'Delete',
+    icon: <Icon isPresentational name="delete" />,
+    hasHiddenLabel: true,
+  },
+  render: (args) => (
+    <TooltipTrigger>
+      <Button {...args} />
+      <Tooltip>Delete content</Tooltip>
+    </TooltipTrigger>
+  ),
+}
+
+export const DontExampleUseTooltips: Story = {
+  args: {
+    children: 'Delete',
+    icon: <Icon isPresentational name="delete" />,
+    hasHiddenLabel: true,
+  },
+}
+
+export const DoExampleMenuButton: Story = {
+  render: () => (
+    <MenuTrigger defaultOpen={false}>
+      <Button
+        variant="secondary"
+        icon={<Icon name="keyboard_arrow_down" isPresentational />}
+        iconPosition="end"
+      >
+        Manage
+      </Button>
+      <MenuPopover>
+        <Menu>
+          <MenuItem icon={<Icon name="bookmark" isPresentational />}>Save</MenuItem>
+          <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>Edit</MenuItem>
+          <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
+        </Menu>
+      </MenuPopover>
+    </MenuTrigger>
+  ),
+}
+
+export const DoExampleKebabMenuButton: Story = {
+  render: () => (
+    <TooltipTrigger>
+      <MenuTrigger defaultOpen={false}>
+        <Button
+          variant="secondary"
+          icon={<Icon name="more_horiz" isPresentational />}
+          iconPosition="end"
+          hasHiddenLabel
+        >
+          Manage
+        </Button>
+        <MenuPopover>
+          <Menu>
+            <MenuItem icon={<Icon name="bookmark" isPresentational />}>Save</MenuItem>
+            <MenuItem icon={<Icon name="edit" isPresentational isFilled />}>Edit</MenuItem>
+            <MenuItem icon={<Icon name="delete" isPresentational isFilled />}>Delete</MenuItem>
+          </Menu>
+        </MenuPopover>
+      </MenuTrigger>
+      <Tooltip>Manage</Tooltip>
+    </TooltipTrigger>
+  ),
+}
+
+export const DoExampleMinimalPunctuation: Story = {
+  args: {
+    children: 'View tour',
+  },
+}
+
+export const DontExampleMinimalPunctuation: Story = {
+  args: {
+    children: "What's new?",
+  },
+}
+
+export const DoExampleSecondPerson: Story = {
+  args: {
+    children: 'View your reports',
+  },
+}
+
+export const DontExampleSecondPerson: Story = {
+  args: {
+    children: 'View my reports',
+  },
+}
+
+export const DoExampleFunctionalLabels: Story = {
+  args: {
+    children: 'Edit report',
+  },
+}
+
+export const DontExampleFunctionalLabels: Story = {
+  args: {
+    children: 'Edit',
   },
 }
