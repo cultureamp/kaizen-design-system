@@ -15,7 +15,7 @@ const meta = {
   },
   argTypes: {
     icon: {
-      options: ['delete', 'arrow', 'plus'],
+      options: ['delete', 'arrow', 'add'],
       mapping: {
         delete: <Icon isPresentational name="delete" />,
         arrow: <Icon isPresentational name="arrow_forward" />,

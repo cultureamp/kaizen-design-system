@@ -1,6 +1,11 @@
 import { Canvas, Meta, Controls } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import { ResourceLinks, KAIOInstallation, DosAndDonts, DoOrDont } from '~storybook/components'
 import * as Button from './Button.docs.stories'
+
+import ButtonIconOnlySpec from './assets/button_icon_only_spec.png'
+import ButtonIconSpec from './assets/button_icon_spec.png'
+import ButtonSpec from './assets/button_spec.png'
+import ButtonAnatomy from './assets/button_anatomy.png'
 
 <Meta title="Components/Button/Button (v3)/Usage Guidelines" />
 
@@ -27,3 +32,193 @@ Buttons allow users to perform an action. They have multiple styles for various 
   include={['children', 'variant', 'size', 'isDisabled', 'icon', 'iconPosition']}
   className="mb-64"
 />
+
+## Anatomy
+
+<img
+  src={ButtonAnatomy}
+  alt="Indicates the anatomy of an Button component with text"
+  className="my-auto"
+/>
+
+### When to use
+
+Use buttons to communicate actions users can take. Each page should have only one primary button, and any remaining calls to action should use lower emphasis buttons.
+
+### When not to use
+
+Do not use buttons as navigational elements. Instead, use links when the desired action is to take the user to a new page.
+
+## Specs
+
+<img
+  src={ButtonSpec}
+  alt="Indicates the spacing specifications of a Button component with text"
+  className="mb-24 my-auto"
+/>
+
+<img
+  src={ButtonIconSpec}
+  alt="Indicates the spacing specifications of a Button component with text and an icon"
+  className="mb-24 my-auto"
+/>
+
+<img
+  src={ButtonIconOnlySpec}
+  alt="Indicates the spacing specifications of an icon-only Button"
+  className="mb-24 my-auto"
+/>
+
+## Dos and don'ts
+
+### Use primary buttons to highlight a single, important action
+
+Reserve the primary button for actions that are essential to an experience. Usually, use only one primary button on a page or section. These buttons give extra prominence and help establish a clear hierarchy.
+
+Do: [Example showing a single primary "Submit" button with a tertiary ‘Cancel’ button]
+Don't: [Example showing "Submit" and "Cancel" buttons next to each other both using the primary style]
+
+<DosAndDonts>
+  <DoOrDont story={Button.Playground} />
+  <DoOrDont story={Button.Playground} isDont />
+</DosAndDonts>
+
+### Use secondary buttons for medium emphasis actions
+
+Use secondary buttons when the action requires less prominence, or if there are multiple actions with the same importance on a page or section.
+
+### Use tertiary buttons to communicate action hierarchy
+
+Use tertiary buttons for less important actions within a group or section to help establish a clear hierarchy. Don't use tertiary buttons in isolation.
+
+### Use large buttons for high emphasis
+
+Use large buttons sparingly within pages or sections where you need a high emphasis and prominent button to provide balance with other large elements. This might be on a landing page or a CTA in proximity to large headings.
+
+[Do example - Empty state with CTA button]
+
+<DosAndDonts>
+  <DoOrDont story={Button.Playground} />
+</DosAndDonts>
+
+### Use medium buttons most of the time
+
+Medium buttons are appropriate in most common contexts such as pairing with input fields.
+
+[Do example - Select with ‘Choose country’ with Primary Medium size ‘Save’ button ]
+[Don’t example - Select with ‘Choose country’ with Primary Small size ‘Save’ button ]
+
+<DosAndDonts>
+  <DoOrDont story={Button.Playground} />
+  <DoOrDont story={Button.Playground} isDont />
+</DosAndDonts>
+
+### Use small buttons in information rich contexts
+
+Use small buttons when space is limited, such as inside or adjacent to lists, tables, or data visualizations.
+
+Ensure clarity by prioritizing the most important actions
+Think about how many buttons you use and where you put them. Don't overload your interface with too many buttons, as clustering buttons can confuse people.
+
+### Use icons in Primary and Secondary buttons sparingly and consistently
+
+Overusing icons can create visual clutter and overwhelm users. Use them sparingly to highlight common and recognizable actions.
+
+[Do example - Button with + icon and ‘Add user’]
+[Don’t example - Button with star icon and ‘Add user’]
+
+<DosAndDonts>
+  <DoOrDont story={Button.Playground} />
+  <DoOrDont story={Button.Playground} isDont />
+</DosAndDonts>
+
+### Always use icons in Tertiary buttons
+
+Without icons, tertiary buttons can look like plain text. Tertiary buttons must always use icons to support a button affordance and meet accessibility standards.
+
+### Use tooltips when the label is hidden
+
+When a button label is hidden and only an icon is used, show a tooltip on hover that displays the label text.
+
+[Do example - Button with trash icon with ‘Delete’ tooltip ]
+[Don’t example - Button with trash icon and no tooltip]
+
+<DosAndDonts>
+  <DoOrDont story={Button.Playground} />
+  <DoOrDont story={Button.Playground} isDont />
+</DosAndDonts>
+
+### Use a menu button when all actions are equally important
+
+Group related actions in a menu. The action options should be closely related and make sense as a group. You can use any type or size of button based on the context.
+
+[Do example - Secondary Menu button (button with chevron) with ‘Manage’]
+
+### Use a button and an overflow button when there is a most common or distinct action
+
+Highlight the most important, common, or a distinct action by using a button with text. Group related, less important actions in an overflow button. The action options should be closely related and make sense as a group. You can use any type or size of button based on the context. This pattern replaces Split Buttons.
+
+[Do example - Secondary overflow Menu button (kabab icon only) with ‘Manage’ tooltip]
+
+<DosAndDonts>
+  <DoOrDont story={Button.Playground} />
+</DosAndDonts>
+
+### Write clear, action-oriented button labels
+
+Write button labels as concise verbs that clearly state the action and its outcome. Always align the button label with the language used elsewhere in the Platform to maintain consistency and clarity.
+Make sure that all your buttons begin with a strong verb (something that elicits an action from the user). Verbs indicate to a user what they’re about to see or do next.
+
+[Do example - Button with ‘Save’]
+[Don’t example - Button with ‘Go to next step’]
+
+<DosAndDonts>
+  <DoOrDont story={Button.Playground} />
+  <DoOrDont story={Button.Playground} isDont />
+</DosAndDonts>
+
+A verb and noun combination gives users more context and can help guide them when the action they’re about to perform isn’t commonplace.
+
+[Do example - Button with ‘Create survey’]
+[Don’t example - Button with ‘Create’]
+
+<DosAndDonts>
+  <DoOrDont story={Button.Playground} />
+  <DoOrDont story={Button.Playground} isDont />
+</DosAndDonts>
+
+### Write in sentence case with minimal punctuation
+
+All buttons should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so leave out full stops and commas where possible.
+
+[Do example - Button with ‘View tour’]
+[Don’t example - Button with ‘What’s new?’]
+
+<DosAndDonts>
+  <DoOrDont story={Button.Playground} />
+  <DoOrDont story={Button.Playground} isDont />
+</DosAndDonts>
+
+### Use second person
+
+Any buttons that include a personal pronoun should be written in the second person. Keep in mind that you shouldn’t use personal pronouns unless you’re asking the user to filter something. For example, “View your reports” vs “View all reports.”
+
+[Do example - Button with ‘View your reports’]
+[Don’t example - Button with ‘View my reports’]
+
+<DosAndDonts>
+  <DoOrDont story={Button.Playground} />
+  <DoOrDont story={Button.Playground} isDont />
+</DosAndDonts>
+
+### Button labels should make sense in isolation
+
+If buttons on a page have the same label repeated multiple times, they should have distinct, accessible names that add context for users. This ensures better accessibility for screen reader users, who rely on descriptive labels to distinguish between actions.
+
+[Do example - Button with ‘Edit report’’]
+[Don’t example - Button with ‘Edit’]
+
+<DosAndDonts>
+  <DoOrDont story={Button.Playground} />
+  <DoOrDont story={Button.Playground} isDont />
+</DosAndDonts>
