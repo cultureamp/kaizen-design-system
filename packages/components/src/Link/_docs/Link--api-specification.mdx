@@ -20,7 +20,7 @@ Update Jan 29, 2025
 
 `Link` allows users to navigate to another page or resource. It is a wrapper around the native `a` element, with additional functionality and styling.
 
-The following example and table showcases the essential props that enable the core functionality of `LinkButton`. For the remaining suite of API options refer to [this section](#additional-api-options).
+The following example and table showcases the essential props that enable the core functionality of `Link`. For the remaining suite of API options refer to [this section](#additional-api-options).
 
 <Canvas of={exampleStories.Playground} />
 
@@ -36,6 +36,7 @@ The following example and table showcases the essential props that enable the co
     'iconPosition',
     'underlined',
     'isInline',
+    'isUnderlined',
     'isReversed',
     'isDisabled',
   ]}
@@ -57,7 +58,7 @@ The general recommendation is to limit the number of links that open a new tab o
 
 In order to provide advance warning to all users, it is recommended that links using `target="_blank"` be accompanied by a visual indicator and audible warning. As shown in the following example, additional context can be provided via a visually hidden element within the `children` of the component.
 
-<Canvas of={exampleStories.LinkButtonOpensInNewTab} />
+<Canvas of={exampleStories.LinkOpensInNewTab} />
 
 For more context on this recommendation, we recommend taking a look at the [W3C page on the G200 success criteria](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
 
@@ -92,6 +93,10 @@ Link supports the following sizes: `very-small`, `small`, `body` and `intro-lede
 
 <Canvas of={exampleStories.LinkSizes} />
 
+### Links within Text
+
+The `isInline` prop can be toggled to have the `Link` inherit the sizing from the parent text element. This is useful when the `Link` is nested within a paragraph or other text element.
+
 ### Link content and children
 
 Labels and any `Link` content can be passed to the component via `children`. For icons as content, refer to the [next section](#icons-and-positioning).
@@ -104,7 +109,7 @@ While in most cases, `children` will be a `ReactNode`, `Link` also accepts a ren
 
 ### Icons and Underlines
 
-The underline on the `Link` can be toggled using the `underlined` prop. If the `Link` is not underlined, the `icon` prop must be passed. The `icon` prop is optional if the link is underlined.
+The underline on the `Link` can be toggled using the `isUnderlined` prop and is `true` by default. If the `Link` is not underlined, the `icon` prop must be passed. The `icon` prop is optional if the link is underlined.
 
 ### Icons and positioning
 
@@ -136,6 +141,7 @@ The following table is a collection of additional React Aria and native HTML pro
     'iconPosition',
     'underlined',
     'isInline',
+    'isUnderlined',
     'isReversed',
     'isDisabled',
   ]}

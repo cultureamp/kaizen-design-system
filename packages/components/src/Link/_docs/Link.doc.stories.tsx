@@ -12,7 +12,7 @@ const meta = {
     href: 'https://www.google.com',
     variant: 'primary',
     icon: <Icon name="add" isPresentational />,
-    underlined: true,
+    isUnderlined: true,
     isReversed: false,
     isInline: true,
   },
@@ -48,6 +48,10 @@ export const LinkWithIconStart: Story = {
 
 export const LinkWithIconEnd: Story = {
   render: (props) => <Link {...props} iconPosition="end" />,
+}
+
+export const LinkOpensInNewTab: Story = {
+  render: (props) => <Link {...props} target="_blank" />,
 }
 
 export const WithText: Story = {
