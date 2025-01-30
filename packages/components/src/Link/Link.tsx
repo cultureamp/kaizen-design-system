@@ -5,7 +5,7 @@ import { mergeClassNames } from '~components/utils/mergeClassNames'
 import { LinkContent } from './subcomponents/LinkContent'
 import styles from './Link.module.css'
 
-export type LinkProps = (UnderlinedLink | IconLink) & (InlineLink | NonInlineLink)
+export type LinkProps = (UnderlinedLink | NonUnderlinedLink) & (InlineLink | NonInlineLink)
 
 type BaseLinkProps = {
   variant: 'primary' | 'secondary'
@@ -21,7 +21,7 @@ export type UnderlinedLink = BaseLinkProps & {
   icon?: JSX.Element
 }
 
-export type IconLink = BaseLinkProps & {
+export type NonUnderlinedLink = BaseLinkProps & {
   underlined: false
   icon: JSX.Element
 }

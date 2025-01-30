@@ -24,6 +24,32 @@ type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {}
 
+export const LinkVariants: Story = {
+  render: (props) => (
+    <>
+      <Link {...props} variant="primary" />
+      <br />
+      <Link {...props} variant="secondary" />
+      <br />
+    </>
+  ),
+}
+
+export const LinkVariantsReversed: Story = {
+  ...LinkVariants,
+  parameters: {
+    reverseColors: true,
+  },
+}
+
+export const LinkWithIconStart: Story = {
+  render: (props) => <Link {...props} iconPosition="start" />,
+}
+
+export const LinkWithIconEnd: Story = {
+  render: (props) => <Link {...props} iconPosition="end" />,
+}
+
 export const WithText: Story = {
   render: (props) => (
     <Text variant="extra-small">
@@ -37,7 +63,7 @@ export const WithText: Story = {
 }
 
 // Links of every different size
-export const Sizes: Story = {
+export const LinkSizes: Story = {
   render: ({ children: _, ...otherArgs }) => (
     <>
       <Link {...otherArgs} size="extra-small">
@@ -49,11 +75,11 @@ export const Sizes: Story = {
       </Link>
       <br />
       <Link {...otherArgs} size="body">
-        Medium
+        Body
       </Link>
       <br />
       <Link {...otherArgs} size="intro-lede">
-        Large
+        Intro Lede
       </Link>
     </>
   ),
