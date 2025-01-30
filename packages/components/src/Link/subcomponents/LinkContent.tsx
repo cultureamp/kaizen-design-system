@@ -6,7 +6,7 @@ export type LinkContentProps = {
   children: ReactNode
   icon?: JSX.Element
   iconPosition?: string
-  underlined: boolean
+  isUnderlined: boolean
   isInline: boolean
 }
 
@@ -14,11 +14,11 @@ export const LinkContent = ({
   children,
   icon,
   iconPosition,
-  underlined,
+  isUnderlined,
   isInline,
 }: LinkContentProps): JSX.Element => {
   return (
-    <span className={mergeClassNames(styles.link, underlined && styles.isUnderlined)}>
+    <span className={mergeClassNames(styles.link, isUnderlined && styles.isUnderlined)}>
       {icon && iconPosition === 'start' && (
         <span className={mergeClassNames(styles.icon)}>{icon}</span>
       )}

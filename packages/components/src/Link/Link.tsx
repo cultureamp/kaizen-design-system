@@ -17,12 +17,12 @@ type BaseLinkProps = {
   }
 
 export type UnderlinedLink = BaseLinkProps & {
-  underlined: true
+  isUnderlined: true
   icon?: JSX.Element
 }
 
 export type NonUnderlinedLink = BaseLinkProps & {
-  underlined: false
+  isUnderlined: false
   icon: JSX.Element
 }
 
@@ -48,7 +48,7 @@ export const Link = forwardRef(
       isDisabled,
       className,
       isReversed,
-      underlined,
+      isUnderlined = true,
       ...otherProps
     }: LinkProps,
     ref: React.ForwardedRef<HTMLAnchorElement>,
@@ -74,7 +74,7 @@ export const Link = forwardRef(
           <LinkContent
             icon={icon}
             iconPosition={iconPosition}
-            underlined={underlined}
+            isUnderlined={isUnderlined}
             isInline={isInline}
           >
             {childIsFunction ? children(racStateProps) : children}
