@@ -19,6 +19,10 @@
   inset: calc(-1 * (var(--border-focus-ring-border-width) * 2) - 1px);
 }
 
+.linkContent {
+  display: inline;
+}
+
 .negativeVerticalMargin {
   margin-bottom: -0.2rem;
 }
@@ -29,16 +33,14 @@
 }
 
 .icon {
-  margin-right: 0.25rem;
-  vertical-align: 0.01em;
+  margin-bottom: var(--icon-margin-bottom, -0.1em);
 }
 
 /* Body parent text size has perfect icon size. Icon is too small on larger text, and too large on smaller text */
 .icon > * {
   vertical-align: middle;
-  margin-bottom: 3px;
-  font-size: var(--link-line-height, 1em);
-  line-height: var(--link-font-size, 1em);
+  font-size: var(--link-font-size, 1em);
+  line-height: var(--icon-line-height, 1em);
 }
 
 .primary[data-hovered] {
@@ -64,21 +66,28 @@
 .extra-small {
   --link-font-size: var(--spacing-12);
   --link-line-height: 18px;
+  --icon-line-height: 14px;
 }
 
 .small {
   --link-font-size: var(--spacing-14);
   --link-line-height: 18px;
+  --icon-line-height: 16px;
+  --icon-margin-bottom: 1px;
 }
 
 .body {
   --link-font-size: var(--spacing-16);
   --link-line-height: var(--spacing-24);
+  --icon-line-height: 20px;
+  --icon-margin-bottom: -1px;
 }
 
 .intro-lede {
   --link-font-size: var(--spacing-20);
   --link-line-height: 30px;
+  --icon-line-height: 24px;
+  --icon-margin-bottom: -2px;
 }
 
 .reversed {

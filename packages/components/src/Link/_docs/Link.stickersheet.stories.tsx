@@ -39,7 +39,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 icon={<Icon name="add" isPresentational />}
                 iconPosition={'start'}
               >
-                Label
+                Link
               </Link>
               <Link
                 variant={variant}
@@ -51,7 +51,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 icon={<Icon name="add" isPresentational />}
                 iconPosition={'end'}
               >
-                Label
+                Link
               </Link>
               <Link
                 variant={variant}
@@ -61,7 +61,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 isReversed={isReversed ? isReversed : false}
                 isInline={false}
               >
-                Label
+                Link
               </Link>
               <Link
                 variant={variant}
@@ -72,7 +72,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 isInline={false}
                 isDisabled={true}
               >
-                Label
+                Link
               </Link>
             </StickerSheet.Row>
           )),

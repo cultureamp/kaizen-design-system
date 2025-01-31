@@ -18,7 +18,7 @@ export const LinkContent = ({
   isInline,
 }: LinkContentProps): JSX.Element => {
   return (
-    <span className={mergeClassNames(styles.link, isUnderlined && styles.isUnderlined)}>
+    <span className={mergeClassNames(styles.linkContent, isUnderlined && styles.isUnderlined)}>
       {icon && iconPosition === 'start' && (
         <span className={mergeClassNames(styles.icon)}>{icon}</span>
       )}
