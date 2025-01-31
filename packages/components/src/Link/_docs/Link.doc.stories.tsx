@@ -8,7 +8,7 @@ const meta = {
   title: 'Components/Link',
   component: Link,
   args: {
-    children: 'Label',
+    children: 'Link',
     href: 'https://www.google.com',
     variant: 'primary',
     icon: <Icon name="add" isPresentational />,
