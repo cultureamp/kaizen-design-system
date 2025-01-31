@@ -22,6 +22,7 @@ export const CalendarRange = ({
   classNameOverride,
   selected,
   defaultMonth,
+  numberOfMonths = 2,
   locale = enAU,
   ...restProps
 }: CalendarRangeProps): JSX.Element => {
@@ -39,6 +40,7 @@ export const CalendarRange = ({
     ...baseCalendarClassNames,
     month: hasDivider ? styles.monthWithDivider : styles.month,
     caption_end: styles.captionEnd,
+    caption_start: styles.captionStart,
     nav: styles.nav,
     day_range_start: styles.dayRangeStart,
     day_range_end: styles.dayRangeEnd,
@@ -57,7 +59,7 @@ export const CalendarRange = ({
           IconRight: () => <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
           IconLeft: () => <Icon name="arrow_back" isPresentational shouldMirrorInRTL />,
         }}
-        numberOfMonths={2}
+        numberOfMonths={numberOfMonths}
         locale={locale}
         {...restProps}
       />

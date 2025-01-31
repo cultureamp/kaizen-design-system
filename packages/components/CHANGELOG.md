@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.70.14
+
+### Patch Changes
+
+- [#5457](https://github.com/cultureamp/kaizen-design-system/pull/5457) [`1785576`](https://github.com/cultureamp/kaizen-design-system/commit/1785576ce4ecc5f5a4bd604a10e30bb4c43d64f6) - FilterDateRangePicker responsive support: now shrinks from two months showing to 1 on small viewports
+
+## 1.70.13
+
+### Patch Changes
+
+- [#5488](https://github.com/cultureamp/kaizen-design-system/pull/5488) [`b7d64b0`](https://github.com/cultureamp/kaizen-design-system/commit/b7d64b05dea76dbc91817d0348520f5f6b5c31a4) - Content: Adjust width on small viewports
+
 ## 1.70.12
 
 ### Patch Changes
