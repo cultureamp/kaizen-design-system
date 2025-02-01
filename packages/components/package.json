@@ -30,6 +30,12 @@
   "sideEffects": [
     "styles.css"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs"
+    }
+  },
   "bin": {
     "kaizen-codemod": "./bin/codemod.sh"
   },
