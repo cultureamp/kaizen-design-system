@@ -35,6 +35,31 @@
       "import": "./dist/esm/index.mjs",
       "require": "./dist/cjs/index.cjs",
       "types": "./dist/types/index.d.ts"
+    },
+    "./future": {
+      "import": "./dist/esm/future.mjs",
+      "require": "./dist/cjs/future.cjs",
+      "types": "./dist/types/__rc__/index.d.ts"
+    },
+    "./v2/actions": {
+      "import": "./dist/esm/actionsV2.mjs",
+      "require": "./dist/cjs/actionsV2.cjs",
+      "types": "./dist/types/v2-actions.d.ts"
+    },
+    "./v3/actions": {
+      "import": "./dist/esm/actionsV3.mjs",
+      "require": "./dist/cjs/actionsV3.cjs",
+      "types": "./dist/types/v3-actions.d.ts"
+    },
+    "./v3/overlays": {
+      "import": "./dist/esm/overlaysV3.mjs",
+      "require": "./dist/cjs/overlaysV3.cjs",
+      "types": "./dist/types/v3-overlays.d.ts"
+    },
+    "./v3/react-aria-components": {
+      "import": "./dist/esm/reactAriaComponentsV3.mjs",
+      "require": "./dist/cjs/reactAriaComponentsV3.cjs",
+      "types": "./dist/types/__react-aria-components__/index.d.ts"
     }
   },
   "bin": {
