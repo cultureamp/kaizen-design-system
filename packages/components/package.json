@@ -80,7 +80,7 @@
     "prosemirror-state": "^1.4.3",
     "prosemirror-transform": "^1.10.2",
     "prosemirror-utils": "^1.2.2",
-    "prosemirror-view": "^1.37.1",
+    "prosemirror-view": "^1.37.2",
     "react-animate-height": "^3.2.3",
     "react-aria": "^3.36.0",
     "react-aria-components": "^1.5.0",
