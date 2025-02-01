@@ -88,8 +88,8 @@ importers:
         specifier: ^9.18.0
         version: 9.18.0(jiti@1.21.6)
       eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@9.18.0(jiti@1.21.6))
+        specifier: ^10.0.1
+        version: 10.0.1(eslint@9.18.0(jiti@1.21.6))
       eslint-import-resolver-typescript:
         specifier: ^3.7.0
         version: 3.7.0(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@1.21.6))
@@ -104,7 +104,7 @@ importers:
         version: 3.1.5(eslint@9.18.0(jiti@1.21.6))
       eslint-plugin-prettier:
         specifier: ^5.2.1
-        version: 5.2.1(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@9.18.0(jiti@1.21.6)))(eslint@9.18.0(jiti@1.21.6))(prettier@3.4.2)
+        version: 5.2.1(@types/eslint@8.56.10)(eslint-config-prettier@10.0.1(eslint@9.18.0(jiti@1.21.6)))(eslint@9.18.0(jiti@1.21.6))(prettier@3.4.2)
       eslint-plugin-react:
         specifier: ^7.37.4
         version: 7.37.4(eslint@9.18.0(jiti@1.21.6))
@@ -5455,8 +5455,8 @@ packages:
     engines: {node: '>=6.0'}
     hasBin: true
 
-  eslint-config-prettier@9.1.0:
-    resolution: {integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==}
+  eslint-config-prettier@10.0.1:
+    resolution: {integrity: sha512-lZBts941cyJyeaooiKxAtzoPHTN+GbQTJFAIdQbRhA4/8whaAraEh47Whw/ZFfrjNSnlAxqfm9i0XVAEkULjCw==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -16306,7 +16306,7 @@ snapshots:
       source-map: 0.6.1
     optional: true
 
-  eslint-config-prettier@9.1.0(eslint@9.18.0(jiti@1.21.6)):
+  eslint-config-prettier@10.0.1(eslint@9.18.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.18.0(jiti@1.21.6)
 
@@ -16454,7 +16454,7 @@ snapshots:
       - bluebird
       - supports-color
 
-  eslint-plugin-prettier@5.2.1(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@9.18.0(jiti@1.21.6)))(eslint@9.18.0(jiti@1.21.6))(prettier@3.4.2):
+  eslint-plugin-prettier@5.2.1(@types/eslint@8.56.10)(eslint-config-prettier@10.0.1(eslint@9.18.0(jiti@1.21.6)))(eslint@9.18.0(jiti@1.21.6))(prettier@3.4.2):
     dependencies:
       eslint: 9.18.0(jiti@1.21.6)
       prettier: 3.4.2
@@ -16462,7 +16462,7 @@ snapshots:
       synckit: 0.9.1
     optionalDependencies:
       '@types/eslint': 8.56.10
-      eslint-config-prettier: 9.1.0(eslint@9.18.0(jiti@1.21.6))
+      eslint-config-prettier: 10.0.1(eslint@9.18.0(jiti@1.21.6))
 
   eslint-plugin-react-hooks@5.1.0(eslint@9.18.0(jiti@1.21.6)):
     dependencies:
