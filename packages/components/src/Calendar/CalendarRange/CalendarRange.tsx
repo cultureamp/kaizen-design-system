@@ -2,18 +2,10 @@ import React, { useEffect, useRef } from 'react'
 import { enAU } from 'date-fns/locale'
 import { DayPicker, type DayPickerRangeProps } from 'react-day-picker'
 import { Icon } from '~components/__rc__/Icon'
-import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
+import { type CalendarRangeElement, type CalendarRangeProps } from '../types'
 import { isInvalidDate } from '../utils'
 import styles from './CalendarRange.module.scss'
-
-export type CalendarRangeElement = HTMLDivElement
-
-export type CalendarRangeProps = {
-  id?: string
-  onMount?: (calendarElement: CalendarRangeElement) => void
-  hasDivider?: boolean
-} & OverrideClassName<Omit<DayPickerRangeProps, 'mode'>>
 
 export const CalendarRange = ({
   id,

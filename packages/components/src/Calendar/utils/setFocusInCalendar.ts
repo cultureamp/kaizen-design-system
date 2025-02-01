@@ -1,6 +1,5 @@
-import { type CalendarRangeElement } from '../CalendarRange'
-import { type CalendarSingleElement } from '../CalendarSingle'
 import calendarStyles from '../baseCalendarClassNames.module.scss'
+import { type CalendarRangeElement, type CalendarSingleElement } from '../types'
 import { isInvalidDate } from './isInvalidDate'
 
 const isHTMLElement = (element: Element | undefined): element is HTMLElement =>

@@ -2,7 +2,8 @@ import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { NavigationTab, type CustomNavigationTabProps } from './NavigationTabs'
+import { type CustomNavigationTabProps } from '../types'
+import { NavigationTab } from './NavigationTabs'
 import styles from './NavigationTabs.module.scss'
 
 const user = userEvent.setup()
