@@ -2,4 +2,4 @@
 '@kaizen/components': patch
 ---
 
-Setting import fields in KAIO so that Vitest can correctly navigate it
+Set fields in export so that Vitest can resolve to ESM modules instead of CJS.
