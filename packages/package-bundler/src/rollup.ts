@@ -4,29 +4,18 @@ import typescript from '@rollup/plugin-typescript'
 import { type InputPluginOption, type RollupOptions } from 'rollup'
 import { pluginsDefault } from './presets/index.js'
 import { rollupTailwindConfig } from './presets/shared-ui/rollup-tailwind.js'
-
-type Config = {
-  input?: RollupOptions['input']
-  plugins?: InputPluginOption[]
-}
+import merge from 'lodash.merge'
 
 export const rollupConfig = (
-  config: Config = {
+  userConfig: RollupOptions = {
     input: { index: './src/index.ts' },
     plugins: pluginsDefault as InputPluginOption[],
   },
 ): RollupOptions[] => {
-  // Shared config
-  const userConfig = {
-    input: config.input,
-    plugins: config?.plugins ?? pluginsDefault,
-  } satisfies RollupOptions
 
   // CommonJS
-  const cjsConfig = {
-    ...userConfig,
+  const cjsConfig: RollupOptions = merge({
     plugins: [
-      ...userConfig.plugins,
       typescript({
         tsconfig: './tsconfig.dist.json',
         compilerOptions: {
@@ -42,13 +31,11 @@ export const rollupConfig = (
       entryFileNames: '[name].cjs',
       interop: 'auto',
     },
-  } satisfies RollupOptions
+  }, userConfig)
 
   // ESModules
-  const esmConfig = {
-    ...userConfig,
+  const esmConfig: RollupOptions = merge({
     plugins: [
-      ...userConfig.plugins,
       typescript({
         tsconfig: './tsconfig.dist.json',
         compilerOptions: {
@@ -71,7 +58,7 @@ export const rollupConfig = (
       preserveModules: true,
       entryFileNames: '[name].mjs',
     },
-  } satisfies RollupOptions
+  }, userConfig)
 
   const hasTailwind = fs.existsSync(path.resolve(process.cwd(), './tailwind.config.js'))
 
