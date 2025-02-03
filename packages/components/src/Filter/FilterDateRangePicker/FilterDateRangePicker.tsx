@@ -1,4 +1,5 @@
 import React, { useId } from 'react'
+import classNames from 'classnames'
 import { getLocale } from '~components/DatePicker/utils/getLocale'
 import { Filter, FilterContents, type FilterProps } from '~components/Filter/Filter'
 import { type FilterButtonProps } from '../FilterButton'
@@ -9,6 +10,7 @@ import {
 } from './subcomponents/FilterDateRangePickerField'
 import { isValidRange } from './subcomponents/FilterDateRangePickerField/utils/isValidRange'
 import { isCompleteDateRange } from './utils/isCompleteDateRange'
+import styles from './FilterDateRangePicker.module.css'
 
 export type FilterDateRangePickerProps = {
   id?: string
@@ -46,7 +48,7 @@ export const FilterDateRangePicker = ({
         })
       }
     >
-      <FilterContents>
+      <FilterContents classNameOverride={classNames(styles.filterDateRangePickerContents)}>
         <FilterDateRangePickerField
           id={`${id}--input`}
           label={label}
