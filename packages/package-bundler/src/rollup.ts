@@ -1,69 +1,79 @@
 import fs from 'fs'
 import path from 'path'
 import typescript from '@rollup/plugin-typescript'
-import merge from 'lodash.merge'
 import { type InputPluginOption, type RollupOptions } from 'rollup'
 import { pluginsDefault } from './presets/index.js'
 import { rollupTailwindConfig } from './presets/shared-ui/rollup-tailwind.js'
 
+type Config = {
+  input?: RollupOptions['input']
+  plugins?: InputPluginOption[]
+}
+
 export const rollupConfig = (
-  userConfig: RollupOptions = {
+  config: Config = {
     input: { index: './src/index.ts' },
     plugins: pluginsDefault as InputPluginOption[],
   },
 ): RollupOptions[] => {
+  // Shared config
+  const userConfig = {
+    input: config.input,
+    plugins: config?.plugins ?? pluginsDefault,
+  } satisfies RollupOptions
+
   // CommonJS
-  const cjsConfig: RollupOptions = merge(
-    {
-      plugins: [
-        typescript({
-          tsconfig: './tsconfig.dist.json',
-          compilerOptions: {
-            esModuleInterop: false,
-            allowSyntheticDefaultImports: true,
-          },
-        }),
-      ],
-      output: {
-        dir: 'dist/cjs',
-        format: 'commonjs',
-        preserveModules: true,
-        entryFileNames: '[name].cjs',
-        interop: 'auto',
-      },
+  const cjsConfig = {
+    ...userConfig,
+    treeshake: false,
+    plugins: [
+      ...userConfig.plugins,
+      typescript({
+        tsconfig: './tsconfig.dist.json',
+        compilerOptions: {
+          esModuleInterop: false,
+          allowSyntheticDefaultImports: true,
+        },
+      }),
+    ],
+    output: {
+      dir: 'dist/cjs',
+      format: 'commonjs',
+      preserveModules: true,
+      entryFileNames: '[name].cjs',
+      interop: 'auto',
     },
-    userConfig,
-  )
+  } satisfies RollupOptions
 
   // ESModules
-  const esmConfig: RollupOptions = merge(
-    {
-      plugins: [
-        typescript({
-          tsconfig: './tsconfig.dist.json',
-          compilerOptions: {
-            declaration: true,
-            declarationDir: 'dist/esm/_tmp/types',
-            noEmit: false,
-            plugins: [
-              { transform: 'typescript-transform-paths' },
-              {
-                transform: 'typescript-transform-paths',
-                afterDeclarations: true,
-              },
-            ],
-          },
-        }),
-      ],
-      output: {
-        dir: 'dist/esm',
-        format: 'esm',
-        preserveModules: true,
-        entryFileNames: '[name].mjs',
-      },
+  const esmConfig = {
+    ...userConfig,
+    treeshake: false,
+    plugins: [
+      ...userConfig.plugins,
+      typescript({
+        tsconfig: './tsconfig.dist.json',
+        compilerOptions: {
+          declaration: true,
+          declarationDir: 'dist/esm/_tmp/types',
+          noEmit: false,
+          plugins: [
+            { transform: 'typescript-transform-paths' },
+            {
+              transform: 'typescript-transform-paths',
+              afterDeclarations: true,
+            },
+          ],
+        },
+      }),
+    ],
+    output: {
+      dir: 'dist/esm',
+      format: 'esm',
+      preserveModules: true,
+      entryFileNames: '[name].mjs',
     },
-    userConfig,
-  )
+  } satisfies RollupOptions
 
   const hasTailwind = fs.existsSync(path.resolve(process.cwd(), './tailwind.config.js'))
 
