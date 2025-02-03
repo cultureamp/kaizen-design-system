@@ -188,14 +188,24 @@ describe('<Select />', () => {
           })
         })
         it('is closed when hits the escape key', async () => {
-          const { getByRole } = render(<SelectWrapper defaultOpen />)
-          const menu = getByRole('listbox')
-          await waitFor(() => {
-            expect(menu).toBeVisible()
+          const { getByRole, queryByRole } = render(<SelectWrapper />)
+          const trigger = getByRole('combobox', {
+            name: 'Mock Label',
           })
-          await user.keyboard('{Escape}')
+          await user.tab()
           await waitFor(() => {
-            expect(menu).not.toBeInTheDocument()
+            expect(trigger).toHaveFocus()
+          })
+          await user.keyboard('{Enter}')
+
+          await waitFor(() => {
+            expect(queryByRole('listbox')).toBeVisible()
+          })
+
+          await user.keyboard('{Escape}')
+
+          await waitFor(() => {
+            expect(queryByRole('listbox')).toBe(null)
           })
         })
       })
