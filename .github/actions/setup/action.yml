@@ -8,7 +8,9 @@ runs:
   using: composite
   steps:
     - name: Install package manager via corepack
-      run: corepack enable
+      run: |
+        npm install -g corepack@v0.31.0
+        corepack enable
       shell: bash
 
     - name: Cache pnpm store
