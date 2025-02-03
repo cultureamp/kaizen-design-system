@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.15
+
+### Patch Changes
+
+- [#5492](https://github.com/cultureamp/kaizen-design-system/pull/5492) [`907da4c`](https://github.com/cultureamp/kaizen-design-system/commit/907da4c38413f4d6c7239da1a147684c4b651450) - Set fields in export so that Vitest can resolve to ESM modules instead of CJS.
+
 ## 1.70.14
 
 ### Patch Changes
