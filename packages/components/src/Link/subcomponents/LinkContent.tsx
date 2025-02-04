@@ -20,13 +20,13 @@ export const LinkContent = ({
   return (
     <span className={mergeClassNames(styles.linkContent, isUnderlined && styles.isUnderlined)}>
       {icon && iconPosition === 'start' && (
-        <span className={mergeClassNames(styles.icon)}>{icon}</span>
+        <span className={mergeClassNames(styles.icon, isInline && styles.isInline)}>{icon}</span>
       )}
       <span className={mergeClassNames(isInline && styles.isInline, styles.negativeVerticalMargin)}>
         {children}
       </span>
       {icon && iconPosition === 'end' && (
-        <span className={mergeClassNames(styles.icon)}>{icon}</span>
+        <span className={mergeClassNames(styles.icon, isInline && styles.isInline)}>{icon}</span>
       )}
     </span>
   )
