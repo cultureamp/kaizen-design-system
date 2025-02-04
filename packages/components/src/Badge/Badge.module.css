@@ -43,10 +43,6 @@
   width: 24px;
 }
 
-.default {
-  color: var(--color-purple-800);
-}
-
 .active {
   --badge-background-color: var(--color-blue-500);
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+import { expect, fn, waitFor, within } from '@storybook/test'
 import Highlight from 'react-highlight'
 import { type DateRange } from '~components/Calendar'
 import { defaultMonthControls } from '~components/Calendar/_docs/controls/defaultMonthControls'
@@ -426,5 +426,40 @@ export const Validation: Story = {
   parameters: {
     docs: { source: { type: 'code' } },
     controls: { disable: true },
+  },
+}
+
+export const OnSmallViewport: Story = {
+  parameters: { viewport: { defaultViewport: 'mobile1' } },
+  ...FilterDateRangePickerTemplate,
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+
+    await step('initial render complete', async () => {
+      await waitFor(() => {
+        canvas.getByRole('button', {
+          name: 'Dates',
+        })
+      })
+    })
+
+    await step('Can open the date picker', async () => {
+      await waitFor(() => {
+        const button = canvas.getByRole('button', {
+          name: 'Dates',
+        })
+        button.click()
+      })
+    })
+
+    await step('Back and Forward arrow and both visible', async () => {
+      await waitFor(() => {
+        const prevMonth = canvas.getByLabelText('Go to previous month')
+        const nextMonth = canvas.getByLabelText('Go to next month')
+
+        expect(prevMonth).toBeVisible()
+        expect(nextMonth).toBeVisible()
+      })
+    })
   },
 }

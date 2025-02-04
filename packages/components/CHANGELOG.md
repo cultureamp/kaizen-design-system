@@ -1,5 +1,40 @@
 # Change Log
 
+## 1.70.15
+
+### Patch Changes
+
+- [#5492](https://github.com/cultureamp/kaizen-design-system/pull/5492) [`907da4c`](https://github.com/cultureamp/kaizen-design-system/commit/907da4c38413f4d6c7239da1a147684c4b651450) - Set fields in export so that Vitest can resolve to ESM modules instead of CJS.
+
+## 1.70.14
+
+### Patch Changes
+
+- [#5457](https://github.com/cultureamp/kaizen-design-system/pull/5457) [`1785576`](https://github.com/cultureamp/kaizen-design-system/commit/1785576ce4ecc5f5a4bd604a10e30bb4c43d64f6) - FilterDateRangePicker responsive support: now shrinks from two months showing to 1 on small viewports
+
+## 1.70.13
+
+### Patch Changes
+
+- [#5488](https://github.com/cultureamp/kaizen-design-system/pull/5488) [`b7d64b0`](https://github.com/cultureamp/kaizen-design-system/commit/b7d64b05dea76dbc91817d0348520f5f6b5c31a4) - Content: Adjust width on small viewports
+
+## 1.70.12
+
+### Patch Changes
+
+- [#5476](https://github.com/cultureamp/kaizen-design-system/pull/5476) [`bb3b1c3`](https://github.com/cultureamp/kaizen-design-system/commit/bb3b1c30d7f3fc81837b774ba3b2c2ccf5648157) - [Revert] Content: use padding instead of margin for inline spacing
+
+## 1.70.11
+
+### Patch Changes
+
+- [#5391](https://github.com/cultureamp/kaizen-design-system/pull/5391) [`d180512`](https://github.com/cultureamp/kaizen-design-system/commit/d180512e29cc1078d05fda28feed24926242e7e2) - Deps updates and type component fixes for RC MenuItem and Tab
+
+  - Update deps
+  - Update RC MenuItem and Tab child render to fix types issues after upgrade to typescript 5.7.3 upgrade
+  - Update test-runner to use imported Page type from Playwright to reflect updated dep
+  - Update Badge duplicate color declaration
+
 ## 1.70.10
 
 ### Patch Changes

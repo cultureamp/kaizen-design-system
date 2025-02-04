@@ -1,6 +1,7 @@
 import { getStoryContext, type TestRunnerConfig } from '@storybook/test-runner'
 import { configureAxe, getAxeResults, injectAxe } from 'axe-playwright'
 import { toHaveNoViolations } from 'jest-axe'
+import { type Page } from 'playwright'
 import { globalA11yRules } from './utils/global-a11y-rules'
 
 const config = {
@@ -8,7 +9,7 @@ const config = {
     expect.extend(toHaveNoViolations)
   },
   preVisit: async (page) => {
-    await injectAxe(page)
+    await injectAxe(page as Page)
   },
   postVisit: async (page, context) => {
     const { parameters } = await getStoryContext(page, context)
@@ -21,14 +22,14 @@ const config = {
     const storyRules = parameters?.a11y?.config?.rules || []
     const rules = [...globalA11yRules, ...storyRules]
 
-    await configureAxe(page, { ...parameters.a11y?.config, rules })
+    await configureAxe(page as Page, { ...parameters.a11y?.config, rules })
 
     if (parameters?.a11y?.timeout) {
       await page.waitForTimeout(parameters.a11y.timeout)
     }
 
     const a11yResults = await getAxeResults(
-      page,
+      page as Page,
       parameters?.a11y?.element ?? '#storybook-root',
       parameters?.a11y?.options,
     )

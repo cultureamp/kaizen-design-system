@@ -1,5 +1,19 @@
 # Change Log
 
+## 1.3.13
+
+### Patch Changes
+
+- [#5391](https://github.com/cultureamp/kaizen-design-system/pull/5391) [`d180512`](https://github.com/cultureamp/kaizen-design-system/commit/d180512e29cc1078d05fda28feed24926242e7e2) - Deps updates and type component fixes for RC MenuItem and Tab
+
+  - Update deps
+  - Update RC MenuItem and Tab child render to fix types issues after upgrade to typescript 5.7.3 upgrade
+  - Update test-runner to use imported Page type from Playwright to reflect updated dep
+  - Update Badge duplicate color declaration
+
+- Updated dependencies [[`d180512`](https://github.com/cultureamp/kaizen-design-system/commit/d180512e29cc1078d05fda28feed24926242e7e2)]:
+  - @kaizen/design-tokens@10.8.7
+
 ## 1.3.12
 
 ### Patch Changes

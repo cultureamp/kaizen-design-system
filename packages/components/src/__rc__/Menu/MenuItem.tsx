@@ -26,16 +26,14 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
         textValue={determinedTextValue}
         {...props}
       >
-        <>
-          {typeof children === 'string' && icon ? (
-            <div className={styles.flexWrapper}>
-              <span className={styles.iconWrapper}>{icon}</span>
-              {children}
-            </div>
-          ) : (
-            <>{children}</>
-          )}
-        </>
+        {typeof children === 'string' && icon ? (
+          <div className={styles.flexWrapper}>
+            <span className={styles.iconWrapper}>{icon}</span>
+            {children}
+          </div>
+        ) : (
+          children
+        )}
       </RACMenuItem>
     )
   },

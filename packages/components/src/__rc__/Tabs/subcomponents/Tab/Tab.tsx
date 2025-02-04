@@ -29,12 +29,20 @@ export const Tab = (props: TabProps): JSX.Element => {
 
   return (
     <RACTab data-kz-tab {...tabProps}>
-      {({ isSelected, isFocusVisible, isHovered }) => (
+      {(TabRenderProps) => (
         <>
-          {children}
+          {typeof children === 'function' ? children(TabRenderProps) : children}
           {badge && (
             <span className={styles.badge}>
-              <Badge variant={isSelected || isFocusVisible || isHovered ? 'active' : 'default'}>
+              <Badge
+                variant={
+                  TabRenderProps.isSelected ||
+                  TabRenderProps.isFocusVisible ||
+                  TabRenderProps.isHovered
+                    ? 'active'
+                    : 'default'
+                }
+              >
                 {badge}
               </Badge>
             </span>
