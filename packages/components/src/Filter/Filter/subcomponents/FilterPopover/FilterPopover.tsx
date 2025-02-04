@@ -11,6 +11,7 @@ export type FilterPopoverProps = {
   popperOptions?: Partial<Options>
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
+// At the moment this is not used. If RacPopover is viable we should remove this
 export const FilterPopover = ({
   children,
   referenceElement,

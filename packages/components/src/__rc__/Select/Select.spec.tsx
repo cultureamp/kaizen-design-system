@@ -205,7 +205,7 @@ describe('<Select />', () => {
           await user.keyboard('{Escape}')
 
           await waitFor(() => {
-            expect(queryByRole('listbox')).toBe(null)
+            expect(queryByRole('listbox')).not.toBeInTheDocument()
           })
         })
       })

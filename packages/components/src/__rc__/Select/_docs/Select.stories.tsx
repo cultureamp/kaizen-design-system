@@ -129,6 +129,7 @@ const sourceCodeCustomiseTrigger = `
 export const CustomiseTrigger: Story = {
   args: {
     trigger: (props) => <Select.TriggerButton {...props} id="select--custom-trigger" />,
+    defaultOpen: true,
   },
   parameters: {
     docs: {
