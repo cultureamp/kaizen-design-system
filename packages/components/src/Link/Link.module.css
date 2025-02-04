@@ -38,9 +38,10 @@
 
 /* Body parent text size has perfect icon size. Icon is too small on larger text, and too large on smaller text */
 .icon > * {
-  vertical-align: middle;
+  vertical-align: text-bottom;
   font-size: var(--link-font-size, 1em);
   line-height: var(--icon-line-height, 1em);
+  margin-bottom: var(--icon-margin-bottom, -0.1em);
 }
 
 .primary[data-hovered] {
@@ -67,6 +68,7 @@
   --link-font-size: var(--spacing-12);
   --link-line-height: 18px;
   --icon-line-height: 14px;
+  --icon-margin-bottom: 0px;
 }
 
 .small {
@@ -87,7 +89,7 @@
   --link-font-size: var(--spacing-20);
   --link-line-height: 30px;
   --icon-line-height: 24px;
-  --icon-margin-bottom: -2px;
+  --icon-margin-bottom: -1px;
 }
 
 .reversed {
