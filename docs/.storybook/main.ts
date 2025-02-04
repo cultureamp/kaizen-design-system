@@ -35,7 +35,7 @@ const config: StorybookConfig = {
     },
   ],
   typescript: {
-    reactDocgen: 'react-docgen',
+    reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       include: ['../packages/**/*.tsx'],
       skipChildrenPropWithoutDoc: false,
