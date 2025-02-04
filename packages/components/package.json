@@ -80,6 +80,11 @@
       "import": "./dist/esm/reactAriaComponentsV3.mjs",
       "require": "./dist/cjs/reactAriaComponentsV3.cjs",
       "types": "./dist/types/__react-aria-components__/index.d.ts"
+    },
+    "./dist/styles.css": {
+      "import": "./dist/styles.css",
+      "require": "./dist/styles.css",
+      "style": "./dist/styles.css"
     }
   },
   "bin": {
