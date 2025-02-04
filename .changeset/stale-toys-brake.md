@@ -2,4 +2,4 @@
 '@docs/storybook': patch
 ---
 
-Move from react-docgen-typescript to react-docgen
+Overriding transient dependency @storybook/react-vite package to fix issue
