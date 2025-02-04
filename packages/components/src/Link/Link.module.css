@@ -64,6 +64,7 @@
   --link-text-color: var(--color-black);
 }
 
+.extra-small .isInline,
 .extra-small {
   --link-font-size: var(--spacing-12);
   --link-line-height: 18px;
@@ -108,8 +109,10 @@
   --link-text-color: rgba(var(--color-white-rgb), 0.2);
 }
 
+/* icons misbehave because their styling depends on size being passed
 .isInline {
   --link-line-height: inherit;
   --link-font-size: inherit;
   --link-font-weight: inherit;
 }
+*/
