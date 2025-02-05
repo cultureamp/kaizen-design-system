@@ -3,7 +3,7 @@
   font-family: var(--typography-paragraph-body-font-family);
   font-size: var(--link-font-size);
   line-height: var(--link-line-height);
-  font-weight: var(--link-font-weight);
+  font-weight: 400;
   text-decoration: none;
   position: relative;
   outline: 0;
@@ -31,9 +31,7 @@
 /* Body parent text size has perfect icon size. Icon is too small on larger text, and too large on smaller text */
 .icon > * {
   vertical-align: text-bottom;
-  font-size: var(--link-font-size, 1em);
-  line-height: var(--icon-line-height, 1em);
-  margin-bottom: var(--icon-margin-bottom, -0.1em);
+  font-size: var(--icon-font-size, 1em);
 }
 
 .iconStart {
@@ -68,17 +66,15 @@
 .extra-small {
   --link-font-size: var(--spacing-12);
   --link-line-height: 18px;
-  --icon-line-height: 14px;
-  --icon-margin-bottom: 0px;
+  --icon-font-size: 14px;
   --text-icon-gap: 2px;
 }
 
 [class^='small'] .isInline > *,
 .small {
-  --link-font-size: var(--spacing-14);
+  --link-font-size: 14px;
   --link-line-height: 18px;
-  --icon-line-height: 16px;
-  --icon-margin-bottom: 1px;
+  --icon-font-size: 16px;
   --text-icon-gap: 4px;
 }
 
@@ -86,8 +82,7 @@
 .body {
   --link-font-size: var(--spacing-16);
   --link-line-height: var(--spacing-24);
-  --icon-line-height: 20px;
-  --icon-margin-bottom: -1px;
+  --icon-font-size: 20px;
   --text-icon-gap: 6px;
 }
 
@@ -95,8 +90,7 @@
 .intro-lede {
   --link-font-size: var(--spacing-20);
   --link-line-height: 30px;
-  --icon-line-height: 24px;
-  --icon-margin-bottom: -1px;
+  --icon-font-size: 24px;
   --text-icon-gap: 8px;
 }
 
