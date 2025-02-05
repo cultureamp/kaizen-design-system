@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.17
+
+### Patch Changes
+
+- [#5504](https://github.com/cultureamp/kaizen-design-system/pull/5504) [`8fe7419`](https://github.com/cultureamp/kaizen-design-system/commit/8fe7419ff0e8e2d177c101d67ced16a080ea7bf9) - ToggleSwitch: removes hover style from disabled state
+
 ## 1.70.16
 
 ### Patch Changes
