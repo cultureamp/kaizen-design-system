@@ -1,6 +1,6 @@
 import React, { useEffect, useId, useRef, useState, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { Dialog, Popover } from 'react-aria-components'
+import { Dialog as RacDialog, Popover as RacPopover } from 'react-aria-components'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import popoverStyles from './subcomponents/FilterPopover/FilterPopover.module.css'
 import { type FilterTriggerRef } from './types'
@@ -56,18 +56,16 @@ export const Filter = ({
       })}
 
       {isRefLoaded && isOpen && (
-        <Popover
-          className={classnames(popoverStyles.filterPopover, classNameOverride)}
+        <RacPopover
+          className={popoverStyles.filterPopover}
           isOpen={isOpen}
           onOpenChange={setIsOpen}
           triggerRef={filterButtonRef.current?.triggerRef}
-          aria-labelledby={trigger.props.id}
           offset={15}
-          isNonModal
           placement="bottom start"
         >
-          <Dialog>{children}</Dialog>
-        </Popover>
+          <RacDialog aria-labelledby={trigger.props.id}>{children}</RacDialog>
+        </RacPopover>
       )}
     </div>
   )

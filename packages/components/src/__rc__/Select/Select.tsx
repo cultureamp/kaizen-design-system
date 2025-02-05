@@ -97,8 +97,6 @@ export const Select = <Option extends SelectOption = SelectOption>({
   defaultOpen,
   ...restProps
 }: SelectProps<Option>): JSX.Element => {
-  // const { refs } = useFloating<HTMLButtonElement>()
-  // const triggerRef = refs.reference
   const triggerRef = useRef<HTMLButtonElement | null>(null)
   const fallbackId = useId()
   const id = propsId ?? fallbackId
@@ -183,17 +181,11 @@ export const Select = <Option extends SelectOption = SelectOption>({
             defaultOpen={defaultOpen}
             onOpenChange={state.setOpen}
             triggerRef={selectToggleProps.ref}
-            // aria-labelledby={trigger.props.id}
             offset={15}
-            // isNonModal
-            // shouldUpdatePosition
             placement="bottom start"
             maxHeight={352}
             containerPadding={12}
-            scrollRef={popoverContentsRef}
             UNSTABLE_portalContainer={portalContainer}
-            // id={popoverId}
-            // portalContainer={portalContainer}
           >
             <Dialog id={popoverId} aria-labelledby={triggerProps['aria-labelledby']}>
               <div ref={popoverContentsRef}>
@@ -205,25 +197,6 @@ export const Select = <Option extends SelectOption = SelectOption>({
           </RacPopover>
         )}
       </div>
-      {/* {state.isOpen && (
-          <Popover
-            id={popoverId}
-            portalContainer={portalContainer}
-            refs={refs}
-            focusOnProps={{
-              enabled: true,
-              onClickOutside: state.close,
-              onEscapeKey: state.close,
-              noIsolation: true,
-              onDeactivation: (): void => triggerRef?.current?.focus(),
-            }}
-          >
-            <SelectProvider<Option> state={state}>
-              <SelectPopoverContents menuProps={menuProps}>{children}</SelectPopoverContents>
-            </SelectProvider>
-          </Popover>
-        )}
-      </div> */}
 
       {validationMessage && (
         <FieldMessage

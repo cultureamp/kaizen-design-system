@@ -4,7 +4,6 @@ import { useSelectContext } from '../../context'
 import { type SelectItem, type SelectItemNode, type SelectOption } from '../../types'
 import { ListBox } from '../ListBox'
 import { ListItems } from '../ListItems'
-import { Overlay } from '../Overlay'
 import styles from './SelectPopoverContents.module.css'
 
 export type SelectPopoverContentsProps<Option extends SelectOption> = {

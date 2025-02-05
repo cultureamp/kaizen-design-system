@@ -353,7 +353,8 @@ describe('<Select />', () => {
 
       await waitFor(() => {
         const newPortalRegion = screen.getByTestId('id--portal-container-test')
-        const listbox = within(newPortalRegion).getByRole('listbox')
+
+        const listbox = within(newPortalRegion).findByRole('dialog')
 
         expect(listbox).toBeInTheDocument()
       })
