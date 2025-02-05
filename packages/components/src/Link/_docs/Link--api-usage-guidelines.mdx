@@ -18,12 +18,91 @@ Updated Jan 30, 2025
 
 ## Overview
 
-`Link` allows users to navigate to another page or resource.
-
-<Canvas of={Link.Playground} />
+`Link` allow users to navigate to a different location. They can be presented inside a paragraph or as standalone text.
 
 <Controls
   of={Link.Playground}
   include={['href', 'variant', 'size', 'isDisabled', 'icon', 'iconPosition']}
   className="mb-64"
 />
+
+<Canvas of={Link.Playground} />
+
+## When to use
+
+- Navigating to a different page within the application
+- Navigating to an entirely different site
+- Jump to an element on the same page
+- Link to emails or phone numbers
+
+## When not to use
+
+- Do not use links for actions that will change data or manipulate how it is displayed, change a state, or trigger an action. Instead, use buttons to guide users to specific actions.
+
+### Use primary links to highlight
+
+The primary link is the default and is blue. This should be used to call attention to the link and for when the blue color won’t feel too overwhelming in the experience.
+
+### Use secondary links to optimise readability
+
+The secondary link is the same color as the paragraph text. Its subdued appearance is optimal for when the primary variant is too overwhelming, such as in blocks of text with several references linked throughout.
+
+### Use links in body copy
+
+Put links in regular text, not in titles. If you need something bigger or more noticeable, try using a button instead.
+
+### Use the link size that matches the body text size
+
+There are four size variants for the link component. Sizes correlate to body text sizes. Inline link sizes should match the type size of the text it is inline with. Standalone link sizes should match the default body copy size of the page.
+
+### Give context to inline links
+
+For links in a sentence, write them as part of the sentence and include enough information so people know what to expect. This approach can draw a user’s focus to the linked text. If the link leads to more content, it can be helpful to write it as a descriptive noun (e.g., “survey feedback”). If the link launches a task or action, start it with a verb (e.g., “Share your feedback”).
+
+### Write standalone links like calls-to-action
+
+Standalone links are not full sentences, and do not have punctuation at the end. Treat these like calls-to-action by writing them as short verb phrases.
+
+#### Do example - Link on ‘Learn more about demographics’
+
+<Canvas of={Link.StandaloneLinkDo} />
+
+#### Don’t example - Link on ‘Demographics’ only
+
+<Canvas of={Link.StandaloneLinkDont} />
+
+### Ensure clarity by prioritizing the most valuable links
+
+Think about how many link you use and where you put them. Don't overload your interface with too many links as clustering links can confuse people.
+
+#### Do example - 1 link in a sentence
+
+<Canvas of={Link.OneLinkInSentence} />
+
+#### Don’t example - 5 links in one sentence
+
+<Canvas of={Link.FiveLinksInSentence} />
+
+### Use icons in links sparingly and consistently
+
+Overusing icons can create visual clutter and overwhelm users. Use them sparingly to highlight common and recognisable navigation.
+
+#### Do example - Link with external link icon
+
+<Canvas of={Link.ExternalIconLink} />
+
+#### Don’t example - Link with random icon where it clearly should be an external link
+
+<Canvas of={Link.RandomIconLink} />
+
+### Links should make sense in isolation
+
+If links on a page have the same label repeated multiple times, they should have distinct, accessible names that add context for users. This ensures [better accessibility for screen reader](https://cultureamp.atlassian.net/wiki/spaces/PA/pages/3240099910/Buttons+and+link+labels+make+sense+in+isolation) users, who rely on descriptive labels to distinguish between links.
+
+#### Do example - Link on ‘View Q4 2024 dataset’
+
+<Canvas of={Link.DistinctNamedLink} />
+
+#### Don’t example - Link on ‘Learn more’
+
+<Canvas of={Link.GenericNamedLink} />

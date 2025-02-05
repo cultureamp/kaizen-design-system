@@ -24,10 +24,6 @@
   border-bottom: var(--spacing-1) solid var(--link-text-color, var(--color-blue-500));
 }
 
-.icon {
-  margin-bottom: var(--icon-margin-bottom, -0.1em);
-}
-
 /* Body parent text size has perfect icon size. Icon is too small on larger text, and too large on smaller text */
 .icon > * {
   vertical-align: text-bottom;
