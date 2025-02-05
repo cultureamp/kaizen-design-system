@@ -1,13 +1,14 @@
-import React, { useEffect, useId, useState } from 'react'
+import React, { useEffect, useId, useRef, useState } from 'react'
 import { type UseFloatingReturn } from '@floating-ui/react-dom'
 import { useButton } from '@react-aria/button'
 import { HiddenSelect, useSelect } from '@react-aria/select'
 import { useSelectState, type SelectProps as AriaSelectProps } from '@react-stately/select'
 import { type Key } from '@react-types/shared'
 import classnames from 'classnames'
+import { Dialog, Popover as RacPopover } from 'react-aria-components'
 import { FieldMessage } from '~components/FieldMessage'
-import { Popover, useFloating } from '~components/MultiSelect/subcomponents/Popover'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
+
 import { SelectProvider } from './context'
 import {
   ListBox,
@@ -23,7 +24,7 @@ import {
 import { type SelectItem, type SelectOption } from './types'
 import { getDisabledKeysFromItems } from './utils/getDisabledKeysFromItems'
 import { transformSelectItemToCollectionElement } from './utils/transformSelectItemToCollectionElement'
-import styles from './Select.module.scss'
+import styles from './Select.module.css'
 
 type OmittedAriaSelectProps = 'children' | 'items'
 
@@ -38,7 +39,7 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
       ref: UseFloatingReturn<HTMLButtonElement>['refs']['setReference']
     },
     // @deprecated: This arg is unnecessary now, but provided for legacy usages
-    ref: UseFloatingReturn<HTMLButtonElement>['refs']['setReference'],
+    ref: (node: HTMLButtonElement | null) => void,
   ) => JSX.Element
   children?: SelectPopoverContentsProps<Option>['children']
   /**
@@ -93,17 +94,19 @@ export const Select = <Option extends SelectOption = SelectOption>({
   placeholder = '',
   isDisabled,
   portalContainerId,
+  defaultOpen,
   ...restProps
 }: SelectProps<Option>): JSX.Element => {
-  const { refs } = useFloating<HTMLButtonElement>()
-  const triggerRef = refs.reference
+  // const { refs } = useFloating<HTMLButtonElement>()
+  // const triggerRef = refs.reference
+  const triggerRef = useRef<HTMLButtonElement | null>(null)
   const fallbackId = useId()
   const id = propsId ?? fallbackId
   const descriptionId = `${id}--description`
   const popoverId = `${id}--popover`
+  const popoverContentsRef = useRef(null)
 
   const disabledKeys = getDisabledKeysFromItems(items)
-
   const ariaSelectProps: AriaSelectProps<SelectItem<Option>> = {
     label,
     items,
@@ -113,6 +116,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
     description,
     placeholder,
     isDisabled,
+    defaultOpen,
     ...restProps,
   }
 
@@ -150,7 +154,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
     status,
     isDisabled: triggerProps.isDisabled,
     isReversed,
-    ref: refs.setReference,
+    ref: triggerRef,
   }
 
   const [portalContainer, setPortalContainer] = useState<HTMLElement>()
@@ -173,13 +177,53 @@ export const Select = <Option extends SelectOption = SelectOption>({
           trigger(selectToggleProps, selectToggleProps.ref)
         )}
         {state.isOpen && (
-          <Popover id={popoverId} portalContainer={portalContainer} refs={refs}>
+          <RacPopover
+            className={styles.popover}
+            isOpen={state.isOpen}
+            defaultOpen={defaultOpen}
+            onOpenChange={state.setOpen}
+            triggerRef={selectToggleProps.ref}
+            // aria-labelledby={trigger.props.id}
+            offset={15}
+            // isNonModal
+            // shouldUpdatePosition
+            placement="bottom start"
+            maxHeight={352}
+            containerPadding={12}
+            scrollRef={popoverContentsRef}
+            UNSTABLE_portalContainer={portalContainer}
+            // id={popoverId}
+            // portalContainer={portalContainer}
+          >
+            <Dialog id={popoverId} aria-labelledby={triggerProps['aria-labelledby']}>
+              <div ref={popoverContentsRef}>
+                <SelectProvider<Option> state={state}>
+                  <SelectPopoverContents menuProps={menuProps}>{children}</SelectPopoverContents>
+                </SelectProvider>
+              </div>
+            </Dialog>
+          </RacPopover>
+        )}
+      </div>
+      {/* {state.isOpen && (
+          <Popover
+            id={popoverId}
+            portalContainer={portalContainer}
+            refs={refs}
+            focusOnProps={{
+              enabled: true,
+              onClickOutside: state.close,
+              onEscapeKey: state.close,
+              noIsolation: true,
+              onDeactivation: (): void => triggerRef?.current?.focus(),
+            }}
+          >
             <SelectProvider<Option> state={state}>
               <SelectPopoverContents menuProps={menuProps}>{children}</SelectPopoverContents>
             </SelectProvider>
           </Popover>
         )}
-      </div>
+      </div> */}
 
       {validationMessage && (
         <FieldMessage

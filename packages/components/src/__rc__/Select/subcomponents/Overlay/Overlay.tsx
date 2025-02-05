@@ -9,6 +9,7 @@ export type OverlayProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> & {
   children: React.ReactNode
 }
 
+// Currently this is no longer used in the SelectPopoverContents components as it has been replaced by RACs popover and dialogue. if these are viable and this is used nowhere else then we can remove this
 export const Overlay = <Option extends SelectOption>({
   children,
   classNameOverride,
