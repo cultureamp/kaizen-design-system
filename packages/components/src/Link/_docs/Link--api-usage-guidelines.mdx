@@ -1,0 +1,29 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation, LinkTo } from '~storybook/components'
+import * as Link from './Link.doc.stories'
+
+<Meta title="Components/Link/Usage Guidelines" />
+
+# Link
+
+Updated Jan 30, 2025
+
+<ResourceLinks
+  sourceCode="blah blah update when available on main"
+  figma="https://www.figma.com/design/FWIOtGjpv9z0by95j1SgP0/Link?node-id=273-4107"
+  designGuidelines="/?path=/docs/link-link-usage-guidelines--docs"
+/>
+
+<KAIOInstallation exportNames={'Link'} />
+
+## Overview
+
+`Link` allows users to navigate to another page or resource.
+
+<Canvas of={Link.Playground} />
+
+<Controls
+  of={Link.Playground}
+  include={['href', 'variant', 'size', 'isDisabled', 'icon', 'iconPosition']}
+  className="mb-64"
+/>
