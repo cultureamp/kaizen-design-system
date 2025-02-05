@@ -1,5 +1,11 @@
 # @docs/storybook
 
+## 0.0.5
+
+### Patch Changes
+
+- [#5498](https://github.com/cultureamp/kaizen-design-system/pull/5498) [`c1ea1de`](https://github.com/cultureamp/kaizen-design-system/commit/c1ea1de895d4c66b1a1b18c0d3084c4fc228d2dc) - Overriding transient dependency @storybook/react-vite package to fix issue
+
 ## 0.0.4
 
 ### Patch Changes
