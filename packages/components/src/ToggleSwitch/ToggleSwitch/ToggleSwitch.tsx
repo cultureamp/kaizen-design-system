@@ -31,6 +31,7 @@ export const ToggleSwitch = ({
         className={classnames(styles.checkbox, disabled && styles.disabled)}
         checked={isOn ? true : false}
         onChange={onToggle}
+        disabled={disabled}
         {...restProps}
       />
       <span className={classnames(styles.track, disabled && styles.disabled)}>
