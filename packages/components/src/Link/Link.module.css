@@ -1,5 +1,6 @@
 .link {
   color: var(--link-text-color, var(--color-blue-500));
+  font-family: var(--typography-paragraph-body-font-family);
   font-size: var(--link-font-size);
   line-height: var(--link-line-height);
   font-weight: var(--link-font-weight);
@@ -19,17 +20,8 @@
   inset: calc(-1 * (var(--border-focus-ring-border-width) * 2) - 1px);
 }
 
-.linkContent {
-  display: inline;
-}
-
-.negativeVerticalMargin {
-  margin-bottom: -0.2rem;
-}
-
 .isUnderlined {
   border-bottom: var(--spacing-1) solid var(--link-text-color, var(--color-blue-500));
-  /* text-decoration: underline; */
 }
 
 .icon {
@@ -42,6 +34,14 @@
   font-size: var(--link-font-size, 1em);
   line-height: var(--icon-line-height, 1em);
   margin-bottom: var(--icon-margin-bottom, -0.1em);
+}
+
+.iconStart {
+  margin-inline-start: var(--text-icon-gap, 0.5em);
+}
+
+.iconEnd {
+  margin-inline-end: var(--text-icon-gap, 0.5em);
 }
 
 .primary[data-hovered] {
@@ -64,33 +64,40 @@
   --link-text-color: var(--color-black);
 }
 
-.extra-small .isInline,
+[class*='extra-small'] .isInline > *,
 .extra-small {
   --link-font-size: var(--spacing-12);
   --link-line-height: 18px;
   --icon-line-height: 14px;
   --icon-margin-bottom: 0px;
+  --text-icon-gap: 2px;
 }
 
+[class^='small'] .isInline > *,
 .small {
   --link-font-size: var(--spacing-14);
   --link-line-height: 18px;
   --icon-line-height: 16px;
   --icon-margin-bottom: 1px;
+  --text-icon-gap: 4px;
 }
 
+[class*='body'] .isInline > *,
 .body {
   --link-font-size: var(--spacing-16);
   --link-line-height: var(--spacing-24);
   --icon-line-height: 20px;
   --icon-margin-bottom: -1px;
+  --text-icon-gap: 6px;
 }
 
+[class*='intro-lede'] .isInline > *,
 .intro-lede {
   --link-font-size: var(--spacing-20);
   --link-line-height: 30px;
   --icon-line-height: 24px;
   --icon-margin-bottom: -1px;
+  --text-icon-gap: 8px;
 }
 
 .reversed {
@@ -108,11 +115,3 @@
 .reversed.isDisabled {
   --link-text-color: rgba(var(--color-white-rgb), 0.2);
 }
-
-/* icons misbehave because their styling depends on size being passed
-.isInline {
-  --link-line-height: inherit;
-  --link-font-size: inherit;
-  --link-font-weight: inherit;
-}
-*/

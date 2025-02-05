@@ -14,7 +14,7 @@ const meta = {
     icon: <Icon name="add" isPresentational />,
     isUnderlined: true,
     isReversed: false,
-    isInline: true,
+    size: 'body',
   },
 } satisfies Meta<typeof Link>
 
@@ -56,19 +56,25 @@ export const LinkOpensInNewTab: Story = {
 
 export const WithText: Story = {
   render: (props) => (
-    <Text variant="extra-small">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
-      repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
-      <Link {...props} /> Mollitia vero asperiores assumenda, odit ratione id perspiciatis suscipit
-      molestias quas facere, commodi saepe! Quisquam, quidem quas a quos quae quia quidem, quod,
-      voluptates, dolorum quibusdam. Quisquam, quidem quas a quos quae
-    </Text>
+    <>
+      <Text variant="extra-small">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
+        repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
+        <Link {...props} isInline /> Mollitia vero asperiores assumenda, odit ratione id
+        perspiciatis suscipit molestias quas facere, commodi saepe! Quisquam, quidem quas a quos
+        quae quia quidem, quod, voluptates, dolorum quibusdam. Quisquam, quidem quas a quos quae
+      </Text>
+
+      <Text variant="extra-small">
+        <span className="isInline"> Test for inherting inline </span>{' '}
+      </Text>
+    </>
   ),
 }
 
 // Links of every different size
 export const LinkSizes: Story = {
-  render: ({ children: _, ...otherArgs }) => (
+  render: ({ children: _, size: __, ...otherArgs }) => (
     <>
       <Link {...otherArgs} size="extra-small">
         Extra Small
