@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.70.16
+
+### Patch Changes
+
+- [#5501](https://github.com/cultureamp/kaizen-design-system/pull/5501) [`987a2b0`](https://github.com/cultureamp/kaizen-design-system/commit/987a2b0ad2f63d8a17e81b18046d3181d9efbf03) - Set styles to be in style condition for export
+
+- [#5499](https://github.com/cultureamp/kaizen-design-system/pull/5499) [`236ecac`](https://github.com/cultureamp/kaizen-design-system/commit/236ecac2dc4583b7d2fe8f6a4b57fb1496ebd8ee) - Export dist styles from exports field
+
 ## 1.70.15
 
 ### Patch Changes
