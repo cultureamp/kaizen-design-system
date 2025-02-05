@@ -19,6 +19,7 @@ export const ToggleSwitch = ({
   toggledStatus,
   onToggle,
   reversed,
+  disabled,
   ...restProps
 }: ToggleSwitchProps): JSX.Element => {
   const isOn = toggledStatus === 'on'
@@ -27,12 +28,12 @@ export const ToggleSwitch = ({
     <span className={classnames(isOn ? styles.on : styles.off, reversed && styles.reversed)}>
       <input
         type="checkbox"
-        className={styles.checkbox}
+        className={classnames(styles.checkbox, disabled && styles.disabled)}
         checked={isOn ? true : false}
         onChange={onToggle}
         {...restProps}
       />
-      <span className={styles.track}>
+      <span className={classnames(styles.track, disabled && styles.disabled)}>
         <span className={styles.thumb}>
           <Icon name="check" isPresentational className={styles.checkIcon} />
         </span>

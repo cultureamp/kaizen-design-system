@@ -11,11 +11,11 @@ $focus-ring-offset: 1px;
   @include form-input-visually-hidden;
 }
 
+
 .track {
   position: relative;
   background-color: $color-gray-500;
-  border: $border-borderless-border-width $border-borderless-border-style
-    $border-borderless-border-color;
+  border: $border-borderless-border-width $border-borderless-border-style $border-borderless-border-color;
   border-radius: $spacing-md;
   box-sizing: content-box;
   width: calc((#{$spacing-md} * 1.05) * 2);
@@ -27,19 +27,20 @@ $focus-ring-offset: 1px;
 
   /* TODO: Fix */
   /* stylelint-disable no-descending-specificity */
-  .checkbox:focus + &,
-  .checkbox:hover:focus + & {
+  .checkbox:not(.disabled):focus+&,
+  .checkbox:not(.disabled):hover:focus+& {
     border-color: transparent;
     outline: 2px solid $color-blue-500;
     outline-offset: $focus-ring-offset;
     background-color: $color-gray-600;
   }
 
-  .checkbox + &:hover,
-  label:hover .checkbox + & {
+  .checkbox:not(.disabled)+&:hover,
+  label:hover .checkbox+& {
     background-color: $color-purple-500;
     background-color: $color-gray-600;
   }
+
   /* stylelint-enable no-descending-specificity */
 }
 
@@ -48,8 +49,7 @@ $focus-ring-offset: 1px;
   align-items: center;
   justify-content: center;
   background-color: $color-white;
-  border: $border-borderless-border-width $border-borderless-border-style
-    $border-borderless-border-color;
+  border: $border-borderless-border-width $border-borderless-border-style $border-borderless-border-color;
   border-radius: $spacing-md;
   transition:
     left $animation-timing,
@@ -64,12 +64,12 @@ $focus-ring-offset: 1px;
 
 /* stylelint-disable no-descending-specificity */
 .on {
-  .checkbox + .track {
+  .checkbox+.track {
     border-color: $border-borderless-border-color;
     background-color: $color-green-500;
   }
 
-  .checkbox:focus + .track {
+  .checkbox:focus+.track {
     border-color: transparent;
     background-color: $color-green-500;
   }
@@ -86,8 +86,8 @@ $focus-ring-offset: 1px;
     transition-duration: $animation-duration-fast;
   }
 
-  .checkbox + .track:hover,
-  label:hover & .checkbox + .track {
+  .checkbox:not(.disabled)+.track:hover,
+  label:hover & .checkbox+.track {
     background-color: $color-green-600;
   }
 }
@@ -101,8 +101,9 @@ $focus-ring-offset: 1px;
 }
 
 .reversed {
-  .checkbox:focus + .track,
-  .checkbox:hover:focus + .track {
+
+  .checkbox:focus+.track,
+  .checkbox:hover:focus+.track {
     outline-color: $color-blue-300;
   }
 
@@ -111,15 +112,18 @@ $focus-ring-offset: 1px;
       background-color: rgba($color-white-rgb, 0.2);
     }
 
-    .checkbox:focus + .track,
-    .checkbox:hover:focus + .track {
+    .checkbox:focus+.track,
+    .checkbox:hover:focus+.track {
       background-color: rgba($color-white-rgb, 0.65);
     }
 
-    .checkbox + .track:hover,
-    label:hover & .checkbox + .track {
+    .checkbox:not(.disabled)+.track:hover,
+    label:hover & .checkbox+.track {
       background-color: rgba($color-white-rgb, 0.65);
     }
   }
 }
+
+
+
 /* stylelint-enable no-descending-specificity */
