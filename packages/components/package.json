@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.70.15",
+  "version": "1.70.16",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -80,6 +80,11 @@
       "import": "./dist/esm/reactAriaComponentsV3.mjs",
       "require": "./dist/cjs/reactAriaComponentsV3.cjs",
       "types": "./dist/types/__react-aria-components__/index.d.ts"
+    },
+    "./dist/styles.css": {
+      "import": "./dist/styles.css",
+      "require": "./dist/styles.css",
+      "style": "./dist/styles.css"
     }
   },
   "bin": {
