@@ -92,6 +92,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               isUnderlined={true}
               isReversed={isReversed ? isReversed : false}
               isInline={false}
+              icon={<Icon name="add" isPresentational />}
               data-testid="testid__link-hover"
             >
               Label
@@ -103,6 +104,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               isUnderlined={true}
               isReversed={isReversed ? isReversed : false}
               isInline={false}
+              icon={<Icon name="add" isPresentational />}
               data-testid="testid__link-focus"
             >
               Label
@@ -114,6 +116,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               isUnderlined={true}
               isReversed={isReversed ? isReversed : false}
               isInline={false}
+              icon={<Icon name="add" isPresentational />}
               data-testid="testid__link-pressed"
             >
               Label
