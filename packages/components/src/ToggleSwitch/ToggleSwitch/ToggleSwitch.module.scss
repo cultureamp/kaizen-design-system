@@ -36,7 +36,7 @@ $focus-ring-offset: 1px;
   }
 
   .checkbox:not(.disabled) + &:hover,
-  label:hover .checkbox + & {
+  label:hover .checkbox:not(.disabled) + & {
     background-color: $color-purple-500;
     background-color: $color-gray-600;
   }
@@ -55,6 +55,7 @@ $focus-ring-offset: 1px;
   transition:
     left $animation-timing,
     right $animation-timing;
+  cursor: default;
 }
 
 .checkIcon {
@@ -72,7 +73,7 @@ $focus-ring-offset: 1px;
 
   .checkbox:focus + .track {
     border-color: transparent;
-    background-color: $color-green-500;
+    background-color: $color-green-600;
   }
 
   .thumb {
@@ -88,7 +89,7 @@ $focus-ring-offset: 1px;
   }
 
   .checkbox:not(.disabled) + .track:hover,
-  label:hover & .checkbox + .track {
+  label:hover & .checkbox:not(.disabled) + .track {
     background-color: $color-green-600;
   }
 }
@@ -118,10 +119,18 @@ $focus-ring-offset: 1px;
     }
 
     .checkbox:not(.disabled) + .track:hover,
-    label:hover & .checkbox + .track {
+    label:hover & .checkbox:not(.disabled) + .track {
       background-color: rgba($color-white-rgb, 0.65);
     }
   }
+}
+
+label .disabled.track {
+  opacity: 100%;
+}
+
+.disabled.track {
+  opacity: 30%;
 }
 
 /* stylelint-enable no-descending-specificity */
