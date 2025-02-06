@@ -15,6 +15,7 @@ import { type DateValidationResponse } from '~components/Filter/FilterDatePicker
 import { useDateInputHandlers } from '~components/Filter/FilterDatePicker/hooks/useDateInputHandlers'
 import { type DataAttributes } from '~components/types/DataAttributes'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { useMediaQueries } from '~components/utils/useMediaQueries'
 import { DateRangeInputField, type DateRangeInputFieldProps } from '../DateRangeInputField'
 import { filterDatePickerFieldReducer } from './filterDateRangePickerFieldReducer'
 import { useEndDateValidation } from './hooks/useEndDateValidation'
@@ -83,6 +84,8 @@ export const FilterDateRangePickerField = ({
 }: FilterDateRangePickerFieldProps): JSX.Element => {
   const { formatMessage } = useIntl()
   const locale = getLocale(propsLocale)
+
+  const { queries } = useMediaQueries()
 
   const translatedDateFrom = formatMessage({
     id: 'filterDateRangePicker.dateFrom',
@@ -292,7 +295,7 @@ export const FilterDateRangePickerField = ({
           dateStart: dateStartValidation.validationMessage,
           dateEnd: dateEndValidation.validationMessage,
         }}
-        classNameOverride={styles.dateRangeInputField}
+        classNameOverride={classnames(styles.dateRangeInputField)}
       />
       <CalendarRange
         disabled={disabledDays}
@@ -303,6 +306,7 @@ export const FilterDateRangePickerField = ({
         }}
         onSelect={handleCalendarSelectRange}
         month={state.startMonth}
+        numberOfMonths={queries.isSmall ? 1 : 2}
         onMonthChange={(value: Date) => dispatch({ type: 'navigate_months', date: value })}
       />
     </div>

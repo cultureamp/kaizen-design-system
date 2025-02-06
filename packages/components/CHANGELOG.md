@@ -1,5 +1,37 @@
 # Change Log
 
+## 1.70.17
+
+### Patch Changes
+
+- [#5504](https://github.com/cultureamp/kaizen-design-system/pull/5504) [`8fe7419`](https://github.com/cultureamp/kaizen-design-system/commit/8fe7419ff0e8e2d177c101d67ced16a080ea7bf9) - ToggleSwitch: removes hover style from disabled state
+
+## 1.70.16
+
+### Patch Changes
+
+- [#5501](https://github.com/cultureamp/kaizen-design-system/pull/5501) [`987a2b0`](https://github.com/cultureamp/kaizen-design-system/commit/987a2b0ad2f63d8a17e81b18046d3181d9efbf03) - Set styles to be in style condition for export
+
+- [#5499](https://github.com/cultureamp/kaizen-design-system/pull/5499) [`236ecac`](https://github.com/cultureamp/kaizen-design-system/commit/236ecac2dc4583b7d2fe8f6a4b57fb1496ebd8ee) - Export dist styles from exports field
+
+## 1.70.15
+
+### Patch Changes
+
+- [#5492](https://github.com/cultureamp/kaizen-design-system/pull/5492) [`907da4c`](https://github.com/cultureamp/kaizen-design-system/commit/907da4c38413f4d6c7239da1a147684c4b651450) - Set fields in export so that Vitest can resolve to ESM modules instead of CJS.
+
+## 1.70.14
+
+### Patch Changes
+
+- [#5457](https://github.com/cultureamp/kaizen-design-system/pull/5457) [`1785576`](https://github.com/cultureamp/kaizen-design-system/commit/1785576ce4ecc5f5a4bd604a10e30bb4c43d64f6) - FilterDateRangePicker responsive support: now shrinks from two months showing to 1 on small viewports
+
+## 1.70.13
+
+### Patch Changes
+
+- [#5488](https://github.com/cultureamp/kaizen-design-system/pull/5488) [`b7d64b0`](https://github.com/cultureamp/kaizen-design-system/commit/b7d64b05dea76dbc91817d0348520f5f6b5c31a4) - Content: Adjust width on small viewports
+
 ## 1.70.12
 
 ### Patch Changes
