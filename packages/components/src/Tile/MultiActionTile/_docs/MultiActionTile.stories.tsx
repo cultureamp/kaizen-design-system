@@ -62,16 +62,28 @@ export const SecondaryAction: Story = {
 }
 
 export const AiTile: Story = {
+  render: ({ aiProps, primaryAction: _, ...otherProps }) => {
+    const [isAiLoading, setIsAiLoading] = React.useState(false)
+
+    return (
+      <MultiActionTile
+        primaryAction={{ onClick: () => setIsAiLoading(!isAiLoading), label: 'Perform AI action' }}
+        aiProps={{ isLoading: isAiLoading, isAi: aiProps?.isAi }}
+        {...otherProps}
+      />
+    )
+  },
   args: {
     aiProps: {
       isAi: true,
+      isLoading: true,
     },
   },
 }
 
 export const AiLoadingTile: Story = {
   render: ({ aiProps, primaryAction: _, ...otherProps }) => {
-    const [isAiLoading, setIsAiLoading] = React.useState(false)
+    const [isAiLoading, setIsAiLoading] = React.useState(true)
 
     return (
       <MultiActionTile

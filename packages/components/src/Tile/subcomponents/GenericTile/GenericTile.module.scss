@@ -155,38 +155,43 @@ $tilePaddingTop: $spacing-xl;
 }
 
 .isAi {
-  --gradient-shadow: linear-gradient(
-    45deg,
-    #fb0094,
-    #0000ff,
-    #00ff00,
-    #ffff00,
-    #ff0000,
-    #fb0094,
-    #0000ff,
-    #00ff00,
-    #ffff00,
-    #ff0000
-  );
-}
-
-.isAi.isLoading {
   position: relative;
   border-color: transparent;
 
+  --gradient-shadow: linear-gradient(
+    45deg,
+    #833ab4,
+    #fd1d1d,
+    #fcb045,
+    #833ab4,
+    #fd1d1d,
+    #fcb045,
+    #833ab4,
+    #fd1d1d,
+    #fcb045
+  );
   &:before,
   &:after {
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: var(--gradient-shadow);
     background-size: 400%;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
     z-index: -1;
     border-radius: calc(var(--border-solid-border-radius) + 1px);
     animation: pulse 20s linear infinite;
+    animation-play-state: paused;
+  }
+}
+
+.isAi.isLoading {
+  &:before,
+  &:after {
+    animation-play-state: running;
   }
 
   &:after {
