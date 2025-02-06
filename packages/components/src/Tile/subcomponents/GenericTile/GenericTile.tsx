@@ -22,6 +22,10 @@ export type GenericTileProps = {
   title: React.ReactNode
   titleTag?: AllowedHeadingTags
   metadata?: string
+  aiProps?: {
+    isAi?: boolean
+    isLoading?: boolean
+  }
   information?: TileInformation | React.ReactNode
   /** Provides accessible label for the title's info button @default "View more information: [title]" */
   infoButtonLabel?: string
@@ -48,6 +52,7 @@ export const GenericTile = ({
   variant = 'default',
   footer,
   classNameOverride,
+  aiProps,
   ...restProps
 }: GenericTileProps): JSX.Element => {
   const [isFlipped, setIsFlipped] = useState<boolean | undefined>()
@@ -158,7 +163,14 @@ export const GenericTile = ({
 
   return (
     <div className={classnames(styles.root, classNameOverride)} {...restProps}>
-      <div className={classnames(styles.tile, isFlipped && styles.isFlipped)}>
+      <div
+        className={classnames(
+          styles.tile,
+          isFlipped && styles.isFlipped,
+          aiProps?.isAi && styles.isAi,
+          aiProps?.isLoading && styles.isLoading,
+        )}
+      >
         <>
           {renderFront()}
           {renderBack()}

@@ -13,6 +13,10 @@ export type WellProps = {
   /** @default `solid` */
   borderStyle?: WellBorderStyleType
   noMargin?: boolean
+  aiProps?: {
+    isAi?: boolean
+    isLoading?: boolean
+  }
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 /**
@@ -25,6 +29,7 @@ export const Well = ({
   color = 'white',
   borderStyle = 'solid',
   noMargin = false,
+  aiProps,
   classNameOverride,
   ...restProps
 }: WellProps): JSX.Element => (
@@ -35,6 +40,8 @@ export const Well = ({
       styles[color],
       variant && styles[variant],
       noMargin && styles.noMargin,
+      aiProps?.isAi && styles.isAi,
+      aiProps?.isLoading && styles.isLoading,
       classNameOverride,
     )}
     {...restProps}

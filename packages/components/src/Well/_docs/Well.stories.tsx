@@ -114,3 +114,20 @@ export const NoMargin: Story = {
     </div>
   ),
 }
+
+export const AiSummary: Story = {
+  args: {
+    aiProps: {
+      isAi: true,
+    },
+  },
+}
+
+export const AiSummaryLoading: Story = {
+  args: {
+    aiProps: {
+      isAi: true,
+      isLoading: true,
+    },
+  },
+}

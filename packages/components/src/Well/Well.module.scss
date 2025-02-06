@@ -104,3 +104,55 @@
   --border-color: transparent;
   --border-style: none;
 }
+
+.isAi {
+  --gradient-shadow: linear-gradient(
+    45deg,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000
+  );
+}
+
+.isAi.isLoading {
+  position: relative;
+  border-color: transparent;
+  border-width: 1px;
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background: var(--gradient-shadow);
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    border-radius: calc(var(--border-solid-border-radius) + 1px);
+    animation: pulse 20s linear infinite;
+  }
+
+  &:after {
+    filter: blur(20px);
+  }
+
+  @keyframes pulse {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 300% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+}
