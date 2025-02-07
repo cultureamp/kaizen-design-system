@@ -23,7 +23,6 @@
   }
 
   &:focus-visible {
-    background: var(--color-blue-100);
     color: var(--color-blue-500);
     border-color: var(--color-blue-500);
   }
@@ -37,7 +36,7 @@
   }
 
   &:not([data-disabled]):hover {
-    background: var(--color-blue-100);
+    background: var(--color-blue-200);
     color: var(--color-blue-500);
   }
 }
