@@ -1,5 +1,25 @@
 # Change Log
 
+## 1.70.17
+
+### Patch Changes
+
+- [#5504](https://github.com/cultureamp/kaizen-design-system/pull/5504) [`8fe7419`](https://github.com/cultureamp/kaizen-design-system/commit/8fe7419ff0e8e2d177c101d67ced16a080ea7bf9) - ToggleSwitch: removes hover style from disabled state
+
+## 1.70.16
+
+### Patch Changes
+
+- [#5501](https://github.com/cultureamp/kaizen-design-system/pull/5501) [`987a2b0`](https://github.com/cultureamp/kaizen-design-system/commit/987a2b0ad2f63d8a17e81b18046d3181d9efbf03) - Set styles to be in style condition for export
+
+- [#5499](https://github.com/cultureamp/kaizen-design-system/pull/5499) [`236ecac`](https://github.com/cultureamp/kaizen-design-system/commit/236ecac2dc4583b7d2fe8f6a4b57fb1496ebd8ee) - Export dist styles from exports field
+
+## 1.70.15
+
+### Patch Changes
+
+- [#5492](https://github.com/cultureamp/kaizen-design-system/pull/5492) [`907da4c`](https://github.com/cultureamp/kaizen-design-system/commit/907da4c38413f4d6c7239da1a147684c4b651450) - Set fields in export so that Vitest can resolve to ESM modules instead of CJS.
+
 ## 1.70.14
 
 ### Patch Changes
