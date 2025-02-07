@@ -39,6 +39,10 @@
     background: var(--color-blue-200);
     color: var(--color-blue-500);
   }
+
+  &:not([data-disabled]):active {
+    background: var(--color-blue-100);
+  }
 }
 
 .tab[data-selected] {
