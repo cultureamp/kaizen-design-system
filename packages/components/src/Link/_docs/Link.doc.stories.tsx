@@ -38,6 +38,7 @@ export const LinkVariants: Story = {
   render: (props) => (
     <>
       <Link {...props} variant="primary" />
+      <br />
       <Link {...props} variant="secondary" />
     </>
   ),
