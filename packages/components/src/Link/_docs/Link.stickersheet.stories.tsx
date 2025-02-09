@@ -23,7 +23,14 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <StickerSheet
         title="Link"
-        headers={['Icon start', 'Icon end', 'isUnderlined', 'isDisabled']}
+        headers={[
+          'isUnderlined',
+          'isUnderlined + Icon Start',
+          'isUnderlined + Icon End',
+          'Icon start',
+          'Icon end',
+          'isDisabled',
+        ]}
         isReversed={isReversed}
       >
         {variants.map((variant) =>
@@ -33,23 +40,9 @@ const StickerSheetTemplate: StickerSheetStory = {
                 variant={variant}
                 size={size}
                 href={href}
-                isUnderlined={false}
+                isUnderlined={true}
                 isReversed={isReversed ? isReversed : false}
                 isInline={false}
-                icon={<Icon name="add" isPresentational />}
-                iconPosition={'start'}
-              >
-                Link
-              </Link>
-              <Link
-                variant={variant}
-                size={size}
-                href={href}
-                isUnderlined={false}
-                isReversed={isReversed ? isReversed : false}
-                isInline={false}
-                icon={<Icon name="add" isPresentational />}
-                iconPosition={'end'}
               >
                 Link
               </Link>
@@ -60,6 +53,44 @@ const StickerSheetTemplate: StickerSheetStory = {
                 isUnderlined={true}
                 isReversed={isReversed ? isReversed : false}
                 isInline={false}
+                icon={<Icon name="add" isPresentational />}
+                iconPosition="start"
+              >
+                Link
+              </Link>
+              <Link
+                variant={variant}
+                size={size}
+                href={href}
+                isUnderlined={true}
+                isReversed={isReversed ? isReversed : false}
+                isInline={false}
+                icon={<Icon name="add" isPresentational />}
+                iconPosition="end"
+              >
+                Link
+              </Link>
+              <Link
+                variant={variant}
+                size={size}
+                href={href}
+                isUnderlined={false}
+                isReversed={isReversed ? isReversed : false}
+                isInline={false}
+                icon={<Icon name="add" isPresentational />}
+                iconPosition="start"
+              >
+                Link
+              </Link>
+              <Link
+                variant={variant}
+                size={size}
+                href={href}
+                isUnderlined={false}
+                isReversed={isReversed ? isReversed : false}
+                isInline={false}
+                icon={<Icon name="add" isPresentational />}
+                iconPosition="end"
               >
                 Link
               </Link>
@@ -87,7 +118,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row key={variant} isReversed={isReversed} header={variant}>
             <Link
               variant={variant}
-              size={'small'}
+              size="small"
               href={href}
               isUnderlined={true}
               isReversed={isReversed ? isReversed : false}
@@ -99,7 +130,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             </Link>
             <Link
               variant={variant}
-              size={'small'}
+              size="small"
               href={href}
               isUnderlined={true}
               isReversed={isReversed ? isReversed : false}
@@ -111,7 +142,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             </Link>
             <Link
               variant={variant}
-              size={'small'}
+              size="small"
               href={href}
               isUnderlined={true}
               isReversed={isReversed ? isReversed : false}

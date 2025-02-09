@@ -38,9 +38,7 @@ export const LinkVariants: Story = {
   render: (props) => (
     <>
       <Link {...props} variant="primary" />
-      <br />
       <Link {...props} variant="secondary" />
-      <br />
     </>
   ),
 }
@@ -148,9 +146,8 @@ export const FiveLinksInSentence: Story = {
       </Link>
       , ut aspernatur{' '}
       <Link {...props} isInline>
-        deserunt fuga expedita
+        deserunt fuga expedita amet architecto
       </Link>{' '}
-      amet architecto{' '}
       <Link {...props} isInline>
         pariatur cum itaque
       </Link>{' '}
