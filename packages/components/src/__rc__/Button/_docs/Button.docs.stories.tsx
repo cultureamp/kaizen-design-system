@@ -153,6 +153,13 @@ export const DoExamplePrimaryAndSecondary: Story = {
       </>
     )
   },
+  decorators: [
+    (Story) => (
+      <div className="flex gap-8">
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export const DontExamplePrimaryAndSecondary: Story = {
@@ -166,6 +173,13 @@ export const DontExamplePrimaryAndSecondary: Story = {
       </>
     )
   },
+  decorators: [
+    (Story) => (
+      <div className="flex gap-8">
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export const DoExampleCta: Story = {
@@ -228,6 +242,7 @@ export const DoExampleUseTooltips: Story = {
     children: 'Delete',
     icon: <Icon isPresentational name="delete" />,
     hasHiddenLabel: true,
+    variant: 'tertiary',
   },
   render: (args) => (
     <TooltipTrigger>
@@ -242,6 +257,7 @@ export const DontExampleUseTooltips: Story = {
     children: 'Delete',
     icon: <Icon isPresentational name="delete" />,
     hasHiddenLabel: true,
+    variant: 'tertiary',
   },
 }
 
@@ -294,35 +310,69 @@ export const DoExampleKebabMenuButton: Story = {
 export const DoExampleMinimalPunctuation: Story = {
   args: {
     children: 'View tour',
+    variant: 'secondary',
   },
 }
 
 export const DontExampleMinimalPunctuation: Story = {
   args: {
     children: "What's new?",
+    variant: 'secondary',
   },
 }
 
 export const DoExampleSecondPerson: Story = {
   args: {
     children: 'View your reports',
+    variant: 'secondary',
   },
 }
 
 export const DontExampleSecondPerson: Story = {
   args: {
     children: 'View my reports',
+    variant: 'secondary',
   },
 }
 
 export const DoExampleFunctionalLabels: Story = {
   args: {
     children: 'Edit report',
+    variant: 'secondary',
   },
 }
 
 export const DontExampleFunctionalLabels: Story = {
   args: {
     children: 'Edit',
+    variant: 'secondary',
+  },
+}
+
+export const DoExampleClearAndConciseLabels: Story = {
+  args: {
+    children: 'Save',
+    variant: 'secondary',
+  },
+}
+
+export const DontExampleClearAndConciseLabels: Story = {
+  args: {
+    children: 'Go to next step',
+    variant: 'secondary',
+  },
+}
+
+export const DoExampleDeclareContext: Story = {
+  args: {
+    children: 'Create survey',
+    variant: 'secondary',
+  },
+}
+
+export const DontExampleDeclareContext: Story = {
+  args: {
+    children: 'Create',
+    variant: 'secondary',
   },
 }
