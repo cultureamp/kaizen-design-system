@@ -24,7 +24,7 @@ export const LinkContent = ({
   const iconPositionStyling = iconPosition === 'start' ? styles.iconStart : styles.iconEnd
 
   return (
-    <span className={mergeClassNames(isUnderlined && styles.isUnderlined)}>
+    <span className={mergeClassNames(styles.linkContent, isUnderlined && styles.isUnderlined)}>
       {icon && iconPosition === 'start' && <LinkIcon icon={icon} isInline={isInline} />}
       <span className={mergeClassNames(isInline && styles.isInline, icon && iconPositionStyling)}>
         {children}
