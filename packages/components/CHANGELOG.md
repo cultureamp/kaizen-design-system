@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.19
+
+### Patch Changes
+
+- [#5518](https://github.com/cultureamp/kaizen-design-system/pull/5518) [`ae0ec1e`](https://github.com/cultureamp/kaizen-design-system/commit/ae0ec1e696acea0f8875e92586afa2da000b2f57) - Fix drilling down isDisabled prop for Select
+
 ## 1.70.18
 
 ### Patch Changes
