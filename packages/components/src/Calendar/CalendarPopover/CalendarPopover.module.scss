@@ -6,12 +6,14 @@
 
 .calendarPopover {
   background-color: $color-white;
-  z-index: 1010;
+  margin: 0;
   box-shadow: $shadow-large-box-shadow;
   border-radius: $border-borderless-border-radius;
   padding: $spacing-12 $spacing-8;
   box-sizing: border-box;
   overflow: auto;
+  position: absolute;
+  inset: unset;
 
   @media (min-width: $layout-breakpoints-medium) {
     padding: $spacing-24;

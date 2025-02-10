@@ -1,4 +1,4 @@
-import React, { useState, type HTMLAttributes } from 'react'
+import React, { useEffect, useState, type HTMLAttributes } from 'react'
 import {
   autoPlacement,
   autoUpdate,
@@ -30,13 +30,13 @@ export const CalendarPopover = ({
 }: CalendarPopoverProps): JSX.Element => {
   const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>(null)
 
-  const { floatingStyles } = useFloating({
+  const { floatingStyles, update } = useFloating({
     placement: 'bottom-start',
     elements: {
       reference: referenceElement,
       floating: floatingElement,
     },
-    strategy: 'fixed',
+    strategy: 'absolute',
     middleware: [
       size({
         apply({ availableHeight, availableWidth, elements }) {
@@ -57,6 +57,15 @@ export const CalendarPopover = ({
     ...floatingOptions,
   })
 
+  useEffect(() => {
+    if (floatingElement && referenceElement) {
+      // @ts-expect-error this can be removed when we update to react 19
+      referenceElement.popoverTargetElement = floatingElement
+      floatingElement.showPopover()
+      update()
+    }
+  }, [referenceElement, floatingElement, update])
+
   return (
     <div
       ref={setFloatingElement}
@@ -64,6 +73,8 @@ export const CalendarPopover = ({
       className={classnames(styles.calendarPopover, classNameOverride)}
       role="dialog"
       aria-modal="true"
+      // @ts-expect-error this can be removed when we update to react 19
+      popover="manual"
       {...restProps}
     >
       {children}
