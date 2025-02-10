@@ -59,6 +59,7 @@ export const ToggleSwitchField = ({
         >
           <ToggleSwitch
             id={`${id}-field-toggle`}
+            disabled={disabled}
             reversed={reversed}
             toggledStatus={toggledStatus}
             {...restProps}

@@ -125,6 +125,11 @@ $focus-ring-offset: 1px;
   }
 }
 
+// When the ToggleSwitch is used as part of the ToggleSwitchField, the disabled state opacity is set on the Label component
+label .disabled.track {
+  opacity: 100%;
+}
+
 .disabled.track {
   opacity: 30%;
 }
