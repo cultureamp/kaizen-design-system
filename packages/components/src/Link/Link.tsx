@@ -28,7 +28,7 @@ export type NonUnderlinedLink = BaseLinkProps & {
 }
 
 export type InlineLink = BaseLinkProps & {
-  /** isInline assumes the Link is wrapped in a {@link https://cultureamp.design/?path=/docs/components-text--docs|Text} component */
+  /** isInline assumes the Link is wrapped in a [Text](https://cultureamp.design/?path=/docs/components-text--docs) component */
   isInline: true
   size?: TextProps['variant']
 }
