@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.70.19
+
+### Patch Changes
+
+- [#5518](https://github.com/cultureamp/kaizen-design-system/pull/5518) [`ae0ec1e`](https://github.com/cultureamp/kaizen-design-system/commit/ae0ec1e696acea0f8875e92586afa2da000b2f57) - Fix drilling down isDisabled prop for Select
+
+## 1.70.18
+
+### Patch Changes
+
+- [#5507](https://github.com/cultureamp/kaizen-design-system/pull/5507) [`5b1265d`](https://github.com/cultureamp/kaizen-design-system/commit/5b1265dc17bc3df8a4d8b3a269ebdc5c4c49e446) - ToggleSwitchField: removes hover style from disabled state
+
 ## 1.70.17
 
 ### Patch Changes
