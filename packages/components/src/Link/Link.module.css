@@ -3,7 +3,7 @@
   font-family: var(--typography-paragraph-body-font-family);
   font-size: var(--link-font-size);
   line-height: var(--link-line-height);
-  font-weight: 400;
+  font-weight: var(--typography-paragraph-body-font-weight);
   text-decoration: none;
   position: relative;
   outline: 0;
