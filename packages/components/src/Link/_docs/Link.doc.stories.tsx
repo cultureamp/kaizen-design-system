@@ -45,7 +45,7 @@ export const LinkVariants: Story = {
 }
 
 export const LinkVariantsReversed: Story = {
-  ...LinkVariants,
+  render: (props) => <Link {...props} variant="primary" isReversed />,
   parameters: {
     reverseColors: true,
   },
