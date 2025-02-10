@@ -1,10 +1,22 @@
 import React, { useEffect, useId, useState } from 'react'
-import { type UseFloatingReturn } from '@floating-ui/react-dom'
+import { createPortal } from 'react-dom'
+// import {
+//   autoUpdate,
+//   flip,
+//   offset,
+//   size,
+//   useFloating,
+//   type ReferenceType,
+//   type UseFloatingOptions,
+//   type UseFloatingReturn,
+// } from '@floating-ui/react-dom'
 import { useButton } from '@react-aria/button'
 import { HiddenSelect, useSelect } from '@react-aria/select'
 import { useSelectState, type SelectProps as AriaSelectProps } from '@react-stately/select'
 import { type Key } from '@react-types/shared'
 import classnames from 'classnames'
+import { FocusScope } from 'react-aria'
+import { FocusOn } from 'react-focus-on'
 import { FieldMessage } from '~components/FieldMessage'
 import { Popover, useFloating } from '~components/MultiSelect/subcomponents/Popover'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
@@ -26,6 +38,14 @@ import { transformSelectItemToCollectionElement } from './utils/transformSelectI
 import styles from './Select.module.scss'
 
 type OmittedAriaSelectProps = 'children' | 'items'
+
+const focusItem = (items: HTMLElement[], strategy: 'first' | 'last' | null): void => {
+  const focusableItems = items.filter((item) => !item.hasAttribute('aria-disabled'))
+  if (focusableItems.length === 0) return
+  const itemToFocus =
+    strategy === 'last' ? focusableItems[focusableItems.length - 1] : focusableItems[0]
+  itemToFocus.focus()
+}
 
 export type SelectProps<Option extends SelectOption = SelectOption> = {
   /**
@@ -153,6 +173,29 @@ export const Select = <Option extends SelectOption = SelectOption>({
     ref: refs.setReference,
   }
 
+  // const { floatingStyles } = useFloating({
+  //   elements: {
+  //     reference: refs.reference.current,
+  //     floating: refs.floating.current,
+  //   },
+  //   placement: 'bottom-start',
+  //   middleware: [
+  //     offset(6),
+  //     flip(),
+  //     size({
+  //       apply({ availableWidth, availableHeight, elements }) {
+  //         Object.assign(elements.floating.style, {
+  //           maxWidth: `${Math.min(availableWidth, 400)}px`,
+  //           minWidth: `${Math.min(availableWidth, 196)}px`,
+  //           maxHeight: `${Math.min(availableHeight, 352)}px`,
+  //         })
+  //       },
+  //     }),
+  //   ],
+  //   whileElementsMounted: autoUpdate,
+  //   // ...floatingOptions,
+  // })
+
   const [portalContainer, setPortalContainer] = useState<HTMLElement>()
 
   useEffect(() => {
@@ -161,6 +204,18 @@ export const Select = <Option extends SelectOption = SelectOption>({
       if (portalElement) setPortalContainer(portalElement)
     }
   }, [portalContainerId])
+  // console.log('ksdnfksjdnksdjncfv')
+
+  const handleActivation = (container: HTMLElement): void => {
+    const focusableElements = container.querySelectorAll<HTMLElement>(
+      '[role="option"]:not([aria-disabled="true"])',
+    )
+
+    if (focusableElements.length > 0) {
+      const focusToIndex = state.focusStrategy === 'last' ? focusableElements.length - 1 : 0
+      focusableElements[focusToIndex].focus()
+    }
+  }
 
   return (
     <div className={classnames(!isFullWidth && styles.notFullWidth, classNameOverride)}>
@@ -172,10 +227,31 @@ export const Select = <Option extends SelectOption = SelectOption>({
         ) : (
           trigger(selectToggleProps, selectToggleProps.ref)
         )}
+
         {state.isOpen && (
-          <Popover id={popoverId} portalContainer={portalContainer} refs={refs}>
+          <Popover
+            id={popoverId}
+            portalContainer={portalContainer}
+            refs={refs}
+            focusOnProps={{
+              onClickOutside: state.close,
+              autoFocus: false,
+              enabled: true,
+              onDeactivation: () => {
+                triggerRef.current?.focus()
+                state.close()
+              },
+              onEscapeKey: () => {
+                triggerRef.current?.focus()
+                state.close()
+              },
+              onActivation: handleActivation,
+            }}
+          >
             <SelectProvider<Option> state={state}>
-              <SelectPopoverContents menuProps={menuProps}>{children}</SelectPopoverContents>
+              <SelectPopoverContents menuProps={menuProps} onActivation={handleActivation}>
+                {children}
+              </SelectPopoverContents>
             </SelectProvider>
           </Popover>
         )}

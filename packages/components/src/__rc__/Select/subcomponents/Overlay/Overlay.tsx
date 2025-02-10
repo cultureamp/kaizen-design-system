@@ -30,12 +30,11 @@ export const Overlay = <Option extends SelectOption>({
   // to allow screen reader users to dismiss the popup easily.
   return (
     <div ref={overlayRef} className={classNameOverride} {...overlayProps} {...restProps}>
-      {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
-      <FocusScope autoFocus={false} restoreFocus>
-        <DismissButton onDismiss={state.close} />
-        {children}
-        <DismissButton onDismiss={state.close} />
-      </FocusScope>
+      {/* <FocusScope autoFocus={true} restoreFocus> */}
+      <DismissButton onDismiss={state.close} />
+      {children}
+      <DismissButton onDismiss={state.close} />
+      {/* </FocusScope> */}
     </div>
   )
 }
