@@ -64,7 +64,9 @@ export const LinkWithIconEnd: Story = {
 }
 
 export const LinkOpensInNewTab: Story = {
-  render: (props) => <Link {...props} target="_blank" />,
+  render: (props) => (
+    <Link {...props} target="_blank" icon={<ExternalLinkIcon role="presentation" />} />
+  ),
 }
 
 export const WithText: Story = {
