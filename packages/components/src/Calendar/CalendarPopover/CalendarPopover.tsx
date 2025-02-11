@@ -36,6 +36,7 @@ export const CalendarPopover = ({
       reference: referenceElement,
       floating: floatingElement,
     },
+    strategy: 'fixed',
     middleware: [
       size({
         apply({ availableHeight, availableWidth, elements }) {

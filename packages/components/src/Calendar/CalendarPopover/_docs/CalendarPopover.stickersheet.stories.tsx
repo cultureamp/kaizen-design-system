@@ -1,7 +1,6 @@
 import React from 'react'
 import { autoPlacement, offset, size } from '@floating-ui/react-dom'
 import { type Meta } from '@storybook/react'
-import { Text } from '~components/Text'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { CalendarRange } from '../../CalendarRange'
 import { CalendarSingle } from '../../CalendarSingle'
