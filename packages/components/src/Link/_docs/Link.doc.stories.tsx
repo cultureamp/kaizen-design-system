@@ -1,6 +1,5 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { ExternalLinkIcon, FlagOffIcon } from '~components/Icon'
 import { Text } from '~components/Text'
 import { Icon } from '~components/__rc__/Icon'
 import { Link } from '../Link'
@@ -13,7 +12,6 @@ const meta = {
     href: 'https://www.google.com',
     variant: 'primary',
     isUnderlined: true,
-    isReversed: false,
     size: 'body',
   },
   argTypes: {
@@ -45,7 +43,7 @@ export const LinkVariants: Story = {
 }
 
 export const LinkVariantsReversed: Story = {
-  render: (props) => <Link {...props} variant="primary" isReversed />,
+  render: (props) => <Link {...props} variant="white" />,
   parameters: {
     reverseColors: true,
   },
@@ -65,14 +63,19 @@ export const LinkWithIconEnd: Story = {
 
 export const LinkOpensInNewTab: Story = {
   render: (props) => (
-    <Link {...props} target="_blank" icon={<ExternalLinkIcon role="presentation" />} />
+    <Link
+      {...props}
+      target="_blank"
+      icon={<Icon name="open_in_new" isPresentational />}
+      iconPosition="end"
+    />
   ),
 }
 
 export const WithText: Story = {
   render: (props) => (
     <>
-      <Text variant="extra-small">
+      <Text variant="intro-lede">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
         repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
         <Link {...props} icon={<Icon name="add" isPresentational />} isInline /> Mollitia vero
@@ -80,9 +83,32 @@ export const WithText: Story = {
         saepe! Quisquam, quidem quas a quos quae quia quidem, quod, voluptates, dolorum quibusdam.
         Quisquam, quidem quas a quos quae
       </Text>
-
+      <br />
+      <Text variant="body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
+        repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
+        <Link {...props} icon={<Icon name="add" isPresentational />} isInline /> Mollitia vero
+        asperiores assumenda, odit ratione id perspiciatis suscipit molestias quas facere, commodi
+        saepe! Quisquam, quidem quas a quos quae quia quidem, quod, voluptates, dolorum quibusdam.
+        Quisquam, quidem quas a quos quae
+      </Text>
+      <br />
+      <Text variant="small">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
+        repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
+        <Link {...props} icon={<Icon name="add" isPresentational />} isInline /> Mollitia vero
+        asperiores assumenda, odit ratione id perspiciatis suscipit molestias quas facere, commodi
+        saepe! Quisquam, quidem quas a quos quae quia quidem, quod, voluptates, dolorum quibusdam.
+        Quisquam, quidem quas a quos quae
+      </Text>
+      <br />
       <Text variant="extra-small">
-        <span className="isInline"> Test for inherting inline </span>{' '}
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
+        repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
+        <Link {...props} icon={<Icon name="add" isPresentational />} isInline /> Mollitia vero
+        asperiores assumenda, odit ratione id perspiciatis suscipit molestias quas facere, commodi
+        saepe! Quisquam, quidem quas a quos quae quia quidem, quod, voluptates, dolorum quibusdam.
+        Quisquam, quidem quas a quos quae
       </Text>
     </>
   ),
@@ -168,11 +194,11 @@ export const FiveLinksInSentence: Story = {
 }
 
 export const ExternalIconLink: Story = {
-  render: (props) => <Link {...props} icon={<ExternalLinkIcon role="presentation" />} />,
+  render: (props) => <Link {...props} icon={<Icon name="open_in_new" isPresentational />} />,
 }
 
 export const RandomIconLink: Story = {
-  render: (props) => <Link {...props} icon={<FlagOffIcon role="presentation" />} />,
+  render: (props) => <Link {...props} icon={<Icon name="flag" isPresentational />} />,
 }
 
 export const DistinctNamedLink: Story = {
