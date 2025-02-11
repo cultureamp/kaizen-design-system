@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react'
 import { Link as RACLink, type LinkProps as RACLinkProps } from 'react-aria-components'
 import { type TextProps } from '~components/Text'
-import { useReversedColors } from '~components/__utilities__/v3'
 import { mergeClassNames } from '~components/utils/mergeClassNames'
 import { LinkContent } from './subcomponents/LinkContent'
 import styles from './Link.module.css'
