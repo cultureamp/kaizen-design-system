@@ -130,6 +130,7 @@ export const iconDefaultSet = [
   'sentiment_satisfied',
   'sentiment_very_satisfied',
   'settings',
+  'share',
   'sms',
   'south_east',
   'star',
