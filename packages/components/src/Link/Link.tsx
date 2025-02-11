@@ -53,8 +53,6 @@ export const Link = forwardRef(
     }: LinkProps,
     ref: React.ForwardedRef<HTMLAnchorElement>,
   ) => {
-    const shouldUseReverse = useReversedColors()
-    const isReversedVariant = variant === 'white' && shouldUseReverse
     const childIsFunction = typeof children === 'function'
 
     return (
@@ -64,7 +62,7 @@ export const Link = forwardRef(
           styles.link,
           isDisabled && styles.isDisabled,
           isInline ? styles.isInline : styles[size],
-          isReversedVariant ? styles.reversed : styles[variant],
+          styles[variant],
           className,
         )}
         isDisabled={isDisabled}
