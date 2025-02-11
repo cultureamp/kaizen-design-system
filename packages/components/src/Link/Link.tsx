@@ -9,9 +9,8 @@ import styles from './Link.module.css'
 export type LinkProps = (UnderlinedLink | NonUnderlinedLink) & (InlineLink | NonInlineLink)
 
 type BaseLinkProps = {
-  variant: 'primary' | 'secondary'
+  variant: 'primary' | 'secondary' | 'white'
   iconPosition?: 'start' | 'end'
-  isReversed: boolean
 } & Omit<RACLinkProps, 'children'> & {
     /** Used as the label for the Link. */
     children: RACLinkProps['children']
@@ -49,14 +48,13 @@ export const Link = forwardRef(
       isInline = false,
       isDisabled,
       className,
-      isReversed,
       isUnderlined = true,
       ...otherProps
     }: LinkProps,
     ref: React.ForwardedRef<HTMLAnchorElement>,
   ) => {
     const shouldUseReverse = useReversedColors()
-    const isReversedVariant = isReversed ?? shouldUseReverse
+    const isReversedVariant = variant === 'white' && shouldUseReverse
     const childIsFunction = typeof children === 'function'
 
     return (
@@ -65,7 +63,7 @@ export const Link = forwardRef(
         className={mergeClassNames(
           styles.link,
           isDisabled && styles.isDisabled,
-          !isInline && styles[size],
+          isInline ? styles.isInline : styles[size],
           isReversedVariant ? styles.reversed : styles[variant],
           className,
         )}
@@ -73,12 +71,7 @@ export const Link = forwardRef(
         {...otherProps}
       >
         {(racStateProps) => (
-          <LinkContent
-            icon={icon}
-            iconPosition={iconPosition}
-            isUnderlined={isUnderlined}
-            isInline={isInline}
-          >
+          <LinkContent icon={icon} iconPosition={iconPosition} isUnderlined={isUnderlined}>
             {childIsFunction ? children(racStateProps) : children}
           </LinkContent>
         )}

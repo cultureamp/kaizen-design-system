@@ -37,21 +37,19 @@ const StickerSheetTemplate: StickerSheetStory = {
           sizes.map((size) => (
             <StickerSheet.Row key={size + variant} header={`${variant} (${size})`}>
               <Link
-                variant={variant}
+                variant={isReversed ? 'white' : variant}
                 size={size}
                 href={href}
                 isUnderlined={true}
-                isReversed={isReversed ? isReversed : false}
                 isInline={false}
               >
                 Link
               </Link>
               <Link
-                variant={variant}
+                variant={isReversed ? 'white' : variant}
                 size={size}
                 href={href}
                 isUnderlined={true}
-                isReversed={isReversed ? isReversed : false}
                 isInline={false}
                 icon={<Icon name="add" isPresentational />}
                 iconPosition="start"
@@ -59,11 +57,10 @@ const StickerSheetTemplate: StickerSheetStory = {
                 Link
               </Link>
               <Link
-                variant={variant}
+                variant={isReversed ? 'white' : variant}
                 size={size}
                 href={href}
                 isUnderlined={true}
-                isReversed={isReversed ? isReversed : false}
                 isInline={false}
                 icon={<Icon name="add" isPresentational />}
                 iconPosition="end"
@@ -71,11 +68,10 @@ const StickerSheetTemplate: StickerSheetStory = {
                 Link
               </Link>
               <Link
-                variant={variant}
+                variant={isReversed ? 'white' : variant}
                 size={size}
                 href={href}
                 isUnderlined={false}
-                isReversed={isReversed ? isReversed : false}
                 isInline={false}
                 icon={<Icon name="add" isPresentational />}
                 iconPosition="start"
@@ -83,11 +79,10 @@ const StickerSheetTemplate: StickerSheetStory = {
                 Link
               </Link>
               <Link
-                variant={variant}
+                variant={isReversed ? 'white' : variant}
                 size={size}
                 href={href}
                 isUnderlined={false}
-                isReversed={isReversed ? isReversed : false}
                 isInline={false}
                 icon={<Icon name="add" isPresentational />}
                 iconPosition="end"
@@ -95,11 +90,10 @@ const StickerSheetTemplate: StickerSheetStory = {
                 Link
               </Link>
               <Link
-                variant={variant}
+                variant={isReversed ? 'white' : variant}
                 size={size}
                 href={href}
                 isUnderlined={true}
-                isReversed={isReversed ? isReversed : false}
                 isInline={false}
                 isDisabled={true}
               >
@@ -117,11 +111,10 @@ const StickerSheetTemplate: StickerSheetStory = {
         {variants.map((variant) => (
           <StickerSheet.Row key={variant} isReversed={isReversed} header={variant}>
             <Link
-              variant={variant}
+              variant={isReversed ? 'white' : variant}
               size="small"
               href={href}
               isUnderlined={true}
-              isReversed={isReversed ? isReversed : false}
               isInline={false}
               icon={<Icon name="add" isPresentational />}
               data-testid="testid__link-hover"
@@ -129,11 +122,10 @@ const StickerSheetTemplate: StickerSheetStory = {
               Label
             </Link>
             <Link
-              variant={variant}
+              variant={isReversed ? 'white' : variant}
               size="small"
               href={href}
               isUnderlined={true}
-              isReversed={isReversed ? isReversed : false}
               isInline={false}
               icon={<Icon name="add" isPresentational />}
               data-testid="testid__link-focus"
@@ -141,11 +133,10 @@ const StickerSheetTemplate: StickerSheetStory = {
               Label
             </Link>
             <Link
-              variant={variant}
+              variant={isReversed ? 'white' : variant}
               size="small"
               href={href}
               isUnderlined={true}
-              isReversed={isReversed ? isReversed : false}
               isInline={false}
               icon={<Icon name="add" isPresentational />}
               data-testid="testid__link-pressed"
