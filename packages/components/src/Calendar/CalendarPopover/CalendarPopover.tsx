@@ -36,7 +36,6 @@ export const CalendarPopover = ({
       reference: referenceElement,
       floating: floatingElement,
     },
-    strategy: 'absolute',
     middleware: [
       size({
         apply({ availableHeight, availableWidth, elements }) {
@@ -61,7 +60,7 @@ export const CalendarPopover = ({
     if (floatingElement && referenceElement) {
       // @ts-expect-error this can be removed when we update to react 19
       referenceElement.popoverTargetElement = floatingElement
-      floatingElement.showPopover()
+      floatingElement.showPopover?.()
       update()
     }
   }, [referenceElement, floatingElement, update])
