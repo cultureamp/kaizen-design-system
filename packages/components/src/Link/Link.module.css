@@ -68,12 +68,6 @@
   --text-icon-gap: var(--spacing-2);
 }
 
-[class*='small']:not([class*='extra-small']) .link.isInline,
-.small {
-  --icon-font-size: 1rem;
-  --text-icon-gap: var(--spacing-4);
-}
-
 [class*='body'] .link.isInline,
 .body {
   --icon-font-size: 1.25rem;
@@ -84,6 +78,12 @@
 .intro-lede {
   --icon-font-size: 1.5rem;
   --text-icon-gap: var(--spacing-8);
+}
+
+[class*='small']:not([class*='extra-small']) .link.isInline,
+.small {
+  --icon-font-size: 1rem;
+  --text-icon-gap: var(--spacing-4);
 }
 
 .white {
