@@ -1,8 +1,8 @@
 .link {
   color: var(--link-text-color, var(--color-blue-500));
   font-family: var(--typography-paragraph-body-font-family);
-  font-size: var(--link-font-size);
-  line-height: var(--link-line-height);
+  font-size: var(--link-font-size, inherit);
+  line-height: var(--link-line-height, inherit);
   font-weight: var(--typography-paragraph-body-font-weight);
   text-decoration: none;
   position: relative;
@@ -57,31 +57,34 @@
   --link-text-color: var(--color-black);
 }
 
-.isInline {
-  --link-font-size: inherit;
-  --link-line-height: inherit;
-}
-
 [class*='extra-small'] .link.isInline,
 .extra-small {
+  --link-font-size: var(--typography-paragraph-extra-small-font-size);
+  --link-line-height: var(--typography-paragraph-extra-small-line-height);
   --icon-font-size: 0.875rem;
   --text-icon-gap: var(--spacing-2);
 }
 
 [class*='body'] .link.isInline,
 .body {
+  --link-font-size: var(--typography-paragraph-body-font-size);
+  --link-line-height: var(--typography-paragraph-body-line-height);
   --icon-font-size: 1.25rem;
   --text-icon-gap: var(--spacing-6);
 }
 
 [class*='intro-lede'] .link.isInline,
 .intro-lede {
+  --link-font-size: var(--typography-paragraph-intro-lede-font-size);
+  --link-line-height: var(--typography-paragraph-intro-lede-line-height);
   --icon-font-size: 1.5rem;
   --text-icon-gap: var(--spacing-8);
 }
 
 [class*='small']:not([class*='extra-small']) .link.isInline,
 .small {
+  --link-font-size: var(--typography-paragraph-small-font-size);
+  --link-line-height: var(--typography-paragraph-small-line-height);
   --icon-font-size: 1rem;
   --text-icon-gap: var(--spacing-4);
 }

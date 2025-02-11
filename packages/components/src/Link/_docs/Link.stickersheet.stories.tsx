@@ -179,9 +179,9 @@ export const StickerSheetRTL: StickerSheetStory = {
   },
 }
 
-export const StickerSheetReversed: StickerSheetStory = {
+export const StickerSheetWhite: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Reversed)',
+  name: 'Sticker Sheet (White)',
   parameters: {
     reverseColors: true,
   },
