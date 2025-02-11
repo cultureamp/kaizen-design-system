@@ -81,6 +81,11 @@
       "require": "./dist/cjs/reactAriaComponentsV3.cjs",
       "types": "./dist/types/__react-aria-components__/index.d.ts"
     },
+    "./v3/utilities": {
+      "import": "./dist/esm/utilitiesV3.mjs",
+      "require": "./dist/cjs/utilitiesV3.cjs",
+      "types": "./dist/types/__utilities__/v3.d.ts"
+    },
     "./dist/styles.css": {
       "import": "./dist/styles.css",
       "require": "./dist/styles.css",
