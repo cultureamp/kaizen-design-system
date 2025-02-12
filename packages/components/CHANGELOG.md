@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.70.20
+
+### Patch Changes
+
+- [#5520](https://github.com/cultureamp/kaizen-design-system/pull/5520) [`389e332`](https://github.com/cultureamp/kaizen-design-system/commit/389e3320ab84ec85e4e548e574d798ca959465e6) - Add missing v3 utilites export field
+
+- [#5517](https://github.com/cultureamp/kaizen-design-system/pull/5517) [`1ad7d14`](https://github.com/cultureamp/kaizen-design-system/commit/1ad7d1461f11f80399d85616074ea2e4b28abcda) - Adds Share icon to default set
+
+- [#5509](https://github.com/cultureamp/kaizen-design-system/pull/5509) [`544e59e`](https://github.com/cultureamp/kaizen-design-system/commit/544e59e0612d7cd534f1ff733f4013881c63a23c) - Tabs: small style changes in line with button
+
 ## 1.70.19
 
 ### Patch Changes
