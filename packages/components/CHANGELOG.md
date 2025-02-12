@@ -1,5 +1,27 @@
 # Change Log
 
+## 1.70.20
+
+### Patch Changes
+
+- [#5520](https://github.com/cultureamp/kaizen-design-system/pull/5520) [`389e332`](https://github.com/cultureamp/kaizen-design-system/commit/389e3320ab84ec85e4e548e574d798ca959465e6) - Add missing v3 utilites export field
+
+- [#5517](https://github.com/cultureamp/kaizen-design-system/pull/5517) [`1ad7d14`](https://github.com/cultureamp/kaizen-design-system/commit/1ad7d1461f11f80399d85616074ea2e4b28abcda) - Adds Share icon to default set
+
+- [#5509](https://github.com/cultureamp/kaizen-design-system/pull/5509) [`544e59e`](https://github.com/cultureamp/kaizen-design-system/commit/544e59e0612d7cd534f1ff733f4013881c63a23c) - Tabs: small style changes in line with button
+
+## 1.70.19
+
+### Patch Changes
+
+- [#5518](https://github.com/cultureamp/kaizen-design-system/pull/5518) [`ae0ec1e`](https://github.com/cultureamp/kaizen-design-system/commit/ae0ec1e696acea0f8875e92586afa2da000b2f57) - Fix drilling down isDisabled prop for Select
+
+## 1.70.18
+
+### Patch Changes
+
+- [#5507](https://github.com/cultureamp/kaizen-design-system/pull/5507) [`5b1265d`](https://github.com/cultureamp/kaizen-design-system/commit/5b1265dc17bc3df8a4d8b3a269ebdc5c4c49e446) - ToggleSwitchField: removes hover style from disabled state
+
 ## 1.70.17
 
 ### Patch Changes
