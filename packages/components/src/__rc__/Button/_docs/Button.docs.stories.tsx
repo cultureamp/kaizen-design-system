@@ -376,3 +376,18 @@ export const DontExampleDeclareContext: Story = {
     variant: 'secondary',
   },
 }
+
+export const DoExampleTertiaryButtonWithIcons: Story = {
+  args: {
+    children: 'Edit cycle',
+    variant: 'tertiary',
+    icon: <Icon isPresentational name="edit" />,
+  },
+}
+
+export const DontExampleTertiaryButtonWithIcons: Story = {
+  args: {
+    children: 'Edit cycle',
+    variant: 'tertiary',
+  },
+}
