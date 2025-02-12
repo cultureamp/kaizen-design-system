@@ -40,9 +40,16 @@ export const LinkVariants: Story = {
       <Link {...props} variant="secondary" />
     </>
   ),
+  decorators: [
+    (Story) => (
+      <div className="flex gap-8">
+        <Story />
+      </div>
+    ),
+  ],
 }
 
-export const LinkVariantsReversed: Story = {
+export const LinkVariantWhite: Story = {
   render: (props) => <Link {...props} variant="white" />,
   parameters: {
     reverseColors: true,
