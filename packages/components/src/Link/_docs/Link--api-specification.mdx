@@ -64,28 +64,11 @@ For more context on this recommendation, we recommend taking a look at the [W3C 
 
 ### Variants
 
-`Link` supports `primary` and `secondary` variants. If the `variant` props is not specified, the default variant is `primary`.
+`Link` supports `primary`, `secondary` and `white` variants. If the `variant` prop is not specified, the default variant is `primary`.
 
 <Canvas of={exampleStories.LinkVariants} />
 
-Reversed variants are handled via the `ReversedColors` Provider.
-
-<DocsStory of={exampleStories.LinkVariantsReversed} expanded={false} />
-
-To enable the reversed theme, you will need to wrap the component or application in the `ReversedColors` provider, ie:
-
-```tsx
-import { RouterProvider } from 'react-aria-components'
-import { Link } from '@kaizen/components/link'
-import { ReversedColors } from '@kaizen/components/v3/utilities'
-// application code
-
-return (
-  <ReversedColors isReversed={true}>
-    <Link {...LinkProps} isReversed />
-  </ReversedColors>
-)
-```
+<DocsStory of={exampleStories.LinkVariantWhite} expanded={false} />
 
 ### Sizes
 
