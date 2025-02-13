@@ -6,6 +6,7 @@
   font-weight: var(--typography-paragraph-body-font-weight);
   text-decoration: none;
   position: relative;
+  white-space: nowrap;
   outline: 0;
 }
 

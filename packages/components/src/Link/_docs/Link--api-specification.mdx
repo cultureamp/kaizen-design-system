@@ -58,6 +58,8 @@ The general recommendation is to limit the number of links that open a new tab o
 
 In order to provide advance warning to all users, it is recommended that links using `target="_blank"` be accompanied by a visual indicator and audible warning. As shown in the following example, additional context can be provided via a visually hidden element within the `children` of the component.
 
+You may also consider using the `rel="noopener noreferrer"` attribute to prevent the new tab from accessing the `window.opener` object, which can be a security risk. Read more about this consideration on the [Lighthouse docs](https://developer.chrome.com/docs/lighthouse/best-practices/external-anchors-use-rel-noopener).
+
 <Canvas of={exampleStories.LinkOpensInNewTab} />
 
 For more context on this recommendation, we recommend taking a look at the [W3C page on the G200 success criteria](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
