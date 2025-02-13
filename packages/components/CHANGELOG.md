@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.23
+
+### Patch Changes
+
+- [#5527](https://github.com/cultureamp/kaizen-design-system/pull/5527) [`4bb3858`](https://github.com/cultureamp/kaizen-design-system/commit/4bb38586b576d3f56d3510b3e49f5659d32cb95b) - Export react-aria Selection type
+
 ## 1.70.22
 
 ### Patch Changes
