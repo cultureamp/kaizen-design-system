@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.21
+
+### Patch Changes
+
+- [#5523](https://github.com/cultureamp/kaizen-design-system/pull/5523) [`d66876a`](https://github.com/cultureamp/kaizen-design-system/commit/d66876a3b46d0c396974c056ba83b38079eae9fe) - Expose the FilterButtonBase primitive for tier 3 usages
+
 ## 1.70.20
 
 ### Patch Changes
