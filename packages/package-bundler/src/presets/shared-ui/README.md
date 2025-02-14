@@ -120,7 +120,7 @@ export default rollupConfig({
 ### Tailwind
 
 ```sh
-pnpm add -D tailwind @kaizen/tailwind
+pnpm add -D tailwindcss @kaizen/tailwind
 ```
 
 Required files:

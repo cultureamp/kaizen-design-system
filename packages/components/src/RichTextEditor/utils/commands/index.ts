@@ -1,3 +1,4 @@
+export * from './fixtures/mockRangeForBoundingRect'
 export * from './addMark'
 export * from './getMarkAttrs'
 export * from './getMarkRange'

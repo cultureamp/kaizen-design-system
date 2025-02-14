@@ -1,5 +1,23 @@
 # Change Log
 
+## 1.70.23
+
+### Patch Changes
+
+- [#5527](https://github.com/cultureamp/kaizen-design-system/pull/5527) [`4bb3858`](https://github.com/cultureamp/kaizen-design-system/commit/4bb38586b576d3f56d3510b3e49f5659d32cb95b) - Export react-aria Selection type
+
+## 1.70.22
+
+### Patch Changes
+
+- [#5524](https://github.com/cultureamp/kaizen-design-system/pull/5524) [`3d0aca6`](https://github.com/cultureamp/kaizen-design-system/commit/3d0aca6ea5c1fc6f95e519ca13fc4a43363fd230) - Export RTE mockRangeForBoundingRect helper function
+
+## 1.70.21
+
+### Patch Changes
+
+- [#5523](https://github.com/cultureamp/kaizen-design-system/pull/5523) [`d66876a`](https://github.com/cultureamp/kaizen-design-system/commit/d66876a3b46d0c396974c056ba83b38079eae9fe) - Expose the FilterButtonBase primitive for tier 3 usages
+
 ## 1.70.20
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-import { type Key, type Node } from '@react-types/shared'
+import { type Key, type Node, type Selection as ReactAriaSelection } from '@react-types/shared'
 
 export type ItemType = {
   label: string
@@ -8,3 +8,5 @@ export type ItemType = {
 }
 
 export type MultiSelectItem = Node<ItemType>
+
+export type Selection = ReactAriaSelection
