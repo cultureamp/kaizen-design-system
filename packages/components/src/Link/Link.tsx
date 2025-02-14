@@ -8,7 +8,7 @@ import styles from './Link.module.css'
 export type LinkProps = (UnderlinedLink | NonUnderlinedLink) & (InlineLink | NonInlineLink)
 
 type BaseLinkProps = {
-  variant: 'primary' | 'secondary' | 'white'
+  variant?: 'primary' | 'secondary' | 'white'
   iconPosition?: 'start' | 'end'
 } & Omit<RACLinkProps, 'children'> & {
     /** Used as the label for the Link. */
@@ -16,12 +16,12 @@ type BaseLinkProps = {
   }
 
 export type UnderlinedLink = BaseLinkProps & {
-  isUnderlined: true
+  isUnderlined?: true
   icon?: JSX.Element
 }
 
 export type NonUnderlinedLink = BaseLinkProps & {
-  isUnderlined: false
+  isUnderlined?: false
   icon: JSX.Element
 }
 
@@ -33,13 +33,8 @@ export type InlineLink = BaseLinkProps & {
 
 export type NonInlineLink = BaseLinkProps & {
   isInline?: false
-  size: TextProps['variant']
+  size?: TextProps['variant']
 }
-
-/*
-function isInlineLink(link: LinkProps): link is InlineLink {
-  return link.isInline === true
-} */
 
 export const Link = forwardRef(
   (
