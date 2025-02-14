@@ -12,9 +12,15 @@ const meta = {
     href: 'https://www.google.com',
     variant: 'primary',
     isUnderlined: true,
-    size: 'body',
+    isInline: false,
   },
   argTypes: {
+    variant: {
+      options: ['primary', 'secondary', 'white'],
+    },
+    size: {
+      options: ['intro-lede', 'body', 'small', 'extra-small'],
+    },
     icon: {
       options: ['delete', 'arrow', 'add'],
       mapping: {
@@ -30,7 +36,17 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Playground: Story = {}
+export const Playground: Story = {
+  render: (props) =>
+    props.variant !== 'white' ? (
+      <Link {...props} />
+    ) : (
+      <div className="flex p-12 bg-purple-600">
+        {' '}
+        <Link {...props} />
+      </div>
+    ),
+}
 
 export const LinkVariants: Story = {
   render: (props) => (
@@ -85,10 +101,10 @@ export const WithText: Story = {
       <Text variant="intro-lede">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
         repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
-        <Link {...props} icon={<Icon name="add" isPresentational />} isInline /> Mollitia vero
-        asperiores assumenda, odit ratione id perspiciatis suscipit molestias quas facere, commodi
-        saepe! Quisquam, quidem quas a quos quae quia quidem, quod, voluptates, dolorum quibusdam.
-        Quisquam, quidem quas a quos quae
+        <Link {...props} icon={<Icon name="add" isPresentational />} isInline size={undefined} />{' '}
+        Mollitia vero asperiores assumenda, odit ratione id perspiciatis suscipit molestias quas
+        facere, commodi saepe! Quisquam, quidem quas a quos quae quia quidem, quod, voluptates,
+        dolorum quibusdam. Quisquam, quidem quas a quos quae
       </Text>
       <br />
       <Text variant="body">
@@ -164,7 +180,7 @@ export const OneLinkInSentence: Story = {
     <Text variant="body">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo ad nobis, ut aspernatur deserunt
       fuga expedita amet architecto{' '}
-      <Link {...props} isInline>
+      <Link {...props} isInline size={undefined}>
         pariatur cum itaque
       </Link>{' '}
       dicta veritatis inventore ea esse rem dolore natus! Architecto.
