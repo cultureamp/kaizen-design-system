@@ -33,6 +33,20 @@ const transformProp = (
       return createProp('className', propValue)
     case 'data-automation-id':
       return createProp('data-testid', propValue)
+    case 'fullWidth':
+      return createProp('isFullWidth', propValue)
+    case 'working':
+      return createProp('isPending', propValue)
+    case 'workingLabel':
+      return createProp('pendingLabel', propValue)
+    case 'workingLabelHidden':
+      return createProp('hasHiddenPendingLabel', propValue)
+    case 'onMouseDown':
+      return createProp('onPressStart', propValue)
+    case 'disableTabFocusAndIUnderstandTheAccessibilityImplications':
+      return createProp('onPressEnd', propValue)
+    case 'newTabAndIUnderstandTheAccessibilityImplications':
+      return null
     case 'disabled':
       return createProp('isDisabled', propValue)
     case 'size': {
