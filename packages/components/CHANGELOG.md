@@ -1,5 +1,45 @@
 # Change Log
 
+## 1.70.23
+
+### Patch Changes
+
+- [#5527](https://github.com/cultureamp/kaizen-design-system/pull/5527) [`4bb3858`](https://github.com/cultureamp/kaizen-design-system/commit/4bb38586b576d3f56d3510b3e49f5659d32cb95b) - Export react-aria Selection type
+
+## 1.70.22
+
+### Patch Changes
+
+- [#5524](https://github.com/cultureamp/kaizen-design-system/pull/5524) [`3d0aca6`](https://github.com/cultureamp/kaizen-design-system/commit/3d0aca6ea5c1fc6f95e519ca13fc4a43363fd230) - Export RTE mockRangeForBoundingRect helper function
+
+## 1.70.21
+
+### Patch Changes
+
+- [#5523](https://github.com/cultureamp/kaizen-design-system/pull/5523) [`d66876a`](https://github.com/cultureamp/kaizen-design-system/commit/d66876a3b46d0c396974c056ba83b38079eae9fe) - Expose the FilterButtonBase primitive for tier 3 usages
+
+## 1.70.20
+
+### Patch Changes
+
+- [#5520](https://github.com/cultureamp/kaizen-design-system/pull/5520) [`389e332`](https://github.com/cultureamp/kaizen-design-system/commit/389e3320ab84ec85e4e548e574d798ca959465e6) - Add missing v3 utilites export field
+
+- [#5517](https://github.com/cultureamp/kaizen-design-system/pull/5517) [`1ad7d14`](https://github.com/cultureamp/kaizen-design-system/commit/1ad7d1461f11f80399d85616074ea2e4b28abcda) - Adds Share icon to default set
+
+- [#5509](https://github.com/cultureamp/kaizen-design-system/pull/5509) [`544e59e`](https://github.com/cultureamp/kaizen-design-system/commit/544e59e0612d7cd534f1ff733f4013881c63a23c) - Tabs: small style changes in line with button
+
+## 1.70.19
+
+### Patch Changes
+
+- [#5518](https://github.com/cultureamp/kaizen-design-system/pull/5518) [`ae0ec1e`](https://github.com/cultureamp/kaizen-design-system/commit/ae0ec1e696acea0f8875e92586afa2da000b2f57) - Fix drilling down isDisabled prop for Select
+
+## 1.70.18
+
+### Patch Changes
+
+- [#5507](https://github.com/cultureamp/kaizen-design-system/pull/5507) [`5b1265d`](https://github.com/cultureamp/kaizen-design-system/commit/5b1265dc17bc3df8a4d8b3a269ebdc5c4c49e446) - ToggleSwitchField: removes hover style from disabled state
+
 ## 1.70.17
 
 ### Patch Changes

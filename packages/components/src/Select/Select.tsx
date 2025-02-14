@@ -57,7 +57,6 @@ export const Select = React.forwardRef<any, SelectProps>(
       description,
       fullWidth: propsFullWidth,
       className: propsClassName,
-      isDisabled,
       placeholder,
       ...props
     },
@@ -76,7 +75,7 @@ export const Select = React.forwardRef<any, SelectProps>(
       variant === 'secondary' && styles.secondary,
       variant === 'secondary-small' && styles.secondarySmall,
       !fullWidth && styles.notFullWidth,
-      isDisabled && styles.disabled,
+      props.isDisabled && styles.disabled,
       status === 'error' && styles.error,
     )
 
