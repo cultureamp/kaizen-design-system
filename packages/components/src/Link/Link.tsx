@@ -36,6 +36,11 @@ export type NonInlineLink = BaseLinkProps & {
   size: TextProps['variant']
 }
 
+/*
+function isInlineLink(link: LinkProps): link is InlineLink {
+  return link.isInline === true
+} */
+
 export const Link = forwardRef(
   (
     {
