@@ -22,12 +22,13 @@ const meta = {
       options: ['intro-lede', 'body', 'small', 'extra-small'],
     },
     icon: {
-      options: ['delete', 'arrow', 'add'],
+      options: ['arrow', 'external'],
       mapping: {
-        delete: <Icon isPresentational name="delete" />,
         arrow: <Icon isPresentational name="arrow_forward" />,
-        add: <Icon isPresentational name="add" />,
+        external: <Icon isPresentational name="open_in_new" />,
       },
+      description:
+        'Renders an icon at the specified `iconPosition`. For size scaling, use the `Icon` component from `"@kaizen/components/future"`. See [all available icons](https://cultureamp.design/?path=/docs/components-icon-icon-future-api-specification--docs)',
     },
   },
 } satisfies Meta<typeof Link>
