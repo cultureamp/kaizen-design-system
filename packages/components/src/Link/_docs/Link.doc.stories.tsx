@@ -97,30 +97,35 @@ export const LinkOpensInNewTab: Story = {
 }
 
 export const WithText: Story = {
-  render: (props) => (
+  render: ({ size: _, ...otherArgs }) => (
     <>
       <Text variant="intro-lede">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
         repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
-        <Link {...props} icon={<Icon name="add" isPresentational />} isInline size={undefined} />{' '}
-        Mollitia vero asperiores assumenda, odit ratione id perspiciatis suscipit molestias quas
-        facere, commodi saepe! Quisquam, quidem quas a quos quae quia quidem, quod, voluptates,
-        dolorum quibusdam. Quisquam, quidem quas a quos quae
-      </Text>
-      <br />
-      <Text variant="body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
-        repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
-        <Link {...props} icon={<Icon name="add" isPresentational />} isInline /> Mollitia vero
+        <Link {...otherArgs} icon={<Icon name="add" isPresentational />} isInline /> Mollitia vero
         asperiores assumenda, odit ratione id perspiciatis suscipit molestias quas facere, commodi
         saepe! Quisquam, quidem quas a quos quae quia quidem, quod, voluptates, dolorum quibusdam.
         Quisquam, quidem quas a quos quae
       </Text>
       <br />
+      <Text variant="body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
+        repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
+        <Link
+          {...otherArgs}
+          icon={<Icon name="add" isPresentational />}
+          isInline
+          size={undefined}
+        />
+        Mollitia vero asperiores assumenda, odit ratione id perspiciatis suscipit molestias quas
+        facere, commodi saepe! Quisquam, quidem quas a quos quae quia quidem, quod, voluptates,
+        dolorum quibusdam. Quisquam, quidem quas a quos quae
+      </Text>
+      <br />
       <Text variant="small">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
         repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
-        <Link {...props} icon={<Icon name="add" isPresentational />} isInline /> Mollitia vero
+        <Link {...otherArgs} icon={<Icon name="add" isPresentational />} isInline /> Mollitia vero
         asperiores assumenda, odit ratione id perspiciatis suscipit molestias quas facere, commodi
         saepe! Quisquam, quidem quas a quos quae quia quidem, quod, voluptates, dolorum quibusdam.
         Quisquam, quidem quas a quos quae
@@ -129,7 +134,7 @@ export const WithText: Story = {
       <Text variant="extra-small">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eaque amet atque. Dolores
         repellendus eligendi <span style={{ textDecoration: 'underline' }}> totam.</span>{' '}
-        <Link {...props} icon={<Icon name="add" isPresentational />} isInline /> Mollitia vero
+        <Link {...otherArgs} icon={<Icon name="add" isPresentational />} isInline /> Mollitia vero
         asperiores assumenda, odit ratione id perspiciatis suscipit molestias quas facere, commodi
         saepe! Quisquam, quidem quas a quos quae quia quidem, quod, voluptates, dolorum quibusdam.
         Quisquam, quidem quas a quos quae
@@ -140,9 +145,9 @@ export const WithText: Story = {
 
 // Links of every different size
 export const LinkSizes: Story = {
-  render: ({ children: _, size: __, ...otherArgs }) => (
+  render: ({ children: _, size: __, isInline: ___, ...otherArgs }) => (
     <>
-      <Link {...otherArgs} size="extra-small">
+      <Link size="extra-small" {...otherArgs}>
         Extra Small
       </Link>
       <br />
@@ -166,10 +171,10 @@ export const StandaloneLinkDo: Story = {
 }
 
 export const StandaloneLinkDont: Story = {
-  render: (props) => (
+  render: ({ size: _, ...otherArgs }) => (
     <Text variant="body">
       Learn more about{' '}
-      <Link {...props} isInline>
+      <Link {...otherArgs} isInline>
         demographics
       </Link>
     </Text>
@@ -190,26 +195,26 @@ export const OneLinkInSentence: Story = {
 }
 
 export const FiveLinksInSentence: Story = {
-  render: (props) => (
+  render: ({ size: _, ...otherArgs }) => (
     <Text variant="body">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo{' '}
-      <Link {...props} isInline>
+      <Link {...otherArgs} isInline>
         {' '}
         ad nobis
       </Link>
       , ut aspernatur{' '}
-      <Link {...props} isInline>
+      <Link {...otherArgs} isInline>
         deserunt fuga expedita amet architecto
       </Link>{' '}
-      <Link {...props} isInline>
+      <Link {...otherArgs} isInline>
         pariatur cum itaque
       </Link>{' '}
       dicta veritatis{' '}
-      <Link {...props} isInline>
+      <Link {...otherArgs} isInline>
         inventore ea
       </Link>{' '}
       esse rem dolore{' '}
-      <Link {...props} isInline>
+      <Link {...otherArgs} isInline>
         natus
       </Link>
       ! Architecto.
