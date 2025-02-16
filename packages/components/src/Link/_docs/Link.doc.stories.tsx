@@ -22,10 +22,12 @@ const meta = {
       options: ['intro-lede', 'body', 'small', 'extra-small'],
     },
     icon: {
-      options: ['arrow', 'external'],
+      options: ['arrow_forward', 'open_in_new'],
       mapping: {
-        arrow: <Icon isPresentational name="arrow_forward" />,
-        external: <Icon isPresentational name="open_in_new" />,
+        // eslint-disable-next-line camelcase
+        arrow_forward: <Icon isPresentational name="arrow_forward" />,
+        // eslint-disable-next-line camelcase
+        open_in_new: <Icon isPresentational name="open_in_new" />,
       },
       description:
         'Renders an icon at the specified `iconPosition`. For size scaling, use the `Icon` component from `"@kaizen/components/future"`. See [all available icons](https://cultureamp.design/?path=/docs/components-icon-icon-future-api-specification--docs)',

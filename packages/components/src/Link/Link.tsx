@@ -43,7 +43,7 @@ export const Link = forwardRef(
       variant = 'primary',
       size = 'body',
       icon,
-      iconPosition = 'start',
+      iconPosition = 'end',
       isInline = false,
       isDisabled,
       className,
