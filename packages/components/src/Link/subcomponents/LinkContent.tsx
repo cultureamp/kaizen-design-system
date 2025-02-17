@@ -10,7 +10,7 @@ export type LinkContentProps = {
 }
 
 const LinkIcon = ({ icon }: { icon: JSX.Element }): JSX.Element => (
-  <span className={mergeClassNames(styles.icon)}>{icon}</span>
+  <span className={styles.icon}>{icon}</span>
 )
 
 export const LinkContent = ({
