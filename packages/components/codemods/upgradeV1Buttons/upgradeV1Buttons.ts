@@ -16,7 +16,7 @@ const V1_BUTTONS_IMPORT_SOURCE = [
   '@kaizen/components/v1/actions',
   '@kaizen/components/v2/actions',
 ]
-const BUTTON_IMPORT_DESTINATION = '@kaizen/components/v3/actions'
+const BUTTON_IMPORT_DESTINATION = '@kaizen/components/next'
 const LINKBUTTON_IMPORT_DESTINATION = '@kaizen/components'
 
 export const upgradeV1Buttons =

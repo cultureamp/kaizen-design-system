@@ -23,7 +23,7 @@ describe('upgradeV1Buttons()', () => {
         export const TestComponent = () => <Button label="Hello" onClick={handleClick} />
       `)
       const outputAst = parseJsx(`
-        import { Button } from "@kaizen/components/v3/actions"
+        import { Button } from "@kaizen/components/next"
         export const TestComponent = () => <Button onPress={handleClick} variant="secondary" size="large">Hello</Button>
       `)
 
@@ -36,7 +36,7 @@ describe('upgradeV1Buttons()', () => {
         export const TestComponent = () => <IconButton icon={<Icon isPresentational name="more_horiz"/>} label="More pls" onClick={handleClick} />
       `)
       const outputAst = parseJsx(`
-        import { Button } from "@kaizen/components/v3/actions"
+        import { Button } from "@kaizen/components/next"
         export const TestComponent = () => <Button icon={<Icon isPresentational name="more_horiz"/>} onPress={handleClick} variant="tertiary" size="large" hasHiddenLabel>More pls</Button>
       `)
 
@@ -54,7 +54,7 @@ describe('upgradeV1Buttons()', () => {
         )
       `)
       const outputAst = parseJsx(`
-        import { Button } from "@kaizen/components/v3/actions"
+        import { Button } from "@kaizen/components/next"
         export const TestComponent = () => (
           <>
             <Button variant="secondary" size="large">Hello</Button>
@@ -77,7 +77,7 @@ describe('upgradeV1Buttons()', () => {
         )
       `)
       const outputAst = parseJsx(`
-        import { Button } from "@kaizen/components/v3/actions"
+        import { Button } from "@kaizen/components/next"
         export const TestComponent = () => (
           <>
             <Button variant="secondary" size="large">Waffle</Button>
@@ -91,7 +91,7 @@ describe('upgradeV1Buttons()', () => {
     it('transforms V1 Buttons to aliased Button', () => {
       const inputAst = parseJsx(`
         import { IconButton, Button } from "@kaizen/components"
-        import { Button as ButtonAlias } from "@kaizen/components/v3/actions"
+        import { Button as ButtonAlias } from "@kaizen/components/next"
         export const TestComponent = () => (
           <>
             <Button label="Waffle" />
@@ -101,7 +101,7 @@ describe('upgradeV1Buttons()', () => {
         )
       `)
       const outputAst = parseJsx(`
-        import { Button as ButtonAlias } from "@kaizen/components/v3/actions"
+        import { Button as ButtonAlias } from "@kaizen/components/next"
         export const TestComponent = () => (
           <>
             <ButtonAlias variant="secondary" size="large">Waffle</ButtonAlias>
@@ -125,7 +125,7 @@ describe('upgradeV1Buttons()', () => {
           )
         `)
         const outputAst = parseJsx(`
-          import { Button } from "@kaizen/components/v3/actions"
+          import { Button } from "@kaizen/components/next"
           export const TestComponent = () => (
             <>
               <Button variant="secondary" size="large">Pancakes</Button>
@@ -147,7 +147,7 @@ describe('upgradeV1Buttons()', () => {
           )
         `)
         const outputAst = parseJsx(`
-          import { Button } from "@kaizen/components/v3/actions"
+          import { Button } from "@kaizen/components/next"
           export const TestComponent = () => (
             <>
               <Button variant="secondary" size="large">Pancakes</Button>
@@ -169,7 +169,7 @@ describe('upgradeV1Buttons()', () => {
           )
         `)
         const outputAst = parseJsx(`
-          import { Button } from "@kaizen/components/v3/actions"
+          import { Button } from "@kaizen/components/next"
           export const TestComponent = () => (
             <>
               <Button variant="secondary" size="large">Pancakes</Button>
@@ -191,7 +191,7 @@ describe('upgradeV1Buttons()', () => {
           )
         `)
         const outputAst = parseJsx(`
-          import { Button } from "@kaizen/components/v3/actions"
+          import { Button } from "@kaizen/components/next"
           export const TestComponent = () => (
             <>
               <Button variant="secondary" size="large">Pancakes</Button>
@@ -216,7 +216,7 @@ describe('upgradeV1Buttons()', () => {
           )
         `)
         const outputAst = parseJsx(`
-          import { Button } from "@kaizen/components/v3/actions"
+          import { Button } from "@kaizen/components/next"
           export const TestComponent = () => (
             <>
               <Button variant="secondary" size="large">Pancakes</Button>
@@ -232,7 +232,7 @@ describe('upgradeV1Buttons()', () => {
       it('does not duplicate Button import if it already exists', () => {
         const inputAst = parseJsx(`
           import { IconButton, Button as KzButton } from "@kaizen/components"
-          import { Button } from "@kaizen/components/v3/actions"
+          import { Button } from "@kaizen/components/next"
           export const TestComponent = () => (
             <>
               <IconButton label="Pancakes" />
@@ -242,7 +242,7 @@ describe('upgradeV1Buttons()', () => {
           )
         `)
         const outputAst = parseJsx(`
-          import { Button } from "@kaizen/components/v3/actions"
+          import { Button } from "@kaizen/components/next"
           export const TestComponent = () => (
             <>
               <Button variant="tertiary" size="large" hasHiddenLabel>Pancakes</Button>
@@ -257,7 +257,7 @@ describe('upgradeV1Buttons()', () => {
       it('does not add Button if aliased Button exists', () => {
         const inputAst = parseJsx(`
           import { Button, IconButton } from "@kaizen/components"
-          import { Button as ButtonAlias } from "@kaizen/components/v3/actions"
+          import { Button as ButtonAlias } from "@kaizen/components/next"
           export const TestComponent = () => (
             <>
               <Button label="Pancakes" />
@@ -267,7 +267,7 @@ describe('upgradeV1Buttons()', () => {
           )
         `)
         const outputAst = parseJsx(`
-          import { Button as ButtonAlias } from "@kaizen/components/v3/actions"
+          import { Button as ButtonAlias } from "@kaizen/components/next"
           export const TestComponent = () => (
             <>
               <ButtonAlias variant="secondary" size="large">Pancakes</ButtonAlias>
@@ -291,7 +291,7 @@ describe('upgradeV1Buttons()', () => {
         `)
         const outputAst = parseJsx(`
           import { FilterButton } from "@kaizen/components"
-          import { Button } from "@kaizen/components/v3/actions"
+          import { Button } from "@kaizen/components/next"
           export const TestComponent = () => (
             <>
               <Button variant="tertiary" size="large" hasHiddenLabel>Pancakes</Button>
