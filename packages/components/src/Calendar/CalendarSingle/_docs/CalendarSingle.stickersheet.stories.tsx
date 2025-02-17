@@ -3,7 +3,8 @@ import { type Meta } from '@storybook/react'
 import { within } from '@storybook/test'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import styles from '../../baseCalendarClassNames.module.scss'
-import { CalendarSingle, type CalendarSingleProps } from '../index'
+import { type CalendarSingleProps } from '../../types'
+import { CalendarSingle } from '../index'
 
 export default {
   title: 'Components/Date controls/Calendars/CalendarSingle',

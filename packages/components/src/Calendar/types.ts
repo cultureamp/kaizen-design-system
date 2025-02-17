@@ -1,4 +1,11 @@
-import { type DateInterval, type DateRange, type DayPickerProps } from 'react-day-picker'
+import {
+  type DateInterval,
+  type DateRange,
+  type DayPickerProps,
+  type DayPickerRangeProps,
+  type DayPickerSingleProps,
+} from 'react-day-picker'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { type DayOfWeek } from './enums'
 
 export type { DateInterval, DateRange }
@@ -43,3 +50,18 @@ export type DisabledDayMatchers = {
    */
   disabledAfter?: Date
 }
+
+export type CalendarRangeElement = HTMLDivElement
+
+export type CalendarRangeProps = {
+  id?: string
+  onMount?: (calendarElement: CalendarRangeElement) => void
+  hasDivider?: boolean
+} & OverrideClassName<Omit<DayPickerRangeProps, 'mode'>>
+
+export type CalendarSingleElement = HTMLDivElement
+
+export type CalendarSingleProps = {
+  id?: string
+  onMount?: (calendarElement: CalendarSingleElement) => void
+} & OverrideClassName<Omit<DayPickerSingleProps, 'mode'>>
