@@ -571,7 +571,6 @@ $tab-container-height-medium-and-small-collapsed: 0;
   // We are using visually hidden here instead of display:none so that a screen reader
   // navigating via 'read mode' (which doesn't trigger hover/focus) will still hear this link name
   @include visually-hidden;
-
   @include ca-position($start: -2 * $ca-grid);
 
   position: absolute;
