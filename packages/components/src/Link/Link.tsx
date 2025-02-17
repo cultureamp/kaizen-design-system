@@ -18,28 +18,28 @@ type BaseLinkProps = {
     children: RACLinkProps['children']
   }
 
-export type UnderlinedLink = {
+type UnderlinedLink = {
   /** Toggles the underline of the icon and children @default true */
   isUnderlined?: true
   /** The icon to be displayed, optional when link is underlined */
   icon?: JSX.Element
 }
 
-export type NonUnderlinedLink = {
+type NonUnderlinedLink = {
   /** Toggles the underline of the icon and children */
   isUnderlined?: false
   /** The icon to be displayed, required when link is not underlined */
   icon: JSX.Element
 }
 
-export type InlineLink = {
+type InlineLink = {
   /** isInline assumes the Link is wrapped in a [Text](https://cultureamp.design/?path=/docs/components-text--docs) component */
   isInline: true
   /** The size of the link, not passed when isInline */
   size?: never
 }
 
-export type NonInlineLink = {
+type NonInlineLink = {
   /** isInline assumes the Link is wrapped in a [Text](https://cultureamp.design/?path=/docs/components-text--docs) component @default false */
   isInline?: false
   /** The size of the link. Sizes correlate to body text sizes. @default 'body' */
