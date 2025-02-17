@@ -1,11 +1,11 @@
 import ts from 'typescript'
 import { type ButtonProps as V1ButtonProps } from '~components/Button'
-import { type ButtonProps as RCButtonProps } from '~components/__rc__/Button'
+import { type ButtonProps as NextButtonProps } from '~components/__next__/Button'
 import { createProp, createStringProp, getPropValueText } from '../utils'
 
 const getNewSizeValue = (
   oldValue: Exclude<V1ButtonProps['size'], undefined>,
-): Exclude<RCButtonProps['size'], undefined> => {
+): Exclude<NextButtonProps['size'], undefined> => {
   switch (oldValue) {
     case 'small':
       return 'medium'

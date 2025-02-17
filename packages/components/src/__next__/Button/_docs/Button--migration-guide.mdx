@@ -3,7 +3,7 @@ import { ResourceLinks, KAIOInstallation } from '~storybook/components'
 
 <Meta title="Components/Button/Button (next)/Migration Guide" />
 
-# Button Migration Guide
+# Button Migration Guide (next)
 
 This is a short guide to assist in migration from the old to new `Button` and `LinkButton` component.
 
@@ -25,7 +25,7 @@ Below is a list of notable changes when migrating to the new `Button` and `LinkB
   - The intent is to more closely align to the semantic roles of an anchor or button and should be used accordingly.
 - `LinkButton` handles native navigation via `href` out of the box but additional config can be used to allow for client side routing - [see here](/docs/components-linkbutton-api-specification--docs#client-side-routing).
   - `onPress` can still be used in place of `onClick` for pushing to routers and tracking events.
-- `IconButton` has been superseded by icon props and the [icon-only pattern](/docs/components-button-button-v3-api-specification--docs#icon-only-button-and-hashiddenlabel).
+- `IconButton` has been superseded by icon props and the [icon-only pattern](/docs/components-button-button-next-api-specification--docs#icon-only-button-and-hashiddenlabel).
 - `working`, `workingLabel` and `workingLabelHidden` has been updated to `isPending`, `pendingLabel` and `hasHiddenPendingLabel` to better reflect the state of the button.
   - This is not available in the `LinkButton` component
 - `badge` prop has been removed and should be handled within the `Children` where required.
@@ -65,7 +65,7 @@ The codemod will continue to passed `badge` props into the new implementation so
 
 ```
 import { Badge } from "@kaizen/components"
-import { Button } from "@kaizen/components/v3/Button"
+import { Button } from "@kaizen/components/next"
 
 <Button>Label<Badge classNameOverride="ms-8" variant="success">New</Badge></Button>
 ```
@@ -78,4 +78,4 @@ This will cause a type error that can be corrected by either using the `LinkButt
 
 ## More information
 
-For more information on the about each of the new API's, we recommend referring the [Button](/docs/components-button-button-v3-api-specification--docs) or [LinkButton](/docs/components-linkbutton-api-specification--docs) API specifications.
+For more information on the about each of the new API's, we recommend referring the [Button](/docs/components-button-button-next-api-specification--docs) or [LinkButton](/docs/components-linkbutton-api-specification--docs) API specifications.
