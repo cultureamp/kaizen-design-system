@@ -59,7 +59,7 @@ Put links in regular text, not in titles. If you need something bigger or more n
 
 ### Use the link size that matches the body text size
 
-There are four size variants for the link component. Sizes correlate to body text sizes. Inline link sizes should match the type size of the text it is inline with. Standalone link sizes should match the default body copy size of the page.
+There are four size variants for the link component. Sizes correlate to body text sizes. The `isInline` prop can be toggled to have the link inherit sizing from its parent Text component. Standalone link sizes should match the default body copy size of the page.
 
 ### Give context to inline links
 
@@ -69,7 +69,7 @@ For links in a sentence, write them as part of the sentence and include enough i
 
 #### Write standalone links like calls-to-action
 
-Standalone links are not full sentences, and do not have punctuation at the end. Treat these like calls-to-action by writing them as short verb phrases.
+Standalone links are not full sentences, and do not have punctuation at the end. Treat these like calls-to-action by writing them as short verb phrases. Where possible, do not break over multiple lines.
 
 <DosAndDonts>
   <DoOrDont story={Link.StandaloneLinkDo} />
