@@ -1,5 +1,4 @@
 import React, { type HTMLAttributes } from 'react'
-import { FocusScope } from '@react-aria/focus'
 import { DismissButton, useOverlay } from '@react-aria/overlays'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useSelectContext } from '../../context'
@@ -9,6 +8,7 @@ export type OverlayProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> & {
   children: React.ReactNode
 }
 
+// Currently this is no longer used in the SelectPopoverContents components as it has been replaced by RACs popover and dialogue. if these are viable and this is used nowhere else then we can remove this
 export const Overlay = <Option extends SelectOption>({
   children,
   classNameOverride,
@@ -24,18 +24,13 @@ export const Overlay = <Option extends SelectOption>({
     overlayRef,
   )
 
-  // Wrap in <FocusScope> so that focus is restored back to the trigger when the menu is closed
-  // and auto focus on the first focusable item after loading. (disable eslint no-autofocus error for it)
-  // In addition, add hidden <DismissButton> components at the start and end of the list
+  // Add hidden <DismissButton> components at the start and end of the list
   // to allow screen reader users to dismiss the popup easily.
   return (
     <div ref={overlayRef} className={classNameOverride} {...overlayProps} {...restProps}>
-      {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
-      <FocusScope autoFocus={false} restoreFocus>
-        <DismissButton onDismiss={state.close} />
-        {children}
-        <DismissButton onDismiss={state.close} />
-      </FocusScope>
+      <DismissButton onDismiss={state.close} />
+      {children}
+      <DismissButton onDismiss={state.close} />
     </div>
   )
 }
