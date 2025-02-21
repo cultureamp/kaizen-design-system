@@ -16,6 +16,7 @@
     "bin",
     "codemods",
     "future",
+    "next",
     "v1",
     "v2",
     "v3",
@@ -39,7 +40,12 @@
     "./future": {
       "import": "./dist/esm/future.mjs",
       "require": "./dist/cjs/future.cjs",
-      "types": "./dist/types/__rc__/index.d.ts"
+      "types": "./dist/types/__next__/index.d.ts"
+    },
+    "./next": {
+      "import": "./dist/esm/next.mjs",
+      "require": "./dist/cjs/next.cjs",
+      "types": "./dist/types/__next__/index.d.ts"
     },
     "./v1/actions": {
       "import": "./dist/esm/actionsV1.mjs",

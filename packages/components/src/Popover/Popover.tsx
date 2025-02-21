@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { usePopper } from 'react-popper'
 import { Heading } from '~components/Heading'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { type Placement, type PopoverSize, type PopoverVariant } from './types'
 import {

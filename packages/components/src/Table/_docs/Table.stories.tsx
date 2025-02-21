@@ -4,7 +4,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { Checkbox } from '~components/Checkbox'
 import { Divider } from '~components/Divider'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import {
   TableCard,
   TableContainer,

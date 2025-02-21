@@ -2,7 +2,7 @@ import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, userEvent, waitFor, within } from '@storybook/test'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { LinkButton } from '../index'
 
 const meta = {

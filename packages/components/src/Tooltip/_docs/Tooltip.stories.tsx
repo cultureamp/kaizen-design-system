@@ -6,12 +6,12 @@ import { CheckboxField } from '~components/Checkbox'
 import { FilterButtonBase } from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
 import { TableContainer, TableHeader, TableHeaderRowCell, TableRow } from '~components/Table'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__rc__'
-import { Tag } from '~components/__rc__/Tag'
+import { Icon } from '~components/__next__'
+import { Tag } from '~components/__next__/Tag'
 import { Tooltip } from '../index'
 
 const meta = {
-  title: 'Components/Tooltip/Tooltip (v1)',
+  title: 'Components/Tooltip/Tooltip (deprecated)',
   component: Tooltip,
   args: {
     text: 'Example tooltip text.',
