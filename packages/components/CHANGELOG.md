@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.24
+
+### Patch Changes
+
+- [#5535](https://github.com/cultureamp/kaizen-design-system/pull/5535) [`fc30d45`](https://github.com/cultureamp/kaizen-design-system/commit/fc30d45a71adc15342f72212e26e4c2838f8a86a) - Revert: Export RTE mockRangeForBoundingRect helper function
+
 ## 1.70.23
 
 ### Patch Changes
