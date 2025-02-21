@@ -2,7 +2,7 @@ import React from 'react'
 import { type Meta } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { Button } from '~components/Button'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { EmptyState, type EmptyStateProps } from '../index'
 

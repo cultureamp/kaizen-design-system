@@ -63,7 +63,7 @@ describe('getKaioTagNamesMapByComponentName()', () => {
   it('returns import attributes from different KAIO imports', () => {
     const input = parseJsx(`
       import { Button as KzButton } from "@kaizen/components"
-      import { Button as FutureButton } from "@kaizen/components/future"
+      import { Button as FutureButton } from "@kaizen/components/next"
     `)
     const tagNames = getKaioTagNamesMapByComponentName(input, ['Button'])
     expect(tagNames).toEqual(
@@ -79,7 +79,7 @@ describe('getKaioTagNamesMapByComponentName()', () => {
         [
           'FutureButton',
           {
-            importModuleName: '@kaizen/components/future',
+            importModuleName: '@kaizen/components/next',
             tagName: 'FutureButton',
             originalName: 'Button',
           },
@@ -189,7 +189,7 @@ describe('getKaioTagNamesMapByPattern()', () => {
   it('returns import attributes from different KAIO imports', () => {
     const input = parseJsx(`
       import { AddIcon, Well } from "@kaizen/components"
-      import { Icon } from "@kaizen/components/future"
+      import { Icon } from "@kaizen/components/next"
     `)
     const tagNames = getKaioTagNamesMapByPattern(input, 'Icon$')
     expect(tagNames).toEqual(
@@ -205,7 +205,7 @@ describe('getKaioTagNamesMapByPattern()', () => {
         [
           'Icon',
           {
-            importModuleName: '@kaizen/components/future',
+            importModuleName: '@kaizen/components/next',
             tagName: 'Icon',
             originalName: 'Icon',
           },

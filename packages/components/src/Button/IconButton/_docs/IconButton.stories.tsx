@@ -1,10 +1,10 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { IconButton } from '../index'
 
 const meta = {
-  title: 'Components/IconButton/IconButton (v1)',
+  title: 'Components/Button/IconButton (deprecated)',
   component: IconButton,
   argTypes: {
     icon: {

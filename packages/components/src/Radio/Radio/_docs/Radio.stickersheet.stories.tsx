@@ -4,7 +4,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { Radio } from '../index'
 
 export default {
-  title: 'Components/Radio controls/Radio',
+  title: 'Components/Radios/Radio (Primitive)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

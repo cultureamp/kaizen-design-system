@@ -6,7 +6,7 @@ import { Text } from '~components/Text'
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '../index'
 
 const meta = {
-  title: 'Components/Tabs',
+  title: 'Components/Tabs/Tabs (deprecated)',
   component: Tabs,
   args: {
     children: (

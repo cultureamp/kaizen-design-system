@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { type ToolbarControlTypes, type ToolbarItems } from '../../types'
 import { listIsActive, markIsActive } from '../../utils/commands'
 import {

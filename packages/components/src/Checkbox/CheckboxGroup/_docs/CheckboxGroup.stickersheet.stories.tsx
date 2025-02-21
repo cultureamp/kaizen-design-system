@@ -6,7 +6,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { CheckboxGroup, type CheckboxGroupProps } from '../index'
 
 export default {
-  title: 'Components/Checkbox controls/CheckboxGroup',
+  title: 'Components/Checkboxes/CheckboxGroup',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

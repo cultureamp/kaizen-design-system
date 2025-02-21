@@ -6,7 +6,7 @@ import { Heading, type HeadingProps } from '~components/Heading'
 import { type SceneProps, type SpotProps } from '~components/Illustration'
 import { Text } from '~components/Text'
 import { Tooltip, type TooltipProps } from '~components/Tooltip'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { type VariantType } from './types'
 import styles from './GuidanceBlock.module.css'
 

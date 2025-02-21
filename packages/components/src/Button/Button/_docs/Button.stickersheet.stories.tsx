@@ -1,11 +1,11 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Button, type ButtonProps } from '../index'
 
 export default {
-  title: 'Components/Button/Button (v1)',
+  title: 'Components/Button/Button (deprecated)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { TextArea } from '../index'
 
 const meta = {
-  title: 'Components/Text Input controls/TextArea',
+  title: 'Components/TextAreaField/TextArea (primitive)',
   component: TextArea,
   parameters: {
     a11y: {
