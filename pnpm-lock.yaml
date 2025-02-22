@@ -459,8 +459,8 @@ importers:
         specifier: ^16.1.0
         version: 16.1.0(postcss@8.4.49)
       postcss-preset-env:
-        specifier: ^10.1.3
-        version: 10.1.3(postcss@8.4.49)
+        specifier: ^10.1.4
+        version: 10.1.4(postcss@8.4.49)
       postcss-scss:
         specifier: ^4.0.9
         version: 4.0.9(postcss@8.4.49)
@@ -1151,6 +1151,12 @@ packages:
 
   '@csstools/postcss-initial@2.0.0':
     resolution: {integrity: sha512-dv2lNUKR+JV+OOhZm9paWzYBXOCi+rJPqJ2cJuhh9xd8USVrd0cBEPczla81HNOyThMQWeCcdln3gZkQV2kYxA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      postcss: ^8.4
+
+  '@csstools/postcss-initial@2.0.1':
+    resolution: {integrity: sha512-L1wLVMSAZ4wovznquK0xmC7QSctzO4D0Is590bxpGqhqjboLXYA16dWZpfwImkdOgACdQ9PqXsuRroW6qPlEsg==}
     engines: {node: '>=18'}
     peerDependencies:
       postcss: ^8.4
@@ -4490,6 +4496,11 @@ packages:
 
   browserslist@4.24.3:
     resolution: {integrity: sha512-1CPmv8iobE2fyRMV97dAcMVegvvWKxmq94hkLiAkUGwKVTyDLw33K+ZxiFrREKmmps4rIw6grcCFCnTMSZ/YiA==}
+    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
+    hasBin: true
+
+  browserslist@4.24.4:
+    resolution: {integrity: sha512-KDi1Ny1gSePi1vm0q4oxSF8b4DR44GF4BbmS2YdhPLOEqd8pDviZOGH/GsmRwoWJ2+5Lr085X7naowMwKHDG1A==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
@@ -8368,8 +8379,8 @@ packages:
     peerDependencies:
       postcss: ^8.4
 
-  postcss-preset-env@10.1.3:
-    resolution: {integrity: sha512-9qzVhcMFU/MnwYHyYpJz4JhGku/4+xEiPTmhn0hj3IxnUYlEF9vbh7OC1KoLAnenS6Fgg43TKNp9xcuMeAi4Zw==}
+  postcss-preset-env@10.1.4:
+    resolution: {integrity: sha512-awWKS3CwyY7I4Eb3YSWOZisbj3qXyuQCrylYiu2vSHxnSZAj3LHStN6jOcpCrc6EjYunLwbeNto3M5/JBtXpzg==}
     engines: {node: '>=18'}
     peerDependencies:
       postcss: ^8.4
@@ -10514,7 +10525,7 @@ snapshots:
     dependencies:
       '@babel/compat-data': 7.25.2
       '@babel/helper-validator-option': 7.24.8
-      browserslist: 4.23.3
+      browserslist: 4.24.3
       lru-cache: 5.1.1
       semver: 6.3.1
 
@@ -11010,7 +11021,7 @@ snapshots:
   '@csstools/css-color-parser@3.0.6(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)':
     dependencies:
       '@csstools/color-helpers': 5.0.1
-      '@csstools/css-calc': 2.1.0(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)
+      '@csstools/css-calc': 2.1.1(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)
       '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
       '@csstools/css-tokenizer': 3.0.3
 
@@ -11160,6 +11171,10 @@ snapshots:
       postcss-value-parser: 4.2.0
 
   '@csstools/postcss-initial@2.0.0(postcss@8.4.49)':
+    dependencies:
+      postcss: 8.4.49
+
+  '@csstools/postcss-initial@2.0.1(postcss@8.4.49)':
     dependencies:
       postcss: 8.4.49
 
@@ -15113,6 +15128,13 @@ snapshots:
       node-releases: 2.0.19
       update-browserslist-db: 1.1.1(browserslist@4.24.3)
 
+  browserslist@4.24.4:
+    dependencies:
+      caniuse-lite: 1.0.30001690
+      electron-to-chromium: 1.5.79
+      node-releases: 2.0.19
+      update-browserslist-db: 1.1.1(browserslist@4.24.4)
+
   bs-logger@0.2.6:
     dependencies:
       fast-json-stable-stringify: 2.1.0
@@ -15200,8 +15222,8 @@ snapshots:
 
   caniuse-api@3.0.0:
     dependencies:
-      browserslist: 4.23.3
-      caniuse-lite: 1.0.30001651
+      browserslist: 4.24.3
+      caniuse-lite: 1.0.30001690
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
@@ -19673,7 +19695,7 @@ snapshots:
 
   postcss-colormin@5.3.1(postcss@8.4.49):
     dependencies:
-      browserslist: 4.23.3
+      browserslist: 4.24.3
       caniuse-api: 3.0.0
       colord: 2.9.3
       postcss: 8.4.49
@@ -19681,7 +19703,7 @@ snapshots:
 
   postcss-convert-values@5.1.3(postcss@8.4.49):
     dependencies:
-      browserslist: 4.23.3
+      browserslist: 4.24.3
       postcss: 8.4.49
       postcss-value-parser: 4.2.0
 
@@ -19847,7 +19869,7 @@ snapshots:
 
   postcss-merge-rules@5.1.4(postcss@8.4.49):
     dependencies:
-      browserslist: 4.23.3
+      browserslist: 4.24.3
       caniuse-api: 3.0.0
       cssnano-utils: 3.1.0(postcss@8.4.49)
       postcss: 8.4.49
@@ -19867,7 +19889,7 @@ snapshots:
 
   postcss-minify-params@5.1.4(postcss@8.4.49):
     dependencies:
-      browserslist: 4.23.3
+      browserslist: 4.24.3
       cssnano-utils: 3.1.0(postcss@8.4.49)
       postcss: 8.4.49
       postcss-value-parser: 4.2.0
@@ -19953,7 +19975,7 @@ snapshots:
 
   postcss-normalize-unicode@5.1.1(postcss@8.4.49):
     dependencies:
-      browserslist: 4.23.3
+      browserslist: 4.24.3
       postcss: 8.4.49
       postcss-value-parser: 4.2.0
 
@@ -20059,7 +20081,7 @@ snapshots:
       postcss-replace-overflow-wrap: 4.0.0(postcss@8.4.49)
       postcss-selector-not: 8.0.1(postcss@8.4.49)
 
-  postcss-preset-env@10.1.3(postcss@8.4.49):
+  postcss-preset-env@10.1.4(postcss@8.4.49):
     dependencies:
       '@csstools/postcss-cascade-layers': 5.0.1(postcss@8.4.49)
       '@csstools/postcss-color-function': 4.0.7(postcss@8.4.49)
@@ -20071,7 +20093,7 @@ snapshots:
       '@csstools/postcss-gradients-interpolation-method': 5.0.7(postcss@8.4.49)
       '@csstools/postcss-hwb-function': 4.0.7(postcss@8.4.49)
       '@csstools/postcss-ic-unit': 4.0.0(postcss@8.4.49)
-      '@csstools/postcss-initial': 2.0.0(postcss@8.4.49)
+      '@csstools/postcss-initial': 2.0.1(postcss@8.4.49)
       '@csstools/postcss-is-pseudo-class': 5.0.1(postcss@8.4.49)
       '@csstools/postcss-light-dark-function': 2.0.7(postcss@8.4.49)
       '@csstools/postcss-logical-float-and-clear': 3.0.0(postcss@8.4.49)
@@ -20094,7 +20116,7 @@ snapshots:
       '@csstools/postcss-trigonometric-functions': 4.0.6(postcss@8.4.49)
       '@csstools/postcss-unset-value': 4.0.0(postcss@8.4.49)
       autoprefixer: 10.4.20(postcss@8.4.49)
-      browserslist: 4.24.3
+      browserslist: 4.24.4
       css-blank-pseudo: 7.0.1(postcss@8.4.49)
       css-has-pseudo: 7.0.2(postcss@8.4.49)
       css-prefers-color-scheme: 10.0.0(postcss@8.4.49)
@@ -20133,7 +20155,7 @@ snapshots:
 
   postcss-reduce-initial@5.1.2(postcss@8.4.49):
     dependencies:
-      browserslist: 4.23.3
+      browserslist: 4.24.3
       caniuse-api: 3.0.0
       postcss: 8.4.49
 
@@ -21454,7 +21476,7 @@ snapshots:
 
   stylehacks@5.1.1(postcss@8.4.49):
     dependencies:
-      browserslist: 4.23.3
+      browserslist: 4.24.3
       postcss: 8.4.49
       postcss-selector-parser: 6.1.2
 
@@ -22193,6 +22215,12 @@ snapshots:
   update-browserslist-db@1.1.1(browserslist@4.24.3):
     dependencies:
       browserslist: 4.24.3
+      escalade: 3.2.0
+      picocolors: 1.1.1
+
+  update-browserslist-db@1.1.1(browserslist@4.24.4):
+    dependencies:
+      browserslist: 4.24.4
       escalade: 3.2.0
       picocolors: 1.1.1
 
