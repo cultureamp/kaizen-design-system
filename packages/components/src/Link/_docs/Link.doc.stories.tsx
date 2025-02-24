@@ -9,10 +9,7 @@ const meta = {
   component: Link,
   args: {
     children: 'Link',
-    href: 'https://www.google.com',
-    variant: 'primary',
-    isUnderlined: true,
-    isInline: false,
+    href: 'https://www.google.com',  
   },
   argTypes: {
     variant: {
