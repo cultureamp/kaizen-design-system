@@ -9,7 +9,7 @@ const meta = {
   component: Link,
   args: {
     children: 'Link',
-    href: 'https://www.google.com',  
+    href: 'https://www.google.com',
   },
   argTypes: {
     variant: {
