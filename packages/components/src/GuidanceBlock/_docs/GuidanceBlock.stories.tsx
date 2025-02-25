@@ -6,7 +6,14 @@ import {
   Informative,
   SkillsCoachEssentialFeedback,
 } from '~components/Illustration'
+import { LinkButton } from '~components/LinkButton'
 import { Text } from '~components/Text'
+import { Button } from '~components/__next__/Button'
+import { Icon } from '~components/__next__/Icon'
+import {
+  Tooltip as TooltipNext,
+  TooltipTrigger as TooltipTriggerNext,
+} from '~components/__next__/Tooltip'
 import { GuidanceBlock } from '../index'
 import { variantsMap } from '../types'
 
@@ -150,4 +157,119 @@ export const Variants: Story = {
   args: {
     text: defaultText,
   },
+}
+
+export const ActionsVsCallToActions: Story = {
+  args: {
+    layout: 'default',
+    illustration: <Informative alt="" />,
+    content: <ContentComponent />,
+    actions: {
+      dismiss: {
+        onClick: () => {
+          alert('Dismissed')
+        },
+      },
+      primary: {
+        label: 'Learn more',
+        onClick: () => alert('tada: 🎉'),
+      },
+      secondary: {
+        label: 'Dismiss',
+        href: '#',
+      },
+    },
+    secondaryDismiss: true,
+  },
+  render: (args) => (
+    <div className="flex flex-col gap-16">
+      <GuidanceBlock {...args} />
+      <GuidanceBlock
+        layout="default"
+        illustration={<Informative alt="" />}
+        content={<ContentComponent />}
+        secondaryDismiss={true}
+        callToActions={
+          <>
+            <Button
+              variant="secondary"
+              size="large"
+              onPress={() => alert('tada: 🎉')}
+              iconPosition="end"
+              icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
+            >
+              Learn more
+            </Button>
+            <LinkButton variant="tertiary" size="large" href="#">
+              Dismiss
+            </LinkButton>
+          </>
+        }
+      />
+    </div>
+  ),
+}
+
+export const CallToActions: Story = {
+  args: {
+    layout: 'default',
+    illustration: <Informative alt="" />,
+    content: <ContentComponent />,
+    callToActions: (
+      <>
+        <Button
+          variant="secondary"
+          size="large"
+          onPress={() => alert('tada: 🎉')}
+          iconPosition="end"
+          icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
+        >
+          Learn more
+        </Button>
+        <LinkButton variant="tertiary" size="large" href="#">
+          Dismiss
+        </LinkButton>
+      </>
+    ),
+  },
+  render: (args) => (
+    <div className="flex flex-col gap-16">
+      <GuidanceBlock {...args} />
+    </div>
+  ),
+}
+
+export const CallToActionsWithTooltips: Story = {
+  args: {
+    layout: 'default',
+    illustration: <Informative alt="" />,
+    content: <ContentComponent />,
+    callToActions: (
+      <>
+        <TooltipTriggerNext>
+          <Button
+            variant="secondary"
+            size="large"
+            onPress={() => alert('tada: 🎉')}
+            iconPosition="end"
+            icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
+          >
+            Learn more
+          </Button>
+          <TooltipNext>Tooltip Content</TooltipNext>
+        </TooltipTriggerNext>
+        <TooltipTriggerNext>
+          <LinkButton variant="tertiary" size="large" href="#">
+            Dismiss
+          </LinkButton>
+          <TooltipNext>Tooltip secondary content</TooltipNext>
+        </TooltipTriggerNext>
+      </>
+    ),
+  },
+  render: (args) => (
+    <div className="flex flex-col gap-16">
+      <GuidanceBlock {...args} />
+    </div>
+  ),
 }

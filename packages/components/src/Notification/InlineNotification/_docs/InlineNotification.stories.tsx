@@ -1,4 +1,6 @@
+import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
+import { ToggleSwitchField } from '~components/ToggleSwitch'
 import { InlineNotification } from '../InlineNotification'
 
 const meta = {
@@ -73,5 +75,26 @@ export const ContentMultilineDemo: StoryObj<typeof meta> = {
     forceMultiline: true,
     children:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis esse, iste, obcaecati laborum dolorum eius, similique fugit itaque illum ipsam sapiente facilis cum? Accusamus eos possimus quae voluptates laboriosam necessitatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis esse, iste, obcaecati laborum dolorum eius, similique fugit itaque illum ipsam sapiente facilis cum? Accusamus eos possimus quae voluptates laboriosam necessitatibus.',
+  },
+}
+
+/**
+ * Without the `forceMultiline` prop, child content must exceed the maximum width of the container before it breaks onto a new line. */
+export const SomethingWild: StoryObj<typeof meta> = {
+  args: {
+    forceMultiline: true,
+    children: (
+      <span className="flex gap-16">
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis esse, iste, obcaecati
+          laborum dolorum eius, similique fugit itaque illum ipsam sapiente facilis cum? Accusamus
+          eos possimus quae voluptates laboriosam necessitatibus. Lorem ipsum dolor sit amet,
+          consectetur adipisicing elit. Omnis esse, iste, obcaecati laborum dolorum eius, similique
+          fugit itaque illum ipsam sapiente facilis cum? Accusamus eos possimus quae voluptates
+          laboriosam necessitatibus.
+        </span>
+        <ToggleSwitchField labelText="Edit questions" />
+      </span>
+    ),
   },
 }
