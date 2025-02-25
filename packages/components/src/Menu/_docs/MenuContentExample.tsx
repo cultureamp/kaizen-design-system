@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { MenuHeading } from '../subcomponents/MenuHeading'
 import { MenuItem } from '../subcomponents/MenuItem'
 import { MenuList } from '../subcomponents/MenuList'

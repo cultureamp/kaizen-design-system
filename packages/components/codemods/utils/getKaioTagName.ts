@@ -71,7 +71,7 @@ export const getKaioTagName = (
 }
 
 type TagImportAttributes = {
-  // Import module name (eg. `@kaizen/components/future`)
+  // Import module name (eg. `@kaizen/components/next`)
   importModuleName: string
   // Component name or alias
   tagName: string

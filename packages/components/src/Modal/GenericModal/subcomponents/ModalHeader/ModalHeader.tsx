@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconButton } from '~components/Button'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { ModalBody } from '../ModalBody'
 import styles from './ModalHeader.module.scss'
 

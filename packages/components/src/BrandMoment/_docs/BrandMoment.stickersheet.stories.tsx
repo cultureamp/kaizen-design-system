@@ -10,7 +10,7 @@ import { BrandMoment } from '../BrandMoment'
 import { Informative, Success, Warning } from './BrandMoment.stories'
 
 export default {
-  title: 'Components/BrandMoment',
+  title: 'Pages/BrandMoment',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

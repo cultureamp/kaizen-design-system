@@ -28,24 +28,24 @@ If your consumers may be using version 10 or lower (or are using TypeScript [`mo
 
 Should you want multiple entrypoints, you will need to create a directory relative from the root of the package and create a `package.json` within that contains the extra resolutions.
 
-Eg. If we want to create an entrypoint at `@kaizen/package-bundler/future`:
+Eg. If we want to create an entrypoint at `@kaizen/package-bundler/next`:
 
 Folder structure:
 
 ```md
-- future/
+- next/
   - package.json
 - src/...
 - package.json
 ```
 
-Contents for `future/package.json` (adjust your paths based on your defined dist structure).
+Contents for `next/package.json` (adjust your paths based on your defined dist structure).
 
 ```json
 {
-  "main": "../dist/cjs/future.cjs",
-  "module": "../dist/esm/future.mjs",
-  "types": "../dist/types/__future__/index.d.ts"
+  "main": "../dist/cjs/next.cjs",
+  "module": "../dist/esm/next.mjs",
+  "types": "../dist/types/__next__/index.d.ts"
 }
 ```
 
@@ -54,6 +54,6 @@ You will also need to ensure that this directory is included in your distributed
 ```json
 "files": [
   "dist",
-  "future"
+  "next"
 ]
 ```

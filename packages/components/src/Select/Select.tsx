@@ -9,7 +9,7 @@ import Async, { type AsyncProps as ReactAsyncSelectProps } from 'react-select/as
 import { FieldMessage } from '~components/FieldMessage'
 import { Label } from '~components/Label'
 import { Tag } from '~components/Tag'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import styles from './Select.module.scss'
 
 export type SelectProps = {

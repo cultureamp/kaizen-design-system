@@ -11,14 +11,14 @@ Updated Dec 18, 2024
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__actions__/LinkButton/v3"
   figma="https://www.figma.com/design/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-Heart-UI-Kit?node-id=1929-17364"
-  designGuidelines="/?path=/docs/actions-linkbutton-linkbutton-v3-usage-guidelines--docs"
+  designGuidelines="/?path=/docs/components-linkbutton-usage-guidelines--docs"
 />
 
 <KAIOInstallation exportNames={'LinkButton'} />
 
 ## Overview
 
-`LinkButton` allows users to navigate to another page or resource. It shares the same visual styles and interaction states as the <LinkTo pageId="actions-button-button-v3-usage-guidelines--docs">Button</LinkTo> component, but is intended for navigational purposes and downloading documents.
+`LinkButton` allows users to navigate to another page or resource. It shares the same visual styles and interaction states as the <LinkTo pageId="components-button-button-next-usage-guidelines--docs">Button</LinkTo> component, but is intended for navigational purposes and downloading documents.
 
 The following example and table showcases the essential props that enable the core functionality of `LinkButton`. For the remaining suite of API options refer to [this section](#additional-api-options).
 
@@ -81,8 +81,8 @@ To enable the reversed theme, you will need to wrap the component or application
 
 ```tsx
 import { RouterProvider } from 'react-aria-components'
-import { Button } from '@kaizen/components/v3/actions'
-import { ReversedColors } from '@kaizen/components/v3/utilities'
+import { Button } from '@kaizen/components/next'
+import { ReversedColors } from '@kaizen/components'
 // application code
 
 return (
@@ -100,7 +100,7 @@ LinkButton supports the following sizes: `small`, `medium` and `large`. If the `
 
 ### `onPress`
 
-As with <LinkTo pageId="actions-button-button-v3-usage-guidelines--docs">Button</LinkTo>, `LinkButton`'s API uses React Aria's `onPress` instead of `onClick`. Functionally this does not change the way we pass click events to a `LinkButton`. Consumers can safely replace `onClick` with `onPress` without any additional changes, ie:
+As with <LinkTo pageId="components-button-button-next-usage-guidelines--docs">Button</LinkTo>, `LinkButton`'s API uses React Aria's `onPress` instead of `onClick`. Functionally this does not change the way we pass click events to a `LinkButton`. Consumers can safely replace `onClick` with `onPress` without any additional changes, ie:
 
 ```tsx
 <Button
@@ -137,11 +137,11 @@ While in most cases, `children` will be a `ReactNode`, `LinkButton` also accepts
 
 ### Icons and positioning
 
-The `icon` property abstracts the need to handle positioning and sizing logic for icons within the `LinkButton`. When paired with the [Icon component](/docs/illustrations-icon-icon-future-api-specification--docs), this will scale the icon to the `LinkButton`'s `size` prop.
+The `icon` property abstracts the need to handle positioning and sizing logic for icons within the `LinkButton`. When paired with the [Icon component](/docs/illustrations-icon-icon-next-api-specification--docs), this will scale the icon to the `LinkButton`'s `size` prop.
 
 <Canvas of={exampleStories.LinkButtonWithIconStart} />
 
-Set the position of the icon using the `iconPosition` prop. This will ensure content is flipped in `RTL` layouts. Note that icons will need the [shouldMirrorInRTL](/docs/illustrations-icon-icon-future-api-specification--docs#mirror-in-rtl) prop set to `true` when mirroring is required.
+Set the position of the icon using the `iconPosition` prop. This will ensure content is flipped in `RTL` layouts. Note that icons will need the [shouldMirrorInRTL](/docs/illustrations-icon-icon-next-api-specification--docs#mirror-in-rtl) prop set to `true` when mirroring is required.
 
 <Canvas of={exampleStories.LinkButtonWithIconEnd} />
 
@@ -202,7 +202,7 @@ The implementation in your application would then look something like this:
 
 ```tsx
 import { useRouter } from 'next/router'
-import { LinkButton } from '@kaizen/components/v3/actions'
+import { LinkButton } from '@kaizen/components'
 
 const Component = () => {
   const router = useRouter()

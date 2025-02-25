@@ -6,7 +6,7 @@ import { Tag } from '../index'
 import { TagVariants } from '../types'
 
 export default {
-  title: 'Components/Tag',
+  title: 'Components/Tag/Tag (deprecated)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
