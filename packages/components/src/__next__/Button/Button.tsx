@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { Button as RACButton, type ButtonProps as RACButtonProps } from 'react-aria-components'
-import { useReversedColors } from '~components/__utilities__/v3'
+import { useReversedColors } from '~components/utils'
 import { mergeClassNames } from '~components/utils/mergeClassNames'
 import { ButtonContent, PendingContent } from './subcomponents'
 import { type ButtonSizes, type ButtonVariants, type PendingButtonProps } from './types'
