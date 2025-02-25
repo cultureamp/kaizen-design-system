@@ -8,7 +8,7 @@ import { Button } from '../index'
 const onPressEvent = fn()
 
 const meta = {
-  title: 'Components/Button/Button (v3)/Button (v3) tests',
+  title: 'Components/Button/Button (next)/Button (next) tests',
   component: Button,
   args: {
     children: 'Label',
