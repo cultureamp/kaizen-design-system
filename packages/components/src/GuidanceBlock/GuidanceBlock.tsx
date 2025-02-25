@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import classNames from 'classnames'
 import Media from 'react-media'
-import { Button, type ButtonProps } from '~components/Button'
+import { Button as V1Button, type ButtonProps as V1ButtonProps } from '~components/Button'
 import { Heading, type HeadingProps } from '~components/Heading'
 import { type SceneProps, type SpotProps } from '~components/Illustration'
 import { Text } from '~components/Text'
 import { Tooltip, type TooltipProps } from '~components/Tooltip'
-import { Icon } from '~components/__next__/Icon'
+import { Icon } from '~components/__next__'
 import { type VariantType } from './types'
 import styles from './GuidanceBlock.module.css'
 
-export type ActionProps = ButtonProps & {
+export type ActionProps = V1ButtonProps & {
   'tooltip'?: TooltipProps
   'aria-label'?: string
   'aria-labelledby'?: string
@@ -38,12 +38,12 @@ type BaseGuidanceBlockProps = {
    * Sets how the width and aspect ratio will respond to the Illustration passed in.
    */
   illustrationType?: IllustrationType
-
   smallScreenTextAlignment?: TextAlignment
+  /** @deprecated use the `callToActions` prop with Button/next instead */
   actions?: GuidanceBlockActions
-  /*
-   * This will still require the secondary object to be passed into the actions ie: {secondary: { label: "Dismiss action" }}`
-   */
+  /** A slot for GuidanceBlock actions Button}. It is recommended to use thenew {@link https://cultureamp.design/?path=/docs/components-button-button-next-api-specification--docs | Button} or {@link https://cultureamp.design/?path=/docs/components-linkbutton-usage-guidelines--docs | LinkButton} */
+  callToActions?: React.ReactNode
+  /** @deprecated this is no longer a used feature and is only the deprecated `actions` prop, ie: {secondary: { label: "Dismiss action" }}` */
   secondaryDismiss?: boolean
   variant?: VariantType
   withActionButtonArrow?: boolean
@@ -92,6 +92,7 @@ export const GuidanceBlock = ({
   actions,
   illustration,
   secondaryDismiss,
+  callToActions,
   ...restProps
 }: GuidanceBlockProps): JSX.Element => {
   const [hidden, setHidden] = useState<boolean>(false)
@@ -202,14 +203,9 @@ export const GuidanceBlock = ({
                   rightMargin: !(isMobile || componentIsMobile) && layout === 'default',
                 })}
               >
-                <div
-                  className={classNames(
-                    styles.buttonContainer,
-                    actions?.secondary && styles.secondaryAction,
-                  )}
-                >
+                <div className={styles.buttonContainer}>
                   <WithTooltip tooltipProps={actions.primary.tooltip}>
-                    <Button
+                    <V1Button
                       icon={
                         withActionButtonArrow ? (
                           <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
@@ -224,7 +220,7 @@ export const GuidanceBlock = ({
                   {actions?.secondary && (
                     <WithTooltip tooltipProps={actions.secondary.tooltip}>
                       <div className={styles.secondaryAction}>
-                        <Button
+                        <V1Button
                           secondary
                           {...actions.secondary}
                           onClick={
@@ -238,6 +234,20 @@ export const GuidanceBlock = ({
                     </WithTooltip>
                   )}
                 </div>
+              </div>
+            )}
+          </Media>
+        )}
+        {!actions && callToActions && (
+          <Media query="(max-width: 767px)">
+            {(isMobile: boolean): JSX.Element => (
+              <div
+                className={classNames({
+                  noRightMargin: isMobile || componentIsMobile,
+                  rightMargin: !(isMobile || componentIsMobile) && layout === 'default',
+                })}
+              >
+                <div className={styles.buttonContainer}>{callToActions}</div>
               </div>
             )}
           </Media>
