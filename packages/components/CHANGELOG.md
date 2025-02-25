@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.70.25
+
+### Patch Changes
+
+- [#5537](https://github.com/cultureamp/kaizen-design-system/pull/5537) [`1a959ea`](https://github.com/cultureamp/kaizen-design-system/commit/1a959ea4e6f503ad43db96b14842e7907e3e2c70) - Remove stacking context from TBZ to avoid sitting over popovers
+
 ## 1.70.24
 
 ### Patch Changes
