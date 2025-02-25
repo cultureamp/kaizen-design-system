@@ -4,7 +4,7 @@ import { Tag } from '~components/__next__/Tag'
 import { Focusable } from '../index'
 
 const meta = {
-  title: 'Components/Tooltip/Tooltip (next)/Focusable',
+  title: 'Components/Focusable',
   component: Focusable,
   parameters: {
     layout: 'centered',
