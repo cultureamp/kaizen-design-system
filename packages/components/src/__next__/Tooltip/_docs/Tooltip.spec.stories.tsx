@@ -3,11 +3,12 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, userEvent, waitFor, within } from '@storybook/test'
 import isChromatic from 'chromatic'
 import { Button, IconButton } from '~components/Button'
+import { Focusable } from '~components/Focusable'
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '~components/Tabs'
 import { Text } from '~components/Text'
 import { Icon } from '~components/__next__/Icon'
 import { Tag } from '~components/__next__/Tag'
-import { Focusable, Tooltip, TooltipTrigger } from '../index'
+import { Tooltip, TooltipTrigger } from '../index'
 
 const meta = {
   title: 'Components/Tooltip/Tooltip (next)/Tests',

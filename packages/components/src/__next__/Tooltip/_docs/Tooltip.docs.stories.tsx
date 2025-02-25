@@ -3,11 +3,12 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { Button, IconButton } from '~components/Button'
 import { FieldMessage } from '~components/FieldMessage'
+import { Focusable } from '~components/Focusable'
 import { Input } from '~components/Input'
 import { Label } from '~components/Label'
 import { Text } from '~components/Text'
 import { Icon } from '~components/__next__/Icon'
-import { Focusable, Tooltip, TooltipTrigger } from '../index'
+import { Tooltip, TooltipTrigger } from '../index'
 import * as TestStories from './Tooltip.spec.stories'
 
 const meta = {
