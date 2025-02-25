@@ -17,7 +17,6 @@ export default {
 } satisfies Meta
 
 const GENERIC_PROPS = {
-  persistent: true,
   illustration: <Informative alt="" />,
   actions: {
     primary: {
@@ -33,7 +32,7 @@ const GENERIC_PROPS = {
       },
     },
   },
-}
+} satisfies Partial<GuidanceBlockProps>
 
 const TEXT_PROPS: GuidanceBlockProps = {
   ...GENERIC_PROPS,
