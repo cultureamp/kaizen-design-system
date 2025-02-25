@@ -1,7 +1,6 @@
 import React from 'react'
 import { autoPlacement, offset, size } from '@floating-ui/react-dom'
 import { type Meta } from '@storybook/react'
-import { Text } from '~components/Text'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { CalendarRange } from '../../CalendarRange'
 import { CalendarSingle } from '../../CalendarSingle'
@@ -149,57 +148,4 @@ export const StickerSheetRTL: StickerSheetStory = {
     ...StickerSheetTemplate.parameters,
     textDirection: 'rtl',
   },
-}
-
-export const StickerSheetResponsive: StickerSheetStory = {
-  name: 'Sticker Sheet (Responsive)',
-  render: () => (
-    <>
-      <Text variant="intro-lede" classNameOverride="mb-12 ">
-        CalendarSingle scaled to availableHeight
-      </Text>
-      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden relative">
-        <CalendarPopoverExample strategy="absolute">
-          <CalendarSingle selected={new Date('2022-02-19')} />
-        </CalendarPopoverExample>
-      </div>
-      <Text variant="intro-lede" classNameOverride="mb-12 ">
-        CalendarRange scaled to availableHeight
-      </Text>
-      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden relative">
-        <CalendarPopoverExample strategy="absolute">
-          <CalendarRange
-            selected={{
-              from: new Date('2022-02-19'),
-              to: new Date('2022-03-04'),
-            }}
-            hasDivider
-          />
-        </CalendarPopoverExample>
-      </div>
-      <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
-        CalendarSingle scaled to availableWidth
-      </Text>
-      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden relative w-[250px]">
-        <CalendarPopoverExample strategy="absolute">
-          <CalendarSingle selected={new Date('2022-03-19')} />
-        </CalendarPopoverExample>
-      </div>
-      <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
-        CalendarRanger scaled to availableWidth
-      </Text>
-      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden relative w-[250px]">
-        <CalendarPopoverExample strategy="absolute">
-          <CalendarRange
-            data-testid="sb-final-calendar"
-            selected={{
-              from: new Date('2022-02-19'),
-              to: new Date('2022-03-04'),
-            }}
-            hasDivider
-          />
-        </CalendarPopoverExample>
-      </div>
-    </>
-  ),
 }
