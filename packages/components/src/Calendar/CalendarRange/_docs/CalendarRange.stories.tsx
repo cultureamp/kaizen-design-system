@@ -6,7 +6,7 @@ import { type DateRange } from '../../types'
 import { CalendarRange } from '../index'
 
 const meta = {
-  title: 'Components/Date controls/Calendars/CalendarRange',
+  title: 'Components/Datepickers/Calendars (primitives)/CalendarRange (primitive)',
   component: CalendarRange,
   argTypes: {
     ...defaultMonthControls,
