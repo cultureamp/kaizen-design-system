@@ -11,7 +11,7 @@ export default rollupConfig({
     overlaysV1: './src/v1-overlays.ts',
     overlaysV2: './src/v2-overlays.ts',
     overlaysV3: './src/v3-overlays.ts',
-    utilitiesV3: './src/__utilities__/v3.ts',
+    utilitiesV3: './src/index.ts',
     reactAriaV3: './src/__react-aria__/index.ts',
     reactAriaComponentsV3: './src/__react-aria-components__/index.ts',
   },

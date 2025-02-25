@@ -7,7 +7,7 @@ import {
   type TooltipProps as RACTooltipProps,
 } from 'react-aria-components'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { useReversedColors } from '~components/__utilities__/v3'
+import { useReversedColors } from '~components/utils'
 import { mergeClassNames } from '~components/utils/mergeClassNames'
 import { OverlayArrow } from './OverlayArrow'
 import styles from './Tooltip.module.scss'

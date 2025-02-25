@@ -13,7 +13,7 @@ import {
   Tooltip,
   TooltipTrigger,
 } from '~components/__next__'
-import { ReversedColors } from '~components/__utilities__/v3'
+import { ReversedColors } from '~components/utils'
 import { Button } from '../index'
 
 const meta = {

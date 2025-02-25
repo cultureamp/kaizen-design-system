@@ -90,7 +90,7 @@
     "./v3/utilities": {
       "import": "./dist/esm/utilitiesV3.mjs",
       "require": "./dist/cjs/utilitiesV3.cjs",
-      "types": "./dist/types/__utilities__/v3.d.ts"
+      "types": "./dist/types/__utilities__/index.d.ts"
     },
     "./dist/styles.css": {
       "import": "./dist/styles.css",

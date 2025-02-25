@@ -1,6 +1,6 @@
 import React from 'react'
 import { composeStories, type Meta, type StoryObj } from '@storybook/react'
-import { ReversedColors } from '~components/__utilities__/v3'
+import { ReversedColors } from '~components/utils'
 import { mergeClassNames } from '~components/utils/mergeClassNames'
 import * as testStories from './Tooltip.spec.stories'
 
