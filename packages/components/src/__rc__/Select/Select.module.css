@@ -1,0 +1,19 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.notFullWidth {
+  width: 180px;
+}
+
+.popover {
+  box-sizing: border-box;
+  box-shadow: var(--shadow-large-box-shadow);
+  border: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style) transparent;
+  border-radius: var(--border-solid-border-radius);
+  background: var(--color-white);
+  z-index: 100000;
+  overflow: auto;
+  min-width: 196px;
+}

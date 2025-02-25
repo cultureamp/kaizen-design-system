@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { renderTriggerControls } from '~components/Filter/_docs/controls/renderTriggerControls'
+import { Well } from '~components/Well'
 import { FilterButton } from '../../FilterButton'
 import { FilterSelect } from '../FilterSelect'
 import { type SelectOption } from '../types'
@@ -99,4 +100,45 @@ export const AdditionalProperties: Story = {
     )
   },
   name: 'Additional option properties',
+}
+
+/**
+ * Extend the option type to have additional properties to use for rendering.
+ */
+export const FilterSelectBelowPageContent: Story = {
+  render: () => {
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+
+    return (
+      <div>
+        <Well color="gray" style={{ height: '1500px' }}>
+          Page content above the FilterSelect
+        </Well>
+        <FilterSelect
+          label="Label"
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          renderTrigger={(triggerProps) => <FilterButton {...triggerProps} />}
+          items={groupedMockItems}
+        >
+          {({ items }): JSX.Element[] =>
+            items.map((item) => {
+              if (item.type === 'item') {
+                return (
+                  <FilterSelect.Option
+                    key={item.key}
+                    item={{
+                      ...item,
+                    }}
+                  />
+                )
+              }
+              return <FilterSelect.ItemDefaultRender key={item.key} item={item} />
+            })
+          }
+        </FilterSelect>
+      </div>
+    )
+  },
+  name: 'FilterSelect below page content',
 }

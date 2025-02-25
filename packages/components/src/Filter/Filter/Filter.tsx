@@ -1,8 +1,8 @@
 import React, { useEffect, useId, useRef, useState, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { FocusOn } from 'react-focus-on'
+import { Dialog as RacDialog, Popover as RacPopover } from 'react-aria-components'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import { FilterPopover } from './subcomponents/FilterPopover'
+import popoverStyles from './subcomponents/FilterPopover/FilterPopover.module.css'
 import { type FilterTriggerRef } from './types'
 import styles from './Filter.module.css'
 
@@ -54,19 +54,18 @@ export const Filter = ({
       {React.cloneElement(trigger, {
         ref: filterButtonRef,
       })}
+
       {isRefLoaded && isOpen && (
-        <FocusOn
-          scrollLock={false}
-          onClickOutside={(): void => setIsOpen(false)}
-          onEscapeKey={(): void => setIsOpen(false)}
+        <RacPopover
+          className={popoverStyles.filterPopover}
+          isOpen={isOpen}
+          onOpenChange={setIsOpen}
+          triggerRef={filterButtonRef.current?.triggerRef}
+          offset={15}
+          placement="bottom start"
         >
-          <FilterPopover
-            referenceElement={filterButtonRef.current?.triggerRef?.current ?? null}
-            aria-labelledby={trigger.props.id}
-          >
-            {children}
-          </FilterPopover>
-        </FocusOn>
+          <RacDialog aria-labelledby={trigger.props.id}>{children}</RacDialog>
+        </RacPopover>
       )}
     </div>
   )
