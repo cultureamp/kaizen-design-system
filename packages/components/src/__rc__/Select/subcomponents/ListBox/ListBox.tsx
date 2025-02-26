@@ -2,10 +2,10 @@ import React, { useEffect, useRef, type HTMLAttributes, type Key, type ReactNode
 import { useListBox, type AriaListBoxOptions } from '@react-aria/listbox'
 import { type SelectState } from '@react-stately/select'
 import classnames from 'classnames'
-import { useIsClientReady } from '~components/__utilities__/useIsClientReady'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useSelectContext } from '../../context'
-import { type SelectItem, type SelectOption } from '../../types'
+import { useHasCalculatedListboxPosition } from '../../hooks/useHasCalculatedListboxPosition'
+import { type SelectItem, type SelectItemNode, type SelectOption } from '../../types'
 import styles from './ListBox.module.scss'
 
 export type SingleListBoxProps<Option extends SelectOption> = OverrideClassName<
@@ -16,17 +16,38 @@ export type SingleListBoxProps<Option extends SelectOption> = OverrideClassName<
   menuProps: AriaListBoxOptions<SelectItem<Option>>
 }
 
-/** A util to retrieve the key of the correct focusable items based of the focus strategy
+/** determines is the first or last key passed in is a section. If not it will return the key, otherwise will return the first option key of that section */
+const getOptionOrSectionKey = (
+  optionKey: SelectOption['value'] | null,
+  state: SelectState<SelectItem<any>>,
+): Key | null => {
+  if (!optionKey) return null
+
+  const option = state.collection.getItem(optionKey) as SelectItemNode | null
+  const optionType = option?.type
+
+  if (optionType === 'section') {
+    const sectionOptions = option?.value?.options
+
+    return sectionOptions ? Array.from(sectionOptions)[0]?.value : null
+  }
+  return optionKey
+}
+
+/** A util to retrieve the key of the correct focusable option based of the focus strategy
  * This is used to determine which element from the collection to focus to on open base on the keyboard event
  * ie: UpArrow will set the focusStrategy to "last"
  */
 const getOptionKeyFromCollection = (state: SelectState<SelectItem<any>>): Key | null => {
   if (state.selectedItem) {
     return state.selectedItem.key
-  } else if (state.focusStrategy === 'last') {
-    return state.collection.getLastKey()
   }
-  return state.collection.getFirstKey()
+
+  if (state.focusStrategy === 'last') {
+    return getOptionOrSectionKey(state.collection.getLastKey(), state)
+  }
+
+  return getOptionOrSectionKey(state.collection.getFirstKey(), state)
 }
 
 /** This makes the use of query selector less brittle in instances where a failed selector is passed in
@@ -47,9 +68,9 @@ export const ListBox = <Option extends SelectOption>({
   classNameOverride,
   ...restProps
 }: SingleListBoxProps<Option>): JSX.Element => {
-  const isClientReady = useIsClientReady()
   const { state } = useSelectContext<Option>()
   const ref = useRef<HTMLUListElement>(null)
+  const hasCalculatedListboxPosition = useHasCalculatedListboxPosition(ref)
   const { listBoxProps } = useListBox(
     {
       ...menuProps,
@@ -62,23 +83,22 @@ export const ListBox = <Option extends SelectOption>({
   )
 
   /**
-   * This uses the new useIsClientReady to ensure document exists before trying to querySelector and give the time to focus to the correct element
+   * When the Listbox is opened the initial position starts above the window, which can cause the out of the box behaviour in react-aria's listbox to jump a user to the top of the page.
    */
   useEffect(() => {
-    if (isClientReady) {
+    if (hasCalculatedListboxPosition) {
       const optionKey = getOptionKeyFromCollection(state)
       const focusToElement = safeQuerySelector(`[data-key='${optionKey}']`)
 
       if (focusToElement) {
         focusToElement.focus()
       } else {
-        // If an element is not found, focus on the listbox. This ensures the list can still be navigated to via keyboard if the keys do not align to the data attributes of the list items.
         ref.current?.focus()
       }
     }
     // Only run this effect for checking the first successful render
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isClientReady])
+  }, [hasCalculatedListboxPosition])
 
   return (
     <ul
