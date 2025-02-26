@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.71.0
+
+### Minor Changes
+
+- [#5510](https://github.com/cultureamp/kaizen-design-system/pull/5510) [`633832d`](https://github.com/cultureamp/kaizen-design-system/commit/633832d2a2d238819c4d67948d4e8558421e17aa) - use native popovers in the CalendarPopover
+
+### Patch Changes
+
+- [#5537](https://github.com/cultureamp/kaizen-design-system/pull/5537) [`1a959ea`](https://github.com/cultureamp/kaizen-design-system/commit/1a959ea4e6f503ad43db96b14842e7907e3e2c70) - Remove stacking context from TBZ to avoid sitting over popovers
+
 ## 1.70.24
 
 ### Patch Changes
