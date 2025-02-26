@@ -11,7 +11,7 @@ export type LinkProps = BaseLinkProps &
 type BaseLinkProps = {
   /** Controls the visual style of a link. @default 'primary' */
   variant?: 'primary' | 'secondary' | 'white'
-  /** Controls the postion of a link. @default 'end' */
+  /** Controls the position of a link. @default 'end' */
   iconPosition?: 'start' | 'end'
 } & Omit<RACLinkProps, 'children'> & {
     /** Used as the label for the Link. */
