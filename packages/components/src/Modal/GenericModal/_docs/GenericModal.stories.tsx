@@ -3,7 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { GenericModal } from '../index'
 
 const meta = {
-  title: 'Components/Modals/GenericModal',
+  title: 'Components/Modals/GenericModal (primitive)',
   component: GenericModal,
   args: {
     children: 'Example content',

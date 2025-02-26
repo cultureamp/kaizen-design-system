@@ -6,7 +6,7 @@ import { expect, userEvent, waitFor, within } from '@storybook/test'
 import { GenericModal, ModalAccessibleLabel, ModalBody, ModalHeader } from '../index'
 
 const meta: Meta<typeof GenericModal> = {
-  title: 'Components/Modals/GenericModal/Tests',
+  title: 'Components/Modals/GenericModal (primitive)/Tests',
   component: GenericModal,
 }
 
