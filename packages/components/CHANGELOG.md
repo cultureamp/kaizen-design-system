@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.72.0
+
+### Minor Changes
+
+- [#5541](https://github.com/cultureamp/kaizen-design-system/pull/5541) [`b1fc3db`](https://github.com/cultureamp/kaizen-design-system/commit/b1fc3db2a99f8c026632aeccffe9c1a8a410501b) - Create `next` entrypoint, holding all `future` and `v3` components.
+
+  Update docs to recommend importing from `next` instead of `future` or `v3`.
+
+  Old 'future' and versioned (v1, v2, v3) entrypoints will remain supported until 2.0 release in September)
+
 ## 1.71.0
 
 ### Minor Changes
