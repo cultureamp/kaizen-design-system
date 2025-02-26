@@ -17,7 +17,7 @@ const transformIcons = (sourceFile: TransformSourceArgs['sourceFile']): string =
 
 describe('upgradeV1Buttons()', () => {
   describe('to Button', () => {
-    it('transforms Button v1 to Button v3 when href and component prop are not set', () => {
+    it('transforms Button v1 to Button (next) when href and component prop are not set', () => {
       const inputAst = parseJsx(`
         import { Button } from "@kaizen/components"
         export const TestComponent = () => <Button label="Hello" onClick={handleClick} />
@@ -30,7 +30,7 @@ describe('upgradeV1Buttons()', () => {
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
 
-    it('transforms IconButton to Button v3 when href and component prop are not set', () => {
+    it('transforms IconButton to Button (next) when href and component prop are not set', () => {
       const inputAst = parseJsx(`
         import { IconButton } from "@kaizen/components"
         export const TestComponent = () => <IconButton icon={<Icon isPresentational name="more_horiz"/>} label="More pls" onClick={handleClick} />
@@ -43,7 +43,7 @@ describe('upgradeV1Buttons()', () => {
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
     })
 
-    it('transforms both IconButton and Button v1 to Button v3 in the same iteration', () => {
+    it('transforms both IconButton and Button v1 to Button (next) in the same iteration', () => {
       const inputAst = parseJsx(`
         import { Button, IconButton } from "@kaizen/components"
         export const TestComponent = () => (
