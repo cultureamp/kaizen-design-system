@@ -1,7 +1,7 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
 import { within } from '@storybook/test'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Link, type LinkProps } from '../Link'
 
