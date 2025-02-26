@@ -1,24 +1,23 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
-import { ResourceLinks, Installation } from '~storybook/components'
+import { ResourceLinks, Installation, ReplacementNotice } from '~storybook/components'
 import * as TooltipStories from './Tooltip.stories'
 
 <Meta of={TooltipStories} />
 
-# Tooltip (v1)
+# Tooltip (deprecated)
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tooltip"
   figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=1929%3A32006&mode=design&t=LwTCBZ5E1uRvOA1l-1"
   designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604978/Tooltip"
-
 />
+
+<ReplacementNotice />
 
 <Installation
   installCommand="pnpm add @kaizen/components"
-  importStatement='import { Tooltip } from "@kaizen/components/v1/overlays"'
+  importStatement='import { Tooltip } from "@kaizen/components"'
 />
-
-It is recommended that you import from the `v2` entry point.
 
 ## Overview
 
@@ -121,8 +120,6 @@ Seen in the example below simple `Tag`s with plain text as `children` will not a
 While `Tooltip` should be avoided if there are no interactive states within the `Tag`, internal elements like buttons or links can be wrapped in a `Tooltip` component to add necessary context.
 
 <Canvas of={TooltipStories.TagWithTooltip} />
-
-The [future Tag](?path=/docs/components-tag-future--docs#overview) offers a composable solution for those needing to add more context to an interactive `Tag`.
 
 #### Form components and tooltips
 

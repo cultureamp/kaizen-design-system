@@ -44,10 +44,10 @@ describe('updateKaioImports()', () => {
     it('removes import statement when all named imports are removed', () => {
       const inputAst = parseJsx(`
         import { Card } from "@kaizen/components"
-        import { Select } from "@kaizen/components/future"
+        import { Select } from "@kaizen/components/next"
       `)
       const outputAst = parseJsx(`
-        import { Select } from "@kaizen/components/future"
+        import { Select } from "@kaizen/components/next"
       `)
       expect(
         transformInput(inputAst)({
@@ -58,10 +58,10 @@ describe('updateKaioImports()', () => {
 
     it('does nothing if the import does not exist', () => {
       const inputAst = parseJsx(`
-        import { Select } from "@kaizen/components/future"
+        import { Select } from "@kaizen/components/next"
       `)
       const outputAst = parseJsx(`
-        import { Select } from "@kaizen/components/future"
+        import { Select } from "@kaizen/components/next"
       `)
       expect(
         transformInput(inputAst)({
@@ -78,12 +78,12 @@ describe('updateKaioImports()', () => {
       `)
       const outputAst = parseJsx(`
         import { Well } from "@kaizen/components"
-        import { Card } from "@kaizen/components/future"
+        import { Card } from "@kaizen/components/next"
       `)
       expect(
         transformInput(inputAst)({
           importsToAdd: new Map([
-            ['@kaizen/components/future', new Map([['Card', { componentName: 'Card' }]])],
+            ['@kaizen/components/next', new Map([['Card', { componentName: 'Card' }]])],
           ]),
         }),
       ).toEqual(printAst(outputAst))
@@ -95,13 +95,13 @@ describe('updateKaioImports()', () => {
       `)
       const outputAst = parseJsx(`
         import { Well } from "@kaizen/components"
-        import { Card as KzCard } from "@kaizen/components/future"
+        import { Card as KzCard } from "@kaizen/components/next"
       `)
       expect(
         transformInput(inputAst)({
           importsToAdd: new Map([
             [
-              '@kaizen/components/future',
+              '@kaizen/components/next',
               new Map([['Card', { componentName: 'Card', alias: 'KzCard' }]]),
             ],
           ]),
@@ -111,15 +111,15 @@ describe('updateKaioImports()', () => {
 
     it('does not add a new named import if it already exists', () => {
       const inputAst = parseJsx(`
-        import { Icon } from "@kaizen/components/future"
+        import { Icon } from "@kaizen/components/next"
       `)
       const outputAst = parseJsx(`
-        import { Icon } from "@kaizen/components/future"
+        import { Icon } from "@kaizen/components/next"
       `)
       expect(
         transformInput(inputAst)({
           importsToAdd: new Map([
-            ['@kaizen/components/future', new Map([['Icon', { componentName: 'Icon' }]])],
+            ['@kaizen/components/next', new Map([['Icon', { componentName: 'Icon' }]])],
           ]),
         }),
       ).toEqual(printAst(outputAst))
@@ -127,15 +127,15 @@ describe('updateKaioImports()', () => {
 
     it('updates existing import declaration with new imports', () => {
       const inputAst = parseJsx(`
-        import { Select } from "@kaizen/components/future"
+        import { Select } from "@kaizen/components/next"
       `)
       const outputAst = parseJsx(`
-        import { Select, Card } from "@kaizen/components/future"
+        import { Select, Card } from "@kaizen/components/next"
       `)
       expect(
         transformInput(inputAst)({
           importsToAdd: new Map([
-            ['@kaizen/components/future', new Map([['Card', { componentName: 'Card' }]])],
+            ['@kaizen/components/next', new Map([['Card', { componentName: 'Card' }]])],
           ]),
         }),
       ).toEqual(printAst(outputAst))
@@ -151,13 +151,13 @@ describe('updateKaioImports()', () => {
         const outputAst = parseJsx(`
           import React from "react"
           import { Well } from "@kaizen/components"
-          import { Card } from "@kaizen/components/future"
+          import { Card } from "@kaizen/components/next"
           import styles from "@kaizen/components/dist/styles.css"
         `)
         expect(
           transformInput(inputAst)({
             importsToAdd: new Map([
-              ['@kaizen/components/future', new Map([['Card', { componentName: 'Card' }]])],
+              ['@kaizen/components/next', new Map([['Card', { componentName: 'Card' }]])],
             ]),
           }),
         ).toEqual(printAst(outputAst))
@@ -172,13 +172,13 @@ describe('updateKaioImports()', () => {
         const outputAst = parseJsx(`
           import React from "react"
           import { Well } from "@kaizen/components/v1"
-          import { Card } from "@kaizen/components/future"
+          import { Card } from "@kaizen/components/next"
           import styles from "@kaizen/components/dist/styles.css"
         `)
         expect(
           transformInput(inputAst)({
             importsToAdd: new Map([
-              ['@kaizen/components/future', new Map([['Card', { componentName: 'Card' }]])],
+              ['@kaizen/components/next', new Map([['Card', { componentName: 'Card' }]])],
             ]),
           }),
         ).toEqual(printAst(outputAst))
@@ -189,13 +189,13 @@ describe('updateKaioImports()', () => {
           import React from "react"
         `)
         const outputAst = parseJsx(`
-          import { Card } from "@kaizen/components/future"
+          import { Card } from "@kaizen/components/next"
           import React from "react"
         `)
         expect(
           transformInput(inputAst)({
             importsToAdd: new Map([
-              ['@kaizen/components/future', new Map([['Card', { componentName: 'Card' }]])],
+              ['@kaizen/components/next', new Map([['Card', { componentName: 'Card' }]])],
             ]),
           }),
         ).toEqual(printAst(outputAst))

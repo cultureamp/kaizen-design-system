@@ -115,9 +115,9 @@ Migrates `*Icon` components to a new equivalent.
   - `aria-label` will be replaced with `accessibilityLabel` (with a fallback value of `"Loading"`)
   - `role` will be removed
   - `viewBox` will be removed
-- All other Icons become future `Icon`
-  - **Note:** See [Icon API Specification (Future)](https://cultureamp.design/?path=/docs/illustrations-icon-icon-future-api-specification--docs) for setup instructions
-  - Icons previously filled may become unfilled. This is intentional as filled icons should only be for active states or selection (see [Icon Usage Guidelines (Future)](https://cultureamp.design/?path=/docs/illustrations-icon-icon-future-usage-guidelines--docs#do-use-the-appropriate-fill-for-the-icon-context-and-state))
+- All other Icons become next `Icon`
+  - **Note:** See [Icon API Specification (next)](https://cultureamp.design/?path=/docs/illustrations-icon-icon-next-api-specification--docs) for setup instructions
+  - Icons previously filled may become unfilled. This is intentional as filled icons should only be for active states or selection (see [Icon Usage Guidelines (next)](https://cultureamp.design/?path=/docs/illustrations-icon-icon-next-usage-guidelines--docs#do-use-the-appropriate-fill-for-the-icon-context-and-state))
   - `role="presentational"` becomes `isPresentational`
   - `role="img"` will be removed (as `aria-label` should exist)
   - `aria-label` becomes `alt`

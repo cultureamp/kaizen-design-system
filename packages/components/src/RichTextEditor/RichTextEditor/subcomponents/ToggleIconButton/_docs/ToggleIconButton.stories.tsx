@@ -1,6 +1,6 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { ToggleIconButton } from '../ToggleIconButton'
 
 const meta = {

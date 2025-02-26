@@ -1,11 +1,11 @@
 import { Canvas, Controls, Meta, Unstyled } from '@storybook/blocks'
 import { InlineNotification } from '~components/Notification'
-import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import { ResourceLinks, KAIOInstallation, ReplacementNotice } from '~storybook/components'
 import * as TagStories from './Tag.stories'
 
 <Meta of={TagStories} />
 
-# Tag
+# Tag (deprecated)
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tag"
@@ -14,12 +14,7 @@ import * as TagStories from './Tag.stories'
 
 />
 
-<Unstyled>
-  <InlineNotification type="cautionary" persistent>
-    {`This version of the Tag will soon be deprecated and will be removed in the next major release.
-    Import Tag from "@kaizen/components/future" for the latest version and view our migration guide in the Future folder`}
-  </InlineNotification>
-</Unstyled>
+<ReplacementNotice />
 
 <KAIOInstallation exportNames="Tag" />
 

@@ -11,7 +11,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from '~components/Modal/GenericModal'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import styles from './ConfirmationModal.module.scss'
 
 type Mood = 'positive' | 'informative' | 'negative' | 'cautionary' | 'assertive'

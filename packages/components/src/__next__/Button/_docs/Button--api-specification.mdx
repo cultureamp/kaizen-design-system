@@ -1,0 +1,182 @@
+import { Canvas, Meta, Controls, ArgTypes, DocsStory } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation, LinkTo } from '~storybook/components'
+import * as exampleStories from './Button.docs.stories'
+import * as specStories from './Button.spec.stories'
+
+<Meta title="Components/Button/Button (next)/API Specification" />
+
+# Button API Specification (next)
+
+Updated Nov 19, 2024
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__next__/Button"
+  figma="https://www.figma.com/design/eZKEE5kXbEMY3lx84oz8iN/branch/sPhYSlgPScLOAOYfAbkaI5/%F0%9F%92%9C-Heart-UI-Kit?node-id=1929-17364&node-type=canvas&m=dev"
+  designGuidelines="/?path=/docs/components-button-button-next-usage-guidelines--docs"
+/>
+
+<KAIOInstallation exportNames={'Button'} isNext />
+
+## Overview
+
+`Button` allows users to perform an action. If the component needs to navigate somewhere and can be opened in a new tab, use a <LinkTo pageId="components-linkbutton-api-specification--docs">LinkButton</LinkTo> instead.
+
+The following example and table showcases the essential props that enable the core functionality of `Button`. For the remaining suite of API options refer to [this section](#additional-api-options).
+
+<Canvas of={exampleStories.Playground} />
+
+<Controls
+  of={exampleStories.Playground}
+  className="mb-64"
+  include={[
+    'children',
+    'hasHiddenLabel',
+    'className',
+    'size',
+    'variant',
+    'isReversed',
+    'onPress',
+    'icon',
+    'iconPosition',
+    'isFullWidth',
+    'isDisabled',
+    'isPending',
+    'pendingLabel',
+    'hasHiddenPendingLabel',
+  ]}
+/>
+
+## Buttons and links
+
+The `Button` component does not support the `href` property or have any inbuilt routing support. This component is intended as a semantic button and should only be used to perform actions on a page. We advise against passing in an `anchor` tag as a child of the `Button` as this can lead to accessibility issues.
+
+A separate <LinkTo pageId="components-linkbutton-api-specification--docs">LinkButton</LinkTo> component has been created to handle page navigation and client side routing.
+
+## API
+
+This is built on top of [React Aria's Button component](https://react-spectrum.adobe.com/react-aria/Button.html#props) and seeks to provide a flexible API with convenient abstractions that handles variants, sizes, pending states and icons.
+
+### Variants
+
+`Button` supports the following variants: `primary`, `secondary` and `tertiary`. If the `variant` prop is not specified, the default will be `primary`.
+
+<Canvas of={exampleStories.ButtonVariants} />
+
+Reversed variants are handled via the `ReversedColors` Provider.
+
+<DocsStory of={exampleStories.ButtonVariantsReversed} expanded={false} />
+
+To enable the reversed theme, you will need to wrap the component or application in the `ReversedColors` provider, ie:
+
+```tsx
+import { Button } from '@kaizen/components/next'
+import { ReversedColors } from '@kaizen/components'
+// application code
+
+return (
+  <ReversedColors isReversed={true}>
+    <Button {...buttonProps} />
+  </ReversedColors>
+)
+```
+
+### Sizes
+
+Button supports the following sizes: `small`, `medium` and `large`. If the `size` prop is not specified, the default will be `medium`.
+
+<Canvas of={exampleStories.ButtonSizes} />
+
+### `onPress` vs `onClick`
+
+One key change to the `Button`&apos;s API is the shift from `onClick` to React Aria's implementation of `onPress`. This approach has been adopted as it provides better support for consistent touch events across device types, such mobile, desktop and tablet. You can read more about the development and reason behind this pattern [here](https://react-spectrum.adobe.com/blog/building-a-button-part-1.html#touch-interactions).
+
+Functionally this does not change the way we pass actions into `Button`. Consumers can safely replace `onClick` with `onPress` without any additional changes, ie:
+
+```tsx
+<Button label="Submit" onClick={(e) => submit(e)} />
+```
+
+Can safely be replaced with the following:
+
+```tsx
+<Button onPress={(e) => submit(e)}>Submit</Button>
+```
+
+### Button content and children
+
+Labels and any button content can be passed into the `Button` as `children`. Content wrapped by the `Button` will be spaced evenly relative to the `size` prop.
+
+```tsx
+<Button variant="secondary" onPress={(e) => submit(e)}>
+  Label
+</Button>
+```
+
+While in most cases, `children` will be a `ReactNode`, `Button` also accepts a render function with React Aria's `ButtonRenderProps`. This allows for more advanced styling and rendering options by hooking into React Aria's internal button state. You can read more about this [here](https://react-spectrum.adobe.com/react-aria/Button.html#styling).
+
+### Icons and positioning
+
+The `icon` property abstracts the need to handle positioning and sizing logic for icons within the `Button`. When paired with the [Icon component](/docs/illustrations-icon-icon-next-api-specification--docs), this will scale the icon to the `Button`'s `size` prop.
+
+<Canvas of={exampleStories.ButtonWithIconStart} />
+
+Set the position of the icon using the `iconPosition` prop. This will ensure content is flipped in `RTL` layouts. Note that icons will need the [shouldMirrorInRTL](/docs/illustrations-icon-icon-next-api-specification--docs#mirror-in-rtl) prop set to `true` when mirroring is required.
+
+<Canvas of={exampleStories.ButtonWithIconEnd} />
+
+### Icon-only `Button` and `hasHiddenLabel`
+
+To achieve an icon-only `Button` (previously: `IconButton`) use the `icon` prop and set `hasHiddenLabel` to `true`. This will visually hide the button's `children` and `pendingLabel`, while still announcing the content to screen readers.
+
+<Canvas of={exampleStories.IconButton} className="mb-32" />
+
+This pattern ensures that the `Button`'s accessible name is determined by its children, which helps to announce relevant content to the screen readers, as with the [pending state](#pending-state). You can learn more about this [accessible pattern here](https://cultureamp.atlassian.net/wiki/spaces/PA/pages/3833331831/Accessible+button+and+link+labels).
+
+### Pending state
+
+`isPending` and `pendingLabel` are used to indicate that an interaction is in progress. This will disable the `Button`'s press events while rendering a loading spinner and `pendingLabel`.
+
+<Canvas of={specStories.PendingButton} />
+
+This can be paired with the `hasHiddenPendingLabel` prop to visually hide the `pendingLabel` and maintain the content width. This is ideal for avoid layout shifts when space is a commodity.
+
+The `pendingLabel` should be short and declarative as this will be announced to a screen reader regardless of its visibility.
+
+<Canvas of={specStories.PendingButtonWithHiddenPendingLabel} />
+
+As mentioned in the [previous section](#icon-only-button-and-hashiddenlabel), an icon-only `Button` uses `hasHiddenLabel` to visually hide both the `pendingLabel` and child content, so `hasHiddenPendingLabel` is not needed.
+
+<Canvas of={specStories.PendingIconButton} />
+
+### Full width Buttons
+
+If a button is statically the full width of a container you can use the `isFullWidth` property.
+
+<Canvas of={exampleStories.ButtonFullWidth} />
+
+For resizing on smaller screens, consider using the `className` prop to leverage CSS media or container queries, ie: `<Button className="w-full md:w-[initial]">Label</Button>`.
+
+## Additional API options
+
+The following table is a collection of additional React Aria and native HTML props that are exposed from the React Aria API. These are not required for the implementation of `Button` but can be used to extend its functionality. Refer back to the [overview section](#overview) for the core props that enable most use cases.
+
+You can learn more about React Aria's Button API and advance configuration options [here](https://react-spectrum.adobe.com/react-aria/Button.html#props).
+
+<ArgTypes
+  of={exampleStories.Playground}
+  exclude={[
+    'children',
+    'hasHiddenLabel',
+    'className',
+    'size',
+    'variant',
+    'onPress',
+    'icon',
+    'iconPosition',
+    'isFullWidth',
+    'isDisabled',
+    'isPending',
+    'pendingLabel',
+    'hasHiddenPendingLabel',
+  ]}
+/>

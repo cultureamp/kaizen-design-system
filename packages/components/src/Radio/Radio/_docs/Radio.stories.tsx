@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { Radio } from '../index'
 
 const meta = {
-  title: 'Components/Radio controls/Radio',
+  title: 'Components/Radios/Radio (Primitive)',
   component: Radio,
   args: {
     id: 'radio',
