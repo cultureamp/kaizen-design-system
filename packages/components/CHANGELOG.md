@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.73.0
+
+### Minor Changes
+
+- [#5502](https://github.com/cultureamp/kaizen-design-system/pull/5502) [`65fbb77`](https://github.com/cultureamp/kaizen-design-system/commit/65fbb777d23d5226232502898371bb16ae87639b) - Add Link component
+
+  - Adds Link component, stories, and documentation
+
 ## 1.72.0
 
 ### Minor Changes

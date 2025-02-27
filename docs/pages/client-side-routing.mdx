@@ -1,0 +1,102 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Guides/Client Side Routing" />
+
+# Client Side Routing
+
+Updated Jan 29, 2025
+
+## Client side routing
+
+To enable client side routing, you will need to wrap your application in a [RouterProvider](https://react-spectrum.adobe.com/react-aria/routing.html#routerprovider) from the `react-aria-components` library. This allows you to set the `navigation` method that performs the client side routing in the `LinkButton` and `Link` component. Refer to the framework specific guidance below for [Next.js](#nextjs-config-example) or [React Router](#react-router-config-example).
+
+### Next.js config example
+
+The following example demonstrates how you might use the React Aria's `RouterProvider` with `Next.js`'s Pages router. This will allow the `Link`/`LinkButton` to navigate using the `router.push` method.
+
+```tsx
+// ...imports
+import type { AppProps } from 'next/app'
+import { type NextRouter } from 'next/router'
+import { RouterProvider as RacRouterProvider } from 'react-aria-components'
+
+// This provides the correct types for `routerOptions` based on the routing solution. As the component agnostic to routing technology this must defined here
+declare module 'react-aria-components' {
+  interface RouterConfig {
+    // index 2 is the types for the pages routerOptions
+    routerOptions: NonNullable<Parameters<NextRouter['push']>[2]>
+  }
+}
+
+function App({ Component, pageProps, router }: AppProps) {
+  return (
+    <FrontendServices {...config}>
+      {/* application code */}
+      <RacRouterProvider navigate={(href, opts) => router.push(href, undefined, opts)}>
+        <Component {...pageProps} />
+      </RacRouterProvider>
+      {/* application code */}
+    </FrontendServices>
+  )
+}
+
+export default App
+```
+
+The implementation for `LinkButton` in your application would then look something like this:
+
+```tsx
+import { useRouter } from 'next/router'
+import { LinkButton } from '@kaizen/components/v3/actions'
+
+const Component = () => {
+  const router = useRouter()
+
+  return (
+    <>
+      <LinkButton href="http://google.com">External link</LinkButton>
+      <LinkButton href={`${router.pathname}/path-1`}>Internal link</LinkButton>
+      <LinkButton href={`${router.pathname}/path-2`} routerOptions={{ scroll: false }}>
+        Link with routerOptions
+      </LinkButton>
+    </>
+  )
+}
+```
+
+Additional config options for Next.js can be found in the React Aria's documentation on the [RouterProvider](https://react-spectrum.adobe.com/react-aria/routing.html#nextjs), including the alternative setup for the [App router](https://react-spectrum.adobe.com/react-aria/routing.html##app-router). A fast follow for this work is to contribute a RacRouterProvider to the next-services packages to reduce the custom code required by consumers.
+
+### React Router config example
+
+The following example demonstrates how to use the `RouterProvider` with `React Router`'s. This will allow the `LinkButton` to navigate using the `useNavigate` hook.
+
+```tsx
+import { RouterProvider } from 'react-aria-components'
+import { BrowserRouter, NavigateOptions, useHref, useNavigate } from 'react-router-dom'
+
+declare module 'react-aria-components' {
+  interface RouterConfig {
+    routerOptions: NavigateOptions
+  }
+}
+
+function ReactRouterApp() {
+  const navigate = useNavigate()
+
+  return (
+    <RouterProvider navigate={navigate} useHref={useHref}>
+      {/* ...application code */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        {/* ...routes */}
+      </Routes>
+    </RouterProvider>
+  )
+}
+
+export default App
+```
+
+If your application is on a version below 5.3.x, you will have to use the `useHistory` hook instead. See our example [here](https://cultureamp.atlassian.net/wiki/spaces/TV/pages/4235920479/RFC+Kaizen+Link+component#Routing-with-RAC-Link-🧭).
+
+Additional notes can be found in the React Aria's documentation on the using the `RouterProvider` with [React Router](https://react-spectrum.adobe.com/react-aria/routing.html#react-router).
