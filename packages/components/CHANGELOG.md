@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.73.1
+
+### Patch Changes
+
+- [#5408](https://github.com/cultureamp/kaizen-design-system/pull/5408) [`e3a05b1`](https://github.com/cultureamp/kaizen-design-system/commit/e3a05b1691a95e0967256ff4850191373fad6db1) - Add codemod to upgrade V1 `Button` and `IconButton`.
+
 ## 1.73.0
 
 ### Minor Changes
