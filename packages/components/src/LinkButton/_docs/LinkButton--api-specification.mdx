@@ -163,63 +163,7 @@ For resizing on smaller screens, consider using the `className` prop to leverage
 
 ## Client side routing
 
-To enable client side routing with the `LinkButton`, you will need to wrap your application in a [RouterProvider](https://react-spectrum.adobe.com/react-aria/routing.html#routerprovider) from the `react-aria-components` library. The allows you to set the `navigation` method that performs the client side routing in the `LinkButton` component. Refer to the framework specific guidance below for [Next.js](#nextjs-config-example) or [React Router](#react-router-config-example).
-
-### Next.js config example
-
-The following example demonstrates how you might use the React Aria's `RouterProvider` with `Next.js`'s Pages router. This will allow the `LinkButton` to navigate using the `router.push` method.
-
-```tsx
-// ...imports
-import type { AppProps } from 'next/app'
-import { type NextRouter } from 'next/router'
-import { RouterProvider as RacRouterProvider } from 'react-aria-components'
-
-// This provides the correct types for `routerOptions` based on the routing solution. As the component agnostic to routing technology this must defined here
-declare module 'react-aria-components' {
-  interface RouterConfig {
-    // index 2 is the types for the pages routerOptions
-    routerOptions: NonNullable<Parameters<NextRouter['push']>[2]>
-  }
-}
-
-function App({ Component, pageProps, router }: AppProps) {
-  return (
-    <FrontendServices {...config}>
-      {/* application code */}
-      <RacRouterProvider navigate={(href, opts) => router.push(href, undefined, opts)}>
-        <Component {...pageProps} />
-      </RacRouterProvider>
-      {/* application code */}
-    </FrontendServices>
-  )
-}
-
-export default App
-```
-
-The implementation in your application would then look something like this:
-
-```tsx
-import { useRouter } from 'next/router'
-import { LinkButton } from '@kaizen/components'
-
-const Component = () => {
-  const router = useRouter()
-
-  return (
-    <>
-      <LinkButton href="http://google.com">External link</LinkButton>
-      <LinkButton href={`${router.pathname}/path-1`}>Internal link</LinkButton>
-      <LinkButton href={`${router.pathname}/path-2`} routerOptions={{ scroll: false }}>
-        Link with routerOptions
-      </LinkButton>
-    </>
-  )
-}
-```
-
-Additional config options for Next.js can be found in the React Aria's documentation on the [RouterProvider](https://react-spectrum.adobe.com/react-aria/routing.html#nextjs), including the alternative setup for the [App router](https://react-spectrum.adobe.com/react-aria/routing.html##app-router).
+Please refer to the [client side routing](/docs/guides-client-side-routing--docs) for more information on how to set up client side routing with the `LinkButton`.
 
 ### React Router config example
 
