@@ -105,9 +105,9 @@ Removes `Popover` component props `variant` and `customIcon`.
 
 ### `upgradeV1Buttons`
 
-Released in `TBC`
+Released in `1.73.1`
 
-Migrates `Button` and `IconButton` component to `Button` V3 or `LinkButton`.
+Migrates V1 `Button` and `IconButton` component to next `Button` or `LinkButton`.
 
 #### Props
 
@@ -137,15 +137,16 @@ Migrates `Button` and `IconButton` component to `Button` V3 or `LinkButton`.
 
 #### Component transformation
 
-- `Button`/`IconButton` without the `href` or `component` prop will become `Button` V3
+- `Button`/`IconButton` without the `href` or `component` prop will become `next/Button`
 - `Button`/`IconButton` with the `href` prop will become `LinkButton`
 - `Button`/`IconButton` with the `component` prop will become `LinkButton`
+  - `component` prop will remain to throw an intentional type error to ensure manual intervention (see migration guide)
 
 #### Imports
 
 All imports of V1 Buttons will now point to either:
 
-- `@kaizen/components/v3/actions` for `Button`
+- `@kaizen/components/next` for `Button`
 - `@kaizen/components` for `LinkButton`
 
 ### `upgradeIconV1`
