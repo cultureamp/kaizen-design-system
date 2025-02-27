@@ -103,6 +103,52 @@ Released in `1.60.0`
 
 Removes `Popover` component props `variant` and `customIcon`.
 
+### `upgradeV1Buttons`
+
+Released in `1.73.1`
+
+Migrates V1 `Button` and `IconButton` component to next `Button` or `LinkButton`.
+
+#### Props
+
+- `label` becomes `children`
+  - eg. `<IconButton label="Hello" />` becomes `<Button>Hello</Button>`
+- `onClick` becomes `onPress`
+- Variants:
+  - Default (undefined):
+    - For `Button` becomes `variant="secondary"`
+    - For `IconButton` becomes `variant="tertiary"`
+  - `primary` becomes `variant="primary"`
+  - `secondary` becomes `variant="tertiary"`
+  - `destructive` will be removed (no longer available as a variant)
+- Sizes:
+  - Default (undefined) becomes `large`
+  - `small` becomes `medium`
+  - `regular` becomes `large`
+- `reversed` becomes `isReversed`
+- `classNameOverride` becomes `className`
+- `data-automation-id` becomes `data-testid`
+- `disabled` becomes `isDisabled`
+- `newTabAndIUnderstandTheAccessibilityImplications` becomes `target="_blank"`
+  - `rel="noopener noreferrer"` is also added
+- `component` will not be removed by the codemod, but will throw a TypeScript error as the prop itself no longer exists
+- For `IconButton` only:
+  - `hasHiddenLabel` will be added
+
+#### Component transformation
+
+- `Button`/`IconButton` without the `href` or `component` prop will become `next/Button`
+- `Button`/`IconButton` with the `href` prop will become `LinkButton`
+- `Button`/`IconButton` with the `component` prop will become `LinkButton`
+  - `component` prop will remain to throw an intentional type error to ensure manual intervention (see migration guide)
+
+#### Imports
+
+All imports of V1 Buttons will now point to either:
+
+- `@kaizen/components/next` for `Button`
+- `@kaizen/components` for `LinkButton`
+
 ### `upgradeIconV1`
 
 Released in `1.67.0`; last updated in `1.68.1`
