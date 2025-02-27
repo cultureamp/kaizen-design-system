@@ -14,7 +14,7 @@ import {
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: 'Components/Select/Select (future)',
+  title: 'Components/Select/Select (next)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
