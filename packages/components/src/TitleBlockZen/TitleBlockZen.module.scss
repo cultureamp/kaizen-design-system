@@ -56,14 +56,14 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 %titleBlockInner {
   max-width: $layout-content-max-width;
-  margin: 0 $layout-content-side-margin;
+  padding: 0 $layout-content-side-margin;
   display: flex;
   flex-direction: column;
   width: 100%;
   min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
   @include title-block-medium-and-small {
-    margin: 0 $title-block-margin-width-on-medium-and-small;
+    padding: 0 $title-block-margin-width-on-medium-and-small;
   }
 }
 
