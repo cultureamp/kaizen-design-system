@@ -67,7 +67,7 @@ export const upgradeIconV1 =
           }
 
           setImportToRemove(importsToRemove, oldImportSource, kaioComponentName)
-          setImportToAdd(importsToAdd, '@kaizen/components/future', {
+          setImportToAdd(importsToAdd, '@kaizen/components/next', {
             componentName: 'Icon',
           })
 

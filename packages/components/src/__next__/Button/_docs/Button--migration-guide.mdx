@@ -1,0 +1,81 @@
+import { Canvas, Meta, Controls, Story } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+
+<Meta title="Components/Button/Migration Guide" />
+
+# Button Migration Guide (next)
+
+This is a short guide to assist in migration from the old to new `Button` and `LinkButton` component.
+
+## Key API differences
+
+Below is a list of notable changes when migrating to the new `Button` and `LinkButton` component:
+
+- `label` is now handled as `Children` .
+- Variants, such as `primary` and `secondary`, are now controlled as by the single `variant` prop and some values will be remapped in the codemod.
+  - `primary` `boolean` becomes `variant="primary"`.
+  - `secondary` `boolean` becomes `variant="tertiary"`.
+  - `destructive` `boolean` is removed and will default to the `primary` variant.
+- `size` props have been adjusted to include `small`, `medium` and `large` and some values will be remapped in the codemod.
+  - `small` becomes `medium`
+  - `regular` becomes `large`
+- `onClick` and other event handlers now reflect the RAC event ecosystems, ie: `onPress`.
+  - You can see more about the RAC event ecosystem [here](https://react-spectrum.adobe.com/react-aria/Button.html#events).
+- `Button` and `LinkButton` now exist as separate components.
+  - The intent is to more closely align to the semantic roles of an anchor or button and should be used accordingly.
+- `LinkButton` handles native navigation via `href` out of the box but additional config can be used to allow for client side routing - [see here](/docs/components-linkbutton-api-specification--docs#client-side-routing).
+  - `onPress` can still be used in place of `onClick` for pushing to routers and tracking events.
+- `IconButton` has been superseded by icon props and the [icon-only pattern](/docs/components-button-button-next-api-specification--docs#icon-only-button-and-hashiddenlabel).
+- `working`, `workingLabel` and `workingLabelHidden` has been updated to `isPending`, `pendingLabel` and `hasHiddenPendingLabel` to better reflect the state of the button.
+  - This is not available in the `LinkButton` component
+- `badge` prop has been removed and should be handled within the `Children` where required.
+- Reversed styles should be handled by the `ReversedColors` Provider but for ease of migration, the `isReversed` prop `boolean` exists.
+
+## Codemod
+
+To assist in migration we have created the `upgradeV1Buttons` codemod.
+
+This will loop through the given directory and update all instances of Button to the latest implementation. You can refer to this [README](https://github.com/cultureamp/kaizen-design-system/blob/main/packages/components/codemods/README.md#kaizen-codemods) on how to run kaizen codemods using the CLI within your repository, ie:
+
+```bash
+pnpm kaizen-codemod src upgradeV1Buttons
+```
+
+Note that there are cases where an props that no longer exist will be left in the codebase to throw type error and provide feedback to the engineer. This is intentional and identifies area's where manual updates are required.
+
+### Pre-requisites
+
+It is also recommended that the `upgradeIconV1` codemod is run before `upgradeV1Buttons` to ensure that all icons are updated to the new `Icon` component that uses the Material icons CDN. There is likely to be a number of visual diffs in this migration so it is recommended to do this separately if viable. Seem more about this [here](/docs/components-icon-icon-future-api-specification--docs#set-up).
+
+### Codemod gotchas
+
+If you're facing any issues not captured below, reach out to the [#help_design_system](https://cultureamp.slack.com/archives/C0189KBPM4Y) channel on Slack.
+
+#### `icon` props and sizing
+
+While the `icon` prop supports any `JSX` element, only the latest [Icon component](/docs/components-icon-icon-future-api-specification--docs) will be able to handle relative sizing and spacing automatically within the Button. We recommend running the `upgradeIconV1` codemod before this to convert all icons to the latest implementation. See the guidance here on using the [Material Icons CDN](/docs/guides-app-starter--docs#5-link-to-google-material-symbols-cdn).
+
+#### `component` props type errors
+
+Based off Metabase queries, `component` render props is used in consuming repositories to wrap Button content with a routing solution, such as NextJS's `Link` component. To ensure a safe migration, the codemod will update any usages to a `LinkButton` with the `component` prop still passed in. This will cause an intentional type error to provide feedback and make it easier to find in the codebase for a manual update. This should be able to be converted to use client side routing by following the [LinkButton API docs](https://cultureamp.design/?path=/docs/components-linkbutton-api-specification--docs).
+
+#### `badge` props type errors
+
+The codemod will continue to passed `badge` props into the new implementation so it will throw a type error and provide feedback to engineers. This will need to be manually composed within the `Children` if required, ie:
+
+```
+import { Badge } from "@kaizen/components"
+import { Button } from "@kaizen/components/next"
+
+<Button>Label<Badge classNameOverride="ms-8" variant="success">New</Badge></Button>
+```
+
+#### Link related props type errors
+
+If no `href` or `component` props are passed to the component you may get type errors for having anchor related props passed into a Button, ie: `target`, `rel`.
+
+This will cause a type error that can be corrected by either using the `LinkButton` (if intended) or removing all anchor related props as they should exist on semantic buttons.
+
+## More information
+
+For more information on the about each of the new API's, we recommend referring the [Button](/docs/components-button-button-next-api-specification--docs) or [LinkButton](/docs/components-linkbutton-api-specification--docs) API specifications.

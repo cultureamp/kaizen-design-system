@@ -5,7 +5,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { FieldGroup } from '../index'
 
 export default {
-  title: 'Components/FieldGroup',
+  title: 'Components/Form primitives/FieldGroup',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

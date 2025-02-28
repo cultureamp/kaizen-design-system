@@ -1,13 +1,13 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
 import { Button } from '~components/Button'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Menu } from '../index'
 import { MenuContentExample } from './MenuContentExample'
 
 export default {
-  title: 'Components/Menu/Menu (v1)',
+  title: 'Components/Menu/Menu (deprecated)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

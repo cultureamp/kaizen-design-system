@@ -4,7 +4,7 @@ import { expect, waitFor, within } from '@storybook/test'
 import { GenericTile } from './GenericTile'
 
 const meta: Meta<typeof GenericTile> = {
-  title: 'Components/Tiles/GenericTile/Tests',
+  title: 'Components/Tiles/GenericTile (primitive)/Tests',
   component: GenericTile,
   args: {
     title: 'Title',

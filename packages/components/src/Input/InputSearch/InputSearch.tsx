@@ -3,7 +3,7 @@ import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import { ClearButton } from '~components/ClearButton'
 import { LoadingSpinner } from '~components/Loading'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './InputSearch.module.scss'
 

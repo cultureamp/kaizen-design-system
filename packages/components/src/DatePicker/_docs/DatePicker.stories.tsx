@@ -13,7 +13,7 @@ import { datePickerLocaleControls } from './controls/datePickerLocaleControls'
 import { disabledDayMatchersControls } from './controls/disabledDayMatchersControls'
 
 const meta = {
-  title: 'Components/Date controls/DatePicker',
+  title: 'Components/Datepickers/DatePicker',
   component: DatePicker,
   argTypes: {
     ...datePickerLocaleControls,

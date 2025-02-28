@@ -1,14 +1,14 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Button } from '~components/Button'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { Menu } from '../index'
 import { MenuHeading } from '../subcomponents/MenuHeading'
 import { MenuItem } from '../subcomponents/MenuItem'
 import { MenuList } from '../subcomponents/MenuList'
 
 const meta = {
-  title: 'Components/Menu/Menu (v1)',
+  title: 'Components/Menu/Menu (deprecated)',
   component: Menu,
   args: {
     button: (

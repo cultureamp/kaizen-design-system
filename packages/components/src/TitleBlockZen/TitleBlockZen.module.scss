@@ -114,7 +114,6 @@ $tab-container-height-medium-and-small-collapsed: 0;
   display: flex;
   align-items: center;
   min-width: 0; // this is an important trick to prevent flexbox items from overflowing
-  z-index: $ca-z-index-dropdown; // this ensures the page switcher dropdown sits over nav tabs
   transform: translateY(-0.0833em);
 
   .hasSubtitle & {
@@ -434,7 +433,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
     width: $tab-container-height-small;
     height: $tab-container-height-small;
     background: linear-gradient(0deg, $color-purple-600, rgba($color-purple-600-rgb, 0));
-    z-index: $ca-z-index-sticky;
+    z-index: 1;
   }
 
   .adminVariant & {
@@ -503,7 +502,6 @@ $tab-container-height-medium-and-small-collapsed: 0;
   cursor: pointer;
   display: flex;
   position: absolute;
-  z-index: $ca-z-index-sticky;
   align-items: center;
   top: 50%;
   transform: translateY(-50%);
@@ -573,9 +571,6 @@ $tab-container-height-medium-and-small-collapsed: 0;
   // We are using visually hidden here instead of display:none so that a screen reader
   // navigating via 'read mode' (which doesn't trigger hover/focus) will still hear this link name
   @include visually-hidden;
-
-  z-index: $ca-z-index-sticky - 1;
-
   @include ca-position($start: -2 * $ca-grid);
 
   position: absolute;

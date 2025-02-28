@@ -4,7 +4,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { CheckboxField, type CheckboxFieldProps } from '../index'
 
 export default {
-  title: 'Components/Checkbox controls/CheckboxField',
+  title: 'Components/Checkboxes/CheckboxField',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

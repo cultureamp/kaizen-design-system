@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Heading } from '~components/Heading'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { Collapsible } from '../index'
 
 const meta = {

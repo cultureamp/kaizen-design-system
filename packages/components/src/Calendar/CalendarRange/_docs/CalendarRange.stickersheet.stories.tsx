@@ -5,7 +5,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { CalendarRange, type CalendarRangeProps } from '../../index'
 
 export default {
-  title: 'Components/Date controls/Calendars/CalendarRange',
+  title: 'Components/Datepickers/Calendars (primitives)/CalendarRange (primitive)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

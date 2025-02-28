@@ -1,6 +1,6 @@
 import React from 'react'
 import { type NotificationType, type NotificationVariant } from '~components/Notification/types'
-import { Icon } from '~components/__rc__'
+import { Icon } from '~components/__next__'
 import styles from './NotificationIcon.module.css'
 
 const NotificationIcon = ({ name }: { name: string }): JSX.Element => (
