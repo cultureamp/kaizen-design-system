@@ -4,7 +4,7 @@ import { CheckboxField, type CheckboxFieldProps } from '~components/Checkbox/Che
 import { CheckboxGroup } from '../index'
 
 const meta = {
-  title: 'Components/Checkbox controls/CheckboxGroup',
+  title: 'Components/Checkboxes/CheckboxGroup',
   component: CheckboxGroup,
   args: {
     labelText: 'Label',

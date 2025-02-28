@@ -9,7 +9,7 @@ import {
   type AnimatedSceneProps,
 } from '~components/Illustration'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { BrandMoment } from '../index'
 import { FakeNavBar, MinimalBasic, MinimalCustomerFocused } from './ExampleHeaders'
 
@@ -20,7 +20,7 @@ const illustrationProps = (
 ) satisfies AnimatedSceneProps
 
 const meta = {
-  title: 'Components/BrandMoment',
+  title: 'Pages/BrandMoment',
   component: BrandMoment,
   argTypes: {
     mood: { control: false },

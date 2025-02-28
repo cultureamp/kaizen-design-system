@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { Checkbox, type CheckedStatus } from '~components/Checkbox'
 import { Heading } from '~components/Heading'
 import { Tooltip } from '~components/Tooltip'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Table.module.scss'
 

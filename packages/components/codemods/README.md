@@ -103,6 +103,52 @@ Released in `1.60.0`
 
 Removes `Popover` component props `variant` and `customIcon`.
 
+### `upgradeV1Buttons`
+
+Released in `1.73.1`
+
+Migrates V1 `Button` and `IconButton` component to next `Button` or `LinkButton`.
+
+#### Props
+
+- `label` becomes `children`
+  - eg. `<IconButton label="Hello" />` becomes `<Button>Hello</Button>`
+- `onClick` becomes `onPress`
+- Variants:
+  - Default (undefined):
+    - For `Button` becomes `variant="secondary"`
+    - For `IconButton` becomes `variant="tertiary"`
+  - `primary` becomes `variant="primary"`
+  - `secondary` becomes `variant="tertiary"`
+  - `destructive` will be removed (no longer available as a variant)
+- Sizes:
+  - Default (undefined) becomes `large`
+  - `small` becomes `medium`
+  - `regular` becomes `large`
+- `reversed` becomes `isReversed`
+- `classNameOverride` becomes `className`
+- `data-automation-id` becomes `data-testid`
+- `disabled` becomes `isDisabled`
+- `newTabAndIUnderstandTheAccessibilityImplications` becomes `target="_blank"`
+  - `rel="noopener noreferrer"` is also added
+- `component` will not be removed by the codemod, but will throw a TypeScript error as the prop itself no longer exists
+- For `IconButton` only:
+  - `hasHiddenLabel` will be added
+
+#### Component transformation
+
+- `Button`/`IconButton` without the `href` or `component` prop will become `next/Button`
+- `Button`/`IconButton` with the `href` prop will become `LinkButton`
+- `Button`/`IconButton` with the `component` prop will become `LinkButton`
+  - `component` prop will remain to throw an intentional type error to ensure manual intervention (see migration guide)
+
+#### Imports
+
+All imports of V1 Buttons will now point to either:
+
+- `@kaizen/components/next` for `Button`
+- `@kaizen/components` for `LinkButton`
+
 ### `upgradeIconV1`
 
 Released in `1.67.0`; last updated in `1.68.1`
@@ -115,9 +161,9 @@ Migrates `*Icon` components to a new equivalent.
   - `aria-label` will be replaced with `accessibilityLabel` (with a fallback value of `"Loading"`)
   - `role` will be removed
   - `viewBox` will be removed
-- All other Icons become future `Icon`
-  - **Note:** See [Icon API Specification (Future)](https://cultureamp.design/?path=/docs/illustrations-icon-icon-future-api-specification--docs) for setup instructions
-  - Icons previously filled may become unfilled. This is intentional as filled icons should only be for active states or selection (see [Icon Usage Guidelines (Future)](https://cultureamp.design/?path=/docs/illustrations-icon-icon-future-usage-guidelines--docs#do-use-the-appropriate-fill-for-the-icon-context-and-state))
+- All other Icons become next `Icon`
+  - **Note:** See [Icon API Specification (next)](https://cultureamp.design/?path=/docs/illustrations-icon-icon-next-api-specification--docs) for setup instructions
+  - Icons previously filled may become unfilled. This is intentional as filled icons should only be for active states or selection (see [Icon Usage Guidelines (next)](https://cultureamp.design/?path=/docs/illustrations-icon-icon-next-usage-guidelines--docs#do-use-the-appropriate-fill-for-the-icon-context-and-state))
   - `role="presentational"` becomes `isPresentational`
   - `role="img"` will be removed (as `aria-label` should exist)
   - `aria-label` becomes `alt`

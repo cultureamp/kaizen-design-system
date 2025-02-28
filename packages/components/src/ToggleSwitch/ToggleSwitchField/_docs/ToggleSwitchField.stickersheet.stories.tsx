@@ -4,7 +4,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { ToggleSwitchField } from '../ToggleSwitchField'
 
 export default {
-  title: 'Components/Toggle Switch controls/ToggleSwitchField',
+  title: 'Components/ToggleSwitchField',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

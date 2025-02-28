@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import styles from '../Popover.module.scss'
 import { type PopoverSize, type PopoverVariant } from '../types'
 

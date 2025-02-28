@@ -4,30 +4,18 @@ import { Installation } from './Installation'
 export type KAIOInstallationProps = {
   importStatement?: string
   exportNames: string | string[]
-  isFuture?: boolean
-  version?: string
-  family?: string
+  isNext?: boolean
 }
 
-export const KAIOInstallation = ({
-  exportNames,
-  isFuture,
-  version,
-  family,
-}: KAIOInstallationProps): JSX.Element => {
+export const KAIOInstallation = ({ exportNames, isNext }: KAIOInstallationProps): JSX.Element => {
   const csvComponentNames = typeof exportNames === 'string' ? exportNames : exportNames.join(', ')
 
-  const importStatement = isFuture
-    ? `import { ${csvComponentNames} } from "@kaizen/components/future"`
+  const importStatement = isNext
+    ? `import { ${csvComponentNames} } from "@kaizen/components/next"`
     : `import { ${csvComponentNames} } from "@kaizen/components"`
 
-  const versionStatement = `import { ${csvComponentNames} } from "@kaizen/components/v${version}/${family}"`
-
   return (
-    <Installation
-      installCommand="pnpm add @kaizen/components"
-      importStatement={version ? versionStatement : importStatement}
-    />
+    <Installation installCommand="pnpm add @kaizen/components" importStatement={importStatement} />
   )
 }
 

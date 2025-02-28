@@ -5,7 +5,7 @@ import { Button, IconButton } from '~components/Button'
 import type { GenericButtonProps } from '~components/Button/GenericButton'
 import { Heading, type AllowedHeadingTags } from '~components/Heading'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './GenericTile.module.scss'
 

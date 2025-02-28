@@ -1,7 +1,7 @@
 import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './FieldMessage.module.scss'
 

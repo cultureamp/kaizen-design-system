@@ -1,0 +1,133 @@
+import { Canvas, Meta, Controls, ArgTypes, DocsStory } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation, LinkTo } from '~storybook/components'
+import * as exampleStories from './Link.doc.stories'
+
+<Meta title="Components/Link/API Specification" />
+
+# Link API Specification
+
+Update Jan 29, 2025
+
+<ResourceLinks
+  sourceCode="blah blah update when available on main"
+  figma="https://www.figma.com/design/FWIOtGjpv9z0by95j1SgP0/Link?node-id=273-4107"
+  designGuidelines="/?path=/docs/components-link-usage-guidelines--docs"
+/>
+
+<KAIOInstallation exportNames={'Link'} />
+
+## Overview
+
+`Link` allows users to navigate to another page or resource. It is a wrapper around the native `a` element, with additional functionality and styling.
+
+The following example and table showcases the essential props that enable the core functionality of `Link`. For the remaining suite of API options refer to [this section](#additional-api-options).
+
+<Canvas of={exampleStories.Playground} />
+
+<Controls
+  of={exampleStories.Playground}
+  include={[
+    'className',
+    'children',
+    'href',
+    'variant',
+    'size',
+    'icon',
+    'iconPosition',
+    'underlined',
+    'isInline',
+    'isUnderlined',
+    'isReversed',
+    'isDisabled',
+  ]}
+/>
+
+## API
+
+This is built on top of [React Aria's Link component](https://react-spectrum.adobe.com/react-aria/Link.html)
+
+## Navigation and native anchor attributes
+
+Out of the box, `Link` supports the majority of native `anchor` attributes and shares the same basic behaviour, i.e. `href` will trigger new page loads.
+
+While client side routing is possible, the `Link` is agnostic to the routing technology chosen. Refer to our general set up guide to get started with [client side routing](#client-side-routing).
+
+#### Opening new tabs and accessibility considerations
+
+The general recommendation is to limit the number of links that open a new tab or window on a single page. While there are valid scenarios that can help avoid loss of data and or progress, as with links in forms, opening new tabs can be disorienting for users - especially for those who have difficulty perceiving visual content.
+
+In order to provide advance warning to all users, it is recommended that links using `target="_blank"` be accompanied by a visual indicator and audible warning. As shown in the following example, additional context can be provided via a visually hidden element within the `children` of the component.
+
+You may also consider using the `rel="noopener noreferrer"` attribute to prevent the new tab from accessing the `window.opener` object, which can be a security risk. Read more about this consideration on the [Lighthouse docs](https://developer.chrome.com/docs/lighthouse/best-practices/external-anchors-use-rel-noopener).
+
+<Canvas of={exampleStories.LinkOpensInNewTab} />
+
+For more context on this recommendation, we recommend taking a look at the [W3C page on the G200 success criteria](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
+
+### Variants
+
+`Link` supports `primary`, `secondary` and `white` variants. If the `variant` prop is not specified, the default variant is `primary`.
+
+<Canvas of={exampleStories.LinkVariants} />
+
+<DocsStory of={exampleStories.LinkVariantWhite} expanded={false} />
+
+### Sizes
+
+Link supports the following sizes: `extra-small`, `small`, `body` and `intro-lede`. If the `size` prop is not specified, the default size is `body`.
+
+<Canvas of={exampleStories.LinkSizes} />
+
+### Links within Text
+
+The `isInline` prop can be toggled to have the `Link` inherit the sizing from the parent text element. This is useful when the `Link` is nested within a paragraph or other text element.
+
+### Link content and children
+
+Labels and any `Link` content can be passed to the component via `children`. Where possible, ensure `Link` does not break over multiple lines. [See the section](/docs/components-link-usage-guidelines--docs) for standalone links for guidance. For icons as content, refer to the [next section](#icons-and-positioning).
+
+```tsx
+<Link href="#link">Label</Link>
+```
+
+While in most cases, `children` will be a `ReactNode`, `Link` also accepts a render function with React Aria's `LinkRenderProps`. This allows for more advanced styling and rendering options by hooking into React Aria's internal Link state. You can read more about this [here](https://react-spectrum.adobe.com/react-aria/Link.html#styling).
+
+### Icons and positioning
+
+[This is the intended icon](docs/components-icon-icon-future-api-specification--docs) component to be used with `Link`. The `icon` property abstracts the need to handle positioning and sizing of icons within the `Link` component. The `iconPosition` prop allows for the icon to be positioned to the left or right of the `children`.
+
+### Icons and Underlines
+
+The underline on the `Link` can be toggled using the `isUnderlined` prop and is `true` by default. If the `Link` is not underlined, the `icon` prop must be passed. The `icon` prop is optional if the link is underlined.
+
+<Canvas of={exampleStories.LinkWithIconStart} />
+
+Setting the `iconPosition` props will ensure content is flipped in `RTL` layouts. Note that icons will need the [shouldMirrorInRTL](/docs/illustrations-icon-icon-future-api-specification--docs#mirror-in-rtl) prop set to `true` when mirroring is required.
+
+<Canvas of={exampleStories.LinkWithIconEnd} />
+
+## Client side routing
+
+Please refer to the [client side routing](/docs/guides-client-side-routing--docs) for more information on how to set up client side routing with the `Link` component.
+
+## Additional API options
+
+The following table is a collection of additional React Aria and native HTML props that are exposed from the [React Aria Link API](https://react-spectrum.adobe.com/react-aria/Link.html). These are not required for the implementation of `LinkButton` but can be used to extend its functionality. Refer back to the [overview section](#overview) for the core props that enable most use cases.
+
+<ArgTypes
+  of={exampleStories.Playground}
+  exclude={[
+    'className',
+    'children',
+    'href',
+    'variant',
+    'size',
+    'icon',
+    'iconPosition',
+    'underlined',
+    'isInline',
+    'isUnderlined',
+    'isReversed',
+    'isDisabled',
+  ]}
+/>

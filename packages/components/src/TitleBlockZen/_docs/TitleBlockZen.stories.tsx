@@ -1,6 +1,6 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { assetUrl } from '~components/utils/hostedAssets'
 import { StickerSheet } from '~storybook/components/StickerSheet'
 import { NavigationTab, TitleBlockZen } from '../index'

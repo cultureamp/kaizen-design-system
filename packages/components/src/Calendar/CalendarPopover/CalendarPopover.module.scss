@@ -17,3 +17,11 @@
     padding: $spacing-24;
   }
 }
+
+// Overrides for if the browser supports popovers. The inset unset is to fix a bug with RTL positioning https://github.com/floating-ui/floating-ui/issues/3221
+// Margin 0 because default styling for [popover] is margin: auto to center it.
+.calendarPopover[popover]:popover-open {
+  z-index: unset;
+  margin: 0;
+  inset: unset;
+}

@@ -2,14 +2,14 @@ import React from 'react'
 import { type Meta } from '@storybook/react'
 import isChromatic from 'chromatic/isChromatic'
 import { IconButton } from '~components/Button'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Tooltip } from '../index'
 
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: 'Components/Tooltip/Tooltip (v1)',
+  title: 'Components/Tooltip/Tooltip (deprecated)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

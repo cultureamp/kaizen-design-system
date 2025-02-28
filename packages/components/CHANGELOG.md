@@ -1,5 +1,39 @@
 # Change Log
 
+## 1.73.1
+
+### Patch Changes
+
+- [#5408](https://github.com/cultureamp/kaizen-design-system/pull/5408) [`e3a05b1`](https://github.com/cultureamp/kaizen-design-system/commit/e3a05b1691a95e0967256ff4850191373fad6db1) - Add codemod to upgrade V1 `Button` and `IconButton`.
+
+## 1.73.0
+
+### Minor Changes
+
+- [#5502](https://github.com/cultureamp/kaizen-design-system/pull/5502) [`65fbb77`](https://github.com/cultureamp/kaizen-design-system/commit/65fbb777d23d5226232502898371bb16ae87639b) - Add Link component
+
+  - Adds Link component, stories, and documentation
+
+## 1.72.0
+
+### Minor Changes
+
+- [#5541](https://github.com/cultureamp/kaizen-design-system/pull/5541) [`b1fc3db`](https://github.com/cultureamp/kaizen-design-system/commit/b1fc3db2a99f8c026632aeccffe9c1a8a410501b) - Create `next` entrypoint, holding all `future` and `v3` components.
+
+  Update docs to recommend importing from `next` instead of `future` or `v3`.
+
+  Old 'future' and versioned (v1, v2, v3) entrypoints will remain supported until 2.0 release in September)
+
+## 1.71.0
+
+### Minor Changes
+
+- [#5510](https://github.com/cultureamp/kaizen-design-system/pull/5510) [`633832d`](https://github.com/cultureamp/kaizen-design-system/commit/633832d2a2d238819c4d67948d4e8558421e17aa) - use native popovers in the CalendarPopover
+
+### Patch Changes
+
+- [#5537](https://github.com/cultureamp/kaizen-design-system/pull/5537) [`1a959ea`](https://github.com/cultureamp/kaizen-design-system/commit/1a959ea4e6f503ad43db96b14842e7907e3e2c70) - Remove stacking context from TBZ to avoid sitting over popovers
+
 ## 1.70.24
 
 ### Patch Changes

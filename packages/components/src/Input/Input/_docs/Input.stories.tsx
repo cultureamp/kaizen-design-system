@@ -1,10 +1,10 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { Input } from '../index'
 
 const meta = {
-  title: 'Components/Inputs/Input',
+  title: 'Components/TextField/Input (primitive)',
   component: Input,
   parameters: {
     a11y: {

@@ -6,7 +6,7 @@ import styles from '../../baseCalendarClassNames.module.scss'
 import { CalendarSingle, type CalendarSingleProps } from '../index'
 
 export default {
-  title: 'Components/Date controls/Calendars/CalendarSingle',
+  title: 'Components/Datepickers/Calendars (primitives)/CalendarSingle (primitive)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -126,7 +126,7 @@ describe('upgradeIconV1()', () => {
       export const TestComponent = () => <FlagOnIcon />
     `)
     const outputAst = parseJsx(`
-      import { Icon } from "@kaizen/components/future"
+      import { Icon } from "@kaizen/components/next"
       export const TestComponent = () => <Icon name="flag" isFilled />
     `)
     expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
@@ -138,7 +138,7 @@ describe('upgradeIconV1()', () => {
       export const TestComponent = () => <IconAlias />
     `)
     const outputAst = parseJsx(`
-      import { Icon } from "@kaizen/components/future"
+      import { Icon } from "@kaizen/components/next"
       export const TestComponent = () => <Icon name="menu" />
     `)
     expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
@@ -152,7 +152,7 @@ describe('upgradeIconV1()', () => {
       `)
       const outputAst = parseJsx(`
         import { Card } from "@kaizen/components"
-        import { Icon } from "@kaizen/components/future"
+        import { Icon } from "@kaizen/components/next"
         export const TestComponent = () => <Card><Icon name="add" /></Card>
       `)
       expect(transformIcons(inputAst)).toEqual(printAst(outputAst))
@@ -171,7 +171,7 @@ describe('upgradeIconV1()', () => {
         )
       `)
       const outputAst = parseJsx(`
-        import { Icon } from "@kaizen/components/future"
+        import { Icon } from "@kaizen/components/next"
         import { HamburgerIcon as HamHam } from "somewhere-else"
         export const TestComponent = () => (
           <>
