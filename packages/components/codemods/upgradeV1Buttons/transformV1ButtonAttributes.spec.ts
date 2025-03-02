@@ -60,6 +60,14 @@ describe('transformV1ButtonAttributes()', () => {
     expect(transformInput(inputAst)).toEqual(printAst(outputAst))
   })
 
+  it('will remove usage of `disableTabFocusAndIUnderstandTheAccessibilityImplications`', () => {
+    const inputAst = parseJsx(
+      '<Button label="Pancakes" disableTabFocusAndIUnderstandTheAccessibilityImplications  />',
+    )
+    const outputAst = parseJsx('<Button variant="secondary" size="large">Pancakes</Button>')
+    expect(transformInput(inputAst)).toEqual(printAst(outputAst))
+  })
+
   describe('transform existing props', () => {
     it('changes onClick to onPress', () => {
       const inputAst = parseJsx('<Button label="Pancakes" onClick={handleClick} />')
@@ -119,10 +127,10 @@ describe('transformV1ButtonAttributes()', () => {
 
     it('changes newTabAndIUnderstandTheAccessibilityImplications to target="_blank" and rel="noopener noreferrer"', () => {
       const inputAst = parseJsx(
-        '<Button label="Pancakes" newTabAndIUnderstandTheAccessibilityImplications />',
+        '<Button href="#" label="Pancakes" newTabAndIUnderstandTheAccessibilityImplications />',
       )
       const outputAst = parseJsx(
-        '<Button target="_blank" rel="noopener noreferrer" variant="secondary" size="large">Pancakes</Button>',
+        '<LinkButton href="#" target="_blank" rel="noopener noreferrer" variant="secondary" size="large">Pancakes</LinkButton>',
       )
       expect(transformInput(inputAst)).toEqual(printAst(outputAst))
     })
