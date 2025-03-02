@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.73.2
+
+### Patch Changes
+
+- [#5550](https://github.com/cultureamp/kaizen-design-system/pull/5550) [`a6f3a4f`](https://github.com/cultureamp/kaizen-design-system/commit/a6f3a4ff1a3d1a67f5fd47522e63ab5a2bd08171) - Fix v1 codemod transformer and remove disableTabFocusAndIUnderstandTheAccessibilityImplications condition that adds a onPressEnd property
+
 ## 1.73.1
 
 ### Patch Changes
