@@ -44,7 +44,7 @@ const transformProp = (
     case 'onMouseDown':
       return createProp('onPressStart', propValue)
     case 'disableTabFocusAndIUnderstandTheAccessibilityImplications':
-      return createProp('onPressEnd', propValue)
+      return null
     case 'newTabAndIUnderstandTheAccessibilityImplications':
       return null
     case 'disabled':
