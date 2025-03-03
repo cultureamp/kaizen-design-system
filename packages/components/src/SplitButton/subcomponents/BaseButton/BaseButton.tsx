@@ -12,7 +12,7 @@ const isAnchor = (attributes: AnchorButtonAttributes): boolean =>
 
 export type BaseButtonProps = {
   label: string
-  icon?: React.SVGAttributes<SVGSymbolElement>
+  icon?: React.ReactNode
   isReversed?: boolean
 } & OverrideClassName<AnchorButtonAttributes>
 
