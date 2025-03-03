@@ -71,7 +71,7 @@ export const Tag = (props: TagProps): JSX.Element => {
       <div className={styles.layoutContainer}>
         <>
           {canShowIcon &&
-            ((): JSX.Element | void => {
+            ((): JSX.Element | undefined => {
               switch (props.variant) {
                 case 'validationPositive':
                   return (

@@ -29,7 +29,7 @@ export type AvatarGroupProps = {
   avatars: AvatarList
 } & OverrideClassName<HTMLAttributes<HTMLUListElement>>
 
-const renderCounter = (remainingAvatars: number): JSX.Element | void => {
+const renderCounter = (remainingAvatars: number): JSX.Element | undefined => {
   if (remainingAvatars <= 0) return
   return (
     <li

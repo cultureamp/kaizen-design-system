@@ -21,7 +21,7 @@ import {
 import { createTabletOverflowMenuItems, isReversed } from './utils'
 import styles from './TitleBlockZen.module.scss'
 
-const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
+const renderTag = (surveyStatus: SurveyStatus): JSX.Element | undefined => {
   let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>['variant']
 
   if (tagVariant === 'profile') {

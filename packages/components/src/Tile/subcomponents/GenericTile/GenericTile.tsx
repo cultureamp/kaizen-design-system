@@ -130,7 +130,7 @@ export const GenericTile = ({
     return informationProp
   }
 
-  const renderBack = (): JSX.Element | void => {
+  const renderBack = (): JSX.Element | undefined => {
     if (!information) return
 
     const returnButtonLabel = formatMessage({
