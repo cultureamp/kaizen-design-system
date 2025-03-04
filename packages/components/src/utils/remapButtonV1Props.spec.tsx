@@ -1,25 +1,36 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { Badge, BadgeAnimated } from '~components/Badge'
-import { type ButtonProps } from '~components/Button'
-import { type ButtonBadgeProps, type CustomButtonProps } from '~components/Button/GenericButton'
-import { Button, type ButtonProps as NewButtonProps } from '../__rc__/Button/Button'
-import { isWorkingProps, remapV1PropsToRcButton, renderBadge } from './remapButtonV1Props'
+import { vi } from 'vitest'
+import { type ButtonProps as OldButtonProps } from '~components/Button'
+import { type CustomButtonProps } from '~components/Button/GenericButton'
+import { type LinkButtonProps } from '~components/LinkButton'
+import { type ButtonProps } from '~components/__next__/Button'
+import { Icon } from '~components/__next__/Icon'
+import { remapV1ButtonProps, type RemappedButtonProps } from './remapButtonV1Props'
 
-const oldButtonProps = {
+const onClickMock = vi.fn()
+const renderPropsMock = ({
+  onClick,
+  children,
+  className,
+  href,
+  ...otherProps
+}: CustomButtonProps): JSX.Element => (
+  <a className={className} onClick={onClick} href={href} {...otherProps}>
+    {children}
+  </a>
+)
+
+const v1ButtonAllProps = {
   label: 'Label',
-  id: '1',
-  reversed: false,
-  onClick: () => {
-    console.log('Hello, World!')
-  },
-  href: undefined,
-  newTabAndIUnderstandTheAccessibilityImplications: false,
-  disableTabFocusAndIUnderstandTheAccessibilityImplications: false,
-  component: undefined,
-  classNameOverride: 'New Cool Button',
+  reversed: true,
+  onClick: onClickMock,
+  href: 'https://www.google.com',
+  newTabAndIUnderstandTheAccessibilityImplications: true,
+  disableTabFocusAndIUnderstandTheAccessibilityImplications: true,
+  component: ({ children, ...otherProps }) => <div {...otherProps}>{children}</div>,
+  classNameOverride: 'newClass',
   primary: false,
-  destructive: false,
+  destructive: true,
   secondary: false,
   size: 'regular',
   badge: {
@@ -29,145 +40,141 @@ const oldButtonProps = {
     variant: 'default',
   },
   iconPosition: 'start',
-  icon: <div> p </div>,
-  disabled: false,
-  working: undefined,
-} satisfies ButtonProps
-
-const workingOldButtonProps = {
-  ...oldButtonProps,
+  icon: <Icon name="thumb_up" isPresentational />,
+  disabled: true,
   working: true,
-  workingLabel: 'Working...',
+  workingLabel: 'Loading',
   workingLabelHidden: false,
-} satisfies ButtonProps
+  fullWidth: true,
+  onMouseDown: onClickMock,
+  form: 'form-id',
+  formAction: 'act',
+  formMethod: 'GET',
+} satisfies OldButtonProps
 
-const expectedNewButtonProps: NewButtonProps = {
-  variant: 'primary',
-  size: 'large',
-  className: 'New Cool Button',
-  children: (
-    <>
-      Label{' '}
-      <Badge variant="default" reversed={false}>
-        Badge
-      </Badge>
-    </>
-  ),
-  isDisabled: false,
-  isFullWidth: undefined,
-  hasHiddenLabel: false,
-  isReversed: false,
-  type: undefined,
-  icon: <div> p </div>,
-  iconPosition: 'start',
-  id: '1',
-}
-
-const expectedPendingNewButtonProps: NewButtonProps = {
-  ...expectedNewButtonProps,
-  isPending: true,
-  pendingLabel: 'Working...',
-  hasHiddenPendingLabel: false,
-}
-
-describe('Test Convert Button Utils', () => {
-  describe('isWorkingProps()', () => {
-    it('should return true if workingLabel is in props', () => {
-      expect(isWorkingProps(workingOldButtonProps)).toBe(true)
+describe('remapV1ButtonProps', () => {
+  it('remaps basic button props to new props', () => {
+    const newProps = remapV1ButtonProps({
+      label: 'Label',
+      onClick: onClickMock,
+      size: 'regular',
+      primary: true,
+      classNameOverride: 'custom-class',
     })
-
-    it('should return false if workingLabel is not in props', () => {
-      expect(isWorkingProps(oldButtonProps)).toBe(false)
-    })
-  })
-
-  describe('renderBadge()', () => {
-    it('should return a Badge component', () => {
-      const badge = renderBadge(oldButtonProps.badge)
-      expect(badge).toEqual(
-        <Badge variant="default" reversed={false}>
-          Badge
-        </Badge>,
-      )
-    })
-
-    it('should return an animated Badge component', () => {
-      const badge = renderBadge({
-        text: 'Badge',
-        animateChange: true,
-        reversed: false,
-        variant: 'default',
-      } satisfies ButtonBadgeProps)
-      expect(badge).toEqual(
-        <BadgeAnimated variant="default" reversed={false}>
-          Badge
-        </BadgeAnimated>,
-      )
-    })
-  })
-
-  describe('remapV1PropsToRcButton()', () => {
-    it('should convert v1 button props to rc button props', () => {
-      const newButtonProps = remapV1PropsToRcButton(oldButtonProps)
-      expect(newButtonProps).toEqual(expectedNewButtonProps)
-    })
-
-    it('should convert working v1 button props to rc pending button props', () => {
-      const newButtonProps = remapV1PropsToRcButton(workingOldButtonProps)
-      expect(newButtonProps).toEqual(expectedPendingNewButtonProps)
-    })
-
-    it('Should take button render props and pass it into the children', () => {
-      const oldButtonPropsWithComponent = {
-        ...oldButtonProps,
-        component: (props: CustomButtonProps) => <div>{props.children}</div>,
-      } satisfies ButtonProps
-
-      const newButtonProps = remapV1PropsToRcButton(oldButtonPropsWithComponent)
-      expect(newButtonProps.children).toBeTypeOf('function')
-    })
-  })
-})
-
-// Simple button test, one with a working label, and one with a component render.
-
-describe('Rendering buttons after converting v1 props to rc.', () => {
-  it('should render a button that is reversed and primary', () => {
-    const oldButton = { label: 'Default', reversed: true, primary: true } satisfies ButtonProps
-    const newButton = remapV1PropsToRcButton(oldButton)
-
-    const { getByRole } = render(<Button {...newButton} />)
-    expect(getByRole('button')).toBeInTheDocument()
-  })
-
-  it('should render a button with a working label', () => {
-    const oldButton = {
-      label: 'Default',
-      working: true,
-      workingLabel: 'Working...',
-      workingLabelHidden: false,
+    const expectedOutput = {
+      children: 'Label',
+      onPress: onClickMock,
+      size: 'large',
+      variant: 'primary',
+      className: 'custom-class',
     } satisfies ButtonProps
-    const newButton = remapV1PropsToRcButton(oldButton)
 
-    const { getByText } = render(<Button {...newButton} />)
-    expect(getByText('Working...')).toBeInTheDocument()
+    expect(newProps).toEqual(expectedOutput)
   })
 
-  /** Component props is still an unknown, showcased in this test. Button rc may need to be updated
-   * to accept more than racProps
-   */
-  it('should render a button with a a component property', () => {
-    const CustomComponent = (buttonProps: CustomButtonProps): JSX.Element => (
-      <div {...buttonProps}>{buttonProps.href}</div>
-    )
-    const oldButton = {
-      label: 'Default',
+  it('returns link props with target and rel if newTabAndIUnderstandTheAccessibilityImplications is true', () => {
+    const newProps = remapV1ButtonProps({
+      label: 'Label',
+      reversed: false,
       href: 'https://www.google.com',
-      component: CustomComponent,
-    } satisfies ButtonProps
-    const newButton = remapV1PropsToRcButton(oldButton)
+      onClick: onClickMock,
+      size: 'regular',
+      newTabAndIUnderstandTheAccessibilityImplications: true,
+    })
+    const expectedOutput = {
+      children: 'Label',
+      isReversed: false,
+      onPress: onClickMock,
+      size: 'large',
+      variant: 'secondary',
+      href: 'https://www.google.com',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    } satisfies LinkButtonProps
 
-    const { getByText } = render(<Button {...newButton} />)
-    expect(getByText('https://www.google.com')).toBeInTheDocument()
+    expect(newProps).toEqual(expectedOutput)
+  })
+
+  it('remaps working props to pending props', () => {
+    const newProps = remapV1ButtonProps({
+      label: 'Label',
+      onClick: onClickMock,
+      size: 'regular',
+      working: true,
+      workingLabel: 'loading',
+      workingLabelHidden: true,
+    })
+    const expectedOutput = {
+      children: 'Label',
+      hasHiddenPendingLabel: true,
+      isPending: true,
+      onPress: onClickMock,
+      pendingLabel: 'loading',
+      size: 'large',
+      variant: 'secondary',
+    } satisfies ButtonProps
+    expect(newProps).toEqual(expectedOutput)
+  })
+
+  it('keeps the component render props if provided', () => {
+    const newProps = remapV1ButtonProps({
+      label: 'Label',
+      reversed: false,
+      href: 'https://www.google.com',
+      onClick: onClickMock,
+      size: 'regular',
+      component: renderPropsMock,
+    })
+    const expectedOutput = {
+      children: 'Label',
+      isReversed: false,
+      onPress: onClickMock,
+      size: 'large',
+      variant: 'secondary',
+      href: 'https://www.google.com',
+      unsafeV1ButtonProps: {
+        component: renderPropsMock,
+      },
+    }
+
+    expect(newProps).toEqual(expectedOutput)
+  })
+
+  it('can remap all of v1 button declared props', () => {
+    const newProps = remapV1ButtonProps(v1ButtonAllProps)
+
+    const expectedOutput = {
+      children: 'Label',
+      className: 'newClass',
+      form: 'form-id',
+      formAction: 'act',
+      formMethod: 'GET',
+      hasHiddenPendingLabel: false,
+      href: 'https://www.google.com',
+      icon: <Icon isPresentational={true} name="thumb_up" />,
+      iconPosition: 'start',
+      isDisabled: true,
+      isFullWidth: true,
+      isPending: true,
+      isReversed: true,
+      onPress: onClickMock,
+      onPressStart: onClickMock,
+      pendingLabel: 'Loading',
+      rel: 'noopener noreferrer',
+      size: 'large',
+      target: '_blank',
+      variant: 'tertiary',
+      unsafeV1ButtonProps: {
+        badge: {
+          animateChange: false,
+          reversed: false,
+          text: 'Badge',
+          variant: 'default',
+        },
+        component: v1ButtonAllProps.component,
+      },
+    } satisfies RemappedButtonProps
+
+    expect(newProps).toEqual(expectedOutput)
   })
 })
