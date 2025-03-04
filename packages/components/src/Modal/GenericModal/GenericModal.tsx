@@ -1,6 +1,7 @@
 import React, { useEffect, useId, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Transition } from '@headlessui/react'
+import classnames from 'classnames'
 import FocusLock from 'react-focus-lock'
 import { warn } from '../util/console'
 import { ModalContext } from './context/ModalContext'
@@ -17,6 +18,12 @@ export type GenericModalProps = {
   onAfterEnter?: () => void
   /** A callback that is triggered after the modal is closed. */
   onAfterLeave?: () => void
+  className?: {
+    container?: string
+    backdropLayer?: string
+    scrollLayer?: string
+    modalLayer?: string
+  }
 }
 
 export const GenericModal = ({
@@ -28,6 +35,7 @@ export const GenericModal = ({
   onOutsideModalClick,
   onAfterEnter,
   onAfterLeave: propsOnAfterLeave,
+  className,
 }: GenericModalProps): JSX.Element => {
   const reactId = useId()
   const id = propsId ?? reactId
@@ -145,12 +153,12 @@ export const GenericModal = ({
         // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={false}
       >
-        <div className={styles.backdropLayer} />
+        <div className={classnames(styles.backdropLayer, className?.backdropLayer)} />
         {/* Disabling these because we don't want this to be keyboard focusable. Users can use Esc to achieve this with a keyboard.
          */}
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
         <div
-          className={styles.scrollLayer}
+          className={classnames(styles.scrollLayer, className?.scrollLayer)}
           ref={(scrollLayerRef): void => {
             setScrollLayer(scrollLayerRef)
           }}
@@ -165,7 +173,7 @@ export const GenericModal = ({
           >
             <div
               role="dialog"
-              className={styles.modalLayer}
+              className={classnames(styles.modalLayer, className?.modalLayer)}
               aria-labelledby={labelledByID}
               aria-describedby={describedByID}
               ref={(modalLayerRef): void => setModalLayer(modalLayerRef)}

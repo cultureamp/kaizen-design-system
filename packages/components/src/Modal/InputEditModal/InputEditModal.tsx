@@ -8,6 +8,7 @@ import {
   ModalBody,
   ModalFooter,
   ModalHeader,
+  type GenericModalProps,
 } from '~components/Modal/GenericModal'
 import styles from './InputEditModal.module.scss'
 
@@ -36,7 +37,10 @@ export type InputEditModalProps = {
   automationId?: string
   children: React.ReactNode
   submitWorking?: { label: string; labelHidden?: boolean }
-} & Omit<HTMLAttributes<HTMLDivElement>, 'onSubmit'>
+  className?: GenericModalProps['className'] & {
+    modalContainer?: string
+  }
+} & Omit<HTMLAttributes<HTMLDivElement>, 'onSubmit' | 'className'>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093114/Modal#Input-Edit-Modal Guidance} |
@@ -58,6 +62,7 @@ export const InputEditModal = ({
   unpadded = false,
   onDismiss: propsOnDismiss,
   onAfterEnter,
+  className,
   ...props
 }: InputEditModalProps): JSX.Element => {
   const onDismiss = submitWorking ? undefined : propsOnDismiss
@@ -87,8 +92,19 @@ export const InputEditModal = ({
       onEscapeKeyup={onDismiss}
       onAfterLeave={onAfterLeave}
       onAfterEnter={onAfterEnter}
+      className={{
+        container: className?.container,
+        backdropLayer: className?.backdropLayer,
+        scrollLayer: className?.scrollLayer,
+        modalLayer: className?.modalLayer,
+      }}
     >
-      <div className={styles.modal} dir={localeDirection} data-modal {...props}>
+      <div
+        className={classnames(styles.modal, className?.modalContainer)}
+        dir={localeDirection}
+        data-modal
+        {...props}
+      >
         <ModalHeader onDismiss={onDismiss}>
           <div
             className={classnames(
