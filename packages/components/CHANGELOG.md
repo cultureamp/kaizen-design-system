@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.73.3
+
+### Patch Changes
+
+- [#5554](https://github.com/cultureamp/kaizen-design-system/pull/5554) [`4f739a2`](https://github.com/cultureamp/kaizen-design-system/commit/4f739a2359e6aa620757322df5049927e6cf7aa7) - Adjust Modal className implementations to insert at the top level
+
 ## 1.73.2
 
 ### Patch Changes
