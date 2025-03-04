@@ -115,7 +115,7 @@
 
 .pseudoScrollbar {
   /* Tech debt - this !important existed before Stylelint rules */
-  padding-right: 15px !important; /* stylelint-disable-line declaration-no-important */
+  padding-inline-end: 15px !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .hide {
