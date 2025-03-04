@@ -71,6 +71,7 @@ export const ContextModal = ({
   image,
   secondaryLabel,
   onSecondaryAction,
+  className,
   ...props
 }: ContextModalProps): JSX.Element => {
   const onDismiss = confirmWorking ? undefined : propsOnDismiss
@@ -105,6 +106,7 @@ export const ContextModal = ({
       onOutsideModalClick={onDismiss}
       onAfterLeave={onAfterLeave}
       onAfterEnter={onAfterEnter}
+      className={className}
     >
       <div className={styles.modal} data-modal {...props}>
         {renderBackground?.()}
