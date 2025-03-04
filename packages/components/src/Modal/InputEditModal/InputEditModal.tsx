@@ -58,6 +58,7 @@ export const InputEditModal = ({
   unpadded = false,
   onDismiss: propsOnDismiss,
   onAfterEnter,
+  className,
   ...props
 }: InputEditModalProps): JSX.Element => {
   const onDismiss = submitWorking ? undefined : propsOnDismiss
@@ -87,6 +88,7 @@ export const InputEditModal = ({
       onEscapeKeyup={onDismiss}
       onAfterLeave={onAfterLeave}
       onAfterEnter={onAfterEnter}
+      className={className}
     >
       <div className={styles.modal} dir={localeDirection} data-modal {...props}>
         <ModalHeader onDismiss={onDismiss}>
