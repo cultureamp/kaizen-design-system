@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.73.4
+
+### Patch Changes
+
+- [#5555](https://github.com/cultureamp/kaizen-design-system/pull/5555) [`817e325`](https://github.com/cultureamp/kaizen-design-system/commit/817e325aabad6fc58c04fa47ba1a0c6aa121ebb3) - Modal: Update directional CSS to logical properties/values for RTL support
+
 ## 1.73.3
 
 ### Patch Changes
