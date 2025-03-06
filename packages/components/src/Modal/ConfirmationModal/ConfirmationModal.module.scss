@@ -21,7 +21,7 @@
   grid-template-columns: 0.2fr 2fr;
   align-items: center;
   color: $color-white;
-  text-align: left;
+  text-align: start;
   border-radius: $border-solid-border-radius $border-solid-border-radius 0 0;
 
   &.padded {
@@ -53,9 +53,9 @@
     height: 30px;
 
     @media (max-width: $layout-breakpoints-medium) {
-      margin-right: 0.9375rem;
+      margin-inline-end: 0.9375rem;
       position: relative;
-      top: 0.125rem;
+      inset-block-start: 0.125rem;
     }
   }
 }
@@ -75,12 +75,12 @@
 
   .iconContainer {
     position: absolute;
-    top: 8%;
+    inset-block-start: 8%;
 
     @media (max-width: $layout-breakpoints-medium) {
       position: relative;
-      top: 0;
-      margin-bottom: $spacing-sm;
+      inset-block-start: 0;
+      margin-block-end: $spacing-sm;
     }
   }
 
