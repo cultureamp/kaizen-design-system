@@ -258,6 +258,30 @@ Imports from the new names will be allowed shortly, and support for the old name
     <tr>
       <td colSpan={4}>Others</td>
     </tr>
+    <tr>
+      <td>`future/Select` (`SingleSelect`)</td>
+      <td>`trigger.ref`</td>
+      <td>-</td>
+      <td>This arg is unnecessary now, but provided for legacy usages</td>
+    </tr>
+    <tr>
+      <td>`future/Select` (`SingleSelect`)</td>
+      <td>`disabledValues`</td>
+      <td>-</td>
+      <td>Either define disabled in your `Option` (in `items`), or use `disabledKeys`</td>
+    </tr>
+    <tr>
+      <td>`EmptyState`</td>
+      <td>`layoutContext`</td>
+      <td>-</td>
+      <td>This prop no longer has any effect</td>
+    </tr>
+    <tr>
+      <td>`FilterBarContext`</td>
+      <td>`toggleOpenFilter`</td>
+      <td>-</td>
+      <td>Use `setFilterOpenState` instead</td>
+    </tr>
   </tbody>
 </table>
 
