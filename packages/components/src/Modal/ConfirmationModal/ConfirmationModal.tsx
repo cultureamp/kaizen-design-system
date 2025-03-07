@@ -124,6 +124,7 @@ export const ConfirmationModal = ({
   confirmWorking,
   onDismiss: propsOnDismiss,
   children,
+  className,
   ...props
 }: ConfirmationModalProps): JSX.Element => {
   const variantName = variant ?? mood
@@ -158,6 +159,7 @@ export const ConfirmationModal = ({
       onOutsideModalClick={onDismiss}
       onAfterLeave={onAfterLeave}
       onAfterEnter={onAfterEnter}
+      className={className}
     >
       <div className={styles.modal} data-modal {...props}>
         <ModalHeader onDismiss={onDismiss}>

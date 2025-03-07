@@ -28,11 +28,7 @@
 
 .header {
   color: $color-purple-800;
-  text-align: left;
-
-  &.textAlignRTL {
-    text-align: right;
-  }
+  text-align: start;
 
   &.padded {
     padding: $spacing-md $spacing-lg;

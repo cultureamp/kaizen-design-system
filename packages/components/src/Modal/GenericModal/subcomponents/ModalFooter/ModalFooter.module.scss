@@ -32,10 +32,10 @@
 }
 
 .actionButton + .actionButton {
-  margin-right: $spacing-sm;
+  margin-inline-end: $spacing-sm;
 
   @media (max-width: (calc(#{$layout-breakpoints-medium} - 1px))) {
-    margin-top: $spacing-sm;
+    margin-block-start: $spacing-sm;
   }
 }
 
@@ -51,7 +51,7 @@
 }
 
 .border {
-  border-top: 1px solid $border-solid-border-color;
+  border-block-start: 1px solid $border-solid-border-color;
 }
 
 .start {
@@ -66,8 +66,8 @@
 
 .fixed {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
 }
 
 .filler {

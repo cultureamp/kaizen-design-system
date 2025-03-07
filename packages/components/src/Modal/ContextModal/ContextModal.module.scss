@@ -58,7 +58,7 @@
 .footerWithSecondaryAction {
   @extend %footer;
 
-  margin-left: calc(-1 * #{$spacing-sm});
+  margin-inline-start: calc(-1 * #{$spacing-sm});
 }
 
 .emptyFooter {
@@ -97,7 +97,7 @@
   }
 
   .content {
-    padding-left: 0;
+    padding-inline-start: 0;
 
     @media (min-width: $layout-breakpoints-medium) {
       max-width: 100%;

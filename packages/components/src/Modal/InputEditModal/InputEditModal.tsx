@@ -26,7 +26,6 @@ export type InputEditModalProps = {
   onAfterEnter?: () => void
   /** A callback that is triggered after the modal is closed. */
   onAfterLeave?: () => void
-  localeDirection?: 'rtl' | 'ltr'
   submitLabel?: string
   dismissLabel?: string
   secondaryLabel?: string
@@ -49,7 +48,6 @@ export const InputEditModal = ({
   onSubmit,
   onSecondaryAction,
   onAfterLeave,
-  localeDirection = 'ltr',
   submitLabel = 'Submit',
   dismissLabel = 'Cancel',
   secondaryLabel,
@@ -58,6 +56,7 @@ export const InputEditModal = ({
   unpadded = false,
   onDismiss: propsOnDismiss,
   onAfterEnter,
+  className,
   ...props
 }: InputEditModalProps): JSX.Element => {
   const onDismiss = submitWorking ? undefined : propsOnDismiss
@@ -87,16 +86,11 @@ export const InputEditModal = ({
       onEscapeKeyup={onDismiss}
       onAfterLeave={onAfterLeave}
       onAfterEnter={onAfterEnter}
+      className={className}
     >
-      <div className={styles.modal} dir={localeDirection} data-modal {...props}>
+      <div className={styles.modal} data-modal {...props}>
         <ModalHeader onDismiss={onDismiss}>
-          <div
-            className={classnames(
-              styles.header,
-              localeDirection === 'rtl' && styles.textAlignRTL,
-              !unpadded && styles.padded,
-            )}
-          >
+          <div className={classnames(styles.header, !unpadded && styles.padded)}>
             <ModalAccessibleLabel>
               <Heading tag="h2" variant="heading-2">
                 {title}
@@ -105,12 +99,7 @@ export const InputEditModal = ({
           </div>
         </ModalHeader>
         <ModalBody>
-          <div
-            className={classnames(styles.body, !unpadded && styles.padded)}
-            dir={localeDirection}
-          >
-            {children}
-          </div>
+          <div className={classnames(styles.body, !unpadded && styles.padded)}>{children}</div>
         </ModalBody>
         <ModalFooter
           actions={footerActions}

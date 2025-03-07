@@ -27,7 +27,7 @@ $ca-breakpoint-small-mobile: 375px;
 
   &.prominent {
     grid-column-start: 2;
-    text-align: left;
+    text-align: start;
   }
 
   &:focus {

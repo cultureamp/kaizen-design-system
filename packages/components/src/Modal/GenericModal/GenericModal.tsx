@@ -17,6 +17,7 @@ export type GenericModalProps = {
   onAfterEnter?: () => void
   /** A callback that is triggered after the modal is closed. */
   onAfterLeave?: () => void
+  className?: string
 }
 
 export const GenericModal = ({
@@ -28,6 +29,7 @@ export const GenericModal = ({
   onOutsideModalClick,
   onAfterEnter,
   onAfterLeave: propsOnAfterLeave,
+  className,
 }: GenericModalProps): JSX.Element => {
   const reactId = useId()
   const id = propsId ?? reactId
@@ -137,6 +139,7 @@ export const GenericModal = ({
       afterLeave={onAfterLeaveHandler}
       data-generic-modal-transition-wrapper
       onClick={(e: React.MouseEvent): void => e.stopPropagation()}
+      className={className}
     >
       <FocusLock
         disabled={focusLockDisabled}
