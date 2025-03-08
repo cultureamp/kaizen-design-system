@@ -29,7 +29,7 @@
     "@storybook/manager-api": "8.4.7",
     "@storybook/react": "8.4.7",
     "@storybook/react-vite": "8.4.7",
-    "@storybook/test-runner": "^0.21.0",
+    "@storybook/test-runner": "^0.22.0",
     "@types/jest-axe": "^3.5.9",
     "@types/react-highlight": "^0.12.8",
     "@vitejs/plugin-react": "^4.3.4",
