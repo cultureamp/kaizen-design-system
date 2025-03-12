@@ -20,7 +20,7 @@ const getNewSizeValue = (
  * - `null` if the prop should be removed
  * - `undefined` if the prop should be kept as is
  */
-const transformProp = (
+export const transformButtonProp = (
   propName: string,
   propValue: ts.JsxAttributeValue | undefined,
 ): ts.JsxAttribute | null | undefined => {
@@ -68,7 +68,7 @@ const transformProp = (
   }
 }
 
-type TransformedButtonAttributes = {
+export type TransformedButtonAttributes = {
   targetComponentName: string
   newAttributes: ts.JsxAttributeLike[]
   childrenValue: ts.JsxAttributeValue | undefined
@@ -110,7 +110,7 @@ export const transformV1ButtonAttributes = (
         hasLinkAttr = true
       }
 
-      const newProp = transformProp(propName, attr.initializer)
+      const newProp = transformButtonProp(propName, attr.initializer)
 
       if (newProp === null) return acc
 
