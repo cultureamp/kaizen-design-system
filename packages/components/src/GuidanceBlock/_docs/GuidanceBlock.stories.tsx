@@ -159,7 +159,7 @@ export const Variants: Story = {
   },
 }
 
-export const ActionsVsCallToActions: Story = {
+export const ActionsVsActionsSlot: Story = {
   args: {
     layout: 'default',
     illustration: <Informative alt="" />,
@@ -181,28 +181,49 @@ export const ActionsVsCallToActions: Story = {
     },
     secondaryDismiss: true,
   },
-  render: (args) => (
+  render: () => (
     <div className="flex flex-col gap-16">
-      <GuidanceBlock {...args} />
+      <GuidanceBlock
+        layout="default"
+        illustration={<Informative alt="" />}
+        content={<ContentComponent />}
+        actions={{
+          primary: {
+            label: 'Learn more',
+            onClick: () => alert('tada: 🎉'),
+          },
+          secondary: {
+            label: 'Dismiss',
+            href: '#',
+          },
+        }}
+        secondaryDismiss
+      />
       <GuidanceBlock
         layout="default"
         illustration={<Informative alt="" />}
         content={<ContentComponent />}
         secondaryDismiss={true}
-        callToActions={
+        actionsSlot={
           <>
             <Button
               variant="secondary"
               size="large"
               onPress={() => alert('tada: 🎉')}
               iconPosition="end"
+              slot="primary"
               icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
             >
               Learn more
             </Button>
-            <LinkButton variant="tertiary" size="large" href="#">
-              Dismiss
-            </LinkButton>
+            <Button
+              slot="secondary"
+              variant="tertiary"
+              size="large"
+              onPress={() => alert('tada: 🎉')}
+            >
+              Learn more
+            </Button>
           </>
         }
       />
@@ -210,23 +231,61 @@ export const ActionsVsCallToActions: Story = {
   ),
 }
 
-export const CallToActions: Story = {
+export const ActionsSlotAsComponent: Story = {
   args: {
     layout: 'default',
     illustration: <Informative alt="" />,
     content: <ContentComponent />,
-    callToActions: (
+    actionsSlot: [
+      <Button
+        key={1}
+        variant="primary"
+        size="large"
+        onPress={() => alert('tada: 🎉')}
+        iconPosition="end"
+        slot="primary"
+        icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
+      >
+        Learn more
+      </Button>,
+      <Button
+        key={1}
+        variant="secondary"
+        size="large"
+        onPress={() => alert('tada: 🎉')}
+        iconPosition="end"
+        slot="secondary"
+        icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
+      >
+        Learn more
+      </Button>,
+    ],
+  },
+  render: (args) => (
+    <div className="flex flex-col gap-16">
+      <GuidanceBlock {...args} />
+    </div>
+  ),
+}
+
+export const ActionsSlot: Story = {
+  args: {
+    layout: 'default',
+    illustration: <Informative alt="" />,
+    content: <ContentComponent />,
+    actionsSlot: (
       <>
         <Button
           variant="secondary"
           size="large"
           onPress={() => alert('tada: 🎉')}
           iconPosition="end"
+          slot="primary"
           icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
         >
           Learn more
         </Button>
-        <LinkButton variant="tertiary" size="large" href="#">
+        <LinkButton slot="secondary" variant="tertiary" size="large" href="#">
           Dismiss
         </LinkButton>
       </>
@@ -239,12 +298,12 @@ export const CallToActions: Story = {
   ),
 }
 
-export const CallToActionsWithTooltips: Story = {
+export const ActionsSlotWithTooltips: Story = {
   args: {
     layout: 'default',
     illustration: <Informative alt="" />,
     content: <ContentComponent />,
-    callToActions: (
+    actionsSlot: (
       <>
         <TooltipTriggerNext>
           <Button

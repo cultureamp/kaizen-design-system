@@ -4,9 +4,11 @@ import Media from 'react-media'
 import { Button as V1Button, type ButtonProps as V1ButtonProps } from '~components/Button'
 import { Heading, type HeadingProps } from '~components/Heading'
 import { type SceneProps, type SpotProps } from '~components/Illustration'
+import { type LinkButtonProps } from '~components/LinkButton'
 import { Text } from '~components/Text'
 import { Tooltip, type TooltipProps } from '~components/Tooltip'
 import { Icon } from '~components/__next__'
+import { type ButtonProps } from '~components/__next__/Button'
 import { type VariantType } from './types'
 import styles from './GuidanceBlock.module.css'
 
@@ -39,10 +41,10 @@ type BaseGuidanceBlockProps = {
    */
   illustrationType?: IllustrationType
   smallScreenTextAlignment?: TextAlignment
-  /** @deprecated use the `callToActions` prop with Button/next instead */
+  /** @deprecated use the `actionsSlot` prop with Button/next instead */
   actions?: GuidanceBlockActions
-  /** A slot for GuidanceBlock actions Button}. It is recommended to use thenew {@link https://cultureamp.design/?path=/docs/components-button-button-next-api-specification--docs | Button} or {@link https://cultureamp.design/?path=/docs/components-linkbutton-usage-guidelines--docs | LinkButton} */
-  callToActions?: React.ReactNode
+  /** A slot for the primary and secondary action. It is recommended to use the new {@link https://cultureamp.design/?path=/docs/components-button-button-next-api-specification--docs | Button} or {@link https://cultureamp.design/?path=/docs/components-linkbutton-usage-guidelines--docs | LinkButton}. */
+  actionsSlot?: React.ComponentType<ButtonProps | LinkButtonProps> | React.ReactNode
   /** @deprecated this is no longer a used feature and is only the deprecated `actions` prop, ie: {secondary: { label: "Dismiss action" }}` */
   secondaryDismiss?: boolean
   variant?: VariantType
@@ -92,7 +94,7 @@ export const GuidanceBlock = ({
   actions,
   illustration,
   secondaryDismiss,
-  callToActions,
+  actionsSlot,
   ...restProps
 }: GuidanceBlockProps): JSX.Element => {
   const [hidden, setHidden] = useState<boolean>(false)
@@ -238,7 +240,7 @@ export const GuidanceBlock = ({
             )}
           </Media>
         )}
-        {!actions && callToActions && (
+        {!actions && actionsSlot && (
           <Media query="(max-width: 767px)">
             {(isMobile: boolean): JSX.Element => (
               <div
@@ -247,7 +249,13 @@ export const GuidanceBlock = ({
                   rightMargin: !(isMobile || componentIsMobile) && layout === 'default',
                 })}
               >
-                <div className={styles.buttonContainer}>{callToActions}</div>
+                <div className={styles.buttonContainer}>
+                  {React.isValidElement(actionsSlot)
+                    ? actionsSlot
+                    : React.createElement(
+                        actionsSlot as React.ComponentType<ButtonProps | LinkButtonProps>,
+                      )}
+                </div>
               </div>
             )}
           </Media>
