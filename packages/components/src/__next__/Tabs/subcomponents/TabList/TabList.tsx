@@ -62,7 +62,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
     }
 
     const tabs = containerElement?.querySelectorAll('[data-kz-tab]')
-    if (!tabs) {
+    if (!tabs || tabs.length === 0) {
       return
     }
 
