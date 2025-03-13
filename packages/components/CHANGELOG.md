@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.73.6
+
+### Patch Changes
+
+- [#5563](https://github.com/cultureamp/kaizen-design-system/pull/5563) [`2026e7a`](https://github.com/cultureamp/kaizen-design-system/commit/2026e7a61e41d7966f4212fd95b73c1afd753621) - add length check for tabs
+
 ## 1.73.5
 
 ### Patch Changes
