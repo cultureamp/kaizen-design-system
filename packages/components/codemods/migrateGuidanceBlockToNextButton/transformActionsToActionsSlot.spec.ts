@@ -1,7 +1,7 @@
 import ts from 'typescript'
 import { parseJsx } from '../__tests__/utils'
 import { printAst } from '../utils'
-import { transformActionsToButtonNext } from './transformActionsToButtonNext'
+import { transformActionsToButtonNext } from './transformActionsToActionsSlot'
 
 export const mockedTransformer =
   (kaioComponentName: string) =>
@@ -55,65 +55,7 @@ const transformInput = (
 }
 
 describe('transformActionsToButtonNext()', () => {
-  it("transforms a primary and secondary actions into Button's", () => {
-    const inputAst = parseJsx(`
-      <GuidanceBlock
-        layout="default"
-        illustration={<Informative alt="" />}
-        content={<div>Test</div>}
-        actions={{
-          primary: {
-            label: 'Primary action',
-            onClick: () => alert('click 1'),
-          },
-          secondary: {
-            label: 'Secondary action',
-            onClick: () => alert('click 2'),
-          },
-        }}
-        secondaryDismiss
-      />`)
-    const outputAst = parseJsx(`
-      <GuidanceBlock
-        layout="default"
-        illustration={<Informative alt="" />}
-        content={<div>Test</div>}
-        actionsSlot={<><Button onPress={() => alert('click 1')} variant="secondary" size="large">Primary action</Button><Button onPress={() => alert('click 2')}variant="tertiary" size="large">Secondary action</Button></>}
-        />
-      `)
-
-    expect(transformInput(inputAst)).toBe(printAst(outputAst))
-  })
-  it("transforms a primary and secondary link actions into LinkButton's", () => {
-    const inputAst = parseJsx(`
-      <GuidanceBlock
-        layout="default"
-        illustration={<Informative alt="" />}
-        content={<div>Test</div>}
-        actions={{
-          primary: {
-            label: 'Primary action',
-            href: "#primary"
-          },
-          secondary: {
-            label: 'Secondary action',
-            href: "#secondary"
-          },
-        }}
-        secondaryDismiss
-      />`)
-    const outputAst = parseJsx(`
-      <GuidanceBlock
-        layout="default"
-        illustration={<Informative alt="" />}
-        content={<div>Test</div>}
-        actionsSlot={<><LinkButton href="#primary" variant="secondary" size="large">Primary action</LinkButton><LinkButton href="#secondary" variant="tertiary" size="large">Secondary action</LinkButton></>}
-        />
-      `)
-
-    expect(transformInput(inputAst)).toBe(printAst(outputAst))
-  })
-  it('transforms a primary and secondary link and onClick actions into expected components', () => {
+  it('transforms button-like and link-like actions prop into a Button and LinkButton', () => {
     const inputAst = parseJsx(`
       <GuidanceBlock
         layout="default"
@@ -142,7 +84,7 @@ describe('transformActionsToButtonNext()', () => {
 
     expect(transformInput(inputAst)).toBe(printAst(outputAst))
   })
-  it('transforms a primary actions with all v1 Button props to expected output', () => {
+  it('transforms a primary action with all v1 Button props to expected Button outputs', () => {
     const inputAst = parseJsx(`
       <GuidanceBlock
         layout="default"
@@ -160,16 +102,16 @@ describe('transformActionsToButtonNext()', () => {
               text: 'New',
             },
             destructive: true,
-            disabled: true,
+            disabled: hasCondition ? true : false,
             reversed: true,
             icon: <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />,
             iconPosition: 'end',
-            newTabAndIUnderstandTheAccessibilityImplications: true,
             size: 'small',
             working: true,
             workingLabel: 'Loading...',
             workingLabelHidden: true,
             disableTabFocusAndIUnderstandTheAccessibilityImplications: true,
+            'data-custom-attr': 'custom-attr',
           },
         }}
         secondaryDismiss
@@ -179,10 +121,82 @@ describe('transformActionsToButtonNext()', () => {
           layout="default"
           illustration={<Informative alt=""/>}
           content={<div>Test</div>}
-          actionsSlot={<><Button onPress={() => alert('tada: 🎉')} isDisabled={true} isReversed={true} target="_blank" rel="noopener noreferrer" size="medium" isPending={true} pendingLabel='Loading...' hasHiddenPendingLabel={true} variant="secondary">Learn more</Button></>}/>
-        />
+          actionsSlot={<><Button
+              onPress={() => alert('tada: 🎉')}
+              tooltip={{text: 'Opens in a new tab',mood: 'cautionary',}}
+              badge={{ text: 'New', }}
+              isDisabled={hasCondition ? true : false}
+              isReversed
+              icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational/>}
+              iconPosition='end'
+              size="medium"
+              isPending pendingLabel='Loading...'
+              hasHiddenPendingLabel
+              data-custom-attr='custom-attr'
+              variant="secondary"
+            >Learn more</Button></>}/>
       `)
 
-    expect(transformInput(inputAst)).toBe(printAst(outputAst))
+    expect(transformInput(inputAst).replace(/\n+/g, ' ').replace(/\s+/g, ' ')).toBe(
+      printAst(outputAst).replace(/\n+/g, ' ').replace(/\s+/g, ' '),
+    )
+  })
+
+  it('wraps actions in Tooltip if provided', () => {
+    const inputAst = parseJsx(`
+      <GuidanceBlock
+        layout="default"
+        illustration={<Informative alt="" />}
+        content={<div>Test</div>}
+        actions={{
+          primary: {
+            label: 'Learn more',
+            onClick: () => alert('tada: 🎉'),
+            tooltip: {
+              text: 'Opens in a new tab',
+              mood: 'cautionary',
+            },
+            badge: {
+              text: 'New',
+            },
+            destructive: true,
+            disabled: hasCondition ? true : false,
+            reversed: true,
+            icon: <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />,
+            iconPosition: 'end',
+            size: 'small',
+            working: true,
+            workingLabel: 'Loading...',
+            workingLabelHidden: true,
+            disableTabFocusAndIUnderstandTheAccessibilityImplications: true,
+            'data-custom-attr': 'custom-attr',
+          },
+        }}
+        secondaryDismiss
+      />`)
+    const outputAst = parseJsx(`
+        <GuidanceBlock
+          layout="default"
+          illustration={<Informative alt=""/>}
+          content={<div>Test</div>}
+          actionsSlot={<><Button
+              onPress={() => alert('tada: 🎉')}
+              tooltip={{text: 'Opens in a new tab',mood: 'cautionary',}}
+              badge={{ text: 'New', }}
+              isDisabled={hasCondition ? true : false}
+              isReversed
+              icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational/>}
+              iconPosition='end'
+              size="medium"
+              isPending pendingLabel='Loading...'
+              hasHiddenPendingLabel
+              data-custom-attr='custom-attr'
+              variant="secondary"
+            >Learn more</Button></>}/>
+      `)
+
+    expect(transformInput(inputAst).replace(/\n+/g, ' ').replace(/\s+/g, ' ')).toBe(
+      printAst(outputAst).replace(/\n+/g, ' ').replace(/\s+/g, ' '),
+    )
   })
 })
