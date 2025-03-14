@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.73.6
+
+### Patch Changes
+
+- [#5563](https://github.com/cultureamp/kaizen-design-system/pull/5563) [`2026e7a`](https://github.com/cultureamp/kaizen-design-system/commit/2026e7a61e41d7966f4212fd95b73c1afd753621) - add length check for tabs
+
+## 1.73.5
+
+### Patch Changes
+
+- [#5561](https://github.com/cultureamp/kaizen-design-system/pull/5561) [`25d4772`](https://github.com/cultureamp/kaizen-design-system/commit/25d47721f9dea7b36e1ce9c114d8b31190f0d18a) - Content: add min-width:0 to maintain gutter margins when inner contents has a wide element
+
 ## 1.73.4
 
 ### Patch Changes
