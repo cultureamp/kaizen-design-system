@@ -130,6 +130,7 @@ export const GenericModal = ({
 
   return createPortal(
     <Transition
+      as="div"
       appear={true}
       show={isOpen}
       enter={styles.animatingEnter}
