@@ -1,9 +1,7 @@
-import React from 'react'
 import ts from 'typescript'
-import { Icon } from '~components/__next__'
 import { parseJsx } from '../__tests__/utils'
-import { createJsxElementWithChildren, createProp, printAst } from '../utils'
 import { transformV1ButtonPropsToButtonOrLinkButton } from './transformV1ButtonPropsToButtonOrLinkButton'
+import { printAst } from './'
 
 export const mockedTransformer =
   () =>
