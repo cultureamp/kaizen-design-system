@@ -62,7 +62,7 @@
     "@types/node": "^20.17.9",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
-    "@vitest/eslint-plugin": "^1.1.24",
+    "@vitest/eslint-plugin": "^1.1.37",
     "chromatic": "^11.20.0",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^9.1.0",
