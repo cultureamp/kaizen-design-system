@@ -42,7 +42,7 @@
     "sass": "1.79.6",
     "storybook": "8.4.7",
     "tailwindcss": "^3.4.17",
-    "vite-plugin-node-polyfills": "^0.22.0"
+    "vite-plugin-node-polyfills": "^0.23.0"
   },
   "devDependenciesComments": {
     "sass": "Prevent deprecation warnings introduced in 1.80 as we plan to move away from sass in KAIO"
