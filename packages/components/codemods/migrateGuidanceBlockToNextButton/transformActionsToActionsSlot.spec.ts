@@ -17,19 +17,16 @@ export const mockedTransformer =
             const propValue = prop.initializer as ts.JsxExpression
 
             if (propName === 'actions') {
-              // console.log('actions---found---')
               const transformedActions = transformActionsToButtonNext(
                 propValue.getChildren()[1] as ts.ObjectLiteralExpression,
               )
-              return [...guidanceBlockProps, ...transformedActions]
-            }
 
-            if (propName === 'secondaryDismiss') {
-              return guidanceBlockProps
+              return transformedActions?.actionsSlotAttr
+                ? [...guidanceBlockProps, transformedActions.actionsSlotAttr]
+                : guidanceBlockProps
             }
 
             return [...guidanceBlockProps, prop]
-            // any other conditional we might want
           }
           return [...guidanceBlockProps, prop]
         }, [])
@@ -71,7 +68,6 @@ describe('transformActionsToButtonNext()', () => {
             href: "#secondary"
           },
         }}
-        secondaryDismiss
       />`)
     const outputAst = parseJsx(`
       <GuidanceBlock
@@ -114,7 +110,6 @@ describe('transformActionsToButtonNext()', () => {
             'data-custom-attr': 'custom-attr',
           },
         }}
-        secondaryDismiss
       />`)
     const outputAst = parseJsx(`
         <GuidanceBlock
@@ -142,7 +137,7 @@ describe('transformActionsToButtonNext()', () => {
     )
   })
 
-  it('wraps actions in Tooltip if provided', () => {
+  it('Passes custom data attributes and old props to be caught by type errors', () => {
     const inputAst = parseJsx(`
       <GuidanceBlock
         layout="default"
@@ -172,7 +167,6 @@ describe('transformActionsToButtonNext()', () => {
             'data-custom-attr': 'custom-attr',
           },
         }}
-        secondaryDismiss
       />`)
     const outputAst = parseJsx(`
         <GuidanceBlock

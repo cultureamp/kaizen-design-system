@@ -86,12 +86,17 @@ export const transformButtonProp = (
   }
 }
 
-/** transforms V1 Button props into a Button or LinkButton */
+type TransformButtonProp = {
+  import: string
+  component: ts.JsxSelfClosingElement | ts.JsxElement
+}
+
+/** A utility to transform V1 Button props into a Button or LinkButton with the import JSX element */
 export const transformV1ButtonPropsToButtonOrLinkButton = (
   buttonProps: ts.ObjectLiteralExpression,
   /** optional override for the variant type if needed, ie: primary or secondary actions*/
   variantOverride?: string,
-): ts.JsxSelfClosingElement | ts.JsxElement => {
+): TransformButtonProp => {
   let childrenValue: ts.JsxAttributeValue | undefined
   let hasSizeProp = false
   let hasVariant = false
@@ -144,7 +149,6 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
       if (newProp === null) return acc
 
       if (newProp === undefined) {
-        console.log('otherHTML attr----', propName, propValue?.getText())
         const sanitizedPropName = propName.replace(/'/g, '')
         const sanitizedPropValue: ts.JsxAttributeValue =
           propValue?.kind === ts.SyntaxKind.StringLiteral
@@ -178,9 +182,12 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
     newProps.push(createStringProp('size', 'large'))
   }
 
-  return createJsxElementWithChildren(
-    hasLinkAttr ? 'LinkButton' : 'Button',
-    newProps,
-    childrenValue,
-  )
+  return {
+    import: hasLinkAttr ? 'LinkButton' : 'Button',
+    component: createJsxElementWithChildren(
+      hasLinkAttr ? 'LinkButton' : 'Button',
+      newProps,
+      childrenValue,
+    ),
+  }
 }

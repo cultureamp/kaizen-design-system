@@ -20,7 +20,7 @@ export const mockedTransformer =
             transformV1ButtonPropsToButtonOrLinkButton(primaryActionInitializer)
           const newAttr = ts.factory.createJsxAttribute(
             ts.factory.createIdentifier('primaryAction'),
-            ts.factory.createJsxExpression(undefined, ButtonOrLinkComponent),
+            ts.factory.createJsxExpression(undefined, ButtonOrLinkComponent.component),
           )
 
           return ts.factory.createJsxSelfClosingElement(
