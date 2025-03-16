@@ -1,16 +1,21 @@
 import ts from 'typescript'
 import { transformV1ButtonPropsToButtonOrLinkButton } from '../utils'
 
+type GuidanceBlockTransformedActions = {
+  importsToAdd: string[]
+  actionsSlotAttr: ts.JsxAttributeLike
+}
+
 /**
- * A function that transforms a v1 button object literal into an new actionsSlot prop as JSX elements
+ * A function that transforms a GuidanceBlock v1 button object literal into an new actionsSlot prop as JSX elements
  * expects that the node passed in will be an ObjectLiteralExpression, ie:
  * `{primary: {...buttonV1Props}, secondary: {...buttonV1Props}}`
  */
 export const transformActionsToButtonNext = (
   node: ts.ObjectLiteralExpression,
-): ts.JsxAttributeLike[] => {
+): GuidanceBlockTransformedActions | undefined => {
   if (ts.isObjectLiteralExpression(node)) {
-    const newActionsSlotAttr: ts.JsxAttributeLike[] = []
+    const newImports: (string | undefined)[] = []
 
     const primaryAction = node.properties.find((prop) => prop?.name?.getText() === 'primary') as
       | ts.PropertyAssignment
@@ -24,36 +29,46 @@ export const transformActionsToButtonNext = (
     let secondaryButton: ts.JsxSelfClosingElement | ts.JsxElement | undefined = undefined
 
     if (primaryAction) {
-      const actionValue = primaryAction?.initializer as ts.ObjectLiteralExpression
-      primaryButton = primaryAction
-        ? transformV1ButtonPropsToButtonOrLinkButton(actionValue, 'secondary')
-        : undefined
+      const actionValue = primaryAction.initializer as ts.ObjectLiteralExpression
+      const transformedComponent = transformV1ButtonPropsToButtonOrLinkButton(
+        actionValue,
+        'secondary',
+      )
+      primaryButton = transformedComponent.component
+      newImports.push(transformedComponent.import)
+
+      // newImports.push(getTagsToImport(primaryButton))
+      // console.log('newImports', newImports)
     }
 
     if (secondaryAction) {
       const actionValue = secondaryAction?.initializer as ts.ObjectLiteralExpression
-      secondaryButton = secondaryAction
-        ? transformV1ButtonPropsToButtonOrLinkButton(actionValue, 'tertiary')
-        : undefined
+      const transformedComponent = transformV1ButtonPropsToButtonOrLinkButton(
+        actionValue,
+        'tertiary',
+      )
+      secondaryButton = transformedComponent.component
+      newImports.push(transformedComponent.import)
     }
 
     if (primaryButton || secondaryButton) {
-      newActionsSlotAttr.push(
-        ts.factory.createJsxAttribute(
-          ts.factory.createIdentifier('actionsSlot'),
-          ts.factory.createJsxExpression(
-            undefined,
-            ts.factory.createJsxFragment(
-              ts.factory.createJsxOpeningFragment(),
-              [primaryButton, secondaryButton].filter(Boolean) as ts.JsxChild[],
-              ts.factory.createJsxJsxClosingFragment(),
-            ),
+      const newActionsSlotAttr = ts.factory.createJsxAttribute(
+        ts.factory.createIdentifier('actionsSlot'),
+        ts.factory.createJsxExpression(
+          undefined,
+          ts.factory.createJsxFragment(
+            ts.factory.createJsxOpeningFragment(),
+            [primaryButton, secondaryButton].filter(Boolean) as ts.JsxChild[],
+            ts.factory.createJsxJsxClosingFragment(),
           ),
         ),
       )
-    }
 
-    return newActionsSlotAttr
+      return {
+        actionsSlotAttr: newActionsSlotAttr,
+        importsToAdd: newImports.filter(Boolean) as string[],
+      }
+    }
   }
-  return []
+  return undefined
 }
