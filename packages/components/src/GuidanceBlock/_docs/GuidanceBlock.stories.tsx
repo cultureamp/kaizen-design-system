@@ -1,4 +1,5 @@
 import React from 'react'
+import { auto } from '@popperjs/core'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Heading } from '~components/Heading'
 import {
@@ -331,4 +332,73 @@ export const ActionsSlotWithTooltips: Story = {
       <GuidanceBlock {...args} />
     </div>
   ),
+}
+
+export const KitchenSink: Story = {
+  args: {
+    layout: 'default',
+    illustration: <Informative alt="" />,
+    content: <ContentComponent />,
+    actions: {
+      primary: {
+        label: 'Learn more',
+        onClick: () => alert('tada: 🎉'),
+        tooltip: {
+          text: 'Opens in a new tab',
+          mood: 'cautionary',
+        },
+        badge: {
+          text: 'New',
+        },
+        destructive: true,
+        disabled: true,
+        reversed: true,
+        icon: <Icon name="arrow_forward" shouldMirrorInRTL isPresentational />,
+        iconPosition: 'end',
+        newTabAndIUnderstandTheAccessibilityImplications: true,
+        size: 'small',
+        working: true,
+        workingLabel: 'Loading...',
+        workingLabelHidden: true,
+        disableTabFocusAndIUnderstandTheAccessibilityImplications: true,
+      },
+    },
+  },
+  render: (args) => {
+    const testVar: boolean = true
+    return (
+      <div className="flex flex-col gap-16">
+        <GuidanceBlock
+          layout="default"
+          illustration={<Informative alt="" />}
+          content={<div>Test</div>}
+          actionsSlot={
+            <>
+              <Button
+                onPress={() => alert('tada: 🎉')}
+                tooltip={{
+                  text: 'Opens in a new tab',
+                  mood: 'cautionary',
+                }}
+                badge={{
+                  text: 'New',
+                }}
+                isDisabled={hasCondition ? true : false}
+                isReversed
+                icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
+                iconPosition="end"
+                size="medium"
+                isPending
+                pendingLabel="Loading..."
+                hasHiddenPendingLabel
+                variant="secondary"
+              >
+                Learn more
+              </Button>
+            </>
+          }
+        />
+      </div>
+    )
+  },
 }

@@ -43,8 +43,8 @@ type BaseGuidanceBlockProps = {
   smallScreenTextAlignment?: TextAlignment
   /** @deprecated use the `actionsSlot` prop with Button/next instead */
   actions?: GuidanceBlockActions
-  /** A slot for the primary and secondary action. It is recommended to use the new {@link https://cultureamp.design/?path=/docs/components-button-button-next-api-specification--docs | Button} or {@link https://cultureamp.design/?path=/docs/components-linkbutton-usage-guidelines--docs | LinkButton}. */
-  actionsSlot?: React.ComponentType<ButtonProps | LinkButtonProps> | React.ReactNode
+  /** A slot for the primary and secondary action. It is recommended to use the {@link https://cultureamp.design/?path=/docs/components-button-button-next-api-specification--docs | Button} or {@link https://cultureamp.design/?path=/docs/components-linkbutton-usage-guidelines--docs | LinkButton} wrapped in fragment. */
+  actionsSlot?: React.ReactNode
   /** @deprecated this is no longer a used feature and is only the deprecated `actions` prop, ie: {secondary: { label: "Dismiss action" }}` */
   secondaryDismiss?: boolean
   variant?: VariantType
@@ -249,13 +249,7 @@ export const GuidanceBlock = ({
                   rightMargin: !(isMobile || componentIsMobile) && layout === 'default',
                 })}
               >
-                <div className={styles.buttonContainer}>
-                  {React.isValidElement(actionsSlot)
-                    ? actionsSlot
-                    : React.createElement(
-                        actionsSlot as React.ComponentType<ButtonProps | LinkButtonProps>,
-                      )}
-                </div>
+                <div className={styles.buttonContainer}>{actionsSlot}</div>
               </div>
             )}
           </Media>
