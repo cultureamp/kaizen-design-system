@@ -1,5 +1,3 @@
-import ts from 'typescript'
-import { GuidanceBlock } from '~components/GuidanceBlock'
 import { parseJsx } from '../__tests__/utils'
 import {
   getKaioTagNamesMapByComponentName,
