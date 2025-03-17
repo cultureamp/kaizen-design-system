@@ -1,23 +1,16 @@
-import util from 'util'
 import ts from 'typescript'
 import {
-  createJsxElementWithChildren,
-  createProp,
-  createStringProp,
   getKaioTagName,
   setImportToAdd,
-  setImportToRemove,
-  updateJsxElementWithNewProps,
   updateKaioImports,
   type TagImportAttributesMap,
   type UpdateKaioImportsArgs,
 } from '../utils'
-import { transformActionsToButtonNext, transformButtonProp } from './transformActionsToActionsSlot'
+import { transformActionsToButtonNext } from './transformActionsToActionsSlot'
 
 const BUTTON_IMPORT_DESTINATION = '@kaizen/components/next'
 const LINKBUTTON_IMPORT_DESTINATION = '@kaizen/components'
 
-// TODO: refactor this as the walker
 export const migrateGuidanceBlockToButtonNext =
   (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
   (context) =>

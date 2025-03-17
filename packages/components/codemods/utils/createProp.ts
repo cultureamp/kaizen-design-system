@@ -1,6 +1,7 @@
 import ts from 'typescript'
 
 export const createProp = (
+  // Transforms `propName={true}` to `propName`
   name: string,
   value?: ts.JsxAttributeValue | undefined,
 ): ts.JsxAttribute => {
