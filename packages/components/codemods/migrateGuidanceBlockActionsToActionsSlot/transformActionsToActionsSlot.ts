@@ -11,7 +11,7 @@ type GuidanceBlockTransformedActions = {
  * expects that the node passed in will be an ObjectLiteralExpression, ie:
  * `{primary: {...buttonV1Props}, secondary: {...buttonV1Props}}`
  */
-export const transformActionsToButtonNext = (
+export const transformActionsToActionsSlot = (
   node: ts.ObjectLiteralExpression,
 ): GuidanceBlockTransformedActions | undefined => {
   if (ts.isObjectLiteralExpression(node)) {

@@ -5,13 +5,13 @@ import {
   transformSource,
   type TransformSourceArgs,
 } from '../utils'
-import { migrateGuidanceBlockToButtonNext } from './migrateGuidanceBlockToButtonNext'
+import { migrateGuidanceBlockActionsToActionsSlot } from './migrateGuidanceBlockActionsToActionsSlot'
 
 const transformGuidanceBlock = (sourceFile: TransformSourceArgs['sourceFile']): string => {
   const kaioTagNamesMap = getKaioTagNamesMapByComponentName(sourceFile, ['GuidanceBlock'])
   return transformSource({
     sourceFile,
-    transformers: [migrateGuidanceBlockToButtonNext(kaioTagNamesMap!)],
+    transformers: [migrateGuidanceBlockActionsToActionsSlot(kaioTagNamesMap!)],
   })
 }
 

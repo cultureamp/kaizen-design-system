@@ -1,7 +1,7 @@
 import ts from 'typescript'
 import { parseJsx } from '../__tests__/utils'
 import { printAst } from '../utils'
-import { transformActionsToButtonNext } from './transformActionsToActionsSlot'
+import { transformActionsToActionsSlot } from './transformActionsToActionsSlot'
 
 export const mockedTransformer =
   (kaioComponentName: string) =>
@@ -17,7 +17,7 @@ export const mockedTransformer =
             const propValue = prop.initializer as ts.JsxExpression
 
             if (propName === 'actions') {
-              const transformedActions = transformActionsToButtonNext(
+              const transformedActions = transformActionsToActionsSlot(
                 propValue.getChildren()[1] as ts.ObjectLiteralExpression,
               )
 
@@ -51,7 +51,7 @@ const transformInput = (
   return printAst(transformedSource)
 }
 
-describe('transformActionsToButtonNext()', () => {
+describe('transformActionsToActionsSlot()', () => {
   it('transforms button-like and link-like actions prop into a Button and LinkButton', () => {
     const inputAst = parseJsx(`
       <GuidanceBlock
