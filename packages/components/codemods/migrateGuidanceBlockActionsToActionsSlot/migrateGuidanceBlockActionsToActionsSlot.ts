@@ -6,12 +6,12 @@ import {
   type TagImportAttributesMap,
   type UpdateKaioImportsArgs,
 } from '../utils'
-import { transformActionsToButtonNext } from './transformActionsToActionsSlot'
+import { transformActionsToActionsSlot } from './transformActionsToActionsSlot'
 
 const BUTTON_IMPORT_DESTINATION = '@kaizen/components/next'
 const LINKBUTTON_IMPORT_DESTINATION = '@kaizen/components'
 
-export const migrateGuidanceBlockToButtonNext =
+export const migrateGuidanceBlockActionsToActionsSlot =
   (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
   (context) =>
   (rootNode) => {
@@ -51,7 +51,7 @@ export const migrateGuidanceBlockToButtonNext =
               const propValue = prop.initializer as ts.JsxExpression
 
               if (propName === 'actions') {
-                const transformedActions = transformActionsToButtonNext(
+                const transformedActions = transformActionsToActionsSlot(
                   propValue.getChildren()[1] as ts.ObjectLiteralExpression,
                 )
 

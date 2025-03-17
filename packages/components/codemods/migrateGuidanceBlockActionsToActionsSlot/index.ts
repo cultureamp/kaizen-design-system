@@ -1,10 +1,10 @@
 import { transformComponentsInDir } from '../utils'
-import { migrateGuidanceBlockToButtonNext } from './migrateGuidanceBlockToButtonNext'
+import { migrateGuidanceBlockActionsToActionsSlot } from './migrateGuidanceBlockActionsToActionsSlot'
 
 const run = (): void => {
   console.log('It is recommended that the `upgradeIconV1` codemod be run prior to this')
   console.log('---')
-  console.log('~(-_- ~) Running V1 Buttons upgrade (~ -_-)~')
+  console.log('~(-_- ~) Running migrateGuidanceBlockActionsToActionsSlot upgrade (~ -_-)~')
 
   const targetDir = process.argv[2]
   if (!targetDir) {
@@ -12,7 +12,7 @@ const run = (): void => {
   }
 
   transformComponentsInDir(targetDir, ['GuidanceBlock'], (tagNames) => [
-    migrateGuidanceBlockToButtonNext(tagNames),
+    migrateGuidanceBlockActionsToActionsSlot(tagNames),
   ])
 }
 
