@@ -59,6 +59,55 @@ const meta = {
       description:
         'This takes a scene scene or spot element, ie: `<Informative />`. This radio button implementation is a storybook only representation to toggle between the two illustration styles.',
     },
+    actionsSlot: {
+      control: {
+        type: 'select',
+      },
+      options: ['Primary action', 'Primary and Secondary action', 'Action with Tooltip'],
+      mapping: {
+        'Primary action': (
+          <Button
+            variant="secondary"
+            onPress={() => alert('tada: 🎉')}
+            iconPosition="end"
+            icon={<Icon name={'arrow_forward'} isPresentational />}
+          >
+            Action
+          </Button>
+        ),
+        'Primary and Secondary action': (
+          <>
+            <Button
+              variant="secondary"
+              onPress={() => alert('tada: 🎉')}
+              iconPosition="end"
+              icon={<Icon name={'arrow_forward'} isPresentational />}
+            >
+              Action
+            </Button>
+            <LinkButton variant="tertiary" href="#Pass">
+              Pass
+            </LinkButton>
+          </>
+        ),
+        'Action with Tooltip': (
+          <TooltipTriggerNext defaultOpen>
+            <LinkButton
+              variant="secondary"
+              href="#lorem"
+              target="_blank"
+              rel="noopener noreferrer"
+              size="large"
+              iconPosition="end"
+              icon={<Icon name="open_in_new" shouldMirrorInRTL isPresentational />}
+            >
+              Learn more
+            </LinkButton>
+            <TooltipNext>Opens in a new tab</TooltipNext>
+          </TooltipTriggerNext>
+        ),
+      },
+    },
     content: {
       description:
         'If you need to render custom content inside of the `GuidanceBlock` that is more than just a title and description use this prop instead of the default `text` option.',

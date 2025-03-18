@@ -2,8 +2,15 @@ import React from 'react'
 import { type Meta } from '@storybook/react'
 import { Heading } from '~components/Heading'
 import { EmptyStatesPositive, Informative } from '~components/Illustration'
+import { LinkButton } from '~components/LinkButton'
 import { Tag } from '~components/Tag'
 import { Text } from '~components/Text'
+import { Icon } from '~components/__next__'
+import { Button } from '~components/__next__/Button'
+import {
+  Tooltip as TooltipNext,
+  TooltipTrigger as TooltipTriggerNext,
+} from '~components/__next__/Tooltip'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { GuidanceBlock, type GuidanceBlockProps } from '../index'
 import { variantsMap } from '../types'
@@ -18,20 +25,21 @@ export default {
 
 const GENERIC_PROPS = {
   illustration: <Informative alt="" />,
-  actions: {
-    primary: {
-      label: 'Action',
-      onClick: () => {
-        alert('tada: 🎉')
-      },
-    },
-    secondary: {
-      label: 'Pass',
-      onClick: () => {
-        alert('tada: 🎉')
-      },
-    },
-  },
+  actionsSlot: (
+    <>
+      <Button
+        variant="secondary"
+        onPress={() => alert('tada: 🎉')}
+        iconPosition="end"
+        icon={<Icon name={'arrow_forward'} isPresentational />}
+      >
+        Action
+      </Button>
+      <LinkButton variant="tertiary" href="#lorem" onPress={() => alert('tracking')}>
+        Pass
+      </LinkButton>
+    </>
+  ),
 } satisfies Partial<GuidanceBlockProps>
 
 const TEXT_PROPS: GuidanceBlockProps = {
@@ -66,7 +74,19 @@ const StickerSheetTemplate: StickerSheetStory = {
         ))}
       </>
       <StickerSheet.Row header="No arrow">
-        <GuidanceBlock withActionButtonArrow={false} {...TEXT_PROPS} />
+        <GuidanceBlock
+          {...TEXT_PROPS}
+          actionsSlot={
+            <>
+              <Button variant="secondary" onPress={() => alert('tada: 🎉')}>
+                Action
+              </Button>
+              <LinkButton variant="tertiary" href="#lorem" onPress={() => alert('tracking')}>
+                Pass
+              </LinkButton>
+            </>
+          }
+        />
       </StickerSheet.Row>
       <StickerSheet.Row header="Custom Content">
         <GuidanceBlock {...CONTENT_PROPS} />
@@ -74,16 +94,24 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Row header="Tooltip">
         <GuidanceBlock
           {...TEXT_PROPS}
-          actions={{
-            primary: {
-              ...GENERIC_PROPS.actions.primary,
-              tooltip: {
-                text: 'Opens in a new tab',
-                mood: 'cautionary',
-                isInitiallyVisible: true,
-              },
-            },
-          }}
+          actionsSlot={
+            <>
+              <TooltipTriggerNext defaultOpen>
+                <LinkButton
+                  variant="secondary"
+                  href="#lorem"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="large"
+                  iconPosition="end"
+                  icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
+                >
+                  Learn more
+                </LinkButton>
+                <TooltipNext>Opens in a new tab</TooltipNext>
+              </TooltipTriggerNext>
+            </>
+          }
         />
       </StickerSheet.Row>
       <StickerSheet.Row header="Scene Illustration">
