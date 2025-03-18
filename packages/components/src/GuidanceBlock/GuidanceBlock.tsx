@@ -46,6 +46,7 @@ type BaseGuidanceBlockProps = {
   /** @deprecated this is no longer a used feature and is only the deprecated `actions` prop, ie: {secondary: { label: "Dismiss action" }}` */
   secondaryDismiss?: boolean
   variant?: VariantType
+  /**  @deprecated use the `actionsSlot` and pass the icon into the JSX elements */
   withActionButtonArrow?: boolean
   noMaxWidth?: boolean
 }
