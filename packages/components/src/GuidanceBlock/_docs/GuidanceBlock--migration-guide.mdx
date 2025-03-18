@@ -20,6 +20,17 @@ Below is a list of notable changes when migrating:
 - `withActionButtonArrow` prop is deprecated
   - Icons should be handled within the `Button` or `LinkButton` component
 
+### Mapping primary and secondary actions to the correct Button variant
+
+The primary action is mapped to the `secondary` variant and secondary action is mapped to the `tertiary` variant, i.e:
+
+```tsx
+  <Button variant="secondary" size="large" {...otherButtonProps}>Primary Action</Button>
+  <Button variant="tertiary" size="large" {...otherButtonProps}>Secondary Action</Button>
+```
+
+Note that within GuidanceBlock the size of the buttons is `large`.
+
 ## Codemod
 
 To assist in migration we have created the `migrateGuidanceBlockActionsToActionsSlot` codemod.
