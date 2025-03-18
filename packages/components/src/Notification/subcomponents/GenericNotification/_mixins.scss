@@ -49,8 +49,8 @@ $notification-slide-right: transform 300ms ease-out;
     box-shadow: $shadow-small-box-shadow;
     max-width: 100%;
     padding: $notification-vertical-padding 10px;
-    transition: $notification-fade-out, $notification-slide-right,
-      $notification-collapse-height-delayed;
+    transition:
+      $notification-fade-out, $notification-slide-right, $notification-collapse-height-delayed;
     will-change: transform;
   }
 
