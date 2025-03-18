@@ -35,14 +35,11 @@ export const migrateGuidanceBlockActionsToActionsSlot =
         const tagName = node.tagName.getText()
         const tagImportAttributes = tagsMap.get(tagName)
 
-        console.log('tagName---', tagName)
-
         if (!tagImportAttributes) return node
         if (
           tagName === 'GuidanceBlock' ||
           tagImportAttributes.importModuleName === 'GuidanceBlock'
         ) {
-          console.log('guidance block found----')
           const componentProps: ts.JsxAttributeLike[] = node.attributes.properties.reduce<
             ts.JsxAttributeLike[]
           >((guidanceBlockProps, prop) => {
@@ -56,8 +53,6 @@ export const migrateGuidanceBlockActionsToActionsSlot =
                 )
 
                 if (transformedActions?.importsToAdd) {
-                  console.log('update imports----')
-
                   transformedActions?.importsToAdd.forEach((importToAdd) => {
                     if (importToAdd === 'Button') {
                       setImportToAdd(importsToAdd, BUTTON_IMPORT_DESTINATION, {
