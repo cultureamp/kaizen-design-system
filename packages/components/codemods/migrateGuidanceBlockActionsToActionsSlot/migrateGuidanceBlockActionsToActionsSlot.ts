@@ -53,7 +53,7 @@ export const migrateGuidanceBlockActionsToActionsSlot =
                 )
 
                 if (transformedActions?.importsToAdd) {
-                  transformedActions?.importsToAdd.forEach((importToAdd) => {
+                  transformedActions.importsToAdd.forEach((importToAdd) => {
                     if (importToAdd === 'Button') {
                       setImportToAdd(importsToAdd, BUTTON_IMPORT_DESTINATION, {
                         componentName: 'Button',

@@ -35,6 +35,7 @@ export const transformActionsToActionsSlot = (
         'secondary',
       )
       primaryButton = transformedComponent.component
+      newImports.push(transformedComponent.import)
     }
 
     if (secondaryAction) {
