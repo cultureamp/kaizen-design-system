@@ -30,12 +30,13 @@ const GENERIC_PROPS = {
       <Button
         variant="secondary"
         onPress={() => alert('tada: 🎉')}
+        size="large"
         iconPosition="end"
-        icon={<Icon name={'arrow_forward'} isPresentational />}
+        icon={<Icon name={'arrow_forward'} shouldMirrorInRTL isPresentational />}
       >
         Action
       </Button>
-      <LinkButton variant="tertiary" href="#lorem" onPress={() => alert('tracking')}>
+      <LinkButton variant="tertiary" href="#lorem" onPress={() => alert('tracking')} size="large">
         Pass
       </LinkButton>
     </>
@@ -78,10 +79,15 @@ const StickerSheetTemplate: StickerSheetStory = {
           {...TEXT_PROPS}
           actionsSlot={
             <>
-              <Button variant="secondary" onPress={() => alert('tada: 🎉')}>
+              <Button variant="secondary" onPress={() => alert('tada: 🎉')} size="large">
                 Action
               </Button>
-              <LinkButton variant="tertiary" href="#lorem" onPress={() => alert('tracking')}>
+              <LinkButton
+                variant="tertiary"
+                href="#lorem"
+                onPress={() => alert('tracking')}
+                size="large"
+              >
                 Pass
               </LinkButton>
             </>
