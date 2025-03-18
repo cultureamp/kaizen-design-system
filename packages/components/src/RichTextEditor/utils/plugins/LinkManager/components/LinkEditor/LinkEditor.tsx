@@ -26,7 +26,7 @@ export const LinkEditor = ({
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(attrs.href != null)
   const [modalOpen, setModalOpen] = useState<boolean>(attrs._metadata?.added === true)
 
-  const [href, setHref] = useState<string | undefined>(attrs.href ? attrs.href : undefined)
+  const [href, setHref] = useState<string | undefined>(attrs.href ?? undefined)
 
   return (
     <>

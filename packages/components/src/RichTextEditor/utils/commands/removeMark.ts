@@ -15,7 +15,7 @@ export const removeMark: CommandFactory =
       dispatch(tr.removeStoredMark(type))
     } else {
       if (options.range || options.toExtent) {
-        const range = options.range || getMarkRange($from, type)
+        const range = options.range ?? getMarkRange($from, type)
         if (range) {
           from = range.from
           to = range.to

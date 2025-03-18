@@ -19,7 +19,7 @@ const config = {
     }
 
     // setting story level rules overrides global rules by default. Instead we're making sure globals are always included
-    const storyRules = parameters?.a11y?.config?.rules || []
+    const storyRules = parameters?.a11y?.config?.rules ?? []
     const rules = [...globalA11yRules, ...storyRules]
 
     await configureAxe(page as Page, { ...parameters.a11y?.config, rules })

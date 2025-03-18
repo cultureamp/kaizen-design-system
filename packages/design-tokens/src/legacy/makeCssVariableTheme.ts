@@ -48,7 +48,7 @@ export function makeCSSVariableTheme<ThemeType extends Record<string | number, u
     const leafKey = leafPath[leafPath.length - 1]
     const pathWithoutLast = leafPath.slice(0, leafPath.length - 1)
     const leafObject = pathWithoutLast.reduce(
-      (child, segment) => (child[segment] || (child[segment] = {})) as Record<string, unknown>,
+      (child, segment) => (child[segment] ?? (child[segment] = {})) as Record<string, unknown>,
       augmentedTheme as Record<string, unknown>,
     )
     if (!leafKey) {
