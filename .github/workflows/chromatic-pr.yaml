@@ -25,7 +25,7 @@ on:
 jobs:
   run-check:
     name: Check if we should run Chromatic tests
-    if: github.head_ref != 'changeset-release/main' && github.event.pull_request.draft == false
+    if: github.head_ref != 'changeset-release/main' && github.event.pull_request.draft == false && github.base_ref == 'main'
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:

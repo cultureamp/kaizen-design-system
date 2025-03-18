@@ -19,7 +19,7 @@ on:
 
 jobs:
   changesets-exists:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' && github.base_ref == 'main'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
