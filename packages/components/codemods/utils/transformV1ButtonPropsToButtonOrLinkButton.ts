@@ -108,6 +108,17 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
 
     if (propName) {
       if (propName === 'label') {
+        if (ts.isShorthandPropertyAssignment(currentProp)) {
+          childrenValue = ts.factory.createJsxExpression(
+            undefined,
+            ts.factory.createIdentifier(propName),
+          )
+          return acc
+        }
+        if (propValue && propValue?.kind !== ts.SyntaxKind.StringLiteral) {
+          childrenValue = ts.factory.createJsxExpression(undefined, propValue)
+          return acc
+        }
         childrenValue = propValue as ts.JsxAttributeValue
         return acc
       }
@@ -130,6 +141,9 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
 
       if (propName === 'href') {
         hasLinkAttr = true
+        if (propValue && propValue?.kind !== ts.SyntaxKind.StringLiteral) {
+          return [...acc, createProp('href', ts.factory.createJsxExpression(undefined, propValue))]
+        }
         return [...acc, createProp('href', propValue as ts.StringLiteral)]
       }
 
@@ -149,7 +163,7 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
       if (newProp === null) return acc
 
       if (newProp === undefined) {
-        const sanitizedPropName = propName.replace(/'/g, '')
+        const sanitizedPropName = propName.replace(/'|"/g, '')
         const sanitizedPropValue: ts.JsxAttributeValue =
           propValue?.kind === ts.SyntaxKind.StringLiteral
             ? (propValue as ts.StringLiteral)
