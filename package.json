@@ -65,7 +65,7 @@
     "@vitest/eslint-plugin": "^1.1.38",
     "chromatic": "^11.27.0",
     "eslint": "^9.18.0",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "^10.1.1",
     "eslint-import-resolver-typescript": "^3.9.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
