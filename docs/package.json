@@ -33,7 +33,7 @@
     "@types/jest-axe": "^3.5.9",
     "@types/react-highlight": "^0.12.8",
     "@vitejs/plugin-react": "^4.3.4",
-    "axe-playwright": "^2.0.3",
+    "axe-playwright": "^2.1.0",
     "classnames": "^2.5.1",
     "globals": "^15.15.0",
     "highlight.js": "^11.11.1",
