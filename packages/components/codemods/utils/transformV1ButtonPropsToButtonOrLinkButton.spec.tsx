@@ -114,16 +114,56 @@ describe('transformV1ButtonPropsToButtonOrLinkButton()', () => {
         onClick: () => console.log("hello world")
         size: 'small',
         classNameOverride: styles.buttonClass,
-        badge: { text: 'New' }
+        badge: { text: 'New' },
+        'data-random-attribute': 'some-id',
+        "aria-label": "some label",
+        form: 'form-id',
+      }}/>`)
+
+    const outputAst = parseJsx(
+      `<DummyComponent primaryAction={<Button onPress={() => console.log("hello world")} size="medium" className={styles.buttonClass} badge={{ text: 'New' }} data-random-attribute='some-id' aria-label="some label" form='form-id' variant="secondary">Learn more</Button>}}
+      />`,
+    )
+
+    expect(transformInput(inputAst)).toBe(printAst(outputAst))
+  })
+
+  it('transforms shorthand properties as expressions', () => {
+    const inputAst = parseJsx(`<DummyComponent primaryAction={{
+        label,
+        onClick: () => console.log("hello world")
+        size: 'small',
+        classNameOverride: styles.buttonClass,
+        badge: { text: 'New' },
+        'data-random-attribute': 'some-id',
+        "aria-label": "some label",
+        form: 'form-id',
+      }}/>`)
+
+    const outputAst = parseJsx(
+      `<DummyComponent primaryAction={<Button onPress={() => console.log("hello world")} size="medium" className={styles.buttonClass} badge={{ text: 'New' }} data-random-attribute='some-id' aria-label="some label" form='form-id' variant="secondary">{label}</Button>}}
+      />`,
+    )
+
+    expect(transformInput(inputAst)).toBe(printAst(outputAst))
+  })
+  it('transforms expressions correctly as children', () => {
+    const inputAst = parseJsx(`
+      <DummyComponent primaryAction={{
+        label: intl.formatMessage({ id: "label.id", defaultMessage: "Label", { variableVal }),
+        onClick: () => console.log("hello world")
+        href: url,
+        size: 'small',
+        classNameOverride: styles.buttonClass,
+        badge: { text: 'New' },
         'data-random-attribute': 'some-id',
         form: 'form-id',
       }}/>`)
 
     const outputAst = parseJsx(
-      `<DummyComponent primaryAction={<Button onPress={() => console.log("hello world")} size="medium" className={styles.buttonClass} badge={{ text: 'New' }} data-random-attribute='some-id' form='form-id' variant="secondary">Learn more</Button>}}
+      `<DummyComponent primaryAction={<LinkButton onPress={() => console.log("hello world")} href={url} size="medium" className={styles.buttonClass} badge={{ text: 'New' }} data-random-attribute='some-id' form='form-id' variant="secondary">{intl.formatMessage({ id: "label.id", defaultMessage: "Label", { variableVal })}</LinkButton>}}
       />`,
     )
-
     expect(transformInput(inputAst)).toBe(printAst(outputAst))
   })
 })
