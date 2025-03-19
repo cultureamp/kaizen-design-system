@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, type HTMLAttributes } from 'react'
+import React, { useEffect, useRef, useState, type HTMLAttributes, type ReactNode } from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import { Button, IconButton } from '~components/Button'
@@ -130,8 +130,8 @@ export const GenericTile = ({
     return informationProp
   }
 
-  const renderBack = (): JSX.Element | void => {
-    if (!information) return
+  const renderBack = (): ReactNode => {
+    if (!information) return null
 
     const returnButtonLabel = formatMessage({
       id: 'kzGenericTile.infoButtonReturnLabel',

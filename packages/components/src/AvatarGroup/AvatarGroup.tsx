@@ -1,4 +1,4 @@
-import React, { type HTMLAttributes } from 'react'
+import React, { type HTMLAttributes, type ReactNode } from 'react'
 import classnames from 'classnames'
 import { Avatar, type CompanyAvatarProps, type GenericAvatarProps } from '~components/Avatar'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
@@ -29,8 +29,8 @@ export type AvatarGroupProps = {
   avatars: AvatarList
 } & OverrideClassName<HTMLAttributes<HTMLUListElement>>
 
-const renderCounter = (remainingAvatars: number): JSX.Element | void => {
-  if (remainingAvatars <= 0) return
+const Counter = ({ remainingAvatars }: { remainingAvatars: number }): ReactNode => {
+  if (remainingAvatars <= 0) return null
   return (
     <li
       aria-label={`There ${
@@ -47,11 +47,15 @@ const renderCounter = (remainingAvatars: number): JSX.Element | void => {
   )
 }
 
-const renderAvatars = (
-  avatars: AvatarList,
-  maxVisible: number,
-  size: AvatarGroupSize,
-): JSX.Element => (
+const AllAvatars = ({
+  avatars,
+  maxVisible,
+  size,
+}: {
+  avatars: AvatarList
+  maxVisible: number
+  size: AvatarGroupSize
+}): ReactNode => (
   <>
     {avatars?.map(
       (avatarProps, index) =>
@@ -61,7 +65,7 @@ const renderAvatars = (
           </li>
         ),
     )}
-    {renderCounter(avatars?.length - maxVisible)}
+    <Counter remainingAvatars={avatars?.length - maxVisible} />
   </>
 )
 
@@ -81,6 +85,6 @@ export const AvatarGroup = ({
     aria-label="Avatar Group"
     {...restProps}
   >
-    {renderAvatars(avatars, maxVisible, size)}
+    <AllAvatars avatars={avatars} maxVisible={maxVisible} size={size} />
   </ul>
 )
