@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.73.8
+
+### Patch Changes
+
+- [#5560](https://github.com/cultureamp/kaizen-design-system/pull/5560) [`93f98a1`](https://github.com/cultureamp/kaizen-design-system/commit/93f98a1b1f2946625214d9c0230cb374cf9f4d15) - update dependency jest-axe to v10
+
 ## 1.73.7
 
 ### Patch Changes
