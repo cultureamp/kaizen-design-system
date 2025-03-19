@@ -66,12 +66,12 @@ const ColorDemo = ({ color, name }: { color: string; name?: string }): JSX.Eleme
       >
         <Heading variant="heading-5" tag="span">
           <span style={{ color, filter: 'invert(1) grayscale(1) contrast(100)' }}>
-            {colorString.to.hex(parsedColor.value)}
+            {colorString.to.hex(...(parsedColor.value as Parameters<typeof colorString.to.hex>))}
           </span>
         </Heading>
         <Heading variant="heading-5" tag="span">
           <span style={{ color, filter: 'invert(1) grayscale(1) contrast(100)' }}>
-            {colorString.to.rgb(parsedColor.value)}
+            {colorString.to.rgb(...(parsedColor.value as Parameters<typeof colorString.to.hex>))}
           </span>
         </Heading>
       </div>
