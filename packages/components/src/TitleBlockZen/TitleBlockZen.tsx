@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { type ReactNode } from 'react'
 import classnames from 'classnames'
 import { Avatar } from '~components/Avatar'
 import { IconButton } from '~components/Button'
@@ -21,11 +21,11 @@ import {
 import { createTabletOverflowMenuItems, isReversed } from './utils'
 import styles from './TitleBlockZen.module.scss'
 
-const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
+const renderTag = (surveyStatus: SurveyStatus): ReactNode => {
   let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>['variant']
 
   if (tagVariant === 'profile') {
-    return
+    return null
   }
 
   if (surveyStatus.status === 'draft') {
