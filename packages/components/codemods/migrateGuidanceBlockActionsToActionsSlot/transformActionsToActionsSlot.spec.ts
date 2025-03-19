@@ -132,8 +132,8 @@ describe('transformActionsToActionsSlot()', () => {
             >Learn more</Button></>}/>
       `)
 
-    expect(transformInput(inputAst).replace(/\n+/g, ' ').replace(/\s+/g, ' ')).toBe(
-      printAst(outputAst).replace(/\n+/g, ' ').replace(/\s+/g, ' '),
+    expect(transformInput(inputAst).replace(/\s+/g, ' ')).toBe(
+      printAst(outputAst).replace(/\s+/g, ' '),
     )
   })
 
@@ -189,8 +189,8 @@ describe('transformActionsToActionsSlot()', () => {
             >Learn more</Button></>}/>
       `)
 
-    expect(transformInput(inputAst).replace(/\n+/g, ' ').replace(/\s+/g, ' ')).toBe(
-      printAst(outputAst).replace(/\n+/g, ' ').replace(/\s+/g, ' '),
+    expect(transformInput(inputAst).replace(/\s+/g, ' ')).toBe(
+      printAst(outputAst).replace(/\s+/g, ' '),
     )
   })
 })
