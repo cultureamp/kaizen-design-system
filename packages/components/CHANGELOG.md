@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.73.9
+
+### Patch Changes
+
+- [#5470](https://github.com/cultureamp/kaizen-design-system/pull/5470) [`572f507`](https://github.com/cultureamp/kaizen-design-system/commit/572f50713c15d4d15d30a7b7eacd1191e9b60c5f) - Bump react-aria packages
+
 ## 1.73.8
 
 ### Patch Changes
