@@ -88,3 +88,97 @@
   border-color: var(--color-purple-400);
   background-color: var(--color-purple-100);
 }
+
+.aiMoment {
+  --border-width: 2px;
+
+  position: relative;
+  border-radius: var(--border-borderless-border-radius);
+  border-width: 0;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background-position: 0 50%;
+    border-radius: 8px;
+    transition:
+      filter 1s ease,
+      background-size 1s ease,
+      background-position 1s ease,
+      opacity 1s ease;
+    pointer-events: none;
+  }
+
+  &::before {
+    background: linear-gradient(
+      310deg,
+      rgb(103 199 175 / 100%) 0%,
+      rgb(100 210 215 / 100%) 41%,
+      rgb(200 136 226 / 100%) 100%
+    );
+  }
+
+  &::after {
+    background: linear-gradient(
+      310deg,
+      rgb(200 136 226 / 100%) 0%,
+      rgb(103 199 175 / 100%) 30%,
+      rgb(100 210 215 / 100%) 60%,
+      rgb(200 136 226 / 100%) 90%
+    );
+    filter: blur(8px);
+    opacity: 0;
+  }
+
+  &.aiMomentLoading {
+    &::before {
+      background: linear-gradient(
+        310deg,
+        rgb(200 136 226 / 100%) 0%,
+        rgb(103 199 175 / 100%) 30%,
+        rgb(100 210 215 / 100%) 60%,
+        rgb(200 136 226 / 100%) 90%
+      );
+      background-size: 300% 300%;
+      animation: animate-ai-border 15s infinite;
+    }
+
+    &::after {
+      background-size: 300% 300%;
+      animation: animate-ai-blur 15s infinite;
+      opacity: 0.7;
+    }
+  }
+}
+
+@keyframes animate-ai-border {
+  0% {
+    background-position: 0 50%;
+  }
+
+  100% {
+    background-position: 400% 0;
+  }
+}
+
+@keyframes animate-ai-blur {
+  0% {
+    background-position: 0 50%;
+    filter: blur(8px);
+  }
+
+  50% {
+    filter: blur(10px);
+  }
+
+  100% {
+    background-position: 400% 0;
+    filter: blur(8px);
+  }
+}
