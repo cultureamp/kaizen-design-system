@@ -19,6 +19,10 @@ export type ToastNotificationProps = Omit<
    * @default false
    */
   hideCloseIcon?: boolean
+  /**
+   *
+   */
+  autohide?: boolean
 } & (GenericNotificationType | GenericNotificationVariant)
 
 export const ToastNotification = ({

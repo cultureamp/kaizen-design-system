@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useRef, useState, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { type HeadingProps } from '~components/Heading'
+import { AUTOHIDE_TIME } from '~components/Notification/constants'
 import { type NotificationType, type NotificationVariant } from '~components/Notification/types'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { isRefObject } from '~components/utils/isRefObject'
@@ -15,6 +16,7 @@ type GenericNotificationBase = {
   title?: string
   persistent?: boolean
   onHide?: () => void
+  autohide?: boolean
   noBottomMargin?: boolean
   forceMultiline?: boolean
   headingProps?: HeadingProps
@@ -58,6 +60,7 @@ export const GenericNotification = forwardRef<HTMLDivElement, GenericNotificatio
       forceMultiline,
       headingProps,
       classNameOverride,
+      autohide,
       ...restProps
     },
     ref,
@@ -75,6 +78,20 @@ export const GenericNotification = forwardRef<HTMLDivElement, GenericNotificatio
         }
       })
     }, [containerRef])
+
+    useEffect(() => {
+      if (!['toast', 'inline'].includes(style) || !autohide) {
+        return
+      }
+
+      const autoHideTimeoutId = setTimeout(() => {
+        setIsHidden(true)
+      }, AUTOHIDE_TIME)
+
+      return () => {
+        clearTimeout(autoHideTimeoutId)
+      }
+    }, [autohide, style])
 
     const getMarginTop = (): string => {
       if (isHidden && containerRef.current) {

@@ -14,6 +14,10 @@ export type ToastNotificationObjBase = {
    * @default false
    */
   persistent?: boolean
+  /**
+   *
+   */
+  autohide?: boolean
 } & DataAttributes
 
 export type ToastNotificationObj = ToastNotificationObjBase &
