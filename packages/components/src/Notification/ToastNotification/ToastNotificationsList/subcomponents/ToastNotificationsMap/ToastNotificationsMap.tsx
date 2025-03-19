@@ -13,6 +13,7 @@ export type ToastNotificationsMapProps = {
 export const ToastNotificationsMap = ({
   notifications,
   onHide: defaultOnHide,
+  autohide,
   container,
 }: ToastNotificationsMapProps): JSX.Element | null => {
   if (!container) return null
@@ -33,6 +34,7 @@ export const ToastNotificationsMap = ({
             }
             defaultOnHide(id)
           }}
+          autohide={autohide}
           {...restProps}
         >
           {message}
