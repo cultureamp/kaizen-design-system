@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.8.9
+
+### Patch Changes
+
+- [#5515](https://github.com/cultureamp/kaizen-design-system/pull/5515) [`ff697c7`](https://github.com/cultureamp/kaizen-design-system/commit/ff697c76638d035128cc628162d005af8b33e61a) - update dependency color-string to v2
+
 ## 10.8.8
 
 ### Patch Changes
