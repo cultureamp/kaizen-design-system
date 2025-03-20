@@ -75,9 +75,6 @@ export const InputSearch = (props: InputSearchProps): JSX.Element => {
         readOnly={onChange === undefined}
         {...restProps}
       />
-      {/* Inputs aren't able to have pseudo elements like ::after on them,
-          so we have to create an element ourselves for the focus ring */}
-      <div className={styles.focusRing} />
 
       {value && (
         <ClearButton

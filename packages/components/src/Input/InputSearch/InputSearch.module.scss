@@ -60,19 +60,11 @@ $classname--input: '.input[type="search"]';
       opacity: 0%;
     }
   }
-}
 
-.focusRing {
-  #{$classname--input}:focus + & {
-    $focus-ring-offset: 3px;
-
-    position: absolute;
-    background: transparent;
-    border-radius: $border-solid-border-radius-curved;
-    border-width: $border-focus-ring-border-width;
-    border-style: $border-focus-ring-border-style;
-    inset: -$focus-ring-offset;
-    pointer-events: none;
+  &:focus {
+    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+      var(--color-blue-500);
+    outline-offset: 1px;
   }
 }
 
@@ -123,10 +115,6 @@ $classname--input: '.input[type="search"]';
     }
   }
 
-  .focusRing {
-    border-color: $color-blue-500;
-  }
-
   .startIconAdornment {
     color: $color-purple-800;
     opacity: $start-icon-opacity--default;
@@ -162,10 +150,6 @@ $classname--input: '.input[type="search"]';
     }
   }
 
-  .focusRing {
-    border-color: $color-blue-500;
-  }
-
   .startIconAdornment {
     color: $color-purple-800;
     opacity: $start-icon-opacity--default;
@@ -198,10 +182,10 @@ $classname--input: '.input[type="search"]';
       color: $color-white;
       opacity: $input-placeholder-opacity--reversed;
     }
-  }
 
-  .focusRing {
-    border-color: $color-blue-300;
+    &:focus {
+      outline-color: var(--color-blue-300);
+    }
   }
 
   .startIconAdornment {
