@@ -9,17 +9,6 @@ import {
   getPropValueText,
 } from '../utils'
 
-export const migrateV1ButtonSize = (
-  oldValue: Exclude<V1ButtonProps['size'], undefined>,
-): Exclude<NextButtonProps['size'], undefined> => {
-  switch (oldValue) {
-    case 'small':
-      return 'medium'
-    case 'regular':
-      return 'large'
-  }
-}
-
 /**
  * A function that transforms button v1 prop values into a Button/next JSX component
  * @returns
@@ -68,12 +57,10 @@ export const transformButtonProp = (
       return createProp('icon', sanitizedPropValue)
     }
     case 'size': {
-      if (!propValue) return createStringProp('size', 'large')
-
-      const sizeValue = getPropValueText(propValue) as Exclude<V1ButtonProps['size'], undefined>
-      return sizeValue
-        ? createStringProp('size', migrateV1ButtonSize(sizeValue))
-        : createProp('size', propValue)
+      if (propValue && getPropValueText(propValue) === 'small') {
+        return createStringProp('size', 'medium')
+      }
+      return createStringProp('size', 'large')
     }
     case 'primary':
       return createStringProp('variant', 'primary')
