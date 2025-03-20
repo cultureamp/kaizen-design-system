@@ -57,6 +57,9 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
   .checkbox:focus + & {
     background: white;
     border-color: $dt-color-form-border-color-hover;
+    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+      var(--color-blue-500);
+    outline-offset: 1px;
   }
 
   .checkbox:checked:focus + &,
@@ -70,21 +73,6 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
     background: $dt-color-form-border-color-hover;
     border-color: $dt-color-form-border-color-hover;
   }
-
-  .checkbox:focus + &::after {
-    content: '';
-    box-sizing: border-box;
-    position: absolute;
-    background: transparent;
-    border-radius: $border-focus-ring-border-radius;
-    border-width: $border-focus-ring-border-width;
-    border-style: $border-focus-ring-border-style;
-    border-color: $dt-color-form-border-color-focus;
-    top: calc(-#{$focus-ring-offset} - calc(#{$checkbox-size} / 8));
-    left: calc(-#{$focus-ring-offset} - calc(#{$checkbox-size} / 8));
-    width: calc(#{$checkbox-size} + #{$focus-ring-offset} + #{$border-solid-border-width} * 2);
-    height: calc(#{$checkbox-size} + #{$focus-ring-offset} + #{$border-solid-border-width} * 2);
-  }
 }
 
 .box.reversed {
@@ -94,6 +82,10 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
   .checkbox:checked + &,
   .checkbox:indeterminate + & {
     background: rgba($color-white-rgb, 0.65);
+  }
+
+  .checkbox:focus + & {
+    outline-color: var(--color-blue-300);
   }
 
   .checkbox:not([checked]):hover + &,
@@ -112,9 +104,5 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
   .checkbox:checked:hover + & {
     background: $color-white;
     border-color: $color-white;
-  }
-
-  .checkbox:focus + &::after {
-    border-color: $dt-color-form-border-color-reversed-focus;
   }
 }
