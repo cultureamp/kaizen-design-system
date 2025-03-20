@@ -107,21 +107,50 @@ describe('transformV1ButtonPropsToButtonOrLinkButton()', () => {
 
     expect(transformInput(inputAst)).toBe(printAst(outputAst))
   })
-  // it is expected that the consumer will handle any type error that may arise from this transformation
-  it('passes all other attributes into the create jsx element', () => {
+  it('will create a large button if the size is undefined', () => {
+    const inputAst = parseJsx(`<DummyComponent primaryAction={{
+      label: 'Learn more',
+      onClick: () => console.log("hello world")
+    }}/>`)
+
+    const outputAst = parseJsx(
+      `<DummyComponent primaryAction={<Button onPress={() => console.log("hello world")} variant="secondary" size="large">Learn more</Button>}}
+    />`,
+    )
+
+    expect(transformInput(inputAst)).toBe(printAst(outputAst))
+  })
+  // This will allow for type feedback to the consumer
+  it('passes tooltip and badge props into the created element', () => {
+    const inputAst = parseJsx(`<DummyComponent primaryAction={{
+      label: 'Learn more',
+      onClick: () => console.log("hello world")
+      size: 'small',
+      classNameOverride: styles.buttonClass,
+      tooltip: { text: 'Opens in a new tab', mood: 'cautionary' },
+      badge: { text: 'New' },
+    }}/>`)
+
+    const outputAst = parseJsx(
+      `<DummyComponent primaryAction={<Button onPress={() => console.log("hello world")} size="medium" className={styles.buttonClass} tooltip={{ text: 'Opens in a new tab', mood: 'cautionary' }} badge={{ text: 'New' }} variant="secondary">Learn more</Button>}}
+    />`,
+    )
+
+    expect(transformInput(inputAst)).toBe(printAst(outputAst))
+  })
+  it('passes all data and native attributes into the created element', () => {
     const inputAst = parseJsx(`<DummyComponent primaryAction={{
         label: 'Learn more',
         onClick: () => console.log("hello world")
         size: 'small',
         classNameOverride: styles.buttonClass,
-        badge: { text: 'New' },
         'data-random-attribute': 'some-id',
         "aria-label": "some label",
         form: 'form-id',
       }}/>`)
 
     const outputAst = parseJsx(
-      `<DummyComponent primaryAction={<Button onPress={() => console.log("hello world")} size="medium" className={styles.buttonClass} badge={{ text: 'New' }} data-random-attribute='some-id' aria-label="some label" form='form-id' variant="secondary">Learn more</Button>}}
+      `<DummyComponent primaryAction={<Button onPress={() => console.log("hello world")} size="medium" className={styles.buttonClass}  data-random-attribute='some-id' aria-label="some label" form='form-id' variant="secondary">Learn more</Button>}}
       />`,
     )
 
