@@ -13,7 +13,7 @@
 .link[data-focus-visible] {
   outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
     var(--color-blue-500);
-  outline-offset: 1px;
+  outline-offset: 3px;
 }
 
 .isUnderlined {
