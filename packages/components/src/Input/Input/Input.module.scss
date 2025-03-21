@@ -50,7 +50,8 @@ $input-with-icon-padding: calc(#{$input-icon-size} + calc(#{$spacing-md} * 0.75)
 
   &:focus:not([disabled]),
   &:hover:focus:not([disabled]) {
-    outline: var(--border-focus-ring-border-width) solid var(--color-blue-500);
+    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+      var(--color-blue-500);
     outline-offset: 1px;
 
     @include form-input-placeholder {
