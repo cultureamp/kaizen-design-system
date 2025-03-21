@@ -1,6 +1,4 @@
 import ts from 'typescript'
-import { type ButtonProps as V1ButtonProps } from '~components/Button'
-import { type ButtonProps as NextButtonProps } from '~components/__next__/Button'
 
 import {
   createJsxElementWithChildren,
@@ -57,10 +55,13 @@ export const transformButtonProp = (
       return createProp('icon', sanitizedPropValue)
     }
     case 'size': {
-      if (propValue && getPropValueText(propValue) === 'small') {
-        return createStringProp('size', 'medium')
+      const oldValue = propValue && (getPropValueText(propValue) as 'small' | 'regular')
+      const buttonSizeMap = {
+        small: 'medium',
+        regular: 'large',
       }
-      return createStringProp('size', 'large')
+
+      return oldValue ? createStringProp('size', buttonSizeMap[oldValue]) : undefined
     }
     case 'primary':
       return createStringProp('variant', 'primary')
