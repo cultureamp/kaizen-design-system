@@ -120,6 +120,7 @@ describe('transformV1ButtonPropsToButtonOrLinkButton()', () => {
 
     expect(transformInput(inputAst)).toBe(printAst(outputAst))
   })
+
   // This will allow for type feedback to the consumer
   it('passes tooltip and badge props into the created element', () => {
     const inputAst = parseJsx(`<DummyComponent primaryAction={{
@@ -182,7 +183,7 @@ describe('transformV1ButtonPropsToButtonOrLinkButton()', () => {
         label: intl.formatMessage({ id: "label.id", defaultMessage: "Label", { variableVal }),
         onClick: () => console.log("hello world")
         href: url,
-        size: 'small',
+        size: buttonSize,
         classNameOverride: styles.buttonClass,
         badge: { text: 'New' },
         'data-random-attribute': 'some-id',
@@ -190,7 +191,7 @@ describe('transformV1ButtonPropsToButtonOrLinkButton()', () => {
       }}/>`)
 
     const outputAst = parseJsx(
-      `<DummyComponent primaryAction={<LinkButton onPress={() => console.log("hello world")} href={url} size="medium" className={styles.buttonClass} badge={{ text: 'New' }} data-random-attribute='some-id' form='form-id' variant="secondary">{intl.formatMessage({ id: "label.id", defaultMessage: "Label", { variableVal })}</LinkButton>}}
+      `<DummyComponent primaryAction={<LinkButton onPress={() => console.log("hello world")} href={url} size={buttonSize} className={styles.buttonClass} badge={{ text: 'New' }} data-random-attribute='some-id' form='form-id' variant="secondary">{intl.formatMessage({ id: "label.id", defaultMessage: "Label", { variableVal })}</LinkButton>}}
       />`,
     )
     expect(transformInput(inputAst)).toBe(printAst(outputAst))

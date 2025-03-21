@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
-import Media from 'react-media'
 import { Button as V1Button, type ButtonProps as V1ButtonProps } from '~components/Button'
 import { Heading, type HeadingProps } from '~components/Heading'
 import { type SceneProps, type SpotProps } from '~components/Illustration'
 import { Text } from '~components/Text'
 import { Tooltip, type TooltipProps } from '~components/Tooltip'
 import { Icon } from '~components/__next__'
+import { useMediaQueries } from '~components/utils/useMediaQueries'
 import { type VariantType } from './types'
 import styles from './GuidanceBlock.module.css'
 
@@ -68,7 +68,6 @@ export type GuidanceBlockProps = GuidanceBlockWithText | GuidanceBlockPropsWithC
 export type GuidanceBlockState = {
   hidden: boolean
   removed: boolean
-  mediaQueryLayout: string
 }
 
 type WithTooltipProps = {
@@ -98,17 +97,9 @@ export const GuidanceBlock = ({
 }: GuidanceBlockProps): JSX.Element => {
   const [hidden, setHidden] = useState<boolean>(false)
   const [removed, setRemoved] = useState<boolean>(false)
-  const [mediaQueryLayout, setMediaQueryLayout] = useState<string>('')
+  const { queries } = useMediaQueries()
 
   const containerRef = React.createRef<HTMLDivElement>()
-
-  useEffect(() => {
-    if (layout === 'inline' || layout === 'stacked') {
-      containerQuery()
-    }
-    // @todo: Fix if possible - avoiding breaking in eslint upgrade
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   const handleDismissBanner = (): void => {
     setHidden(true)
@@ -119,24 +110,6 @@ export const GuidanceBlock = ({
     // Be careful: this assumes the final CSS property to be animated is "margin-top".
     if (hidden && e.propertyName === 'margin-top') {
       setRemoved(true)
-    }
-  }
-
-  const containerQuery = (): void => {
-    const resizeObserver = new ResizeObserver((entries) => {
-      if (entries.length === 1) {
-        handleMediaQueryLayout(entries[0].contentRect.width)
-      }
-    })
-
-    resizeObserver.observe(containerRef.current as HTMLElement)
-  }
-
-  const handleMediaQueryLayout = (width: number): void => {
-    if (width <= 320) {
-      setMediaQueryLayout('centerContent')
-    } else {
-      setMediaQueryLayout('')
     }
   }
 
@@ -152,8 +125,6 @@ export const GuidanceBlock = ({
     return <></>
   }
 
-  const componentIsMobile = mediaQueryLayout.includes('centerContent')
-
   return (
     <div
       className={classNames(
@@ -161,7 +132,7 @@ export const GuidanceBlock = ({
         variant && styles[variant],
         layout && styles[layout],
         hidden && styles.hidden,
-        mediaQueryLayout === 'centerContent' && styles.centerContent,
+        queries.isSmall && styles.centerContent,
         noMaxWidth && styles.noMaxWidth,
         illustrationType === 'scene' && styles.hasSceneIllustration,
         smallScreenTextAlignment === 'left' && styles.smallScreenTextAlignment,
@@ -195,64 +166,43 @@ export const GuidanceBlock = ({
             </>
           )}
         </div>
-        {actions?.primary && (
-          <Media query="(max-width: 767px)">
-            {(isMobile: boolean): JSX.Element => (
-              <div
-                className={classNames({
-                  noRightMargin: isMobile || componentIsMobile,
-                  rightMargin: !(isMobile || componentIsMobile) && layout === 'default',
-                })}
-              >
-                <div className={styles.buttonContainer}>
-                  <WithTooltip tooltipProps={actions.primary.tooltip}>
-                    <V1Button
-                      icon={
-                        withActionButtonArrow ? (
-                          <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
-                        ) : undefined
-                      }
-                      iconPosition="end"
-                      {...actions.primary}
-                      fullWidth={isMobile || componentIsMobile}
-                    />
+        {actions?.primary || actionsSlot ? (
+          <div className={styles.buttonContainer}>
+            {actions?.primary && (
+              <>
+                <WithTooltip tooltipProps={actions.primary.tooltip}>
+                  <V1Button
+                    icon={
+                      withActionButtonArrow ? (
+                        <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
+                      ) : undefined
+                    }
+                    iconPosition="end"
+                    {...actions.primary}
+                    fullWidth={queries.isSmall}
+                  />
+                </WithTooltip>
+                {actions?.secondary && (
+                  <WithTooltip tooltipProps={actions.secondary.tooltip}>
+                    <div className={styles.secondaryAction}>
+                      <V1Button
+                        secondary
+                        {...actions.secondary}
+                        onClick={
+                          secondaryDismiss
+                            ? (): void => handleDismissBanner()
+                            : actions?.secondary?.onClick
+                        }
+                        fullWidth={queries.isSmall}
+                      />
+                    </div>
                   </WithTooltip>
-
-                  {actions?.secondary && (
-                    <WithTooltip tooltipProps={actions.secondary.tooltip}>
-                      <div className={styles.secondaryAction}>
-                        <V1Button
-                          secondary
-                          {...actions.secondary}
-                          onClick={
-                            secondaryDismiss
-                              ? (): void => handleDismissBanner()
-                              : actions?.secondary?.onClick
-                          }
-                          fullWidth={isMobile || componentIsMobile}
-                        />
-                      </div>
-                    </WithTooltip>
-                  )}
-                </div>
-              </div>
+                )}
+              </>
             )}
-          </Media>
-        )}
-        {!actions && actionsSlot && (
-          <Media query="(max-width: 767px)">
-            {(isMobile: boolean): JSX.Element => (
-              <div
-                className={classNames({
-                  noRightMargin: isMobile || componentIsMobile,
-                  rightMargin: !(isMobile || componentIsMobile) && layout === 'default',
-                })}
-              >
-                <div className={styles.buttonContainer}>{actionsSlot}</div>
-              </div>
-            )}
-          </Media>
-        )}
+            {!actions && actionsSlot && actionsSlot}
+          </div>
+        ) : null}
       </div>
     </div>
   )
