@@ -52,22 +52,9 @@ $dt-color-radio-border-color-focus-reversed: $color-blue-300;
 
   .radioInput:focus:not([disabled]) + & {
     border-color: $dt-color-radio-disc-color-base;
-  }
-
-  .radioInput:focus:not([disabled]) + &::after {
-    pointer-events: none;
-    content: '';
-    box-sizing: border-box;
-    position: absolute;
-    background: transparent;
-    border-radius: $radio-size + $focus-ring-offset;
-    border-width: $border-focus-ring-border-width;
-    border-style: $border-focus-ring-border-style;
-    border-color: $dt-color-radio-border-color-focus;
-    top: calc(-#{$focus-ring-offset} - calc(#{$radio-size} / 8));
-    left: calc(-#{$focus-ring-offset} - calc(#{$radio-size} / 8));
-    width: calc(#{$radio-size} + #{$focus-ring-offset} + #{$border-solid-border-width} * 2);
-    height: calc(#{$radio-size} + #{$focus-ring-offset} + #{$border-solid-border-width} * 2);
+    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+      var(--color-blue-500);
+    outline-offset: 1px;
   }
 
   .radioInput:not([disabled]) + &:hover {
@@ -81,10 +68,7 @@ $dt-color-radio-border-color-focus-reversed: $color-blue-300;
 
     .radioInput:focus:not([disabled]) + & {
       border-color: $color-white;
-    }
-
-    .radioInput:focus:not([disabled]) + &::after {
-      border-color: $dt-color-radio-border-color-focus-reversed;
+      outline-color: $dt-color-radio-border-color-focus-reversed;
     }
 
     .radioInput:not([disabled]) + &:hover {
