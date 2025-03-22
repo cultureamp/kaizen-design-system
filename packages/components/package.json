@@ -198,7 +198,7 @@
     "serialize-query-params": "^2.0.2",
     "svgo": "^3.3.2",
     "tslib": "^2.8.1",
-    "tsx": "^4.19.2"
+    "tsx": "^4.19.3"
   },
   "devDependenciesComments": {
     "sass": "Prevent deprecation warnings introduced in 1.80 as we plan to move away from sass",
