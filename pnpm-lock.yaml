@@ -311,8 +311,8 @@ importers:
         specifier: ^3.6.11
         version: 3.6.11(react@18.3.1)
       '@react-types/shared':
-        specifier: ^3.26.0
-        version: 3.26.0(react@18.3.1)
+        specifier: ^3.28.0
+        version: 3.28.0(react@18.3.1)
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -3017,11 +3017,6 @@ packages:
 
   '@react-types/select@3.9.10':
     resolution: {integrity: sha512-vvC5+cBSOu6J6lm74jhhP3Zvo1JO8m0FNX+Q95wapxrhs2aYYeMIgVuvNKeOuhVqzpBZxWmblBjCVNzCArZOaQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-
-  '@react-types/shared@3.26.0':
-    resolution: {integrity: sha512-6FuPqvhmjjlpEDLTiYx29IJCbCNWPlsyO+ZUmCUXzhUv2ttShOXfw8CmeHWHftT/b2KweAWuzqSlfeXPR76jpw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
@@ -13599,10 +13594,6 @@ snapshots:
   '@react-types/select@3.9.10(react@18.3.1)':
     dependencies:
       '@react-types/shared': 3.28.0(react@18.3.1)
-      react: 18.3.1
-
-  '@react-types/shared@3.26.0(react@18.3.1)':
-    dependencies:
       react: 18.3.1
 
   '@react-types/shared@3.28.0(react@18.3.1)':
