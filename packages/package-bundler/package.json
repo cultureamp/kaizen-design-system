@@ -35,13 +35,13 @@
     "rollup-plugin-node-externals": "^8.0.0",
     "rollup-plugin-postcss": "^4.0.2",
     "ts-patch": "^3.3.0",
-    "typescript-transform-paths": "^3.5.3"
+    "typescript-transform-paths": "^3.5.5"
   },
   "dependenciesComments": {
     "ts-patch": "Required for typescript-transform-paths"
   },
   "devDependencies": {
-    "rollup": "^4.35.0"
+    "rollup": "^4.36.0"
   },
   "devDependenciesComments": {
     "typescript": "Installed in root"
