@@ -1,5 +1,11 @@
 # @kaizen/package-bundler
 
+## 2.0.6
+
+### Patch Changes
+
+- [#5581](https://github.com/cultureamp/kaizen-design-system/pull/5581) [`660efac`](https://github.com/cultureamp/kaizen-design-system/commit/660efac49bf80aa9a874fd41758ed57ad5e7e94e) - Dep updates
+
 ## 2.0.5
 
 ### Patch Changes
