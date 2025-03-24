@@ -63,32 +63,42 @@ const meta = {
       control: {
         type: 'select',
       },
-      options: ['Primary action', 'Primary and Secondary action', 'Action with Tooltip'],
+
+      options: [
+        'Primary action',
+        'Primary and Secondary action',
+        'Action with Icon',
+        'Action with Tooltip',
+      ],
       mapping: {
         'Primary action': (
-          <Button
-            variant="secondary"
-            onPress={() => alert('tada: 🎉')}
-            iconPosition="end"
-            icon={<Icon name={'arrow_forward'} isPresentational />}
-          >
-            Action
+          <Button variant="secondary" onPress={() => alert('tada: 🎉')}>
+            Label
           </Button>
         ),
         'Primary and Secondary action': (
           <>
+            <Button variant="secondary" onPress={() => alert('tada: 🎉')}>
+              Label
+            </Button>
+            <LinkButton variant="tertiary" href="#link">
+              Secondary action
+            </LinkButton>
+          </>
+        ),
+        'Action with Icon': (
+          <TooltipTriggerNext defaultOpen>
             <Button
+              size="large"
               variant="secondary"
               onPress={() => alert('tada: 🎉')}
               iconPosition="end"
-              icon={<Icon name={'arrow_forward'} isPresentational />}
+              icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
             >
-              Action
+              Label
             </Button>
-            <LinkButton variant="tertiary" href="#Pass">
-              Pass
-            </LinkButton>
-          </>
+            <TooltipNext>Tooltip content</TooltipNext>
+          </TooltipTriggerNext>
         ),
         'Action with Tooltip': (
           <TooltipTriggerNext defaultOpen>
@@ -99,11 +109,10 @@ const meta = {
               rel="noopener noreferrer"
               size="large"
               iconPosition="end"
-              icon={<Icon name="open_in_new" shouldMirrorInRTL isPresentational />}
             >
-              Learn more
+              Label
             </LinkButton>
-            <TooltipNext>Opens in a new tab</TooltipNext>
+            <TooltipNext>Tooltip content</TooltipNext>
           </TooltipTriggerNext>
         ),
       },
@@ -137,11 +146,11 @@ export const Actions: Story = {
     content: <ContentComponent />,
     actions: {
       primary: {
-        label: 'Learn more',
+        label: 'Label',
         onClick: () => alert('tada: 🎉'),
       },
       secondary: {
-        label: 'Dismiss',
+        label: 'Label',
         href: '#',
       },
     },
@@ -153,7 +162,7 @@ export const Tooltip: Story = {
     content: <ContentComponent />,
     actions: {
       primary: {
-        label: 'Hover me for a tooltip',
+        label: 'Label',
         onClick: () => alert('tada: 🎉'),
         tooltip: {
           text: 'Opens in a new tab',
@@ -161,7 +170,7 @@ export const Tooltip: Story = {
         },
       },
       secondary: {
-        label: 'Dismiss',
+        label: 'Label',
         href: '#',
       },
     },
@@ -220,32 +229,23 @@ export const ActionsVsActionsSlot: Story = {
         },
       },
       primary: {
-        label: 'Learn more',
+        label: 'Label',
         onClick: () => alert('tada: 🎉'),
       },
       secondary: {
-        label: 'Dismiss',
+        label: 'Label',
         href: '#',
       },
     },
     secondaryDismiss: true,
   },
-  render: () => (
+  render: (args) => (
     <div className="flex flex-col gap-16">
       <GuidanceBlock
         layout="default"
         illustration={<Informative alt="" />}
         content={<ContentComponent />}
-        actions={{
-          primary: {
-            label: 'Learn more',
-            onClick: () => alert('tada: 🎉'),
-          },
-          secondary: {
-            label: 'Dismiss',
-            href: '#',
-          },
-        }}
+        actions={args.actions}
         secondaryDismiss
       />
       <GuidanceBlock
@@ -255,23 +255,11 @@ export const ActionsVsActionsSlot: Story = {
         secondaryDismiss={true}
         actionsSlot={
           <>
-            <Button
-              variant="secondary"
-              size="large"
-              onPress={() => alert('tada: 🎉')}
-              iconPosition="end"
-              slot="primary"
-              icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
-            >
-              Learn more
+            <Button size="large" onPress={() => alert('tada: 🎉')} slot="primary">
+              Label
             </Button>
-            <Button
-              slot="secondary"
-              variant="tertiary"
-              size="large"
-              onPress={() => alert('tada: 🎉')}
-            >
-              Learn more
+            <Button variant="tertiary" size="large" onPress={() => alert('tada: 🎉')}>
+              Label
             </Button>
           </>
         }
@@ -293,12 +281,38 @@ export const ActionsSlot: Story = {
           onPress={() => alert('tada: 🎉')}
           iconPosition="end"
           slot="primary"
+        >
+          Label
+        </Button>
+      </>
+    ),
+  },
+  render: (args) => (
+    <div className="flex flex-col gap-16">
+      <GuidanceBlock {...args} />
+    </div>
+  ),
+}
+
+export const MultipleActions: Story = {
+  args: {
+    layout: 'default',
+    illustration: <Informative alt="" />,
+    content: <ContentComponent />,
+    actionsSlot: (
+      <>
+        <Button
+          variant="secondary"
+          size="large"
+          onPress={() => alert('tada: 🎉')}
+          iconPosition="end"
+          slot="primary"
           icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
         >
-          Learn more
+          Label
         </Button>
         <LinkButton slot="secondary" variant="tertiary" size="large" href="#">
-          Dismiss
+          Label
         </LinkButton>
       </>
     ),
@@ -318,20 +332,14 @@ export const ActionsSlotWithTooltips: Story = {
     actionsSlot: (
       <>
         <TooltipTriggerNext>
-          <Button
-            variant="secondary"
-            size="large"
-            onPress={() => alert('tada: 🎉')}
-            iconPosition="end"
-            icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
-          >
-            Learn more
+          <Button variant="secondary" size="large" onPress={() => alert('tada: 🎉')}>
+            Label
           </Button>
           <TooltipNext>Tooltip Content</TooltipNext>
         </TooltipTriggerNext>
         <TooltipTriggerNext>
           <LinkButton variant="tertiary" size="large" href="#">
-            Dismiss
+            Label
           </LinkButton>
           <TooltipNext>Tooltip secondary content</TooltipNext>
         </TooltipTriggerNext>
