@@ -62,10 +62,6 @@ export const Input = ({
       {...restProps}
     />
 
-    {/* Inputs aren't able to have pseudo elements like ::after on them,
-          so we have to create an element ourselves for the focus ring */}
-    <div className={styles.focusRing} />
-
     {endIconAdornment && <div className={styles.endIconAdornment}>{endIconAdornment}</div>}
   </div>
 )

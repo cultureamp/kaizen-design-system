@@ -7,27 +7,16 @@
 
   position: relative;
   display: inline-flex;
+  border-radius: 100%;
 
   &:hover {
     cursor: pointer;
   }
 
-  &:focus {
-    outline: none;
-  }
-
   &:focus-visible {
-    &::after {
-      $focus-ring-offset: -1px;
-
-      content: '';
-      position: absolute;
-      background: transparent;
-      border-width: $border-focus-ring-border-width;
-      border-style: $border-focus-ring-border-style;
-      border-radius: 50%;
-      inset: $focus-ring-offset;
-    }
+    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+      var(--color-blue-500);
+    outline-offset: -1px;
   }
 }
 
@@ -37,12 +26,6 @@
   &:hover,
   &:focus-visible {
     color: $color-purple-800;
-  }
-
-  &:focus-visible {
-    &::after {
-      border-color: $color-blue-500;
-    }
   }
 }
 
@@ -55,8 +38,6 @@
   }
 
   &:focus-visible {
-    &::after {
-      border-color: $color-blue-300;
-    }
+    outline-color: var(--color-blue-300);
   }
 }
