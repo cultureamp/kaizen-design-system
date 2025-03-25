@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.73.11
+
+### Patch Changes
+
+- [#5599](https://github.com/cultureamp/kaizen-design-system/pull/5599) [`85d95d4`](https://github.com/cultureamp/kaizen-design-system/commit/85d95d43a7cc600e6494d5cd52074efb19fb702b) - next/Select: link description and validation message with aria-describedby
+
 ## 1.73.10
 
 ### Patch Changes
