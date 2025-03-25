@@ -10,7 +10,6 @@
 
 .timeSegment {
   display: block;
-  padding: 0 4px;
   text-align: end;
   background-color: $color-gray-300;
   border-radius: 3px;
@@ -25,6 +24,10 @@
     background: $color-blue-500;
     outline: none;
   }
+}
+
+.hasPadding {
+  padding: 0 4px;
 }
 
 .placeholder {
