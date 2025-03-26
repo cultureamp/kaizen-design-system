@@ -108,9 +108,17 @@ const TimeFieldComponent = ({
             state.validationState === 'invalid' && styles.error,
           )}
         >
-          {state.segments.map((segment, i) => (
-            <TimeSegment key={i} segment={segment} state={state} />
-          ))}
+          {state.segments.map((segment, i) => {
+            return (
+              <TimeSegment
+                key={i}
+                segment={segment}
+                state={state}
+                hasPadding={![8294, 8297].includes(segment.text.charCodeAt(0))}
+                // ^react-aria includes these characters to ensure correct RTL behaviour, but we want to avoid these adding random spacing
+              />
+            )
+          })}
           <div className={styles.focusRing} />
         </div>
       </div>
