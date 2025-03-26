@@ -47,6 +47,12 @@
     --button-border-color: var(--color-blue-700);
   }
 
+  &.isDisabled {
+    --button-bg-color: var(--color-gray-400);
+    --button-border-color: var(--color-gray-400);
+    --button-text-color: var(--color-white);
+  }
+
   &[data-focus-visible]::after {
     content: '';
     position: absolute;
