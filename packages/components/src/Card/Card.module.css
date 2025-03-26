@@ -1,6 +1,7 @@
 .wrapper {
   color: var(--color-purple-800);
   border: var(--border-width-1) solid var(--card-border-color);
+  background-color: transparent;
   background-color: var(--card-background-color);
   border-radius: var(--border-borderless-border-radius);
   box-shadow: var(--card-box-shadow);
@@ -93,92 +94,104 @@
   --border-width: 2px;
 
   position: relative;
-  border-radius: var(--border-borderless-border-radius);
+  border-radius: calc(var(--border-borderless-border-radius) - 1px);
   border-width: 0;
 
   &::before,
   &::after {
     position: absolute;
     content: '';
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
+    inset: -2px;
     z-index: -1;
     width: calc(100% + var(--border-width) * 2);
     height: calc(100% + var(--border-width) * 2);
     background-position: 0 50%;
+    background-size: 100% 100%;
     border-radius: 8px;
     transition:
-      filter 1s ease,
-      background-size 1s ease,
-      background-position 1s ease,
-      opacity 1s ease;
+      filter 3s ease,
+      background-size 3s ease,
+      background-position 3s ease,
+      opacity 2s ease;
     pointer-events: none;
-  }
-
-  &::before {
-    background: linear-gradient(
+    background-image: linear-gradient(
       310deg,
-      rgb(103 199 175 / 100%) 0%,
+      rgb(100 210 215 / 100%) 0%,
+      rgb(103 199 175 / 100%) 20%,
       rgb(100 210 215 / 100%) 41%,
       rgb(200 136 226 / 100%) 100%
     );
   }
 
-  &::after {
-    background: linear-gradient(
-      310deg,
-      rgb(200 136 226 / 100%) 0%,
-      rgb(103 199 175 / 100%) 30%,
-      rgb(100 210 215 / 100%) 60%,
-      rgb(200 136 226 / 100%) 90%
-    );
+  &::before {
     filter: blur(8px);
     opacity: 0;
   }
 
   &.aiMomentLoading {
     &::before {
-      background: linear-gradient(
-        310deg,
-        rgb(200 136 226 / 100%) 0%,
-        rgb(103 199 175 / 100%) 30%,
-        rgb(100 210 215 / 100%) 60%,
-        rgb(200 136 226 / 100%) 90%
-      );
-      background-size: 300% 300%;
-      animation: animate-ai-border 15s infinite;
+      animation: animate-ai-blur-pulse 4s infinite;
+      opacity: 0.7;
     }
 
     &::after {
-      background-size: 300% 300%;
-      animation: animate-ai-blur 15s infinite;
-      opacity: 0.7;
+      animation: animate-ai-border-pulse 4s infinite;
+
+      /* opacity: 0.7; */
     }
   }
 }
 
-@keyframes animate-ai-border {
+@keyframes animate-ai-border-pulse {
   0% {
     background-position: 0 50%;
+    background-size: 100% 100%;
+    opacity: 1;
+  }
+  /* 25% {
+    background-position: 25% 75%;
+  } */
+  50% {
+    background-position: 15% -85%;
+    background-size: 200% 100%;
+    opacity: 0.8;
   }
 
+  /* 75% {
+    background-position: 5% 65%;
+  } */
   100% {
-    background-position: 400% 0;
+    background-position: 0 50%;
+    background-size: 100% 100%;
+    opacity: 1;
   }
 }
 
-@keyframes animate-ai-blur {
+@keyframes animate-ai-blur-pulse {
   0% {
-    background-position: 0 50%;
+    opacity: 0.4;
     filter: blur(8px);
+    background-position: 0% 50%;
+    background-size: 100% 100%;
   }
 
+  /* 25% {
+    background-position: 25% 75%;
+  } */
   50% {
     filter: blur(10px);
+    opacity: 0.8;
+    background-position: 15% -85%;
+    background-size: 200% 100%;
   }
 
+  /* 75% {
+    background-position: 5% 65%;
+  } */
   100% {
-    background-position: 400% 0;
-    filter: blur(8px);
+    opacity: 0.4;
+    filter: blur(10px);
+    background-position: 0% 50%;
+    background-size: 100% 100%;
   }
 }

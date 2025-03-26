@@ -87,13 +87,23 @@ export const AIMoment: Story = {
       <Card {...args} isAiLoading>
         <LoadingHeading variant="heading-3" width={25} isAnimated />
         <LoadingParagraph isAnimated />
+        <LoadingParagraph isAnimated />
         <LoadingParagraph isAnimated width={65} classNameOverride="mb-6" />
+      </Card>
+      <Card {...args}>
+        <Heading variant="heading-3">Regular card</Heading>
+        <Text variant="body">
+          Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick fatback cow tongue
+          ground round chicken. Jowl cow short ribs, ham tongue turducken spare ribs pig drumstick
+          chuck meatball. Buffalo turducken pancetta tail salami chicken. Bresaola venison pastrami
+          beef.
+        </Text>
       </Card>
     </>
   ),
   decorators: [
     (Story) => (
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-24">
         <Story />
       </div>
     ),
@@ -143,6 +153,7 @@ export const InteractiveAIMoment: Story = {
               <>
                 <LoadingHeading variant="heading-3" width={25} isAnimated />
                 <div>
+                  <LoadingParagraph isAnimated width={100} />
                   <LoadingParagraph isAnimated width={100} />
                   <LoadingParagraph isAnimated width={65} classNameOverride="mb-6" />
                 </div>
