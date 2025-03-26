@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.73.12
+
+### Patch Changes
+
+- [#5602](https://github.com/cultureamp/kaizen-design-system/pull/5602) [`812eb89`](https://github.com/cultureamp/kaizen-design-system/commit/812eb8974c5e2d779defe43732a0df84e308cab1) - Fix disabled styles for primary variant of next/button
+
 ## 1.73.11
 
 ### Patch Changes
