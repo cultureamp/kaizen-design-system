@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.73.13
+
+### Patch Changes
+
+- [#5601](https://github.com/cultureamp/kaizen-design-system/pull/5601) [`6f6f581`](https://github.com/cultureamp/kaizen-design-system/commit/6f6f581e943457632227034cbbaeef127b63e3c1) - TimeField: fix spacing after dep update
+
 ## 1.73.12
 
 ### Patch Changes
