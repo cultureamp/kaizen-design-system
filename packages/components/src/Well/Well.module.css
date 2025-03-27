@@ -1,3 +1,9 @@
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 310deg;
+  inherits: false;
+}
+
 .container {
   background-color: var(--background-color);
   border-width: var(--border-width-1);
@@ -106,95 +112,77 @@
 }
 
 .aiMoment {
+  --clr-1: rgba(100 210 215 / 100%) 0%;
+  --clr-2: rgba(103 199 175 / 100%) 20%;
+  --clr-3: rgba(100 210 215 / 100%) 41%;
+  --clr-4: rgba(200 136 226 / 100%) 100%;
   --border-width: 2px;
 
   position: relative;
-  border-radius: var(--border-borderless-border-radius);
+  border-radius: calc(var(--border-borderless-border-radius) - 1px);
   border-width: 0;
 
   &::before,
   &::after {
-    position: absolute;
     content: '';
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
+    position: absolute;
+    inset: -2px;
     z-index: -1;
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
-    background-position: 0 50%;
+    background-image: linear-gradient(
+      var(--gradient-angle),
+      var(--clr-1),
+      var(--clr-2),
+      var(--clr-3),
+      var(--clr-4)
+    );
     border-radius: 8px;
-    transition:
-      filter 1s ease,
-      background-size 1s ease,
-      background-position 1s ease,
-      opacity 1s ease;
-    pointer-events: none;
+    background-size: 100% 100%;
+    animation: rotation 1s linear pause;
   }
 
   &::before {
-    background: linear-gradient(
-      310deg,
-      rgb(103 199 175 / 100%) 0%,
-      rgb(100 210 215 / 100%) 41%,
-      rgb(200 136 226 / 100%) 100%
-    );
-  }
-
-  &::after {
-    background: linear-gradient(
-      310deg,
-      rgb(200 136 226 / 100%) 0%,
-      rgb(103 199 175 / 100%) 30%,
-      rgb(100 210 215 / 100%) 60%,
-      rgb(200 136 226 / 100%) 90%
-    );
     filter: blur(8px);
     opacity: 0;
   }
 
   &.aiMomentLoading {
-    &::before {
-      background: linear-gradient(
-        310deg,
-        rgb(200 136 226 / 100%) 0%,
-        rgb(103 199 175 / 100%) 30%,
-        rgb(100 210 215 / 100%) 60%,
-        rgb(200 136 226 / 100%) 90%
-      );
-      background-size: 300% 300%;
-      animation: animate-ai-border 15s infinite;
-    }
-
     &::after {
-      background-size: 300% 300%;
-      animation: animate-ai-blur 15s infinite;
-      opacity: 0.7;
+      animation: rotation-after-el 2s linear infinite;
+    }
+    &:before {
+      animation: rotation-before-el 2s linear infinite;
+      filter: blur(10px);
+      opacity: 1;
     }
   }
 }
 
-@keyframes animate-ai-border {
+@keyframes rotation-before-el {
   0% {
-    background-position: 0 50%;
+    background-size: 100% 100%;
   }
-
+  50% {
+    --gradient-angle: 270deg;
+    background-position: 0% 20%;
+    background-size: 110% 130%;
+    opacity: 0.3;
+  }
   100% {
-    background-position: 400% 0;
+    background-size: 200% 300%;
   }
 }
 
-@keyframes animate-ai-blur {
+@keyframes rotation-after-el {
   0% {
-    background-position: 0 50%;
-    filter: blur(8px);
+    background-size: 100% 100%;
   }
-
   50% {
-    filter: blur(10px);
+    --gradient-angle: 270deg;
+    background-position: 0% 20%;
+    background-size: 110% 130%;
+    opacity: 0.7;
   }
-
   100% {
-    background-position: 400% 0;
-    filter: blur(8px);
+    background-size: 100% 100%;
   }
 }
