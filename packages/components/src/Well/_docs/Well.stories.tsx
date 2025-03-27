@@ -1,7 +1,9 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Heading } from '~components/Heading'
+import { LoadingHeading, LoadingParagraph } from '~components/Loading'
 import { Text } from '~components/Text'
+import { Button } from '~components/__next__'
 import { Well } from '../index'
 import { borderStyleTypes } from '../types'
 
@@ -10,12 +12,14 @@ const meta = {
   component: Well,
   args: {
     children: (
-      <Text variant="body">
-        Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick fatback cow tongue
-        ground round chicken. Jowl cow short ribs, ham tongue turducken spare ribs pig drumstick
-        chuck meatball. Buffalo turducken pancetta tail salami chicken. Bresaola venison pastrami
-        beef.
-      </Text>
+      <>
+        <Heading variant="heading-3">Default content</Heading>
+        <Text variant="body">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas accusantium doloribus
+          dicta odio recusandae repudiandae tenetur! Fugiat vero architecto quasi rem culpa vel
+          asperiores, sit, quas suscipit, ea deleniti dolorum.
+        </Text>
+      </>
     ),
   },
   argTypes: {
@@ -113,4 +117,105 @@ export const NoMargin: Story = {
       </div>
     </div>
   ),
+}
+
+export const AIMoment: Story = {
+  args: {
+    classNameOverride: 'p-16',
+  },
+  render: (args) => (
+    <>
+      <Well {...args} isAiLoading={false}>
+        <Heading variant="heading-3">Loaded AI Moment</Heading>
+        <Text variant="body">
+          Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick fatback cow tongue
+          ground round chicken. Jowl cow short ribs, ham tongue turducken spare ribs pig drumstick
+          chuck meatball. Buffalo turducken pancetta tail salami chicken. Bresaola venison pastrami
+          beef.
+        </Text>
+      </Well>
+      <Well {...args} isAiLoading>
+        <LoadingHeading variant="heading-3" width={25} isAnimated />
+        <LoadingParagraph isAnimated />
+        <LoadingParagraph isAnimated width={65} classNameOverride="mb-6" />
+      </Well>
+    </>
+  ),
+  decorators: [
+    (Story) => (
+      <div className="flex flex-col gap-8">
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+export const InteractiveAIMoment: Story = {
+  render: (args) => {
+    const [isAiMomentLoading, setIsAiMomentLoading] = React.useState(false)
+    const [content, setContent] = React.useState<React.ReactNode>(args.children)
+    const simulateAiFetch = (): void => {
+      const AiResponses = [
+        <>
+          <Heading variant="heading-3">AI content 1</Heading>
+          <Text variant="body">
+            I am alive. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas
+            accusantium doloribus dicta odio recusandae repudiandae tenetur! Fugiat vero architecto
+            quasi rem culpa vel asperiores, sit, quas suscipit, ea deleniti dolorum.
+          </Text>
+        </>,
+        <>
+          <Heading variant="heading-3">AI content 2</Heading>
+          <Text variant="body">
+            I have evolved. All your base are belong to us. Lorem ipsum dolor sit amet consectetur,
+            adipisicing elit. Voluptas accusantium doloribus dicta odio recusandae repudiandae
+            tenetur! Fugiat vero architecto quasi rem culpa vel asperiores, sit, quas suscipit, ea
+            deleniti dolorum.
+          </Text>
+        </>,
+      ]
+      setIsAiMomentLoading(true)
+      setTimeout(() => {
+        let randomIndex
+        do {
+          randomIndex = Math.floor(Math.random() * AiResponses.length)
+        } while (AiResponses[randomIndex] === content)
+        setContent(AiResponses[randomIndex])
+        setIsAiMomentLoading(false)
+      }, 6000)
+    }
+
+    return (
+      <>
+        <Well {...args} isAiLoading={isAiMomentLoading}>
+          <div className="flex flex-col gap-8 p-16">
+            {isAiMomentLoading ? (
+              <>
+                <LoadingHeading variant="heading-3" width={25} isAnimated />
+                <div>
+                  <LoadingParagraph isAnimated width={100} />
+                  <LoadingParagraph isAnimated width={65} classNameOverride="mb-6" />
+                </div>
+              </>
+            ) : (
+              content
+            )}
+          </div>
+        </Well>
+        <div className="flex gap-6">
+          <Button
+            variant="primary"
+            onPress={simulateAiFetch}
+            isPending={isAiMomentLoading}
+            pendingLabel="loading"
+          >
+            Update AI
+          </Button>
+          <Button variant="secondary" onPress={() => setIsAiMomentLoading(!isAiMomentLoading)}>
+            Toggle loading
+          </Button>
+        </div>
+      </>
+    )
+  },
 }

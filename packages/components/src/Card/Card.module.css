@@ -1,6 +1,7 @@
 .wrapper {
   color: var(--color-purple-800);
   border: var(--border-width-1) solid var(--card-border-color);
+  background-color: transparent;
   background-color: var(--card-background-color);
   border-radius: var(--border-borderless-border-radius);
   box-shadow: var(--card-box-shadow);
@@ -87,4 +88,86 @@
 .highlight {
   border-color: var(--color-purple-400);
   background-color: var(--color-purple-100);
+}
+
+.aiMoment {
+  --clr-1: rgba(100 210 215 / 100%) 0%;
+  --clr-2: rgba(103 199 175 / 100%) 20%;
+  --clr-3: rgba(100 210 215 / 100%) 41%;
+  --clr-4: rgba(200 136 226 / 100%) 100%;
+  --border-width: 2px;
+
+  position: relative;
+  border-radius: calc(var(--border-borderless-border-radius) - 1px);
+  border-width: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    background-image: linear-gradient(
+      var(--gradient-angle),
+      var(--clr-1),
+      var(--clr-2),
+      var(--clr-3),
+      var(--clr-4)
+    );
+    border-radius: 8px;
+    background-size: 100% 100%;
+    animation: rotation 1s linear pause;
+  }
+
+  &::before {
+    filter: blur(8px);
+    opacity: 0;
+  }
+
+  &.aiMomentLoading {
+    &::after {
+      animation: rotation-after-el 2s linear infinite;
+    }
+    &:before {
+      animation: rotation-before-el 2s linear infinite;
+      filter: blur(10px);
+      opacity: 1;
+    }
+  }
+}
+
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 310deg;
+  inherits: false;
+}
+
+@keyframes rotation-before-el {
+  0% {
+    background-size: 100% 100%;
+  }
+  50% {
+    --gradient-angle: 270deg;
+    background-position: 0% 20%;
+    background-size: 110% 130%;
+    opacity: 0.3;
+  }
+  100% {
+    background-size: 200% 300%;
+  }
+}
+
+@keyframes rotation-after-el {
+  0% {
+    background-size: 100% 100%;
+  }
+  50% {
+    --gradient-angle: 270deg;
+    background-position: 0% 20%;
+    background-size: 110% 130%;
+    opacity: 0.7;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
 }
