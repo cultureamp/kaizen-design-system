@@ -121,6 +121,7 @@
   position: relative;
   border-radius: calc(var(--border-borderless-border-radius) - 1px);
   border-width: 0;
+  /* background-color: transparent; */
 
   &::before,
   &::after {
@@ -137,42 +138,57 @@
     );
     border-radius: 8px;
     background-size: 100% 100%;
-    animation: rotation 1s linear pause;
+    background-position: 0 50%;
+    transition:
+      filter 1s ease-in,
+      opacity 1s ease-in;
   }
 
   &::before {
-    filter: blur(8px);
+    filter: blur(0px);
     opacity: 0;
   }
 
-  &.aiMomentLoading {
+  &::after {
+    opacity: 1;
+  }
+
+  &.aiMomentLoading,
+  &.aiMomentExiting {
     &::after {
-      animation: rotation-after-el 2s linear infinite;
+      animation: rotation-loop-after 2s linear infinite;
     }
-    &:before {
-      animation: rotation-before-el 2s linear infinite;
+    &::before {
+      animation: rotation-loop-before 2s linear infinite;
       filter: blur(10px);
-      opacity: 1;
+      opacity: 0.7;
+    }
+  }
+
+  &.aiMomentExiting {
+    &::after,
+    &::before {
+      animation-iteration-count: 1;
     }
   }
 }
 
-@keyframes rotation-before-el {
+@keyframes rotation-loop-before {
   0% {
     background-size: 100% 100%;
   }
   50% {
     --gradient-angle: 270deg;
     background-position: 0% 20%;
-    background-size: 110% 130%;
+    background-size: 200% 300%;
     opacity: 0.3;
   }
   100% {
-    background-size: 200% 300%;
+    background-size: 100% 100%;
   }
 }
 
-@keyframes rotation-after-el {
+@keyframes rotation-loop-after {
   0% {
     background-size: 100% 100%;
   }
