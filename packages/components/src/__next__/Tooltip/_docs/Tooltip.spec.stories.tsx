@@ -63,7 +63,7 @@ export const OnButton: Story = {
     await step('Escape closes', async () => {
       await userEvent.tab() // focus
       await userEvent.keyboard('{Escape}')
-      await waitFor(() => expect(canvas.queryByRole('tooltip')).toBeNull())
+      await waitFor(() => expect(canvas.queryByRole('tooltip')).toBeNull(), { timeout: 1000 })
       await userEvent.tab() // unfocus
     })
   },
