@@ -1,0 +1,54 @@
+/* Here to provide a comparison to the new animation */
+
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 310deg;
+  inherits: false;
+}
+
+.prcWell {
+  background-color: white !important;
+  border: none;
+  position: relative;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.prcWell::before,
+.prcWell::after {
+  background-origin: border-box;
+  border-radius: 7px;
+  position: absolute;
+  content: '';
+  inset: -2px;
+  z-index: -1;
+  background-image: conic-gradient(from var(--gradient-angle), #a6e5e7, #64d2d7, #9a36b2, #a6e5e7);
+}
+
+.prcWell::before {
+  transition: opacity 0.3s ease;
+  filter: blur(0.75rem);
+  opacity: 0;
+}
+
+.prcWell::after {
+  /* border: solid 10px transparent; */
+}
+
+.prcWell.isAnimated::before,
+.prcWell.isAnimated::after {
+  animation: prc-rotation 3s linear infinite;
+}
+
+.prcWell.isAnimated::before {
+  opacity: 0.5;
+}
+
+@keyframes prc-rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}

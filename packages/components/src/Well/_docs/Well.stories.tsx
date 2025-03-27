@@ -1,11 +1,13 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
+import classnames from 'classnames'
 import { Heading } from '~components/Heading'
 import { LoadingHeading, LoadingParagraph } from '~components/Loading'
 import { Text } from '~components/Text'
 import { Button } from '~components/__next__'
 import { Well } from '../index'
 import { borderStyleTypes } from '../types'
+import styles from './prc.module.css'
 
 const meta = {
   title: 'Components/Well',
@@ -218,4 +220,62 @@ export const InteractiveAIMoment: Story = {
       </>
     )
   },
+}
+
+export const AiMomentPRC: Story = {
+  args: {
+    classNameOverride: 'p-16',
+  },
+  render: (args) => (
+    <>
+      <Heading variant="heading-3">PRC Well loading (rebuilt)</Heading>
+      <Well classNameOverride={classnames(styles.prcWell, styles.isAnimated, 'p-16')}>
+        <LoadingHeading variant="heading-3" width={25} isAnimated />
+        <LoadingParagraph isAnimated />
+        <LoadingParagraph isAnimated width={65} classNameOverride="mb-6" />
+      </Well>
+      <Heading variant="heading-3">KZ Well loading</Heading>
+      <Well isAiLoading classNameOverride="p-16">
+        <LoadingHeading variant="heading-3" width={25} isAnimated />
+        <LoadingParagraph isAnimated />
+        <LoadingParagraph isAnimated width={65} classNameOverride="mb-6" />
+      </Well>
+      <Heading variant="heading-3">PRC Well loaded (rebuilt)</Heading>
+      <Well classNameOverride={classnames(styles.prcWell, 'p-16')}>
+        <Heading variant="heading-3">Regular well</Heading>
+        <Text variant="body">
+          Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick fatback cow tongue
+          ground round chicken. Jowl cow short ribs, ham tongue turducken spare ribs pig drumstick
+          chuck meatball. Buffalo turducken pancetta tail salami chicken. Bresaola venison pastrami
+          beef.
+        </Text>
+      </Well>
+      <Heading variant="heading-3">KZ Well loaded</Heading>
+      <Well isAiLoading={false} classNameOverride="p-16">
+        <Heading variant="heading-3">Regular well</Heading>
+        <Text variant="body">
+          Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick fatback cow tongue
+          ground round chicken. Jowl cow short ribs, ham tongue turducken spare ribs pig drumstick
+          chuck meatball. Buffalo turducken pancetta tail salami chicken. Bresaola venison pastrami
+          beef.
+        </Text>
+      </Well>
+      <Well {...args}>
+        <Heading variant="heading-3">Regular well</Heading>
+        <Text variant="body">
+          Bacon ipsum dolor amet andouille buffalo beef boudin kielbasa drumstick fatback cow tongue
+          ground round chicken. Jowl cow short ribs, ham tongue turducken spare ribs pig drumstick
+          chuck meatball. Buffalo turducken pancetta tail salami chicken. Bresaola venison pastrami
+          beef.
+        </Text>
+      </Well>
+    </>
+  ),
+  decorators: [
+    (Story) => (
+      <div className="flex flex-col gap-8">
+        <Story />
+      </div>
+    ),
+  ],
 }
