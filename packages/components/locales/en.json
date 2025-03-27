@@ -63,7 +63,7 @@
     "message": "Date to"
   },
   "filterMultiSelectClearButton.label": {
-    "description": "available",
+    "description": "Clear button label for filter multi-select",
     "message": "Clear<VisuallyHidden> selections</VisuallyHidden>"
   },
   "filterMultiSelectMultiSelectOption.available": {

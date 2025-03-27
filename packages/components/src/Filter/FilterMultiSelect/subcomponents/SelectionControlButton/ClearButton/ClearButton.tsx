@@ -32,7 +32,7 @@ export const ClearButton = (): JSX.Element => {
       <FormattedMessage
         defaultMessage="Clear<VisuallyHidden> selections</VisuallyHidden>"
         id="filterMultiSelectClearButton.label"
-        description="available"
+        description="Clear button label for filter multi-select"
         values={{
           VisuallyHidden: (children: React.ReactNode) => (
             <VisuallyHidden>{children}</VisuallyHidden>
