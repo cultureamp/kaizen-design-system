@@ -137,6 +137,7 @@
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "lodash.debounce": "^4.0.8",
+    "motion": "^12.6.2",
     "nanobus": "^4.5.0",
     "prosemirror-commands": "^1.6.2",
     "prosemirror-history": "^1.4.1",
