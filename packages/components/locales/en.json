@@ -67,7 +67,7 @@
     "message": "Clear<VisuallyHidden> selections</VisuallyHidden>"
   },
   "filterMultiSelectMultiSelectOption.available": {
-    "description": "available",
+    "description": "Number of filter items available",
     "message": "<Badge>{count}</Badge><VisuallyHidden> available</VisuallyHidden>"
   },
   "filterMultiSelectSearchInput.label": {

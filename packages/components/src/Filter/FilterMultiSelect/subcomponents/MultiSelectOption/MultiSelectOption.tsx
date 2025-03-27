@@ -55,7 +55,7 @@ export const MultiSelectOption = ({
           <FormattedMessage
             defaultMessage="<Badge>{count}</Badge><VisuallyHidden> available</VisuallyHidden>"
             id="filterMultiSelectMultiSelectOption.available"
-            description="available"
+            description="Number of filter items available"
             values={{
               count: formatNumber(parseInt(item.value.count)),
               Badge: (children: React.ReactNode) => (
