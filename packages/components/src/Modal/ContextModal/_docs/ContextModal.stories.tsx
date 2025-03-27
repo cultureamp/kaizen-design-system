@@ -5,6 +5,7 @@ import isChromatic from 'chromatic'
 import { AddImage } from '~components/Illustration'
 import { ModalAccessibleDescription } from '~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription'
 import { Text } from '~components/Text'
+import { Button } from '~components/__next__'
 import { chromaticModalSettings } from '../../_docs/controls'
 import { ContextModal } from '../index'
 
@@ -41,9 +42,9 @@ const ContextModalTemplate: Story = {
 
     return (
       <>
-        <button type="button" className="border border-gray-500" onClick={handleOpen}>
+        <Button type="button" onPress={handleOpen}>
           Open Modal
-        </button>
+        </Button>
         <ContextModal
           {...args}
           isOpen={isOpen}

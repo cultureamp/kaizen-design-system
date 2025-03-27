@@ -1,5 +1,4 @@
 import React, { type HTMLAttributes } from 'react'
-import classnames from 'classnames'
 import type { ButtonProps } from '~components/Button'
 import { Heading } from '~components/Heading'
 import {
@@ -9,7 +8,6 @@ import {
   ModalFooter,
   ModalHeader,
 } from '~components/Modal/GenericModal'
-import styles from './InputEditModal.module.scss'
 
 export type InputEditModalProps = {
   isOpen: boolean
@@ -87,27 +85,22 @@ export const InputEditModal = ({
       onAfterLeave={onAfterLeave}
       onAfterEnter={onAfterEnter}
       className={className}
+      {...props}
     >
-      <div className={styles.modal} data-modal {...props}>
-        <ModalHeader onDismiss={onDismiss}>
-          <div className={classnames(styles.header, !unpadded && styles.padded)}>
-            <ModalAccessibleLabel>
-              <Heading tag="h2" variant="heading-2">
-                {title}
-              </Heading>
-            </ModalAccessibleLabel>
-          </div>
-        </ModalHeader>
-        <ModalBody>
-          <div className={classnames(styles.body, !unpadded && styles.padded)}>{children}</div>
-        </ModalBody>
-        <ModalFooter
-          actions={footerActions}
-          appearance={mood === 'destructive' ? 'destructive' : 'primary'}
-          variant="inputEdit"
-          unpadded={unpadded}
-        />
-      </div>
+      <ModalHeader onDismiss={onDismiss} unpadded={unpadded}>
+        <ModalAccessibleLabel>
+          <Heading tag="h2" variant="heading-2" color="dark">
+            {title}
+          </Heading>
+        </ModalAccessibleLabel>
+      </ModalHeader>
+      <ModalBody inputEdit>{children}</ModalBody>
+      <ModalFooter
+        actions={footerActions}
+        appearance={mood === 'destructive' ? 'destructive' : 'primary'}
+        variant="inputEdit"
+        unpadded={unpadded}
+      />
     </GenericModal>
   )
 }

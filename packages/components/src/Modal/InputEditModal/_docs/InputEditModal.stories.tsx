@@ -5,6 +5,7 @@ import isChromatic from 'chromatic'
 import { ModalAccessibleDescription } from '~components/Modal'
 import { Text } from '~components/Text'
 import { TextField } from '~components/TextField'
+import { Button } from '~components/__next__'
 import { chromaticModalSettings } from '../../_docs/controls'
 import { InputEditModal } from '../index'
 
@@ -59,9 +60,9 @@ const InputModalTemplate: Story = {
 
     return (
       <>
-        <button type="button" className="border border-gray-500" onClick={handleOpen}>
+        <Button type="button" onPress={handleOpen}>
           Open Modal
-        </button>
+        </Button>
         <InputEditModal {...args} isOpen={isOpen} onSubmit={handleClose} onDismiss={handleClose} />
       </>
     )
@@ -104,9 +105,9 @@ export const OnAfterEnter: Story = {
 
     return (
       <>
-        <button type="button" className="border border-gray-500" onClick={handleOpen}>
+        <Button type="button" onPress={handleOpen}>
           Create a link
-        </button>
+        </Button>
         <InputEditModal
           {...args}
           isOpen={isOpen}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
+import { Button } from '~components/__next__'
 import { GenericModal } from '../index'
 
 const meta = {
@@ -22,9 +23,9 @@ export const Playground: Story = {
 
     return (
       <>
-        <button type="button" className="border border-gray-500" onClick={() => setIsOpen(true)}>
+        <Button type="button" onPress={() => setIsOpen(true)}>
           Open Modal
-        </button>
+        </Button>
         <GenericModal
           {...args}
           isOpen={isOpen}

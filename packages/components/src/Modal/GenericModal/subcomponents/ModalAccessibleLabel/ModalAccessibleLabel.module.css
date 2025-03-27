@@ -1,0 +1,22 @@
+.modalLabel {
+  h2 {
+    @media (width <= 768px) {
+      font-size: 1.625rem;
+      line-height: 2rem;
+    }
+
+    @media (width <= 375px) {
+      font-size: 1.5rem;
+      line-height: 1.875rem;
+    }
+  }
+
+  &.prominent {
+    grid-column-start: 2;
+    text-align: start;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

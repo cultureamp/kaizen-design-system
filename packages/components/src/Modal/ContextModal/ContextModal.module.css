@@ -1,0 +1,32 @@
+.portraitContentlayout {
+  display: block;
+  box-sizing: content-box;
+
+  @media (width >= 768px) {
+    display: grid;
+    max-width: 800px;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    column-gap: var(--spacing-xl);
+  }
+}
+
+.landscapeContentlayout {
+  display: flex;
+  flex-direction: column;
+
+  .image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    padding-inline-start: 0;
+
+    @media (width >= 768px) {
+      max-width: 100%;
+    }
+  }
+}

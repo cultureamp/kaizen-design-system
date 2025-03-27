@@ -1,0 +1,43 @@
+.header {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-solid-border-radius) var(--border-solid-border-radius) 0 0;
+
+  @media (width <= 768px) {
+    padding: var(--spacing-md);
+  }
+}
+
+.unpadded {
+  padding: 0;
+}
+
+.success {
+  --spot-icon-color: var(--color-green-500);
+
+  background-color: var(--color-green-100);
+}
+
+.informative {
+  --spot-icon-color: var(--color-blue-500);
+
+  background-color: var(--color-blue-100);
+}
+
+.warning {
+  --spot-icon-color: var(--color-red-500);
+
+  background-color: var(--color-red-100);
+}
+
+.cautionary {
+  --spot-icon-color: var(--color-yellow-700);
+
+  background-color: var(--color-yellow-100);
+}
+
+.dismissButton {
+  position: absolute;
+  z-index: 1060;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+}

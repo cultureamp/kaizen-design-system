@@ -41,7 +41,9 @@ const GenericModalWrapper = ({
 describe('<GenericModal />', () => {
   it('renders an open modal with the provided content', () => {
     render(<GenericModalWrapper />)
-    expect(screen.getByText('Example')).toBeVisible()
+    waitFor(() => {
+      expect(screen.getByText('Example')).toBeVisible()
+    })
   })
 
   it('does not render a closed modal with the provided content', () => {

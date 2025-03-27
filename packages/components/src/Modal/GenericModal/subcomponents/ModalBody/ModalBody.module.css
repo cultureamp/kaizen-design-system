@@ -1,0 +1,15 @@
+.body {
+  padding: var(--spacing-md) var(--spacing-lg);
+
+  @media (width <= 768px) {
+    padding: var(--spacing-md);
+  }
+}
+
+.unpadded {
+  padding: 0;
+}
+
+.gray {
+  background-color: var(--color-gray-200);
+}

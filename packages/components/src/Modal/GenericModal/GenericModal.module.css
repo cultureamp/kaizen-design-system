@@ -1,0 +1,54 @@
+.backdropLayer {
+  position: fixed;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 1040;
+  inset: 0;
+}
+
+.scrollLayer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  z-index: 1050;
+  overflow: hidden auto;
+  inset: 0;
+}
+
+.modalLayer {
+  /*
+   * use flexbox auto margins to horizontally and vertically centre the modal
+   * because in IE11, `align-items: center` and `justify-content: center` cause
+   * long modal content to become unreachable if they go off-screen
+   */
+  margin: auto;
+  padding: var(--spacing-24) 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.modal {
+  margin: auto;
+  background-color: var(--color-white);
+  border-radius: var(--border-solid-border-radius);
+  box-shadow: var(--shadow-large-box-shadow);
+  position: relative;
+  width: 90%;
+  min-width: 300px;
+  max-width: 600px;
+  color: var(--color-purple-800);
+
+  &.large {
+    max-width: 840px;
+  }
+
+  &:focus-visible {
+    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+      var(--color-blue-300);
+    outline-offset: 2px;
+  }
+
+  @media (width >= 768px) {
+    width: 100%;
+  }
+}
