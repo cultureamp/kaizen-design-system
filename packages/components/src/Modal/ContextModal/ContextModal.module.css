@@ -1,0 +1,55 @@
+.footer {
+  white-space: initial;
+
+  @media (width >= 768px) {
+    white-space: nowrap;
+  }
+}
+
+.footerWithSecondaryAction {
+  margin-inline-start: calc(-1 * var(--spacing-sm));
+}
+
+.emptyFooter {
+  height: var(--spacing-12);
+}
+
+.portraitContentlayout {
+  padding: var(--spacing-24);
+  display: block;
+  box-sizing: content-box;
+
+  @media (width >= 768px) {
+    display: grid;
+    max-width: 800px;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    column-gap: var(--spacing-xl);
+    padding: var(--spacing-24) var(--spacing-lg);
+  }
+}
+
+.landscapeContentlayout {
+  display: flex;
+  padding: var(--spacing-24);
+  flex-direction: column;
+
+  @media (width >= 768px) {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    padding-inline-start: 0;
+
+    @media (width >= 768px) {
+      max-width: 100%;
+    }
+  }
+}

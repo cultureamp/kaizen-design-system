@@ -1,6 +1,6 @@
 import React from 'react'
 import { ModalContext } from '../../context/ModalContext'
-import styles from './ModalAccessibleDescription.module.scss'
+import styles from './ModalAccessibleDescription.module.css'
 
 export type ModalAccessibleDescriptionProps = {
   children: React.ReactNode

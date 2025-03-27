@@ -1,9 +1,9 @@
-import React, { type HTMLAttributes } from 'react'
+import React, { type HTMLAttributes, type ReactNode } from 'react'
 import classnames from 'classnames'
 import { Button, type ButtonProps } from '~components/Button'
 import { useMediaQueries } from '~components/utils/useMediaQueries'
 import { ModalBody } from '../ModalBody/ModalBody'
-import styles from './ModalFooter.module.scss'
+import styles from './ModalFooter.module.css'
 
 type ActionsVariantProps = 'context' | 'inputEdit'
 
@@ -17,7 +17,10 @@ export type ModalFooterProps = {
    */
   variant?: ActionsVariantProps
   unpadded?: boolean
-  actions: ButtonProps[]
+  /**
+   * @deprecated Use children instead to insert whatever buttons you want
+   */
+  actions?: ButtonProps[]
   /**
    * @deprecated we are no longer supporting different appearances for ModalFooter, instead there will only be a single default appearance set by the Button.
    */
@@ -27,6 +30,7 @@ export type ModalFooterProps = {
    */
   automationId?: string
   alignStart?: boolean
+  children?: ReactNode
 } & HTMLAttributes<HTMLDivElement>
 
 export const ModalFooter = ({
@@ -35,22 +39,23 @@ export const ModalFooter = ({
   appearance = 'primary',
   alignStart,
   variant,
+  children,
   ...props
 }: ModalFooterProps): JSX.Element => {
   const { queries } = useMediaQueries()
 
   return (
-    <ModalBody inputEdit={variant === 'inputEdit'}>
+    <ModalBody inputEdit={variant === 'inputEdit'} unpadded={unpadded}>
       <div
         className={classnames(
           styles.actions,
-          !unpadded && styles.padded,
           variant === 'context' && styles.informationPadded,
           alignStart && styles.actionsAlignStart,
         )}
         {...props}
       >
-        {actions.map((action, index) => (
+        {children}
+        {actions?.map((action, index) => (
           <div className={styles.actionButton} key={index}>
             <Button
               type="button"
