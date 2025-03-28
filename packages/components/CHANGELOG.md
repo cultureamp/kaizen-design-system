@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.74.0
+
+### Minor Changes
+
+- [#5606](https://github.com/cultureamp/kaizen-design-system/pull/5606) [`ad4747e`](https://github.com/cultureamp/kaizen-design-system/commit/ad4747e1b36c5b9c93e17228e386e4646f80abe5) - add translations for the clear, select all and Multiselect option
+
 ## 1.73.13
 
 ### Patch Changes
