@@ -82,20 +82,20 @@ describe('<MultiSelectOptionWrapper /> - Visual content', () => {
         <MultiSelectOptionWrapper
           item={{
             ...itemMock,
-            value: { ...itemMock.value, count: 'count-mock' },
+            value: { ...itemMock.value, count: '14' },
           }}
         />,
       )
     })
 
     it('shows the count in the badge', () => {
-      const badge = screen.getByText('count-mock')
+      const badge = screen.getByText('14')
       expect(badge).toBeInTheDocument()
     })
 
     it('has aria-description to describe the count are available for this option', () => {
       const option = screen.getByLabelText('label-mock')
-      expect(option).toHaveAccessibleDescription('count-mock available')
+      expect(option).toHaveAccessibleDescription('14 available')
     })
   })
 })
