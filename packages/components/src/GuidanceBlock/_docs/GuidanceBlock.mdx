@@ -25,14 +25,43 @@ It guides people to new actions they haven't done before or connects them to rel
 
 ## API
 
-<DocsStory of={GuidanceBlockStories.Actions} />
+### actionsSlot
 
-<DocsStory of={GuidanceBlockStories.Tooltip} />
+The `actionsSlot` slot is used to render the GuidanceBlock's primary and secondary action. This supersedes the deprecated `actions` prop and should be used with [LinkButton](https://cultureamp.design/?path=/docs/components-linkbutton-api-specification--docs) or [Button](https://cultureamp.design/?path=/docs/components-button-button-next-api-specification--docs) component.
 
-<DocsStory of={GuidanceBlockStories.CustomContent} />
+<Canvas of={GuidanceBlockStories.ActionsSlot} />
 
-<DocsStory of={GuidanceBlockStories.Stacked} />
+It is recommended that the primary and secondary actions use their respective variants (`secondary` and `tertiary`) within the Button component to ensure continuity in designs.
 
-<DocsStory of={GuidanceBlockStories.SceneExample} />
+#### actionsSlot with tooltip
 
-<DocsStory of={GuidanceBlockStories.Variants} />
+The new actionsSlot allows use to use the modern Tooltip. Refer to the [docs here](https://cultureamp.design/?path=/docs/components-tooltip-tooltip-next-api-specification--docs) for more tooltip configuration options.
+
+<Canvas of={GuidanceBlockStories.ActionsSlotWithTooltips} />
+
+### actions (deprecated)
+
+The actions prop is deprecated. Use the [actionsSlot](#actionsslot) slot instead with the `LinkButton` or `Button` component instead.
+
+<Canvas of={GuidanceBlockStories.Actions} />
+
+#### actions (deprecated) with tooltip
+
+<Canvas of={GuidanceBlockStories.Tooltip} />
+
+### Custom content
+
+<Canvas of={GuidanceBlockStories.CustomContent} />
+
+### Stacked
+
+<Canvas of={GuidanceBlockStories.Stacked} />
+
+### Scene Illustrations
+
+<Canvas of={GuidanceBlockStories.SceneExample} />
+
+### Variants
+
+<Canvas of={GuidanceBlockStories.Variants} />
+```
