@@ -1,11 +1,8 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '~@kaizen/design-tokens/sass/layout';
-
 .actions {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-start;
+  gap: var(--spacing-6);
 }
 
 .actionsAlignStart {
@@ -14,28 +11,28 @@
 }
 
 .padded {
-  padding: $spacing-md;
+  padding: var(--spacing-24);
   flex-direction: column;
 
-  @media (min-width: $layout-breakpoints-medium) {
-    padding: 0 $spacing-lg $spacing-lg;
+  @media (width >= 768px) {
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
     flex-direction: row-reverse;
   }
 }
 
-.actionButton {
+.actions > * {
   width: 100%;
 
-  @media (min-width: $layout-breakpoints-medium) {
+  @media (width >= 768px) {
     width: inherit;
   }
 }
 
-.actionButton + .actionButton {
-  margin-inline-end: $spacing-sm;
+.actions > * + .actions > * {
+  margin-inline-end: var(--spacing-12);
 
-  @media (max-width: (calc(#{$layout-breakpoints-medium} - 1px))) {
-    margin-block-start: $spacing-sm;
+  @media (width < 768px) {
+    margin-block-start: var(--spacing-12);
   }
 }
 
@@ -51,7 +48,7 @@
 }
 
 .border {
-  border-block-start: 1px solid $border-solid-border-color;
+  border-block-start: 1px solid var(--border-solid-border-color);
 }
 
 .start {

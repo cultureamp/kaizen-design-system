@@ -1,71 +1,62 @@
-import React, { useEffect, useId, useState } from 'react'
+import React, { useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Transition } from '@headlessui/react'
-import FocusLock from 'react-focus-lock'
+import classNames from 'classnames'
+import { AnimatePresence, motion } from 'motion/react'
+import { FocusOn } from 'react-focus-on'
 import { warn } from '../util/console'
+import { backdropMotion, modalMotion } from './animations'
 import { ModalContext } from './context/ModalContext'
-import styles from './GenericModal.module.scss'
+import styles from './GenericModal.module.css'
 
 export type GenericModalProps = {
   id?: string
   isOpen: boolean
   children: React.ReactNode
-  focusLockDisabled?: boolean
-  onEscapeKeyup?: (event: KeyboardEvent) => void
-  onOutsideModalClick?: (event: React.MouseEvent) => void
+  onEscapeKeyup?: (event: Event) => void
+  onOutsideModalClick?: (event: Event) => void
   /** A callback that is triggered after the modal is opened. */
   onAfterEnter?: () => void
   /** A callback that is triggered after the modal is closed. */
   onAfterLeave?: () => void
   className?: string
+  size?: 'medium' | 'large'
 }
 
 export const GenericModal = ({
   id: propsId,
   children,
   isOpen = true,
-  focusLockDisabled,
   onEscapeKeyup,
   onOutsideModalClick,
   onAfterEnter,
-  onAfterLeave: propsOnAfterLeave,
+  onAfterLeave,
   className,
+  size = 'medium',
 }: GenericModalProps): JSX.Element => {
   const reactId = useId()
   const id = propsId ?? reactId
-
   const labelledByID = useId()
   const describedByID = useId()
-
   const [scrollLayer, setScrollLayer] = useState<HTMLDivElement | null>(null)
-  const [modalLayer, setModalLayer] = useState<HTMLDivElement | null>(null)
+  const modalLayer = useRef<HTMLDivElement>(null)
+  const modalRef = useRef<HTMLDivElement | null>(null)
 
-  const scrollModalToTop = (): void => {
-    // If we have a really long modal, the autofocus could land on an element down below
-    // causing the modal to scroll down and skipping over the content near the modal's top.
-    // Ensure that when the modal opens, we are at the top of its content.
-    requestAnimationFrame(() => {
-      if (!scrollLayer) return
-      scrollLayer.scrollTop = 0
-    })
-  }
+  // const outsideModalClickHandler = (event: React.MouseEvent): void => {
+  //   if (event.target === scrollLayer || event.target === modalLayer) {
+  //     onOutsideModalClick?.(event)
+  //   }
+  // }
 
-  const outsideModalClickHandler = (event: React.MouseEvent): void => {
-    if (event.target === scrollLayer || event.target === modalLayer) {
-      onOutsideModalClick?.(event)
-    }
-  }
+  // const focusOnAccessibleLabel = (): void => {
+  //   // Check if focus already exists within the modal
+  //   if (modalLayer?.contains(document.activeElement)) {
+  //     return
+  //   }
 
-  const focusOnAccessibleLabel = (): void => {
-    // Check if focus already exists within the modal
-    if (modalLayer?.contains(document.activeElement)) {
-      return
-    }
+  //   const labelElement: HTMLElement | null = document.getElementById(labelledByID)
 
-    const labelElement: HTMLElement | null = document.getElementById(labelledByID)
-
-    labelElement?.focus()
-  }
+  //   labelElement?.focus()
+  // }
 
   const a11yWarn = (): void => {
     // Ensure that consumers have provided an element that labels the modal
@@ -78,108 +69,112 @@ export const GenericModal = ({
     }
   }
 
-  const preventBodyScroll = (): void => {
-    const hasScrollbar = window.innerWidth > document.documentElement.clientWidth
-    const scrollStyles = [styles.unscrollable]
+  // const preventBodyScroll = (): void => {
+  //   const hasScrollbar = window.innerWidth > document.documentElement.clientWidth
+  //   const scrollStyles = [styles.unscrollable]
 
-    if (hasScrollbar) {
-      scrollStyles.push(styles.pseudoScrollbar)
-    }
+  //   if (hasScrollbar) {
+  //     scrollStyles.push(styles.pseudoScrollbar)
+  //   }
 
-    document.documentElement.classList.add(...scrollStyles)
-  }
+  //   document.documentElement.classList.add(...scrollStyles)
+  // }
 
-  const onAfterEnterHandler = (): void => {
-    scrollModalToTop()
-    if (modalLayer) {
-      onAfterEnter?.()
-      focusOnAccessibleLabel()
-      a11yWarn()
-    }
-  }
-
-  const onBeforeEnterHandler = (): void => {
-    preventBodyScroll()
-
-    if (onEscapeKeyup) {
-      document.addEventListener('keyup', (event) => {
-        if (event.key === 'Escape') {
-          onEscapeKeyup?.(event)
-        }
-      })
-    }
-  }
+  // const onBeforeEnterHandler = (): void => {
+  //   preventBodyScroll()
+  // }
 
   const cleanUpAfterClose = (): void => {
     document.documentElement.classList.remove(styles.unscrollable, styles.pseudoScrollbar)
-
-    if (onEscapeKeyup) {
-      document.removeEventListener('keyup', onEscapeKeyup)
-    }
   }
 
   /* Ensure sure add-on styles (e.g. unscrollable) and key event is cleaned up when the modal is unmounted*/
   // @todo: Fix if possible - avoiding breaking in eslint upgrade
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => () => cleanUpAfterClose(), [])
 
-  const onAfterLeaveHandler = (): void => {
-    cleanUpAfterClose()
-    propsOnAfterLeave?.()
+  // const onAfterLeaveHandler = (): void => {
+  //   cleanUpAfterClose()
+  //   propsOnAfterLeave?.()
+  // }
+
+  const handleAfterOpen = (): void => {
+    modalRef.current?.focus()
+    a11yWarn()
+    onAfterEnter?.()
+  }
+
+  const handleAfterClose = (): void => {
+    onAfterLeave?.()
   }
 
   return createPortal(
-    <Transition
-      appear={true}
-      show={isOpen}
-      enter={styles.animatingEnter}
-      leave={styles.animatingLeave}
-      beforeEnter={onBeforeEnterHandler}
-      afterEnter={onAfterEnterHandler}
-      afterLeave={onAfterLeaveHandler}
-      data-generic-modal-transition-wrapper
-      onClick={(e: React.MouseEvent): void => e.stopPropagation()}
-      className={className}
-    >
-      <FocusLock
-        disabled={focusLockDisabled}
-        returnFocus={true}
-        // Disabling false positive
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        autoFocus={false}
-      >
-        <div className={styles.backdropLayer} />
-        {/* Disabling these because we don't want this to be keyboard focusable. Users can use Esc to achieve this with a keyboard.
-         */}
-        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-        <div
-          className={styles.scrollLayer}
-          ref={(scrollLayerRef): void => {
-            setScrollLayer(scrollLayerRef)
-          }}
-          onClick={outsideModalClickHandler}
-          data-testid={`${id}-scrollLayer`}
+    <AnimatePresence mode="wait">
+      {isOpen && (
+        <FocusOn
+          onClickOutside={onOutsideModalClick}
+          onEscapeKey={onEscapeKeyup}
+          onActivation={handleAfterOpen}
+          onDeactivation={handleAfterClose}
+          scrollLock={true}
+          className={className}
+          shards={[modalRef]}
+          // This linting error is a false positive.
+          // The autoFocus prop here is not what the linting library thinks it is.
+          // eslint-disable-next-line jsx-a11y/no-autofocus
+          autoFocus={false}
         >
-          <ModalContext.Provider
-            value={{
-              labelledByID,
-              describedByID,
+          <motion.div
+            className={styles.backdropLayer}
+            variants={backdropMotion}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          />
+          {/* Disabling these because we don't want this to be keyboard focusable. Users can use Esc to achieve this with a keyboard.
+           */}
+          {}
+          <div
+            className={styles.scrollLayer}
+            ref={(scrollLayerRef): void => {
+              setScrollLayer(scrollLayerRef)
             }}
+            // onClick={outsideModalClickHandler}
+            data-testid={`${id}-scrollLayer`}
           >
-            <div
-              role="dialog"
-              className={styles.modalLayer}
-              aria-labelledby={labelledByID}
-              aria-describedby={describedByID}
-              ref={(modalLayerRef): void => setModalLayer(modalLayerRef)}
-              data-testid={id}
+            <ModalContext.Provider
+              value={{
+                labelledByID,
+                describedByID,
+              }}
             >
-              {children}
-            </div>
-          </ModalContext.Provider>
-        </div>
-      </FocusLock>
-    </Transition>,
+              <motion.div
+                ref={modalLayer}
+                // onClick={(e: React.MouseEvent): void => e.stopPropagation()}
+                className={styles.modalLayer}
+                variants={modalMotion}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                data-testid={id}
+              >
+                <div
+                  ref={modalRef}
+                  className={classNames(styles.modal, size === 'large' && styles.large)}
+                  role="dialog"
+                  aria-modal="true"
+                  tabIndex={-1}
+                  aria-labelledby={labelledByID}
+                  aria-describedby={describedByID}
+                >
+                  {children}
+                </div>
+              </motion.div>
+            </ModalContext.Provider>
+          </div>
+        </FocusOn>
+      )}
+    </AnimatePresence>,
     document.body,
   )
 }

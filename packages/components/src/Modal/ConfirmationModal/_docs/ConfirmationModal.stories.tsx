@@ -3,6 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import isChromatic from 'chromatic'
 import { Text } from '~components/Text'
+import { Button } from '~components/__next__'
 import { chromaticModalSettings } from '../../_docs/controls'
 import { ConfirmationModal } from '../index'
 
@@ -51,9 +52,9 @@ const ConfirmationModalTemplate: Story = {
 
     return (
       <>
-        <button type="button" className="border border-gray-500" onClick={handleOpen}>
+        <Button type="button" onPress={handleOpen}>
           Open Modal
-        </button>
+        </Button>
         <ConfirmationModal
           {...args}
           isOpen={isOpen}
