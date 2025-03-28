@@ -8,6 +8,7 @@ import { rollupTailwindConfig } from './presets/shared-ui/rollup-tailwind.js'
 type Config = {
   input?: RollupOptions['input']
   plugins?: InputPluginOption[]
+  treeshake?: RollupOptions['treeshake']
 }
 
 export const rollupConfig = (
@@ -20,6 +21,7 @@ export const rollupConfig = (
   const userConfig = {
     input: config.input,
     plugins: config?.plugins ?? pluginsDefault,
+    treeshake: config?.treeshake ?? config.treeshake,
   } satisfies RollupOptions
 
   // CommonJS
