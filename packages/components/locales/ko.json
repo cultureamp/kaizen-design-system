@@ -61,6 +61,14 @@
     "description" : "Label for the 'date to' field",
     "message" : "종료 날짜"
   },
+  "filterMultiSelectClearButton.label" : {
+    "description" : "Clear button label for filter multi-select",
+    "message" : "<VisuallyHidden>선택</VisuallyHidden> 취소"
+  },
+  "filterMultiSelectMultiSelectOption.available" : {
+    "description" : "Number of filter items available",
+    "message" : "<Badge>{count}</Badge><VisuallyHidden>개 사용 가능</VisuallyHidden>"
+  },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
     "message" : "검색어별 필터링 옵션"
@@ -68,6 +76,10 @@
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
     "message" : "검색..."
+  },
+  "filterMultiSelectSelectAllButton.label" : {
+    "description" : "Select all button in filter multi select",
+    "message" : "모두 선택"
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",
