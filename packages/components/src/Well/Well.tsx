@@ -13,7 +13,7 @@ export type WellProps = {
   color?: WellColors
   /** @default `solid` */
   borderStyle?: WellBorderStyleType
-  /** */
+  /** Set the loading state for Well AI Moments. If `true` this will animate, if `false` this will render the static loaded state.*/
   isAiLoading?: boolean
   noMargin?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
