@@ -135,7 +135,7 @@
   display: block;
   border-radius: inherit;
   border: 1px solid transparent;
-  background-color: var(--color-white);
+  background-color: var(--background-color);
 }
 
 .aiMoment::before,
