@@ -1,8 +1,9 @@
 import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { useExitingAnimation } from '~components/utils/useExitingAnimation'
 import { type WellBorderStyleType, type WellColors, type WellVariantType } from './types'
-import styles from './Well.module.scss'
+import styles from './Well.module.css'
 
 export type WellProps = {
   children?: React.ReactNode
@@ -12,6 +13,8 @@ export type WellProps = {
   color?: WellColors
   /** @default `solid` */
   borderStyle?: WellBorderStyleType
+  /** */
+  isAiLoading?: boolean
   noMargin?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
@@ -26,21 +29,37 @@ export const Well = ({
   borderStyle = 'solid',
   noMargin = false,
   classNameOverride,
+  isAiLoading,
   ...restProps
-}: WellProps): JSX.Element => (
-  <div
-    className={classnames(
-      styles.container,
-      styles[borderStyle],
-      styles[color],
-      variant && styles[variant],
-      noMargin && styles.noMargin,
-      classNameOverride,
-    )}
-    {...restProps}
-  >
-    {children}
-  </div>
-)
+}: WellProps): JSX.Element => {
+  const animationClass = useExitingAnimation(
+    isAiLoading,
+    styles.aiMomentLoading,
+    styles.aiMomentExiting,
+    500,
+  )
+
+  return (
+    <div
+      className={classnames(
+        styles.container,
+        styles[borderStyle],
+        styles[color],
+        variant && styles[variant],
+        noMargin && styles.noMargin,
+        classNameOverride,
+        isAiLoading !== undefined && styles.aiMoment,
+        isAiLoading !== undefined && animationClass,
+      )}
+      {...restProps}
+    >
+      <>
+        {/* This is a visual background only and should not children in case classNameOverride is used */}
+        {isAiLoading !== undefined && <div aria-hidden className={styles.aiMomentBackground} />}
+        {children}
+      </>
+    </div>
+  )
+}
 
 Well.displayName = 'Well'
