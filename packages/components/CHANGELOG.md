@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.74.1
+
+### Patch Changes
+
+- [#5624](https://github.com/cultureamp/kaizen-design-system/pull/5624) [`a57dc51`](https://github.com/cultureamp/kaizen-design-system/commit/a57dc5134d8b034e3e16d16e50e5289dbb14f9e8) - Add translations for FilterMultiSelect
+
 ## 1.74.0
 
 ### Minor Changes
