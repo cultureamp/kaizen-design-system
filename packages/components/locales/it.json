@@ -63,7 +63,7 @@
   },
   "filterMultiSelectClearButton.label" : {
     "description" : "Clear button label for filter multi-select",
-    "message" : "Clear<VisuallyHidden> selections</VisuallyHidden>"
+    "message" : "Cancella<VisuallyHidden> selezioni</VisuallyHidden>"
   },
   "filterMultiSelectMultiSelectOption.available" : {
     "description" : "Number of filter items available",

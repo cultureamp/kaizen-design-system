@@ -63,11 +63,11 @@
   },
   "filterMultiSelectClearButton.label" : {
     "description" : "Clear button label for filter multi-select",
-    "message" : "Clear<VisuallyHidden> selections</VisuallyHidden>"
+    "message" : "<VisuallyHidden>Selecties</VisuallyHidden> wissen"
   },
   "filterMultiSelectMultiSelectOption.available" : {
     "description" : "Number of filter items available",
-    "message" : "<Badge>{count}</Badge><VisuallyHidden> available</VisuallyHidden>"
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> beschikbaar</VisuallyHidden>"
   },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",

@@ -63,11 +63,11 @@
   },
   "filterMultiSelectClearButton.label" : {
     "description" : "Clear button label for filter multi-select",
-    "message" : "Clear<VisuallyHidden> selections</VisuallyHidden>"
+    "message" : "<VisuallyHidden>चयन</VisuallyHidden> हटाएं"
   },
   "filterMultiSelectMultiSelectOption.available" : {
     "description" : "Number of filter items available",
-    "message" : "<Badge>{count}</Badge><VisuallyHidden> available</VisuallyHidden>"
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> उपलब्ध है</VisuallyHidden>"
   },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
@@ -79,7 +79,7 @@
   },
   "filterMultiSelectSelectAllButton.label" : {
     "description" : "Select all button in filter multi select",
-    "message" : "Select all"
+    "message" : "सभी को चुनें"
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",
