@@ -10,7 +10,7 @@ export type ModalFooterProps = {
   variant?: ActionsVariantProps
   unpadded?: boolean
   /**
-   * @deprecated Use children instead to insert whatever buttons you want
+   * @deprecated Use children instead. It is recommended to use the latest Button or LinkButton component
    */
   actions?: ButtonProps[]
   /**
@@ -36,7 +36,6 @@ export const ModalFooter = ({
   const { queries } = useMediaQueries()
 
   return (
-    // <div inputEdit={variant === 'inputEdit'} unpadded={unpadded} className={className}>
     <div
       className={classnames(
         styles.footer,
