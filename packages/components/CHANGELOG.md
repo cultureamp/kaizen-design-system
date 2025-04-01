@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.74.2
+
+### Patch Changes
+
+- [#5578](https://github.com/cultureamp/kaizen-design-system/pull/5578) [`bca4fef`](https://github.com/cultureamp/kaizen-design-system/commit/bca4fefcca025598246d98c246bf64f3768bc5c1) - Use outlines instead of pseudo elements for focus rings
+
 ## 1.74.1
 
 ### Patch Changes
