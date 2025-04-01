@@ -44,13 +44,15 @@ By default `Well` has a 24px bottom margin. To remove this, set the `noMargin` p
 
 ### isAiLoading and AI Moments
 
-To handle the AI loading state, use the `isAiLoading` prop. This will animate the Well's border and background while `true` and remain static while `false`.
+To handle the AI loading state, use the `isAiLoading` prop. This will animate the Well's border and background while `true` and remain static while `false`. To revert to a regular Well, set `isAiLoading` to `undefined`.
 
 <Canvas of={WellStories.AIMoment} />
 
 Always use this in combination with other Kaizen loading components such as `LoadingHeading`, `LoadingParagraph`, and `LoadingGraphic` to communicate loading visually.
 
-To revert to a regular Well, set `isAiLoading` to `undefined`.
+<Canvas of={WellStories.AIMomentWithColor} />
+
+The `Well` inherits the background color from the `color` property. Although this flexibility exists typically use should be limited to white to ensure sufficient color contrast.
 
 #### Interactive example
 

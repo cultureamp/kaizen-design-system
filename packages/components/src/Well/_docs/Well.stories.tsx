@@ -28,6 +28,22 @@ const meta = {
     variant: {
       control: false,
     },
+    isAiLoading: {
+      control: {
+        type: 'radio',
+      },
+      options: ['true', 'false', 'undefined'],
+      table: {
+        defaultValue: {
+          summary: 'undefined',
+        },
+      },
+      mapping: {
+        undefined: undefined,
+        true: true,
+        false: false,
+      },
+    },
   },
 } satisfies Meta<typeof Well>
 
@@ -148,10 +164,29 @@ export const AIMoment: Story = {
   ],
 }
 
+export const AIMomentWithColor: Story = {
+  render: (args) => (
+    <>
+      <Well {...args} color="blue" isAiLoading={true}>
+        <LoadingContent />
+      </Well>
+    </>
+  ),
+}
+
 export const InteractiveAIMoment: Story = {
   render: (args) => {
     const [isAiMomentLoading, setIsAiMomentLoading] = React.useState(false)
-    const [content, setContent] = React.useState<React.ReactNode>(args.children)
+    const [content, setContent] = React.useState<React.ReactNode>(
+      <>
+        <Heading variant="heading-3">Default content</Heading>
+        <Text variant="body">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas accusantium doloribus
+          dicta odio recusandae repudiandae tenetur! Fugiat vero architecto quasi rem culpa vel
+          asperiores, sit, quas suscipit, ea deleniti dolorum.
+        </Text>
+      </>,
+    )
     const simulateAiFetch = (): void => {
       const AiResponses = [
         <>
