@@ -94,7 +94,9 @@ export const InputEditModal = ({
           </Heading>
         </ModalAccessibleLabel>
       </ModalHeader>
-      <ModalBody inputEdit>{children}</ModalBody>
+      <ModalBody unpadded={unpadded} inputEdit>
+        {children}
+      </ModalBody>
       <ModalFooter
         actions={footerActions}
         appearance={mood === 'destructive' ? 'destructive' : 'primary'}
