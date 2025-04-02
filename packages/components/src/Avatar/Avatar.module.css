@@ -136,3 +136,7 @@
   font-weight: var(--typography-heading-5-font-weight);
   letter-spacing: var(--typography-heading-5-letter-spacing);
 }
+
+.extra-thing {
+  display: none;
+}
