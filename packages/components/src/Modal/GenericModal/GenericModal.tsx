@@ -19,6 +19,9 @@ export type GenericModalProps = {
   /** A callback that is triggered after the modal is closed. */
   onAfterLeave?: () => void
   className?: string
+  /**
+   * Affects the max-width of the modal container
+   */
   size?: 'medium' | 'large'
 }
 
