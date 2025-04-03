@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.75.0
+
+### Minor Changes
+
+- [#5569](https://github.com/cultureamp/kaizen-design-system/pull/5569) [`cffd4ad`](https://github.com/cultureamp/kaizen-design-system/commit/cffd4ad8ef49310e6a0fa94229f6bbfaf8debbdc) - deprecate GuidanceBlock `actions` props and add actionsSlot
+
 ## 1.74.3
 
 ### Patch Changes
