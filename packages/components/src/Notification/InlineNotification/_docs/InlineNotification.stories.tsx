@@ -1,3 +1,4 @@
+import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { InlineNotification } from '../InlineNotification'
 

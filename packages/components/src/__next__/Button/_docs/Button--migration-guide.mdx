@@ -41,7 +41,7 @@ This will loop through the given directory and update all instances of Button to
 pnpm kaizen-codemod src upgradeV1Buttons
 ```
 
-Note that there are cases where an props that no longer exist will be left in the codebase to throw type error and provide feedback to the engineer. This is intentional and identifies area's where manual updates are required.
+Note that there are cases where props that no longer exist will be left in the codebase to throw type error and provide feedback to the engineer. This is intentional and identifies area's where manual updates are required.
 
 ### Pre-requisites
 
@@ -61,7 +61,7 @@ Based off Metabase queries, `component` render props is used in consuming reposi
 
 #### `badge` props type errors
 
-The codemod will continue to passed `badge` props into the new implementation so it will throw a type error and provide feedback to engineers. This will need to be manually composed within the `Children` if required, ie:
+The codemod will continue to pass `badge` props into the new implementation so it will throw a type error and provide feedback to engineers. This will need to be manually composed within the `Children` if required, ie:
 
 ```
 import { Badge } from "@kaizen/components"
@@ -74,7 +74,7 @@ import { Button } from "@kaizen/components/next"
 
 If no `href` or `component` props are passed to the component you may get type errors for having anchor related props passed into a Button, ie: `target`, `rel`.
 
-This will cause a type error that can be corrected by either using the `LinkButton` (if intended) or removing all anchor related props as they should exist on semantic buttons.
+This will cause a type error that can be corrected by either using the `LinkButton` (if intended) or removing all anchor related props as they shouldn't exist on semantic buttons.
 
 ## More information
 
