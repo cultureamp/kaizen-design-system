@@ -109,6 +109,12 @@ Released in `1.73.1`
 
 Migrates V1 `Button` and `IconButton` component to next `Button` or `LinkButton`.
 
+### `migrateGuidanceBlockActionsToActionsSlot`
+
+Migrates GuidanceBlock `actions` props into `actionsSlot` with `Button` or `LinkButton` component.
+
+Released in `1.74.0`
+
 #### Props
 
 - `label` becomes `children`
