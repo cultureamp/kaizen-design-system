@@ -1,0 +1,204 @@
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 310deg;
+  inherits: false;
+}
+
+.container {
+  background-color: var(--background-color);
+  border-width: var(--border-width-1);
+  border-radius: var(--border-solid-border-radius);
+  border-style: var(--border-style);
+  margin-bottom: var(--spacing-24);
+  color: var(--color-purple-800);
+  border-color: var(--border-color);
+}
+
+.noMargin {
+  margin: 0;
+}
+
+.white {
+  --background-color: var(--color-white);
+  --border-color: var(--color-gray-500);
+}
+
+.gray {
+  --background-color: var(--color-gray-200);
+  --border-color: var(--color-gray-500);
+}
+
+.blue {
+  --background-color: var(--color-blue-100);
+  --border-color: var(--color-blue-400);
+}
+
+.yellow {
+  --background-color: var(--color-yellow-100);
+  --border-color: var(--color-yellow-700);
+}
+
+.orange {
+  --background-color: var(--color-orange-100);
+  --border-color: var(--color-orange-600);
+}
+
+.red {
+  --background-color: var(--color-red-100);
+  --border-color: var(--color-red-500);
+}
+
+.green {
+  --background-color: var(--color-green-100);
+  --border-color: var(--color-green-500);
+}
+
+.purple {
+  --background-color: var(--color-purple-100);
+  --border-color: var(--color-purple-400);
+}
+
+.positive {
+  --background-color: var(--color-green-100);
+  --border-color: var(--color-green-500);
+}
+
+/* // These are @deprecated but must come after `color` so not everything will default to white
+// This will be @deprecated */
+.default {
+  --background-color: var(--color-gray-200);
+  --border-color: var(--color-gray-500);
+}
+
+.negative {
+  --background-color: var(--color-red-100);
+  --border-color: var(--color-red-500);
+}
+
+.informative {
+  --background-color: var(--color-blue-100);
+  --border-color: var(--color-blue-400);
+}
+
+.cautionary {
+  --background-color: var(--color-yellow-100);
+  --border-color: var(--color-yellow-700);
+}
+
+.assertive {
+  --background-color: var(--color-orange-100);
+  --border-color: var(--color-orange-600);
+}
+
+.prominent {
+  --background-color: var(--color-purple-100);
+  --border-color: var(--color-purple-400);
+}
+
+/* // @deprecated end
+
+// Border Style Variations */
+.solid {
+  --border-style: solid;
+}
+
+.dashed {
+  --border-style: dashed;
+}
+
+.none {
+  --border-color: transparent;
+  --border-style: none;
+}
+
+.aiMoment {
+  --clr-1: rgba(100 210 215 / 100%) 0%;
+  --clr-2: rgba(103 199 175 / 100%) 20%;
+  --clr-3: rgba(100 210 215 / 100%) 41%;
+  --clr-4: rgba(200 136 226 / 100%) 100%;
+  --border-width: 2px;
+
+  position: relative;
+  border-radius: calc(var(--border-borderless-border-radius) - 1px);
+  border-width: 0;
+  /* background-color: transparent; */
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    background-image: linear-gradient(
+      var(--gradient-angle),
+      var(--clr-1),
+      var(--clr-2),
+      var(--clr-3),
+      var(--clr-4)
+    );
+    border-radius: 8px;
+    background-size: 100% 100%;
+    background-position: 0 50%;
+    transition:
+      filter 1s ease-in,
+      opacity 1s ease-in;
+  }
+
+  &::before {
+    filter: blur(0px);
+    opacity: 0;
+  }
+
+  &::after {
+    opacity: 1;
+  }
+
+  &.aiMomentLoading,
+  &.aiMomentExiting {
+    &::after {
+      animation: rotation-loop-after 2s linear infinite;
+    }
+    &::before {
+      animation: rotation-loop-before 2s linear infinite;
+      filter: blur(10px);
+      opacity: 0.7;
+    }
+  }
+
+  &.aiMomentExiting {
+    &::after,
+    &::before {
+      animation-iteration-count: 1;
+    }
+  }
+}
+
+@keyframes rotation-loop-before {
+  0% {
+    background-size: 100% 100%;
+  }
+  50% {
+    --gradient-angle: 270deg;
+    background-position: 0% 20%;
+    background-size: 200% 300%;
+    opacity: 0.3;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+
+@keyframes rotation-loop-after {
+  0% {
+    background-size: 100% 100%;
+  }
+  50% {
+    --gradient-angle: 270deg;
+    background-position: 0% 20%;
+    background-size: 110% 130%;
+    opacity: 0.7;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}

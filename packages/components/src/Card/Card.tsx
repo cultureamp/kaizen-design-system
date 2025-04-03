@@ -48,6 +48,10 @@ export type CardProps = {
    * @deprecated Please use color instead
    */
   variant?: CardVariants
+  /**
+   * Toggles the loaded (`false`) and loading (`true`) states for AI Moments.
+   */
+  isAiLoading?: boolean
 } & OverrideClassName<Omit<HTMLAttributes<HTMLElement>, 'color'>>
 
 /**
@@ -61,7 +65,8 @@ export const Card = ({
   color = 'white',
   isElevated = false,
   classNameOverride,
-  ...props
+  isAiLoading,
+  ...otherProps
 }: CardProps): JSX.Element => {
   const Element = tag
 
@@ -72,8 +77,10 @@ export const Card = ({
         variant ? styles[variant] : styles[color],
         classNameOverride,
         isElevated && styles.elevated,
+        isAiLoading !== undefined && styles.aiMoment,
+        isAiLoading === true && styles.aiMomentLoading,
       )}
-      {...props}
+      {...otherProps}
     >
       {children}
     </Element>
