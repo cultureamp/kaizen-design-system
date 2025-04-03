@@ -54,20 +54,11 @@
   }
 
   &:focus {
-    outline: none;
+    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+      var(--color-blue-500);
+    outline-offset: 1px;
     background-color: $color-gray-200;
     border-color: $color-gray-600;
-
-    &::after {
-      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
-
-      content: '';
-      position: absolute;
-      background: transparent;
-      border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
-      border-radius: $border-focus-ring-border-radius;
-      inset: calc(-1 * #{$focus-ring-offset});
-    }
   }
 }
 
@@ -115,9 +106,7 @@
   }
 
   &:focus {
-    &::after {
-      border-color: $color-blue-300;
-    }
+    outline-color: var(--color-blue-300);
   }
 
   .error {

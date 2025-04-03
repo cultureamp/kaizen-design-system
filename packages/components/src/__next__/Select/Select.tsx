@@ -100,6 +100,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   const fallbackId = useId()
   const id = propsId ?? fallbackId
   const descriptionId = `${id}--description`
+  const validationId = `${id}--validation`
   const popoverId = `${id}--popover`
 
   const disabledKeys = getDisabledKeysFromItems(items)
@@ -143,14 +144,15 @@ export const Select = <Option extends SelectOption = SelectOption>({
     ...buttonProps,
     label,
     labelProps,
-    value: state?.selectedItem?.rendered,
+    'value': state?.selectedItem?.rendered,
     valueProps,
-    isOpen: state.isOpen,
+    'isOpen': state.isOpen,
     placeholder,
     status,
-    isDisabled: triggerProps.isDisabled,
+    'isDisabled': triggerProps.isDisabled,
     isReversed,
-    ref: refs.setReference,
+    'ref': refs.setReference,
+    'aria-describedby': classnames(validationMessage && validationId, description && descriptionId),
   }
 
   const [portalContainer, setPortalContainer] = useState<HTMLElement>()
@@ -184,6 +186,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
       {validationMessage && (
         <FieldMessage
           {...errorMessageProps}
+          id={validationId}
           message={validationMessage}
           status={status}
           reversed={isReversed}

@@ -56,17 +56,11 @@
   }
 
   // wrap the modal container with a focus ring when the title has focus
-  // don't copy this over on the rebuild
-  // rather than putting the focus on the title, put it on the role=dialog element itself
-  &:has(:global([class*='modalLabel']):focus-visible)::after {
-    content: '';
-    position: absolute;
-    background: transparent;
-    border-radius: $border-focus-ring-border-radius;
-    border-width: $border-focus-ring-border-width;
-    border-style: $border-focus-ring-border-style;
-    border-color: $color-blue-300;
-    inset: -4px;
+  // for the rebuild: rather than putting the focus on the title, put it on the role=dialog element itself
+  &:has(:global([class*='modalLabel']):focus-visible) {
+    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+      var(--color-blue-300);
+    outline-offset: 2px;
   }
 }
 

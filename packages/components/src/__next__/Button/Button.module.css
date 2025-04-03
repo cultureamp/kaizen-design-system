@@ -47,15 +47,16 @@
     --button-border-color: var(--color-blue-700);
   }
 
-  &[data-focus-visible]::after {
-    content: '';
-    position: absolute;
-    background: transparent;
-    border-color: var(--color-blue-500);
-    border-radius: var(--border-focus-ring-border-radius);
-    border-width: var(--border-focus-ring-border-width);
-    border-style: var(--border-focus-ring-border-style);
-    inset: calc(-1 * (var(--border-focus-ring-border-width) * 2) - 1px);
+  &.isDisabled {
+    --button-bg-color: var(--color-gray-400);
+    --button-border-color: var(--color-gray-400);
+    --button-text-color: var(--color-white);
+  }
+
+  &[data-focus-visible] {
+    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+      var(--color-blue-500);
+    outline-offset: 1px;
   }
 }
 
@@ -158,8 +159,8 @@
 .primaryReversed,
 .secondaryReversed,
 .tertiaryReversed {
-  &[data-focus-visible]::after {
-    border-color: var(--color-blue-300);
+  &[data-focus-visible] {
+    outline-color: var(--color-blue-300);
   }
 }
 

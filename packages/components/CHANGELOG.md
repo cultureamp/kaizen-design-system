@@ -1,5 +1,47 @@
 # Change Log
 
+## 1.74.3
+
+### Patch Changes
+
+- [#5631](https://github.com/cultureamp/kaizen-design-system/pull/5631) [`3107795`](https://github.com/cultureamp/kaizen-design-system/commit/3107795efcf0cccf26246ec668dd80b56a1c1137) - Update translations
+
+## 1.74.2
+
+### Patch Changes
+
+- [#5578](https://github.com/cultureamp/kaizen-design-system/pull/5578) [`bca4fef`](https://github.com/cultureamp/kaizen-design-system/commit/bca4fefcca025598246d98c246bf64f3768bc5c1) - Use outlines instead of pseudo elements for focus rings
+
+## 1.74.1
+
+### Patch Changes
+
+- [#5624](https://github.com/cultureamp/kaizen-design-system/pull/5624) [`a57dc51`](https://github.com/cultureamp/kaizen-design-system/commit/a57dc5134d8b034e3e16d16e50e5289dbb14f9e8) - Add translations for FilterMultiSelect
+
+## 1.74.0
+
+### Minor Changes
+
+- [#5606](https://github.com/cultureamp/kaizen-design-system/pull/5606) [`ad4747e`](https://github.com/cultureamp/kaizen-design-system/commit/ad4747e1b36c5b9c93e17228e386e4646f80abe5) - add translations for the clear, select all and Multiselect option
+
+## 1.73.13
+
+### Patch Changes
+
+- [#5601](https://github.com/cultureamp/kaizen-design-system/pull/5601) [`6f6f581`](https://github.com/cultureamp/kaizen-design-system/commit/6f6f581e943457632227034cbbaeef127b63e3c1) - TimeField: fix spacing after dep update
+
+## 1.73.12
+
+### Patch Changes
+
+- [#5602](https://github.com/cultureamp/kaizen-design-system/pull/5602) [`812eb89`](https://github.com/cultureamp/kaizen-design-system/commit/812eb8974c5e2d779defe43732a0df84e308cab1) - Fix disabled styles for primary variant of next/button
+
+## 1.73.11
+
+### Patch Changes
+
+- [#5599](https://github.com/cultureamp/kaizen-design-system/pull/5599) [`85d95d4`](https://github.com/cultureamp/kaizen-design-system/commit/85d95d43a7cc600e6494d5cd52074efb19fb702b) - next/Select: link description and validation message with aria-describedby
+
 ## 1.73.10
 
 ### Patch Changes

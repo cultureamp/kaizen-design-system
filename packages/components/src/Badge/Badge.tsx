@@ -1,10 +1,14 @@
-import React, { useLayoutEffect, useState, type HTMLAttributes } from 'react'
+import React, {
+  useLayoutEffect,
+  useState,
+  type HTMLAttributes,
+  type PropsWithChildren,
+} from 'react'
 import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Badge.module.css'
 
-type BadgeCommonProps = {
-  children?: string
+type BadgeCommonProps = PropsWithChildren<{
   /**
    * The "dark" variant is no longer in the UI kit
    */
@@ -17,7 +21,8 @@ type BadgeCommonProps = {
    * Supports "small" and "large" sizes - defaults to "small"
    */
   size?: 'small' | 'large'
-} & OverrideClassName<HTMLAttributes<HTMLSpanElement>>
+}> &
+  OverrideClassName<HTMLAttributes<HTMLSpanElement>>
 
 type DotProps = Omit<BadgeCommonProps, 'variant'> & {
   children?: never
