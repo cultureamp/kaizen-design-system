@@ -28,7 +28,7 @@ const MockContent = (): JSX.Element => (
 )
 
 const meta = {
-  title: 'Components/Workflow',
+  title: 'Pages/Workflow',
   component: Workflow,
   argTypes: WorkflowControls,
   args: {

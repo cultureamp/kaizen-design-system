@@ -63,11 +63,11 @@
   },
   "filterMultiSelectClearButton.label" : {
     "description" : "Clear button label for filter multi-select",
-    "message" : "Clear<VisuallyHidden> selections</VisuallyHidden>"
+    "message" : "<VisuallyHidden>Auswahlen</VisuallyHidden> löschen"
   },
   "filterMultiSelectMultiSelectOption.available" : {
     "description" : "Number of filter items available",
-    "message" : "<Badge>{count}</Badge><VisuallyHidden> available</VisuallyHidden>"
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> verfügbar</VisuallyHidden>"
   },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
@@ -91,7 +91,7 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Problem beim Laden der Seite. Versuchen Sie es noch einmal oder gehen Sie zur Startseite."
+    "message" : "Problem beim Laden der Seite. Versuche es erneut oder gehe zur Startseite."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
@@ -186,6 +186,6 @@
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
-    "message" : "Zusätzliche Aktionen"
+    "message" : "Zusätzliche Maßnahmen"
   }
 }

@@ -10,6 +10,16 @@ const meta = {
   args: {
     children: 'My tag',
   },
+  argTypes: {
+    icon: {
+      options: ['delete', 'arrow', 'add'],
+      mapping: {
+        delete: <Icon isPresentational name="delete" />,
+        arrow: <Icon isPresentational name="arrow_forward" />,
+        add: <Icon isPresentational name="add" />,
+      },
+    },
+  },
 } satisfies Meta<typeof Tag>
 
 export default meta
