@@ -1,0 +1,125 @@
+.spotIcon {
+  color: var(--spot-icon-color);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 0.2fr 2fr;
+  align-items: center;
+}
+
+.iconContainer {
+  position: relative;
+  align-self: flex-start;
+
+  @media (width >= 768px) {
+    align-self: center;
+  }
+
+  .spotIcon {
+    --icon-size: 30;
+
+    width: 30px;
+    height: 30px;
+
+    @media (width <= 768px) {
+      margin-inline-end: 0.9375rem;
+      position: relative;
+      inset-block-start: 0.125rem;
+    }
+  }
+}
+
+.prominent {
+  display: grid;
+  grid-template-columns: 1.1fr 2fr;
+  align-items: center;
+
+  @media (width <= 768px) {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    place-content: flex-start center;
+    align-items: flex-start;
+  }
+
+  .iconContainer {
+    position: absolute;
+    inset-block-start: 8%;
+
+    @media (width <= 768px) {
+      position: relative;
+      inset-block-start: 0;
+      margin-block-end: var(--spacing-12);
+    }
+  }
+
+  .spotIcon {
+    width: 155px;
+    height: 155px;
+    margin: 0 auto;
+    color: var(--color-purple-800);
+
+    @media (width <= 768px) {
+      width: 86px;
+      height: 86px;
+    }
+  }
+}
+
+/* 
+ * @deprecated moods use variant styles instead
+ */
+.positiveHeader {
+  background-color: var(--color-green-100);
+
+  .spotIcon {
+    color: var(--color-green-500);
+  }
+}
+
+.informativeHeader {
+  background-color: var(--color-blue-100);
+
+  .spotIcon {
+    color: var(--color-blue-500);
+  }
+}
+
+.negativeHeader,
+.assertiveHeader {
+  background-color: var(--color-red-100);
+
+  .spotIcon {
+    color: var(--color-red-500);
+  }
+}
+
+.cautionaryHeader {
+  background-color: var(--color-yellow-100);
+
+  .spotIcon {
+    color: var(--color-yellow-700);
+  }
+}
+
+/* End @deprecated */
+
+/*
+ * variant styles
+ */
+.success {
+  --spot-icon-color: var(--color-green-500);
+}
+
+.informative {
+  --spot-icon-color: var(--color-blue-500);
+}
+
+.warning {
+  --spot-icon-color: var(--color-red-500);
+}
+
+.cautionary {
+  --spot-icon-color: var(--color-yellow-700);
+}

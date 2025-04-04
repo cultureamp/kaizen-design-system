@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  gap: var(--spacing-12);
+  border-radius: 0 0 var(--border-solid-border-radius) var(--border-solid-border-radius);
+}
+
+.gray {
+  background-color: var(--color-gray-200);
+}
+
+.padded {
+  padding: 0 var(--spacing-24) var(--spacing-24);
+  flex-direction: column;
+
+  @media (width >= 768px) {
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    flex-direction: row-reverse;
+  }
+}
