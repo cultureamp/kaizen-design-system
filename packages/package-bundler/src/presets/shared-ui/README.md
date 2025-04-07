@@ -13,7 +13,8 @@ Add the following to your `package.json`:
 "module": "dist/esm/index.mjs", // ES modules entrypoint
 "types": "dist/types/index.d.ts", // TypeScript types entrypoint
 "files": [
-  "dist" // Ensure dist dir is included in package
+  "dist", // Ensure dist dir is included in package
+  "locales" // Ensure locales dir is included. Omit if no translations present
 ],
 "sideEffects": [
   "styles.css" // Ensure styles do not get tree-shaken
