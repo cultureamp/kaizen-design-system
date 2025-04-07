@@ -10,6 +10,8 @@ pnpm add -D @kaizen/package-bundler
 
 ## Presets
 
+The bundler provides two workflow presets; the default preset is intended to bundle simple packages that contain only JS functions, like shared utility libraries (eg, frontend-apis, etc). The Shared UI preset is designed to bundle packages containing shared UI components (eg, [goals-shared-ui](https://github.com/cultureamp/goals-ui/tree/main/packages/goals-shared-ui)) and includes additional steps for bundling and exposing stylesheets and translations.
+
 - [Default preset](src/presets/default/README.md)
 - [Shared UI preset](src/presets/shared-ui/README.md)
 
