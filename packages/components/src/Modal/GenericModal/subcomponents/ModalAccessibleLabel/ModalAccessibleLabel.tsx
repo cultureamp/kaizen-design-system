@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { ModalContext } from '../../context/ModalContext'
-import styles from './ModalAccessibleLabel.module.scss'
+import styles from './ModalAccessibleLabel.module.css'
 
 export type ModalAccessibleLabelProps = {
   children: React.ReactNode

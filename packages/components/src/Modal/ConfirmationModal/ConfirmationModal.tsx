@@ -12,7 +12,7 @@ import {
   ModalHeader,
 } from '~components/Modal/GenericModal'
 import { Icon } from '~components/__next__/Icon'
-import styles from './ConfirmationModal.module.scss'
+import styles from './ConfirmationModal.module.css'
 
 type Mood = 'positive' | 'informative' | 'negative' | 'cautionary' | 'assertive'
 type Variant = 'success' | 'informative' | 'warning' | 'cautionary'
@@ -160,38 +160,37 @@ export const ConfirmationModal = ({
       onAfterLeave={onAfterLeave}
       onAfterEnter={onAfterEnter}
       className={className}
+      {...props}
     >
-      <div className={styles.modal} data-modal {...props}>
-        <ModalHeader onDismiss={onDismiss}>
-          <div
-            className={classnames(
-              styles.header,
-              variant ? styles[variant] : styles[`${mood}Header`],
-              isProminent && styles.prominent,
-              !unpadded && styles.padded,
-            )}
-          >
-            <div className={classnames(styles.iconContainer, isProminent && styles.prominent)}>
-              <div className={styles.spotIcon}>{getIcon(variantName, isProminent)}</div>
-            </div>
-            <ModalAccessibleLabel isProminent={isProminent}>
-              <Heading tag="h2" variant="heading-2">
-                {title}
-              </Heading>
-            </ModalAccessibleLabel>
-          </div>
-        </ModalHeader>
-        <ModalBody>
-          <div className={classnames(isProminent && styles.prominent, !unpadded && styles.padded)}>
-            <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
-          </div>
-        </ModalBody>
-        <ModalFooter
-          actions={footerActions}
-          appearance={mood === 'negative' || variant == 'warning' ? 'destructive' : 'primary'}
-          unpadded={unpadded}
-        />
-      </div>
+      <ModalHeader
+        onDismiss={onDismiss}
+        variant={variant}
+        unpadded={unpadded}
+        className={classnames(
+          styles.header,
+          variant ? styles[variant] : styles[`${mood}Header`],
+          isProminent && styles.prominent,
+        )}
+      >
+        <div className={classnames(styles.iconContainer, isProminent && styles.prominent)}>
+          <div className={styles.spotIcon}>{getIcon(variantName, isProminent)}</div>
+        </div>
+        <ModalAccessibleLabel isProminent={isProminent}>
+          <Heading tag="h2" variant="heading-2">
+            {title}
+          </Heading>
+        </ModalAccessibleLabel>
+      </ModalHeader>
+      <ModalBody unpadded={unpadded}>
+        <div className={classnames(isProminent && styles.prominent, !unpadded && styles.padded)}>
+          <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
+        </div>
+      </ModalBody>
+      <ModalFooter
+        actions={footerActions}
+        appearance={mood === 'negative' || variant == 'warning' ? 'destructive' : 'primary'}
+        unpadded={unpadded}
+      />
     </GenericModal>
   )
 }

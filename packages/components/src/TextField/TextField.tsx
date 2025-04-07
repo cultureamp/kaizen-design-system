@@ -78,7 +78,7 @@ export const TextField = ({
         startIconAdornment={icon}
         endIconAdornment={
           status === 'success' && (
-            <div className={classnames(styles.icon, styles.success, disabled && styles.disabled)}>
+            <div className={classnames(styles.icon, styles.success)}>
               <Icon name="check_circle" isPresentational isFilled />
             </div>
           )

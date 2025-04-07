@@ -9,7 +9,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from '~components/Modal/GenericModal'
-import styles from './ContextModal.module.scss'
+import styles from './ContextModal.module.css'
 
 export type ContextModalSecondaryActionProps =
   | {
@@ -107,39 +107,25 @@ export const ContextModal = ({
       onAfterLeave={onAfterLeave}
       onAfterEnter={onAfterEnter}
       className={className}
+      size="large"
+      {...props}
     >
-      <div className={styles.modal} data-modal {...props}>
-        {renderBackground?.()}
-        <ModalHeader onDismiss={onDismiss}>
-          <div className={classnames(styles.header, !unpadded && styles.padded)}>
-            <ModalAccessibleLabel>
-              <Heading variant="heading-2" tag="h2">
-                {title}
-              </Heading>
-            </ModalAccessibleLabel>
-          </div>
-        </ModalHeader>
-        {contentHeader && <div className={styles.contentHeader}>{contentHeader}</div>}
-        <ModalBody>
-          <div className={classnames(styles.contentLayout, styles[`${layout}Contentlayout`])}>
-            {image && <div className={styles.image}>{image}</div>}
-            <div className={styles.content}>
-              {children}
-              {onConfirm != null && (
-                <div
-                  className={secondaryLabel ? styles.footerWithSecondaryAction : styles.footer}
-                ></div>
-              )}
-            </div>
-          </div>
-        </ModalBody>
-        <ModalFooter
-          variant={image ? 'context' : undefined}
-          actions={footerActions}
-          appearance="primary"
-          unpadded={unpadded}
-        />
-      </div>
+      {renderBackground?.()}
+      <ModalHeader onDismiss={onDismiss} unpadded={unpadded}>
+        <ModalAccessibleLabel>
+          <Heading variant="heading-2" tag="h2">
+            {title}
+          </Heading>
+        </ModalAccessibleLabel>
+      </ModalHeader>
+      {contentHeader && <div className={styles.contentHeader}>{contentHeader}</div>}
+      <ModalBody>
+        <div className={classnames(styles.contentLayout, styles[`${layout}Contentlayout`])}>
+          {image && <div className={styles.image}>{image}</div>}
+          <div className={styles.content}>{children}</div>
+        </div>
+      </ModalBody>
+      <ModalFooter actions={footerActions} appearance="primary" unpadded={unpadded} />
     </GenericModal>
   )
 }

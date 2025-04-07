@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { type StoryObj } from '@storybook/react'
-import { expect, userEvent, within } from '@storybook/test'
+import { expect, userEvent, waitFor, within } from '@storybook/test'
 import { type EditorContentArray } from '../types'
 import { RichTextEditor, type RichTextEditorProps } from './RichTextEditor'
 
@@ -186,8 +186,10 @@ export const CreateALink: Story = {
     })
 
     await step('Link exists in the RTE', async () => {
-      const link = getByRole('link', { name: 'Link' })
-      expect(link).toBeInTheDocument()
+      await waitFor(() => {
+        const link = getByRole('link', { name: 'Link' })
+        expect(link).toBeInTheDocument()
+      })
     })
   },
 }

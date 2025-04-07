@@ -1,8 +1,8 @@
+@import '~@kaizen/design-tokens/sass/animation';
 @import '~@kaizen/design-tokens/sass/border';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/shadow';
 @import '~@kaizen/design-tokens/sass/spacing';
-@import '../../../../styles/utils/animation';
 @import '../../../../styles/utils/responsive';
 @import './variables';
 
@@ -16,7 +16,7 @@ $tilePaddingTop: $spacing-xl;
   position: relative;
   width: $tileWidth;
   height: $tileHeight;
-  transition: transform $ca-duration-slow $ca-default;
+  transition: transform $animation-duration-slow $animation-easing-function-ease-in-out;
   transform-style: preserve-3d;
   box-shadow: $shadow-small-box-shadow;
   border-radius: 7px;
