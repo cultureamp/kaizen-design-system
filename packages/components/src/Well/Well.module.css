@@ -186,7 +186,8 @@
 }
 
 @keyframes rotation-loop-before {
-  0% {
+  0%,
+  100% {
     background-size: 100% 100%;
   }
 
@@ -197,14 +198,11 @@
     background-size: 200% 300%;
     opacity: 0.3;
   }
-
-  100% {
-    background-size: 100% 100%;
-  }
 }
 
 @keyframes rotation-loop-after {
-  0% {
+  0%,
+  100% {
     background-size: 100% 100%;
   }
 
@@ -214,9 +212,5 @@
     background-position: 0% 20%;
     background-size: 110% 130%;
     opacity: 0.7;
-  }
-
-  100% {
-    background-size: 100% 100%;
   }
 }
