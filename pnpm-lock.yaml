@@ -516,7 +516,7 @@ importers:
   packages/design-tokens:
     dependencies:
       color-string:
-        specifier: ^1.9.1
+        specifier: 1.9.1
         version: 1.9.1
       lodash.kebabcase:
         specifier: ^4.1.1
