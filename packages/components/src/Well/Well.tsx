@@ -47,9 +47,9 @@ export const Well = ({
         styles[color],
         variant && styles[variant],
         noMargin && styles.noMargin,
-        classNameOverride,
         isAiLoading !== undefined && styles.aiMoment,
         isAiLoading !== undefined && animationClass,
+        classNameOverride,
       )}
       {...restProps}
     >
