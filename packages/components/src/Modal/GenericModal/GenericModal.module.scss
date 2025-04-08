@@ -64,9 +64,9 @@
   }
 }
 
-// WAITING FOR TEXTFIELD
-.animatingEnter {
-  transition-duration: $ca-duration-fast;
+.transitionLayer {
+  transition: opacity $ca-duration-fast ease-in-out;
+  opacity: 1;
 
   .backdropLayer {
     /*
@@ -86,8 +86,20 @@
   }
 }
 
+// WAITING FOR TEXTFIELD
+.animatingEnter {
+  [data-modal] {
+    animation-duration: $ca-duration-fast;
+    animation-fill-mode: forwards;
+    animation-timing-function: $ca-bounce-in;
+
+    @include ca-animation(fade($from: 0, $to: 1), zoom($from: 0.5, $to: 1));
+  }
+}
+
 .animatingLeave {
   transition-duration: $ca-duration-rapid;
+  opacity: 0;
 
   .backdropLayer {
     @include ca-animation-fade($duration: $ca-duration-rapid, $from: 0.5, $to: 0);
