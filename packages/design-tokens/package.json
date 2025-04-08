@@ -1,7 +1,7 @@
 {
   "name": "@kaizen/design-tokens",
   "description": "Tokens used in the Kaizen Design System",
-  "version": "10.8.9",
+  "version": "10.8.10",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/design-tokens",
   "repository": {
     "type": "git",
@@ -35,8 +35,11 @@
     "clean:dist": "rimraf 'dist'"
   },
   "dependencies": {
-    "color-string": "^1.9.1",
+    "color-string": "1.9.1",
     "lodash.kebabcase": "^4.1.1"
+  },
+  "dependenciesComments": {
+    "color-string": "Version locked at 1.9.1 as 2.x will break implementation of older repos that are using the ThemeProvider (https://cultureamp.slack.com/archives/C0189KBPM4Y/p1742787520546679) - we will remove this in KAIO 2.0 so we can upgrade to 2.x then if still needed"
   },
   "devDependencies": {
     "@kaizen/package-bundler": "workspace:*",

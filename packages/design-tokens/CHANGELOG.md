@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.8.10
+
+### Patch Changes
+
+- [#5652](https://github.com/cultureamp/kaizen-design-system/pull/5652) [`f711137`](https://github.com/cultureamp/kaizen-design-system/commit/f7111378a2561bf595c1a4a48717108aa22de99d) - Dep updates
+
+- [#5656](https://github.com/cultureamp/kaizen-design-system/pull/5656) [`c1ee511`](https://github.com/cultureamp/kaizen-design-system/commit/c1ee5110ca278cc7474b820a811a6e4e6e761f21) - version lock color-string to 1.9.1 to ensure compatibility with older repos
+
 ## 10.8.9
 
 ### Patch Changes
