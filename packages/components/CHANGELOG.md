@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.75.2
+
+### Patch Changes
+
+- [#5654](https://github.com/cultureamp/kaizen-design-system/pull/5654) [`6a83b06`](https://github.com/cultureamp/kaizen-design-system/commit/6a83b06eb0395c833f484ced2f48c1874a1d61da) - Update headlessui to next major and update transition implementation
+
 ## 1.75.1
 
 ### Patch Changes
