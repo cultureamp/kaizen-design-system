@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as WellStories from './Well.stories'
+
+<Meta title="Components/Well/Usage Guidelines" />
+
+# Well Usage Guidelines
+
+<ResourceLinks
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14167&t=1IXoBrHg5uK6MAJp-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604733/Well"
+  apiSpecification="/?path=/docs/components-well-api-specification--docs"
+/>
+
+<KAIOInstallation exportNames="Well" />
+
+## Overview
+
+Wells are used to contain related elements which can include anything from illustrations to headlines, supporting text, buttons, and lists. They have flexible layouts and dimensions based on their contents. Wells are elevated are on the same level as the surface.
+
+<Canvas of={WellStories.Playground} />
+<Controls of={WellStories.Playground} />
+
+## API
+
+### Color
+
+Formerly controlled by `variant`, `color` sets the background and border color of the `Well`.
+
+All `variant`s have a corresponding `color` value, with some minor update to ensure minimum contrast ratios are met.
+
+<Canvas of={WellStories.Colors} />
+
+### Border Styles
+
+<Canvas of={WellStories.BorderStyles} />
+
+### No Margin
+
+<Canvas of={WellStories.NoMargin} />
+
+### isAiLoading and AI Moments
+
+AI Moments have two visual state controlled but the `isAiLoading` prop. This will animate the Well's border and background while `true` and remain static while `false`.
+
+<Canvas of={WellStories.AIMoment} />
+
+Always use this in combination with other Kaizen loading components such as `LoadingHeading`, `LoadingParagraph`, and `LoadingGraphic` to communicate loading visually.
+
+<Canvas of={WellStories.AIMomentWithColor} />
+
+The `Well` inherits the background color from the `color` property. Although this flexibility exists typically use should be limited to white to ensure sufficient color contrast.
+
+#### Interactive example
+
+<Canvas of={WellStories.InteractiveAIMoment} />
