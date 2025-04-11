@@ -1,0 +1,81 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as CardStories from './Card.stories'
+
+<Meta title="Components/Card/API Specification" />
+
+# Card API Specification
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Card"
+  figma="https://www.figma.com/design/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-Heart-UI-Kit?m=auto&node-id=1929-14084"
+  designGuidelines="/?path=/docs/components-card-usage-guidelines--docs"
+/>
+
+<KAIOInstallation exportNames="Card" />
+
+## Overview
+
+`Card`s are used to contain related elements which can include anything from illustrations to headlines, supporting text, buttons, and lists. They have flexible layouts and dimensions based on their contents. `Card`s are elevated one or two steps above the surface.
+
+<Canvas of={CardStories.Playground} />
+<Controls of={CardStories.Playground} />
+
+## API
+
+### Colors
+
+<Canvas of={CardStories.Colors} />
+
+### Elevation
+
+<Canvas of={CardStories.Elevation} />
+
+### isAiLoading and AI Moments
+
+To handle the AI loading state, use the `isAiLoading` prop. This will animate the card's border and background while `true` and remain static while `false`. To revert to a regular card, set `isAiLoading` to `undefined`.
+
+<Canvas of={CardStories.AIMoment} />
+
+Always use this in combination with other Kaizen loading components such as `LoadingHeading`, `LoadingParagraph`, and `LoadingGraphic` to communicate loading visually.
+
+<Canvas of={CardStories.AIMomentWithColor} />
+
+The `Card` inherits the background color from the `color` property. Although this flexibility exists typically use should be limited to white to ensure sufficient color contrast.
+
+#### Interactive example
+
+<Canvas of={CardStories.InteractiveAIMoment} />
+
+#### Accessibility considerations
+
+As this component will likely indicate some form of dynamic update on the page it is important to announce the loading state and content updates to assistive technologies.
+
+<Canvas of={CardStories.AiMomentAccessibility} />
+
+As shown in the previous example, you can use `aria-live` and visually hidden elements to contain content updates. It is recommended that the live region is in the DOM as early as possible to ensure it exists within the accessibility tree.
+
+```jsx
+<div>
+  {dynamicAiContent && <Card>
+    {*/ live regions added after the a11y tree has been created may not be announced - avoid putting live regions here */}
+    {dynamicAiContent}
+  </Card>}
+</div>
+<div className="flex gap-6">
+  <VisuallyHidden>
+    <div aria-live="polite">{dynamicAiContent}</div>
+  </VisuallyHidden>
+  <Button hasHiddenPendingLabel onPress={fetchAiContent} pendingLabel="AI content is loading">
+    Update content
+  </Button>
+</div>
+```
+
+Note that Kaizen components, such as `Button`, may already have props to handle and communicate loading states to screen readers.
+
+```jsx
+<Button isPending pendingLabel="AI is loading response" hasHiddenPendingLabel {...buttonProps}>
+  Update AI
+</Button>
+```
