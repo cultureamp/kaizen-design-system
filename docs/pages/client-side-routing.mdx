@@ -4,9 +4,15 @@ import { Meta } from '@storybook/blocks'
 
 # Client Side Routing
 
-Updated Jan 29, 2025
+Updated Apr 11, 2025
 
 ## Client side routing
+
+### Using next-services
+
+If you use >= `@cultureamp/next-serivces@4.6.0` you'll get client side routing for free as this release includes`<RacRouterProvider>`in the`<FrontendServices>`provider tree and is part of the`defaultPresets`.
+
+### Not using next-services
 
 To enable client side routing, you will need to wrap your application in a [RouterProvider](https://react-spectrum.adobe.com/react-aria/routing.html#routerprovider) from the `react-aria-components` library. This allows you to set the `navigation` method that performs the client side routing in the `LinkButton` and `Link` component. Refer to the framework specific guidance below for [Next.js](#nextjs-config-example) or [React Router](#react-router-config-example).
 
