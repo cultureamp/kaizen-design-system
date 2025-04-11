@@ -129,7 +129,6 @@
   margin: var(--animated-border-width);
   box-sizing: border-box;
   position: absolute;
-  content: '';
   z-index: -1;
   inset: 0;
   display: block;
