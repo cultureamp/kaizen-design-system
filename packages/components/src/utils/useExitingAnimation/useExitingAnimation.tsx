@@ -7,10 +7,10 @@ export const useExitingAnimation = (
   exitingClass: string,
   exitDuration: number = 1000,
 ): string => {
-  const [animationClass, setAnimationClass] = useState('')
+  const [animationClass, setAnimationClass] = useState<string>('')
   const previousIsLoading = React.useRef<boolean | undefined>(undefined)
 
-  useEffect(() => {
+  useEffect((): void | (() => void) => {
     if (shouldAnimate !== undefined) {
       if (previousIsLoading.current === true && shouldAnimate === false) {
         setAnimationClass(exitingClass)
@@ -26,7 +26,6 @@ export const useExitingAnimation = (
       }
     }
     previousIsLoading.current = shouldAnimate
-    return
   }, [shouldAnimate, animatingClass, exitingClass, exitDuration])
 
   return animationClass
