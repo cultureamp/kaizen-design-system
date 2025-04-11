@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.75.3
+
+### Patch Changes
+
+- [#5658](https://github.com/cultureamp/kaizen-design-system/pull/5658) [`07ec5b6`](https://github.com/cultureamp/kaizen-design-system/commit/07ec5b6c7144a7cd8fb5e50faa8ae7ef5b9f21b0) - Reorder types and style to come first in exports package.json object
+
 ## 1.75.2
 
 ### Patch Changes
