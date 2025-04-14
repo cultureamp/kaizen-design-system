@@ -1,11 +1,11 @@
-# @kaizen/package-bundler
+# @cultureamp/package-bundler
 
 Bundle packages as CJS and ESM with TypeScript types.
 
 ESM code is tree-shakeable.
 
 ```sh
-pnpm add -D @kaizen/package-bundler
+pnpm add -D @cultureamp/package-bundler
 ```
 
 ## Presets
@@ -30,7 +30,7 @@ If your consumers may be using version 10 or lower (or are using TypeScript [`mo
 
 Should you want multiple entrypoints, you will need to create a directory relative from the root of the package and create a `package.json` within that contains the extra resolutions.
 
-Eg. If we want to create an entrypoint at `@kaizen/package-bundler/next`:
+Eg. If we want to create an entrypoint at `@cultureamp/package-bundler/next`:
 
 Folder structure:
 

@@ -1,5 +1,5 @@
 {
-  "name": "@kaizen/package-bundler",
+  "name": "@cultureamp/package-bundler",
   "version": "2.0.7",
   "description": "Bundles libraries",
   "main": "dist/index.js",

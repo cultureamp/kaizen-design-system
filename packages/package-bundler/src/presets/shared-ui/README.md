@@ -81,7 +81,7 @@ module.exports = {
 In `rollup.config.mjs`:
 
 ```ts
-import { pluginsSharedUi, rollupConfig } from '@kaizen/package-bundler'
+import { pluginsSharedUi, rollupConfig } from '@cultureamp/package-bundler'
 
 export default rollupConfig({
   // Add extra entrypoints as required
@@ -95,7 +95,7 @@ export default rollupConfig({
 ```json
 // tsconfig.json
 {
-  "extends": "@kaizen/package-bundler/tsconfig.base.json",
+  "extends": "@cultureamp/package-bundler/tsconfig.base.json",
   // https://www.typescriptlang.org/tsconfig/#include
   // Include all files you want TypeScript to resolve during development such as tests or stories eg.
   "include": ["src/**/*", "__tests__/**/*"],
