@@ -10,7 +10,7 @@ Updated Apr 11, 2025
 
 ### Using next-services
 
-If you use >= `@cultureamp/next-serivces@4.6.0` you'll get client side routing for free as this release includes`<RacRouterProvider>`in the`<FrontendServices>`provider tree and is part of the`defaultPresets`.
+If you use >= `@cultureamp/next-serivces@4.6.0` you'll get client side routing for free as this release includes `<RacRouterProvider>` in the `<FrontendServices>` provider tree and is part of the `defaultPresets`.
 
 ### Not using next-services
 
@@ -24,10 +24,10 @@ The following example demonstrates how you might use the React Aria's `RouterPro
 // ...imports
 import type { AppProps } from 'next/app'
 import { type NextRouter } from 'next/router'
-import { RouterProvider as RacRouterProvider } from 'react-aria-components'
+import { RouterProvider as RacRouterProvider } from '@kaizen/components/v3/react-aria-components'
 
 // This provides the correct types for `routerOptions` based on the routing solution. As the component agnostic to routing technology this must defined here
-declare module 'react-aria-components' {
+declare module '@kaizen/components/v3/react-aria-components' {
   interface RouterConfig {
     // index 2 is the types for the pages routerOptions
     routerOptions: NonNullable<Parameters<NextRouter['push']>[2]>
@@ -53,7 +53,7 @@ The implementation for `LinkButton` in your application would then look somethin
 
 ```tsx
 import { useRouter } from 'next/router'
-import { LinkButton } from '@kaizen/components/v3/actions'
+import { LinkButton } from '@kaizen/components'
 
 const Component = () => {
   const router = useRouter()
@@ -77,10 +77,10 @@ Additional config options for Next.js can be found in the React Aria's documenta
 The following example demonstrates how to use the `RouterProvider` with `React Router`'s. This will allow the `LinkButton` to navigate using the `useNavigate` hook.
 
 ```tsx
-import { RouterProvider } from 'react-aria-components'
+import { RouterProvider } from '@kaizen/components/v3/react-aria-components'
 import { BrowserRouter, NavigateOptions, useHref, useNavigate } from 'react-router-dom'
 
-declare module 'react-aria-components' {
+declare module '@kaizen/components/v3/react-aria-components' {
   interface RouterConfig {
     routerOptions: NavigateOptions
   }
