@@ -29,7 +29,7 @@
     "pkg:aio": "pnpm -F @kaizen/components",
     "pkg:tokens": "pnpm -F @kaizen/design-tokens",
     "pkg:tailwind": "pnpm -F @kaizen/tailwind",
-    "pkg:bundler": "pnpm -F @kaizen/package-bundler",
+    "pkg:bundler": "pnpm -F @cultureamp/package-bundler",
     "ci:version": "pnpm turbo build && pnpm changeset version",
     "ci:publish": "pnpm turbo build && pnpm changeset publish",
     "update-icons": "pnpm pkg:aio update-icons",
