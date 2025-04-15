@@ -15,6 +15,7 @@ export const ToastNotificationsList = (): JSX.Element => {
     if (!container) {
       container = document.createElement('div')
       container.setAttribute('id', toastNotificationListId)
+      container.setAttribute('data-testid', toastNotificationListId)
       container.setAttribute('role', 'status')
       container.className = styles.toastNotificationsList
       document.body.appendChild(container)
