@@ -2,6 +2,7 @@ import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useExitingAnimation } from '~components/utils/useExitingAnimation'
+import sharedAiStyles from '../../styles/utils/AIMoment.module.css'
 import { type WellBorderStyleType, type WellColors, type WellVariantType } from './types'
 import styles from './Well.module.css'
 
@@ -34,8 +35,8 @@ export const Well = ({
 }: WellProps): JSX.Element => {
   const animationClass = useExitingAnimation(
     isAiLoading,
-    styles.aiMomentLoading,
-    styles.aiMomentExiting,
+    sharedAiStyles.aiMomentLoading,
+    sharedAiStyles.aiMomentExiting,
     500,
   )
 
@@ -47,15 +48,16 @@ export const Well = ({
         styles[color],
         variant && styles[variant],
         noMargin && styles.noMargin,
-        isAiLoading !== undefined && styles.aiMoment,
+        isAiLoading !== undefined && sharedAiStyles.aiMoment,
         isAiLoading !== undefined && animationClass,
         classNameOverride,
       )}
       {...restProps}
     >
       <>
-        {/* This is a visual background only and should not children in case classNameOverride is used */}
-        {isAiLoading !== undefined && <div aria-hidden className={styles.aiMomentBackground} />}
+        {isAiLoading !== undefined && (
+          <div aria-hidden className={sharedAiStyles.aiMomentBackground} />
+        )}
         {children}
       </>
     </div>
