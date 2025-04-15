@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.76.0
+
+### Minor Changes
+
+- [#5625](https://github.com/cultureamp/kaizen-design-system/pull/5625) [`7384f19`](https://github.com/cultureamp/kaizen-design-system/commit/7384f195ffab862ecfeb14397d31018801037c0d) - Add isAiLoading prop to Well and AI Moment styles
+
+- [#5675](https://github.com/cultureamp/kaizen-design-system/pull/5675) [`ff71097`](https://github.com/cultureamp/kaizen-design-system/commit/ff7109721500bac092641ce6274f5ec5c6a73782) - Add AI moment props to Card and update guidance docs
+
 ## 1.75.3
 
 ### Patch Changes

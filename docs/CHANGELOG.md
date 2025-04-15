@@ -1,5 +1,11 @@
 # @docs/storybook
 
+## 0.1.2
+
+### Patch Changes
+
+- [#5661](https://github.com/cultureamp/kaizen-design-system/pull/5661) [`cae08f6`](https://github.com/cultureamp/kaizen-design-system/commit/cae08f65598b2db937afb196e037e903c3292680) - Update client side routing docs to point to >= next-services@4.6.0 as the easy path to adopt
+
 ## 0.1.1
 
 ### Patch Changes
