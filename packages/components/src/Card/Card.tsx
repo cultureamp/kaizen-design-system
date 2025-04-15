@@ -2,6 +2,7 @@ import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useExitingAnimation } from '~components/utils/useExitingAnimation'
+import sharedAiStyles from '../../styles/utils/AIMoment.module.css'
 import styles from './Card.module.css'
 
 export type CardVariants =
@@ -70,8 +71,8 @@ export const Card = ({
   const Element = tag
   const animationClass = useExitingAnimation(
     isAiLoading,
-    styles.aiMomentLoading,
-    styles.aiMomentExiting,
+    sharedAiStyles.aiMomentLoading,
+    sharedAiStyles.aiMomentExiting,
     500,
   )
 
@@ -81,13 +82,15 @@ export const Card = ({
         styles.wrapper,
         variant ? styles[variant] : styles[color],
         isElevated && styles.elevated,
-        isAiLoading !== undefined && styles.aiMoment,
+        isAiLoading !== undefined && sharedAiStyles.aiMoment,
         isAiLoading !== undefined && animationClass,
         classNameOverride,
       )}
       {...props}
     >
-      {isAiLoading !== undefined && <div aria-hidden className={styles.aiMomentBackground} />}
+      {isAiLoading !== undefined && (
+        <div aria-hidden className={sharedAiStyles.aiMomentBackground} />
+      )}
       {children}
     </Element>
   )
