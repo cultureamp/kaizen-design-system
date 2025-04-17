@@ -1,8 +1,8 @@
-@layer components {
-  @import '../../../styles/utils/legacy/layout';
-  @import '../../../styles/utils/legacy/grid';
-  @import '../mixins';
+@import '../../../styles/utils/legacy/layout';
+@import '../../../styles/utils/legacy/grid';
+@import '../mixins';
 
+@layer components {
   .toolbar {
     display: flex;
     align-items: center;

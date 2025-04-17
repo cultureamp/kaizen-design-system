@@ -1,7 +1,7 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '../mixins';
+@import '~@kaizen/design-tokens/sass/color';
+@import '../mixins';
 
+@layer components {
   .loadingGraphic {
     @extend %loadingBase;
 

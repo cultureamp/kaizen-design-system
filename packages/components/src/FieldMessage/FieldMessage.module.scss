@@ -1,8 +1,8 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/spacing';
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/border';
 
+@layer components {
   $message-icon-size: 1.25rem;
   $validation-message-padding: 0.5625rem;
   $form-text-color-label: rgba($color-purple-800-rgb, 0.7);

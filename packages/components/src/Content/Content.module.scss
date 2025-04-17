@@ -1,7 +1,7 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/layout';
-  @import './variables';
+@import '~@kaizen/design-tokens/sass/layout';
+@import './variables';
 
+@layer components {
   .content {
     max-width: $layout-content-max-width;
     margin: 0 $layout-content-side-margin;

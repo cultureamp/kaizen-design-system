@@ -1,11 +1,11 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/border';
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/typography';
-  @import '~@kaizen/design-tokens/sass/spacing';
-  @import '../../../../../styles/utils/button-reset';
-  @import './variables';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '../../../../../styles/utils/button-reset';
+@import './variables';
 
+@layer components {
   .filterButtonBase {
     @include button-reset;
 

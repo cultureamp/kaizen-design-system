@@ -1,15 +1,15 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/spacing';
-  @import '~@kaizen/design-tokens/sass/typography';
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/layout';
-  @import '../../styles/utils/legacy/grid';
-  @import '../../styles/utils/legacy/layout';
-  @import '../../styles/utils/button-reset';
-  @import '../../styles/utils/layers';
-  @import './mixins';
-  @import './variables';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/layout';
+@import '../../styles/utils/legacy/grid';
+@import '../../styles/utils/legacy/layout';
+@import '../../styles/utils/button-reset';
+@import '../../styles/utils/layers';
+@import './mixins';
+@import './variables';
 
+@layer components {
   $title-block-margin-width-on-medium-and-small: 12px;
   $breadcrumb-circle-width: 48px;
   $breadcrumb-breakpoint-width: $layout-content-max-width + $layout-content-side-margin * 2 +

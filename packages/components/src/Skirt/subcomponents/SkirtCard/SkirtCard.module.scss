@@ -1,7 +1,7 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/layout';
-  @import '../../../Content/variables';
+@import '~@kaizen/design-tokens/sass/layout';
+@import '../../../Content/variables';
 
+@layer components {
   .wrapper {
     @media (max-width: $layout-breakpoints-large) {
       margin-left: $content-margin-width-on-medium-and-small * -1;

@@ -1,10 +1,10 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/spacing';
-  @import '~@kaizen/design-tokens/sass/border';
-  @import '../../../styles/utils/animation';
-  @import '../../../styles/utils/button-reset';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/border';
+@import '../../../styles/utils/animation';
+@import '../../../styles/utils/button-reset';
 
+@layer components {
   $input-disabled-opacity: 0.3;
 
   .iconButton {

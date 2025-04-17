@@ -1,8 +1,8 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/typography';
-  @import '../mixins';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '../mixins';
 
+@layer components {
   .loadingHeading {
     @extend %loadingBase;
 

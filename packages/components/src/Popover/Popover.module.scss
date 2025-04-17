@@ -1,8 +1,8 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/border';
-  @import '../../styles/utils/button-reset';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/border';
+@import '../../styles/utils/button-reset';
 
+@layer components {
   // Sync with PopoverModern.tsx
   $arrow-width: 14px;
   $arrow-height: 7px;

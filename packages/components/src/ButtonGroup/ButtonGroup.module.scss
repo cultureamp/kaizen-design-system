@@ -1,7 +1,7 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/border';
-  @import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
 
+@layer components {
   $focus-ring-offset: 1px;
   $focus-ring-offset-inner: calc(-1 * #{$focus-ring-offset});
 
