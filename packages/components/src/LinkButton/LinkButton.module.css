@@ -1,4 +1,6 @@
-.linkButton {
-  /* Reset */
-  text-decoration: inherit;
+@layer components {
+  .linkButton {
+    /* Reset */
+    text-decoration: inherit;
+  }
 }

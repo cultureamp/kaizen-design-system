@@ -1,5 +1,7 @@
-.validationErrorMessage {
-  ul {
-    margin-bottom: 0;
+@layer components {
+  .validationErrorMessage {
+    ul {
+      margin-bottom: 0;
+    }
   }
 }

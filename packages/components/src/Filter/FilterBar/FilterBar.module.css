@@ -1,19 +1,21 @@
-.filterBar {
-  display: flex;
-  padding: var(--spacing-8);
-  border-radius: var(--border-solid-border-radius);
-  background-color: var(--color-white);
-}
-
-@media (width < 768px) {
+@layer components {
   .filterBar {
-    flex-direction: column;
+    display: flex;
+    padding: var(--spacing-8);
+    border-radius: var(--border-solid-border-radius);
+    background-color: var(--color-white);
   }
-}
 
-.filtersContainer {
-  display: flex;
-  flex-grow: 1;
-  flex-wrap: wrap;
-  gap: var(--spacing-8);
+  @media (width < 768px) {
+    .filterBar {
+      flex-direction: column;
+    }
+  }
+
+  .filtersContainer {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    gap: var(--spacing-8);
+  }
 }

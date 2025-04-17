@@ -1,3 +1,5 @@
-.modalDescription {
-  grid-column-start: 2;
+@layer components {
+  .modalDescription {
+    grid-column-start: 2;
+  }
 }

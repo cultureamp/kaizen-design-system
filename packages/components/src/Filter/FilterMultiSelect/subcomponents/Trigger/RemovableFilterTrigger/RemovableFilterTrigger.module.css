@@ -1,3 +1,5 @@
-.filterButtonRemovable {
-  width: 100%;
+@layer components {
+  .filterButtonRemovable {
+    width: 100%;
+  }
 }
