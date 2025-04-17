@@ -1,75 +1,77 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '~@kaizen/design-tokens/sass/layout';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/border';
+  @import '~@kaizen/design-tokens/sass/spacing';
+  @import '~@kaizen/design-tokens/sass/layout';
 
-.actions {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-start;
-}
-
-.actionsAlignStart {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-}
-
-.padded {
-  padding: $spacing-md;
-  flex-direction: column;
-
-  @media (min-width: $layout-breakpoints-medium) {
-    padding: 0 $spacing-lg $spacing-lg;
+  .actions {
+    display: flex;
     flex-direction: row-reverse;
+    justify-content: flex-start;
   }
-}
 
-.actionButton {
-  width: 100%;
-
-  @media (min-width: $layout-breakpoints-medium) {
-    width: inherit;
+  .actionsAlignStart {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
   }
-}
 
-.actionButton + .actionButton {
-  margin-inline-end: $spacing-sm;
+  .padded {
+    padding: $spacing-md;
+    flex-direction: column;
 
-  @media (max-width: (calc(#{$layout-breakpoints-medium} - 1px))) {
-    margin-block-start: $spacing-sm;
+    @media (min-width: $layout-breakpoints-medium) {
+      padding: 0 $spacing-lg $spacing-lg;
+      flex-direction: row-reverse;
+    }
   }
-}
 
-.footerWrap {
-  align-items: baseline;
-  width: 100%;
-  box-sizing: border-box;
-}
+  .actionButton {
+    width: 100%;
 
-.center {
-  display: flex;
-  justify-content: center;
-}
+    @media (min-width: $layout-breakpoints-medium) {
+      width: inherit;
+    }
+  }
 
-.border {
-  border-block-start: 1px solid $border-solid-border-color;
-}
+  .actionButton + .actionButton {
+    margin-inline-end: $spacing-sm;
 
-.start {
-  display: flex;
-  justify-content: flex-start;
-}
+    @media (max-width: (calc(#{$layout-breakpoints-medium} - 1px))) {
+      margin-block-start: $spacing-sm;
+    }
+  }
 
-.end {
-  display: flex;
-  justify-content: flex-end;
-}
+  .footerWrap {
+    align-items: baseline;
+    width: 100%;
+    box-sizing: border-box;
+  }
 
-.fixed {
-  position: absolute;
-  inset-block-end: 0;
-  inset-inline-start: 0;
-}
+  .center {
+    display: flex;
+    justify-content: center;
+  }
 
-.filler {
-  visibility: hidden;
+  .border {
+    border-block-start: 1px solid $border-solid-border-color;
+  }
+
+  .start {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .end {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .fixed {
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+  }
+
+  .filler {
+    visibility: hidden;
+  }
 }

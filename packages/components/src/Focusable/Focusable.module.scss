@@ -1,3 +1,5 @@
-.focusableWrapper {
-  display: inline-flex;
+@layer components {
+  .focusableWrapper {
+    display: inline-flex;
+  }
 }

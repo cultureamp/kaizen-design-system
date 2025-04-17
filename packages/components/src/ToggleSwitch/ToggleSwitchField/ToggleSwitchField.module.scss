@@ -1,15 +1,17 @@
-@import '~@kaizen/design-tokens/sass/typography';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/typography';
 
-.container {
-  display: flex;
-}
-
-.fullWidth {
-  .inner {
-    width: 100%;
+  .container {
+    display: flex;
   }
-}
 
-.on label {
-  font-weight: $typography-paragraph-bold-font-weight;
+  .fullWidth {
+    .inner {
+      width: 100%;
+    }
+  }
+
+  .on label {
+    font-weight: $typography-paragraph-bold-font-weight;
+  }
 }

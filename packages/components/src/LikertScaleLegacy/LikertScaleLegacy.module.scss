@@ -1,364 +1,366 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/spacing';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/border';
+  @import '~@kaizen/design-tokens/sass/color';
+  @import '~@kaizen/design-tokens/sass/spacing';
 
-/* stylelint-disable no-descending-specificity */
-@mixin respond-to($media) {
-  @if $media == print {
-    @media only print {
-      @content;
-    }
-  } @else if $media == iphone {
-    @media only screen and (max-width: 767px) {
-      @content;
-    }
-  } @else if $media == ipad {
-    @media only screen and (max-width: 959px) {
-      @content;
-    }
-  }
-}
-
-$block-height: 35px;
-$desktop-rater-width: 220px;
-$desktop-rater-height: 63px;
-
-$classical-first: $color-yellow-300;
-$classical-second: $color-yellow-400;
-$classical-third: $color-orange-400;
-$classical-fourth: $color-orange-500;
-$classical-fifth: $color-red-500;
-
-$blue-first: $color-blue-100;
-$blue-second: $color-blue-200;
-$blue-third: $color-blue-300;
-$blue-fourth: $color-blue-400;
-$blue-fifth: $color-blue-500;
-
-@mixin pop {
-  -webkit-animation: pop cubic-bezier(0, 0.94, 0.32, 1) 0.7s 1;
-}
-
-@mixin fill($height) {
-  &:first-child .likertItemFill,
-  &:first-child .likertItemFill::after {
-    border-start-start-radius: $height;
-    border-end-start-radius: $height;
-  }
-
-  &:last-child .likertItemFill,
-  &:last-child .likertItemFill::after {
-    border-start-end-radius: $height;
-    border-end-end-radius: $height;
-  }
-}
-
-@keyframes pop {
-  0% {
-    opacity: 50%;
-    -webkit-transform: scale(1);
-  }
-
-  100% {
-    opacity: 0%;
-    -webkit-transform: scale(1.78);
-  }
-}
-
-.container {
-  width: $desktop-rater-width;
-  position: relative;
-  box-sizing: border-box;
-
-  @include respond-to(iphone) {
-    width: 258px;
-    position: static;
-  }
-
-  &.rated .likertItem.unselected .likertItemFill {
-    transition: background 0.1s;
-  }
-
-  &.reversed.rated .likertItem.unselected .likertItemFill {
-    background-color: transparent;
-    border-color: rgba($color-white-rgb, 0.65);
-  }
-
-  :where(.likertItem4, .likertItem5) .check {
-    color: white;
-  }
-
-  :is(.likertItem4.suggested, .likertItem5.suggested) .check {
-    color: white;
-  }
-}
-
-.likertItem:focus,
-.likertItemFill:focus {
-  outline: none;
-}
-
-.likertItem:focus-visible .likertItemFill {
-  outline-offset: 1px;
-  outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
-}
-
-.reversed .likertItem:focus-visible .likertItemFill {
-  outline-color: $color-blue-300;
-}
-
-.itemContainer {
-  width: 100%;
-  white-space: nowrap;
-  display: inline-block;
-  height: $block-height + 2px;
-  font-size: 0;
-}
-
-.legend {
-  text-align: center;
-  position: absolute;
-  top: calc(-1 * #{$spacing-md});
-  left: 0;
-  right: 0;
-
-  @include respond-to(iphone) {
-    position: initial;
-    top: 0;
-  }
-}
-
-.likertItem {
-  margin-inline: 2px;
-  font-size: 1px;
-  line-height: 1;
-  padding: 0;
-  overflow-x: visible;
-  display: inline-block;
-  width: 18.5%; // 5 columns
-  position: relative;
-
-  @include fill($block-height);
-
-  &:first-child {
-    margin-inline-start: 0;
-  }
-
-  &:last-child {
-    margin-inline-end: 0;
-  }
-
-  // Hack to bridge the gaps between items so mouse always hovers on something
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 100%;
-    width: 2px;
-    height: 100%;
-  }
-
-  &::after {
-    right: auto;
-    left: 100%;
-  }
-
-  &.suggested.classicalColorSchema,
-  &.selected.classicalColorSchema {
-    .field1 {
-      background-color: $classical-first;
-
-      &::after {
-        background-color: $classical-first;
+  /* stylelint-disable no-descending-specificity */
+  @mixin respond-to($media) {
+    @if $media == print {
+      @media only print {
+        @content;
       }
-    }
-
-    .field2 {
-      background-color: $classical-second;
-
-      &::after {
-        background-color: $classical-second;
+    } @else if $media == iphone {
+      @media only screen and (max-width: 767px) {
+        @content;
       }
-    }
-
-    .field3 {
-      background-color: $classical-third;
-
-      &::after {
-        background-color: $classical-third;
-      }
-    }
-
-    .field4 {
-      background-color: $classical-fourth;
-
-      &::after {
-        background-color: $classical-fourth;
-      }
-    }
-
-    .field5 {
-      background-color: $classical-fifth;
-
-      &::after {
-        background-color: $classical-fifth;
+    } @else if $media == ipad {
+      @media only screen and (max-width: 959px) {
+        @content;
       }
     }
   }
 
-  &.suggested.blueColorSchema,
-  &.selected.blueColorSchema {
-    .field1 {
-      background-color: $blue-first;
+  $block-height: 35px;
+  $desktop-rater-width: 220px;
+  $desktop-rater-height: 63px;
 
-      &::after {
-        background-color: $blue-first;
-      }
-    }
+  $classical-first: $color-yellow-300;
+  $classical-second: $color-yellow-400;
+  $classical-third: $color-orange-400;
+  $classical-fourth: $color-orange-500;
+  $classical-fifth: $color-red-500;
 
-    .field2 {
-      background-color: $blue-second;
+  $blue-first: $color-blue-100;
+  $blue-second: $color-blue-200;
+  $blue-third: $color-blue-300;
+  $blue-fourth: $color-blue-400;
+  $blue-fifth: $color-blue-500;
 
-      &::after {
-        background-color: $blue-second;
-      }
-    }
-
-    .field3 {
-      background-color: $blue-third;
-
-      &::after {
-        background-color: $blue-third;
-      }
-    }
-
-    .field4 {
-      background-color: $blue-fourth;
-
-      &::after {
-        background-color: $blue-fourth;
-      }
-    }
-
-    .field5 {
-      background-color: $blue-fifth;
-
-      &::after {
-        background-color: $blue-fifth;
-      }
-    }
-  }
-}
-
-.likertItemFill {
-  transition:
-    background 0.1s,
-    border-color 0.1s;
-  height: $block-height;
-  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
-
-  &:hover {
-    transition:
-      background 0s,
-      border-color 0s;
+  @mixin pop {
+    -webkit-animation: pop cubic-bezier(0, 0.94, 0.32, 1) 0.7s 1;
   }
 
-  &::after {
-    content: ' ';
-    display: block;
-    height: 100%;
-    width: 100%;
-    pointer-events: none;
-  }
+  @mixin fill($height) {
+    &:first-child .likertItemFill,
+    &:first-child .likertItemFill::after {
+      border-start-start-radius: $height;
+      border-end-start-radius: $height;
+    }
 
-  &.pop::after {
-    @include pop;
-  }
-}
-
-.reversed .likertItemFill {
-  border-color: rgba($color-white-rgb, 0.65);
-}
-
-.check {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -10px 0 0 -10px;
-  color: black;
-
-  .likertItem1 & {
-    margin-left: -9px;
-
-    [dir='rtl'] & {
-      margin-left: -11px;
+    &:last-child .likertItemFill,
+    &:last-child .likertItemFill::after {
+      border-start-end-radius: $height;
+      border-end-end-radius: $height;
     }
   }
 
-  .likertItem5 & {
-    margin-left: -12px;
+  @keyframes pop {
+    0% {
+      opacity: 50%;
+      -webkit-transform: scale(1);
+    }
 
-    [dir='rtl'] & {
-      margin-left: -9px;
+    100% {
+      opacity: 0%;
+      -webkit-transform: scale(1.78);
     }
   }
-}
-
-.hovered :where(.likertItem4, .likertItem5) .check {
-  color: black;
-}
-
-.hovered.reversed .itemContainer > :not(.suggested.likertItem) .check {
-  color: white;
-}
-
-@media only screen and (max-width: 767px) {
-  $block-height: 48px;
 
   .container {
-    min-width: 258px;
+    width: $desktop-rater-width;
+    position: relative;
+    box-sizing: border-box;
+
+    @include respond-to(iphone) {
+      width: 258px;
+      position: static;
+    }
+
+    &.rated .likertItem.unselected .likertItemFill {
+      transition: background 0.1s;
+    }
+
+    &.reversed.rated .likertItem.unselected .likertItemFill {
+      background-color: transparent;
+      border-color: rgba($color-white-rgb, 0.65);
+    }
+
+    :where(.likertItem4, .likertItem5) .check {
+      color: white;
+    }
+
+    :is(.likertItem4.suggested, .likertItem5.suggested) .check {
+      color: white;
+    }
+  }
+
+  .likertItem:focus,
+  .likertItemFill:focus {
+    outline: none;
+  }
+
+  .likertItem:focus-visible .likertItemFill {
+    outline-offset: 1px;
+    outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
+  }
+
+  .reversed .likertItem:focus-visible .likertItemFill {
+    outline-color: $color-blue-300;
   }
 
   .itemContainer {
+    width: 100%;
+    white-space: nowrap;
+    display: inline-block;
     height: $block-height + 2px;
+    font-size: 0;
+  }
+
+  .legend {
+    text-align: center;
+    position: absolute;
+    top: calc(-1 * #{$spacing-md});
+    left: 0;
+    right: 0;
+
+    @include respond-to(iphone) {
+      position: initial;
+      top: 0;
+    }
   }
 
   .likertItem {
+    margin-inline: 2px;
+    font-size: 1px;
+    line-height: 1;
+    padding: 0;
+    overflow-x: visible;
+    display: inline-block;
+    width: 18.5%; // 5 columns
+    position: relative;
+
     @include fill($block-height);
-  }
 
-  .likertItemFill {
-    height: $block-height;
-  }
-}
+    &:first-child {
+      margin-inline-start: 0;
+    }
 
-@media print {
-  .legend {
-    display: none;
-  }
+    &:last-child {
+      margin-inline-end: 0;
+    }
 
-  .container {
-    top: 1em;
-    right: 2em;
-    width: 150px;
+    // Hack to bridge the gaps between items so mouse always hovers on something
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 100%;
+      width: 2px;
+      height: 100%;
+    }
 
-    .likertItem {
-      .likertItemFill {
-        height: 25px;
-        background: white;
-        border: 1px solid #d7d8d8;
+    &::after {
+      right: auto;
+      left: 100%;
+    }
+
+    &.suggested.classicalColorSchema,
+    &.selected.classicalColorSchema {
+      .field1 {
+        background-color: $classical-first;
+
+        &::after {
+          background-color: $classical-first;
+        }
       }
 
-      &:first-child,
-      &:last-child {
-        .likertItemFill {
-          background: white;
-          border-width: 2px;
+      .field2 {
+        background-color: $classical-second;
+
+        &::after {
+          background-color: $classical-second;
+        }
+      }
+
+      .field3 {
+        background-color: $classical-third;
+
+        &::after {
+          background-color: $classical-third;
+        }
+      }
+
+      .field4 {
+        background-color: $classical-fourth;
+
+        &::after {
+          background-color: $classical-fourth;
+        }
+      }
+
+      .field5 {
+        background-color: $classical-fifth;
+
+        &::after {
+          background-color: $classical-fifth;
+        }
+      }
+    }
+
+    &.suggested.blueColorSchema,
+    &.selected.blueColorSchema {
+      .field1 {
+        background-color: $blue-first;
+
+        &::after {
+          background-color: $blue-first;
+        }
+      }
+
+      .field2 {
+        background-color: $blue-second;
+
+        &::after {
+          background-color: $blue-second;
+        }
+      }
+
+      .field3 {
+        background-color: $blue-third;
+
+        &::after {
+          background-color: $blue-third;
+        }
+      }
+
+      .field4 {
+        background-color: $blue-fourth;
+
+        &::after {
+          background-color: $blue-fourth;
+        }
+      }
+
+      .field5 {
+        background-color: $blue-fifth;
+
+        &::after {
+          background-color: $blue-fifth;
         }
       }
     }
   }
+
+  .likertItemFill {
+    transition:
+      background 0.1s,
+      border-color 0.1s;
+    height: $block-height;
+    border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+
+    &:hover {
+      transition:
+        background 0s,
+        border-color 0s;
+    }
+
+    &::after {
+      content: ' ';
+      display: block;
+      height: 100%;
+      width: 100%;
+      pointer-events: none;
+    }
+
+    &.pop::after {
+      @include pop;
+    }
+  }
+
+  .reversed .likertItemFill {
+    border-color: rgba($color-white-rgb, 0.65);
+  }
+
+  .check {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    color: black;
+
+    .likertItem1 & {
+      margin-left: -9px;
+
+      [dir='rtl'] & {
+        margin-left: -11px;
+      }
+    }
+
+    .likertItem5 & {
+      margin-left: -12px;
+
+      [dir='rtl'] & {
+        margin-left: -9px;
+      }
+    }
+  }
+
+  .hovered :where(.likertItem4, .likertItem5) .check {
+    color: black;
+  }
+
+  .hovered.reversed .itemContainer > :not(.suggested.likertItem) .check {
+    color: white;
+  }
+
+  @media only screen and (max-width: 767px) {
+    $block-height: 48px;
+
+    .container {
+      min-width: 258px;
+    }
+
+    .itemContainer {
+      height: $block-height + 2px;
+    }
+
+    .likertItem {
+      @include fill($block-height);
+    }
+
+    .likertItemFill {
+      height: $block-height;
+    }
+  }
+
+  @media print {
+    .legend {
+      display: none;
+    }
+
+    .container {
+      top: 1em;
+      right: 2em;
+      width: 150px;
+
+      .likertItem {
+        .likertItemFill {
+          height: 25px;
+          background: white;
+          border: 1px solid #d7d8d8;
+        }
+
+        &:first-child,
+        &:last-child {
+          .likertItemFill {
+            background: white;
+            border-width: 2px;
+          }
+        }
+      }
+    }
+  }
+  /* stylelint-enable no-descending-specificity */
 }
-/* stylelint-enable no-descending-specificity */

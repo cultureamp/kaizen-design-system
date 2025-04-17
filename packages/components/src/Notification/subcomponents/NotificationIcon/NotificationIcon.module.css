@@ -1,3 +1,5 @@
-.notificationIcon {
-  font-size: inherit;
+@layer components {
+  .notificationIcon {
+    font-size: inherit;
+  }
 }

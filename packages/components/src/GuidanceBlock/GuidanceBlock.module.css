@@ -1,275 +1,277 @@
-.banner.noMaxWidth {
-  max-width: inherit;
-}
-
-.banner {
-  --border-width: var(--border-width-1);
-  --banner-padding: var(--spacing-lg);
-
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-12);
-  min-width: 320px;
-  max-width: var(--layout-breakpoints-large);
-  border: var(--border-width) var(--border-solid-border-style);
-  border-radius: var(--border-solid-border-radius);
-  padding: calc(var(--banner-padding) - var(--border-width));
-  box-shadow: var(--shadow-small-box-shadow);
-  position: relative;
-  top: -1px;
-  transition:
-    opacity var(--animation-duration-slow) ease,
-    margin-top var(--animation-duration-fast) var(--animation-duration-slow) ease;
-  color: var(--color-purple-800);
-
-  @media (width >= 1024px) {
-    min-height: calc(12rem - calc(var(--banner-padding) * 2));
-    flex-direction: row;
-    gap: var(--spacing-24);
-    width: auto;
-    align-items: center;
+@layer components {
+  .banner.noMaxWidth {
+    max-width: inherit;
   }
 
-  @media (width <= 767px) {
-    min-width: unset;
-  }
-}
+  .banner {
+    --border-width: var(--border-width-1);
+    --banner-padding: var(--spacing-lg);
 
-.illustrationWrapper {
-  display: flex;
-
-  @media (768px <= width <= 1023px) {
-    text-align: center;
-    justify-content: center;
-    align-self: center;
-    padding: var(--spacing-12);
-  }
-
-  @media (width <= 767px) {
-    display: none;
-  }
-}
-
-.illustration {
-  --illustration-size: 155px;
-  --scene-illustration-size: 300px;
-
-  width: var(--illustration-size);
-  height: var(--illustration-size);
-
-  /* This has been created to handle scene illustrations consistently until the tile component is created */
-  .hasSceneIllustration & {
     display: flex;
-    justify-content: center;
-    max-width: var(--scene-illustration-size);
-    max-height: var(--scene-illustration-size);
-    width: var(--scene-illustration-size);
-    height: auto;
-
-    figure {
-      max-height: 100%;
-      max-width: 100%;
-      aspect-ratio: 4/3;
-    }
-
-    img {
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
-}
-
-.descriptionContainer {
-  flex: 1;
-  text-align: center;
-  align-self: center;
-  max-width: 780px;
-
-  @media (width >= 1024px) {
-    padding: 0 var(--spacing-12);
-    text-align: start;
-  }
-
-  @media (width <= 767px) {
-    margin: var(--spacing-12);
-    max-width: 100%;
-  }
-}
-
-.descriptionAndActions {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-24);
-
-  @media (width <= 1023px) {
     flex-direction: column;
-    width: 100%;
-    align-items: unset;
-  }
-}
+    gap: var(--spacing-12);
+    min-width: 320px;
+    max-width: var(--layout-breakpoints-large);
+    border: var(--border-width) var(--border-solid-border-style);
+    border-radius: var(--border-solid-border-radius);
+    padding: calc(var(--banner-padding) - var(--border-width));
+    box-shadow: var(--shadow-small-box-shadow);
+    position: relative;
+    top: -1px;
+    transition:
+      opacity var(--animation-duration-slow) ease,
+      margin-top var(--animation-duration-fast) var(--animation-duration-slow) ease;
+    color: var(--color-purple-800);
 
-.buttonContainer {
-  display: flex;
-  justify-content: center;
-  flex-direction: row-reverse;
-  gap: var(--spacing-12);
-  min-width: max-content;
-
-  @media (width >= 768px) {
-    text-align: center;
-  }
-
-  @media (width <= 767px) {
-    flex-direction: column;
-    width: 100%;
-    margin-top: var(--spacing-6);
-  }
-}
-
-.hidden {
-  opacity: 0;
-  margin-bottom: 0;
-}
-
-.headingWrapper {
-  margin-bottom: var(--spacing-24);
-}
-
-.default {
-  border-color: var(--color-gray-500);
-  background: var(--color-white);
-}
-
-.positive {
-  border-color: var(--color-green-500);
-  background: var(--color-green-100);
-}
-
-.negative,
-.assertive {
-  border-color: var(--color-red-500);
-  background: var(--color-red-100);
-}
-
-.informative {
-  border-color: var(--color-blue-400);
-  background: var(--color-blue-100);
-}
-
-.cautionary {
-  border-color: var(--color-yellow-700);
-  background: var(--color-yellow-100);
-}
-
-.prominent {
-  border-color: var(--color-purple-400);
-  background: var(--color-purple-100);
-}
-
-.inline,
-.stacked {
-  flex-flow: row wrap;
-  align-items: unset;
-  gap: var(--spacing-24);
-  min-width: unset;
-
-  @media (width <= 1023px) {
-    flex-direction: unset;
-  }
-
-  .illustrationWrapper {
-    margin-inline-end: var(--spacing-12);
-
-    @media (768px <= width <= 1023px) {
-      padding: 0;
+    @media (width >= 1024px) {
+      min-height: calc(12rem - calc(var(--banner-padding) * 2));
+      flex-direction: row;
+      gap: var(--spacing-24);
+      width: auto;
+      align-items: center;
     }
 
     @media (width <= 767px) {
+      min-width: unset;
+    }
+  }
+
+  .illustrationWrapper {
+    display: flex;
+
+    @media (768px <= width <= 1023px) {
+      text-align: center;
+      justify-content: center;
+      align-self: center;
+      padding: var(--spacing-12);
+    }
+
+    @media (width <= 767px) {
+      display: none;
+    }
+  }
+
+  .illustration {
+    --illustration-size: 155px;
+    --scene-illustration-size: 300px;
+
+    width: var(--illustration-size);
+    height: var(--illustration-size);
+
+    /* This has been created to handle scene illustrations consistently until the tile component is created */
+    .hasSceneIllustration & {
       display: flex;
+      justify-content: center;
+      max-width: var(--scene-illustration-size);
+      max-height: var(--scene-illustration-size);
+      width: var(--scene-illustration-size);
+      height: auto;
+
+      figure {
+        max-height: 100%;
+        max-width: 100%;
+        aspect-ratio: 4/3;
+      }
+
+      img {
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+  }
+
+  .descriptionContainer {
+    flex: 1;
+    text-align: center;
+    align-self: center;
+    max-width: 780px;
+
+    @media (width >= 1024px) {
+      padding: 0 var(--spacing-12);
+      text-align: start;
+    }
+
+    @media (width <= 767px) {
+      margin: var(--spacing-12);
+      max-width: 100%;
     }
   }
 
   .descriptionAndActions {
-    margin: auto 0;
-  }
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-24);
 
-  .descriptionContainer {
-    text-align: start;
-    max-width: unset;
-    min-width: 320px;
-
-    @media (width >= 1024px) {
-      padding: 0;
-    }
-
-    @media (width <= 767px) {
-      margin: 0;
+    @media (width <= 1023px) {
+      flex-direction: column;
+      width: 100%;
+      align-items: unset;
     }
   }
 
   .buttonContainer {
-    padding-inline-start: var(--spacing-12);
-    justify-content: flex-start;
-    width: unset;
-    min-width: unset;
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: var(--spacing-12);
+    min-width: max-content;
+
+    @media (width >= 768px) {
+      text-align: center;
+    }
 
     @media (width <= 767px) {
-      flex-direction: row-reverse;
-    }
-
-    > * {
-      width: unset;
-    }
-  }
-
-  &.hasSceneIllustration {
-    justify-content: center;
-  }
-
-  &.centerContent {
-    flex-direction: column;
-
-    &.hasSceneIllustration .illustration {
+      flex-direction: column;
       width: 100%;
+      margin-top: var(--spacing-6);
+    }
+  }
+
+  .hidden {
+    opacity: 0;
+    margin-bottom: 0;
+  }
+
+  .headingWrapper {
+    margin-bottom: var(--spacing-24);
+  }
+
+  .default {
+    border-color: var(--color-gray-500);
+    background: var(--color-white);
+  }
+
+  .positive {
+    border-color: var(--color-green-500);
+    background: var(--color-green-100);
+  }
+
+  .negative,
+  .assertive {
+    border-color: var(--color-red-500);
+    background: var(--color-red-100);
+  }
+
+  .informative {
+    border-color: var(--color-blue-400);
+    background: var(--color-blue-100);
+  }
+
+  .cautionary {
+    border-color: var(--color-yellow-700);
+    background: var(--color-yellow-100);
+  }
+
+  .prominent {
+    border-color: var(--color-purple-400);
+    background: var(--color-purple-100);
+  }
+
+  .inline,
+  .stacked {
+    flex-flow: row wrap;
+    align-items: unset;
+    gap: var(--spacing-24);
+    min-width: unset;
+
+    @media (width <= 1023px) {
+      flex-direction: unset;
     }
 
     .illustrationWrapper {
-      margin: 0 auto;
-      align-self: center;
+      margin-inline-end: var(--spacing-12);
+
+      @media (768px <= width <= 1023px) {
+        padding: 0;
+      }
+
+      @media (width <= 767px) {
+        display: flex;
+      }
+    }
+
+    .descriptionAndActions {
+      margin: auto 0;
     }
 
     .descriptionContainer {
-      text-align: center;
-      min-width: unset;
+      text-align: start;
+      max-width: unset;
+      min-width: 320px;
+
+      @media (width >= 1024px) {
+        padding: 0;
+      }
+
+      @media (width <= 767px) {
+        margin: 0;
+      }
     }
 
     .buttonContainer {
-      padding: 0;
-      flex-direction: column;
+      padding-inline-start: var(--spacing-12);
+      justify-content: flex-start;
+      width: unset;
       min-width: unset;
+
+      @media (width <= 767px) {
+        flex-direction: row-reverse;
+      }
+
+      > * {
+        width: unset;
+      }
+    }
+
+    &.hasSceneIllustration {
       justify-content: center;
     }
-  }
 
-  &.centerContent.smallScreenTextAlignment {
-    .descriptionContainer {
-      text-align: start;
+    &.centerContent {
+      flex-direction: column;
+
+      &.hasSceneIllustration .illustration {
+        width: 100%;
+      }
+
+      .illustrationWrapper {
+        margin: 0 auto;
+        align-self: center;
+      }
+
+      .descriptionContainer {
+        text-align: center;
+        min-width: unset;
+      }
+
+      .buttonContainer {
+        padding: 0;
+        flex-direction: column;
+        min-width: unset;
+        justify-content: center;
+      }
+    }
+
+    &.centerContent.smallScreenTextAlignment {
+      .descriptionContainer {
+        text-align: start;
+      }
     }
   }
-}
 
-/* stylelint-disable no-descending-specificity */
-.stacked {
-  .descriptionAndActions {
-    flex-direction: column;
-    align-items: unset;
-  }
+  /* stylelint-disable no-descending-specificity */
+  .stacked {
+    .descriptionAndActions {
+      flex-direction: column;
+      align-items: unset;
+    }
 
-  .descriptionContainer {
-    align-self: flex-start;
+    .descriptionContainer {
+      align-self: flex-start;
+    }
   }
+  /* stylelint-enable no-descending-specificity */
 }
-/* stylelint-enable no-descending-specificity */

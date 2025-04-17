@@ -1,5 +1,7 @@
-@import '../mixins';
+@layer components {
+  @import '../mixins';
 
-.content > :global(.ProseMirror) {
-  @include content-styles;
+  .content > :global(.ProseMirror) {
+    @include content-styles;
+  }
 }

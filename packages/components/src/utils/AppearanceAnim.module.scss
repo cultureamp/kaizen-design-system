@@ -1,15 +1,17 @@
-// Sync with ./AppearanceAnim.tsx
-$anim-duration-ms: 0.2s;
+@layer components {
+  // Sync with ./AppearanceAnim.tsx
+  $anim-duration-ms: 0.2s;
 
-.defaultHiddenState {
-  opacity: 0%;
-  pointer-events: none;
-  transition: opacity $anim-duration-ms ease-out;
-  will-change: opacity;
-  display: inline;
-}
+  .defaultHiddenState {
+    opacity: 0%;
+    pointer-events: none;
+    transition: opacity $anim-duration-ms ease-out;
+    will-change: opacity;
+    display: inline;
+  }
 
-.visibleState {
-  opacity: 100%;
-  pointer-events: initial;
+  .visibleState {
+    opacity: 100%;
+    pointer-events: initial;
+  }
 }

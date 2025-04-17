@@ -1,20 +1,22 @@
-@import '~@kaizen/design-tokens/sass/spacing';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/spacing';
 
-.sectionWrapper {
-  display: flex;
-  flex-direction: column;
+  .sectionWrapper {
+    display: flex;
+    flex-direction: column;
 
-  &:not(:first-child) {
-    margin-top: $spacing-8;
+    &:not(:first-child) {
+      margin-top: $spacing-8;
+    }
   }
-}
 
-.sectionHeading {
-  padding-inline-start: $spacing-4;
-}
+  .sectionHeading {
+    padding-inline-start: $spacing-4;
+  }
 
-.sectionList {
-  display: flex;
-  flex-direction: column;
-  padding: $spacing-xs 0 0 0;
+  .sectionList {
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-xs 0 0 0;
+  }
 }

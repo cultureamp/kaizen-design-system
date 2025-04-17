@@ -1,79 +1,81 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '../../../styles/utils/forms';
-@import '../../../styles/utils/form-variables';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/border';
+  @import '~@kaizen/design-tokens/sass/color';
+  @import '../../../styles/utils/forms';
+  @import '../../../styles/utils/form-variables';
 
-$radio-size: 24px;
-$icon-size: 10px;
-$icon-offset: 5px;
-$focus-ring-offset: 2px;
+  $radio-size: 24px;
+  $icon-size: 10px;
+  $icon-offset: 5px;
+  $focus-ring-offset: 2px;
 
-$dt-color-radio-background-color-hover: $color-gray-200;
-$dt-color-radio-disc-color-base: $color-gray-600;
-$dt-color-radio-border-color-focus: $color-blue-500;
-$dt-color-radio-border-color-focus-reversed: $color-blue-300;
+  $dt-color-radio-background-color-hover: $color-gray-200;
+  $dt-color-radio-disc-color-base: $color-gray-600;
+  $dt-color-radio-border-color-focus: $color-blue-500;
+  $dt-color-radio-border-color-focus-reversed: $color-blue-300;
 
-.radioInput {
-  @include form-input-visually-hidden;
-}
+  .radioInput {
+    @include form-input-visually-hidden;
+  }
 
-.icon {
-  top: $icon-offset;
-  left: $icon-offset;
-  width: $icon-size;
-  height: $icon-size;
-  border-radius: 50%;
-  background: $dt-color-radio-disc-color-base;
-  position: absolute;
+  .icon {
+    top: $icon-offset;
+    left: $icon-offset;
+    width: $icon-size;
+    height: $icon-size;
+    border-radius: 50%;
+    background: $dt-color-radio-disc-color-base;
+    position: absolute;
 
-  &.reversed {
+    &.reversed {
+      background: $color-white;
+    }
+
+    @media (forced-colors: active) {
+      // High contrast mode with remove the background color so we have to use border to create the selected icon state.
+      // Transparent is used so the user defined colors for borders will be used here
+      border: $icon-offset solid transparent;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .box {
+    display: block;
+    position: relative;
     background: $color-white;
-  }
-
-  @media (forced-colors: active) {
-    // High contrast mode with remove the background color so we have to use border to create the selected icon state.
-    // Transparent is used so the user defined colors for borders will be used here
-    border: $icon-offset solid transparent;
-    width: 0;
-    height: 0;
-  }
-}
-
-.box {
-  display: block;
-  position: relative;
-  background: $color-white;
-  height: $radio-size;
-  width: $radio-size;
-  top: 0;
-  border: $border-solid-border-width $border-solid-border-style $dt-color-form-border-color;
-  box-sizing: border-box;
-  border-radius: 50%;
-
-  .radioInput:focus:not([disabled]) + & {
-    border-color: $dt-color-radio-disc-color-base;
-    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
-      var(--color-blue-500);
-    outline-offset: 1px;
-  }
-
-  .radioInput:not([disabled]) + &:hover {
-    border-color: $dt-color-form-border-color-hover;
-    background-color: $dt-color-radio-background-color-hover;
-  }
-
-  &.reversed {
-    border: $border-solid-border-width $border-solid-border-style rgba($color-white-rgb, 0.65);
-    background: transparent;
+    height: $radio-size;
+    width: $radio-size;
+    top: 0;
+    border: $border-solid-border-width $border-solid-border-style $dt-color-form-border-color;
+    box-sizing: border-box;
+    border-radius: 50%;
 
     .radioInput:focus:not([disabled]) + & {
-      border-color: $color-white;
-      outline-color: $dt-color-radio-border-color-focus-reversed;
+      border-color: $dt-color-radio-disc-color-base;
+      outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+        var(--color-blue-500);
+      outline-offset: 1px;
     }
 
     .radioInput:not([disabled]) + &:hover {
-      border-color: $color-white;
-      background-color: transparent;
+      border-color: $dt-color-form-border-color-hover;
+      background-color: $dt-color-radio-background-color-hover;
+    }
+
+    &.reversed {
+      border: $border-solid-border-width $border-solid-border-style rgba($color-white-rgb, 0.65);
+      background: transparent;
+
+      .radioInput:focus:not([disabled]) + & {
+        border-color: $color-white;
+        outline-color: $dt-color-radio-border-color-focus-reversed;
+      }
+
+      .radioInput:not([disabled]) + &:hover {
+        border-color: $color-white;
+        background-color: transparent;
+      }
     }
   }
 }

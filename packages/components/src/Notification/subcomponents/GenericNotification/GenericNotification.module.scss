@@ -1,150 +1,152 @@
-@import '~@kaizen/design-tokens/sass/typography';
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import './mixins';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/typography';
+  @import '~@kaizen/design-tokens/sass/border';
+  @import '~@kaizen/design-tokens/sass/color';
+  @import '~@kaizen/design-tokens/sass/spacing';
+  @import './mixins';
 
-.notification {
-  @extend %ca-notification;
-}
-
-// Structure
-.icon {
-  @extend %ca-notification__icon;
-
-  color: var(--icon-color);
-}
-
-.textContainer {
-  @extend %ca-notification__text-container;
-}
-
-.title {
-  @extend %ca-notification__title;
-}
-
-.text {
-  @extend %ca-notification__text;
-}
-
-.cancel {
-  @extend %ca-notification__cancel;
-
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-solid-border-radius);
-
-  &:focus-visible {
-    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
-      var(--color-blue-500);
-    outline-offset: -4px;
+  .notification {
+    @extend %ca-notification;
   }
-}
 
-.cancelLabel {
-  @extend %ca-notification__cancel__label;
-}
+  // Structure
+  .icon {
+    @extend %ca-notification__icon;
 
-.notificationTitle {
-  top: 0.42em;
-  position: relative;
-  margin-inline-end: $spacing-6;
-  line-height: $typography-heading-6-line-height;
-}
+    color: var(--icon-color);
+  }
 
-@container (max-width: 25rem) {
+  .textContainer {
+    @extend %ca-notification__text-container;
+  }
+
+  .title {
+    @extend %ca-notification__title;
+  }
+
+  .text {
+    @extend %ca-notification__text;
+  }
+
+  .cancel {
+    @extend %ca-notification__cancel;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-solid-border-radius);
+
+    &:focus-visible {
+      outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+        var(--color-blue-500);
+      outline-offset: -4px;
+    }
+  }
+
+  .cancelLabel {
+    @extend %ca-notification__cancel__label;
+  }
+
   .notificationTitle {
-    width: 100%;
+    top: 0.42em;
+    position: relative;
+    margin-inline-end: $spacing-6;
+    line-height: $typography-heading-6-line-height;
   }
-}
 
-// Animation
-.hidden {
-  @extend %ca-notification---hidden;
-}
+  @container (max-width: 25rem) {
+    .notificationTitle {
+      width: 100%;
+    }
+  }
 
-// Variant
-.inline {
-  @extend %ca-notification---inline;
-}
+  // Animation
+  .hidden {
+    @extend %ca-notification---hidden;
+  }
 
-.toast {
-  @extend %ca-notification---toast;
-}
+  // Variant
+  .inline {
+    @extend %ca-notification---inline;
+  }
 
-.global {
-  @extend %ca-notification---global;
-}
+  .toast {
+    @extend %ca-notification---toast;
+  }
 
-// ------------------------------
-// Type
-// @deprecated use variant instead
-// ------------------------------
-.positive {
-  @extend %ca-notification---positive;
-}
+  .global {
+    @extend %ca-notification---global;
+  }
 
-.security {
-  @extend %ca-notification---cautionary;
-}
+  // ------------------------------
+  // Type
+  // @deprecated use variant instead
+  // ------------------------------
+  .positive {
+    @extend %ca-notification---positive;
+  }
 
-.negative {
-  @extend %ca-notification---negative;
-}
+  .security {
+    @extend %ca-notification---cautionary;
+  }
 
-// End deprecated styles
+  .negative {
+    @extend %ca-notification---negative;
+  }
 
-// ------------------------------
-// Variant
-// ------------------------------
-.success {
-  background: $color-green-100;
-  border-color: var(--color-green-500);
-  color: $color-purple-800;
+  // End deprecated styles
 
-  --icon-color: var(--color-green-500);
-}
+  // ------------------------------
+  // Variant
+  // ------------------------------
+  .success {
+    background: $color-green-100;
+    border-color: var(--color-green-500);
+    color: $color-purple-800;
 
-.informative {
-  background: $color-blue-100;
-  border-color: var(--color-blue-500);
-  color: $color-purple-800;
+    --icon-color: var(--color-green-500);
+  }
 
-  --icon-color: var(--color-blue-500);
-}
+  .informative {
+    background: $color-blue-100;
+    border-color: var(--color-blue-500);
+    color: $color-purple-800;
 
-.cautionary {
-  background: $color-yellow-100;
-  border-color: var(--color-yellow-700);
-  color: $color-purple-800;
+    --icon-color: var(--color-blue-500);
+  }
 
-  --icon-color: var(--color-yellow-700);
-}
+  .cautionary {
+    background: $color-yellow-100;
+    border-color: var(--color-yellow-700);
+    color: $color-purple-800;
 
-.warning {
-  background: $color-red-100;
-  border-color: var(--color-red-500);
-  color: $color-purple-800;
+    --icon-color: var(--color-yellow-700);
+  }
 
-  --icon-color: var(--color-red-500);
-}
+  .warning {
+    background: $color-red-100;
+    border-color: var(--color-red-500);
+    color: $color-purple-800;
 
-// Modifiers
-.noBottomMargin {
-  @extend %ca-notification---noBottomMargin;
-}
+    --icon-color: var(--color-red-500);
+  }
 
-.forceMultiline {
-  @extend %ca-notification---forceMultiline;
-}
+  // Modifiers
+  .noBottomMargin {
+    @extend %ca-notification---noBottomMargin;
+  }
 
-.persistent {
-  @extend %ca-notification---persistent;
-}
+  .forceMultiline {
+    @extend %ca-notification---forceMultiline;
+  }
 
-// this is only for inline notifications, but is here due to specificity issues in the _styles.scss file
-.subtle {
-  @extend %ca-notification---subtle;
+  .persistent {
+    @extend %ca-notification---persistent;
+  }
+
+  // this is only for inline notifications, but is here due to specificity issues in the _styles.scss file
+  .subtle {
+    @extend %ca-notification---subtle;
+  }
 }

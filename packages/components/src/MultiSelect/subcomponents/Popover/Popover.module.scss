@@ -1,21 +1,23 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/shadow';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/border';
+  @import '~@kaizen/design-tokens/sass/color';
+  @import '~@kaizen/design-tokens/sass/shadow';
 
-.popover {
-  box-sizing: border-box;
-  box-shadow: $shadow-large-box-shadow;
-  border: $border-focus-ring-border-width $border-focus-ring-border-style transparent;
-  border-radius: $border-solid-border-radius;
-  background: $color-white;
-  overflow: auto;
-  z-index: 100000;
+  .popover {
+    box-sizing: border-box;
+    box-shadow: $shadow-large-box-shadow;
+    border: $border-focus-ring-border-width $border-focus-ring-border-style transparent;
+    border-radius: $border-solid-border-radius;
+    background: $color-white;
+    overflow: auto;
+    z-index: 100000;
 
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+      outline: none;
+    }
 
-  &:focus-visible {
-    border-color: $color-blue-500;
+    &:focus-visible {
+      border-color: $color-blue-500;
+    }
   }
 }

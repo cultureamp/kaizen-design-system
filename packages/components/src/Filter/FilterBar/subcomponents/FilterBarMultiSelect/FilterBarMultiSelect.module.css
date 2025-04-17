@@ -1,5 +1,7 @@
-@media (width < 768px) {
-  .filterMultiSelect {
-    flex-basis: 100%;
+@layer components {
+  @media (width < 768px) {
+    .filterMultiSelect {
+      flex-basis: 100%;
+    }
   }
 }

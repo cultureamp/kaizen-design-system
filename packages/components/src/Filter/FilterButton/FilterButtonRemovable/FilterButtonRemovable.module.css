@@ -1,3 +1,5 @@
-.filterButtonBase {
-  height: 100%;
+@layer components {
+  .filterButtonBase {
+    height: 100%;
+  }
 }

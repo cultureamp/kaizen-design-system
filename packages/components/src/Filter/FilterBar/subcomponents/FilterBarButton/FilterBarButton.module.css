@@ -1,3 +1,5 @@
-.filterBarButton {
-  width: 100%;
+@layer components {
+  .filterBarButton {
+    width: 100%;
+  }
 }

@@ -1,10 +1,12 @@
-@import '~@kaizen/design-tokens/sass/spacing';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/spacing';
 
-.labelledMessage {
-  display: inline-flex;
-  white-space: nowrap;
-}
+  .labelledMessage {
+    display: inline-flex;
+    white-space: nowrap;
+  }
 
-.labelSeparator {
-  margin-inline-end: $spacing-6;
+  .labelSeparator {
+    margin-inline-end: $spacing-6;
+  }
 }

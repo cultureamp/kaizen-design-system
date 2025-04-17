@@ -1,9 +1,11 @@
-@import '~@kaizen/design-tokens/sass/spacing';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/spacing';
 
-.filterDateRangePickerField {
-  display: contents;
-}
+  .filterDateRangePickerField {
+    display: contents;
+  }
 
-.dateRangeInputField {
-  margin-bottom: $spacing-24;
+  .dateRangeInputField {
+    margin-bottom: $spacing-24;
+  }
 }
