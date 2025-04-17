@@ -1,10 +1,10 @@
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/typography';
+
+/* stylelint-disable no-descending-specificity */
+
 @layer components {
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/spacing';
-  @import '~@kaizen/design-tokens/sass/typography';
-
-  /* stylelint-disable no-descending-specificity */
-
   // We're duplicating the CSS instead of manipulating the Menu package to accept the alternate props
   .menuListItem {
     display: flex;

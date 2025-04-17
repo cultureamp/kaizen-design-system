@@ -1,9 +1,9 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/border';
-  @import '../utils/mixins';
-  @import '../utils/variables';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/border';
+@import '../utils/mixins';
+@import '../utils/variables';
 
+@layer components {
   %icon-button {
     width: $button-height;
     border-color: $border-borderless-border-color;

@@ -1,8 +1,8 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/typography';
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/border';
 
+@layer components {
   // Pagination
   .container {
     display: flex;

@@ -1,8 +1,8 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/border';
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/spacing';
 
+@layer components {
   /* stylelint-disable no-descending-specificity */
   @mixin respond-to($media) {
     @if $media == print {

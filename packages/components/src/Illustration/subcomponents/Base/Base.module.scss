@@ -1,7 +1,7 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/animation';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/animation';
 
+@layer components {
   .wrapper {
     width: 100%;
     margin: 0;

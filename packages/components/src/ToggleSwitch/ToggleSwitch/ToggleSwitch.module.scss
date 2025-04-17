@@ -1,10 +1,10 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/border';
-  @import '~@kaizen/design-tokens/sass/spacing';
-  @import '~@kaizen/design-tokens/sass/animation';
-  @import '../../../styles/utils/forms';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/animation';
+@import '../../../styles/utils/forms';
 
+@layer components {
   $animation-timing: $animation-duration-immediate $animation-easing-function-linear;
   $focus-ring-offset: 1px;
 

@@ -1,8 +1,8 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/typography';
-  @import '~@kaizen/design-tokens/sass/spacing';
-  @import '~@kaizen/design-tokens/sass/layout';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/layout';
 
+@layer components {
   .wrapper {
     display: flex;
     flex-direction: column;

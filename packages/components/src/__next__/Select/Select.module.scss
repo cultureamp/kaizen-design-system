@@ -1,9 +1,9 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/border';
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/shadow';
-  @import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/shadow';
+@import '~@kaizen/design-tokens/sass/spacing';
 
+@layer components {
   .container {
     position: relative;
     width: 100%;

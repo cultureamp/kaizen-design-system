@@ -1,12 +1,12 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/shadow';
-  @import '~@kaizen/design-tokens/sass/border';
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/animation';
-  @import '~@kaizen/design-tokens/sass/typography';
-  @import '../../styles/utils/layers';
-  @import './variables';
+@import '~@kaizen/design-tokens/sass/shadow';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/animation';
+@import '~@kaizen/design-tokens/sass/typography';
+@import '../../styles/utils/layers';
+@import './variables';
 
+@layer components {
   .tooltip {
     position: relative; // Make this a positioned element so z-index works. (Note: Popper overrides this to absolute.)
     pointer-events: none;

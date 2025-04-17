@@ -1,6 +1,6 @@
-@layer components {
-  @import '../../../styles/utils/button-reset';
+@import '../../../styles/utils/button-reset';
 
+@layer components {
   .grid {
     display: grid;
     grid-template-columns: repeat(6, 150px);

@@ -1,7 +1,7 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/border';
 
+@layer components {
   .inputEdit {
     background-color: $color-gray-200;
     border-radius: $border-solid-border-radius;

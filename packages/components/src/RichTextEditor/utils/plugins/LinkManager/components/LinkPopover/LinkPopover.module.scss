@@ -1,7 +1,7 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/spacing';
 
+@layer components {
   .popoverContent {
     display: flex;
     align-items: center;

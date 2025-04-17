@@ -1,7 +1,7 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/spacing';
-  @import '~@kaizen/design-tokens/sass/layout';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/layout';
 
+@layer components {
   .toastNotificationsList {
     display: flex;
     flex-direction: column;

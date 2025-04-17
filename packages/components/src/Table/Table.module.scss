@@ -1,10 +1,10 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/shadow';
-  @import '~@kaizen/design-tokens/sass/border';
-  @import '~@kaizen/design-tokens/sass/animation';
-  @import '~@kaizen/design-tokens/sass/spacing';
-  @import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/shadow';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/animation';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/color';
 
+@layer components {
   // Taken from design-tokens/sass/shadow
   // we need control of the x and y offset in this component
   $box-shadow-color-sm: rgb(53, 55, 74, 0.09);

@@ -1,7 +1,7 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/typography';
 
+@layer components {
   .text {
     --icon-vertical-align: text-bottom;
 

@@ -1,6 +1,6 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/border';
 
+@layer components {
   $input-disabled-opacity: 0.3;
 
   .dateRangeInputContainer {

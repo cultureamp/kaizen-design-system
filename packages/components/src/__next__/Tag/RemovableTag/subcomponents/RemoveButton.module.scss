@@ -1,8 +1,8 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/border';
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '../../../../../styles/utils/button-reset';
+@import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/color';
+@import '../../../../../styles/utils/button-reset';
 
+@layer components {
   .removeButton {
     @include button-reset;
 

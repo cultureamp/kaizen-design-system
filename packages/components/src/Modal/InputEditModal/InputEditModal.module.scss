@@ -1,9 +1,9 @@
-@layer components {
-  @import '~@kaizen/design-tokens/sass/color';
-  @import '~@kaizen/design-tokens/sass/layout';
-  @import '~@kaizen/design-tokens/sass/spacing';
-  @import '../GenericModal/GenericModal.module';
+@import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/layout';
+@import '~@kaizen/design-tokens/sass/spacing';
+@import '../GenericModal/GenericModal.module';
 
+@layer components {
   .modal {
     @extend %genericModal;
 

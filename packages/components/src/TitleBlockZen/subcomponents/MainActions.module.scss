@@ -1,7 +1,7 @@
-@layer components {
-  @import '../../../styles/utils/legacy/layout';
-  @import '../mixins';
+@import '../../../styles/utils/legacy/layout';
+@import '../mixins';
 
+@layer components {
   .mainActionsContainer {
     display: flex;
     align-items: center;
