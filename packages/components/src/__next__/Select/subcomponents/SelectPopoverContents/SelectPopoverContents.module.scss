@@ -1,5 +1,7 @@
-@import '~@kaizen/design-tokens/sass/spacing';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/spacing';
 
-.selectPopoverContents {
-  padding: $spacing-12;
+  .selectPopoverContents {
+    padding: $spacing-12;
+  }
 }

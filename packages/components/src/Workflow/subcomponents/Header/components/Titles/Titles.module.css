@@ -1,21 +1,23 @@
-.titles {
-  grid-area: titles;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-}
+@layer components {
+  .titles {
+    grid-area: titles;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
 
-.pageTitle {
-  display: flex;
-  flex-direction: column;
-}
+  .pageTitle {
+    display: flex;
+    flex-direction: column;
+  }
 
-.prefix {
-  margin-bottom: var(--spacing-4);
-}
+  .prefix {
+    margin-bottom: var(--spacing-4);
+  }
 
-.statusTag {
-  margin-top: var(--spacing-8);
+  .statusTag {
+    margin-top: var(--spacing-8);
+  }
 }

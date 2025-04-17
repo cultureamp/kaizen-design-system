@@ -1,52 +1,54 @@
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/layout';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '../GenericModal/GenericModal.module';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/color';
+  @import '~@kaizen/design-tokens/sass/layout';
+  @import '~@kaizen/design-tokens/sass/spacing';
+  @import '../GenericModal/GenericModal.module';
 
-.modal {
-  @extend %genericModal;
+  .modal {
+    @extend %genericModal;
 
-  min-width: 300px;
-  max-width: 600px;
+    min-width: 300px;
+    max-width: 600px;
 
-  .animatingEnter & {
-    animation-duration: $ca-duration-fast;
-    animation-fill-mode: forwards;
-    animation-timing-function: $ca-bounce-in;
+    .animatingEnter & {
+      animation-duration: $ca-duration-fast;
+      animation-fill-mode: forwards;
+      animation-timing-function: $ca-bounce-in;
 
-    @include ca-animation(fade($from: 0, $to: 1), zoom($from: 0.5, $to: 1));
-  }
+      @include ca-animation(fade($from: 0, $to: 1), zoom($from: 0.5, $to: 1));
+    }
 
-  .animatingLeave & {
-    animation-duration: $ca-duration-rapid;
-    animation-fill-mode: forwards;
-    animation-timing-function: $ca-bounce-out;
+    .animatingLeave & {
+      animation-duration: $ca-duration-rapid;
+      animation-fill-mode: forwards;
+      animation-timing-function: $ca-bounce-out;
 
-    @include ca-animation(fade($from: 1, $to: 0), zoom($from: 1, $to: 0.5));
-  }
-}
-
-.header {
-  color: $color-purple-800;
-  text-align: start;
-
-  &.padded {
-    padding: $spacing-md $spacing-lg;
-
-    @media (max-width: $layout-breakpoints-medium) {
-      padding: $spacing-md;
+      @include ca-animation(fade($from: 1, $to: 0), zoom($from: 1, $to: 0.5));
     }
   }
-}
 
-.body {
-  background: $color-gray-200;
+  .header {
+    color: $color-purple-800;
+    text-align: start;
 
-  &.padded {
-    padding: $spacing-md $spacing-lg $spacing-md $spacing-lg;
+    &.padded {
+      padding: $spacing-md $spacing-lg;
 
-    @media (max-width: $layout-breakpoints-medium) {
-      padding: $spacing-md;
+      @media (max-width: $layout-breakpoints-medium) {
+        padding: $spacing-md;
+      }
+    }
+  }
+
+  .body {
+    background: $color-gray-200;
+
+    &.padded {
+      padding: $spacing-md $spacing-lg $spacing-md $spacing-lg;
+
+      @media (max-width: $layout-breakpoints-medium) {
+        padding: $spacing-md;
+      }
     }
   }
 }

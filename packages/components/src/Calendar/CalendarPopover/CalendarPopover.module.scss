@@ -1,27 +1,29 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/shadow';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '~@kaizen/design-tokens/sass/layout';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/border';
+  @import '~@kaizen/design-tokens/sass/color';
+  @import '~@kaizen/design-tokens/sass/shadow';
+  @import '~@kaizen/design-tokens/sass/spacing';
+  @import '~@kaizen/design-tokens/sass/layout';
 
-.calendarPopover {
-  background-color: $color-white;
-  z-index: 1010;
-  box-shadow: $shadow-large-box-shadow;
-  border-radius: $border-borderless-border-radius;
-  padding: $spacing-12 $spacing-8;
-  box-sizing: border-box;
-  overflow: auto;
+  .calendarPopover {
+    background-color: $color-white;
+    z-index: 1010;
+    box-shadow: $shadow-large-box-shadow;
+    border-radius: $border-borderless-border-radius;
+    padding: $spacing-12 $spacing-8;
+    box-sizing: border-box;
+    overflow: auto;
 
-  @media (min-width: $layout-breakpoints-medium) {
-    padding: $spacing-24;
+    @media (min-width: $layout-breakpoints-medium) {
+      padding: $spacing-24;
+    }
   }
-}
 
-// Overrides for if the browser supports popovers. The inset unset is to fix a bug with RTL positioning https://github.com/floating-ui/floating-ui/issues/3221
-// Margin 0 because default styling for [popover] is margin: auto to center it.
-.calendarPopover[popover]:popover-open {
-  z-index: unset;
-  margin: 0;
-  inset: unset;
+  // Overrides for if the browser supports popovers. The inset unset is to fix a bug with RTL positioning https://github.com/floating-ui/floating-ui/issues/3221
+  // Margin 0 because default styling for [popover] is margin: auto to center it.
+  .calendarPopover[popover]:popover-open {
+    z-index: unset;
+    margin: 0;
+    inset: unset;
+  }
 }

@@ -1,11 +1,13 @@
-@import '~@kaizen/design-tokens/sass/spacing';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/spacing';
 
-.divider {
-  margin: $spacing-8 0;
+  .divider {
+    margin: $spacing-8 0;
 
-  &:first-child,
-  &:last-child,
-  & + .divider {
-    display: none;
+    &:first-child,
+    &:last-child,
+    & + .divider {
+      display: none;
+    }
   }
 }

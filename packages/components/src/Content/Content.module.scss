@@ -1,15 +1,17 @@
-@import '~@kaizen/design-tokens/sass/layout';
-@import './variables';
+@layer components {
+  @import '~@kaizen/design-tokens/sass/layout';
+  @import './variables';
 
-.content {
-  max-width: $layout-content-max-width;
-  margin: 0 $layout-content-side-margin;
-  width: 100%;
+  .content {
+    max-width: $layout-content-max-width;
+    margin: 0 $layout-content-side-margin;
+    width: 100%;
 
-  // Setting a min-width: 0 will maintain the gutter margins when the inner contents has something wider than the page (e.g. scrollable table)
-  min-width: 0;
+    // Setting a min-width: 0 will maintain the gutter margins when the inner contents has something wider than the page (e.g. scrollable table)
+    min-width: 0;
 
-  @media (max-width: calc(#{$layout-breakpoints-large} - 1px)) {
-    margin: 0 $content-margin-width-on-medium-and-small;
+    @media (max-width: calc(#{$layout-breakpoints-large} - 1px)) {
+      margin: 0 $content-margin-width-on-medium-and-small;
+    }
   }
 }
