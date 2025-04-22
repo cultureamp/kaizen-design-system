@@ -108,6 +108,8 @@
         "react-textfit>react-dom": "19",
         "react-popper>react": "19",
         "react-popper>react-dom": "19",
+        "@popper/core>react": "19",
+        "@popper/core>react-dom": "19",
         "eslint": "9"
       }
     },
