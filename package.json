@@ -106,6 +106,8 @@
         "react-focus-on>react-dom": "19",
         "react-textfit>react": "19",
         "react-textfit>react-dom": "19",
+        "react-popper>react": "19",
+        "react-popper>react-dom": "19",
         "eslint": "9"
       }
     },
