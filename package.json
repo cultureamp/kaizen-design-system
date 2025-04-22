@@ -100,8 +100,12 @@
   "pnpm": {
     "peerDependencyRules": {
       "allowedVersions": {
-        "react": "18",
-        "react-dom": "18",
+        "@reach/tabs>react": "19",
+        "@reach/tabs>react-dom": "19",
+        "react-focus-on>react": "19",
+        "react-focus-on>react-dom": "19",
+        "react-textfit>react": "19",
+        "react-textfit>react-dom": "19",
         "eslint": "9"
       }
     },
