@@ -152,7 +152,7 @@
     "react-animate-height": "^3.2.3",
     "react-aria": "^3.38.1",
     "react-aria-components": "^1.7.1",
-    "react-day-picker": "8.10.1",
+    "react-day-picker": "9.6.7",
     "react-focus-lock": "^2.13.6",
     "react-focus-on": "^3.9.4",
     "react-popper": "^2.3.0",
@@ -168,8 +168,8 @@
   "devDependencies": {
     "@cultureamp/frontend-apis": "^13.2.5",
     "@cultureamp/i18n-react-intl": "^2.7.3",
-    "@kaizen/design-tokens": "workspace:*",
     "@cultureamp/package-bundler": "^2.1.0",
+    "@kaizen/design-tokens": "workspace:*",
     "@testing-library/dom": "^10.4.0",
     "@types/jest-axe": "^3.5.9",
     "@types/lodash.debounce": "^4.0.9",
