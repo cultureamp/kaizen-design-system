@@ -169,7 +169,7 @@
     "@cultureamp/frontend-apis": "^13.2.6",
     "@cultureamp/i18n-react-intl": "^2.7.3",
     "@kaizen/design-tokens": "workspace:*",
-    "@cultureamp/package-bundler": "^2.1.0",
+    "@cultureamp/package-bundler": "^2.2.0",
     "@testing-library/dom": "^10.4.0",
     "@types/jest-axe": "^3.5.9",
     "@types/lodash.debounce": "^4.0.9",
