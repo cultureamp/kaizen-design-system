@@ -2,9 +2,9 @@ import React from 'react'
 import type { Locale } from 'date-fns'
 import {
   DayPicker,
+  type ClassNames,
   type DateRange,
-  type DayClickEventHandler,
-  type DayPickerRangeProps,
+  type DayEventHandler,
   type Matcher,
 } from 'react-day-picker'
 import { Icon } from '~components/__next__/Icon'
@@ -22,7 +22,7 @@ export type LegacyCalendarRangeProps = {
   disabledDays?: Matcher[]
   selectedRange?: DateRange
   locale: Locale
-  onDayChange: DayClickEventHandler
+  onDayChange: DayEventHandler<React.MouseEvent>
 }
 
 export const LegacyCalendarRange = ({
@@ -45,7 +45,7 @@ export const LegacyCalendarRange = ({
     day_range_start: styles.dayRangeStart,
     day_range_end: styles.dayRangeEnd,
     day_range_middle: styles.dayRangeMiddle,
-  } satisfies DayPickerRangeProps['classNames']
+  } as ClassNames
   /* eslint-enable camelcase */
 
   return (
@@ -59,8 +59,13 @@ export const LegacyCalendarRange = ({
         onDayClick={onDayChange}
         classNames={classNames}
         components={{
-          IconRight: () => <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
-          IconLeft: () => <Icon name="arrow_back" isPresentational shouldMirrorInRTL />,
+          Chevron: (props) => {
+            if (props.orientation === 'left') {
+              return <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
+            }
+
+            return <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
+          },
         }}
         locale={locale}
       />

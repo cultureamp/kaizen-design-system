@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { enAU } from 'date-fns/locale'
-import { DayPicker, type PropsSingle, type PropsBase, type ClassNames } from 'react-day-picker'
+import { DayPicker, type ClassNames, type PropsBase, type PropsSingle } from 'react-day-picker'
 import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
