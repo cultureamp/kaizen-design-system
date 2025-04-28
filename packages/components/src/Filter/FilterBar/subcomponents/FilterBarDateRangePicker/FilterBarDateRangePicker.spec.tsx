@@ -138,7 +138,9 @@ describe('<FilterBarDateRangePicker />', () => {
 
     const targetMonth = screen.getByRole('grid', { name: 'June 2022' })
     const targetDay = within(targetMonth).getByRole('gridcell', { name: '23' })
-    await user.click(targetDay)
+    const targetBtn = within(targetDay).getByRole('button')
+
+    await user.click(targetBtn)
     await user.click(document.body) // Exit the focus lock
 
     await waitFor(() => {
@@ -170,7 +172,9 @@ describe('<FilterBarDateRangePicker />', () => {
 
     const targetMonth = screen.getByRole('grid', { name: 'June 2022' })
     const targetDay = within(targetMonth).getByRole('gridcell', { name: '23' })
-    await user.click(targetDay)
+    const targetBtn = within(targetDay).getByRole('button')
+
+    await user.click(targetBtn)
 
     await waitFor(() => {
       expect(onChange).toHaveBeenCalledWith({

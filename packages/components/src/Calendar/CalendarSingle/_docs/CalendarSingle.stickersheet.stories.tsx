@@ -89,7 +89,11 @@ const StickerSheetTemplate: StickerSheetStory = {
 const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   const canvas = within(canvasElement)
 
-  const getElementWithinCalendar = (id: string, role: string, name: string): HTMLElement => {
+  const getElementWithinCalendar = (
+    id: string,
+    role: string,
+    name: string | RegExp,
+  ): HTMLElement => {
     const calendar = canvas.getByTestId(id)
     return within(calendar).getByRole(role, { name })
   }
@@ -118,7 +122,7 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
     {
       id: 'id--calendar-navigation',
       role: 'button',
-      name: 'Go to previous month',
+      name: /Go to the previous month/i,
     },
   ]
 

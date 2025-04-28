@@ -75,7 +75,8 @@ describe('<FilterDatePicker />', () => {
 
     const targetMonth = screen.getByRole('grid', { name: 'May 2022' })
     const targetDay = within(targetMonth).getByRole('gridcell', { name: '2' })
-    await user.click(targetDay)
+    const targetBtn = within(targetDay).getByRole('button')
+    await user.click(targetBtn)
 
     await waitFor(() => {
       expect(dialog).not.toBeInTheDocument()
@@ -196,7 +197,7 @@ describe('<FilterDatePicker />', () => {
     })
 
     const navigateMonthsButton = getByRole('button', {
-      name: 'Go to next month',
+      name: /Go to the next month/i,
     })
 
     await user.click(navigateMonthsButton)
