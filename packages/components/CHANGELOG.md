@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.77.0
+
+### Minor Changes
+
+- [#5701](https://github.com/cultureamp/kaizen-design-system/pull/5701) [`9c63e64`](https://github.com/cultureamp/kaizen-design-system/commit/9c63e6419436bd9a365d00e166dde1c5990c79c3) - Upgrade to latest @cultureamp/package-bundler which should fix type issues
+
 ## 1.76.0
 
 ### Minor Changes

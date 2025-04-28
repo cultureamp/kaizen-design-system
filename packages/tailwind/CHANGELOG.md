@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.4.0
+
+### Minor Changes
+
+- [#5701](https://github.com/cultureamp/kaizen-design-system/pull/5701) [`9c63e64`](https://github.com/cultureamp/kaizen-design-system/commit/9c63e6419436bd9a365d00e166dde1c5990c79c3) - Upgrade to latest @cultureamp/package-bundler which should fix type issues
+
+### Patch Changes
+
+- Updated dependencies [[`9c63e64`](https://github.com/cultureamp/kaizen-design-system/commit/9c63e6419436bd9a365d00e166dde1c5990c79c3)]:
+  - @kaizen/design-tokens@10.9.0
+
 ## 1.3.16
 
 ### Patch Changes
