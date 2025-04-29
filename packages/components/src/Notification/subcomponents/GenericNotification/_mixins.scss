@@ -17,346 +17,348 @@ $notification-collapse-height-delayed:
 $notification-pop-up: transform 200ms ease-out;
 $notification-slide-right: transform 300ms ease-out;
 
-%ca-notification {
-  display: flex;
-  box-sizing: border-box;
-  pointer-events: all;
-
-  &:focus {
-    outline-offset: 1px;
-    outline: 2px solid var(--color-blue-500);
-  }
-
-  // Variants
-  &%ca-notification---inline,
-  &%ca-notification---toast {
-    margin-bottom: $spacing-24;
-    border-width: $border-width;
-    border-style: solid;
-    border-radius: $border-solid-border-radius;
-  }
-
-  &%ca-notification---inline {
-    width: auto;
-    min-height: 46px;
-    padding: $notification-vertical-padding $spacing-12;
-    transition: $notification-fade-out, $notification-pop-up, $notification-collapse-height;
-  }
-
-  &%ca-notification---toast {
-    container-type: inline-size;
-    width: 25rem;
-    box-shadow: $shadow-small-box-shadow;
-    max-width: 100%;
-    padding: $notification-vertical-padding 10px;
-    transition:
-      $notification-fade-out, $notification-slide-right, $notification-collapse-height-delayed;
-    will-change: transform;
-  }
-
-  &%ca-notification---global {
-    width: 100%;
+@layer components {
+  %ca-notification {
     display: flex;
-    align-items: center;
-    border-width: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    padding-top: var(--spacing-16);
-    padding-bottom: var(--spacing-16);
-    padding-inline-start: var(--spacing-8);
-    transition: $notification-collapse-height;
-    position: relative;
-    z-index: 1030;
-  }
+    box-sizing: border-box;
+    pointer-events: all;
 
-  // Types
-  &%ca-notification---positive {
-    background: $color-green-100;
-    border-color: var(--color-green-500);
-    color: $color-purple-800;
-  }
+    &:focus {
+      outline-offset: 1px;
+      outline: 2px solid var(--color-blue-500);
+    }
 
-  &%ca-notification---informative {
-    background: $color-blue-100;
-    border-color: var(--color-blue-400);
-    color: $color-purple-800;
-  }
-
-  &%ca-notification---cautionary {
-    background: $color-yellow-100;
-    border-color: var(--color-yellow-700);
-    color: $color-purple-800;
-  }
-
-  &%ca-notification---negative {
-    background: $color-red-100;
-    border-color: var(--color-red-500);
-    color: $color-purple-800;
-  }
-
-  // Hidden state
-  &%ca-notification---hidden {
-    opacity: 0%;
-
+    // Variants
     &%ca-notification---inline,
-    &%ca-notification---global {
-      margin-bottom: 0;
+    &%ca-notification---toast {
+      margin-bottom: $spacing-24;
+      border-width: $border-width;
+      border-style: solid;
+      border-radius: $border-solid-border-radius;
     }
 
     &%ca-notification---inline {
-      // When entering we use "ease-out", but when transitioning to hidden we want to use "ease-in".
-      // We want it moving the fastest when it is the furthest off screen.
-      transition-timing-function: ease-in;
-      transform: translateY(-50%);
+      width: auto;
+      min-height: 46px;
+      padding: $notification-vertical-padding $spacing-12;
+      transition: $notification-fade-out, $notification-pop-up, $notification-collapse-height;
     }
 
     &%ca-notification---toast {
-      // When entering we use "ease-out", but when transitioning to hidden we want to use "ease-in".
-      // We want it moving the fastest when it is the furthest off screen.
-      transition-timing-function: ease-in;
-      transform: translateX(50%);
+      container-type: inline-size;
+      width: 25rem;
+      box-shadow: $shadow-small-box-shadow;
+      max-width: 100%;
+      padding: $notification-vertical-padding 10px;
+      transition:
+        $notification-fade-out, $notification-slide-right, $notification-collapse-height-delayed;
+      will-change: transform;
     }
 
     &%ca-notification---global {
-      z-index: 1029;
-      opacity: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      border-width: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      padding-top: var(--spacing-16);
+      padding-bottom: var(--spacing-16);
+      padding-inline-start: var(--spacing-8);
+      transition: $notification-collapse-height;
+      position: relative;
+      z-index: 1030;
+    }
+
+    // Types
+    &%ca-notification---positive {
+      background: $color-green-100;
+      border-color: var(--color-green-500);
+      color: $color-purple-800;
+    }
+
+    &%ca-notification---informative {
+      background: $color-blue-100;
+      border-color: var(--color-blue-400);
+      color: $color-purple-800;
+    }
+
+    &%ca-notification---cautionary {
+      background: $color-yellow-100;
+      border-color: var(--color-yellow-700);
+      color: $color-purple-800;
+    }
+
+    &%ca-notification---negative {
+      background: $color-red-100;
+      border-color: var(--color-red-500);
+      color: $color-purple-800;
+    }
+
+    // Hidden state
+    &%ca-notification---hidden {
+      opacity: 0%;
+
+      &%ca-notification---inline,
+      &%ca-notification---global {
+        margin-bottom: 0;
+      }
+
+      &%ca-notification---inline {
+        // When entering we use "ease-out", but when transitioning to hidden we want to use "ease-in".
+        // We want it moving the fastest when it is the furthest off screen.
+        transition-timing-function: ease-in;
+        transform: translateY(-50%);
+      }
+
+      &%ca-notification---toast {
+        // When entering we use "ease-out", but when transitioning to hidden we want to use "ease-in".
+        // We want it moving the fastest when it is the furthest off screen.
+        transition-timing-function: ease-in;
+        transform: translateX(50%);
+      }
+
+      &%ca-notification---global {
+        z-index: 1029;
+        opacity: 100%;
+      }
+    }
+
+    // Modifiers
+    &%ca-notification---noBottomMargin {
+      margin-bottom: 0;
+    }
+
+    &%ca-notification---persistent {
+      transition: none;
+    }
+
+    // this is only for inline notifications
+    &%ca-notification---subtle {
+      background: none;
+      border: none;
+      padding: 0;
     }
   }
 
-  // Modifiers
-  &%ca-notification---noBottomMargin {
-    margin-bottom: 0;
+  %ca-notification__icon {
+    align-items: flex-start;
+    box-sizing: content-box;
+
+    %ca-notification---positive & {
+      color: $color-green-500;
+    }
+
+    %ca-notification---informative & {
+      color: $color-blue-500;
+    }
+
+    %ca-notification---cautionary & {
+      color: var(--color-yellow-700);
+    }
+
+    %ca-notification---negative & {
+      color: $color-red-500;
+    }
+
+    %ca-notification---inline &,
+    %ca-notification---toast & {
+      width: 22px;
+      height: 22px;
+      font-size: 22px;
+      margin-top: $spacing-6;
+    }
+
+    %ca-notification---global & {
+      width: 24px;
+      height: 24px;
+      font-size: 24px;
+    }
   }
 
-  &%ca-notification---persistent {
-    transition: none;
+  %ca-notification__text-container {
+    box-sizing: content-box;
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1 0 0;
+
+    %ca-notification---inline &,
+    %ca-notification---toast & {
+      margin-inline-start: $spacing-6;
+    }
+
+    %ca-notification---toast & {
+      margin-inline-start: $spacing-6;
+      max-width: calc(100% - #{$spacing-48});
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    %ca-notification---global & {
+      margin-inline-start: var(--spacing-8);
+    }
+
+    %ca-notification---inline & {
+      // Inline notifications often fade onto a white background.
+      // Fading the higher-contrast text out at, as well as the whole container, makes for a smoother animation.
+      transition: $notification-fade-out;
+    }
+
+    &%ca-notification---forceMultiline {
+      flex-direction: column;
+    }
   }
 
-  // this is only for inline notifications
-  &%ca-notification---subtle {
-    background: none;
-    border: none;
-    padding: 0;
-  }
-}
-
-%ca-notification__icon {
-  align-items: flex-start;
-  box-sizing: content-box;
-
-  %ca-notification---positive & {
-    color: $color-green-500;
-  }
-
-  %ca-notification---informative & {
-    color: $color-blue-500;
+  %ca-notification__title {
+    position: relative;
+    font-family: $typography-heading-6-font-family;
+    font-weight: $typography-heading-6-font-weight;
+    font-size: $typography-heading-6-font-size;
+    line-height: $typography-heading-6-line-height;
+    letter-spacing: $typography-heading-6-letter-spacing;
+    margin: 0;
+    padding-right: 6px;
+    // overriding Bootstrap style that changes h6s to text-transform: uppercase
+    text-transform: none;
+    color: inherit;
+    top: 0.37em;
   }
 
-  %ca-notification---cautionary & {
-    color: var(--color-yellow-700);
-  }
-
-  %ca-notification---negative & {
-    color: $color-red-500;
-  }
-
-  %ca-notification---inline &,
-  %ca-notification---toast & {
-    width: 22px;
-    height: 22px;
-    font-size: 22px;
-    margin-top: $spacing-6;
-  }
-
-  %ca-notification---global & {
-    width: 24px;
-    height: 24px;
-    font-size: 24px;
-  }
-}
-
-%ca-notification__text-container {
-  box-sizing: content-box;
-  display: flex;
-  flex-flow: row wrap;
-  flex: 1 0 0;
-
-  %ca-notification---inline &,
-  %ca-notification---toast & {
-    margin-inline-start: $spacing-6;
-  }
-
-  %ca-notification---toast & {
-    margin-inline-start: $spacing-6;
-    max-width: calc(100% - #{$spacing-48});
-    overflow-wrap: break-word;
-    hyphens: auto;
-  }
-
-  %ca-notification---global & {
-    margin-inline-start: var(--spacing-8);
-  }
-
-  %ca-notification---inline & {
-    // Inline notifications often fade onto a white background.
-    // Fading the higher-contrast text out at, as well as the whole container, makes for a smoother animation.
-    transition: $notification-fade-out;
-  }
-
-  &%ca-notification---forceMultiline {
-    flex-direction: column;
-  }
-}
-
-%ca-notification__title {
-  position: relative;
-  font-family: $typography-heading-6-font-family;
-  font-weight: $typography-heading-6-font-weight;
-  font-size: $typography-heading-6-font-size;
-  line-height: $typography-heading-6-line-height;
-  letter-spacing: $typography-heading-6-letter-spacing;
-  margin: 0;
-  padding-right: 6px;
-  // overriding Bootstrap style that changes h6s to text-transform: uppercase
-  text-transform: none;
-  color: inherit;
-  top: 0.37em;
-}
-
-%ca-notification__text {
-  position: relative;
-  font-family: $typography-paragraph-small-font-family;
-  font-weight: $typography-paragraph-small-font-weight;
-  font-size: $typography-paragraph-small-font-size;
-  line-height: $typography-paragraph-small-line-height;
-  letter-spacing: $typography-paragraph-small-letter-spacing;
-  margin: 0;
-  color: inherit;
-
-  %ca-notification---inline &,
-  %ca-notification---toast & {
+  %ca-notification__text {
     position: relative;
     font-family: $typography-paragraph-small-font-family;
     font-weight: $typography-paragraph-small-font-weight;
     font-size: $typography-paragraph-small-font-size;
     line-height: $typography-paragraph-small-line-height;
     letter-spacing: $typography-paragraph-small-letter-spacing;
-    // When the title and text are on different lines this ensures the baselines of the first lines are exactly 1 grid unit apart.
-    // When they are both on a single line it ensures both are 1 grid unit tall.
-    margin-top: $spacing-6;
-    flex: 0 1 auto;
-    padding-bottom: $spacing-12;
-    top: 0.21em;
-  }
-  %ca-notification---toast & {
-    width: 100%;
-  }
+    margin: 0;
+    color: inherit;
 
-  %ca-notification---global & {
-    // Inherit baseline because the parent selector doesn't.
-    position: static;
-    font-weight: $typography-paragraph-body-font-weight;
-    font-size: $typography-paragraph-body-font-size;
-    line-height: $typography-paragraph-body-line-height;
-    letter-spacing: $typography-paragraph-body-letter-spacing;
-  }
+    %ca-notification---inline &,
+    %ca-notification---toast & {
+      position: relative;
+      font-family: $typography-paragraph-small-font-family;
+      font-weight: $typography-paragraph-small-font-weight;
+      font-size: $typography-paragraph-small-font-size;
+      line-height: $typography-paragraph-small-line-height;
+      letter-spacing: $typography-paragraph-small-letter-spacing;
+      // When the title and text are on different lines this ensures the baselines of the first lines are exactly 1 grid unit apart.
+      // When they are both on a single line it ensures both are 1 grid unit tall.
+      margin-top: $spacing-6;
+      flex: 0 1 auto;
+      padding-bottom: $spacing-12;
+      top: 0.21em;
+    }
+    %ca-notification---toast & {
+      width: 100%;
+    }
 
-  a[href] {
-    color: $color-blue-500;
-    text-decoration: underline;
+    %ca-notification---global & {
+      // Inherit baseline because the parent selector doesn't.
+      position: static;
+      font-weight: $typography-paragraph-body-font-weight;
+      font-size: $typography-paragraph-body-font-size;
+      line-height: $typography-paragraph-body-line-height;
+      letter-spacing: $typography-paragraph-body-letter-spacing;
+    }
 
-    &:hover {
+    a[href] {
       color: $color-blue-500;
-      text-decoration: none;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-blue-500;
+        text-decoration: none;
+      }
+    }
+
+    strong {
+      font-weight: $typography-button-secondary-font-weight;
+    }
+
+    p {
+      font-weight: inherit;
     }
   }
 
-  strong {
-    font-weight: $typography-button-secondary-font-weight;
-  }
+  %ca-notification__cancel {
+    cursor: pointer;
+    appearance: none;
+    transition: none;
+    transform: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font: inherit;
+    color: $color-purple-800;
 
-  p {
-    font-weight: inherit;
-  }
-}
-
-%ca-notification__cancel {
-  cursor: pointer;
-  appearance: none;
-  transition: none;
-  transform: none;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
-  font: inherit;
-  color: $color-purple-800;
-
-  .icon {
-    opacity: 70%;
-    transition: $animation-duration-fast opacity;
-  }
-
-  &:disabled,
-  &.disabled {
     .icon {
-      opacity: 30%;
+      opacity: 70%;
+      transition: $animation-duration-fast opacity;
     }
-  }
 
-  &:not(:disabled, .disabled) {
-    &:hover,
-    &:focus,
-    &.hover {
+    &:disabled,
+    &.disabled {
       .icon {
-        opacity: 100%;
+        opacity: 30%;
       }
     }
 
-    &:active,
-    &.active {
-      .icon {
-        opacity: 100%;
+    &:not(:disabled, .disabled) {
+      &:hover,
+      &:focus,
+      &.hover {
+        .icon {
+          opacity: 100%;
+        }
       }
+
+      &:active,
+      &.active {
+        .icon {
+          opacity: 100%;
+        }
+      }
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    // The negative margins below are so that our clickable area will overlap the notification padding
+    %ca-notification---inline &,
+    %ca-notification---toast & {
+      width: var(--spacing-48);
+      height: var(--spacing-48);
+      margin-top: calc(-1 * var(--spacing-6));
+      margin-bottom: calc(-1 * var(--spacing-6));
+    }
+
+    %ca-notification---inline & {
+      margin-inline-end: calc(-1 * var(--spacing-12));
+    }
+
+    %ca-notification---toast & {
+      margin-inline-end: -10px;
+    }
+
+    %ca-notification---global & {
+      width: var(--spacing-48);
+      height: var(--spacing-48);
+      margin-top: calc(-1 * var(--spacing-24));
+      margin-bottom: calc(-1 * var(--spacing-24));
     }
   }
 
-  &:active {
-    transform: translateY(1px);
+  %ca-notification__cancel__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
   }
-
-  // The negative margins below are so that our clickable area will overlap the notification padding
-  %ca-notification---inline &,
-  %ca-notification---toast & {
-    width: var(--spacing-48);
-    height: var(--spacing-48);
-    margin-top: calc(-1 * var(--spacing-6));
-    margin-bottom: calc(-1 * var(--spacing-6));
-  }
-
-  %ca-notification---inline & {
-    margin-inline-end: calc(-1 * var(--spacing-12));
-  }
-
-  %ca-notification---toast & {
-    margin-inline-end: -10px;
-  }
-
-  %ca-notification---global & {
-    width: var(--spacing-48);
-    height: var(--spacing-48);
-    margin-top: calc(-1 * var(--spacing-24));
-    margin-bottom: calc(-1 * var(--spacing-24));
-  }
-}
-
-%ca-notification__cancel__label {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
 }
