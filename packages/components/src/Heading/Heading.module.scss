@@ -2,13 +2,13 @@
 @import '~@kaizen/design-tokens/sass/typography';
 @import '../../styles/foundation/layers';
 
-@layer components {
-  @layer reset {
-    .heading {
-      margin: 0;
-    }
+@layer reset {
+  .heading {
+    margin: 0;
   }
+}
 
+@layer components {
   .display-0 {
     font-family: $typography-display-0-font-family;
     font-weight: $typography-display-0-font-weight;
