@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.77.1
+
+### Patch Changes
+
+- [#5713](https://github.com/cultureamp/kaizen-design-system/pull/5713) [`15e011b`](https://github.com/cultureamp/kaizen-design-system/commit/15e011b03419a0a762fd69ca9ed8a86c6152c636) - Patch bump for assets to build
+
+- [`e37e4c8`](https://github.com/cultureamp/kaizen-design-system/commit/e37e4c8cabcfb8b2aac680223cd670ef4167801d) - Fix an issue where types exported doesn't have alias converted.
+
 ## 1.77.0
 
 ### Minor Changes

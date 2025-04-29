@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.9.1
+
+### Patch Changes
+
+- [#5713](https://github.com/cultureamp/kaizen-design-system/pull/5713) [`15e011b`](https://github.com/cultureamp/kaizen-design-system/commit/15e011b03419a0a762fd69ca9ed8a86c6152c636) - Patch bump for assets to build
+
 ## 10.9.0
 
 ### Minor Changes
