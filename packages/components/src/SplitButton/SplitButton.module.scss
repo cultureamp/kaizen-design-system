@@ -1,4 +1,6 @@
-.splitButton {
-  display: inline-flex;
-  align-items: center;
+@layer components {
+  .splitButton {
+    display: inline-flex;
+    align-items: center;
+  }
 }

@@ -1,23 +1,25 @@
-.filterButton {
-  gap: var(--spacing-6);
-  justify-content: space-between;
-}
-
-@media (width < 768px) {
+@layer components {
   .filterButton {
-    flex-grow: 1;
+    gap: var(--spacing-6);
+    justify-content: space-between;
   }
-}
 
-.labelContainer {
-  display: inline-flex;
-  flex-wrap: wrap;
-}
+  @media (width < 768px) {
+    .filterButton {
+      flex-grow: 1;
+    }
+  }
 
-.hasSelectedValues {
-  font-weight: bold;
-}
+  .labelContainer {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
 
-.labelSeparator {
-  margin-inline-end: var(--spacing-6);
+  .hasSelectedValues {
+    font-weight: bold;
+  }
+
+  .labelSeparator {
+    margin-inline-end: var(--spacing-6);
+  }
 }

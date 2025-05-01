@@ -1,14 +1,16 @@
-.branding {
-  grid-area: branding;
-  display: flex;
-  justify-content: center;
-  padding-top: var(--spacing-4);
+@layer components {
+  .branding {
+    grid-area: branding;
+    display: flex;
+    justify-content: center;
+    padding-top: var(--spacing-4);
 
-  @media (width >=768px) {
-    justify-content: unset;
+    @media (width >=768px) {
+      justify-content: unset;
+    }
   }
-}
 
-.logo {
-  width: 7.5rem;
+  .logo {
+    width: 7.5rem;
+  }
 }

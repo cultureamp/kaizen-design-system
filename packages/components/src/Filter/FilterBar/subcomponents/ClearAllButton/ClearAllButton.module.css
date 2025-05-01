@@ -1,7 +1,9 @@
-.clearAllButton {
-  white-space: nowrap;
-}
+@layer components {
+  .clearAllButton {
+    white-space: nowrap;
+  }
 
-.hidden {
-  visibility: hidden;
+  .hidden {
+    visibility: hidden;
+  }
 }
