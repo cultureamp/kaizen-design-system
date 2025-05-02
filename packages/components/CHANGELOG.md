@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.77.2
+
+### Patch Changes
+
+- [#5719](https://github.com/cultureamp/kaizen-design-system/pull/5719) [`d671ce6`](https://github.com/cultureamp/kaizen-design-system/commit/d671ce6119bddb9bf57f940b3f6747132b3da4c6) - Add `z-index: 0` to aiMoment shared styles to fix `Well` and `Card` gradient borders not appearing.
+
 ## 1.77.1
 
 ### Patch Changes
