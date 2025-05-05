@@ -571,12 +571,6 @@ importers:
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
-      react:
-        specifier: ^18.3.1 || ^19.0.0
-        version: 19.1.0
-      react-dom:
-        specifier: ^18.3.1 || ^19.0.0
-        version: 19.1.0(react@19.1.0)
     devDependencies:
       '@cultureamp/package-bundler':
         specifier: ^2.1.0
@@ -584,6 +578,12 @@ importers:
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
+      react:
+        specifier: ^19.0.0
+        version: 19.1.0
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.1.0(react@19.1.0)
       rollup:
         specifier: ^4.39.0
         version: 4.39.0
