@@ -63,7 +63,7 @@
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.6",
     "@vitest/eslint-plugin": "^1.1.44",
-    "chromatic": "^11.28.0",
+    "chromatic": "^11.28.2",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.1.2",
     "eslint-import-resolver-typescript": "^4.3.4",
