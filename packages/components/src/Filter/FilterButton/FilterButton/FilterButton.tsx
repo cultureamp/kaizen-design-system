@@ -24,6 +24,7 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
         classNameOverride={classnames(styles.filterButton, classNameOverride)}
         aria-haspopup="true"
         aria-expanded={isOpen}
+        data-automation-id="YASSSSS"
         {...restProps}
       >
         <span className={styles.labelContainer}>

@@ -9,4 +9,4 @@ export type MenuPopoverProps = PopoverProps
 export const MenuPopover = forwardRef<HTMLDivElement, MenuPopoverProps>(
   (props, ref): JSX.Element => <Popover ref={ref} {...props} />,
 )
-MenuPopover.displayName = 'MenuPopover'
+MenuPopover.displayName = 'FilterMultiSelect.MenuPopover'
