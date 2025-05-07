@@ -308,3 +308,29 @@ export const WithSectionNotification: Story = {
     chromatic: { disable: false },
   },
 }
+
+export const AboveIfAvailable: Story = {
+  name: 'Limited viewport autoplacement above',
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: 'Limited vertical space',
+          styles: {
+            width: '1024px',
+            height: '500px',
+          },
+        },
+      },
+      defaultViewport: 'LimitedViewportAutoPlace',
+    },
+    a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
+  },
+  decorators: [
+    (Story) => (
+      <div className="mt-[350px]">
+        <Story />
+      </div>
+    ),
+  ],
+}
