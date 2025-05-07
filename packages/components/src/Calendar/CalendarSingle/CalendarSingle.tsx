@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { enAU } from 'date-fns/locale'
-import { DayPicker, type ClassNames, type PropsBase, type PropsSingle } from 'react-day-picker'
+import { DayPicker, type PropsBase, type PropsSingle } from 'react-day-picker'
 import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
@@ -34,11 +34,11 @@ export const CalendarSingle = ({
   const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */
-  const classNames = {
+  const classNames: PropsBase['classNames'] = {
     ...baseCalendarClassNames,
     nav: styles.nav,
     nav_button_next: styles.navButtonNext,
-  } as ClassNames
+  }
   /* eslint-enable camelcase */
 
   return (

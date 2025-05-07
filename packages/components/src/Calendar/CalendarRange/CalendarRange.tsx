@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { enAU } from 'date-fns/locale'
-import { DayPicker, type ClassNames, type PropsBase, type PropsRange } from 'react-day-picker'
+import { DayPicker, type PropsBase, type PropsRange } from 'react-day-picker'
 import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
@@ -36,7 +36,7 @@ export const CalendarRange = ({
   const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */
-  const classNames = {
+  const classNames: PropsBase['classNames'] = {
     ...baseCalendarClassNames,
     month: hasDivider ? styles.monthWithDivider : styles.month,
     nav: styles.nav,
@@ -44,7 +44,7 @@ export const CalendarRange = ({
     range_end: styles.dayRangeEnd,
     range_middle: styles.dayRangeMiddle,
     hidden: styles.hidden,
-  } as ClassNames
+  }
   /* eslint-enable camelcase */
 
   return (

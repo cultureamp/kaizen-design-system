@@ -2,10 +2,10 @@ import React from 'react'
 import type { Locale } from 'date-fns'
 import {
   DayPicker,
-  type ClassNames,
   type DateRange,
   type DayEventHandler,
   type Matcher,
+  type PropsBase,
 } from 'react-day-picker'
 import { Icon } from '~components/__next__/Icon'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
@@ -38,14 +38,14 @@ export const LegacyCalendarRange = ({
   const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */
-  const classNames = {
+  const classNames: PropsBase['classNames'] = {
     ...baseCalendarClassNames,
     nav: styles.nav,
-    nav_button_next: styles.navButtonNext,
+    button_next: styles.navButtonNext,
     day_range_start: styles.dayRangeStart,
     day_range_end: styles.dayRangeEnd,
     day_range_middle: styles.dayRangeMiddle,
-  } as ClassNames
+  }
   /* eslint-enable camelcase */
 
   return (
