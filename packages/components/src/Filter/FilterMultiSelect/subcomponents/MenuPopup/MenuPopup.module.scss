@@ -9,7 +9,6 @@
   $menu-container-max-height: 312px;
 
   .menuPopup {
-    position: absolute;
     z-index: 1000; // from $ca-z-index-dropdown
     box-sizing: border-box;
     background: $color-white;
@@ -20,5 +19,11 @@
     margin-top: $spacing-xs;
     text-align: start;
     width: $menu-container-width;
+  }
+
+  .menuPopover[popover]:popover-open {
+    z-index: unset;
+    margin: 0;
+    inset: unset;
   }
 }

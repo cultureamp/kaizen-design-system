@@ -8,29 +8,32 @@ import {
   type UseFloatingOptions,
 } from '@floating-ui/react-dom'
 import classnames from 'classnames'
+import { FocusOn } from 'react-focus-on'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './CalendarPopover.module.scss'
+import { useMenuTriggerContext } from '../../context'
+import styles from './MenuPopup.module.scss'
 
-export type CalendarPopoverProps = {
+import { FocusScope } from '@react-aria/focus'
+
+export type MenuPopoverProps = {
   children: React.ReactNode
-  referenceElement: HTMLElement | null
   floatingOptions?: Partial<UseFloatingOptions>
+  isLoading?: boolean
+  loadingSkeleton?: React.ReactNode
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
-/**
- * Only for use with Calendar components.
- * @todo: Replace with Popover when we have a reusable one.
- */
-export const CalendarPopover = ({
+export const MenuPopover = ({
   children,
-  referenceElement,
   floatingOptions,
   classNameOverride,
+  isLoading,
+  loadingSkeleton,
   ...restProps
-}: CalendarPopoverProps): JSX.Element => {
+}: MenuPopoverProps): JSX.Element => {
   const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>(null)
+  const { menuTriggerState, buttonRef } = useMenuTriggerContext()
 
-  console.log("HEHEHI", referenceElement)
+  const referenceElement = buttonRef.current
 
   const { floatingStyles, update } = useFloating({
     placement: 'bottom-start',
@@ -43,9 +46,7 @@ export const CalendarPopover = ({
       size({
         apply({ availableHeight, availableWidth, elements }) {
           Object.assign(elements.floating.style, {
-            // 155 is enough of a minimum to cut off half of the second row of dates.
-            // This indicates to users that there is more content that is scrollable
-            maxHeight: `${Math.max(availableHeight - 25, 155)}px`,
+            maxHeight: `${availableHeight}px`,
             maxWidth: `${availableWidth}px`,
           })
         },
@@ -61,27 +62,35 @@ export const CalendarPopover = ({
 
   useEffect(() => {
     if (floatingElement && referenceElement) {
-      // @ts-expect-error this can be removed when we update to react 19
       referenceElement.popoverTargetElement = floatingElement
       floatingElement.showPopover?.()
       update()
     }
-  }, [referenceElement, floatingElement, update])
+  }, [floatingElement, referenceElement, update])
 
-  return (
+  return menuTriggerState.isOpen ? (
     <div
       ref={setFloatingElement}
       style={floatingStyles}
-      className={classnames(styles.calendarPopover, classNameOverride)}
+      className={classnames(styles.menuPopover, classNameOverride)}
       role="dialog"
       aria-modal="true"
-      // @ts-expect-error this can be removed when we update to react 19
+      // @ts-expect-error: popover is valid in supported browsers
       popover="manual"
       {...restProps}
     >
-      {children}
+      {isLoading && loadingSkeleton ? (
+        loadingSkeleton
+      ) : (
+        // eslint-disable-next-line jsx-a11y/no-autofocus
+        <FocusScope contain autoFocus restoreFocus>
+          {children}
+        </FocusScope>
+      )}
     </div>
+  ) : (
+    <></>
   )
 }
 
-CalendarPopover.displayName = 'CalendarPopover'
+MenuPopover.displayName = 'FilterMultiSelect.MenuPopover'
