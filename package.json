@@ -36,10 +36,6 @@
     "i18n:extract": "pnpm pkg:aio i18n:extract",
     "i18n:extract:remove-obsolete": "pnpm pkg:aio i18n:extract --deleteObsoleteTranslations"
   },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
-  },
   "devDependencies": {
     "@changesets/cli": "^2.29.3",
     "@cultureamp/changelog-github": "^0.1.1",
