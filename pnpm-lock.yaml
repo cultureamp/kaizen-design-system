@@ -10,13 +10,6 @@ overrides:
 importers:
 
   .:
-    dependencies:
-      react:
-        specifier: ^19.0.0
-        version: 19.1.0
-      react-dom:
-        specifier: ^19.0.0
-        version: 19.1.0(react@19.1.0)
     devDependencies:
       '@changesets/cli':
         specifier: ^2.28.1
@@ -585,6 +578,12 @@ importers:
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
+      react:
+        specifier: ^19.0.0
+        version: 19.1.0
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.1.0(react@19.1.0)
       rollup:
         specifier: ^4.39.0
         version: 4.39.0
