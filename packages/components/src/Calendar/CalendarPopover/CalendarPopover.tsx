@@ -30,8 +30,6 @@ export const CalendarPopover = ({
 }: CalendarPopoverProps): JSX.Element => {
   const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>(null)
 
-  console.log("HEHEHI", referenceElement)
-
   const { floatingStyles, update } = useFloating({
     placement: 'bottom-start',
     elements: {
