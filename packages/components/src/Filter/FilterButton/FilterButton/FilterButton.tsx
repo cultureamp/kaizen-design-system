@@ -24,7 +24,6 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
         classNameOverride={classnames(styles.filterButton, classNameOverride)}
         aria-haspopup="true"
         aria-expanded={isOpen}
-        data-automation-id="YASSSSS"
         {...restProps}
       >
         <span className={styles.labelContainer}>
@@ -41,6 +40,7 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
           )}
         </span>
         <Icon name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} isPresentational />
+        <div>{'IS IT OPEN?' + isOpen}</div>
       </FilterButtonBase>
     )
   },
