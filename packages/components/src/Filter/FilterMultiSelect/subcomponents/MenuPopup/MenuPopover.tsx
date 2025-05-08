@@ -7,13 +7,11 @@ import {
   useFloating,
   type UseFloatingOptions,
 } from '@floating-ui/react-dom'
+import { FocusScope } from '@react-aria/focus'
 import classnames from 'classnames'
-import { FocusOn } from 'react-focus-on'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useMenuTriggerContext } from '../../context'
 import styles from './MenuPopup.module.scss'
-
-import { FocusScope } from '@react-aria/focus'
 
 export type MenuPopoverProps = {
   children: React.ReactNode
