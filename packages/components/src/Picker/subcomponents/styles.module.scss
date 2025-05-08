@@ -1,0 +1,179 @@
+@import '~@kaizen/design-tokens/sass/color';
+
+.input {
+  display: flex;
+  border: 2px solid $color-gray-500;
+  border-radius: 7px;
+  height: 40px;
+  padding: 0 12px;
+  background-color: $color-white;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100px;
+}
+
+.smallInput {
+  height: 32px;
+}
+
+.largeInput {
+  height: 48px;
+}
+
+.inputOutline {
+  outline: none;
+}
+
+.listBoxItem {
+  height: 48px;
+  gap: 6px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  &:hover {
+    background-color: $color-gray-200;
+  }
+}
+
+.dropdownActions {
+  display: flex;
+  padding: 0 8px;
+  align-items: center;
+}
+
+.reactAriaTree {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid green;
+  border-radius: 6px;
+  // background: var(--overlay-background);
+  forced-color-adjust: none;
+  outline: none;
+  width: 250px;
+  max-height: 300px;
+  box-sizing: border-box;
+
+  &[data-focus-visible] {
+    outline: 2px solid blue;
+    outline-offset: -1px;
+  }
+
+  .reactAriaTreeItem {
+    display: flex;
+    align-items: center;
+    gap: 0.571rem;
+    min-height: 28px;
+    padding: 0.286rem 0.286rem 0.286rem 0.571rem;
+    --padding: 8px;
+    border-radius: 6px;
+    outline: none;
+    cursor: default;
+    color: black;
+    font-size: 1.072rem;
+    position: relative;
+    transform: translateZ(0);
+
+    .react-aria-Button[slot='chevron'] {
+      all: unset;
+      display: flex;
+      visibility: hidden;
+      align-items: center;
+      justify-content: center;
+      width: 1.3rem;
+      height: 100%;
+      padding-left: calc((var(--tree-item-level) - 1) * var(--padding));
+
+      svg {
+        rotate: 0deg;
+        transition: rotate 200ms;
+        width: 12px;
+        height: 12px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 3px;
+      }
+    }
+
+    &[data-has-child-items] .react-aria-Button[slot='chevron'] {
+      visibility: visible;
+    }
+
+    &[data-expanded] .react-aria-Button[slot='chevron'] svg {
+      rotate: 90deg;
+    }
+
+    &[data-focus-visible] {
+      outline: 2px solid var(--focus-ring-color);
+      outline-offset: -2px;
+    }
+
+    // &[data-pressed] {
+    //   background: var(--gray-100);
+    // }
+
+    // &[data-selected] {
+    //   background: var(--highlight-background);
+    //   color: var(--highlight-foreground);
+    //   --focus-ring-color: var(--highlight-foreground);
+
+    //   &[data-focus-visible] {
+    //     outline-color: var(--highlight-foreground);
+    //     outline-offset: -4px;
+    //   }
+
+    .react-aria-Button {
+      color: var(--highlight-foreground);
+      --highlight-hover: rgb(255 255 255 / 0.1);
+      --highlight-pressed: rgb(255 255 255 / 0.2);
+    }
+  }
+
+  // &[data-disabled] {
+  //   color: var(--text-color-disabled);
+  // }
+
+  .react-aria-Button:not([slot]) {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    line-height: 1.2em;
+    padding: 0.286rem 0.429rem;
+    transition: background 200ms;
+
+    &[data-hovered] {
+      background: purple;
+    }
+
+    &[data-pressed] {
+      background: orange;
+      box-shadow: none;
+    }
+  }
+}
+
+//   /* join selected items if :has selector is supported */
+//   @supports selector(:has(.foo)) {
+//     gap: 0;
+
+//     .react-aria-TreeItem[data-selected]:has(+ [data-selected]) {
+//       border-end-start-radius: 0;
+//       border-end-end-radius: 0;
+//     }
+
+//     .react-aria-TreeItem[data-selected] + [data-selected] {
+//       border-start-start-radius: 0;
+//       border-start-end-radius: 0;
+//     }
+//   }
+
+//   :where(.react-aria-TreeItem) .react-aria-Checkbox {
+//     --selected-color: var(--highlight-foreground);
+//     --selected-color-pressed: var(--highlight-foreground-pressed);
+//     --checkmark-color: var(--highlight-background);
+//     --background-color: var(--highlight-background);
+//   }
+// }

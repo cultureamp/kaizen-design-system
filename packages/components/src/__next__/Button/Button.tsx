@@ -52,6 +52,7 @@ export const Button = forwardRef(
       hasHiddenPendingLabel: propsHasHiddenPendingLabel = false,
       pendingLabel,
       isReversed,
+      slot,
       ...restProps
     }: ButtonProps,
     ref: React.ForwardedRef<HTMLButtonElement>,
@@ -83,6 +84,7 @@ export const Button = forwardRef(
           isFullWidth && styles.fullWidth,
           className,
         )}
+        slot={slot}
         isDisabled={isDisabled}
         isPending={isPending}
         {...restProps}

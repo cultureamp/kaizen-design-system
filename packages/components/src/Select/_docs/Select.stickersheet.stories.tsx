@@ -1,5 +1,6 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
+import { Text } from '~components/Text'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Select } from '../index'
 
@@ -135,6 +136,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             defaultValue={OPTIONS[0]}
             isDisabled
             label="Select"
+            validationMessage={<Text variant="body">Validation message</Text>}
           />
         </StickerSheet.Row>
       </StickerSheet>
