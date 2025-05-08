@@ -11,7 +11,7 @@ import { FocusScope } from '@react-aria/focus'
 import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useMenuTriggerContext } from '../../context'
-import styles from './MenuPopup.module.scss'
+import styles from './MenuPopover.module.scss'
 
 export type MenuPopoverProps = {
   children: React.ReactNode
@@ -49,7 +49,7 @@ export const MenuPopover = ({
           })
         },
       }),
-      offset(15),
+      offset(6),
       autoPlacement({
         allowedPlacements: ['bottom-start', 'bottom', 'top-start', 'top'],
       }),
@@ -59,14 +59,16 @@ export const MenuPopover = ({
   })
 
   useEffect(() => {
-    if (floatingElement && referenceElement) {
+    if (menuTriggerState.isOpen && floatingElement && referenceElement) {
       referenceElement.popoverTargetElement = floatingElement
       floatingElement.showPopover?.()
       update()
+    } else {
+      floatingElement?.hidePopover?.()
     }
-  }, [floatingElement, referenceElement, update])
+  }, [floatingElement, menuTriggerState.isOpen, referenceElement, update])
 
-  return menuTriggerState.isOpen ? (
+  return (
     <div
       ref={setFloatingElement}
       style={floatingStyles}
@@ -86,8 +88,6 @@ export const MenuPopover = ({
         </FocusScope>
       )}
     </div>
-  ) : (
-    <></>
   )
 }
 
