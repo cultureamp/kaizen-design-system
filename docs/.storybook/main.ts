@@ -1,12 +1,6 @@
-import { createRequire } from 'module'
 import path, { dirname, join } from 'path'
-import { fileURLToPath } from 'url';
 import type { StorybookConfig } from '@storybook/react-vite'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
-
-// eslint-disable-next-line no-underscore-dangle
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const require = createRequire(import.meta.url)
 
 /**
  * This function is used to resolve the absolute path of a package.
