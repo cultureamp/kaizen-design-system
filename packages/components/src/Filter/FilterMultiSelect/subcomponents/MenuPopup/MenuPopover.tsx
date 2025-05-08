@@ -44,7 +44,7 @@ export const MenuPopover = ({
       size({
         apply({ availableHeight, availableWidth, elements }) {
           Object.assign(elements.floating.style, {
-            maxHeight: `${availableHeight}px`,
+            maxHeight: `${Math.max(availableHeight - 25, 155)}px`,
             maxWidth: `${availableWidth}px`,
           })
         },
