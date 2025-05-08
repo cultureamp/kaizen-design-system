@@ -60,7 +60,7 @@ export const MenuPopover = ({
 
   useEffect(() => {
     if (menuTriggerState.isOpen && floatingElement && referenceElement) {
-      referenceElement.popoverTargetElement = floatingElement
+      //referenceElement.popoverTargetElement = floatingElement
       floatingElement.showPopover?.()
       update()
     } else {
