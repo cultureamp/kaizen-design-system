@@ -7,8 +7,8 @@ import {
   useFloating,
   type UseFloatingOptions,
 } from '@floating-ui/react-dom'
-import { FocusScope } from '@react-aria/focus'
 import classnames from 'classnames'
+import { FocusOn } from 'react-focus-on'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useMenuTriggerContext } from '../../context'
 import styles from './MenuPopover.module.scss'
@@ -58,9 +58,14 @@ export const MenuPopover = ({
     ...floatingOptions,
   })
 
+  const handleReturnFocus = (): void => {
+    requestAnimationFrame(() => {
+      buttonRef.current?.focus()
+    })
+  }
+
   useEffect(() => {
     if (menuTriggerState.isOpen && floatingElement && referenceElement) {
-      //referenceElement.popoverTargetElement = floatingElement
       floatingElement.showPopover?.()
       update()
     } else {
@@ -69,25 +74,26 @@ export const MenuPopover = ({
   }, [floatingElement, menuTriggerState.isOpen, referenceElement, update])
 
   return (
-    <div
-      ref={setFloatingElement}
-      style={floatingStyles}
-      className={classnames(styles.menuPopover, classNameOverride)}
-      role="dialog"
-      aria-modal="true"
-      // @ts-expect-error: popover is valid in supported browsers
-      popover="manual"
-      {...restProps}
+    <FocusOn
+      enabled={menuTriggerState.isOpen}
+      scrollLock={false}
+      onClickOutside={menuTriggerState.close}
+      onEscapeKey={menuTriggerState.close}
+      onDeactivation={handleReturnFocus}
     >
-      {isLoading && loadingSkeleton ? (
-        loadingSkeleton
-      ) : (
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        <FocusScope contain autoFocus restoreFocus>
-          {children}
-        </FocusScope>
-      )}
-    </div>
+      <div
+        ref={setFloatingElement}
+        style={floatingStyles}
+        className={classnames(styles.menuPopover, classNameOverride)}
+        role="dialog"
+        aria-modal="true"
+        // @ts-expect-error: popover is valid in supported browsers
+        popover="manual"
+        {...restProps}
+      >
+        {isLoading && loadingSkeleton ? loadingSkeleton : children}
+      </div>
+    </FocusOn>
   )
 }
 
