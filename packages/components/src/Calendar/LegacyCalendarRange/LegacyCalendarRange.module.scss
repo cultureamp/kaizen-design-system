@@ -21,4 +21,8 @@
 .dayRangeMiddle {
   background-color: $color-blue-100;
   color: $color-blue-500;
+
+  & [class*='_button_'] {
+    color: $color-blue-500;
+  }
 }

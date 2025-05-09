@@ -41,10 +41,9 @@ export const LegacyCalendarRange = ({
   const classNames: PropsBase['classNames'] = {
     ...baseCalendarClassNames,
     nav: styles.nav,
-    button_next: styles.navButtonNext,
-    day_range_start: styles.dayRangeStart,
-    day_range_end: styles.dayRangeEnd,
-    day_range_middle: styles.dayRangeMiddle,
+    range_start: styles.dayRangeStart,
+    range_end: styles.dayRangeEnd,
+    range_middle: styles.dayRangeMiddle,
   }
   /* eslint-enable camelcase */
 
