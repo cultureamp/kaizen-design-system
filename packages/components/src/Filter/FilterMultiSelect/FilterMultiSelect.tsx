@@ -13,7 +13,7 @@ import { ListBox } from './subcomponents/ListBox'
 import { ListBoxSection } from './subcomponents/ListBoxSection'
 import { LoadMoreButton } from './subcomponents/LoadMoreButton'
 import { MenuFooter, MenuLoadingSkeleton } from './subcomponents/MenuLayout'
-import { MenuPopover, type MenuPopoverProps } from './subcomponents/MenuPopup/MenuPopover'
+import { MenuPopup, type MenuPopupProps } from './subcomponents/MenuPopup'
 import { MultiSelectOption } from './subcomponents/MultiSelectOption'
 import { NoResults } from './subcomponents/NoResults'
 import { SearchInput } from './subcomponents/SearchInput'
@@ -37,7 +37,7 @@ export type FilterMultiSelectProps = {
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
   triggerRef?: React.RefObject<HTMLButtonElement>
   className?: string
-} & Omit<MenuPopoverProps, 'children'> &
+} & Omit<MenuPopupProps, 'children'> &
   Omit<MenuTriggerProviderProps, 'children'> &
   SelectionProps
 
@@ -79,11 +79,11 @@ export const FilterMultiSelect = ({
     <MenuTriggerProvider {...menuTriggerProps}>
       <div className={className}>
         <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
-        <MenuPopover {...menuPopupProps}>
+        <MenuPopup {...menuPopupProps}>
           <SelectionProvider {...selectionProps}>
             <SelectionConsumer>{children}</SelectionConsumer>
           </SelectionProvider>
-        </MenuPopover>
+        </MenuPopup>
       </div>
     </MenuTriggerProvider>
   )
