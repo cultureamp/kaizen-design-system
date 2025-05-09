@@ -40,7 +40,6 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
           )}
         </span>
         <Icon name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} isPresentational />
-        <div>{'IS IT OPEN?' + isOpen}</div>
       </FilterButtonBase>
     )
   },
