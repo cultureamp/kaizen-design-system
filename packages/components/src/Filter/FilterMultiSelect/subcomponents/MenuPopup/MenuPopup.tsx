@@ -1,61 +1,100 @@
-import React from 'react'
-import { FocusScope } from '@react-aria/focus'
-import { DismissButton, useOverlay } from '@react-aria/overlays'
+import React, { useEffect, useState, type HTMLAttributes } from 'react'
+import {
+  autoPlacement,
+  autoUpdate,
+  offset,
+  size,
+  useFloating,
+  type UseFloatingOptions,
+} from '@floating-ui/react-dom'
+import classnames from 'classnames'
+import { FocusOn } from 'react-focus-on'
+import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useMenuTriggerContext } from '../../context'
 import styles from './MenuPopup.module.scss'
 
 export type MenuPopupProps = {
+  children: React.ReactNode
+  floatingOptions?: Partial<UseFloatingOptions>
   isLoading?: boolean
   loadingSkeleton?: React.ReactNode
-  children: React.ReactNode
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const MenuPopup = ({
+  children,
+  floatingOptions,
+  classNameOverride,
   isLoading,
   loadingSkeleton,
-  children,
+  ...restProps
 }: MenuPopupProps): JSX.Element => {
-  const { menuTriggerState } = useMenuTriggerContext()
+  const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>(null)
+  const { menuTriggerState, buttonRef } = useMenuTriggerContext()
 
-  const onClose = (): void => menuTriggerState.close()
+  const referenceElement = buttonRef.current
 
-  // Handle events that should cause the menu to close,
-  // e.g. blur, clicking outside, or pressing the escape key.
-  const overlayRef = React.createRef<HTMLDivElement>()
-  const { overlayProps } = useOverlay(
-    {
-      onClose,
-      isOpen: menuTriggerState.isOpen,
-      isDismissable: true,
+  const { floatingStyles, update } = useFloating({
+    placement: 'bottom-start',
+    elements: {
+      reference: referenceElement,
+      floating: floatingElement,
     },
-    overlayRef,
-  )
+    strategy: 'fixed',
+    middleware: [
+      size({
+        apply({ availableHeight, availableWidth, elements }) {
+          Object.assign(elements.floating.style, {
+            maxHeight: `${Math.max(availableHeight - 25, 155)}px`,
+            maxWidth: `${availableWidth}px`,
+          })
+        },
+      }),
+      offset(6),
+      autoPlacement({
+        allowedPlacements: ['bottom-start', 'bottom', 'top-start', 'top'],
+      }),
+    ],
+    whileElementsMounted: autoUpdate,
+    ...floatingOptions,
+  })
 
-  // Wrap in <FocusScope> so that focus is restored back to the trigger when the menu is closed
-  // and auto focus on the first focusable item after loading. (disable eslint no-autofocus error for it)
-  // In addition, add hidden <DismissButton> components at the start and end of the list
-  // to allow screen reader users to dismiss the popup easily.
-  return menuTriggerState.isOpen ? (
-    <div {...overlayProps} ref={overlayRef} className={styles.menuPopup}>
-      {isLoading && loadingSkeleton ? (
-        <>
-          <DismissButton onDismiss={onClose} />
-          {loadingSkeleton}
-          <DismissButton onDismiss={onClose} />
-        </>
-      ) : (
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        <FocusScope contain autoFocus restoreFocus>
-          <DismissButton onDismiss={onClose} />
+  const handleReturnFocus = (): void => {
+    requestAnimationFrame(() => {
+      buttonRef.current?.focus()
+    })
+  }
 
-          {children}
-          <DismissButton onDismiss={onClose} />
-        </FocusScope>
-      )}
-    </div>
-  ) : (
-    <></>
+  useEffect(() => {
+    if (menuTriggerState.isOpen && floatingElement && referenceElement) {
+      floatingElement.showPopover?.()
+      update()
+    } else {
+      floatingElement?.hidePopover?.()
+    }
+  }, [floatingElement, menuTriggerState.isOpen, referenceElement, update])
+
+  return (
+    <FocusOn
+      enabled={menuTriggerState.isOpen}
+      scrollLock={false}
+      onClickOutside={menuTriggerState.close}
+      onEscapeKey={menuTriggerState.close}
+      onDeactivation={handleReturnFocus}
+    >
+      <div
+        ref={setFloatingElement}
+        style={floatingStyles}
+        className={classnames(styles.menuPopover, classNameOverride)}
+        role="dialog"
+        aria-modal="true"
+        // @ts-expect-error: popover is valid in supported browsers
+        popover="manual"
+        {...restProps}
+      >
+        {isLoading && loadingSkeleton ? loadingSkeleton : children}
+      </div>
+    </FocusOn>
   )
 }
 
-MenuPopup.displayName = 'FilterMultiSelect.MenuPopup'
+MenuPopup.displayName = 'FilterMultiSelect.MenuPopover'
