@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { enAU } from 'date-fns/locale'
-import { DayPicker, type DayPickerRangeProps } from 'react-day-picker'
+import { DayPicker, type PropsBase, type PropsRange } from 'react-day-picker'
 import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
@@ -13,7 +13,7 @@ export type CalendarRangeProps = {
   id?: string
   onMount?: (calendarElement: CalendarRangeElement) => void
   hasDivider?: boolean
-} & OverrideClassName<Omit<DayPickerRangeProps, 'mode'>>
+} & OverrideClassName<Omit<PropsRange & Omit<PropsBase, 'mode'>, 'mode'>>
 
 export const CalendarRange = ({
   id,
@@ -36,16 +36,15 @@ export const CalendarRange = ({
   const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */
-  const classNames = {
+  const classNames: PropsBase['classNames'] = {
     ...baseCalendarClassNames,
     month: hasDivider ? styles.monthWithDivider : styles.month,
-    caption_end: styles.captionEnd,
-    caption_start: styles.captionStart,
     nav: styles.nav,
-    day_range_start: styles.dayRangeStart,
-    day_range_end: styles.dayRangeEnd,
-    day_range_middle: styles.dayRangeMiddle,
-  } satisfies DayPickerRangeProps['classNames']
+    range_start: styles.dayRangeStart,
+    range_end: styles.dayRangeEnd,
+    range_middle: styles.dayRangeMiddle,
+    hidden: styles.hidden,
+  }
   /* eslint-enable camelcase */
 
   return (
@@ -56,8 +55,13 @@ export const CalendarRange = ({
         defaultMonth={selectedMonth}
         classNames={classNames}
         components={{
-          IconRight: () => <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
-          IconLeft: () => <Icon name="arrow_back" isPresentational shouldMirrorInRTL />,
+          Chevron: (props) => {
+            if (props.orientation === 'left') {
+              return <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
+            }
+
+            return <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
+          },
         }}
         numberOfMonths={numberOfMonths}
         locale={locale}
