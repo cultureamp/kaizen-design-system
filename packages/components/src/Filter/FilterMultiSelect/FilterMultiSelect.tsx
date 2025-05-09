@@ -1,12 +1,10 @@
 import React from 'react'
 import { type Selection, type SelectionMode } from '@react-types/shared'
-import { FocusOn } from 'react-focus-on'
 import {
   MenuTriggerConsumer,
   MenuTriggerProvider,
   SelectionConsumer,
   SelectionProvider,
-  useMenuTriggerContext,
   type MenuTriggerProviderContextType,
   type MenuTriggerProviderProps,
   type SelectionProviderContextType,
@@ -42,22 +40,6 @@ export type FilterMultiSelectProps = {
 } & Omit<MenuPopoverProps, 'children'> &
   Omit<MenuTriggerProviderProps, 'children'> &
   SelectionProps
-
-const FocusOnComponent = ({ children }: { children: React.ReactNode }): JSX.Element => {
-  const { menuTriggerState } = useMenuTriggerContext()
-
-  return (
-    <FocusOn
-      enabled={true}
-      scrollLock={false}
-      returnFocus={false}
-      onClickOutside={() => menuTriggerState.close()}
-      onEscapeKey={() => menuTriggerState.close()}
-    >
-      {children}
-    </FocusOn>
-  )
-}
 
 export const FilterMultiSelect = ({
   trigger,
@@ -95,17 +77,14 @@ export const FilterMultiSelect = ({
 
   return (
     <MenuTriggerProvider {...menuTriggerProps}>
-      <FocusOnComponent>
-        <div className={className}>
-          <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
-
-          <MenuPopover {...menuPopupProps}>
-            <SelectionProvider {...selectionProps}>
-              <SelectionConsumer>{children}</SelectionConsumer>
-            </SelectionProvider>
-          </MenuPopover>
-        </div>
-      </FocusOnComponent>
+      <div className={className}>
+        <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
+        <MenuPopover {...menuPopupProps}>
+          <SelectionProvider {...selectionProps}>
+            <SelectionConsumer>{children}</SelectionConsumer>
+          </SelectionProvider>
+        </MenuPopover>
+      </div>
     </MenuTriggerProvider>
   )
 }
