@@ -84,7 +84,7 @@ export const MenuPopup = ({
       <div
         ref={setFloatingElement}
         style={floatingStyles}
-        className={classnames(styles.menuPopover, classNameOverride)}
+        className={classnames(styles.menuPopup, classNameOverride)}
         role="dialog"
         aria-modal="true"
         // @ts-expect-error: popover is valid in supported browsers
