@@ -73,10 +73,11 @@ export const MenuPopup = ({
     }
   }, [floatingElement, menuTriggerState.isOpen, referenceElement, update])
 
-  return (
+  return menuTriggerState.isOpen ? (
     <FocusOn
       enabled={menuTriggerState.isOpen}
       scrollLock={false}
+      returnFocus={false}
       onClickOutside={menuTriggerState.close}
       onEscapeKey={menuTriggerState.close}
       onDeactivation={handleReturnFocus}
@@ -94,7 +95,9 @@ export const MenuPopup = ({
         {isLoading && loadingSkeleton ? loadingSkeleton : children}
       </div>
     </FocusOn>
+  ) : (
+    <></>
   )
 }
 
-MenuPopup.displayName = 'FilterMultiSelect.MenuPopover'
+MenuPopup.displayName = 'FilterMultiSelect.MenuPopup'
