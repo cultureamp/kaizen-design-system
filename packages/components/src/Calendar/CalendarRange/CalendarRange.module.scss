@@ -6,7 +6,7 @@ $cell-border-radius: 3px;
 .month {
   padding: 0 $spacing-sm;
 
-  &:first-child {
+  &:nth-of-type(1) {
     padding-inline-start: 0;
   }
 
@@ -19,7 +19,7 @@ $cell-border-radius: 3px;
   position: relative;
   padding: 0 $spacing-md;
 
-  &:not(:first-child) {
+  &:not(:nth-of-type(1)) {
     &::before {
       position: absolute;
       content: '';
@@ -28,7 +28,7 @@ $cell-border-radius: 3px;
     }
   }
 
-  &:first-child {
+  &:nth-of-type(1) {
     padding-inline-start: 0;
   }
 
@@ -40,18 +40,9 @@ $cell-border-radius: 3px;
 .nav {
   position: absolute;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
   color: $color-purple-800;
-
-  .captionEnd & {
-    flex-direction: row-reverse;
-  }
-
-  .captionStart.captionEnd & {
-    justify-content: space-between;
-    flex-direction: row;
-  }
 }
 
 .dayRangeStart,
@@ -63,4 +54,12 @@ $cell-border-radius: 3px;
 .dayRangeMiddle {
   background-color: $color-blue-100;
   color: $color-blue-500;
+
+  & [class*='_button_'] {
+    color: $color-blue-500;
+  }
+}
+
+.hidden {
+  background-color: transparent;
 }
