@@ -324,7 +324,6 @@ export const AboveIfAvailable: Story = {
       },
       defaultViewport: 'LimitedViewportAutoPlace',
     },
-    a11y: { disable: true }, // accessible label fix to be addressed in a separate PR
   },
   decorators: [
     (Story) => (
