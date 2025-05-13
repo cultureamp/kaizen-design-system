@@ -8,10 +8,6 @@
   color: $color-purple-800;
 }
 
-.navButtonNext {
-  inset-inline-end: 0;
-}
-
 .dayRangeStart,
 .dayRangeEnd {
   background-color: $color-blue-500;
@@ -21,4 +17,8 @@
 .dayRangeMiddle {
   background-color: $color-blue-100;
   color: $color-blue-500;
+
+  & [class*='_button_'] {
+    color: $color-blue-500;
+  }
 }

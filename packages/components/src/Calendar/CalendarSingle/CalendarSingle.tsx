@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { enAU } from 'date-fns/locale'
-import { DayPicker, type DayPickerSingleProps } from 'react-day-picker'
+import { DayPicker, type PropsBase, type PropsSingle } from 'react-day-picker'
 import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
@@ -12,7 +12,7 @@ export type CalendarSingleElement = HTMLDivElement
 export type CalendarSingleProps = {
   id?: string
   onMount?: (calendarElement: CalendarSingleElement) => void
-} & OverrideClassName<Omit<DayPickerSingleProps, 'mode'>>
+} & OverrideClassName<Omit<PropsSingle & Omit<PropsBase, 'mode'>, 'mode'>>
 
 export const CalendarSingle = ({
   id,
@@ -34,11 +34,11 @@ export const CalendarSingle = ({
   const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */
-  const classNames = {
+  const classNames: PropsBase['classNames'] = {
     ...baseCalendarClassNames,
     nav: styles.nav,
     nav_button_next: styles.navButtonNext,
-  } satisfies DayPickerSingleProps['classNames']
+  }
   /* eslint-enable camelcase */
 
   return (
@@ -50,8 +50,13 @@ export const CalendarSingle = ({
         weekStartsOn={isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined}
         classNames={classNames}
         components={{
-          IconRight: () => <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
-          IconLeft: () => <Icon name="arrow_back" isPresentational shouldMirrorInRTL />,
+          Chevron: (props) => {
+            if (props.orientation === 'left') {
+              return <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
+            }
+
+            return <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
+          },
         }}
         locale={locale}
         {...restProps}
