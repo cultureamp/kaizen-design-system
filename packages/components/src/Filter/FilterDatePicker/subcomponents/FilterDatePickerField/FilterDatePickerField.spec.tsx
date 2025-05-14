@@ -191,7 +191,8 @@ describe('<FilterDatePickerField />', () => {
       const targetDay = within(targetMonth).getByRole('gridcell', {
         name: '15',
       })
-      await user.click(targetDay)
+      const targetBtn = within(targetDay).getByRole('button')
+      await user.click(targetBtn)
 
       await waitFor(() => {
         expect(inputDateOnSubmit).toHaveBeenCalled()
@@ -210,7 +211,8 @@ describe('<FilterDatePickerField />', () => {
         name: '12',
       })
       expect(targetDay).not.toHaveAttribute('aria-selected')
-      await user.click(targetDay)
+      const targetBtn = within(targetDay).getByRole('button')
+      await user.click(targetBtn)
 
       await waitFor(() => {
         expect(targetDay).toHaveAttribute('aria-selected', 'true')
@@ -229,7 +231,8 @@ describe('<FilterDatePickerField />', () => {
       const firstSelectedDay = within(targetMonth).getByRole('gridcell', {
         name: '15',
       })
-      await user.click(firstSelectedDay)
+      const targetBtn = within(firstSelectedDay).getByRole('button')
+      await user.click(targetBtn)
 
       await waitFor(() => {
         expect(inputDate).toHaveValue('')
@@ -323,7 +326,8 @@ describe('<FilterDatePickerField />', () => {
       const targetDay = within(targetMonth).getByRole('gridcell', {
         name: '12',
       })
-      await user.click(targetDay)
+      const targetBtn = within(targetDay).getByRole('button')
+      await user.click(targetBtn)
 
       await waitFor(() => {
         expect(dateErrorContainer).not.toBeInTheDocument()

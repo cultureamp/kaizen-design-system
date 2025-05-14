@@ -127,8 +127,9 @@ describe('<FilterBarDatePicker />', () => {
 
     const targetMonth = screen.getByRole('grid', { name: 'June 2023' })
     const targetDay = within(targetMonth).getByRole('gridcell', { name: '7' })
+    const targetBtn = within(targetDay).getByRole('button')
 
-    await user.click(targetDay)
+    await user.click(targetBtn)
 
     await waitFor(() => {
       expect(screen.getByRole('button', { name: 'Drank : 7 Jun 2023' })).toBeInTheDocument()
@@ -148,7 +149,8 @@ describe('<FilterBarDatePicker />', () => {
 
     const targetMonth = screen.getByRole('grid', { name: 'June 2023' })
     const targetDay = within(targetMonth).getByRole('gridcell', { name: '7' })
-    await user.click(targetDay)
+    const targetBtn = within(targetDay).getByRole('button')
+    await user.click(targetBtn)
 
     await waitFor(() => {
       expect(onChange.mock.calls).toEqual([[new Date('2023-06-07')]])
