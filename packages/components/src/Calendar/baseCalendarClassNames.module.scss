@@ -160,10 +160,8 @@ $rdp-cell-size: 40px;
 }
 
 .dayToday {
-  & .button {
-    color: $color-blue-500;
-    font-weight: bold;
-  }
+  color: $color-blue-500;
+  font-weight: bold;
 }
 
 .daySelected {
@@ -189,5 +187,8 @@ $rdp-cell-size: 40px;
   // https://github.com/gpbl/react-day-picker/issues/1449#issuecomment-1149942033
   background: none;
   pointer-events: none;
-  color: rgba($color-purple-800-rgb, 0.3);
+
+  & [class*='_button_'] {
+    color: rgba($color-purple-800-rgb, 0.3);
+  }
 }
