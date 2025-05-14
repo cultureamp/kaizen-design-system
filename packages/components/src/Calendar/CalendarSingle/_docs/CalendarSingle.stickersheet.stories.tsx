@@ -95,7 +95,8 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
     name: string | RegExp,
   ): HTMLElement => {
     const calendar = canvas.getByTestId(id)
-    return within(calendar).getByRole(role, { name })
+    const day = within(calendar).getByRole(role, { name })
+    return role === 'button' ? day : within(day).getByRole('button')
   }
 
   const todayCalendarIds = [
