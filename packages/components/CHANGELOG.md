@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.77.4
+
+### Patch Changes
+
+- [#5739](https://github.com/cultureamp/kaizen-design-system/pull/5739) [`69331cd`](https://github.com/cultureamp/kaizen-design-system/commit/69331cd1f49abf20b7627603407eb700a2a982b6) - dep updates for react-aria, react-stately, headless-ui and prosemirror
+
 ## 1.77.3
 
 ### Patch Changes
