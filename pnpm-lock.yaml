@@ -250,8 +250,8 @@ importers:
         specifier: ^2.1.2
         version: 2.1.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@headlessui/react':
-        specifier: ^2.2.2
-        version: 2.2.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^2.2.3
+        version: 2.2.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@internationalized/date':
         specifier: ^3.8.0
         version: 3.8.0
@@ -1669,8 +1669,8 @@ packages:
   '@hapi/topo@5.1.0':
     resolution: {integrity: sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==}
 
-  '@headlessui/react@2.2.2':
-    resolution: {integrity: sha512-zbniWOYBQ8GHSUIOPY7BbdIn6PzUOq0z41RFrF30HbjsxG6Rrfk+6QulR8Kgf2Vwj2a/rE6i62q5vo+2gI5dJA==}
+  '@headlessui/react@2.2.3':
+    resolution: {integrity: sha512-hgOJGXPifPlOczIeSwX8OjLWRJ5XdYApZFf7DeCbCrO1PXHkPhNTRrA9ZwJsgAG7SON1i2JcvIreF/kbgtJeaQ==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^18 || ^19 || ^19.0.0-rc
@@ -11479,7 +11479,7 @@ snapshots:
     dependencies:
       '@hapi/hoek': 9.3.0
 
-  '@headlessui/react@2.2.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@headlessui/react@2.2.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@floating-ui/react': 0.26.28(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@react-aria/focus': 3.20.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
