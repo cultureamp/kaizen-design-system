@@ -52,6 +52,17 @@ describe('<MenuTriggerProvider /> - Visual content', () => {
       rerender(<MenuTriggerProviderWrapper isOpen={false} />)
       expect(screen.queryByText('menu-content-mock')).not.toBeInTheDocument()
     })
+    it('fires the onOpenChange callback on user interaction to close the menu', async () => {
+      const onOpenChange = vi.fn()
+      render(<MenuTriggerProviderWrapper isOpen onOpenChange={onOpenChange} />)
+
+      await user.keyboard('{Escape}')
+
+      await waitFor(() => {
+        expect(onOpenChange).toBeCalledTimes(1)
+        expect(onOpenChange).toBeCalledWith(false)
+      })
+    })
   })
 })
 
