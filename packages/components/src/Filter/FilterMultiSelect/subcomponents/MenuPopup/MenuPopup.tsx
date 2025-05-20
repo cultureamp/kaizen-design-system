@@ -68,8 +68,6 @@ export const MenuPopup = ({
     if (menuTriggerState.isOpen && floatingElement && referenceElement) {
       floatingElement.showPopover?.()
       update()
-    } else {
-      floatingElement?.hidePopover?.()
     }
   }, [floatingElement, menuTriggerState.isOpen, referenceElement, update])
 
