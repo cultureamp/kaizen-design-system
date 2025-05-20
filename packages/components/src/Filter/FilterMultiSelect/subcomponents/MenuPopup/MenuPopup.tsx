@@ -65,11 +65,11 @@ export const MenuPopup = ({
   }
 
   useEffect(() => {
-    if (menuTriggerState.isOpen && floatingElement && referenceElement) {
+    if (floatingElement && referenceElement) {
       floatingElement.showPopover?.()
       update()
     }
-  }, [floatingElement, menuTriggerState.isOpen, referenceElement, update])
+  }, [floatingElement, referenceElement, update])
 
   return menuTriggerState.isOpen ? (
     <FocusOn
