@@ -4,7 +4,7 @@
 @import '~@kaizen/design-tokens/sass/color';
 @import '../mixins';
 
-@layer components {
+@layer kz-components {
   .container {
     display: flex;
     -webkit-font-smoothing: antialiased;

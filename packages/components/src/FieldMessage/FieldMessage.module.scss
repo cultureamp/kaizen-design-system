@@ -2,7 +2,7 @@
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/border';
 
-@layer components {
+@layer kz-components {
   $message-icon-size: 1.25rem;
   $validation-message-padding: 0.5625rem;
   $form-text-color-label: rgba($color-purple-800-rgb, 0.7);

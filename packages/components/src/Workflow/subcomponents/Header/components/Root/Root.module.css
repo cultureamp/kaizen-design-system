@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .root {
     display: grid;
     background-color: var(--color-white);

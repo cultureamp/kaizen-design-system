@@ -2,7 +2,7 @@
 @import '../../../../../styles/utils/legacy/layout';
 @import '../../../../../styles/utils/layers';
 
-@layer components {
+@layer kz-components {
   .dismissButton {
     position: absolute;
     z-index: $ca-z-index-popover;

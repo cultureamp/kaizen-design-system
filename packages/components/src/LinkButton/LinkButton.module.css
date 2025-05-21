@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .linkButton {
     /* Reset */
     text-decoration: inherit;

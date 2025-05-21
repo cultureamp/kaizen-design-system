@@ -4,7 +4,7 @@
 @import '~@kaizen/design-tokens/sass/animation';
 @import '../../../styles/utils/forms';
 
-@layer components {
+@layer kz-components {
   $animation-timing: $animation-duration-immediate $animation-easing-function-linear;
   $focus-ring-offset: 1px;
 

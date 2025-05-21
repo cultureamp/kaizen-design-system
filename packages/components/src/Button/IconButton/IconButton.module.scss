@@ -3,7 +3,7 @@
 @import '../utils/mixins';
 @import '../utils/variables';
 
-@layer components {
+@layer kz-components {
   %icon-button {
     width: $button-height;
     border-color: $border-borderless-border-color;

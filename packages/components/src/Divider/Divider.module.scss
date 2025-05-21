@@ -1,7 +1,7 @@
 @import '~@kaizen/design-tokens/sass/border';
 @import '~@kaizen/design-tokens/sass/color';
 
-@layer components {
+@layer kz-components {
   // Use different tokens with different opacities across the Zen and Heart themes, by assuming that when Zen is applied there won't be any CSS variables declared.
 
   $dt-content-border-color: rgba($color-gray-600-rgb, 0.1);

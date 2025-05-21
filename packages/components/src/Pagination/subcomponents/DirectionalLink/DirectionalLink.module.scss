@@ -3,7 +3,7 @@
 @import '../../../Button/utils/mixins';
 @import '../../../Button/utils/variables';
 
-@layer components {
+@layer kz-components {
   %directional-link {
     border: $border-solid-border-width solid $color-blue-300;
 

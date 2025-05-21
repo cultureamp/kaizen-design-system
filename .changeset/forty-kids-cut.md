@@ -4,7 +4,7 @@
 
 Wrap component styles in a CSS Cascade Layer
 
-To unblock adoption of Tailwind CSS v4 in consuming apps, Kaizen component styles must be wrapped in `@layer components` that can be given lower priority than Tailwind's new `@layer utilities`.
+To unblock adoption of Tailwind CSS v4 in consuming apps, Kaizen component styles must be wrapped in `@layer kz-components` that can be given lower priority than Tailwind's new `@layer utilities`.
 
 Ideally this would not be necessary, and consuming apps could simply import Kaizen's styles into a layer:
 

@@ -1,6 +1,6 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 
-@layer components {
+@layer kz-components {
   .label {
     display: block;
     margin-bottom: $spacing-xs; // @note: add gap between label and input

@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .truncateIndicatorWrapper {
     display: flex;
     align-items: center;

@@ -1,6 +1,6 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 
-@layer components {
+@layer kz-components {
   .removableTag {
     padding: $spacing-4 $spacing-4 $spacing-4 $spacing-8;
     padding-block: $spacing-4;

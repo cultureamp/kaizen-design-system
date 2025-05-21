@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .item {
     display: block;
     font-family: var(--typography-paragraph-body-font-family);

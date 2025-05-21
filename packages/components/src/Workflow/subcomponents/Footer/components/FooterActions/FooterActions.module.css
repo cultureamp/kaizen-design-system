@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .footerAction {
     display: flex;
     flex-grow: 1;

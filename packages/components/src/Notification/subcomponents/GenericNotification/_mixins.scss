@@ -17,7 +17,7 @@ $notification-collapse-height-delayed:
 $notification-pop-up: transform 200ms ease-out;
 $notification-slide-right: transform 300ms ease-out;
 
-@layer components {
+@layer kz-components {
   %ca-notification {
     display: flex;
     box-sizing: border-box;

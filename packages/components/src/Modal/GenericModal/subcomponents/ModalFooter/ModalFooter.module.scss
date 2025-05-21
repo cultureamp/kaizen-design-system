@@ -2,7 +2,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/layout';
 
-@layer components {
+@layer kz-components {
   .actions {
     display: flex;
     flex-direction: row-reverse;

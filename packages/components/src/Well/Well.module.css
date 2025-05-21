@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .container {
     background-color: var(--background-color);
     border-width: var(--border-width-1);

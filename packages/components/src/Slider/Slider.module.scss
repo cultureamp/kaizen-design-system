@@ -2,7 +2,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/layout';
 
-@layer components {
+@layer kz-components {
   .wrapper {
     display: flex;
     flex-direction: column;

@@ -2,7 +2,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '../mixins';
 
-@layer components {
+@layer kz-components {
   .loadingParagraph {
     @extend %loadingBase;
 

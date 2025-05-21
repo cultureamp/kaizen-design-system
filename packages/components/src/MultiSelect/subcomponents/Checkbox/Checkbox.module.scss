@@ -1,7 +1,7 @@
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/border';
 
-@layer components {
+@layer kz-components {
   $checkbox-size: 24px;
   $focus-ring-offset: 2px;
   $focus-ring-size: calc(#{$checkbox-size} + #{$focus-ring-offset});

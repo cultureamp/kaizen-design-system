@@ -4,7 +4,7 @@
 
 /* stylelint-disable no-descending-specificity */
 
-@layer components {
+@layer kz-components {
   // We're duplicating the CSS instead of manipulating the Menu package to accept the alternate props
   .menuListItem {
     display: flex;

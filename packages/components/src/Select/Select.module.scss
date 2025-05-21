@@ -4,11 +4,11 @@
 @import '~@kaizen/design-tokens/sass/color';
 
 /*
-  NOTE: Select is NOT in @layer components
+  NOTE: Select is NOT in @layer kz-components
 
   Because the styles in this module need to override the un-layered styles
-  provided by react-select, we do not wrap them in @layer components the way we
-  do all other Kaizen components.
+  provided by react-select, we do not wrap them in @layer kz-components the way
+  we do all other Kaizen components.
 
   This means that consuming apps will not be able to override these styles with
   Tailwind v4+ utility styles, which are generated in @layer utilities.

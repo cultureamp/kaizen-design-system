@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .wrapper {
     font-family: var(--typography-paragraph-body-font-family);
     font-size: var(--typography-paragraph-body-font-size);

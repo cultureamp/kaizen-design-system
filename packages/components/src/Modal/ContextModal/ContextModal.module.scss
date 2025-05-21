@@ -3,7 +3,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '../GenericModal/GenericModal.module';
 
-@layer components {
+@layer kz-components {
   .modal {
     @extend %genericModal;
 

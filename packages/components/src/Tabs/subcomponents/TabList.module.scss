@@ -1,7 +1,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/color';
 
-@layer components {
+@layer kz-components {
   .tabList {
     border-bottom: 1px solid rgba($color-gray-600-rgb, 0.1);
     padding: $spacing-xs $spacing-md 0;

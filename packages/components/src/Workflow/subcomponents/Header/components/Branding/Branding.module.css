@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .branding {
     grid-area: branding;
     display: flex;

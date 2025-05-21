@@ -2,7 +2,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/border';
 
-@layer components {
+@layer kz-components {
   %loadingBase {
     border-radius: $border-solid-border-radius;
     top: calc(#{$spacing-md} * 0.175);
