@@ -1,7 +1,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/layout';
 
-@layer components {
+@layer kz-components {
   .toastNotificationsList {
     display: flex;
     flex-direction: column;

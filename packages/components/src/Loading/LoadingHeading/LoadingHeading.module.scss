@@ -2,7 +2,7 @@
 @import '~@kaizen/design-tokens/sass/typography';
 @import '../mixins';
 
-@layer components {
+@layer kz-components {
   .loadingHeading {
     @extend %loadingBase;
 

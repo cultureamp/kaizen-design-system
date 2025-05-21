@@ -4,7 +4,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/typography';
 
-@layer components {
+@layer kz-components {
   .editorLabel {
     margin-bottom: $spacing-6;
     display: inline-block;

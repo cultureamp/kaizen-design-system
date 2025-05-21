@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .badge {
     border-radius: var(--spacing-12);
     color: var(--color-purple-800);

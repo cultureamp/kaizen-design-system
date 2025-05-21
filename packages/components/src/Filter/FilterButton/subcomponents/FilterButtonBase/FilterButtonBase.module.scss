@@ -5,7 +5,7 @@
 @import '../../../../../styles/utils/button-reset';
 @import './variables';
 
-@layer components {
+@layer kz-components {
   .filterButtonBase {
     @include button-reset;
 

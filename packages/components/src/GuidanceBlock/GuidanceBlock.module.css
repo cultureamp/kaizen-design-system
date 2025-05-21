@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .banner.noMaxWidth {
     max-width: inherit;
   }

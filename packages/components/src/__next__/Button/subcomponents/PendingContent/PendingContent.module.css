@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .pendingContent {
     display: inline-flex;
     align-items: center;

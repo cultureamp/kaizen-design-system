@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .buttonGroup {
     --focus-ring-offset: 1px;
     --focus-ring-offset-inner: calc(-1 * var(--focus-ring-offset));

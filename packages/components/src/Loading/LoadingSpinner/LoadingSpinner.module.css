@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .loadingSpinner {
     --loading-spinner-size: 48px;
 

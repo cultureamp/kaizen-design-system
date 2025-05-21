@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .filterContents {
     padding: var(--spacing-24);
   }

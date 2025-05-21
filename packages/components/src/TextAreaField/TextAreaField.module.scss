@@ -1,7 +1,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/color';
 
-@layer components {
+@layer kz-components {
   $input-disabled-background: $color-gray-300;
   $input-disabled-opacity: 0.3;
   $input-disabled-border-alpha: 50%;

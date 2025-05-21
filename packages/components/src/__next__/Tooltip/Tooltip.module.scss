@@ -5,7 +5,7 @@
 @import '~@kaizen/design-tokens/sass/typography';
 @import '~@kaizen/design-tokens/sass/spacing';
 
-@layer components {
+@layer kz-components {
   .tooltip {
     max-width: 200px;
     padding: $spacing-8 $spacing-12;

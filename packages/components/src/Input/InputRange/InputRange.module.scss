@@ -1,7 +1,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/color';
 
-@layer components {
+@layer kz-components {
   $thumb-color: $color-blue-500;
   $thumb-color-hover: $color-blue-600;
   $thumb-radius: 100%;

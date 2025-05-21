@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .tab {
     display: inline-flex;
     align-items: center;

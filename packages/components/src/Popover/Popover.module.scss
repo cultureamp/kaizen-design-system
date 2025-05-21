@@ -2,7 +2,7 @@
 @import '~@kaizen/design-tokens/sass/border';
 @import '../../styles/utils/button-reset';
 
-@layer components {
+@layer kz-components {
   // Sync with PopoverModern.tsx
   $arrow-width: 14px;
   $arrow-height: 7px;

@@ -3,7 +3,7 @@
 @import '~@kaizen/design-tokens/sass/typography';
 @import '~@kaizen/design-tokens/sass/spacing';
 
-@layer components {
+@layer kz-components {
   $iconAndBadgeHeight: $spacing-md;
 
   .icon {

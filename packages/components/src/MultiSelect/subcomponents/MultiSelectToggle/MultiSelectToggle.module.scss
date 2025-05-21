@@ -3,7 +3,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '../../../../styles/utils/button-reset';
 
-@layer components {
+@layer kz-components {
   .multiSelectToggle {
     position: relative;
     display: inline-flex;

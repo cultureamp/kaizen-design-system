@@ -4,7 +4,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/animation';
 
-@layer components {
+@layer kz-components {
   $heading-active-color: $color-gray-200;
   $divider-color: rgba($color-gray-600-rgb, 0.2);
   $container-border-width: var(--border-width-1);

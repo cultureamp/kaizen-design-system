@@ -6,7 +6,7 @@
 @import '../utils/mixins';
 @import '../utils/variables';
 
-@layer components {
+@layer kz-components {
   %button {
     @include button-reset;
 

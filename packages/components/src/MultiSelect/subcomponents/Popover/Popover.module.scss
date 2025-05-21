@@ -2,7 +2,7 @@
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/shadow';
 
-@layer components {
+@layer kz-components {
   .popover {
     box-sizing: border-box;
     box-shadow: $shadow-large-box-shadow;

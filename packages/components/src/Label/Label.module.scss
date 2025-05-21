@@ -3,7 +3,7 @@
 @import '~@kaizen/design-tokens/sass/color';
 @import '../../styles/utils/form-variables';
 
-@layer components {
+@layer kz-components {
   $label-start-margin: $spacing-xs;
 
   .label {

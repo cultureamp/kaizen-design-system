@@ -1,6 +1,6 @@
 @import '~@kaizen/design-tokens/sass/border';
 
-@layer components {
+@layer kz-components {
   .actionButton {
     border-start-start-radius: $border-solid-border-radius;
     border-end-start-radius: $border-solid-border-radius;

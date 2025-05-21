@@ -3,7 +3,7 @@
 @import '~@kaizen/design-tokens/sass/typography';
 @import '../../../styles/utils/form-variables';
 
-@layer components {
+@layer kz-components {
   .container {
     position: relative;
     margin-bottom: $spacing-xs;

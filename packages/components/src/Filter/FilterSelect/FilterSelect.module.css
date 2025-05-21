@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   /*  This a temporary fix to increase specificity, until we figure out why this CSS is being compiled later than the padding in the FilterContents sub-component */
   .filterContents.filterContents {
     box-sizing: border-box;

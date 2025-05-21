@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .filterPopover {
     background-color: var(--color-white);
     z-index: 1010;

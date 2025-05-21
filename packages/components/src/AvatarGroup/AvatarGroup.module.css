@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .AvatarGroup {
     display: inline-flex;
     list-style: none;

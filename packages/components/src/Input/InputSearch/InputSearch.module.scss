@@ -3,7 +3,7 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '../../../styles/utils/forms';
 
-@layer components {
+@layer kz-components {
   $input-height: 48px;
   $input-padding-before-start-icon: 1rem;
   $input-padding-between-icon-input: $spacing-sm;

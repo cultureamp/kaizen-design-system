@@ -1,4 +1,4 @@
-@layer components {
+@layer kz-components {
   .link {
     color: var(--link-text-color, var(--color-blue-500));
     font-family: var(--typography-paragraph-body-font-family);
