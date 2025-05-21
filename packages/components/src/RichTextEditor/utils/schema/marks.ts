@@ -1,8 +1,8 @@
-import type { MarkSpec, Node } from 'prosemirror-model'
+import type { Mark, MarkSpec } from 'prosemirror-model'
 import { marks as proseMarks } from 'prosemirror-schema-basic'
 import { validateLink } from '../plugins/LinkManager/validation'
 
-export const getMarks = (): MarkSpec => ({
+export const getMarks = (): Record<string, MarkSpec> => ({
   ...proseMarks,
 
   // An underline mark. Rendered as a `<u>` element. Has parse rules that also
@@ -26,18 +26,19 @@ export const getMarks = (): MarkSpec => ({
     parseDOM: [
       {
         tag: 'a[href]',
-        getAttrs(dom: HTMLAnchorElement) {
+        getAttrs(dom: HTMLElement) {
+          const anchor = dom as HTMLAnchorElement
           return {
-            href: getAttributeWithDefault(dom, 'href'),
-            target: getAttributeWithDefault(dom, 'target'),
-            rel: getAttributeWithDefault(dom, 'rel'),
+            href: getAttributeWithDefault(anchor, 'href'),
+            target: getAttributeWithDefault(anchor, 'target'),
+            rel: getAttributeWithDefault(anchor, 'rel'),
             _metadata: null,
           }
         },
       },
     ],
-    toDOM(node: Node) {
-      const { href, target, rel } = node.attrs
+    toDOM(mark: Mark) {
+      const { href, target, rel } = mark.attrs
       const validationStatus = validateLink(href)
 
       if (validationStatus.status === 'error') {

@@ -19,6 +19,7 @@
     position: relative;
     border: 1px solid transparent;
     border-radius: var(--border-borderless-border-radius);
+    z-index: 0;
   }
 
   /* This absolute element is used to give the illusion of a gradient border without expanding the size of the Well/Card */

@@ -1,5 +1,28 @@
 # Change Log
 
+## 1.77.4
+
+### Patch Changes
+
+- [#5739](https://github.com/cultureamp/kaizen-design-system/pull/5739) [`69331cd`](https://github.com/cultureamp/kaizen-design-system/commit/69331cd1f49abf20b7627603407eb700a2a982b6) - dep updates for react-aria, react-stately, headless-ui and prosemirror
+
+## 1.77.3
+
+### Patch Changes
+
+- [#5751](https://github.com/cultureamp/kaizen-design-system/pull/5751) [`b0e35d7`](https://github.com/cultureamp/kaizen-design-system/commit/b0e35d7fa2dd647a2b144fedd770c30b5eeada3a) - Update `RichTextContent` styles for Tailwind 4 compatibility
+
+  With Tailwind 4 we will need to load Kaizen into a CSS Cascade Layer, which
+  will prevent its styles from overriding the default styles injected into the
+  page by ProseMirror/TipTap at runtime. Where we want to override these, Kaizen
+  must therefore now declare these styles as `!important`.
+
+## 1.77.2
+
+### Patch Changes
+
+- [#5719](https://github.com/cultureamp/kaizen-design-system/pull/5719) [`d671ce6`](https://github.com/cultureamp/kaizen-design-system/commit/d671ce6119bddb9bf57f940b3f6747132b3da4c6) - Add `z-index: 0` to aiMoment shared styles to fix `Well` and `Card` gradient borders not appearing.
+
 ## 1.77.1
 
 ### Patch Changes
