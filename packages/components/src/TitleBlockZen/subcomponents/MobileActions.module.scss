@@ -190,19 +190,19 @@
 
     @include ca-position($end: 20px);
   }
-
-  @keyframes slide-up {
-    0% {
-      transform: translateY(100%);
-    }
-
-    50% {
-      transform: translateY(100%);
-    }
-
-    100% {
-      transform: translateY(calc(100% - #{$layout-mobile-actions-drawer-height}));
-    }
-  }
   /* stylelint-enable no-descending-specificity */
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+
+  50% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(calc(100% - #{$layout-mobile-actions-drawer-height}));
+  }
 }

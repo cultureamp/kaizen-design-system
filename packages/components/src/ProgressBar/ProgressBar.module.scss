@@ -20,16 +20,6 @@
     position: relative;
   }
 
-  @keyframes pulse {
-    0% {
-      transform: translateX(-100%);
-    }
-
-    100% {
-      transform: translateX(200%);
-    }
-  }
-
   .progress {
     position: absolute;
     inset: 0;
@@ -93,5 +83,15 @@
       animation: pulse 2s infinite;
       transition: opacity 0.2s;
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(200%);
   }
 }

@@ -46,48 +46,48 @@
     clip-path: circle(50%);
     animation-name: pulse-outer;
   }
+}
 
-  @keyframes pulse-inner {
-    0% {
-      opacity: 0;
-    }
-
-    25% {
-      opacity: 0;
-    }
-
-    50% {
-      opacity: 1;
-    }
-
-    75% {
-      opacity: 1;
-    }
-
-    100% {
-      opacity: 1;
-    }
+@keyframes pulse-inner {
+  0% {
+    opacity: 0;
   }
 
-  @keyframes pulse-outer {
-    0% {
-      opacity: 0;
-    }
+  25% {
+    opacity: 0;
+  }
 
-    25% {
-      opacity: 0;
-    }
+  50% {
+    opacity: 1;
+  }
 
-    50% {
-      opacity: 0;
-    }
+  75% {
+    opacity: 1;
+  }
 
-    75% {
-      opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
+}
 
-    100% {
-      opacity: 1;
-    }
+@keyframes pulse-outer {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

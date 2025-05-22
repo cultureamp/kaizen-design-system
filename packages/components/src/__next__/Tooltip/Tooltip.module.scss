@@ -53,16 +53,16 @@
       animation: slide $animation-duration-fast reverse $animation-easing-function-ease-in;
     }
   }
+}
 
-  @keyframes slide {
-    from {
-      transform: var(--origin);
-      opacity: 0;
-    }
+@keyframes slide {
+  from {
+    transform: var(--origin);
+    opacity: 0;
+  }
 
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

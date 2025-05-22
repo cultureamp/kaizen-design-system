@@ -25,10 +25,10 @@
     width: 100%;
     height: 100%;
   }
+}
 
-  @keyframes spinner {
-    100% {
-      transform: rotate(360deg);
-    }
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
   }
 }

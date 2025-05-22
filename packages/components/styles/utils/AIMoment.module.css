@@ -80,34 +80,34 @@
   .aiMomentExiting::before {
     animation-iteration-count: 1;
   }
+}
 
-  @keyframes rotation-loop-before {
-    0%,
-    100% {
-      background-size: 100% 100%;
-    }
-
-    50% {
-      --gradient-angle: 270deg;
-
-      background-position: 0% 20%;
-      background-size: 200% 300%;
-      opacity: 0.3;
-    }
+@keyframes rotation-loop-before {
+  0%,
+  100% {
+    background-size: 100% 100%;
   }
 
-  @keyframes rotation-loop-after {
-    0%,
-    100% {
-      background-size: 100% 100%;
-    }
+  50% {
+    --gradient-angle: 270deg;
 
-    50% {
-      --gradient-angle: 270deg;
+    background-position: 0% 20%;
+    background-size: 200% 300%;
+    opacity: 0.3;
+  }
+}
 
-      background-position: 0% 20%;
-      background-size: 110% 130%;
-      opacity: 0.7;
-    }
+@keyframes rotation-loop-after {
+  0%,
+  100% {
+    background-size: 100% 100%;
+  }
+
+  50% {
+    --gradient-angle: 270deg;
+
+    background-position: 0% 20%;
+    background-size: 110% 130%;
+    opacity: 0.7;
   }
 }
