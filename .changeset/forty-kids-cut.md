@@ -16,4 +16,8 @@ Unfortunately, this syntax is [not supported](https://github.com/vercel/next.js/
 
 #### Isn't this a breaking change?
 
-Although technically this lowers the priority of Kaizen's component styles below any consuming apps' "unlayered" styles, regardless of selector specificity or source order, we believe that Kaizen styles are already output before app styles in apps' CSS bundles to ensure app styles take priority; therefore, this should have no effect on the relative priority of styles in consuming apps.
+**In Next.js projects, this version of Kaizen requires @cultureamp/next-config 3.4.0 or later.**
+
+The increased use of `@layer` in this release triggers a bug in the CSS minifier in Next.js 14, which causes the `@layer` statement at the top of Kaizen's stylesheet to be moved to a different place in the CSS output, breaking the layer order. Next.js 15.0.3 fixed this, but as of this release most of our apps are still on Next.js 14.x. We have therefore applied the fix from Next.js 15 to Next.js 14 in [@cultureamp/next-config 3.4.0](https://github.com/cultureamp/frontend-foundations/releases/tag/%40cultureamp%2Fnext-config%403.4.0).
+
+Also, this release technically lowers the priority of Kaizen's component styles below any consuming apps' "unlayered" styles, regardless of selector specificity or source order. We believe that Kaizen styles are already output before app styles in apps' CSS bundles to ensure app styles take priority; therefore, this should have no effect on the relative priority of styles in consuming apps. Still, you should probably pay close attention to any visual diffs reported by Chromatic when applying this update.
