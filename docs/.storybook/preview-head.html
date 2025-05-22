@@ -1,12 +1,12 @@
 <style>
-  /* Despite this being at the top of the first import in preview.tsx,
-     some component styles are still output before it in the static
-     Storybook build, which causes visual issues due to the `components`
-     layer being applied first.
+  /* Despite this same layer list being at the top of the first import in
+     preview.tsx, some component styles are still output before it in the static
+     Storybook build, which causes visual issues due to the `kz-components`
+     layer being created first.
 
-     Re-declaring the layer order here ensures it happens before any
+     Declaring the layer order here ensures it happens before any
      JavaScript-generated styles. */
-  @layer tokens, normalize, reset, components;
+  @layer tokens, normalize, reset, kz-components;
 </style>
 
 <!-- https://www.cdnplanet.com/blog/faster-google-webfonts-preconnect -->
