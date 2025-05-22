@@ -1,0 +1,112 @@
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 310deg;
+  inherits: false;
+}
+
+/* TODO: manually bumping the specificity to win out when applied to Card or Well. Once we have layers we can use a new layer to ensure styles are superseded */
+.aiMoment.aiMoment {
+  --clr-1: oklch(80.15% 0.101 199.35deg) 0%;
+  --clr-2: oklch(76.41% 0.098 175.22deg) 20%;
+  --clr-3: oklch(80.15% 0.101 199.35deg) 41%;
+  --clr-4: oklch(72.34% 0.143 315.73deg) 100%;
+  --animated-border-width: 2px;
+  --border-inner-radius: calc(var(--border-solid-border-radius) - var(--animated-border-width));
+  --container-background-color: var(--color-white);
+
+  background-color: transparent;
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: var(--border-borderless-border-radius);
+  z-index: 0;
+}
+
+/* This absolute element is used to give the illusion of a gradient border without expanding the size of the Well/Card */
+.aiMomentBackground {
+  margin: var(--animated-border-width);
+  box-sizing: border-box;
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  display: block;
+  border-radius: var(--border-inner-radius);
+  border: 1px solid transparent;
+  background-color: var(--container-background-color);
+}
+
+.aiMoment::before,
+.aiMoment::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -2;
+  background-image: linear-gradient(
+    var(--gradient-angle),
+    var(--clr-1),
+    var(--clr-2),
+    var(--clr-3),
+    var(--clr-4)
+  );
+  border-radius: var(--border-solid-border-radius);
+  background-size: 100% 100%;
+  background-position: 0 50%;
+  transition:
+    filter 1s ease-in,
+    opacity 1s ease-in;
+}
+
+.aiMoment::before {
+  filter: blur(0);
+  opacity: 0;
+}
+
+.aiMoment::after {
+  opacity: 1;
+}
+
+.aiMomentLoading::after,
+.aiMomentExiting::after {
+  animation: rotation-loop-after 2s linear infinite;
+}
+
+.aiMomentLoading::before,
+.aiMomentExiting::before {
+  animation: rotation-loop-before 2s linear infinite;
+  filter: blur(10px);
+  opacity: 0.7;
+}
+
+.aiMomentExiting::after,
+.aiMomentExiting::before {
+  animation-iteration-count: 1;
+}
+
+@keyframes rotation-loop-before {
+  0%,
+  100% {
+    background-size: 100% 100%;
+  }
+
+  50% {
+    --gradient-angle: 270deg;
+
+    background-position: 0% 20%;
+    background-size: 200% 300%;
+    opacity: 0.3;
+  }
+}
+
+@keyframes rotation-loop-after {
+  0%,
+  100% {
+    background-size: 100% 100%;
+  }
+
+  50% {
+    --gradient-angle: 270deg;
+
+    background-position: 0% 20%;
+    background-size: 110% 130%;
+    opacity: 0.7;
+  }
+}

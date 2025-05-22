@@ -61,6 +61,14 @@
     "description" : "Label for the 'date to' field",
     "message" : "結束日期："
   },
+  "filterMultiSelectClearButton.label" : {
+    "description" : "Clear button label for filter multi-select",
+    "message" : "清除<VisuallyHidden>選取項目</VisuallyHidden>"
+  },
+  "filterMultiSelectMultiSelectOption.available" : {
+    "description" : "Number of filter items available",
+    "message" : "<VisuallyHidden>現有 <Badge>{count}</Badge> 項</VisuallyHidden>"
+  },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
     "message" : "依搜尋查詢篩選選項"
@@ -68,6 +76,10 @@
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
     "message" : "搜尋..."
+  },
+  "filterMultiSelectSelectAllButton.label" : {
+    "description" : "Select all button in filter multi select",
+    "message" : "全選"
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",

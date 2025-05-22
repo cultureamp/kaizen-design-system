@@ -61,6 +61,14 @@
     "description" : "Label for the 'date to' field",
     "message" : "Data iki"
   },
+  "filterMultiSelectClearButton.label" : {
+    "description" : "Clear button label for filter multi-select",
+    "message" : "Išvalyti<VisuallyHidden> pasirinkimus</VisuallyHidden>"
+  },
+  "filterMultiSelectMultiSelectOption.available" : {
+    "description" : "Number of filter items available",
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> prieinama</VisuallyHidden>"
+  },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
     "message" : "Filtruoti parinktis pagal paieškos užklausą"
@@ -68,6 +76,10 @@
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
     "message" : "Paieška…"
+  },
+  "filterMultiSelectSelectAllButton.label" : {
+    "description" : "Select all button in filter multi select",
+    "message" : "Pasirinkti viską"
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",

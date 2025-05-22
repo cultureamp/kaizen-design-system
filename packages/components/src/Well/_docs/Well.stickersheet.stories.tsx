@@ -42,7 +42,19 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Row>
         ))}
       </StickerSheet>
-
+      <StickerSheet headers={['AI is loaded', 'AI is loading', 'AI is undefined']}>
+        <StickerSheet.Row>
+          <StickerSheet.Cell>
+            <WellWrapped isAiLoading={false} />
+          </StickerSheet.Cell>
+          <StickerSheet.Cell>
+            <WellWrapped isAiLoading />
+          </StickerSheet.Cell>
+          <StickerSheet.Cell>
+            <WellWrapped isAiLoading={undefined} />
+          </StickerSheet.Cell>
+        </StickerSheet.Row>
+      </StickerSheet>
       <StickerSheet headers={['Margin', 'No Margin']}>
         <StickerSheet.Row>
           <StickerSheet.Cell>

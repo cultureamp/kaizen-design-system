@@ -1,4 +1,4 @@
-import { pluginsSharedUi, rollupConfig } from '@kaizen/package-bundler'
+import { pluginsSharedUi, rollupConfig } from '@cultureamp/package-bundler'
 
 export default rollupConfig({
   input: {

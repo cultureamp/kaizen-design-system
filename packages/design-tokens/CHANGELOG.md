@@ -1,5 +1,25 @@
 # Change Log
 
+## 10.9.1
+
+### Patch Changes
+
+- [#5713](https://github.com/cultureamp/kaizen-design-system/pull/5713) [`15e011b`](https://github.com/cultureamp/kaizen-design-system/commit/15e011b03419a0a762fd69ca9ed8a86c6152c636) - Patch bump for assets to build
+
+## 10.9.0
+
+### Minor Changes
+
+- [#5701](https://github.com/cultureamp/kaizen-design-system/pull/5701) [`9c63e64`](https://github.com/cultureamp/kaizen-design-system/commit/9c63e6419436bd9a365d00e166dde1c5990c79c3) - Upgrade to latest @cultureamp/package-bundler which should fix type issues
+
+## 10.8.10
+
+### Patch Changes
+
+- [#5652](https://github.com/cultureamp/kaizen-design-system/pull/5652) [`f711137`](https://github.com/cultureamp/kaizen-design-system/commit/f7111378a2561bf595c1a4a48717108aa22de99d) - Dep updates
+
+- [#5656](https://github.com/cultureamp/kaizen-design-system/pull/5656) [`c1ee511`](https://github.com/cultureamp/kaizen-design-system/commit/c1ee5110ca278cc7474b820a811a6e4e6e761f21) - version lock color-string to 1.9.1 to ensure compatibility with older repos
+
 ## 10.8.9
 
 ### Patch Changes

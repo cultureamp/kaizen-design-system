@@ -61,6 +61,14 @@
     "description" : "Label for the 'date to' field",
     "message" : "Datums līdz"
   },
+  "filterMultiSelectClearButton.label" : {
+    "description" : "Clear button label for filter multi-select",
+    "message" : "Notīrīt<VisuallyHidden> atlases</VisuallyHidden>"
+  },
+  "filterMultiSelectMultiSelectOption.available" : {
+    "description" : "Number of filter items available",
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> pieejams</VisuallyHidden>"
+  },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
     "message" : "Filtrēt opcijas pēc meklēšanas vaicājuma"
@@ -68,6 +76,10 @@
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
     "message" : "Meklēt…"
+  },
+  "filterMultiSelectSelectAllButton.label" : {
+    "description" : "Select all button in filter multi select",
+    "message" : "Atlasīt visus"
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",

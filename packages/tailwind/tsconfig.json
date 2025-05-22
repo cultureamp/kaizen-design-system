@@ -1,5 +1,5 @@
 {
-  "extends": "@kaizen/package-bundler/tsconfig.base.json",
+  "extends": "@cultureamp/package-bundler/tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

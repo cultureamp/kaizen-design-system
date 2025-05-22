@@ -61,6 +61,14 @@
     "description" : "Label for the 'date to' field",
     "message" : "Data zakończenia"
   },
+  "filterMultiSelectClearButton.label" : {
+    "description" : "Clear button label for filter multi-select",
+    "message" : "Wyczyść<VisuallyHidden> zaznaczone elementy</VisuallyHidden>"
+  },
+  "filterMultiSelectMultiSelectOption.available" : {
+    "description" : "Number of filter items available",
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> dostępne</VisuallyHidden>"
+  },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
     "message" : "Opcje filtrowania według wyszukiwanego hasła"
@@ -68,6 +76,10 @@
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
     "message" : "Wyszukaj..."
+  },
+  "filterMultiSelectSelectAllButton.label" : {
+    "description" : "Select all button in filter multi select",
+    "message" : "Zaznacz wszystko"
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",

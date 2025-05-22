@@ -61,6 +61,14 @@
     "description" : "Label for the 'date to' field",
     "message" : "तारीख तक"
   },
+  "filterMultiSelectClearButton.label" : {
+    "description" : "Clear button label for filter multi-select",
+    "message" : "<VisuallyHidden>चयन</VisuallyHidden> हटाएं"
+  },
+  "filterMultiSelectMultiSelectOption.available" : {
+    "description" : "Number of filter items available",
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> उपलब्ध है</VisuallyHidden>"
+  },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
     "message" : "सर्च क्वेरी के हिसाब से विकल्पों को फ़िल्टर करें"
@@ -68,6 +76,10 @@
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
     "message" : "खोज की जा रही है..."
+  },
+  "filterMultiSelectSelectAllButton.label" : {
+    "description" : "Select all button in filter multi select",
+    "message" : "सभी को चुनें"
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",
