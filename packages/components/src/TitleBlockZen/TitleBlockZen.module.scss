@@ -665,41 +665,41 @@
       background-color: rgba($color-blue-500-rgb, 0.1);
     }
   }
-
-  @keyframes slide-fade {
-    0% {
-      display: none;
-      opacity: 0%;
-    }
-
-    1% {
-      display: block;
-      opacity: 0%;
-      transform: translateX(-30px);
-    }
-
-    100% {
-      opacity: 100%;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes reverse-slide-fade {
-    0% {
-      display: none;
-      opacity: 0%;
-    }
-
-    1% {
-      display: block;
-      opacity: 0%;
-      transform: translateX(30px);
-    }
-
-    100% {
-      opacity: 100%;
-      transform: translateX(0);
-    }
-  }
   /* stylelint-enable no-descending-specificity */
+}
+
+@keyframes slide-fade {
+  0% {
+    display: none;
+    opacity: 0%;
+  }
+
+  1% {
+    display: block;
+    opacity: 0%;
+    transform: translateX(-30px);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+  }
+}
+
+@keyframes reverse-slide-fade {
+  0% {
+    display: none;
+    opacity: 0%;
+  }
+
+  1% {
+    display: block;
+    opacity: 0%;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+  }
 }
