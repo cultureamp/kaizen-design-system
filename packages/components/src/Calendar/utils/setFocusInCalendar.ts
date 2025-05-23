@@ -3,21 +3,21 @@ import { type CalendarSingleElement } from '../CalendarSingle'
 import calendarStyles from '../baseCalendarClassNames.module.scss'
 import { isInvalidDate } from './isInvalidDate'
 
-const isHTMLElement = (element: Element | undefined): element is HTMLElement =>
-  element instanceof HTMLElement
-
 export const setFocusInCalendar = (
   calendarElement: CalendarSingleElement | CalendarRangeElement,
   selectedDay: Date | undefined,
 ): void => {
-  const daySelectedOrToday = calendarElement.getElementsByClassName(
+  const dayClass =
     selectedDay && !isInvalidDate(selectedDay)
-      ? calendarStyles.daySelected
-      : calendarStyles.dayToday,
-  )[0]
+      ? `.${calendarStyles.daySelected}`
+      : `.${calendarStyles.dayToday}`
 
-  const dayToFocus =
-    daySelectedOrToday ?? calendarElement.getElementsByClassName(calendarStyles.day)[0]
+  let dayToFocus = calendarElement.querySelector(`${dayClass} button`)
 
-  if (isHTMLElement(dayToFocus)) dayToFocus.focus()
+  // RDP v9 puts the day class on the button inside the table cell whereas today and selected appear on the table cell
+  dayToFocus ??= calendarElement.querySelector(`.${calendarStyles.day}`)
+
+  if (dayToFocus instanceof HTMLElement) {
+    dayToFocus.focus()
+  }
 }
