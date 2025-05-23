@@ -1,22 +1,89 @@
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/spacing';
 
-$height: 10px;
+@layer kz-components {
+  $height: 10px;
 
-.subtext {
-  color: $color-purple-800;
-  padding-top: $spacing-6;
-  text-align: center;
-  opacity: 80%;
-}
+  .subtext {
+    color: $color-purple-800;
+    padding-top: $spacing-6;
+    text-align: center;
+    opacity: 80%;
+  }
 
-.progressBackground {
-  width: 100%;
-  background: $color-gray-300;
-  border-radius: $height;
-  height: $height;
-  overflow: hidden;
-  position: relative;
+  .progressBackground {
+    width: 100%;
+    background: $color-gray-300;
+    border-radius: $height;
+    height: $height;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress {
+    position: absolute;
+    inset: 0;
+    border-radius: $height;
+    overflow: hidden;
+    transition: transform 200ms ease;
+    background-color: var(--progressbar-background-color);
+  }
+
+  // ------------------------------
+  // Moods
+  // @deprecated use colors instead
+  // ------------------------------
+  .positive {
+    --progressbar-background-color: var(--color-green-400);
+  }
+
+  .informative {
+    --progressbar-background-color: var(--color-blue-400);
+  }
+
+  .cautionary {
+    --progressbar-background-color: var(--color-yellow-400);
+  }
+
+  .negative {
+    --progressbar-background-color: var(--color-red-400);
+  }
+
+  // End deprecated styles
+
+  // ------------------------------
+  // Colors
+  // ------------------------------
+  .blue {
+    --progressbar-background-color: var(--color-blue-400);
+  }
+
+  .green {
+    --progressbar-background-color: var(--color-green-400);
+  }
+
+  .red {
+    --progressbar-background-color: var(--color-red-400);
+  }
+
+  .yellow {
+    --progressbar-background-color: var(--color-yellow-400);
+  }
+
+  .isAnimating {
+    &::after {
+      background: linear-gradient(90deg, transparent, var(--color-white) 75%, transparent);
+      opacity: 25%;
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 50%;
+      animation: pulse 2s infinite;
+      transition: opacity 0.2s;
+    }
+  }
 }
 
 @keyframes pulse {
@@ -26,70 +93,5 @@ $height: 10px;
 
   100% {
     transform: translateX(200%);
-  }
-}
-
-.progress {
-  position: absolute;
-  inset: 0;
-  border-radius: $height;
-  overflow: hidden;
-  transition: transform 200ms ease;
-  background-color: var(--progressbar-background-color);
-}
-
-// ------------------------------
-// Moods
-// @deprecated use colors instead
-// ------------------------------
-.positive {
-  --progressbar-background-color: var(--color-green-400);
-}
-
-.informative {
-  --progressbar-background-color: var(--color-blue-400);
-}
-
-.cautionary {
-  --progressbar-background-color: var(--color-yellow-400);
-}
-
-.negative {
-  --progressbar-background-color: var(--color-red-400);
-}
-
-// End deprecated styles
-
-// ------------------------------
-// Colors
-// ------------------------------
-.blue {
-  --progressbar-background-color: var(--color-blue-400);
-}
-
-.green {
-  --progressbar-background-color: var(--color-green-400);
-}
-
-.red {
-  --progressbar-background-color: var(--color-red-400);
-}
-
-.yellow {
-  --progressbar-background-color: var(--color-yellow-400);
-}
-
-.isAnimating {
-  &::after {
-    background: linear-gradient(90deg, transparent, var(--color-white) 75%, transparent);
-    opacity: 25%;
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    animation: pulse 2s infinite;
-    transition: opacity 0.2s;
   }
 }

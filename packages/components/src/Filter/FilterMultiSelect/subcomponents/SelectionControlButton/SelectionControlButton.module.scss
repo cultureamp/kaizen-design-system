@@ -4,66 +4,68 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '../../../../../styles/utils/button-reset';
 
-$focus-ring-offset: 1px;
+@layer kz-components {
+  $focus-ring-offset: 1px;
 
-.button {
-  @include button-reset;
+  .button {
+    @include button-reset;
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: $spacing-xs;
-  border: $border-solid-border-width $border-solid-border-style;
-  border-color: $border-borderless-border-color;
-  border-radius: $border-solid-border-radius;
-  padding: $spacing-4 $spacing-8;
-  font-weight: $typography-button-secondary-font-weight;
-  font-family: $typography-button-secondary-font-family;
-  font-size: $typography-button-secondary-font-size;
-  line-height: $typography-button-secondary-line-height;
-  letter-spacing: $typography-button-secondary-letter-spacing;
-  color: $color-blue-500;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:hover,
-  &:active,
-  &:focus {
-    &:not(.isDisabled) {
-      background-color: $color-blue-100;
-    }
-  }
-
-  &:focus-visible::after {
-    $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
-
-    content: '';
-    position: absolute;
-    background: transparent;
-    border-radius: $border-focus-ring-border-radius;
-    border-width: $border-focus-ring-border-width;
-    border-style: $border-focus-ring-border-style;
-    border-color: $color-blue-500;
-    inset: calc(-1 * #{$focus-ring-offset});
-  }
-
-  // TODO: copied from Calendar button since the design is not settled
-  &.isDisabled {
-    pointer-events: none;
-    color: rgba($color-purple-800-rgb, 0.3);
-    opacity: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    border: $border-solid-border-width $border-solid-border-style;
+    border-color: $border-borderless-border-color;
+    border-radius: $border-solid-border-radius;
+    padding: $spacing-4 $spacing-8;
+    font-weight: $typography-button-secondary-font-weight;
+    font-family: $typography-button-secondary-font-family;
+    font-size: $typography-button-secondary-font-size;
+    line-height: $typography-button-secondary-line-height;
+    letter-spacing: $typography-button-secondary-letter-spacing;
+    color: $color-blue-500;
 
     &:focus {
       outline: none;
-      border: 2px solid transparent;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      &:not(.isDisabled) {
+        background-color: $color-blue-100;
+      }
     }
 
     &:focus-visible::after {
-      border-color: $color-gray-400;
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
+      content: '';
+      position: absolute;
+      background: transparent;
+      border-radius: $border-focus-ring-border-radius;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-color: $color-blue-500;
+      inset: calc(-1 * #{$focus-ring-offset});
+    }
+
+    // TODO: copied from Calendar button since the design is not settled
+    &.isDisabled {
+      pointer-events: none;
+      color: rgba($color-purple-800-rgb, 0.3);
+      opacity: 100%;
+
+      &:focus {
+        outline: none;
+        border: 2px solid transparent;
+      }
+
+      &:focus-visible::after {
+        border-color: $color-gray-400;
+      }
     }
   }
 }

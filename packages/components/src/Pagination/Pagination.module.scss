@@ -2,50 +2,52 @@
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/border';
 
-// Pagination
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pagesIndicatorWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.arrowIconWrapper {
-  height: 36px;
-  width: 36px;
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-300;
-  margin: 0 5px;
-  background-color: transparent;
-  color: $color-blue-500;
-  box-sizing: border-box;
-
-  &:disabled {
-    opacity: 35%;
-    pointer-events: none;
+@layer kz-components {
+  // Pagination
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  &:hover {
-    background-color: $color-blue-100;
+  .pagesIndicatorWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
 
-  &:focus {
-    background-color: $color-blue-200;
+  .arrowIconWrapper {
+    height: 36px;
+    width: 36px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-300;
+    margin: 0 5px;
+    background-color: transparent;
+    color: $color-blue-500;
+    box-sizing: border-box;
 
-    &:focus-visible {
-      outline: none;
+    &:disabled {
+      opacity: 35%;
+      pointer-events: none;
     }
 
-    .pageIndicatorFocusRing {
-      border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
+    &:hover {
+      background-color: $color-blue-100;
+    }
+
+    &:focus {
+      background-color: $color-blue-200;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      .pageIndicatorFocusRing {
+        border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
+      }
     }
   }
 }
