@@ -85,8 +85,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(eslint@9.18.0(jiti@1.21.6))(typescript@5.8.3)(vitest@3.1.3(@types/debug@4.1.12)(@types/node@22.15.21)(jiti@1.21.6)(jsdom@20.0.3)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.19.4)(yaml@2.5.0))
       chromatic:
-        specifier: ^11.28.2
-        version: 11.28.2
+        specifier: ^11.29.0
+        version: 11.29.0
       eslint:
         specifier: ^9.18.0
         version: 9.18.0(jiti@1.21.6)
@@ -4561,8 +4561,8 @@ packages:
     resolution: {integrity: sha512-n8enUVCED/KVRQlab1hr3MVpcVMvxtZjmEa956u+4YijlmQED223XMSYj2tLuKvr4jcCTzNNMpQDUer72MMmzA==}
     engines: {node: '>= 14.16.0'}
 
-  chromatic@11.28.2:
-    resolution: {integrity: sha512-aCmUPcZUs4/p9zRZdMreOoO/5JqO2DiJC3md1/vRx8dlMRcmR/YI5ZbgXZcai2absVR+6hsXZ5XiPxV2sboTuQ==}
+  chromatic@11.29.0:
+    resolution: {integrity: sha512-yisBlntp9hHVj19lIQdpTlcYIXuU9H/DbFuu6tyWHmj6hWT2EtukCCcxYXL78XdQt1vm2GfIrtgtKpj/Rzmo4A==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -11096,7 +11096,7 @@ snapshots:
       '@tanstack/react-query': 5.76.2(react@18.3.1)
       '@types/http-errors': 2.0.4
       aws4: 1.13.2
-      chromatic: 11.28.2
+      chromatic: 11.29.0
       deepmerge: 4.3.1
       fast-glob: 3.3.3
       headers-utils: 3.0.2
@@ -15145,7 +15145,7 @@ snapshots:
     dependencies:
       readdirp: 4.0.2
 
-  chromatic@11.28.2: {}
+  chromatic@11.29.0: {}
 
   chromatic@9.1.0: {}
 
