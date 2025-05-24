@@ -78,8 +78,8 @@ importers:
         specifier: ^1.2.1
         version: 1.2.1(eslint@9.18.0(jiti@1.21.6))(typescript@5.8.3)(vitest@3.1.3(@types/debug@4.1.12)(@types/node@22.15.21)(jiti@1.21.6)(jsdom@20.0.3)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.19.4)(yaml@2.5.0))
       chromatic:
-        specifier: ^11.28.2
-        version: 11.28.2
+        specifier: ^11.29.0
+        version: 11.29.0
       eslint:
         specifier: ^9.18.0
         version: 9.18.0(jiti@1.21.6)
@@ -1224,6 +1224,11 @@ packages:
       '@cultureamp/next-head-hook': '>=1 || ~0.0.0'
       next: '>=13.5.0'
       react: '>=16.14.0'
+    peerDependenciesMeta:
+      '@cultureamp/next-head-hook':
+        optional: true
+      next:
+        optional: true
 
   '@cultureamp/frontend-env@2.1.3':
     resolution: {integrity: sha512-W/r3T/IP3l7TZddtuxnwzsk6rhpk2dpFuqWQGfWaJMQAXWoiGWHw14rGffWbiTe3DNjiqmNwHgKx+TjUWOitJQ==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.3/30af7b9a8adef27979846f23ee2de877f02f6e6e}
@@ -4515,8 +4520,8 @@ packages:
       '@chromatic-com/playwright':
         optional: true
 
-  chromatic@11.28.2:
-    resolution: {integrity: sha512-aCmUPcZUs4/p9zRZdMreOoO/5JqO2DiJC3md1/vRx8dlMRcmR/YI5ZbgXZcai2absVR+6hsXZ5XiPxV2sboTuQ==}
+  chromatic@11.29.0:
+    resolution: {integrity: sha512-yisBlntp9hHVj19lIQdpTlcYIXuU9H/DbFuu6tyWHmj6hWT2EtukCCcxYXL78XdQt1vm2GfIrtgtKpj/Rzmo4A==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -10999,7 +11004,6 @@ snapshots:
   '@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3)':
     dependencies:
       '@cultureamp/frontend-env': 2.1.4
-      '@cultureamp/next-head-hook': 1.1.11(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.7.0(openapi-types@12.1.3)
       '@tanstack/react-query': 5.76.2(react@19.1.0)
@@ -11014,7 +11018,6 @@ snapshots:
       js-yaml: 4.1.0
       jsrsasign: 11.1.0
       msw: 2.2.14(typescript@5.8.3)
-      next: 15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)
       openapi-types: 12.1.3
       openapi-typescript: 6.7.6
       react: 19.1.0
@@ -11023,6 +11026,9 @@ snapshots:
       url-parse: 1.5.10
       uuid: 9.0.1
       yargs: 17.7.2
+    optionalDependencies:
+      '@cultureamp/next-head-hook': 1.1.11(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))
+      next: 15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -11077,6 +11083,7 @@ snapshots:
     dependencies:
       next: 15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)
       react: 18.3.1
+    optional: true
 
   '@cultureamp/package-bundler@2.3.2(@babel/core@7.27.1)(@types/babel__core@7.20.5)(postcss-preset-env@10.1.6(postcss@8.5.3))(postcss@8.5.3)(rollup@4.40.2)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)':
     dependencies:
@@ -11908,7 +11915,8 @@ snapshots:
       '@tybys/wasm-util': 0.9.0
     optional: true
 
-  '@next/env@15.2.5': {}
+  '@next/env@15.2.5':
+    optional: true
 
   '@next/swc-darwin-arm64@15.2.5':
     optional: true
@@ -14854,6 +14862,7 @@ snapshots:
   busboy@1.6.0:
     dependencies:
       streamsearch: 1.1.0
+    optional: true
 
   cac@6.7.14: {}
 
@@ -15023,7 +15032,7 @@ snapshots:
 
   chromatic@10.9.6: {}
 
-  chromatic@11.28.2: {}
+  chromatic@11.29.0: {}
 
   chromatic@9.1.0: {}
 
@@ -18494,7 +18503,8 @@ snapshots:
 
   nanoid@3.3.10: {}
 
-  nanoid@3.3.11: {}
+  nanoid@3.3.11:
+    optional: true
 
   nanoid@3.3.7: {}
 
@@ -18544,6 +18554,7 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+    optional: true
 
   no-case@3.0.4:
     dependencies:
@@ -19596,6 +19607,7 @@ snapshots:
       nanoid: 3.3.11
       picocolors: 1.1.1
       source-map-js: 1.2.1
+    optional: true
 
   postcss@8.4.49:
     dependencies:
@@ -20071,6 +20083,7 @@ snapshots:
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
+    optional: true
 
   react@19.1.0: {}
 
@@ -20681,7 +20694,8 @@ snapshots:
       readable-stream: 3.6.2
       xtend: 4.0.2
 
-  streamsearch@1.1.0: {}
+  streamsearch@1.1.0:
+    optional: true
 
   strict-event-emitter@0.5.1: {}
 
@@ -20841,6 +20855,7 @@ snapshots:
       react: 19.1.0
     optionalDependencies:
       '@babel/core': 7.27.1
+    optional: true
 
   stylehacks@5.1.1(postcss@8.5.3):
     dependencies:
