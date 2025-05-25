@@ -1,22 +1,20 @@
 /* eslint-disable camelcase */
-import { type ClassNames } from 'react-day-picker'
+import { type PropsBase } from 'react-day-picker'
 import styles from './baseCalendarClassNames.module.scss'
 
-export const baseCalendarClassNames: ClassNames = {
-  vhidden: styles.vHidden,
+export const baseCalendarClassNames: PropsBase['classNames'] = {
   root: styles.root,
   months: styles.months,
-  button_reset: styles.buttonReset,
-  button: styles.button,
-  caption: styles.caption,
+  day_button: `${styles.buttonReset} ${styles.button} ${styles.day}`,
+  button_next: `${styles.buttonReset} ${styles.button} ${styles.navButton}`,
+  button_previous: `${styles.buttonReset} ${styles.button} ${styles.navButton}`,
+  day: styles.cell,
+  month_caption: styles.caption,
   caption_label: styles.captionLabel,
-  nav_button: styles.navButton,
-  table: styles.table,
-  head_cell: styles.weekday,
-  cell: styles.cell,
-  day: styles.day,
-  tbody: styles.tbody,
-  day_selected: styles.daySelected,
-  day_today: styles.dayToday,
-  day_disabled: styles.dayDisabled,
+  month_grid: styles.table,
+  weekday: styles.weekday,
+  weeks: styles.tbody,
+  selected: styles.daySelected,
+  today: styles.dayToday,
+  disabled: styles.dayDisabled,
 }
