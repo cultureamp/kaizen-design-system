@@ -79,7 +79,7 @@ export const FilterMultiSelect = ({
     <MenuTriggerProvider {...menuTriggerProps}>
       <div className={className}>
         <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
-        <MenuPopup {...menuPopupProps}>
+        <MenuPopup aria-label={label} {...menuPopupProps}>
           <SelectionProvider {...selectionProps}>
             <SelectionConsumer>{children}</SelectionConsumer>
           </SelectionProvider>
