@@ -1,5 +1,49 @@
 # Change Log
 
+## 1.78.1
+
+### Patch Changes
+
+- [#5776](https://github.com/cultureamp/kaizen-design-system/pull/5776) [`2bcaee4`](https://github.com/cultureamp/kaizen-design-system/commit/2bcaee4e4a7da4f406d6b661c66fd5d996da478d) - Update react aria deps and fallback arg for onSelectionChange key
+
+- [#5776](https://github.com/cultureamp/kaizen-design-system/pull/5776) [`2bcaee4`](https://github.com/cultureamp/kaizen-design-system/commit/2bcaee4e4a7da4f406d6b661c66fd5d996da478d) - chore(deps): upgrade @kaizen/component
+
+  - patch updates for @headlessui/react and prosemirror-view
+  - devDeps updates for various packages
+
+- [#5776](https://github.com/cultureamp/kaizen-design-system/pull/5776) [`2bcaee4`](https://github.com/cultureamp/kaizen-design-system/commit/2bcaee4e4a7da4f406d6b661c66fd5d996da478d) - Update deprecated CSS properties for RGB functions and word-beak values
+
+## 1.78.0
+
+### Minor Changes
+
+- [#5552](https://github.com/cultureamp/kaizen-design-system/pull/5552) [`fd29d3d`](https://github.com/cultureamp/kaizen-design-system/commit/fd29d3d2967221c79537e2f7b6c6e9c7a492baf2) - Upgrade packages to support React 19
+
+  - Update all peer dependencies to support 18-19 range
+  - Update react-day-picker to v9
+    - this changes some UX (for the better) when using active ranges
+    - the dom structure has changed and may require test and css updates
+  - Some dependencies have their peerDeps altered to allow 19, these will eventually be removed
+
+  _Note_ updating to this version of kaizen will not force you onto react 19 it'll continue to use 18 until you upgrade the consuming app
+
+## 1.77.4
+
+### Patch Changes
+
+- [#5739](https://github.com/cultureamp/kaizen-design-system/pull/5739) [`69331cd`](https://github.com/cultureamp/kaizen-design-system/commit/69331cd1f49abf20b7627603407eb700a2a982b6) - dep updates for react-aria, react-stately, headless-ui and prosemirror
+
+## 1.77.3
+
+### Patch Changes
+
+- [#5751](https://github.com/cultureamp/kaizen-design-system/pull/5751) [`b0e35d7`](https://github.com/cultureamp/kaizen-design-system/commit/b0e35d7fa2dd647a2b144fedd770c30b5eeada3a) - Update `RichTextContent` styles for Tailwind 4 compatibility
+
+  With Tailwind 4 we will need to load Kaizen into a CSS Cascade Layer, which
+  will prevent its styles from overriding the default styles injected into the
+  page by ProseMirror/TipTap at runtime. Where we want to override these, Kaizen
+  must therefore now declare these styles as `!important`.
+
 ## 1.77.2
 
 ### Patch Changes

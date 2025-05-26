@@ -60,7 +60,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
         <FilterBarButton {...triggerProps} filterId={id} isRemovable={filterState.isRemovable} />
       )}
       onSelectionChange={(key): void => {
-        updateValue(id, key)
+        updateValue(id, key ?? undefined)
         onSelectionChange?.(key)
       }}
       isOpen={filterState.isOpen}

@@ -15,7 +15,7 @@
 }
 
 .reversed {
-  --badge-background-color: rgba(var(--color-white-rgb), 0.1);
+  --badge-background-color: rgb(var(--color-white-rgb), 0.1);
 
   color: var(--color-white);
 }
@@ -50,7 +50,7 @@
 }
 
 .dark {
-  --badge-background-color: rgba(var(--color-purple-700-rgb), 0.1);
+  --badge-background-color: rgb(var(--color-purple-700-rgb), 0.1);
 
   color: var(--color-purple-800);
 }
@@ -87,7 +87,7 @@
 }
 
 .animationOn .badge.dark {
-  --badge-background-color: rgba(var(--color-purple-700-rgb), 0.2);
+  --badge-background-color: rgb(var(--color-purple-700-rgb), 0.2);
 }
 
 .animationOn .badge.active {

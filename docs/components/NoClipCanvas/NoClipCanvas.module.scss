@@ -8,8 +8,8 @@
 // Simulate the styles of Storybook Canvas
 .canvas {
   position: relative;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
-  border: 1px solid hsla(203deg, 50%, 30%, 0.15);
+  box-shadow: rgb(0, 0, 0, 0.1) 0 1px 3px 0;
+  border: 1px solid hsl(203deg, 50%, 30%, 0.15);
   border-radius: 4px;
   padding: 30px 20px;
 }

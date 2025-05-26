@@ -46,7 +46,7 @@ $large-width: 450px;
   --border-width: var(--border-width-1);
 
   border: var(--border-width) var(--border-solid-border-style);
-  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 0 7px rgb(0, 0, 0, 0.1));
   border-radius: $border-solid-border-radius;
   color: $color-purple-800;
   text-align: start;
