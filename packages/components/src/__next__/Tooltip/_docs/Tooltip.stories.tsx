@@ -1,9 +1,9 @@
 import React, { type FunctionComponent } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
-import { Button } from '~components/Button'
 import { Focusable } from '~components/Focusable'
 import { Tag } from '~components/__next__'
+import { Button } from '~components/__next__/Button'
 import { Tooltip, TooltipTrigger } from '../index'
 import * as testStories from './Tooltip.spec.stories'
 
@@ -33,7 +33,7 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: ({ defaultOpen: _, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={true} isOpen={isOpen}>
-      <Button label="Button" />
+      <Button>Button</Button>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
