@@ -2,33 +2,35 @@
 @import '~@kaizen/design-tokens/sass/color';
 @import '../../../../../styles/utils/button-reset';
 
-.removeButton {
-  @include button-reset;
+@layer kz-components {
+  .removeButton {
+    @include button-reset;
 
-  position: relative;
-  display: inline-flex;
-  border-radius: 50%;
-  color: rgba($color-purple-800-rgb, 0.7);
-
-  &:focus,
-  &:focus-visible {
-    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
-      var(--color-blue-500);
-    outline-offset: 1px;
-  }
-
-  &::before {
-    position: absolute;
-    content: '';
-    inset: -5px;
+    position: relative;
+    display: inline-flex;
     border-radius: 50%;
-  }
+    color: rgba($color-purple-800-rgb, 0.7);
 
-  &:hover,
-  &:focus,
-  &:focus-visible {
-    background-color: rgba($color-gray-600-rgb, 0.2);
-    cursor: pointer;
-    color: $color-purple-800;
+    &:focus,
+    &:focus-visible {
+      outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+        var(--color-blue-500);
+      outline-offset: 1px;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      inset: -5px;
+      border-radius: 50%;
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      background-color: rgba($color-gray-600-rgb, 0.2);
+      cursor: pointer;
+      color: $color-purple-800;
+    }
   }
 }

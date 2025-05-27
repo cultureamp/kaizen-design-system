@@ -10,7 +10,7 @@
   letter-spacing: $typography-paragraph-body-letter-spacing;
   position: relative;
   /* stylelint-disable-next-line declaration-no-important */
-  white-space: pre-wrap !important; // Override unlayered TipTap styles from within components layer
+  white-space: pre-wrap !important; // Override unlayered TipTap styles from within kz-components layer
   box-sizing: content-box;
   color: $color-purple-800;
 

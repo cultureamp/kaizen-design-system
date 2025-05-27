@@ -3,11 +3,13 @@
 @import '~@kaizen/design-tokens/sass/shadow';
 @import '~@kaizen/design-tokens/sass/spacing';
 
-.container {
-  position: relative;
-  width: 100%;
-}
+@layer kz-components {
+  .container {
+    position: relative;
+    width: 100%;
+  }
 
-.notFullWidth {
-  width: 180px;
+  .notFullWidth {
+    width: 180px;
+  }
 }

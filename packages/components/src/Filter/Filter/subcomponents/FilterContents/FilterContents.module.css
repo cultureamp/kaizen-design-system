@@ -1,3 +1,5 @@
-.filterContents {
-  padding: var(--spacing-24);
+@layer kz-components {
+  .filterContents {
+    padding: var(--spacing-24);
+  }
 }

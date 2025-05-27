@@ -2,9 +2,17 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/border';
 
-%loadingBase {
-  border-radius: $border-solid-border-radius;
-  top: calc(#{$spacing-md} * 0.175);
+@layer kz-components {
+  %loadingBase {
+    border-radius: $border-solid-border-radius;
+    top: calc(#{$spacing-md} * 0.175);
+  }
+
+  %loadingAnimated {
+    animation-name: fade-in-out;
+    animation-duration: calc(#{$animation-duration-deliberate} * 2);
+    animation-iteration-count: infinite;
+  }
 }
 
 @keyframes fade-in-out {
@@ -19,10 +27,4 @@
   100% {
     opacity: 60%;
   }
-}
-
-%loadingAnimated {
-  animation-name: fade-in-out;
-  animation-duration: calc(#{$animation-duration-deliberate} * 2);
-  animation-iteration-count: infinite;
 }

@@ -1,4 +1,6 @@
-.img {
-  max-inline-size: 100%;
-  display: flex;
+@layer kz-components {
+  .img {
+    max-inline-size: 100%;
+    display: flex;
+  }
 }

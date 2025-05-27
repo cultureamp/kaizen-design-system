@@ -1,10 +1,12 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 
-.loadingInput {
-  margin-bottom: $spacing-sm;
-}
+@layer kz-components {
+  .loadingInput {
+    margin-bottom: $spacing-sm;
+  }
 
-.loadingContainer {
-  margin-left: $spacing-sm;
-  margin-right: $spacing-sm;
+  .loadingContainer {
+    margin-left: $spacing-sm;
+    margin-right: $spacing-sm;
+  }
 }
