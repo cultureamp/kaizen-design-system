@@ -1,63 +1,65 @@
 @import '~@kaizen/design-tokens/sass/border';
 @import '~@kaizen/design-tokens/sass/color';
 
-$focus-ring-offset: 1px;
-$focus-ring-offset-inner: calc(-1 * #{$focus-ring-offset});
+@layer kz-components {
+  $focus-ring-offset: 1px;
+  $focus-ring-offset-inner: calc(-1 * #{$focus-ring-offset});
 
-%firstChildBorders {
-  border-start-start-radius: $border-focus-ring-border-radius;
-  border-end-start-radius: $border-focus-ring-border-radius;
-}
+  %firstChildBorders {
+    border-start-start-radius: $border-focus-ring-border-radius;
+    border-end-start-radius: $border-focus-ring-border-radius;
+  }
 
-%lastChildBorders {
-  border-start-end-radius: $border-focus-ring-border-radius;
-  border-end-end-radius: $border-focus-ring-border-radius;
-}
+  %lastChildBorders {
+    border-start-end-radius: $border-focus-ring-border-radius;
+    border-end-end-radius: $border-focus-ring-border-radius;
+  }
 
-.buttonGroup {
-  display: inline-flex;
+  .buttonGroup {
+    display: inline-flex;
 
-  .child {
-    border-radius: 0;
+    .child {
+      border-radius: 0;
 
-    &:focus-visible {
-      &::after {
-        border-radius: 0;
-      }
-    }
-
-    &:not(.firstChild) {
-      border-inline-start: 1px solid $color-blue-300;
-    }
-
-    &:not(.firstChild, .lastChild) {
       &:focus-visible {
         &::after {
-          inset-inline: $focus-ring-offset-inner $focus-ring-offset-inner;
+          border-radius: 0;
         }
       }
-    }
 
-    &.firstChild {
-      @extend %firstChildBorders;
+      &:not(.firstChild) {
+        border-inline-start: 1px solid $color-blue-300;
+      }
 
-      &:focus-visible {
-        &::after {
-          @extend %firstChildBorders;
-
-          inset-inline-end: $focus-ring-offset-inner;
+      &:not(.firstChild, .lastChild) {
+        &:focus-visible {
+          &::after {
+            inset-inline: $focus-ring-offset-inner $focus-ring-offset-inner;
+          }
         }
       }
-    }
 
-    &.lastChild {
-      @extend %lastChildBorders;
+      &.firstChild {
+        @extend %firstChildBorders;
 
-      &:focus-visible {
-        &::after {
-          @extend %lastChildBorders;
+        &:focus-visible {
+          &::after {
+            @extend %firstChildBorders;
 
-          inset-inline-start: $focus-ring-offset-inner;
+            inset-inline-end: $focus-ring-offset-inner;
+          }
+        }
+      }
+
+      &.lastChild {
+        @extend %lastChildBorders;
+
+        &:focus-visible {
+          &::after {
+            @extend %lastChildBorders;
+
+            inset-inline-start: $focus-ring-offset-inner;
+          }
         }
       }
     }

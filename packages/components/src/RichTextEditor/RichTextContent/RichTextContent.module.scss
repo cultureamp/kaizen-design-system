@@ -1,5 +1,7 @@
 @import '../mixins';
 
-.content > :global(.ProseMirror) {
-  @include content-styles;
+@layer kz-components {
+  .content > :global(.ProseMirror) {
+    @include content-styles;
+  }
 }

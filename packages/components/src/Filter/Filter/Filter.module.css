@@ -1,5 +1,7 @@
-@media (width < 768px) {
-  .filter {
-    flex-basis: 100%;
+@layer kz-components {
+  @media (width < 768px) {
+    .filter {
+      flex-basis: 100%;
+    }
   }
 }

@@ -1,7 +1,9 @@
-.clearAllButton {
-  white-space: nowrap;
-}
+@layer kz-components {
+  .clearAllButton {
+    white-space: nowrap;
+  }
 
-.hidden {
-  visibility: hidden;
+  .hidden {
+    visibility: hidden;
+  }
 }

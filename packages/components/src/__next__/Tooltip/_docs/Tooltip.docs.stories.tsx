@@ -1,12 +1,12 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
-import { Button, IconButton } from '~components/Button'
 import { FieldMessage } from '~components/FieldMessage'
 import { Focusable } from '~components/Focusable'
 import { Input } from '~components/Input'
 import { Label } from '~components/Label'
 import { Text } from '~components/Text'
+import { Button } from '~components/__next__/Button'
 import { Icon } from '~components/__next__/Icon'
 import { Tooltip, TooltipTrigger } from '../index'
 import * as TestStories from './Tooltip.spec.stories'
@@ -37,7 +37,7 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: ({ defaultOpen: _, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={true} isOpen={isOpen}>
-      <Button label="Button" />
+      <Button>Button</Button>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -46,14 +46,9 @@ export const Playground: Story = {
 export const Primary: Story = {
   render: () => (
     <TooltipTrigger>
-      <IconButton
-        label="Add something"
-        icon={<Icon name="add" isPresentational />}
-        primary
-        // Negate the aria description (added by RAC) as it should be the
-        // same as the accessible name, therefore no need to duplicate it
-        aria-describedby={null}
-      />
+      <Button icon={<Icon name="add" isPresentational />} hasHiddenLabel>
+        Add something
+      </Button>
       <Tooltip>Add something</Tooltip>
     </TooltipTrigger>
   ),
@@ -105,14 +100,9 @@ export const DoConcise: Story = {
   render: () => (
     <div>
       <TooltipTrigger>
-        <IconButton
-          label="Add topic"
-          icon={<Icon name="add" isPresentational />}
-          primary
-          // Negate the aria description (added by RAC) as it should be the
-          // same as the accessible name, therefore no need to duplicate it
-          aria-describedby={null}
-        />
+        <Button icon={<Icon name="add" isPresentational />} hasHiddenLabel>
+          Add topic
+        </Button>
         <Tooltip>Add topic to agenda</Tooltip>
       </TooltipTrigger>
     </div>
@@ -128,17 +118,12 @@ export const DontConcise: Story = {
   render: () => (
     <div>
       <TooltipTrigger>
-        <IconButton
-          label="Add something"
-          icon={<Icon name="add" isPresentational />}
-          primary
-          // Negate the aria description (added by RAC) as it should be the
-          // same as the accessible name, therefore no need to duplicate it
-          aria-describedby={null}
-        />
+        <Button icon={<Icon name="add" isPresentational />} hasHiddenLabel>
+          Add something
+        </Button>
         <Tooltip>
           Add Topic to agenda. This will create a new topic where you can discuss recent work with
-          your manager.{' '}
+          your manager.
         </Tooltip>
       </TooltipTrigger>
     </div>
@@ -150,11 +135,11 @@ export const ShouldFlip: Story = {
   render: () => (
     <div className="flex flex-col gap-8 pl-96 overflow-hidden max-w-[250px]">
       <TooltipTrigger>
-        <Button label="Should flip" />
+        <Button>Should flip</Button>
         <Tooltip placement="end">Tooltip content</Tooltip>
       </TooltipTrigger>
       <TooltipTrigger>
-        <Button label="Won't flip" />
+        <Button>Won&apos;t flip</Button>
         <Tooltip placement="end" shouldFlip={false}>
           Tooltip content
         </Tooltip>
@@ -188,7 +173,7 @@ export const UncontrolledState: Story = {
           Toggle open
         </button>
         <TooltipTrigger isOpen={isOpen}>
-          <Button label="Button" />
+          <Button>Button</Button>
           <Tooltip>Tooltip content</Tooltip>
         </TooltipTrigger>
       </div>

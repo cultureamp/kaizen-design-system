@@ -4,107 +4,109 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/animation';
 
-$heading-active-color: $color-gray-200;
-$divider-color: rgba($color-gray-600-rgb, 0.2);
-$container-border-width: var(--border-width-1);
+@layer kz-components {
+  $heading-active-color: $color-gray-200;
+  $divider-color: rgba($color-gray-600-rgb, 0.2);
+  $container-border-width: var(--border-width-1);
 
-// We need a full border radius on this container element, then have classes
-// beneath to toggle nested borders off and on for different use cases.
-.container {
-  background-color: $color-white;
-  box-shadow: $shadow-small-box-shadow;
-  border: $container-border-width var(--border-solid-border-style) var(--color-gray-500);
-  border-radius: $border-borderless-border-radius;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  text-align: start;
-  background-color: $color-white;
-  border: none;
-  border-radius: var(--border-borderless-border-radius);
-  transition: background-color $animation-duration-rapid;
-  padding-block: calc(var(--spacing-12) - #{$container-border-width});
-  padding-inline: var(--spacing-24) var(--spacing-12);
-
-  &:hover {
-    background-color: $heading-active-color;
-  }
-
-  // Round the bottom corners of the header so when the container is open, the
-  // header background is not rounded on the corners and flush with the content beneath.
-  &.open {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-}
-
-.separated {
-  & + .separated {
-    margin-top: calc(#{$spacing-md} * 0.3);
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
-
-// When a collapsible group is rendered, we need the first group to have a rounded
-// on top and the last group to have a rounded bottom edge. Then when the last group
-// is open we remove the rounded edge as the content sits beneath and needs to be straight.
-.groupItem {
-  & + .groupItem {
-    border-top: 1px $border-solid-border-style $divider-color;
+  // We need a full border radius on this container element, then have classes
+  // beneath to toggle nested borders off and on for different use cases.
+  .container {
+    background-color: $color-white;
+    box-shadow: $shadow-small-box-shadow;
+    border: $container-border-width var(--border-solid-border-style) var(--color-gray-500);
+    border-radius: $border-borderless-border-radius;
   }
 
   .header {
-    border-radius: 0;
-    padding-block: var(--spacing-12);
+    display: flex;
+    align-items: center;
+    text-align: start;
+    background-color: $color-white;
+    border: none;
+    border-radius: var(--border-borderless-border-radius);
+    transition: background-color $animation-duration-rapid;
+    padding-block: calc(var(--spacing-12) - #{$container-border-width});
+    padding-inline: var(--spacing-24) var(--spacing-12);
+
+    &:hover {
+      background-color: $heading-active-color;
+    }
+
+    // Round the bottom corners of the header so when the container is open, the
+    // header background is not rounded on the corners and flush with the content beneath.
+    &.open {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
   }
 
-  &:first-of-type > .header {
-    border-top-left-radius: $border-borderless-border-radius;
-    border-top-right-radius: $border-borderless-border-radius;
-    padding-block-start: calc(var(--spacing-12) - #{$container-border-width});
+  .separated {
+    & + .separated {
+      margin-top: calc(#{$spacing-md} * 0.3);
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 
-  &:last-of-type > .header:not(.open) {
-    border-bottom-left-radius: $border-borderless-border-radius;
-    border-bottom-right-radius: $border-borderless-border-radius;
-    padding-block-end: calc(var(--spacing-12) - #{$container-border-width});
+  // When a collapsible group is rendered, we need the first group to have a rounded
+  // on top and the last group to have a rounded bottom edge. Then when the last group
+  // is open we remove the rounded edge as the content sits beneath and needs to be straight.
+  .groupItem {
+    & + .groupItem {
+      border-top: 1px $border-solid-border-style $divider-color;
+    }
+
+    .header {
+      border-radius: 0;
+      padding-block: var(--spacing-12);
+    }
+
+    &:first-of-type > .header {
+      border-top-left-radius: $border-borderless-border-radius;
+      border-top-right-radius: $border-borderless-border-radius;
+      padding-block-start: calc(var(--spacing-12) - #{$container-border-width});
+    }
+
+    &:last-of-type > .header:not(.open) {
+      border-bottom-left-radius: $border-borderless-border-radius;
+      border-bottom-right-radius: $border-borderless-border-radius;
+      padding-block-end: calc(var(--spacing-12) - #{$container-border-width});
+    }
   }
-}
 
-.chevronButton:hover {
-  // hack to get rid of the IconButton hover styling because it clashes with the hover styling on the Collapsible header
-  background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
-}
+  .chevronButton:hover {
+    // hack to get rid of the IconButton hover styling because it clashes with the hover styling on the Collapsible header
+    background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
+  }
 
-.title {
-  flex: 1 1 auto;
-}
+  .title {
+    flex: 1 1 auto;
+  }
 
-.defaultVariant {
-  background-color: $heading-active-color;
-}
+  .defaultVariant {
+    background-color: $heading-active-color;
+  }
 
-.clearVariant {
-  border-bottom: 1px $border-solid-border-style $divider-color;
-}
+  .clearVariant {
+    border-bottom: 1px $border-solid-border-style $divider-color;
+  }
 
-.sticky {
-  position: -webkit-sticky; /* stylelint-disable-line value-no-vendor-prefix */
-  position: sticky;
-  z-index: 10;
-}
+  .sticky {
+    position: -webkit-sticky; /* stylelint-disable-line value-no-vendor-prefix */
+    position: sticky;
+    z-index: 10;
+  }
 
-.section {
-  padding: var(--spacing-24);
-}
+  .section {
+    padding: var(--spacing-24);
+  }
 
-.noPadding {
-  padding: 0;
-}
+  .noPadding {
+    padding: 0;
+  }
 
-.hide {
-  display: none;
+  .hide {
+    display: none;
+  }
 }

@@ -2,42 +2,44 @@
 @import '~@kaizen/design-tokens/sass/color';
 @import '../../styles/utils/button-reset';
 
-.clearButton {
-  @include button-reset;
+@layer kz-components {
+  .clearButton {
+    @include button-reset;
 
-  position: relative;
-  display: inline-flex;
-  border-radius: 100%;
+    position: relative;
+    display: inline-flex;
+    border-radius: 100%;
 
-  &:hover {
-    cursor: pointer;
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus-visible {
+      outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+        var(--color-blue-500);
+      outline-offset: -1px;
+    }
   }
 
-  &:focus-visible {
-    outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
-      var(--color-blue-500);
-    outline-offset: -1px;
-  }
-}
+  .default {
+    color: $color-gray-500;
 
-.default {
-  color: $color-gray-500;
-
-  &:hover,
-  &:focus-visible {
-    color: $color-purple-800;
-  }
-}
-
-.reversed {
-  color: rgba($color-white-rgb, 0.8);
-
-  &:hover,
-  &:focus-visible {
-    color: $color-white;
+    &:hover,
+    &:focus-visible {
+      color: $color-purple-800;
+    }
   }
 
-  &:focus-visible {
-    outline-color: var(--color-blue-300);
+  .reversed {
+    color: rgba($color-white-rgb, 0.8);
+
+    &:hover,
+    &:focus-visible {
+      color: $color-white;
+    }
+
+    &:focus-visible {
+      outline-color: var(--color-blue-300);
+    }
   }
 }
