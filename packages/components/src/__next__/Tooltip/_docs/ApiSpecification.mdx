@@ -28,7 +28,7 @@ Tooltips are brief floating labels used to add additional contextual information
   source={{
     code: `
 <TooltipTrigger>
-  <Button label="Button" />
+  <Button>Button</Button>
   <Tooltip>Tooltip content</Tooltip>
 </TooltipTrigger>
   `,
@@ -75,7 +75,7 @@ The `TooltipTrigger` wraps both the `Tooltip` and its trigger element, controlli
 ```jsx
 <TooltipTrigger>
   /* In this case the trigger element is the Button */
-  <Button label="Button" />
+  <Button>Button</Button>
   /* The Tooltip and its content is a child of the trigger */
   <Tooltip>Tooltip content</Tooltip>
 </TooltipTrigger>
