@@ -45,8 +45,8 @@ Install and start processes (this start an interactive UI in your terminal) `dev
 The interactive terminal UI that pops up is called process-compose, see our [Confluence page](1) for tips on how to use it.
 
 Please see the [LDE Confluence page](2) for more information
-[1]:https://cultureamp.atlassian.net/wiki/x/ZYGJyw
-[2]:https://cultureamp.atlassian.net/wiki/spaces/DE/pages/3342434338
+[1]:<https://cultureamp.atlassian.net/wiki/x/ZYGJyw>
+[2]:<https://cultureamp.atlassian.net/wiki/spaces/DE/pages/3342434338>
 
 (Having trouble running Storybook? Try running `pnpm reset`, which includes `pnpm clean` and `pnpm install --force`!)
 
@@ -76,4 +76,4 @@ Please open a new [GitHub Issue](https://github.com/cultureamp/kaizen-design-sys
 
 ## Learn more
 
-Culture Amp employees can reach out to the Design Systems crew on Slack.
+Culture Amp employees can reach out to the Unified Systems crew on Slack.

@@ -454,8 +454,8 @@ export const OnSmallViewport: Story = {
 
     await step('Back and Forward arrow and both visible', async () => {
       await waitFor(() => {
-        const prevMonth = canvas.getByLabelText('Go to previous month')
-        const nextMonth = canvas.getByLabelText('Go to next month')
+        const prevMonth = canvas.getByLabelText(/Go to the previous month/i)
+        const nextMonth = canvas.getByLabelText(/Go to the next month/i)
 
         expect(prevMonth).toBeVisible()
         expect(nextMonth).toBeVisible()

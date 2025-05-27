@@ -185,9 +185,9 @@
   }
 
   &.isDisabled {
-    --button-bg-color: rgba(var(--color-white-rgb), 0.2);
+    --button-bg-color: rgb(var(--color-white-rgb), 0.2);
     --button-border-color: transparent;
-    --button-text-color: rgba(var(--color-purple-800-rgb), 0.7);
+    --button-text-color: rgb(var(--color-purple-800-rgb), 0.7);
   }
 }
 
@@ -197,24 +197,24 @@
   --button-text-color: var(--color-white);
 
   &[data-hovered] {
-    --button-bg-color: rgba(var(--color-white-rgb), 0.2);
+    --button-bg-color: rgb(var(--color-white-rgb), 0.2);
     --button-border-color: var(--color-white);
   }
 
   &[data-pressed] {
-    --button-bg-color: rgba(var(--color-white-rgb), 0.1);
+    --button-bg-color: rgb(var(--color-white-rgb), 0.1);
     --button-border-color: var(--color-white);
   }
 
   &[data-pending] {
-    --button-bg-color: rgba(var(--color-white-rgb), 0.1);
+    --button-bg-color: rgb(var(--color-white-rgb), 0.1);
     --button-border-color: var(--color-white);
   }
 
   &.isDisabled {
     --button-bg-color: transparent;
-    --button-border-color: rgba(var(--color-white), 0.2);
-    --button-text-color: rgba(var(--color-white-rgb), 0.2);
+    --button-border-color: rgb(var(--color-white), 0.2);
+    --button-text-color: rgb(var(--color-white-rgb), 0.2);
   }
 }
 
@@ -224,24 +224,24 @@
   --button-text-color: var(--color-white);
 
   &[data-hovered] {
-    --button-bg-color: rgba(var(--color-white-rgb), 0.2);
+    --button-bg-color: rgb(var(--color-white-rgb), 0.2);
     --button-border-color: transparent;
   }
 
   &[data-pressed] {
-    --button-bg-color: rgba(var(--color-white-rgb), 0.1);
+    --button-bg-color: rgb(var(--color-white-rgb), 0.1);
     --button-border-color: transparent;
   }
 
   &[data-pending] {
-    --button-bg-color: rgba(var(--color-white-rgb), 0.1);
+    --button-bg-color: rgb(var(--color-white-rgb), 0.1);
     --button-border-color: transparent;
   }
 
   &.isDisabled {
     --button-bg-color: transparent;
     --button-border-color: transparent;
-    --button-text-color: rgba(var(--color-white-rgb), 0.2);
+    --button-text-color: rgb(var(--color-white-rgb), 0.2);
   }
 }
 

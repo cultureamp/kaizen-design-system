@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.74.3",
+  "version": "1.78.1",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -33,69 +33,69 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/esm/index.mjs",
-      "require": "./dist/cjs/index.cjs",
-      "types": "./dist/types/index.d.ts"
+      "require": "./dist/cjs/index.cjs"
     },
     "./future": {
+      "types": "./dist/types/__next__/index.d.ts",
       "import": "./dist/esm/future.mjs",
-      "require": "./dist/cjs/future.cjs",
-      "types": "./dist/types/__next__/index.d.ts"
+      "require": "./dist/cjs/future.cjs"
     },
     "./next": {
+      "types": "./dist/types/__next__/index.d.ts",
       "import": "./dist/esm/next.mjs",
-      "require": "./dist/cjs/next.cjs",
-      "types": "./dist/types/__next__/index.d.ts"
+      "require": "./dist/cjs/next.cjs"
     },
     "./v1/actions": {
+      "types": "./dist/types/v1-actions.d.ts",
       "import": "./dist/esm/actionsV1.mjs",
-      "require": "./dist/cjs/actionsV1.cjs",
-      "types": "./dist/types/v1-actions.d.ts"
+      "require": "./dist/cjs/actionsV1.cjs"
     },
     "./v1/overlays": {
+      "types": "./dist/types/v1-overlays.d.ts",
       "import": "./dist/esm/overlaysV1.mjs",
-      "main": "./dist/cjs/overlaysV1.cjs",
-      "types": "./dist/types/v1-overlays.d.ts"
+      "main": "./dist/cjs/overlaysV1.cjs"
     },
     "./v2/actions": {
+      "types": "./dist/types/v2-actions.d.ts",
       "import": "./dist/esm/actionsV2.mjs",
-      "require": "./dist/cjs/actionsV2.cjs",
-      "types": "./dist/types/v2-actions.d.ts"
+      "require": "./dist/cjs/actionsV2.cjs"
     },
     "./v2/overlays": {
+      "types": "./dist/types/v2-overlays.d.ts",
       "import": "./dist/esm/overlaysV2.mjs",
-      "require": "./dist/cjs/overlaysV2.cjs",
-      "types": "./dist/types/v2-overlays.d.ts"
+      "require": "./dist/cjs/overlaysV2.cjs"
     },
     "./v3/actions": {
+      "types": "./dist/types/v3-actions.d.ts",
       "import": "./dist/esm/actionsV3.mjs",
-      "require": "./dist/cjs/actionsV3.cjs",
-      "types": "./dist/types/v3-actions.d.ts"
+      "require": "./dist/cjs/actionsV3.cjs"
     },
     "./v3/overlays": {
+      "types": "./dist/types/v3-overlays.d.ts",
       "import": "./dist/esm/overlaysV3.mjs",
-      "require": "./dist/cjs/overlaysV3.cjs",
-      "types": "./dist/types/v3-overlays.d.ts"
+      "require": "./dist/cjs/overlaysV3.cjs"
     },
     "./v3/react-aria": {
+      "types": "./dist/types/__react-aria__/index.d.ts",
       "import": "./dist/esm/reactAriaV3.mjs",
-      "require": "./dist/cjs/reactAriaV3.cjs",
-      "types": "./dist/types/__react-aria__/index.d.ts"
+      "require": "./dist/cjs/reactAriaV3.cjs"
     },
     "./v3/react-aria-components": {
+      "types": "./dist/types/__react-aria-components__/index.d.ts",
       "import": "./dist/esm/reactAriaComponentsV3.mjs",
-      "require": "./dist/cjs/reactAriaComponentsV3.cjs",
-      "types": "./dist/types/__react-aria-components__/index.d.ts"
+      "require": "./dist/cjs/reactAriaComponentsV3.cjs"
     },
     "./v3/utilities": {
+      "types": "./dist/types/__utilities__/index.d.ts",
       "import": "./dist/esm/utilitiesV3.mjs",
-      "require": "./dist/cjs/utilitiesV3.cjs",
-      "types": "./dist/types/__utilities__/index.d.ts"
+      "require": "./dist/cjs/utilitiesV3.cjs"
     },
     "./dist/styles.css": {
+      "style": "./dist/styles.css",
       "import": "./dist/styles.css",
-      "require": "./dist/styles.css",
-      "style": "./dist/styles.css"
+      "require": "./dist/styles.css"
     }
   },
   "bin": {
@@ -103,7 +103,7 @@
   },
   "scripts": {
     "lint:ts": "tsc --noEmit",
-    "build": "pnpm package-bundler build-shared-ui && pnpm build:styles",
+    "build": "ts-patch install -s && pnpm package-bundler build-shared-ui && pnpm build:styles",
     "build:global-styles": "postcss ./styles/global.css --output dist/global.css",
     "build:combine-styles": "concat-cli -f ./dist/global.css ./dist/styles.css -o ./dist/styles.css && rm ./dist/global.css",
     "build:styles": "pnpm build:global-styles && pnpm build:combine-styles",
@@ -115,47 +115,46 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
-    "@headlessui/react": "<=1.5.0",
-    "@internationalized/date": "^3.7.0",
+    "@headlessui/react": "^2.2.4",
+    "@internationalized/date": "^3.8.1",
     "@popperjs/core": "^2.11.8",
     "@reach/tabs": "^0.18.0",
-    "@react-aria/button": "^3.12.1",
-    "@react-aria/datepicker": "^3.14.1",
-    "@react-aria/focus": "^3.20.1",
-    "@react-aria/i18n": "^3.12.7",
-    "@react-aria/listbox": "^3.14.2",
-    "@react-aria/menu": "^3.18.1",
-    "@react-aria/overlays": "^3.26.1",
-    "@react-aria/select": "^3.15.3",
-    "@react-aria/utils": "^3.28.1",
-    "@react-stately/collections": "^3.12.2",
-    "@react-stately/datepicker": "^3.13.0",
-    "@react-stately/list": "^3.12.0",
-    "@react-stately/menu": "^3.9.2",
-    "@react-stately/select": "^3.6.11",
-    "@react-types/shared": "^3.28.0",
+    "@react-aria/button": "^3.13.1",
+    "@react-aria/datepicker": "^3.14.3",
+    "@react-aria/focus": "^3.20.3",
+    "@react-aria/i18n": "^3.12.9",
+    "@react-aria/listbox": "^3.14.4",
+    "@react-aria/menu": "^3.18.3",
+    "@react-aria/overlays": "^3.27.1",
+    "@react-aria/select": "^3.15.5",
+    "@react-aria/utils": "^3.29.0",
+    "@react-stately/collections": "^3.12.4",
+    "@react-stately/datepicker": "^3.14.1",
+    "@react-stately/list": "^3.12.2",
+    "@react-stately/menu": "^3.9.4",
+    "@react-stately/select": "^3.6.13",
+    "@react-types/shared": "^3.29.1",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "lodash.debounce": "^4.0.8",
     "nanobus": "^4.5.0",
-    "prosemirror-commands": "^1.6.2",
+    "prosemirror-commands": "^1.7.1",
     "prosemirror-history": "^1.4.1",
-    "prosemirror-inputrules": "^1.4.0",
-    "prosemirror-keymap": "^1.2.2",
-    "prosemirror-model": "^1.24.1",
-    "prosemirror-schema-basic": "^1.2.3",
-    "prosemirror-schema-list": "^1.5.0",
+    "prosemirror-inputrules": "^1.5.0",
+    "prosemirror-keymap": "^1.2.3",
+    "prosemirror-model": "^1.25.1",
+    "prosemirror-schema-basic": "^1.2.4",
+    "prosemirror-schema-list": "^1.5.1",
     "prosemirror-state": "^1.4.3",
-    "prosemirror-transform": "^1.10.2",
+    "prosemirror-transform": "^1.10.4",
     "prosemirror-utils": "^1.2.2",
-    "prosemirror-view": "^1.37.1",
+    "prosemirror-view": "^1.39.3",
     "react-animate-height": "^3.2.3",
-    "react-aria": "^3.38.1",
-    "react-aria-components": "^1.7.1",
-    "react-day-picker": "8.10.1",
+    "react-aria": "^3.40.0",
+    "react-aria-components": "^1.9.0",
+    "react-day-picker": "9.6.7",
     "react-focus-lock": "^2.13.6",
     "react-focus-on": "^3.9.4",
-    "react-media": "^1.10.0",
     "react-popper": "^2.3.0",
     "react-select": "^5.10.1",
     "react-textfit": "^1.1.1",
@@ -167,10 +166,10 @@
     "react-day-picker": "Version locked until a11y gets fixed (https://github.com/gpbl/react-day-picker/pull/1708)"
   },
   "devDependencies": {
-    "@cultureamp/frontend-apis": "^13.2.5",
-    "@cultureamp/i18n-react-intl": "^2.7.3",
+    "@cultureamp/frontend-apis": "13.3.0",
+    "@cultureamp/i18n-react-intl": "^2.9.1",
+    "@cultureamp/package-bundler": "^2.3.2",
     "@kaizen/design-tokens": "workspace:*",
-    "@kaizen/package-bundler": "workspace:*",
     "@testing-library/dom": "^10.4.0",
     "@types/jest-axe": "^3.5.9",
     "@types/lodash.debounce": "^4.0.9",
@@ -186,28 +185,30 @@
     "postcss": "^8.5.3",
     "postcss-cli": "^11.0.1",
     "postcss-import": "^16.1.0",
-    "postcss-preset-env": "^10.1.5",
+    "postcss-preset-env": "^10.1.6",
     "postcss-scss": "^4.0.9",
-    "query-string": "^9.1.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "query-string": "^9.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-highlight": "^0.15.0",
-    "react-intl": "^7.1.10",
-    "rollup": "^4.38.0",
+    "react-intl": "^7.1.11",
+    "rollup": "^4.40.2",
     "sass": "1.79.6",
     "serialize-query-params": "^2.0.2",
     "svgo": "^3.3.2",
     "tslib": "^2.8.1",
-    "tsx": "^4.19.3"
+    "ts-patch": "^3.3.0",
+    "tsx": "^4.19.4"
   },
   "devDependenciesComments": {
     "sass": "Prevent deprecation warnings introduced in 1.80 as we plan to move away from sass",
-    "typescript": "Installed in root"
+    "typescript": "Installed in root",
+    "frontend-apis": "There's an unresolved dep with 13.4.0 and onwards with node/msw, so we are locking to 13.3.0 for this update."
   },
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.5.9",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^18.3.1 || ^19.0.0",
+    "react-dom": "^18.3.1 || ^19.0.0",
     "react-intl": "^6.6.8 || ^7.0.0",
     "typescript": "5.x"
   },

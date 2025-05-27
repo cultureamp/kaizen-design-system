@@ -57,8 +57,8 @@
   --border-color: var(--color-green-500);
 }
 
-// These are @deprecated but must come after `color` so not everything will default to white
-// This will be @deprecated
+/* // These are @deprecated but must come after `color` so not everything will default to white
+// This will be @deprecated */
 .default {
   --background-color: var(--color-gray-200);
   --border-color: var(--color-gray-500);
@@ -89,9 +89,9 @@
   --border-color: var(--color-purple-400);
 }
 
-// @deprecated end
+/* // @deprecated end
 
-// Border Style Variations
+// Border Style Variations */
 .solid {
   --border-style: solid;
 }

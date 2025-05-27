@@ -41,6 +41,7 @@ $rdp-cell-size: 40px;
 
 .root {
   display: inline-flex;
+  position: relative;
 }
 
 .months {
@@ -56,7 +57,6 @@ $rdp-cell-size: 40px;
 }
 
 .caption {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,12 +166,17 @@ $rdp-cell-size: 40px;
 
 .daySelected {
   background-color: $color-blue-500;
+  border-radius: $button-border-radius;
   color: $color-white;
 
-  &:hover,
-  &:focus-visible {
-    background-color: $color-blue-400;
+  & .button {
     color: $color-white;
+
+    &:hover,
+    &:focus-visible {
+      background-color: $color-blue-400;
+      color: $color-white;
+    }
   }
 }
 
@@ -182,20 +187,8 @@ $rdp-cell-size: 40px;
   // https://github.com/gpbl/react-day-picker/issues/1449#issuecomment-1149942033
   background: none;
   pointer-events: none;
-  color: rgba($color-purple-800-rgb, 0.3);
-}
 
-// We can't use <VisuallyHidden />, so copied the styles here.
-%visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.vHidden {
-  @extend %visually-hidden;
+  & [class*='_button_'] {
+    color: rgba($color-purple-800-rgb, 0.3);
+  }
 }

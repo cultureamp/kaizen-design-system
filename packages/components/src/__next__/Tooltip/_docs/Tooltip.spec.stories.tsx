@@ -2,11 +2,12 @@ import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, userEvent, waitFor, within } from '@storybook/test'
 import isChromatic from 'chromatic'
-import { Button, IconButton } from '~components/Button'
 import { Focusable } from '~components/Focusable'
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from '~components/Tabs'
+import { LinkButton } from '~components/LinkButton'
 import { Text } from '~components/Text'
+import { Button } from '~components/__next__/Button'
 import { Icon } from '~components/__next__/Icon'
+import { Tab, TabList, TabPanel, Tabs } from '~components/__next__/Tabs'
 import { Tag } from '~components/__next__/Tag'
 import { Tooltip, TooltipTrigger } from '../index'
 
@@ -32,12 +33,10 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-// TODO: update this to use the new `next` button component
-
 export const OnButton: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button label="Button" />
+      <Button>Button</Button>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -46,10 +45,12 @@ export const OnButton: Story = {
     const button = canvas.queryByRole('button') ?? canvas.getByRole('link')
 
     await step('Hover shows', async () => {
-      await userEvent.unhover(button)
+      await waitFor(() => userEvent.unhover(button))
       await userEvent.hover(button)
-      await waitFor(() => expect(canvas.getByRole('tooltip')).toBeVisible())
-      expect(button).toHaveAttribute('aria-describedby', canvas.getByRole('tooltip').id)
+      const tooltip = canvas.findByRole('tooltip')
+      await expect(await tooltip).toBeInTheDocument()
+      await expect((await tooltip).checkVisibility()).toBe(true)
+      await expect(button).toHaveAttribute('aria-describedby', canvas.getByRole('tooltip').id)
       await userEvent.unhover(button)
     })
 
@@ -76,7 +77,7 @@ export const OnLink: Story = {
   ...OnButton,
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button label="Button" href="#" />
+      <LinkButton href="#">Button</LinkButton>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -86,12 +87,9 @@ export const OnButtonWithDesc: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <>
       <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-        <IconButton
-          label="(TESTING) Add label"
-          icon={<Icon name="add" isPresentational />}
-          primary
-          aria-describedby="blah"
-        />
+        <Button icon={<Icon name="add" isPresentational />} aria-describedby="blah" hasHiddenLabel>
+          (TESTING) Add label
+        </Button>
         <Tooltip {...args}>Tooltip content</Tooltip>
       </TooltipTrigger>
       <Text variant="body" id="blah" classNameOverride="p-4">
@@ -104,14 +102,9 @@ export const OnButtonWithDesc: Story = {
 export const OnIconButton: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <IconButton
-        label="Add something"
-        icon={<Icon name="add" isPresentational />}
-        primary
-        // Negate the aria description (added by RAC) as it should be the
-        // same as the accessible name, therefore no need to duplicate it
-        aria-describedby={null}
-      />
+      <Button icon={<Icon name="add" isPresentational />} hasHiddenLabel>
+        Add something
+      </Button>
       <Tooltip {...args}>Add something</Tooltip>
     </TooltipTrigger>
   ),
@@ -120,36 +113,7 @@ export const OnIconButton: Story = {
 export const OnDisabledButton: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button label="Button" disabled />
-      <Tooltip {...args}>Tooltip content</Tooltip>
-    </TooltipTrigger>
-  ),
-}
-
-export const OnCustomButtonAnchor: Story = {
-  name: 'On Button with custom <a>',
-  render: ({ defaultOpen, isOpen, ...args }) => (
-    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button
-        label="Button"
-        component={(props) => (
-          // eslint-disable-next-line jsx-a11y/anchor-is-valid
-          <a {...props} href="#" style={{ padding: '0 1rem' }}>
-            Custom Link
-          </a>
-        )}
-      />
-      <Tooltip {...args}>Tooltip content</Tooltip>
-    </TooltipTrigger>
-  ),
-}
-
-export const OnCustomButton: Story = {
-  ...OnButton,
-  name: 'On Button with custom <button>',
-  render: ({ defaultOpen, isOpen, ...args }) => (
-    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button label="Button" component={(props) => <button type="button" {...props} />} />
+      <Button isDisabled>Button</Button>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),
@@ -175,9 +139,8 @@ export const OnTabs: Story = {
           <Tooltip {...args}>Tooltip content</Tooltip>
         </TooltipTrigger>
       </TabList>
-      <TabPanels>
-        <TabPanel classNameOverride="p-24 font-family-paragraph">Tab content</TabPanel>
-      </TabPanels>
+
+      <TabPanel className="p-24 font-family-paragraph">Tab content</TabPanel>
     </Tabs>
   ),
 }
@@ -185,7 +148,7 @@ export const OnTabs: Story = {
 export const Placement: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button label="Button" />
+      <Button>Button</Button>
       <Tooltip {...args} placement="top" shouldFlip={false}>
         Placement top
       </Tooltip>
@@ -205,7 +168,7 @@ export const Placement: Story = {
 export const ReversedColors: Story = {
   render: ({ defaultOpen, isOpen, ...args }) => (
     <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
-      <Button label="Button" />
+      <Button>Button</Button>
       <Tooltip {...args}>Tooltip content</Tooltip>
     </TooltipTrigger>
   ),

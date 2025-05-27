@@ -8,7 +8,8 @@ describe('isSelectingDayInCalendar', () => {
     render(<CalendarSingle defaultMonth={new Date('2022-02-01')} />)
     const targetMonth = screen.getByRole('grid', { name: 'February 2022' })
     const targetDay = within(targetMonth).getByRole('gridcell', { name: '1' })
-    expect(isSelectingDayInCalendar(targetDay)).toBe(true)
+    const targetBtn = within(targetDay).getByRole('button')
+    expect(isSelectingDayInCalendar(targetBtn)).toBe(true)
   })
 
   it('returns false when target is not a Calendar day', () => {

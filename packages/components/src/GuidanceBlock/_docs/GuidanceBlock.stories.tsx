@@ -6,7 +6,14 @@ import {
   Informative,
   SkillsCoachEssentialFeedback,
 } from '~components/Illustration'
+import { LinkButton } from '~components/LinkButton'
 import { Text } from '~components/Text'
+import { Button } from '~components/__next__/Button'
+import { Icon } from '~components/__next__/Icon'
+import {
+  Tooltip as TooltipNext,
+  TooltipTrigger as TooltipTriggerNext,
+} from '~components/__next__/Tooltip'
 import { GuidanceBlock } from '../index'
 import { variantsMap } from '../types'
 
@@ -52,6 +59,64 @@ const meta = {
       description:
         'This takes a scene scene or spot element, ie: `<Informative />`. This radio button implementation is a storybook only representation to toggle between the two illustration styles.',
     },
+    actionsSlot: {
+      control: {
+        type: 'select',
+      },
+
+      options: [
+        'Primary action',
+        'Primary and Secondary action',
+        'Action with Icon',
+        'Action with Tooltip',
+      ],
+      mapping: {
+        'Primary action': (
+          <Button variant="secondary" onPress={() => alert('tada: 🎉')}>
+            Label
+          </Button>
+        ),
+        'Primary and Secondary action': (
+          <>
+            <Button variant="secondary" onPress={() => alert('tada: 🎉')}>
+              Label
+            </Button>
+            <LinkButton variant="tertiary" href="#link">
+              Secondary action
+            </LinkButton>
+          </>
+        ),
+        'Action with Icon': (
+          <TooltipTriggerNext defaultOpen>
+            <Button
+              size="large"
+              variant="secondary"
+              onPress={() => alert('tada: 🎉')}
+              iconPosition="end"
+              icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
+            >
+              Label
+            </Button>
+            <TooltipNext>Tooltip content</TooltipNext>
+          </TooltipTriggerNext>
+        ),
+        'Action with Tooltip': (
+          <TooltipTriggerNext defaultOpen>
+            <LinkButton
+              variant="secondary"
+              href="#lorem"
+              target="_blank"
+              rel="noopener noreferrer"
+              size="large"
+              iconPosition="end"
+            >
+              Label
+            </LinkButton>
+            <TooltipNext>Tooltip content</TooltipNext>
+          </TooltipTriggerNext>
+        ),
+      },
+    },
     content: {
       description:
         'If you need to render custom content inside of the `GuidanceBlock` that is more than just a title and description use this prop instead of the default `text` option.',
@@ -81,11 +146,11 @@ export const Actions: Story = {
     content: <ContentComponent />,
     actions: {
       primary: {
-        label: 'Learn more',
+        label: 'Label',
         onClick: () => alert('tada: 🎉'),
       },
       secondary: {
-        label: 'Dismiss',
+        label: 'Label',
         href: '#',
       },
     },
@@ -97,7 +162,7 @@ export const Tooltip: Story = {
     content: <ContentComponent />,
     actions: {
       primary: {
-        label: 'Hover me for a tooltip',
+        label: 'Label',
         onClick: () => alert('tada: 🎉'),
         tooltip: {
           text: 'Opens in a new tab',
@@ -105,7 +170,7 @@ export const Tooltip: Story = {
         },
       },
       secondary: {
-        label: 'Dismiss',
+        label: 'Label',
         href: '#',
       },
     },
@@ -150,4 +215,140 @@ export const Variants: Story = {
   args: {
     text: defaultText,
   },
+}
+
+export const ActionsVsActionsSlot: Story = {
+  args: {
+    layout: 'default',
+    illustration: <Informative alt="" />,
+    content: <ContentComponent />,
+    actions: {
+      dismiss: {
+        onClick: () => {
+          alert('Dismissed')
+        },
+      },
+      primary: {
+        label: 'Label',
+        onClick: () => alert('tada: 🎉'),
+      },
+      secondary: {
+        label: 'Label',
+        href: '#',
+      },
+    },
+    secondaryDismiss: true,
+  },
+  render: (args) => (
+    <div className="flex flex-col gap-16">
+      <GuidanceBlock
+        layout="default"
+        illustration={<Informative alt="" />}
+        content={<ContentComponent />}
+        actions={args.actions}
+        secondaryDismiss
+      />
+      <GuidanceBlock
+        layout="default"
+        illustration={<Informative alt="" />}
+        content={<ContentComponent />}
+        secondaryDismiss={true}
+        actionsSlot={
+          <>
+            <Button size="large" onPress={() => alert('tada: 🎉')} slot="primary">
+              Label
+            </Button>
+            <Button variant="tertiary" size="large" onPress={() => alert('tada: 🎉')}>
+              Label
+            </Button>
+          </>
+        }
+      />
+    </div>
+  ),
+}
+
+export const ActionsSlot: Story = {
+  args: {
+    layout: 'default',
+    illustration: <Informative alt="" />,
+    content: <ContentComponent />,
+    actionsSlot: (
+      <>
+        <Button
+          variant="secondary"
+          size="large"
+          onPress={() => alert('tada: 🎉')}
+          iconPosition="end"
+          slot="primary"
+        >
+          Label
+        </Button>
+      </>
+    ),
+  },
+  render: (args) => (
+    <div className="flex flex-col gap-16">
+      <GuidanceBlock {...args} />
+    </div>
+  ),
+}
+
+export const MultipleActions: Story = {
+  args: {
+    layout: 'default',
+    illustration: <Informative alt="" />,
+    content: <ContentComponent />,
+    actionsSlot: (
+      <>
+        <Button
+          variant="secondary"
+          size="large"
+          onPress={() => alert('tada: 🎉')}
+          iconPosition="end"
+          slot="primary"
+          icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}
+        >
+          Label
+        </Button>
+        <LinkButton slot="secondary" variant="tertiary" size="large" href="#">
+          Label
+        </LinkButton>
+      </>
+    ),
+  },
+  render: (args) => (
+    <div className="flex flex-col gap-16">
+      <GuidanceBlock {...args} />
+    </div>
+  ),
+}
+
+export const ActionsSlotWithTooltips: Story = {
+  args: {
+    layout: 'default',
+    illustration: <Informative alt="" />,
+    content: <ContentComponent />,
+    actionsSlot: (
+      <>
+        <TooltipTriggerNext>
+          <Button variant="secondary" size="large" onPress={() => alert('tada: 🎉')}>
+            Label
+          </Button>
+          <TooltipNext>Tooltip Content</TooltipNext>
+        </TooltipTriggerNext>
+        <TooltipTriggerNext>
+          <LinkButton variant="tertiary" size="large" href="#">
+            Label
+          </LinkButton>
+          <TooltipNext>Tooltip secondary content</TooltipNext>
+        </TooltipTriggerNext>
+      </>
+    ),
+  },
+  render: (args) => (
+    <div className="flex flex-col gap-16">
+      <GuidanceBlock {...args} />
+    </div>
+  ),
 }
