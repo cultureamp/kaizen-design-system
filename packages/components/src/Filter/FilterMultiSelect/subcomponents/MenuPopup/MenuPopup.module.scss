@@ -8,22 +8,23 @@
   $menu-container-width: 294px;
   $menu-container-max-height: 312px;
 
-.menuPopup {
-  z-index: 1000; // from $ca-z-index-dropdown
-  box-sizing: border-box;
-  background: $color-white;
-  color: $color-purple-800;
-  border-radius: $border-solid-border-radius;
-  box-shadow: $shadow-large-box-shadow;
-  padding: $spacing-sm 0;
-  margin-top: $spacing-xs;
-  text-align: start;
-  width: $menu-container-width;
-  scrollbar-width: none;
-}
+  .menuPopup {
+    z-index: 1000; // from $ca-z-index-dropdown
+    box-sizing: border-box;
+    background: $color-white;
+    color: $color-purple-800;
+    border-radius: $border-solid-border-radius;
+    box-shadow: $shadow-large-box-shadow;
+    padding: $spacing-sm 0;
+    margin-top: $spacing-xs;
+    text-align: start;
+    width: $menu-container-width;
+    scrollbar-width: none;
+  }
 
-.menuPopup[popover]:popover-open {
-  z-index: unset;
-  margin: 0;
-  inset: unset;
+  .menuPopup[popover]:popover-open {
+    z-index: unset;
+    margin: 0;
+    inset: unset;
+  }
 }
