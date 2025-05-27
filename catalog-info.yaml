@@ -21,9 +21,9 @@ metadata:
     - users-internal
   annotations:
     github.com/project-slug: cultureamp/kaizen-design-system
-    github.com/team-slug: cultureamp/kaizen-design-system
+    github.com/team-slug: cultureamp/unified-systems
     buildkite.com/project-slug: culture-amp/kaizen-design-system
 spec:
   type: library
   lifecycle: production
-  owner: kaizen-design-system
+  owner: unified-systems

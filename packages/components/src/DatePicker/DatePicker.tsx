@@ -1,6 +1,6 @@
 import React, { useEffect, useId, useRef, useState, type RefObject } from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
-import { type DayClickEventHandler } from 'react-day-picker'
+import { type DayEventHandler } from 'react-day-picker'
 import { FocusOn } from 'react-focus-on'
 import {
   CalendarSingle,
@@ -161,7 +161,7 @@ export const DatePicker = ({
     onDayChange(newDate)
   }
 
-  const handleCalendarDayChange: DayClickEventHandler = (date) => {
+  const handleCalendarDayChange: DayEventHandler<React.MouseEvent> = (date) => {
     if (!isDisabledDate(date, disabledDays)) {
       const newInputValue =
         lastTrigger === 'calendarButton'

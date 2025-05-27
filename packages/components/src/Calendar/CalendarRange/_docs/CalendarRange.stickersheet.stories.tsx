@@ -89,7 +89,8 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   ): HTMLElement => {
     const calendar = canvas.getByTestId(id)
     const month = within(calendar).getByRole('grid', { name: monthName })
-    return within(month).getByRole('gridcell', { name: dayName })
+    const day = within(month).getByRole('gridcell', { name: dayName })
+    return within(day).getByRole('button')
   }
 
   const calendarsPseudoStates = [

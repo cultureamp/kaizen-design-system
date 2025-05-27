@@ -1,5 +1,19 @@
 # Change Log
 
+## 10.10.0
+
+### Minor Changes
+
+- [#5552](https://github.com/cultureamp/kaizen-design-system/pull/5552) [`fd29d3d`](https://github.com/cultureamp/kaizen-design-system/commit/fd29d3d2967221c79537e2f7b6c6e9c7a492baf2) - Upgrade packages to support React 19
+
+  - Update all peer dependencies to support 18-19 range
+  - Update react-day-picker to v9
+    - this changes some UX (for the better) when using active ranges
+    - the dom structure has changed and may require test and css updates
+  - Some dependencies have their peerDeps altered to allow 19, these will eventually be removed
+
+  _Note_ updating to this version of kaizen will not force you onto react 19 it'll continue to use 18 until you upgrade the consuming app
+
 ## 10.9.1
 
 ### Patch Changes
