@@ -2,199 +2,200 @@
 @import '~@kaizen/design-tokens/sass/border';
 @import '../../styles/utils/button-reset';
 
-// Sync with PopoverModern.tsx
-$arrow-width: 14px;
-$arrow-height: 7px;
+@layer kz-components {
+  // Sync with PopoverModern.tsx
+  $arrow-width: 14px;
+  $arrow-height: 7px;
 
-$large-width: 450px;
+  $large-width: 450px;
 
-// Suggestion: with this implementation, the anchor point of the popover is at the base of the triangle. But,
-// we would ideally want it at the tip of the triangle. Otherwise, when using the popover, the consumer needs to manually
-// add something like a `margin-top: 8px` to get the popover properly positioned.
-// I didn't update this, as I didn't want to introduce a breaking change.
-@mixin arrow($background-color, $border-color) {
-  &::before,
-  &::after {
-    content: '';
+  // Suggestion: with this implementation, the anchor point of the popover is at the base of the triangle. But,
+  // we would ideally want it at the tip of the triangle. Otherwise, when using the popover, the consumer needs to manually
+  // add something like a `margin-top: 8px` to get the popover properly positioned.
+  // I didn't update this, as I didn't want to introduce a breaking change.
+  @mixin arrow($background-color, $border-color) {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      border-left: calc(#{$arrow-width} / 2) solid transparent;
+      border-right: calc(#{$arrow-width} / 2) solid transparent;
+      top: 0;
+      left: 0;
+    }
+
+    &::before {
+      border-top: $arrow-height solid $border-color;
+    }
+
+    /* The white fill of the triangle */
+    &::after {
+      border-top: $arrow-height solid $background-color;
+      margin-top: -1.5px;
+      z-index: 1;
+    }
+  }
+
+  .root {
+    width: 220px;
     position: absolute;
-    border-left: calc(#{$arrow-width} / 2) solid transparent;
-    border-right: calc(#{$arrow-width} / 2) solid transparent;
-    top: 0;
-    left: 0;
+    left: 50%;
+    // also see the component file under getRootStyle, which will transform the element
   }
 
-  &::before {
-    border-top: $arrow-height solid $border-color;
-  }
+  %box {
+    --border-width: var(--border-width-1);
 
-  /* The white fill of the triangle */
-  &::after {
-    border-top: $arrow-height solid $background-color;
-    margin-top: -1.5px;
-    z-index: 1;
-  }
-}
-
-.root {
-  width: 220px;
-  position: absolute;
-  left: 50%;
-  // also see the component file under getRootStyle, which will transform the element
-}
-
-%box {
-  --border-width: var(--border-width-1);
-
-  border: var(--border-width) var(--border-solid-border-style);
-  filter: drop-shadow(0 0 7px rgb(0, 0, 0, 0.1));
-  border-radius: $border-solid-border-radius;
-  color: $color-purple-800;
-  text-align: start;
-  padding-block: calc(var(--spacing-12) - var(--border-width))
-    calc(var(--spacing-16) - var(--border-width));
-  padding-inline: calc(var(--spacing-16) - var(--border-width));
-}
-
-$default-box-border-color: var(--color-gray-500);
-
-.defaultBox {
-  @extend %box;
-
-  background: var(--color-white);
-  border-color: $default-box-border-color;
-}
-
-.defaultArrow {
-  @include arrow(var(--color-white), $default-box-border-color);
-}
-
-$informative-box-border-color: var(--color-blue-400);
-
-.informativeBox {
-  @extend %box;
-
-  background: $color-blue-100;
-  border-color: $informative-box-border-color;
-}
-
-.informativeArrow {
-  @include arrow($color-blue-100, $informative-box-border-color);
-}
-
-$positive-box-border-color: var(--color-green-500);
-
-.positiveBox {
-  @extend %box;
-
-  background: $color-green-100;
-  border-color: $positive-box-border-color;
-}
-
-.positiveArrow {
-  @include arrow($color-green-100, $positive-box-border-color);
-}
-
-$negative-box-border-color: var(--color-red-500);
-
-.negativeBox {
-  @extend %box;
-
-  background: $color-red-100;
-  border-color: $negative-box-border-color;
-}
-
-.negativeArrow {
-  @include arrow($color-red-100, $negative-box-border-color);
-}
-
-$cautionary-box-border-color: var(--color-yellow-700);
-
-.cautionaryBox {
-  @extend %box;
-
-  background: $color-yellow-100;
-  border-color: $cautionary-box-border-color;
-}
-
-.cautionaryArrow {
-  @include arrow($color-yellow-100, $cautionary-box-border-color);
-}
-
-.header {
-  position: relative;
-  margin-bottom: var(--spacing-6);
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  padding-inline-end: var(--spacing-24);
-}
-
-.container {
-  position: relative;
-  white-space: pre-line;
-}
-
-.icon {
-  display: inherit;
-  margin-inline-end: var(--spacing-6);
-}
-
-.informativeIcon {
-  color: var(--color-blue-500);
-}
-
-.positiveIcon {
-  color: var(--color-green-500);
-}
-
-.negativeIcon {
-  color: var(--color-red-500);
-}
-
-.cautionaryIcon {
-  color: var(--color-yellow-700);
-}
-
-.close {
-  @include button-reset;
-
-  position: absolute;
-  right: 0;
-  margin-left: auto;
-  display: inherit;
-  color: rgba($color-purple-800-rgb, 0.7);
-
-  &:hover {
+    border: var(--border-width) var(--border-solid-border-style);
+    filter: drop-shadow(0 0 7px rgb(0, 0, 0, 0.1));
+    border-radius: $border-solid-border-radius;
     color: $color-purple-800;
+    text-align: start;
+    padding-block: calc(var(--spacing-12) - var(--border-width))
+      calc(var(--spacing-16) - var(--border-width));
+    padding-inline: calc(var(--spacing-16) - var(--border-width));
   }
 
-  &:focus {
-    outline: none;
+  $default-box-border-color: var(--color-gray-500);
+
+  .defaultBox {
+    @extend %box;
+
+    background: var(--color-white);
+    border-color: $default-box-border-color;
   }
 
-  &:focus-visible {
-    color: $color-purple-800;
-    outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
-    outline-offset: calc(-1 * #{$border-focus-ring-border-width});
-    border-radius: $border-borderless-border-radius;
+  .defaultArrow {
+    @include arrow(var(--color-white), $default-box-border-color);
   }
-}
 
-.arrowWrapper {
-  position: absolute;
-  // Needed by popper, so it measures the size of the arrow correctly
-  width: $arrow-width;
-  height: $arrow-height;
-}
+  $informative-box-border-color: var(--color-blue-400);
 
-.arrow {
-  // Needed by popper, so it measures the size of the arrow correctly
-  width: $arrow-width;
-  height: $arrow-height;
-}
+  .informativeBox {
+    @extend %box;
 
-/* stylelint-disable no-descending-specificity */
-/**
+    background: $color-blue-100;
+    border-color: $informative-box-border-color;
+  }
+
+  .informativeArrow {
+    @include arrow($color-blue-100, $informative-box-border-color);
+  }
+
+  $positive-box-border-color: var(--color-green-500);
+
+  .positiveBox {
+    @extend %box;
+
+    background: $color-green-100;
+    border-color: $positive-box-border-color;
+  }
+
+  .positiveArrow {
+    @include arrow($color-green-100, $positive-box-border-color);
+  }
+
+  $negative-box-border-color: var(--color-red-500);
+
+  .negativeBox {
+    @extend %box;
+
+    background: $color-red-100;
+    border-color: $negative-box-border-color;
+  }
+
+  .negativeArrow {
+    @include arrow($color-red-100, $negative-box-border-color);
+  }
+
+  $cautionary-box-border-color: var(--color-yellow-700);
+
+  .cautionaryBox {
+    @extend %box;
+
+    background: $color-yellow-100;
+    border-color: $cautionary-box-border-color;
+  }
+
+  .cautionaryArrow {
+    @include arrow($color-yellow-100, $cautionary-box-border-color);
+  }
+
+  .header {
+    position: relative;
+    margin-bottom: var(--spacing-6);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding-inline-end: var(--spacing-24);
+  }
+
+  .container {
+    position: relative;
+    white-space: pre-line;
+  }
+
+  .icon {
+    display: inherit;
+    margin-inline-end: var(--spacing-6);
+  }
+
+  .informativeIcon {
+    color: var(--color-blue-500);
+  }
+
+  .positiveIcon {
+    color: var(--color-green-500);
+  }
+
+  .negativeIcon {
+    color: var(--color-red-500);
+  }
+
+  .cautionaryIcon {
+    color: var(--color-yellow-700);
+  }
+
+  .close {
+    @include button-reset;
+
+    position: absolute;
+    right: 0;
+    margin-left: auto;
+    display: inherit;
+    color: rgb($color-purple-800-rgb, 0.7);
+
+    &:hover {
+      color: $color-purple-800;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      color: $color-purple-800;
+      outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
+      outline-offset: calc(-1 * #{$border-focus-ring-border-width});
+      border-radius: $border-borderless-border-radius;
+    }
+  }
+
+  .arrowWrapper {
+    position: absolute;
+    // Needed by popper, so it measures the size of the arrow correctly
+    width: $arrow-width;
+    height: $arrow-height;
+  }
+
+  .arrow {
+    // Needed by popper, so it measures the size of the arrow correctly
+    width: $arrow-width;
+    height: $arrow-height;
+  }
+
+  /* stylelint-disable no-descending-specificity */
+  /**
  * In the legacy popover, the "side" described the location of the arrow, and
  * we use css classes to determine the placement.
  * In the modern popover, the "side" describes the location of the popover
@@ -203,47 +204,48 @@ $cautionary-box-border-color: var(--color-yellow-700);
  * Hence, the confusion below.
  */
 
-[data-popper-placement^='bottom'] .arrowWrapper {
-  bottom: 100%;
-  left: 50%;
-  margin-top: -9px;
+  [data-popper-placement^='bottom'] .arrowWrapper {
+    bottom: 100%;
+    left: 50%;
+    margin-top: -9px;
 
-  .arrow {
-    transform: rotate(180deg);
+    .arrow {
+      transform: rotate(180deg);
+    }
   }
-}
 
-[data-popper-placement^='left'] .arrowWrapper {
-  right: 0;
-  margin-right: -10px;
+  [data-popper-placement^='left'] .arrowWrapper {
+    right: 0;
+    margin-right: -10px;
 
-  .arrow {
-    transform: rotate(270deg);
+    .arrow {
+      transform: rotate(270deg);
+    }
   }
-}
 
-[data-popper-placement^='right'] .arrowWrapper {
-  left: 0;
-  margin-left: -10px;
+  [data-popper-placement^='right'] .arrowWrapper {
+    left: 0;
+    margin-left: -10px;
 
-  .arrow {
-    transform: rotate(90deg);
+    .arrow {
+      transform: rotate(90deg);
+    }
   }
-}
 
-[data-popper-placement^='top'] .arrowWrapper {
-  top: 100%;
-  left: 50%;
-}
+  [data-popper-placement^='top'] .arrowWrapper {
+    top: 100%;
+    left: 50%;
+  }
 
-.large {
-  width: auto;
-  max-width: $large-width;
-}
+  .large {
+    width: auto;
+    max-width: $large-width;
+  }
 
-.singleLine {
-  text-overflow: ellipsis;
-  white-space: nowrap; /* white-space and overflow are required for text-overflow to do anything */
-  overflow: hidden;
+  .singleLine {
+    text-overflow: ellipsis;
+    white-space: nowrap; /* white-space and overflow are required for text-overflow to do anything */
+    overflow: hidden;
+  }
+  /* stylelint-enable no-descending-specificity */
 }
-/* stylelint-enable no-descending-specificity */

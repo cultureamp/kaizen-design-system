@@ -2,23 +2,25 @@
 @import '../../../../../styles/utils/legacy/layout';
 @import '../../../../../styles/utils/layers';
 
-.dismissButton {
-  position: absolute;
-  z-index: $ca-z-index-popover;
+@layer kz-components {
+  .dismissButton {
+    position: absolute;
+    z-index: $ca-z-index-popover;
 
-  @include ca-position($end: 0, $top: 0);
-}
+    @include ca-position($end: 0, $top: 0);
+  }
 
-.layout {
-  width: 100%;
-}
+  .layout {
+    width: 100%;
+  }
 
-.fixed {
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline-start: 0;
-}
+  .fixed {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+  }
 
-.filler {
-  visibility: hidden;
+  .filler {
+    visibility: hidden;
+  }
 }
