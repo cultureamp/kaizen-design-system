@@ -56,9 +56,11 @@ export const OnButton: Story = {
 
     await step('Focus shows', async () => {
       await userEvent.tab() // focus
-      await waitFor(() => expect(canvas.getByRole('tooltip')).toBeVisible())
+      await expect((await canvas.findByRole('tooltip')).checkVisibility()).toBe(true)
+      await expect(await canvas.findByRole('tooltip')).toBeInTheDocument()
       await userEvent.tab() // unfocus
-      await waitFor(() => expect(canvas.queryByRole('tooltip')).toBeNull())
+      waitFor(() => expect(canvas.queryByRole('tooltip')).toBeNull())
+      waitFor(async () => expect(await canvas.queryByText('Tooltip content')).toBeNull())
     })
 
     await step('Escape closes', async () => {
