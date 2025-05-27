@@ -94,7 +94,7 @@
 }
 
 .white.isDisabled {
-  --link-text-color: rgba(var(--color-white-rgb), 0.2);
+  --link-text-color: rgb(var(--color-white-rgb), 0.2);
 }
 
 .reversed {
@@ -110,5 +110,5 @@
 }
 
 .reversed.isDisabled {
-  --link-text-color: rgba(var(--color-white-rgb), 0.2);
+  --link-text-color: rgb(var(--color-white-rgb), 0.2);
 }

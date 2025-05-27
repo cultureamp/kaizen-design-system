@@ -1,5 +1,18 @@
 # Change Log
 
+## 1.78.1
+
+### Patch Changes
+
+- [#5776](https://github.com/cultureamp/kaizen-design-system/pull/5776) [`2bcaee4`](https://github.com/cultureamp/kaizen-design-system/commit/2bcaee4e4a7da4f406d6b661c66fd5d996da478d) - Update react aria deps and fallback arg for onSelectionChange key
+
+- [#5776](https://github.com/cultureamp/kaizen-design-system/pull/5776) [`2bcaee4`](https://github.com/cultureamp/kaizen-design-system/commit/2bcaee4e4a7da4f406d6b661c66fd5d996da478d) - chore(deps): upgrade @kaizen/component
+
+  - patch updates for @headlessui/react and prosemirror-view
+  - devDeps updates for various packages
+
+- [#5776](https://github.com/cultureamp/kaizen-design-system/pull/5776) [`2bcaee4`](https://github.com/cultureamp/kaizen-design-system/commit/2bcaee4e4a7da4f406d6b661c66fd5d996da478d) - Update deprecated CSS properties for RGB functions and word-beak values
+
 ## 1.78.0
 
 ### Minor Changes
