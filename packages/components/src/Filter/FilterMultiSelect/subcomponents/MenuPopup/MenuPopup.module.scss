@@ -18,6 +18,7 @@ $menu-container-max-height: 312px;
   margin-top: $spacing-xs;
   text-align: start;
   width: $menu-container-width;
+  scrollbar-width: none;
 }
 
 .menuPopup[popover]:popover-open {
