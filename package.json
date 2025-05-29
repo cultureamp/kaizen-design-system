@@ -124,7 +124,8 @@
       }
     },
     "overrides": {
-      "@storybook/icons": "1.4.0"
+      "@storybook/icons": "1.4.0",
+      "@react-types/shared": "3.28.0"
     }
   }
 }
