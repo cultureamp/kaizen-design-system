@@ -119,7 +119,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
     description,
     placeholder,
     isDisabled,
-    onSelectionChange: onSelectionChange ? (key) => onSelectionChange(key as Key) : undefined,
+    onSelectionChange: onSelectionChange ? (key) => onSelectionChange(key!) : undefined,
     ...restProps,
   }
 
