@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { size } from '@floating-ui/react-dom'
+import { autoPlacement, offset, size } from '@floating-ui/react-dom'
 import type { Selection } from '@react-types/shared'
 import type { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
@@ -353,14 +353,19 @@ export const WithFloatingOptions: Story = {
   },
   args: {
     floatingOptions: {
+      strategy: 'fixed',
       middleware: [
         size({
           apply({ availableHeight, availableWidth, elements }) {
             Object.assign(elements.floating.style, {
-              maxHeight: `${Math.max(availableHeight - 25, 250)}px`,
+              maxHeight: `${Math.max(300, availableHeight - 25)}px`,
               maxWidth: `${availableWidth}px`,
             })
           },
+        }),
+        offset(6),
+        autoPlacement({
+          allowedPlacements: ['bottom-start', 'bottom', 'top-start', 'top'],
         }),
       ],
     },
