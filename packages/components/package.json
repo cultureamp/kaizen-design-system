@@ -133,7 +133,7 @@
     "@react-stately/list": "^3.12.2",
     "@react-stately/menu": "^3.9.4",
     "@react-stately/select": "^3.6.13",
-    "@react-types/shared": "^3.29.1",
+    "@react-types/shared": "3.28.0",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "lodash.debounce": "^4.0.8",
