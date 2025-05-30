@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { autoPlacement, offset, size } from '@floating-ui/react-dom'
 import type { Selection } from '@react-types/shared'
 import type { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
@@ -306,5 +307,92 @@ export const WithSectionNotification: Story = {
   },
   parameters: {
     chromatic: { disable: false },
+  },
+}
+
+export const AboveIfAvailable: Story = {
+  name: 'Limited viewport autoplacement above',
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: 'Limited vertical space',
+          styles: {
+            width: '1024px',
+            height: '500px',
+          },
+        },
+      },
+      defaultViewport: 'LimitedViewportAutoPlace',
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div className="mt-[350px]">
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+export const WithFloatingOptions: Story = {
+  name: 'With floatingOptions',
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: 'Limited vertical space',
+          styles: {
+            width: '1024px',
+            height: '500px',
+          },
+        },
+      },
+      defaultViewport: 'LimitedViewportAutoPlace',
+    },
+  },
+  args: {
+    floatingOptions: {
+      strategy: 'fixed',
+      middleware: [
+        size({
+          apply({ availableHeight, availableWidth, elements }) {
+            Object.assign(elements.floating.style, {
+              maxHeight: `${Math.max(300, availableHeight - 25)}px`,
+              maxWidth: `${availableWidth}px`,
+            })
+          },
+        }),
+        offset(6),
+        autoPlacement({
+          allowedPlacements: ['bottom-start', 'bottom', 'top-start', 'top'],
+        }),
+      ],
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div className="mt-[350px]">
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => {
+    const [selectedKeys, setSelectedKeys] = useState<Selection | undefined>(args.selectedKeys)
+    console.log(args)
+
+    return (
+      <FilterMultiSelect
+        {...args}
+        onSelectionChange={setSelectedKeys}
+        selectedKeys={selectedKeys}
+        trigger={(): JSX.Element => (
+          <FilterMultiSelect.TriggerButton
+            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, args.items)}
+            label={args.label}
+          />
+        )}
+      />
+    )
   },
 }
