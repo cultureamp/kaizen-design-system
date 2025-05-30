@@ -25,7 +25,7 @@ import { getDisabledKeysFromItems } from './utils/getDisabledKeysFromItems'
 import { transformSelectItemToCollectionElement } from './utils/transformSelectItemToCollectionElement'
 import styles from './Select.module.scss'
 
-type OmittedAriaSelectProps = 'children' | 'items'
+type OmittedAriaSelectProps = 'children' | 'items' | 'onSelectionChange'
 
 export type SelectProps<Option extends SelectOption = SelectOption> = {
   /**
@@ -70,6 +70,10 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
    * Use the `labelText` prop to provide a concise name, and the `description` prop for any help text.
    */
   placeholder?: string
+  /**
+   * Handler that is called when the selection changes.
+   */
+  onSelectionChange?: (key: Key) => void
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
 /**
@@ -92,6 +96,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   description,
   placeholder = '',
   isDisabled,
+  onSelectionChange,
   portalContainerId,
   ...restProps
 }: SelectProps<Option>): JSX.Element => {
@@ -114,6 +119,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
     description,
     placeholder,
     isDisabled,
+    onSelectionChange: onSelectionChange ? (key) => onSelectionChange(key!) : undefined,
     ...restProps,
   }
 
