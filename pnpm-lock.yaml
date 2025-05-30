@@ -138,7 +138,7 @@ importers:
         specifier: ^38.0.0
         version: 38.0.0(stylelint@16.19.1(typescript@5.8.3))
       stylelint-config-standard-scss:
-        specifier: ^15.0.0
+        specifier: ^15.0.1
         version: 15.0.1(postcss@8.5.3)(stylelint@16.19.1(typescript@5.8.3))
       turbo:
         specifier: ^2.5.3
