@@ -8,7 +8,6 @@
   $menu-container-width: 294px;
   $menu-container-max-height: 312px;
 
-<<<<<<< HEAD
   .menuPopup {
     z-index: 1000; // from $ca-z-index-dropdown
     box-sizing: border-box;
@@ -21,21 +20,6 @@
     text-align: start;
     width: $menu-container-width;
   }
-=======
-.menuPopup {
-  z-index: 1000; // from $ca-z-index-dropdown
-  box-sizing: border-box;
-  background: $color-white;
-  color: $color-purple-800;
-  border-radius: $border-solid-border-radius;
-  box-shadow: $shadow-large-box-shadow;
-  padding: $spacing-sm 0;
-  margin-top: $spacing-xs;
-  text-align: start;
-  width: $menu-container-width;
-  // scrollbar-width: none;
-}
->>>>>>> 3c5463826 (feat: adjust scrollbar)
 
   .menuPopover[popover]:popover-open {
     z-index: unset;
@@ -43,4 +27,3 @@
     inset: unset;
   }
 }
-
