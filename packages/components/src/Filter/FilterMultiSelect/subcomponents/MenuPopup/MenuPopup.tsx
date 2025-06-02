@@ -39,12 +39,12 @@ export const MenuPopup = ({
       reference: referenceElement,
       floating: floatingElement,
     },
-    strategy: 'fixed',
+    strategy: 'absolute',
     middleware: [
       size({
-        apply({ availableHeight, availableWidth, elements }) {
+        apply({ availableWidth, elements }) {
           Object.assign(elements.floating.style, {
-            maxHeight: `${Math.max(availableHeight - 25, 352)}px`,
+            maxHeight: `${Math.max(320, 550)}px`,
             maxWidth: `${availableWidth}px`,
           })
         },
