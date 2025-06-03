@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.79.1
+
+### Patch Changes
+
+- [#5795](https://github.com/cultureamp/kaizen-design-system/pull/5795) [`0348722`](https://github.com/cultureamp/kaizen-design-system/commit/0348722b6337f075cfb058127e63fdf643e052e3) - Revising the type `onSelectionChange` in the Select next component to align with previous versions
+
 ## 1.79.0
 
 ### Minor Changes
