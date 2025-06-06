@@ -118,6 +118,11 @@ export const ArrowsShowingAndHidingRTL: Story = {
 }
 
 export const AsyncLoaded: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+  },
   render: () => {
     const [selectedKey, setSelectedKey] = useState<Key>(0)
 
