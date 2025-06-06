@@ -100,7 +100,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
       firstTabObserver.disconnect()
       lastTabObserver.disconnect()
     }
-  }, [isDocumentReady, containerElement, isRTL])
+  }, [isDocumentReady, containerElement, isRTL, tabListContext?.collection.size])
 
   useEffect(() => {
     if (!isDocumentReady) {
