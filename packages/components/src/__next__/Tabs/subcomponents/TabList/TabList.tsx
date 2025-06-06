@@ -75,7 +75,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
         setLeftArrowEnabled(false)
       },
       {
-        threshold: 0.75,
+        threshold: 0.8,
         root: containerElement,
       },
     )
@@ -90,7 +90,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
         setRightArrowEnabled(false)
       },
       {
-        threshold: 0.75,
+        threshold: 0.8,
         root: containerElement,
       },
     )
