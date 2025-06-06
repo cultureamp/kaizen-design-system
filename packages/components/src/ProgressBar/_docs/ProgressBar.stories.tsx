@@ -63,37 +63,38 @@ const colors = [
     props: { color: 'yellow' },
   },
   {
-    title: 'Animated Blue',
-    props: { isAnimating: true, color: 'blue' },
+    title: 'Stripe Blue',
+    props: { color: 'blue', pattern: 'stripe' },
   },
   {
-    title: 'Animated Green',
-    props: { isAnimating: true, color: 'green' },
+    title: 'Stripe Green',
+    props: { color: 'green', pattern: 'stripe' },
   },
   {
-    title: 'Animated Red',
-    props: { isAnimating: true, color: 'red' },
+    title: 'Stripe Red',
+    props: { color: 'red', pattern: 'stripe' },
   },
   {
-    title: 'Animated Yellow',
-    props: { isAnimating: true, color: 'yellow' },
+    title: 'Stripe Yellow',
+    props: { color: 'yellow', pattern: 'stripe' },
   },
 ] satisfies { title: string; props: Partial<ProgressBarProps> }[]
 
 export const Colors: Story = {
-  render: () => (
+  render: ({ mood: _, ...restArgs }) => (
     <div className="flex flex-col gap-16">
-      {colors.map(({ title, props }) => (
-        <ProgressBar
-          key={title}
-          value={3}
-          max={5}
-          label={title}
-          color={props.color ?? 'green'}
-          isAnimating={props.isAnimating ?? false}
-          isReversed={false}
-        />
-      ))}
+      {colors.map(({ title, props }) => {
+        // Omit 'mood' from args to avoid type error
+        return (
+          <ProgressBar
+            {...restArgs}
+            key={title}
+            label={title}
+            color={props.color ?? 'green'}
+            pattern={props.pattern}
+          />
+        )
+      })}
     </div>
   ),
 }
