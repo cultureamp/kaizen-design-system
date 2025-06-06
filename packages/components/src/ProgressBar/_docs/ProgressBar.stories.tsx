@@ -62,6 +62,22 @@ const colors = [
     title: 'Yellow',
     props: { color: 'yellow' },
   },
+  {
+    title: 'Animated Blue',
+    props: { isAnimating: true, color: 'blue' },
+  },
+  {
+    title: 'Animated Green',
+    props: { isAnimating: true, color: 'green' },
+  },
+  {
+    title: 'Animated Red',
+    props: { isAnimating: true, color: 'red' },
+  },
+  {
+    title: 'Animated Yellow',
+    props: { isAnimating: true, color: 'yellow' },
+  },
 ] satisfies { title: string; props: Partial<ProgressBarProps> }[]
 
 export const Colors: Story = {
@@ -70,11 +86,11 @@ export const Colors: Story = {
       {colors.map(({ title, props }) => (
         <ProgressBar
           key={title}
-          {...props}
           value={3}
           max={5}
           label={title}
-          isAnimating={false}
+          color={props.color ?? 'green'}
+          isAnimating={props.isAnimating ?? false}
           isReversed={false}
         />
       ))}

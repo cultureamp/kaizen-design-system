@@ -1,0 +1,136 @@
+@layer kz-components {
+  .progressBar {
+    --progress-background-color: var(--color-green-400);
+    --progress-background-contrast: var(--color-green-500);
+    --progressbar-background-color: var(--color-gray-300);
+    --progressbar-border-color: transparent;
+    --progressbar-height: 10px;
+  }
+
+  .subtext {
+    color: var(--color-purple-800);
+    padding-top: var(--spacing-6);
+    text-align: center;
+    opacity: 80%;
+  }
+
+  .progressBackground {
+    width: 100%;
+    background: var(--color-gray-100);
+    border-radius: var(--progressbar-height);
+    height: var(--progressbar-height);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--progressbar-height);
+    overflow: hidden;
+    transition: transform 200ms ease;
+
+    &::before {
+      content: '';
+      /* border: 2px solid var(--progressbar-border-color, transparent); */
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+      border: 3px solid var(--progress-background-color-contrast, transparent);
+      background: repeating-linear-gradient(
+        75deg,
+        var(--progress-background-color) 0px,
+        var(--progress-background-color) 3px,
+        var(--progress-background-color-contrast) 3px,
+        var(--progress-background-color-contrast) 6px
+      );
+      border-radius: inherit;
+      z-index: 1;
+    }
+  }
+
+  /*
+  ------------------------------
+  Moods
+  @deprecated use colors instead
+  ------------------------------ 
+ */
+
+  .positive {
+    --progressbar-background-color: var(--color-green-400);
+    --progressbar-border-color: var(--color-green-600);
+  }
+
+  .informative {
+    --progressbar-background-color: var(--color-blue-400);
+    --progressbar-border-color: var(--color-blue-600);
+  }
+
+  .cautionary {
+    --progressbar-background-color: var(--color-yellow-400);
+    --progressbar-border-color: var(--color-yellow-600);
+  }
+
+  .negative {
+    --progressbar-background-color: var(--color-red-400);
+    --progressbar-border-color: var(--color-red-700);
+  }
+
+  /*End deprecated styles
+  ------------------------------
+  Colors
+  ------------------------------
+ */
+
+  .green {
+    --progress-background-color: var(--color-green-400);
+    --progress-background-color-contrast: var(--color-green-500);
+    --progressbar-border-color: var(--color-green-600);
+  }
+
+  .blue {
+    --progress-background-color: var(--color-blue-400);
+    --progress-background-color-contrast: var(--color-blue-500);
+    --progressbar-border-color: var(--color-blue-600);
+  }
+
+  .yellow {
+    --progress-background-color: var(--color-yellow-400);
+    --progress-background-color-contrast: var(--color-yellow-500);
+    --progressbar-border-color: var(--color-yellow-600);
+  }
+
+  .red {
+    --progress-background-color: var(--color-red-400);
+    --progress-background-color-contrast: var(--color-red-500);
+    --progressbar-border-color: var(--color-red-700);
+  }
+
+  .isAnimating {
+    &::after {
+      background: linear-gradient(90deg, transparent, var(--color-white) 75%, transparent);
+      opacity: 25%;
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 50%;
+      animation: pulse 2s infinite;
+      transition: opacity 0.2s;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(200%);
+  }
+}

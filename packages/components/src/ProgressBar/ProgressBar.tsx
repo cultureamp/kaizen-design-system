@@ -4,7 +4,7 @@ import { Heading } from '~components/Heading'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { Label } from './subcomponents/Label'
 import { calculatePercentage } from './utils/calculatePercentage'
-import styles from './ProgressBar.module.scss'
+import styles from './ProgressBar.module.css'
 
 export type ProgressBarMood = {
   /**
@@ -66,7 +66,7 @@ export const ProgressBar = ({
       aria-valuenow={percentage}
       aria-valuemin={0}
       aria-valuemax={100}
-      className={classNameOverride}
+      className={classnames(styles.progressBar, classNameOverride)}
       {...restProps}
     >
       {label && <Label content={label} isReversed={isReversed} />}
