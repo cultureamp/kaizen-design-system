@@ -153,7 +153,7 @@ export const AsyncLoaded: Story = {
 
     expect(canvas.queryByText('chevron_right')).not.toBeInTheDocument()
 
-    await new Promise((r) => setTimeout(r, 1050))
+    await new Promise((r) => setTimeout(r, 1500))
 
     const rightArrow = await canvas.findByText('chevron_right')
 
