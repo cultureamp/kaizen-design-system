@@ -88,7 +88,7 @@ export const Controlled: Story = {
   },
 }
 
-export const AsyncTabMobileView: Story = {
+export const AsyncMobileView: Story = {
   parameters: {
     viewport: {
       defaultViewport: 'mobile1',

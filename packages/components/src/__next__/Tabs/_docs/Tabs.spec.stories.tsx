@@ -117,13 +117,13 @@ export const ArrowsShowingAndHidingRTL: Story = {
   },
 }
 
-export const AsyncLoadedTabs: Story = {
+export const AsyncLoaded: Story = {
   render: () => {
     const [selectedKey, setSelectedKey] = useState<Key>(0)
 
     const [showSecondTab, setShowSecondTab] = React.useState(false)
     React.useEffect(() => {
-      const timer = setTimeout(() => setShowSecondTab(true), 2000)
+      const timer = setTimeout(() => setShowSecondTab(true), 1000)
       return () => clearTimeout(timer)
     }, [])
     return (
