@@ -66,11 +66,57 @@ export const Playground: Story = {
 }
 
 export const Controlled: Story = {
-  render: (args) => {
+  render: () => {
     const [selectedKey, setSelectedKey] = useState<Key>(0)
     return (
       <>
-        <Tabs {...args} selectedKey={selectedKey} onSelectionChange={setSelectedKey} />
+        <Tabs selectedKey={selectedKey} onSelectionChange={setSelectedKey}>
+          <TabList aria-label="Tabs">
+            <Tab id="one">Tab 1</Tab>
+            <Tab id="two">Tab 2</Tab>
+          </TabList>
+          <TabPanel id="one" className="p-24">
+            <Text variant="body">Content 1</Text>
+          </TabPanel>
+          <TabPanel id="two" className="p-24">
+            <Text variant="body">Content 2</Text>
+          </TabPanel>
+        </Tabs>
+        <Button label="Switch to tab 2" onClick={(): void => setSelectedKey('two')} />
+      </>
+    )
+  },
+}
+
+export const AsyncTabMobileView: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+  },
+  render: () => {
+    const [selectedKey, setSelectedKey] = useState<Key>(0)
+
+    const [showSecondTab, setShowSecondTab] = React.useState(false)
+    React.useEffect(() => {
+      const timer = setTimeout(() => setShowSecondTab(true), 1000)
+      return () => clearTimeout(timer)
+    }, [])
+
+    return (
+      <>
+        <Tabs selectedKey={selectedKey} onSelectionChange={setSelectedKey}>
+          <TabList aria-label="Tabs">
+            <Tab id="one">Tab 1</Tab>
+            {showSecondTab && <Tab id="two">Tab 2</Tab>}
+          </TabList>
+          <TabPanel id="one" className="p-24">
+            <Text variant="body">Content 1</Text>
+          </TabPanel>
+          <TabPanel id="two" className="p-24">
+            <Text variant="body">Content 2</Text>
+          </TabPanel>
+        </Tabs>
         <Button label="Switch to tab 2" onClick={(): void => setSelectedKey('two')} />
       </>
     )

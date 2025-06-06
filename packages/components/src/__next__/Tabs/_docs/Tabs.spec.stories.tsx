@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, userEvent, within } from '@storybook/test'
 import { Text } from '~components/Text'
-import { Tab, TabList, TabPanel, Tabs } from '../index'
+import { Tab, TabList, TabPanel, Tabs, type Key } from '../index'
 
 const meta = {
   title: 'Components/Tabs/Tabs (next)/Tabs (next) tests',
@@ -114,5 +114,44 @@ export const ArrowsShowingAndHidingRTL: Story = {
 
     expect(rightArrow).toBeInTheDocument()
     expect(leftArrow).not.toBeInTheDocument()
+  },
+}
+
+export const AsyncLoadedTabs: Story = {
+  render: () => {
+    const [selectedKey, setSelectedKey] = useState<Key>(0)
+
+    const [showSecondTab, setShowSecondTab] = React.useState(false)
+    React.useEffect(() => {
+      const timer = setTimeout(() => setShowSecondTab(true), 2000)
+      return () => clearTimeout(timer)
+    }, [])
+    return (
+      <div style={{ maxWidth: '500px' }}>
+        <Tabs selectedKey={selectedKey} onSelectionChange={setSelectedKey}>
+          <TabList aria-label="Tabs">
+            <Tab id="one">Conversation</Tab>
+            {showSecondTab && <Tab id="two">Personal notes</Tab>}
+          </TabList>
+          <TabPanel id="one" className="p-24">
+            <Text variant="body">Content 1</Text>
+          </TabPanel>
+          <TabPanel id="two" className="p-24">
+            <Text variant="body">Content 2</Text>
+          </TabPanel>
+        </Tabs>
+      </div>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.parentElement!)
+
+    expect(canvas.queryByText('chevron_right')).not.toBeInTheDocument()
+
+    await new Promise((r) => setTimeout(r, 1050))
+
+    const rightArrow = await canvas.findByText('chevron_right')
+
+    expect(rightArrow).toBeInTheDocument()
   },
 }
