@@ -38,7 +38,7 @@ export type ProgressBarBaseProps = {
   label?: string
   /** @default false Adds an animated state to indicate loading progress */
   isAnimating?: boolean
-  pattern?: 'stripe'
+  pattern?: 'solid' | 'stripe' | 'bordered'
   /** @default false sets the color of the label and subtext to reversed palette */
   isReversed?: boolean
 } & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'color'>>

@@ -56,6 +56,10 @@
     }
   }
 
+  .progress.solid {
+    background-color: var(--progressbar-contrast-color);
+  }
+
   .progressIncomplete {
     border-radius: var(--progressbar-height);
     background-color: var(--color-gray-500);
@@ -109,7 +113,7 @@
 
   .yellow {
     --progressbar-background-color: var(--color-yellow-400);
-    --progressbar-contrast-color: var(--color-yellow-500);
+    --progressbar-contrast-color: var(--color-yellow-600);
   }
 
   .red {
