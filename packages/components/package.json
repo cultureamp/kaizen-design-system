@@ -159,7 +159,7 @@
     "react-select": "^5.10.1",
     "react-textfit": "^1.1.1",
     "resize-observer-polyfill": "^1.5.1",
-    "use-debounce": "^10.0.4",
+    "use-debounce": "^10.0.5",
     "uuid": "^11.1.0"
   },
   "dependenciesComments": {
