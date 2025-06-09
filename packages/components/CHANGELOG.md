@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.79.2
+
+### Patch Changes
+
+- [#5815](https://github.com/cultureamp/kaizen-design-system/pull/5815) [`884f3b0`](https://github.com/cultureamp/kaizen-design-system/commit/884f3b073905968ff7567626009d6dfc2529b6ae) - Fixes bug in Select next overlay, was closing overlay when clicking on scroll
+
 ## 1.79.1
 
 ### Patch Changes
