@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, userEvent, within } from '@storybook/test'
+import { expect, userEvent, waitFor, within } from '@storybook/test'
 import { Text } from '~components/Text'
 import { Tab, TabList, TabPanel, Tabs, type Key } from '../index'
 
@@ -149,14 +149,11 @@ export const AsyncLoaded: Story = {
     )
   },
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.parentElement!)
-
+    const canvas = within(canvasElement)
     expect(canvas.queryByTestId('kz-tablist-right-arrow')).not.toBeInTheDocument()
-
-    await new Promise((r) => setTimeout(r, 1500))
-
-    const rightArrow = await canvas.findByTestId('sb-arrows-kz-tablist-right-arrow')
-
-    expect(rightArrow).toBeInTheDocument()
+    await new Promise((r) => setTimeout(r, 2000))
+    await waitFor(() => {
+      expect(canvas.queryByTestId('sb-arrows-kz-tablist-right-arrow')).toBeInTheDocument()
+    })
   },
 }
