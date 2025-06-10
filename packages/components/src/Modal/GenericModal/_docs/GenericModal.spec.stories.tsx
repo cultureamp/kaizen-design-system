@@ -21,7 +21,11 @@ export const TestBase: Story = {
 
     return (
       <>
-        <button type="button" className="border border-gray-500" onClick={() => setIsOpen(true)}>
+        <button
+          type="button"
+          className="border border-gray-500 relative z-10"
+          onClick={() => setIsOpen(true)}
+        >
           Open Modal
         </button>
         <GenericModal
@@ -30,6 +34,7 @@ export const TestBase: Story = {
           onOutsideModalClick={handleDismiss}
           onEscapeKeyup={handleDismiss}
           id="GenericModalTestId"
+          className="will-change-[opacity]"
         >
           <ModalHeader>
             <ModalAccessibleLabel>Test Modal</ModalAccessibleLabel>
