@@ -134,7 +134,7 @@ export const AsyncLoaded: Story = {
     return (
       <div style={{ maxWidth: '500px' }}>
         <Tabs selectedKey={selectedKey} onSelectionChange={setSelectedKey}>
-          <TabList aria-label="Tabs">
+          <TabList aria-label="Tabs" data-testid="sb-arrows">
             <Tab id="one">Conversation</Tab>
             {showSecondTab && <Tab id="two">Personal notes</Tab>}
           </TabList>
@@ -151,11 +151,11 @@ export const AsyncLoaded: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.parentElement!)
 
-    expect(canvas.queryByText('chevron_right')).not.toBeInTheDocument()
+    expect(canvas.queryByTestId('kz-tablist-right-arrow')).not.toBeInTheDocument()
 
     await new Promise((r) => setTimeout(r, 1500))
 
-    const rightArrow = await canvas.findByText('chevron_right')
+    const rightArrow = await canvas.findByTestId('sb-arrows-kz-tablist-right-arrow')
 
     expect(rightArrow).toBeInTheDocument()
   },
