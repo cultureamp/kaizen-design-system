@@ -118,11 +118,6 @@ export const ArrowsShowingAndHidingRTL: Story = {
 }
 
 export const AsyncLoaded: Story = {
-  parameters: {
-    viewport: {
-      defaultViewport: 'mobile1',
-    },
-  },
   render: () => {
     const [selectedKey, setSelectedKey] = useState<Key>(0)
 
@@ -132,7 +127,7 @@ export const AsyncLoaded: Story = {
       return () => clearTimeout(timer)
     }, [])
     return (
-      <div style={{ maxWidth: '500px' }}>
+      <div style={{ maxWidth: '300px' }}>
         <Tabs selectedKey={selectedKey} onSelectionChange={setSelectedKey}>
           <TabList aria-label="Tabs" data-testid="sb-arrows">
             <Tab id="one">Conversation</Tab>
@@ -149,7 +144,7 @@ export const AsyncLoaded: Story = {
     )
   },
   play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement)
+    const canvas = within(canvasElement.parentElement!)
     expect(canvas.queryByTestId('kz-tablist-right-arrow')).not.toBeInTheDocument()
     await waitFor(() => userEvent.click(canvasElement))
     await new Promise((r) => setTimeout(r, 2000))
@@ -159,8 +154,8 @@ export const AsyncLoaded: Story = {
         expect(canvas.queryByText('Personal notes')).toBeInTheDocument()
       })
 
-      await waitFor(() => {
-        const rightTab = canvas.queryByTestId('sb-arrows-kz-tablist-right-arrow')
+      await waitFor(async () => {
+        const rightTab = await canvas.findByTestId('sb-arrows-kz-tablist-right-arrow')
         expect(rightTab).toBeInTheDocument()
       })
     })
