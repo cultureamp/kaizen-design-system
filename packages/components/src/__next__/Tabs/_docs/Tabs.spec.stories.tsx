@@ -148,18 +148,21 @@ export const AsyncLoaded: Story = {
       </div>
     )
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     expect(canvas.queryByTestId('kz-tablist-right-arrow')).not.toBeInTheDocument()
+    await waitFor(() => userEvent.click(canvasElement))
     await new Promise((r) => setTimeout(r, 2000))
 
-    await waitFor(() => {
-      expect(canvas.queryByText('Personal notes')).toBeInTheDocument()
-    })
+    await step('Check if second tab is loaded', async () => {
+      await waitFor(() => {
+        expect(canvas.queryByText('Personal notes')).toBeInTheDocument()
+      })
 
-    await waitFor(() => {
-      const rightTab = canvas.queryByTestId('sb-arrows-kz-tablist-right-arrow')
-      expect(rightTab).toBeInTheDocument()
+      await waitFor(() => {
+        const rightTab = canvas.queryByTestId('sb-arrows-kz-tablist-right-arrow')
+        expect(rightTab).toBeInTheDocument()
+      })
     })
   },
 }
