@@ -183,7 +183,9 @@ export const Select = <Option extends SelectOption = SelectOption>({
         {state.isOpen && (
           <Popover id={popoverId} portalContainer={portalContainer} refs={refs}>
             <SelectProvider<Option> state={state}>
-              <SelectPopoverContents menuProps={menuProps}>{children}</SelectPopoverContents>
+              <SelectPopoverContents menuProps={menuProps} popoverRef={refs.floating}>
+                {children}
+              </SelectPopoverContents>
             </SelectProvider>
           </Popover>
         )}

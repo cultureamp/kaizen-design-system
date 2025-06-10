@@ -10,11 +10,13 @@ import styles from './SelectPopoverContents.module.scss'
 export type SelectPopoverContentsProps<Option extends SelectOption> = {
   children?: (args: { items: SelectItemNode<Option>[] }) => React.ReactNode
   menuProps: AriaListBoxOptions<SelectItem<Option>>
+  popoverRef?: React.RefObject<Element | null>
 }
 
 export const SelectPopoverContents = <Option extends SelectOption>({
   children,
   menuProps,
+  popoverRef,
 }: SelectPopoverContentsProps<Option>): JSX.Element => {
   const { state } = useSelectContext<Option>()
 
@@ -26,7 +28,7 @@ export const SelectPopoverContents = <Option extends SelectOption>({
 
   return (
     <div className={styles.selectPopoverContents}>
-      <Overlay<Option>>
+      <Overlay<Option> popoverRef={popoverRef}>
         <ListBox<Option> menuProps={menuProps}>
           {children ? children({ items: itemNodes }) : <ListItems<Option> items={itemNodes} />}
         </ListBox>
