@@ -153,8 +153,13 @@ export const AsyncLoaded: Story = {
     expect(canvas.queryByTestId('kz-tablist-right-arrow')).not.toBeInTheDocument()
     await new Promise((r) => setTimeout(r, 2000))
 
-    expect(canvas.queryByText('Personal notes')).toBeInTheDocument()
+    await waitFor(() => {
+      expect(canvas.queryByText('Personal notes')).toBeInTheDocument()
+    })
 
-    expect(canvas.queryByTestId('sb-arrows-kz-tablist-right-arrow')).toBeInTheDocument()
+    await waitFor(() => {
+      const rightTab = canvas.queryByTestId('sb-arrows-kz-tablist-right-arrow')
+      expect(rightTab).toBeInTheDocument()
+    })
   },
 }
