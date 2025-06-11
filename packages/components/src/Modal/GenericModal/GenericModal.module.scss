@@ -68,6 +68,8 @@
   .transitionLayer {
     transition: opacity $ca-duration-fast ease-in-out;
     opacity: 1;
+    position: relative;
+    z-index: $ca-z-index-modal;
 
     .backdropLayer {
       /*
