@@ -2,6 +2,8 @@ import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { ContextModal } from '~components/Modal'
 import { RadioField, RadioGroup } from '~components/Radio'
+import { TextField } from '~components/TextField'
+import { Button } from '~components/__next__'
 import { Select } from '../Select'
 import { type SelectOption } from '../types'
 import { groupedMockItems, mixedMockItemsDisabled, singleMockItems } from './mockData'
@@ -225,6 +227,27 @@ export const TouchDeviceTest: Story = {
             selectedStatus={selected === 'radio-3'}
           />
         </RadioGroup>
+      </div>
+    )
+  },
+}
+
+export const TestRequired: Story = {
+  name: 'Test Required Select',
+  render: (args) => {
+    return (
+      <div>
+        <form
+          className="flex flex-col gap-16"
+          action={undefined}
+          onSubmit={() => {
+            console.log('Form submitted')
+          }}
+        >
+          <Select {...args} isRequired validationBehavior="native" />
+          <TextField labelText="Text Field" name="text-input" required />
+          <Button type="submit">Submit</Button>
+        </form>
       </div>
     )
   },

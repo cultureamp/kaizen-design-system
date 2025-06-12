@@ -89,6 +89,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   status,
   validationMessage,
   isReversed,
+  isRequired = false,
   isFullWidth,
   disabledValues,
   classNameOverride,
@@ -119,9 +120,11 @@ export const Select = <Option extends SelectOption = SelectOption>({
     description,
     placeholder,
     isDisabled,
+    isRequired,
     onSelectionChange: onSelectionChange ? (key) => onSelectionChange(key!) : undefined,
     ...restProps,
   }
+  console.log('ariaSelectProps required?', ariaSelectProps.isRequired)
 
   const state = useSelectState(ariaSelectProps)
 
@@ -172,7 +175,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
 
   return (
     <div className={classnames(!isFullWidth && styles.notFullWidth, classNameOverride)}>
-      <HiddenSelect label={label} name={id} state={state} triggerRef={triggerRef} />
+      <HiddenSelect label={label} name={id} state={state} triggerRef={triggerRef} i />
 
       <div className={styles.container}>
         {trigger === undefined ? (
