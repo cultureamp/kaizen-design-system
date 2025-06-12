@@ -89,6 +89,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   status,
   validationMessage,
   isReversed,
+  isRequired = false,
   isFullWidth,
   disabledValues,
   classNameOverride,
@@ -119,6 +120,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
     description,
     placeholder,
     isDisabled,
+    isRequired,
     onSelectionChange: onSelectionChange ? (key) => onSelectionChange(key!) : undefined,
     ...restProps,
   }
@@ -159,6 +161,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
     isReversed,
     'ref': refs.setReference,
     'aria-describedby': classnames(validationMessage && validationId, description && descriptionId),
+    'aria-required': isRequired,
   }
 
   const [portalContainer, setPortalContainer] = useState<HTMLElement>()

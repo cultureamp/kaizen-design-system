@@ -92,6 +92,14 @@ Add validation messages using `status` and `validationMessage`.
 
 <Canvas of={SelectStories.Validation} />
 
+#### isRequired and validationBehavior
+
+When using the `isRequired` property you can also specify the `validationBehavior` to change from `aria` to `native` form validation.
+
+<Canvas of={SelectStories.SelectNativeValidationBehavior} />
+
+While both use `aria-required` to announce whether the field has to have value to assistive technologies, the `native` will option will prevent form submissions if the `selectedKey` is `undefined`.
+
 ### Full width
 
 Set `isFullWidth` to `true` to have the Select span the full width of its container.
