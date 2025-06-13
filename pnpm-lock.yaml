@@ -66,7 +66,7 @@ importers:
         specifier: ^14.6.1
         version: 14.6.1(@testing-library/dom@10.4.0)
       '@types/node':
-        specifier: ^22.14.0
+        specifier: ^22.14.1
         version: 22.15.21
       '@types/react':
         specifier: ^18.3.23
