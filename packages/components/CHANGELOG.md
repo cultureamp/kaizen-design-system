@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.79.4
+
+### Patch Changes
+
+- [#5833](https://github.com/cultureamp/kaizen-design-system/pull/5833) [`f280628`](https://github.com/cultureamp/kaizen-design-system/commit/f280628049eccb0e275e15ad141838a6727e1dba) - Removes aria-haspopup from v1 Menu. This was a partial implementation of the menu aria pattern and does not have the corresponding arrow controls functionality so was confusing to SR users.
+
+- [#5848](https://github.com/cultureamp/kaizen-design-system/pull/5848) [`dcaedd6`](https://github.com/cultureamp/kaizen-design-system/commit/dcaedd626e45189d7c5614d6a693c26c2a434a16) - Re-add missing z-index from AIMoment stylesheet
+
 ## 1.79.3
 
 ### Patch Changes
