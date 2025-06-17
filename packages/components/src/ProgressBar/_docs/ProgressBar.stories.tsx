@@ -47,37 +47,70 @@ export const Playground: Story = {
 
 const colors = [
   {
-    title: 'Blue',
+    title: 'Bordered Blue',
     props: { color: 'blue' },
   },
   {
-    title: 'Green',
+    title: 'Bordered Green',
     props: { color: 'green' },
   },
   {
-    title: 'Red',
+    title: 'Bordered Red',
     props: { color: 'red' },
   },
   {
-    title: 'Yellow',
+    title: 'Bordered Yellow',
     props: { color: 'yellow' },
+  },
+  {
+    title: 'Solid Blue',
+    props: { color: 'blue', pattern: 'solid' },
+  },
+  {
+    title: 'Solid Green',
+    props: { color: 'green', pattern: 'solid' },
+  },
+  {
+    title: 'Solid Red',
+    props: { color: 'red', pattern: 'solid' },
+  },
+  {
+    title: 'Solid Yellow',
+    props: { color: 'yellow', pattern: 'solid' },
+  },
+  {
+    title: 'Stripe Blue',
+    props: { color: 'blue', pattern: 'stripe' },
+  },
+  {
+    title: 'Stripe Green',
+    props: { color: 'green', pattern: 'stripe' },
+  },
+  {
+    title: 'Stripe Red',
+    props: { color: 'red', pattern: 'stripe' },
+  },
+  {
+    title: 'Stripe Yellow',
+    props: { color: 'yellow', pattern: 'stripe' },
   },
 ] satisfies { title: string; props: Partial<ProgressBarProps> }[]
 
 export const Colors: Story = {
-  render: () => (
+  render: ({ mood: _, ...restArgs }) => (
     <div className="flex flex-col gap-16">
-      {colors.map(({ title, props }) => (
-        <ProgressBar
-          key={title}
-          {...props}
-          value={3}
-          max={5}
-          label={title}
-          isAnimating={false}
-          isReversed={false}
-        />
-      ))}
+      {colors.map(({ title, props }) => {
+        // Omit 'mood' from args to avoid type error
+        return (
+          <ProgressBar
+            {...restArgs}
+            key={title}
+            label={title}
+            color={props.color ?? 'green'}
+            pattern={props.pattern}
+          />
+        )
+      })}
     </div>
   ),
 }
