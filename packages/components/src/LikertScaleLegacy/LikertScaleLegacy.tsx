@@ -25,6 +25,7 @@ export type LikertScaleProps = {
   'colorSchema'?: ColorSchema | 'classical'
   'validationMessage'?: string
   'status'?: 'default' | 'error'
+  'isRequired'?: boolean
   'onSelect': (value: ScaleItem | null) => void
 }
 
@@ -46,6 +47,7 @@ export const LikertScaleLegacy = ({
   validationMessage,
   status,
   labelId,
+  isRequired = false,
 }: LikertScaleProps): JSX.Element => {
   const [hoveredItem, setHoveredItem] = useState<ScaleItem | null>(null)
   const itemRefs: ItemRefs = scale.map((s) => ({
@@ -109,6 +111,7 @@ export const LikertScaleLegacy = ({
       tabIndex={-1}
       aria-describedby={validationMessageId}
       data-testid={dataTestId}
+      aria-required={isRequired ? true : undefined}
     >
       <div className={styles.legend} data-testid={dataTestId && `${dataTestId}-legend`}>
         <Text variant="small" color={reversed ? 'white' : 'dark'}>
