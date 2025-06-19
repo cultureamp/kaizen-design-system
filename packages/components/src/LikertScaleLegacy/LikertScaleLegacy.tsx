@@ -25,6 +25,10 @@ export type LikertScaleProps = {
   'colorSchema'?: ColorSchema | 'classical'
   'validationMessage'?: string
   'status'?: 'default' | 'error'
+  /**
+   * Sets aria-required value on radiogroup for assistive technologies. Validation must still be handled.
+   */
+  'isRequired'?: boolean
   'onSelect': (value: ScaleItem | null) => void
 }
 
@@ -46,6 +50,7 @@ export const LikertScaleLegacy = ({
   validationMessage,
   status,
   labelId,
+  isRequired,
 }: LikertScaleProps): JSX.Element => {
   const [hoveredItem, setHoveredItem] = useState<ScaleItem | null>(null)
   const itemRefs: ItemRefs = scale.map((s) => ({
@@ -104,11 +109,12 @@ export const LikertScaleLegacy = ({
         reversed && [styles.reversed],
         hoveredItem !== null && styles.hovered,
       )}
-      aria-labelledby={labelId}
+      aria-labelledby={isRequired ? `${labelId}` : labelId}
       role="radiogroup"
       tabIndex={-1}
       aria-describedby={validationMessageId}
       data-testid={dataTestId}
+      aria-required={isRequired}
     >
       <div className={styles.legend} data-testid={dataTestId && `${dataTestId}-legend`}>
         <Text variant="small" color={reversed ? 'white' : 'dark'}>

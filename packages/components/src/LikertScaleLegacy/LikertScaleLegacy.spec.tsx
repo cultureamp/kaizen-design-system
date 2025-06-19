@@ -36,6 +36,7 @@ const LikertScaleLegacyWrapper = (props: Partial<LikertScaleProps>): JSX.Element
     labelId="test__likert-scale"
     selectedItem={null}
     onSelect={(): void => undefined}
+    isRequired
     {...props}
   />
 )
