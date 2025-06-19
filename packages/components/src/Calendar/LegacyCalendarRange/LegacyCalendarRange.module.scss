@@ -1,24 +1,27 @@
 @import '~@kaizen/design-tokens/sass/color';
 
-.nav {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  color: $color-purple-800;
-}
+@layer kz-components {
+  .nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: $color-purple-800;
+    top: -0.25rem;
+  }
 
-.navButtonNext {
-  inset-inline-end: 0;
-}
+  .dayRangeStart,
+  .dayRangeEnd {
+    background-color: $color-blue-500;
+    color: $color-white;
+  }
 
-.dayRangeStart,
-.dayRangeEnd {
-  background-color: $color-blue-500;
-  color: $color-white;
-}
+  .dayRangeMiddle {
+    background-color: $color-blue-100;
+    color: $color-blue-500;
 
-.dayRangeMiddle {
-  background-color: $color-blue-100;
-  color: $color-blue-500;
+    & [class*='_button_'] {
+      color: $color-blue-500;
+    }
+  }
 }

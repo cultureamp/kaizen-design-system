@@ -1,15 +1,17 @@
-.footerAction {
-  display: flex;
-  flex-grow: 1;
-  flex-basis: auto;
-}
+@layer kz-components {
+  .footerAction {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: auto;
+  }
 
-.footerActionPrevious {
-  grid-area: 'prev';
-  justify-content: start;
-}
+  .footerActionPrevious {
+    grid-area: prev;
+    justify-content: start;
+  }
 
-.footerActionNext {
-  grid-area: 'next';
-  justify-content: end;
+  .footerActionNext {
+    grid-area: next;
+    justify-content: end;
+  }
 }

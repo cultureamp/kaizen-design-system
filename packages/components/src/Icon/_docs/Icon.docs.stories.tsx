@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import * as ICONS from '~components/Icon'
 import { Text } from '~components/Text'
-import { Tag } from '~components/__rc__/Tag'
+import { Tag } from '~components/__next__/Tag'
 import { AddIcon } from '../index'
 import styles from './icon.module.scss'
 
 const meta = {
-  title: 'Components/Icon',
+  title: 'Components/Icon/Icon components (deprecated)',
   component: AddIcon,
   args: {
     role: 'presentation',

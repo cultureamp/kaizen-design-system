@@ -4,7 +4,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { RadioField } from '../index'
 
 export default {
-  title: 'Components/Radio controls/RadioField',
+  title: 'Components/Radios/RadioField',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

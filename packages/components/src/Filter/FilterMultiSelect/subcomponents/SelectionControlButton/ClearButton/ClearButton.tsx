@@ -1,4 +1,5 @@
 import React from 'react'
+import { FormattedMessage } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import { VisuallyHidden } from '~components/VisuallyHidden'
 import { useSelectionContext } from '../../../context'
@@ -28,7 +29,16 @@ export const ClearButton = (): JSX.Element => {
         // TODO: add announcement here to inform selection cleared
       }
     >
-      Clear<VisuallyHidden> selections</VisuallyHidden>
+      <FormattedMessage
+        defaultMessage="Clear<VisuallyHidden> selections</VisuallyHidden>"
+        id="filterMultiSelectClearButton.label"
+        description="Clear button label for filter multi-select"
+        values={{
+          VisuallyHidden: (children: React.ReactNode) => (
+            <VisuallyHidden>{children}</VisuallyHidden>
+          ),
+        }}
+      />
     </button>
   )
 }

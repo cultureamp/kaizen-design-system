@@ -1,0 +1,107 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks'
+import {
+  ResourceLinks,
+  KAIOInstallation,
+  LinkTo,
+  DosAndDonts,
+  DoOrDont,
+} from '~storybook/components'
+import * as Link from './Link.doc.stories'
+
+<Meta title="Components/Link/Usage Guidelines" />
+
+# Link
+
+Updated Jan 30, 2025
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Link"
+  figma="https://www.figma.com/design/FWIOtGjpv9z0by95j1SgP0/Link?node-id=273-4107"
+  apiSpecification="/?path=/docs/components-link-api-specification--docs"
+/>
+
+<KAIOInstallation exportNames={'Link'} />
+
+## Overview
+
+`Link` allow users to navigate to a different location. They can be presented inside a paragraph or as standalone text.
+
+<Canvas of={Link.Playground} />
+
+<Controls
+  of={Link.Playground}
+  include={['href', 'variant', 'size', 'isDisabled', 'icon', 'iconPosition']}
+  className="mb-64"
+/>
+
+## When to use
+
+- Navigating to a different page within the application
+- Navigating to an entirely different site
+- Jump to an element on the same page
+- Link to emails or phone numbers
+
+## When not to use
+
+- Do not use links for actions that will change data or manipulate how it is displayed, change a state, or trigger an action. Instead, use buttons to guide users to specific actions.
+
+### Use primary links to highlight
+
+The primary link is the default and is blue. This should be used to call attention to the link and for when the blue color won’t feel too overwhelming in the experience.
+
+### Use secondary links to optimise readability
+
+The secondary link is the same color as the paragraph text. Its subdued appearance is optimal for when the primary variant is too overwhelming, such as in blocks of text with several references linked throughout.
+
+### Use links in body copy
+
+Put links in regular text, not in titles. If you need something bigger or more noticeable, try using a button instead.
+
+### Use a relative link size
+
+The link component has four size variants, each aligning with body text sizes.
+
+- **Inline Links**: Use the isInline prop to inherit the font size from the parent Text component.
+- **Standalone Links**: Choose a size that maintains consistency with the surrounding text within the same component or pattern.
+
+### Give context to inline links
+
+For links in a sentence, write them as part of the sentence and include enough information so people know what to expect. This approach can draw a user’s focus to the linked text. If the link leads to more content, it can be helpful to write it as a descriptive noun (e.g., “survey feedback”). If the link launches a task or action, start it with a verb (e.g., “Share your feedback”).
+
+### Specs
+
+#### Write standalone links like calls-to-action
+
+Standalone links are not full sentences, and do not have punctuation at the end. Treat these like calls-to-action by writing them as short verb phrases. Where possible, do not break over multiple lines.
+
+<DosAndDonts>
+  <DoOrDont story={Link.StandaloneLinkDo} />
+  <DoOrDont story={Link.StandaloneLinkDont} isDont />
+</DosAndDonts>
+
+#### Ensure clarity by prioritizing the most valuable links
+
+Think about how many links you use and where you put them. Don't overload your interface with too many links as clustering links can confuse people.
+
+<DosAndDonts>
+  <DoOrDont story={Link.OneLinkInSentence} />
+  <DoOrDont story={Link.FiveLinksInSentence} isDont />
+</DosAndDonts>
+
+#### Use icons in links sparingly and consistently
+
+Overusing icons can create visual clutter and overwhelm users. Use them sparingly to highlight common and recognisable navigation.
+
+<DosAndDonts>
+  <DoOrDont story={Link.ExternalIconLink} />
+  <DoOrDont story={Link.RandomIconLink} isDont />
+</DosAndDonts>
+
+#### Links should make sense in isolation
+
+If links on a page have the same label repeated multiple times, they should have distinct, accessible names that add context for users. This ensures [better accessibility for screen reader](https://cultureamp.atlassian.net/wiki/spaces/PA/pages/3240099910/Buttons+and+link+labels+make+sense+in+isolation) users, who rely on descriptive labels to distinguish between links.
+
+<DosAndDonts>
+  <DoOrDont story={Link.DistinctNamedLink} />
+  <DoOrDont story={Link.GenericNamedLink} isDont />
+</DosAndDonts>

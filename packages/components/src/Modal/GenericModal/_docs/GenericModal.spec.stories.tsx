@@ -6,7 +6,7 @@ import { expect, userEvent, waitFor, within } from '@storybook/test'
 import { GenericModal, ModalAccessibleLabel, ModalBody, ModalHeader } from '../index'
 
 const meta: Meta<typeof GenericModal> = {
-  title: 'Components/Modals/GenericModal/Tests',
+  title: 'Components/Modals/GenericModal (primitive)/Tests',
   component: GenericModal,
 }
 
@@ -21,7 +21,11 @@ export const TestBase: Story = {
 
     return (
       <>
-        <button type="button" className="border border-gray-500" onClick={() => setIsOpen(true)}>
+        <button
+          type="button"
+          className="border border-gray-500 relative z-10"
+          onClick={() => setIsOpen(true)}
+        >
           Open Modal
         </button>
         <GenericModal
@@ -30,6 +34,7 @@ export const TestBase: Story = {
           onOutsideModalClick={handleDismiss}
           onEscapeKeyup={handleDismiss}
           id="GenericModalTestId"
+          className="will-change-[opacity]"
         >
           <ModalHeader>
             <ModalAccessibleLabel>Test Modal</ModalAccessibleLabel>

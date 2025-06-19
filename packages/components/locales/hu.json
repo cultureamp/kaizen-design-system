@@ -61,6 +61,14 @@
     "description" : "Label for the 'date to' field",
     "message" : "Dátum eddig:"
   },
+  "filterMultiSelectClearButton.label" : {
+    "description" : "Clear button label for filter multi-select",
+    "message" : "A <VisuallyHidden>kijelölt </VisuallyHidden>tételek törlése"
+  },
+  "filterMultiSelectMultiSelectOption.available" : {
+    "description" : "Number of filter items available",
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> elérhető</VisuallyHidden>"
+  },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
     "message" : "Lehetőségek szűrése keresési lekérdezés alapján"
@@ -68,6 +76,10 @@
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
     "message" : "Keresés…"
+  },
+  "filterMultiSelectSelectAllButton.label" : {
+    "description" : "Select all button in filter multi select",
+    "message" : "Összes kiválasztása"
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",

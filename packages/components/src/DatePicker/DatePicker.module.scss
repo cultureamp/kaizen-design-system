@@ -1,9 +1,11 @@
 @import '~@kaizen/design-tokens/sass/color';
 
-.datePicker {
-  color: $color-purple-800;
-}
+@layer kz-components {
+  .datePicker {
+    color: $color-purple-800;
+  }
 
-.isReversed {
-  color: $color-yellow-600;
+  .isReversed {
+    color: $color-yellow-600;
+  }
 }

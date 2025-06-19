@@ -1,5 +1,335 @@
 # Change Log
 
+## 1.79.4
+
+### Patch Changes
+
+- [#5833](https://github.com/cultureamp/kaizen-design-system/pull/5833) [`f280628`](https://github.com/cultureamp/kaizen-design-system/commit/f280628049eccb0e275e15ad141838a6727e1dba) - Removes aria-haspopup from v1 Menu. This was a partial implementation of the menu aria pattern and does not have the corresponding arrow controls functionality so was confusing to SR users.
+
+- [#5848](https://github.com/cultureamp/kaizen-design-system/pull/5848) [`dcaedd6`](https://github.com/cultureamp/kaizen-design-system/commit/dcaedd626e45189d7c5614d6a693c26c2a434a16) - Re-add missing z-index from AIMoment stylesheet
+
+## 1.79.3
+
+### Patch Changes
+
+- [#5817](https://github.com/cultureamp/kaizen-design-system/pull/5817) [`1834f63`](https://github.com/cultureamp/kaizen-design-system/commit/1834f639586d83e1800bc70b7a5ad6a6ef29638e) - Tab component to handle async loaded tabs in mobile view
+
+- [#5818](https://github.com/cultureamp/kaizen-design-system/pull/5818) [`cc76e9f`](https://github.com/cultureamp/kaizen-design-system/commit/cc76e9f7991ef6e02f7b2f33ad6a5e37e0d23e34) - Add relative position to the top level parent of the Modal components to ensure they are on top of the whole application
+
+## 1.79.2
+
+### Patch Changes
+
+- [#5815](https://github.com/cultureamp/kaizen-design-system/pull/5815) [`884f3b0`](https://github.com/cultureamp/kaizen-design-system/commit/884f3b073905968ff7567626009d6dfc2529b6ae) - Fixes bug in Select next overlay, was closing overlay when clicking on scroll
+
+## 1.79.1
+
+### Patch Changes
+
+- [#5795](https://github.com/cultureamp/kaizen-design-system/pull/5795) [`0348722`](https://github.com/cultureamp/kaizen-design-system/commit/0348722b6337f075cfb058127e63fdf643e052e3) - Revising the type `onSelectionChange` in the Select next component to align with previous versions
+
+## 1.79.0
+
+### Minor Changes
+
+- [#5679](https://github.com/cultureamp/kaizen-design-system/pull/5679) [`4abe792`](https://github.com/cultureamp/kaizen-design-system/commit/4abe792372c27d5d0c341af82ef79b6adfddec69) - Wrap component styles in a CSS Cascade Layer
+
+  To unblock adoption of Tailwind CSS v4 in consuming apps, Kaizen component styles must be wrapped in `@layer kz-components` that can be given lower priority than Tailwind's new `@layer utilities`.
+
+  Ideally this would not be necessary, and consuming apps could simply import Kaizen's styles into a layer:
+
+  ```
+  @import url(~@kaizen/components/dist/styles.css) layer(components);
+  ```
+
+  Unfortunately, this syntax is [not supported](https://github.com/vercel/next.js/issues/55763#issuecomment-2791540126) by the outdated version of webpack css-loader that is contained in Next.js. Until it is, we must publish styles for packages like Kaizen with a layer provided.
+
+  #### Isn't this a breaking change?
+
+  **In projects using Tailwind v4, you will need to add the `kz-components` layer to your @layer declaring your layer order.** It should come before your app's `utilities` layer, and before the layers of any other packages that may also be using Kaizen. For example, in **performance-review-cycles-ui**:
+
+  ```
+  @layer tokens, normalize, reset, properties, theme, base, kz-components, components, prc-shared-ui, utilities;
+  ```
+
+  **In Next.js projects, this version of Kaizen requires @cultureamp/next-config 3.4.0 or later.**
+
+  The increased use of `@layer` in this release triggers a bug in the CSS minifier in Next.js 14, which causes the `@layer` statement at the top of Kaizen's stylesheet to be moved to a different place in the CSS output, breaking the layer order. Next.js 15.0.3 fixed this, but as of this release most of our apps are still on Next.js 14.x. We have therefore applied the fix from Next.js 15 to Next.js 14 in [@cultureamp/next-config 3.4.0](https://github.com/cultureamp/frontend-foundations/releases/tag/%40cultureamp%2Fnext-config%403.4.0).
+
+  Also, this release technically lowers the priority of Kaizen's component styles below any consuming apps' "unlayered" styles, regardless of selector specificity or source order. We believe that Kaizen styles are already output before app styles in apps' CSS bundles to ensure app styles take priority; therefore, this should have no effect on the relative priority of styles in consuming apps. Still, you should probably pay close attention to any visual diffs reported by Chromatic when applying this update.
+
+## 1.78.1
+
+### Patch Changes
+
+- [#5776](https://github.com/cultureamp/kaizen-design-system/pull/5776) [`2bcaee4`](https://github.com/cultureamp/kaizen-design-system/commit/2bcaee4e4a7da4f406d6b661c66fd5d996da478d) - Update react aria deps and fallback arg for onSelectionChange key
+
+- [#5776](https://github.com/cultureamp/kaizen-design-system/pull/5776) [`2bcaee4`](https://github.com/cultureamp/kaizen-design-system/commit/2bcaee4e4a7da4f406d6b661c66fd5d996da478d) - chore(deps): upgrade @kaizen/component
+
+  - patch updates for @headlessui/react and prosemirror-view
+  - devDeps updates for various packages
+
+- [#5776](https://github.com/cultureamp/kaizen-design-system/pull/5776) [`2bcaee4`](https://github.com/cultureamp/kaizen-design-system/commit/2bcaee4e4a7da4f406d6b661c66fd5d996da478d) - Update deprecated CSS properties for RGB functions and word-beak values
+
+## 1.78.0
+
+### Minor Changes
+
+- [#5552](https://github.com/cultureamp/kaizen-design-system/pull/5552) [`fd29d3d`](https://github.com/cultureamp/kaizen-design-system/commit/fd29d3d2967221c79537e2f7b6c6e9c7a492baf2) - Upgrade packages to support React 19
+
+  - Update all peer dependencies to support 18-19 range
+  - Update react-day-picker to v9
+    - this changes some UX (for the better) when using active ranges
+    - the dom structure has changed and may require test and css updates
+  - Some dependencies have their peerDeps altered to allow 19, these will eventually be removed
+
+  _Note_ updating to this version of kaizen will not force you onto react 19 it'll continue to use 18 until you upgrade the consuming app
+
+## 1.77.4
+
+### Patch Changes
+
+- [#5739](https://github.com/cultureamp/kaizen-design-system/pull/5739) [`69331cd`](https://github.com/cultureamp/kaizen-design-system/commit/69331cd1f49abf20b7627603407eb700a2a982b6) - dep updates for react-aria, react-stately, headless-ui and prosemirror
+
+## 1.77.3
+
+### Patch Changes
+
+- [#5751](https://github.com/cultureamp/kaizen-design-system/pull/5751) [`b0e35d7`](https://github.com/cultureamp/kaizen-design-system/commit/b0e35d7fa2dd647a2b144fedd770c30b5eeada3a) - Update `RichTextContent` styles for Tailwind 4 compatibility
+
+  With Tailwind 4 we will need to load Kaizen into a CSS Cascade Layer, which
+  will prevent its styles from overriding the default styles injected into the
+  page by ProseMirror/TipTap at runtime. Where we want to override these, Kaizen
+  must therefore now declare these styles as `!important`.
+
+## 1.77.2
+
+### Patch Changes
+
+- [#5719](https://github.com/cultureamp/kaizen-design-system/pull/5719) [`d671ce6`](https://github.com/cultureamp/kaizen-design-system/commit/d671ce6119bddb9bf57f940b3f6747132b3da4c6) - Add `z-index: 0` to aiMoment shared styles to fix `Well` and `Card` gradient borders not appearing.
+
+## 1.77.1
+
+### Patch Changes
+
+- [#5713](https://github.com/cultureamp/kaizen-design-system/pull/5713) [`15e011b`](https://github.com/cultureamp/kaizen-design-system/commit/15e011b03419a0a762fd69ca9ed8a86c6152c636) - Patch bump for assets to build
+
+- [`e37e4c8`](https://github.com/cultureamp/kaizen-design-system/commit/e37e4c8cabcfb8b2aac680223cd670ef4167801d) - Fix an issue where types exported doesn't have alias converted.
+
+## 1.77.0
+
+### Minor Changes
+
+- [#5701](https://github.com/cultureamp/kaizen-design-system/pull/5701) [`9c63e64`](https://github.com/cultureamp/kaizen-design-system/commit/9c63e6419436bd9a365d00e166dde1c5990c79c3) - Upgrade to latest @cultureamp/package-bundler which should fix type issues
+
+## 1.76.0
+
+### Minor Changes
+
+- [#5625](https://github.com/cultureamp/kaizen-design-system/pull/5625) [`7384f19`](https://github.com/cultureamp/kaizen-design-system/commit/7384f195ffab862ecfeb14397d31018801037c0d) - Add isAiLoading prop to Well and AI Moment styles
+
+- [#5675](https://github.com/cultureamp/kaizen-design-system/pull/5675) [`ff71097`](https://github.com/cultureamp/kaizen-design-system/commit/ff7109721500bac092641ce6274f5ec5c6a73782) - Add AI moment props to Card and update guidance docs
+
+## 1.75.3
+
+### Patch Changes
+
+- [#5658](https://github.com/cultureamp/kaizen-design-system/pull/5658) [`07ec5b6`](https://github.com/cultureamp/kaizen-design-system/commit/07ec5b6c7144a7cd8fb5e50faa8ae7ef5b9f21b0) - Reorder types and style to come first in exports package.json object
+
+## 1.75.2
+
+### Patch Changes
+
+- [#5654](https://github.com/cultureamp/kaizen-design-system/pull/5654) [`6a83b06`](https://github.com/cultureamp/kaizen-design-system/commit/6a83b06eb0395c833f484ced2f48c1874a1d61da) - Update headlessui to next major and update transition implementation
+
+## 1.75.1
+
+### Patch Changes
+
+- [#5652](https://github.com/cultureamp/kaizen-design-system/pull/5652) [`f711137`](https://github.com/cultureamp/kaizen-design-system/commit/f7111378a2561bf595c1a4a48717108aa22de99d) - Dep updates
+
+## 1.75.0
+
+### Minor Changes
+
+- [#5569](https://github.com/cultureamp/kaizen-design-system/pull/5569) [`cffd4ad`](https://github.com/cultureamp/kaizen-design-system/commit/cffd4ad8ef49310e6a0fa94229f6bbfaf8debbdc) - deprecate GuidanceBlock `actions` props and add actionsSlot
+
+## 1.74.3
+
+### Patch Changes
+
+- [#5631](https://github.com/cultureamp/kaizen-design-system/pull/5631) [`3107795`](https://github.com/cultureamp/kaizen-design-system/commit/3107795efcf0cccf26246ec668dd80b56a1c1137) - Update translations
+
+## 1.74.2
+
+### Patch Changes
+
+- [#5578](https://github.com/cultureamp/kaizen-design-system/pull/5578) [`bca4fef`](https://github.com/cultureamp/kaizen-design-system/commit/bca4fefcca025598246d98c246bf64f3768bc5c1) - Use outlines instead of pseudo elements for focus rings
+
+## 1.74.1
+
+### Patch Changes
+
+- [#5624](https://github.com/cultureamp/kaizen-design-system/pull/5624) [`a57dc51`](https://github.com/cultureamp/kaizen-design-system/commit/a57dc5134d8b034e3e16d16e50e5289dbb14f9e8) - Add translations for FilterMultiSelect
+
+## 1.74.0
+
+### Minor Changes
+
+- [#5606](https://github.com/cultureamp/kaizen-design-system/pull/5606) [`ad4747e`](https://github.com/cultureamp/kaizen-design-system/commit/ad4747e1b36c5b9c93e17228e386e4646f80abe5) - add translations for the clear, select all and Multiselect option
+
+## 1.73.13
+
+### Patch Changes
+
+- [#5601](https://github.com/cultureamp/kaizen-design-system/pull/5601) [`6f6f581`](https://github.com/cultureamp/kaizen-design-system/commit/6f6f581e943457632227034cbbaeef127b63e3c1) - TimeField: fix spacing after dep update
+
+## 1.73.12
+
+### Patch Changes
+
+- [#5602](https://github.com/cultureamp/kaizen-design-system/pull/5602) [`812eb89`](https://github.com/cultureamp/kaizen-design-system/commit/812eb8974c5e2d779defe43732a0df84e308cab1) - Fix disabled styles for primary variant of next/button
+
+## 1.73.11
+
+### Patch Changes
+
+- [#5599](https://github.com/cultureamp/kaizen-design-system/pull/5599) [`85d95d4`](https://github.com/cultureamp/kaizen-design-system/commit/85d95d43a7cc600e6494d5cd52074efb19fb702b) - next/Select: link description and validation message with aria-describedby
+
+## 1.73.10
+
+### Patch Changes
+
+- [#5581](https://github.com/cultureamp/kaizen-design-system/pull/5581) [`660efac`](https://github.com/cultureamp/kaizen-design-system/commit/660efac49bf80aa9a874fd41758ed57ad5e7e94e) - Dep updates
+
+## 1.73.9
+
+### Patch Changes
+
+- [#5470](https://github.com/cultureamp/kaizen-design-system/pull/5470) [`572f507`](https://github.com/cultureamp/kaizen-design-system/commit/572f50713c15d4d15d30a7b7eacd1191e9b60c5f) - Bump react-aria packages
+
+## 1.73.8
+
+### Patch Changes
+
+- [#5560](https://github.com/cultureamp/kaizen-design-system/pull/5560) [`93f98a1`](https://github.com/cultureamp/kaizen-design-system/commit/93f98a1b1f2946625214d9c0230cb374cf9f4d15) - update dependency jest-axe to v10
+
+## 1.73.7
+
+### Patch Changes
+
+- [#5484](https://github.com/cultureamp/kaizen-design-system/pull/5484) [`9fcad6b`](https://github.com/cultureamp/kaizen-design-system/commit/9fcad6b33f159252cbcd19f918a8f2680a9c4a68) - Dep updates
+
+## 1.73.6
+
+### Patch Changes
+
+- [#5563](https://github.com/cultureamp/kaizen-design-system/pull/5563) [`2026e7a`](https://github.com/cultureamp/kaizen-design-system/commit/2026e7a61e41d7966f4212fd95b73c1afd753621) - add length check for tabs
+
+## 1.73.5
+
+### Patch Changes
+
+- [#5561](https://github.com/cultureamp/kaizen-design-system/pull/5561) [`25d4772`](https://github.com/cultureamp/kaizen-design-system/commit/25d47721f9dea7b36e1ce9c114d8b31190f0d18a) - Content: add min-width:0 to maintain gutter margins when inner contents has a wide element
+
+## 1.73.4
+
+### Patch Changes
+
+- [#5555](https://github.com/cultureamp/kaizen-design-system/pull/5555) [`817e325`](https://github.com/cultureamp/kaizen-design-system/commit/817e325aabad6fc58c04fa47ba1a0c6aa121ebb3) - Modal: Update directional CSS to logical properties/values for RTL support
+
+## 1.73.3
+
+### Patch Changes
+
+- [#5554](https://github.com/cultureamp/kaizen-design-system/pull/5554) [`4f739a2`](https://github.com/cultureamp/kaizen-design-system/commit/4f739a2359e6aa620757322df5049927e6cf7aa7) - Adjust Modal className implementations to insert at the top level
+
+## 1.73.2
+
+### Patch Changes
+
+- [#5550](https://github.com/cultureamp/kaizen-design-system/pull/5550) [`a6f3a4f`](https://github.com/cultureamp/kaizen-design-system/commit/a6f3a4ff1a3d1a67f5fd47522e63ab5a2bd08171) - Fix v1 codemod transformer and remove disableTabFocusAndIUnderstandTheAccessibilityImplications condition that adds a onPressEnd property
+
+## 1.73.1
+
+### Patch Changes
+
+- [#5408](https://github.com/cultureamp/kaizen-design-system/pull/5408) [`e3a05b1`](https://github.com/cultureamp/kaizen-design-system/commit/e3a05b1691a95e0967256ff4850191373fad6db1) - Add codemod to upgrade V1 `Button` and `IconButton`.
+
+## 1.73.0
+
+### Minor Changes
+
+- [#5502](https://github.com/cultureamp/kaizen-design-system/pull/5502) [`65fbb77`](https://github.com/cultureamp/kaizen-design-system/commit/65fbb777d23d5226232502898371bb16ae87639b) - Add Link component
+
+  - Adds Link component, stories, and documentation
+
+## 1.72.0
+
+### Minor Changes
+
+- [#5541](https://github.com/cultureamp/kaizen-design-system/pull/5541) [`b1fc3db`](https://github.com/cultureamp/kaizen-design-system/commit/b1fc3db2a99f8c026632aeccffe9c1a8a410501b) - Create `next` entrypoint, holding all `future` and `v3` components.
+
+  Update docs to recommend importing from `next` instead of `future` or `v3`.
+
+  Old 'future' and versioned (v1, v2, v3) entrypoints will remain supported until 2.0 release in September)
+
+## 1.71.0
+
+### Minor Changes
+
+- [#5510](https://github.com/cultureamp/kaizen-design-system/pull/5510) [`633832d`](https://github.com/cultureamp/kaizen-design-system/commit/633832d2a2d238819c4d67948d4e8558421e17aa) - use native popovers in the CalendarPopover
+
+### Patch Changes
+
+- [#5537](https://github.com/cultureamp/kaizen-design-system/pull/5537) [`1a959ea`](https://github.com/cultureamp/kaizen-design-system/commit/1a959ea4e6f503ad43db96b14842e7907e3e2c70) - Remove stacking context from TBZ to avoid sitting over popovers
+
+## 1.70.24
+
+### Patch Changes
+
+- [#5535](https://github.com/cultureamp/kaizen-design-system/pull/5535) [`fc30d45`](https://github.com/cultureamp/kaizen-design-system/commit/fc30d45a71adc15342f72212e26e4c2838f8a86a) - Revert: Export RTE mockRangeForBoundingRect helper function
+
+## 1.70.23
+
+### Patch Changes
+
+- [#5527](https://github.com/cultureamp/kaizen-design-system/pull/5527) [`4bb3858`](https://github.com/cultureamp/kaizen-design-system/commit/4bb38586b576d3f56d3510b3e49f5659d32cb95b) - Export react-aria Selection type
+
+## 1.70.22
+
+### Patch Changes
+
+- [#5524](https://github.com/cultureamp/kaizen-design-system/pull/5524) [`3d0aca6`](https://github.com/cultureamp/kaizen-design-system/commit/3d0aca6ea5c1fc6f95e519ca13fc4a43363fd230) - Export RTE mockRangeForBoundingRect helper function
+
+## 1.70.21
+
+### Patch Changes
+
+- [#5523](https://github.com/cultureamp/kaizen-design-system/pull/5523) [`d66876a`](https://github.com/cultureamp/kaizen-design-system/commit/d66876a3b46d0c396974c056ba83b38079eae9fe) - Expose the FilterButtonBase primitive for tier 3 usages
+
+## 1.70.20
+
+### Patch Changes
+
+- [#5520](https://github.com/cultureamp/kaizen-design-system/pull/5520) [`389e332`](https://github.com/cultureamp/kaizen-design-system/commit/389e3320ab84ec85e4e548e574d798ca959465e6) - Add missing v3 utilites export field
+
+- [#5517](https://github.com/cultureamp/kaizen-design-system/pull/5517) [`1ad7d14`](https://github.com/cultureamp/kaizen-design-system/commit/1ad7d1461f11f80399d85616074ea2e4b28abcda) - Adds Share icon to default set
+
+- [#5509](https://github.com/cultureamp/kaizen-design-system/pull/5509) [`544e59e`](https://github.com/cultureamp/kaizen-design-system/commit/544e59e0612d7cd534f1ff733f4013881c63a23c) - Tabs: small style changes in line with button
+
+## 1.70.19
+
+### Patch Changes
+
+- [#5518](https://github.com/cultureamp/kaizen-design-system/pull/5518) [`ae0ec1e`](https://github.com/cultureamp/kaizen-design-system/commit/ae0ec1e696acea0f8875e92586afa2da000b2f57) - Fix drilling down isDisabled prop for Select
+
+## 1.70.18
+
+### Patch Changes
+
+- [#5507](https://github.com/cultureamp/kaizen-design-system/pull/5507) [`5b1265d`](https://github.com/cultureamp/kaizen-design-system/commit/5b1265dc17bc3df8a4d8b3a269ebdc5c4c49e446) - ToggleSwitchField: removes hover style from disabled state
+
 ## 1.70.17
 
 ### Patch Changes

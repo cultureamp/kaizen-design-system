@@ -1,5 +1,5 @@
 {
   "main": "../dist/cjs/future.cjs",
   "module": "../dist/esm/future.mjs",
-  "types": "../dist/types/__rc__/index.d.ts"
+  "types": "../dist/types/__next__/index.d.ts"
 }

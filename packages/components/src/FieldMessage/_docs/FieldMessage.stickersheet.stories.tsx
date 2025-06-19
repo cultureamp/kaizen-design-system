@@ -4,7 +4,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { FieldMessage } from '../index'
 
 export default {
-  title: 'Components/FieldMessage',
+  title: 'Components/Form primitives/FieldMessage',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

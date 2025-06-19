@@ -27,7 +27,8 @@ describe('setFocusInCalendar', () => {
     const targetDay = within(targetMonth).getByRole('gridcell', {
       name: todayDay,
     })
-    expect(targetDay).toHaveFocus()
+    const targetBtn = within(targetDay).getByRole('button')
+    expect(targetBtn).toHaveFocus()
   })
 
   it('should focus on the selected day', () => {
@@ -35,7 +36,8 @@ describe('setFocusInCalendar', () => {
 
     const targetMonth = screen.getByRole('grid', { name: 'August 2022' })
     const targetDay = within(targetMonth).getByRole('gridcell', { name: '15' })
-    expect(targetDay).toHaveFocus()
+    const targetBtn = within(targetDay).getByRole('button')
+    expect(targetBtn).toHaveFocus()
   })
 
   it('should focus on today when selected date is invalid', () => {
@@ -45,7 +47,8 @@ describe('setFocusInCalendar', () => {
     const targetDay = within(targetMonth).getByRole('gridcell', {
       name: todayDay,
     })
-    expect(targetDay).toHaveFocus()
+    const targetBtn = within(targetDay).getByRole('button')
+    expect(targetBtn).toHaveFocus()
   })
 
   it('should focus on the first of the month when there is no selected day nor in the current month', () => {
@@ -53,6 +56,7 @@ describe('setFocusInCalendar', () => {
 
     const targetMonth = screen.getByRole('grid', { name: 'May 2022' })
     const targetDay = within(targetMonth).getByRole('gridcell', { name: '1' })
-    expect(targetDay).toHaveFocus()
+    const targetBtn = within(targetDay).getByRole('button')
+    expect(targetBtn).toHaveFocus()
   })
 })

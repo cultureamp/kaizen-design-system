@@ -1,6 +1,7 @@
-import React, { useEffect, useId, useState } from 'react'
+import React, { useCallback, useEffect, useId, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Transition } from '@headlessui/react'
+import classnames from 'classnames'
 import FocusLock from 'react-focus-lock'
 import { warn } from '../util/console'
 import { ModalContext } from './context/ModalContext'
@@ -17,6 +18,7 @@ export type GenericModalProps = {
   onAfterEnter?: () => void
   /** A callback that is triggered after the modal is closed. */
   onAfterLeave?: () => void
+  className?: string
 }
 
 export const GenericModal = ({
@@ -28,6 +30,7 @@ export const GenericModal = ({
   onOutsideModalClick,
   onAfterEnter,
   onAfterLeave: propsOnAfterLeave,
+  className,
 }: GenericModalProps): JSX.Element => {
   const reactId = useId()
   const id = propsId ?? reactId
@@ -96,15 +99,20 @@ export const GenericModal = ({
     }
   }
 
+  const escapeKeyHandler = useCallback(
+    (event: KeyboardEvent): void => {
+      if (event.key === 'Escape') {
+        onEscapeKeyup?.(event)
+      }
+    },
+    [onEscapeKeyup],
+  )
+
   const onBeforeEnterHandler = (): void => {
     preventBodyScroll()
 
     if (onEscapeKeyup) {
-      document.addEventListener('keyup', (event) => {
-        if (event.key === 'Escape') {
-          onEscapeKeyup?.(event)
-        }
-      })
+      document.addEventListener('keyup', escapeKeyHandler)
     }
   }
 
@@ -112,7 +120,7 @@ export const GenericModal = ({
     document.documentElement.classList.remove(styles.unscrollable, styles.pseudoScrollbar)
 
     if (onEscapeKeyup) {
-      document.removeEventListener('keyup', onEscapeKeyup)
+      document.removeEventListener('keyup', escapeKeyHandler)
     }
   }
 
@@ -125,18 +133,18 @@ export const GenericModal = ({
     cleanUpAfterClose()
     propsOnAfterLeave?.()
   }
-
   return createPortal(
     <Transition
       appear={true}
       show={isOpen}
-      enter={styles.animatingEnter}
-      leave={styles.animatingLeave}
       beforeEnter={onBeforeEnterHandler}
       afterEnter={onAfterEnterHandler}
       afterLeave={onAfterLeaveHandler}
       data-generic-modal-transition-wrapper
-      onClick={(e: React.MouseEvent): void => e.stopPropagation()}
+      enter={styles.animatingEnter}
+      leave={styles.animatingLeave}
+      as="div"
+      className={classnames(styles.transitionLayer, className)}
     >
       <FocusLock
         disabled={focusLockDisabled}

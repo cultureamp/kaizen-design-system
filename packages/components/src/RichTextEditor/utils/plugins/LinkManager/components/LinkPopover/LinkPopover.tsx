@@ -1,7 +1,7 @@
 import React from 'react'
 import { usePopover } from '~components/Popover'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { type SelectionPosition } from '../../types'
 import { Positioner } from './Positioner'
 import styles from './LinkPopover.module.scss'

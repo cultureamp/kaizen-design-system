@@ -3,11 +3,11 @@ import type { Locale } from 'date-fns'
 import {
   DayPicker,
   type DateRange,
-  type DayClickEventHandler,
-  type DayPickerRangeProps,
+  type DayEventHandler,
   type Matcher,
+  type PropsBase,
 } from 'react-day-picker'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
 import { DayOfWeek } from '../enums'
 import { isInvalidDate, isValidWeekStartsOn } from '../utils'
@@ -22,7 +22,7 @@ export type LegacyCalendarRangeProps = {
   disabledDays?: Matcher[]
   selectedRange?: DateRange
   locale: Locale
-  onDayChange: DayClickEventHandler
+  onDayChange: DayEventHandler<React.MouseEvent>
 }
 
 export const LegacyCalendarRange = ({
@@ -38,14 +38,13 @@ export const LegacyCalendarRange = ({
   const selectedMonth = monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   /* eslint-disable camelcase */
-  const classNames = {
+  const classNames: PropsBase['classNames'] = {
     ...baseCalendarClassNames,
     nav: styles.nav,
-    nav_button_next: styles.navButtonNext,
-    day_range_start: styles.dayRangeStart,
-    day_range_end: styles.dayRangeEnd,
-    day_range_middle: styles.dayRangeMiddle,
-  } satisfies DayPickerRangeProps['classNames']
+    range_start: styles.dayRangeStart,
+    range_end: styles.dayRangeEnd,
+    range_middle: styles.dayRangeMiddle,
+  }
   /* eslint-enable camelcase */
 
   return (
@@ -59,8 +58,13 @@ export const LegacyCalendarRange = ({
         onDayClick={onDayChange}
         classNames={classNames}
         components={{
-          IconRight: () => <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />,
-          IconLeft: () => <Icon name="arrow_back" isPresentational shouldMirrorInRTL />,
+          Chevron: (props) => {
+            if (props.orientation === 'left') {
+              return <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
+            }
+
+            return <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
+          },
         }}
         locale={locale}
       />

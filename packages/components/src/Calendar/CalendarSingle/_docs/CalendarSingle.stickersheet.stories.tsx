@@ -6,7 +6,7 @@ import styles from '../../baseCalendarClassNames.module.scss'
 import { CalendarSingle, type CalendarSingleProps } from '../index'
 
 export default {
-  title: 'Components/Date controls/Calendars/CalendarSingle',
+  title: 'Components/Datepickers/Calendars (primitives)/CalendarSingle (primitive)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -89,9 +89,14 @@ const StickerSheetTemplate: StickerSheetStory = {
 const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   const canvas = within(canvasElement)
 
-  const getElementWithinCalendar = (id: string, role: string, name: string): HTMLElement => {
+  const getElementWithinCalendar = (
+    id: string,
+    role: string,
+    name: string | RegExp,
+  ): HTMLElement => {
     const calendar = canvas.getByTestId(id)
-    return within(calendar).getByRole(role, { name })
+    const day = within(calendar).getByRole(role, { name })
+    return role === 'button' ? day : within(day).getByRole('button')
   }
 
   const todayCalendarIds = [
@@ -118,7 +123,7 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
     {
       id: 'id--calendar-navigation',
       role: 'button',
-      name: 'Go to previous month',
+      name: /Go to the previous month/i,
     },
   ]
 

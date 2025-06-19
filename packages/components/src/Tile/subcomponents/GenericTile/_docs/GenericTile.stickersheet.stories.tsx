@@ -4,7 +4,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { GenericTile, type GenericTileProps } from '../index'
 
 export default {
-  title: 'Components/Tiles/GenericTile',
+  title: 'Components/Tiles/GenericTile (primitive)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

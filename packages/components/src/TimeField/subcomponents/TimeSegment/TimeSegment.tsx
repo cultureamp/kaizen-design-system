@@ -8,9 +8,14 @@ import styles from './TimeSegment.module.scss'
 export type TimeSegmentProps = {
   segment: DateSegment
   state: DateFieldState
+  hasPadding?: boolean
 }
 
-export const TimeSegment = ({ segment, state }: TimeSegmentProps): JSX.Element => {
+export const TimeSegment = ({
+  segment,
+  state,
+  hasPadding = true,
+}: TimeSegmentProps): JSX.Element => {
   const ref = React.useRef<HTMLDivElement>(null)
   const { segmentProps } = useDateSegment(segment, state, ref)
 
@@ -29,6 +34,7 @@ export const TimeSegment = ({ segment, state }: TimeSegmentProps): JSX.Element =
           segment.type === 'literal' && styles.literal,
           segment.isPlaceholder && styles.placeholder,
           segment.type === 'dayPeriod' && styles.dayPeriod,
+          hasPadding && styles.hasPadding,
         )}
       >
         {generateSegmentDisplayText(segment)}

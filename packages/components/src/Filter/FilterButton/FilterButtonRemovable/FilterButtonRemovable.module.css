@@ -1,3 +1,5 @@
-.filterButtonBase {
-  height: 100%;
+@layer kz-components {
+  .filterButtonBase {
+    height: 100%;
+  }
 }

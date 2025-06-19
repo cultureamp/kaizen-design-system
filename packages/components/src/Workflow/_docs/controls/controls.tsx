@@ -1,7 +1,7 @@
 import React from 'react'
 import { type ArgTypes } from '@storybook/react'
 import { Button } from '~components/Button'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 
 export const WorkflowControls: Partial<ArgTypes> = {
   headerActions: {

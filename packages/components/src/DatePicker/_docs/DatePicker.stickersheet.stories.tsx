@@ -7,7 +7,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { DatePicker } from '../index'
 
 export default {
-  title: 'Components/Date controls/DatePicker',
+  title: 'Components/Datepickers/DatePicker',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

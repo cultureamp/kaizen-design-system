@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState, type HTMLAttributes } from 'react'
+import React, { useEffect, useRef, useState, type HTMLAttributes, type ReactNode } from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import { Button, IconButton } from '~components/Button'
 import type { GenericButtonProps } from '~components/Button/GenericButton'
 import { Heading, type AllowedHeadingTags } from '~components/Heading'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './GenericTile.module.scss'
 
@@ -130,8 +130,8 @@ export const GenericTile = ({
     return informationProp
   }
 
-  const renderBack = (): JSX.Element | void => {
-    if (!information) return
+  const renderBack = (): ReactNode => {
+    if (!information) return null
 
     const returnButtonLabel = formatMessage({
       id: 'kzGenericTile.infoButtonReturnLabel',

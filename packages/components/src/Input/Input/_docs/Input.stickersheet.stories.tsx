@@ -1,12 +1,12 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Input, type InputProps } from '../index'
 import { InputStatus, InputTypes } from '../types'
 
 export default {
-  title: 'Components/Inputs/Input',
+  title: 'Components/TextField/Input (primitive)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

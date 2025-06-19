@@ -4,7 +4,7 @@ import { Label } from '../index'
 import { LabelTypes } from '../types'
 
 const meta = {
-  title: 'Components/Label',
+  title: 'Components/Form primitives/Label',
   component: Label,
   args: {
     children: 'I am Label',

@@ -1,5 +1,7 @@
-.validationErrorMessage {
-  ul {
-    margin-bottom: 0;
+@layer kz-components {
+  .validationErrorMessage {
+    ul {
+      margin-bottom: 0;
+    }
   }
 }

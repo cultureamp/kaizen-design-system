@@ -1,10 +1,10 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import { ResourceLinks, KAIOInstallation, ReplacementNotice } from '~storybook/components'
 import * as TabsStories from './Tabs.stories'
 
 <Meta of={TabsStories} />
 
-# Tabs
+# Tabs (deprecated)
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tabs"
@@ -12,6 +12,8 @@ import * as TabsStories from './Tabs.stories'
   designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081929117/Tabs"
 
 />
+
+<ReplacementNotice />
 
 <KAIOInstallation exportNames={['Tabs', 'TabList', 'Tab', 'TabPanels', 'TabPanel']} />
 

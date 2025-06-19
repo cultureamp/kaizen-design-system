@@ -4,7 +4,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { InputRange } from '../index'
 
 export default {
-  title: 'Components/Inputs/InputRange',
+  title: 'Components/Slider/InputRange (primitive)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

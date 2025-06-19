@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Icon } from '~components/__rc__'
+import { Icon } from '~components/__next__'
 
 type Props = {
   text: string

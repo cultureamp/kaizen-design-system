@@ -61,6 +61,14 @@
     "description" : "Label for the 'date to' field",
     "message" : "Datum do"
   },
+  "filterMultiSelectClearButton.label" : {
+    "description" : "Clear button label for filter multi-select",
+    "message" : "Vymazat<VisuallyHidden> výběry</VisuallyHidden>"
+  },
+  "filterMultiSelectMultiSelectOption.available" : {
+    "description" : "Number of filter items available",
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> k dispozici</VisuallyHidden>"
+  },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
     "message" : "Možnosti filtrování podle vyhledávacího dotazu"
@@ -68,6 +76,10 @@
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
     "message" : "Vyhledat..."
+  },
+  "filterMultiSelectSelectAllButton.label" : {
+    "description" : "Select all button in filter multi select",
+    "message" : "Vybrat vše"
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",

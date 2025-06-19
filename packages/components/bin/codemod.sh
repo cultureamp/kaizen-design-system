@@ -31,8 +31,11 @@ echo ""
 
 if npx tsx@latest $CODEMOD_PATH $TARGET_DIR; then
   echo "Codemod '$codemodFileName' completed successfully in directory '$transformDir'"
+  echo "---"
+  echo "Run linting and prettier to correct issues with re-writes"
 else
   echo "Codemod '$codemodFileName' could not be run in '$TARGET_DIR'"
+  echo "Check if '$CODEMOD_PATH' exists and is in the current version of the @kaizen/components"
   exit 1
 fi
 

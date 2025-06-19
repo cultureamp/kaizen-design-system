@@ -1,5 +1,5 @@
 import type * as OLD_ICONS from '~components/Icon'
-import { type IconNames } from '~components/__rc__/Icon/types'
+import { type IconNames } from '~components/__next__/Icon/types'
 import { type StringSuggestions } from '~components/types/StringSuggestions'
 
 // `undefined` means the icon has no usage, thus is not available in the new icon set

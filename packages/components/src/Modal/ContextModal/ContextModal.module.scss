@@ -3,104 +3,106 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '../GenericModal/GenericModal.module';
 
-.modal {
-  @extend %genericModal;
+@layer kz-components {
+  .modal {
+    @extend %genericModal;
 
-  min-width: 300px;
-  max-width: 840px;
+    min-width: 300px;
+    max-width: 840px;
 
-  @media (min-width: $layout-breakpoints-medium) {
-    width: 90%;
+    @media (min-width: $layout-breakpoints-medium) {
+      width: 90%;
+    }
+
+    .animatingEnter & {
+      animation-duration: $ca-duration-fast;
+      animation-fill-mode: forwards;
+      animation-timing-function: $ca-bounce-in;
+
+      @include ca-animation(fade($from: 0, $to: 1), zoom($from: 0.5, $to: 1));
+    }
+
+    .animatingLeave & {
+      animation-duration: $ca-duration-rapid;
+      animation-fill-mode: forwards;
+      animation-timing-function: $ca-bounce-out;
+
+      @include ca-animation(fade($from: 1, $to: 0), zoom($from: 1, $to: 0.5));
+    }
   }
 
-  .animatingEnter & {
-    animation-duration: $ca-duration-fast;
-    animation-fill-mode: forwards;
-    animation-timing-function: $ca-bounce-in;
+  .header {
+    color: $color-purple-800;
+    text-align: start;
 
-    @include ca-animation(fade($from: 0, $to: 1), zoom($from: 0.5, $to: 1));
+    &.padded {
+      padding: $spacing-md;
+
+      @media (min-width: $layout-breakpoints-medium) {
+        padding: $spacing-md $spacing-lg;
+      }
+    }
   }
 
-  .animatingLeave & {
-    animation-duration: $ca-duration-rapid;
-    animation-fill-mode: forwards;
-    animation-timing-function: $ca-bounce-out;
+  %footer {
+    white-space: initial;
 
-    @include ca-animation(fade($from: 1, $to: 0), zoom($from: 1, $to: 0.5));
+    @media (min-width: $layout-breakpoints-medium) {
+      white-space: nowrap;
+    }
   }
-}
 
-.header {
-  color: $color-purple-800;
-  text-align: start;
+  .footer {
+    @extend %footer;
+  }
 
-  &.padded {
+  .footerWithSecondaryAction {
+    @extend %footer;
+
+    margin-inline-start: calc(-1 * #{$spacing-sm});
+  }
+
+  .emptyFooter {
+    height: $spacing-sm;
+  }
+
+  .portraitContentlayout {
     padding: $spacing-md;
+    display: block;
+    box-sizing: content-box;
+
+    @media (min-width: $layout-breakpoints-medium) {
+      display: grid;
+      max-width: 800px;
+      grid-auto-columns: 1fr;
+      grid-auto-flow: column;
+      column-gap: $spacing-xl;
+      padding: $spacing-md $spacing-lg;
+    }
+  }
+
+  .landscapeContentlayout {
+    display: flex;
+    padding: $spacing-md;
+    flex-direction: column;
 
     @media (min-width: $layout-breakpoints-medium) {
       padding: $spacing-md $spacing-lg;
     }
-  }
-}
 
-%footer {
-  white-space: initial;
+    .image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-  @media (min-width: $layout-breakpoints-medium) {
-    white-space: nowrap;
-  }
-}
+    .content {
+      padding-inline-start: 0;
 
-.footer {
-  @extend %footer;
-}
-
-.footerWithSecondaryAction {
-  @extend %footer;
-
-  margin-left: calc(-1 * #{$spacing-sm});
-}
-
-.emptyFooter {
-  height: $spacing-sm;
-}
-
-.portraitContentlayout {
-  padding: $spacing-md;
-  display: block;
-  box-sizing: content-box;
-
-  @media (min-width: $layout-breakpoints-medium) {
-    display: grid;
-    max-width: 800px;
-    grid-auto-columns: 1fr;
-    grid-auto-flow: column;
-    column-gap: $spacing-xl;
-    padding: $spacing-md $spacing-lg;
-  }
-}
-
-.landscapeContentlayout {
-  display: flex;
-  padding: $spacing-md;
-  flex-direction: column;
-
-  @media (min-width: $layout-breakpoints-medium) {
-    padding: $spacing-md $spacing-lg;
-  }
-
-  .image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .content {
-    padding-left: 0;
-
-    @media (min-width: $layout-breakpoints-medium) {
-      max-width: 100%;
+      @media (min-width: $layout-breakpoints-medium) {
+        max-width: 100%;
+      }
     }
   }
 }

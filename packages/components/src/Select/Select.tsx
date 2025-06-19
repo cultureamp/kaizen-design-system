@@ -9,7 +9,7 @@ import Async, { type AsyncProps as ReactAsyncSelectProps } from 'react-select/as
 import { FieldMessage } from '~components/FieldMessage'
 import { Label } from '~components/Label'
 import { Tag } from '~components/Tag'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import styles from './Select.module.scss'
 
 export type SelectProps = {
@@ -57,7 +57,6 @@ export const Select = React.forwardRef<any, SelectProps>(
       description,
       fullWidth: propsFullWidth,
       className: propsClassName,
-      isDisabled,
       placeholder,
       ...props
     },
@@ -76,7 +75,7 @@ export const Select = React.forwardRef<any, SelectProps>(
       variant === 'secondary' && styles.secondary,
       variant === 'secondary-small' && styles.secondarySmall,
       !fullWidth && styles.notFullWidth,
-      isDisabled && styles.disabled,
+      props.isDisabled && styles.disabled,
       status === 'error' && styles.error,
     )
 

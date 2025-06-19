@@ -1,0 +1,90 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import * as WellStories from './Well.stories'
+
+<Meta title="Components/Well/API Specification" />
+
+# Well API Specification
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Well"
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14167&t=1IXoBrHg5uK6MAJp-1"
+  designGuidelines="/?path=/docs/components-well-usage-guidelines--docs"
+
+/>
+
+<KAIOInstallation exportNames="Well" />
+
+## Overview
+
+Wells are used to contain related elements which can include anything from illustrations to headlines, supporting text, buttons, and lists. They have flexible layouts and dimensions based on their contents. Wells are elevated are on the same level as the surface.
+
+<Canvas of={WellStories.Playground} />
+<Controls of={WellStories.Playground} />
+
+## API
+
+### Color
+
+Formerly controlled by `variant`, `color` sets the background and border color of the `Well`.
+
+All `variant`s have a corresponding `color` value, with some minor update to ensure minimum contrast ratios are met.
+
+<Canvas of={WellStories.Colors} />
+
+### Border Styles
+
+<Canvas of={WellStories.BorderStyles} />
+
+### No Margin
+
+By default `Well` has a 24px bottom margin. To remove this, set the `noMargin` prop to `true`.
+
+<Canvas of={WellStories.NoMargin} />
+
+### isAiLoading and AI Moments
+
+To handle the AI loading state, use the `isAiLoading` prop. This will animate the Well's border and background while `true` and remain static while `false`. To revert to a regular Well, set `isAiLoading` to `undefined`.
+
+<Canvas of={WellStories.AIMoment} />
+
+Always use this in combination with other Kaizen loading components such as `LoadingHeading`, `LoadingParagraph`, and `LoadingGraphic` to communicate loading visually.
+
+The `Well` inherits the background color from the `color` property. Although this flexibility exists typically use should be limited to white to ensure sufficient color contrast.
+
+#### Interactive example
+
+<Canvas of={WellStories.InteractiveAIMoment} />
+
+#### Accessibility considerations
+
+As this component will likely indicate some form of dynamic update on the page it is important to announce the loading state and content updates to assistive technologies.
+
+<Canvas of={WellStories.AiMomentAccessibility} />
+
+As shown in the previous example, you can use `aria-live` and visually hidden elements to contain content updates. It is recommended that the live region is in the DOM as early as possible to ensure it exists within the accessibility tree.
+
+```jsx
+<div>
+  {dynamicAiContent && <Well>
+    {*/ live regions added after the a11y tree has been created may not be announced - avoid putting live regions here */}
+    {dynamicAiContent}
+  </Well>}
+</div>
+<div className="flex gap-6">
+  <VisuallyHidden>
+    <div aria-live="polite">{dynamicAiContent}</div>
+  </VisuallyHidden>
+  <Button hasHiddenPendingLabel onPress={fetchAiContent} pendingLabel="AI content is loading">
+    Update content
+  </Button>
+</div>
+```
+
+Note that Kaizen components, such as `Button`, may already have props to handle and communicate loading states to screen readers.
+
+```jsx
+<Button isPending pendingLabel="AI is loading response" hasHiddenPendingLabel {...buttonProps}>
+  Update AI
+</Button>
+```

@@ -4,7 +4,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { InputSearch } from '../index'
 
 export default {
-  title: 'Components/Inputs/InputSearch',
+  title: 'Components/SearchField/InputSearch (primitive)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

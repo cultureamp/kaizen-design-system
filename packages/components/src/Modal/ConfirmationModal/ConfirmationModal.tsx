@@ -11,7 +11,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from '~components/Modal/GenericModal'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import styles from './ConfirmationModal.module.scss'
 
 type Mood = 'positive' | 'informative' | 'negative' | 'cautionary' | 'assertive'
@@ -124,6 +124,7 @@ export const ConfirmationModal = ({
   confirmWorking,
   onDismiss: propsOnDismiss,
   children,
+  className,
   ...props
 }: ConfirmationModalProps): JSX.Element => {
   const variantName = variant ?? mood
@@ -158,6 +159,7 @@ export const ConfirmationModal = ({
       onOutsideModalClick={onDismiss}
       onAfterLeave={onAfterLeave}
       onAfterEnter={onAfterEnter}
+      className={className}
     >
       <div className={styles.modal} data-modal {...props}>
         <ModalHeader onDismiss={onDismiss}>

@@ -4,7 +4,7 @@ import { Button } from '~components/Button'
 import { Heading } from '~components/Heading'
 import { Text } from '~components/Text'
 import { TextField } from '~components/TextField'
-import { Icon, Tag } from '~components/__rc__'
+import { Icon, Tag } from '~components/__next__'
 import { Workflow } from '../'
 import { WorkflowControls } from './controls'
 
@@ -28,7 +28,7 @@ const MockContent = (): JSX.Element => (
 )
 
 const meta = {
-  title: 'Components/Workflow',
+  title: 'Pages/Workflow',
   component: Workflow,
   argTypes: WorkflowControls,
   args: {

@@ -17,8 +17,6 @@ import {
   type StatelessMenuProps as StatelessMenuPropsV1,
 } from './subcomponents/StatelessMenu'
 
-// Note: deprecate all of these once we have Button v3
-
 export const Menu = MenuV1
 export type MenuProps = MenuPropsV1
 

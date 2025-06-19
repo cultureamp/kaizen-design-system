@@ -4,39 +4,41 @@
 @import '../../../styles/utils/animation';
 @import '../../../styles/utils/button-reset';
 
-$input-disabled-opacity: 0.3;
+@layer kz-components {
+  $input-disabled-opacity: 0.3;
 
-.iconButton {
-  @include button-reset;
+  .iconButton {
+    @include button-reset;
 
-  display: flex;
-  padding: var(--spacing-6);
-  border: $border-solid-border-width $border-solid-border-style transparent;
-  border-radius: $border-solid-border-radius;
-  position: relative;
-  inset-inline-end: -0.35rem;
-  top: -40%;
+    display: flex;
+    padding: var(--spacing-6);
+    border: $border-solid-border-width $border-solid-border-style transparent;
+    border-radius: $border-solid-border-radius;
+    position: relative;
+    inset-inline-end: -0.35rem;
+    top: -40%;
 
-  :focus {
-    outline: none;
+    :focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline-offset: -2px;
+      outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
+    }
+
+    &:hover:not([disabled]) {
+      background-color: $color-blue-100;
+      color: $color-blue-500;
+    }
   }
 
-  &:focus-visible {
-    outline-offset: -2px;
-    outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
-  }
-
-  &:hover:not([disabled]) {
-    background-color: $color-blue-100;
+  .calendarActive {
     color: $color-blue-500;
+    background-color: $color-blue-100;
   }
-}
 
-.calendarActive {
-  color: $color-blue-500;
-  background-color: $color-blue-100;
-}
-
-.disabled {
-  opacity: $input-disabled-opacity;
+  .disabled {
+    opacity: $input-disabled-opacity;
+  }
 }

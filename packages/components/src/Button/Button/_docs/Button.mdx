@@ -1,19 +1,20 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation, LinkTo } from '~storybook/components'
+import { ResourceLinks, KAIOInstallation, LinkTo, ReplacementNotice } from '~storybook/components'
 import * as ButtonStories from './Button.stories'
 
 <Meta of={ButtonStories} />
 
-# Button (v1)
+# Button (deprecated)
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Button/Button"
   figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery"
   designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3062890984/Button"
-
 />
 
-<KAIOInstallation exportNames="Button" family="actions" version="1" />
+<ReplacementNotice />
+
+<KAIOInstallation exportNames="Button" />
 
 ## Overview
 

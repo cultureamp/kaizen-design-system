@@ -5,7 +5,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { CalendarRange, type CalendarRangeProps } from '../../index'
 
 export default {
-  title: 'Components/Date controls/Calendars/CalendarRange',
+  title: 'Components/Datepickers/Calendars (primitives)/CalendarRange (primitive)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -89,7 +89,8 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   ): HTMLElement => {
     const calendar = canvas.getByTestId(id)
     const month = within(calendar).getByRole('grid', { name: monthName })
-    return within(month).getByRole('gridcell', { name: dayName })
+    const day = within(month).getByRole('gridcell', { name: dayName })
+    return within(day).getByRole('button')
   }
 
   const calendarsPseudoStates = [

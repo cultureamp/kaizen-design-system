@@ -1,0 +1,7 @@
+@import '~@kaizen/design-tokens/sass/spacing';
+
+@layer kz-components {
+  .selectPopoverContents {
+    padding: $spacing-12;
+  }
+}

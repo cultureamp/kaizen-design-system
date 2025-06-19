@@ -254,7 +254,9 @@ describe('<FilterDateRangePickerField />', () => {
         name: '12',
       })
       expect(targetDay).not.toHaveAttribute('aria-selected')
-      await user.click(targetDay)
+
+      const targetBtn = within(targetDay).getByRole('button')
+      await user.click(targetBtn)
 
       await waitFor(() => {
         expect(targetDay).toHaveAttribute('aria-selected', 'true')
@@ -281,7 +283,8 @@ describe('<FilterDateRangePickerField />', () => {
         name: '23',
       })
       expect(targetDay).not.toHaveAttribute('aria-selected')
-      await user.click(targetDay)
+      const targetBtn = within(targetDay).getByRole('button')
+      await user.click(targetBtn)
 
       await waitFor(() => {
         expect(targetDay).toHaveAttribute('aria-selected', 'true')
@@ -289,7 +292,7 @@ describe('<FilterDateRangePickerField />', () => {
       })
     })
 
-    it('clears the inputs when clearing the calendar value', async () => {
+    it('sets the range end date to match the start date when clicking on the start date with an active range', async () => {
       render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
@@ -302,18 +305,20 @@ describe('<FilterDateRangePickerField />', () => {
 
       const inputStartDate = screen.getByLabelText('Date from')
       const inputEndDate = screen.getByLabelText('Date to')
-      expect(inputStartDate).toHaveValue('15 May 2022')
+      const startDate = '15 May 2022'
+      expect(inputStartDate).toHaveValue(startDate)
       expect(inputEndDate).toHaveValue('22 May 2022')
 
       const targetMonth = screen.getByRole('grid', { name: 'May 2022' })
       const firstSelectedDay = within(targetMonth).getByRole('gridcell', {
         name: '15',
       })
-      await user.click(firstSelectedDay)
+      const firstSelectedDayBtn = within(firstSelectedDay).getByRole('button')
+      await user.click(firstSelectedDayBtn)
 
       await waitFor(() => {
-        expect(inputStartDate).toHaveValue('')
-        expect(inputEndDate).toHaveValue('')
+        expect(inputStartDate).toHaveValue(startDate)
+        expect(inputEndDate).toHaveValue(startDate)
       })
     })
   })
@@ -634,7 +639,8 @@ describe('<FilterDateRangePickerField />', () => {
       const targetDay = within(targetMonth).getByRole('gridcell', {
         name: '12',
       })
-      await user.click(targetDay)
+      const targetBtn = within(targetDay).getByRole('button')
+      await user.click(targetBtn)
 
       await waitFor(() => {
         expect(dateEndErrorContainer).not.toBeInTheDocument()

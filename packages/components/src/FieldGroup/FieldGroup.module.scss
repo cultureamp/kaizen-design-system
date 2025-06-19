@@ -1,10 +1,12 @@
 @import '~@kaizen/design-tokens/sass/spacing';
 
-.group {
-  margin-bottom: $spacing-6;
-}
+@layer kz-components {
+  .group {
+    margin-bottom: $spacing-6;
+  }
 
-.inline {
-  display: inline;
-  margin-bottom: 0;
+  .inline {
+    display: inline;
+    margin-bottom: 0;
+  }
 }

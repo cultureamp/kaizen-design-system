@@ -1,7 +1,7 @@
 {
   "name": "@kaizen/design-tokens",
   "description": "Tokens used in the Kaizen Design System",
-  "version": "10.8.7",
+  "version": "10.10.0",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/design-tokens",
   "repository": {
     "type": "git",
@@ -35,11 +35,14 @@
     "clean:dist": "rimraf 'dist'"
   },
   "dependencies": {
-    "color-string": "^1.9.1",
+    "color-string": "1.9.1",
     "lodash.kebabcase": "^4.1.1"
   },
+  "dependenciesComments": {
+    "color-string": "Version locked at 1.9.1 as 2.x will break implementation of older repos that are using the ThemeProvider (https://cultureamp.slack.com/archives/C0189KBPM4Y/p1742787520546679) - we will remove this in KAIO 2.0 so we can upgrade to 2.x then if still needed"
+  },
   "devDependencies": {
-    "@kaizen/package-bundler": "workspace:*",
+    "@cultureamp/package-bundler": "^2.3.2",
     "@types/color-string": "^1.5.5",
     "@types/lodash.flatmap": "^4.5.9",
     "@types/lodash.kebabcase": "^4.1.9",
@@ -47,16 +50,16 @@
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
     "object-to-css-variables": "^0.2.1",
-    "postcss": "^8.4.49",
+    "postcss": "^8.5.3",
     "prettier": "*",
-    "react": "^18.3.1",
+    "react": "^19.0.0",
     "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
-    "rollup": "^4.30.1",
+    "rollup": "^4.40.2",
     "tslib": "^2.8.1",
-    "tsx": "^4.19.2"
+    "tsx": "^4.19.4"
   },
   "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0"
+    "react": "^18.3.1 || ^19.0.0"
   }
 }

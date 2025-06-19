@@ -5,7 +5,7 @@ import { type DateRange } from 'react-day-picker'
 import { DateRangePicker, formatDateRangeValue } from '../index'
 
 const meta = {
-  title: 'Components/Date controls/DateRangePicker',
+  title: 'Components/Datepickers/DateRangePicker',
   component: DateRangePicker,
   args: {
     labelText: 'Label',

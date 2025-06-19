@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { LoadingInput } from '~components/Loading'
 import { TextField } from '~components/TextField'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { Button } from '../index'
 
 const meta = {
-  title: 'Components/Button/Button (v1)',
+  title: 'Components/Button/Button (deprecated)',
   component: Button,
   args: {
     label: 'Label',

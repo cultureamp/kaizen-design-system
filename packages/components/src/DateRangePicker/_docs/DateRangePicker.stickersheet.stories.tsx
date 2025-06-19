@@ -10,7 +10,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { DateRangePicker, formatDateRangeValue, type DateRangePickerProps } from '../index'
 
 export default {
-  title: 'Components/Date controls/DateRangePicker',
+  title: 'Components/Datepickers/DateRangePicker',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

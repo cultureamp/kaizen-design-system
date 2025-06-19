@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { type ReactNode } from 'react'
 import classnames from 'classnames'
 import { Avatar, type AvatarProps } from '~components/Avatar'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { LiveIcon } from './subcomponents/LiveIcon/LiveIcon'
 import { type TagVariants } from './types'
 import styles from './Tag.module.scss'
@@ -71,7 +71,7 @@ export const Tag = (props: TagProps): JSX.Element => {
       <div className={styles.layoutContainer}>
         <>
           {canShowIcon &&
-            ((): JSX.Element | void => {
+            ((): ReactNode => {
               switch (props.variant) {
                 case 'validationPositive':
                   return (
@@ -104,7 +104,7 @@ export const Tag = (props: TagProps): JSX.Element => {
                     </span>
                   )
                 default:
-                  return
+                  return null
               }
             })()}
           <span

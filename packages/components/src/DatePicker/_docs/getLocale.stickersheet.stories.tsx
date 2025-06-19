@@ -6,7 +6,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { getLocale } from '../utils/getLocale'
 
 export default {
-  title: 'Components/Date controls/DatePicker/Tests',
+  title: 'Components/Datepickers/DatePicker/Tests',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -26,13 +26,13 @@ module.exports = (
       },
       {
         type: 'confirm',
-        name: 'isFuture',
-        message: 'Is this a future component?',
+        name: 'isNext',
+        message: "Is this a 'next' component?",
         default: false,
       },
     ],
-    actions: ({ isSubcomponent, isFuture, componentName, parentComponentName }) => {
-      const src = isFuture ? 'src/__rc__' : 'src'
+    actions: ({ isSubcomponent, isNext, componentName, parentComponentName }) => {
+      const src = isNext ? 'src/__next__' : 'src'
       const componentNamePascal = plop.getHelper('pascalCase')(componentName)
 
       if (isSubcomponent) {

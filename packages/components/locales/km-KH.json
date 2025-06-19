@@ -61,6 +61,14 @@
     "description" : "Label for the 'date to' field",
     "message" : "កាលបរិច្ឆេទទៅ"
   },
+  "filterMultiSelectClearButton.label" : {
+    "description" : "Clear button label for filter multi-select",
+    "message" : "ជម្រះ<VisuallyHidden> ការជ្រើសរើស</VisuallyHidden>"
+  },
+  "filterMultiSelectMultiSelectOption.available" : {
+    "description" : "Number of filter items available",
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> អាចរកបាន</VisuallyHidden>"
+  },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
     "message" : "ជម្រើសតម្រងដោយសំណួរស្វែងរក"
@@ -68,6 +76,10 @@
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
     "message" : "ស្វែងរក..."
+  },
+  "filterMultiSelectSelectAllButton.label" : {
+    "description" : "Select all button in filter multi select",
+    "message" : "ជ្រើសរើសទាំងអស់"
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",

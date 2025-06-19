@@ -1,11 +1,12 @@
 import React, { useId } from 'react'
+import { FormattedMessage, useIntl } from '@cultureamp/i18n-react-intl'
 import { useFocusRing } from '@react-aria/focus'
 import { useOption } from '@react-aria/listbox'
 import { mergeProps } from '@react-aria/utils'
 import classnames from 'classnames'
 import { Badge } from '~components/Badge'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { useSelectionContext } from '../../context'
 import { type MultiSelectItem } from '../../types'
 import styles from './MultiSelectOption.module.scss'
@@ -28,6 +29,7 @@ export const MultiSelectOption = ({
   // focus ring for accessibility
   const { isFocusVisible, focusProps } = useFocusRing()
   const countElementId = useId()
+  const { formatNumber } = useIntl()
 
   return (
     <li
@@ -50,8 +52,20 @@ export const MultiSelectOption = ({
       {item.rendered}
       {item.value?.count && (
         <span id={countElementId} className={styles.badgeContainer}>
-          <Badge classNameOverride={styles.badge}>{item.value.count}</Badge>
-          <VisuallyHidden> available</VisuallyHidden>
+          <FormattedMessage
+            defaultMessage="<Badge>{count}</Badge><VisuallyHidden> available</VisuallyHidden>"
+            id="filterMultiSelectMultiSelectOption.available"
+            description="Number of filter items available"
+            values={{
+              count: formatNumber(parseInt(item.value.count)),
+              Badge: (children: React.ReactNode) => (
+                <Badge classNameOverride={styles.badge}>{children}</Badge>
+              ),
+              VisuallyHidden: (children: React.ReactNode) => (
+                <VisuallyHidden>{children}</VisuallyHidden>
+              ),
+            }}
+          />
         </span>
       )}
     </li>

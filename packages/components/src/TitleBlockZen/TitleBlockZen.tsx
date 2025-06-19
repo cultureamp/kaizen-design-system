@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { type ReactNode } from 'react'
 import classnames from 'classnames'
 import { Avatar } from '~components/Avatar'
 import { IconButton } from '~components/Button'
 import { Heading } from '~components/Heading'
 import { Select } from '~components/Select'
 import { Tag } from '~components/Tag'
-import { Icon } from '~components/__rc__/Icon'
+import { Icon } from '~components/__next__/Icon'
 import { useMediaQueries } from '~components/utils/useMediaQueries'
 import { MainActions } from './subcomponents/MainActions'
 import { MobileActions } from './subcomponents/MobileActions'
@@ -21,11 +21,11 @@ import {
 import { createTabletOverflowMenuItems, isReversed } from './utils'
 import styles from './TitleBlockZen.module.scss'
 
-const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
+const renderTag = (surveyStatus: SurveyStatus): ReactNode => {
   let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>['variant']
 
   if (tagVariant === 'profile') {
-    return
+    return null
   }
 
   if (surveyStatus.status === 'draft') {

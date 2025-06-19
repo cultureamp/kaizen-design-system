@@ -2,61 +2,44 @@
 @import '~@kaizen/design-tokens/sass/color';
 @import '../../styles/utils/button-reset';
 
-.clearButton {
-  @include button-reset;
+@layer kz-components {
+  .clearButton {
+    @include button-reset;
 
-  position: relative;
-  display: inline-flex;
+    position: relative;
+    display: inline-flex;
+    border-radius: 100%;
 
-  &:hover {
-    cursor: pointer;
-  }
+    &:hover {
+      cursor: pointer;
+    }
 
-  &:focus {
-    outline: none;
-  }
-
-  &:focus-visible {
-    &::after {
-      $focus-ring-offset: -1px;
-
-      content: '';
-      position: absolute;
-      background: transparent;
-      border-width: $border-focus-ring-border-width;
-      border-style: $border-focus-ring-border-style;
-      border-radius: 50%;
-      inset: $focus-ring-offset;
+    &:focus-visible {
+      outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+        var(--color-blue-500);
+      outline-offset: -1px;
     }
   }
-}
 
-.default {
-  color: $color-gray-500;
+  .default {
+    color: $color-gray-500;
 
-  &:hover,
-  &:focus-visible {
-    color: $color-purple-800;
-  }
-
-  &:focus-visible {
-    &::after {
-      border-color: $color-blue-500;
+    &:hover,
+    &:focus-visible {
+      color: $color-purple-800;
     }
   }
-}
 
-.reversed {
-  color: rgba($color-white-rgb, 0.8);
+  .reversed {
+    color: rgba($color-white-rgb, 0.8);
 
-  &:hover,
-  &:focus-visible {
-    color: $color-white;
-  }
+    &:hover,
+    &:focus-visible {
+      color: $color-white;
+    }
 
-  &:focus-visible {
-    &::after {
-      border-color: $color-blue-300;
+    &:focus-visible {
+      outline-color: var(--color-blue-300);
     }
   }
 }

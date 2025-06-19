@@ -1,1 +1,1 @@
-export * from './__rc__/Tooltip'
+export * from './__next__/Tooltip'

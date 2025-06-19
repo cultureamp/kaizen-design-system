@@ -8,7 +8,7 @@ import { decorators as bgDecorators } from '@storybook/addon-backgrounds/preview
 import { type Decorator, type Preview } from '@storybook/react'
 import { KaizenProvider } from '~components/KaizenProvider'
 import { I18nProvider } from '~components/__react-aria-components__'
-import { ReversedColors } from '~components/__utilities__/v3'
+import { ReversedColors } from '~components/utils'
 import { DefaultDocsContainer } from '../components/DocsContainer'
 import { backgrounds } from '../utils/backgrounds'
 import { globalA11yRules } from '../utils/global-a11y-rules'
@@ -156,7 +156,7 @@ const preview = {
         const groupA = titleA.split('/')[0]
         const groupB = titleB.split('/')[0]
 
-        const groups = ['Introduction', 'Guides', 'Components', 'Pages']
+        const groups = ['Introduction', 'Releases', 'Guides', 'Components', 'Pages']
         const groupDifference = groups.indexOf(groupA) - groups.indexOf(groupB)
         if (groupDifference !== 0) {
           // Sort stories of different groups manually by the groups array

@@ -5,7 +5,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { TextField, type TextFieldProps } from '../index'
 
 export default {
-  title: 'Components/Text Input controls/TextField',
+  title: 'Components/TextField',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -61,7 +61,7 @@ export const InputRange = ({
         aria-valuenow={value}
         aria-valuemin={min}
         aria-valuemax={max}
-        aria-describedby={`${visuallyHiddenHintId} ${ariaDescribedby ? ariaDescribedby : ''}`}
+        aria-describedby={`${visuallyHiddenHintId} ${ariaDescribedby ?? ''}`}
         onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
           setStep(1) // Put the stepper to 1 to avoid floating value
           onChange?.(e)

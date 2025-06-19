@@ -6,7 +6,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { RadioGroup } from '../index'
 
 export default {
-  title: 'Components/Radio controls/RadioGroup',
+  title: 'Components/Radios/RadioGroup',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

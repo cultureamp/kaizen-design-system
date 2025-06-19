@@ -1,9 +1,16 @@
 import ts from 'typescript'
 
 export const createProp = (
+  // Transforms `propName={true}` to `propName`
   name: string,
   value?: ts.JsxAttributeValue | undefined,
-): ts.JsxAttribute => ts.factory.createJsxAttribute(ts.factory.createIdentifier(name), value)
+): ts.JsxAttribute => {
+  if (value && ts.isJsxExpression(value) && value.expression?.kind === ts.SyntaxKind.TrueKeyword) {
+    return ts.factory.createJsxAttribute(ts.factory.createIdentifier(name), undefined)
+  }
+
+  return ts.factory.createJsxAttribute(ts.factory.createIdentifier(name), value)
+}
 
 export const createStringProp = (name: string, value: string): ts.JsxAttribute =>
   createProp(name, ts.factory.createStringLiteral(value))
