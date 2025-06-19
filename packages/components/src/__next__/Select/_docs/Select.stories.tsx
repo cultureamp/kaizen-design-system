@@ -1,7 +1,10 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
+import { expect, userEvent, waitFor, within } from '@storybook/test'
+import { FieldMessage } from '~components/FieldMessage'
 import { ContextModal } from '~components/Modal'
 import { RadioField, RadioGroup } from '~components/Radio'
+import { Button } from '~components/__next__'
 import { Select } from '../Select'
 import { type SelectOption } from '../types'
 import { groupedMockItems, mixedMockItemsDisabled, singleMockItems } from './mockData'
@@ -227,5 +230,95 @@ export const TouchDeviceTest: Story = {
         </RadioGroup>
       </div>
     )
+  },
+}
+
+export const RequiredSelect: Story = {
+  args: {
+    label: 'Required Select',
+    isRequired: true,
+    validationBehavior: 'native',
+  },
+  render: (args) => <Select {...args} />,
+}
+
+export const SelectNativeValidationBehavior: Story = {
+  parameters: {
+    name: 'Required Select with native form validation',
+  },
+  args: {
+    label: 'Required Select',
+    isRequired: true,
+    validationBehavior: 'native',
+  },
+  render: (args) => {
+    const [hasSubmitted, setHasSubmitted] = React.useState(false)
+    return (
+      <div>
+        <form
+          className="flex flex-col gap-16"
+          name="form-with-required-select"
+          aria-describedby={hasSubmitted ? 'id--field-message-form' : undefined}
+          onSubmit={(e) => {
+            e.preventDefault()
+            setHasSubmitted(true)
+          }}
+        >
+          <Select {...args} isRequired />
+          <div>
+            <Button type="submit">Submit</Button>
+          </div>
+        </form>
+        {hasSubmitted && (
+          <FieldMessage
+            id="id--field-message-form"
+            classNameOverride="mt-8"
+            status="success"
+            message={'Form submitted!'}
+          />
+        )}
+      </div>
+    )
+  },
+}
+
+export const NativeFormValidationWithoutSelectedVal: Story = {
+  ...SelectNativeValidationBehavior,
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const submitButton = canvas.getByRole('button', { name: 'Submit' })
+    const requiredSelect = canvas.getByRole('combobox', { name: 'Required Select' })
+    const form = await canvas.findByRole('form')
+
+    await step('Select has aria-required attribute', async () => {
+      expect(requiredSelect).toHaveAttribute('aria-required', 'true')
+    })
+
+    await step('Submit will not call onSubmit without a selected value', async () => {
+      await userEvent.click(submitButton)
+      await waitFor(() => {
+        expect(form).toHaveAccessibleDescription('')
+      })
+    })
+  },
+}
+
+export const NativeFormValidationWithSelectedVal: Story = {
+  ...SelectNativeValidationBehavior,
+  args: {
+    selectedKey: 'short-black',
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const submitButton = canvas.getByRole('button', { name: 'Submit' })
+    const form = await canvas.findByRole('form')
+
+    await step('Submit will call onSubmit with a selected value', async () => {
+      await userEvent.click(submitButton)
+
+      await waitFor(() => {
+        expect(form).toHaveAccessibleDescription('Form submitted!')
+      })
+    })
   },
 }
