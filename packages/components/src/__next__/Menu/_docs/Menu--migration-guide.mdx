@@ -53,12 +53,12 @@ Other notable changes:
 <Menu button={<Button>Trigger</Button>}>
   <MenuList>
     <MenuList heading={<MenuHeading>Section One</MenuHeading>}>
-      <MenuItem label="Item 1" />
-      <MenuItem label="Item 2" />
+      <MenuItem onClick={() => alert('1')} label="Item 1" />
+      <MenuItem onClick={() => alert('2')} label="Item 2" />
     </MenuList>
     <MenuList heading={<MenuHeading>Section Two</MenuHeading>}>
-      <MenuItem label="Item 3" />
-      <MenuItem label="Item 4" />
+      <MenuItem onClick={() => alert('3')} label="Item 3" />
+      <MenuItem onClick={() => alert('4')} label="Item 4" />
     </MenuList>
   </MenuList>
 </Menu>
