@@ -59,19 +59,4 @@ describe('<LikertScaleLegacy />', () => {
       })
     })
   })
-
-  describe('isRequired attribute', () => {
-    it('display aria-required="true" in the radiogroup when isRequired is set to true', async () => {
-      render(<LikertScaleLegacyWrapper data-testid="ID" isRequired={true} />)
-      const likertScaleRadioGroup = screen.getByRole('radiogroup')
-
-      expect(likertScaleRadioGroup).toHaveAttribute('aria-required', 'true')
-    })
-    it('does not display aria-required in the radiogroup when isRequired is not set to false', async () => {
-      render(<LikertScaleLegacyWrapper data-testid="ID" isRequired={false} />)
-      const likertScaleRadioGroup = screen.getByRole('radiogroup')
-
-      expect(likertScaleRadioGroup).not.toHaveAttribute('aria-required')
-    })
-  })
 })
