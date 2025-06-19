@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
+import { expect, within } from '@storybook/test'
+import { VisuallyHidden } from '~components/VisuallyHidden'
 import { LikertScaleLegacy } from '../index'
 import { type Scale, type ScaleItem } from '../types'
 
@@ -57,7 +59,7 @@ export const Playground: Story = {
         code: `
   const SatisfactionExample = () => {
     const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
-  
+
     return (
       <LikertScaleLegacy
         scale={[
@@ -80,5 +82,32 @@ export const Playground: Story = {
         sourceState: 'shown',
       },
     },
+  },
+}
+
+export const IsRequired: Story = {
+  render: (args) => {
+    const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
+    const labelId = React.useId()
+    return (
+      <div>
+        <VisuallyHidden id={labelId}>Likert scale label</VisuallyHidden>
+        <LikertScaleLegacy
+          {...args}
+          labelId={labelId}
+          selectedItem={selectedItem}
+          onSelect={setSelectedItem}
+        />
+      </div>
+    )
+  },
+  args: {
+    isRequired: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const likertScale = canvas.getByRole('radiogroup', { name: 'Likert scale label' })
+
+    expect(likertScale).toHaveAttribute('aria-required', 'true')
   },
 }
