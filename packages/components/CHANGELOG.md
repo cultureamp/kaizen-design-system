@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.79.5
+
+### Patch Changes
+
+- [#5850](https://github.com/cultureamp/kaizen-design-system/pull/5850) [`9018093`](https://github.com/cultureamp/kaizen-design-system/commit/90180932b378851062a2fc7131735d742918203e) - Update Select/next to pass aria-required into the Select trigger props.
+
+- [#5851](https://github.com/cultureamp/kaizen-design-system/pull/5851) [`cb94c1d`](https://github.com/cultureamp/kaizen-design-system/commit/cb94c1d483891e4396877c4b6af0782f0af9550f) - Add optianl isRequired support to LikertScaleLegacy component to ensure mandatory questions are correctly rendered with aria-required in HTML.
+
 ## 1.79.4
 
 ### Patch Changes
