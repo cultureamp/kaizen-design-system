@@ -188,5 +188,13 @@
   "splitButton.dropdownButton.label": {
     "description": "Label for a dropdown menu holding additional actions",
     "message": "Additional actions"
+  },
+  "videoPlayer.pausePlayBtn.pauseLabel": {
+    "description": "Label for the pausing / stopping an animation",
+    "message": "Play animation"
+  },
+  "videoPlayer.pausePlayBtn.playLabel": {
+    "description": "Label for the starting / playing an animation",
+    "message": "Play animation"
   }
 }

@@ -1,4 +1,5 @@
 import React, { useState, type RefObject } from 'react'
+import { useIntl } from '@cultureamp/i18n-react-intl'
 import { Icon } from '~components/__next__/Icon'
 
 export type usePausePlayHook = {
@@ -8,7 +9,20 @@ export type usePausePlayHook = {
 }
 
 export const usePausePlay = (videoRef: RefObject<HTMLVideoElement>): usePausePlayHook => {
+  const { formatMessage } = useIntl()
   const [isPaused, setPaused] = useState(false)
+
+  const playAnimationLabel = formatMessage({
+    id: 'videoPlayer.pausePlayBtn.playLabel',
+    defaultMessage: 'Play animation',
+    description: 'Label for the starting / playing an animation',
+  })
+
+  const pauseAnimationLabel = formatMessage({
+    id: 'videoPlayer.pausePlayBtn.pauseLabel',
+    defaultMessage: 'Play animation',
+    description: 'Label for the pausing / stopping an animation',
+  })
 
   return {
     toggle: (): void => {
@@ -22,7 +36,7 @@ export const usePausePlay = (videoRef: RefObject<HTMLVideoElement>): usePausePla
         videoRef.current.pause()
       }
     },
-    icon: <Icon name={isPaused ? 'play_circle' : 'pause'} isPresentational isFilled />,
-    label: isPaused ? 'Play animation' : 'Pause animation',
+    icon: <Icon name={isPaused ? 'play_circle' : 'pause_circle'} isPresentational isFilled />,
+    label: isPaused ? playAnimationLabel : pauseAnimationLabel,
   }
 }
