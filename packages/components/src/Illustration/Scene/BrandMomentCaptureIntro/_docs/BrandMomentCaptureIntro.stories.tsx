@@ -55,7 +55,7 @@ export const CaptureExample: Story = {
     autoplay: true,
   },
   render: (args) => (
-    <div className="bg-blue-200 flex justify-center gap-24 p-16">
+    <div className="bg-blue-100 flex justify-center gap-24 p-16">
       <div className="flex justify-center items-center w-[50%]">
         <BrandMomentCaptureIntro {...args} />
       </div>
