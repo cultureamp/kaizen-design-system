@@ -41,11 +41,11 @@ export type VideoPlayerProps = {
   /**
    * This render the play/pause button with 100% visibility, instead of relying on hover/focus interactions. This is useful for satisfying the a11y requirements for animations that last longer than 5 seconds. @default false.
    */
-  hasVisiblePlayButton?: boolean
+  hasVisibleAnimationToggle?: boolean
   onEnded?: () => void
 }
 
-// hasVisiblePlayButton is an interim solution to resolve an a11y issue with the animation player only showing the play/pause button on hover/focus. This ideally will be resolved through a design solution or updated pattern.
+// hasVisibleAnimationToggle is an interim solution to resolve an a11y issue with the animation player only showing the play/pause button on hover/focus. This ideally will be resolved through a design solution or updated pattern.
 
 export const VideoPlayer = ({
   autoplay = true,
@@ -54,7 +54,7 @@ export const VideoPlayer = ({
   source,
   aspectRatio,
   onEnded,
-  hasVisiblePlayButton = false, //
+  hasVisibleAnimationToggle = false,
 }: VideoPlayerProps): JSX.Element => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] = React.useState<boolean>(true)
@@ -192,7 +192,7 @@ export const VideoPlayer = ({
       <Button
         className={classnames(
           styles.pausePlayButton,
-          hasVisiblePlayButton && styles.hasVisiblePlayButton,
+          hasVisibleAnimationToggle && styles.hasVisibleAnimationToggle,
         )}
         variant="secondary"
         icon={pausePlay.icon}
