@@ -1,6 +1,16 @@
+import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 
-import { BrandMomentPositiveOutro } from '../index'
+import {
+  BrandMomentError,
+  BrandMomentLogin,
+  BrandMomentPositiveOutro,
+  EmptyStatesAction,
+  EmptyStatesInformative,
+  EmptyStatesNegative,
+  EmptyStatesNeutral,
+  EmptyStatesPositive,
+} from '../index'
 
 const meta = {
   title: 'Components/Illustrations/Scene',
@@ -19,4 +29,38 @@ export const Playground: Story = {
       },
     },
   },
+}
+
+export const AnimatedScenes: Story = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: 'shown',
+      },
+    },
+  },
+  args: {
+    isAnimated: true,
+    loop: true,
+    autoplay: true,
+  },
+  render: (args) => (
+    <>
+      <EmptyStatesAction {...args} />
+      <EmptyStatesInformative {...args} />
+      <EmptyStatesNegative {...args} />
+      <EmptyStatesNeutral {...args} />
+      <EmptyStatesPositive {...args} />
+      <BrandMomentPositiveOutro {...args} />
+      <BrandMomentLogin {...args} />
+      <BrandMomentError {...args} />
+    </>
+  ),
+  decorators: [
+    (Story) => (
+      <div className="flex flex-col justify-center gap-16 max-w-[400px]">
+        <Story />
+      </div>
+    ),
+  ],
 }
