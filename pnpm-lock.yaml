@@ -395,8 +395,8 @@ importers:
         specifier: 13.3.0
         version: 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3)
       '@cultureamp/i18n-react-intl':
-        specifier: ^2.11.0
-        version: 2.11.0(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(jest@29.7.0(@types/node@22.15.21)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3)
+        specifier: ^2.11.2
+        version: 2.11.2(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(jest@29.7.0(@types/node@22.15.21)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3)
       '@cultureamp/package-bundler':
         specifier: ^2.3.2
         version: 2.3.2(@babel/core@7.27.1)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.3(postcss@8.5.4))(postcss@8.5.4)(rollup@4.43.0)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)
@@ -672,10 +672,6 @@ packages:
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0
-
-  '@babel/helper-plugin-utils@7.25.9':
-    resolution: {integrity: sha512-kSMlyUVdWe25rEsRGviIgOWnoT/nfABVWlqt9N19/dIPWViAOW2s9wznP5tURbs/IDuNk4gPy3YdYRgH3uxhBw==}
-    engines: {node: '>=6.9.0'}
 
   '@babel/helper-plugin-utils@7.27.1':
     resolution: {integrity: sha512-1gn1Up5YXka3YYAHGKpbideQ5Yjf1tDa9qYcgysz+cNCXukyLl6DjPXhD3VRwSb8c0J9tA4b2+rHEZtc6R0tlw==}
@@ -1192,8 +1188,8 @@ packages:
   '@cultureamp/frontend-env@2.1.4':
     resolution: {integrity: sha512-L0vTlxa7Fvlr04T0tRmIhNovWanofAGcH4ZKM9PMtIzzKbdQdH9WzVJMRfxDmYAecQpRW98igBGC85pdt2BaCQ==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.4/d6905082c185f2f4a932b1a16431b599156ee76f}
 
-  '@cultureamp/i18n-react-intl@2.11.0':
-    resolution: {integrity: sha512-QgT90hKFnjvdlS8KylM4l92snhpSHIaZJGvlqTx0/ZyKak7+AcjFmVDd40gnMLhLgJq+94eeUR3yLLWGXEBSVg==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.11.0/3fa2d9bc53a83a5103093eae240647cc9836742f}
+  '@cultureamp/i18n-react-intl@2.11.2':
+    resolution: {integrity: sha512-SHMqhV/II5GRYLjheyOSi5WKL+8WnAKoUySu20hVRJ+NG8KZny1wwe98//I016WYIePJ8FpFHbM0lzMxDaz/vQ==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.11.2/5165cb837a83d2a63bba5bae292ac7fbb3f2b66c}
     hasBin: true
     peerDependencies:
       '@cultureamp/frontend-apis': '>=9 || ~0.0.0'
@@ -10336,8 +10332,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/helper-plugin-utils@7.25.9': {}
-
   '@babel/helper-plugin-utils@7.27.1': {}
 
   '@babel/helper-string-parser@7.27.1': {}
@@ -10392,7 +10386,7 @@ snapshots:
   '@babel/plugin-syntax-jsx@7.24.7(@babel/core@7.27.1)':
     dependencies:
       '@babel/core': 7.27.1
-      '@babel/helper-plugin-utils': 7.25.9
+      '@babel/helper-plugin-utils': 7.27.1
 
   '@babel/plugin-syntax-logical-assignment-operators@7.10.4(@babel/core@7.27.1)':
     dependencies:
@@ -10977,7 +10971,7 @@ snapshots:
     dependencies:
       chromatic: 9.1.0
 
-  '@cultureamp/i18n-react-intl@2.11.0(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(jest@29.7.0(@types/node@22.15.21)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3)':
+  '@cultureamp/i18n-react-intl@2.11.2(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(jest@29.7.0(@types/node@22.15.21)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3)':
     dependencies:
       '@calm/eslint-plugin-react-intl': 1.4.1
       '@cultureamp/frontend-apis': 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3)
