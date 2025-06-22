@@ -195,6 +195,7 @@ export const VideoPlayer = ({
           hasVisibleAnimationToggle && styles.hasVisibleAnimationToggle,
         )}
         variant="secondary"
+        size="large"
         icon={pausePlay.icon}
         onPress={(): void => pausePlay.toggle()}
         hasHiddenLabel
