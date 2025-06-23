@@ -185,6 +185,7 @@ export const VideoPlayer = ({
         autoPlay={prefersReducedMotion ? false : autoplay}
         playsInline={true}
         tabIndex={-1}
+        onClick={(): void => pausePlay.toggle()}
       >
         {isWebmCompatible && <source src={assetUrl(`${source}.webm`)} type="video/webm" />}
         <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
@@ -194,8 +195,7 @@ export const VideoPlayer = ({
           styles.pausePlayButton,
           hasVisibleAnimationToggle && styles.hasVisibleAnimationToggle,
         )}
-        variant="secondary"
-        size="large"
+        variant="tertiary"
         icon={pausePlay.icon}
         onPress={(): void => pausePlay.toggle()}
         hasHiddenLabel
