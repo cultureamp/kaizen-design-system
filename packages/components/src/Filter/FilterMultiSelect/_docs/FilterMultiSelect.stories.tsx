@@ -6,7 +6,7 @@ import isChromatic from 'chromatic'
 import { InlineNotification } from '~components/Notification'
 import { TextField } from '~components/TextField'
 import { FilterMultiSelect, getSelectedOptionLabels } from '..'
-import { mockItems } from './MockData'
+import { mockItems, mockManyItems } from './MockData'
 
 const IS_CHROMATIC = isChromatic()
 
@@ -310,64 +310,82 @@ export const WithSectionNotification: Story = {
   },
 }
 
-export const AboveIfAvailable: Story = {
-  name: 'Limited viewport autoplacement above',
-  parameters: {
-    viewport: {
-      viewports: {
-        LimitedViewportAutoPlace: {
-          name: 'Limited vertical space',
-          styles: {
-            width: '1024px',
-            height: '500px',
-          },
-        },
-      },
-      defaultViewport: 'LimitedViewportAutoPlace',
-    },
+export const WithManyOptions: Story = {
+  ...FilterMultiSelectTemplate,
+  name: 'With many options',
+  args: {
+    items: mockManyItems,
   },
-  decorators: [
-    (Story) => (
-      <div className="mt-[350px]">
-        <Story />
-      </div>
-    ),
-  ],
 }
 
-export const WithFloatingOptions: Story = {
-  name: 'With floatingOptions',
-  parameters: {
-    viewport: {
-      viewports: {
-        LimitedViewportAutoPlace: {
-          name: 'Limited vertical space',
-          styles: {
-            width: '1024px',
-            height: '500px',
-          },
-        },
-      },
-      defaultViewport: 'LimitedViewportAutoPlace',
-    },
-  },
-  args: {
-    floatingOptions: {
-      strategy: 'fixed',
+const floatingOptionsSourceCode = `
+import { autoPlacement, size, offset } from '@floating-ui/react-dom'
+
+// ...source code
+
+<FilterMultiSelect
+  {...args}
+  floatingOptions={{
+    ...{
       middleware: [
         size({
-          apply({ availableHeight, availableWidth, elements }) {
+          apply({ availableHeight, elements }) {
             Object.assign(elements.floating.style, {
-              maxHeight: `${Math.max(300, availableHeight - 25)}px`,
-              maxWidth: `${availableWidth}px`,
+              maxHeight: Math.max(250, Math.min(availableHeight - 12, 500)) + "px",
             })
           },
         }),
-        offset(6),
         autoPlacement({
-          allowedPlacements: ['bottom-start', 'bottom', 'top-start', 'top'],
+          allowedPlacements: ['bottom-start', 'top-start'],
         }),
+        offset(6),
       ],
+    },
+  }}
+/>
+`
+
+export const WithFloatingOptions: Story = {
+  ...FilterMultiSelectTemplate,
+  name: 'With floatingOptions',
+  args: {
+    floatingOptions: {
+      middleware: [
+        size({
+          apply({ availableHeight, elements }) {
+            Object.assign(elements.floating.style, {
+              maxHeight: Math.max(250, Math.min(availableHeight - 12, 500)) + 'px',
+            })
+          },
+        }),
+        autoPlacement({
+          allowedPlacements: ['bottom-start', 'top-start'],
+        }),
+        offset(6),
+      ],
+    },
+  },
+  parameters: {
+    docs: { source: { code: floatingOptionsSourceCode } },
+  },
+}
+
+export const AboveIfAvailable: Story = {
+  ...FilterMultiSelectTemplate,
+  ...WithFloatingOptions,
+  name: 'With limited viewport and autoplacement above',
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: 'Limited vertical space',
+          styles: {
+            width: '1024px',
+            height: '500px',
+          },
+        },
+      },
+      defaultViewport: 'LimitedViewportAutoPlace',
     },
   },
   decorators: [
@@ -377,22 +395,4 @@ export const WithFloatingOptions: Story = {
       </div>
     ),
   ],
-  render: (args) => {
-    const [selectedKeys, setSelectedKeys] = useState<Selection | undefined>(args.selectedKeys)
-    console.log(args)
-
-    return (
-      <FilterMultiSelect
-        {...args}
-        onSelectionChange={setSelectedKeys}
-        selectedKeys={selectedKeys}
-        trigger={(): JSX.Element => (
-          <FilterMultiSelect.TriggerButton
-            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, args.items)}
-            label={args.label}
-          />
-        )}
-      />
-    )
-  },
 }
