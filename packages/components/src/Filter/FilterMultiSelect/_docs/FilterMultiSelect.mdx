@@ -30,11 +30,11 @@ The FilterMultiSelect is a component relies heavily on consumer implemntation. I
 
 <Canvas of={FilterMultiSelectStories.WithSectionHeaders} />
 
-### Limited viewport autoplacement above
-
-<Canvas of={FilterMultiSelectStories.AboveIfAvailable} />
-
 ### With floatingOptions
+
+You can also use the `floatingOptions` to leverage any of `Floating UI's` [configurable options](https://floating-ui.com/docs/usefloating). While in most cases the default behavior should satisfy most scenarios, the `middleware` for `autoplace` and `size` can be useful when there is limited screen space available.
+
+The following example showcases how to use the [autoPlacement](https://floating-ui.com/docs/autoPlacement) and [size](https://floating-ui.com/docs/size) and spread the options in with the default values.
 
 <Canvas of={FilterMultiSelectStories.WithFloatingOptions} />
 

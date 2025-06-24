@@ -1,17 +1,10 @@
 import React, { useEffect, useState, type HTMLAttributes } from 'react'
-import {
-  autoPlacement,
-  autoUpdate,
-  offset,
-  size,
-  useFloating,
-  type UseFloatingOptions,
-} from '@floating-ui/react-dom'
+import { autoUpdate, offset, useFloating, type UseFloatingOptions } from '@floating-ui/react-dom'
 import classnames from 'classnames'
 import { FocusOn } from 'react-focus-on'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useMenuTriggerContext } from '../../context'
-import styles from './MenuPopup.module.scss'
+import styles from './MenuPopup.module.css'
 
 export type MenuPopupProps = {
   children: React.ReactNode
@@ -40,20 +33,7 @@ export const MenuPopup = ({
       floating: floatingElement,
     },
     strategy: 'absolute',
-    middleware: [
-      size({
-        apply({ availableWidth, elements }) {
-          Object.assign(elements.floating.style, {
-            maxHeight: `${Math.max(320, 550)}px`,
-            maxWidth: `${availableWidth}px`,
-          })
-        },
-      }),
-      offset(6),
-      autoPlacement({
-        allowedPlacements: ['bottom-start', 'bottom', 'top-start', 'top'],
-      }),
-    ],
+    middleware: [offset(6)],
     whileElementsMounted: autoUpdate,
     ...floatingOptions,
   })
