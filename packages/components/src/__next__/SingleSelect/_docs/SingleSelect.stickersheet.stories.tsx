@@ -2,6 +2,7 @@ import React from 'react'
 import { type Meta } from '@storybook/react'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { SingleSelect } from '../index'
+import { singleMockItems } from './mockData'
 
 export default {
   title: 'Components/SingleSelect/SingleSelect (next)',
@@ -12,32 +13,27 @@ export default {
 } satisfies Meta
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    <StickerSheet
-      isReversed={isReversed}
-      title="SingleSelect"
-      headers={['Default', 'Hover', 'Active', 'Focus']}
-    >
-      <StickerSheet.Row>
-        <SingleSelect isReversed={isReversed} exampleRequiredString="SingleSelect" />
-        <SingleSelect
-          isReversed={isReversed}
-          exampleRequiredString="SingleSelect"
-          data-sb-pseudo-styles="hover"
-        />
-        <SingleSelect
-          isReversed={isReversed}
-          exampleRequiredString="SingleSelect"
-          data-sb-pseudo-styles="active"
-        />
-        <SingleSelect
-          isReversed={isReversed}
-          exampleRequiredString="SingleSelect"
-          data-sb-pseudo-styles="focus"
-        />
-      </StickerSheet.Row>
-    </StickerSheet>
-  ),
+  render: ({ isReversed }) => {
+    return (
+      <StickerSheet
+        isReversed={isReversed}
+        title="SingleSelect"
+        headers={['Default', 'Hover', 'Active', 'Focus']}
+      >
+        <StickerSheet.Row>
+          <SingleSelect labelText="Beverages">
+            <SingleSelect.List>
+              {singleMockItems.map((item) => (
+                <SingleSelect.ListItem key={item.value} value={{ value: item.value }}>
+                  {item.label}
+                </SingleSelect.ListItem>
+              ))}
+            </SingleSelect.List>
+          </SingleSelect>
+        </StickerSheet.Row>
+      </StickerSheet>
+    )
+  },
   /** @note: Only required if you have pseudo states, otherwise this can be removed */
   parameters: {
     /** @todo: Remove any inapplicable pseudo states */

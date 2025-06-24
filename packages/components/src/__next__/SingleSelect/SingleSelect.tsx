@@ -1,39 +1,54 @@
-import React, { type HTMLAttributes } from 'react'
-import classnames from 'classnames'
+import React, { type HTMLAttributes, type PropsWithChildren } from 'react'
+import {
+  Label as RACLabel,
+  Popover as RACPopover,
+  Select as RACSelect,
+} from 'react-aria-components'
+import { FieldGroup } from '~components/FieldGroup'
+import { FieldMessage } from '~components/FieldMessage'
+import { type InputStatusType } from '~components/Input'
+import { Label } from '~components/Label'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './SingleSelect.module.scss'
+import { List, ListItem, ListSection, Trigger } from './subcomponents'
 
-/**
- * @todo: Refer to `docs/` for further code standards and guidelines
- */
-
-/**
- * @todo: Replace `HTMLAttributes<HTMLDivElement>` with attributes/props you need to extend
- */
 export type SingleSelectProps = {
-  /** @todo: Add custom props here */
-  exampleRequiredString: string
-  isReversed?: boolean
-} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
+  labelText: React.ReactNode
+
+  inline?: boolean
+  validationMessage?: string | React.ReactNode
+  status?: InputStatusType
+  description?: string | React.ReactNode
+  children?: React.ReactNode
+} & OverrideClassName<HTMLAttributes<Element>>
 
 export const SingleSelect = ({
-  exampleRequiredString,
-  isReversed = false,
+  labelText,
+  inline = false,
+  validationMessage,
+  status,
+  description,
   classNameOverride,
+  children,
   ...restProps
-}: SingleSelectProps): JSX.Element => {
+}: PropsWithChildren<SingleSelectProps>): JSX.Element => {
   return (
-    <div
-      className={classnames(
-        styles.singleSelect,
-        isReversed && styles.isReversed,
-        classNameOverride,
-      )}
-      {...restProps}
-    >
-      {exampleRequiredString}
-    </div>
+    <FieldGroup inline={inline}>
+      <RACSelect className={classNameOverride} {...restProps}>
+        <RACLabel>
+          <Label labelText={labelText} />
+        </RACLabel>
+
+        <Trigger />
+        {validationMessage && <FieldMessage message={validationMessage} status={status} />}
+
+        {description && <FieldMessage message={description} />}
+        <RACPopover className="rounded bg-white shadow-lg p-12">{children}</RACPopover>
+      </RACSelect>
+    </FieldGroup>
   )
 }
 
 SingleSelect.displayName = 'SingleSelect'
+SingleSelect.List = List
+SingleSelect.ListItem = ListItem
+SingleSelect.ListSection = ListSection

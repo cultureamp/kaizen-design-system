@@ -4,9 +4,7 @@ import { SingleSelect } from '../index'
 const meta = {
   title: 'Components/SingleSelect/SingleSelect (next)',
   component: SingleSelect,
-  args: {
-    exampleRequiredString: 'Hello',
-  },
+  args: {},
 } satisfies Meta<typeof SingleSelect>
 
 export default meta
