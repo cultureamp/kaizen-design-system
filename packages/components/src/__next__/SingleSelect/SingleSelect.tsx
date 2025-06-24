@@ -33,15 +33,25 @@ export const SingleSelect = ({
 }: PropsWithChildren<SingleSelectProps>): JSX.Element => {
   return (
     <FieldGroup inline={inline}>
-      <RACSelect className={classNameOverride} {...restProps}>
+      <RACSelect
+        isInvalid={status === 'error' || status === 'caution'}
+        aria-invalid={status === 'error' || status === 'caution'}
+        className={classNameOverride}
+        placeholder=""
+        aria-describedby="descriptionMsg"
+        aria-labelledby="validationMsg"
+        {...restProps}
+      >
         <RACLabel>
-          <Label labelText={labelText} />
+          <Label id="label" labelText={labelText} />
         </RACLabel>
 
         <Trigger />
-        {validationMessage && <FieldMessage message={validationMessage} status={status} />}
+        {validationMessage && (
+          <FieldMessage id="validationMsg" message={validationMessage} status={status} />
+        )}
 
-        {description && <FieldMessage message={description} />}
+        {description && <FieldMessage id="descriptionMsg" message={description} />}
         <RACPopover className="rounded bg-white shadow-lg p-12">{children}</RACPopover>
       </RACSelect>
     </FieldGroup>

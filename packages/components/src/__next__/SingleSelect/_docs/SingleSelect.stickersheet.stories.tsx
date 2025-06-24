@@ -2,7 +2,7 @@ import React from 'react'
 import { type Meta } from '@storybook/react'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { SingleSelect } from '../index'
-import { singleMockItems } from './mockData'
+import { groupedMockItems, singleMockItems } from './mockData'
 
 export default {
   title: 'Components/SingleSelect/SingleSelect (next)',
@@ -21,12 +21,31 @@ const StickerSheetTemplate: StickerSheetStory = {
         headers={['Default', 'Hover', 'Active', 'Focus']}
       >
         <StickerSheet.Row>
-          <SingleSelect labelText="Beverages">
+          <SingleSelect
+            labelText="Coffee"
+            validationMessage="Bad choice"
+            status="error"
+            description="Select your fav coffee"
+          >
             <SingleSelect.List>
               {singleMockItems.map((item) => (
                 <SingleSelect.ListItem key={item.value} value={{ value: item.value }}>
                   {item.label}
                 </SingleSelect.ListItem>
+              ))}
+            </SingleSelect.List>
+          </SingleSelect>
+
+          <SingleSelect labelText="Beverages">
+            <SingleSelect.List>
+              {groupedMockItems.map((section) => (
+                <SingleSelect.ListSection name={section.label} key={section.label}>
+                  {section.options.map((item) => (
+                    <SingleSelect.ListItem key={item.value} value={{ value: item.value }}>
+                      {item.label}
+                    </SingleSelect.ListItem>
+                  ))}
+                </SingleSelect.ListSection>
               ))}
             </SingleSelect.List>
           </SingleSelect>
