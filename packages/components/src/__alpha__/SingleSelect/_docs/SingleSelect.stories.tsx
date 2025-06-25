@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { SingleSelect } from '../index'
 
 const meta = {
-  title: 'Components/SingleSelect/SingleSelect (next)',
+  title: 'Components/SingleSelect/SingleSelect (alpha)',
   component: SingleSelect,
   args: {},
 } satisfies Meta<typeof SingleSelect>

@@ -5,7 +5,7 @@ import { SingleSelect } from '../index'
 import { groupedMockItems, singleMockItems } from './mockData'
 
 export default {
-  title: 'Components/SingleSelect/SingleSelect (next)',
+  title: 'Components/SingleSelect/SingleSelect (alpha)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

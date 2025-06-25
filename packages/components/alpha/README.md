@@ -10,7 +10,7 @@ All "alpha" components are to be added to the `src/__alpha__` directory.
 
 ### What is an "alpha" component?
 
-These components are in development phase and not yet ready for use. Imports from this entry point should not be used in production. 
+These components are in development phase and not yet ready for use. Imports from this entry point should not be used in production.
 
 eg. `SingleSelect` will be built in `alpha`, you can test it and try it out here, but it won't be ready for consumers to adopt until it moved to `next` or root import.
 
