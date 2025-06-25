@@ -15,11 +15,7 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
     return (
-      <StickerSheet
-        isReversed={isReversed}
-        title="SingleSelect"
-        headers={['Default', 'Hover', 'Active', 'Focus']}
-      >
+      <StickerSheet isReversed={isReversed} title="SingleSelect" headers={['Items', 'Grouped']}>
         <StickerSheet.Row>
           <SingleSelect
             labelText="Coffee"
@@ -68,6 +64,27 @@ const StickerSheetTemplate: StickerSheetStory = {
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Default)',
+}
+
+export const StickerSheetItems: StickerSheetStory = {
+  render: () => {
+    return (
+      <StickerSheet title="SingleSelect" headers={['Items', 'Grouped']}>
+        <StickerSheet.Row>
+          <SingleSelect
+            labelText="Coffee"
+            validationMessage="Bad choice"
+            status="error"
+            description="Select your fav coffee"
+            items={singleMockItems}
+          />
+
+          <SingleSelect labelText="Beverages" items={groupedMockItems} />
+        </StickerSheet.Row>
+      </StickerSheet>
+    )
+  },
+  name: 'Sticker Sheet (items)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
