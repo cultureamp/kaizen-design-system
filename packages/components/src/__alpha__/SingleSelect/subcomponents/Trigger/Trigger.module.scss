@@ -1,11 +1,11 @@
 @import '~@kaizen/design-tokens/sass/typography';
 @import '~@kaizen/design-tokens/sass/spacing';
-@import '~@kaizen/design-tokens/sass/colors';
+@import '~@kaizen/design-tokens/sass/color';
 
 .button {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-family: $typography-paragraph-body-font-family;
   font-weight: $typography-paragraph-body-font-weight;
   font-size: $typography-paragraph-body-font-size;
