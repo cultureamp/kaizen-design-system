@@ -26,6 +26,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
+
     /* from $ca-z-index-fixed */
     z-index: 1030;
     background: var(--color-white);
