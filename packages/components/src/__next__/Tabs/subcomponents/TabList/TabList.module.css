@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    z-index: 10000;
+    z-index: 1030;
     background: var(--color-white);
     inset-block: 0 1px;
     width: 48px;
