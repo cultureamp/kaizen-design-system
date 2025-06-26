@@ -1,5 +1,5 @@
 {
-    "main": "../dist/cjs/alpha.cjs",
-    "module": "../dist/esm/alpha.mjs",
-    "types": "../dist/types/__alpha__/index.d.ts"
+  "main": "../dist/cjs/alpha.cjs",
+  "module": "../dist/esm/alpha.mjs",
+  "types": "../dist/types/__alpha__/index.d.ts"
 }

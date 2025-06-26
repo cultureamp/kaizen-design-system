@@ -1,5 +1,12 @@
 @import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/shadow';
+@import '~@kaizen/design-tokens/sass/spacing';
 
-.singleSelect {
-  color: $color-purple-800;
+// temporary styling
+.popover {
+  background-color: $color-white;
+  border-radius: $spacing-8;
+  padding: $spacing-8;
+  width: 200px;
+  box-shadow: $shadow-small-box-shadow;
 }

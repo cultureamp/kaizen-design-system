@@ -10,6 +10,7 @@ import { type InputStatusType } from '~components/Input'
 import { Label } from '~components/Label'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { List, ListItem, ListSection, PopoverContent, Trigger } from './subcomponents'
+import styles from './SingleSelect.module.scss'
 
 export type Item = {
   label: string
@@ -64,8 +65,8 @@ export const SingleSelect = ({
 
         <Trigger />
 
-        <RACPopover className="rounded bg-white shadow-lg p-12 w-200">
-          {!items || items.length === 0 ? children : <PopoverContent items={items} />}
+        <RACPopover className={styles.popover}>
+          {!items ? children : <PopoverContent items={items} />}
         </RACPopover>
       </RACSelect>
       {validationMessage && (

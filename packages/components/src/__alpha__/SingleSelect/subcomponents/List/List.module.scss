@@ -1,0 +1,7 @@
+@import '~@kaizen/design-tokens/sass/spacing';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-16;
+}
