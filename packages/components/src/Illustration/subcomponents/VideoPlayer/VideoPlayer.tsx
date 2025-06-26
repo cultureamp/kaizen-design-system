@@ -5,7 +5,7 @@ import { Button } from '~components/__next__'
 import { assetUrl } from '~components/utils/hostedAssets'
 import { canPlayWebm } from '../../utils/canPlayWebm'
 import { usePausePlay } from '../../utils/usePausePlay'
-import styles from '../Base/Base.module.scss'
+import styles from '../Base/Base.module.css'
 
 export type VideoPlayerProps = {
   /**
@@ -185,6 +185,7 @@ export const VideoPlayer = ({
         autoPlay={prefersReducedMotion ? false : autoplay}
         playsInline={true}
         tabIndex={-1}
+        onClick={(): void => pausePlay.toggle()}
       >
         {isWebmCompatible && <source src={assetUrl(`${source}.webm`)} type="video/webm" />}
         <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
@@ -194,8 +195,8 @@ export const VideoPlayer = ({
           styles.pausePlayButton,
           hasVisibleAnimationToggle && styles.hasVisibleAnimationToggle,
         )}
-        variant="secondary"
-        size="large"
+        variant="tertiary"
+        size="small"
         icon={pausePlay.icon}
         onPress={(): void => pausePlay.toggle()}
         hasHiddenLabel
