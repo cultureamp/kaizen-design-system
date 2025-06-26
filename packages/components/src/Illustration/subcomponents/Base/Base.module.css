@@ -9,41 +9,29 @@
     position: relative;
   }
 
-  // nested to get more specificity, beat out the generic button styles
-  .figure .pausePlayButton {
-    opacity: 0%;
+  .pausePlayButton {
+    opacity: 0;
     position: absolute;
-    right: 1rem;
-    bottom: 1rem;
+    left: var(--spacing-16);
+    bottom: var(--spacing-16);
     border-width: 1px;
-    transition: opacity var(--animation-duration-immediate);
+    transition: all var(--animation-duration-immediate) ease;
 
     @media (hover: none) and (pointer: coarse) {
-      opacity: 100%;
-    }
-
-    &:hover,
-    &:focus {
-      opacity: 100%;
-
-      svg {
-        opacity: 100%;
-      }
+      opacity: 1;
     }
   }
 
-  .figure .pausePlayButton.hasVisibleAnimationToggle {
-    opacity: 100%;
-
-    svg {
-      opacity: 100%;
-    }
+  .pausePlayButton:hover,
+  .pausePlayButton:focus,
+  .figure:hover .pausePlayButton {
+    opacity: 1;
+    background: var(--color-blue-200);
+    color: var(--color-purple-900);
   }
 
-  .figure:hover {
-    .pausePlayButton {
-      opacity: 100%;
-    }
+  .hasVisibleAnimationToggle {
+    opacity: 1;
   }
 
   .aspectRatioWrapper {
@@ -104,21 +92,5 @@
         clear: both;
       }
     }
-  }
-
-  // If the .visually-hidden class is applied to natively focusable elements
-  // (such as a, button, input, etc) they must become visible when they receive
-  // keyboard focus. Otherwise, a sighted keyboard user would have to try and
-  // figure out where their visible focus indicator had gone to.
-  .visuallyHidden:not(:focus, :active) {
-    clip: rect(0, 0, 0, 0);
-    clip-path: inset(50%);
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    border: 0;
   }
 }

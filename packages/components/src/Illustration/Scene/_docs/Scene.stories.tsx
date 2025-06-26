@@ -32,13 +32,6 @@ export const Playground: Story = {
 }
 
 export const AnimatedScenes: Story = {
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'shown',
-      },
-    },
-  },
   args: {
     isAnimated: true,
     loop: true,
@@ -59,6 +52,25 @@ export const AnimatedScenes: Story = {
   decorators: [
     (Story) => (
       <div className="flex flex-col justify-center gap-16 max-w-[400px]">
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+export const AnimatedScenesHover: Story = {
+  ...AnimatedScenes,
+  parameters: {
+    pseudo: {
+      hover: ['[data-sb-pseudo-styles="hover"]', '[data-sb-pseudo-styles="hover"] figure'],
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div
+        className="flex flex-col justify-center gap-16 max-w-[400px]"
+        data-sb-pseudo-styles="hover"
+      >
         <Story />
       </div>
     ),
