@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.79.6
+
+### Patch Changes
+
+- [#5870](https://github.com/cultureamp/kaizen-design-system/pull/5870) [`67d395b`](https://github.com/cultureamp/kaizen-design-system/commit/67d395b71baddb5501d2b3d9c09bc46d6923abe4) - Reduce TabList z-index so it is lower than modal z-index
+
 ## 1.79.5
 
 ### Patch Changes
