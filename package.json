@@ -74,7 +74,7 @@
     "node-fetch": "^3.3.2",
     "playwright": "^1.53.1",
     "plop": "^4.0.1",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
     "storybook-addon-pseudo-states": "^4.0.4",
     "stylelint": "^16.21.0",
