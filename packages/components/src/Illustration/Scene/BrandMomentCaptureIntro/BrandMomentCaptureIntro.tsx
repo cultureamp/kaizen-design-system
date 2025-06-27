@@ -32,6 +32,7 @@ export const BrandMomentCaptureIntro = ({
     return (
       <VideoPlayer
         {...otherProps}
+        hasVisibleAnimationToggle
         aspectRatio={aspectRatio}
         fallback="illustrations/heart/scene/brand-moments-capture-intro-loop"
         source="illustrations/heart/scene/brand-moments-capture-intro-loop"
@@ -44,6 +45,7 @@ export const BrandMomentCaptureIntro = ({
     <VideoPlayer
       {...otherProps}
       aspectRatio={aspectRatio}
+      hasVisibleAnimationToggle
       fallback="illustrations/heart/scene/brand-moments-capture-intro"
       source="illustrations/heart/scene/brand-moments-capture-intro"
       onEnded={(): void => setFirstAnimationComplete(true)}

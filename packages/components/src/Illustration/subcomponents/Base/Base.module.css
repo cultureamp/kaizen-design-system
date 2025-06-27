@@ -1,0 +1,96 @@
+@layer kz-components {
+  .wrapper {
+    width: 100%;
+    margin: 0;
+  }
+
+  .figure {
+    margin: 0;
+    position: relative;
+  }
+
+  .pausePlayButton {
+    opacity: 0;
+    position: absolute;
+    left: var(--spacing-16);
+    bottom: var(--spacing-16);
+    border-width: 1px;
+    transition: all var(--animation-duration-immediate) ease;
+
+    @media (hover: none) and (pointer: coarse) {
+      opacity: 1;
+    }
+  }
+
+  .pausePlayButton:hover,
+  .pausePlayButton:focus,
+  .figure:hover .pausePlayButton {
+    opacity: 1;
+    background: var(--color-blue-200);
+    color: var(--color-purple-900);
+  }
+
+  .hasVisibleAnimationToggle {
+    opacity: 1;
+  }
+
+  .aspectRatioWrapper {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .landscape {
+    aspect-ratio: 4/3;
+
+    @supports not (aspect-ratio: auto) {
+      &::before {
+        float: left;
+        padding-top: 75%;
+        content: '';
+      }
+
+      &::after {
+        display: block;
+        content: '';
+        clear: both;
+      }
+    }
+  }
+
+  .portrait {
+    aspect-ratio: 3/4;
+
+    @supports not (aspect-ratio: auto) {
+      &::before {
+        float: left;
+        padding-top: 133.33%;
+        content: '';
+      }
+
+      &::after {
+        display: block;
+        content: '';
+        clear: both;
+      }
+    }
+  }
+
+  .square {
+    aspect-ratio: auto 1/1;
+
+    @supports not (aspect-ratio: auto) {
+      &::before {
+        float: left;
+        padding-top: 100%;
+        content: '';
+      }
+
+      &::after {
+        display: block;
+        content: '';
+        clear: both;
+      }
+    }
+  }
+}
