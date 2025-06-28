@@ -399,7 +399,7 @@ importers:
         version: 2.11.2(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(jest@29.7.0(@types/node@22.15.21)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3)
       '@cultureamp/package-bundler':
         specifier: ^2.3.2
-        version: 2.3.2(@babel/core@7.27.1)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.3(postcss@8.5.4))(postcss@8.5.4)(rollup@4.44.1)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)
+        version: 2.3.2(@babel/core@7.27.1)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.4(postcss@8.5.4))(postcss@8.5.4)(rollup@4.44.1)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
@@ -449,8 +449,8 @@ importers:
         specifier: ^16.1.1
         version: 16.1.1(postcss@8.5.4)
       postcss-preset-env:
-        specifier: ^10.2.3
-        version: 10.2.3(postcss@8.5.4)
+        specifier: ^10.2.4
+        version: 10.2.4(postcss@8.5.4)
       postcss-scss:
         specifier: ^4.0.9
         version: 4.0.9(postcss@8.5.4)
@@ -520,7 +520,7 @@ importers:
     devDependencies:
       '@cultureamp/package-bundler':
         specifier: ^2.3.2
-        version: 2.3.2(@babel/core@7.27.7)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.3(postcss@8.5.4))(postcss@8.5.4)(rollup@4.44.1)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)
+        version: 2.3.2(@babel/core@7.27.7)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.4(postcss@8.5.4))(postcss@8.5.4)(rollup@4.44.1)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)
       '@types/color-string':
         specifier: ^1.5.5
         version: 1.5.5
@@ -577,7 +577,7 @@ importers:
     devDependencies:
       '@cultureamp/package-bundler':
         specifier: ^2.3.2
-        version: 2.3.2(@babel/core@7.27.7)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.3(postcss@8.5.6))(postcss@8.5.6)(rollup@4.44.1)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)
+        version: 2.3.2(@babel/core@7.27.7)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.4(postcss@8.5.6))(postcss@8.5.6)(rollup@4.44.1)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -983,8 +983,8 @@ packages:
       '@csstools/css-parser-algorithms': ^3.0.5
       '@csstools/css-tokenizer': ^3.0.4
 
-  '@csstools/postcss-cascade-layers@5.0.1':
-    resolution: {integrity: sha512-XOfhI7GShVcKiKwmPAnWSqd2tBR0uxt+runAxttbSp/LY2U16yAVPmAf7e9q4JJ0d+xMNmpwNDLBXnmRCl3HMQ==}
+  '@csstools/postcss-cascade-layers@5.0.2':
+    resolution: {integrity: sha512-nWBE08nhO8uWl6kSAeCx4im7QfVko3zLrtgWZY4/bP87zrSPpSyN/3W3TDqz1jJuH+kbKOHXg5rJnK+ZVYcFFg==}
     engines: {node: '>=18'}
     peerDependencies:
       postcss: ^8.4
@@ -8238,8 +8238,8 @@ packages:
     peerDependencies:
       postcss: ^8.4
 
-  postcss-preset-env@10.2.3:
-    resolution: {integrity: sha512-zlQN1yYmA7lFeM1wzQI14z97mKoM8qGng+198w1+h6sCud/XxOjcKtApY9jWr7pXNS3yHDEafPlClSsWnkY8ow==}
+  postcss-preset-env@10.2.4:
+    resolution: {integrity: sha512-q+lXgqmTMdB0Ty+EQ31SuodhdfZetUlwCA/F0zRcd/XdxjzI+Rl2JhZNz5US2n/7t9ePsvuhCnEN4Bmu86zXlA==}
     engines: {node: '>=18'}
     peerDependencies:
       postcss: ^8.4
@@ -10846,13 +10846,13 @@ snapshots:
       '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-tokenizer': 3.0.4
 
-  '@csstools/postcss-cascade-layers@5.0.1(postcss@8.5.4)':
+  '@csstools/postcss-cascade-layers@5.0.2(postcss@8.5.4)':
     dependencies:
       '@csstools/selector-specificity': 5.0.0(postcss-selector-parser@7.1.0)
       postcss: 8.5.4
       postcss-selector-parser: 7.1.0
 
-  '@csstools/postcss-cascade-layers@5.0.1(postcss@8.5.6)':
+  '@csstools/postcss-cascade-layers@5.0.2(postcss@8.5.6)':
     dependencies:
       '@csstools/selector-specificity': 5.0.0(postcss-selector-parser@7.1.0)
       postcss: 8.5.6
@@ -11386,7 +11386,7 @@ snapshots:
       next: 15.2.5(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)
       react: 18.3.1
 
-  '@cultureamp/package-bundler@2.3.2(@babel/core@7.27.1)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.3(postcss@8.5.4))(postcss@8.5.4)(rollup@4.44.1)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)':
+  '@cultureamp/package-bundler@2.3.2(@babel/core@7.27.1)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.4(postcss@8.5.4))(postcss@8.5.4)(rollup@4.44.1)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)':
     dependencies:
       '@babel/plugin-transform-react-pure-annotations': 7.27.1(@babel/core@7.27.1)
       '@rollup/plugin-alias': 5.1.1(rollup@4.44.1)
@@ -11398,7 +11398,7 @@ snapshots:
       babel-plugin-pure-static-props: 0.2.0(@babel/core@7.27.1)
       concat-cli: 4.0.0
       postcss: 8.5.4
-      postcss-preset-env: 10.2.3(postcss@8.5.4)
+      postcss-preset-env: 10.2.4(postcss@8.5.4)
       rollup: 4.44.1
       rollup-plugin-ignore: 1.0.10
       rollup-plugin-node-externals: 8.0.0(rollup@4.44.1)
@@ -11413,7 +11413,7 @@ snapshots:
       - supports-color
       - ts-node
 
-  '@cultureamp/package-bundler@2.3.2(@babel/core@7.27.7)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.3(postcss@8.5.4))(postcss@8.5.4)(rollup@4.44.1)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)':
+  '@cultureamp/package-bundler@2.3.2(@babel/core@7.27.7)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.4(postcss@8.5.4))(postcss@8.5.4)(rollup@4.44.1)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)':
     dependencies:
       '@babel/plugin-transform-react-pure-annotations': 7.27.1(@babel/core@7.27.7)
       '@rollup/plugin-alias': 5.1.1(rollup@4.44.1)
@@ -11425,7 +11425,7 @@ snapshots:
       babel-plugin-pure-static-props: 0.2.0(@babel/core@7.27.7)
       concat-cli: 4.0.0
       postcss: 8.5.4
-      postcss-preset-env: 10.2.3(postcss@8.5.4)
+      postcss-preset-env: 10.2.4(postcss@8.5.4)
       rollup: 4.44.1
       rollup-plugin-ignore: 1.0.10
       rollup-plugin-node-externals: 8.0.0(rollup@4.44.1)
@@ -11440,7 +11440,7 @@ snapshots:
       - supports-color
       - ts-node
 
-  '@cultureamp/package-bundler@2.3.2(@babel/core@7.27.7)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.3(postcss@8.5.6))(postcss@8.5.6)(rollup@4.44.1)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)':
+  '@cultureamp/package-bundler@2.3.2(@babel/core@7.27.7)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.4(postcss@8.5.6))(postcss@8.5.6)(rollup@4.44.1)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)':
     dependencies:
       '@babel/plugin-transform-react-pure-annotations': 7.27.1(@babel/core@7.27.7)
       '@rollup/plugin-alias': 5.1.1(rollup@4.44.1)
@@ -11452,7 +11452,7 @@ snapshots:
       babel-plugin-pure-static-props: 0.2.0(@babel/core@7.27.7)
       concat-cli: 4.0.0
       postcss: 8.5.6
-      postcss-preset-env: 10.2.3(postcss@8.5.6)
+      postcss-preset-env: 10.2.4(postcss@8.5.6)
       rollup: 4.44.1
       rollup-plugin-ignore: 1.0.10
       rollup-plugin-node-externals: 8.0.0(rollup@4.44.1)
@@ -20362,9 +20362,9 @@ snapshots:
       postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-preset-env@10.2.3(postcss@8.5.4):
+  postcss-preset-env@10.2.4(postcss@8.5.4):
     dependencies:
-      '@csstools/postcss-cascade-layers': 5.0.1(postcss@8.5.4)
+      '@csstools/postcss-cascade-layers': 5.0.2(postcss@8.5.4)
       '@csstools/postcss-color-function': 4.0.10(postcss@8.5.4)
       '@csstools/postcss-color-mix-function': 3.0.10(postcss@8.5.4)
       '@csstools/postcss-color-mix-variadic-function-arguments': 1.0.0(postcss@8.5.4)
@@ -20430,9 +20430,9 @@ snapshots:
       postcss-replace-overflow-wrap: 4.0.0(postcss@8.5.4)
       postcss-selector-not: 8.0.1(postcss@8.5.4)
 
-  postcss-preset-env@10.2.3(postcss@8.5.6):
+  postcss-preset-env@10.2.4(postcss@8.5.6):
     dependencies:
-      '@csstools/postcss-cascade-layers': 5.0.1(postcss@8.5.6)
+      '@csstools/postcss-cascade-layers': 5.0.2(postcss@8.5.6)
       '@csstools/postcss-color-function': 4.0.10(postcss@8.5.6)
       '@csstools/postcss-color-mix-function': 3.0.10(postcss@8.5.6)
       '@csstools/postcss-color-mix-variadic-function-arguments': 1.0.0(postcss@8.5.6)
