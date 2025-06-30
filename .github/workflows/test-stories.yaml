@@ -7,6 +7,7 @@ on:
   push:
     branches-ignore:
       - main
+      - '1.7.xx'
 
   # When Changesets opens a PR it does not trigger GitHub actions,
   # because its token does not have permission to. This is a hack
@@ -17,6 +18,7 @@ on:
       - auto_merge_enabled
     branches:
       - main # the target branch of the PR
+      - '1.7.xx'
     paths:
       - '**/CHANGELOG.md' # only changesets releases touch changelogs
 
