@@ -1,7 +1,7 @@
 import React, { type PropsWithChildren } from 'react'
 import classNames from 'classnames'
 import { ListBoxItem as RACListBoxItem, type ListBoxItemProps } from 'react-aria-components'
-import styles from './ListItem.module.scss'
+import styles from './ListItem.module.css'
 
 export const ListItem = ({
   children,

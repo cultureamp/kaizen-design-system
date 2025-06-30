@@ -5,7 +5,7 @@ import {
   ListBoxSection as RACListBoxSection,
   type ListBoxSectionProps,
 } from 'react-aria-components'
-import styles from './ListSection.module.scss'
+import styles from './ListSection.module.css'
 
 export const ListSection = ({
   name,

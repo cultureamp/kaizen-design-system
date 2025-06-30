@@ -12,10 +12,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  args: {
-    labelText: 'Label',
-    items: [],
-  },
+  args: {},
   parameters: {
     docs: {
       canvas: {

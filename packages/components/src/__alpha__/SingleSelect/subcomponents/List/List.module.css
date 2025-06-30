@@ -1,0 +1,7 @@
+@layer kz-components {
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+  }
+}
