@@ -14,6 +14,7 @@ export default rollupConfig({
     utilitiesV3: './src/index.ts',
     reactAriaV3: './src/__react-aria__/index.ts',
     reactAriaComponentsV3: './src/__react-aria-components__/index.ts',
+    alpha: './src/__alpha__/index.ts',
   },
   plugins: pluginsSharedUi,
 })

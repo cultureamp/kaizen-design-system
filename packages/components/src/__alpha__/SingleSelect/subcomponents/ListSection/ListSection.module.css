@@ -1,0 +1,9 @@
+@layer kz-components {
+  .listSectionHeader {
+    font-family: var(--typography-heading-5-font-family);
+    font-weight: var(--typography-heading-5-font-weight);
+    font-size: var(--typography-heading-5-font-size);
+    line-height: var(--typography-heading-5-line-height);
+    letter-spacing: var(--typography-heading-5-letter-spacing);
+  }
+}

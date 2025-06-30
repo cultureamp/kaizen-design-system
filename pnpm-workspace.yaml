@@ -8,3 +8,4 @@ packages:
   - '!packages/components/v2'
   - '!packages/components/v3'
   - '!packages/design-tokens/js'
+  - '!packages/components/alpha'
