@@ -41,6 +41,8 @@ export type SplitButtonProps = {
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 /**
+ * @deprecated This component will be removed in v2. Use a Button and Menu component instead.
+ *
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896196/Split+Button Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-splitbutton--docs Storybook}
  */
