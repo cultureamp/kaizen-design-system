@@ -13,7 +13,7 @@ import {
 } from '../index'
 
 const meta = {
-  title: 'Components/Illustrations/Scene',
+  title: 'Components/illustrations/Scene',
   component: BrandMomentPositiveOutro,
 } satisfies Meta<typeof BrandMomentPositiveOutro>
 
@@ -32,6 +32,7 @@ export const Playground: Story = {
 }
 
 export const AnimatedScenes: Story = {
+  name: 'Animated Scene illustration autoplay and loop',
   args: {
     isAnimated: true,
     loop: true,
@@ -56,6 +57,25 @@ export const AnimatedScenes: Story = {
       </div>
     ),
   ],
+}
+export const AnimatedScenesWithAutoPlayNoLoop: Story = {
+  name: 'Animated Scene illustration with autoplay but no loop',
+  ...AnimatedScenes,
+  args: {
+    isAnimated: true,
+    loop: false,
+    autoplay: true,
+  },
+}
+
+export const AnimatedScenesLoopedWithoutAutoplay: Story = {
+  name: 'Animated Scene illustration without autoplay but with loop',
+  ...AnimatedScenes,
+  args: {
+    isAnimated: true,
+    loop: true,
+    autoplay: false,
+  },
 }
 
 export const AnimatedScenesHover: Story = {
