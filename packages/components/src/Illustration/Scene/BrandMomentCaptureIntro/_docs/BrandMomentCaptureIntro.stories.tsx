@@ -26,6 +26,7 @@ export const Playground: Story = {
 }
 
 export const Animated: Story = {
+  name: 'Animated Capture illustration on toggle',
   args: {
     loop: false,
     isAnimated: true,
@@ -33,6 +34,7 @@ export const Animated: Story = {
 }
 
 export const Looped: Story = {
+  name: 'Animated Capture illustration looped without autoplay',
   args: {
     isAnimated: true,
     loop: true,
@@ -40,10 +42,11 @@ export const Looped: Story = {
 }
 
 export const Autoplay: Story = {
+  name: 'Animated Capture illustration looped with autoplay',
   args: {
     isAnimated: true,
     loop: true,
-    autoplay: false,
+    autoplay: true,
   },
 }
 

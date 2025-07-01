@@ -12,10 +12,13 @@ export const BrandMomentCaptureIntro = ({
   isAnimated,
   alt,
   enableAspectRatio,
+  autoplay,
+  loop,
   ...otherProps
 }: AnimatedSceneProps): JSX.Element => {
   const [firstAnimationComplete, setFirstAnimationComplete] = useState<boolean>(false)
   const aspectRatio = enableAspectRatio ? 'landscape' : undefined
+  const shouldAlwaysShowAnimationToggle = autoplay && loop
 
   if (!isAnimated) {
     return (
@@ -32,11 +35,12 @@ export const BrandMomentCaptureIntro = ({
     return (
       <VideoPlayer
         {...otherProps}
-        hasVisibleAnimationToggle
         aspectRatio={aspectRatio}
         fallback="illustrations/heart/scene/brand-moments-capture-intro-loop"
         source="illustrations/heart/scene/brand-moments-capture-intro-loop"
-        autoplay={firstAnimationComplete ? otherProps.autoplay : false}
+        autoplay={firstAnimationComplete ? autoplay : false}
+        loop={loop}
+        hasVisibleAnimationToggle={shouldAlwaysShowAnimationToggle}
       />
     )
   }
@@ -45,11 +49,12 @@ export const BrandMomentCaptureIntro = ({
     <VideoPlayer
       {...otherProps}
       aspectRatio={aspectRatio}
-      hasVisibleAnimationToggle
       fallback="illustrations/heart/scene/brand-moments-capture-intro"
       source="illustrations/heart/scene/brand-moments-capture-intro"
       onEnded={(): void => setFirstAnimationComplete(true)}
+      autoplay={autoplay}
       loop={false}
+      hasVisibleAnimationToggle={shouldAlwaysShowAnimationToggle}
     />
   )
 }
