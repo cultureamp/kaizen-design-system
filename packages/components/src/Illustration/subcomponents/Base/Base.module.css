@@ -9,7 +9,7 @@
     position: relative;
   }
 
-  .pausePlayButton {
+  .figure .pausePlayButton {
     opacity: 0;
     position: absolute;
     left: 0;
@@ -23,8 +23,8 @@
     }
   }
 
-  .pausePlayButton:hover,
-  .pausePlayButton:focus,
+  .figure .pausePlayButton:hover,
+  .figure .pausePlayButton:focus,
   .figure:hover .pausePlayButton {
     opacity: 1;
     background: var(--color-gray-200);
