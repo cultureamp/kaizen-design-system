@@ -25,4 +25,8 @@ import * as SceneStories from './Scene.stories'
 
 Some Scene illustrations have animated versions. Looped animation should be used sparingly as it can be distracting for users, especially those with motion sensitivity. Consider also the WCAG spec for [non-essential animations](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html).
 
+Note that all Scene illustration with `autoplay` and `loop` set to `true` will render the animation toggle.
+
+This can be overridden by setting `hasVisibleAnimationToggle` to `false`, which will render the toggle only on hover or focus. Note that this can have accessibility implications, so use with caution.
+
 <Canvas of={SceneStories.AnimatedScenes} />
