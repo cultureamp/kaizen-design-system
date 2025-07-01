@@ -4,6 +4,7 @@ on:
   push:
     branches-ignore:
       - main
+      - '1.78.xx'
 
   # When Changesets opens a PR it does not trigger GitHub actions,
   # because its token does not have permission to. This is a hack
@@ -14,12 +15,13 @@ on:
       - auto_merge_enabled
     branches:
       - main # the target branch of the PR
+      - '1.78.xx' # the target branch of the PR
     paths:
       - '**/CHANGELOG.md' # only changesets releases touch changelogs
 
 jobs:
   typescript:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' || github.head_ref != 'changeset-release/1.78.xx'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -28,7 +30,7 @@ jobs:
       - run: pnpm lint:ts
 
   eslint:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' || github.head_ref != 'changeset-release/1.78.xx'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -37,7 +39,7 @@ jobs:
       - run: pnpm lint:eslint
 
   prettier:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' || github.head_ref != 'changeset-release/1.78.xx'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -46,7 +48,7 @@ jobs:
       - run: pnpm lint:format
 
   stylelint:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' || github.head_ref != 'changeset-release/1.78.xx'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

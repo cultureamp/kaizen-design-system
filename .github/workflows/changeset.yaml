@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'main'
+      - '1.78.xx'
 
 jobs:
   version:
