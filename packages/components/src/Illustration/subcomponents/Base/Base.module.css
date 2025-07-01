@@ -12,12 +12,13 @@
   .pausePlayButton {
     opacity: 0;
     position: absolute;
-    left: var(--spacing-16);
-    bottom: var(--spacing-16);
+    left: 0;
+    bottom: 0;
     border-width: 1px;
     transition: all var(--animation-duration-immediate) ease;
 
     @media (hover: none) and (pointer: coarse) {
+      background: var(--color-gray-200);
       opacity: 1;
     }
   }
@@ -26,12 +27,12 @@
   .pausePlayButton:focus,
   .figure:hover .pausePlayButton {
     opacity: 1;
-    background: var(--color-blue-200);
-    color: var(--color-purple-900);
+    background: var(--color-gray-200);
+    border-color: var(--color-gray-600);
   }
 
   .hasVisibleAnimationToggle {
-    opacity: 1;
+    opacity: 1 !important;
   }
 
   .aspectRatioWrapper {
