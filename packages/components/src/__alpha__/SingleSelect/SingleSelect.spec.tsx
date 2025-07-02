@@ -4,10 +4,10 @@ import { SingleSelect } from './SingleSelect'
 import { singleMockItems } from './_docs/mockData'
 
 const SingleSelectWrapper = (): JSX.Element => (
-  <SingleSelect>
+  <SingleSelect items={singleMockItems}>
     <SingleSelect.List>
       {singleMockItems.map((item) => (
-        <SingleSelect.ListItem key={item.value} value={{ value: item.value }}>
+        <SingleSelect.ListItem key={item.value} id={item.value}>
           {item.label}
         </SingleSelect.ListItem>
       ))}

@@ -4,7 +4,6 @@
     background-color: var(--color-white);
     border-radius: var(--spacing-8);
     padding: var(--spacing-8);
-    box-shadow: var(--shadow-small-box-shadow);  
+    box-shadow: var(--shadow-small-box-shadow);
   }
-
 }
