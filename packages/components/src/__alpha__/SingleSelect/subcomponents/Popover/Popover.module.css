@@ -1,9 +1,8 @@
 @layer kz-components {
   .popover {
-    box-sizing: border-box;
     background-color: var(--color-white);
     border-radius: var(--spacing-8);
-    padding: var(--spacing-8);
+    padding: 0px;
     box-shadow: var(--shadow-small-box-shadow);
   }
 }

@@ -53,7 +53,7 @@ export const SingleSelect = ({
         selectionMode: 'single',
         selectedKeys,
         onSelectionChange: handleOnSelectionChange,
-        autoFocus: true,
+        autoFocus: 'first',
       })
     : null
 

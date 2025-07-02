@@ -1,5 +1,6 @@
 import React, { useEffect, type PropsWithChildren } from 'react'
 import { useOverlayPosition } from '@react-aria/overlays'
+import { FocusScope as RACFocusScope } from 'react-aria'
 import { Popover as RACPopover } from 'react-aria-components'
 import { useSingleSelectContext } from '../../context'
 import styles from './Popover.module.css'
@@ -19,12 +20,11 @@ export const Popover = ({
   const { isOpen, setOpen } = useSingleSelectContext()
 
   useEffect(() => {
-    const el = popoverRef.current
-    if (!el?.showPopover || !el?.hidePopover) return
+    if (!popoverRef.current?.showPopover || !popoverRef.current?.hidePopover) return
     if (isOpen) {
-      el.showPopover()
+      popoverRef.current.showPopover()
     } else {
-      el.hidePopover()
+      popoverRef.current.hidePopover()
     }
   }, [isOpen, popoverRef])
 
@@ -51,7 +51,7 @@ export const Popover = ({
         }}
         className={styles.popover}
       >
-        {children}
+        <RACFocusScope>{children}</RACFocusScope>
       </div>
     </RACPopover>
   )
