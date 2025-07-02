@@ -1,14 +1,16 @@
 @import '~@kaizen/design-tokens/sass/color';
 
-.nav {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  color: $color-purple-800;
-  top: -0.25rem;
-}
+@layer kz-components {
+  .nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: $color-purple-800;
+    top: -0.25rem;
+  }
 
-.navButtonNext {
-  inset-inline-end: 0;
+  .navButtonNext {
+    inset-inline-end: 0;
+  }
 }

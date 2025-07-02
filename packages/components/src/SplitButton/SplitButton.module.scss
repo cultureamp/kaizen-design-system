@@ -1,4 +1,6 @@
-.splitButton {
-  display: inline-flex;
-  align-items: center;
+@layer kz-components {
+  .splitButton {
+    display: inline-flex;
+    align-items: center;
+  }
 }

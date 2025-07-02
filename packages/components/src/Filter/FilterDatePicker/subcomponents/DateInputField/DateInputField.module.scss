@@ -1,3 +1,5 @@
-.disabled {
-  opacity: 0.3;
+@layer kz-components {
+  .disabled {
+    opacity: 0.3;
+  }
 }

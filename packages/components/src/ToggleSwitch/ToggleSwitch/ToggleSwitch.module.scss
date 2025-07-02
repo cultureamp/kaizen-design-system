@@ -4,134 +4,136 @@
 @import '~@kaizen/design-tokens/sass/animation';
 @import '../../../styles/utils/forms';
 
-$animation-timing: $animation-duration-immediate $animation-easing-function-linear;
-$focus-ring-offset: 1px;
+@layer kz-components {
+  $animation-timing: $animation-duration-immediate $animation-easing-function-linear;
+  $focus-ring-offset: 1px;
 
-.checkbox {
-  @include form-input-visually-hidden;
-}
-
-.track {
-  position: relative;
-  background-color: $color-gray-500;
-  border: $border-borderless-border-width $border-borderless-border-style
-    $border-borderless-border-color;
-  border-radius: $spacing-md;
-  box-sizing: content-box;
-  width: calc((#{$spacing-md} * 1.05) * 2);
-  height: calc(#{$spacing-md} * 1.25);
-  padding: 0 calc(#{$spacing-md} * 0.15);
-  display: flex;
-  align-items: center;
-  transition: background-color $animation-timing;
-
-  /* TODO: Fix */
-  /* stylelint-disable no-descending-specificity */
-  .checkbox:not(.disabled):focus + &,
-  .checkbox:not(.disabled):hover:focus + & {
-    border-color: transparent;
-    outline: 2px solid $color-blue-500;
-    outline-offset: $focus-ring-offset;
-    background-color: $color-gray-600;
+  .checkbox {
+    @include form-input-visually-hidden;
   }
 
-  .checkbox:not(.disabled) + &:hover,
-  label:hover .checkbox:not(.disabled) + & {
-    background-color: $color-purple-500;
-    background-color: $color-gray-600;
-  }
+  .track {
+    position: relative;
+    background-color: $color-gray-500;
+    border: $border-borderless-border-width $border-borderless-border-style
+      $border-borderless-border-color;
+    border-radius: $spacing-md;
+    box-sizing: content-box;
+    width: calc((#{$spacing-md} * 1.05) * 2);
+    height: calc(#{$spacing-md} * 1.25);
+    padding: 0 calc(#{$spacing-md} * 0.15);
+    display: flex;
+    align-items: center;
+    transition: background-color $animation-timing;
 
-  /* stylelint-enable no-descending-specificity */
-}
+    /* TODO: Fix */
+    /* stylelint-disable no-descending-specificity */
+    .checkbox:not(.disabled):focus + &,
+    .checkbox:not(.disabled):hover:focus + & {
+      border-color: transparent;
+      outline: 2px solid $color-blue-500;
+      outline-offset: $focus-ring-offset;
+      background-color: $color-gray-600;
+    }
 
-.thumb {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $color-white;
-  border: $border-borderless-border-width $border-borderless-border-style
-    $border-borderless-border-color;
-  border-radius: $spacing-md;
-  transition:
-    left $animation-timing,
-    right $animation-timing;
-  cursor: default;
-}
+    .checkbox:not(.disabled) + &:hover,
+    label:hover .checkbox:not(.disabled) + & {
+      background-color: $color-purple-500;
+      background-color: $color-gray-600;
+    }
 
-.checkIcon {
-  color: $color-green-500;
-  opacity: 0%;
-  transition-duration: $animation-duration-rapid;
-}
-
-/* stylelint-disable no-descending-specificity */
-.on {
-  .checkbox + .track {
-    border-color: $border-borderless-border-color;
-    background-color: $color-green-500;
-  }
-
-  .checkbox:focus + .track {
-    border-color: transparent;
-    background-color: $color-green-600;
+    /* stylelint-enable no-descending-specificity */
   }
 
   .thumb {
-    position: relative;
-    right: auto;
-    inset-inline-start: calc(#{$spacing-md} * 1.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-white;
+    border: $border-borderless-border-width $border-borderless-border-style
+      $border-borderless-border-color;
+    border-radius: $spacing-md;
+    transition:
+      left $animation-timing,
+      right $animation-timing;
+    cursor: default;
   }
 
   .checkIcon {
-    opacity: 100%;
-    transition-delay: $animation-duration-immediate;
-    transition-duration: $animation-duration-fast;
+    color: $color-green-500;
+    opacity: 0%;
+    transition-duration: $animation-duration-rapid;
   }
 
-  .checkbox:not(.disabled) + .track:hover,
-  label:hover & .checkbox:not(.disabled) + .track {
-    background-color: $color-green-600;
-  }
-}
-
-.off {
-  .thumb {
-    position: relative;
-    right: auto;
-    inset-inline-start: calc(#{$spacing-md} * -0.05);
-  }
-}
-
-.reversed {
-  .checkbox:focus + .track,
-  .checkbox:hover:focus + .track {
-    outline-color: $color-blue-300;
-  }
-
-  &.off {
-    .track {
-      background-color: rgba($color-white-rgb, 0.2);
+  /* stylelint-disable no-descending-specificity */
+  .on {
+    .checkbox + .track {
+      border-color: $border-borderless-border-color;
+      background-color: $color-green-500;
     }
 
-    .checkbox:focus + .track,
-    .checkbox:hover:focus + .track {
-      background-color: rgba($color-white-rgb, 0.65);
+    .checkbox:focus + .track {
+      border-color: transparent;
+      background-color: $color-green-600;
+    }
+
+    .thumb {
+      position: relative;
+      right: auto;
+      inset-inline-start: calc(#{$spacing-md} * 1.1);
+    }
+
+    .checkIcon {
+      opacity: 100%;
+      transition-delay: $animation-duration-immediate;
+      transition-duration: $animation-duration-fast;
     }
 
     .checkbox:not(.disabled) + .track:hover,
     label:hover & .checkbox:not(.disabled) + .track {
-      background-color: rgba($color-white-rgb, 0.65);
+      background-color: $color-green-600;
     }
   }
-}
 
-// When the ToggleSwitch is used as part of the ToggleSwitchField, the disabled state opacity is set on the Label component
-label .disabled.track {
-  opacity: 100%;
-}
+  .off {
+    .thumb {
+      position: relative;
+      right: auto;
+      inset-inline-start: calc(#{$spacing-md} * -0.05);
+    }
+  }
 
-.disabled.track {
-  opacity: 30%;
-}
+  .reversed {
+    .checkbox:focus + .track,
+    .checkbox:hover:focus + .track {
+      outline-color: $color-blue-300;
+    }
 
-/* stylelint-enable no-descending-specificity */
+    &.off {
+      .track {
+        background-color: rgba($color-white-rgb, 0.2);
+      }
+
+      .checkbox:focus + .track,
+      .checkbox:hover:focus + .track {
+        background-color: rgba($color-white-rgb, 0.65);
+      }
+
+      .checkbox:not(.disabled) + .track:hover,
+      label:hover & .checkbox:not(.disabled) + .track {
+        background-color: rgba($color-white-rgb, 0.65);
+      }
+    }
+  }
+
+  // When the ToggleSwitch is used as part of the ToggleSwitchField, the disabled state opacity is set on the Label component
+  label .disabled.track {
+    opacity: 100%;
+  }
+
+  .disabled.track {
+    opacity: 30%;
+  }
+
+  /* stylelint-enable no-descending-specificity */
+}

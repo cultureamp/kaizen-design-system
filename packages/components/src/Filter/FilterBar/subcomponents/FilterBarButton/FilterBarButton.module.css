@@ -1,3 +1,5 @@
-.filterBarButton {
-  width: 100%;
+@layer kz-components {
+  .filterBarButton {
+    width: 100%;
+  }
 }
