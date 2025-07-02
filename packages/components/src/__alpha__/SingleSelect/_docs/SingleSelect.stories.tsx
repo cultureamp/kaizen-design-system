@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react'
 import { SingleSelect } from '../index'
+import { singleMockItems } from './mockData'
 
 const meta = {
   title: 'Components/SingleSelect/SingleSelect (alpha)',
@@ -12,7 +13,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  args: {},
+  args: {
+    items: singleMockItems,
+  },
   parameters: {
     docs: {
       canvas: {
