@@ -1,0 +1,22 @@
+@layer kz-components {
+  .listBox {
+    list-style: none;
+    padding: var(--spacing-12);
+    margin: 0 var(--spacing-12) 0 0;
+    display: grid;
+    max-height: 22rem;
+    overflow-y: auto;
+  }
+
+  .overflown {
+    padding-right: var(--spacing-12);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .noResultsWrapper {
+    list-style: none;
+  }
+}
