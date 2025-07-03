@@ -4,7 +4,7 @@ import { Heading } from '~components/Heading'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { Label } from './subcomponents/Label'
 import { calculatePercentage } from './utils/calculatePercentage'
-import styles from './ProgressBar.module.scss'
+import styles from './ProgressBar.module.css'
 
 export type ProgressBarMood = {
   /**
@@ -34,11 +34,13 @@ export type ProgressBarBaseProps = {
   value: number
   /** A value that sets the maximum progress that can be achieved */
   max: number
-  /** Adds an animated state to indicate loading progress */
-  isAnimating: boolean
   subtext?: string
   label?: string
-  isReversed: boolean
+  /** @default false Adds an animated state to indicate loading progress */
+  isAnimating?: boolean
+  pattern?: 'solid' | 'stripe' | 'bordered'
+  /** @default false sets the color of the label and subtext to reversed palette */
+  isReversed?: boolean
 } & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'color'>>
 
 export type ProgressBarProps = ProgressBarBaseProps & (ProgressBarMood | ProgressBarColor)
@@ -50,12 +52,13 @@ export type ProgressBarProps = ProgressBarBaseProps & (ProgressBarMood | Progres
 export const ProgressBar = ({
   value,
   max,
-  isAnimating,
+  isAnimating = false,
   mood,
   color,
   subtext,
   label,
   classNameOverride,
+  pattern,
   isReversed = false,
   ...restProps
 }: ProgressBarProps): JSX.Element => {
@@ -66,20 +69,25 @@ export const ProgressBar = ({
       aria-valuenow={percentage}
       aria-valuemin={0}
       aria-valuemax={100}
-      className={classNameOverride}
+      className={classnames(styles.progressBar, classNameOverride)}
       {...restProps}
     >
       {label && <Label content={label} isReversed={isReversed} />}
-      <div className={styles.progressBackground}>
+      <div
+        className={styles.progressBackground}
+        style={{ gridTemplateColumns: `${percentage}% ${100 - percentage}%` }}
+      >
         <div
           className={classnames(
             styles.progress,
             color ? styles[color] : styles[mood],
             isAnimating && styles.isAnimating,
+            pattern && styles[pattern],
           )}
-          style={{ transform: `translateX(-${100 - percentage}%` }}
         />
+        <div className={styles.progressIncomplete} />
       </div>
+
       {subtext && (
         <div className={styles.subtext}>
           <Heading variant="heading-6" tag="p" color={isReversed ? 'white' : 'dark'}>
