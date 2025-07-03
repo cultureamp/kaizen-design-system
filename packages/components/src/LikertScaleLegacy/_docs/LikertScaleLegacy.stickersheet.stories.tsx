@@ -5,7 +5,7 @@ import { LikertScaleLegacy, type LikertScaleProps } from '../index'
 import { type Scale } from '../types'
 
 export default {
-  title: 'Components/LikertScaleLegacy',
+  title: 'Components/LikertScaleLegacy (deprecated)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

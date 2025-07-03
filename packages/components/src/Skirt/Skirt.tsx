@@ -17,6 +17,10 @@ export type SkirtProps = {
   titleBlockHasNavigation?: boolean
 } & ContentProps
 
+/**
+ * @deprecated This component will be removed in v2. Please remove any usages.
+ */
+
 export const Skirt = ({
   children,
   variant = 'default',
