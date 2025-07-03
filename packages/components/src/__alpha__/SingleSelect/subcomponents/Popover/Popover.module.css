@@ -2,7 +2,7 @@
   .popover {
     background-color: var(--color-white);
     border-radius: var(--spacing-8);
-    padding: 0px;
+    padding: 0;
     box-shadow: var(--shadow-small-box-shadow);
   }
 }
