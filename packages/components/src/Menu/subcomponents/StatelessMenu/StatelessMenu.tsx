@@ -46,7 +46,6 @@ export type StatelessMenuProps = {
   'renderButton': (args: {
     'onClick': (e: any) => void
     'onMouseDown': (e: any) => void
-    'aria-haspopup': boolean
     'aria-expanded': boolean
   }) => React.ReactElement
   'onClick'?: (event: SyntheticEvent) => void
@@ -76,7 +75,6 @@ export const StatelessMenu = ({
       toggleMenuDropdown()
     },
     'onMouseDown': (e: React.MouseEvent<Element, MouseEvent>) => e.preventDefault(),
-    'aria-haspopup': true,
     'aria-expanded': isMenuVisible,
   })
 
