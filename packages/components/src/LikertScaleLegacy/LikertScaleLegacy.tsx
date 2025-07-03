@@ -37,6 +37,9 @@ const SelectedItemIcon = (): JSX.Element => (
 )
 
 /**
+ * @deprecated This component will be renamed to LikertScale in v2.
+ * Start importing as LikertScale instead.
+ *
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082060201/Likert+Scale Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-likertscalelegacy--docs Storybook}
  */
