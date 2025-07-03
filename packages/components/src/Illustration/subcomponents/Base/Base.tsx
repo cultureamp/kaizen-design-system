@@ -2,7 +2,7 @@ import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { assetUrl } from '~components/utils/hostedAssets'
-import styles from './Base.module.scss'
+import styles from './Base.module.css'
 
 export type BaseProps = {
   /**
