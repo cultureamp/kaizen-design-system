@@ -128,3 +128,31 @@ export const Sections: Story = {
     </MenuTrigger>
   ),
 }
+
+export const SplitButtonReplacement: Story = {
+  render: ({ defaultOpen: _, ...args }) => (
+    <div className="flex gap-4">
+      <Button size="large" variant="secondary">
+        Edit Survey
+      </Button>
+      <MenuTrigger {...args}>
+        <Button
+          size="large"
+          icon={<Icon name="more_horiz" isPresentational />}
+          variant="secondary"
+          hasHiddenLabel
+        >
+          More surveys
+        </Button>
+        <MenuPopover>
+          <Menu>
+            <MenuItem>Survey 1</MenuItem>
+            <MenuItem>Survey 2</MenuItem>
+            <MenuItem>Survey 3</MenuItem>
+            <MenuItem>Survey 4</MenuItem>
+          </Menu>
+        </MenuPopover>
+      </MenuTrigger>
+    </div>
+  ),
+}
