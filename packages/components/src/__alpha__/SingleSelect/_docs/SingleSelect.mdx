@@ -25,3 +25,7 @@ Brief summary of the component here.
 <Controls of={SingleSelectStories.Playground} />
 
 ## API
+
+## Positioning and z-index Management
+
+The SingleSelect component leverages the native Popover API to manage its dropdown functionality. By using popover instead of custom portal logic, the component takes full advantage of CSS layers, ensuring dropdowns appear above other content without manual z-index management.
