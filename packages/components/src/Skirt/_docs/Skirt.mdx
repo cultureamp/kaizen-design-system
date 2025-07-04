@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import { ResourceLinks, KAIOInstallation, RemovalNotice } from '~storybook/components'
 import * as SkirtStories from './Skirt.stories'
 
 <Meta of={SkirtStories} />
@@ -12,6 +12,8 @@ import * as SkirtStories from './Skirt.stories'
   designGuidelines=""
 
 />
+
+<RemovalNotice />
 
 <KAIOInstallation exportNames={['Skirt', 'SkirtCard']} />
 
