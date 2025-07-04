@@ -1,8 +1,7 @@
-import React, { isValidElement, type HTMLAttributes, type PropsWithChildren } from 'react'
+import React, { isValidElement, type PropsWithChildren } from 'react'
 import { useSelectState } from '@react-stately/select'
 import { type Key, type Selection } from '@react-types/shared'
 import { Select as RACSelect, type ListBoxProps } from 'react-aria-components'
-import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { SingleSelectContext } from './context'
 import { List, ListItem, ListSection, Popover, Trigger } from './subcomponents'
 import { type SelectItem, type SelectSection } from './types'
@@ -11,10 +10,9 @@ export type SingleSelectProps = {
   children?: React.ReactNode
   items: (SelectItem | SelectSection)[]
   onSelectionChange?: (key: Key | null) => void
-} & OverrideClassName<HTMLAttributes<Element>>
+}
 
 export const SingleSelect = ({
-  classNameOverride,
   items,
   onSelectionChange,
   children,
@@ -70,7 +68,6 @@ export const SingleSelect = ({
         onSelectionChange={(key) =>
           handleOnSelectionChange(key != null ? new Set([key]) : new Set())
         }
-        className={classNameOverride}
         placeholder=""
         {...restProps}
       >
