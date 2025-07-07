@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.78.2
+
+### Patch Changes
+
+- [#5886](https://github.com/cultureamp/kaizen-design-system/pull/5886) [`4386195`](https://github.com/cultureamp/kaizen-design-system/commit/43861957069db9a6699a6bc8707b4b7c06093fc8) - Backported fixes for pre-1.79.0 release: Update Select/next to pass aria-required into the Select trigger props.
+
+- [#5886](https://github.com/cultureamp/kaizen-design-system/pull/5886) [`4386195`](https://github.com/cultureamp/kaizen-design-system/commit/43861957069db9a6699a6bc8707b4b7c06093fc8) - Backported fixes for pre-1.79.0 release: Removes aria-haspopup from v1 Menu. This was a partial implementation of the menu aria pattern and does not have the corresponding arrow controls functionality so was confusing to SR users.
+
+- [#5886](https://github.com/cultureamp/kaizen-design-system/pull/5886) [`4386195`](https://github.com/cultureamp/kaizen-design-system/commit/43861957069db9a6699a6bc8707b4b7c06093fc8) - Backported fixes for pre-1.79.0 release: Add optianl isRequired support to LikertScaleLegacy component to ensure mandatory questions are correctly rendered with aria-required in HTML.
+
 ## 1.78.1
 
 ### Patch Changes
