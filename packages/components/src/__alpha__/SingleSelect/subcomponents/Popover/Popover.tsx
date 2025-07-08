@@ -6,13 +6,13 @@ import { useSingleSelectContext } from '../../context'
 import styles from './Popover.module.css'
 
 type PopoverProps = {
-  buttonRef: React.RefObject<HTMLElement>
+  triggerRef: React.RefObject<HTMLElement>
   popoverRef: React.RefObject<HTMLDivElement>
   racPopoverRef: React.Ref<any>
 }
 
 export const Popover = ({
-  buttonRef,
+  triggerRef,
   popoverRef,
   racPopoverRef,
   children,
@@ -20,16 +20,16 @@ export const Popover = ({
   const { isOpen, setOpen } = useSingleSelectContext()
 
   useEffect(() => {
-    if (!popoverRef.current?.showPopover || !popoverRef.current?.hidePopover) return
-    if (isOpen) {
-      popoverRef.current.showPopover()
-    } else {
+    if (isOpen && !popoverRef?.current?.matches(':popover-open')) {
+      popoverRef?.current?.showPopover()
+    }
+    if (!isOpen && popoverRef?.current?.matches(':popover-open')) {
       popoverRef.current.hidePopover()
     }
   }, [isOpen, popoverRef])
 
   const { overlayProps } = useOverlayPosition({
-    targetRef: buttonRef,
+    targetRef: triggerRef,
     overlayRef: popoverRef,
     placement: 'bottom start',
     offset: 0,
@@ -47,7 +47,7 @@ export const Popover = ({
           zIndex: 'none',
           margin: '0',
           boxSizing: 'border-box',
-          width: buttonRef.current?.getBoundingClientRect().width ?? '200px',
+          width: triggerRef.current?.getBoundingClientRect().width ?? '200px',
         }}
         className={styles.popover}
       >

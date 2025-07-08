@@ -17,7 +17,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <StickerSheet isReversed={isReversed} title="SingleSelect" headers={['Items', 'Grouped']}>
         <StickerSheet.Row>
-          <SingleSelect items={singleMockItems}>
+          <SingleSelect items={singleMockItems} isSearchable>
             <SingleSelect.List>
               {singleMockItems.map((item) => (
                 <SingleSelect.ListItem key={item.value} id={item.value}>

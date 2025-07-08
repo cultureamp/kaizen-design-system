@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { Button as RACButton } from 'react-aria-components'
+import { Button as RACButton, Input as RACInput } from 'react-aria-components'
 import { Icon } from '~components/__next__/Icon'
 import { useSingleSelectContext } from '../../context'
 import { type SelectItem, type SelectSection } from '../../types'
@@ -10,28 +10,67 @@ function flattenItems(items: (SelectItem | SelectSection)[]): SelectItem[] {
 }
 
 interface TriggerProps {
-  buttonRef: React.RefObject<HTMLButtonElement>
+  triggerRef: React.RefObject<HTMLButtonElement | HTMLDivElement>
 }
 
-export const Trigger = ({ buttonRef }: TriggerProps): JSX.Element => {
-  const { isOpen, setOpen, selectedKey, items } = useSingleSelectContext()
+export const Trigger = ({ triggerRef }: TriggerProps): JSX.Element => {
+  const {
+    isOpen,
+    setOpen,
+    selectedKey,
+    items,
+    isSearchable,
+    setInputValue,
+    inputValue,
+    setSelectedKey,
+  } = useSingleSelectContext()
+
   // manually handle selected label to show in button
   const flattenedItems = useMemo(() => flattenItems(items), [items])
   const selectedLabel = useMemo(() => {
     const key = selectedKey
     const item = flattenedItems.find((i) => i.value === key)
-    return item?.label ?? <div></div>
+    return item?.label ?? null
   }, [flattenedItems, selectedKey])
 
-  return (
+  return isSearchable ? (
+    <div className={styles.trigger} ref={triggerRef as React.RefObject<HTMLDivElement>}>
+      <RACInput
+        style={{
+          outline: 'none',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+        }}
+        value={inputValue}
+        onChange={(e) => setInputValue?.(e.currentTarget.value)}
+      />
+      {inputValue && inputValue.length > 0 && (
+        <button
+          type="button"
+          onClick={() => {
+            setInputValue?.('')
+            setSelectedKey?.(null)
+            setOpen(false)
+          }}
+          className={styles.clearButton}
+        >
+          <Icon name="cancel" isFilled isPresentational />
+        </button>
+      )}
+      <RACButton className="flex bg-white">
+        <Icon name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} isPresentational />
+      </RACButton>
+    </div>
+  ) : (
     <RACButton
-      className={styles.button}
-      ref={buttonRef}
+      className={styles.trigger}
+      ref={triggerRef as React.RefObject<HTMLButtonElement>}
       onPress={() => setOpen(!isOpen)}
       aria-expanded={isOpen}
     >
-      {selectedLabel}
-      <Icon name="keyboard_arrow_down" isPresentational />
+      {selectedLabel ?? <div></div>}
+      <Icon name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} isPresentational />
     </RACButton>
   )
 }

@@ -2,12 +2,21 @@ import { createContext, useContext } from 'react'
 import { type Key } from '@react-types/shared'
 import { type SelectItem, type SelectSection } from '../types'
 
-type SingleSelectContextType = {
+type BaseState = {
   isOpen: boolean
   setOpen: (open: boolean) => void
   selectedKey: Key | null
   items: (SelectItem | SelectSection)[]
+  isSearchable?: boolean
 }
+
+type ComboBoxStateExtras = {
+  inputValue: string
+  setInputValue: (val: string) => void
+  setSelectedKey: (key: Key | null) => void
+}
+
+export type SingleSelectContextType = BaseState & Partial<ComboBoxStateExtras>
 
 export const SingleSelectContext = createContext<SingleSelectContextType | undefined>(undefined)
 

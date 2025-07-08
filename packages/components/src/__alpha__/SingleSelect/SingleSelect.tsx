@@ -1,8 +1,13 @@
-import React, { isValidElement, type PropsWithChildren } from 'react'
+import React, { isValidElement, useEffect, useState, type PropsWithChildren } from 'react'
+import { useComboBoxState } from '@react-stately/combobox'
 import { useSelectState } from '@react-stately/select'
 import { type Key, type Selection } from '@react-types/shared'
-import { Select as RACSelect, type ListBoxProps } from 'react-aria-components'
-import { SingleSelectContext } from './context'
+import {
+  ComboBox as RACComboBox,
+  Select as RACSelect,
+  type ListBoxProps,
+} from 'react-aria-components'
+import { SingleSelectContext, type SingleSelectContextType } from './context'
 import { List, ListItem, ListSection, Popover, Trigger } from './subcomponents'
 import { type SelectItem, type SelectSection } from './types'
 
@@ -10,39 +15,86 @@ export type SingleSelectProps = {
   children?: React.ReactNode
   items: (SelectItem | SelectSection)[]
   onSelectionChange?: (key: Key | null) => void
+  isSearchable?: boolean
 }
 
 export const SingleSelect = ({
   items,
   onSelectionChange,
+  isSearchable = false,
   children,
   ...restProps
 }: PropsWithChildren<SingleSelectProps>): JSX.Element => {
-  const buttonRef = React.useRef<HTMLButtonElement>(null)
+  const triggerRef = React.useRef<HTMLButtonElement | HTMLDivElement>(null)
   const popoverRef = React.useRef<HTMLDivElement>(null)
   const racPopoverRef = React.useRef<HTMLElement>(null)
+  const [originalOpen, setOriginalOpen] = React.useState(false)
+  const [inputValue, setInputValue] = React.useState('')
+  const [comboSelectedKey, setComboSelectedKey] = useState<Key | null>(null)
 
-  // Select state without children render prop to keep things flexible
-  // and allow for custom list rendering
-  const state = useSelectState({
+  // Combobox needs a controlled state
+  const comboBoxState = useComboBoxState({
+    items,
+    inputValue,
+    selectedKey: comboSelectedKey,
+    onInputChange: (val) => {
+      setInputValue(val)
+      setComboSelectedKey(null) // clear selection when typing
+    },
+    onSelectionChange: (key) => {
+      setComboSelectedKey(key)
+      if (key != null) {
+        const flatItems = items.flatMap((item) => ('options' in item ? item.options : [item]))
+        const selectedItem = flatItems.find((i) => i.value === key)
+        if (selectedItem) {
+          setInputValue(selectedItem.label) // Update input to label of selected item
+        }
+      }
+    },
+  })
+
+  const selectState = useSelectState({
     items,
   })
 
+  const state = isSearchable ? comboBoxState : selectState
+
+  const unifiedSelectedKey = isSearchable ? comboSelectedKey : selectState.selectedKey
+  const unifiedSetSelectedKey = isSearchable ? setComboSelectedKey : undefined
+
+  // clears the input in the combobox when the user starts typing after a selection
+  useEffect(() => {
+    if (isSearchable && inputValue && unifiedSelectedKey != null) {
+      const flatItems = items.flatMap((item) => ('options' in item ? item.options : [item]))
+      const selectedItem = flatItems.find((i) => i.value === unifiedSelectedKey)
+      if (selectedItem?.label !== inputValue) {
+        unifiedSetSelectedKey?.(null)
+      }
+    }
+  }, [inputValue, isSearchable, items, unifiedSelectedKey, unifiedSetSelectedKey])
+
   const handleOnSelectionChange = (keys: Selection): void => {
     let key: Key | null = null
-
     if (keys instanceof Set && keys.size > 0) {
       key = Array.from(keys)[0]
     }
-
     state.setSelectedKey(key)
+
+    if (isSearchable && key != null) {
+      const flatItems = items.flatMap((item) => ('options' in item ? item.options : [item]))
+      const selectedItem = flatItems.find((i) => i.value === key)
+      if (selectedItem) {
+        setInputValue(selectedItem.label)
+      }
+    }
+
     if (onSelectionChange) {
       onSelectionChange(key)
     }
   }
 
-  const selectedKeys: Iterable<Key> = state.selectedKey
-    ? new Set<Key>([state.selectedKey])
+  const selectedKeys: Iterable<Key> = unifiedSelectedKey
+    ? new Set<Key>([unifiedSelectedKey])
     : new Set()
 
   // Clone user children injection selection props
@@ -55,30 +107,42 @@ export const SingleSelect = ({
       })
     : null
 
+  const SelectComponent = isSearchable ? RACComboBox : RACSelect
+
+  const contextValue: SingleSelectContextType = {
+    isOpen: originalOpen,
+    setOpen: setOriginalOpen,
+    selectedKey: unifiedSelectedKey,
+    items,
+    isSearchable,
+    ...(isSearchable
+      ? {
+          inputValue,
+          setInputValue,
+          setSelectedKey: unifiedSetSelectedKey,
+        }
+      : {}),
+  }
+
   return (
-    <SingleSelectContext.Provider
-      value={{
-        isOpen: state.isOpen,
-        setOpen: state.setOpen,
-        selectedKey: state.selectedKey,
-        items: items,
-      }}
-    >
-      <RACSelect
+    <SingleSelectContext.Provider value={contextValue}>
+      <SelectComponent
+        menuTrigger="input"
+        aria-label="Select component"
+        isOpen={originalOpen}
+        onOpenChange={setOriginalOpen}
         onSelectionChange={(key) =>
           handleOnSelectionChange(key != null ? new Set([key]) : new Set())
         }
         placeholder=""
         {...restProps}
       >
-        <Trigger buttonRef={buttonRef} />
+        <Trigger triggerRef={triggerRef} />
 
-        {state.isOpen && (
-          <Popover buttonRef={buttonRef} popoverRef={popoverRef} racPopoverRef={racPopoverRef}>
-            {injectedChildren}
-          </Popover>
-        )}
-      </RACSelect>
+        <Popover triggerRef={triggerRef} popoverRef={popoverRef} racPopoverRef={racPopoverRef}>
+          {injectedChildren}
+        </Popover>
+      </SelectComponent>
     </SingleSelectContext.Provider>
   )
 }

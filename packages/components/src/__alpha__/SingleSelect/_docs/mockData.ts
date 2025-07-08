@@ -7,6 +7,10 @@ export const singleMockItems = [
   { label: 'Mocha', value: 'mocha' },
   { label: 'Cappuccino', value: 'cappuccino' },
   { label: 'Magic', value: 'magic' },
+  {
+    label: 'A very special coffee with a long name',
+    value: 'a-very-special-coffee-with-a-long-name',
+  },
 ]
 
 export const groupedMockItems = [
