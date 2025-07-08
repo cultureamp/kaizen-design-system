@@ -9,7 +9,7 @@ function flattenItems(items: (SelectItem | SelectSection)[]): SelectItem[] {
   return items.flatMap((item) => ('options' in item ? item.options : item))
 }
 
-interface TriggerProps {
+type TriggerProps = {
   buttonRef: React.RefObject<HTMLButtonElement>
 }
 
@@ -25,6 +25,7 @@ export const Trigger = ({ buttonRef }: TriggerProps): JSX.Element => {
 
   return (
     <RACButton
+      id="single-select-trigger"
       className={styles.button}
       ref={buttonRef}
       onPress={() => setOpen(!isOpen)}
