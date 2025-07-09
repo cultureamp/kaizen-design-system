@@ -3,7 +3,7 @@ import { type Collection, type Key } from '@react-types/shared'
 import classnames from 'classnames'
 import { useSelectionContext } from '../../context/SelectionProvider'
 import { type MultiSelectItem } from '../../types'
-import styles from './ListBox.module.scss'
+import styles from './ListBox.module.css'
 
 export type ListBoxItems = {
   selectedItems: MultiSelectItem[]
