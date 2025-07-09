@@ -25,7 +25,6 @@ export const Trigger = ({ buttonRef }: TriggerProps): JSX.Element => {
 
   return (
     <RACButton
-      id="single-select-trigger"
       className={styles.button}
       ref={buttonRef}
       onPress={() => setOpen(!isOpen)}

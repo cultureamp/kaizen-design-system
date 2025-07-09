@@ -22,7 +22,7 @@ const meta = {
     (Story) => (
       <div
         style={{
-          height: '400px',
+          height: '200px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
