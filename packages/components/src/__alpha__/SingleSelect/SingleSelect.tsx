@@ -65,6 +65,8 @@ export const SingleSelect = ({
       }}
     >
       <RACSelect
+        // TODO: allow user to pass in label
+        aria-label={'single-select'}
         onSelectionChange={(key) =>
           handleOnSelectionChange(key != null ? new Set([key]) : new Set())
         }
