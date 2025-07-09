@@ -24,6 +24,7 @@ export const Trigger = ({ triggerRef }: TriggerProps): JSX.Element => {
     inputValue,
     setSelectedKey,
   } = useSingleSelectContext()
+  const inputRef = React.useRef<HTMLInputElement>(null)
 
   // manually handle selected label to show in button
   const flattenedItems = useMemo(() => flattenItems(items), [items])
@@ -36,12 +37,8 @@ export const Trigger = ({ triggerRef }: TriggerProps): JSX.Element => {
   return isSearchable ? (
     <div className={styles.trigger} ref={triggerRef as React.RefObject<HTMLDivElement>}>
       <RACInput
-        style={{
-          outline: 'none',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-        }}
+        ref={inputRef}
+        className={styles.input}
         value={inputValue}
         onChange={(e) => setInputValue?.(e.currentTarget.value)}
       />
@@ -49,6 +46,7 @@ export const Trigger = ({ triggerRef }: TriggerProps): JSX.Element => {
         <button
           type="button"
           onClick={() => {
+            inputRef.current?.focus()
             setInputValue?.('')
             setSelectedKey?.(null)
             setOpen(false)

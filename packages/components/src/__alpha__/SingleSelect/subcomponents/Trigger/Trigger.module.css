@@ -16,9 +16,47 @@
     border: 1px solid var(--color-gray-500);
   }
 
+  .trigger:focus-visible {
+    outline: 2px solid var(--color-blue-400);
+    outline-offset: 2px;
+  }
+
+  .trigger:has(.input:focus-visible) {
+    outline: 2px solid var(--color-blue-400);
+    outline-offset: 2px;
+  }
+
+  .trigger:has(.input:focus-within) {
+    outline: 2px solid var(--color-blue-400);
+    outline-offset: 2px;
+  }
+
+  .trigger:has(.input:focus) {
+    outline: 2px solid var(--color-blue-400);
+    outline-offset: 2px;
+  }
+
+  .input {
+    outline: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .input:focus-visible {
+    outline: none;
+  }
+
   .clearButton {
-   background: transparent; 
-   padding: 0;
-   display: flex;
+    background: transparent;
+    padding: 0;
+    display: flex;
+    border-radius: 100px;
+    outline: none;
+    margin-inline-end: 2px;
+  }
+
+  .clearButton:focus-visible {
+    outline: 2px solid var(--color-blue-400);
   }
 }
