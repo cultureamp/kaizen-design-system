@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import { Transition } from '@headlessui/react'
 import classnames from 'classnames'
 import FocusLock from 'react-focus-lock'
+import { useIsClientReady } from '../../utils/useIsClientReady'
 import { warn } from '../util/console'
 import { ModalContext } from './context/ModalContext'
 import styles from './GenericModal.module.scss'
@@ -38,6 +39,8 @@ export const GenericModal = ({
   const labelledByID = useId()
   const describedByID = useId()
 
+  const isClientReady = useIsClientReady()
+
   const [scrollLayer, setScrollLayer] = useState<HTMLDivElement | null>(null)
   const [modalLayer, setModalLayer] = useState<HTMLDivElement | null>(null)
 
@@ -58,8 +61,7 @@ export const GenericModal = ({
   }
 
   const focusOnAccessibleLabel = (): void => {
-    // Add SSR guard
-    if (typeof document === 'undefined') return
+    if (!isClientReady) return
 
     // Check if focus already exists within the modal
     if (modalLayer?.contains(document.activeElement)) {
@@ -72,8 +74,7 @@ export const GenericModal = ({
   }
 
   const a11yWarn = (): void => {
-    // Add SSR guard
-    if (typeof document === 'undefined') return
+    if (!isClientReady) return
 
     // Ensure that consumers have provided an element that labels the modal
     // to meet ARIA accessibility guidelines.
@@ -86,8 +87,7 @@ export const GenericModal = ({
   }
 
   const preventBodyScroll = (): void => {
-    // Add SSR guard
-    if (typeof window === 'undefined' || typeof document === 'undefined') return
+    if (!isClientReady) return
 
     const hasScrollbar = window.innerWidth > document.documentElement.clientWidth
     const scrollStyles = [styles.unscrollable]
@@ -120,14 +120,13 @@ export const GenericModal = ({
   const onBeforeEnterHandler = (): void => {
     preventBodyScroll()
 
-    if (onEscapeKeyup && typeof document !== 'undefined') {
+    if (onEscapeKeyup && isClientReady) {
       document.addEventListener('keyup', escapeKeyHandler)
     }
   }
 
   const cleanUpAfterClose = (): void => {
-    // Add SSR guard
-    if (typeof document === 'undefined') return
+    if (!isClientReady) return
 
     document.documentElement.classList.remove(styles.unscrollable, styles.pseudoScrollbar)
 
@@ -147,7 +146,7 @@ export const GenericModal = ({
   }
 
   // Don't render portal during SSR
-  if (typeof document === 'undefined') {
+  if (!isClientReady) {
     return <></>
   }
 
