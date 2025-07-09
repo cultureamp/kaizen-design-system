@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import classnames from 'classnames'
-import { IconButton } from '~components/Button'
+import { VisuallyHidden } from '~components/VisuallyHidden'
+import { Button } from '~components/__next__'
 import { assetUrl } from '~components/utils/hostedAssets'
 import { canPlayWebm } from '../../utils/canPlayWebm'
 import { usePausePlay } from '../../utils/usePausePlay'
-import styles from '../Base/Base.module.scss'
+import styles from '../Base/Base.module.css'
 
 export type VideoPlayerProps = {
   /**
@@ -37,12 +38,17 @@ export type VideoPlayerProps = {
    */
   aspectRatio?: 'landscape' | 'portrait' | 'square'
 
+  /**
+   * Controls whether the animation toggle is always visible or will only be visible on hover. This will supersede the default behavior of always being visible if `loop` and `autoplay` are `true` - note that this can have accessibility implications. @default undefined
+   */
+  hasVisibleAnimationToggle?: boolean
   onEnded?: () => void
 }
 
 export const VideoPlayer = ({
   autoplay = true,
   loop = false,
+  hasVisibleAnimationToggle,
   fallback,
   source,
   aspectRatio,
@@ -155,6 +161,7 @@ export const VideoPlayer = ({
   }, [windowIsAvailable])
 
   const pausePlay = usePausePlay(videoRef)
+  const shouldAlwaysShowAnimationToggle = hasVisibleAnimationToggle ?? (autoplay && loop)
 
   return (
     <figure
@@ -177,16 +184,24 @@ export const VideoPlayer = ({
         autoPlay={prefersReducedMotion ? false : autoplay}
         playsInline={true}
         tabIndex={-1}
+        onClick={(): void => pausePlay.toggle()}
       >
         {isWebmCompatible && <source src={assetUrl(`${source}.webm`)} type="video/webm" />}
         <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
       </video>
-      <IconButton
-        onClick={(): void => pausePlay.toggle()}
+      <Button
+        className={classnames(
+          styles.pausePlayButton,
+          shouldAlwaysShowAnimationToggle && styles.hasVisibleAnimationToggle,
+        )}
+        variant="secondary"
+        size="small"
         icon={pausePlay.icon}
-        label={pausePlay.label}
-        classNameOverride={styles.pausePlayButton}
-      />
+        onPress={(): void => pausePlay.toggle()}
+        hasHiddenLabel
+      >
+        <VisuallyHidden>{pausePlay.label}</VisuallyHidden>
+      </Button>
     </figure>
   )
 }
