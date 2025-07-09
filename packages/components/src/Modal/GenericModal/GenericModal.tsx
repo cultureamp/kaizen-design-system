@@ -58,6 +58,9 @@ export const GenericModal = ({
   }
 
   const focusOnAccessibleLabel = (): void => {
+    // Add SSR guard
+    if (typeof document === 'undefined') return
+
     // Check if focus already exists within the modal
     if (modalLayer?.contains(document.activeElement)) {
       return
@@ -69,6 +72,9 @@ export const GenericModal = ({
   }
 
   const a11yWarn = (): void => {
+    // Add SSR guard
+    if (typeof document === 'undefined') return
+
     // Ensure that consumers have provided an element that labels the modal
     // to meet ARIA accessibility guidelines.
     if (!document.getElementById(labelledByID)) {
@@ -80,6 +86,9 @@ export const GenericModal = ({
   }
 
   const preventBodyScroll = (): void => {
+    // Add SSR guard
+    if (typeof window === 'undefined' || typeof document === 'undefined') return
+
     const hasScrollbar = window.innerWidth > document.documentElement.clientWidth
     const scrollStyles = [styles.unscrollable]
 
@@ -111,12 +120,15 @@ export const GenericModal = ({
   const onBeforeEnterHandler = (): void => {
     preventBodyScroll()
 
-    if (onEscapeKeyup) {
+    if (onEscapeKeyup && typeof document !== 'undefined') {
       document.addEventListener('keyup', escapeKeyHandler)
     }
   }
 
   const cleanUpAfterClose = (): void => {
+    // Add SSR guard
+    if (typeof document === 'undefined') return
+
     document.documentElement.classList.remove(styles.unscrollable, styles.pseudoScrollbar)
 
     if (onEscapeKeyup) {
@@ -133,6 +145,12 @@ export const GenericModal = ({
     cleanUpAfterClose()
     propsOnAfterLeave?.()
   }
+
+  // Don't render portal during SSR
+  if (typeof document === 'undefined') {
+    return <></>
+  }
+
   return createPortal(
     <Transition
       appear={true}
