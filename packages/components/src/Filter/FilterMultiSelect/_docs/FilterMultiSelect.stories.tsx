@@ -315,6 +315,70 @@ export const WithManyOptions: Story = {
   name: 'With many options',
   args: {
     items: mockManyItems,
+    children: (): JSX.Element => (
+      <>
+        <FilterMultiSelect.SearchInput />
+        <FilterMultiSelect.ListBox>
+          {({ selectedItems, unselectedItems, hasNoItems }): JSX.Element => (
+            <>
+              {hasNoItems ? (
+                <FilterMultiSelect.NoResults>No results found.</FilterMultiSelect.NoResults>
+              ) : (
+                <>
+                  {selectedItems.length > 0 && (
+                    <FilterMultiSelect.ListBoxSection
+                      items={selectedItems}
+                      sectionHeader="Selected items"
+                    >
+                      {(item): JSX.Element => (
+                        <FilterMultiSelect.Option key={item.key} item={item} />
+                      )}
+                    </FilterMultiSelect.ListBoxSection>
+                  )}
+
+                  {unselectedItems.length > 0 && (
+                    <FilterMultiSelect.ListBoxSection
+                      items={unselectedItems}
+                      sectionHeader="Unselected items"
+                    >
+                      {(item): JSX.Element => (
+                        <FilterMultiSelect.Option key={item.key} item={item} />
+                      )}
+                    </FilterMultiSelect.ListBoxSection>
+                  )}
+
+                  {unselectedItems.length > 0 && (
+                    <FilterMultiSelect.ListBoxSection
+                      items={unselectedItems}
+                      sectionHeader="Unselected items 2"
+                    >
+                      {(item): JSX.Element => (
+                        <FilterMultiSelect.Option key={item.key} item={item} />
+                      )}
+                    </FilterMultiSelect.ListBoxSection>
+                  )}
+
+                  {unselectedItems.length > 0 && (
+                    <FilterMultiSelect.ListBoxSection
+                      items={unselectedItems}
+                      sectionHeader="Unselected items 3"
+                    >
+                      {(item): JSX.Element => (
+                        <FilterMultiSelect.Option key={item.key} item={item} />
+                      )}
+                    </FilterMultiSelect.ListBoxSection>
+                  )}
+                </>
+              )}
+            </>
+          )}
+        </FilterMultiSelect.ListBox>
+        <FilterMultiSelect.MenuFooter>
+          <FilterMultiSelect.SelectAllButton />
+          <FilterMultiSelect.ClearButton />
+        </FilterMultiSelect.MenuFooter>
+      </>
+    ),
   },
 }
 
@@ -345,34 +409,54 @@ import { autoPlacement, size, offset } from '@floating-ui/react-dom'
 />
 `
 
-export const WithFloatingOptions: Story = {
-  ...FilterMultiSelectTemplate,
-  name: 'With floatingOptions',
+export const ShouldFlip: Story = {
+  ...WithManyOptions,
+  name: 'With flipping Popup',
   args: {
-    floatingOptions: {
-      middleware: [
-        size({
-          apply({ availableHeight, elements }) {
-            Object.assign(elements.floating.style, {
-              maxHeight: Math.max(250, Math.min(availableHeight - 12, 500)) + 'px',
-            })
-          },
-        }),
-        autoPlacement({
-          allowedPlacements: ['bottom-start', 'top-start'],
-        }),
-        offset(6),
-      ],
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: false,
     },
   },
   parameters: {
     docs: { source: { code: floatingOptionsSourceCode } },
   },
+  decorators: [
+    (Story) => (
+      <div>
+        <div style={{ height: '80vh', background: 'rebeccapurple' }}>content</div>
+        <Story />
+        <div style={{ height: '80vh', background: 'blue' }}>content 2</div>
+      </div>
+    ),
+  ],
+}
+
+export const Responsive: Story = {
+  ...WithManyOptions,
+  name: 'With flipping and resizing Popup',
+  args: {
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: true,
+    },
+  },
+  parameters: {
+    docs: { source: { code: floatingOptionsSourceCode } },
+  },
+  decorators: [
+    (Story) => (
+      <div>
+        <div style={{ height: '80vh', background: 'rebeccapurple' }}>content</div>
+        <Story />
+        <div style={{ height: '80vh', background: 'blue' }}>content 2</div>
+      </div>
+    ),
+  ],
 }
 
 export const AboveIfAvailable: Story = {
-  ...FilterMultiSelectTemplate,
-  ...WithFloatingOptions,
+  ...WithManyOptions,
   name: 'With limited viewport and autoplacement above',
   parameters: {
     viewport: {
@@ -386,6 +470,12 @@ export const AboveIfAvailable: Story = {
         },
       },
       defaultViewport: 'LimitedViewportAutoPlace',
+    },
+  },
+  args: {
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: true,
     },
   },
   decorators: [
