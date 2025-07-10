@@ -7,19 +7,21 @@ import {
   Select as RACSelect,
   type ListBoxProps,
 } from 'react-aria-components'
+import { LoadingParagraph } from '~components/Loading'
+import { Text } from '~components/Text'
 import { SingleSelectContext, type SingleSelectContextType } from './context'
 import { List, ListItem, ListSection, Popover, Trigger } from './subcomponents'
 import { type SelectItem, type SelectSection } from './types'
 
 export type SingleSelectProps = {
   children?: React.ReactNode
-  items: (SelectItem | SelectSection)[]
+  items?: (SelectItem | SelectSection)[] | Promise<(SelectItem | SelectSection)[]>
   onSelectionChange?: (key: Key | null) => void
   isSearchable?: boolean
 }
 
 export const SingleSelect = ({
-  items,
+  items: propItems,
   onSelectionChange,
   isSearchable = false,
   children,
@@ -28,9 +30,44 @@ export const SingleSelect = ({
   const triggerRef = React.useRef<HTMLButtonElement | HTMLDivElement>(null)
   const popoverRef = React.useRef<HTMLDivElement>(null)
   const racPopoverRef = React.useRef<HTMLElement>(null)
-  const [originalOpen, setOriginalOpen] = React.useState(false)
+  const clearButtonRef = React.useRef<HTMLButtonElement>(null)
+  const [popoverOpen, setPopoverOpen] = React.useState(false)
   const [inputValue, setInputValue] = React.useState('')
   const [comboSelectedKey, setComboSelectedKey] = useState<Key | null>(null)
+
+  const [items, setItems] = useState<(SelectItem | SelectSection)[]>([])
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    let isMounted = true
+    if (propItems instanceof Promise) {
+      setLoading(true)
+      propItems.then((resolvedItems) => {
+        if (isMounted) {
+          setItems(resolvedItems)
+          setLoading(false)
+        }
+      })
+    } else if (Array.isArray(propItems)) {
+      setItems(propItems)
+      setLoading(false)
+    } else {
+      setItems([])
+      setLoading(false)
+    }
+
+    return () => {
+      isMounted = false
+    }
+  }, [propItems])
+
+  useEffect(() => {
+    if (Array.isArray(propItems)) {
+      const hasItems = propItems.length > 0
+      setItems(propItems)
+      setLoading(!hasItems)
+    }
+  }, [propItems])
 
   // Combobox needs a controlled state
   const comboBoxState = useComboBoxState({
@@ -104,14 +141,20 @@ export const SingleSelect = ({
         selectedKeys,
         onSelectionChange: handleOnSelectionChange,
         autoFocus: 'first',
+        // dependencies: [items, inputValue],
+        renderEmptyState: () => (
+          <div style={{ padding: 12, display: 'flex', justifyContent: 'center' }}>
+            <Text variant="body">No results found</Text>
+          </div>
+        ),
       })
     : null
 
   const SelectComponent = isSearchable ? RACComboBox : RACSelect
 
   const contextValue: SingleSelectContextType = {
-    isOpen: originalOpen,
-    setOpen: setOriginalOpen,
+    isOpen: popoverOpen,
+    setOpen: setPopoverOpen,
     selectedKey: unifiedSelectedKey,
     items,
     isSearchable,
@@ -120,6 +163,7 @@ export const SingleSelect = ({
           inputValue,
           setInputValue,
           setSelectedKey: unifiedSetSelectedKey,
+          loading: loading,
         }
       : {}),
   }
@@ -129,18 +173,26 @@ export const SingleSelect = ({
       <SelectComponent
         menuTrigger="input"
         aria-label="Select component"
-        isOpen={originalOpen}
-        onOpenChange={setOriginalOpen}
+        isOpen={popoverOpen}
+        onOpenChange={setPopoverOpen}
         onSelectionChange={(key) =>
           handleOnSelectionChange(key != null ? new Set([key]) : new Set())
         }
         placeholder=""
         {...restProps}
       >
-        <Trigger triggerRef={triggerRef} />
-
+        <Trigger triggerRef={triggerRef} clearButtonRef={clearButtonRef} />
         <Popover triggerRef={triggerRef} popoverRef={popoverRef} racPopoverRef={racPopoverRef}>
-          {injectedChildren}
+          {loading ? (
+            <div style={{ padding: '16px' }}>
+              <LoadingParagraph isAnimated />
+              <LoadingParagraph isAnimated />
+              <LoadingParagraph isAnimated />
+              <LoadingParagraph isAnimated />
+            </div>
+          ) : (
+            injectedChildren
+          )}
         </Popover>
       </SelectComponent>
     </SingleSelectContext.Provider>

@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import classNames from 'classnames'
 import { Button as RACButton, Input as RACInput } from 'react-aria-components'
 import { Icon } from '~components/__next__/Icon'
 import { useSingleSelectContext } from '../../context'
@@ -11,9 +12,10 @@ function flattenItems(items: (SelectItem | SelectSection)[]): SelectItem[] {
 
 interface TriggerProps {
   triggerRef: React.RefObject<HTMLButtonElement | HTMLDivElement>
+  clearButtonRef?: React.RefObject<HTMLButtonElement>
 }
 
-export const Trigger = ({ triggerRef }: TriggerProps): JSX.Element => {
+export const Trigger = ({ triggerRef, clearButtonRef }: TriggerProps): JSX.Element => {
   const {
     isOpen,
     setOpen,
@@ -23,6 +25,7 @@ export const Trigger = ({ triggerRef }: TriggerProps): JSX.Element => {
     setInputValue,
     inputValue,
     setSelectedKey,
+    loading,
   } = useSingleSelectContext()
   const inputRef = React.useRef<HTMLInputElement>(null)
 
@@ -36,29 +39,42 @@ export const Trigger = ({ triggerRef }: TriggerProps): JSX.Element => {
 
   return isSearchable ? (
     <div className={styles.trigger} ref={triggerRef as React.RefObject<HTMLDivElement>}>
+      {/* TODO: potentially need to handle keydown and escape when in loading or empty */}
       <RACInput
         ref={inputRef}
         className={styles.input}
         value={inputValue}
-        onChange={(e) => setInputValue?.(e.currentTarget.value)}
+        onChange={(e) => {
+          setInputValue?.(e.currentTarget.value)
+          if (!isOpen) setOpen(true)
+        }}
       />
-      {inputValue && inputValue.length > 0 && (
-        <button
-          type="button"
-          onClick={() => {
-            inputRef.current?.focus()
-            setInputValue?.('')
-            setSelectedKey?.(null)
-            setOpen(false)
-          }}
-          className={styles.clearButton}
-        >
-          <Icon name="cancel" isFilled isPresentational />
-        </button>
-      )}
-      <RACButton className="flex bg-white">
-        <Icon name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} isPresentational />
-      </RACButton>
+      <div className={styles.endContainer}>
+        {inputValue && inputValue.length > 0 && (
+          <button
+            ref={clearButtonRef}
+            type="button"
+            onClick={() => {
+              inputRef.current?.focus()
+              setInputValue?.('')
+              setSelectedKey?.(null)
+              setOpen(false)
+            }}
+            disabled={loading}
+            className={styles.clearButton}
+          >
+            <Icon
+              name="cancel"
+              isFilled
+              isPresentational
+              className={classNames(styles.cancelIcon, { loading: styles.disabled })}
+            />
+          </button>
+        )}
+        <RACButton className={styles.chevronButton}>
+          <Icon name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} isPresentational />
+        </RACButton>
+      </div>
     </div>
   ) : (
     <RACButton

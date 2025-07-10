@@ -14,6 +14,7 @@ type ComboBoxStateExtras = {
   inputValue: string
   setInputValue: (val: string) => void
   setSelectedKey: (key: Key | null) => void
+  loading?: boolean
 }
 
 export type SingleSelectContextType = BaseState & Partial<ComboBoxStateExtras>

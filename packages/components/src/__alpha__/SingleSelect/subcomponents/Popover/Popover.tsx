@@ -36,6 +36,7 @@ export const Popover = ({
     isOpen: isOpen,
     shouldFlip: true,
   })
+
   return (
     <RACPopover trigger="manual" isOpen={isOpen} onOpenChange={setOpen} ref={racPopoverRef}>
       <div

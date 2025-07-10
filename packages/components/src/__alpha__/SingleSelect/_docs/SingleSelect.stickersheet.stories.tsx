@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { type Meta } from '@storybook/react'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { SingleSelect } from '../index'
@@ -79,5 +79,36 @@ export const StickerSheetRTL: StickerSheetStory = {
     /** @note: Only required if template has parameters, otherwise this spread can be removed */
     ...StickerSheetTemplate.parameters,
     textDirection: 'rtl',
+  },
+}
+
+export const Async: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  render: () => {
+    const [items, setItems] = useState<{ label: string; value: string }[]>([])
+    const fetchItems = (): Promise<{ label: string; value: string }[]> =>
+      new Promise((resolve) =>
+        setTimeout(() => {
+          resolve(singleMockItems)
+        }, 10000),
+      )
+
+    useEffect(() => {
+      fetchItems().then((items) => {
+        setItems(items)
+      })
+    })
+
+    return (
+      <SingleSelect items={items} isSearchable>
+        <SingleSelect.List>
+          {items.map((item) => (
+            <SingleSelect.ListItem key={item.value} id={item.value}>
+              {item.label}
+            </SingleSelect.ListItem>
+          ))}
+        </SingleSelect.List>
+      </SingleSelect>
+    )
   },
 }
