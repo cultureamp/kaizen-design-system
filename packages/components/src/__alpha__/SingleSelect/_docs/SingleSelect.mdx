@@ -1,0 +1,27 @@
+import { Canvas, Controls, DocsStory, Meta } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation, AlphaNotice } from '~storybook/components'
+import * as SingleSelectStories from './SingleSelect.stories'
+
+<Meta of={SingleSelectStories} />
+
+# SingleSelect
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__alpha__/SingleSelect"
+  figma=""
+  designGuidelines=""
+/>
+
+<AlphaNotice />
+
+<KAIOInstallation exportNames="SingleSelect" isAlpha />
+
+## Overview
+
+{/* @todo: Update summary. */}
+Brief summary of the component here.
+
+<Canvas of={SingleSelectStories.Playground} />
+<Controls of={SingleSelectStories.Playground} />
+
+## API

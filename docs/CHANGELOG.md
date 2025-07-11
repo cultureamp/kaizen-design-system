@@ -1,5 +1,11 @@
 # @docs/storybook
 
+## 0.2.1
+
+### Patch Changes
+
+- [#5881](https://github.com/cultureamp/kaizen-design-system/pull/5881) [`e7c1ff3`](https://github.com/cultureamp/kaizen-design-system/commit/e7c1ff3a3af92954a3c4c21132ab3594b1412cde) - Deprecation notices and JSDoc comments for all v2 changes
+
 ## 0.2.0
 
 ### Minor Changes
