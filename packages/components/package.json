@@ -156,7 +156,7 @@
     "react-focus-lock": "^2.13.6",
     "react-focus-on": "^3.10.0",
     "react-popper": "^2.3.0",
-    "react-select": "^5.10.1",
+    "react-select": "^5.10.2",
     "react-textfit": "^1.1.1",
     "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^10.0.5",
