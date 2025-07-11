@@ -182,7 +182,7 @@
     "jest-axe": "^10.0.0",
     "lodash.isempty": "^4.4.0",
     "normalize.css": "^8.0.1",
-    "postcss": "^8.5.4",
+    "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "^10.2.4",
