@@ -241,8 +241,8 @@ importers:
         specifier: ^3.4.17
         version: 3.4.17(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))
       vite-plugin-node-polyfills:
-        specifier: ^0.23.0
-        version: 0.23.0(rollup@4.44.2)(vite@6.2.5(@types/node@22.15.21)(jiti@1.21.6)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.20.3)(yaml@2.5.0))
+        specifier: ^0.24.0
+        version: 0.24.0(rollup@4.44.2)(vite@6.2.5(@types/node@22.15.21)(jiti@1.21.6)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.20.3)(yaml@2.5.0))
 
   packages/components:
     dependencies:
@@ -2852,15 +2852,6 @@ packages:
       rollup:
         optional: true
       tslib:
-        optional: true
-
-  '@rollup/pluginutils@5.1.0':
-    resolution: {integrity: sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
-    peerDependenciesMeta:
-      rollup:
         optional: true
 
   '@rollup/pluginutils@5.1.4':
@@ -7056,9 +7047,6 @@ packages:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
 
-  magic-string@0.30.14:
-    resolution: {integrity: sha512-5c99P1WKTed11ZC0HMJOj6CDIue6F8ySu+bJL+85q1zBEIY8IklrJ1eiKC2NDRh3Ct3FcvmJPyQHb9erXMTJNw==}
-
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
@@ -9929,10 +9917,10 @@ packages:
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
 
-  vite-plugin-node-polyfills@0.23.0:
-    resolution: {integrity: sha512-4n+Ys+2bKHQohPBKigFlndwWQ5fFKwaGY6muNDMTb0fSQLyBzS+jjUNRZG9sKF0S/Go4ApG6LFnUGopjkILg3w==}
+  vite-plugin-node-polyfills@0.24.0:
+    resolution: {integrity: sha512-GA9QKLH+vIM8NPaGA+o2t8PDfFUl32J8rUp1zQfMKVJQiNkOX4unE51tR6ppl6iKw5yOrDAdSH7r/UIFLCVhLw==}
     peerDependencies:
-      vite: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
+      vite: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
 
   vite@6.2.5:
     resolution: {integrity: sha512-j023J/hCAa4pRIUH6J9HemwYfjB5llR2Ps0CWeikOtdR8+pAURAk0DoJC5/mm9kd+UgdnIy7d6HE4EAvlYhPhA==}
@@ -13581,9 +13569,9 @@ snapshots:
 
   '@rollup/plugin-inject@5.0.5(rollup@4.44.2)':
     dependencies:
-      '@rollup/pluginutils': 5.1.0(rollup@4.44.2)
+      '@rollup/pluginutils': 5.1.4(rollup@4.44.2)
       estree-walker: 2.0.2
-      magic-string: 0.30.14
+      magic-string: 0.30.17
     optionalDependencies:
       rollup: 4.44.2
 
@@ -13611,14 +13599,6 @@ snapshots:
     optionalDependencies:
       rollup: 4.44.2
       tslib: 2.8.1
-
-  '@rollup/pluginutils@5.1.0(rollup@4.44.2)':
-    dependencies:
-      '@types/estree': 1.0.8
-      estree-walker: 2.0.2
-      picomatch: 2.3.1
-    optionalDependencies:
-      rollup: 4.44.2
 
   '@rollup/pluginutils@5.1.4(rollup@4.44.2)':
     dependencies:
@@ -18662,10 +18642,6 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  magic-string@0.30.14:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.0
-
   magic-string@0.30.17:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -22778,7 +22754,7 @@ snapshots:
       - tsx
       - yaml
 
-  vite-plugin-node-polyfills@0.23.0(rollup@4.44.2)(vite@6.2.5(@types/node@22.15.21)(jiti@1.21.6)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.20.3)(yaml@2.5.0)):
+  vite-plugin-node-polyfills@0.24.0(rollup@4.44.2)(vite@6.2.5(@types/node@22.15.21)(jiti@1.21.6)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.20.3)(yaml@2.5.0)):
     dependencies:
       '@rollup/plugin-inject': 5.0.5(rollup@4.44.2)
       node-stdlib-browser: 1.2.0
