@@ -84,11 +84,8 @@ By default, the open/closed state of the menu is handled under the hood. In case
 
 <Canvas className="mb-24" of={exampleStories.Controlled} />
 
-## Split Button Replacement
+## Use a menu to show additional actions
 
-[Deprecating Split Buttons](https://cultureamp.atlassian.net/wiki/spaces/DES/pages/4286611457/Deprecating+Split+Buttons+-+Design+Request+for+Comment+RFC) in favour of a composed, two Button overflow approach, supported by guidelines:
+Instead of a split button (now a [deprecated component](https://cultureamp.atlassian.net/wiki/spaces/DES/pages/4286611457/Deprecating+Split+Buttons+-+Design+Request+for+Comment+RFC)), use a Button with text followed by a Menu to show any additional actions related to the most critical action.
 
-1. A Button with text
-2. A Button with a meatball icon (three dots) placed adjacent to the first button
-
-<Canvas className="mb-24" of={exampleStories.SplitButtonReplacement} />
+<Canvas className="mb-24" of={exampleStories.ButtonMenuPattern} />

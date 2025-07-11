@@ -129,7 +129,8 @@ export const Sections: Story = {
   ),
 }
 
-export const SplitButtonReplacement: Story = {
+export const ButtonMenuPattern: Story = {
+  name: 'Button + Menu Pattern',
   render: ({ defaultOpen: _, ...args }) => (
     <div className="flex gap-4">
       <Button size="large" variant="secondary">

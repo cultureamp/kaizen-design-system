@@ -392,7 +392,8 @@ export const DontExampleTertiaryButtonWithIcons: Story = {
   },
 }
 
-export const SplitButtonReplacement: Story = {
+export const ButtonMenuPattern: Story = {
+  name: 'Button + Menu Pattern',
   render: () => (
     <div className="flex gap-4">
       <Button size="large" variant="secondary">
