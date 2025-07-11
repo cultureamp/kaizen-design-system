@@ -156,6 +156,12 @@ If a button is statically the full width of a container you can use the `isFullW
 
 For resizing on smaller screens, consider using the `className` prop to leverage CSS media or container queries, ie: `<Button className="w-full md:w-[initial]">Label</Button>`.
 
+## Use a menu to show additional actions
+
+Instead of a split button (now a [deprecated component](https://cultureamp.atlassian.net/wiki/spaces/DES/pages/4286611457/Deprecating+Split+Buttons+-+Design+Request+for+Comment+RFC)), use a Button with text followed by a Menu to show any additional actions related to the most critical action.
+
+<Canvas className="mb-24" of={exampleStories.ButtonMenuPattern} />
+
 ## Additional API options
 
 The following table is a collection of additional React Aria and native HTML props that are exposed from the React Aria API. These are not required for the implementation of `Button` but can be used to extend its functionality. Refer back to the [overview section](#overview) for the core props that enable most use cases.
