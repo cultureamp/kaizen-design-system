@@ -30,13 +30,15 @@ The FilterMultiSelect is a component relies heavily on consumer implemntation. I
 
 <Canvas of={FilterMultiSelectStories.WithSectionHeaders} />
 
-### With floatingOptions
+### With floatingConfig
 
-You can also use the `floatingOptions` to leverage any of `Floating UI's` [configurable options](https://floating-ui.com/docs/usefloating). While in most cases the default behavior should satisfy most scenarios, the `middleware` for `autoplace` and `size` can be useful when there is limited screen space available.
+You can also use the `floatingConfig` to leverage a subset of `Floating UI's` [configurable options](https://floating-ui.com/docs/usefloating). While in most cases the default behavior should satisfy most scenarios, this can be used when there is limited space available in the viewport and you cannot rely on the popup add height to the page.
 
-The following example showcases how to use the [autoPlacement](https://floating-ui.com/docs/autoPlacement) and [size](https://floating-ui.com/docs/size) and spread the options in with the default values.
+The `shouldFlip` property will enable the [autoPlacement](https://floating-ui.com/docs/autoPlacement) middleware and `shouldResize` will enable the [size](https://floating-ui.com/docs/size) middleware.
 
-<Canvas of={FilterMultiSelectStories.WithFloatingOptions} />
+The `shouldFlip` middleware will automatically flip the position of the menu when there is not enough space to display it in the intended direction, while the `shouldResize` middleware will resize the popover based on the window size availability
+
+<Canvas of={FilterMultiSelectStories.AboveIfAvailable} />
 
 ### Async
 

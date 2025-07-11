@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { autoPlacement, offset, size } from '@floating-ui/react-dom'
 import type { Selection } from '@react-types/shared'
 import type { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
@@ -432,7 +431,7 @@ export const ShouldFlip: Story = {
   ],
 }
 
-export const Responsive: Story = {
+export const ShouldFlipAndResize: Story = {
   ...WithManyOptions,
   name: 'With flipping and resizing Popup',
   args: {
