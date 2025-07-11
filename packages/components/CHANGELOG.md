@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.79.8
+
+### Patch Changes
+
+- [#5906](https://github.com/cultureamp/kaizen-design-system/pull/5906) [`e2cf5ae`](https://github.com/cultureamp/kaizen-design-system/commit/e2cf5ae99b9c039b916ba2d16fe375d1a4e6b2ad) - fix: add SSR guards to GenericModal
+
 ## 1.79.7
 
 ### Patch Changes
