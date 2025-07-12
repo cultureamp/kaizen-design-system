@@ -41,7 +41,7 @@ Set up access to private Culture Amp packages on your laptop. You will need to u
 
 Ensure devbox is setup as per [https://cultureamp.atlassian.net/wiki/spaces/DE/pages/3342434338/Devbox+setup](https://cultureamp.atlassian.net/wiki/spaces/DE/pages/3342434338/Devbox+setup)
 
-Install and start processes (this start an interactive UI in your terminal) `devbox services up`
+Install and start processes (this start an interactive UI in your terminal) `devbox services up`.
 The interactive terminal UI that pops up is called process-compose, see our [Confluence page](1) for tips on how to use it.
 
 Please see the [LDE Confluence page](2) for more information
