@@ -156,13 +156,13 @@ export const Avatar = ({
       )}
       {...restProps}
     >
-      {avatarState !== 'none' && (
+      {avatarState !== 'none' && avatarState !== 'error' && (
         <img
           ref={image}
           className={classnames(
             styles.avatarImage,
             isCompany && styles.companyAvatarImage,
-            (avatarState === 'loading' || avatarState === 'error') && styles.loading,
+            avatarState === 'loading' && styles.loading,
           )}
           src={avatarSrc}
           onError={onImageFailure}
