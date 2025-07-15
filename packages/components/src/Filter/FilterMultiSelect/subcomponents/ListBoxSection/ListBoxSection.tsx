@@ -47,7 +47,7 @@ export const ListBoxSection = ({
       >
         {hasSectionHeader && (
           <li className={styles.listBoxSectionHeader} id={listSectionId} role="presentation">
-            {sectionName && <VisuallyHidden>{sectionName}. </VisuallyHidden>}
+            {/* {sectionName && <VisuallyHidden>{sectionName}. </VisuallyHidden>} */}
             {restProps.sectionHeader}
           </li>
         )}
