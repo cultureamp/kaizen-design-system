@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useState, type RefObject } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type RefObject } from 'react'
 
 type LogicalPosition = number | 'auto' | undefined
 
@@ -47,18 +47,29 @@ export function useFixedOverlayPosition({
   direction = 'ltr',
   offset = 4,
   preferredPlacement = 'bottom',
-}: UseFixedOverlayPositionProps): Position {
+}: UseFixedOverlayPositionProps): Position & { isPositioned: boolean } {
   const [position, setPosition] = useState<Position>({
     top: undefined,
     bottom: undefined,
     insetInlineStart: 0,
     maxHeight: undefined,
   })
+  const [isPositioned, setIsPositioned] = useState(false)
+
+  const frameRef = useRef<number | null>(null)
+  const mountedRef = useRef<boolean>(false)
 
   const updatePosition = useCallback(() => {
     const trigger = triggerRef.current
     const popover = popoverRef.current
-    if (!trigger || !popover) return
+
+    if (
+      !mountedRef.current || // avoid if unmounted
+      !trigger ||
+      !popover?.isConnected
+    ) {
+      return
+    }
 
     const triggerRect = trigger.getBoundingClientRect()
     if (!triggerRect) return
@@ -108,32 +119,43 @@ export function useFixedOverlayPosition({
       insetInlineStart: inlineStart,
       maxHeight,
     })
+    setIsPositioned(true)
   }, [triggerRef, popoverRef, direction, offset, preferredPlacement])
 
   const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
   useIsomorphicLayoutEffect(() => {
-    let frame: number | null = null
+    mountedRef.current = true
 
     const onScrollOrResize = (): void => {
-      frame ??= requestAnimationFrame(() => {
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current)
+      }
+      frameRef.current = requestAnimationFrame(() => {
         updatePosition()
-        frame = null
+        frameRef.current = null
       })
     }
 
-    updatePosition()
+    frameRef.current = requestAnimationFrame(() => {
+      updatePosition()
+      frameRef.current = null
+    })
+
     window.addEventListener('resize', onScrollOrResize)
     window.addEventListener('scroll', onScrollOrResize, true)
 
     return () => {
-      if (frame !== null) {
-        cancelAnimationFrame(frame)
+      mountedRef.current = false
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current)
+        frameRef.current = null
       }
       window.removeEventListener('resize', onScrollOrResize)
       window.removeEventListener('scroll', onScrollOrResize, true)
+      setIsPositioned(false)
     }
   }, [updatePosition])
 
-  return position
+  return { ...position, isPositioned }
 }

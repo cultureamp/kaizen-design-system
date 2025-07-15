@@ -1,4 +1,4 @@
-import React, { isValidElement, type PropsWithChildren } from 'react'
+import React, { cloneElement, isValidElement, useMemo, type PropsWithChildren } from 'react'
 import { useSelectState } from '@react-stately/select'
 import { type Key, type Selection } from '@react-types/shared'
 import { Select as RACSelect, type ListBoxProps } from 'react-aria-components'
@@ -28,32 +28,37 @@ export const SingleSelect = ({
     items,
   })
 
-  const handleOnSelectionChange = (keys: Selection): void => {
-    let key: Key | null = null
+  const handleOnSelectionChange = React.useCallback(
+    (keys: Selection): void => {
+      let key: Key | null = null
 
-    if (keys instanceof Set && keys.size > 0) {
-      key = Array.from(keys)[0]
-    }
+      if (keys instanceof Set && keys.size > 0) {
+        key = Array.from(keys)[0]
+      }
 
-    state.setSelectedKey(key)
-    if (onSelectionChange) {
-      onSelectionChange(key)
-    }
-  }
-
-  const selectedKeys: Iterable<Key> = state.selectedKey
-    ? new Set<Key>([state.selectedKey])
-    : new Set()
+      state.setSelectedKey(key)
+      if (onSelectionChange) {
+        onSelectionChange(key)
+      }
+    },
+    [state, onSelectionChange],
+  )
 
   // Clone user children injection selection props
-  const injectedChildren = isValidElement(children)
-    ? React.cloneElement(children as React.ReactElement<ListBoxProps<SelectItem | SelectSection>>, {
-        selectionMode: 'single',
-        selectedKeys,
-        onSelectionChange: handleOnSelectionChange,
-        autoFocus: 'first',
-      })
-    : null
+  const injectedChildren = useMemo(() => {
+    if (!isValidElement(children)) return null
+
+    const selectedKeys: Iterable<Key> = state.selectedKey
+      ? new Set<Key>([state.selectedKey])
+      : new Set()
+
+    return cloneElement(children as React.ReactElement<ListBoxProps<SelectItem | SelectSection>>, {
+      selectionMode: 'single',
+      selectedKeys,
+      onSelectionChange: handleOnSelectionChange,
+      autoFocus: 'first',
+    })
+  }, [children, handleOnSelectionChange, state.selectedKey])
 
   return (
     <SingleSelectContext.Provider

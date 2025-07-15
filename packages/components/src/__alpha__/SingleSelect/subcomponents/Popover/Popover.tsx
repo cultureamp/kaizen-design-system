@@ -1,6 +1,5 @@
-import React, { useEffect, type PropsWithChildren } from 'react'
+import React, { useLayoutEffect, type PropsWithChildren } from 'react'
 import { useLocale } from '@react-aria/i18n'
-import { FocusScope as RACFocusScope } from 'react-aria'
 import { Popover as RACPopover } from 'react-aria-components'
 import { useSingleSelectContext } from '../../context'
 import { useFixedOverlayPosition } from '../../utils'
@@ -21,7 +20,7 @@ export const Popover = ({
   const { isOpen, setOpen } = useSingleSelectContext()
   const { direction } = useLocale()
   // have to manually calculate the position here as RTL & iframes don't work with RAC useOverlay due to positioning in the css top-layer
-  const { top, bottom, insetInlineStart, maxHeight } = useFixedOverlayPosition({
+  const { top, bottom, insetInlineStart, maxHeight, isPositioned } = useFixedOverlayPosition({
     triggerRef: buttonRef,
     popoverRef,
     direction,
@@ -29,14 +28,18 @@ export const Popover = ({
     preferredPlacement: 'bottom',
   })
 
-  useEffect(() => {
-    if (!popoverRef.current?.showPopover || !popoverRef.current?.hidePopover) return
+  useLayoutEffect(() => {
+    const popover = popoverRef.current
+    if (!popover?.showPopover || !popover?.hidePopover) return
+
     if (isOpen) {
-      popoverRef.current.showPopover()
+      if (isPositioned) {
+        popover.showPopover()
+      }
     } else {
-      popoverRef.current.hidePopover()
+      popover.hidePopover()
     }
-  }, [isOpen, popoverRef])
+  }, [isOpen, isPositioned, popoverRef])
 
   return (
     <RACPopover trigger="manual" isOpen={isOpen} onOpenChange={setOpen} ref={racPopoverRef}>
@@ -47,6 +50,7 @@ export const Popover = ({
         // TODO: expect some of these styles to change once we have designs
         className={styles.popover}
         style={{
+          visibility: isPositioned ? 'visible' : 'hidden',
           position: 'fixed',
           top,
           bottom,
@@ -57,10 +61,11 @@ export const Popover = ({
           right: 'auto',
           margin: '0',
           boxSizing: 'border-box',
-          width: buttonRef.current?.getBoundingClientRect().width ?? '200px',
+          // TODO: update width based on design
+          width: '200px',
         }}
       >
-        <RACFocusScope>{children}</RACFocusScope>
+        {children}
       </div>
     </RACPopover>
   )
