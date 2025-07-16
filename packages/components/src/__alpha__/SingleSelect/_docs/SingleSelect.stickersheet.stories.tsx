@@ -6,6 +6,7 @@ import { groupedMockItems, singleMockItems } from './mockData'
 
 export default {
   title: 'Components/SingleSelect/SingleSelect (alpha)',
+  tags: ['alpha'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

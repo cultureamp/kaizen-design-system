@@ -3,6 +3,7 @@ import { SingleSelect } from '../index'
 
 const meta = {
   title: 'Components/SingleSelect/SingleSelect (alpha)',
+  tags: ['alpha'],
   component: SingleSelect,
   args: {},
 } satisfies Meta<typeof SingleSelect>
