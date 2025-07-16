@@ -9,6 +9,7 @@ import { RemovableTag, Tag } from '../..'
 const meta = {
   title: 'Components/Tag/Migration guide',
   component: Tag,
+  tags: ['next'],
   args: {
     children: 'My tag',
   },

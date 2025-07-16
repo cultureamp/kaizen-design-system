@@ -19,6 +19,7 @@ import { Button } from '../index'
 const meta = {
   title: 'Components/Button/Button (next)',
   component: Button,
+  tags: ['next'],
   args: {
     children: 'Label',
     onPress: action('Button onPress event'),

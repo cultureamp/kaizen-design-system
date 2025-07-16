@@ -9,6 +9,7 @@ const meta = {
   parameters: {
     controls: { disable: true },
   },
+  tags: ['next'],
   args: {
     children: (
       <>

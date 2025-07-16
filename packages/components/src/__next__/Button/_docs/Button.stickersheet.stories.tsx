@@ -7,6 +7,7 @@ import { Button, type ButtonSizes, type ButtonVariants } from '../index'
 
 export default {
   title: 'Components/Button/Button (next)',
+  tags: ['next'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

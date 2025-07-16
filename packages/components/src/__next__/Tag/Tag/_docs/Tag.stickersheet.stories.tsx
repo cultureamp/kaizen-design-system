@@ -7,6 +7,7 @@ import { TagColorKeys } from '../types'
 
 export default {
   title: 'Components/Tag/Tag (next)',
+  tags: ['next'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

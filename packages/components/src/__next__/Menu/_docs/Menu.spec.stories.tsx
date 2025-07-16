@@ -9,6 +9,7 @@ import { Menu, MenuHeader, MenuItem, MenuPopover, MenuSection, MenuTrigger } fro
 const meta = {
   title: 'Components/Menu/Menu (next)/Menu (next) tests',
   component: MenuTrigger,
+  tags: ['next'],
   args: {
     defaultOpen: isChromatic(),
     children: <></>,

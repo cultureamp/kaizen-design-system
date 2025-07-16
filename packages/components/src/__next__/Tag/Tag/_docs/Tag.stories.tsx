@@ -7,6 +7,7 @@ import { Tag } from '..'
 const meta = {
   title: 'Components/Tag/Tag (next)',
   component: Tag,
+  tags: ['next'],
   args: {
     children: 'My tag',
   },
