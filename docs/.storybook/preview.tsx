@@ -163,23 +163,6 @@ const preview = {
           return groupDifference
         }
 
-        if (groupA === 'Components' && groupB === 'Components') {
-          const statusOrder = ['next', 'default', 'alpha', 'deprecated']
-          const getStatusFromTags = (story) => {
-            const tags = story.tags ?? []
-            if (tags.includes('next')) return 'next'
-            if (tags.includes('alpha')) return 'alpha'
-            if (tags.includes('deprecated')) return 'deprecated'
-            return 'default'
-          }
-
-          const statusA = getStatusFromTags(a)
-          const statusB = getStatusFromTags(b)
-
-          const statusDiff = statusOrder.indexOf(statusA) - statusOrder.indexOf(statusB)
-          if (statusDiff !== 0) return statusDiff
-        }
-
         // Sort Kaizen Provider to top
         if (a.title.includes('KaizenProvider')) {
           // If both are Kaizen Provider, do not sort
