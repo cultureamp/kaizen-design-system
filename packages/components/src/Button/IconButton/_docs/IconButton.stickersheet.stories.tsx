@@ -7,6 +7,7 @@ import { IconButton, type IconButtonProps } from '../index'
 
 export default {
   title: 'Components/Button/IconButton (deprecated)',
+  tags: ['deprecated'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

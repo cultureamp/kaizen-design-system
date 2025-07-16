@@ -10,6 +10,7 @@ const IS_CHROMATIC = isChromatic()
 
 export default {
   title: 'Components/Tooltip/Tooltip (deprecated)',
+  tags: ['deprecated'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -13,6 +13,7 @@ import { Tooltip } from '../index'
 const meta = {
   title: 'Components/Tooltip/Tooltip (deprecated)',
   component: Tooltip,
+  tags: ['deprecated'],
   args: {
     text: 'Example tooltip text.',
   },
