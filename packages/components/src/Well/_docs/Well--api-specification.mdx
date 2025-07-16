@@ -1,10 +1,10 @@
 import { Canvas, Controls, Meta, Source } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import { ResourceLinks, KAIOInstallation, DocHeading } from '~storybook/components'
 import * as WellStories from './Well.stories'
 
-<Meta title="Components/Well/API Specification" />
+<Meta title="Components/Well/API Specification" of={WellStories} />
 
-# Well API Specification
+<DocHeading title="Well" docTags={['dev docs']} />
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Well"

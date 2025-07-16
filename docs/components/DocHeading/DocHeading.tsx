@@ -1,5 +1,5 @@
 import React, { type HTMLAttributes } from 'react'
-import { Unstyled } from '@storybook/blocks'
+import { Unstyled, useOf } from '@storybook/blocks'
 import classnames from 'classnames'
 import { Heading } from '~components/Heading'
 import { Tag } from '~components/__next__/Tag'
@@ -21,36 +21,47 @@ const versionColorMap = {
   alpha: 'blue',
 } as const
 
+type VersionTag = keyof typeof versionColorMap
+
 export const DocHeading = ({
   title,
-  componentVersion,
   docTags = [],
   className,
   ...otherProps
-}: DocHeadingProps): JSX.Element => (
-  <>
-    <Unstyled>
-      <div className={classnames(styles.docHeading, className)} {...otherProps}>
-        <Heading variant="composable-header-title" tag="h1">
-          {title}
-        </Heading>
-        {(componentVersion ?? docTags) && (
-          <ul className={styles.tagList}>
-            {componentVersion && (
-              <li>
-                <Tag color={versionColorMap[componentVersion] ?? 'blue'}>{componentVersion}</Tag>
-              </li>
-            )}
-            {docTags.map((tagTitle, index) => (
-              <li key={`${tagTitle}-${index}`}>
-                <Tag color="gray">{tagTitle}</Tag>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </Unstyled>
-  </>
-)
+}: DocHeadingProps): JSX.Element => {
+  // Storybook doesn't expose a typed value here
+  const { preparedMeta } = useOf('meta') as any
+  const tags = preparedMeta.tags ?? []
+
+  const versionTag = tags.find((tag: string): tag is VersionTag =>
+    ['next', 'alpha', 'deprecated'].includes(tag),
+  )
+
+  return (
+    <>
+      <Unstyled>
+        <div className={classnames(styles.docHeading, className)} {...otherProps}>
+          <Heading variant="composable-header-title" tag="h1">
+            {title}
+          </Heading>
+          {(versionTag ?? docTags.length > 0) && (
+            <ul className={styles.tagList}>
+              {versionTag && (
+                <li>
+                  <Tag color={versionColorMap[versionTag]}>{versionTag}</Tag>
+                </li>
+              )}
+              {docTags.map((tagTitle, index) => (
+                <li key={`${tagTitle}-${index}`}>
+                  <Tag color="gray">{tagTitle}</Tag>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </Unstyled>
+    </>
+  )
+}
 
 DocHeading.displayName = 'DocHeading'
