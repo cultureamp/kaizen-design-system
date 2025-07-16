@@ -30,16 +30,16 @@ addons.setConfig({
 
       const statusStyles: Record<string, React.CSSProperties> = {
         alpha: {
-          backgroundColor: colors.blue['200'],
-          color: colors.blue['800'],
+          backgroundColor: colors.blue['100'],
+          color: colors.blue['700'],
         },
         next: {
-          backgroundColor: colors.green['200'],
-          color: colors.green['800'],
+          backgroundColor: colors.green['100'],
+          color: colors.green['700'],
         },
         deprecated: {
-          backgroundColor: colors.red['200'],
-          color: colors.red['800'],
+          backgroundColor: colors.red['100'],
+          color: colors.red['700'],
         },
       }
 
@@ -63,9 +63,10 @@ addons.setConfig({
       }
 
       if (statusTag) {
+        const displayName = item.name.replace(/\s*\((alpha|next|deprecated)\)$/i, '')
         return (
           <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span>{item.name}</span>
+            <span>{displayName}</span>
             <span
               style={{
                 ...statusStyles[statusTag],
@@ -73,7 +74,7 @@ addons.setConfig({
                 padding: '2px 6px',
                 borderRadius: '999px',
                 fontWeight: 500,
-                textTransform: 'uppercase',
+                textTransform: 'capitalize',
               }}
             >
               {statusTag}
