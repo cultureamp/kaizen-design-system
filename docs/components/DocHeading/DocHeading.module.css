@@ -1,0 +1,20 @@
+@layer kz-components {
+  .docHeading {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+
+    /* * {
+      text-align: baseline;
+    } */
+  }
+
+  .tagList {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
