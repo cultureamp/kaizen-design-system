@@ -5,8 +5,9 @@ import { Text } from '~components/Text'
 import { Tab, TabList, TabPanel, Tabs, type Key } from '../index'
 
 const meta = {
-  title: 'Components/Tabs/Tabs (next)',
+  title: 'Components/Tabs (next)',
   component: Tabs,
+  tags: ['next'],
   args: {
     children: (
       <>
