@@ -12,8 +12,9 @@ import { Tag } from '~components/__next__/Tag'
 import { Tooltip, TooltipTrigger } from '../index'
 
 const meta = {
-  title: 'Components/Tooltip/Tooltip (next)/Tests',
+  title: 'Components/Tooltip (next)/Tests',
   component: Tooltip,
+  tags: ['next'],
   parameters: {
     layout: 'centered',
   },

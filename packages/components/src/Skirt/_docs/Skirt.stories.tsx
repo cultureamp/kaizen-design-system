@@ -6,6 +6,7 @@ import { SkirtCard } from '../subcomponents/SkirtCard'
 
 const meta = {
   title: 'Components/Skirt (deprecated)',
+  tags: ['deprecated'],
   component: Skirt,
   args: {
     children: (
