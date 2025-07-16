@@ -20,15 +20,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div
-        style={{
-          height: '200px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          position: 'relative',
-        }}
-      >
+      <div className="h-200 justify-center items-center position-relative flex">
         <Story />
       </div>
     ),

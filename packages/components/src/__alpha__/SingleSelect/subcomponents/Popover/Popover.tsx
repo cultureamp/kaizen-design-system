@@ -39,33 +39,27 @@ export const Popover = ({
     } else {
       popover.hidePopover()
     }
-  }, [isOpen, isPositioned, popoverRef])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, isPositioned])
 
   return (
     <RACPopover trigger="manual" isOpen={isOpen} onOpenChange={setOpen} ref={racPopoverRef}>
-      <div
-        // @ts-expect-error - popover attribute is not included in current ts version, ignore type error
-        popover="manual"
-        ref={popoverRef}
-        // TODO: expect some of these styles to change once we have designs
-        className={styles.popover}
-        style={{
-          visibility: isPositioned ? 'visible' : 'hidden',
-          position: 'fixed',
-          top,
-          bottom,
-          insetInlineStart,
-          maxHeight,
-          overflowY: 'auto',
-          left: 'auto',
-          right: 'auto',
-          margin: '0',
-          boxSizing: 'border-box',
-          // TODO: update width based on design
-          width: '200px',
-        }}
-      >
-        {children}
+      <div style={{ position: 'relative' }}>
+        <div
+          // @ts-expect-error - popover attribute is not included in current ts version, ignore type error
+          popover="manual"
+          ref={popoverRef}
+          // TODO: expect some of these styles to change once we have designs
+          className={styles.popover}
+          // style={{
+          //   top,
+          //   bottom,
+          //   insetInlineStart,
+          //   maxHeight,
+          // }}
+        >
+          {children}
+        </div>
       </div>
     </RACPopover>
   )

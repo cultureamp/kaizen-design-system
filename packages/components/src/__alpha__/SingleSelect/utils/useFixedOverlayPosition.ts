@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, type RefObject } from 'react'
+import { useCallback, useEffect, useRef, useState, type RefObject } from 'react'
 
 type LogicalPosition = number | 'auto' | undefined
 
@@ -56,18 +56,15 @@ export function useFixedOverlayPosition({
   })
   const [isPositioned, setIsPositioned] = useState(false)
 
-  const frameRef = useRef<number | null>(null)
   const mountedRef = useRef<boolean>(false)
 
   const updatePosition = useCallback(() => {
+    if (typeof window === 'undefined') return // SSR safety
+
     const trigger = triggerRef.current
     const popover = popoverRef.current
 
-    if (
-      !mountedRef.current || // avoid if unmounted
-      !trigger ||
-      !popover?.isConnected
-    ) {
+    if (!mountedRef.current || !trigger || !popover?.isConnected) {
       return
     }
 
@@ -122,39 +119,32 @@ export function useFixedOverlayPosition({
     setIsPositioned(true)
   }, [triggerRef, popoverRef, direction, offset, preferredPlacement])
 
-  const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
+  useEffect(() => {
+    if (typeof window === 'undefined') return // SSR safety
 
-  useIsomorphicLayoutEffect(() => {
     mountedRef.current = true
 
-    const onScrollOrResize = (): void => {
-      if (frameRef.current !== null) {
-        cancelAnimationFrame(frameRef.current)
-      }
-      frameRef.current = requestAnimationFrame(() => {
-        updatePosition()
-        frameRef.current = null
-      })
-    }
+    const triggerEl = triggerRef.current
+    const scrollParent = getScrollParent(triggerEl)
 
-    frameRef.current = requestAnimationFrame(() => {
+    updatePosition()
+
+    const resizeObserver = new ResizeObserver(() => {
       updatePosition()
-      frameRef.current = null
     })
 
-    window.addEventListener('resize', onScrollOrResize)
-    window.addEventListener('scroll', onScrollOrResize, true)
+    if (triggerEl) resizeObserver.observe(triggerEl)
+
+    const onScroll = (): void => updatePosition()
+    scrollParent.addEventListener('scroll', onScroll, { passive: true })
 
     return () => {
       mountedRef.current = false
-      if (frameRef.current !== null) {
-        cancelAnimationFrame(frameRef.current)
-        frameRef.current = null
-      }
-      window.removeEventListener('resize', onScrollOrResize)
-      window.removeEventListener('scroll', onScrollOrResize, true)
+      resizeObserver.disconnect()
+      scrollParent.removeEventListener('scroll', onScroll)
       setIsPositioned(false)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [updatePosition])
 
   return { ...position, isPositioned }

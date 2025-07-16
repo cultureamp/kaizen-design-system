@@ -1,8 +1,26 @@
 @layer kz-components {
   .popover {
+    position: absolute;
+    position-anchor: --trigger;
+    top: anchor(bottom);
+    left: anchor(start);
+
     background-color: var(--color-white);
     border-radius: var(--spacing-8);
     padding: 0;
     box-shadow: var(--shadow-small-box-shadow);
+    overflow-y: auto;
+    /* left: auto;
+    right: auto; */
+    margin: 0;
+    box-sizing: border-box;
+    /* TODO: update width based on design */
+    width: 200px;
+    /* position: fixed; */
+    visibility: hidden
+  }
+
+  .popover:popover-open {
+    visibility: visible;
   }
 }

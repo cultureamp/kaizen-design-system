@@ -24,14 +24,16 @@ export const Trigger = ({ buttonRef }: TriggerProps): JSX.Element => {
   }, [flattenedItems, selectedKey])
 
   return (
-    <RACButton
-      className={styles.button}
-      ref={buttonRef}
-      onPress={() => setOpen(!isOpen)}
-      aria-expanded={isOpen}
-    >
-      {selectedLabel}
-      <Icon name="keyboard_arrow_down" isPresentational />
-    </RACButton>
+    <div style={{ position: 'relative' }}>
+      <RACButton
+        className={styles.button}
+        ref={buttonRef}
+        onPress={() => setOpen(!isOpen)}
+        aria-expanded={isOpen}
+      >
+        {selectedLabel}
+        <Icon name="keyboard_arrow_down" isPresentational />
+      </RACButton>
+    </div>
   )
 }

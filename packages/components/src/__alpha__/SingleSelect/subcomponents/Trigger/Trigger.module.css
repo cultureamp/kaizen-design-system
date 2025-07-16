@@ -1,5 +1,6 @@
 @layer kz-components {
   .button {
+    anchor-name: --trigger;
     display: flex;
     align-items: center;
     justify-content: space-between;

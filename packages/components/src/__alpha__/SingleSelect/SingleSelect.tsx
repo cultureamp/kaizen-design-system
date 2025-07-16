@@ -44,7 +44,8 @@ export const SingleSelect = ({
     [state, onSelectionChange],
   )
 
-  // Clone user children injection selection props
+  // Cloning children here to allow users to pass in a custom ListItem or ListSection
+  // and still have the SingleSelect handle selection state
   const injectedChildren = useMemo(() => {
     if (!isValidElement(children)) return null
 
