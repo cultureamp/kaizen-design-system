@@ -4,7 +4,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { RemovableTag } from '../index'
 
 export default {
-  title: 'Components/Tag/Tag (next)/RemovableTag',
+  title: 'Components/Tag (next)/RemovableTag',
   tags: ['next'],
   parameters: {
     chromatic: { disable: false },

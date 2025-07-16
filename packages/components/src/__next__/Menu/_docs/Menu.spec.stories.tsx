@@ -7,7 +7,7 @@ import { Icon } from '~components/__next__/Icon'
 import { Menu, MenuHeader, MenuItem, MenuPopover, MenuSection, MenuTrigger } from '../index'
 
 const meta = {
-  title: 'Components/Menu/Menu (next)/Menu (next) tests',
+  title: 'Components/Menu (next)/Menu (next) tests',
   component: MenuTrigger,
   tags: ['next'],
   args: {

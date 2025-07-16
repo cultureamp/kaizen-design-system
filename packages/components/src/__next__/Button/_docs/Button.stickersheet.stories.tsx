@@ -6,7 +6,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { Button, type ButtonSizes, type ButtonVariants } from '../index'
 
 export default {
-  title: 'Components/Button/Button (next)',
+  title: 'Components/Button (next)',
   tags: ['next'],
   parameters: {
     chromatic: { disable: false },

@@ -5,7 +5,7 @@ import { TagColorKeys } from '../types'
 import { Tag } from '..'
 
 const meta = {
-  title: 'Components/Tag/Tag (next)',
+  title: 'Components/Tag (next)',
   component: Tag,
   tags: ['next'],
   args: {

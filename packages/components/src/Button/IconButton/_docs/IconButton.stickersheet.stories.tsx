@@ -6,7 +6,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { IconButton, type IconButtonProps } from '../index'
 
 export default {
-  title: 'Components/Button/IconButton (deprecated)',
+  title: 'Components/IconButton (deprecated)',
   tags: ['deprecated'],
   parameters: {
     chromatic: { disable: false },

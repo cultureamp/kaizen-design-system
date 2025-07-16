@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { SingleSelect } from '../index'
 
 const meta = {
-  title: 'Components/SingleSelect/SingleSelect (alpha)',
+  title: 'Components/SingleSelect (alpha)',
   tags: ['alpha'],
   component: SingleSelect,
   args: {},

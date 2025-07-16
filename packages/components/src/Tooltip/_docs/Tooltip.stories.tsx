@@ -11,7 +11,7 @@ import { Tag } from '~components/__next__/Tag'
 import { Tooltip } from '../index'
 
 const meta = {
-  title: 'Components/Tooltip/Tooltip (deprecated)',
+  title: 'Components/Tooltip',
   component: Tooltip,
   tags: ['deprecated'],
   args: {

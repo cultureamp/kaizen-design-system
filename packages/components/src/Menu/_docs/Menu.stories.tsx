@@ -8,7 +8,7 @@ import { MenuItem } from '../subcomponents/MenuItem'
 import { MenuList } from '../subcomponents/MenuList'
 
 const meta = {
-  title: 'Components/Menu/Menu (deprecated)',
+  title: 'Components/Menu (deprecated)',
   component: Menu,
   tags: ['deprecated'],
   args: {

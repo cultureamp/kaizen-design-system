@@ -8,7 +8,7 @@ import { Menu, MenuHeader, MenuItem, MenuPopover, MenuSection, MenuTrigger } fro
 import * as testStories from './Menu.spec.stories'
 
 const meta = {
-  title: 'Components/Menu/Menu (next)',
+  title: 'Components/Menu (next)',
   component: MenuTrigger,
   tags: ['next'],
   args: {
