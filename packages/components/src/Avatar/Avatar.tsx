@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, type HTMLAttributes } from 'react'
+import React, { useEffect, useRef, useState, type HTMLAttributes, type SyntheticEvent } from 'react'
 import classnames from 'classnames'
 import { Textfit } from 'react-textfit'
 import { Icon } from '~components/__next__/Icon'
@@ -132,7 +132,10 @@ export const Avatar = ({
     setAvatarState(avatarSrc ? 'loading' : 'none')
   }, [avatarSrc])
 
-  const onImageFailure = (): void => setAvatarState('error')
+  const onImageFailure = (event: SyntheticEvent<HTMLImageElement>): void => {
+    event.preventDefault()
+    setAvatarState('error')
+  }
   const onImageSuccess = (): void => setAvatarState('success')
 
   // if the image is cached onLoad may not trigger: https://stackoverflow.com/a/59809184
