@@ -23,9 +23,10 @@ The following example and table showcases the essential props that enable the co
 
 <Canvas of={exampleStories.Playground} />
 
+## Props
+
 <Controls
   of={exampleStories.Playground}
-  className="mb-64"
   include={[
     'children',
     'hasHiddenLabel',
@@ -50,7 +51,7 @@ The `Button` component does not support the `href` property or have any inbuilt 
 
 A separate <LinkTo pageId="components-linkbutton-api-specification--docs">LinkButton</LinkTo> component has been created to handle page navigation and client side routing.
 
-## API
+## Examples
 
 This is built on top of [React Aria's Button component](https://react-spectrum.adobe.com/react-aria/Button.html#props) and seeks to provide a flexible API with convenient abstractions that handles variants, sizes, pending states and icons.
 
@@ -154,7 +155,7 @@ If a button is statically the full width of a container you can use the `isFullW
 
 For resizing on smaller screens, consider using the `className` prop to leverage CSS media or container queries, ie: `<Button className="w-full md:w-[initial]">Label</Button>`.
 
-## Additional API options
+## Additional options
 
 The following table is a collection of additional React Aria and native HTML props that are exposed from the React Aria API. These are not required for the implementation of `Button` but can be used to extend its functionality. Refer back to the [overview section](#overview) for the core props that enable most use cases.
 
