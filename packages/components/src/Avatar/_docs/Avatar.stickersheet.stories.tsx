@@ -22,7 +22,7 @@ const PROPS_PHOTO_PERSONAL: GenericAvatarProps = {
   disableInitials: false,
   isCurrentUser: true,
   avatarSrc:
-    'https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png',
+    'https://cultureamp.cultureamp.com/profile_images/12d1f70b-4e6d-8a65-784c-ea6768000001/31cb1c5d-ad7c-4e7c-8d05-6aa4bfa07afd/profile_image.jpg',
 }
 
 const PROPS_INITIALS_PERSONAL: GenericAvatarProps = {
@@ -51,7 +51,7 @@ const PROPS_INITIALS_LONG: GenericAvatarProps = {
 
 const PROPS_COMPANY: CompanyAvatarProps = {
   fullName: 'Hooli',
-  avatarSrc: 'https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logo.svg',
+  avatarSrc: 'https://d1e7r7b0lb8p4d.cloudfront.net/third-party-logos/hooli-logod.svg',
   isCompany: true,
 }
 
