@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.79.9
+
+### Patch Changes
+
+- [#5921](https://github.com/cultureamp/kaizen-design-system/pull/5921) [`4f18ea0`](https://github.com/cultureamp/kaizen-design-system/commit/4f18ea0aea30ad0c7ecf9f2b34309fd39bf6964b) - fix: additional styles for GenericModal (e.g. scroll lock) not being cleaned up properly
+
 ## 1.79.8
 
 ### Patch Changes
