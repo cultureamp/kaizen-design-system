@@ -1,5 +1,11 @@
 # @docs/storybook
 
+## 0.2.2
+
+### Patch Changes
+
+- [#5888](https://github.com/cultureamp/kaizen-design-system/pull/5888) [`feed4c3`](https://github.com/cultureamp/kaizen-design-system/commit/feed4c38bcb6aee0d683abb5b52c9f53736cc7a2) - add Split Button Replacement story and docs to Button & Menu sections
+
 ## 0.2.1
 
 ### Patch Changes
