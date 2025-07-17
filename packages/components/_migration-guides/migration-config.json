@@ -1,0 +1,63 @@
+{
+  "name": "Component Documentation Migration Configuration",
+  "version": "1.0.0",
+  "description": "Configuration for migrating component MDX files to standardized API specification format",
+  
+  "transformations": [
+    {
+      "name": "meta_component_update",
+      "description": "Update Meta component to use API Specification format",
+      "pattern": "<Meta of={ComponentStories} />",
+      "replacement": "<Meta title=\"Components/{ComponentName}/{ComponentName}/API Specification\" tags={['dev docs']} />"
+    },
+    {
+      "name": "h1_to_docheading",
+      "description": "Replace H1 titles with DocHeading component",
+      "pattern": "# {ComponentName}",
+      "replacement": "<DocHeading title=\"{ComponentName}\" docTags={['dev docs']} />"
+    },
+    {
+      "name": "add_props_section",
+      "description": "Add Props section above Controls component",
+      "pattern": "<Controls of={ComponentStories.Playground} />",
+      "replacement": "## Props\n\n<Controls of={ComponentStories.Playground} />"
+    },
+    {
+      "name": "api_to_examples",
+      "description": "Change API section title to Examples",
+      "pattern": "## API",
+      "replacement": "## Examples"
+    }
+  ],
+  
+  "required_structure": [
+    "imports",
+    "meta_component",
+    "doc_heading",
+    "resource_links", 
+    "kaio_installation",
+    "overview_section",
+    "props_section",
+    "examples_section"
+  ],
+  
+  "file_naming": {
+    "output_suffix": "-updated",
+    "format": "{ComponentName}-updated.mdx"
+  },
+  
+  "validation_rules": [
+    "Meta component must use API Specification title format",
+    "DocHeading must be used instead of H1 titles",
+    "Props section must appear before Examples section",
+    "All subsections must be nested under Examples as H3",
+    "All Canvas and story references must be preserved",
+    "ResourceLinks and KAIOInstallation content must be maintained"
+  ],
+  
+  "required_imports": [
+    "{ Canvas, Controls, Meta } from '@storybook/blocks'",
+    "{ ResourceLinks, KAIOInstallation, DocHeading } from '~storybook/components'",
+    "* as ComponentStories from './ComponentName.stories'"
+  ]
+}
