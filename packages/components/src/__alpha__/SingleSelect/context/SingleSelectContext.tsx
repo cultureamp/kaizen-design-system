@@ -7,6 +7,7 @@ type SingleSelectContextType = {
   setOpen: (open: boolean) => void
   selectedKey: Key | null
   items: (SelectItem | SelectSection)[]
+  anchorName: string
 }
 
 export const SingleSelectContext = createContext<SingleSelectContextType | undefined>(undefined)

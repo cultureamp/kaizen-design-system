@@ -1,4 +1,4 @@
-import React, { cloneElement, isValidElement, useMemo, type PropsWithChildren } from 'react'
+import React, { cloneElement, isValidElement, useId, useMemo, type PropsWithChildren } from 'react'
 import { useSelectState } from '@react-stately/select'
 import { type Key, type Selection } from '@react-types/shared'
 import { Select as RACSelect, type ListBoxProps } from 'react-aria-components'
@@ -21,6 +21,10 @@ export const SingleSelect = ({
   const buttonRef = React.useRef<HTMLButtonElement>(null)
   const popoverRef = React.useRef<HTMLDivElement>(null)
   const racPopoverRef = React.useRef<HTMLElement>(null)
+
+  // Generate a unique ID for this SingleSelect instance to avoid anchor name conflicts
+  const uniqueId = useId()
+  const anchorName = `--trigger-${uniqueId}`
 
   // Select state without children render prop to keep things flexible
   // and allow for custom list rendering
@@ -68,6 +72,7 @@ export const SingleSelect = ({
         setOpen: state.setOpen,
         selectedKey: state.selectedKey,
         items: items,
+        anchorName,
       }}
     >
       <RACSelect

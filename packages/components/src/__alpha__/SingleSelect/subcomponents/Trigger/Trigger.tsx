@@ -14,7 +14,7 @@ type TriggerProps = {
 }
 
 export const Trigger = ({ buttonRef }: TriggerProps): JSX.Element => {
-  const { isOpen, setOpen, selectedKey, items } = useSingleSelectContext()
+  const { isOpen, setOpen, selectedKey, items, anchorName } = useSingleSelectContext()
   // manually handle selected label to show in button
   const flattenedItems = useMemo(() => flattenItems(items), [items])
   const selectedLabel = useMemo(() => {
@@ -30,6 +30,7 @@ export const Trigger = ({ buttonRef }: TriggerProps): JSX.Element => {
         ref={buttonRef}
         onPress={() => setOpen(!isOpen)}
         aria-expanded={isOpen}
+        style={{ '--anchor-name': anchorName } as React.CSSProperties}
       >
         {selectedLabel}
         <Icon name="keyboard_arrow_down" isPresentational />

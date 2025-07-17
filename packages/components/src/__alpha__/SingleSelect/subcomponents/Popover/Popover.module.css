@@ -1,7 +1,7 @@
 @layer kz-components {
   .popover {
     position: absolute;
-    position-anchor: --trigger;
+    position-anchor: var(--position-anchor, --trigger);
     top: anchor(bottom);
     left: anchor(start);
 

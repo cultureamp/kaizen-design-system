@@ -17,7 +17,7 @@ export const Popover = ({
   racPopoverRef,
   children,
 }: PopoverProps & PropsWithChildren): React.ReactElement => {
-  const { isOpen, setOpen } = useSingleSelectContext()
+  const { isOpen, setOpen, anchorName } = useSingleSelectContext()
   const { direction } = useLocale()
   // have to manually calculate the position here as RTL & iframes don't work with RAC useOverlay due to positioning in the css top-layer
   const { top, bottom, insetInlineStart, maxHeight, isPositioned } = useFixedOverlayPosition({
@@ -51,6 +51,7 @@ export const Popover = ({
           ref={popoverRef}
           // TODO: expect some of these styles to change once we have designs
           className={styles.popover}
+          style={{ '--position-anchor': anchorName } as React.CSSProperties}
           // style={{
           //   top,
           //   bottom,
