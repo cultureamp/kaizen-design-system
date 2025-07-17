@@ -1,13 +1,10 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-import { {{pascalCase componentName}} } from "../index"
+import React from 'react'
+import { type Meta } from '@storybook/react'
+import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
+import { {{pascalCase componentName}} } from '../index'
 
 export default {
-  title: "{{storyTitle}}",
+  title: '{{storyTitle}}',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -19,28 +16,14 @@ const StickerSheetTemplate: StickerSheetStory = {
     <StickerSheet
       isReversed={isReversed}
       title="{{pascalCase componentName}}"
-      headers={["Default", "Hover", "Active", "Focus"]}
+      headers={['Default', 'Hover', 'Active', 'Focus']}
     >
       <StickerSheet.Row>
-        <{{pascalCase componentName}}
-          isReversed={isReversed}
-          exampleRequiredString="{{pascalCase componentName}}"
-        />
-        <{{pascalCase componentName}}
-          isReversed={isReversed}
-          exampleRequiredString="{{pascalCase componentName}}"
-          data-sb-pseudo-styles="hover"
-        />
-        <{{pascalCase componentName}}
-          isReversed={isReversed}
-          exampleRequiredString="{{pascalCase componentName}}"
-          data-sb-pseudo-styles="active"
-        />
-        <{{pascalCase componentName}}
-          isReversed={isReversed}
-          exampleRequiredString="{{pascalCase componentName}}"
-          data-sb-pseudo-styles="focus"
-        />
+        <{{pascalCase componentName}} exampleRequiredString="{{pascalCase componentName}}" />
+        <{{pascalCase componentName}} isBooleanProp exampleRequiredString="{{pascalCase componentName}}" />
+        <{{pascalCase componentName}} exampleRequiredString="{{pascalCase componentName}}" data-sb-pseudo-styles="hover" />
+        <{{pascalCase componentName}} exampleRequiredString="{{pascalCase componentName}}" data-sb-pseudo-styles="active" />
+        <{{pascalCase componentName}} exampleRequiredString="{{pascalCase componentName}}" data-sb-pseudo-styles="focus" />
       </StickerSheet.Row>
     </StickerSheet>
   ),
@@ -58,26 +41,26 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: 'Sticker Sheet (Default)',
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: 'Sticker Sheet (Reversed)',
   parameters: {
     /** @note: Only required if template has parameters, otherwise this spread can be removed */
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
+    backgrounds: { default: 'Purple 700' },
   },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: 'Sticker Sheet (RTL)',
   parameters: {
     /** @note: Only required if template has parameters, otherwise this spread can be removed */
     ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
+    textDirection: 'rtl',
   },
 }

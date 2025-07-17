@@ -1,12 +1,8 @@
 @layer kz-components {
   .docHeading {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     gap: 16px;
-
-    /* * {
-      text-align: baseline;
-    } */
   }
 
   .tagList {
