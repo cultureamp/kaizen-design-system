@@ -1,15 +1,13 @@
 import { Canvas, Meta, Controls, ArgTypes, DocsStory } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation, LinkTo } from '~storybook/components'
-import * as exampleStories from './Link.doc.stories'
+import { ResourceLinks, KAIOInstallation, LinkTo, DocHeading } from '~storybook/components'
+import * as LinkStories from './Link.doc.stories'
 
-<Meta title="Components/Link/API Specification" />
+<Meta title="Components/Link/API Specification" of={LinkStories} />
 
-# Link API Specification
-
-Update Jan 29, 2025
+<DocHeading title="Link" docTags={['dev docs']} />
 
 <ResourceLinks
-  sourceCode="blah blah update when available on main"
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Link"
   figma="https://www.figma.com/design/FWIOtGjpv9z0by95j1SgP0/Link?node-id=273-4107"
   designGuidelines="/?path=/docs/components-link-usage-guidelines--docs"
 />
@@ -22,10 +20,10 @@ Update Jan 29, 2025
 
 The following example and table showcases the essential props that enable the core functionality of `Link`. For the remaining suite of API options refer to [this section](#additional-api-options).
 
-<Canvas of={exampleStories.Playground} />
+<Canvas of={LinkStories.Playground} />
 
 <Controls
-  of={exampleStories.Playground}
+  of={LinkStories.Playground}
   include={[
     'className',
     'children',
@@ -60,7 +58,7 @@ In order to provide advance warning to all users, it is recommended that links u
 
 You may also consider using the `rel="noopener noreferrer"` attribute to prevent the new tab from accessing the `window.opener` object, which can be a security risk. Read more about this consideration on the [Lighthouse docs](https://developer.chrome.com/docs/lighthouse/best-practices/external-anchors-use-rel-noopener).
 
-<Canvas of={exampleStories.LinkOpensInNewTab} />
+<Canvas of={LinkStories.LinkOpensInNewTab} />
 
 For more context on this recommendation, we recommend taking a look at the [W3C page on the G200 success criteria](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
 
@@ -68,15 +66,15 @@ For more context on this recommendation, we recommend taking a look at the [W3C 
 
 `Link` supports `primary`, `secondary` and `white` variants. If the `variant` prop is not specified, the default variant is `primary`.
 
-<Canvas of={exampleStories.LinkVariants} />
+<Canvas of={LinkStories.LinkVariants} />
 
-<DocsStory of={exampleStories.LinkVariantWhite} expanded={false} />
+<DocsStory of={LinkStories.LinkVariantWhite} expanded={false} />
 
 ### Sizes
 
 Link supports the following sizes: `extra-small`, `small`, `body` and `intro-lede`. If the `size` prop is not specified, the default size is `body`.
 
-<Canvas of={exampleStories.LinkSizes} />
+<Canvas of={LinkStories.LinkSizes} />
 
 ### Links within Text
 
@@ -100,11 +98,11 @@ While in most cases, `children` will be a `ReactNode`, `Link` also accepts a ren
 
 The underline on the `Link` can be toggled using the `isUnderlined` prop and is `true` by default. If the `Link` is not underlined, the `icon` prop must be passed. The `icon` prop is optional if the link is underlined.
 
-<Canvas of={exampleStories.LinkWithIconStart} />
+<Canvas of={LinkStories.LinkWithIconStart} />
 
 Setting the `iconPosition` props will ensure content is flipped in `RTL` layouts. Note that icons will need the [shouldMirrorInRTL](/docs/illustrations-icon-icon-future-api-specification--docs#mirror-in-rtl) prop set to `true` when mirroring is required.
 
-<Canvas of={exampleStories.LinkWithIconEnd} />
+<Canvas of={LinkStories.LinkWithIconEnd} />
 
 ## Client side routing
 
@@ -115,7 +113,7 @@ Please refer to the [client side routing](/docs/guides-client-side-routing--docs
 The following table is a collection of additional React Aria and native HTML props that are exposed from the [React Aria Link API](https://react-spectrum.adobe.com/react-aria/Link.html). These are not required for the implementation of `LinkButton` but can be used to extend its functionality. Refer back to the [overview section](#overview) for the core props that enable most use cases.
 
 <ArgTypes
-  of={exampleStories.Playground}
+  of={LinkStories.Playground}
   exclude={[
     'className',
     'children',

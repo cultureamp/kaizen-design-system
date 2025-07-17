@@ -1,13 +1,11 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
-import { KAIOInstallation, ResourceLinks } from '~storybook/components'
+import { KAIOInstallation, ResourceLinks, DocHeading } from '~storybook/components'
 import * as docsStories from './Tooltip.docs.stories'
 import * as exampleStories from './Tooltip.stories'
 
-<Meta title="Components/Tooltip (next)/API Specification" tags={['next']} />
+<Meta title="Components/Tooltip (next)/API Specification" tags={['next']} of={exampleStories} />
 
-# Tooltip API Specification (next)
-
-Updated June 25, 2024
+<DocHeading title="Tooltip" docTags={['dev docs']} />
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__next__/Tooltip"

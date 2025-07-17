@@ -1,16 +1,20 @@
 import { Canvas, Meta, Controls } from '@storybook/blocks'
-import { ResourceLinks, Installation, DosAndDonts, DoOrDont } from '~storybook/components'
+import {
+  ResourceLinks,
+  Installation,
+  DosAndDonts,
+  DoOrDont,
+  DocHeading,
+} from '~storybook/components'
 import * as TooltipStories from './Tooltip.docs.stories'
 import AnatomyPng from './assets/tooltip_anatomy.png'
 import PlacementPng from './assets/tooltip_placement.png'
 import DesignSpecPng from './assets/tooltip_spec.png'
 import WhenToUsePng from './assets/tooltip_variant.png'
 
-<Meta title="Components/Tooltip (next)/Usage Guidelines" tags={['next']} />
+<Meta title="Components/Tooltip (next)/Usage Guidelines" tags={['next']} of={TooltipStories} />
 
-# Tooltip (next)
-
-Updated June 25, 2024
+<DocHeading title="Tooltip" docTags={['design docs']} />
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__next__/Tooltip"
