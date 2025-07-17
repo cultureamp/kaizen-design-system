@@ -1,5 +1,5 @@
-import React, { type HTMLAttributes } from 'react'
-import { Unstyled, useOf } from '@storybook/blocks'
+import React, { useContext, type HTMLAttributes } from 'react'
+import { DocsContext, Unstyled } from '@storybook/blocks'
 import classnames from 'classnames'
 import { Heading } from '~components/Heading'
 import { Tag } from '~components/__next__/Tag'
@@ -29,9 +29,15 @@ export const DocHeading = ({
   className,
   ...otherProps
 }: DocHeadingProps): JSX.Element => {
-  // Storybook doesn't expose a typed value here
-  const { preparedMeta } = useOf('meta') as any
-  const tags = preparedMeta.tags ?? []
+  const context = useContext(DocsContext)
+  let tags: string[] = []
+  try {
+    // @ts-expect-error Storybook doesn't expose a typed value
+    const csf = context.storyIdToCSFFile.values().next().value
+    tags = csf?.meta?.tags ?? []
+  } catch {
+    tags = []
+  }
 
   const versionTag = tags.find((tag: string): tag is VersionTag =>
     ['next', 'alpha', 'deprecated'].includes(tag),
