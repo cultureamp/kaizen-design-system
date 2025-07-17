@@ -18,27 +18,6 @@ type UseFixedOverlayPositionProps = {
 }
 
 /**
- * Get the nearest scrollable ancestor of an element.
- */
-function getScrollParent(node: HTMLElement | null): HTMLElement | Window {
-  if (!node) return window
-  const regex = /(auto|scroll|overlay)/
-  const getStyle = (el: HTMLElement): CSSStyleDeclaration => getComputedStyle(el)
-
-  let parent: HTMLElement | null = node
-
-  while (parent && parent !== document.body) {
-    const { overflow, overflowY, overflowX } = getStyle(parent)
-    if (regex.test(overflow + overflowY + overflowX)) {
-      return parent
-    }
-    parent = parent.parentElement
-  }
-
-  return window
-}
-
-/**
  * Hook to calculate and update the position of an overlay rendered in the top layer.
  */
 export function useFixedOverlayPosition({
@@ -48,18 +27,21 @@ export function useFixedOverlayPosition({
   offset = 4,
   preferredPlacement = 'bottom',
 }: UseFixedOverlayPositionProps): Position & { isPositioned: boolean } {
+  // Provide SSR-compatible default positioning
   const [position, setPosition] = useState<Position>({
-    top: undefined,
-    bottom: undefined,
+    top: preferredPlacement === 'bottom' ? offset : 'auto',
+    bottom: preferredPlacement === 'top' ? offset : 'auto',
     insetInlineStart: 0,
-    maxHeight: undefined,
+    maxHeight: 300, // Reasonable default
   })
-  const [isPositioned, setIsPositioned] = useState(false)
+  // Start as true for SSR compatibility - we have default positioning
+  const [isPositioned, setIsPositioned] = useState(true)
 
   const mountedRef = useRef<boolean>(false)
+  const isSSR = typeof window === 'undefined'
 
   const updatePosition = useCallback(() => {
-    if (typeof window === 'undefined') return // SSR safety
+    if (isSSR) return // SSR safety
 
     const trigger = triggerRef.current
     const popover = popoverRef.current
@@ -75,17 +57,11 @@ export function useFixedOverlayPosition({
     const win = doc?.defaultView ?? window
     const isRTL = direction === 'rtl'
 
-    const scrollContainer = getScrollParent(trigger)
-    const scrollY = scrollContainer instanceof HTMLElement ? scrollContainer.scrollTop : win.scrollY
-    const scrollX =
-      scrollContainer instanceof HTMLElement ? scrollContainer.scrollLeft : win.scrollX
+    // No scroll handling needed since popover locks scroll
+    const inlineStart = isRTL ? win.innerWidth - triggerRect.right : triggerRect.left
 
-    const inlineStart = isRTL
-      ? win.innerWidth - triggerRect.right - scrollX
-      : triggerRect.left + scrollX
-
-    const triggerTop = triggerRect.top + scrollY
-    const triggerBottom = triggerRect.bottom + scrollY
+    const triggerTop = triggerRect.top
+    const triggerBottom = triggerRect.bottom
     const viewportHeight = win.innerHeight
 
     const spaceAbove = triggerTop
@@ -110,22 +86,25 @@ export function useFixedOverlayPosition({
       maxHeight = Math.max(0, spaceBelow - offset)
     }
 
-    setPosition({
+    const newPosition = {
       top,
       bottom,
       insetInlineStart: inlineStart,
       maxHeight,
-    })
-    setIsPositioned(true)
-  }, [triggerRef, popoverRef, direction, offset, preferredPlacement])
+    }
 
+    setPosition(newPosition)
+    setIsPositioned(true)
+  }, [triggerRef, popoverRef, direction, offset, preferredPlacement, isSSR])
+
+  // Separate effect for client-side initialization and resize handling
   useEffect(() => {
-    if (typeof window === 'undefined') return // SSR safety
+    // This effect only runs on the client after hydration
+    if (typeof window === 'undefined') return
 
     mountedRef.current = true
 
     const triggerEl = triggerRef.current
-    const scrollParent = getScrollParent(triggerEl)
 
     updatePosition()
 
@@ -135,17 +114,17 @@ export function useFixedOverlayPosition({
 
     if (triggerEl) resizeObserver.observe(triggerEl)
 
-    const onScroll = (): void => updatePosition()
-    scrollParent.addEventListener('scroll', onScroll, { passive: true })
+    // Add window resize listener for viewport changes
+    const onWindowResize = (): void => updatePosition()
+    window.addEventListener('resize', onWindowResize, { passive: true })
 
     return () => {
       mountedRef.current = false
       resizeObserver.disconnect()
-      scrollParent.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onWindowResize)
       setIsPositioned(false)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updatePosition])
+  }, [updatePosition, triggerRef])
 
   return { ...position, isPositioned }
 }

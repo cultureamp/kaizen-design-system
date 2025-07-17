@@ -2,22 +2,27 @@
   .popover {
     position: absolute;
     position-anchor: var(--position-anchor, --trigger);
-    top: anchor(bottom);
-    left: anchor(start);
+    top: var(--popover-top, calc(anchor(bottom) + 4px));
+    bottom: var(--popover-bottom, auto);
+    inset-inline-start: var(--popover-inline-start, anchor(start));
+    max-height: var(--popover-max-height, 300px);
+    height: auto;
 
     background-color: var(--color-white);
     border-radius: var(--spacing-8);
     padding: 0;
     box-shadow: var(--shadow-small-box-shadow);
     overflow-y: auto;
-    /* left: auto;
-    right: auto; */
+    overflow-x: hidden;
+
     margin: 0;
     box-sizing: border-box;
     /* TODO: update width based on design */
     width: 200px;
-    /* position: fixed; */
-    visibility: hidden
+
+    visibility: hidden;
+
+
   }
 
   .popover:popover-open {
