@@ -1,10 +1,10 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import { ResourceLinks, KAIOInstallation, DocHeading } from '~storybook/components'
 import * as TabsStories from './Tabs.stories'
 
-<Meta title="Components/Tabs (next)/API Specification" tags={['next']} />
+<Meta title="Components/Tabs (next)/API Specification" tags={['next']} of={TabsStories} />
 
-# Tabs (next)
+<DocHeading title="Tabs" docTags={['dev docs']} />
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__next__/Tabs"

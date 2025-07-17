@@ -1,11 +1,10 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation } from '~storybook/components'
-import { LinkTo } from '~storybook/components/LinkTo'
+import { ResourceLinks, KAIOInstallation, LinkTo, DocHeading } from '~storybook/components'
 import * as InputStories from './Input.stories'
 
 <Meta of={InputStories} />
 
-# Input
+<DocHeading title="Input" docTags={['dev docs']} />
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Input/Input"

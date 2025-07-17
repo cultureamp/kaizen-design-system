@@ -1,12 +1,10 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
-import { KAIOInstallation, ResourceLinks } from '~storybook/components'
+import { KAIOInstallation, ResourceLinks, DocHeading } from '~storybook/components'
 import * as exampleStories from './Focusable.stories'
 
-<Meta title="Components/Focusable/API Specification" />
+<Meta title="Components/Focusable/API Specification" of={exampleStories} />
 
-# Focusable API Specification
-
-Updated June 25, 2024
+<DocHeading title="Focusable" docTags={['dev docs']} />
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Focusable"

@@ -1,16 +1,20 @@
 import { Canvas, Meta, Controls } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation, DosAndDonts, DoOrDont } from '~storybook/components'
+import {
+  ResourceLinks,
+  KAIOInstallation,
+  DosAndDonts,
+  DoOrDont,
+  DocHeading,
+} from '~storybook/components'
 import * as Button from './Button.docs.stories'
 import ButtonIconOnlySpec from './assets/button_icon_only_spec.png'
 import ButtonIconSpec from './assets/button_icon_spec.png'
 import ButtonSpec from './assets/button_spec.png'
 import ButtonAnatomy from './assets/button_anatomy.png'
 
-<Meta title="Components/Button (next)/Usage Guidelines" tags={['next']} />
+<Meta title="Components/Button (next)/Usage Guidelines" tags={['next']} of={Button} />
 
-# Button (next)
-
-Updated July 12, 2024
+<DocHeading title="Button" docTags={['design docs']} />
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__next__/Button"
