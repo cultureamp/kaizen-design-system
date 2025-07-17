@@ -414,7 +414,6 @@ export const ShouldFlip: Story = {
   args: {
     floatingConfig: {
       shouldFlip: true,
-      shouldResize: false,
     },
   },
   parameters: {
