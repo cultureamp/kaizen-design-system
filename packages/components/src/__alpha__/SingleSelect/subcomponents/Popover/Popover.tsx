@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, type PropsWithChildren } from 'react'
+import React, { useEffect, useLayoutEffect, useState, type PropsWithChildren } from 'react'
 import { useLocale } from '@react-aria/i18n'
 import { Popover as RACPopover } from 'react-aria-components'
 import { useSingleSelectContext } from '../../context'
@@ -11,6 +11,59 @@ type PopoverProps = {
   racPopoverRef: React.Ref<any>
 }
 
+/**
+ * Detects if CSS anchor positioning is supported by the browser
+ */
+const supportsAnchorPositioning = (): boolean => {
+  if (typeof window === 'undefined' || typeof CSS === 'undefined') {
+    return false
+  }
+
+  try {
+    return CSS.supports('position-anchor', 'auto') || CSS.supports('position-anchor: auto')
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Hook to determine anchor positioning support and return appropriate styles
+ */
+const usePopoverPositioning = (
+  anchorName: string,
+  positionData: {
+    top: number | string | undefined
+    bottom: number | string | undefined
+    insetInlineStart: number | string | undefined
+    maxHeight: number | string | undefined
+  },
+): { getPopoverStyle: () => React.CSSProperties } => {
+  const [hasAnchorSupport, setHasAnchorSupport] = useState<boolean | null>(null)
+
+  useEffect(() => {
+    setHasAnchorSupport(supportsAnchorPositioning())
+  }, [])
+
+  const getPopoverStyle = (): React.CSSProperties => {
+    const { top, bottom, insetInlineStart, maxHeight } = positionData
+
+    // During detection or when anchor positioning is not supported, use manual positioning
+    if (hasAnchorSupport === null || !hasAnchorSupport) {
+      return {
+        top,
+        bottom,
+        insetInlineStart,
+        maxHeight,
+      }
+    }
+
+    // Use CSS anchor positioning when supported
+    return { '--position-anchor': anchorName } as React.CSSProperties
+  }
+
+  return { getPopoverStyle }
+}
+
 export const Popover = ({
   buttonRef,
   popoverRef,
@@ -19,13 +72,22 @@ export const Popover = ({
 }: PopoverProps & PropsWithChildren): React.ReactElement => {
   const { isOpen, setOpen, anchorName } = useSingleSelectContext()
   const { direction } = useLocale()
-  // have to manually calculate the position here as RTL & iframes don't work with RAC useOverlay due to positioning in the css top-layer
+
+  // Manual position calculation for RTL & iframe compatibility
+  // RAC useOverlay doesn't work properly with positioning in the CSS top-layer
   const { top, bottom, insetInlineStart, maxHeight, isPositioned } = useFixedOverlayPosition({
     triggerRef: buttonRef,
     popoverRef,
     direction,
     offset: 4,
     preferredPlacement: 'bottom',
+  })
+
+  const { getPopoverStyle } = usePopoverPositioning(anchorName, {
+    top,
+    bottom,
+    insetInlineStart,
+    maxHeight,
   })
 
   useLayoutEffect(() => {
@@ -49,15 +111,8 @@ export const Popover = ({
           // @ts-expect-error - popover attribute is not included in current ts version, ignore type error
           popover="manual"
           ref={popoverRef}
-          // TODO: expect some of these styles to change once we have designs
           className={styles.popover}
-          style={{ '--position-anchor': anchorName } as React.CSSProperties}
-          // style={{
-          //   top,
-          //   bottom,
-          //   insetInlineStart,
-          //   maxHeight,
-          // }}
+          style={getPopoverStyle()}
         >
           {children}
         </div>
