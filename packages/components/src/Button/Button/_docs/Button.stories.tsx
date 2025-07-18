@@ -6,8 +6,9 @@ import { Icon } from '~components/__next__/Icon'
 import { Button } from '../index'
 
 const meta = {
-  title: 'Components/Button/Button (deprecated)',
+  title: 'Components/Button (deprecated)',
   component: Button,
+  tags: ['deprecated'],
   args: {
     label: 'Label',
   },
