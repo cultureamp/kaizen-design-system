@@ -7,22 +7,17 @@
     inset-inline-start: var(--popover-inline-start, anchor(start));
     max-height: var(--popover-max-height, 300px);
     height: auto;
-
     background-color: var(--color-white);
     border-radius: var(--spacing-8);
     padding: 0;
     box-shadow: var(--shadow-small-box-shadow);
-    overflow-y: auto;
-    overflow-x: hidden;
-
+    overflow: hidden auto;
     margin: 0;
     box-sizing: border-box;
+
     /* TODO: update width based on design */
     width: 200px;
-
     visibility: hidden;
-
-
   }
 
   .popover:popover-open {
