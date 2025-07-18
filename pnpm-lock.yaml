@@ -395,8 +395,8 @@ importers:
         specifier: 13.3.0
         version: 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3)
       '@cultureamp/i18n-react-intl':
-        specifier: ^2.12.0
-        version: 2.12.0(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.27.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.7))(jest@29.7.0(@types/node@22.15.21)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3)
+        specifier: ^2.12.1
+        version: 2.12.1(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.27.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.7))(jest@29.7.0(@types/node@22.15.21)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3)
       '@cultureamp/package-bundler':
         specifier: ^2.3.2
         version: 2.3.2(@babel/core@7.27.7)(@types/babel__core@7.20.5)(postcss-preset-env@10.2.4(postcss@8.5.6))(postcss@8.5.6)(rollup@4.45.0)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.8.3)
@@ -1214,8 +1214,8 @@ packages:
   '@cultureamp/frontend-env@2.1.4':
     resolution: {integrity: sha512-L0vTlxa7Fvlr04T0tRmIhNovWanofAGcH4ZKM9PMtIzzKbdQdH9WzVJMRfxDmYAecQpRW98igBGC85pdt2BaCQ==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.4/d6905082c185f2f4a932b1a16431b599156ee76f}
 
-  '@cultureamp/i18n-react-intl@2.12.0':
-    resolution: {integrity: sha512-FWZ9+FeYojegkb7IoyEDnwj3YLxyPF+XOUjPnQtGT/askzaccatEACG1/1WDOmBeLpSPRsBSpOI7pVPyyZtAow==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.12.0/3d724edd8c2212d0496b68668bde69feef8e87d6}
+  '@cultureamp/i18n-react-intl@2.12.1':
+    resolution: {integrity: sha512-t+X6frB8Oe6ccRQPzG465iFrGo5v0vKkpibjuJ0gSS5inEWgZ1K0gz/VZBE6d3ClK62HQNe2iNOT5YHoVooRlg==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.12.1/9e79847eed9139bbf1918a4a1887a990346de6c0}
     hasBin: true
     peerDependencies:
       '@cultureamp/frontend-apis': '>=13 || ~0.0.0'
@@ -3732,10 +3732,6 @@ packages:
 
   '@typescript-eslint/types@8.35.0':
     resolution: {integrity: sha512-0mYH3emanku0vHw2aRLNGqe7EXh9WHEhi7kZzscrMDf6IIRUQ5Jk4wp1QrledE/36KtdZrVfKnE32eZCf/vaVQ==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
-  '@typescript-eslint/types@8.35.1':
-    resolution: {integrity: sha512-q/O04vVnKHfrrhNAscndAn1tuQhIkwqnaW+eu5waD5IPts2eX1dgJxgqcPx5BX109/qAz7IG6VrEPTOYKCNfRQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@typescript-eslint/types@8.36.0':
@@ -11167,7 +11163,7 @@ snapshots:
     dependencies:
       chromatic: 9.1.0
 
-  '@cultureamp/i18n-react-intl@2.12.0(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.27.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.7))(jest@29.7.0(@types/node@22.15.21)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3)':
+  '@cultureamp/i18n-react-intl@2.12.1(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.27.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.7))(jest@29.7.0(@types/node@22.15.21)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.15.21)(typescript@5.8.3)))(typescript@5.8.3))(typescript@5.8.3)':
     dependencies:
       '@calm/eslint-plugin-react-intl': 1.4.1
       '@cultureamp/frontend-apis': 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.27.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.8.3)
@@ -14171,7 +14167,7 @@ snapshots:
   '@typescript-eslint/project-service@8.35.0(typescript@5.8.3)':
     dependencies:
       '@typescript-eslint/tsconfig-utils': 8.35.0(typescript@5.8.3)
-      '@typescript-eslint/types': 8.35.1
+      '@typescript-eslint/types': 8.36.0
       debug: 4.4.1
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -14230,8 +14226,6 @@ snapshots:
   '@typescript-eslint/types@8.28.0': {}
 
   '@typescript-eslint/types@8.35.0': {}
-
-  '@typescript-eslint/types@8.35.1': {}
 
   '@typescript-eslint/types@8.36.0': {}
 
