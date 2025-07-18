@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { autoPlacement, offset, size } from '@floating-ui/react-dom'
 import type { Selection } from '@react-types/shared'
 import type { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
@@ -15,7 +14,7 @@ const meta = {
   component: FilterMultiSelect,
   parameters: {
     docs: {
-      source: { type: 'code' },
+      source: { type: 'auto' },
     },
   },
   args: {
@@ -179,6 +178,7 @@ export const WithSectionHeaders: Story = {
   ...FilterMultiSelectTemplate,
   args: {
     isOpen: IS_CHROMATIC || undefined,
+    items: mockManyItems,
     children: (): JSX.Element => (
       <>
         <FilterMultiSelect.SearchInput />
@@ -310,69 +310,8 @@ export const WithSectionNotification: Story = {
   },
 }
 
-export const WithManyOptions: Story = {
-  ...FilterMultiSelectTemplate,
-  name: 'With many options',
-  args: {
-    items: mockManyItems,
-  },
-}
-
-const floatingOptionsSourceCode = `
-import { autoPlacement, size, offset } from '@floating-ui/react-dom'
-
-// ...source code
-
-<FilterMultiSelect
-  {...args}
-  floatingOptions={{
-    ...{
-      middleware: [
-        size({
-          apply({ availableHeight, elements }) {
-            Object.assign(elements.floating.style, {
-              maxHeight: Math.max(250, Math.min(availableHeight - 12, 500)) + "px",
-            })
-          },
-        }),
-        autoPlacement({
-          allowedPlacements: ['bottom-start', 'top-start'],
-        }),
-        offset(6),
-      ],
-    },
-  }}
-/>
-`
-
-export const WithFloatingOptions: Story = {
-  ...FilterMultiSelectTemplate,
-  name: 'With floatingOptions',
-  args: {
-    floatingOptions: {
-      middleware: [
-        size({
-          apply({ availableHeight, elements }) {
-            Object.assign(elements.floating.style, {
-              maxHeight: Math.max(250, Math.min(availableHeight - 12, 500)) + 'px',
-            })
-          },
-        }),
-        autoPlacement({
-          allowedPlacements: ['bottom-start', 'top-start'],
-        }),
-        offset(6),
-      ],
-    },
-  },
-  parameters: {
-    docs: { source: { code: floatingOptionsSourceCode } },
-  },
-}
-
 export const AboveIfAvailable: Story = {
-  ...FilterMultiSelectTemplate,
-  ...WithFloatingOptions,
+  ...WithSectionNotification,
   name: 'With limited viewport and autoplacement above',
   parameters: {
     viewport: {
@@ -388,11 +327,56 @@ export const AboveIfAvailable: Story = {
       defaultViewport: 'LimitedViewportAutoPlace',
     },
   },
+  args: {
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: true,
+    },
+  },
   decorators: [
     (Story) => (
-      <div className="mt-[350px]">
+      <div>
+        <div style={{ height: '80vh', maxHeight: '500px' }}>Content above</div>
         <Story />
       </div>
     ),
   ],
+}
+
+export const ShouldFlip: Story = {
+  ...AboveIfAvailable,
+  name: 'With limited viewport and shouldFlip',
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: 'Limited vertical space',
+          styles: {
+            width: '1024px',
+            height: '700px',
+          },
+        },
+      },
+      defaultViewport: 'LimitedViewportAutoPlace',
+    },
+  },
+  args: {
+    isOpen: IS_CHROMATIC || undefined,
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: false,
+    },
+  },
+}
+
+export const ShouldResize: Story = {
+  ...AboveIfAvailable,
+  name: 'With limited viewport and shouldFlip and shouldResize',
+  args: {
+    isOpen: IS_CHROMATIC || undefined,
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: true,
+    },
+  },
 }

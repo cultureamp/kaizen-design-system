@@ -1,21 +1,40 @@
 import React, { useEffect, useState, type HTMLAttributes } from 'react'
-import { autoUpdate, offset, useFloating, type UseFloatingOptions } from '@floating-ui/react-dom'
+import {
+  autoPlacement,
+  autoUpdate,
+  offset,
+  size,
+  useFloating,
+  type UseFloatingOptions,
+} from '@floating-ui/react-dom'
 import classnames from 'classnames'
 import { FocusOn } from 'react-focus-on'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useMenuTriggerContext } from '../../context'
 import styles from './MenuPopup.module.css'
 
+export type FloatingConfig = Pick<
+  UseFloatingOptions,
+  'placement' | 'strategy' | 'whileElementsMounted'
+> & {
+  shouldResize?: boolean
+  shouldFlip?: boolean
+}
+
 export type MenuPopupProps = {
   children: React.ReactNode
-  floatingOptions?: Partial<UseFloatingOptions>
   isLoading?: boolean
   loadingSkeleton?: React.ReactNode
+  floatingConfig?: FloatingConfig
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const MenuPopup = ({
   children,
-  floatingOptions,
+  floatingConfig = {
+    placement: 'bottom-start',
+    strategy: 'absolute',
+    whileElementsMounted: autoUpdate,
+  },
   classNameOverride,
   isLoading,
   loadingSkeleton,
@@ -23,19 +42,27 @@ export const MenuPopup = ({
 }: MenuPopupProps): JSX.Element => {
   const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>(null)
   const { menuTriggerState, buttonRef } = useMenuTriggerContext()
-
   const referenceElement = buttonRef.current
 
   const { floatingStyles, update } = useFloating({
-    placement: 'bottom-start',
     elements: {
       reference: referenceElement,
       floating: floatingElement,
     },
-    strategy: 'absolute',
-    middleware: [offset(6)],
-    whileElementsMounted: autoUpdate,
-    ...floatingOptions,
+    middleware: [
+      offset(6),
+      floatingConfig.shouldFlip &&
+        autoPlacement({ allowedPlacements: ['bottom-start', 'top-start'] }),
+      floatingConfig.shouldResize &&
+        size({
+          apply({ availableHeight, elements }) {
+            Object.assign(elements.floating.style, {
+              maxHeight: Math.max(250, Math.min(availableHeight - 12, 500)) + 'px',
+            })
+          },
+        }),
+    ],
+    ...floatingConfig,
   })
 
   const handleReturnFocus = (): void => {
