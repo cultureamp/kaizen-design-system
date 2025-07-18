@@ -44,7 +44,7 @@ Ensure devbox is setup as per [https://cultureamp.atlassian.net/wiki/spaces/DE/p
 Install and start processes (this start an interactive UI in your terminal) `devbox services up`.
 The interactive terminal UI that pops up is called process-compose, see our [Confluence page](1) for tips on how to use it.
 
-Please see the [LDE Confluence page](2) for more information
+Please see the [LDE Confluence page](2) for more information:
 [1]:<https://cultureamp.atlassian.net/wiki/x/ZYGJyw>
 [2]:<https://cultureamp.atlassian.net/wiki/spaces/DE/pages/3342434338>
 
