@@ -33,7 +33,7 @@
   "devDependencies": {
     "@cultureamp/package-bundler": "^2.3.2",
     "classnames": "^2.5.1",
-    "rollup": "^4.44.2",
+    "rollup": "^4.45.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwindcss": "^4.1.11",

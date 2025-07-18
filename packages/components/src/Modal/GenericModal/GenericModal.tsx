@@ -125,7 +125,7 @@ export const GenericModal = ({
     }
   }
 
-  const cleanUpAfterClose = (): void => {
+  const cleanUpAfterClose = useCallback(() => {
     if (!isClientReady) return
 
     document.documentElement.classList.remove(styles.unscrollable, styles.pseudoScrollbar)
@@ -133,12 +133,10 @@ export const GenericModal = ({
     if (onEscapeKeyup) {
       document.removeEventListener('keyup', escapeKeyHandler)
     }
-  }
+  }, [escapeKeyHandler, onEscapeKeyup, isClientReady])
 
   /* Ensure sure add-on styles (e.g. unscrollable) and key event is cleaned up when the modal is unmounted*/
-  // @todo: Fix if possible - avoiding breaking in eslint upgrade
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => () => cleanUpAfterClose(), [])
+  useEffect(() => () => cleanUpAfterClose(), [cleanUpAfterClose])
 
   const onAfterLeaveHandler = (): void => {
     cleanUpAfterClose()
