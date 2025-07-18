@@ -5,7 +5,7 @@ import isChromatic from 'chromatic'
 import { InlineNotification } from '~components/Notification'
 import { TextField } from '~components/TextField'
 import { FilterMultiSelect, getSelectedOptionLabels } from '..'
-import { mockItems } from './MockData'
+import { mockItems, mockManyItems } from './MockData'
 
 const IS_CHROMATIC = isChromatic()
 
@@ -14,7 +14,7 @@ const meta = {
   component: FilterMultiSelect,
   parameters: {
     docs: {
-      source: { type: 'code' },
+      source: { type: 'auto' },
     },
   },
   args: {
@@ -178,6 +178,7 @@ export const WithSectionHeaders: Story = {
   ...FilterMultiSelectTemplate,
   args: {
     isOpen: IS_CHROMATIC || undefined,
+    items: mockManyItems,
     children: (): JSX.Element => (
       <>
         <FilterMultiSelect.SearchInput />
@@ -306,5 +307,76 @@ export const WithSectionNotification: Story = {
   },
   parameters: {
     chromatic: { disable: false },
+  },
+}
+
+export const AboveIfAvailable: Story = {
+  ...WithSectionNotification,
+  name: 'With limited viewport and autoplacement above',
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: 'Limited vertical space',
+          styles: {
+            width: '1024px',
+            height: '500px',
+          },
+        },
+      },
+      defaultViewport: 'LimitedViewportAutoPlace',
+    },
+  },
+  args: {
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: true,
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div>
+        <div style={{ height: '80vh', maxHeight: '500px' }}>Content above</div>
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+export const ShouldFlip: Story = {
+  ...AboveIfAvailable,
+  name: 'With limited viewport and shouldFlip',
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: 'Limited vertical space',
+          styles: {
+            width: '1024px',
+            height: '700px',
+          },
+        },
+      },
+      defaultViewport: 'LimitedViewportAutoPlace',
+    },
+  },
+  args: {
+    isOpen: IS_CHROMATIC || undefined,
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: false,
+    },
+  },
+}
+
+export const ShouldResize: Story = {
+  ...AboveIfAvailable,
+  name: 'With limited viewport and shouldFlip and shouldResize',
+  args: {
+    isOpen: IS_CHROMATIC || undefined,
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: true,
+    },
   },
 }

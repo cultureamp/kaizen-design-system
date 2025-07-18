@@ -58,9 +58,10 @@ export const FilterMultiSelect = ({
   onSearchInputChange,
   triggerRef,
   className,
+  floatingConfig,
 }: FilterMultiSelectProps): JSX.Element => {
   const menuTriggerProps = { isOpen, defaultOpen, onOpenChange, triggerRef }
-  const menuPopupProps = { isLoading, loadingSkeleton }
+  const menuPopupProps = { isLoading, loadingSkeleton, floatingConfig }
   const disabledKeys: Selection = new Set(
     items?.filter((item) => item.isDisabled === true).map((disabledItem) => disabledItem.value),
   )
@@ -79,7 +80,7 @@ export const FilterMultiSelect = ({
     <MenuTriggerProvider {...menuTriggerProps}>
       <div className={className}>
         <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
-        <MenuPopup {...menuPopupProps}>
+        <MenuPopup aria-label={label} {...menuPopupProps}>
           <SelectionProvider {...selectionProps}>
             <SelectionConsumer>{children}</SelectionConsumer>
           </SelectionProvider>
