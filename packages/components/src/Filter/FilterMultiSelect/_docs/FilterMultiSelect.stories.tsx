@@ -14,7 +14,7 @@ const meta = {
   component: FilterMultiSelect,
   parameters: {
     docs: {
-      source: { type: 'code' },
+      source: { type: 'auto' },
     },
   },
   args: {
@@ -178,6 +178,7 @@ export const WithSectionHeaders: Story = {
   ...FilterMultiSelectTemplate,
   args: {
     isOpen: IS_CHROMATIC || undefined,
+    items: mockManyItems,
     children: (): JSX.Element => (
       <>
         <FilterMultiSelect.SearchInput />
@@ -309,152 +310,8 @@ export const WithSectionNotification: Story = {
   },
 }
 
-export const WithManyOptions: Story = {
-  ...FilterMultiSelectTemplate,
-  name: 'With many options',
-  args: {
-    items: mockManyItems,
-    children: (): JSX.Element => (
-      <>
-        <FilterMultiSelect.SearchInput />
-        <FilterMultiSelect.ListBox>
-          {({ selectedItems, unselectedItems, hasNoItems }): JSX.Element => (
-            <>
-              {hasNoItems ? (
-                <FilterMultiSelect.NoResults>No results found.</FilterMultiSelect.NoResults>
-              ) : (
-                <>
-                  {selectedItems.length > 0 && (
-                    <FilterMultiSelect.ListBoxSection
-                      items={selectedItems}
-                      sectionHeader="Selected items"
-                    >
-                      {(item): JSX.Element => (
-                        <FilterMultiSelect.Option key={item.key} item={item} />
-                      )}
-                    </FilterMultiSelect.ListBoxSection>
-                  )}
-
-                  {unselectedItems.length > 0 && (
-                    <FilterMultiSelect.ListBoxSection
-                      items={unselectedItems}
-                      sectionHeader="Unselected items"
-                    >
-                      {(item): JSX.Element => (
-                        <FilterMultiSelect.Option key={item.key} item={item} />
-                      )}
-                    </FilterMultiSelect.ListBoxSection>
-                  )}
-
-                  {unselectedItems.length > 0 && (
-                    <FilterMultiSelect.ListBoxSection
-                      items={unselectedItems}
-                      sectionHeader="Unselected items 2"
-                    >
-                      {(item): JSX.Element => (
-                        <FilterMultiSelect.Option key={item.key} item={item} />
-                      )}
-                    </FilterMultiSelect.ListBoxSection>
-                  )}
-
-                  {unselectedItems.length > 0 && (
-                    <FilterMultiSelect.ListBoxSection
-                      items={unselectedItems}
-                      sectionHeader="Unselected items 3"
-                    >
-                      {(item): JSX.Element => (
-                        <FilterMultiSelect.Option key={item.key} item={item} />
-                      )}
-                    </FilterMultiSelect.ListBoxSection>
-                  )}
-                </>
-              )}
-            </>
-          )}
-        </FilterMultiSelect.ListBox>
-        <FilterMultiSelect.MenuFooter>
-          <FilterMultiSelect.SelectAllButton />
-          <FilterMultiSelect.ClearButton />
-        </FilterMultiSelect.MenuFooter>
-      </>
-    ),
-  },
-}
-
-const floatingOptionsSourceCode = `
-import { autoPlacement, size, offset } from '@floating-ui/react-dom'
-
-// ...source code
-
-<FilterMultiSelect
-  {...args}
-  floatingOptions={{
-    ...{
-      middleware: [
-        size({
-          apply({ availableHeight, elements }) {
-            Object.assign(elements.floating.style, {
-              maxHeight: Math.max(250, Math.min(availableHeight - 12, 500)) + "px",
-            })
-          },
-        }),
-        autoPlacement({
-          allowedPlacements: ['bottom-start', 'top-start'],
-        }),
-        offset(6),
-      ],
-    },
-  }}
-/>
-`
-
-export const ShouldFlip: Story = {
-  ...WithManyOptions,
-  name: 'With flipping Popup',
-  args: {
-    floatingConfig: {
-      shouldFlip: true,
-    },
-  },
-  parameters: {
-    docs: { source: { code: floatingOptionsSourceCode } },
-  },
-  decorators: [
-    (Story) => (
-      <div>
-        <div style={{ height: '80vh', background: 'rebeccapurple' }}>content</div>
-        <Story />
-        <div style={{ height: '80vh', background: 'blue' }}>content 2</div>
-      </div>
-    ),
-  ],
-}
-
-export const ShouldFlipAndResize: Story = {
-  ...WithManyOptions,
-  name: 'With flipping and resizing Popup',
-  args: {
-    floatingConfig: {
-      shouldFlip: true,
-      shouldResize: true,
-    },
-  },
-  parameters: {
-    docs: { source: { code: floatingOptionsSourceCode } },
-  },
-  decorators: [
-    (Story) => (
-      <div>
-        <div style={{ height: '80vh', background: 'rebeccapurple' }}>content</div>
-        <Story />
-        <div style={{ height: '80vh', background: 'blue' }}>content 2</div>
-      </div>
-    ),
-  ],
-}
-
 export const AboveIfAvailable: Story = {
-  ...WithManyOptions,
+  ...WithSectionNotification,
   name: 'With limited viewport and autoplacement above',
   parameters: {
     viewport: {
@@ -478,9 +335,48 @@ export const AboveIfAvailable: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="mt-[350px]">
+      <div>
+        <div style={{ height: '80vh', maxHeight: '500px' }}>Content above</div>
         <Story />
       </div>
     ),
   ],
+}
+
+export const ShouldFlip: Story = {
+  ...AboveIfAvailable,
+  name: 'With limited viewport and shouldFlip',
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: 'Limited vertical space',
+          styles: {
+            width: '1024px',
+            height: '700px',
+          },
+        },
+      },
+      defaultViewport: 'LimitedViewportAutoPlace',
+    },
+  },
+  args: {
+    isOpen: IS_CHROMATIC || undefined,
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: false,
+    },
+  },
+}
+
+export const ShouldResize: Story = {
+  ...AboveIfAvailable,
+  name: 'With limited viewport and shouldFlip and shouldResize',
+  args: {
+    isOpen: IS_CHROMATIC || undefined,
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: true,
+    },
+  },
 }
