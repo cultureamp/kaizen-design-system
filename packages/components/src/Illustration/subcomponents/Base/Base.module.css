@@ -1,0 +1,97 @@
+@layer kz-components {
+  .wrapper {
+    width: 100%;
+    margin: 0;
+  }
+
+  .figure {
+    margin: 0;
+    position: relative;
+  }
+
+  .figure .pausePlayButton {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-width: 1px;
+    transition: all var(--animation-duration-immediate) ease;
+
+    @media (hover: none) and (pointer: coarse) {
+      background: var(--color-gray-200);
+      opacity: 1;
+    }
+  }
+
+  .figure .pausePlayButton:hover,
+  .figure .pausePlayButton:focus,
+  .figure:hover .pausePlayButton {
+    opacity: 1;
+    background: var(--color-gray-200);
+    border-color: var(--color-gray-600);
+  }
+
+  .hasVisibleAnimationToggle {
+    opacity: 1 !important;
+  }
+
+  .aspectRatioWrapper {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .landscape {
+    aspect-ratio: 4/3;
+
+    @supports not (aspect-ratio: auto) {
+      &::before {
+        float: left;
+        padding-top: 75%;
+        content: '';
+      }
+
+      &::after {
+        display: block;
+        content: '';
+        clear: both;
+      }
+    }
+  }
+
+  .portrait {
+    aspect-ratio: 3/4;
+
+    @supports not (aspect-ratio: auto) {
+      &::before {
+        float: left;
+        padding-top: 133.33%;
+        content: '';
+      }
+
+      &::after {
+        display: block;
+        content: '';
+        clear: both;
+      }
+    }
+  }
+
+  .square {
+    aspect-ratio: auto 1/1;
+
+    @supports not (aspect-ratio: auto) {
+      &::before {
+        float: left;
+        padding-top: 100%;
+        content: '';
+      }
+
+      &::after {
+        display: block;
+        content: '';
+        clear: both;
+      }
+    }
+  }
+}
