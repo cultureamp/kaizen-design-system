@@ -14,6 +14,7 @@ describe('<Avatar />', () => {
     fireEvent.error(screen.getByRole('img'))
 
     expect(screen.getByText('JD')).toBeInTheDocument()
+    expect(screen.queryByRole('img')).not.toBeInTheDocument()
   })
 
   describe('full name provided contains more than two names', () => {
