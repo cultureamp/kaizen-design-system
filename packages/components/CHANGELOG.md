@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.79.10
+
+### Patch Changes
+
+- [#5916](https://github.com/cultureamp/kaizen-design-system/pull/5916) [`f0612d7`](https://github.com/cultureamp/kaizen-design-system/commit/f0612d793b3419a7b02e5775188f025c4316412a) - Avatar will render img only if it is available and loaded successfully
+
 ## 1.79.9
 
 ### Patch Changes
