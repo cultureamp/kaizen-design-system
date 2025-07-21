@@ -10,6 +10,7 @@ import { SplitButton, type SplitButtonProps } from '../index'
 
 export default {
   title: 'Components/SplitButton (deprecated)',
+  tags: ['deprecated'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

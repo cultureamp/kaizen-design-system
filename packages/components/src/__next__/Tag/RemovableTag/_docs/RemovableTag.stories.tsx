@@ -2,8 +2,9 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { RemovableTag } from '../RemovableTag'
 
 const meta = {
-  title: 'Components/Tag/Tag (next)/RemovableTag',
+  title: 'Components/Tag (next)/RemovableTag',
   component: RemovableTag,
+  tags: ['next'],
   args: {
     children: 'My tag',
     removeButtonProps: {

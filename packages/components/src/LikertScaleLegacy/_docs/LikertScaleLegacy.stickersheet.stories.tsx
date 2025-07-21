@@ -6,6 +6,7 @@ import { type Scale } from '../types'
 
 export default {
   title: 'Components/LikertScaleLegacy (deprecated)',
+  tags: ['deprecated'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

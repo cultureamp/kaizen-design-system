@@ -10,7 +10,8 @@ import { handledRtlIcons, iconDefaultSet } from '../constants'
 import { Icon, type IconProps } from '../index'
 
 export default {
-  title: 'Components/Icon/Icon (next)',
+  title: 'Components/Icon (next)',
+  tags: ['next'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

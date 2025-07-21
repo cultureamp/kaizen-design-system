@@ -6,8 +6,9 @@ import { Icon } from '~components/__next__/Icon'
 import { Menu, MenuHeader, MenuItem, MenuPopover, MenuSection, MenuTrigger } from '../index'
 
 const meta = {
-  title: 'Components/Menu/Menu (next)/Docs Assets',
+  title: 'Components/Menu (next)/Docs Assets',
   component: MenuTrigger,
+  tags: ['next'],
   args: {
     defaultOpen: isChromatic(),
     children: <></>,

@@ -5,14 +5,13 @@ import {
   LinkTo,
   DosAndDonts,
   DoOrDont,
+  DocHeading,
 } from '~storybook/components'
-import * as Link from './Link.doc.stories'
+import * as LinkStories from './Link.doc.stories'
 
 <Meta title="Components/Link/Usage Guidelines" />
 
-# Link
-
-Updated Jan 30, 2025
+<DocHeading title="Link" docTags={['design docs']} />
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Link"
@@ -26,10 +25,10 @@ Updated Jan 30, 2025
 
 `Link` allow users to navigate to a different location. They can be presented inside a paragraph or as standalone text.
 
-<Canvas of={Link.Playground} />
+<Canvas of={LinkStories.Playground} />
 
 <Controls
-  of={Link.Playground}
+  of={LinkStories.Playground}
   include={['href', 'variant', 'size', 'isDisabled', 'icon', 'iconPosition']}
   className="mb-64"
 />
@@ -75,8 +74,8 @@ For links in a sentence, write them as part of the sentence and include enough i
 Standalone links are not full sentences, and do not have punctuation at the end. Treat these like calls-to-action by writing them as short verb phrases. Where possible, do not break over multiple lines.
 
 <DosAndDonts>
-  <DoOrDont story={Link.StandaloneLinkDo} />
-  <DoOrDont story={Link.StandaloneLinkDont} isDont />
+  <DoOrDont story={LinkStories.StandaloneLinkDo} />
+  <DoOrDont story={LinkStories.StandaloneLinkDont} isDont />
 </DosAndDonts>
 
 #### Ensure clarity by prioritizing the most valuable links
@@ -84,8 +83,8 @@ Standalone links are not full sentences, and do not have punctuation at the end.
 Think about how many links you use and where you put them. Don't overload your interface with too many links as clustering links can confuse people.
 
 <DosAndDonts>
-  <DoOrDont story={Link.OneLinkInSentence} />
-  <DoOrDont story={Link.FiveLinksInSentence} isDont />
+  <DoOrDont story={LinkStories.OneLinkInSentence} />
+  <DoOrDont story={LinkStories.FiveLinksInSentence} isDont />
 </DosAndDonts>
 
 #### Use icons in links sparingly and consistently
@@ -93,8 +92,8 @@ Think about how many links you use and where you put them. Don't overload your i
 Overusing icons can create visual clutter and overwhelm users. Use them sparingly to highlight common and recognisable navigation.
 
 <DosAndDonts>
-  <DoOrDont story={Link.ExternalIconLink} />
-  <DoOrDont story={Link.RandomIconLink} isDont />
+  <DoOrDont story={LinkStories.ExternalIconLink} />
+  <DoOrDont story={LinkStories.RandomIconLink} isDont />
 </DosAndDonts>
 
 #### Links should make sense in isolation
@@ -102,6 +101,6 @@ Overusing icons can create visual clutter and overwhelm users. Use them sparingl
 If links on a page have the same label repeated multiple times, they should have distinct, accessible names that add context for users. This ensures [better accessibility for screen reader](https://cultureamp.atlassian.net/wiki/spaces/PA/pages/3240099910/Buttons+and+link+labels+make+sense+in+isolation) users, who rely on descriptive labels to distinguish between links.
 
 <DosAndDonts>
-  <DoOrDont story={Link.DistinctNamedLink} />
-  <DoOrDont story={Link.GenericNamedLink} isDont />
+  <DoOrDont story={LinkStories.DistinctNamedLink} />
+  <DoOrDont story={LinkStories.GenericNamedLink} isDont />
 </DosAndDonts>
