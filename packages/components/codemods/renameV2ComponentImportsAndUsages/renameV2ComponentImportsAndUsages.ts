@@ -65,8 +65,8 @@ export const renameV2ComponentImportsAndUsages =
   (tagsMap: TagImportAttributesMap | undefined): ts.TransformerFactory<ts.SourceFile> =>
   (context) =>
   (rootNode) => {
-    const importsToRemove = new Map() satisfies UpdateKaioImportsArgs['importsToRemove']
-    const importsToAdd = new Map() satisfies UpdateKaioImportsArgs['importsToAdd']
+    const importsToRemove: UpdateKaioImportsArgs['importsToRemove'] = new Map()
+    const importsToAdd: UpdateKaioImportsArgs['importsToAdd'] = new Map()
 
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isImportDeclaration(node)) {
@@ -83,11 +83,11 @@ export const renameV2ComponentImportsAndUsages =
               const importName =
                 importSpecifier.propertyName?.getText() ?? importSpecifier.name.getText()
 
-              const renameConfig = componentRenameMap.get(importName)
-              if (renameConfig && renameConfig.fromModule === moduleSpecifier) {
-                setImportToRemove(importsToRemove, renameConfig.fromModule, importName)
-                setImportToAdd(importsToAdd, renameConfig.toModule, {
-                  componentName: renameConfig.newName,
+              const rename = componentRenameMap.get(importName)
+              if (rename && rename.fromModule === moduleSpecifier) {
+                setImportToRemove(importsToRemove, rename.fromModule, importName)
+                setImportToAdd(importsToAdd, rename.toModule, {
+                  componentName: rename.newName,
                 })
               }
 
@@ -120,30 +120,30 @@ export const renameV2ComponentImportsAndUsages =
 
         const kaioComponentName = tagImportAttributes.originalName
         const oldImportSource = tagImportAttributes.importModuleName
-        const renameConfig = componentRenameMap.get(kaioComponentName)
+        const rename = componentRenameMap.get(kaioComponentName)
 
-        if (!renameConfig) return node
+        if (!rename) return node
 
-        if (oldImportSource !== renameConfig.fromModule) {
+        if (oldImportSource !== rename.fromModule) {
           console.warn(
-            `Expected ${kaioComponentName} to be imported from ${renameConfig.fromModule}, but found ${oldImportSource}`,
+            `Expected ${kaioComponentName} to be imported from ${rename.fromModule}, but found ${oldImportSource}`,
           )
           return node
         }
 
-        setImportToRemove(importsToRemove, renameConfig.fromModule, kaioComponentName)
+        setImportToRemove(importsToRemove, rename.fromModule, kaioComponentName)
 
         const alias =
           tagImportAttributes.tagName !== tagImportAttributes.originalName
             ? tagImportAttributes.tagName
             : undefined
 
-        setImportToAdd(importsToAdd, renameConfig.toModule, {
-          componentName: renameConfig.newName,
+        setImportToAdd(importsToAdd, rename.toModule, {
+          componentName: rename.newName,
           alias,
         })
 
-        const jsxElementName = alias ?? renameConfig.newName
+        const jsxElementName = alias ?? rename.newName
         return updateJsxElementTagName(context.factory, node, jsxElementName)
       }
 
@@ -152,13 +152,13 @@ export const renameV2ComponentImportsAndUsages =
 
         const componentNames = Array.from(componentRenameMap.keys())
         for (const oldComponentName of componentNames) {
-          const renameConfig = componentRenameMap.get(oldComponentName)!
+          const rename = componentRenameMap.get(oldComponentName)!
           const oldPropsType = getPropsTypeName(oldComponentName)
           if (typeName === oldPropsType) {
-            const newPropsType = getPropsTypeName(renameConfig.newName)
+            const newPropsType = getPropsTypeName(rename.newName)
 
-            setImportToRemove(importsToRemove, renameConfig.fromModule, oldPropsType)
-            setImportToAdd(importsToAdd, renameConfig.toModule, {
+            setImportToRemove(importsToRemove, rename.fromModule, oldPropsType)
+            setImportToAdd(importsToAdd, rename.toModule, {
               componentName: newPropsType,
             })
 
