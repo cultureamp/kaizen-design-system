@@ -39,23 +39,44 @@ const updateJsxElementTagName = (
   node: ts.JsxOpeningElement | ts.JsxClosingElement | ts.JsxSelfClosingElement,
   newTagName: string,
 ): ts.JsxOpeningElement | ts.JsxClosingElement | ts.JsxSelfClosingElement => {
-  const newIdentifier = factory.createIdentifier(newTagName)
+  let newTagNameExpr: ts.JsxTagNameExpression
+
+  if (ts.isPropertyAccessExpression(node.tagName)) {
+    const baseComponentName = node.tagName.expression.getText()
+    const rename = componentRenameMap.get(baseComponentName)
+
+    if (rename) {
+      newTagNameExpr = factory.createPropertyAccessExpression(
+        factory.createIdentifier(rename.newName),
+        node.tagName.name,
+      ) as ts.JsxTagNameExpression
+    } else {
+      newTagNameExpr = node.tagName
+    }
+  } else {
+    newTagNameExpr = factory.createIdentifier(newTagName)
+  }
 
   if (ts.isJsxSelfClosingElement(node)) {
     return factory.updateJsxSelfClosingElement(
       node,
-      newIdentifier,
+      newTagNameExpr,
       node.typeArguments,
       node.attributes,
     )
   }
 
   if (ts.isJsxOpeningElement(node)) {
-    return factory.updateJsxOpeningElement(node, newIdentifier, node.typeArguments, node.attributes)
+    return factory.updateJsxOpeningElement(
+      node,
+      newTagNameExpr,
+      node.typeArguments,
+      node.attributes,
+    )
   }
 
   if (ts.isJsxClosingElement(node)) {
-    return factory.updateJsxClosingElement(node, newIdentifier)
+    return factory.updateJsxClosingElement(node, newTagNameExpr)
   }
 
   return node
@@ -113,6 +134,20 @@ export const renameV2ComponentImportsAndUsages =
         ts.isJsxSelfClosingElement(node) ||
         ts.isJsxClosingElement(node)
       ) {
+        if (ts.isPropertyAccessExpression(node.tagName)) {
+          const left = node.tagName.expression.getText()
+          const rename = componentRenameMap.get(left)
+
+          if (rename) {
+            setImportToRemove(importsToRemove, rename.fromModule, left)
+            setImportToAdd(importsToAdd, rename.toModule, { componentName: rename.newName })
+
+            return updateJsxElementTagName(context.factory, node, rename.newName)
+          }
+
+          return node
+        }
+
         const tagName = node.tagName.getText()
         const tagImportAttributes = tagsMap?.get(tagName)
 

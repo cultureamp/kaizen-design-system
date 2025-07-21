@@ -216,6 +216,30 @@ const MyComponent = () => <MySelect />
       expect(result).toBe(printAst(expectedAst))
     })
 
+    it('should handle Component.SubComponent', () => {
+      const inputAst = parseJsx(`
+import { Select } from "@kaizen/components/next"
+
+const MyComponent = () => (
+  <Select>
+    {({ items }) =>
+      items.map((item) => {
+        return <Select.Option />;
+      })
+    }
+  </Select>
+);
+`)
+      const expectedAst = parseJsx(`
+import { SingleSelect } from "@kaizen/components"
+
+const MyComponent = () => <SingleSelect><SingleSelect.Option /></SingleSelect>
+`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
     it('should not transform components not in the rename map', () => {
       const inputAst = parseJsx(`
 import { Button, Card } from "@kaizen/components"
