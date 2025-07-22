@@ -9,8 +9,11 @@
     overflow: hidden auto;
     margin: 0;
     box-sizing: border-box;
-    width: 200px; /* TODO: update width based on design */
+
+    /* TODO: update width based on design */
+    width: 200px;
     visibility: hidden;
+
     @supports (anchor-name: --anchor) {
       position-anchor: var(--position-anchor, --trigger);
       top: var(--popover-top, calc(anchor(bottom) + 4px));
@@ -19,6 +22,7 @@
       max-height: var(--popover-max-height, 300px);
       position-area: bottom center;
       position-try-fallbacks: flip-block;
+      /* stylelint-disable-next-line declaration-property-value-no-unknown */
       width: anchor-size(width);
     }
   }
