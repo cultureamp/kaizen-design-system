@@ -1,2 +1,2 @@
-export * from './useFixedOverlayPosition'
+export * from './usePopoverPositioning'
 export * from './supportsAnchorPositioning'

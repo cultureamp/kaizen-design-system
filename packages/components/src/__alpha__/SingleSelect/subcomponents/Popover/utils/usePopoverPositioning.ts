@@ -9,7 +9,7 @@ type Position = {
   maxHeight?: number
 }
 
-type UseFixedOverlayPositionProps = {
+type UsePopoverPositioningProps = {
   triggerRef: RefObject<HTMLElement>
   popoverRef: RefObject<HTMLElement>
   direction?: 'ltr' | 'rtl'
@@ -20,19 +20,19 @@ type UseFixedOverlayPositionProps = {
 /**
  * Hook to calculate and update the position of an overlay rendered in the top layer.
  */
-export function useFixedOverlayPosition({
+export function usePopoverPositioning({
   triggerRef,
   popoverRef,
   direction = 'ltr',
   offset = 4,
   preferredPlacement = 'bottom',
-}: UseFixedOverlayPositionProps): Position & { isPositioned: boolean } {
+}: UsePopoverPositioningProps): Position & { isPositioned: boolean } {
   // Provide SSR-compatible default positioning
   const [position, setPosition] = useState<Position>({
     top: preferredPlacement === 'bottom' ? offset : 'auto',
     bottom: preferredPlacement === 'top' ? offset : 'auto',
     insetInlineStart: 0,
-    maxHeight: 300, // Reasonable default
+    maxHeight: 300, // TODO: update this based on designs
   })
   // Start as true for SSR compatibility - we have default positioning
   const [isPositioned, setIsPositioned] = useState(true)
