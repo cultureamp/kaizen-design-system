@@ -88,6 +88,7 @@ export const renameV2ComponentImportsAndUsages =
   (rootNode) => {
     const importsToRemove: UpdateKaioImportsArgs['importsToRemove'] = new Map()
     const importsToAdd: UpdateKaioImportsArgs['importsToAdd'] = new Map()
+    const validPropTypes = new Set<string>()
 
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isImportDeclaration(node)) {
@@ -117,6 +118,8 @@ export const renameV2ComponentImportsAndUsages =
                 const config = componentRenameMap.get(oldComponentName)!
                 const oldPropsType = getPropsTypeName(oldComponentName)
                 if (importName === oldPropsType && config.fromModule === moduleSpecifier) {
+                  validPropTypes.add(oldPropsType)
+
                   const newPropsType = getPropsTypeName(config.newName)
                   setImportToRemove(importsToRemove, config.fromModule, oldPropsType)
                   setImportToAdd(importsToAdd, config.toModule, {
@@ -185,23 +188,22 @@ export const renameV2ComponentImportsAndUsages =
       if (ts.isTypeReferenceNode(node)) {
         const typeName = node.typeName.getText()
 
-        const componentNames = Array.from(componentRenameMap.keys())
-        for (const oldComponentName of componentNames) {
-          const rename = componentRenameMap.get(oldComponentName)!
-          const oldPropsType = getPropsTypeName(oldComponentName)
-          if (typeName === oldPropsType) {
-            const newPropsType = getPropsTypeName(rename.newName)
+        if (validPropTypes.has(typeName)) {
+          const componentNames = Array.from(componentRenameMap.keys())
 
-            setImportToRemove(importsToRemove, rename.fromModule, oldPropsType)
-            setImportToAdd(importsToAdd, rename.toModule, {
-              componentName: newPropsType,
-            })
+          for (const oldComponentName of componentNames) {
+            const rename = componentRenameMap.get(oldComponentName)!
+            const oldPropsType = getPropsTypeName(oldComponentName)
 
-            return context.factory.updateTypeReferenceNode(
-              node,
-              context.factory.createIdentifier(newPropsType),
-              node.typeArguments,
-            )
+            if (typeName === oldPropsType) {
+              const newPropsType = getPropsTypeName(rename.newName)
+
+              return context.factory.updateTypeReferenceNode(
+                node,
+                context.factory.createIdentifier(newPropsType),
+                node.typeArguments,
+              )
+            }
           }
         }
       }
