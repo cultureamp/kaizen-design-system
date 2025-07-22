@@ -18,6 +18,11 @@
     /* TODO: update width based on design */
     width: 200px;
     visibility: hidden;
+    @supports (anchor-name: --anchor) {
+      position-area: bottom center;
+      position-try-fallbacks: flip-block;
+      width: anchor-size(width);
+    }
   }
 
   .popover:popover-open {

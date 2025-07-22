@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useMemo, useState, type PropsWithChi
 import { useLocale } from '@react-aria/i18n'
 import { Popover as RACPopover } from 'react-aria-components'
 import { useSingleSelectContext } from '../../context'
-import { useFixedOverlayPosition } from '../../utils'
+import { supportsAnchorPositioning, useFixedOverlayPosition } from '../../utils'
 import styles from './Popover.module.css'
 
 type PopoverProps = {
@@ -27,28 +27,7 @@ const DEFAULTS = {
 } as const
 
 // Cache anchor positioning support detection (SSR-safe)
-let cachedAnchorSupport: boolean | null = null
-
-/**
- * Detects if CSS anchor positioning is supported by the browser (cached, SSR-safe)
- */
-const supportsAnchorPositioning = (): boolean => {
-  if (cachedAnchorSupport !== null) return cachedAnchorSupport
-
-  if (typeof window === 'undefined' || typeof CSS === 'undefined') {
-    cachedAnchorSupport = false
-    return false
-  }
-
-  try {
-    cachedAnchorSupport =
-      CSS.supports('position-anchor', 'auto') || CSS.supports('position-anchor: auto')
-    return cachedAnchorSupport
-  } catch {
-    cachedAnchorSupport = false
-    return false
-  }
-}
+const cachedAnchorSupport: boolean | null = null
 
 /**
  * Generates manual positioning styles for browsers without anchor positioning support or SSR
@@ -80,31 +59,9 @@ const getAnchorPositioningStyles = (
     maxHeight: number | string | undefined
   },
 ): React.CSSProperties => {
-  const { top, bottom, insetInlineStart, maxHeight } = positionData
+  const { maxHeight } = positionData
   const styles: React.CSSProperties = {
     [CSS_PROPS.POSITION_ANCHOR]: anchorName,
-  }
-
-  // Vertical positioning
-  if (typeof top === 'number' && bottom === 'auto') {
-    // Position below trigger
-    styles[CSS_PROPS.POPOVER_TOP] = `calc(anchor(bottom) + ${DEFAULTS.OFFSET})`
-    styles[CSS_PROPS.POPOVER_BOTTOM] = 'auto'
-  } else if (typeof bottom === 'number' && top === 'auto') {
-    // Position above trigger
-    styles[CSS_PROPS.POPOVER_TOP] = 'auto'
-    styles[CSS_PROPS.POPOVER_BOTTOM] = `calc(anchor(top) + ${DEFAULTS.OFFSET})`
-  } else {
-    // Default: position below
-    styles[CSS_PROPS.POPOVER_TOP] = `calc(anchor(bottom) + ${DEFAULTS.OFFSET})`
-    styles[CSS_PROPS.POPOVER_BOTTOM] = 'auto'
-  }
-
-  // Horizontal positioning
-  if (typeof insetInlineStart === 'number') {
-    styles[CSS_PROPS.POPOVER_INLINE_START] = `${insetInlineStart}px`
-  } else {
-    styles[CSS_PROPS.POPOVER_INLINE_START] = 'anchor(start)'
   }
 
   // Max height
@@ -134,7 +91,7 @@ const usePopoverPositioning = (
   const [hasAnchorSupport, setHasAnchorSupport] = useState<boolean | null>(null)
 
   useEffect(() => {
-    setHasAnchorSupport(supportsAnchorPositioning())
+    setHasAnchorSupport(supportsAnchorPositioning(cachedAnchorSupport))
   }, [])
 
   // Memoize styles to prevent unnecessary recalculations
