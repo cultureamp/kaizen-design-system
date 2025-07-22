@@ -233,7 +233,15 @@ const MyComponent = () => (
       const expectedAst = parseJsx(`
 import { SingleSelect } from "@kaizen/components"
 
-const MyComponent = () => <SingleSelect><SingleSelect.Option /></SingleSelect>
+const MyComponent = () => (
+  <SingleSelect>
+    {({ items }) =>
+      items.map((item) => {
+        return <SingleSelect.Option />;
+      })
+    }
+  </SingleSelect>
+);
 `)
 
       const result = transformComponents(inputAst)

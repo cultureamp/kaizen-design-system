@@ -145,7 +145,7 @@ export const renameV2ComponentImportsAndUsages =
             return updateJsxElementTagName(context.factory, node, rename.newName)
           }
 
-          return node
+          return ts.visitEachChild(node, visit, context)
         }
 
         const tagName = node.tagName.getText()
