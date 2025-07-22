@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import type { Selection } from '@react-types/shared'
 import type { Meta, StoryObj } from '@storybook/react'
+import { expect, userEvent, waitFor, within } from '@storybook/test'
 import isChromatic from 'chromatic'
 import { InlineNotification } from '~components/Notification'
 import { TextField } from '~components/TextField'
@@ -361,7 +362,6 @@ export const ShouldFlip: Story = {
     },
   },
   args: {
-    isOpen: IS_CHROMATIC || undefined,
     floatingConfig: {
       shouldFlip: true,
       shouldResize: false,
@@ -373,10 +373,36 @@ export const ShouldResize: Story = {
   ...AboveIfAvailable,
   name: 'With limited viewport and shouldFlip and shouldResize',
   args: {
-    isOpen: IS_CHROMATIC || undefined,
     floatingConfig: {
       shouldFlip: true,
       shouldResize: true,
     },
+  },
+  parameters: {
+    chromatic: {
+      disable: false,
+    },
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: 'Limited vertical space',
+          styles: {
+            width: '1024px',
+            height: '450px',
+          },
+        },
+      },
+      defaultViewport: 'LimitedViewportAutoPlace',
+    },
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const triggerButton = await canvas.findByRole('button', {
+      name: /Engineer/i,
+    })
+    await step('Trigger opens the FilterMultiSelect dialog', async () => {
+      await userEvent.click(triggerButton)
+      await waitFor(() => expect(canvas.getByRole('dialog')).toBeVisible())
+    })
   },
 }
