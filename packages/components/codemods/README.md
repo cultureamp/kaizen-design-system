@@ -25,6 +25,16 @@ pnpm kaizen-codemod src migrateWellVariantToColor
 
 ## Available codemods
 
+### `renameV2ComponentImportsAndUsages`
+
+Renames component imports and usages for the v2 release:
+
+- `Select` (from `@kaizen/components/next`) → `SingleSelect`
+- `LikertScaleLegacy` → `LikertScale`
+- `TitleBlockZen` → `TitleBlock`
+
+Also renames corresponding Props types (e.g., `SelectProps` → `SingleSelectProps`).
+
 ### `migrateBrandMomentMoodToVariant`
 
 Released in `1.58.0`
