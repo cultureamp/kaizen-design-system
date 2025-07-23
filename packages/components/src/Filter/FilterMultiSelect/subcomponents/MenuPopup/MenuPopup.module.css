@@ -12,6 +12,7 @@
     text-align: start;
     width: var(--menu-container-width, 294px);
     max-height: var(--menu-container-height, 500px);
+    overflow-y: auto;
   }
 
   .menuPopup[popover]:popover-open {

@@ -19,6 +19,8 @@ export type SelectionProviderProps = {
   label: string
   disabledKeys?: Selection
   onSearchInputChange?: (searchInput: string) => void
+  /** auto-focus the listbox items - will cause a layout jump if floatingConfig is used  */
+  autoFocus?: boolean
 }
 
 export type SelectionProviderContextType = {
@@ -35,7 +37,7 @@ const SelectionContext = React.createContext<SelectionProviderContextType>(
 )
 
 export const SelectionProvider = (props: SelectionProviderProps): JSX.Element => {
-  const { onSearchInputChange, ...otherProps } = props
+  const { onSearchInputChange, autoFocus, ...otherProps } = props
   const [searchQuery, setSearchQuery] = useState<string>('')
   const { menuProps } = useMenuTriggerContext()
   /**
@@ -73,6 +75,8 @@ export const SelectionProvider = (props: SelectionProviderProps): JSX.Element =>
     {
       ...menuProps,
       ...otherProps,
+      autoFocus,
+
       disallowEmptySelection: true, // stop escape key from clearing selection
     },
     state,

@@ -59,9 +59,10 @@ export const FilterMultiSelect = ({
   triggerRef,
   className,
   floatingConfig,
+  portalContainer,
 }: FilterMultiSelectProps): JSX.Element => {
   const menuTriggerProps = { isOpen, defaultOpen, onOpenChange, triggerRef }
-  const menuPopupProps = { isLoading, loadingSkeleton, floatingConfig }
+  const menuPopupProps = { isLoading, loadingSkeleton, floatingConfig, portalContainer }
   const disabledKeys: Selection = new Set(
     items?.filter((item) => item.isDisabled === true).map((disabledItem) => disabledItem.value),
   )
@@ -74,6 +75,7 @@ export const FilterMultiSelect = ({
     selectionMode,
     disabledKeys,
     onSearchInputChange,
+    autoFocus: false,
   }
 
   return (

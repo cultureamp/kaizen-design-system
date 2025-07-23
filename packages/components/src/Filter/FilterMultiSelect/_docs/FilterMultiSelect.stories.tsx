@@ -311,6 +311,82 @@ export const WithSectionNotification: Story = {
   },
 }
 
+export const AboveAndBelow: Story = {
+  ...WithSectionNotification,
+  name: 'Above and below',
+  args: {},
+  decorators: [
+    (Story) => (
+      <div style={{ overflowY: 'auto' }}>
+        <div style={{ height: '500px' }}>Content above</div>
+        <Story />
+        <div style={{ height: '500px' }}>Content above</div>
+      </div>
+    ),
+  ],
+}
+
+export const WithPortalContainer: Story = {
+  ...WithSectionNotification,
+  render: (args) => {
+    const [selectedKeys, setSelectedKeys] = useState<Selection | undefined>(args.selectedKeys)
+    return (
+      <FilterMultiSelect
+        {...args}
+        onSelectionChange={setSelectedKeys}
+        selectedKeys={selectedKeys}
+        trigger={(): JSX.Element => (
+          <FilterMultiSelect.TriggerButton
+            selectedOptionLabels={getSelectedOptionLabels(selectedKeys, args.items)}
+            label={args.label}
+          />
+        )}
+      />
+    )
+  },
+
+  args: {
+    portalContainer:
+      typeof document !== 'undefined'
+        ? (document.getElementById('storybook-root') ?? undefined)
+        : undefined,
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: true,
+    },
+  },
+}
+
+export const AboveAndBelow2: Story = {
+  ...WithSectionNotification,
+  name: 'Above and below 2',
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: 'Limited vertical space',
+        },
+      },
+      defaultViewport: 'LimitedViewportAutoPlace',
+    },
+  },
+  args: {
+    floatingConfig: {
+      shouldFlip: true,
+      shouldResize: true,
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ overflowY: 'auto' }}>
+        <div style={{ height: '500px' }}>Content above</div>
+        <Story />
+        <div style={{ height: '500px' }}>Content above</div>
+      </div>
+    ),
+  ],
+}
+
 export const AboveIfAvailable: Story = {
   ...WithSectionNotification,
   name: 'With limited viewport and autoplacement above',
