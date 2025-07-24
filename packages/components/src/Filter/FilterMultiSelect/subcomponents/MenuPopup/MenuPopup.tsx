@@ -1,105 +1,58 @@
-import React, { useEffect, useState, type HTMLAttributes } from 'react'
-import {
-  autoPlacement,
-  autoUpdate,
-  offset,
-  size,
-  useFloating,
-  type UseFloatingOptions,
-} from '@floating-ui/react-dom'
-import classnames from 'classnames'
-import { FocusOn } from 'react-focus-on'
-import { type OverrideClassName } from '~components/types/OverrideClassName'
+import React from 'react'
+import { FocusScope } from '@react-aria/focus'
+import { DismissButton, useOverlay } from '@react-aria/overlays'
 import { useMenuTriggerContext } from '../../context'
 import styles from './MenuPopup.module.css'
 
-export type FloatingConfig = Pick<
-  UseFloatingOptions,
-  'placement' | 'strategy' | 'whileElementsMounted'
-> & {
-  shouldResize?: boolean
-  shouldFlip?: boolean
-}
-
 export type MenuPopupProps = {
-  children: React.ReactNode
   isLoading?: boolean
   loadingSkeleton?: React.ReactNode
-  floatingConfig?: FloatingConfig
-} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
+  children: React.ReactNode
+}
 
 export const MenuPopup = ({
-  children,
-  floatingConfig = {
-    placement: 'bottom-start',
-    strategy: 'absolute',
-    whileElementsMounted: autoUpdate,
-  },
-  classNameOverride,
   isLoading,
   loadingSkeleton,
-  ...restProps
+  children,
 }: MenuPopupProps): JSX.Element => {
-  const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>(null)
-  const { menuTriggerState, buttonRef } = useMenuTriggerContext()
-  const referenceElement = buttonRef.current
+  const { menuTriggerState } = useMenuTriggerContext()
 
-  const { floatingStyles, update } = useFloating({
-    elements: {
-      reference: referenceElement,
-      floating: floatingElement,
+  const onClose = (): void => menuTriggerState.close()
+
+  // Handle events that should cause the menu to close,
+  // e.g. blur, clicking outside, or pressing the escape key.
+  const overlayRef = React.createRef<HTMLDivElement>()
+  const { overlayProps } = useOverlay(
+    {
+      onClose,
+      isOpen: menuTriggerState.isOpen,
+      isDismissable: true,
     },
-    middleware: [
-      offset(6),
-      floatingConfig.shouldFlip &&
-        autoPlacement({ allowedPlacements: ['bottom-start', 'top-start'] }),
-      floatingConfig.shouldResize &&
-        size({
-          apply({ availableHeight, elements }) {
-            Object.assign(elements.floating.style, {
-              maxHeight: Math.max(250, Math.min(availableHeight - 12, 500)) + 'px',
-            })
-          },
-        }),
-    ],
-    ...floatingConfig,
-  })
+    overlayRef,
+  )
 
-  const handleReturnFocus = (): void => {
-    requestAnimationFrame(() => {
-      buttonRef.current?.focus()
-    })
-  }
-
-  useEffect(() => {
-    if (floatingElement && referenceElement) {
-      floatingElement.showPopover?.()
-      update()
-    }
-  }, [floatingElement, referenceElement, update])
-
+  // Wrap in <FocusScope> so that focus is restored back to the trigger when the menu is closed
+  // and auto focus on the first focusable item after loading. (disable eslint no-autofocus error for it)
+  // In addition, add hidden <DismissButton> components at the start and end of the list
+  // to allow screen reader users to dismiss the popup easily.
   return menuTriggerState.isOpen ? (
-    <FocusOn
-      enabled={menuTriggerState.isOpen}
-      scrollLock={false}
-      returnFocus={false}
-      onClickOutside={menuTriggerState.close}
-      onEscapeKey={menuTriggerState.close}
-      onDeactivation={handleReturnFocus}
-    >
-      <div
-        ref={setFloatingElement}
-        style={floatingStyles}
-        className={classnames(styles.menuPopup, classNameOverride)}
-        role="dialog"
-        aria-modal="true"
-        // @ts-expect-error: popover is valid in supported browsers
-        popover="manual"
-        {...restProps}
-      >
-        {isLoading && loadingSkeleton ? loadingSkeleton : children}
-      </div>
-    </FocusOn>
+    <div {...overlayProps} ref={overlayRef} className={styles.menuPopup}>
+      {isLoading && loadingSkeleton ? (
+        <>
+          <DismissButton onDismiss={onClose} />
+          {loadingSkeleton}
+          <DismissButton onDismiss={onClose} />
+        </>
+      ) : (
+        // eslint-disable-next-line jsx-a11y/no-autofocus
+        <FocusScope contain autoFocus restoreFocus>
+          <DismissButton onDismiss={onClose} />
+
+          {children}
+          <DismissButton onDismiss={onClose} />
+        </FocusScope>
+      )}
+    </div>
   ) : (
     <></>
   )

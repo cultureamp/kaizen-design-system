@@ -30,13 +30,13 @@ The FilterMultiSelect is a component relies heavily on consumer implemntation. I
 
 <Canvas of={FilterMultiSelectStories.WithSectionHeaders} />
 
-### With floatingConfig
+### With custom MenuPopup component
 
-You can also use the `floatingConfig` to leverage a subset of `Floating UI's` [configurable options](https://floating-ui.com/docs/usefloating). While in most cases the default behavior should satisfy most scenarios, this can be used when there is limited vertical space available in the viewport.
+You can replace the `MenuPopup` component within the FilterMultiSelect to allow flexibility in how the popup placement is determined. While in most cases the default behavior should satisfy most scenarios, this can be used when there is limited vertical space available in the viewport and more flexibility is required.
 
-The `shouldFlip` property will enable the [autoPlacement](https://floating-ui.com/docs/autoPlacement) middleware and `shouldResize` will enable the [size](https://floating-ui.com/docs/size) middleware.
+For convenience, we have also create a new primitive called `FilterMultiSelect.ResponsiveMenuPopup` that will automatically adjust the placement and size of the popup based on the available space in the viewport uses `floating-ui` and the [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) instead of `react-aria` hooks.
 
-The `shouldFlip` middleware will automatically flip the position of the menu when there is not enough space to display it in the intended direction, while the `shouldResize` middleware will resize the popover based on the window size availability
+Note: a required behavior of this implementation is that scroll is locked when the popup is active.
 
 <Canvas of={FilterMultiSelectStories.AboveIfAvailable} />
 

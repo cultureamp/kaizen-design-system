@@ -311,9 +311,16 @@ export const WithSectionNotification: Story = {
   },
 }
 
-export const AboveIfAvailable: Story = {
+export const WithCustomMenuPopup: Story = {
   ...WithSectionNotification,
-  name: 'With limited viewport and autoplacement above',
+  args: {
+    customMenuPopup: (props): JSX.Element => <FilterMultiSelect.ResponsiveMenuPopup {...props} />,
+  },
+}
+
+export const AboveIfAvailable: Story = {
+  ...WithCustomMenuPopup,
+  name: 'With customMenuPopup and limited viewport',
   parameters: {
     viewport: {
       viewports: {
@@ -328,12 +335,6 @@ export const AboveIfAvailable: Story = {
       defaultViewport: 'LimitedViewportAutoPlace',
     },
   },
-  args: {
-    floatingConfig: {
-      shouldFlip: true,
-      shouldResize: true,
-    },
-  },
   decorators: [
     (Story) => (
       <div>
@@ -344,40 +345,9 @@ export const AboveIfAvailable: Story = {
   ],
 }
 
-export const ShouldFlip: Story = {
-  ...AboveIfAvailable,
-  name: 'With limited viewport and shouldFlip',
-  parameters: {
-    viewport: {
-      viewports: {
-        LimitedViewportAutoPlace: {
-          name: 'Limited vertical space',
-          styles: {
-            width: '1024px',
-            height: '700px',
-          },
-        },
-      },
-      defaultViewport: 'LimitedViewportAutoPlace',
-    },
-  },
-  args: {
-    floatingConfig: {
-      shouldFlip: true,
-      shouldResize: false,
-    },
-  },
-}
-
 export const ShouldResize: Story = {
-  ...AboveIfAvailable,
+  ...WithCustomMenuPopup,
   name: 'With limited viewport and shouldFlip and shouldResize',
-  args: {
-    floatingConfig: {
-      shouldFlip: true,
-      shouldResize: true,
-    },
-  },
   parameters: {
     chromatic: {
       disable: false,
