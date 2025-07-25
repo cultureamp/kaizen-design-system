@@ -1,2 +1,2 @@
 export * from './usePopoverPositioning'
-export * from './supportsAnchorPositioning'
+export * from './useSupportsAnchorPositioning'

@@ -1,15 +1,12 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { useLocale } from '@react-aria/i18n'
-import { supportsAnchorPositioning } from './supportsAnchorPositioning'
 import { usePopoverPositioning } from './usePopoverPositioning'
+import { useSupportsAnchorPositioning } from './useSupportsAnchorPositioning'
 
 // CSS custom property names for consistent usage
 const CSS_PROPS = {
   POSITION_ANCHOR: '--position-anchor',
-  POPOVER_TOP: '--popover-top',
-  POPOVER_BOTTOM: '--popover-bottom',
-  POPOVER_INLINE_START: '--popover-inline-start',
-  POPOVER_MAX_HEIGHT: '--popover-max-height',
+  POSITION_AREA: '--position-area',
 } as const
 
 // Default values
@@ -47,20 +44,11 @@ const getAnchorPositioningStyles = (
     maxHeight: number | string | undefined
   },
 ): React.CSSProperties => {
-  const { maxHeight } = positionData
   const styles: React.CSSProperties = {
+    maxHeight: positionData.maxHeight ?? DEFAULTS.MAX_HEIGHT,
     [CSS_PROPS.POSITION_ANCHOR]: anchorName,
+    [CSS_PROPS.POSITION_AREA]: positionData.top === 'auto' ? 'top' : 'bottom',
   }
-
-  // Max height
-  if (typeof maxHeight === 'number') {
-    styles[CSS_PROPS.POPOVER_MAX_HEIGHT] = `${maxHeight}px`
-  } else if (maxHeight) {
-    styles[CSS_PROPS.POPOVER_MAX_HEIGHT] = maxHeight
-  } else {
-    styles[CSS_PROPS.POPOVER_MAX_HEIGHT] = DEFAULTS.MAX_HEIGHT
-  }
-
   return styles
 }
 
@@ -69,14 +57,10 @@ export const usePositioningStyles = (
   popoverRef: React.RefObject<HTMLDivElement>,
   anchorName: string,
 ): { popoverStyle: React.CSSProperties; isPositioned: boolean } => {
-  // Cache anchor positioning support detection (SSR-safe)
-  const cachedAnchorSupport: boolean | null = null
   const { direction } = useLocale()
-  const [hasAnchorSupport, setHasAnchorSupport] = useState<boolean | null>(null)
+  const hasAnchorSupport = useSupportsAnchorPositioning()
+  // const hasAnchorSupport = false
 
-  useEffect(() => {
-    setHasAnchorSupport(supportsAnchorPositioning(cachedAnchorSupport))
-  }, [])
   // Calculate position for RTL & iframe compatibility
   const { top, bottom, insetInlineStart, maxHeight, isPositioned } = usePopoverPositioning({
     triggerRef: buttonRef,

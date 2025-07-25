@@ -15,14 +15,10 @@
     visibility: hidden;
 
     @supports (anchor-name: --anchor) {
-      position-anchor: var(--position-anchor, --trigger);
-      top: var(--popover-top, calc(anchor(bottom) + 4px));
-      bottom: var(--popover-bottom, auto);
-      inset-inline-start: var(--popover-inline-start, anchor(start));
-      max-height: var(--popover-max-height, 300px);
-      position-area: bottom center;
-      position-try-fallbacks: flip-block;
-      /* stylelint-disable-next-line declaration-property-value-no-unknown */
+      position-anchor: var(--position-anchor);
+      margin-block-start: var(--spacing-4); 
+      margin-block-end: var(--spacing-4);
+      position-area: var(--position-area) center;
       width: anchor-size(width);
     }
   }
