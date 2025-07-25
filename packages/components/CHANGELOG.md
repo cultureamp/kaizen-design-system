@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.78.3
+
+### Patch Changes
+
+- [#5939](https://github.com/cultureamp/kaizen-design-system/pull/5939) [`3e47469`](https://github.com/cultureamp/kaizen-design-system/commit/3e474693a66bfef99c489013a0ed755a7a911f23) - Refactor FilterMultiSelect to allow for the custom rendering of the MenuPopup
+
+  - add customMenuPopup prop that accepts at React Component with MenuPopup render props
+  - add ResponsiveMenuPopup component that uses the floating-ui lib and Popover Web API
+
+  This was a backported fix from 46c3364. When upgrading you will need to move to kaizen/components@1.80.0
+
 ## 1.78.2
 
 ### Patch Changes
