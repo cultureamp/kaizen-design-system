@@ -2,7 +2,7 @@ import React from 'react'
 import { FocusScope } from '@react-aria/focus'
 import { DismissButton, useOverlay } from '@react-aria/overlays'
 import { useMenuTriggerContext } from '../../context'
-import styles from './MenuPopup.module.scss'
+import styles from './MenuPopup.module.css'
 
 export type MenuPopupProps = {
   isLoading?: boolean
