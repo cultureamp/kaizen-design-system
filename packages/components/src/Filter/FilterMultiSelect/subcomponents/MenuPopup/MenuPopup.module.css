@@ -1,0 +1,20 @@
+.menuPopup {
+  /* from $ca-z-index-dropdown */
+  z-index: 1000;
+  box-sizing: border-box;
+  background: var(--color-white);
+  color: var(--color-purple-800);
+  border-radius: var(--border-solid-border-radius);
+  box-shadow: var(--shadow-large-box-shadow);
+  padding: var(--spacing-12) 0;
+  margin-top: var(--spacing-6);
+  text-align: start;
+  width: var(--menu-container-width, 294px);
+  max-height: var(--menu-container-height, 500px);
+}
+
+.menuPopup[popover]:popover-open {
+  z-index: unset;
+  margin: 0;
+  inset: unset;
+}
