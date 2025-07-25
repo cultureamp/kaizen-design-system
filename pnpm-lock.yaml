@@ -78,8 +78,8 @@ importers:
         specifier: ^1.3.4
         version: 1.3.4(eslint@9.18.0(jiti@1.21.6))(typescript@5.8.3)(vitest@3.1.4(@types/debug@4.1.12)(@types/node@22.15.21)(jiti@1.21.6)(jsdom@20.0.3)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.20.3)(yaml@2.5.0))
       chromatic:
-        specifier: ^11.29.0
-        version: 11.29.0
+        specifier: ^13.1.2
+        version: 13.1.2
       eslint:
         specifier: ^9.18.0
         version: 9.18.0(jiti@1.21.6)
@@ -4579,8 +4579,8 @@ packages:
       '@chromatic-com/playwright':
         optional: true
 
-  chromatic@11.29.0:
-    resolution: {integrity: sha512-yisBlntp9hHVj19lIQdpTlcYIXuU9H/DbFuu6tyWHmj6hWT2EtukCCcxYXL78XdQt1vm2GfIrtgtKpj/Rzmo4A==}
+  chromatic@13.1.2:
+    resolution: {integrity: sha512-jgVptQabJHOnzmmvLjbtfutREkWGhDDk2gVqMH6N+V7z56oIy4Sd2/U7ZxNvnVFPinZQMSjSdUce4b6JIP64Dg==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -15314,7 +15314,7 @@ snapshots:
 
   chromatic@10.9.6: {}
 
-  chromatic@11.29.0: {}
+  chromatic@13.1.2: {}
 
   chromatic@9.1.0: {}
 
