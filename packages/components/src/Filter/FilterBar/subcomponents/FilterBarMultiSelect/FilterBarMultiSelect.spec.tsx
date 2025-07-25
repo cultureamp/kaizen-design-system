@@ -180,6 +180,7 @@ describe('<FilterBarMultiSelect />', () => {
     })
 
     await user.click(getByRole('option', { name: 'Fruit Jelly' }))
+    await user.keyboard('{Escape}')
     await waitFor(() => {
       expect(getByRole('button', { name: 'Toppings : Pearls, Fruit Jelly' })).toBeInTheDocument()
     })
