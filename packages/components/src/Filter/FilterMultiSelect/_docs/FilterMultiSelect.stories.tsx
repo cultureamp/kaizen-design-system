@@ -311,16 +311,21 @@ export const WithSectionNotification: Story = {
   },
 }
 
-export const WithCustomMenuPopup: Story = {
-  ...WithSectionNotification,
-  args: {
-    customMenuPopup: (props): JSX.Element => <FilterMultiSelect.ResponsiveMenuPopup {...props} />,
-  },
-}
+const sourceCode = `
+  <FilterMultiSelect
+    {...filterMultiSelectProps}
+    customMenuPopup={(props): JSX.Element => (
+      // This will replace the default MenuPopup with a custom one. The rest of the component should still be implemented as the FilterMultiSelect pattern.
+      <FilterMultiSelect.ResponsiveMenuPopup {...props} />
+    )}
+  >
+    {/* FilterMultiSelect children */}
+  </FilterMultiSelect>
+`
 
 export const AboveIfAvailable: Story = {
-  ...WithCustomMenuPopup,
-  name: 'With customMenuPopup and limited viewport',
+  ...WithSectionNotification,
+  name: 'With customMenuPopup and vertical placement',
   parameters: {
     viewport: {
       viewports: {
@@ -328,12 +333,16 @@ export const AboveIfAvailable: Story = {
           name: 'Limited vertical space',
           styles: {
             width: '1024px',
-            height: '500px',
+            height: '650px',
           },
         },
       },
       defaultViewport: 'LimitedViewportAutoPlace',
     },
+    docs: { source: { code: sourceCode } },
+  },
+  args: {
+    customMenuPopup: (props): JSX.Element => <FilterMultiSelect.ResponsiveMenuPopup {...props} />,
   },
   decorators: [
     (Story) => (
@@ -346,8 +355,8 @@ export const AboveIfAvailable: Story = {
 }
 
 export const ShouldResize: Story = {
-  ...WithCustomMenuPopup,
-  name: 'With limited viewport and shouldFlip and shouldResize',
+  ...AboveIfAvailable,
+  name: 'With customMenuPopup, vertical placement and resized popup',
   parameters: {
     chromatic: {
       disable: false,

@@ -35,7 +35,7 @@ type SelectionProps = {
 export type FilterMultiSelectProps = {
   trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
-  /** A React component that replaces the MenuPopup. Should only be used for changing how the floating element is positioned, ie: with the `<ResponsiveMenuPopup />` primitive. */
+  /** Replaces the MenuPopup. Should only be used for changing how the floating element is positioned, ie: with the `<ResponsiveMenuPopup />` primitive. */
   customMenuPopup?: React.ComponentType<MenuPopupProps>
   triggerRef?: React.RefObject<HTMLButtonElement>
   className?: string
