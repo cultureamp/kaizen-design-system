@@ -16,9 +16,9 @@
 
     @supports (anchor-name: --anchor) {
       position-anchor: var(--position-anchor);
-      margin-block-start: var(--spacing-4); 
-      margin-block-end: var(--spacing-4);
+      margin-block: var(--spacing-4);
       position-area: var(--position-area) center;
+      /* stylelint-disable-next-line declaration-property-value-no-unknown */
       width: anchor-size(width);
     }
   }
