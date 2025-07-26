@@ -15,8 +15,8 @@
     "clean": "rimraf './storybook-static' './node_modules' '.turbo'"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@kaizen/components": "workspace:*",
@@ -29,20 +29,20 @@
     "@storybook/manager-api": "8.6.12",
     "@storybook/react": "8.6.12",
     "@storybook/react-vite": "8.6.12",
-    "@storybook/test-runner": "^0.22.0",
+    "@storybook/test-runner": "^0.23.0",
     "@types/jest-axe": "^3.5.9",
     "@types/react-highlight": "^0.12.8",
-    "@vitejs/plugin-react": "^4.5.0",
+    "@vitejs/plugin-react": "^4.7.0",
     "axe-playwright": "^2.1.0",
     "classnames": "^2.5.1",
-    "globals": "^16.1.0",
+    "globals": "^16.3.0",
     "highlight.js": "^11.11.1",
     "jest-axe": "^10.0.0",
     "react-highlight": "^0.15.0",
     "sass": "1.79.6",
     "storybook": "8.6.12",
     "tailwindcss": "^3.4.17",
-    "vite-plugin-node-polyfills": "^0.23.0"
+    "vite-plugin-node-polyfills": "^0.24.0"
   },
   "devDependenciesComments": {
     "sass": "Prevent deprecation warnings introduced in 1.80 as we plan to move away from sass in KAIO"
