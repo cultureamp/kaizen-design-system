@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { useLocale } from '@react-aria/i18n'
+import { type PositionData } from '~components/__alpha__/SingleSelect/types'
 import { usePopoverPositioning } from './usePopoverPositioning'
 import { useSupportsAnchorPositioning } from './useSupportsAnchorPositioning'
 
@@ -17,12 +18,7 @@ const DEFAULTS = {
 /**
  * Generates manual positioning styles for browsers without anchor positioning support or SSR
  */
-const getManualPositioningStyles = (positionData: {
-  top: number | string | undefined
-  bottom: number | string | undefined
-  insetInlineStart: number | string | undefined
-  maxHeight: number | string | undefined
-}): React.CSSProperties => ({
+const getManualPositioningStyles = (positionData: PositionData): React.CSSProperties => ({
   top: positionData.top,
   bottom: positionData.bottom,
   insetInlineStart: positionData.insetInlineStart,
@@ -37,12 +33,7 @@ const getManualPositioningStyles = (positionData: {
  */
 const getAnchorPositioningStyles = (
   anchorName: string,
-  positionData: {
-    top: number | string | undefined
-    bottom: number | string | undefined
-    insetInlineStart: number | string | undefined
-    maxHeight: number | string | undefined
-  },
+  positionData: PositionData,
 ): React.CSSProperties => {
   const styles: React.CSSProperties = {
     maxHeight: positionData.maxHeight ?? DEFAULTS.MAX_HEIGHT,
