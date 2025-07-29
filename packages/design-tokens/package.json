@@ -52,7 +52,7 @@
     "object-to-css-variables": "^0.2.1",
     "postcss": "^8.5.6",
     "prettier": "*",
-    "react": "^19.1.0",
+    "react": "^19.1.1",
     "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
     "rollup": "^4.45.3",
