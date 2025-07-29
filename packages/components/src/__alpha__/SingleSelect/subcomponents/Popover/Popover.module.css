@@ -12,7 +12,6 @@
 
     /* TODO: update width based on design */
     width: 200px;
-    visibility: hidden;
 
     @supports (anchor-name: --anchor) {
       position-anchor: var(--position-anchor);
@@ -21,9 +20,5 @@
       /* stylelint-disable-next-line declaration-property-value-no-unknown */
       width: anchor-size(width);
     }
-  }
-
-  .popover:popover-open {
-    visibility: visible;
   }
 }

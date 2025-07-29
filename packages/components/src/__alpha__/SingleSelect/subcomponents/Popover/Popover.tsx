@@ -40,16 +40,14 @@ export const Popover = ({
 
   return (
     <RACPopover trigger="manual" isOpen={isOpen} onOpenChange={setOpen} ref={racPopoverRef}>
-      <div style={{ position: 'relative' }}>
-        <div
-          // @ts-expect-error - popover attribute is not included in current ts version, ignore type error
-          popover="manual"
-          ref={popoverRef}
-          className={styles.popover}
-          style={popoverStyle}
-        >
-          {children}
-        </div>
+      <div
+        // @ts-expect-error - popover attribute is not included in current ts version, ignore type error
+        popover="manual"
+        ref={popoverRef}
+        className={styles.popover}
+        style={popoverStyle}
+      >
+        {children}
       </div>
     </RACPopover>
   )
