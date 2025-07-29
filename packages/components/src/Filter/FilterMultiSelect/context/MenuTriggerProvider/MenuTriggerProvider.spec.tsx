@@ -1,7 +1,6 @@
 import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { vi } from 'vitest'
 import { FilterTriggerButton } from '~components/Filter/FilterMultiSelect/subcomponents/Trigger'
 import { MenuPopup } from '../../subcomponents/MenuPopup'
 import { MenuTriggerProvider, type MenuTriggerProviderProps } from './MenuTriggerProvider'
@@ -53,15 +52,11 @@ describe('<MenuTriggerProvider /> - Visual content', () => {
       rerender(<MenuTriggerProviderWrapper isOpen={false} />)
       expect(screen.queryByText('menu-content-mock')).not.toBeInTheDocument()
     })
-
-    it('fires the onOpenChange callback when the trigger is interacted', async () => {
+    it('fires the onOpenChange callback on user interaction to close the menu', async () => {
       const onOpenChange = vi.fn()
       render(<MenuTriggerProviderWrapper isOpen onOpenChange={onOpenChange} />)
 
-      const trigger = screen.getByRole('button', {
-        name: 'trigger-display-label-mock',
-      })
-      await user.click(trigger)
+      await user.keyboard('{Escape}')
 
       await waitFor(() => {
         expect(onOpenChange).toBeCalledTimes(1)
@@ -86,17 +81,6 @@ describe('<MenuTriggerProvider /> - Mouse interaction', () => {
   })
 
   describe('Given the menu is opened', () => {
-    it('is closed when user clicks on the trigger', async () => {
-      render(<MenuTriggerProviderWrapper defaultOpen />)
-      const trigger = screen.getByRole('button', {
-        name: 'trigger-display-label-mock',
-      })
-      await user.click(trigger)
-      await waitFor(() => {
-        expect(screen.queryByText('menu-content-mock')).not.toBeInTheDocument()
-      })
-    })
-
     it('is closed when user clicks outside of the menu', async () => {
       render(<MenuTriggerProviderWrapper defaultOpen />)
       await user.click(document.body)

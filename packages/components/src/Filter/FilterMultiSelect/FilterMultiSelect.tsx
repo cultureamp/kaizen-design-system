@@ -13,7 +13,7 @@ import { ListBox } from './subcomponents/ListBox'
 import { ListBoxSection } from './subcomponents/ListBoxSection'
 import { LoadMoreButton } from './subcomponents/LoadMoreButton'
 import { MenuFooter, MenuLoadingSkeleton } from './subcomponents/MenuLayout'
-import { MenuPopup, type MenuPopupProps } from './subcomponents/MenuPopup'
+import { MenuPopup, ResponsiveMenuPopup, type MenuPopupProps } from './subcomponents/MenuPopup'
 import { MultiSelectOption } from './subcomponents/MultiSelectOption'
 import { NoResults } from './subcomponents/NoResults'
 import { SearchInput } from './subcomponents/SearchInput'
@@ -35,6 +35,8 @@ type SelectionProps = {
 export type FilterMultiSelectProps = {
   trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
+  /** Replaces the MenuPopup. Should only be used for changing how the floating element is positioned, ie: with the `<ResponsiveMenuPopup />` primitive. */
+  customMenuPopup?: React.ComponentType<MenuPopupProps>
   triggerRef?: React.RefObject<HTMLButtonElement>
   className?: string
 } & Omit<MenuPopupProps, 'children'> &
@@ -44,6 +46,7 @@ export type FilterMultiSelectProps = {
 export const FilterMultiSelect = ({
   trigger,
   children,
+  customMenuPopup,
   isOpen,
   defaultOpen,
   onOpenChange,
@@ -58,9 +61,11 @@ export const FilterMultiSelect = ({
   onSearchInputChange,
   triggerRef,
   className,
+  ...restProps
 }: FilterMultiSelectProps): JSX.Element => {
+  const MenuComponent = customMenuPopup ?? MenuPopup
   const menuTriggerProps = { isOpen, defaultOpen, onOpenChange, triggerRef }
-  const menuPopupProps = { isLoading, loadingSkeleton }
+  const menuPopupProps = { isLoading, loadingSkeleton, ...restProps }
   const disabledKeys: Selection = new Set(
     items?.filter((item) => item.isDisabled === true).map((disabledItem) => disabledItem.value),
   )
@@ -79,11 +84,11 @@ export const FilterMultiSelect = ({
     <MenuTriggerProvider {...menuTriggerProps}>
       <div className={className}>
         <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
-        <MenuPopup {...menuPopupProps}>
+        <MenuComponent aria-label={label} {...menuPopupProps}>
           <SelectionProvider {...selectionProps}>
             <SelectionConsumer>{children}</SelectionConsumer>
           </SelectionProvider>
-        </MenuPopup>
+        </MenuComponent>
       </div>
     </MenuTriggerProvider>
   )
@@ -104,3 +109,4 @@ FilterMultiSelect.MenuFooter = MenuFooter // For layout
 FilterMultiSelect.MenuLoadingSkeleton = MenuLoadingSkeleton // Menu Loading Skeleton example
 FilterMultiSelect.LoadMoreButton = LoadMoreButton
 FilterMultiSelect.NoResults = NoResults
+FilterMultiSelect.ResponsiveMenuPopup = ResponsiveMenuPopup
