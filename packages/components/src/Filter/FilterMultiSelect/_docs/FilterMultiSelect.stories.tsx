@@ -3,6 +3,7 @@ import type { Selection } from '@react-types/shared'
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect, userEvent, waitFor, within } from '@storybook/test'
 import isChromatic from 'chromatic'
+import { Card } from '~components/Card'
 import { InlineNotification } from '~components/Notification'
 import { TextField } from '~components/TextField'
 import { FilterMultiSelect, getSelectedOptionLabels } from '..'
@@ -322,6 +323,39 @@ const sourceCode = `
     {/* FilterMultiSelect children */}
   </FilterMultiSelect>
 `
+
+export const WithContentBelow: Story = {
+  ...FilterMultiSelectTemplate,
+  decorators: [
+    (Story) => (
+      <div>
+        <Story />
+        <Card classNameOverride="mt-24 p-12" isElevated>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis libero dolore
+            pariatur enim voluptates aperiam, delectus, harum cum earum quibusdam quos porro
+            explicabo quisquam sapiente cupiditate quae hic, minus nam.
+          </p>
+        </Card>
+      </div>
+    ),
+  ],
+  parameters: {
+    chromatic: {
+      disable: false,
+    },
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const triggerButton = await canvas.findByRole('button', {
+      name: /Engineer/i,
+    })
+    await step('Trigger opens the FilterMultiSelect dialog', async () => {
+      await userEvent.click(triggerButton)
+      await waitFor(() => expect(canvas.getByRole('option', { name: /Front-End/i })).toBeVisible())
+    })
+  },
+}
 
 export const AboveIfAvailable: Story = {
   ...WithSectionNotification,
