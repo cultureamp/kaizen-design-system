@@ -10,7 +10,7 @@
     // Setting a min-width: 0 will maintain the gutter margins when the inner contents has something wider than the page (e.g. scrollable table)
     min-width: 0;
 
-    @media (max-width: calc(#{$layout-breakpoints-large} - 1px)) {
+    @container (max-width: calc(#{$layout-breakpoints-large} - 1px)) {
       margin: 0 $content-margin-width-on-medium-and-small;
     }
   }
