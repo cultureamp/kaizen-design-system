@@ -31,8 +31,6 @@ export const MenuPopup = ({
     overlayRef,
   )
 
-  console.log('overlayProps', overlayProps)
-
   // Wrap in <FocusScope> so that focus is restored back to the trigger when the menu is closed
   // and auto focus on the first focusable item after loading. (disable eslint no-autofocus error for it)
   // In addition, add hidden <DismissButton> components at the start and end of the list
