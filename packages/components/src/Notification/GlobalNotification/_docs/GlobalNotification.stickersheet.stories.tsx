@@ -73,9 +73,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       children: (
         <span>
           {"This survey status has been changed to 'Archived'. "}
-          <Link href="/" size="small">
-            View all
-          </Link>
+          <Link href="/">View all</Link>
         </span>
       ),
     } satisfies Partial<GlobalNotificationProps>
