@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.80.2
+
+### Patch Changes
+
+- [#5959](https://github.com/cultureamp/kaizen-design-system/pull/5959) [`e46c7cf`](https://github.com/cultureamp/kaizen-design-system/commit/e46c7cff621d2e16d702255bc8d968e2a58b0b9b) - Bug fix for notifications, removing duplicate styling for Link component
+
 ## 1.80.1
 
 ### Patch Changes
