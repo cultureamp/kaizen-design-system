@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.78.4
+
+### Patch Changes
+
+- [#5961](https://github.com/cultureamp/kaizen-design-system/pull/5961) [`96f4dab`](https://github.com/cultureamp/kaizen-design-system/commit/96f4dab902738d998c80e8f216650512781e912c) - Backport fix: Add fix for FilterMultiSelect introduced in 1.8.0
+
+  - re-add missing position absolute
+  - add interaction test to cover the missed scenario
+
 ## 1.78.3
 
 ### Patch Changes
