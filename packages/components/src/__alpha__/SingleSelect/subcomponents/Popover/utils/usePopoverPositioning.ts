@@ -17,9 +17,6 @@ type UsePopoverPositioningProps = {
   preferredPlacement?: 'top' | 'bottom'
 }
 
-/**
- * Hook to calculate and update the position of an overlay rendered in the top layer.
- */
 export function usePopoverPositioning({
   triggerRef,
   popoverRef,
@@ -27,21 +24,20 @@ export function usePopoverPositioning({
   offset = 4,
   preferredPlacement = 'bottom',
 }: UsePopoverPositioningProps): Position & { isPositioned: boolean } {
-  // Provide SSR-compatible default positioning
   const [position, setPosition] = useState<Position>({
     top: preferredPlacement === 'bottom' ? offset : 'auto',
     bottom: preferredPlacement === 'top' ? offset : 'auto',
     insetInlineStart: 0,
     maxHeight: 300, // TODO: update this based on designs
   })
-  // Start as true for SSR compatibility - we have default positioning
+
   const [isPositioned, setIsPositioned] = useState(true)
 
   const mountedRef = useRef<boolean>(false)
   const isSSR = typeof window === 'undefined'
 
   const updatePosition = useCallback(() => {
-    if (isSSR) return // SSR safety
+    if (isSSR) return
 
     const trigger = triggerRef.current
     const popover = popoverRef.current
@@ -57,7 +53,6 @@ export function usePopoverPositioning({
     const win = doc?.defaultView ?? window
     const isRTL = direction === 'rtl'
 
-    // No scroll handling needed since popover locks scroll
     const inlineStart = isRTL ? win.innerWidth - triggerRect.right : triggerRect.left
 
     const triggerTop = triggerRect.top
@@ -75,12 +70,10 @@ export function usePopoverPositioning({
     let maxHeight: number | undefined
 
     if (shouldFlip) {
-      // Render above
       top = 'auto'
       bottom = viewportHeight - triggerTop + offset
       maxHeight = Math.max(0, spaceAbove - offset)
     } else {
-      // Render below
       top = triggerBottom + offset
       bottom = 'auto'
       maxHeight = Math.max(0, spaceBelow - offset)
@@ -97,9 +90,7 @@ export function usePopoverPositioning({
     setIsPositioned(true)
   }, [triggerRef, popoverRef, direction, offset, preferredPlacement, isSSR])
 
-  // Separate effect for client-side initialization and resize handling
   useEffect(() => {
-    // This effect only runs on the client after hydration
     if (typeof window === 'undefined') return
 
     mountedRef.current = true
@@ -114,7 +105,6 @@ export function usePopoverPositioning({
 
     if (triggerEl) resizeObserver.observe(triggerEl)
 
-    // Add window resize listener for viewport changes
     const onWindowResize = (): void => updatePosition()
     window.addEventListener('resize', onWindowResize, { passive: true })
 

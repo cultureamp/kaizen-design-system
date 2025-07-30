@@ -4,13 +4,11 @@ import { type PositionData } from '~components/__alpha__/SingleSelect/types'
 import { usePopoverPositioning } from './usePopoverPositioning'
 import { useSupportsAnchorPositioning } from './useSupportsAnchorPositioning'
 
-// CSS custom property names for consistent usage
 const CSS_PROPS = {
   POSITION_ANCHOR: '--position-anchor',
   POSITION_AREA: '--position-area',
 } as const
 
-// Default values
 const DEFAULTS = {
   MAX_HEIGHT: '300px',
 } as const
@@ -28,9 +26,6 @@ const getManualPositioningStyles = (positionData: PositionData): React.CSSProper
   position: 'fixed',
 })
 
-/**
- * Generates anchor positioning styles with CSS custom properties
- */
 const getAnchorPositioningStyles = (
   anchorName: string,
   positionData: PositionData,
@@ -50,9 +45,7 @@ export const usePositioningStyles = (
 ): { popoverStyle: React.CSSProperties; isPositioned: boolean } => {
   const { direction } = useLocale()
   const hasAnchorSupport = useSupportsAnchorPositioning()
-  // const hasAnchorSupport = false
 
-  // Calculate position for RTL & iframe compatibility
   const { top, bottom, insetInlineStart, maxHeight, isPositioned } = usePopoverPositioning({
     triggerRef: buttonRef,
     popoverRef,
@@ -60,7 +53,6 @@ export const usePositioningStyles = (
     preferredPlacement: 'bottom',
   })
 
-  // Memoize position data to prevent unnecessary style recalculations
   const positionData = useMemo(
     () => ({
       top,
@@ -71,14 +63,11 @@ export const usePositioningStyles = (
     [top, bottom, insetInlineStart, maxHeight],
   )
 
-  // Memoize styles to prevent unnecessary recalculations
   const popoverStyle = useMemo(() => {
-    // Use manual positioning during detection or when not supported
     if (hasAnchorSupport === null || !hasAnchorSupport) {
       return getManualPositioningStyles(positionData)
     }
 
-    // Use CSS anchor positioning when supported
     return getAnchorPositioningStyles(anchorName, positionData)
   }, [hasAnchorSupport, anchorName, positionData])
 

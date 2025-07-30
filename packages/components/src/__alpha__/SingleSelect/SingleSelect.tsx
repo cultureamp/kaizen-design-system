@@ -21,13 +21,9 @@ export const SingleSelect = ({
   const buttonRef = React.useRef<HTMLButtonElement>(null)
   const popoverRef = React.useRef<HTMLDivElement>(null)
   const racPopoverRef = React.useRef<HTMLElement>(null)
-
-  // Generate a unique ID for this SingleSelect instance to avoid anchor name conflicts
   const uniqueId = useId()
   const anchorName = `--trigger-${uniqueId}`
 
-  // Select state without children render prop to keep things flexible
-  // and allow for custom list rendering
   const state = useSelectState({
     items,
   })

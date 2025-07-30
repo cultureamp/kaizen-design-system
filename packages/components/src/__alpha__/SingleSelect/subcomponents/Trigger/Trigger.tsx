@@ -15,7 +15,6 @@ type TriggerProps = {
 
 export const Trigger = ({ buttonRef }: TriggerProps): JSX.Element => {
   const { isOpen, setOpen, selectedKey, items, anchorName } = useSingleSelectContext()
-  // manually handle selected label to show in button
   const flattenedItems = useMemo(() => flattenItems(items), [items])
   const selectedLabel = useMemo(() => {
     const key = selectedKey

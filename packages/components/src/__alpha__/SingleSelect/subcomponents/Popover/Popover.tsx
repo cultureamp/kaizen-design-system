@@ -21,13 +21,10 @@ export const Popover = ({
 
   const { popoverStyle, isPositioned } = usePositioningStyles(buttonRef, popoverRef, anchorName)
 
-  // Show/hide popover based on state (memoized for performance, SSR-safe)
   const shouldShowPopover = useMemo(() => isOpen && isPositioned, [isOpen, isPositioned])
 
   useLayoutEffect(() => {
     const popover = popoverRef.current
-
-    // Check if popover API is available (browser-only)
     if (!popover?.showPopover || !popover?.hidePopover) return
 
     if (shouldShowPopover) {
