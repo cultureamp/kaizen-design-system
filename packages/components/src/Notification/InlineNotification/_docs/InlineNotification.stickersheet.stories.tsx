@@ -20,7 +20,9 @@ const DEFAULT_PROPS = {
   children: (
     <span>
       New user data, imported by mackenzie@hooli.com has successfully uploaded.{' '}
-      <Link href="/">Manage users is now available</Link>
+      <Link href="/" size="small">
+        Manage users is now available
+      </Link>
     </span>
   ),
 } satisfies Partial<InlineNotificationProps>
