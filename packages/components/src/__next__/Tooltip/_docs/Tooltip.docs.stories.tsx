@@ -14,6 +14,7 @@ import * as TestStories from './Tooltip.spec.stories'
 const meta = {
   title: 'Components/Tooltip/Tooltip (next)/Docs Assets',
   component: Tooltip,
+  tags: ['next'],
   parameters: {
     layout: 'centered',
     a11y: { disable: true },

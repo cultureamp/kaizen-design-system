@@ -12,6 +12,7 @@ import { groupedMockItems, mixedMockItemsDisabled, singleMockItems } from './moc
 const meta = {
   title: 'Components/Select/Select (next)',
   component: Select,
+  tags: ['next'],
   argTypes: {
     items: {
       options: ['Single', 'Grouped'],

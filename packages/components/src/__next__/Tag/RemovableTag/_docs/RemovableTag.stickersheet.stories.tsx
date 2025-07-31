@@ -5,6 +5,7 @@ import { RemovableTag } from '../index'
 
 export default {
   title: 'Components/Tag/Tag (next)/RemovableTag',
+  tags: ['next'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

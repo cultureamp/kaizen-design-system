@@ -8,6 +8,7 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from '../index'
 const meta = {
   title: 'Components/Tabs/Tabs (deprecated)',
   component: Tabs,
+  tags: ['deprecated'],
   args: {
     children: (
       <>

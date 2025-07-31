@@ -35,6 +35,7 @@ const scale: Scale = [
 const meta = {
   title: 'Components/LikertScaleLegacy (deprecated)',
   component: LikertScaleLegacy,
+  tags: ['deprecated'],
   args: {
     scale,
     labelId: 'labelId',
