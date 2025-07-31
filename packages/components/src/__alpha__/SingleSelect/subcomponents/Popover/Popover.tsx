@@ -31,7 +31,13 @@ export const Popover = ({
   }, [shouldShowPopover])
 
   return (
-    <RACPopover trigger="manual" isOpen={isOpen} onOpenChange={setOpen} ref={racPopoverRef}>
+    <RACPopover
+      shouldUpdatePosition={false}
+      trigger="manual"
+      isOpen={isOpen}
+      onOpenChange={setOpen}
+      ref={racPopoverRef}
+    >
       <div
         // @ts-expect-error - popover attribute is not included in current ts version, ignore type error
         popover="manual"
