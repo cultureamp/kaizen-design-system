@@ -2,15 +2,11 @@ import React, { useMemo } from 'react'
 import { Button as RACButton } from 'react-aria-components'
 import { Icon } from '~components/__next__/Icon'
 import { useSingleSelectContext } from '../../context'
-import { type SelectItem, type SelectSection } from '../../types'
+import { type SelectItem, type SelectSection, type TriggerProps } from '../../types'
 import styles from './Trigger.module.css'
 
 function flattenItems(items: (SelectItem | SelectSection)[]): SelectItem[] {
   return items.flatMap((item) => ('options' in item ? item.options : item))
-}
-
-type TriggerProps = {
-  buttonRef: React.RefObject<HTMLButtonElement>
 }
 
 export const Trigger = ({ buttonRef }: TriggerProps): JSX.Element => {

@@ -2,14 +2,9 @@ import React, { useLayoutEffect, useMemo, type PropsWithChildren } from 'react'
 
 import { Popover as RACPopover } from 'react-aria-components'
 import { useSingleSelectContext } from '../../context'
+import { type PopoverProps } from '../../types'
 import { usePositioningStyles } from './utils/usePositioningStyles'
 import styles from './Popover.module.css'
-
-type PopoverProps = {
-  buttonRef: React.RefObject<HTMLElement>
-  popoverRef: React.RefObject<HTMLDivElement>
-  racPopoverRef: React.Ref<any>
-}
 
 export const Popover = ({
   buttonRef,

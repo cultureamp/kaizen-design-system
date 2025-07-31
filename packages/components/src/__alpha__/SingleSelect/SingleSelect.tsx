@@ -4,13 +4,7 @@ import { type Key, type Selection } from '@react-types/shared'
 import { Select as RACSelect, type ListBoxProps } from 'react-aria-components'
 import { SingleSelectContext } from './context'
 import { List, ListItem, ListSection, Popover, Trigger } from './subcomponents'
-import { type SelectItem, type SelectSection } from './types'
-
-export type SingleSelectProps = {
-  children?: React.ReactNode
-  items: (SelectItem | SelectSection)[]
-  onSelectionChange?: (key: Key | null) => void
-}
+import { type SelectItem, type SelectSection, type SingleSelectProps } from './types'
 
 export const SingleSelect = ({
   items,

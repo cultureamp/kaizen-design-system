@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useLocale } from '@react-aria/i18n'
-import { type PositionData } from '~components/__alpha__/SingleSelect/types'
+import { type PositionData } from '../../../types'
 import { usePopoverPositioning } from './usePopoverPositioning'
 import { useSupportsAnchorPositioning } from './useSupportsAnchorPositioning'
 

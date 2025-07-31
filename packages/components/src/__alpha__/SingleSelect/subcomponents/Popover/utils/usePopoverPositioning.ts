@@ -1,21 +1,9 @@
-import { useCallback, useEffect, useRef, useState, type RefObject } from 'react'
-
-type LogicalPosition = number | 'auto' | undefined
-
-type Position = {
-  top: LogicalPosition
-  bottom: LogicalPosition
-  insetInlineStart: number
-  maxHeight?: number
-}
-
-type UsePopoverPositioningProps = {
-  triggerRef: RefObject<HTMLElement>
-  popoverRef: RefObject<HTMLElement>
-  direction?: 'ltr' | 'rtl'
-  offset?: number
-  preferredPlacement?: 'top' | 'bottom'
-}
+import { useCallback, useEffect, useRef, useState } from 'react'
+import {
+  type LogicalPosition,
+  type Position,
+  type UsePopoverPositioningProps,
+} from '../../../types'
 
 export function usePopoverPositioning({
   triggerRef,
