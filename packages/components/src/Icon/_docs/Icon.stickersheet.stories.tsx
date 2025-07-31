@@ -4,7 +4,7 @@ import * as ICONS from '~components/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 
 export default {
-  title: 'Components/Icon (deprecated)',
+  title: 'Components/Icon/Icon (deprecated)',
   tags: ['deprecated'],
   parameters: {
     chromatic: { disable: false },

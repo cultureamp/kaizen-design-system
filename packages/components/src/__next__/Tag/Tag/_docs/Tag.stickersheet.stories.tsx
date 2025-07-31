@@ -6,7 +6,7 @@ import { Tag } from '../Tag'
 import { TagColorKeys } from '../types'
 
 export default {
-  title: 'Components/Tag (next)',
+  title: 'Components/Tag/Tag (next)',
   tags: ['next'],
   parameters: {
     chromatic: { disable: false },

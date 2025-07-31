@@ -17,7 +17,7 @@ import { ReversedColors } from '~components/utils'
 import { Button } from '../index'
 
 const meta = {
-  title: 'Components/Button (next)',
+  title: 'Components/Button/Button',
   component: Button,
   tags: ['next'],
   args: {

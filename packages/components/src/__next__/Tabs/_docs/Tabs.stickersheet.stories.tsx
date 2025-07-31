@@ -5,7 +5,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { Tab, TabList, TabPanel, Tabs } from '../index'
 
 export default {
-  title: 'Components/Tabs (next)',
+  title: 'Components/Tabs/Tabs (next)',
   tags: ['next'],
   parameters: {
     chromatic: { disable: false },

@@ -7,7 +7,7 @@ import { AddIcon } from '../index'
 import styles from './icon.module.scss'
 
 const meta = {
-  title: 'Components/Icon (deprecated)',
+  title: 'Components/Icon/Icon (deprecated)',
   component: AddIcon,
   tags: ['deprecated'],
   args: {

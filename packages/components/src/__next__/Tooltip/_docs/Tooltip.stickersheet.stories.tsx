@@ -5,7 +5,7 @@ import { mergeClassNames } from '~components/utils/mergeClassNames'
 import * as testStories from './Tooltip.spec.stories'
 
 export default {
-  title: 'Components/Tooltip (next)',
+  title: 'Components/Tooltip/Tooltip (next)',
   tags: ['next'],
   parameters: {
     chromatic: { disable: false },

@@ -7,7 +7,7 @@ import { Menu } from '../index'
 import { MenuContentExample } from './MenuContentExample'
 
 export default {
-  title: 'Components/Menu (deprecated)',
+  title: 'Components/Menu/Menu (deprecated)',
   tags: ['deprecated'],
   parameters: {
     chromatic: { disable: false },
