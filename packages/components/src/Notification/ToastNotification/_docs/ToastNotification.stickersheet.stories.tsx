@@ -1,5 +1,6 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
+import { Link } from '~components/Link'
 import { type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { ToastNotification } from '../ToastNotification'
 
@@ -16,27 +17,40 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <ToastNotification variant="success" title="Success">
         New user data, imported by mackenzie@hooli.com has successfully uploaded.{' '}
-        <a href="/">Manage users is now available</a>
+        <Link href="/" size="small">
+          Manage users is now available
+        </Link>
       </ToastNotification>
       <ToastNotification type="positive" title="Positive (Deprecated)">
         New user data, imported by mackenzie@hooli.com has successfully uploaded.{' '}
-        <a href="/">Manage users is now available</a>
+        <Link href="/" size="small">
+          Manage users is now available
+        </Link>
       </ToastNotification>
       <ToastNotification variant="informative" title="Informative">
         New user data is currently being processed. We&apos;ll let you know when the process is
-        completed. <a href="/">Manage users</a>
+        completed.{' '}
+        <Link href="/" size="small">
+          Manage users
+        </Link>
       </ToastNotification>
       <ToastNotification variant="cautionary" title="Cautionary">
         New user data, imported by mackenzie@hooli.com has uploaded with some minor issues.{' '}
-        <a href="/">View issues</a>
+        <Link href="/" size="small">
+          View issues
+        </Link>
       </ToastNotification>
       <ToastNotification variant="warning" title="Warning">
         Results hidden to protect confidentiality of individuals and small groups.{' '}
-        <a href="/">Learn more</a>
+        <Link href="/" size="small">
+          Learn more
+        </Link>
       </ToastNotification>
       <ToastNotification type="negative" title="Negative (Deprecated)">
         New user data, imported by mackenzie@hooli.com has successfully uploaded.{' '}
-        <a href="/">Manage users is now available</a>
+        <Link href="/" size="small">
+          Manage users is now available
+        </Link>
       </ToastNotification>
       <ToastNotification
         variant="security"

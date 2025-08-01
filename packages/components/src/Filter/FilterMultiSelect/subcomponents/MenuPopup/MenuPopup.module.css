@@ -1,6 +1,7 @@
 @layer kz-components {
   .menuPopup {
     /* from $ca-z-index-dropdown */
+    position: absolute;
     z-index: 1000;
     box-sizing: border-box;
     background: var(--color-white);
@@ -11,10 +12,10 @@
     margin-top: var(--spacing-6);
     text-align: start;
     width: var(--menu-container-width, 294px);
-    max-height: var(--menu-container-height, 500px);
   }
 
   .menuPopup[popover]:popover-open {
+    max-height: var(--menu-container-height, 500px);
     z-index: unset;
     margin: 0;
     inset: unset;

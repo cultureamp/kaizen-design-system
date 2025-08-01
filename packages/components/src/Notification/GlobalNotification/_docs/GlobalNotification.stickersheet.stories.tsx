@@ -1,5 +1,6 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
+import { Link } from '~components/Link'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { GlobalNotification, type GlobalNotificationProps } from '../GlobalNotification'
 
@@ -72,7 +73,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       children: (
         <span>
           {"This survey status has been changed to 'Archived'. "}
-          <a href="/">View all</a>
+          <Link href="/">View all</Link>
         </span>
       ),
     } satisfies Partial<GlobalNotificationProps>
