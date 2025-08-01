@@ -1,13 +1,35 @@
-import React from 'react'
-import { Button as RACButton, SelectValue } from 'react-aria-components'
+import React, { useMemo } from 'react'
+import { Button as RACButton } from 'react-aria-components'
 import { Icon } from '~components/__next__/Icon'
+import { useSingleSelectContext } from '../../context'
+import { type SelectItem, type SelectSection, type TriggerProps } from '../../types'
 import styles from './Trigger.module.css'
 
-export const Trigger = (): JSX.Element => {
+function flattenItems(items: (SelectItem | SelectSection)[]): SelectItem[] {
+  return items.flatMap((item) => ('options' in item ? item.options : item))
+}
+
+export const Trigger = ({ buttonRef }: TriggerProps): JSX.Element => {
+  const { isOpen, setOpen, selectedKey, items, anchorName } = useSingleSelectContext()
+  const flattenedItems = useMemo(() => flattenItems(items), [items])
+  const selectedLabel = useMemo(() => {
+    const key = selectedKey
+    const item = flattenedItems.find((i) => i.value === key)
+    return item?.label ?? <div></div>
+  }, [flattenedItems, selectedKey])
+
   return (
-    <RACButton className={styles.button}>
-      <SelectValue />
-      <Icon name="keyboard_arrow_down" isPresentational />
-    </RACButton>
+    <div style={{ position: 'relative' }}>
+      <RACButton
+        className={styles.button}
+        ref={buttonRef}
+        onPress={() => setOpen(!isOpen)}
+        aria-expanded={isOpen}
+        style={{ '--anchor-name': anchorName } as React.CSSProperties}
+      >
+        {selectedLabel}
+        <Icon name="keyboard_arrow_down" isPresentational />
+      </RACButton>
+    </div>
   )
 }
