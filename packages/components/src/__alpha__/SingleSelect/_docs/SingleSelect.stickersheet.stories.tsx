@@ -17,22 +17,22 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <StickerSheet isReversed={isReversed} title="SingleSelect" headers={['Items', 'Grouped']}>
         <StickerSheet.Row>
-          <SingleSelect>
+          <SingleSelect items={singleMockItems}>
             <SingleSelect.List>
               {singleMockItems.map((item) => (
-                <SingleSelect.ListItem key={item.value} value={{ value: item.value }}>
+                <SingleSelect.ListItem key={item.value} id={item.value}>
                   {item.label}
                 </SingleSelect.ListItem>
               ))}
             </SingleSelect.List>
           </SingleSelect>
 
-          <SingleSelect>
+          <SingleSelect items={groupedMockItems}>
             <SingleSelect.List>
               {groupedMockItems.map((section) => (
                 <SingleSelect.ListSection name={section.label} key={section.label}>
                   {section.options.map((item) => (
-                    <SingleSelect.ListItem key={item.value} value={{ value: item.value }}>
+                    <SingleSelect.ListItem key={item.value} id={item.value}>
                       {item.label}
                     </SingleSelect.ListItem>
                   ))}
