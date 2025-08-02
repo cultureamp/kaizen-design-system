@@ -117,7 +117,7 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
       playwright:
-        specifier: ^1.54.1
+        specifier: ^1.54.2
         version: 1.54.2
       plop:
         specifier: ^4.0.1
@@ -144,7 +144,7 @@ importers:
         specifier: ^2.5.5
         version: 2.5.5
       typescript:
-        specifier: ^5.8.3
+        specifier: ^5.9.2
         version: 5.9.2
       typescript-eslint:
         specifier: ^8.38.0
@@ -250,7 +250,7 @@ importers:
         specifier: ^2.1.4
         version: 2.1.5(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@headlessui/react':
-        specifier: ^2.2.6
+        specifier: ^2.2.7
         version: 2.2.7(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@internationalized/date':
         specifier: ^3.8.2
@@ -470,7 +470,7 @@ importers:
         specifier: ^7.1.11
         version: 7.1.11(react@19.1.1)(typescript@5.9.2)
       rollup:
-        specifier: ^4.46.1
+        specifier: ^4.46.2
         version: 4.46.2
       sass:
         specifier: 1.79.6
@@ -558,7 +558,7 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0(prop-types@15.8.1)(react@19.1.1)
       rollup:
-        specifier: ^4.46.1
+        specifier: ^4.46.2
         version: 4.46.2
       tslib:
         specifier: ^2.8.1
@@ -588,7 +588,7 @@ importers:
         specifier: ^19.1.0
         version: 19.1.1(react@19.1.1)
       rollup:
-        specifier: ^4.46.1
+        specifier: ^4.46.2
         version: 4.46.2
       tailwindcss:
         specifier: ^4.1.11
