@@ -113,7 +113,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.4",
-    "@headlessui/react": "^2.2.6",
+    "@headlessui/react": "^2.2.7",
     "@internationalized/date": "^3.8.2",
     "@popperjs/core": "^2.11.8",
     "@reach/tabs": "^0.18.0",
@@ -190,7 +190,7 @@
     "react-dom": "^19.1.0",
     "react-highlight": "^0.15.0",
     "react-intl": "^7.1.11",
-    "rollup": "^4.46.1",
+    "rollup": "^4.46.2",
     "sass": "1.79.6",
     "serialize-query-params": "^2.0.2",
     "svgo": "^4.0.0",
