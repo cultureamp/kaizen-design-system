@@ -107,19 +107,19 @@ export const renameV2ComponentImportsAndUsages =
         const tagName = node.tagName.getText()
         const tagImportAttributes = tagsMap?.get(tagName)
 
-        if (!tagImportAttributes) return node
+        if (!tagImportAttributes) return ts.visitEachChild(node, visit, context)
 
         const kaioComponentName = tagImportAttributes.originalName
         const oldImportSource = tagImportAttributes.importModuleName
         const rename = componentRenameMap.get(kaioComponentName)
 
-        if (!rename) return node
+        if (!rename) return ts.visitEachChild(node, visit, context)
 
         if (oldImportSource !== rename.fromModule) {
           console.warn(
             `Expected ${kaioComponentName} to be imported from ${rename.fromModule}, but found ${oldImportSource}`,
           )
-          return node
+          return ts.visitEachChild(node, visit, context)
         }
 
         setImportToRemove(importsToRemove, rename.fromModule, kaioComponentName)

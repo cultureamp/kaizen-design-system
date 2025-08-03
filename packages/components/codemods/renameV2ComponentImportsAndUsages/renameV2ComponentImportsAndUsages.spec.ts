@@ -219,6 +219,46 @@ const MyComponent = (props: TitleBlockProps) => null
       const result = transformComponents(inputAst)
       expect(result).toBe(printAst(inputAst))
     })
+
+    it('should rename TitleBlockZen when it appears within a component prop', () => {
+      const inputAst = parseJsx(`
+import { TitleBlockZen } from "@kaizen/components"
+
+const MyComponent = () => {
+  return (
+    <Card
+      CardContent={
+        <Header>
+          <TitleBlockZen
+            navigationTabs={props.map(prop => <NavigationTab {...prop} />)}
+          />
+        </Header>
+      }
+    />
+  )
+}
+`)
+      const expectedAst = parseJsx(`
+import { TitleBlock } from "@kaizen/components"
+
+const MyComponent = () => {
+  return (
+    <Card
+      CardContent={
+        <Header>
+          <TitleBlock
+            navigationTabs={props.map(prop => <NavigationTab {...prop} />)}
+          />
+        </Header>
+      }
+    />
+  )
+}
+`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
   })
 
   describe('Mixed scenarios', () => {

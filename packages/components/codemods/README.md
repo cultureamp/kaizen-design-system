@@ -27,6 +27,8 @@ pnpm kaizen-codemod src migrateWellVariantToColor
 
 ### `renameV2ComponentImportsAndUsages`
 
+Released in `1.81.0`
+
 Renames component imports and usages for the v2 release:
 
 - `Select` (from `@kaizen/components/next`) → `SingleSelect`
