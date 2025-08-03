@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import type { Selection } from '@react-types/shared'
 import type { Meta, StoryObj } from '@storybook/react'
+import { expect, userEvent, waitFor, within } from '@storybook/test'
 import isChromatic from 'chromatic'
+import { Card } from '~components/Card'
 import { InlineNotification } from '~components/Notification'
 import { TextField } from '~components/TextField'
 import { FilterMultiSelect, getSelectedOptionLabels } from '..'
-import { mockItems } from './MockData'
+import { mockItems, mockManyItems } from './MockData'
 
 const IS_CHROMATIC = isChromatic()
 
@@ -14,7 +16,7 @@ const meta = {
   component: FilterMultiSelect,
   parameters: {
     docs: {
-      source: { type: 'code' },
+      source: { type: 'auto' },
     },
   },
   args: {
@@ -178,6 +180,7 @@ export const WithSectionHeaders: Story = {
   ...FilterMultiSelectTemplate,
   args: {
     isOpen: IS_CHROMATIC || undefined,
+    items: mockManyItems,
     children: (): JSX.Element => (
       <>
         <FilterMultiSelect.SearchInput />
@@ -306,5 +309,113 @@ export const WithSectionNotification: Story = {
   },
   parameters: {
     chromatic: { disable: false },
+  },
+}
+
+const sourceCode = `
+  <FilterMultiSelect
+    {...filterMultiSelectProps}
+    customMenuPopup={(props): JSX.Element => (
+      // This will replace the default MenuPopup with a custom one. The rest of the component should still be implemented as the FilterMultiSelect pattern.
+      <FilterMultiSelect.ResponsiveMenuPopup {...props} />
+    )}
+  >
+    {/* FilterMultiSelect children */}
+  </FilterMultiSelect>
+`
+
+export const WithContentBelow: Story = {
+  ...FilterMultiSelectTemplate,
+  decorators: [
+    (Story) => (
+      <div>
+        <Story />
+        <Card classNameOverride="mt-24 p-12" isElevated>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis libero dolore
+            pariatur enim voluptates aperiam, delectus, harum cum earum quibusdam quos porro
+            explicabo quisquam sapiente cupiditate quae hic, minus nam.
+          </p>
+        </Card>
+      </div>
+    ),
+  ],
+  parameters: {
+    chromatic: {
+      disable: false,
+    },
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const triggerButton = await canvas.findByRole('button', {
+      name: /Engineer/i,
+    })
+    await step('Trigger opens the FilterMultiSelect dialog', async () => {
+      await userEvent.click(triggerButton)
+      await waitFor(() => expect(canvas.getByRole('option', { name: /Front-End/i })).toBeVisible())
+    })
+  },
+}
+
+export const AboveIfAvailable: Story = {
+  ...WithSectionNotification,
+  name: 'With customMenuPopup and vertical placement',
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: 'Limited vertical space',
+          styles: {
+            width: '1024px',
+            height: '650px',
+          },
+        },
+      },
+      defaultViewport: 'LimitedViewportAutoPlace',
+    },
+    docs: { source: { code: sourceCode } },
+  },
+  args: {
+    customMenuPopup: (props): JSX.Element => <FilterMultiSelect.ResponsiveMenuPopup {...props} />,
+  },
+  decorators: [
+    (Story) => (
+      <div>
+        <div style={{ height: '80vh', maxHeight: '500px' }}>Content above</div>
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+export const ShouldResize: Story = {
+  ...AboveIfAvailable,
+  name: 'With customMenuPopup, vertical placement and resized popup',
+  parameters: {
+    chromatic: {
+      disable: false,
+    },
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: 'Limited vertical space',
+          styles: {
+            width: '1024px',
+            height: '450px',
+          },
+        },
+      },
+      defaultViewport: 'LimitedViewportAutoPlace',
+    },
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const triggerButton = await canvas.findByRole('button', {
+      name: /Engineer/i,
+    })
+    await step('Trigger opens the FilterMultiSelect dialog', async () => {
+      await userEvent.click(triggerButton)
+      await waitFor(() => expect(canvas.getByRole('dialog')).toBeVisible())
+    })
   },
 }

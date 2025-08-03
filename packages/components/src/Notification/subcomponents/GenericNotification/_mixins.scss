@@ -262,13 +262,15 @@ $notification-slide-right: transform 300ms ease-out;
       letter-spacing: $typography-paragraph-body-letter-spacing;
     }
 
-    a[href] {
+    a[href]:not([data-rac]) {
+      border-bottom: var(--spacing-1) solid $color-blue-500;
+      text-decoration: none;
       color: $color-blue-500;
-      text-decoration: underline;
 
       &:hover {
-        color: $color-blue-500;
         text-decoration: none;
+        color: $color-blue-600;
+        border-bottom: var(--spacing-1) solid $color-blue-600;
       }
     }
 
