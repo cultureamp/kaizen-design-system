@@ -29,6 +29,14 @@ describe('renameV2ComponentImportsAndUsages', () => {
       expect(result).toBe(printAst(expectedAst))
     })
 
+    it('should rename Select import from future to SingleSelect', () => {
+      const inputAst = parseJsx(`import { Select } from "@kaizen/components/future"`)
+      const expectedAst = parseJsx(`import { SingleSelect } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
     it('should rename Select JSX element to SingleSelect', () => {
       const inputAst = parseJsx(`
 import { Select } from "@kaizen/components/next"
@@ -45,16 +53,89 @@ const MyComponent = () => <SingleSelect />
       expect(result).toBe(printAst(expectedAst))
     })
 
-    it('should rename SelectProps type to SingleSelectProps', () => {
+    it('should rename Select[Type] to SingleSelect[Type] from future module', () => {
       const inputAst = parseJsx(`
-import type { SelectProps } from "@kaizen/components/next"
-
-const MyComponent = (props: SelectProps) => null
+import type { SelectProps, SelectOption, SelectOptionGroup, SelectItem, SelectOptionNode, SelectOptionGroupNode, SelectItemNode } from "@kaizen/components/future"
 `)
       const expectedAst = parseJsx(`
-import { SingleSelectProps } from "@kaizen/components"
+import type { SingleSelectProps, SingleSelectOption, SingleSelectOptionGroup, SingleSelectItem, SingleSelectOptionNode, SingleSelectOptionGroupNode, SingleSelectItemNode } from "@kaizen/components"
+`)
 
-const MyComponent = (props: SingleSelectProps) => null
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should rename Select[Type] to SingleSelect[Type] from next module', () => {
+      const inputAst = parseJsx(`
+import type { SelectProps, SelectOption, SelectOptionGroup, SelectItem, SelectOptionNode, SelectOptionGroupNode, SelectItemNode } from "@kaizen/components/next"
+`)
+      const expectedAst = parseJsx(`
+import type { SingleSelectProps, SingleSelectOption, SingleSelectOptionGroup, SingleSelectItem, SingleSelectOptionNode, SingleSelectOptionGroupNode, SingleSelectItemNode } from "@kaizen/components"
+`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should preserve type-only import declaration style', () => {
+      const inputAst = parseJsx(`
+import type { SelectOption } from "@kaizen/components/next"
+
+const option: SelectOption = { label: 'Test', value: 'test' }
+`)
+      const expectedAst = parseJsx(`
+import type { SingleSelectOption } from "@kaizen/components"
+
+const option: SingleSelectOption = { label: 'Test', value: 'test' }
+`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should preserve inline type import style', () => {
+      const inputAst = parseJsx(`
+import { type SelectItem, Button } from "@kaizen/components/next"
+
+const item: SelectItem = { label: 'Test', value: 'test' }
+`)
+      const expectedAst = parseJsx(`
+import { Button } from "@kaizen/components/next"
+import type { SingleSelectItem } from "@kaizen/components"
+
+const item: SingleSelectItem = { label: 'Test', value: 'test' }
+`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should handle mixed imports with Select types and other components', () => {
+      const inputAst = parseJsx(`
+import { Select, Button } from "@kaizen/components/next"
+import type { SelectProps, SelectOption } from "@kaizen/components/future"
+
+const MyComponent = (props: SelectProps) => (
+  <>
+    <Select />
+    <Button>Click me</Button>
+  </>
+)
+
+const option: SelectOption = { label: 'Test', value: 'test' }
+`)
+      const expectedAst = parseJsx(`
+import { Button } from "@kaizen/components/next"
+import { SingleSelect, type SingleSelectProps, type SingleSelectOption } from "@kaizen/components"
+
+const MyComponent = (props: SingleSelectProps) => (
+  <>
+    <SingleSelect />
+    <Button>Click me</Button>
+  </>
+)
+
+const option: SingleSelectOption = { label: 'Test', value: 'test' }
 `)
 
       const result = transformComponents(inputAst)
