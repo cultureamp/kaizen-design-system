@@ -246,7 +246,7 @@ describe('updateKaioImports()', () => {
           import type { CardProps } from "@kaizen/components/next"
         `)
           const outputAst = parseJsx(`
-          import type { CardProps, ButtonProps } from "@kaizen/components/next"
+          import type { CardProps, type ButtonProps } from "@kaizen/components/next"
         `)
           expect(
             transformInput(inputAst)({
