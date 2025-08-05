@@ -27,7 +27,7 @@ pnpm kaizen-codemod src migrateWellVariantToColor
 
 ### `renameV2ComponentImportsAndUsages`
 
-Released in `1.81.0`
+Released in `1.80.3`
 
 Renames component imports and usages for the v2 release:
 
