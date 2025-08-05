@@ -1,0 +1,60 @@
+/* DialogMenuItem Styles */
+.item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  min-height: 40px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+  width: 100%;
+  position: relative;
+}
+
+.item:hover {
+  background-color: #f5f5f5;
+}
+
+.item[data-focused] {
+  background-color: #e6f3ff;
+  color: #0066cc;
+}
+
+.item[data-pressed] {
+  background-color: #cce7ff;
+}
+
+.item[data-disabled] {
+  color: #999;
+  cursor: not-allowed;
+}
+
+.item[data-disabled]:hover {
+  background-color: transparent;
+}
+
+/* Icon and text layout */
+.flexWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+}
+
+.iconWrapper svg {
+  width: 16px;
+  height: 16px;
+}

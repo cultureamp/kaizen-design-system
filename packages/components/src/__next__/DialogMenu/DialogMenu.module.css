@@ -1,0 +1,69 @@
+/* DialogMenu Base Styles */
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* Menu container styles */
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  max-width: 300px;
+  padding: 8px 0;
+  outline: none;
+}
+
+.menu:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Dialog container styles */
+.dialog {
+  outline: none;
+}
+
+/* Popover styles */
+.popover {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.popover[data-entering] {
+  animation: popover-fade-in 200ms ease-out;
+}
+
+.popover[data-exiting] {
+  animation: popover-fade-out 150ms ease-in;
+}
+
+/* Arrow styles for popover */
+.arrow {
+  fill: white;
+  stroke: #e0e0e0;
+  stroke-width: 1px;
+}
+
+@keyframes popover-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popover-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
