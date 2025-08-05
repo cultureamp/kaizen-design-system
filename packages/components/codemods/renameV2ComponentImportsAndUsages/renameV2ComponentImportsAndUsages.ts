@@ -1,19 +1,17 @@
 import ts from 'typescript'
 import {
+  processImportDeclaration,
   setImportToAdd,
   setImportToRemove,
   updateJsxElementTagName,
   updateKaioImports,
   type ComponentRenameConfig,
+  type ModuleRenameConfig,
   type TagImportAttributesMap,
   type UpdateKaioImportsArgs,
 } from '../utils'
 
-type RenameConfig = {
-  newName: string
-  fromModules: string[]
-  toModule: string
-}
+type RenameConfig = ModuleRenameConfig
 
 const renameMap = new Map<string, RenameConfig>([
   [
@@ -129,25 +127,12 @@ export const renameV2ComponentImportsAndUsages =
 
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isImportDeclaration(node)) {
-        const moduleSpecifier = node.moduleSpecifier.getText().slice(1, -1)
-
-        const importClause = node.importClause
-        if (importClause?.namedBindings && ts.isNamedImports(importClause.namedBindings)) {
-          importClause.namedBindings.elements.forEach((importSpecifier) => {
-            const importName =
-              importSpecifier.propertyName?.getText() ?? importSpecifier.name?.getText()
-
-            const renameConfig = renameMap.get(importName)
-            if (renameConfig?.fromModules.includes(moduleSpecifier)) {
-              validRenames.add(importName)
-              setImportToRemove(importsToRemove, moduleSpecifier, importName)
-              setImportToAdd(importsToAdd, renameConfig.toModule, {
-                componentName: renameConfig.newName,
-                isTypeOnly: importSpecifier.isTypeOnly || importClause.isTypeOnly,
-              })
-            }
-          })
-        }
+        processImportDeclaration(node, {
+          importsToRemove,
+          importsToAdd,
+          renameMap,
+          validRenames,
+        })
       }
 
       if (
