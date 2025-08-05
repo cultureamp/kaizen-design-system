@@ -5,13 +5,13 @@ import { FieldMessage } from '~components/FieldMessage'
 import { ContextModal } from '~components/Modal'
 import { RadioField, RadioGroup } from '~components/Radio'
 import { Button } from '~components/__next__'
-import { Select } from '../Select'
+import { SingleSelect } from '../SingleSelect'
 import { type SelectOption } from '../types'
 import { groupedMockItems, mixedMockItemsDisabled, singleMockItems } from './mockData'
 
 const meta = {
-  title: 'Components/Select/Select (next)',
-  component: Select,
+  title: 'Components/Select/SingleSelect (next)',
+  component: SingleSelect,
   argTypes: {
     items: {
       options: ['Single', 'Grouped'],
@@ -37,7 +37,7 @@ const meta = {
       argTypesRegex: '^on.*',
     },
   },
-} satisfies Meta<typeof Select>
+} satisfies Meta<typeof SingleSelect>
 
 export default meta
 
@@ -79,13 +79,13 @@ export const SectionDivider: Story = {
         if (item.type === 'item' && item.key === 'custom') {
           return (
             <React.Fragment key={item.key}>
-              <Select.Option item={item} />
-              <Select.SectionDivider />
+              <SingleSelect.Option item={item} />
+              <SingleSelect.SectionDivider />
             </React.Fragment>
           )
         }
 
-        return <Select.ItemDefaultRender key={item.key} item={item} />
+        return <SingleSelect.ItemDefaultRender key={item.key} item={item} />
       }),
   },
   parameters: { docs: { source: { type: 'code' } } },
@@ -93,7 +93,7 @@ export const SectionDivider: Story = {
 
 export const AdditionalProperties: Story = {
   render: (args) => (
-    <Select<SelectOption & { isFruit: boolean }>
+    <SingleSelect<SelectOption & { isFruit: boolean }>
       {...args}
       label="Custom"
       items={[
@@ -107,7 +107,7 @@ export const AdditionalProperties: Story = {
       {({ items }): JSX.Element[] =>
         items.map((item) =>
           item.type === 'item' ? (
-            <Select.Option
+            <SingleSelect.Option
               key={item.key}
               item={{
                 ...item,
@@ -115,23 +115,23 @@ export const AdditionalProperties: Story = {
               }}
             />
           ) : (
-            <Select.ItemDefaultRender key={item.key} item={item} />
+            <SingleSelect.ItemDefaultRender key={item.key} item={item} />
           ),
         )
       }
-    </Select>
+    </SingleSelect>
   ),
   parameters: { docs: { source: { type: 'code' } } },
 }
 
 const sourceCodeCustomiseTrigger = `
-<Select
-  trigger={props => <Select.TriggerButton {...props} id="select--custom-trigger" />}
+<SingleSelect
+  trigger={props => <SingleSelect.TriggerButton {...props} id="select--custom-trigger" />}
 />
 `
 export const CustomiseTrigger: Story = {
   args: {
-    trigger: (props) => <Select.TriggerButton {...props} id="select--custom-trigger" />,
+    trigger: (props) => <SingleSelect.TriggerButton {...props} id="select--custom-trigger" />,
   },
   parameters: {
     docs: {
@@ -145,8 +145,8 @@ export const CustomiseTrigger: Story = {
 export const Validation: Story = {
   render: (args) => (
     <div className="flex gap-16">
-      <Select {...args} status="error" validationMessage="This is an error message" />
-      <Select {...args} status="caution" validationMessage="This is a cautionary message" />
+      <SingleSelect {...args} status="error" validationMessage="This is an error message" />
+      <SingleSelect {...args} status="caution" validationMessage="This is a cautionary message" />
     </div>
   ),
 }
@@ -177,7 +177,7 @@ export const PortalContainer: Story = {
             title="Select test"
           >
             <div className="flex gap-24 bg-gray-200 p-12" id={portalContainerId}>
-              <Select
+              <SingleSelect
                 {...args}
                 label="Select within a modal"
                 id="id--select-inner"
@@ -204,7 +204,7 @@ export const TouchDeviceTest: Story = {
           <br />
           At this time, we could not automate this test, so this story exists for manual testing.
         </p>
-        <Select {...args} />
+        <SingleSelect {...args} />
         <RadioGroup labelText="Radio group">
           <RadioField
             labelText="Label 1"
@@ -239,7 +239,7 @@ export const RequiredSelect: Story = {
     isRequired: true,
     validationBehavior: 'native',
   },
-  render: (args) => <Select {...args} />,
+  render: (args) => <SingleSelect {...args} />,
 }
 
 export const SelectNativeValidationBehavior: Story = {
@@ -264,7 +264,7 @@ export const SelectNativeValidationBehavior: Story = {
             setHasSubmitted(true)
           }}
         >
-          <Select {...args} isRequired />
+          <SingleSelect {...args} isRequired />
           <div>
             <Button type="submit">Submit</Button>
           </div>

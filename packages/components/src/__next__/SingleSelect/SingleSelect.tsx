@@ -23,11 +23,11 @@ import {
 import { type SelectItem, type SelectOption } from './types'
 import { getDisabledKeysFromItems } from './utils/getDisabledKeysFromItems'
 import { transformSelectItemToCollectionElement } from './utils/transformSelectItemToCollectionElement'
-import styles from './Select.module.scss'
+import styles from './SingleSelect.module.scss'
 
 type OmittedAriaSelectProps = 'children' | 'items' | 'onSelectionChange'
 
-export type SelectProps<Option extends SelectOption = SelectOption> = {
+export type SingleSelectProps<Option extends SelectOption = SelectOption> = {
   /**
    * Item objects in the collection.
    */
@@ -80,7 +80,7 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896474/Select Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-select--docs Storybook}
  */
-export const Select = <Option extends SelectOption = SelectOption>({
+export const SingleSelect = <Option extends SelectOption = SelectOption>({
   label,
   items,
   id: propsId,
@@ -100,7 +100,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   onSelectionChange,
   portalContainerId,
   ...restProps
-}: SelectProps<Option>): JSX.Element => {
+}: SingleSelectProps<Option>): JSX.Element => {
   const { refs } = useFloating<HTMLButtonElement>()
   const triggerRef = refs.reference
   const fallbackId = useId()
@@ -216,13 +216,13 @@ export const Select = <Option extends SelectOption = SelectOption>({
   )
 }
 
-Select.displayName = 'Select'
+SingleSelect.displayName = 'SingleSelect'
 
-Select.Section = ListBoxSection
-Select.SectionDivider = SectionDivider
-Select.Option = Option
-Select.ItemDefaultRender = ListItem
+SingleSelect.Section = ListBoxSection
+SingleSelect.SectionDivider = SectionDivider
+SingleSelect.Option = Option
+SingleSelect.ItemDefaultRender = ListItem
 
 // @deprecated Legacy exported aliases
-Select.TriggerButton = SelectToggle
-Select.ListBox = ListBox
+SingleSelect.TriggerButton = SelectToggle
+SingleSelect.ListBox = ListBox

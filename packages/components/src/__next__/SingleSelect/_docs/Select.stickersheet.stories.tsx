@@ -2,7 +2,7 @@ import React from 'react'
 import { type Meta } from '@storybook/react'
 import isChromatic from 'chromatic'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
-import { Select } from '../index'
+import { SingleSelect } from '../index'
 import {
   groupedMockItems,
   mixedMockItemsDisabled,
@@ -14,7 +14,7 @@ import {
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: 'Components/Select/Select (next)',
+  title: 'Components/Select/SingleSelect (next)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -26,15 +26,15 @@ const StickerSheetTemplate: StickerSheetStory = {
     <>
       <StickerSheet
         isReversed={isReversed}
-        title="Select"
+        title="SingleSelect"
         headers={['Base', 'Selected', 'Description']}
       >
         <StickerSheet.Row>
           <StickerSheet.Cell style={{ verticalAlign: 'top' }}>
-            <Select label="Label" items={singleMockItems} isReversed={isReversed} />
+            <SingleSelect label="Label" items={singleMockItems} isReversed={isReversed} />
           </StickerSheet.Cell>
           <StickerSheet.Cell style={{ verticalAlign: 'top' }}>
-            <Select
+            <SingleSelect
               label="Label"
               items={singleMockItems}
               selectedKey="mocha"
@@ -42,7 +42,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             />
           </StickerSheet.Cell>
           <StickerSheet.Cell style={{ verticalAlign: 'top' }}>
-            <Select
+            <SingleSelect
               label="Label"
               items={singleMockItems}
               description="This is a description"
@@ -59,35 +59,40 @@ const StickerSheetTemplate: StickerSheetStory = {
         headers={['Hover', 'Active', 'Focus', 'Disabled']}
       >
         <StickerSheet.Row>
-          <Select
+          <SingleSelect
             label="Label"
             items={singleMockItems}
             isReversed={isReversed}
             data-sb-pseudo-styles="hover"
           />
-          <Select
+          <SingleSelect
             label="Label"
             items={singleMockItems}
             isReversed={isReversed}
             data-sb-pseudo-styles="active"
           />
-          <Select
+          <SingleSelect
             label="Label"
             items={singleMockItems}
             isReversed={isReversed}
             data-sb-pseudo-styles="focus"
           />
-          <Select label="Label" items={singleMockItems} isDisabled isReversed={isReversed} />
+          <SingleSelect label="Label" items={singleMockItems} isDisabled isReversed={isReversed} />
         </StickerSheet.Row>
       </StickerSheet>
 
       <StickerSheet isReversed={isReversed} title="Width" layout="stretch">
         <StickerSheet.Row>
-          <Select label="Full width" items={singleMockItems} isFullWidth isReversed={isReversed} />
+          <SingleSelect
+            label="Full width"
+            items={singleMockItems}
+            isFullWidth
+            isReversed={isReversed}
+          />
         </StickerSheet.Row>
         <StickerSheet.Row>
           <div style={{ width: '50%' }}>
-            <Select
+            <SingleSelect
               label="Custom Width (50%)"
               items={singleMockItems}
               isFullWidth
@@ -99,7 +104,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <StickerSheet isReversed={isReversed} title="Validation">
         <StickerSheet.Row>
-          <Select
+          <SingleSelect
             label="Error"
             items={singleMockItems}
             description="This is a description"
@@ -107,7 +112,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             validationMessage="This is an error"
             isReversed={isReversed}
           />
-          <Select
+          <SingleSelect
             label="Caution"
             items={singleMockItems}
             description="This is a description"
@@ -120,7 +125,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <StickerSheet isReversed={isReversed} title="Truncated">
         <StickerSheet.Row>
-          <Select
+          <SingleSelect
             label="Label"
             items={[
               { label: 'Dev-ops', value: 'id-devops' },
@@ -185,13 +190,13 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
       >
         <StickerSheet.Row>
           <StickerSheet.Cell style={{ width: '250px' }}>
-            <Select label="Label" defaultOpen={IS_CHROMATIC} items={singleMockItems} />
+            <SingleSelect label="Label" defaultOpen={IS_CHROMATIC} items={singleMockItems} />
           </StickerSheet.Cell>
           <StickerSheet.Cell style={{ width: '250px' }}>
-            <Select label="Label" defaultOpen={IS_CHROMATIC} items={groupedMockItems} />
+            <SingleSelect label="Label" defaultOpen={IS_CHROMATIC} items={groupedMockItems} />
           </StickerSheet.Cell>
           <StickerSheet.Cell style={{ width: '250px' }}>
-            <Select
+            <SingleSelect
               label="Label"
               defaultOpen={IS_CHROMATIC}
               items={singleMockItems}
@@ -199,7 +204,7 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
             />
           </StickerSheet.Cell>
           <StickerSheet.Cell style={{ width: '250px' }}>
-            <Select label="Label" defaultOpen={IS_CHROMATIC} items={mixedMockItemsDisabled} />
+            <SingleSelect label="Label" defaultOpen={IS_CHROMATIC} items={mixedMockItemsDisabled} />
           </StickerSheet.Cell>
         </StickerSheet.Row>
       </StickerSheet>
@@ -216,12 +221,12 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
       >
         <StickerSheet.Row>
           <StickerSheet.Cell style={{ width: '250px' }}>
-            <Select label="Label" defaultOpen={IS_CHROMATIC} items={singleMockItems}>
+            <SingleSelect label="Label" defaultOpen={IS_CHROMATIC} items={singleMockItems}>
               {({ items }): JSX.Element[] =>
                 items.map((item) => {
                   if (item.type === 'item') {
                     return (
-                      <Select.Option
+                      <SingleSelect.Option
                         key={item.key}
                         item={{
                           ...item,
@@ -243,19 +248,23 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                     )
                   }
 
-                  return <Select.ItemDefaultRender key={item.key} item={item} />
+                  return <SingleSelect.ItemDefaultRender key={item.key} item={item} />
                 })
               }
-            </Select>
+            </SingleSelect>
           </StickerSheet.Cell>
 
           <StickerSheet.Cell style={{ width: '250px' }}>
-            <Select label="Label" defaultOpen={IS_CHROMATIC} items={mixedMockItemsUngroupedFirst}>
+            <SingleSelect
+              label="Label"
+              defaultOpen={IS_CHROMATIC}
+              items={mixedMockItemsUngroupedFirst}
+            >
               {({ items }): JSX.Element[] =>
                 items.map((item) => {
                   if (item.type === 'item' && item.key === 'batch-brew') {
                     return (
-                      <Select.Option
+                      <SingleSelect.Option
                         key={item.key}
                         item={{
                           ...item,
@@ -267,7 +276,7 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
 
                   if (item.type === 'section' && item.key === 'Syrup') {
                     return (
-                      <Select.Section
+                      <SingleSelect.Section
                         key={item.key}
                         section={{
                           ...item,
@@ -280,28 +289,28 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                     )
                   }
 
-                  return <Select.ItemDefaultRender key={item.key} item={item} />
+                  return <SingleSelect.ItemDefaultRender key={item.key} item={item} />
                 })
               }
-            </Select>
+            </SingleSelect>
           </StickerSheet.Cell>
 
           <StickerSheet.Cell style={{ width: '250px' }}>
-            <Select label="Label" defaultOpen={IS_CHROMATIC} items={mixedMockItemsUnordered}>
+            <SingleSelect label="Label" defaultOpen={IS_CHROMATIC} items={mixedMockItemsUnordered}>
               {({ items }): JSX.Element[] =>
                 items.map((item) => (
                   <React.Fragment key={item.key}>
-                    {item.type === 'section' && <Select.SectionDivider />}
-                    <Select.ItemDefaultRender item={item} />
-                    {item.type === 'section' && <Select.SectionDivider />}
+                    {item.type === 'section' && <SingleSelect.SectionDivider />}
+                    <SingleSelect.ItemDefaultRender item={item} />
+                    {item.type === 'section' && <SingleSelect.SectionDivider />}
                   </React.Fragment>
                 ))
               }
-            </Select>
+            </SingleSelect>
           </StickerSheet.Cell>
 
           <StickerSheet.Cell style={{ width: '250px' }}>
-            <Select
+            <SingleSelect
               label="Label"
               defaultOpen={IS_CHROMATIC}
               items={[{ label: 'Customise...', value: 'custom' }, ...singleMockItems]}
@@ -311,16 +320,16 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
                   if (item.type === 'item' && item.key === 'custom') {
                     return (
                       <React.Fragment key={item.key}>
-                        <Select.Option item={item} />
-                        <Select.SectionDivider />
+                        <SingleSelect.Option item={item} />
+                        <SingleSelect.SectionDivider />
                       </React.Fragment>
                     )
                   }
 
-                  return <Select.ItemDefaultRender key={item.key} item={item} />
+                  return <SingleSelect.ItemDefaultRender key={item.key} item={item} />
                 })
               }
-            </Select>
+            </SingleSelect>
           </StickerSheet.Cell>
         </StickerSheet.Row>
       </StickerSheet>
@@ -332,10 +341,14 @@ const StickerSheetOptionsTemplate: StickerSheetStory = {
       >
         <StickerSheet.Row>
           <StickerSheet.Cell style={{ width: '250px' }}>
-            <Select label="Label" defaultOpen={IS_CHROMATIC} items={[{ value: 'a', label: 'A' }]} />
+            <SingleSelect
+              label="Label"
+              defaultOpen={IS_CHROMATIC}
+              items={[{ value: 'a', label: 'A' }]}
+            />
           </StickerSheet.Cell>
           <StickerSheet.Cell>
-            <Select
+            <SingleSelect
               label="Label"
               defaultOpen={IS_CHROMATIC}
               items={[
