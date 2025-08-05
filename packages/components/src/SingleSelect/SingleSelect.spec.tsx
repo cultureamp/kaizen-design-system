@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { Select, type SelectProps } from './Select'
+import { SingleSelect, type SingleSelectProps } from './SingleSelect'
 import { singleMockItems } from './_docs/mockData'
 const user = userEvent.setup()
 
@@ -11,10 +11,12 @@ const SelectWrapper = ({
   selectedKey,
   onSelectionChange,
   ...props
-}: Partial<SelectProps>): JSX.Element => {
-  const [selected, setSelected] = React.useState<SelectProps['selectedKey']>(selectedKey ?? null)
+}: Partial<SingleSelectProps>): JSX.Element => {
+  const [selected, setSelected] = React.useState<SingleSelectProps['selectedKey']>(
+    selectedKey ?? null,
+  )
   return (
-    <Select
+    <SingleSelect
       label="Mock Label"
       items={items}
       description="This is a description"
