@@ -7,13 +7,9 @@ import {
   updateJsxElementTagName,
   updateKaioImports,
   type ComponentGroup,
-  type ComponentRenameConfig,
-  type ModuleRenameConfig,
   type TagImportAttributesMap,
   type UpdateKaioImportsArgs,
 } from '../utils'
-
-type RenameConfig = ModuleRenameConfig
 
 const componentGroups: ComponentGroup[] = [
   {
@@ -35,27 +31,6 @@ const componentGroups: ComponentGroup[] = [
 ]
 
 const renameMap = createRenameMapFromGroups(componentGroups)
-
-const createComponentRenameConfig = (
-  config: RenameConfig,
-  fromModule: string,
-): ComponentRenameConfig => ({
-  newName: config.newName,
-  fromModule,
-  toModule: config.toModule,
-})
-
-const componentRenameMap = new Map<string, ComponentRenameConfig>()
-for (const [name, config] of Array.from(renameMap.entries())) {
-  if (
-    !name.endsWith('Props') &&
-    !name.includes('Option') &&
-    !name.includes('Item') &&
-    !name.includes('Node')
-  ) {
-    componentRenameMap.set(name, createComponentRenameConfig(config, config.fromModules[0]))
-  }
-}
 
 export const renameV2ComponentImportsAndUsages =
   (tagsMap: TagImportAttributesMap | undefined): ts.TransformerFactory<ts.SourceFile> =>
@@ -82,17 +57,31 @@ export const renameV2ComponentImportsAndUsages =
       ) {
         if (ts.isPropertyAccessExpression(node.tagName)) {
           const left = node.tagName.expression.getText()
-          const rename = componentRenameMap.get(left)
+          const renameConfig = renameMap.get(left)
 
-          if (rename) {
-            setImportToRemove(importsToRemove, rename.fromModule, left)
-            setImportToAdd(importsToAdd, rename.toModule, { componentName: rename.newName })
+          if (renameConfig) {
+            setImportToRemove(importsToRemove, renameConfig.fromModules[0], left)
+            setImportToAdd(importsToAdd, renameConfig.toModule, {
+              componentName: renameConfig.newName,
+            })
+
+            // Create temporary map for updateJsxElementTagName
+            const tempComponentMap = new Map([
+              [
+                left,
+                {
+                  newName: renameConfig.newName,
+                  fromModule: renameConfig.fromModules[0],
+                  toModule: renameConfig.toModule,
+                },
+              ],
+            ])
 
             return updateJsxElementTagName(
               context.factory,
               node,
-              rename.newName,
-              componentRenameMap,
+              renameConfig.newName,
+              tempComponentMap,
             )
           }
 
@@ -124,7 +113,14 @@ export const renameV2ComponentImportsAndUsages =
         })
         const jsxElementName = alias ?? renameConfig.newName
         const tempComponentMap = new Map([
-          [kaioComponentName, createComponentRenameConfig(renameConfig, oldImportSource)],
+          [
+            kaioComponentName,
+            {
+              newName: renameConfig.newName,
+              fromModule: oldImportSource,
+              toModule: renameConfig.toModule,
+            },
+          ],
         ])
         return updateJsxElementTagName(context.factory, node, jsxElementName, tempComponentMap)
       }
