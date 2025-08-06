@@ -28,6 +28,7 @@ const transformComponents = (sourceFile: TransformSourceArgs['sourceFile']): str
     'ButtonProps',
     'ButtonsSizes',
     'ButtonVariants',
+    'Icon',
   ])
   return transformSource({
     sourceFile,
@@ -308,6 +309,24 @@ describe('migrateV2NextToCurrent', () => {
     it('should update Key future import', () => {
       const inputAst = parseJsx(`import { Key } from "@kaizen/components/future"`)
       const expectedAst = parseJsx(`import { Key } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+  })
+
+  describe('Icon import statements', () => {
+    it('should update Icon next import', () => {
+      const inputAst = parseJsx(`import { Icon } from "@kaizen/components/next"`)
+      const expectedAst = parseJsx(`import { Icon } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should update Icon future import', () => {
+      const inputAst = parseJsx(`import { Icon } from "@kaizen/components/future"`)
+      const expectedAst = parseJsx(`import { Icon } from "@kaizen/components"`)
 
       const result = transformComponents(inputAst)
       expect(result).toBe(printAst(expectedAst))

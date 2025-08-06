@@ -17,7 +17,7 @@ const componentGroups: ComponentGroup[] = [
     toModule: '@kaizen/components',
   },
   {
-    components: ['Tabs', 'Tab', 'TabList', 'TabPanel'],
+    components: ['Tabs', 'Tab', 'TabList', 'TabPanel', 'Icon', 'Focusable', 'Key'],
     fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
     toModule: '@kaizen/components',
   },
@@ -36,7 +36,7 @@ const componentGroups: ComponentGroup[] = [
     toModule: '@kaizen/components',
   },
   {
-    components: ['Focusable', 'Key', 'Button', 'ButtonProps', 'ButtonsSizes', 'ButtonVariants'],
+    components: ['Button', 'ButtonProps', 'ButtonsSizes', 'ButtonVariants'],
     fromModules: [
       '@kaizen/components/next',
       '@kaizen/components/future',
