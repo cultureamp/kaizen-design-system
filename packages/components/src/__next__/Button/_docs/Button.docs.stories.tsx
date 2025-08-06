@@ -3,13 +3,13 @@ import { action } from '@storybook/addon-actions'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Badge } from '~components/Badge'
 import { EmptyState } from '~components/EmptyState'
+import { SingleSelect } from '~components/SingleSelect'
 import {
   Icon,
   Menu,
   MenuItem,
   MenuPopover,
   MenuTrigger,
-  Select,
   Tooltip,
   TooltipTrigger,
 } from '~components/__next__'
@@ -201,7 +201,7 @@ export const DoExampleDefaultToMediumSize: Story = {
   render: () => {
     return (
       <>
-        <Select items={[]} label="Choose country"></Select>
+        <SingleSelect items={[]} label="Choose country"></SingleSelect>
         <Button className="mt-8">Save</Button>
       </>
     )
@@ -212,7 +212,7 @@ export const DontExampleDefaultToMediumSize: Story = {
   render: () => {
     return (
       <>
-        <Select items={[]} label="Choose country"></Select>
+        <SingleSelect items={[]} label="Choose country"></SingleSelect>
         <Button className="mt-8" variant="primary" size="small">
           Save
         </Button>

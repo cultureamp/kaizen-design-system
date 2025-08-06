@@ -19,7 +19,7 @@ import {
   FilterMultiSelect,
   type DateRange,
   type ItemType,
-  type SelectOption,
+  type SingleSelectOption,
 } from '~components/index'
 import { FilterBar, useFilterBarContext, type Filters } from '../index'
 import { type FilterBarMultiSelectProps } from '../subcomponents'
@@ -415,7 +415,7 @@ const FilterPerson = (props: { id?: string }): JSX.Element => {
 }
 
 const FilterRoom = (props: { id?: keyof ValuesSiblingDependent }): JSX.Element => {
-  type Item = SelectOption & {
+  type Item = SingleSelectOption & {
     role: string
   }
 
@@ -492,7 +492,7 @@ const FilterPerson = (props: { id?: string }): JSX.Element => {
 }
 
 const FilterRoom = (props: { id?: string }): JSX.Element => {
-  type Item = SelectOption & { role: string }
+  type Item = SingleSelectOption & { role: string }
 
   const data = [
     { value: "eng-1", label: "Engineering Space 1", role: "engineer" },
