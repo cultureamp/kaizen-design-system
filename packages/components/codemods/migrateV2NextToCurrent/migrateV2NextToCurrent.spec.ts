@@ -21,6 +21,13 @@ const transformComponents = (sourceFile: TransformSourceArgs['sourceFile']): str
     'TabPanel',
     'Tooltip',
     'TooltipTrigger',
+    'ReversedColors',
+    'Focusable',
+    'Key',
+    'Button',
+    'ButtonProps',
+    'ButtonsSizes',
+    'ButtonVariants',
   ])
   return transformSource({
     sourceFile,
@@ -255,6 +262,156 @@ describe('migrateV2NextToCurrent', () => {
     it('should update TooltipTrigger v3/overlays import', () => {
       const inputAst = parseJsx(`import { TooltipTrigger } from "@kaizen/components/v3/overlays"`)
       const expectedAst = parseJsx(`import { TooltipTrigger } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+  })
+
+  describe('ReversedColors import statements', () => {
+    it('should update ReversedColors v3/utilities import', () => {
+      const inputAst = parseJsx(`import { ReversedColors } from "@kaizen/components/v3/utilities"`)
+      const expectedAst = parseJsx(`import { ReversedColors } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+  })
+
+  describe('Focusable import statements', () => {
+    it('should update Focusable next import', () => {
+      const inputAst = parseJsx(`import { Focusable } from "@kaizen/components/next"`)
+      const expectedAst = parseJsx(`import { Focusable } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should update Focusable future import', () => {
+      const inputAst = parseJsx(`import { Focusable } from "@kaizen/components/future"`)
+      const expectedAst = parseJsx(`import { Focusable } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+  })
+
+  describe('Key import statements', () => {
+    it('should update Key next import', () => {
+      const inputAst = parseJsx(`import { Key } from "@kaizen/components/next"`)
+      const expectedAst = parseJsx(`import { Key } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should update Key future import', () => {
+      const inputAst = parseJsx(`import { Key } from "@kaizen/components/future"`)
+      const expectedAst = parseJsx(`import { Key } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+  })
+
+  describe('Button import statements', () => {
+    it('should update Button next import', () => {
+      const inputAst = parseJsx(`import { Button } from "@kaizen/components/next"`)
+      const expectedAst = parseJsx(`import { Button } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should update Button future import', () => {
+      const inputAst = parseJsx(`import { Button } from "@kaizen/components/future"`)
+      const expectedAst = parseJsx(`import { Button } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should update Button v3/actions import', () => {
+      const inputAst = parseJsx(`import { Button } from "@kaizen/components/v3/actions"`)
+      const expectedAst = parseJsx(`import { Button } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+  })
+
+  describe('ButtonProps import statements', () => {
+    it('should update ButtonProps next import', () => {
+      const inputAst = parseJsx(`import { ButtonProps } from "@kaizen/components/next"`)
+      const expectedAst = parseJsx(`import { ButtonProps } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should update ButtonProps future import', () => {
+      const inputAst = parseJsx(`import { ButtonProps } from "@kaizen/components/future"`)
+      const expectedAst = parseJsx(`import { ButtonProps } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should update ButtonProps v3/actions import', () => {
+      const inputAst = parseJsx(`import { ButtonProps } from "@kaizen/components/v3/actions"`)
+      const expectedAst = parseJsx(`import { ButtonProps } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+  })
+
+  describe('ButtonsSizes import statements', () => {
+    it('should update ButtonsSizes next import', () => {
+      const inputAst = parseJsx(`import { ButtonsSizes } from "@kaizen/components/next"`)
+      const expectedAst = parseJsx(`import { ButtonsSizes } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should update ButtonsSizes future import', () => {
+      const inputAst = parseJsx(`import { ButtonsSizes } from "@kaizen/components/future"`)
+      const expectedAst = parseJsx(`import { ButtonsSizes } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should update ButtonsSizes v3/actions import', () => {
+      const inputAst = parseJsx(`import { ButtonsSizes } from "@kaizen/components/v3/actions"`)
+      const expectedAst = parseJsx(`import { ButtonsSizes } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+  })
+
+  describe('ButtonVariants import statements', () => {
+    it('should update ButtonVariants next import', () => {
+      const inputAst = parseJsx(`import { ButtonVariants } from "@kaizen/components/next"`)
+      const expectedAst = parseJsx(`import { ButtonVariants } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should update ButtonVariants future import', () => {
+      const inputAst = parseJsx(`import { ButtonVariants } from "@kaizen/components/future"`)
+      const expectedAst = parseJsx(`import { ButtonVariants } from "@kaizen/components"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should update ButtonVariants v3/actions import', () => {
+      const inputAst = parseJsx(`import { ButtonVariants } from "@kaizen/components/v3/actions"`)
+      const expectedAst = parseJsx(`import { ButtonVariants } from "@kaizen/components"`)
 
       const result = transformComponents(inputAst)
       expect(result).toBe(printAst(expectedAst))
