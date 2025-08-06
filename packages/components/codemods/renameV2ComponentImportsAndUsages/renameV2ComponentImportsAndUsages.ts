@@ -1,10 +1,12 @@
 import ts from 'typescript'
 import {
+  createRenameMapFromGroups,
   processImportDeclaration,
   setImportToAdd,
   setImportToRemove,
   updateJsxElementTagName,
   updateKaioImports,
+  type ComponentGroup,
   type ComponentRenameConfig,
   type ModuleRenameConfig,
   type TagImportAttributesMap,
@@ -13,88 +15,26 @@ import {
 
 type RenameConfig = ModuleRenameConfig
 
-const renameMap = new Map<string, RenameConfig>([
-  [
-    'Select',
-    {
-      newName: 'SingleSelect',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectProps',
-    {
-      newName: 'SingleSelectProps',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectOption',
-    {
-      newName: 'SingleSelectOption',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectOptionGroup',
-    {
-      newName: 'SingleSelectOptionGroup',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectItem',
-    {
-      newName: 'SingleSelectItem',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectOptionNode',
-    {
-      newName: 'SingleSelectOptionNode',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectOptionGroupNode',
-    {
-      newName: 'SingleSelectOptionGroupNode',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectItemNode',
-    {
-      newName: 'SingleSelectItemNode',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'LikertScaleLegacy',
-    {
-      newName: 'LikertScale',
-      fromModules: ['@kaizen/components'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'TitleBlockZen',
-    {
-      newName: 'TitleBlock',
-      fromModules: ['@kaizen/components'],
-      toModule: '@kaizen/components',
-    },
-  ],
-])
+const componentGroups: ComponentGroup[] = [
+  {
+    components: [
+      ['Select', 'SingleSelect'],
+      ['SelectProps', 'SingleSelectProps'],
+      ['SelectOption', 'SingleSelectOption'],
+      ['SelectOptionGroup', 'SingleSelectOptionGroup'],
+      ['SelectItem', 'SingleSelectItem'],
+      ['SelectOptionNode', 'SingleSelectOptionNode'],
+      ['SelectOptionGroupNode', 'SingleSelectOptionGroupNode'],
+      ['SelectItemNode', 'SingleSelectItemNode'],
+      ['LikertScaleLegacy', 'LikertScale'],
+      ['TitleBlockZen', 'TitleBlock'],
+    ],
+    fromModules: ['@kaizen/components/next', '@kaizen/components/future', '@kaizen/components'],
+    toModule: '@kaizen/components',
+  },
+]
+
+const renameMap = createRenameMapFromGroups(componentGroups)
 
 const createComponentRenameConfig = (
   config: RenameConfig,

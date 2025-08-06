@@ -1,5 +1,6 @@
 export * from './createJsxElementWithChildren'
 export * from './createProp'
+export * from './createRenameMapFromGroups'
 export * from './getPropValueText'
 export * from './getKaioTagName'
 export * from './migrateStringProp'
