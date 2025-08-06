@@ -265,12 +265,12 @@ describe('migrateV2NextToCurrent', () => {
     it('should merge imports', () => {
       const inputAst = parseJsx(
         `
-import { Button, Menu, MenuItem, MenuPopover, MenuSection, MenuTrigger, } from "@kaizen/components/v3/actions"
+import { Foobar, Menu, MenuItem, MenuPopover, MenuSection, MenuTrigger, } from "@kaizen/components/v3/actions"
 import { Card } from "@kaizen/components"
 `,
       )
       const expectedAst = parseJsx(`
-import { Button } from "@kaizen/components/v3/actions"
+import { Foobar } from "@kaizen/components/v3/actions"
 import { Card, Menu, MenuItem, MenuPopover, MenuSection, MenuTrigger } from "@kaizen/components"
 `)
       const result = transformComponents(inputAst)
@@ -280,12 +280,12 @@ import { Card, Menu, MenuItem, MenuPopover, MenuSection, MenuTrigger } from "@ka
     it('should handle handle merging type imports', () => {
       const inputAst = parseJsx(
         `
-import { Button, Menu, MenuItem, MenuPopover, MenuSection, MenuTrigger, } from "@kaizen/components/next"
+import { Foobar, Menu, MenuItem, MenuPopover, MenuSection, MenuTrigger, } from "@kaizen/components/next"
 import { type CardProps, FooBar } from "@kaizen/components"
 `,
       )
       const expectedAst = parseJsx(`
-import { Button } from "@kaizen/components/next"
+import { Foobar } from "@kaizen/components/next"
 import { type CardProps, FooBar, Menu, MenuItem, MenuPopover, MenuSection, MenuTrigger } from "@kaizen/components"
 `)
       const result = transformComponents(inputAst)
@@ -295,11 +295,11 @@ import { type CardProps, FooBar, Menu, MenuItem, MenuPopover, MenuSection, MenuT
     it('should preserve alaised imports', () => {
       const inputAst = parseJsx(
         `
-import { Button, Menu as KZMenu, MenuItem, MenuPopover, MenuSection, MenuTrigger, } from "@kaizen/components/next"
+import { Foobar, Menu as KZMenu, MenuItem, MenuPopover, MenuSection, MenuTrigger, } from "@kaizen/components/next"
 `,
       )
       const expectedAst = parseJsx(`
-import { Button } from "@kaizen/components/next"
+import { Foobar } from "@kaizen/components/next"
 import { Menu as KZMenu, MenuItem, MenuPopover, MenuSection, MenuTrigger } from "@kaizen/components"
 `)
       const result = transformComponents(inputAst)
@@ -309,13 +309,69 @@ import { Menu as KZMenu, MenuItem, MenuPopover, MenuSection, MenuTrigger } from 
     it('should preserve aliased type imports', () => {
       const inputAst = parseJsx(
         `
-import { Button, type Menu as KZMenu, type MenuItem as KZMenuItem } from "@kaizen/components/next"
+import { Foobar, type Menu as KZMenu, type MenuItem as KZMenuItem } from "@kaizen/components/next"
 `,
       )
       const expectedAst = parseJsx(`
-import { Button } from "@kaizen/components/next"
+import { Foobar } from "@kaizen/components/next"
 import type { Menu as KZMenu, MenuItem as KZMenuItem } from "@kaizen/components"
 `)
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+  })
+
+  describe('Module path transformations', () => {
+    it('should transform react-aria module path', () => {
+      const inputAst = parseJsx(`import { Button } from "@kaizen/components/v3/react-aria"`)
+      const expectedAst = parseJsx(`import { Button } from "@kaizen/components/react-aria"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should transform react-aria-components module path', () => {
+      const inputAst = parseJsx(
+        `import { TextField } from "@kaizen/components/v3/react-aria-components"`,
+      )
+      const expectedAst = parseJsx(
+        `import { TextField } from "@kaizen/components/react-aria-components"`,
+      )
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should handle multiple imports from react-aria modules', () => {
+      const inputAst = parseJsx(`import { Button, Link } from "@kaizen/components/v3/react-aria"`)
+      const expectedAst = parseJsx(`import { Button, Link } from "@kaizen/components/react-aria"`)
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should handle aliased imports from react-aria modules', () => {
+      const inputAst = parseJsx(
+        `import { Button as AriaButton } from "@kaizen/components/v3/react-aria"`,
+      )
+      const expectedAst = parseJsx(
+        `import { Button as AriaButton } from "@kaizen/components/react-aria"`,
+      )
+
+      const result = transformComponents(inputAst)
+      expect(result).toBe(printAst(expectedAst))
+    })
+
+    it('should not interfere with regular component renaming', () => {
+      const inputAst = parseJsx(`
+import { Menu } from "@kaizen/components/next"
+import { Button } from "@kaizen/components/v3/react-aria"
+`)
+      const expectedAst = parseJsx(`
+import { Menu } from "@kaizen/components"
+import { Button } from "@kaizen/components/react-aria"
+`)
+
       const result = transformComponents(inputAst)
       expect(result).toBe(printAst(expectedAst))
     })

@@ -2,6 +2,8 @@ import ts from 'typescript'
 import {
   createRenameMapFromGroups,
   processImportDeclaration,
+  setImportToAdd,
+  setImportToRemove,
   updateKaioImports,
   type ComponentGroup,
   type TagImportAttributesMap,
@@ -46,6 +48,11 @@ const componentGroups: ComponentGroup[] = [
 
 const renameMap = createRenameMapFromGroups(componentGroups)
 
+const modulePathMap = new Map([
+  ['@kaizen/components/v3/react-aria', '@kaizen/components/react-aria'],
+  ['@kaizen/components/v3/react-aria-components', '@kaizen/components/react-aria-components'],
+])
+
 export const migrateV2NextToCurrent =
   (_tagsMap: TagImportAttributesMap | undefined): ts.TransformerFactory<ts.SourceFile> =>
   (context) =>
@@ -55,11 +62,35 @@ export const migrateV2NextToCurrent =
 
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isImportDeclaration(node)) {
-        processImportDeclaration(node, {
-          importsToRemove,
-          importsToAdd,
-          renameMap,
-        })
+        const moduleSpecifier = node.moduleSpecifier
+        if (ts.isStringLiteral(moduleSpecifier)) {
+          const moduleName = moduleSpecifier.text
+
+          if (modulePathMap.has(moduleName)) {
+            const newModuleName = modulePathMap.get(moduleName)!
+            const namedBindings = node.importClause?.namedBindings
+
+            if (namedBindings && ts.isNamedImports(namedBindings)) {
+              namedBindings.elements.forEach((element) => {
+                const importName = element.name.text
+                const aliasName = element.propertyName?.text
+
+                setImportToRemove(importsToRemove, moduleName, aliasName ?? importName)
+
+                setImportToAdd(importsToAdd, newModuleName, {
+                  componentName: aliasName ?? importName,
+                  alias: aliasName ? importName : undefined,
+                })
+              })
+            }
+          } else {
+            processImportDeclaration(node, {
+              importsToRemove,
+              importsToAdd,
+              renameMap,
+            })
+          }
+        }
       }
 
       return ts.visitEachChild(node, visit, context)
