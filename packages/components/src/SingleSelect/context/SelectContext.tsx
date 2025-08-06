@@ -1,17 +1,17 @@
 import React, { useContext } from 'react'
 import { type SelectState } from '@react-stately/select'
-import { type SelectItem, type SelectOption } from '../types'
+import { type SingleSelectItem, type SingleSelectOption } from '../types'
 
 // We set the generic default value to `any` as SelectContext
 // is instantiated as a constant which does not accept generics.
-type SelectContextValue<Option extends SelectOption = any> = {
-  state: SelectState<SelectItem<Option>>
+type SelectContextValue<Option extends SingleSelectOption = any> = {
+  state: SelectState<SingleSelectItem<Option>>
 }
 
 const SelectContext = React.createContext<SelectContextValue | null>(null)
 
 export const useSelectContext = <
-  Option extends SelectOption = SelectOption,
+  Option extends SingleSelectOption = SingleSelectOption,
 >(): SelectContextValue<Option> => {
   const context = useContext(SelectContext)
 
@@ -22,12 +22,12 @@ export const useSelectContext = <
   return context
 }
 
-type SelectProviderProps<Option extends SelectOption> = {
+type SelectProviderProps<Option extends SingleSelectOption> = {
   children: React.ReactNode
-  state: SelectState<SelectItem<Option>>
+  state: SelectState<SingleSelectItem<Option>>
 }
 
-export const SelectProvider = <Option extends SelectOption = SelectOption>({
+export const SelectProvider = <Option extends SingleSelectOption = SingleSelectOption>({
   children,
   state,
 }: SelectProviderProps<Option>): JSX.Element => (

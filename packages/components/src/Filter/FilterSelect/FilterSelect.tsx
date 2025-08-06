@@ -16,7 +16,7 @@ import {
 import { getDisabledKeysFromItems } from '~components/SingleSelect/utils/getDisabledKeysFromItems'
 import { transformSelectItemToCollectionElement } from '~components/SingleSelect/utils/transformSelectItemToCollectionElement'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import { type SelectItem, type SelectOption } from './types'
+import { type SingleSelectItem, type SingleSelectOption } from './types'
 import styles from './FilterSelect.module.css'
 
 type OmittedAriaSelectProps =
@@ -27,16 +27,16 @@ type OmittedAriaSelectProps =
   | 'defaultOpen'
   | 'items'
 
-export type FilterSelectProps<Option extends SelectOption = SelectOption> = {
+export type FilterSelectProps<Option extends SingleSelectOption = SingleSelectOption> = {
   isOpen: boolean
   setIsOpen: (isOpen: boolean) => void
   renderTrigger: (triggerButtonProps: FilterButtonProps) => JSX.Element
   label: string
   children?: SelectPopoverContentsProps<Option>['children']
-  items: SelectItem<Option>[]
+  items: SingleSelectItem<Option>[]
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
-export const FilterSelect = <Option extends SelectOption = SelectOption>({
+export const FilterSelect = <Option extends SingleSelectOption = SingleSelectOption>({
   isOpen,
   setIsOpen,
   renderTrigger,
@@ -54,7 +54,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
 
   const disabledKeys = getDisabledKeysFromItems(items)
 
-  const ariaSelectProps: AriaSelectProps<SelectItem<Option>> = {
+  const ariaSelectProps: AriaSelectProps<SingleSelectItem<Option>> = {
     label,
     items,
     children: transformSelectItemToCollectionElement,

@@ -1,9 +1,9 @@
 import { type Key } from '@react-types/shared'
-import { type SelectItem, type SelectOption } from '../types'
+import { type SingleSelectItem, type SingleSelectOption } from '../types'
 import { isSelectOptionGroup } from './isSelectOptionGroup'
 
-export const getDisabledKeysFromItems = <Option extends SelectOption = SelectOption>(
-  items: SelectItem<Option>[],
+export const getDisabledKeysFromItems = <Option extends SingleSelectOption = SingleSelectOption>(
+  items: SingleSelectItem<Option>[],
 ): Key[] =>
   items.reduce((acc: Key[], item) => {
     if (isSelectOptionGroup(item)) {

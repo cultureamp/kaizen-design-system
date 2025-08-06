@@ -5,22 +5,22 @@ import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useIsClientReady } from '~components/utils/useIsClientReady'
 import { useSelectContext } from '../../context'
-import { type SelectItem, type SelectOption } from '../../types'
+import { type SingleSelectItem, type SingleSelectOption } from '../../types'
 import styles from './ListBox.module.scss'
 
-export type SingleListBoxProps<Option extends SelectOption> = OverrideClassName<
+export type SingleListBoxProps<Option extends SingleSelectOption> = OverrideClassName<
   HTMLAttributes<HTMLUListElement>
 > & {
   children: ReactNode
   /** Props for the popup. */
-  menuProps: AriaListBoxOptions<SelectItem<Option>>
+  menuProps: AriaListBoxOptions<SingleSelectItem<Option>>
 }
 
 /** A util to retrieve the key of the correct focusable items based of the focus strategy
  * This is used to determine which element from the collection to focus to on open base on the keyboard event
  * ie: UpArrow will set the focusStrategy to "last"
  */
-const getOptionKeyFromCollection = (state: SelectState<SelectItem<any>>): Key | null => {
+const getOptionKeyFromCollection = (state: SelectState<SingleSelectItem<any>>): Key | null => {
   if (state.selectedItem) {
     return state.selectedItem.key
   } else if (state.focusStrategy === 'last') {
@@ -41,7 +41,7 @@ const safeQuerySelector = (selector: string): HTMLElement | null => {
   }
 }
 
-export const ListBox = <Option extends SelectOption>({
+export const ListBox = <Option extends SingleSelectOption>({
   children,
   menuProps,
   classNameOverride,

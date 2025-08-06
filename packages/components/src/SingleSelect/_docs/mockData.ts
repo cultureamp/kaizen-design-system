@@ -1,6 +1,6 @@
-import { type SelectItem } from '../types'
+import { type SingleSelectItem } from '../types'
 
-export const singleMockItems: SelectItem[] = [
+export const singleMockItems: SingleSelectItem[] = [
   { label: 'Short black', value: 'short-black' },
   { label: 'Long black', value: 'long-black' },
   { label: 'Batch brew', value: 'batch-brew' },
@@ -11,7 +11,7 @@ export const singleMockItems: SelectItem[] = [
   { label: 'Magic', value: 'magic' },
 ]
 
-export const groupedMockItems: SelectItem[] = [
+export const groupedMockItems: SingleSelectItem[] = [
   {
     label: 'Colours',
     options: [
@@ -30,7 +30,7 @@ export const groupedMockItems: SelectItem[] = [
   },
 ]
 
-export const mixedMockItemsDisabled: SelectItem[] = [
+export const mixedMockItemsDisabled: SingleSelectItem[] = [
   { label: 'Short black', value: 'short-black', disabled: true },
   { label: 'Long black', value: 'long-black' },
   { label: 'Batch brew', value: 'batch-brew', disabled: true },
@@ -51,7 +51,7 @@ export const mixedMockItemsDisabled: SelectItem[] = [
   },
 ]
 
-export const mixedMockItemsUngroupedFirst: SelectItem[] = [
+export const mixedMockItemsUngroupedFirst: SingleSelectItem[] = [
   { label: 'Batch brew', value: 'batch-brew' },
   { label: 'Latte', value: 'latte' },
   { label: 'Magic', value: 'magic' },
@@ -72,7 +72,7 @@ export const mixedMockItemsUngroupedFirst: SelectItem[] = [
   },
 ]
 
-export const mixedMockItemsUnordered: SelectItem[] = [
+export const mixedMockItemsUnordered: SingleSelectItem[] = [
   {
     label: 'Size',
     options: [

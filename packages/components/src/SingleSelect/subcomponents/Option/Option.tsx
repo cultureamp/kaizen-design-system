@@ -5,14 +5,14 @@ import { mergeProps, useFocusRing, useOption } from 'react-aria'
 import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useSelectContext } from '../../context'
-import { type SelectOption, type SelectOptionNode } from '../../types'
+import { type SingleSelectOption, type SingleSelectOptionNode } from '../../types'
 import styles from './Option.module.scss'
 
-export type OptionProps<Option extends SelectOption = SelectOption> = {
-  item: SelectOptionNode<Option>
+export type OptionProps<Option extends SingleSelectOption = SingleSelectOption> = {
+  item: SingleSelectOptionNode<Option>
 } & OverrideClassName<Omit<HTMLAttributes<HTMLLIElement>, 'children'>>
 
-export const Option = <Option extends SelectOption = SelectOption>({
+export const Option = <Option extends SingleSelectOption = SingleSelectOption>({
   item,
   classNameOverride,
   ...props

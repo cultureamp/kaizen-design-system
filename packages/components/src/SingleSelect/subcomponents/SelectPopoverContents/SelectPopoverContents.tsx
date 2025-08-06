@@ -1,19 +1,23 @@
 import React from 'react'
 import { type AriaListBoxOptions } from '@react-aria/listbox'
 import { useSelectContext } from '../../context'
-import { type SelectItem, type SelectItemNode, type SelectOption } from '../../types'
+import {
+  type SingleSelectItem,
+  type SingleSelectItemNode,
+  type SingleSelectOption,
+} from '../../types'
 import { ListBox } from '../ListBox'
 import { ListItems } from '../ListItems'
 import { Overlay } from '../Overlay'
 import styles from './SelectPopoverContents.module.scss'
 
-export type SelectPopoverContentsProps<Option extends SelectOption> = {
-  children?: (args: { items: SelectItemNode<Option>[] }) => React.ReactNode
-  menuProps: AriaListBoxOptions<SelectItem<Option>>
+export type SelectPopoverContentsProps<Option extends SingleSelectOption> = {
+  children?: (args: { items: SingleSelectItemNode<Option>[] }) => React.ReactNode
+  menuProps: AriaListBoxOptions<SingleSelectItem<Option>>
   popoverRef?: React.RefObject<Element | null>
 }
 
-export const SelectPopoverContents = <Option extends SelectOption>({
+export const SelectPopoverContents = <Option extends SingleSelectOption>({
   children,
   menuProps,
   popoverRef,
@@ -22,9 +26,9 @@ export const SelectPopoverContents = <Option extends SelectOption>({
 
   // The collection structure is set by useSelectState's `children`
   // which we have used a util to ensure the following structure
-  // - SelectOptionGroup => Section
+  // - SingleSelectOptionGroup => Section
   // - Option => Item
-  const itemNodes = Array.from(state.collection) as SelectItemNode<Option>[]
+  const itemNodes = Array.from(state.collection) as SingleSelectItemNode<Option>[]
 
   return (
     <div className={styles.selectPopoverContents}>

@@ -1,15 +1,15 @@
 import React from 'react'
-import { type SelectOption } from '../../types'
+import { type SingleSelectOption } from '../../types'
 import { ListItem, type ListItemProps } from '../ListItem'
 
-export type ListItemsProps<Option extends SelectOption> = {
+export type ListItemsProps<Option extends SingleSelectOption> = {
   items: ListItemProps<Option>['item'][]
 }
 
 /*
  * Default rendered list of select items
  */
-export const ListItems = <Option extends SelectOption>({
+export const ListItems = <Option extends SingleSelectOption>({
   items,
 }: ListItemsProps<Option>): JSX.Element => (
   <>

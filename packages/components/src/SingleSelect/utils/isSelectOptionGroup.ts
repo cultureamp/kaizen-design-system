@@ -1,6 +1,10 @@
-import { type SelectItem, type SelectOption, type SelectOptionGroup } from '../types'
+import {
+  type SingleSelectItem,
+  type SingleSelectOption,
+  type SingleSelectOptionGroup,
+} from '../types'
 
-export const isSelectOptionGroup = <Option extends SelectOption>(
-  item: SelectItem,
-): item is SelectOptionGroup<Option> =>
+export const isSelectOptionGroup = <Option extends SingleSelectOption>(
+  item: SingleSelectItem,
+): item is SingleSelectOptionGroup<Option> =>
   Object.prototype.hasOwnProperty.call(item, 'options') && Array.isArray(item.options)

@@ -1,13 +1,13 @@
 import React from 'react'
-import { type SelectItemNode, type SelectOption } from '../../types'
+import { type SingleSelectItemNode, type SingleSelectOption } from '../../types'
 import { ListBoxSection } from '../ListBoxSection'
 import { Option } from '../Option'
 
-export type ListItemProps<Option extends SelectOption = SelectOption> = {
-  item: SelectItemNode<Option>
+export type ListItemProps<Option extends SingleSelectOption = SingleSelectOption> = {
+  item: SingleSelectItemNode<Option>
 }
 
-export const ListItem = <Option extends SelectOption = SelectOption>({
+export const ListItem = <Option extends SingleSelectOption = SingleSelectOption>({
   item,
 }: ListItemProps<Option>): JSX.Element =>
   item.type === 'section' ? (

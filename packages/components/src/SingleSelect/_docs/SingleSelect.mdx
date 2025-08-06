@@ -1,8 +1,8 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
 import { ResourceLinks, KAIOInstallation } from '~storybook/components'
-import * as SelectStories from './Select.stories'
+import * as SingleSelectStories from './SingleSingleSelect.stories'
 
-<Meta of={SelectStories} />
+<Meta of={SingleSelectStories} />
 
 # SingleSelect
 
@@ -10,24 +10,23 @@ import * as SelectStories from './Select.stories'
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__next__/Select"
   figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9%3A37837&mode=dev"
   designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896474/Select"
-
 />
 
-<KAIOInstallation exportNames="Select" isNext />
+<KAIOInstallation exportNames="SingleSelect" isNext />
 
 ## Playground
 
-<Canvas of={SelectStories.Playground} />
-<Controls of={SelectStories.Playground} />
+<Canvas of={SingleSelectStories.Playground} />
+<Controls of={SingleSelectStories.Playground} />
 
 ## API
 
 ### Options
 
-Provide options in `items` in the `SelectOption` format to populate the options.
+Provide options in `items` in the `SingleSelectOption` format to populate the options.
 
 ```ts
-export type SelectOption = {
+export type SingleSelectOption = {
   label: string
   value: string | number
   disabled?: boolean
@@ -35,20 +34,20 @@ export type SelectOption = {
 }
 ```
 
-<Canvas of={SelectStories.SingleItems} />
+<Canvas of={SingleSelectStories.SingleItems} />
 
 ### Grouped options
 
-Group options by providing your `items` in the `SelectOptionGroup` format.
+Group options by providing your `items` in the `SingleSelectOptionGroup` format.
 
 ```ts
-export type SelectOptionGroup<Option extends SelectOption> = {
+export type SingleSelectOptionGroup<Option extends SingleSelectOption> = {
   label: string
   options: Iterable<Option>
 }
 ```
 
-<Canvas of={SelectStories.GroupedItems} />
+<Canvas of={SingleSelectStories.GroupedItems} />
 
 ### Disabled options
 
@@ -57,46 +56,46 @@ Disable options by setting the `disabled` attribute within an individual option 
 Alternatively, define the `disabledKeys` prop with the `value` of your options.<br/>
 **Note:** This will override the definitions in `items`.
 
-<Canvas of={SelectStories.DisabledItems} />
+<Canvas of={SingleSelectStories.DisabledItems} />
 
 ### Custom options rendering
 
-Customise the list of options using `children` (render function with arg `{ items: Array<SelectItemNode<Option>>}`).
+Customise the list of options using `children` (render function with arg `{ items: Array<SingleSelectItemNode<Option>>}`).
 
-Use the default render component `<Select.ItemDefaultRender>` for any items you do not want to customise.
+Use the default render component `<SingleSelect.ItemDefaultRender>` for any items you do not want to customise.
 
 #### Section divider
 
 To add a section divider between your options, use the `children` render function and find the item or group
-you want to prepend/append to and add a `<Select.SectionDivider>`.
+you want to prepend/append to and add a `<SingleSelect.SectionDivider>`.
 
-<Canvas of={SelectStories.SectionDivider} />
+<Canvas of={SingleSelectStories.SectionDivider} />
 
 #### Additional option properties (generic)
 
 Extend the option type to have additional properties to use for rendering.
 
-<Canvas of={SelectStories.AdditionalProperties} />
+<Canvas of={SingleSelectStories.AdditionalProperties} />
 
 ### Customise trigger button
 
-The `trigger` prop allows you to extend the existing `<Select.TriggerButton>` with additional properties (eg. `id`).
+The `trigger` prop allows you to extend the existing `<SingleSelect.TriggerButton>` with additional properties (eg. `id`).
 
 Note that the `ref` exists as part of these spread props (there is a second arg containing the `ref` which is deprecated).
 
-<Canvas of={SelectStories.CustomiseTrigger} />
+<Canvas of={SingleSelectStories.CustomiseTrigger} />
 
 ### Validation
 
 Add validation messages using `status` and `validationMessage`.
 
-<Canvas of={SelectStories.Validation} />
+<Canvas of={SingleSelectStories.Validation} />
 
 #### isRequired and validationBehavior
 
 When using the `isRequired` property you can also specify the `validationBehavior` to change from `aria` to `native` form validation.
 
-<Canvas of={SelectStories.SelectNativeValidationBehavior} />
+<Canvas of={SingleSelectStories.SelectNativeValidationBehavior} />
 
 While both use `aria-required` to announce whether the field has to have a value to assistive technologies, the `native` will option will prevent form submissions if the `selectedKey` is `undefined`.
 
@@ -104,7 +103,7 @@ While both use `aria-required` to announce whether the field has to have a value
 
 Set `isFullWidth` to `true` to have the Select span the full width of its container.
 
-<Canvas of={SelectStories.FullWidth} />
+<Canvas of={SingleSelectStories.FullWidth} />
 
 ### Portals
 
@@ -112,4 +111,4 @@ By default, the Select's popover will attach itself to the `body` of the documen
 
 You can change the default behavior by providing a `portalContainerId` to attach this to different element in the DOM. This can help to resolve issues that may arise with `z-index` or having a Select in a modal.
 
-<Canvas of={SelectStories.PortalContainer} />
+<Canvas of={SingleSelectStories.PortalContainer} />

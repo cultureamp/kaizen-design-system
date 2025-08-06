@@ -6,7 +6,7 @@ import { ContextModal } from '~components/Modal'
 import { RadioField, RadioGroup } from '~components/Radio'
 import { Button } from '~components/__next__'
 import { SingleSelect } from '../SingleSelect'
-import { type SelectOption } from '../types'
+import { type SingleSelectOption } from '../types'
 import { groupedMockItems, mixedMockItemsDisabled, singleMockItems } from './mockData'
 
 const meta = {
@@ -93,7 +93,7 @@ export const SectionDivider: Story = {
 
 export const AdditionalProperties: Story = {
   render: (args) => (
-    <SingleSelect<SelectOption & { isFruit: boolean }>
+    <SingleSelect<SingleSelectOption & { isFruit: boolean }>
       {...args}
       label="Custom"
       items={[

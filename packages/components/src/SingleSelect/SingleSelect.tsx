@@ -20,18 +20,18 @@ import {
   type SelectPopoverContentsProps,
   type SelectToggleProps,
 } from './subcomponents'
-import { type SelectItem, type SelectOption } from './types'
+import { type SingleSelectItem, type SingleSelectOption } from './types'
 import { getDisabledKeysFromItems } from './utils/getDisabledKeysFromItems'
 import { transformSelectItemToCollectionElement } from './utils/transformSelectItemToCollectionElement'
 import styles from './SingleSelect.module.scss'
 
 type OmittedAriaSelectProps = 'children' | 'items' | 'onSelectionChange'
 
-export type SingleSelectProps<Option extends SelectOption = SelectOption> = {
+export type SingleSelectProps<Option extends SingleSelectOption = SingleSelectOption> = {
   /**
    * Item objects in the collection.
    */
-  items: SelectItem<Option>[]
+  items: SingleSelectItem<Option>[]
   id?: string
   trigger?: (
     selectToggleProps: SelectToggleProps & {
@@ -80,7 +80,7 @@ export type SingleSelectProps<Option extends SelectOption = SelectOption> = {
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896474/Select Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-select--docs Storybook}
  */
-export const SingleSelect = <Option extends SelectOption = SelectOption>({
+export const SingleSelect = <Option extends SingleSelectOption = SingleSelectOption>({
   label,
   items,
   id: propsId,
@@ -111,7 +111,7 @@ export const SingleSelect = <Option extends SelectOption = SelectOption>({
 
   const disabledKeys = getDisabledKeysFromItems(items)
 
-  const ariaSelectProps: AriaSelectProps<SelectItem<Option>> = {
+  const ariaSelectProps: AriaSelectProps<SingleSelectItem<Option>> = {
     label,
     items,
     children: transformSelectItemToCollectionElement,

@@ -3,14 +3,14 @@ import { FocusScope } from '@react-aria/focus'
 import { DismissButton, useOverlay } from '@react-aria/overlays'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useSelectContext } from '../../context'
-import { type SelectOption } from '../../types'
+import { type SingleSelectOption } from '../../types'
 
 export type OverlayProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> & {
   children: React.ReactNode
   popoverRef?: React.RefObject<Element | null>
 }
 
-export const Overlay = <Option extends SelectOption>({
+export const Overlay = <Option extends SingleSelectOption>({
   children,
   classNameOverride,
   popoverRef,

@@ -1,35 +1,35 @@
 import { type Key, type Node } from '@react-types/shared'
 
-export type SelectOption = {
+export type SingleSelectOption = {
   label: string
   value: Key
   disabled?: boolean
   options?: never
 }
 
-export type SelectOptionGroup<Option extends SelectOption> = {
+export type SingleSelectOptionGroup<Option extends SingleSelectOption> = {
   label: string
   options: Iterable<Option>
 }
 
-export type SelectItem<Option extends SelectOption = SelectOption> =
+export type SingleSelectItem<Option extends SingleSelectOption = SingleSelectOption> =
   | Option
-  | SelectOptionGroup<Option>
+  | SingleSelectOptionGroup<Option>
 
-export type SelectOptionNode<Option extends SelectOption = SelectOption> = Node<Option> & {
-  type: 'item'
-  hasChildNodes: false
-}
+export type SingleSelectOptionNode<Option extends SingleSelectOption = SingleSelectOption> =
+  Node<Option> & {
+    type: 'item'
+    hasChildNodes: false
+  }
 
-export type SelectOptionGroupNode<Option extends SelectOption = SelectOption> = Omit<
-  Node<SelectOptionGroup<Option>>,
-  'childNodes'
-> & {
+export type SingleSingleSelectOptionGroupNode<
+  Option extends SingleSelectOption = SingleSelectOption,
+> = Omit<Node<SingleSelectOptionGroup<Option>>, 'childNodes'> & {
   type: 'section'
   hasChildNodes: true
-  childNodes: SelectOptionNode<Option>[]
+  childNodes: SingleSelectOptionNode<Option>[]
 }
 
-export type SelectItemNode<Option extends SelectOption = SelectOption> =
-  | SelectOptionNode<Option>
-  | SelectOptionGroupNode<Option>
+export type SingleSelectItemNode<Option extends SingleSelectOption = SingleSelectOption> =
+  | SingleSelectOptionNode<Option>
+  | SingleSingleSelectOptionGroupNode<Option>
