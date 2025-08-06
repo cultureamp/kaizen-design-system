@@ -25,6 +25,7 @@ import styles from './Icon.docs.module.css'
 const meta = {
   title: 'Components/Icon/Icon (next)',
   component: Icon,
+  tags: ['next'],
   args: {
     name: 'star',
     isPresentational: true,

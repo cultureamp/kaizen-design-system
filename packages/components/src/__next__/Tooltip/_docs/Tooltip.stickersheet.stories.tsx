@@ -6,6 +6,7 @@ import * as testStories from './Tooltip.spec.stories'
 
 export default {
   title: 'Components/Tooltip/Tooltip (next)',
+  tags: ['next'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -1,7 +1,6 @@
-import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
-import styles from "./{{pascalCase componentName}}.module.scss"
+import React, { type HTMLAttributes } from 'react'
+import classnames from 'classnames'
+import styles from './{{pascalCase componentName}}.module.css'
 
 /**
  * @todo: Refer to `docs/` for further code standards and guidelines
@@ -11,29 +10,31 @@ import styles from "./{{pascalCase componentName}}.module.scss"
  * @todo: Replace `HTMLAttributes<HTMLDivElement>` with attributes/props you need to extend
  */
 export type {{pascalCase componentName}}Props = {
-  /** @todo: Add custom props here */
+  /** This required prop does something */
   exampleRequiredString: string
-  isReversed?: boolean
-} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
+  /** This optional prop does something @default false **/
+  isBooleanProp?: boolean
+} & HTMLAttributes<HTMLDivElement>
 
 export const {{pascalCase componentName}} = ({
   exampleRequiredString,
-  isReversed = false,
-  classNameOverride,
+  isBooleanProp = false,
+  className,
   ...restProps
 }: {{pascalCase componentName}}Props): JSX.Element => {
   return (
-    <div
+    <button
+      type="button"
       className={classnames(
         styles.{{camelCase componentName}},
-        isReversed && styles.isReversed,
-        classNameOverride,
+        isBooleanProp && styles.conditionalClass,
+        className,
       )}
       {...restProps}
     >
       {exampleRequiredString}
-    </div>
+    </button>
   )
 }
 
-{{pascalCase componentName}}.displayName = "{{pascalCase componentName}}"
+{{pascalCase componentName}}.displayName = '{{pascalCase componentName}}'
