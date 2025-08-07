@@ -1,11 +1,11 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
-import { LikertScaleLegacy, type LikertScaleProps } from '../index'
+import { LikertScale, type LikertScaleProps } from '../index'
 import { type Scale } from '../types'
 
 export default {
-  title: 'Components/LikertScaleLegacy (deprecated)',
+  title: 'Components/LikertScale',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -43,9 +43,9 @@ type Story = StickerSheetStory<{ colorSchema: LikertScaleProps['colorSchema'] }>
 
 const StickerSheetTemplate: Story = {
   render: ({ isReversed, colorSchema }) => (
-    <StickerSheet title="LikertScaleLegacy" isReversed={isReversed}>
+    <StickerSheet title="LikertScale" isReversed={isReversed}>
       <StickerSheet.Row header="Not rated">
-        <LikertScaleLegacy
+        <LikertScale
           scale={scale}
           labelId=""
           selectedItem={scale[0]}
@@ -55,7 +55,7 @@ const StickerSheetTemplate: Story = {
         />
       </StickerSheet.Row>
       <StickerSheet.Row header="Strongly disagree">
-        <LikertScaleLegacy
+        <LikertScale
           scale={scale}
           labelId=""
           selectedItem={scale[1]}
@@ -65,7 +65,7 @@ const StickerSheetTemplate: Story = {
         />
       </StickerSheet.Row>
       <StickerSheet.Row header="Disagree">
-        <LikertScaleLegacy
+        <LikertScale
           scale={scale}
           labelId=""
           selectedItem={scale[2]}
@@ -75,7 +75,7 @@ const StickerSheetTemplate: Story = {
         />
       </StickerSheet.Row>
       <StickerSheet.Row header="Neither agree or disagree">
-        <LikertScaleLegacy
+        <LikertScale
           scale={scale}
           labelId=""
           selectedItem={scale[3]}
@@ -85,7 +85,7 @@ const StickerSheetTemplate: Story = {
         />
       </StickerSheet.Row>
       <StickerSheet.Row header="Agree">
-        <LikertScaleLegacy
+        <LikertScale
           scale={scale}
           labelId=""
           selectedItem={scale[4]}
@@ -95,7 +95,7 @@ const StickerSheetTemplate: Story = {
         />
       </StickerSheet.Row>
       <StickerSheet.Row header="Strongly agree">
-        <LikertScaleLegacy
+        <LikertScale
           scale={scale}
           labelId=""
           selectedItem={scale[5]}
@@ -105,7 +105,7 @@ const StickerSheetTemplate: Story = {
         />
       </StickerSheet.Row>
       <StickerSheet.Row header="Validation">
-        <LikertScaleLegacy
+        <LikertScale
           scale={scale}
           labelId=""
           selectedItem={scale[0]}
