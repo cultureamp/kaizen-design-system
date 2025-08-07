@@ -1,6 +1,6 @@
 import React, { act } from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
-import { LikertScaleLegacy, type LikertScaleProps } from './LikertScaleLegacy'
+import { LikertScale, type LikertScaleProps } from './LikertScale'
 import { type Scale } from './types'
 
 const scale: Scale = [
@@ -30,8 +30,8 @@ const scale: Scale = [
   },
 ]
 
-const LikertScaleLegacyWrapper = (props: Partial<LikertScaleProps>): JSX.Element => (
-  <LikertScaleLegacy
+const LikertScaleWrapper = (props: Partial<LikertScaleProps>): JSX.Element => (
+  <LikertScale
     scale={scale}
     labelId="test__likert-scale"
     selectedItem={null}
@@ -41,10 +41,10 @@ const LikertScaleLegacyWrapper = (props: Partial<LikertScaleProps>): JSX.Element
   />
 )
 
-describe('<LikertScaleLegacy />', () => {
+describe('<LikertScale />', () => {
   describe('Keyboard navigation', () => {
     it('shows the correct legend when using tab to go through the scale', async () => {
-      render(<LikertScaleLegacyWrapper data-testid="ID" />)
+      render(<LikertScaleWrapper data-testid="ID" />)
       const scaleSteps = screen.getAllByRole('radio')
       const legend = screen.getByTestId('ID-legend')
 

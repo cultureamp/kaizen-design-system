@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, within } from '@storybook/test'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { LikertScaleLegacy } from '../index'
+import { LikertScale } from '../index'
 import { type Scale, type ScaleItem } from '../types'
 
 const scale: Scale = [
@@ -33,15 +33,15 @@ const scale: Scale = [
 ]
 
 const meta = {
-  title: 'Components/LikertScaleLegacy (deprecated)',
-  component: LikertScaleLegacy,
+  title: 'Components/LikertScale',
+  component: LikertScale,
   args: {
     scale,
     labelId: 'labelId',
     selectedItem: scale[0],
     onSelect: (): void => undefined,
   },
-} satisfies Meta<typeof LikertScaleLegacy>
+} satisfies Meta<typeof LikertScale>
 
 export default meta
 
@@ -50,7 +50,7 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: (args) => {
     const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
-    return <LikertScaleLegacy {...args} selectedItem={selectedItem} onSelect={setSelectedItem} />
+    return <LikertScale {...args} selectedItem={selectedItem} onSelect={setSelectedItem} />
   },
   parameters: {
     docs: {
@@ -61,7 +61,7 @@ export const Playground: Story = {
     const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
 
     return (
-      <LikertScaleLegacy
+      <LikertScale
         scale={[
           { value: -1, label: "Not rated" },
           { value: 1, label: "Strong Disagree" },
@@ -92,7 +92,7 @@ export const IsRequired: Story = {
     return (
       <div>
         <VisuallyHidden id={labelId}>Likert scale label</VisuallyHidden>
-        <LikertScaleLegacy
+        <LikertScale
           {...args}
           labelId={labelId}
           selectedItem={selectedItem}
