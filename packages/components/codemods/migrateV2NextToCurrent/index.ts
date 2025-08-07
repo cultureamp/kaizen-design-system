@@ -9,9 +9,32 @@ const run = (): void => {
     process.exit(1)
   }
 
-  transformComponentsInDir(targetDir, ['Menu', 'Tooltip', 'Tabs'], (tagNames) => [
-    migrateV2NextToCurrent(tagNames),
-  ])
+  transformComponentsInDir(
+    targetDir,
+    [
+      'Menu',
+      'MenuHeader',
+      'MenuItem',
+      'MenuPopover',
+      'MenuSection',
+      'MenuTrigger',
+      'Tabs',
+      'Tab',
+      'TabList',
+      'TabPanel',
+      'Icon',
+      'Focusable',
+      'Key',
+      'Tooltip',
+      'TooltipTrigger',
+      'ReversedColors',
+      'Button',
+      'ButtonProps',
+      'ButtonsSizes',
+      'ButtonVariants',
+    ],
+    (tagNames) => [migrateV2NextToCurrent(tagNames)],
+  )
 }
 
 run()
