@@ -39,6 +39,20 @@
       background-color: $dt-color-background-color-admin;
     }
 
+    @media (min-width: $layout-breakpoints-large) {
+      &.homeVariant {
+        background-color: transparent;
+
+        h1 {
+          color: var(--color-purple-800);
+        }
+
+        .titleRowInner {
+          margin: 0;
+        }
+      }
+    }
+
     @media print {
       display: none;
     }

@@ -353,7 +353,7 @@ export const TitleBlockZen = ({
                 <MainActions
                   primaryAction={primaryAction}
                   defaultAction={defaultAction}
-                  reversed={isReversed(variant)}
+                  reversed={variant !== 'home' && isReversed(variant)}
                   overflowMenuItems={createTabletOverflowMenuItems(
                     secondaryActions,
                     secondaryOverflowMenuItems,
