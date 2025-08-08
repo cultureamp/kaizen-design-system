@@ -200,6 +200,88 @@ describe('updateKaioImports()', () => {
           }),
         ).toEqual(printAst(outputAst))
       })
+
+      describe('type-only imports', () => {
+        it('creates a new type-only import declaration', () => {
+          const inputAst = parseJsx(`
+          import { Well } from "@kaizen/components"
+        `)
+          const outputAst = parseJsx(`
+          import { Well } from "@kaizen/components"
+          import type { Card } from "@kaizen/components/next"
+        `)
+          expect(
+            transformInput(inputAst)({
+              importsToAdd: new Map([
+                [
+                  '@kaizen/components/next',
+                  new Map([['Card', { componentName: 'Card', isTypeOnly: true }]]),
+                ],
+              ]),
+            }),
+          ).toEqual(printAst(outputAst))
+        })
+
+        it('adds type-only import to existing regular imports', () => {
+          const inputAst = parseJsx(`
+          import { Select } from "@kaizen/components/next"
+        `)
+          const outputAst = parseJsx(`
+          import { Select, type Card } from "@kaizen/components/next"
+        `)
+          expect(
+            transformInput(inputAst)({
+              importsToAdd: new Map([
+                [
+                  '@kaizen/components/next',
+                  new Map([['Card', { componentName: 'Card', isTypeOnly: true }]]),
+                ],
+              ]),
+            }),
+          ).toEqual(printAst(outputAst))
+        })
+
+        it('adds type-only import to existing type-only imports', () => {
+          const inputAst = parseJsx(`
+          import type { CardProps } from "@kaizen/components/next"
+        `)
+          const outputAst = parseJsx(`
+          import type { CardProps, type ButtonProps } from "@kaizen/components/next"
+        `)
+          expect(
+            transformInput(inputAst)({
+              importsToAdd: new Map([
+                [
+                  '@kaizen/components/next',
+                  new Map([['ButtonProps', { componentName: 'ButtonProps', isTypeOnly: true }]]),
+                ],
+              ]),
+            }),
+          ).toEqual(printAst(outputAst))
+        })
+
+        it('adds mix of type-only and regular imports', () => {
+          const inputAst = parseJsx(`
+          import { Select } from "@kaizen/components/next"
+        `)
+          const outputAst = parseJsx(`
+          import { Select, type CardProps, Button } from "@kaizen/components/next"
+        `)
+          expect(
+            transformInput(inputAst)({
+              importsToAdd: new Map([
+                [
+                  '@kaizen/components/next',
+                  new Map([
+                    ['CardProps', { componentName: 'CardProps', isTypeOnly: true }],
+                    ['Button', { componentName: 'Button', isTypeOnly: false }],
+                  ]),
+                ],
+              ]),
+            }),
+          ).toEqual(printAst(outputAst))
+        })
+      })
     })
   })
 })
