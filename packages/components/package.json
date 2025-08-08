@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.80.2",
+  "version": "1.80.3",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -112,7 +112,7 @@
     "clean:dist": "rimraf 'dist'"
   },
   "dependencies": {
-    "@floating-ui/react-dom": "^2.1.4",
+    "@floating-ui/react-dom": "^2.1.5",
     "@headlessui/react": "^2.2.7",
     "@internationalized/date": "^3.8.2",
     "@popperjs/core": "^2.11.8",
