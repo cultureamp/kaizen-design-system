@@ -14,6 +14,19 @@ export type ProcessImportOptions = {
   validRenames?: Set<string>
 }
 
+/**
+ * Takes an import declaration and transforms it as specified in the options.renameMap
+ *
+ * @param node - The import declaration to process
+ * @param options - Configuration for import transformations
+ *
+ * @example
+ * ```typescript
+ * // For an import like: import { OldButton } from '@kaizen/legacy'
+ * // With renameMap: { 'OldButton': { newName: 'Button', fromModules: ['@kaizen/legacy'], toModule: '@kaizen/button' } }
+ * // Results in: import { Button } from '@kaizen/button'
+ * ```
+ */
 export const processImportDeclaration = (
   node: ts.ImportDeclaration,
   options: ProcessImportOptions,
