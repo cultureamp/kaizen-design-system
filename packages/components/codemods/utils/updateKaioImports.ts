@@ -34,7 +34,7 @@ const removeNamedImports = (
   return node
 }
 
-type NewImportAttributes = { componentName: string; alias?: string }
+type NewImportAttributes = { componentName: string; alias?: string; isTypeOnly?: boolean }
 type ImportsToAdd = Map<string, NewImportAttributes>
 
 const createImportDeclaration = (
@@ -42,9 +42,12 @@ const createImportDeclaration = (
   importsToAdd: ImportsToAdd,
   moduleSpecifier: string,
 ): ts.ImportDeclaration => {
-  const namedImports = Array.from(importsToAdd.values()).map(({ componentName, alias }) =>
+  const imports = Array.from(importsToAdd.values())
+  const allTypeOnly = imports.every(({ isTypeOnly }) => isTypeOnly)
+
+  const namedImports = imports.map(({ componentName, alias, isTypeOnly }) =>
     factory.createImportSpecifier(
-      false,
+      allTypeOnly ? false : (isTypeOnly ?? false),
       alias ? factory.createIdentifier(componentName) : undefined,
       factory.createIdentifier(alias ?? componentName),
     ),
@@ -52,7 +55,7 @@ const createImportDeclaration = (
 
   return factory.createImportDeclaration(
     undefined,
-    factory.createImportClause(false, undefined, factory.createNamedImports(namedImports)),
+    factory.createImportClause(allTypeOnly, undefined, factory.createNamedImports(namedImports)),
     factory.createStringLiteral(moduleSpecifier),
   )
 }
@@ -75,9 +78,13 @@ const updateNamedImports = (
     })
   }
 
-  Array.from(importsToAdd.values()).forEach(({ alias, componentName }) => {
+  const newImports = Array.from(importsToAdd.values())
+  const allNewTypeOnly = newImports.every(({ isTypeOnly }) => isTypeOnly)
+  const hasExistingImports = importSpecifiers.length > 0
+
+  newImports.forEach(({ alias, componentName, isTypeOnly }) => {
     const newImport = factory.createImportSpecifier(
-      false,
+      !allNewTypeOnly || hasExistingImports ? (isTypeOnly ?? false) : false,
       alias ? factory.createIdentifier(componentName) : undefined,
       factory.createIdentifier(alias ?? componentName),
     )
@@ -87,12 +94,14 @@ const updateNamedImports = (
     }
   })
 
+  const isModuleLevelTypeOnly = allNewTypeOnly && !hasExistingImports
+
   return factory.updateImportDeclaration(
     node,
     node.modifiers,
     factory.updateImportClause(
       node.importClause,
-      node.importClause.isTypeOnly,
+      isModuleLevelTypeOnly || node.importClause.isTypeOnly,
       node.importClause.name,
       factory.createNamedImports(importSpecifiers),
     ),
