@@ -145,6 +145,40 @@ export const HasLongTitle: Story = {
   args: { title: 'A long title with over thirty characters' },
 }
 
+export const AdminVariant: Story = {
+  args: {
+    title: 'Admin Variant',
+    variant: 'admin',
+  },
+}
+
+export const EducationVariant: Story = {
+  args: {
+    title: 'Education Variant',
+    variant: 'education',
+  },
+}
+
+export const HomeVariant: Story = {
+  args: {
+    title: 'Home',
+    variant: 'home',
+    surveyStatus: undefined,
+    avatar: undefined,
+    defaultAction: undefined,
+    secondaryActions: undefined,
+    secondaryOverflowMenuItems: undefined,
+    breadcrumb: undefined,
+    navigationTabs: undefined,
+    collapseNavigationAreaWhenPossible: true,
+    primaryAction: {
+      label: 'Give feedback',
+      href: '/app/anytime-feedback/feedback/create',
+      primary: true,
+    },
+  },
+}
+
 export const StickerSheetBreadcrumbs: Story = {
   name: 'Sticker Sheet (Breadcrumb)',
   parameters: {
