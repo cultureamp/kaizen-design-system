@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.80.3
+
+### Patch Changes
+
+- [#5936](https://github.com/cultureamp/kaizen-design-system/pull/5936) [`d9ae10b`](https://github.com/cultureamp/kaizen-design-system/commit/d9ae10bdcbdd88dcbfd82061ee46aa74a2bb1b64) - Add codemod for KAIOv2 component renames: Select -> SingleSelect, LikertScaleLegacy -> LikertScale and TitleBlockZen -> TitleBlock
+
 ## 1.80.2
 
 ### Patch Changes
