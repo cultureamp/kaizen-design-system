@@ -1,8 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import PostCSS, { type Declaration } from 'postcss'
-
-import { heartColorNamePattern } from '../lib/patterns'
+import { heartColorNamePattern } from '../lib/__tests__/mocks'
 
 const readSassFile = (fileName: string): Buffer =>
   fs.readFileSync(path.join(`${__dirname}../../../sass/`, fileName))

@@ -2,8 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import { toCustomPropertiesString } from 'object-to-css-variables'
 import { format } from 'prettier'
-import { makeCssVariableDefinitionsMap } from '~design-tokens/lib/makeCssVariableDefinitionsMap'
 import { tokens } from '../src/js'
+import { makeCssVariableDefinitionsMap } from '../src/lib/makeCssVariableDefinitionsMap'
 import { makeCSSVariableTheme } from '../src/lib/makeCssVariableTheme'
 
 const JSON_OUTPUT_DIR = `${process.cwd()}/tokens`
