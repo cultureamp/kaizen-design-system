@@ -9,6 +9,7 @@ on:
       - opened
       - synchronize
       - ready_for_review
+      - labeled
 
   # When Changesets opens a PR it does not trigger GitHub actions,
   # because its token does not have permission to. This is a hack
@@ -25,7 +26,10 @@ on:
 jobs:
   run-check:
     name: Check if we should run Chromatic tests
-    if: github.head_ref != 'changeset-release/main' && github.event.pull_request.draft == false && github.base_ref == 'main'
+    if:
+      github.head_ref != 'changeset-release/main' && github.event.pull_request.draft == false && github.base_ref == 'main'
+      || github.event_name == 'pull_request' && github.event.action == 'labeled' && contains(github.event.pull_request.labels.*.name, 'run_chromatic')
+
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
