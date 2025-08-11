@@ -1,12 +1,12 @@
 import React from 'react'
 import { useListBoxSection } from '@react-aria/listbox'
 import { Heading } from '~components/Heading'
-import { type SingleSelectOption, type SingleSingleSelectOptionGroupNode } from '../../types'
+import { type SingleSelectOption, type SingleSelectOptionGroupNode } from '../../types'
 import { Option } from '../Option/Option'
 import styles from './ListBoxSection.module.scss'
 
 export type ListBoxSectionProps<Option extends SingleSelectOption> = {
-  section: SingleSingleSelectOptionGroupNode<Option>
+  section: SingleSelectOptionGroupNode<Option>
 }
 
 export const ListBoxSection = <Option extends SingleSelectOption = SingleSelectOption>({

@@ -22,14 +22,13 @@ export type SingleSelectOptionNode<Option extends SingleSelectOption = SingleSel
     hasChildNodes: false
   }
 
-export type SingleSingleSelectOptionGroupNode<
-  Option extends SingleSelectOption = SingleSelectOption,
-> = Omit<Node<SingleSelectOptionGroup<Option>>, 'childNodes'> & {
-  type: 'section'
-  hasChildNodes: true
-  childNodes: SingleSelectOptionNode<Option>[]
-}
+export type SingleSelectOptionGroupNode<Option extends SingleSelectOption = SingleSelectOption> =
+  Omit<Node<SingleSelectOptionGroup<Option>>, 'childNodes'> & {
+    type: 'section'
+    hasChildNodes: true
+    childNodes: SingleSelectOptionNode<Option>[]
+  }
 
 export type SingleSelectItemNode<Option extends SingleSelectOption = SingleSelectOption> =
   | SingleSelectOptionNode<Option>
-  | SingleSingleSelectOptionGroupNode<Option>
+  | SingleSelectOptionGroupNode<Option>
