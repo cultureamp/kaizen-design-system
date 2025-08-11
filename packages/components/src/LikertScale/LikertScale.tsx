@@ -5,7 +5,7 @@ import { Text } from '~components/Text'
 import { Icon } from '~components/__next__/Icon'
 import { type ColorSchema, type Scale, type ScaleItem, type ScaleValue } from './types'
 import determineSelectionFromKeyPress from './utils/determineSelectionFromKeyPress'
-import styles from './LikertScaleLegacy.module.scss'
+import styles from './LikertScale.module.scss'
 
 type ItemRefs = {
   value: ScaleValue
@@ -37,13 +37,10 @@ const SelectedItemIcon = (): JSX.Element => (
 )
 
 /**
- * @deprecated This component will be renamed to LikertScale in v2.
- * Start importing as LikertScale instead.
- *
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082060201/Likert+Scale Guidance} |
- * {@link https://cultureamp.design/?path=/docs/components-likertscalelegacy--docs Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-likertscale--docs Storybook}
  */
-export const LikertScaleLegacy = ({
+export const LikertScale = ({
   scale,
   selectedItem,
   reversed,
