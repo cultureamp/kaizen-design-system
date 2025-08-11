@@ -1,5 +1,18 @@
 # Change Log
 
+## 1.80.4
+
+### Patch Changes
+
+- [#5973](https://github.com/cultureamp/kaizen-design-system/pull/5973) [`94f154b`](https://github.com/cultureamp/kaizen-design-system/commit/94f154bb9338e86cfc77c9ae9305e2004f1fb80a) - Add codemod for KAIOv2 import path migration to current
+
+  Migrates Menu, Tabs, and Tooltip
+  - `Menu` from `/v3/actions` and `/next` to current
+  - `Tabs` from `/future` and `/next` to current
+  - `Tooltip` from `/v3/overlays`, `/future` and `/next` to current
+
+  This also captures `MenuItem`, `MenuHeader`, `MenuPopover`, `MenuSection`, `MenuTrugger`, `Tab`, `TabList`, `TabPanel` and `TooltipTrigger`.
+
 ## 1.80.3
 
 ### Patch Changes
