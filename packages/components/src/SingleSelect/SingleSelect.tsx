@@ -33,6 +33,11 @@ export type SingleSelectProps<Option extends SingleSelectOption = SingleSelectOp
    */
   items: SingleSelectItem<Option>[]
   id?: string
+  /**
+   * Optional render function that allows custom rendering of the trigger button.
+   * The function receives the `selectToggleProps` and a `ref` to be applied
+   * to the button element.
+   */
   trigger?: (
     selectToggleProps: SelectToggleProps & {
       ref: UseFloatingReturn<HTMLButtonElement>['refs']['setReference']
@@ -40,6 +45,11 @@ export type SingleSelectProps<Option extends SingleSelectOption = SingleSelectOp
     // @deprecated: This arg is unnecessary now, but provided for legacy usages
     ref: UseFloatingReturn<HTMLButtonElement>['refs']['setReference'],
   ) => JSX.Element
+  /**
+   * Optional render function that allows custom rendering of the items in the dropdown.
+   * The function receives an object with `items` property, which is an array of
+   * `SingleSelectItemNode` objects.
+   */
   children?: SelectPopoverContentsProps<Option>['children']
   /**
    * Updates the styling of the validation FieldMessage.

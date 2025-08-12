@@ -239,7 +239,21 @@ export const RequiredSelect: Story = {
     isRequired: true,
     validationBehavior: 'native',
   },
-  render: (args) => <SingleSelect {...args} />,
+}
+
+export const ReversedSelect: Story = {
+  args: {
+    label: 'Reversed Select',
+    isReversed: true,
+  },
+  decorators: [
+    (Story) => (
+      <div className="bg-purple-700 p-16">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: { backgrounds: { default: 'Purple 700' } },
 }
 
 export const SelectNativeValidationBehavior: Story = {
