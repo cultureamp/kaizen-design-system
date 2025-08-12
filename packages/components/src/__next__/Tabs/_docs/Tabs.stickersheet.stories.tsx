@@ -6,6 +6,7 @@ import { Tab, TabList, TabPanel, Tabs } from '../index'
 
 export default {
   title: 'Components/Tabs/Tabs (next)',
+  tags: ['next'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

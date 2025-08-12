@@ -6,6 +6,7 @@ import { IconButton } from '../index'
 const meta = {
   title: 'Components/Button/IconButton (deprecated)',
   component: IconButton,
+  tags: ['deprecated'],
   argTypes: {
     icon: {
       options: ['MeatballsIcon', 'AddIcon'],

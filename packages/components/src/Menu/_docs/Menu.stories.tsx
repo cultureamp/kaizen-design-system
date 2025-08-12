@@ -10,6 +10,7 @@ import { MenuList } from '../subcomponents/MenuList'
 const meta = {
   title: 'Components/Menu/Menu (deprecated)',
   component: Menu,
+  tags: ['deprecated'],
   args: {
     button: (
       <Button
