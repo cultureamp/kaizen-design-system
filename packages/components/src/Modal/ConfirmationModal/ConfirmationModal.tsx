@@ -2,7 +2,7 @@ import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import type { ButtonProps } from '~components/Button'
 import { Heading } from '~components/Heading'
-import { Assertive, Cautionary, Informative, Negative, Positive } from '~components/Illustration'
+import { Cautionary, Informative, Negative, Positive } from '~components/Illustration'
 import {
   GenericModal,
   ModalAccessibleDescription,
@@ -14,90 +14,59 @@ import {
 import { Icon } from '~components/__next__/Icon'
 import styles from './ConfirmationModal.module.scss'
 
-type Mood = 'positive' | 'informative' | 'negative' | 'cautionary' | 'assertive'
 type Variant = 'success' | 'informative' | 'warning' | 'cautionary'
 
 type BaseConfirmationModalProps = {
-  isOpen: boolean
-  unpadded?: boolean
+  'isOpen': boolean
+  'unpadded'?: boolean
   /**
    * To display the Prominent variation of the modal types
    */
-  isProminent?: boolean
-  title: string
-  onConfirm?: () => void
-  onDismiss: () => void
+  'isProminent'?: boolean
+  'title': string
+  'onConfirm'?: () => void
+  'onDismiss': () => void
   /** A callback that is triggered after the modal is opened. */
-  onAfterEnter?: () => void
+  'onAfterEnter'?: () => void
   /** A callback that is triggered after the modal is closed. */
-  onAfterLeave?: () => void
-  confirmLabel?: string
-  dismissLabel?: string
-  confirmWorking?: { label: string; labelHidden?: boolean }
-  /**
-   * @deprecated Please use data-testid
-   */
-  automationId?: string
-  children: React.ReactNode
+  'onAfterLeave'?: () => void
+  'confirmLabel'?: string
+  'dismissLabel'?: string
+  'confirmWorking'?: { label: string; labelHidden?: boolean }
+  'data-testid'?: string
+  'children': React.ReactNode
 } & HTMLAttributes<HTMLDivElement>
 
-type ConfirmationModalMoods = {
-  /**
-   * @deprecated Please use `variant` instead
-   */
-  mood: Mood
-  variant?: never
-}
-
 type ConfirmationModalVariants = {
-  /**
-   * @deprecated Please use `variant` instead
-   */
-  mood?: never
-  /**
-   * If you are transitioning from Moods:
-   * - `positive` should be `success`
-   * - `negative` should be `warning`
-   * - `assertive` should be `cautionary`
-   */
   variant: Variant
 }
 
-export type ConfirmationModalProps = BaseConfirmationModalProps &
-  (ConfirmationModalMoods | ConfirmationModalVariants)
+export type ConfirmationModalProps = BaseConfirmationModalProps & ConfirmationModalVariants
 
-const getIconName = (variantName: Mood | Variant): string => {
+const getIconName = (variantName: Variant): string => {
   switch (variantName) {
     case 'cautionary':
       return 'warning'
     case 'informative':
       return 'info'
-    case 'negative':
     case 'warning':
       return 'error'
-    case 'positive':
     case 'success':
       return 'check_circle'
-    case 'assertive':
-      return 'error'
   }
 }
 
-const getIcon = (variantName: Mood | Variant, isProminent: boolean): JSX.Element => {
+const getIcon = (variantName: Variant, isProminent: boolean): JSX.Element => {
   if (isProminent) {
     switch (variantName) {
       case 'cautionary':
         return <Cautionary />
       case 'informative':
         return <Informative />
-      case 'negative':
       case 'warning':
         return <Negative />
-      case 'positive':
       case 'success':
         return <Positive />
-      case 'assertive':
-        return <Assertive />
     }
   }
 
@@ -113,7 +82,6 @@ export const ConfirmationModal = ({
   isOpen,
   isProminent = false,
   unpadded = false,
-  mood,
   variant,
   title,
   onConfirm,
@@ -127,7 +95,7 @@ export const ConfirmationModal = ({
   className,
   ...props
 }: ConfirmationModalProps): JSX.Element => {
-  const variantName = variant ?? mood
+  const variantName = variant
 
   const onDismiss = confirmWorking ? undefined : propsOnDismiss
 
@@ -166,7 +134,7 @@ export const ConfirmationModal = ({
           <div
             className={classnames(
               styles.header,
-              variant ? styles[variant] : styles[`${mood}Header`],
+              styles[variant],
               isProminent && styles.prominent,
               !unpadded && styles.padded,
             )}
@@ -188,7 +156,7 @@ export const ConfirmationModal = ({
         </ModalBody>
         <ModalFooter
           actions={footerActions}
-          appearance={mood === 'negative' || variant == 'warning' ? 'destructive' : 'primary'}
+          appearance={variant == 'warning' ? 'destructive' : 'primary'}
           unpadded={unpadded}
         />
       </div>

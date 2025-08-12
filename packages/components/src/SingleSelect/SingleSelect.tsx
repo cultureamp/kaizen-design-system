@@ -42,8 +42,6 @@ export type SingleSelectProps<Option extends SingleSelectOption = SingleSelectOp
     selectToggleProps: SelectToggleProps & {
       ref: UseFloatingReturn<HTMLButtonElement>['refs']['setReference']
     },
-    // @deprecated: This arg is unnecessary now, but provided for legacy usages
-    ref: UseFloatingReturn<HTMLButtonElement>['refs']['setReference'],
   ) => JSX.Element
   /**
    * Optional render function that allows custom rendering of the items in the dropdown.
@@ -67,10 +65,6 @@ export type SingleSelectProps<Option extends SingleSelectOption = SingleSelectOp
    * Use the `fullWidth` styles.
    */
   isFullWidth?: boolean
-  /**
-   * @deprecated: Either define `disabled` in your `Option` (in `items`), or use `disabledKeys`
-   */
-  disabledValues?: Key[]
   /**
    * Creates a portal for the Popover to the matching element id
    */
@@ -101,7 +95,6 @@ export const SingleSelect = <Option extends SingleSelectOption = SingleSelectOpt
   isReversed,
   isRequired = false,
   isFullWidth,
-  disabledValues,
   classNameOverride,
   selectedKey,
   description,
@@ -125,7 +118,7 @@ export const SingleSelect = <Option extends SingleSelectOption = SingleSelectOpt
     label,
     items,
     children: transformSelectItemToCollectionElement,
-    disabledKeys: disabledValues ?? disabledKeys,
+    disabledKeys: disabledKeys,
     selectedKey: typeof selectedKey === 'number' ? selectedKey.toString() : selectedKey,
     description,
     placeholder,
@@ -191,7 +184,7 @@ export const SingleSelect = <Option extends SingleSelectOption = SingleSelectOpt
         {trigger === undefined ? (
           <SelectToggle {...selectToggleProps} />
         ) : (
-          trigger(selectToggleProps, selectToggleProps.ref)
+          trigger(selectToggleProps)
         )}
         {state.isOpen && (
           <Popover id={popoverId} portalContainer={portalContainer} refs={refs}>

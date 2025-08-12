@@ -25,14 +25,6 @@ export type GenericTileProps = {
   information?: TileInformation | React.ReactNode
   /** Provides accessible label for the title's info button @default "View more information: [title]" */
   infoButtonLabel?: string
-  /** @deprecated Use `variant` instead */
-  mood?: 'positive' | 'informative' | 'cautionary' | 'assertive' | 'negative' | 'prominent'
-  /**
-   * If you are transitioning from `mood`:
-   * - `prominent` should be `expert-advice`
-   * - all else should be `default`
-   * @default default
-   */
   variant?: 'default' | 'expert-advice'
   footer: React.ReactNode
 } & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, 'title'>>
@@ -44,7 +36,6 @@ export const GenericTile = ({
   metadata,
   information,
   infoButtonLabel,
-  mood,
   variant = 'default',
   footer,
   classNameOverride,
@@ -83,9 +74,7 @@ export const GenericTile = ({
   )
 
   const renderFront = (): JSX.Element => (
-    <div
-      className={classnames(styles.face, styles.faceFront, mood ? styles[mood] : styles[variant])}
-    >
+    <div className={classnames(styles.face, styles.faceFront, styles[variant])}>
       {information && (
         <div className={styles.informationBtn}>
           <IconButton

@@ -19,10 +19,6 @@ export type StatelessMenuProps = {
    * @default "default"
    */
   'dropdownWidth'?: 'default' | 'contain'
-  /**
-   * @deprecated use data-testid instead
-   */
-  'automationId'?: string
   'data-testid'?: string
   'dropdownId'?: string
   /**

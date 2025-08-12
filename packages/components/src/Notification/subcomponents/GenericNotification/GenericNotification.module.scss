@@ -80,24 +80,6 @@
   }
 
   // ------------------------------
-  // Type
-  // @deprecated use variant instead
-  // ------------------------------
-  .positive {
-    @extend %ca-notification---positive;
-  }
-
-  .security {
-    @extend %ca-notification---cautionary;
-  }
-
-  .negative {
-    @extend %ca-notification---negative;
-  }
-
-  // End deprecated styles
-
-  // ------------------------------
   // Variant
   // ------------------------------
   .success {
