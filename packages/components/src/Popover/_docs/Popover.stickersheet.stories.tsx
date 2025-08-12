@@ -46,16 +46,16 @@ const StickerSheetTemplate: StickerSheetStory = {
           <PopoverWrapper />
         </StickerSheet.Cell>
         <StickerSheet.Cell style={cellStyle}>
-          <PopoverWrapper variant="positive" heading="Positive" />
+          <PopoverWrapper color="green" heading="Positive" />
         </StickerSheet.Cell>
         <StickerSheet.Cell style={cellStyle}>
-          <PopoverWrapper variant="informative" heading="Informative" />
+          <PopoverWrapper color="blue" heading="Informative" />
         </StickerSheet.Cell>
         <StickerSheet.Cell style={cellStyle}>
-          <PopoverWrapper variant="negative" heading="Negative" />
+          <PopoverWrapper color="red" heading="Negative" />
         </StickerSheet.Cell>
         <StickerSheet.Cell style={cellStyle}>
-          <PopoverWrapper variant="cautionary" heading="Cautionary" />
+          <PopoverWrapper color="yellow" heading="Cautionary" />
         </StickerSheet.Cell>
       </StickerSheet.Row>
 
