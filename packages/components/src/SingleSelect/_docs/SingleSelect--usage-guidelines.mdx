@@ -19,11 +19,21 @@ import * as SingleSelectStories from './SingleSelect.stories'
 
 A select lets you choose one option from an options menu.
 
-<Canvas of={SingleSelectStories.Playground} />
+<Canvas of={SingleSelectStories.Playground} sourceState="hidden" />
 
 <Controls
   of={SingleSelectStories.Playground}
-  include={['label', 'items', 'selectedKey', 'isDisabled', 'isRequired']}
+  include={[
+    'label',
+    'items',
+    'status',
+    'validationMessage',
+    'description',
+    'isDisabled',
+    'isRequired',
+    'isFullWidth',
+    'isReversed',
+  ]}
 />
 
 ## Examples
