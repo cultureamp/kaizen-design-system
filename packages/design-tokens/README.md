@@ -6,18 +6,11 @@ Design tokens for all platforms.
 
 Design tokens are named and stored visual design traits, including colors, typography, and animation timings. Design Tokens are the heart of every Design System.
 
-The tokens represented here are platform-agnostic (JSON), as this will help us contribute to & facilitate the maintenance of living style guides. This package defines all the option tokens in Kaizen.
+The tokens represented here are platform-agnostic (JS object), as this will help us contribute to & facilitate the maintenance of living style guides. This package defines all the option tokens in Kaizen.
 
-- **Option tokens** offer options. For example, `$color-purple-500: #898ba9;` is one color option available.
-- **Decision tokens** communicate decisions about when to apply an option token to a context. For example, the color used for text is a decision.
+In its current state this package supports Sass and Less variables, generated from a JS tokens file.
 
-In its current state this package supports Sass and Less variables, generated from a JSON tokens file.
-
-**Please note** that the helpers in this package are specifically for accessing and using these design tokens. Component-specific helpers are best suited for kaizen-component-library.
-
-As of V3, design tokens are also **themable**; they are intended to be used as if they can be **switched at runtime**. Because of this, we employ [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
-to support this feature, so when consuming tokens in SASS/LESS you should assume they will contain values such as `var(--color-...)`, rather than concrete values such as `1.5rem` or `#fff`.
-These values are supplied by the ThemeManager.
+Note that as we employ [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), when consuming tokens in SASS/LESS you should assume they will contain values such as `var(--color-...)`, rather than concrete values such as `1.5rem` or `#fff`.
 
 ## Installation
 
@@ -27,25 +20,37 @@ pnpm add @kaizen/design-tokens
 
 ## Usage
 
-### Sass
+Much of this assumes that consuming repos have setup the `KaizenProvider` - refer to the [app starter guide](https://cultureamp.design/?path=/docs/guides-app-starter--docs) for more.
+
+### SCSS
 
 ```scss
-## Note helper functions are provided
-@import "~@kaizen/design-tokens/sass/[color/depth/layout/spacing/typography/helpers]";
+@import '~@kaizen/design-tokens/sass/[color/depth/layout/spacing/typography]';
 ```
+
+Or use the CSS variables directly (Recommended).
+
+```scss
+.myCustomClassName {
+  background-color: vars(--color-gray-100);
+}
+```
+
+Read more in [how-to-use-with-sass](./_docs/pages/how-to-use-with-sass.mdx)
 
 ### Less
 
 ```less
-## Note helper functions are provided
-@import "~@kaizen/design-tokens/less/[color/depth/layout/spacing/typography/helpers]";
+@import '~@kaizen/design-tokens/less/[color/depth/layout/spacing/typography]';
 ```
 
 ### JavaScript
 
-```js
-import * as tokens from '@kaizen/design-tokens/tokens/[color/depth/layout/spacing/typography]'
+```jsx
+import { tokens } from '@kaizen/design-tokens/js'
 ```
+
+Read more in [how-to-use-in-js](./_docs/pages/how-to-use-in-js.mdx)
 
 ## Where possible, we keep things unitless.
 
@@ -55,10 +60,10 @@ When adding support for another target the transformation should add the appropr
 
 All values in tokens are represented as rem, em or px.
 
-- Use REMs for sizes and spacing (grid).
+- Use REMs for sizes and spacing.
 - Use EMs for media queries.
 - Use px for borders.
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/cultureamp/kaizen-design-system/blob/main/packages/design-tokens/CONTRIBUTING.md)
+See [CONTRIBUTING.md](./CONTRIBUTING.md)

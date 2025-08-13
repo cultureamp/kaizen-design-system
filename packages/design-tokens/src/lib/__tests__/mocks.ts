@@ -15,3 +15,5 @@ export const themeForTesting = {
     green: { 100: '#eee', 200: '#ccc' },
   },
 } as const
+
+export const heartColorNamePattern = /purple|blue|orange|yellow|red|green|gray/
