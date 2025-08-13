@@ -1,6 +1,5 @@
 import { makeCssVariableDefinitionsMap } from '../makeCssVariableDefinitionsMap'
-import { heartColorNamePattern } from '../patterns'
-import { themeForTesting } from './themeForTesting'
+import { heartColorNamePattern, themeForTesting } from './mocks'
 
 describe('makeCssVariableDefinitionsMap()', () => {
   const cssVariableDefinitions = makeCssVariableDefinitionsMap(themeForTesting)
