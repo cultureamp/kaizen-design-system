@@ -6,7 +6,6 @@ import { mapLeafsOfObject } from './mapLeafsOfObject'
 
  * Make a map of CSS variables -> values in a consistent way.
  * Use this to, for example, create a CSS file that declares each theme variable on the `:root` pseudo element.
- * Or for example when you're defining CSS variables using `rootElement.style.setProperty` within ThemeManager.
  *
  * It is paramount that this function defines every variable that {@link makeCssVariableTheme} expects to be defined.
  * Otherwise, it's possible that a CSS variable token (something that looks like var(--color-purple-100-rgb)) won't have a matching defined

@@ -2,7 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import { toCustomPropertiesString } from 'object-to-css-variables'
 import { format } from 'prettier'
-import { defaultTheme, makeCssVariableDefinitionsMap } from '../src'
+import { tokens } from '../src/js'
+import { makeCssVariableDefinitionsMap } from '../src/lib/makeCssVariableDefinitionsMap'
 import { makeCSSVariableTheme } from '../src/lib/makeCssVariableTheme'
 
 const JSON_OUTPUT_DIR = `${process.cwd()}/tokens`
@@ -15,7 +16,7 @@ const run = async (): Promise<void> => {
   fs.mkdirSync(CSS_OUTPUT_DIR, { recursive: true })
 
   // Write CSS vars tokens to CSS format
-  const cssVars = toCustomPropertiesString(makeCssVariableDefinitionsMap(defaultTheme))
+  const cssVars = toCustomPropertiesString(makeCssVariableDefinitionsMap(tokens))
 
   fs.writeFileSync(
     path.resolve(CSS_OUTPUT_DIR, 'variables.css'),
@@ -53,7 +54,7 @@ const run = async (): Promise<void> => {
    * }
    * ```
    */
-  const augmentedThemeWithCSSVariableValuesVersion = makeCSSVariableTheme(defaultTheme)
+  const augmentedThemeWithCSSVariableValuesVersion = makeCSSVariableTheme(tokens)
 
   /* Write JSON tokens */
   fs.writeFileSync(
@@ -85,7 +86,7 @@ const run = async (): Promise<void> => {
     path.resolve(JSON_OUTPUT_DIR, 'layout.json'),
     await formatJson(
       JSON.stringify({
-        layout: defaultTheme.layout,
+        layout: tokens.layout,
       }),
     ),
   )

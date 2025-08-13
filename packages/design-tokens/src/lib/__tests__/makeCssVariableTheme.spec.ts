@@ -1,5 +1,5 @@
 import { makeCSSVariableTheme } from '../makeCssVariableTheme'
-import { themeForTesting } from './themeForTesting'
+import { themeForTesting } from './mocks'
 
 describe('makeCSSVariableTheme()', () => {
   const cssVariableTheme = makeCSSVariableTheme(themeForTesting)
