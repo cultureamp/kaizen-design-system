@@ -5,3 +5,4 @@
 Rollout of @kaizen/components V2
 
 - Rename Select (Next) to SingleSelect and move to base entry point
+- Remove Skirt, SkirtCard and SplitButton
