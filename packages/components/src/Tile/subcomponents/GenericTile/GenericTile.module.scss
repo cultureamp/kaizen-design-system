@@ -153,5 +153,9 @@
     justify-content: center;
     margin-top: $spacing-sm;
     height: $spacing-xl;
+
+    .isFlipped & {
+      pointer-events: none;
+    }
   }
 }
