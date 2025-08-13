@@ -495,8 +495,6 @@ importers:
 
   packages/components/react-aria-components: {}
 
-  packages/components/utilities: {}
-
   packages/design-tokens:
     dependencies:
       color-string:

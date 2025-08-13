@@ -5,7 +5,6 @@ export default rollupConfig({
     index: './src/index.ts',
     next: './src/__next__/index.ts',
     alpha: './src/__alpha__/index.ts',
-    utilities: './src/__utilities__/index.ts',
     reactAria: './src/__react-aria__/index.ts',
     reactAriaComponents: './src/__react-aria-components__/index.ts',
   },

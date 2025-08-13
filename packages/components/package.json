@@ -52,11 +52,6 @@
       "import": "./dist/esm/reactAriaComponents.mjs",
       "require": "./dist/cjs/reactAriaComponents.cjs"
     },
-    "./utilities": {
-      "types": "./dist/types/__utilities__/index.d.ts",
-      "import": "./dist/esm/utilities.mjs",
-      "require": "./dist/cjs/utilities.cjs"
-    },
     "./dist/styles.css": {
       "style": "./dist/styles.css",
       "import": "./dist/styles.css",
