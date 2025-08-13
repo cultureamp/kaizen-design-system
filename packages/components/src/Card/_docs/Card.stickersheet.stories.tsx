@@ -26,16 +26,6 @@ const colors = [
   'yellow',
 ] satisfies CardProps['color'][]
 
-const variants = [
-  'default',
-  'informative',
-  'positive',
-  'cautionary',
-  'destructive',
-  'assertive',
-  'highlight',
-] satisfies CardProps['variant'][]
-
 const CardWithContent = (props: CardProps): JSX.Element => (
   <Card {...props}>
     <div className="p-6">
@@ -55,13 +45,6 @@ const StickerSheetTemplate: StickerSheetStory = {
         {colors.map((color) => (
           <StickerSheet.Row key={color} header={color}>
             <CardWithContent {...args} color={color} />
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet>
-      <StickerSheet isReversed={isReversed} title="Variants (deprecated)">
-        {variants.map((variant) => (
-          <StickerSheet.Row key={variant} header={variant}>
-            <CardWithContent {...args} variant={variant} />
           </StickerSheet.Row>
         ))}
       </StickerSheet>

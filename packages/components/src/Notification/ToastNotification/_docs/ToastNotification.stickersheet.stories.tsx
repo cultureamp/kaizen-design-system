@@ -21,7 +21,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           Manage users is now available
         </Link>
       </ToastNotification>
-      <ToastNotification type="positive" title="Positive (Deprecated)">
+      <ToastNotification variant="success" title="Positive (Deprecated)">
         New user data, imported by mackenzie@hooli.com has successfully uploaded.{' '}
         <Link href="/" size="small">
           Manage users is now available
@@ -46,7 +46,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           Learn more
         </Link>
       </ToastNotification>
-      <ToastNotification type="negative" title="Negative (Deprecated)">
+      <ToastNotification variant="warning" title="Negative (Deprecated)">
         New user data, imported by mackenzie@hooli.com has successfully uploaded.{' '}
         <Link href="/" size="small">
           Manage users is now available

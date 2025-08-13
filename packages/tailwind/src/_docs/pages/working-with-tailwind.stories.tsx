@@ -25,7 +25,7 @@ export const TailwindExampleSpacingAndLayoutsComplex: StoryFn = () => (
         <Heading variant="heading-2" color="dark" classNameOverride="pt-24">
           Laid out with Tailwind
         </Heading>
-        <Card variant="informative" classNameOverride="mt-24">
+        <Card color="blue" classNameOverride="mt-24">
           <div className="h-[300px]" />
         </Card>
       </Content>
@@ -48,7 +48,7 @@ export const TailwindExampleSpacingAndLayoutsComplex: StoryFn = () => (
         {/* Adds margin-top, flex, and a height of 200px */}
         <div className="mt-64 flex h-[200px]">
           {[0, 1, 2, 3].map((index) => (
-            <Card key={index} variant="informative" classNameOverride="mr-24 last:mr-0 w-full">
+            <Card key={index} color="blue" classNameOverride="mr-24 last:mr-0 w-full">
               {/* Adds height and width of 100% */}
               <div className="w-full h-100" />
             </Card>

@@ -9,11 +9,6 @@ const meta = {
     children:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quibusdam natus doloremque',
   },
-  argTypes: {
-    type: {
-      control: false,
-    },
-  },
 } satisfies Meta<typeof GlobalNotification>
 
 export default meta
