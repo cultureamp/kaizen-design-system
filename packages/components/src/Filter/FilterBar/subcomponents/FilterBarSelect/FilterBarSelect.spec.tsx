@@ -9,7 +9,7 @@ import {
   type Filters,
   type FiltersValues,
 } from '~components/Filter/FilterBar'
-import { type SelectOption } from '~components/Filter/FilterSelect'
+import { type SingleSelectOption } from '~components/Filter/FilterSelect'
 import { FilterBarSelect, type FilterBarSelectProps } from './FilterBarSelect'
 
 const user = userEvent.setup()
@@ -169,7 +169,7 @@ describe('<FilterBarSelect />', () => {
       topping: string
     }
 
-    type Item = SelectOption & {
+    type Item = SingleSelectOption & {
       flavour: string
     }
 
