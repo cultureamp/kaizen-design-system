@@ -1,21 +1,43 @@
-import { Canvas, Meta } from '@storybook/blocks'
+import { Canvas, Controls, Meta } from '@storybook/blocks'
 import { ResourceLinks, KAIOInstallation, RenameNotice } from '~storybook/components'
 import * as TitleBlockStories from './TitleBlock.stories'
 
-<Meta of={TitleBlockStories} />
+<Meta title="Components/TitleBlock/API Specification" />
 
 # TitleBlock
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/TitleBlock"
-  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075605782/Title+Block"
+  designGuidelines="/?path=/docs/components-titleblock-usage-guidelines--docs"
 />
 
 <KAIOInstallation exportNames="TitleBlock" />
 
 ## Overview
 
+`TitleBlock` A consistent pattern to allow users to navigate and complete tasks easily.
+
 <Canvas of={TitleBlockStories.Playground} />
+
+## Props
+
+<Controls
+  of={TitleBlockStories.Playground}
+  include={[
+    'avatar',
+    'breadcrumb',
+    'defaultAction',
+    'handleHamburgerClick',
+    'navigationTabs',
+    'primaryAction',
+    'secondaryActions',
+    'secondaryOverflowMenuItems',
+    'surveyStatus',
+    'title',
+  ]}
+/>
+
+## Options
 
 ## primaryAction
 
