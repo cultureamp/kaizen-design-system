@@ -23,7 +23,6 @@ const meta = {
   title: 'Pages/BrandMoment',
   component: BrandMoment,
   argTypes: {
-    mood: { control: false },
     illustration: { control: false },
     header: { control: false },
   },

@@ -3,7 +3,7 @@ import { type Meta } from '@storybook/react'
 import { Text } from '~components/Text'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Well, type WellProps } from '../index'
-import { borderStyleTypes, variantTypes, wellColors } from '../types'
+import { borderStyleTypes, wellColors } from '../types'
 
 export default {
   title: 'Components/Well',
@@ -27,13 +27,6 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
       <StickerSheet headers={['Solid Border', 'Dashed Border', 'None']}>
-        {variantTypes.map((variant) => (
-          <StickerSheet.Row key={variant} header={variant}>
-            {borderStyleTypes.map((border) => (
-              <WellWrapped key={border} variant={variant} borderStyle={border} />
-            ))}
-          </StickerSheet.Row>
-        ))}
         {wellColors.map((color) => (
           <StickerSheet.Row key={color} header={color}>
             {borderStyleTypes.map((border) => (

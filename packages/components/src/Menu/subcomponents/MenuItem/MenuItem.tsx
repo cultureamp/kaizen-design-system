@@ -12,10 +12,6 @@ export type MenuItemProps = {
   'destructive'?: boolean
   'disabled'?: boolean
   /**
-   * @deprecated use data-testid
-   */
-  'automationId'?: string
-  /**
    * Not recommended - this was added for use in exceptional cases like the navigation bar, which needs
    * to highlight which page the user is currently on. By design, Menus don't have active items,
    * because they are supposed to be a bunch of links/actions.

@@ -17,33 +17,12 @@ const ILLUSTRATIONS: Record<string, (props: AnimatedSceneProps) => JSX.Element> 
   'warning': EmptyStatesNegative,
   'informative': EmptyStatesInformative,
   'expert-advice': EmptyStatesNeutral,
-  /** @deprecated Replaced by success */
-  'positive': EmptyStatesPositive,
-  /** @deprecated Replaced by expert-advice */
-  'neutral': EmptyStatesNeutral,
-  /** @deprecated Replaced by warning */
-  'negative': EmptyStatesNegative,
-  /** @deprecated Replaced by warning */
-  'action': EmptyStatesNegative,
 }
 
 export type EmptyStateProps = {
   children?: React.ReactNode
   id?: string
-  /** @deprecated Use `variant` instead */
-  illustrationType?: 'positive' | 'informative' | 'negative' | 'action' | 'neutral'
-  /**
-   * If you are transitioning from `illustrationType`:
-   * - `positive` should be `success`
-   * - `informative` remains as `informative`
-   * - `negative` should be `warning`
-   * - `action` should be `warning`
-   * - `neutral` should be `expert-advice`
-   * @default informative
-   */
   variant?: 'success' | 'warning' | 'informative' | 'expert-advice'
-  /** @deprecated - This prop no longer has any effect */
-  layoutContext?: 'sidebarAndContent' | 'contentOnly'
   bodyText: string | React.ReactNode
   straightCorners?: boolean
   headingProps?: HeadingProps
@@ -57,9 +36,7 @@ export type EmptyStateProps = {
 export const EmptyState = ({
   children,
   id,
-  illustrationType,
   variant = 'informative',
-  layoutContext: _,
   headingProps,
   bodyText,
   straightCorners,
@@ -68,13 +45,13 @@ export const EmptyState = ({
   classNameOverride,
   ...props
 }: EmptyStateProps): JSX.Element => {
-  const IllustrationComponent = ILLUSTRATIONS[illustrationType ?? variant]
+  const IllustrationComponent = ILLUSTRATIONS[variant]
 
   return (
     <div
       className={classnames(
         styles.container,
-        illustrationType ? styles[illustrationType] : styles[variant],
+        styles[variant],
         straightCorners && styles.straightCorners,
         classNameOverride,
       )}

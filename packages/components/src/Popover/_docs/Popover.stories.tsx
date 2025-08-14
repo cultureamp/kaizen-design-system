@@ -9,10 +9,6 @@ const meta = {
     children: undefined,
     referenceElement: undefined,
   },
-  argTypes: {
-    variant: { control: false },
-    customIcon: { control: false },
-  },
 } satisfies Meta<typeof PopoverComponent>
 
 export default meta

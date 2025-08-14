@@ -27,32 +27,12 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     const variants = ['default', 'expert-advice'] satisfies MultiActionTileProps['variant'][]
 
-    const moods = [
-      'positive',
-      'informative',
-      'cautionary',
-      'assertive',
-      'negative',
-      'prominent',
-    ] satisfies MultiActionTileProps['mood'][]
-
     return (
       <>
         <StickerSheet title="MultiActionTile">
           {variants.map((variant) => (
             <StickerSheet.Row key={variant} header={variant}>
               <MultiActionTile {...defaultProps} variant={variant} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet>
-
-        <StickerSheet title="Mood (deprecated)">
-          <StickerSheet.Row header="default">
-            <MultiActionTile {...defaultProps} />
-          </StickerSheet.Row>
-          {moods.map((mood) => (
-            <StickerSheet.Row key={mood} header={mood}>
-              <MultiActionTile {...defaultProps} mood={mood} />
             </StickerSheet.Row>
           ))}
         </StickerSheet>
