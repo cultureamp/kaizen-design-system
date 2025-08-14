@@ -42,12 +42,12 @@
       "import": "./dist/esm/next.mjs",
       "require": "./dist/cjs/next.cjs"
     },
-    ".libs/react-aria": {
+    "./libs/react-aria": {
       "types": "./dist/types/__libs__/react-aria/index.d.ts",
       "import": "./dist/esm/reactAriaKZ.mjs",
       "require": "./dist/cjs/reactAriaKZ.cjs"
     },
-    ".libs/react-aria-components": {
+    "./libs/react-aria-components": {
       "types": "./dist/types/__libs__/react-aria-components/index.d.ts",
       "import": "./dist/esm/reactAriaComponentsKZ.mjs",
       "require": "./dist/cjs/reactAriaComponentsKZ.cjs"
