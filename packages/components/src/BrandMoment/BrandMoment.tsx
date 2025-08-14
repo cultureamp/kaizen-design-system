@@ -9,22 +9,8 @@ import { assetUrl } from '~components/utils/hostedAssets'
 import { useMediaQueries } from '~components/utils/useMediaQueries'
 import styles from './BrandMoment.module.css'
 
-type DeprecatedMoodProps = {
-  /** @deprecated Use `variant` instead */
-  mood: 'informative' | 'positive' | 'negative'
-  variant?: never
-}
-
 type VariantProps = {
-  /**
-   * If you are transitioning from `mood`:
-   * - `informative` remains as `informative`
-   * - `positive` should be `success`
-   * - `negative` should be `warning`
-   */
   variant: 'informative' | 'success' | 'warning'
-  /** @deprecated Use `variant` instead */
-  mood?: never
 }
 
 export type BrandMomentProps = {
@@ -40,14 +26,13 @@ export type BrandMomentProps = {
     footer?: ReactNode
   }
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>> &
-  (DeprecatedMoodProps | VariantProps)
+  VariantProps
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082061589/Brand+Moment Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-brand-moment--docs Storybook}
  */
 export const BrandMoment = ({
-  mood,
   variant,
   illustration,
   header,
@@ -61,14 +46,7 @@ export const BrandMoment = ({
   const { queries } = useMediaQueries()
 
   return (
-    <div
-      className={classnames(
-        styles.body,
-        variant ? styles[variant] : styles[mood],
-        classNameOverride,
-      )}
-      {...restProps}
-    >
+    <div className={classnames(styles.body, styles[variant], classNameOverride)} {...restProps}>
       <header className={styles.header}>{header}</header>
       <main className={styles.main}>
         <div className={styles.container}>

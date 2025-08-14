@@ -30,28 +30,6 @@
   }
 
   // ------------------------------
-  // Moods
-  // @deprecated use colors instead
-  // ------------------------------
-  .positive {
-    --progressbar-background-color: var(--color-green-400);
-  }
-
-  .informative {
-    --progressbar-background-color: var(--color-blue-400);
-  }
-
-  .cautionary {
-    --progressbar-background-color: var(--color-yellow-400);
-  }
-
-  .negative {
-    --progressbar-background-color: var(--color-red-400);
-  }
-
-  // End deprecated styles
-
-  // ------------------------------
   // Colors
   // ------------------------------
   .blue {
