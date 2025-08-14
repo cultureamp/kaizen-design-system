@@ -114,6 +114,10 @@
     --icon-color: var(--color-red-500);
   }
 
+  .security {
+    @extend %ca-notification---cautionary;
+  }
+
   // Modifiers
   .noBottomMargin {
     @extend %ca-notification---noBottomMargin;
