@@ -36,29 +36,7 @@ const cellStyle = {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet
-      isReversed={isReversed}
-      headers={['Default', 'Positive', 'Informative', 'Negative', 'Cautionary']}
-      className="min-w-fit"
-    >
-      <StickerSheet.Row header="Variants (deprecated)">
-        <StickerSheet.Cell style={cellStyle}>
-          <PopoverWrapper />
-        </StickerSheet.Cell>
-        <StickerSheet.Cell style={cellStyle}>
-          <PopoverWrapper color="green" heading="Positive" />
-        </StickerSheet.Cell>
-        <StickerSheet.Cell style={cellStyle}>
-          <PopoverWrapper color="blue" heading="Informative" />
-        </StickerSheet.Cell>
-        <StickerSheet.Cell style={cellStyle}>
-          <PopoverWrapper color="red" heading="Negative" />
-        </StickerSheet.Cell>
-        <StickerSheet.Cell style={cellStyle}>
-          <PopoverWrapper color="yellow" heading="Cautionary" />
-        </StickerSheet.Cell>
-      </StickerSheet.Row>
-
+    <StickerSheet isReversed={isReversed} className="min-w-fit">
       {popoverPlacements.map((placement) => (
         <StickerSheet.Row key={placement} header={placement}>
           <StickerSheet.Cell style={cellStyle}>

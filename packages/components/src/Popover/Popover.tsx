@@ -90,7 +90,7 @@ export const Popover = ({
       className={classnames(styles.root, mapSizeToClass(size), classNameOverride)}
       {...restProps}
     >
-      <div className={styles.defaulBox}>
+      <div className={styles.defaultBox}>
         {heading && (
           <div className={styles.header}>
             <Heading variant="heading-6" classNameOverride={styles.singleLine}>
