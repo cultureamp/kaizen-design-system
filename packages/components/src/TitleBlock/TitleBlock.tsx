@@ -19,7 +19,7 @@ import {
   type TitleBlockVariant,
 } from './types'
 import { createTabletOverflowMenuItems, isReversed } from './utils'
-import styles from './TitleBlockZen.module.scss'
+import styles from './TitleBlock.module.scss'
 
 const renderTag = (surveyStatus: SurveyStatus): ReactNode => {
   let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>['variant']
@@ -234,7 +234,7 @@ const renderNavigationTabs = (
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075605782/Title+Block Guidance} |
  * {@link https://cultureamp.design/?path=/story/components-titleblock--docs Storybook}
  */
-export const TitleBlockZen = ({
+export const TitleBlock = ({
   title,
   variant,
   breadcrumb,
@@ -415,4 +415,4 @@ export const TitleBlockZen = ({
   )
 }
 
-TitleBlockZen.displayName = 'TitleBlockZen'
+TitleBlock.displayName = 'TitleBlock'
