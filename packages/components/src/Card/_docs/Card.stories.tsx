@@ -35,9 +35,6 @@ const meta = {
     children: <Content />,
   },
   argTypes: {
-    variant: {
-      control: false,
-    },
     isAiLoading: {
       control: {
         type: 'radio',

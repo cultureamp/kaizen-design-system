@@ -58,41 +58,7 @@
     --border-color: var(--color-green-500);
   }
 
-  /* // These are @deprecated but must come after `color` so not everything will default to white
-// This will be @deprecated */
-  .default {
-    --background-color: var(--color-gray-200);
-    --border-color: var(--color-gray-500);
-  }
-
-  .negative {
-    --background-color: var(--color-red-100);
-    --border-color: var(--color-red-500);
-  }
-
-  .informative {
-    --background-color: var(--color-blue-100);
-    --border-color: var(--color-blue-400);
-  }
-
-  .cautionary {
-    --background-color: var(--color-yellow-100);
-    --border-color: var(--color-yellow-700);
-  }
-
-  .assertive {
-    --background-color: var(--color-orange-100);
-    --border-color: var(--color-orange-600);
-  }
-
-  .prominent {
-    --background-color: var(--color-purple-100);
-    --border-color: var(--color-purple-400);
-  }
-
-  /* // @deprecated end
-
-// Border Style Variations */
+  /* Border Style Variations */
   .solid {
     --border-style: solid;
   }

@@ -1,11 +1,15 @@
 import type { ProgressBarProps } from '../../src/ProgressBar'
 import { migrateStringProp } from '../utils'
 
+type LegacyProgressBarProps = ProgressBarProps & {
+  mood?: string
+}
+
 const OLD_PROP_NAME = 'mood'
 const NEW_PROP_NAME = 'color'
 
 const getNewVariantValue = (
-  oldValue: Exclude<ProgressBarProps[typeof OLD_PROP_NAME], undefined>,
+  oldValue: Exclude<LegacyProgressBarProps[typeof OLD_PROP_NAME], undefined>,
 ): Exclude<ProgressBarProps[typeof NEW_PROP_NAME], undefined> => {
   switch (oldValue) {
     case 'cautionary':
@@ -15,6 +19,7 @@ const getNewVariantValue = (
     case 'negative':
       return 'red'
     case 'positive':
+    default:
       return 'green'
   }
 }
