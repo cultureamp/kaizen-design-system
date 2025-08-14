@@ -3,7 +3,7 @@ import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
 import { type CustomBreadcrumbProps, type SectionTitleRenderProps } from './types'
-import { TitleBlockZen } from './index'
+import { TitleBlock } from './index'
 
 const user = userEvent.setup()
 
@@ -23,7 +23,7 @@ const mockMatchMedia = (matches: boolean = false): void => {
   })
 }
 
-describe('<TitleBlockZen />', () => {
+describe('<TitleBlock />', () => {
   beforeEach(() => {
     mockMatchMedia()
   })
@@ -36,9 +36,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the primary action button label and href', () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
+        <TitleBlock title="Test Title" primaryAction={primaryActionAsLink}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-primary-action-button')
       expect(btn.textContent).toEqual(primaryActionAsLink.label)
@@ -47,9 +47,9 @@ describe('<TitleBlockZen />', () => {
 
     it('passes the href to the mobile action drawer button', () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
+        <TitleBlock title="Test Title" primaryAction={primaryActionAsLink}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-mobile-actions-primary-button')
       expect(btn.getAttribute('href')).toEqual(primaryActionAsLink.href)
@@ -70,9 +70,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the primary action button label and onClick', async () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
+        <TitleBlock title="Test Title" primaryAction={primaryActionAsButton}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-primary-action-button')
       expect(btn.textContent).toEqual(primaryActionAsButton.label)
@@ -85,9 +85,9 @@ describe('<TitleBlockZen />', () => {
 
     it('creates a mobile actions primary button', async () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
+        <TitleBlock title="Test Title" primaryAction={primaryActionAsButton}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       const btn = getByTestId('title-block-mobile-actions-primary-button')
@@ -119,9 +119,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders a disabled primary action button', async () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
+        <TitleBlock title="Test Title" primaryAction={primaryActionAsButton}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-primary-action-button') as HTMLButtonElement
       expect(btn.textContent).toEqual(primaryActionAsButton.label)
@@ -135,9 +135,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders a disabled primary action link button', () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
+        <TitleBlock title="Test Title" primaryAction={primaryActionAsLink}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-primary-action-button') as HTMLButtonElement
       expect(btn.textContent).toEqual(primaryActionAsLink.label)
@@ -146,9 +146,9 @@ describe('<TitleBlockZen />', () => {
 
     it('creates a mobile actions primary button with disabled styles and no onClick', async () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
+        <TitleBlock title="Test Title" primaryAction={primaryActionAsButton}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       const btn = getByTestId('title-block-mobile-actions-primary-button') as HTMLButtonElement
@@ -162,9 +162,9 @@ describe('<TitleBlockZen />', () => {
 
     it('creates a mobile actions primary button with disabled styles and no href', () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
+        <TitleBlock title="Test Title" primaryAction={primaryActionAsLink}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       const btn = getByTestId('title-block-mobile-actions-primary-button') as HTMLButtonElement
@@ -188,9 +188,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the primary action button label, href and onClick', async () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLinkAndOnClick}>
+        <TitleBlock title="Test Title" primaryAction={primaryActionAsLinkAndOnClick}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-primary-action-button')
       expect(btn.textContent).toEqual(primaryActionAsLinkAndOnClick.label)
@@ -204,9 +204,9 @@ describe('<TitleBlockZen />', () => {
 
     it('passes both the href and onClick to the mobile action drawer button', async () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLinkAndOnClick}>
+        <TitleBlock title="Test Title" primaryAction={primaryActionAsLinkAndOnClick}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-mobile-actions-primary-button')
       expect(btn.getAttribute('href')).toEqual(primaryActionAsLinkAndOnClick.href)
@@ -235,9 +235,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the primary action menu button with label and menu items', async () => {
       const { getByTestId, getAllByTestId } = render(
-        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsMenu}>
+        <TitleBlock title="Test Title" primaryAction={primaryActionAsMenu}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-primary-action-button')
       expect(btn).toHaveAccessibleName(primaryActionAsMenu.label)
@@ -251,9 +251,9 @@ describe('<TitleBlockZen />', () => {
 
     it('passes the primary menu items to the mobile actions drawer', () => {
       const { getAllByTestId } = render(
-        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsMenu}>
+        <TitleBlock title="Test Title" primaryAction={primaryActionAsMenu}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const menuItems = getAllByTestId(/^title-block-mobile-actions-primary-link-/)
       expect(menuItems.length).toEqual(2)
@@ -268,9 +268,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the default action button label and href', () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
+        <TitleBlock title="Test Title" defaultAction={defaultActionAsLink}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-default-action-button')
       expect(btn.textContent).toEqual(defaultActionAsLink.label)
@@ -279,9 +279,9 @@ describe('<TitleBlockZen />', () => {
 
     it('creates a mobile actions default action menu item', () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
+        <TitleBlock title="Test Title" defaultAction={defaultActionAsLink}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       const menuItem = getByTestId('title-block-mobile-actions-default-link')
@@ -291,9 +291,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the mobile actions menu drawer handle even with no primary action', () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
+        <TitleBlock title="Test Title" defaultAction={defaultActionAsLink}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       expect(getByTestId('title-block-mobile-actions-drawer-handle')).toBeTruthy()
@@ -314,9 +314,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the default action button label and onClick', async () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
+        <TitleBlock title="Test Title" defaultAction={defaultActionAsButton}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-default-action-button')
       expect(btn.textContent).toEqual(defaultActionAsButton.label)
@@ -329,9 +329,9 @@ describe('<TitleBlockZen />', () => {
 
     it('creates a mobile actions default action menu item', async () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
+        <TitleBlock title="Test Title" defaultAction={defaultActionAsButton}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       const menuItem = getByTestId('title-block-mobile-actions-default-action')
@@ -345,9 +345,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the mobile actions menu drawer handle even with no primary action', () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
+        <TitleBlock title="Test Title" defaultAction={defaultActionAsButton}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       expect(getByTestId('title-block-mobile-actions-drawer-handle')).toBeTruthy()
@@ -368,9 +368,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the default action button label, href and onClick', async () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLinkAndOnClick}>
+        <TitleBlock title="Test Title" defaultAction={defaultActionAsLinkAndOnClick}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-default-action-button')
       expect(btn.textContent).toEqual(defaultActionAsLinkAndOnClick.label)
@@ -384,9 +384,9 @@ describe('<TitleBlockZen />', () => {
 
     it('creates a single mobile actions default link menu item with both href and onClick', async () => {
       const { getByTestId, queryByTestId } = render(
-        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLinkAndOnClick}>
+        <TitleBlock title="Test Title" defaultAction={defaultActionAsLinkAndOnClick}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       const menuItem = getByTestId('title-block-mobile-actions-default-link')
@@ -421,9 +421,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders a disabled default action button', async () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
+        <TitleBlock title="Test Title" defaultAction={defaultActionAsButton}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-default-action-button') as HTMLButtonElement
       expect(btn.textContent).toEqual(defaultActionAsButton.label)
@@ -437,9 +437,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders a disabled default action link button', () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
+        <TitleBlock title="Test Title" defaultAction={defaultActionAsLink}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-default-action-button') as HTMLButtonElement
       expect(btn.textContent).toEqual(defaultActionAsLink.label)
@@ -448,9 +448,9 @@ describe('<TitleBlockZen />', () => {
 
     it('creates a mobile actions default action menu item with disabled styles and no onClick', async () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
+        <TitleBlock title="Test Title" defaultAction={defaultActionAsButton}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       const btn = getByTestId('title-block-mobile-actions-default-action') as HTMLButtonElement
@@ -464,9 +464,9 @@ describe('<TitleBlockZen />', () => {
 
     it('creates a mobile actions default link menu item with disabled styles and no href', () => {
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
+        <TitleBlock title="Test Title" defaultAction={defaultActionAsLink}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       const btn = getByTestId('title-block-mobile-actions-default-link') as HTMLButtonElement
@@ -491,9 +491,9 @@ describe('<TitleBlockZen />', () => {
       const mockWarnFn = vi.fn()
       const spy = vi.spyOn(global.console, 'warn').mockImplementation(mockWarnFn)
       const { getByTestId } = render(
-        <TitleBlockZen title="Test Title" secondaryActions={[secondaryActionWithLinkAndOnClick]}>
+        <TitleBlock title="Test Title" secondaryActions={[secondaryActionWithLinkAndOnClick]}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getByTestId('title-block-secondary-actions-button')
       expect(btn).toBeTruthy()
@@ -511,9 +511,9 @@ describe('<TitleBlockZen />', () => {
       const mockWarnFn = vi.fn()
       const spy = vi.spyOn(global.console, 'warn').mockImplementation(mockWarnFn)
       const { getAllByTestId } = render(
-        <TitleBlockZen title="Test Title" secondaryActions={[secondaryActionWithLinkAndOnClick]}>
+        <TitleBlock title="Test Title" secondaryActions={[secondaryActionWithLinkAndOnClick]}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getAllByTestId('title-block-mobile-actions-secondary-action')
       expect(btn.length).toEqual(1)
@@ -534,7 +534,7 @@ describe('<TitleBlockZen />', () => {
         <button type="button">{props.sectionTitle}</button>
       )
       render(
-        <TitleBlockZen
+        <TitleBlock
           title="Test title"
           sectionTitle={expectedText}
           renderSectionTitle={CustomComponent}
@@ -546,7 +546,7 @@ describe('<TitleBlockZen />', () => {
 
     it('renders a heading when no render prop is provided', async () => {
       const expectedText = 'My expected text'
-      render(<TitleBlockZen title="Test title" sectionTitle={expectedText} />)
+      render(<TitleBlock title="Test title" sectionTitle={expectedText} />)
       const el = await screen.findByRole('heading', { level: 2 })
       expect(el.textContent).toBe(expectedText)
     })
@@ -560,9 +560,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the action as a single mobile actions drawer item with the correct href', () => {
       const { getAllByTestId } = render(
-        <TitleBlockZen title="Test Title" secondaryActions={[secondaryActionWithLink]}>
+        <TitleBlock title="Test Title" secondaryActions={[secondaryActionWithLink]}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getAllByTestId('title-block-mobile-actions-secondary-action')
       expect(btn.length).toEqual(1)
@@ -578,13 +578,13 @@ describe('<TitleBlockZen />', () => {
 
     it('hides the other actions menu when user clicks a menu item', async () => {
       const { getAllByTestId } = render(
-        <TitleBlockZen
+        <TitleBlock
           title="Test Title"
           secondaryActions={[secondaryActionWithLink]}
           autoHideMobileActionsMenu
         >
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       const mobileActionsButton = screen.getByRole('button', {
@@ -616,9 +616,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the action as a single disabled mobile actions drawer item with no href', () => {
       const { getAllByTestId } = render(
-        <TitleBlockZen title="Test Title" secondaryActions={[secondaryActionWithLink]}>
+        <TitleBlock title="Test Title" secondaryActions={[secondaryActionWithLink]}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getAllByTestId('title-block-mobile-actions-secondary-action')
       expect(btn.length).toEqual(1)
@@ -636,9 +636,9 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the action as a single disabled mobile actions drawer item with no onClick', async () => {
       const { getAllByTestId } = render(
-        <TitleBlockZen title="Test Title" secondaryActions={[secondaryActionWithOnClick]}>
+        <TitleBlock title="Test Title" secondaryActions={[secondaryActionWithOnClick]}>
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getAllByTestId('title-block-mobile-actions-secondary-action')
       expect(btn.length).toEqual(1)
@@ -660,13 +660,13 @@ describe('<TitleBlockZen />', () => {
 
     it('renders the action as a single disabled mobile actions drawer item with no onClick', async () => {
       const { getAllByTestId } = render(
-        <TitleBlockZen
+        <TitleBlock
           title="Test Title"
           secondaryActions={[]}
           secondaryOverflowMenuItems={[secondaryOverflowMenuItemWithOnClick]}
         >
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
       const btn = getAllByTestId('title-block-mobile-actions-overflow-menu-item')
       expect(btn.length).toEqual(1)
@@ -692,7 +692,7 @@ describe('<TitleBlockZen />', () => {
         }
 
         const { container } = render(
-          <TitleBlockZen
+          <TitleBlock
             title="Test Title"
             subtitle="Test Subtitle"
             avatar={<div>Test JSX Avatar Component</div>}
@@ -705,7 +705,7 @@ describe('<TitleBlockZen />', () => {
             sectionTitleDescription="Test Section Title Description"
           >
             Example
-          </TitleBlockZen>,
+          </TitleBlock>,
         )
 
         for (const automationId of Object.values(automationdIds)) {
@@ -727,7 +727,7 @@ describe('<TitleBlockZen />', () => {
         }
 
         const { container } = render(
-          <TitleBlockZen
+          <TitleBlock
             title="Test Title"
             subtitle="Test Subtitle"
             avatar={<div>Test JSX Avatar Component</div>}
@@ -747,7 +747,7 @@ describe('<TitleBlockZen />', () => {
             breadcrumbTextAutomationId={automationdIds.breadcrumbTextAutomationId}
           >
             Example
-          </TitleBlockZen>,
+          </TitleBlock>,
         )
 
         for (const automationId of Object.values(automationdIds)) {
@@ -760,7 +760,7 @@ describe('<TitleBlockZen />', () => {
   describe('breadcrumb', () => {
     it('renders a link when you pass a path prop', () => {
       render(
-        <TitleBlockZen
+        <TitleBlock
           title="Test Title"
           breadcrumb={{
             text: 'Back',
@@ -769,7 +769,7 @@ describe('<TitleBlockZen />', () => {
           }}
         >
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       expect(screen.getByRole('link', { name: 'Back' })).toBeInTheDocument()
@@ -777,7 +777,7 @@ describe('<TitleBlockZen />', () => {
 
     it("renders a button when you don't pass a path prop", () => {
       render(
-        <TitleBlockZen
+        <TitleBlock
           title="Test Title"
           breadcrumb={{
             text: 'Back',
@@ -785,7 +785,7 @@ describe('<TitleBlockZen />', () => {
           }}
         >
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       expect(screen.getByRole('button', { name: 'Back' })).toBeInTheDocument()
@@ -806,7 +806,7 @@ describe('<TitleBlockZen />', () => {
       )
 
       render(
-        <TitleBlockZen
+        <TitleBlock
           title="Test Title"
           breadcrumb={{
             text: 'Back',
@@ -815,7 +815,7 @@ describe('<TitleBlockZen />', () => {
           }}
         >
           Example
-        </TitleBlockZen>,
+        </TitleBlock>,
       )
 
       const customElement = screen.getByTestId('custom-component')
@@ -848,7 +848,7 @@ describe('<TitleBlockZen />', () => {
     describe('primaryAction', () => {
       it('will render a custom anchor component in the main action toolbar', () => {
         render(
-          <TitleBlockZen
+          <TitleBlock
             title="Test Title"
             primaryAction={{
               label: 'Primary action',
@@ -857,7 +857,7 @@ describe('<TitleBlockZen />', () => {
             }}
           >
             Example
-          </TitleBlockZen>,
+          </TitleBlock>,
         )
         const toolbar = screen.getByTestId('title-block-main-actions-toolbar')
         within(toolbar).getByRole('link', {
@@ -872,7 +872,7 @@ describe('<TitleBlockZen />', () => {
 
       it('will render a custom anchor component in the mobile drawer', () => {
         render(
-          <TitleBlockZen
+          <TitleBlock
             title="Test Title"
             primaryAction={{
               label: 'Primary action',
@@ -881,7 +881,7 @@ describe('<TitleBlockZen />', () => {
             }}
           >
             Example
-          </TitleBlockZen>,
+          </TitleBlock>,
         )
         const drawer = screen.getByTestId('title-block-mobile-actions-drawer-handle')
         within(drawer).getByRole('link', {
@@ -897,7 +897,7 @@ describe('<TitleBlockZen />', () => {
       it('will render custom button with functional onClick', async () => {
         const testClickFunc = vi.fn()
         render(
-          <TitleBlockZen
+          <TitleBlock
             title="Test Title"
             primaryAction={{
               label: 'Primary action',
@@ -906,7 +906,7 @@ describe('<TitleBlockZen />', () => {
             }}
           >
             Example
-          </TitleBlockZen>,
+          </TitleBlock>,
         )
         const drawer = screen.getByTestId('title-block-mobile-actions-drawer-handle')
         const drawerBtn = within(drawer).getByRole('button', {
@@ -922,7 +922,7 @@ describe('<TitleBlockZen />', () => {
       it('will render custom button with children and not label', () => {
         const testClickFunc = vi.fn()
         render(
-          <TitleBlockZen
+          <TitleBlock
             title="Test Title"
             primaryAction={{
               label: 'Primary action',
@@ -933,7 +933,7 @@ describe('<TitleBlockZen />', () => {
             }}
           >
             Example
-          </TitleBlockZen>,
+          </TitleBlock>,
         )
         const drawer = screen.getByTestId('title-block-mobile-actions-drawer-handle')
         within(drawer).getByRole('button', {
@@ -950,7 +950,7 @@ describe('<TitleBlockZen />', () => {
     describe('secondaryActions', () => {
       it('will render multiple custom anchor components in the secondary actions toolbar', () => {
         render(
-          <TitleBlockZen
+          <TitleBlock
             title="Test Title"
             secondaryActions={[
               {
@@ -966,7 +966,7 @@ describe('<TitleBlockZen />', () => {
             ]}
           >
             Example
-          </TitleBlockZen>,
+          </TitleBlock>,
         )
         const toolbar = screen.getByTestId('title-block-secondary-actions-toolbar')
         const links = within(toolbar).getAllByRole('link')
@@ -977,7 +977,7 @@ describe('<TitleBlockZen />', () => {
 
       it('will render multiple custom anchor components in the secondary actions mobile Drawer', () => {
         render(
-          <TitleBlockZen
+          <TitleBlock
             title="Test Title"
             secondaryActions={[
               {
@@ -993,7 +993,7 @@ describe('<TitleBlockZen />', () => {
             ]}
           >
             Example
-          </TitleBlockZen>,
+          </TitleBlock>,
         )
         const links = screen.getAllByTestId('title-block-mobile-actions-secondary-action')
         expect(links.length).toBe(2)
@@ -1005,7 +1005,7 @@ describe('<TitleBlockZen />', () => {
     describe('defaultAction', () => {
       it('will render a custom anchor components in the main action toolbar', () => {
         render(
-          <TitleBlockZen
+          <TitleBlock
             title="Test Title"
             defaultAction={{
               label: 'Default action',
@@ -1014,7 +1014,7 @@ describe('<TitleBlockZen />', () => {
             }}
           >
             Example
-          </TitleBlockZen>,
+          </TitleBlock>,
         )
         const toolbar = screen.getByTestId('title-block-main-actions-toolbar')
         const defaultActionAnchor = within(toolbar).getByRole('link', {
@@ -1025,7 +1025,7 @@ describe('<TitleBlockZen />', () => {
 
       it('will render the component above primary action in the Drawer content if it is a link', () => {
         render(
-          <TitleBlockZen
+          <TitleBlock
             title="Test Title"
             defaultAction={{
               label: 'Default action',
@@ -1034,7 +1034,7 @@ describe('<TitleBlockZen />', () => {
             }}
           >
             Example
-          </TitleBlockZen>,
+          </TitleBlock>,
         )
         const mobileActionLink = screen.getByTestId('title-block-mobile-actions-default-link')
 
@@ -1044,7 +1044,7 @@ describe('<TitleBlockZen />', () => {
       it('will render the component in the top list of the Drawer content if it is a clickable button', () => {
         const testClickFunc = vi.fn()
         render(
-          <TitleBlockZen
+          <TitleBlock
             title="Test Title"
             defaultAction={{
               label: 'Default action',
@@ -1053,7 +1053,7 @@ describe('<TitleBlockZen />', () => {
             }}
           >
             Example
-          </TitleBlockZen>,
+          </TitleBlock>,
         )
         expect(screen.queryByTestId('title-block-mobile-actions-default-link')).toBeFalsy()
         expect(screen.getByTestId('title-block-mobile-actions-default-action')).toBeInTheDocument()
