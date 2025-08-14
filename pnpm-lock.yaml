@@ -491,9 +491,9 @@ importers:
         specifier: ^4.20.3
         version: 4.20.3
 
-  packages/components/react-aria: {}
+  packages/components/libs/react-aria: {}
 
-  packages/components/react-aria-components: {}
+  packages/components/libs/react-aria-components: {}
 
   packages/design-tokens:
     dependencies:
