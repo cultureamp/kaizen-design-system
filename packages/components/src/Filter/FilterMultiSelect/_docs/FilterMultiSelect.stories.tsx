@@ -275,7 +275,7 @@ export const WithSectionNotification: Story = {
                         <>
                           <span className="mb-6">Disabled items</span>
                           <InlineNotification
-                            type="cautionary"
+                            variant="cautionary"
                             persistent
                             noBottomMargin
                             headingProps={{

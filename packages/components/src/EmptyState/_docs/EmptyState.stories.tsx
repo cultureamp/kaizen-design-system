@@ -23,7 +23,6 @@ const meta = {
         ),
       },
     },
-    illustrationType: { control: false },
   },
   args: {
     headingProps: {
