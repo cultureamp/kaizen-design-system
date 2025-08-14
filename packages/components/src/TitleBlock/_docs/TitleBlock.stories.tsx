@@ -3,7 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { Icon } from '~components/__next__/Icon'
 import { assetUrl } from '~components/utils/hostedAssets'
 import { StickerSheet } from '~storybook/components/StickerSheet'
-import { NavigationTab, TitleBlockZen } from '../index'
+import { NavigationTab, TitleBlock } from '../index'
 
 const SECONDARY_ACTIONS = [
   {
@@ -27,8 +27,8 @@ const SECONDARY_ACTIONS = [
 ]
 
 const meta = {
-  title: 'Components/TitleBlockZen',
-  component: TitleBlockZen,
+  title: 'Components/TitleBlock',
+  component: TitleBlock,
   parameters: {
     chromatic: { disable: false },
   },
@@ -75,7 +75,7 @@ const meta = {
       <NavigationTab key="6" text="Label" href="#" />,
     ],
   },
-} satisfies Meta<typeof TitleBlockZen>
+} satisfies Meta<typeof TitleBlock>
 
 export default meta
 
@@ -155,12 +155,12 @@ export const StickerSheetBreadcrumbs: Story = {
     },
     pseudo: {
       hover: [
-        '#tab-hover-example [class^="TitleBlockZen-TitleBlockZen-module__navigationTabsList"] li:nth-child(2) a',
-        '#Breadcrumbs-hover-example [class^="TitleBlockZen-TitleBlockZen-module__breadcrumb"]',
+        '#tab-hover-example [class^="TitleBlock-TitleBlock-module__navigationTabsList"] li:nth-child(2) a',
+        '#Breadcrumbs-hover-example [class^="TitleBlock-TitleBlock-module__breadcrumb"]',
       ],
       focus: [
-        '#tab-focus-example [class^="TitleBlockZen-TitleBlockZen-module__navigationTabsList"] li:nth-child(2) a',
-        '#Breadcrumbs-focus-example [class^="TitleBlockZen-TitleBlockZen-module__breadcrumb"]',
+        '#tab-focus-example [class^="TitleBlock-TitleBlock-module__navigationTabsList"] li:nth-child(2) a',
+        '#Breadcrumbs-focus-example [class^="TitleBlock-TitleBlock-module__breadcrumb"]',
       ],
     },
     a11y: {
@@ -182,22 +182,22 @@ export const StickerSheetBreadcrumbs: Story = {
     <StickerSheet>
       <StickerSheet.Row header="Tab hover">
         <div className="px-12 bg-purple-600">
-          <TitleBlockZen {...args} id="tab-hover-example" />
+          <TitleBlock {...args} id="tab-hover-example" />
         </div>
       </StickerSheet.Row>
       <StickerSheet.Row header="Tab focus">
         <div className="px-12 bg-purple-600">
-          <TitleBlockZen {...args} id="tab-focus-example" />
+          <TitleBlock {...args} id="tab-focus-example" />
         </div>
       </StickerSheet.Row>
       <StickerSheet.Row header="Breadcrumbs hover">
         <div className="px-12 bg-purple-600">
-          <TitleBlockZen {...args} id="Breadcrumbs-hover-example" />
+          <TitleBlock {...args} id="Breadcrumbs-hover-example" />
         </div>
       </StickerSheet.Row>
       <StickerSheet.Row header="Breadcrumbs focus">
         <div className="px-12 bg-purple-600">
-          <TitleBlockZen {...args} id="Breadcrumbs-focus-example" />
+          <TitleBlock {...args} id="Breadcrumbs-focus-example" />
         </div>
       </StickerSheet.Row>
     </StickerSheet>
@@ -209,7 +209,7 @@ export const StickerSheetSurveyStatus: Story = {
   render: () => (
     <StickerSheet title="Survey Status">
       <StickerSheet.Row header="Draft">
-        <TitleBlockZen
+        <TitleBlock
           title="Draft Title"
           surveyStatus={{
             text: 'draft text',
@@ -217,10 +217,10 @@ export const StickerSheetSurveyStatus: Story = {
           }}
         >
           Draft
-        </TitleBlockZen>
+        </TitleBlock>
       </StickerSheet.Row>
       <StickerSheet.Row header="Default">
-        <TitleBlockZen
+        <TitleBlock
           title="Default Title"
           surveyStatus={{
             text: 'default text',
@@ -228,10 +228,10 @@ export const StickerSheetSurveyStatus: Story = {
           }}
         >
           Default
-        </TitleBlockZen>
+        </TitleBlock>
       </StickerSheet.Row>
       <StickerSheet.Row header="Scheduled">
-        <TitleBlockZen
+        <TitleBlock
           title="Scheduled Title"
           surveyStatus={{
             text: 'scheduled text',
@@ -239,10 +239,10 @@ export const StickerSheetSurveyStatus: Story = {
           }}
         >
           Due
-        </TitleBlockZen>
+        </TitleBlock>
       </StickerSheet.Row>
       <StickerSheet.Row header="Live">
-        <TitleBlockZen
+        <TitleBlock
           title="Live Title"
           surveyStatus={{
             text: 'live text',
@@ -250,10 +250,10 @@ export const StickerSheetSurveyStatus: Story = {
           }}
         >
           Overdue
-        </TitleBlockZen>
+        </TitleBlock>
       </StickerSheet.Row>
       <StickerSheet.Row header="Closed">
-        <TitleBlockZen
+        <TitleBlock
           title="Closed Title"
           surveyStatus={{
             text: 'closed text',
@@ -261,10 +261,10 @@ export const StickerSheetSurveyStatus: Story = {
           }}
         >
           Completed
-        </TitleBlockZen>
+        </TitleBlock>
       </StickerSheet.Row>
       <StickerSheet.Row header="Sentiment Positive">
-        <TitleBlockZen
+        <TitleBlock
           title="Sentiment Positive Title"
           surveyStatus={{
             text: 'sentimentPositive text',
@@ -272,7 +272,7 @@ export const StickerSheetSurveyStatus: Story = {
           }}
         >
           Completed
-        </TitleBlockZen>
+        </TitleBlock>
       </StickerSheet.Row>
     </StickerSheet>
   ),
