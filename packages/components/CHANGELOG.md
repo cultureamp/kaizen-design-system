@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.80.5
+
+### Patch Changes
+
+- [#5992](https://github.com/cultureamp/kaizen-design-system/pull/5992) [`9617726`](https://github.com/cultureamp/kaizen-design-system/commit/9617726f8606bb00ade3e260ee48679ce8c3b489) - fix buttons on front of GenericTile being clickable even when the tile is flipped
+
 ## 1.80.4
 
 ### Patch Changes
