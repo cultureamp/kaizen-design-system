@@ -4,7 +4,8 @@
 
 Rollout of @kaizen/components V2
 
-- Rename Select (Next) to SingleSelect and move to base entry point
+- Rename `LikerScaleLegacy` to `LikertScale`
+- Rename Select (Next) to SingleSelect and move to base entry point, ie: `import { SingleSelect } from @kaizen/components`
 - Remove Skirt, SkirtCard and SplitButton
 - Rename TitleBlockZen to TitleBlock
 - Removed retired props
@@ -19,3 +20,6 @@ Rollout of @kaizen/components V2
     - EmptyState `layoutContext` and `illustrationType`
     - FilterBarContext `toggleOpenFilter`
     - Popover `customIcon`, remove `variant`
+- Remove future, v1, v2, v3 and utilities entry point
+  - `react-aria` and `react-aria-components` have been moved from the `v3` to `libs` entry point, ie: `@kaizen/components/libs/react-aria` or `@kaizen/components/libs/react-aria-components`
+  - `/utilities` entry point has been removed and the `ReversedColors` can be accessed via the base entry point, ie: `import { ReversedColors } from @kaizen/components`
