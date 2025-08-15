@@ -17,9 +17,7 @@
     "codemods",
     "future",
     "next",
-    "v1",
-    "v2",
-    "v3",
+    "libs",
     "dist",
     "icons",
     "locales",
@@ -37,60 +35,20 @@
       "import": "./dist/esm/index.mjs",
       "require": "./dist/cjs/index.cjs"
     },
-    "./future": {
-      "types": "./dist/types/__next__/index.d.ts",
-      "import": "./dist/esm/future.mjs",
-      "require": "./dist/cjs/future.cjs"
-    },
     "./next": {
       "types": "./dist/types/__next__/index.d.ts",
       "import": "./dist/esm/next.mjs",
       "require": "./dist/cjs/next.cjs"
     },
-    "./v1/actions": {
-      "types": "./dist/types/v1-actions.d.ts",
-      "import": "./dist/esm/actionsV1.mjs",
-      "require": "./dist/cjs/actionsV1.cjs"
+    "./libs/react-aria": {
+      "types": "./dist/types/__libs__/react-aria/index.d.ts",
+      "import": "./dist/esm/reactAriaKZ.mjs",
+      "require": "./dist/cjs/reactAriaKZ.cjs"
     },
-    "./v1/overlays": {
-      "types": "./dist/types/v1-overlays.d.ts",
-      "import": "./dist/esm/overlaysV1.mjs",
-      "main": "./dist/cjs/overlaysV1.cjs"
-    },
-    "./v2/actions": {
-      "types": "./dist/types/v2-actions.d.ts",
-      "import": "./dist/esm/actionsV2.mjs",
-      "require": "./dist/cjs/actionsV2.cjs"
-    },
-    "./v2/overlays": {
-      "types": "./dist/types/v2-overlays.d.ts",
-      "import": "./dist/esm/overlaysV2.mjs",
-      "require": "./dist/cjs/overlaysV2.cjs"
-    },
-    "./v3/actions": {
-      "types": "./dist/types/v3-actions.d.ts",
-      "import": "./dist/esm/actionsV3.mjs",
-      "require": "./dist/cjs/actionsV3.cjs"
-    },
-    "./v3/overlays": {
-      "types": "./dist/types/v3-overlays.d.ts",
-      "import": "./dist/esm/overlaysV3.mjs",
-      "require": "./dist/cjs/overlaysV3.cjs"
-    },
-    "./v3/react-aria": {
-      "types": "./dist/types/__react-aria__/index.d.ts",
-      "import": "./dist/esm/reactAriaV3.mjs",
-      "require": "./dist/cjs/reactAriaV3.cjs"
-    },
-    "./v3/react-aria-components": {
-      "types": "./dist/types/__react-aria-components__/index.d.ts",
-      "import": "./dist/esm/reactAriaComponentsV3.mjs",
-      "require": "./dist/cjs/reactAriaComponentsV3.cjs"
-    },
-    "./v3/utilities": {
-      "types": "./dist/types/__utilities__/index.d.ts",
-      "import": "./dist/esm/utilitiesV3.mjs",
-      "require": "./dist/cjs/utilitiesV3.cjs"
+    "./libs/react-aria-components": {
+      "types": "./dist/types/__libs__/react-aria-components/index.d.ts",
+      "import": "./dist/esm/reactAriaComponentsKZ.mjs",
+      "require": "./dist/cjs/reactAriaComponentsKZ.cjs"
     },
     "./dist/styles.css": {
       "style": "./dist/styles.css",
