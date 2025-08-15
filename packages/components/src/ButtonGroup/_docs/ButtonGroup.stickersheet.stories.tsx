@@ -1,7 +1,7 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
 import { FilterButtonBase } from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
-import { Tooltip, TooltipTrigger } from '~components/Tooltip'
+import { Tooltip } from '~components/TooltipV1'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { ButtonGroup } from '../index'
 
@@ -28,14 +28,12 @@ const StickerSheetTemplate: StickerSheetStory = {
             <FilterButtonBase>Last</FilterButtonBase>
           </ButtonGroup>
           <ButtonGroup>
-            <TooltipTrigger>
+            <Tooltip text="Hello!">
               <FilterButtonBase>Tooltips here</FilterButtonBase>
-              <Tooltip>Hello!</Tooltip>
-            </TooltipTrigger>
-            <TooltipTrigger>
+            </Tooltip>
+            <Tooltip text="Pancakes!">
               <FilterButtonBase>Styles should still work</FilterButtonBase>
-              <Tooltip>Pancakes!</Tooltip>
-            </TooltipTrigger>
+            </Tooltip>
           </ButtonGroup>
         </StickerSheet.Row>
       </StickerSheet>

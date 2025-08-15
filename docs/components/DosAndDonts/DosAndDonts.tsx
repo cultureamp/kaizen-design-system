@@ -1,8 +1,8 @@
 import React, { type HTMLAttributes } from 'react'
 import { Canvas, Unstyled } from '@storybook/blocks'
 import classnames from 'classnames'
-import { Text } from '~components/Text'
 import { Icon } from '~components/Icon'
+import { Text } from '~components/Text'
 import styles from './DosAndDonts.module.css'
 
 export const DosAndDonts = ({

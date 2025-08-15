@@ -1,8 +1,8 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { Text } from '~components/Text'
 import { Icon } from '~components/Icon'
+import { Text } from '~components/Text'
 import { type StickerSheetStory } from '~storybook/components/StickerSheet'
 import {
   TableCard,

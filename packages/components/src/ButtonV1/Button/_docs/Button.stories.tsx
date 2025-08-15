@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
+import { Icon } from '~components/Icon'
 import { LoadingInput } from '~components/Loading'
 import { TextField } from '~components/TextField'
-import { Icon } from '~components/Icon'
 import { Button } from '../index'
 
 const meta = {

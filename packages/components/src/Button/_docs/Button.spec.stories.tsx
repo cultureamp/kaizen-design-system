@@ -1,8 +1,8 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
-import { VisuallyHidden } from '~components/VisuallyHidden'
 import { Icon } from '~components/Icon'
+import { VisuallyHidden } from '~components/VisuallyHidden'
 import { Button } from '../index'
 
 const onPressEvent = fn()

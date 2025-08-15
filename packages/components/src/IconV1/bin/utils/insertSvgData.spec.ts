@@ -13,7 +13,6 @@ import { SVG } from '~components/IconV1/subcomponents/SVG'
 import type { IconProps } from '~components/IconV1/types'
 
 export const MyIcon = (props: IconProps): JSX.Element => {
-
   const svgContent = <><use></use></>
   return <SVG {...props}>{svgContent}</SVG>
 }

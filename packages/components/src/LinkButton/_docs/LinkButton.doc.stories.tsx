@@ -1,7 +1,7 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { VisuallyHidden } from '~components/VisuallyHidden'
 import { Icon } from '~components/Icon'
+import { VisuallyHidden } from '~components/VisuallyHidden'
 import { LinkButton } from '../index'
 
 const meta = {

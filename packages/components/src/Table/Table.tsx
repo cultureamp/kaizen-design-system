@@ -1,16 +1,9 @@
-import React, {
-  cloneElement,
-  useEffect,
-  useRef,
-  type HTMLAttributes,
-  type ReactElement,
-} from 'react'
+import React, { cloneElement, type HTMLAttributes, type ReactElement } from 'react'
 import classnames from 'classnames'
-import { UNSAFE_PortalProvider as PortalProvider } from 'react-aria'
 import { Checkbox, type CheckedStatus } from '~components/Checkbox'
 import { Heading } from '~components/Heading'
 import { Icon } from '~components/Icon'
-import { Tooltip, TooltipTrigger } from '~components/Tooltip'
+import { Tooltip } from '~components/TooltipV1'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Table.module.scss'
 
@@ -135,14 +128,6 @@ export const TableHeaderRowCell = ({
   const sorting = sortingRaw
   const [isHovered, setIsHovered] = React.useState(false)
 
-  const tooltipPortalSelectorElementRef = useRef<HTMLElement | null>(null)
-
-  useEffect(() => {
-    tooltipPortalSelectorElementRef.current = tooltipPortalSelector
-      ? document.querySelector(tooltipPortalSelector)
-      : null
-  }, [tooltipPortalSelector])
-
   const updateHoverState = (hoverState: boolean): void => {
     if (sortingArrowsOnHover && hoverState != isHovered) setIsHovered(hoverState)
   }
@@ -241,12 +226,14 @@ export const TableHeaderRowCell = ({
 
   cellContents =
     tooltipInfo != null ? (
-      <PortalProvider getContainer={() => tooltipPortalSelectorElementRef.current}>
-        <TooltipTrigger>
-          {cellContents}
-          <Tooltip className={styles.headerRowCellTooltip}>{tooltipInfo}</Tooltip>
-        </TooltipTrigger>
-      </PortalProvider>
+      <Tooltip
+        animationDuration={0}
+        classNameOverride={styles.headerRowCellTooltip}
+        text={tooltipInfo}
+        portalSelector={tooltipPortalSelector}
+      >
+        {cellContents}
+      </Tooltip>
     ) : (
       // Again, this wrapper is just to make the dom tree consistent between
       // different permutations.

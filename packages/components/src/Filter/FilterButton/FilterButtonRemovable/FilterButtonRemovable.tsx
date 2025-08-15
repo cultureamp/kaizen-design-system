@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import { ButtonGroup, type ButtonGroupProps } from '~components/ButtonGroup'
 import { type FilterTriggerRef } from '~components/Filter/Filter'
 import { Icon } from '~components/Icon'
-import { Tooltip, TooltipTrigger } from '~components/Tooltip'
+import { Tooltip } from '~components/TooltipV1'
 import { type DataAttributes } from '~components/types/DataAttributes'
 import { isRefObject } from '~components/utils/isRefObject'
 import { FilterButton, type FilterButtonProps } from '../FilterButton'
@@ -46,7 +46,7 @@ export const FilterButtonRemovable = forwardRef<
   return (
     <ButtonGroup {...restProps}>
       <FilterButton ref={ref} {...triggerButtonProps} />
-      <TooltipTrigger>
+      <Tooltip text={removeButtonLabel} display="inline-block" position="below">
         <FilterButtonBase
           ref={removeButtonRef}
           classNameOverride={classnames(styles.filterButtonBase, restProps.classNameOverride)}
@@ -54,8 +54,7 @@ export const FilterButtonRemovable = forwardRef<
         >
           <Icon name="cancel" alt={removeButtonLabel} isFilled />
         </FilterButtonBase>
-        <Tooltip placement="bottom">{removeButtonLabel}</Tooltip>
-      </TooltipTrigger>
+      </Tooltip>
     </ButtonGroup>
   )
 })
