@@ -1,6 +1,8 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
+import { Button } from '~components/Button'
 import { Heading } from '~components/Heading'
+import { Icon } from '~components/Icon'
 import {
   BrandMomentPositiveOutro,
   Informative,
@@ -8,12 +10,7 @@ import {
 } from '~components/Illustration'
 import { LinkButton } from '~components/LinkButton'
 import { Text } from '~components/Text'
-import { Button } from '~components/__next__/Button'
-import { Icon } from '~components/__next__/Icon'
-import {
-  Tooltip as TooltipNext,
-  TooltipTrigger as TooltipTriggerNext,
-} from '~components/__next__/Tooltip'
+import { Tooltip as TooltipNext, TooltipTrigger as TooltipTriggerNext } from '~components/Tooltip'
 import { GuidanceBlock } from '../index'
 import { variantsMap } from '../types'
 
@@ -157,25 +154,26 @@ export const Actions: Story = {
   },
 }
 
-export const Tooltip: Story = {
-  args: {
-    content: <ContentComponent />,
-    actions: {
-      primary: {
-        label: 'Label',
-        onClick: () => alert('tada: 🎉'),
-        tooltip: {
-          text: 'Opens in a new tab',
-          mood: 'cautionary',
-        },
-      },
-      secondary: {
-        label: 'Label',
-        href: '#',
-      },
-    },
-  },
-}
+// Commenting out as can't support old action tooltip with new tooltip AFAICT?
+// export const Tooltip: Story = {
+//   args: {
+//     content: <ContentComponent />,
+//     actions: {
+//       primary: {
+//         label: 'Label',
+//         onClick: () => alert('tada: 🎉'),
+//         tooltip: {
+//           text: 'Opens in a new tab',
+//           mood: 'cautionary',
+//         },
+//       },
+//       secondary: {
+//         label: 'Label',
+//         href: '#',
+//       },
+//     },
+//   },
+// }
 
 export const CustomContent: Story = {
   args: {

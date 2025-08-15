@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import classnames from 'classnames'
-import { Icon } from '~components/__next__/Icon'
+import { Icon } from '~components/Icon'
 import { isRefObject } from '~components/utils/isRefObject'
 import { type FilterTriggerRef } from '../../Filter/types'
 import { FilterButtonBase, type FilterButtonBaseProps } from '../subcomponents/FilterButtonBase'

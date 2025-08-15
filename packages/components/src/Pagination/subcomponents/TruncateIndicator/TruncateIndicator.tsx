@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from '~components/__next__/Icon'
+import { Icon } from '~components/Icon'
 import styles from './TruncateIndicator.module.css'
 
 export const TruncateIndicator = (): JSX.Element => (

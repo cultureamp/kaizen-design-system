@@ -3,7 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { Avatar } from '~components/Avatar'
 import { LiveIcon } from '~components/Tag/subcomponents'
-import { Icon } from '~components/__next__/Icon'
+import { Icon } from '~components/Icon'
 import { RemovableTag, Tag } from '../..'
 
 const meta = {

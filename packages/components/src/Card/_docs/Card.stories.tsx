@@ -1,10 +1,10 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { VisuallyHidden } from 'react-aria'
+import { Button } from '~components/Button'
 import { Heading } from '~components/Heading'
 import { LoadingHeading, LoadingParagraph } from '~components/Loading'
 import { Text } from '~components/Text'
-import { Button } from '~components/__next__'
 import { Card, type CardProps } from '../index'
 
 const LoadingContent = (): JSX.Element => (

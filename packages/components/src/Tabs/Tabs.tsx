@@ -1,23 +1,12 @@
-import React, { type HTMLAttributes, type ReactNode } from 'react'
-import { Tabs as ReachTabs } from '@reach/tabs'
+import React from 'react'
+import {
+  Tabs as RACTabs,
+  type Key as RACKey,
+  type TabsProps as RACTabsProps,
+} from 'react-aria-components'
 
-export type TabsProps = {
-  /**
-   * Index of tab to show by default
-   * Only works in uncontrolled mode (when no selectedIndex is provided)
-   */
-  defaultIndex?: number
-  /**
-   * Set the selected tab explictly.
-   * Enabled controlled mode, meaning you're also responsible for updating this using the onChange callback
-   */
-  selectedIndex?: number
-  /**
-   * Callback on tab change
-   */
-  onChange?: (index: number) => void
-  children: ReactNode
-} & Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
+export type TabsProps = Omit<RACTabsProps, 'orientation'>
+export type Key = RACKey
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081929117/Tabs Guidance} |
@@ -26,13 +15,4 @@ export type TabsProps = {
  * Wrapper around all of the tab subcomponents
  * Holds a TabList and TabPanels
  */
-export const Tabs = (props: TabsProps): JSX.Element => {
-  const { defaultIndex, selectedIndex, onChange, children, ...restProps } = props
-  return (
-    <ReachTabs defaultIndex={defaultIndex} index={selectedIndex} onChange={onChange} {...restProps}>
-      {children}
-    </ReachTabs>
-  )
-}
-
-Tabs.displayName = 'Tabs'
+export const Tabs = (props: TabsProps): JSX.Element => <RACTabs {...props} />

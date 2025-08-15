@@ -1,7 +1,7 @@
 import React, { type ReactNode } from 'react'
 import classnames from 'classnames'
 import { Avatar, type AvatarProps } from '~components/Avatar'
-import { Icon } from '~components/__next__/Icon'
+import { Icon } from '~components/Icon'
 import { LiveIcon } from './subcomponents/LiveIcon/LiveIcon'
 import { type TagVariants } from './types'
 import styles from './Tag.module.scss'
