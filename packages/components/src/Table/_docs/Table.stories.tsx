@@ -3,8 +3,8 @@ import { action } from '@storybook/addon-actions'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Checkbox } from '~components/Checkbox'
 import { Divider } from '~components/Divider'
-import { Text } from '~components/Text'
 import { Icon } from '~components/Icon'
+import { Text } from '~components/Text'
 import {
   TableCard,
   TableContainer,

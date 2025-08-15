@@ -1,9 +1,9 @@
 import React, { type FunctionComponent } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic'
-import { Text } from '~components/Text'
 import { Button } from '~components/Button'
 import { Icon } from '~components/Icon'
+import { Text } from '~components/Text'
 import { Menu, MenuHeader, MenuItem, MenuPopover, MenuSection, MenuTrigger } from '../index'
 import * as testStories from './Menu.spec.stories'
 
