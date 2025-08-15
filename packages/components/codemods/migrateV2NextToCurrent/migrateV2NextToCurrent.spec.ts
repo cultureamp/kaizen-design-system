@@ -500,7 +500,7 @@ import type { Menu as KZMenu, MenuItem as KZMenuItem } from "@kaizen/components"
   describe('Module path transformations', () => {
     it('should transform react-aria module path', () => {
       const inputAst = parseJsx(`import { Button } from "@kaizen/components/v3/react-aria"`)
-      const expectedAst = parseJsx(`import { Button } from "@kaizen/components/react-aria"`)
+      const expectedAst = parseJsx(`import { Button } from "@kaizen/components/libs/react-aria"`)
 
       const result = transformComponents(inputAst)
       expect(result).toBe(printAst(expectedAst))
@@ -511,7 +511,7 @@ import type { Menu as KZMenu, MenuItem as KZMenuItem } from "@kaizen/components"
         `import { TextField } from "@kaizen/components/v3/react-aria-components"`,
       )
       const expectedAst = parseJsx(
-        `import { TextField } from "@kaizen/components/react-aria-components"`,
+        `import { TextField } from "@kaizen/components/libs/react-aria-components"`,
       )
 
       const result = transformComponents(inputAst)
@@ -520,7 +520,9 @@ import type { Menu as KZMenu, MenuItem as KZMenuItem } from "@kaizen/components"
 
     it('should handle multiple imports from react-aria modules', () => {
       const inputAst = parseJsx(`import { Button, Link } from "@kaizen/components/v3/react-aria"`)
-      const expectedAst = parseJsx(`import { Button, Link } from "@kaizen/components/react-aria"`)
+      const expectedAst = parseJsx(
+        `import { Button, Link } from "@kaizen/components/libs/react-aria"`,
+      )
 
       const result = transformComponents(inputAst)
       expect(result).toBe(printAst(expectedAst))
@@ -531,7 +533,7 @@ import type { Menu as KZMenu, MenuItem as KZMenuItem } from "@kaizen/components"
         `import { Button as AriaButton } from "@kaizen/components/v3/react-aria"`,
       )
       const expectedAst = parseJsx(
-        `import { Button as AriaButton } from "@kaizen/components/react-aria"`,
+        `import { Button as AriaButton } from "@kaizen/components/libs/react-aria"`,
       )
 
       const result = transformComponents(inputAst)
@@ -545,7 +547,7 @@ import { Button } from "@kaizen/components/v3/react-aria"
 `)
       const expectedAst = parseJsx(`
 import { Menu } from "@kaizen/components"
-import { Button } from "@kaizen/components/react-aria"
+import { Button } from "@kaizen/components/libs/react-aria"
 `)
 
       const result = transformComponents(inputAst)
