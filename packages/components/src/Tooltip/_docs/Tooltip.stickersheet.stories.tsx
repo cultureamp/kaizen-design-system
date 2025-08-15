@@ -1,101 +1,45 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
-import isChromatic from 'chromatic/isChromatic'
-import { IconButton } from '~components/Button'
-import { Icon } from '~components/__next__/Icon'
-import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
-import { Tooltip } from '../index'
-
-const IS_CHROMATIC = isChromatic()
+import { composeStories, type Meta, type StoryObj } from '@storybook/react'
+import { ReversedColors } from '~components/utils'
+import { mergeClassNames } from '~components/utils/mergeClassNames'
+import * as testStories from './Tooltip.spec.stories'
 
 export default {
-  title: 'Components/Tooltip/Tooltip (deprecated)',
+  title: 'Components/Tooltip/Tooltip (next)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-  args: {
-    isInitiallyVisible: IS_CHROMATIC,
-  },
 } satisfies Meta
 
-const cellStyle = {
-  padding: '0 50px',
-}
+const Stories = composeStories(testStories)
 
-const StickerSheetTemplate: StickerSheetStory = {
-  render: (props) => (
-    <div style={{ padding: '50px 100px' }}>
-      <StickerSheet title="Positions" headers={['Top', 'Bottom', 'Left', 'Right']}>
-        <StickerSheet.Row>
-          <StickerSheet.Cell style={cellStyle}>
-            <Tooltip {...props} position="above" text="Tooltip label">
-              <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
-            </Tooltip>
-          </StickerSheet.Cell>
-          <StickerSheet.Cell style={cellStyle}>
-            <Tooltip {...props} position="below" text="Tooltip label">
-              <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
-            </Tooltip>
-          </StickerSheet.Cell>
-          <StickerSheet.Cell style={cellStyle}>
-            <Tooltip {...props} position="left" text="Tooltip label">
-              <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
-            </Tooltip>
-          </StickerSheet.Cell>
-          <StickerSheet.Cell style={cellStyle}>
-            <Tooltip {...props} position="right" text="Tooltip label" mood="default">
-              <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
-            </Tooltip>
-          </StickerSheet.Cell>
-        </StickerSheet.Row>
-      </StickerSheet>
-
-      <StickerSheet
-        title="Moods"
-        headers={['Default', 'Informative', 'Positive', 'Highlight', 'Cautionary']}
-      >
-        <StickerSheet.Row>
-          <StickerSheet.Cell style={cellStyle}>
-            <Tooltip {...props} text="Tooltip label" mood="default">
-              <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
-            </Tooltip>
-          </StickerSheet.Cell>
-          <StickerSheet.Cell style={cellStyle}>
-            <Tooltip {...props} text="Tooltip label" mood="informative">
-              <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
-            </Tooltip>
-          </StickerSheet.Cell>
-          <StickerSheet.Cell style={cellStyle}>
-            <Tooltip {...props} text="Tooltip label" mood="positive">
-              <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
-            </Tooltip>
-          </StickerSheet.Cell>
-          <StickerSheet.Cell style={cellStyle}>
-            <Tooltip {...props} text="Tooltip label" mood="highlight">
-              <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
-            </Tooltip>
-          </StickerSheet.Cell>
-          <StickerSheet.Cell style={cellStyle}>
-            <Tooltip {...props} text="Tooltip label" mood="cautionary">
-              <IconButton label="Label" icon={<Icon name="more_horiz" isPresentational />} />
-            </Tooltip>
-          </StickerSheet.Cell>
-        </StickerSheet.Row>
-      </StickerSheet>
+export const Standard: StoryObj = {
+  name: 'Sticker Sheet (Default)',
+  render: (args) => (
+    <div className="grid gap-x-128 gap-y-128 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      {Object.values(Stories).map((Story, index) => (
+        <div
+          key={index}
+          className={mergeClassNames(
+            'flex items-center justify-center min-h-[10rem]',
+            Story.parameters.reverseColors ? 'bg-purple-700' : '',
+          )}
+        >
+          <ReversedColors isReversed={!!Story.parameters.reverseColors}>
+            <Story {...args} defaultOpen={true} />
+          </ReversedColors>
+        </div>
+      ))}
     </div>
   ),
 }
 
-export const StickerSheetDefault: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Default)',
-}
-
-export const StickerSheetRTL: StickerSheetStory = {
-  ...StickerSheetTemplate,
+export const StickerSheetRTL: StoryObj = {
+  ...Standard,
   name: 'Sticker Sheet (RTL)',
   parameters: {
+    ...Standard.parameters,
     textDirection: 'rtl',
   },
 }

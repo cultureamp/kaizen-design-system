@@ -7,7 +7,7 @@ import {
   type Matcher,
   type PropsBase,
 } from 'react-day-picker'
-import { Icon } from '~components/__next__/Icon'
+import { Icon } from '~components/Icon'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
 import { DayOfWeek } from '../enums'
 import { isInvalidDate, isValidWeekStartsOn } from '../utils'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '~components/Button'
+import { Button } from '~components/ButtonV1'
 import { GenericTile, type GenericTileProps, type TileAction } from '../subcomponents/GenericTile'
 import styles from './MultiActionTile.module.scss'
 

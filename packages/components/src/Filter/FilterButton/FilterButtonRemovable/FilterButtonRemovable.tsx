@@ -3,8 +3,8 @@ import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import { ButtonGroup, type ButtonGroupProps } from '~components/ButtonGroup'
 import { type FilterTriggerRef } from '~components/Filter/Filter'
-import { Tooltip } from '~components/Tooltip'
-import { Icon } from '~components/__next__/Icon'
+import { Icon } from '~components/Icon'
+import { Tooltip, TooltipTrigger } from '~components/Tooltip'
 import { type DataAttributes } from '~components/types/DataAttributes'
 import { isRefObject } from '~components/utils/isRefObject'
 import { FilterButton, type FilterButtonProps } from '../FilterButton'
@@ -46,7 +46,7 @@ export const FilterButtonRemovable = forwardRef<
   return (
     <ButtonGroup {...restProps}>
       <FilterButton ref={ref} {...triggerButtonProps} />
-      <Tooltip text={removeButtonLabel} display="inline-block" position="below">
+      <TooltipTrigger>
         <FilterButtonBase
           ref={removeButtonRef}
           classNameOverride={classnames(styles.filterButtonBase, restProps.classNameOverride)}
@@ -54,7 +54,8 @@ export const FilterButtonRemovable = forwardRef<
         >
           <Icon name="cancel" alt={removeButtonLabel} isFilled />
         </FilterButtonBase>
-      </Tooltip>
+        <Tooltip placement="bottom">{removeButtonLabel}</Tooltip>
+      </TooltipTrigger>
     </ButtonGroup>
   )
 })

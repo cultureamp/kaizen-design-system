@@ -11,6 +11,13 @@ import styles from './ButtonGroup.module.css'
 const isFilterButton = (node: React.ReactNode): node is React.ReactElement<FilterButtonBaseProps> =>
   React.isValidElement(node) && node.type === FilterButtonBase
 
+const hasClassNameOverride = (elem: React.ReactElement): boolean =>
+  'classNameOverride' in elem.props
+
+const getClassName = (props: any): string | undefined => {
+  return props.classNameOverride ?? props.className
+}
+
 export type ButtonGroupProps = {
   children:
     | React.ReactElement<FilterButtonBaseProps | TooltipProps>
@@ -39,26 +46,30 @@ export const ButtonGroup = ({
           styles.child,
           index === 0 && styles.firstChild,
           index === childCount - 1 && styles.lastChild,
-          child.props.classNameOverride,
+          getClassName(child.props),
         )
 
         if (child.type === Tooltip) {
           const button = child.props.children
 
-          if (isFilterButton(button)) {
+          if (React.isValidElement(button) && isFilterButton(button)) {
+            const buttonProps = hasClassNameOverride(button)
+              ? { classNameOverride: classnames(getClassName(button.props), buttonClassNames) }
+              : { className: classnames(getClassName(button.props), buttonClassNames) }
+
             return React.cloneElement(child, {
-              children: React.cloneElement(button, {
-                classNameOverride: classnames(button.props.classNameOverride, buttonClassNames),
-              }),
+              children: React.cloneElement(button, buttonProps),
             })
           }
 
           return child
         }
 
-        return React.cloneElement(child, {
-          classNameOverride: buttonClassNames,
-        })
+        const classNameProps = hasClassNameOverride(child)
+          ? { classNameOverride: buttonClassNames }
+          : { className: buttonClassNames }
+
+        return React.cloneElement(child, classNameProps)
       })}
     </div>
   )

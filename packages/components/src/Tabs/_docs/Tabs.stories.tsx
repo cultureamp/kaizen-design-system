@@ -1,33 +1,45 @@
 import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { Button } from '~components/Button'
-import { Card } from '~components/Card'
+import { Button } from '~components/ButtonV1'
 import { Text } from '~components/Text'
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from '../index'
+import { Tab, TabList, TabPanel, Tabs, type Key } from '../index'
 
 const meta = {
-  title: 'Components/Tabs/Tabs (deprecated)',
+  title: 'Components/Tabs/Tabs (next)',
   component: Tabs,
   args: {
     children: (
       <>
         <TabList aria-label="Tabs">
-          <Tab>Tab 1</Tab>
-          <Tab>Tab 2</Tab>
-          <Tab badge="3">Tab 3</Tab>
-          <Tab disabled>Disabled Tab</Tab>
+          <Tab id="one">Tab 1</Tab>
+          <Tab id="two">Tab 2</Tab>
+          <Tab id="three" badge="3">
+            Tab 3
+          </Tab>
+          <Tab id="disabled" isDisabled>
+            Disabled Tab
+          </Tab>
+          <Tab id="four">Tab 4</Tab>
+          <Tab id="five">Tab 5</Tab>
         </TabList>
-        <TabPanels>
-          <TabPanel classNameOverride="p-24">
-            <Text variant="body">Content 1</Text>
-          </TabPanel>
-          <TabPanel classNameOverride="p-24">
-            <Text variant="body">Content 2</Text>
-          </TabPanel>
-          <TabPanel classNameOverride="p-24">
-            <Text variant="body">Content 3</Text>
-          </TabPanel>
-        </TabPanels>
+        <TabPanel id="one" className="p-24">
+          <Text variant="body">Content 1</Text>
+        </TabPanel>
+        <TabPanel id="two" className="p-24">
+          <Text variant="body">Content 2</Text>
+        </TabPanel>
+        <TabPanel id="three" className="p-24">
+          <Text variant="body">Content 3</Text>
+        </TabPanel>
+        <TabPanel id="disabled" className="p-24">
+          <Text variant="body">Content 4</Text>
+        </TabPanel>
+        <TabPanel id="four" className="p-24">
+          <Text variant="body">Content 4</Text>
+        </TabPanel>
+        <TabPanel id="five" className="p-24">
+          <Text variant="body">Content 5</Text>
+        </TabPanel>
       </>
     ),
   },
@@ -47,31 +59,31 @@ export const Playground: Story = {
     },
   },
   args: {
-    defaultIndex: 1,
+    defaultSelectedKey: 'one',
 
-    onChange: (index): void => console.log('Tab changed to ', index),
+    onSelectionChange: (key): void => console.log('Tab changed to ', key),
   },
 }
 
 export const Controlled: Story = {
-  render: (args) => {
-    const [selectedIndex, setSelectedIndex] = useState<number>(0)
+  render: () => {
+    const [selectedKey, setSelectedKey] = useState<Key>(0)
     return (
       <>
-        <Tabs {...args} selectedIndex={selectedIndex} onChange={setSelectedIndex} />
-        <Button label="Switch to tab 2" onClick={(): void => setSelectedIndex(1)} />
+        <Tabs selectedKey={selectedKey} onSelectionChange={setSelectedKey}>
+          <TabList aria-label="Tabs">
+            <Tab id="one">Tab 1</Tab>
+            <Tab id="two">Tab 2</Tab>
+          </TabList>
+          <TabPanel id="one" className="p-24">
+            <Text variant="body">Content 1</Text>
+          </TabPanel>
+          <TabPanel id="two" className="p-24">
+            <Text variant="body">Content 2</Text>
+          </TabPanel>
+        </Tabs>
+        <Button label="Switch to tab 2" onClick={(): void => setSelectedKey('two')} />
       </>
     )
   },
-}
-
-export const UsageInCard: Story = {
-  parameters: {
-    backgrounds: { default: 'Gray 100' },
-  },
-  render: (args) => (
-    <Card>
-      <Tabs {...args} />
-    </Card>
-  ),
 }
