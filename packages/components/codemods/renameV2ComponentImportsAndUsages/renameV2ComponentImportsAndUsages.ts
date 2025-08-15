@@ -1,123 +1,36 @@
 import ts from 'typescript'
 import {
+  createRenameMapFromGroups,
+  processImportDeclaration,
   setImportToAdd,
   setImportToRemove,
   updateJsxElementTagName,
   updateKaioImports,
-  type ComponentRenameConfig,
+  type ComponentGroup,
   type TagImportAttributesMap,
   type UpdateKaioImportsArgs,
 } from '../utils'
 
-type RenameConfig = {
-  newName: string
-  fromModules: string[]
-  toModule: string
-}
+const componentGroups: ComponentGroup[] = [
+  {
+    components: [
+      ['Select', 'SingleSelect'],
+      ['SelectProps', 'SingleSelectProps'],
+      ['SelectOption', 'SingleSelectOption'],
+      ['SelectOptionGroup', 'SingleSelectOptionGroup'],
+      ['SelectItem', 'SingleSelectItem'],
+      ['SelectOptionNode', 'SingleSelectOptionNode'],
+      ['SelectOptionGroupNode', 'SingleSelectOptionGroupNode'],
+      ['SelectItemNode', 'SingleSelectItemNode'],
+      ['LikertScaleLegacy', 'LikertScale'],
+      ['TitleBlockZen', 'TitleBlock'],
+    ],
+    fromModules: ['@kaizen/components/next', '@kaizen/components/future', '@kaizen/components'],
+    toModule: '@kaizen/components',
+  },
+]
 
-const renameMap = new Map<string, RenameConfig>([
-  [
-    'Select',
-    {
-      newName: 'SingleSelect',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectProps',
-    {
-      newName: 'SingleSelectProps',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectOption',
-    {
-      newName: 'SingleSelectOption',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectOptionGroup',
-    {
-      newName: 'SingleSelectOptionGroup',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectItem',
-    {
-      newName: 'SingleSelectItem',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectOptionNode',
-    {
-      newName: 'SingleSelectOptionNode',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectOptionGroupNode',
-    {
-      newName: 'SingleSelectOptionGroupNode',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'SelectItemNode',
-    {
-      newName: 'SingleSelectItemNode',
-      fromModules: ['@kaizen/components/next', '@kaizen/components/future'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'LikertScaleLegacy',
-    {
-      newName: 'LikertScale',
-      fromModules: ['@kaizen/components'],
-      toModule: '@kaizen/components',
-    },
-  ],
-  [
-    'TitleBlockZen',
-    {
-      newName: 'TitleBlock',
-      fromModules: ['@kaizen/components'],
-      toModule: '@kaizen/components',
-    },
-  ],
-])
-
-const createComponentRenameConfig = (
-  config: RenameConfig,
-  fromModule: string,
-): ComponentRenameConfig => ({
-  newName: config.newName,
-  fromModule,
-  toModule: config.toModule,
-})
-
-const componentRenameMap = new Map<string, ComponentRenameConfig>()
-for (const [name, config] of Array.from(renameMap.entries())) {
-  if (
-    !name.endsWith('Props') &&
-    !name.includes('Option') &&
-    !name.includes('Item') &&
-    !name.includes('Node')
-  ) {
-    componentRenameMap.set(name, createComponentRenameConfig(config, config.fromModules[0]))
-  }
-}
+const renameMap = createRenameMapFromGroups(componentGroups)
 
 export const renameV2ComponentImportsAndUsages =
   (tagsMap: TagImportAttributesMap | undefined): ts.TransformerFactory<ts.SourceFile> =>
@@ -129,25 +42,12 @@ export const renameV2ComponentImportsAndUsages =
 
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isImportDeclaration(node)) {
-        const moduleSpecifier = node.moduleSpecifier.getText().slice(1, -1)
-
-        const importClause = node.importClause
-        if (importClause?.namedBindings && ts.isNamedImports(importClause.namedBindings)) {
-          importClause.namedBindings.elements.forEach((importSpecifier) => {
-            const importName =
-              importSpecifier.propertyName?.getText() ?? importSpecifier.name?.getText()
-
-            const renameConfig = renameMap.get(importName)
-            if (renameConfig?.fromModules.includes(moduleSpecifier)) {
-              validRenames.add(importName)
-              setImportToRemove(importsToRemove, moduleSpecifier, importName)
-              setImportToAdd(importsToAdd, renameConfig.toModule, {
-                componentName: renameConfig.newName,
-                isTypeOnly: importSpecifier.isTypeOnly || importClause.isTypeOnly,
-              })
-            }
-          })
-        }
+        processImportDeclaration(node, {
+          importsToRemove,
+          importsToAdd,
+          renameMap,
+          validRenames,
+        })
       }
 
       if (
@@ -157,17 +57,31 @@ export const renameV2ComponentImportsAndUsages =
       ) {
         if (ts.isPropertyAccessExpression(node.tagName)) {
           const left = node.tagName.expression.getText()
-          const rename = componentRenameMap.get(left)
+          const renameConfig = renameMap.get(left)
 
-          if (rename) {
-            setImportToRemove(importsToRemove, rename.fromModule, left)
-            setImportToAdd(importsToAdd, rename.toModule, { componentName: rename.newName })
+          if (renameConfig) {
+            setImportToRemove(importsToRemove, renameConfig.fromModules[0], left)
+            setImportToAdd(importsToAdd, renameConfig.toModule, {
+              componentName: renameConfig.newName,
+            })
+
+            // Create temporary map for updateJsxElementTagName
+            const tempComponentMap = new Map([
+              [
+                left,
+                {
+                  newName: renameConfig.newName,
+                  fromModule: renameConfig.fromModules[0],
+                  toModule: renameConfig.toModule,
+                },
+              ],
+            ])
 
             return updateJsxElementTagName(
               context.factory,
               node,
-              rename.newName,
-              componentRenameMap,
+              renameConfig.newName,
+              tempComponentMap,
             )
           }
 
@@ -199,7 +113,14 @@ export const renameV2ComponentImportsAndUsages =
         })
         const jsxElementName = alias ?? renameConfig.newName
         const tempComponentMap = new Map([
-          [kaioComponentName, createComponentRenameConfig(renameConfig, oldImportSource)],
+          [
+            kaioComponentName,
+            {
+              newName: renameConfig.newName,
+              fromModule: oldImportSource,
+              toModule: renameConfig.toModule,
+            },
+          ],
         ])
         return updateJsxElementTagName(context.factory, node, jsxElementName, tempComponentMap)
       }
