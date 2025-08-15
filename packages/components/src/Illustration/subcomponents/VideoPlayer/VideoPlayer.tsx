@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import classnames from 'classnames'
-import { IconButton } from '~components/Button'
+import { IconButton } from '~components/ButtonV1'
 import { assetUrl } from '~components/utils/hostedAssets'
 import { canPlayWebm } from '../../utils/canPlayWebm'
 import { usePausePlay } from '../../utils/usePausePlay'

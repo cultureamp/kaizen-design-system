@@ -1,6 +1,6 @@
 import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import type { ButtonProps } from '~components/Button'
+import type { ButtonProps } from '~components/ButtonV1'
 import { Heading } from '~components/Heading'
 import {
   GenericModal,
