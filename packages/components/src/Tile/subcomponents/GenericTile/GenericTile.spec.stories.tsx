@@ -20,12 +20,17 @@ type Story = StoryObj<typeof GenericTile>
 export const Flip: Story = {
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
+    const buttonWithInfoLabel = await canvas.findByRole('button', {
+      name: 'View more information: Title',
+    })
 
     await step('initial render complete', async () => {
+      expect(buttonWithInfoLabel).toBeInTheDocument()
+    })
+
+    await step('Can focus to button', async () => {
       await waitFor(() => {
-        canvas.getByRole('button', {
-          name: 'View more information: Title',
-        })
+        buttonWithInfoLabel.click()
       })
     })
 

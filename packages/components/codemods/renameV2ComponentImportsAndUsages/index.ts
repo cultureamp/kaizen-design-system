@@ -11,7 +11,18 @@ const run = (): void => {
 
   transformComponentsInDir(
     targetDir,
-    ['Select', 'LikertScaleLegacy', 'TitleBlockZen'],
+    [
+      'Select',
+      'SelectProps',
+      'SelectOption',
+      'SelectOptionGroup',
+      'SelectItem',
+      'SelectOptionNode',
+      'SelectOptionGroupNode',
+      'SelectItemNode',
+      'LikertScaleLegacy',
+      'TitleBlockZen',
+    ],
     (tagNames) => [renameV2ComponentImportsAndUsages(tagNames)],
   )
 }
