@@ -159,10 +159,7 @@ export const GenericTile = ({
   return (
     <div className={classnames(styles.root, classNameOverride)} {...restProps}>
       <div className={classnames(styles.tile, isFlipped && styles.isFlipped)}>
-        <>
-          {renderFront()}
-          {renderBack()}
-        </>
+        {isFlipped ? renderBack() : renderFront()}
       </div>
     </div>
   )
