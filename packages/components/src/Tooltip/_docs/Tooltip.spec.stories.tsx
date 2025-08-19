@@ -12,7 +12,7 @@ import { Text } from '~components/Text'
 import { Tooltip, TooltipTrigger } from '../index'
 
 const meta = {
-  title: 'Components/Tooltip/Tooltip (next)/Tests',
+  title: 'Components/Tooltip/Tests',
   component: Tooltip,
   parameters: {
     layout: 'centered',

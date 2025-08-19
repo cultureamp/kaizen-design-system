@@ -1,7 +1,6 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
-import { Button as ButtonRC } from '~components/Button'
-import { Button } from '~components/ButtonV1'
+import { Button } from '~components/Button'
 import { CheckboxField } from '~components/Checkbox'
 import { Label } from '~components/Label'
 import { Text } from '~components/Text'
@@ -10,7 +9,7 @@ import { handledRtlIcons, iconDefaultSet } from '../constants'
 import { Icon, type IconProps } from '../index'
 
 export default {
-  title: 'Components/Icon/Icon (next)',
+  title: 'Components/Icon',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -86,13 +85,10 @@ const StickerSheetTemplate: StickerSheetStory = {
               }
             />
           </StickerSheet.Row>
-          <StickerSheet.Row header="Button (v2)">
-            <Button label="Button label" icon={<Icon {...defaultProps} />} />
-          </StickerSheet.Row>
-          <StickerSheet.Row header="Button (next)">
-            <ButtonRC>
+          <StickerSheet.Row header="Button">
+            <Button>
               <Icon {...defaultProps} /> Button label
-            </ButtonRC>
+            </Button>
           </StickerSheet.Row>
         </StickerSheet>
       </>

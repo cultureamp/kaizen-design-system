@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { Tooltip, TooltipTrigger } from '~components/Tooltip'
+import { Tooltip } from '~components/TooltipV1'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { type ToggleIconButtonMoods } from './types'
 import styles from './ToggleIconButton.module.scss'
@@ -28,7 +28,7 @@ export const ToggleIconButton = React.forwardRef<HTMLButtonElement, ToggleIconBu
       ...nativeButtonProps
     } = props
     return (
-      <TooltipTrigger>
+      <Tooltip text={label} display="inline-block" position="above" animationDuration={5}>
         <button
           ref={ref}
           type="button"
@@ -48,8 +48,7 @@ export const ToggleIconButton = React.forwardRef<HTMLButtonElement, ToggleIconBu
         >
           {icon}
         </button>
-        <Tooltip placement="top">{label}</Tooltip>
-      </TooltipTrigger>
+      </Tooltip>
     )
   },
 )

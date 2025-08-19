@@ -6,7 +6,7 @@ import { Icon } from '~components/Icon'
 import { Menu, MenuHeader, MenuItem, MenuPopover, MenuSection, MenuTrigger } from '../index'
 
 const meta = {
-  title: 'Components/Menu/Menu (next)/Docs Assets',
+  title: 'Components/Menu/Docs Assets',
   component: MenuTrigger,
   args: {
     defaultOpen: isChromatic(),

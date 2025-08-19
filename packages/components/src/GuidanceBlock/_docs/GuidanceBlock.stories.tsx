@@ -154,26 +154,25 @@ export const Actions: Story = {
   },
 }
 
-// Commenting out as can't support old action tooltip with new tooltip AFAICT?
-// export const Tooltip: Story = {
-//   args: {
-//     content: <ContentComponent />,
-//     actions: {
-//       primary: {
-//         label: 'Label',
-//         onClick: () => alert('tada: 🎉'),
-//         tooltip: {
-//           text: 'Opens in a new tab',
-//           mood: 'cautionary',
-//         },
-//       },
-//       secondary: {
-//         label: 'Label',
-//         href: '#',
-//       },
-//     },
-//   },
-// }
+export const Tooltip: Story = {
+  args: {
+    content: <ContentComponent />,
+    actions: {
+      primary: {
+        label: 'Label',
+        onClick: () => alert('tada: 🎉'),
+        tooltip: {
+          text: 'Opens in a new tab',
+          mood: 'cautionary',
+        },
+      },
+      secondary: {
+        label: 'Label',
+        href: '#',
+      },
+    },
+  },
+}
 
 export const CustomContent: Story = {
   args: {
