@@ -1,7 +1,8 @@
 import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import type { ButtonProps } from '~components/Button'
+import type { ButtonProps } from '~components/ButtonV1'
 import { Heading } from '~components/Heading'
+import { Icon } from '~components/Icon'
 import { Cautionary, Informative, Negative, Positive } from '~components/Illustration'
 import {
   GenericModal,
@@ -11,7 +12,6 @@ import {
   ModalFooter,
   ModalHeader,
 } from '~components/Modal/GenericModal'
-import { Icon } from '~components/__next__/Icon'
 import styles from './ConfirmationModal.module.scss'
 
 type Variant = 'success' | 'informative' | 'warning' | 'cautionary'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
 import { FilterButtonBase } from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
-import { Tooltip } from '~components/Tooltip'
+import { Tooltip } from '~components/TooltipV1'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { ButtonGroup } from '../index'
 

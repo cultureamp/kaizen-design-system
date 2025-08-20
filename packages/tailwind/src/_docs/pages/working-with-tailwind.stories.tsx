@@ -1,6 +1,6 @@
 import React from 'react'
 import { type StoryFn } from '@storybook/react'
-import { Button } from '~components/Button'
+import { Button } from '~components/ButtonV1'
 import { Card } from '~components/Card'
 import { Container } from '~components/Container'
 import { Content } from '~components/Content'
