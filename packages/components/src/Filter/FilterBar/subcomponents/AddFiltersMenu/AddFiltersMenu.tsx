@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
-import { Button } from '~components/Button'
-import { Menu, MenuItem, MenuList } from '~components/Menu'
-import { Icon } from '~components/__next__/Icon'
+import { Button } from '~components/ButtonV1'
+import { Icon } from '~components/Icon'
+import { Menu, MenuItem, MenuList } from '~components/MenuV1'
 import { useFilterBarContext } from '../../context/FilterBarContext'
 
 export const AddFiltersMenu = (): JSX.Element => {

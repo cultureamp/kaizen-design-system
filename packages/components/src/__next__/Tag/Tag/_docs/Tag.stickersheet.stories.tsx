@@ -1,6 +1,6 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
-import { Icon } from '~components/__next__/Icon'
+import { Icon } from '~components/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Tag } from '../Tag'
 import { TagColorKeys } from '../types'

@@ -1,10 +1,10 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
+import { Button } from '~components/Button'
 import { Heading } from '~components/Heading'
 import { LoadingHeading, LoadingParagraph } from '~components/Loading'
 import { Text } from '~components/Text'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { Button } from '~components/__next__'
 import { Well } from '../index'
 import { borderStyleTypes } from '../types'
 

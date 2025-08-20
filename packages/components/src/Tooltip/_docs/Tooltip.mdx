@@ -1,134 +1,129 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks'
-import { ResourceLinks, Installation, ReplacementNotice } from '~storybook/components'
-import * as TooltipStories from './Tooltip.stories'
+import { Canvas, Meta, Controls } from '@storybook/blocks'
+import { ResourceLinks, Installation, DosAndDonts, DoOrDont } from '~storybook/components'
+import * as TooltipStories from './Tooltip.docs.stories'
+import AnatomyPng from './assets/tooltip_anatomy.png'
+import PlacementPng from './assets/tooltip_placement.png'
+import DesignSpecPng from './assets/tooltip_spec.png'
+import WhenToUsePng from './assets/tooltip_variant.png'
 
-<Meta of={TooltipStories} />
+<Meta title="Components/Tooltip/Usage Guidelines" />
 
-# Tooltip (deprecated)
+# Tooltip (next)
+
+Updated June 25, 2024
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tooltip"
   figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=1929%3A32006&mode=design&t=LwTCBZ5E1uRvOA1l-1"
-  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604978/Tooltip"
+  designGuidelines="/?path=/docs/overlays-tooltip-next-usage-guidelines--docs"
+  ariaComponentPage="https://react-spectrum.adobe.com/react-aria/Tooltip.html"
+  apiSpecification="/?path=/docs/overlays-tooltip-next-api-specifications--docs"
 />
-
-<ReplacementNotice />
 
 <Installation
   installCommand="pnpm add @kaizen/components"
-  importStatement='import { Tooltip } from "@kaizen/components"'
+  importStatement='import { Tooltip, TooltipTrigger } from "@kaizen/components/next"'
 />
 
 ## Overview
 
-Adds a popover that will show on hover or focus of the child element, with simple text content.
+Tooltips are brief floating labels used to add additional contextual information when users hover, click or focus on an interactive element. These should offer concise explanations, elaborating on the element they are associated with.
 
-<Canvas of={TooltipStories.Playground} />
-<Controls of={TooltipStories.Playground} />
+<Canvas
+  of={TooltipStories.Playground}
+  source={{
+    code: `
+<TooltipTrigger>
+  <Button>Button</Button>
+  <Tooltip>Tooltip content</Tooltip>
+</TooltipTrigger>
+  `,
+  }}
+/>
+<Controls of={TooltipStories.Playground} include={['placement', 'isOpen']} />
 
-## Accessibility
+### Anatomy
 
-This component wasn't built with accessibility in mind, as a result it's quite easy to implement a tooltip in a non-accessible way. A rethink and rewrite is likely for the future.
+- The anatomy of a tooltip is made up of a container, description and arrow.
+  - **They do not include a title or heading**. If you need to include a title, use a Popover
+- A tooltip is connected to a trigger element, such as a button or icon, that shows the tooltip when the interactive trigger element is hovered or focused. (More details below.)
 
-There's two major accessibility concerns here:
+<img
+  src={AnatomyPng}
+  alt="Indicates the anatomy of the Tooltip component, the Container, Label, Arrow and Trigger"
+  className="mt-24"
+/>
 
-- Keyboard only users
-- Screen reader (or similar assistive tech) users
+### When to use
 
-Failure to meet either of these requirements will result in a critical issue where some people are completely unable to access the information.
+- Tooltips are used to provide additional information when space is tight.
+- Tooltips must be concise with one or more lines of text.
+- Tooltips must be accessible via hover and focus only.
+- Trigger tooltips from Interactive elements (Buttons, Links, Icon buttons) or Non-interactive elements (Icons, Abbreviations Truncated text)—be mindful of keyboard accessibility
+- **Never include any kind of error messages** in a tooltip
 
-### Keyboard accessibility
+<img src={WhenToUsePng} className="mt-32" alt="Illustration of when to use the Tooltip component" />
 
-For keyboard accessibility, you need to make sure the child you are passing is a focusable element. It's best to keep the contents of this component simple. E.g. just a button:
+### Specs
 
-```jsx
-<Tooltip text="Opens in a new tab">
-  <Button href="/path" label="Go somewhere" />
-</Tooltip>
-```
+<img src={DesignSpecPng} alt="" />
 
-### Screen reader accessibility
+#### Do use tooltips to describe icons
 
-Though it won't guarantee the best screen reader accessibility, a good start is to make sure your _direct_ children element is semantic (not a div or span).
+Icons are not always easy to identify on their own. When you use components that don&apos;t have labels — for example, icon-only action buttons and tabs — make sure to use tooltips to provide context for the icons.
 
-When your direct child element is semantic, this component will add an `aria-describedby` to that element. E.g. for the link example above, the resulting mark up will be:
+<DosAndDonts>
+  <DoOrDont story={TooltipStories.Primary} />
+</DosAndDonts>
 
-```html
-<a href="path" aria-describedby="tooltip">Go somewhere</a>
-<!-- (in a portal) -->
-<div id="tooltip-id">Opens in a new tab</div>
-```
+#### Don&apos;t use tooltips to communicate crucial information
 
-Resulting in a screen reader announcement like:
-`Go somewhere, link, Opens in a new tab`
+Tooltips should never stop a user (or be a gate) from completing a task or performing an action. They disappear so they should never contain critical information that a user would absolutely need to proceed, or information without which a user may cause errors. If the information is crucial for a user to proceed, consider using a modal or inline notification instead.
 
-Again, try to keep the contents of your children as simple as possible, ideally only a single natively focusable element like the example above.
+<DosAndDonts>
+  <DoOrDont story={TooltipStories.DoFieldTooltip} />
+  <DoOrDont story={TooltipStories.DontFieldTooltip} isDont />
+</DosAndDonts>
 
-When your direct child is not semantic, you will get a console warning like this:
-`<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info.`
+#### Do be concise
 
-### Tooltips, Kaizen components and avoiding common pitfalls
+Good tooltips contain concise and helpful information, keep it short. If you need more space, consider using a Popover. Don&apos;t use it to duplicate information that already exists on the page. Instead, closely consider its placement and whether the disclosed copy will inform the action the user is about to perform.
 
-While technically any Kaizen component can be wrapped by a `Tooltip`, as called out previously, only those with [accessible roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) like `button`, `link` or `heading`, will be readable to assistive technologies.
+<DosAndDonts>
+  <DoOrDont story={TooltipStories.DoConcise} />
+  <DoOrDont story={TooltipStories.DontConcise} isDont />
+</DosAndDonts>
 
-We've created some guidance below with the most common cases for `Tooltip` and how to ensure the additional context is read to the user.
+### Placements
 
-#### Button and IconButton
+<img src={PlacementPng} alt="" className="mb-24" />
 
-<Canvas of={TooltipStories.ButtonsWithTooltip} />
+- Type: Dropdown to choose from Default (dark tooltip) and Reverse (light tooltip)
+- Direction: Dropdown to choose where the arrow points
+- Tooltip label: Input field allows you to type in the label from the properties panel
+- Use strong signifiers for trigger elements to ensure the tooltip is discoverable.
+- The proximity of tooltips is always paired to the element with which they are associated.
 
-While Kaizen buttons are compatible with `Tooltip`, caution is advised when using the custom `component` render prop.
+### Trigger
 
-```JSX
-  <Tooltip text="Contact customer support.">
-    <Button
-      {...buttonProps}
-      component={() => (
-        // The most immediate child is a `div`, which has no `role`.
-        <div>
-          <button type="button">
-            Help
-          </button>
-        </div>
-      )}
-    />
-  </Tooltip>
-```
+- A tooltip trigger needs to be discoverable:
+  - E.g. something like an icon to suggest there&apos;s a tooltip.
+  - Avoid triggering tooltips from text that excludes a visual indicator (e.g. underline)
+- A tooltip should be shown and accessible on hover, click or on focus events.
 
-In the example above, the `div` in now the direct descendant of `Tooltip`, therefore will no longer be accessible to assistive technologies.
+<DosAndDonts>
+  <DoOrDont story={TooltipStories.TriggerDo} />
+  <DoOrDont story={TooltipStories.TriggerDont} isDont />
+</DosAndDonts>
 
-#### ButtonGroup
+- Only trigger tooltips from interactive elements, such as: - Buttons - Links - Icon buttons
 
-The `Tooltip` component must wrap the children of `ButtonGroup` to be accessible to screen readers.
+<DosAndDonts>
+  <DoOrDont story={TooltipStories.Primary} />
+  <DoOrDont story={TooltipStories.TriggerLinkDescription} />
+</DosAndDonts>
 
-<Canvas of={TooltipStories.ButtonGroupWithTooltip} />
-
-#### Table headers and tooltips
-
-While the composable `Tooltip` is not exposed in the Kaizen `Table`, it is important to call out that the `tooltipInfo` prop in `TableHeaderRowCell` must also have an `onClick` or `href` to be announced to assistive technologies.
-
-<Canvas of={TooltipStories.TableHeadersWithTooltips} />
-
-Without either of these, the `Tooltip` content will not be readable to keyboard users or assistive technologies.
-
-#### Tags
-
-Seen in the example below simple `Tag`s with plain text as `children` will not accessible to keyboard users or assistive technologies as it's direct descendant is a `div` with no semantic `role`.
-
-<Canvas of={TooltipStories.TagWithHoverOnlyTooltip} />
-
-While `Tooltip` should be avoided if there are no interactive states within the `Tag`, internal elements like buttons or links can be wrapped in a `Tooltip` component to add necessary context.
-
-<Canvas of={TooltipStories.TagWithTooltip} />
-
-#### Form components and tooltips
-
-While a `Tooltip` can seem like a natural pairing when space is a commodity, form elements still require a concise label that is _ideally_ visible (See MDN's guide on [Tooltip best practices](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role#best_practices)).
-
-<Canvas of={TooltipStories.CheckboxFieldTooltip} />
-
-In the example above, the `Tooltip` content `"Select all users"` is accessible to screen readers via keyboard navigation, however will not be announced when the input receives focus. This a limitation of `CheckboxField` and form components where the immediate `children` of `Tooltip` is a wrapper.
-
-<Canvas of={TooltipStories.CheckboxFieldWithDescriptionTooltip} />
-
-In these instances, `aria-describedby` can be leveraged to provide a description to the input.
+- Non-interactive elements (be mindful of keyboard accessibility): - Icons - Abbreviations (e.g.
+  dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)
+- Truncated text - For interactive elements that trigger tooltips, only have optional information
+  in the tooltip because it could be missed when the user clicks
