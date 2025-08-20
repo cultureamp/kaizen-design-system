@@ -23,3 +23,6 @@ Rollout of @kaizen/components V2
 - Remove future, v1, v2, v3 and utilities entry point
   - `react-aria` and `react-aria-components` have been moved from the `v3` to `libs` entry point, ie: `@kaizen/components/libs/react-aria` or `@kaizen/components/libs/react-aria-components`
   - `/utilities` entry point has been removed and the `ReversedColors` can be accessed via the base entry point, ie: `import { ReversedColors } from @kaizen/components`
+- Promoted next components to main entry point and moved existing to V1
+  - Button, Icon, Menu, Tooltip, Tabs components moved from `__next__` to base export
+  - Previous versions moved to V1 namespace: `ButtonV1`, `IconV1`, `MenuV1`, `TabsV1` and `TooltipV1`

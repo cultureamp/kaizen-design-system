@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react'
 import { Link as RACLink, type LinkProps as RACLinkProps } from 'react-aria-components'
-import { type ButtonUIProps } from '~components/__next__/Button'
-import { ButtonContent } from '~components/__next__/Button/subcomponents'
+import { type ButtonUIProps } from '~components/Button'
+import { ButtonContent } from '~components/Button/subcomponents'
 import { useReversedColors } from '~components/utils'
 import { mergeClassNames } from '~components/utils/mergeClassNames'
-import buttonStyles from '../__next__/Button/Button.module.css'
+import buttonStyles from '../Button/Button.module.css'
 import styles from './LinkButton.module.css'
 
 export type LinkButtonProps = ButtonUIProps &
