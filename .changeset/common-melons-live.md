@@ -26,3 +26,4 @@ Rollout of @kaizen/components V2
 - Promoted next components to main entry point and moved existing to V1
   - Button, Icon, Menu, Tooltip, Tabs components moved from `__next__` to base export
   - Previous versions moved to V1 namespace: `ButtonV1`, `IconV1`, `MenuV1`, `TabsV1` and `TooltipV1`
+- Remove `hosted-assets` package
