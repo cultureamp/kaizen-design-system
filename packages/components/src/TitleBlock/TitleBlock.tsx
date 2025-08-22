@@ -228,9 +228,6 @@ const renderNavigationTabs = (
 )
 
 /**
- * @deprecated This component will be renamed to TitleBlock in v2.
- * Start importing as TitleBlock instead.
- *
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075605782/Title+Block Guidance} |
  * {@link https://cultureamp.design/?path=/story/components-titleblock--docs Storybook}
  */
