@@ -1,6 +1,6 @@
 # runV1Codemods
 
-A comprehensive codemod that runs all V1 migration codemods in the correct sequence.
+A comprehensive codemod that runs all V1 migration codemods in the ideal sequence.
 
 ## Overview
 
@@ -58,8 +58,18 @@ The codemod runs the following transformations in sequence:
 
 ## Cautions and caveats
 
-This will create a lot of diffs and changes to your components as the codemod will traverse an entire directory.
+### Reducing the blast radius of the codemods
+
+Thi running will create a lot of diffs and changes to your components as the traverses the entire directory given.
 
 To reduce the scope, consider either running this on component or page directories or running the mode incrementally, ie:
 
 `pnpm kaizen-codemod src/components/MockComponent runV1Codemods`
+
+This can make it easier to review and merge in changes with confidence.
+
+### Prettier diffs
+
+As the codemod will rewrites files, this can cause arbitrary changes that will be resolved by `prettier` formatting. We recommend running the following to reduce the noise in your diffs:
+
+`pnpm prettier --write "**.tsx"`

@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`runV1Codemods > MockComponentDir Snapshot Tests > should transform MockComponentDir files and match snapshot 1`] = `
+{
+  "MockComponent.tsx": "// @ts-nocheck this is a mock file - we can ignore this
+import React from 'react';
+import { BrandMoment, Card, GlobalNotification, GuidanceBlock, Informative, ProgressBar, Well, LinkButton } from '@kaizen/components';
+import { Button } from "@kaizen/components/next";
+import { MockSubcomponent } from './subcomponents/MockSubcomponent';
+
+export const MockComponent = (): JSX.Element => {
+    return (<div>
+      <GuidanceBlock illustration={<Informative alt=""/>} text={{
+            title: 'This is the call to action title',
+            description: 'Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.',
+        }} actionsSlot={<><Button onPress={() => undefined} variant="secondary" size="large">Action!</Button><LinkButton href='/cancel' variant="tertiary" size="large">Cancel</LinkButton></>}/>
+      <BrandMoment variant="success">
+        <div>Success message</div>
+      </BrandMoment>
+      <Card color="blue">
+        <div>Card content</div>
+      </Card>
+      <ProgressBar color="green" value={75}/>
+      <Well color="gray">
+        <div>Well content</div>
+      </Well>
+      <GlobalNotification type="success">Global notification content</GlobalNotification>
+      <div className="additional-content">
+        This is some additional content that is not part of the GuidanceBlock.
+        <MockSubcomponent />
+      </div>
+    </div>);
+};
+
+
+
+ 
+",
+  "index.ts": "export * from './'
+",
+  "subcomponents/MockSubcomponent.tsx": "import { Button } from "@kaizen/components/next";
+import { LinkButton } from "@kaizen/components";
+import React from 'react';
+
+export const MockSubcomponent = (): JSX.Element => {
+    return (<div>
+      <Button onPress={() => undefined} variant="secondary" size="large">Mock Subcomponent Button</Button>
+      <LinkButton href="#link" variant="secondary" size="large">Mock Subcomponent Link</LinkButton>
+    </div>);
+};
+",
+}
+`;

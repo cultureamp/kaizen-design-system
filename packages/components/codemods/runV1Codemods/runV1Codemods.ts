@@ -19,7 +19,7 @@ interface CodemodConfig {
   runner: (targetDir: string) => void
 }
 
-export const codemods: CodemodConfig[] = [
+const codemods: CodemodConfig[] = [
   {
     name: 'upgradeIconV1',
     runner: (dir) => {
@@ -149,3 +149,39 @@ export const codemods: CodemodConfig[] = [
     },
   },
 ]
+
+export const runV1Codemods = async (targetDir: string): Promise<void> => {
+  console.log(`📝 Running ${codemods.length} codemods on directory: ${targetDir}`)
+  console.log('')
+
+  let successCount = 0
+  let errorCount = 0
+
+  for (const codemod of codemods) {
+    try {
+      console.log(`🔄 Starting codemod: ${codemod.name}`)
+      await new Promise<void>((resolve) => {
+        codemod.runner(targetDir)
+        resolve()
+      })
+      console.log(`✅ Completed codemod: ${codemod.name}`)
+      successCount++
+    } catch (error) {
+      console.error(`❌ Error in codemod: ${codemod.name}`)
+      console.error(error)
+      errorCount++
+    }
+    console.log('')
+  }
+
+  console.log('📊 Summary:')
+  console.log(`✅ Successful codemods: ${successCount}`)
+  console.log(`❌ Failed codemods: ${errorCount}`)
+  console.log(`🎯 Total codemods: ${codemods.length}`)
+
+  if (errorCount > 0) {
+    console.log('\n⚠️  Some codemods failed. Please review the errors above.')
+  } else {
+    console.log('\n🎉 All codemods completed successfully!')
+  }
+}
