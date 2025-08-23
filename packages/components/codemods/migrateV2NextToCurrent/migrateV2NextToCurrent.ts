@@ -49,8 +49,8 @@ const componentGroups: ComponentGroup[] = [
 const renameMap = createRenameMapFromGroups(componentGroups)
 
 const modulePathMap = new Map([
-  ['@kaizen/components/v3/react-aria', '@kaizen/components/react-aria'],
-  ['@kaizen/components/v3/react-aria-components', '@kaizen/components/react-aria-components'],
+  ['@kaizen/components/v3/react-aria', '@kaizen/components/libs/react-aria'],
+  ['@kaizen/components/v3/react-aria-components', '@kaizen/components/libs/react-aria-components'],
 ])
 
 export const migrateV2NextToCurrent =
