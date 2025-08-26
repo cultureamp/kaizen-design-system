@@ -10,6 +10,7 @@
   }
 
   .listBoxSectionHeader {
+    position: relative; // this is needed to ensure the VisuallyHidden element doesn't impact the scroll height of the list
     font-family: $typography-heading-6-font-family;
     font-size: $typography-heading-6-font-size;
     font-weight: $typography-heading-6-font-weight;

@@ -3,16 +3,11 @@ import classNames from 'classnames'
 import { Button as RACButton, Input as RACInput } from 'react-aria-components'
 import { Icon } from '~components/__next__/Icon'
 import { useSingleSelectContext } from '../../context'
-import { type SelectItem, type SelectSection } from '../../types'
+import { type SelectItem, type SelectSection, type TriggerProps } from '../../types'
 import styles from './Trigger.module.css'
 
 function flattenItems(items: (SelectItem | SelectSection)[]): SelectItem[] {
   return items.flatMap((item) => ('options' in item ? item.options : item))
-}
-
-interface TriggerProps {
-  triggerRef: React.RefObject<HTMLButtonElement | HTMLDivElement>
-  clearButtonRef?: React.RefObject<HTMLButtonElement>
 }
 
 export const Trigger = ({ triggerRef, clearButtonRef }: TriggerProps): JSX.Element => {
@@ -26,6 +21,7 @@ export const Trigger = ({ triggerRef, clearButtonRef }: TriggerProps): JSX.Eleme
     inputValue,
     setSelectedKey,
     loading,
+    anchorName,
   } = useSingleSelectContext()
   const inputRef = React.useRef<HTMLInputElement>(null)
 
@@ -38,7 +34,11 @@ export const Trigger = ({ triggerRef, clearButtonRef }: TriggerProps): JSX.Eleme
   }, [flattenedItems, selectedKey])
 
   return isSearchable ? (
-    <div className={styles.trigger} ref={triggerRef as React.RefObject<HTMLDivElement>}>
+    <div
+      className={styles.trigger}
+      ref={triggerRef as React.RefObject<HTMLDivElement>}
+      style={{ anchorName: anchorName } as React.CSSProperties}
+    >
       {/* TODO: potentially need to handle keydown and escape when in loading or empty */}
       <RACInput
         ref={inputRef}
@@ -82,6 +82,7 @@ export const Trigger = ({ triggerRef, clearButtonRef }: TriggerProps): JSX.Eleme
       ref={triggerRef as React.RefObject<HTMLButtonElement>}
       onPress={() => setOpen(!isOpen)}
       aria-expanded={isOpen}
+      style={{ anchorName: anchorName } as React.CSSProperties}
     >
       {selectedLabel ?? <div></div>}
       <Icon name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} isPresentational />

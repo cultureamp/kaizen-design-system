@@ -1,8 +1,24 @@
 @layer kz-components {
   .popover {
+    position: absolute;
+    height: auto;
     background-color: var(--color-white);
     border-radius: var(--spacing-8);
     padding: 0;
     box-shadow: var(--shadow-small-box-shadow);
+    overflow: hidden auto;
+    margin: 0;
+    box-sizing: border-box;
+
+    /* TODO: update width based on design */
+    width: 200px;
+
+    @supports (anchor-name: --anchor) {
+      position-anchor: var(--position-anchor);
+      margin-block: var(--spacing-4);
+      position-area: var(--position-area) center;
+      /* stylelint-disable-next-line declaration-property-value-no-unknown */
+      width: anchor-size(width);
+    }
   }
 }

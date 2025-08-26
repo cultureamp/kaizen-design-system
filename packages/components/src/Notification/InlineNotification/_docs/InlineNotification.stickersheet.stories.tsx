@@ -1,5 +1,6 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
+import { Link } from '~components/index'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { InlineNotification, type InlineNotificationProps } from '../InlineNotification'
 
@@ -19,7 +20,9 @@ const DEFAULT_PROPS = {
   children: (
     <span>
       New user data, imported by mackenzie@hooli.com has successfully uploaded.{' '}
-      <a href="/">Manage users is now available</a>
+      <Link href="/" size="small">
+        Manage users is now available
+      </Link>
     </span>
   ),
 } satisfies Partial<InlineNotificationProps>

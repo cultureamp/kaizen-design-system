@@ -1,4 +1,4 @@
-import React, { isValidElement, useEffect, useState, type PropsWithChildren } from 'react'
+import React, { isValidElement, useEffect, useId, useState, type PropsWithChildren } from 'react'
 import { useComboBoxState } from '@react-stately/combobox'
 import { useSelectState } from '@react-stately/select'
 import { type Key, type Selection } from '@react-types/shared'
@@ -31,7 +31,8 @@ export const SingleSelect = ({
   const popoverRef = React.useRef<HTMLDivElement>(null)
   const racPopoverRef = React.useRef<HTMLElement>(null)
   const clearButtonRef = React.useRef<HTMLButtonElement>(null)
-  const [popoverOpen, setPopoverOpen] = React.useState(false)
+  const uniqueId = useId()
+  const anchorName = `--trigger-${uniqueId}`
   const [inputValue, setInputValue] = React.useState('')
   const [comboSelectedKey, setComboSelectedKey] = useState<Key | null>(null)
 
@@ -153,11 +154,12 @@ export const SingleSelect = ({
   const SelectComponent = isSearchable ? RACComboBox : RACSelect
 
   const contextValue: SingleSelectContextType = {
-    isOpen: popoverOpen,
-    setOpen: setPopoverOpen,
+    isOpen: state.isOpen,
+    setOpen: state.setOpen,
     selectedKey: unifiedSelectedKey,
     items,
     isSearchable,
+    anchorName,
     ...(isSearchable
       ? {
           inputValue,
@@ -173,8 +175,6 @@ export const SingleSelect = ({
       <SelectComponent
         menuTrigger="input"
         aria-label="Select component"
-        isOpen={popoverOpen}
-        onOpenChange={setPopoverOpen}
         onSelectionChange={(key) =>
           handleOnSelectionChange(key != null ? new Set([key]) : new Set())
         }
@@ -182,18 +182,20 @@ export const SingleSelect = ({
         {...restProps}
       >
         <Trigger triggerRef={triggerRef} clearButtonRef={clearButtonRef} />
-        <Popover triggerRef={triggerRef} popoverRef={popoverRef} racPopoverRef={racPopoverRef}>
-          {loading ? (
-            <div style={{ padding: '16px' }}>
-              <LoadingParagraph isAnimated />
-              <LoadingParagraph isAnimated />
-              <LoadingParagraph isAnimated />
-              <LoadingParagraph isAnimated />
-            </div>
-          ) : (
-            injectedChildren
-          )}
-        </Popover>
+        {state.isOpen && (
+          <Popover triggerRef={triggerRef} popoverRef={popoverRef} racPopoverRef={racPopoverRef}>
+            {loading ? (
+              <div style={{ padding: '16px' }}>
+                <LoadingParagraph isAnimated />
+                <LoadingParagraph isAnimated />
+                <LoadingParagraph isAnimated />
+                <LoadingParagraph isAnimated />
+              </div>
+            ) : (
+              injectedChildren
+            )}
+          </Popover>
+        )}
       </SelectComponent>
     </SingleSelectContext.Provider>
   )

@@ -1,15 +1,10 @@
-import React, { useEffect, type PropsWithChildren } from 'react'
-import { useOverlayPosition } from '@react-aria/overlays'
-import { FocusScope as RACFocusScope } from 'react-aria'
+import React, { useLayoutEffect, useMemo, type PropsWithChildren } from 'react'
+
 import { Popover as RACPopover } from 'react-aria-components'
 import { useSingleSelectContext } from '../../context'
+import { type PopoverProps } from '../../types'
+import { usePositioningStyles } from './utils/usePositioningStyles'
 import styles from './Popover.module.css'
-
-type PopoverProps = {
-  triggerRef: React.RefObject<HTMLElement>
-  popoverRef: React.RefObject<HTMLDivElement>
-  racPopoverRef: React.Ref<any>
-}
 
 export const Popover = ({
   triggerRef,
@@ -17,42 +12,40 @@ export const Popover = ({
   racPopoverRef,
   children,
 }: PopoverProps & PropsWithChildren): React.ReactElement => {
-  const { isOpen, setOpen } = useSingleSelectContext()
+  const { isOpen, setOpen, anchorName } = useSingleSelectContext()
 
-  useEffect(() => {
-    if (isOpen && !popoverRef?.current?.matches(':popover-open')) {
-      popoverRef?.current?.showPopover()
-    }
-    if (!isOpen && popoverRef?.current?.matches(':popover-open')) {
-      popoverRef.current.hidePopover()
-    }
-  }, [isOpen, popoverRef])
+  const { popoverStyle, isPositioned } = usePositioningStyles(triggerRef, popoverRef, anchorName)
 
-  const { overlayProps } = useOverlayPosition({
-    targetRef: triggerRef,
-    overlayRef: popoverRef,
-    placement: 'bottom start',
-    offset: 0,
-    isOpen: isOpen,
-    shouldFlip: true,
-  })
+  const shouldShowPopover = useMemo(() => isOpen && isPositioned, [isOpen, isPositioned])
+
+  useLayoutEffect(() => {
+    const popover = popoverRef.current
+    if (!popover?.showPopover || !popover?.hidePopover) return
+
+    if (shouldShowPopover) {
+      popover.showPopover()
+    } else {
+      popover.hidePopover()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shouldShowPopover])
 
   return (
-    <RACPopover trigger="manual" isOpen={isOpen} onOpenChange={setOpen} ref={racPopoverRef}>
+    <RACPopover
+      shouldUpdatePosition={false}
+      trigger="manual"
+      isOpen={isOpen}
+      onOpenChange={setOpen}
+      ref={racPopoverRef}
+    >
       <div
         // @ts-expect-error - popover attribute is not included in current ts version, ignore type error
         popover="manual"
         ref={popoverRef}
-        style={{
-          ...overlayProps,
-          zIndex: 'none',
-          margin: '0',
-          boxSizing: 'border-box',
-          width: triggerRef.current?.getBoundingClientRect().width ?? '200px',
-        }}
         className={styles.popover}
+        style={popoverStyle}
       >
-        <RACFocusScope>{children}</RACFocusScope>
+        {children}
       </div>
     </RACPopover>
   )

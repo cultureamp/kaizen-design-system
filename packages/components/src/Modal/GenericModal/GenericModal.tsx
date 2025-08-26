@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import { Transition } from '@headlessui/react'
 import classnames from 'classnames'
 import FocusLock from 'react-focus-lock'
+import { useIsClientReady } from '../../utils/useIsClientReady'
 import { warn } from '../util/console'
 import { ModalContext } from './context/ModalContext'
 import styles from './GenericModal.module.scss'
@@ -38,6 +39,8 @@ export const GenericModal = ({
   const labelledByID = useId()
   const describedByID = useId()
 
+  const isClientReady = useIsClientReady()
+
   const [scrollLayer, setScrollLayer] = useState<HTMLDivElement | null>(null)
   const [modalLayer, setModalLayer] = useState<HTMLDivElement | null>(null)
 
@@ -58,6 +61,8 @@ export const GenericModal = ({
   }
 
   const focusOnAccessibleLabel = (): void => {
+    if (!isClientReady) return
+
     // Check if focus already exists within the modal
     if (modalLayer?.contains(document.activeElement)) {
       return
@@ -69,6 +74,8 @@ export const GenericModal = ({
   }
 
   const a11yWarn = (): void => {
+    if (!isClientReady) return
+
     // Ensure that consumers have provided an element that labels the modal
     // to meet ARIA accessibility guidelines.
     if (!document.getElementById(labelledByID)) {
@@ -80,6 +87,8 @@ export const GenericModal = ({
   }
 
   const preventBodyScroll = (): void => {
+    if (!isClientReady) return
+
     const hasScrollbar = window.innerWidth > document.documentElement.clientWidth
     const scrollStyles = [styles.unscrollable]
 
@@ -111,28 +120,34 @@ export const GenericModal = ({
   const onBeforeEnterHandler = (): void => {
     preventBodyScroll()
 
-    if (onEscapeKeyup) {
+    if (onEscapeKeyup && isClientReady) {
       document.addEventListener('keyup', escapeKeyHandler)
     }
   }
 
-  const cleanUpAfterClose = (): void => {
+  const cleanUpAfterClose = useCallback(() => {
+    if (!isClientReady) return
+
     document.documentElement.classList.remove(styles.unscrollable, styles.pseudoScrollbar)
 
     if (onEscapeKeyup) {
       document.removeEventListener('keyup', escapeKeyHandler)
     }
-  }
+  }, [escapeKeyHandler, onEscapeKeyup, isClientReady])
 
   /* Ensure sure add-on styles (e.g. unscrollable) and key event is cleaned up when the modal is unmounted*/
-  // @todo: Fix if possible - avoiding breaking in eslint upgrade
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => () => cleanUpAfterClose(), [])
+  useEffect(() => () => cleanUpAfterClose(), [cleanUpAfterClose])
 
   const onAfterLeaveHandler = (): void => {
     cleanUpAfterClose()
     propsOnAfterLeave?.()
   }
+
+  // Don't render portal during SSR
+  if (!isClientReady) {
+    return <></>
+  }
+
   return createPortal(
     <Transition
       appear={true}

@@ -1,4 +1,4 @@
-import { Controls, Meta, Canvas } from '@storybook/blocks'
+import { Controls, Meta, Canvas, DocsStory } from '@storybook/blocks'
 import { ResourceLinks, KAIOInstallation, NoClipCanvas } from '~storybook/components'
 import * as FilterMultiSelectStories from './FilterMultiSelect.stories'
 
@@ -29,6 +29,14 @@ The FilterMultiSelect is a component relies heavily on consumer implemntation. I
 ### With section headers
 
 <Canvas of={FilterMultiSelectStories.WithSectionHeaders} />
+
+### With customMenuPopup component
+
+You can replace the `MenuPopup` component within the FilterMultiSelect to allow flexibility in how the popup's placement is determined. While the default behavior should satisfy most scenarios, this can be used when there is limited vertical space available in the viewport.
+
+<Canvas of={FilterMultiSelectStories.AboveIfAvailable} />
+
+For convenience, a primitive called `ResponsiveMenuPopup` that can be accessed via dot notation that will automatically adjust the placement and size of the popup based on the available window height. This implementation uses `floating-ui` and the [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) instead of `react-aria` hooks. It also locks scroll when the popup is active.
 
 ### Async
 

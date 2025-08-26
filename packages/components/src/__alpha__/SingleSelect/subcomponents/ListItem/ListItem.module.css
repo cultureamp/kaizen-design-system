@@ -14,6 +14,12 @@
     border-color: white;
   }
 
+  .listItem:focus-visible {
+    background-color: var(--color-blue-200);
+    outline: none;
+    border-color: white;
+  }
+
   .listItem[data-focused=true]{
     background-color: var(--color-blue-200);
     outline: none;

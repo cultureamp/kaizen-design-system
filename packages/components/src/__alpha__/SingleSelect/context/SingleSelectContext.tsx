@@ -8,6 +8,7 @@ type BaseState = {
   selectedKey: Key | null
   items: (SelectItem | SelectSection)[]
   isSearchable?: boolean
+  anchorName: string
 }
 
 type ComboBoxStateExtras = {

@@ -1,5 +1,72 @@
 # Change Log
 
+## 1.80.5
+
+### Patch Changes
+
+- [#5992](https://github.com/cultureamp/kaizen-design-system/pull/5992) [`9617726`](https://github.com/cultureamp/kaizen-design-system/commit/9617726f8606bb00ade3e260ee48679ce8c3b489) - fix buttons on front of GenericTile being clickable even when the tile is flipped
+
+## 1.80.4
+
+### Patch Changes
+
+- [#5973](https://github.com/cultureamp/kaizen-design-system/pull/5973) [`94f154b`](https://github.com/cultureamp/kaizen-design-system/commit/94f154bb9338e86cfc77c9ae9305e2004f1fb80a) - Add codemod for KAIOv2 import path migration to current
+
+  Migrates Menu, Tabs, and Tooltip
+  - `Menu` from `/v3/actions` and `/next` to current
+  - `Tabs` from `/future` and `/next` to current
+  - `Tooltip` from `/v3/overlays`, `/future` and `/next` to current
+
+  This also captures `MenuItem`, `MenuHeader`, `MenuPopover`, `MenuSection`, `MenuTrugger`, `Tab`, `TabList`, `TabPanel` and `TooltipTrigger`.
+
+## 1.80.3
+
+### Patch Changes
+
+- [#5936](https://github.com/cultureamp/kaizen-design-system/pull/5936) [`d9ae10b`](https://github.com/cultureamp/kaizen-design-system/commit/d9ae10bdcbdd88dcbfd82061ee46aa74a2bb1b64) - Add codemod for KAIOv2 component renames: Select -> SingleSelect, LikertScaleLegacy -> LikertScale and TitleBlockZen -> TitleBlock
+
+## 1.80.2
+
+### Patch Changes
+
+- [#5959](https://github.com/cultureamp/kaizen-design-system/pull/5959) [`e46c7cf`](https://github.com/cultureamp/kaizen-design-system/commit/e46c7cff621d2e16d702255bc8d968e2a58b0b9b) - Bug fix for notifications, removing duplicate styling for Link component
+
+## 1.80.1
+
+### Patch Changes
+
+- [#5960](https://github.com/cultureamp/kaizen-design-system/pull/5960) [`17df3a8`](https://github.com/cultureamp/kaizen-design-system/commit/17df3a8fcf3a5f1efece41a60a4abe72b85a2893) - Add fix for FilterMultiSelect introduced in 1.8.0
+  - re-add missing position absolute
+  - add interaction test to cover the missed scenario
+
+- [#5947](https://github.com/cultureamp/kaizen-design-system/pull/5947) [`a97164c`](https://github.com/cultureamp/kaizen-design-system/commit/a97164c0fc50a488d43019e2235ef50afcc6026d) - Renovate deps update
+
+## 1.80.0
+
+### Minor Changes
+
+- [#5750](https://github.com/cultureamp/kaizen-design-system/pull/5750) [`46c3364`](https://github.com/cultureamp/kaizen-design-system/commit/46c3364fc85082ea04097936692fb5d0b7dfc564) - Refactor FilterMultiSelect to allow for the custom rendering of the MenuPopup
+  - add customMenuPopup prop that accepts at React Component with MenuPopup render props
+  - add ResponsiveMenuPopup component that uses the floating-ui lib and Popover Web API
+
+## 1.79.10
+
+### Patch Changes
+
+- [#5916](https://github.com/cultureamp/kaizen-design-system/pull/5916) [`f0612d7`](https://github.com/cultureamp/kaizen-design-system/commit/f0612d793b3419a7b02e5775188f025c4316412a) - Avatar will render img only if it is available and loaded successfully
+
+## 1.79.9
+
+### Patch Changes
+
+- [#5921](https://github.com/cultureamp/kaizen-design-system/pull/5921) [`4f18ea0`](https://github.com/cultureamp/kaizen-design-system/commit/4f18ea0aea30ad0c7ecf9f2b34309fd39bf6964b) - fix: additional styles for GenericModal (e.g. scroll lock) not being cleaned up properly
+
+## 1.79.8
+
+### Patch Changes
+
+- [#5906](https://github.com/cultureamp/kaizen-design-system/pull/5906) [`e2cf5ae`](https://github.com/cultureamp/kaizen-design-system/commit/e2cf5ae99b9c039b916ba2d16fe375d1a4e6b2ad) - fix: add SSR guards to GenericModal
+
 ## 1.79.7
 
 ### Patch Changes
@@ -85,7 +152,6 @@
 - [#5776](https://github.com/cultureamp/kaizen-design-system/pull/5776) [`2bcaee4`](https://github.com/cultureamp/kaizen-design-system/commit/2bcaee4e4a7da4f406d6b661c66fd5d996da478d) - Update react aria deps and fallback arg for onSelectionChange key
 
 - [#5776](https://github.com/cultureamp/kaizen-design-system/pull/5776) [`2bcaee4`](https://github.com/cultureamp/kaizen-design-system/commit/2bcaee4e4a7da4f406d6b661c66fd5d996da478d) - chore(deps): upgrade @kaizen/component
-
   - patch updates for @headlessui/react and prosemirror-view
   - devDeps updates for various packages
 
@@ -96,7 +162,6 @@
 ### Minor Changes
 
 - [#5552](https://github.com/cultureamp/kaizen-design-system/pull/5552) [`fd29d3d`](https://github.com/cultureamp/kaizen-design-system/commit/fd29d3d2967221c79537e2f7b6c6e9c7a492baf2) - Upgrade packages to support React 19
-
   - Update all peer dependencies to support 18-19 range
   - Update react-day-picker to v9
     - this changes some UX (for the better) when using active ranges
@@ -281,7 +346,6 @@
 ### Minor Changes
 
 - [#5502](https://github.com/cultureamp/kaizen-design-system/pull/5502) [`65fbb77`](https://github.com/cultureamp/kaizen-design-system/commit/65fbb777d23d5226232502898371bb16ae87639b) - Add Link component
-
   - Adds Link component, stories, and documentation
 
 ## 1.72.0
@@ -393,7 +457,6 @@
 ### Patch Changes
 
 - [#5391](https://github.com/cultureamp/kaizen-design-system/pull/5391) [`d180512`](https://github.com/cultureamp/kaizen-design-system/commit/d180512e29cc1078d05fda28feed24926242e7e2) - Deps updates and type component fixes for RC MenuItem and Tab
-
   - Update deps
   - Update RC MenuItem and Tab child render to fix types issues after upgrade to typescript 5.7.3 upgrade
   - Update test-runner to use imported Page type from Playwright to reflect updated dep
@@ -466,7 +529,6 @@
 ### Minor Changes
 
 - [#5298](https://github.com/cultureamp/kaizen-design-system/pull/5298) [`1f9edc2`](https://github.com/cultureamp/kaizen-design-system/commit/1f9edc2f1e06f8db921889ce61dad8bddb577849) - Add LinkButton component
-
   - Adds LinkButton component, stories and documentation to actions group
 
 ### Patch Changes
@@ -552,7 +614,6 @@
 ### Patch Changes
 
 - [#5325](https://github.com/cultureamp/kaizen-design-system/pull/5325) [`92c228f`](https://github.com/cultureamp/kaizen-design-system/commit/92c228f3cd72dce92905e27e91099c1621ad24e1) - Add a deprecated isReversed prop to Button v3 to allow for safe migration path to the ReversedColors Provider.
-
   - `isReversed` to allow users to toggle the reversed variants with a `boolean`.
   - Adds `@deprecated` flag to prompt user to use the `ReverseColors` Provider instead.
 
@@ -602,7 +663,6 @@
 ### Minor Changes
 
 - [#5218](https://github.com/cultureamp/kaizen-design-system/pull/5218) [`b9fef3e`](https://github.com/cultureamp/kaizen-design-system/commit/b9fef3ee672095349662f6cdd7cb51b6c6876e8b) - Add variants, sizes, pending state, icons, and ref support for Button (v3).
-
   - Add support for Icons that scales to the size prop and positioning in RTL layouts
   - Add support for pending state and labels
   - Add all variants and set default to `primary`
@@ -663,7 +723,6 @@
 ### Patch Changes
 
 - [#5273](https://github.com/cultureamp/kaizen-design-system/pull/5273) [`6fcc6088f8b6107694ce6ab22c4c2a78560332e9`](https://github.com/cultureamp/kaizen-design-system/commit/6fcc6088f8b6107694ce6ab22c4c2a78560332e9) - Pagination responsive adjustments
-
   - Margins partially restored to have 8px between buttons
   - Boundary pages will now only show on large viewports and up
   - Sibling pages will continue to show on medium viewports and up
@@ -673,7 +732,6 @@
 ### Patch Changes
 
 - [#5269](https://github.com/cultureamp/kaizen-design-system/pull/5269) [`e4358c8289c789b7140affb4207d3e72cdd94f86`](https://github.com/cultureamp/kaizen-design-system/commit/e4358c8289c789b7140affb4207d3e72cdd94f86) - Pagination responsiveness
-
   - Margins and padding tightened up
   - Sibling pages shown drops from 1 to 0 on small viewports
 
@@ -690,7 +748,6 @@
 ### Patch Changes
 
 - [#5263](https://github.com/cultureamp/kaizen-design-system/pull/5263) [`f4a00f663c09baae9d5f5ed02d0f04e2ecf4e5d0`](https://github.com/cultureamp/kaizen-design-system/commit/f4a00f663c09baae9d5f5ed02d0f04e2ecf4e5d0) - Menu v3 fixes and documentation for typeahead functionality
-
   - Insert `textValue` into RAC's MenuItem when typeof children === string
   - Add documentation for how to get typeahead working when passing ReactNode
   - Adjust MenuItem to only add flex when children is string and there's an icon
@@ -712,7 +769,6 @@
 ### Patch Changes
 
 - [#5214](https://github.com/cultureamp/kaizen-design-system/pull/5214) [`f10f7a4fc20dd8fa4bcab3ebcce654f4577ffcb3`](https://github.com/cultureamp/kaizen-design-system/commit/f10f7a4fc20dd8fa4bcab3ebcce654f4577ffcb3) - FilterBar responsiveness and styling adjustments
-
   - Box shadow removed from filter bar container
   - Filter buttons will now expand in height and reflow text as required
   - 'Clear all' button now reflows to a new line
@@ -765,7 +821,6 @@
 - [#5174](https://github.com/cultureamp/kaizen-design-system/pull/5174) [`52c8fc91031f30d197359a544be14603753abaee`](https://github.com/cultureamp/kaizen-design-system/commit/52c8fc91031f30d197359a544be14603753abaee) - Fix sass deprecation warnings.
 
   Also fixes:
-
   - Button v1 right-to-left padding
   - TextField reversed success icon styles
 
@@ -960,7 +1015,6 @@
 - [#4978](https://github.com/cultureamp/kaizen-design-system/pull/4978) [`2d34341ea9e6d8c28af80645e6bef3cd60cb8f8e`](https://github.com/cultureamp/kaizen-design-system/commit/2d34341ea9e6d8c28af80645e6bef3cd60cb8f8e) - Create v3 Workflow component, changing footer to a white background
 
   A few adjustments will need to be made on the implementation side when upgrading from future (v2) to v3:
-
   - All footer buttons should have the `reversed` prop removed
   - Next button in the footer should have `primary` prop added (not just the finish button as previously)
   - The `status` prop has been renamed to `statusTag` and now takes a ReactNode. You'll need to create your own Tag and pass it in.
@@ -1023,7 +1077,6 @@
 ### Minor Changes
 
 - [#4869](https://github.com/cultureamp/kaizen-design-system/pull/4869) [`1461312edb8cee583f558b72f7271f739adbb3e1`](https://github.com/cultureamp/kaizen-design-system/commit/1461312edb8cee583f558b72f7271f739adbb3e1) - New GuidanceBlock v2:
-
   - Removed `positive`, `negative`, `informative`, `cautionary`, `assertive` variants, replaced with `default`
   - Changed the `prominent` variant to `expert-advice`
 
@@ -1036,18 +1089,15 @@
 - [#4881](https://github.com/cultureamp/kaizen-design-system/pull/4881) [`780345e9840efd8f27fae498608d2f39829582b6`](https://github.com/cultureamp/kaizen-design-system/commit/780345e9840efd8f27fae498608d2f39829582b6) - Update components to use `variant` prop, to align design language.
 
   #### BrandMoment:
-
   - Deprecate `mood` prop
   - Introduce `variant` prop
   - Update usages
 
   #### EmptyState:
-
   - Deprecate `illustrationType` prop
   - Introduce `variant` prop
 
   #### Tiles (GenericTile, InformationTile, MultiActionTile):
-
   - Deprecate `mood` prop
   - Introduce `variant` prop
 
@@ -1076,60 +1126,48 @@
 - [#4862](https://github.com/cultureamp/kaizen-design-system/pull/4862) [`c1dde02a7257ca2f6af0407f66c2a43becc20324`](https://github.com/cultureamp/kaizen-design-system/commit/c1dde02a7257ca2f6af0407f66c2a43becc20324) - Update components to match new accessible color designs.
 
   #### Card:
-
   - Add border to variants
 
   #### Collapsible:
-
   - Add border to `Collapsible` and `CollapsibleGroup`
   - Update border for `ExpertAdviceCollapsible`
   - Set `default` as default variant
   - Fix border-radius between header and content
 
   #### EmptyState:
-
   - Add border to variants
   - Change `action` (to later be deprecated) to match `negative` variant color
 
   #### FieldMessage:
-
   - Update cautionary icon color
 
   #### GuidanceBlock:
-
   - Add border to variants
   - Change `assertive` (to later be deprecated) to match `negative` variant color
 
   #### Modals:
-
   - Update `ConfirmationModal` cautionary icon color
   - Change `assertive` (to later be deprecated) to match `negative` variant color
 
   #### Notifications:
-
   - Update border for variants
   - Update cautionary icon color
 
   #### Popover:
-
   - Add border to variants
   - Update cautionary icon color
 
   #### Tag (Legacy):
-
   - Update cautionary icon color
 
   #### Tiles:
-
   - Add border to variants
   - Change `assertive` (to later be deprecated) to match `negative` variant color
 
   #### Tooltip (v1):
-
   - Update border for variants
 
   #### Well:
-
   - Update border for variants
   - Update background color for `default` variant
 
@@ -1310,7 +1348,6 @@
 - [#4717](https://github.com/cultureamp/kaizen-design-system/pull/4717) [`66728604c40cfae29e049989aa5251f71a9bd161`](https://github.com/cultureamp/kaizen-design-system/commit/66728604c40cfae29e049989aa5251f71a9bd161) - Updated dependency `stylelint`.
 
   Refactored styles of the following components to satisfy linting:
-
   - AvatarGroup
   - ButtonGroup
   - Checkbox
@@ -1381,7 +1418,6 @@
 ### Minor Changes
 
 - [#4668](https://github.com/cultureamp/kaizen-design-system/pull/4668) [`2772ecd07758f7ea1492fba1a7235199e2603c58`](https://github.com/cultureamp/kaizen-design-system/commit/2772ecd07758f7ea1492fba1a7235199e2603c58) - Accessibility uplift of Table component
-
   - Add default focus ring widths and colors to interactive variants of the TableHeaderRowCell and interactive table cards
   - Add a checkboxLabel prop as a mean to resolving the unlinked checkbox label in the checkable variant of the TableHeaderRowCell
   - Update the TableHeaderRowCell to pass labelText in the an aria-label for the icon variant
@@ -1457,7 +1493,6 @@
 ### Patch Changes
 
 - [#4616](https://github.com/cultureamp/kaizen-design-system/pull/4616) [`ce9261d27431c05eeb09c96220f342ee16753e43`](https://github.com/cultureamp/kaizen-design-system/commit/ce9261d27431c05eeb09c96220f342ee16753e43) - Menu component now has built in focus lock. Most notably this has added:
-
   - Esc press to close the menu
   - Focus will now go back to the menu button when the menu closes. This works even if the menu action opens a modal first, as long as the modal is mounted to the DOM before the action is pressed.
 
@@ -1542,7 +1577,6 @@
 - [#4543](https://github.com/cultureamp/kaizen-design-system/pull/4543) [`5434d009325c6588b9be968144fdeb27c37b08f9`](https://github.com/cultureamp/kaizen-design-system/commit/5434d009325c6588b9be968144fdeb27c37b08f9) - Update react-focus-on and react-focus-lock dependencies
 
 - [#4557](https://github.com/cultureamp/kaizen-design-system/pull/4557) [`28f6611df11902522df2068de1b89afcf6763bcb`](https://github.com/cultureamp/kaizen-design-system/commit/28f6611df11902522df2068de1b89afcf6763bcb) - Remove tailwind from kaizen CSS bundle
-
   - Replaced Tailwind CSS in Kaizen components
     - This includes: Slider, Workflow's subcomponents, GenericTile, MultiActionTile
   - Remove tailwind directives from kaizen global.css and compile CSS
@@ -1608,7 +1642,6 @@
 - [#4449](https://github.com/cultureamp/kaizen-design-system/pull/4449) [`add4a7588af5d309f2355b587b812c81b6dc88ce`](https://github.com/cultureamp/kaizen-design-system/commit/add4a7588af5d309f2355b587b812c81b6dc88ce) - Add accessible name to dialog for Filter components
 
 - [#4449](https://github.com/cultureamp/kaizen-design-system/pull/4449) [`add4a7588af5d309f2355b587b812c81b6dc88ce`](https://github.com/cultureamp/kaizen-design-system/commit/add4a7588af5d309f2355b587b812c81b6dc88ce) - Update dependencies
-
   - "date-fns": "^3.0.6"
   - "react-day-picker": "^8.10.0"
     - Note: We are aware that the update includes broken a11y behaviour from the library (https://github.com/gpbl/react-day-picker/issues/1688), but we have opted to prevent lagging behind version updates instead
@@ -1624,12 +1657,10 @@
 - [#4467](https://github.com/cultureamp/kaizen-design-system/pull/4467) [`4504646e1935bc913030c8783f97ea4c3c4bb0de`](https://github.com/cultureamp/kaizen-design-system/commit/4504646e1935bc913030c8783f97ea4c3c4bb0de) - Update dependencies
 
   Dependencies:
-
   - "prosemirror-model": "^1.19.4"
   - "prosemirror-view": "^1.32.7"
 
   Peer dependencies:
-
   - "react-intl": "^6.6.0"
 
 ## 1.39.0
@@ -1656,11 +1687,9 @@
 - [#4468](https://github.com/cultureamp/kaizen-design-system/pull/4468) [`2051d584a4d5b3aaa174c47b45100d2087860c79`](https://github.com/cultureamp/kaizen-design-system/commit/2051d584a4d5b3aaa174c47b45100d2087860c79) - TimeField: added conditional aria-describeby to fix accessibility
 
 - [#4427](https://github.com/cultureamp/kaizen-design-system/pull/4427) [`e43e041bf2699ee7c8fa67a546e828862cf41904`](https://github.com/cultureamp/kaizen-design-system/commit/e43e041bf2699ee7c8fa67a546e828862cf41904) - Dep updates:
-
   - classnames to 2.5.1
 
   Peer dep updates:
-
   - @cultureamp/i18n-react-intl to 2.1.8
   - tailwindcss to 3.4.0 (@kaizen/tailwind package)
 
@@ -1671,11 +1700,9 @@
 ### Patch Changes
 
 - [#4384](https://github.com/cultureamp/kaizen-design-system/pull/4384) [`234569cc02592834f92711c74c251096c032ffe0`](https://github.com/cultureamp/kaizen-design-system/commit/234569cc02592834f92711c74c251096c032ffe0) - Dep updates:
-
   - @cultureamp/i18n-react-intl from 2.1.3 to 2.1.5
   - svgo from 3.0.4 to 3.1.0
   - ts-patch from 3.0.2 to 3.1.1
-
   * a bunch of dev deps
 
 - [#4426](https://github.com/cultureamp/kaizen-design-system/pull/4426) [`e3a6b029b7b70a356cb383db615968d8a73ecaf9`](https://github.com/cultureamp/kaizen-design-system/commit/e3a6b029b7b70a356cb383db615968d8a73ecaf9) - Address ToggleSwitch bug - CheckIcon now hidden when toggle set to false.
@@ -1717,7 +1744,6 @@
 - [#4316](https://github.com/cultureamp/kaizen-design-system/pull/4316) [`00d30e6f6`](https://github.com/cultureamp/kaizen-design-system/commit/00d30e6f688b52b18ece992c2a380100b9904b5f) - Update `use-debounce` to `v10`
 
 - [#4322](https://github.com/cultureamp/kaizen-design-system/pull/4322) [`860a9f7fd`](https://github.com/cultureamp/kaizen-design-system/commit/860a9f7fd2d0b0d9c0389267ee3e044689588d86) - Update dependencies
-
   - `prosemirror-inputrules` to `^1.3.0`
   - `prosemirror-view` to `^1.32.4`
   - `react-select` to `5.8.0`
@@ -1779,13 +1805,11 @@
 - [#4308](https://github.com/cultureamp/kaizen-design-system/pull/4308) [`07ae2692f`](https://github.com/cultureamp/kaizen-design-system/commit/07ae2692fd2ff1118fe2c9f4a3d3c4ee2f0d33bd) - Add `TitleBlockZen`, `SkirtCard` components export
 
 - [#4282](https://github.com/cultureamp/kaizen-design-system/pull/4282) [`982cbc006`](https://github.com/cultureamp/kaizen-design-system/commit/982cbc00635daae77496d06bf66aa3ba2bcdf6f3) - Migrate BrandMomentCaptureIntro from kaizen-legacy
-
   - Migrate BrandMomentCaptureIntro as nested Scene component
   - Replace setting of inline styles and display non with conditional render
   - Adds stories and documentation to illustrate specific use case and animation
 
 - [#4205](https://github.com/cultureamp/kaizen-design-system/pull/4205) [`dee798fdb`](https://github.com/cultureamp/kaizen-design-system/commit/dee798fdb2d5091650e9350d0f7c575288e59c65) - Added the following foundational styles to dist/styles.css:
-
   - Reset: initially to provide the border properties that support Tailwind's border default settings.
   - Fonts: with font-face definitions for Inter, Tiempos and IBM Mono
   - Normalize: A standard Normalize already present across CultureAmp
@@ -1796,7 +1820,6 @@
 ### Patch Changes
 
 - [#4285](https://github.com/cultureamp/kaizen-design-system/pull/4285) [`374d5bcca`](https://github.com/cultureamp/kaizen-design-system/commit/374d5bccad63b08916f84944b207a10802693218) - Dep updates (dev updates not listed)
-
   - @floating-ui/react-dom from 2.0.2 to 2.0.4
   - @react-stately/collections from 3.10.2 to 3.10.3
   - @react-stately/menu from 3.5.6 to 3.5.7
@@ -1804,7 +1827,6 @@
   - (peer dep) react-intl from 6.5.1 to 6.5.4
 
 - [#4205](https://github.com/cultureamp/kaizen-design-system/pull/4205) [`dee798fdb`](https://github.com/cultureamp/kaizen-design-system/commit/dee798fdb2d5091650e9350d0f7c575288e59c65) - - Replace all usages of `Heading` from `@kaizen/typography` with the same from KAIO
-
   - Replace all usages of `Paragraph` from `@kaizen/typography` with `Text` from KAIO
   - Remove `@kaizen/brand` and its usages
   - Remove `@kaizen/brand-moment` and its usages
@@ -1943,13 +1965,11 @@
 - [#4237](https://github.com/cultureamp/kaizen-design-system/pull/4237) [`e551cf8b4`](https://github.com/cultureamp/kaizen-design-system/commit/e551cf8b4d36f3ba0971e8194f8da78bf04f6cab) - Package updates:
 
   @kaizen/components (peer deps):
-
   - @cultureamp/i18n-react-intl from 2.0.0 to 2.1.1
   - react from 18.0.0 to 18.2.0
   - react-intl from 6.4.6 to 6.5.1
 
   @kaizen/tailwind (peer deps):
-
   - tailwindcss from ^3.3.3 to ^3.3.5"
 
   (otherwise all dev dep updates)
@@ -2008,13 +2028,11 @@
 - [#4133](https://github.com/cultureamp/kaizen-design-system/pull/4133) [`d9d060f73`](https://github.com/cultureamp/kaizen-design-system/commit/d9d060f738a5f5513b378ec349df5993f1b7c7f0) - - Add an icon for AI (Artificial Intelligence)
 
 - [#4154](https://github.com/cultureamp/kaizen-design-system/pull/4154) [`5f2afd593`](https://github.com/cultureamp/kaizen-design-system/commit/5f2afd5933f18dfd3c99ff68adcf546d39e30ce3) - Fix support for tree shaking by:
-
   - Adding `babel-plugin-pure-static-props` plugin to Rollup config
   - Adding `@babel/pugin-transform-react-pure-annotations` plugin to Rollup config
   - Updating components to be tree-shakeable, more detail on [Confluence](https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3320647009/Tree+Shaking)
 
   Addtionally:
-
   - Replaced `esbuild` with `babel` to streamline tooling
   - Added a ci check for tree shaking via [Agadoo](https://github.com/Rich-Harris/agadoo)
   - Moved `react-intl` to peerDep
@@ -2026,7 +2044,6 @@
 ### Minor Changes
 
 - [#4130](https://github.com/cultureamp/kaizen-design-system/pull/4130) [`ebc1f8d59`](https://github.com/cultureamp/kaizen-design-system/commit/ebc1f8d590ac778583b8da1825acfe3ddba7b24f) - Migrate some kaizen-legacy components to Kaizen All-in-One
-
   - Avatar
   - AvatarGroup
   - Badge
@@ -2064,7 +2081,6 @@
   - Text
 
   Future components:
-
   - Future/Select
   - Future/Tag
 
@@ -2133,7 +2149,6 @@
   rollup-plugin-dts to 5.3.1
 
 - [#4018](https://github.com/cultureamp/kaizen-design-system/pull/4018) [`42cb73a86`](https://github.com/cultureamp/kaizen-design-system/commit/42cb73a86ccaa762771ab0e64e129024df0d9749) - Dependency updates:
-
   - @cultureamp/i18n-react-intl to 1.6.2
   - @rollup/plugin-node-resolve to 15.2.1
   - @rollup/plugin-typescript 11.1.3
@@ -2170,7 +2185,6 @@
 ### Minor Changes
 
 - [#3996](https://github.com/cultureamp/kaizen-design-system/pull/3996) [`d91bfe0e8`](https://github.com/cultureamp/kaizen-design-system/commit/d91bfe0e86708ccf2d6cb9997260905eef147e42) - Update FilterMultiSelect ListBoxSection to avoid duplicate reading of sectionName as the accessible title.
-
   - Update sectionName to be optional if sectionHeader is provided
     - This will solve the issue of sectionName and sectionHeader being read twice when they are the same
   - Minor style change to ensure hide bullet lists as filtering
@@ -2183,7 +2197,6 @@
 ### Minor Changes
 
 - [#3884](https://github.com/cultureamp/kaizen-design-system/pull/3884) [`039a457b8`](https://github.com/cultureamp/kaizen-design-system/commit/039a457b894666e4d05690eca35473275f9ca61a) - #### FilterBar
-
   - Prevent infinite loop when calling `toggleOpenFilter` from selecting a value.
   - Deprecate `toggleOpenFilter`, and replace with `setFilterOpenState` for clearer function intent.
   - Add context util `openFilter` for consumers to be able to open a filter through an event from another filter.
@@ -2250,7 +2263,6 @@
 ### Patch Changes
 
 - [#3815](https://github.com/cultureamp/kaizen-design-system/pull/3815) [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a) - Update dependencies
-
   - update to prettier v3 cause minor linting changes
   - update to prettier v3 required minor type fixes for format function in design-tokens
 
@@ -2310,7 +2322,6 @@
   For more info, see our [Internationalization in Kaizen docs](https://cultureamp.design/storybook/?path=/docs/components-kaizen-provider-internationalization-in-kaizen--docs)
 
 - [#3722](https://github.com/cultureamp/kaizen-design-system/pull/3722) [`adb9c58e0`](https://github.com/cultureamp/kaizen-design-system/commit/adb9c58e0791ea08ebece42fb5e5ae47d2bc73c5) - **FilterDatePicker**
-
   - Fixed issue where selecting the dates from the date pickers would return a validation object containing the previously picked date rather than the current one in the `inputValue` key.
   - Fixed ref types. Only for internal usage.
 
@@ -2400,7 +2411,6 @@
 ### Patch Changes
 
 - [#3689](https://github.com/cultureamp/kaizen-design-system/pull/3689) [`62c302774`](https://github.com/cultureamp/kaizen-design-system/commit/62c302774c981843613fc0f4c554345c70222350) - - Remove `component-library` as a dependency
-
   - Add `SVG` title to `aria-label` when it is meanigful.
 
 - [#3730](https://github.com/cultureamp/kaizen-design-system/pull/3730) [`175fed21f`](https://github.com/cultureamp/kaizen-design-system/commit/175fed21f609bcee5cc287a92e39e1682167573d) - Fix the display of missing icons by migrating the `ClearButton` and `InputSearch` components as well as convert the `CheckIcon` and `SearchIcon` into React Icons which are used in `FilterMultiSelect`'s subcomponents.
@@ -2436,7 +2446,6 @@
 - [#3706](https://github.com/cultureamp/kaizen-design-system/pull/3706) [`2065dabbc`](https://github.com/cultureamp/kaizen-design-system/commit/2065dabbc440be17011bde11a9dca50517e2e155) - Add FilterbarMultiSelect component
 
 - [#3667](https://github.com/cultureamp/kaizen-design-system/pull/3667) [`91f4f9a29`](https://github.com/cultureamp/kaizen-design-system/commit/91f4f9a297531bf56fad381184a9c11b21814e5b) - - Add FilterDatePicker component to allow consumers to have single date selection
-
   - Add FilterBarDatePicker component for FilterBar compatibility
 
 - [#3705](https://github.com/cultureamp/kaizen-design-system/pull/3705) [`043b95ba0`](https://github.com/cultureamp/kaizen-design-system/commit/043b95ba043f6918897efa45e7ad648fc5ee7caa) - Retrofit FilterDateRangePicker to FilterBar
@@ -2539,7 +2548,6 @@
 ### Patch Changes
 
 - [#3592](https://github.com/cultureamp/kaizen-design-system/pull/3592) [`dcd98eb9f`](https://github.com/cultureamp/kaizen-design-system/commit/dcd98eb9fbb5d03356d803bb90685e33b151075d) - Update dependencies:
-
   - `@react-aria/focus` to `^3.12.0`
   - `@react-aria/listbox` to `^3.9.0`
   - `@react-aria/overlays` to `^3.14.0`

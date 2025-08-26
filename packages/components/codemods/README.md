@@ -25,6 +25,30 @@ pnpm kaizen-codemod src migrateWellVariantToColor
 
 ## Available codemods
 
+### `migrateV2NextToCurrent`
+
+Released in `1.80.4`
+
+Migrates Menu, Tabs, and Tooltip to current import path
+
+- `Menu` from `/v3/actions` and `/next` to current
+- `Tabs` from `/future` and `/next` to current
+- `Tooltip` from `/v3/overlays`, `/future` and `/next` to current
+
+This also captures `MenuItem`, `MenuHeader`, `MenuPopover`, `MenuSection`, `MenuTrugger`, `Tab`, `TabList`, `TabPanel` and `TooltipTrigger`.
+
+### `renameV2ComponentImportsAndUsages`
+
+Released in `1.80.3`
+
+Renames component imports and usages for the v2 release:
+
+- `Select` (from `@kaizen/components/next`) → `SingleSelect`
+- `LikertScaleLegacy` → `LikertScale`
+- `TitleBlockZen` → `TitleBlock`
+
+Also renames corresponding Props types (e.g., `SelectProps` → `SingleSelectProps`).
+
 ### `migrateBrandMomentMoodToVariant`
 
 Released in `1.58.0`
