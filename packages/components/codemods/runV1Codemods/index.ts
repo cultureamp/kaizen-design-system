@@ -1,27 +1,25 @@
 import { runV1Codemods } from './runV1Codemods'
 
 const run = async (): Promise<void> => {
-  console.log('🚀 Running all V1 codemods in sequence')
-  console.log('')
-  console.log('This will run the following codemods in order:')
-  console.log('1. upgradeIconV1')
-  console.log('2. upgradeV1Buttons')
-  console.log('3. migrateGuidanceBlockActionsToActionsSlot')
-  console.log('4. migrateBrandMomentMoodToVariant')
-  console.log('5. migrateCardVariantToColor')
-  console.log('6. migrateConfirmationModalMoodsToVariant')
-  console.log('7. migrateEmptyStateIllustrationTypeToVariant')
-  console.log('8. migrateGlobalNotificationTypeToVariant')
-  console.log('9. migrateInformationTileMoodToVariant')
-  console.log('10. migrateInlineNotificationTypeToVariant')
-  console.log('11. migrateMultiActionTileMoodToVariant')
-  console.log('12. migrateNotificationTypeToVariant')
-  console.log('13. migrateProgressBarMoodToColor')
-  console.log('14. migrateToastNotificationTypeToVariant')
-  console.log('15. migrateWellVariantToColor')
-  console.log('16. removeInputEditModalMood')
-  console.log('17. removePopoverVariant')
-  console.log('')
+  console.log(`🚀 Running all V1 codemods in sequence:
+  1. upgradeIconV1
+  2. upgradeV1Buttons
+  3. migrateGuidanceBlockActionsToActionsSlot
+  4. migrateBrandMomentMoodToVariant
+  5. migrateCardVariantToColor
+  6. migrateConfirmationModalMoodsToVariant
+  7. migrateEmptyStateIllustrationTypeToVariant
+  8. migrateGlobalNotificationTypeToVariant
+  9. migrateInformationTileMoodToVariant
+  10. migrateInlineNotificationTypeToVariant
+  11. migrateMultiActionTileMoodToVariant
+  12. migrateNotificationTypeToVariant
+  13. migrateProgressBarMoodToColor
+  14. migrateToastNotificationTypeToVariant
+  15. migrateWellVariantToColor
+  16. removeInputEditModalMood
+  17. removePopoverVariant
+  `)
 
   const targetDir = process.argv[2]
 

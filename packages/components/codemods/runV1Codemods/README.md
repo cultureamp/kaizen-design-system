@@ -25,7 +25,7 @@ pnpm kaizen-codemod {target-directory} runV1Codemods
 ## Example
 
 ```bash
-pnpm kaizen-codemod src runV1Codemods
+pnpm kaizen-codemod src/components/MockComponent runV1Codemods
 ```
 
 ## What it does
@@ -60,11 +60,11 @@ The codemod runs the following transformations in sequence:
 
 ### Reducing the blast radius of the codemods
 
-Thi running will create a lot of diffs and changes to your components as the traverses the entire directory given.
+This running will create a lot of diffs and changes to your components as the traverses the entire directory given.
 
 To reduce the scope, consider either running this on component or page directories or running the mode incrementally, ie:
 
-`pnpm kaizen-codemod src/components/MockComponent runV1Codemods`
+`pnpm kaizen-codemod src/pages/MockPage runV1Codemods`
 
 This can make it easier to review and merge in changes with confidence.
 
