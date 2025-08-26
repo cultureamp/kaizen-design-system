@@ -1,3 +1,4 @@
+import fs from 'fs'
 import { transformBrandMomentMoodToVariant } from '../migrateBrandMomentMoodToVariant/transformBrandMomentMoodToVariant'
 import { transformCardVariantToColor } from '../migrateCardVariantToColor/transformCardVariantToColor'
 import { transformConfirmationModalMoodsToVariant } from '../migrateConfirmationModalMoodsToVariant/transformConfirmationModalMoodsToVariant'
@@ -154,20 +155,23 @@ export const runV1Codemods = async (targetDir: string): Promise<void> => {
   console.log(`📝 Running ${codemods.length} codemods on directory: ${targetDir}`)
   console.log('')
 
+  if (fs.existsSync(targetDir) === false) {
+    console.error(`Error: Target directory "${targetDir}" does not exist`)
+    process.exit(1)
+  }
+
   let successCount = 0
   let errorCount = 0
 
   for (const codemod of codemods) {
     try {
       console.log(`🔄 Starting codemod: ${codemod.name}`)
-      await new Promise<void>((resolve) => {
-        codemod.runner(targetDir)
-        resolve()
-      })
+      codemod.runner(targetDir)
       console.log(`✅ Completed codemod: ${codemod.name}`)
       successCount++
     } catch (error) {
-      console.error(`❌ Error in codemod: ${codemod.name}`)
+      console.log(`💥 Error in codemod: ${codemod.name}`)
+      console.error(`${codemod.name} failed with error:\n`)
       console.error(error)
       errorCount++
     }
@@ -176,11 +180,13 @@ export const runV1Codemods = async (targetDir: string): Promise<void> => {
 
   console.log('📊 Summary:')
   console.log(`✅ Successful codemods: ${successCount}`)
-  console.log(`❌ Failed codemods: ${errorCount}`)
+  console.log(`💥 Failed codemods: ${errorCount}`)
   console.log(`🎯 Total codemods: ${codemods.length}`)
 
   if (errorCount > 0) {
-    console.log('\n⚠️  Some codemods failed. Please review the errors above.')
+    console.log(
+      '\n⚠️  Some codemods failed. Please review the errors below.\nConsider running them individually for easier debugging.\n',
+    )
   } else {
     console.log('\n🎉 All codemods completed successfully!')
   }
