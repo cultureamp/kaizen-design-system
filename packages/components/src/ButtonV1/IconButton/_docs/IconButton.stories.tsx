@@ -20,6 +20,7 @@ const meta = {
     label: 'icon button',
     icon: <Icon name="more_horiz" isPresentational />,
   },
+  tags: ['!dev'],
 } satisfies Meta<typeof IconButton>
 
 export default meta
