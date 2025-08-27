@@ -36,7 +36,9 @@ export const MockComponent = (): JSX.Element => {
       <Well variant="default">
         <div>Well content</div>
       </Well>
-      <GlobalNotification type="success">Global notification content</GlobalNotification>
+      <GlobalNotification persistent={true} type="positive">
+        Global notification content
+      </GlobalNotification>
       <div className="additional-content">
         This is some additional content that is not part of the GuidanceBlock.
         <MockSubcomponent />

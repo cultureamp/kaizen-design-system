@@ -1,3 +1,4 @@
+import fs from 'fs'
 import { runV1Codemods } from './runV1Codemods'
 
 const run = async (): Promise<void> => {
@@ -24,8 +25,11 @@ const run = async (): Promise<void> => {
   const targetDir = process.argv[2]
 
   if (!targetDir) {
-    console.error('Error: Target directory is required')
-    process.exit(1)
+    throw Error('Error: target directory does not exist')
+  }
+
+  if (fs.existsSync(targetDir) === false) {
+    throw Error('Error: target directory does not exist')
   }
 
   await runV1Codemods(targetDir)

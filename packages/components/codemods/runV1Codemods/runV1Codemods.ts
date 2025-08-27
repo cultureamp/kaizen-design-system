@@ -151,7 +151,7 @@ const codemods: CodemodConfig[] = [
   },
 ]
 
-export const runV1Codemods = async (targetDir: string): Promise<void> => {
+export const runV1Codemods = (targetDir: string): void => {
   console.log(`📝 Running ${codemods.length} codemods on directory: ${targetDir}`)
   console.log('')
 
@@ -161,7 +161,6 @@ export const runV1Codemods = async (targetDir: string): Promise<void> => {
   }
 
   let successCount = 0
-  let errorCount = 0
 
   for (const codemod of codemods) {
     try {
@@ -170,24 +169,19 @@ export const runV1Codemods = async (targetDir: string): Promise<void> => {
       console.log(`✅ Completed codemod: ${codemod.name}`)
       successCount++
     } catch (error) {
-      console.log(`💥 Error in codemod: ${codemod.name}`)
-      console.error(`${codemod.name} failed with error:\n`)
+      console.log(`💥 Error in codemod: ${codemod.name} - exiting early
+
+✅ ${successCount} codemods completed successfully
+😢 ${codemods.length - successCount} codemods did not run
+Address the issues in the follow codemod before proceeding:
+        `)
+
+      console.error(`${codemod.name}\n`)
       console.error(error)
-      errorCount++
+      process.exit(1)
     }
     console.log('')
   }
 
-  console.log('📊 Summary:')
-  console.log(`✅ Successful codemods: ${successCount}`)
-  console.log(`💥 Failed codemods: ${errorCount}`)
-  console.log(`🎯 Total codemods: ${codemods.length}`)
-
-  if (errorCount > 0) {
-    console.log(
-      '\n⚠️  Some codemods failed. Please review the errors below.\nConsider running them individually for easier debugging.\n',
-    )
-  } else {
-    console.log('\n🎉 All codemods completed successfully!')
-  }
+  console.log('\n🎉 All codemods completed successfully!')
 }
