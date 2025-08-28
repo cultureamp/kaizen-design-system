@@ -72,4 +72,4 @@ This can make it easier to review and merge in changes with confidence.
 
 As the codemod will rewrites files, this can cause arbitrary changes that will be resolved by `prettier` formatting. We recommend running the following to reduce the noise in your diffs:
 
-`pnpm prettier --write "**.tsx"`
+`pnpm prettier --write "**/*.tsx"`

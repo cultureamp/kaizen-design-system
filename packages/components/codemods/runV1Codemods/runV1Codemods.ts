@@ -173,7 +173,7 @@ export const runV1Codemods = (targetDir: string): void => {
 
 ✅ ${successCount} codemods completed successfully
 😢 ${codemods.length - successCount} codemods did not run
-Address the issues in the follow codemod before proceeding:
+Address the issues in the following codemod before proceeding:
         `)
 
       console.error(`${codemod.name}\n`)

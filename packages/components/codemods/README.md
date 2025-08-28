@@ -25,7 +25,7 @@ pnpm kaizen-codemod src migrateWellVariantToColor
 
 ## Available codemods
 
-Released in `1.80.5`
+Released in `1.80.6`
 
 ### `runV1Codemods`
 
