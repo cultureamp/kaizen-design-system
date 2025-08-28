@@ -9,3 +9,4 @@ packages:
   - '!packages/components/v3'
   - '!packages/design-tokens/js'
   - '!packages/components/alpha'
+  - '!packages/components/libs'
