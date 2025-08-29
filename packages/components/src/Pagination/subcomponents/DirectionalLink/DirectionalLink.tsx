@@ -17,7 +17,7 @@ const iconNameMap = {
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082092975/Pagination Guidance} |
- * {@link https://cultureamp.design/?path=/story/components-buttons-directionallink--docs Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-pagination-directionallink--docs Storybook}
  */
 export const DirectionalLink = ({
   reversed = false,

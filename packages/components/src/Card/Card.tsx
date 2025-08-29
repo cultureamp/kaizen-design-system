@@ -32,7 +32,7 @@ export type CardProps = {
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094938/Card Guidance} |
- * {@link https://cultureamp.design/?path=/story/components-card--docs Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-card-api-specification--docs Storybook}
  */
 export const Card = ({
   children,
