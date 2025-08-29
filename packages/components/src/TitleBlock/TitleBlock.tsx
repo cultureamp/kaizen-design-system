@@ -229,7 +229,7 @@ const renderNavigationTabs = (
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075605782/Title+Block Guidance} |
- * {@link https://cultureamp.design/?path=/story/components-titleblock--docs Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-titleblock-api-specification--docs Storybook}
  */
 export const TitleBlock = ({
   title,
