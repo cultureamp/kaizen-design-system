@@ -9,6 +9,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
+  tags: ['!dev'],
 } as Meta
 
 const StickerSheetTemplate: StickerSheetStory = {

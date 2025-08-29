@@ -40,6 +40,7 @@ const meta = {
     children: { control: false },
     button: { control: false },
   },
+  tags: ['!dev'],
 } satisfies Meta<typeof Menu>
 
 export default meta

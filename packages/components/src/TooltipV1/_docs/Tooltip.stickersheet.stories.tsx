@@ -17,6 +17,7 @@ export default {
   args: {
     isInitiallyVisible: IS_CHROMATIC,
   },
+  tags: ['!dev'],
 } satisfies Meta
 
 const cellStyle = {
