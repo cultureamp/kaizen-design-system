@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.81.0
+
+### Minor Changes
+
+- [#6022](https://github.com/cultureamp/kaizen-design-system/pull/6022) [`57370f1`](https://github.com/cultureamp/kaizen-design-system/commit/57370f110b0a7c40ef933ccd251f4f8e95ba0513) - Added three new spot illustrations
+
 ## 1.80.6
 
 ### Patch Changes
