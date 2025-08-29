@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.80.6
+
+### Patch Changes
+
+- [#5993](https://github.com/cultureamp/kaizen-design-system/pull/5993) [`34e42e7`](https://github.com/cultureamp/kaizen-design-system/commit/34e42e78ab0eccb0aea97e3d09fb6b6361ae4e2b) - Update codemod transform path for react-aria libs
+  - updates `migrateV2NextToCurrent` transform path to `@kaizen/components/libs/react-aria` to match with recent V2 entry point changes.
+
+- [#6012](https://github.com/cultureamp/kaizen-design-system/pull/6012) [`de63174`](https://github.com/cultureamp/kaizen-design-system/commit/de6317464931c068837ab7ade4f6aa320c7942bf) - Add runV1Codemods script to codemod collection
+
 ## 1.80.5
 
 ### Patch Changes
