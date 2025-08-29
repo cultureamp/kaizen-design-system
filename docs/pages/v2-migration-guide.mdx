@@ -101,7 +101,7 @@ If your team owns any of the following packages, you'll need to update them to s
 
 For each package you own:
 
-1.  **Update the package to use KAIO v2:**
+1.  #### Update the package to use KAIO v2:
 
     ```json
     {
@@ -111,7 +111,7 @@ For each package you own:
     }
     ```
 
-2.  **Run the v1 codemods:**
+2.  #### Run the v1 codemods:
 
     To avoid a huge diff it is recommended to scope the codemods to a reduced portion of your codebase e.g. instead of
     running it on `src` you should reduce it to the component level and either create semantic commits for each component or
@@ -124,14 +124,14 @@ For each package you own:
     Once this has run, make sure you run prettier to clean up the changes as the typescript parser will do different
     formatting and create a larger diff, prettier will reduce that back down to actual changes.
 
-3.  **Run the v2 codemods:**
+3.  #### Run the v2 codemods:
 
     ```bash
     pnpm kaizen-codemod src/pages/SinglePage renameV2ComponentImportsAndUsages
     pnpm kaizen-codemod src/pages/SinglePage migrateV2NextToCurrent
     ```
 
-4.  **Test and publish the updated package**
+4.  #### Test and publish the updated package
 
     Make sure to run prettier formatting, linting, and your test suites.
 
