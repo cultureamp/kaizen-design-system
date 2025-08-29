@@ -11,6 +11,7 @@ import { Icon, type IconProps } from '../index'
 
 export default {
   title: 'Components/Icon/Icon (next)',
+  tags: ['next'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

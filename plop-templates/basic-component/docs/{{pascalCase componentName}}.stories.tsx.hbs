@@ -1,17 +1,23 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { {{pascalCase componentName}} } from "../index"
+import React, { type FunctionComponent } from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
+import { {{pascalCase componentName}} } from '../index'
 
 const meta = {
-  title: "{{storyTitle}}",
+  title: '{{storyTitle}}',
   component: {{pascalCase componentName}},
   args: {
     /**
      * @note: Put consistent default values here.
      * If your value differs between stories, add the arg to the story instead.
      */
-    exampleRequiredString: "Replace me!"
-  }
+    exampleRequiredString: 'Replace me!',
+  },
+  subcomponents: {
+    /**
+     * @note: include subcomponents here if relevant.
+     */
+  } as Record<string, FunctionComponent<any>>,
 } satisfies Meta<typeof {{pascalCase componentName}}>
 
 export default meta
@@ -28,7 +34,20 @@ export const Playground: Story = {
   },
 }
 
-export const Reversed: Story = {
-  parameters: { backgrounds: { default: "Purple 700" } },
-  args: { isReversed: true }
+const mockOnClick = fn()
+export const InteractionStory: Story = {
+  ...Playground
+  args: {
+    exampleRequiredString: 'Interaction Example',
+    onClick: mockOnClick
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+    const button = canvas.getByRole('button', { name: 'Interaction Example' })
+
+    await step('Click the button', async () => {
+      await userEvent.click(button)
+      await waitFor(() => expect(mockOnClick).toBeCalled())
+    })
+  },
 }

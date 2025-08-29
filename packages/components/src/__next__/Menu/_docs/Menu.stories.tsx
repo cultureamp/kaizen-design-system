@@ -10,6 +10,7 @@ import * as testStories from './Menu.spec.stories'
 const meta = {
   title: 'Components/Menu/Menu (next)',
   component: MenuTrigger,
+  tags: ['next'],
   args: {
     defaultOpen: isChromatic(),
     children: <></>,

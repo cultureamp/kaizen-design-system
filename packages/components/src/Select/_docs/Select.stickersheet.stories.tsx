@@ -4,7 +4,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { Select } from '../index'
 
 export default {
-  title: 'Components/Select',
+  title: 'Components/Select/Select',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

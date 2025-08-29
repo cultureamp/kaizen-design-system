@@ -10,6 +10,7 @@ import { SplitButton } from '../index'
 const meta = {
   title: 'Components/SplitButton (deprecated)',
   component: SplitButton,
+  tags: ['deprecated'],
   argTypes: {
     actionButtonProps: {
       options: ['Button', 'Anchor'],
