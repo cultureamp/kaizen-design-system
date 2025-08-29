@@ -1,0 +1,219 @@
+import { Meta, Unstyled } from '@storybook/blocks'
+import { InlineNotification } from '~components/Notification'
+
+<Meta title="Releases/KAIO v2 Migration Guide" />
+
+# KAIO v2 Migration Guide
+
+This guide will help you migrate your teams and web applications from KAIO v1 to v2. The migration involves updating
+packages, running codemods, and making necessary code changes.
+
+## Overview
+
+The KAIO v2 release includes several breaking changes and improvements:
+
+- Retiring components
+- Retiring component versions
+- Namespace changes
+- Component renames
+
+See full details on all changes in the [upcoming major release](/docs/releases-upcoming-major-releases--docs) doc.
+
+## Migration Steps
+
+### Step 1: Prepare Your Codebase with v1 Codemods (optional if v2 ready)
+
+First, run the v1 codemod runner to prepare your codebase. This can be ran multiple times and is only required if you’re not
+already v2 ready.
+
+This runs all necessary v1 codemods in sequence:
+
+```bash
+pnpm kaizen-codemod src runV1Codemods
+```
+
+This will run the following codemods automatically:
+
+- `upgradeIconV1`
+- `upgradeV1Buttons`
+- `migrateGuidanceBlockActionsToActionsSlot`
+- `migrateBrandMomentMoodToVariant`
+- `migrateCardVariantToColor`
+- `migrateConfirmationModalMoodsToVariant`
+- `migrateEmptyStateIllustrationTypeToVariant`
+- `migrateGlobalNotificationTypeToVariant`
+- `migrateInformationTileMoodToVariant`
+- `migrateInlineNotificationTypeToVariant`
+- `migrateMultiActionTileMoodToVariant`
+- `migrateNotificationTypeToVariant`
+- `migrateProgressBarMoodToColor`
+- `migrateToastNotificationTypeToVariant`
+- `migrateWellVariantToColor`
+- `removeInputEditModalMood`
+- `removePopoverVariant`
+
+This all-in-one codemod is a convenience. If you wish to run them independently, you can do that too.
+
+<Unstyled>
+  <InlineNotification persistent variant="informative">
+    {
+      'To avoid a huge diff it is recommended to scope the codemods to a reduced portion of your codebase e.g. instead of running it on src you should reduce it to the component level and either create semantic commits for each component or separate PRs for easier reviews.'
+    }
+  </InlineNotification>
+</Unstyled>
+
+### Step 2: Update Package Dependencies
+
+Update your `package.json` to use KAIO v2:
+
+```json
+{
+  "peerDependencies": {
+    "@kaizen/components": "^2.0.0"
+  }
+}
+```
+
+Then install the new version:
+
+```bash
+pnpm install
+```
+
+### Step 3: Update Shared UI Packages
+
+If your team owns any of the following packages, you'll need to update them to support KAIO v2:
+
+<Unstyled>
+  <InlineNotification persistent variant="informative">
+    {"We'll check these off when they've been updated"}
+  </InlineNotification>
+</Unstyled>
+
+- `@cultureamp/next-services`
+- `@cultureamp/pin-shared-ui`
+- `@cultureamp/conversations-shared-ui`
+- `@cultureamp/goals-shared-ui`
+- `@cultureamp/prc-shared-ui`
+- `@cultureamp/shoutouts-shared`
+- `@cultureamp/admin-navbar`
+- `@cultureamp/engage-survey-settings-sidebar`
+
+For each package you own:
+
+1.  #### Update the package to use KAIO v2:
+
+    ```json
+    {
+      "peerDependencies": {
+        "@kaizen/components": "^2.0.0"
+      }
+    }
+    ```
+
+2.  #### Run the v1 codemods:
+
+    To avoid a huge diff it is recommended to scope the codemods to a reduced portion of your codebase e.g. instead of
+    running it on `src` you should reduce it to the component level and either create semantic commits for each component or
+    separate PRs for easier reviews.
+
+    ```bash
+    pnpm kaizen-codemod src/pages/SinglePage runV1Codemods
+    ```
+
+    Once this has run, make sure you run prettier to clean up the changes as the typescript parser will do different
+    formatting and create a larger diff, prettier will reduce that back down to actual changes.
+
+3.  #### Run the v2 codemods:
+
+    ```bash
+    pnpm kaizen-codemod src/pages/SinglePage renameV2ComponentImportsAndUsages
+    pnpm kaizen-codemod src/pages/SinglePage migrateV2NextToCurrent
+    ```
+
+4.  #### Test and publish the updated package
+
+    Make sure to run prettier formatting, linting, and your test suites.
+
+    ```bash
+    pnpm prettier --write **/*.tsx
+    ```
+
+### Step 4: Run v2 Codemods on Your Applications
+
+Once your shared UI packages are updated, run the v2 codemods on your applications:
+
+```bash
+pnpm kaizen-codemod src/pages/SinglePage renameV2ComponentImportsAndUsages
+pnpm kaizen-codemod src/pages/SinglePage migrateV2NextToCurrent
+```
+
+### Step 5: Update Package Dependencies in Your Apps
+
+Update any applicable dependencies your apps use to the new versions of the shared UI packages:
+
+```json
+{
+  "dependencies": {
+    "@kaizen/components": "^2.0.0",
+    "@cultureamp/next-services": "latest",
+    "@cultureamp/pin-shared-ui": "latest",
+    "@cultureamp/conversations-shared-ui": "latest",
+    "@cultureamp/goals-shared-ui": "latest",
+    "@cultureamp/prc-shared-ui": "latest",
+    "@cultureamp/shoutouts-shared": "latest",
+    "@cultureamp/admin-navbar": "latest",
+    "@cultureamp/engage-survey-settings-sidebar": "latest"
+  }
+}
+```
+
+## What the V2 Codemods Change
+
+### `renameV2ComponentImportsAndUsages`
+
+This codemod handles:
+
+- `Select` → `SingleSelect` (from `@kaizen/components/next` )
+- `LikertScaleLegacy` → `LikertScale`
+- `TitleBlockZen` → `TitleBlock`
+- Corresponding Props types (e.g., `SelectProps` → `SingleSelectProps` )
+
+### `migrateV2NextToCurrent`
+
+This codemod migrates import paths for:
+
+- `Menu` from `/v3/actions` and `/next` to current
+- `Tabs` from `/future` and `/next` to current
+- `Tooltip` from `/v3/overlays` , `/future` and `/next` to current
+- `Button` from `/v3/actions` , `/future` and `/next` to current
+- `ReversedColors` from `/v3/utilities` to current
+- `react-aria-components` and `react-aria` from `/v3/...` to `/libs/...`
+- Related components: `MenuItem` , `MenuHeader` , `MenuPopover` , `MenuSection` , `MenuTrigger` , `Tab` , `TabList` , `TabPanel` , `TooltipTrigger` , `ButtonProps` , `ButtonsSizes` , `ButtonVariants` , `Icon` , `Focusable` , `Key`
+
+## Common Issues and Solutions
+
+1.  Scope the codemods to smaller diffs by constraining the directory it runs in.
+2.  Remember to run prettier after the codemods to fix formatting as the ts ast parser does not preserve existing formatting.
+
+## Getting Help
+
+- Check the Kaizen Design System documentation for the latest component APIs
+- To refer to v1.x.x docs please go here:
+- Reach out on #help_design_system
+
+## Migration Checklist
+
+- [ ] Run `runV1Codemods` on your codebase
+- [ ] Update shared UI packages you own to Kaizen v2
+- [ ] Run v1 and v2 codemods on shared UI packages
+- [ ] Publish updated shared UI packages
+- [ ] Run v2 codemods on your applications
+- [ ] Update application dependencies
+- [ ] Test build and functionality
+- [ ] Run Chromatic tests to verify no visual changes
+
+Remember to test thoroughly at each step and coordinate with your team when updating shared packages that other teams
+depend on.
+
+The UST team is here to help, so don’t hesitate to reach out.
