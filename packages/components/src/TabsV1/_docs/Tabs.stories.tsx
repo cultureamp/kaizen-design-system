@@ -31,6 +31,7 @@ const meta = {
       </>
     ),
   },
+  tags: ['!dev'],
 } satisfies Meta<typeof Tabs>
 
 export default meta
