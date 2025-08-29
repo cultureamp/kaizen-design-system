@@ -71,7 +71,7 @@ describe('<GenericModal />', () => {
 
   it('closes the modal when a click is outside of the modal content', async () => {
     const handleDismiss = vi.fn()
-    render(<GenericModalWrapper onOutsideModalClick={handleDismiss} />)
+    render(<GenericModalWrapper onOutsideModalClick={handleDismiss()} />)
 
     await user.click(screen.getByTestId('GenericModalTestId-scrollLayer'))
     await waitFor(() => {
