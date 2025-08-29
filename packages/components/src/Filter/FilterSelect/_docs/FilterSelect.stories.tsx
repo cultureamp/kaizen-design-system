@@ -4,7 +4,7 @@ import { fn } from '@storybook/test'
 import { renderTriggerControls } from '~components/Filter/_docs/controls/renderTriggerControls'
 import { FilterButton } from '../../FilterButton'
 import { FilterSelect } from '../FilterSelect'
-import { type SelectOption } from '../types'
+import { type SingleSelectOption } from '../types'
 import { groupedMockItems, singleMockItems } from './mockData'
 
 const meta = {
@@ -67,7 +67,7 @@ export const AdditionalProperties: Story = {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     return (
-      <FilterSelect<SelectOption & { isFruit: boolean }>
+      <FilterSelect<SingleSelectOption & { isFruit: boolean }>
         {...args}
         label="Custom"
         isOpen={isOpen}

@@ -1,11 +1,15 @@
 import type { ConfirmationModalProps } from '../../src/Modal'
 import { migrateStringProp } from '../utils'
 
+type LegacyConfirmationModalProps = ConfirmationModalProps & {
+  mood?: string
+}
+
 const OLD_PROP_NAME = 'mood'
 const NEW_PROP_NAME = 'variant'
 
 const getNewVariantValue = (
-  oldValue: Exclude<ConfirmationModalProps[typeof OLD_PROP_NAME], undefined>,
+  oldValue: Exclude<LegacyConfirmationModalProps[typeof OLD_PROP_NAME], undefined>,
 ): Exclude<ConfirmationModalProps[typeof NEW_PROP_NAME], undefined> => {
   switch (oldValue) {
     case 'positive':
@@ -17,6 +21,7 @@ const getNewVariantValue = (
     case 'cautionary':
       return 'cautionary'
     case 'assertive':
+    default:
       return 'cautionary'
   }
 }

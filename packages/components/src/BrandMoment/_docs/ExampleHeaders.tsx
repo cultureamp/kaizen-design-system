@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button } from '~components/Button'
-import { Icon } from '~components/__next__/Icon'
+import { Button } from '~components/ButtonV1'
+import { Icon } from '~components/Icon'
 import { assetUrl } from '~components/utils/hostedAssets'
 import styles from './ExampleHeaders.module.scss'
 

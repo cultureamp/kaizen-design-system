@@ -1,6 +1,6 @@
 import React from 'react'
-import { type NotificationType, type NotificationVariant } from '~components/Notification/types'
-import { Icon } from '~components/__next__'
+import { Icon } from '~components/Icon'
+import { type NotificationVariant } from '~components/Notification/types'
 import styles from './NotificationIcon.module.css'
 
 const NotificationIcon = ({ name }: { name: string }): JSX.Element => (
@@ -8,27 +8,8 @@ const NotificationIcon = ({ name }: { name: string }): JSX.Element => (
 )
 
 export type NotificationIconTypeProps = {
-  type: NotificationType
+  type: NotificationVariant
 }
-
-export const NotificationIconType = ({ type }: NotificationIconTypeProps): JSX.Element => {
-  switch (type) {
-    case 'positive':
-      return <NotificationIcon name="check_circle" />
-    case 'negative':
-      return <NotificationIcon name="error" />
-    case 'cautionary':
-      return <NotificationIcon name="warning" />
-    case 'informative':
-      return <NotificationIcon name="info" />
-    case 'security':
-      return <NotificationIcon name="privacy_tip" />
-    default:
-      return <NotificationIcon name="info" />
-  }
-}
-
-NotificationIconType.displayName = 'NotificationIconType'
 
 export type NotificationIconVariantProps = {
   variant: NotificationVariant

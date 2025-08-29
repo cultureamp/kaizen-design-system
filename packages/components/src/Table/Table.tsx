@@ -2,8 +2,8 @@ import React, { cloneElement, type HTMLAttributes, type ReactElement } from 'rea
 import classnames from 'classnames'
 import { Checkbox, type CheckedStatus } from '~components/Checkbox'
 import { Heading } from '~components/Heading'
-import { Tooltip } from '~components/Tooltip'
-import { Icon } from '~components/__next__/Icon'
+import { Icon } from '~components/Icon'
+import { Tooltip } from '~components/TooltipV1'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Table.module.scss'
 

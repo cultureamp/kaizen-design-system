@@ -43,29 +43,6 @@ const variants = [
   },
 ] satisfies { title: string; props: Partial<GlobalNotificationProps> }[]
 
-const types = [
-  {
-    title: 'Informative',
-    props: { type: 'informative' },
-  },
-  {
-    title: 'Success',
-    props: { type: 'positive' },
-  },
-  {
-    title: 'Cautionary',
-    props: { type: 'cautionary' },
-  },
-  {
-    title: 'Negative',
-    props: { type: 'negative' },
-  },
-  {
-    title: 'Security',
-    props: { type: 'security' },
-  },
-] satisfies { title: string; props: Partial<GlobalNotificationProps> }[]
-
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
     const defaultProps = {
@@ -82,14 +59,6 @@ const StickerSheetTemplate: StickerSheetStory = {
       <>
         <StickerSheet title="GlobalNotification" isReversed={isReversed}>
           {variants.map(({ title, props }) => (
-            <StickerSheet.Row key={title} header={title}>
-              <GlobalNotification {...defaultProps} {...props} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet>
-
-        <StickerSheet title="Type (deprecated)" isReversed={isReversed}>
-          {types.map(({ title, props }) => (
             <StickerSheet.Row key={title} header={title}>
               <GlobalNotification {...defaultProps} {...props} />
             </StickerSheet.Row>

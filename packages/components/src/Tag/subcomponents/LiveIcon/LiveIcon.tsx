@@ -2,7 +2,7 @@
 // Changes to this file will be overwritten
 
 import React from 'react'
-import { SVG } from '~components/Icon/subcomponents/SVG'
+import { SVG } from '~components/IconV1/subcomponents/SVG'
 import styles from './LiveIcon.module.css'
 
 type LiveIconSvgProps = { classNameOverride: string }

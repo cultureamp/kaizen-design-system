@@ -107,53 +107,6 @@
   }
 
   // --------------------------------
-  // @deprecated moods use variant styles instead
-  // --------------------------------
-
-  $dt-positive-header-background: $color-green-100;
-  $dt-informative-header-background: $color-blue-100;
-  $dt-negative-header-background: $color-red-100;
-  $dt-cautionary-header-background: $color-yellow-100;
-  $dt-heading-text-color: $color-purple-800;
-  $dt-cautionary-heading-text-color: $color-purple-800;
-  $dt-assertive-header-background: $color-orange-100;
-
-  .positiveHeader {
-    background-color: $dt-positive-header-background;
-
-    .spotIcon {
-      color: $color-green-500;
-    }
-  }
-
-  .informativeHeader {
-    background-color: $dt-informative-header-background;
-
-    .spotIcon {
-      color: $color-blue-500;
-    }
-  }
-
-  .negativeHeader,
-  .assertiveHeader {
-    background-color: $dt-negative-header-background;
-
-    .spotIcon {
-      color: $color-red-500;
-    }
-  }
-
-  .cautionaryHeader {
-    background-color: $dt-cautionary-header-background;
-
-    .spotIcon {
-      color: var(--color-yellow-700);
-    }
-  }
-
-  // End @deprecated ----------------
-
-  // --------------------------------
   // variant styles
   // --------------------------------
   .success {

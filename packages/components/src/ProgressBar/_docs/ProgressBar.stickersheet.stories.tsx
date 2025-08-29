@@ -25,25 +25,6 @@ export default {
 
 const isNotChromatic = !isChromatic()
 
-const moods = [
-  {
-    title: 'Positive',
-    props: { mood: 'positive' },
-  },
-  {
-    title: 'Informative',
-    props: { mood: 'informative' },
-  },
-  {
-    title: 'Negative',
-    props: { mood: 'negative' },
-  },
-  {
-    title: 'Cautionary',
-    props: { mood: 'cautionary' },
-  },
-] satisfies { title: string; props: Partial<ProgressBarProps> }[]
-
 const colors = [
   {
     title: 'Blue',
@@ -82,18 +63,6 @@ const StickerSheetTemplate: StickerSheetStory = {
       <>
         <StickerSheet isReversed={isReversed} title="ProgressBar" layout="stretch">
           {colors.map(({ title, props }) => (
-            <StickerSheet.Row key={title} header={title}>
-              <ProgressBar {...defaultProps} {...props} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet>
-
-        <StickerSheet
-          isReversed={isReversed}
-          title="ProgressBar Moods (deprecated)"
-          layout="stretch"
-        >
-          {moods.map(({ title, props }) => (
             <StickerSheet.Row key={title} header={title}>
               <ProgressBar {...defaultProps} {...props} />
             </StickerSheet.Row>

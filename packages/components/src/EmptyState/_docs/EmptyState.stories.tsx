@@ -1,7 +1,7 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { Button } from '~components/Button'
-import { Icon } from '~components/__next__/Icon'
+import { Button } from '~components/ButtonV1'
+import { Icon } from '~components/Icon'
 import { EmptyState } from '../index'
 
 const meta = {
@@ -23,7 +23,6 @@ const meta = {
         ),
       },
     },
-    illustrationType: { control: false },
   },
   args: {
     headingProps: {

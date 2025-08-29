@@ -17,24 +17,6 @@
     border-radius: 0;
   }
 
-  /** @deprecated */
-  .positive {
-    --empty-state-border-color: var(--color-green-500);
-    --empty-state-background-color: var(--color-green-100);
-  }
-
-  .negative,
-  .action {
-    --empty-state-border-color: var(--color-red-500);
-    --empty-state-background-color: var(--color-red-100);
-  }
-
-  .neutral {
-    --empty-state-border-color: var(--color-purple-400);
-    --empty-state-background-color: var(--color-purple-100);
-  }
-
-  /** end @deprecated */
   .success {
     --empty-state-border-color: var(--color-green-500);
     --empty-state-background-color: var(--color-green-100);

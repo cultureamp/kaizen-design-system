@@ -1,11 +1,15 @@
 import type { CardProps } from '../../src/Card'
 import { migrateStringProp } from '../utils'
 
+type LegacyCardProps = CardProps & {
+  variant?: string
+}
+
 const OLD_PROP_NAME = 'variant'
 const NEW_PROP_NAME = 'color'
 
 const getNewVariantValue = (
-  oldValue: Exclude<CardProps[typeof OLD_PROP_NAME], undefined>,
+  oldValue: Exclude<LegacyCardProps[typeof OLD_PROP_NAME], undefined>,
 ): Exclude<CardProps[typeof NEW_PROP_NAME], undefined> => {
   switch (oldValue) {
     case 'assertive':
@@ -21,6 +25,7 @@ const getNewVariantValue = (
     case 'informative':
       return 'blue'
     case 'positive':
+    default:
       return 'green'
   }
 }

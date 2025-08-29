@@ -18,10 +18,6 @@ export type FilterBarContextValue<
   ) => FilterState<keyof ValuesMap, ValuesMap[Id]>
   isClearable: boolean
   getActiveFilterValues: () => Partial<ValuesMap>
-  /**
-   * @deprecated Use `setFilterOpenState` instead.
-   */
-  toggleOpenFilter: <Id extends keyof ValuesMap>(id: Id, isOpen: boolean) => void
   setFilterOpenState: <Id extends keyof ValuesMap>(id: Id, isOpen: boolean) => void
   openFilter: <Id extends keyof ValuesMap>(id: Id) => void
   updateValue: <Id extends keyof ValuesMap>(id: Id, value: ValuesMap[Id]) => void
@@ -91,9 +87,6 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     }),
     isClearable,
     getActiveFilterValues: () => values,
-    toggleOpenFilter: <Id extends keyof ValuesMap>(id: Id, isOpen: boolean): void => {
-      dispatch({ type: 'update_single_filter', id, data: { isOpen } })
-    },
     setFilterOpenState: <Id extends keyof ValuesMap>(id: Id, isOpen: boolean): void => {
       dispatch({ type: 'update_single_filter', id, data: { isOpen } })
     },

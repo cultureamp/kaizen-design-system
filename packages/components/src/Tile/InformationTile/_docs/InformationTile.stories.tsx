@@ -10,9 +10,6 @@ const meta = {
     metadata: 'Side A',
     footer: <>Example Footer</>,
   },
-  argTypes: {
-    mood: { control: false },
-  },
 } satisfies Meta<typeof InformationTile>
 
 export default meta

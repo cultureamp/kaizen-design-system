@@ -14,7 +14,7 @@ Tag was rebuilt to allow for greater composability as the number of cases for a 
 
 ## Component and API changes at a glance
 
-There were a number key changes between current and next `Tag` to achieve the flexibility we were aiming to provide, we've listed these below but also go into further detail in the [migration examples](/docs/components-tag-next-migration-guide--migrationguide#migration-examples).
+There were a number key changes between current and next `Tag` to achieve the flexibility we were aiming to provide, we've listed these below but also go into further detail in the [migration examples](#migration-examples).
 
 - `variant` prop has been removed
   - This has been superseded by a combination of the `color` and `icon` prop
@@ -87,7 +87,7 @@ This is also a good time to stop and check if this change is necessary. If there
 
 ### Dismissible
 
-The `dismissible` prop is no longer available in the next `Tag` component. We have split the dismissible functionality into the [RemovableTag](/docs/components-tag-next-removabletag--docs).
+The `dismissible` prop is no longer available in the next `Tag` component. We have split the dismissible functionality into the [RemovableTag](/docs/components-tag-tag-next-removabletag--docs).
 
 This increases the hit box for the dismiss button and makes the `ariaLabel` in the `removeButtonProps` a required prop. This offers a more accessible experience for user and address one of the standing [accessibility issues](https://github.com/cultureamp/kaizen-discourse/issues/101) with the legacy `Tag`.
 

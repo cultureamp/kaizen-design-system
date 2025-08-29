@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { Button as RACButton } from 'react-aria-components'
-import { Icon } from '~components/__next__/Icon'
+import { Icon } from '~components/Icon'
 import { useSingleSelectContext } from '../../context'
 import { type SelectItem, type SelectSection, type TriggerProps } from '../../types'
 import styles from './Trigger.module.css'

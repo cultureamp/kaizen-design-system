@@ -1,30 +1,28 @@
-import React from 'react'
+import React, { type FunctionComponent } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { Button, IconButton } from '~components/Button'
-import { ButtonGroup } from '~components/ButtonGroup'
-import { CheckboxField } from '~components/Checkbox'
-import { FilterButtonBase } from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
-import { TableContainer, TableHeader, TableHeaderRowCell, TableRow } from '~components/Table'
-import { Text } from '~components/Text'
-import { Icon } from '~components/__next__'
-import { Tag } from '~components/__next__/Tag'
-import { Tooltip } from '../index'
+import isChromatic from 'chromatic'
+import { Button } from '~components/Button'
+import { Focusable } from '~components/Focusable'
+import { Tag } from '~components/__next__'
+import { Tooltip, TooltipTrigger } from '../index'
+import * as testStories from './Tooltip.spec.stories'
 
 const meta = {
-  title: 'Components/Tooltip/Tooltip (deprecated)',
+  title: 'Components/Tooltip',
   component: Tooltip,
-  args: {
-    text: 'Example tooltip text.',
-  },
-  decorators: [
-    (Story) => (
-      <div className="flex mt-[60px] gap-12">
-        <Story />
-      </div>
-    ),
-  ],
   parameters: {
     layout: 'centered',
+  },
+  args: {
+    defaultOpen: isChromatic(),
+  },
+  subcomponents: { TooltipTrigger } as Record<string, FunctionComponent<any>>,
+  argTypes: {
+    UNSTABLE_portalContainer: {
+      control: false,
+      table: { disable: true },
+    },
+    triggerRef: { control: false },
   },
 } satisfies Meta<typeof Tooltip>
 
@@ -33,268 +31,41 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'shown',
-      },
-    },
-  },
-  render: (args) => (
-    <Tooltip {...args}>
-      <Button label="Hover or focus me" />
-    </Tooltip>
+  render: ({ defaultOpen: _, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={true} isOpen={isOpen}>
+      <Button>Button</Button>
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
   ),
 }
 
-export const OverflowScroll: Story = {
-  render: (props) => (
-    <>
-      <p>
-        Default Placement is &apos;above&apos;. Scroll horizontally or vertically to view the
-        Tooltip &quot;flip&quot; and move according to the space of the viewport. Ensuring the
-        Tooltip does not get cut off.
-      </p>
-
-      <div
-        style={{
-          display: 'flex',
-          width: '300px',
-          maxHeight: '700px',
-          overflow: 'scroll',
-          border: 'solid black 2px',
-          flexDirection: 'column',
-        }}
-      >
-        <div
-          style={{
-            width: '500px',
-            marginLeft: '200px',
-            marginTop: '400px',
-          }}
-        >
-          <div
-            style={{
-              width: '300px',
-              height: '200px',
-              textAlign: 'center',
-              position: 'relative',
-            }}
-          >
-            <Tooltip {...props} display="inline-block" text="Tooltip label">
-              <Button label="Default" />
-            </Tooltip>
-          </div>
-        </div>
-        <div
-          style={{
-            width: '500px',
-            marginLeft: '200px',
-          }}
-        >
-          <div
-            style={{
-              width: '300px',
-              height: '100px',
-              textAlign: 'center',
-              position: 'relative',
-            }}
-          >
-            <Tooltip {...props} display="inline" text="Tooltip label">
-              <Icon name="info" alt="Info" isFilled />
-            </Tooltip>
-          </div>
-        </div>
-        <div
-          style={{
-            width: '500px',
-            marginLeft: '200px',
-            marginBottom: '500px',
-          }}
-        >
-          <div
-            style={{
-              width: '300px',
-              height: '200px',
-              textAlign: 'center',
-              position: 'relative',
-            }}
-          >
-            <Text tag="div" variant="body">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nulla quas corporis?
-              Perspiciatis, ratione voluptas{' '}
-              <Tooltip {...props} display="inline-block" text="Tooltip label">
-                <Tag>ad veniam sapiente</Tag>
-              </Tooltip>{' '}
-              Maxime harum, ducimus maiores itaque pariatur quod vel porro mollitia. Lorem ipsum
-              dolor sit{' '}
-              <Tooltip {...props} display="inline" text="Open in new tab">
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a href="#">
-                  amet consectetur adipisicing elit Itaque obcaecati maxime molestiae blanditiis
-                  pariatur
-                </a>
-              </Tooltip>
-              . Magni perspiciatis assumenda in adipisci, eaque commodi quidem dolore, tempore
-              provident animi{' '}
-            </Text>
-          </div>
-        </div>
-      </div>
-    </>
-  ),
+export const OnButton: Story = { ...testStories.OnButton, play: undefined }
+export const OnLink: Story = { ...testStories.OnLink, play: undefined }
+export const OnIconButton: Story = {
+  ...testStories.OnIconButton,
+  play: undefined,
 }
-
-export const ButtonsWithTooltip: Story = {
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  },
-  render: (args) => (
-    <>
-      <Tooltip {...args} text="Contact customer support.">
-        <Button label="Help" icon={<Icon name="help" isPresentational isFilled />} />
-      </Tooltip>
-      <Tooltip {...args} text="Remove the link from current selection.">
-        <IconButton label="Remove link" icon={<Icon name="link_off" isPresentational />} />
-      </Tooltip>
-    </>
-  ),
+export const Placement: Story = {
+  ...testStories.OnButton,
+  play: undefined,
+  args: { placement: 'end' },
 }
-
-export const ButtonGroupWithTooltip: Story = {
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  },
-  render: (args) => (
-    <>
-      <ButtonGroup>
-        <Tooltip {...args} text="Sort by first">
-          <FilterButtonBase>First</FilterButtonBase>
-        </Tooltip>
-        <Tooltip {...args} text="Sort by last">
-          <FilterButtonBase>Last</FilterButtonBase>
-        </Tooltip>
-      </ButtonGroup>
-    </>
-  ),
+export const OnTabs: Story = {
+  ...testStories.OnTabs,
+  play: undefined,
 }
-
-export const TableHeadersWithTooltips: Story = {
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  },
-  render: () => (
-    <>
-      <TableContainer>
-        <TableHeader>
-          <TableRow>
-            <TableHeaderRowCell
-              labelText="Resources"
-              sorting="descending"
-              width={3 / 12}
-              onClick={(): void => undefined}
-              tooltipInfo="Sort Resources by descending"
-            />
-            <TableHeaderRowCell
-              labelText="Supplementary"
-              width={3 / 12}
-              onClick={(): void => undefined}
-              sorting="ascending"
-              tooltipInfo="Sort Supplementary by ascending"
-            />
-            <TableHeaderRowCell labelText="Date" width={3 / 12} />
-            <TableHeaderRowCell labelText="Price" width={3 / 12} />
-          </TableRow>
-        </TableHeader>
-      </TableContainer>
-    </>
+export const OnCustomFocusableElement: Story = {
+  render: ({ defaultOpen, isOpen, ...args }) => (
+    <TooltipTrigger defaultOpen={defaultOpen} isOpen={isOpen}>
+      <Focusable>
+        <Tag>Non-interactive element</Tag>
+      </Focusable>
+      <Tooltip {...args}>Tooltip content</Tooltip>
+    </TooltipTrigger>
   ),
+  play: undefined,
 }
-
-export const TagWithHoverOnlyTooltip: Story = {
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  },
-  render: () => (
-    <Tooltip text="John Jonson Johnington the Third">
-      <Tag>John Jonson Jo...</Tag>
-    </Tooltip>
-  ),
-}
-
-export const TagWithTooltip: Story = {
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  },
-  render: () => (
-    <Tag>
-      <Tooltip text="Visit John Jonson's profile">
-        <a className="text-inherit font no-underline" href="#John">
-          John Jonson
-        </a>
-      </Tooltip>
-    </Tag>
-  ),
-}
-
-export const TagWithCheckboxField: Story = {
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  },
-  render: () => (
-    <>
-      <Tooltip text="Select all users">
-        <CheckboxField labelText="Users" id="sb-checkbox-tooltip--id" />
-      </Tooltip>
-    </>
-  ),
-}
-
-export const CheckboxFieldTooltip: Story = {
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  },
-  render: () => (
-    <>
-      <Tooltip text="Select all users">
-        <CheckboxField labelText="Users" id="sb-checkbox-tooltip--id" />
-      </Tooltip>
-    </>
-  ),
-}
-
-export const CheckboxFieldWithDescriptionTooltip: Story = {
-  parameters: {
-    docs: {
-      source: { type: 'dynamic' },
-    },
-  },
-  render: () => (
-    <>
-      <Tooltip text="Select all users">
-        <CheckboxField
-          labelText="Users"
-          id="sb-checkbox-tooltip--id"
-          aria-describedby="sb-checkbox-description--id"
-        />
-        <span id="sb-checkbox-description--id" className="sr-only">
-          Select all users
-        </span>
-      </Tooltip>
-    </>
-  ),
+export const OnReversed: Story = {
+  ...testStories.ReversedColors,
+  play: undefined,
 }

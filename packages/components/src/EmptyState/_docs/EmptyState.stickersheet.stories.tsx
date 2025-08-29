@@ -1,8 +1,6 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
 import isChromatic from 'chromatic'
-import { Button } from '~components/Button'
-import { Icon } from '~components/__next__/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { EmptyState, type EmptyStateProps } from '../index'
 
@@ -40,14 +38,6 @@ const StickerSheetTemplate: StickerSheetStory = {
       'expert-advice',
     ] satisfies EmptyStateProps['variant'][]
 
-    const illustrationTypes = [
-      'positive',
-      'neutral',
-      'negative',
-      'informative',
-      'action',
-    ] satisfies EmptyStateProps['illustrationType'][]
-
     return (
       <>
         <StickerSheet isReversed={isReversed} title="EmptyState" layout="stretch">
@@ -82,24 +72,6 @@ const StickerSheetTemplate: StickerSheetStory = {
               <EmptyStateWrapper {...defaultProps} />
             </StickerSheet.Cell>
           </StickerSheet.Row>
-        </StickerSheet>
-
-        <StickerSheet
-          isReversed={isReversed}
-          title="Illustration type (deprecated)"
-          layout="stretch"
-        >
-          {illustrationTypes.map((illustrationType) => (
-            <StickerSheet.Row key={illustrationType} header={illustrationType}>
-              <EmptyStateWrapper {...defaultProps} illustrationType={illustrationType}>
-                <Button
-                  label="Label"
-                  icon={<Icon name="chevron_right" isPresentational shouldMirrorInRTL />}
-                  iconPosition="end"
-                />
-              </EmptyStateWrapper>
-            </StickerSheet.Row>
-          ))}
         </StickerSheet>
       </>
     )

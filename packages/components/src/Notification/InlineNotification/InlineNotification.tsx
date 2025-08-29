@@ -4,7 +4,6 @@ import { type HeadingProps } from '~components/Heading'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import {
   GenericNotification,
-  type GenericNotificationType,
   type GenericNotificationVariant,
 } from '../subcomponents/GenericNotification'
 import styles from '../subcomponents/GenericNotification/GenericNotification.module.scss'
@@ -23,8 +22,7 @@ export type InlineNotificationBase = {
 } & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, 'style'>
 // Omitted `style` above because GenericNotification has its own `style` prop
 
-export type InlineNotificationProps = InlineNotificationBase &
-  (GenericNotificationType | GenericNotificationVariant)
+export type InlineNotificationProps = InlineNotificationBase & GenericNotificationVariant
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093392/Inline+Notification Guidance} |
@@ -37,7 +35,7 @@ export const InlineNotification = forwardRef<HTMLDivElement, InlineNotificationP
   ): JSX.Element => (
     <GenericNotification
       style="inline"
-      persistent={persistent || hideCloseIcon}
+      persistent={persistent ?? hideCloseIcon}
       classNameOverride={classnames(classNameOverride, [isSubtle && styles.subtle])}
       ref={ref}
       {...otherProps}

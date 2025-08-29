@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
-import { Button } from '~components/Button'
+import { Button } from '~components/ButtonV1'
 import { RichTextEditor, type EditorContentArray, type RichTextEditorProps } from '../../index'
 import { EditableRichTextContent } from '../index'
 import defaultContent from './defaultContent.json'

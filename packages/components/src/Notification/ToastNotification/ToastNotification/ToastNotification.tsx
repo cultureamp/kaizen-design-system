@@ -1,9 +1,6 @@
 import type React from 'react'
 import { useEffect, useId } from 'react'
-import {
-  type GenericNotificationType,
-  type GenericNotificationVariant,
-} from '~components/Notification/subcomponents/GenericNotification'
+import { type GenericNotificationVariant } from '~components/Notification/subcomponents/GenericNotification'
 import { useToastNotificationContext } from '../context/ToastNotificationContext'
 import { type ToastNotificationObjBase } from '../types'
 
@@ -19,7 +16,7 @@ export type ToastNotificationProps = Omit<
    * @default false
    */
   hideCloseIcon?: boolean
-} & (GenericNotificationType | GenericNotificationVariant)
+} & GenericNotificationVariant
 
 export const ToastNotification = ({
   id: propsId,

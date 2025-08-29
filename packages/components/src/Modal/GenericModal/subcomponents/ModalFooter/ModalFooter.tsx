@@ -1,6 +1,6 @@
 import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import { Button, type ButtonProps } from '~components/Button'
+import { Button, type ButtonProps } from '~components/ButtonV1'
 import { useMediaQueries } from '~components/utils/useMediaQueries'
 import { ModalBody } from '../ModalBody/ModalBody'
 import styles from './ModalFooter.module.scss'
@@ -15,18 +15,15 @@ export type ModalFooterProps = {
    * action is anchored to the left edge of the modal.
    * For this rare instance added the variant prop as optional to update the order of action buttons.
    */
-  variant?: ActionsVariantProps
-  unpadded?: boolean
-  actions: ButtonProps[]
+  'variant'?: ActionsVariantProps
+  'unpadded'?: boolean
+  'actions': ButtonProps[]
   /**
    * @deprecated we are no longer supporting different appearances for ModalFooter, instead there will only be a single default appearance set by the Button.
    */
-  appearance?: 'primary' | 'destructive'
-  /**
-   * @deprecated Please use data-testid
-   */
-  automationId?: string
-  alignStart?: boolean
+  'appearance'?: 'primary' | 'destructive'
+  'data-testid'?: string
+  'alignStart'?: boolean
 } & HTMLAttributes<HTMLDivElement>
 
 export const ModalFooter = ({

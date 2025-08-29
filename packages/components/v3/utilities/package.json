@@ -1,5 +1,0 @@
-{
-  "main": "../../dist/cjs/utilitiesV3.cjs",
-  "module": "../../dist/esm/utilitiesV3.mjs",
-  "types": "../../dist/types/__utilities__/index.d.ts"
-}

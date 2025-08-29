@@ -39,7 +39,7 @@ export const LinkModal = ({
   return (
     <InputEditModal
       submitLabel={defaultHref ? 'Save' : 'Add'}
-      mood="positive"
+      color="green"
       isOpen={isOpen}
       title={defaultHref ? 'Edit link' : 'Add link'}
       onSubmit={handleSubmit}

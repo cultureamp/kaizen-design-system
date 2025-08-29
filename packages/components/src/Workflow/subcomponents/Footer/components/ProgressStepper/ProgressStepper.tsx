@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
+import { Icon } from '~components/Icon'
 import { VisuallyHidden } from '~components/VisuallyHidden'
-import { Icon } from '~components/__next__/Icon'
 import styles from './ProgressStepper.module.css'
 
 export type Step = {

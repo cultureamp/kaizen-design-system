@@ -122,7 +122,7 @@ export const RichTextEditor = ({
           children: 'Error',
           variant: 'heading-6',
         }}
-        type="negative"
+        variant="warning"
         persistent
       >
         {dataError ?? 'Something went wrong'}

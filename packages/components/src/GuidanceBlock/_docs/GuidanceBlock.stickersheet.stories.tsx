@@ -1,16 +1,13 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
+import { Button } from '~components/Button'
 import { Heading } from '~components/Heading'
+import { Icon } from '~components/Icon'
 import { EmptyStatesPositive, Informative } from '~components/Illustration'
 import { LinkButton } from '~components/LinkButton'
 import { Tag } from '~components/Tag'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__next__'
-import { Button } from '~components/__next__/Button'
-import {
-  Tooltip as TooltipNext,
-  TooltipTrigger as TooltipTriggerNext,
-} from '~components/__next__/Tooltip'
+import { Tooltip as TooltipNext, TooltipTrigger as TooltipTriggerNext } from '~components/Tooltip'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { GuidanceBlock, type GuidanceBlockProps } from '../index'
 import { variantsMap } from '../types'

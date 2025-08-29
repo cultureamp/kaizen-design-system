@@ -30,11 +30,6 @@ const meta = {
         disable: true,
       },
     },
-    mood: {
-      control: {
-        disable: true,
-      },
-    },
   },
 } satisfies Meta<typeof ConfirmationModal>
 

@@ -22,32 +22,12 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     const variants = ['default', 'expert-advice'] satisfies GenericTileProps['variant'][]
 
-    const moods = [
-      'positive',
-      'informative',
-      'cautionary',
-      'assertive',
-      'negative',
-      'prominent',
-    ] satisfies GenericTileProps['mood'][]
-
     return (
       <>
         <StickerSheet title="GenericTile">
           {variants.map((variant) => (
             <StickerSheet.Row key={variant} header={variant}>
               <GenericTile {...defaultProps} variant={variant} />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet>
-
-        <StickerSheet title="Mood (deprecated)">
-          <StickerSheet.Row header="default">
-            <GenericTile {...defaultProps} />
-          </StickerSheet.Row>
-          {moods.map((mood) => (
-            <StickerSheet.Row key={mood} header={mood}>
-              <GenericTile {...defaultProps} mood={mood} />
             </StickerSheet.Row>
           ))}
         </StickerSheet>

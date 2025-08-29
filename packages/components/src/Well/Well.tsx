@@ -3,13 +3,11 @@ import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useExitingAnimation } from '~components/utils/useExitingAnimation'
 import sharedAiStyles from '../../styles/utils/AIMoment.module.css'
-import { type WellBorderStyleType, type WellColors, type WellVariantType } from './types'
+import { type WellBorderStyleType, type WellColors } from './types'
 import styles from './Well.module.css'
 
 export type WellProps = {
   children?: React.ReactNode
-  /** @deprecated This will not fallback to `default` variant. `default` can be used but must be explicitly passed to the Well component. It is recommended to use `color` prop and `gray` value if you need a gray background. */
-  variant?: WellVariantType
   /** @default `white` */
   color?: WellColors
   /** @default `solid` */
@@ -25,7 +23,6 @@ export type WellProps = {
  */
 export const Well = ({
   children,
-  variant,
   color = 'white',
   borderStyle = 'solid',
   noMargin = false,
@@ -46,7 +43,6 @@ export const Well = ({
         styles.container,
         styles[borderStyle],
         styles[color],
-        variant && styles[variant],
         noMargin && styles.noMargin,
         isAiLoading !== undefined && sharedAiStyles.aiMoment,
         isAiLoading !== undefined && animationClass,

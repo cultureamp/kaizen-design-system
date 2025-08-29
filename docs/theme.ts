@@ -1,7 +1,7 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import { create, type ThemeVars } from '@storybook/theming'
-import { defaultTheme } from '@kaizen/design-tokens'
-const colors = defaultTheme.color
+import { tokens } from '@kaizen/design-tokens/js'
+const colors = tokens.color
 
 // For styles that cannot be achieved through the folowing config, see
 // storybook/manager-head.html or storybook/manager.tsx

@@ -13,9 +13,6 @@ const meta = {
     label: '25%',
     isReversed: false,
   },
-  argTypes: {
-    mood: { control: false },
-  },
   parameters: {
     a11y: {
       config: {

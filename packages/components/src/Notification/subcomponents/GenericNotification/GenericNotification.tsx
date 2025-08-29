@@ -1,12 +1,12 @@
 import React, { forwardRef, useEffect, useRef, useState, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { type HeadingProps } from '~components/Heading'
-import { type NotificationType, type NotificationVariant } from '~components/Notification/types'
+import { type NotificationVariant } from '~components/Notification/types'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { isRefObject } from '~components/utils/isRefObject'
 import { CancelButton } from '../CancelButton'
 import { NotificationHeading } from '../NotificationHeading'
-import { NotificationIconType, NotificationIconVariant } from '../NotificationIcon'
+import { NotificationIconVariant } from '../NotificationIcon'
 import styles from './GenericNotification.module.scss'
 
 type GenericNotificationBase = {
@@ -20,34 +20,15 @@ type GenericNotificationBase = {
   headingProps?: HeadingProps
 } & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, 'style'>
 
-export type GenericNotificationType = {
-  /**
-   * @deprecated Please use `variant` instead
-   */
-  type: NotificationType
-  variant?: never
-}
-
 export type GenericNotificationVariant = {
-  /**
-   * @deprecated Please use `variant` instead
-   */
-  type?: never
-  /**
-   * If you are transitioning from `type`:
-   * - `positive` should be `success`
-   * - `negative` should be `warning`
-   */
   variant: NotificationVariant
 }
 
-export type GenericNotificationProps = GenericNotificationBase &
-  (GenericNotificationType | GenericNotificationVariant)
+export type GenericNotificationProps = GenericNotificationBase & GenericNotificationVariant
 
 export const GenericNotification = forwardRef<HTMLDivElement, GenericNotificationProps>(
   (
     {
-      type,
       variant,
       style,
       children,
@@ -100,7 +81,7 @@ export const GenericNotification = forwardRef<HTMLDivElement, GenericNotificatio
         ref={containerRef}
         className={classnames(
           styles.notification,
-          variant ? styles[variant] : styles[type],
+          styles[variant],
           styles[style],
           isHidden && styles.hidden,
           noBottomMargin && styles.noBottomMargin,
@@ -112,11 +93,7 @@ export const GenericNotification = forwardRef<HTMLDivElement, GenericNotificatio
         {...restProps}
       >
         <div className={styles.icon}>
-          {type ? (
-            <NotificationIconType type={type} />
-          ) : (
-            <NotificationIconVariant variant={variant} />
-          )}
+          <NotificationIconVariant variant={variant} />
         </div>
         <div className={classnames(styles.textContainer, forceMultiline && styles.forceMultiline)}>
           {style !== 'global' && (

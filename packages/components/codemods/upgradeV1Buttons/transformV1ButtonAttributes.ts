@@ -1,6 +1,6 @@
 import ts from 'typescript'
-import { type ButtonProps as V1ButtonProps } from '~components/Button'
-import { type ButtonProps as NextButtonProps } from '~components/__next__/Button'
+import { type ButtonProps as NextButtonProps } from '~components/Button'
+import { type ButtonProps as V1ButtonProps } from '~components/ButtonV1'
 import { createProp, createStringProp, getPropValueText } from '../utils'
 
 const getNewSizeValue = (

@@ -1,0 +1,152 @@
+import { Canvas, Meta, Controls, ArgTypes, DocsStory } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation, LinkTo } from '~storybook/components'
+import * as SingleSelectStories from './SingleSelect.stories'
+
+<Meta title="Components/SingleSelect/API Specification" />
+
+# SingleSelect
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/SingleSelect"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9%3A37837&mode=dev"
+  designGuidelines="/?path=/docs/components-singleselect-usage-guidelines--docs"
+/>
+
+<KAIOInstallation exportNames={'SingleSelect'} />
+
+## Overview
+
+`SingleSelect` allows users to choose a single option from a dropdown list.
+
+<Canvas of={SingleSelectStories.Playground} />
+
+## Props
+
+The following table showcases the essential props that enable the core functionality of `SingleSelect`. For the remaining suite of API options refer to [this section](#additional-options).
+
+<Controls
+  of={SingleSelectStories.Playground}
+  include={[
+    'label',
+    'items',
+    'trigger',
+    'children',
+    'selectedKey',
+    'onSelectionChange',
+    'description',
+    'status',
+    'validationMessage',
+    'isDisabled',
+    'isRequired',
+    'isFullWidth',
+    'portalContainerId',
+  ]}
+/>
+
+## Examples
+
+This component provides a flexible API for creating dropdown select interfaces with support for single items, grouped options, validation, and custom rendering.
+
+### Options
+
+Provide options in `items` in the `SingleSelectOption` format to populate the options.
+
+```ts
+export type SingleSelectOption = {
+  label: string
+  value: string | number
+  disabled?: boolean
+  options?: never
+}
+```
+
+<Canvas of={SingleSelectStories.SingleItems} />
+
+### Grouped options
+
+Group options by providing your `items` in the `SingleSelectOptionGroup` format.
+
+```ts
+export type SingleSelectOptionGroup<Option extends SingleSelectOption> = {
+  label: string
+  options: Iterable<Option>
+}
+```
+
+<Canvas of={SingleSelectStories.GroupedItems} />
+
+### Disabled options
+
+Disable options by setting the `disabled` attribute within an individual option your `items` to `true`.
+
+Alternatively, define the `disabledKeys` prop with the `value` of your options.<br/>
+**Note:** This will override the definitions in `items`.
+
+<Canvas of={SingleSelectStories.DisabledItems} />
+
+### Custom options rendering
+
+Customise the list of options using `children` (render function with arg `{ items: Array<SingleSelectItemNode<Option>>}`).
+
+Use the default render component `<SingleSelect.ItemDefaultRender>` for any items you do not want to customise.
+
+#### Section divider
+
+To add a section divider between your options, use the `children` render function and find the item or group
+you want to prepend/append to and add a `<SingleSelect.SectionDivider>`.
+
+<Canvas of={SingleSelectStories.SectionDivider} />
+
+#### Additional option properties (generic)
+
+Extend the option type to have additional properties to use for rendering.
+
+<Canvas of={SingleSelectStories.AdditionalProperties} />
+
+### Customise trigger button
+
+The `trigger` prop allows you to extend the existing `<SingleSelect.TriggerButton>` with additional properties (eg. `id`).
+
+Note that the `ref` exists as part of these spread props (there is a second arg containing the `ref` which is deprecated).
+
+<Canvas of={SingleSelectStories.CustomiseTrigger} />
+
+### Validation
+
+Add validation messages using `status` and `validationMessage`.
+
+<Canvas of={SingleSelectStories.Validation} />
+
+#### isRequired and validationBehavior
+
+When using the `isRequired` property you can also specify the `validationBehavior` to change from `aria` to `native` form validation.
+
+<Canvas of={SingleSelectStories.SelectNativeValidationBehavior} />
+
+While both use `aria-required` to announce whether the field has to have a value to assistive technologies, the `native` option will prevent form submissions if the `selectedKey` is `undefined`.
+
+### Full width
+
+Set `isFullWidth` to `true` to have the SingleSelect span the full width of its container.
+
+<Canvas of={SingleSelectStories.FullWidth} />
+
+## Reversed
+
+Set `isReversed` to `true` to have style the trigger as the reversed variant. Should only be used when there is sufficient contrast with the background (ie: `color-purple-700`).
+
+<Canvas of={SingleSelectStories.ReversedSelect} />
+
+### Portals
+
+By default, the SingleSelect's popover will attach itself to the `body` of the document using React's `createPortal`.
+
+You can change the default behavior by providing a `portalContainerId` to attach this to different element in the DOM. This can help to resolve issues that may arise with `z-index` or having a `SingleSelect` in a modal.
+
+<Canvas of={SingleSelectStories.PortalContainer} />
+
+## Additional options
+
+This table is a collection of all the props exposed from the SingleSelect API. Not all required for the implementation of `SingleSelect` but can be used to extend its functionality.
+
+<ArgTypes of={SingleSelectStories.Playground} />

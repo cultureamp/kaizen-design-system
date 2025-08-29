@@ -1,6 +1,6 @@
 import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import type { ButtonProps } from '~components/Button'
+import type { ButtonProps } from '~components/ButtonV1'
 import { Heading } from '~components/Heading'
 import {
   GenericModal,
@@ -12,29 +12,22 @@ import {
 import styles from './InputEditModal.module.scss'
 
 export type InputEditModalProps = {
-  isOpen: boolean
-  unpadded?: boolean
-  /**
-   * @deprecated we are no longer supporting different moods for InputModal, instead there will only be a single default variant set by the component.
-   */
-  mood?: 'positive' | 'destructive'
-  title: string
-  onSubmit: () => void
-  onSecondaryAction?: () => void
-  onDismiss: () => void
+  'isOpen': boolean
+  'unpadded'?: boolean
+  'title': string
+  'onSubmit': () => void
+  'onSecondaryAction'?: () => void
+  'onDismiss': () => void
   /** A callback that is triggered after the modal is opened. */
-  onAfterEnter?: () => void
+  'onAfterEnter'?: () => void
   /** A callback that is triggered after the modal is closed. */
-  onAfterLeave?: () => void
-  submitLabel?: string
-  dismissLabel?: string
-  secondaryLabel?: string
-  /**
-   * @deprecated Please use data-testid
-   */
-  automationId?: string
-  children: React.ReactNode
-  submitWorking?: { label: string; labelHidden?: boolean }
+  'onAfterLeave'?: () => void
+  'submitLabel'?: string
+  'dismissLabel'?: string
+  'secondaryLabel'?: string
+  'data-testid'?: string
+  'children': React.ReactNode
+  'submitWorking'?: { label: string; labelHidden?: boolean }
 } & Omit<HTMLAttributes<HTMLDivElement>, 'onSubmit'>
 
 /**
@@ -43,7 +36,6 @@ export type InputEditModalProps = {
  */
 export const InputEditModal = ({
   isOpen,
-  mood,
   title,
   onSubmit,
   onSecondaryAction,
@@ -101,12 +93,7 @@ export const InputEditModal = ({
         <ModalBody>
           <div className={classnames(styles.body, !unpadded && styles.padded)}>{children}</div>
         </ModalBody>
-        <ModalFooter
-          actions={footerActions}
-          appearance={mood === 'destructive' ? 'destructive' : 'primary'}
-          variant="inputEdit"
-          unpadded={unpadded}
-        />
+        <ModalFooter actions={footerActions} variant="inputEdit" unpadded={unpadded} />
       </div>
     </GenericModal>
   )

@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { FilterButton } from '~components/Filter/FilterButton'
 import { FilterSelect, type FilterSelectProps } from './FilterSelect'
 import { mixedMockItemsUnordered, singleMockItems } from './_docs/mockData'
-import { type SelectOption } from './types'
+import { type SingleSelectOption } from './types'
 
 const user = userEvent.setup()
 
@@ -268,17 +268,17 @@ const defaultProps: FilterSelectProps = {
 describe('FilterSelect generic', () => {
   it('should prevent adding `options` attribute to option', () => {
     /* @ts-expect-error Generic test */
-    ;<FilterSelect<SelectOption & { options: string[] }> {...defaultProps} />
+    ;<FilterSelect<SingleSelectOption & { options: string[] }> {...defaultProps} />
   })
 
   describe('Extended option', () => {
     it('should error when new required attribute is missing from items', () => {
       /* @ts-expect-error Generic test */
-      ;<FilterSelect<SelectOption & { isRubberDuck: boolean }> {...defaultProps} />
+      ;<FilterSelect<SingleSelectOption & { isRubberDuck: boolean }> {...defaultProps} />
     })
 
     it('should allow consumer to access custom attributes in children', () => {
-      ;<FilterSelect<SelectOption & { isRubberDuck: boolean }>
+      ;<FilterSelect<SingleSelectOption & { isRubberDuck: boolean }>
         {...defaultProps}
         items={[{ label: 'Bubblegum', value: 'bubblegum', isRubberDuck: true }]}
       >
