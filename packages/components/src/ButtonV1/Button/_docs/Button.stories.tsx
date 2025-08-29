@@ -11,6 +11,7 @@ const meta = {
   args: {
     label: 'Label',
   },
+  tags: ['!dev'],
 } satisfies Meta<typeof Button>
 
 export default meta

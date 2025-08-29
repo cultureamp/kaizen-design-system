@@ -26,6 +26,7 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  tags: ['!dev'],
 } satisfies Meta<typeof Tooltip>
 
 export default meta

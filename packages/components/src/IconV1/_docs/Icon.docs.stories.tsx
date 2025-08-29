@@ -19,6 +19,7 @@ const meta = {
     },
     'aria-label': { control: 'text', if: { arg: 'role', eq: 'img' } },
   },
+  tags: ['!dev'],
 } satisfies Meta<typeof AddIcon>
 
 export default meta
