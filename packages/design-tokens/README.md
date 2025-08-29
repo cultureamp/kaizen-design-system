@@ -20,7 +20,7 @@ pnpm add @kaizen/design-tokens
 
 ## Usage
 
-Much of this assumes that consuming repos have setup the `KaizenProvider` - refer to the [app starter guide](https://cultureamp.design/?path=/docs/guides-app-starter--docs) for more.
+Much of this assumes that consuming repos have setup the `KaizenProvider` - refer to the [App Starter guide](/docs/guides-app-starter--docs) for more.
 
 ### SCSS
 
@@ -36,7 +36,7 @@ Or use the CSS variables directly (Recommended).
 }
 ```
 
-Read more in [how-to-use-with-sass](./_docs/pages/how-to-use-with-sass.mdx)
+Read more in [How to use design tokens in SAAS](/docs/guides-tokens-how-to-use-design-tokens-in-sass--docs)
 
 ### Less
 
@@ -50,7 +50,7 @@ Read more in [how-to-use-with-sass](./_docs/pages/how-to-use-with-sass.mdx)
 import { tokens } from '@kaizen/design-tokens/js'
 ```
 
-Read more in [how-to-use-in-js](./_docs/pages/how-to-use-in-js.mdx)
+Read more in [Access tokens via JS](/docs/guides-tokens-access-tokens-via-js--docs)
 
 ## Where possible, we keep things unitless.
 
@@ -66,4 +66,4 @@ All values in tokens are represented as rem, em or px.
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/cultureamp/kaizen-design-system/blob/main/CONTRIBUTING.md)

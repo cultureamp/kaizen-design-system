@@ -10,7 +10,7 @@ export type PaginationLinkProps = GenericProps & {
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082092975/Pagination Guidance} |
- * {@link https://cultureamp.design/?path=/story/components-buttons-paginationlink--docs Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-pagination-paginationlink--docs Storybook}
  */
 export const PaginationLink = ({
   pageNumber,

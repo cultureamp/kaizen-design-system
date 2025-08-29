@@ -1,15 +1,22 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { Canvas, Controls, Meta, Unstyled } from '@storybook/blocks'
 import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import { InlineNotification } from '~components/Notification'
 import * as SelectStories from './Select.stories'
 
 <Meta of={SelectStories} />
 
 # Select
 
-<InlineNotification persistent color="yellow">
-  Where possible use the <code>SingleSelect</code> component instead of `Select` when complex search
-  is not required.
-</InlineNotification>
+<Unstyled>
+  <InlineNotification persistent variant="cautionary">
+    {
+      <>
+        Where possible use the <code>SingleSelect</code> component instead of `Select` when complex
+        search is not required.
+      </>
+    }
+  </InlineNotification>
+</Unstyled>
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Select"
