@@ -67,13 +67,16 @@ const createSpotIllustration =
  * Template Library / Performance
  */
 /* prettier-ignore */ export const Individual360 = createSpotIllustration("template-library-individual-360.svg")
+/* prettier-ignore */ export const Individual360Pulse = createSpotIllustration("template-library-individual-360-pulse.svg")
 /* prettier-ignore */ export const Leadership360 = createSpotIllustration("template-library-leadership-360.svg")
 /* prettier-ignore */ export const Manager360 = createSpotIllustration("template-library-manager-360.svg")
+/* prettier-ignore */ export const Manager360Pulse = createSpotIllustration("template-library-manager-360-pulse.svg")
 /* prettier-ignore */ export const Individual180 = createSpotIllustration("template-library-individual-180.svg")
 /* prettier-ignore */ export const Leadership180 = createSpotIllustration("template-library-leadership-180.svg")
 /* prettier-ignore */ export const Manager180 = createSpotIllustration("template-library-manager-180.svg")
 /* prettier-ignore */ export const TeamEffectiveness1 = createSpotIllustration("template-library-team-effectiveness-1.svg")
 /* prettier-ignore */ export const TeamEffectiveness2 = createSpotIllustration("template-library-team-effectiveness-2.svg")
+/* prettier-ignore */ export const TeamEffectiveness3 = createSpotIllustration("template-library-team-effectiveness-3.svg")
 
 /**
  * Offices
