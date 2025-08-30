@@ -54,6 +54,7 @@ import {
   InclusionSurvey,
   Individual180,
   Individual360,
+  Individual360Pulse,
   InfluentialCommunication,
   Informative,
   Insights,
@@ -67,6 +68,7 @@ import {
   London,
   Manager180,
   Manager360,
+  Manager360Pulse,
   ManagerLearning,
   ManagerReportSharing,
   MeetingVoices,
@@ -113,6 +115,7 @@ import {
   Team2,
   TeamEffectiveness1,
   TeamEffectiveness2,
+  TeamEffectiveness3,
   Templates,
   Timezone,
   TrafficCone,
@@ -270,12 +273,20 @@ const performanceSpots = [
     name: 'Individual360',
   },
   {
+    Component: Individual360Pulse,
+    name: 'Individual360Pulse',
+  },
+  {
     Component: Leadership360,
     name: 'Leadership360',
   },
   {
     Component: Manager360,
     name: 'Manager360',
+  },
+  {
+    Component: Manager360Pulse,
+    name: 'Manager360Pulse',
   },
   {
     Component: Individual180,
@@ -296,6 +307,10 @@ const performanceSpots = [
   {
     Component: TeamEffectiveness2,
     name: 'TeamEffectiveness2',
+  },
+  {
+    Component: TeamEffectiveness3,
+    name: 'TeamEffectiveness3',
   },
 ]
 

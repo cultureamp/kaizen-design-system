@@ -25,6 +25,12 @@ pnpm kaizen-codemod src migrateWellVariantToColor
 
 ## Available codemods
 
+Released in `1.80.6`
+
+### `runV1Codemods`
+
+A script that runs all v1 codemods in an ideal sequence. This should be used prior to the V2 upgrade - see the [README](./runV1Codemods/README.md) for more.
+
 ### `migrateV2NextToCurrent`
 
 Released in `1.80.4`
