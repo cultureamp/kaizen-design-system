@@ -1,0 +1,5 @@
+{
+  "main": "../../dist/cjs/reactAriaComponentsKZ.cjs",
+  "module": "../../dist/esm/reactAriaComponentsKZ.mjs",
+  "types": "../../dist/types/__libs__/react-aria-components/index.d.ts"
+}

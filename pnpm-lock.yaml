@@ -491,6 +491,10 @@ importers:
         specifier: ^4.20.3
         version: 4.20.3
 
+  packages/components/libs/react-aria: {}
+
+  packages/components/libs/react-aria-components: {}
+
   packages/components/v1/actions: {}
 
   packages/components/v1/overlays: {}
