@@ -1,9 +1,19 @@
+import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 
-import { BrandMomentPositiveOutro } from '../index'
+import {
+  BrandMomentError,
+  BrandMomentLogin,
+  BrandMomentPositiveOutro,
+  EmptyStatesAction,
+  EmptyStatesInformative,
+  EmptyStatesNegative,
+  EmptyStatesNeutral,
+  EmptyStatesPositive,
+} from '../index'
 
 const meta = {
-  title: 'Components/Illustrations/Scene',
+  title: 'Components/illustrations/Scene',
   component: BrandMomentPositiveOutro,
 } satisfies Meta<typeof BrandMomentPositiveOutro>
 
@@ -19,4 +29,70 @@ export const Playground: Story = {
       },
     },
   },
+}
+
+export const AnimatedScenes: Story = {
+  name: 'Animated Scene illustration autoplay and loop',
+  args: {
+    isAnimated: true,
+    loop: true,
+    autoplay: true,
+  },
+  render: (args) => (
+    <>
+      <EmptyStatesAction {...args} />
+      <EmptyStatesInformative {...args} />
+      <EmptyStatesNegative {...args} />
+      <EmptyStatesNeutral {...args} />
+      <EmptyStatesPositive {...args} />
+      <BrandMomentPositiveOutro {...args} />
+      <BrandMomentLogin {...args} />
+      <BrandMomentError {...args} />
+    </>
+  ),
+  decorators: [
+    (Story) => (
+      <div className="flex flex-col justify-center gap-16 max-w-[400px]">
+        <Story />
+      </div>
+    ),
+  ],
+}
+export const AnimatedScenesWithAutoPlayNoLoop: Story = {
+  name: 'Animated Scene illustration with autoplay but no loop',
+  ...AnimatedScenes,
+  args: {
+    isAnimated: true,
+    loop: false,
+    autoplay: true,
+  },
+}
+
+export const AnimatedScenesLoopedWithoutAutoplay: Story = {
+  name: 'Animated Scene illustration without autoplay but with loop',
+  ...AnimatedScenes,
+  args: {
+    isAnimated: true,
+    loop: true,
+    autoplay: false,
+  },
+}
+
+export const AnimatedScenesHover: Story = {
+  ...AnimatedScenes,
+  parameters: {
+    pseudo: {
+      hover: ['[data-sb-pseudo-styles="hover"]', '[data-sb-pseudo-styles="hover"] figure'],
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div
+        className="flex flex-col justify-center gap-16 max-w-[400px]"
+        data-sb-pseudo-styles="hover"
+      >
+        <Story />
+      </div>
+    ),
+  ],
 }
