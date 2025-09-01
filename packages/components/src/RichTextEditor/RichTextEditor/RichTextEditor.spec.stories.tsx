@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { type StoryObj } from '@storybook/react'
-import { expect, userEvent, within } from '@storybook/test'
+import { expect, userEvent, waitFor, within } from '@storybook/test'
 import { type EditorContentArray } from '../types'
 import { RichTextEditor, type RichTextEditorProps } from './RichTextEditor'
 
@@ -149,8 +149,9 @@ export const CreateALink: Story = {
   name: 'Create a link',
   play: async (context) => {
     const { canvasElement, step } = context
-    const { getByRole, getByText } = within(canvasElement)
+    const { getByRole, getByText, queryByRole, findByRole } = within(canvasElement)
     const editor = getByRole('textbox')
+
     await step('Focus on editor', async () => {
       await userEvent.click(editor)
       expect(editor).toHaveFocus()
@@ -185,8 +186,14 @@ export const CreateALink: Story = {
       await userEvent.keyboard('{Tab}{Enter}')
     })
 
+    await step('The Link Modal closes', async () => {
+      await waitFor(() => {
+        expect(queryByRole('dialog')).not.toBeInTheDocument()
+      })
+    })
+
     await step('Link exists in the RTE', async () => {
-      const link = getByRole('link', { name: 'Link' })
+      const link = await findByRole('link', { name: 'Link' })
       expect(link).toBeInTheDocument()
     })
   },
