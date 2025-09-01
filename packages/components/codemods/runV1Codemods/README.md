@@ -52,9 +52,8 @@ The codemod runs the following transformations in sequence:
 
 ## Error Handling
 
-- If any individual codemod fails, the process continues with the remaining codemods
-- Detailed logging shows the start and completion status of each codemod
-- A summary is provided at the end showing successful vs failed codemods
+- If any individual codemod fails, the process will early exit to avoid the codemod running on partially migrated code.
+  - In this instance, we recommend tackling this codemod invidually before running the script again.
 
 ## Cautions and caveats
 
