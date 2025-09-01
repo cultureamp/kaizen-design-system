@@ -1,5 +1,19 @@
 # Change Log
 
+## 1.81.1
+
+### Patch Changes
+
+- [#6026](https://github.com/cultureamp/kaizen-design-system/pull/6026) [`61bb94b`](https://github.com/cultureamp/kaizen-design-system/commit/61bb94bcb437a749192a1f4fe820e0b4b25646d0) - Refactor GenericModal to reduce risk of race conditions
+  - Replace FocusLock component with FocusOn
+  - Remove manual implementation of Escape and keyup event listeners and move the handlers to the FocusOn component
+    - Remove PreventBodyScroll
+  - Update scrollLayer and modalLayer state elements to use refs to avoid unnecessary rerenders
+  - Remove use of beforeEnterHandler as this was redundant after changes
+
+- [#6021](https://github.com/cultureamp/kaizen-design-system/pull/6021) [`a4f39ad`](https://github.com/cultureamp/kaizen-design-system/commit/a4f39ada04dc40c7286e7c70d3a69ff14cbfd01e) - Add /libs entry point with react-aria and react-aria-component re-exports prior to v2 release.
+  - concurrently export react-aria and react-aria-components to `/libs` and `v3` to allow for shared libraries to migrate to the new entry point.
+
 ## 1.81.0
 
 ### Minor Changes

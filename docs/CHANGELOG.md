@@ -1,5 +1,12 @@
 # @docs/storybook
 
+## 0.2.3
+
+### Patch Changes
+
+- [#6021](https://github.com/cultureamp/kaizen-design-system/pull/6021) [`a4f39ad`](https://github.com/cultureamp/kaizen-design-system/commit/a4f39ada04dc40c7286e7c70d3a69ff14cbfd01e) - Add /libs entry point with react-aria and react-aria-component re-exports prior to v2 release.
+  - concurrently export react-aria and react-aria-components to `/libs` and `v3` to allow for shared libraries to migrate to the new entry point.
+
 ## 0.2.2
 
 ### Patch Changes
@@ -17,7 +24,6 @@
 ### Minor Changes
 
 - [#5552](https://github.com/cultureamp/kaizen-design-system/pull/5552) [`fd29d3d`](https://github.com/cultureamp/kaizen-design-system/commit/fd29d3d2967221c79537e2f7b6c6e9c7a492baf2) - Upgrade packages to support React 19
-
   - Update all peer dependencies to support 18-19 range
   - Update react-day-picker to v9
     - this changes some UX (for the better) when using active ranges
@@ -43,7 +49,6 @@
 ### Minor Changes
 
 - [#5502](https://github.com/cultureamp/kaizen-design-system/pull/5502) [`65fbb77`](https://github.com/cultureamp/kaizen-design-system/commit/65fbb777d23d5226232502898371bb16ae87639b) - Add Link component
-
   - Adds Link component, stories, and documentation
 
 ## 0.0.5
@@ -57,7 +62,6 @@
 ### Patch Changes
 
 - [#5391](https://github.com/cultureamp/kaizen-design-system/pull/5391) [`d180512`](https://github.com/cultureamp/kaizen-design-system/commit/d180512e29cc1078d05fda28feed24926242e7e2) - Deps updates and type component fixes for RC MenuItem and Tab
-
   - Update deps
   - Update RC MenuItem and Tab child render to fix types issues after upgrade to typescript 5.7.3 upgrade
   - Update test-runner to use imported Page type from Playwright to reflect updated dep
