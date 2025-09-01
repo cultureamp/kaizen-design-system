@@ -495,6 +495,10 @@ importers:
 
   packages/components/libs/react-aria-components: {}
 
+  packages/components/v3/react-aria: {}
+
+  packages/components/v3/react-aria-components: {}
+
   packages/design-tokens:
     dependencies:
       color-string:
@@ -552,8 +556,6 @@ importers:
       tsx:
         specifier: ^4.20.3
         version: 4.20.3
-
-  packages/hosted-assets: {}
 
   packages/tailwind:
     dependencies:

@@ -1,5 +1,5 @@
 {
   "main": "../../dist/cjs/reactAriaKZ.cjs",
   "module": "../../dist/esm/reactAriaKZ.mjs",
-  "types": "../../dist/types/__react-aria__/index.d.ts"
+  "types": "../../dist/types/__libs__/react-aria/index.d.ts"
 }
