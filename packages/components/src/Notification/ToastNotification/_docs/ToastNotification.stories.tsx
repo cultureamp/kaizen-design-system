@@ -1,7 +1,7 @@
 import React, { useEffect, useId } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, within } from '@storybook/test'
-import { Button } from '~components/Button'
+import { Button } from '~components/ButtonV1'
 import { ToastNotification, useToastNotification } from '../index'
 
 const meta = {
@@ -17,11 +17,6 @@ const meta = {
         <a href="/">Manage users is now available</a>
       </div>
     ),
-  },
-  argTypes: {
-    type: {
-      control: false,
-    },
   },
 } satisfies Meta<typeof ToastNotification>
 
@@ -68,7 +63,7 @@ export const CreateNotification: Story = {
         onClick={() =>
           addToastNotification({
             title: 'Informative',
-            type: 'informative',
+            variant: 'informative',
             message: 'New notification!',
           })
         }
@@ -89,7 +84,7 @@ export const UpdateNotification: Story = {
             addToastNotification({
               id: 'id--update-example',
               title: 'Cautionary',
-              type: 'cautionary',
+              variant: 'cautionary',
               message: 'This content will be updated',
             })
           }
@@ -100,7 +95,7 @@ export const UpdateNotification: Story = {
             updateToastNotification({
               id: 'id--update-example',
               title: 'Success',
-              type: 'positive',
+              variant: 'success',
               message: 'The content was successfully updated',
             })
           }
@@ -122,7 +117,7 @@ export const RemoveNotification: Story = {
             addToastNotification({
               id: 'id--remove-example',
               title: 'Remove',
-              type: 'negative',
+              variant: 'warning',
               message: 'This notification will be removed',
             })
           }
@@ -148,19 +143,19 @@ export const ClearNotifications: Story = {
             addToastNotification({
               id: 'id--clear-example-1',
               title: 'First',
-              type: 'positive',
+              variant: 'success',
               message: 'This notification will be removed',
             })
             addToastNotification({
               id: 'id--clear-example-2',
               title: 'Second',
-              type: 'cautionary',
+              variant: 'cautionary',
               message: 'This notification will also be removed',
             })
             addToastNotification({
               id: 'id--clear-example-3',
               title: 'Third',
-              type: 'negative',
+              variant: 'warning',
               message: 'This notification will also also be removed',
             })
           }}
@@ -179,13 +174,13 @@ export const NoDuplicatesWithSameId: Story = {
       addToastNotification({
         id: 'id--clear-example-1',
         title: 'First',
-        type: 'positive',
+        variant: 'success',
         message: 'There should only be one notification',
       })
       addToastNotification({
         id: 'id--clear-example-1',
         title: 'First',
-        type: 'positive',
+        variant: 'success',
         message: 'There should only be one notification',
       })
     }, [addToastNotification])

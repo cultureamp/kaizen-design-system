@@ -2,7 +2,6 @@ import React from 'react'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import {
   GenericNotification,
-  type GenericNotificationType,
   type GenericNotificationVariant,
 } from '../subcomponents/GenericNotification'
 
@@ -12,8 +11,7 @@ export type GlobalNotificationBase = OverrideClassName<{
   persistent?: boolean
 }>
 
-export type GlobalNotificationProps = GlobalNotificationBase &
-  (GenericNotificationType | GenericNotificationVariant)
+export type GlobalNotificationProps = GlobalNotificationBase & GenericNotificationVariant
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082060757/Global+Notification Guidance} |

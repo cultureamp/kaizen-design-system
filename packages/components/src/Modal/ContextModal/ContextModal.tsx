@@ -1,6 +1,6 @@
 import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
-import type { ButtonProps } from '~components/Button'
+import type { ButtonProps } from '~components/ButtonV1'
 import { Heading } from '~components/Heading'
 import {
   GenericModal,
@@ -23,29 +23,26 @@ export type ContextModalSecondaryActionProps =
 
 export type ContextModalProps = Readonly<
   {
-    isOpen: boolean
-    unpadded?: boolean
+    'isOpen': boolean
+    'unpadded'?: boolean
     /**
      * Defines the orientation layout of the image and content
      */
-    layout?: 'portrait' | 'landscape'
-    title: string
-    onConfirm?: () => void
-    onDismiss: () => void
+    'layout'?: 'portrait' | 'landscape'
+    'title': string
+    'onConfirm'?: () => void
+    'onDismiss': () => void
     /** A callback that is triggered after the modal is opened. */
-    onAfterEnter?: () => void
+    'onAfterEnter'?: () => void
     /** A callback that is triggered after the modal is closed. */
-    onAfterLeave?: () => void
-    confirmLabel?: string
-    confirmWorking?: { label: string; labelHidden?: boolean }
-    /**
-     * @deprecated use data-testid instead
-     */
-    automationId?: string
-    renderBackground?: () => React.ReactNode
-    image?: React.ReactNode
-    children: React.ReactNode
-    contentHeader?: React.ReactNode
+    'onAfterLeave'?: () => void
+    'confirmLabel'?: string
+    'confirmWorking'?: { label: string; labelHidden?: boolean }
+    'data-testid'?: string
+    'renderBackground'?: () => React.ReactNode
+    'image'?: React.ReactNode
+    'children': React.ReactNode
+    'contentHeader'?: React.ReactNode
   } & ContextModalSecondaryActionProps &
     HTMLAttributes<HTMLDivElement>
 >

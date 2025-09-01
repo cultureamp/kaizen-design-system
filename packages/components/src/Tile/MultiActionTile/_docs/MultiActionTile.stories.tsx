@@ -12,9 +12,6 @@ const meta = {
       label: 'Take Action!',
     },
   },
-  argTypes: {
-    mood: { control: false },
-  },
 } satisfies Meta<typeof MultiActionTile>
 
 export default meta

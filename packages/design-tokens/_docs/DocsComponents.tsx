@@ -3,7 +3,7 @@ import { Unstyled } from '@storybook/blocks'
 import { toCustomMediaQueriesArray } from 'object-to-css-variables'
 import Highlight from 'react-highlight'
 import { Card } from '~components/Card'
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from '~components/Tabs'
+import { Tab, TabList, TabPanel, Tabs } from '~components/Tabs'
 import animationSass from '../sass/animation.scss?raw'
 import borderSass from '../sass/border.scss?raw'
 import colorsSass from '../sass/color.scss?raw'
@@ -48,13 +48,11 @@ const TabbedCodeBlocks = ({
         <Tab key={name}>{name}</Tab>
       ))}
     </TabList>
-    <TabPanels>
-      {blocks.map(({ name, ...props }) => (
-        <TabPanel key={name} classNameOverride="p-24">
-          <CodeBlock {...props} />
-        </TabPanel>
-      ))}
-    </TabPanels>
+    {blocks.map(({ name, ...props }) => (
+      <TabPanel key={name} className="p-24">
+        <CodeBlock {...props} />
+      </TabPanel>
+    ))}
   </Tabs>
 )
 
