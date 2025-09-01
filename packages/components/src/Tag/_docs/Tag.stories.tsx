@@ -6,6 +6,7 @@ import { SentimentTagVariants, StatusTagVariants, ValidationTagVariants } from '
 
 const meta = {
   title: 'Components/Tag/Tag (deprecated)',
+  tags: ['deprecated'],
   component: Tag,
   args: {
     variant: 'default',

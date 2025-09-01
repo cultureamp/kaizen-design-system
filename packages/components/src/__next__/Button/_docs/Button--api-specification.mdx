@@ -1,13 +1,11 @@
 import { Canvas, Meta, Controls, ArgTypes, DocsStory } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation, LinkTo } from '~storybook/components'
+import { ResourceLinks, KAIOInstallation, LinkTo, DocHeading } from '~storybook/components'
 import * as exampleStories from './Button.docs.stories'
 import * as specStories from './Button.spec.stories'
 
-<Meta title="Components/Button/Button (next)/API Specification" />
+<Meta title="Components/Button/Button/API Specification" tags={['next']} />
 
-# Button API Specification (next)
-
-Updated Nov 19, 2024
+<DocHeading title="Button" docTags={['dev docs']} />
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__next__/Button"
@@ -25,9 +23,10 @@ The following example and table showcases the essential props that enable the co
 
 <Canvas of={exampleStories.Playground} />
 
+## Props
+
 <Controls
   of={exampleStories.Playground}
-  className="mb-64"
   include={[
     'children',
     'hasHiddenLabel',
@@ -52,7 +51,7 @@ The `Button` component does not support the `href` property or have any inbuilt 
 
 A separate <LinkTo pageId="components-linkbutton-api-specification--docs">LinkButton</LinkTo> component has been created to handle page navigation and client side routing.
 
-## API
+## Examples
 
 This is built on top of [React Aria's Button component](https://react-spectrum.adobe.com/react-aria/Button.html#props) and seeks to provide a flexible API with convenient abstractions that handles variants, sizes, pending states and icons.
 
@@ -162,7 +161,7 @@ Instead of a split button (now a [deprecated component](https://cultureamp.atlas
 
 <Canvas className="mb-24" of={exampleStories.ButtonMenuPattern} />
 
-## Additional API options
+## Additional options
 
 The following table is a collection of additional React Aria and native HTML props that are exposed from the React Aria API. These are not required for the implementation of `Button` but can be used to extend its functionality. Refer back to the [overview section](#overview) for the core props that enable most use cases.
 

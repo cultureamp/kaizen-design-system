@@ -6,6 +6,7 @@ import { Button, type ButtonProps } from '../index'
 
 export default {
   title: 'Components/Button/Button (deprecated)',
+  tags: ['deprecated'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

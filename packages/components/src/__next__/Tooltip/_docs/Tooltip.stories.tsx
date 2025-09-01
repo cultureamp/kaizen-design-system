@@ -10,6 +10,7 @@ import * as testStories from './Tooltip.spec.stories'
 const meta = {
   title: 'Components/Tooltip/Tooltip (next)',
   component: Tooltip,
+  tags: ['next'],
   parameters: {
     layout: 'centered',
   },

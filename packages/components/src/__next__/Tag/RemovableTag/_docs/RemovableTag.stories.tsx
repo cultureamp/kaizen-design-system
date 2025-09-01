@@ -4,6 +4,7 @@ import { RemovableTag } from '../RemovableTag'
 const meta = {
   title: 'Components/Tag/Tag (next)/RemovableTag',
   component: RemovableTag,
+  tags: ['next'],
   args: {
     children: 'My tag',
     removeButtonProps: {

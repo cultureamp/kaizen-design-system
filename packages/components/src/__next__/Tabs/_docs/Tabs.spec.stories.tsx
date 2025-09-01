@@ -5,10 +5,11 @@ import { Text } from '~components/Text'
 import { Tab, TabList, TabPanel, Tabs, type Key } from '../index'
 
 const meta = {
-  title: 'Components/Tabs/Tabs (next)/Tabs (next) tests',
+  title: 'Components/Tabs/Tabs (next)/Tabs tests',
   parameters: {
     controls: { disable: true },
   },
+  tags: ['next'],
   args: {
     children: (
       <>
