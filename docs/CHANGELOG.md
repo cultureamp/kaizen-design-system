@@ -1,5 +1,11 @@
 # @docs/storybook
 
+## 0.2.4
+
+### Patch Changes
+
+- [#5985](https://github.com/cultureamp/kaizen-design-system/pull/5985) [`441ebea`](https://github.com/cultureamp/kaizen-design-system/commit/441ebea1accf8090ea3a52ce9e49c49424bb31f7) - Update internal usage of defaultTheme to tokens object
+
 ## 0.2.3
 
 ### Patch Changes
