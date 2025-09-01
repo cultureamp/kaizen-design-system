@@ -5,3 +5,4 @@ packages:
   - '!packages/components/alpha'
   - '!packages/components/libs'
   - '!packages/design-tokens/js'
+  - '!packages/components/v3'
