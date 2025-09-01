@@ -1,11 +1,18 @@
 # Change Log
 
+## 11.0.0
+
+### Major Changes
+
+- [#5985](https://github.com/cultureamp/kaizen-design-system/pull/5985) [`441ebea`](https://github.com/cultureamp/kaizen-design-system/commit/441ebea1accf8090ea3a52ce9e49c49424bb31f7) - Remove legacy exports from design tokens in line with KAIO v2 release
+  - Remove ThemeManager, ThemeProvider and exported theme variable and utils.
+    - Tokens can either be a via the `tokens` object from `@kaizen/design-tokens/js` or as a CSS variable. See README or the app-starter guide.
+
 ## 10.10.0
 
 ### Minor Changes
 
 - [#5552](https://github.com/cultureamp/kaizen-design-system/pull/5552) [`fd29d3d`](https://github.com/cultureamp/kaizen-design-system/commit/fd29d3d2967221c79537e2f7b6c6e9c7a492baf2) - Upgrade packages to support React 19
-
   - Update all peer dependencies to support 18-19 range
   - Update react-day-picker to v9
     - this changes some UX (for the better) when using active ranges
@@ -51,7 +58,6 @@
 ### Patch Changes
 
 - [#5391](https://github.com/cultureamp/kaizen-design-system/pull/5391) [`d180512`](https://github.com/cultureamp/kaizen-design-system/commit/d180512e29cc1078d05fda28feed24926242e7e2) - Deps updates and type component fixes for RC MenuItem and Tab
-
   - Update deps
   - Update RC MenuItem and Tab child render to fix types issues after upgrade to typescript 5.7.3 upgrade
   - Update test-runner to use imported Page type from Playwright to reflect updated dep
@@ -197,11 +203,9 @@
 ### Patch Changes
 
 - [#4384](https://github.com/cultureamp/kaizen-design-system/pull/4384) [`234569cc02592834f92711c74c251096c032ffe0`](https://github.com/cultureamp/kaizen-design-system/commit/234569cc02592834f92711c74c251096c032ffe0) - Dep updates:
-
   - @cultureamp/i18n-react-intl from 2.1.3 to 2.1.5
   - svgo from 3.0.4 to 3.1.0
   - ts-patch from 3.0.2 to 3.1.1
-
   * a bunch of dev deps
 
 ## 10.3.16
@@ -211,7 +215,6 @@
 - [#4205](https://github.com/cultureamp/kaizen-design-system/pull/4205) [`dee798fdb`](https://github.com/cultureamp/kaizen-design-system/commit/dee798fdb2d5091650e9350d0f7c575288e59c65) - Move CSS vars to :root
 
 - [#4308](https://github.com/cultureamp/kaizen-design-system/pull/4308) [`07ae2692f`](https://github.com/cultureamp/kaizen-design-system/commit/07ae2692fd2ff1118fe2c9f4a3d3c4ee2f0d33bd) - Dep updates (dev updates not listed)
-
   - @types/color-string from 1.5.4 to 1.5.5
   - @types/lodash.kebabcase from 4.1.8 to 4.1.9
 
@@ -230,13 +233,11 @@
 - [#4237](https://github.com/cultureamp/kaizen-design-system/pull/4237) [`e551cf8b4`](https://github.com/cultureamp/kaizen-design-system/commit/e551cf8b4d36f3ba0971e8194f8da78bf04f6cab) - Package updates:
 
   @kaizen/components (peer deps):
-
   - @cultureamp/i18n-react-intl from 2.0.0 to 2.1.1
   - react from 18.0.0 to 18.2.0
   - react-intl from 6.4.6 to 6.5.1
 
   @kaizen/tailwind (peer deps):
-
   - tailwindcss from ^3.3.3 to ^3.3.5"
 
   (otherwise all dev dep updates)
@@ -549,6 +550,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### BREAKING CHANGES
 
 -     * remove .elm files
+
   - remove Elm specific .scss files
   - remove Elm specific package folders
   - remove Elm config and devDependencies on Elm
