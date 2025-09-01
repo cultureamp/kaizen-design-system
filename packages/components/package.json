@@ -18,6 +18,7 @@
     "future",
     "next",
     "libs",
+    "v3",
     "dist",
     "icons",
     "locales",
@@ -49,6 +50,16 @@
       "types": "./dist/types/__libs__/react-aria-components/index.d.ts",
       "import": "./dist/esm/reactAriaComponentsKZ.mjs",
       "require": "./dist/cjs/reactAriaComponentsKZ.cjs"
+    },
+    "./v3/react-aria": {
+      "types": "./dist/types/__react-aria__/index.d.ts",
+      "import": "./dist/esm/reactAriaV3.mjs",
+      "require": "./dist/cjs/reactAriaV3.cjs"
+    },
+    "./v3/react-aria-components": {
+      "types": "./dist/types/__react-aria-components__/index.d.ts",
+      "import": "./dist/esm/reactAriaComponentsV3.mjs",
+      "require": "./dist/cjs/reactAriaComponentsV3.cjs"
     },
     "./dist/styles.css": {
       "style": "./dist/styles.css",
