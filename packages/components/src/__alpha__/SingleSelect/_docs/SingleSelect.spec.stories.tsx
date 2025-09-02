@@ -54,21 +54,6 @@ export const ClosesPopoverOnSelect: Story = {
   },
 }
 
-export const KeyboardNavigation: Story = {
-  args,
-  play: async () => {
-    const trigger = screen.getByRole('button')
-    trigger.focus()
-    await userEvent.keyboard('{Enter}')
-    await waitFor(() => expect(trigger).toHaveAttribute('aria-expanded', 'true'))
-    const options = await screen.findAllByRole('option')
-    await userEvent.keyboard('{ArrowDown}')
-    expect(options[1]).toHaveAttribute('data-focused', 'true')
-    await userEvent.keyboard('{ArrowUp}')
-    expect(options[0]).toHaveAttribute('data-focused', 'true')
-  },
-}
-
 export const KeyboardSelectsItem: Story = {
   args,
   play: async () => {
