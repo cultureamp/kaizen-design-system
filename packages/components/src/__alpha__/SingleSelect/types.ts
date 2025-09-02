@@ -21,11 +21,11 @@ export type SelectSection = {
 }
 
 // SingleSelect
-export type SelectProps<T extends object> = Omit<SelectStateOptions<T>, 'children'> & {
+export type SelectProps<T extends SelectItem> = Omit<SelectStateOptions<T>, 'children'> & {
   children: ((item: T) => React.ReactElement) | CollectionChildren<T>
 }
 
-export type ComboBoxProps<T extends object> = Omit<ComboBoxStateOptions<T>, 'children'> & {
+export type ComboBoxProps<T extends SelectItem> = Omit<ComboBoxStateOptions<T>, 'children'> & {
   children: CollectionChildren<T> | ((item: T) => React.ReactElement)
 }
 
@@ -49,8 +49,8 @@ export type DropdownButtonProps = AriaButtonProps<'button'> & {
 
 // Popover
 
-export type PopoverProps = AriaPopoverProps & {
-  state: ComboBoxState<object> | SelectState<object>
+export type PopoverProps<T extends SelectItem> = AriaPopoverProps & {
+  state: ComboBoxState<T> | SelectState<T>
   triggerRef: React.RefObject<HTMLInputElement> | React.RefObject<HTMLButtonElement>
   popoverRef: React.RefObject<HTMLDivElement>
   clearButtonRef?: React.RefObject<HTMLButtonElement>
@@ -84,14 +84,14 @@ export type UsePopoverPositioningProps = {
 }
 
 // List
-export type ListProps<T> = {
+export type ListProps<T extends SelectItem> = {
   state: ComboBoxState<T> | SelectState<T>
   listBoxOptions: AriaListBoxOptions<T>
   listBoxRef: React.RefObject<HTMLUListElement>
 }
 
 // ListItem
-export type ListItemProps<T> = {
+export type ListItemProps<T extends SelectItem> = {
   item: Node<T>
   state: ListState<T>
 }

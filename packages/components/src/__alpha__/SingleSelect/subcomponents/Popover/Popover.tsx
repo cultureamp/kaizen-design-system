@@ -1,18 +1,18 @@
 import React, { useLayoutEffect } from 'react'
 import { DismissButton, Overlay, usePopover } from 'react-aria'
 import { useSingleSelectContext } from '../../context'
-import { type PopoverProps } from '../../types'
+import { type PopoverProps, type SelectItem } from '../../types'
 import { useSupportsAnchorPositioning } from './utils'
 import { usePositioningStyles } from './utils/usePositioningStyles'
 
 import styles from './Popover.module.css'
 
-export const Popover = ({
+export const Popover = <T extends SelectItem>({
   state,
   popoverRef,
   children,
   ...restProps
-}: PopoverProps): React.ReactElement => {
+}: PopoverProps<T>): React.ReactElement => {
   const { anchorName } = useSingleSelectContext()
   const manualPopoverRef = React.useRef<HTMLDivElement>(null)
 

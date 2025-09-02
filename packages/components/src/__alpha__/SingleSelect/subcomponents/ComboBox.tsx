@@ -3,10 +3,12 @@ import { useComboBox, useFilter } from 'react-aria'
 import { useComboBoxState } from 'react-stately'
 import { Text } from '~components/Text'
 import { SingleSelectContext } from '../context'
-import { type ComboBoxProps } from '../types'
-import { ComboBoxTrigger, List, Popover } from './index'
+import { type ComboBoxProps, type SelectItem } from '../types'
+import { ComboBoxTrigger } from './ComboBoxTrigger'
+import { List } from './List'
+import { Popover } from './Popover'
 
-export function ComboBox<T extends object>(props: ComboBoxProps<T>): JSX.Element {
+export function ComboBox<T extends SelectItem>(props: ComboBoxProps<T>): JSX.Element {
   const { items, children, label } = props
 
   const { contains } = useFilter({ sensitivity: 'base' })

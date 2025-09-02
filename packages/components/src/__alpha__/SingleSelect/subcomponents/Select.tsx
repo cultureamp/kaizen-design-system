@@ -3,10 +3,12 @@ import { useSelect } from 'react-aria'
 import { useSelectState } from 'react-stately'
 import { Text } from '~components/Text'
 import { SingleSelectContext } from '../context'
-import { type SelectProps } from '../types'
-import { List, Popover, SelectTrigger } from './index'
+import { type SelectItem, type SelectProps } from '../types'
+import { List } from './List'
+import { Popover } from './Popover'
+import { SelectTrigger } from './SelectTrigger'
 
-export function Select<T extends object>(props: SelectProps<T>): JSX.Element {
+export function Select<T extends SelectItem>(props: SelectProps<T>): JSX.Element {
   const { label } = props
 
   const state = useSelectState({

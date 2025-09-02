@@ -1,12 +1,16 @@
 import React from 'react'
 import { useListBox } from 'react-aria'
 import { Text } from '~components/Text'
-import { type ListProps } from '../../types'
+import { type ListProps, type SelectItem } from '../../types'
 import { ListItem } from '../ListItem/ListItem'
 
 import styles from './List.module.css'
 
-export function List<T>({ state, listBoxOptions, listBoxRef }: ListProps<T>): JSX.Element {
+export function List<T extends SelectItem>({
+  state,
+  listBoxOptions,
+  listBoxRef,
+}: ListProps<T>): JSX.Element {
   const { listBoxProps } = useListBox(listBoxOptions, state, listBoxRef)
   const renderNode = (node: any): JSX.Element => {
     if (node.type === 'section') {

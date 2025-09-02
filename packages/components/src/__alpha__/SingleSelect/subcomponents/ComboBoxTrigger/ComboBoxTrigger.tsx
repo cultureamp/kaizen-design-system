@@ -5,12 +5,18 @@ import { useSingleSelectContext } from '../../context'
 import { type ComboBoxTriggerProps, type DropdownButtonProps } from '../../types'
 import styles from './ComboBoxTrigger.module.css'
 
-function DropdownButton({ buttonRef, ...props }: DropdownButtonProps): JSX.Element {
+function DropdownButton(props: DropdownButtonProps): JSX.Element {
   const { state } = useSingleSelectContext()
-  const { buttonProps } = useButton(props, buttonRef)
+  const { buttonProps } = useButton(props, props.buttonRef)
 
   return (
-    <button type="button" {...buttonProps} ref={buttonRef} className={styles.button} tabIndex={-1}>
+    <button
+      type="button"
+      {...buttonProps}
+      ref={props.buttonRef}
+      className={styles.button}
+      tabIndex={-1}
+    >
       <Icon
         alt={state.isOpen ? 'close' : 'open'}
         name={state.isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useOption } from 'react-aria'
-import { type ListItemProps } from '../../types'
+import { type ListItemProps, type SelectItem } from '../../types'
 import styles from './ListItem.module.css'
 
-export function ListItem<T>({ item, state }: ListItemProps<T>): JSX.Element {
+export function ListItem<T extends SelectItem>({ item, state }: ListItemProps<T>): JSX.Element {
   const ref = React.useRef(null)
   const { optionProps } = useOption({ key: item.key }, state, ref)
 
