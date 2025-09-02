@@ -74,7 +74,7 @@
     "lint:ts": "tsc --noEmit",
     "build": "ts-patch install -s && pnpm package-bundler build-shared-ui && pnpm build:styles",
     "build:global-styles": "postcss ./styles/global.css --output dist/global.css",
-    "build:combine-styles": "concat-cli -f ./dist/global.css ./dist/styles.css -o ./dist/styles.css && rm ./dist/global.css",
+  "build:combine-styles": "if [ -f ./dist/styles.css ]; then concat-cli -f ./dist/global.css ./dist/styles.css -o ./dist/styles.css; else mv ./dist/global.css ./dist/styles.css; fi && rm -f ./dist/global.css",
     "build:styles": "pnpm build:global-styles && pnpm build:combine-styles",
     "test": "FORCE_COLOR=1 vitest --config ../../vite.config.ts",
     "update-icons": "./src/Icon/bin/update-icons.sh",
