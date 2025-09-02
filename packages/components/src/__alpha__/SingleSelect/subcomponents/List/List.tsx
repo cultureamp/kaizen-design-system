@@ -1,18 +1,35 @@
-import React, { type PropsWithChildren } from 'react'
-import classNames from 'classnames'
-import { ListBox as RACListBox, type ListBoxProps } from 'react-aria-components'
-import { type SelectItem, type SelectSection } from '../../types'
+import React from 'react'
+import { useListBox } from 'react-aria'
+import { Text } from '~components/Text'
+import { type ListProps } from '../../types'
+import { ListItem } from '../ListItem/ListItem'
+
 import styles from './List.module.css'
 
-export const List = ({
-  children,
-  className,
-  ...props
-}: ListBoxProps<SelectItem | SelectSection> & PropsWithChildren): React.ReactElement => {
+export function List<T>({ state, listBoxOptions, listBoxRef }: ListProps<T>): JSX.Element {
+  const { listBoxProps } = useListBox(listBoxOptions, state, listBoxRef)
+  const renderNode = (node: any): JSX.Element => {
+    if (node.type === 'section') {
+      return (
+        <li key={node.key}>
+          {node.rendered && (
+            <Text variant="small" classNameOverride={styles.sectionTitle}>
+              {node.rendered}
+            </Text>
+          )}
+          <ul>{[...node.childNodes].map(renderNode)}</ul>
+        </li>
+      )
+    } else {
+      return <ListItem key={node.key} item={node} state={state} />
+    }
+  }
+
   return (
-    <RACListBox className={classNames(styles.list, className)} {...props}>
-      {children}
-    </RACListBox>
+    <ul {...listBoxProps} ref={listBoxRef} className={styles.list}>
+      {Array.from(state.collection).map(renderNode)}
+    </ul>
   )
 }
+
 List.displayName = 'SingleSelect.List'

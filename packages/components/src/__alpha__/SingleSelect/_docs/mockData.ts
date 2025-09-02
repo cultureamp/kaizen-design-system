@@ -1,29 +1,29 @@
 export const singleMockItems = [
-  { label: 'Short black', value: 'short-black' },
-  { label: 'Long black', value: 'long-black' },
-  { label: 'Batch brew', value: 'batch-brew' },
-  { label: 'Latte', value: 'latte' },
-  { label: 'Flat white', value: 'flat-white' },
-  { label: 'Mocha', value: 'mocha' },
-  { label: 'Cappuccino', value: 'cappuccino' },
-  { label: 'Magic', value: 'magic' },
+  { key: 'short-black', label: 'Short black', value: 'short-black' },
+  { key: 'long-black', label: 'Long black', value: 'long-black' },
+  { key: 'batch-brew', label: 'Batch brew', value: 'batch-brew' },
+  { key: 'latte', label: 'Latte', value: 'latte' },
+  { key: 'flat-white', label: 'Flat white', value: 'flat-white' },
+  { key: 'mocha', label: 'Mocha', value: 'mocha' },
+  { key: 'cappuccino', label: 'Cappuccino', value: 'cappuccino' },
+  { key: 'magic', label: 'Magic', value: 'magic' },
 ]
 
 export const groupedMockItems = [
   {
     label: 'Colours',
     options: [
-      { label: 'Blue', value: 'blue' },
-      { label: 'Red', value: 'red' },
-      { label: 'Green', value: 'green' },
+      { key: 'blue', label: 'Blue', value: 'blue' },
+      { key: 'red', label: 'Red', value: 'red' },
+      { key: 'green', label: 'Green', value: 'green' },
     ],
   },
   {
     label: 'Flavours',
     options: [
-      { label: 'Vanilla', value: 'vanilla' },
-      { label: 'Chocolate', value: 'chocolate' },
-      { label: 'Strawberry', value: 'strawberry' },
+      { key: 'vanilla', label: 'Vanilla', value: 'vanilla' },
+      { key: 'chocolate', label: 'Chocolate', value: 'chocolate' },
+      { key: 'strawberry', label: 'Strawberry', value: 'strawberry' },
     ],
   },
 ]
