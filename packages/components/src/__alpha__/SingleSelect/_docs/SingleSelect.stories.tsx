@@ -1,5 +1,6 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
+import { Item } from 'react-stately'
 import { SingleSelect } from '../index'
 import { singleMockItems } from './mockData'
 
@@ -8,15 +9,7 @@ const meta = {
   component: SingleSelect,
   args: {
     items: singleMockItems,
-    children: (
-      <SingleSelect.List>
-        {singleMockItems.map((item) => (
-          <SingleSelect.ListItem key={item.value} id={item.value}>
-            {item.label}
-          </SingleSelect.ListItem>
-        ))}
-      </SingleSelect.List>
-    ),
+    children: (item: any) => <Item key={item.key}>{item.label}</Item>,
   },
   decorators: [
     (Story) => (
