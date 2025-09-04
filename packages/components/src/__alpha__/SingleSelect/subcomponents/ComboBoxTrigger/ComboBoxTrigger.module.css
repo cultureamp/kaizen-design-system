@@ -19,6 +19,13 @@
     gap: var(--spacing-6);
   }
 
+  .input {
+    outline: none;
+    text-overflow: ellipsis;
+    background-color: var(--color-white);
+    padding: 0;
+  }
+
   .trigger:focus-within {
     outline-offset: 2px;
     outline: 2px solid var(--color-blue-500);
@@ -28,13 +35,6 @@
     .input {
       background-color: var(--color-white);
     }
-  }
-
-  .input {
-    outline: none;
-    text-overflow: ellipsis;
-    background-color: var(--color-white);
-    padding: 0;
   }
 
   .button {
