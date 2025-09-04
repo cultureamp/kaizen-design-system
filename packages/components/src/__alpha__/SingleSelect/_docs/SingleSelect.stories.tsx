@@ -8,8 +8,8 @@ const meta = {
   title: 'Components/SingleSelect/SingleSelect (alpha)',
   component: SingleSelect,
   args: {
-    items: singleMockItems,
-    children: (item: any) => <Item key={item.key}>{item.label}</Item>,
+    label: 'Choose a coffee',
+    children: singleMockItems.map((item) => <Item key={item.key}>{item.label}</Item>),
   },
   decorators: [
     (Story) => (

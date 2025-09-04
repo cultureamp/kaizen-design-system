@@ -17,13 +17,17 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <StickerSheet isReversed={isReversed} title="SingleSelect" headers={['Items', 'Grouped']}>
         <StickerSheet.Row>
-          <SingleSelect label="Combobox grouped colours" isComboBox>
-            <Section title="Warm Colours">
-              <Item key="red">Red</Item>
-            </Section>
-            <Section title="Cool Colours">
-              <Item key="blue">Blue</Item>
-            </Section>
+          <SingleSelect label="Combobox flat colours" isComboBox>
+            <Item>Red</Item>
+            <Item>Orange</Item>
+            <Item>Yellow</Item>
+            <Item>Green</Item>
+            <Item>Blue</Item>
+            <Item>Purple</Item>
+            <Item>Black</Item>
+            <Item>White</Item>
+            <Item>Lime</Item>
+            <Item>Fushsia</Item>
           </SingleSelect>
 
           <SingleSelect label="Select grouped colours">

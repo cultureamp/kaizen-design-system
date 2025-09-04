@@ -22,4 +22,10 @@
     padding: 0;
     display: flex;
   }
+
+  .trigger:focus-visible {
+    outline-offset: 2px;
+    outline: 2px solid var(--color-blue-500);
+    background-color: var(--color-white);
+  }
 }

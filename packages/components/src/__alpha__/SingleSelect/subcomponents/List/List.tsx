@@ -16,11 +16,7 @@ export function List<T extends SelectItem>({
     if (node.type === 'section') {
       return (
         <li key={node.key}>
-          {node.rendered && (
-            <Text variant="small" classNameOverride={styles.sectionTitle}>
-              {node.rendered}
-            </Text>
-          )}
+          {node.rendered && <Text variant="small">{node.rendered}</Text>}
           <ul>{[...node.childNodes].map(renderNode)}</ul>
         </li>
       )
