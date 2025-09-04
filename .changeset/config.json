@@ -2,7 +2,7 @@
   "$schema": "https://unpkg.com/@changesets/config@2.0.0/schema.json",
   "changelog": ["@cultureamp/changelog-github", { "repo": "cultureamp/kaizen-design-system" }],
   "access": "public",
-  "baseBranch": "origin/main",
+  "baseBranch": "origin/kaio-v1",
   "updateInternalDependencies": "patch",
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
     "onlyUpdatePeerDependentsWhenOutOfRange": true

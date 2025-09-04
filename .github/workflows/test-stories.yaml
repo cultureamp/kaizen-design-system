@@ -7,6 +7,7 @@ on:
   push:
     branches-ignore:
       - main
+      - 'kaio-v1'
 
   # When Changesets opens a PR it does not trigger GitHub actions,
   # because its token does not have permission to. This is a hack
@@ -17,6 +18,7 @@ on:
       - auto_merge_enabled
     branches:
       - main # the target branch of the PR
+      - 'kaio-v1'
     paths:
       - '**/CHANGELOG.md' # only changesets releases touch changelogs
 
@@ -25,7 +27,7 @@ env:
 
 jobs:
   build-test-storybook:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' || github.head_ref != 'changeset-release/kaio-v1'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
