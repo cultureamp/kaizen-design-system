@@ -1,4 +1,8 @@
 @layer kz-components {
+  ul {
+    padding-inline-start: 0;
+  }
+
   .listItem {
     font-family: var(--typography-paragraph-body-font-family);
     font-weight: var(--typography-paragraph-body-font-weight);
@@ -6,11 +10,41 @@
     line-height: var(--typography-paragraph-body-line-height);
     letter-spacing: var(--typography-paragraph-body-letter-spacing);
     padding: var(--spacing-8) var(--spacing-16);
+    margin: 0;
+    list-style-type: none;
+    border-radius: var(--spacing-8);
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &:hover {
+      background-color: var(--color-gray-200);
+    }
   }
 
-  .listItem:focus-visible {
-    background-color: var(--color-blue-200);
+  .startSelection {
+    justify-content: flex-start;
+  }
+
+  .focused {
     outline: none;
-    border-color: white;
+    border: 2px solid var(--color-blue-500);
+  }
+
+  .selected {
+    background-color: var(--color-blue-100);
+
+    &:hover {
+      background-color: var(--color-blue-200);
+    }
+  }
+
+  .disabled {
+    color: var(--color-gray-500);
+  }
+
+  .iconChecked {
+    color: var(--color-blue-500);
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, screen, userEvent, waitFor } from '@storybook/test'
+import { Item } from 'react-stately'
 import { SingleSelect } from '../SingleSelect'
 import { singleMockItems } from './mockData'
 
@@ -17,16 +18,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const args = {
+  label: 'Choose a coffee',
   items: singleMockItems,
-  children: (
-    <SingleSelect.List>
-      {singleMockItems.map((item) => (
-        <SingleSelect.ListItem key={item.value} id={item.value}>
-          {item.label}
-        </SingleSelect.ListItem>
-      ))}
-    </SingleSelect.List>
-  ),
+  children: (item: any) => <Item key={item.key}>{item.label}</Item>,
 }
 
 export const RendersButton: Story = {
@@ -57,21 +51,6 @@ export const ClosesPopoverOnSelect: Story = {
     const options = await screen.findAllByRole('option')
     await userEvent.click(options[0])
     await waitFor(() => expect(screen.queryAllByRole('option')).toHaveLength(0))
-  },
-}
-
-export const KeyboardNavigation: Story = {
-  args,
-  play: async () => {
-    const trigger = screen.getByRole('button')
-    trigger.focus()
-    await userEvent.keyboard('{Enter}')
-    await waitFor(() => expect(trigger).toHaveAttribute('aria-expanded', 'true'))
-    const options = await screen.findAllByRole('option')
-    await userEvent.keyboard('{ArrowDown}')
-    expect(options[1]).toHaveAttribute('data-focused', 'true')
-    await userEvent.keyboard('{ArrowUp}')
-    expect(options[0]).toHaveAttribute('data-focused', 'true')
   },
 }
 

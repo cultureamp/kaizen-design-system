@@ -1,5 +1,6 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
+import { Item, Section } from 'react-stately'
 import { SingleSelect } from '../index'
 import { singleMockItems } from './mockData'
 
@@ -7,16 +8,8 @@ const meta = {
   title: 'Components/SingleSelect/SingleSelect (alpha)',
   component: SingleSelect,
   args: {
-    items: singleMockItems,
-    children: (
-      <SingleSelect.List>
-        {singleMockItems.map((item) => (
-          <SingleSelect.ListItem key={item.value} id={item.value}>
-            {item.label}
-          </SingleSelect.ListItem>
-        ))}
-      </SingleSelect.List>
-    ),
+    label: 'Choose a coffee',
+    children: singleMockItems.map((item) => <Item key={item.key}>{item.label}</Item>),
   },
   decorators: [
     (Story) => (
@@ -32,6 +25,31 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: 'shown',
+      },
+    },
+  },
+}
+
+export const TestingListBoxGrouping: Story = {
+  args: {
+    label: 'Choose a coffee',
+    children: (
+      <>
+        <Section title="Warm Colours">
+          <Item key="red">Red</Item>
+        </Section>
+        <Section title="Cool Colours">
+          <Item key="blue">Blue</Item>
+          <Item key="gray">Gray</Item>
+          <Item key="orange">Orange</Item>
+        </Section>
+      </>
+    ),
+  },
   parameters: {
     docs: {
       canvas: {
