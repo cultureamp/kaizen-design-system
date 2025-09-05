@@ -11,6 +11,7 @@ export const singleMockItems = [
 
 export const groupedMockItems = [
   {
+    type: 'section',
     label: 'Colours',
     options: [
       { key: 'blue', label: 'Blue', value: 'blue' },
@@ -19,6 +20,7 @@ export const groupedMockItems = [
     ],
   },
   {
+    type: 'section',
     label: 'Flavours',
     options: [
       { key: 'vanilla', label: 'Vanilla', value: 'vanilla' },

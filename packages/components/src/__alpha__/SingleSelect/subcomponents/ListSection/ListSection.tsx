@@ -1,25 +1,44 @@
-import React, { type PropsWithChildren } from 'react'
-import classNames from 'classnames'
-import {
-  Header as RACHeader,
-  ListBoxSection as RACListBoxSection,
-  type ListBoxSectionProps,
-} from 'react-aria-components'
-import { type SelectSection } from '../../types'
+import React from 'react'
+import { useListBoxSection } from 'react-aria'
+import { ListItem } from '../ListItem'
 import styles from './ListSection.module.css'
 
-export const ListSection = ({
-  name,
-  className,
-  children,
-  ...props
-}: ListBoxSectionProps<SelectSection> &
-  PropsWithChildren & { name: string }): React.ReactElement => {
+export const ListSection = ({ section, state }: { section: any; state: any }) => {
+  const { headingProps, itemProps, groupProps } = useListBoxSection({
+    'heading': section.rendered,
+    'aria-label': section['aria-label'],
+  })
+
+  // Known issue: Incorrect group count screenreader announcements with all grouped ListBox patterns in Chrome & Safari
+  // See https://github.com/adobe/react-spectrum/issues/1234 for more details
+
   return (
-    <RACListBoxSection {...props}>
-      <RACHeader className={classNames(styles.listSectionHeader, className)}>{name}</RACHeader>
-      {children}
-    </RACListBoxSection>
+    <>
+      {section.key !== state.collection.getFirstKey() && <li role="presentation" aria-hidden />}
+      <li {...itemProps}>
+        {section.rendered && (
+          <span
+            {...headingProps}
+            role="presentation"
+            aria-hidden
+            className={styles.listSectionHeader}
+          >
+            {section.rendered}
+          </span>
+        )}
+        <ul
+          {...groupProps}
+          style={{
+            padding: 0,
+            listStyle: 'none',
+          }}
+        >
+          {[...section.childNodes].map((node) => (
+            <ListItem key={node.key} item={node} state={state} />
+          ))}
+        </ul>
+      </li>
+    </>
   )
 }
 ListSection.displayName = 'SingleSelect.ListSection'

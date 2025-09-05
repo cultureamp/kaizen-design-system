@@ -28,3 +28,11 @@ SingleSelect component that handles selecting items from a dropdown, can be eith
 ## Positioning and z-index Management
 
 The SingleSelect component leverages the native Popover API to manage its dropdown functionality. By using popover instead of custom portal logic, the component takes full advantage of CSS layers, ensuring dropdowns appear above other content without manual z-index management.
+
+## Known issues
+
+### Accessibility
+
+Using the default SingleSelect component without combobox, there is a known accessibility issue for keyboard navigation when the component is used as the last focusable element on the page. After the list is opened pressing Tab should close the list, instead Tab brings the user to a unqiue state where they cannot use the escape key to close the list. Instead the user will have to navigate either forward of back again using the Tab key.
+
+Grouped ListBox pattern when used in conjunction with screenreader in Chrome or Safari does not announce the number of groups correctly. This is happening for all ListBox patterns, not just React Aria, although some patterns are slightly better than others. A choice was made here to follow the React Aria pattern guidance, as there is already an open issue and following their pattern will allow us more easily to implement any fixes they provide.

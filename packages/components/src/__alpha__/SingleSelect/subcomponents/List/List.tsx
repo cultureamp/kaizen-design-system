@@ -1,9 +1,9 @@
 import React from 'react'
 import { useListBox } from 'react-aria'
-import { Text } from '~components/Text'
 import { type ListProps, type SelectItem } from '../../types'
 import { ListItem } from '../ListItem/ListItem'
 
+import { ListSection } from '../ListSection'
 import styles from './List.module.css'
 
 export function List<T extends SelectItem>({
@@ -12,14 +12,10 @@ export function List<T extends SelectItem>({
   listBoxRef,
 }: ListProps<T>): JSX.Element {
   const { listBoxProps } = useListBox(listBoxOptions, state, listBoxRef)
+
   const renderNode = (node: any): JSX.Element => {
     if (node.type === 'section') {
-      return (
-        <li key={node.key}>
-          {node.rendered && <Text variant="small">{node.rendered}</Text>}
-          <ul>{[...node.childNodes].map(renderNode)}</ul>
-        </li>
-      )
+      return node.rendered && <ListSection section={node} state={state} />
     } else {
       return <ListItem key={node.key} item={node} state={state} />
     }
