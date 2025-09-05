@@ -95,3 +95,9 @@ export type ListItemProps<T extends SelectItem> = {
   item: Node<T>
   state: ListState<T>
 }
+
+// ListSection
+export type ListSectionProps<T extends SelectItem> = {
+  section: any
+  state: ComboBoxState<T> | SelectState<T>
+}

@@ -1,9 +1,13 @@
 import React from 'react'
 import { useListBoxSection } from 'react-aria'
+import { type ListSectionProps, type SelectItem } from '../../types'
 import { ListItem } from '../ListItem'
 import styles from './ListSection.module.css'
 
-export const ListSection = ({ section, state }: { section: any; state: any }) => {
+export function ListSection<T extends SelectItem>({
+  section,
+  state,
+}: ListSectionProps<T>): JSX.Element {
   const { headingProps, itemProps, groupProps } = useListBoxSection({
     'heading': section.rendered,
     'aria-label': section['aria-label'],
