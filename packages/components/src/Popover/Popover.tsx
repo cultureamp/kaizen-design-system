@@ -2,36 +2,21 @@ import React, { useMemo, useState, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { usePopper } from 'react-popper'
 import { Heading } from '~components/Heading'
+import { Icon } from '~components/Icon'
 import { Text } from '~components/Text'
-import { Icon } from '~components/__next__/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import { type Placement, type PopoverSize, type PopoverVariant } from './types'
-import {
-  mapArrowVariantToClass,
-  mapLineVariant,
-  mapSizeToClass,
-  mapVariantToBoxClass,
-  mapVariantToIcon,
-  mapVariantToIconClass,
-} from './utils/classMappers'
+import { type Placement, type PopoverSize } from './types'
+import { mapLineVariant, mapSizeToClass } from './utils/classMappers'
 import styles from './Popover.module.scss'
 
 export type PopoverProps = {
   children: React.ReactNode
-  /**
-   * @deprecated We are no longer supporting different variants for Popover, instead there will only be a single default variant.
-   */
-  variant?: PopoverVariant
   placement?: Placement
   size?: PopoverSize
   heading?: string
   dismissible?: boolean
   onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void
   singleLine?: boolean
-  /**
-   * @deprecated This was for customising the icon provided with variants.
-   */
-  customIcon?: JSX.Element
   referenceElement: HTMLElement | null
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
@@ -45,14 +30,12 @@ const arrowHeight = 7
  */
 export const Popover = ({
   children,
-  variant = 'default',
   placement = 'top',
   size = 'small',
   heading,
   dismissible = false,
   onClose,
   singleLine = false,
-  customIcon,
   referenceElement,
   classNameOverride,
   ...restProps
@@ -107,14 +90,9 @@ export const Popover = ({
       className={classnames(styles.root, mapSizeToClass(size), classNameOverride)}
       {...restProps}
     >
-      <div className={mapVariantToBoxClass(variant)}>
+      <div className={styles.defaultBox}>
         {heading && (
           <div className={styles.header}>
-            {variant !== 'default' && (
-              <span className={classnames(styles.icon, mapVariantToIconClass(variant))}>
-                {customIcon ?? mapVariantToIcon(variant)}
-              </span>
-            )}
             <Heading variant="heading-6" classNameOverride={styles.singleLine}>
               {heading}
             </Heading>
@@ -134,7 +112,7 @@ export const Popover = ({
         </Text>
       </div>
       <div ref={setArrowElement} style={popperStyles.arrow} className={styles.arrowWrapper}>
-        <div className={classnames(styles.arrow, mapArrowVariantToClass(variant))} />
+        <div className={classnames(styles.arrow, styles.defaultArrow)} />
       </div>
     </div>
   )

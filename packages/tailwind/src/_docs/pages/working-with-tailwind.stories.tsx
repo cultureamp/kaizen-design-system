@@ -1,10 +1,11 @@
 import React from 'react'
 import { type StoryFn } from '@storybook/react'
-import { Button } from '~components/Button'
+import { Button } from '~components/ButtonV1'
 import { Card } from '~components/Card'
+import { Container } from '~components/Container'
+import { Content } from '~components/Content'
 import { Heading } from '~components/Heading'
 import { CustomSurvey, CustomUnattributedSurvey } from '~components/Illustration'
-import { Skirt } from '~components/Skirt'
 import { TailwindStoryTemplate } from '../utils/TailwindStoryTemplate'
 
 export default {
@@ -19,14 +20,16 @@ export const TailwindExampleSpacingAndLayouts: StoryFn = () => (
 
 export const TailwindExampleSpacingAndLayoutsComplex: StoryFn = () => (
   <>
-    <Skirt>
-      <Heading variant="heading-2" color="white" classNameOverride="pt-24">
-        Laid out with Tailwind
-      </Heading>
-      <Card variant="informative" classNameOverride="mt-24">
-        <div className="h-[300px]" />
-      </Card>
-    </Skirt>
+    <Container>
+      <Content>
+        <Heading variant="heading-2" color="dark" classNameOverride="pt-24">
+          Laid out with Tailwind
+        </Heading>
+        <Card color="blue" classNameOverride="mt-24">
+          <div className="h-[300px]" />
+        </Card>
+      </Content>
+    </Container>
     {/* Adds flex, makes the width 100% and centers content */}
     <div className="flex w-full justify-center">
       {/* Adds margins, width, and max width */}
@@ -45,7 +48,7 @@ export const TailwindExampleSpacingAndLayoutsComplex: StoryFn = () => (
         {/* Adds margin-top, flex, and a height of 200px */}
         <div className="mt-64 flex h-[200px]">
           {[0, 1, 2, 3].map((index) => (
-            <Card key={index} variant="informative" classNameOverride="mr-24 last:mr-0 w-full">
+            <Card key={index} color="blue" classNameOverride="mr-24 last:mr-0 w-full">
               {/* Adds height and width of 100% */}
               <div className="w-full h-100" />
             </Card>

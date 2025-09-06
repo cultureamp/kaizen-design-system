@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect, useId, useState } from 'react'
+import React, { useId, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { Transition } from '@headlessui/react'
 import classnames from 'classnames'
-import FocusLock from 'react-focus-lock'
+import { FocusOn } from 'react-focus-on'
 import { useIsClientReady } from '../../utils/useIsClientReady'
+
 import { warn } from '../util/console'
 import { ModalContext } from './context/ModalContext'
 import styles from './GenericModal.module.scss'
@@ -38,39 +39,22 @@ export const GenericModal = ({
 
   const labelledByID = useId()
   const describedByID = useId()
-
   const isClientReady = useIsClientReady()
 
-  const [scrollLayer, setScrollLayer] = useState<HTMLDivElement | null>(null)
-  const [modalLayer, setModalLayer] = useState<HTMLDivElement | null>(null)
+  const scrollLayerRef = useRef<HTMLDivElement | null>(null)
+  const modalLayerRef = useRef<HTMLDivElement | null>(null)
 
   const scrollModalToTop = (): void => {
     // If we have a really long modal, the autofocus could land on an element down below
     // causing the modal to scroll down and skipping over the content near the modal's top.
     // Ensure that when the modal opens, we are at the top of its content.
     requestAnimationFrame(() => {
-      if (!scrollLayer) return
-      scrollLayer.scrollTop = 0
+      const scrollElement = scrollLayerRef.current
+
+      // This little verbose of a check but this ensures that the element is attached to the DOM as it animates in. This additional check aims to avoid race conditions
+      if (!scrollElement?.isConnected) return
+      scrollElement.scrollTop = 0
     })
-  }
-
-  const outsideModalClickHandler = (event: React.MouseEvent): void => {
-    if (event.target === scrollLayer || event.target === modalLayer) {
-      onOutsideModalClick?.(event)
-    }
-  }
-
-  const focusOnAccessibleLabel = (): void => {
-    if (!isClientReady) return
-
-    // Check if focus already exists within the modal
-    if (modalLayer?.contains(document.activeElement)) {
-      return
-    }
-
-    const labelElement: HTMLElement | null = document.getElementById(labelledByID)
-
-    labelElement?.focus()
   }
 
   const a11yWarn = (): void => {
@@ -86,60 +70,46 @@ export const GenericModal = ({
     }
   }
 
-  const preventBodyScroll = (): void => {
+  const focusOnAccessibleLabel = (): void => {
     if (!isClientReady) return
+    const modalElement = modalLayerRef.current
+    if (!modalElement?.isConnected) return
 
-    const hasScrollbar = window.innerWidth > document.documentElement.clientWidth
-    const scrollStyles = [styles.unscrollable]
-
-    if (hasScrollbar) {
-      scrollStyles.push(styles.pseudoScrollbar)
+    // Check if focus already exists within the modal
+    if (modalElement.contains(document.activeElement)) {
+      return
     }
 
-    document.documentElement.classList.add(...scrollStyles)
+    const labelElement: HTMLElement | null = document.getElementById(labelledByID)
+
+    if (labelElement?.isConnected) {
+      labelElement.focus()
+    }
+  }
+
+  const onEscapeKeyHandler = (e: Event): void => {
+    if (e instanceof KeyboardEvent) {
+      onEscapeKeyup?.(e)
+    }
   }
 
   const onAfterEnterHandler = (): void => {
     scrollModalToTop()
-    if (modalLayer) {
+    const modalElement = modalLayerRef.current
+    if (modalElement) {
       onAfterEnter?.()
       focusOnAccessibleLabel()
       a11yWarn()
     }
   }
 
-  const escapeKeyHandler = useCallback(
-    (event: KeyboardEvent): void => {
-      if (event.key === 'Escape') {
-        onEscapeKeyup?.(event)
-      }
-    },
-    [onEscapeKeyup],
-  )
-
-  const onBeforeEnterHandler = (): void => {
-    preventBodyScroll()
-
-    if (onEscapeKeyup && isClientReady) {
-      document.addEventListener('keyup', escapeKeyHandler)
+  const outsideModalClickHandler = (e: React.MouseEvent): void => {
+    if (e.target === scrollLayerRef.current || e.target === modalLayerRef.current) {
+      onOutsideModalClick?.(e)
     }
   }
 
-  const cleanUpAfterClose = useCallback(() => {
-    if (!isClientReady) return
-
-    document.documentElement.classList.remove(styles.unscrollable, styles.pseudoScrollbar)
-
-    if (onEscapeKeyup) {
-      document.removeEventListener('keyup', escapeKeyHandler)
-    }
-  }, [escapeKeyHandler, onEscapeKeyup, isClientReady])
-
-  /* Ensure sure add-on styles (e.g. unscrollable) and key event is cleaned up when the modal is unmounted*/
-  useEffect(() => () => cleanUpAfterClose(), [cleanUpAfterClose])
-
   const onAfterLeaveHandler = (): void => {
-    cleanUpAfterClose()
     propsOnAfterLeave?.()
   }
 
@@ -152,7 +122,6 @@ export const GenericModal = ({
     <Transition
       appear={true}
       show={isOpen}
-      beforeEnter={onBeforeEnterHandler}
       afterEnter={onAfterEnterHandler}
       afterLeave={onAfterLeaveHandler}
       data-generic-modal-transition-wrapper
@@ -161,9 +130,10 @@ export const GenericModal = ({
       as="div"
       className={classnames(styles.transitionLayer, className)}
     >
-      <FocusLock
-        disabled={focusLockDisabled}
+      <FocusOn
+        focusLock={focusLockDisabled}
         returnFocus={true}
+        onEscapeKey={onEscapeKeyHandler}
         // Disabling false positive
         // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={false}
@@ -174,11 +144,9 @@ export const GenericModal = ({
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
         <div
           className={styles.scrollLayer}
-          ref={(scrollLayerRef): void => {
-            setScrollLayer(scrollLayerRef)
-          }}
-          onClick={outsideModalClickHandler}
+          ref={scrollLayerRef}
           data-testid={`${id}-scrollLayer`}
+          onClick={outsideModalClickHandler}
         >
           <ModalContext.Provider
             value={{
@@ -191,14 +159,14 @@ export const GenericModal = ({
               className={styles.modalLayer}
               aria-labelledby={labelledByID}
               aria-describedby={describedByID}
-              ref={(modalLayerRef): void => setModalLayer(modalLayerRef)}
+              ref={modalLayerRef}
               data-testid={id}
             >
               {children}
             </div>
           </ModalContext.Provider>
         </div>
-      </FocusLock>
+      </FocusOn>
     </Transition>,
     document.body,
   )

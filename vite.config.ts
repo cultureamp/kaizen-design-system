@@ -12,6 +12,11 @@ export default {
           replacement: '$1',
         },
         {
+          // specific alias for design-tokens js subpath
+          find: '@kaizen/design-tokens/js',
+          replacement: path.resolve(__dirname, './packages/design-tokens/src/js'),
+        },
+        {
           // monorepo workspace aliases
           find: /^@kaizen(.*)$/,
           replacement: path.resolve(__dirname, './packages$1'),

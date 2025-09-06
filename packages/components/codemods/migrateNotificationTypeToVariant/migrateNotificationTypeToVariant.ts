@@ -1,11 +1,17 @@
 import type { GenericNotificationProps } from '../../src/Notification/subcomponents/GenericNotification'
 import { migrateStringProp } from '../utils'
 
+type LegacyNotificationType = 'cautionary' | 'informative' | 'negative' | 'positive' | 'security'
+
+type LegacyGenericNotificationProps = GenericNotificationProps & {
+  type?: LegacyNotificationType
+}
+
 const OLD_PROP_NAME = 'type'
 const NEW_PROP_NAME = 'variant'
 
 const getNewVariantValue = (
-  oldValue: Exclude<GenericNotificationProps[typeof OLD_PROP_NAME], undefined>,
+  oldValue: Exclude<LegacyGenericNotificationProps[typeof OLD_PROP_NAME], undefined>,
 ): Exclude<GenericNotificationProps[typeof NEW_PROP_NAME], undefined> => {
   switch (oldValue) {
     case 'cautionary':
