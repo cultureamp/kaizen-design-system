@@ -1,8 +1,5 @@
 import { type DataAttributes } from '~components/types/DataAttributes'
-import {
-  type GenericNotificationType,
-  type GenericNotificationVariant,
-} from '../subcomponents/GenericNotification'
+import { type GenericNotificationVariant } from '../subcomponents/GenericNotification'
 
 export type ToastNotificationObjBase = {
   id: string
@@ -16,5 +13,4 @@ export type ToastNotificationObjBase = {
   persistent?: boolean
 } & DataAttributes
 
-export type ToastNotificationObj = ToastNotificationObjBase &
-  (GenericNotificationType | GenericNotificationVariant)
+export type ToastNotificationObj = ToastNotificationObjBase & GenericNotificationVariant

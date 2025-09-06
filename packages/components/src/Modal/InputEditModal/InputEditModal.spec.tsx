@@ -15,7 +15,6 @@ const InputEditModalWrapper = ({
     title="Example modal title"
     onSubmit={(): void => undefined}
     onDismiss={(): void => undefined}
-    mood="positive"
     {...props}
   >
     {children}

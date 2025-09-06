@@ -70,7 +70,7 @@ export const TailwindStoryTemplate = ({
       <div className="fixed top-[10px] left-[10px]">
         {copiedText && (
           <InlineNotification
-            type="positive"
+            variant="success"
             hideCloseIcon
             onHide={(): void => setCopiedText(null)}
             headingProps={{

@@ -1,11 +1,19 @@
 # Change Log
 
+## 1.5.1
+
+### Patch Changes
+
+- [#5985](https://github.com/cultureamp/kaizen-design-system/pull/5985) [`441ebea`](https://github.com/cultureamp/kaizen-design-system/commit/441ebea1accf8090ea3a52ce9e49c49424bb31f7) - Update internal usage of defaultTheme to tokens object
+
+- Updated dependencies [[`441ebea`](https://github.com/cultureamp/kaizen-design-system/commit/441ebea1accf8090ea3a52ce9e49c49424bb31f7)]:
+  - @kaizen/design-tokens@11.0.0
+
 ## 1.5.0
 
 ### Minor Changes
 
 - [#5552](https://github.com/cultureamp/kaizen-design-system/pull/5552) [`fd29d3d`](https://github.com/cultureamp/kaizen-design-system/commit/fd29d3d2967221c79537e2f7b6c6e9c7a492baf2) - Upgrade packages to support React 19
-
   - Update all peer dependencies to support 18-19 range
   - Update react-day-picker to v9
     - this changes some UX (for the better) when using active ranges
@@ -69,7 +77,6 @@
 ### Patch Changes
 
 - [#5391](https://github.com/cultureamp/kaizen-design-system/pull/5391) [`d180512`](https://github.com/cultureamp/kaizen-design-system/commit/d180512e29cc1078d05fda28feed24926242e7e2) - Deps updates and type component fixes for RC MenuItem and Tab
-
   - Update deps
   - Update RC MenuItem and Tab child render to fix types issues after upgrade to typescript 5.7.3 upgrade
   - Update test-runner to use imported Page type from Playwright to reflect updated dep
@@ -282,11 +289,9 @@
 ### Patch Changes
 
 - [#4427](https://github.com/cultureamp/kaizen-design-system/pull/4427) [`e43e041bf2699ee7c8fa67a546e828862cf41904`](https://github.com/cultureamp/kaizen-design-system/commit/e43e041bf2699ee7c8fa67a546e828862cf41904) - Dep updates:
-
   - classnames to 2.5.1
 
   Peer dep updates:
-
   - @cultureamp/i18n-react-intl to 2.1.8
   - tailwindcss to 3.4.0 (@kaizen/tailwind package)
 
@@ -306,7 +311,6 @@
 - [#4256](https://github.com/cultureamp/kaizen-design-system/pull/4256) [`6e22e0a21`](https://github.com/cultureamp/kaizen-design-system/commit/6e22e0a21cc11751c754eb02862c52ad1b8a30b2) - Fix long utility strings for borders in Tailwind (in combination with `@kaizen/components/dist/styles.css`)
 
   **Important: these utilities will not work without upgrading to `@kaizen/components@1.35.0`**
-
   - Adds DEFAULT values to `borderWidth` and `borderColor` in the Tailwind preset, so these don't need to be written with utility classes.
 
   These changes mean that border styles require much less utility classes to be written.
@@ -334,13 +338,11 @@
 - [#4237](https://github.com/cultureamp/kaizen-design-system/pull/4237) [`e551cf8b4`](https://github.com/cultureamp/kaizen-design-system/commit/e551cf8b4d36f3ba0971e8194f8da78bf04f6cab) - Package updates:
 
   @kaizen/components (peer deps):
-
   - @cultureamp/i18n-react-intl from 2.0.0 to 2.1.1
   - react from 18.0.0 to 18.2.0
   - react-intl from 6.4.6 to 6.5.1
 
   @kaizen/tailwind (peer deps):
-
   - tailwindcss from ^3.3.3 to ^3.3.5"
 
   (otherwise all dev dep updates)
@@ -353,7 +355,6 @@
 ### Minor Changes
 
 - [#4016](https://github.com/cultureamp/kaizen-design-system/pull/4016) [`df9886a71`](https://github.com/cultureamp/kaizen-design-system/commit/df9886a71767fee270929c0fa175287a2dcabb76) - Clean up tailwind config.
-
   - Remove unnecessary dependencies
   - Change tailwindcss from devDep to peerDep
   - Remove tsx references as this package does not need React

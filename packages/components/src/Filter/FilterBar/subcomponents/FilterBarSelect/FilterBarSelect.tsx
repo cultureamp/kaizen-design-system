@@ -2,21 +2,21 @@ import React, { useEffect, useState } from 'react'
 import {
   FilterSelect,
   type FilterSelectProps,
-  type SelectItem,
-  type SelectOption,
+  type SingleSelectItem,
+  type SingleSelectOption,
 } from '~components/Filter/FilterSelect'
 import { useFilterBarContext } from '../../context/FilterBarContext'
 import { checkArraysMatch } from '../../utils/checkArraysMatch'
 import { FilterBarButton } from '../FilterBarButton'
 
-export type FilterBarSelectProps<Option extends SelectOption = SelectOption> = Omit<
+export type FilterBarSelectProps<Option extends SingleSelectOption = SingleSelectOption> = Omit<
   FilterSelectProps<Option>,
   'isOpen' | 'setIsOpen' | 'renderTrigger' | 'label' | 'selectedKey'
 > & {
   id?: string
 }
 
-export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
+export const FilterBarSelect = <Option extends SingleSelectOption = SingleSelectOption>({
   id,
   items: propsItems,
   onSelectionChange,
@@ -25,7 +25,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
   const { getFilterState, setFilterOpenState, updateValue } = useFilterBarContext<
     Option['value'] | undefined
   >()
-  const [items, setItems] = useState<SelectItem<Option>[]>(propsItems)
+  const [items, setItems] = useState<SingleSelectItem<Option>[]>(propsItems)
 
   if (!id) throw Error('Missing `id` prop in FilterBarSelect')
 

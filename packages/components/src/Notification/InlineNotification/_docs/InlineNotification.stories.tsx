@@ -15,13 +15,6 @@ const meta = {
     children:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quibusdam natus doloremque',
   },
-  argTypes: {
-    type: {
-      control: {
-        disable: true,
-      },
-    },
-  },
   parameters: {
     a11y: {
       // Fade-in animation has colour contrast issues.

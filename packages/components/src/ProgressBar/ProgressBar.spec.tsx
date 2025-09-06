@@ -13,7 +13,7 @@ describe('<ProgressBar />', () => {
         label=""
         isReversed={false}
         isAnimating={false}
-        mood="positive"
+        color="green"
         data-testid="id--progress-bar"
       />,
     )

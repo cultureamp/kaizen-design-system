@@ -69,58 +69,6 @@
     @include arrow(var(--color-white), $default-box-border-color);
   }
 
-  $informative-box-border-color: var(--color-blue-400);
-
-  .informativeBox {
-    @extend %box;
-
-    background: $color-blue-100;
-    border-color: $informative-box-border-color;
-  }
-
-  .informativeArrow {
-    @include arrow($color-blue-100, $informative-box-border-color);
-  }
-
-  $positive-box-border-color: var(--color-green-500);
-
-  .positiveBox {
-    @extend %box;
-
-    background: $color-green-100;
-    border-color: $positive-box-border-color;
-  }
-
-  .positiveArrow {
-    @include arrow($color-green-100, $positive-box-border-color);
-  }
-
-  $negative-box-border-color: var(--color-red-500);
-
-  .negativeBox {
-    @extend %box;
-
-    background: $color-red-100;
-    border-color: $negative-box-border-color;
-  }
-
-  .negativeArrow {
-    @include arrow($color-red-100, $negative-box-border-color);
-  }
-
-  $cautionary-box-border-color: var(--color-yellow-700);
-
-  .cautionaryBox {
-    @extend %box;
-
-    background: $color-yellow-100;
-    border-color: $cautionary-box-border-color;
-  }
-
-  .cautionaryArrow {
-    @include arrow($color-yellow-100, $cautionary-box-border-color);
-  }
-
   .header {
     position: relative;
     margin-bottom: var(--spacing-6);
@@ -133,27 +81,6 @@
   .container {
     position: relative;
     white-space: pre-line;
-  }
-
-  .icon {
-    display: inherit;
-    margin-inline-end: var(--spacing-6);
-  }
-
-  .informativeIcon {
-    color: var(--color-blue-500);
-  }
-
-  .positiveIcon {
-    color: var(--color-green-500);
-  }
-
-  .negativeIcon {
-    color: var(--color-red-500);
-  }
-
-  .cautionaryIcon {
-    color: var(--color-yellow-700);
   }
 
   .close {
