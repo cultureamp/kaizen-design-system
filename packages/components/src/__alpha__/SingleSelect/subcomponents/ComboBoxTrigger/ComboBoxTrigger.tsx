@@ -5,7 +5,7 @@ import { useSingleSelectContext } from '../../context'
 import { type ComboBoxTriggerProps, type DropdownButtonProps } from '../../types'
 import styles from './ComboBoxTrigger.module.css'
 
-function DropdownButton(props: DropdownButtonProps): JSX.Element {
+const DropdownButton = (props: DropdownButtonProps): JSX.Element => {
   const { state } = useSingleSelectContext()
   const { buttonProps } = useButton(props, props.buttonRef)
 

@@ -8,7 +8,7 @@ import { ComboBoxTrigger } from './ComboBoxTrigger'
 import { List } from './List'
 import { Popover } from './Popover'
 
-export function ComboBox<T extends SelectItem>(props: ComboBoxProps<T>): JSX.Element {
+export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Element => {
   const { items, children, label } = props
 
   const { contains } = useFilter({ sensitivity: 'base' })

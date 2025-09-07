@@ -4,10 +4,10 @@ import { type ListSectionProps, type SelectItem } from '../../types'
 import { ListItem } from '../ListItem'
 import styles from './ListSection.module.css'
 
-export function ListSection<T extends SelectItem>({
+export const ListSection = <T extends SelectItem>({
   section,
   state,
-}: ListSectionProps<T>): JSX.Element {
+}: ListSectionProps<T>): JSX.Element => {
   const { headingProps, itemProps, groupProps } = useListBoxSection({
     'heading': section.rendered,
     'aria-label': section['aria-label'],
@@ -45,4 +45,3 @@ export function ListSection<T extends SelectItem>({
     </>
   )
 }
-ListSection.displayName = 'SingleSelect.ListSection'

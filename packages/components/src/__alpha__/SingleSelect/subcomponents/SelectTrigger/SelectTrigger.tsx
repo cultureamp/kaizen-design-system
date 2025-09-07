@@ -5,7 +5,7 @@ import { useSingleSelectContext } from '../../context'
 import { type SelectTriggerProps } from '../../types'
 import styles from './SelectTrigger.module.css'
 
-function DropdownButton(): JSX.Element {
+const DropdownButton = (): JSX.Element => {
   const { state } = useSingleSelectContext()
 
   return (

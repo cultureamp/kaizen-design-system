@@ -2,8 +2,7 @@ import React, { useLayoutEffect } from 'react'
 import { DismissButton, Overlay, usePopover } from 'react-aria'
 import { useSingleSelectContext } from '../../context'
 import { type PopoverProps, type SelectItem } from '../../types'
-import { useSupportsAnchorPositioning } from './utils'
-import { usePositioningStyles } from './utils/usePositioningStyles'
+import { usePositioningStyles, useSupportsAnchorPositioning } from './utils'
 
 import styles from './Popover.module.css'
 
@@ -78,5 +77,3 @@ export const Popover = <T extends SelectItem>({
     </>
   )
 }
-
-Popover.displayName = 'SingleSelect.Popover'

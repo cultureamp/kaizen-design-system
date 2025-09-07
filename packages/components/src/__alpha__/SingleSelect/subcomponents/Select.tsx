@@ -8,7 +8,7 @@ import { List } from './List'
 import { Popover } from './Popover'
 import { SelectTrigger } from './SelectTrigger'
 
-export function Select<T extends SelectItem>(props: SelectProps<T>): JSX.Element {
+export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element => {
   const { label } = props
 
   const state = useSelectState({
