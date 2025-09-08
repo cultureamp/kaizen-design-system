@@ -32,10 +32,10 @@ const StickerSheetTemplate: StickerSheetStory = {
 
           <SingleSelect label="Select grouped colours">
             <Section title="Warm Colours">
-              <Item key="red">Red</Item>
+              <Item>Red</Item>
             </Section>
             <Section title="Cool Colours">
-              <Item key="blue">Blue</Item>
+              <Item>Blue</Item>
             </Section>
           </SingleSelect>
         </StickerSheet.Row>

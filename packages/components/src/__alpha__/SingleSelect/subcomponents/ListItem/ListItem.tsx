@@ -10,6 +10,7 @@ export const ListItem = <T extends SelectItem>({ item, state }: ListItemProps<T>
 
   return (
     <li
+      key={item.key}
       {...optionProps}
       ref={ref}
       className={classNames(styles.listItem, {

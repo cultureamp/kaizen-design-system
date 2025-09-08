@@ -1,12 +1,11 @@
 import type { DOMAttributes, RefObject } from 'react'
 
-import { type ComboBoxStateOptions } from '@react-stately/combobox'
+import { type ComboBoxState, type ComboBoxStateOptions } from '@react-stately/combobox'
 import type { ListState } from '@react-stately/list'
-import { type SelectStateOptions } from '@react-stately/select'
-import { type CollectionChildren, type Node } from '@react-types/shared'
+import { type SelectState, type SelectStateOptions } from '@react-stately/select'
+import { type CollectionChildren, type Key, type Node } from '@react-types/shared'
 import { type FocusableElement } from '@react-types/shared/src/dom'
 import type { AriaButtonProps, AriaListBoxOptions, AriaPopoverProps } from 'react-aria'
-import type { ComboBoxState, Key, SelectState } from 'react-stately'
 
 // Shared types
 export type SelectItem = {

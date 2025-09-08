@@ -1,6 +1,6 @@
 import React, { useId, useRef } from 'react'
+import { useComboBoxState } from '@react-stately/combobox'
 import { useComboBox, useFilter } from 'react-aria'
-import { useComboBoxState } from 'react-stately'
 import { Text } from '~components/Text'
 import { SingleSelectContext } from '../context'
 import { type ComboBoxProps, type SelectItem } from '../types'

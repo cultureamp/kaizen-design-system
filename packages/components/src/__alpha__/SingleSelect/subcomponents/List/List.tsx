@@ -14,9 +14,9 @@ export const List = <T extends SelectItem>({
 
   const renderNode = (node: any): JSX.Element => {
     if (node.type === 'section') {
-      return node.rendered && <ListSection section={node} state={state} />
+      return node.rendered && <ListSection key={String(node.key)} section={node} state={state} />
     } else {
-      return <ListItem key={node.key} item={node} state={state} />
+      return <ListItem key={String(node.key)} item={node} state={state} />
     }
   }
 

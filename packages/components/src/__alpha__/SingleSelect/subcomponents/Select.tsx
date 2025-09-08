@@ -1,6 +1,6 @@
 import React, { useId, useRef } from 'react'
+import { useSelectState } from '@react-stately/select'
 import { useSelect } from 'react-aria'
-import { useSelectState } from 'react-stately'
 import { Text } from '~components/Text'
 import { SingleSelectContext } from '../context'
 import { type SelectItem, type SelectProps } from '../types'

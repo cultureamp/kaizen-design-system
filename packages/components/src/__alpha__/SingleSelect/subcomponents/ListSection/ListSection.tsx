@@ -17,7 +17,7 @@ export const ListSection = <T extends SelectItem>({
   // See https://github.com/adobe/react-spectrum/issues/1234 for more details
 
   return (
-    <>
+    <React.Fragment key={section.key}>
       {section.key !== state.collection.getFirstKey() && <li role="presentation" aria-hidden />}
       <li {...itemProps}>
         {section.rendered && (
@@ -31,6 +31,7 @@ export const ListSection = <T extends SelectItem>({
           </span>
         )}
         <ul
+          key={`${section.key}-group-contents`}
           {...groupProps}
           style={{
             padding: 0,
@@ -42,6 +43,6 @@ export const ListSection = <T extends SelectItem>({
           ))}
         </ul>
       </li>
-    </>
+    </React.Fragment>
   )
 }
