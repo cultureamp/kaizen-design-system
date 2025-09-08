@@ -13,9 +13,6 @@ export const ListSection = <T extends SelectItem>({
     'aria-label': section['aria-label'],
   })
 
-  // Known issue: Incorrect group count screenreader announcements with all grouped ListBox patterns in Chrome & Safari
-  // See https://github.com/adobe/react-spectrum/issues/1234 for more details
-
   return (
     <React.Fragment key={section.key}>
       {section.key !== state.collection.getFirstKey() && <li role="presentation" aria-hidden />}
@@ -33,10 +30,7 @@ export const ListSection = <T extends SelectItem>({
         <ul
           key={`${section.key}-group-contents`}
           {...groupProps}
-          style={{
-            padding: 0,
-            listStyle: 'none',
-          }}
+          className={styles.listSectionGroup}
         >
           {[...section.childNodes].map((node) => (
             <ListItem key={node.key} item={node} state={state} />
