@@ -1,6 +1,6 @@
 import React from 'react'
+import { Item, Section } from '@react-stately/collections'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { Item, Section } from 'react-stately'
 import { SingleSelect } from '../index'
 import { singleMockItems } from './mockData'
 

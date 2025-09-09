@@ -1,6 +1,6 @@
 import React from 'react'
+import { Item, Section } from '@react-stately/collections'
 import { type Meta } from '@storybook/react'
-import { Item, Section } from 'react-stately'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { SingleSelect } from '../index'
 

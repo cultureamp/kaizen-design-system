@@ -1,7 +1,7 @@
 import React from 'react'
+import { Item } from '@react-stately/collections'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, screen, userEvent, waitFor } from '@storybook/test'
-import { Item } from 'react-stately'
 import { SingleSelect } from '../SingleSelect'
 import { singleMockItems } from './mockData'
 
