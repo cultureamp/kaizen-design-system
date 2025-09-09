@@ -1,5 +1,4 @@
 import React from 'react'
-import { Item } from '@react-stately/collections'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, screen, userEvent, waitFor } from '@storybook/test'
 import { SingleSelect } from '../SingleSelect'
@@ -20,7 +19,7 @@ type Story = StoryObj<typeof meta>
 const args = {
   label: 'Choose a coffee',
   items: singleMockItems,
-  children: (item: any) => <Item key={item.key}>{item.label}</Item>,
+  children: (item: any) => <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>,
 }
 
 export const RendersButton: Story = {
