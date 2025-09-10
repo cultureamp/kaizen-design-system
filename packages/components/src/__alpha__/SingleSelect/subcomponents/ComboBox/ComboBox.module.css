@@ -9,8 +9,7 @@
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto;
-    column-gap: var(--spacing-6);
-    row-gap: var(--spacing-4);
+    gap: var(--spacing-4) var(--spacing-6);
     align-items: center;
   }
 

@@ -1,4 +1,32 @@
 @layer kz-components {
+  .input {
+    outline: none;
+    text-overflow: ellipsis;
+    background-color: var(--color-white);
+    padding: 0;
+  }
+
+  .disabled {
+    pointer-events: none;
+    border: var(--spacing-2) solid var(--color-gray-300);
+    background-color: var(--color-gray-100);
+    color: var(--color-gray-500);
+
+    .input {
+      background-color: var(--color-gray-100);
+    }
+  }
+
+  .readOnly {
+    pointer-events: none;
+    background-color: var(--color-gray-200);
+    border: var(--spacing-2) solid var(--color-gray-200);
+
+    .input {
+      background-color: var(--color-gray-200);
+    }
+  }
+
   .trigger {
     anchor-name: var(--anchor-name);
     display: flex;
@@ -28,6 +56,7 @@
         background-color: var(--color-white);
       }
     }
+
     &:hover:not(:focus-within) {
       border-color: var(--color-gray-600);
       background-color: var(--color-gray-200);
@@ -38,13 +67,6 @@
     }
   }
 
-  .input {
-    outline: none;
-    text-overflow: ellipsis;
-    background-color: var(--color-white);
-    padding: 0;
-  }
-
   .smallText {
     font-family: var(--typography-paragraph-small-font-family);
     font-weight: var(--typography-paragraph-small-font-weight);
@@ -53,38 +75,19 @@
     letter-spacing: var(--typography-paragraph-small-letter-spacing);
   }
 
-  .secondary:not(.disabled):not(.readOnly) {
+  .secondary:not(.disabled, .readOnly) {
     border: none;
     border-radius: 0.4375rem 0.4375rem 0 0;
     border-bottom: var(--spacing-2) solid var(--color-gray-400);
+
     &:hover {
       border: var(--spacing-2) solid var(--color-gray-600);
       border-radius: 0.4375rem;
     }
+
     &:focus-within {
       border: var(--spacing-2) solid var(--color-gray-600);
       border-radius: 0.4375rem;
-    }
-  }
-
-  .disabled {
-    pointer-events: none;
-    border: var(--spacing-2) solid var(--color-gray-300);
-    background-color: var(--color-gray-100);
-    color: var(--color-gray-500);
-
-    .input {
-      background-color: var(--color-gray-100);
-    }
-  }
-
-  .readOnly {
-    pointer-events: none;
-    background-color: var(--color-gray-200);
-    border: var(--spacing-2) solid var(--color-gray-200);
-
-    .input {
-      background-color: var(--color-gray-200);
     }
   }
 
@@ -100,6 +103,7 @@
     background: none;
     padding: 0;
     display: flex;
+
     &:focus-visible {
       outline: var(--spacing-2) solid var(--color-blue-500);
       border-radius: 50%;

@@ -16,19 +16,19 @@
     border-radius: var(--spacing-8);
     border: var(--spacing-2) solid var(--color-gray-500);
 
-    &:hover:not(.disabled) {
-      border-color: var(--color-gray-600);
-      background-color: var(--color-gray-200);
-    }
-
     &:focus-visible {
       outline-offset: var(--spacing-2);
       outline: var(--spacing-2) solid var(--color-blue-500);
       background-color: var(--color-white);
     }
+
+    &:hover:not(.disabled) {
+      border-color: var(--color-gray-600);
+      background-color: var(--color-gray-200);
+    }
   }
 
-  .secondary:not(.disabled):not(.readOnly) {
+  .secondary:not(.disabled, .readOnly) {
     border: none;
     border-bottom: var(--spacing-2) solid var(--color-gray-400);
     border-radius: 0.4375rem 0.4375rem 0 0;

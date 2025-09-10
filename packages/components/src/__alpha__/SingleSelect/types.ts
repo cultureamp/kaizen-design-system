@@ -23,12 +23,12 @@ export type SelectSection = {
 // SingleSelect
 export type SelectLabel =
   | {
-      labelHidden?: false
-      label: React.ReactNode
-    }
-  | {
       labelHidden: true
       label: string
+    }
+  | {
+      labelHidden?: false
+      label: React.ReactNode
     }
 
 export type SelectBaseProps = {
@@ -40,19 +40,15 @@ export type SelectBaseProps = {
   selectedPosition?: 'start' | 'end'
 } & SelectLabel
 
-export type SelectProps<T extends SelectItem> = Omit<
-  SelectStateOptions<T>,
-  'children' | 'label'
-> & {
-  children: ((item: T) => React.ReactElement) | CollectionChildren<T>
-} & SelectBaseProps
+export type SelectProps<T extends SelectItem> = Omit<SelectStateOptions<T>, 'label'> &
+  SelectBaseProps
 
-export type ComboBoxProps<T extends SelectItem> = Omit<
-  ComboBoxStateOptions<T>,
-  'children' | 'label'
-> & {
-  children: ((item: T) => React.ReactElement) | CollectionChildren<T>
-} & SelectBaseProps
+export type ComboBoxProps<T extends SelectItem> = Omit<ComboBoxStateOptions<T>, 'label'> &
+  SelectBaseProps
+
+export type SingleSelectProps<T extends SelectItem> =
+  | (ComboBoxProps<T> & { isComboBox?: true })
+  | (SelectProps<T> & { isComboBox?: false })
 
 // Trigger
 export type SelectTriggerProps = {
