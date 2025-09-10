@@ -67,7 +67,7 @@ export type ComboBoxTriggerProps = {
   clearButtonRef: React.MutableRefObject<HTMLButtonElement | null>
 }
 
-export type DropdownButtonProps = AriaButtonProps<'button'> & {
+export type ChevronButtonProps = AriaButtonProps<'button'> & {
   buttonRef: React.MutableRefObject<HTMLButtonElement | null>
 }
 

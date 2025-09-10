@@ -7,11 +7,11 @@ import { useSingleSelectContext } from '../../context'
 import { type SelectTriggerProps } from '../../types'
 import styles from './SelectTrigger.module.css'
 
-const DropdownButton = (): JSX.Element => {
+const ChevronButton = (): JSX.Element => {
   const { state } = useSingleSelectContext()
 
   return (
-    <div className={styles.button}>
+    <div className={styles.chevronButton}>
       <Icon
         alt={state.isOpen ? 'close' : 'open'}
         name={state.isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
@@ -46,7 +46,7 @@ export const SelectTrigger = ({
         <span {...valueProps}>{state.selectedItem ? state.selectedItem.rendered : ''}</span>
       </Text>
 
-      {!isReadOnly && <DropdownButton />}
+      {!isReadOnly && <ChevronButton />}
     </button>
   )
 }

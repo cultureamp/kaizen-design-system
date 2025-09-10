@@ -15,23 +15,17 @@
     background-color: var(--color-white);
     border-radius: var(--spacing-8);
     border: var(--spacing-2) solid var(--color-gray-500);
-  }
 
-  .trigger:hover:not(.disabled) {
-    border-color: var(--color-gray-600);
-    background-color: var(--color-gray-200);
-  }
+    &:hover:not(.disabled) {
+      border-color: var(--color-gray-600);
+      background-color: var(--color-gray-200);
+    }
 
-  .trigger:focus-visible {
-    outline-offset: var(--spacing-2);
-    outline: var(--spacing-2) solid var(--color-blue-500);
-    background-color: var(--color-white);
-  }
-
-  .button {
-    background: none;
-    padding: 0;
-    display: flex;
+    &:focus-visible {
+      outline-offset: var(--spacing-2);
+      outline: var(--spacing-2) solid var(--color-blue-500);
+      background-color: var(--color-white);
+    }
   }
 
   .secondary:not(.disabled):not(.readOnly) {
@@ -69,5 +63,11 @@
 
   .large {
     height: var(--spacing-48);
+  }
+
+  .chevronButton {
+    background: none;
+    padding: 0;
+    display: flex;
   }
 }

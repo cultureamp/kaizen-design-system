@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { useButton } from 'react-aria'
 import { Icon } from '~components/Icon'
 import { useSingleSelectContext } from '../../context'
-import { type ComboBoxTriggerProps, type DropdownButtonProps } from '../../types'
+import { type ChevronButtonProps, type ComboBoxTriggerProps } from '../../types'
 import styles from './ComboBoxTrigger.module.css'
 
 const ClearButton = ({
@@ -34,7 +34,7 @@ const ClearButton = ({
   )
 }
 
-const DropdownButton = (props: DropdownButtonProps): JSX.Element => {
+const ChevronButton = (props: ChevronButtonProps): JSX.Element => {
   const { state } = useSingleSelectContext()
   const { buttonProps } = useButton(props, props.buttonRef)
 
@@ -43,7 +43,7 @@ const DropdownButton = (props: DropdownButtonProps): JSX.Element => {
       type="button"
       {...buttonProps}
       ref={props.buttonRef}
-      className={styles.button}
+      className={styles.chevronButton}
       tabIndex={-1}
     >
       <Icon
@@ -87,7 +87,7 @@ export const ComboBoxTrigger = ({
       {hasValue && !isReadOnly && (
         <ClearButton inputRef={inputRef} clearButtonRef={clearButtonRef} />
       )}
-      {!isReadOnly && <DropdownButton {...buttonProps} buttonRef={buttonRef} />}
+      {!isReadOnly && <ChevronButton {...buttonProps} buttonRef={buttonRef} />}
     </div>
   )
 }

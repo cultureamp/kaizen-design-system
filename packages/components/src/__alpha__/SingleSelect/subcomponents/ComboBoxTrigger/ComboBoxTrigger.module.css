@@ -17,25 +17,24 @@
     border: var(--spacing-2) solid var(--color-gray-500);
     box-sizing: border-box;
     gap: var(--spacing-6);
-  }
 
-  .trigger:focus-within {
-    outline-offset: var(--spacing-2);
-    outline: var(--spacing-2) solid var(--color-blue-500);
-    background-color: var(--color-white);
-    border-radius: 0.4375rem;
-
-    .input {
+    &:focus-within {
+      outline-offset: var(--spacing-2);
+      outline: var(--spacing-2) solid var(--color-blue-500);
       background-color: var(--color-white);
+      border-radius: 0.4375rem;
+
+      .input {
+        background-color: var(--color-white);
+      }
     }
-  }
-
-  .trigger:hover:not(:focus-within) {
-    border-color: var(--color-gray-600);
-    background-color: var(--color-gray-200);
-
-    .input {
+    &:hover:not(:focus-within) {
+      border-color: var(--color-gray-600);
       background-color: var(--color-gray-200);
+
+      .input {
+        background-color: var(--color-gray-200);
+      }
     }
   }
 
@@ -54,28 +53,6 @@
     letter-spacing: var(--typography-paragraph-small-letter-spacing);
   }
 
-  .button {
-    background: none;
-    padding: 0;
-    display: flex;
-  }
-
-  .buttonText {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .clearButton {
-    background: none;
-    padding: 0;
-    display: flex;
-    &:focus-visible {
-      outline: var(--spacing-2) solid var(--color-blue-500);
-      border-radius: 50%;
-    }
-  }
-
-
   .secondary:not(.disabled):not(.readOnly) {
     border: none;
     border-radius: 0.4375rem 0.4375rem 0 0;
@@ -87,10 +64,8 @@
     &:focus-within {
       border: var(--spacing-2) solid var(--color-gray-600);
       border-radius: 0.4375rem;
-
     }
   }
-
 
   .disabled {
     pointer-events: none;
@@ -119,5 +94,21 @@
 
   .large {
     height: var(--spacing-48);
+  }
+
+  .clearButton {
+    background: none;
+    padding: 0;
+    display: flex;
+    &:focus-visible {
+      outline: var(--spacing-2) solid var(--color-blue-500);
+      border-radius: 50%;
+    }
+  }
+
+  .chevronButton {
+    background: none;
+    padding: 0;
+    display: flex;
   }
 }
