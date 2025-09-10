@@ -1,10 +1,17 @@
-import { type RefObject } from 'react'
-import { type Key } from '@react-types/shared'
+import type { DOMAttributes, RefObject } from 'react'
+
+import { type ComboBoxState, type ComboBoxStateOptions } from '@react-stately/combobox'
+import type { ListState } from '@react-stately/list'
+import { type SelectState, type SelectStateOptions } from '@react-stately/select'
+import { type CollectionChildren, type Key, type Node } from '@react-types/shared'
+import { type FocusableElement } from '@react-types/shared/src/dom'
+import type { AriaButtonProps, AriaListBoxOptions, AriaPopoverProps } from 'react-aria'
 
 // Shared types
 export type SelectItem = {
   label: string
   value: string
+  key: Key
 }
 
 export type SelectSection = {
@@ -12,23 +19,41 @@ export type SelectSection = {
   options: SelectItem[]
 }
 
-// SingleSelect related types
-export type SingleSelectProps = {
-  children?: React.ReactNode
-  items: (SelectItem | SelectSection)[]
-  onSelectionChange?: (key: Key | null) => void
+// SingleSelect
+export type SelectProps<T extends SelectItem> = Omit<SelectStateOptions<T>, 'children'> & {
+  children: ((item: T) => React.ReactElement) | CollectionChildren<T>
 }
 
-// Trigger related types
-export type TriggerProps = {
-  buttonRef: React.RefObject<HTMLButtonElement>
+export type ComboBoxProps<T extends SelectItem> = Omit<ComboBoxStateOptions<T>, 'children'> & {
+  children: CollectionChildren<T> | ((item: T) => React.ReactElement)
 }
 
-// Popover related types
-export type PopoverProps = {
-  buttonRef: React.RefObject<HTMLElement>
+// Trigger
+export type SelectTriggerProps = {
+  triggerProps: AriaButtonProps<'button'>
+  valueProps: DOMAttributes<FocusableElement>
+  buttonRef: React.MutableRefObject<HTMLButtonElement | null>
+}
+
+export type ComboBoxTriggerProps = {
+  inputProps: React.InputHTMLAttributes<HTMLInputElement>
+  inputRef: React.MutableRefObject<HTMLInputElement | null>
+  buttonProps: AriaButtonProps<'button'>
+  buttonRef: React.MutableRefObject<HTMLButtonElement | null>
+}
+
+export type DropdownButtonProps = AriaButtonProps<'button'> & {
+  buttonRef: React.MutableRefObject<HTMLButtonElement | null>
+}
+
+// Popover
+
+export type PopoverProps<T extends SelectItem> = AriaPopoverProps & {
+  state: ComboBoxState<T> | SelectState<T>
+  triggerRef: React.RefObject<HTMLInputElement> | React.RefObject<HTMLButtonElement>
   popoverRef: React.RefObject<HTMLDivElement>
-  racPopoverRef: React.Ref<any>
+  clearButtonRef?: React.RefObject<HTMLButtonElement>
+  children: React.ReactNode
 }
 
 type PositionDataProp = number | string | undefined
@@ -55,4 +80,23 @@ export type UsePopoverPositioningProps = {
   direction?: 'ltr' | 'rtl'
   offset?: number
   preferredPlacement?: 'top' | 'bottom'
+}
+
+// List
+export type ListProps<T extends SelectItem> = {
+  state: ComboBoxState<T> | SelectState<T>
+  listBoxOptions: AriaListBoxOptions<T>
+  listBoxRef: React.RefObject<HTMLUListElement>
+}
+
+// ListItem
+export type ListItemProps<T extends SelectItem> = {
+  item: Node<T>
+  state: ListState<T>
+}
+
+// ListSection
+export type ListSectionProps<T extends SelectItem> = {
+  section: any
+  state: ComboBoxState<T> | SelectState<T>
 }

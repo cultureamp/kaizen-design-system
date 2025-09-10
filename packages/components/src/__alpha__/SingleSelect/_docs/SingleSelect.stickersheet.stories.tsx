@@ -2,7 +2,6 @@ import React from 'react'
 import { type Meta } from '@storybook/react'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { SingleSelect } from '../index'
-import { groupedMockItems, singleMockItems } from './mockData'
 
 export default {
   title: 'Components/SingleSelect/SingleSelect (alpha)',
@@ -17,28 +16,26 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <StickerSheet isReversed={isReversed} title="SingleSelect" headers={['Items', 'Grouped']}>
         <StickerSheet.Row>
-          <SingleSelect items={singleMockItems}>
-            <SingleSelect.List>
-              {singleMockItems.map((item) => (
-                <SingleSelect.ListItem key={item.value} id={item.value}>
-                  {item.label}
-                </SingleSelect.ListItem>
-              ))}
-            </SingleSelect.List>
+          <SingleSelect label="Combobox flat colours" isComboBox>
+            <SingleSelect.Item>Red</SingleSelect.Item>
+            <SingleSelect.Item>Orange</SingleSelect.Item>
+            <SingleSelect.Item>Yellow</SingleSelect.Item>
+            <SingleSelect.Item>Green</SingleSelect.Item>
+            <SingleSelect.Item>Blue</SingleSelect.Item>
+            <SingleSelect.Item>Purple</SingleSelect.Item>
+            <SingleSelect.Item>Black</SingleSelect.Item>
+            <SingleSelect.Item>White</SingleSelect.Item>
+            <SingleSelect.Item>Lime</SingleSelect.Item>
+            <SingleSelect.Item>Fushsia</SingleSelect.Item>
           </SingleSelect>
 
-          <SingleSelect items={groupedMockItems}>
-            <SingleSelect.List>
-              {groupedMockItems.map((section) => (
-                <SingleSelect.ListSection name={section.label} key={section.label}>
-                  {section.options.map((item) => (
-                    <SingleSelect.ListItem key={item.value} id={item.value}>
-                      {item.label}
-                    </SingleSelect.ListItem>
-                  ))}
-                </SingleSelect.ListSection>
-              ))}
-            </SingleSelect.List>
+          <SingleSelect label="Select grouped colours">
+            <SingleSelect.Section title="Warm Colours">
+              <SingleSelect.Item>Red</SingleSelect.Item>
+            </SingleSelect.Section>
+            <SingleSelect.Section title="Cool Colours">
+              <SingleSelect.Item>Blue</SingleSelect.Item>
+            </SingleSelect.Section>
           </SingleSelect>
         </StickerSheet.Row>
       </StickerSheet>
