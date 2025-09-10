@@ -17,11 +17,13 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
     label,
     description,
     labelHidden,
-    labelPosition,
+    labelPosition = 'top',
     isReadOnly,
     isDisabled,
-    size,
-    variant,
+    size = 'medium',
+    variant = 'primary',
+    selectedIcon,
+    selectedPosition = 'end',
   } = props
 
   const { contains } = useFilter({ sensitivity: 'base' })
@@ -63,6 +65,8 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
         isReadOnly: isReadOnly ?? false,
         secondary: variant === 'secondary',
         size,
+        selectedPosition,
+        selectedIcon,
       }}
     >
       <div className={labelPosition === 'top' ? styles.topLabel : styles.sideLabel}>

@@ -6,38 +6,13 @@ import { type ComboBoxProps, type SelectItem, type SelectProps } from './types'
 export const SingleSelect = <T extends SelectItem>(
   props: (ComboBoxProps<T> & { isComboBox?: true }) | (SelectProps<T> & { isComboBox?: false }),
 ): JSX.Element => {
-  const {
-    isComboBox,
-    children,
-    labelPosition = 'top',
-    variant = 'primary',
-    size = 'medium',
-    ...rest
-  } = props
+  const { isComboBox, children, ...rest } = props
 
   if (isComboBox) {
-    return (
-      <ComboBox
-        labelPosition={labelPosition}
-        variant={variant}
-        size={size}
-        {...(rest as ComboBoxProps<T>)}
-      >
-        {children}
-      </ComboBox>
-    )
+    return <ComboBox {...(rest as ComboBoxProps<T>)}>{children}</ComboBox>
   }
 
-  return (
-    <Select
-      labelPosition={labelPosition}
-      variant={variant}
-      size={size}
-      {...(rest as SelectProps<T>)}
-    >
-      {children}
-    </Select>
-  )
+  return <Select {...(rest as SelectProps<T>)}>{children}</Select>
 }
 
 SingleSelect.Item = Item

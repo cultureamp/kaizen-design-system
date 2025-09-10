@@ -194,6 +194,45 @@ const StickerSheetTemplate: StickerSheetStory = {
             ))}
           </SingleSelect>
         </StickerSheet.Row>
+
+        <StickerSheet.Row>
+          <SingleSelect label="Coffee" isComboBox selectedIcon="check" description="Checked items">
+            {singleMockItems.map((item) => (
+              <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
+            ))}
+          </SingleSelect>
+
+          <SingleSelect label="Coffee" selectedIcon="radio" description="Radio items">
+            {singleMockItems.map((item) => (
+              <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
+            ))}
+          </SingleSelect>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row>
+          <SingleSelect
+            label="Coffee"
+            isComboBox
+            selectedIcon="radio"
+            selectedPosition="start"
+            description="Radio items start"
+          >
+            {singleMockItems.map((item) => (
+              <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
+            ))}
+          </SingleSelect>
+
+          <SingleSelect
+            label="Coffee"
+            selectedIcon="check"
+            selectedPosition="start"
+            description="Check items start"
+          >
+            {singleMockItems.map((item) => (
+              <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
+            ))}
+          </SingleSelect>
+        </StickerSheet.Row>
       </StickerSheet>
     )
   },

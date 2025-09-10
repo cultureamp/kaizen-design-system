@@ -47,4 +47,23 @@
   .iconChecked {
     color: var(--color-blue-500);
   }
+
+  .itemText {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .selectedStartPosition {
+    justify-content: flex-start;
+  }
+
+  .selectedIconWrapper {
+    padding-right: var(--spacing-12);
+    display: flex;
+    align-items: center;
+  }
+
+  .emptySpacer {
+    width: 2.25rem;
+  }
 }

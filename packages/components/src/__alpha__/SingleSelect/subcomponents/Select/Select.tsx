@@ -1,7 +1,6 @@
 import React, { useId, useRef } from 'react'
 import { useSelectState } from '@react-stately/select'
 import { useSelect } from 'react-aria'
-import { Text } from '~components/Text'
 import { FieldMessage, Label } from '~components/index'
 import { SingleSelectContext } from '../../context'
 import { type SelectItem, type SelectProps } from '../../types'
@@ -11,8 +10,18 @@ import { SelectTrigger } from '../SelectTrigger'
 import styles from './Select.module.css'
 
 export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element => {
-  const { label, description, labelHidden, labelPosition, isDisabled, isReadOnly, size, variant } =
-    props
+  const {
+    label,
+    description,
+    labelHidden,
+    labelPosition = 'top',
+    isDisabled,
+    isReadOnly,
+    size = 'medium',
+    variant = 'primary',
+    selectedIcon,
+    selectedPosition = 'end',
+  } = props
 
   const state = useSelectState({
     ...props,
@@ -45,6 +54,8 @@ export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element
         isReadOnly: isReadOnly ?? false,
         secondary: variant === 'secondary',
         size,
+        selectedIcon,
+        selectedPosition,
       }}
     >
       <div className={labelPosition === 'top' ? styles.topLabel : styles.sideLabel}>

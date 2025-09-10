@@ -36,6 +36,8 @@ export type SelectBaseProps = {
   size?: 'small' | 'medium' | 'large'
   labelPosition?: 'top' | 'side'
   isReadOnly?: boolean
+  selectedIcon?: 'check' | 'radio'
+  selectedPosition?: 'start' | 'end'
 } & SelectLabel
 
 export type SelectProps<T extends SelectItem> = Omit<

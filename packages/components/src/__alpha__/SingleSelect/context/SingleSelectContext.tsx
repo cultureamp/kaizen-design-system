@@ -8,6 +8,8 @@ type BaseSingleSelectContextType = {
   isReadOnly: boolean
   secondary: boolean
   size?: 'small' | 'medium' | 'large'
+  selectedIcon?: 'check' | 'radio'
+  selectedPosition: 'start' | 'end'
 }
 
 type SingleSelectContextType =
