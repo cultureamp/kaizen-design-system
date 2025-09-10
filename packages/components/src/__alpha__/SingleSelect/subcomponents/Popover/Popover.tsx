@@ -1,54 +1,79 @@
-import React, { useLayoutEffect, useMemo, type PropsWithChildren } from 'react'
-
-import { Popover as RACPopover } from 'react-aria-components'
+import React, { useLayoutEffect } from 'react'
+import { DismissButton, Overlay, usePopover } from 'react-aria'
 import { useSingleSelectContext } from '../../context'
-import { type PopoverProps } from '../../types'
-import { usePositioningStyles } from './utils/usePositioningStyles'
+import { type PopoverProps, type SelectItem } from '../../types'
+import { usePositioningStyles, useSupportsAnchorPositioning } from './utils'
+
 import styles from './Popover.module.css'
 
-export const Popover = ({
-  buttonRef,
+export const Popover = <T extends SelectItem>({
+  state,
   popoverRef,
-  racPopoverRef,
   children,
-}: PopoverProps & PropsWithChildren): React.ReactElement => {
-  const { isOpen, setOpen, anchorName } = useSingleSelectContext()
+  ...restProps
+}: PopoverProps<T>): React.ReactElement => {
+  const { anchorName } = useSingleSelectContext()
+  const manualPopoverRef = React.useRef<HTMLDivElement>(null)
 
-  const { popoverStyle, isPositioned } = usePositioningStyles(buttonRef, popoverRef, anchorName)
+  const { popoverProps } = usePopover(
+    {
+      ...restProps,
+      popoverRef,
+    },
+    state,
+  )
 
-  const shouldShowPopover = useMemo(() => isOpen && isPositioned, [isOpen, isPositioned])
+  const supportsAnchorPositioning = useSupportsAnchorPositioning()
+  const { popoverStyle, isPositioned } = usePositioningStyles(
+    restProps.triggerRef as React.RefObject<HTMLElement>,
+    manualPopoverRef,
+    anchorName,
+  )
 
   useLayoutEffect(() => {
-    const popover = popoverRef.current
+    if (!supportsAnchorPositioning) return
+
+    const popover = manualPopoverRef?.current
     if (!popover?.showPopover || !popover?.hidePopover) return
 
-    if (shouldShowPopover) {
+    if (state.isOpen) {
       popover.showPopover()
     } else {
       popover.hidePopover()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [shouldShowPopover])
+  }, [supportsAnchorPositioning, state.isOpen, isPositioned])
+
+  const manualPopover = (
+    <div
+      // @ts-expect-error - popover attribute is not included in current ts version, ignore type error
+      popover="manual"
+      ref={manualPopoverRef}
+      className={styles.popover}
+      style={popoverStyle}
+    >
+      {children}
+    </div>
+  )
 
   return (
-    <RACPopover
-      shouldUpdatePosition={false}
-      trigger="manual"
-      isOpen={isOpen}
-      onOpenChange={setOpen}
-      ref={racPopoverRef}
-    >
-      <div
-        // @ts-expect-error - popover attribute is not included in current ts version, ignore type error
-        popover="manual"
-        ref={popoverRef}
-        className={styles.popover}
-        style={popoverStyle}
-      >
-        {children}
-      </div>
-    </RACPopover>
+    <>
+      {state.isOpen && (
+        <Overlay>
+          <div
+            id="popover-id"
+            {...popoverProps}
+            ref={popoverRef}
+            style={{
+              ...popoverProps.style,
+            }}
+            className={styles.popover}
+          >
+            <DismissButton onDismiss={state.close} />
+            {supportsAnchorPositioning ? manualPopover : children}
+            <DismissButton onDismiss={state.close} />
+          </div>
+        </Overlay>
+      )}
+    </>
   )
 }
-
-Popover.displayName = 'SingleSelect.Popover'

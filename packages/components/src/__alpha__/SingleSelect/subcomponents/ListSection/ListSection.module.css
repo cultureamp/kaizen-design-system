@@ -6,4 +6,9 @@
     line-height: var(--typography-heading-5-line-height);
     letter-spacing: var(--typography-heading-5-letter-spacing);
   }
+
+  .listSectionGroup {
+    padding: 0;
+    list-style: none;
+  }
 }
