@@ -65,6 +65,17 @@
     white-space: nowrap;
   }
 
+  .clearButton {
+    background: none;
+    padding: 0;
+    display: flex;
+    &:focus-visible {
+      outline: var(--spacing-2) solid var(--color-blue-500);
+      border-radius: 50%;
+    }
+  }
+
+
   .secondary:not(.disabled):not(.readOnly) {
     border: none;
     border-radius: 0.4375rem 0.4375rem 0 0;

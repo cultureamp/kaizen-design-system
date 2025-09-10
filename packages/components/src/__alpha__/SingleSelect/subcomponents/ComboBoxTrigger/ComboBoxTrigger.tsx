@@ -6,6 +6,34 @@ import { useSingleSelectContext } from '../../context'
 import { type ComboBoxTriggerProps, type DropdownButtonProps } from '../../types'
 import styles from './ComboBoxTrigger.module.css'
 
+const ClearButton = ({
+  clearButtonRef,
+  inputRef,
+}: {
+  clearButtonRef: React.RefObject<HTMLButtonElement>
+  inputRef: React.RefObject<HTMLInputElement>
+}): JSX.Element => {
+  const { state, isComboBox } = useSingleSelectContext()
+  const { buttonProps } = useButton(
+    {
+      'onPress': () => {
+        if (isComboBox) {
+          state.setSelectedKey(null)
+          state.setInputValue('')
+        }
+        inputRef.current?.focus()
+      },
+      'aria-label': 'Clear selection',
+    },
+    clearButtonRef,
+  )
+  return (
+    <button {...buttonProps} ref={clearButtonRef} type="button" className={styles.clearButton}>
+      <Icon name="cancel" isPresentational isFilled />
+    </button>
+  )
+}
+
 const DropdownButton = (props: DropdownButtonProps): JSX.Element => {
   const { state } = useSingleSelectContext()
   const { buttonProps } = useButton(props, props.buttonRef)
@@ -31,8 +59,14 @@ export const ComboBoxTrigger = ({
   inputRef,
   buttonProps,
   buttonRef,
+  clearButtonRef,
 }: ComboBoxTriggerProps): JSX.Element => {
-  const { anchorName, isDisabled, isReadOnly, secondary, size } = useSingleSelectContext()
+  const { state, anchorName, isDisabled, isComboBox, isReadOnly, secondary, size } =
+    useSingleSelectContext()
+  let hasValue = false
+  if (isComboBox) {
+    hasValue = Boolean(state.inputValue?.length)
+  }
 
   return (
     <div
@@ -50,6 +84,9 @@ export const ComboBoxTrigger = ({
         ref={inputRef}
         className={classNames(styles.input, { [styles.smallText]: size === 'small' })}
       />
+      {hasValue && !isReadOnly && (
+        <ClearButton inputRef={inputRef} clearButtonRef={clearButtonRef} />
+      )}
       {!isReadOnly && <DropdownButton {...buttonProps} buttonRef={buttonRef} />}
     </div>
   )
