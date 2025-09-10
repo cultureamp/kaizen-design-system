@@ -4,7 +4,7 @@ import type React from 'react'
 import { type ComboBoxState, type ComboBoxStateOptions } from '@react-stately/combobox'
 import type { ListState } from '@react-stately/list'
 import { type SelectState, type SelectStateOptions } from '@react-stately/select'
-import { type CollectionChildren, type Key, type Node } from '@react-types/shared'
+import { type Key, type Node } from '@react-types/shared'
 import { type FocusableElement } from '@react-types/shared/src/dom'
 import type { AriaButtonProps, AriaListBoxOptions, AriaPopoverProps } from 'react-aria'
 
@@ -120,6 +120,6 @@ export type ListItemProps<T extends SelectItem> = {
 
 // ListSection
 export type ListSectionProps<T extends SelectItem> = {
-  section: any
+  section: Node<T>
   state: ComboBoxState<T> | SelectState<T>
 }

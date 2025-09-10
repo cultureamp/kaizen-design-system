@@ -1,4 +1,5 @@
 import React from 'react'
+import type { Node } from '@react-types/shared'
 import { useListBox } from 'react-aria'
 import { type ListProps, type SelectItem } from '../../types'
 import { ListItem } from '../ListItem'
@@ -12,9 +13,9 @@ export const List = <T extends SelectItem>({
 }: ListProps<T>): JSX.Element => {
   const { listBoxProps } = useListBox(listBoxOptions, state, listBoxRef)
 
-  const renderNode = (node: any): JSX.Element => {
+  const renderNode = (node: Node<T>): JSX.Element | null => {
     if (node.type === 'section') {
-      return node.rendered && <ListSection key={String(node.key)} section={node} state={state} />
+      return node.rendered ? <ListSection section={node} state={state} /> : null
     } else {
       return <ListItem key={String(node.key)} item={node} state={state} />
     }

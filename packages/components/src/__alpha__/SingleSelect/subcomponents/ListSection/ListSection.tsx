@@ -32,7 +32,7 @@ export const ListSection = <T extends SelectItem>({
           {...groupProps}
           className={styles.listSectionGroup}
         >
-          {[...section.childNodes].map((node) => (
+          {Array.from(section.childNodes).map((node) => (
             <ListItem key={node.key} item={node} state={state} />
           ))}
         </ul>
