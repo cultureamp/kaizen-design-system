@@ -2,17 +2,23 @@ import { createContext, useContext } from 'react'
 import { type ComboBoxState } from '@react-stately/combobox'
 import { type SelectState } from '@react-stately/select'
 
+type BaseSingleSelectContextType = {
+  anchorName: string
+  isDisabled: boolean
+  isReadOnly: boolean
+  secondary: boolean
+  size?: 'small' | 'medium' | 'large'
+}
+
 type SingleSelectContextType =
-  | {
-      anchorName: string
+  | (BaseSingleSelectContextType & {
       state: ComboBoxState<object>
       isComboBox: true
-    }
-  | {
-      anchorName: string
+    })
+  | (BaseSingleSelectContextType & {
       state: SelectState<object>
       isComboBox: false
-    }
+    })
 
 export const SingleSelectContext = createContext<SingleSelectContextType | undefined>(undefined)
 

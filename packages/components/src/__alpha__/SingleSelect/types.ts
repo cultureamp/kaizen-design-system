@@ -1,5 +1,6 @@
 import type { DOMAttributes, RefObject } from 'react'
 
+import type React from 'react'
 import { type ComboBoxState, type ComboBoxStateOptions } from '@react-stately/combobox'
 import type { ListState } from '@react-stately/list'
 import { type SelectState, type SelectStateOptions } from '@react-stately/select'
@@ -20,13 +21,36 @@ export type SelectSection = {
 }
 
 // SingleSelect
-export type SelectProps<T extends SelectItem> = Omit<SelectStateOptions<T>, 'children'> & {
-  children: ((item: T) => React.ReactElement) | CollectionChildren<T>
-}
+export type SelectLabel =
+  | {
+      labelHidden?: false
+      label: React.ReactNode
+    }
+  | {
+      labelHidden: true
+      label: string
+    }
 
-export type ComboBoxProps<T extends SelectItem> = Omit<ComboBoxStateOptions<T>, 'children'> & {
-  children: CollectionChildren<T> | ((item: T) => React.ReactElement)
-}
+export type SelectBaseProps = {
+  variant?: 'primary' | 'secondary'
+  size?: 'small' | 'medium' | 'large'
+  labelPosition?: 'top' | 'side'
+  isReadOnly?: boolean
+} & SelectLabel
+
+export type SelectProps<T extends SelectItem> = Omit<
+  SelectStateOptions<T>,
+  'children' | 'label'
+> & {
+  children: ((item: T) => React.ReactElement) | CollectionChildren<T>
+} & SelectBaseProps
+
+export type ComboBoxProps<T extends SelectItem> = Omit<
+  ComboBoxStateOptions<T>,
+  'children' | 'label'
+> & {
+  children: ((item: T) => React.ReactElement) | CollectionChildren<T>
+} & SelectBaseProps
 
 // Trigger
 export type SelectTriggerProps = {

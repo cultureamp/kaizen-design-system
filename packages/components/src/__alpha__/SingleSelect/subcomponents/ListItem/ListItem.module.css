@@ -13,12 +13,12 @@
     margin: 0;
     list-style-type: none;
     border-radius: var(--spacing-8);
-    border: 2px solid transparent;
+    border: var(--spacing-2) solid transparent;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
-    &:hover {
+    &:hover:not(.disabled) {
       background-color: var(--color-gray-200);
     }
   }
@@ -29,7 +29,7 @@
 
   .focused {
     outline: none;
-    border: 2px solid var(--color-blue-500);
+    border: var(--spacing-2) solid var(--color-blue-500);
   }
 
   .selected {

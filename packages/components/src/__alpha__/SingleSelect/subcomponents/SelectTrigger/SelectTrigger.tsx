@@ -1,6 +1,8 @@
 import React from 'react'
+import classNames from 'classnames'
 import { useButton } from 'react-aria'
 import { Icon } from '~components/Icon'
+import { Text } from '~components/Text'
 import { useSingleSelectContext } from '../../context'
 import { type SelectTriggerProps } from '../../types'
 import styles from './SelectTrigger.module.css'
@@ -23,7 +25,7 @@ export const SelectTrigger = ({
   valueProps,
   buttonRef,
 }: SelectTriggerProps): JSX.Element => {
-  const { state, anchorName } = useSingleSelectContext()
+  const { state, anchorName, isDisabled, isReadOnly, secondary, size } = useSingleSelectContext()
   const { buttonProps } = useButton(triggerProps, buttonRef)
 
   return (
@@ -31,12 +33,20 @@ export const SelectTrigger = ({
       {...buttonProps}
       type="button"
       style={{ '--anchor-name': anchorName } as React.CSSProperties}
-      className={styles.trigger}
+      className={classNames(styles.trigger, {
+        [styles.disabled]: isDisabled,
+        [styles.readOnly]: isReadOnly,
+        [styles.secondary]: secondary,
+        [styles.small]: size === 'small',
+        [styles.large]: size === 'large',
+      })}
       ref={buttonRef}
     >
-      <span {...valueProps}>{state.selectedItem ? state.selectedItem.rendered : ''}</span>
+      <Text variant={size === 'small' ? 'small' : 'body'}>
+        <span {...valueProps}>{state.selectedItem ? state.selectedItem.rendered : ''}</span>
+      </Text>
 
-      <DropdownButton />
+      {!isReadOnly && <DropdownButton />}
     </button>
   )
 }

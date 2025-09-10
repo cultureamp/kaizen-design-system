@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import { useButton } from 'react-aria'
 import { Icon } from '~components/Icon'
 import { useSingleSelectContext } from '../../context'
@@ -31,12 +32,25 @@ export const ComboBoxTrigger = ({
   buttonProps,
   buttonRef,
 }: ComboBoxTriggerProps): JSX.Element => {
-  const { anchorName } = useSingleSelectContext()
+  const { anchorName, isDisabled, isReadOnly, secondary, size } = useSingleSelectContext()
 
   return (
-    <div style={{ '--anchor-name': anchorName } as React.CSSProperties} className={styles.trigger}>
-      <input {...inputProps} ref={inputRef} className={styles.input} />
-      <DropdownButton {...buttonProps} buttonRef={buttonRef} />
+    <div
+      style={{ '--anchor-name': anchorName } as React.CSSProperties}
+      className={classNames(styles.trigger, {
+        [styles.disabled]: isDisabled,
+        [styles.readOnly]: isReadOnly,
+        [styles.secondary]: secondary,
+        [styles.small]: size === 'small',
+        [styles.large]: size === 'large',
+      })}
+    >
+      <input
+        {...inputProps}
+        ref={inputRef}
+        className={classNames(styles.input, { [styles.smallText]: size === 'small' })}
+      />
+      {!isReadOnly && <DropdownButton {...buttonProps} buttonRef={buttonRef} />}
     </div>
   )
 }
