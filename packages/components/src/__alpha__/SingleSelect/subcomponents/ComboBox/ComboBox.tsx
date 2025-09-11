@@ -41,7 +41,7 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
   const buttonRef = useRef<HTMLButtonElement>(null)
   const clearButtonRef = useRef<HTMLButtonElement>(null)
 
-  const { labelProps, inputProps, listBoxProps, buttonProps } = useComboBox(
+  const { labelProps, descriptionProps, inputProps, listBoxProps, buttonProps } = useComboBox(
     {
       ...props,
       'aria-label': labelHidden ? label : undefined,
@@ -87,7 +87,7 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
 
         {description && (
           <div className={styles.description}>
-            <FieldMessage message={description} />
+            <FieldMessage message={description} {...descriptionProps} />
           </div>
         )}
       </div>

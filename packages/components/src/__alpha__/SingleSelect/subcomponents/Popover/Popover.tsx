@@ -10,7 +10,6 @@ export const Popover = <T extends SelectItem>({
   state,
   popoverRef,
   children,
-  clearButtonRef,
   ...restProps
 }: PopoverProps<T>): React.ReactElement => {
   const { anchorName } = useSingleSelectContext()
@@ -20,12 +19,6 @@ export const Popover = <T extends SelectItem>({
     {
       ...restProps,
       popoverRef,
-      shouldCloseOnInteractOutside: (element) => {
-        if (clearButtonRef?.current?.contains(element)) {
-          return false
-        }
-        return true
-      },
     },
     state,
   )

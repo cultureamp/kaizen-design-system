@@ -11,11 +11,13 @@ export const List = <T extends SelectItem>({
   listBoxOptions,
   listBoxRef,
 }: ListProps<T>): JSX.Element => {
-  const { listBoxProps } = useListBox(listBoxOptions, state, listBoxRef)
+  const { listBoxProps } = useListBox({ ...listBoxOptions, autoFocus: 'first' }, state, listBoxRef)
 
   const renderNode = (node: Node<T>): JSX.Element | null => {
     if (node.type === 'section') {
-      return node.rendered ? <ListSection section={node} state={state} /> : null
+      return node.rendered ? (
+        <ListSection key={String(node.key)} section={node} state={state} />
+      ) : null
     } else {
       return <ListItem key={String(node.key)} item={node} state={state} />
     }

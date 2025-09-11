@@ -33,7 +33,7 @@ export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element
   const listBoxRef = useRef<HTMLUListElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
 
-  const { labelProps, menuProps, triggerProps, valueProps } = useSelect(
+  const { labelProps, descriptionProps, menuProps, triggerProps, valueProps } = useSelect(
     {
       ...props,
       'aria-label': labelHidden ? label : undefined,
@@ -73,7 +73,7 @@ export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element
         </div>
         {description && (
           <div className={styles.description}>
-            <FieldMessage message={description} />
+            <FieldMessage message={description} {...descriptionProps} />
           </div>
         )}
       </div>

@@ -6,34 +6,6 @@ import { useSingleSelectContext } from '../../context'
 import { type ChevronButtonProps, type ComboBoxTriggerProps } from '../../types'
 import styles from './ComboBoxTrigger.module.css'
 
-const ClearButton = ({
-  clearButtonRef,
-  inputRef,
-}: {
-  clearButtonRef: React.RefObject<HTMLButtonElement>
-  inputRef: React.RefObject<HTMLInputElement>
-}): JSX.Element => {
-  const { state, isComboBox } = useSingleSelectContext()
-  const { buttonProps } = useButton(
-    {
-      'onPress': () => {
-        if (isComboBox) {
-          state.setSelectedKey(null)
-          state.setInputValue('')
-        }
-        inputRef.current?.focus()
-      },
-      'aria-label': 'Clear selection',
-    },
-    clearButtonRef,
-  )
-  return (
-    <button {...buttonProps} ref={clearButtonRef} type="button" className={styles.clearButton}>
-      <Icon name="cancel" isPresentational isFilled />
-    </button>
-  )
-}
-
 const ChevronButton = (props: ChevronButtonProps): JSX.Element => {
   const { state } = useSingleSelectContext()
   const { buttonProps } = useButton(props, props.buttonRef)
@@ -59,35 +31,29 @@ export const ComboBoxTrigger = ({
   inputRef,
   buttonProps,
   buttonRef,
-  clearButtonRef,
 }: ComboBoxTriggerProps): JSX.Element => {
-  const { state, anchorName, isDisabled, isComboBox, isReadOnly, secondary, size } =
-    useSingleSelectContext()
-  let hasValue = false
-  if (isComboBox) {
-    hasValue = Boolean(state.inputValue?.length)
-  }
+  const { anchorName, isDisabled, isReadOnly, secondary, size } = useSingleSelectContext()
 
   return (
-    <div
-      style={{ '--anchor-name': anchorName } as React.CSSProperties}
-      className={classNames(styles.trigger, {
-        [styles.disabled]: isDisabled,
-        [styles.readOnly]: isReadOnly,
-        [styles.secondary]: secondary,
-        [styles.small]: size === 'small',
-        [styles.large]: size === 'large',
-      })}
-    >
-      <input
-        {...inputProps}
-        ref={inputRef}
-        className={classNames(styles.input, { [styles.smallText]: size === 'small' })}
-      />
-      {hasValue && !isReadOnly && (
-        <ClearButton inputRef={inputRef} clearButtonRef={clearButtonRef} />
-      )}
-      {!isReadOnly && <ChevronButton {...buttonProps} buttonRef={buttonRef} />}
-    </div>
+    <>
+      <div
+        style={{ '--anchor-name': anchorName } as React.CSSProperties}
+        className={classNames(styles.trigger, {
+          [styles.disabled]: isDisabled,
+          [styles.readOnly]: isReadOnly,
+          [styles.secondary]: secondary,
+          [styles.small]: size === 'small',
+          [styles.large]: size === 'large',
+        })}
+      >
+        <input
+          {...inputProps}
+          ref={inputRef}
+          className={classNames(styles.input, { [styles.smallText]: size === 'small' })}
+        />
+
+        {!isReadOnly && <ChevronButton {...buttonProps} buttonRef={buttonRef} />}
+      </div>
+    </>
   )
 }
