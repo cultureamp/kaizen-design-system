@@ -19,6 +19,78 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
+      - name: Build workspace once
+        run: pnpm turbo build
+      - name: Resolve merged PR head SHA
+        id: prmeta
+        run: |
+          set -euo pipefail
+          pr_number=$(gh pr list --state merged --json number,mergeCommit,headRefOid --limit 50 | jq -r --arg sha "$GITHUB_SHA" '.[] | select(.mergeCommit.oid==$sha) | .number' | head -n1 || true)
+          if [ -z "$pr_number" ]; then
+            echo "pr_head_sha=$GITHUB_SHA" >> $GITHUB_OUTPUT
+            echo "No matching merged PR found (non-merge commit); skipping hash verification later." >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
+          head_sha=$(gh pr view $pr_number --json headRefOid -q .headRefOid)
+          echo "Found PR #$pr_number head sha $head_sha" >> $GITHUB_STEP_SUMMARY
+          echo "pr_head_sha=$head_sha" >> $GITHUB_OUTPUT
+      - name: Download css hash artifact
+        id: downloadhash
+        run: |
+          set -euo pipefail
+          head_sha='${{ steps.prmeta.outputs.pr_head_sha }}'
+          if [ -z "$head_sha" ]; then
+            echo "No head sha resolved; skipping"; exit 0; fi
+          echo "Looking for Chromatic workflow run with head SHA $head_sha" >> $GITHUB_STEP_SUMMARY
+
+          run_id=$(gh run list --workflow "Chromatic (PR)" --json databaseId,headSha,status,conclusion,updatedAt \
+            | jq -r --arg sha "$head_sha" '.[] | select(.headSha==$sha and .conclusion=="success") | .databaseId' \
+            | head -n1 || true)
+          if [ -z "$run_id" ]; then
+            echo "❌ No successful Chromatic workflow run found for head SHA $head_sha. CSS hash verification failed." >> $GITHUB_STEP_SUMMARY
+            echo "Please wait for Chromatic workflow to complete successfully and re-run this workflow."
+            exit 1
+          fi
+          echo "Found Chromatic run ID: $run_id" >> $GITHUB_STEP_SUMMARY
+          echo "run_id=$run_id" >> $GITHUB_OUTPUT
+      - name: Download css hash artifact using run ID
+        if: steps.downloadhash.outputs.run_id != ''
+        uses: actions/download-artifact@v5
+        with:
+          run-id: ${{ steps.downloadhash.outputs.run_id }}
+          name: css-hash
+      - name: Extract hash from artifact
+        if: steps.downloadhash.outputs.run_id != ''
+        id: extracthash
+        run: |
+          if [ ! -f css-hash.txt ]; then
+            echo "css-hash.txt missing in downloaded artifact"; exit 1; fi
+          echo "artifact_hash=$(cat css-hash.txt)" >> $GITHUB_OUTPUT
+      - name: Compare CSS hash
+        if: steps.extracthash.outputs.artifact_hash != ''
+        run: |
+          set -euo pipefail
+          if [ ! -f packages/components/dist/styles.css ]; then
+            echo "styles.css missing after build"; exit 1; fi
+          current=$(sha256sum packages/components/dist/styles.css | awk '{print $1}')
+          echo "Artifact hash: ${{ steps.extracthash.outputs.artifact_hash }}" >> $GITHUB_STEP_SUMMARY
+          echo "Current build hash: $current" >> $GITHUB_STEP_SUMMARY
+          if [ "$current" != "${{ steps.extracthash.outputs.artifact_hash }}" ]; then
+            echo "❌ CSS hash mismatch detected!" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "## Hash Comparison" >> $GITHUB_STEP_SUMMARY
+            echo "- Changeset PR hash: ${{ steps.extracthash.outputs.artifact_hash }}" >> $GITHUB_STEP_SUMMARY
+            echo "- Current build hash: $current" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "## CSS Diff (first 50 lines)" >> $GITHUB_STEP_SUMMARY
+            echo '```diff' >> $GITHUB_STEP_SUMMARY
+            diff -u baseline-styles.css packages/components/dist/styles.css | head -n 50 >> $GITHUB_STEP_SUMMARY || true
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "CSS order has changed between the changeset PR and main build. Aborting before changesets."
+            exit 1
+          fi
+          echo "✅ CSS hash matches. Proceeding to changesets." >> $GITHUB_STEP_SUMMARY
       - name: Create Release Pull Request or Publish to npm
         run: |
           npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
