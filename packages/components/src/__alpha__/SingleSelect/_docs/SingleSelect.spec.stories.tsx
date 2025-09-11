@@ -76,3 +76,21 @@ export const KeyboardEscapeClosesPopover: Story = {
     await waitFor(() => expect(trigger).toHaveAttribute('aria-expanded', 'false'))
   },
 }
+
+export const XButtonClearsSelection: Story = {
+  args: { ...args, isComboBox: true },
+  play: async () => {
+    const input = screen.getByRole('combobox')
+
+    await userEvent.type(input, 'short')
+    const options = await screen.findAllByRole('option')
+    await userEvent.click(options[0])
+
+    const clearButton = await screen.findByRole('button', { name: 'Clear selection' })
+    await waitFor(() => expect(clearButton).toBeVisible())
+    await userEvent.click(clearButton)
+    await waitFor(() => {
+      expect(input).toHaveValue('')
+    })
+  },
+}
