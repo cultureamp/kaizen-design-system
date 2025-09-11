@@ -24,11 +24,18 @@ export const Popover = <T extends SelectItem>({
   )
 
   const supportsAnchorPositioning = useSupportsAnchorPositioning()
-  const { popoverStyle, isPositioned } = usePositioningStyles(
+  const { popoverStyle, isPositioned, updatePosition } = usePositioningStyles(
     restProps.triggerRef as React.RefObject<HTMLElement>,
     manualPopoverRef,
     anchorName,
   )
+
+  useLayoutEffect(() => {
+    if (!supportsAnchorPositioning) return
+    if (!state.isOpen) return
+
+    updatePosition()
+  }, [updatePosition, supportsAnchorPositioning, state.isOpen])
 
   useLayoutEffect(() => {
     if (!supportsAnchorPositioning) return
