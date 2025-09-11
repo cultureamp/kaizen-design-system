@@ -4,16 +4,14 @@ import classNames from 'classnames'
 import { useButton } from 'react-aria'
 import { Icon } from '~components/Icon'
 import { useSingleSelectContext } from '../../context'
-import { type ComboBoxTriggerProps, type DropdownButtonProps } from '../../types'
+import {
+  type ClearButtonProps,
+  type ComboBoxTriggerProps,
+  type DropdownButtonProps,
+} from '../../types'
 import styles from './ComboBoxTrigger.module.css'
 
-const ClearButton = ({
-  clearButtonRef,
-  inputRef,
-}: {
-  clearButtonRef: React.RefObject<HTMLButtonElement>
-  inputRef: React.RefObject<HTMLInputElement>
-}): JSX.Element => {
+const ClearButton = ({ clearButtonRef, inputRef }: ClearButtonProps): JSX.Element => {
   const { state, isComboBox } = useSingleSelectContext()
 
   const { formatMessage } = useIntl()

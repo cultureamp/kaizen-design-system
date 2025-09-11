@@ -47,6 +47,11 @@ export type DropdownButtonProps = AriaButtonProps<'button'> & {
   buttonRef: React.MutableRefObject<HTMLButtonElement | null>
 }
 
+export type ClearButtonProps = {
+  clearButtonRef: React.RefObject<HTMLButtonElement>
+  inputRef: React.RefObject<HTMLInputElement>
+}
+
 // Popover
 
 export type PopoverProps<T extends SelectItem> = AriaPopoverProps & {
