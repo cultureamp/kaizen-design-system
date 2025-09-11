@@ -185,6 +185,18 @@
     "description": "Prompts user to interact with button to hide information",
     "message": "Hide information:"
   },
+  "singleSelect.clearButtonAlt": {
+    "description": "Alt text for the clear selection button",
+    "message": "Clear selection"
+  },
+  "singleSelect.toggleButtonClose": {
+    "description": "Alt text for button that closes list",
+    "message": "close"
+  },
+  "singleSelect.toggleButtonOpen": {
+    "description": "Alt text for button that opens list",
+    "message": "open"
+  },
   "splitButton.dropdownButton.label": {
     "description": "Label for a dropdown menu holding additional actions",
     "message": "Additional actions"
