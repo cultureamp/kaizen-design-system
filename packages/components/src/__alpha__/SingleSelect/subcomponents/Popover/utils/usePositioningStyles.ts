@@ -42,16 +42,17 @@ export const usePositioningStyles = (
   buttonRef: React.RefObject<HTMLElement>,
   popoverRef: React.RefObject<HTMLDivElement>,
   anchorName: string,
-): { popoverStyle: React.CSSProperties; isPositioned: boolean } => {
+): { popoverStyle: React.CSSProperties; isPositioned: boolean; updatePosition: () => void } => {
   const { direction } = useLocale()
   const hasAnchorSupport = useSupportsAnchorPositioning()
 
-  const { top, bottom, insetInlineStart, maxHeight, isPositioned } = usePopoverPositioning({
-    triggerRef: buttonRef,
-    popoverRef,
-    direction,
-    preferredPlacement: 'bottom',
-  })
+  const { top, bottom, insetInlineStart, maxHeight, isPositioned, updatePosition } =
+    usePopoverPositioning({
+      triggerRef: buttonRef,
+      popoverRef,
+      direction,
+      preferredPlacement: 'bottom',
+    })
 
   const positionData = useMemo(
     () => ({
@@ -71,5 +72,5 @@ export const usePositioningStyles = (
     return getAnchorPositioningStyles(anchorName, positionData)
   }, [hasAnchorSupport, anchorName, positionData])
 
-  return { popoverStyle, isPositioned }
+  return { popoverStyle, isPositioned, updatePosition }
 }
