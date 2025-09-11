@@ -40,6 +40,7 @@ export type ComboBoxTriggerProps = {
   inputRef: React.MutableRefObject<HTMLInputElement | null>
   buttonProps: AriaButtonProps<'button'>
   buttonRef: React.MutableRefObject<HTMLButtonElement | null>
+  triggerWrapperRef: React.MutableRefObject<HTMLDivElement | null>
 }
 
 export type DropdownButtonProps = AriaButtonProps<'button'> & {
@@ -50,7 +51,7 @@ export type DropdownButtonProps = AriaButtonProps<'button'> & {
 
 export type PopoverProps<T extends SelectItem> = AriaPopoverProps & {
   state: ComboBoxState<T> | SelectState<T>
-  triggerRef: React.RefObject<HTMLInputElement> | React.RefObject<HTMLButtonElement>
+  triggerRef: React.RefObject<HTMLElement>
   popoverRef: React.RefObject<HTMLDivElement>
   clearButtonRef?: React.RefObject<HTMLButtonElement>
   children: React.ReactNode
