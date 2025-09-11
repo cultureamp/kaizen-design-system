@@ -17,31 +17,44 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    outline: none;
+  }
 
-    &:hover:not(.disabled) {
-      background-color: var(--color-gray-200);
-    }
+  .listItem:hover {
+    background-color: var(--color-gray-200);
+  }
+
+  .listItem:active {
+    background-color: var(--color-gray-300);
+  }
+
+  .listItem:focus-visible:not(:hover) {
+    border: var(--spacing-2) solid var(--color-blue-500);
   }
 
   .startSelection {
     justify-content: flex-start;
   }
 
-  .focused {
-    outline: none;
-    border: var(--spacing-2) solid var(--color-blue-500);
-  }
-
   .selected {
     background-color: var(--color-blue-100);
+    border: var(--spacing-2) solid transparent;
+  }
 
-    &:hover {
-      background-color: var(--color-blue-200);
-    }
+  .selected:hover {
+    background-color: var(--color-blue-200);
+  }
+
+  .selected:active {
+    background-color: var(--color-blue-100);
   }
 
   .disabled {
     color: var(--color-gray-500);
+  }
+
+  .disabled:hover {
+    background-color: var(--color-white);
   }
 
   .iconChecked {
