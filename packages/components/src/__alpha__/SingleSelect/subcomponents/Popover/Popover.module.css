@@ -6,7 +6,7 @@
     border-radius: var(--spacing-8);
     padding: 0;
     box-shadow: var(--shadow-small-box-shadow);
-    overflow-y: hidden;
+    overflow: hidden auto;
     margin: 0;
     box-sizing: border-box;
 
