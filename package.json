@@ -30,8 +30,8 @@
     "pkg:tokens": "pnpm -F @kaizen/design-tokens",
     "pkg:tailwind": "pnpm -F @kaizen/tailwind",
     "pkg:bundler": "pnpm -F @cultureamp/package-bundler",
-    "ci:version": "pnpm turbo build && pnpm changeset version",
-    "ci:publish": "pnpm turbo build && pnpm changeset publish",
+    "ci:version": "pnpm changeset version",
+    "ci:publish": "pnpm changeset publish",
     "update-icons": "pnpm pkg:aio update-icons",
     "i18n:extract": "pnpm pkg:aio i18n:extract",
     "i18n:extract:remove-obsolete": "pnpm pkg:aio i18n:extract --deleteObsoleteTranslations"

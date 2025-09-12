@@ -61,6 +61,51 @@ jobs:
             **/!(*.module).scss
             **/!(*.module).css
 
+  css-hash:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: chromatic
+    if: startsWith(github.head_ref, 'changeset-release/')
+    concurrency:
+      group: changeset-css-hash-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: ./.github/actions/setup
+      - name: Build workspace
+        run: pnpm build
+      - name: Generate CSS hash and metadata
+        run: |
+          set -euo pipefail
+          if [ ! -f packages/components/dist/styles.css ]; then
+            echo "styles.css not found after build; exiting"
+            exit 1
+          fi
+
+          hash=$(sha256sum packages/components/dist/styles.css | awk '{print $1}')
+          echo "$hash" > css-hash.txt
+
+          cat > css-hash.json << EOF
+          {
+            "commitSha": "${{ github.event.pull_request.head.sha }}",
+            "runId": "${{ github.run_id }}",
+            "hash": "$hash"
+          }
+          EOF
+
+          cp packages/components/dist/styles.css baseline-styles.css
+        shell: bash
+      - name: Upload CSS hash artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: css-hash
+          path: |
+            css-hash.txt
+            css-hash.json
+            baseline-styles.css
+
   update-branch-preview:
     runs-on: ubuntu-latest
     timeout-minutes: 10
