@@ -1,5 +1,8 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
+import { Avatar } from '~components/Avatar'
+import { Icon } from '~components/Icon'
+import { Text } from '~components/Text'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { SingleSelect } from '../index'
 import { groupedMockItems, singleMockItems } from './mockData'
@@ -89,13 +92,24 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Row>
 
         <StickerSheet.Row>
-          <SingleSelect label="Coffee" isComboBox isDisabled description="disabled">
+          <SingleSelect
+            label="Coffee"
+            isComboBox
+            isDisabled
+            description="disabled"
+            defaultSelectedKey={'magic'}
+          >
             {singleMockItems.map((item) => (
               <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
             ))}
           </SingleSelect>
 
-          <SingleSelect label="Coffee" isDisabled description="disabled">
+          <SingleSelect
+            label="Coffee"
+            isDisabled
+            description="disabled"
+            defaultSelectedKey={'magic'}
+          >
             {singleMockItems.map((item) => (
               <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
             ))}
@@ -103,13 +117,24 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Row>
 
         <StickerSheet.Row>
-          <SingleSelect label="Coffee" isComboBox isReadOnly description="read only">
+          <SingleSelect
+            label="Coffee"
+            isComboBox
+            isReadOnly
+            description="read only"
+            defaultSelectedKey={'magic'}
+          >
             {singleMockItems.map((item) => (
               <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
             ))}
           </SingleSelect>
 
-          <SingleSelect label="Coffee" isReadOnly description="read only">
+          <SingleSelect
+            label="Coffee"
+            isReadOnly
+            description="read only"
+            defaultSelectedKey={'magic'}
+          >
             {singleMockItems.map((item) => (
               <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
             ))}
@@ -230,6 +255,93 @@ const StickerSheetTemplate: StickerSheetStory = {
           >
             {singleMockItems.map((item) => (
               <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
+            ))}
+          </SingleSelect>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row>
+          <SingleSelect label="Coffee" isComboBox description="Icon at start">
+            {singleMockItems.map((item) => (
+              <SingleSelect.Item key={item.key} textValue={item.label}>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    width: '100%',
+                  }}
+                >
+                  <Icon name="favorite" isPresentational />
+                  <span style={{ marginRight: 12 }} />
+                  {item.label}
+                  <span style={{ marginRight: 8 }} />
+                  <Text variant="body">Supporting text</Text>
+                </div>
+              </SingleSelect.Item>
+            ))}
+          </SingleSelect>
+
+          <SingleSelect label="Coffee" description="Icon at start">
+            {singleMockItems.map((item) => (
+              <SingleSelect.Item key={item.key} textValue={item.label}>
+                <div
+                  style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 12 }}
+                >
+                  <Icon name="favorite" isPresentational />
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    {item.label}
+                    <Text variant="body">Supporting text</Text>
+                  </div>
+                </div>
+              </SingleSelect.Item>
+            ))}
+          </SingleSelect>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row>
+          <SingleSelect label="Coffee" isComboBox description="Icon at start">
+            {singleMockItems.map((item) => (
+              <SingleSelect.Item key={item.key} textValue={item.label}>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    width: '100%',
+                  }}
+                >
+                  <div style={{ flexShrink: 0 }}>
+                    <Avatar fullName="Senior Popsicle" size="small" />
+                  </div>
+                  <span style={{ marginRight: 12 }} />
+                  {item.label}
+                  <span style={{ marginRight: 8 }} />
+                  <Text variant="body">Supporting text</Text>
+                </div>
+              </SingleSelect.Item>
+            ))}
+          </SingleSelect>
+
+          <SingleSelect label="Coffee" description="Icon at start">
+            {singleMockItems.map((item) => (
+              <SingleSelect.Item key={item.key} textValue={item.label}>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: 12,
+                    flexShrink: 0,
+                  }}
+                >
+                  <Avatar fullName="Senior Popsicle" size="medium" />
+
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    {item.label}
+                    <Text variant="body">Supporting text</Text>
+                  </div>
+                </div>
+              </SingleSelect.Item>
             ))}
           </SingleSelect>
         </StickerSheet.Row>

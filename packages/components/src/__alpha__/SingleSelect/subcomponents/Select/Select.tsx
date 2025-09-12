@@ -19,7 +19,7 @@ export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element
     isReadOnly,
     size = 'medium',
     variant = 'primary',
-    selectedIcon,
+    selectedIcon = 'check',
     selectedPosition = 'end',
   } = props
 

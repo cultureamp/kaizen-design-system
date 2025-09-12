@@ -42,8 +42,11 @@ export const SelectTrigger = ({
       })}
       ref={buttonRef}
     >
-      <Text variant={size === 'small' ? 'small' : 'body'}>
-        <span {...valueProps}>{state.selectedItem ? state.selectedItem.rendered : ''}</span>
+      <Text
+        variant={size === 'small' ? 'small' : 'body'}
+        classNameOverride={isDisabled ? styles.disabledText : undefined}
+      >
+        <span {...valueProps}>{state.selectedItem ? state.selectedItem.textValue : ''}</span>
       </Text>
 
       {!isReadOnly && <ChevronButton />}

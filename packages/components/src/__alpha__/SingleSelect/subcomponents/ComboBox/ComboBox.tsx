@@ -22,7 +22,7 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
     isDisabled,
     size = 'medium',
     variant = 'primary',
-    selectedIcon,
+    selectedIcon = 'check',
     selectedPosition = 'end',
   } = props
 
@@ -33,6 +33,7 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
     items: items,
     defaultFilter: contains,
     children: children,
+    menuTrigger: 'focus',
   })
 
   const inputRef = useRef<HTMLInputElement>(null)

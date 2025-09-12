@@ -1,5 +1,7 @@
 import React from 'react'
+import classNames from 'classnames'
 import { useListBoxSection } from 'react-aria'
+import { Divider } from '~components/Divider'
 import { type ListSectionProps, type SelectItem } from '../../types'
 import { ListItem } from '../ListItem'
 import styles from './ListSection.module.css'
@@ -13,10 +15,18 @@ export const ListSection = <T extends SelectItem>({
     'aria-label': section['aria-label'],
   })
 
+  const firstSectionHeader = section.key === state.collection.getFirstKey()
+
   return (
     <React.Fragment key={section.key}>
-      {section.key !== state.collection.getFirstKey() && <li role="presentation" aria-hidden />}
-      <li {...itemProps}>
+      {!firstSectionHeader && <li role="presentation" aria-hidden />}
+      {!firstSectionHeader && <Divider variant="content" />}
+      <li
+        {...itemProps}
+        className={classNames(styles.sectionWrapper, {
+          [styles.firstSectionHeader]: firstSectionHeader,
+        })}
+      >
         {section.rendered && (
           <span
             {...headingProps}

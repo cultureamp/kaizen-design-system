@@ -10,7 +10,11 @@ import styles from './ListItem.module.css'
 export const ListItem = <T extends SelectItem>({ item, state }: ListItemProps<T>): JSX.Element => {
   const { selectedIcon, selectedPosition } = useSingleSelectContext()
   const ref = React.useRef(null)
-  const { optionProps, isSelected, isDisabled } = useOption({ key: item.key }, state, ref)
+  const { optionProps, isSelected, isDisabled, isFocused } = useOption(
+    { key: item.key },
+    state,
+    ref,
+  )
 
   const isStart = selectedPosition === 'start'
   const isEnd = selectedPosition === 'end'
@@ -33,7 +37,7 @@ export const ListItem = <T extends SelectItem>({ item, state }: ListItemProps<T>
     if (isRadio) {
       return (
         <div className={styles.selectedIconWrapper}>
-          <Radio name="test" id="test" selectedStatus={isSelected} />
+          <Radio id={item.textValue} name={item.textValue} selectedStatus={isSelected} />
         </div>
       )
     }
@@ -47,6 +51,7 @@ export const ListItem = <T extends SelectItem>({ item, state }: ListItemProps<T>
       {...optionProps}
       ref={ref}
       className={classNames(styles.listItem, {
+        [styles.focused]: isFocused,
         [styles.disabled]: isDisabled,
         [styles.selected]: isSelected,
         [styles.selectedStartPosition]: isStart,

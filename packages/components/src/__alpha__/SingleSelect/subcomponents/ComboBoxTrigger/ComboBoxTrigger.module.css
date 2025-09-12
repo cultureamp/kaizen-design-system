@@ -9,14 +9,13 @@
     font-size: var(--typography-paragraph-body-font-size);
     line-height: var(--typography-paragraph-body-line-height);
     letter-spacing: var(--typography-paragraph-body-letter-spacing);
-    padding: var(--spacing-8) var(--spacing-16);
     height: var(--spacing-40);
     min-width: var(--spacing-200);
+    width: 100%;
     background-color: var(--color-white);
     border-radius: 0.4375rem;
     border: var(--spacing-2) solid var(--color-gray-500);
     box-sizing: border-box;
-    gap: var(--spacing-6);
   }
 
   .smallText {
@@ -28,36 +27,44 @@
   }
 
   .secondary:not(.disabled, .readOnly) {
-    border: none;
     border-radius: 0.4375rem 0.4375rem 0 0;
+    border: 2px solid transparent;
     border-bottom: var(--spacing-2) solid var(--color-gray-400);
+  }
 
-    &:hover {
-      border: var(--spacing-2) solid var(--color-gray-600);
-      border-radius: 0.4375rem;
-    }
+  .secondary:not(.disabled, .readOnly):hover {
+    border: var(--spacing-2) solid var(--color-gray-600);
+    border-radius: 0.4375rem;
+  }
 
-    &:focus-within {
-      border: var(--spacing-2) solid var(--color-gray-600);
-      border-radius: 0.4375rem;
-    }
+  .secondary:not(.disabled, .readOnly):focus-within {
+    border: var(--spacing-2) solid var(--color-gray-600);
+    border-radius: 0.4375rem;
   }
 
   .input {
     outline: none;
     text-overflow: ellipsis;
     background-color: var(--color-white);
-    padding: 0;
+    padding: var(--spacing-8) 0;
+    margin-left: var(--spacing-16);
+    height: 2.25rem;
+    box-sizing: border-box;
+    width: inherit;
+  }
+
+  .small .input {
+    height: 1.75rem;
   }
 
   .disabled {
     pointer-events: none;
     border: var(--spacing-2) solid var(--color-gray-300);
     background-color: var(--color-gray-100);
-    color: var(--color-gray-500);
 
     .input {
       background-color: var(--color-gray-100);
+      color: var(--color-gray-500);
     }
   }
 
@@ -112,7 +119,7 @@
 
   .chevronButton {
     background: none;
-    padding: 0;
+    padding: var(--spacing-8) var(--spacing-16) var(--spacing-8) var(--spacing-6);
     display: flex;
   }
 }

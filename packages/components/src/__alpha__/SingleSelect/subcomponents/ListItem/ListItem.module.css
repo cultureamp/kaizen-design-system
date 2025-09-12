@@ -20,16 +20,20 @@
     outline: none;
   }
 
+  .listItem.focused {
+    border: var(--spacing-2) solid var(--color-blue-500);
+  }
+
+  .listItem.focused:hover {
+    border-color: transparent;
+  }
+
   .listItem:hover {
     background-color: var(--color-gray-200);
   }
 
-  .listItem:active {
+  .listItem.focused:active {
     background-color: var(--color-gray-300);
-  }
-
-  .listItem:focus-visible:not(:hover) {
-    border: var(--spacing-2) solid var(--color-blue-500);
   }
 
   .startSelection {
@@ -64,6 +68,8 @@
   .itemText {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .selectedStartPosition {
