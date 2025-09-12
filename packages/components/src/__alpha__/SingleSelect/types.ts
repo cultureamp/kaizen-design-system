@@ -1,9 +1,10 @@
 import type { DOMAttributes, RefObject } from 'react'
 
+import type React from 'react'
 import { type ComboBoxState, type ComboBoxStateOptions } from '@react-stately/combobox'
 import type { ListState } from '@react-stately/list'
 import { type SelectState, type SelectStateOptions } from '@react-stately/select'
-import { type CollectionChildren, type Key, type Node } from '@react-types/shared'
+import { type Key, type Node } from '@react-types/shared'
 import { type FocusableElement } from '@react-types/shared/src/dom'
 import type { AriaButtonProps, AriaListBoxOptions, AriaPopoverProps } from 'react-aria'
 
@@ -20,13 +21,34 @@ export type SelectSection = {
 }
 
 // SingleSelect
-export type SelectProps<T extends SelectItem> = Omit<SelectStateOptions<T>, 'children'> & {
-  children: ((item: T) => React.ReactElement) | CollectionChildren<T>
-}
+export type SelectLabel =
+  | {
+      labelHidden: true
+      label: string
+    }
+  | {
+      labelHidden?: false
+      label: React.ReactNode
+    }
 
-export type ComboBoxProps<T extends SelectItem> = Omit<ComboBoxStateOptions<T>, 'children'> & {
-  children: CollectionChildren<T> | ((item: T) => React.ReactElement)
-}
+export type SelectBaseProps = {
+  variant?: 'primary' | 'secondary'
+  size?: 'small' | 'medium' | 'large'
+  labelPosition?: 'top' | 'side'
+  isReadOnly?: boolean
+  selectedIcon?: 'check' | 'radio'
+  selectedPosition?: 'start' | 'end'
+} & SelectLabel
+
+export type SelectProps<T extends SelectItem> = Omit<SelectStateOptions<T>, 'label'> &
+  SelectBaseProps
+
+export type ComboBoxProps<T extends SelectItem> = Omit<ComboBoxStateOptions<T>, 'label'> &
+  SelectBaseProps
+
+export type SingleSelectProps<T extends SelectItem> =
+  | (ComboBoxProps<T> & { isComboBox?: true })
+  | (SelectProps<T> & { isComboBox?: false })
 
 // Trigger
 export type SelectTriggerProps = {
@@ -42,7 +64,7 @@ export type ComboBoxTriggerProps = {
   buttonRef: React.MutableRefObject<HTMLButtonElement | null>
 }
 
-export type DropdownButtonProps = AriaButtonProps<'button'> & {
+export type ChevronButtonProps = AriaButtonProps<'button'> & {
   buttonRef: React.MutableRefObject<HTMLButtonElement | null>
 }
 
@@ -52,7 +74,6 @@ export type PopoverProps<T extends SelectItem> = AriaPopoverProps & {
   state: ComboBoxState<T> | SelectState<T>
   triggerRef: React.RefObject<HTMLInputElement> | React.RefObject<HTMLButtonElement>
   popoverRef: React.RefObject<HTMLDivElement>
-  clearButtonRef?: React.RefObject<HTMLButtonElement>
   children: React.ReactNode
 }
 
@@ -97,6 +118,6 @@ export type ListItemProps<T extends SelectItem> = {
 
 // ListSection
 export type ListSectionProps<T extends SelectItem> = {
-  section: any
+  section: Node<T>
   state: ComboBoxState<T> | SelectState<T>
 }

@@ -1,11 +1,14 @@
 import React from 'react'
 import { Item, Section } from '@react-stately/collections'
 import { ComboBox, Select } from './subcomponents'
-import { type ComboBoxProps, type SelectItem, type SelectProps } from './types'
+import {
+  type ComboBoxProps,
+  type SelectItem,
+  type SelectProps,
+  type SingleSelectProps,
+} from './types'
 
-export const SingleSelect = <T extends SelectItem>(
-  props: (ComboBoxProps<T> & { isComboBox?: true }) | (SelectProps<T> & { isComboBox?: false }),
-): JSX.Element => {
+export const SingleSelect = <T extends SelectItem>(props: SingleSelectProps<T>): JSX.Element => {
   const { isComboBox, children, ...rest } = props
 
   if (isComboBox) {
