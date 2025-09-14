@@ -86,7 +86,9 @@ export const XButtonClearsSelection: Story = {
     const options = await screen.findAllByRole('option')
     await userEvent.click(options[0])
 
-    const clearButton = await screen.findByRole('button', { name: 'Clear selection' })
+    const clearButton = await screen.findByRole('button', {
+      name: 'Clear Choose a coffee selection',
+    })
     await waitFor(() => expect(clearButton).toBeVisible())
     await userEvent.click(clearButton)
     await waitFor(() => {
