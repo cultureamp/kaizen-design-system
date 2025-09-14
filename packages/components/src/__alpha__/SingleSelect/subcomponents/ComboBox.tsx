@@ -45,6 +45,7 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
         anchorName,
         state,
         isComboBox: true,
+        fieldLabel: label,
       }}
     >
       <div style={{ display: 'inline-block' }}>

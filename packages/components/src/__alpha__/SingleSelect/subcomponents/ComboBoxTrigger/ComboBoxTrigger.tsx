@@ -3,6 +3,7 @@ import { useIntl } from '@cultureamp/i18n-react-intl'
 import classNames from 'classnames'
 import { useButton } from 'react-aria'
 import { Icon } from '~components/Icon'
+import { VisuallyHidden } from '~components/VisuallyHidden'
 import { useSingleSelectContext } from '../../context'
 import {
   type ClearButtonProps,
@@ -12,25 +13,27 @@ import {
 import styles from './ComboBoxTrigger.module.css'
 
 const ClearButton = ({ clearButtonRef, inputRef }: ClearButtonProps): JSX.Element => {
-  const { state, isComboBox } = useSingleSelectContext()
+  const { state, isComboBox, fieldLabel } = useSingleSelectContext()
 
   const { formatMessage } = useIntl()
 
-  const clearButtonAlt = formatMessage({
-    id: 'singleSelect.clearButtonAlt',
-    defaultMessage: 'Clear selection',
-    description: 'Alt text for the clear selection button',
-  })
+  const clearButtonAlt = formatMessage(
+    {
+      id: 'singleSelect.clearButtonAlt',
+      defaultMessage: 'Clear {field} selection',
+      description: 'Alt text for the clear selection button',
+    },
+    { field: fieldLabel },
+  )
 
   const { buttonProps } = useButton(
     {
-      'onPress': () => {
+      onPress: () => {
         if (isComboBox) {
           state.setSelectedKey(null)
         }
         inputRef.current?.focus()
       },
-      'aria-label': clearButtonAlt,
     },
     clearButtonRef,
   )
@@ -44,6 +47,7 @@ const ClearButton = ({ clearButtonRef, inputRef }: ClearButtonProps): JSX.Elemen
       tabIndex={0}
     >
       <Icon name="cancel" isPresentational isFilled />
+      <VisuallyHidden>{clearButtonAlt}</VisuallyHidden>
     </button>
   )
 }
@@ -51,19 +55,6 @@ const ClearButton = ({ clearButtonRef, inputRef }: ClearButtonProps): JSX.Elemen
 const DropdownButton = (props: DropdownButtonProps): JSX.Element => {
   const { state } = useSingleSelectContext()
   const { buttonProps } = useButton(props, props.buttonRef)
-  const { formatMessage } = useIntl()
-
-  const chevronButtonClose = formatMessage({
-    id: 'singleSelect.toggleButtonClose',
-    defaultMessage: 'close',
-    description: 'Alt text for button that closes list',
-  })
-
-  const chevronButtonOpen = formatMessage({
-    id: 'singleSelect.toggleButtonOpen',
-    defaultMessage: 'open',
-    description: 'Alt text for button that opens list',
-  })
 
   return (
     <button
@@ -73,10 +64,7 @@ const DropdownButton = (props: DropdownButtonProps): JSX.Element => {
       className={styles.button}
       tabIndex={-1}
     >
-      <Icon
-        alt={state.isOpen ? chevronButtonClose : chevronButtonOpen}
-        name={state.isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
-      />
+      <Icon isPresentational name={state.isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} />
     </button>
   )
 }
