@@ -7,11 +7,13 @@ type SingleSelectContextType =
       anchorName: string
       state: ComboBoxState<object>
       isComboBox: true
+      fieldLabel: React.ReactNode
     }
   | {
       anchorName: string
       state: SelectState<object>
       isComboBox: false
+      fieldLabel: React.ReactNode
     }
 
 export const SingleSelectContext = createContext<SingleSelectContextType | undefined>(undefined)
