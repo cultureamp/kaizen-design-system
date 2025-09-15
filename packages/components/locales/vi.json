@@ -184,6 +184,14 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "Ẩn thông tin:"
   },
+  "singleSelect.clearButtonAlt" : {
+    "description" : "Alt text for the clear selection button",
+    "message" : "Xóa lựa chọn {field}"
+  },
+  "singleSelect.dropdownButton" : {
+    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message" : "Hiển thị gợi ý cho {field}"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "Các hành động bổ sung"
