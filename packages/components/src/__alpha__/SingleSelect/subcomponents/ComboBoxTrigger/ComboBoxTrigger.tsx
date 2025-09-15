@@ -53,8 +53,22 @@ const ClearButton = ({ clearButtonRef, inputRef }: ClearButtonProps): JSX.Elemen
 }
 
 const DropdownButton = (props: DropdownButtonProps): JSX.Element => {
-  const { state } = useSingleSelectContext()
-  const { buttonProps } = useButton(props, props.buttonRef)
+  const { state, fieldLabel } = useSingleSelectContext()
+  const { formatMessage } = useIntl()
+
+  const dropdownButton = formatMessage(
+    {
+      id: 'singleSelect.dropdownButton',
+      defaultMessage: 'Show {field} suggestions',
+      description: 'Aria label text for the SingleSelect button to open and close suggestions list',
+    },
+    { field: fieldLabel },
+  )
+
+  const { buttonProps } = useButton(
+    { ...props, 'aria-label': String(dropdownButton) },
+    props.buttonRef,
+  )
 
   return (
     <button
