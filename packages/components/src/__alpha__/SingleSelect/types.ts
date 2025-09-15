@@ -40,10 +40,16 @@ export type ComboBoxTriggerProps = {
   inputRef: React.MutableRefObject<HTMLInputElement | null>
   buttonProps: AriaButtonProps<'button'>
   buttonRef: React.MutableRefObject<HTMLButtonElement | null>
+  clearButtonRef: React.MutableRefObject<HTMLButtonElement | null>
 }
 
 export type DropdownButtonProps = AriaButtonProps<'button'> & {
   buttonRef: React.MutableRefObject<HTMLButtonElement | null>
+}
+
+export type ClearButtonProps = {
+  clearButtonRef: React.RefObject<HTMLButtonElement>
+  inputRef: React.RefObject<HTMLInputElement>
 }
 
 // Popover

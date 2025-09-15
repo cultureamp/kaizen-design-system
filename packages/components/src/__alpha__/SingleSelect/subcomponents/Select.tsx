@@ -37,6 +37,7 @@ export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element
         anchorName,
         state,
         isComboBox: false,
+        fieldLabel: label,
       }}
     >
       <div style={{ display: 'inline-block' }}>

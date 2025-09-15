@@ -24,6 +24,7 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
   const popoverRef = useRef<HTMLDivElement>(null)
   const listBoxRef = useRef<HTMLUListElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
+  const clearButtonRef = useRef<HTMLButtonElement>(null)
 
   const { labelProps, inputProps, listBoxProps, buttonProps } = useComboBox(
     {
@@ -44,6 +45,7 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
         anchorName,
         state,
         isComboBox: true,
+        fieldLabel: label,
       }}
     >
       <div style={{ display: 'inline-block' }}>
@@ -57,10 +59,16 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
             inputRef={inputRef}
             buttonRef={buttonRef}
             buttonProps={buttonProps}
+            clearButtonRef={clearButtonRef}
           />
         </div>
 
-        <Popover state={state} triggerRef={inputRef} popoverRef={popoverRef}>
+        <Popover
+          state={state}
+          triggerRef={inputRef}
+          popoverRef={popoverRef}
+          clearButtonRef={clearButtonRef}
+        >
           <List listBoxOptions={listBoxProps} state={state} listBoxRef={listBoxRef} />
         </Popover>
       </div>
