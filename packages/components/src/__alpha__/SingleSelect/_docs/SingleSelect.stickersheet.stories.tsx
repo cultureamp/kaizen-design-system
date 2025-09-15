@@ -221,125 +221,163 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Row>
 
         <StickerSheet.Row>
-          <SingleSelect label="Coffee" isComboBox selectedIcon="check" description="Checked items">
+          <SingleSelect label="Coffee" isComboBox description="Checked items">
             {singleMockItems.map((item) => (
-              <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
-            ))}
-          </SingleSelect>
-
-          <SingleSelect label="Coffee" selectedIcon="radio" description="Radio items">
-            {singleMockItems.map((item) => (
-              <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
-            ))}
-          </SingleSelect>
-        </StickerSheet.Row>
-
-        <StickerSheet.Row>
-          <SingleSelect
-            label="Coffee"
-            isComboBox
-            selectedIcon="radio"
-            selectedPosition="start"
-            description="Radio items start"
-          >
-            {singleMockItems.map((item) => (
-              <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
-            ))}
-          </SingleSelect>
-
-          <SingleSelect
-            label="Coffee"
-            selectedIcon="check"
-            selectedPosition="start"
-            description="Check items start"
-          >
-            {singleMockItems.map((item) => (
-              <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
-            ))}
-          </SingleSelect>
-        </StickerSheet.Row>
-
-        <StickerSheet.Row>
-          <SingleSelect label="Coffee" isComboBox description="Icon at start">
-            {singleMockItems.map((item) => (
-              <SingleSelect.Item key={item.key} textValue={item.label}>
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    width: '100%',
-                  }}
-                >
-                  <Icon name="favorite" isPresentational />
-                  <span style={{ marginRight: 12 }} />
-                  {item.label}
-                  <span style={{ marginRight: 8 }} />
-                  <Text variant="body">Supporting text</Text>
-                </div>
+              <SingleSelect.Item selectedIcon="check" key={item.key}>
+                {item.label}
               </SingleSelect.Item>
             ))}
           </SingleSelect>
 
-          <SingleSelect label="Coffee" description="Icon at start">
+          <SingleSelect label="Coffee" description="Radio items">
             {singleMockItems.map((item) => (
-              <SingleSelect.Item key={item.key} textValue={item.label}>
-                <div
-                  style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 12 }}
-                >
-                  <Icon name="favorite" isPresentational />
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    {item.label}
-                    <Text variant="body">Supporting text</Text>
-                  </div>
-                </div>
+              <SingleSelect.Item selectedIcon="radio" key={item.key}>
+                {item.label}
               </SingleSelect.Item>
             ))}
           </SingleSelect>
         </StickerSheet.Row>
 
         <StickerSheet.Row>
-          <SingleSelect label="Coffee" isComboBox description="Icon at start">
+          <SingleSelect label="Coffee" isComboBox description="Radio items start">
             {singleMockItems.map((item) => (
-              <SingleSelect.Item key={item.key} textValue={item.label}>
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    width: '100%',
-                  }}
-                >
-                  <div style={{ flexShrink: 0 }}>
-                    <Avatar fullName="Senior Popsicle" size="small" />
-                  </div>
-                  <span style={{ marginRight: 12 }} />
-                  {item.label}
-                  <span style={{ marginRight: 8 }} />
-                  <Text variant="body">Supporting text</Text>
-                </div>
+              <SingleSelect.Item selectedIcon="radio" selectedPosition="start" key={item.key}>
+                {item.label}
               </SingleSelect.Item>
             ))}
           </SingleSelect>
 
-          <SingleSelect label="Coffee" description="Icon at start">
+          <SingleSelect label="Coffee" description="Check items start">
             {singleMockItems.map((item) => (
-              <SingleSelect.Item key={item.key} textValue={item.label}>
-                <div
+              <SingleSelect.Item selectedIcon="check" selectedPosition="start" key={item.key}>
+                {item.label}
+              </SingleSelect.Item>
+            ))}
+          </SingleSelect>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row>
+          <SingleSelect label="Coffee" isComboBox description="Icon at start inline text">
+            {singleMockItems.map((item) => (
+              <SingleSelect.Item
+                key={item.key}
+                textValue={item.label}
+                className="flex flex-row items-center"
+              >
+                <Icon name="favorite" isPresentational />
+                <span style={{ paddingRight: 12 }} />
+                <Text
+                  variant="body"
                   style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    gap: 12,
+                    whiteSpace: 'nowrap',
+                    minWidth: 0,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    marginRight: 8,
                     flexShrink: 0,
                   }}
                 >
-                  <Avatar fullName="Senior Popsicle" size="medium" />
+                  {item.label}
+                </Text>
+                <Text
+                  variant="body"
+                  style={{
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    minWidth: 0,
+                    flexShrink: 20,
+                  }}
+                >
+                  Supporting text
+                </Text>
+              </SingleSelect.Item>
+            ))}
+          </SingleSelect>
 
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    {item.label}
-                    <Text variant="body">Supporting text</Text>
-                  </div>
+          <SingleSelect label="Coffee" description="Radio and multiline">
+            {singleMockItems.map((item) => (
+              <SingleSelect.Item
+                selectedIcon="radio"
+                key={item.key}
+                textValue={item.label}
+                className="flex flex-col"
+              >
+                <Text
+                  variant="body"
+                  style={{
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
+                  }}
+                >
+                  {item.label}
+                </Text>
+                <Text
+                  variant="body"
+                  style={{
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    display: 'block',
+                  }}
+                >
+                  Supporting text
+                </Text>
+              </SingleSelect.Item>
+            ))}
+          </SingleSelect>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row>
+          <SingleSelect label="Coffee" isComboBox description="Avatar and inline">
+            {singleMockItems.map((item) => (
+              <SingleSelect.Item
+                key={item.key}
+                textValue={item.label}
+                className="flex flex-row items-center"
+              >
+                <div style={{ flexShrink: 0 }}>
+                  <Avatar fullName="Senior Popsicle" size="small" />
+                </div>
+                <span style={{ paddingRight: 12 }} />
+                <Text
+                  variant="body"
+                  style={{
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
+                    marginRight: 8,
+                  }}
+                >
+                  {item.label}
+                </Text>
+
+                <Text
+                  variant="body"
+                  style={{
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    display: 'block',
+                  }}
+                >
+                  Supporting text
+                </Text>
+              </SingleSelect.Item>
+            ))}
+          </SingleSelect>
+
+          <SingleSelect label="Coffee" description="Avatar and multiline text">
+            {singleMockItems.map((item) => (
+              <SingleSelect.Item
+                key={item.key}
+                textValue={item.label}
+                className="flex flex-row items-center gap-12"
+              >
+                <Avatar fullName="Senior Popsicle" size="medium" />
+
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  {item.label}
+                  <Text variant="body">Supporting text</Text>
                 </div>
               </SingleSelect.Item>
             ))}
@@ -363,17 +401,6 @@ const StickerSheetTemplate: StickerSheetStory = {
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Default)',
-}
-
-export const StickerSheetReversed: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Reversed)',
-  parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
-    ...StickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
-  },
-  args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

@@ -1,5 +1,6 @@
 import React, { useId, useRef } from 'react'
 import { useComboBoxState } from '@react-stately/combobox'
+import classNames from 'classnames'
 import { useComboBox, useFilter } from 'react-aria'
 import { FieldMessage } from '~components/FieldMessage'
 import { Label } from '~components/Label'
@@ -22,8 +23,6 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
     isDisabled,
     size = 'medium',
     variant = 'primary',
-    selectedIcon = 'check',
-    selectedPosition = 'end',
   } = props
 
   const { contains } = useFilter({ sensitivity: 'base' })
@@ -65,13 +64,11 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
         isReadOnly: isReadOnly ?? false,
         secondary: variant === 'secondary',
         size,
-        selectedPosition,
-        selectedIcon,
       }}
     >
       <div className={labelPosition === 'top' ? styles.topLabel : styles.sideLabel}>
         {!labelHidden && (
-          <div className={styles.label}>
+          <div className={classNames(styles.label, { [styles.labelTop]: labelPosition === 'top' })}>
             <Label {...labelProps}>{label}</Label>
           </div>
         )}

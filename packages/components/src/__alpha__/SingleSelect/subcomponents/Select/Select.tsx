@@ -1,5 +1,6 @@
 import React, { useId, useRef } from 'react'
 import { useSelectState } from '@react-stately/select'
+import classNames from 'classnames'
 import { useSelect } from 'react-aria'
 import { FieldMessage, Label } from '~components/index'
 import { SingleSelectContext } from '../../context'
@@ -19,8 +20,6 @@ export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element
     isReadOnly,
     size = 'medium',
     variant = 'primary',
-    selectedIcon = 'check',
-    selectedPosition = 'end',
   } = props
 
   const state = useSelectState({
@@ -54,13 +53,11 @@ export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element
         isReadOnly: isReadOnly ?? false,
         secondary: variant === 'secondary',
         size,
-        selectedIcon,
-        selectedPosition,
       }}
     >
       <div className={labelPosition === 'top' ? styles.topLabel : styles.sideLabel}>
         {!labelHidden && (
-          <div className={styles.label}>
+          <div className={classNames(styles.label, { [styles.labelTop]: labelPosition === 'top' })}>
             <Label {...labelProps}>{label}</Label>
           </div>
         )}

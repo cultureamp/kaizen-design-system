@@ -16,6 +16,9 @@
   .label {
     grid-column: 1;
     grid-row: 1;
+  }
+
+  .labelTop {
     margin-bottom: var(--spacing-6);
   }
 

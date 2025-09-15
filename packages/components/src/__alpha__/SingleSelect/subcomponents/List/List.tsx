@@ -19,7 +19,17 @@ export const List = <T extends SelectItem>({
         <ListSection key={String(node.key)} section={node} state={state} />
       ) : null
     } else {
-      return <ListItem key={String(node.key)} item={node} state={state} />
+      const { selectedIcon, selectedPosition, className } = node.props
+      return (
+        <ListItem
+          key={String(node.key)}
+          item={node}
+          state={state}
+          selectedIcon={selectedIcon}
+          selectedPosition={selectedPosition}
+          className={className}
+        />
+      )
     }
   }
 

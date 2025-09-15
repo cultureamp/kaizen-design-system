@@ -3,12 +3,16 @@ import classNames from 'classnames'
 import { useOption } from 'react-aria'
 import { Icon } from '~components/Icon'
 import { Radio } from '~components/Radio'
-import { useSingleSelectContext } from '../../context'
 import { type ListItemProps, type SelectItem } from '../../types'
 import styles from './ListItem.module.css'
 
-export const ListItem = <T extends SelectItem>({ item, state }: ListItemProps<T>): JSX.Element => {
-  const { selectedIcon, selectedPosition } = useSingleSelectContext()
+export const ListItem = <T extends SelectItem>({
+  item,
+  state,
+  selectedIcon = 'check',
+  selectedPosition = 'end',
+  className,
+}: ListItemProps<T>): JSX.Element => {
   const ref = React.useRef(null)
   const { optionProps, isSelected, isDisabled, isFocused } = useOption(
     { key: item.key },
@@ -58,7 +62,12 @@ export const ListItem = <T extends SelectItem>({ item, state }: ListItemProps<T>
       })}
     >
       {isStart && renderSelectionIcon()}
-      <span className={styles.itemText}>{item.rendered}</span>
+      {typeof item.rendered === 'string' ? (
+        <span className={classNames(styles.itemText, className)}>{item.rendered}</span>
+      ) : (
+        <span className={classNames(styles.itemContent, className)}>{item.rendered}</span>
+      )}
+
       {isEnd && renderSelectionIcon()}
     </li>
   )
