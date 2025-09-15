@@ -59,14 +59,14 @@ const DropdownButton = (props: DropdownButtonProps): JSX.Element => {
   const dropdownButton = formatMessage(
     {
       id: 'singleSelect.dropdownButton',
-      defaultMessage: 'Show {field} suggestions',
+      defaultMessage: 'Show suggestions for {field}',
       description: 'Aria label text for the SingleSelect button to open and close suggestions list',
     },
     { field: fieldLabel },
   )
 
   const { buttonProps } = useButton(
-    { ...props, 'aria-label': String(dropdownButton) },
+    { ...props, 'aria-label': String(dropdownButton), 'aria-labelledby': undefined },
     props.buttonRef,
   )
 

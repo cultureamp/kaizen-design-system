@@ -191,7 +191,7 @@
   },
   "singleSelect.dropdownButton": {
     "description": "Aria label text for the SingleSelect button to open and close suggestions list",
-    "message": "Show {field} suggestions"
+    "message": "Show suggestions for {field}"
   },
   "splitButton.dropdownButton.label": {
     "description": "Label for a dropdown menu holding additional actions",
