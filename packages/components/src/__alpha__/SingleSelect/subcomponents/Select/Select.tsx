@@ -53,6 +53,7 @@ export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element
         isReadOnly: isReadOnly ?? false,
         secondary: variant === 'secondary',
         size,
+        fieldLabel: label,
       }}
     >
       <div className={labelPosition === 'top' ? styles.topLabel : styles.sideLabel}>

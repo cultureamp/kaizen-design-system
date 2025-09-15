@@ -124,4 +124,19 @@
     padding-inline-end: var(--spacing-16);
     display: flex;
   }
+
+  .clearButton {
+    background: none;
+    padding: 0;
+    display: flex;
+
+    &:focus-visible {
+      outline: var(--spacing-2) solid var(--color-blue-500);
+      border-radius: 50%;
+    }
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
 }

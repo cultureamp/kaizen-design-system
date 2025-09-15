@@ -8,6 +8,7 @@ type BaseSingleSelectContextType = {
   isReadOnly: boolean
   secondary: boolean
   size?: 'small' | 'medium' | 'large'
+  fieldLabel: React.ReactNode
 }
 
 type SingleSelectContextType =
