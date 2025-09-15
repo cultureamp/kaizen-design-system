@@ -189,6 +189,10 @@
     "description": "Alt text for the clear selection button",
     "message": "Clear {field} selection"
   },
+  "singleSelect.dropdownButton": {
+    "description": "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message": "Show {field} suggestions"
+  },
   "splitButton.dropdownButton.label": {
     "description": "Label for a dropdown menu holding additional actions",
     "message": "Additional actions"
