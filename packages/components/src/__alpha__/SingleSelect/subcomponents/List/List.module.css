@@ -3,8 +3,7 @@
     display: flex;
     flex-direction: column;
     list-style: none;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: auto hidden;
     max-height: inherit;
     padding: 0.875rem;
     margin: 0;

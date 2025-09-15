@@ -78,6 +78,7 @@ export type PopoverProps<T extends SelectItem> = AriaPopoverProps & {
   state: ComboBoxState<T> | SelectState<T>
   triggerRef: React.RefObject<HTMLInputElement> | React.RefObject<HTMLButtonElement>
   popoverRef: React.RefObject<HTMLDivElement>
+  clearButtonRef?: React.RefObject<HTMLButtonElement>
   children: React.ReactNode
 }
 

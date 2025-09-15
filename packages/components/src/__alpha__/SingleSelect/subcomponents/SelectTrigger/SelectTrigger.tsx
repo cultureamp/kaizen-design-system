@@ -12,10 +12,7 @@ const ChevronButton = (): JSX.Element => {
 
   return (
     <div className={styles.chevronButton}>
-      <Icon
-        alt={state.isOpen ? 'close' : 'open'}
-        name={state.isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
-      />
+      <Icon isPresentational name={state.isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} />
     </div>
   )
 }
