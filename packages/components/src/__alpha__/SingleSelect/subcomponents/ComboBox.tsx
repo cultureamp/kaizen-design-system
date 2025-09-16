@@ -24,6 +24,7 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
   const popoverRef = useRef<HTMLDivElement>(null)
   const listBoxRef = useRef<HTMLUListElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
+  const triggerWrapperRef = useRef<HTMLDivElement>(null)
   const clearButtonRef = useRef<HTMLButtonElement>(null)
 
   const { labelProps, inputProps, listBoxProps, buttonProps } = useComboBox(
@@ -60,12 +61,13 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
             buttonRef={buttonRef}
             buttonProps={buttonProps}
             clearButtonRef={clearButtonRef}
+            triggerWrapperRef={triggerWrapperRef}
           />
         </div>
 
         <Popover
           state={state}
-          triggerRef={inputRef}
+          triggerRef={triggerWrapperRef}
           popoverRef={popoverRef}
           clearButtonRef={clearButtonRef}
         >

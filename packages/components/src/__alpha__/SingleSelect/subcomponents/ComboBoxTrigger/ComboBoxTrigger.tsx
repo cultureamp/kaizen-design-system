@@ -88,12 +88,17 @@ export const ComboBoxTrigger = ({
   inputRef,
   buttonProps,
   buttonRef,
+  triggerWrapperRef,
   clearButtonRef,
 }: ComboBoxTriggerProps): JSX.Element => {
   const { anchorName } = useSingleSelectContext()
 
   return (
-    <div style={{ '--anchor-name': anchorName } as React.CSSProperties} className={styles.trigger}>
+    <div
+      style={{ '--anchor-name': anchorName } as React.CSSProperties}
+      className={styles.trigger}
+      ref={triggerWrapperRef}
+    >
       <input {...inputProps} ref={inputRef} className={styles.input} />
       <ClearButton clearButtonRef={clearButtonRef} inputRef={inputRef} />
       <DropdownButton {...buttonProps} buttonRef={buttonRef} />
