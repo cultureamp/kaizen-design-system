@@ -88,6 +88,7 @@ export const ComboBoxTrigger = ({
   inputRef,
   buttonProps,
   buttonRef,
+  triggerWrapperRef,
   clearButtonRef,
 }: ComboBoxTriggerProps): JSX.Element => {
   const { anchorName, isDisabled, isReadOnly, secondary, size } = useSingleSelectContext()
@@ -96,6 +97,7 @@ export const ComboBoxTrigger = ({
     <>
       <div
         style={{ '--anchor-name': anchorName } as React.CSSProperties}
+        ref={triggerWrapperRef}
         className={classNames(styles.trigger, {
           [styles.disabled]: isDisabled,
           [styles.readOnly]: isReadOnly,
