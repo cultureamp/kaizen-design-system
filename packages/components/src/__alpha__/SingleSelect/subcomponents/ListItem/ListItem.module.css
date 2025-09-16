@@ -86,7 +86,7 @@
   }
 
   .selectedIconWrapper {
-    padding-inline-start: var(--spacing-12);
+    padding-inline-end: var(--spacing-12);
     display: flex;
     align-items: center;
   }

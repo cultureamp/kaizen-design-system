@@ -1,4 +1,5 @@
 import React, { useLayoutEffect } from 'react'
+import classNames from 'classnames'
 import { DismissButton, Overlay, usePopover } from 'react-aria'
 import { useSingleSelectContext } from '../../context'
 import { type PopoverProps, type SelectItem } from '../../types'
@@ -87,8 +88,13 @@ export const Popover = <T extends SelectItem>({
             ref={popoverRef}
             style={{
               ...popoverProps.style,
+              ...(!supportsAnchorPositioning && {
+                width: restProps.triggerRef.current?.getBoundingClientRect().width,
+              }),
             }}
-            className={styles.popover}
+            className={classNames(styles.popover, {
+              [styles.offsetSpacing]: !supportsAnchorPositioning,
+            })}
           >
             <DismissButton onDismiss={state.close} />
             {supportsAnchorPositioning ? manualPopover : children}

@@ -17,5 +17,10 @@
       /* stylelint-disable-next-line declaration-property-value-no-unknown */
       width: anchor-size(width);
     }
+
+    .offsetSpacing {
+      margin-top: var(--spacing-4);
+      margin-bottom: var(--spacing-4);
+    }
   }
 }
