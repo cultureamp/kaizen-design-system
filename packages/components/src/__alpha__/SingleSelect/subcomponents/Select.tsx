@@ -1,4 +1,5 @@
 import React, { useId, useRef } from 'react'
+import { useAsyncList } from '@react-stately/data'
 import { useSelectState } from '@react-stately/select'
 import { useSelect } from 'react-aria'
 import { Text } from '~components/Text'
@@ -9,11 +10,25 @@ import { Popover } from './Popover'
 import { SelectTrigger } from './SelectTrigger'
 
 export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element => {
-  const { label } = props
+  const { label, loadItems, noResultsMessage, items } = props
+
+  const [hasMore, setHasMore] = React.useState(false)
+
+  const list = useAsyncList<T, number>({
+    async load({ cursor }): Promise<{ items: T[]; cursor: number | undefined }> {
+      const page = Number(cursor ?? 1)
+      if (loadItems) {
+        const { items: newItems, hasMore: more } = await loadItems(undefined, page)
+        setHasMore(Boolean(more))
+        return { items: newItems, cursor: more ? page + 1 : undefined }
+      }
+      return { items: items ? Array.from(items) : [], cursor: undefined }
+    },
+  })
 
   const state = useSelectState({
     ...props,
-    items: props.items,
+    items: list.items.length ? list.items : [{ key: '__loading', label: '' } as T],
     children: props.children,
   })
 
@@ -54,7 +69,15 @@ export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element
         </div>
 
         <Popover state={state} triggerRef={triggerRef} popoverRef={popoverRef}>
-          <List listBoxOptions={menuProps} state={state} listBoxRef={listBoxRef} />
+          <List
+            listBoxOptions={menuProps}
+            state={state}
+            listBoxRef={listBoxRef}
+            hasMore={hasMore}
+            onLoadMore={() => list.loadMore()}
+            loading={list.isLoading}
+            noResultsMessage={noResultsMessage}
+          />
         </Popover>
       </div>
     </SingleSelectContext.Provider>

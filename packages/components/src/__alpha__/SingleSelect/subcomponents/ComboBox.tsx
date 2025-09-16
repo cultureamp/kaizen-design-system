@@ -1,5 +1,6 @@
-import React, { useId, useRef } from 'react'
+import React, { useId, useRef, useState } from 'react'
 import { useComboBoxState } from '@react-stately/combobox'
+import { useAsyncList } from '@react-stately/data'
 import { useComboBox, useFilter } from 'react-aria'
 import { Text } from '~components/Text'
 import { SingleSelectContext } from '../context'
@@ -9,15 +10,40 @@ import { List } from './List'
 import { Popover } from './Popover'
 
 export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Element => {
-  const { items, children, label } = props
+  const { items, children, label, loadItems, noResultsMessage } = props
+
+  const [hasMore, setHasMore] = useState(false)
+  const [filterText, setFilterText] = useState('')
+
+  const filterRef = useRef(filterText)
+
+  const list = useAsyncList<T, number>({
+    async load({ cursor }): Promise<{ items: T[]; cursor: number | undefined }> {
+      const page = Number(cursor ?? 1)
+      if (loadItems) {
+        const { items: newItems, hasMore: more } = await loadItems(filterRef.current, page)
+        setHasMore(Boolean(more))
+        return { items: newItems, cursor: more ? page + 1 : undefined }
+      }
+      return { items: items ? Array.from(items) : [], cursor: undefined }
+    },
+  })
 
   const { contains } = useFilter({ sensitivity: 'base' })
 
   const state = useComboBoxState({
     ...props,
-    items: items,
-    defaultFilter: contains,
+    items: loadItems ? list.items : items,
+    defaultFilter: loadItems ? undefined : contains,
     children: children,
+    allowsEmptyCollection: true,
+    onInputChange: (value) => {
+      if (!loadItems) setFilterText(value)
+      if (loadItems) {
+        filterRef.current = value
+        list.reload()
+      }
+    },
   })
 
   const inputRef = useRef<HTMLInputElement>(null)
@@ -69,7 +95,15 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
           popoverRef={popoverRef}
           clearButtonRef={clearButtonRef}
         >
-          <List listBoxOptions={listBoxProps} state={state} listBoxRef={listBoxRef} />
+          <List
+            listBoxOptions={listBoxProps}
+            state={state}
+            listBoxRef={listBoxRef}
+            hasMore={hasMore}
+            onLoadMore={() => list.loadMore()}
+            loading={list.isLoading}
+            noResultsMessage={noResultsMessage}
+          />
         </Popover>
       </div>
     </SingleSelectContext.Provider>

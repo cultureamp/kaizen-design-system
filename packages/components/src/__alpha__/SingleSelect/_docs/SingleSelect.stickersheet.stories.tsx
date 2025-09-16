@@ -2,6 +2,8 @@ import React from 'react'
 import { type Meta } from '@storybook/react'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { SingleSelect } from '../index'
+import { type SelectItem } from '../types'
+import { groupedMockItems, singleMockItems } from './mockData'
 
 export default {
   title: 'Components/SingleSelect/SingleSelect (alpha)',
@@ -13,6 +15,40 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
+    const fakeSelectApi = async (
+      _query?: string,
+      page = 1,
+      pageSize = 7,
+    ): Promise<{ items: SelectItem[]; hasMore?: boolean }> => {
+      const start = (page - 1) * pageSize
+      const pagedItems = singleMockItems.slice(start, start + pageSize)
+      const hasMore = start + pageSize < singleMockItems.length
+
+      return new Promise((resolve) => {
+        setTimeout(() => resolve({ items: pagedItems, hasMore }), 500)
+      })
+    }
+
+    const fakeComboBoxApi = async (
+      query?: string,
+      page = 1,
+      pageSize = 7,
+    ): Promise<{ items: SelectItem[]; hasMore?: boolean }> => {
+      const filtered = query
+        ? singleMockItems.filter((item) => item.label.toLowerCase().includes(query.toLowerCase()))
+        : [...singleMockItems]
+
+      const sorted = [...filtered].sort((a, b) => a.label.localeCompare(b.label))
+
+      const start = (page - 1) * pageSize
+      const pagedItems = sorted.slice(start, start + pageSize)
+      const hasMore = start + pageSize < sorted.length
+
+      return new Promise((resolve) => {
+        setTimeout(() => resolve({ items: pagedItems, hasMore }), 500)
+      })
+    }
+
     return (
       <StickerSheet isReversed={isReversed} title="SingleSelect" headers={['Items', 'Grouped']}>
         <StickerSheet.Row>
@@ -36,6 +72,20 @@ const StickerSheetTemplate: StickerSheetStory = {
             <SingleSelect.Section title="Cool Colours">
               <SingleSelect.Item>Blue</SingleSelect.Item>
             </SingleSelect.Section>
+          </SingleSelect>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row>
+          <SingleSelect label="Load more on scroll" isComboBox loadItems={fakeComboBoxApi}>
+            {(item: SelectItem) => (
+              <SingleSelect.Item key={item.label}>{item.label}</SingleSelect.Item>
+            )}
+          </SingleSelect>
+
+          <SingleSelect label="Load more on scroll" loadItems={fakeSelectApi}>
+            {(item: SelectItem) => (
+              <SingleSelect.Item key={item.label}>{item.label}</SingleSelect.Item>
+            )}
           </SingleSelect>
         </StickerSheet.Row>
       </StickerSheet>

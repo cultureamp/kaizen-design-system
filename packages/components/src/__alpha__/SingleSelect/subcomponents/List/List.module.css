@@ -3,5 +3,21 @@
     display: flex;
     flex-direction: column;
     list-style: none;
+    overflow-y: scroll;
+    max-height: inherit;
+    padding: 0;
+    margin: 0;
+  }
+
+  .loadingWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 0.875rem;
+  }
+
+  .noResultsWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 0.875rem;
   }
 }
