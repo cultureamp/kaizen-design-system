@@ -186,11 +186,11 @@
   },
   "singleSelect.clearButtonAlt" : {
     "description" : "Alt text for the clear selection button",
-    "message" : "Clear {field} selection"
+    "message" : "{field} 선택 취소"
   },
   "singleSelect.dropdownButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
-    "message" : "Show suggestions for {field}"
+    "message" : "{field}에 대한 제안 표시"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",

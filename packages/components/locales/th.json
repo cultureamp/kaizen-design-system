@@ -186,7 +186,7 @@
   },
   "singleSelect.clearButtonAlt" : {
     "description" : "Alt text for the clear selection button",
-    "message" : "Clear {field} selection"
+    "message" : "ล้างการเลือก {field}"
   },
   "singleSelect.dropdownButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
