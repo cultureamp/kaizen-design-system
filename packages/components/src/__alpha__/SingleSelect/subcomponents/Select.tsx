@@ -10,7 +10,7 @@ import { Popover } from './Popover'
 import { SelectTrigger } from './SelectTrigger'
 
 export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element => {
-  const { label, loadItems, noResultsMessage, items } = props
+  const { label, loadItems, noResultsMessage, items, loadingMessage } = props
 
   const [hasMore, setHasMore] = React.useState(false)
 
@@ -76,6 +76,7 @@ export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element
             hasMore={hasMore}
             onLoadMore={() => list.loadMore()}
             loading={list.isLoading}
+            loadingMessage={loadingMessage}
             noResultsMessage={noResultsMessage}
           />
         </Popover>

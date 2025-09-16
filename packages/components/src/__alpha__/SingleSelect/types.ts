@@ -26,6 +26,7 @@ export type SelectSection = {
 export type SelectBaseProps = {
   label: React.ReactNode
   noResultsMessage?: React.ReactNode
+  loadingMessage?: React.ReactNode
 }
 
 export type SelectProps<T extends SelectItem> = Omit<SelectStateOptions<T>, 'label'> & {
@@ -108,6 +109,7 @@ export type ListProps<T extends SelectItem> = {
   onLoadMore?: () => void
   hasMore?: boolean
   loading?: boolean
+  loadingMessage?: React.ReactNode
   noResultsMessage?: React.ReactNode
 }
 

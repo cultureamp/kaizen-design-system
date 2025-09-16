@@ -34,28 +34,3 @@ export const Playground: Story = {
     },
   },
 }
-
-export const TestingListBoxGrouping: Story = {
-  args: {
-    label: 'Choose a coffee',
-    children: (
-      <>
-        <SingleSelect.Section title="Warm Colours">
-          <SingleSelect.Item key="red">Red</SingleSelect.Item>
-        </SingleSelect.Section>
-        <SingleSelect.Section title="Cool Colours">
-          <SingleSelect.Item key="blue">Blue</SingleSelect.Item>
-          <SingleSelect.Item key="gray">Gray</SingleSelect.Item>
-          <SingleSelect.Item key="orange">Orange</SingleSelect.Item>
-        </SingleSelect.Section>
-      </>
-    ),
-  },
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'shown',
-      },
-    },
-  },
-}

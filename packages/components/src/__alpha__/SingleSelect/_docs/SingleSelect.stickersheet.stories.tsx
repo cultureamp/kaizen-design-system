@@ -3,7 +3,7 @@ import { type Meta } from '@storybook/react'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { SingleSelect } from '../index'
 import { type SelectItem } from '../types'
-import { groupedMockItems, singleMockItems } from './mockData'
+import { singleMockItems } from './mockData'
 
 export default {
   title: 'Components/SingleSelect/SingleSelect (alpha)',
@@ -25,7 +25,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       const hasMore = start + pageSize < singleMockItems.length
 
       return new Promise((resolve) => {
-        setTimeout(() => resolve({ items: pagedItems, hasMore }), 500)
+        setTimeout(() => resolve({ items: pagedItems, hasMore }), 3000)
       })
     }
 
@@ -45,7 +45,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       const hasMore = start + pageSize < sorted.length
 
       return new Promise((resolve) => {
-        setTimeout(() => resolve({ items: pagedItems, hasMore }), 500)
+        setTimeout(() => resolve({ items: pagedItems, hasMore }), 3000)
       })
     }
 
@@ -106,17 +106,6 @@ const StickerSheetTemplate: StickerSheetStory = {
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Default)',
-}
-
-export const StickerSheetReversed: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: 'Sticker Sheet (Reversed)',
-  parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
-    ...StickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
-  },
-  args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

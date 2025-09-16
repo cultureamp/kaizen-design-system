@@ -25,6 +25,37 @@ SingleSelect component that handles selecting items from a dropdown, can be eith
 
 ## API
 
+Static list
+
+- use when data is already available locally and won't change dynamically
+
+```
+<SingleSelect combobox label="Static colours" items={[
+  { label: 'Red', value: 'red' },
+  { label: 'Blue', value: 'blue' },
+]} />
+```
+
+Async/remote data
+
+- use when you want async fetching / server-side filtering / infinite scroll
+
+```
+<SingleSelect
+  combobox
+  label="Async colours"
+  loadItems={async (query, page = 1) => {
+    const filtered = allColors.filter(c =>
+      c.label.toLowerCase().includes(query?.toLowerCase() ?? '')
+    );
+    return {
+      items: filtered.slice((page - 1) * 7, page * 7),
+      hasMore: page * 7 < filtered.length,
+    };
+  }}
+/>
+```
+
 ## Positioning and z-index Management
 
 The SingleSelect component leverages the native Popover API to manage its dropdown functionality. By using popover instead of custom portal logic, the component takes full advantage of CSS layers, ensuring dropdowns appear above other content without manual z-index management.

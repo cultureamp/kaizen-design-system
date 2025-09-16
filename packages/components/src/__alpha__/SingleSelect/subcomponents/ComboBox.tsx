@@ -10,12 +10,11 @@ import { List } from './List'
 import { Popover } from './Popover'
 
 export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Element => {
-  const { items, children, label, loadItems, noResultsMessage } = props
+  const { items, children, label, loadItems, noResultsMessage, loadingMessage } = props
 
   const [hasMore, setHasMore] = useState(false)
-  const [filterText, setFilterText] = useState('')
 
-  const filterRef = useRef(filterText)
+  const filterRef = useRef('')
 
   const list = useAsyncList<T, number>({
     async load({ cursor }): Promise<{ items: T[]; cursor: number | undefined }> {
@@ -37,13 +36,12 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
     defaultFilter: loadItems ? undefined : contains,
     children: children,
     allowsEmptyCollection: true,
-    onInputChange: (value) => {
-      if (!loadItems) setFilterText(value)
-      if (loadItems) {
-        filterRef.current = value
-        list.reload()
-      }
-    },
+    onInputChange: loadItems
+      ? (value) => {
+          filterRef.current = value
+          list.reload()
+        }
+      : undefined,
   })
 
   const inputRef = useRef<HTMLInputElement>(null)
@@ -103,6 +101,7 @@ export const ComboBox = <T extends SelectItem>(props: ComboBoxProps<T>): JSX.Ele
             onLoadMore={() => list.loadMore()}
             loading={list.isLoading}
             noResultsMessage={noResultsMessage}
+            loadingMessage={loadingMessage}
           />
         </Popover>
       </div>

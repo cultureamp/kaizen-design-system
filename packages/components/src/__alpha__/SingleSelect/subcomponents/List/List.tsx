@@ -14,6 +14,7 @@ export const List = <T extends SelectItem>({
   onLoadMore,
   hasMore,
   loading,
+  loadingMessage,
   noResultsMessage,
 }: ListProps<T>): JSX.Element => {
   const { listBoxProps } = useListBox(listBoxOptions, state, listBoxRef)
@@ -43,13 +44,13 @@ export const List = <T extends SelectItem>({
     }
   }
 
-  const noResultsMsg = formatMessage({
+  const defaultNoResultsMsg = formatMessage({
     id: 'singleSelect.noResults',
     defaultMessage: 'No results',
     description: 'Message shown when there are no results to display',
   })
 
-  const loadingMsg = formatMessage({
+  const defaultLoadingMsg = formatMessage({
     id: 'singleSelect.loading',
     defaultMessage: 'Loading...',
     description: 'Loading text shown when the user is waiting for results',
@@ -64,18 +65,27 @@ export const List = <T extends SelectItem>({
           aria-live="polite"
           aria-atomic="true"
         >
-          <Text variant="body">{noResultsMessage ?? noResultsMsg}</Text>
+          {noResultsMessage ?? <Text variant="body">{defaultNoResultsMsg}</Text>}
         </div>
       )}
-      <ul {...listBoxProps} ref={listBoxRef} className={styles.list}>
+      <ul
+        {...listBoxProps}
+        ref={listBoxRef}
+        className={styles.list}
+        aria-live="polite"
+        aria-relevant="additions text"
+        aria-busy={loading}
+      >
         {Array.from(state.collection).map(renderNode)}
       </ul>
 
-      {(loading ?? hasMore) && (
-        <div className={styles.loadingWrapper} role="status" aria-live="polite" aria-atomic="true">
-          <Text variant="body">{loadingMsg}</Text>
-        </div>
-      )}
+      <div role="status" aria-live="polite" aria-atomic="true">
+        {(loading ?? hasMore) && (
+          <div className={styles.loadingWrapper}>
+            {loadingMessage ?? <Text variant="body">{defaultLoadingMsg}</Text>}
+          </div>
+        )}
+      </div>
     </>
   )
 }
