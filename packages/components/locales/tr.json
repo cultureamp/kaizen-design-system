@@ -186,11 +186,11 @@
   },
   "singleSelect.clearButtonAlt" : {
     "description" : "Alt text for the clear selection button",
-    "message" : "Clear {field} selection"
+    "message" : "{field} seçimini temizle"
   },
   "singleSelect.dropdownButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
-    "message" : "Show suggestions for {field}"
+    "message" : "{field} için önerileri göster"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
