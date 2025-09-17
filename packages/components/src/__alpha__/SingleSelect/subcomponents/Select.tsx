@@ -28,7 +28,7 @@ export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element
 
   const state = useSelectState({
     ...props,
-    items: list.items.length ? list.items : [{ key: '__loading', label: '' } as T],
+    items: list.items,
     children: props.children,
   })
 

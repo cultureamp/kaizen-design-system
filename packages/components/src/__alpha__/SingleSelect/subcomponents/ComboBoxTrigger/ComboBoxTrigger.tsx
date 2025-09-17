@@ -12,7 +12,12 @@ import {
 } from '../../types'
 import styles from './ComboBoxTrigger.module.css'
 
-const ClearButton = ({ clearButtonRef, inputRef }: ClearButtonProps): JSX.Element => {
+const ClearButton = ({
+  clearButtonRef,
+  inputRef,
+  setInputValue,
+  setSelectedKey,
+}: ClearButtonProps): JSX.Element => {
   const { state, isComboBox, fieldLabel } = useSingleSelectContext()
 
   const { formatMessage } = useIntl()
@@ -30,7 +35,8 @@ const ClearButton = ({ clearButtonRef, inputRef }: ClearButtonProps): JSX.Elemen
     {
       onPress: () => {
         if (isComboBox) {
-          state.setSelectedKey(null)
+          setSelectedKey(null)
+          setInputValue('')
         }
         inputRef.current?.focus()
       },
@@ -44,7 +50,7 @@ const ClearButton = ({ clearButtonRef, inputRef }: ClearButtonProps): JSX.Elemen
       ref={clearButtonRef}
       type="button"
       className={classNames(styles.clearButton, { [styles.hidden]: !state.selectedKey })}
-      tabIndex={0}
+      tabIndex={state.selectedKey ? 0 : -1}
     >
       <Icon name="cancel" isPresentational isFilled />
       <VisuallyHidden>{clearButtonAlt}</VisuallyHidden>
@@ -89,13 +95,20 @@ export const ComboBoxTrigger = ({
   buttonProps,
   buttonRef,
   clearButtonRef,
+  setInputValue,
+  setSelectedKey,
 }: ComboBoxTriggerProps): JSX.Element => {
   const { anchorName } = useSingleSelectContext()
 
   return (
     <div style={{ '--anchor-name': anchorName } as React.CSSProperties} className={styles.trigger}>
       <input {...inputProps} ref={inputRef} className={styles.input} />
-      <ClearButton clearButtonRef={clearButtonRef} inputRef={inputRef} />
+      <ClearButton
+        clearButtonRef={clearButtonRef}
+        inputRef={inputRef}
+        setInputValue={setInputValue}
+        setSelectedKey={setSelectedKey}
+      />
       <DropdownButton {...buttonProps} buttonRef={buttonRef} />
     </div>
   )

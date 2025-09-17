@@ -62,30 +62,27 @@ export const List = <T extends SelectItem>({
         <div
           className={styles.noResultsWrapper}
           role="status"
-          aria-live="polite"
+          aria-live="assertive"
           aria-atomic="true"
         >
           {noResultsMessage ?? <Text variant="body">{defaultNoResultsMsg}</Text>}
         </div>
       )}
-      <ul
-        {...listBoxProps}
-        ref={listBoxRef}
-        className={styles.list}
-        aria-live="polite"
-        aria-relevant="additions text"
-        aria-busy={loading}
-      >
+
+      <ul {...listBoxProps} ref={listBoxRef} className={styles.list} aria-busy={loading}>
         {Array.from(state.collection).map(renderNode)}
       </ul>
 
-      <div role="status" aria-live="polite" aria-atomic="true">
-        {(loading ?? hasMore) && (
-          <div className={styles.loadingWrapper}>
-            {loadingMessage ?? <Text variant="body">{defaultLoadingMsg}</Text>}
-          </div>
-        )}
-      </div>
+      {loading && (
+        <div
+          role="status"
+          aria-live="assertive"
+          aria-atomic="true"
+          className={styles.loadingWrapper}
+        >
+          {loadingMessage ?? <Text variant="body">{defaultLoadingMsg}</Text>}
+        </div>
+      )}
     </>
   )
 }

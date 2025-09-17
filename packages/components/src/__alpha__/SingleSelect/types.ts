@@ -4,10 +4,9 @@ import type React from 'react'
 import { type ComboBoxState, type ComboBoxStateOptions } from '@react-stately/combobox'
 import type { ListState } from '@react-stately/list'
 import { type SelectState, type SelectStateOptions } from '@react-stately/select'
-import { type CollectionChildren, type Key, type Node } from '@react-types/shared'
+import { type Key, type Node } from '@react-types/shared'
 import { type FocusableElement } from '@react-types/shared/src/dom'
 import type { AriaButtonProps, AriaListBoxOptions, AriaPopoverProps } from 'react-aria'
-import { type FieldMessageStatus } from '~components/FieldMessage'
 
 // Shared types
 export type SelectItem = {
@@ -54,6 +53,8 @@ export type ComboBoxTriggerProps = {
   buttonProps: AriaButtonProps<'button'>
   buttonRef: React.MutableRefObject<HTMLButtonElement | null>
   clearButtonRef: React.MutableRefObject<HTMLButtonElement | null>
+  setInputValue: React.Dispatch<React.SetStateAction<string>>
+  setSelectedKey: React.Dispatch<React.SetStateAction<Key | null>>
 }
 
 export type DropdownButtonProps = AriaButtonProps<'button'> & {
@@ -63,6 +64,8 @@ export type DropdownButtonProps = AriaButtonProps<'button'> & {
 export type ClearButtonProps = {
   clearButtonRef: React.RefObject<HTMLButtonElement>
   inputRef: React.RefObject<HTMLInputElement>
+  setInputValue: React.Dispatch<React.SetStateAction<string>>
+  setSelectedKey: React.Dispatch<React.SetStateAction<Key | null>>
 }
 
 // Popover
