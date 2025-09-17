@@ -43,8 +43,6 @@ export const ComboBox = <T extends SelectItem>({
   const anchorName = `--trigger-${uniqueId}`
 
   const [hasMore, setHasMore] = useState(false)
-  const [inputValue, setInputValue] = useState('')
-  const [selectedKey, setSelectedKey] = useState<Key | null>(null)
 
   const list = useAsyncList<T, number>({
     async load({ cursor }): Promise<{ items: T[]; cursor: number | undefined }> {
@@ -63,8 +61,6 @@ export const ComboBox = <T extends SelectItem>({
   const debounceDelay = 300
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null)
   const handleInputChange = (value: string): void => {
-    setInputValue(value)
-
     if (loadItems) {
       filterRef.current = value
       if (debounceTimeout.current) {
@@ -74,39 +70,22 @@ export const ComboBox = <T extends SelectItem>({
         list.reload()
       }, debounceDelay)
     }
-
-    if (value === '') {
-      setSelectedKey(null)
-      passedSelectionChange?.(null)
-    }
-
     props.onInputChange?.(value)
   }
 
   const state = useComboBoxState({
     ...props,
-    inputValue,
-    selectedKey,
     items: loadItems ? list.items : staticItems,
     defaultFilter: loadItems ? undefined : contains,
     children: children,
     allowsEmptyCollection: true,
     menuTrigger: 'focus',
     onInputChange: (value) => handleInputChange(value),
-    onSelectionChange: (key) => {
-      setSelectedKey(key)
-      passedSelectionChange?.(key)
-      if (key !== null) {
-        const item = state.collection.getItem(key)
-        if (item) {
-          setInputValue(item.textValue ?? String(item.rendered))
-        }
-      }
-    },
   })
 
-  // Controlled state: needs to clear selection if the selected item is removed
+  // Handles case if selected key is not in updated async list
   const { items: asyncItems } = list
+  const { setSelectedKey, setInputValue, selectedKey } = state
   useEffect(() => {
     if (!loadItems || list.isLoading) return
     if (selectedKey == null) return
@@ -120,7 +99,15 @@ export const ComboBox = <T extends SelectItem>({
     } else if (itemExists) {
       lastSelectedRef.current = selectedKey
     }
-  }, [asyncItems, selectedKey, passedSelectionChange, list.isLoading, loadItems])
+  }, [
+    asyncItems,
+    selectedKey,
+    passedSelectionChange,
+    list.isLoading,
+    loadItems,
+    setInputValue,
+    setSelectedKey,
+  ])
 
   const { labelProps, descriptionProps, inputProps, listBoxProps, buttonProps } = useComboBox(
     {
@@ -166,8 +153,6 @@ export const ComboBox = <T extends SelectItem>({
             buttonProps={buttonProps}
             clearButtonRef={clearButtonRef}
             triggerWrapperRef={triggerWrapperRef}
-            setInputValue={setInputValue}
-            setSelectedKey={setSelectedKey}
           />
         </div>
 

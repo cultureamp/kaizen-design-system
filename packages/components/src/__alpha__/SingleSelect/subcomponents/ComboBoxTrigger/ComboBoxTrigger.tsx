@@ -12,12 +12,7 @@ import {
 } from '../../types'
 import styles from './ComboBoxTrigger.module.css'
 
-const ClearButton = ({
-  clearButtonRef,
-  inputRef,
-  setInputValue,
-  setSelectedKey,
-}: ClearButtonProps): JSX.Element => {
+const ClearButton = ({ clearButtonRef, inputRef }: ClearButtonProps): JSX.Element => {
   const { state, isComboBox, fieldLabel } = useSingleSelectContext()
 
   const { formatMessage } = useIntl()
@@ -35,8 +30,8 @@ const ClearButton = ({
     {
       onPress: () => {
         if (isComboBox) {
-          setSelectedKey(null)
-          setInputValue('')
+          state.setSelectedKey(null)
+          state.setInputValue('')
         }
         inputRef.current?.focus()
       },
@@ -96,8 +91,6 @@ export const ComboBoxTrigger = ({
   buttonRef,
   triggerWrapperRef,
   clearButtonRef,
-  setInputValue,
-  setSelectedKey,
 }: ComboBoxTriggerProps): JSX.Element => {
   const { anchorName, isDisabled, isReadOnly, secondary, size } = useSingleSelectContext()
 
@@ -120,12 +113,7 @@ export const ComboBoxTrigger = ({
           className={classNames(styles.input, { [styles.smallText]: size === 'small' })}
         />
         {!isDisabled && !isReadOnly && (
-          <ClearButton
-            clearButtonRef={clearButtonRef}
-            inputRef={inputRef}
-            setInputValue={setInputValue}
-            setSelectedKey={setSelectedKey}
-          />
+          <ClearButton clearButtonRef={clearButtonRef} inputRef={inputRef} />
         )}
         {!isReadOnly && <ChevronButton {...buttonProps} buttonRef={buttonRef} />}
       </div>
