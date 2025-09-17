@@ -18,6 +18,7 @@
     flex-direction: row;
     justify-content: space-between;
     outline: none;
+    gap: var(--spacing-12);
   }
 
   .listItem.focused {
@@ -86,12 +87,11 @@
   }
 
   .selectedIconWrapper {
-    padding-inline-end: var(--spacing-12);
     display: flex;
     align-items: center;
   }
 
   .emptySpacer {
-    width: 2.25rem;
+    width: var(--spacing-20);
   }
 }
