@@ -52,6 +52,7 @@ export type ComboBoxTriggerProps = {
   inputRef: React.MutableRefObject<HTMLInputElement | null>
   buttonProps: AriaButtonProps<'button'>
   buttonRef: React.MutableRefObject<HTMLButtonElement | null>
+  triggerWrapperRef: React.MutableRefObject<HTMLDivElement | null>
   clearButtonRef: React.MutableRefObject<HTMLButtonElement | null>
   setInputValue: React.Dispatch<React.SetStateAction<string>>
   setSelectedKey: React.Dispatch<React.SetStateAction<Key | null>>
@@ -72,7 +73,7 @@ export type ClearButtonProps = {
 
 export type PopoverProps<T extends SelectItem> = AriaPopoverProps & {
   state: ComboBoxState<T> | SelectState<T>
-  triggerRef: React.RefObject<HTMLInputElement> | React.RefObject<HTMLButtonElement>
+  triggerRef: React.RefObject<HTMLElement>
   popoverRef: React.RefObject<HTMLDivElement>
   clearButtonRef?: React.RefObject<HTMLButtonElement>
   children: React.ReactNode
