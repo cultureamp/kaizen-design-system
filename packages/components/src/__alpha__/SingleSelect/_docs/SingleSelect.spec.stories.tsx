@@ -120,6 +120,40 @@ export const FiltersResults: Story = {
   },
 }
 
+export const AsyncComboLoadsMoreOnScroll: Story = {
+  args: {
+    label: 'Choose a coffee',
+    isComboBox: true,
+    loadItems: async (_query?: string, page = 1, pageSize = 3) => {
+      const start = (page - 1) * pageSize
+      const items = singleMockItems.slice(start, start + pageSize)
+      const hasMore = start + pageSize < singleMockItems.length
+
+      return new Promise((resolve) => setTimeout(() => resolve({ items, hasMore }), 50))
+    },
+    children: (item) => <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>,
+  },
+  play: async () => {
+    const button = await screen.getByRole('button', {
+      name: /Show suggestions for Choose a coffee/i,
+    })
+
+    await userEvent.click(button)
+
+    let options = await screen.findAllByRole('option')
+    options = await screen.findAllByRole('option', { name: /Short black|Long black|Batch brew/ })
+    expect(options.length).toBe(3)
+
+    const listbox = screen.getByRole('listbox')
+    listbox.scrollTop = listbox.scrollHeight
+    fireEvent.scroll(listbox)
+
+    await screen.findAllByRole('option', { name: /Latte/ })
+    options = await screen.findAllByRole('option')
+    expect(options.length).toBeGreaterThan(3)
+  },
+}
+
 export const AsyncSelectLoadsMoreOnScroll: Story = {
   args: {
     label: 'Choose a coffee',
@@ -133,7 +167,9 @@ export const AsyncSelectLoadsMoreOnScroll: Story = {
     children: (item) => <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>,
   },
   play: async () => {
-    const trigger = screen.getByRole('button', { name: /Choose a coffee/i })
+    const trigger = screen.getByRole('button', {
+      name: /Choose a coffee/i,
+    })
     await userEvent.click(trigger)
 
     let options = await screen.findAllByRole('option')

@@ -1,4 +1,4 @@
-import React, { useId, useRef } from 'react'
+import React, { useId, useMemo, useRef } from 'react'
 import { useAsyncList } from '@react-stately/data'
 import { useSelectState } from '@react-stately/select'
 import { useSelect } from 'react-aria'
@@ -26,9 +26,18 @@ export const Select = <T extends SelectItem>(props: SelectProps<T>): JSX.Element
     },
   })
 
+  const itemsForState = useMemo(() => {
+    // Placeholder allows popover to open when items are loading or empty
+    // placeholder won't be rendered, handled in List
+    if (list.items.length === 0 && list.isLoading) {
+      return [{ key: '__loading', label: 'Loading...' } as T]
+    }
+    return list.items
+  }, [list.items, list.isLoading])
+
   const state = useSelectState({
     ...props,
-    items: list.items,
+    items: itemsForState,
     children: props.children,
   })
 

@@ -36,7 +36,8 @@ export const List = <T extends SelectItem>({
     return () => el.removeEventListener('scroll', handleScroll)
   }, [hasMore, onLoadMore, listBoxRef])
 
-  const renderNode = (node: any): JSX.Element => {
+  const renderNode = (node: any): JSX.Element | null => {
+    if (node.value.key === '__loading') return null
     if (node.type === 'section') {
       return node.rendered && <ListSection key={String(node.key)} section={node} state={state} />
     } else {
