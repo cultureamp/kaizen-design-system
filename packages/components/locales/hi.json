@@ -184,13 +184,13 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "जानकारी छिपाएं:"
   },
+  "singleSelect.chevronButton" : {
+    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message" : "{field} के लिए सुझाव दिखाएँ"
+  },
   "singleSelect.clearButtonAlt" : {
     "description" : "Alt text for the clear selection button",
     "message" : "{field} चयन हटाएँ"
-  },
-  "singleSelect.dropdownButton" : {
-    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
-    "message" : "{field} के लिए सुझाव दिखाएँ"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",

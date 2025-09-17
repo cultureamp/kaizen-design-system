@@ -184,13 +184,13 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "Paslėpti informaciją:"
   },
+  "singleSelect.chevronButton" : {
+    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message" : "Rodyti pasiūlymus {field}"
+  },
   "singleSelect.clearButtonAlt" : {
     "description" : "Alt text for the clear selection button",
     "message" : "Išvalyti {field} pasirinkimą"
-  },
-  "singleSelect.dropdownButton" : {
-    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
-    "message" : "Rodyti pasiūlymus {field}"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",

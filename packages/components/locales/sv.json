@@ -184,13 +184,13 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "Dölj information:"
   },
-  "singleSelect.clearButtonAlt" : {
-    "description" : "Alt text for the clear selection button",
-    "message" : "Clear {field} selection"
-  },
-  "singleSelect.dropdownButton" : {
+  "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "Visa förslag för {field}"
+  },
+  "singleSelect.clearButtonAlt" : {
+    "description" : "Alt text for the clear selection button",
+    "message" : "Rensa {field} val"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",

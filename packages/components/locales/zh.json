@@ -184,13 +184,13 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "隐藏信息："
   },
+  "singleSelect.chevronButton" : {
+    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message" : "显示{field}的建议"
+  },
   "singleSelect.clearButtonAlt" : {
     "description" : "Alt text for the clear selection button",
     "message" : "清除{field}选择"
-  },
-  "singleSelect.dropdownButton" : {
-    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
-    "message" : "显示{field}的建议"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",

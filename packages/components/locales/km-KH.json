@@ -184,13 +184,13 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "លាក់ព័ត៌មាន៖"
   },
+  "singleSelect.chevronButton" : {
+    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message" : "បង្ហាញការផ្ដល់យោបល់នានាសម្រាប់ {field}"
+  },
   "singleSelect.clearButtonAlt" : {
     "description" : "Alt text for the clear selection button",
     "message" : "លុបការជ្រើសរើស {field}"
-  },
-  "singleSelect.dropdownButton" : {
-    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
-    "message" : "បង្ហាញការផ្ដល់យោបល់នានាសម្រាប់ {field}"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
