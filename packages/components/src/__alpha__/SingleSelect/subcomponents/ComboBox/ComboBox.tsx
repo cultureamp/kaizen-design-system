@@ -112,12 +112,13 @@ export const ComboBox = <T extends SelectItem>({
   const { labelProps, descriptionProps, inputProps, listBoxProps, buttonProps } = useComboBox(
     {
       ...props,
+      'aria-label': labelHidden ? label : undefined,
       label,
-      items: staticItems,
+      'items': staticItems,
       description,
       isReadOnly,
       isDisabled,
-      onSelectionChange: passedSelectionChange,
+      'onSelectionChange': passedSelectionChange,
       inputRef,
       buttonRef,
       popoverRef,

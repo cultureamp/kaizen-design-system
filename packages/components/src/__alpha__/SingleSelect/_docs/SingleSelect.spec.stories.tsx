@@ -136,6 +136,7 @@ export const AsyncComboLoadsMoreOnScroll: Story = {
   play: async () => {
     const button = await screen.getByRole('button', {
       name: /Show suggestions for Choose a coffee/i,
+      hidden: true,
     })
 
     await userEvent.click(button)

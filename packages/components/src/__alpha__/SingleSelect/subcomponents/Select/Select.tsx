@@ -63,7 +63,14 @@ export const Select = <T extends SelectItem>({
   })
 
   const { labelProps, descriptionProps, menuProps, triggerProps, valueProps } = useSelect(
-    { ...props, label, isDisabled, description, items },
+    {
+      ...props,
+      label,
+      isDisabled,
+      description,
+      items,
+      'aria-label': labelHidden ? label : undefined,
+    },
     state,
     triggerRef,
   )
