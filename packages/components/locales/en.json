@@ -185,13 +185,13 @@
     "description": "Prompts user to interact with button to hide information",
     "message": "Hide information:"
   },
+  "singleSelect.chevronButton": {
+    "description": "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message": "Show suggestions for {field}"
+  },
   "singleSelect.clearButtonAlt": {
     "description": "Alt text for the clear selection button",
     "message": "Clear {field} selection"
-  },
-  "singleSelect.dropdownButton": {
-    "description": "Aria label text for the SingleSelect button to open and close suggestions list",
-    "message": "Show suggestions for {field}"
   },
   "splitButton.dropdownButton.label": {
     "description": "Label for a dropdown menu holding additional actions",
