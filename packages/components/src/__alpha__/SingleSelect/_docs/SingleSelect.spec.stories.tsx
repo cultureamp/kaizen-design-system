@@ -134,12 +134,8 @@ export const AsyncComboLoadsMoreOnScroll: Story = {
     children: (item) => <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>,
   },
   play: async () => {
-    const button = await screen.getByRole('button', {
-      name: /Show suggestions for Choose a coffee/i,
-      hidden: true,
-    })
-
-    await userEvent.click(button)
+    const combobox = await screen.getByRole('combobox')
+    await userEvent.click(combobox)
 
     let options = await screen.findAllByRole('option')
     options = await screen.findAllByRole('option', { name: /Short black|Long black|Batch brew/ })
@@ -184,5 +180,53 @@ export const AsyncSelectLoadsMoreOnScroll: Story = {
     await screen.findAllByRole('option', { name: /Latte/ })
     options = await screen.findAllByRole('option')
     expect(options.length).toBeGreaterThan(3)
+  },
+}
+
+export const ClearsSelectionIfItemDisappears: Story = {
+  args: {
+    label: 'Choose a coffee',
+    isComboBox: true,
+    // backing data that can change
+    loadItems: (() => {
+      let data = [...singleMockItems]
+      const fn = async (
+        _query?: string,
+      ): Promise<{ items: typeof singleMockItems; hasMore: boolean }> => {
+        return {
+          items: data,
+          hasMore: false,
+        }
+      }
+      // expose a way to mutate it in the play function
+      ;(fn as any).setData = (next: typeof singleMockItems) => {
+        data = next
+      }
+      return fn
+    })(),
+    children: (item) => (
+      <SingleSelect.Item key={item.key} textValue={item.label}>
+        {item.label}
+      </SingleSelect.Item>
+    ),
+  },
+  play: async ({ args }) => {
+    const input = screen.getByRole('combobox')
+    await userEvent.type(input, 'latte')
+    const options = await screen.findAllByRole('option')
+    const latte = options.find((o) => /latte/i.exec(o.textContent))
+    expect(latte).toBeDefined()
+    await userEvent.click(latte!)
+    await waitFor(() => expect(input).toHaveValue('Latte'))
+    ;(args.loadItems as any).setData(singleMockItems.filter((i) => i.label !== 'Latte'))
+
+    await userEvent.clear(input)
+    await waitFor(() => {
+      expect(screen.queryByRole('option', { name: /latte/i })).not.toBeInTheDocument()
+    })
+
+    await waitFor(() => {
+      expect(input).toHaveValue('')
+    })
   },
 }
