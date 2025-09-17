@@ -6,9 +6,9 @@ import { Icon } from '~components/Icon'
 import { VisuallyHidden } from '~components/VisuallyHidden'
 import { useSingleSelectContext } from '../../context'
 import {
+  type ChevronButtonProps,
   type ClearButtonProps,
   type ComboBoxTriggerProps,
-  type DropdownButtonProps,
 } from '../../types'
 import styles from './ComboBoxTrigger.module.css'
 
@@ -58,13 +58,13 @@ const ClearButton = ({
   )
 }
 
-const DropdownButton = (props: DropdownButtonProps): JSX.Element => {
+const ChevronButton = (props: ChevronButtonProps): JSX.Element => {
   const { state, fieldLabel } = useSingleSelectContext()
   const { formatMessage } = useIntl()
 
-  const dropdownButton = formatMessage(
+  const chevronButton = formatMessage(
     {
-      id: 'singleSelect.dropdownButton',
+      id: 'singleSelect.chevronButton',
       defaultMessage: 'Show suggestions for {field}',
       description: 'Aria label text for the SingleSelect button to open and close suggestions list',
     },
@@ -72,7 +72,7 @@ const DropdownButton = (props: DropdownButtonProps): JSX.Element => {
   )
 
   const { buttonProps } = useButton(
-    { ...props, 'aria-label': String(dropdownButton), 'aria-labelledby': undefined },
+    { ...props, 'aria-label': String(chevronButton), 'aria-labelledby': undefined },
     props.buttonRef,
   )
 
@@ -81,7 +81,7 @@ const DropdownButton = (props: DropdownButtonProps): JSX.Element => {
       type="button"
       {...buttonProps}
       ref={props.buttonRef}
-      className={styles.button}
+      className={styles.chevronButton}
       tabIndex={-1}
     >
       <Icon isPresentational name={state.isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} />
@@ -99,22 +99,36 @@ export const ComboBoxTrigger = ({
   setInputValue,
   setSelectedKey,
 }: ComboBoxTriggerProps): JSX.Element => {
-  const { anchorName } = useSingleSelectContext()
+  const { anchorName, isDisabled, isReadOnly, secondary, size } = useSingleSelectContext()
 
   return (
-    <div
-      style={{ '--anchor-name': anchorName } as React.CSSProperties}
-      className={styles.trigger}
-      ref={triggerWrapperRef}
-    >
-      <input {...inputProps} ref={inputRef} className={styles.input} />
-      <ClearButton
-        clearButtonRef={clearButtonRef}
-        inputRef={inputRef}
-        setInputValue={setInputValue}
-        setSelectedKey={setSelectedKey}
-      />
-      <DropdownButton {...buttonProps} buttonRef={buttonRef} />
-    </div>
+    <>
+      <div
+        style={{ '--anchor-name': anchorName } as React.CSSProperties}
+        ref={triggerWrapperRef}
+        className={classNames(styles.trigger, {
+          [styles.disabled]: isDisabled,
+          [styles.readOnly]: isReadOnly,
+          [styles.secondary]: secondary,
+          [styles.small]: size === 'small',
+          [styles.large]: size === 'large',
+        })}
+      >
+        <input
+          {...inputProps}
+          ref={inputRef}
+          className={classNames(styles.input, { [styles.smallText]: size === 'small' })}
+        />
+        {!isDisabled && !isReadOnly && (
+          <ClearButton
+            clearButtonRef={clearButtonRef}
+            inputRef={inputRef}
+            setInputValue={setInputValue}
+            setSelectedKey={setSelectedKey}
+          />
+        )}
+        {!isReadOnly && <ChevronButton {...buttonProps} buttonRef={buttonRef} />}
+      </div>
+    </>
   )
 }

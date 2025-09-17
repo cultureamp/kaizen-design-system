@@ -2,13 +2,16 @@ import React, { useEffect, useId, useRef, useState } from 'react'
 import { useComboBoxState } from '@react-stately/combobox'
 import { useAsyncList } from '@react-stately/data'
 import type { Key } from '@react-types/shared'
+import classNames from 'classnames'
 import { useComboBox, useFilter } from 'react-aria'
-import { Text } from '~components/Text'
-import { SingleSelectContext } from '../context'
-import { type ComboBoxProps, type SelectItem } from '../types'
-import { ComboBoxTrigger } from './ComboBoxTrigger'
-import { List } from './List'
-import { Popover } from './Popover'
+import { FieldMessage } from '~components/FieldMessage'
+import { Label } from '~components/Label'
+import { SingleSelectContext } from '../../context'
+import { type ComboBoxProps, type SelectItem } from '../../types'
+import { ComboBoxTrigger } from '../ComboBoxTrigger'
+import { List } from '../List'
+import { Popover } from '../Popover'
+import styles from './ComboBox.module.css'
 
 export const ComboBox = <T extends SelectItem>({
   items: staticItems,
@@ -17,6 +20,13 @@ export const ComboBox = <T extends SelectItem>({
   loadItems,
   noResultsMessage,
   loadingMessage,
+  description,
+  labelHidden,
+  labelPosition = 'top',
+  isReadOnly,
+  isDisabled,
+  size = 'medium',
+  variant = 'primary',
   onSelectionChange: passedSelectionChange,
   ...props
 }: ComboBoxProps<T>): JSX.Element => {
@@ -28,6 +38,9 @@ export const ComboBox = <T extends SelectItem>({
   const buttonRef = useRef<HTMLButtonElement>(null)
   const triggerWrapperRef = useRef<HTMLDivElement>(null)
   const clearButtonRef = useRef<HTMLButtonElement>(null)
+
+  const uniqueId = useId()
+  const anchorName = `--trigger-${uniqueId}`
 
   const [hasMore, setHasMore] = useState(false)
   const [inputValue, setInputValue] = useState('')
@@ -78,6 +91,7 @@ export const ComboBox = <T extends SelectItem>({
     defaultFilter: loadItems ? undefined : contains,
     children: children,
     allowsEmptyCollection: true,
+    menuTrigger: 'focus',
     onInputChange: (value) => handleInputChange(value),
     onSelectionChange: (key) => {
       setSelectedKey(key)
@@ -91,6 +105,7 @@ export const ComboBox = <T extends SelectItem>({
     },
   })
 
+  // Controlled state: needs to clear selection if the selected item is removed
   const { items: asyncItems } = list
   useEffect(() => {
     if (!loadItems || list.isLoading) return
@@ -107,19 +122,22 @@ export const ComboBox = <T extends SelectItem>({
     }
   }, [asyncItems, selectedKey, passedSelectionChange, list.isLoading, loadItems])
 
-  const { labelProps, inputProps, listBoxProps, buttonProps } = useComboBox(
+  const { labelProps, descriptionProps, inputProps, listBoxProps, buttonProps } = useComboBox(
     {
+      ...props,
       label,
+      items: staticItems,
+      description,
+      isReadOnly,
+      isDisabled,
+      onSelectionChange: passedSelectionChange,
       inputRef,
       buttonRef,
       popoverRef,
       listBoxRef,
-      ...props,
     },
     state,
   )
-  const uniqueId = useId()
-  const anchorName = `--trigger-${uniqueId}`
 
   return (
     <SingleSelectContext.Provider
@@ -127,45 +145,56 @@ export const ComboBox = <T extends SelectItem>({
         anchorName,
         state,
         isComboBox: true,
+        isDisabled: isDisabled ?? false,
+        isReadOnly: isReadOnly ?? false,
+        secondary: variant === 'secondary',
+        size,
         fieldLabel: label,
       }}
     >
-      <div style={{ display: 'inline-block' }}>
-        <div>
-          <Text variant="body" {...labelProps}>
-            {label}
-          </Text>
-
+      <div className={labelPosition === 'top' ? styles.topLabel : styles.sideLabel}>
+        {!labelHidden && (
+          <div className={classNames(styles.label, { [styles.labelTop]: labelPosition === 'top' })}>
+            <Label {...labelProps}>{label}</Label>
+          </div>
+        )}
+        <div className={styles.comboBoxTrigger}>
           <ComboBoxTrigger
             inputProps={inputProps}
             inputRef={inputRef}
             buttonRef={buttonRef}
             buttonProps={buttonProps}
             clearButtonRef={clearButtonRef}
+            triggerWrapperRef={triggerWrapperRef}
             setInputValue={setInputValue}
             setSelectedKey={setSelectedKey}
-            triggerWrapperRef={triggerWrapperRef}
           />
         </div>
 
-        <Popover
-          state={state}
-          triggerRef={triggerWrapperRef}
-          popoverRef={popoverRef}
-          clearButtonRef={clearButtonRef}
-        >
-          <List
-            listBoxOptions={listBoxProps}
-            state={state}
-            listBoxRef={listBoxRef}
-            hasMore={hasMore}
-            onLoadMore={() => list.loadMore()}
-            loading={list.isLoading}
-            noResultsMessage={noResultsMessage}
-            loadingMessage={loadingMessage}
-          />
-        </Popover>
+        {description && (
+          <div className={styles.description}>
+            <FieldMessage message={description} {...descriptionProps} />
+          </div>
+        )}
       </div>
+
+      <Popover
+        state={state}
+        triggerRef={triggerWrapperRef}
+        popoverRef={popoverRef}
+        clearButtonRef={clearButtonRef}
+      >
+        <List
+          listBoxOptions={listBoxProps}
+          state={state}
+          listBoxRef={listBoxRef}
+          hasMore={hasMore}
+          onLoadMore={() => list.loadMore()}
+          loading={list.isLoading}
+          noResultsMessage={noResultsMessage}
+          loadingMessage={loadingMessage}
+        />
+      </Popover>
     </SingleSelectContext.Provider>
   )
 }

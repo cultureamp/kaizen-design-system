@@ -1,5 +1,9 @@
 export const singleMockItems = [
-  { key: 'short-black', label: 'Short black', value: 'short-black' },
+  {
+    key: 'short-black',
+    label: 'Short black',
+    value: 'short-black',
+  },
   { key: 'long-black', label: 'Long black', value: 'long-black' },
   { key: 'batch-brew', label: 'Batch brew', value: 'batch-brew' },
   { key: 'latte', label: 'Latte', value: 'latte' },

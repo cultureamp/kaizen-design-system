@@ -21,12 +21,24 @@ export type SelectSection = {
 }
 
 // SingleSelect
+export type SelectLabel =
+  | {
+      labelHidden: true
+      label: string
+    }
+  | {
+      labelHidden?: false
+      label: React.ReactNode
+    }
 
 export type SelectBaseProps = {
-  label: React.ReactNode
+  variant?: 'primary' | 'secondary'
+  size?: 'small' | 'medium' | 'large'
+  labelPosition?: 'top' | 'side'
+  isReadOnly?: boolean
   noResultsMessage?: React.ReactNode
   loadingMessage?: React.ReactNode
-}
+} & SelectLabel
 
 export type SelectProps<T extends SelectItem> = Omit<SelectStateOptions<T>, 'label'> & {
   loadItems?: (query?: string, page?: number) => Promise<{ items: T[]; hasMore?: boolean }>
@@ -58,7 +70,7 @@ export type ComboBoxTriggerProps = {
   setSelectedKey: React.Dispatch<React.SetStateAction<Key | null>>
 }
 
-export type DropdownButtonProps = AriaButtonProps<'button'> & {
+export type ChevronButtonProps = AriaButtonProps<'button'> & {
   buttonRef: React.MutableRefObject<HTMLButtonElement | null>
 }
 
@@ -121,10 +133,13 @@ export type ListProps<T extends SelectItem> = {
 export type ListItemProps<T extends SelectItem> = {
   item: Node<T>
   state: ListState<T>
+  selectedIcon?: 'check' | 'radio'
+  selectedPosition?: 'start' | 'end'
+  className?: string
 }
 
 // ListSection
 export type ListSectionProps<T extends SelectItem> = {
-  section: any
+  section: Node<T>
   state: ComboBoxState<T> | SelectState<T>
 }

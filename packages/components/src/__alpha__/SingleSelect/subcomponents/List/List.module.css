@@ -5,7 +5,7 @@
     list-style: none;
     overflow-y: scroll;
     max-height: inherit;
-    padding: 0;
+    padding: 0.875rem;
     margin: 0;
   }
 

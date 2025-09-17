@@ -3,7 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { SingleSelect } from '../index'
 import { singleMockItems } from './mockData'
 
-const meta = {
+const meta: Meta = {
   title: 'Components/SingleSelect/SingleSelect (alpha)',
   component: SingleSelect,
   args: {
@@ -19,7 +19,7 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof SingleSelect>
+}
 
 export default meta
 
