@@ -21,20 +21,20 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <StickerSheet isReversed={isReversed} title="SingleSelect" headers={['Combobox', 'Select']}>
         <StickerSheet.Row>
-          <SingleSelect label="Pick a colour" isComboBox description="Default">
+          <SingleSelect label="Coffee" isComboBox description="Default">
             {singleMockItems.map((item) => (
               <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
             ))}
           </SingleSelect>
 
-          <SingleSelect label="Pick a colour" description="Default">
+          <SingleSelect label="Coffee" description="Default">
             {singleMockItems.map((item) => (
               <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
             ))}
           </SingleSelect>
 
           <SingleSelect
-            label="Pick a colour"
+            label="Coffee"
             isComboBox
             description="Manual filter"
             items={singleMockItems.filter((item) =>
@@ -49,7 +49,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             )}
           </SingleSelect>
 
-          <SingleSelect label="Pick a colour" description="Render function" items={singleMockItems}>
+          <SingleSelect label="Coffee" description="Render function" items={singleMockItems}>
             {(item) => (
               <SingleSelect.Item key={item.key} textValue={item.label}>
                 {item.label}

@@ -87,6 +87,28 @@ const [filterText, setFilterText] = useState('')
 </SingleSelect>
 ```
 
+## Flexible Rendering of items
+
+The SingleSelect.Item component is flexible and can accommodate a wide variety of content beyond simple text labels. You can render avatars, icons, or any custom React nodes within an item, while still preserving accessibility by providing the textValue prop.
+
+```tsx
+<SingleSelect label="Coffee" isComboBox description="Avatar and inline">
+  {singleMockItems.map((item) => (
+    <SingleSelect.Item key={item.key} textValue={item.label} className="flex items-center gap-3">
+      <Avatar fullName="Senior Popsicle" size="small" />
+
+      <Text variant="body" className="flex-shrink-0 whitespace-nowrap mr-2">
+        {item.label}
+      </Text>
+
+      <Text variant="body" className="truncate">
+        Supporting text
+      </Text>
+    </SingleSelect.Item>
+  ))}
+</SingleSelect>
+```
+
 ## Positioning and z-index Management
 
 The SingleSelect component leverages the native Popover API to manage its dropdown functionality. By using popover instead of custom portal logic, the component takes full advantage of CSS layers, ensuring dropdowns appear above other content without manual z-index management.
