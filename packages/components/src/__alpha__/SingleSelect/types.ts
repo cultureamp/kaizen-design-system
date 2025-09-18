@@ -38,10 +38,16 @@ export type SelectBaseProps = {
   isReadOnly?: boolean
 } & SelectLabel
 
-export type SelectProps<T extends SelectItem> = Omit<SelectStateOptions<T>, 'label'> &
+export type SelectProps<T extends SelectItem> = Omit<
+  SelectStateOptions<T>,
+  'label' | 'defaultFilter' | 'menuTrigger' | 'allowsCustomValue'
+> &
   SelectBaseProps
 
-export type ComboBoxProps<T extends SelectItem> = Omit<ComboBoxStateOptions<T>, 'label'> &
+export type ComboBoxProps<T extends SelectItem> = Omit<
+  ComboBoxStateOptions<T>,
+  'label' | 'defaultFilter' | 'menuTrigger' | 'allowsCustomValue'
+> &
   SelectBaseProps
 
 export type SingleSelectProps<T extends SelectItem> =
