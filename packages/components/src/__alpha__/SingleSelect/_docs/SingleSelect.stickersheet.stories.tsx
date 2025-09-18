@@ -17,6 +17,7 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
+    const [filterText, setFilterText] = React.useState('')
     return (
       <StickerSheet isReversed={isReversed} title="SingleSelect" headers={['Combobox', 'Select']}>
         <StickerSheet.Row>
@@ -30,6 +31,30 @@ const StickerSheetTemplate: StickerSheetStory = {
             {singleMockItems.map((item) => (
               <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
             ))}
+          </SingleSelect>
+
+          <SingleSelect
+            label="Pick a colour"
+            isComboBox
+            description="Manual filter"
+            items={singleMockItems.filter((item) =>
+              item.label.toLowerCase().includes(filterText.toLowerCase()),
+            )}
+            onInputChange={setFilterText}
+          >
+            {(item) => (
+              <SingleSelect.Item key={item.key} textValue={item.label}>
+                {item.label}
+              </SingleSelect.Item>
+            )}
+          </SingleSelect>
+
+          <SingleSelect label="Pick a colour" description="Render function" items={singleMockItems}>
+            {(item) => (
+              <SingleSelect.Item key={item.key} textValue={item.label}>
+                {item.label}
+              </SingleSelect.Item>
+            )}
           </SingleSelect>
         </StickerSheet.Row>
 
