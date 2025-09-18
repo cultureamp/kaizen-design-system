@@ -11,6 +11,9 @@ export const singleMockItems = [
   { key: 'mocha', label: 'Mocha', value: 'mocha' },
   { key: 'cappuccino', label: 'Cappuccino', value: 'cappuccino' },
   { key: 'magic', label: 'Magic', value: 'magic' },
+  { key: 'espresso', label: 'Espresso', value: 'espresso' },
+  { key: 'cold-brew', label: 'Cold Brew', value: 'cold-brew' },
+  { key: 'affogato', label: 'Affogato', value: 'affogato' },
 ]
 
 export const groupedMockItems = [

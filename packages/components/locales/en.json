@@ -193,6 +193,14 @@
     "description": "Alt text for the clear selection button",
     "message": "Clear {field} selection"
   },
+  "singleSelect.loading": {
+    "description": "Loading text shown when the user is waiting for results",
+    "message": "Loading..."
+  },
+  "singleSelect.noResults": {
+    "description": "Message shown when there are no results to display",
+    "message": "No results"
+  },
   "splitButton.dropdownButton.label": {
     "description": "Label for a dropdown menu holding additional actions",
     "message": "Additional actions"

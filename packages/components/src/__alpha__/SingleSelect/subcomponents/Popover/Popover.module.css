@@ -6,7 +6,10 @@
     border-radius: var(--spacing-8);
     padding: 0;
     box-shadow: var(--shadow-small-box-shadow);
-    overflow: hidden auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     box-sizing: border-box;
 

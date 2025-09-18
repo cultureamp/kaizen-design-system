@@ -31,6 +31,7 @@ const ClearButton = ({ clearButtonRef, inputRef }: ClearButtonProps): JSX.Elemen
       onPress: () => {
         if (isComboBox) {
           state.setSelectedKey(null)
+          state.setInputValue('')
         }
         inputRef.current?.focus()
       },
@@ -44,7 +45,7 @@ const ClearButton = ({ clearButtonRef, inputRef }: ClearButtonProps): JSX.Elemen
       ref={clearButtonRef}
       type="button"
       className={classNames(styles.clearButton, { [styles.hidden]: !state.selectedKey })}
-      tabIndex={0}
+      tabIndex={state.selectedKey ? 0 : -1}
     >
       <Icon name="cancel" isPresentational isFilled />
       <VisuallyHidden>{clearButtonAlt}</VisuallyHidden>

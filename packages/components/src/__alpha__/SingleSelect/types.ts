@@ -36,13 +36,17 @@ export type SelectBaseProps = {
   size?: 'small' | 'medium' | 'large'
   labelPosition?: 'top' | 'side'
   isReadOnly?: boolean
+  noResultsMessage?: React.ReactNode
+  loadingMessage?: React.ReactNode
 } & SelectLabel
 
-export type SelectProps<T extends SelectItem> = Omit<SelectStateOptions<T>, 'label'> &
-  SelectBaseProps
+export type SelectProps<T extends SelectItem> = Omit<SelectStateOptions<T>, 'label'> & {
+  loadItems?: (query?: string, page?: number) => Promise<{ items: T[]; hasMore?: boolean }>
+} & SelectBaseProps
 
-export type ComboBoxProps<T extends SelectItem> = Omit<ComboBoxStateOptions<T>, 'label'> &
-  SelectBaseProps
+export type ComboBoxProps<T extends SelectItem> = Omit<ComboBoxStateOptions<T>, 'label'> & {
+  loadItems?: (query?: string, page?: number) => Promise<{ items: T[]; hasMore?: boolean }>
+} & SelectBaseProps
 
 export type SingleSelectProps<T extends SelectItem> =
   | (ComboBoxProps<T> & { isComboBox?: true })
@@ -114,6 +118,11 @@ export type ListProps<T extends SelectItem> = {
   state: ComboBoxState<T> | SelectState<T>
   listBoxOptions: AriaListBoxOptions<T>
   listBoxRef: React.RefObject<HTMLUListElement>
+  onLoadMore?: () => void
+  hasMore?: boolean
+  loading?: boolean
+  loadingMessage?: React.ReactNode
+  noResultsMessage?: React.ReactNode
 }
 
 // ListItem
