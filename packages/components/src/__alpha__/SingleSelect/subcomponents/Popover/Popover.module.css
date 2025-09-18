@@ -1,14 +1,14 @@
 @layer kz-components {
   .popover {
     position: absolute;
-    height: auto;
     background-color: var(--color-white);
     border-radius: var(--spacing-8);
     padding: 0;
     box-shadow: var(--shadow-small-box-shadow);
-    overflow: hidden auto;
     margin: 0;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 
     @supports (anchor-name: --anchor) {
       position-anchor: var(--position-anchor);
@@ -17,10 +17,9 @@
       /* stylelint-disable-next-line declaration-property-value-no-unknown */
       width: anchor-size(width);
     }
-
-    .offsetSpacing {
-      margin-top: var(--spacing-4);
-      margin-bottom: var(--spacing-4);
-    }
+  }
+  .offsetSpacing {
+    margin-top: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
   }
 }
