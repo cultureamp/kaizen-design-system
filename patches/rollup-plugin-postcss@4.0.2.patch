@@ -1,0 +1,66 @@
+diff --git a/dist/index.js b/dist/index.js
+index 8ca4cf35ac17b3874f116a5620c6816854311099..6d1e83ad379c9bb18351f36ca4e61d0642bdf4a2 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -765,13 +765,19 @@ function inferOption(option, defaultValue) {
+  * Recursively get the correct import order from rollup
+  * We only process a file once
+  *
+- * @param {string} id
++ * @param {Array<string>} ids
+  * @param {Function} getModuleInfo
+  * @param {Set<string>} seen
+  */
+ 
+ 
+-function getRecursiveImportOrder(id, getModuleInfo, seen = new Set()) {
++function getRecursiveImportOrder(ids, getModuleInfo, seen = new Set()) {
++  return ids.flatMap(id => {
++    return getRecursiveImportOrderForModule(id, getModuleInfo, seen);
++  });
++}
++
++function getRecursiveImportOrderForModule(id, getModuleInfo, seen = new Set()) {
+   if (seen.has(id)) {
+     return [];
+   }
+@@ -779,7 +785,7 @@ function getRecursiveImportOrder(id, getModuleInfo, seen = new Set()) {
+   seen.add(id);
+   const result = [id];
+   getModuleInfo(id).importedIds.forEach(importFile => {
+-    result.push(...getRecursiveImportOrder(importFile, getModuleInfo, seen));
++    result.push(...getRecursiveImportOrderForModule(importFile, getModuleInfo, seen));
+   });
+   return result;
+ }
+@@ -917,6 +923,7 @@ var index = ((options = {}) => {
+ 
+         const dir = options_.dir || path__default['default'].dirname(options_.file);
+         const file = options_.file || path__default['default'].join(options_.dir, Object.keys(bundle).find(fileName => bundle[fileName].isEntry));
++        const entryFiles = options_.file ? [options_.file] : Object.keys(bundle).filter(fileName => bundle[fileName].isEntry).map(fileName => path__default['default'].join(options_.dir, fileName));
+ 
+         const getExtracted = () => {
+           let fileName = `${path__default['default'].basename(file, path__default['default'].extname(file))}.css`;
+@@ -927,12 +934,16 @@ var index = ((options = {}) => {
+ 
+           const concat = new Concat__default['default'](true, fileName, '\n');
+           const entries = [...extracted.values()];
+-          const _bundle$normalizePath = bundle[normalizePath(path__default['default'].relative(dir, file))],
+-                modules = _bundle$normalizePath.modules,
+-                facadeModuleId = _bundle$normalizePath.facadeModuleId;
+-
+-          if (modules) {
+-            const moduleIds = getRecursiveImportOrder(facadeModuleId, _this2.getModuleInfo);
++          const facadeModuleIds = entryFiles.map(entryFile => {
++            const _bundle$normalizePath = bundle[normalizePath(path__default['default'].relative(dir, entryFile))],
++                  modules = _bundle$normalizePath.modules,
++                  facadeModuleId = _bundle$normalizePath.facadeModuleId;
++            if (modules) return facadeModuleId;
++            return false;
++          }).filter(n => n);
++
++          if (facadeModuleIds.length > 0) {
++            const moduleIds = getRecursiveImportOrder(facadeModuleIds, _this2.getModuleInfo);
+             entries.sort((a, b) => moduleIds.indexOf(a.id) - moduleIds.indexOf(b.id));
+           }
+ 

@@ -125,6 +125,9 @@
     },
     "overrides": {
       "@storybook/icons": "1.4.0"
+    },
+    "patchedDependencies": {
+      "rollup-plugin-postcss@4.0.2": "patches/rollup-plugin-postcss@4.0.2.patch"
     }
   }
 }
