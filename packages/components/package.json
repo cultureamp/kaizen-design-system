@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -15,6 +15,7 @@
   "files": [
     "bin",
     "codemods",
+    "alpha",
     "future",
     "next",
     "libs",
@@ -35,6 +36,11 @@
       "types": "./dist/types/index.d.ts",
       "import": "./dist/esm/index.mjs",
       "require": "./dist/cjs/index.cjs"
+    },
+    "./alpha": {
+      "types": "./dist/types/__alpha__/index.d.ts",
+      "import": "./dist/esm/alpha.mjs",
+      "require": "./dist/cjs/alpha.cjs"
     },
     "./next": {
       "types": "./dist/types/__next__/index.d.ts",

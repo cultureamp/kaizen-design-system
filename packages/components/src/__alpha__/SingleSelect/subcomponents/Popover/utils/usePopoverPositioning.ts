@@ -11,7 +11,7 @@ export function usePopoverPositioning({
   direction = 'ltr',
   offset = 4,
   preferredPlacement = 'bottom',
-}: UsePopoverPositioningProps): Position & { isPositioned: boolean } {
+}: UsePopoverPositioningProps): Position & { isPositioned: boolean; updatePosition: () => void } {
   const [position, setPosition] = useState<Position>({
     top: preferredPlacement === 'bottom' ? offset : 'auto',
     bottom: preferredPlacement === 'top' ? offset : 'auto',
@@ -104,5 +104,5 @@ export function usePopoverPositioning({
     }
   }, [updatePosition, triggerRef])
 
-  return { ...position, isPositioned }
+  return { ...position, isPositioned, updatePosition }
 }
