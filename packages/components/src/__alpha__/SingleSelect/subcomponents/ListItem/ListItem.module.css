@@ -1,4 +1,8 @@
 @layer kz-components {
+  ul {
+    padding-inline-start: 0;
+  }
+
   .listItem {
     font-family: var(--typography-paragraph-body-font-family);
     font-weight: var(--typography-paragraph-body-font-weight);
@@ -6,11 +10,88 @@
     line-height: var(--typography-paragraph-body-line-height);
     letter-spacing: var(--typography-paragraph-body-letter-spacing);
     padding: var(--spacing-8) var(--spacing-16);
+    margin: 0;
+    list-style-type: none;
+    border-radius: var(--spacing-8);
+    border: var(--spacing-2) solid transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    outline: none;
+    gap: var(--spacing-12);
   }
 
-  .listItem:focus-visible {
+  .listItem.focused {
+    border: var(--spacing-2) solid var(--color-blue-500);
+  }
+
+  .listItem.focused:hover {
+    border-color: transparent;
+  }
+
+  .listItem:hover {
+    background-color: var(--color-gray-200);
+  }
+
+  .listItem.focused:active {
+    background-color: var(--color-gray-300);
+  }
+
+  .startSelection {
+    justify-content: flex-start;
+  }
+
+  .selected {
+    background-color: var(--color-blue-100);
+    border: var(--spacing-2) solid transparent;
+  }
+
+  .selected:hover {
     background-color: var(--color-blue-200);
-    outline: none;
-    border-color: white;
+  }
+
+  .selected:active {
+    background-color: var(--color-blue-100);
+  }
+
+  .disabled {
+    color: var(--color-gray-500);
+  }
+
+  .disabled:hover {
+    background-color: var(--color-white);
+  }
+
+  .iconChecked {
+    color: var(--color-blue-500);
+  }
+
+  .itemContent {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .itemText {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .selectedStartPosition {
+    justify-content: flex-start;
+  }
+
+  .selectedIconWrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .emptySpacer {
+    width: var(--spacing-20);
   }
 }

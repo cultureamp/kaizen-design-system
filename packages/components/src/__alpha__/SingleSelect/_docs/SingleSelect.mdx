@@ -1,14 +1,15 @@
 import { Canvas, Controls, DocsStory, Meta } from '@storybook/blocks'
 import { ResourceLinks, KAIOInstallation, AlphaNotice } from '~storybook/components'
-import * as SingleSelectStories from './SingleSelect.stories'
+import { Playground } from './SingleSelect.stories'
+import { SingleSelect } from '../index'
 
-<Meta of={SingleSelectStories} />
+<Meta title="Components/SingleSelect/SingleSelect (alpha)" component={SingleSelect} />
 
 # SingleSelect
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__alpha__/SingleSelect"
-  figma=""
+  figma="https://www.figma.com/design/umhYV8q0yC4qwbCOIfJDY5/-Alpha--Select?node-id=2122-15597&t=EgUdLXABrcuWMIay-0"
   designGuidelines=""
 />
 
@@ -16,15 +17,104 @@ import * as SingleSelectStories from './SingleSelect.stories'
 
 <KAIOInstallation exportNames="SingleSelect" isAlpha />
 
+## Alpha notice
+
+This component is currently in **alpha** and not yet fully feature-complete. The following capabilities are planned or in progress:
+
+- Form validation and integration with form libraries
+- Support for passing a custom defaultFilter function from React Aria
+- Full support for asynchronous list loading and dynamic items
+- Ability to use the component in a fully controlled manner (selectedKey, inputValue, etc.)
+- Forwarding refs to the appropriate internal elements
+- Enhanced composability beyond the provided Item and Section components
+
+We welcome feedback as we continue to improve the component.
+
 ## Overview
 
-SingleSelect component that handles selecting items from a dropdown, can be either filterable or not.
+The `SingleSelect` component allows users to select a single item from a dropdown list. It can be configured as a **Select** or **Combobox**. A Select provides a predefined list of options, while a Combobox adds a filterable input to help users find an option quickly.
 
-<Canvas of={SingleSelectStories.Playground} />
-<Controls of={SingleSelectStories.Playground} />
+<Canvas of={Playground} />
+<Controls of={Playground} />
 
 ## API
+
+## Combobox vs. Select
+
+The `SingleSelect` component supports two different behaviors:
+
+- **Select**: A classic dropdown menu where the user can only select from a predefined list of options. It's ideal for short, fixed lists.
+- **Combobox**: An input field combined with a dropdown. The user can either type to filter the options or click to open the full list. This is best for long lists or when quick searching is a priority.
+
+To use the Combobox behavior, simply add the `isComboBox` prop.
+
+```tsx
+// Select
+<SingleSelect label="Select an item">
+  <SingleSelect.Item key="1">Item 1</SingleSelect.Item>
+  <SingleSelect.Item key="2">Item 2</SingleSelect.Item>
+</SingleSelect>
+
+// Combobox
+<SingleSelect label="Select an item" isComboBox>
+  <SingleSelect.Item key="1">Item 1</SingleSelect.Item>
+  <SingleSelect.Item key="2">Item 2</SingleSelect.Item>
+</SingleSelect>
+```
+
+## Filtering
+
+Children as static elements (leaves)
+
+```tsx
+<SingleSelect label="Choose a coffee" isComboBox items={coffeeItems}>
+  {(item) => <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>}
+</SingleSelect>
+```
+
+Children as a render function + `items` prop
+
+```tsx
+const [filterText, setFilterText] = useState('')
+
+<SingleSelect
+  label="Choose a coffee"
+  isComboBox
+  items={coffeeItems.filter((item) => item.label.toLowerCase().includes(filterText.toLowerCase()))}
+  onInputChange={setFilterText}
+>
+  {(item) => <SingleSelect.Item key={item.key} textValue={item.label}>{item.label}</SingleSelect.Item>}
+</SingleSelect>
+```
+
+## Flexible Rendering of items
+
+The SingleSelect.Item component is flexible and can accommodate a wide variety of content beyond simple text labels. You can render avatars, icons, or any custom React nodes within an item, while still preserving accessibility by providing the textValue prop.
+
+```tsx
+<SingleSelect label="Coffee" isComboBox description="Avatar and inline">
+  {singleMockItems.map((item) => (
+    <SingleSelect.Item key={item.key} textValue={item.label} className="flex items-center gap-3">
+      <Avatar fullName="Senior Popsicle" size="small" />
+
+      <Text variant="body" className="flex-shrink-0 whitespace-nowrap mr-2">
+        {item.label}
+      </Text>
+
+      <Text variant="body" className="truncate">
+        Supporting text
+      </Text>
+    </SingleSelect.Item>
+  ))}
+</SingleSelect>
+```
 
 ## Positioning and z-index Management
 
 The SingleSelect component leverages the native Popover API to manage its dropdown functionality. By using popover instead of custom portal logic, the component takes full advantage of CSS layers, ensuring dropdowns appear above other content without manual z-index management.
+
+## Known issues
+
+### Accessibility
+
+Using the default SingleSelect component without combobox, there is a known accessibility issue for keyboard navigation when the component is used as the last focusable element on the page. After the list is opened pressing Tab should close the list, instead Tab brings the user to a unqiue state where they cannot use the escape key to close the list. Instead the user will have to navigate either forward of back again using the Tab key.

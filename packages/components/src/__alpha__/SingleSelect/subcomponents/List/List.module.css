@@ -2,5 +2,10 @@
   .list {
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto;
+    list-style: none;
+    overflow-y: auto;
+    padding: 0.875rem;
+    margin: 0;
   }
 }

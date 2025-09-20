@@ -1,54 +1,107 @@
-import React, { useLayoutEffect, useMemo, type PropsWithChildren } from 'react'
-
-import { Popover as RACPopover } from 'react-aria-components'
+import React, { useLayoutEffect } from 'react'
+import classNames from 'classnames'
+import { DismissButton, Overlay, usePopover } from 'react-aria'
 import { useSingleSelectContext } from '../../context'
-import { type PopoverProps } from '../../types'
-import { usePositioningStyles } from './utils/usePositioningStyles'
+import { type PopoverProps, type SelectItem } from '../../types'
+import { usePositioningStyles, useSupportsAnchorPositioning } from './utils'
+
 import styles from './Popover.module.css'
 
-export const Popover = ({
-  buttonRef,
+export const Popover = <T extends SelectItem>({
+  state,
   popoverRef,
-  racPopoverRef,
   children,
-}: PopoverProps & PropsWithChildren): React.ReactElement => {
-  const { isOpen, setOpen, anchorName } = useSingleSelectContext()
+  clearButtonRef,
+  ...restProps
+}: PopoverProps<T>): React.ReactElement => {
+  const { anchorName } = useSingleSelectContext()
+  const manualPopoverRef = React.useRef<HTMLDivElement>(null)
 
-  const { popoverStyle, isPositioned } = usePositioningStyles(buttonRef, popoverRef, anchorName)
+  const { popoverProps } = usePopover(
+    {
+      ...restProps,
+      popoverRef,
+      shouldCloseOnInteractOutside: (element) => {
+        if (clearButtonRef?.current?.contains(element)) {
+          return false
+        }
+        return true
+      },
+    },
+    state,
+  )
 
-  const shouldShowPopover = useMemo(() => isOpen && isPositioned, [isOpen, isPositioned])
+  const supportsAnchorPositioning = useSupportsAnchorPositioning()
+  const { popoverStyle, isPositioned, updatePosition } = usePositioningStyles(
+    restProps.triggerRef as React.RefObject<HTMLElement>,
+    manualPopoverRef,
+    anchorName,
+  )
 
   useLayoutEffect(() => {
-    const popover = popoverRef.current
-    if (!popover?.showPopover || !popover?.hidePopover) return
+    if (!supportsAnchorPositioning || !state.isOpen) return
 
-    if (shouldShowPopover) {
+    updatePosition()
+
+    const popover = manualPopoverRef?.current
+
+    if (popover?.showPopover) {
       popover.showPopover()
-    } else {
+    }
+
+    return () => {
+      if (popover?.hidePopover) {
+        popover.hidePopover()
+      }
+    }
+  }, [state.isOpen, supportsAnchorPositioning, updatePosition, isPositioned])
+
+  useLayoutEffect(() => {
+    if (!supportsAnchorPositioning || state.isOpen) return
+
+    const popover = manualPopoverRef?.current
+
+    if (popover?.hidePopover) {
       popover.hidePopover()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [shouldShowPopover])
+  }, [state.isOpen, supportsAnchorPositioning])
+
+  const manualPopover = (
+    <div
+      // @ts-expect-error - popover attribute is not included in current ts version, ignore type error
+      popover="manual"
+      ref={manualPopoverRef}
+      className={styles.popover}
+      style={popoverStyle}
+    >
+      {children}
+    </div>
+  )
 
   return (
-    <RACPopover
-      shouldUpdatePosition={false}
-      trigger="manual"
-      isOpen={isOpen}
-      onOpenChange={setOpen}
-      ref={racPopoverRef}
-    >
-      <div
-        // @ts-expect-error - popover attribute is not included in current ts version, ignore type error
-        popover="manual"
-        ref={popoverRef}
-        className={styles.popover}
-        style={popoverStyle}
-      >
-        {children}
-      </div>
-    </RACPopover>
+    <>
+      {state.isOpen && (
+        <Overlay>
+          <div
+            id="popover-id"
+            {...popoverProps}
+            ref={popoverRef}
+            style={{
+              ...popoverProps.style,
+              ...(!supportsAnchorPositioning && {
+                width: restProps.triggerRef.current?.getBoundingClientRect().width,
+              }),
+            }}
+            className={classNames(styles.popover, {
+              [styles.offsetSpacing]: !supportsAnchorPositioning,
+            })}
+          >
+            <DismissButton onDismiss={state.close} />
+            {supportsAnchorPositioning ? manualPopover : children}
+            <DismissButton onDismiss={state.close} />
+          </div>
+        </Overlay>
+      )}
+    </>
   )
 }
-
-Popover.displayName = 'SingleSelect.Popover'

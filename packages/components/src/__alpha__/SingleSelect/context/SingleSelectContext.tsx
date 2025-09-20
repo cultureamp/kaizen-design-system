@@ -1,14 +1,25 @@
 import { createContext, useContext } from 'react'
-import { type Key } from '@react-types/shared'
-import { type SelectItem, type SelectSection } from '../types'
+import { type ComboBoxState } from '@react-stately/combobox'
+import { type SelectState } from '@react-stately/select'
 
-type SingleSelectContextType = {
-  isOpen: boolean
-  setOpen: (open: boolean) => void
-  selectedKey: Key | null
-  items: (SelectItem | SelectSection)[]
+type BaseSingleSelectContextType = {
   anchorName: string
+  isDisabled: boolean
+  isReadOnly: boolean
+  secondary: boolean
+  size?: 'small' | 'medium' | 'large'
+  fieldLabel: React.ReactNode
 }
+
+type SingleSelectContextType =
+  | (BaseSingleSelectContextType & {
+      state: ComboBoxState<object>
+      isComboBox: true
+    })
+  | (BaseSingleSelectContextType & {
+      state: SelectState<object>
+      isComboBox: false
+    })
 
 export const SingleSelectContext = createContext<SingleSelectContextType | undefined>(undefined)
 
