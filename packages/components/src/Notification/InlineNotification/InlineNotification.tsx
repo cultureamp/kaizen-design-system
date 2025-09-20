@@ -35,7 +35,7 @@ export const InlineNotification = forwardRef<HTMLDivElement, InlineNotificationP
   ): JSX.Element => (
     <GenericNotification
       style="inline"
-      persistent={persistent ?? hideCloseIcon}
+      persistent={persistent || hideCloseIcon}
       classNameOverride={classnames(classNameOverride, [isSubtle && styles.subtle])}
       ref={ref}
       {...otherProps}
