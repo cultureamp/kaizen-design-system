@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.1
+
+### Patch Changes
+
+- [#6115](https://github.com/cultureamp/kaizen-design-system/pull/6115) [`8e051f6`](https://github.com/cultureamp/kaizen-design-system/commit/8e051f60add2c017560660deb351ad75fe9f6f20) - Releasing the latest work on SingleSelect alpha
+
+- [#6113](https://github.com/cultureamp/kaizen-design-system/pull/6113) [`2b0ff2f`](https://github.com/cultureamp/kaizen-design-system/commit/2b0ff2f2db10e7c51ee2314d08a814ed3139ceca) - Fixes InlineNotification bug with hideCloseIcon
+
 ## 2.0.0
 
 ### Major Changes

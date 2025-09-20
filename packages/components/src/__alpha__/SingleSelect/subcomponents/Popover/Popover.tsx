@@ -1,4 +1,5 @@
 import React, { useLayoutEffect } from 'react'
+import classNames from 'classnames'
 import { DismissButton, Overlay, usePopover } from 'react-aria'
 import { useSingleSelectContext } from '../../context'
 import { type PopoverProps, type SelectItem } from '../../types'
@@ -10,6 +11,7 @@ export const Popover = <T extends SelectItem>({
   state,
   popoverRef,
   children,
+  clearButtonRef,
   ...restProps
 }: PopoverProps<T>): React.ReactElement => {
   const { anchorName } = useSingleSelectContext()
@@ -19,29 +21,50 @@ export const Popover = <T extends SelectItem>({
     {
       ...restProps,
       popoverRef,
+      shouldCloseOnInteractOutside: (element) => {
+        if (clearButtonRef?.current?.contains(element)) {
+          return false
+        }
+        return true
+      },
     },
     state,
   )
 
   const supportsAnchorPositioning = useSupportsAnchorPositioning()
-  const { popoverStyle, isPositioned } = usePositioningStyles(
+  const { popoverStyle, isPositioned, updatePosition } = usePositioningStyles(
     restProps.triggerRef as React.RefObject<HTMLElement>,
     manualPopoverRef,
     anchorName,
   )
 
   useLayoutEffect(() => {
-    if (!supportsAnchorPositioning) return
+    if (!supportsAnchorPositioning || !state.isOpen) return
+
+    updatePosition()
 
     const popover = manualPopoverRef?.current
-    if (!popover?.showPopover || !popover?.hidePopover) return
 
-    if (state.isOpen) {
+    if (popover?.showPopover) {
       popover.showPopover()
-    } else {
+    }
+
+    return () => {
+      if (popover?.hidePopover) {
+        popover.hidePopover()
+      }
+    }
+  }, [state.isOpen, supportsAnchorPositioning, updatePosition, isPositioned])
+
+  useLayoutEffect(() => {
+    if (!supportsAnchorPositioning || state.isOpen) return
+
+    const popover = manualPopoverRef?.current
+
+    if (popover?.hidePopover) {
       popover.hidePopover()
     }
-  }, [supportsAnchorPositioning, state.isOpen, isPositioned])
+  }, [state.isOpen, supportsAnchorPositioning])
 
   const manualPopover = (
     <div
@@ -65,8 +88,13 @@ export const Popover = <T extends SelectItem>({
             ref={popoverRef}
             style={{
               ...popoverProps.style,
+              ...(!supportsAnchorPositioning && {
+                width: restProps.triggerRef.current?.getBoundingClientRect().width,
+              }),
             }}
-            className={styles.popover}
+            className={classNames(styles.popover, {
+              [styles.offsetSpacing]: !supportsAnchorPositioning,
+            })}
           >
             <DismissButton onDismiss={state.close} />
             {supportsAnchorPositioning ? manualPopover : children}

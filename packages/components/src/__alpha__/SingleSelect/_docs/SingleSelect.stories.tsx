@@ -1,17 +1,12 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { SingleSelect } from '../index'
+import { type SelectItem, type SingleSelectProps } from '../types'
 import { singleMockItems } from './mockData'
 
-const meta = {
+const meta: Meta = {
   title: 'Components/SingleSelect/SingleSelect (alpha)',
   component: SingleSelect,
-  args: {
-    label: 'Choose a coffee',
-    children: singleMockItems.map((item) => (
-      <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>
-    )),
-  },
   decorators: [
     (Story) => (
       <div className="h-200 justify-center items-center position-relative flex">
@@ -19,43 +14,48 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof SingleSelect>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Playground: Story = {
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'shown',
-      },
+  argTypes: {
+    label: { control: 'text', description: 'The label for the select/combobox input' },
+    labelHidden: { control: 'boolean', description: 'Visually hide the label' },
+    labelPosition: {
+      control: { type: 'radio' },
+      options: ['top', 'side'],
+      description: 'Position of the label relative to the input',
     },
+    variant: {
+      control: { type: 'radio' },
+      options: ['primary', 'secondary'],
+      description: 'Visual variant',
+    },
+    size: {
+      control: { type: 'radio' },
+      options: ['small', 'medium', 'large'],
+      description: 'Size of the input',
+    },
+    isReadOnly: { control: 'boolean', description: 'Whether the input is read-only' },
+    isDisabled: { control: 'boolean', description: 'Whether the input is disabled' },
+    isComboBox: {
+      control: 'boolean',
+      description: 'Whether to render as a combobox (filterable input) or select',
+    },
+    items: { control: 'object', description: 'List of options to display' },
   },
 }
 
-export const TestingListBoxGrouping: Story = {
+export default meta
+
+export const Playground: StoryObj<SingleSelectProps<SelectItem>> = {
   args: {
-    label: 'Choose a coffee',
-    children: (
-      <>
-        <SingleSelect.Section title="Warm Colours">
-          <SingleSelect.Item key="red">Red</SingleSelect.Item>
-        </SingleSelect.Section>
-        <SingleSelect.Section title="Cool Colours">
-          <SingleSelect.Item key="blue">Blue</SingleSelect.Item>
-          <SingleSelect.Item key="gray">Gray</SingleSelect.Item>
-          <SingleSelect.Item key="orange">Orange</SingleSelect.Item>
-        </SingleSelect.Section>
-      </>
-    ),
+    label: 'Choose an item',
+    isComboBox: false,
+    items: singleMockItems,
   },
+  render: (args: SingleSelectProps<SelectItem>) => (
+    <SingleSelect {...args}>
+      {(item) => <SingleSelect.Item key={item.key}>{item.label}</SingleSelect.Item>}
+    </SingleSelect>
+  ),
   parameters: {
-    docs: {
-      canvas: {
-        sourceState: 'shown',
-      },
-    },
+    docs: { canvas: { sourceState: 'shown' } },
   },
 }
