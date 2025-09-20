@@ -473,7 +473,7 @@ importers:
         specifier: ^7.1.11
         version: 7.1.11(react@19.1.0)(typescript@5.9.2)
       rollup:
-        specifier: ^4.50.2
+        specifier: ^4.51.0
         version: 4.51.0
       sass:
         specifier: 1.79.6
@@ -551,7 +551,7 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0(prop-types@15.8.1)(react@19.1.0)
       rollup:
-        specifier: ^4.50.2
+        specifier: ^4.51.0
         version: 4.51.0
       tslib:
         specifier: ^2.8.1
@@ -579,7 +579,7 @@ importers:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
       rollup:
-        specifier: ^4.50.2
+        specifier: ^4.51.0
         version: 4.51.0
       tailwindcss:
         specifier: ^3.4.17
