@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.2
+
+### Patch Changes
+
+- [#6133](https://github.com/cultureamp/kaizen-design-system/pull/6133) [`8e0182f`](https://github.com/cultureamp/kaizen-design-system/commit/8e0182f3a169151dd559e1e80318d4a1729ae7ba) - CSS ordering fix - Patch rollup-plugin-postcss to handle multi inputs correctly
+
 ## 2.0.1
 
 ### Patch Changes
