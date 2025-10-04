@@ -219,8 +219,8 @@ importers:
         specifier: ^4.7.0
         version: 4.7.0(vite@6.3.5(@types/node@22.15.21)(jiti@1.21.6)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.20.3)(yaml@2.5.0))
       axe-playwright:
-        specifier: ^2.1.0
-        version: 2.1.0(playwright@1.54.2)
+        specifier: ^2.2.2
+        version: 2.2.2(playwright@1.54.2)
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -4423,8 +4423,8 @@ packages:
     peerDependencies:
       axe-core: '>=3'
 
-  axe-playwright@2.1.0:
-    resolution: {integrity: sha512-tY48SX56XaAp16oHPyD4DXpybz8Jxdz9P7exTjF/4AV70EGUavk+1fUPWirM0OYBR+YyDx6hUeDvuHVA6fB9YA==}
+  axe-playwright@2.2.2:
+    resolution: {integrity: sha512-h350/grzDCPgpuWV7eEOqr/f61Xn07Gi9f9B3Ew4rW6/nFtpdEJYW6jgRATorgAGXjEAYFTnaY3sEys39wDw4A==}
     peerDependencies:
       playwright: '>1.0.0'
 
@@ -15281,7 +15281,7 @@ snapshots:
       axe-core: 4.10.3
       mustache: 4.2.0
 
-  axe-playwright@2.1.0(playwright@1.54.2):
+  axe-playwright@2.2.2(playwright@1.54.2):
     dependencies:
       '@types/junit-report-builder': 3.0.2
       axe-core: 4.10.3
