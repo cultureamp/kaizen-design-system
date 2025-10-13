@@ -277,3 +277,85 @@ export const StickerSheetSurveyStatus: Story = {
     </StickerSheet>
   ),
 }
+
+export const NeutralVariant: Story = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: 'shown',
+      },
+    },
+  },
+  args: {
+    variant: 'neutral',
+    title: 'Neutral TitleBlock',
+    subtitle: 'Clean white background with dark text for better readability',
+  },
+}
+
+export const StickerSheetVariants: Story = {
+  name: 'Sticker Sheet (Variants)',
+  render: () => (
+    <StickerSheet title="TitleBlock Variants">
+      <StickerSheet.Row header="Default (Purple background)">
+        <TitleBlock
+          title="Default Variant"
+          subtitle="This is the default purple variant with white text"
+          breadcrumb={{
+            path: '#',
+            text: 'Back to home',
+          }}
+          navigationTabs={[
+            <NavigationTab key="1" text="Overview" href="#" active />,
+            <NavigationTab key="2" text="Settings" href="#" />,
+          ]}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Education (Purple background)">
+        <TitleBlock
+          variant="education"
+          title="Education Variant"
+          subtitle="This is the education variant with purple background"
+          breadcrumb={{
+            path: '#',
+            text: 'Back to courses',
+          }}
+          navigationTabs={[
+            <NavigationTab key="1" text="Lessons" href="#" active />,
+            <NavigationTab key="2" text="Assignments" href="#" />,
+          ]}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Admin (White background)">
+        <TitleBlock
+          variant="admin"
+          title="Admin Variant"
+          subtitle="This is the admin variant with white background"
+          breadcrumb={{
+            path: '#',
+            text: 'Back to dashboard',
+          }}
+          navigationTabs={[
+            <NavigationTab key="1" text="Users" href="#" active />,
+            <NavigationTab key="2" text="Settings" href="#" />,
+          ]}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Neutral (White background)">
+        <TitleBlock
+          variant="neutral"
+          title="Neutral Variant"
+          subtitle="This is the new neutral variant with clean white background"
+          breadcrumb={{
+            path: '#',
+            text: 'Back to overview',
+          }}
+          navigationTabs={[
+            <NavigationTab key="1" text="Details" href="#" active />,
+            <NavigationTab key="2" text="Analytics" href="#" />,
+          ]}
+        />
+      </StickerSheet.Row>
+    </StickerSheet>
+  ),
+}

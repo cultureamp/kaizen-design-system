@@ -3,6 +3,7 @@ import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
 import { type CustomBreadcrumbProps, type SectionTitleRenderProps } from './types'
+import { isReversed } from './utils'
 import { TitleBlock } from './index'
 
 const user = userEvent.setup()
@@ -1058,6 +1059,88 @@ describe('<TitleBlock />', () => {
         expect(screen.queryByTestId('title-block-mobile-actions-default-link')).toBeFalsy()
         expect(screen.getByTestId('title-block-mobile-actions-default-action')).toBeInTheDocument()
       })
+    })
+  })
+
+  describe('isReversed utility function', () => {
+    it('returns true for the default variant (undefined)', () => {
+      expect(isReversed(undefined)).toBe(true)
+    })
+
+    it('returns false for the admin variant', () => {
+      expect(isReversed('admin')).toBe(false)
+    })
+
+    it('returns false for the neutral variant', () => {
+      expect(isReversed('neutral')).toBe(false)
+    })
+
+    it('returns true for the education variant', () => {
+      expect(isReversed('education')).toBe(true)
+    })
+  })
+
+  describe('neutral variant', () => {
+    it('renders with white background', () => {
+      const { container } = render(
+        <TitleBlock title="Test Title" variant="neutral">
+          Example
+        </TitleBlock>,
+      )
+
+      const titleBlock = container.querySelector('.titleBlock')
+      expect(titleBlock).toHaveClass('neutralVariant')
+    })
+
+    it('uses dark text for subtitles', () => {
+      render(
+        <TitleBlock title="Test Title" subtitle="Test Subtitle" variant="neutral">
+          Example
+        </TitleBlock>,
+      )
+
+      const subtitle = screen.getByText('Test Subtitle')
+      expect(subtitle.closest('.subtitle')).toBeInTheDocument()
+    })
+
+    it('uses dark text for section title descriptions', () => {
+      render(
+        <TitleBlock
+          title="Test Title"
+          sectionTitle="Section Title"
+          sectionTitleDescription="Section description"
+          variant="neutral"
+        >
+          Example
+        </TitleBlock>,
+      )
+
+      const description = screen.getByText('Section description')
+      expect(description).toBeInTheDocument()
+    })
+
+    it('uses dark text for breadcrumbs', () => {
+      render(
+        <TitleBlock
+          title="Test Title"
+          variant="neutral"
+          breadcrumb={{
+            text: 'Back',
+            path: '/path/to/somewhere',
+            handleClick: vi.fn(),
+          }}
+        >
+          Example
+        </TitleBlock>,
+      )
+
+      const breadcrumb = screen.getByRole('link', { name: 'Back' })
+      expect(breadcrumb).toBeInTheDocument()
+    })
+
+    it('has non-reversed behavior like admin variant', () => {
+      expect(isReversed('neutral')).toBe(false)
+      expect(isReversed('admin')).toBe(false)
     })
   })
 })
