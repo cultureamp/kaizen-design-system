@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.3
+
+### Patch Changes
+
+- [#6111](https://github.com/cultureamp/kaizen-design-system/pull/6111) [`c3ebfd1`](https://github.com/cultureamp/kaizen-design-system/commit/c3ebfd19c85887e4653cf386b0cb3ce713522deb) - Update translations
+
 ## 2.0.2
 
 ### Patch Changes
