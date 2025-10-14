@@ -184,6 +184,14 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "Skryť informácie:"
   },
+  "singleSelect.chevronButton" : {
+    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message" : "Zobraziť návrhy pre {field}"
+  },
+  "singleSelect.clearButtonAlt" : {
+    "description" : "Alt text for the clear selection button",
+    "message" : "Zrušiť výber: {field}"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "Ďalšie činnosti"
