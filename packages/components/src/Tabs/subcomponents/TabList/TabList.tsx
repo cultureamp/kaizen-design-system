@@ -66,39 +66,49 @@ export const TabList = (props: TabListProps): JSX.Element => {
       return
     }
 
-    const firstTabObserver = new IntersectionObserver(
-      (entries) => {
-        if (!entries[0].isIntersecting) {
-          setLeftArrowEnabled(true)
-          return
-        }
-        setLeftArrowEnabled(false)
-      },
-      {
-        threshold: 0.8,
-        root: containerElement,
-      },
-    )
-    firstTabObserver.observe(isRTL ? tabs[tabs.length - 1] : tabs[0])
+    let firstTabObserver: IntersectionObserver | null = null
+    let lastTabObserver: IntersectionObserver | null = null
 
-    const lastTabObserver = new IntersectionObserver(
-      (entries) => {
-        if (!entries[0].isIntersecting) {
-          setRightArrowEnabled(true)
-          return
-        }
-        setRightArrowEnabled(false)
-      },
-      {
-        threshold: 0.8,
-        root: containerElement,
-      },
-    )
-    lastTabObserver.observe(isRTL ? tabs[0] : tabs[tabs.length - 1])
+    requestAnimationFrame(() => {
+      const tabList = tabListRef.current
+      if (!tabList) {
+        return
+      }
+
+      firstTabObserver = new IntersectionObserver(
+        (entries) => {
+          if (!entries[0].isIntersecting) {
+            setLeftArrowEnabled(true)
+            return
+          }
+          setLeftArrowEnabled(false)
+        },
+        {
+          threshold: 0.8,
+          root: containerElement,
+        },
+      )
+      firstTabObserver.observe(isRTL ? tabs[tabs.length - 1] : tabs[0])
+
+      lastTabObserver = new IntersectionObserver(
+        (entries) => {
+          if (!entries[0].isIntersecting) {
+            setRightArrowEnabled(true)
+            return
+          }
+          setRightArrowEnabled(false)
+        },
+        {
+          threshold: 0.8,
+          root: containerElement,
+        },
+      )
+      lastTabObserver.observe(isRTL ? tabs[0] : tabs[tabs.length - 1])
+    })
 
     return () => {
-      firstTabObserver.disconnect()
-      lastTabObserver.disconnect()
+      firstTabObserver?.disconnect()
+      lastTabObserver?.disconnect()
     }
   }, [isDocumentReady, containerElement, isRTL, tabListContext?.collection.size])
 
