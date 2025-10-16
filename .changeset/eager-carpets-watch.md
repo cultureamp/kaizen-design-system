@@ -2,4 +2,4 @@
 '@kaizen/components': patch
 ---
 
-Fix tablist arrows flakiness
+Fix TabList's arrows flakiness in storybook.
