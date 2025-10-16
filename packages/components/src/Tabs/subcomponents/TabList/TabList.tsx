@@ -70,11 +70,6 @@ export const TabList = (props: TabListProps): JSX.Element => {
     let lastTabObserver: IntersectionObserver | null = null
 
     requestAnimationFrame(() => {
-      const tabList = tabListRef.current
-      if (!tabList) {
-        return
-      }
-
       firstTabObserver = new IntersectionObserver(
         (entries) => {
           if (!entries[0].isIntersecting) {
