@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.5
+
+### Patch Changes
+
+- [#6193](https://github.com/cultureamp/kaizen-design-system/pull/6193) [`06b7bf7`](https://github.com/cultureamp/kaizen-design-system/commit/06b7bf7251d058e2298d78e1438a8c0d18f8a52b) - Bug fix on list item indentation
+
 ## 2.0.4
 
 ### Patch Changes
