@@ -403,8 +403,8 @@ importers:
         specifier: 13.3.0
         version: 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.9.2)
       '@cultureamp/i18n-react-intl':
-        specifier: ^2.13.1
-        version: 2.13.1(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.9.2))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.28.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.28.0))(jest@29.7.0(@types/node@22.18.8)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.18.8)(typescript@5.9.2)))(typescript@5.9.2))(typescript@5.9.2)
+        specifier: ^2.14.0
+        version: 2.14.0(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.9.2))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.28.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.28.0))(jest@29.7.0(@types/node@22.18.8)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.18.8)(typescript@5.9.2)))(typescript@5.9.2))(typescript@5.9.2)
       '@cultureamp/package-bundler':
         specifier: ^2.4.3
         version: 2.4.3(@babel/core@7.28.0)(@types/babel__core@7.20.5)(postcss-preset-env@10.4.0(postcss@8.5.6))(postcss@8.5.6)(rollup@4.46.2)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.18.8)(typescript@5.9.2))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.9.2)
@@ -1236,8 +1236,8 @@ packages:
   '@cultureamp/frontend-env@2.1.5':
     resolution: {integrity: sha512-TwUVLgAmcctmsVnR1tRtPiyMszQhddRdnG30+sR8ikOh9wcDxETXNrFhKs2EwyMqhd228+p2CW82zmzMZWcbNQ==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.5/14e8a8ed76aaea59302209fe9a3a30f76f315799}
 
-  '@cultureamp/i18n-react-intl@2.13.1':
-    resolution: {integrity: sha512-UBxQhKM+y80wj1SN2Sh4uyfLJAw4d6bkXmCBnEQt6jkikC7pkuAzSfhUZ29TQRULBQ/7Dgl+uaY+ZfM/MIedaw==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.13.1/0e1016e42662c0e2bb14a5c2c4b00ce17320921e}
+  '@cultureamp/i18n-react-intl@2.14.0':
+    resolution: {integrity: sha512-o0rb7BQbFPJRDATKS0aMlqz0WwlpoUJzCUlHXjUVQp7R2wQ3YFsYSnhDBwRG1igCFVMUZDS4vN3745tZXKwxcg==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.14.0/aa7230cfe42e5df03ebed101d1263986724e68e5}
     hasBin: true
     peerDependencies:
       '@cultureamp/frontend-apis': '>=13 || ~0.0.0'
@@ -5763,6 +5763,7 @@ packages:
 
   expect-playwright@0.8.0:
     resolution: {integrity: sha512-+kn8561vHAY+dt+0gMqqj1oY+g5xWrsuGMk4QGxotT2WS545nVqqjs37z6hrYfIuucwqthzwJfCJUEYqixyljg==}
+    deprecated: ⚠️ The 'expect-playwright' package is deprecated. The Playwright core assertions (via @playwright/test) now cover the same functionality. Please migrate to built-in expect. See https://playwright.dev/docs/test-assertions for migration.
 
   expect-type@1.2.1:
     resolution: {integrity: sha512-/kP8CAwxzLVEeFrMm4kMmy4CCDlpipyA7MYLVrdJIkV0fYF0UaigQHRsxHiuY/GEea+bh4KSv3TIlgr+2UL6bw==}
@@ -6848,6 +6849,7 @@ packages:
 
   jest-playwright-preset@4.0.0:
     resolution: {integrity: sha512-+dGZ1X2KqtwXaabVjTGxy0a3VzYfvYsWaRcuO8vMhyclHSOpGSI1+5cmlqzzCwQ3+fv0EjkTc7I5aV9lo08dYw==}
+    deprecated: ⚠️ The 'jest-playwright-preset' package is deprecated. Please migrate to Playwright's built-in test runner (@playwright/test) which now includes full Jest-style features and parallel testing. See https://playwright.dev/docs/intro for details.
     peerDependencies:
       jest: ^29.3.1
       jest-circus: ^29.3.1
@@ -6865,6 +6867,7 @@ packages:
 
   jest-process-manager@0.4.0:
     resolution: {integrity: sha512-80Y6snDyb0p8GG83pDxGI/kQzwVTkCxc7ep5FPe/F6JYdvRDhwr6RzRmPSP7SEwuLhxo80lBS/NqOdUIbHIfhw==}
+    deprecated: ⚠️ The 'jest-process-manager' package is deprecated. Please migrate to Playwright's built-in test runner (@playwright/test) which now includes full Jest-style features and parallel testing. See https://playwright.dev/docs/intro for details.
 
   jest-regex-util@29.6.3:
     resolution: {integrity: sha512-KJJBsRCyyLNWCNBOvZyRDnAIfUiRJ8v+hOBQYGn8gDyF3UegwiP4gwRR3/SDa42g1YbVycTidUF3rKjyLFDWbg==}
@@ -11370,7 +11373,7 @@ snapshots:
     dependencies:
       chromatic: 9.1.0
 
-  '@cultureamp/i18n-react-intl@2.13.1(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.9.2))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.28.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.28.0))(jest@29.7.0(@types/node@22.18.8)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.18.8)(typescript@5.9.2)))(typescript@5.9.2))(typescript@5.9.2)':
+  '@cultureamp/i18n-react-intl@2.14.0(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.9.2))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.6))(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(ts-jest@29.2.4(@babel/core@7.28.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.28.0))(jest@29.7.0(@types/node@22.18.8)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.18.8)(typescript@5.9.2)))(typescript@5.9.2))(typescript@5.9.2)':
     dependencies:
       '@calm/eslint-plugin-react-intl': 1.4.1
       '@cultureamp/frontend-apis': 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.79.6))(react@19.1.0)(typescript@5.9.2)
@@ -11382,7 +11385,7 @@ snapshots:
       eslint-plugin-formatjs: 4.13.3(eslint@9.18.0(jiti@1.21.6))(ts-jest@29.2.4(@babel/core@7.28.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.28.0))(jest@29.7.0(@types/node@22.18.8)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.18.8)(typescript@5.9.2)))(typescript@5.9.2))
       fast-glob: 3.3.3
       form-data: 4.0.4
-      intl-messageformat: 10.7.17
+      intl-messageformat: 10.7.18
       isomorphic-resolve: 1.0.0
       json-stable-stringify: 1.2.1
       limiter-es6-compat: 2.1.2
