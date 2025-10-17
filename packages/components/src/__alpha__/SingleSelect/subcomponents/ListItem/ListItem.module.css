@@ -1,8 +1,4 @@
 @layer kz-components {
-  ul {
-    padding-inline-start: 0;
-  }
-
   .listItem {
     font-family: var(--typography-paragraph-body-font-family);
     font-weight: var(--typography-paragraph-body-font-weight);

@@ -184,6 +184,14 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "Informationen ausblenden:"
   },
+  "singleSelect.chevronButton" : {
+    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message" : "Vorschläge für {field} anzeigen"
+  },
+  "singleSelect.clearButtonAlt" : {
+    "description" : "Alt text for the clear selection button",
+    "message" : "Auswahl für {field} löschen"
+  },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
     "message" : "Zusätzliche Maßnahmen"
