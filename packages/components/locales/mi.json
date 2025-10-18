@@ -174,7 +174,7 @@
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
-    "message" : "Go to Home"
+    "message" : "Haere ki te whārangi Kāinga"
   },
   "kzGenericTile.infoButtonLabel" : {
     "description" : "Prompts user to interact with button to reveal more information",
@@ -183,6 +183,14 @@
   "kzGenericTile.infoButtonReturnLabel" : {
     "description" : "Prompts user to interact with button to hide information",
     "message" : "Huna mōhiohio:"
+  },
+  "singleSelect.chevronButton" : {
+    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message" : "Whakaatu whakaaro mo {field}"
+  },
+  "singleSelect.clearButtonAlt" : {
+    "description" : "Alt text for the clear selection button",
+    "message" : "Ūkuia {field} tīpakonga"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
