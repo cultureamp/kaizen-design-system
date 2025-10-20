@@ -8,63 +8,40 @@ import { Meta, Markdown } from '@storybook/blocks'
 
 March 2, 2026
 
-### `next` components replacing `current` components
+### Components being deprecated
 
-Components from the `@kaizen/components/next` entry point taking the place of components from the regular `@kaizen/components` entry point.
-
-`current` components will be removed in the release.
-
-<table>
-  <thead>
-    <tr>
-      <th>`current` component/s</th>
-      <th>`next` component/s</th>
-      <th>Codemod</th>
-      <th>Migration guide</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>[`Tag`](), [`RemovableTag`]()</td>
-      <td>[`Tag`](), [`RemovableTag`]()</td>
-      <td>TBD</td>
-      <td>TBD</td>
-    </tr>
-  </tbody>
-</table>
-
-### Other components being removed
+The following components are being deprecated in v3 and will be removed in a future major version:
 
 <table>
   <thead>
     <tr>
       <th>Component</th>
+      <th>Deprecation version</th>
+      <th>Removal timeline</th>
       <th>Recommendation</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>
-        `GenericModal`
-      </td>
-      <td>Remove any usages. Consider a modern refactor for Modals in general to lean into the platform with `<dialog>`</td>
+      <td>`TileGrid`</td>
+      <td>v3.0</td>
+      <td>v4.0</td>
+      <td rowSpan={4}>Migration TBD</td>
     </tr>
     <tr>
-      <td>
-        `TileGrid`
-      </td>
-      <td>Use a simple `div` with Tailwind classes instead</td>
+      <td>`InformationTile`</td>
+      <td>v3.0</td>
+      <td>v4.0</td>
     </tr>
     <tr>
-      <td>
-        `InformationTile`
-      </td>
-      <td rowSpan={2}>Design decision needed - this pattern may continue or be replaced. `GuidanceBlock` has overlapping functionality</td>
+      <td>`MultiActionTile`</td>
+      <td>v3.0</td>
+      <td>v4.0</td>
     </tr>
     <tr>
-      <td>
-        `MultiActionTile`
-      </td>
+      <td>`SingleSelect`</td>
+      <td>v3.0</td>
+      <td>v4.0</td>
     </tr>
   </tbody>
 </table>
