@@ -207,7 +207,7 @@
       max-width: 100%;
     }
 
-    @media (min-width: $layout-breakpoints-large) {
+    @container (min-width: #{$layout-breakpoints-large}) {
       display: block;
     }
 
@@ -535,12 +535,14 @@
       }
     }
 
-    @media only screen and (max-width: $breadcrumb-breakpoint-width) {
-      position: relative;
-      transform: translateY(0);
-      margin-inline: 0 var(--spacing-12);
+    @media only screen {
+      @container (max-width: #{$breadcrumb-breakpoint-width}) {
+        position: relative;
+        transform: translateY(0);
+        margin-inline: 0 var(--spacing-12);
 
-      @include ca-position($start: 0);
+        @include ca-position($start: 0);
+      }
     }
 
     @include title-block-medium-and-small {
@@ -580,8 +582,10 @@
       @include ca-position($start: $ca-grid);
     }
 
-    @media only screen and (min-width: $breadcrumb-breakpoint-width) {
-      @include ca-position($start: calc(#{$breadcrumb-circle-width} - #{$ca-grid}));
+    @media only screen {
+      @container (min-width: #{$breadcrumb-breakpoint-width}) {
+        @include ca-position($start: calc(#{$breadcrumb-circle-width} - #{$ca-grid}));
+      }
     }
 
     &:hover,

@@ -5,3 +5,8 @@
   border-style: solid;
   border-color: var(--border-solid-border-color, 'currentColor');
 }
+
+/* Fallback container query parent. Makes the switch from viewport queries to container queries in our components a non-breaking change for consumers that don't have their own. */
+body {
+  container-type: inline-size;
+}
