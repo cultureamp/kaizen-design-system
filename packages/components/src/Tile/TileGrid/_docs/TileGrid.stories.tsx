@@ -5,7 +5,7 @@ import { InformationTile } from '~components/Tile'
 import { TileGrid } from '../index'
 
 const meta = {
-  title: 'Components/Tiles/TileGrid',
+  title: 'Components/Tiles/TileGrid (Deprecated)',
   component: TileGrid,
   args: {
     children: (

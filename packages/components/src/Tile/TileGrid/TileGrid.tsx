@@ -14,6 +14,8 @@ export interface TileGridProps extends OverrideClassName<HTMLAttributes<HTMLULis
 }
 
 /**
+ * @deprecated TileGrid is deprecated in v3 and will be removed in v4.
+ *
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3079077889/Tile#TileGrid Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-tiles-tilegrid--docs Storybook}
  */

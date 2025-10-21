@@ -4,7 +4,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { InformationTile, type InformationTileProps } from '../index'
 
 export default {
-  title: 'Components/Tiles/InformationTile',
+  title: 'Components/Tiles/InformationTile (Deprecated)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

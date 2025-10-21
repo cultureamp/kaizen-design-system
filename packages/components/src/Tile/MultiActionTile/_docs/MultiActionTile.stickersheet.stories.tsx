@@ -4,7 +4,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { MultiActionTile, type MultiActionTileProps } from '../index'
 
 export default {
-  title: 'Components/Tiles/MultiActionTile',
+  title: 'Components/Tiles/MultiActionTile (Deprecated)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -4,123 +4,9 @@ import { Meta, Markdown } from '@storybook/blocks'
 
 # Upcoming major releases
 
-## `@kaizen/components@v2`
+## `@kaizen/components@v3`
 
-September 1, 2025
-
-### `next` components replacing `current` components
-
-Components from the `@kaizen/components/next` entry point taking the place of components from the regular `@kaizen/components` entry point.
-
-`current` components will be removed in the release.
-
-<table>
-  <thead>
-    <tr>
-      <th>`current` component/s</th>
-      <th>`next` component/s</th>
-      <th>Codemod</th>
-      <th>Migration guide</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        [`Button`](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-button-button-deprecated--docs),
-        [`IconButton`](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-button-iconbutton-deprecated--docs)
-      </td>
-      <td>[`Button`](?path=/docs/components-button-api-specification--docs)</td>
-      <td>`upgradeV1Buttons`</td>
-      <td>[Migration guide](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-button-migration-guide--docs)</td>
-    </tr>
-    <tr>
-      <td>[All *Icon components](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-icon-icon-components-deprecated--docs) (e.g. `<ArrowRightIcon>`</td>
-      <td>[`Icon`](?path=/docs/components-icon-api-specification--docs)</td>
-      <td>`upgradeIconV1`</td>
-      <td>[Migration guide](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-icon-migration-guide--docs)</td>
-    </tr>
-    <tr>
-      <td>[`Menu`](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-menu-menu-deprecated--docs)</td>
-      <td>[`Menu`](?path=/docs/components-menu-api-specification--docs)</td>
-      <td>Feasibility TBD</td>
-      <td>[Migration guide](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-menu-migration-guide--docs)</td>
-    </tr>
-    <tr>
-      <td>[`Tabs`](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-tabs-tabs-deprecated--docs)</td>
-      <td>[`Tabs`](?path=/docs/components-tabs-api-specification--docs)</td>
-      <td>Manual change required</td>
-      <td>[Migration guide](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-tabs-migration-guide--docs)</td>
-    </tr>
-    <tr>
-      <td>[`Tooltip`](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-tooltip-tooltip-deprecated--docs)</td>
-      <td>[`Tooltip`](?path=/docs/components-tooltip-api-specification--docs)</td>
-      <td>Feasibility TBD</td>
-      <td>[Migration guide](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-tooltip-migration-guide--docs)</td>
-    </tr>
-  </tbody>
-</table>
-
-### Other components being removed
-
-<table>
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Recommendation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        [`Skirt`](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-skirt-deprecated--docs)
-      </td>
-      <td>Remove any usages</td>
-    </tr>
-    <tr>
-      <td>
-        [`SkirtCard`](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-skirt-deprecated--docs)
-      </td>
-      <td>Use a regular `Card` component</td>
-    </tr>
-    <tr>
-      <td>
-        [`SplitButton`](https://60a1e4a102f0cb003b5d19d6-xvoxshqkig.chromatic.com/?path=/docs/components-splitbutton-deprecated--docs)
-      </td>
-      <td>Use a `Button` and a `Menu` component (story to come)</td>
-    </tr>
-  </tbody>
-</table>
-
-### Renamed components
-
-Imports from the new names will be allowed shortly, and support for the old name will be removed in v2.
-
-<table>
-  <thead>
-    <tr>
-      <th>Old name</th>
-      <th>New name</th>
-      <th>Codemod</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>`next/Select`</td>
-      <td>`SingleSelect`</td>
-      <td>Coming soon</td>
-    </tr>
-    <tr>
-      <td>`LikertScaleLegacy`</td>
-      <td>`LikertScale`</td>
-      <td>Coming soon</td>
-    </tr>
-    <tr>
-      <td>`TitleBlockZen`</td>
-      <td>`TitleBlock`</td>
-      <td>Coming soon</td>
-    </tr>
-  </tbody>
-</table>
+March 2, 2026
 
 ### Deprecated props being removed
 
@@ -130,235 +16,208 @@ Imports from the new names will be allowed shortly, and support for the old name
       <th>Component</th>
       <th>Prop</th>
       <th>Codemod</th>
-      <th>Reason</th>
+      <th>Reason/Migration guide</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td colSpan={4}>`mood` and `variant`</td>
+      <td colSpan={4}>`GuidanceBlock` deprecated props</td>
     </tr>
     <tr>
-      <td>`BrandMoment`</td>
-      <td>`mood`</td>
-      <td>`migrateBrandMomentMoodToVariant`</td>
-      <td>Use `variant` instead</td>
-    </tr>
-    <tr>
-      <td>`Card`</td>
-      <td>`variant`</td>
-      <td>`migrateCardVariantToColor`</td>
-      <td>Use `color` instead</td>
-    </tr>
-    <tr>
-      <td>`ConfirmationModal`</td>
-      <td>`mood`</td>
-      <td>`migrateConfirmationModalMoodsToVariant`</td>
-      <td>Use `variant` instead</td>
-    </tr>
-    <tr>
-      <td>`EmptyState`</td>
-      <td>`illustrationType`</td>
-      <td>`migrateEmptyStateIllustrationTypeToVariant`</td>
-      <td>Use `variant` instead</td>
-    </tr>
-    <tr>
-      <td>`InputEditModal`</td>
-      <td>`mood`</td>
-      <td>`removeInputEditModalMood`</td>
-      <td>
-        We are no longer supporting different moods for InputModal, instead there will only be a
-        single default variant set by the component.
+      <td>`GuidanceBlock`</td>
+      <td>`actions`</td>
+      <td rowSpan={3}>`migrateGuidanceBlockActionsToActionsSlot`</td>
+      <td rowSpan={3}>
+        Deprecated in v1 - [Migration
+        guide](/?path=/docs/components-guidanceblock-migration-guide--docs)
       </td>
     </tr>
     <tr>
-      <td>`Popover`</td>
-      <td>`variant`</td>
-      <td>`removePopoverVariant`</td>
-      <td>
-        We are no longer supporting different variants for Popover, instead there will only be a
-        single default variant.
+      <td>`GuidanceBlock`</td>
+      <td>`secondaryDismiss`</td>
+    </tr>
+    <tr>
+      <td>`GuidanceBlock`</td>
+      <td>`withActionButtonArrow`</td>
+    </tr>
+    <tr>
+      <td colSpan={4}>`placeholder` prop removal</td>
+    </tr>
+    <tr>
+      <td>`Input`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
+      <td rowSpan={8}>
+        Use of placeholder text goes against our a11y standards. Use the `labelText` prop to provide
+        a concise name, and the `description` prop for any help text.
       </td>
     </tr>
     <tr>
-      <td>`Popover`</td>
-      <td>`customIcon`</td>
+      <td>`TextArea`</td>
+      <td>`placeholder`</td>
       <td>-</td>
-      <td>This was for customising the icon provided with variants.</td>
     </tr>
     <tr>
-      <td>`ProgressBar`</td>
-      <td>`mood`</td>
-      <td>`migrateProgressBarMoodToColor`</td>
-      <td>Use `color` prop instead</td>
+      <td>`TextAreaField`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
     </tr>
     <tr>
-      <td>`InformationTile`</td>
-      <td>`mood`</td>
-      <td>`migrateInformationTileMoodToVariant`</td>
-      <td>Use `variant` instead</td>
+      <td>`TextField`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
     </tr>
     <tr>
-      <td>`MultiActionTile`</td>
-      <td>`mood`</td>
-      <td>`migrateMultiActionTileMoodToVariant`</td>
-      <td>Use `variant` instead</td>
+      <td>`SingleSelect`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
     </tr>
     <tr>
-      <td>`Well`</td>
-      <td>`variant`</td>
-      <td>`migrateWellVariantToColor`</td>
-      <td>
-        This will not fallback to default variant. default can be used but must be explicitly passed
-        to the Well component. It is recommended to use color prop and gray value if you need a gray
-        background.
+      <td>`SelectToggle`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>`DatePicker`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>`Select`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td colSpan={4}>Button props</td>
+    </tr>
+    <tr>
+      <td>`Button`</td>
+      <td>`isReversed`</td>
+      <td>-</td>
+      <td rowSpan={2}>
+        Use the ReversedColors Provider instead. This is here to support gradual migration to the
+        ReversedColors Provider and will take precedence if a value is provided.
       </td>
     </tr>
     <tr>
-      <td colSpan={4}>automationId</td>
+      <td>`LinkButton`</td>
+      <td>`isReversed`</td>
+      <td>-</td>
     </tr>
     <tr>
-      <td>`LikertScaleLegacy`</td>
-      <td>`automationId`</td>
-      <td>-</td>
-      <td>Use data-testid instead</td>
-    </tr>
-    <tr>
-      <td>`ConfirmationModal`</td>
-      <td>☝️</td>
-      <td>-</td>
-      <td>☝️</td>
-    </tr>
-    <tr>
-      <td>`ConfirmationModal`</td>
-      <td>☝️</td>
-      <td>-</td>
-      <td>☝️</td>
-    </tr>
-    <tr>
-      <td>`ContextModal`</td>
-      <td>☝️</td>
-      <td>-</td>
-      <td>☝️</td>
-    </tr>
-    <tr>
-      <td>`InputEditModal`</td>
-      <td>☝️</td>
-      <td>-</td>
-      <td>☝️</td>
+      <td colSpan={4}>Modal and field props</td>
     </tr>
     <tr>
       <td>`ModalFooter`</td>
-      <td>☝️</td>
+      <td>`appearance`</td>
       <td>-</td>
-      <td>☝️</td>
+      <td>
+        We are no longer supporting different appearances for ModalFooter, instead there will only
+        be a single default appearance set by the Button.
+      </td>
     </tr>
     <tr>
-      <td colSpan={4}>Others</td>
+      <td>`TimeField`</td>
+      <td>`validationState`</td>
+      <td>No usage as of 20 Oct 2025</td>
+      <td>Remove usage</td>
     </tr>
     <tr>
-      <td>`next/Select` (`SingleSelect`)</td>
-      <td>`trigger.ref`</td>
-      <td>-</td>
-      <td>This arg is unnecessary now, but provided for legacy usages</td>
+      <td colSpan={4}>Calendar props</td>
     </tr>
     <tr>
-      <td>`next/Select` (`SingleSelect`)</td>
-      <td>`disabledValues`</td>
-      <td>-</td>
-      <td>Either define disabled in your `Option` (in `items`), or use `disabledKeys`</td>
+      <td>`CalendarRange`</td>
+      <td>
+        `fromDate`, `fromMonth`, `fromYear`, `toDate`, `toMonth`, `toYear`, `initialFocus`,
+        `onDayKeyUp`, `onDayKeyPress`, `onDayPointerEnter`, `onDayPointerLeave`, `onDayTouchCancel`,
+        `onDayTouchEnd`, `onDayTouchMove`, `onDayTouchStart`
+      </td>
+      <td rowSpan={2}>No usage as of 20 Oct 2025</td>
+      <td rowSpan={2}>React Day Picker has had these props deprecated</td>
     </tr>
     <tr>
-      <td>`EmptyState`</td>
-      <td>`layoutContext`</td>
-      <td>-</td>
-      <td>This prop no longer has any effect</td>
-    </tr>
-    <tr>
-      <td>`FilterBarContext`</td>
-      <td>`toggleOpenFilter`</td>
-      <td>-</td>
-      <td>Use `setFilterOpenState` instead</td>
+      <td>`CalendarSingle`</td>
+      <td>
+        `fromMonth`, `fromYear`, `toDate`, `toMonth`, `toYear`, `initialFocus`, `onDayKeyUp`,
+        `onDayKeyPress`, `onDayPointerEnter`, `onDayPointerLeave`, `onDayTouchCancel`,
+        `onDayTouchEnd`, `onDayTouchMove`, `onDayTouchStart`
+      </td>
     </tr>
   </tbody>
 </table>
 
-### Other changes
-
-Support for old import paths will be dropped. This includes imports from `@kaizen/components/future`, or any versioned entry point (e.g. `@kaizen/components/v3/actions`)
-
-A codemod will be provided to make the migration off these.
-
-## `@kaizen/design-tokens@v11`
-
-September 1, 2025
-
-### Utils being removed
+### Deleted utils and exports
 
 <table>
   <thead>
     <tr>
-      <th>Util/Component</th>
+      <th>Util/Export</th>
       <th>Reason</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>`ThemeManager`</td>
+      <td>`warn` util in `Modal/util/console.ts`</td>
+      <td>No longer needed</td>
+    </tr>
+    <tr>
+      <td>`useResizeObserver`</td>
       <td>
-        Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset`
-        from next-services.
+        Use native
+        [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) DOM API
+        instead
       </td>
     </tr>
     <tr>
-      <td>`ThemeProvider`</td>
-      <td>
-        Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset`
-        from next-services.
-      </td>
-    </tr>
-    <tr>
-      <td>`Theme`</td>
-      <td>
-        <ul>
-          <li>
-            Not needed if you are using `KaizenProvider` from `@kaizen/components` or
-            `defaultPreset` from next-services.
-          </li>
-          <li>If necessary, import from `@kaizen/design-tokens/js`</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>`heartTheme`</td>
-      <td>
-        <ul>
-          <li>
-            Not needed if you are using `KaizenProvider` from `@kaizen/components` or
-            `defaultPreset` from next-services.
-          </li>
-          <li>If necessary, import from `@kaizen/design-tokens/js`</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>`defaultTheme`</td>
-      <td>
-        Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset`
-        from next-services.
-      </td>
-    </tr>
-    <tr>
-      <td>`makeCssVariableDefinitionsMap`</td>
-      <td>
-        Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset`
-        from next-services.
-      </td>
+      <td>`SingleSelect` deprecated exports: `ListBox`, `TriggerButton`</td>
+      <td>Legacy exported aliases</td>
     </tr>
   </tbody>
 </table>
 
-## `@kaizen/hosted-assets` EOL
+A codemod will be provided to make the migration off these.
 
-September 1, 2025
+## `@kaizen/components@v4`
 
-This package exports a single `assetUrl` function which can now be imported from `@kaizen/components` instead.
+September 1, 2026
+
+### Components being deprecated
+
+The following components are being deprecated in v3 and will be removed/replaced in a future major version:
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Deprecation version</th>
+      <th>Removal timeline</th>
+      <th>Recommendation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`TileGrid`</td>
+      <td>v3.0</td>
+      <td>v4.0</td>
+      <td rowSpan={3}>Migration TBD</td>
+    </tr>
+    <tr>
+      <td>`InformationTile`</td>
+      <td>v3.0</td>
+      <td>v4.0</td>
+    </tr>
+    <tr>
+      <td>`MultiActionTile`</td>
+      <td>v3.0</td>
+      <td>v4.0</td>
+    </tr>
+    <tr>
+      <td>`SingleSelect`</td>
+      <td>v3.0</td>
+      <td>v4.0</td>
+      <td>
+        Single Select isn't being retired but will be replaced by SingleSelect/next when ready
+      </td>
+    </tr>
+  </tbody>
+</table>

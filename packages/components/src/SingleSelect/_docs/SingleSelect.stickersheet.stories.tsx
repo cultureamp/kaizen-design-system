@@ -14,7 +14,7 @@ import {
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: 'Components/SingleSelect',
+  title: 'Components/SingleSelect (Deprecated)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
