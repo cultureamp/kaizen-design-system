@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { type EditorState } from 'prosemirror-state'
 import { createRichTextEditor } from '../createRichTextEditor'
 import { type CommandOrTransaction } from '../types'
