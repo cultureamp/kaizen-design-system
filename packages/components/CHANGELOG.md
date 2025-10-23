@@ -1,5 +1,23 @@
 # Change Log
 
+## 2.0.5
+
+### Patch Changes
+
+- [#6193](https://github.com/cultureamp/kaizen-design-system/pull/6193) [`06b7bf7`](https://github.com/cultureamp/kaizen-design-system/commit/06b7bf7251d058e2298d78e1438a8c0d18f8a52b) - Bug fix on list item indentation
+
+## 2.0.4
+
+### Patch Changes
+
+- [#6190](https://github.com/cultureamp/kaizen-design-system/pull/6190) [`8002c2b`](https://github.com/cultureamp/kaizen-design-system/commit/8002c2b592a2107ac2e4ec108208481bd486aa64) - Prevent scrolling on focus of a listbox item to avoid page jump
+
+## 2.0.3
+
+### Patch Changes
+
+- [#6111](https://github.com/cultureamp/kaizen-design-system/pull/6111) [`c3ebfd1`](https://github.com/cultureamp/kaizen-design-system/commit/c3ebfd19c85887e4653cf386b0cb3ce713522deb) - Update translations
+
 ## 2.0.2
 
 ### Patch Changes

@@ -70,10 +70,10 @@ export const ListBox = <Option extends SingleSelectOption>({
       const focusToElement = safeQuerySelector(`[data-key='${optionKey}']`)
 
       if (focusToElement) {
-        focusToElement.focus()
+        focusToElement.focus({ preventScroll: true })
       } else {
         // If an element is not found, focus on the listbox. This ensures the list can still be navigated to via keyboard if the keys do not align to the data attributes of the list items.
-        ref.current?.focus()
+        ref.current?.focus({ preventScroll: true })
       }
     }
     // Only run this effect for checking the first successful render
