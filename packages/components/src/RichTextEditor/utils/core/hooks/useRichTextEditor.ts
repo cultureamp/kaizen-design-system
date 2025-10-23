@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { type EditorState } from 'prosemirror-state'
 import { createRichTextEditor } from '../createRichTextEditor'
 import { type CommandOrTransaction } from '../types'
@@ -71,17 +71,23 @@ export const useRichTextEditor = (
 
   const editorRef = useCallback(
     (node: HTMLElement) => {
-      if (node !== null) {
-        const instance = createRichTextEditor({
-          node,
-          initialEditorState: editorState,
-          onChange: setEditorState,
-          isEditable: () => editableStatusRef.current,
-          attributes,
-        })
-        destroyEditorRef.current = instance.destroy
-        dispatchTransactionRef.current = instance.dispatchTransaction
+      if (node === null) {
+        if (destroyEditorRef.current) {
+          destroyEditorRef.current()
+          destroyEditorRef.current = undefined
+        }
+        return
       }
+
+      const instance = createRichTextEditor({
+        node,
+        initialEditorState: editorState,
+        onChange: setEditorState,
+        isEditable: () => editableStatusRef.current,
+        attributes,
+      })
+      destroyEditorRef.current = instance.destroy
+      dispatchTransactionRef.current = instance.dispatchTransaction
     },
 
     // Including editorState in the dependencies here will cause an endless
@@ -89,16 +95,6 @@ export const useRichTextEditor = (
     // @todo: Fix if possible - avoiding breaking in eslint upgrade
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [setEditorState, editableStatusRef],
-  )
-
-  // Tear down ProseMirror when the consuming component is unmounted
-  useEffect(
-    () => () => {
-      if (destroyEditorRef.current) {
-        destroyEditorRef.current()
-      }
-    },
-    [destroyEditorRef],
   )
 
   return [editorRef, editorState, dispatchTransaction, setEditableStatus]
