@@ -8,7 +8,8 @@ import { SingleSelect } from '../index'
 import { groupedMockItems, singleMockItems } from './mockData'
 
 export default {
-  title: 'Components/SingleSelect/SingleSelect (alpha)',
+  title: 'Components/SingleSelect/SingleSelectAlpha',
+  tags: ['alpha'],
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

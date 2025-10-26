@@ -5,8 +5,9 @@ import { type SelectItem, type SingleSelectProps } from '../types'
 import { singleMockItems } from './mockData'
 
 const meta: Meta = {
-  title: 'Components/SingleSelect/SingleSelect (alpha)',
+  title: 'Components/SingleSelect/SingleSelectAlpha',
   component: SingleSelect,
+  tags: ['alpha'],
   decorators: [
     (Story) => (
       <div className="h-200 justify-center items-center position-relative flex">

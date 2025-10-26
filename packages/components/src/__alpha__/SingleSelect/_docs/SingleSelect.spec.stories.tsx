@@ -5,8 +5,9 @@ import { SingleSelect } from '../SingleSelect'
 import { singleMockItems } from './mockData'
 
 const meta = {
-  title: 'Components/SingleSelect/SingleSelect (alpha)',
+  title: 'Components/SingleSelect/SingleSelectAlpha',
   component: SingleSelect,
+  tags: ['alpha'],
   parameters: {
     layout: 'centered',
   },
