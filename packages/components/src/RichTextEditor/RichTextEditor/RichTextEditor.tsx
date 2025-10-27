@@ -1,19 +1,11 @@
-import React, {
-  useCallback,
-  useEffect,
-  useId,
-  useState,
-  type HTMLAttributes,
-  type ReactNode,
-} from 'react'
-import { useIntl } from '@cultureamp/i18n-react-intl'
+import React, { useEffect, useId, useState, type HTMLAttributes, type ReactNode } from 'react'
 import classnames from 'classnames'
 import { FieldMessage } from '~components/FieldMessage'
 import { Label } from '~components/Label'
 import { InlineNotification } from '~components/Notification'
-import { type OverrideClassName } from '~components/types/OverrideClassName'
-import { type EditorContentArray, type EditorRows, type ToolbarItems } from '../types'
-import { useRichTextEditor, type CommandOrTransaction } from '../utils/core'
+import type { OverrideClassName } from '~components/types/OverrideClassName'
+import type { EditorContentArray, EditorRows, ToolbarItems } from '../types'
+import { useRichTextEditor } from '../utils/core'
 import { createLinkManager } from '../utils/plugins'
 import {
   ProseMirrorCommands,
@@ -23,10 +15,7 @@ import {
   ProseMirrorState,
 } from '../utils/prosemirror'
 import { createSchemaFromControls } from './schema'
-import { ToggleIconButton } from './subcomponents/ToggleIconButton'
-import { Toolbar } from './subcomponents/Toolbar'
-import { ToolbarSection } from './subcomponents/ToolbarSection'
-import { useControlMap } from './utils/controlmap'
+import { ToolbarControls } from './subcomponents/ToolbarControls'
 import { buildInputRules } from './utils/inputrules'
 import { buildKeymap } from './utils/keymap'
 import styles from './RichTextEditor.module.scss'
@@ -180,60 +169,6 @@ export const RichTextEditor = ({
 
       {description && <FieldMessage id={descriptionAria} message={description} />}
     </>
-  )
-}
-
-type ToolbarControlsProps = {
-  editorId: string
-  controls?: ToolbarItems[]
-  editorState: ProseMirrorState.EditorState
-  schema: ProseMirrorModel.Schema<any, any>
-  dispatchTransaction: (commandOrTransaction: CommandOrTransaction) => void
-}
-
-const ToolbarControls = ({
-  editorId,
-  controls,
-  editorState,
-  schema,
-  dispatchTransaction,
-}: ToolbarControlsProps): JSX.Element | null => {
-  const controlMap = useControlMap(schema, editorState, controls)
-  const { formatMessage } = useIntl()
-  const handleControlClick = useCallback(
-    (action: ProseMirrorState.Command) => {
-      dispatchTransaction(action)
-    },
-    [dispatchTransaction],
-  )
-
-  if (controlMap.length <= 0) return null
-
-  return (
-    <Toolbar
-      aria-controls={editorId}
-      aria-label={formatMessage({
-        id: 'kz.rte.toolbar.aria_label',
-        defaultMessage: 'Text formatting',
-        description: 'Label for the text formatting toolbar in a Rich Text Editor',
-      })}
-      classNameOverride={styles.toolbar}
-    >
-      {controlMap.map((section, index) => (
-        <ToolbarSection key={index}>
-          {section.map((controlConfig, controlKeyIndex) => (
-            <ToggleIconButton
-              key={controlKeyIndex}
-              icon={controlConfig.icon}
-              disabled={controlConfig.disabled}
-              label={controlConfig.label}
-              isActive={controlConfig.isActive}
-              onClick={() => handleControlClick(controlConfig.action)}
-            />
-          ))}
-        </ToolbarSection>
-      ))}
-    </Toolbar>
   )
 }
 
