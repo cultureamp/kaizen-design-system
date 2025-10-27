@@ -20,7 +20,7 @@ describe('listIsActive()', () => {
     })
     let currentState = testEditorStateWitList
 
-    dispatchTransaction(simulateSelectionByText('Bullet List Item Node'))
+    dispatchTransaction(simulateSelectionByText('Bullet list Item Node'))
     dispatchTransaction((editorState: EditorState) => {
       currentState = editorState
       return true
@@ -40,7 +40,7 @@ describe('listIsActive()', () => {
     })
     let currentState = testEditorStateWitList
 
-    dispatchTransaction(simulateSelectionByText('Bullet List Item Node'))
+    dispatchTransaction(simulateSelectionByText('Bullet list Item Node'))
     dispatchTransaction((editorState: EditorState) => {
       currentState = editorState
       return true
