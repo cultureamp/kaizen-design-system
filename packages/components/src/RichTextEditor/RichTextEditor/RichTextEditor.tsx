@@ -143,13 +143,15 @@ export const RichTextEditor = ({
         <Label classNameOverride={styles.editorLabel} id={labelId} labelText={labelText} />
       )}
       <div className={classnames(styles.editorWrapper, styles[status])}>
-        <ToolbarControls
-          editorId={editorId}
-          controls={controls}
-          editorState={editorState}
-          schema={schema}
-          dispatchTransaction={dispatchTransaction}
-        />
+        <div className={styles.toolbarWrapper}>
+          <ToolbarControls
+            editorId={editorId}
+            controls={controls}
+            editorState={editorState}
+            schema={schema}
+            dispatchTransaction={dispatchTransaction}
+          />
+        </div>
         <div
           id={editorId}
           ref={editorRef}
