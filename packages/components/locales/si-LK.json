@@ -87,39 +87,39 @@
   },
   "kz.rte.bold" : {
     "description" : "Label for the \"Bold\" button in a text editor",
-    "message" : "Bold"
+    "message" : "තද පැහැ"
   },
   "kz.rte.bullet_list" : {
     "description" : "Label for the \"Bullet list\" button in a text editor",
-    "message" : "Bullet list"
+    "message" : "බුලට් ලැයිස්තුව"
   },
   "kz.rte.decrease_indent" : {
     "description" : "Label for the \"Decrease indent\" button in a text editor",
-    "message" : "Decrease indent"
+    "message" : "අනූච්ඡේදනය අවම කරන්න"
   },
   "kz.rte.increase_indent" : {
     "description" : "Label for the \"Increase indent\" button in a text editor",
-    "message" : "Increase indent"
+    "message" : "අනූච්ඡේදනය වැඩි කරන්න"
   },
   "kz.rte.italic" : {
     "description" : "Label for the \"Italic\" button in a text editor",
-    "message" : "Italic"
+    "message" : "ඉටැලික්"
   },
   "kz.rte.link" : {
     "description" : "Label for the \"Link\" button in a text editor that allows the creation of hyperlinks in the text",
-    "message" : "Link"
+    "message" : "සබැඳිය"
   },
   "kz.rte.numbered_list" : {
     "description" : "Label for the \"Numbered list\" button in a text editor",
-    "message" : "Numbered list"
+    "message" : "අංක ලැයිස්තුව"
   },
   "kz.rte.toolbar.aria_label" : {
     "description" : "Label for the text formatting toolbar in a Rich Text Editor",
-    "message" : "Text formatting"
+    "message" : "පෙළ ආකෘතිය"
   },
   "kz.rte.underline" : {
     "description" : "Label for the \"Underline\" button in a text editor",
-    "message" : "Underline"
+    "message" : "ඉරක් ඇඳීම"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
