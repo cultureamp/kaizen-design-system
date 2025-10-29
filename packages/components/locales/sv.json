@@ -99,7 +99,7 @@
   },
   "kz.rte.increase_indent" : {
     "description" : "Label for the \"Increase indent\" button in a text editor",
-    "message" : "Increase indent"
+    "message" : "Öka indrag"
   },
   "kz.rte.italic" : {
     "description" : "Label for the \"Italic\" button in a text editor",
@@ -115,7 +115,7 @@
   },
   "kz.rte.toolbar.aria_label" : {
     "description" : "Label for the text formatting toolbar in a Rich Text Editor",
-    "message" : "Text formatting"
+    "message" : "Textformatering"
   },
   "kz.rte.underline" : {
     "description" : "Label for the \"Underline\" button in a text editor",

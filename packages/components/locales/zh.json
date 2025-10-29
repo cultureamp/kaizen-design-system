@@ -99,7 +99,7 @@
   },
   "kz.rte.increase_indent" : {
     "description" : "Label for the \"Increase indent\" button in a text editor",
-    "message" : "Increase indent"
+    "message" : "增加缩进"
   },
   "kz.rte.italic" : {
     "description" : "Label for the \"Italic\" button in a text editor",

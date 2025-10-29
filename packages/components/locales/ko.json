@@ -115,7 +115,7 @@
   },
   "kz.rte.toolbar.aria_label" : {
     "description" : "Label for the text formatting toolbar in a Rich Text Editor",
-    "message" : "Text formatting"
+    "message" : "텍스트 서식 지정"
   },
   "kz.rte.underline" : {
     "description" : "Label for the \"Underline\" button in a text editor",
