@@ -31,6 +31,7 @@ const meta = {
   component: TitleBlock,
   parameters: {
     chromatic: { disable: false },
+    layout: 'fullscreen',
   },
   args: {
     title: 'Page title',
