@@ -109,6 +109,11 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     md: tokens.layout.breakpoints.medium, // => @media (min-width: 768px) { ... }
     lg: tokens.layout.breakpoints.large, // => @media (min-width: 1080px) { ... }
   },
+  // Container query breakpoints
+  containers: {
+    md: tokens.layout.breakpoints.medium, // => @container (min-width: 768px) { ... }
+    lg: tokens.layout.breakpoints.large, // => @container (min-width: 1080px) { ... }
+  },
 } as const
 
 export const Preset: KaizenTailwindPreset = {

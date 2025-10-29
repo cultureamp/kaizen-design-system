@@ -1,0 +1,62 @@
+import { Description, Meta, Story } from '@storybook/blocks'
+import * as Examples from './container-queries.stories'
+
+<Meta of={Examples} />
+
+# Container Queries
+
+<Description />
+
+Container queries allow you to apply styles based on the size of a container rather than the viewport. This is especially useful for creating truly reusable components that adapt to their context.
+
+## Fallback container parent
+
+The Kaizen design system includes a fallback container parent in the `_reset.css` file:
+
+```css
+body {
+  container-type: inline-size;
+}
+```
+
+This means that if you use container query classes (like `@md:bg-blue-400`) without explicitly adding an `@container` parent, the body element will act as the container context. In this case, container queries will functionally behave the same as viewport media queries, making the transition from media queries to container queries non-breaking for existing components.
+
+## Preset container queries
+
+Container queries work by establishing a containment context on a parent element using the `@container` class, then applying conditional styles to child elements using the `@` prefix.
+
+<Story of={Examples.ContainerQueries} />
+
+## Using arbitrary values
+
+For one-off container sizes that don't match your configured breakpoints, you can use arbitrary values in square brackets.
+
+<Story of={Examples.ArbitraryContainerQueries} />
+
+## Max-width container queries
+
+Use max-width container queries to apply styles when a container is **smaller** than a certain size. This is useful for styling elements differently in constrained spaces.
+
+<Story of={Examples.MaxWidthContainerQueries} />
+
+## Container query ranges
+
+Combine min-width and max-width container queries to apply styles only within specific size ranges. This gives you precise control over when styles are applied.
+
+<Story of={Examples.ContainerQueryRanges} />
+
+## Named containers
+
+When you have nested containers, you can use named containers to query specific containers by name. This prevents conflicts where a child element might respond to the wrong container.
+
+<Story of={Examples.NamedContainers} />
+
+## Best practices
+
+- **For true container behavior**: Always establish a containment context with `@container` (or named `@container/name`) on the parent element
+- **Fallback behavior**: Without an explicit `@container` parent, container queries will use the body element and behave like viewport media queries
+- Container queries respond to the **container's** size, not the viewport size (unless using the body fallback)
+- Use named containers when you have nested container contexts
+- Combine container queries with regular responsive design for optimal flexibility
+- Container queries work great for component-level responsive design
+- The fallback body container makes migrating from media queries to container queries seamless
