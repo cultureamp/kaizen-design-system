@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.6
+
+### Patch Changes
+
+- [#6220](https://github.com/cultureamp/kaizen-design-system/pull/6220) [`33d6979`](https://github.com/cultureamp/kaizen-design-system/commit/33d697956f553188212a326fc3201cb8f344c923) - Fix: ensure rich text editor control button labels are translated
+
 ## 2.0.5
 
 ### Patch Changes
