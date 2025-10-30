@@ -87,87 +87,6 @@ export const ArbitraryContainerQueries: StoryFn = () => (
   </div>
 )
 
-export const MaxWidthContainerQueries: StoryFn = () => (
-  <div className="py-32">
-    <Heading tag="p" variant="heading-4" classNameOverride="text-center mb-16">
-      Max-width container queries apply styles when the container is smaller than the specified
-      breakpoint.
-    </Heading>
-
-    <div className="my-12">
-      <Text variant="body">
-        <strong>Max-width container query</strong> (applied when the container gets narrower than
-        768px)
-      </Text>
-      <Text variant="body">In this example: @max-md:bg-red-400</Text>
-      <div className="mt-12 border-2 border-dashed border-purple-300 p-8">
-        <Text variant="body">
-          <strong>Container wrapper (resize to see effect)</strong>
-        </Text>
-        <div className="@container mt-4 resize overflow-auto border border-gray-300">
-          <div className="@max-md:bg-red-400 h-[50px] w-full rounded border-solid" />
-        </div>
-      </div>
-    </div>
-
-    <div className="my-12">
-      <Text variant="body">
-        <strong>Arbitrary max-width container query</strong> (applied when the container gets
-        narrower than 400px)
-      </Text>
-      <Text variant="body">In this example: @max-[400px]:bg-orange-400</Text>
-      <div className="mt-12 border-2 border-dashed border-purple-300 p-8">
-        <Text variant="body">
-          <strong>Container wrapper (resize to see effect)</strong>
-        </Text>
-        <div className="@container mt-4 resize overflow-auto border border-gray-300">
-          <div className="@max-[400px]:bg-orange-400 h-[50px] w-full rounded border-solid" />
-        </div>
-      </div>
-    </div>
-  </div>
-)
-
-export const ContainerQueryRanges: StoryFn = () => (
-  <div className="py-32">
-    <Heading tag="p" variant="heading-4" classNameOverride="text-center mb-16">
-      Container query ranges allow you to apply styles between specific container sizes.
-    </Heading>
-
-    <div className="my-12">
-      <Text variant="body">
-        <strong>Container query range</strong> (applied when the container is between 400px and
-        768px wide)
-      </Text>
-      <Text variant="body">In this example: @[400px]:@max-md:bg-purple-400</Text>
-      <div className="mt-12 border-2 border-dashed border-purple-300 p-8">
-        <Text variant="body">
-          <strong>Container wrapper (resize to see effect)</strong>
-        </Text>
-        <div className="@container mt-4 resize overflow-auto border border-gray-300">
-          <div className="@[400px]:@max-md:bg-purple-400 h-[50px] w-full rounded border-solid" />
-        </div>
-      </div>
-    </div>
-
-    <div className="my-12">
-      <Text variant="body">
-        <strong>Multiple breakpoint combination</strong> (red below 400px, blue between 400-768px,
-        green above 768px)
-      </Text>
-      <Text variant="body">In this example: bg-red-400 @[400px]:bg-blue-400 @md:bg-green-400</Text>
-      <div className="mt-12 border-2 border-dashed border-purple-300 p-8">
-        <Text variant="body">
-          <strong>Container wrapper (resize to see effect)</strong>
-        </Text>
-        <div className="@container mt-4 resize overflow-auto border border-gray-300">
-          <div className="bg-red-400 @[400px]:bg-blue-400 @md:bg-green-400 h-[50px] w-full rounded border-solid" />
-        </div>
-      </div>
-    </div>
-  </div>
-)
-
 export const NamedContainers: StoryFn = () => (
   <div className="py-32">
     <Heading tag="p" variant="heading-4" classNameOverride="text-center mb-16">
@@ -178,24 +97,25 @@ export const NamedContainers: StoryFn = () => (
     <div className="my-12">
       <Text variant="body">
         <strong>Named container example</strong> - The inner element responds to the outer
-        &quot;sidebar&quot; container, not the inner &quot;card&quot; container
+        &quot;example1-sidebar&quot; container, not the inner &quot;example1-card&quot; container
       </Text>
       <Text variant="body">
-        In this example: @container/sidebar (min-width: 400px) and @sidebar/md:bg-green-400
+        In this example: @container/example1-sidebar (min-width: 400px) and
+        @example1-sidebar/md:bg-green-400
       </Text>
       <div className="mt-12 border-2 border-dashed border-purple-300 p-8">
         <Text variant="body">
-          <strong>Outer container (&quot;sidebar&quot;) - resize to see effect</strong>
+          <strong>Outer container (&quot;example1-sidebar&quot;) - resize to see effect</strong>
         </Text>
-        <div className="@container/sidebar mt-4 resize overflow-auto border-2 border-blue-300">
+        <div className="@container/example1-sidebar mt-4 resize overflow-auto border-2 border-blue-300">
           <div className="p-4">
             <Text variant="body">
-              <strong>Inner container (&quot;card&quot;)</strong>
+              <strong>Inner container (&quot;example1-card&quot;)</strong>
             </Text>
-            <div className="@container/card mt-2 border border-gray-300 p-2">
-              <div className="@sidebar/md:bg-green-400 h-[50px] w-full rounded border-solid">
+            <div className="@container/example1-card mt-2 border border-gray-300 p-2">
+              <div className="@example1-sidebar/md:bg-green-400 h-[50px] w-full rounded border-solid">
                 <div className="flex h-full items-center justify-center text-xs">
-                  Responds to sidebar container
+                  Responds to example1-sidebar container
                 </div>
               </div>
             </div>
@@ -210,24 +130,24 @@ export const NamedContainers: StoryFn = () => (
         containers
       </Text>
       <div className="mt-12 border-2 border-dashed border-purple-300 p-8">
-        <div className="@container/main resize overflow-auto border-2 border-green-300">
+        <div className="@container/example2-main resize overflow-auto border-2 border-green-300">
           <div className="p-4">
             <Text variant="body">
-              <strong>Main container (resize me)</strong>
+              <strong>Example2-main container (resize me)</strong>
             </Text>
-            <div className="@main/md:bg-blue-400 mt-2 h-[30px] w-full rounded">
+            <div className="@example2-main/md:bg-blue-400 mt-2 h-[30px] w-full rounded">
               <div className="flex h-full items-center justify-center text-xs text-white">
-                Responds to main container
+                Responds to example2-main container
               </div>
             </div>
-            <div className="@container/sidebar mt-4 resize overflow-auto border border-red-300">
+            <div className="@container/example2-sidebar mt-4 resize overflow-auto border border-red-300">
               <div className="p-2">
                 <Text variant="body">
-                  <strong>Sidebar container (resize me too)</strong>
+                  <strong>Example2-sidebar container (resize me too)</strong>
                 </Text>
-                <div className="@sidebar/md:bg-red-400 mt-2 h-[30px] w-full rounded">
+                <div className="@example2-sidebar/md:bg-red-400 mt-2 h-[30px] w-full rounded">
                   <div className="flex h-full items-center justify-center text-xs text-white">
-                    Responds to sidebar container
+                    Responds to example2-sidebar container
                   </div>
                 </div>
               </div>

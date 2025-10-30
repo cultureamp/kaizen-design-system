@@ -6,6 +6,7 @@ import { Preset } from './src'
 module.exports = {
   content: ['./src/_docs/**/*.{tsx,mdx}'],
   presets: [Preset],
+  plugins: [require('@tailwindcss/container-queries')],
   important: 'body',
   corePlugins: {
     preflight: false,
@@ -13,6 +14,9 @@ module.exports = {
   safelist: [
     {
       pattern: /(bg|border|rounded|shadow|h|w|m|p|font-family|font-weight|text|leading|list)-.*/,
+    },
+    {
+      pattern: /@(container|md|lg|\[.*\]|\w+\/\w+):.*/,
     },
   ],
 }
