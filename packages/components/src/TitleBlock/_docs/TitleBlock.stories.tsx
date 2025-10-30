@@ -146,6 +146,58 @@ export const HasLongTitle: Story = {
   args: { title: 'A long title with over thirty characters' },
 }
 
+export const AdminVariant: Story = {
+  parameters: {
+    viewport: {
+      viewports: {
+        default: {
+          name: 'Above or equal to 1366',
+          styles: { width: '1366px', height: '800px' },
+          type: 'desktop',
+        },
+        under1366: {
+          name: 'Under 1366',
+          styles: { width: '1365px', height: '800px' },
+          type: 'desktop',
+        },
+      },
+      defaultViewport: 'default',
+    },
+    chromatic: {
+      disable: false,
+      viewports: [1365, 1366],
+    },
+  },
+  args: {
+    variant: 'admin',
+  },
+}
+
+export const EducationVariant: Story = {
+  parameters: {
+    viewport: {
+      viewports: {
+        default: {
+          name: 'Above or equal to 1366',
+          styles: { width: '1366px', height: '800px' },
+          type: 'desktop',
+        },
+        under1366: {
+          name: 'Under 1366',
+          styles: { width: '1365px', height: '800px' },
+          type: 'desktop',
+        },
+      },
+      defaultViewport: 'default',
+    },
+    chromatic: {
+      disable: false,
+      viewports: [1365, 1366],
+    },
+  },
+  args: { variant: 'education' },
+}
+
 export const StickerSheetBreadcrumbs: Story = {
   name: 'Sticker Sheet (Breadcrumb)',
   parameters: {
