@@ -170,6 +170,14 @@ export const AdminVariant: Story = {
   },
   args: {
     variant: 'admin',
+    navigationTabs: [
+      <NavigationTab key="1" variant="admin" text="Label" href="#" active />,
+      <NavigationTab key="2" variant="admin" text="Label" href="#" />,
+      <NavigationTab key="3" variant="admin" text="Label" href="#" />,
+      <NavigationTab key="4" variant="admin" text="Label" href="#" />,
+      <NavigationTab key="5" variant="admin" text="Label" href="#" />,
+      <NavigationTab key="6" variant="admin" text="Label" href="#" />,
+    ],
   },
 }
 
@@ -195,7 +203,17 @@ export const EducationVariant: Story = {
       viewports: [1365, 1366],
     },
   },
-  args: { variant: 'education' },
+  args: {
+    variant: 'education',
+    navigationTabs: [
+      <NavigationTab key="1" variant="education" text="Label" href="#" active />,
+      <NavigationTab key="2" variant="education" text="Label" href="#" />,
+      <NavigationTab key="3" variant="education" text="Label" href="#" />,
+      <NavigationTab key="4" variant="education" text="Label" href="#" />,
+      <NavigationTab key="5" variant="education" text="Label" href="#" />,
+      <NavigationTab key="6" variant="education" text="Label" href="#" />,
+    ],
+  },
 }
 
 export const StickerSheetBreadcrumbs: Story = {

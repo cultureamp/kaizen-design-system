@@ -53,6 +53,7 @@
 
   .adminVariant .titleRow {
     background-color: $color-white;
+    margin-bottom: 3px; // needed to correctly position the active tab label :after element
   }
 
   %titleBlockInner {
