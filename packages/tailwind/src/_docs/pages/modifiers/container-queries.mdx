@@ -37,11 +37,33 @@ For one-off container sizes that don't match your configured breakpoints, you ca
 
 When you have nested containers, you can use named containers to query specific containers by name. This prevents conflicts where a child element might respond to the wrong container.
 
+```tsx
+<div className="mt-12 border-1 border-dashed border-purple-300 p-8">
+  <Text variant="body">
+    <strong>Outer container ("sidebar") - resize to see effect</strong>
+  </Text>
+  <div className="@container/sidebar mt-4 resize overflow-auto border-2 border-blue-300">
+    <div className="p-4">
+      <Text variant="body">
+        <strong>Inner container ("card")</strong>
+      </Text>
+      <div className="@container/card mt-2 border border-gray-300 p-2">
+        <div className="@md/sidebar:bg-green-400 h-[50px] w-full rounded border-solid">
+          <div className="flex h-full items-center justify-center text-xs">
+            <Text variant="body">Responds to sidebar container</Text>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
 <Story of={Examples.NamedContainers} />
 
 ## Best practices
 
-- **For true container behavior**: Always establish a containment context with `@container` (or named `@container/name`) on the parent element
+- **For container behavior**: Always establish a containment context with `@container` (or named `@container/name`) on the parent element
 - **Fallback behavior**: Without an explicit `@container` parent, container queries will use the body element and behave like viewport media queries
 - Container queries respond to the **container's** size, not the viewport size (unless using the body fallback)
 - Use named containers when you have nested container contexts

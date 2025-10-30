@@ -97,58 +97,22 @@ export const NamedContainers: StoryFn = () => (
     <div className="my-12">
       <Text variant="body">
         <strong>Named container example</strong> - The inner element responds to the outer
-        &quot;example1-sidebar&quot; container, not the inner &quot;example1-card&quot; container
+        &quot;sidebar&quot; container, not the inner &quot;card&quot; container
       </Text>
-      <Text variant="body">
-        In this example: @container/example1-sidebar (min-width: 400px) and
-        @example1-sidebar/md:bg-green-400
-      </Text>
-      <div className="mt-12 border-2 border-dashed border-purple-300 p-8">
+      <Text variant="body">In this example: @container/sidebar and @md/sidebar:bg-green-400</Text>
+      <div className="mt-12 border-1 border-dashed border-purple-300 p-8">
         <Text variant="body">
-          <strong>Outer container (&quot;example1-sidebar&quot;) - resize to see effect</strong>
+          <strong>Outer container (&quot;sidebar&quot;) - resize to see effect</strong>
         </Text>
-        <div className="@container/example1-sidebar mt-4 resize overflow-auto border-2 border-blue-300">
+        <div className="@container/sidebar mt-4 resize overflow-auto border-2 border-blue-300">
           <div className="p-4">
             <Text variant="body">
-              <strong>Inner container (&quot;example1-card&quot;)</strong>
+              <strong>Inner container (&quot;card&quot;)</strong>
             </Text>
-            <div className="@container/example1-card mt-2 border border-gray-300 p-2">
-              <div className="@example1-sidebar/md:bg-green-400 h-[50px] w-full rounded border-solid">
+            <div className="@container/card mt-2 border border-gray-300 p-2">
+              <div className="@md/sidebar:bg-green-400 h-[50px] w-full rounded border-solid">
                 <div className="flex h-full items-center justify-center text-xs">
-                  Responds to example1-sidebar container
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div className="my-12">
-      <Text variant="body">
-        <strong>Multiple named containers</strong> - Different elements respond to different named
-        containers
-      </Text>
-      <div className="mt-12 border-2 border-dashed border-purple-300 p-8">
-        <div className="@container/example2-main resize overflow-auto border-2 border-green-300">
-          <div className="p-4">
-            <Text variant="body">
-              <strong>Example2-main container (resize me)</strong>
-            </Text>
-            <div className="@example2-main/md:bg-blue-400 mt-2 h-[30px] w-full rounded">
-              <div className="flex h-full items-center justify-center text-xs text-white">
-                Responds to example2-main container
-              </div>
-            </div>
-            <div className="@container/example2-sidebar mt-4 resize overflow-auto border border-red-300">
-              <div className="p-2">
-                <Text variant="body">
-                  <strong>Example2-sidebar container (resize me too)</strong>
-                </Text>
-                <div className="@example2-sidebar/md:bg-red-400 mt-2 h-[30px] w-full rounded">
-                  <div className="flex h-full items-center justify-center text-xs text-white">
-                    Responds to example2-sidebar container
-                  </div>
+                  <Text variant="body">Responds to sidebar container</Text>
                 </div>
               </div>
             </div>
