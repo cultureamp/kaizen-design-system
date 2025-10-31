@@ -6,6 +6,7 @@ import { Preset } from './src'
 module.exports = {
   content: ['./src/_docs/**/*.{tsx,mdx}'],
   presets: [Preset],
+  plugins: [require('@tailwindcss/container-queries')],
   important: 'body',
   corePlugins: {
     preflight: false,

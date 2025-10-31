@@ -125,7 +125,6 @@
 
       &::before {
         background-color: $color-blue-500;
-        top: 3px;
 
         @include title-block-medium-and-small {
           top: auto;
