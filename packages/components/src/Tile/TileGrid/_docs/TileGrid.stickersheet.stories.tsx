@@ -5,7 +5,7 @@ import { StickerSheet, type StickerSheetStory } from '~storybook/components/Stic
 import { TileGrid } from '../index'
 
 export default {
-  title: 'Components/Tiles/TileGrid',
+  title: 'Components/Tiles/TileGrid (Deprecated)',
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

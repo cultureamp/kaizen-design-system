@@ -3,7 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { InformationTile } from '../index'
 
 const meta = {
-  title: 'Components/Tiles/InformationTile',
+  title: 'Components/Tiles/InformationTile (Deprecated)',
   component: InformationTile,
   args: {
     title: 'Title',
