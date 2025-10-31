@@ -85,6 +85,42 @@
     "description" : "Label for the clear search button",
     "message" : "Изчисти търсенето"
   },
+  "kz.rte.bold" : {
+    "description" : "Label for the \"Bold\" button in a text editor",
+    "message" : "Удебелен"
+  },
+  "kz.rte.bullet_list" : {
+    "description" : "Label for the \"Bullet list\" button in a text editor",
+    "message" : "Маркиран списък"
+  },
+  "kz.rte.decrease_indent" : {
+    "description" : "Label for the \"Decrease indent\" button in a text editor",
+    "message" : "Намали отстъпа"
+  },
+  "kz.rte.increase_indent" : {
+    "description" : "Label for the \"Increase indent\" button in a text editor",
+    "message" : "Увеличи отстъпа"
+  },
+  "kz.rte.italic" : {
+    "description" : "Label for the \"Italic\" button in a text editor",
+    "message" : "Курсив"
+  },
+  "kz.rte.link" : {
+    "description" : "Label for the \"Link\" button in a text editor that allows the creation of hyperlinks in the text",
+    "message" : "Връзка"
+  },
+  "kz.rte.numbered_list" : {
+    "description" : "Label for the \"Numbered list\" button in a text editor",
+    "message" : "Номериран списък"
+  },
+  "kz.rte.toolbar.aria_label" : {
+    "description" : "Label for the text formatting toolbar in a Rich Text Editor",
+    "message" : "Форматиране на текст"
+  },
+  "kz.rte.underline" : {
+    "description" : "Label for the \"Underline\" button in a text editor",
+    "message" : "Подчертаване"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "се свържете с екипа за поддръжка"
