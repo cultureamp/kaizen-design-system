@@ -1,4 +1,5 @@
 import React from 'react'
+import { useIntl } from '@cultureamp/i18n-react-intl'
 import { Icon } from '~components/Icon'
 import { type ToolbarControlTypes, type ToolbarItems } from '../../types'
 import { listIsActive, markIsActive } from '../../utils/commands'
@@ -173,12 +174,15 @@ const filterToolbarControls = (groupedControls: GroupedToolbarControls): Toolbar
   Object.values(groupedControls).filter((controls) => controls.length > 0)
 
 /** Builds an array of object used to map control configuration to rte toolbar buttons */
-export const buildControlMap = (
+export const useControlMap = (
   schema: ProseMirrorModel.Schema,
   editorState: ProseMirrorState.EditorState,
   controls?: ToolbarItems[],
 ): ToolbarControl[][] => {
+  const { formatMessage } = useIntl()
+
   if (!controls) return []
+
   const controlGroupIndex: ControlGroupTypes = createControlGroupIndex(controls)
   const toolbarControls: GroupedToolbarControls = createInitialControls(controlGroupIndex)
   const listNodes = [schema.nodes.bulletList, schema.nodes.orderedList]
@@ -189,7 +193,11 @@ export const buildControlMap = (
     toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
-      label: 'Bold',
+      label: formatMessage({
+        id: 'kz.rte.bold',
+        defaultMessage: 'Bold',
+        description: 'Label for the "Bold" button in a text editor',
+      }),
       icon: <Icon name="format_bold" isPresentational />,
     })
   }
@@ -200,7 +208,11 @@ export const buildControlMap = (
     toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
-      label: 'Italic',
+      label: formatMessage({
+        id: 'kz.rte.italic',
+        defaultMessage: 'Italic',
+        description: 'Label for the "Italic" button in a text editor',
+      }),
       icon: <Icon name="format_italic" isPresentational />,
     })
   }
@@ -211,7 +223,11 @@ export const buildControlMap = (
     toolbarControls[groupIndex].push({
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
-      label: 'Underline',
+      label: formatMessage({
+        id: 'kz.rte.underline',
+        defaultMessage: 'Underline',
+        description: 'Label for the "Underline" button in a text editor',
+      }),
       icon: <Icon name="format_underlined" isPresentational />,
     })
   }
@@ -222,7 +238,11 @@ export const buildControlMap = (
     toolbarControls[groupIndex].push({
       action: createToggleListCommand(type),
       isActive: listIsActive(editorState, type, listNodes),
-      label: 'Bullet List',
+      label: formatMessage({
+        id: 'kz.rte.bullet_list',
+        defaultMessage: 'Bullet list',
+        description: 'Label for the "Bullet list" button in a text editor',
+      }),
       icon: <Icon name="format_list_bulleted" isPresentational shouldMirrorInRTL />,
     })
   }
@@ -233,7 +253,11 @@ export const buildControlMap = (
     toolbarControls[groupIndex].push({
       action: createToggleListCommand(type),
       isActive: listIsActive(editorState, type, listNodes),
-      label: 'Numbered List',
+      label: formatMessage({
+        id: 'kz.rte.numbered_list',
+        defaultMessage: 'Numbered list',
+        description: 'Label for the "Numbered list" button in a text editor',
+      }),
       icon: <Icon name="format_list_numbered" isPresentational shouldMirrorInRTL />,
     })
   }
@@ -246,14 +270,22 @@ export const buildControlMap = (
         action: createLiftListCommand(),
         disabled: liftListIsDisabled(editorState),
         isActive: false,
-        label: 'Decrease indent',
+        label: formatMessage({
+          id: 'kz.rte.decrease_indent',
+          defaultMessage: 'Decrease indent',
+          description: 'Label for the "Decrease indent" button in a text editor',
+        }),
         icon: <Icon name="format_indent_decrease" isPresentational shouldMirrorInRTL />,
       },
       {
         action: createIndentListCommand(),
         disabled: indentListIsDisabled(editorState),
         isActive: false,
-        label: 'Increase indent',
+        label: formatMessage({
+          id: 'kz.rte.increase_indent',
+          defaultMessage: 'Increase indent',
+          description: 'Label for the "Increase indent" button in a text editor',
+        }),
         icon: <Icon name="format_indent_increase" isPresentational shouldMirrorInRTL />,
       },
     )
@@ -266,7 +298,12 @@ export const buildControlMap = (
       action: createToggleMarkCommand(type),
       disabled: editorState.selection.empty,
       isActive: false,
-      label: 'Link',
+      label: formatMessage({
+        id: 'kz.rte.link',
+        defaultMessage: 'Link',
+        description:
+          'Label for the "Link" button in a text editor that allows the creation of hyperlinks in the text',
+      }),
       icon: <Icon name="add_link" isPresentational />,
     })
   }
