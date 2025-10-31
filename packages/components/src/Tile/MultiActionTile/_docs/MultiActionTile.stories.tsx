@@ -3,7 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { MultiActionTile } from '../index'
 
 const meta = {
-  title: 'Components/Tiles/MultiActionTile',
+  title: 'Components/Tiles/MultiActionTile (Deprecated)',
   component: MultiActionTile,
   args: {
     title: 'Title',

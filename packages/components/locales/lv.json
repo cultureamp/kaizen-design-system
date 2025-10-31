@@ -85,6 +85,42 @@
     "description" : "Label for the clear search button",
     "message" : "Notīrīt meklēšanu"
   },
+  "kz.rte.bold" : {
+    "description" : "Label for the \"Bold\" button in a text editor",
+    "message" : "Treknraksts"
+  },
+  "kz.rte.bullet_list" : {
+    "description" : "Label for the \"Bullet list\" button in a text editor",
+    "message" : "Saraksts"
+  },
+  "kz.rte.decrease_indent" : {
+    "description" : "Label for the \"Decrease indent\" button in a text editor",
+    "message" : "Samazināt atkāpi"
+  },
+  "kz.rte.increase_indent" : {
+    "description" : "Label for the \"Increase indent\" button in a text editor",
+    "message" : "Palielināt atkāpi"
+  },
+  "kz.rte.italic" : {
+    "description" : "Label for the \"Italic\" button in a text editor",
+    "message" : "Slīpraksts"
+  },
+  "kz.rte.link" : {
+    "description" : "Label for the \"Link\" button in a text editor that allows the creation of hyperlinks in the text",
+    "message" : "Saite"
+  },
+  "kz.rte.numbered_list" : {
+    "description" : "Label for the \"Numbered list\" button in a text editor",
+    "message" : "Numurēts saraksts"
+  },
+  "kz.rte.toolbar.aria_label" : {
+    "description" : "Label for the text formatting toolbar in a Rich Text Editor",
+    "message" : "Teksta formatēšana"
+  },
+  "kz.rte.underline" : {
+    "description" : "Label for the \"Underline\" button in a text editor",
+    "message" : "Pasvītrot"
+  },
   "kzErrorPage" : {
     "description" : "Label for contact button",
     "message" : "sazinieties ar atbalsta dienestu"
