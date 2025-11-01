@@ -51,6 +51,10 @@
     display: inline-block;
   }
 
+  .toolbarWrapper {
+    border-bottom: inherit;
+  }
+
   /* stylelint-disable no-descending-specificity */
   .editorWrapper {
     position: relative;
@@ -62,37 +66,21 @@
     &:hover,
     &:focus-within {
       border-color: $color-gray-600;
-
-      .toolbar {
-        border-color: $color-gray-600;
-      }
     }
 
     &.error {
-      &,
-      .toolbar {
-        border-color: $color-red-500;
-      }
+      border-color: $color-red-500;
 
       &:hover {
-        &,
-        .toolbar {
-          border-color: $color-red-600;
-        }
+        border-color: $color-red-600;
       }
     }
 
     &.caution {
-      &,
-      .toolbar {
-        border-color: $color-yellow-600;
-      }
+      border-color: $color-yellow-600;
 
       &:hover {
-        &,
-        .toolbar {
-          border-color: $color-yellow-700;
-        }
+        border-color: $color-yellow-700;
       }
     }
     /* stylelint-enable no-descending-specificity */

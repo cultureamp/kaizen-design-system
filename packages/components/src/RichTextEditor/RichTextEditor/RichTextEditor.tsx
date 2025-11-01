@@ -3,8 +3,8 @@ import classnames from 'classnames'
 import { FieldMessage } from '~components/FieldMessage'
 import { Label } from '~components/Label'
 import { InlineNotification } from '~components/Notification'
-import { type OverrideClassName } from '~components/types/OverrideClassName'
-import { type EditorContentArray, type EditorRows, type ToolbarItems } from '../types'
+import type { OverrideClassName } from '~components/types/OverrideClassName'
+import type { EditorContentArray, EditorRows, ToolbarItems } from '../types'
 import { useRichTextEditor } from '../utils/core'
 import { createLinkManager } from '../utils/plugins'
 import {
@@ -15,10 +15,7 @@ import {
   ProseMirrorState,
 } from '../utils/prosemirror'
 import { createSchemaFromControls } from './schema'
-import { ToggleIconButton } from './subcomponents/ToggleIconButton'
-import { Toolbar } from './subcomponents/Toolbar'
-import { ToolbarSection } from './subcomponents/ToolbarSection'
-import { buildControlMap } from './utils/controlmap'
+import { ToolbarControls } from './subcomponents/ToolbarControls'
 import { buildInputRules } from './utils/inputrules'
 import { buildKeymap } from './utils/keymap'
 import styles from './RichTextEditor.module.scss'
@@ -132,8 +129,6 @@ export const RichTextEditor = ({
 
   const [editorRef, editorState, dispatchTransaction] = useRichTextEditorResult
 
-  const controlMap = buildControlMap(schema, editorState, controls)
-
   // @todo: Fix if possible - avoiding breaking in eslint upgrade
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
@@ -148,28 +143,15 @@ export const RichTextEditor = ({
         <Label classNameOverride={styles.editorLabel} id={labelId} labelText={labelText} />
       )}
       <div className={classnames(styles.editorWrapper, styles[status])}>
-        {controls && (
-          <Toolbar
-            aria-controls={editorId}
-            aria-label="Text formatting"
-            classNameOverride={styles.toolbar}
-          >
-            {controlMap.map((section, index) => (
-              <ToolbarSection key={index}>
-                {section.map((controlConfig, controlKeyIndex) => (
-                  <ToggleIconButton
-                    key={controlKeyIndex}
-                    icon={controlConfig.icon}
-                    disabled={controlConfig.disabled}
-                    label={controlConfig.label}
-                    isActive={controlConfig.isActive}
-                    onClick={(): void => dispatchTransaction(controlConfig.action)}
-                  />
-                ))}
-              </ToolbarSection>
-            ))}
-          </Toolbar>
-        )}
+        <div className={styles.toolbarWrapper}>
+          <ToolbarControls
+            editorId={editorId}
+            controls={controls}
+            editorState={editorState}
+            schema={schema}
+            dispatchTransaction={dispatchTransaction}
+          />
+        </div>
         <div
           id={editorId}
           ref={editorRef}
