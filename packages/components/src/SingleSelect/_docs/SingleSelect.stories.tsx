@@ -10,7 +10,7 @@ import { type SingleSelectOption } from '../types'
 import { groupedMockItems, mixedMockItemsDisabled, singleMockItems } from './mockData'
 
 const meta = {
-  title: 'Components/SingleSelect',
+  title: 'Components/SingleSelect (Deprecated)',
   component: SingleSelect,
   argTypes: {
     items: {
