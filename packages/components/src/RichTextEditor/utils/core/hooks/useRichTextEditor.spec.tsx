@@ -150,4 +150,15 @@ describe('useRichTextEditor()', () => {
       expect(editor.children[0]).toHaveAttribute('contenteditable', 'true')
     })
   })
+
+  it('is removed from DOM when unmounted', async () => {
+    const { unmount } = render(<Scenario />)
+
+    const editor = screen.getByTestId('testid--editor')
+    expect(editor).toBeInTheDocument()
+
+    unmount()
+
+    expect(screen.queryByTestId('testid--editor')).not.toBeInTheDocument()
+  })
 })
