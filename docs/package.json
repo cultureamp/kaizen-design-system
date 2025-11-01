@@ -22,7 +22,7 @@
     "@kaizen/components": "workspace:*",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/tailwind": "workspace:*",
-    "@rollup/plugin-alias": "^5.1.1",
+    "@rollup/plugin-alias": "^6.0.0",
     "@storybook/addon-links": "8.6.12",
     "@storybook/blocks": "8.6.12",
     "@storybook/builder-vite": "8.6.12",
