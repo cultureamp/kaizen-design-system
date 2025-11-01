@@ -87,8 +87,8 @@ describe('RTE receives list controls', () => {
   it('renders list buttons when receiving a list controls', () => {
     render(<TestRTE />)
 
-    const bulletButton = screen.getByRole('button', { name: 'Bullet List' })
-    const orderedButton = screen.getByRole('button', { name: 'Numbered List' })
+    const bulletButton = screen.getByRole('button', { name: 'Bullet list' })
+    const orderedButton = screen.getByRole('button', { name: 'Numbered list' })
 
     expect(bulletButton && orderedButton).toBeTruthy()
   })
@@ -117,7 +117,7 @@ describe('RTE receives list controls', () => {
       })
 
       await waitFor(() => {
-        fireEvent.click(screen.getByRole('button', { name: 'Bullet List' }))
+        fireEvent.click(screen.getByRole('button', { name: 'Bullet list' }))
         screen.getByRole('list')
 
         expect(document.querySelectorAll('ul').length).toBeGreaterThan(0)
@@ -132,7 +132,7 @@ describe('RTE receives list controls', () => {
       })
 
       await waitFor(() => {
-        fireEvent.click(screen.getByRole('button', { name: 'Numbered List' }))
+        fireEvent.click(screen.getByRole('button', { name: 'Numbered list' }))
 
         expect(document.querySelectorAll('ol').length).toBeGreaterThan(0)
       })

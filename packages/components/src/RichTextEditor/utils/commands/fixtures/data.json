@@ -81,7 +81,7 @@
           "content": [
             {
               "type": "paragraph",
-              "content": [{ "type": "text", "text": "Bullet List Item Node" }]
+              "content": [{ "type": "text", "text": "Bullet list Item Node" }]
             }
           ]
         }
