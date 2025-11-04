@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.7
+
+### Patch Changes
+
+- [#6206](https://github.com/cultureamp/kaizen-design-system/pull/6206) [`cb75955`](https://github.com/cultureamp/kaizen-design-system/commit/cb75955c3c123dd9785415be3a01bda3cacc25f7) - fix RTE rendering issues when used in strict mode. move cleanup funtion into useCallback
+
+- [#6228](https://github.com/cultureamp/kaizen-design-system/pull/6228) [`bc558b3`](https://github.com/cultureamp/kaizen-design-system/commit/bc558b350e258bea85a5a421a4fe6389ed4b5dc5) - Translation updates
+
 ## 2.0.6
 
 ### Patch Changes

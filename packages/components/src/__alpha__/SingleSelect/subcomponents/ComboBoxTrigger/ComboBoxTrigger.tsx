@@ -19,9 +19,10 @@ const ClearButton = ({ clearButtonRef, inputRef }: ClearButtonProps): JSX.Elemen
 
   const clearButtonAlt = formatMessage(
     {
-      id: 'singleSelect.clearButtonAlt',
-      defaultMessage: 'Clear {field} selection',
-      description: 'Alt text for the clear selection button',
+      id: 'singleSelect.clearButtonAlt_v2',
+      defaultMessage: 'Clear selection: {field}',
+      description:
+        'Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.',
     },
     { field: fieldLabel },
   )
