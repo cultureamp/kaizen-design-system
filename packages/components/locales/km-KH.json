@@ -224,9 +224,9 @@
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "បង្ហាញការផ្ដល់យោបល់នានាសម្រាប់ {field}"
   },
-  "singleSelect.clearButtonAlt" : {
-    "description" : "Alt text for the clear selection button",
-    "message" : "លុបការជ្រើសរើស {field}"
+  "singleSelect.clearButtonAlt_v2" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "ជម្រះការជ្រើសរើស៖ {field}"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
