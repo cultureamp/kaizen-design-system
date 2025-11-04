@@ -43,7 +43,7 @@ const ContainerQueryInfo = ({
 
 export const ContainerQueries: StoryFn = () => (
   <div className="py-32">
-    <Heading tag="p" variant="heading-4" classNameOverride="text-center mb-16">
+    <Heading tag="p" variant="heading-4" classNameOverride="mb-16">
       Container query breakpoints activate based on the <em>container&apos;s</em> width, not the
       viewport. These elements will change color when their parent container reaches the specified
       width.
@@ -65,7 +65,7 @@ export const ContainerQueries: StoryFn = () => (
 
 export const ArbitraryContainerQueries: StoryFn = () => (
   <div className="py-32">
-    <Heading tag="p" variant="heading-4" classNameOverride="text-center mb-16">
+    <Heading tag="p" variant="heading-4" classNameOverride="mb-16">
       Custom container query breakpoints can be created with arbitrary values.
     </Heading>
 
@@ -89,7 +89,7 @@ export const ArbitraryContainerQueries: StoryFn = () => (
 
 export const NamedContainers: StoryFn = () => (
   <div className="py-32">
-    <Heading tag="p" variant="heading-4" classNameOverride="text-center mb-16">
+    <Heading tag="p" variant="heading-4" classNameOverride="mb-16">
       Named containers allow you to query specific containers by name, useful when you have nested
       containers.
     </Heading>
