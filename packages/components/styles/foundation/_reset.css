@@ -6,7 +6,14 @@
   border-color: var(--border-solid-border-color, 'currentColor');
 }
 
-/* Fallback container query parent. Makes the switch from viewport queries to container queries in our components a non-breaking change for consumers that don't have their own. */
+/*
+  Styles to minimise breaking changes when migrating from viewport queries to container queries::after
+
+  - `container-type` provides a global container query parent that is used if consumers don't have their own parent.
+  - `min-height` is applied because styles like `background-color` are applied to the `html` element by default.
+    When applying `container-type` stops being the case.
+*/
 body {
   container-type: inline-size;
+  min-height: 100vh;
 }
