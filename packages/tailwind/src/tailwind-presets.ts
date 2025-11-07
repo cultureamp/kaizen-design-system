@@ -16,6 +16,11 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
       'paragraph-sm': `${tokens.typography.paragraphSmall.maxWidth}`,
       'paragraph-xs': `${tokens.typography.paragraphExtraSmall.maxWidth}`,
     },
+    // Container query breakpoints
+    containers: {
+      md: tokens.layout.breakpoints.medium, // => @container (min-width: 768px) { ... }
+      lg: tokens.layout.breakpoints.large, // => @container (min-width: 1080px) { ... }
+    },
   },
   colors: {
     transparent: 'transparent',
