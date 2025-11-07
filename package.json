@@ -73,7 +73,7 @@
     "globals": "^16.3.0",
     "node-fetch": "^3.3.2",
     "playwright": "^1.54.2",
-    "plop": "^4.0.1",
+    "plop": "^4.0.4",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
     "storybook-addon-pseudo-states": "^4.0.4",
