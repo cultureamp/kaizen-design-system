@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.5.2
+
+### Patch Changes
+
+- [#6280](https://github.com/cultureamp/kaizen-design-system/pull/6280) [`e64c30a`](https://github.com/cultureamp/kaizen-design-system/commit/e64c30a2aaa33c07d07df77c2f11da378b34451c) - Remove manual container query overrides. This keeps the container query breakpoints in line with the default Tailwind tokens.
+
 ## 1.5.1
 
 ### Patch Changes
