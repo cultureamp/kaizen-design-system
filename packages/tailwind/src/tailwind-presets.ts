@@ -107,7 +107,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
   // A mix of layout styles
   screens: {
     md: tokens.layout.breakpoints.medium, // => @media (min-width: 768px) { ... }
-    lg: tokens.layout.breakpoints.large, // => @media (min-width: 1080px) { ... }
+    lg: tokens.layout.breakpoints.large, // => @media (min-width: 1024px) { ... }
   },
 } as const
 

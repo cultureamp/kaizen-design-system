@@ -1,5 +1,26 @@
 # Change Log
 
+## 2.1.0
+
+### Minor Changes
+
+- [#6205](https://github.com/cultureamp/kaizen-design-system/pull/6205) [`2b05742`](https://github.com/cultureamp/kaizen-design-system/commit/2b0574222c980da042beefc5089a3c762081afb1) - Add container query support
+
+  Changes:
+  - Converted TileBlock to use container queries
+  - Added `container-type: inline-size` and `min-height: 100vh` to `body` in the `_reset.css`
+
+  NOTE: If you are manually setting a `background-color` on the `body` element in your app,
+  this may cause Chromatic regressions due to how `background-color` propagates to the `html`
+  element by default. As soon as we add the `container-type` style to `body`, this no longer
+  happens and the `background-color` is only applied to the `body` element. We have tried
+  to mitigate this by setting `min-height: 100vh` to the `body` element to make the
+  `background-color` take up the whole viewport.
+
+### Patch Changes
+
+- [#6225](https://github.com/cultureamp/kaizen-design-system/pull/6225) [`f852d0e`](https://github.com/cultureamp/kaizen-design-system/commit/f852d0e3553a15a98ce5356027a0e6f71f39ef44) - Fix: small translation update
+
 ## 2.0.7
 
 ### Patch Changes
