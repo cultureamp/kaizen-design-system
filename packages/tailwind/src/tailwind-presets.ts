@@ -16,11 +16,6 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
       'paragraph-sm': `${tokens.typography.paragraphSmall.maxWidth}`,
       'paragraph-xs': `${tokens.typography.paragraphExtraSmall.maxWidth}`,
     },
-    // Container query breakpoints
-    containers: {
-      md: tokens.layout.breakpoints.medium, // => @container (min-width: 768px) { ... }
-      lg: tokens.layout.breakpoints.large, // => @container (min-width: 1080px) { ... }
-    },
   },
   colors: {
     transparent: 'transparent',
@@ -112,7 +107,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
   // A mix of layout styles
   screens: {
     md: tokens.layout.breakpoints.medium, // => @media (min-width: 768px) { ... }
-    lg: tokens.layout.breakpoints.large, // => @media (min-width: 1080px) { ... }
+    lg: tokens.layout.breakpoints.large, // => @media (min-width: 1024px) { ... }
   },
 } as const
 
