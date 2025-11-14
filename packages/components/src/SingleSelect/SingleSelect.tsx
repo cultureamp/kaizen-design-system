@@ -81,8 +81,6 @@ export type SingleSelectProps<Option extends SingleSelectOption = SingleSelectOp
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
 /**
- * @deprecated SingleSelect is deprecated in v3 and will be replaced in v4.
- *
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896474/Select Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-select--docs Storybook}
  */
