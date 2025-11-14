@@ -224,9 +224,9 @@
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "Zobrazit návrhy pro pole {field}"
   },
-  "singleSelect.clearButtonAlt" : {
-    "description" : "Alt text for the clear selection button",
-    "message" : "Zrušit výběr pole {field}"
+  "singleSelect.clearButtonAlt_v2" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "Vymazat výběr: {field}"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",

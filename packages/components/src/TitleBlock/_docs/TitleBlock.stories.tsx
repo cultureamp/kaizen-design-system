@@ -31,6 +31,7 @@ const meta = {
   component: TitleBlock,
   parameters: {
     chromatic: { disable: false },
+    layout: 'fullscreen',
   },
   args: {
     title: 'Page title',
@@ -143,6 +144,76 @@ export const HasLongTitle: Story = {
     },
   },
   args: { title: 'A long title with over thirty characters' },
+}
+
+export const AdminVariant: Story = {
+  parameters: {
+    viewport: {
+      viewports: {
+        default: {
+          name: 'Above or equal to 1366',
+          styles: { width: '1366px', height: '800px' },
+          type: 'desktop',
+        },
+        under1366: {
+          name: 'Under 1366',
+          styles: { width: '1365px', height: '800px' },
+          type: 'desktop',
+        },
+      },
+      defaultViewport: 'default',
+    },
+    chromatic: {
+      disable: false,
+      viewports: [1365, 1366],
+    },
+  },
+  args: {
+    variant: 'admin',
+    navigationTabs: [
+      <NavigationTab key="1" variant="admin" text="Label" href="#" active />,
+      <NavigationTab key="2" variant="admin" text="Label" href="#" />,
+      <NavigationTab key="3" variant="admin" text="Label" href="#" />,
+      <NavigationTab key="4" variant="admin" text="Label" href="#" />,
+      <NavigationTab key="5" variant="admin" text="Label" href="#" />,
+      <NavigationTab key="6" variant="admin" text="Label" href="#" />,
+    ],
+  },
+}
+
+export const EducationVariant: Story = {
+  parameters: {
+    viewport: {
+      viewports: {
+        default: {
+          name: 'Above or equal to 1366',
+          styles: { width: '1366px', height: '800px' },
+          type: 'desktop',
+        },
+        under1366: {
+          name: 'Under 1366',
+          styles: { width: '1365px', height: '800px' },
+          type: 'desktop',
+        },
+      },
+      defaultViewport: 'default',
+    },
+    chromatic: {
+      disable: false,
+      viewports: [1365, 1366],
+    },
+  },
+  args: {
+    variant: 'education',
+    navigationTabs: [
+      <NavigationTab key="1" variant="education" text="Label" href="#" active />,
+      <NavigationTab key="2" variant="education" text="Label" href="#" />,
+      <NavigationTab key="3" variant="education" text="Label" href="#" />,
+      <NavigationTab key="4" variant="education" text="Label" href="#" />,
+      <NavigationTab key="5" variant="education" text="Label" href="#" />,
+      <NavigationTab key="6" variant="education" text="Label" href="#" />,
+    ],
+  },
 }
 
 export const StickerSheetBreadcrumbs: Story = {

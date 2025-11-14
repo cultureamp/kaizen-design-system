@@ -224,9 +224,9 @@
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "顯示對 {field} 的建議"
   },
-  "singleSelect.clearButtonAlt" : {
-    "description" : "Alt text for the clear selection button",
-    "message" : "清除 {field} 選擇"
+  "singleSelect.clearButtonAlt_v2" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "清除選擇：{field}"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",

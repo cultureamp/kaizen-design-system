@@ -12,6 +12,7 @@ module.exports = {
     '!node_modules',
   ],
   presets: [Preset],
+  plugins: [require('@tailwindcss/container-queries')],
   important: 'body',
   corePlugins: {
     preflight: false,
