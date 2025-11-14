@@ -224,9 +224,9 @@
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "Ipakita ang mga mungkahi para sa {field}"
   },
-  "singleSelect.clearButtonAlt" : {
-    "description" : "Alt text for the clear selection button",
-    "message" : "I-clear ang {field} selection"
+  "singleSelect.clearButtonAlt_v2" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "I-clear ang napili: {field}"
   },
   "splitButton.dropdownButton.label" : {
     "description" : "Label for a dropdown menu holding additional actions",
