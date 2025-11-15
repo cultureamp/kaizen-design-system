@@ -71,7 +71,7 @@ importers:
         specifier: ^14.6.1
         version: 14.6.1(@testing-library/dom@10.4.1)
       '@types/node':
-        specifier: ^22.18.13
+        specifier: ^22.19.0
         version: 22.19.1
       '@types/react':
         specifier: ^18.3.26
@@ -80,7 +80,7 @@ importers:
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.26)
       '@vitest/eslint-plugin':
-        specifier: ^1.4.1
+        specifier: ^1.4.2
         version: 1.4.2(eslint@9.39.1(jiti@1.21.7))(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@22.19.1)(jiti@1.21.7)(sass@1.79.6)(tsx@4.20.6)(yaml@2.8.1))
       chromatic:
         specifier: ^11.29.0
@@ -333,7 +333,7 @@ importers:
         specifier: ^1.7.1
         version: 1.7.1
       prosemirror-history:
-        specifier: ^1.4.1
+        specifier: ^1.5.0
         version: 1.5.0
       prosemirror-inputrules:
         specifier: ^1.5.1
@@ -354,7 +354,7 @@ importers:
         specifier: ^1.4.4
         version: 1.4.4
       prosemirror-transform:
-        specifier: ^1.10.4
+        specifier: ^1.10.5
         version: 1.10.5
       prosemirror-utils:
         specifier: ^1.2.2
@@ -433,7 +433,7 @@ importers:
         specifier: ^10.0.0
         version: 10.0.0
       autoprefixer:
-        specifier: ^10.4.21
+        specifier: ^10.4.22
         version: 10.4.22(postcss@8.5.6)
       concat-cli:
         specifier: ^4.0.0
@@ -481,7 +481,7 @@ importers:
         specifier: ^7.1.14
         version: 7.1.14(react@19.2.0)(typescript@5.9.3)
       rollup:
-        specifier: ^4.52.5
+        specifier: ^4.53.2
         version: 4.53.2
       sass:
         specifier: 1.79.6
@@ -559,7 +559,7 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0(prop-types@15.8.1)(react@19.2.0)
       rollup:
-        specifier: ^4.52.5
+        specifier: ^4.53.2
         version: 4.53.2
       tslib:
         specifier: ^2.8.1
@@ -590,7 +590,7 @@ importers:
         specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
       rollup:
-        specifier: ^4.52.5
+        specifier: ^4.53.2
         version: 4.53.2
       tailwindcss:
         specifier: ^3.4.17
@@ -1221,11 +1221,11 @@ packages:
   '@dual-bundle/import-meta-resolve@4.2.1':
     resolution: {integrity: sha512-id+7YRUgoUX6CgV0DtuhirQWodeeA7Lf4i2x71JS/vtA5pRb/hIGWlw+G6MeXvsM+MXrz0VAydTGElX1rAfgPg==}
 
-  '@emnapi/core@1.7.0':
-    resolution: {integrity: sha512-pJdKGq/1iquWYtv1RRSljZklxHCOCAJFJrImO5ZLKPJVJlVUcs8yFwNQlqS0Lo8xT1VAXXTCZocF9n26FWEKsw==}
+  '@emnapi/core@1.7.1':
+    resolution: {integrity: sha512-o1uhUASyo921r2XtHYOHy7gdkGLge8ghBEQHMWmyJFoXlpU58kIrhhN3w26lpQb6dspetweapMn2CSNwQ8I4wg==}
 
-  '@emnapi/runtime@1.7.0':
-    resolution: {integrity: sha512-oAYoQnCYaQZKVS53Fq23ceWMRxq5EhQsE0x0RdQ55jT7wagMu5k+fS39v1fiSLrtrLQlXwVINenqhLMtTrV/1Q==}
+  '@emnapi/runtime@1.7.1':
+    resolution: {integrity: sha512-PVtJr5CmLwYAU9PZDMITZoR5iAOShYREoR45EyyLrbntV50mdePTgUn4AmOw90Ifcj+x2kRjdzr1HP3RrNiHGA==}
 
   '@emnapi/wasi-threads@1.1.0':
     resolution: {integrity: sha512-WI0DdZ8xFSbgMjR1sFsKABJ/C5OnRrjT06JXbZKexJGrDuPTzZdDYfFlsgcCXCyf+suG5QU2e/y1Wo2V/OapLQ==}
@@ -1990,11 +1990,11 @@ packages:
   '@jsdevtools/ono@7.1.3':
     resolution: {integrity: sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==}
 
-  '@keyv/bigmap@1.1.0':
-    resolution: {integrity: sha512-MX7XIUNwVRK+hjZcAbNJ0Z8DREo+Weu9vinBOjGU1thEi9F6vPhICzBbk4CCf3eEefKRz7n6TfZXwUFZTSgj8Q==}
+  '@keyv/bigmap@1.2.0':
+    resolution: {integrity: sha512-4Lme8NejkyetZ9oJ6u8NSf0iJEFFt7I+tyDI48wZlaFmbhDEh4nZg7bEPFPwCWkpIuL50/ukWBC9AHQTmdJLUA==}
     engines: {node: '>= 18'}
     peerDependencies:
-      keyv: ^5.5.3
+      keyv: ^5.5.4
 
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
@@ -3370,11 +3370,11 @@ packages:
     peerDependencies:
       tailwindcss: '>=3.2.0'
 
-  '@tanstack/query-core@5.90.8':
-    resolution: {integrity: sha512-4E0RP/0GJCxSNiRF2kAqE/LQkTJVlL/QNU7gIJSptaseV9HP6kOuA+N11y4bZKZxa3QopK3ZuewwutHx6DqDXQ==}
+  '@tanstack/query-core@5.90.9':
+    resolution: {integrity: sha512-UFOCQzi6pRGeVTVlPNwNdnAvT35zugcIydqjvFUzG62dvz2iVjElmNp/hJkUoM5eqbUPfSU/GJIr/wbvD8bTUw==}
 
-  '@tanstack/react-query@5.90.8':
-    resolution: {integrity: sha512-/3b9QGzkf4rE5/miL6tyhldQRlLXzMHcySOm/2Tm2OLEFE9P1ImkH0+OviDBSvyAvtAOJocar5xhd7vxdLi3aQ==}
+  '@tanstack/react-query@5.90.9':
+    resolution: {integrity: sha512-Zke2AaXiaSfnG8jqPZR52m8SsclKT2d9//AgE/QIzyNvbpj/Q2ln+FsZjb1j69bJZUouBvX2tg9PHirkTm8arw==}
     peerDependencies:
       react: ^18 || ^19
 
@@ -4739,8 +4739,8 @@ packages:
     resolution: {integrity: sha512-0LrrStPOdJj+SPCCrGhzryycLjwcgUSHBtxNA8aIDxf0GLsRh1cKYhB00Gd1lDOS4yGH69+SNn13+TWbVHETFQ==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
 
-  csstype@3.1.3:
-    resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+  csstype@3.2.0:
+    resolution: {integrity: sha512-si++xzRAY9iPp60roQiFta7OFbhrgvcthrhlNAGeQptSY25uJjkfUV8OArC3KLocB8JT8ohz+qgxWCmz8RhjIg==}
 
   currently-unhandled@0.4.1:
     resolution: {integrity: sha512-/fITjgjGU50vjQ4FH6eUoYu+iUoUKIXws2hL15JJpIR+BbTxaXQsMuuyjtNh2WqsSBS5nsaZHFsFecyw5CCAng==}
@@ -4998,8 +4998,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  electron-to-chromium@1.5.250:
-    resolution: {integrity: sha512-/5UMj9IiGDMOFBnN4i7/Ry5onJrAGSbOGo3s9FEKmwobGq6xw832ccET0CE3CkkMBZ8GJSlUIesZofpyurqDXw==}
+  electron-to-chromium@1.5.252:
+    resolution: {integrity: sha512-53uTpjtRgS7gjIxZ4qCgFdNO2q+wJt/Z8+xAvxbCqXPJrY6h7ighUkadQmNMXH96crtpa6gPFNP7BF4UBGDuaA==}
 
   elliptic@6.6.1:
     resolution: {integrity: sha512-RaddvvMatK2LJHqFJ+YA4WysVN5Ita9E35botqIYspQ4TkRAlCicdzKOjlyv/1Za5RyTNn7di//eEV0uTAfe3g==}
@@ -5721,6 +5721,10 @@ packages:
   hasha@5.2.2:
     resolution: {integrity: sha512-Hrp5vIK/xr5SkeN2onO32H0MgNZ0f17HRNH39WfL0SYUNOTZ5Lz1TJ8Pajo/87dYGEFlLMm7mIc/k/s6Bvz9HQ==}
     engines: {node: '>=8'}
+
+  hashery@1.2.0:
+    resolution: {integrity: sha512-43XJKpwle72Ik5Zpam7MuzRWyNdwwdf6XHlh8wCj2PggvWf+v/Dm5B0dxGZOmddidgeO6Ofu9As/o231Ti/9PA==}
+    engines: {node: '>=20'}
 
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
@@ -9793,7 +9797,7 @@ snapshots:
   '@cacheable/memory@2.0.4':
     dependencies:
       '@cacheable/utils': 2.2.0
-      '@keyv/bigmap': 1.1.0(keyv@5.5.4)
+      '@keyv/bigmap': 1.2.0(keyv@5.5.4)
       hookified: 1.13.0
       keyv: 5.5.4
 
@@ -10267,7 +10271,7 @@ snapshots:
       '@cultureamp/next-head-hook': 1.1.14(next@16.0.3(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.79.6))
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.7.0(openapi-types@12.1.3)
-      '@tanstack/react-query': 5.90.8(react@19.2.0)
+      '@tanstack/react-query': 5.90.9(react@19.2.0)
       '@types/http-errors': 2.0.5
       aws4: 1.13.2
       chromatic: 10.9.6
@@ -10376,13 +10380,13 @@ snapshots:
 
   '@dual-bundle/import-meta-resolve@4.2.1': {}
 
-  '@emnapi/core@1.7.0':
+  '@emnapi/core@1.7.1':
     dependencies:
       '@emnapi/wasi-threads': 1.1.0
       tslib: 2.8.1
     optional: true
 
-  '@emnapi/runtime@1.7.0':
+  '@emnapi/runtime@1.7.1':
     dependencies:
       tslib: 2.8.1
     optional: true
@@ -10442,7 +10446,7 @@ snapshots:
       '@emotion/memoize': 0.9.0
       '@emotion/unitless': 0.10.0
       '@emotion/utils': 1.4.2
-      csstype: 3.1.3
+      csstype: 3.2.0
 
   '@emotion/sheet@1.4.0': {}
 
@@ -10853,7 +10857,7 @@ snapshots:
 
   '@img/sharp-wasm32@0.34.5':
     dependencies:
-      '@emnapi/runtime': 1.7.0
+      '@emnapi/runtime': 1.7.1
     optional: true
 
   '@img/sharp-win32-arm64@0.34.5':
@@ -11161,8 +11165,9 @@ snapshots:
 
   '@jsdevtools/ono@7.1.3': {}
 
-  '@keyv/bigmap@1.1.0(keyv@5.5.4)':
+  '@keyv/bigmap@1.2.0(keyv@5.5.4)':
     dependencies:
+      hashery: 1.2.0
       hookified: 1.13.0
       keyv: 5.5.4
 
@@ -11203,8 +11208,8 @@ snapshots:
 
   '@napi-rs/wasm-runtime@0.2.12':
     dependencies:
-      '@emnapi/core': 1.7.0
-      '@emnapi/runtime': 1.7.0
+      '@emnapi/core': 1.7.1
+      '@emnapi/runtime': 1.7.1
       '@tybys/wasm-util': 0.10.1
     optional: true
 
@@ -12977,11 +12982,11 @@ snapshots:
     dependencies:
       tailwindcss: 3.4.18(tsx@4.20.6)(yaml@2.8.1)
 
-  '@tanstack/query-core@5.90.8': {}
+  '@tanstack/query-core@5.90.9': {}
 
-  '@tanstack/react-query@5.90.8(react@19.2.0)':
+  '@tanstack/react-query@5.90.9(react@19.2.0)':
     dependencies:
-      '@tanstack/query-core': 5.90.8
+      '@tanstack/query-core': 5.90.9
       react: 19.2.0
 
   '@tanstack/react-virtual@3.13.12(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
@@ -13258,7 +13263,7 @@ snapshots:
   '@types/react@18.3.26':
     dependencies:
       '@types/prop-types': 15.7.15
-      csstype: 3.1.3
+      csstype: 3.2.0
 
   '@types/resolve@1.20.2': {}
 
@@ -14014,7 +14019,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.8.28
       caniuse-lite: 1.0.30001754
-      electron-to-chromium: 1.5.250
+      electron-to-chromium: 1.5.252
       node-releases: 2.0.27
       update-browserslist-db: 1.1.4(browserslist@4.28.0)
 
@@ -14513,7 +14518,7 @@ snapshots:
     dependencies:
       css-tree: 2.2.1
 
-  csstype@3.1.3: {}
+  csstype@3.2.0: {}
 
   currently-unhandled@0.4.1:
     dependencies:
@@ -14675,7 +14680,7 @@ snapshots:
   dom-helpers@5.2.1:
     dependencies:
       '@babel/runtime': 7.28.4
-      csstype: 3.1.3
+      csstype: 3.2.0
 
   dom-serializer@0.2.2:
     dependencies:
@@ -14746,7 +14751,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  electron-to-chromium@1.5.250: {}
+  electron-to-chromium@1.5.252: {}
 
   elliptic@6.6.1:
     dependencies:
@@ -15676,6 +15681,10 @@ snapshots:
     dependencies:
       is-stream: 2.0.1
       type-fest: 0.8.1
+
+  hashery@1.2.0:
+    dependencies:
+      hookified: 1.13.0
 
   hasown@2.0.2:
     dependencies:
