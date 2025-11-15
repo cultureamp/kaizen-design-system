@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.1
+
+### Patch Changes
+
+- [#6226](https://github.com/cultureamp/kaizen-design-system/pull/6226) [`5846cb5`](https://github.com/cultureamp/kaizen-design-system/commit/5846cb58357ef17beaccbc4c0a2d6b7a0ac9f066) - Remove SingleSelect deprecation docs for now until plan is in place.
+
 ## 2.1.0
 
 ### Minor Changes
