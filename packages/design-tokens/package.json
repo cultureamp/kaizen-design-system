@@ -42,7 +42,7 @@
     "color-string": "Version locked at 1.9.1 as 2.x will break implementation of older repos that are using the ThemeProvider (https://cultureamp.slack.com/archives/C0189KBPM4Y/p1742787520546679) - we will remove this in KAIO 2.0 so we can upgrade to 2.x then if still needed"
   },
   "devDependencies": {
-    "@cultureamp/package-bundler": "^2.3.2",
+    "@cultureamp/package-bundler": "^3.0.1",
     "@types/color-string": "^1.5.5",
     "@types/lodash.flatmap": "^4.5.9",
     "@types/lodash.kebabcase": "^4.1.9",
