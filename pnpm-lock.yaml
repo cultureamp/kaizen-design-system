@@ -80,8 +80,8 @@ importers:
         specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.23)
       '@vitest/eslint-plugin':
-        specifier: ^1.4.2
-        version: 1.4.2(eslint@9.18.0(jiti@1.21.7))(typescript@5.9.2)(vitest@3.1.4(@types/debug@4.1.12)(@types/node@22.19.1)(jiti@1.21.7)(jsdom@20.0.3)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.20.6)(yaml@2.5.0))
+        specifier: ^1.4.3
+        version: 1.4.3(eslint@9.18.0(jiti@1.21.7))(typescript@5.9.2)(vitest@3.1.4(@types/debug@4.1.12)(@types/node@22.19.1)(jiti@1.21.7)(jsdom@20.0.3)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.20.6)(yaml@2.5.0))
       chromatic:
         specifier: ^11.29.0
         version: 11.29.0
@@ -4272,8 +4272,8 @@ packages:
     peerDependencies:
       vite: ^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
 
-  '@vitest/eslint-plugin@1.4.2':
-    resolution: {integrity: sha512-7rENIOOk6eqgtf2FsQWilgfQheeuGRiU3lB2H+pmtbcA4jOdtBfQHVqS7f/KCOJ2JKjrIJgow8yUeANi34rj9w==}
+  '@vitest/eslint-plugin@1.4.3':
+    resolution: {integrity: sha512-ba+YDKyZdViNAOg8P86a9tIEawPA/O+nLbwhg8g7nkqsLOAVum6GoZhkNxgwX621oqWAbB8N2xb+G5kkpXehcA==}
     engines: {node: '>=18'}
     peerDependencies:
       eslint: '>=8.57.0'
@@ -15130,7 +15130,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/eslint-plugin@1.4.2(eslint@9.18.0(jiti@1.21.7))(typescript@5.9.2)(vitest@3.1.4(@types/debug@4.1.12)(@types/node@22.19.1)(jiti@1.21.7)(jsdom@20.0.3)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.20.6)(yaml@2.5.0))':
+  '@vitest/eslint-plugin@1.4.3(eslint@9.18.0(jiti@1.21.7))(typescript@5.9.2)(vitest@3.1.4(@types/debug@4.1.12)(@types/node@22.19.1)(jiti@1.21.7)(jsdom@20.0.3)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.20.6)(yaml@2.5.0))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.46.3
       '@typescript-eslint/utils': 8.46.3(eslint@9.18.0(jiti@1.21.7))(typescript@5.9.2)
