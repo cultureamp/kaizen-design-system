@@ -83,8 +83,8 @@ importers:
         specifier: ^1.4.3
         version: 1.4.3(eslint@9.18.0(jiti@1.21.7))(typescript@5.9.3)(vitest@3.1.4(@types/debug@4.1.12)(@types/node@22.19.1)(jiti@1.21.7)(jsdom@20.0.3)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.20.6)(yaml@2.5.0))
       chromatic:
-        specifier: ^11.29.0
-        version: 11.29.0
+        specifier: ^13.3.4
+        version: 13.3.4
       eslint:
         specifier: ^9.18.0
         version: 9.18.0(jiti@1.21.7)
@@ -4923,20 +4923,8 @@ packages:
       '@chromatic-com/playwright':
         optional: true
 
-  chromatic@11.29.0:
-    resolution: {integrity: sha512-yisBlntp9hHVj19lIQdpTlcYIXuU9H/DbFuu6tyWHmj6hWT2EtukCCcxYXL78XdQt1vm2GfIrtgtKpj/Rzmo4A==}
-    hasBin: true
-    peerDependencies:
-      '@chromatic-com/cypress': ^0.*.* || ^1.0.0
-      '@chromatic-com/playwright': ^0.*.* || ^1.0.0
-    peerDependenciesMeta:
-      '@chromatic-com/cypress':
-        optional: true
-      '@chromatic-com/playwright':
-        optional: true
-
-  chromatic@13.3.3:
-    resolution: {integrity: sha512-89w0hiFzIRqLbwGSkqSQzhbpuqaWpXYZuevSIF+570Wb+T/apeAkp3px8nMJcFw+zEdqw/i6soofkJtfirET1Q==}
+  chromatic@13.3.4:
+    resolution: {integrity: sha512-TR5rvyH0ESXobBB3bV8jc87AEAFQC7/n+Eb4XWhJz6hW3YNxIQPVjcbgLv+a4oKHEl1dUBueWSoIQsOVGTd+RQ==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -11466,7 +11454,7 @@ snapshots:
 
   '@cultureamp/frontend-env@2.1.6':
     dependencies:
-      chromatic: 13.3.3
+      chromatic: 13.3.4
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -16021,9 +16009,7 @@ snapshots:
 
   chromatic@10.9.6: {}
 
-  chromatic@11.29.0: {}
-
-  chromatic@13.3.3: {}
+  chromatic@13.3.4: {}
 
   chromatic@9.1.0: {}
 
