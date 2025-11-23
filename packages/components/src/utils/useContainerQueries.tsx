@@ -1,25 +1,28 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { useDebouncedCallback } from 'use-debounce'
 
 type Props = Record<string, string>
 type GenericChildrenType = { children?: ReactNode }
 
+const DEFAULT_DEBOUNCE_MS = 500
+
 /**
- * Tailwind CSS default container query breakpoints
+ * Tailwind CSS default container query breakpoints in pixels
  * These match the default values from @tailwindcss/container-queries plugin
  */
 const DEFAULT_BREAKPOINTS = {
-  'xs': '20rem', // 320px
-  'sm': '24rem', // 384px
-  'md': '28rem', // 448px
-  'lg': '32rem', // 512px
-  'xl': '36rem', // 576px
-  '2xl': '42rem', // 672px
-  '3xl': '48rem', // 768px
-  '4xl': '56rem', // 896px
-  '5xl': '64rem', // 1024px
-  '6xl': '72rem', // 1152px
-  '7xl': '80rem', // 1280px
+  'xs': 320,
+  'sm': 384,
+  'md': 448,
+  'lg': 512,
+  'xl': 576,
+  '2xl': 672,
+  '3xl': 768,
+  '4xl': 896,
+  '5xl': 1024,
+  '6xl': 1152,
+  '7xl': 1280,
 } as const
 
 /**
@@ -167,19 +170,6 @@ export const useContainerQueries = (
     }
   }
 
-  // Parse all breakpoints to pixel values for comparison
-  const breakpointsPx = useMemo(
-    () =>
-      Object.entries(DEFAULT_BREAKPOINTS).reduce(
-        (acc, [key, value]) => {
-          acc[key] = parseBreakpointValue(value)
-          return acc
-        },
-        {} as Record<string, number>,
-      ),
-    [],
-  )
-
   // Parse custom queries
   const customQueriesPx = useMemo(
     () =>
@@ -199,31 +189,39 @@ export const useContainerQueries = (
   // ResizeObserver ref
   const resizeObserverRef = useRef<ResizeObserver | null>(null)
 
+  // Debounced width update
+  const debouncedSetContainerWidth = useDebouncedCallback((width: number) => {
+    setContainerWidth(width)
+  }, DEFAULT_DEBOUNCE_MS)
+
   // Callback ref for the container element
-  const containerRef = useCallback((node: HTMLElement | null) => {
-    // Cleanup previous observer
-    if (resizeObserverRef.current) {
-      resizeObserverRef.current.disconnect()
-      resizeObserverRef.current = null
-    }
+  const containerRef = useCallback(
+    (node: HTMLElement | null) => {
+      // Cleanup previous observer
+      if (resizeObserverRef.current) {
+        resizeObserverRef.current.disconnect()
+        resizeObserverRef.current = null
+      }
 
-    if (node) {
-      // Create new ResizeObserver
-      resizeObserverRef.current = new ResizeObserver((entries) => {
-        for (const entry of entries) {
-          // Use borderBoxSize for more accurate measurements
-          const width = entry.borderBoxSize?.[0]?.inlineSize ?? entry.contentRect.width
-          setContainerWidth(width)
-        }
-      })
+      if (node) {
+        // Create new ResizeObserver
+        resizeObserverRef.current = new ResizeObserver((entries) => {
+          for (const entry of entries) {
+            // Use borderBoxSize for more accurate measurements
+            const width = entry.borderBoxSize?.[0]?.inlineSize ?? entry.contentRect.width
+            debouncedSetContainerWidth(width)
+          }
+        })
 
-      resizeObserverRef.current.observe(node)
+        resizeObserverRef.current.observe(node)
 
-      // Set initial width
-      const width = node.getBoundingClientRect().width
-      setContainerWidth(width)
-    }
-  }, [])
+        // Set initial width immediately (no debounce for initial render)
+        const width = node.getBoundingClientRect().width
+        setContainerWidth(width)
+      }
+    },
+    [debouncedSetContainerWidth],
+  )
 
   // Cleanup on unmount
   useEffect(
@@ -238,19 +236,19 @@ export const useContainerQueries = (
   // Calculate breakpoint matches based on container width
   const breakpointMatches = useMemo(
     () => ({
-      isXs: containerWidth >= breakpointsPx.xs,
-      isSm: containerWidth >= breakpointsPx.sm,
-      isMd: containerWidth >= breakpointsPx.md,
-      isLg: containerWidth >= breakpointsPx.lg,
-      isXl: containerWidth >= breakpointsPx.xl,
-      is2xl: containerWidth >= breakpointsPx['2xl'],
-      is3xl: containerWidth >= breakpointsPx['3xl'],
-      is4xl: containerWidth >= breakpointsPx['4xl'],
-      is5xl: containerWidth >= breakpointsPx['5xl'],
-      is6xl: containerWidth >= breakpointsPx['6xl'],
-      is7xl: containerWidth >= breakpointsPx['7xl'],
+      isXs: containerWidth >= DEFAULT_BREAKPOINTS.xs,
+      isSm: containerWidth >= DEFAULT_BREAKPOINTS.sm,
+      isMd: containerWidth >= DEFAULT_BREAKPOINTS.md,
+      isLg: containerWidth >= DEFAULT_BREAKPOINTS.lg,
+      isXl: containerWidth >= DEFAULT_BREAKPOINTS.xl,
+      is2xl: containerWidth >= DEFAULT_BREAKPOINTS['2xl'],
+      is3xl: containerWidth >= DEFAULT_BREAKPOINTS['3xl'],
+      is4xl: containerWidth >= DEFAULT_BREAKPOINTS['4xl'],
+      is5xl: containerWidth >= DEFAULT_BREAKPOINTS['5xl'],
+      is6xl: containerWidth >= DEFAULT_BREAKPOINTS['6xl'],
+      is7xl: containerWidth >= DEFAULT_BREAKPOINTS['7xl'],
     }),
-    [containerWidth, breakpointsPx],
+    [containerWidth],
   )
 
   // Calculate custom query matches
@@ -268,17 +266,17 @@ export const useContainerQueries = (
 
   // Helper function to check if container is at exact breakpoint (not larger)
   const isExactBreakpoint = useCallback(
-    (breakpoint: keyof typeof breakpointsPx): boolean => {
-      const sortedBreakpoints = Object.entries(breakpointsPx).sort(([, a], [, b]) => a - b)
+    (breakpoint: keyof typeof DEFAULT_BREAKPOINTS): boolean => {
+      const sortedBreakpoints = Object.entries(DEFAULT_BREAKPOINTS).sort(([, a], [, b]) => a - b)
       const currentIndex = sortedBreakpoints.findIndex(([key]) => key === breakpoint)
       const nextBreakpoint = sortedBreakpoints[currentIndex + 1]
 
-      const minWidth = breakpointsPx[breakpoint]
+      const minWidth = DEFAULT_BREAKPOINTS[breakpoint]
       const maxWidth = nextBreakpoint ? nextBreakpoint[1] : Infinity
 
       return containerWidth >= minWidth && containerWidth < maxWidth
     },
-    [containerWidth, breakpointsPx],
+    [containerWidth],
   )
 
   // Create helper components for Tailwind breakpoints

@@ -135,6 +135,8 @@ describe('useContainerQueries()', () => {
     // Trigger resize to 400px (sm breakpoint is 384px)
     await act(async () => {
       resizeObserverInstance?.trigger(400)
+      // Wait for debounce (500ms + buffer)
+      await new Promise((resolve) => setTimeout(resolve, 550))
     })
 
     expect(screen.queryByRole('button', { name: /Small query boolean/i })).toBeInTheDocument()
@@ -145,6 +147,8 @@ describe('useContainerQueries()', () => {
     // Trigger resize to 500px (md breakpoint is 448px)
     await act(async () => {
       resizeObserverInstance?.trigger(500)
+      // Wait for debounce (500ms + buffer)
+      await new Promise((resolve) => setTimeout(resolve, 550))
     })
 
     expect(screen.queryByRole('button', { name: /Small query boolean/i })).toBeInTheDocument()
@@ -179,6 +183,8 @@ describe('useContainerQueries()', () => {
     // Trigger resize to 450px (compact is 400px)
     await act(async () => {
       resizeObserverInstance?.trigger(450)
+      // Wait for debounce (500ms + buffer)
+      await new Promise((resolve) => setTimeout(resolve, 550))
     })
 
     expect(screen.queryByRole('button', { name: /Compact query boolean/i })).toBeInTheDocument()
