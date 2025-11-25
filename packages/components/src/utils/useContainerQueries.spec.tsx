@@ -12,7 +12,7 @@ const ExampleComponent = (): JSX.Element => {
 
   return (
     <div ref={containerRef} data-testid="container">
-      {queries.isSm && <button type="button">Small query boolean</button>}
+      {queries.isSmOrLarger && <button type="button">Small query boolean</button>}
       <MdOrLarger>
         <button type="button">Medium or larger component</button>
       </MdOrLarger>

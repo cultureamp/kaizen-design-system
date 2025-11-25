@@ -43,17 +43,17 @@ type HelperComponentProps = {
 }
 
 type ContainerQueries = {
-  isXs: boolean
-  isSm: boolean
-  isMd: boolean
-  isLg: boolean
-  isXl: boolean
-  is2xl: boolean
-  is3xl: boolean
-  is4xl: boolean
-  is5xl: boolean
-  is6xl: boolean
-  is7xl: boolean
+  isXsOrLarger: boolean
+  isSmOrLarger: boolean
+  isMdOrLarger: boolean
+  isLgOrLarger: boolean
+  isXlOrLarger: boolean
+  is2xlOrLarger: boolean
+  is3xlOrLarger: boolean
+  is4xlOrLarger: boolean
+  is5xlOrLarger: boolean
+  is6xlOrLarger: boolean
+  is7xlOrLarger: boolean
   [key: string]: boolean
 }
 
@@ -88,7 +88,7 @@ type ContainerComponents = {
  *
  * @returns An object containing:
  *   - containerRef: A ref to attach to your container element
- *   - queries: Boolean flags for each breakpoint (isXs, isSm, isMd, etc.) and custom queries
+ *   - queries: Boolean flags for each breakpoint (isXsOrLarger, isSmOrLarger, isMdOrLarger, etc.) and custom queries
  *   - components: React components for conditional rendering (XsOnly, SmOrLarger, etc.)
  *
  * @example
@@ -99,7 +99,7 @@ type ContainerComponents = {
  *
  *   return (
  *     <div ref={containerRef}>
- *       {queries.isSm && <p>Small container</p>}
+ *       {queries.isSmOrLarger && <p>Small container</p>}
  *       <MdOrLarger>
  *         <p>Medium or larger container</p>
  *       </MdOrLarger>
@@ -137,17 +137,17 @@ export const useContainerQueries = (
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       containerRef: () => {},
       queries: {
-        isXs: false,
-        isSm: false,
-        isMd: false,
-        isLg: false,
-        isXl: false,
-        is2xl: false,
-        is3xl: false,
-        is4xl: false,
-        is5xl: false,
-        is6xl: false,
-        is7xl: true, // Default to largest for SSR
+        isXsOrLarger: false,
+        isSmOrLarger: false,
+        isMdOrLarger: false,
+        isLgOrLarger: false,
+        isXlOrLarger: false,
+        is2xlOrLarger: false,
+        is3xlOrLarger: false,
+        is4xlOrLarger: false,
+        is5xlOrLarger: false,
+        is6xlOrLarger: false,
+        is7xlOrLarger: true, // Default to largest for SSR
       },
       components: {
         'XsOnly': () => <></>,
@@ -236,17 +236,17 @@ export const useContainerQueries = (
   // Calculate breakpoint matches based on container width
   const breakpointMatches = useMemo(
     () => ({
-      isXs: containerWidth >= DEFAULT_BREAKPOINTS.xs,
-      isSm: containerWidth >= DEFAULT_BREAKPOINTS.sm,
-      isMd: containerWidth >= DEFAULT_BREAKPOINTS.md,
-      isLg: containerWidth >= DEFAULT_BREAKPOINTS.lg,
-      isXl: containerWidth >= DEFAULT_BREAKPOINTS.xl,
-      is2xl: containerWidth >= DEFAULT_BREAKPOINTS['2xl'],
-      is3xl: containerWidth >= DEFAULT_BREAKPOINTS['3xl'],
-      is4xl: containerWidth >= DEFAULT_BREAKPOINTS['4xl'],
-      is5xl: containerWidth >= DEFAULT_BREAKPOINTS['5xl'],
-      is6xl: containerWidth >= DEFAULT_BREAKPOINTS['6xl'],
-      is7xl: containerWidth >= DEFAULT_BREAKPOINTS['7xl'],
+      isXsOrLarger: containerWidth >= DEFAULT_BREAKPOINTS.xs,
+      isSmOrLarger: containerWidth >= DEFAULT_BREAKPOINTS.sm,
+      isMdOrLarger: containerWidth >= DEFAULT_BREAKPOINTS.md,
+      isLgOrLarger: containerWidth >= DEFAULT_BREAKPOINTS.lg,
+      isXlOrLarger: containerWidth >= DEFAULT_BREAKPOINTS.xl,
+      is2xlOrLarger: containerWidth >= DEFAULT_BREAKPOINTS['2xl'],
+      is3xlOrLarger: containerWidth >= DEFAULT_BREAKPOINTS['3xl'],
+      is4xlOrLarger: containerWidth >= DEFAULT_BREAKPOINTS['4xl'],
+      is5xlOrLarger: containerWidth >= DEFAULT_BREAKPOINTS['5xl'],
+      is6xlOrLarger: containerWidth >= DEFAULT_BREAKPOINTS['6xl'],
+      is7xlOrLarger: containerWidth >= DEFAULT_BREAKPOINTS['7xl'],
     }),
     [containerWidth],
   )
@@ -294,19 +294,19 @@ export const useContainerQueries = (
       '6xlOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('6xl') && props.children}</>,
       '7xlOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('7xl') && props.children}</>,
       'XsOrLarger': (props: HelperComponentProps) => (
-        <>{breakpointMatches.isXs && props.children}</>
+        <>{breakpointMatches.isXsOrLarger && props.children}</>
       ),
       'SmOrLarger': (props: HelperComponentProps) => (
-        <>{breakpointMatches.isSm && props.children}</>
+        <>{breakpointMatches.isSmOrLarger && props.children}</>
       ),
       'MdOrLarger': (props: HelperComponentProps) => (
-        <>{breakpointMatches.isMd && props.children}</>
+        <>{breakpointMatches.isMdOrLarger && props.children}</>
       ),
       'LgOrLarger': (props: HelperComponentProps) => (
-        <>{breakpointMatches.isLg && props.children}</>
+        <>{breakpointMatches.isLgOrLarger && props.children}</>
       ),
       'XlOrLarger': (props: HelperComponentProps) => (
-        <>{breakpointMatches.isXl && props.children}</>
+        <>{breakpointMatches.isXlOrLarger && props.children}</>
       ),
       // Custom query components
       ...Object.keys(customQueriesPx).reduce(
