@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import type React from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 
 type Props = Record<string, string>
-type GenericChildrenType = { children?: ReactNode }
 
 const DEFAULT_DEBOUNCE_MS = 500
 
@@ -38,10 +38,6 @@ const parseBreakpointValue = (value: string): number => {
   return parseFloat(value)
 }
 
-type HelperComponentProps = {
-  children?: ReactNode
-}
-
 type ContainerQueries = {
   isXsOrLarger: boolean
   isSmOrLarger: boolean
@@ -57,26 +53,6 @@ type ContainerQueries = {
   [key: string]: boolean
 }
 
-type ContainerComponents = {
-  'XsOnly': (props: GenericChildrenType) => JSX.Element
-  'SmOnly': (props: GenericChildrenType) => JSX.Element
-  'MdOnly': (props: GenericChildrenType) => JSX.Element
-  'LgOnly': (props: GenericChildrenType) => JSX.Element
-  'XlOnly': (props: GenericChildrenType) => JSX.Element
-  '2xlOnly': (props: GenericChildrenType) => JSX.Element
-  '3xlOnly': (props: GenericChildrenType) => JSX.Element
-  '4xlOnly': (props: GenericChildrenType) => JSX.Element
-  '5xlOnly': (props: GenericChildrenType) => JSX.Element
-  '6xlOnly': (props: GenericChildrenType) => JSX.Element
-  '7xlOnly': (props: GenericChildrenType) => JSX.Element
-  'XsOrLarger': (props: GenericChildrenType) => JSX.Element
-  'SmOrLarger': (props: GenericChildrenType) => JSX.Element
-  'MdOrLarger': (props: GenericChildrenType) => JSX.Element
-  'LgOrLarger': (props: GenericChildrenType) => JSX.Element
-  'XlOrLarger': (props: GenericChildrenType) => JSX.Element
-  [key: string]: (props: GenericChildrenType) => JSX.Element
-}
-
 /**
  * A React hook for responding to container size changes using Tailwind CSS container query breakpoints.
  *
@@ -89,20 +65,16 @@ type ContainerComponents = {
  * @returns An object containing:
  *   - containerRef: A ref to attach to your container element
  *   - queries: Boolean flags for each breakpoint (isXsOrLarger, isSmOrLarger, isMdOrLarger, etc.) and custom queries
- *   - components: React components for conditional rendering (XsOnly, SmOrLarger, etc.)
  *
  * @example
  * ```tsx
  * const MyComponent = () => {
- *   const { containerRef, queries, components } = useContainerQueries()
- *   const { MdOrLarger } = components
+ *   const { containerRef, queries } = useContainerQueries()
  *
  *   return (
  *     <div ref={containerRef}>
  *       {queries.isSmOrLarger && <p>Small container</p>}
- *       <MdOrLarger>
- *         <p>Medium or larger container</p>
- *       </MdOrLarger>
+ *       {queries.isMdOrLarger && <p>Medium or larger container</p>}
  *     </div>
  *   )
  * }
@@ -110,16 +82,15 @@ type ContainerComponents = {
  *
  * @example With custom queries
  * ```tsx
- * const { containerRef, queries, components } = useContainerQueries({
+ * const { containerRef, queries } = useContainerQueries({
  *   compact: '400px',
  *   spacious: '800px',
  * })
- * const { Compact, Spacious } = components
  *
  * return (
  *   <div ref={containerRef}>
- *     <Compact><p>Compact view</p></Compact>
- *     <Spacious><p>Spacious view</p></Spacious>
+ *     {queries.compact && <p>Compact view</p>}
+ *     {queries.spacious && <p>Spacious view</p>}
  *   </div>
  * )
  * ```
@@ -129,7 +100,6 @@ export const useContainerQueries = (
 ): {
   containerRef: React.RefCallback<HTMLElement>
   queries: ContainerQueries
-  components: ContainerComponents
 } => {
   // SSR support - return safe defaults when window is undefined
   if (typeof window === 'undefined') {
@@ -148,24 +118,6 @@ export const useContainerQueries = (
         is5xlOrLarger: false,
         is6xlOrLarger: false,
         is7xlOrLarger: true, // Default to largest for SSR
-      },
-      components: {
-        'XsOnly': () => <></>,
-        'SmOnly': () => <></>,
-        'MdOnly': () => <></>,
-        'LgOnly': () => <></>,
-        'XlOnly': () => <></>,
-        '2xlOnly': () => <></>,
-        '3xlOnly': () => <></>,
-        '4xlOnly': () => <></>,
-        '5xlOnly': () => <></>,
-        '6xlOnly': () => <></>,
-        '7xlOnly': (props: HelperComponentProps) => <>{props.children}</>,
-        'XsOrLarger': (props: HelperComponentProps) => <>{props.children}</>,
-        'SmOrLarger': (props: HelperComponentProps) => <>{props.children}</>,
-        'MdOrLarger': (props: HelperComponentProps) => <>{props.children}</>,
-        'LgOrLarger': (props: HelperComponentProps) => <>{props.children}</>,
-        'XlOrLarger': (props: HelperComponentProps) => <>{props.children}</>,
       },
     }
   }
@@ -264,68 +216,8 @@ export const useContainerQueries = (
     [containerWidth, customQueriesPx],
   )
 
-  // Helper function to check if container is at exact breakpoint (not larger)
-  const isExactBreakpoint = useCallback(
-    (breakpoint: keyof typeof DEFAULT_BREAKPOINTS): boolean => {
-      const sortedBreakpoints = Object.entries(DEFAULT_BREAKPOINTS).sort(([, a], [, b]) => a - b)
-      const currentIndex = sortedBreakpoints.findIndex(([key]) => key === breakpoint)
-      const nextBreakpoint = sortedBreakpoints[currentIndex + 1]
-
-      const minWidth = DEFAULT_BREAKPOINTS[breakpoint]
-      const maxWidth = nextBreakpoint ? nextBreakpoint[1] : Infinity
-
-      return containerWidth >= minWidth && containerWidth < maxWidth
-    },
-    [containerWidth],
-  )
-
-  // Create helper components for Tailwind breakpoints
-  const components = useMemo(
-    () => ({
-      'XsOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('xs') && props.children}</>,
-      'SmOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('sm') && props.children}</>,
-      'MdOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('md') && props.children}</>,
-      'LgOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('lg') && props.children}</>,
-      'XlOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('xl') && props.children}</>,
-      '2xlOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('2xl') && props.children}</>,
-      '3xlOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('3xl') && props.children}</>,
-      '4xlOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('4xl') && props.children}</>,
-      '5xlOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('5xl') && props.children}</>,
-      '6xlOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('6xl') && props.children}</>,
-      '7xlOnly': (props: HelperComponentProps) => <>{isExactBreakpoint('7xl') && props.children}</>,
-      'XsOrLarger': (props: HelperComponentProps) => (
-        <>{breakpointMatches.isXsOrLarger && props.children}</>
-      ),
-      'SmOrLarger': (props: HelperComponentProps) => (
-        <>{breakpointMatches.isSmOrLarger && props.children}</>
-      ),
-      'MdOrLarger': (props: HelperComponentProps) => (
-        <>{breakpointMatches.isMdOrLarger && props.children}</>
-      ),
-      'LgOrLarger': (props: HelperComponentProps) => (
-        <>{breakpointMatches.isLgOrLarger && props.children}</>
-      ),
-      'XlOrLarger': (props: HelperComponentProps) => (
-        <>{breakpointMatches.isXlOrLarger && props.children}</>
-      ),
-      // Custom query components
-      ...Object.keys(customQueriesPx).reduce(
-        (acc, key) => {
-          const componentName = key.charAt(0).toUpperCase() + key.slice(1)
-          acc[componentName] = (props: HelperComponentProps): JSX.Element => (
-            <>{customMatches[key] && props.children}</>
-          )
-          return acc
-        },
-        {} as Record<string, (props: GenericChildrenType) => JSX.Element>,
-      ),
-    }),
-    [breakpointMatches, customMatches, isExactBreakpoint, customQueriesPx],
-  )
-
   return {
     containerRef,
     queries: { ...breakpointMatches, ...customMatches },
-    components,
   }
 }

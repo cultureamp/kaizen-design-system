@@ -4,22 +4,16 @@ import { vi } from 'vitest'
 import { useContainerQueries } from './useContainerQueries'
 
 const ExampleComponent = (): JSX.Element => {
-  const { containerRef, queries, components } = useContainerQueries({
+  const { containerRef, queries } = useContainerQueries({
     compact: '400px',
     wide: '800px',
   })
-  const { MdOrLarger, Compact } = components
 
   return (
     <div ref={containerRef} data-testid="container">
       {queries.isSmOrLarger && <button type="button">Small query boolean</button>}
-      <MdOrLarger>
-        <button type="button">Medium or larger component</button>
-      </MdOrLarger>
+      {queries.isMdOrLarger && <button type="button">Medium or larger query</button>}
       {queries.compact && <button type="button">Compact query boolean</button>}
-      <Compact>
-        <button type="button">Compact component</button>
-      </Compact>
     </div>
   )
 }
@@ -129,7 +123,7 @@ describe('useContainerQueries()', () => {
     // Initially at 300px, should not show sm (384px) or md (448px) content
     expect(screen.queryByRole('button', { name: /Small query boolean/i })).not.toBeInTheDocument()
     expect(
-      screen.queryByRole('button', { name: /Medium or larger component/i }),
+      screen.queryByRole('button', { name: /Medium or larger query/i }),
     ).not.toBeInTheDocument()
 
     // Trigger resize to 400px (sm breakpoint is 384px)
@@ -141,7 +135,7 @@ describe('useContainerQueries()', () => {
 
     expect(screen.queryByRole('button', { name: /Small query boolean/i })).toBeInTheDocument()
     expect(
-      screen.queryByRole('button', { name: /Medium or larger component/i }),
+      screen.queryByRole('button', { name: /Medium or larger query/i }),
     ).not.toBeInTheDocument()
 
     // Trigger resize to 500px (md breakpoint is 448px)
@@ -152,9 +146,7 @@ describe('useContainerQueries()', () => {
     })
 
     expect(screen.queryByRole('button', { name: /Small query boolean/i })).toBeInTheDocument()
-    expect(
-      screen.queryByRole('button', { name: /Medium or larger component/i }),
-    ).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /Medium or larger query/i })).toBeInTheDocument()
   })
 
   it('shows and hides content based on custom queries', async () => {
@@ -178,7 +170,6 @@ describe('useContainerQueries()', () => {
 
     // Initially at 300px, custom 'compact' query (400px) should not match
     expect(screen.queryByRole('button', { name: /Compact query boolean/i })).not.toBeInTheDocument()
-    expect(screen.queryByRole('button', { name: /Compact component/i })).not.toBeInTheDocument()
 
     // Trigger resize to 450px (compact is 400px)
     await act(async () => {
@@ -188,7 +179,6 @@ describe('useContainerQueries()', () => {
     })
 
     expect(screen.queryByRole('button', { name: /Compact query boolean/i })).toBeInTheDocument()
-    expect(screen.queryByRole('button', { name: /Compact component/i })).toBeInTheDocument()
   })
 
   it('returns SSR-safe defaults when window is undefined', () => {
