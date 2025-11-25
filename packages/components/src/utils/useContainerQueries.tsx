@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import type React from 'react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
@@ -101,26 +100,7 @@ export const useContainerQueries = (
   containerRef: React.RefCallback<HTMLElement>
   queries: ContainerQueries
 } => {
-  // SSR support - return safe defaults when window is undefined
-  if (typeof window === 'undefined') {
-    return {
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      containerRef: () => {},
-      queries: {
-        isXsOrLarger: false,
-        isSmOrLarger: false,
-        isMdOrLarger: false,
-        isLgOrLarger: false,
-        isXlOrLarger: false,
-        is2xlOrLarger: false,
-        is3xlOrLarger: false,
-        is4xlOrLarger: false,
-        is5xlOrLarger: false,
-        is6xlOrLarger: false,
-        is7xlOrLarger: true, // Default to largest for SSR
-      },
-    }
-  }
+  const isClient = typeof window !== 'undefined'
 
   // Parse custom queries
   const customQueriesPx = useMemo(
@@ -149,6 +129,9 @@ export const useContainerQueries = (
   // Callback ref for the container element
   const containerRef = useCallback(
     (node: HTMLElement | null) => {
+      // Skip if SSR
+      if (!isClient) return
+
       // Cleanup previous observer
       if (resizeObserverRef.current) {
         resizeObserverRef.current.disconnect()
@@ -172,7 +155,7 @@ export const useContainerQueries = (
         setContainerWidth(width)
       }
     },
-    [debouncedSetContainerWidth],
+    [debouncedSetContainerWidth, isClient],
   )
 
   // Cleanup on unmount
