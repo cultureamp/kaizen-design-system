@@ -52,48 +52,6 @@ type ContainerQueries = {
   [key: string]: boolean
 }
 
-/**
- * A React hook for responding to container size changes using Tailwind CSS container query breakpoints.
- *
- * This hook uses ResizeObserver to detect when a container element crosses breakpoint thresholds,
- * enabling component-level responsive behavior independent of viewport size.
- *
- * @param propQueries - Optional custom container size queries in the format { queryName: 'minWidth' }
- *                      Example: { large: '600px', extraLarge: '48rem' }
- *
- * @returns An object containing:
- *   - containerRef: A ref to attach to your container element
- *   - queries: Boolean flags for each breakpoint (isXsOrLarger, isSmOrLarger, isMdOrLarger, etc.) and custom queries
- *
- * @example
- * ```tsx
- * const MyComponent = () => {
- *   const { containerRef, queries } = useContainerQueries()
- *
- *   return (
- *     <div ref={containerRef}>
- *       {queries.isSmOrLarger && <p>Small container</p>}
- *       {queries.isMdOrLarger && <p>Medium or larger container</p>}
- *     </div>
- *   )
- * }
- * ```
- *
- * @example With custom queries
- * ```tsx
- * const { containerRef, queries } = useContainerQueries({
- *   compact: '400px',
- *   spacious: '800px',
- * })
- *
- * return (
- *   <div ref={containerRef}>
- *     {queries.compact && <p>Compact view</p>}
- *     {queries.spacious && <p>Spacious view</p>}
- *   </div>
- * )
- * ```
- */
 export const useContainerQueries = (
   propQueries: Props = {},
 ): {
@@ -102,31 +60,14 @@ export const useContainerQueries = (
 } => {
   const isClient = typeof window !== 'undefined'
 
-  // Parse custom queries
-  const customQueriesPx = useMemo(
-    () =>
-      Object.entries(propQueries).reduce(
-        (acc, [key, value]) => {
-          acc[key] = parseBreakpointValue(value)
-          return acc
-        },
-        {} as Record<string, number>,
-      ),
-    [propQueries],
-  )
-
-  // State to track container width
   const [containerWidth, setContainerWidth] = useState<number>(0)
 
-  // ResizeObserver ref
   const resizeObserverRef = useRef<ResizeObserver | null>(null)
 
-  // Debounced width update
   const debouncedSetContainerWidth = useDebouncedCallback((width: number) => {
     setContainerWidth(width)
   }, DEFAULT_DEBOUNCE_MS)
 
-  // Callback ref for the container element
   const containerRef = useCallback(
     (node: HTMLElement | null) => {
       // Skip if SSR
@@ -158,7 +99,6 @@ export const useContainerQueries = (
     [debouncedSetContainerWidth, isClient],
   )
 
-  // Cleanup on unmount
   useEffect(
     () => () => {
       if (resizeObserverRef.current) {
@@ -168,7 +108,6 @@ export const useContainerQueries = (
     [],
   )
 
-  // Calculate breakpoint matches based on container width
   const breakpointMatches = useMemo(
     () => ({
       isXsOrLarger: containerWidth >= DEFAULT_BREAKPOINTS.xs,
@@ -186,7 +125,18 @@ export const useContainerQueries = (
     [containerWidth],
   )
 
-  // Calculate custom query matches
+  const customQueriesPx = useMemo(
+    () =>
+      Object.entries(propQueries).reduce(
+        (acc, [key, value]) => {
+          acc[key] = parseBreakpointValue(value)
+          return acc
+        },
+        {} as Record<string, number>,
+      ),
+    [propQueries],
+  )
+
   const customMatches = useMemo(
     () =>
       Object.entries(customQueriesPx).reduce(
