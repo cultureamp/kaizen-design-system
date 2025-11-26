@@ -6,9 +6,12 @@ const DEFAULT_DEBOUNCE_MS = 1000
 
 /**
  * Tailwind CSS default container query breakpoints in pixels
- * These match the default values from @tailwindcss/container-queries plugin
+ * These match the default ranges from Tailwind CSS documentation
+ * https://tailwindcss.com/docs/responsive-design#container-size-reference
  */
 const DEFAULT_BREAKPOINTS = {
+  '3xs': 256,
+  '2xs': 288,
   'xs': 320,
   'sm': 384,
   'md': 448,
@@ -23,6 +26,8 @@ const DEFAULT_BREAKPOINTS = {
 } as const
 
 type ContainerQueries = {
+  is3xsOrLarger: boolean
+  is2xsOrLarger: boolean
   isXsOrLarger: boolean
   isSmOrLarger: boolean
   isMdOrLarger: boolean
@@ -92,6 +97,8 @@ export const useContainerQueries = (): {
 
   const queries = useMemo(
     () => ({
+      is3xsOrLarger: containerWidth >= DEFAULT_BREAKPOINTS['3xs'],
+      is2xsOrLarger: containerWidth >= DEFAULT_BREAKPOINTS['2xs'],
       isXsOrLarger: containerWidth >= DEFAULT_BREAKPOINTS.xs,
       isSmOrLarger: containerWidth >= DEFAULT_BREAKPOINTS.sm,
       isMdOrLarger: containerWidth >= DEFAULT_BREAKPOINTS.md,
