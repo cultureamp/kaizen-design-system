@@ -1,3 +1,4 @@
+import postcssImport from 'postcss-import'
 export default {
-  plugins: [],
+  plugins: [postcssImport()],
 }
