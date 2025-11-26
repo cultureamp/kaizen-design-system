@@ -76,6 +76,10 @@ class ResizeObserverMock {
 
 let resizeObserverInstance: ResizeObserverMock | null = null
 
+// Store original values to restore after each test
+const originalResizeObserver = global.ResizeObserver
+const originalGetBoundingClientRect = Element.prototype.getBoundingClientRect
+
 const setupResizeObserver = (): ResizeObserverMock => {
   const mockObserver = vi.fn((callback: ResizeObserverCallback) => {
     resizeObserverInstance = new ResizeObserverMock(callback)
@@ -94,6 +98,9 @@ describe('useContainerQueries()', () => {
 
   afterEach(() => {
     vi.restoreAllMocks()
+    // Restore original global/prototype properties
+    global.ResizeObserver = originalResizeObserver
+    Element.prototype.getBoundingClientRect = originalGetBoundingClientRect
   })
 
   it('shows and hides content based on Tailwind container breakpoints', async () => {
