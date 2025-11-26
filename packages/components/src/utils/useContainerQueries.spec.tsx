@@ -4,16 +4,12 @@ import { vi } from 'vitest'
 import { useContainerQueries } from './useContainerQueries'
 
 const ExampleComponent = (): JSX.Element => {
-  const { containerRef, queries } = useContainerQueries({
-    compact: '400px',
-    wide: '800px',
-  })
+  const { containerRef, queries } = useContainerQueries()
 
   return (
     <div ref={containerRef} data-testid="container">
       {queries.isSmOrLarger && <button type="button">Small query boolean</button>}
       {queries.isMdOrLarger && <button type="button">Medium or larger query</button>}
-      {queries.compact && <button type="button">Compact query boolean</button>}
     </div>
   )
 }
@@ -129,8 +125,8 @@ describe('useContainerQueries()', () => {
     // Trigger resize to 400px (sm breakpoint is 384px)
     await act(async () => {
       resizeObserverInstance?.trigger(400)
-      // Wait for debounce (500ms + buffer)
-      await new Promise((resolve) => setTimeout(resolve, 550))
+      // Wait for debounce (1000ms + buffer)
+      await new Promise((resolve) => setTimeout(resolve, 1100))
     })
 
     expect(screen.queryByRole('button', { name: /Small query boolean/i })).toBeInTheDocument()
@@ -141,44 +137,12 @@ describe('useContainerQueries()', () => {
     // Trigger resize to 500px (md breakpoint is 448px)
     await act(async () => {
       resizeObserverInstance?.trigger(500)
-      // Wait for debounce (500ms + buffer)
-      await new Promise((resolve) => setTimeout(resolve, 550))
+      // Wait for debounce (1000ms + buffer)
+      await new Promise((resolve) => setTimeout(resolve, 1100))
     })
 
     expect(screen.queryByRole('button', { name: /Small query boolean/i })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: /Medium or larger query/i })).toBeInTheDocument()
-  })
-
-  it('shows and hides content based on custom queries', async () => {
-    setupResizeObserver()
-
-    const mockGetBoundingClientRect = vi.fn(() => ({
-      width: 300,
-      height: 100,
-      top: 0,
-      left: 0,
-      bottom: 100,
-      right: 300,
-      x: 0,
-      y: 0,
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      toJSON: () => {},
-    }))
-    Element.prototype.getBoundingClientRect = mockGetBoundingClientRect
-
-    render(<ExampleComponent />)
-
-    // Initially at 300px, custom 'compact' query (400px) should not match
-    expect(screen.queryByRole('button', { name: /Compact query boolean/i })).not.toBeInTheDocument()
-
-    // Trigger resize to 450px (compact is 400px)
-    await act(async () => {
-      resizeObserverInstance?.trigger(450)
-      // Wait for debounce (500ms + buffer)
-      await new Promise((resolve) => setTimeout(resolve, 550))
-    })
-
-    expect(screen.queryByRole('button', { name: /Compact query boolean/i })).toBeInTheDocument()
   })
 
   it('returns SSR-safe defaults when window is undefined', () => {

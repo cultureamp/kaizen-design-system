@@ -2,8 +2,6 @@ import type React from 'react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 
-type Props = Record<string, string>
-
 const DEFAULT_DEBOUNCE_MS = 1000
 
 /**
@@ -24,19 +22,6 @@ const DEFAULT_BREAKPOINTS = {
   '7xl': 1280,
 } as const
 
-/**
- * Convert rem/px values to pixels for comparison
- */
-const parseBreakpointValue = (value: string): number => {
-  if (value.endsWith('rem')) {
-    return parseFloat(value) * 16 // Assuming 1rem = 16px
-  }
-  if (value.endsWith('px')) {
-    return parseFloat(value)
-  }
-  return parseFloat(value)
-}
-
 type ContainerQueries = {
   isXsOrLarger: boolean
   isSmOrLarger: boolean
@@ -49,12 +34,9 @@ type ContainerQueries = {
   is5xlOrLarger: boolean
   is6xlOrLarger: boolean
   is7xlOrLarger: boolean
-  [key: string]: boolean
 }
 
-export const useContainerQueries = (
-  propQueries: Props = {},
-): {
+export const useContainerQueries = (): {
   containerRef: React.RefCallback<HTMLElement>
   queries: ContainerQueries
 } => {
@@ -108,7 +90,7 @@ export const useContainerQueries = (
     [],
   )
 
-  const breakpointMatches = useMemo(
+  const queries = useMemo(
     () => ({
       isXsOrLarger: containerWidth >= DEFAULT_BREAKPOINTS.xs,
       isSmOrLarger: containerWidth >= DEFAULT_BREAKPOINTS.sm,
@@ -125,32 +107,8 @@ export const useContainerQueries = (
     [containerWidth],
   )
 
-  const customQueriesPx = useMemo(
-    () =>
-      Object.entries(propQueries).reduce(
-        (acc, [key, value]) => {
-          acc[key] = parseBreakpointValue(value)
-          return acc
-        },
-        {} as Record<string, number>,
-      ),
-    [propQueries],
-  )
-
-  const customMatches = useMemo(
-    () =>
-      Object.entries(customQueriesPx).reduce(
-        (acc, [key, value]) => {
-          acc[key] = containerWidth >= value
-          return acc
-        },
-        {} as Record<string, boolean>,
-      ),
-    [containerWidth, customQueriesPx],
-  )
-
   return {
     containerRef,
-    queries: { ...breakpointMatches, ...customMatches },
+    queries,
   }
 }
