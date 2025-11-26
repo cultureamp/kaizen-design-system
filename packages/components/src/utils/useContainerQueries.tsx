@@ -4,7 +4,7 @@ import { useDebouncedCallback } from 'use-debounce'
 
 type Props = Record<string, string>
 
-const DEFAULT_DEBOUNCE_MS = 500
+const DEFAULT_DEBOUNCE_MS = 1000
 
 /**
  * Tailwind CSS default container query breakpoints in pixels
