@@ -146,6 +146,47 @@ export const HasLongTitle: Story = {
   args: { title: 'A long title with over thirty characters' },
 }
 
+export const LightVariant: Story = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: 'shown',
+      },
+    },
+    viewport: {
+      viewports: {
+        default: {
+          name: 'Above or equal to 1366',
+          styles: { width: '1366px', height: '800px' },
+          type: 'desktop',
+        },
+        under1366: {
+          name: 'Under 1366',
+          styles: { width: '1365px', height: '800px' },
+          type: 'desktop',
+        },
+      },
+      defaultViewport: 'default',
+    },
+    chromatic: {
+      disable: false,
+      viewports: [1365, 1366],
+    },
+  },
+  args: {
+    variant: 'light',
+    title: 'Light TitleBlock',
+    navigationTabs: [
+      <NavigationTab key="1" variant="light" text="Label" href="#" active />,
+      <NavigationTab key="2" variant="light" text="Label" href="#" />,
+      <NavigationTab key="3" variant="light" text="Label" href="#" />,
+      <NavigationTab key="4" variant="light" text="Label" href="#" />,
+      <NavigationTab key="5" variant="light" text="Label" href="#" />,
+      <NavigationTab key="6" variant="light" text="Label" href="#" />,
+    ],
+  },
+}
+
 export const AdminVariant: Story = {
   parameters: {
     viewport: {
@@ -214,6 +255,73 @@ export const EducationVariant: Story = {
       <NavigationTab key="6" variant="education" text="Label" href="#" />,
     ],
   },
+}
+
+export const StickerSheetVariants: Story = {
+  name: 'Sticker Sheet (Variants)',
+  render: () => (
+    <StickerSheet title="TitleBlock Variants">
+      <StickerSheet.Row header="Default (Purple background)">
+        <TitleBlock
+          title="Default Variant"
+          subtitle="This is the default purple variant with white text"
+          breadcrumb={{
+            path: '#',
+            text: 'Back to home',
+          }}
+          navigationTabs={[
+            <NavigationTab key="1" text="Overview" href="#" active />,
+            <NavigationTab key="2" text="Settings" href="#" />,
+          ]}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Education (Purple background)">
+        <TitleBlock
+          variant="education"
+          title="Education Variant"
+          subtitle="This is the education variant with purple background"
+          breadcrumb={{
+            path: '#',
+            text: 'Back to courses',
+          }}
+          navigationTabs={[
+            <NavigationTab key="1" text="Lessons" href="#" active />,
+            <NavigationTab key="2" text="Assignments" href="#" />,
+          ]}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Admin (White background)">
+        <TitleBlock
+          variant="admin"
+          title="Admin Variant"
+          subtitle="This is the admin variant with white background"
+          breadcrumb={{
+            path: '#',
+            text: 'Back to dashboard',
+          }}
+          navigationTabs={[
+            <NavigationTab key="1" text="Users" href="#" active />,
+            <NavigationTab key="2" text="Settings" href="#" />,
+          ]}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Light (White background)">
+        <TitleBlock
+          variant="light"
+          title="Light Variant"
+          subtitle="This is the light variant with clean white background"
+          breadcrumb={{
+            path: '#',
+            text: 'Back to overview',
+          }}
+          navigationTabs={[
+            <NavigationTab key="1" text="Details" href="#" active />,
+            <NavigationTab key="2" text="Analytics" href="#" />,
+          ]}
+        />
+      </StickerSheet.Row>
+    </StickerSheet>
+  ),
 }
 
 export const StickerSheetBreadcrumbs: Story = {
