@@ -4,3 +4,4 @@ docs/.storybook/tailwind-build.css
 .DS_Store
 dist
 .turbo
+.idea
