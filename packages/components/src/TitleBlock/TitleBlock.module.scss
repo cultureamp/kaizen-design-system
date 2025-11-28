@@ -31,6 +31,10 @@
     justify-content: center;
     flex-direction: column;
 
+    &.lightVariant {
+      background-color: $dt-color-background-color-light;
+    }
+
     &.educationVariant {
       background-color: $dt-color-background-color-eduction;
     }
@@ -49,6 +53,11 @@
     display: flex;
     width: 100%;
     justify-content: center;
+  }
+
+  .lightVariant .titleRow {
+    background-color: $color-white;
+    margin-bottom: 3px; // needed to correctly position the active tab label :after element
   }
 
   .adminVariant .titleRow {
@@ -73,6 +82,10 @@
     @extend %titleBlockInner;
   }
 
+  .lightVariant .titleRowInner {
+    border-bottom: 1px solid $color-gray-300;
+  }
+
   .rowBelowSeparatorInner {
     @extend %titleBlockInner;
   }
@@ -90,6 +103,7 @@
       border-bottom-color: rgba($color-purple-700-rgb, 0.2);
     }
 
+    .lightVariant &,
     .adminVariant &,
     .collapseNavigationArea & {
       border-bottom-color: transparent;
@@ -244,6 +258,10 @@
     letter-spacing: $typography-paragraph-small-letter-spacing;
     max-width: 230px;
     margin-inline: var(--spacing-12) 0;
+
+    .lightVariant & {
+      color: $color-purple-800;
+    }
 
     .adminVariant & {
       color: $color-purple-800;
@@ -438,6 +456,12 @@
       z-index: 1;
     }
 
+    .lightVariant & {
+      @include title-block-small {
+        background: linear-gradient(0deg, $color-gray-100, rgba($color-gray-100-rgb, 0));
+      }
+    }
+
     .adminVariant & {
       @include title-block-small {
         background: linear-gradient(0deg, $color-gray-100, rgba($color-gray-100-rgb, 0));
@@ -488,6 +512,7 @@
     // To be removed eventually – the Dropdown does not
     // currently set its own color, and we want it
     // to be Cluny like the default secondary buttons
+    .lightVariant &,
     .educationVariant &,
     .adminVariant & {
       color: $color-blue-500;
@@ -621,6 +646,7 @@
   .breadcrumbText {
     color: $color-white;
 
+    .lightVariant &,
     .educationVariant &,
     .adminVariant & {
       color: $color-purple-800;
@@ -654,6 +680,7 @@
       background-color: rgba($color-white-rgb, 0.1);
     }
 
+    .lightVariant &,
     .educationVariant &,
     .adminVariant & {
       color: $color-blue-500;
@@ -661,6 +688,8 @@
       border-width: $border-width;
     }
 
+    .lightVariant .breadcrumb:hover &,
+    .lightVariant .breadcrumb:focus &,
     .educationVariant .breadcrumb:hover &,
     .educationVariant .breadcrumb:focus &,
     .adminVariant .breadcrumb:hover &,
