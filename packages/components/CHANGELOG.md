@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.2.0
+
+### Minor Changes
+
+- [#6294](https://github.com/cultureamp/kaizen-design-system/pull/6294) [`f9cdbca`](https://github.com/cultureamp/kaizen-design-system/commit/f9cdbca7fa3c46d53134b925c65874f384bf41c5) - Introduce useContainerQueries hook to detect container size. Only use this when you need to know container size in JS otherwise use Tailwindcss container queries
+
+- [#6289](https://github.com/cultureamp/kaizen-design-system/pull/6289) [`5a6260c`](https://github.com/cultureamp/kaizen-design-system/commit/5a6260c04bb7b35a092e8e48841e43fc40a8f6b4) - Added light variant to TitleBlock
+
 ## 2.1.1
 
 ### Patch Changes
