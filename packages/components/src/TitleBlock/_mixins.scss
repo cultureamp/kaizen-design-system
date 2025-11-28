@@ -35,3 +35,9 @@
     @content;
   }
 }
+
+@mixin title-block-xsmall {
+  @container (max-width: 511px) {
+    @content;
+  }
+}

@@ -9,10 +9,35 @@
     flex-grow: 1;
     flex-shrink: 0;
 
+    .defaultActionButtonMinimized {
+      display: none;
+      margin-inline-end: 0;
+    }
+
     @include ca-margin($start: calc(#{$ca-grid} / 2));
 
-    @include title-block-small {
-      display: none;
+    @include title-block-xsmall {
+      padding-top: 12px;
+      justify-content: flex-start;
+      padding-left: 1.25rem;
+
+      @media (max-width: 511px) {
+        padding-top: 0;
+        padding-left: 3.375rem;
+      }
+
+      @media (max-width: 360px) {
+        .defaultActionButton {
+          display: none;
+          margin-inline-end: 0;
+        }
+
+        .defaultActionButtonMinimized {
+          display: flex;
+          margin-inline-end: 3px;
+          margin-left: -0.5rem;
+        }
+      }
     }
   }
 }
